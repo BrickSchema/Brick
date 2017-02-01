@@ -10,6 +10,11 @@ The official Brick website, [http://brickschema.org/](http://brickschema.org/), 
 
 This repository tracks the main schema development of Brick.
 
+## Structure
+
+* `dist/` contains the Brick Turtle files containing the class structure, tagsets and relationships
+* `src/` contains the necessary tools for creating the Brick Turtle files
+
 ## Discussion
 
 Discussion takes place primarily on the Brick User Form: [https://groups.google.com/forum/#!forum/brickschema](https://groups.google.com/forum/#!forum/brickschema)
