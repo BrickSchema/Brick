@@ -115,7 +115,7 @@
 :Bus a owl:Class ;
     rdfs:label "Bus"@en ;
     rdfs:subClassOf :Equipment_Energy_Power ;
-    skos:definition ""@en .
+    skos:definition "A metallic strip or bar (typically copper, brass or aluminium) that conducts electricity. Or bus bar."@en .
 
 :Button a owl:Class ;
     rdfs:label "Button"@en ;
@@ -135,7 +135,7 @@
 :CFM a owl:Class ;
     rdfs:label "CFM"@en ;
     rdfs:subClassOf :MeasurementProperty_Unit ;
-    skos:definition ""@en .
+    skos:definition "Cubic feet per minute"@en .
 
 :CO2 a owl:Class ;
     rdfs:label "CO2"@en ;
@@ -150,7 +150,7 @@
 :CWS a owl:Class ;
     rdfs:label "CWS"@en ;
     rdfs:subClassOf :Equipment_Water_System ;
-    skos:definition ""@en .
+    skos:definition "Chilled Water System"@en .
 
 :Capacity a owl:Class ;
     rdfs:label "Capacity"@en ;
@@ -268,7 +268,8 @@
     rdfs:label "Current"@en ;
     rdfs:subClassOf :MeasurementProperty_Modifier,
         :MeasurementProperty_PhysicalProperties ;
-    skos:definition ""@en .
+    skos:definition ""@en,
+        "Alternating Current - usually used for power measurements"@en .
 
 :Curtailment a owl:Class ;
     rdfs:label "Curtailment"@en ;
@@ -288,12 +289,12 @@
 :DC a owl:Class ;
     rdfs:label "DC"@en ;
     rdfs:subClassOf :MeasurementProperty_PhysicalProperties ;
-    skos:definition ""@en .
+    skos:definition "Direct Current - usually used for digital control"@en .
 
 :DHWS a owl:Class ;
     rdfs:label "DHWS"@en ;
     rdfs:subClassOf :Equipment_Water_System ;
-    skos:definition ""@en .
+    skos:definition "Domestic Hot Water System"@en .
 
 :DI a owl:Class ;
     rdfs:label "DI"@en ;
@@ -486,7 +487,7 @@
 :Estimation a owl:Class ;
     rdfs:label "Estimation"@en ;
     rdfs:subClassOf :MeasurementProperty_Modifier ;
-    skos:definition ""@en .
+    skos:definition "For a (maybe virtual) point where values are not measured but estimated."@en .
 
 :Even a owl:Class ;
     rdfs:label "Even"@en ;
@@ -516,7 +517,7 @@
 :FCP a owl:Class ;
     rdfs:label "FCP"@en ;
     rdfs:subClassOf :Equipment_Fire_Safety_System ;
-    skos:definition ""@en .
+    skos:definition "Fire Control Panel"@en .
 
 :FCU a owl:Class ;
     rdfs:label "FCU"@en ;
@@ -591,7 +592,7 @@
 :Flow a owl:Class ;
     rdfs:label "Flow"@en ;
     rdfs:subClassOf :MeasurementProperty_PhysicalProperties ;
-    skos:definition ""@en .
+    skos:definition "Fluidic stream"@en .
 
 :Freeze a owl:Class ;
     rdfs:label "Freeze"@en ;
@@ -666,12 +667,12 @@
 :HWS a owl:Class ;
     rdfs:label "HWS"@en ;
     rdfs:subClassOf :Equipment_Water_System ;
-    skos:definition ""@en .
+    skos:definition "Hot Water System"@en .
 
 :HX a owl:Class ;
     rdfs:label "HX"@en ;
     rdfs:subClassOf :Equipment_HVAC ;
-    skos:definition ""@en .
+    skos:definition "Heat Exchanger"@en .
 
 :Hail a owl:Class ;
     rdfs:label "Hail"@en ;
@@ -691,7 +692,7 @@
 :Head a owl:Class ;
     rdfs:label "Head"@en ;
     rdfs:subClassOf :Equipment_HVAC_Misc ;
-    skos:definition ""@en .
+    skos:definition "Head on a gas tube"@en .
 
 :Heat a owl:Class ;
     rdfs:label "Heat"@en ;
@@ -949,7 +950,7 @@
 :Mode a owl:Class ;
     rdfs:label "Mode"@en ;
     rdfs:subClassOf :MeasurementProperty_Modifier ;
-    skos:definition ""@en .
+    skos:definition "Operation type"@en .
 
 :Month a owl:Class ;
     rdfs:label "Month"@en ;
@@ -979,7 +980,7 @@
 :Occupied a owl:Class ;
     rdfs:label "Occupied"@en ;
     rdfs:subClassOf :MeasurementProperty_PhysicalProperties ;
-    skos:definition ""@en .
+    skos:definition "Indicates something is occupied."@en .
 
 :Off a owl:Class ;
     rdfs:label "Off"@en ;
@@ -1036,7 +1037,7 @@
 :PIR a owl:Class ;
     rdfs:label "PIR"@en ;
     rdfs:subClassOf :MeasurementProperty_PhysicalProperties ;
-    skos:definition ""@en .
+    skos:definition "Passive Infra Red"@en .
 
 :PV a owl:Class ;
     rdfs:label "PV"@en ;
@@ -1367,7 +1368,7 @@
 :Switch a owl:Class ;
     rdfs:label "Switch"@en ;
     rdfs:subClassOf :MeasurementProperty_PhysicalProperties ;
-    skos:definition ""@en .
+    skos:definition "Physical switch"@en .
 
 :System a owl:Class ;
     rdfs:label "System"@en ;
@@ -1537,7 +1538,7 @@
 :WS a owl:Class ;
     rdfs:label "WS"@en ;
     rdfs:subClassOf :Equipment_Water_System ;
-    skos:definition ""@en .
+    skos:definition "Water System"@en .
 
 :Warm a owl:Class ;
     rdfs:label "Warm"@en ;
