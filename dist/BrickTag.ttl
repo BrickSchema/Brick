@@ -1,5 +1,5 @@
-@prefix : <http://buildsys.org/ontologies/BrickTag#> .
-@prefix bf: <http://buildsys.org/ontologies/BrickFrame#> .
+@prefix : <https://brickschema.org/schema/1.0/BrickTag#> .
+@prefix bf: <https://brickschema.org/schema/1.0/BrickFrame#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -7,9 +7,9 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<http://buildsys.org/ontologies/BrickTag> a owl:Ontology ;
+<https://brickschema.org/schema/1.0/BrickTag> a owl:Ontology ;
     rdfs:comment "Domain Tag Definition"@en ;
-    owl:imports <http://buildsys.org/ontologies/BrickFrame> .
+    owl:imports <https://brickschema.org/schema/1.0/BrickFrame> .
 
 :AHU a owl:Class ;
     rdfs:label "AHU"@en ;
@@ -1603,21 +1603,21 @@
 
 :Equipment_Energy_SolarPanel a owl:Class ;
     rdfs:label "SolarPanel"@en ;
-    bf:isHierarchical "" ;
     rdfs:subClassOf :Equipment_Energy ;
-    skos:definition ""@en .
+    skos:definition ""@en ;
+    bf:isHierarchical "" .
 
 :Equipment_Fire_Safety_System a owl:Class ;
     rdfs:label "Fire Safety System"@en ;
-    bf:isHierarchical "" ;
     rdfs:subClassOf :Equipment ;
-    skos:definition ""@en .
+    skos:definition ""@en ;
+    bf:isHierarchical "" .
 
 :Equipment_Lighting a owl:Class ;
     rdfs:label "Lighting"@en ;
-    bf:isHierarchical "" ;
     rdfs:subClassOf :Equipment ;
-    skos:definition ""@en .
+    skos:definition ""@en ;
+    bf:isHierarchical "" .
 
 :SupplyFan a owl:Class ;
     rdfs:label "SupplyFan"@en ;
@@ -1626,97 +1626,97 @@
 
 :MeasurementProperty_Unit a owl:Class ;
     rdfs:label "Unit"@en ;
-    bf:isHierarchical "" ;
     rdfs:subClassOf :MeasurementProperty ;
-    skos:definition ""@en .
+    skos:definition ""@en ;
+    bf:isHierarchical "" .
 
 :Equipment_Energy a owl:Class ;
     rdfs:label "Energy"@en ;
-    bf:isHierarchical "" ;
     rdfs:subClassOf :Equipment ;
-    skos:definition ""@en .
+    skos:definition ""@en ;
+    bf:isHierarchical "" .
 
 :Equipment_HVAC_Misc a owl:Class ;
     rdfs:label "Misc"@en ;
-    bf:isHierarchical "" ;
     rdfs:subClassOf :Equipment_HVAC ;
-    skos:definition ""@en .
+    skos:definition ""@en ;
+    bf:isHierarchical "" .
 
 :MeasurementProperty a owl:Class ;
     rdfs:label "MeasurementProperty"@en ;
-    bf:isHierarchical "" ;
     rdfs:subClassOf bf:Tag ;
-    skos:definition ""@en .
+    skos:definition ""@en ;
+    bf:isHierarchical "" .
 
 :Equipment_Water_System a owl:Class ;
     rdfs:label "Water System"@en ;
-    bf:isHierarchical "" ;
     rdfs:subClassOf :Equipment ;
-    skos:definition ""@en .
+    skos:definition ""@en ;
+    bf:isHierarchical "" .
 
 :Equipment_Energy_Power a owl:Class ;
     rdfs:label "Power"@en ;
-    bf:isHierarchical "" ;
     rdfs:subClassOf :Equipment_Energy ;
-    skos:definition ""@en .
+    skos:definition ""@en ;
+    bf:isHierarchical "" .
 
 :Point a owl:Class ;
     rdfs:label "Point"@en ;
-    bf:isHierarchical "" ;
     rdfs:subClassOf bf:Tag ;
-    skos:definition ""@en .
+    skos:definition ""@en ;
+    bf:isHierarchical "" .
 
 :Equipment_HVAC_Water a owl:Class ;
     rdfs:label "Water"@en ;
-    bf:isHierarchical "" ;
     rdfs:subClassOf :Equipment_HVAC ;
-    skos:definition ""@en .
+    skos:definition ""@en ;
+    bf:isHierarchical "" .
 
 :Location a owl:Class ;
     rdfs:label "Location"@en ;
-    bf:isHierarchical "" ;
     rdfs:subClassOf bf:Tag ;
-    skos:definition ""@en .
+    skos:definition ""@en ;
+    bf:isHierarchical "" .
 
 :Equipment_HVAC_VAV a owl:Class ;
     rdfs:label "VAV"@en ;
-    bf:isHierarchical "" ;
     rdfs:subClassOf :Equipment_HVAC ;
-    skos:definition ""@en .
+    skos:definition ""@en ;
+    bf:isHierarchical "" .
 
 :Equipment_HVAC_AHU a owl:Class ;
     rdfs:label "AHU"@en ;
-    bf:isHierarchical "" ;
     rdfs:subClassOf :Equipment_HVAC ;
-    skos:definition ""@en .
+    skos:definition ""@en ;
+    bf:isHierarchical "" .
 
 :Equipment_HVAC a owl:Class ;
     rdfs:label "HVAC"@en ;
-    bf:isHierarchical "" ;
     rdfs:subClassOf :Equipment ;
-    skos:definition ""@en .
+    skos:definition ""@en ;
+    bf:isHierarchical "" .
 
 :Equipment a owl:Class ;
     rdfs:label "Equipment"@en ;
-    bf:isHierarchical "" ;
     rdfs:subClassOf bf:Tag ;
-    skos:definition ""@en .
+    skos:definition ""@en ;
+    bf:isHierarchical "" .
 
 :Equipment_HVAC_VFD a owl:Class ;
     rdfs:label "VFD"@en ;
-    bf:isHierarchical "" ;
     rdfs:subClassOf :Equipment_HVAC ;
-    skos:definition ""@en .
+    skos:definition ""@en ;
+    bf:isHierarchical "" .
 
 :MeasurementProperty_PhysicalProperties a owl:Class ;
     rdfs:label "PhysicalProperties"@en ;
-    bf:isHierarchical "" ;
     rdfs:subClassOf :MeasurementProperty ;
-    skos:definition ""@en .
+    skos:definition ""@en ;
+    bf:isHierarchical "" .
 
 :MeasurementProperty_Modifier a owl:Class ;
     rdfs:label "Modifier"@en ;
-    bf:isHierarchical "" ;
     rdfs:subClassOf :MeasurementProperty ;
-    skos:definition ""@en .
+    skos:definition ""@en ;
+    bf:isHierarchical "" .
 
