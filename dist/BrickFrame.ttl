@@ -1,11 +1,11 @@
-@prefix : <https://brickschema.org/schema/1.0/BrickFrame#> .
+@prefix : <https://brickschema.org/schema/1.0.1/BrickFrame#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-<https://brickschema.org/schema/1.0/BrickFrame> a owl:Ontology .
+<https://brickschema.org/schema/1.0.1/BrickFrame> a owl:Ontology .
 # 
 # 
 # #################################################################
@@ -15,49 +15,49 @@
 # #################################################################
 # 
 # 
-# https://brickschema.org/schema/1.0/BrickFrame#equivalentTagSet
+# https://brickschema.org/schema/1.0.1/BrickFrame#equivalentTagSet
 
 :equivalentTagSet a owl:AnnotationProperty .
 # 
-# https://brickschema.org/schema/1.0/BrickFrame#isHierarchical
+# https://brickschema.org/schema/1.0.1/BrickFrame#isHierarchical
 
 :isHierarchical a owl:AnnotationProperty .
 # 
-# https://brickschema.org/schema/1.0/BrickFrame#similarTagSet
+# https://brickschema.org/schema/1.0.1/BrickFrame#similarTagSet
 
 :similarTagSet a owl:AnnotationProperty ;
 	rdfs:range :TagSet ;
 	rdfs:domain :TagSet .
 # 
-# https://brickschema.org/schema/1.0/BrickFrame#usedBy
+# https://brickschema.org/schema/1.0.1/BrickFrame#usedBy
 
 :usedBy a owl:AnnotationProperty .
 # 
-# https://brickschema.org/schema/1.0/BrickFrame#usesDimension
+# https://brickschema.org/schema/1.0.1/BrickFrame#usesDimension
 
 :usesDimension a owl:AnnotationProperty .
 # 
-# https://brickschema.org/schema/1.0/BrickFrame#usesEquipment
+# https://brickschema.org/schema/1.0.1/BrickFrame#usesEquipment
 
 :usesEquipment a owl:AnnotationProperty ;
 	rdfs:subPropertyOf :usesDimension .
 # 
-# https://brickschema.org/schema/1.0/BrickFrame#usesLocation
+# https://brickschema.org/schema/1.0.1/BrickFrame#usesLocation
 
 :usesLocation a owl:AnnotationProperty ;
 	rdfs:subPropertyOf :usesDimension .
 # 
-# https://brickschema.org/schema/1.0/BrickFrame#usesMeasurement
+# https://brickschema.org/schema/1.0.1/BrickFrame#usesMeasurement
 
 :usesMeasurement a owl:AnnotationProperty ;
 	rdfs:subPropertyOf :usesDimension .
 # 
-# https://brickschema.org/schema/1.0/BrickFrame#usesPoint
+# https://brickschema.org/schema/1.0.1/BrickFrame#usesPoint
 
 :usesPoint a owl:AnnotationProperty ;
 	rdfs:subPropertyOf :usesDimension .
 # 
-# https://brickschema.org/schema/1.0/BrickFrame#usesTag
+# https://brickschema.org/schema/1.0.1/BrickFrame#usesTag
 
 :usesTag a owl:AnnotationProperty .
 # 
@@ -70,24 +70,24 @@
 # #################################################################
 # 
 # 
-# https://brickschema.org/schema/1.0/BrickFrame#contains
+# https://brickschema.org/schema/1.0.1/BrickFrame#contains
 
 :contains a owl:ObjectProperty ;
 	owl:inverseOf :isLocatedIn .
 # 
-# https://brickschema.org/schema/1.0/BrickFrame#controls
+# https://brickschema.org/schema/1.0.1/BrickFrame#controls
 
 :controls a owl:ObjectProperty ;
 	owl:inverseOf :isControlledBy ;
 	a owl:AsymmetricProperty , owl:IrreflexiveProperty .
 # 
-# https://brickschema.org/schema/1.0/BrickFrame#feeds
+# https://brickschema.org/schema/1.0.1/BrickFrame#feeds
 
 :feeds a owl:ObjectProperty ;
 	owl:inverseOf :isFedBy ;
 	a owl:AsymmetricProperty , owl:IrreflexiveProperty .
 # 
-# https://brickschema.org/schema/1.0/BrickFrame#hasInput
+# https://brickschema.org/schema/1.0.1/BrickFrame#hasInput
 
 :hasInput a owl:ObjectProperty ;
 	owl:inverseOf :isInputOf ;
@@ -95,12 +95,12 @@
 	rdfs:domain :FunctionBlock ;
 	rdfs:range :Signal .
 # 
-# https://brickschema.org/schema/1.0/BrickFrame#hasMeasurement
+# https://brickschema.org/schema/1.0.1/BrickFrame#hasMeasurement
 
 :hasMeasurement a owl:ObjectProperty ;
 	owl:inverseOf :isMeasuredBy .
 # 
-# https://brickschema.org/schema/1.0/BrickFrame#hasOutput
+# https://brickschema.org/schema/1.0.1/BrickFrame#hasOutput
 
 :hasOutput a owl:ObjectProperty ;
 	owl:inverseOf :isOutputOf ;
@@ -108,24 +108,24 @@
 	rdfs:domain :FunctionBlock ;
 	rdfs:range :Signal .
 # 
-# https://brickschema.org/schema/1.0/BrickFrame#hasPart
+# https://brickschema.org/schema/1.0.1/BrickFrame#hasPart
 
 :hasPart a owl:ObjectProperty ;
 	owl:inverseOf :isPartOf ;
 	a owl:AsymmetricProperty , owl:TransitiveProperty , owl:IrreflexiveProperty .
 # 
-# https://brickschema.org/schema/1.0/BrickFrame#hasPoint
+# https://brickschema.org/schema/1.0.1/BrickFrame#hasPoint
 
 :hasPoint a owl:ObjectProperty ;
 	owl:inverseOf :isPointOf ;
 	a owl:AsymmetricProperty , owl:IrreflexiveProperty ;
 	rdfs:range :Point .
 # 
-# https://brickschema.org/schema/1.0/BrickFrame#hasSubAsset
+# https://brickschema.org/schema/1.0.1/BrickFrame#hasSubAsset
 
 :hasSubAsset a owl:ObjectProperty , owl:AsymmetricProperty , owl:TransitiveProperty , owl:IrreflexiveProperty .
 # 
-# https://brickschema.org/schema/1.0/BrickFrame#hasTag
+# https://brickschema.org/schema/1.0.1/BrickFrame#hasTag
 
 :hasTag a owl:ObjectProperty ;
 	owl:inverseOf :isTagOf ;
@@ -133,7 +133,7 @@
 	rdfs:domain :Taggable ;
 	rdfs:range :Tag .
 # 
-# https://brickschema.org/schema/1.0/BrickFrame#hasTagSet
+# https://brickschema.org/schema/1.0.1/BrickFrame#hasTagSet
 
 :hasTagSet a owl:ObjectProperty ;
 	owl:inverseOf :isTagSetOf ;
@@ -141,7 +141,7 @@
 	rdfs:domain :Taggable ;
 	rdfs:range :TagSet .
 # 
-# https://brickschema.org/schema/1.0/BrickFrame#hasToken
+# https://brickschema.org/schema/1.0.1/BrickFrame#hasToken
 
 :hasToken a owl:ObjectProperty ;
 	owl:inverseOf :isTokenOf ;
@@ -149,56 +149,56 @@
 	rdfs:domain :Label ;
 	rdfs:range :Token .
 # 
-# https://brickschema.org/schema/1.0/BrickFrame#isControlledBy
+# https://brickschema.org/schema/1.0.1/BrickFrame#isControlledBy
 
 :isControlledBy a owl:ObjectProperty .
 # 
-# https://brickschema.org/schema/1.0/BrickFrame#isFedBy
+# https://brickschema.org/schema/1.0.1/BrickFrame#isFedBy
 
 :isFedBy a owl:ObjectProperty .
 # 
-# https://brickschema.org/schema/1.0/BrickFrame#isInputOf
+# https://brickschema.org/schema/1.0.1/BrickFrame#isInputOf
 
 :isInputOf a owl:ObjectProperty ;
 	rdfs:domain :Signal ;
 	rdfs:range :FunctionBlock .
 # 
-# https://brickschema.org/schema/1.0/BrickFrame#isLocatedIn
+# https://brickschema.org/schema/1.0.1/BrickFrame#isLocatedIn
 
 :isLocatedIn a owl:ObjectProperty , owl:AsymmetricProperty , owl:TransitiveProperty , owl:IrreflexiveProperty .
 # 
-# https://brickschema.org/schema/1.0/BrickFrame#isMeasuredBy
+# https://brickschema.org/schema/1.0.1/BrickFrame#isMeasuredBy
 
 :isMeasuredBy a owl:ObjectProperty , owl:AsymmetricProperty , owl:TransitiveProperty , owl:IrreflexiveProperty .
 # 
-# https://brickschema.org/schema/1.0/BrickFrame#isOutputOf
+# https://brickschema.org/schema/1.0.1/BrickFrame#isOutputOf
 
 :isOutputOf a owl:ObjectProperty , owl:AsymmetricProperty , owl:IrreflexiveProperty ;
 	rdfs:domain :Signal ;
 	rdfs:range :FunctionBlock .
 # 
-# https://brickschema.org/schema/1.0/BrickFrame#isPartOf
+# https://brickschema.org/schema/1.0.1/BrickFrame#isPartOf
 
 :isPartOf a owl:ObjectProperty , owl:AsymmetricProperty , owl:TransitiveProperty , owl:IrreflexiveProperty .
 # 
-# https://brickschema.org/schema/1.0/BrickFrame#isPointOf
+# https://brickschema.org/schema/1.0.1/BrickFrame#isPointOf
 
 :isPointOf a owl:ObjectProperty , owl:AsymmetricProperty , owl:IrreflexiveProperty ;
 	rdfs:range :Point .
 # 
-# https://brickschema.org/schema/1.0/BrickFrame#isTagOf
+# https://brickschema.org/schema/1.0.1/BrickFrame#isTagOf
 
 :isTagOf a owl:ObjectProperty , owl:AsymmetricProperty , owl:IrreflexiveProperty ;
 	rdfs:domain :Tag ;
 	rdfs:range :Taggable .
 # 
-# https://brickschema.org/schema/1.0/BrickFrame#isTagSetOf
+# https://brickschema.org/schema/1.0.1/BrickFrame#isTagSetOf
 
 :isTagSetOf a owl:ObjectProperty , owl:AsymmetricProperty , owl:IrreflexiveProperty ;
 	rdfs:domain :TagSet ;
 	rdfs:range :Taggable .
 # 
-# https://brickschema.org/schema/1.0/BrickFrame#isTokenOf
+# https://brickschema.org/schema/1.0.1/BrickFrame#isTokenOf
 
 :isTokenOf a owl:ObjectProperty , owl:AsymmetricProperty , owl:IrreflexiveProperty ;
 	rdfs:domain :Token ;
@@ -213,16 +213,16 @@
 # #################################################################
 # 
 # 
-# https://brickschema.org/schema/1.0/BrickFrame#Equipment
+# https://brickschema.org/schema/1.0.1/BrickFrame#Equipment
 
 :Equipment a owl:Class ;
 	rdfs:subClassOf :Taggable .
 # 
-# https://brickschema.org/schema/1.0/BrickFrame#FunctionBlock
+# https://brickschema.org/schema/1.0.1/BrickFrame#FunctionBlock
 
 :FunctionBlock a owl:Class .
 # 
-# https://brickschema.org/schema/1.0/BrickFrame#Label
+# https://brickschema.org/schema/1.0.1/BrickFrame#Label
 
 :Label a owl:Class ;
 	rdfs:subClassOf :Taggable , _:genid1 .
@@ -231,38 +231,38 @@ _:genid1 a owl:Restriction ;
 	owl:onProperty :hasToken ;
 	owl:someValuesFrom :Token .
 # 
-# https://brickschema.org/schema/1.0/BrickFrame#Location
+# https://brickschema.org/schema/1.0.1/BrickFrame#Location
 
 :Location a owl:Class ;
 	rdfs:subClassOf :Taggable .
 # 
-# https://brickschema.org/schema/1.0/BrickFrame#ObservedSignal
+# https://brickschema.org/schema/1.0.1/BrickFrame#ObservedSignal
 
 :ObservedSignal a owl:Class ;
 	rdfs:subClassOf :Signal .
 # 
-# https://brickschema.org/schema/1.0/BrickFrame#Point
+# https://brickschema.org/schema/1.0.1/BrickFrame#Point
 
 :Point a owl:Class ;
 	rdfs:subClassOf :Taggable .
 # 
-# https://brickschema.org/schema/1.0/BrickFrame#Signal
+# https://brickschema.org/schema/1.0.1/BrickFrame#Signal
 
 :Signal a owl:Class .
 # 
-# https://brickschema.org/schema/1.0/BrickFrame#Tag
+# https://brickschema.org/schema/1.0.1/BrickFrame#Tag
 
 :Tag a owl:Class .
 # 
-# https://brickschema.org/schema/1.0/BrickFrame#TagSet
+# https://brickschema.org/schema/1.0.1/BrickFrame#TagSet
 
 :TagSet a owl:Class .
 # 
-# https://brickschema.org/schema/1.0/BrickFrame#Taggable
+# https://brickschema.org/schema/1.0.1/BrickFrame#Taggable
 
 :Taggable a owl:Class .
 # 
-# https://brickschema.org/schema/1.0/BrickFrame#Token
+# https://brickschema.org/schema/1.0.1/BrickFrame#Token
 
 :Token a owl:Class ;
 	rdfs:subClassOf :Taggable , _:genid2 .
@@ -277,7 +277,7 @@ _:genid3 a owl:Restriction ;
 	owl:onProperty :hasTagSet ;
 	owl:someValuesFrom :TagSet .
 # 
-# https://brickschema.org/schema/1.0/BrickFrame#UnobservedSignal
+# https://brickschema.org/schema/1.0.1/BrickFrame#UnobservedSignal
 
 :UnobservedSignal a owl:Class ;
 	rdfs:subClassOf :Signal .
