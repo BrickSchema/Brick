@@ -2,13 +2,13 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix bf:  <http://buildsys.org/ontologies/BrickFrame#> .
-@prefix tag: <http://buildsys.org/ontologies/BrickTag#> .
-@prefix :    <http://buildsys.org/ontologies/Brick#> .
+@prefix bf:  <https://brickschema.org/schema/1.0.1/BrickFrame#> .
+@prefix tag: <https://brickschema.org/schema/1.0.1/BrickTag#> .
+@prefix :    <https://brickschema.org/schema/1.0.1/Brick#> .
 
-<http://buildsys.org/ontologies/Brick>  a owl:Ontology ;
-	owl:imports <http://buildsys.org/ontologies/BrickFrame> ;
-	owl:imports <http://buildsys.org/ontologies/BrickTag> ;
+<https://brickschema.org/schema/1.0.1/Brick>  a owl:Ontology ;
+	owl:imports <https://brickschema.org/schema/1.0.1/BrickFrame> ;
+	owl:imports <https://brickschema.org/schema/1.0.1/BrickTag> ;
 	rdfs:comment "Domain TagSet Definition"@en .
 
 
