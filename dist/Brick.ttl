@@ -82,16 +82,6 @@
     rdfs:label "Compressor"@en ;
     rdfs:subClassOf :HVAC .
 
-:Computer_Room_Air_Conditioning a owl:Class ;
-    rdfs:label "Computer Room Air Conditioning"@en ;
-    rdfs:subClassOf :HVAC ;
-    owl:equivalentClass :CRAC .
-
-:Condensor a owl:Class ;
-    rdfs:label "Condenser"@en ;
-    rdfs:subClassOf :HVAC ;
-    owl:equivalentClass :Condenser .
-
 :Conductivity a owl:Class ;
     rdfs:label "Conductivity"@en ;
     rdfs:subClassOf :MeasurementProperty .
@@ -238,6 +228,11 @@
     rdfs:subClassOf :Fire_Safety_System ;
     owl:equivalentClass :Fire_Control_Panel .
 
+:Fan_Coil_Unit a owl:Class ;
+    rdfs:label "Fan Coil Unit"@en ;
+    rdfs:subClassOf :Terminal_Unit ;
+    owl:equivalentClass :FCU .
+
 :Filter_Differential_Pressure_Sensor a owl:Class ;
     rdfs:label "Filter Differential Pressure Sensor"@en ;
     bf:usesEquipment :Filter ;
@@ -274,10 +269,10 @@
     rdfs:label "HVAC Zone"@en ;
     rdfs:subClassOf :Zone .
 
-:HX a owl:Class ;
+:Heat_Exchanger a owl:Class ;
     rdfs:label "Heat Exchanger"@en ;
     rdfs:subClassOf :Coil ;
-    owl:equivalentClass :Heat_Exchanger .
+    owl:equivalentClass :HX .
 
 :Heat_Wheel_VFD a owl:Class ;
     rdfs:label "Heat Wheel VFD"@en ;
@@ -292,6 +287,11 @@
     bf:usesMeasurement :Heating_Thermal_Power ;
     bf:usesPoint :Meter ;
     rdfs:subClassOf :Thermal_Power_Meter .
+
+:Heating_Ventilation_Air_Conditioning_System a owl:Class ;
+    rdfs:label "Heating Ventilation Air Conditioning System"@en ;
+    rdfs:subClassOf :Equipment ;
+    owl:equivalentClass :HVAC .
 
 :Hot_Box_Temperature_Sensor a owl:Class ;
     rdfs:label "Hot Box Temperature Sensor"@en ;
@@ -478,10 +478,10 @@
     bf:usesPoint :Status ;
     rdfs:subClassOf :Mode_Status .
 
-:Variable_Air_Volume a owl:Class ;
-    rdfs:label "Variable Air Volume"@en ;
-    rdfs:subClassOf :Terminal_Unit ;
-    owl:equivalentClass :VAV .
+:Variable_Frequency_Drive a owl:Class ;
+    rdfs:label "Variable Frequency Drive"@en ;
+    rdfs:subClassOf :HVAC ;
+    owl:equivalentClass :VFD .
 
 :Velocity_Pressure a owl:Class ;
     rdfs:label "Velocity Pressure"@en ;
@@ -2443,6 +2443,15 @@
     bf:usesPoint :Alarm ;
     rdfs:subClassOf :Alarm .
 
+:Computer_Room_Air_Conditioning a owl:Class ;
+    rdfs:label "Computer Room Air Conditioning"@en ;
+    rdfs:subClassOf :HVAC .
+
+:Condenser a owl:Class ;
+    rdfs:label "Condenser"@en ;
+    rdfs:subClassOf :HVAC ;
+    owl:equivalentClass :Condensor .
+
 :Condenser_Condensor_Temperature_Sensor a owl:Class ;
     rdfs:label "Condenser Condensor Temperature Sensor"@en ;
     bf:equivalentTagSet :Condenser_Condensor_Temperature_Sensor ;
@@ -2450,6 +2459,10 @@
     bf:usesMeasurement :Condensor_Temperature ;
     bf:usesPoint :Sensor ;
     rdfs:subClassOf :Condensor_Temperature_Sensor .
+
+:Condensor a owl:Class ;
+    rdfs:label "Condenser"@en ;
+    rdfs:subClassOf :HVAC .
 
 :Condensor_Temperature_Sensor a owl:Class ;
     rdfs:label "Condensor Temperature Sensor"@en ;
@@ -3277,10 +3290,6 @@
     rdfs:label "Failure Alarm"@en ;
     rdfs:subClassOf :Alarm .
 
-:Fan_Coil_Unit a owl:Class ;
-    rdfs:label "Fan Coil Unit"@en ;
-    rdfs:subClassOf :Terminal_Unit .
-
 :Fan_Overload_Alarm a owl:Class ;
     rdfs:label "Fan Overload Alarm"@en ;
     bf:usesMeasurement :Fan_Overload ;
@@ -3703,6 +3712,10 @@
     bf:usesPoint :Command ;
     rdfs:subClassOf :Shutdown_Hot_Water_When_Unoccupied_Command .
 
+:HX a owl:Class ;
+    rdfs:label "Heat Exchanger"@en ;
+    rdfs:subClassOf :Coil .
+
 :Hail_Sensor a owl:Class ;
     rdfs:label "Hail Sensor"@en ;
     bf:usesMeasurement :Hail ;
@@ -3726,10 +3739,6 @@
     bf:usesMeasurement :Air_Temperature_Low_Reset ;
     bf:usesPoint :Setpoint ;
     rdfs:subClassOf :Outside_Air_Temperature_Low_Reset_Setpoint .
-
-:Heat_Exchanger a owl:Class ;
-    rdfs:label "Heat Exchanger"@en ;
-    rdfs:subClassOf :Coil .
 
 :Heat_Exchanger_Valve_Command a owl:Class ;
     rdfs:label "Heat Exchanger Valve Command"@en ;
@@ -3780,10 +3789,6 @@
     rdfs:subClassOf :Heating,
         :Thermal_Power,
         :UndefinedMeasurement .
-
-:Heating_Ventilation_Air_Conditioning_System a owl:Class ;
-    rdfs:label "Heating Ventilation Air Conditioning System"@en ;
-    rdfs:subClassOf :Equipment .
 
 :High_Head_Pressure_Alarm a owl:Class ;
     rdfs:label "High Head Pressure Alarm"@en ;
@@ -5617,9 +5622,9 @@
     rdfs:label "Valve Status"@en ;
     rdfs:subClassOf :Status .
 
-:Variable_Frequency_Drive a owl:Class ;
-    rdfs:label "Variable Frequency Drive"@en ;
-    rdfs:subClassOf :HVAC .
+:Variable_Air_Volume a owl:Class ;
+    rdfs:label "Variable Air Volume"@en ;
+    rdfs:subClassOf :Terminal_Unit .
 
 :Vent_Operating_Mode_Status a owl:Class ;
     rdfs:label "Vent Operating Mode Status"@en ;
@@ -7298,10 +7303,6 @@
     bf:usesMeasurement :Condensate_Leak ;
     bf:usesPoint :Alarm ;
     rdfs:subClassOf :Alarm .
-
-:Condenser a owl:Class ;
-    rdfs:label "Condenser"@en ;
-    rdfs:subClassOf :HVAC .
 
 :Condensor_Temperature a owl:Class ;
     rdfs:label "Condensor Temperature"@en ;
@@ -14209,8 +14210,7 @@
 :HVAC a owl:Class ;
     rdfs:label "HVAC"@en,
         "Heating Ventilation Air Conditioning System"@en ;
-    rdfs:subClassOf :Equipment ;
-    owl:equivalentClass :Heating_Ventilation_Air_Conditioning_System .
+    rdfs:subClassOf :Equipment .
 
 :Hot_Water a owl:Class ;
     rdfs:label "Hot Water"@en ;
@@ -14227,8 +14227,7 @@
 
 :FCU a owl:Class ;
     rdfs:label "Fan Coil Unit"@en ;
-    rdfs:subClassOf :Terminal_Unit ;
-    owl:equivalentClass :Fan_Coil_Unit .
+    rdfs:subClassOf :Terminal_Unit .
 
 :Zone a owl:Class ;
     rdfs:label "Zone"@en ;
@@ -14250,17 +14249,18 @@
 
 :VFD a owl:Class ;
     rdfs:label "Variable Frequency Drive"@en ;
-    rdfs:subClassOf :HVAC ;
-    owl:equivalentClass :Variable_Frequency_Drive .
+    rdfs:subClassOf :HVAC .
 
 :CRAC a owl:Class ;
     rdfs:label "CRAC"@en,
         "Computer Room Air Conditioning"@en ;
-    rdfs:subClassOf :HVAC .
+    rdfs:subClassOf :HVAC ;
+    owl:equivalentClass :Computer_Room_Air_Conditioning .
 
 :VAV a owl:Class ;
     rdfs:label "Variable Air Volume"@en ;
-    rdfs:subClassOf :Terminal_Unit .
+    rdfs:subClassOf :Terminal_Unit ;
+    owl:equivalentClass :Variable_Air_Volume .
 
 :Alarm a owl:Class ;
     rdfs:label "Alarm"@en ;
