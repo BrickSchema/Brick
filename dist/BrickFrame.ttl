@@ -28,14 +28,28 @@
 :similarTagSet a owl:AnnotationProperty ;
 	rdfs:range :TagSet ;
 	rdfs:domain :TagSet .
+  
 # 
 # http://buildsys.org/ontologies/BrickFrame#usedBy
 
 :usedBy a owl:AnnotationProperty .
+
+# 
+# http://buildsys.org/ontologies/BrickFrame#usedByDimension
+
+:usedByDimension a owl:AnnotationProperty ;
+	rdfs:subPropertyOf :usedBy .
+
+# 
+# http://buildsys.org/ontologies/BrickFrame#usedByPoint
+
+:usedByPoint a owl:AnnotationProperty ;
+	rdfs:subPropertyOf :usedByDimension .
 # 
 # http://buildsys.org/ontologies/BrickFrame#usesDimension
-
-:usesDimension a owl:AnnotationProperty .
+  
+:usesDimension a owl:AnnotationProperty ;
+	owl:inverseOf :usedByDimension .
 # 
 # http://buildsys.org/ontologies/BrickFrame#usesEquipment
 
