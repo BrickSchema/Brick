@@ -304,7 +304,7 @@
 :AHU_Exhaust_Fan_Fire_Control_Panel_Off_Command a owl:Class ;
     rdfs:label "AHU Exhaust Fan Fire Control Panel Off Command"@en ;
     bf:usesEquipment :AHU ;
-    bf:usesMeasurement :Exhaust_Fan_Fire_Control_Panel_Off ;
+    bf:usesMeasurement :Exhaust_Fan_Off ;
     bf:usesPoint :Command ;
     rdfs:subClassOf :AHU_Fire_Control_Panel_Off_Command,
         :Exhaust_Fan_Fire_Control_Panel_Off_Command .
@@ -312,7 +312,7 @@
 :AHU_Exhaust_Fan_Fire_Control_Panel_On_Command a owl:Class ;
     rdfs:label "AHU Exhaust Fan Fire Control Panel On Command"@en ;
     bf:usesEquipment :AHU ;
-    bf:usesMeasurement :Exhaust_Fan_Fire_Control_Panel_On ;
+    bf:usesMeasurement :Exhaust_Fan_On ;
     bf:usesPoint :Command ;
     rdfs:subClassOf :AHU_Fire_Control_Panel_On_Command,
         :Exhaust_Fan_Fire_Control_Panel_On_Command .
@@ -668,21 +668,6 @@
     bf:usesPoint :Setpoint ;
     rdfs:subClassOf :Outside_Min_Air_Flow_Setpoint .
 
-:AHU_PreHeat_Coil_Entering_Air_Temperature_Sensor a owl:Class ;
-    rdfs:label "AHU PreHeat Coil Entering Air Temperature Sensor"@en ;
-    bf:usesEquipment :AHU ;
-    bf:usesMeasurement :PreHeat_Coil_Entering_Air_Temperature ;
-    bf:usesPoint :Sensor ;
-    rdfs:subClassOf :Entering_Water_Temperature_Sensor,
-        :PreHeat_Coil_Entering_Air_Temperature_Sensor .
-
-:AHU_PreHeat_Valve_Command a owl:Class ;
-    rdfs:label "AHU PreHeat Valve Command"@en ;
-    bf:usesEquipment :AHU ;
-    bf:usesMeasurement :PreHeat_Valve ;
-    bf:usesPoint :Command ;
-    rdfs:subClassOf :PreHeat_Valve_Command .
-
 :AHU_Pre_Filter_Status a owl:Class ;
     rdfs:label "AHU Pre Filter Status"@en ;
     bf:usesEquipment :AHU ;
@@ -691,6 +676,14 @@
     rdfs:subClassOf :AHU_Filter_Status,
         :Pre_Filter_Status ;
     skos:definition ""@en .
+
+:AHU_Preheat_Coil_Entering_Air_Temperature_Sensor a owl:Class ;
+    rdfs:label "AHU Preheat Coil Entering Air Temperature Sensor"@en ;
+    bf:usesEquipment :AHU ;
+    bf:usesMeasurement :Preheat_Coil_Entering_Air_Temperature ;
+    bf:usesPoint :Sensor ;
+    rdfs:subClassOf :Entering_Water_Temperature_Sensor,
+        :Preheat_Coil_Entering_Air_Temperature_Sensor .
 
 :AHU_Preheat_Demand_Setpoint a owl:Class ;
     rdfs:label "AHU Preheat Demand Setpoint"@en ;
@@ -740,7 +733,8 @@
     bf:usesEquipment :AHU ;
     bf:usesMeasurement :Return_Air_Preheat_Valve ;
     bf:usesPoint :Command ;
-    rdfs:subClassOf :Return_Air_Preheat_Valve_Command .
+    rdfs:subClassOf :AHU_Preheat_Valve_Command,
+        :Return_Air_Preheat_Valve_Command .
 
 :AHU_Return_Air_Temperature_High_Limit_Alarm a owl:Class ;
     rdfs:label "AHU Return Air Temperature High Limit Alarm"@en ;
@@ -1456,11 +1450,6 @@
     rdfs:subClassOf :CWS_Chilled_Water_Differential_Pressure_Setpoint,
         :Min_Chilled_Water_Differential_Pressure_Setpoint .
 
-:Chilled_Water_System a owl:Class ;
-    rdfs:label "Chilled Water System"@en ;
-    rdfs:subClassOf :Water_System ;
-    owl:equivalentClass :CWS .
-
 :Chilled_Water_Valve a owl:Class ;
     rdfs:label "Chilled Water Valve"@en ;
     rdfs:subClassOf :Valve .
@@ -1529,6 +1518,11 @@
     bf:usesMeasurement :Condensor_Temperature ;
     bf:usesPoint :Sensor ;
     rdfs:subClassOf :Condensor_Temperature_Sensor .
+
+:Condensor a owl:Class ;
+    rdfs:label "Condenser"@en ;
+    rdfs:subClassOf :HVAC ;
+    owl:equivalentClass :Condenser .
 
 :Conductivity a owl:Class ;
     rdfs:label "Conductivity"@en ;
@@ -1642,11 +1636,6 @@
     rdfs:label "Direction"@en ;
     rdfs:subClassOf :MeasurementProperty .
 
-:Domestic_Hot_Water_System a owl:Class ;
-    rdfs:label "Domestic Hot Water System"@en ;
-    rdfs:subClassOf :Water_System ;
-    owl:equivalentClass :DHWS .
-
 :Economizer_Disable_Differential_Enthalpy_Setpoint a owl:Class ;
     rdfs:label "Economizer Disable Differential Enthalpy Setpoint"@en ;
     bf:usesMeasurement :Economizer_Disable_Differential_Enthalpy ;
@@ -1717,24 +1706,22 @@
     rdfs:label "Elevator"@en ;
     rdfs:subClassOf :Equipment .
 
-:EmergencyGenerator_Emergency_Generator_Alarm a owl:Class ;
-    rdfs:label "EmergencyGenerator Emergency Generator Alarm"@en ;
-    bf:usesEquipment :EmergencyGenerator ;
-    bf:usesMeasurement :Emergency_Generator ;
-    bf:usesPoint :Alarm ;
-    rdfs:subClassOf :Emergency_Generator_Alarm .
-
-:EmergencyGenerator_Emergency_Generator_Status a owl:Class ;
-    rdfs:label "EmergencyGenerator Emergency Generator Status"@en ;
-    bf:usesEquipment :EmergencyGenerator ;
-    bf:usesMeasurement :Emergency_Generator ;
-    bf:usesPoint :Status ;
-    rdfs:subClassOf :Emergency_Generator_Status .
-
 :Emergency_Air_Flow_Command a owl:Class ;
     rdfs:label "Emergency Air Flow Command"@en ;
     rdfs:subClassOf :Command,
         :Emergency_Air_Flow .
+
+:Emergency_Generator_Alarm a owl:Class ;
+    rdfs:label "Emergency Generator Alarm"@en ;
+    bf:usesEquipment :Emergency_Generator ;
+    bf:usesPoint :Alarm ;
+    rdfs:subClassOf :Alarm .
+
+:Emergency_Generator_Status a owl:Class ;
+    rdfs:label "Emergency Generator Status"@en ;
+    bf:usesEquipment :Emergency_Generator ;
+    bf:usesPoint :Status ;
+    rdfs:subClassOf :Status .
 
 :Emergency_Power_Off_System a owl:Class ;
     rdfs:label "Emergency Power Off System"@en ;
@@ -1753,35 +1740,35 @@
     bf:usesPoint :Status ;
     rdfs:subClassOf :Status .
 
-:ExhaustFan_Exhaust_Air_Static_Pressure_Integral_Time_Setpoint a owl:Class ;
-    rdfs:label "ExhaustFan Exhaust Air Static Pressure Integral Time Setpoint"@en ;
-    bf:usesEquipment :ExhaustFan ;
+:Exhaust_Air_Damper a owl:Class ;
+    rdfs:label "Exhaust Air Damper"@en ;
+    rdfs:subClassOf :Damper .
+
+:Exhaust_Fan_Exhaust_Air_Static_Pressure_Integral_Time_Setpoint a owl:Class ;
+    rdfs:label "Exhaust_Fan Exhaust Air Static Pressure Integral Time Setpoint"@en ;
+    bf:usesEquipment :Exhaust_Fan ;
     bf:usesMeasurement :Exhaust_Air_Static_Pressure_Integral_Time ;
     bf:usesPoint :Setpoint ;
     rdfs:subClassOf :Exhaust_Air_Static_Pressure_Integral_Time_Setpoint .
 
-:ExhaustFan_Fan_Air_Flow_Sensor a owl:Class ;
-    rdfs:label "ExhaustFan Fan Air Flow Sensor"@en ;
-    bf:usesEquipment :ExhaustFan ;
+:Exhaust_Fan_Fan_Air_Flow_Sensor a owl:Class ;
+    rdfs:label "Exhaust_Fan Fan Air Flow Sensor"@en ;
+    bf:usesEquipment :Exhaust_Fan ;
     bf:usesMeasurement :Air_Flow ;
     bf:usesPoint :Sensor ;
     rdfs:subClassOf :Fan_Air_Flow_Sensor .
 
-:ExhaustFan_VFD_Status a owl:Class ;
-    rdfs:label "ExhaustFan VFD Status"@en ;
-    bf:usesEquipment :ExhaustFan ;
+:Exhaust_Fan_VFD_Status a owl:Class ;
+    rdfs:label "Exhaust_Fan VFD Status"@en ;
+    bf:usesEquipment :Exhaust_Fan ;
     bf:usesMeasurement :VFD_Status ;
     rdfs:subClassOf :VFD_Status .
 
-:ExhaustFan_Velocity_Pressure_Setpoint a owl:Class ;
-    rdfs:label "ExhaustFan Velocity Pressure Setpoint"@en ;
-    bf:usesEquipment :ExhaustFan ;
+:Exhaust_Fan_Velocity_Pressure_Setpoint a owl:Class ;
+    rdfs:label "Exhaust_Fan Velocity Pressure Setpoint"@en ;
+    bf:usesEquipment :Exhaust_Fan ;
     bf:usesMeasurement :Velocity_Pressure_Setpoint ;
     rdfs:subClassOf :Velocity_Pressure_Setpoint .
-
-:Exhaust_Air_Damper a owl:Class ;
-    rdfs:label "Exhaust Air Damper"@en ;
-    rdfs:subClassOf :Damper .
 
 :FCP a owl:Class ;
     rdfs:label "Fire Control Panel"@en ;
@@ -1904,6 +1891,11 @@
         :Zone_Air_Temperature_Sensor ;
     skos:definition ""@en .
 
+:Fan_Coil_Unit a owl:Class ;
+    rdfs:label "Fan Coil Unit"@en ;
+    rdfs:subClassOf :Terminal_Unit ;
+    owl:equivalentClass :FCU .
+
 :Filter_Differential_Pressure_Sensor a owl:Class ;
     rdfs:label "Filter Differential Pressure Sensor"@en ;
     bf:usesEquipment :Filter ;
@@ -1911,49 +1903,33 @@
     bf:usesPoint :Sensor ;
     rdfs:subClassOf :Differential_Pressure_Sensor .
 
-:FireControlPanel_AHU_Off_Status_LED a owl:Class ;
-    rdfs:label "FireControlPanel AHU Off Status LED"@en ;
-    bf:usesEquipment :FireControlPanel ;
+:Fire_Control_Panel_AHU_Off_Status_LED a owl:Class ;
+    rdfs:label "Fire_Control_Panel AHU Off Status LED"@en ;
+    bf:usesEquipment :Fire_Control_Panel ;
     bf:usesMeasurement :AHU_Off_LED ;
     bf:usesPoint :Status ;
     rdfs:subClassOf :AHU_Off_Status_LED,
         :Fire_Control_Panel_LED_Status .
 
-:FireControlPanel_AHU_On_Status_LED a owl:Class ;
-    rdfs:label "FireControlPanel AHU On Status LED"@en ;
-    bf:usesEquipment :FireControlPanel ;
+:Fire_Control_Panel_AHU_On_Status_LED a owl:Class ;
+    rdfs:label "Fire_Control_Panel AHU On Status LED"@en ;
+    bf:usesEquipment :Fire_Control_Panel ;
     bf:usesMeasurement :AHU_On_LED ;
     bf:usesPoint :Status ;
     rdfs:subClassOf :AHU_On_Status_LED,
         :Fire_Control_Panel_LED_Status .
 
-:FireControlPanel_Exhaust_Fan_Fire_Control_Panel_Off_Command a owl:Class ;
-    rdfs:label "FireControlPanel Exhaust Fan Fire Control Panel Off Command"@en ;
-    bf:usesEquipment :FireControlPanel ;
-    bf:usesMeasurement :Exhaust_Fan_Fire_Control_Panel_Off ;
-    bf:usesPoint :Command ;
-    rdfs:subClassOf :Exhaust_Fan_Fire_Control_Panel_Off_Command,
-        :FireControlPanel_Fire_Control_Panel_Off_Command .
-
-:FireControlPanel_Exhaust_Fan_Fire_Control_Panel_On_Command a owl:Class ;
-    rdfs:label "FireControlPanel Exhaust Fan Fire Control Panel On Command"@en ;
-    bf:usesEquipment :FireControlPanel ;
-    bf:usesMeasurement :Exhaust_Fan_Fire_Control_Panel_On ;
-    bf:usesPoint :Command ;
-    rdfs:subClassOf :Exhaust_Fan_Fire_Control_Panel_On_Command,
-        :FireControlPanel_Fire_Control_Panel_On_Command .
-
-:FireControlPanel_Exhaust_Fan_Off_Status_LED a owl:Class ;
-    rdfs:label "FireControlPanel Exhaust Fan Off Status LED"@en ;
-    bf:usesEquipment :FireControlPanel ;
+:Fire_Control_Panel_Exhaust_Fan_Off_Status_LED a owl:Class ;
+    rdfs:label "Fire_Control_Panel Exhaust Fan Off Status LED"@en ;
+    bf:usesEquipment :Fire_Control_Panel ;
     bf:usesMeasurement :Exhaust_Fan_Off_LED ;
     bf:usesPoint :Status ;
     rdfs:subClassOf :Exhaust_Fan_Off_Status_LED,
         :Fire_Control_Panel_LED_Status .
 
-:FireControlPanel_Exhaust_Fan_On_Status_LED a owl:Class ;
-    rdfs:label "FireControlPanel Exhaust Fan On Status LED"@en ;
-    bf:usesEquipment :FireControlPanel ;
+:Fire_Control_Panel_Exhaust_Fan_On_Status_LED a owl:Class ;
+    rdfs:label "Fire_Control_Panel Exhaust Fan On Status LED"@en ;
+    bf:usesEquipment :Fire_Control_Panel ;
     bf:usesMeasurement :Exhaust_Fan_On_LED ;
     bf:usesPoint :Status ;
     rdfs:subClassOf :Exhaust_Fan_On_Status_LED,
@@ -1974,42 +1950,40 @@
     bf:usesPoint :Sensor ;
     rdfs:subClassOf :Temperature_Sensor .
 
-:FumeHood_Emergency_Air_Flow_Status a owl:Class ;
-    rdfs:label "FumeHood Emergency Air Flow Status"@en ;
-    bf:usesEquipment :FumeHood ;
+:Fume_Hood_Air_Flow_Sensor a owl:Class ;
+    rdfs:label "Fume Hood Air Flow Sensor"@en ;
+    bf:usesEquipment :Fume_Hood ;
+    bf:usesMeasurement :Air_Flow ;
+    bf:usesPoint :Sensor ;
+    rdfs:subClassOf :Air_Flow_Sensor .
+
+:Fume_Hood_Alarm a owl:Class ;
+    rdfs:label "Fume Hood Alarm"@en ;
+    bf:usesEquipment :Fume_Hood ;
+    bf:usesPoint :Alarm ;
+    rdfs:subClassOf :Alarm .
+
+:Fume_Hood_Emergency_Air_Flow_Status a owl:Class ;
+    rdfs:label "Fume_Hood Emergency Air Flow Status"@en ;
+    bf:usesEquipment :Fume_Hood ;
     bf:usesMeasurement :Emergency_Air_Flow ;
     bf:usesPoint :Status ;
     rdfs:subClassOf :Emergency_Air_Flow_Status ;
     skos:definition ""@en .
 
-:FumeHood_Emergency_Push_Button_Status a owl:Class ;
-    rdfs:label "FumeHood Emergency Push Button Status"@en ;
-    bf:usesEquipment :FumeHood ;
+:Fume_Hood_Emergency_Push_Button_Status a owl:Class ;
+    rdfs:label "Fume_Hood Emergency Push Button Status"@en ;
+    bf:usesEquipment :Fume_Hood ;
     bf:usesMeasurement :Emergency_Push_Button ;
     bf:usesPoint :Status ;
     rdfs:subClassOf :Emergency_Push_Button_Status .
 
-:FumeHood_Fume_Hood_Air_Flow_Sensor a owl:Class ;
-    rdfs:label "FumeHood Fume Hood Air Flow Sensor"@en ;
-    bf:usesEquipment :FumeHood ;
-    bf:usesMeasurement :Fume_Hood_Air_Flow ;
+:Fume_Hood_Sash_Position_Sensor a owl:Class ;
+    rdfs:label "Fume Hood Sash Position Sensor"@en ;
+    bf:usesEquipment :Fume_Hood ;
+    bf:usesMeasurement :Sash_Position ;
     bf:usesPoint :Sensor ;
-    rdfs:subClassOf :Fume_Hood_Air_Flow_Sensor .
-
-:FumeHood_Fume_Hood_Alarm a owl:Class ;
-    rdfs:label "FumeHood Fume Hood Alarm"@en ;
-    bf:usesEquipment :FumeHood ;
-    bf:usesMeasurement :Fume_Hood ;
-    bf:usesPoint :Alarm ;
-    rdfs:subClassOf :Fume_Hood_Alarm .
-
-:FumeHood_Fume_Hood_Sash_Position_Sensor a owl:Class ;
-    rdfs:label "FumeHood Fume Hood Sash Position Sensor"@en ;
-    bf:usesEquipment :FumeHood ;
-    bf:usesMeasurement :Fume_Hood_Sash_Position ;
-    bf:usesPoint :Sensor ;
-    rdfs:subClassOf :Damper_Position_Sensor,
-        :Fume_Hood_Sash_Position_Sensor .
+    rdfs:subClassOf :Damper_Position_Sensor .
 
 :Gas_Meter a owl:Class ;
     rdfs:label "Gas Meter"@en ;
@@ -2226,26 +2200,26 @@
     bf:usesPoint :Command ;
     rdfs:subClassOf :Shutdown_Hot_Water_When_Unoccupied_Command .
 
-:HeatExchanger_Outside_Air_Temperature_High_Reset_Setpoint a owl:Class ;
-    rdfs:label "HeatExchanger Outside Air Temperature High Reset Setpoint"@en ;
-    bf:usesEquipment :HeatExchanger ;
+:HX a owl:Class ;
+    rdfs:label "Heat Exchanger"@en ;
+    rdfs:subClassOf :Coil ;
+    owl:equivalentClass :Heat_Exchanger .
+
+:Heat_Exchanger_Outside_Air_Temperature_High_Reset_Setpoint a owl:Class ;
+    rdfs:label "Heat_Exchanger Outside Air Temperature High Reset Setpoint"@en ;
+    bf:usesEquipment :Heat_Exchanger ;
     bf:usesLocation :Outside ;
     bf:usesMeasurement :Air_Temperature_High_Reset ;
     bf:usesPoint :Setpoint ;
     rdfs:subClassOf :Outside_Air_Temperature_High_Reset_Setpoint .
 
-:HeatExchanger_Outside_Air_Temperature_Low_Reset_Setpoint a owl:Class ;
-    rdfs:label "HeatExchanger Outside Air Temperature Low Reset Setpoint"@en ;
-    bf:usesEquipment :HeatExchanger ;
+:Heat_Exchanger_Outside_Air_Temperature_Low_Reset_Setpoint a owl:Class ;
+    rdfs:label "Heat_Exchanger Outside Air Temperature Low Reset Setpoint"@en ;
+    bf:usesEquipment :Heat_Exchanger ;
     bf:usesLocation :Outside ;
     bf:usesMeasurement :Air_Temperature_Low_Reset ;
     bf:usesPoint :Setpoint ;
     rdfs:subClassOf :Outside_Air_Temperature_Low_Reset_Setpoint .
-
-:Heat_Exchanger a owl:Class ;
-    rdfs:label "Heat Exchanger"@en ;
-    rdfs:subClassOf :Coil ;
-    owl:equivalentClass :HX .
 
 :Heat_Wheel_VFD a owl:Class ;
     rdfs:label "Heat Wheel VFD"@en ;
@@ -2268,11 +2242,6 @@
     bf:usesPoint :Sensor ;
     rdfs:subClassOf :Temperature_Sensor .
 
-:Hot_Water_System a owl:Class ;
-    rdfs:label "Hot Water System"@en ;
-    rdfs:subClassOf :Water_System ;
-    owl:equivalentClass :HWS .
-
 :Ice_Tank_Entering_Water_Temperature_Sensor a owl:Class ;
     rdfs:label "Ice Tank Entering Water Temperature Sensor"@en ;
     bf:usesMeasurement :Ice_Tank_Entering_Water_Temperature ;
@@ -2293,37 +2262,33 @@
     rdfs:label "Isolation Valve"@en ;
     rdfs:subClassOf :Valve .
 
-:LightingSystem_Luminance_Alarm a owl:Class ;
-    rdfs:label "LightingSystem Luminance Alarm"@en ;
-    bf:usesEquipment :LightingSystem ;
+:Lighting_System_Luminance_Alarm a owl:Class ;
+    rdfs:label "Lighting_System Luminance Alarm"@en ;
+    bf:usesEquipment :Lighting_System ;
     bf:usesMeasurement :Luminance ;
     bf:usesPoint :Alarm ;
     rdfs:subClassOf :Luminance_Alarm .
 
-:LightingSystem_Luminance_Command a owl:Class ;
-    rdfs:label "LightingSystem Luminance Command"@en ;
-    bf:usesEquipment :LightingSystem ;
+:Lighting_System_Luminance_Command a owl:Class ;
+    rdfs:label "Lighting_System Luminance Command"@en ;
+    bf:usesEquipment :Lighting_System ;
     bf:usesMeasurement :Luminance ;
     bf:usesPoint :Command ;
     rdfs:subClassOf :Luminance_Command .
 
-:LightingSystem_Luminance_Sensor a owl:Class ;
-    rdfs:label "LightingSystem Luminance Sensor"@en ;
-    bf:usesEquipment :LightingSystem ;
+:Lighting_System_Luminance_Sensor a owl:Class ;
+    rdfs:label "Lighting_System Luminance Sensor"@en ;
+    bf:usesEquipment :Lighting_System ;
     bf:usesMeasurement :Luminance ;
     bf:usesPoint :Sensor ;
     rdfs:subClassOf :Luminance_Sensor .
 
-:LightingSystem_Luminance_Setpoint a owl:Class ;
-    rdfs:label "LightingSystem Luminance Setpoint"@en ;
-    bf:usesEquipment :LightingSystem ;
+:Lighting_System_Luminance_Setpoint a owl:Class ;
+    rdfs:label "Lighting_System Luminance Setpoint"@en ;
+    bf:usesEquipment :Lighting_System ;
     bf:usesMeasurement :Luminance ;
     bf:usesPoint :Setpoint ;
     rdfs:subClassOf :Luminance_Setpoint .
-
-:Lighting_System a owl:Class ;
-    rdfs:label "Lighting System"@en ;
-    rdfs:subClassOf :Equipment .
 
 :Lighting_Zone a owl:Class ;
     rdfs:label "Lighting Zone"@en ;
@@ -2378,23 +2343,23 @@
     bf:usesPoint :Meter ;
     rdfs:subClassOf :Power_Meter .
 
-:PreHeat_Coil_Leaving_Water_Temperature_Sensor a owl:Class ;
-    rdfs:label "PreHeat Coil Leaving Water Temperature Sensor"@en ;
-    bf:usesMeasurement :PreHeat_Coil_Leaving_Water_Temperature ;
-    bf:usesPoint :Sensor ;
-    rdfs:subClassOf :Leaving_Water_Temperature_Sensor .
-
-:PreHeat_Hot_Water_Valve a owl:Class ;
-    rdfs:label "PreHeat Hot Water Valve"@en ;
-    rdfs:subClassOf :AHU .
-
-:PreHeat_Valve_VFD a owl:Class ;
-    rdfs:label "PreHeat Valve VFD"@en ;
-    rdfs:subClassOf :AHU .
-
 :Preheat_Coil a owl:Class ;
     rdfs:label "Preheat Coil"@en ;
     rdfs:subClassOf :Coil .
+
+:Preheat_Coil_Leaving_Water_Temperature_Sensor a owl:Class ;
+    rdfs:label "Preheat Coil Leaving Water Temperature Sensor"@en ;
+    bf:usesMeasurement :Preheat_Coil_Leaving_Water_Temperature ;
+    bf:usesPoint :Sensor ;
+    rdfs:subClassOf :Leaving_Water_Temperature_Sensor .
+
+:Preheat_Hot_Water_Valve a owl:Class ;
+    rdfs:label "Preheat Hot Water Valve"@en ;
+    rdfs:subClassOf :AHU .
+
+:Preheat_Valve_VFD a owl:Class ;
+    rdfs:label "Preheat Valve VFD"@en ;
+    rdfs:subClassOf :AHU .
 
 :Pump_Lead_On_Off_Command a owl:Class ;
     rdfs:label "Pump Lead On Off Command"@en ;
@@ -2403,22 +2368,22 @@
     bf:usesPoint :Command ;
     rdfs:subClassOf :Pump_Command .
 
-:ReturnFan_Fan_Air_Flow_Sensor a owl:Class ;
-    rdfs:label "ReturnFan Fan Air Flow Sensor"@en ;
-    bf:usesEquipment :ReturnFan ;
+:Return_Air_Damper a owl:Class ;
+    rdfs:label "Return Air Damper"@en ;
+    rdfs:subClassOf :Damper .
+
+:Return_Fan_Fan_Air_Flow_Sensor a owl:Class ;
+    rdfs:label "Return_Fan Fan Air Flow Sensor"@en ;
+    bf:usesEquipment :Return_Fan ;
     bf:usesMeasurement :Air_Flow ;
     bf:usesPoint :Sensor ;
     rdfs:subClassOf :Fan_Air_Flow_Sensor .
 
-:ReturnFan_VFD_Status a owl:Class ;
-    rdfs:label "ReturnFan VFD Status"@en ;
-    bf:usesEquipment :ReturnFan ;
+:Return_Fan_VFD_Status a owl:Class ;
+    rdfs:label "Return_Fan VFD Status"@en ;
+    bf:usesEquipment :Return_Fan ;
     bf:usesMeasurement :VFD_Status ;
     rdfs:subClassOf :VFD_Status .
-
-:Return_Air_Damper a owl:Class ;
-    rdfs:label "Return Air Damper"@en ;
-    rdfs:subClassOf :Damper .
 
 :Roof a owl:Class ;
     rdfs:label "Roof"@en ;
@@ -2428,30 +2393,26 @@
     rdfs:label "Server Room"@en ;
     rdfs:subClassOf :Room .
 
-:SolarPanel_Battery_Voltage_Sensor a owl:Class ;
-    rdfs:label "SolarPanel Battery Voltage Sensor"@en ;
-    bf:usesEquipment :SolarPanel ;
+:Solar_Panel_Battery_Voltage_Sensor a owl:Class ;
+    rdfs:label "Solar_Panel Battery Voltage Sensor"@en ;
+    bf:usesEquipment :Solar_Panel ;
     bf:usesMeasurement :Battery_Voltage ;
     bf:usesPoint :Sensor ;
     rdfs:subClassOf :Battery_Voltage_Sensor .
 
-:SolarPanel_Solar_Azimuth_Angle_Sensor a owl:Class ;
-    rdfs:label "SolarPanel Solar Azimuth Angle Sensor"@en ;
-    bf:usesEquipment :SolarPanel ;
+:Solar_Panel_Solar_Azimuth_Angle_Sensor a owl:Class ;
+    rdfs:label "Solar_Panel Solar Azimuth Angle Sensor"@en ;
+    bf:usesEquipment :Solar_Panel ;
     bf:usesMeasurement :Solar_Azimuth_Angle ;
     bf:usesPoint :Sensor ;
     rdfs:subClassOf :Solar_Azimuth_Angle_Sensor .
 
-:SolarPanel_Solar_Zenith_Angle_Sensor a owl:Class ;
-    rdfs:label "SolarPanel Solar Zenith Angle Sensor"@en ;
-    bf:usesEquipment :SolarPanel ;
+:Solar_Panel_Solar_Zenith_Angle_Sensor a owl:Class ;
+    rdfs:label "Solar_Panel Solar Zenith Angle Sensor"@en ;
+    bf:usesEquipment :Solar_Panel ;
     bf:usesMeasurement :Solar_Zenith_Angle ;
     bf:usesPoint :Sensor ;
     rdfs:subClassOf :Solar_Zenith_Angle_Sensor .
-
-:Solar_Panel a owl:Class ;
-    rdfs:label "Solar Panel"@en ;
-    rdfs:subClassOf :Equipment .
 
 :Space a owl:Class ;
     rdfs:label "Space"@en ;
@@ -2493,53 +2454,53 @@
     bf:usesPoint :Meter ;
     rdfs:subClassOf :Yearly_Steam_Usage_Meter .
 
-:SupplyFan_Cooling_Coil_Valve_Pressure_Sensor a owl:Class ;
-    rdfs:label "SupplyFan Cooling Coil Valve Pressure Sensor"@en ;
-    bf:usesEquipment :SupplyFan ;
-    bf:usesMeasurement :Cooling_Coil_Valve_Pressure ;
-    bf:usesPoint :Sensor ;
-    rdfs:subClassOf :Cooling_Coil_Valve_Pressure_Sensor .
-
-:SupplyFan_Differential_Pressure_Sensor a owl:Class ;
-    rdfs:label "SupplyFan Differential Pressure Sensor"@en ;
-    bf:usesEquipment :SupplyFan ;
-    bf:usesMeasurement :Differential_Pressure ;
-    bf:usesPoint :Sensor ;
-    rdfs:subClassOf :Differential_Pressure_Sensor .
-
-:SupplyFan_Fan_Air_Flow_Sensor a owl:Class ;
-    rdfs:label "SupplyFan Fan Air Flow Sensor"@en ;
-    bf:usesEquipment :SupplyFan ;
-    bf:usesMeasurement :Air_Flow ;
-    bf:usesPoint :Sensor ;
-    rdfs:subClassOf :Fan_Air_Flow_Sensor .
-
-:SupplyFan_Fan_Speed_Reset_Command a owl:Class ;
-    rdfs:label "SupplyFan Fan Speed Reset Command"@en ;
-    bf:usesEquipment :SupplyFan ;
-    bf:usesMeasurement :Fan_Speed_Reset ;
-    bf:usesPoint :Command ;
-    rdfs:subClassOf :Fan_Speed_Reset_Command .
-
-:SupplyFan_Supply_Air_Proportional_Gain_Factor a owl:Class ;
-    rdfs:label "SupplyFan Supply Air Proportional Gain Factor"@en ;
-    bf:usesEquipment :SupplyFan ;
-    bf:usesMeasurement :Supply_Air_Proportional_Gain_Factor ;
-    bf:usesPoint :Setpoint ;
-    rdfs:subClassOf :Proportional_Gain_Setpoint,
-        :Supply_Air_Proportional_Gain_Factor .
-
-:SupplyFan_VFD_Status a owl:Class ;
-    rdfs:label "SupplyFan VFD Status"@en ;
-    bf:usesEquipment :SupplyFan ;
-    bf:usesMeasurement :VFD_Status ;
-    rdfs:subClassOf :VFD_Status .
-
 :Supply_Air_Integrative_Gain_Factor a owl:Class ;
     rdfs:label "Supply Air Integrative Gain Factor"@en ;
     bf:usesPoint :Setpoint ;
     rdfs:subClassOf :Integral_Gain_Setpoint,
         :Supply_Air .
+
+:Supply_Fan_Cooling_Coil_Valve_Pressure_Sensor a owl:Class ;
+    rdfs:label "Supply_Fan Cooling Coil Valve Pressure Sensor"@en ;
+    bf:usesEquipment :Supply_Fan ;
+    bf:usesMeasurement :Cooling_Coil_Valve_Pressure ;
+    bf:usesPoint :Sensor ;
+    rdfs:subClassOf :Cooling_Coil_Valve_Pressure_Sensor .
+
+:Supply_Fan_Differential_Pressure_Sensor a owl:Class ;
+    rdfs:label "Supply_Fan Differential Pressure Sensor"@en ;
+    bf:usesEquipment :Supply_Fan ;
+    bf:usesMeasurement :Differential_Pressure ;
+    bf:usesPoint :Sensor ;
+    rdfs:subClassOf :Differential_Pressure_Sensor .
+
+:Supply_Fan_Fan_Air_Flow_Sensor a owl:Class ;
+    rdfs:label "Supply_Fan Fan Air Flow Sensor"@en ;
+    bf:usesEquipment :Supply_Fan ;
+    bf:usesMeasurement :Air_Flow ;
+    bf:usesPoint :Sensor ;
+    rdfs:subClassOf :Fan_Air_Flow_Sensor .
+
+:Supply_Fan_Fan_Speed_Reset_Command a owl:Class ;
+    rdfs:label "Supply_Fan Fan Speed Reset Command"@en ;
+    bf:usesEquipment :Supply_Fan ;
+    bf:usesMeasurement :Fan_Speed_Reset ;
+    bf:usesPoint :Command ;
+    rdfs:subClassOf :Fan_Speed_Reset_Command .
+
+:Supply_Fan_Supply_Air_Proportional_Gain_Factor a owl:Class ;
+    rdfs:label "Supply_Fan Supply Air Proportional Gain Factor"@en ;
+    bf:usesEquipment :Supply_Fan ;
+    bf:usesMeasurement :Supply_Air_Proportional_Gain_Factor ;
+    bf:usesPoint :Setpoint ;
+    rdfs:subClassOf :Proportional_Gain_Setpoint,
+        :Supply_Air_Proportional_Gain_Factor .
+
+:Supply_Fan_VFD_Status a owl:Class ;
+    rdfs:label "Supply_Fan VFD Status"@en ;
+    bf:usesEquipment :Supply_Fan ;
+    bf:usesMeasurement :VFD_Status ;
+    rdfs:subClassOf :VFD_Status .
 
 :System_Mode_Status a owl:Class ;
     rdfs:label "System Mode Status"@en ;
@@ -2548,9 +2509,47 @@
     rdfs:subClassOf :Mode_Status,
         :System_Status .
 
-:Thermal_Energy_Storage a owl:Class ;
-    rdfs:label "Thermal Energy Storage"@en ;
-    rdfs:subClassOf :Energy_Storage .
+:Thermal_Energy_Storage_Discharge_Water_Differential_Pressure_Dead_Band_Setpoint a owl:Class ;
+    rdfs:label "Thermal Energy Storage Discharge Water Differential Pressure Dead Band Setpoint"@en ;
+    bf:usesEquipment :Thermal_Energy_Storage ;
+    bf:usesMeasurement :Discharge_Water_Differential_Pressure_Dead_Band ;
+    bf:usesPoint :Setpoint ;
+    rdfs:subClassOf :Supply_Water_Differential_Pressure_Dead_Band_Setpoint .
+
+:Thermal_Energy_Storage_Discharge_Water_Differential_Pressure_Integral_Time_Setpoint a owl:Class ;
+    rdfs:label "Thermal Energy Storage Discharge Water Differential Pressure Integral Time Setpoint"@en ;
+    bf:usesEquipment :Thermal_Energy_Storage ;
+    bf:usesMeasurement :Discharge_Water_Differential_Pressure_Integral_Time ;
+    bf:usesPoint :Setpoint ;
+    rdfs:subClassOf :Supply_Water_Differential_Pressure_Integral_Time_Setpoint .
+
+:Thermal_Energy_Storage_Discharge_Water_Differential_Pressure_Proportional_Band_Setpoint a owl:Class ;
+    rdfs:label "Thermal Energy Storage Discharge Water Differential Pressure Proportional Band Setpoint"@en ;
+    bf:usesEquipment :Thermal_Energy_Storage ;
+    bf:usesMeasurement :Discharge_Water_Differential_Pressure_Proportional_Band ;
+    bf:usesPoint :Setpoint ;
+    rdfs:subClassOf :Supply_Water_Differential_Pressure_Proportional_Band_Setpoint .
+
+:Thermal_Energy_Storage_Supply_Water_Differential_Pressure_Dead_Band_Setpoint a owl:Class ;
+    rdfs:label "Thermal Energy Storage Supply Water Differential Pressure Dead Band Setpoint"@en ;
+    bf:usesEquipment :Thermal_Energy_Storage ;
+    bf:usesMeasurement :Supply_Water_Differential_Pressure_Dead_Band ;
+    bf:usesPoint :Setpoint ;
+    rdfs:subClassOf :Supply_Water_Differential_Pressure_Dead_Band_Setpoint .
+
+:Thermal_Energy_Storage_Supply_Water_Differential_Pressure_Integral_Time_Setpoint a owl:Class ;
+    rdfs:label "Thermal Energy Storage Supply Water Differential Pressure Integral Time Setpoint"@en ;
+    bf:usesEquipment :Thermal_Energy_Storage ;
+    bf:usesMeasurement :Supply_Water_Differential_Pressure_Integral_Time ;
+    bf:usesPoint :Setpoint ;
+    rdfs:subClassOf :Supply_Water_Differential_Pressure_Integral_Time_Setpoint .
+
+:Thermal_Energy_Storage_Supply_Water_Differential_Pressure_Proportional_Band_Setpoint a owl:Class ;
+    rdfs:label "Thermal Energy Storage Supply Water Differential Pressure Proportional Band Setpoint"@en ;
+    bf:usesEquipment :Thermal_Energy_Storage ;
+    bf:usesMeasurement :Supply_Water_Differential_Pressure_Proportional_Band ;
+    bf:usesPoint :Setpoint ;
+    rdfs:subClassOf :Supply_Water_Differential_Pressure_Proportional_Band_Setpoint .
 
 :Thermostat a owl:Class ;
     rdfs:label "Thermostat"@en ;
@@ -3147,6 +3146,11 @@
     rdfs:subClassOf :System_Enable_Command,
         :VFD_Enable_Command .
 
+:Variable_Air_Volume a owl:Class ;
+    rdfs:label "Variable Air Volume"@en ;
+    rdfs:subClassOf :Terminal_Unit ;
+    owl:equivalentClass :VAV .
+
 :Variable_Frequency_Drive a owl:Class ;
     rdfs:label "Variable Frequency Drive"@en ;
     rdfs:subClassOf :HVAC ;
@@ -3160,60 +3164,60 @@
     rdfs:label "Voltage"@en ;
     rdfs:subClassOf :MeasurementProperty .
 
-:WaterSystem_Alarm_Delay_Setpoint a owl:Class ;
-    rdfs:label "WaterSystem Alarm Delay Setpoint"@en ;
-    bf:usesEquipment :WaterSystem ;
+:Water_Flow a owl:Class ;
+    rdfs:label "Water Flow"@en ;
+    rdfs:subClassOf :Flow .
+
+:Water_System_Alarm_Delay_Setpoint a owl:Class ;
+    rdfs:label "Water_System Alarm Delay Setpoint"@en ;
+    bf:usesEquipment :Water_System ;
     bf:usesMeasurement :Alarm_Delay ;
     bf:usesPoint :Setpoint ;
     rdfs:subClassOf :Alarm_Delay_Setpoint .
 
-:WaterSystem_Cooling_Tower_Fan_Speed_Setpoint a owl:Class ;
-    rdfs:label "WaterSystem Cooling Tower Fan Speed Setpoint"@en ;
-    bf:usesEquipment :WaterSystem ;
+:Water_System_Cooling_Tower_Fan_Speed_Setpoint a owl:Class ;
+    rdfs:label "Water_System Cooling Tower Fan Speed Setpoint"@en ;
+    bf:usesEquipment :Water_System ;
     bf:usesMeasurement :Cooling_Tower_Fan_Speed ;
     bf:usesPoint :Setpoint ;
     rdfs:subClassOf :Cooling_Tower_Fan_Speed_Setpoint .
 
-:WaterSystem_Deionised_Water_Conductivity_Sensor a owl:Class ;
-    rdfs:label "WaterSystem Deionised Water Conductivity Sensor"@en ;
-    bf:usesEquipment :WaterSystem ;
+:Water_System_Deionised_Water_Conductivity_Sensor a owl:Class ;
+    rdfs:label "Water_System Deionised Water Conductivity Sensor"@en ;
+    bf:usesEquipment :Water_System ;
     bf:usesMeasurement :Deionised_Water_Conductivity ;
     bf:usesPoint :Sensor ;
     rdfs:subClassOf :Deionised_Water_Conductivity_Sensor .
 
-:WaterSystem_Freeze_Status a owl:Class ;
-    rdfs:label "WaterSystem Freeze Status"@en ;
-    bf:usesEquipment :WaterSystem ;
+:Water_System_Freeze_Status a owl:Class ;
+    rdfs:label "Water_System Freeze Status"@en ;
+    bf:usesEquipment :Water_System ;
     bf:usesMeasurement :Freeze ;
     bf:usesPoint :Status ;
     rdfs:subClassOf :Freeze_Status .
 
-:WaterSystem_Perimeter_Heating_Valve_Command a owl:Class ;
-    rdfs:label "WaterSystem Perimeter Heating Valve Command"@en ;
-    bf:usesEquipment :WaterSystem ;
+:Water_System_Perimeter_Heating_Valve_Command a owl:Class ;
+    rdfs:label "Water_System Perimeter Heating Valve Command"@en ;
+    bf:usesEquipment :Water_System ;
     bf:usesMeasurement :Perimeter_Heating_Valve ;
     bf:usesPoint :Command ;
     rdfs:subClassOf :Perimeter_Heating_Valve_Command,
-        :WaterSystem_Valve_Command .
+        :Water_System_Valve_Command .
 
-:WaterSystem_Pump_Start_Stop_Status a owl:Class ;
-    rdfs:label "WaterSystem Pump Start Stop Status"@en ;
-    bf:usesEquipment :WaterSystem ;
+:Water_System_Pump_Start_Stop_Status a owl:Class ;
+    rdfs:label "Water_System Pump Start Stop Status"@en ;
+    bf:usesEquipment :Water_System ;
     bf:usesMeasurement :Pump_Start_Stop ;
     bf:usesPoint :Status ;
     rdfs:subClassOf :Pump_Start_Stop_Status,
-        :WaterSystem_Pump_Status .
+        :Water_System_Pump_Status .
 
-:WaterSystem_Water_Meter a owl:Class ;
-    rdfs:label "WaterSystem Water Meter"@en ;
-    bf:usesEquipment :WaterSystem ;
+:Water_System_Water_Meter a owl:Class ;
+    rdfs:label "Water_System Water Meter"@en ;
+    bf:usesEquipment :Water_System ;
     bf:usesMeasurement :Water ;
     bf:usesPoint :Meter ;
     rdfs:subClassOf :Water_Meter .
-
-:Water_Flow a owl:Class ;
-    rdfs:label "Water Flow"@en ;
-    rdfs:subClassOf :Flow .
 
 :Weather_Hail_Sensor a owl:Class ;
     rdfs:label "Weather Hail Sensor"@en ;
@@ -3632,14 +3636,14 @@
 :AHU_Fire_Control_Panel_Off_Command a owl:Class ;
     rdfs:label "AHU Fire Control Panel Off Command"@en ;
     bf:usesEquipment :AHU ;
-    bf:usesMeasurement :Fire_Control_Panel_Off ;
+    bf:usesMeasurement :Off ;
     bf:usesPoint :Command ;
     rdfs:subClassOf :Fire_Control_Panel_Off_Command .
 
 :AHU_Fire_Control_Panel_On_Command a owl:Class ;
     rdfs:label "AHU Fire Control Panel On Command"@en ;
     bf:usesEquipment :AHU ;
-    bf:usesMeasurement :Fire_Control_Panel_On ;
+    bf:usesMeasurement :On ;
     bf:usesPoint :Command ;
     rdfs:subClassOf :Fire_Control_Panel_On_Command .
 
@@ -3874,6 +3878,13 @@
     bf:usesPoint :Sensor ;
     rdfs:subClassOf :AHU_Supply_Air_Temperature_Sensor,
         :Preheat_Supply_Air_Temperature_Sensor .
+
+:AHU_Preheat_Valve_Command a owl:Class ;
+    rdfs:label "AHU Preheat Valve Command"@en ;
+    bf:usesEquipment :AHU ;
+    bf:usesMeasurement :Preheat_Valve ;
+    bf:usesPoint :Command ;
+    rdfs:subClassOf :Preheat_Valve_Command .
 
 :AHU_Return_Air_Flow_Sensor a owl:Class ;
     rdfs:label "AHU Return Air Flow Sensor"@en ;
@@ -4543,6 +4554,10 @@
     rdfs:subClassOf :Chilled_Water,
         :Static_Pressure_Setpoint .
 
+:Chilled_Water_System a owl:Class ;
+    rdfs:label "Chilled Water System"@en ;
+    rdfs:subClassOf :Water_System .
+
 :Chilled_Water_System_Enable_Command a owl:Class ;
     rdfs:label "Chilled Water System Enable Command"@en ;
     bf:usesMeasurement :Chilled_Water_System_Enable ;
@@ -4592,15 +4607,6 @@
 
 :Computer_Room_Air_Conditioning a owl:Class ;
     rdfs:label "Computer Room Air Conditioning"@en ;
-    rdfs:subClassOf :HVAC .
-
-:Condenser a owl:Class ;
-    rdfs:label "Condenser"@en ;
-    rdfs:subClassOf :HVAC ;
-    owl:equivalentClass :Condensor .
-
-:Condensor a owl:Class ;
-    rdfs:label "Condenser"@en ;
     rdfs:subClassOf :HVAC .
 
 :Condensor_Temperature_Sensor a owl:Class ;
@@ -4852,6 +4858,25 @@
     rdfs:subClassOf :Damper_Position_Setpoint,
         :Discharge_Air .
 
+:Discharge_Water_Differential_Pressure_Dead_Band a owl:Class ;
+    rdfs:label "Discharge Water Differential Pressure Dead Band"@en ;
+    rdfs:subClassOf :Differential_Pressure,
+        :Water .
+
+:Discharge_Water_Differential_Pressure_Integral_Time a owl:Class ;
+    rdfs:label "Discharge Water Differential Pressure Integral Time"@en ;
+    rdfs:subClassOf :Differential_Pressure,
+        :Water .
+
+:Discharge_Water_Differential_Pressure_Proportional_Band a owl:Class ;
+    rdfs:label "Discharge Water Differential Pressure Proportional Band"@en ;
+    rdfs:subClassOf :Differential_Pressure,
+        :Water .
+
+:Domestic_Hot_Water_System a owl:Class ;
+    rdfs:label "Domestic Hot Water System"@en ;
+    rdfs:subClassOf :Water_System .
+
 :Domestic_Hot_Water_System_Enable_Command a owl:Class ;
     rdfs:label "Domestic Hot Water System Enable Command"@en ;
     bf:usesMeasurement :Domestic_Hot_Water_System_Enable ;
@@ -5011,18 +5036,6 @@
     bf:usesPoint :Status ;
     rdfs:subClassOf :Status ;
     skos:definition ""@en .
-
-:Emergency_Generator_Alarm a owl:Class ;
-    rdfs:label "Emergency Generator Alarm"@en ;
-    bf:usesMeasurement :Emergency_Generator ;
-    bf:usesPoint :Alarm ;
-    rdfs:subClassOf :Alarm .
-
-:Emergency_Generator_Status a owl:Class ;
-    rdfs:label "Emergency Generator Status"@en ;
-    bf:usesMeasurement :Emergency_Generator ;
-    bf:usesPoint :Status ;
-    rdfs:subClassOf :Status .
 
 :Emergency_Power_Loss_Alarm a owl:Class ;
     rdfs:label "Emergency Power Loss Alarm"@en ;
@@ -5190,6 +5203,22 @@
     bf:usesPoint :Status ;
     rdfs:subClassOf :Disable_Status,
         :Exhaust_Fan_Status .
+
+:Exhaust_Fan_Fire_Control_Panel_Off_Command a owl:Class ;
+    rdfs:label "Exhaust Fan Fire Control Panel Off Command"@en ;
+    bf:usesEquipment :Fire_Control_Panel ;
+    bf:usesMeasurement :Exhaust_Fan_Off ;
+    bf:usesPoint :Command ;
+    rdfs:subClassOf :Exhaust_Fan_Command,
+        :Fire_Control_Panel_Off_Command .
+
+:Exhaust_Fan_Fire_Control_Panel_On_Command a owl:Class ;
+    rdfs:label "Exhaust Fan Fire Control Panel On Command"@en ;
+    bf:usesEquipment :Fire_Control_Panel ;
+    bf:usesMeasurement :Exhaust_Fan_On ;
+    bf:usesPoint :Command ;
+    rdfs:subClassOf :Exhaust_Fan_Command,
+        :Fire_Control_Panel_On_Command .
 
 :Exhaust_Fan_Off_Status_LED a owl:Class ;
     rdfs:label "Exhaust Fan Off Status LED"@en ;
@@ -5409,10 +5438,6 @@
     rdfs:label "Failure Alarm"@en ;
     rdfs:subClassOf :Alarm .
 
-:Fan_Coil_Unit a owl:Class ;
-    rdfs:label "Fan Coil Unit"@en ;
-    rdfs:subClassOf :Terminal_Unit .
-
 :Fan_Overload_Alarm a owl:Class ;
     rdfs:label "Fan Overload Alarm"@en ;
     bf:usesMeasurement :Fan_Overload ;
@@ -5455,24 +5480,6 @@
     rdfs:subClassOf :Reset_Command ;
     skos:definition ""@en .
 
-:FireControlPanel_Fire_Control_Panel_Off_Command a owl:Class ;
-    rdfs:label "FireControlPanel Fire Control Panel Off Command"@en ;
-    bf:usesEquipment :FireControlPanel ;
-    bf:usesMeasurement :Fire_Control_Panel_Off ;
-    bf:usesPoint :Command ;
-    rdfs:subClassOf :Fire_Control_Panel_Off_Command .
-
-:FireControlPanel_Fire_Control_Panel_On_Command a owl:Class ;
-    rdfs:label "FireControlPanel Fire Control Panel On Command"@en ;
-    bf:usesEquipment :FireControlPanel ;
-    bf:usesMeasurement :Fire_Control_Panel_On ;
-    bf:usesPoint :Command ;
-    rdfs:subClassOf :Fire_Control_Panel_On_Command .
-
-:Fire_Control_Panel a owl:Class ;
-    rdfs:label "Fire Control Panel"@en ;
-    rdfs:subClassOf :Fire_Safety_System .
-
 :Flow_Meter a owl:Class ;
     rdfs:label "Flow Meter"@en ;
     rdfs:subClassOf :Meter .
@@ -5502,24 +5509,6 @@
     bf:usesMeasurement :Frost ;
     bf:usesPoint :Sensor ;
     rdfs:subClassOf :Sensor .
-
-:Fume_Hood_Air_Flow_Sensor a owl:Class ;
-    rdfs:label "Fume Hood Air Flow Sensor"@en ;
-    bf:usesMeasurement :Fume_Hood_Air_Flow ;
-    bf:usesPoint :Sensor ;
-    rdfs:subClassOf :Air_Flow_Sensor .
-
-:Fume_Hood_Alarm a owl:Class ;
-    rdfs:label "Fume Hood Alarm"@en ;
-    bf:usesMeasurement :Fume_Hood ;
-    bf:usesPoint :Alarm ;
-    rdfs:subClassOf :Alarm .
-
-:Fume_Hood_Sash_Position_Sensor a owl:Class ;
-    rdfs:label "Fume Hood Sash Position Sensor"@en ;
-    bf:usesMeasurement :Fume_Hood_Sash_Position ;
-    bf:usesPoint :Sensor ;
-    rdfs:subClassOf :Damper_Position_Sensor .
 
 :Gas a owl:Class ;
     rdfs:label "Gas"@en ;
@@ -5744,10 +5733,6 @@
     rdfs:subClassOf :HWS_Hot_Water_Supply_Temperature_Sensor,
         :Medium_Temperature_Hot_Water_Supply_Temperature_Sensor .
 
-:HX a owl:Class ;
-    rdfs:label "Heat Exchanger"@en ;
-    rdfs:subClassOf :Coil .
-
 :Hail_Sensor a owl:Class ;
     rdfs:label "Hail Sensor"@en ;
     bf:usesMeasurement :Hail ;
@@ -5919,6 +5904,10 @@
     bf:usesPoint :Setpoint ;
     rdfs:subClassOf :Hot_Water,
         :Static_Pressure_Setpoint .
+
+:Hot_Water_System a owl:Class ;
+    rdfs:label "Hot Water System"@en ;
+    rdfs:subClassOf :Water_System .
 
 :Humidification_On_Off_Status a owl:Class ;
     rdfs:label "Humidification On Off Status"@en ;
@@ -6435,29 +6424,23 @@
     bf:usesPoint :Command ;
     rdfs:subClassOf :Heating_Valve_Command .
 
-:PreHeat_Coil_Entering_Air_Temperature_Sensor a owl:Class ;
-    rdfs:label "PreHeat Coil Entering Air Temperature Sensor"@en ;
-    bf:usesMeasurement :PreHeat_Coil_Entering_Air_Temperature ;
-    bf:usesPoint :Sensor ;
-    rdfs:subClassOf :Entering_Water_Temperature_Sensor .
-
-:PreHeat_Coil_Leaving_Water_Temperature a owl:Class ;
-    rdfs:label "PreHeat Coil Leaving Water Temperature"@en ;
-    rdfs:subClassOf :Temperature,
-        :Water .
-
-:PreHeat_Valve_Command a owl:Class ;
-    rdfs:label "PreHeat Valve Command"@en ;
-    bf:usesMeasurement :PreHeat_Valve ;
-    bf:usesPoint :Command ;
-    rdfs:subClassOf :Valve_Command .
-
 :Pre_Filter_Status a owl:Class ;
     rdfs:label "Pre Filter Status"@en ;
     bf:usesMeasurement :Pre_Filter ;
     bf:usesPoint :Status ;
     rdfs:subClassOf :Filter_Status ;
     skos:definition ""@en .
+
+:Preheat_Coil_Entering_Air_Temperature_Sensor a owl:Class ;
+    rdfs:label "Preheat Coil Entering Air Temperature Sensor"@en ;
+    bf:usesMeasurement :Preheat_Coil_Entering_Air_Temperature ;
+    bf:usesPoint :Sensor ;
+    rdfs:subClassOf :Entering_Water_Temperature_Sensor .
+
+:Preheat_Coil_Leaving_Water_Temperature a owl:Class ;
+    rdfs:label "Preheat Coil Leaving Water Temperature"@en ;
+    rdfs:subClassOf :Temperature,
+        :Water .
 
 :Preheat_Demand_Setpoint a owl:Class ;
     rdfs:label "Preheat Demand Setpoint"@en ;
@@ -6549,8 +6532,8 @@
     rdfs:label "Return Air Preheat Valve Command"@en ;
     bf:usesMeasurement :Return_Air_Preheat_Valve ;
     bf:usesPoint :Command ;
-    rdfs:subClassOf :Return_Air,
-        :Valve_Command .
+    rdfs:subClassOf :Preheat_Valve_Command,
+        :Return_Air .
 
 :Return_Air_Temperature_High_Limit_Alarm a owl:Class ;
     rdfs:label "Return Air Temperature High Limit Alarm"@en ;
@@ -6655,6 +6638,10 @@
     bf:usesPoint :Sensor ;
     rdfs:subClassOf :Sensor .
 
+:Sash_Position a owl:Class ;
+    rdfs:label "Sash Position"@en ;
+    rdfs:subClassOf :UndefinedMeasurement .
+
 :Schedule_Temperature_Setpoint a owl:Class ;
     rdfs:label "Schedule Temperature Setpoint"@en ;
     bf:usesMeasurement :Schedule_Temperature ;
@@ -6674,27 +6661,27 @@
     rdfs:subClassOf :Hot_Water,
         :Shutdown_Command .
 
-:SolarPanel_PV_Current_Output_Sensor a owl:Class ;
-    rdfs:label "SolarPanel PV Current Output Sensor"@en ;
-    bf:equivalentTagSet :SolarPanel_Photovoltaic_Current_Output_Sensor ;
-    bf:usesEquipment :SolarPanel ;
-    bf:usesMeasurement :PV_Current_Output ;
-    bf:usesPoint :Sensor ;
-    rdfs:subClassOf :PV_Current_Output_Sensor .
-
-:SolarPanel_Photovoltaic_Current_Output_Sensor a owl:Class ;
-    rdfs:label "SolarPanel Photovoltaic Current Output Sensor"@en ;
-    bf:equivalentTagSet :SolarPanel_PV_Current_Output_Sensor ;
-    bf:usesEquipment :SolarPanel ;
-    bf:usesMeasurement :Photovoltaic_Current_Output ;
-    bf:usesPoint :Sensor ;
-    rdfs:subClassOf :Photovoltaic_Current_Output_Sensor .
-
 :Solar_Azimuth_Angle_Sensor a owl:Class ;
     rdfs:label "Solar Azimuth Angle Sensor"@en ;
     bf:usesMeasurement :Solar_Azimuth_Angle ;
     bf:usesPoint :Sensor ;
     rdfs:subClassOf :Angle_Sensor .
+
+:Solar_Panel_PV_Current_Output_Sensor a owl:Class ;
+    rdfs:label "Solar_Panel PV Current Output Sensor"@en ;
+    bf:equivalentTagSet :Solar_Panel_Photovoltaic_Current_Output_Sensor ;
+    bf:usesEquipment :Solar_Panel ;
+    bf:usesMeasurement :PV_Current_Output ;
+    bf:usesPoint :Sensor ;
+    rdfs:subClassOf :PV_Current_Output_Sensor .
+
+:Solar_Panel_Photovoltaic_Current_Output_Sensor a owl:Class ;
+    rdfs:label "Solar_Panel Photovoltaic Current Output Sensor"@en ;
+    bf:equivalentTagSet :Solar_Panel_PV_Current_Output_Sensor ;
+    bf:usesEquipment :Solar_Panel ;
+    bf:usesMeasurement :Photovoltaic_Current_Output ;
+    bf:usesPoint :Sensor ;
+    rdfs:subClassOf :Photovoltaic_Current_Output_Sensor .
 
 :Solar_Radiance_Sensor a owl:Class ;
     rdfs:label "Solar Radiance Sensor"@en ;
@@ -6747,38 +6734,6 @@
     bf:usesPoint :Meter ;
     rdfs:subClassOf :Steam_Usage_Meter .
 
-:SupplyFan_Discharge_Air_Static_Pressure_Integral_Time_Setpoint a owl:Class ;
-    rdfs:label "SupplyFan Discharge Air Static Pressure Integral Time Setpoint"@en ;
-    bf:equivalentTagSet :SupplyFan_Supply_Air_Static_Pressure_Integral_Time_Setpoint ;
-    bf:usesEquipment :SupplyFan ;
-    bf:usesMeasurement :Discharge_Air_Static_Pressure_Integral_Time ;
-    bf:usesPoint :Setpoint ;
-    rdfs:subClassOf :Discharge_Air_Static_Pressure_Integral_Time_Setpoint .
-
-:SupplyFan_Discharge_Air_Static_Pressure_Proportional_Band_Setpoint a owl:Class ;
-    rdfs:label "SupplyFan Discharge Air Static Pressure Proportional Band Setpoint"@en ;
-    bf:equivalentTagSet :SupplyFan_Supply_Air_Static_Pressure_Proportional_Band_Setpoint ;
-    bf:usesEquipment :SupplyFan ;
-    bf:usesMeasurement :Discharge_Air_Static_Pressure_Proportional_Band ;
-    bf:usesPoint :Setpoint ;
-    rdfs:subClassOf :Discharge_Air_Static_Pressure_Proportional_Band_Setpoint .
-
-:SupplyFan_Supply_Air_Static_Pressure_Integral_Time_Setpoint a owl:Class ;
-    rdfs:label "SupplyFan Supply Air Static Pressure Integral Time Setpoint"@en ;
-    bf:equivalentTagSet :SupplyFan_Discharge_Air_Static_Pressure_Integral_Time_Setpoint ;
-    bf:usesEquipment :SupplyFan ;
-    bf:usesMeasurement :Supply_Air_Static_Pressure_Integral_Time ;
-    bf:usesPoint :Setpoint ;
-    rdfs:subClassOf :Supply_Air_Static_Pressure_Integral_Time_Setpoint .
-
-:SupplyFan_Supply_Air_Static_Pressure_Proportional_Band_Setpoint a owl:Class ;
-    rdfs:label "SupplyFan Supply Air Static Pressure Proportional Band Setpoint"@en ;
-    bf:equivalentTagSet :SupplyFan_Discharge_Air_Static_Pressure_Proportional_Band_Setpoint ;
-    bf:usesEquipment :SupplyFan ;
-    bf:usesMeasurement :Supply_Air_Static_Pressure_Proportional_Band ;
-    bf:usesPoint :Setpoint ;
-    rdfs:subClassOf :Supply_Air_Static_Pressure_Proportional_Band_Setpoint .
-
 :Supply_Air_Damper_Max_Position a owl:Class ;
     rdfs:label "Supply Air Damper Max Position"@en ;
     rdfs:subClassOf :Air_Damper_Position,
@@ -6791,6 +6746,53 @@
     bf:usesPoint :Setpoint ;
     rdfs:subClassOf :Damper_Position_Setpoint,
         :Supply_Air .
+
+:Supply_Fan_Discharge_Air_Static_Pressure_Integral_Time_Setpoint a owl:Class ;
+    rdfs:label "Supply_Fan Discharge Air Static Pressure Integral Time Setpoint"@en ;
+    bf:equivalentTagSet :Supply_Fan_Supply_Air_Static_Pressure_Integral_Time_Setpoint ;
+    bf:usesEquipment :Supply_Fan ;
+    bf:usesMeasurement :Discharge_Air_Static_Pressure_Integral_Time ;
+    bf:usesPoint :Setpoint ;
+    rdfs:subClassOf :Discharge_Air_Static_Pressure_Integral_Time_Setpoint .
+
+:Supply_Fan_Discharge_Air_Static_Pressure_Proportional_Band_Setpoint a owl:Class ;
+    rdfs:label "Supply_Fan Discharge Air Static Pressure Proportional Band Setpoint"@en ;
+    bf:equivalentTagSet :Supply_Fan_Supply_Air_Static_Pressure_Proportional_Band_Setpoint ;
+    bf:usesEquipment :Supply_Fan ;
+    bf:usesMeasurement :Discharge_Air_Static_Pressure_Proportional_Band ;
+    bf:usesPoint :Setpoint ;
+    rdfs:subClassOf :Discharge_Air_Static_Pressure_Proportional_Band_Setpoint .
+
+:Supply_Fan_Supply_Air_Static_Pressure_Integral_Time_Setpoint a owl:Class ;
+    rdfs:label "Supply_Fan Supply Air Static Pressure Integral Time Setpoint"@en ;
+    bf:equivalentTagSet :Supply_Fan_Discharge_Air_Static_Pressure_Integral_Time_Setpoint ;
+    bf:usesEquipment :Supply_Fan ;
+    bf:usesMeasurement :Supply_Air_Static_Pressure_Integral_Time ;
+    bf:usesPoint :Setpoint ;
+    rdfs:subClassOf :Supply_Air_Static_Pressure_Integral_Time_Setpoint .
+
+:Supply_Fan_Supply_Air_Static_Pressure_Proportional_Band_Setpoint a owl:Class ;
+    rdfs:label "Supply_Fan Supply Air Static Pressure Proportional Band Setpoint"@en ;
+    bf:equivalentTagSet :Supply_Fan_Discharge_Air_Static_Pressure_Proportional_Band_Setpoint ;
+    bf:usesEquipment :Supply_Fan ;
+    bf:usesMeasurement :Supply_Air_Static_Pressure_Proportional_Band ;
+    bf:usesPoint :Setpoint ;
+    rdfs:subClassOf :Supply_Air_Static_Pressure_Proportional_Band_Setpoint .
+
+:Supply_Water_Differential_Pressure_Dead_Band a owl:Class ;
+    rdfs:label "Supply Water Differential Pressure Dead Band"@en ;
+    rdfs:subClassOf :Differential_Pressure,
+        :Water .
+
+:Supply_Water_Differential_Pressure_Integral_Time a owl:Class ;
+    rdfs:label "Supply Water Differential Pressure Integral Time"@en ;
+    rdfs:subClassOf :Differential_Pressure,
+        :Water .
+
+:Supply_Water_Differential_Pressure_Proportional_Band a owl:Class ;
+    rdfs:label "Supply Water Differential Pressure Proportional Band"@en ;
+    rdfs:subClassOf :Differential_Pressure,
+        :Water .
 
 :System_Mode a owl:Class ;
     rdfs:label "System Mode"@en ;
@@ -6826,57 +6828,6 @@
     rdfs:subClassOf :Occupancy_Status ;
     skos:definition ""@en .
 
-:ThermalEnergyStorage_Thermal_Energy_Storage_Discharge_Water_Differential_Pressure_Dead_Band_Setpoint a owl:Class ;
-    rdfs:label "ThermalEnergyStorage Thermal Energy Storage Discharge Water Differential Pressure Dead Band Setpoint"@en ;
-    bf:equivalentTagSet :ThermalEnergyStorage_Thermal_Energy_Storage_Supply_Water_Differential_Pressure_Dead_Band_Setpoint ;
-    bf:usesEquipment :ThermalEnergyStorage ;
-    bf:usesMeasurement :Thermal_Energy_Storage_Discharge_Water_Differential_Pressure_Dead_Band ;
-    bf:usesPoint :Setpoint ;
-    rdfs:subClassOf :Supply_Water_Differential_Pressure_Dead_Band_Setpoint,
-        :Thermal_Energy_Storage_Discharge_Water_Differential_Pressure_Dead_Band_Setpoint .
-
-:ThermalEnergyStorage_Thermal_Energy_Storage_Discharge_Water_Differential_Pressure_Integral_Time_Setpoint a owl:Class ;
-    rdfs:label "ThermalEnergyStorage Thermal Energy Storage Discharge Water Differential Pressure Integral Time Setpoint"@en ;
-    bf:equivalentTagSet :ThermalEnergyStorage_Thermal_Energy_Storage_Supply_Water_Differential_Pressure_Integral_Time_Setpoint ;
-    bf:usesEquipment :ThermalEnergyStorage ;
-    bf:usesMeasurement :Thermal_Energy_Storage_Discharge_Water_Differential_Pressure_Integral_Time ;
-    bf:usesPoint :Setpoint ;
-    rdfs:subClassOf :Supply_Water_Differential_Pressure_Integral_Time_Setpoint,
-        :Thermal_Energy_Storage_Discharge_Water_Differential_Pressure_Integral_Time_Setpoint .
-
-:ThermalEnergyStorage_Thermal_Energy_Storage_Discharge_Water_Differential_Pressure_Proportional_Band_Setpoint a owl:Class ;
-    rdfs:label "ThermalEnergyStorage Thermal Energy Storage Discharge Water Differential Pressure Proportional Band Setpoint"@en ;
-    bf:equivalentTagSet :ThermalEnergyStorage_Thermal_Energy_Storage_Supply_Water_Differential_Pressure_Proportional_Band_Setpoint ;
-    bf:usesEquipment :ThermalEnergyStorage ;
-    bf:usesMeasurement :Thermal_Energy_Storage_Discharge_Water_Differential_Pressure_Proportional_Band ;
-    bf:usesPoint :Setpoint ;
-    rdfs:subClassOf :Supply_Water_Differential_Pressure_Proportional_Band_Setpoint,
-        :Thermal_Energy_Storage_Discharge_Water_Differential_Pressure_Proportional_Band_Setpoint .
-
-:ThermalEnergyStorage_Thermal_Energy_Storage_Supply_Water_Differential_Pressure_Dead_Band_Setpoint a owl:Class ;
-    rdfs:label "ThermalEnergyStorage Thermal Energy Storage Supply Water Differential Pressure Dead Band Setpoint"@en ;
-    bf:equivalentTagSet :ThermalEnergyStorage_Thermal_Energy_Storage_Discharge_Water_Differential_Pressure_Dead_Band_Setpoint ;
-    bf:usesEquipment :ThermalEnergyStorage ;
-    bf:usesMeasurement :Thermal_Energy_Storage_Supply_Water_Differential_Pressure_Dead_Band ;
-    bf:usesPoint :Setpoint ;
-    rdfs:subClassOf :Thermal_Energy_Storage_Supply_Water_Differential_Pressure_Dead_Band_Setpoint .
-
-:ThermalEnergyStorage_Thermal_Energy_Storage_Supply_Water_Differential_Pressure_Integral_Time_Setpoint a owl:Class ;
-    rdfs:label "ThermalEnergyStorage Thermal Energy Storage Supply Water Differential Pressure Integral Time Setpoint"@en ;
-    bf:equivalentTagSet :ThermalEnergyStorage_Thermal_Energy_Storage_Discharge_Water_Differential_Pressure_Integral_Time_Setpoint ;
-    bf:usesEquipment :ThermalEnergyStorage ;
-    bf:usesMeasurement :Thermal_Energy_Storage_Supply_Water_Differential_Pressure_Integral_Time ;
-    bf:usesPoint :Setpoint ;
-    rdfs:subClassOf :Thermal_Energy_Storage_Supply_Water_Differential_Pressure_Integral_Time_Setpoint .
-
-:ThermalEnergyStorage_Thermal_Energy_Storage_Supply_Water_Differential_Pressure_Proportional_Band_Setpoint a owl:Class ;
-    rdfs:label "ThermalEnergyStorage Thermal Energy Storage Supply Water Differential Pressure Proportional Band Setpoint"@en ;
-    bf:equivalentTagSet :ThermalEnergyStorage_Thermal_Energy_Storage_Discharge_Water_Differential_Pressure_Proportional_Band_Setpoint ;
-    bf:usesEquipment :ThermalEnergyStorage ;
-    bf:usesMeasurement :Thermal_Energy_Storage_Supply_Water_Differential_Pressure_Proportional_Band ;
-    bf:usesPoint :Setpoint ;
-    rdfs:subClassOf :Thermal_Energy_Storage_Supply_Water_Differential_Pressure_Proportional_Band_Setpoint .
-
 :Thermostat_Adjust_Sensor a owl:Class ;
     rdfs:label "Thermostat Adjust Sensor"@en ;
     bf:usesMeasurement :Thermostat_Adjust ;
@@ -6910,7 +6861,7 @@
 
 :Turn_Off a owl:Class ;
     rdfs:label "Turn Off"@en ;
-    rdfs:subClassOf :UndefinedMeasurement .
+    rdfs:subClassOf :Off .
 
 :Underfloor_Temperature_Sensor a owl:Class ;
     rdfs:label "Underfloor Temperature Sensor"@en ;
@@ -7324,10 +7275,6 @@
     rdfs:label "Valve Status"@en ;
     rdfs:subClassOf :Status .
 
-:Variable_Air_Volume a owl:Class ;
-    rdfs:label "Variable Air Volume"@en ;
-    rdfs:subClassOf :Terminal_Unit .
-
 :Vent_Operating_Mode_Status a owl:Class ;
     rdfs:label "Vent Operating Mode Status"@en ;
     bf:usesMeasurement :Vent_Operating_Mode ;
@@ -7351,85 +7298,6 @@
     rdfs:subClassOf :Sensor ;
     skos:definition ""@en .
 
-:WaterSystem_DI_Water_Alarm a owl:Class ;
-    rdfs:label "WaterSystem DI Water Alarm"@en ;
-    bf:equivalentTagSet :WaterSystem_Deionised_Water_Alarm ;
-    bf:usesEquipment :WaterSystem ;
-    bf:usesMeasurement :DI_Water ;
-    bf:usesPoint :Alarm ;
-    rdfs:subClassOf :DI_Water_Alarm .
-
-:WaterSystem_DI_Water_Level_Sensor a owl:Class ;
-    rdfs:label "WaterSystem DI Water Level Sensor"@en ;
-    bf:equivalentTagSet :WaterSystem_Deionised_Water_Level_Sensor ;
-    bf:usesEquipment :WaterSystem ;
-    bf:usesMeasurement :DI_Water_Level ;
-    bf:usesPoint :Sensor ;
-    rdfs:subClassOf :DI_Water_Level_Sensor .
-
-:WaterSystem_Deionised_Water_Alarm a owl:Class ;
-    rdfs:label "WaterSystem Deionised Water Alarm"@en ;
-    bf:equivalentTagSet :WaterSystem_DI_Water_Alarm ;
-    bf:usesEquipment :WaterSystem ;
-    bf:usesMeasurement :Deionised_Water ;
-    bf:usesPoint :Alarm ;
-    rdfs:subClassOf :Deionised_Water_Alarm .
-
-:WaterSystem_Deionised_Water_Level_Sensor a owl:Class ;
-    rdfs:label "WaterSystem Deionised Water Level Sensor"@en ;
-    bf:equivalentTagSet :WaterSystem_DI_Water_Level_Sensor ;
-    bf:usesEquipment :WaterSystem ;
-    bf:usesMeasurement :Deionised_Water_Level ;
-    bf:usesPoint :Sensor ;
-    rdfs:subClassOf :Deionised_Water_Level_Sensor .
-
-:WaterSystem_Discharge_Water_Temperature_Setpoint a owl:Class ;
-    rdfs:label "WaterSystem Discharge Water Temperature Setpoint"@en ;
-    bf:equivalentTagSet :WaterSystem_Supply_Water_Temperature_Setpoint ;
-    bf:usesEquipment :WaterSystem ;
-    bf:usesMeasurement :Discharge_Water_Temperature ;
-    bf:usesPoint :Setpoint ;
-    rdfs:subClassOf :Discharge_Water_Temperature_Setpoint .
-
-:WaterSystem_Pump_Status a owl:Class ;
-    rdfs:label "WaterSystem Pump Status"@en ;
-    bf:usesEquipment :WaterSystem ;
-    bf:usesMeasurement :Pump ;
-    bf:usesPoint :Status ;
-    rdfs:subClassOf :Pump_Status,
-        :Start_Stop_Status .
-
-:WaterSystem_Supply_Water_Temperature_Setpoint a owl:Class ;
-    rdfs:label "WaterSystem Supply Water Temperature Setpoint"@en ;
-    bf:equivalentTagSet :WaterSystem_Discharge_Water_Temperature_Setpoint ;
-    bf:usesEquipment :WaterSystem ;
-    bf:usesMeasurement :Supply_Water_Temperature ;
-    bf:usesPoint :Setpoint ;
-    rdfs:subClassOf :Supply_Water_Temperature_Setpoint .
-
-:WaterSystem_Valve_Command a owl:Class ;
-    rdfs:label "WaterSystem Valve Command"@en ;
-    bf:usesEquipment :WaterSystem ;
-    bf:usesMeasurement :Valve ;
-    bf:usesPoint :Command ;
-    rdfs:subClassOf :Valve_Command .
-
-:WaterSystem_Water_Discharge_Temperature_Sensor a owl:Class ;
-    rdfs:label "WaterSystem Water Discharge Temperature Sensor"@en ;
-    bf:equivalentTagSet :WaterSystem_Water_Supply_Temperature_Sensor ;
-    bf:usesEquipment :WaterSystem ;
-    bf:usesMeasurement :Water_Discharge_Temperature ;
-    bf:usesPoint :Sensor ;
-    rdfs:subClassOf :Water_Discharge_Temperature_Sensor .
-
-:WaterSystem_Water_Supply_Temperature_Sensor a owl:Class ;
-    rdfs:label "WaterSystem Water Supply Temperature Sensor"@en ;
-    bf:equivalentTagSet :WaterSystem_Water_Discharge_Temperature_Sensor ;
-    bf:usesEquipment :WaterSystem ;
-    bf:usesMeasurement :Water_Supply_Temperature ;
-    bf:usesPoint :Sensor ;
-    rdfs:subClassOf :Water_Supply_Temperature_Sensor .
-
 :Water_Flow_Sensor a owl:Class ;
     rdfs:label "Water Flow Sensor"@en ;
     rdfs:subClassOf :Flow_Sensor .
@@ -7439,6 +7307,85 @@
     bf:usesMeasurement :Water_Loss ;
     bf:usesPoint :Alarm ;
     rdfs:subClassOf :Alarm .
+
+:Water_System_DI_Water_Alarm a owl:Class ;
+    rdfs:label "Water_System DI Water Alarm"@en ;
+    bf:equivalentTagSet :Water_System_Deionised_Water_Alarm ;
+    bf:usesEquipment :Water_System ;
+    bf:usesMeasurement :DI_Water ;
+    bf:usesPoint :Alarm ;
+    rdfs:subClassOf :DI_Water_Alarm .
+
+:Water_System_DI_Water_Level_Sensor a owl:Class ;
+    rdfs:label "Water_System DI Water Level Sensor"@en ;
+    bf:equivalentTagSet :Water_System_Deionised_Water_Level_Sensor ;
+    bf:usesEquipment :Water_System ;
+    bf:usesMeasurement :DI_Water_Level ;
+    bf:usesPoint :Sensor ;
+    rdfs:subClassOf :DI_Water_Level_Sensor .
+
+:Water_System_Deionised_Water_Alarm a owl:Class ;
+    rdfs:label "Water_System Deionised Water Alarm"@en ;
+    bf:equivalentTagSet :Water_System_DI_Water_Alarm ;
+    bf:usesEquipment :Water_System ;
+    bf:usesMeasurement :Deionised_Water ;
+    bf:usesPoint :Alarm ;
+    rdfs:subClassOf :Deionised_Water_Alarm .
+
+:Water_System_Deionised_Water_Level_Sensor a owl:Class ;
+    rdfs:label "Water_System Deionised Water Level Sensor"@en ;
+    bf:equivalentTagSet :Water_System_DI_Water_Level_Sensor ;
+    bf:usesEquipment :Water_System ;
+    bf:usesMeasurement :Deionised_Water_Level ;
+    bf:usesPoint :Sensor ;
+    rdfs:subClassOf :Deionised_Water_Level_Sensor .
+
+:Water_System_Discharge_Water_Temperature_Setpoint a owl:Class ;
+    rdfs:label "Water_System Discharge Water Temperature Setpoint"@en ;
+    bf:equivalentTagSet :Water_System_Supply_Water_Temperature_Setpoint ;
+    bf:usesEquipment :Water_System ;
+    bf:usesMeasurement :Discharge_Water_Temperature ;
+    bf:usesPoint :Setpoint ;
+    rdfs:subClassOf :Discharge_Water_Temperature_Setpoint .
+
+:Water_System_Pump_Status a owl:Class ;
+    rdfs:label "Water_System Pump Status"@en ;
+    bf:usesEquipment :Water_System ;
+    bf:usesMeasurement :Pump ;
+    bf:usesPoint :Status ;
+    rdfs:subClassOf :Pump_Status,
+        :Start_Stop_Status .
+
+:Water_System_Supply_Water_Temperature_Setpoint a owl:Class ;
+    rdfs:label "Water_System Supply Water Temperature Setpoint"@en ;
+    bf:equivalentTagSet :Water_System_Discharge_Water_Temperature_Setpoint ;
+    bf:usesEquipment :Water_System ;
+    bf:usesMeasurement :Supply_Water_Temperature ;
+    bf:usesPoint :Setpoint ;
+    rdfs:subClassOf :Supply_Water_Temperature_Setpoint .
+
+:Water_System_Valve_Command a owl:Class ;
+    rdfs:label "Water_System Valve Command"@en ;
+    bf:usesEquipment :Water_System ;
+    bf:usesMeasurement :Valve ;
+    bf:usesPoint :Command ;
+    rdfs:subClassOf :Valve_Command .
+
+:Water_System_Water_Discharge_Temperature_Sensor a owl:Class ;
+    rdfs:label "Water_System Water Discharge Temperature Sensor"@en ;
+    bf:equivalentTagSet :Water_System_Water_Supply_Temperature_Sensor ;
+    bf:usesEquipment :Water_System ;
+    bf:usesMeasurement :Water_Discharge_Temperature ;
+    bf:usesPoint :Sensor ;
+    rdfs:subClassOf :Water_Discharge_Temperature_Sensor .
+
+:Water_System_Water_Supply_Temperature_Sensor a owl:Class ;
+    rdfs:label "Water_System Water Supply Temperature Sensor"@en ;
+    bf:equivalentTagSet :Water_System_Water_Discharge_Temperature_Sensor ;
+    bf:usesEquipment :Water_System ;
+    bf:usesMeasurement :Water_Supply_Temperature ;
+    bf:usesPoint :Sensor ;
+    rdfs:subClassOf :Water_Supply_Temperature_Sensor .
 
 :Weather_Rain_Sensor a owl:Class ;
     rdfs:label "Weather Rain Sensor"@en ;
@@ -7544,11 +7491,11 @@
 
 :AHU_Off_LED a owl:Class ;
     rdfs:label "AHU Off LED"@en ;
-    rdfs:subClassOf :UndefinedMeasurement .
+    rdfs:subClassOf :Off .
 
 :AHU_On_LED a owl:Class ;
     rdfs:label "AHU On LED"@en ;
-    rdfs:subClassOf :UndefinedMeasurement .
+    rdfs:subClassOf :On .
 
 :AHU_Outside_Air_Temperature_Sensor a owl:Class ;
     rdfs:label "AHU Outside Air Temperature Sensor"@en ;
@@ -7904,6 +7851,10 @@
     bf:usesMeasurement :Condensate_Leak ;
     bf:usesPoint :Alarm ;
     rdfs:subClassOf :Alarm .
+
+:Condenser a owl:Class ;
+    rdfs:label "Condenser"@en ;
+    rdfs:subClassOf :HVAC .
 
 :Condensor_Temperature a owl:Class ;
     rdfs:label "Condensor Temperature"@en ;
@@ -8495,6 +8446,10 @@
     rdfs:label "Effective Heating Temperature"@en ;
     rdfs:subClassOf :Heating_Temperature .
 
+:Emergency_Generator a owl:Class ;
+    rdfs:label "Emergency Generator"@en ;
+    rdfs:subClassOf :Power_System .
+
 :Emergency_Power_Loss a owl:Class ;
     rdfs:label "Emergency Power Loss"@en ;
     rdfs:subClassOf :Power_Loss .
@@ -8620,36 +8575,22 @@
         :Exhaust_Fan_Command ;
     skos:definition ""@en .
 
-:Exhaust_Fan_Fire_Control_Panel_Off_Command a owl:Class ;
-    rdfs:label "Exhaust Fan Fire Control Panel Off Command"@en ;
-    bf:usesMeasurement :Exhaust_Fan_Fire_Control_Panel_Off ;
-    bf:usesPoint :Command ;
-    rdfs:subClassOf :Exhaust_Fan_Command,
-        :Fire_Control_Panel_Off_Command .
-
-:Exhaust_Fan_Fire_Control_Panel_On_Command a owl:Class ;
-    rdfs:label "Exhaust Fan Fire Control Panel On Command"@en ;
-    bf:usesMeasurement :Exhaust_Fan_Fire_Control_Panel_On ;
-    bf:usesPoint :Command ;
-    rdfs:subClassOf :Exhaust_Fan_Command,
-        :Fire_Control_Panel_On_Command .
-
 :Exhaust_Fan_Off_LED a owl:Class ;
     rdfs:label "Exhaust Fan Off LED"@en ;
-    rdfs:subClassOf :Exhaust_Fan .
+    rdfs:subClassOf :Exhaust_Fan_Off .
 
 :Exhaust_Fan_On_LED a owl:Class ;
     rdfs:label "Exhaust Fan On LED"@en ;
-    rdfs:subClassOf :Exhaust_Fan .
+    rdfs:subClassOf :Exhaust_Fan_On .
 
 :Exhaust_Fan_Overridden_Off a owl:Class ;
     rdfs:label "Exhaust Fan Overridden Off"@en ;
-    rdfs:subClassOf :Exhaust_Fan,
+    rdfs:subClassOf :Exhaust_Fan_Off,
         :Overridden_Off .
 
 :Exhaust_Fan_Overridden_On a owl:Class ;
     rdfs:label "Exhaust Fan Overridden On"@en ;
-    rdfs:subClassOf :Exhaust_Fan,
+    rdfs:subClassOf :Exhaust_Fan_On,
         :Overridden_On .
 
 :Exhaust_Fan_Piezoelectric a owl:Class ;
@@ -8706,6 +8647,20 @@
     rdfs:label "Fire Control Panel Command"@en ;
     rdfs:subClassOf :Command .
 
+:Fire_Control_Panel_Off_Command a owl:Class ;
+    rdfs:label "Fire Control Panel Off Command"@en ;
+    bf:usesEquipment :Fire_Control_Panel ;
+    bf:usesMeasurement :Off ;
+    bf:usesPoint :Command ;
+    rdfs:subClassOf :Fire_Control_Panel_Command .
+
+:Fire_Control_Panel_On_Command a owl:Class ;
+    rdfs:label "Fire Control Panel On Command"@en ;
+    bf:usesEquipment :Fire_Control_Panel ;
+    bf:usesMeasurement :On ;
+    bf:usesPoint :Command ;
+    rdfs:subClassOf :Fire_Control_Panel_Command .
+
 :Fire_Safety_System a owl:Class ;
     rdfs:label "Fire Safety System"@en ;
     rdfs:subClassOf :Equipment .
@@ -8732,15 +8687,6 @@
 :Frost a owl:Class ;
     rdfs:label "Frost"@en ;
     rdfs:subClassOf :UndefinedMeasurement .
-
-:Fume_Hood_Air_Flow a owl:Class ;
-    rdfs:label "Fume Hood Air Flow"@en ;
-    rdfs:subClassOf :Air_Flow,
-        :Fume_Hood .
-
-:Fume_Hood_Sash_Position a owl:Class ;
-    rdfs:label "Fume Hood Sash Position"@en ;
-    rdfs:subClassOf :Fume_Hood .
 
 :HWS_Hot_Water_Return_Temperature_Sensor a owl:Class ;
     rdfs:label "HWS Hot Water Return Temperature Sensor"@en ;
@@ -9695,17 +9641,13 @@
     bf:usesPoint :Alarm ;
     rdfs:subClassOf :Alarm .
 
-:PreHeat_Coil_Entering_Air_Temperature a owl:Class ;
-    rdfs:label "PreHeat Coil Entering Air Temperature"@en ;
-    rdfs:subClassOf :Air_Temperature .
-
-:PreHeat_Valve a owl:Class ;
-    rdfs:label "PreHeat Valve"@en ;
-    rdfs:subClassOf :Valve .
-
 :Pre_Filter a owl:Class ;
     rdfs:label "Pre Filter"@en ;
     rdfs:subClassOf :Filter .
+
+:Preheat_Coil_Entering_Air_Temperature a owl:Class ;
+    rdfs:label "Preheat Coil Entering Air Temperature"@en ;
+    rdfs:subClassOf :Air_Temperature .
 
 :Preheat_Demand a owl:Class ;
     rdfs:label "Preheat Demand"@en ;
@@ -9732,6 +9674,12 @@
     bf:usesMeasurement :Preheat_Supply_Air_Temperature ;
     bf:usesPoint :Sensor ;
     rdfs:subClassOf :Supply_Air_Temperature_Sensor .
+
+:Preheat_Valve_Command a owl:Class ;
+    rdfs:label "Preheat Valve Command"@en ;
+    bf:usesMeasurement :Preheat_Valve ;
+    bf:usesPoint :Command ;
+    rdfs:subClassOf :Valve_Command .
 
 :Pressure_Status a owl:Class ;
     rdfs:label "Pressure Status"@en ;
@@ -9822,8 +9770,8 @@
 
 :Return_Air_Preheat_Valve a owl:Class ;
     rdfs:label "Return Air Preheat Valve"@en ;
-    rdfs:subClassOf :Return_Air,
-        :Valve .
+    rdfs:subClassOf :Preheat_Valve,
+        :Return_Air .
 
 :Return_Air_Temperature_High_Limit a owl:Class ;
     rdfs:label "Return Air Temperature High Limit"@en ;
@@ -10177,6 +10125,18 @@
     rdfs:subClassOf :Fan_Start_Stop_Status,
         :Supply_Fan_Status .
 
+:Supply_Water_Differential_Pressure_Dead_Band_Setpoint a owl:Class ;
+    rdfs:label "Supply Water Differential Pressure Dead Band Setpoint"@en ;
+    rdfs:subClassOf :Dead_Band_Setpoint .
+
+:Supply_Water_Differential_Pressure_Integral_Time_Setpoint a owl:Class ;
+    rdfs:label "Supply Water Differential Pressure Integral Time Setpoint"@en ;
+    rdfs:subClassOf :Integral_Time_Setpoint .
+
+:Supply_Water_Differential_Pressure_Proportional_Band_Setpoint a owl:Class ;
+    rdfs:label "Supply Water Differential Pressure Proportional Band Setpoint"@en ;
+    rdfs:subClassOf :Proportional_Band_Setpoint .
+
 :Temperature_Alarm a owl:Class ;
     rdfs:label "Temperature Alarm"@en ;
     rdfs:subClassOf :Alarm .
@@ -10204,84 +10164,6 @@
 :Temporary_Occupancy a owl:Class ;
     rdfs:label "Temporary Occupancy"@en ;
     rdfs:subClassOf :Occupancy .
-
-:Thermal_Energy_Storage_Discharge_Water_Differential_Pressure_Dead_Band a owl:Class ;
-    rdfs:label "Thermal Energy Storage Discharge Water Differential Pressure Dead Band"@en ;
-    rdfs:subClassOf :Differential_Pressure,
-        :Energy,
-        :Water .
-
-:Thermal_Energy_Storage_Discharge_Water_Differential_Pressure_Dead_Band_Setpoint a owl:Class ;
-    rdfs:label "Thermal Energy Storage Discharge Water Differential Pressure Dead Band Setpoint"@en ;
-    bf:equivalentTagSet :Thermal_Energy_Storage_Supply_Water_Differential_Pressure_Dead_Band_Setpoint ;
-    bf:usesMeasurement :Thermal_Energy_Storage_Discharge_Water_Differential_Pressure_Dead_Band ;
-    bf:usesPoint :Setpoint ;
-    rdfs:subClassOf :Supply_Water_Differential_Pressure_Dead_Band_Setpoint .
-
-:Thermal_Energy_Storage_Discharge_Water_Differential_Pressure_Integral_Time a owl:Class ;
-    rdfs:label "Thermal Energy Storage Discharge Water Differential Pressure Integral Time"@en ;
-    rdfs:subClassOf :Differential_Pressure,
-        :Energy,
-        :Water .
-
-:Thermal_Energy_Storage_Discharge_Water_Differential_Pressure_Integral_Time_Setpoint a owl:Class ;
-    rdfs:label "Thermal Energy Storage Discharge Water Differential Pressure Integral Time Setpoint"@en ;
-    bf:equivalentTagSet :Thermal_Energy_Storage_Supply_Water_Differential_Pressure_Integral_Time_Setpoint ;
-    bf:usesMeasurement :Thermal_Energy_Storage_Discharge_Water_Differential_Pressure_Integral_Time ;
-    bf:usesPoint :Setpoint ;
-    rdfs:subClassOf :Supply_Water_Differential_Pressure_Integral_Time_Setpoint .
-
-:Thermal_Energy_Storage_Discharge_Water_Differential_Pressure_Proportional_Band a owl:Class ;
-    rdfs:label "Thermal Energy Storage Discharge Water Differential Pressure Proportional Band"@en ;
-    rdfs:subClassOf :Differential_Pressure,
-        :Energy,
-        :Water .
-
-:Thermal_Energy_Storage_Discharge_Water_Differential_Pressure_Proportional_Band_Setpoint a owl:Class ;
-    rdfs:label "Thermal Energy Storage Discharge Water Differential Pressure Proportional Band Setpoint"@en ;
-    bf:equivalentTagSet :Thermal_Energy_Storage_Supply_Water_Differential_Pressure_Proportional_Band_Setpoint ;
-    bf:usesMeasurement :Thermal_Energy_Storage_Discharge_Water_Differential_Pressure_Proportional_Band ;
-    bf:usesPoint :Setpoint ;
-    rdfs:subClassOf :Supply_Water_Differential_Pressure_Proportional_Band_Setpoint .
-
-:Thermal_Energy_Storage_Supply_Water_Differential_Pressure_Dead_Band a owl:Class ;
-    rdfs:label "Thermal Energy Storage Supply Water Differential Pressure Dead Band"@en ;
-    rdfs:subClassOf :Differential_Pressure,
-        :Energy,
-        :Water .
-
-:Thermal_Energy_Storage_Supply_Water_Differential_Pressure_Dead_Band_Setpoint a owl:Class ;
-    rdfs:label "Thermal Energy Storage Supply Water Differential Pressure Dead Band Setpoint"@en ;
-    bf:equivalentTagSet :Thermal_Energy_Storage_Discharge_Water_Differential_Pressure_Dead_Band_Setpoint ;
-    bf:usesMeasurement :Thermal_Energy_Storage_Supply_Water_Differential_Pressure_Dead_Band ;
-    bf:usesPoint :Setpoint ;
-    rdfs:subClassOf :Supply_Water_Differential_Pressure_Dead_Band_Setpoint .
-
-:Thermal_Energy_Storage_Supply_Water_Differential_Pressure_Integral_Time a owl:Class ;
-    rdfs:label "Thermal Energy Storage Supply Water Differential Pressure Integral Time"@en ;
-    rdfs:subClassOf :Differential_Pressure,
-        :Energy,
-        :Water .
-
-:Thermal_Energy_Storage_Supply_Water_Differential_Pressure_Integral_Time_Setpoint a owl:Class ;
-    rdfs:label "Thermal Energy Storage Supply Water Differential Pressure Integral Time Setpoint"@en ;
-    bf:equivalentTagSet :Thermal_Energy_Storage_Discharge_Water_Differential_Pressure_Integral_Time_Setpoint ;
-    bf:usesMeasurement :Thermal_Energy_Storage_Supply_Water_Differential_Pressure_Integral_Time ;
-    bf:usesPoint :Setpoint ;
-    rdfs:subClassOf :Supply_Water_Differential_Pressure_Integral_Time_Setpoint .
-
-:Thermal_Energy_Storage_Supply_Water_Differential_Pressure_Proportional_Band a owl:Class ;
-    rdfs:label "Thermal Energy Storage Supply Water Differential Pressure Proportional Band"@en ;
-    rdfs:subClassOf :Differential_Pressure,
-        :Energy,
-        :Water .
-
-:Thermal_Energy_Storage_Supply_Water_Differential_Pressure_Proportional_Band_Setpoint a owl:Class ;
-    rdfs:label "Thermal Energy Storage Supply Water Differential Pressure Proportional Band Setpoint"@en ;
-    bf:equivalentTagSet :Thermal_Energy_Storage_Discharge_Water_Differential_Pressure_Proportional_Band_Setpoint ;
-    bf:usesMeasurement :Thermal_Energy_Storage_Supply_Water_Differential_Pressure_Proportional_Band ;
-    bf:usesPoint :Setpoint ;
-    rdfs:subClassOf :Supply_Water_Differential_Pressure_Proportional_Band_Setpoint .
 
 :Thermal_Power_Meter a owl:Class ;
     rdfs:label "Thermal Power Meter"@en ;
@@ -10805,6 +10687,11 @@
     rdfs:label "Enable Status"@en ;
     rdfs:subClassOf :Status .
 
+:Energy a owl:Class ;
+    rdfs:label "Energy"@en ;
+    rdfs:subClassOf :MeasurementProperty,
+        :UndefinedMeasurement .
+
 :Exhaust_Air_Static_Pressure_Integral_Time a owl:Class ;
     rdfs:label "Exhaust Air Static Pressure Integral Time"@en ;
     rdfs:subClassOf :Exhaust_Air_Static_Pressure .
@@ -10824,16 +10711,6 @@
     rdfs:label "Exhaust Fan Enable"@en ;
     rdfs:subClassOf :Enable,
         :Exhaust_Fan .
-
-:Exhaust_Fan_Fire_Control_Panel_Off a owl:Class ;
-    rdfs:label "Exhaust Fan Fire Control Panel Off"@en ;
-    rdfs:subClassOf :Exhaust_Fan,
-        :Fire_Control_Panel_Off .
-
-:Exhaust_Fan_Fire_Control_Panel_On a owl:Class ;
-    rdfs:label "Exhaust Fan Fire Control Panel On"@en ;
-    rdfs:subClassOf :Exhaust_Fan,
-        :Fire_Control_Panel_On .
 
 :FCU_Discharge_Air_Temperature_Setpoint a owl:Class ;
     rdfs:label "FCU Discharge Air Temperature Setpoint"@en ;
@@ -10860,18 +10737,6 @@
 :Fault_Indicator a owl:Class ;
     rdfs:label "Fault Indicator"@en ;
     rdfs:subClassOf :Fault .
-
-:Fire_Control_Panel_Off_Command a owl:Class ;
-    rdfs:label "Fire Control Panel Off Command"@en ;
-    bf:usesMeasurement :Fire_Control_Panel_Off ;
-    bf:usesPoint :Command ;
-    rdfs:subClassOf :Fire_Control_Panel_Command .
-
-:Fire_Control_Panel_On_Command a owl:Class ;
-    rdfs:label "Fire Control Panel On Command"@en ;
-    bf:usesMeasurement :Fire_Control_Panel_On ;
-    bf:usesPoint :Command ;
-    rdfs:subClassOf :Fire_Control_Panel_Command .
 
 :Freeze a owl:Class ;
     rdfs:label "Freeze"@en ;
@@ -10900,6 +10765,10 @@
     bf:usesMeasurement :Hot_Water_Supply_Temperature ;
     bf:usesPoint :Sensor ;
     rdfs:subClassOf :Hot_Water_Supply_Temperature_Sensor .
+
+:Heat_Exchanger a owl:Class ;
+    rdfs:label "Heat Exchanger"@en ;
+    rdfs:subClassOf :Coil .
 
 :Heat_Exchanger_System_Enable a owl:Class ;
     rdfs:label "Heat Exchanger System Enable"@en ;
@@ -11096,7 +10965,7 @@
 
 :On_Timer a owl:Class ;
     rdfs:label "On Timer"@en ;
-    rdfs:subClassOf :UndefinedMeasurement .
+    rdfs:subClassOf :On .
 
 :Outside_Air_Temperature_Sensor a owl:Class ;
     rdfs:label "Outside Air Temperature Sensor"@en ;
@@ -11109,11 +10978,11 @@
 
 :Overridden_Off a owl:Class ;
     rdfs:label "Overridden Off"@en ;
-    rdfs:subClassOf :UndefinedMeasurement .
+    rdfs:subClassOf :Off .
 
 :Overridden_On a owl:Class ;
     rdfs:label "Overridden On"@en ;
-    rdfs:subClassOf :UndefinedMeasurement .
+    rdfs:subClassOf :On .
 
 :Piezoelectric_Sensor a owl:Class ;
     rdfs:label "Piezoelectric Sensor"@en ;
@@ -11126,6 +10995,10 @@
 :Power_System a owl:Class ;
     rdfs:label "Power System"@en ;
     rdfs:subClassOf :Equipment .
+
+:Preheat_Valve a owl:Class ;
+    rdfs:label "Preheat Valve"@en ;
+    rdfs:subClassOf :Valve .
 
 :Pressure_Setpoint a owl:Class ;
     rdfs:label "Pressure Setpoint"@en ;
@@ -11293,18 +11166,6 @@
     bf:usesPoint :Status ;
     rdfs:subClassOf :Supply_Fan_Status,
         :VFD_Speed_Status .
-
-:Supply_Water_Differential_Pressure_Dead_Band_Setpoint a owl:Class ;
-    rdfs:label "Supply Water Differential Pressure Dead Band Setpoint"@en ;
-    rdfs:subClassOf :Dead_Band_Setpoint .
-
-:Supply_Water_Differential_Pressure_Integral_Time_Setpoint a owl:Class ;
-    rdfs:label "Supply Water Differential Pressure Integral Time Setpoint"@en ;
-    rdfs:subClassOf :Integral_Time_Setpoint .
-
-:Supply_Water_Differential_Pressure_Proportional_Band_Setpoint a owl:Class ;
-    rdfs:label "Supply Water Differential Pressure Proportional Band Setpoint"@en ;
-    rdfs:subClassOf :Proportional_Band_Setpoint .
 
 :Supply_Water_Flow_Sensor a owl:Class ;
     rdfs:label "Supply Water Flow Sensor"@en ;
@@ -11613,11 +11474,6 @@
     rdfs:label "Economizer Enthalpy Setpoint"@en ;
     rdfs:subClassOf :Enthalpy_Setpoint .
 
-:Emergency_Generator a owl:Class ;
-    rdfs:label "Emergency Generator"@en ;
-    rdfs:subClassOf :Power_System,
-        :UndefinedMeasurement .
-
 :Entering_Water_Temperature_Sensor a owl:Class ;
     rdfs:label "Entering Water Temperature Sensor"@en ;
     rdfs:subClassOf :Temperature_Sensor .
@@ -11639,6 +11495,16 @@
     bf:usesPoint :Setpoint ;
     rdfs:subClassOf :Exhaust_Air,
         :Static_Pressure_Setpoint .
+
+:Exhaust_Fan_Off a owl:Class ;
+    rdfs:label "Exhaust Fan Off"@en ;
+    rdfs:subClassOf :Exhaust_Fan,
+        :Off .
+
+:Exhaust_Fan_On a owl:Class ;
+    rdfs:label "Exhaust Fan On"@en ;
+    rdfs:subClassOf :Exhaust_Fan,
+        :On .
 
 :Exhaust_Fan_Start_Stop a owl:Class ;
     rdfs:label "Exhaust Fan Start Stop"@en ;
@@ -11664,22 +11530,9 @@
     rdfs:label "Fan Command"@en ;
     rdfs:subClassOf :Command .
 
-:Fire_Control_Panel_Off a owl:Class ;
-    rdfs:label "Fire Control Panel Off"@en ;
-    rdfs:subClassOf :UndefinedMeasurement .
-
-:Fire_Control_Panel_On a owl:Class ;
-    rdfs:label "Fire Control Panel On"@en ;
-    rdfs:subClassOf :UndefinedMeasurement .
-
 :Frequency a owl:Class ;
     rdfs:label "Frequency"@en ;
     rdfs:subClassOf :MeasurementProperty,
-        :UndefinedMeasurement .
-
-:Fume_Hood a owl:Class ;
-    rdfs:label "Fume Hood"@en ;
-    rdfs:subClassOf :HVAC,
         :UndefinedMeasurement .
 
 :HWS_Discharge_Water_Temperature_Setpoint a owl:Class ;
@@ -11751,6 +11604,10 @@
 :Laboratory a owl:Class ;
     rdfs:label "Laboratory"@en ;
     rdfs:subClassOf :Room .
+
+:Lighting_System a owl:Class ;
+    rdfs:label "Lighting System"@en ;
+    rdfs:subClassOf :Equipment .
 
 :Low_Humidity_Alarm a owl:Class ;
     rdfs:label "Low Humidity Alarm"@en ;
@@ -11981,6 +11838,13 @@
     rdfs:label "Damper Position"@en ;
     rdfs:subClassOf :Damper .
 
+:Damper_Position_Sensor a owl:Class ;
+    rdfs:label "Damper Position Sensor"@en ;
+    bf:usesMeasurement :Damper_Position ;
+    bf:usesPoint :Sensor ;
+    rdfs:subClassOf :Sensor ;
+    skos:definition ""@en .
+
 :Disable_Command a owl:Class ;
     rdfs:label "Disable Command"@en ;
     rdfs:subClassOf :Command,
@@ -12002,6 +11866,10 @@
     bf:usesMeasurement :Fault ;
     bf:usesPoint :Status ;
     rdfs:subClassOf :Status .
+
+:Fume_Hood a owl:Class ;
+    rdfs:label "Fume Hood"@en ;
+    rdfs:subClassOf :HVAC .
 
 :Heat_Exchanger_Discharge_Water_Temperature_Setpoint a owl:Class ;
     rdfs:label "Heat Exchanger Discharge Water Temperature Setpoint"@en ;
@@ -12131,6 +11999,10 @@
     rdfs:subClassOf :Sensor ;
     skos:definition ""@en .
 
+:Solar_Panel a owl:Class ;
+    rdfs:label "Solar Panel"@en ;
+    rdfs:subClassOf :Equipment .
+
 :Static_Pressure_Sensor a owl:Class ;
     rdfs:label "Static Pressure Sensor"@en ;
     bf:usesMeasurement :Static_Pressure ;
@@ -12215,13 +12087,6 @@
     rdfs:subClassOf :Water ;
     skos:definition ""@en .
 
-:Damper_Position_Sensor a owl:Class ;
-    rdfs:label "Damper Position Sensor"@en ;
-    bf:usesMeasurement :Damper_Position ;
-    bf:usesPoint :Sensor ;
-    rdfs:subClassOf :Sensor ;
-    skos:definition ""@en .
-
 :Damper_Position_Setpoint a owl:Class ;
     rdfs:label "Damper Position Setpoint"@en ;
     rdfs:subClassOf :Setpoint .
@@ -12247,7 +12112,8 @@
 
 :Emergency_Power_Off a owl:Class ;
     rdfs:label "Emergency Power Off"@en ;
-    rdfs:subClassOf :Power .
+    rdfs:subClassOf :Off,
+        :Power .
 
 :Flow a owl:Class ;
     rdfs:label "Flow"@en ;
@@ -12310,6 +12176,10 @@
     bf:usesPoint :Command ;
     rdfs:subClassOf :Enable_Command .
 
+:Thermal_Energy_Storage a owl:Class ;
+    rdfs:label "Thermal Energy Storage"@en ;
+    rdfs:subClassOf :Energy_Storage .
+
 :VAV_Discharge_Air_Flow_Setpoint a owl:Class ;
     rdfs:label "VAV Discharge Air Flow Setpoint"@en ;
     bf:equivalentTagSet :VAV_Supply_Air_Flow_Setpoint ;
@@ -12325,11 +12195,6 @@
     bf:usesMeasurement :Supply_Air_Flow ;
     bf:usesPoint :Setpoint ;
     rdfs:subClassOf :Supply_Air_Flow_Setpoint .
-
-:Water_System a owl:Class ;
-    rdfs:label "Water System"@en ;
-    rdfs:subClassOf :Equipment ;
-    owl:equivalentClass :WS .
 
 :AHU_Discharge_Air_Static_Pressure_Setpoint a owl:Class ;
     rdfs:label "AHU Discharge Air Static Pressure Setpoint"@en ;
@@ -12357,6 +12222,11 @@
     bf:usesMeasurement :Chilled_Water_Differential_Pressure ;
     bf:usesPoint :Setpoint ;
     rdfs:subClassOf :Chilled_Water_Differential_Pressure_Setpoint .
+
+:DHWS a owl:Class ;
+    rdfs:label "Domestic Hot Water System"@en ;
+    rdfs:subClassOf :Water_System ;
+    owl:equivalentClass :Domestic_Hot_Water_System .
 
 :Discharge_Air_Flow_Setpoint a owl:Class ;
     rdfs:label "Discharge Air Flow Setpoint"@en ;
@@ -12460,6 +12330,10 @@
     rdfs:label "Occupancy"@en ;
     rdfs:subClassOf :UndefinedMeasurement .
 
+:On a owl:Class ;
+    rdfs:label "On"@en ;
+    rdfs:subClassOf :UndefinedMeasurement .
+
 :Point a owl:Class ;
     rdfs:label "Point"@en ;
     rdfs:subClassOf bf:TagSet .
@@ -12526,10 +12400,6 @@
     rdfs:subClassOf :Cooling,
         :Temperature .
 
-:DHWS a owl:Class ;
-    rdfs:label "Domestic Hot Water System"@en ;
-    rdfs:subClassOf :Water_System .
-
 :Deionised_Water a owl:Class ;
     rdfs:label "Deionised Water"@en ;
     bf:equivalentTagSet :DI_Water ;
@@ -12581,14 +12451,13 @@
     bf:usesPoint :Setpoint ;
     rdfs:subClassOf :Heating_Discharge_Air_Flow_Setpoint .
 
+:Off a owl:Class ;
+    rdfs:label "Off"@en ;
+    rdfs:subClassOf :UndefinedMeasurement .
+
 :Reset_Setpoint a owl:Class ;
     rdfs:label "Reset Setpoint"@en ;
     rdfs:subClassOf :Setpoint .
-
-:Return_Fan a owl:Class ;
-    rdfs:label "Return Fan"@en ;
-    rdfs:subClassOf :Fan,
-        :UndefinedMeasurement .
 
 :Supply_Air_Flow_Setpoint a owl:Class ;
     rdfs:label "Supply Air Flow Setpoint"@en ;
@@ -12663,11 +12532,6 @@
     bf:usesPoint :Setpoint ;
     rdfs:subClassOf :Temperature_Setpoint .
 
-:Energy a owl:Class ;
-    rdfs:label "Energy"@en ;
-    rdfs:subClassOf :MeasurementProperty,
-        :UndefinedMeasurement .
-
 :Exhaust_Air_Static_Pressure a owl:Class ;
     rdfs:label "Exhaust Air Static Pressure"@en ;
     rdfs:subClassOf :Exhaust_Air,
@@ -12677,6 +12541,10 @@
     rdfs:label "Fan Status"@en ;
     rdfs:subClassOf :Status,
         :UndefinedMeasurement .
+
+:Fire_Control_Panel a owl:Class ;
+    rdfs:label "Fire Control Panel"@en ;
+    rdfs:subClassOf :Fire_Safety_System .
 
 :Heating_Valve a owl:Class ;
     rdfs:label "Heating Valve"@en ;
@@ -12739,6 +12607,12 @@
     rdfs:subClassOf :Command ;
     skos:definition ""@en .
 
+:Valve_Command a owl:Class ;
+    rdfs:label "Valve Command"@en ;
+    bf:usesMeasurement :Valve ;
+    bf:usesPoint :Command ;
+    rdfs:subClassOf :Command .
+
 :Zone_Temperature_Sensor a owl:Class ;
     rdfs:label "Zone Temperature Sensor"@en ;
     bf:usesLocation :Zone ;
@@ -12777,21 +12651,15 @@
     rdfs:subClassOf :HVAC,
         :UndefinedMeasurement .
 
+:Return_Fan a owl:Class ;
+    rdfs:label "Return Fan"@en ;
+    rdfs:subClassOf :Fan,
+        :UndefinedMeasurement .
+
 :Supply_Air_Static_Pressure a owl:Class ;
     rdfs:label "Supply Air Static Pressure"@en ;
     rdfs:subClassOf :Static_Pressure,
         :Supply_Air .
-
-:Supply_Fan a owl:Class ;
-    rdfs:label "Supply Fan"@en ;
-    rdfs:subClassOf :Fan,
-        :UndefinedMeasurement .
-
-:Valve_Command a owl:Class ;
-    rdfs:label "Valve Command"@en ;
-    bf:usesMeasurement :Valve ;
-    bf:usesPoint :Command ;
-    rdfs:subClassOf :Command .
 
 :AHU_Discharge_Air_Temperature_Setpoint a owl:Class ;
     rdfs:label "AHU Discharge Air Temperature Setpoint"@en ;
@@ -12956,22 +12824,23 @@
     rdfs:subClassOf :Supply_Air,
         :Temperature_Setpoint .
 
+:Valve a owl:Class ;
+    rdfs:label "Valve"@en ;
+    rdfs:subClassOf :HVAC,
+        :UndefinedMeasurement .
+
 :Demand_Setpoint a owl:Class ;
     rdfs:label "Demand Setpoint"@en ;
     rdfs:subClassOf :Setpoint .
 
 :On_Off a owl:Class ;
     rdfs:label "On Off"@en ;
-    rdfs:subClassOf :UndefinedMeasurement .
+    rdfs:subClassOf :Off,
+        :On .
 
 :Proportional_Band_Setpoint a owl:Class ;
     rdfs:label "Proportional Band Setpoint"@en ;
     rdfs:subClassOf :Setpoint .
-
-:Valve a owl:Class ;
-    rdfs:label "Valve"@en ;
-    rdfs:subClassOf :HVAC,
-        :UndefinedMeasurement .
 
 :Discharge_Air_Flow a owl:Class ;
     rdfs:label "Discharge Air Flow"@en ;
@@ -13031,6 +12900,11 @@
         :UndefinedMeasurement ;
     skos:definition ""@en .
 
+:Supply_Fan a owl:Class ;
+    rdfs:label "Supply Fan"@en ;
+    rdfs:subClassOf :Fan,
+        :UndefinedMeasurement .
+
 :Discharge_Air_Temperature a owl:Class ;
     rdfs:label "Discharge Air Temperature"@en ;
     rdfs:subClassOf :Air_Temperature,
@@ -13074,6 +12948,11 @@
     bf:usesPoint :Setpoint ;
     rdfs:subClassOf :Setpoint .
 
+:Water_System a owl:Class ;
+    rdfs:label "Water System"@en ;
+    rdfs:subClassOf :Equipment ;
+    owl:equivalentClass :WS .
+
 :Chilled_Water a owl:Class ;
     rdfs:label "Chilled Water"@en ;
     rdfs:subClassOf :Water ;
@@ -13093,16 +12972,16 @@
     rdfs:label "Hot Water"@en ;
     rdfs:subClassOf :Water .
 
-:FCU a owl:Class ;
-    rdfs:label "Fan Coil Unit"@en ;
-    rdfs:subClassOf :Terminal_Unit ;
-    owl:equivalentClass :Fan_Coil_Unit .
-
 :CWS a owl:Class ;
     rdfs:label "CWS"@en,
         "Chilled Water System"@en ;
     rdfs:subClassOf :HVAC,
-        :Water_System .
+        :Water_System ;
+    owl:equivalentClass :Chilled_Water_System .
+
+:FCU a owl:Class ;
+    rdfs:label "Fan Coil Unit"@en ;
+    rdfs:subClassOf :Terminal_Unit .
 
 :Zone a owl:Class ;
     rdfs:label "Zone"@en ;
@@ -13110,7 +12989,8 @@
 
 :HWS a owl:Class ;
     rdfs:label "Hot Water System"@en ;
-    rdfs:subClassOf :Water_System .
+    rdfs:subClassOf :Water_System ;
+    owl:equivalentClass :Hot_Water_System .
 
 :Temperature a owl:Class ;
     rdfs:label "Temperature"@en ;
@@ -13133,8 +13013,7 @@
 
 :VAV a owl:Class ;
     rdfs:label "Variable Air Volume"@en ;
-    rdfs:subClassOf :Terminal_Unit ;
-    owl:equivalentClass :Variable_Air_Volume .
+    rdfs:subClassOf :Terminal_Unit .
 
 :Alarm a owl:Class ;
     rdfs:label "Alarm"@en ;
