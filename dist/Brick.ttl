@@ -920,6 +920,11 @@
         :Zone_Air_Temperature_Sensor ;
     skos:definition ""@en .
 
+:Air_Handler_Unit a owl:Class ;
+    rdfs:label "Air Handler Unit"@en ;
+    rdfs:subClassOf :HVAC ;
+    owl:equivalentClass :AHU .
+
 :Angle a owl:Class ;
     rdfs:label "Angle"@en ;
     rdfs:subClassOf :MeasurementProperty .
@@ -1450,6 +1455,11 @@
     rdfs:subClassOf :CWS_Chilled_Water_Differential_Pressure_Setpoint,
         :Min_Chilled_Water_Differential_Pressure_Setpoint .
 
+:Chilled_Water_System a owl:Class ;
+    rdfs:label "Chilled Water System"@en ;
+    rdfs:subClassOf :Water_System ;
+    owl:equivalentClass :CWS .
+
 :Chilled_Water_Valve a owl:Class ;
     rdfs:label "Chilled Water Valve"@en ;
     rdfs:subClassOf :Valve .
@@ -1518,11 +1528,6 @@
     bf:usesMeasurement :Condensor_Temperature ;
     bf:usesPoint :Sensor ;
     rdfs:subClassOf :Condensor_Temperature_Sensor .
-
-:Condensor a owl:Class ;
-    rdfs:label "Condenser"@en ;
-    rdfs:subClassOf :HVAC ;
-    owl:equivalentClass :Condenser .
 
 :Conductivity a owl:Class ;
     rdfs:label "Conductivity"@en ;
@@ -1635,11 +1640,6 @@
 :Direction a owl:Class ;
     rdfs:label "Direction"@en ;
     rdfs:subClassOf :MeasurementProperty .
-
-:Domestic_Hot_Water_System a owl:Class ;
-    rdfs:label "Domestic Hot Water System"@en ;
-    rdfs:subClassOf :Water_System ;
-    owl:equivalentClass :DHWS .
 
 :Economizer_Disable_Differential_Enthalpy_Setpoint a owl:Class ;
     rdfs:label "Economizer Disable Differential Enthalpy Setpoint"@en ;
@@ -1895,11 +1895,6 @@
     rdfs:subClassOf :FCU_Zone_Temperature_Sensor,
         :Zone_Air_Temperature_Sensor ;
     skos:definition ""@en .
-
-:Fan_Coil_Unit a owl:Class ;
-    rdfs:label "Fan Coil Unit"@en ;
-    rdfs:subClassOf :Terminal_Unit ;
-    owl:equivalentClass :FCU .
 
 :Filter_Differential_Pressure_Sensor a owl:Class ;
     rdfs:label "Filter Differential Pressure Sensor"@en ;
@@ -2241,11 +2236,6 @@
     bf:usesMeasurement :Temperature ;
     bf:usesPoint :Sensor ;
     rdfs:subClassOf :Temperature_Sensor .
-
-:Hot_Water_System a owl:Class ;
-    rdfs:label "Hot Water System"@en ;
-    rdfs:subClassOf :Water_System ;
-    owl:equivalentClass :HWS .
 
 :Ice_Tank_Entering_Water_Temperature_Sensor a owl:Class ;
     rdfs:label "Ice Tank Entering Water Temperature Sensor"@en ;
@@ -3163,6 +3153,11 @@
 :Voltage a owl:Class ;
     rdfs:label "Voltage"@en ;
     rdfs:subClassOf :MeasurementProperty .
+
+:WS a owl:Class ;
+    rdfs:label "Water System"@en ;
+    rdfs:subClassOf :Equipment ;
+    owl:equivalentClass :Water_System .
 
 :Water_Flow a owl:Class ;
     rdfs:label "Water Flow"@en ;
@@ -4126,10 +4121,6 @@
     bf:usesPoint :Alarm ;
     rdfs:subClassOf :Alarm .
 
-:Air_Handler_Unit a owl:Class ;
-    rdfs:label "Air Handler Unit"@en ;
-    rdfs:subClassOf :HVAC .
-
 :Auto_Cooling_Temperature_Setpoint a owl:Class ;
     rdfs:label "Auto Cooling Temperature Setpoint"@en ;
     bf:usesMeasurement :Auto_Cooling_Temperature ;
@@ -4554,10 +4545,6 @@
     rdfs:subClassOf :Chilled_Water,
         :Static_Pressure_Setpoint .
 
-:Chilled_Water_System a owl:Class ;
-    rdfs:label "Chilled Water System"@en ;
-    rdfs:subClassOf :Water_System .
-
 :Chilled_Water_System_Enable_Command a owl:Class ;
     rdfs:label "Chilled Water System Enable Command"@en ;
     bf:usesMeasurement :Chilled_Water_System_Enable ;
@@ -4607,6 +4594,15 @@
 
 :Computer_Room_Air_Conditioning a owl:Class ;
     rdfs:label "Computer Room Air Conditioning"@en ;
+    rdfs:subClassOf :HVAC .
+
+:Condenser a owl:Class ;
+    rdfs:label "Condenser"@en ;
+    rdfs:subClassOf :HVAC ;
+    owl:equivalentClass :Condensor .
+
+:Condensor a owl:Class ;
+    rdfs:label "Condenser"@en ;
     rdfs:subClassOf :HVAC .
 
 :Condensor_Temperature_Sensor a owl:Class ;
@@ -4872,6 +4868,10 @@
     rdfs:label "Discharge Water Differential Pressure Proportional Band"@en ;
     rdfs:subClassOf :Differential_Pressure,
         :Water .
+
+:Domestic_Hot_Water_System a owl:Class ;
+    rdfs:label "Domestic Hot Water System"@en ;
+    rdfs:subClassOf :Water_System .
 
 :Domestic_Hot_Water_System_Enable_Command a owl:Class ;
     rdfs:label "Domestic Hot Water System Enable Command"@en ;
@@ -5434,6 +5434,10 @@
     rdfs:label "Failure Alarm"@en ;
     rdfs:subClassOf :Alarm .
 
+:Fan_Coil_Unit a owl:Class ;
+    rdfs:label "Fan Coil Unit"@en ;
+    rdfs:subClassOf :Terminal_Unit .
+
 :Fan_Overload_Alarm a owl:Class ;
     rdfs:label "Fan Overload Alarm"@en ;
     bf:usesMeasurement :Fan_Overload ;
@@ -5904,6 +5908,10 @@
     bf:usesPoint :Setpoint ;
     rdfs:subClassOf :Hot_Water,
         :Static_Pressure_Setpoint .
+
+:Hot_Water_System a owl:Class ;
+    rdfs:label "Hot Water System"@en ;
+    rdfs:subClassOf :Water_System .
 
 :Humidification_On_Off_Status a owl:Class ;
     rdfs:label "Humidification On Off Status"@en ;
@@ -7287,10 +7295,6 @@
     bf:usesPoint :Setpoint ;
     rdfs:subClassOf :Air_Flow_Setpoint .
 
-:WS a owl:Class ;
-    rdfs:label "Water System"@en ;
-    rdfs:subClassOf :Equipment .
-
 :Warm_Cool_Adjust_Sensor a owl:Class ;
     rdfs:label "Warm Cool Adjust Sensor"@en ;
     bf:usesMeasurement :Warm_Cool_Adjust ;
@@ -7851,10 +7855,6 @@
     bf:usesMeasurement :Condensate_Leak ;
     bf:usesPoint :Alarm ;
     rdfs:subClassOf :Alarm .
-
-:Condenser a owl:Class ;
-    rdfs:label "Condenser"@en ;
-    rdfs:subClassOf :HVAC .
 
 :Condensor_Temperature a owl:Class ;
     rdfs:label "Condensor Temperature"@en ;
@@ -12224,6 +12224,11 @@
     bf:usesPoint :Setpoint ;
     rdfs:subClassOf :Chilled_Water_Differential_Pressure_Setpoint .
 
+:DHWS a owl:Class ;
+    rdfs:label "Domestic Hot Water System"@en ;
+    rdfs:subClassOf :Water_System ;
+    owl:equivalentClass :Domestic_Hot_Water_System .
+
 :Discharge_Air_Flow_Setpoint a owl:Class ;
     rdfs:label "Discharge Air Flow Setpoint"@en ;
     bf:equivalentTagSet :Supply_Air_Flow_Setpoint ;
@@ -12395,10 +12400,6 @@
     rdfs:label "Cooling Temperature"@en ;
     rdfs:subClassOf :Cooling,
         :Temperature .
-
-:DHWS a owl:Class ;
-    rdfs:label "Domestic Hot Water System"@en ;
-    rdfs:subClassOf :Water_System .
 
 :Deionised_Water a owl:Class ;
     rdfs:label "Deionised Water"@en ;
@@ -12950,8 +12951,7 @@
 
 :Water_System a owl:Class ;
     rdfs:label "Water System"@en ;
-    rdfs:subClassOf :Equipment ;
-    owl:equivalentClass :WS .
+    rdfs:subClassOf :Equipment .
 
 :Chilled_Water a owl:Class ;
     rdfs:label "Chilled Water"@en ;
@@ -12972,16 +12972,16 @@
     rdfs:label "Hot Water"@en ;
     rdfs:subClassOf :Water .
 
+:FCU a owl:Class ;
+    rdfs:label "Fan Coil Unit"@en ;
+    rdfs:subClassOf :Terminal_Unit ;
+    owl:equivalentClass :Fan_Coil_Unit .
+
 :CWS a owl:Class ;
     rdfs:label "CWS"@en,
         "Chilled Water System"@en ;
     rdfs:subClassOf :HVAC,
-        :Water_System ;
-    owl:equivalentClass :Chilled_Water_System .
-
-:FCU a owl:Class ;
-    rdfs:label "Fan Coil Unit"@en ;
-    rdfs:subClassOf :Terminal_Unit .
+        :Water_System .
 
 :Zone a owl:Class ;
     rdfs:label "Zone"@en ;
@@ -12989,7 +12989,8 @@
 
 :HWS a owl:Class ;
     rdfs:label "Hot Water System"@en ;
-    rdfs:subClassOf :Water_System .
+    rdfs:subClassOf :Water_System ;
+    owl:equivalentClass :Hot_Water_System .
 
 :Temperature a owl:Class ;
     rdfs:label "Temperature"@en ;
@@ -13035,8 +13036,7 @@
 :AHU a owl:Class ;
     rdfs:label "AHU"@en,
         "Air Handler Unit"@en ;
-    rdfs:subClassOf :HVAC ;
-    owl:equivalentClass :Air_Handler_Unit .
+    rdfs:subClassOf :HVAC .
 
 :Sensor a owl:Class ;
     rdfs:label "Sensor"@en ;

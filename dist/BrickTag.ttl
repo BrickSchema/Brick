@@ -38,6 +38,11 @@
     rdfs:subClassOf bf:Tag ;
     skos:definition ""@en .
 
+:Dual a owl:Class ;
+    rdfs:label "Dual"@en ;
+    rdfs:subClassOf bf:Tag ;
+    skos:definition ""@en .
+
 :Equipment a owl:Class ;
     rdfs:label "Equipment"@en ;
     bf:isHierarchical "" ;
@@ -2543,13 +2548,9 @@ brick:Zone_Temperature_Setpoint bf:usesTag :Setpoint,
     rdfs:subClassOf bf:Tag ;
     skos:definition ""@en .
 
-:DualBand a owl:Class ;
-    rdfs:label "DualBand"@en ;
-    bf:usedBy brick:AHU_DualBand_Mode_Setpoint,
+:DualBand bf:usedBy brick:AHU_DualBand_Mode_Setpoint,
         brick:DualBand_Mode,
-        brick:DualBand_Mode_Setpoint ;
-    rdfs:subClassOf bf:Tag ;
-    skos:definition ""@en .
+        brick:DualBand_Mode_Setpoint .
 
 :Duration a owl:Class ;
     rdfs:label "Duration"@en ;
