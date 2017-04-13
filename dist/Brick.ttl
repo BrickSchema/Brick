@@ -1636,6 +1636,11 @@
     rdfs:label "Direction"@en ;
     rdfs:subClassOf :MeasurementProperty .
 
+:Domestic_Hot_Water_System a owl:Class ;
+    rdfs:label "Domestic Hot Water System"@en ;
+    rdfs:subClassOf :Water_System ;
+    owl:equivalentClass :DHWS .
+
 :Economizer_Disable_Differential_Enthalpy_Setpoint a owl:Class ;
     rdfs:label "Economizer Disable Differential Enthalpy Setpoint"@en ;
     bf:usesMeasurement :Economizer_Disable_Differential_Enthalpy ;
@@ -2200,11 +2205,6 @@
     bf:usesPoint :Command ;
     rdfs:subClassOf :Shutdown_Hot_Water_When_Unoccupied_Command .
 
-:HX a owl:Class ;
-    rdfs:label "Heat Exchanger"@en ;
-    rdfs:subClassOf :Coil ;
-    owl:equivalentClass :Heat_Exchanger .
-
 :Heat_Exchanger_Outside_Air_Temperature_High_Reset_Setpoint a owl:Class ;
     rdfs:label "Heat_Exchanger Outside Air Temperature High Reset Setpoint"@en ;
     bf:usesEquipment :Heat_Exchanger ;
@@ -2241,6 +2241,11 @@
     bf:usesMeasurement :Temperature ;
     bf:usesPoint :Sensor ;
     rdfs:subClassOf :Temperature_Sensor .
+
+:Hot_Water_System a owl:Class ;
+    rdfs:label "Hot Water System"@en ;
+    rdfs:subClassOf :Water_System ;
+    owl:equivalentClass :HWS .
 
 :Ice_Tank_Entering_Water_Temperature_Sensor a owl:Class ;
     rdfs:label "Ice Tank Entering Water Temperature Sensor"@en ;
@@ -3150,11 +3155,6 @@
     rdfs:label "Variable Air Volume"@en ;
     rdfs:subClassOf :Terminal_Unit ;
     owl:equivalentClass :VAV .
-
-:Variable_Frequency_Drive a owl:Class ;
-    rdfs:label "Variable Frequency Drive"@en ;
-    rdfs:subClassOf :HVAC ;
-    owl:equivalentClass :VFD .
 
 :Velocity_Pressure a owl:Class ;
     rdfs:label "Velocity Pressure"@en ;
@@ -4873,10 +4873,6 @@
     rdfs:subClassOf :Differential_Pressure,
         :Water .
 
-:Domestic_Hot_Water_System a owl:Class ;
-    rdfs:label "Domestic Hot Water System"@en ;
-    rdfs:subClassOf :Water_System .
-
 :Domestic_Hot_Water_System_Enable_Command a owl:Class ;
     rdfs:label "Domestic Hot Water System Enable Command"@en ;
     bf:usesMeasurement :Domestic_Hot_Water_System_Enable ;
@@ -5733,6 +5729,10 @@
     rdfs:subClassOf :HWS_Hot_Water_Supply_Temperature_Sensor,
         :Medium_Temperature_Hot_Water_Supply_Temperature_Sensor .
 
+:HX a owl:Class ;
+    rdfs:label "Heat Exchanger"@en ;
+    rdfs:subClassOf :Coil .
+
 :Hail_Sensor a owl:Class ;
     rdfs:label "Hail Sensor"@en ;
     bf:usesMeasurement :Hail ;
@@ -5904,10 +5904,6 @@
     bf:usesPoint :Setpoint ;
     rdfs:subClassOf :Hot_Water,
         :Static_Pressure_Setpoint .
-
-:Hot_Water_System a owl:Class ;
-    rdfs:label "Hot Water System"@en ;
-    rdfs:subClassOf :Water_System .
 
 :Humidification_On_Off_Status a owl:Class ;
     rdfs:label "Humidification On Off Status"@en ;
@@ -7274,6 +7270,10 @@
 :Valve_Status a owl:Class ;
     rdfs:label "Valve Status"@en ;
     rdfs:subClassOf :Status .
+
+:Variable_Frequency_Drive a owl:Class ;
+    rdfs:label "Variable Frequency Drive"@en ;
+    rdfs:subClassOf :HVAC .
 
 :Vent_Operating_Mode_Status a owl:Class ;
     rdfs:label "Vent Operating Mode Status"@en ;
@@ -8710,6 +8710,11 @@
     bf:usesPoint :Status ;
     rdfs:subClassOf :Status ;
     skos:definition ""@en .
+
+:Heat_Exchanger a owl:Class ;
+    rdfs:label "Heat Exchanger"@en ;
+    rdfs:subClassOf :Coil ;
+    owl:equivalentClass :HX .
 
 :Heat_Exchanger_Discharge_Water_Temperature_Dead_Band a owl:Class ;
     rdfs:label "Heat Exchanger Discharge Water Temperature Dead Band"@en ;
@@ -10766,10 +10771,6 @@
     bf:usesPoint :Sensor ;
     rdfs:subClassOf :Hot_Water_Supply_Temperature_Sensor .
 
-:Heat_Exchanger a owl:Class ;
-    rdfs:label "Heat Exchanger"@en ;
-    rdfs:subClassOf :Coil .
-
 :Heat_Exchanger_System_Enable a owl:Class ;
     rdfs:label "Heat Exchanger System Enable"@en ;
     rdfs:subClassOf :System_Enable .
@@ -12223,11 +12224,6 @@
     bf:usesPoint :Setpoint ;
     rdfs:subClassOf :Chilled_Water_Differential_Pressure_Setpoint .
 
-:DHWS a owl:Class ;
-    rdfs:label "Domestic Hot Water System"@en ;
-    rdfs:subClassOf :Water_System ;
-    owl:equivalentClass :Domestic_Hot_Water_System .
-
 :Discharge_Air_Flow_Setpoint a owl:Class ;
     rdfs:label "Discharge Air Flow Setpoint"@en ;
     bf:equivalentTagSet :Supply_Air_Flow_Setpoint ;
@@ -12399,6 +12395,10 @@
     rdfs:label "Cooling Temperature"@en ;
     rdfs:subClassOf :Cooling,
         :Temperature .
+
+:DHWS a owl:Class ;
+    rdfs:label "Domestic Hot Water System"@en ;
+    rdfs:subClassOf :Water_System .
 
 :Deionised_Water a owl:Class ;
     rdfs:label "Deionised Water"@en ;
@@ -12989,8 +12989,7 @@
 
 :HWS a owl:Class ;
     rdfs:label "Hot Water System"@en ;
-    rdfs:subClassOf :Water_System ;
-    owl:equivalentClass :Hot_Water_System .
+    rdfs:subClassOf :Water_System .
 
 :Temperature a owl:Class ;
     rdfs:label "Temperature"@en ;
@@ -13003,7 +13002,8 @@
 
 :VFD a owl:Class ;
     rdfs:label "Variable Frequency Drive"@en ;
-    rdfs:subClassOf :HVAC .
+    rdfs:subClassOf :HVAC ;
+    owl:equivalentClass :Variable_Frequency_Drive .
 
 :CRAC a owl:Class ;
     rdfs:label "CRAC"@en,

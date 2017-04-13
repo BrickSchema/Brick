@@ -250,8 +250,6 @@ MeasurementProperty,Occupied,Indicates something is occupied.,,,Jsaon,,,
 MeasurementProperty,Unoccupied,,,,Jason,,,
 MeasurementProperty,Frequency,,,,Bharath,,,
 MeasurementProperty,Luminance,,,,,,,
-MeasurementProperty,Fahrenheit,,,,Jason,,,
-MeasurementProperty,CFM,Cubic feet per minute,,,Jason,,,
 Point,Setpoint,,,,Bharath,,,
 Point,Sensor,,,,Jason,,,"(Snonym to Level?, Jason)"
 Point,Status,,,,,,,

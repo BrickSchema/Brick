@@ -23,11 +23,6 @@
     rdfs:subClassOf bf:Tag ;
     skos:definition ""@en .
 
-:CFM a owl:Class ;
-    rdfs:label "CFM"@en ;
-    rdfs:subClassOf bf:Tag ;
-    skos:definition ""@en .
-
 :Date a owl:Class ;
     rdfs:label "Date"@en ;
     rdfs:subClassOf bf:Tag ;
@@ -56,11 +51,6 @@
 
 :Face a owl:Class ;
     rdfs:label "Face"@en ;
-    rdfs:subClassOf bf:Tag ;
-    skos:definition ""@en .
-
-:Fahrenheit a owl:Class ;
-    rdfs:label "Fahrenheit"@en ;
     rdfs:subClassOf bf:Tag ;
     skos:definition ""@en .
 
