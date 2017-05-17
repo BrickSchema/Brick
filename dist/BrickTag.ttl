@@ -59,6 +59,11 @@
     rdfs:subClassOf bf:Tag ;
     skos:definition ""@en .
 
+:Furniture a owl:Class ;
+    rdfs:label "Furniture"@en ;
+    rdfs:subClassOf bf:Tag ;
+    skos:definition ""@en .
+
 :Input a owl:Class ;
     rdfs:label "Input"@en ;
     rdfs:subClassOf bf:Tag ;
@@ -128,6 +133,8 @@ brick:CRAC bf:usesTag :CRAC .
 
 brick:CWS bf:usesTag :CWS .
 
+brick:Chair bf:usesTag :Chair .
+
 brick:Chiller bf:usesTag :Chiller .
 
 brick:City bf:usesTag :City .
@@ -145,6 +152,8 @@ brick:Cooling bf:usesTag :Cooling .
 brick:DHWS bf:usesTag :DHWS .
 
 brick:Damper bf:usesTag :Damper .
+
+brick:Desk bf:usesTag :Desk .
 
 brick:Economizer bf:usesTag :Economizer .
 
@@ -272,6 +281,12 @@ brick:Zone bf:usesTag :Zone .
     skos:definition ""@en ;
     bf:usedBy brick:Basement .
 
+:Chair a owl:Class ;
+    rdfs:label "Chair"@en ;
+    rdfs:subClassOf bf:Tag ;
+    skos:definition ""@en ;
+    bf:usedBy brick:Chair .
+
 :City a owl:Class ;
     rdfs:label "City"@en ;
     rdfs:subClassOf bf:Tag ;
@@ -283,6 +298,12 @@ brick:Zone bf:usesTag :Zone .
     rdfs:subClassOf bf:Tag ;
     skos:definition ""@en ;
     bf:usedBy brick:Computer_Room_Air_Conditioning .
+
+:Desk a owl:Class ;
+    rdfs:label "Desk"@en ;
+    rdfs:subClassOf bf:Tag ;
+    skos:definition ""@en ;
+    bf:usedBy brick:Desk .
 
 :Elevator a owl:Class ;
     rdfs:label "Elevator"@en ;
