@@ -49,7 +49,8 @@ brick:AHU_Bypass_Damper_Position_Sensor bf:usesEquipment brick:AHU ;
     bf:usesPoint brick:Sensor .
 
 brick:AHU_CO2_Differential_Sensor bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:CO2_Differential ;
+    bf:usesMeasurement brick:CO2,
+        brick:CO2_Differential ;
     bf:usesPoint brick:Sensor .
 
 brick:AHU_CO2_High_Alarm bf:usesEquipment brick:AHU ;
@@ -57,7 +58,8 @@ brick:AHU_CO2_High_Alarm bf:usesEquipment brick:AHU ;
     bf:usesPoint brick:Alarm .
 
 brick:AHU_CO2_Sensor bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:CO2 ;
+    bf:usesMeasurement brick:CO2,
+        brick:CO2_Differential ;
     bf:usesPoint brick:Sensor .
 
 brick:AHU_Change_Filter_Alarm bf:usesEquipment brick:AHU ;
@@ -66,7 +68,8 @@ brick:AHU_Change_Filter_Alarm bf:usesEquipment brick:AHU ;
 
 brick:AHU_Coldest_Zone_Temperature_Sensor bf:usesEquipment brick:AHU ;
     bf:usesLocation brick:Zone ;
-    bf:usesMeasurement brick:Coldest_Temperature ;
+    bf:usesMeasurement brick:Coldest_Temperature,
+        brick:Lowest_Temperature ;
     bf:usesPoint brick:Sensor .
 
 brick:AHU_Condensate_Leak_Alarm bf:usesEquipment brick:AHU ;
@@ -74,27 +77,33 @@ brick:AHU_Condensate_Leak_Alarm bf:usesEquipment brick:AHU ;
     bf:usesPoint brick:Alarm .
 
 brick:AHU_Cooling_Coil_Discharge_Air_Temperature_Sensor bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Cooling_Coil_Discharge_Air_Temperature ;
+    bf:usesMeasurement brick:Cooling_Coil_Discharge_Air_Temperature,
+        brick:Cooling_Coil_Supply_Air_Temperature ;
     bf:usesPoint brick:Sensor .
 
 brick:AHU_Cooling_Coil_Supply_Air_Temperature_Sensor bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Cooling_Coil_Supply_Air_Temperature ;
+    bf:usesMeasurement brick:Cooling_Coil_Discharge_Air_Temperature,
+        brick:Cooling_Coil_Supply_Air_Temperature ;
     bf:usesPoint brick:Sensor .
 
 brick:AHU_Cooling_Demand_Setpoint bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Cooling_Demand ;
+    bf:usesMeasurement brick:Cooling_Demand,
+        brick:Cooling_Request ;
     bf:usesPoint brick:Setpoint .
 
 brick:AHU_Cooling_Discharge_Air_Temperature_Dead_Band_Setpoint bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Cooling_Discharge_Air_Temperature_Dead_Band ;
+    bf:usesMeasurement brick:Cooling_Discharge_Air_Temperature_Dead_Band,
+        brick:Cooling_Supply_Air_Temperature_Dead_Band ;
     bf:usesPoint brick:Setpoint .
 
 brick:AHU_Cooling_Discharge_Air_Temperature_Integral_Time_Setpoint bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Cooling_Discharge_Air_Temperature_Integral_Time ;
+    bf:usesMeasurement brick:Cooling_Discharge_Air_Temperature_Integral_Time,
+        brick:Cooling_Supply_Air_Temperature_Integral_Time ;
     bf:usesPoint brick:Setpoint .
 
 brick:AHU_Cooling_Discharge_Air_Temperature_Proportional_Band_Setpoint bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Cooling_Discharge_Air_Temperature_Proportional_Band ;
+    bf:usesMeasurement brick:Cooling_Discharge_Air_Temperature_Proportional_Band,
+        brick:Cooling_Supply_Air_Temperature_Proportional_Band ;
     bf:usesPoint brick:Setpoint .
 
 brick:AHU_Cooling_Request_Percent_Setpoint bf:usesEquipment brick:AHU ;
@@ -102,19 +111,23 @@ brick:AHU_Cooling_Request_Percent_Setpoint bf:usesEquipment brick:AHU ;
     bf:usesPoint brick:Setpoint .
 
 brick:AHU_Cooling_Request_Setpoint bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Cooling_Request ;
+    bf:usesMeasurement brick:Cooling_Demand,
+        brick:Cooling_Request ;
     bf:usesPoint brick:Setpoint .
 
 brick:AHU_Cooling_Supply_Air_Temperature_Dead_Band_Setpoint bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Cooling_Supply_Air_Temperature_Dead_Band ;
+    bf:usesMeasurement brick:Cooling_Discharge_Air_Temperature_Dead_Band,
+        brick:Cooling_Supply_Air_Temperature_Dead_Band ;
     bf:usesPoint brick:Setpoint .
 
 brick:AHU_Cooling_Supply_Air_Temperature_Integral_Time_Setpoint bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Cooling_Supply_Air_Temperature_Integral_Time ;
+    bf:usesMeasurement brick:Cooling_Discharge_Air_Temperature_Integral_Time,
+        brick:Cooling_Supply_Air_Temperature_Integral_Time ;
     bf:usesPoint brick:Setpoint .
 
 brick:AHU_Cooling_Supply_Air_Temperature_Proportional_Band_Setpoint bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Cooling_Supply_Air_Temperature_Proportional_Band ;
+    bf:usesMeasurement brick:Cooling_Discharge_Air_Temperature_Proportional_Band,
+        brick:Cooling_Supply_Air_Temperature_Proportional_Band ;
     bf:usesPoint brick:Setpoint .
 
 brick:AHU_Cooling_Valve_Command bf:usesEquipment brick:AHU ;
@@ -134,7 +147,8 @@ brick:AHU_Differential_Pressure_Sensor bf:usesEquipment brick:AHU ;
     bf:usesPoint brick:Sensor .
 
 brick:AHU_Discharge_Air_Flow_Demand_Setpoint bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Discharge_Air_Flow_Demand ;
+    bf:usesMeasurement brick:Discharge_Air_Flow_Demand,
+        brick:Supply_Air_Flow_Demand ;
     bf:usesPoint brick:Setpoint .
 
 brick:AHU_Discharge_Air_Flow_Reset_High_Setpoint bf:usesEquipment brick:AHU ;
@@ -144,111 +158,138 @@ brick:AHU_Discharge_Air_Flow_Reset_Low_Setpoint bf:usesEquipment brick:AHU ;
     bf:usesMeasurement brick:Discharge_Air_Flow_Reset_Low_Setpoint .
 
 brick:AHU_Discharge_Air_Humidity_Sensor bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Discharge_Air_Humidity ;
+    bf:usesMeasurement brick:Discharge_Air_Humidity,
+        brick:Supply_Air_Humidity ;
     bf:usesPoint brick:Sensor .
 
 brick:AHU_Discharge_Air_Smoke_Detected_Alarm bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Discharge_Air_Smoke_Detected ;
+    bf:usesMeasurement brick:Discharge_Air_Smoke_Detected,
+        brick:Supply_Air_Smoke_Detected ;
     bf:usesPoint brick:Alarm .
 
 brick:AHU_Discharge_Air_Static_Pressure_Dead_Band_Setpoint bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Discharge_Air_Static_Pressure_Dead_Band ;
+    bf:usesMeasurement brick:Discharge_Air_Static_Pressure_Dead_Band,
+        brick:Supply_Air_Static_Pressure_Dead_Band ;
     bf:usesPoint brick:Setpoint .
 
 brick:AHU_Discharge_Air_Static_Pressure_Increase_Decrease_Step_Setpoint bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Discharge_Air_Static_Pressure_Increase_Decrease_Step ;
+    bf:usesMeasurement brick:Discharge_Air_Static_Pressure_Increase_Decrease_Step,
+        brick:Supply_Air_Static_Pressure_Increase_Decrease_Step ;
     bf:usesPoint brick:Setpoint .
 
 brick:AHU_Discharge_Air_Static_Pressure_Integral_Time_Setpoint bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Discharge_Air_Static_Pressure_Integral_Time ;
+    bf:usesMeasurement brick:Discharge_Air_Static_Pressure_Integral_Time,
+        brick:Supply_Air_Static_Pressure_Integral_Time ;
     bf:usesPoint brick:Setpoint .
 
 brick:AHU_Discharge_Air_Static_Pressure_Proportional_Band_Setpoint bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Discharge_Air_Static_Pressure_Proportional_Band ;
+    bf:usesMeasurement brick:Discharge_Air_Static_Pressure_Proportional_Band,
+        brick:Supply_Air_Static_Pressure_Proportional_Band ;
     bf:usesPoint brick:Setpoint .
 
 brick:AHU_Discharge_Air_Static_Pressure_Sensor bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Discharge_Air_Static_Pressure ;
+    bf:usesMeasurement brick:Discharge_Air_Static_Pressure,
+        brick:Supply_Air_Static_Pressure ;
     bf:usesPoint brick:Sensor .
 
 brick:AHU_Discharge_Air_Static_Pressure_Setpoint bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Discharge_Air_Static_Pressure ;
+    bf:usesMeasurement brick:Discharge_Air_Static_Pressure,
+        brick:Supply_Air_Static_Pressure ;
     bf:usesPoint brick:Setpoint .
 
 brick:AHU_Discharge_Air_Temperature_Cooling_Setpoint bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Discharge_Air_Temperature_Cooling ;
+    bf:usesMeasurement brick:Discharge_Air_Temperature_Cooling,
+        brick:Supply_Air_Temperature_Cooling ;
     bf:usesPoint brick:Setpoint .
 
 brick:AHU_Discharge_Air_Temperature_Heating_Setpoint bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Discharge_Air_Temperature_Heating ;
+    bf:usesMeasurement brick:Discharge_Air_Temperature_Heating,
+        brick:Supply_Air_Temperature_Heating ;
     bf:usesPoint brick:Setpoint .
 
 brick:AHU_Discharge_Air_Temperature_High_Limit_Alarm bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Discharge_Air_Temperature_High_Limit ;
+    bf:usesMeasurement brick:Discharge_Air_Temperature_High_Limit,
+        brick:Supply_Air_Temperature_High_Limit ;
     bf:usesPoint brick:Alarm .
 
 brick:AHU_Discharge_Air_Temperature_Reset_Differential_Setpoint bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Discharge_Air_Temperature_Reset_Differential ;
+    bf:usesMeasurement brick:Discharge_Air_Temperature_Reset_Differential,
+        brick:Supply_Air_Temperature_Reset_Differential ;
     bf:usesPoint brick:Setpoint .
 
 brick:AHU_Discharge_Air_Temperature_Reset_High_Setpoint bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Discharge_Air_Temperature_Reset_High ;
+    bf:usesMeasurement brick:Discharge_Air_Temperature_Reset_High,
+        brick:Supply_Air_Temperature_Reset_High ;
     bf:usesPoint brick:Setpoint .
 
 brick:AHU_Discharge_Air_Temperature_Reset_Low_Setpoint bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Discharge_Air_Temperature_Reset_Low ;
+    bf:usesMeasurement brick:Discharge_Air_Temperature_Reset_Low,
+        brick:Supply_Air_Temperature_Reset_Low ;
     bf:usesPoint brick:Setpoint .
 
 brick:AHU_Discharge_Air_Temperature_Sensor bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Discharge_Air_Temperature ;
+    bf:usesMeasurement brick:Discharge_Air_Temperature,
+        brick:Supply_Air_Temperature ;
     bf:usesPoint brick:Sensor .
 
 brick:AHU_Discharge_Air_Temperature_Setpoint bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Discharge_Air_Temperature ;
+    bf:usesMeasurement brick:Discharge_Air_Temperature,
+        brick:Supply_Air_Temperature ;
     bf:usesPoint brick:Setpoint .
 
 brick:AHU_Discharge_Air_Temperature_Setpoint_Increase_Decrease_Step bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Discharge_Air_Temperature_Increase_Decrease_Step ;
+    bf:usesMeasurement brick:Discharge_Air_Temperature_Increase_Decrease_Step,
+        brick:Supply_Air_Temperature_Increase_Decrease_Step ;
     bf:usesPoint brick:Setpoint .
 
 brick:AHU_Discharge_Fan_Air_Flow_Sensor bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Discharge_Fan_Air_Flow ;
+    bf:usesMeasurement brick:Discharge_Fan_Air_Flow,
+        brick:Supply_Fan_Air_Flow ;
     bf:usesPoint brick:Sensor .
 
 brick:AHU_Discharge_Fan_Command bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Discharge_Fan ;
+    bf:usesMeasurement brick:Discharge_Fan,
+        brick:Supply_Fan ;
     bf:usesPoint brick:Command .
 
 brick:AHU_Discharge_Fan_Piezoelectric_Sensor bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Discharge_Fan_Piezoelectric ;
+    bf:usesMeasurement brick:Discharge_Fan_Piezoelectric,
+        brick:Supply_Fan_Piezoelectric ;
     bf:usesPoint brick:Sensor .
 
 brick:AHU_Discharge_Fan_Start_Stop_Command bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Discharge_Fan_Start_Stop ;
+    bf:usesMeasurement brick:Discharge_Fan_Start_Stop,
+        brick:Supply_Fan_Start_Stop ;
     bf:usesPoint brick:Command .
 
 brick:AHU_Discharge_Fan_Start_Stop_Status bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Discharge_Fan_Start_Stop ;
+    bf:usesMeasurement brick:Discharge_Fan_Start_Stop,
+        brick:Supply_Fan_Start_Stop ;
     bf:usesPoint brick:Status .
 
 brick:AHU_Discharge_Fan_Status bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Discharge_Fan ;
+    bf:usesMeasurement brick:Discharge_Fan,
+        brick:Supply_Fan ;
     bf:usesPoint brick:Status .
 
 brick:AHU_Discharge_Fan_VFD_Speed_Command bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Discharge_Fan_VFD_Speed ;
+    bf:usesMeasurement brick:Discharge_Fan_VFD_Speed,
+        brick:Supply_Fan_VFD_Speed ;
     bf:usesPoint brick:Command .
 
 brick:AHU_Discharge_Fan_VFD_Speed_Sensor bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Discharge_Fan_VFD_Speed ;
+    bf:usesMeasurement brick:Discharge_Fan_VFD_Speed,
+        brick:Supply_Fan_VFD_Speed ;
     bf:usesPoint brick:Sensor .
 
 brick:AHU_Discharge_Fan_VFD_Speed_Setpoint bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Discharge_Fan_VFD_Speed ;
+    bf:usesMeasurement brick:Discharge_Fan_VFD_Speed,
+        brick:Supply_Fan_VFD_Speed ;
     bf:usesPoint brick:Setpoint .
 
 brick:AHU_Discharge_Fan_VFD_Speed_Status bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Discharge_Fan_VFD_Speed ;
+    bf:usesMeasurement brick:Discharge_Fan_VFD_Speed,
+        brick:Supply_Fan_VFD_Speed ;
     bf:usesPoint brick:Status .
 
 brick:AHU_Dual_Band_Mode_Setpoint bf:usesEquipment brick:AHU ;
@@ -268,11 +309,13 @@ brick:AHU_Economizer_Differential_Air_Temperature_Setpoint bf:usesEquipment bric
     bf:usesPoint brick:Setpoint .
 
 brick:AHU_Economizer_Discharge_Air_Temperature_Dead_Band_Setpoint bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Economizer_Discharge_Air_Temperature_Dead_Band ;
+    bf:usesMeasurement brick:Economizer_Discharge_Air_Temperature_Dead_Band,
+        brick:Economizer_Supply_Air_Temperature_Dead_Band ;
     bf:usesPoint brick:Setpoint .
 
 brick:AHU_Economizer_Discharge_Air_Temperature_Proportional_Band_Setpoint bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Economizer_Discharge_Air_Temperature_Proportional_Band ;
+    bf:usesMeasurement brick:Economizer_Discharge_Air_Temperature_Proportional_Band,
+        brick:Economizer_Supply_Air_Temperature_Proportional_Band ;
     bf:usesPoint brick:Setpoint .
 
 brick:AHU_Economizer_Mode_Status bf:usesEquipment brick:AHU ;
@@ -289,11 +332,13 @@ brick:AHU_Economizer_Status bf:usesEquipment brick:AHU ;
     bf:usesPoint brick:Status .
 
 brick:AHU_Economizer_Supply_Air_Temperature_Dead_Band_Setpoint bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Economizer_Supply_Air_Temperature_Dead_Band ;
+    bf:usesMeasurement brick:Economizer_Discharge_Air_Temperature_Dead_Band,
+        brick:Economizer_Supply_Air_Temperature_Dead_Band ;
     bf:usesPoint brick:Setpoint .
 
 brick:AHU_Economizer_Supply_Air_Temperature_Proportional_Band_Setpoint bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Economizer_Supply_Air_Temperature_Proportional_Band ;
+    bf:usesMeasurement brick:Economizer_Discharge_Air_Temperature_Proportional_Band,
+        brick:Economizer_Supply_Air_Temperature_Proportional_Band ;
     bf:usesPoint brick:Setpoint .
 
 brick:AHU_Exhaust_Air_Flow_Sensor bf:usesEquipment brick:AHU ;
@@ -446,7 +491,8 @@ brick:AHU_Heat_Wheel_Differential_Pressure_Sensor bf:usesEquipment brick:AHU ;
     bf:usesPoint brick:Sensor .
 
 brick:AHU_Heat_Wheel_Discharge_Air_Temperature_Sensor bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Heat_Wheel_Discharge_Air_Temperature ;
+    bf:usesMeasurement brick:Heat_Wheel_Discharge_Air_Temperature,
+        brick:Heat_Wheel_Supply_Air_Temperature ;
     bf:usesPoint brick:Sensor .
 
 brick:AHU_Heat_Wheel_Speed_Sensor bf:usesEquipment brick:AHU ;
@@ -454,7 +500,8 @@ brick:AHU_Heat_Wheel_Speed_Sensor bf:usesEquipment brick:AHU ;
     bf:usesPoint brick:Sensor .
 
 brick:AHU_Heat_Wheel_Supply_Air_Temperature_Sensor bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Heat_Wheel_Supply_Air_Temperature ;
+    bf:usesMeasurement brick:Heat_Wheel_Discharge_Air_Temperature,
+        brick:Heat_Wheel_Supply_Air_Temperature ;
     bf:usesPoint brick:Sensor .
 
 brick:AHU_Heat_Wheel_Voltage_Sensor bf:usesEquipment brick:AHU ;
@@ -466,15 +513,18 @@ brick:AHU_Heating_Demand_Setpoint bf:usesEquipment brick:AHU ;
     bf:usesPoint brick:Setpoint .
 
 brick:AHU_Heating_Discharge_Air_Temperature_Dead_Band_Setpoint bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Heating_Discharge_Air_Temperature_Dead_Band ;
+    bf:usesMeasurement brick:Heating_Discharge_Air_Temperature_Dead_Band,
+        brick:Heating_Supply_Air_Temperature_Dead_Band ;
     bf:usesPoint brick:Setpoint .
 
 brick:AHU_Heating_Discharge_Air_Temperature_Integral_Time_Setpoint bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Heating_Discharge_Air_Temperature_Integral_Time ;
+    bf:usesMeasurement brick:Heating_Discharge_Air_Temperature_Integral_Time,
+        brick:Heating_Supply_Air_Temperature_Integral_Time ;
     bf:usesPoint brick:Setpoint .
 
 brick:AHU_Heating_Discharge_Air_Temperature_Proportional_Band_Setpoint bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Heating_Discharge_Air_Temperature_Proportional_Band ;
+    bf:usesMeasurement brick:Heating_Discharge_Air_Temperature_Proportional_Band,
+        brick:Heating_Supply_Air_Temperature_Proportional_Band ;
     bf:usesPoint brick:Setpoint .
 
 brick:AHU_Heating_Request_Percent_Setpoint bf:usesEquipment brick:AHU ;
@@ -482,18 +532,23 @@ brick:AHU_Heating_Request_Percent_Setpoint bf:usesEquipment brick:AHU ;
     bf:usesPoint brick:Setpoint .
 
 brick:AHU_Heating_Request_Setpoint bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Heating_Request_Setpoint .
+    bf:usesMeasurement brick:Heating_Demand,
+        brick:Heating_Request_Setpoint ;
+    bf:usesPoint brick:Setpoint .
 
 brick:AHU_Heating_Supply_Air_Temperature_Dead_Band_Setpoint bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Heating_Supply_Air_Temperature_Dead_Band ;
+    bf:usesMeasurement brick:Heating_Discharge_Air_Temperature_Dead_Band,
+        brick:Heating_Supply_Air_Temperature_Dead_Band ;
     bf:usesPoint brick:Setpoint .
 
 brick:AHU_Heating_Supply_Air_Temperature_Integral_Time_Setpoint bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Heating_Supply_Air_Temperature_Integral_Time ;
+    bf:usesMeasurement brick:Heating_Discharge_Air_Temperature_Integral_Time,
+        brick:Heating_Supply_Air_Temperature_Integral_Time ;
     bf:usesPoint brick:Setpoint .
 
 brick:AHU_Heating_Supply_Air_Temperature_Proportional_Band_Setpoint bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Heating_Supply_Air_Temperature_Proportional_Band ;
+    bf:usesMeasurement brick:Heating_Discharge_Air_Temperature_Proportional_Band,
+        brick:Heating_Supply_Air_Temperature_Proportional_Band ;
     bf:usesPoint brick:Setpoint .
 
 brick:AHU_Heating_Valve_Command bf:usesEquipment brick:AHU ;
@@ -507,7 +562,8 @@ brick:AHU_Highest_Zone_Cooling_Command bf:usesEquipment brick:AHU ;
 
 brick:AHU_Highest_Zone_Temperature_Sensor bf:usesEquipment brick:AHU ;
     bf:usesLocation brick:Zone ;
-    bf:usesMeasurement brick:Highest_Temperature ;
+    bf:usesMeasurement brick:Highest_Temperature,
+        brick:Warmest_Temperature ;
     bf:usesPoint brick:Sensor .
 
 brick:AHU_Low_Outside_Air_Temperature_Enable_Differential_Sensor bf:usesEquipment brick:AHU ;
@@ -526,15 +582,18 @@ brick:AHU_Lowest_Exhaust_Air_Static_Pressure_Sensor bf:usesEquipment brick:AHU ;
 
 brick:AHU_Lowest_Zone_Temperature_Sensor bf:usesEquipment brick:AHU ;
     bf:usesLocation brick:Zone ;
-    bf:usesMeasurement brick:Lowest_Temperature ;
+    bf:usesMeasurement brick:Coldest_Temperature,
+        brick:Lowest_Temperature ;
     bf:usesPoint brick:Sensor .
 
 brick:AHU_Max_Discharge_Air_Static_Pressure_Setpoint bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Max_Discharge_Air_Static_Pressure ;
+    bf:usesMeasurement brick:Max_Discharge_Air_Static_Pressure,
+        brick:Max_Supply_Air_Static_Pressure ;
     bf:usesPoint brick:Setpoint .
 
 brick:AHU_Max_Discharge_Air_Temperature_Setpoint bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Max_Discharge_Air_Temperature ;
+    bf:usesMeasurement brick:Max_Discharge_Air_Temperature,
+        brick:Max_Supply_Air_Temperature ;
     bf:usesPoint brick:Setpoint .
 
 brick:AHU_Max_Return_Air_CO2_Setpoint bf:usesEquipment brick:AHU ;
@@ -542,11 +601,13 @@ brick:AHU_Max_Return_Air_CO2_Setpoint bf:usesEquipment brick:AHU ;
     bf:usesPoint brick:Setpoint .
 
 brick:AHU_Max_Supply_Air_Static_Pressure_Setpoint bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Max_Supply_Air_Static_Pressure ;
+    bf:usesMeasurement brick:Max_Discharge_Air_Static_Pressure,
+        brick:Max_Supply_Air_Static_Pressure ;
     bf:usesPoint brick:Setpoint .
 
 brick:AHU_Max_Supply_Air_Temperature_Setpoint bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Max_Supply_Air_Temperature ;
+    bf:usesMeasurement brick:Max_Discharge_Air_Temperature,
+        brick:Max_Supply_Air_Temperature ;
     bf:usesPoint brick:Setpoint .
 
 brick:AHU_Max_VFD_Speed_Setpoint bf:usesEquipment brick:AHU ;
@@ -554,11 +615,13 @@ brick:AHU_Max_VFD_Speed_Setpoint bf:usesEquipment brick:AHU ;
     bf:usesPoint brick:Setpoint .
 
 brick:AHU_Min_Discharge_Air_Static_Pressure_Setpoint bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Min_Discharge_Air_Static_Pressure ;
+    bf:usesMeasurement brick:Min_Discharge_Air_Static_Pressure,
+        brick:Min_Supply_Air_Static_Pressure ;
     bf:usesPoint brick:Setpoint .
 
 brick:AHU_Min_Discharge_Air_Temperature_Setpoint bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Min_Discharge_Air_Temperature ;
+    bf:usesMeasurement brick:Min_Discharge_Air_Temperature,
+        brick:Min_Supply_Air_Temperature ;
     bf:usesPoint brick:Setpoint .
 
 brick:AHU_Min_Fresh_Air_Setpoint bf:usesEquipment brick:AHU ;
@@ -566,11 +629,13 @@ brick:AHU_Min_Fresh_Air_Setpoint bf:usesEquipment brick:AHU ;
     bf:usesPoint brick:Setpoint .
 
 brick:AHU_Min_Supply_Air_Static_Pressure_Setpoint bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Min_Supply_Air_Static_Pressure ;
+    bf:usesMeasurement brick:Min_Discharge_Air_Static_Pressure,
+        brick:Min_Supply_Air_Static_Pressure ;
     bf:usesPoint brick:Setpoint .
 
 brick:AHU_Min_Supply_Air_Temperature_Setpoint bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Min_Supply_Air_Temperature ;
+    bf:usesMeasurement brick:Min_Discharge_Air_Temperature,
+        brick:Min_Supply_Air_Temperature ;
     bf:usesPoint brick:Setpoint .
 
 brick:AHU_Min_VFD_Speed_Setpoint bf:usesEquipment brick:AHU ;
@@ -594,11 +659,13 @@ brick:AHU_Mixed_Air_Temperature_Setpoint bf:usesEquipment brick:AHU ;
     bf:usesPoint brick:Setpoint .
 
 brick:AHU_Occupancy_Command bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Occupancy ;
+    bf:usesMeasurement brick:Occupancy,
+        brick:Occupied ;
     bf:usesPoint brick:Command .
 
 brick:AHU_Occupied_Command bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Occupied ;
+    bf:usesMeasurement brick:Occupancy,
+        brick:Occupied ;
     bf:usesPoint brick:Command .
 
 brick:AHU_Occupied_Mode_Status bf:usesEquipment brick:AHU ;
@@ -707,11 +774,13 @@ brick:AHU_Preheat_Demand_Setpoint bf:usesEquipment brick:AHU ;
     bf:usesPoint brick:Setpoint .
 
 brick:AHU_Preheat_Discharge_Air_Temperature_Sensor bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Preheat_Discharge_Air_Temperature ;
+    bf:usesMeasurement brick:Preheat_Discharge_Air_Temperature,
+        brick:Preheat_Supply_Air_Temperature ;
     bf:usesPoint brick:Sensor .
 
 brick:AHU_Preheat_Supply_Air_Temperature_Sensor bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Preheat_Supply_Air_Temperature ;
+    bf:usesMeasurement brick:Preheat_Discharge_Air_Temperature,
+        brick:Preheat_Supply_Air_Temperature ;
     bf:usesPoint brick:Sensor .
 
 brick:AHU_Preheat_Valve_Command bf:usesEquipment brick:AHU ;
@@ -759,7 +828,8 @@ brick:AHU_Return_Air_Temperature_Sensor bf:usesEquipment brick:AHU ;
     bf:usesPoint brick:Sensor .
 
 brick:AHU_Return_Discharge_Fan_Differential_Speed_Setpoint bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Return_Discharge_Fan_Differential_Speed ;
+    bf:usesMeasurement brick:Return_Discharge_Fan_Differential_Speed,
+        brick:Return_Supply_Fan_Differential_Speed ;
     bf:usesPoint brick:Setpoint .
 
 brick:AHU_Return_Fan_Air_Flow_Sensor bf:usesEquipment brick:AHU ;
@@ -811,7 +881,8 @@ brick:AHU_Return_Heat_Valve_Command bf:usesEquipment brick:AHU ;
     bf:usesPoint brick:Command .
 
 brick:AHU_Return_Supply_Fan_Differential_Speed_Setpoint bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Return_Supply_Fan_Differential_Speed ;
+    bf:usesMeasurement brick:Return_Discharge_Fan_Differential_Speed,
+        brick:Return_Supply_Fan_Differential_Speed ;
     bf:usesPoint brick:Setpoint .
 
 brick:AHU_Run_Request_Command bf:usesEquipment brick:AHU ;
@@ -839,11 +910,13 @@ brick:AHU_Steam_On_Off_Command bf:usesEquipment brick:AHU ;
     bf:usesPoint brick:Command .
 
 brick:AHU_Supply_Air_Flow_Demand_Setpoint bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Supply_Air_Flow_Demand ;
+    bf:usesMeasurement brick:Discharge_Air_Flow_Demand,
+        brick:Supply_Air_Flow_Demand ;
     bf:usesPoint brick:Setpoint .
 
 brick:AHU_Supply_Air_Humidity_Sensor bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Supply_Air_Humidity ;
+    bf:usesMeasurement brick:Discharge_Air_Humidity,
+        brick:Supply_Air_Humidity ;
     bf:usesPoint brick:Sensor .
 
 brick:AHU_Supply_Air_Proportional_Gain_Factor bf:usesEquipment brick:AHU ;
@@ -851,107 +924,133 @@ brick:AHU_Supply_Air_Proportional_Gain_Factor bf:usesEquipment brick:AHU ;
     bf:usesPoint brick:Setpoint .
 
 brick:AHU_Supply_Air_Smoke_Detected_Alarm bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Supply_Air_Smoke_Detected ;
+    bf:usesMeasurement brick:Discharge_Air_Smoke_Detected,
+        brick:Supply_Air_Smoke_Detected ;
     bf:usesPoint brick:Alarm .
 
 brick:AHU_Supply_Air_Static_Pressure_Dead_Band_Setpoint bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Supply_Air_Static_Pressure_Dead_Band ;
+    bf:usesMeasurement brick:Discharge_Air_Static_Pressure_Dead_Band,
+        brick:Supply_Air_Static_Pressure_Dead_Band ;
     bf:usesPoint brick:Setpoint .
 
 brick:AHU_Supply_Air_Static_Pressure_Increase_Decrease_Step_Setpoint bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Supply_Air_Static_Pressure_Increase_Decrease_Step ;
+    bf:usesMeasurement brick:Discharge_Air_Static_Pressure_Increase_Decrease_Step,
+        brick:Supply_Air_Static_Pressure_Increase_Decrease_Step ;
     bf:usesPoint brick:Setpoint .
 
 brick:AHU_Supply_Air_Static_Pressure_Integral_Time_Setpoint bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Supply_Air_Static_Pressure_Integral_Time ;
+    bf:usesMeasurement brick:Discharge_Air_Static_Pressure_Integral_Time,
+        brick:Supply_Air_Static_Pressure_Integral_Time ;
     bf:usesPoint brick:Setpoint .
 
 brick:AHU_Supply_Air_Static_Pressure_Proportional_Band_Setpoint bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Supply_Air_Static_Pressure_Proportional_Band ;
+    bf:usesMeasurement brick:Discharge_Air_Static_Pressure_Proportional_Band,
+        brick:Supply_Air_Static_Pressure_Proportional_Band ;
     bf:usesPoint brick:Setpoint .
 
 brick:AHU_Supply_Air_Static_Pressure_Sensor bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Supply_Air_Static_Pressure ;
+    bf:usesMeasurement brick:Discharge_Air_Static_Pressure,
+        brick:Supply_Air_Static_Pressure ;
     bf:usesPoint brick:Sensor .
 
 brick:AHU_Supply_Air_Static_Pressure_Setpoint bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Supply_Air_Static_Pressure ;
+    bf:usesMeasurement brick:Discharge_Air_Static_Pressure,
+        brick:Supply_Air_Static_Pressure ;
     bf:usesPoint brick:Setpoint .
 
 brick:AHU_Supply_Air_Temperature_Cooling_Setpoint bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Supply_Air_Temperature_Cooling ;
+    bf:usesMeasurement brick:Discharge_Air_Temperature_Cooling,
+        brick:Supply_Air_Temperature_Cooling ;
     bf:usesPoint brick:Setpoint .
 
 brick:AHU_Supply_Air_Temperature_Heating_Setpoint bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Supply_Air_Temperature_Heating ;
+    bf:usesMeasurement brick:Discharge_Air_Temperature_Heating,
+        brick:Supply_Air_Temperature_Heating ;
     bf:usesPoint brick:Setpoint .
 
 brick:AHU_Supply_Air_Temperature_High_Limit_Alarm bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Supply_Air_Temperature_High_Limit ;
+    bf:usesMeasurement brick:Discharge_Air_Temperature_High_Limit,
+        brick:Supply_Air_Temperature_High_Limit ;
     bf:usesPoint brick:Alarm .
 
 brick:AHU_Supply_Air_Temperature_Reset_Differential_Setpoint bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Supply_Air_Temperature_Reset_Differential ;
+    bf:usesMeasurement brick:Discharge_Air_Temperature_Reset_Differential,
+        brick:Supply_Air_Temperature_Reset_Differential ;
     bf:usesPoint brick:Setpoint .
 
 brick:AHU_Supply_Air_Temperature_Reset_High_Setpoint bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Supply_Air_Temperature_Reset_High ;
+    bf:usesMeasurement brick:Discharge_Air_Temperature_Reset_High,
+        brick:Supply_Air_Temperature_Reset_High ;
     bf:usesPoint brick:Setpoint .
 
 brick:AHU_Supply_Air_Temperature_Reset_Low_Setpoint bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Supply_Air_Temperature_Reset_Low ;
+    bf:usesMeasurement brick:Discharge_Air_Temperature_Reset_Low,
+        brick:Supply_Air_Temperature_Reset_Low ;
     bf:usesPoint brick:Setpoint .
 
 brick:AHU_Supply_Air_Temperature_Sensor bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Supply_Air_Temperature ;
+    bf:usesMeasurement brick:Discharge_Air_Temperature,
+        brick:Supply_Air_Temperature ;
     bf:usesPoint brick:Sensor .
 
 brick:AHU_Supply_Air_Temperature_Setpoint bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Supply_Air_Temperature ;
+    bf:usesMeasurement brick:Discharge_Air_Temperature,
+        brick:Supply_Air_Temperature ;
     bf:usesPoint brick:Setpoint .
 
 brick:AHU_Supply_Air_Temperature_Setpoint_Increase_Decrease_Step bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Supply_Air_Temperature_Increase_Decrease_Step ;
+    bf:usesMeasurement brick:Discharge_Air_Temperature_Increase_Decrease_Step,
+        brick:Supply_Air_Temperature_Increase_Decrease_Step ;
     bf:usesPoint brick:Setpoint .
 
 brick:AHU_Supply_Fan_Air_Flow_Sensor bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Supply_Fan_Air_Flow ;
+    bf:usesMeasurement brick:Discharge_Fan_Air_Flow,
+        brick:Supply_Fan_Air_Flow ;
     bf:usesPoint brick:Sensor .
 
 brick:AHU_Supply_Fan_Command bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Supply_Fan ;
+    bf:usesMeasurement brick:Discharge_Fan,
+        brick:Supply_Fan ;
     bf:usesPoint brick:Command .
 
 brick:AHU_Supply_Fan_Piezoelectric_Sensor bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Supply_Fan_Piezoelectric ;
+    bf:usesMeasurement brick:Discharge_Fan_Piezoelectric,
+        brick:Supply_Fan_Piezoelectric ;
     bf:usesPoint brick:Sensor .
 
 brick:AHU_Supply_Fan_Start_Stop_Command bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Supply_Fan_Start_Stop ;
+    bf:usesMeasurement brick:Discharge_Fan_Start_Stop,
+        brick:Supply_Fan_Start_Stop ;
     bf:usesPoint brick:Command .
 
 brick:AHU_Supply_Fan_Start_Stop_Status bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Supply_Fan_Start_Stop ;
+    bf:usesMeasurement brick:Discharge_Fan_Start_Stop,
+        brick:Supply_Fan_Start_Stop ;
     bf:usesPoint brick:Status .
 
 brick:AHU_Supply_Fan_Status bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Supply_Fan ;
+    bf:usesMeasurement brick:Discharge_Fan,
+        brick:Supply_Fan ;
     bf:usesPoint brick:Status .
 
 brick:AHU_Supply_Fan_VFD_Speed_Command bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Supply_Fan_VFD_Speed ;
+    bf:usesMeasurement brick:Discharge_Fan_VFD_Speed,
+        brick:Supply_Fan_VFD_Speed ;
     bf:usesPoint brick:Command .
 
 brick:AHU_Supply_Fan_VFD_Speed_Sensor bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Supply_Fan_VFD_Speed ;
+    bf:usesMeasurement brick:Discharge_Fan_VFD_Speed,
+        brick:Supply_Fan_VFD_Speed ;
     bf:usesPoint brick:Sensor .
 
 brick:AHU_Supply_Fan_VFD_Speed_Setpoint bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Supply_Fan_VFD_Speed ;
+    bf:usesMeasurement brick:Discharge_Fan_VFD_Speed,
+        brick:Supply_Fan_VFD_Speed ;
     bf:usesPoint brick:Setpoint .
 
 brick:AHU_Supply_Fan_VFD_Speed_Status bf:usesEquipment brick:AHU ;
-    bf:usesMeasurement brick:Supply_Fan_VFD_Speed ;
+    bf:usesMeasurement brick:Discharge_Fan_VFD_Speed,
+        brick:Supply_Fan_VFD_Speed ;
     bf:usesPoint brick:Status .
 
 brick:AHU_System_Enable_Command bf:usesEquipment brick:AHU ;
@@ -997,7 +1096,8 @@ brick:AHU_Velocity_Pressure_Setpoint bf:usesEquipment brick:AHU ;
 
 brick:AHU_Warmest_Zone_Temperature_Sensor bf:usesEquipment brick:AHU ;
     bf:usesLocation brick:Zone ;
-    bf:usesMeasurement brick:Warmest_Temperature ;
+    bf:usesMeasurement brick:Highest_Temperature,
+        brick:Warmest_Temperature ;
     bf:usesPoint brick:Sensor .
 
 brick:AHU_Zone_Air_Temperature_Sensor bf:usesEquipment brick:AHU ;
@@ -1028,13 +1128,15 @@ brick:Automatic_Mode_Command bf:usesMeasurement brick:Automatic_Mode ;
 brick:Average_Cooling_Demand_Sensor bf:usesMeasurement brick:Average_Cooling_Demand ;
     bf:usesPoint brick:Sensor .
 
-brick:Average_Discharge_Air_Flow_Sensor bf:usesMeasurement brick:Average_Discharge_Air_Flow ;
+brick:Average_Discharge_Air_Flow_Sensor bf:usesMeasurement brick:Average_Discharge_Air_Flow,
+        brick:Average_Supply_Air_Flow ;
     bf:usesPoint brick:Sensor .
 
 brick:Average_Exhaust_Air_Static_Pressure_Sensor bf:usesMeasurement brick:Average_Exhaust_Air_Static_Pressure ;
     bf:usesPoint brick:Sensor .
 
-brick:Average_Supply_Air_Flow_Sensor bf:usesMeasurement brick:Average_Supply_Air_Flow ;
+brick:Average_Supply_Air_Flow_Sensor bf:usesMeasurement brick:Average_Discharge_Air_Flow,
+        brick:Average_Supply_Air_Flow ;
     bf:usesPoint brick:Sensor .
 
 brick:Average_Zone_Temperature_Sensor bf:usesLocation brick:Zone ;
@@ -1045,7 +1147,8 @@ brick:Battery_Voltage_Sensor bf:usesMeasurement brick:Battery_Voltage ;
     bf:usesPoint brick:Sensor .
 
 brick:Boiler_On_Off_Status bf:usesEquipment brick:Boiler ;
-    bf:usesMeasurement brick:On_Off ;
+    bf:usesMeasurement brick:On_Off,
+        brick:Start_Stop ;
     bf:usesPoint brick:Status .
 
 brick:Boiler_Run_Time_Sensor bf:usesEquipment brick:Boiler ;
@@ -1053,7 +1156,8 @@ brick:Boiler_Run_Time_Sensor bf:usesEquipment brick:Boiler ;
     bf:usesPoint brick:Sensor .
 
 brick:Boiler_Start_Stop_Status bf:usesEquipment brick:Boiler ;
-    bf:usesMeasurement brick:Start_Stop ;
+    bf:usesMeasurement brick:On_Off,
+        brick:Start_Stop ;
     bf:usesPoint brick:Status .
 
 brick:Booster_Fan_Air_Flow_Sensor bf:usesMeasurement brick:Booster_Fan_Air_Flow ;
@@ -1086,7 +1190,8 @@ brick:Bypass_Air_Flow_Sensor bf:usesMeasurement brick:Bypass_Air_Flow ;
 brick:Bypass_Damper_Position_Sensor bf:usesMeasurement brick:Bypass_Damper_Position ;
     bf:usesPoint brick:Sensor .
 
-brick:CO2_Differential_Sensor bf:usesMeasurement brick:CO2_Differential ;
+brick:CO2_Differential_Sensor bf:usesMeasurement brick:CO2,
+        brick:CO2_Differential ;
     bf:usesPoint brick:Sensor .
 
 brick:CO2_High_Alarm bf:usesMeasurement brick:CO2_High ;
@@ -1095,7 +1200,8 @@ brick:CO2_High_Alarm bf:usesMeasurement brick:CO2_High ;
 brick:CO2_Level_Sensor bf:usesMeasurement brick:CO2_Level ;
     bf:usesPoint brick:Sensor .
 
-brick:CO2_Sensor bf:usesMeasurement brick:CO2 ;
+brick:CO2_Sensor bf:usesMeasurement brick:CO2,
+        brick:CO2_Differential ;
     bf:usesPoint brick:Sensor .
 
 brick:CO2_Setpoint bf:usesMeasurement brick:CO2 ;
@@ -1265,7 +1371,8 @@ brick:CRAC_Low_Temperature_Alarm_Setpoint bf:usesEquipment brick:CRAC ;
     bf:usesPoint brick:Setpoint .
 
 brick:CRAC_On_Off_Status bf:usesEquipment brick:CRAC ;
-    bf:usesMeasurement brick:On_Off ;
+    bf:usesMeasurement brick:On_Off,
+        brick:Start_Stop ;
     bf:usesPoint brick:Status .
 
 brick:CRAC_Power_Loss_Alarm bf:usesEquipment brick:CRAC ;
@@ -1313,7 +1420,8 @@ brick:CRAC_Start_Stop_Command bf:usesEquipment brick:CRAC ;
     bf:usesPoint brick:Command .
 
 brick:CRAC_Start_Stop_Status bf:usesEquipment brick:CRAC ;
-    bf:usesMeasurement brick:Start_Stop ;
+    bf:usesMeasurement brick:On_Off,
+        brick:Start_Stop ;
     bf:usesPoint brick:Status .
 
 brick:CRAC_System_Enable_Command bf:usesEquipment brick:CRAC ;
@@ -1374,11 +1482,13 @@ brick:CWS_Chilled_Water_Differential_Pressure_Setpoint bf:usesEquipment brick:CW
     bf:usesPoint brick:Setpoint .
 
 brick:CWS_Chilled_Water_Discharge_Flow_Sensor bf:usesEquipment brick:CWS ;
-    bf:usesMeasurement brick:Chilled_Water_Discharge_Flow ;
+    bf:usesMeasurement brick:Chilled_Water_Discharge_Flow,
+        brick:Chilled_Water_Supply_Flow ;
     bf:usesPoint brick:Sensor .
 
 brick:CWS_Chilled_Water_Discharge_Temperature_Sensor bf:usesEquipment brick:CWS ;
-    bf:usesMeasurement brick:Chilled_Water_Discharge_Temperature ;
+    bf:usesMeasurement brick:Chilled_Water_Discharge_Temperature,
+        brick:Chilled_Water_Supply_Temperature ;
     bf:usesPoint brick:Sensor .
 
 brick:CWS_Chilled_Water_Meter bf:usesEquipment brick:CWS ;
@@ -1441,11 +1551,13 @@ brick:CWS_Chilled_Water_Static_Pressure_Setpoint bf:usesEquipment brick:CWS ;
     bf:usesPoint brick:Setpoint .
 
 brick:CWS_Chilled_Water_Supply_Flow_Sensor bf:usesEquipment brick:CWS ;
-    bf:usesMeasurement brick:Chilled_Water_Supply_Flow ;
+    bf:usesMeasurement brick:Chilled_Water_Discharge_Flow,
+        brick:Chilled_Water_Supply_Flow ;
     bf:usesPoint brick:Sensor .
 
 brick:CWS_Chilled_Water_Supply_Temperature_Sensor bf:usesEquipment brick:CWS ;
-    bf:usesMeasurement brick:Chilled_Water_Supply_Temperature ;
+    bf:usesMeasurement brick:Chilled_Water_Discharge_Temperature,
+        brick:Chilled_Water_Supply_Temperature ;
     bf:usesPoint brick:Sensor .
 
 brick:CWS_Chilled_Water_System_Enable_Command bf:usesEquipment brick:CWS ;
@@ -1457,7 +1569,8 @@ brick:CWS_Chilled_Water_Temperature_Differential_Sensor bf:usesEquipment brick:C
     bf:usesPoint brick:Sensor .
 
 brick:CWS_Discharge_Water_Temperature_Setpoint bf:usesEquipment brick:CWS ;
-    bf:usesMeasurement brick:Discharge_Water_Temperature ;
+    bf:usesMeasurement brick:Discharge_Water_Temperature,
+        brick:Supply_Water_Temperature ;
     bf:usesPoint brick:Setpoint .
 
 brick:CWS_Exhaust_Fan_Command bf:usesEquipment brick:CWS ;
@@ -1473,7 +1586,8 @@ brick:CWS_Min_Chilled_Water_Differential_Pressure_Setpoint bf:usesEquipment bric
     bf:usesPoint brick:Setpoint .
 
 brick:CWS_Supply_Water_Temperature_Setpoint bf:usesEquipment brick:CWS ;
-    bf:usesMeasurement brick:Supply_Water_Temperature ;
+    bf:usesMeasurement brick:Discharge_Water_Temperature,
+        brick:Supply_Water_Temperature ;
     bf:usesPoint brick:Setpoint .
 
 brick:Change_Filter_Alarm bf:usesMeasurement brick:Change_Filter ;
@@ -1512,10 +1626,12 @@ brick:Chilled_Water_Differential_Pressure_Sensor bf:usesMeasurement brick:Chille
 brick:Chilled_Water_Differential_Pressure_Setpoint bf:usesMeasurement brick:Chilled_Water_Differential_Pressure ;
     bf:usesPoint brick:Setpoint .
 
-brick:Chilled_Water_Discharge_Flow_Sensor bf:usesMeasurement brick:Chilled_Water_Discharge_Flow ;
+brick:Chilled_Water_Discharge_Flow_Sensor bf:usesMeasurement brick:Chilled_Water_Discharge_Flow,
+        brick:Chilled_Water_Supply_Flow ;
     bf:usesPoint brick:Sensor .
 
-brick:Chilled_Water_Discharge_Temperature_Sensor bf:usesMeasurement brick:Chilled_Water_Discharge_Temperature ;
+brick:Chilled_Water_Discharge_Temperature_Sensor bf:usesMeasurement brick:Chilled_Water_Discharge_Temperature,
+        brick:Chilled_Water_Supply_Temperature ;
     bf:usesPoint brick:Sensor .
 
 brick:Chilled_Water_Pump_Alarm_Delay_Setpoint bf:usesMeasurement brick:Chilled_Water_Pump_Alarm_Delay ;
@@ -1560,10 +1676,12 @@ brick:Chilled_Water_Return_Temperature_Sensor bf:usesMeasurement brick:Chilled_W
 brick:Chilled_Water_Static_Pressure_Setpoint bf:usesMeasurement brick:Chilled_Water_Static_Pressure ;
     bf:usesPoint brick:Setpoint .
 
-brick:Chilled_Water_Supply_Flow_Sensor bf:usesMeasurement brick:Chilled_Water_Supply_Flow ;
+brick:Chilled_Water_Supply_Flow_Sensor bf:usesMeasurement brick:Chilled_Water_Discharge_Flow,
+        brick:Chilled_Water_Supply_Flow ;
     bf:usesPoint brick:Sensor .
 
-brick:Chilled_Water_Supply_Temperature_Sensor bf:usesMeasurement brick:Chilled_Water_Supply_Temperature ;
+brick:Chilled_Water_Supply_Temperature_Sensor bf:usesMeasurement brick:Chilled_Water_Discharge_Temperature,
+        brick:Chilled_Water_Supply_Temperature ;
     bf:usesPoint brick:Sensor .
 
 brick:Chilled_Water_System_Enable_Command bf:usesMeasurement brick:Chilled_Water_System_Enable ;
@@ -1585,7 +1703,8 @@ brick:Chiller_Max_Load_Setpoint bf:usesEquipment brick:Chiller ;
     bf:usesPoint brick:Setpoint .
 
 brick:Chiller_On_Off_Status bf:usesEquipment brick:Chiller ;
-    bf:usesMeasurement brick:On_Off ;
+    bf:usesMeasurement brick:On_Off,
+        brick:Start_Stop ;
     bf:usesPoint brick:Status .
 
 brick:Chiller_On_Timer_Sensor bf:usesEquipment brick:Chiller ;
@@ -1597,7 +1716,8 @@ brick:Chiller_Run_Time_Sensor bf:usesEquipment brick:Chiller ;
     bf:usesPoint brick:Sensor .
 
 brick:Chiller_Start_Stop_Status bf:usesEquipment brick:Chiller ;
-    bf:usesMeasurement brick:Start_Stop ;
+    bf:usesMeasurement brick:On_Off,
+        brick:Start_Stop ;
     bf:usesPoint brick:Status .
 
 brick:Chiller_Supply_Water_Temperature_Alarm bf:usesEquipment brick:Chiller ;
@@ -1609,7 +1729,8 @@ brick:Cold_Box_Temperature_Sensor bf:usesLocation brick:Cold_Box ;
     bf:usesPoint brick:Sensor .
 
 brick:Coldest_Zone_Temperature_Sensor bf:usesLocation brick:Zone ;
-    bf:usesMeasurement brick:Coldest_Temperature ;
+    bf:usesMeasurement brick:Coldest_Temperature,
+        brick:Lowest_Temperature ;
     bf:usesPoint brick:Sensor .
 
 brick:Communication_Loss_Alarm bf:usesMeasurement brick:Communication_Loss ;
@@ -1628,10 +1749,12 @@ brick:Condenser_Condensor_Temperature_Sensor bf:usesEquipment brick:Condenser ;
 brick:Condensor_Temperature_Sensor bf:usesMeasurement brick:Condensor_Temperature ;
     bf:usesPoint brick:Sensor .
 
-brick:Cooling_Coil_Discharge_Air_Temperature_Sensor bf:usesMeasurement brick:Cooling_Coil_Discharge_Air_Temperature ;
+brick:Cooling_Coil_Discharge_Air_Temperature_Sensor bf:usesMeasurement brick:Cooling_Coil_Discharge_Air_Temperature,
+        brick:Cooling_Coil_Supply_Air_Temperature ;
     bf:usesPoint brick:Sensor .
 
-brick:Cooling_Coil_Supply_Air_Temperature_Sensor bf:usesMeasurement brick:Cooling_Coil_Supply_Air_Temperature ;
+brick:Cooling_Coil_Supply_Air_Temperature_Sensor bf:usesMeasurement brick:Cooling_Coil_Discharge_Air_Temperature,
+        brick:Cooling_Coil_Supply_Air_Temperature ;
     bf:usesPoint brick:Sensor .
 
 brick:Cooling_Coil_Valve_Pressure_Sensor bf:usesMeasurement brick:Cooling_Coil_Valve_Pressure ;
@@ -1640,28 +1763,36 @@ brick:Cooling_Coil_Valve_Pressure_Sensor bf:usesMeasurement brick:Cooling_Coil_V
 brick:Cooling_Command bf:usesMeasurement brick:Cooling ;
     bf:usesPoint brick:Command .
 
-brick:Cooling_Demand_Setpoint bf:usesMeasurement brick:Cooling_Demand ;
+brick:Cooling_Demand_Setpoint bf:usesMeasurement brick:Cooling_Demand,
+        brick:Cooling_Request ;
     bf:usesPoint brick:Setpoint .
 
-brick:Cooling_Discharge_Air_Temperature_Dead_Band_Setpoint bf:usesMeasurement brick:Cooling_Discharge_Air_Temperature_Dead_Band ;
+brick:Cooling_Discharge_Air_Temperature_Dead_Band_Setpoint bf:usesMeasurement brick:Cooling_Discharge_Air_Temperature_Dead_Band,
+        brick:Cooling_Supply_Air_Temperature_Dead_Band ;
     bf:usesPoint brick:Setpoint .
 
-brick:Cooling_Discharge_Air_Temperature_Integral_Time_Setpoint bf:usesMeasurement brick:Cooling_Discharge_Air_Temperature_Integral_Time ;
+brick:Cooling_Discharge_Air_Temperature_Integral_Time_Setpoint bf:usesMeasurement brick:Cooling_Discharge_Air_Temperature_Integral_Time,
+        brick:Cooling_Supply_Air_Temperature_Integral_Time ;
     bf:usesPoint brick:Setpoint .
 
-brick:Cooling_Discharge_Air_Temperature_Proportional_Band_Setpoint bf:usesMeasurement brick:Cooling_Discharge_Air_Temperature_Proportional_Band ;
+brick:Cooling_Discharge_Air_Temperature_Proportional_Band_Setpoint bf:usesMeasurement brick:Cooling_Discharge_Air_Temperature_Proportional_Band,
+        brick:Cooling_Supply_Air_Temperature_Proportional_Band ;
     bf:usesPoint brick:Setpoint .
 
-brick:Cooling_Max_Discharge_Air_Flow_Setpoint bf:usesMeasurement brick:Cooling_Max_Discharge_Air_Flow ;
+brick:Cooling_Max_Discharge_Air_Flow_Setpoint bf:usesMeasurement brick:Cooling_Max_Discharge_Air_Flow,
+        brick:Cooling_Max_Supply_Air_Flow ;
     bf:usesPoint brick:Setpoint .
 
-brick:Cooling_Max_Supply_Air_Flow_Setpoint bf:usesMeasurement brick:Cooling_Max_Supply_Air_Flow ;
+brick:Cooling_Max_Supply_Air_Flow_Setpoint bf:usesMeasurement brick:Cooling_Max_Discharge_Air_Flow,
+        brick:Cooling_Max_Supply_Air_Flow ;
     bf:usesPoint brick:Setpoint .
 
-brick:Cooling_Min_Discharge_Air_Flow_Setpoint bf:usesMeasurement brick:Cooling_Min_Discharge_Air_Flow ;
+brick:Cooling_Min_Discharge_Air_Flow_Setpoint bf:usesMeasurement brick:Cooling_Min_Discharge_Air_Flow,
+        brick:Cooling_Min_Supply_Air_Flow ;
     bf:usesPoint brick:Setpoint .
 
-brick:Cooling_Min_Supply_Air_Flow_Setpoint bf:usesMeasurement brick:Cooling_Min_Supply_Air_Flow ;
+brick:Cooling_Min_Supply_Air_Flow_Setpoint bf:usesMeasurement brick:Cooling_Min_Discharge_Air_Flow,
+        brick:Cooling_Min_Supply_Air_Flow ;
     bf:usesPoint brick:Setpoint .
 
 brick:Cooling_On_Off_Status bf:usesMeasurement brick:Cooling_On_Off ;
@@ -1670,16 +1801,20 @@ brick:Cooling_On_Off_Status bf:usesMeasurement brick:Cooling_On_Off ;
 brick:Cooling_Request_Percent_Setpoint bf:usesMeasurement brick:Cooling_Request_Percent ;
     bf:usesPoint brick:Setpoint .
 
-brick:Cooling_Request_Setpoint bf:usesMeasurement brick:Cooling_Request ;
+brick:Cooling_Request_Setpoint bf:usesMeasurement brick:Cooling_Demand,
+        brick:Cooling_Request ;
     bf:usesPoint brick:Setpoint .
 
-brick:Cooling_Supply_Air_Temperature_Dead_Band_Setpoint bf:usesMeasurement brick:Cooling_Supply_Air_Temperature_Dead_Band ;
+brick:Cooling_Supply_Air_Temperature_Dead_Band_Setpoint bf:usesMeasurement brick:Cooling_Discharge_Air_Temperature_Dead_Band,
+        brick:Cooling_Supply_Air_Temperature_Dead_Band ;
     bf:usesPoint brick:Setpoint .
 
-brick:Cooling_Supply_Air_Temperature_Integral_Time_Setpoint bf:usesMeasurement brick:Cooling_Supply_Air_Temperature_Integral_Time ;
+brick:Cooling_Supply_Air_Temperature_Integral_Time_Setpoint bf:usesMeasurement brick:Cooling_Discharge_Air_Temperature_Integral_Time,
+        brick:Cooling_Supply_Air_Temperature_Integral_Time ;
     bf:usesPoint brick:Setpoint .
 
-brick:Cooling_Supply_Air_Temperature_Proportional_Band_Setpoint bf:usesMeasurement brick:Cooling_Supply_Air_Temperature_Proportional_Band ;
+brick:Cooling_Supply_Air_Temperature_Proportional_Band_Setpoint bf:usesMeasurement brick:Cooling_Discharge_Air_Temperature_Proportional_Band,
+        brick:Cooling_Supply_Air_Temperature_Proportional_Band ;
     bf:usesPoint brick:Setpoint .
 
 brick:Cooling_Thermal_Power_Meter bf:usesMeasurement brick:Cooling_Thermal_Power ;
@@ -1707,19 +1842,23 @@ brick:DC_Bus_Voltage_Sensor bf:usesMeasurement brick:DC_Bus_Voltage ;
     bf:usesPoint brick:Sensor .
 
 brick:DHWS_Domestic_Hot_Water_Discharge_Temperature_Sensor bf:usesEquipment brick:DHWS ;
-    bf:usesMeasurement brick:Domestic_Hot_Water_Discharge_Temperature ;
+    bf:usesMeasurement brick:Domestic_Hot_Water_Discharge_Temperature,
+        brick:Domestic_Hot_Water_Supply_Temperature ;
     bf:usesPoint brick:Sensor .
 
 brick:DHWS_Domestic_Hot_Water_Discharge_Temperature_Setpoint bf:usesEquipment brick:DHWS ;
-    bf:usesMeasurement brick:Domestic_Hot_Water_Discharge_Temperature ;
+    bf:usesMeasurement brick:Domestic_Hot_Water_Discharge_Temperature,
+        brick:Domestic_Hot_Water_Supply_Temperature ;
     bf:usesPoint brick:Setpoint .
 
 brick:DHWS_Domestic_Hot_Water_Supply_Temperature_Sensor bf:usesEquipment brick:DHWS ;
-    bf:usesMeasurement brick:Domestic_Hot_Water_Supply_Temperature ;
+    bf:usesMeasurement brick:Domestic_Hot_Water_Discharge_Temperature,
+        brick:Domestic_Hot_Water_Supply_Temperature ;
     bf:usesPoint brick:Sensor .
 
 brick:DHWS_Domestic_Hot_Water_Supply_Temperature_Setpoint bf:usesEquipment brick:DHWS ;
-    bf:usesMeasurement brick:Domestic_Hot_Water_Supply_Temperature ;
+    bf:usesMeasurement brick:Domestic_Hot_Water_Discharge_Temperature,
+        brick:Domestic_Hot_Water_Supply_Temperature ;
     bf:usesPoint brick:Setpoint .
 
 brick:DHWS_Domestic_Hot_Water_System_Enable_Command bf:usesEquipment brick:DHWS ;
@@ -1734,10 +1873,12 @@ brick:DHWS_Domestic_Hot_Water_Valve_Command bf:usesEquipment brick:DHWS ;
     bf:usesMeasurement brick:Domestic_Hot_Water_Valve ;
     bf:usesPoint brick:Command .
 
-brick:DI_Water_Alarm bf:usesMeasurement brick:DI_Water ;
+brick:DI_Water_Alarm bf:usesMeasurement brick:DI_Water,
+        brick:Deionised_Water ;
     bf:usesPoint brick:Alarm .
 
-brick:DI_Water_Level_Sensor bf:usesMeasurement brick:DI_Water_Level ;
+brick:DI_Water_Level_Sensor bf:usesMeasurement brick:DI_Water_Level,
+        brick:Deionised_Water_Level ;
     bf:usesPoint brick:Sensor .
 
 brick:Damper_Command bf:usesMeasurement brick:Damper ;
@@ -1752,13 +1893,15 @@ brick:Deceleration_Time_Setpoint bf:usesMeasurement brick:Deceleration_Time ;
 brick:Dehumidification_On_Off_Status bf:usesMeasurement brick:Dehumidification_On_Off ;
     bf:usesPoint brick:Status .
 
-brick:Deionised_Water_Alarm bf:usesMeasurement brick:Deionised_Water ;
+brick:Deionised_Water_Alarm bf:usesMeasurement brick:DI_Water,
+        brick:Deionised_Water ;
     bf:usesPoint brick:Alarm .
 
 brick:Deionised_Water_Conductivity_Sensor bf:usesMeasurement brick:Deionised_Water_Conductivity ;
     bf:usesPoint brick:Sensor .
 
-brick:Deionised_Water_Level_Sensor bf:usesMeasurement brick:Deionised_Water_Level ;
+brick:Deionised_Water_Level_Sensor bf:usesMeasurement brick:DI_Water_Level,
+        brick:Deionised_Water_Level ;
     bf:usesPoint brick:Sensor .
 
 brick:DemandResponse_Chilled_Water_Differential_Pressure_Load_Shed_Reset_Status bf:usesEquipment brick:DemandResponse ;
@@ -1794,19 +1937,23 @@ brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_She
     bf:usesPoint brick:Status .
 
 brick:DemandResponse_Medium_Temperature_Hot_Water_Discharge_Temperature_Load_Shed_Setpoint bf:usesEquipment brick:DemandResponse ;
-    bf:usesMeasurement brick:Medium_Temperature_Hot_Water_Discharge_Temperature_Load_Shed ;
+    bf:usesMeasurement brick:Medium_Temperature_Hot_Water_Discharge_Temperature_Load_Shed,
+        brick:Medium_Temperature_Hot_Water_Supply_Temperature_Load_Shed ;
     bf:usesPoint brick:Setpoint .
 
 brick:DemandResponse_Medium_Temperature_Hot_Water_Discharge_Temperature_Load_Shed_Status bf:usesEquipment brick:DemandResponse ;
-    bf:usesMeasurement brick:Medium_Temperature_Hot_Water_Discharge_Temperature_Load_Shed ;
+    bf:usesMeasurement brick:Medium_Temperature_Hot_Water_Discharge_Temperature_Load_Shed,
+        brick:Medium_Temperature_Hot_Water_Supply_Temperature_Load_Shed ;
     bf:usesPoint brick:Status .
 
 brick:DemandResponse_Medium_Temperature_Hot_Water_Supply_Temperature_Load_Shed_Setpoint bf:usesEquipment brick:DemandResponse ;
-    bf:usesMeasurement brick:Medium_Temperature_Hot_Water_Supply_Temperature_Load_Shed ;
+    bf:usesMeasurement brick:Medium_Temperature_Hot_Water_Discharge_Temperature_Load_Shed,
+        brick:Medium_Temperature_Hot_Water_Supply_Temperature_Load_Shed ;
     bf:usesPoint brick:Setpoint .
 
 brick:DemandResponse_Medium_Temperature_Hot_Water_Supply_Temperature_Load_Shed_Status bf:usesEquipment brick:DemandResponse ;
-    bf:usesMeasurement brick:Medium_Temperature_Hot_Water_Supply_Temperature_Load_Shed ;
+    bf:usesMeasurement brick:Medium_Temperature_Hot_Water_Discharge_Temperature_Load_Shed,
+        brick:Medium_Temperature_Hot_Water_Supply_Temperature_Load_Shed ;
     bf:usesPoint brick:Status .
 
 brick:DemandResponse_Standby_Load_Shed_Command bf:usesEquipment brick:DemandResponse ;
@@ -1837,118 +1984,156 @@ brick:Disable_Hot_Water_System_Outside_Air_Temperature_Setpoint bf:usesLocation 
     bf:usesMeasurement brick:Disable_Hot_Water_System_Air_Temperature ;
     bf:usesPoint brick:Setpoint .
 
-brick:Discharge_Air_Damper_Max_Position_Setpoint bf:usesMeasurement brick:Discharge_Air_Damper_Max_Position ;
+brick:Discharge_Air_Damper_Max_Position_Setpoint bf:usesMeasurement brick:Discharge_Air_Damper_Max_Position,
+        brick:Supply_Air_Damper_Max_Position ;
     bf:usesPoint brick:Setpoint .
 
-brick:Discharge_Air_Flow_Command bf:usesMeasurement brick:Discharge_Air_Flow ;
+brick:Discharge_Air_Flow_Command bf:usesMeasurement brick:Discharge_Air_Flow,
+        brick:Supply_Air_Flow ;
     bf:usesPoint brick:Command .
 
-brick:Discharge_Air_Flow_Demand_Setpoint bf:usesMeasurement brick:Discharge_Air_Flow_Demand ;
+brick:Discharge_Air_Flow_Demand_Setpoint bf:usesMeasurement brick:Discharge_Air_Flow_Demand,
+        brick:Supply_Air_Flow_Demand ;
     bf:usesPoint brick:Setpoint .
 
-brick:Discharge_Air_Flow_Sensor bf:usesMeasurement brick:Discharge_Air_Flow ;
+brick:Discharge_Air_Flow_Sensor bf:usesMeasurement brick:Discharge_Air_Flow,
+        brick:Supply_Air_Flow ;
     bf:usesPoint brick:Sensor .
 
-brick:Discharge_Air_Flow_Setpoint bf:usesMeasurement brick:Discharge_Air_Flow ;
+brick:Discharge_Air_Flow_Setpoint bf:usesMeasurement brick:Discharge_Air_Flow,
+        brick:Supply_Air_Flow ;
     bf:usesPoint brick:Setpoint .
 
-brick:Discharge_Air_Humidity_Sensor bf:usesMeasurement brick:Discharge_Air_Humidity ;
+brick:Discharge_Air_Humidity_Sensor bf:usesMeasurement brick:Discharge_Air_Humidity,
+        brick:Supply_Air_Humidity ;
     bf:usesPoint brick:Sensor .
 
-brick:Discharge_Air_Smoke_Detected_Alarm bf:usesMeasurement brick:Discharge_Air_Smoke_Detected ;
+brick:Discharge_Air_Smoke_Detected_Alarm bf:usesMeasurement brick:Discharge_Air_Smoke_Detected,
+        brick:Supply_Air_Smoke_Detected ;
     bf:usesPoint brick:Alarm .
 
-brick:Discharge_Air_Static_Pressure_Dead_Band_Setpoint bf:usesMeasurement brick:Discharge_Air_Static_Pressure_Dead_Band ;
+brick:Discharge_Air_Static_Pressure_Dead_Band_Setpoint bf:usesMeasurement brick:Discharge_Air_Static_Pressure_Dead_Band,
+        brick:Supply_Air_Static_Pressure_Dead_Band ;
     bf:usesPoint brick:Setpoint .
 
-brick:Discharge_Air_Static_Pressure_Increase_Decrease_Step_Setpoint bf:usesMeasurement brick:Discharge_Air_Static_Pressure_Increase_Decrease_Step ;
+brick:Discharge_Air_Static_Pressure_Increase_Decrease_Step_Setpoint bf:usesMeasurement brick:Discharge_Air_Static_Pressure_Increase_Decrease_Step,
+        brick:Supply_Air_Static_Pressure_Increase_Decrease_Step ;
     bf:usesPoint brick:Setpoint .
 
-brick:Discharge_Air_Static_Pressure_Integral_Time_Setpoint bf:usesMeasurement brick:Discharge_Air_Static_Pressure_Integral_Time ;
+brick:Discharge_Air_Static_Pressure_Integral_Time_Setpoint bf:usesMeasurement brick:Discharge_Air_Static_Pressure_Integral_Time,
+        brick:Supply_Air_Static_Pressure_Integral_Time ;
     bf:usesPoint brick:Setpoint .
 
-brick:Discharge_Air_Static_Pressure_Proportional_Band_Setpoint bf:usesMeasurement brick:Discharge_Air_Static_Pressure_Proportional_Band ;
+brick:Discharge_Air_Static_Pressure_Proportional_Band_Setpoint bf:usesMeasurement brick:Discharge_Air_Static_Pressure_Proportional_Band,
+        brick:Supply_Air_Static_Pressure_Proportional_Band ;
     bf:usesPoint brick:Setpoint .
 
-brick:Discharge_Air_Static_Pressure_Sensor bf:usesMeasurement brick:Discharge_Air_Static_Pressure ;
+brick:Discharge_Air_Static_Pressure_Sensor bf:usesMeasurement brick:Discharge_Air_Static_Pressure,
+        brick:Supply_Air_Static_Pressure ;
     bf:usesPoint brick:Sensor .
 
-brick:Discharge_Air_Static_Pressure_Setpoint bf:usesMeasurement brick:Discharge_Air_Static_Pressure ;
+brick:Discharge_Air_Static_Pressure_Setpoint bf:usesMeasurement brick:Discharge_Air_Static_Pressure,
+        brick:Supply_Air_Static_Pressure ;
     bf:usesPoint brick:Setpoint .
 
-brick:Discharge_Air_Temperature_Cooling_Setpoint bf:usesMeasurement brick:Discharge_Air_Temperature_Cooling ;
+brick:Discharge_Air_Temperature_Cooling_Setpoint bf:usesMeasurement brick:Discharge_Air_Temperature_Cooling,
+        brick:Supply_Air_Temperature_Cooling ;
     bf:usesPoint brick:Setpoint .
 
-brick:Discharge_Air_Temperature_Heating_Setpoint bf:usesMeasurement brick:Discharge_Air_Temperature_Heating ;
+brick:Discharge_Air_Temperature_Heating_Setpoint bf:usesMeasurement brick:Discharge_Air_Temperature_Heating,
+        brick:Supply_Air_Temperature_Heating ;
     bf:usesPoint brick:Setpoint .
 
-brick:Discharge_Air_Temperature_High_Limit_Alarm bf:usesMeasurement brick:Discharge_Air_Temperature_High_Limit ;
+brick:Discharge_Air_Temperature_High_Limit_Alarm bf:usesMeasurement brick:Discharge_Air_Temperature_High_Limit,
+        brick:Supply_Air_Temperature_High_Limit ;
     bf:usesPoint brick:Alarm .
 
-brick:Discharge_Air_Temperature_Reset_Differential_Setpoint bf:usesMeasurement brick:Discharge_Air_Temperature_Reset_Differential ;
+brick:Discharge_Air_Temperature_Reset_Differential_Setpoint bf:usesMeasurement brick:Discharge_Air_Temperature_Reset_Differential,
+        brick:Supply_Air_Temperature_Reset_Differential ;
     bf:usesPoint brick:Setpoint .
 
-brick:Discharge_Air_Temperature_Reset_High_Setpoint bf:usesMeasurement brick:Discharge_Air_Temperature_Reset_High ;
+brick:Discharge_Air_Temperature_Reset_High_Setpoint bf:usesMeasurement brick:Discharge_Air_Temperature_Reset_High,
+        brick:Supply_Air_Temperature_Reset_High ;
     bf:usesPoint brick:Setpoint .
 
-brick:Discharge_Air_Temperature_Reset_Low_Setpoint bf:usesMeasurement brick:Discharge_Air_Temperature_Reset_Low ;
+brick:Discharge_Air_Temperature_Reset_Low_Setpoint bf:usesMeasurement brick:Discharge_Air_Temperature_Reset_Low,
+        brick:Supply_Air_Temperature_Reset_Low ;
     bf:usesPoint brick:Setpoint .
 
-brick:Discharge_Air_Temperature_Sensor bf:usesMeasurement brick:Discharge_Air_Temperature ;
+brick:Discharge_Air_Temperature_Sensor bf:usesMeasurement brick:Discharge_Air_Temperature,
+        brick:Supply_Air_Temperature ;
     bf:usesPoint brick:Sensor .
 
-brick:Discharge_Air_Temperature_Setpoint bf:usesMeasurement brick:Discharge_Air_Temperature ;
+brick:Discharge_Air_Temperature_Setpoint bf:usesMeasurement brick:Discharge_Air_Temperature,
+        brick:Supply_Air_Temperature ;
     bf:usesPoint brick:Setpoint .
 
-brick:Discharge_Air_Temperature_Setpoint_Increase_Decrease_Step bf:usesMeasurement brick:Discharge_Air_Temperature_Increase_Decrease_Step ;
+brick:Discharge_Air_Temperature_Setpoint_Increase_Decrease_Step bf:usesMeasurement brick:Discharge_Air_Temperature_Increase_Decrease_Step,
+        brick:Supply_Air_Temperature_Increase_Decrease_Step ;
     bf:usesPoint brick:Setpoint .
 
-brick:Discharge_Air_Velocity_Pressure_Sensor bf:usesMeasurement brick:Discharge_Air_Velocity_Pressure ;
+brick:Discharge_Air_Velocity_Pressure_Sensor bf:usesMeasurement brick:Discharge_Air_Velocity_Pressure,
+        brick:Supply_Air_Velocity_Pressure ;
     bf:usesPoint brick:Sensor .
 
-brick:Discharge_Fan_Air_Flow_Sensor bf:usesMeasurement brick:Discharge_Fan_Air_Flow ;
+brick:Discharge_Fan_Air_Flow_Sensor bf:usesMeasurement brick:Discharge_Fan_Air_Flow,
+        brick:Supply_Fan_Air_Flow ;
     bf:usesPoint brick:Sensor .
 
-brick:Discharge_Fan_Command bf:usesMeasurement brick:Discharge_Fan ;
+brick:Discharge_Fan_Command bf:usesMeasurement brick:Discharge_Fan,
+        brick:Supply_Fan ;
     bf:usesPoint brick:Command .
 
-brick:Discharge_Fan_Piezoelectric_Sensor bf:usesMeasurement brick:Discharge_Fan_Piezoelectric ;
+brick:Discharge_Fan_Piezoelectric_Sensor bf:usesMeasurement brick:Discharge_Fan_Piezoelectric,
+        brick:Supply_Fan_Piezoelectric ;
     bf:usesPoint brick:Sensor .
 
-brick:Discharge_Fan_Start_Stop_Command bf:usesMeasurement brick:Discharge_Fan_Start_Stop ;
+brick:Discharge_Fan_Start_Stop_Command bf:usesMeasurement brick:Discharge_Fan_Start_Stop,
+        brick:Supply_Fan_Start_Stop ;
     bf:usesPoint brick:Command .
 
-brick:Discharge_Fan_Start_Stop_Status bf:usesMeasurement brick:Discharge_Fan_Start_Stop ;
+brick:Discharge_Fan_Start_Stop_Status bf:usesMeasurement brick:Discharge_Fan_Start_Stop,
+        brick:Supply_Fan_Start_Stop ;
     bf:usesPoint brick:Status .
 
-brick:Discharge_Fan_Status bf:usesMeasurement brick:Discharge_Fan ;
+brick:Discharge_Fan_Status bf:usesMeasurement brick:Discharge_Fan,
+        brick:Supply_Fan ;
     bf:usesPoint brick:Status .
 
-brick:Discharge_Fan_VFD_Speed_Command bf:usesMeasurement brick:Discharge_Fan_VFD_Speed ;
+brick:Discharge_Fan_VFD_Speed_Command bf:usesMeasurement brick:Discharge_Fan_VFD_Speed,
+        brick:Supply_Fan_VFD_Speed ;
     bf:usesPoint brick:Command .
 
-brick:Discharge_Fan_VFD_Speed_Sensor bf:usesMeasurement brick:Discharge_Fan_VFD_Speed ;
+brick:Discharge_Fan_VFD_Speed_Sensor bf:usesMeasurement brick:Discharge_Fan_VFD_Speed,
+        brick:Supply_Fan_VFD_Speed ;
     bf:usesPoint brick:Sensor .
 
-brick:Discharge_Fan_VFD_Speed_Setpoint bf:usesMeasurement brick:Discharge_Fan_VFD_Speed ;
+brick:Discharge_Fan_VFD_Speed_Setpoint bf:usesMeasurement brick:Discharge_Fan_VFD_Speed,
+        brick:Supply_Fan_VFD_Speed ;
     bf:usesPoint brick:Setpoint .
 
-brick:Discharge_Fan_VFD_Speed_Status bf:usesMeasurement brick:Discharge_Fan_VFD_Speed ;
+brick:Discharge_Fan_VFD_Speed_Status bf:usesMeasurement brick:Discharge_Fan_VFD_Speed,
+        brick:Supply_Fan_VFD_Speed ;
     bf:usesPoint brick:Status .
 
-brick:Discharge_Water_Temperature_Setpoint bf:usesMeasurement brick:Discharge_Water_Temperature ;
+brick:Discharge_Water_Temperature_Setpoint bf:usesMeasurement brick:Discharge_Water_Temperature,
+        brick:Supply_Water_Temperature ;
     bf:usesPoint brick:Setpoint .
 
-brick:Domestic_Hot_Water_Discharge_Temperature_Sensor bf:usesMeasurement brick:Domestic_Hot_Water_Discharge_Temperature ;
+brick:Domestic_Hot_Water_Discharge_Temperature_Sensor bf:usesMeasurement brick:Domestic_Hot_Water_Discharge_Temperature,
+        brick:Domestic_Hot_Water_Supply_Temperature ;
     bf:usesPoint brick:Sensor .
 
-brick:Domestic_Hot_Water_Discharge_Temperature_Setpoint bf:usesMeasurement brick:Domestic_Hot_Water_Discharge_Temperature ;
+brick:Domestic_Hot_Water_Discharge_Temperature_Setpoint bf:usesMeasurement brick:Domestic_Hot_Water_Discharge_Temperature,
+        brick:Domestic_Hot_Water_Supply_Temperature ;
     bf:usesPoint brick:Setpoint .
 
-brick:Domestic_Hot_Water_Supply_Temperature_Sensor bf:usesMeasurement brick:Domestic_Hot_Water_Supply_Temperature ;
+brick:Domestic_Hot_Water_Supply_Temperature_Sensor bf:usesMeasurement brick:Domestic_Hot_Water_Discharge_Temperature,
+        brick:Domestic_Hot_Water_Supply_Temperature ;
     bf:usesPoint brick:Sensor .
 
-brick:Domestic_Hot_Water_Supply_Temperature_Setpoint bf:usesMeasurement brick:Domestic_Hot_Water_Supply_Temperature ;
+brick:Domestic_Hot_Water_Supply_Temperature_Setpoint bf:usesMeasurement brick:Domestic_Hot_Water_Discharge_Temperature,
+        brick:Domestic_Hot_Water_Supply_Temperature ;
     bf:usesPoint brick:Setpoint .
 
 brick:Domestic_Hot_Water_System_Enable_Command bf:usesMeasurement brick:Domestic_Hot_Water_System_Enable ;
@@ -1996,10 +2181,12 @@ brick:Economizer_Disable_Fixed_Enthalpy_Setpoint bf:usesMeasurement brick:Econom
 brick:Economizer_Disable_Fixed_Temperature_Setpoint bf:usesMeasurement brick:Economizer_Disable_Fixed_Temperature ;
     bf:usesPoint brick:Setpoint .
 
-brick:Economizer_Discharge_Air_Temperature_Dead_Band_Setpoint bf:usesMeasurement brick:Economizer_Discharge_Air_Temperature_Dead_Band ;
+brick:Economizer_Discharge_Air_Temperature_Dead_Band_Setpoint bf:usesMeasurement brick:Economizer_Discharge_Air_Temperature_Dead_Band,
+        brick:Economizer_Supply_Air_Temperature_Dead_Band ;
     bf:usesPoint brick:Setpoint .
 
-brick:Economizer_Discharge_Air_Temperature_Proportional_Band_Setpoint bf:usesMeasurement brick:Economizer_Discharge_Air_Temperature_Proportional_Band ;
+brick:Economizer_Discharge_Air_Temperature_Proportional_Band_Setpoint bf:usesMeasurement brick:Economizer_Discharge_Air_Temperature_Proportional_Band,
+        brick:Economizer_Supply_Air_Temperature_Proportional_Band ;
     bf:usesPoint brick:Setpoint .
 
 brick:Economizer_Enable_Differential_Enthalpy_Setpoint bf:usesMeasurement brick:Economizer_Enable_Differential_Enthalpy ;
@@ -2027,10 +2214,12 @@ brick:Economizer_Outside_Air_Flow_Setpoint bf:usesLocation brick:Outside ;
 brick:Economizer_Status bf:usesMeasurement brick:Economizer ;
     bf:usesPoint brick:Status .
 
-brick:Economizer_Supply_Air_Temperature_Dead_Band_Setpoint bf:usesMeasurement brick:Economizer_Supply_Air_Temperature_Dead_Band ;
+brick:Economizer_Supply_Air_Temperature_Dead_Band_Setpoint bf:usesMeasurement brick:Economizer_Discharge_Air_Temperature_Dead_Band,
+        brick:Economizer_Supply_Air_Temperature_Dead_Band ;
     bf:usesPoint brick:Setpoint .
 
-brick:Economizer_Supply_Air_Temperature_Proportional_Band_Setpoint bf:usesMeasurement brick:Economizer_Supply_Air_Temperature_Proportional_Band ;
+brick:Economizer_Supply_Air_Temperature_Proportional_Band_Setpoint bf:usesMeasurement brick:Economizer_Discharge_Air_Temperature_Proportional_Band,
+        brick:Economizer_Supply_Air_Temperature_Proportional_Band ;
     bf:usesPoint brick:Setpoint .
 
 brick:Economizer_Temperature_Setpoint bf:usesEquipment brick:Economizer ;
@@ -2212,35 +2401,43 @@ brick:FCU_Cooling_Valve_Command bf:usesEquipment brick:FCU ;
     bf:usesPoint brick:Command .
 
 brick:FCU_Discharge_Air_Temperature_Cooling_Setpoint bf:usesEquipment brick:FCU ;
-    bf:usesMeasurement brick:Discharge_Air_Temperature_Cooling ;
+    bf:usesMeasurement brick:Discharge_Air_Temperature_Cooling,
+        brick:Supply_Air_Temperature_Cooling ;
     bf:usesPoint brick:Setpoint .
 
 brick:FCU_Discharge_Air_Temperature_Heating_Setpoint bf:usesEquipment brick:FCU ;
-    bf:usesMeasurement brick:Discharge_Air_Temperature_Heating ;
+    bf:usesMeasurement brick:Discharge_Air_Temperature_Heating,
+        brick:Supply_Air_Temperature_Heating ;
     bf:usesPoint brick:Setpoint .
 
 brick:FCU_Discharge_Air_Temperature_Sensor bf:usesEquipment brick:FCU ;
-    bf:usesMeasurement brick:Discharge_Air_Temperature ;
+    bf:usesMeasurement brick:Discharge_Air_Temperature,
+        brick:Supply_Air_Temperature ;
     bf:usesPoint brick:Sensor .
 
 brick:FCU_Discharge_Air_Temperature_Setpoint bf:usesEquipment brick:FCU ;
-    bf:usesMeasurement brick:Discharge_Air_Temperature ;
+    bf:usesMeasurement brick:Discharge_Air_Temperature,
+        brick:Supply_Air_Temperature ;
     bf:usesPoint brick:Setpoint .
 
 brick:FCU_Discharge_Fan_VFD_Speed_Command bf:usesEquipment brick:FCU ;
-    bf:usesMeasurement brick:Discharge_Fan_VFD_Speed ;
+    bf:usesMeasurement brick:Discharge_Fan_VFD_Speed,
+        brick:Supply_Fan_VFD_Speed ;
     bf:usesPoint brick:Command .
 
 brick:FCU_Discharge_Fan_VFD_Speed_Sensor bf:usesEquipment brick:FCU ;
-    bf:usesMeasurement brick:Discharge_Fan_VFD_Speed ;
+    bf:usesMeasurement brick:Discharge_Fan_VFD_Speed,
+        brick:Supply_Fan_VFD_Speed ;
     bf:usesPoint brick:Sensor .
 
 brick:FCU_Discharge_Fan_VFD_Speed_Setpoint bf:usesEquipment brick:FCU ;
-    bf:usesMeasurement brick:Discharge_Fan_VFD_Speed ;
+    bf:usesMeasurement brick:Discharge_Fan_VFD_Speed,
+        brick:Supply_Fan_VFD_Speed ;
     bf:usesPoint brick:Setpoint .
 
 brick:FCU_Discharge_Fan_VFD_Speed_Status bf:usesEquipment brick:FCU ;
-    bf:usesMeasurement brick:Discharge_Fan_VFD_Speed ;
+    bf:usesMeasurement brick:Discharge_Fan_VFD_Speed,
+        brick:Supply_Fan_VFD_Speed ;
     bf:usesPoint brick:Status .
 
 brick:FCU_Exhaust_Fan_VFD_Speed_Command bf:usesEquipment brick:FCU ;
@@ -2298,35 +2495,43 @@ brick:FCU_Run_Time_Sensor bf:usesEquipment brick:FCU ;
     bf:usesPoint brick:Sensor .
 
 brick:FCU_Supply_Air_Temperature_Cooling_Setpoint bf:usesEquipment brick:FCU ;
-    bf:usesMeasurement brick:Supply_Air_Temperature_Cooling ;
+    bf:usesMeasurement brick:Discharge_Air_Temperature_Cooling,
+        brick:Supply_Air_Temperature_Cooling ;
     bf:usesPoint brick:Setpoint .
 
 brick:FCU_Supply_Air_Temperature_Heating_Setpoint bf:usesEquipment brick:FCU ;
-    bf:usesMeasurement brick:Supply_Air_Temperature_Heating ;
+    bf:usesMeasurement brick:Discharge_Air_Temperature_Heating,
+        brick:Supply_Air_Temperature_Heating ;
     bf:usesPoint brick:Setpoint .
 
 brick:FCU_Supply_Air_Temperature_Sensor bf:usesEquipment brick:FCU ;
-    bf:usesMeasurement brick:Supply_Air_Temperature ;
+    bf:usesMeasurement brick:Discharge_Air_Temperature,
+        brick:Supply_Air_Temperature ;
     bf:usesPoint brick:Sensor .
 
 brick:FCU_Supply_Air_Temperature_Setpoint bf:usesEquipment brick:FCU ;
-    bf:usesMeasurement brick:Supply_Air_Temperature ;
+    bf:usesMeasurement brick:Discharge_Air_Temperature,
+        brick:Supply_Air_Temperature ;
     bf:usesPoint brick:Setpoint .
 
 brick:FCU_Supply_Fan_VFD_Speed_Command bf:usesEquipment brick:FCU ;
-    bf:usesMeasurement brick:Supply_Fan_VFD_Speed ;
+    bf:usesMeasurement brick:Discharge_Fan_VFD_Speed,
+        brick:Supply_Fan_VFD_Speed ;
     bf:usesPoint brick:Command .
 
 brick:FCU_Supply_Fan_VFD_Speed_Sensor bf:usesEquipment brick:FCU ;
-    bf:usesMeasurement brick:Supply_Fan_VFD_Speed ;
+    bf:usesMeasurement brick:Discharge_Fan_VFD_Speed,
+        brick:Supply_Fan_VFD_Speed ;
     bf:usesPoint brick:Sensor .
 
 brick:FCU_Supply_Fan_VFD_Speed_Setpoint bf:usesEquipment brick:FCU ;
-    bf:usesMeasurement brick:Supply_Fan_VFD_Speed ;
+    bf:usesMeasurement brick:Discharge_Fan_VFD_Speed,
+        brick:Supply_Fan_VFD_Speed ;
     bf:usesPoint brick:Setpoint .
 
 brick:FCU_Supply_Fan_VFD_Speed_Status bf:usesEquipment brick:FCU ;
-    bf:usesMeasurement brick:Supply_Fan_VFD_Speed ;
+    bf:usesMeasurement brick:Discharge_Fan_VFD_Speed,
+        brick:Supply_Fan_VFD_Speed ;
     bf:usesPoint brick:Status .
 
 brick:FCU_System_Status bf:usesEquipment brick:FCU ;
@@ -2452,11 +2657,13 @@ brick:HVAC_Average_Cooling_Demand_Sensor bf:usesEquipment brick:HVAC ;
     bf:usesPoint brick:Sensor .
 
 brick:HVAC_Average_Discharge_Air_Flow_Sensor bf:usesEquipment brick:HVAC ;
-    bf:usesMeasurement brick:Average_Discharge_Air_Flow ;
+    bf:usesMeasurement brick:Average_Discharge_Air_Flow,
+        brick:Average_Supply_Air_Flow ;
     bf:usesPoint brick:Sensor .
 
 brick:HVAC_Average_Supply_Air_Flow_Sensor bf:usesEquipment brick:HVAC ;
-    bf:usesMeasurement brick:Average_Supply_Air_Flow ;
+    bf:usesMeasurement brick:Average_Discharge_Air_Flow,
+        brick:Average_Supply_Air_Flow ;
     bf:usesPoint brick:Sensor .
 
 brick:HVAC_Average_Zone_Temperature_Sensor bf:usesEquipment brick:HVAC ;
@@ -2466,7 +2673,8 @@ brick:HVAC_Average_Zone_Temperature_Sensor bf:usesEquipment brick:HVAC ;
 
 brick:HVAC_Coldest_Zone_Temperature_Sensor bf:usesEquipment brick:HVAC ;
     bf:usesLocation brick:Zone ;
-    bf:usesMeasurement brick:Coldest_Temperature ;
+    bf:usesMeasurement brick:Coldest_Temperature,
+        brick:Lowest_Temperature ;
     bf:usesPoint brick:Sensor .
 
 brick:HVAC_Disable_Command bf:usesEquipment brick:HVAC ;
@@ -2487,17 +2695,20 @@ brick:HVAC_Highest_Zone_Cooling_Command bf:usesEquipment brick:HVAC ;
 
 brick:HVAC_Highest_Zone_Temperature_Sensor bf:usesEquipment brick:HVAC ;
     bf:usesLocation brick:Zone ;
-    bf:usesMeasurement brick:Highest_Temperature ;
+    bf:usesMeasurement brick:Highest_Temperature,
+        brick:Warmest_Temperature ;
     bf:usesPoint brick:Sensor .
 
 brick:HVAC_Lowest_Zone_Temperature_Sensor bf:usesEquipment brick:HVAC ;
     bf:usesLocation brick:Zone ;
-    bf:usesMeasurement brick:Lowest_Temperature ;
+    bf:usesMeasurement brick:Coldest_Temperature,
+        brick:Lowest_Temperature ;
     bf:usesPoint brick:Sensor .
 
 brick:HVAC_Warmest_Zone_Temperature_Sensor bf:usesEquipment brick:HVAC ;
     bf:usesLocation brick:Zone ;
-    bf:usesMeasurement brick:Warmest_Temperature ;
+    bf:usesMeasurement brick:Highest_Temperature,
+        brick:Warmest_Temperature ;
     bf:usesPoint brick:Sensor .
 
 brick:HWS_Disable_Hot_Water_System_Outside_Air_Temperature_Setpoint bf:usesEquipment brick:HWS ;
@@ -2506,7 +2717,8 @@ brick:HWS_Disable_Hot_Water_System_Outside_Air_Temperature_Setpoint bf:usesEquip
     bf:usesPoint brick:Setpoint .
 
 brick:HWS_Discharge_Water_Temperature_Setpoint bf:usesEquipment brick:HWS ;
-    bf:usesMeasurement brick:Discharge_Water_Temperature ;
+    bf:usesMeasurement brick:Discharge_Water_Temperature,
+        brick:Supply_Water_Temperature ;
     bf:usesPoint brick:Setpoint .
 
 brick:HWS_Enable_Hot_Water_System_Outside_Air_Temperature_Setpoint bf:usesEquipment brick:HWS ;
@@ -2515,43 +2727,53 @@ brick:HWS_Enable_Hot_Water_System_Outside_Air_Temperature_Setpoint bf:usesEquipm
     bf:usesPoint brick:Setpoint .
 
 brick:HWS_Heat_Exchanger_Discharge_Water_Temperature_Dead_Band_Setpoint bf:usesEquipment brick:HWS ;
-    bf:usesMeasurement brick:Heat_Exchanger_Discharge_Water_Temperature_Dead_Band ;
+    bf:usesMeasurement brick:Heat_Exchanger_Discharge_Water_Temperature_Dead_Band,
+        brick:Heat_Exchanger_Supply_Water_Temperature_Dead_Band ;
     bf:usesPoint brick:Setpoint .
 
 brick:HWS_Heat_Exchanger_Discharge_Water_Temperature_Integral_Time_Setpoint bf:usesEquipment brick:HWS ;
-    bf:usesMeasurement brick:Heat_Exchanger_Discharge_Water_Temperature_Integral_Time ;
+    bf:usesMeasurement brick:Heat_Exchanger_Discharge_Water_Temperature_Integral_Time,
+        brick:Heat_Exchanger_Supply_Water_Temperature_Integral_Time ;
     bf:usesPoint brick:Setpoint .
 
 brick:HWS_Heat_Exchanger_Discharge_Water_Temperature_Proportional_Band_Setpoint bf:usesEquipment brick:HWS ;
-    bf:usesMeasurement brick:Heat_Exchanger_Discharge_Water_Temperature_Proportional_Band ;
+    bf:usesMeasurement brick:Heat_Exchanger_Discharge_Water_Temperature_Proportional_Band,
+        brick:Heat_Exchanger_Supply_Water_Temperature_Proportional_Band ;
     bf:usesPoint brick:Setpoint .
 
 brick:HWS_Heat_Exchanger_Discharge_Water_Temperature_Sensor bf:usesEquipment brick:HWS ;
-    bf:usesMeasurement brick:Heat_Exchanger_Discharge_Water_Temperature ;
+    bf:usesMeasurement brick:Heat_Exchanger_Discharge_Water_Temperature,
+        brick:Heat_Exchanger_Supply_Water_Temperature ;
     bf:usesPoint brick:Sensor .
 
 brick:HWS_Heat_Exchanger_Discharge_Water_Temperature_Setpoint bf:usesEquipment brick:HWS ;
-    bf:usesMeasurement brick:Heat_Exchanger_Discharge_Water_Temperature ;
+    bf:usesMeasurement brick:Heat_Exchanger_Discharge_Water_Temperature,
+        brick:Heat_Exchanger_Supply_Water_Temperature ;
     bf:usesPoint brick:Setpoint .
 
 brick:HWS_Heat_Exchanger_Supply_Water_Temperature_Dead_Band_Setpoint bf:usesEquipment brick:HWS ;
-    bf:usesMeasurement brick:Heat_Exchanger_Supply_Water_Temperature_Dead_Band ;
+    bf:usesMeasurement brick:Heat_Exchanger_Discharge_Water_Temperature_Dead_Band,
+        brick:Heat_Exchanger_Supply_Water_Temperature_Dead_Band ;
     bf:usesPoint brick:Setpoint .
 
 brick:HWS_Heat_Exchanger_Supply_Water_Temperature_Integral_Time_Setpoint bf:usesEquipment brick:HWS ;
-    bf:usesMeasurement brick:Heat_Exchanger_Supply_Water_Temperature_Integral_Time ;
+    bf:usesMeasurement brick:Heat_Exchanger_Discharge_Water_Temperature_Integral_Time,
+        brick:Heat_Exchanger_Supply_Water_Temperature_Integral_Time ;
     bf:usesPoint brick:Setpoint .
 
 brick:HWS_Heat_Exchanger_Supply_Water_Temperature_Proportional_Band_Setpoint bf:usesEquipment brick:HWS ;
-    bf:usesMeasurement brick:Heat_Exchanger_Supply_Water_Temperature_Proportional_Band ;
+    bf:usesMeasurement brick:Heat_Exchanger_Discharge_Water_Temperature_Proportional_Band,
+        brick:Heat_Exchanger_Supply_Water_Temperature_Proportional_Band ;
     bf:usesPoint brick:Setpoint .
 
 brick:HWS_Heat_Exchanger_Supply_Water_Temperature_Sensor bf:usesEquipment brick:HWS ;
-    bf:usesMeasurement brick:Heat_Exchanger_Supply_Water_Temperature ;
+    bf:usesMeasurement brick:Heat_Exchanger_Discharge_Water_Temperature,
+        brick:Heat_Exchanger_Supply_Water_Temperature ;
     bf:usesPoint brick:Sensor .
 
 brick:HWS_Heat_Exchanger_Supply_Water_Temperature_Setpoint bf:usesEquipment brick:HWS ;
-    bf:usesMeasurement brick:Heat_Exchanger_Supply_Water_Temperature ;
+    bf:usesMeasurement brick:Heat_Exchanger_Discharge_Water_Temperature,
+        brick:Heat_Exchanger_Supply_Water_Temperature ;
     bf:usesPoint brick:Setpoint .
 
 brick:HWS_Heat_Exchanger_System_Enable_Status bf:usesEquipment brick:HWS ;
@@ -2563,7 +2785,8 @@ brick:HWS_Heat_Exchanger_Valve_Command bf:usesEquipment brick:HWS ;
     bf:usesPoint brick:Command .
 
 brick:HWS_High_Temperature_Hot_Water_Discharge_Temperature_Sensor bf:usesEquipment brick:HWS ;
-    bf:usesMeasurement brick:High_Temperature_Hot_Water_Discharge_Temperature ;
+    bf:usesMeasurement brick:High_Temperature_Hot_Water_Discharge_Temperature,
+        brick:High_Temperature_Hot_Water_Supply_Temperature ;
     bf:usesPoint brick:Sensor .
 
 brick:HWS_High_Temperature_Hot_Water_Return_Temperature_Sensor bf:usesEquipment brick:HWS ;
@@ -2571,7 +2794,8 @@ brick:HWS_High_Temperature_Hot_Water_Return_Temperature_Sensor bf:usesEquipment 
     bf:usesPoint brick:Sensor .
 
 brick:HWS_High_Temperature_Hot_Water_Supply_Temperature_Sensor bf:usesEquipment brick:HWS ;
-    bf:usesMeasurement brick:High_Temperature_Hot_Water_Supply_Temperature ;
+    bf:usesMeasurement brick:High_Temperature_Hot_Water_Discharge_Temperature,
+        brick:High_Temperature_Hot_Water_Supply_Temperature ;
     bf:usesPoint brick:Sensor .
 
 brick:HWS_Hot_Water_Coil_Entering_Temperature_Sensor bf:usesEquipment brick:HWS ;
@@ -2599,7 +2823,8 @@ brick:HWS_Hot_Water_Differential_Pressure_Setpoint bf:usesEquipment brick:HWS ;
     bf:usesPoint brick:Setpoint .
 
 brick:HWS_Hot_Water_Discharge_Temperature_Sensor bf:usesEquipment brick:HWS ;
-    bf:usesMeasurement brick:Hot_Water_Discharge_Temperature ;
+    bf:usesMeasurement brick:Hot_Water_Discharge_Temperature,
+        brick:Hot_Water_Supply_Temperature ;
     bf:usesPoint brick:Sensor .
 
 brick:HWS_Hot_Water_Flow_Meter bf:usesEquipment brick:HWS ;
@@ -2638,7 +2863,8 @@ brick:HWS_Hot_Water_Static_Pressure_Setpoint bf:usesEquipment brick:HWS ;
     bf:usesPoint brick:Setpoint .
 
 brick:HWS_Hot_Water_Supply_Temperature_Sensor bf:usesEquipment brick:HWS ;
-    bf:usesMeasurement brick:Hot_Water_Supply_Temperature ;
+    bf:usesMeasurement brick:Hot_Water_Discharge_Temperature,
+        brick:Hot_Water_Supply_Temperature ;
     bf:usesPoint brick:Sensor .
 
 brick:HWS_Hot_Water_System_Enable_Command bf:usesEquipment brick:HWS ;
@@ -2650,15 +2876,18 @@ brick:HWS_Medium_Temperature_Hot_Water_Differential_Pressure_Sensor bf:usesEquip
     bf:usesPoint brick:Sensor .
 
 brick:HWS_Medium_Temperature_Hot_Water_Discharge_Temperature_High_Reset_Setpoint bf:usesEquipment brick:HWS ;
-    bf:usesMeasurement brick:Medium_Temperature_Hot_Water_Discharge_Temperature_High_Reset ;
+    bf:usesMeasurement brick:Medium_Temperature_Hot_Water_Discharge_Temperature_High_Reset,
+        brick:Medium_Temperature_Hot_Water_Supply_Temperature_High_Reset ;
     bf:usesPoint brick:Setpoint .
 
 brick:HWS_Medium_Temperature_Hot_Water_Discharge_Temperature_Low_Reset_Setpoint bf:usesEquipment brick:HWS ;
-    bf:usesMeasurement brick:Medium_Temperature_Hot_Water_Discharge_Temperature_Low_Reset ;
+    bf:usesMeasurement brick:Medium_Temperature_Hot_Water_Discharge_Temperature_Low_Reset,
+        brick:Medium_Temperature_Hot_Water_Supply_Temperature_Low_Reset ;
     bf:usesPoint brick:Setpoint .
 
 brick:HWS_Medium_Temperature_Hot_Water_Discharge_Temperature_Sensor bf:usesEquipment brick:HWS ;
-    bf:usesMeasurement brick:Medium_Temperature_Hot_Water_Discharge_Temperature ;
+    bf:usesMeasurement brick:Medium_Temperature_Hot_Water_Discharge_Temperature,
+        brick:Medium_Temperature_Hot_Water_Supply_Temperature ;
     bf:usesPoint brick:Sensor .
 
 brick:HWS_Medium_Temperature_Hot_Water_Return_Temperature_Sensor bf:usesEquipment brick:HWS ;
@@ -2666,15 +2895,18 @@ brick:HWS_Medium_Temperature_Hot_Water_Return_Temperature_Sensor bf:usesEquipmen
     bf:usesPoint brick:Sensor .
 
 brick:HWS_Medium_Temperature_Hot_Water_Supply_Temperature_High_Reset_Setpoint bf:usesEquipment brick:HWS ;
-    bf:usesMeasurement brick:Medium_Temperature_Hot_Water_Supply_Temperature_High_Reset ;
+    bf:usesMeasurement brick:Medium_Temperature_Hot_Water_Discharge_Temperature_High_Reset,
+        brick:Medium_Temperature_Hot_Water_Supply_Temperature_High_Reset ;
     bf:usesPoint brick:Setpoint .
 
 brick:HWS_Medium_Temperature_Hot_Water_Supply_Temperature_Low_Reset_Setpoint bf:usesEquipment brick:HWS ;
-    bf:usesMeasurement brick:Medium_Temperature_Hot_Water_Supply_Temperature_Low_Reset ;
+    bf:usesMeasurement brick:Medium_Temperature_Hot_Water_Discharge_Temperature_Low_Reset,
+        brick:Medium_Temperature_Hot_Water_Supply_Temperature_Low_Reset ;
     bf:usesPoint brick:Setpoint .
 
 brick:HWS_Medium_Temperature_Hot_Water_Supply_Temperature_Sensor bf:usesEquipment brick:HWS ;
-    bf:usesMeasurement brick:Medium_Temperature_Hot_Water_Supply_Temperature ;
+    bf:usesMeasurement brick:Medium_Temperature_Hot_Water_Discharge_Temperature,
+        brick:Medium_Temperature_Hot_Water_Supply_Temperature ;
     bf:usesPoint brick:Sensor .
 
 brick:HWS_Open_Heating_Valve_Outside_Air_Temperature_Setpoint bf:usesEquipment brick:HWS ;
@@ -2687,28 +2919,35 @@ brick:HWS_Shutdown_Hot_Water_When_Unoccupied_Command bf:usesEquipment brick:HWS 
     bf:usesPoint brick:Command .
 
 brick:HWS_Supply_Water_Temperature_Setpoint bf:usesEquipment brick:HWS ;
-    bf:usesMeasurement brick:Supply_Water_Temperature ;
+    bf:usesMeasurement brick:Discharge_Water_Temperature,
+        brick:Supply_Water_Temperature ;
     bf:usesPoint brick:Setpoint .
 
 brick:Hail_Sensor bf:usesMeasurement brick:Hail ;
     bf:usesPoint brick:Sensor .
 
-brick:Hand_Auto_Status bf:usesMeasurement brick:Hand_Auto ;
+brick:Hand_Auto_Status bf:usesMeasurement brick:Hand_Auto,
+        brick:Manual_Auto ;
     bf:usesPoint brick:Status .
 
-brick:Heat_Exchanger_Discharge_Water_Temperature_Dead_Band_Setpoint bf:usesMeasurement brick:Heat_Exchanger_Discharge_Water_Temperature_Dead_Band ;
+brick:Heat_Exchanger_Discharge_Water_Temperature_Dead_Band_Setpoint bf:usesMeasurement brick:Heat_Exchanger_Discharge_Water_Temperature_Dead_Band,
+        brick:Heat_Exchanger_Supply_Water_Temperature_Dead_Band ;
     bf:usesPoint brick:Setpoint .
 
-brick:Heat_Exchanger_Discharge_Water_Temperature_Integral_Time_Setpoint bf:usesMeasurement brick:Heat_Exchanger_Discharge_Water_Temperature_Integral_Time ;
+brick:Heat_Exchanger_Discharge_Water_Temperature_Integral_Time_Setpoint bf:usesMeasurement brick:Heat_Exchanger_Discharge_Water_Temperature_Integral_Time,
+        brick:Heat_Exchanger_Supply_Water_Temperature_Integral_Time ;
     bf:usesPoint brick:Setpoint .
 
-brick:Heat_Exchanger_Discharge_Water_Temperature_Proportional_Band_Setpoint bf:usesMeasurement brick:Heat_Exchanger_Discharge_Water_Temperature_Proportional_Band ;
+brick:Heat_Exchanger_Discharge_Water_Temperature_Proportional_Band_Setpoint bf:usesMeasurement brick:Heat_Exchanger_Discharge_Water_Temperature_Proportional_Band,
+        brick:Heat_Exchanger_Supply_Water_Temperature_Proportional_Band ;
     bf:usesPoint brick:Setpoint .
 
-brick:Heat_Exchanger_Discharge_Water_Temperature_Sensor bf:usesMeasurement brick:Heat_Exchanger_Discharge_Water_Temperature ;
+brick:Heat_Exchanger_Discharge_Water_Temperature_Sensor bf:usesMeasurement brick:Heat_Exchanger_Discharge_Water_Temperature,
+        brick:Heat_Exchanger_Supply_Water_Temperature ;
     bf:usesPoint brick:Sensor .
 
-brick:Heat_Exchanger_Discharge_Water_Temperature_Setpoint bf:usesMeasurement brick:Heat_Exchanger_Discharge_Water_Temperature ;
+brick:Heat_Exchanger_Discharge_Water_Temperature_Setpoint bf:usesMeasurement brick:Heat_Exchanger_Discharge_Water_Temperature,
+        brick:Heat_Exchanger_Supply_Water_Temperature ;
     bf:usesPoint brick:Setpoint .
 
 brick:Heat_Exchanger_Outside_Air_Temperature_High_Reset_Setpoint bf:usesEquipment brick:Heat_Exchanger ;
@@ -2721,19 +2960,24 @@ brick:Heat_Exchanger_Outside_Air_Temperature_Low_Reset_Setpoint bf:usesEquipment
     bf:usesMeasurement brick:Air_Temperature_Low_Reset ;
     bf:usesPoint brick:Setpoint .
 
-brick:Heat_Exchanger_Supply_Water_Temperature_Dead_Band_Setpoint bf:usesMeasurement brick:Heat_Exchanger_Supply_Water_Temperature_Dead_Band ;
+brick:Heat_Exchanger_Supply_Water_Temperature_Dead_Band_Setpoint bf:usesMeasurement brick:Heat_Exchanger_Discharge_Water_Temperature_Dead_Band,
+        brick:Heat_Exchanger_Supply_Water_Temperature_Dead_Band ;
     bf:usesPoint brick:Setpoint .
 
-brick:Heat_Exchanger_Supply_Water_Temperature_Integral_Time_Setpoint bf:usesMeasurement brick:Heat_Exchanger_Supply_Water_Temperature_Integral_Time ;
+brick:Heat_Exchanger_Supply_Water_Temperature_Integral_Time_Setpoint bf:usesMeasurement brick:Heat_Exchanger_Discharge_Water_Temperature_Integral_Time,
+        brick:Heat_Exchanger_Supply_Water_Temperature_Integral_Time ;
     bf:usesPoint brick:Setpoint .
 
-brick:Heat_Exchanger_Supply_Water_Temperature_Proportional_Band_Setpoint bf:usesMeasurement brick:Heat_Exchanger_Supply_Water_Temperature_Proportional_Band ;
+brick:Heat_Exchanger_Supply_Water_Temperature_Proportional_Band_Setpoint bf:usesMeasurement brick:Heat_Exchanger_Discharge_Water_Temperature_Proportional_Band,
+        brick:Heat_Exchanger_Supply_Water_Temperature_Proportional_Band ;
     bf:usesPoint brick:Setpoint .
 
-brick:Heat_Exchanger_Supply_Water_Temperature_Sensor bf:usesMeasurement brick:Heat_Exchanger_Supply_Water_Temperature ;
+brick:Heat_Exchanger_Supply_Water_Temperature_Sensor bf:usesMeasurement brick:Heat_Exchanger_Discharge_Water_Temperature,
+        brick:Heat_Exchanger_Supply_Water_Temperature ;
     bf:usesPoint brick:Sensor .
 
-brick:Heat_Exchanger_Supply_Water_Temperature_Setpoint bf:usesMeasurement brick:Heat_Exchanger_Supply_Water_Temperature ;
+brick:Heat_Exchanger_Supply_Water_Temperature_Setpoint bf:usesMeasurement brick:Heat_Exchanger_Discharge_Water_Temperature,
+        brick:Heat_Exchanger_Supply_Water_Temperature ;
     bf:usesPoint brick:Setpoint .
 
 brick:Heat_Exchanger_System_Enable_Status bf:usesMeasurement brick:Heat_Exchanger_System_Enable ;
@@ -2748,13 +2992,15 @@ brick:Heat_Exchanger_Valve_Status bf:usesMeasurement brick:Heat_Exchanger_Valve 
 brick:Heat_Wheel_Differential_Pressure_Sensor bf:usesMeasurement brick:Heat_Wheel_Differential_Pressure ;
     bf:usesPoint brick:Sensor .
 
-brick:Heat_Wheel_Discharge_Air_Temperature_Sensor bf:usesMeasurement brick:Heat_Wheel_Discharge_Air_Temperature ;
+brick:Heat_Wheel_Discharge_Air_Temperature_Sensor bf:usesMeasurement brick:Heat_Wheel_Discharge_Air_Temperature,
+        brick:Heat_Wheel_Supply_Air_Temperature ;
     bf:usesPoint brick:Sensor .
 
 brick:Heat_Wheel_Speed_Sensor bf:usesMeasurement brick:Heat_Wheel_Speed ;
     bf:usesPoint brick:Sensor .
 
-brick:Heat_Wheel_Supply_Air_Temperature_Sensor bf:usesMeasurement brick:Heat_Wheel_Supply_Air_Temperature ;
+brick:Heat_Wheel_Supply_Air_Temperature_Sensor bf:usesMeasurement brick:Heat_Wheel_Discharge_Air_Temperature,
+        brick:Heat_Wheel_Supply_Air_Temperature ;
     bf:usesPoint brick:Sensor .
 
 brick:Heat_Wheel_Voltage_Sensor bf:usesMeasurement brick:Heat_Wheel_Voltage ;
@@ -2766,28 +3012,36 @@ brick:Heating_Command bf:usesMeasurement brick:Heating ;
 brick:Heating_Demand_Setpoint bf:usesMeasurement brick:Heating_Demand ;
     bf:usesPoint brick:Setpoint .
 
-brick:Heating_Discharge_Air_Flow_Setpoint bf:usesMeasurement brick:Heating_Discharge_Air_Flow ;
+brick:Heating_Discharge_Air_Flow_Setpoint bf:usesMeasurement brick:Heating_Discharge_Air_Flow,
+        brick:Heating_Supply_Air_Flow ;
     bf:usesPoint brick:Setpoint .
 
-brick:Heating_Discharge_Air_Temperature_Dead_Band_Setpoint bf:usesMeasurement brick:Heating_Discharge_Air_Temperature_Dead_Band ;
+brick:Heating_Discharge_Air_Temperature_Dead_Band_Setpoint bf:usesMeasurement brick:Heating_Discharge_Air_Temperature_Dead_Band,
+        brick:Heating_Supply_Air_Temperature_Dead_Band ;
     bf:usesPoint brick:Setpoint .
 
-brick:Heating_Discharge_Air_Temperature_Integral_Time_Setpoint bf:usesMeasurement brick:Heating_Discharge_Air_Temperature_Integral_Time ;
+brick:Heating_Discharge_Air_Temperature_Integral_Time_Setpoint bf:usesMeasurement brick:Heating_Discharge_Air_Temperature_Integral_Time,
+        brick:Heating_Supply_Air_Temperature_Integral_Time ;
     bf:usesPoint brick:Setpoint .
 
-brick:Heating_Discharge_Air_Temperature_Proportional_Band_Setpoint bf:usesMeasurement brick:Heating_Discharge_Air_Temperature_Proportional_Band ;
+brick:Heating_Discharge_Air_Temperature_Proportional_Band_Setpoint bf:usesMeasurement brick:Heating_Discharge_Air_Temperature_Proportional_Band,
+        brick:Heating_Supply_Air_Temperature_Proportional_Band ;
     bf:usesPoint brick:Setpoint .
 
-brick:Heating_Max_Discharge_Air_Flow_Setpoint bf:usesMeasurement brick:Heating_Max_Discharge_Air_Flow ;
+brick:Heating_Max_Discharge_Air_Flow_Setpoint bf:usesMeasurement brick:Heating_Max_Discharge_Air_Flow,
+        brick:Heating_Max_Supply_Air_Flow ;
     bf:usesPoint brick:Setpoint .
 
-brick:Heating_Max_Supply_Air_Flow_Setpoint bf:usesMeasurement brick:Heating_Max_Supply_Air_Flow ;
+brick:Heating_Max_Supply_Air_Flow_Setpoint bf:usesMeasurement brick:Heating_Max_Discharge_Air_Flow,
+        brick:Heating_Max_Supply_Air_Flow ;
     bf:usesPoint brick:Setpoint .
 
-brick:Heating_Min_Discharge_Air_Flow_Setpoint bf:usesMeasurement brick:Heating_Min_Discharge_Air_Flow ;
+brick:Heating_Min_Discharge_Air_Flow_Setpoint bf:usesMeasurement brick:Heating_Min_Discharge_Air_Flow,
+        brick:Heating_Min_Supply_Air_Flow ;
     bf:usesPoint brick:Setpoint .
 
-brick:Heating_Min_Supply_Air_Flow_Setpoint bf:usesMeasurement brick:Heating_Min_Supply_Air_Flow ;
+brick:Heating_Min_Supply_Air_Flow_Setpoint bf:usesMeasurement brick:Heating_Min_Discharge_Air_Flow,
+        brick:Heating_Min_Supply_Air_Flow ;
     bf:usesPoint brick:Setpoint .
 
 brick:Heating_On_Off_Status bf:usesMeasurement brick:Heating_On_Off ;
@@ -2796,16 +3050,20 @@ brick:Heating_On_Off_Status bf:usesMeasurement brick:Heating_On_Off ;
 brick:Heating_Request_Percent_Setpoint bf:usesMeasurement brick:Heating_Request_Percent ;
     bf:usesPoint brick:Setpoint .
 
-brick:Heating_Supply_Air_Flow_Setpoint bf:usesMeasurement brick:Heating_Supply_Air_Flow ;
+brick:Heating_Supply_Air_Flow_Setpoint bf:usesMeasurement brick:Heating_Discharge_Air_Flow,
+        brick:Heating_Supply_Air_Flow ;
     bf:usesPoint brick:Setpoint .
 
-brick:Heating_Supply_Air_Temperature_Dead_Band_Setpoint bf:usesMeasurement brick:Heating_Supply_Air_Temperature_Dead_Band ;
+brick:Heating_Supply_Air_Temperature_Dead_Band_Setpoint bf:usesMeasurement brick:Heating_Discharge_Air_Temperature_Dead_Band,
+        brick:Heating_Supply_Air_Temperature_Dead_Band ;
     bf:usesPoint brick:Setpoint .
 
-brick:Heating_Supply_Air_Temperature_Integral_Time_Setpoint bf:usesMeasurement brick:Heating_Supply_Air_Temperature_Integral_Time ;
+brick:Heating_Supply_Air_Temperature_Integral_Time_Setpoint bf:usesMeasurement brick:Heating_Discharge_Air_Temperature_Integral_Time,
+        brick:Heating_Supply_Air_Temperature_Integral_Time ;
     bf:usesPoint brick:Setpoint .
 
-brick:Heating_Supply_Air_Temperature_Proportional_Band_Setpoint bf:usesMeasurement brick:Heating_Supply_Air_Temperature_Proportional_Band ;
+brick:Heating_Supply_Air_Temperature_Proportional_Band_Setpoint bf:usesMeasurement brick:Heating_Discharge_Air_Temperature_Proportional_Band,
+        brick:Heating_Supply_Air_Temperature_Proportional_Band ;
     bf:usesPoint brick:Setpoint .
 
 brick:Heating_Thermal_Power_Meter bf:usesMeasurement brick:Heating_Thermal_Power ;
@@ -2826,13 +3084,15 @@ brick:High_Static_Pressure_Cutout_Limit_Setpoint bf:usesMeasurement brick:High_S
 brick:High_Temperature_Alarm_Setpoint bf:usesMeasurement brick:High_Temperature_Alarm ;
     bf:usesPoint brick:Setpoint .
 
-brick:High_Temperature_Hot_Water_Discharge_Temperature_Sensor bf:usesMeasurement brick:High_Temperature_Hot_Water_Discharge_Temperature ;
+brick:High_Temperature_Hot_Water_Discharge_Temperature_Sensor bf:usesMeasurement brick:High_Temperature_Hot_Water_Discharge_Temperature,
+        brick:High_Temperature_Hot_Water_Supply_Temperature ;
     bf:usesPoint brick:Sensor .
 
 brick:High_Temperature_Hot_Water_Return_Temperature_Sensor bf:usesMeasurement brick:High_Temperature_Hot_Water_Return_Temperature ;
     bf:usesPoint brick:Sensor .
 
-brick:High_Temperature_Hot_Water_Supply_Temperature_Sensor bf:usesMeasurement brick:High_Temperature_Hot_Water_Supply_Temperature ;
+brick:High_Temperature_Hot_Water_Supply_Temperature_Sensor bf:usesMeasurement brick:High_Temperature_Hot_Water_Discharge_Temperature,
+        brick:High_Temperature_Hot_Water_Supply_Temperature ;
     bf:usesPoint brick:Sensor .
 
 brick:Highest_Zone_Cooling_Command bf:usesLocation brick:Zone ;
@@ -2840,7 +3100,8 @@ brick:Highest_Zone_Cooling_Command bf:usesLocation brick:Zone ;
     bf:usesPoint brick:Command .
 
 brick:Highest_Zone_Temperature_Sensor bf:usesLocation brick:Zone ;
-    bf:usesMeasurement brick:Highest_Temperature ;
+    bf:usesMeasurement brick:Highest_Temperature,
+        brick:Warmest_Temperature ;
     bf:usesPoint brick:Sensor .
 
 brick:Hold_Status bf:usesMeasurement brick:Hold ;
@@ -2868,7 +3129,8 @@ brick:Hot_Water_Differential_Pressure_Sensor bf:usesMeasurement brick:Hot_Water_
 brick:Hot_Water_Differential_Pressure_Setpoint bf:usesMeasurement brick:Hot_Water_Differential_Pressure ;
     bf:usesPoint brick:Setpoint .
 
-brick:Hot_Water_Discharge_Temperature_Sensor bf:usesMeasurement brick:Hot_Water_Discharge_Temperature ;
+brick:Hot_Water_Discharge_Temperature_Sensor bf:usesMeasurement brick:Hot_Water_Discharge_Temperature,
+        brick:Hot_Water_Supply_Temperature ;
     bf:usesPoint brick:Sensor .
 
 brick:Hot_Water_Flow_Meter bf:usesMeasurement brick:Hot_Water_Flow ;
@@ -2895,7 +3157,8 @@ brick:Hot_Water_Return_Temperature_Sensor bf:usesMeasurement brick:Hot_Water_Ret
 brick:Hot_Water_Static_Pressure_Setpoint bf:usesMeasurement brick:Hot_Water_Static_Pressure ;
     bf:usesPoint brick:Setpoint .
 
-brick:Hot_Water_Supply_Temperature_Sensor bf:usesMeasurement brick:Hot_Water_Supply_Temperature ;
+brick:Hot_Water_Supply_Temperature_Sensor bf:usesMeasurement brick:Hot_Water_Discharge_Temperature,
+        brick:Hot_Water_Supply_Temperature ;
     bf:usesPoint brick:Sensor .
 
 brick:Hot_Water_System_Enable_Command bf:usesMeasurement brick:Hot_Water_System_Enable ;
@@ -2986,7 +3249,8 @@ brick:Lowest_Exhaust_Air_Static_Pressure_Sensor bf:usesMeasurement brick:Lowest_
     bf:usesPoint brick:Sensor .
 
 brick:Lowest_Zone_Temperature_Sensor bf:usesLocation brick:Zone ;
-    bf:usesMeasurement brick:Lowest_Temperature ;
+    bf:usesMeasurement brick:Coldest_Temperature,
+        brick:Lowest_Temperature ;
     bf:usesPoint brick:Sensor .
 
 brick:Luminance_Alarm bf:usesMeasurement brick:Luminance ;
@@ -3007,16 +3271,19 @@ brick:Maintenance_Mode_Command bf:usesMeasurement brick:Maintenance_Mode ;
 brick:Maintenance_Required_Alarm bf:usesMeasurement brick:Maintenance_Required ;
     bf:usesPoint brick:Alarm .
 
-brick:Manual_Auto_Status bf:usesMeasurement brick:Manual_Auto ;
+brick:Manual_Auto_Status bf:usesMeasurement brick:Hand_Auto,
+        brick:Manual_Auto ;
     bf:usesPoint brick:Status .
 
 brick:Max_Chilled_Water_Differential_Pressure_Setpoint bf:usesMeasurement brick:Max_Chilled_Water_Differential_Pressure ;
     bf:usesPoint brick:Setpoint .
 
-brick:Max_Discharge_Air_Static_Pressure_Setpoint bf:usesMeasurement brick:Max_Discharge_Air_Static_Pressure ;
+brick:Max_Discharge_Air_Static_Pressure_Setpoint bf:usesMeasurement brick:Max_Discharge_Air_Static_Pressure,
+        brick:Max_Supply_Air_Static_Pressure ;
     bf:usesPoint brick:Setpoint .
 
-brick:Max_Discharge_Air_Temperature_Setpoint bf:usesMeasurement brick:Max_Discharge_Air_Temperature ;
+brick:Max_Discharge_Air_Temperature_Setpoint bf:usesMeasurement brick:Max_Discharge_Air_Temperature,
+        brick:Max_Supply_Air_Temperature ;
     bf:usesPoint brick:Setpoint .
 
 brick:Max_Frequency_Command bf:usesMeasurement brick:Max_Frequency ;
@@ -3025,10 +3292,12 @@ brick:Max_Frequency_Command bf:usesMeasurement brick:Max_Frequency ;
 brick:Max_Return_Air_CO2_Setpoint bf:usesMeasurement brick:Max_Return_Air_CO2 ;
     bf:usesPoint brick:Setpoint .
 
-brick:Max_Supply_Air_Static_Pressure_Setpoint bf:usesMeasurement brick:Max_Supply_Air_Static_Pressure ;
+brick:Max_Supply_Air_Static_Pressure_Setpoint bf:usesMeasurement brick:Max_Discharge_Air_Static_Pressure,
+        brick:Max_Supply_Air_Static_Pressure ;
     bf:usesPoint brick:Setpoint .
 
-brick:Max_Supply_Air_Temperature_Setpoint bf:usesMeasurement brick:Max_Supply_Air_Temperature ;
+brick:Max_Supply_Air_Temperature_Setpoint bf:usesMeasurement brick:Max_Discharge_Air_Temperature,
+        brick:Max_Supply_Air_Temperature ;
     bf:usesPoint brick:Setpoint .
 
 brick:Max_VFD_Speed_Setpoint bf:usesMeasurement brick:Max_VFD_Speed ;
@@ -3046,55 +3315,69 @@ brick:Medium_Temperature_Hot_Water_Differential_Pressure_Load_Shed_Status bf:use
 brick:Medium_Temperature_Hot_Water_Differential_Pressure_Sensor bf:usesMeasurement brick:Medium_Temperature_Hot_Water_Differential_Pressure ;
     bf:usesPoint brick:Sensor .
 
-brick:Medium_Temperature_Hot_Water_Discharge_Temperature_High_Reset_Setpoint bf:usesMeasurement brick:Medium_Temperature_Hot_Water_Discharge_Temperature_High_Reset ;
+brick:Medium_Temperature_Hot_Water_Discharge_Temperature_High_Reset_Setpoint bf:usesMeasurement brick:Medium_Temperature_Hot_Water_Discharge_Temperature_High_Reset,
+        brick:Medium_Temperature_Hot_Water_Supply_Temperature_High_Reset ;
     bf:usesPoint brick:Setpoint .
 
-brick:Medium_Temperature_Hot_Water_Discharge_Temperature_Load_Shed_Setpoint bf:usesMeasurement brick:Medium_Temperature_Hot_Water_Discharge_Temperature_Load_Shed ;
+brick:Medium_Temperature_Hot_Water_Discharge_Temperature_Load_Shed_Setpoint bf:usesMeasurement brick:Medium_Temperature_Hot_Water_Discharge_Temperature_Load_Shed,
+        brick:Medium_Temperature_Hot_Water_Supply_Temperature_Load_Shed ;
     bf:usesPoint brick:Setpoint .
 
-brick:Medium_Temperature_Hot_Water_Discharge_Temperature_Load_Shed_Status bf:usesMeasurement brick:Medium_Temperature_Hot_Water_Discharge_Temperature_Load_Shed ;
+brick:Medium_Temperature_Hot_Water_Discharge_Temperature_Load_Shed_Status bf:usesMeasurement brick:Medium_Temperature_Hot_Water_Discharge_Temperature_Load_Shed,
+        brick:Medium_Temperature_Hot_Water_Supply_Temperature_Load_Shed ;
     bf:usesPoint brick:Status .
 
-brick:Medium_Temperature_Hot_Water_Discharge_Temperature_Low_Reset_Setpoint bf:usesMeasurement brick:Medium_Temperature_Hot_Water_Discharge_Temperature_Low_Reset ;
+brick:Medium_Temperature_Hot_Water_Discharge_Temperature_Low_Reset_Setpoint bf:usesMeasurement brick:Medium_Temperature_Hot_Water_Discharge_Temperature_Low_Reset,
+        brick:Medium_Temperature_Hot_Water_Supply_Temperature_Low_Reset ;
     bf:usesPoint brick:Setpoint .
 
-brick:Medium_Temperature_Hot_Water_Discharge_Temperature_Sensor bf:usesMeasurement brick:Medium_Temperature_Hot_Water_Discharge_Temperature ;
+brick:Medium_Temperature_Hot_Water_Discharge_Temperature_Sensor bf:usesMeasurement brick:Medium_Temperature_Hot_Water_Discharge_Temperature,
+        brick:Medium_Temperature_Hot_Water_Supply_Temperature ;
     bf:usesPoint brick:Sensor .
 
 brick:Medium_Temperature_Hot_Water_Return_Temperature_Sensor bf:usesMeasurement brick:Medium_Temperature_Hot_Water_Return_Temperature ;
     bf:usesPoint brick:Sensor .
 
-brick:Medium_Temperature_Hot_Water_Supply_Temperature_High_Reset_Setpoint bf:usesMeasurement brick:Medium_Temperature_Hot_Water_Supply_Temperature_High_Reset ;
+brick:Medium_Temperature_Hot_Water_Supply_Temperature_High_Reset_Setpoint bf:usesMeasurement brick:Medium_Temperature_Hot_Water_Discharge_Temperature_High_Reset,
+        brick:Medium_Temperature_Hot_Water_Supply_Temperature_High_Reset ;
     bf:usesPoint brick:Setpoint .
 
-brick:Medium_Temperature_Hot_Water_Supply_Temperature_Load_Shed_Setpoint bf:usesMeasurement brick:Medium_Temperature_Hot_Water_Supply_Temperature_Load_Shed ;
+brick:Medium_Temperature_Hot_Water_Supply_Temperature_Load_Shed_Setpoint bf:usesMeasurement brick:Medium_Temperature_Hot_Water_Discharge_Temperature_Load_Shed,
+        brick:Medium_Temperature_Hot_Water_Supply_Temperature_Load_Shed ;
     bf:usesPoint brick:Setpoint .
 
-brick:Medium_Temperature_Hot_Water_Supply_Temperature_Load_Shed_Status bf:usesMeasurement brick:Medium_Temperature_Hot_Water_Supply_Temperature_Load_Shed ;
+brick:Medium_Temperature_Hot_Water_Supply_Temperature_Load_Shed_Status bf:usesMeasurement brick:Medium_Temperature_Hot_Water_Discharge_Temperature_Load_Shed,
+        brick:Medium_Temperature_Hot_Water_Supply_Temperature_Load_Shed ;
     bf:usesPoint brick:Status .
 
-brick:Medium_Temperature_Hot_Water_Supply_Temperature_Low_Reset_Setpoint bf:usesMeasurement brick:Medium_Temperature_Hot_Water_Supply_Temperature_Low_Reset ;
+brick:Medium_Temperature_Hot_Water_Supply_Temperature_Low_Reset_Setpoint bf:usesMeasurement brick:Medium_Temperature_Hot_Water_Discharge_Temperature_Low_Reset,
+        brick:Medium_Temperature_Hot_Water_Supply_Temperature_Low_Reset ;
     bf:usesPoint brick:Setpoint .
 
-brick:Medium_Temperature_Hot_Water_Supply_Temperature_Sensor bf:usesMeasurement brick:Medium_Temperature_Hot_Water_Supply_Temperature ;
+brick:Medium_Temperature_Hot_Water_Supply_Temperature_Sensor bf:usesMeasurement brick:Medium_Temperature_Hot_Water_Discharge_Temperature,
+        brick:Medium_Temperature_Hot_Water_Supply_Temperature ;
     bf:usesPoint brick:Sensor .
 
 brick:Min_Chilled_Water_Differential_Pressure_Setpoint bf:usesMeasurement brick:Min_Chilled_Water_Differential_Pressure ;
     bf:usesPoint brick:Setpoint .
 
-brick:Min_Discharge_Air_Static_Pressure_Setpoint bf:usesMeasurement brick:Min_Discharge_Air_Static_Pressure ;
+brick:Min_Discharge_Air_Static_Pressure_Setpoint bf:usesMeasurement brick:Min_Discharge_Air_Static_Pressure,
+        brick:Min_Supply_Air_Static_Pressure ;
     bf:usesPoint brick:Setpoint .
 
-brick:Min_Discharge_Air_Temperature_Setpoint bf:usesMeasurement brick:Min_Discharge_Air_Temperature ;
+brick:Min_Discharge_Air_Temperature_Setpoint bf:usesMeasurement brick:Min_Discharge_Air_Temperature,
+        brick:Min_Supply_Air_Temperature ;
     bf:usesPoint brick:Setpoint .
 
 brick:Min_Fresh_Air_Setpoint bf:usesMeasurement brick:Min_Fresh_Air ;
     bf:usesPoint brick:Setpoint .
 
-brick:Min_Supply_Air_Static_Pressure_Setpoint bf:usesMeasurement brick:Min_Supply_Air_Static_Pressure ;
+brick:Min_Supply_Air_Static_Pressure_Setpoint bf:usesMeasurement brick:Min_Discharge_Air_Static_Pressure,
+        brick:Min_Supply_Air_Static_Pressure ;
     bf:usesPoint brick:Setpoint .
 
-brick:Min_Supply_Air_Temperature_Setpoint bf:usesMeasurement brick:Min_Supply_Air_Temperature ;
+brick:Min_Supply_Air_Temperature_Setpoint bf:usesMeasurement brick:Min_Discharge_Air_Temperature,
+        brick:Min_Supply_Air_Temperature ;
     bf:usesPoint brick:Setpoint .
 
 brick:Min_VFD_Speed_Setpoint bf:usesMeasurement brick:Min_VFD_Speed ;
@@ -3139,53 +3422,67 @@ brick:Motor_Start_Stop_Status bf:usesMeasurement brick:Motor_Start_Stop ;
 brick:Motor_Torque_Sensor bf:usesMeasurement brick:Motor_Torque ;
     bf:usesPoint brick:Sensor .
 
-brick:Occupancy_Command bf:usesMeasurement brick:Occupancy ;
+brick:Occupancy_Command bf:usesMeasurement brick:Occupancy,
+        brick:Occupied ;
     bf:usesPoint brick:Command .
 
 brick:Occupancy_Sensor bf:usesMeasurement brick:Occupancy ;
     bf:usesPoint brick:Sensor .
 
-brick:Occupied_Command bf:usesMeasurement brick:Occupied ;
+brick:Occupied_Command bf:usesMeasurement brick:Occupancy,
+        brick:Occupied ;
     bf:usesPoint brick:Command .
 
-brick:Occupied_Cooling_Discharge_Air_Flow_Setpoint bf:usesMeasurement brick:Occupied_Cooling_Discharge_Air_Flow ;
+brick:Occupied_Cooling_Discharge_Air_Flow_Setpoint bf:usesMeasurement brick:Occupied_Cooling_Discharge_Air_Flow,
+        brick:Occupied_Cooling_Supply_Air_Flow ;
     bf:usesPoint brick:Setpoint .
 
-brick:Occupied_Cooling_Max_Discharge_Air_Flow_Setpoint bf:usesMeasurement brick:Occupied_Cooling_Max_Discharge_Air_Flow ;
+brick:Occupied_Cooling_Max_Discharge_Air_Flow_Setpoint bf:usesMeasurement brick:Occupied_Cooling_Max_Discharge_Air_Flow,
+        brick:Occupied_Cooling_Max_Supply_Air_Flow ;
     bf:usesPoint brick:Setpoint .
 
-brick:Occupied_Cooling_Max_Supply_Air_Flow_Setpoint bf:usesMeasurement brick:Occupied_Cooling_Max_Supply_Air_Flow ;
+brick:Occupied_Cooling_Max_Supply_Air_Flow_Setpoint bf:usesMeasurement brick:Occupied_Cooling_Max_Discharge_Air_Flow,
+        brick:Occupied_Cooling_Max_Supply_Air_Flow ;
     bf:usesPoint brick:Setpoint .
 
-brick:Occupied_Cooling_Min_Discharge_Air_Flow_Setpoint bf:usesMeasurement brick:Occupied_Cooling_Min_Discharge_Air_Flow ;
+brick:Occupied_Cooling_Min_Discharge_Air_Flow_Setpoint bf:usesMeasurement brick:Occupied_Cooling_Min_Discharge_Air_Flow,
+        brick:Occupied_Cooling_Min_Supply_Air_Flow ;
     bf:usesPoint brick:Setpoint .
 
-brick:Occupied_Cooling_Min_Supply_Air_Flow_Setpoint bf:usesMeasurement brick:Occupied_Cooling_Min_Supply_Air_Flow ;
+brick:Occupied_Cooling_Min_Supply_Air_Flow_Setpoint bf:usesMeasurement brick:Occupied_Cooling_Min_Discharge_Air_Flow,
+        brick:Occupied_Cooling_Min_Supply_Air_Flow ;
     bf:usesPoint brick:Setpoint .
 
-brick:Occupied_Cooling_Supply_Air_Flow_Setpoint bf:usesMeasurement brick:Occupied_Cooling_Supply_Air_Flow ;
+brick:Occupied_Cooling_Supply_Air_Flow_Setpoint bf:usesMeasurement brick:Occupied_Cooling_Discharge_Air_Flow,
+        brick:Occupied_Cooling_Supply_Air_Flow ;
     bf:usesPoint brick:Setpoint .
 
 brick:Occupied_Cooling_Temperature_Dead_Band_Setpoint bf:usesLocation brick:Zone ;
     bf:usesMeasurement brick:Occupied_Cooling_Temperature_Dead_Band ;
     bf:usesPoint brick:Setpoint .
 
-brick:Occupied_Heating_Discharge_Air_Flow_Setpoint bf:usesMeasurement brick:Occupied_Heating_Discharge_Air_Flow ;
+brick:Occupied_Heating_Discharge_Air_Flow_Setpoint bf:usesMeasurement brick:Occupied_Heating_Discharge_Air_Flow,
+        brick:Occupied_Heating_Supply_Air_Flow ;
     bf:usesPoint brick:Setpoint .
 
-brick:Occupied_Heating_Max_Discharge_Air_Flow_Setpoint bf:usesMeasurement brick:Occupied_Heating_Max_Discharge_Air_Flow ;
+brick:Occupied_Heating_Max_Discharge_Air_Flow_Setpoint bf:usesMeasurement brick:Occupied_Heating_Max_Discharge_Air_Flow,
+        brick:Occupied_Heating_Max_Supply_Air_Flow ;
     bf:usesPoint brick:Setpoint .
 
-brick:Occupied_Heating_Max_Supply_Air_Flow_Setpoint bf:usesMeasurement brick:Occupied_Heating_Max_Supply_Air_Flow ;
+brick:Occupied_Heating_Max_Supply_Air_Flow_Setpoint bf:usesMeasurement brick:Occupied_Heating_Max_Discharge_Air_Flow,
+        brick:Occupied_Heating_Max_Supply_Air_Flow ;
     bf:usesPoint brick:Setpoint .
 
-brick:Occupied_Heating_Min_Discharge_Air_Flow_Setpoint bf:usesMeasurement brick:Occupied_Heating_Min_Discharge_Air_Flow ;
+brick:Occupied_Heating_Min_Discharge_Air_Flow_Setpoint bf:usesMeasurement brick:Occupied_Heating_Min_Discharge_Air_Flow,
+        brick:Occupied_Heating_Min_Supply_Air_Flow ;
     bf:usesPoint brick:Setpoint .
 
-brick:Occupied_Heating_Min_Supply_Air_Flow_Setpoint bf:usesMeasurement brick:Occupied_Heating_Min_Supply_Air_Flow ;
+brick:Occupied_Heating_Min_Supply_Air_Flow_Setpoint bf:usesMeasurement brick:Occupied_Heating_Min_Discharge_Air_Flow,
+        brick:Occupied_Heating_Min_Supply_Air_Flow ;
     bf:usesPoint brick:Setpoint .
 
-brick:Occupied_Heating_Supply_Air_Flow_Setpoint bf:usesMeasurement brick:Occupied_Heating_Supply_Air_Flow ;
+brick:Occupied_Heating_Supply_Air_Flow_Setpoint bf:usesMeasurement brick:Occupied_Heating_Discharge_Air_Flow,
+        brick:Occupied_Heating_Supply_Air_Flow ;
     bf:usesPoint brick:Setpoint .
 
 brick:Occupied_Heating_Temperature_Dead_Band_Setpoint bf:usesLocation brick:Zone ;
@@ -3195,7 +3492,8 @@ brick:Occupied_Heating_Temperature_Dead_Band_Setpoint bf:usesLocation brick:Zone
 brick:Occupied_Mode_Status bf:usesMeasurement brick:Occupied_Mode ;
     bf:usesPoint brick:Status .
 
-brick:On_Off_Status bf:usesMeasurement brick:On_Off ;
+brick:On_Off_Status bf:usesMeasurement brick:On_Off,
+        brick:Start_Stop ;
     bf:usesPoint brick:Status .
 
 brick:On_Timer_Sensor bf:usesMeasurement brick:On_Timer ;
@@ -3292,7 +3590,8 @@ brick:Overridden_On_Status bf:usesMeasurement brick:Overridden_On ;
 brick:PIR_Sensor bf:usesMeasurement brick:PIR ;
     bf:usesPoint brick:Sensor .
 
-brick:PV_Current_Output_Sensor bf:usesMeasurement brick:PV_Current_Output ;
+brick:PV_Current_Output_Sensor bf:usesMeasurement brick:PV_Current_Output,
+        brick:Photovoltaic_Current_Output ;
     bf:usesPoint brick:Sensor .
 
 brick:Panel_Lockout_Command bf:usesMeasurement brick:Panel_Lockout ;
@@ -3307,7 +3606,8 @@ brick:Peak_Power_Demand_Sensor bf:usesMeasurement brick:Peak_Power_Demand ;
 brick:Perimeter_Heating_Valve_Command bf:usesMeasurement brick:Perimeter_Heating_Valve ;
     bf:usesPoint brick:Command .
 
-brick:Photovoltaic_Current_Output_Sensor bf:usesMeasurement brick:Photovoltaic_Current_Output ;
+brick:Photovoltaic_Current_Output_Sensor bf:usesMeasurement brick:PV_Current_Output,
+        brick:Photovoltaic_Current_Output ;
     bf:usesPoint brick:Sensor .
 
 brick:Power_Loss_Alarm bf:usesMeasurement brick:Power_Loss ;
@@ -3336,10 +3636,12 @@ brick:Preheat_Coil_Leaving_Water_Temperature_Sensor bf:usesMeasurement brick:Pre
 brick:Preheat_Demand_Setpoint bf:usesMeasurement brick:Preheat_Demand ;
     bf:usesPoint brick:Setpoint .
 
-brick:Preheat_Discharge_Air_Temperature_Sensor bf:usesMeasurement brick:Preheat_Discharge_Air_Temperature ;
+brick:Preheat_Discharge_Air_Temperature_Sensor bf:usesMeasurement brick:Preheat_Discharge_Air_Temperature,
+        brick:Preheat_Supply_Air_Temperature ;
     bf:usesPoint brick:Sensor .
 
-brick:Preheat_Supply_Air_Temperature_Sensor bf:usesMeasurement brick:Preheat_Supply_Air_Temperature ;
+brick:Preheat_Supply_Air_Temperature_Sensor bf:usesMeasurement brick:Preheat_Discharge_Air_Temperature,
+        brick:Preheat_Supply_Air_Temperature ;
     bf:usesPoint brick:Sensor .
 
 brick:Preheat_Valve_Command bf:usesMeasurement brick:Preheat_Valve ;
@@ -3424,7 +3726,8 @@ brick:Return_Air_Temperature_Low_Limit_Alarm bf:usesMeasurement brick:Return_Air
 brick:Return_Air_Temperature_Sensor bf:usesMeasurement brick:Return_Air_Temperature ;
     bf:usesPoint brick:Sensor .
 
-brick:Return_Discharge_Fan_Differential_Speed_Setpoint bf:usesMeasurement brick:Return_Discharge_Fan_Differential_Speed ;
+brick:Return_Discharge_Fan_Differential_Speed_Setpoint bf:usesMeasurement brick:Return_Discharge_Fan_Differential_Speed,
+        brick:Return_Supply_Fan_Differential_Speed ;
     bf:usesPoint brick:Setpoint .
 
 brick:Return_Fan_Air_Flow_Sensor bf:usesMeasurement brick:Return_Fan_Air_Flow ;
@@ -3470,7 +3773,8 @@ brick:Return_Fan_VFD_Status bf:usesEquipment brick:Return_Fan ;
 brick:Return_Heat_Valve_Command bf:usesMeasurement brick:Return_Heat_Valve ;
     bf:usesPoint brick:Command .
 
-brick:Return_Supply_Fan_Differential_Speed_Setpoint bf:usesMeasurement brick:Return_Supply_Fan_Differential_Speed ;
+brick:Return_Supply_Fan_Differential_Speed_Setpoint bf:usesMeasurement brick:Return_Discharge_Fan_Differential_Speed,
+        brick:Return_Supply_Fan_Differential_Speed ;
     bf:usesPoint brick:Setpoint .
 
 brick:Room_Temperature_Sensor bf:usesMeasurement brick:Room_Temperature ;
@@ -3523,11 +3827,13 @@ brick:Solar_Panel_Battery_Voltage_Sensor bf:usesEquipment brick:Solar_Panel ;
     bf:usesPoint brick:Sensor .
 
 brick:Solar_Panel_PV_Current_Output_Sensor bf:usesEquipment brick:Solar_Panel ;
-    bf:usesMeasurement brick:PV_Current_Output ;
+    bf:usesMeasurement brick:PV_Current_Output,
+        brick:Photovoltaic_Current_Output ;
     bf:usesPoint brick:Sensor .
 
 brick:Solar_Panel_Photovoltaic_Current_Output_Sensor bf:usesEquipment brick:Solar_Panel ;
-    bf:usesMeasurement brick:Photovoltaic_Current_Output ;
+    bf:usesMeasurement brick:PV_Current_Output,
+        brick:Photovoltaic_Current_Output ;
     bf:usesPoint brick:Sensor .
 
 brick:Solar_Panel_Solar_Azimuth_Angle_Sensor bf:usesEquipment brick:Solar_Panel ;
@@ -3565,7 +3871,8 @@ brick:Standby_Unit_On_Off_Status bf:usesMeasurement brick:Standby_Unit_On_Off ;
 brick:Start_Stop_Command bf:usesMeasurement brick:Start_Stop ;
     bf:usesPoint brick:Command .
 
-brick:Start_Stop_Status bf:usesMeasurement brick:Start_Stop ;
+brick:Start_Stop_Status bf:usesMeasurement brick:On_Off,
+        brick:Start_Stop ;
     bf:usesPoint brick:Status .
 
 brick:Static_Pressure_Max_Setpoint bf:usesMeasurement brick:Static_Pressure_Max ;
@@ -3599,81 +3906,106 @@ brick:Steam_System_Yearly_Steam_Usage_Meter bf:usesEquipment brick:Steam_System 
 brick:Steam_Usage_Today_Meter bf:usesMeasurement brick:Steam_Usage_Today ;
     bf:usesPoint brick:Meter .
 
-brick:Supply_Air_Damper_Max_Position_Setpoint bf:usesMeasurement brick:Supply_Air_Damper_Max_Position ;
+brick:Supply_Air_Damper_Max_Position_Setpoint bf:usesMeasurement brick:Discharge_Air_Damper_Max_Position,
+        brick:Supply_Air_Damper_Max_Position ;
     bf:usesPoint brick:Setpoint .
 
-brick:Supply_Air_Flow_Command bf:usesMeasurement brick:Supply_Air_Flow ;
+brick:Supply_Air_Flow_Command bf:usesMeasurement brick:Discharge_Air_Flow,
+        brick:Supply_Air_Flow ;
     bf:usesPoint brick:Command .
 
-brick:Supply_Air_Flow_Demand_Setpoint bf:usesMeasurement brick:Supply_Air_Flow_Demand ;
+brick:Supply_Air_Flow_Demand_Setpoint bf:usesMeasurement brick:Discharge_Air_Flow_Demand,
+        brick:Supply_Air_Flow_Demand ;
     bf:usesPoint brick:Setpoint .
 
-brick:Supply_Air_Flow_Sensor bf:usesMeasurement brick:Supply_Air_Flow ;
+brick:Supply_Air_Flow_Sensor bf:usesMeasurement brick:Discharge_Air_Flow,
+        brick:Supply_Air_Flow ;
     bf:usesPoint brick:Sensor .
 
-brick:Supply_Air_Flow_Setpoint bf:usesMeasurement brick:Supply_Air_Flow ;
+brick:Supply_Air_Flow_Setpoint bf:usesMeasurement brick:Discharge_Air_Flow,
+        brick:Supply_Air_Flow ;
     bf:usesPoint brick:Setpoint .
 
-brick:Supply_Air_Humidity_Sensor bf:usesMeasurement brick:Supply_Air_Humidity ;
+brick:Supply_Air_Humidity_Sensor bf:usesMeasurement brick:Discharge_Air_Humidity,
+        brick:Supply_Air_Humidity ;
     bf:usesPoint brick:Sensor .
 
 brick:Supply_Air_Integrative_Gain_Factor bf:usesPoint brick:Setpoint .
 
-brick:Supply_Air_Smoke_Detected_Alarm bf:usesMeasurement brick:Supply_Air_Smoke_Detected ;
+brick:Supply_Air_Smoke_Detected_Alarm bf:usesMeasurement brick:Discharge_Air_Smoke_Detected,
+        brick:Supply_Air_Smoke_Detected ;
     bf:usesPoint brick:Alarm .
 
-brick:Supply_Air_Static_Pressure_Dead_Band_Setpoint bf:usesMeasurement brick:Supply_Air_Static_Pressure_Dead_Band ;
+brick:Supply_Air_Static_Pressure_Dead_Band_Setpoint bf:usesMeasurement brick:Discharge_Air_Static_Pressure_Dead_Band,
+        brick:Supply_Air_Static_Pressure_Dead_Band ;
     bf:usesPoint brick:Setpoint .
 
-brick:Supply_Air_Static_Pressure_Increase_Decrease_Step_Setpoint bf:usesMeasurement brick:Supply_Air_Static_Pressure_Increase_Decrease_Step ;
+brick:Supply_Air_Static_Pressure_Increase_Decrease_Step_Setpoint bf:usesMeasurement brick:Discharge_Air_Static_Pressure_Increase_Decrease_Step,
+        brick:Supply_Air_Static_Pressure_Increase_Decrease_Step ;
     bf:usesPoint brick:Setpoint .
 
-brick:Supply_Air_Static_Pressure_Integral_Time_Setpoint bf:usesMeasurement brick:Supply_Air_Static_Pressure_Integral_Time ;
+brick:Supply_Air_Static_Pressure_Integral_Time_Setpoint bf:usesMeasurement brick:Discharge_Air_Static_Pressure_Integral_Time,
+        brick:Supply_Air_Static_Pressure_Integral_Time ;
     bf:usesPoint brick:Setpoint .
 
-brick:Supply_Air_Static_Pressure_Proportional_Band_Setpoint bf:usesMeasurement brick:Supply_Air_Static_Pressure_Proportional_Band ;
+brick:Supply_Air_Static_Pressure_Proportional_Band_Setpoint bf:usesMeasurement brick:Discharge_Air_Static_Pressure_Proportional_Band,
+        brick:Supply_Air_Static_Pressure_Proportional_Band ;
     bf:usesPoint brick:Setpoint .
 
-brick:Supply_Air_Static_Pressure_Sensor bf:usesMeasurement brick:Supply_Air_Static_Pressure ;
+brick:Supply_Air_Static_Pressure_Sensor bf:usesMeasurement brick:Discharge_Air_Static_Pressure,
+        brick:Supply_Air_Static_Pressure ;
     bf:usesPoint brick:Sensor .
 
-brick:Supply_Air_Static_Pressure_Setpoint bf:usesMeasurement brick:Supply_Air_Static_Pressure ;
+brick:Supply_Air_Static_Pressure_Setpoint bf:usesMeasurement brick:Discharge_Air_Static_Pressure,
+        brick:Supply_Air_Static_Pressure ;
     bf:usesPoint brick:Setpoint .
 
-brick:Supply_Air_Temperature_Cooling_Setpoint bf:usesMeasurement brick:Supply_Air_Temperature_Cooling ;
+brick:Supply_Air_Temperature_Cooling_Setpoint bf:usesMeasurement brick:Discharge_Air_Temperature_Cooling,
+        brick:Supply_Air_Temperature_Cooling ;
     bf:usesPoint brick:Setpoint .
 
-brick:Supply_Air_Temperature_Heating_Setpoint bf:usesMeasurement brick:Supply_Air_Temperature_Heating ;
+brick:Supply_Air_Temperature_Heating_Setpoint bf:usesMeasurement brick:Discharge_Air_Temperature_Heating,
+        brick:Supply_Air_Temperature_Heating ;
     bf:usesPoint brick:Setpoint .
 
-brick:Supply_Air_Temperature_High_Limit_Alarm bf:usesMeasurement brick:Supply_Air_Temperature_High_Limit ;
+brick:Supply_Air_Temperature_High_Limit_Alarm bf:usesMeasurement brick:Discharge_Air_Temperature_High_Limit,
+        brick:Supply_Air_Temperature_High_Limit ;
     bf:usesPoint brick:Alarm .
 
-brick:Supply_Air_Temperature_Reset_Differential_Setpoint bf:usesMeasurement brick:Supply_Air_Temperature_Reset_Differential ;
+brick:Supply_Air_Temperature_Reset_Differential_Setpoint bf:usesMeasurement brick:Discharge_Air_Temperature_Reset_Differential,
+        brick:Supply_Air_Temperature_Reset_Differential ;
     bf:usesPoint brick:Setpoint .
 
-brick:Supply_Air_Temperature_Reset_High_Setpoint bf:usesMeasurement brick:Supply_Air_Temperature_Reset_High ;
+brick:Supply_Air_Temperature_Reset_High_Setpoint bf:usesMeasurement brick:Discharge_Air_Temperature_Reset_High,
+        brick:Supply_Air_Temperature_Reset_High ;
     bf:usesPoint brick:Setpoint .
 
-brick:Supply_Air_Temperature_Reset_Low_Setpoint bf:usesMeasurement brick:Supply_Air_Temperature_Reset_Low ;
+brick:Supply_Air_Temperature_Reset_Low_Setpoint bf:usesMeasurement brick:Discharge_Air_Temperature_Reset_Low,
+        brick:Supply_Air_Temperature_Reset_Low ;
     bf:usesPoint brick:Setpoint .
 
-brick:Supply_Air_Temperature_Sensor bf:usesMeasurement brick:Supply_Air_Temperature ;
+brick:Supply_Air_Temperature_Sensor bf:usesMeasurement brick:Discharge_Air_Temperature,
+        brick:Supply_Air_Temperature ;
     bf:usesPoint brick:Sensor .
 
-brick:Supply_Air_Temperature_Setpoint bf:usesMeasurement brick:Supply_Air_Temperature ;
+brick:Supply_Air_Temperature_Setpoint bf:usesMeasurement brick:Discharge_Air_Temperature,
+        brick:Supply_Air_Temperature ;
     bf:usesPoint brick:Setpoint .
 
-brick:Supply_Air_Temperature_Setpoint_Increase_Decrease_Step bf:usesMeasurement brick:Supply_Air_Temperature_Increase_Decrease_Step ;
+brick:Supply_Air_Temperature_Setpoint_Increase_Decrease_Step bf:usesMeasurement brick:Discharge_Air_Temperature_Increase_Decrease_Step,
+        brick:Supply_Air_Temperature_Increase_Decrease_Step ;
     bf:usesPoint brick:Setpoint .
 
-brick:Supply_Air_Velocity_Pressure_Sensor bf:usesMeasurement brick:Supply_Air_Velocity_Pressure ;
+brick:Supply_Air_Velocity_Pressure_Sensor bf:usesMeasurement brick:Discharge_Air_Velocity_Pressure,
+        brick:Supply_Air_Velocity_Pressure ;
     bf:usesPoint brick:Sensor .
 
-brick:Supply_Fan_Air_Flow_Sensor bf:usesMeasurement brick:Supply_Fan_Air_Flow ;
+brick:Supply_Fan_Air_Flow_Sensor bf:usesMeasurement brick:Discharge_Fan_Air_Flow,
+        brick:Supply_Fan_Air_Flow ;
     bf:usesPoint brick:Sensor .
 
-brick:Supply_Fan_Command bf:usesMeasurement brick:Supply_Fan ;
+brick:Supply_Fan_Command bf:usesMeasurement brick:Discharge_Fan,
+        brick:Supply_Fan ;
     bf:usesPoint brick:Command .
 
 brick:Supply_Fan_Cooling_Coil_Valve_Pressure_Sensor bf:usesEquipment brick:Supply_Fan ;
@@ -3685,11 +4017,13 @@ brick:Supply_Fan_Differential_Pressure_Sensor bf:usesEquipment brick:Supply_Fan 
     bf:usesPoint brick:Sensor .
 
 brick:Supply_Fan_Discharge_Air_Static_Pressure_Integral_Time_Setpoint bf:usesEquipment brick:Supply_Fan ;
-    bf:usesMeasurement brick:Discharge_Air_Static_Pressure_Integral_Time ;
+    bf:usesMeasurement brick:Discharge_Air_Static_Pressure_Integral_Time,
+        brick:Supply_Air_Static_Pressure_Integral_Time ;
     bf:usesPoint brick:Setpoint .
 
 brick:Supply_Fan_Discharge_Air_Static_Pressure_Proportional_Band_Setpoint bf:usesEquipment brick:Supply_Fan ;
-    bf:usesMeasurement brick:Discharge_Air_Static_Pressure_Proportional_Band ;
+    bf:usesMeasurement brick:Discharge_Air_Static_Pressure_Proportional_Band,
+        brick:Supply_Air_Static_Pressure_Proportional_Band ;
     bf:usesPoint brick:Setpoint .
 
 brick:Supply_Fan_Fan_Air_Flow_Sensor bf:usesEquipment brick:Supply_Fan ;
@@ -3700,16 +4034,20 @@ brick:Supply_Fan_Fan_Speed_Reset_Command bf:usesEquipment brick:Supply_Fan ;
     bf:usesMeasurement brick:Fan_Speed_Reset ;
     bf:usesPoint brick:Command .
 
-brick:Supply_Fan_Piezoelectric_Sensor bf:usesMeasurement brick:Supply_Fan_Piezoelectric ;
+brick:Supply_Fan_Piezoelectric_Sensor bf:usesMeasurement brick:Discharge_Fan_Piezoelectric,
+        brick:Supply_Fan_Piezoelectric ;
     bf:usesPoint brick:Sensor .
 
-brick:Supply_Fan_Start_Stop_Command bf:usesMeasurement brick:Supply_Fan_Start_Stop ;
+brick:Supply_Fan_Start_Stop_Command bf:usesMeasurement brick:Discharge_Fan_Start_Stop,
+        brick:Supply_Fan_Start_Stop ;
     bf:usesPoint brick:Command .
 
-brick:Supply_Fan_Start_Stop_Status bf:usesMeasurement brick:Supply_Fan_Start_Stop ;
+brick:Supply_Fan_Start_Stop_Status bf:usesMeasurement brick:Discharge_Fan_Start_Stop,
+        brick:Supply_Fan_Start_Stop ;
     bf:usesPoint brick:Status .
 
-brick:Supply_Fan_Status bf:usesMeasurement brick:Supply_Fan ;
+brick:Supply_Fan_Status bf:usesMeasurement brick:Discharge_Fan,
+        brick:Supply_Fan ;
     bf:usesPoint brick:Status .
 
 brick:Supply_Fan_Supply_Air_Proportional_Gain_Factor bf:usesEquipment brick:Supply_Fan ;
@@ -3717,29 +4055,36 @@ brick:Supply_Fan_Supply_Air_Proportional_Gain_Factor bf:usesEquipment brick:Supp
     bf:usesPoint brick:Setpoint .
 
 brick:Supply_Fan_Supply_Air_Static_Pressure_Integral_Time_Setpoint bf:usesEquipment brick:Supply_Fan ;
-    bf:usesMeasurement brick:Supply_Air_Static_Pressure_Integral_Time ;
+    bf:usesMeasurement brick:Discharge_Air_Static_Pressure_Integral_Time,
+        brick:Supply_Air_Static_Pressure_Integral_Time ;
     bf:usesPoint brick:Setpoint .
 
 brick:Supply_Fan_Supply_Air_Static_Pressure_Proportional_Band_Setpoint bf:usesEquipment brick:Supply_Fan ;
-    bf:usesMeasurement brick:Supply_Air_Static_Pressure_Proportional_Band ;
+    bf:usesMeasurement brick:Discharge_Air_Static_Pressure_Proportional_Band,
+        brick:Supply_Air_Static_Pressure_Proportional_Band ;
     bf:usesPoint brick:Setpoint .
 
-brick:Supply_Fan_VFD_Speed_Command bf:usesMeasurement brick:Supply_Fan_VFD_Speed ;
+brick:Supply_Fan_VFD_Speed_Command bf:usesMeasurement brick:Discharge_Fan_VFD_Speed,
+        brick:Supply_Fan_VFD_Speed ;
     bf:usesPoint brick:Command .
 
-brick:Supply_Fan_VFD_Speed_Sensor bf:usesMeasurement brick:Supply_Fan_VFD_Speed ;
+brick:Supply_Fan_VFD_Speed_Sensor bf:usesMeasurement brick:Discharge_Fan_VFD_Speed,
+        brick:Supply_Fan_VFD_Speed ;
     bf:usesPoint brick:Sensor .
 
-brick:Supply_Fan_VFD_Speed_Setpoint bf:usesMeasurement brick:Supply_Fan_VFD_Speed ;
+brick:Supply_Fan_VFD_Speed_Setpoint bf:usesMeasurement brick:Discharge_Fan_VFD_Speed,
+        brick:Supply_Fan_VFD_Speed ;
     bf:usesPoint brick:Setpoint .
 
-brick:Supply_Fan_VFD_Speed_Status bf:usesMeasurement brick:Supply_Fan_VFD_Speed ;
+brick:Supply_Fan_VFD_Speed_Status bf:usesMeasurement brick:Discharge_Fan_VFD_Speed,
+        brick:Supply_Fan_VFD_Speed ;
     bf:usesPoint brick:Status .
 
 brick:Supply_Fan_VFD_Status bf:usesEquipment brick:Supply_Fan ;
     bf:usesMeasurement brick:VFD_Status .
 
-brick:Supply_Water_Temperature_Setpoint bf:usesMeasurement brick:Supply_Water_Temperature ;
+brick:Supply_Water_Temperature_Setpoint bf:usesMeasurement brick:Discharge_Water_Temperature,
+        brick:Supply_Water_Temperature ;
     bf:usesPoint brick:Setpoint .
 
 brick:System_Enable_Command bf:usesMeasurement brick:System_Enable ;
@@ -3817,10 +4162,12 @@ brick:Underfloor_Temperature_Sensor bf:usesMeasurement brick:Underfloor_Temperat
 brick:Unit_Failed_Alarm bf:usesMeasurement brick:Unit_Failed ;
     bf:usesPoint brick:Alarm .
 
-brick:Unoccupied_Cooling_Discharge_Air_Flow_Setpoint bf:usesMeasurement brick:Unoccupied_Cooling_Discharge_Air_Flow ;
+brick:Unoccupied_Cooling_Discharge_Air_Flow_Setpoint bf:usesMeasurement brick:Unoccupied_Cooling_Discharge_Air_Flow,
+        brick:Unoccupied_Cooling_Supply_Air_Flow ;
     bf:usesPoint brick:Setpoint .
 
-brick:Unoccupied_Cooling_Supply_Air_Flow_Setpoint bf:usesMeasurement brick:Unoccupied_Cooling_Supply_Air_Flow ;
+brick:Unoccupied_Cooling_Supply_Air_Flow_Setpoint bf:usesMeasurement brick:Unoccupied_Cooling_Discharge_Air_Flow,
+        brick:Unoccupied_Cooling_Supply_Air_Flow ;
     bf:usesPoint brick:Setpoint .
 
 brick:Unoccupied_Cooling_Temperature_Setpoint bf:usesMeasurement brick:Unoccupied_Cooling_Temperature ;
@@ -3871,27 +4218,33 @@ brick:VAV_Cooling_Command bf:usesEquipment brick:VAV ;
     bf:usesPoint brick:Command .
 
 brick:VAV_Cooling_Demand_Setpoint bf:usesEquipment brick:VAV ;
-    bf:usesMeasurement brick:Cooling_Demand ;
+    bf:usesMeasurement brick:Cooling_Demand,
+        brick:Cooling_Request ;
     bf:usesPoint brick:Setpoint .
 
 brick:VAV_Cooling_Max_Discharge_Air_Flow_Setpoint bf:usesEquipment brick:VAV ;
-    bf:usesMeasurement brick:Cooling_Max_Discharge_Air_Flow ;
+    bf:usesMeasurement brick:Cooling_Max_Discharge_Air_Flow,
+        brick:Cooling_Max_Supply_Air_Flow ;
     bf:usesPoint brick:Setpoint .
 
 brick:VAV_Cooling_Max_Supply_Air_Flow_Setpoint bf:usesEquipment brick:VAV ;
-    bf:usesMeasurement brick:Cooling_Max_Supply_Air_Flow ;
+    bf:usesMeasurement brick:Cooling_Max_Discharge_Air_Flow,
+        brick:Cooling_Max_Supply_Air_Flow ;
     bf:usesPoint brick:Setpoint .
 
 brick:VAV_Cooling_Min_Discharge_Air_Flow_Setpoint bf:usesEquipment brick:VAV ;
-    bf:usesMeasurement brick:Cooling_Min_Discharge_Air_Flow ;
+    bf:usesMeasurement brick:Cooling_Min_Discharge_Air_Flow,
+        brick:Cooling_Min_Supply_Air_Flow ;
     bf:usesPoint brick:Setpoint .
 
 brick:VAV_Cooling_Min_Supply_Air_Flow_Setpoint bf:usesEquipment brick:VAV ;
-    bf:usesMeasurement brick:Cooling_Min_Supply_Air_Flow ;
+    bf:usesMeasurement brick:Cooling_Min_Discharge_Air_Flow,
+        brick:Cooling_Min_Supply_Air_Flow ;
     bf:usesPoint brick:Setpoint .
 
 brick:VAV_Cooling_Request_Setpoint bf:usesEquipment brick:VAV ;
-    bf:usesMeasurement brick:Cooling_Request ;
+    bf:usesMeasurement brick:Cooling_Demand,
+        brick:Cooling_Request ;
     bf:usesPoint brick:Setpoint .
 
 brick:VAV_Cooling_Valve_Command bf:usesEquipment brick:VAV ;
@@ -3907,39 +4260,48 @@ brick:VAV_Damper_Position_Sensor bf:usesEquipment brick:VAV ;
     bf:usesPoint brick:Sensor .
 
 brick:VAV_Discharge_Air_Duct_Pressure_Status bf:usesEquipment brick:VAV ;
-    bf:usesMeasurement brick:Discharge_Air_Duct_Pressure_Status ;
+    bf:usesMeasurement brick:Discharge_Air_Duct_Pressure_Status,
+        brick:Supply_Air_Duct_Pressure_Status ;
     bf:usesPoint brick:Sensor .
 
 brick:VAV_Discharge_Air_Flow_Command bf:usesEquipment brick:VAV ;
-    bf:usesMeasurement brick:Discharge_Air_Flow ;
+    bf:usesMeasurement brick:Discharge_Air_Flow,
+        brick:Supply_Air_Flow ;
     bf:usesPoint brick:Command .
 
 brick:VAV_Discharge_Air_Flow_Sensor bf:usesEquipment brick:VAV ;
-    bf:usesMeasurement brick:Discharge_Air_Flow ;
+    bf:usesMeasurement brick:Discharge_Air_Flow,
+        brick:Supply_Air_Flow ;
     bf:usesPoint brick:Sensor .
 
 brick:VAV_Discharge_Air_Flow_Setpoint bf:usesEquipment brick:VAV ;
-    bf:usesMeasurement brick:Discharge_Air_Flow ;
+    bf:usesMeasurement brick:Discharge_Air_Flow,
+        brick:Supply_Air_Flow ;
     bf:usesPoint brick:Setpoint .
 
 brick:VAV_Discharge_Air_Temperature_Cooling_Setpoint bf:usesEquipment brick:VAV ;
-    bf:usesMeasurement brick:Discharge_Air_Temperature_Cooling ;
+    bf:usesMeasurement brick:Discharge_Air_Temperature_Cooling,
+        brick:Supply_Air_Temperature_Cooling ;
     bf:usesPoint brick:Setpoint .
 
 brick:VAV_Discharge_Air_Temperature_Heating_Setpoint bf:usesEquipment brick:VAV ;
-    bf:usesMeasurement brick:Discharge_Air_Temperature_Heating ;
+    bf:usesMeasurement brick:Discharge_Air_Temperature_Heating,
+        brick:Supply_Air_Temperature_Heating ;
     bf:usesPoint brick:Setpoint .
 
 brick:VAV_Discharge_Air_Temperature_Sensor bf:usesEquipment brick:VAV ;
-    bf:usesMeasurement brick:Discharge_Air_Temperature ;
+    bf:usesMeasurement brick:Discharge_Air_Temperature,
+        brick:Supply_Air_Temperature ;
     bf:usesPoint brick:Sensor .
 
 brick:VAV_Discharge_Air_Temperature_Setpoint bf:usesEquipment brick:VAV ;
-    bf:usesMeasurement brick:Discharge_Air_Temperature ;
+    bf:usesMeasurement brick:Discharge_Air_Temperature,
+        brick:Supply_Air_Temperature ;
     bf:usesPoint brick:Setpoint .
 
 brick:VAV_Discharge_Air_Velocity_Pressure_Sensor bf:usesEquipment brick:VAV ;
-    bf:usesMeasurement brick:Discharge_Air_Velocity_Pressure ;
+    bf:usesMeasurement brick:Discharge_Air_Velocity_Pressure,
+        brick:Supply_Air_Velocity_Pressure ;
     bf:usesPoint brick:Sensor .
 
 brick:VAV_Effective_Cooling_Temperature_Setpoint bf:usesEquipment brick:VAV ;
@@ -3963,30 +4325,38 @@ brick:VAV_Heating_Demand_Setpoint bf:usesEquipment brick:VAV ;
     bf:usesPoint brick:Setpoint .
 
 brick:VAV_Heating_Discharge_Air_Flow_Setpoint bf:usesEquipment brick:VAV ;
-    bf:usesMeasurement brick:Heating_Discharge_Air_Flow ;
+    bf:usesMeasurement brick:Heating_Discharge_Air_Flow,
+        brick:Heating_Supply_Air_Flow ;
     bf:usesPoint brick:Setpoint .
 
 brick:VAV_Heating_Max_Discharge_Air_Flow_Setpoint bf:usesEquipment brick:VAV ;
-    bf:usesMeasurement brick:Heating_Max_Discharge_Air_Flow ;
+    bf:usesMeasurement brick:Heating_Max_Discharge_Air_Flow,
+        brick:Heating_Max_Supply_Air_Flow ;
     bf:usesPoint brick:Setpoint .
 
 brick:VAV_Heating_Max_Supply_Air_Flow_Setpoint bf:usesEquipment brick:VAV ;
-    bf:usesMeasurement brick:Heating_Max_Supply_Air_Flow ;
+    bf:usesMeasurement brick:Heating_Max_Discharge_Air_Flow,
+        brick:Heating_Max_Supply_Air_Flow ;
     bf:usesPoint brick:Setpoint .
 
 brick:VAV_Heating_Min_Discharge_Air_Flow_Setpoint bf:usesEquipment brick:VAV ;
-    bf:usesMeasurement brick:Heating_Min_Discharge_Air_Flow ;
+    bf:usesMeasurement brick:Heating_Min_Discharge_Air_Flow,
+        brick:Heating_Min_Supply_Air_Flow ;
     bf:usesPoint brick:Setpoint .
 
 brick:VAV_Heating_Min_Supply_Air_Flow_Setpoint bf:usesEquipment brick:VAV ;
-    bf:usesMeasurement brick:Heating_Min_Supply_Air_Flow ;
+    bf:usesMeasurement brick:Heating_Min_Discharge_Air_Flow,
+        brick:Heating_Min_Supply_Air_Flow ;
     bf:usesPoint brick:Setpoint .
 
 brick:VAV_Heating_Request_Setpoint bf:usesEquipment brick:VAV ;
-    bf:usesMeasurement brick:Heating_Request_Setpoint .
+    bf:usesMeasurement brick:Heating_Demand,
+        brick:Heating_Request_Setpoint ;
+    bf:usesPoint brick:Setpoint .
 
 brick:VAV_Heating_Supply_Air_Flow_Setpoint bf:usesEquipment brick:VAV ;
-    bf:usesMeasurement brick:Heating_Supply_Air_Flow ;
+    bf:usesMeasurement brick:Heating_Discharge_Air_Flow,
+        brick:Heating_Supply_Air_Flow ;
     bf:usesPoint brick:Setpoint .
 
 brick:VAV_Heating_Valve_Command bf:usesEquipment brick:VAV ;
@@ -4001,7 +4371,8 @@ brick:VAV_Hot_Water_Valve_Command bf:usesEquipment brick:VAV ;
     bf:usesMeasurement brick:Hot_Water_Valve_Command .
 
 brick:VAV_Occupancy_Command bf:usesEquipment brick:VAV ;
-    bf:usesMeasurement brick:Occupancy ;
+    bf:usesMeasurement brick:Occupancy,
+        brick:Occupied ;
     bf:usesPoint brick:Command .
 
 brick:VAV_Occupancy_Sensor bf:usesEquipment brick:VAV ;
@@ -4012,31 +4383,38 @@ brick:VAV_Occupancy_Status bf:usesEquipment brick:VAV ;
     bf:usesMeasurement brick:Occupancy_Status .
 
 brick:VAV_Occupied_Command bf:usesEquipment brick:VAV ;
-    bf:usesMeasurement brick:Occupied ;
+    bf:usesMeasurement brick:Occupancy,
+        brick:Occupied ;
     bf:usesPoint brick:Command .
 
 brick:VAV_Occupied_Cooling_Discharge_Air_Flow_Setpoint bf:usesEquipment brick:VAV ;
-    bf:usesMeasurement brick:Occupied_Cooling_Discharge_Air_Flow ;
+    bf:usesMeasurement brick:Occupied_Cooling_Discharge_Air_Flow,
+        brick:Occupied_Cooling_Supply_Air_Flow ;
     bf:usesPoint brick:Setpoint .
 
 brick:VAV_Occupied_Cooling_Max_Discharge_Air_Flow_Setpoint bf:usesEquipment brick:VAV ;
-    bf:usesMeasurement brick:Occupied_Cooling_Max_Discharge_Air_Flow ;
+    bf:usesMeasurement brick:Occupied_Cooling_Max_Discharge_Air_Flow,
+        brick:Occupied_Cooling_Max_Supply_Air_Flow ;
     bf:usesPoint brick:Setpoint .
 
 brick:VAV_Occupied_Cooling_Max_Supply_Air_Flow_Setpoint bf:usesEquipment brick:VAV ;
-    bf:usesMeasurement brick:Occupied_Cooling_Max_Supply_Air_Flow ;
+    bf:usesMeasurement brick:Occupied_Cooling_Max_Discharge_Air_Flow,
+        brick:Occupied_Cooling_Max_Supply_Air_Flow ;
     bf:usesPoint brick:Setpoint .
 
 brick:VAV_Occupied_Cooling_Min_Discharge_Air_Flow_Setpoint bf:usesEquipment brick:VAV ;
-    bf:usesMeasurement brick:Occupied_Cooling_Min_Discharge_Air_Flow ;
+    bf:usesMeasurement brick:Occupied_Cooling_Min_Discharge_Air_Flow,
+        brick:Occupied_Cooling_Min_Supply_Air_Flow ;
     bf:usesPoint brick:Setpoint .
 
 brick:VAV_Occupied_Cooling_Min_Supply_Air_Flow_Setpoint bf:usesEquipment brick:VAV ;
-    bf:usesMeasurement brick:Occupied_Cooling_Min_Supply_Air_Flow ;
+    bf:usesMeasurement brick:Occupied_Cooling_Min_Discharge_Air_Flow,
+        brick:Occupied_Cooling_Min_Supply_Air_Flow ;
     bf:usesPoint brick:Setpoint .
 
 brick:VAV_Occupied_Cooling_Supply_Air_Flow_Setpoint bf:usesEquipment brick:VAV ;
-    bf:usesMeasurement brick:Occupied_Cooling_Supply_Air_Flow ;
+    bf:usesMeasurement brick:Occupied_Cooling_Discharge_Air_Flow,
+        brick:Occupied_Cooling_Supply_Air_Flow ;
     bf:usesPoint brick:Setpoint .
 
 brick:VAV_Occupied_Cooling_Temperature_Dead_Band_Setpoint bf:usesEquipment brick:VAV ;
@@ -4048,27 +4426,33 @@ brick:VAV_Occupied_Cooling_Temperature_Setpoint bf:usesEquipment brick:VAV ;
     bf:usesMeasurement brick:Occupied_Cooling_Temperature_Setpoint .
 
 brick:VAV_Occupied_Heating_Discharge_Air_Flow_Setpoint bf:usesEquipment brick:VAV ;
-    bf:usesMeasurement brick:Occupied_Heating_Discharge_Air_Flow ;
+    bf:usesMeasurement brick:Occupied_Heating_Discharge_Air_Flow,
+        brick:Occupied_Heating_Supply_Air_Flow ;
     bf:usesPoint brick:Setpoint .
 
 brick:VAV_Occupied_Heating_Max_Discharge_Air_Flow_Setpoint bf:usesEquipment brick:VAV ;
-    bf:usesMeasurement brick:Occupied_Heating_Max_Discharge_Air_Flow ;
+    bf:usesMeasurement brick:Occupied_Heating_Max_Discharge_Air_Flow,
+        brick:Occupied_Heating_Max_Supply_Air_Flow ;
     bf:usesPoint brick:Setpoint .
 
 brick:VAV_Occupied_Heating_Max_Supply_Air_Flow_Setpoint bf:usesEquipment brick:VAV ;
-    bf:usesMeasurement brick:Occupied_Heating_Max_Supply_Air_Flow ;
+    bf:usesMeasurement brick:Occupied_Heating_Max_Discharge_Air_Flow,
+        brick:Occupied_Heating_Max_Supply_Air_Flow ;
     bf:usesPoint brick:Setpoint .
 
 brick:VAV_Occupied_Heating_Min_Discharge_Air_Flow_Setpoint bf:usesEquipment brick:VAV ;
-    bf:usesMeasurement brick:Occupied_Heating_Min_Discharge_Air_Flow ;
+    bf:usesMeasurement brick:Occupied_Heating_Min_Discharge_Air_Flow,
+        brick:Occupied_Heating_Min_Supply_Air_Flow ;
     bf:usesPoint brick:Setpoint .
 
 brick:VAV_Occupied_Heating_Min_Supply_Air_Flow_Setpoint bf:usesEquipment brick:VAV ;
-    bf:usesMeasurement brick:Occupied_Heating_Min_Supply_Air_Flow ;
+    bf:usesMeasurement brick:Occupied_Heating_Min_Discharge_Air_Flow,
+        brick:Occupied_Heating_Min_Supply_Air_Flow ;
     bf:usesPoint brick:Setpoint .
 
 brick:VAV_Occupied_Heating_Supply_Air_Flow_Setpoint bf:usesEquipment brick:VAV ;
-    bf:usesMeasurement brick:Occupied_Heating_Supply_Air_Flow ;
+    bf:usesMeasurement brick:Occupied_Heating_Discharge_Air_Flow,
+        brick:Occupied_Heating_Supply_Air_Flow ;
     bf:usesPoint brick:Setpoint .
 
 brick:VAV_Occupied_Heating_Temperature_Dead_Band_Setpoint bf:usesEquipment brick:VAV ;
@@ -4105,39 +4489,48 @@ brick:VAV_Schedule_Temperature_Setpoint bf:usesEquipment brick:VAV ;
     bf:usesPoint brick:Setpoint .
 
 brick:VAV_Supply_Air_Duct_Pressure_Status bf:usesEquipment brick:VAV ;
-    bf:usesMeasurement brick:Supply_Air_Duct_Pressure_Status ;
+    bf:usesMeasurement brick:Discharge_Air_Duct_Pressure_Status,
+        brick:Supply_Air_Duct_Pressure_Status ;
     bf:usesPoint brick:Sensor .
 
 brick:VAV_Supply_Air_Flow_Command bf:usesEquipment brick:VAV ;
-    bf:usesMeasurement brick:Supply_Air_Flow ;
+    bf:usesMeasurement brick:Discharge_Air_Flow,
+        brick:Supply_Air_Flow ;
     bf:usesPoint brick:Command .
 
 brick:VAV_Supply_Air_Flow_Sensor bf:usesEquipment brick:VAV ;
-    bf:usesMeasurement brick:Supply_Air_Flow ;
+    bf:usesMeasurement brick:Discharge_Air_Flow,
+        brick:Supply_Air_Flow ;
     bf:usesPoint brick:Sensor .
 
 brick:VAV_Supply_Air_Flow_Setpoint bf:usesEquipment brick:VAV ;
-    bf:usesMeasurement brick:Supply_Air_Flow ;
+    bf:usesMeasurement brick:Discharge_Air_Flow,
+        brick:Supply_Air_Flow ;
     bf:usesPoint brick:Setpoint .
 
 brick:VAV_Supply_Air_Temperature_Cooling_Setpoint bf:usesEquipment brick:VAV ;
-    bf:usesMeasurement brick:Supply_Air_Temperature_Cooling ;
+    bf:usesMeasurement brick:Discharge_Air_Temperature_Cooling,
+        brick:Supply_Air_Temperature_Cooling ;
     bf:usesPoint brick:Setpoint .
 
 brick:VAV_Supply_Air_Temperature_Heating_Setpoint bf:usesEquipment brick:VAV ;
-    bf:usesMeasurement brick:Supply_Air_Temperature_Heating ;
+    bf:usesMeasurement brick:Discharge_Air_Temperature_Heating,
+        brick:Supply_Air_Temperature_Heating ;
     bf:usesPoint brick:Setpoint .
 
 brick:VAV_Supply_Air_Temperature_Sensor bf:usesEquipment brick:VAV ;
-    bf:usesMeasurement brick:Supply_Air_Temperature ;
+    bf:usesMeasurement brick:Discharge_Air_Temperature,
+        brick:Supply_Air_Temperature ;
     bf:usesPoint brick:Sensor .
 
 brick:VAV_Supply_Air_Temperature_Setpoint bf:usesEquipment brick:VAV ;
-    bf:usesMeasurement brick:Supply_Air_Temperature ;
+    bf:usesMeasurement brick:Discharge_Air_Temperature,
+        brick:Supply_Air_Temperature ;
     bf:usesPoint brick:Setpoint .
 
 brick:VAV_Supply_Air_Velocity_Pressure_Sensor bf:usesEquipment brick:VAV ;
-    bf:usesMeasurement brick:Supply_Air_Velocity_Pressure ;
+    bf:usesMeasurement brick:Discharge_Air_Velocity_Pressure,
+        brick:Supply_Air_Velocity_Pressure ;
     bf:usesPoint brick:Sensor .
 
 brick:VAV_Temporary_Occupancy_Status bf:usesEquipment brick:VAV ;
@@ -4149,11 +4542,13 @@ brick:VAV_Thermostat_Adjust_Sensor bf:usesEquipment brick:VAV ;
     bf:usesPoint brick:Sensor .
 
 brick:VAV_Unoccupied_Cooling_Discharge_Air_Flow_Setpoint bf:usesEquipment brick:VAV ;
-    bf:usesMeasurement brick:Unoccupied_Cooling_Discharge_Air_Flow ;
+    bf:usesMeasurement brick:Unoccupied_Cooling_Discharge_Air_Flow,
+        brick:Unoccupied_Cooling_Supply_Air_Flow ;
     bf:usesPoint brick:Setpoint .
 
 brick:VAV_Unoccupied_Cooling_Supply_Air_Flow_Setpoint bf:usesEquipment brick:VAV ;
-    bf:usesMeasurement brick:Unoccupied_Cooling_Supply_Air_Flow ;
+    bf:usesMeasurement brick:Unoccupied_Cooling_Discharge_Air_Flow,
+        brick:Unoccupied_Cooling_Supply_Air_Flow ;
     bf:usesPoint brick:Setpoint .
 
 brick:VAV_Unoccupied_Cooling_Temperature_Setpoint bf:usesEquipment brick:VAV ;
@@ -4253,7 +4648,8 @@ brick:VFD_Frequency_Command bf:usesEquipment brick:VFD ;
     bf:usesPoint brick:Command .
 
 brick:VFD_Hand_Auto_Status bf:usesEquipment brick:VFD ;
-    bf:usesMeasurement brick:Hand_Auto ;
+    bf:usesMeasurement brick:Hand_Auto,
+        brick:Manual_Auto ;
     bf:usesPoint brick:Status .
 
 brick:VFD_Heating_Valve_Command bf:usesEquipment brick:VFD ;
@@ -4277,7 +4673,8 @@ brick:VFD_Maintenance_Required_Alarm bf:usesEquipment brick:VFD ;
     bf:usesPoint brick:Alarm .
 
 brick:VFD_Manual_Auto_Status bf:usesEquipment brick:VFD ;
-    bf:usesMeasurement brick:Manual_Auto ;
+    bf:usesMeasurement brick:Hand_Auto,
+        brick:Manual_Auto ;
     bf:usesPoint brick:Status .
 
 brick:VFD_Max_Frequency_Command bf:usesEquipment brick:VFD ;
@@ -4317,7 +4714,8 @@ brick:VFD_Motor_Torque_Sensor bf:usesEquipment brick:VFD ;
     bf:usesPoint brick:Sensor .
 
 brick:VFD_On_Off_Status bf:usesEquipment brick:VFD ;
-    bf:usesMeasurement brick:On_Off ;
+    bf:usesMeasurement brick:On_Off,
+        brick:Start_Stop ;
     bf:usesPoint brick:Status .
 
 brick:VFD_On_Timer_Sensor bf:usesEquipment brick:VFD ;
@@ -4385,7 +4783,8 @@ brick:VFD_Start_Stop_Command bf:usesEquipment brick:VFD ;
     bf:usesPoint brick:Command .
 
 brick:VFD_Start_Stop_Status bf:usesEquipment brick:VFD ;
-    bf:usesMeasurement brick:Start_Stop ;
+    bf:usesMeasurement brick:On_Off,
+        brick:Start_Stop ;
     bf:usesPoint brick:Status .
 
 brick:VFD_System_Enable_Command bf:usesEquipment brick:VFD ;
@@ -4405,10 +4804,12 @@ brick:Warm_Cool_Adjust_Sensor bf:usesMeasurement brick:Warm_Cool_Adjust ;
     bf:usesPoint brick:Sensor .
 
 brick:Warmest_Zone_Temperature_Sensor bf:usesLocation brick:Zone ;
-    bf:usesMeasurement brick:Warmest_Temperature ;
+    bf:usesMeasurement brick:Highest_Temperature,
+        brick:Warmest_Temperature ;
     bf:usesPoint brick:Sensor .
 
-brick:Water_Discharge_Temperature_Sensor bf:usesMeasurement brick:Water_Discharge_Temperature ;
+brick:Water_Discharge_Temperature_Sensor bf:usesMeasurement brick:Water_Discharge_Temperature,
+        brick:Water_Supply_Temperature ;
     bf:usesPoint brick:Sensor .
 
 brick:Water_Loss_Alarm bf:usesMeasurement brick:Water_Loss ;
@@ -4417,7 +4818,8 @@ brick:Water_Loss_Alarm bf:usesMeasurement brick:Water_Loss ;
 brick:Water_Meter bf:usesMeasurement brick:Water ;
     bf:usesPoint brick:Meter .
 
-brick:Water_Supply_Temperature_Sensor bf:usesMeasurement brick:Water_Supply_Temperature ;
+brick:Water_Supply_Temperature_Sensor bf:usesMeasurement brick:Water_Discharge_Temperature,
+        brick:Water_Supply_Temperature ;
     bf:usesPoint brick:Sensor .
 
 brick:Water_System_Alarm_Delay_Setpoint bf:usesEquipment brick:Water_System ;
@@ -4429,15 +4831,18 @@ brick:Water_System_Cooling_Tower_Fan_Speed_Setpoint bf:usesEquipment brick:Water
     bf:usesPoint brick:Setpoint .
 
 brick:Water_System_DI_Water_Alarm bf:usesEquipment brick:Water_System ;
-    bf:usesMeasurement brick:DI_Water ;
+    bf:usesMeasurement brick:DI_Water,
+        brick:Deionised_Water ;
     bf:usesPoint brick:Alarm .
 
 brick:Water_System_DI_Water_Level_Sensor bf:usesEquipment brick:Water_System ;
-    bf:usesMeasurement brick:DI_Water_Level ;
+    bf:usesMeasurement brick:DI_Water_Level,
+        brick:Deionised_Water_Level ;
     bf:usesPoint brick:Sensor .
 
 brick:Water_System_Deionised_Water_Alarm bf:usesEquipment brick:Water_System ;
-    bf:usesMeasurement brick:Deionised_Water ;
+    bf:usesMeasurement brick:DI_Water,
+        brick:Deionised_Water ;
     bf:usesPoint brick:Alarm .
 
 brick:Water_System_Deionised_Water_Conductivity_Sensor bf:usesEquipment brick:Water_System ;
@@ -4445,11 +4850,13 @@ brick:Water_System_Deionised_Water_Conductivity_Sensor bf:usesEquipment brick:Wa
     bf:usesPoint brick:Sensor .
 
 brick:Water_System_Deionised_Water_Level_Sensor bf:usesEquipment brick:Water_System ;
-    bf:usesMeasurement brick:Deionised_Water_Level ;
+    bf:usesMeasurement brick:DI_Water_Level,
+        brick:Deionised_Water_Level ;
     bf:usesPoint brick:Sensor .
 
 brick:Water_System_Discharge_Water_Temperature_Setpoint bf:usesEquipment brick:Water_System ;
-    bf:usesMeasurement brick:Discharge_Water_Temperature ;
+    bf:usesMeasurement brick:Discharge_Water_Temperature,
+        brick:Supply_Water_Temperature ;
     bf:usesPoint brick:Setpoint .
 
 brick:Water_System_Freeze_Status bf:usesEquipment brick:Water_System ;
@@ -4469,7 +4876,8 @@ brick:Water_System_Pump_Status bf:usesEquipment brick:Water_System ;
     bf:usesPoint brick:Status .
 
 brick:Water_System_Supply_Water_Temperature_Setpoint bf:usesEquipment brick:Water_System ;
-    bf:usesMeasurement brick:Supply_Water_Temperature ;
+    bf:usesMeasurement brick:Discharge_Water_Temperature,
+        brick:Supply_Water_Temperature ;
     bf:usesPoint brick:Setpoint .
 
 brick:Water_System_Valve_Command bf:usesEquipment brick:Water_System ;
@@ -4477,7 +4885,8 @@ brick:Water_System_Valve_Command bf:usesEquipment brick:Water_System ;
     bf:usesPoint brick:Command .
 
 brick:Water_System_Water_Discharge_Temperature_Sensor bf:usesEquipment brick:Water_System ;
-    bf:usesMeasurement brick:Water_Discharge_Temperature ;
+    bf:usesMeasurement brick:Water_Discharge_Temperature,
+        brick:Water_Supply_Temperature ;
     bf:usesPoint brick:Sensor .
 
 brick:Water_System_Water_Meter bf:usesEquipment brick:Water_System ;
@@ -4485,7 +4894,8 @@ brick:Water_System_Water_Meter bf:usesEquipment brick:Water_System ;
     bf:usesPoint brick:Meter .
 
 brick:Water_System_Water_Supply_Temperature_Sensor bf:usesEquipment brick:Water_System ;
-    bf:usesMeasurement brick:Water_Supply_Temperature ;
+    bf:usesMeasurement brick:Water_Discharge_Temperature,
+        brick:Water_Supply_Temperature ;
     bf:usesPoint brick:Sensor .
 
 brick:Weather_Hail_Sensor bf:usesEquipment brick:Weather ;
@@ -4535,11 +4945,13 @@ brick:Zone_Air_Temperature_Sensor bf:usesLocation brick:Zone ;
     bf:usesPoint brick:Sensor .
 
 brick:Zone_Cooling_Temperature_Setpoint bf:usesLocation brick:Zone ;
-    bf:usesMeasurement brick:Cooling_Temperature ;
+    bf:usesMeasurement brick:Cooling_Temperature,
+        brick:Temperature_High ;
     bf:usesPoint brick:Setpoint .
 
 brick:Zone_Heating_Temperature_Setpoint bf:usesLocation brick:Zone ;
-    bf:usesMeasurement brick:Heating_Temperature ;
+    bf:usesMeasurement brick:Heating_Temperature,
+        brick:Temperature_Low ;
     bf:usesPoint brick:Setpoint .
 
 brick:Zone_Humidity_Sensor bf:usesLocation brick:Zone ;
@@ -4551,11 +4963,13 @@ brick:Zone_Standby_Load_Shed_Command bf:usesLocation brick:Zone ;
     bf:usesPoint brick:Command .
 
 brick:Zone_Temperature_High_Setpoint bf:usesLocation brick:Zone ;
-    bf:usesMeasurement brick:Temperature_High ;
+    bf:usesMeasurement brick:Cooling_Temperature,
+        brick:Temperature_High ;
     bf:usesPoint brick:Setpoint .
 
 brick:Zone_Temperature_Low_Setpoint bf:usesLocation brick:Zone ;
-    bf:usesMeasurement brick:Temperature_Low ;
+    bf:usesMeasurement brick:Heating_Temperature,
+        brick:Temperature_Low ;
     bf:usesPoint brick:Setpoint .
 
 brick:Zone_Temperature_Sensor bf:usesLocation brick:Zone ;
@@ -4576,12 +4990,11 @@ brick:Zone_Unoccupied_Load_Shed_Command bf:usesLocation brick:Zone ;
 
 brick:Capacity_Sensor bf:usesPoint brick:Setpoint .
 
-brick:Discharge_Air_Duct_Pressure_Status bf:usesPoint brick:Sensor .
-
-brick:Supply_Air_Duct_Pressure_Status bf:usesPoint brick:Sensor .
-
 brick:Enable_Command bf:usesMeasurement brick:Enable ;
     bf:usesPoint brick:Command .
+
+brick:Heating_Request_Setpoint bf:usesMeasurement brick:Heating_Demand ;
+    bf:usesPoint brick:Setpoint .
 
 brick:High_Humidity_Alarm bf:usesMeasurement brick:High_Humidity ;
     bf:usesPoint brick:Alarm .
@@ -4596,4 +5009,14 @@ brick:Low_Temperature_Alarm bf:usesMeasurement brick:Low_Temperature ;
     bf:usesPoint brick:Alarm .
 
 brick:Supply_Air_Proportional_Gain_Factor bf:usesPoint brick:Setpoint .
+
+brick:Discharge_Air_Duct_Pressure_Status bf:usesMeasurement brick:Supply_Air_Duct_Pressure_Status ;
+    bf:usesPoint brick:Sensor .
+
+brick:Supply_Air_Duct_Pressure_Status bf:usesMeasurement brick:Discharge_Air_Duct_Pressure_Status ;
+    bf:usesPoint brick:Sensor .
+
+brick:DI_Water bf:usesMeasurement brick:Deionised_Water .
+
+brick:Deionised_Water bf:usesMeasurement brick:DI_Water .
 
