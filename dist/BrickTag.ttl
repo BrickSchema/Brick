@@ -10,8 +10,7 @@
 
 <https://brickschema.org/schema/1.0.1/BrickTag> a owl:Ontology ;
     rdfs:comment "Domain Tag Definition"@en ;
-    owl:imports <https://brickschema.org/schema/1.0.1/Brick>,
-        <https://brickschema.org/schema/1.0.1/BrickFrame> .
+    owl:imports <https://brickschema.org/schema/1.0.1/Brick> .
 
 :Adjustment a owl:Class ;
     rdfs:label "Adjustment"@en ;
