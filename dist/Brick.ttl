@@ -1,5 +1,5 @@
-@prefix : <https://brickschema.org/schema/1.0.1/Brick#> .
-@prefix bf: <https://brickschema.org/schema/1.0.1/BrickFrame#> .
+@prefix : <https://brickschema.org/schema/1.0.2/Brick#> .
+@prefix bf: <https://brickschema.org/schema/1.0.2/BrickFrame#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -7,9 +7,9 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://brickschema.org/schema/1.0.1/Brick> a owl:Ontology ;
+<https://brickschema.org/schema/1.0.2/Brick> a owl:Ontology ;
     rdfs:comment "Domain TagSet Definition"@en ;
-    owl:imports <https://brickschema.org/schema/1.0.1/BrickFrame> .
+    owl:imports <https://brickschema.org/schema/1.0.2/BrickFrame> .
 
 :AHU_Auto_Cooling_Temperature_Setpoint a owl:Class ;
     rdfs:label "AHU Auto Cooling Temperature Setpoint"@en ;
@@ -51,15 +51,6 @@
     rdfs:label "AHU Bypass Damper Position Sensor"@en ;
     rdfs:subClassOf :Bypass_Damper_Position_Sensor .
 
-:AHU_CO2_Differential_Sensor a owl:Class ;
-    rdfs:label "AHU CO2 Differential Sensor"@en,
-        "AHU CO2 Sensor"@en ;
-    rdfs:subClassOf :AHU_CO2_Sensor,
-        :CO2_Differential_Sensor,
-        :CO2_Sensor ;
-    owl:equivalentClass :AHU_CO2_Sensor ;
-    skos:definition ""@en .
-
 :AHU_CO2_High_Alarm a owl:Class ;
     rdfs:label "AHU CO2 High Alarm"@en ;
     rdfs:subClassOf :CO2_High_Alarm .
@@ -69,26 +60,18 @@
     rdfs:subClassOf :Change_Filter_Alarm ;
     skos:definition ""@en .
 
-:AHU_Coldest_Zone_Temperature_Sensor a owl:Class ;
-    rdfs:label "AHU Coldest Zone Temperature Sensor"@en,
-        "AHU Lowest Zone Temperature Sensor"@en ;
-    rdfs:subClassOf :AHU_Zone_Temperature_Sensor,
-        :Coldest_Zone_Temperature_Sensor,
-        :Lowest_Zone_Temperature_Sensor ;
-    owl:equivalentClass :AHU_Lowest_Zone_Temperature_Sensor .
-
 :AHU_Condensate_Leak_Alarm a owl:Class ;
     rdfs:label "AHU Condensate Leak Alarm"@en ;
     rdfs:subClassOf :Condensate_Leak_Alarm .
 
-:AHU_Cooling_Coil_Supply_Air_Temperature_Sensor a owl:Class ;
-    rdfs:label "AHU Cooling Coil Discharge Air Temperature Sensor"@en,
-        "AHU Cooling Coil Supply Air Temperature Sensor"@en ;
-    rdfs:subClassOf :AHU_Discharge_Air_Temperature_Sensor,
-        :AHU_Supply_Air_Temperature_Sensor,
-        :Cooling_Coil_Discharge_Air_Temperature_Sensor,
-        :Cooling_Coil_Supply_Air_Temperature_Sensor ;
-    owl:equivalentClass :AHU_Cooling_Coil_Discharge_Air_Temperature_Sensor .
+:AHU_Cooling_Discharge_Air_Temperature_Dead_Band_Setpoint a owl:Class ;
+    rdfs:label "AHU Cooling Discharge Air Temperature Dead Band Setpoint"@en,
+        "AHU Cooling Supply Air Temperature Dead Band Setpoint"@en ;
+    rdfs:subClassOf :AHU_Discharge_Air_Temperature_Cooling_Setpoint,
+        :AHU_Supply_Air_Temperature_Cooling_Setpoint,
+        :Cooling_Discharge_Air_Temperature_Dead_Band_Setpoint,
+        :Cooling_Supply_Air_Temperature_Dead_Band_Setpoint ;
+    owl:equivalentClass :AHU_Cooling_Supply_Air_Temperature_Dead_Band_Setpoint .
 
 :AHU_Cooling_Request_Percent_Setpoint a owl:Class ;
     rdfs:label "AHU Cooling Request Percent Setpoint"@en ;
@@ -96,14 +79,14 @@
         :Cooling_Request_Percent_Setpoint,
         :Demand_Setpoint .
 
-:AHU_Cooling_Supply_Air_Temperature_Dead_Band_Setpoint a owl:Class ;
-    rdfs:label "AHU Cooling Discharge Air Temperature Dead Band Setpoint"@en,
-        "AHU Cooling Supply Air Temperature Dead Band Setpoint"@en ;
+:AHU_Cooling_Supply_Air_Temperature_Proportional_Band_Setpoint a owl:Class ;
+    rdfs:label "AHU Cooling Discharge Air Temperature Proportional Band Setpoint"@en,
+        "AHU Cooling Supply Air Temperature Proportional Band Setpoint"@en ;
     rdfs:subClassOf :AHU_Discharge_Air_Temperature_Cooling_Setpoint,
         :AHU_Supply_Air_Temperature_Cooling_Setpoint,
-        :Cooling_Discharge_Air_Temperature_Dead_Band_Setpoint,
-        :Cooling_Supply_Air_Temperature_Dead_Band_Setpoint ;
-    owl:equivalentClass :AHU_Cooling_Discharge_Air_Temperature_Dead_Band_Setpoint .
+        :Cooling_Discharge_Air_Temperature_Proportional_Band_Setpoint,
+        :Cooling_Supply_Air_Temperature_Proportional_Band_Setpoint ;
+    owl:equivalentClass :AHU_Cooling_Discharge_Air_Temperature_Proportional_Band_Setpoint .
 
 :AHU_Cooling_Valve_Command a owl:Class ;
     rdfs:label "AHU Cooling Valve Command"@en ;
@@ -134,30 +117,21 @@
     rdfs:label "AHU Discharge Air Flow Reset Low Setpoint"@en ;
     rdfs:subClassOf :Discharge_Air_Flow_Reset_Low_Setpoint .
 
-:AHU_Discharge_Air_Smoke_Detected_Alarm a owl:Class ;
-    rdfs:label "AHU Discharge Air Smoke Detected Alarm"@en,
-        "AHU Supply Air Smoke Detected Alarm"@en ;
-    rdfs:subClassOf :Discharge_Air_Smoke_Detected_Alarm,
-        :Supply_Air_Smoke_Detected_Alarm ;
-    owl:equivalentClass :AHU_Supply_Air_Smoke_Detected_Alarm .
-
-:AHU_Discharge_Air_Static_Pressure_Increase_Decrease_Step_Setpoint a owl:Class ;
-    rdfs:label "AHU Discharge Air Static Pressure Increase Decrease Step Setpoint"@en,
-        "AHU Supply Air Static Pressure Increase Decrease Step Setpoint"@en ;
+:AHU_Discharge_Air_Static_Pressure_Proportional_Band_Setpoint a owl:Class ;
+    rdfs:label "AHU Discharge Air Static Pressure Proportional Band Setpoint"@en,
+        "AHU Supply Air Static Pressure Proportional Band Setpoint"@en ;
     rdfs:subClassOf :AHU_Discharge_Air_Static_Pressure_Setpoint,
         :AHU_Supply_Air_Static_Pressure_Setpoint,
-        :Discharge_Air_Static_Pressure_Increase_Decrease_Step_Setpoint,
-        :Supply_Air_Static_Pressure_Increase_Decrease_Step_Setpoint ;
-    owl:equivalentClass :AHU_Supply_Air_Static_Pressure_Increase_Decrease_Step_Setpoint .
+        :Discharge_Air_Static_Pressure_Proportional_Band_Setpoint,
+        :Supply_Air_Static_Pressure_Proportional_Band_Setpoint ;
+    owl:equivalentClass :AHU_Supply_Air_Static_Pressure_Proportional_Band_Setpoint .
 
-:AHU_Discharge_Air_Static_Pressure_Integral_Time_Setpoint a owl:Class ;
-    rdfs:label "AHU Discharge Air Static Pressure Integral Time Setpoint"@en,
-        "AHU Supply Air Static Pressure Integral Time Setpoint"@en ;
-    rdfs:subClassOf :AHU_Discharge_Air_Static_Pressure_Setpoint,
-        :AHU_Supply_Air_Static_Pressure_Setpoint,
-        :Discharge_Air_Static_Pressure_Integral_Time_Setpoint,
-        :Supply_Air_Static_Pressure_Integral_Time_Setpoint ;
-    owl:equivalentClass :AHU_Supply_Air_Static_Pressure_Integral_Time_Setpoint .
+:AHU_Discharge_Air_Temperature_High_Limit_Alarm a owl:Class ;
+    rdfs:label "AHU Discharge Air Temperature High Limit Alarm"@en,
+        "AHU Supply Air Temperature High Limit Alarm"@en ;
+    rdfs:subClassOf :Discharge_Air_Temperature_High_Limit_Alarm,
+        :Supply_Air_Temperature_High_Limit_Alarm ;
+    owl:equivalentClass :AHU_Supply_Air_Temperature_High_Limit_Alarm .
 
 :AHU_Discharge_Air_Temperature_Reset_High_Setpoint a owl:Class ;
     rdfs:label "AHU Discharge Air Temperature Reset High Setpoint"@en,
@@ -177,15 +151,6 @@
         :Supply_Air_Temperature_Reset_Low_Setpoint ;
     owl:equivalentClass :AHU_Supply_Air_Temperature_Reset_Low_Setpoint .
 
-:AHU_Discharge_Fan_Start_Stop_Command a owl:Class ;
-    rdfs:label "AHU Discharge Fan Start Stop Command"@en,
-        "AHU Supply Fan Start Stop Command"@en ;
-    rdfs:subClassOf :AHU_Discharge_Fan_Command,
-        :AHU_Supply_Fan_Command,
-        :Discharge_Fan_Start_Stop_Command,
-        :Supply_Fan_Start_Stop_Command ;
-    owl:equivalentClass :AHU_Supply_Fan_Start_Stop_Command .
-
 :AHU_Discharge_Fan_Start_Stop_Status a owl:Class ;
     rdfs:label "AHU Discharge Fan Start Stop Status"@en,
         "AHU Supply Fan Start Stop Status"@en ;
@@ -196,12 +161,16 @@
         :Supply_Fan_Start_Stop_Status ;
     owl:equivalentClass :AHU_Supply_Fan_Start_Stop_Status .
 
-:AHU_Discharge_Fan_VFD_Speed_Sensor a owl:Class ;
-    rdfs:label "AHU Discharge Fan VFD Speed Sensor"@en,
-        "AHU Supply Fan VFD Speed Sensor"@en ;
-    rdfs:subClassOf :Discharge_Fan_VFD_Speed_Sensor,
-        :Supply_Fan_VFD_Speed_Sensor ;
-    owl:equivalentClass :AHU_Supply_Fan_VFD_Speed_Sensor .
+:AHU_Discharge_Fan_VFD_Speed_Command a owl:Class ;
+    rdfs:label "AHU Discharge Fan VFD Speed Command"@en,
+        "AHU Supply Fan VFD Speed Command"@en ;
+    rdfs:subClassOf :AHU_Discharge_Fan_Command,
+        :AHU_Supply_Fan_Command,
+        :AHU_VFD_Speed_Command,
+        :Discharge_Fan_VFD_Speed_Command,
+        :Supply_Fan_VFD_Speed_Command ;
+    owl:equivalentClass :AHU_Supply_Fan_VFD_Speed_Command ;
+    skos:definition ""@en .
 
 :AHU_Discharge_Fan_VFD_Speed_Status a owl:Class ;
     rdfs:label "AHU Discharge Fan VFD Speed Status"@en,
@@ -232,14 +201,14 @@
     rdfs:subClassOf :Economizer_Differential_Air_Temperature_Setpoint ;
     skos:definition ""@en .
 
-:AHU_Economizer_Discharge_Air_Temperature_Proportional_Band_Setpoint a owl:Class ;
-    rdfs:label "AHU Economizer Discharge Air Temperature Proportional Band Setpoint"@en,
-        "AHU Economizer Supply Air Temperature Proportional Band Setpoint"@en ;
+:AHU_Economizer_Discharge_Air_Temperature_Dead_Band_Setpoint a owl:Class ;
+    rdfs:label "AHU Economizer Discharge Air Temperature Dead Band Setpoint"@en,
+        "AHU Economizer Supply Air Temperature Dead Band Setpoint"@en ;
     rdfs:subClassOf :AHU_Discharge_Air_Temperature_Setpoint,
         :AHU_Supply_Air_Temperature_Setpoint,
-        :Economizer_Discharge_Air_Temperature_Proportional_Band_Setpoint,
-        :Economizer_Supply_Air_Temperature_Proportional_Band_Setpoint ;
-    owl:equivalentClass :AHU_Economizer_Supply_Air_Temperature_Proportional_Band_Setpoint .
+        :Economizer_Discharge_Air_Temperature_Dead_Band_Setpoint,
+        :Economizer_Supply_Air_Temperature_Dead_Band_Setpoint ;
+    owl:equivalentClass :AHU_Economizer_Supply_Air_Temperature_Dead_Band_Setpoint .
 
 :AHU_Economizer_Mode_Status a owl:Class ;
     rdfs:label "AHU Economizer Mode Status"@en ;
@@ -251,14 +220,14 @@
     rdfs:label "AHU Economizer Outside Air Flow Setpoint"@en ;
     rdfs:subClassOf :Economizer_Outside_Air_Flow_Setpoint .
 
-:AHU_Economizer_Supply_Air_Temperature_Dead_Band_Setpoint a owl:Class ;
-    rdfs:label "AHU Economizer Discharge Air Temperature Dead Band Setpoint"@en,
-        "AHU Economizer Supply Air Temperature Dead Band Setpoint"@en ;
+:AHU_Economizer_Supply_Air_Temperature_Proportional_Band_Setpoint a owl:Class ;
+    rdfs:label "AHU Economizer Discharge Air Temperature Proportional Band Setpoint"@en,
+        "AHU Economizer Supply Air Temperature Proportional Band Setpoint"@en ;
     rdfs:subClassOf :AHU_Discharge_Air_Temperature_Setpoint,
         :AHU_Supply_Air_Temperature_Setpoint,
-        :Economizer_Discharge_Air_Temperature_Dead_Band_Setpoint,
-        :Economizer_Supply_Air_Temperature_Dead_Band_Setpoint ;
-    owl:equivalentClass :AHU_Economizer_Discharge_Air_Temperature_Dead_Band_Setpoint .
+        :Economizer_Discharge_Air_Temperature_Proportional_Band_Setpoint,
+        :Economizer_Supply_Air_Temperature_Proportional_Band_Setpoint ;
+    owl:equivalentClass :AHU_Economizer_Discharge_Air_Temperature_Proportional_Band_Setpoint .
 
 :AHU_Exhaust_Air_Humidity_Sensor a owl:Class ;
     rdfs:label "AHU Exhaust Air Humidity Sensor"@en ;
@@ -395,6 +364,15 @@
     rdfs:subClassOf :AHU_Differential_Pressure_Sensor,
         :Heat_Wheel_Differential_Pressure_Sensor .
 
+:AHU_Heat_Wheel_Discharge_Air_Temperature_Sensor a owl:Class ;
+    rdfs:label "AHU Heat Wheel Discharge Air Temperature Sensor"@en,
+        "AHU Heat Wheel Supply Air Temperature Sensor"@en ;
+    rdfs:subClassOf :AHU_Discharge_Air_Temperature_Sensor,
+        :AHU_Supply_Air_Temperature_Sensor,
+        :Heat_Wheel_Discharge_Air_Temperature_Sensor,
+        :Heat_Wheel_Supply_Air_Temperature_Sensor ;
+    owl:equivalentClass :AHU_Heat_Wheel_Supply_Air_Temperature_Sensor .
+
 :AHU_Heat_Wheel_Speed_Sensor a owl:Class ;
     rdfs:label "AHU Heat Wheel Speed Sensor"@en ;
     rdfs:subClassOf :Differential_Speed_Sensor,
@@ -424,6 +402,15 @@
         :Demand_Setpoint,
         :Heating_Request_Percent_Setpoint .
 
+:AHU_Heating_Supply_Air_Temperature_Dead_Band_Setpoint a owl:Class ;
+    rdfs:label "AHU Heating Discharge Air Temperature Dead Band Setpoint"@en,
+        "AHU Heating Supply Air Temperature Dead Band Setpoint"@en ;
+    rdfs:subClassOf :AHU_Discharge_Air_Temperature_Heating_Setpoint,
+        :AHU_Supply_Air_Temperature_Heating_Setpoint,
+        :Heating_Discharge_Air_Temperature_Dead_Band_Setpoint,
+        :Heating_Supply_Air_Temperature_Dead_Band_Setpoint ;
+    owl:equivalentClass :AHU_Heating_Discharge_Air_Temperature_Dead_Band_Setpoint .
+
 :AHU_Heating_Supply_Air_Temperature_Integral_Time_Setpoint a owl:Class ;
     rdfs:label "AHU Heating Discharge Air Temperature Integral Time Setpoint"@en,
         "AHU Heating Supply Air Temperature Integral Time Setpoint"@en ;
@@ -441,6 +428,14 @@
     rdfs:label "AHU Highest Zone Cooling Command"@en ;
     rdfs:subClassOf :Highest_Zone_Cooling_Command .
 
+:AHU_Highest_Zone_Temperature_Sensor a owl:Class ;
+    rdfs:label "AHU Highest Zone Temperature Sensor"@en,
+        "AHU Warmest Zone Temperature Sensor"@en ;
+    rdfs:subClassOf :AHU_Zone_Temperature_Sensor,
+        :Highest_Zone_Temperature_Sensor,
+        :Warmest_Zone_Temperature_Sensor ;
+    owl:equivalentClass :AHU_Warmest_Zone_Temperature_Sensor .
+
 :AHU_Low_Outside_Air_Temperature_Enable_Differential_Sensor a owl:Class ;
     rdfs:label "AHU Low Outside Air Temperature Enable Differential Sensor"@en ;
     rdfs:subClassOf :AHU_Outside_Air_Temperature_Sensor,
@@ -456,11 +451,7 @@
     rdfs:subClassOf :AHU_Exhaust_Air_Static_Pressure_Sensor,
         :Lowest_Exhaust_Air_Static_Pressure_Sensor .
 
-:AHU_Max_Return_Air_CO2_Setpoint a owl:Class ;
-    rdfs:label "AHU Max Return Air CO2 Setpoint"@en ;
-    rdfs:subClassOf :Max_Return_Air_CO2_Setpoint .
-
-:AHU_Max_Supply_Air_Static_Pressure_Setpoint a owl:Class ;
+:AHU_Max_Discharge_Air_Static_Pressure_Setpoint a owl:Class ;
     rdfs:label "AHU Max Discharge Air Static Pressure Setpoint"@en,
         "AHU Max Supply Air Static Pressure Setpoint"@en ;
     rdfs:subClassOf :AHU_Discharge_Air_Static_Pressure_Setpoint,
@@ -469,16 +460,20 @@
         :Discharge_Air_Static_Pressure_Setpoint,
         :Max_Discharge_Air_Static_Pressure_Setpoint,
         :Max_Supply_Air_Static_Pressure_Setpoint ;
-    owl:equivalentClass :AHU_Max_Discharge_Air_Static_Pressure_Setpoint .
+    owl:equivalentClass :AHU_Max_Supply_Air_Static_Pressure_Setpoint .
 
-:AHU_Max_Supply_Air_Temperature_Setpoint a owl:Class ;
+:AHU_Max_Discharge_Air_Temperature_Setpoint a owl:Class ;
     rdfs:label "AHU Max Discharge Air Temperature Setpoint"@en,
         "AHU Max Supply Air Temperature Setpoint"@en ;
     rdfs:subClassOf :AHU_Discharge_Air_Temperature_Setpoint,
         :AHU_Supply_Air_Temperature_Setpoint,
         :Max_Discharge_Air_Temperature_Setpoint,
         :Max_Supply_Air_Temperature_Setpoint ;
-    owl:equivalentClass :AHU_Max_Discharge_Air_Temperature_Setpoint .
+    owl:equivalentClass :AHU_Max_Supply_Air_Temperature_Setpoint .
+
+:AHU_Max_Return_Air_CO2_Setpoint a owl:Class ;
+    rdfs:label "AHU Max Return Air CO2 Setpoint"@en ;
+    rdfs:subClassOf :Max_Return_Air_CO2_Setpoint .
 
 :AHU_Max_VFD_Speed_Setpoint a owl:Class ;
     rdfs:label "AHU Max VFD Speed Setpoint"@en ;
@@ -497,17 +492,6 @@
 :AHU_Min_Fresh_Air_Setpoint a owl:Class ;
     rdfs:label "AHU Min Fresh Air Setpoint"@en ;
     rdfs:subClassOf :Min_Fresh_Air_Setpoint .
-
-:AHU_Min_Supply_Air_Static_Pressure_Setpoint a owl:Class ;
-    rdfs:label "AHU Min Discharge Air Static Pressure Setpoint"@en,
-        "AHU Min Supply Air Static Pressure Setpoint"@en ;
-    rdfs:subClassOf :AHU_Discharge_Air_Static_Pressure_Setpoint,
-        :AHU_Static_Pressure_Min_Setpoint,
-        :AHU_Supply_Air_Static_Pressure_Setpoint,
-        :Discharge_Air_Static_Pressure_Setpoint,
-        :Min_Discharge_Air_Static_Pressure_Setpoint,
-        :Min_Supply_Air_Static_Pressure_Setpoint ;
-    owl:equivalentClass :AHU_Min_Discharge_Air_Static_Pressure_Setpoint .
 
 :AHU_Min_VFD_Speed_Setpoint a owl:Class ;
     rdfs:label "AHU Min VFD Speed Setpoint"@en ;
@@ -530,12 +514,12 @@
     rdfs:label "AHU Mixed Air Temperature Setpoint"@en ;
     rdfs:subClassOf :Mixed_Air_Temperature_Setpoint .
 
-:AHU_Occupancy_Command a owl:Class ;
+:AHU_Occupied_Command a owl:Class ;
     rdfs:label "AHU Occupancy Command"@en,
         "AHU Occupied Command"@en ;
     rdfs:subClassOf :Occupancy_Command,
         :Occupied_Command ;
-    owl:equivalentClass :AHU_Occupied_Command .
+    owl:equivalentClass :AHU_Occupancy_Command .
 
 :AHU_Occupied_Mode_Status a owl:Class ;
     rdfs:label "AHU Occupied Mode Status"@en ;
@@ -626,14 +610,14 @@
     rdfs:label "AHU Preheat Demand Setpoint"@en ;
     rdfs:subClassOf :Preheat_Demand_Setpoint .
 
-:AHU_Preheat_Supply_Air_Temperature_Sensor a owl:Class ;
+:AHU_Preheat_Discharge_Air_Temperature_Sensor a owl:Class ;
     rdfs:label "AHU Preheat Discharge Air Temperature Sensor"@en,
         "AHU Preheat Supply Air Temperature Sensor"@en ;
     rdfs:subClassOf :AHU_Discharge_Air_Temperature_Sensor,
         :AHU_Supply_Air_Temperature_Sensor,
         :Preheat_Discharge_Air_Temperature_Sensor,
         :Preheat_Supply_Air_Temperature_Sensor ;
-    owl:equivalentClass :AHU_Preheat_Discharge_Air_Temperature_Sensor .
+    owl:equivalentClass :AHU_Preheat_Supply_Air_Temperature_Sensor .
 
 :AHU_Return_Air_CO2_Sensor a owl:Class ;
     rdfs:label "AHU Return Air CO2 Sensor"@en ;
@@ -672,14 +656,6 @@
 :AHU_Return_Air_Temperature_Sensor a owl:Class ;
     rdfs:label "AHU Return Air Temperature Sensor"@en ;
     rdfs:subClassOf :Return_Air_Temperature_Sensor .
-
-:AHU_Return_Discharge_Fan_Differential_Speed_Setpoint a owl:Class ;
-    rdfs:label "AHU Return Discharge Fan Differential Speed Setpoint"@en,
-        "AHU Return Supply Fan Differential Speed Setpoint"@en ;
-    rdfs:subClassOf :AHU_Return_Fan_Differential_Speed_Setpoint,
-        :Return_Discharge_Fan_Differential_Speed_Setpoint,
-        :Return_Supply_Fan_Differential_Speed_Setpoint ;
-    owl:equivalentClass :AHU_Return_Supply_Fan_Differential_Speed_Setpoint .
 
 :AHU_Return_Fan_Air_Flow_Sensor a owl:Class ;
     rdfs:label "AHU Return Fan Air Flow Sensor"@en ;
@@ -727,6 +703,14 @@
     rdfs:label "AHU Return Heat Valve Command"@en ;
     rdfs:subClassOf :Return_Heat_Valve_Command .
 
+:AHU_Return_Supply_Fan_Differential_Speed_Setpoint a owl:Class ;
+    rdfs:label "AHU Return Discharge Fan Differential Speed Setpoint"@en,
+        "AHU Return Supply Fan Differential Speed Setpoint"@en ;
+    rdfs:subClassOf :AHU_Return_Fan_Differential_Speed_Setpoint,
+        :Return_Discharge_Fan_Differential_Speed_Setpoint,
+        :Return_Supply_Fan_Differential_Speed_Setpoint ;
+    owl:equivalentClass :AHU_Return_Discharge_Fan_Differential_Speed_Setpoint .
+
 :AHU_Run_Request_Command a owl:Class ;
     rdfs:label "AHU Run Request Command"@en ;
     rdfs:subClassOf :Run_Request_Command ;
@@ -741,17 +725,17 @@
     rdfs:label "AHU Steam On Off Command"@en ;
     rdfs:subClassOf :Steam_On_Off_Command .
 
-:AHU_Supply_Air_Humidity_Sensor a owl:Class ;
-    rdfs:label "AHU Discharge Air Humidity Sensor"@en,
-        "AHU Supply Air Humidity Sensor"@en ;
-    rdfs:subClassOf :Discharge_Air_Humidity_Sensor,
-        :Supply_Air_Humidity_Sensor ;
-    owl:equivalentClass :AHU_Discharge_Air_Humidity_Sensor .
-
 :AHU_Supply_Air_Proportional_Gain_Factor a owl:Class ;
     rdfs:label "AHU Supply Air Proportional Gain Factor"@en ;
     rdfs:subClassOf :Proportional_Gain_Setpoint,
         :Supply_Air_Proportional_Gain_Factor .
+
+:AHU_Supply_Air_Smoke_Detected_Alarm a owl:Class ;
+    rdfs:label "AHU Discharge Air Smoke Detected Alarm"@en,
+        "AHU Supply Air Smoke Detected Alarm"@en ;
+    rdfs:subClassOf :Discharge_Air_Smoke_Detected_Alarm,
+        :Supply_Air_Smoke_Detected_Alarm ;
+    owl:equivalentClass :AHU_Discharge_Air_Smoke_Detected_Alarm .
 
 :AHU_Supply_Air_Static_Pressure_Dead_Band_Setpoint a owl:Class ;
     rdfs:label "AHU Discharge Air Static Pressure Dead Band Setpoint"@en,
@@ -762,38 +746,23 @@
         :Supply_Air_Static_Pressure_Dead_Band_Setpoint ;
     owl:equivalentClass :AHU_Discharge_Air_Static_Pressure_Dead_Band_Setpoint .
 
-:AHU_Supply_Air_Static_Pressure_Proportional_Band_Setpoint a owl:Class ;
-    rdfs:label "AHU Discharge Air Static Pressure Proportional Band Setpoint"@en,
-        "AHU Supply Air Static Pressure Proportional Band Setpoint"@en ;
+:AHU_Supply_Air_Static_Pressure_Increase_Decrease_Step_Setpoint a owl:Class ;
+    rdfs:label "AHU Discharge Air Static Pressure Increase Decrease Step Setpoint"@en,
+        "AHU Supply Air Static Pressure Increase Decrease Step Setpoint"@en ;
     rdfs:subClassOf :AHU_Discharge_Air_Static_Pressure_Setpoint,
         :AHU_Supply_Air_Static_Pressure_Setpoint,
-        :Discharge_Air_Static_Pressure_Proportional_Band_Setpoint,
-        :Supply_Air_Static_Pressure_Proportional_Band_Setpoint ;
-    owl:equivalentClass :AHU_Discharge_Air_Static_Pressure_Proportional_Band_Setpoint .
+        :Discharge_Air_Static_Pressure_Increase_Decrease_Step_Setpoint,
+        :Supply_Air_Static_Pressure_Increase_Decrease_Step_Setpoint ;
+    owl:equivalentClass :AHU_Discharge_Air_Static_Pressure_Increase_Decrease_Step_Setpoint .
 
-:AHU_Supply_Air_Static_Pressure_Sensor a owl:Class ;
-    rdfs:label "AHU Discharge Air Static Pressure Sensor"@en,
-        "AHU Supply Air Static Pressure Sensor"@en ;
-    rdfs:subClassOf :AHU_Static_Pressure_Sensor,
-        :Discharge_Air_Static_Pressure_Sensor,
-        :Supply_Air_Static_Pressure_Sensor ;
-    owl:equivalentClass :AHU_Discharge_Air_Static_Pressure_Sensor .
-
-:AHU_Supply_Air_Temperature_High_Limit_Alarm a owl:Class ;
-    rdfs:label "AHU Discharge Air Temperature High Limit Alarm"@en,
-        "AHU Supply Air Temperature High Limit Alarm"@en ;
-    rdfs:subClassOf :Discharge_Air_Temperature_High_Limit_Alarm,
-        :Supply_Air_Temperature_High_Limit_Alarm ;
-    owl:equivalentClass :AHU_Discharge_Air_Temperature_High_Limit_Alarm .
-
-:AHU_Supply_Air_Temperature_Reset_Differential_Setpoint a owl:Class ;
-    rdfs:label "AHU Discharge Air Temperature Reset Differential Setpoint"@en,
-        "AHU Supply Air Temperature Reset Differential Setpoint"@en ;
-    rdfs:subClassOf :AHU_Discharge_Air_Temperature_Setpoint,
-        :AHU_Supply_Air_Temperature_Setpoint,
-        :Discharge_Air_Temperature_Reset_Differential_Setpoint,
-        :Supply_Air_Temperature_Reset_Differential_Setpoint ;
-    owl:equivalentClass :AHU_Discharge_Air_Temperature_Reset_Differential_Setpoint .
+:AHU_Supply_Air_Static_Pressure_Integral_Time_Setpoint a owl:Class ;
+    rdfs:label "AHU Discharge Air Static Pressure Integral Time Setpoint"@en,
+        "AHU Supply Air Static Pressure Integral Time Setpoint"@en ;
+    rdfs:subClassOf :AHU_Discharge_Air_Static_Pressure_Setpoint,
+        :AHU_Supply_Air_Static_Pressure_Setpoint,
+        :Discharge_Air_Static_Pressure_Integral_Time_Setpoint,
+        :Supply_Air_Static_Pressure_Integral_Time_Setpoint ;
+    owl:equivalentClass :AHU_Discharge_Air_Static_Pressure_Integral_Time_Setpoint .
 
 :AHU_Supply_Air_Temperature_Setpoint_Increase_Decrease_Step a owl:Class ;
     rdfs:label "AHU Discharge Air Temperature Setpoint Increase Decrease Step"@en,
@@ -818,16 +787,21 @@
         :Supply_Fan_Piezoelectric_Sensor ;
     owl:equivalentClass :AHU_Discharge_Fan_Piezoelectric_Sensor .
 
-:AHU_Supply_Fan_VFD_Speed_Command a owl:Class ;
-    rdfs:label "AHU Discharge Fan VFD Speed Command"@en,
-        "AHU Supply Fan VFD Speed Command"@en ;
+:AHU_Supply_Fan_Start_Stop_Command a owl:Class ;
+    rdfs:label "AHU Discharge Fan Start Stop Command"@en,
+        "AHU Supply Fan Start Stop Command"@en ;
     rdfs:subClassOf :AHU_Discharge_Fan_Command,
         :AHU_Supply_Fan_Command,
-        :AHU_VFD_Speed_Command,
-        :Discharge_Fan_VFD_Speed_Command,
-        :Supply_Fan_VFD_Speed_Command ;
-    owl:equivalentClass :AHU_Discharge_Fan_VFD_Speed_Command ;
-    skos:definition ""@en .
+        :Discharge_Fan_Start_Stop_Command,
+        :Supply_Fan_Start_Stop_Command ;
+    owl:equivalentClass :AHU_Discharge_Fan_Start_Stop_Command .
+
+:AHU_Supply_Fan_VFD_Speed_Sensor a owl:Class ;
+    rdfs:label "AHU Discharge Fan VFD Speed Sensor"@en,
+        "AHU Supply Fan VFD Speed Sensor"@en ;
+    rdfs:subClassOf :Discharge_Fan_VFD_Speed_Sensor,
+        :Supply_Fan_VFD_Speed_Sensor ;
+    owl:equivalentClass :AHU_Discharge_Fan_VFD_Speed_Sensor .
 
 :AHU_Supply_Fan_VFD_Speed_Setpoint a owl:Class ;
     rdfs:label "AHU Discharge Fan VFD Speed Setpoint"@en,
@@ -866,14 +840,6 @@
     rdfs:label "AHU Velocity Pressure Setpoint"@en ;
     rdfs:subClassOf :Velocity_Pressure_Setpoint .
 
-:AHU_Warmest_Zone_Temperature_Sensor a owl:Class ;
-    rdfs:label "AHU Highest Zone Temperature Sensor"@en,
-        "AHU Warmest Zone Temperature Sensor"@en ;
-    rdfs:subClassOf :AHU_Zone_Temperature_Sensor,
-        :Highest_Zone_Temperature_Sensor,
-        :Warmest_Zone_Temperature_Sensor ;
-    owl:equivalentClass :AHU_Highest_Zone_Temperature_Sensor .
-
 :AHU_Zone_Air_Temperature_Sensor a owl:Class ;
     rdfs:label "AHU Zone Air Temperature Sensor"@en ;
     rdfs:subClassOf :AHU_Zone_Temperature_Sensor,
@@ -895,11 +861,6 @@
 :Air_Flow_Loss a owl:Class ;
     rdfs:label "Air Flow Loss"@en ;
     rdfs:subClassOf :UndefinedMeasurement .
-
-:Air_Handler_Unit a owl:Class ;
-    rdfs:label "Air Handler Unit"@en ;
-    rdfs:subClassOf :HVAC ;
-    owl:equivalentClass :AHU .
 
 :Air_Lockout_Temperature_Differential a owl:Class ;
     rdfs:label "Air Lockout Temperature Differential"@en ;
@@ -1181,6 +1142,13 @@
     rdfs:subClassOf :CRAC_Standby_Unit_On_Off_Status,
         :Standby_Glycool_Unit_On_Off_Status .
 
+:CRAC_Start_Stop_Status a owl:Class ;
+    rdfs:label "CRAC On Off Status"@en,
+        "CRAC Start Stop Status"@en ;
+    rdfs:subClassOf :On_Off_Status,
+        :Start_Stop_Status ;
+    owl:equivalentClass :CRAC_On_Off_Status .
+
 :CRAC_System_Enable_Command a owl:Class ;
     rdfs:label "CRAC System Enable Command"@en ;
     rdfs:subClassOf :CRAC_Enable_Command,
@@ -1314,6 +1282,13 @@
     rdfs:subClassOf :Chilled_Water_Temperature_Differential_Sensor ;
     skos:definition ""@en .
 
+:CWS_Discharge_Water_Temperature_Setpoint a owl:Class ;
+    rdfs:label "CWS Discharge Water Temperature Setpoint"@en,
+        "CWS Supply Water Temperature Setpoint"@en ;
+    rdfs:subClassOf :Discharge_Water_Temperature_Setpoint,
+        :Supply_Water_Temperature_Setpoint ;
+    owl:equivalentClass :CWS_Supply_Water_Temperature_Setpoint .
+
 :CWS_Exhaust_Fan_Command a owl:Class ;
     rdfs:label "CWS Exhaust Fan Command"@en ;
     rdfs:subClassOf :Exhaust_Fan_Command .
@@ -1327,13 +1302,6 @@
     rdfs:label "CWS Min Chilled Water Differential Pressure Setpoint"@en ;
     rdfs:subClassOf :CWS_Chilled_Water_Differential_Pressure_Setpoint,
         :Min_Chilled_Water_Differential_Pressure_Setpoint .
-
-:CWS_Supply_Water_Temperature_Setpoint a owl:Class ;
-    rdfs:label "CWS Discharge Water Temperature Setpoint"@en,
-        "CWS Supply Water Temperature Setpoint"@en ;
-    rdfs:subClassOf :Discharge_Water_Temperature_Setpoint,
-        :Supply_Water_Temperature_Setpoint ;
-    owl:equivalentClass :CWS_Discharge_Water_Temperature_Setpoint .
 
 :Change_Filter a owl:Class ;
     rdfs:label "Change Filter"@en ;
@@ -1630,21 +1598,21 @@
     rdfs:subClassOf :Water_System ;
     owl:equivalentClass :Domestic_Hot_Water_System .
 
-:DHWS_Domestic_Hot_Water_Discharge_Temperature_Sensor a owl:Class ;
+:DHWS_Domestic_Hot_Water_Supply_Temperature_Sensor a owl:Class ;
     rdfs:label "DHWS Domestic Hot Water Discharge Temperature Sensor"@en,
         "DHWS Domestic Hot Water Supply Temperature Sensor"@en ;
     rdfs:subClassOf :Domestic_Hot_Water_Discharge_Temperature_Sensor,
         :Domestic_Hot_Water_Supply_Temperature_Sensor,
         :Hot_Water_Supply_Temperature_Sensor ;
-    owl:equivalentClass :DHWS_Domestic_Hot_Water_Supply_Temperature_Sensor .
+    owl:equivalentClass :DHWS_Domestic_Hot_Water_Discharge_Temperature_Sensor .
 
-:DHWS_Domestic_Hot_Water_Discharge_Temperature_Setpoint a owl:Class ;
+:DHWS_Domestic_Hot_Water_Supply_Temperature_Setpoint a owl:Class ;
     rdfs:label "DHWS Domestic Hot Water Discharge Temperature Setpoint"@en,
         "DHWS Domestic Hot Water Supply Temperature Setpoint"@en ;
     rdfs:subClassOf :Domestic_Hot_Water_Discharge_Temperature_Setpoint,
         :Domestic_Hot_Water_Supply_Temperature_Setpoint,
         :Hot_Water_Supply_Temperature_Setpoint ;
-    owl:equivalentClass :DHWS_Domestic_Hot_Water_Supply_Temperature_Setpoint .
+    owl:equivalentClass :DHWS_Domestic_Hot_Water_Discharge_Temperature_Setpoint .
 
 :DHWS_Domestic_Hot_Water_System_Enable_Command a owl:Class ;
     rdfs:label "DHWS Domestic Hot Water System Enable Command"@en ;
@@ -1696,13 +1664,13 @@
     rdfs:label "DemandResponse Medium Temperature Hot Water Differential Pressure Load Shed Setpoint"@en ;
     rdfs:subClassOf :Medium_Temperature_Hot_Water_Differential_Pressure_Load_Shed_Setpoint .
 
-:DemandResponse_Medium_Temperature_Hot_Water_Discharge_Temperature_Load_Shed_Setpoint a owl:Class ;
+:DemandResponse_Medium_Temperature_Hot_Water_Supply_Temperature_Load_Shed_Setpoint a owl:Class ;
     rdfs:label "DemandResponse Medium Temperature Hot Water Discharge Temperature Load Shed Setpoint"@en,
         "DemandResponse Medium Temperature Hot Water Supply Temperature Load Shed Setpoint"@en ;
     rdfs:subClassOf :Load_Shed_Supply_Water_Temperature_Setpoint,
         :Medium_Temperature_Hot_Water_Discharge_Temperature_Load_Shed_Setpoint,
         :Medium_Temperature_Hot_Water_Supply_Temperature_Load_Shed_Setpoint ;
-    owl:equivalentClass :DemandResponse_Medium_Temperature_Hot_Water_Supply_Temperature_Load_Shed_Setpoint .
+    owl:equivalentClass :DemandResponse_Medium_Temperature_Hot_Water_Discharge_Temperature_Load_Shed_Setpoint .
 
 :DemandResponse_Medium_Temperature_Hot_Water_Supply_Temperature_Load_Shed_Status a owl:Class ;
     rdfs:label "DemandResponse Medium Temperature Hot Water Discharge Temperature Load Shed Status"@en,
@@ -1748,14 +1716,6 @@
     rdfs:label "Discharge Air Damper Max Position"@en ;
     rdfs:subClassOf :Air_Damper_Position,
         :Discharge_Air .
-
-:Discharge_Air_Damper_Max_Position_Setpoint a owl:Class ;
-    rdfs:label "Discharge Air Damper Max Position Setpoint"@en,
-        "Supply Air Damper Max Position Setpoint"@en ;
-    rdfs:subClassOf :Damper_Position_Setpoint,
-        :Discharge_Air,
-        :Supply_Air ;
-    owl:equivalentClass :Supply_Air_Damper_Max_Position_Setpoint .
 
 :Discharge_Air_Flow a owl:Class ;
     rdfs:label "Discharge Air Flow"@en ;
@@ -2220,11 +2180,6 @@
     rdfs:label "Exhaust Fans Stage"@en ;
     rdfs:subClassOf :UndefinedMeasurement .
 
-:FCP a owl:Class ;
-    rdfs:label "Fire Control Panel"@en ;
-    rdfs:subClassOf :Fire_Safety_System ;
-    owl:equivalentClass :Fire_Control_Panel .
-
 :FCU a owl:Class ;
     rdfs:label "Fan Coil Unit"@en ;
     rdfs:subClassOf :Terminal_Unit ;
@@ -2238,15 +2193,6 @@
     rdfs:label "FCU Cooling Valve Command"@en ;
     rdfs:subClassOf :Cooling_Valve_Command ;
     skos:definition ""@en .
-
-:FCU_Discharge_Air_Temperature_Cooling_Setpoint a owl:Class ;
-    rdfs:label "FCU Discharge Air Temperature Cooling Setpoint"@en,
-        "FCU Supply Air Temperature Cooling Setpoint"@en ;
-    rdfs:subClassOf :Discharge_Air_Temperature_Cooling_Setpoint,
-        :FCU_Discharge_Air_Temperature_Setpoint,
-        :FCU_Supply_Air_Temperature_Setpoint,
-        :Supply_Air_Temperature_Cooling_Setpoint ;
-    owl:equivalentClass :FCU_Supply_Air_Temperature_Cooling_Setpoint .
 
 :FCU_Discharge_Air_Temperature_Heating_Setpoint a owl:Class ;
     rdfs:label "FCU Discharge Air Temperature Heating Setpoint"@en,
@@ -2330,14 +2276,22 @@
     rdfs:subClassOf :Run_Time_Sensor ;
     skos:definition ""@en .
 
-:FCU_Supply_Fan_VFD_Speed_Command a owl:Class ;
-    rdfs:label "FCU Discharge Fan VFD Speed Command"@en,
-        "FCU Supply Fan VFD Speed Command"@en ;
-    rdfs:subClassOf :Discharge_Fan_VFD_Speed_Command,
-        :FCU_VFD_Speed_Command,
-        :Supply_Fan_VFD_Speed_Command ;
-    owl:equivalentClass :FCU_Discharge_Fan_VFD_Speed_Command ;
-    skos:definition ""@en .
+:FCU_Supply_Air_Temperature_Cooling_Setpoint a owl:Class ;
+    rdfs:label "FCU Discharge Air Temperature Cooling Setpoint"@en,
+        "FCU Supply Air Temperature Cooling Setpoint"@en ;
+    rdfs:subClassOf :Discharge_Air_Temperature_Cooling_Setpoint,
+        :FCU_Discharge_Air_Temperature_Setpoint,
+        :FCU_Supply_Air_Temperature_Setpoint,
+        :Supply_Air_Temperature_Cooling_Setpoint ;
+    owl:equivalentClass :FCU_Discharge_Air_Temperature_Cooling_Setpoint .
+
+:FCU_Supply_Fan_VFD_Speed_Status a owl:Class ;
+    rdfs:label "FCU Discharge Fan VFD Speed Status"@en,
+        "FCU Supply Fan VFD Speed Status"@en ;
+    rdfs:subClassOf :Discharge_Fan_VFD_Speed_Status,
+        :FCU_Fan_Status,
+        :Supply_Fan_VFD_Speed_Status ;
+    owl:equivalentClass :FCU_Discharge_Fan_VFD_Speed_Status .
 
 :FCU_System_Status a owl:Class ;
     rdfs:label "FCU System Status"@en ;
@@ -2380,6 +2334,11 @@
 :Filter_Reset a owl:Class ;
     rdfs:label "Filter Reset"@en ;
     rdfs:subClassOf :UndefinedMeasurement .
+
+:Fire_Control_Panel a owl:Class ;
+    rdfs:label "Fire Control Panel"@en ;
+    rdfs:subClassOf :Fire_Safety_System ;
+    owl:equivalentClass :FCP .
 
 :Fire_Control_Panel_AHU_Off_Status_LED a owl:Class ;
     rdfs:label "Fire_Control_Panel AHU Off Status LED"@en ;
@@ -2473,13 +2432,13 @@
     rdfs:subClassOf :Average_Cooling_Demand_Sensor ;
     skos:definition ""@en .
 
-:HVAC_Average_Supply_Air_Flow_Sensor a owl:Class ;
+:HVAC_Average_Discharge_Air_Flow_Sensor a owl:Class ;
     rdfs:label "HVAC Average Discharge Air Flow Sensor"@en,
         "HVAC Average Supply Air Flow Sensor"@en ;
     rdfs:subClassOf :Average_Discharge_Air_Flow_Sensor,
         :Average_Supply_Air_Flow_Sensor,
         :Discharge_Air_Flow_Sensor ;
-    owl:equivalentClass :HVAC_Average_Discharge_Air_Flow_Sensor ;
+    owl:equivalentClass :HVAC_Average_Supply_Air_Flow_Sensor ;
     skos:definition ""@en .
 
 :HVAC_Average_Zone_Temperature_Sensor a owl:Class ;
@@ -2544,6 +2503,14 @@
         :Supply_Water_Temperature_Proportional_Band_Setpoint ;
     owl:equivalentClass :HWS_Heat_Exchanger_Supply_Water_Temperature_Proportional_Band_Setpoint .
 
+:HWS_Heat_Exchanger_Discharge_Water_Temperature_Sensor a owl:Class ;
+    rdfs:label "HWS Heat Exchanger Discharge Water Temperature Sensor"@en,
+        "HWS Heat Exchanger Supply Water Temperature Sensor"@en ;
+    rdfs:subClassOf :Heat_Exchanger_Discharge_Water_Temperature_Sensor,
+        :Heat_Exchanger_Supply_Water_Temperature_Sensor,
+        :Supply_Water_Temperature_Sensor ;
+    owl:equivalentClass :HWS_Heat_Exchanger_Supply_Water_Temperature_Sensor .
+
 :HWS_Heat_Exchanger_Supply_Water_Temperature_Dead_Band_Setpoint a owl:Class ;
     rdfs:label "HWS Heat Exchanger Discharge Water Temperature Dead Band Setpoint"@en,
         "HWS Heat Exchanger Supply Water Temperature Dead Band Setpoint"@en ;
@@ -2554,13 +2521,15 @@
         :Supply_Water_Temperature_Dead_Band_Setpoint ;
     owl:equivalentClass :HWS_Heat_Exchanger_Discharge_Water_Temperature_Dead_Band_Setpoint .
 
-:HWS_Heat_Exchanger_Supply_Water_Temperature_Sensor a owl:Class ;
-    rdfs:label "HWS Heat Exchanger Discharge Water Temperature Sensor"@en,
-        "HWS Heat Exchanger Supply Water Temperature Sensor"@en ;
-    rdfs:subClassOf :Heat_Exchanger_Discharge_Water_Temperature_Sensor,
-        :Heat_Exchanger_Supply_Water_Temperature_Sensor,
-        :Supply_Water_Temperature_Sensor ;
-    owl:equivalentClass :HWS_Heat_Exchanger_Discharge_Water_Temperature_Sensor .
+:HWS_Heat_Exchanger_Supply_Water_Temperature_Integral_Time_Setpoint a owl:Class ;
+    rdfs:label "HWS Heat Exchanger Discharge Water Temperature Integral Time Setpoint"@en,
+        "HWS Heat Exchanger Supply Water Temperature Integral Time Setpoint"@en ;
+    rdfs:subClassOf :HWS_Heat_Exchanger_Discharge_Water_Temperature_Setpoint,
+        :HWS_Heat_Exchanger_Supply_Water_Temperature_Setpoint,
+        :Heat_Exchanger_Discharge_Water_Temperature_Integral_Time_Setpoint,
+        :Heat_Exchanger_Supply_Water_Temperature_Integral_Time_Setpoint,
+        :Supply_Water_Temperature_Integral_Time_Setpoint ;
+    owl:equivalentClass :HWS_Heat_Exchanger_Discharge_Water_Temperature_Integral_Time_Setpoint .
 
 :HWS_Heat_Exchanger_System_Enable_Status a owl:Class ;
     rdfs:label "HWS Heat Exchanger System Enable Status"@en ;
@@ -2642,32 +2611,7 @@
     rdfs:subClassOf :HWS_Hot_Water_Differential_Pressure_Sensor,
         :Medium_Temperature_Hot_Water_Differential_Pressure_Sensor .
 
-:HWS_Medium_Temperature_Hot_Water_Discharge_Temperature_Low_Reset_Setpoint a owl:Class ;
-    rdfs:label "HWS Medium Temperature Hot Water Discharge Temperature Low Reset Setpoint"@en,
-        "HWS Medium Temperature Hot Water Supply Temperature Low Reset Setpoint"@en ;
-    rdfs:subClassOf :HWS_Discharge_Water_Temperature_Setpoint,
-        :HWS_Supply_Water_Temperature_Setpoint,
-        :Hot_Water_Supply_Temperature_Low_Reset_Setpoint,
-        :Medium_Temperature_Hot_Water_Discharge_Temperature_Low_Reset_Setpoint,
-        :Medium_Temperature_Hot_Water_Supply_Temperature_Low_Reset_Setpoint ;
-    owl:equivalentClass :HWS_Medium_Temperature_Hot_Water_Supply_Temperature_Low_Reset_Setpoint .
-
-:HWS_Medium_Temperature_Hot_Water_Discharge_Temperature_Sensor a owl:Class ;
-    rdfs:label "HWS Medium Temperature Hot Water Discharge Temperature Sensor"@en,
-        "HWS Medium Temperature Hot Water Supply Temperature Sensor"@en ;
-    rdfs:subClassOf :HWS_Hot_Water_Discharge_Temperature_Sensor,
-        :HWS_Hot_Water_Supply_Temperature_Sensor,
-        :Hot_Water_Supply_Temperature_Sensor,
-        :Medium_Temperature_Hot_Water_Discharge_Temperature_Sensor,
-        :Medium_Temperature_Hot_Water_Supply_Temperature_Sensor ;
-    owl:equivalentClass :HWS_Medium_Temperature_Hot_Water_Supply_Temperature_Sensor .
-
-:HWS_Medium_Temperature_Hot_Water_Return_Temperature_Sensor a owl:Class ;
-    rdfs:label "HWS Medium Temperature Hot Water Return Temperature Sensor"@en ;
-    rdfs:subClassOf :HWS_Hot_Water_Return_Temperature_Sensor,
-        :Medium_Temperature_Hot_Water_Return_Temperature_Sensor .
-
-:HWS_Medium_Temperature_Hot_Water_Supply_Temperature_High_Reset_Setpoint a owl:Class ;
+:HWS_Medium_Temperature_Hot_Water_Discharge_Temperature_High_Reset_Setpoint a owl:Class ;
     rdfs:label "HWS Medium Temperature Hot Water Discharge Temperature High Reset Setpoint"@en,
         "HWS Medium Temperature Hot Water Supply Temperature High Reset Setpoint"@en ;
     rdfs:subClassOf :HWS_Discharge_Water_Temperature_Setpoint,
@@ -2675,7 +2619,32 @@
         :Hot_Water_Supply_Temperature_High_Reset_Setpoint,
         :Medium_Temperature_Hot_Water_Discharge_Temperature_High_Reset_Setpoint,
         :Medium_Temperature_Hot_Water_Supply_Temperature_High_Reset_Setpoint ;
-    owl:equivalentClass :HWS_Medium_Temperature_Hot_Water_Discharge_Temperature_High_Reset_Setpoint .
+    owl:equivalentClass :HWS_Medium_Temperature_Hot_Water_Supply_Temperature_High_Reset_Setpoint .
+
+:HWS_Medium_Temperature_Hot_Water_Return_Temperature_Sensor a owl:Class ;
+    rdfs:label "HWS Medium Temperature Hot Water Return Temperature Sensor"@en ;
+    rdfs:subClassOf :HWS_Hot_Water_Return_Temperature_Sensor,
+        :Medium_Temperature_Hot_Water_Return_Temperature_Sensor .
+
+:HWS_Medium_Temperature_Hot_Water_Supply_Temperature_Low_Reset_Setpoint a owl:Class ;
+    rdfs:label "HWS Medium Temperature Hot Water Discharge Temperature Low Reset Setpoint"@en,
+        "HWS Medium Temperature Hot Water Supply Temperature Low Reset Setpoint"@en ;
+    rdfs:subClassOf :HWS_Discharge_Water_Temperature_Setpoint,
+        :HWS_Supply_Water_Temperature_Setpoint,
+        :Hot_Water_Supply_Temperature_Low_Reset_Setpoint,
+        :Medium_Temperature_Hot_Water_Discharge_Temperature_Low_Reset_Setpoint,
+        :Medium_Temperature_Hot_Water_Supply_Temperature_Low_Reset_Setpoint ;
+    owl:equivalentClass :HWS_Medium_Temperature_Hot_Water_Discharge_Temperature_Low_Reset_Setpoint .
+
+:HWS_Medium_Temperature_Hot_Water_Supply_Temperature_Sensor a owl:Class ;
+    rdfs:label "HWS Medium Temperature Hot Water Discharge Temperature Sensor"@en,
+        "HWS Medium Temperature Hot Water Supply Temperature Sensor"@en ;
+    rdfs:subClassOf :HWS_Hot_Water_Discharge_Temperature_Sensor,
+        :HWS_Hot_Water_Supply_Temperature_Sensor,
+        :Hot_Water_Supply_Temperature_Sensor,
+        :Medium_Temperature_Hot_Water_Discharge_Temperature_Sensor,
+        :Medium_Temperature_Hot_Water_Supply_Temperature_Sensor ;
+    owl:equivalentClass :HWS_Medium_Temperature_Hot_Water_Discharge_Temperature_Sensor .
 
 :HWS_Open_Heating_Valve_Outside_Air_Temperature_Setpoint a owl:Class ;
     rdfs:label "HWS Open Heating Valve Outside Air Temperature Setpoint"@en ;
@@ -2685,6 +2654,11 @@
     rdfs:label "HWS Shutdown Hot Water When Unoccupied Command"@en ;
     rdfs:subClassOf :Shutdown_Hot_Water_When_Unoccupied_Command .
 
+:HX a owl:Class ;
+    rdfs:label "Heat Exchanger"@en ;
+    rdfs:subClassOf :Coil ;
+    owl:equivalentClass :Heat_Exchanger .
+
 :Hail a owl:Class ;
     rdfs:label "Hail"@en ;
     rdfs:subClassOf :UndefinedMeasurement .
@@ -2692,11 +2666,6 @@
 :Hand_Auto a owl:Class ;
     rdfs:label "Hand Auto"@en ;
     rdfs:subClassOf :UndefinedMeasurement .
-
-:Heat_Exchanger a owl:Class ;
-    rdfs:label "Heat Exchanger"@en ;
-    rdfs:subClassOf :Coil ;
-    owl:equivalentClass :HX .
 
 :Heat_Exchanger_Discharge_Water_Temperature_Dead_Band a owl:Class ;
     rdfs:label "Heat Exchanger Discharge Water Temperature Dead Band"@en ;
@@ -3510,13 +3479,6 @@
     rdfs:label "Solar_Panel Battery Voltage Sensor"@en ;
     rdfs:subClassOf :Battery_Voltage_Sensor .
 
-:Solar_Panel_Photovoltaic_Current_Output_Sensor a owl:Class ;
-    rdfs:label "Solar_Panel PV Current Output Sensor"@en,
-        "Solar_Panel Photovoltaic Current Output Sensor"@en ;
-    rdfs:subClassOf :PV_Current_Output_Sensor,
-        :Photovoltaic_Current_Output_Sensor ;
-    owl:equivalentClass :Solar_Panel_PV_Current_Output_Sensor .
-
 :Solar_Panel_Solar_Azimuth_Angle_Sensor a owl:Class ;
     rdfs:label "Solar_Panel Solar Azimuth Angle Sensor"@en ;
     rdfs:subClassOf :Solar_Azimuth_Angle_Sensor .
@@ -3600,6 +3562,14 @@
     rdfs:subClassOf :Air_Damper_Position,
         :Supply_Air .
 
+:Supply_Air_Damper_Max_Position_Setpoint a owl:Class ;
+    rdfs:label "Discharge Air Damper Max Position Setpoint"@en,
+        "Supply Air Damper Max Position Setpoint"@en ;
+    rdfs:subClassOf :Damper_Position_Setpoint,
+        :Discharge_Air,
+        :Supply_Air ;
+    owl:equivalentClass :Discharge_Air_Damper_Max_Position_Setpoint .
+
 :Supply_Air_Flow_Demand a owl:Class ;
     rdfs:label "Supply Air Flow Demand"@en ;
     rdfs:subClassOf :Supply_Air_Flow .
@@ -3675,13 +3645,6 @@
     rdfs:label "Supply_Fan Differential Pressure Sensor"@en ;
     rdfs:subClassOf :Differential_Pressure_Sensor .
 
-:Supply_Fan_Discharge_Air_Static_Pressure_Integral_Time_Setpoint a owl:Class ;
-    rdfs:label "Supply_Fan Discharge Air Static Pressure Integral Time Setpoint"@en,
-        "Supply_Fan Supply Air Static Pressure Integral Time Setpoint"@en ;
-    rdfs:subClassOf :Discharge_Air_Static_Pressure_Integral_Time_Setpoint,
-        :Supply_Air_Static_Pressure_Integral_Time_Setpoint ;
-    owl:equivalentClass :Supply_Fan_Supply_Air_Static_Pressure_Integral_Time_Setpoint .
-
 :Supply_Fan_Discharge_Air_Static_Pressure_Proportional_Band_Setpoint a owl:Class ;
     rdfs:label "Supply_Fan Discharge Air Static Pressure Proportional Band Setpoint"@en,
         "Supply_Fan Supply Air Static Pressure Proportional Band Setpoint"@en ;
@@ -3709,6 +3672,13 @@
     rdfs:label "Supply_Fan Supply Air Proportional Gain Factor"@en ;
     rdfs:subClassOf :Proportional_Gain_Setpoint,
         :Supply_Air_Proportional_Gain_Factor .
+
+:Supply_Fan_Supply_Air_Static_Pressure_Integral_Time_Setpoint a owl:Class ;
+    rdfs:label "Supply_Fan Discharge Air Static Pressure Integral Time Setpoint"@en,
+        "Supply_Fan Supply Air Static Pressure Integral Time Setpoint"@en ;
+    rdfs:subClassOf :Discharge_Air_Static_Pressure_Integral_Time_Setpoint,
+        :Supply_Air_Static_Pressure_Integral_Time_Setpoint ;
+    owl:equivalentClass :Supply_Fan_Discharge_Air_Static_Pressure_Integral_Time_Setpoint .
 
 :Supply_Fan_VFD_Speed a owl:Class ;
     rdfs:label "Supply Fan VFD Speed"@en ;
@@ -3859,6 +3829,11 @@
     rdfs:label "Unoccupied Mode"@en ;
     rdfs:subClassOf :UndefinedMeasurement .
 
+:VAV a owl:Class ;
+    rdfs:label "Variable Air Volume"@en ;
+    rdfs:subClassOf :Terminal_Unit ;
+    owl:equivalentClass :Variable_Air_Volume .
+
 :VAV_Booster_Fan_Air_Flow_Sensor a owl:Class ;
     rdfs:label "VAV Booster Fan Air Flow Sensor"@en ;
     rdfs:subClassOf :Booster_Fan_Air_Flow_Sensor .
@@ -3886,13 +3861,13 @@
         :VAV_CO2_Sensor ;
     skos:definition ""@en .
 
-:VAV_Cooling_Request_Setpoint a owl:Class ;
+:VAV_Cooling_Demand_Setpoint a owl:Class ;
     rdfs:label "VAV Cooling Demand Setpoint"@en,
         "VAV Cooling Request Setpoint"@en ;
     rdfs:subClassOf :Cooling_Demand_Setpoint,
         :Cooling_Request_Setpoint,
         :Demand_Setpoint ;
-    owl:equivalentClass :VAV_Cooling_Demand_Setpoint .
+    owl:equivalentClass :VAV_Cooling_Request_Setpoint .
 
 :VAV_Cooling_Valve_Command a owl:Class ;
     rdfs:label "VAV Cooling Valve Command"@en ;
@@ -3909,12 +3884,12 @@
     rdfs:subClassOf :Damper_Position_Sensor ;
     skos:definition ""@en .
 
-:VAV_Discharge_Air_Flow_Command a owl:Class ;
-    rdfs:label "VAV Discharge Air Flow Command"@en,
-        "VAV Supply Air Flow Command"@en ;
-    rdfs:subClassOf :Discharge_Air_Flow_Command,
-        :Supply_Air_Flow_Command ;
-    owl:equivalentClass :VAV_Supply_Air_Flow_Command .
+:VAV_Discharge_Air_Duct_Pressure_Status a owl:Class ;
+    rdfs:label "VAV Discharge Air Duct Pressure Status"@en,
+        "VAV Supply Air Duct Pressure Status"@en ;
+    rdfs:subClassOf :Discharge_Air_Duct_Pressure_Status,
+        :Supply_Air_Duct_Pressure_Status ;
+    owl:equivalentClass :VAV_Supply_Air_Duct_Pressure_Status .
 
 :VAV_Discharge_Air_Flow_Sensor a owl:Class ;
     rdfs:label "VAV Discharge Air Flow Sensor"@en,
@@ -3924,12 +3899,12 @@
     owl:equivalentClass :VAV_Supply_Air_Flow_Sensor ;
     skos:definition ""@en .
 
-:VAV_Discharge_Air_Temperature_Sensor a owl:Class ;
-    rdfs:label "VAV Discharge Air Temperature Sensor"@en,
-        "VAV Supply Air Temperature Sensor"@en ;
-    rdfs:subClassOf :Discharge_Air_Temperature_Sensor,
-        :Supply_Air_Temperature_Sensor ;
-    owl:equivalentClass :VAV_Supply_Air_Temperature_Sensor .
+:VAV_Discharge_Air_Velocity_Pressure_Sensor a owl:Class ;
+    rdfs:label "VAV Discharge Air Velocity Pressure Sensor"@en,
+        "VAV Supply Air Velocity Pressure Sensor"@en ;
+    rdfs:subClassOf :Discharge_Air_Velocity_Pressure_Sensor,
+        :Supply_Air_Velocity_Pressure_Sensor ;
+    owl:equivalentClass :VAV_Supply_Air_Velocity_Pressure_Sensor .
 
 :VAV_Effective_Cooling_Temperature_Setpoint a owl:Class ;
     rdfs:label "VAV Effective Cooling Temperature Setpoint"@en ;
@@ -3974,6 +3949,18 @@
 :VAV_Occupancy_Sensor a owl:Class ;
     rdfs:label "VAV Occupancy Sensor"@en ;
     rdfs:subClassOf :Occupancy_Sensor .
+
+:VAV_Occupied_Cooling_Max_Discharge_Air_Flow_Setpoint a owl:Class ;
+    rdfs:label "VAV Occupied Cooling Max Discharge Air Flow Setpoint"@en,
+        "VAV Occupied Cooling Max Supply Air Flow Setpoint"@en ;
+    rdfs:subClassOf :Occupied_Cooling_Discharge_Air_Flow_Setpoint,
+        :Occupied_Cooling_Max_Discharge_Air_Flow_Setpoint,
+        :Occupied_Cooling_Max_Supply_Air_Flow_Setpoint,
+        :VAV_Cooling_Max_Discharge_Air_Flow_Setpoint,
+        :VAV_Cooling_Max_Supply_Air_Flow_Setpoint,
+        :VAV_Occupied_Cooling_Discharge_Air_Flow_Setpoint,
+        :VAV_Occupied_Cooling_Supply_Air_Flow_Setpoint ;
+    owl:equivalentClass :VAV_Occupied_Cooling_Max_Supply_Air_Flow_Setpoint .
 
 :VAV_Occupied_Cooling_Min_Supply_Air_Flow_Setpoint a owl:Class ;
     rdfs:label "VAV Occupied Cooling Min Discharge Air Flow Setpoint"@en,
@@ -4049,6 +4036,13 @@
     rdfs:label "VAV Schedule Temperature Setpoint"@en ;
     rdfs:subClassOf :Schedule_Temperature_Setpoint .
 
+:VAV_Supply_Air_Flow_Command a owl:Class ;
+    rdfs:label "VAV Discharge Air Flow Command"@en,
+        "VAV Supply Air Flow Command"@en ;
+    rdfs:subClassOf :Discharge_Air_Flow_Command,
+        :Supply_Air_Flow_Command ;
+    owl:equivalentClass :VAV_Discharge_Air_Flow_Command .
+
 :VAV_Supply_Air_Temperature_Cooling_Setpoint a owl:Class ;
     rdfs:label "VAV Discharge Air Temperature Cooling Setpoint"@en,
         "VAV Supply Air Temperature Cooling Setpoint"@en ;
@@ -4058,12 +4052,12 @@
         :VAV_Supply_Air_Temperature_Setpoint ;
     owl:equivalentClass :VAV_Discharge_Air_Temperature_Cooling_Setpoint .
 
-:VAV_Supply_Air_Velocity_Pressure_Sensor a owl:Class ;
-    rdfs:label "VAV Discharge Air Velocity Pressure Sensor"@en,
-        "VAV Supply Air Velocity Pressure Sensor"@en ;
-    rdfs:subClassOf :Discharge_Air_Velocity_Pressure_Sensor,
-        :Supply_Air_Velocity_Pressure_Sensor ;
-    owl:equivalentClass :VAV_Discharge_Air_Velocity_Pressure_Sensor .
+:VAV_Supply_Air_Temperature_Sensor a owl:Class ;
+    rdfs:label "VAV Discharge Air Temperature Sensor"@en,
+        "VAV Supply Air Temperature Sensor"@en ;
+    rdfs:subClassOf :Discharge_Air_Temperature_Sensor,
+        :Supply_Air_Temperature_Sensor ;
+    owl:equivalentClass :VAV_Discharge_Air_Temperature_Sensor .
 
 :VAV_Temporary_Occupancy_Status a owl:Class ;
     rdfs:label "VAV Temporary Occupancy Status"@en ;
@@ -4076,7 +4070,7 @@
     rdfs:subClassOf :Thermostat_Adjust_Sensor ;
     skos:definition ""@en .
 
-:VAV_Unoccupied_Cooling_Supply_Air_Flow_Setpoint a owl:Class ;
+:VAV_Unoccupied_Cooling_Discharge_Air_Flow_Setpoint a owl:Class ;
     rdfs:label "VAV Unoccupied Cooling Discharge Air Flow Setpoint"@en,
         "VAV Unoccupied Cooling Supply Air Flow Setpoint"@en ;
     rdfs:subClassOf :Cooling_Discharge_Air_Flow_Setpoint,
@@ -4084,7 +4078,7 @@
         :Unoccupied_Cooling_Supply_Air_Flow_Setpoint,
         :VAV_Discharge_Air_Flow_Setpoint,
         :VAV_Supply_Air_Flow_Setpoint ;
-    owl:equivalentClass :VAV_Unoccupied_Cooling_Discharge_Air_Flow_Setpoint .
+    owl:equivalentClass :VAV_Unoccupied_Cooling_Supply_Air_Flow_Setpoint .
 
 :VAV_Unoccupied_Cooling_Temperature_Setpoint a owl:Class ;
     rdfs:label "VAV Unoccupied Cooling Temperature Setpoint"@en ;
@@ -4117,6 +4111,11 @@
     rdfs:label "VAV Zone Temperature Setpoint"@en ;
     rdfs:subClassOf :Zone_Temperature_Setpoint ;
     skos:definition ""@en .
+
+:VFD a owl:Class ;
+    rdfs:label "Variable Frequency Drive"@en ;
+    rdfs:subClassOf :HVAC ;
+    owl:equivalentClass :Variable_Frequency_Drive .
 
 :VFD_Acceleration_Time_Setpoint a owl:Class ;
     rdfs:label "VFD Acceleration Time Setpoint"@en ;
@@ -4173,6 +4172,15 @@
     rdfs:subClassOf :Filter_Reset_Command ;
     skos:definition ""@en .
 
+:VFD_Hand_Auto_Status a owl:Class ;
+    rdfs:label "VFD Hand Auto Status"@en,
+        "VFD Manual Auto Status"@en ;
+    rdfs:subClassOf :Hand_Auto_Status,
+        :Manual_Auto_Status,
+        :VFD_Status ;
+    owl:equivalentClass :VFD_Manual_Auto_Status ;
+    skos:definition ""@en .
+
 :VFD_Heating_Valve_Command a owl:Class ;
     rdfs:label "VFD Heating Valve Command"@en ;
     rdfs:subClassOf :Heating_Valve_Command .
@@ -4197,15 +4205,6 @@
     rdfs:label "VFD Maintenance Required Alarm"@en ;
     rdfs:subClassOf :Maintenance_Required_Alarm,
         :VFD_Alarm .
-
-:VFD_Manual_Auto_Status a owl:Class ;
-    rdfs:label "VFD Hand Auto Status"@en,
-        "VFD Manual Auto Status"@en ;
-    rdfs:subClassOf :Hand_Auto_Status,
-        :Manual_Auto_Status,
-        :VFD_Status ;
-    owl:equivalentClass :VFD_Hand_Auto_Status ;
-    skos:definition ""@en .
 
 :VFD_Max_Frequency_Command a owl:Class ;
     rdfs:label "VFD Max Frequency Command"@en ;
@@ -4316,16 +4315,6 @@
     rdfs:subClassOf :System_Enable_Command,
         :VFD_Enable_Command .
 
-:Variable_Air_Volume a owl:Class ;
-    rdfs:label "Variable Air Volume"@en ;
-    rdfs:subClassOf :Terminal_Unit ;
-    owl:equivalentClass :VAV .
-
-:Variable_Frequency_Drive a owl:Class ;
-    rdfs:label "Variable Frequency Drive"@en ;
-    rdfs:subClassOf :HVAC ;
-    owl:equivalentClass :VFD .
-
 :Velocity_Pressure a owl:Class ;
     rdfs:label "Velocity Pressure"@en ;
     rdfs:subClassOf :Pressure .
@@ -4371,23 +4360,23 @@
     rdfs:label "Water_System Cooling Tower Fan Speed Setpoint"@en ;
     rdfs:subClassOf :Cooling_Tower_Fan_Speed_Setpoint .
 
-:Water_System_Deionised_Water_Alarm a owl:Class ;
+:Water_System_DI_Water_Alarm a owl:Class ;
     rdfs:label "Water_System DI Water Alarm"@en,
         "Water_System Deionised Water Alarm"@en ;
     rdfs:subClassOf :DI_Water_Alarm,
         :Deionised_Water_Alarm ;
-    owl:equivalentClass :Water_System_DI_Water_Alarm .
+    owl:equivalentClass :Water_System_Deionised_Water_Alarm .
 
-:Water_System_Deionised_Water_Conductivity_Sensor a owl:Class ;
-    rdfs:label "Water_System Deionised Water Conductivity Sensor"@en ;
-    rdfs:subClassOf :Deionised_Water_Conductivity_Sensor .
-
-:Water_System_Deionised_Water_Level_Sensor a owl:Class ;
+:Water_System_DI_Water_Level_Sensor a owl:Class ;
     rdfs:label "Water_System DI Water Level Sensor"@en,
         "Water_System Deionised Water Level Sensor"@en ;
     rdfs:subClassOf :DI_Water_Level_Sensor,
         :Deionised_Water_Level_Sensor ;
-    owl:equivalentClass :Water_System_DI_Water_Level_Sensor .
+    owl:equivalentClass :Water_System_Deionised_Water_Level_Sensor .
+
+:Water_System_Deionised_Water_Conductivity_Sensor a owl:Class ;
+    rdfs:label "Water_System Deionised Water Conductivity Sensor"@en ;
+    rdfs:subClassOf :Deionised_Water_Conductivity_Sensor .
 
 :Water_System_Freeze_Status a owl:Class ;
     rdfs:label "Water_System Freeze Status"@en ;
@@ -4402,6 +4391,13 @@
     rdfs:label "Water_System Pump Start Stop Status"@en ;
     rdfs:subClassOf :Pump_Start_Stop_Status,
         :Water_System_Pump_Status .
+
+:Water_System_Supply_Water_Temperature_Setpoint a owl:Class ;
+    rdfs:label "Water_System Discharge Water Temperature Setpoint"@en,
+        "Water_System Supply Water Temperature Setpoint"@en ;
+    rdfs:subClassOf :Discharge_Water_Temperature_Setpoint,
+        :Supply_Water_Temperature_Setpoint ;
+    owl:equivalentClass :Water_System_Discharge_Water_Temperature_Setpoint .
 
 :Water_System_Water_Meter a owl:Class ;
     rdfs:label "Water_System Water Meter"@en ;
@@ -4463,17 +4459,33 @@
     rdfs:label "Yearly Steam Usage"@en ;
     rdfs:subClassOf :Steam .
 
-:Zone_Temperature_High_Setpoint a owl:Class ;
+:Zone_Cooling_Temperature_Setpoint a owl:Class ;
     rdfs:label "Zone Cooling Temperature Setpoint"@en,
         "Zone Temperature High Setpoint"@en ;
     rdfs:subClassOf :Zone_Temperature_Setpoint ;
-    owl:equivalentClass :Zone_Cooling_Temperature_Setpoint .
+    owl:equivalentClass :Zone_Temperature_High_Setpoint .
 
-:Zone_Temperature_Low_Setpoint a owl:Class ;
+:Zone_Heating_Temperature_Setpoint a owl:Class ;
     rdfs:label "Zone Heating Temperature Setpoint"@en,
         "Zone Temperature Low Setpoint"@en ;
     rdfs:subClassOf :Zone_Temperature_Setpoint ;
-    owl:equivalentClass :Zone_Heating_Temperature_Setpoint .
+    owl:equivalentClass :Zone_Temperature_Low_Setpoint .
+
+:AHU_CO2_Differential_Sensor a owl:Class ;
+    rdfs:label "AHU CO2 Differential Sensor"@en,
+        "AHU CO2 Sensor"@en ;
+    rdfs:subClassOf :AHU_CO2_Sensor,
+        :CO2_Differential_Sensor,
+        :CO2_Sensor ;
+    skos:definition ""@en .
+
+:AHU_Coldest_Zone_Temperature_Sensor a owl:Class ;
+    rdfs:label "AHU Coldest Zone Temperature Sensor"@en,
+        "AHU Lowest Zone Temperature Sensor"@en ;
+    rdfs:subClassOf :AHU_Zone_Temperature_Sensor,
+        :Coldest_Zone_Temperature_Sensor,
+        :Lowest_Zone_Temperature_Sensor ;
+    owl:equivalentClass :AHU_Lowest_Zone_Temperature_Sensor .
 
 :AHU_Cooling_Coil_Discharge_Air_Temperature_Sensor a owl:Class ;
     rdfs:label "AHU Cooling Coil Discharge Air Temperature Sensor"@en,
@@ -4481,7 +4493,17 @@
     rdfs:subClassOf :AHU_Discharge_Air_Temperature_Sensor,
         :AHU_Supply_Air_Temperature_Sensor,
         :Cooling_Coil_Discharge_Air_Temperature_Sensor,
-        :Cooling_Coil_Supply_Air_Temperature_Sensor .
+        :Cooling_Coil_Supply_Air_Temperature_Sensor ;
+    owl:equivalentClass :AHU_Cooling_Coil_Supply_Air_Temperature_Sensor .
+
+:AHU_Cooling_Coil_Supply_Air_Temperature_Sensor a owl:Class ;
+    rdfs:label "AHU Cooling Coil Discharge Air Temperature Sensor"@en,
+        "AHU Cooling Coil Supply Air Temperature Sensor"@en ;
+    rdfs:subClassOf :AHU_Discharge_Air_Temperature_Sensor,
+        :AHU_Supply_Air_Temperature_Sensor,
+        :Cooling_Coil_Discharge_Air_Temperature_Sensor,
+        :Cooling_Coil_Supply_Air_Temperature_Sensor ;
+    owl:equivalentClass :AHU_Cooling_Coil_Discharge_Air_Temperature_Sensor .
 
 :AHU_Cooling_Demand_Setpoint a owl:Class ;
     rdfs:label "AHU Cooling Demand Setpoint"@en,
@@ -4489,14 +4511,6 @@
     rdfs:subClassOf :Cooling_Demand_Setpoint,
         :Cooling_Request_Setpoint,
         :Demand_Setpoint .
-
-:AHU_Cooling_Discharge_Air_Temperature_Dead_Band_Setpoint a owl:Class ;
-    rdfs:label "AHU Cooling Discharge Air Temperature Dead Band Setpoint"@en,
-        "AHU Cooling Supply Air Temperature Dead Band Setpoint"@en ;
-    rdfs:subClassOf :AHU_Discharge_Air_Temperature_Cooling_Setpoint,
-        :AHU_Supply_Air_Temperature_Cooling_Setpoint,
-        :Cooling_Discharge_Air_Temperature_Dead_Band_Setpoint,
-        :Cooling_Supply_Air_Temperature_Dead_Band_Setpoint .
 
 :AHU_Cooling_Discharge_Air_Temperature_Integral_Time_Setpoint a owl:Class ;
     rdfs:label "AHU Cooling Discharge Air Temperature Integral Time Setpoint"@en,
@@ -4513,8 +4527,7 @@
     rdfs:subClassOf :AHU_Discharge_Air_Temperature_Cooling_Setpoint,
         :AHU_Supply_Air_Temperature_Cooling_Setpoint,
         :Cooling_Discharge_Air_Temperature_Proportional_Band_Setpoint,
-        :Cooling_Supply_Air_Temperature_Proportional_Band_Setpoint ;
-    owl:equivalentClass :AHU_Cooling_Supply_Air_Temperature_Proportional_Band_Setpoint .
+        :Cooling_Supply_Air_Temperature_Proportional_Band_Setpoint .
 
 :AHU_Cooling_Request_Setpoint a owl:Class ;
     rdfs:label "AHU Cooling Demand Setpoint"@en,
@@ -4523,6 +4536,14 @@
         :Cooling_Request_Setpoint,
         :Demand_Setpoint ;
     owl:equivalentClass :AHU_Cooling_Demand_Setpoint .
+
+:AHU_Cooling_Supply_Air_Temperature_Dead_Band_Setpoint a owl:Class ;
+    rdfs:label "AHU Cooling Discharge Air Temperature Dead Band Setpoint"@en,
+        "AHU Cooling Supply Air Temperature Dead Band Setpoint"@en ;
+    rdfs:subClassOf :AHU_Discharge_Air_Temperature_Cooling_Setpoint,
+        :AHU_Supply_Air_Temperature_Cooling_Setpoint,
+        :Cooling_Discharge_Air_Temperature_Dead_Band_Setpoint,
+        :Cooling_Supply_Air_Temperature_Dead_Band_Setpoint .
 
 :AHU_Cooling_Supply_Air_Temperature_Integral_Time_Setpoint a owl:Class ;
     rdfs:label "AHU Cooling Discharge Air Temperature Integral Time Setpoint"@en,
@@ -4533,15 +4554,6 @@
         :Cooling_Supply_Air_Temperature_Integral_Time_Setpoint ;
     owl:equivalentClass :AHU_Cooling_Discharge_Air_Temperature_Integral_Time_Setpoint .
 
-:AHU_Cooling_Supply_Air_Temperature_Proportional_Band_Setpoint a owl:Class ;
-    rdfs:label "AHU Cooling Discharge Air Temperature Proportional Band Setpoint"@en,
-        "AHU Cooling Supply Air Temperature Proportional Band Setpoint"@en ;
-    rdfs:subClassOf :AHU_Discharge_Air_Temperature_Cooling_Setpoint,
-        :AHU_Supply_Air_Temperature_Cooling_Setpoint,
-        :Cooling_Discharge_Air_Temperature_Proportional_Band_Setpoint,
-        :Cooling_Supply_Air_Temperature_Proportional_Band_Setpoint ;
-    owl:equivalentClass :AHU_Cooling_Discharge_Air_Temperature_Proportional_Band_Setpoint .
-
 :AHU_Differential_Pressure_Sensor a owl:Class ;
     rdfs:label "AHU Differential Pressure Sensor"@en ;
     rdfs:subClassOf :Differential_Pressure_Sensor .
@@ -4550,7 +4562,14 @@
     rdfs:label "AHU Discharge Air Humidity Sensor"@en,
         "AHU Supply Air Humidity Sensor"@en ;
     rdfs:subClassOf :Discharge_Air_Humidity_Sensor,
-        :Supply_Air_Humidity_Sensor .
+        :Supply_Air_Humidity_Sensor ;
+    owl:equivalentClass :AHU_Supply_Air_Humidity_Sensor .
+
+:AHU_Discharge_Air_Smoke_Detected_Alarm a owl:Class ;
+    rdfs:label "AHU Discharge Air Smoke Detected Alarm"@en,
+        "AHU Supply Air Smoke Detected Alarm"@en ;
+    rdfs:subClassOf :Discharge_Air_Smoke_Detected_Alarm,
+        :Supply_Air_Smoke_Detected_Alarm .
 
 :AHU_Discharge_Air_Static_Pressure_Dead_Band_Setpoint a owl:Class ;
     rdfs:label "AHU Discharge Air Static Pressure Dead Band Setpoint"@en,
@@ -4560,26 +4579,29 @@
         :Discharge_Air_Static_Pressure_Dead_Band_Setpoint,
         :Supply_Air_Static_Pressure_Dead_Band_Setpoint .
 
-:AHU_Discharge_Air_Static_Pressure_Proportional_Band_Setpoint a owl:Class ;
-    rdfs:label "AHU Discharge Air Static Pressure Proportional Band Setpoint"@en,
-        "AHU Supply Air Static Pressure Proportional Band Setpoint"@en ;
+:AHU_Discharge_Air_Static_Pressure_Increase_Decrease_Step_Setpoint a owl:Class ;
+    rdfs:label "AHU Discharge Air Static Pressure Increase Decrease Step Setpoint"@en,
+        "AHU Supply Air Static Pressure Increase Decrease Step Setpoint"@en ;
     rdfs:subClassOf :AHU_Discharge_Air_Static_Pressure_Setpoint,
         :AHU_Supply_Air_Static_Pressure_Setpoint,
-        :Discharge_Air_Static_Pressure_Proportional_Band_Setpoint,
-        :Supply_Air_Static_Pressure_Proportional_Band_Setpoint .
+        :Discharge_Air_Static_Pressure_Increase_Decrease_Step_Setpoint,
+        :Supply_Air_Static_Pressure_Increase_Decrease_Step_Setpoint .
+
+:AHU_Discharge_Air_Static_Pressure_Integral_Time_Setpoint a owl:Class ;
+    rdfs:label "AHU Discharge Air Static Pressure Integral Time Setpoint"@en,
+        "AHU Supply Air Static Pressure Integral Time Setpoint"@en ;
+    rdfs:subClassOf :AHU_Discharge_Air_Static_Pressure_Setpoint,
+        :AHU_Supply_Air_Static_Pressure_Setpoint,
+        :Discharge_Air_Static_Pressure_Integral_Time_Setpoint,
+        :Supply_Air_Static_Pressure_Integral_Time_Setpoint .
 
 :AHU_Discharge_Air_Static_Pressure_Sensor a owl:Class ;
     rdfs:label "AHU Discharge Air Static Pressure Sensor"@en,
         "AHU Supply Air Static Pressure Sensor"@en ;
     rdfs:subClassOf :AHU_Static_Pressure_Sensor,
         :Discharge_Air_Static_Pressure_Sensor,
-        :Supply_Air_Static_Pressure_Sensor .
-
-:AHU_Discharge_Air_Temperature_High_Limit_Alarm a owl:Class ;
-    rdfs:label "AHU Discharge Air Temperature High Limit Alarm"@en,
-        "AHU Supply Air Temperature High Limit Alarm"@en ;
-    rdfs:subClassOf :Discharge_Air_Temperature_High_Limit_Alarm,
-        :Supply_Air_Temperature_High_Limit_Alarm .
+        :Supply_Air_Static_Pressure_Sensor ;
+    owl:equivalentClass :AHU_Supply_Air_Static_Pressure_Sensor .
 
 :AHU_Discharge_Air_Temperature_Reset_Differential_Setpoint a owl:Class ;
     rdfs:label "AHU Discharge Air Temperature Reset Differential Setpoint"@en,
@@ -4587,7 +4609,8 @@
     rdfs:subClassOf :AHU_Discharge_Air_Temperature_Setpoint,
         :AHU_Supply_Air_Temperature_Setpoint,
         :Discharge_Air_Temperature_Reset_Differential_Setpoint,
-        :Supply_Air_Temperature_Reset_Differential_Setpoint .
+        :Supply_Air_Temperature_Reset_Differential_Setpoint ;
+    owl:equivalentClass :AHU_Supply_Air_Temperature_Reset_Differential_Setpoint .
 
 :AHU_Discharge_Air_Temperature_Setpoint_Increase_Decrease_Step a owl:Class ;
     rdfs:label "AHU Discharge Air Temperature Setpoint Increase Decrease Step"@en,
@@ -4609,15 +4632,19 @@
     rdfs:subClassOf :Discharge_Fan_Piezoelectric_Sensor,
         :Supply_Fan_Piezoelectric_Sensor .
 
-:AHU_Discharge_Fan_VFD_Speed_Command a owl:Class ;
-    rdfs:label "AHU Discharge Fan VFD Speed Command"@en,
-        "AHU Supply Fan VFD Speed Command"@en ;
+:AHU_Discharge_Fan_Start_Stop_Command a owl:Class ;
+    rdfs:label "AHU Discharge Fan Start Stop Command"@en,
+        "AHU Supply Fan Start Stop Command"@en ;
     rdfs:subClassOf :AHU_Discharge_Fan_Command,
         :AHU_Supply_Fan_Command,
-        :AHU_VFD_Speed_Command,
-        :Discharge_Fan_VFD_Speed_Command,
-        :Supply_Fan_VFD_Speed_Command ;
-    skos:definition ""@en .
+        :Discharge_Fan_Start_Stop_Command,
+        :Supply_Fan_Start_Stop_Command .
+
+:AHU_Discharge_Fan_VFD_Speed_Sensor a owl:Class ;
+    rdfs:label "AHU Discharge Fan VFD Speed Sensor"@en,
+        "AHU Supply Fan VFD Speed Sensor"@en ;
+    rdfs:subClassOf :Discharge_Fan_VFD_Speed_Sensor,
+        :Supply_Fan_VFD_Speed_Sensor .
 
 :AHU_Discharge_Fan_VFD_Speed_Setpoint a owl:Class ;
     rdfs:label "AHU Discharge Fan VFD Speed Setpoint"@en,
@@ -4625,13 +4652,13 @@
     rdfs:subClassOf :Discharge_Fan_VFD_Speed_Setpoint,
         :Supply_Fan_VFD_Speed_Setpoint .
 
-:AHU_Economizer_Discharge_Air_Temperature_Dead_Band_Setpoint a owl:Class ;
-    rdfs:label "AHU Economizer Discharge Air Temperature Dead Band Setpoint"@en,
-        "AHU Economizer Supply Air Temperature Dead Band Setpoint"@en ;
+:AHU_Economizer_Discharge_Air_Temperature_Proportional_Band_Setpoint a owl:Class ;
+    rdfs:label "AHU Economizer Discharge Air Temperature Proportional Band Setpoint"@en,
+        "AHU Economizer Supply Air Temperature Proportional Band Setpoint"@en ;
     rdfs:subClassOf :AHU_Discharge_Air_Temperature_Setpoint,
         :AHU_Supply_Air_Temperature_Setpoint,
-        :Economizer_Discharge_Air_Temperature_Dead_Band_Setpoint,
-        :Economizer_Supply_Air_Temperature_Dead_Band_Setpoint .
+        :Economizer_Discharge_Air_Temperature_Proportional_Band_Setpoint,
+        :Economizer_Supply_Air_Temperature_Proportional_Band_Setpoint .
 
 :AHU_Economizer_Status a owl:Class ;
     rdfs:label "AHU Economizer Status"@en ;
@@ -4639,13 +4666,13 @@
         :Mode_Status ;
     skos:definition ""@en .
 
-:AHU_Economizer_Supply_Air_Temperature_Proportional_Band_Setpoint a owl:Class ;
-    rdfs:label "AHU Economizer Discharge Air Temperature Proportional Band Setpoint"@en,
-        "AHU Economizer Supply Air Temperature Proportional Band Setpoint"@en ;
+:AHU_Economizer_Supply_Air_Temperature_Dead_Band_Setpoint a owl:Class ;
+    rdfs:label "AHU Economizer Discharge Air Temperature Dead Band Setpoint"@en,
+        "AHU Economizer Supply Air Temperature Dead Band Setpoint"@en ;
     rdfs:subClassOf :AHU_Discharge_Air_Temperature_Setpoint,
         :AHU_Supply_Air_Temperature_Setpoint,
-        :Economizer_Discharge_Air_Temperature_Proportional_Band_Setpoint,
-        :Economizer_Supply_Air_Temperature_Proportional_Band_Setpoint .
+        :Economizer_Discharge_Air_Temperature_Dead_Band_Setpoint,
+        :Economizer_Supply_Air_Temperature_Dead_Band_Setpoint .
 
 :AHU_Exhaust_Air_Flow_Sensor a owl:Class ;
     rdfs:label "AHU Exhaust Air Flow Sensor"@en ;
@@ -4668,23 +4695,13 @@
     rdfs:label "AHU Fire Control Panel On Command"@en ;
     rdfs:subClassOf :Fire_Control_Panel_On_Command .
 
-:AHU_Heat_Wheel_Discharge_Air_Temperature_Sensor a owl:Class ;
-    rdfs:label "AHU Heat Wheel Discharge Air Temperature Sensor"@en,
-        "AHU Heat Wheel Supply Air Temperature Sensor"@en ;
-    rdfs:subClassOf :AHU_Discharge_Air_Temperature_Sensor,
-        :AHU_Supply_Air_Temperature_Sensor,
-        :Heat_Wheel_Discharge_Air_Temperature_Sensor,
-        :Heat_Wheel_Supply_Air_Temperature_Sensor ;
-    owl:equivalentClass :AHU_Heat_Wheel_Supply_Air_Temperature_Sensor .
-
 :AHU_Heat_Wheel_Supply_Air_Temperature_Sensor a owl:Class ;
     rdfs:label "AHU Heat Wheel Discharge Air Temperature Sensor"@en,
         "AHU Heat Wheel Supply Air Temperature Sensor"@en ;
     rdfs:subClassOf :AHU_Discharge_Air_Temperature_Sensor,
         :AHU_Supply_Air_Temperature_Sensor,
         :Heat_Wheel_Discharge_Air_Temperature_Sensor,
-        :Heat_Wheel_Supply_Air_Temperature_Sensor ;
-    owl:equivalentClass :AHU_Heat_Wheel_Discharge_Air_Temperature_Sensor .
+        :Heat_Wheel_Supply_Air_Temperature_Sensor .
 
 :AHU_Heating_Discharge_Air_Temperature_Dead_Band_Setpoint a owl:Class ;
     rdfs:label "AHU Heating Discharge Air Temperature Dead Band Setpoint"@en,
@@ -4692,8 +4709,7 @@
     rdfs:subClassOf :AHU_Discharge_Air_Temperature_Heating_Setpoint,
         :AHU_Supply_Air_Temperature_Heating_Setpoint,
         :Heating_Discharge_Air_Temperature_Dead_Band_Setpoint,
-        :Heating_Supply_Air_Temperature_Dead_Band_Setpoint ;
-    owl:equivalentClass :AHU_Heating_Supply_Air_Temperature_Dead_Band_Setpoint .
+        :Heating_Supply_Air_Temperature_Dead_Band_Setpoint .
 
 :AHU_Heating_Discharge_Air_Temperature_Integral_Time_Setpoint a owl:Class ;
     rdfs:label "AHU Heating Discharge Air Temperature Integral Time Setpoint"@en,
@@ -4703,15 +4719,6 @@
         :Heating_Discharge_Air_Temperature_Integral_Time_Setpoint,
         :Heating_Supply_Air_Temperature_Integral_Time_Setpoint .
 
-:AHU_Heating_Supply_Air_Temperature_Dead_Band_Setpoint a owl:Class ;
-    rdfs:label "AHU Heating Discharge Air Temperature Dead Band Setpoint"@en,
-        "AHU Heating Supply Air Temperature Dead Band Setpoint"@en ;
-    rdfs:subClassOf :AHU_Discharge_Air_Temperature_Heating_Setpoint,
-        :AHU_Supply_Air_Temperature_Heating_Setpoint,
-        :Heating_Discharge_Air_Temperature_Dead_Band_Setpoint,
-        :Heating_Supply_Air_Temperature_Dead_Band_Setpoint ;
-    owl:equivalentClass :AHU_Heating_Discharge_Air_Temperature_Dead_Band_Setpoint .
-
 :AHU_Heating_Supply_Air_Temperature_Proportional_Band_Setpoint a owl:Class ;
     rdfs:label "AHU Heating Discharge Air Temperature Proportional Band Setpoint"@en,
         "AHU Heating Supply Air Temperature Proportional Band Setpoint"@en ;
@@ -4720,21 +4727,15 @@
         :Heating_Discharge_Air_Temperature_Proportional_Band_Setpoint,
         :Heating_Supply_Air_Temperature_Proportional_Band_Setpoint .
 
-:AHU_Highest_Zone_Temperature_Sensor a owl:Class ;
-    rdfs:label "AHU Highest Zone Temperature Sensor"@en,
-        "AHU Warmest Zone Temperature Sensor"@en ;
-    rdfs:subClassOf :AHU_Zone_Temperature_Sensor,
-        :Highest_Zone_Temperature_Sensor,
-        :Warmest_Zone_Temperature_Sensor .
-
 :AHU_Lowest_Zone_Temperature_Sensor a owl:Class ;
     rdfs:label "AHU Coldest Zone Temperature Sensor"@en,
         "AHU Lowest Zone Temperature Sensor"@en ;
     rdfs:subClassOf :AHU_Zone_Temperature_Sensor,
         :Coldest_Zone_Temperature_Sensor,
-        :Lowest_Zone_Temperature_Sensor .
+        :Lowest_Zone_Temperature_Sensor ;
+    owl:equivalentClass :AHU_Coldest_Zone_Temperature_Sensor .
 
-:AHU_Max_Discharge_Air_Static_Pressure_Setpoint a owl:Class ;
+:AHU_Max_Supply_Air_Static_Pressure_Setpoint a owl:Class ;
     rdfs:label "AHU Max Discharge Air Static Pressure Setpoint"@en,
         "AHU Max Supply Air Static Pressure Setpoint"@en ;
     rdfs:subClassOf :AHU_Discharge_Air_Static_Pressure_Setpoint,
@@ -4744,7 +4745,7 @@
         :Max_Discharge_Air_Static_Pressure_Setpoint,
         :Max_Supply_Air_Static_Pressure_Setpoint .
 
-:AHU_Max_Discharge_Air_Temperature_Setpoint a owl:Class ;
+:AHU_Max_Supply_Air_Temperature_Setpoint a owl:Class ;
     rdfs:label "AHU Max Discharge Air Temperature Setpoint"@en,
         "AHU Max Supply Air Temperature Setpoint"@en ;
     rdfs:subClassOf :AHU_Discharge_Air_Temperature_Setpoint,
@@ -4760,7 +4761,19 @@
         :AHU_Supply_Air_Static_Pressure_Setpoint,
         :Discharge_Air_Static_Pressure_Setpoint,
         :Min_Discharge_Air_Static_Pressure_Setpoint,
-        :Min_Supply_Air_Static_Pressure_Setpoint .
+        :Min_Supply_Air_Static_Pressure_Setpoint ;
+    owl:equivalentClass :AHU_Min_Supply_Air_Static_Pressure_Setpoint .
+
+:AHU_Min_Supply_Air_Static_Pressure_Setpoint a owl:Class ;
+    rdfs:label "AHU Min Discharge Air Static Pressure Setpoint"@en,
+        "AHU Min Supply Air Static Pressure Setpoint"@en ;
+    rdfs:subClassOf :AHU_Discharge_Air_Static_Pressure_Setpoint,
+        :AHU_Static_Pressure_Min_Setpoint,
+        :AHU_Supply_Air_Static_Pressure_Setpoint,
+        :Discharge_Air_Static_Pressure_Setpoint,
+        :Min_Discharge_Air_Static_Pressure_Setpoint,
+        :Min_Supply_Air_Static_Pressure_Setpoint ;
+    owl:equivalentClass :AHU_Min_Discharge_Air_Static_Pressure_Setpoint .
 
 :AHU_Min_Supply_Air_Temperature_Setpoint a owl:Class ;
     rdfs:label "AHU Min Discharge Air Temperature Setpoint"@en,
@@ -4770,7 +4783,7 @@
         :Min_Discharge_Air_Temperature_Setpoint,
         :Min_Supply_Air_Temperature_Setpoint .
 
-:AHU_Occupied_Command a owl:Class ;
+:AHU_Occupancy_Command a owl:Class ;
     rdfs:label "AHU Occupancy Command"@en,
         "AHU Occupied Command"@en ;
     rdfs:subClassOf :Occupancy_Command,
@@ -4794,7 +4807,7 @@
     rdfs:subClassOf :Overridden_On_Status ;
     skos:definition ""@en .
 
-:AHU_Preheat_Discharge_Air_Temperature_Sensor a owl:Class ;
+:AHU_Preheat_Supply_Air_Temperature_Sensor a owl:Class ;
     rdfs:label "AHU Preheat Discharge Air Temperature Sensor"@en,
         "AHU Preheat Supply Air Temperature Sensor"@en ;
     rdfs:subClassOf :AHU_Discharge_Air_Temperature_Sensor,
@@ -4810,7 +4823,7 @@
     rdfs:label "AHU Return Air Flow Sensor"@en ;
     rdfs:subClassOf :Return_Air_Flow_Sensor .
 
-:AHU_Return_Supply_Fan_Differential_Speed_Setpoint a owl:Class ;
+:AHU_Return_Discharge_Fan_Differential_Speed_Setpoint a owl:Class ;
     rdfs:label "AHU Return Discharge Fan Differential Speed Setpoint"@en,
         "AHU Return Supply Fan Differential Speed Setpoint"@en ;
     rdfs:subClassOf :AHU_Return_Fan_Differential_Speed_Setpoint,
@@ -4823,27 +4836,43 @@
     rdfs:subClassOf :Discharge_Air_Flow_Demand_Setpoint,
         :Supply_Air_Flow_Demand_Setpoint .
 
-:AHU_Supply_Air_Smoke_Detected_Alarm a owl:Class ;
-    rdfs:label "AHU Discharge Air Smoke Detected Alarm"@en,
-        "AHU Supply Air Smoke Detected Alarm"@en ;
-    rdfs:subClassOf :Discharge_Air_Smoke_Detected_Alarm,
-        :Supply_Air_Smoke_Detected_Alarm .
+:AHU_Supply_Air_Humidity_Sensor a owl:Class ;
+    rdfs:label "AHU Discharge Air Humidity Sensor"@en,
+        "AHU Supply Air Humidity Sensor"@en ;
+    rdfs:subClassOf :Discharge_Air_Humidity_Sensor,
+        :Supply_Air_Humidity_Sensor ;
+    owl:equivalentClass :AHU_Discharge_Air_Humidity_Sensor .
 
-:AHU_Supply_Air_Static_Pressure_Increase_Decrease_Step_Setpoint a owl:Class ;
-    rdfs:label "AHU Discharge Air Static Pressure Increase Decrease Step Setpoint"@en,
-        "AHU Supply Air Static Pressure Increase Decrease Step Setpoint"@en ;
+:AHU_Supply_Air_Static_Pressure_Proportional_Band_Setpoint a owl:Class ;
+    rdfs:label "AHU Discharge Air Static Pressure Proportional Band Setpoint"@en,
+        "AHU Supply Air Static Pressure Proportional Band Setpoint"@en ;
     rdfs:subClassOf :AHU_Discharge_Air_Static_Pressure_Setpoint,
         :AHU_Supply_Air_Static_Pressure_Setpoint,
-        :Discharge_Air_Static_Pressure_Increase_Decrease_Step_Setpoint,
-        :Supply_Air_Static_Pressure_Increase_Decrease_Step_Setpoint .
+        :Discharge_Air_Static_Pressure_Proportional_Band_Setpoint,
+        :Supply_Air_Static_Pressure_Proportional_Band_Setpoint .
 
-:AHU_Supply_Air_Static_Pressure_Integral_Time_Setpoint a owl:Class ;
-    rdfs:label "AHU Discharge Air Static Pressure Integral Time Setpoint"@en,
-        "AHU Supply Air Static Pressure Integral Time Setpoint"@en ;
-    rdfs:subClassOf :AHU_Discharge_Air_Static_Pressure_Setpoint,
-        :AHU_Supply_Air_Static_Pressure_Setpoint,
-        :Discharge_Air_Static_Pressure_Integral_Time_Setpoint,
-        :Supply_Air_Static_Pressure_Integral_Time_Setpoint .
+:AHU_Supply_Air_Static_Pressure_Sensor a owl:Class ;
+    rdfs:label "AHU Discharge Air Static Pressure Sensor"@en,
+        "AHU Supply Air Static Pressure Sensor"@en ;
+    rdfs:subClassOf :AHU_Static_Pressure_Sensor,
+        :Discharge_Air_Static_Pressure_Sensor,
+        :Supply_Air_Static_Pressure_Sensor ;
+    owl:equivalentClass :AHU_Discharge_Air_Static_Pressure_Sensor .
+
+:AHU_Supply_Air_Temperature_High_Limit_Alarm a owl:Class ;
+    rdfs:label "AHU Discharge Air Temperature High Limit Alarm"@en,
+        "AHU Supply Air Temperature High Limit Alarm"@en ;
+    rdfs:subClassOf :Discharge_Air_Temperature_High_Limit_Alarm,
+        :Supply_Air_Temperature_High_Limit_Alarm .
+
+:AHU_Supply_Air_Temperature_Reset_Differential_Setpoint a owl:Class ;
+    rdfs:label "AHU Discharge Air Temperature Reset Differential Setpoint"@en,
+        "AHU Supply Air Temperature Reset Differential Setpoint"@en ;
+    rdfs:subClassOf :AHU_Discharge_Air_Temperature_Setpoint,
+        :AHU_Supply_Air_Temperature_Setpoint,
+        :Discharge_Air_Temperature_Reset_Differential_Setpoint,
+        :Supply_Air_Temperature_Reset_Differential_Setpoint ;
+    owl:equivalentClass :AHU_Discharge_Air_Temperature_Reset_Differential_Setpoint .
 
 :AHU_Supply_Air_Temperature_Reset_High_Setpoint a owl:Class ;
     rdfs:label "AHU Discharge Air Temperature Reset High Setpoint"@en,
@@ -4861,14 +4890,6 @@
         :Discharge_Air_Temperature_Reset_Low_Setpoint,
         :Supply_Air_Temperature_Reset_Low_Setpoint .
 
-:AHU_Supply_Fan_Start_Stop_Command a owl:Class ;
-    rdfs:label "AHU Discharge Fan Start Stop Command"@en,
-        "AHU Supply Fan Start Stop Command"@en ;
-    rdfs:subClassOf :AHU_Discharge_Fan_Command,
-        :AHU_Supply_Fan_Command,
-        :Discharge_Fan_Start_Stop_Command,
-        :Supply_Fan_Start_Stop_Command .
-
 :AHU_Supply_Fan_Start_Stop_Status a owl:Class ;
     rdfs:label "AHU Discharge Fan Start Stop Status"@en,
         "AHU Supply Fan Start Stop Status"@en ;
@@ -4878,11 +4899,15 @@
         :Discharge_Fan_Start_Stop_Status,
         :Supply_Fan_Start_Stop_Status .
 
-:AHU_Supply_Fan_VFD_Speed_Sensor a owl:Class ;
-    rdfs:label "AHU Discharge Fan VFD Speed Sensor"@en,
-        "AHU Supply Fan VFD Speed Sensor"@en ;
-    rdfs:subClassOf :Discharge_Fan_VFD_Speed_Sensor,
-        :Supply_Fan_VFD_Speed_Sensor .
+:AHU_Supply_Fan_VFD_Speed_Command a owl:Class ;
+    rdfs:label "AHU Discharge Fan VFD Speed Command"@en,
+        "AHU Supply Fan VFD Speed Command"@en ;
+    rdfs:subClassOf :AHU_Discharge_Fan_Command,
+        :AHU_Supply_Fan_Command,
+        :AHU_VFD_Speed_Command,
+        :Discharge_Fan_VFD_Speed_Command,
+        :Supply_Fan_VFD_Speed_Command ;
+    skos:definition ""@en .
 
 :AHU_Supply_Fan_VFD_Speed_Status a owl:Class ;
     rdfs:label "AHU Discharge Fan VFD Speed Status"@en,
@@ -4896,6 +4921,13 @@
 :AHU_System_Enable_Command a owl:Class ;
     rdfs:label "AHU System Enable Command"@en ;
     rdfs:subClassOf :System_Enable_Command .
+
+:AHU_Warmest_Zone_Temperature_Sensor a owl:Class ;
+    rdfs:label "AHU Highest Zone Temperature Sensor"@en,
+        "AHU Warmest Zone Temperature Sensor"@en ;
+    rdfs:subClassOf :AHU_Zone_Temperature_Sensor,
+        :Highest_Zone_Temperature_Sensor,
+        :Warmest_Zone_Temperature_Sensor .
 
 :Acceleration_Time_Setpoint a owl:Class ;
     rdfs:label "Acceleration Time Setpoint"@en ;
@@ -4921,6 +4953,10 @@
 :Air_Grains a owl:Class ;
     rdfs:label "Air Grains"@en ;
     rdfs:subClassOf :UndefinedMeasurement .
+
+:Air_Handler_Unit a owl:Class ;
+    rdfs:label "Air Handler Unit"@en ;
+    rdfs:subClassOf :HVAC .
 
 :Air_Lockout_Temperature a owl:Class ;
     rdfs:label "Air Lockout Temperature"@en ;
@@ -5071,12 +5107,6 @@
     rdfs:label "CRAC Start Stop Command"@en ;
     rdfs:subClassOf :Start_Stop_Command .
 
-:CRAC_Start_Stop_Status a owl:Class ;
-    rdfs:label "CRAC On Off Status"@en,
-        "CRAC Start Stop Status"@en ;
-    rdfs:subClassOf :On_Off_Status,
-        :Start_Stop_Status .
-
 :CWS_Chilled_Water_Differential_Pressure_Dead_Band_Setpoint a owl:Class ;
     rdfs:label "CWS Chilled Water Differential Pressure Dead Band Setpoint"@en ;
     rdfs:subClassOf :CWS_Chilled_Water_Differential_Pressure_Setpoint,
@@ -5101,7 +5131,7 @@
         :Chilled_Water_Supply_Flow_Sensor,
         :Supply_Water_Flow_Sensor .
 
-:CWS_Discharge_Water_Temperature_Setpoint a owl:Class ;
+:CWS_Supply_Water_Temperature_Setpoint a owl:Class ;
     rdfs:label "CWS Discharge Water Temperature Setpoint"@en,
         "CWS Supply Water Temperature Setpoint"@en ;
     rdfs:subClassOf :Discharge_Water_Temperature_Setpoint,
@@ -5342,14 +5372,14 @@
     rdfs:subClassOf :Voltage_Sensor ;
     skos:definition ""@en .
 
-:DHWS_Domestic_Hot_Water_Supply_Temperature_Sensor a owl:Class ;
+:DHWS_Domestic_Hot_Water_Discharge_Temperature_Sensor a owl:Class ;
     rdfs:label "DHWS Domestic Hot Water Discharge Temperature Sensor"@en,
         "DHWS Domestic Hot Water Supply Temperature Sensor"@en ;
     rdfs:subClassOf :Domestic_Hot_Water_Discharge_Temperature_Sensor,
         :Domestic_Hot_Water_Supply_Temperature_Sensor,
         :Hot_Water_Supply_Temperature_Sensor .
 
-:DHWS_Domestic_Hot_Water_Supply_Temperature_Setpoint a owl:Class ;
+:DHWS_Domestic_Hot_Water_Discharge_Temperature_Setpoint a owl:Class ;
     rdfs:label "DHWS Domestic Hot Water Discharge Temperature Setpoint"@en,
         "DHWS Domestic Hot Water Supply Temperature Setpoint"@en ;
     rdfs:subClassOf :Domestic_Hot_Water_Discharge_Temperature_Setpoint,
@@ -5380,6 +5410,13 @@
     rdfs:subClassOf :DemandResponse_Load_Shed_Status,
         :Medium_Temperature_Hot_Water_Differential_Pressure_Load_Shed_Status .
 
+:DemandResponse_Medium_Temperature_Hot_Water_Discharge_Temperature_Load_Shed_Setpoint a owl:Class ;
+    rdfs:label "DemandResponse Medium Temperature Hot Water Discharge Temperature Load Shed Setpoint"@en,
+        "DemandResponse Medium Temperature Hot Water Supply Temperature Load Shed Setpoint"@en ;
+    rdfs:subClassOf :Load_Shed_Supply_Water_Temperature_Setpoint,
+        :Medium_Temperature_Hot_Water_Discharge_Temperature_Load_Shed_Setpoint,
+        :Medium_Temperature_Hot_Water_Supply_Temperature_Load_Shed_Setpoint .
+
 :DemandResponse_Medium_Temperature_Hot_Water_Discharge_Temperature_Load_Shed_Status a owl:Class ;
     rdfs:label "DemandResponse Medium Temperature Hot Water Discharge Temperature Load Shed Status"@en,
         "DemandResponse Medium Temperature Hot Water Supply Temperature Load Shed Status"@en ;
@@ -5387,13 +5424,6 @@
         :Differential_Pressure_Load_Shed_Status,
         :Medium_Temperature_Hot_Water_Discharge_Temperature_Load_Shed_Status,
         :Medium_Temperature_Hot_Water_Supply_Temperature_Load_Shed_Status .
-
-:DemandResponse_Medium_Temperature_Hot_Water_Supply_Temperature_Load_Shed_Setpoint a owl:Class ;
-    rdfs:label "DemandResponse Medium Temperature Hot Water Discharge Temperature Load Shed Setpoint"@en,
-        "DemandResponse Medium Temperature Hot Water Supply Temperature Load Shed Setpoint"@en ;
-    rdfs:subClassOf :Load_Shed_Supply_Water_Temperature_Setpoint,
-        :Medium_Temperature_Hot_Water_Discharge_Temperature_Load_Shed_Setpoint,
-        :Medium_Temperature_Hot_Water_Supply_Temperature_Load_Shed_Setpoint .
 
 :DemandResponse_Standby_Load_Shed_Command a owl:Class ;
     rdfs:label "DemandResponse Standby Load Shed Command"@en ;
@@ -5442,6 +5472,13 @@
 :Disable_Status a owl:Class ;
     rdfs:label "Disable Status"@en ;
     rdfs:subClassOf :Status .
+
+:Discharge_Air_Damper_Max_Position_Setpoint a owl:Class ;
+    rdfs:label "Discharge Air Damper Max Position Setpoint"@en,
+        "Supply Air Damper Max Position Setpoint"@en ;
+    rdfs:subClassOf :Damper_Position_Setpoint,
+        :Discharge_Air,
+        :Supply_Air .
 
 :Discharge_Air_Flow_Reset_High_Setpoint a owl:Class ;
     rdfs:label "Discharge Air Flow Reset High Setpoint"@en ;
@@ -5726,10 +5763,22 @@
         :System_Enable_Command ;
     skos:definition ""@en .
 
+:FCP a owl:Class ;
+    rdfs:label "Fire Control Panel"@en ;
+    rdfs:subClassOf :Fire_Safety_System .
+
 :FCU_CO2_Sensor a owl:Class ;
     rdfs:label "FCU CO2 Sensor"@en ;
     rdfs:subClassOf :CO2_Sensor ;
     skos:definition ""@en .
+
+:FCU_Discharge_Air_Temperature_Cooling_Setpoint a owl:Class ;
+    rdfs:label "FCU Discharge Air Temperature Cooling Setpoint"@en,
+        "FCU Supply Air Temperature Cooling Setpoint"@en ;
+    rdfs:subClassOf :Discharge_Air_Temperature_Cooling_Setpoint,
+        :FCU_Discharge_Air_Temperature_Setpoint,
+        :FCU_Supply_Air_Temperature_Setpoint,
+        :Supply_Air_Temperature_Cooling_Setpoint .
 
 :FCU_Discharge_Fan_VFD_Speed_Command a owl:Class ;
     rdfs:label "FCU Discharge Fan VFD Speed Command"@en,
@@ -5737,6 +5786,7 @@
     rdfs:subClassOf :Discharge_Fan_VFD_Speed_Command,
         :FCU_VFD_Speed_Command,
         :Supply_Fan_VFD_Speed_Command ;
+    owl:equivalentClass :FCU_Supply_Fan_VFD_Speed_Command ;
     skos:definition ""@en .
 
 :FCU_Discharge_Fan_VFD_Speed_Status a owl:Class ;
@@ -5744,8 +5794,7 @@
         "FCU Supply Fan VFD Speed Status"@en ;
     rdfs:subClassOf :Discharge_Fan_VFD_Speed_Status,
         :FCU_Fan_Status,
-        :Supply_Fan_VFD_Speed_Status ;
-    owl:equivalentClass :FCU_Supply_Fan_VFD_Speed_Status .
+        :Supply_Fan_VFD_Speed_Status .
 
 :FCU_Fault_Status a owl:Class ;
     rdfs:label "FCU Fault Status"@en ;
@@ -5755,14 +5804,6 @@
     rdfs:label "FCU Humidity Sensor"@en ;
     rdfs:subClassOf :Humidity_Sensor ;
     skos:definition ""@en .
-
-:FCU_Supply_Air_Temperature_Cooling_Setpoint a owl:Class ;
-    rdfs:label "FCU Discharge Air Temperature Cooling Setpoint"@en,
-        "FCU Supply Air Temperature Cooling Setpoint"@en ;
-    rdfs:subClassOf :Discharge_Air_Temperature_Cooling_Setpoint,
-        :FCU_Discharge_Air_Temperature_Setpoint,
-        :FCU_Supply_Air_Temperature_Setpoint,
-        :Supply_Air_Temperature_Cooling_Setpoint .
 
 :FCU_Supply_Air_Temperature_Heating_Setpoint a owl:Class ;
     rdfs:label "FCU Discharge Air Temperature Heating Setpoint"@en,
@@ -5778,6 +5819,15 @@
     rdfs:subClassOf :Discharge_Air_Temperature_Sensor,
         :Supply_Air_Temperature_Sensor .
 
+:FCU_Supply_Fan_VFD_Speed_Command a owl:Class ;
+    rdfs:label "FCU Discharge Fan VFD Speed Command"@en,
+        "FCU Supply Fan VFD Speed Command"@en ;
+    rdfs:subClassOf :Discharge_Fan_VFD_Speed_Command,
+        :FCU_VFD_Speed_Command,
+        :Supply_Fan_VFD_Speed_Command ;
+    owl:equivalentClass :FCU_Discharge_Fan_VFD_Speed_Command ;
+    skos:definition ""@en .
+
 :FCU_Supply_Fan_VFD_Speed_Sensor a owl:Class ;
     rdfs:label "FCU Discharge Fan VFD Speed Sensor"@en,
         "FCU Supply Fan VFD Speed Sensor"@en ;
@@ -5789,14 +5839,6 @@
         "FCU Supply Fan VFD Speed Setpoint"@en ;
     rdfs:subClassOf :Discharge_Fan_VFD_Speed_Setpoint,
         :Supply_Fan_VFD_Speed_Setpoint .
-
-:FCU_Supply_Fan_VFD_Speed_Status a owl:Class ;
-    rdfs:label "FCU Discharge Fan VFD Speed Status"@en,
-        "FCU Supply Fan VFD Speed Status"@en ;
-    rdfs:subClassOf :Discharge_Fan_VFD_Speed_Status,
-        :FCU_Fan_Status,
-        :Supply_Fan_VFD_Speed_Status ;
-    owl:equivalentClass :FCU_Discharge_Fan_VFD_Speed_Status .
 
 :FCU_Zone_Temperature_Sensor a owl:Class ;
     rdfs:label "FCU Zone Temperature Sensor"@en ;
@@ -5847,10 +5889,6 @@
     rdfs:subClassOf :Reset_Command ;
     skos:definition ""@en .
 
-:Fire_Control_Panel a owl:Class ;
-    rdfs:label "Fire Control Panel"@en ;
-    rdfs:subClassOf :Fire_Safety_System .
-
 :Flow_Meter a owl:Class ;
     rdfs:label "Flow Meter"@en ;
     rdfs:subClassOf :Meter .
@@ -5875,7 +5913,7 @@
     rdfs:label "Frost Sensor"@en ;
     rdfs:subClassOf :Sensor .
 
-:HVAC_Average_Discharge_Air_Flow_Sensor a owl:Class ;
+:HVAC_Average_Supply_Air_Flow_Sensor a owl:Class ;
     rdfs:label "HVAC Average Discharge Air Flow Sensor"@en,
         "HVAC Average Supply Air Flow Sensor"@en ;
     rdfs:subClassOf :Average_Discharge_Air_Flow_Sensor,
@@ -5911,25 +5949,7 @@
         :HWS_Heat_Exchanger_Supply_Water_Temperature_Setpoint,
         :Heat_Exchanger_Discharge_Water_Temperature_Integral_Time_Setpoint,
         :Heat_Exchanger_Supply_Water_Temperature_Integral_Time_Setpoint,
-        :Supply_Water_Temperature_Integral_Time_Setpoint ;
-    owl:equivalentClass :HWS_Heat_Exchanger_Supply_Water_Temperature_Integral_Time_Setpoint .
-
-:HWS_Heat_Exchanger_Discharge_Water_Temperature_Sensor a owl:Class ;
-    rdfs:label "HWS Heat Exchanger Discharge Water Temperature Sensor"@en,
-        "HWS Heat Exchanger Supply Water Temperature Sensor"@en ;
-    rdfs:subClassOf :Heat_Exchanger_Discharge_Water_Temperature_Sensor,
-        :Heat_Exchanger_Supply_Water_Temperature_Sensor,
-        :Supply_Water_Temperature_Sensor .
-
-:HWS_Heat_Exchanger_Supply_Water_Temperature_Integral_Time_Setpoint a owl:Class ;
-    rdfs:label "HWS Heat Exchanger Discharge Water Temperature Integral Time Setpoint"@en,
-        "HWS Heat Exchanger Supply Water Temperature Integral Time Setpoint"@en ;
-    rdfs:subClassOf :HWS_Heat_Exchanger_Discharge_Water_Temperature_Setpoint,
-        :HWS_Heat_Exchanger_Supply_Water_Temperature_Setpoint,
-        :Heat_Exchanger_Discharge_Water_Temperature_Integral_Time_Setpoint,
-        :Heat_Exchanger_Supply_Water_Temperature_Integral_Time_Setpoint,
-        :Supply_Water_Temperature_Integral_Time_Setpoint ;
-    owl:equivalentClass :HWS_Heat_Exchanger_Discharge_Water_Temperature_Integral_Time_Setpoint .
+        :Supply_Water_Temperature_Integral_Time_Setpoint .
 
 :HWS_Heat_Exchanger_Supply_Water_Temperature_Proportional_Band_Setpoint a owl:Class ;
     rdfs:label "HWS Heat Exchanger Discharge Water Temperature Proportional Band Setpoint"@en,
@@ -5939,6 +5959,13 @@
         :Heat_Exchanger_Discharge_Water_Temperature_Proportional_Band_Setpoint,
         :Heat_Exchanger_Supply_Water_Temperature_Proportional_Band_Setpoint,
         :Supply_Water_Temperature_Proportional_Band_Setpoint .
+
+:HWS_Heat_Exchanger_Supply_Water_Temperature_Sensor a owl:Class ;
+    rdfs:label "HWS Heat Exchanger Discharge Water Temperature Sensor"@en,
+        "HWS Heat Exchanger Supply Water Temperature Sensor"@en ;
+    rdfs:subClassOf :Heat_Exchanger_Discharge_Water_Temperature_Sensor,
+        :Heat_Exchanger_Supply_Water_Temperature_Sensor,
+        :Supply_Water_Temperature_Sensor .
 
 :HWS_High_Temperature_Hot_Water_Discharge_Temperature_Sensor a owl:Class ;
     rdfs:label "HWS High Temperature Hot Water Discharge Temperature Sensor"@en,
@@ -5957,16 +5984,7 @@
     rdfs:label "HWS Hot Water Meter"@en ;
     rdfs:subClassOf :Hot_Water_Meter .
 
-:HWS_Medium_Temperature_Hot_Water_Discharge_Temperature_High_Reset_Setpoint a owl:Class ;
-    rdfs:label "HWS Medium Temperature Hot Water Discharge Temperature High Reset Setpoint"@en,
-        "HWS Medium Temperature Hot Water Supply Temperature High Reset Setpoint"@en ;
-    rdfs:subClassOf :HWS_Discharge_Water_Temperature_Setpoint,
-        :HWS_Supply_Water_Temperature_Setpoint,
-        :Hot_Water_Supply_Temperature_High_Reset_Setpoint,
-        :Medium_Temperature_Hot_Water_Discharge_Temperature_High_Reset_Setpoint,
-        :Medium_Temperature_Hot_Water_Supply_Temperature_High_Reset_Setpoint .
-
-:HWS_Medium_Temperature_Hot_Water_Supply_Temperature_Low_Reset_Setpoint a owl:Class ;
+:HWS_Medium_Temperature_Hot_Water_Discharge_Temperature_Low_Reset_Setpoint a owl:Class ;
     rdfs:label "HWS Medium Temperature Hot Water Discharge Temperature Low Reset Setpoint"@en,
         "HWS Medium Temperature Hot Water Supply Temperature Low Reset Setpoint"@en ;
     rdfs:subClassOf :HWS_Discharge_Water_Temperature_Setpoint,
@@ -5975,7 +5993,7 @@
         :Medium_Temperature_Hot_Water_Discharge_Temperature_Low_Reset_Setpoint,
         :Medium_Temperature_Hot_Water_Supply_Temperature_Low_Reset_Setpoint .
 
-:HWS_Medium_Temperature_Hot_Water_Supply_Temperature_Sensor a owl:Class ;
+:HWS_Medium_Temperature_Hot_Water_Discharge_Temperature_Sensor a owl:Class ;
     rdfs:label "HWS Medium Temperature Hot Water Discharge Temperature Sensor"@en,
         "HWS Medium Temperature Hot Water Supply Temperature Sensor"@en ;
     rdfs:subClassOf :HWS_Hot_Water_Discharge_Temperature_Sensor,
@@ -5984,13 +6002,22 @@
         :Medium_Temperature_Hot_Water_Discharge_Temperature_Sensor,
         :Medium_Temperature_Hot_Water_Supply_Temperature_Sensor .
 
-:HX a owl:Class ;
-    rdfs:label "Heat Exchanger"@en ;
-    rdfs:subClassOf :Coil .
+:HWS_Medium_Temperature_Hot_Water_Supply_Temperature_High_Reset_Setpoint a owl:Class ;
+    rdfs:label "HWS Medium Temperature Hot Water Discharge Temperature High Reset Setpoint"@en,
+        "HWS Medium Temperature Hot Water Supply Temperature High Reset Setpoint"@en ;
+    rdfs:subClassOf :HWS_Discharge_Water_Temperature_Setpoint,
+        :HWS_Supply_Water_Temperature_Setpoint,
+        :Hot_Water_Supply_Temperature_High_Reset_Setpoint,
+        :Medium_Temperature_Hot_Water_Discharge_Temperature_High_Reset_Setpoint,
+        :Medium_Temperature_Hot_Water_Supply_Temperature_High_Reset_Setpoint .
 
 :Hail_Sensor a owl:Class ;
     rdfs:label "Hail Sensor"@en ;
     rdfs:subClassOf :Sensor .
+
+:Heat_Exchanger a owl:Class ;
+    rdfs:label "Heat Exchanger"@en ;
+    rdfs:subClassOf :Coil .
 
 :Heat_Exchanger_Start_Stop_Command a owl:Class ;
     rdfs:label "Heat Exchanger Start Stop Command"@en ;
@@ -6711,7 +6738,15 @@
     rdfs:label "Solar_Panel PV Current Output Sensor"@en,
         "Solar_Panel Photovoltaic Current Output Sensor"@en ;
     rdfs:subClassOf :PV_Current_Output_Sensor,
-        :Photovoltaic_Current_Output_Sensor .
+        :Photovoltaic_Current_Output_Sensor ;
+    owl:equivalentClass :Solar_Panel_Photovoltaic_Current_Output_Sensor .
+
+:Solar_Panel_Photovoltaic_Current_Output_Sensor a owl:Class ;
+    rdfs:label "Solar_Panel PV Current Output Sensor"@en,
+        "Solar_Panel Photovoltaic Current Output Sensor"@en ;
+    rdfs:subClassOf :PV_Current_Output_Sensor,
+        :Photovoltaic_Current_Output_Sensor ;
+    owl:equivalentClass :Solar_Panel_PV_Current_Output_Sensor .
 
 :Solar_Radiance_Sensor a owl:Class ;
     rdfs:label "Solar Radiance Sensor"@en ;
@@ -6758,18 +6793,11 @@
     rdfs:label "Steam Usage Today Meter"@en ;
     rdfs:subClassOf :Steam_Usage_Meter .
 
-:Supply_Air_Damper_Max_Position_Setpoint a owl:Class ;
-    rdfs:label "Discharge Air Damper Max Position Setpoint"@en,
-        "Supply Air Damper Max Position Setpoint"@en ;
-    rdfs:subClassOf :Damper_Position_Setpoint,
-        :Discharge_Air,
-        :Supply_Air .
-
 :Supply_Fan a owl:Class ;
     rdfs:label "Supply Fan"@en ;
     rdfs:subClassOf :Fan .
 
-:Supply_Fan_Supply_Air_Static_Pressure_Integral_Time_Setpoint a owl:Class ;
+:Supply_Fan_Discharge_Air_Static_Pressure_Integral_Time_Setpoint a owl:Class ;
     rdfs:label "Supply_Fan Discharge Air Static Pressure Integral Time Setpoint"@en,
         "Supply_Fan Supply Air Static Pressure Integral Time Setpoint"@en ;
     rdfs:subClassOf :Discharge_Air_Static_Pressure_Integral_Time_Setpoint,
@@ -6841,10 +6869,6 @@
     rdfs:subClassOf :Mode_Setpoint ;
     skos:definition ""@en .
 
-:VAV a owl:Class ;
-    rdfs:label "Variable Air Volume"@en ;
-    rdfs:subClassOf :Terminal_Unit .
-
 :VAV_Booster_Fan_Command a owl:Class ;
     rdfs:label "VAV Booster Fan Command"@en ;
     rdfs:subClassOf :Booster_Fan_Command .
@@ -6858,19 +6882,18 @@
     rdfs:label "VAV Cooling Command"@en ;
     rdfs:subClassOf :Cooling_Command .
 
-:VAV_Cooling_Demand_Setpoint a owl:Class ;
+:VAV_Cooling_Request_Setpoint a owl:Class ;
     rdfs:label "VAV Cooling Demand Setpoint"@en,
         "VAV Cooling Request Setpoint"@en ;
     rdfs:subClassOf :Cooling_Demand_Setpoint,
         :Cooling_Request_Setpoint,
         :Demand_Setpoint .
 
-:VAV_Discharge_Air_Duct_Pressure_Status a owl:Class ;
-    rdfs:label "VAV Discharge Air Duct Pressure Status"@en,
-        "VAV Supply Air Duct Pressure Status"@en ;
-    rdfs:subClassOf :Discharge_Air_Duct_Pressure_Status,
-        :Supply_Air_Duct_Pressure_Status ;
-    owl:equivalentClass :VAV_Supply_Air_Duct_Pressure_Status .
+:VAV_Discharge_Air_Flow_Command a owl:Class ;
+    rdfs:label "VAV Discharge Air Flow Command"@en,
+        "VAV Supply Air Flow Command"@en ;
+    rdfs:subClassOf :Discharge_Air_Flow_Command,
+        :Supply_Air_Flow_Command .
 
 :VAV_Discharge_Air_Temperature_Cooling_Setpoint a owl:Class ;
     rdfs:label "VAV Discharge Air Temperature Cooling Setpoint"@en,
@@ -6889,11 +6912,11 @@
         :VAV_Supply_Air_Temperature_Setpoint ;
     owl:equivalentClass :VAV_Supply_Air_Temperature_Heating_Setpoint .
 
-:VAV_Discharge_Air_Velocity_Pressure_Sensor a owl:Class ;
-    rdfs:label "VAV Discharge Air Velocity Pressure Sensor"@en,
-        "VAV Supply Air Velocity Pressure Sensor"@en ;
-    rdfs:subClassOf :Discharge_Air_Velocity_Pressure_Sensor,
-        :Supply_Air_Velocity_Pressure_Sensor .
+:VAV_Discharge_Air_Temperature_Sensor a owl:Class ;
+    rdfs:label "VAV Discharge Air Temperature Sensor"@en,
+        "VAV Supply Air Temperature Sensor"@en ;
+    rdfs:subClassOf :Discharge_Air_Temperature_Sensor,
+        :Supply_Air_Temperature_Sensor .
 
 :VAV_Heating_Command a owl:Class ;
     rdfs:label "VAV Heating Command"@en ;
@@ -6913,18 +6936,6 @@
     rdfs:subClassOf :Occupancy_Command,
         :Occupied_Command .
 
-:VAV_Occupied_Cooling_Max_Discharge_Air_Flow_Setpoint a owl:Class ;
-    rdfs:label "VAV Occupied Cooling Max Discharge Air Flow Setpoint"@en,
-        "VAV Occupied Cooling Max Supply Air Flow Setpoint"@en ;
-    rdfs:subClassOf :Occupied_Cooling_Discharge_Air_Flow_Setpoint,
-        :Occupied_Cooling_Max_Discharge_Air_Flow_Setpoint,
-        :Occupied_Cooling_Max_Supply_Air_Flow_Setpoint,
-        :VAV_Cooling_Max_Discharge_Air_Flow_Setpoint,
-        :VAV_Cooling_Max_Supply_Air_Flow_Setpoint,
-        :VAV_Occupied_Cooling_Discharge_Air_Flow_Setpoint,
-        :VAV_Occupied_Cooling_Supply_Air_Flow_Setpoint ;
-    owl:equivalentClass :VAV_Occupied_Cooling_Max_Supply_Air_Flow_Setpoint .
-
 :VAV_Occupied_Cooling_Max_Supply_Air_Flow_Setpoint a owl:Class ;
     rdfs:label "VAV Occupied Cooling Max Discharge Air Flow Setpoint"@en,
         "VAV Occupied Cooling Max Supply Air Flow Setpoint"@en ;
@@ -6934,8 +6945,7 @@
         :VAV_Cooling_Max_Discharge_Air_Flow_Setpoint,
         :VAV_Cooling_Max_Supply_Air_Flow_Setpoint,
         :VAV_Occupied_Cooling_Discharge_Air_Flow_Setpoint,
-        :VAV_Occupied_Cooling_Supply_Air_Flow_Setpoint ;
-    owl:equivalentClass :VAV_Occupied_Cooling_Max_Discharge_Air_Flow_Setpoint .
+        :VAV_Occupied_Cooling_Supply_Air_Flow_Setpoint .
 
 :VAV_Occupied_Cooling_Min_Discharge_Air_Flow_Setpoint a owl:Class ;
     rdfs:label "VAV Occupied Cooling Min Discharge Air Flow Setpoint"@en,
@@ -6982,14 +6992,7 @@
     rdfs:label "VAV Discharge Air Duct Pressure Status"@en,
         "VAV Supply Air Duct Pressure Status"@en ;
     rdfs:subClassOf :Discharge_Air_Duct_Pressure_Status,
-        :Supply_Air_Duct_Pressure_Status ;
-    owl:equivalentClass :VAV_Discharge_Air_Duct_Pressure_Status .
-
-:VAV_Supply_Air_Flow_Command a owl:Class ;
-    rdfs:label "VAV Discharge Air Flow Command"@en,
-        "VAV Supply Air Flow Command"@en ;
-    rdfs:subClassOf :Discharge_Air_Flow_Command,
-        :Supply_Air_Flow_Command .
+        :Supply_Air_Duct_Pressure_Status .
 
 :VAV_Supply_Air_Flow_Sensor a owl:Class ;
     rdfs:label "VAV Discharge Air Flow Sensor"@en,
@@ -7007,13 +7010,13 @@
         :VAV_Supply_Air_Temperature_Setpoint ;
     owl:equivalentClass :VAV_Discharge_Air_Temperature_Heating_Setpoint .
 
-:VAV_Supply_Air_Temperature_Sensor a owl:Class ;
-    rdfs:label "VAV Discharge Air Temperature Sensor"@en,
-        "VAV Supply Air Temperature Sensor"@en ;
-    rdfs:subClassOf :Discharge_Air_Temperature_Sensor,
-        :Supply_Air_Temperature_Sensor .
+:VAV_Supply_Air_Velocity_Pressure_Sensor a owl:Class ;
+    rdfs:label "VAV Discharge Air Velocity Pressure Sensor"@en,
+        "VAV Supply Air Velocity Pressure Sensor"@en ;
+    rdfs:subClassOf :Discharge_Air_Velocity_Pressure_Sensor,
+        :Supply_Air_Velocity_Pressure_Sensor .
 
-:VAV_Unoccupied_Cooling_Discharge_Air_Flow_Setpoint a owl:Class ;
+:VAV_Unoccupied_Cooling_Supply_Air_Flow_Setpoint a owl:Class ;
     rdfs:label "VAV Unoccupied Cooling Discharge Air Flow Setpoint"@en,
         "VAV Unoccupied Cooling Supply Air Flow Setpoint"@en ;
     rdfs:subClassOf :Cooling_Discharge_Air_Flow_Setpoint,
@@ -7027,10 +7030,6 @@
     rdfs:subClassOf :Zone_Temperature_Sensor ;
     skos:definition ""@en .
 
-:VFD a owl:Class ;
-    rdfs:label "Variable Frequency Drive"@en ;
-    rdfs:subClassOf :HVAC .
-
 :VFD_Alarm a owl:Class ;
     rdfs:label "VFD Alarm"@en ;
     rdfs:subClassOf :Alarm .
@@ -7039,7 +7038,7 @@
     rdfs:label "VFD Frequency Command"@en ;
     rdfs:subClassOf :Frequency_Command .
 
-:VFD_Hand_Auto_Status a owl:Class ;
+:VFD_Manual_Auto_Status a owl:Class ;
     rdfs:label "VFD Hand Auto Status"@en,
         "VFD Manual Auto Status"@en ;
     rdfs:subClassOf :Hand_Auto_Status,
@@ -7052,7 +7051,8 @@
         "VFD Start Stop Status"@en ;
     rdfs:subClassOf :On_Off_Status,
         :Start_Stop_Status,
-        :VFD_Status .
+        :VFD_Status ;
+    owl:equivalentClass :VFD_Start_Stop_Status .
 
 :VFD_Power_Meter a owl:Class ;
     rdfs:label "VFD Power Meter"@en ;
@@ -7062,14 +7062,6 @@
     rdfs:label "VFD Start Stop Command"@en ;
     rdfs:subClassOf :Start_Stop_Command .
 
-:VFD_Start_Stop_Status a owl:Class ;
-    rdfs:label "VFD On Off Status"@en,
-        "VFD Start Stop Status"@en ;
-    rdfs:subClassOf :On_Off_Status,
-        :Start_Stop_Status,
-        :VFD_Status ;
-    owl:equivalentClass :VFD_On_Off_Status .
-
 :Valve_Pressure_Sensor a owl:Class ;
     rdfs:label "Valve Pressure Sensor"@en ;
     rdfs:subClassOf :Pressure_Sensor .
@@ -7077,6 +7069,14 @@
 :Valve_Status a owl:Class ;
     rdfs:label "Valve Status"@en ;
     rdfs:subClassOf :Status .
+
+:Variable_Air_Volume a owl:Class ;
+    rdfs:label "Variable Air Volume"@en ;
+    rdfs:subClassOf :Terminal_Unit .
+
+:Variable_Frequency_Drive a owl:Class ;
+    rdfs:label "Variable Frequency Drive"@en ;
+    rdfs:subClassOf :HVAC .
 
 :Vent_Operating_Mode_Status a owl:Class ;
     rdfs:label "Vent Operating Mode Status"@en ;
@@ -7099,13 +7099,13 @@
     rdfs:label "Water Loss Alarm"@en ;
     rdfs:subClassOf :Alarm .
 
-:Water_System_DI_Water_Alarm a owl:Class ;
+:Water_System_Deionised_Water_Alarm a owl:Class ;
     rdfs:label "Water_System DI Water Alarm"@en,
         "Water_System Deionised Water Alarm"@en ;
     rdfs:subClassOf :DI_Water_Alarm,
         :Deionised_Water_Alarm .
 
-:Water_System_DI_Water_Level_Sensor a owl:Class ;
+:Water_System_Deionised_Water_Level_Sensor a owl:Class ;
     rdfs:label "Water_System DI Water Level Sensor"@en,
         "Water_System Deionised Water Level Sensor"@en ;
     rdfs:subClassOf :DI_Water_Level_Sensor,
@@ -7115,19 +7115,11 @@
     rdfs:label "Water_System Discharge Water Temperature Setpoint"@en,
         "Water_System Supply Water Temperature Setpoint"@en ;
     rdfs:subClassOf :Discharge_Water_Temperature_Setpoint,
-        :Supply_Water_Temperature_Setpoint ;
-    owl:equivalentClass :Water_System_Supply_Water_Temperature_Setpoint .
+        :Supply_Water_Temperature_Setpoint .
 
 :Water_System_Pump_Status a owl:Class ;
     rdfs:label "Water_System Pump Status"@en ;
     rdfs:subClassOf :Pump_Status .
-
-:Water_System_Supply_Water_Temperature_Setpoint a owl:Class ;
-    rdfs:label "Water_System Discharge Water Temperature Setpoint"@en,
-        "Water_System Supply Water Temperature Setpoint"@en ;
-    rdfs:subClassOf :Discharge_Water_Temperature_Setpoint,
-        :Supply_Water_Temperature_Setpoint ;
-    owl:equivalentClass :Water_System_Discharge_Water_Temperature_Setpoint .
 
 :Water_System_Valve_Command a owl:Class ;
     rdfs:label "Water_System Valve Command"@en ;
@@ -7155,16 +7147,6 @@
     rdfs:label "Yearly Steam Usage Meter"@en ;
     rdfs:subClassOf :Steam_Usage_Meter .
 
-:Zone_Cooling_Temperature_Setpoint a owl:Class ;
-    rdfs:label "Zone Cooling Temperature Setpoint"@en,
-        "Zone Temperature High Setpoint"@en ;
-    rdfs:subClassOf :Zone_Temperature_Setpoint .
-
-:Zone_Heating_Temperature_Setpoint a owl:Class ;
-    rdfs:label "Zone Heating Temperature Setpoint"@en,
-        "Zone Temperature Low Setpoint"@en ;
-    rdfs:subClassOf :Zone_Temperature_Setpoint .
-
 :Zone_Humidity_Sensor a owl:Class ;
     rdfs:label "Zone Humidity Sensor"@en ;
     rdfs:subClassOf :Humidity_Sensor .
@@ -7172,6 +7154,16 @@
 :Zone_Standby_Load_Shed_Command a owl:Class ;
     rdfs:label "Zone Standby Load Shed Command"@en ;
     rdfs:subClassOf :Standby_Load_Shed_Command .
+
+:Zone_Temperature_High_Setpoint a owl:Class ;
+    rdfs:label "Zone Cooling Temperature Setpoint"@en,
+        "Zone Temperature High Setpoint"@en ;
+    rdfs:subClassOf :Zone_Temperature_Setpoint .
+
+:Zone_Temperature_Low_Setpoint a owl:Class ;
+    rdfs:label "Zone Heating Temperature Setpoint"@en,
+        "Zone Temperature Low Setpoint"@en ;
+    rdfs:subClassOf :Zone_Temperature_Setpoint .
 
 :Zone_Unoccupied_Load_Shed_Command a owl:Class ;
     rdfs:label "Zone Unoccupied Load Shed Command"@en ;
@@ -7301,12 +7293,12 @@
     rdfs:label "Condensate Leak Alarm"@en ;
     rdfs:subClassOf :Alarm .
 
-:Cooling_Coil_Supply_Air_Temperature_Sensor a owl:Class ;
+:Cooling_Coil_Discharge_Air_Temperature_Sensor a owl:Class ;
     rdfs:label "Cooling Coil Discharge Air Temperature Sensor"@en,
         "Cooling Coil Supply Air Temperature Sensor"@en ;
     rdfs:subClassOf :Discharge_Air_Temperature_Sensor,
         :Supply_Air_Temperature_Sensor ;
-    owl:equivalentClass :Cooling_Coil_Discharge_Air_Temperature_Sensor .
+    owl:equivalentClass :Cooling_Coil_Supply_Air_Temperature_Sensor .
 
 :Cooling_Discharge_Air_Temperature_Dead_Band_Setpoint a owl:Class ;
     rdfs:label "Cooling Discharge Air Temperature Dead Band Setpoint"@en,
@@ -7316,21 +7308,29 @@
         :Supply_Air_Temperature_Cooling_Setpoint ;
     owl:equivalentClass :Cooling_Supply_Air_Temperature_Dead_Band_Setpoint .
 
-:Cooling_Discharge_Air_Temperature_Integral_Time_Setpoint a owl:Class ;
-    rdfs:label "Cooling Discharge Air Temperature Integral Time Setpoint"@en,
-        "Cooling Supply Air Temperature Integral Time Setpoint"@en ;
-    rdfs:subClassOf :Discharge_Air_Temperature_Cooling_Setpoint,
-        :Integral_Time_Setpoint,
-        :Supply_Air_Temperature_Cooling_Setpoint ;
-    owl:equivalentClass :Cooling_Supply_Air_Temperature_Integral_Time_Setpoint .
-
-:Cooling_Supply_Air_Temperature_Proportional_Band_Setpoint a owl:Class ;
+:Cooling_Discharge_Air_Temperature_Proportional_Band_Setpoint a owl:Class ;
     rdfs:label "Cooling Discharge Air Temperature Proportional Band Setpoint"@en,
         "Cooling Supply Air Temperature Proportional Band Setpoint"@en ;
     rdfs:subClassOf :Discharge_Air_Temperature_Cooling_Setpoint,
         :Proportional_Band_Setpoint,
         :Supply_Air_Temperature_Cooling_Setpoint ;
-    owl:equivalentClass :Cooling_Discharge_Air_Temperature_Proportional_Band_Setpoint .
+    owl:equivalentClass :Cooling_Supply_Air_Temperature_Proportional_Band_Setpoint .
+
+:Cooling_Supply_Air_Temperature_Integral_Time_Setpoint a owl:Class ;
+    rdfs:label "Cooling Discharge Air Temperature Integral Time Setpoint"@en,
+        "Cooling Supply Air Temperature Integral Time Setpoint"@en ;
+    rdfs:subClassOf :Discharge_Air_Temperature_Cooling_Setpoint,
+        :Integral_Time_Setpoint,
+        :Supply_Air_Temperature_Cooling_Setpoint ;
+    owl:equivalentClass :Cooling_Discharge_Air_Temperature_Integral_Time_Setpoint .
+
+:DI_Water_Alarm a owl:Class ;
+    rdfs:label "DI Water Alarm"@en,
+        "Deionised Water Alarm"@en ;
+    rdfs:subClassOf :Alarm,
+        :DI_Water,
+        :Deionised_Water ;
+    owl:equivalentClass :Deionised_Water_Alarm .
 
 :DI_Water_Level_Sensor a owl:Class ;
     rdfs:label "DI Water Level Sensor"@en,
@@ -7339,14 +7339,6 @@
         :Deionised_Water,
         :Water_Level_Sensor ;
     owl:equivalentClass :Deionised_Water_Level_Sensor .
-
-:Deionised_Water_Alarm a owl:Class ;
-    rdfs:label "DI Water Alarm"@en,
-        "Deionised Water Alarm"@en ;
-    rdfs:subClassOf :Alarm,
-        :DI_Water,
-        :Deionised_Water ;
-    owl:equivalentClass :DI_Water_Alarm .
 
 :DemandResponse_Load_Shed_Command a owl:Class ;
     rdfs:label "DemandResponse Load Shed Command"@en ;
@@ -7364,13 +7356,13 @@
     rdfs:label "Direction Status"@en ;
     rdfs:subClassOf :Status .
 
-:Discharge_Air_Flow_Demand_Setpoint a owl:Class ;
-    rdfs:label "Discharge Air Flow Demand Setpoint"@en,
-        "Supply Air Flow Demand Setpoint"@en ;
-    rdfs:subClassOf :Demand_Setpoint,
-        :Discharge_Air_Flow_Setpoint,
-        :Supply_Air_Flow_Setpoint ;
-    owl:equivalentClass :Supply_Air_Flow_Demand_Setpoint .
+:Discharge_Air_Duct_Pressure_Status a owl:Class ;
+    rdfs:label "Discharge Air Duct Pressure Status"@en,
+        "Supply Air Duct Pressure Status"@en ;
+    rdfs:subClassOf :Discharge_Air,
+        :Pressure_Status,
+        :Supply_Air ;
+    owl:equivalentClass :Supply_Air_Duct_Pressure_Status .
 
 :Discharge_Air_Flow_Reset_Setpoint a owl:Class ;
     rdfs:label "Discharge Air Flow Reset Setpoint"@en ;
@@ -7384,37 +7376,21 @@
         :Supply_Air ;
     owl:equivalentClass :Supply_Air_Humidity_Sensor .
 
-:Discharge_Air_Smoke_Detected_Alarm a owl:Class ;
-    rdfs:label "Discharge Air Smoke Detected Alarm"@en,
-        "Supply Air Smoke Detected Alarm"@en ;
-    rdfs:subClassOf :Discharge_Air,
-        :Smoke_Detected_Alarm,
-        :Supply_Air ;
-    owl:equivalentClass :Supply_Air_Smoke_Detected_Alarm .
+:Discharge_Fan_Air_Flow_Sensor a owl:Class ;
+    rdfs:label "Discharge Fan Air Flow Sensor"@en,
+        "Supply Fan Air Flow Sensor"@en ;
+    rdfs:subClassOf :Discharge_Air_Flow_Sensor,
+        :Fan_Air_Flow_Sensor,
+        :Supply_Air_Flow_Sensor ;
+    owl:equivalentClass :Supply_Fan_Air_Flow_Sensor .
 
-:Discharge_Air_Static_Pressure_Increase_Decrease_Step_Setpoint a owl:Class ;
-    rdfs:label "Discharge Air Static Pressure Increase Decrease Step Setpoint"@en,
-        "Supply Air Static Pressure Increase Decrease Step Setpoint"@en ;
-    rdfs:subClassOf :Discharge_Air_Static_Pressure_Setpoint,
-        :Increase_Decrease_Step_Setpoint,
-        :Supply_Air_Static_Pressure_Setpoint ;
-    owl:equivalentClass :Supply_Air_Static_Pressure_Increase_Decrease_Step_Setpoint .
-
-:Discharge_Air_Static_Pressure_Sensor a owl:Class ;
-    rdfs:label "Discharge Air Static Pressure Sensor"@en,
-        "Supply Air Static Pressure Sensor"@en ;
-    rdfs:subClassOf :Discharge_Air,
-        :Static_Pressure_Sensor,
-        :Supply_Air ;
-    owl:equivalentClass :Supply_Air_Static_Pressure_Sensor .
-
-:Discharge_Air_Temperature_Reset_Differential_Setpoint a owl:Class ;
-    rdfs:label "Discharge Air Temperature Reset Differential Setpoint"@en,
-        "Supply Air Temperature Reset Differential Setpoint"@en ;
-    rdfs:subClassOf :Discharge_Air_Temperature_Setpoint,
-        :Supply_Air_Temperature_Setpoint,
-        :Temperature_Differential_Reset_Setpoint ;
-    owl:equivalentClass :Supply_Air_Temperature_Reset_Differential_Setpoint .
+:Discharge_Fan_Start_Stop_Command a owl:Class ;
+    rdfs:label "Discharge Fan Start Stop Command"@en,
+        "Supply Fan Start Stop Command"@en ;
+    rdfs:subClassOf :Discharge_Fan_Command,
+        :Start_Stop_Command,
+        :Supply_Fan_Command ;
+    owl:equivalentClass :Supply_Fan_Start_Stop_Command .
 
 :Domestic_Hot_Water_Discharge_Temperature_Sensor a owl:Class ;
     rdfs:label "Domestic Hot Water Discharge Temperature Sensor"@en,
@@ -7424,31 +7400,40 @@
         :Hot_Water_Supply_Temperature_Sensor ;
     owl:equivalentClass :Domestic_Hot_Water_Supply_Temperature_Sensor .
 
-:Domestic_Hot_Water_Discharge_Temperature_Setpoint a owl:Class ;
+:Domestic_Hot_Water_Supply_Temperature_Setpoint a owl:Class ;
     rdfs:label "Domestic Hot Water Discharge Temperature Setpoint"@en,
         "Domestic Hot Water Supply Temperature Setpoint"@en ;
     rdfs:subClassOf :Discharge_Water_Temperature_Setpoint,
         :Domestic_Hot_Water,
         :Hot_Water_Supply_Temperature_Setpoint ;
-    owl:equivalentClass :Domestic_Hot_Water_Supply_Temperature_Setpoint .
+    owl:equivalentClass :Domestic_Hot_Water_Discharge_Temperature_Setpoint .
 
 :Economizer_Dewpoint_Setpoint a owl:Class ;
     rdfs:label "Economizer Dewpoint Setpoint"@en ;
     rdfs:subClassOf :Dewpoint_Setpoint .
 
-:Economizer_Status a owl:Class ;
-    rdfs:label "Economizer Status"@en ;
-    rdfs:subClassOf :Mode_Status ;
-    skos:definition ""@en .
-
-:Economizer_Supply_Air_Temperature_Dead_Band_Setpoint a owl:Class ;
+:Economizer_Discharge_Air_Temperature_Dead_Band_Setpoint a owl:Class ;
     rdfs:label "Economizer Discharge Air Temperature Dead Band Setpoint"@en,
         "Economizer Supply Air Temperature Dead Band Setpoint"@en ;
     rdfs:subClassOf :Dead_Band_Setpoint,
         :Discharge_Air_Temperature_Setpoint,
         :Economizer_Temperature_Setpoint,
         :Supply_Air_Temperature_Setpoint ;
-    owl:equivalentClass :Economizer_Discharge_Air_Temperature_Dead_Band_Setpoint .
+    owl:equivalentClass :Economizer_Supply_Air_Temperature_Dead_Band_Setpoint .
+
+:Economizer_Status a owl:Class ;
+    rdfs:label "Economizer Status"@en ;
+    rdfs:subClassOf :Mode_Status ;
+    skos:definition ""@en .
+
+:Economizer_Supply_Air_Temperature_Proportional_Band_Setpoint a owl:Class ;
+    rdfs:label "Economizer Discharge Air Temperature Proportional Band Setpoint"@en,
+        "Economizer Supply Air Temperature Proportional Band Setpoint"@en ;
+    rdfs:subClassOf :Discharge_Air_Temperature_Setpoint,
+        :Economizer_Temperature_Setpoint,
+        :Proportional_Band_Setpoint,
+        :Supply_Air_Temperature_Setpoint ;
+    owl:equivalentClass :Economizer_Discharge_Air_Temperature_Proportional_Band_Setpoint .
 
 :Emergency_Power_Off_Command a owl:Class ;
     rdfs:label "Emergency Power Off Command"@en ;
@@ -7543,21 +7528,6 @@
     rdfs:label "HWS Hot Water Return Temperature Sensor"@en ;
     rdfs:subClassOf :Hot_Water_Return_Temperature_Sensor .
 
-:Hand_Auto_Status a owl:Class ;
-    rdfs:label "Hand Auto Status"@en,
-        "Manual Auto Status"@en ;
-    rdfs:subClassOf :Status ;
-    owl:equivalentClass :Manual_Auto_Status ;
-    skos:definition ""@en .
-
-:Heat_Exchanger_Discharge_Water_Temperature_Dead_Band_Setpoint a owl:Class ;
-    rdfs:label "Heat Exchanger Discharge Water Temperature Dead Band Setpoint"@en,
-        "Heat Exchanger Supply Water Temperature Dead Band Setpoint"@en ;
-    rdfs:subClassOf :Heat_Exchanger_Discharge_Water_Temperature_Setpoint,
-        :Heat_Exchanger_Supply_Water_Temperature_Setpoint,
-        :Supply_Water_Temperature_Dead_Band_Setpoint ;
-    owl:equivalentClass :Heat_Exchanger_Supply_Water_Temperature_Dead_Band_Setpoint .
-
 :Heat_Exchanger_Discharge_Water_Temperature_Integral_Time_Setpoint a owl:Class ;
     rdfs:label "Heat Exchanger Discharge Water Temperature Integral Time Setpoint"@en,
         "Heat Exchanger Supply Water Temperature Integral Time Setpoint"@en ;
@@ -7565,6 +7535,14 @@
         :Heat_Exchanger_Supply_Water_Temperature_Setpoint,
         :Supply_Water_Temperature_Integral_Time_Setpoint ;
     owl:equivalentClass :Heat_Exchanger_Supply_Water_Temperature_Integral_Time_Setpoint .
+
+:Heat_Exchanger_Discharge_Water_Temperature_Proportional_Band_Setpoint a owl:Class ;
+    rdfs:label "Heat Exchanger Discharge Water Temperature Proportional Band Setpoint"@en,
+        "Heat Exchanger Supply Water Temperature Proportional Band Setpoint"@en ;
+    rdfs:subClassOf :Heat_Exchanger_Discharge_Water_Temperature_Setpoint,
+        :Heat_Exchanger_Supply_Water_Temperature_Setpoint,
+        :Supply_Water_Temperature_Proportional_Band_Setpoint ;
+    owl:equivalentClass :Heat_Exchanger_Supply_Water_Temperature_Proportional_Band_Setpoint .
 
 :Heat_Exchanger_Supply_Water_Temperature_Sensor a owl:Class ;
     rdfs:label "Heat Exchanger Discharge Water Temperature Sensor"@en,
@@ -7579,16 +7557,24 @@
     rdfs:subClassOf :Enable_Status,
         :System_Status .
 
-:Heat_Wheel_Supply_Air_Temperature_Sensor a owl:Class ;
+:Heat_Wheel_Discharge_Air_Temperature_Sensor a owl:Class ;
     rdfs:label "Heat Wheel Discharge Air Temperature Sensor"@en,
         "Heat Wheel Supply Air Temperature Sensor"@en ;
     rdfs:subClassOf :Discharge_Air_Temperature_Sensor,
         :Supply_Air_Temperature_Sensor ;
-    owl:equivalentClass :Heat_Wheel_Discharge_Air_Temperature_Sensor .
+    owl:equivalentClass :Heat_Wheel_Supply_Air_Temperature_Sensor .
 
 :Heating_Command a owl:Class ;
     rdfs:label "Heating Command"@en ;
     rdfs:subClassOf :Command .
+
+:Heating_Discharge_Air_Temperature_Integral_Time_Setpoint a owl:Class ;
+    rdfs:label "Heating Discharge Air Temperature Integral Time Setpoint"@en,
+        "Heating Supply Air Temperature Integral Time Setpoint"@en ;
+    rdfs:subClassOf :Discharge_Air_Temperature_Heating_Setpoint,
+        :Integral_Time_Setpoint,
+        :Supply_Air_Temperature_Heating_Setpoint ;
+    owl:equivalentClass :Heating_Supply_Air_Temperature_Integral_Time_Setpoint .
 
 :Heating_Supply_Air_Temperature_Dead_Band_Setpoint a owl:Class ;
     rdfs:label "Heating Discharge Air Temperature Dead Band Setpoint"@en,
@@ -7597,14 +7583,6 @@
         :Discharge_Air_Temperature_Heating_Setpoint,
         :Supply_Air_Temperature_Heating_Setpoint ;
     owl:equivalentClass :Heating_Discharge_Air_Temperature_Dead_Band_Setpoint .
-
-:Heating_Supply_Air_Temperature_Integral_Time_Setpoint a owl:Class ;
-    rdfs:label "Heating Discharge Air Temperature Integral Time Setpoint"@en,
-        "Heating Supply Air Temperature Integral Time Setpoint"@en ;
-    rdfs:subClassOf :Discharge_Air_Temperature_Heating_Setpoint,
-        :Integral_Time_Setpoint,
-        :Supply_Air_Temperature_Heating_Setpoint ;
-    owl:equivalentClass :Heating_Discharge_Air_Temperature_Integral_Time_Setpoint .
 
 :Heating_Supply_Air_Temperature_Proportional_Band_Setpoint a owl:Class ;
     rdfs:label "Heating Discharge Air Temperature Proportional Band Setpoint"@en,
@@ -7693,6 +7671,13 @@
     rdfs:label "Luminance Sensor"@en ;
     rdfs:subClassOf :Sensor .
 
+:Manual_Auto_Status a owl:Class ;
+    rdfs:label "Hand Auto Status"@en,
+        "Manual Auto Status"@en ;
+    rdfs:subClassOf :Status ;
+    owl:equivalentClass :Hand_Auto_Status ;
+    skos:definition ""@en .
+
 :Max_Discharge_Air_Static_Pressure_Setpoint a owl:Class ;
     rdfs:label "Max Discharge Air Static Pressure Setpoint"@en,
         "Max Supply Air Static Pressure Setpoint"@en ;
@@ -7713,29 +7698,6 @@
     rdfs:subClassOf :Differential_Pressure_Load_Shed_Status,
         :Medium_Temperature_Hot_Water .
 
-:Medium_Temperature_Hot_Water_Discharge_Temperature_High_Reset_Setpoint a owl:Class ;
-    rdfs:label "Medium Temperature Hot Water Discharge Temperature High Reset Setpoint"@en,
-        "Medium Temperature Hot Water Supply Temperature High Reset Setpoint"@en ;
-    rdfs:subClassOf :Discharge_Water_Temperature_Setpoint,
-        :Hot_Water_Supply_Temperature_High_Reset_Setpoint,
-        :Medium_Temperature_Hot_Water ;
-    owl:equivalentClass :Medium_Temperature_Hot_Water_Supply_Temperature_High_Reset_Setpoint .
-
-:Medium_Temperature_Hot_Water_Discharge_Temperature_Load_Shed_Setpoint a owl:Class ;
-    rdfs:label "Medium Temperature Hot Water Discharge Temperature Load Shed Setpoint"@en,
-        "Medium Temperature Hot Water Supply Temperature Load Shed Setpoint"@en ;
-    rdfs:subClassOf :Discharge_Water_Temperature_Setpoint,
-        :Load_Shed_Supply_Water_Temperature_Setpoint,
-        :Medium_Temperature_Hot_Water ;
-    owl:equivalentClass :Medium_Temperature_Hot_Water_Supply_Temperature_Load_Shed_Setpoint .
-
-:Medium_Temperature_Hot_Water_Discharge_Temperature_Load_Shed_Status a owl:Class ;
-    rdfs:label "Medium Temperature Hot Water Discharge Temperature Load Shed Status"@en,
-        "Medium Temperature Hot Water Supply Temperature Load Shed Status"@en ;
-    rdfs:subClassOf :Differential_Pressure_Load_Shed_Status,
-        :Medium_Temperature_Hot_Water ;
-    owl:equivalentClass :Medium_Temperature_Hot_Water_Supply_Temperature_Load_Shed_Status .
-
 :Medium_Temperature_Hot_Water_Discharge_Temperature_Low_Reset_Setpoint a owl:Class ;
     rdfs:label "Medium Temperature Hot Water Discharge Temperature Low Reset Setpoint"@en,
         "Medium Temperature Hot Water Supply Temperature Low Reset Setpoint"@en ;
@@ -7744,13 +7706,44 @@
         :Medium_Temperature_Hot_Water ;
     owl:equivalentClass :Medium_Temperature_Hot_Water_Supply_Temperature_Low_Reset_Setpoint .
 
-:Medium_Temperature_Hot_Water_Discharge_Temperature_Sensor a owl:Class ;
+:Medium_Temperature_Hot_Water_Supply_Temperature_High_Reset_Setpoint a owl:Class ;
+    rdfs:label "Medium Temperature Hot Water Discharge Temperature High Reset Setpoint"@en,
+        "Medium Temperature Hot Water Supply Temperature High Reset Setpoint"@en ;
+    rdfs:subClassOf :Discharge_Water_Temperature_Setpoint,
+        :Hot_Water_Supply_Temperature_High_Reset_Setpoint,
+        :Medium_Temperature_Hot_Water ;
+    owl:equivalentClass :Medium_Temperature_Hot_Water_Discharge_Temperature_High_Reset_Setpoint .
+
+:Medium_Temperature_Hot_Water_Supply_Temperature_Load_Shed_Setpoint a owl:Class ;
+    rdfs:label "Medium Temperature Hot Water Discharge Temperature Load Shed Setpoint"@en,
+        "Medium Temperature Hot Water Supply Temperature Load Shed Setpoint"@en ;
+    rdfs:subClassOf :Discharge_Water_Temperature_Setpoint,
+        :Load_Shed_Supply_Water_Temperature_Setpoint,
+        :Medium_Temperature_Hot_Water ;
+    owl:equivalentClass :Medium_Temperature_Hot_Water_Discharge_Temperature_Load_Shed_Setpoint .
+
+:Medium_Temperature_Hot_Water_Supply_Temperature_Load_Shed_Status a owl:Class ;
+    rdfs:label "Medium Temperature Hot Water Discharge Temperature Load Shed Status"@en,
+        "Medium Temperature Hot Water Supply Temperature Load Shed Status"@en ;
+    rdfs:subClassOf :Differential_Pressure_Load_Shed_Status,
+        :Medium_Temperature_Hot_Water ;
+    owl:equivalentClass :Medium_Temperature_Hot_Water_Discharge_Temperature_Load_Shed_Status .
+
+:Medium_Temperature_Hot_Water_Supply_Temperature_Sensor a owl:Class ;
     rdfs:label "Medium Temperature Hot Water Discharge Temperature Sensor"@en,
         "Medium Temperature Hot Water Supply Temperature Sensor"@en ;
     rdfs:subClassOf :Hot_Water_Discharge_Temperature_Sensor,
         :Hot_Water_Supply_Temperature_Sensor,
         :Medium_Temperature_Hot_Water ;
-    owl:equivalentClass :Medium_Temperature_Hot_Water_Supply_Temperature_Sensor .
+    owl:equivalentClass :Medium_Temperature_Hot_Water_Discharge_Temperature_Sensor .
+
+:Min_Supply_Air_Static_Pressure_Setpoint a owl:Class ;
+    rdfs:label "Min Discharge Air Static Pressure Setpoint"@en,
+        "Min Supply Air Static Pressure Setpoint"@en ;
+    rdfs:subClassOf :Discharge_Air_Static_Pressure_Setpoint,
+        :Static_Pressure_Min_Setpoint,
+        :Supply_Air_Static_Pressure_Setpoint ;
+    owl:equivalentClass :Min_Discharge_Air_Static_Pressure_Setpoint .
 
 :Min_Supply_Air_Temperature_Setpoint a owl:Class ;
     rdfs:label "Min Discharge Air Temperature Setpoint"@en,
@@ -7773,14 +7766,23 @@
         :Discharge_Air,
         :Occupied .
 
-:Occupied_Cooling_Min_Supply_Air_Flow_Setpoint a owl:Class ;
+:Occupied_Cooling_Max_Discharge_Air_Flow_Setpoint a owl:Class ;
+    rdfs:label "Occupied Cooling Max Discharge Air Flow Setpoint"@en,
+        "Occupied Cooling Max Supply Air Flow Setpoint"@en ;
+    rdfs:subClassOf :Cooling_Max_Discharge_Air_Flow_Setpoint,
+        :Cooling_Max_Supply_Air_Flow_Setpoint,
+        :Occupied_Cooling_Discharge_Air_Flow_Setpoint,
+        :Occupied_Cooling_Supply_Air_Flow_Setpoint ;
+    owl:equivalentClass :Occupied_Cooling_Max_Supply_Air_Flow_Setpoint .
+
+:Occupied_Cooling_Min_Discharge_Air_Flow_Setpoint a owl:Class ;
     rdfs:label "Occupied Cooling Min Discharge Air Flow Setpoint"@en,
         "Occupied Cooling Min Supply Air Flow Setpoint"@en ;
     rdfs:subClassOf :Cooling_Min_Discharge_Air_Flow_Setpoint,
         :Cooling_Min_Supply_Air_Flow_Setpoint,
         :Occupied_Cooling_Discharge_Air_Flow_Setpoint,
         :Occupied_Cooling_Supply_Air_Flow_Setpoint ;
-    owl:equivalentClass :Occupied_Cooling_Min_Discharge_Air_Flow_Setpoint .
+    owl:equivalentClass :Occupied_Cooling_Min_Supply_Air_Flow_Setpoint .
 
 :Occupied_Cooling_Supply_Air_Flow a owl:Class ;
     rdfs:label "Occupied Cooling Supply Air Flow"@en ;
@@ -7799,23 +7801,23 @@
     rdfs:subClassOf :Heating_Discharge_Air_Flow,
         :Occupied .
 
-:Occupied_Heating_Max_Discharge_Air_Flow_Setpoint a owl:Class ;
+:Occupied_Heating_Max_Supply_Air_Flow_Setpoint a owl:Class ;
     rdfs:label "Occupied Heating Max Discharge Air Flow Setpoint"@en,
         "Occupied Heating Max Supply Air Flow Setpoint"@en ;
     rdfs:subClassOf :Heating_Max_Discharge_Air_Flow_Setpoint,
         :Heating_Max_Supply_Air_Flow_Setpoint,
         :Occupied_Heating_Discharge_Air_Flow_Setpoint,
         :Occupied_Heating_Supply_Air_Flow_Setpoint ;
-    owl:equivalentClass :Occupied_Heating_Max_Supply_Air_Flow_Setpoint .
+    owl:equivalentClass :Occupied_Heating_Max_Discharge_Air_Flow_Setpoint .
 
-:Occupied_Heating_Min_Discharge_Air_Flow_Setpoint a owl:Class ;
+:Occupied_Heating_Min_Supply_Air_Flow_Setpoint a owl:Class ;
     rdfs:label "Occupied Heating Min Discharge Air Flow Setpoint"@en,
         "Occupied Heating Min Supply Air Flow Setpoint"@en ;
     rdfs:subClassOf :Heating_Min_Discharge_Air_Flow_Setpoint,
         :Heating_Min_Supply_Air_Flow_Setpoint,
         :Occupied_Heating_Discharge_Air_Flow_Setpoint,
         :Occupied_Heating_Supply_Air_Flow_Setpoint ;
-    owl:equivalentClass :Occupied_Heating_Min_Supply_Air_Flow_Setpoint .
+    owl:equivalentClass :Occupied_Heating_Min_Discharge_Air_Flow_Setpoint .
 
 :Occupied_Heating_Supply_Air_Flow a owl:Class ;
     rdfs:label "Occupied Heating Supply Air Flow"@en ;
@@ -7934,12 +7936,6 @@
     rdfs:subClassOf :Air_Temperature,
         :Return_Air .
 
-:Return_Discharge_Fan_Differential_Speed_Setpoint a owl:Class ;
-    rdfs:label "Return Discharge Fan Differential Speed Setpoint"@en,
-        "Return Supply Fan Differential Speed Setpoint"@en ;
-    rdfs:subClassOf :Return_Fan_Differential_Speed_Setpoint ;
-    owl:equivalentClass :Return_Supply_Fan_Differential_Speed_Setpoint .
-
 :Return_Fan_Differential_Speed a owl:Class ;
     rdfs:label "Return Fan Differential Speed"@en ;
     rdfs:subClassOf :Return_Fan .
@@ -7962,6 +7958,12 @@
     rdfs:label "Return Fan VFD Speed Status"@en ;
     rdfs:subClassOf :Return_Fan_Status,
         :VFD_Speed_Status .
+
+:Return_Supply_Fan_Differential_Speed_Setpoint a owl:Class ;
+    rdfs:label "Return Discharge Fan Differential Speed Setpoint"@en,
+        "Return Supply Fan Differential Speed Setpoint"@en ;
+    rdfs:subClassOf :Return_Fan_Differential_Speed_Setpoint ;
+    owl:equivalentClass :Return_Discharge_Fan_Differential_Speed_Setpoint .
 
 :Return_Water_Temperature_Sensor a owl:Class ;
     rdfs:label "Return Water Temperature Sensor"@en ;
@@ -8011,10 +8013,50 @@
         :Supply_Air ;
     owl:equivalentClass :Discharge_Air_Flow_Command .
 
+:Supply_Air_Flow_Demand_Setpoint a owl:Class ;
+    rdfs:label "Discharge Air Flow Demand Setpoint"@en,
+        "Supply Air Flow Demand Setpoint"@en ;
+    rdfs:subClassOf :Demand_Setpoint,
+        :Discharge_Air_Flow_Setpoint,
+        :Supply_Air_Flow_Setpoint ;
+    owl:equivalentClass :Discharge_Air_Flow_Demand_Setpoint .
+
 :Supply_Air_Proportional_Gain_Factor a owl:Class ;
     rdfs:label "Supply Air Proportional Gain Factor"@en ;
     rdfs:subClassOf :Proportional_Gain_Setpoint,
         :Supply_Air .
+
+:Supply_Air_Smoke_Detected_Alarm a owl:Class ;
+    rdfs:label "Discharge Air Smoke Detected Alarm"@en,
+        "Supply Air Smoke Detected Alarm"@en ;
+    rdfs:subClassOf :Discharge_Air,
+        :Smoke_Detected_Alarm,
+        :Supply_Air ;
+    owl:equivalentClass :Discharge_Air_Smoke_Detected_Alarm .
+
+:Supply_Air_Static_Pressure_Dead_Band_Setpoint a owl:Class ;
+    rdfs:label "Discharge Air Static Pressure Dead Band Setpoint"@en,
+        "Supply Air Static Pressure Dead Band Setpoint"@en ;
+    rdfs:subClassOf :Discharge_Air_Static_Pressure_Setpoint,
+        :Static_Pressure_Dead_Band_Setpoint,
+        :Supply_Air_Static_Pressure_Setpoint ;
+    owl:equivalentClass :Discharge_Air_Static_Pressure_Dead_Band_Setpoint .
+
+:Supply_Air_Static_Pressure_Increase_Decrease_Step_Setpoint a owl:Class ;
+    rdfs:label "Discharge Air Static Pressure Increase Decrease Step Setpoint"@en,
+        "Supply Air Static Pressure Increase Decrease Step Setpoint"@en ;
+    rdfs:subClassOf :Discharge_Air_Static_Pressure_Setpoint,
+        :Increase_Decrease_Step_Setpoint,
+        :Supply_Air_Static_Pressure_Setpoint ;
+    owl:equivalentClass :Discharge_Air_Static_Pressure_Increase_Decrease_Step_Setpoint .
+
+:Supply_Air_Static_Pressure_Sensor a owl:Class ;
+    rdfs:label "Discharge Air Static Pressure Sensor"@en,
+        "Supply Air Static Pressure Sensor"@en ;
+    rdfs:subClassOf :Discharge_Air,
+        :Static_Pressure_Sensor,
+        :Supply_Air ;
+    owl:equivalentClass :Discharge_Air_Static_Pressure_Sensor .
 
 :Supply_Air_Temperature_High_Limit_Alarm a owl:Class ;
     rdfs:label "Discharge Air Temperature High Limit Alarm"@en,
@@ -8023,6 +8065,14 @@
         :High_Temperature_Alarm,
         :Supply_Air ;
     owl:equivalentClass :Discharge_Air_Temperature_High_Limit_Alarm .
+
+:Supply_Air_Temperature_Reset_Differential_Setpoint a owl:Class ;
+    rdfs:label "Discharge Air Temperature Reset Differential Setpoint"@en,
+        "Supply Air Temperature Reset Differential Setpoint"@en ;
+    rdfs:subClassOf :Discharge_Air_Temperature_Setpoint,
+        :Supply_Air_Temperature_Setpoint,
+        :Temperature_Differential_Reset_Setpoint ;
+    owl:equivalentClass :Discharge_Air_Temperature_Reset_Differential_Setpoint .
 
 :Supply_Air_Temperature_Reset_High_Setpoint a owl:Class ;
     rdfs:label "Discharge Air Temperature Reset High Setpoint"@en,
@@ -8040,21 +8090,19 @@
         :Velocity_Pressure_Sensor ;
     owl:equivalentClass :Discharge_Air_Velocity_Pressure_Sensor .
 
-:Supply_Fan_Air_Flow_Sensor a owl:Class ;
-    rdfs:label "Discharge Fan Air Flow Sensor"@en,
-        "Supply Fan Air Flow Sensor"@en ;
-    rdfs:subClassOf :Discharge_Air_Flow_Sensor,
-        :Fan_Air_Flow_Sensor,
-        :Supply_Air_Flow_Sensor ;
-    owl:equivalentClass :Discharge_Fan_Air_Flow_Sensor .
+:Supply_Fan_Piezoelectric_Sensor a owl:Class ;
+    rdfs:label "Discharge Fan Piezoelectric Sensor"@en,
+        "Supply Fan Piezoelectric Sensor"@en ;
+    rdfs:subClassOf :Piezoelectric_Sensor ;
+    owl:equivalentClass :Discharge_Fan_Piezoelectric_Sensor .
 
-:Supply_Fan_Start_Stop_Command a owl:Class ;
-    rdfs:label "Discharge Fan Start Stop Command"@en,
-        "Supply Fan Start Stop Command"@en ;
-    rdfs:subClassOf :Discharge_Fan_Command,
-        :Start_Stop_Command,
-        :Supply_Fan_Command ;
-    owl:equivalentClass :Discharge_Fan_Start_Stop_Command .
+:Supply_Fan_Start_Stop_Status a owl:Class ;
+    rdfs:label "Discharge Fan Start Stop Status"@en,
+        "Supply Fan Start Stop Status"@en ;
+    rdfs:subClassOf :Discharge_Fan_Status,
+        :Fan_Start_Stop_Status,
+        :Supply_Fan_Status ;
+    owl:equivalentClass :Discharge_Fan_Start_Stop_Status .
 
 :Supply_Water_Differential_Pressure_Dead_Band_Setpoint a owl:Class ;
     rdfs:label "Supply Water Differential Pressure Dead Band Setpoint"@en ;
@@ -8111,7 +8159,7 @@
     rdfs:label "Unoccupied Load Shed Command"@en ;
     rdfs:subClassOf :Load_Shed_Command .
 
-:VAV_Cooling_Max_Supply_Air_Flow_Setpoint a owl:Class ;
+:VAV_Cooling_Max_Discharge_Air_Flow_Setpoint a owl:Class ;
     rdfs:label "VAV Cooling Max Discharge Air Flow Setpoint"@en,
         "VAV Cooling Max Supply Air Flow Setpoint"@en ;
     rdfs:subClassOf :Cooling_Discharge_Air_Flow_Setpoint,
@@ -8119,9 +8167,9 @@
         :Cooling_Max_Supply_Air_Flow_Setpoint,
         :VAV_Discharge_Air_Flow_Setpoint,
         :VAV_Supply_Air_Flow_Setpoint ;
-    owl:equivalentClass :VAV_Cooling_Max_Discharge_Air_Flow_Setpoint .
+    owl:equivalentClass :VAV_Cooling_Max_Supply_Air_Flow_Setpoint .
 
-:VAV_Cooling_Min_Supply_Air_Flow_Setpoint a owl:Class ;
+:VAV_Cooling_Min_Discharge_Air_Flow_Setpoint a owl:Class ;
     rdfs:label "VAV Cooling Min Discharge Air Flow Setpoint"@en,
         "VAV Cooling Min Supply Air Flow Setpoint"@en ;
     rdfs:subClassOf :Cooling_Discharge_Air_Flow_Setpoint,
@@ -8129,17 +8177,17 @@
         :Cooling_Min_Supply_Air_Flow_Setpoint,
         :VAV_Discharge_Air_Flow_Setpoint,
         :VAV_Supply_Air_Flow_Setpoint ;
-    owl:equivalentClass :VAV_Cooling_Min_Discharge_Air_Flow_Setpoint .
+    owl:equivalentClass :VAV_Cooling_Min_Supply_Air_Flow_Setpoint .
 
-:VAV_Heating_Min_Supply_Air_Flow_Setpoint a owl:Class ;
-    rdfs:label "VAV Heating Min Discharge Air Flow Setpoint"@en,
-        "VAV Heating Min Supply Air Flow Setpoint"@en ;
+:VAV_Heating_Max_Supply_Air_Flow_Setpoint a owl:Class ;
+    rdfs:label "VAV Heating Max Discharge Air Flow Setpoint"@en,
+        "VAV Heating Max Supply Air Flow Setpoint"@en ;
     rdfs:subClassOf :Heating_Discharge_Air_Flow_Setpoint,
-        :Heating_Min_Discharge_Air_Flow_Setpoint,
-        :Heating_Min_Supply_Air_Flow_Setpoint,
+        :Heating_Max_Discharge_Air_Flow_Setpoint,
+        :Heating_Max_Supply_Air_Flow_Setpoint,
         :VAV_Heating_Discharge_Air_Flow_Setpoint,
         :VAV_Heating_Supply_Air_Flow_Setpoint ;
-    owl:equivalentClass :VAV_Heating_Min_Discharge_Air_Flow_Setpoint .
+    owl:equivalentClass :VAV_Heating_Max_Discharge_Air_Flow_Setpoint .
 
 :VFD_Current_Sensor a owl:Class ;
     rdfs:label "VFD Current Sensor"@en ;
@@ -8155,6 +8203,14 @@
     rdfs:subClassOf :Run_Status,
         :Start_Stop_Status,
         :VFD_Status .
+
+:VFD_Start_Stop_Status a owl:Class ;
+    rdfs:label "VFD On Off Status"@en,
+        "VFD Start Stop Status"@en ;
+    rdfs:subClassOf :On_Off_Status,
+        :Start_Stop_Status,
+        :VFD_Status ;
+    owl:equivalentClass :VFD_On_Off_Status .
 
 :Velocity_Pressure_Setpoint a owl:Class ;
     rdfs:label "Velocity Pressure Setpoint"@en ;
@@ -8176,6 +8232,12 @@
 :Zone_Heating_Temperature_Dead_Band_Setpoint a owl:Class ;
     rdfs:label "Zone Heating Temperature Dead Band Setpoint"@en ;
     rdfs:subClassOf :Dead_Band_Setpoint .
+
+:AHU a owl:Class ;
+    rdfs:label "AHU"@en,
+        "Air Handler Unit"@en ;
+    rdfs:subClassOf :HVAC ;
+    owl:equivalentClass :Air_Handler_Unit .
 
 :AHU_Exhaust_Air_Stack_Flow_Setpoint a owl:Class ;
     rdfs:label "AHU Exhaust Air Stack Flow Setpoint"@en ;
@@ -8241,7 +8303,7 @@
         :Water_Discharge_Temperature_Sensor,
         :Water_Supply_Temperature_Sensor .
 
-:Cooling_Coil_Discharge_Air_Temperature_Sensor a owl:Class ;
+:Cooling_Coil_Supply_Air_Temperature_Sensor a owl:Class ;
     rdfs:label "Cooling Coil Discharge Air Temperature Sensor"@en,
         "Cooling Coil Supply Air Temperature Sensor"@en ;
     rdfs:subClassOf :Discharge_Air_Temperature_Sensor,
@@ -8251,11 +8313,11 @@
     rdfs:label "Cooling Command"@en ;
     rdfs:subClassOf :Command .
 
-:Cooling_Discharge_Air_Temperature_Proportional_Band_Setpoint a owl:Class ;
-    rdfs:label "Cooling Discharge Air Temperature Proportional Band Setpoint"@en,
-        "Cooling Supply Air Temperature Proportional Band Setpoint"@en ;
+:Cooling_Discharge_Air_Temperature_Integral_Time_Setpoint a owl:Class ;
+    rdfs:label "Cooling Discharge Air Temperature Integral Time Setpoint"@en,
+        "Cooling Supply Air Temperature Integral Time Setpoint"@en ;
     rdfs:subClassOf :Discharge_Air_Temperature_Cooling_Setpoint,
-        :Proportional_Band_Setpoint,
+        :Integral_Time_Setpoint,
         :Supply_Air_Temperature_Cooling_Setpoint .
 
 :Cooling_Supply_Air_Temperature_Dead_Band_Setpoint a owl:Class ;
@@ -8265,23 +8327,23 @@
         :Discharge_Air_Temperature_Cooling_Setpoint,
         :Supply_Air_Temperature_Cooling_Setpoint .
 
-:Cooling_Supply_Air_Temperature_Integral_Time_Setpoint a owl:Class ;
-    rdfs:label "Cooling Discharge Air Temperature Integral Time Setpoint"@en,
-        "Cooling Supply Air Temperature Integral Time Setpoint"@en ;
+:Cooling_Supply_Air_Temperature_Proportional_Band_Setpoint a owl:Class ;
+    rdfs:label "Cooling Discharge Air Temperature Proportional Band Setpoint"@en,
+        "Cooling Supply Air Temperature Proportional Band Setpoint"@en ;
     rdfs:subClassOf :Discharge_Air_Temperature_Cooling_Setpoint,
-        :Integral_Time_Setpoint,
+        :Proportional_Band_Setpoint,
         :Supply_Air_Temperature_Cooling_Setpoint .
 
-:DI_Water_Alarm a owl:Class ;
+:Damper_Position a owl:Class ;
+    rdfs:label "Damper Position"@en ;
+    rdfs:subClassOf :UndefinedMeasurement .
+
+:Deionised_Water_Alarm a owl:Class ;
     rdfs:label "DI Water Alarm"@en,
         "Deionised Water Alarm"@en ;
     rdfs:subClassOf :Alarm,
         :DI_Water,
         :Deionised_Water .
-
-:Damper_Position a owl:Class ;
-    rdfs:label "Damper Position"@en ;
-    rdfs:subClassOf :UndefinedMeasurement .
 
 :Deionised_Water_Level_Sensor a owl:Class ;
     rdfs:label "DI Water Level Sensor"@en,
@@ -8306,14 +8368,6 @@
     rdfs:label "Disable Command"@en ;
     rdfs:subClassOf :Command .
 
-:Discharge_Air_Duct_Pressure_Status a owl:Class ;
-    rdfs:label "Discharge Air Duct Pressure Status"@en,
-        "Supply Air Duct Pressure Status"@en ;
-    rdfs:subClassOf :Discharge_Air,
-        :Pressure_Status,
-        :Supply_Air ;
-    owl:equivalentClass :Supply_Air_Duct_Pressure_Status .
-
 :Discharge_Air_Flow_Command a owl:Class ;
     rdfs:label "Discharge Air Flow Command"@en,
         "Supply Air Flow Command"@en ;
@@ -8321,13 +8375,40 @@
         :Discharge_Air,
         :Supply_Air .
 
+:Discharge_Air_Flow_Demand_Setpoint a owl:Class ;
+    rdfs:label "Discharge Air Flow Demand Setpoint"@en,
+        "Supply Air Flow Demand Setpoint"@en ;
+    rdfs:subClassOf :Demand_Setpoint,
+        :Discharge_Air_Flow_Setpoint,
+        :Supply_Air_Flow_Setpoint .
+
+:Discharge_Air_Smoke_Detected_Alarm a owl:Class ;
+    rdfs:label "Discharge Air Smoke Detected Alarm"@en,
+        "Supply Air Smoke Detected Alarm"@en ;
+    rdfs:subClassOf :Discharge_Air,
+        :Smoke_Detected_Alarm,
+        :Supply_Air .
+
 :Discharge_Air_Static_Pressure_Dead_Band_Setpoint a owl:Class ;
     rdfs:label "Discharge Air Static Pressure Dead Band Setpoint"@en,
         "Supply Air Static Pressure Dead Band Setpoint"@en ;
     rdfs:subClassOf :Discharge_Air_Static_Pressure_Setpoint,
         :Static_Pressure_Dead_Band_Setpoint,
-        :Supply_Air_Static_Pressure_Setpoint ;
-    owl:equivalentClass :Supply_Air_Static_Pressure_Dead_Band_Setpoint .
+        :Supply_Air_Static_Pressure_Setpoint .
+
+:Discharge_Air_Static_Pressure_Increase_Decrease_Step_Setpoint a owl:Class ;
+    rdfs:label "Discharge Air Static Pressure Increase Decrease Step Setpoint"@en,
+        "Supply Air Static Pressure Increase Decrease Step Setpoint"@en ;
+    rdfs:subClassOf :Discharge_Air_Static_Pressure_Setpoint,
+        :Increase_Decrease_Step_Setpoint,
+        :Supply_Air_Static_Pressure_Setpoint .
+
+:Discharge_Air_Static_Pressure_Sensor a owl:Class ;
+    rdfs:label "Discharge Air Static Pressure Sensor"@en,
+        "Supply Air Static Pressure Sensor"@en ;
+    rdfs:subClassOf :Discharge_Air,
+        :Static_Pressure_Sensor,
+        :Supply_Air .
 
 :Discharge_Air_Temperature_Heating a owl:Class ;
     rdfs:label "Discharge Air Temperature Heating"@en ;
@@ -8340,6 +8421,13 @@
     rdfs:subClassOf :Discharge_Air,
         :High_Temperature_Alarm,
         :Supply_Air .
+
+:Discharge_Air_Temperature_Reset_Differential_Setpoint a owl:Class ;
+    rdfs:label "Discharge Air Temperature Reset Differential Setpoint"@en,
+        "Supply Air Temperature Reset Differential Setpoint"@en ;
+    rdfs:subClassOf :Discharge_Air_Temperature_Setpoint,
+        :Supply_Air_Temperature_Setpoint,
+        :Temperature_Differential_Reset_Setpoint .
 
 :Discharge_Air_Temperature_Reset_High_Setpoint a owl:Class ;
     rdfs:label "Discharge Air Temperature Reset High Setpoint"@en,
@@ -8371,37 +8459,28 @@
         :Supply_Air,
         :Velocity_Pressure_Sensor .
 
-:Discharge_Fan_Air_Flow_Sensor a owl:Class ;
-    rdfs:label "Discharge Fan Air Flow Sensor"@en,
-        "Supply Fan Air Flow Sensor"@en ;
-    rdfs:subClassOf :Discharge_Air_Flow_Sensor,
-        :Fan_Air_Flow_Sensor,
-        :Supply_Air_Flow_Sensor .
-
 :Discharge_Fan_Piezoelectric_Sensor a owl:Class ;
     rdfs:label "Discharge Fan Piezoelectric Sensor"@en,
         "Supply Fan Piezoelectric Sensor"@en ;
-    rdfs:subClassOf :Piezoelectric_Sensor ;
-    owl:equivalentClass :Supply_Fan_Piezoelectric_Sensor .
-
-:Discharge_Fan_Start_Stop_Command a owl:Class ;
-    rdfs:label "Discharge Fan Start Stop Command"@en,
-        "Supply Fan Start Stop Command"@en ;
-    rdfs:subClassOf :Discharge_Fan_Command,
-        :Start_Stop_Command,
-        :Supply_Fan_Command .
+    rdfs:subClassOf :Piezoelectric_Sensor .
 
 :Discharge_Fan_Start_Stop_Status a owl:Class ;
     rdfs:label "Discharge Fan Start Stop Status"@en,
         "Supply Fan Start Stop Status"@en ;
     rdfs:subClassOf :Discharge_Fan_Status,
         :Fan_Start_Stop_Status,
-        :Supply_Fan_Status ;
-    owl:equivalentClass :Supply_Fan_Start_Stop_Status .
+        :Supply_Fan_Status .
 
 :Discharge_Water_Temperature a owl:Class ;
     rdfs:label "Discharge Water Temperature"@en ;
     rdfs:subClassOf :UndefinedMeasurement .
+
+:Domestic_Hot_Water_Discharge_Temperature_Setpoint a owl:Class ;
+    rdfs:label "Domestic Hot Water Discharge Temperature Setpoint"@en,
+        "Domestic Hot Water Supply Temperature Setpoint"@en ;
+    rdfs:subClassOf :Discharge_Water_Temperature_Setpoint,
+        :Domestic_Hot_Water,
+        :Hot_Water_Supply_Temperature_Setpoint .
 
 :Domestic_Hot_Water_Supply_Temperature_Sensor a owl:Class ;
     rdfs:label "Domestic Hot Water Discharge Temperature Sensor"@en,
@@ -8410,38 +8489,21 @@
         :Hot_Water_Discharge_Temperature_Sensor,
         :Hot_Water_Supply_Temperature_Sensor .
 
-:Domestic_Hot_Water_Supply_Temperature_Setpoint a owl:Class ;
-    rdfs:label "Domestic Hot Water Discharge Temperature Setpoint"@en,
-        "Domestic Hot Water Supply Temperature Setpoint"@en ;
-    rdfs:subClassOf :Discharge_Water_Temperature_Setpoint,
-        :Domestic_Hot_Water,
-        :Hot_Water_Supply_Temperature_Setpoint .
-
-:Economizer_Discharge_Air_Temperature_Dead_Band_Setpoint a owl:Class ;
-    rdfs:label "Economizer Discharge Air Temperature Dead Band Setpoint"@en,
-        "Economizer Supply Air Temperature Dead Band Setpoint"@en ;
-    rdfs:subClassOf :Dead_Band_Setpoint,
-        :Discharge_Air_Temperature_Setpoint,
-        :Economizer_Temperature_Setpoint,
-        :Supply_Air_Temperature_Setpoint .
-
 :Economizer_Discharge_Air_Temperature_Proportional_Band_Setpoint a owl:Class ;
     rdfs:label "Economizer Discharge Air Temperature Proportional Band Setpoint"@en,
         "Economizer Supply Air Temperature Proportional Band Setpoint"@en ;
     rdfs:subClassOf :Discharge_Air_Temperature_Setpoint,
         :Economizer_Temperature_Setpoint,
         :Proportional_Band_Setpoint,
-        :Supply_Air_Temperature_Setpoint ;
-    owl:equivalentClass :Economizer_Supply_Air_Temperature_Proportional_Band_Setpoint .
+        :Supply_Air_Temperature_Setpoint .
 
-:Economizer_Supply_Air_Temperature_Proportional_Band_Setpoint a owl:Class ;
-    rdfs:label "Economizer Discharge Air Temperature Proportional Band Setpoint"@en,
-        "Economizer Supply Air Temperature Proportional Band Setpoint"@en ;
-    rdfs:subClassOf :Discharge_Air_Temperature_Setpoint,
+:Economizer_Supply_Air_Temperature_Dead_Band_Setpoint a owl:Class ;
+    rdfs:label "Economizer Discharge Air Temperature Dead Band Setpoint"@en,
+        "Economizer Supply Air Temperature Dead Band Setpoint"@en ;
+    rdfs:subClassOf :Dead_Band_Setpoint,
+        :Discharge_Air_Temperature_Setpoint,
         :Economizer_Temperature_Setpoint,
-        :Proportional_Band_Setpoint,
-        :Supply_Air_Temperature_Setpoint ;
-    owl:equivalentClass :Economizer_Discharge_Air_Temperature_Proportional_Band_Setpoint .
+        :Supply_Air_Temperature_Setpoint .
 
 :Emergency_Power_Off_Status a owl:Class ;
     rdfs:label "Emergency Power Off Status"@en ;
@@ -8468,18 +8530,24 @@
     rdfs:label "HWS Hot Water Differential Pressure Setpoint"@en ;
     rdfs:subClassOf :Hot_Water_Differential_Pressure_Setpoint .
 
+:Hand_Auto_Status a owl:Class ;
+    rdfs:label "Hand Auto Status"@en,
+        "Manual Auto Status"@en ;
+    rdfs:subClassOf :Status ;
+    skos:definition ""@en .
+
 :Heat_Exchanger_Discharge_Water_Temperature a owl:Class ;
     rdfs:label "Heat Exchanger Discharge Water Temperature"@en ;
     rdfs:subClassOf :Discharge_Water_Temperature,
         :Water_Discharge_Temperature .
 
-:Heat_Exchanger_Discharge_Water_Temperature_Proportional_Band_Setpoint a owl:Class ;
-    rdfs:label "Heat Exchanger Discharge Water Temperature Proportional Band Setpoint"@en,
-        "Heat Exchanger Supply Water Temperature Proportional Band Setpoint"@en ;
+:Heat_Exchanger_Discharge_Water_Temperature_Dead_Band_Setpoint a owl:Class ;
+    rdfs:label "Heat Exchanger Discharge Water Temperature Dead Band Setpoint"@en,
+        "Heat Exchanger Supply Water Temperature Dead Band Setpoint"@en ;
     rdfs:subClassOf :Heat_Exchanger_Discharge_Water_Temperature_Setpoint,
         :Heat_Exchanger_Supply_Water_Temperature_Setpoint,
-        :Supply_Water_Temperature_Proportional_Band_Setpoint ;
-    owl:equivalentClass :Heat_Exchanger_Supply_Water_Temperature_Proportional_Band_Setpoint .
+        :Supply_Water_Temperature_Dead_Band_Setpoint ;
+    owl:equivalentClass :Heat_Exchanger_Supply_Water_Temperature_Dead_Band_Setpoint .
 
 :Heat_Exchanger_Discharge_Water_Temperature_Sensor a owl:Class ;
     rdfs:label "Heat Exchanger Discharge Water Temperature Sensor"@en,
@@ -8498,7 +8566,8 @@
         "Heat Exchanger Supply Water Temperature Dead Band Setpoint"@en ;
     rdfs:subClassOf :Heat_Exchanger_Discharge_Water_Temperature_Setpoint,
         :Heat_Exchanger_Supply_Water_Temperature_Setpoint,
-        :Supply_Water_Temperature_Dead_Band_Setpoint .
+        :Supply_Water_Temperature_Dead_Band_Setpoint ;
+    owl:equivalentClass :Heat_Exchanger_Discharge_Water_Temperature_Dead_Band_Setpoint .
 
 :Heat_Exchanger_Supply_Water_Temperature_Integral_Time_Setpoint a owl:Class ;
     rdfs:label "Heat Exchanger Discharge Water Temperature Integral Time Setpoint"@en,
@@ -8512,10 +8581,9 @@
         "Heat Exchanger Supply Water Temperature Proportional Band Setpoint"@en ;
     rdfs:subClassOf :Heat_Exchanger_Discharge_Water_Temperature_Setpoint,
         :Heat_Exchanger_Supply_Water_Temperature_Setpoint,
-        :Supply_Water_Temperature_Proportional_Band_Setpoint ;
-    owl:equivalentClass :Heat_Exchanger_Discharge_Water_Temperature_Proportional_Band_Setpoint .
+        :Supply_Water_Temperature_Proportional_Band_Setpoint .
 
-:Heat_Wheel_Discharge_Air_Temperature_Sensor a owl:Class ;
+:Heat_Wheel_Supply_Air_Temperature_Sensor a owl:Class ;
     rdfs:label "Heat Wheel Discharge Air Temperature Sensor"@en,
         "Heat Wheel Supply Air Temperature Sensor"@en ;
     rdfs:subClassOf :Discharge_Air_Temperature_Sensor,
@@ -8533,13 +8601,6 @@
         :Discharge_Air_Temperature_Heating_Setpoint,
         :Supply_Air_Temperature_Heating_Setpoint .
 
-:Heating_Discharge_Air_Temperature_Integral_Time_Setpoint a owl:Class ;
-    rdfs:label "Heating Discharge Air Temperature Integral Time Setpoint"@en,
-        "Heating Supply Air Temperature Integral Time Setpoint"@en ;
-    rdfs:subClassOf :Discharge_Air_Temperature_Heating_Setpoint,
-        :Integral_Time_Setpoint,
-        :Supply_Air_Temperature_Heating_Setpoint .
-
 :Heating_Discharge_Air_Temperature_Proportional_Band_Setpoint a owl:Class ;
     rdfs:label "Heating Discharge Air Temperature Proportional Band Setpoint"@en,
         "Heating Supply Air Temperature Proportional Band Setpoint"@en ;
@@ -8551,6 +8612,13 @@
     rdfs:label "Heating Supply Air Flow"@en ;
     rdfs:subClassOf :Heating,
         :Supply_Air_Flow .
+
+:Heating_Supply_Air_Temperature_Integral_Time_Setpoint a owl:Class ;
+    rdfs:label "Heating Discharge Air Temperature Integral Time Setpoint"@en,
+        "Heating Supply Air Temperature Integral Time Setpoint"@en ;
+    rdfs:subClassOf :Discharge_Air_Temperature_Heating_Setpoint,
+        :Integral_Time_Setpoint,
+        :Supply_Air_Temperature_Heating_Setpoint .
 
 :Heating_Temperature_Setpoint a owl:Class ;
     rdfs:label "Heating Temperature Setpoint"@en ;
@@ -8583,12 +8651,6 @@
         :Low_Temperature,
         :Temperature_Low .
 
-:Manual_Auto_Status a owl:Class ;
-    rdfs:label "Hand Auto Status"@en,
-        "Manual Auto Status"@en ;
-    rdfs:subClassOf :Status ;
-    skos:definition ""@en .
-
 :Max_Discharge_Air_Temperature_Setpoint a owl:Class ;
     rdfs:label "Max Discharge Air Temperature Setpoint"@en,
         "Max Supply Air Temperature Setpoint"@en ;
@@ -8607,31 +8669,38 @@
     rdfs:subClassOf :Hot_Water_Discharge_Temperature,
         :Medium_Temperature_Hot_Water .
 
-:Medium_Temperature_Hot_Water_Supply_Temperature a owl:Class ;
-    rdfs:label "Medium Temperature Hot Water Supply Temperature"@en ;
-    rdfs:subClassOf :Medium_Temperature_Hot_Water,
-        :Supply_Water_Temperature,
-        :Water_Supply_Temperature .
-
-:Medium_Temperature_Hot_Water_Supply_Temperature_High_Reset_Setpoint a owl:Class ;
+:Medium_Temperature_Hot_Water_Discharge_Temperature_High_Reset_Setpoint a owl:Class ;
     rdfs:label "Medium Temperature Hot Water Discharge Temperature High Reset Setpoint"@en,
         "Medium Temperature Hot Water Supply Temperature High Reset Setpoint"@en ;
     rdfs:subClassOf :Discharge_Water_Temperature_Setpoint,
         :Hot_Water_Supply_Temperature_High_Reset_Setpoint,
         :Medium_Temperature_Hot_Water .
 
-:Medium_Temperature_Hot_Water_Supply_Temperature_Load_Shed_Setpoint a owl:Class ;
+:Medium_Temperature_Hot_Water_Discharge_Temperature_Load_Shed_Setpoint a owl:Class ;
     rdfs:label "Medium Temperature Hot Water Discharge Temperature Load Shed Setpoint"@en,
         "Medium Temperature Hot Water Supply Temperature Load Shed Setpoint"@en ;
     rdfs:subClassOf :Discharge_Water_Temperature_Setpoint,
         :Load_Shed_Supply_Water_Temperature_Setpoint,
         :Medium_Temperature_Hot_Water .
 
-:Medium_Temperature_Hot_Water_Supply_Temperature_Load_Shed_Status a owl:Class ;
+:Medium_Temperature_Hot_Water_Discharge_Temperature_Load_Shed_Status a owl:Class ;
     rdfs:label "Medium Temperature Hot Water Discharge Temperature Load Shed Status"@en,
         "Medium Temperature Hot Water Supply Temperature Load Shed Status"@en ;
     rdfs:subClassOf :Differential_Pressure_Load_Shed_Status,
         :Medium_Temperature_Hot_Water .
+
+:Medium_Temperature_Hot_Water_Discharge_Temperature_Sensor a owl:Class ;
+    rdfs:label "Medium Temperature Hot Water Discharge Temperature Sensor"@en,
+        "Medium Temperature Hot Water Supply Temperature Sensor"@en ;
+    rdfs:subClassOf :Hot_Water_Discharge_Temperature_Sensor,
+        :Hot_Water_Supply_Temperature_Sensor,
+        :Medium_Temperature_Hot_Water .
+
+:Medium_Temperature_Hot_Water_Supply_Temperature a owl:Class ;
+    rdfs:label "Medium Temperature Hot Water Supply Temperature"@en ;
+    rdfs:subClassOf :Medium_Temperature_Hot_Water,
+        :Supply_Water_Temperature,
+        :Water_Supply_Temperature .
 
 :Medium_Temperature_Hot_Water_Supply_Temperature_Low_Reset_Setpoint a owl:Class ;
     rdfs:label "Medium Temperature Hot Water Discharge Temperature Low Reset Setpoint"@en,
@@ -8640,20 +8709,12 @@
         :Hot_Water_Supply_Temperature_Low_Reset_Setpoint,
         :Medium_Temperature_Hot_Water .
 
-:Medium_Temperature_Hot_Water_Supply_Temperature_Sensor a owl:Class ;
-    rdfs:label "Medium Temperature Hot Water Discharge Temperature Sensor"@en,
-        "Medium Temperature Hot Water Supply Temperature Sensor"@en ;
-    rdfs:subClassOf :Hot_Water_Discharge_Temperature_Sensor,
-        :Hot_Water_Supply_Temperature_Sensor,
-        :Medium_Temperature_Hot_Water .
-
 :Min_Discharge_Air_Static_Pressure_Setpoint a owl:Class ;
     rdfs:label "Min Discharge Air Static Pressure Setpoint"@en,
         "Min Supply Air Static Pressure Setpoint"@en ;
     rdfs:subClassOf :Discharge_Air_Static_Pressure_Setpoint,
         :Static_Pressure_Min_Setpoint,
-        :Supply_Air_Static_Pressure_Setpoint ;
-    owl:equivalentClass :Min_Supply_Air_Static_Pressure_Setpoint .
+        :Supply_Air_Static_Pressure_Setpoint .
 
 :Min_Discharge_Air_Temperature_Setpoint a owl:Class ;
     rdfs:label "Min Discharge Air Temperature Setpoint"@en,
@@ -8661,26 +8722,9 @@
     rdfs:subClassOf :Discharge_Air_Temperature_Setpoint,
         :Supply_Air_Temperature_Setpoint .
 
-:Min_Supply_Air_Static_Pressure_Setpoint a owl:Class ;
-    rdfs:label "Min Discharge Air Static Pressure Setpoint"@en,
-        "Min Supply Air Static Pressure Setpoint"@en ;
-    rdfs:subClassOf :Discharge_Air_Static_Pressure_Setpoint,
-        :Static_Pressure_Min_Setpoint,
-        :Supply_Air_Static_Pressure_Setpoint ;
-    owl:equivalentClass :Min_Discharge_Air_Static_Pressure_Setpoint .
-
 :Mode_Command a owl:Class ;
     rdfs:label "Mode Command"@en ;
     rdfs:subClassOf :Command .
-
-:Occupied_Cooling_Max_Discharge_Air_Flow_Setpoint a owl:Class ;
-    rdfs:label "Occupied Cooling Max Discharge Air Flow Setpoint"@en,
-        "Occupied Cooling Max Supply Air Flow Setpoint"@en ;
-    rdfs:subClassOf :Cooling_Max_Discharge_Air_Flow_Setpoint,
-        :Cooling_Max_Supply_Air_Flow_Setpoint,
-        :Occupied_Cooling_Discharge_Air_Flow_Setpoint,
-        :Occupied_Cooling_Supply_Air_Flow_Setpoint ;
-    owl:equivalentClass :Occupied_Cooling_Max_Supply_Air_Flow_Setpoint .
 
 :Occupied_Cooling_Max_Supply_Air_Flow_Setpoint a owl:Class ;
     rdfs:label "Occupied Cooling Max Discharge Air Flow Setpoint"@en,
@@ -8688,10 +8732,9 @@
     rdfs:subClassOf :Cooling_Max_Discharge_Air_Flow_Setpoint,
         :Cooling_Max_Supply_Air_Flow_Setpoint,
         :Occupied_Cooling_Discharge_Air_Flow_Setpoint,
-        :Occupied_Cooling_Supply_Air_Flow_Setpoint ;
-    owl:equivalentClass :Occupied_Cooling_Max_Discharge_Air_Flow_Setpoint .
+        :Occupied_Cooling_Supply_Air_Flow_Setpoint .
 
-:Occupied_Cooling_Min_Discharge_Air_Flow_Setpoint a owl:Class ;
+:Occupied_Cooling_Min_Supply_Air_Flow_Setpoint a owl:Class ;
     rdfs:label "Occupied Cooling Min Discharge Air Flow Setpoint"@en,
         "Occupied Cooling Min Supply Air Flow Setpoint"@en ;
     rdfs:subClassOf :Cooling_Min_Discharge_Air_Flow_Setpoint,
@@ -8699,7 +8742,7 @@
         :Occupied_Cooling_Discharge_Air_Flow_Setpoint,
         :Occupied_Cooling_Supply_Air_Flow_Setpoint .
 
-:Occupied_Heating_Max_Supply_Air_Flow_Setpoint a owl:Class ;
+:Occupied_Heating_Max_Discharge_Air_Flow_Setpoint a owl:Class ;
     rdfs:label "Occupied Heating Max Discharge Air Flow Setpoint"@en,
         "Occupied Heating Max Supply Air Flow Setpoint"@en ;
     rdfs:subClassOf :Heating_Max_Discharge_Air_Flow_Setpoint,
@@ -8707,7 +8750,7 @@
         :Occupied_Heating_Discharge_Air_Flow_Setpoint,
         :Occupied_Heating_Supply_Air_Flow_Setpoint .
 
-:Occupied_Heating_Min_Supply_Air_Flow_Setpoint a owl:Class ;
+:Occupied_Heating_Min_Discharge_Air_Flow_Setpoint a owl:Class ;
     rdfs:label "Occupied Heating Min Discharge Air Flow Setpoint"@en,
         "Occupied Heating Min Supply Air Flow Setpoint"@en ;
     rdfs:subClassOf :Heating_Min_Discharge_Air_Flow_Setpoint,
@@ -8769,6 +8812,11 @@
     rdfs:subClassOf :Return_Air,
         :Temperature_Sensor .
 
+:Return_Discharge_Fan_Differential_Speed_Setpoint a owl:Class ;
+    rdfs:label "Return Discharge Fan Differential Speed Setpoint"@en,
+        "Return Supply Fan Differential Speed Setpoint"@en ;
+    rdfs:subClassOf :Return_Fan_Differential_Speed_Setpoint .
+
 :Return_Fan_Command a owl:Class ;
     rdfs:label "Return Fan Command"@en ;
     rdfs:subClassOf :Fan_Command .
@@ -8780,11 +8828,6 @@
 :Return_Fan_Status a owl:Class ;
     rdfs:label "Return Fan Status"@en ;
     rdfs:subClassOf :Fan_Status .
-
-:Return_Supply_Fan_Differential_Speed_Setpoint a owl:Class ;
-    rdfs:label "Return Discharge Fan Differential Speed Setpoint"@en,
-        "Return Supply Fan Differential Speed Setpoint"@en ;
-    rdfs:subClassOf :Return_Fan_Differential_Speed_Setpoint .
 
 :Smoke_Detected_Alarm a owl:Class ;
     rdfs:label "Smoke Detected Alarm"@en ;
@@ -8812,15 +8855,7 @@
         "Supply Air Duct Pressure Status"@en ;
     rdfs:subClassOf :Discharge_Air,
         :Pressure_Status,
-        :Supply_Air ;
-    owl:equivalentClass :Discharge_Air_Duct_Pressure_Status .
-
-:Supply_Air_Flow_Demand_Setpoint a owl:Class ;
-    rdfs:label "Discharge Air Flow Demand Setpoint"@en,
-        "Supply Air Flow Demand Setpoint"@en ;
-    rdfs:subClassOf :Demand_Setpoint,
-        :Discharge_Air_Flow_Setpoint,
-        :Supply_Air_Flow_Setpoint .
+        :Supply_Air .
 
 :Supply_Air_Humidity_Sensor a owl:Class ;
     rdfs:label "Discharge Air Humidity Sensor"@en,
@@ -8829,46 +8864,10 @@
         :Humidity_Sensor,
         :Supply_Air .
 
-:Supply_Air_Smoke_Detected_Alarm a owl:Class ;
-    rdfs:label "Discharge Air Smoke Detected Alarm"@en,
-        "Supply Air Smoke Detected Alarm"@en ;
-    rdfs:subClassOf :Discharge_Air,
-        :Smoke_Detected_Alarm,
-        :Supply_Air .
-
-:Supply_Air_Static_Pressure_Dead_Band_Setpoint a owl:Class ;
-    rdfs:label "Discharge Air Static Pressure Dead Band Setpoint"@en,
-        "Supply Air Static Pressure Dead Band Setpoint"@en ;
-    rdfs:subClassOf :Discharge_Air_Static_Pressure_Setpoint,
-        :Static_Pressure_Dead_Band_Setpoint,
-        :Supply_Air_Static_Pressure_Setpoint ;
-    owl:equivalentClass :Discharge_Air_Static_Pressure_Dead_Band_Setpoint .
-
-:Supply_Air_Static_Pressure_Increase_Decrease_Step_Setpoint a owl:Class ;
-    rdfs:label "Discharge Air Static Pressure Increase Decrease Step Setpoint"@en,
-        "Supply Air Static Pressure Increase Decrease Step Setpoint"@en ;
-    rdfs:subClassOf :Discharge_Air_Static_Pressure_Setpoint,
-        :Increase_Decrease_Step_Setpoint,
-        :Supply_Air_Static_Pressure_Setpoint .
-
-:Supply_Air_Static_Pressure_Sensor a owl:Class ;
-    rdfs:label "Discharge Air Static Pressure Sensor"@en,
-        "Supply Air Static Pressure Sensor"@en ;
-    rdfs:subClassOf :Discharge_Air,
-        :Static_Pressure_Sensor,
-        :Supply_Air .
-
 :Supply_Air_Temperature_Heating a owl:Class ;
     rdfs:label "Supply Air Temperature Heating"@en ;
     rdfs:subClassOf :Heating_Temperature,
         :Supply_Air_Temperature .
-
-:Supply_Air_Temperature_Reset_Differential_Setpoint a owl:Class ;
-    rdfs:label "Discharge Air Temperature Reset Differential Setpoint"@en,
-        "Supply Air Temperature Reset Differential Setpoint"@en ;
-    rdfs:subClassOf :Discharge_Air_Temperature_Setpoint,
-        :Supply_Air_Temperature_Setpoint,
-        :Temperature_Differential_Reset_Setpoint .
 
 :Supply_Air_Temperature_Reset_Low_Setpoint a owl:Class ;
     rdfs:label "Discharge Air Temperature Reset Low Setpoint"@en,
@@ -8886,19 +8885,19 @@
         :Supply_Air_Temperature_Setpoint ;
     owl:equivalentClass :Discharge_Air_Temperature_Setpoint_Increase_Decrease_Step .
 
-:Supply_Fan_Piezoelectric_Sensor a owl:Class ;
-    rdfs:label "Discharge Fan Piezoelectric Sensor"@en,
-        "Supply Fan Piezoelectric Sensor"@en ;
-    rdfs:subClassOf :Piezoelectric_Sensor ;
-    owl:equivalentClass :Discharge_Fan_Piezoelectric_Sensor .
+:Supply_Fan_Air_Flow_Sensor a owl:Class ;
+    rdfs:label "Discharge Fan Air Flow Sensor"@en,
+        "Supply Fan Air Flow Sensor"@en ;
+    rdfs:subClassOf :Discharge_Air_Flow_Sensor,
+        :Fan_Air_Flow_Sensor,
+        :Supply_Air_Flow_Sensor .
 
-:Supply_Fan_Start_Stop_Status a owl:Class ;
-    rdfs:label "Discharge Fan Start Stop Status"@en,
-        "Supply Fan Start Stop Status"@en ;
-    rdfs:subClassOf :Discharge_Fan_Status,
-        :Fan_Start_Stop_Status,
-        :Supply_Fan_Status ;
-    owl:equivalentClass :Discharge_Fan_Start_Stop_Status .
+:Supply_Fan_Start_Stop_Command a owl:Class ;
+    rdfs:label "Discharge Fan Start Stop Command"@en,
+        "Supply Fan Start Stop Command"@en ;
+    rdfs:subClassOf :Discharge_Fan_Command,
+        :Start_Stop_Command,
+        :Supply_Fan_Command .
 
 :Temperature a owl:Class ;
     rdfs:label "Temperature"@en ;
@@ -8910,7 +8909,7 @@
     rdfs:subClassOf :Cooling_Discharge_Air_Flow_Setpoint,
         :Supply_Air_Flow_Setpoint .
 
-:VAV_Cooling_Max_Discharge_Air_Flow_Setpoint a owl:Class ;
+:VAV_Cooling_Max_Supply_Air_Flow_Setpoint a owl:Class ;
     rdfs:label "VAV Cooling Max Discharge Air Flow Setpoint"@en,
         "VAV Cooling Max Supply Air Flow Setpoint"@en ;
     rdfs:subClassOf :Cooling_Discharge_Air_Flow_Setpoint,
@@ -8919,7 +8918,7 @@
         :VAV_Discharge_Air_Flow_Setpoint,
         :VAV_Supply_Air_Flow_Setpoint .
 
-:VAV_Cooling_Min_Discharge_Air_Flow_Setpoint a owl:Class ;
+:VAV_Cooling_Min_Supply_Air_Flow_Setpoint a owl:Class ;
     rdfs:label "VAV Cooling Min Discharge Air Flow Setpoint"@en,
         "VAV Cooling Min Supply Air Flow Setpoint"@en ;
     rdfs:subClassOf :Cooling_Discharge_Air_Flow_Setpoint,
@@ -8935,18 +8934,7 @@
         :Heating_Max_Discharge_Air_Flow_Setpoint,
         :Heating_Max_Supply_Air_Flow_Setpoint,
         :VAV_Heating_Discharge_Air_Flow_Setpoint,
-        :VAV_Heating_Supply_Air_Flow_Setpoint ;
-    owl:equivalentClass :VAV_Heating_Max_Supply_Air_Flow_Setpoint .
-
-:VAV_Heating_Max_Supply_Air_Flow_Setpoint a owl:Class ;
-    rdfs:label "VAV Heating Max Discharge Air Flow Setpoint"@en,
-        "VAV Heating Max Supply Air Flow Setpoint"@en ;
-    rdfs:subClassOf :Heating_Discharge_Air_Flow_Setpoint,
-        :Heating_Max_Discharge_Air_Flow_Setpoint,
-        :Heating_Max_Supply_Air_Flow_Setpoint,
-        :VAV_Heating_Discharge_Air_Flow_Setpoint,
-        :VAV_Heating_Supply_Air_Flow_Setpoint ;
-    owl:equivalentClass :VAV_Heating_Max_Discharge_Air_Flow_Setpoint .
+        :VAV_Heating_Supply_Air_Flow_Setpoint .
 
 :VAV_Heating_Min_Discharge_Air_Flow_Setpoint a owl:Class ;
     rdfs:label "VAV Heating Min Discharge Air Flow Setpoint"@en,
@@ -8955,7 +8943,18 @@
         :Heating_Min_Discharge_Air_Flow_Setpoint,
         :Heating_Min_Supply_Air_Flow_Setpoint,
         :VAV_Heating_Discharge_Air_Flow_Setpoint,
-        :VAV_Heating_Supply_Air_Flow_Setpoint .
+        :VAV_Heating_Supply_Air_Flow_Setpoint ;
+    owl:equivalentClass :VAV_Heating_Min_Supply_Air_Flow_Setpoint .
+
+:VAV_Heating_Min_Supply_Air_Flow_Setpoint a owl:Class ;
+    rdfs:label "VAV Heating Min Discharge Air Flow Setpoint"@en,
+        "VAV Heating Min Supply Air Flow Setpoint"@en ;
+    rdfs:subClassOf :Heating_Discharge_Air_Flow_Setpoint,
+        :Heating_Min_Discharge_Air_Flow_Setpoint,
+        :Heating_Min_Supply_Air_Flow_Setpoint,
+        :VAV_Heating_Discharge_Air_Flow_Setpoint,
+        :VAV_Heating_Supply_Air_Flow_Setpoint ;
+    owl:equivalentClass :VAV_Heating_Min_Discharge_Air_Flow_Setpoint .
 
 :VFD_Enable_Command a owl:Class ;
     rdfs:label "VFD Enable Command"@en ;
@@ -8986,10 +8985,21 @@
     rdfs:subClassOf :Zone_Temperature_Sensor ;
     skos:definition ""@en .
 
-:AHU a owl:Class ;
-    rdfs:label "AHU"@en,
-        "Air Handler Unit"@en ;
-    rdfs:subClassOf :HVAC .
+:AHU_CO2_Sensor a owl:Class ;
+    rdfs:label "AHU CO2 Differential Sensor"@en,
+        "AHU CO2 Sensor"@en ;
+    rdfs:subClassOf :AHU_CO2_Sensor,
+        :CO2_Differential_Sensor,
+        :CO2_Sensor ;
+    owl:equivalentClass :AHU_CO2_Differential_Sensor ;
+    skos:definition ""@en .
+
+:AHU_Discharge_Fan_Status a owl:Class ;
+    rdfs:label "AHU Discharge Fan Status"@en,
+        "AHU Supply Fan Status"@en ;
+    rdfs:subClassOf :Discharge_Fan_Status,
+        :Supply_Fan_Status ;
+    owl:equivalentClass :AHU_Supply_Fan_Status .
 
 :AHU_Exhaust_Fan_Status a owl:Class ;
     rdfs:label "AHU Exhaust Fan Status"@en ;
@@ -9003,20 +9013,6 @@
     rdfs:label "AHU Static Pressure Sensor"@en ;
     rdfs:subClassOf :Static_Pressure_Sensor ;
     skos:definition ""@en .
-
-:AHU_Supply_Fan_Command a owl:Class ;
-    rdfs:label "AHU Discharge Fan Command"@en,
-        "AHU Supply Fan Command"@en ;
-    rdfs:subClassOf :Discharge_Fan_Command,
-        :Supply_Fan_Command ;
-    owl:equivalentClass :AHU_Discharge_Fan_Command .
-
-:AHU_Supply_Fan_Status a owl:Class ;
-    rdfs:label "AHU Discharge Fan Status"@en,
-        "AHU Supply Fan Status"@en ;
-    rdfs:subClassOf :Discharge_Fan_Status,
-        :Supply_Fan_Status ;
-    owl:equivalentClass :AHU_Discharge_Fan_Status .
 
 :AHU_VFD_Speed_Command a owl:Class ;
     rdfs:label "AHU VFD Speed Command"@en ;
@@ -9053,13 +9049,6 @@
     rdfs:subClassOf :Demand_Setpoint ;
     owl:equivalentClass :Cooling_Request_Setpoint .
 
-:Cooling_Max_Supply_Air_Flow_Setpoint a owl:Class ;
-    rdfs:label "Cooling Max Discharge Air Flow Setpoint"@en,
-        "Cooling Max Supply Air Flow Setpoint"@en ;
-    rdfs:subClassOf :Cooling_Discharge_Air_Flow_Setpoint,
-        :Supply_Air_Flow_Setpoint ;
-    owl:equivalentClass :Cooling_Max_Discharge_Air_Flow_Setpoint .
-
 :Cooling_Min_Discharge_Air_Flow_Setpoint a owl:Class ;
     rdfs:label "Cooling Min Discharge Air Flow Setpoint"@en,
         "Cooling Min Supply Air Flow Setpoint"@en ;
@@ -9085,18 +9074,16 @@
     rdfs:label "Differential Temperature Sensor"@en ;
     rdfs:subClassOf :Temperature_Sensor .
 
-:Discharge_Air_Static_Pressure_Proportional_Band_Setpoint a owl:Class ;
-    rdfs:label "Discharge Air Static Pressure Proportional Band Setpoint"@en,
-        "Supply Air Static Pressure Proportional Band Setpoint"@en ;
-    rdfs:subClassOf :Discharge_Air_Static_Pressure_Setpoint,
-        :Proportional_Band_Setpoint,
-        :Supply_Air_Static_Pressure_Setpoint ;
-    owl:equivalentClass :Supply_Air_Static_Pressure_Proportional_Band_Setpoint .
-
 :Discharge_Air_Temperature_Cooling a owl:Class ;
     rdfs:label "Discharge Air Temperature Cooling"@en ;
     rdfs:subClassOf :Cooling_Temperature,
         :Discharge_Air_Temperature .
+
+:Discharge_Fan_VFD_Speed_Setpoint a owl:Class ;
+    rdfs:label "Discharge Fan VFD Speed Setpoint"@en,
+        "Supply Fan VFD Speed Setpoint"@en ;
+    rdfs:subClassOf :VFD_Speed_Setpoint ;
+    owl:equivalentClass :Supply_Fan_VFD_Speed_Setpoint .
 
 :Economizer_Enthalpy_Setpoint a owl:Class ;
     rdfs:label "Economizer Enthalpy Setpoint"@en ;
@@ -9156,25 +9143,24 @@
     rdfs:subClassOf :Demand_Setpoint ;
     owl:equivalentClass :Heating_Request_Setpoint .
 
-:Heating_Max_Discharge_Air_Flow_Setpoint a owl:Class ;
-    rdfs:label "Heating Max Discharge Air Flow Setpoint"@en,
-        "Heating Max Supply Air Flow Setpoint"@en ;
-    rdfs:subClassOf :Heating_Discharge_Air_Flow_Setpoint,
-        :Heating_Supply_Air_Flow_Setpoint ;
-    owl:equivalentClass :Heating_Max_Supply_Air_Flow_Setpoint .
-
-:Heating_Min_Discharge_Air_Flow_Setpoint a owl:Class ;
+:Heating_Min_Supply_Air_Flow_Setpoint a owl:Class ;
     rdfs:label "Heating Min Discharge Air Flow Setpoint"@en,
         "Heating Min Supply Air Flow Setpoint"@en ;
     rdfs:subClassOf :Heating_Discharge_Air_Flow_Setpoint,
         :Heating_Supply_Air_Flow_Setpoint ;
-    owl:equivalentClass :Heating_Min_Supply_Air_Flow_Setpoint .
+    owl:equivalentClass :Heating_Min_Discharge_Air_Flow_Setpoint .
 
 :Heating_Request_Setpoint a owl:Class ;
     rdfs:label "Heating Demand Setpoint"@en,
         "Heating Request Setpoint"@en ;
     rdfs:subClassOf :Demand_Setpoint,
         :Heating .
+
+:Highest_Zone_Temperature_Sensor a owl:Class ;
+    rdfs:label "Highest Zone Temperature Sensor"@en,
+        "Warmest Zone Temperature Sensor"@en ;
+    rdfs:subClassOf :Zone_Temperature_Sensor ;
+    owl:equivalentClass :Warmest_Zone_Temperature_Sensor .
 
 :Hot_Water_Pump a owl:Class ;
     rdfs:label "Hot Water Pump"@en ;
@@ -9209,11 +9195,11 @@
     rdfs:label "Min Air Flow"@en ;
     rdfs:subClassOf :UndefinedMeasurement .
 
-:Occupancy_Command a owl:Class ;
+:Occupied_Command a owl:Class ;
     rdfs:label "Occupancy Command"@en,
         "Occupied Command"@en ;
     rdfs:subClassOf :Command ;
-    owl:equivalentClass :Occupied_Command .
+    owl:equivalentClass :Occupancy_Command .
 
 :Return_Fan a owl:Class ;
     rdfs:label "Return Fan"@en ;
@@ -9236,6 +9222,14 @@
         :Supply_Air_Static_Pressure_Setpoint ;
     owl:equivalentClass :Discharge_Air_Static_Pressure_Integral_Time_Setpoint .
 
+:Supply_Air_Static_Pressure_Proportional_Band_Setpoint a owl:Class ;
+    rdfs:label "Discharge Air Static Pressure Proportional Band Setpoint"@en,
+        "Supply Air Static Pressure Proportional Band Setpoint"@en ;
+    rdfs:subClassOf :Discharge_Air_Static_Pressure_Setpoint,
+        :Proportional_Band_Setpoint,
+        :Supply_Air_Static_Pressure_Setpoint ;
+    owl:equivalentClass :Discharge_Air_Static_Pressure_Proportional_Band_Setpoint .
+
 :Supply_Air_Temperature_Cooling a owl:Class ;
     rdfs:label "Supply Air Temperature Cooling"@en ;
     rdfs:subClassOf :Cooling_Temperature,
@@ -9256,11 +9250,13 @@
     rdfs:subClassOf :VFD_Speed_Sensor ;
     owl:equivalentClass :Discharge_Fan_VFD_Speed_Sensor .
 
-:Supply_Fan_VFD_Speed_Setpoint a owl:Class ;
-    rdfs:label "Discharge Fan VFD Speed Setpoint"@en,
-        "Supply Fan VFD Speed Setpoint"@en ;
-    rdfs:subClassOf :VFD_Speed_Setpoint ;
-    owl:equivalentClass :Discharge_Fan_VFD_Speed_Setpoint .
+:Supply_Fan_VFD_Speed_Status a owl:Class ;
+    rdfs:label "Discharge Fan VFD Speed Status"@en,
+        "Supply Fan VFD Speed Status"@en ;
+    rdfs:subClassOf :Discharge_Fan_Status,
+        :Supply_Fan_Status,
+        :VFD_Speed_Status ;
+    owl:equivalentClass :Discharge_Fan_VFD_Speed_Status .
 
 :Supply_Water_Flow_Sensor a owl:Class ;
     rdfs:label "Supply Water Flow Sensor"@en ;
@@ -9289,16 +9285,6 @@
         :Supply_Air_Temperature_Setpoint ;
     owl:equivalentClass :VAV_Supply_Air_Temperature_Setpoint .
 
-:VAV_Occupied_Cooling_Supply_Air_Flow_Setpoint a owl:Class ;
-    rdfs:label "VAV Occupied Cooling Discharge Air Flow Setpoint"@en,
-        "VAV Occupied Cooling Supply Air Flow Setpoint"@en ;
-    rdfs:subClassOf :Cooling_Discharge_Air_Flow_Setpoint,
-        :Occupied_Cooling_Discharge_Air_Flow_Setpoint,
-        :Occupied_Cooling_Supply_Air_Flow_Setpoint,
-        :VAV_Discharge_Air_Flow_Setpoint,
-        :VAV_Supply_Air_Flow_Setpoint ;
-    owl:equivalentClass :VAV_Occupied_Cooling_Discharge_Air_Flow_Setpoint .
-
 :VAV_Occupied_Heating_Discharge_Air_Flow_Setpoint a owl:Class ;
     rdfs:label "VAV Occupied Heating Discharge Air Flow Setpoint"@en,
         "VAV Occupied Heating Supply Air Flow Setpoint"@en ;
@@ -9317,31 +9303,25 @@
     rdfs:label "Voltage Sensor"@en ;
     rdfs:subClassOf :Sensor .
 
-:Warmest_Zone_Temperature_Sensor a owl:Class ;
-    rdfs:label "Highest Zone Temperature Sensor"@en,
-        "Warmest Zone Temperature Sensor"@en ;
-    rdfs:subClassOf :Zone_Temperature_Sensor ;
-    owl:equivalentClass :Highest_Zone_Temperature_Sensor .
-
 :Water a owl:Class ;
     rdfs:label "Water"@en ;
     rdfs:subClassOf :Resource .
-
-:AHU_CO2_Sensor a owl:Class ;
-    rdfs:label "AHU CO2 Differential Sensor"@en,
-        "AHU CO2 Sensor"@en ;
-    rdfs:subClassOf :AHU_CO2_Sensor,
-        :CO2_Differential_Sensor,
-        :CO2_Sensor ;
-    skos:definition ""@en .
 
 :AHU_Discharge_Fan_Command a owl:Class ;
     rdfs:label "AHU Discharge Fan Command"@en,
         "AHU Supply Fan Command"@en ;
     rdfs:subClassOf :Discharge_Fan_Command,
-        :Supply_Fan_Command .
+        :Supply_Fan_Command ;
+    owl:equivalentClass :AHU_Supply_Fan_Command .
 
-:AHU_Discharge_Fan_Status a owl:Class ;
+:AHU_Supply_Fan_Command a owl:Class ;
+    rdfs:label "AHU Discharge Fan Command"@en,
+        "AHU Supply Fan Command"@en ;
+    rdfs:subClassOf :Discharge_Fan_Command,
+        :Supply_Fan_Command ;
+    owl:equivalentClass :AHU_Discharge_Fan_Command .
+
+:AHU_Supply_Fan_Status a owl:Class ;
     rdfs:label "AHU Discharge Fan Status"@en,
         "AHU Supply Fan Status"@en ;
     rdfs:subClassOf :Discharge_Fan_Status,
@@ -9361,7 +9341,15 @@
     rdfs:label "Cooling Max Discharge Air Flow Setpoint"@en,
         "Cooling Max Supply Air Flow Setpoint"@en ;
     rdfs:subClassOf :Cooling_Discharge_Air_Flow_Setpoint,
-        :Supply_Air_Flow_Setpoint .
+        :Supply_Air_Flow_Setpoint ;
+    owl:equivalentClass :Cooling_Max_Supply_Air_Flow_Setpoint .
+
+:Cooling_Max_Supply_Air_Flow_Setpoint a owl:Class ;
+    rdfs:label "Cooling Max Discharge Air Flow Setpoint"@en,
+        "Cooling Max Supply Air Flow Setpoint"@en ;
+    rdfs:subClassOf :Cooling_Discharge_Air_Flow_Setpoint,
+        :Supply_Air_Flow_Setpoint ;
+    owl:equivalentClass :Cooling_Max_Discharge_Air_Flow_Setpoint .
 
 :Cooling_Min_Supply_Air_Flow_Setpoint a owl:Class ;
     rdfs:label "Cooling Min Discharge Air Flow Setpoint"@en,
@@ -9389,6 +9377,13 @@
         :Integral_Time_Setpoint,
         :Supply_Air_Static_Pressure_Setpoint .
 
+:Discharge_Air_Static_Pressure_Proportional_Band_Setpoint a owl:Class ;
+    rdfs:label "Discharge Air Static Pressure Proportional Band Setpoint"@en,
+        "Supply Air Static Pressure Proportional Band Setpoint"@en ;
+    rdfs:subClassOf :Discharge_Air_Static_Pressure_Setpoint,
+        :Proportional_Band_Setpoint,
+        :Supply_Air_Static_Pressure_Setpoint .
+
 :Discharge_Fan a owl:Class ;
     rdfs:label "Discharge Fan"@en ;
     rdfs:subClassOf :UndefinedMeasurement .
@@ -9406,18 +9401,12 @@
         "Supply Fan VFD Speed Sensor"@en ;
     rdfs:subClassOf :VFD_Speed_Sensor .
 
-:Discharge_Fan_VFD_Speed_Setpoint a owl:Class ;
-    rdfs:label "Discharge Fan VFD Speed Setpoint"@en,
-        "Supply Fan VFD Speed Setpoint"@en ;
-    rdfs:subClassOf :VFD_Speed_Setpoint .
-
 :Discharge_Fan_VFD_Speed_Status a owl:Class ;
     rdfs:label "Discharge Fan VFD Speed Status"@en,
         "Supply Fan VFD Speed Status"@en ;
     rdfs:subClassOf :Discharge_Fan_Status,
         :Supply_Fan_Status,
-        :VFD_Speed_Status ;
-    owl:equivalentClass :Supply_Fan_VFD_Speed_Status .
+        :VFD_Speed_Status .
 
 :Exhaust_Air_Static_Pressure a owl:Class ;
     rdfs:label "Exhaust Air Static Pressure"@en ;
@@ -9450,13 +9439,21 @@
         :Hot_Water_Supply_Temperature_Sensor,
         :Supply_Water_Temperature_Sensor .
 
+:Heating_Max_Discharge_Air_Flow_Setpoint a owl:Class ;
+    rdfs:label "Heating Max Discharge Air Flow Setpoint"@en,
+        "Heating Max Supply Air Flow Setpoint"@en ;
+    rdfs:subClassOf :Heating_Discharge_Air_Flow_Setpoint,
+        :Heating_Supply_Air_Flow_Setpoint ;
+    owl:equivalentClass :Heating_Max_Supply_Air_Flow_Setpoint .
+
 :Heating_Max_Supply_Air_Flow_Setpoint a owl:Class ;
     rdfs:label "Heating Max Discharge Air Flow Setpoint"@en,
         "Heating Max Supply Air Flow Setpoint"@en ;
     rdfs:subClassOf :Heating_Discharge_Air_Flow_Setpoint,
-        :Heating_Supply_Air_Flow_Setpoint .
+        :Heating_Supply_Air_Flow_Setpoint ;
+    owl:equivalentClass :Heating_Max_Discharge_Air_Flow_Setpoint .
 
-:Heating_Min_Supply_Air_Flow_Setpoint a owl:Class ;
+:Heating_Min_Discharge_Air_Flow_Setpoint a owl:Class ;
     rdfs:label "Heating Min Discharge Air Flow Setpoint"@en,
         "Heating Min Supply Air Flow Setpoint"@en ;
     rdfs:subClassOf :Heating_Discharge_Air_Flow_Setpoint,
@@ -9473,11 +9470,6 @@
         :High_Temperature,
         :Temperature_High .
 
-:Highest_Zone_Temperature_Sensor a owl:Class ;
-    rdfs:label "Highest Zone Temperature Sensor"@en,
-        "Warmest Zone Temperature Sensor"@en ;
-    rdfs:subClassOf :Zone_Temperature_Sensor .
-
 :Hot_Water_Differential_Pressure_Setpoint a owl:Class ;
     rdfs:label "Hot Water Differential Pressure Setpoint"@en ;
     rdfs:subClassOf :Differential_Pressure_Setpoint,
@@ -9492,7 +9484,7 @@
         "Lowest Zone Temperature Sensor"@en ;
     rdfs:subClassOf :Zone_Temperature_Sensor .
 
-:Occupied_Command a owl:Class ;
+:Occupancy_Command a owl:Class ;
     rdfs:label "Occupancy Command"@en,
         "Occupied Command"@en ;
     rdfs:subClassOf :Command .
@@ -9532,20 +9524,10 @@
     rdfs:subClassOf :Pressure_Sensor ;
     skos:definition ""@en .
 
-:Supply_Air_Static_Pressure_Proportional_Band_Setpoint a owl:Class ;
-    rdfs:label "Discharge Air Static Pressure Proportional Band Setpoint"@en,
-        "Supply Air Static Pressure Proportional Band Setpoint"@en ;
-    rdfs:subClassOf :Discharge_Air_Static_Pressure_Setpoint,
-        :Proportional_Band_Setpoint,
-        :Supply_Air_Static_Pressure_Setpoint .
-
-:Supply_Fan_VFD_Speed_Status a owl:Class ;
-    rdfs:label "Discharge Fan VFD Speed Status"@en,
-        "Supply Fan VFD Speed Status"@en ;
-    rdfs:subClassOf :Discharge_Fan_Status,
-        :Supply_Fan_Status,
-        :VFD_Speed_Status ;
-    owl:equivalentClass :Discharge_Fan_VFD_Speed_Status .
+:Supply_Fan_VFD_Speed_Setpoint a owl:Class ;
+    rdfs:label "Discharge Fan VFD Speed Setpoint"@en,
+        "Supply Fan VFD Speed Setpoint"@en ;
+    rdfs:subClassOf :VFD_Speed_Setpoint .
 
 :Supply_Water_Temperature a owl:Class ;
     rdfs:label "Supply Water Temperature"@en ;
@@ -9563,7 +9545,18 @@
         :Occupied_Cooling_Discharge_Air_Flow_Setpoint,
         :Occupied_Cooling_Supply_Air_Flow_Setpoint,
         :VAV_Discharge_Air_Flow_Setpoint,
-        :VAV_Supply_Air_Flow_Setpoint .
+        :VAV_Supply_Air_Flow_Setpoint ;
+    owl:equivalentClass :VAV_Occupied_Cooling_Supply_Air_Flow_Setpoint .
+
+:VAV_Occupied_Cooling_Supply_Air_Flow_Setpoint a owl:Class ;
+    rdfs:label "VAV Occupied Cooling Discharge Air Flow Setpoint"@en,
+        "VAV Occupied Cooling Supply Air Flow Setpoint"@en ;
+    rdfs:subClassOf :Cooling_Discharge_Air_Flow_Setpoint,
+        :Occupied_Cooling_Discharge_Air_Flow_Setpoint,
+        :Occupied_Cooling_Supply_Air_Flow_Setpoint,
+        :VAV_Discharge_Air_Flow_Setpoint,
+        :VAV_Supply_Air_Flow_Setpoint ;
+    owl:equivalentClass :VAV_Occupied_Cooling_Discharge_Air_Flow_Setpoint .
 
 :VAV_Occupied_Heating_Supply_Air_Flow_Setpoint a owl:Class ;
     rdfs:label "VAV Occupied Heating Discharge Air Flow Setpoint"@en,
@@ -9584,6 +9577,11 @@
     rdfs:label "VFD Speed Setpoint"@en ;
     rdfs:subClassOf :Setpoint .
 
+:Warmest_Zone_Temperature_Sensor a owl:Class ;
+    rdfs:label "Highest Zone Temperature Sensor"@en,
+        "Warmest Zone Temperature Sensor"@en ;
+    rdfs:subClassOf :Zone_Temperature_Sensor .
+
 :Water_Supply_Temperature a owl:Class ;
     rdfs:label "Water Supply Temperature"@en ;
     rdfs:subClassOf :UndefinedMeasurement .
@@ -9592,6 +9590,15 @@
     rdfs:label "Zone Temperature Setpoint"@en ;
     rdfs:subClassOf :Temperature_Setpoint ;
     skos:definition ""@en .
+
+:AHU_Discharge_Air_Temperature_Cooling_Setpoint a owl:Class ;
+    rdfs:label "AHU Discharge Air Temperature Cooling Setpoint"@en,
+        "AHU Supply Air Temperature Cooling Setpoint"@en ;
+    rdfs:subClassOf :AHU_Discharge_Air_Temperature_Setpoint,
+        :AHU_Supply_Air_Temperature_Setpoint,
+        :Discharge_Air_Temperature_Cooling_Setpoint,
+        :Supply_Air_Temperature_Cooling_Setpoint ;
+    owl:equivalentClass :AHU_Supply_Air_Temperature_Cooling_Setpoint .
 
 :AHU_Discharge_Air_Temperature_Heating_Setpoint a owl:Class ;
     rdfs:label "AHU Discharge Air Temperature Heating Setpoint"@en,
@@ -9651,16 +9658,15 @@
     rdfs:subClassOf :Discharge_Air,
         :Static_Pressure .
 
+:Discharge_Fan_Command a owl:Class ;
+    rdfs:label "Discharge Fan Command"@en,
+        "Supply Fan Command"@en ;
+    rdfs:subClassOf :Fan_Command ;
+    owl:equivalentClass :Supply_Fan_Command .
+
 :Enable_Command a owl:Class ;
     rdfs:label "Enable Command"@en ;
     rdfs:subClassOf :Command .
-
-:HWS_Discharge_Water_Temperature_Setpoint a owl:Class ;
-    rdfs:label "HWS Discharge Water Temperature Setpoint"@en,
-        "HWS Supply Water Temperature Setpoint"@en ;
-    rdfs:subClassOf :Discharge_Water_Temperature_Setpoint,
-        :Supply_Water_Temperature_Setpoint ;
-    owl:equivalentClass :HWS_Supply_Water_Temperature_Setpoint .
 
 :HWS_Heat_Exchanger_Discharge_Water_Temperature_Setpoint a owl:Class ;
     rdfs:label "HWS Heat Exchanger Discharge Water Temperature Setpoint"@en,
@@ -9671,6 +9677,13 @@
         :Heat_Exchanger_Supply_Water_Temperature_Setpoint,
         :Supply_Water_Temperature_Setpoint ;
     owl:equivalentClass :HWS_Heat_Exchanger_Supply_Water_Temperature_Setpoint .
+
+:HWS_Supply_Water_Temperature_Setpoint a owl:Class ;
+    rdfs:label "HWS Discharge Water Temperature Setpoint"@en,
+        "HWS Supply Water Temperature Setpoint"@en ;
+    rdfs:subClassOf :Discharge_Water_Temperature_Setpoint,
+        :Supply_Water_Temperature_Setpoint ;
+    owl:equivalentClass :HWS_Discharge_Water_Temperature_Setpoint .
 
 :High_Temperature_Hot_Water a owl:Class ;
     rdfs:label "High Temperature Hot Water"@en ;
@@ -9692,6 +9705,13 @@
         :UndefinedMeasurement ;
     skos:definition ""@en .
 
+:Occupied_Cooling_Supply_Air_Flow_Setpoint a owl:Class ;
+    rdfs:label "Occupied Cooling Discharge Air Flow Setpoint"@en,
+        "Occupied Cooling Supply Air Flow Setpoint"@en ;
+    rdfs:subClassOf :Cooling_Discharge_Air_Flow_Setpoint,
+        :Supply_Air_Flow_Setpoint ;
+    owl:equivalentClass :Occupied_Cooling_Discharge_Air_Flow_Setpoint .
+
 :Occupied_Heating_Supply_Air_Flow_Setpoint a owl:Class ;
     rdfs:label "Occupied Heating Discharge Air Flow Setpoint"@en,
         "Occupied Heating Supply Air Flow Setpoint"@en ;
@@ -9708,25 +9728,10 @@
     rdfs:subClassOf :Resource,
         :UndefinedMeasurement .
 
-:Supply_Air_Flow_Sensor a owl:Class ;
-    rdfs:label "Discharge Air Flow Sensor"@en,
-        "Supply Air Flow Sensor"@en ;
-    rdfs:subClassOf :Air_Flow_Sensor,
-        :Discharge_Air,
-        :Supply_Air ;
-    owl:equivalentClass :Discharge_Air_Flow_Sensor ;
-    skos:definition ""@en .
-
 :Supply_Air_Static_Pressure a owl:Class ;
     rdfs:label "Supply Air Static Pressure"@en ;
     rdfs:subClassOf :Static_Pressure,
         :Supply_Air .
-
-:Supply_Fan_Command a owl:Class ;
-    rdfs:label "Discharge Fan Command"@en,
-        "Supply Fan Command"@en ;
-    rdfs:subClassOf :Fan_Command ;
-    owl:equivalentClass :Discharge_Fan_Command .
 
 :Supply_Fan_Status a owl:Class ;
     rdfs:label "Discharge Fan Status"@en,
@@ -9752,23 +9757,13 @@
         :VAV_Supply_Air_Flow_Setpoint ;
     owl:equivalentClass :VAV_Heating_Discharge_Air_Flow_Setpoint .
 
-:AHU_Discharge_Air_Temperature_Cooling_Setpoint a owl:Class ;
-    rdfs:label "AHU Discharge Air Temperature Cooling Setpoint"@en,
-        "AHU Supply Air Temperature Cooling Setpoint"@en ;
-    rdfs:subClassOf :AHU_Discharge_Air_Temperature_Setpoint,
-        :AHU_Supply_Air_Temperature_Setpoint,
-        :Discharge_Air_Temperature_Cooling_Setpoint,
-        :Supply_Air_Temperature_Cooling_Setpoint ;
-    owl:equivalentClass :AHU_Supply_Air_Temperature_Cooling_Setpoint .
-
 :AHU_Supply_Air_Temperature_Cooling_Setpoint a owl:Class ;
     rdfs:label "AHU Discharge Air Temperature Cooling Setpoint"@en,
         "AHU Supply Air Temperature Cooling Setpoint"@en ;
     rdfs:subClassOf :AHU_Discharge_Air_Temperature_Setpoint,
         :AHU_Supply_Air_Temperature_Setpoint,
         :Discharge_Air_Temperature_Cooling_Setpoint,
-        :Supply_Air_Temperature_Cooling_Setpoint ;
-    owl:equivalentClass :AHU_Discharge_Air_Temperature_Cooling_Setpoint .
+        :Supply_Air_Temperature_Cooling_Setpoint .
 
 :AHU_Supply_Air_Temperature_Heating_Setpoint a owl:Class ;
     rdfs:label "AHU Discharge Air Temperature Heating Setpoint"@en,
@@ -9804,11 +9799,6 @@
     owl:equivalentClass :DI_Water ;
     skos:definition ""@en .
 
-:Discharge_Fan_Command a owl:Class ;
-    rdfs:label "Discharge Fan Command"@en,
-        "Supply Fan Command"@en ;
-    rdfs:subClassOf :Fan_Command .
-
 :Discharge_Fan_Status a owl:Class ;
     rdfs:label "Discharge Fan Status"@en,
         "Supply Fan Status"@en ;
@@ -9826,6 +9816,12 @@
     rdfs:label "Fan Air Flow Sensor"@en ;
     rdfs:subClassOf :Air_Flow_Sensor .
 
+:HWS_Discharge_Water_Temperature_Setpoint a owl:Class ;
+    rdfs:label "HWS Discharge Water Temperature Setpoint"@en,
+        "HWS Supply Water Temperature Setpoint"@en ;
+    rdfs:subClassOf :Discharge_Water_Temperature_Setpoint,
+        :Supply_Water_Temperature_Setpoint .
+
 :HWS_Heat_Exchanger_Supply_Water_Temperature_Setpoint a owl:Class ;
     rdfs:label "HWS Heat Exchanger Discharge Water Temperature Setpoint"@en,
         "HWS Heat Exchanger Supply Water Temperature Setpoint"@en ;
@@ -9833,12 +9829,6 @@
         :HWS_Supply_Water_Temperature_Setpoint,
         :Heat_Exchanger_Discharge_Water_Temperature_Setpoint,
         :Heat_Exchanger_Supply_Water_Temperature_Setpoint,
-        :Supply_Water_Temperature_Setpoint .
-
-:HWS_Supply_Water_Temperature_Setpoint a owl:Class ;
-    rdfs:label "HWS Discharge Water Temperature Setpoint"@en,
-        "HWS Supply Water Temperature Setpoint"@en ;
-    rdfs:subClassOf :Discharge_Water_Temperature_Setpoint,
         :Supply_Water_Temperature_Setpoint .
 
 :Heating_Temperature a owl:Class ;
@@ -9849,16 +9839,22 @@
     rdfs:label "Mode Status"@en ;
     rdfs:subClassOf :Status .
 
-:Occupied_Cooling_Supply_Air_Flow_Setpoint a owl:Class ;
-    rdfs:label "Occupied Cooling Discharge Air Flow Setpoint"@en,
-        "Occupied Cooling Supply Air Flow Setpoint"@en ;
-    rdfs:subClassOf :Cooling_Discharge_Air_Flow_Setpoint,
-        :Supply_Air_Flow_Setpoint ;
-    owl:equivalentClass :Occupied_Cooling_Discharge_Air_Flow_Setpoint .
-
 :Point a owl:Class ;
     rdfs:label "Point"@en ;
     rdfs:subClassOf bf:TagSet .
+
+:Supply_Air_Flow_Sensor a owl:Class ;
+    rdfs:label "Discharge Air Flow Sensor"@en,
+        "Supply Air Flow Sensor"@en ;
+    rdfs:subClassOf :Air_Flow_Sensor,
+        :Discharge_Air,
+        :Supply_Air ;
+    skos:definition ""@en .
+
+:Supply_Fan_Command a owl:Class ;
+    rdfs:label "Discharge Fan Command"@en,
+        "Supply Fan Command"@en ;
+    rdfs:subClassOf :Fan_Command .
 
 :System_Status a owl:Class ;
     rdfs:label "System Status"@en ;
@@ -9881,13 +9877,6 @@
     rdfs:label "Air Flow Sensor"@en ;
     rdfs:subClassOf :Flow_Sensor .
 
-:CRAC_On_Off_Status a owl:Class ;
-    rdfs:label "CRAC On Off Status"@en,
-        "CRAC Start Stop Status"@en ;
-    rdfs:subClassOf :On_Off_Status,
-        :Start_Stop_Status ;
-    owl:equivalentClass :CRAC_Start_Stop_Status .
-
 :Chilled_Water_Differential_Pressure a owl:Class ;
     rdfs:label "Chilled Water Differential Pressure"@en ;
     rdfs:subClassOf :Chilled_Water .
@@ -9896,6 +9885,15 @@
     rdfs:label "Chilled Water Pump"@en ;
     rdfs:subClassOf :Chilled_Water,
         :Pump .
+
+:Discharge_Air_Flow_Sensor a owl:Class ;
+    rdfs:label "Discharge Air Flow Sensor"@en,
+        "Supply Air Flow Sensor"@en ;
+    rdfs:subClassOf :Air_Flow_Sensor,
+        :Discharge_Air,
+        :Supply_Air ;
+    owl:equivalentClass :Supply_Air_Flow_Sensor ;
+    skos:definition ""@en .
 
 :Exhaust_Fan a owl:Class ;
     rdfs:label "Exhaust Fan"@en ;
@@ -9921,15 +9919,6 @@
     rdfs:label "High Temperature"@en ;
     rdfs:subClassOf :UndefinedMeasurement .
 
-:Hot_Water_Discharge_Temperature_Sensor a owl:Class ;
-    rdfs:label "Hot Water Discharge Temperature Sensor"@en,
-        "Hot Water Supply Temperature Sensor"@en ;
-    rdfs:subClassOf :Hot_Water,
-        :Supply_Water_Temperature_Sensor,
-        :Water_Discharge_Temperature_Sensor,
-        :Water_Supply_Temperature_Sensor ;
-    owl:equivalentClass :Hot_Water_Supply_Temperature_Sensor .
-
 :Low_Temperature a owl:Class ;
     rdfs:label "Low Temperature"@en ;
     rdfs:subClassOf :UndefinedMeasurement .
@@ -9954,11 +9943,11 @@
     rdfs:label "Temperature Low"@en ;
     rdfs:subClassOf :UndefinedMeasurement .
 
-:Water_Supply_Temperature_Sensor a owl:Class ;
+:Water_Discharge_Temperature_Sensor a owl:Class ;
     rdfs:label "Water Discharge Temperature Sensor"@en,
         "Water Supply Temperature Sensor"@en ;
     rdfs:subClassOf :Temperature_Sensor ;
-    owl:equivalentClass :Water_Discharge_Temperature_Sensor .
+    owl:equivalentClass :Water_Supply_Temperature_Sensor .
 
 :CO2_Sensor a owl:Class ;
     rdfs:label "CO2 Differential Sensor"@en,
@@ -9968,18 +9957,24 @@
     owl:equivalentClass :CO2_Differential_Sensor ;
     skos:definition ""@en .
 
+:CRAC_On_Off_Status a owl:Class ;
+    rdfs:label "CRAC On Off Status"@en,
+        "CRAC Start Stop Status"@en ;
+    rdfs:subClassOf :On_Off_Status,
+        :Start_Stop_Status .
+
 :Chilled_Water_Differential_Pressure_Setpoint a owl:Class ;
     rdfs:label "Chilled Water Differential Pressure Setpoint"@en ;
     rdfs:subClassOf :Chilled_Water,
         :Differential_Pressure_Setpoint .
 
-:Discharge_Air_Flow_Sensor a owl:Class ;
-    rdfs:label "Discharge Air Flow Sensor"@en,
-        "Supply Air Flow Sensor"@en ;
-    rdfs:subClassOf :Air_Flow_Sensor,
+:Discharge_Air_Flow_Setpoint a owl:Class ;
+    rdfs:label "Discharge Air Flow Setpoint"@en,
+        "Supply Air Flow Setpoint"@en ;
+    rdfs:subClassOf :Air_Flow_Setpoint,
         :Discharge_Air,
         :Supply_Air ;
-    skos:definition ""@en .
+    owl:equivalentClass :Supply_Air_Flow_Setpoint .
 
 :Economizer_Temperature_Setpoint a owl:Class ;
     rdfs:label "Economizer Temperature Setpoint"@en ;
@@ -10000,6 +9995,15 @@
         "Heating Supply Air Flow Setpoint"@en ;
     rdfs:subClassOf :Discharge_Air_Flow_Setpoint,
         :Supply_Air_Flow_Setpoint .
+
+:Hot_Water_Discharge_Temperature_Sensor a owl:Class ;
+    rdfs:label "Hot Water Discharge Temperature Sensor"@en,
+        "Hot Water Supply Temperature Sensor"@en ;
+    rdfs:subClassOf :Hot_Water,
+        :Supply_Water_Temperature_Sensor,
+        :Water_Discharge_Temperature_Sensor,
+        :Water_Supply_Temperature_Sensor ;
+    owl:equivalentClass :Hot_Water_Supply_Temperature_Sensor .
 
 :Humidity_Sensor a owl:Class ;
     rdfs:label "Humidity Sensor"@en ;
@@ -10023,7 +10027,7 @@
     rdfs:label "Valve Command"@en ;
     rdfs:subClassOf :Command .
 
-:Water_Discharge_Temperature_Sensor a owl:Class ;
+:Water_Supply_Temperature_Sensor a owl:Class ;
     rdfs:label "Water Discharge Temperature Sensor"@en,
         "Water Supply Temperature Sensor"@en ;
     rdfs:subClassOf :Temperature_Sensor .
@@ -10032,13 +10036,6 @@
     rdfs:label "Zone Temperature Sensor"@en ;
     rdfs:subClassOf :Temperature_Sensor ;
     skos:definition ""@en .
-
-:Discharge_Air_Flow_Setpoint a owl:Class ;
-    rdfs:label "Discharge Air Flow Setpoint"@en,
-        "Supply Air Flow Setpoint"@en ;
-    rdfs:subClassOf :Air_Flow_Setpoint,
-        :Discharge_Air,
-        :Supply_Air .
 
 :Location a owl:Class ;
     rdfs:label "Location"@en ;
@@ -10049,13 +10046,6 @@
     rdfs:subClassOf :Off,
         :On .
 
-:VAV_Supply_Air_Flow_Setpoint a owl:Class ;
-    rdfs:label "VAV Discharge Air Flow Setpoint"@en,
-        "VAV Supply Air Flow Setpoint"@en ;
-    rdfs:subClassOf :Discharge_Air_Flow_Setpoint,
-        :Supply_Air_Flow_Setpoint ;
-    owl:equivalentClass :VAV_Discharge_Air_Flow_Setpoint .
-
 :Enable a owl:Class ;
     rdfs:label "Enable"@en ;
     rdfs:subClassOf :UndefinedMeasurement .
@@ -10064,8 +10054,7 @@
     rdfs:label "Occupied Cooling Discharge Air Flow Setpoint"@en,
         "Occupied Cooling Supply Air Flow Setpoint"@en ;
     rdfs:subClassOf :Cooling_Discharge_Air_Flow_Setpoint,
-        :Supply_Air_Flow_Setpoint ;
-    owl:equivalentClass :Occupied_Cooling_Supply_Air_Flow_Setpoint .
+        :Supply_Air_Flow_Setpoint .
 
 :Occupied_Heating_Discharge_Air_Flow_Setpoint a owl:Class ;
     rdfs:label "Occupied Heating Discharge Air Flow Setpoint"@en,
@@ -10081,7 +10070,15 @@
     rdfs:label "VAV Discharge Air Flow Setpoint"@en,
         "VAV Supply Air Flow Setpoint"@en ;
     rdfs:subClassOf :Discharge_Air_Flow_Setpoint,
-        :Supply_Air_Flow_Setpoint .
+        :Supply_Air_Flow_Setpoint ;
+    owl:equivalentClass :VAV_Supply_Air_Flow_Setpoint .
+
+:VAV_Supply_Air_Flow_Setpoint a owl:Class ;
+    rdfs:label "VAV Discharge Air Flow Setpoint"@en,
+        "VAV Supply Air Flow Setpoint"@en ;
+    rdfs:subClassOf :Discharge_Air_Flow_Setpoint,
+        :Supply_Air_Flow_Setpoint ;
+    owl:equivalentClass :VAV_Discharge_Air_Flow_Setpoint .
 
 :AHU_Supply_Air_Static_Pressure_Setpoint a owl:Class ;
     rdfs:label "AHU Discharge Air Static Pressure Setpoint"@en,
@@ -10089,14 +10086,6 @@
     rdfs:subClassOf :Discharge_Air_Static_Pressure_Setpoint,
         :Supply_Air_Static_Pressure_Setpoint ;
     owl:equivalentClass :AHU_Discharge_Air_Static_Pressure_Setpoint .
-
-:Discharge_Air_Temperature_Sensor a owl:Class ;
-    rdfs:label "Discharge Air Temperature Sensor"@en,
-        "Supply Air Temperature Sensor"@en ;
-    rdfs:subClassOf :Discharge_Air,
-        :Supply_Air,
-        :Temperature_Sensor ;
-    owl:equivalentClass :Supply_Air_Temperature_Sensor .
 
 :Domestic_Hot_Water a owl:Class ;
     rdfs:label "Domestic Hot Water"@en ;
@@ -10118,6 +10107,21 @@
     rdfs:subClassOf :Discharge_Air_Temperature_Setpoint,
         :Supply_Air_Temperature_Setpoint ;
     owl:equivalentClass :Discharge_Air_Temperature_Cooling_Setpoint .
+
+:Supply_Air_Temperature_Heating_Setpoint a owl:Class ;
+    rdfs:label "Discharge Air Temperature Heating Setpoint"@en,
+        "Supply Air Temperature Heating Setpoint"@en ;
+    rdfs:subClassOf :Discharge_Air_Temperature_Setpoint,
+        :Supply_Air_Temperature_Setpoint ;
+    owl:equivalentClass :Discharge_Air_Temperature_Heating_Setpoint .
+
+:Supply_Air_Temperature_Sensor a owl:Class ;
+    rdfs:label "Discharge Air Temperature Sensor"@en,
+        "Supply Air Temperature Sensor"@en ;
+    rdfs:subClassOf :Discharge_Air,
+        :Supply_Air,
+        :Temperature_Sensor ;
+    owl:equivalentClass :Discharge_Air_Temperature_Sensor .
 
 :Supply_Water_Temperature_Sensor a owl:Class ;
     rdfs:label "Supply Water Temperature Sensor"@en ;
@@ -10155,8 +10159,14 @@
     rdfs:label "Discharge Air Temperature Heating Setpoint"@en,
         "Supply Air Temperature Heating Setpoint"@en ;
     rdfs:subClassOf :Discharge_Air_Temperature_Setpoint,
-        :Supply_Air_Temperature_Setpoint ;
-    owl:equivalentClass :Supply_Air_Temperature_Heating_Setpoint .
+        :Supply_Air_Temperature_Setpoint .
+
+:Discharge_Air_Temperature_Sensor a owl:Class ;
+    rdfs:label "Discharge Air Temperature Sensor"@en,
+        "Supply Air Temperature Sensor"@en ;
+    rdfs:subClassOf :Discharge_Air,
+        :Supply_Air,
+        :Temperature_Sensor .
 
 :Exhaust_Air a owl:Class ;
     rdfs:label "Exhaust Air"@en ;
@@ -10168,20 +10178,6 @@
     rdfs:label "Supply Air Temperature"@en ;
     rdfs:subClassOf :Air_Temperature,
         :Supply_Air .
-
-:Supply_Air_Temperature_Heating_Setpoint a owl:Class ;
-    rdfs:label "Discharge Air Temperature Heating Setpoint"@en,
-        "Supply Air Temperature Heating Setpoint"@en ;
-    rdfs:subClassOf :Discharge_Air_Temperature_Setpoint,
-        :Supply_Air_Temperature_Setpoint ;
-    owl:equivalentClass :Discharge_Air_Temperature_Heating_Setpoint .
-
-:Supply_Air_Temperature_Sensor a owl:Class ;
-    rdfs:label "Discharge Air Temperature Sensor"@en,
-        "Supply Air Temperature Sensor"@en ;
-    rdfs:subClassOf :Discharge_Air,
-        :Supply_Air,
-        :Temperature_Sensor .
 
 :Air_Temperature a owl:Class ;
     rdfs:label "Air Temperature"@en ;
@@ -10202,13 +10198,11 @@
     rdfs:label "Proportional Band Setpoint"@en ;
     rdfs:subClassOf :Setpoint .
 
-:Supply_Air_Flow_Setpoint a owl:Class ;
-    rdfs:label "Discharge Air Flow Setpoint"@en,
-        "Supply Air Flow Setpoint"@en ;
-    rdfs:subClassOf :Air_Flow_Setpoint,
-        :Discharge_Air,
-        :Supply_Air ;
-    owl:equivalentClass :Discharge_Air_Flow_Setpoint .
+:Start_Stop_Status a owl:Class ;
+    rdfs:label "On Off Status"@en,
+        "Start Stop Status"@en ;
+    rdfs:subClassOf :Status ;
+    owl:equivalentClass :On_Off_Status .
 
 :Supply_Air_Static_Pressure_Setpoint a owl:Class ;
     rdfs:label "Discharge Air Static Pressure Setpoint"@en,
@@ -10224,13 +10218,15 @@
     rdfs:subClassOf :Hot_Water,
         :Supply_Water_Temperature_Sensor,
         :Water_Discharge_Temperature_Sensor,
-        :Water_Supply_Temperature_Sensor .
+        :Water_Supply_Temperature_Sensor ;
+    owl:equivalentClass :Hot_Water_Discharge_Temperature_Sensor .
 
-:Start_Stop_Status a owl:Class ;
-    rdfs:label "On Off Status"@en,
-        "Start Stop Status"@en ;
-    rdfs:subClassOf :Status ;
-    owl:equivalentClass :On_Off_Status .
+:Supply_Air_Flow_Setpoint a owl:Class ;
+    rdfs:label "Discharge Air Flow Setpoint"@en,
+        "Supply Air Flow Setpoint"@en ;
+    rdfs:subClassOf :Air_Flow_Setpoint,
+        :Discharge_Air,
+        :Supply_Air .
 
 :Cooling_Discharge_Air_Flow_Setpoint a owl:Class ;
     rdfs:label "Cooling Discharge Air Flow Setpoint"@en ;
@@ -10252,8 +10248,7 @@
 :On_Off_Status a owl:Class ;
     rdfs:label "On Off Status"@en,
         "Start Stop Status"@en ;
-    rdfs:subClassOf :Status ;
-    owl:equivalentClass :Start_Stop_Status .
+    rdfs:subClassOf :Status .
 
 :Economizer a owl:Class ;
     rdfs:label "Economizer"@en ;
@@ -10320,13 +10315,13 @@
     rdfs:label "Temperature Setpoint"@en ;
     rdfs:subClassOf :Setpoint .
 
-:Supply_Air_Temperature_Setpoint a owl:Class ;
+:Discharge_Air_Temperature_Setpoint a owl:Class ;
     rdfs:label "Discharge Air Temperature Setpoint"@en,
         "Supply Air Temperature Setpoint"@en ;
     rdfs:subClassOf :Discharge_Air,
         :Supply_Air,
         :Temperature_Setpoint ;
-    owl:equivalentClass :Discharge_Air_Temperature_Setpoint .
+    owl:equivalentClass :Supply_Air_Temperature_Setpoint .
 
 :Chilled_Water a owl:Class ;
     rdfs:label "Chilled Water"@en ;
@@ -10334,7 +10329,7 @@
         :Water ;
     skos:definition ""@en .
 
-:Discharge_Air_Temperature_Setpoint a owl:Class ;
+:Supply_Air_Temperature_Setpoint a owl:Class ;
     rdfs:label "Discharge Air Temperature Setpoint"@en,
         "Supply Air Temperature Setpoint"@en ;
     rdfs:subClassOf :Discharge_Air,
