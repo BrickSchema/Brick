@@ -29,6 +29,7 @@ If you have an issue with Brick's coverage, utility or usability, or any other B
 
 ## How To Contribute
 
+0. Read the [RFC guide](https://github.com/BuildSysUniformMetadata/Brick/issues/25)
 1. Fork the [Brick repository](https://github.com/BuildSysUniformMetadata/Brick)
 2. Make your changes in a branch on your own fork.
 3. Send a pull request containing your changes.
