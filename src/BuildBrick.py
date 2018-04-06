@@ -21,7 +21,7 @@ usedMeasOnly = True
 writeUsedByPoint = False
 writeTagUsedBy = True
 removeSynonyms = False
-with open('config.json', 'r') as fp:
+with open('../config.json', 'r') as fp:
     config = json.load(fp)
 BRICK_VERSION = config['version']
 

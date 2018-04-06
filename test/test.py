@@ -1,8 +1,10 @@
+import pdb
+import sys
+import json
+
 import rdflib
 from rdflib import RDF, RDFS, URIRef
 from rdflib.plugins.parsers.notation3 import BadSyntax
-import pdb
-import sys
 
 def get_tagset(raw):
     assert isinstance(raw, URIRef)
@@ -11,7 +13,10 @@ def get_tagset(raw):
 def parse_topclass(tagset):
     return tagset.split('_')[-1]
 
-BRICK_VERSION = '1.0.2'
+with open('config.json', 'r') as fp:
+    config = json.load(fp)
+
+BRICK_VERSION = config['version']
 BRICK = 'https://brickschema.org/schema/{0}/Brick#'.format(BRICK_VERSION)
 BF = 'https://brickschema.org/schema/{0}/BrickFrame#'.format(BRICK_VERSION)
 
