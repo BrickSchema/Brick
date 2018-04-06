@@ -19,11 +19,21 @@ prefix rdfs: <{1}>
 prefix brick: <{2}>
 prefix bf: <{3}>
 """.format(RDF, RDFS, BRICK, BF)
+
+################### Check turtle files are well-formatted ###########
+filenames = ['Brick.ttl', 'BrickFrame.ttl', 'BrickUse.ttl', 'BrickTag.ttl']
+dirbase = './dist/'
+for filename in filenames:
+    g = rdflib.Graph()
+    g.parse(dirbase + filename, format='turtle')
+
+
 g = rdflib.Graph()
 g.parse('./dist/Brick.ttl', format='turtle')
 
 ################### Check if Point names are correct ###################
-point_topclasses = ['Meter', 'Sensor', 'Setpoint', 'Alarm', 'Status', 'Command']
+point_topclasses = ['Meter', 'Sensor', 'Setpoint',
+                    'Alarm', 'Status', 'Command']
 point_topclass_dict = {topclass:[topclass] for topclass in point_topclasses}
 postfixes = {topclass: [topclass] for topclass in point_topclasses}
 postfixes['Status'].append('LED')
@@ -61,6 +71,5 @@ for tagset in tagsets:
             assert tagset in point_topclass_dict[topclass]
         except:
             pdb.set_trace()
-
 
 print('Test complete.')

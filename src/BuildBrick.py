@@ -47,6 +47,24 @@ def getLastDim(istr):
         sstr = istr.split(">")
         return sstr[-1]
 
+def replace_in_file(old, new, filename):
+    """
+    with open(filename, "rt") as fin:
+        with open(filename + '.new.ttl', "wt") as fout:
+            for line in fin:
+                fout.write(re.sub(old, new, line))
+    """
+    with open(filename, 'r') as fp:
+        s = fp.read()
+    with open(filename, 'w') as fp:
+        s = re.sub(old, new, s)
+        fp.write(s)
+
+def version_update_infile(version, filename):
+    replace_in_file('\d+\.\d+\.\d+', BRICK_VERSION, filename)
+
+
+
 # ### Load Tag and TagSets from Definition
 
 # dfTags=pd.read_excel('Schema Engineering.xlsx',"Tags")
@@ -541,3 +559,6 @@ result = g.parse('../dist/BrickUse.ttl', format='n3')
 # rewrite for formating
 g.serialize(destination='../dist/BrickUse.ttl', format='turtle')
 
+
+# update version of BrickFrame
+version_update_infile(BRICK_VERSION, '../dist/BrickFrame.ttl')
