@@ -175,7 +175,7 @@
 #
 # https://brickschema.org/schema/1.0.2/BrickFrame#isMeasuredBy
 
-:isMeasuredBy a owl:ObjectProperty , owl:TransitiveProperty1.
+:isMeasuredBy a owl:ObjectProperty , owl:TransitiveProperty.
 #
 # https://brickschema.org/schema/1.0.2/BrickFrame#isOutputOf
 
