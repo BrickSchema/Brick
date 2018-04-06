@@ -1,6 +1,8 @@
 import rdflib
 from rdflib import RDF, RDFS, URIRef
+from rdflib.plugins.parsers.notation3 import BadSyntax
 import pdb
+import sys
 
 def get_tagset(raw):
     assert isinstance(raw, URIRef)
@@ -20,12 +22,18 @@ prefix brick: <{2}>
 prefix bf: <{3}>
 """.format(RDF, RDFS, BRICK, BF)
 
-################### Check turtle files are well-formatted ###########
-filenames = ['Brick.ttl', 'BrickFrame.ttl', 'BrickUse.ttl', 'BrickTag.ttl']
-dirbase = './dist/'
+################### Check schema files are well-formatted ###########
+basedir = './dist/'
+filenames = [basedir + filename for filename in
+             ['Brick.ttl', 'BrickFrame.ttl', 'BrickUse.ttl', 'BrickTag.ttl']]
 for filename in filenames:
     g = rdflib.Graph()
-    g.parse(dirbase + filename, format='turtle')
+    try:
+        g.parse(filename, format='turtle')
+    except BadSyntax as e:
+        print('Wrong syntax in {0}'.format(filename))
+        print(e.message)
+        sys.exit()
 
 
 g = rdflib.Graph()
