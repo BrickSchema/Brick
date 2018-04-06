@@ -2,16 +2,17 @@
 # !pip install pydot2
 # !pip install pydotplus
 
-
-import rdflib
-from rdflib.namespace import RDFS
-from rdflib import URIRef, BNode, Literal
 import re
 from collections import defaultdict
 import numpy as np
 import pandas as pd
 import json
 import itertools
+import pdb
+
+import rdflib
+from rdflib.namespace import RDFS
+from rdflib import URIRef, BNode, Literal
 
 # Configuration
 
@@ -34,8 +35,7 @@ def IndivName(name):
     return re.sub(r'\s', '_', re.sub(r'[^\d\w\s]', '', name))
 
 def get_str(s):
-    # if type(s)==str or type(s)==unicode:
-    if type(s) == 'str' or type(s) == 'unicode':
+    if isinstance(s, str):
         return s
     else:
         return ''
