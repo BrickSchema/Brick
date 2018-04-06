@@ -1,6 +1,10 @@
+import pdb
+import sys
+import json
+
 import rdflib
 from rdflib import RDF, RDFS, URIRef
-import pdb
+from rdflib.plugins.parsers.notation3 import BadSyntax
 
 def get_tagset(raw):
     assert isinstance(raw, URIRef)
@@ -9,7 +13,10 @@ def get_tagset(raw):
 def parse_topclass(tagset):
     return tagset.split('_')[-1]
 
-BRICK_VERSION = '1.0.2'
+with open('config.json', 'r') as fp:
+    config = json.load(fp)
+
+BRICK_VERSION = config['version']
 BRICK = 'https://brickschema.org/schema/{0}/Brick#'.format(BRICK_VERSION)
 BF = 'https://brickschema.org/schema/{0}/BrickFrame#'.format(BRICK_VERSION)
 
@@ -20,12 +27,18 @@ prefix brick: <{2}>
 prefix bf: <{3}>
 """.format(RDF, RDFS, BRICK, BF)
 
-################### Check turtle files are well-formatted ###########
-filenames = ['Brick.ttl', 'BrickFrame.ttl', 'BrickUse.ttl', 'BrickTag.ttl']
-dirbase = './dist/'
+################### Check schema files are well-formatted ###########
+basedir = './dist/'
+filenames = [basedir + filename for filename in
+             ['Brick.ttl', 'BrickFrame.ttl', 'BrickUse.ttl', 'BrickTag.ttl']]
 for filename in filenames:
     g = rdflib.Graph()
-    g.parse(dirbase + filename, format='turtle')
+    try:
+        g.parse(filename, format='turtle')
+    except BadSyntax as e:
+        print('Wrong syntax in {0}'.format(filename))
+        print(e.message)
+        sys.exit()
 
 
 g = rdflib.Graph()
