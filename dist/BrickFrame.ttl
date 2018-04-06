@@ -92,20 +92,17 @@
 # https://brickschema.org/schema/1.0.2/BrickFrame#controls
 
 :controls a owl:ObjectProperty ;
-	owl:inverseOf :isControlledBy ;
-	a owl:AsymmetricProperty.
+	owl:inverseOf :isControlledBy.
 #
 # https://brickschema.org/schema/1.0.2/BrickFrame#feeds
 
 :feeds a owl:ObjectProperty ;
-	owl:inverseOf :isFedBy ;
-	a owl:AsymmetricProperty.
+	owl:inverseOf :isFedBy.
 #
 # https://brickschema.org/schema/1.0.2/BrickFrame#hasInput
 
 :hasInput a owl:ObjectProperty ;
 	owl:inverseOf :isInputOf ;
-	a owl:AsymmetricProperty;
 	rdfs:domain :FunctionBlock ;
 	rdfs:range :Signal .
 #
@@ -118,7 +115,6 @@
 
 :hasOutput a owl:ObjectProperty ;
 	owl:inverseOf :isOutputOf ;
-	a owl:AsymmetricProperty;
 	rdfs:domain :FunctionBlock ;
 	rdfs:range :Signal .
 #
@@ -126,24 +122,22 @@
 
 :hasPart a owl:ObjectProperty ;
 	owl:inverseOf :isPartOf ;
-	a owl:AsymmetricProperty , owl:TransitiveProperty.
+        a owl:TransitiveProperty.
 #
 # https://brickschema.org/schema/1.0.2/BrickFrame#hasPoint
 
 :hasPoint a owl:ObjectProperty ;
 	owl:inverseOf :isPointOf ;
-	a owl:AsymmetricProperty;
 	rdfs:range :Point .
 #
 # https://brickschema.org/schema/1.0.2/BrickFrame#hasSubAsset
 
-:hasSubAsset a owl:ObjectProperty , owl:AsymmetricProperty , owl:TransitiveProperty.
+:hasSubAsset a owl:ObjectProperty , owl:TransitiveProperty.
 #
 # https://brickschema.org/schema/1.0.2/BrickFrame#hasTag
 
 :hasTag a owl:ObjectProperty ;
 	owl:inverseOf :isTagOf ;
-	a owl:AsymmetricProperty;
 	rdfs:domain :Taggable ;
 	rdfs:range :Tag .
 #
@@ -151,7 +145,6 @@
 
 :hasTagSet a owl:ObjectProperty ;
 	owl:inverseOf :isTagSetOf ;
-	a owl:AsymmetricProperty;
 	rdfs:domain :Taggable ;
 	rdfs:range :TagSet .
 #
@@ -159,7 +152,6 @@
 
 :hasToken a owl:ObjectProperty ;
 	owl:inverseOf :isTokenOf ;
-	a owl:AsymmetricProperty;
 	rdfs:domain :Label ;
 	rdfs:range :Token .
 #
@@ -179,42 +171,42 @@
 #
 # https://brickschema.org/schema/1.0.2/BrickFrame#isLocatedIn
 
-:isLocatedIn a owl:ObjectProperty , owl:AsymmetricProperty , owl:TransitiveProperty.
+:isLocatedIn a owl:ObjectProperty , owl:TransitiveProperty.
 #
 # https://brickschema.org/schema/1.0.2/BrickFrame#isMeasuredBy
 
-:isMeasuredBy a owl:ObjectProperty , owl:AsymmetricProperty , owl:TransitiveProperty1.
+:isMeasuredBy a owl:ObjectProperty , owl:TransitiveProperty1.
 #
 # https://brickschema.org/schema/1.0.2/BrickFrame#isOutputOf
 
-:isOutputOf a owl:ObjectProperty , owl:AsymmetricProperty;
+:isOutputOf a owl:ObjectProperty;
 	rdfs:domain :Signal ;
 	rdfs:range :FunctionBlock .
 #
 # https://brickschema.org/schema/1.0.2/BrickFrame#isPartOf
 
-:isPartOf a owl:ObjectProperty , owl:AsymmetricProperty , owl:TransitiveProperty.
+:isPartOf a owl:ObjectProperty , owl:TransitiveProperty.
 #
 # https://brickschema.org/schema/1.0.2/BrickFrame#isPointOf
 
-:isPointOf a owl:ObjectProperty , owl:AsymmetricProperty;
+:isPointOf a owl:ObjectProperty ;
 	rdfs:range :Point .
 #
 # https://brickschema.org/schema/1.0.2/BrickFrame#isTagOf
 
-:isTagOf a owl:ObjectProperty , owl:AsymmetricProperty;
+:isTagOf a owl:ObjectProperty ;
 	rdfs:domain :Tag ;
 	rdfs:range :Taggable .
 #
 # https://brickschema.org/schema/1.0.2/BrickFrame#isTagSetOf
 
-:isTagSetOf a owl:ObjectProperty , owl:AsymmetricProperty;
+:isTagSetOf a owl:ObjectProperty ;
 	rdfs:domain :TagSet ;
 	rdfs:range :Taggable .
 #
 # https://brickschema.org/schema/1.0.2/BrickFrame#isTokenOf
 
-:isTokenOf a owl:ObjectProperty , owl:AsymmetricPropertyr;
+:isTokenOf a owl:ObjectProperty ;
 	rdfs:domain :Token ;
 	rdfs:range :Label .
 #
