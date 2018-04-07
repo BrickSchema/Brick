@@ -548,7 +548,7 @@ Point>Setpoint>Integral Time Setpoint,Chilled Water Differential Pressure Integr
 Point>Setpoint>Integral Time Setpoint,Discharge Air Static Pressure Integral Time Setpoint,,,,AHU; Supply Fan,,Supply Air Static Pressure Integral Time Setpoint,,,,,Bharath,,,,Setpoint,,
 Point>Setpoint>Integral Time Setpoint,Cooling Discharge Air Temperature Integral Time Setpoint,,,,AHU,,Cooling Supply Air Temperature Integral Time Setpoint,,,,,Bharath,,,,Setpoint,,
 Point>Setpoint>Integral Time Setpoint,Heating Discharge Air Temperature Integral Time Setpoint,,,,AHU,,Heating Supply Air Temperature Integral Time Setpoint,,,,,Bharath,,,,Setpoint,,
-Point>Setpoint>Integral Time Setpoint>Differential Pressure Integral Time Setpoint,Chilled Water Pump Differential Pressure Integration Time Setpoint,,,,CWS,,,,,,,Bharath,,,,Setpoint,,
+Point>Setpoint>Integral Time Setpoint>Differential Pressure Integral Time Setpoint,Chilled Water Pump Differential Pressure Integral Time Setpoint,,,,CWS,,,,,,,Bharath,,,,Setpoint,,
 Point>Setpoint>Integral Time Setpoint>Differential Pressure Integral Time Setpoint,Hot Water Differential Pressure Integral Time Setpoint,,,,HWS,,,,,,,,,,,Setpoint,,
 Point>Setpoint>Integral Time Setpoint>Exhaust Air Flow Integral Time Setpoint,Exhaust Air Stack Flow Integral Time Setpoint,,,,AHU,,,,,,,Bharath,,,,Setpoint,,
 Point>Setpoint>Integral Time Setpoint>Static Pressure Integral Time Setpoint,Exhaust Air Static Pressure Integral Time Setpoint,,,,AHU;Exhaust Fan,,,,,,,Bharath,,,,Setpoint,,
