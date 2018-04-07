@@ -480,6 +480,28 @@ for tsA in tagsetsPoints:
             if writeUsedByPoint:
                 foUse.write('\n brick:' + IndivName(ts['measurement2']) + '  bf:usedByPoint brick' + indivLocName + '.')
 
+############ Write Resource TagSets ###########
+dfTagSetsResources = dfTagSets.loc[dfTagSets.Dimension.str.startswith("Resource")]
+tagsetsResources = {}
+for rid, row in dfTagSetsResources.iterrows():
+    content = ''
+    tagset = row['TagSet'].replace(' ', '_')
+    tagsetUrl = ':' + tagset
+    parents = row['Dimension'].split('>')
+    superclassUrl = ':' + parents[-1]
+    content += '\n ' + tagsetUrl + '  rdfs:subClassOf ' + superclassUrl + ';'
+    content += '\n\t\t\t rdf:type   owl:Class ;'
+    definition = row['Definition']
+    if isinstance(definition, str):
+        content += '\n\t\t\t skos:definition "' + definition + '"@en;'
+    if content[-1] == ';':
+        content = content[:-1] + '.'
+    else:
+        content += ' .'
+    content += '\n'
+    foBrick.write(content)
+
+
 foBrick.write('\n')
 foBrick.close()
 
