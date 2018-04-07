@@ -83,6 +83,6 @@ for tagset in tagsets:
         try:
             assert tagset in point_topclass_dict[topclass]
         except:
-            print('INCORRECT: {0} should be in {1}'.format(tagset, topclass))
+            print('INCORRECT: {0} is not in {1}'.format(tagset, topclass))
 
 print('Test complete.')
