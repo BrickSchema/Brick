@@ -241,6 +241,8 @@ brick:PIR bf:usesTag :PIR .
 
 brick:Pump bf:usesTag :Pump .
 
+brick:Radiator bf:usesTag :Radiator .
+
 brick:Rain bf:usesTag :Rain .
 
 brick:Roof bf:usesTag :Roof .
@@ -394,6 +396,12 @@ brick:Zone bf:usesTag :Zone .
 :Override_Occupancy_Command bf:usedBy brick:Override_Occupancy_Command .
 
 :Power_System bf:usedBy brick:Power_System_Peak_Power_Demand_Sensor .
+
+:Radiator a owl:Class ;
+    rdfs:label "Radiator"@en ;
+    rdfs:subClassOf bf:Tag ;
+    skos:definition ""@en ;
+    bf:usedBy brick:Radiator .
 
 :Response a owl:Class ;
     rdfs:label "Response"@en ;
