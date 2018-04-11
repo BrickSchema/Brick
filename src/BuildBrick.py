@@ -177,6 +177,13 @@ foTag.write("""
 
 """.format(BRICK_BASEURL, BRICK_VERSION, BRICK_LICENSE))
 
+def extract_main_dim(dim_str):
+    dims = dim_str.split('>')
+    if len(dims) > 1:
+        return dims[1]
+    else:
+        return dims[0]
+
 dfTagSets.MainDimension = dfTagSets.Dimension.str.split(">", 1, True)[0]
 dfDimensions = list(dfTagSets.MainDimension.unique())
 
@@ -205,7 +212,8 @@ for r in range(len(dfMM)):
     dfMM[r] = dfM.strip()
 dfTagSets["Measurement2"] = dfMM
 dfTagSets['Parent'] = dfTagSets.Dimension.apply(getLastDim)
-dfTagSets['MainDimension'] = dfTagSets.Dimension.str.split(">", 1, True)[0]
+#dfTagSets['MainDimension'] = dfTagSets.Dimension.str.split(">", 1, True)[0]
+dfTagSets['MainDimension'] = dfTagSets['Dimension'].apply(extract_main_dim)
 
 # Missing tags
 for dim in dfDimensions:
@@ -307,11 +315,13 @@ if not usedMeasOnly:
         }
 
 # add missing
-meas = set([tagsetsPoints[ts]['measurement2'] for ts in tagsetsPoints])
+meas_cands = set([tagsetsPoints[ts]['measurement2'] for ts in tagsetsPoints])
 # remove default tags
-meas -= set(['Setpoint', 'Sensor', 'Status', 'Command', 'Alarm', 'Meter', ''])
+meas = set([cand for cand in meas_cands if cand and cand.split()[-1] not in
+            ['Setpoint', 'Sensor', 'Status', 'Command', 'Alarm', 'Meter', '']])
 # remove dimension tagsets
-meas -= set(itertools.chain.from_iterable(dfTagSets.Dimension.dropna().str.split('>').tolist()))
+meas -= set(itertools.chain.from_iterable(dfTagSets.Dimension.dropna().str
+                                          .split('>').tolist()))
 for ts in list(meas):
     if ts not in tagsetsMeas:
         tagsetsMeas[ts] = {
