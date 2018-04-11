@@ -2250,9 +2250,6 @@ brick:Enable_Hot_Water_System_Outside_Air_Temperature_Setpoint bf:usesLocation b
     bf:usesMeasurement brick:Enable_Hot_Water_System_Air_Temperature ;
     bf:usesPoint brick:Setpoint .
 
-brick:Energy_Sensor bf:usesMeasurement brick:Energy ;
-    bf:usesPoint brick:Sensor .
-
 brick:Environment_Box_Temperature_Sensor bf:usesLocation brick:Environment_Box ;
     bf:usesMeasurement brick:Temperature ;
     bf:usesPoint brick:Sensor .

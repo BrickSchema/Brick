@@ -410,6 +410,7 @@ for idx in dfTagSetsEqLoc.index:
             parent = brickTagSets[str(dfTagSetsEqLoc.loc[idx, "Dimension"]).split('>')[-1]]
             indivLocName = nsBrickTagSet + IndivName(tagset)
             foBrick.write("\n " + indivLocName + "  rdfs:subClassOf   " + parent + ";")
+            foBrick.write('\n\t\t\t skos:definition "' + get_str(dfTagSets.loc[idx, "Definition"]) + '"@en ;\n')
             foBrick.write('\n\t\t\t rdf:type   owl:Class ;')
             if ots:
                 if setEquivalent:
