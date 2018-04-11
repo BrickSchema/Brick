@@ -21,8 +21,8 @@
 :UnobservedSignal a owl:Class ;
     rdfs:subClassOf :Signal .
 
-:contains a owl:ObjectProperty ;
-    owl:inverseOf :isLocatedIn .
+:isLocationOf a owl:ObjectProperty ;
+    owl:inverseOf :hasLocation .
 
 :controls a owl:ObjectProperty ;
     owl:inverseOf :isControlledBy .
@@ -102,7 +102,7 @@
     rdfs:domain :Signal ;
     rdfs:range :FunctionBlock .
 
-:isLocatedIn a owl:ObjectProperty,
+:hasLocation a owl:ObjectProperty,
         owl:TransitiveProperty .
 
 :isMeasuredBy a owl:ObjectProperty,
