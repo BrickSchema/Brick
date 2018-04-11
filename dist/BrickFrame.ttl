@@ -1,4 +1,4 @@
-@prefix : <https://brickschema.org/schema/1.0.2/BrickFrame#> .
+@prefix : <https://brickschema.org/schema/1.0.3/BrickFrame#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -6,7 +6,7 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://brickschema.org/schema/1.0.2/BrickFrame> a owl:Ontology ;
+<https://brickschema.org/schema/1.0.3/BrickFrame> a owl:Ontology ;
     dcterms:license <https://raw.githubusercontent.com/BuildSysUniformMetadata/Brick/master/LICENSE> .
 
 :Equipment a owl:Class ;
