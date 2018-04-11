@@ -1,3 +1,5 @@
 {
-  "version": "1.0.2"
+  "version": "1.0.3",
+  "license": "https://raw.githubusercontent.com/BuildSysUniformMetadata/Brick/master/LICENSE",
+  "baseurl": "https://brickschema.org/schema"
 }

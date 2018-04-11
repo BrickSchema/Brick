@@ -25,6 +25,8 @@ removeSynonyms = False
 with open('../config.json', 'r') as fp:
     config = json.load(fp)
 BRICK_VERSION = config['version']
+BRICK_LICENSE = config['license']
+BRICK_BASEURL = config['baseurl']
 
 # Helper Functions
 
@@ -112,16 +114,18 @@ foBrick.write("""
 @prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
 
-@prefix bf:    <https://brickschema.org/schema/{0}/BrickFrame#> .
+@prefix bf:    <{0}/{1}/BrickFrame#> .
 
-@prefix :      <https://brickschema.org/schema/{0}/Brick#> .
+@prefix :      <{0}/{1}/Brick#> .
 
-<https://brickschema.org/schema/{0}/Brick>  a owl:Ontology ;
-    owl:imports <https://brickschema.org/schema/{0}/BrickFrame> ;
+<{0}/{1}/Brick>  a owl:Ontology ;
+    owl:imports <{0}/{1}/BrickFrame> ;
+    dcterms:license <{2}> ;
     rdfs:comment "Domain TagSet Definition"@en .
 
-""".format(BRICK_VERSION))
+""".format(BRICK_BASEURL, BRICK_VERSION, BRICK_LICENSE))
 
 # In[ ]:
 
@@ -134,17 +138,19 @@ foUse.write("""
 @prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
 
-@prefix bf:    <https://brickschema.org/schema/{0}/BrickFrame#> .
-@prefix brick: <https://brickschema.org/schema/{0}/Brick#> .
+@prefix bf:    <{0}/{1}/BrickFrame#> .
+@prefix brick: <{0}/{1}/Brick#> .
 
-@prefix :      <https://brickschema.org/schema/{0}/BrickUse#> .
+@prefix :      <{0}/{1}/BrickUse#> .
 
-<https://brickschema.org/schema/{0}/BrickUse>  a owl:Ontology ;
-    owl:imports <https://brickschema.org/schema/{0}/Brick> ;
+<{0}/{1}/BrickUse>  a owl:Ontology ;
+    owl:imports <{0}/{1}/Brick> ;
+    dcterms:license <{2}> ;
     rdfs:comment "Domain TagSet Use Definition"@en .
 
-""".format(BRICK_VERSION))
+""".format(BRICK_BASEURL, BRICK_VERSION, BRICK_LICENSE))
 
 # In[ ]:
 
@@ -157,17 +163,26 @@ foTag.write("""
 @prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
 
-@prefix bf:    <https://brickschema.org/schema/{0}/BrickFrame#> .
-@prefix brick: <https://brickschema.org/schema/{0}/Brick#> .
+@prefix bf:    <{0}/{1}/BrickFrame#> .
+@prefix brick: <{0}/{1}/Brick#> .
 
-@prefix :      <https://brickschema.org/schema/{0}/BrickTag#> .
+@prefix :      <{0}/{1}/BrickTag#> .
 
-<https://brickschema.org/schema/{0}/BrickTag>  a owl:Ontology ;
-    owl:imports <https://brickschema.org/schema/{0}/Brick> ;
+<{0}/{1}/BrickTag>  a owl:Ontology ;
+    owl:imports <{0}/{1}/Brick> ;
+    dcterms:license <{2}> ;
     rdfs:comment "Domain Tag Definition"@en .
 
-""".format(BRICK_VERSION))
+""".format(BRICK_BASEURL, BRICK_VERSION, BRICK_LICENSE))
+
+def extract_main_dim(dim_str):
+    dims = dim_str.split('>')
+    if len(dims) > 1:
+        return dims[1]
+    else:
+        return dims[0]
 
 dfTagSets.MainDimension = dfTagSets.Dimension.str.split(">", 1, True)[0]
 dfDimensions = list(dfTagSets.MainDimension.unique())
@@ -197,7 +212,8 @@ for r in range(len(dfMM)):
     dfMM[r] = dfM.strip()
 dfTagSets["Measurement2"] = dfMM
 dfTagSets['Parent'] = dfTagSets.Dimension.apply(getLastDim)
-dfTagSets['MainDimension'] = dfTagSets.Dimension.str.split(">", 1, True)[0]
+#dfTagSets['MainDimension'] = dfTagSets.Dimension.str.split(">", 1, True)[0]
+dfTagSets['MainDimension'] = dfTagSets['Dimension'].apply(extract_main_dim)
 
 # Missing tags
 for dim in dfDimensions:
@@ -299,11 +315,13 @@ if not usedMeasOnly:
         }
 
 # add missing
-meas = set([tagsetsPoints[ts]['measurement2'] for ts in tagsetsPoints])
+meas_cands = set([tagsetsPoints[ts]['measurement2'] for ts in tagsetsPoints])
 # remove default tags
-meas -= set(['Setpoint', 'Sensor', 'Status', 'Command', 'Alarm', 'Meter', ''])
+meas = set([cand for cand in meas_cands if cand and cand.split()[-1] not in
+            ['Setpoint', 'Sensor', 'Status', 'Command', 'Alarm', 'Meter', '']])
 # remove dimension tagsets
-meas -= set(itertools.chain.from_iterable(dfTagSets.Dimension.dropna().str.split('>').tolist()))
+meas -= set(itertools.chain.from_iterable(dfTagSets.Dimension.dropna().str
+                                          .split('>').tolist()))
 for ts in list(meas):
     if ts not in tagsetsMeas:
         tagsetsMeas[ts] = {
@@ -392,6 +410,7 @@ for idx in dfTagSetsEqLoc.index:
             parent = brickTagSets[str(dfTagSetsEqLoc.loc[idx, "Dimension"]).split('>')[-1]]
             indivLocName = nsBrickTagSet + IndivName(tagset)
             foBrick.write("\n " + indivLocName + "  rdfs:subClassOf   " + parent + ";")
+            foBrick.write('\n\t\t\t skos:definition "' + get_str(dfTagSets.loc[idx, "Definition"]) + '"@en ;\n')
             foBrick.write('\n\t\t\t rdf:type   owl:Class ;')
             if ots:
                 if setEquivalent:
@@ -480,6 +499,28 @@ for tsA in tagsetsPoints:
             if writeUsedByPoint:
                 foUse.write('\n brick:' + IndivName(ts['measurement2']) + '  bf:usedByPoint brick' + indivLocName + '.')
 
+############ Write Resource TagSets ###########
+dfTagSetsResources = dfTagSets.loc[dfTagSets.Dimension.str.startswith("Resource")]
+tagsetsResources = {}
+for rid, row in dfTagSetsResources.iterrows():
+    content = ''
+    tagset = row['TagSet'].replace(' ', '_')
+    tagsetUrl = ':' + tagset
+    parents = row['Dimension'].split('>')
+    superclassUrl = ':' + parents[-1]
+    content += '\n ' + tagsetUrl + '  rdfs:subClassOf ' + superclassUrl + ';'
+    content += '\n\t\t\t rdf:type   owl:Class ;'
+    definition = row['Definition']
+    if isinstance(definition, str):
+        content += '\n\t\t\t skos:definition "' + definition + '"@en;'
+    if content[-1] == ';':
+        content = content[:-1] + '.'
+    else:
+        content += ' .'
+    content += '\n'
+    foBrick.write(content)
+
+
 foBrick.write('\n')
 foBrick.close()
 
@@ -562,3 +603,13 @@ g.serialize(destination='../dist/BrickUse.ttl', format='turtle')
 
 # update version of BrickFrame
 version_update_infile(BRICK_VERSION, '../dist/BrickFrame.ttl')
+
+# Add license to BrickFrame
+g = rdflib.Graph()
+g.parse('../dist/BrickFrame.ttl', format='turtle')
+hasLicense = URIRef("http://purl.org/dc/terms/license")
+BF = URIRef('{0}/{1}/BrickFrame'.format(BRICK_BASEURL, BRICK_VERSION))
+g.remove((BF, hasLicense, None))
+licenseNode = URIRef(BRICK_LICENSE)
+g.add((BF, hasLicense, licenseNode))
+g.serialize('../dist/BrickFrame.ttl', format='turtle')

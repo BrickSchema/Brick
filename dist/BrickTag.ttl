@@ -1,6 +1,7 @@
-@prefix : <https://brickschema.org/schema/1.0.2/BrickTag#> .
-@prefix bf: <https://brickschema.org/schema/1.0.2/BrickFrame#> .
-@prefix brick: <https://brickschema.org/schema/1.0.2/Brick#> .
+@prefix : <https://brickschema.org/schema/1.0.3/BrickTag#> .
+@prefix bf: <https://brickschema.org/schema/1.0.3/BrickFrame#> .
+@prefix brick: <https://brickschema.org/schema/1.0.3/Brick#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -8,9 +9,10 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://brickschema.org/schema/1.0.2/BrickTag> a owl:Ontology ;
+<https://brickschema.org/schema/1.0.3/BrickTag> a owl:Ontology ;
+    dcterms:license <https://raw.githubusercontent.com/BuildSysUniformMetadata/Brick/master/LICENSE> ;
     rdfs:comment "Domain Tag Definition"@en ;
-    owl:imports <https://brickschema.org/schema/1.0.2/Brick> .
+    owl:imports <https://brickschema.org/schema/1.0.3/Brick> .
 
 :Adjustment a owl:Class ;
     rdfs:label "Adjustment"@en ;
@@ -37,6 +39,11 @@
     rdfs:subClassOf bf:Tag ;
     skos:definition ""@en .
 
+:Electrical a owl:Class ;
+    rdfs:label "Electrical"@en ;
+    rdfs:subClassOf bf:Tag ;
+    skos:definition ""@en .
+
 :Equipment a owl:Class ;
     rdfs:label "Equipment"@en ;
     rdfs:subClassOf bf:Tag ;
@@ -46,7 +53,7 @@
 :Estimation a owl:Class ;
     rdfs:label "Estimation"@en ;
     rdfs:subClassOf bf:Tag ;
-    skos:definition ""@en .
+    skos:definition "For a (maybe virtual) point where values are not measured but estimated."@en .
 
 :Face a owl:Class ;
     rdfs:label "Face"@en ;
@@ -65,6 +72,11 @@
 
 :Input a owl:Class ;
     rdfs:label "Input"@en ;
+    rdfs:subClassOf bf:Tag ;
+    skos:definition ""@en .
+
+:Integration a owl:Class ;
+    rdfs:label "Integration"@en ;
     rdfs:subClassOf bf:Tag ;
     skos:definition ""@en .
 
@@ -106,6 +118,11 @@
     rdfs:subClassOf bf:Tag ;
     skos:definition ""@en .
 
+:Temporary a owl:Class ;
+    rdfs:label "Temporary"@en ;
+    rdfs:subClassOf bf:Tag ;
+    skos:definition ""@en .
+
 :To a owl:Class ;
     rdfs:label "To"@en ;
     rdfs:subClassOf bf:Tag ;
@@ -118,9 +135,13 @@
 
 brick:AHU bf:usesTag :AHU .
 
+brick:Alarm bf:usesTag :Alarm .
+
 brick:Basement bf:usesTag :Basement .
 
 brick:Battery bf:usesTag :Battery .
+
+brick:Blind bf:usesTag :Blind .
 
 brick:Boiler bf:usesTag :Boiler .
 
@@ -138,6 +159,8 @@ brick:City bf:usesTag :City .
 
 brick:Coil bf:usesTag :Coil .
 
+brick:Command bf:usesTag :Command .
+
 brick:Compressor bf:usesTag :Compressor .
 
 brick:Condenser bf:usesTag :Condenser .
@@ -153,6 +176,8 @@ brick:Damper bf:usesTag :Damper .
 brick:Desk bf:usesTag :Desk .
 
 brick:Economizer bf:usesTag :Economizer .
+
+brick:Effective_Occupancy_Command bf:usesTag :Effective_Occupancy_Command .
 
 brick:Elevator bf:usesTag :Elevator .
 
@@ -178,8 +203,6 @@ brick:Freezer bf:usesTag :Freezer .
 
 brick:Frost bf:usesTag :Frost .
 
-brick:Gas bf:usesTag :Gas .
-
 brick:HVAC bf:usesTag :HVAC .
 
 brick:HWS bf:usesTag :HWS .
@@ -200,11 +223,11 @@ brick:Inverter bf:usesTag :Inverter .
 
 brick:Laboratory bf:usesTag :Laboratory .
 
+brick:Louver bf:usesTag :Louver .
+
 brick:Luminance bf:usesTag :Luminance .
 
 brick:Occupancy bf:usesTag :Occupancy .
-
-brick:Occupied bf:usesTag :Occupied .
 
 brick:Off bf:usesTag :Off .
 
@@ -212,9 +235,13 @@ brick:On bf:usesTag :On .
 
 brick:Outside bf:usesTag :Outside .
 
+brick:Override_Occupancy_Command bf:usesTag :Override_Occupancy_Command .
+
 brick:PIR bf:usesTag :PIR .
 
 brick:Pump bf:usesTag :Pump .
+
+brick:Radiator bf:usesTag :Radiator .
 
 brick:Rain bf:usesTag :Rain .
 
@@ -223,6 +250,10 @@ brick:Roof bf:usesTag :Roof .
 brick:Room bf:usesTag :Room .
 
 brick:Run bf:usesTag :Run .
+
+brick:Sensor bf:usesTag :Sensor .
+
+brick:Setpoint bf:usesTag :Setpoint .
 
 brick:Space bf:usesTag :Space .
 
@@ -258,6 +289,12 @@ brick:Zone bf:usesTag :Zone .
     skos:definition ""@en ;
     bf:usedBy brick:Basement .
 
+:Blind a owl:Class ;
+    rdfs:label "Blind"@en ;
+    rdfs:subClassOf bf:Tag ;
+    skos:definition ""@en ;
+    bf:usedBy brick:Blind .
+
 :Chair a owl:Class ;
     rdfs:label "Chair"@en ;
     rdfs:subClassOf bf:Tag ;
@@ -282,6 +319,8 @@ brick:Zone bf:usesTag :Zone .
     skos:definition ""@en ;
     bf:usedBy brick:Desk .
 
+:Effective_Occupancy_Command bf:usedBy brick:Effective_Occupancy_Command .
+
 :Elevator a owl:Class ;
     rdfs:label "Elevator"@en ;
     rdfs:subClassOf bf:Tag ;
@@ -291,7 +330,7 @@ brick:Zone bf:usesTag :Zone .
 :FCP a owl:Class ;
     rdfs:label "FCP"@en ;
     rdfs:subClassOf bf:Tag ;
-    skos:definition ""@en ;
+    skos:definition "Fire Control Panel"@en ;
     bf:usedBy brick:FCP .
 
 :Floor a owl:Class ;
@@ -303,7 +342,7 @@ brick:Zone bf:usesTag :Zone .
 :HX a owl:Class ;
     rdfs:label "HX"@en ;
     rdfs:subClassOf bf:Tag ;
-    skos:definition ""@en ;
+    skos:definition "Heat Exchanger"@en ;
     bf:usedBy brick:HX .
 
 :Handler a owl:Class ;
@@ -342,6 +381,28 @@ brick:Zone bf:usesTag :Zone .
     skos:definition ""@en ;
     bf:usedBy brick:Laboratory .
 
+:Louver a owl:Class ;
+    rdfs:label "Louver"@en ;
+    rdfs:subClassOf bf:Tag ;
+    skos:definition ""@en ;
+    bf:usedBy brick:Louver .
+
+:Monthly a owl:Class ;
+    rdfs:label "Monthly"@en ;
+    rdfs:subClassOf bf:Tag ;
+    skos:definition ""@en ;
+    bf:usedBy brick:Monthly_Steam_Usage_Sensor .
+
+:Override_Occupancy_Command bf:usedBy brick:Override_Occupancy_Command .
+
+:Power_System bf:usedBy brick:Power_System_Peak_Power_Demand_Sensor .
+
+:Radiator a owl:Class ;
+    rdfs:label "Radiator"@en ;
+    rdfs:subClassOf bf:Tag ;
+    skos:definition ""@en ;
+    bf:usedBy brick:Radiator .
+
 :Response a owl:Class ;
     rdfs:label "Response"@en ;
     rdfs:subClassOf bf:Tag ;
@@ -360,17 +421,35 @@ brick:Zone bf:usesTag :Zone .
     skos:definition ""@en ;
     bf:usedBy brick:Fire_Safety_System .
 
+:Scheduled a owl:Class ;
+    rdfs:label "Scheduled"@en ;
+    rdfs:subClassOf bf:Tag ;
+    skos:definition ""@en ;
+    bf:usedBy brick:Scheduled_Occupancy_Command .
+
 :Server a owl:Class ;
     rdfs:label "Server"@en ;
     rdfs:subClassOf bf:Tag ;
     skos:definition ""@en ;
     bf:usedBy brick:Server_Room .
 
+:Shading a owl:Class ;
+    rdfs:label "Shading"@en ;
+    rdfs:subClassOf bf:Tag ;
+    skos:definition ""@en ;
+    bf:usedBy brick:Shading_System .
+
 :Terminal a owl:Class ;
     rdfs:label "Terminal"@en ;
     rdfs:subClassOf bf:Tag ;
     skos:definition ""@en ;
     bf:usedBy brick:Terminal_Unit .
+
+:Today a owl:Class ;
+    rdfs:label "Today"@en ;
+    rdfs:subClassOf bf:Tag ;
+    skos:definition ""@en ;
+    bf:usedBy brick:Today_Steam_Usage_Sensor .
 
 :UndefinedMeasurement a owl:Class ;
     rdfs:label "UndefinedMeasurement"@en ;
@@ -387,7 +466,7 @@ brick:Zone bf:usesTag :Zone .
 :WS a owl:Class ;
     rdfs:label "WS"@en ;
     rdfs:subClassOf bf:Tag ;
-    skos:definition ""@en ;
+    skos:definition "Water System"@en ;
     bf:usedBy brick:WS .
 
 :Wing a owl:Class ;
@@ -395,6 +474,12 @@ brick:Zone bf:usesTag :Zone .
     rdfs:subClassOf bf:Tag ;
     skos:definition ""@en ;
     bf:usedBy brick:Wing .
+
+:Yearly a owl:Class ;
+    rdfs:label "Yearly"@en ;
+    rdfs:subClassOf bf:Tag ;
+    skos:definition ""@en ;
+    bf:usedBy brick:Yearly_Steam_Usage_Sensor .
 
 brick:Acceleration_Time bf:usesTag :Acceleration,
         :Time .
@@ -443,6 +528,9 @@ brick:CO2_High bf:usesTag :CO2,
 
 brick:CO2_Level bf:usesTag :CO2,
         :Level .
+
+brick:CO2_Sensor bf:usesTag :CO2,
+        :Sensor .
 
 brick:CO2_Setpoint bf:usesTag :CO2,
         :Setpoint .
@@ -543,8 +631,8 @@ brick:Economizer_Mode bf:usesTag :Economizer,
 brick:Economizer_Status bf:usesTag :Economizer,
         :Status .
 
-brick:Electrical_Power bf:usesTag :Electrical,
-        :Power .
+brick:Electricity_Meter bf:usesTag :Electricity,
+        :Meter .
 
 brick:Emergency_Generator bf:usesTag :Emergency,
         :Generator .
@@ -590,6 +678,9 @@ brick:Filter_Reset bf:usesTag :Filter,
 
 brick:Filter_Status bf:usesTag :Filter,
         :Status .
+
+brick:Fire_Alarm bf:usesTag :Alarm,
+        :Fire .
 
 brick:Flow_Sensor bf:usesTag :Flow,
         :Sensor .
@@ -741,20 +832,17 @@ brick:Motor_Current bf:usesTag :Current,
 brick:Motor_Direction bf:usesTag :Direction,
         :Motor .
 
-brick:Motor_Power bf:usesTag :Motor,
-        :Power .
-
 brick:Motor_Speed bf:usesTag :Motor,
         :Speed .
 
 brick:Motor_Torque bf:usesTag :Motor,
         :Torque .
 
+brick:Occupancy_Command bf:usesTag :Command,
+        :Occupancy .
+
 brick:Occupancy_Sensor bf:usesTag :Occupancy,
         :Sensor .
-
-brick:Occupancy_Status bf:usesTag :Occupancy,
-        :Status .
 
 brick:Occupied_Mode bf:usesTag :Mode,
         :Occupied .
@@ -789,8 +877,8 @@ brick:Panel_Lockout bf:usesTag :Lockout,
 brick:Power_Loss bf:usesTag :Loss,
         :Power .
 
-brick:Power_Meter bf:usesTag :Meter,
-        :Power .
+brick:Power_Sensor bf:usesTag :Power,
+        :Sensor .
 
 brick:Power_System bf:usesTag :Power,
         :System .
@@ -824,6 +912,9 @@ brick:Rain_Sensor bf:usesTag :Rain,
 
 brick:Rated_Speed bf:usesTag :Rated,
         :Speed .
+
+brick:Reheat_Coil bf:usesTag :Coil,
+        :Reheat .
 
 brick:Reheat_Valve bf:usesTag :Reheat,
         :Valve .
@@ -867,6 +958,9 @@ brick:Schedule_Temperature bf:usesTag :Schedule,
 brick:Server_Room bf:usesTag :Room,
         :Server .
 
+brick:Shading_System bf:usesTag :Shading,
+        :System .
+
 brick:Short_Cycle bf:usesTag :Cycle,
         :Short .
 
@@ -896,6 +990,9 @@ brick:Start_Stop bf:usesTag :Start,
 
 brick:Static_Pressure bf:usesTag :Pressure,
         :Static .
+
+brick:Steam_Meter bf:usesTag :Meter,
+        :Steam .
 
 brick:Steam_System bf:usesTag :Steam,
         :System .
@@ -933,14 +1030,8 @@ brick:Temperature_Setpoint bf:usesTag :Setpoint,
 brick:Temperature_Tolerance bf:usesTag :Temperature,
         :Tolerance .
 
-brick:Temporary_Occupancy bf:usesTag :Occupancy,
-        :Temporary .
-
 brick:Terminal_Unit bf:usesTag :Terminal,
         :Unit .
-
-brick:Thermal_Power bf:usesTag :Power,
-        :Thermal .
 
 brick:Thermostat_Adjust bf:usesTag :Adjust,
         :Thermostat .
@@ -959,6 +1050,9 @@ brick:Unit_Failed bf:usesTag :Failed,
 
 brick:Unoccupied_Mode bf:usesTag :Mode,
         :Unoccupied .
+
+brick:Usage_Sensor bf:usesTag :Sensor,
+        :Usage .
 
 brick:VFD_Alarm bf:usesTag :Alarm,
         :VFD .
@@ -1015,13 +1109,6 @@ brick:Wind_Speed bf:usesTag :Speed,
     bf:usedBy brick:Computer_Room_Air_Conditioning,
         brick:Heating_Ventilation_Air_Conditioning_System .
 
-:Electrical a owl:Class ;
-    rdfs:label "Electrical"@en ;
-    rdfs:subClassOf bf:Tag ;
-    skos:definition ""@en ;
-    bf:usedBy brick:Electrical_Power,
-        brick:Electrical_Power_Meter .
-
 :Environment a owl:Class ;
     rdfs:label "Environment"@en ;
     rdfs:subClassOf bf:Tag ;
@@ -1057,8 +1144,8 @@ brick:Wind_Speed bf:usesTag :Speed,
     rdfs:label "Gas"@en ;
     rdfs:subClassOf bf:Tag ;
     skos:definition ""@en ;
-    bf:usedBy brick:Gas,
-        brick:Gas_Meter .
+    bf:usedBy brick:Gas_Meter,
+        brick:Gas_Usage_Sensor .
 
 :Heat_Exchanger bf:usedBy brick:Heat_Exchanger_Outside_Air_Temperature_High_Reset_Setpoint,
         brick:Heat_Exchanger_Outside_Air_Temperature_Low_Reset_Setpoint .
@@ -1080,12 +1167,9 @@ brick:Wind_Speed bf:usesTag :Speed,
 :PIR a owl:Class ;
     rdfs:label "PIR"@en ;
     rdfs:subClassOf bf:Tag ;
-    skos:definition ""@en ;
+    skos:definition "Passive Infra Red"@en ;
     bf:usedBy brick:PIR,
         brick:PIR_Sensor .
-
-:Power_System bf:usedBy brick:Power_System_Peak_Power_Demand_Sensor,
-        brick:Power_System_Power_Meter .
 
 :Return_Fan bf:usedBy brick:Return_Fan_Fan_Air_Flow_Sensor,
         brick:Return_Fan_VFD_Status .
@@ -1129,6 +1213,10 @@ brick:AHU_Filter_Status bf:usesTag :AHU,
 brick:AHU_Frost_Sensor bf:usesTag :AHU,
         :Frost,
         :Sensor .
+
+brick:AHU_Occupancy_Command bf:usesTag :AHU,
+        :Command,
+        :Occupancy .
 
 brick:AHU_Off_LED bf:usesTag :AHU,
         :LED,
@@ -1218,10 +1306,6 @@ brick:CO2_Level_Sensor bf:usesTag :CO2,
         :Level,
         :Sensor .
 
-brick:CO2_Sensor bf:usesTag :CO2,
-        :Differential,
-        :Sensor .
-
 brick:CRAC_Capacity_Sensor bf:usesTag :CRAC,
         :Capacity,
         :Sensor .
@@ -1278,10 +1362,6 @@ brick:Chilled_Valve_Pressure bf:usesTag :Chilled,
         :Pressure,
         :Valve .
 
-brick:Chilled_Water_Meter bf:usesTag :Chilled,
-        :Meter,
-        :Water .
-
 brick:Chilled_Water_Pump bf:usesTag :Chilled,
         :Pump,
         :Water .
@@ -1322,10 +1402,6 @@ brick:Cooling_Request_Percent bf:usesTag :Cooling,
         :Percent,
         :Request .
 
-brick:Cooling_Thermal_Power bf:usesTag :Cooling,
-        :Power,
-        :Thermal .
-
 brick:Cooling_Tower_Fan bf:usesTag :Cooling,
         :Fan,
         :Tower .
@@ -1341,10 +1417,6 @@ brick:Current_Cooling_Setpoint bf:usesTag :Cooling,
 brick:Current_Limit_Setpoint bf:usesTag :Current,
         :Limit,
         :Setpoint .
-
-brick:Current_Steam_Usage bf:usesTag :Current,
-        :Steam,
-        :Usage .
 
 brick:Curtailment_Override_Command bf:usesTag :Command,
         :Curtailment,
@@ -1454,9 +1526,13 @@ brick:Effective_Heating_Temperature bf:usesTag :Effective,
         :Heating,
         :Temperature .
 
-brick:Electrical_Power_Meter bf:usesTag :Electrical,
-        :Meter,
-        :Power .
+brick:Electricity_Energy_Sensor bf:usesTag :Electricity,
+        :Energy,
+        :Sensor .
+
+brick:Electricity_Power_Sensor bf:usesTag :Electricity,
+        :Power,
+        :Sensor .
 
 brick:Emergency_Air_Flow bf:usesTag :Air,
         :Emergency,
@@ -1606,6 +1682,10 @@ brick:Fume_Hood_Alarm bf:usesTag :Alarm,
         :Fume,
         :Hood .
 
+brick:Gas_Usage_Sensor bf:usesTag :Gas,
+        :Sensor,
+        :Usage .
+
 brick:HVAC_Disable_Command bf:usesTag :Command,
         :Disable,
         :HVAC .
@@ -1642,10 +1722,6 @@ brick:Heating_Request_Percent bf:usesTag :Heating,
         :Percent,
         :Request .
 
-brick:Heating_Thermal_Power bf:usesTag :Heating,
-        :Power,
-        :Thermal .
-
 brick:Heating_Valve_Command bf:usesTag :Command,
         :Heating,
         :Valve .
@@ -1661,14 +1737,6 @@ brick:High_Humidity_Alarm bf:usesTag :Alarm,
 brick:High_Temperature_Alarm bf:usesTag :Alarm,
         :High,
         :Temperature .
-
-brick:Hot_Water_Flow bf:usesTag :Flow,
-        :Hot,
-        :Water .
-
-brick:Hot_Water_Meter bf:usesTag :Hot,
-        :Meter,
-        :Water .
 
 brick:Hot_Water_Pump bf:usesTag :Hot,
         :Pump,
@@ -1782,10 +1850,6 @@ brick:Mixed_Air_Temperature bf:usesTag :Air,
         :Mixed,
         :Temperature .
 
-brick:Monthly_Steam_Usage bf:usesTag :Monthly,
-        :Steam,
-        :Usage .
-
 brick:Motor_Current_Sensor bf:usesTag :Current,
         :Motor,
         :Sensor .
@@ -1798,9 +1862,9 @@ brick:Motor_Direction_Status bf:usesTag :Direction,
         :Motor,
         :Status .
 
-brick:Motor_Power_Meter bf:usesTag :Meter,
-        :Motor,
-        :Power .
+brick:Motor_Power_Sensor bf:usesTag :Motor,
+        :Power,
+        :Sensor .
 
 brick:Motor_Speed_Sensor bf:usesTag :Motor,
         :Sensor,
@@ -1813,14 +1877,6 @@ brick:Motor_Start_Stop bf:usesTag :Motor,
 brick:Motor_Torque_Sensor bf:usesTag :Motor,
         :Sensor,
         :Torque .
-
-brick:Occupancy_Command bf:usesTag :Command,
-        :Occupancy,
-        :Occupied .
-
-brick:Occupied_Command bf:usesTag :Command,
-        :Occupancy,
-        :Occupied .
 
 brick:Occupied_Mode_Status bf:usesTag :Mode,
         :Occupied,
@@ -1866,10 +1922,6 @@ brick:Panel_Lockout_Command bf:usesTag :Command,
         :Lockout,
         :Panel .
 
-brick:Peak_Energy_Today bf:usesTag :Energy,
-        :Peak,
-        :Today .
-
 brick:Peak_Power_Demand bf:usesTag :Demand,
         :Peak,
         :Power .
@@ -1885,10 +1937,6 @@ brick:Photovoltaic_Current_Output bf:usesTag :Current,
 brick:Power_Loss_Alarm bf:usesTag :Alarm,
         :Loss,
         :Power .
-
-brick:Power_System_Power_Meter bf:usesTag :Meter,
-        :Power,
-        :Power_System .
 
 brick:Pre_Filter_Status bf:usesTag :Filter,
         :Pre,
@@ -2018,6 +2066,10 @@ brick:Schedule_Temperature_Setpoint bf:usesTag :Schedule,
         :Setpoint,
         :Temperature .
 
+brick:Scheduled_Occupancy_Command bf:usesTag :Command,
+        :Occupancy,
+        :Scheduled .
+
 brick:Short_Cycle_Alarm bf:usesTag :Alarm,
         :Cycle,
         :Short .
@@ -2074,8 +2126,8 @@ brick:Steam_On_Off bf:usesTag :Off,
         :On,
         :Steam .
 
-brick:Steam_Usage_Today bf:usesTag :Steam,
-        :Today,
+brick:Steam_Usage_Sensor bf:usesTag :Sensor,
+        :Steam,
         :Usage .
 
 brick:Supply_Air_Flow bf:usesTag :Air,
@@ -2122,16 +2174,12 @@ brick:Temperature_Tolerance_Setpoint bf:usesTag :Setpoint,
         :Temperature,
         :Tolerance .
 
-brick:Temporary_Occupancy_Status bf:usesTag :Occupancy,
-        :Status,
-        :Temporary .
-
 brick:Thermal_Energy_Storage bf:usesTag :Energy,
         :Storage,
         :Thermal .
 
-brick:Thermal_Power_Meter bf:usesTag :Meter,
-        :Power,
+brick:Thermal_Power_Sensor bf:usesTag :Power,
+        :Sensor,
         :Thermal .
 
 brick:Thermostat_Adjust_Sensor bf:usesTag :Adjust,
@@ -2186,12 +2234,12 @@ brick:VAV_Heating_Command bf:usesTag :Command,
         :Heating,
         :VAV .
 
-brick:VAV_Occupancy_Sensor bf:usesTag :Occupancy,
-        :Sensor,
+brick:VAV_Occupancy_Command bf:usesTag :Command,
+        :Occupancy,
         :VAV .
 
-brick:VAV_Occupancy_Status bf:usesTag :Occupancy,
-        :Status,
+brick:VAV_Occupancy_Sensor bf:usesTag :Occupancy,
+        :Sensor,
         :VAV .
 
 brick:VFD_Current_Sensor bf:usesTag :Current,
@@ -2212,10 +2260,6 @@ brick:VFD_Fault_Status bf:usesTag :Fault,
 
 brick:VFD_Frequency_Command bf:usesTag :Command,
         :Frequency,
-        :VFD .
-
-brick:VFD_Power_Meter bf:usesTag :Meter,
-        :Power,
         :VFD .
 
 brick:VFD_Run_Status bf:usesTag :Run,
@@ -2270,9 +2314,9 @@ brick:Water_System_Valve_Command bf:usesTag :Command,
         :Valve,
         :Water_System .
 
-brick:Water_System_Water_Meter bf:usesTag :Meter,
-        :Water,
-        :Water_System .
+brick:Water_Usage_Sensor bf:usesTag :Sensor,
+        :Usage,
+        :Water .
 
 brick:Weather_Hail_Sensor bf:usesTag :Hail,
         :Sensor,
@@ -2289,10 +2333,6 @@ brick:Wind_Direction_Sensor bf:usesTag :Direction,
 brick:Wind_Speed_Sensor bf:usesTag :Sensor,
         :Speed,
         :Wind .
-
-brick:Yearly_Steam_Usage bf:usesTag :Steam,
-        :Usage,
-        :Yearly .
 
 brick:Zone_Humidity_Sensor bf:usesTag :Humidity,
         :Sensor,
@@ -2333,7 +2373,7 @@ brick:Zone_Temperature_Setpoint bf:usesTag :Setpoint,
 :Bus a owl:Class ;
     rdfs:label "Bus"@en ;
     rdfs:subClassOf bf:Tag ;
-    skos:definition ""@en ;
+    skos:definition "A metallic strip or bar (typically copper, brass or aluminium) that conducts electricity. Or bus bar."@en ;
     bf:usedBy brick:DC_Bus_Voltage,
         brick:DC_Bus_Voltage_Sensor,
         brick:VFD_DC_Bus_Voltage_Sensor .
@@ -2421,7 +2461,7 @@ brick:Zone_Temperature_Setpoint bf:usesTag :Setpoint,
 :DC a owl:Class ;
     rdfs:label "DC"@en ;
     rdfs:subClassOf bf:Tag ;
-    skos:definition ""@en ;
+    skos:definition "Direct Current - usually used for digital control"@en ;
     bf:usedBy brick:DC_Bus_Voltage,
         brick:DC_Bus_Voltage_Sensor,
         brick:VFD_DC_Bus_Voltage_Sensor .
@@ -2473,6 +2513,14 @@ brick:Zone_Temperature_Setpoint bf:usesTag :Setpoint,
     bf:usedBy brick:CRAC_EconCycle_On_Off_Status,
         brick:EconCycle_On_Off,
         brick:EconCycle_On_Off_Status .
+
+:Electricity a owl:Class ;
+    rdfs:label "Electricity"@en ;
+    rdfs:subClassOf bf:Tag ;
+    skos:definition ""@en ;
+    bf:usedBy brick:Electricity_Energy_Sensor,
+        brick:Electricity_Meter,
+        brick:Electricity_Power_Sensor .
 
 :Failed a owl:Class ;
     rdfs:label "Failed"@en ;
@@ -2533,7 +2581,7 @@ brick:Zone_Temperature_Setpoint bf:usesTag :Setpoint,
 :Head a owl:Class ;
     rdfs:label "Head"@en ;
     rdfs:subClassOf bf:Tag ;
-    skos:definition ""@en ;
+    skos:definition "Head on a gas tube"@en ;
     bf:usedBy brick:CRAC_High_Head_Pressure_Alarm,
         brick:High_Head_Pressure,
         brick:High_Head_Pressure_Alarm .
@@ -2570,14 +2618,6 @@ brick:Zone_Temperature_Setpoint bf:usesTag :Setpoint,
         brick:Humidify,
         brick:Humidify_Command .
 
-:Integration a owl:Class ;
-    rdfs:label "Integration"@en ;
-    rdfs:subClassOf bf:Tag ;
-    skos:definition ""@en ;
-    bf:usedBy brick:CWS_Chilled_Water_Pump_Differential_Pressure_Integration_Time_Setpoint,
-        brick:Chilled_Water_Pump_Differential_Pressure_Integration_Time,
-        brick:Chilled_Water_Pump_Differential_Pressure_Integration_Time_Setpoint .
-
 :Last a owl:Class ;
     rdfs:label "Last"@en ;
     rdfs:subClassOf bf:Tag ;
@@ -2602,14 +2642,6 @@ brick:Zone_Temperature_Setpoint bf:usesTag :Setpoint,
         brick:Locally_On_Off,
         brick:Locally_On_Off_Status .
 
-:Monthly a owl:Class ;
-    rdfs:label "Monthly"@en ;
-    rdfs:subClassOf bf:Tag ;
-    skos:definition ""@en ;
-    bf:usedBy brick:Monthly_Steam_Usage,
-        brick:Monthly_Steam_Usage_Meter,
-        brick:Steam_System_Monthly_Steam_Usage_Meter .
-
 :No a owl:Class ;
     rdfs:label "No"@en ;
     rdfs:subClassOf bf:Tag ;
@@ -2633,6 +2665,14 @@ brick:Zone_Temperature_Setpoint bf:usesTag :Setpoint,
     bf:usedBy brick:AHU_Curtailment_Override_Command,
         brick:Curtailment_Override,
         brick:Curtailment_Override_Command .
+
+:Peak a owl:Class ;
+    rdfs:label "Peak"@en ;
+    rdfs:subClassOf bf:Tag ;
+    skos:definition ""@en ;
+    bf:usedBy brick:Peak_Power_Demand,
+        brick:Peak_Power_Demand_Sensor,
+        brick:Power_System_Peak_Power_Demand_Sensor .
 
 :Perimeter a owl:Class ;
     rdfs:label "Perimeter"@en ;
@@ -2697,14 +2737,6 @@ brick:Zone_Temperature_Setpoint bf:usesTag :Setpoint,
     bf:usedBy brick:Drive_Ready,
         brick:Drive_Ready_Status,
         brick:VFD_Drive_Ready_Status .
-
-:Reheat a owl:Class ;
-    rdfs:label "Reheat"@en ;
-    rdfs:subClassOf bf:Tag ;
-    skos:definition ""@en ;
-    bf:usedBy brick:Reheat_Valve,
-        brick:Reheat_Valve_Command,
-        brick:VAV_Reheat_Valve_Command .
 
 :Relative a owl:Class ;
     rdfs:label "Relative"@en ;
@@ -2781,18 +2813,10 @@ brick:Zone_Temperature_Setpoint bf:usesTag :Setpoint,
 :Switch a owl:Class ;
     rdfs:label "Switch"@en ;
     rdfs:subClassOf bf:Tag ;
-    skos:definition ""@en ;
+    skos:definition "Physical switch"@en ;
     bf:usedBy brick:CRAC_Emergency_Power_Off_Switch_Command,
         brick:Emergency_Power_Off_Switch,
         brick:Emergency_Power_Off_Switch_Command .
-
-:Temporary a owl:Class ;
-    rdfs:label "Temporary"@en ;
-    rdfs:subClassOf bf:Tag ;
-    skos:definition ""@en ;
-    bf:usedBy brick:Temporary_Occupancy,
-        brick:Temporary_Occupancy_Status,
-        brick:VAV_Temporary_Occupancy_Status .
 
 :Torque a owl:Class ;
     rdfs:label "Torque"@en ;
@@ -2842,14 +2866,6 @@ brick:Zone_Temperature_Setpoint bf:usesTag :Setpoint,
         brick:Shutdown_Hot_Water_When_Unoccupied,
         brick:Shutdown_Hot_Water_When_Unoccupied_Command .
 
-:Yearly a owl:Class ;
-    rdfs:label "Yearly"@en ;
-    rdfs:subClassOf bf:Tag ;
-    skos:definition ""@en ;
-    bf:usedBy brick:Steam_System_Yearly_Steam_Usage_Meter,
-        brick:Yearly_Steam_Usage,
-        brick:Yearly_Steam_Usage_Meter .
-
 :Zenith a owl:Class ;
     rdfs:label "Zenith"@en ;
     rdfs:subClassOf bf:Tag ;
@@ -2872,11 +2888,6 @@ brick:AHU_CO2_High_Alarm bf:usesTag :AHU,
         :Alarm,
         :CO2,
         :High .
-
-brick:AHU_CO2_Sensor bf:usesTag :AHU,
-        :CO2,
-        :Differential,
-        :Sensor .
 
 brick:AHU_Change_Filter_Alarm bf:usesTag :AHU,
         :Alarm,
@@ -2932,16 +2943,6 @@ brick:AHU_Heating_Valve_Command bf:usesTag :AHU,
         :Command,
         :Heating,
         :Valve .
-
-brick:AHU_Occupancy_Command bf:usesTag :AHU,
-        :Command,
-        :Occupancy,
-        :Occupied .
-
-brick:AHU_Occupied_Command bf:usesTag :AHU,
-        :Command,
-        :Occupancy,
-        :Occupied .
 
 brick:AHU_Occupied_Mode_Status bf:usesTag :AHU,
         :Mode,
@@ -3258,11 +3259,6 @@ brick:CRAC_Zone_Humidity_Sensor bf:usesTag :CRAC,
         :Sensor,
         :Zone .
 
-brick:CWS_Chilled_Water_Meter bf:usesTag :CWS,
-        :Chilled,
-        :Meter,
-        :Water .
-
 brick:CWS_Exhaust_Fan_Command bf:usesTag :CWS,
         :Command,
         :Exhaust,
@@ -3291,6 +3287,16 @@ brick:Chilled_Water_Discharge_Flow bf:usesTag :Chilled,
 brick:Chilled_Water_Discharge_Temperature bf:usesTag :Chilled,
         :Discharge,
         :Temperature,
+        :Water .
+
+brick:Chilled_Water_Flow_Sensor bf:usesTag :Chilled,
+        :Flow,
+        :Sensor,
+        :Water .
+
+brick:Chilled_Water_Pump_Alarm bf:usesTag :Alarm,
+        :Chilled,
+        :Pump,
         :Water .
 
 brick:Chilled_Water_Pump_Command bf:usesTag :Chilled,
@@ -3336,6 +3342,11 @@ brick:Chilled_Water_System_Enable bf:usesTag :Chilled,
 brick:Chilled_Water_Temperature_Differential bf:usesTag :Chilled,
         :Differential,
         :Temperature,
+        :Water .
+
+brick:Chilled_Water_Usage_Sensor bf:usesTag :Chilled,
+        :Sensor,
+        :Usage,
         :Water .
 
 brick:Chiller_Max_Load_Setpoint bf:usesTag :Chiller,
@@ -3393,9 +3404,9 @@ brick:Cooling_Request_Setpoint bf:usesTag :Cooling,
         :Request,
         :Setpoint .
 
-brick:Cooling_Thermal_Power_Meter bf:usesTag :Cooling,
-        :Meter,
+brick:Cooling_Thermal_Power_Sensor bf:usesTag :Cooling,
         :Power,
+        :Sensor,
         :Thermal .
 
 brick:Cooling_Tower_Fan_Speed bf:usesTag :Cooling,
@@ -3403,8 +3414,8 @@ brick:Cooling_Tower_Fan_Speed bf:usesTag :Cooling,
         :Speed,
         :Tower .
 
-brick:Current_Steam_Usage_Meter bf:usesTag :Current,
-        :Meter,
+brick:Current_Steam_Usage_Sensor bf:usesTag :Current,
+        :Sensor,
         :Steam,
         :Usage .
 
@@ -3788,11 +3799,6 @@ brick:Filter_Differential_Pressure_Sensor bf:usesTag :Differential,
         :Pressure,
         :Sensor .
 
-brick:HWS_Hot_Water_Meter bf:usesTag :HWS,
-        :Hot,
-        :Meter,
-        :Water .
-
 brick:Hand_Auto_Status bf:usesTag :Auto,
         :Hand,
         :Manual,
@@ -3853,9 +3859,9 @@ brick:Heating_Supply_Air_Flow bf:usesTag :Air,
         :Heating,
         :Supply .
 
-brick:Heating_Thermal_Power_Meter bf:usesTag :Heating,
-        :Meter,
+brick:Heating_Thermal_Power_Sensor bf:usesTag :Heating,
         :Power,
+        :Sensor,
         :Thermal .
 
 brick:High_Head_Pressure_Alarm bf:usesTag :Alarm,
@@ -3893,9 +3899,9 @@ brick:Hot_Water_Discharge_Temperature bf:usesTag :Discharge,
         :Temperature,
         :Water .
 
-brick:Hot_Water_Flow_Meter bf:usesTag :Flow,
+brick:Hot_Water_Flow_Sensor bf:usesTag :Flow,
         :Hot,
-        :Meter,
+        :Sensor,
         :Water .
 
 brick:Hot_Water_Pump_Alarm bf:usesTag :Alarm,
@@ -3916,6 +3922,11 @@ brick:Hot_Water_Static_Pressure bf:usesTag :Hot,
 brick:Hot_Water_System_Enable bf:usesTag :Enable,
         :Hot,
         :System,
+        :Water .
+
+brick:Hot_Water_Usage_Sensor bf:usesTag :Hot,
+        :Sensor,
+        :Usage,
         :Water .
 
 brick:Hot_Water_Valve_Command bf:usesTag :Command,
@@ -4028,8 +4039,8 @@ brick:Mixed_Air_Temperature_Setpoint bf:usesTag :Air,
         :Setpoint,
         :Temperature .
 
-brick:Monthly_Steam_Usage_Meter bf:usesTag :Meter,
-        :Monthly,
+brick:Monthly_Steam_Usage_Sensor bf:usesTag :Monthly,
+        :Sensor,
         :Steam,
         :Usage .
 
@@ -4087,11 +4098,6 @@ brick:Outside_Air_Temperature_Sensor bf:usesTag :Air,
         :Outside,
         :Sensor,
         :Temperature .
-
-brick:Peak_Energy_Today_Meter bf:usesTag :Energy,
-        :Meter,
-        :Peak,
-        :Today .
 
 brick:Peak_Power_Demand_Sensor bf:usesTag :Demand,
         :Peak,
@@ -4248,11 +4254,6 @@ brick:Steam_On_Off_Command bf:usesTag :Command,
         :On,
         :Steam .
 
-brick:Steam_Usage_Today_Meter bf:usesTag :Meter,
-        :Steam,
-        :Today,
-        :Usage .
-
 brick:Supply_Air_Flow_Demand bf:usesTag :Air,
         :Demand,
         :Flow,
@@ -4323,6 +4324,11 @@ brick:Thumbwheel_Temperature_Low_Limit bf:usesTag :Limit,
         :Temperature,
         :Thumbwheel .
 
+brick:Today_Steam_Usage_Sensor bf:usesTag :Sensor,
+        :Steam,
+        :Today,
+        :Usage .
+
 brick:Unoccupied_Cooling_Temperature_Setpoint bf:usesTag :Cooling,
         :Setpoint,
         :Temperature,
@@ -4373,16 +4379,6 @@ brick:VAV_Heating_Valve_Command bf:usesTag :Command,
         :VAV,
         :Valve .
 
-brick:VAV_Occupancy_Command bf:usesTag :Command,
-        :Occupancy,
-        :Occupied,
-        :VAV .
-
-brick:VAV_Occupied_Command bf:usesTag :Command,
-        :Occupancy,
-        :Occupied,
-        :VAV .
-
 brick:VAV_Reheat_Valve_Command bf:usesTag :Command,
         :Reheat,
         :VAV,
@@ -4401,11 +4397,6 @@ brick:VAV_Room_Temperature_Setpoint bf:usesTag :Room,
 brick:VAV_Schedule_Temperature_Setpoint bf:usesTag :Schedule,
         :Setpoint,
         :Temperature,
-        :VAV .
-
-brick:VAV_Temporary_Occupancy_Status bf:usesTag :Occupancy,
-        :Status,
-        :Temporary,
         :VAV .
 
 brick:VAV_Thermostat_Adjust_Sensor bf:usesTag :Adjust,
@@ -4506,11 +4497,6 @@ brick:VFD_Motor_Direction_Command bf:usesTag :Command,
 brick:VFD_Motor_Direction_Status bf:usesTag :Direction,
         :Motor,
         :Status,
-        :VFD .
-
-brick:VFD_Motor_Power_Meter bf:usesTag :Meter,
-        :Motor,
-        :Power,
         :VFD .
 
 brick:VFD_Motor_Speed_Sensor bf:usesTag :Motor,
@@ -4638,7 +4624,7 @@ brick:Weather_Wind_Speed_Sensor bf:usesTag :Sensor,
         :Weather,
         :Wind .
 
-brick:Yearly_Steam_Usage_Meter bf:usesTag :Meter,
+brick:Yearly_Steam_Usage_Sensor bf:usesTag :Sensor,
         :Steam,
         :Usage,
         :Yearly .
@@ -4780,10 +4766,23 @@ brick:Zone_Air_Temperature_Sensor bf:usesTag :Air,
         brick:Lighting_System_Luminance_Sensor,
         brick:Lighting_System_Luminance_Setpoint .
 
-:Steam_System bf:usedBy brick:Steam_System_Current_Steam_Usage_Meter,
-        brick:Steam_System_Monthly_Steam_Usage_Meter,
-        brick:Steam_System_Steam_Usage_Today_Meter,
-        brick:Steam_System_Yearly_Steam_Usage_Meter .
+:Meter a owl:Class ;
+    rdfs:label "Meter"@en ;
+    rdfs:subClassOf bf:Tag ;
+    skos:definition ""@en ;
+    bf:usedBy brick:Electricity_Meter,
+        brick:Gas_Meter,
+        brick:Steam_Meter,
+        brick:Water_Meter .
+
+:Reheat a owl:Class ;
+    rdfs:label "Reheat"@en ;
+    rdfs:subClassOf bf:Tag ;
+    skos:definition ""@en ;
+    bf:usedBy brick:Reheat_Coil,
+        brick:Reheat_Valve,
+        brick:Reheat_Valve_Command,
+        brick:VAV_Reheat_Valve_Command .
 
 :Tank a owl:Class ;
     rdfs:label "Tank"@en ;
@@ -5279,6 +5278,12 @@ brick:CRAC_Remotely_On_Off_Status bf:usesTag :CRAC,
         :On,
         :Remotely,
         :Status .
+
+brick:CWS_Chilled_Water_Pump_Alarm bf:usesTag :Alarm,
+        :CWS,
+        :Chilled,
+        :Pump,
+        :Water .
 
 brick:CWS_Chilled_Water_Pump_Command bf:usesTag :CWS,
         :Chilled,
@@ -5856,12 +5861,6 @@ brick:HWS_Heat_Exchanger_Valve_Command bf:usesTag :Command,
         :Heat,
         :Valve .
 
-brick:HWS_Hot_Water_Flow_Meter bf:usesTag :Flow,
-        :HWS,
-        :Hot,
-        :Meter,
-        :Water .
-
 brick:HWS_Hot_Water_Pump_Alarm bf:usesTag :Alarm,
         :HWS,
         :Hot,
@@ -6372,30 +6371,6 @@ brick:Start_Stop_Status bf:usesTag :Off,
         :Status,
         :Stop .
 
-brick:Steam_System_Current_Steam_Usage_Meter bf:usesTag :Current,
-        :Meter,
-        :Steam,
-        :Steam_System,
-        :Usage .
-
-brick:Steam_System_Monthly_Steam_Usage_Meter bf:usesTag :Meter,
-        :Monthly,
-        :Steam,
-        :Steam_System,
-        :Usage .
-
-brick:Steam_System_Steam_Usage_Today_Meter bf:usesTag :Meter,
-        :Steam,
-        :Steam_System,
-        :Today,
-        :Usage .
-
-brick:Steam_System_Yearly_Steam_Usage_Meter bf:usesTag :Meter,
-        :Steam,
-        :Steam_System,
-        :Usage,
-        :Yearly .
-
 brick:Supply_Air_Damper_Max_Position bf:usesTag :Air,
         :Damper,
         :Max,
@@ -6778,16 +6753,6 @@ brick:Zone_Unoccupied_Load_Shed_Command bf:usesTag :Command,
         brick:Solar_Panel_PV_Current_Output_Sensor,
         brick:Solar_Panel_Photovoltaic_Current_Output_Sensor .
 
-:Peak a owl:Class ;
-    rdfs:label "Peak"@en ;
-    rdfs:subClassOf bf:Tag ;
-    skos:definition ""@en ;
-    bf:usedBy brick:Peak_Energy_Today,
-        brick:Peak_Energy_Today_Meter,
-        brick:Peak_Power_Demand,
-        brick:Peak_Power_Demand_Sensor,
-        brick:Power_System_Peak_Power_Demand_Sensor .
-
 :Photovoltaic a owl:Class ;
     rdfs:label "Photovoltaic"@en ;
     rdfs:subClassOf bf:Tag ;
@@ -6803,16 +6768,6 @@ brick:Zone_Unoccupied_Load_Shed_Command bf:usesTag :Command,
         brick:Solar_Panel_Photovoltaic_Current_Output_Sensor,
         brick:Solar_Panel_Solar_Azimuth_Angle_Sensor,
         brick:Solar_Panel_Solar_Zenith_Angle_Sensor .
-
-:Today a owl:Class ;
-    rdfs:label "Today"@en ;
-    rdfs:subClassOf bf:Tag ;
-    skos:definition ""@en ;
-    bf:usedBy brick:Peak_Energy_Today,
-        brick:Peak_Energy_Today_Meter,
-        brick:Steam_System_Steam_Usage_Today_Meter,
-        brick:Steam_Usage_Today,
-        brick:Steam_Usage_Today_Meter .
 
 :Tower a owl:Class ;
     rdfs:label "Tower"@en ;
@@ -9336,9 +9291,9 @@ brick:Chilled_Water_Pump_Differential_Pressure_Dead_Band bf:usesTag :Band,
         :Pump,
         :Water .
 
-brick:Chilled_Water_Pump_Differential_Pressure_Integration_Time bf:usesTag :Chilled,
+brick:Chilled_Water_Pump_Differential_Pressure_Integral_Time bf:usesTag :Chilled,
         :Differential,
-        :Integration,
+        :Integral,
         :Pressure,
         :Pump,
         :Time,
@@ -10344,6 +10299,18 @@ brick:VAV_Ventilation_Air_Flow_Ratio_Limit_Setpoint bf:usesTag :Air,
         brick:Emergency_Power_Off_Activated_By_Leak_Detection_System,
         brick:Emergency_Power_Off_Activated_By_Leak_Detection_System_Status .
 
+:Occupancy a owl:Class ;
+    rdfs:label "Occupancy"@en ;
+    rdfs:subClassOf bf:Tag ;
+    skos:definition ""@en ;
+    bf:usedBy brick:AHU_Occupancy_Command,
+        brick:Occupancy,
+        brick:Occupancy_Command,
+        brick:Occupancy_Sensor,
+        brick:Scheduled_Occupancy_Command,
+        brick:VAV_Occupancy_Command,
+        brick:VAV_Occupancy_Sensor .
+
 :Warmest a owl:Class ;
     rdfs:label "Warmest"@en ;
     rdfs:subClassOf bf:Tag ;
@@ -10653,9 +10620,9 @@ brick:Chilled_Water_Pump_Differential_Pressure_Dead_Band_Setpoint bf:usesTag :Ba
         :Setpoint,
         :Water .
 
-brick:Chilled_Water_Pump_Differential_Pressure_Integration_Time_Setpoint bf:usesTag :Chilled,
+brick:Chilled_Water_Pump_Differential_Pressure_Integral_Time_Setpoint bf:usesTag :Chilled,
         :Differential,
-        :Integration,
+        :Integral,
         :Pressure,
         :Pump,
         :Setpoint,
@@ -11322,7 +11289,7 @@ brick:VAV_Unoccupied_Cooling_Supply_Air_Flow_Setpoint bf:usesTag :Air,
 :DHWS a owl:Class ;
     rdfs:label "DHWS"@en ;
     rdfs:subClassOf bf:Tag ;
-    skos:definition ""@en ;
+    skos:definition "Domestic Hot Water System"@en ;
     bf:usedBy brick:DHWS,
         brick:DHWS_Domestic_Hot_Water_Discharge_Temperature_Sensor,
         brick:DHWS_Domestic_Hot_Water_Discharge_Temperature_Setpoint,
@@ -11667,10 +11634,10 @@ brick:CWS_Chilled_Water_Pump_Differential_Pressure_Dead_Band_Setpoint bf:usesTag
         :Setpoint,
         :Water .
 
-brick:CWS_Chilled_Water_Pump_Differential_Pressure_Integration_Time_Setpoint bf:usesTag :CWS,
+brick:CWS_Chilled_Water_Pump_Differential_Pressure_Integral_Time_Setpoint bf:usesTag :CWS,
         :Chilled,
         :Differential,
-        :Integration,
+        :Integral,
         :Pressure,
         :Pump,
         :Setpoint,
@@ -12478,21 +12445,6 @@ brick:Thermal_Energy_Storage_Supply_Water_Differential_Pressure_Proportional_Ban
         brick:Return_Air_Dewpoint,
         brick:Return_Air_Dewpoint_Sensor .
 
-:Fire a owl:Class ;
-    rdfs:label "Fire"@en ;
-    rdfs:subClassOf bf:Tag ;
-    skos:definition ""@en ;
-    bf:usedBy brick:AHU_Exhaust_Fan_Fire_Control_Panel_Off_Command,
-        brick:AHU_Exhaust_Fan_Fire_Control_Panel_On_Command,
-        brick:AHU_Fire_Control_Panel_Off_Command,
-        brick:AHU_Fire_Control_Panel_On_Command,
-        brick:Exhaust_Fan_Fire_Control_Panel_Off_Command,
-        brick:Exhaust_Fan_Fire_Control_Panel_On_Command,
-        brick:Fire_Control_Panel,
-        brick:Fire_Control_Panel_Off_Command,
-        brick:Fire_Control_Panel_On_Command,
-        brick:Fire_Safety_System .
-
 :Lag a owl:Class ;
     rdfs:label "Lag"@en ;
     rdfs:subClassOf bf:Tag ;
@@ -12564,6 +12516,36 @@ brick:Thermal_Energy_Storage_Supply_Water_Differential_Pressure_Proportional_Ban
         brick:Supply_Fan_Supply_Air_Static_Pressure_Proportional_Band_Setpoint,
         brick:Supply_Fan_VFD_Status .
 
+:Thermal a owl:Class ;
+    rdfs:label "Thermal"@en ;
+    rdfs:subClassOf bf:Tag ;
+    skos:definition ""@en ;
+    bf:usedBy brick:Cooling_Thermal_Power_Sensor,
+        brick:Heating_Thermal_Power_Sensor,
+        brick:Thermal_Energy_Storage,
+        brick:Thermal_Energy_Storage_Discharge_Water_Differential_Pressure_Dead_Band_Setpoint,
+        brick:Thermal_Energy_Storage_Discharge_Water_Differential_Pressure_Integral_Time_Setpoint,
+        brick:Thermal_Energy_Storage_Discharge_Water_Differential_Pressure_Proportional_Band_Setpoint,
+        brick:Thermal_Energy_Storage_Supply_Water_Differential_Pressure_Dead_Band_Setpoint,
+        brick:Thermal_Energy_Storage_Supply_Water_Differential_Pressure_Integral_Time_Setpoint,
+        brick:Thermal_Energy_Storage_Supply_Water_Differential_Pressure_Proportional_Band_Setpoint,
+        brick:Thermal_Power_Sensor .
+
+:Usage a owl:Class ;
+    rdfs:label "Usage"@en ;
+    rdfs:subClassOf bf:Tag ;
+    skos:definition ""@en ;
+    bf:usedBy brick:Chilled_Water_Usage_Sensor,
+        brick:Current_Steam_Usage_Sensor,
+        brick:Gas_Usage_Sensor,
+        brick:Hot_Water_Usage_Sensor,
+        brick:Monthly_Steam_Usage_Sensor,
+        brick:Steam_Usage_Sensor,
+        brick:Today_Steam_Usage_Sensor,
+        brick:Usage_Sensor,
+        brick:Water_Usage_Sensor,
+        brick:Yearly_Steam_Usage_Sensor .
+
 brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_Shed_Reset_Status bf:usesTag :DemandResponse,
         :Differential,
         :Hot,
@@ -12624,6 +12606,38 @@ brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_She
         brick:Water_System_Deionised_Water_Alarm,
         brick:Water_System_Deionised_Water_Level_Sensor .
 
+:Energy a owl:Class ;
+    rdfs:label "Energy"@en ;
+    rdfs:subClassOf bf:Tag ;
+    skos:definition ""@en ;
+    bf:usedBy brick:Electricity_Energy_Sensor,
+        brick:Energy_Sensor,
+        brick:Energy_Storage,
+        brick:Thermal_Energy_Storage,
+        brick:Thermal_Energy_Storage_Discharge_Water_Differential_Pressure_Dead_Band_Setpoint,
+        brick:Thermal_Energy_Storage_Discharge_Water_Differential_Pressure_Integral_Time_Setpoint,
+        brick:Thermal_Energy_Storage_Discharge_Water_Differential_Pressure_Proportional_Band_Setpoint,
+        brick:Thermal_Energy_Storage_Supply_Water_Differential_Pressure_Dead_Band_Setpoint,
+        brick:Thermal_Energy_Storage_Supply_Water_Differential_Pressure_Integral_Time_Setpoint,
+        brick:Thermal_Energy_Storage_Supply_Water_Differential_Pressure_Proportional_Band_Setpoint,
+        brick:VFD_Energy_Sensor .
+
+:Fire a owl:Class ;
+    rdfs:label "Fire"@en ;
+    rdfs:subClassOf bf:Tag ;
+    skos:definition ""@en ;
+    bf:usedBy brick:AHU_Exhaust_Fan_Fire_Control_Panel_Off_Command,
+        brick:AHU_Exhaust_Fan_Fire_Control_Panel_On_Command,
+        brick:AHU_Fire_Control_Panel_Off_Command,
+        brick:AHU_Fire_Control_Panel_On_Command,
+        brick:Exhaust_Fan_Fire_Control_Panel_Off_Command,
+        brick:Exhaust_Fan_Fire_Control_Panel_On_Command,
+        brick:Fire_Alarm,
+        brick:Fire_Control_Panel,
+        brick:Fire_Control_Panel_Off_Command,
+        brick:Fire_Control_Panel_On_Command,
+        brick:Fire_Safety_System .
+
 :Highest a owl:Class ;
     rdfs:label "Highest"@en ;
     rdfs:subClassOf bf:Tag ;
@@ -12639,6 +12653,22 @@ brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_She
         brick:Highest_Zone_Cooling_Command,
         brick:Highest_Zone_Temperature_Sensor,
         brick:Warmest_Zone_Temperature_Sensor .
+
+:Steam a owl:Class ;
+    rdfs:label "Steam"@en ;
+    rdfs:subClassOf bf:Tag ;
+    skos:definition ""@en ;
+    bf:usedBy brick:AHU_Steam_On_Off_Command,
+        brick:Current_Steam_Usage_Sensor,
+        brick:Monthly_Steam_Usage_Sensor,
+        brick:Steam,
+        brick:Steam_Meter,
+        brick:Steam_On_Off,
+        brick:Steam_On_Off_Command,
+        brick:Steam_System,
+        brick:Steam_Usage_Sensor,
+        brick:Today_Steam_Usage_Sensor,
+        brick:Yearly_Steam_Usage_Sensor .
 
 :Bypass a owl:Class ;
     rdfs:label "Bypass"@en ;
@@ -12673,23 +12703,6 @@ brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_She
         brick:Smoke_Detected_Alarm,
         brick:Supply_Air_Smoke_Detected,
         brick:Supply_Air_Smoke_Detected_Alarm .
-
-:Energy a owl:Class ;
-    rdfs:label "Energy"@en ;
-    rdfs:subClassOf bf:Tag ;
-    skos:definition ""@en ;
-    bf:usedBy brick:Energy_Sensor,
-        brick:Energy_Storage,
-        brick:Peak_Energy_Today,
-        brick:Peak_Energy_Today_Meter,
-        brick:Thermal_Energy_Storage,
-        brick:Thermal_Energy_Storage_Discharge_Water_Differential_Pressure_Dead_Band_Setpoint,
-        brick:Thermal_Energy_Storage_Discharge_Water_Differential_Pressure_Integral_Time_Setpoint,
-        brick:Thermal_Energy_Storage_Discharge_Water_Differential_Pressure_Proportional_Band_Setpoint,
-        brick:Thermal_Energy_Storage_Supply_Water_Differential_Pressure_Dead_Band_Setpoint,
-        brick:Thermal_Energy_Storage_Supply_Water_Differential_Pressure_Integral_Time_Setpoint,
-        brick:Thermal_Energy_Storage_Supply_Water_Differential_Pressure_Proportional_Band_Setpoint,
-        brick:VFD_Energy_Sensor .
 
 :Fixed a owl:Class ;
     rdfs:label "Fixed"@en ;
@@ -12793,23 +12806,6 @@ brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_She
         brick:Overridden_On,
         brick:Overridden_On_Status .
 
-:Usage a owl:Class ;
-    rdfs:label "Usage"@en ;
-    rdfs:subClassOf bf:Tag ;
-    skos:definition ""@en ;
-    bf:usedBy brick:Current_Steam_Usage,
-        brick:Current_Steam_Usage_Meter,
-        brick:Monthly_Steam_Usage,
-        brick:Monthly_Steam_Usage_Meter,
-        brick:Steam_System_Current_Steam_Usage_Meter,
-        brick:Steam_System_Monthly_Steam_Usage_Meter,
-        brick:Steam_System_Steam_Usage_Today_Meter,
-        brick:Steam_System_Yearly_Steam_Usage_Meter,
-        brick:Steam_Usage_Today,
-        brick:Steam_Usage_Today_Meter,
-        brick:Yearly_Steam_Usage,
-        brick:Yearly_Steam_Usage_Meter .
-
 :Velocity a owl:Class ;
     rdfs:label "Velocity"@en ;
     rdfs:subClassOf bf:Tag ;
@@ -12861,24 +12857,6 @@ brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_She
         brick:Weather_Wind_Direction_Sensor,
         brick:Wind_Direction,
         brick:Wind_Direction_Sensor .
-
-:Thermal a owl:Class ;
-    rdfs:label "Thermal"@en ;
-    rdfs:subClassOf bf:Tag ;
-    skos:definition ""@en ;
-    bf:usedBy brick:Cooling_Thermal_Power,
-        brick:Cooling_Thermal_Power_Meter,
-        brick:Heating_Thermal_Power,
-        brick:Heating_Thermal_Power_Meter,
-        brick:Thermal_Energy_Storage,
-        brick:Thermal_Energy_Storage_Discharge_Water_Differential_Pressure_Dead_Band_Setpoint,
-        brick:Thermal_Energy_Storage_Discharge_Water_Differential_Pressure_Integral_Time_Setpoint,
-        brick:Thermal_Energy_Storage_Discharge_Water_Differential_Pressure_Proportional_Band_Setpoint,
-        brick:Thermal_Energy_Storage_Supply_Water_Differential_Pressure_Dead_Band_Setpoint,
-        brick:Thermal_Energy_Storage_Supply_Water_Differential_Pressure_Integral_Time_Setpoint,
-        brick:Thermal_Energy_Storage_Supply_Water_Differential_Pressure_Proportional_Band_Setpoint,
-        brick:Thermal_Power,
-        brick:Thermal_Power_Meter .
 
 :Unit a owl:Class ;
     rdfs:label "Unit"@en ;
@@ -12954,25 +12932,6 @@ brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_She
         brick:HVAC_Lowest_Zone_Temperature_Sensor,
         brick:HVAC_Warmest_Zone_Temperature_Sensor,
         brick:HVAC_Zone .
-
-:Occupancy a owl:Class ;
-    rdfs:label "Occupancy"@en ;
-    rdfs:subClassOf bf:Tag ;
-    skos:definition ""@en ;
-    bf:usedBy brick:AHU_Occupancy_Command,
-        brick:AHU_Occupied_Command,
-        brick:Occupancy,
-        brick:Occupancy_Command,
-        brick:Occupancy_Sensor,
-        brick:Occupancy_Status,
-        brick:Occupied_Command,
-        brick:Temporary_Occupancy,
-        brick:Temporary_Occupancy_Status,
-        brick:VAV_Occupancy_Command,
-        brick:VAV_Occupancy_Sensor,
-        brick:VAV_Occupancy_Status,
-        brick:VAV_Occupied_Command,
-        brick:VAV_Temporary_Occupancy_Status .
 
 :Stack a owl:Class ;
     rdfs:label "Stack"@en ;
@@ -13177,6 +13136,23 @@ brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_She
         brick:Solar_Panel,
         brick:VFD_Panel_Lockout_Command .
 
+:Water_System bf:usedBy brick:Water_System_Alarm_Delay_Setpoint,
+        brick:Water_System_Cooling_Tower_Fan_Speed_Setpoint,
+        brick:Water_System_DI_Water_Alarm,
+        brick:Water_System_DI_Water_Level_Sensor,
+        brick:Water_System_Deionised_Water_Alarm,
+        brick:Water_System_Deionised_Water_Conductivity_Sensor,
+        brick:Water_System_Deionised_Water_Level_Sensor,
+        brick:Water_System_Discharge_Water_Temperature_Setpoint,
+        brick:Water_System_Freeze_Status,
+        brick:Water_System_Perimeter_Heating_Valve_Command,
+        brick:Water_System_Pump_Start_Stop_Status,
+        brick:Water_System_Pump_Status,
+        brick:Water_System_Supply_Water_Temperature_Setpoint,
+        brick:Water_System_Valve_Command,
+        brick:Water_System_Water_Discharge_Temperature_Sensor,
+        brick:Water_System_Water_Supply_Temperature_Sensor .
+
 :Wheel a owl:Class ;
     rdfs:label "Wheel"@en ;
     rdfs:subClassOf bf:Tag ;
@@ -13220,45 +13196,57 @@ brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_She
         brick:VFD_Fault_Status,
         brick:VFD_Last_Fault_Code_Status .
 
-:Steam a owl:Class ;
-    rdfs:label "Steam"@en ;
+:Motor a owl:Class ;
+    rdfs:label "Motor"@en ;
     rdfs:subClassOf bf:Tag ;
     skos:definition ""@en ;
-    bf:usedBy brick:AHU_Steam_On_Off_Command,
-        brick:Current_Steam_Usage,
-        brick:Current_Steam_Usage_Meter,
-        brick:Monthly_Steam_Usage,
-        brick:Monthly_Steam_Usage_Meter,
-        brick:Steam,
-        brick:Steam_On_Off,
-        brick:Steam_On_Off_Command,
-        brick:Steam_System,
-        brick:Steam_System_Current_Steam_Usage_Meter,
-        brick:Steam_System_Monthly_Steam_Usage_Meter,
-        brick:Steam_System_Steam_Usage_Today_Meter,
-        brick:Steam_System_Yearly_Steam_Usage_Meter,
-        brick:Steam_Usage_Today,
-        brick:Steam_Usage_Today_Meter,
-        brick:Yearly_Steam_Usage,
-        brick:Yearly_Steam_Usage_Meter .
+    bf:usedBy brick:Motor_Current,
+        brick:Motor_Current_Sensor,
+        brick:Motor_Direction,
+        brick:Motor_Direction_Command,
+        brick:Motor_Direction_Status,
+        brick:Motor_Power_Sensor,
+        brick:Motor_Speed,
+        brick:Motor_Speed_Sensor,
+        brick:Motor_Start_Stop,
+        brick:Motor_Start_Stop_Command,
+        brick:Motor_Start_Stop_Status,
+        brick:Motor_Torque,
+        brick:Motor_Torque_Sensor,
+        brick:VFD_Motor_Current_Sensor,
+        brick:VFD_Motor_Direction_Command,
+        brick:VFD_Motor_Direction_Status,
+        brick:VFD_Motor_Speed_Sensor,
+        brick:VFD_Motor_Start_Stop_Command,
+        brick:VFD_Motor_Start_Stop_Status,
+        brick:VFD_Motor_Torque_Sensor .
 
-:Water_System bf:usedBy brick:Water_System_Alarm_Delay_Setpoint,
-        brick:Water_System_Cooling_Tower_Fan_Speed_Setpoint,
-        brick:Water_System_DI_Water_Alarm,
-        brick:Water_System_DI_Water_Level_Sensor,
-        brick:Water_System_Deionised_Water_Alarm,
-        brick:Water_System_Deionised_Water_Conductivity_Sensor,
-        brick:Water_System_Deionised_Water_Level_Sensor,
-        brick:Water_System_Discharge_Water_Temperature_Setpoint,
-        brick:Water_System_Freeze_Status,
-        brick:Water_System_Perimeter_Heating_Valve_Command,
-        brick:Water_System_Pump_Start_Stop_Status,
-        brick:Water_System_Pump_Status,
-        brick:Water_System_Supply_Water_Temperature_Setpoint,
-        brick:Water_System_Valve_Command,
-        brick:Water_System_Water_Discharge_Temperature_Sensor,
-        brick:Water_System_Water_Meter,
-        brick:Water_System_Water_Supply_Temperature_Sensor .
+:Current a owl:Class ;
+    rdfs:label "Current"@en ;
+    rdfs:subClassOf bf:Tag ;
+    skos:definition ""@en,
+        "Alternating Current - usually used for power measurements"@en ;
+    bf:usedBy brick:AHU_Current_Cooling_Setpoint,
+        brick:Current_Cooling,
+        brick:Current_Cooling_Setpoint,
+        brick:Current_Limit,
+        brick:Current_Limit_Setpoint,
+        brick:Current_Sensor,
+        brick:Current_Steam_Usage_Sensor,
+        brick:Load_Current,
+        brick:Load_Current_Sensor,
+        brick:Motor_Current,
+        brick:Motor_Current_Sensor,
+        brick:PV_Current_Output,
+        brick:PV_Current_Output_Sensor,
+        brick:Photovoltaic_Current_Output,
+        brick:Photovoltaic_Current_Output_Sensor,
+        brick:Solar_Panel_PV_Current_Output_Sensor,
+        brick:Solar_Panel_Photovoltaic_Current_Output_Sensor,
+        brick:VFD_Current_Limit_Setpoint,
+        brick:VFD_Current_Sensor,
+        brick:VFD_Load_Current_Sensor,
+        brick:VFD_Motor_Current_Sensor .
 
 :Disable a owl:Class ;
     rdfs:label "Disable"@en ;
@@ -13312,60 +13300,6 @@ brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_She
         brick:Domestic_Hot_Water_Valve,
         brick:Domestic_Hot_Water_Valve_Command .
 
-:Coil a owl:Class ;
-    rdfs:label "Coil"@en ;
-    rdfs:subClassOf bf:Tag ;
-    skos:definition ""@en ;
-    bf:usedBy brick:AHU_Cooling_Coil_Discharge_Air_Temperature_Sensor,
-        brick:AHU_Cooling_Coil_Supply_Air_Temperature_Sensor,
-        brick:AHU_Preheat_Coil_Entering_Air_Temperature_Sensor,
-        brick:Coil,
-        brick:Cooling_Coil,
-        brick:Cooling_Coil_Discharge_Air_Temperature,
-        brick:Cooling_Coil_Discharge_Air_Temperature_Sensor,
-        brick:Cooling_Coil_Supply_Air_Temperature,
-        brick:Cooling_Coil_Supply_Air_Temperature_Sensor,
-        brick:Cooling_Coil_Valve_Pressure,
-        brick:Cooling_Coil_Valve_Pressure_Sensor,
-        brick:Fan_Coil_Unit,
-        brick:HWS_Hot_Water_Coil_Entering_Temperature_Sensor,
-        brick:Heating_Coil,
-        brick:Hot_Water_Coil_Entering_Temperature,
-        brick:Hot_Water_Coil_Entering_Temperature_Sensor,
-        brick:Preheat_Coil,
-        brick:Preheat_Coil_Entering_Air_Temperature,
-        brick:Preheat_Coil_Entering_Air_Temperature_Sensor,
-        brick:Preheat_Coil_Leaving_Water_Temperature,
-        brick:Preheat_Coil_Leaving_Water_Temperature_Sensor,
-        brick:Supply_Fan_Cooling_Coil_Valve_Pressure_Sensor .
-
-:Motor a owl:Class ;
-    rdfs:label "Motor"@en ;
-    rdfs:subClassOf bf:Tag ;
-    skos:definition ""@en ;
-    bf:usedBy brick:Motor_Current,
-        brick:Motor_Current_Sensor,
-        brick:Motor_Direction,
-        brick:Motor_Direction_Command,
-        brick:Motor_Direction_Status,
-        brick:Motor_Power,
-        brick:Motor_Power_Meter,
-        brick:Motor_Speed,
-        brick:Motor_Speed_Sensor,
-        brick:Motor_Start_Stop,
-        brick:Motor_Start_Stop_Command,
-        brick:Motor_Start_Stop_Status,
-        brick:Motor_Torque,
-        brick:Motor_Torque_Sensor,
-        brick:VFD_Motor_Current_Sensor,
-        brick:VFD_Motor_Direction_Command,
-        brick:VFD_Motor_Direction_Status,
-        brick:VFD_Motor_Power_Meter,
-        brick:VFD_Motor_Speed_Sensor,
-        brick:VFD_Motor_Start_Stop_Command,
-        brick:VFD_Motor_Start_Stop_Status,
-        brick:VFD_Motor_Torque_Sensor .
-
 :Request a owl:Class ;
     rdfs:label "Request"@en ;
     rdfs:subClassOf bf:Tag ;
@@ -13393,33 +13327,61 @@ brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_She
         brick:VAV_Cooling_Request_Setpoint,
         brick:VAV_Heating_Request_Setpoint .
 
-:Current a owl:Class ;
-    rdfs:label "Current"@en ;
+:CO2 a owl:Class ;
+    rdfs:label "CO2"@en ;
     rdfs:subClassOf bf:Tag ;
     skos:definition ""@en ;
-    bf:usedBy brick:AHU_Current_Cooling_Setpoint,
-        brick:Current_Cooling,
-        brick:Current_Cooling_Setpoint,
-        brick:Current_Limit,
-        brick:Current_Limit_Setpoint,
-        brick:Current_Sensor,
-        brick:Current_Steam_Usage,
-        brick:Current_Steam_Usage_Meter,
-        brick:Load_Current,
-        brick:Load_Current_Sensor,
-        brick:Motor_Current,
-        brick:Motor_Current_Sensor,
-        brick:PV_Current_Output,
-        brick:PV_Current_Output_Sensor,
-        brick:Photovoltaic_Current_Output,
-        brick:Photovoltaic_Current_Output_Sensor,
-        brick:Solar_Panel_PV_Current_Output_Sensor,
-        brick:Solar_Panel_Photovoltaic_Current_Output_Sensor,
-        brick:Steam_System_Current_Steam_Usage_Meter,
-        brick:VFD_Current_Limit_Setpoint,
-        brick:VFD_Current_Sensor,
-        brick:VFD_Load_Current_Sensor,
-        brick:VFD_Motor_Current_Sensor .
+    bf:usedBy brick:AHU_CO2_Differential_Sensor,
+        brick:AHU_CO2_High_Alarm,
+        brick:AHU_Max_Return_Air_CO2_Setpoint,
+        brick:AHU_Outside_Air_CO2_Sensor,
+        brick:AHU_Return_Air_CO2_Sensor,
+        brick:Air_CO2,
+        brick:CO2_Differential,
+        brick:CO2_Differential_Sensor,
+        brick:CO2_High,
+        brick:CO2_High_Alarm,
+        brick:CO2_Level,
+        brick:CO2_Level_Sensor,
+        brick:CO2_Sensor,
+        brick:CO2_Setpoint,
+        brick:FCU_CO2_Sensor,
+        brick:FCU_Return_Air_CO2_Sensor,
+        brick:Max_Return_Air_CO2,
+        brick:Max_Return_Air_CO2_Setpoint,
+        brick:Outside_Air_CO2_Sensor,
+        brick:Return_Air_CO2,
+        brick:Return_Air_CO2_Sensor,
+        brick:VAV_CO2_Level_Sensor,
+        brick:VAV_CO2_Sensor .
+
+:Coil a owl:Class ;
+    rdfs:label "Coil"@en ;
+    rdfs:subClassOf bf:Tag ;
+    skos:definition ""@en ;
+    bf:usedBy brick:AHU_Cooling_Coil_Discharge_Air_Temperature_Sensor,
+        brick:AHU_Cooling_Coil_Supply_Air_Temperature_Sensor,
+        brick:AHU_Preheat_Coil_Entering_Air_Temperature_Sensor,
+        brick:Coil,
+        brick:Cooling_Coil,
+        brick:Cooling_Coil_Discharge_Air_Temperature,
+        brick:Cooling_Coil_Discharge_Air_Temperature_Sensor,
+        brick:Cooling_Coil_Supply_Air_Temperature,
+        brick:Cooling_Coil_Supply_Air_Temperature_Sensor,
+        brick:Cooling_Coil_Valve_Pressure,
+        brick:Cooling_Coil_Valve_Pressure_Sensor,
+        brick:Fan_Coil_Unit,
+        brick:HWS_Hot_Water_Coil_Entering_Temperature_Sensor,
+        brick:Heating_Coil,
+        brick:Hot_Water_Coil_Entering_Temperature,
+        brick:Hot_Water_Coil_Entering_Temperature_Sensor,
+        brick:Preheat_Coil,
+        brick:Preheat_Coil_Entering_Air_Temperature,
+        brick:Preheat_Coil_Entering_Air_Temperature_Sensor,
+        brick:Preheat_Coil_Leaving_Water_Temperature,
+        brick:Preheat_Coil_Leaving_Water_Temperature_Sensor,
+        brick:Reheat_Coil,
+        brick:Supply_Fan_Cooling_Coil_Valve_Pressure_Sensor .
 
 :Preheat a owl:Class ;
     rdfs:label "Preheat"@en ;
@@ -13477,67 +13439,6 @@ brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_She
         brick:VAV_Unoccupied_Heating_Temperature_Setpoint,
         brick:Zone_Unoccupied_Load_Shed_Command .
 
-:CO2 a owl:Class ;
-    rdfs:label "CO2"@en ;
-    rdfs:subClassOf bf:Tag ;
-    skos:definition ""@en ;
-    bf:usedBy brick:AHU_CO2_Differential_Sensor,
-        brick:AHU_CO2_High_Alarm,
-        brick:AHU_CO2_Sensor,
-        brick:AHU_Max_Return_Air_CO2_Setpoint,
-        brick:AHU_Outside_Air_CO2_Sensor,
-        brick:AHU_Return_Air_CO2_Sensor,
-        brick:Air_CO2,
-        brick:CO2_Differential,
-        brick:CO2_Differential_Sensor,
-        brick:CO2_High,
-        brick:CO2_High_Alarm,
-        brick:CO2_Level,
-        brick:CO2_Level_Sensor,
-        brick:CO2_Sensor,
-        brick:CO2_Setpoint,
-        brick:FCU_CO2_Sensor,
-        brick:FCU_Return_Air_CO2_Sensor,
-        brick:Max_Return_Air_CO2,
-        brick:Max_Return_Air_CO2_Setpoint,
-        brick:Outside_Air_CO2_Sensor,
-        brick:Return_Air_CO2,
-        brick:Return_Air_CO2_Sensor,
-        brick:VAV_CO2_Level_Sensor,
-        brick:VAV_CO2_Sensor .
-
-:Meter a owl:Class ;
-    rdfs:label "Meter"@en ;
-    rdfs:subClassOf bf:Tag ;
-    skos:definition ""@en ;
-    bf:usedBy brick:CWS_Chilled_Water_Meter,
-        brick:Chilled_Water_Meter,
-        brick:Cooling_Thermal_Power_Meter,
-        brick:Current_Steam_Usage_Meter,
-        brick:Electrical_Power_Meter,
-        brick:Gas_Meter,
-        brick:HWS_Hot_Water_Flow_Meter,
-        brick:HWS_Hot_Water_Meter,
-        brick:Heating_Thermal_Power_Meter,
-        brick:Hot_Water_Flow_Meter,
-        brick:Hot_Water_Meter,
-        brick:Monthly_Steam_Usage_Meter,
-        brick:Motor_Power_Meter,
-        brick:Peak_Energy_Today_Meter,
-        brick:Power_Meter,
-        brick:Power_System_Power_Meter,
-        brick:Steam_System_Current_Steam_Usage_Meter,
-        brick:Steam_System_Monthly_Steam_Usage_Meter,
-        brick:Steam_System_Steam_Usage_Today_Meter,
-        brick:Steam_System_Yearly_Steam_Usage_Meter,
-        brick:Steam_Usage_Today_Meter,
-        brick:Thermal_Power_Meter,
-        brick:VFD_Motor_Power_Meter,
-        brick:VFD_Power_Meter,
-        brick:Water_Meter,
-        brick:Water_System_Water_Meter,
-        brick:Yearly_Steam_Usage_Meter .
-
 :Run a owl:Class ;
     rdfs:label "Run"@en ;
     rdfs:subClassOf bf:Tag ;
@@ -13573,7 +13474,7 @@ brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_She
 :Mode a owl:Class ;
     rdfs:label "Mode"@en ;
     rdfs:subClassOf bf:Tag ;
-    skos:definition ""@en ;
+    skos:definition "Operation type"@en ;
     bf:usedBy brick:AHU_Automatic_Mode_Command,
         brick:AHU_Dual_Band_Mode_Setpoint,
         brick:AHU_Economizer_Mode_Status,
@@ -13747,7 +13648,7 @@ brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_She
 :CWS a owl:Class ;
     rdfs:label "CWS"@en ;
     rdfs:subClassOf bf:Tag ;
-    skos:definition ""@en ;
+    skos:definition "Chilled Water System"@en ;
     bf:usedBy brick:CWS,
         brick:CWS_Chilled_Water_Bypass_Valve_Command,
         brick:CWS_Chilled_Water_Differential_Pressure_Dead_Band_Setpoint,
@@ -13758,11 +13659,11 @@ brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_She
         brick:CWS_Chilled_Water_Differential_Pressure_Setpoint,
         brick:CWS_Chilled_Water_Discharge_Flow_Sensor,
         brick:CWS_Chilled_Water_Discharge_Temperature_Sensor,
-        brick:CWS_Chilled_Water_Meter,
+        brick:CWS_Chilled_Water_Pump_Alarm,
         brick:CWS_Chilled_Water_Pump_Alarm_Delay_Setpoint,
         brick:CWS_Chilled_Water_Pump_Command,
         brick:CWS_Chilled_Water_Pump_Differential_Pressure_Dead_Band_Setpoint,
-        brick:CWS_Chilled_Water_Pump_Differential_Pressure_Integration_Time_Setpoint,
+        brick:CWS_Chilled_Water_Pump_Differential_Pressure_Integral_Time_Setpoint,
         brick:CWS_Chilled_Water_Pump_Differential_Pressure_Proportional_Band_Setpoint,
         brick:CWS_Chilled_Water_Pump_Enable_Status,
         brick:CWS_Chilled_Water_Pump_Lead_Lag_Command,
@@ -13782,6 +13683,46 @@ brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_She
         brick:CWS_Max_Chilled_Water_Differential_Pressure_Setpoint,
         brick:CWS_Min_Chilled_Water_Differential_Pressure_Setpoint,
         brick:CWS_Supply_Water_Temperature_Setpoint .
+
+:Power a owl:Class ;
+    rdfs:label "Power"@en ;
+    rdfs:subClassOf bf:Tag ;
+    skos:definition ""@en ;
+    bf:usedBy brick:CRAC_Emergency_Power_Loss_Alarm,
+        brick:CRAC_Emergency_Power_Off_Activated_By_High_Temperature_Status,
+        brick:CRAC_Emergency_Power_Off_Activated_By_Leak_Detection_System_Status,
+        brick:CRAC_Emergency_Power_Off_Command,
+        brick:CRAC_Emergency_Power_Off_Enable_Status,
+        brick:CRAC_Emergency_Power_Off_Switch_Command,
+        brick:CRAC_Emergency_Power_Off_System_Enable_Status,
+        brick:CRAC_Power_Loss_Alarm,
+        brick:Cooling_Thermal_Power_Sensor,
+        brick:Electricity_Power_Sensor,
+        brick:Emergency_Power_Loss,
+        brick:Emergency_Power_Loss_Alarm,
+        brick:Emergency_Power_Off,
+        brick:Emergency_Power_Off_Activated_By_High_Temperature,
+        brick:Emergency_Power_Off_Activated_By_High_Temperature_Status,
+        brick:Emergency_Power_Off_Activated_By_Leak_Detection_System,
+        brick:Emergency_Power_Off_Activated_By_Leak_Detection_System_Status,
+        brick:Emergency_Power_Off_Command,
+        brick:Emergency_Power_Off_Enable,
+        brick:Emergency_Power_Off_Enable_Status,
+        brick:Emergency_Power_Off_Switch,
+        brick:Emergency_Power_Off_Switch_Command,
+        brick:Emergency_Power_Off_System,
+        brick:Emergency_Power_Off_System_Enable,
+        brick:Emergency_Power_Off_System_Enable_Status,
+        brick:Heating_Thermal_Power_Sensor,
+        brick:Motor_Power_Sensor,
+        brick:Peak_Power_Demand,
+        brick:Peak_Power_Demand_Sensor,
+        brick:Power_Loss,
+        brick:Power_Loss_Alarm,
+        brick:Power_Sensor,
+        brick:Power_System,
+        brick:Power_System_Peak_Power_Demand_Sensor,
+        brick:Thermal_Power_Sensor .
 
 :FCU a owl:Class ;
     rdfs:label "FCU"@en ;
@@ -14053,54 +13994,6 @@ brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_She
         brick:Zone_Temperature_Setpoint,
         brick:Zone_Unoccupied_Load_Shed_Command .
 
-:Integral a owl:Class ;
-    rdfs:label "Integral"@en ;
-    rdfs:subClassOf bf:Tag ;
-    skos:definition ""@en ;
-    bf:usedBy brick:AHU_Cooling_Discharge_Air_Temperature_Integral_Time_Setpoint,
-        brick:AHU_Cooling_Supply_Air_Temperature_Integral_Time_Setpoint,
-        brick:AHU_Discharge_Air_Static_Pressure_Integral_Time_Setpoint,
-        brick:AHU_Exhaust_Air_Stack_Flow_Integral_Time_Setpoint,
-        brick:AHU_Exhaust_Air_Static_Pressure_Integral_Time_Setpoint,
-        brick:AHU_Heating_Discharge_Air_Temperature_Integral_Time_Setpoint,
-        brick:AHU_Heating_Supply_Air_Temperature_Integral_Time_Setpoint,
-        brick:AHU_Supply_Air_Static_Pressure_Integral_Time_Setpoint,
-        brick:CWS_Chilled_Water_Differential_Pressure_Integral_Time_Setpoint,
-        brick:Chilled_Water_Differential_Pressure_Integral_Time,
-        brick:Chilled_Water_Differential_Pressure_Integral_Time_Setpoint,
-        brick:Cooling_Discharge_Air_Temperature_Integral_Time,
-        brick:Cooling_Discharge_Air_Temperature_Integral_Time_Setpoint,
-        brick:Cooling_Supply_Air_Temperature_Integral_Time,
-        brick:Cooling_Supply_Air_Temperature_Integral_Time_Setpoint,
-        brick:Discharge_Air_Static_Pressure_Integral_Time,
-        brick:Discharge_Air_Static_Pressure_Integral_Time_Setpoint,
-        brick:Discharge_Water_Differential_Pressure_Integral_Time,
-        brick:Exhaust_Air_Stack_Flow_Integral_Time,
-        brick:Exhaust_Air_Stack_Flow_Integral_Time_Setpoint,
-        brick:Exhaust_Air_Static_Pressure_Integral_Time,
-        brick:Exhaust_Air_Static_Pressure_Integral_Time_Setpoint,
-        brick:Exhaust_Fan_Exhaust_Air_Static_Pressure_Integral_Time_Setpoint,
-        brick:HWS_Heat_Exchanger_Discharge_Water_Temperature_Integral_Time_Setpoint,
-        brick:HWS_Heat_Exchanger_Supply_Water_Temperature_Integral_Time_Setpoint,
-        brick:HWS_Hot_Water_Differential_Pressure_Integral_Time_Setpoint,
-        brick:Heat_Exchanger_Discharge_Water_Temperature_Integral_Time,
-        brick:Heat_Exchanger_Discharge_Water_Temperature_Integral_Time_Setpoint,
-        brick:Heat_Exchanger_Supply_Water_Temperature_Integral_Time,
-        brick:Heat_Exchanger_Supply_Water_Temperature_Integral_Time_Setpoint,
-        brick:Heating_Discharge_Air_Temperature_Integral_Time,
-        brick:Heating_Discharge_Air_Temperature_Integral_Time_Setpoint,
-        brick:Heating_Supply_Air_Temperature_Integral_Time,
-        brick:Heating_Supply_Air_Temperature_Integral_Time_Setpoint,
-        brick:Hot_Water_Differential_Pressure_Integral_Time,
-        brick:Hot_Water_Differential_Pressure_Integral_Time_Setpoint,
-        brick:Supply_Air_Static_Pressure_Integral_Time,
-        brick:Supply_Air_Static_Pressure_Integral_Time_Setpoint,
-        brick:Supply_Fan_Discharge_Air_Static_Pressure_Integral_Time_Setpoint,
-        brick:Supply_Fan_Supply_Air_Static_Pressure_Integral_Time_Setpoint,
-        brick:Supply_Water_Differential_Pressure_Integral_Time,
-        brick:Thermal_Energy_Storage_Discharge_Water_Differential_Pressure_Integral_Time_Setpoint,
-        brick:Thermal_Energy_Storage_Supply_Water_Differential_Pressure_Integral_Time_Setpoint .
-
 :Medium a owl:Class ;
     rdfs:label "Medium"@en ;
     rdfs:subClassOf bf:Tag ;
@@ -14149,53 +14042,107 @@ brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_She
         brick:Medium_Temperature_Hot_Water_Supply_Temperature_Low_Reset_Setpoint,
         brick:Medium_Temperature_Hot_Water_Supply_Temperature_Sensor .
 
-:Power a owl:Class ;
-    rdfs:label "Power"@en ;
+:HWS a owl:Class ;
+    rdfs:label "HWS"@en ;
+    rdfs:subClassOf bf:Tag ;
+    skos:definition "Hot Water System"@en ;
+    bf:usedBy brick:HWS,
+        brick:HWS_Disable_Hot_Water_System_Outside_Air_Temperature_Setpoint,
+        brick:HWS_Discharge_Water_Temperature_Setpoint,
+        brick:HWS_Enable_Hot_Water_System_Outside_Air_Temperature_Setpoint,
+        brick:HWS_Heat_Exchanger_Discharge_Water_Temperature_Dead_Band_Setpoint,
+        brick:HWS_Heat_Exchanger_Discharge_Water_Temperature_Integral_Time_Setpoint,
+        brick:HWS_Heat_Exchanger_Discharge_Water_Temperature_Proportional_Band_Setpoint,
+        brick:HWS_Heat_Exchanger_Discharge_Water_Temperature_Sensor,
+        brick:HWS_Heat_Exchanger_Discharge_Water_Temperature_Setpoint,
+        brick:HWS_Heat_Exchanger_Supply_Water_Temperature_Dead_Band_Setpoint,
+        brick:HWS_Heat_Exchanger_Supply_Water_Temperature_Integral_Time_Setpoint,
+        brick:HWS_Heat_Exchanger_Supply_Water_Temperature_Proportional_Band_Setpoint,
+        brick:HWS_Heat_Exchanger_Supply_Water_Temperature_Sensor,
+        brick:HWS_Heat_Exchanger_Supply_Water_Temperature_Setpoint,
+        brick:HWS_Heat_Exchanger_System_Enable_Status,
+        brick:HWS_Heat_Exchanger_Valve_Command,
+        brick:HWS_High_Temperature_Hot_Water_Discharge_Temperature_Sensor,
+        brick:HWS_High_Temperature_Hot_Water_Return_Temperature_Sensor,
+        brick:HWS_High_Temperature_Hot_Water_Supply_Temperature_Sensor,
+        brick:HWS_Hot_Water_Coil_Entering_Temperature_Sensor,
+        brick:HWS_Hot_Water_Differential_Pressure_Dead_Band_Setpoint,
+        brick:HWS_Hot_Water_Differential_Pressure_Integral_Time_Setpoint,
+        brick:HWS_Hot_Water_Differential_Pressure_Proportional_Band_Setpoint,
+        brick:HWS_Hot_Water_Differential_Pressure_Sensor,
+        brick:HWS_Hot_Water_Differential_Pressure_Setpoint,
+        brick:HWS_Hot_Water_Discharge_Temperature_Sensor,
+        brick:HWS_Hot_Water_Pump_Alarm,
+        brick:HWS_Hot_Water_Pump_Lead_Lag_Command,
+        brick:HWS_Hot_Water_Pump_Start_Stop_Command,
+        brick:HWS_Hot_Water_Pump_Status,
+        brick:HWS_Hot_Water_Pump_VFD_Speed_Command,
+        brick:HWS_Hot_Water_Return_Temperature_Sensor,
+        brick:HWS_Hot_Water_Static_Pressure_Setpoint,
+        brick:HWS_Hot_Water_Supply_Temperature_Sensor,
+        brick:HWS_Hot_Water_System_Enable_Command,
+        brick:HWS_Medium_Temperature_Hot_Water_Differential_Pressure_Sensor,
+        brick:HWS_Medium_Temperature_Hot_Water_Discharge_Temperature_High_Reset_Setpoint,
+        brick:HWS_Medium_Temperature_Hot_Water_Discharge_Temperature_Low_Reset_Setpoint,
+        brick:HWS_Medium_Temperature_Hot_Water_Discharge_Temperature_Sensor,
+        brick:HWS_Medium_Temperature_Hot_Water_Return_Temperature_Sensor,
+        brick:HWS_Medium_Temperature_Hot_Water_Supply_Temperature_High_Reset_Setpoint,
+        brick:HWS_Medium_Temperature_Hot_Water_Supply_Temperature_Low_Reset_Setpoint,
+        brick:HWS_Medium_Temperature_Hot_Water_Supply_Temperature_Sensor,
+        brick:HWS_Open_Heating_Valve_Outside_Air_Temperature_Setpoint,
+        brick:HWS_Shutdown_Hot_Water_When_Unoccupied_Command,
+        brick:HWS_Supply_Water_Temperature_Setpoint .
+
+:Integral a owl:Class ;
+    rdfs:label "Integral"@en ;
     rdfs:subClassOf bf:Tag ;
     skos:definition ""@en ;
-    bf:usedBy brick:CRAC_Emergency_Power_Loss_Alarm,
-        brick:CRAC_Emergency_Power_Off_Activated_By_High_Temperature_Status,
-        brick:CRAC_Emergency_Power_Off_Activated_By_Leak_Detection_System_Status,
-        brick:CRAC_Emergency_Power_Off_Command,
-        brick:CRAC_Emergency_Power_Off_Enable_Status,
-        brick:CRAC_Emergency_Power_Off_Switch_Command,
-        brick:CRAC_Emergency_Power_Off_System_Enable_Status,
-        brick:CRAC_Power_Loss_Alarm,
-        brick:Cooling_Thermal_Power,
-        brick:Cooling_Thermal_Power_Meter,
-        brick:Electrical_Power,
-        brick:Electrical_Power_Meter,
-        brick:Emergency_Power_Loss,
-        brick:Emergency_Power_Loss_Alarm,
-        brick:Emergency_Power_Off,
-        brick:Emergency_Power_Off_Activated_By_High_Temperature,
-        brick:Emergency_Power_Off_Activated_By_High_Temperature_Status,
-        brick:Emergency_Power_Off_Activated_By_Leak_Detection_System,
-        brick:Emergency_Power_Off_Activated_By_Leak_Detection_System_Status,
-        brick:Emergency_Power_Off_Command,
-        brick:Emergency_Power_Off_Enable,
-        brick:Emergency_Power_Off_Enable_Status,
-        brick:Emergency_Power_Off_Switch,
-        brick:Emergency_Power_Off_Switch_Command,
-        brick:Emergency_Power_Off_System,
-        brick:Emergency_Power_Off_System_Enable,
-        brick:Emergency_Power_Off_System_Enable_Status,
-        brick:Heating_Thermal_Power,
-        brick:Heating_Thermal_Power_Meter,
-        brick:Motor_Power,
-        brick:Motor_Power_Meter,
-        brick:Peak_Power_Demand,
-        brick:Peak_Power_Demand_Sensor,
-        brick:Power_Loss,
-        brick:Power_Loss_Alarm,
-        brick:Power_Meter,
-        brick:Power_System,
-        brick:Power_System_Peak_Power_Demand_Sensor,
-        brick:Power_System_Power_Meter,
-        brick:Thermal_Power,
-        brick:Thermal_Power_Meter,
-        brick:VFD_Motor_Power_Meter,
-        brick:VFD_Power_Meter .
+    bf:usedBy brick:AHU_Cooling_Discharge_Air_Temperature_Integral_Time_Setpoint,
+        brick:AHU_Cooling_Supply_Air_Temperature_Integral_Time_Setpoint,
+        brick:AHU_Discharge_Air_Static_Pressure_Integral_Time_Setpoint,
+        brick:AHU_Exhaust_Air_Stack_Flow_Integral_Time_Setpoint,
+        brick:AHU_Exhaust_Air_Static_Pressure_Integral_Time_Setpoint,
+        brick:AHU_Heating_Discharge_Air_Temperature_Integral_Time_Setpoint,
+        brick:AHU_Heating_Supply_Air_Temperature_Integral_Time_Setpoint,
+        brick:AHU_Supply_Air_Static_Pressure_Integral_Time_Setpoint,
+        brick:CWS_Chilled_Water_Differential_Pressure_Integral_Time_Setpoint,
+        brick:CWS_Chilled_Water_Pump_Differential_Pressure_Integral_Time_Setpoint,
+        brick:Chilled_Water_Differential_Pressure_Integral_Time,
+        brick:Chilled_Water_Differential_Pressure_Integral_Time_Setpoint,
+        brick:Chilled_Water_Pump_Differential_Pressure_Integral_Time,
+        brick:Chilled_Water_Pump_Differential_Pressure_Integral_Time_Setpoint,
+        brick:Cooling_Discharge_Air_Temperature_Integral_Time,
+        brick:Cooling_Discharge_Air_Temperature_Integral_Time_Setpoint,
+        brick:Cooling_Supply_Air_Temperature_Integral_Time,
+        brick:Cooling_Supply_Air_Temperature_Integral_Time_Setpoint,
+        brick:Discharge_Air_Static_Pressure_Integral_Time,
+        brick:Discharge_Air_Static_Pressure_Integral_Time_Setpoint,
+        brick:Discharge_Water_Differential_Pressure_Integral_Time,
+        brick:Exhaust_Air_Stack_Flow_Integral_Time,
+        brick:Exhaust_Air_Stack_Flow_Integral_Time_Setpoint,
+        brick:Exhaust_Air_Static_Pressure_Integral_Time,
+        brick:Exhaust_Air_Static_Pressure_Integral_Time_Setpoint,
+        brick:Exhaust_Fan_Exhaust_Air_Static_Pressure_Integral_Time_Setpoint,
+        brick:HWS_Heat_Exchanger_Discharge_Water_Temperature_Integral_Time_Setpoint,
+        brick:HWS_Heat_Exchanger_Supply_Water_Temperature_Integral_Time_Setpoint,
+        brick:HWS_Hot_Water_Differential_Pressure_Integral_Time_Setpoint,
+        brick:Heat_Exchanger_Discharge_Water_Temperature_Integral_Time,
+        brick:Heat_Exchanger_Discharge_Water_Temperature_Integral_Time_Setpoint,
+        brick:Heat_Exchanger_Supply_Water_Temperature_Integral_Time,
+        brick:Heat_Exchanger_Supply_Water_Temperature_Integral_Time_Setpoint,
+        brick:Heating_Discharge_Air_Temperature_Integral_Time,
+        brick:Heating_Discharge_Air_Temperature_Integral_Time_Setpoint,
+        brick:Heating_Supply_Air_Temperature_Integral_Time,
+        brick:Heating_Supply_Air_Temperature_Integral_Time_Setpoint,
+        brick:Hot_Water_Differential_Pressure_Integral_Time,
+        brick:Hot_Water_Differential_Pressure_Integral_Time_Setpoint,
+        brick:Supply_Air_Static_Pressure_Integral_Time,
+        brick:Supply_Air_Static_Pressure_Integral_Time_Setpoint,
+        brick:Supply_Fan_Discharge_Air_Static_Pressure_Integral_Time_Setpoint,
+        brick:Supply_Fan_Supply_Air_Static_Pressure_Integral_Time_Setpoint,
+        brick:Supply_Water_Differential_Pressure_Integral_Time,
+        brick:Thermal_Energy_Storage_Discharge_Water_Differential_Pressure_Integral_Time_Setpoint,
+        brick:Thermal_Energy_Storage_Supply_Water_Differential_Pressure_Integral_Time_Setpoint .
 
 :Load a owl:Class ;
     rdfs:label "Load"@en ;
@@ -14247,59 +14194,6 @@ brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_She
         brick:VFD_Load_Current_Sensor,
         brick:Zone_Standby_Load_Shed_Command,
         brick:Zone_Unoccupied_Load_Shed_Command .
-
-:HWS a owl:Class ;
-    rdfs:label "HWS"@en ;
-    rdfs:subClassOf bf:Tag ;
-    skos:definition ""@en ;
-    bf:usedBy brick:HWS,
-        brick:HWS_Disable_Hot_Water_System_Outside_Air_Temperature_Setpoint,
-        brick:HWS_Discharge_Water_Temperature_Setpoint,
-        brick:HWS_Enable_Hot_Water_System_Outside_Air_Temperature_Setpoint,
-        brick:HWS_Heat_Exchanger_Discharge_Water_Temperature_Dead_Band_Setpoint,
-        brick:HWS_Heat_Exchanger_Discharge_Water_Temperature_Integral_Time_Setpoint,
-        brick:HWS_Heat_Exchanger_Discharge_Water_Temperature_Proportional_Band_Setpoint,
-        brick:HWS_Heat_Exchanger_Discharge_Water_Temperature_Sensor,
-        brick:HWS_Heat_Exchanger_Discharge_Water_Temperature_Setpoint,
-        brick:HWS_Heat_Exchanger_Supply_Water_Temperature_Dead_Band_Setpoint,
-        brick:HWS_Heat_Exchanger_Supply_Water_Temperature_Integral_Time_Setpoint,
-        brick:HWS_Heat_Exchanger_Supply_Water_Temperature_Proportional_Band_Setpoint,
-        brick:HWS_Heat_Exchanger_Supply_Water_Temperature_Sensor,
-        brick:HWS_Heat_Exchanger_Supply_Water_Temperature_Setpoint,
-        brick:HWS_Heat_Exchanger_System_Enable_Status,
-        brick:HWS_Heat_Exchanger_Valve_Command,
-        brick:HWS_High_Temperature_Hot_Water_Discharge_Temperature_Sensor,
-        brick:HWS_High_Temperature_Hot_Water_Return_Temperature_Sensor,
-        brick:HWS_High_Temperature_Hot_Water_Supply_Temperature_Sensor,
-        brick:HWS_Hot_Water_Coil_Entering_Temperature_Sensor,
-        brick:HWS_Hot_Water_Differential_Pressure_Dead_Band_Setpoint,
-        brick:HWS_Hot_Water_Differential_Pressure_Integral_Time_Setpoint,
-        brick:HWS_Hot_Water_Differential_Pressure_Proportional_Band_Setpoint,
-        brick:HWS_Hot_Water_Differential_Pressure_Sensor,
-        brick:HWS_Hot_Water_Differential_Pressure_Setpoint,
-        brick:HWS_Hot_Water_Discharge_Temperature_Sensor,
-        brick:HWS_Hot_Water_Flow_Meter,
-        brick:HWS_Hot_Water_Meter,
-        brick:HWS_Hot_Water_Pump_Alarm,
-        brick:HWS_Hot_Water_Pump_Lead_Lag_Command,
-        brick:HWS_Hot_Water_Pump_Start_Stop_Command,
-        brick:HWS_Hot_Water_Pump_Status,
-        brick:HWS_Hot_Water_Pump_VFD_Speed_Command,
-        brick:HWS_Hot_Water_Return_Temperature_Sensor,
-        brick:HWS_Hot_Water_Static_Pressure_Setpoint,
-        brick:HWS_Hot_Water_Supply_Temperature_Sensor,
-        brick:HWS_Hot_Water_System_Enable_Command,
-        brick:HWS_Medium_Temperature_Hot_Water_Differential_Pressure_Sensor,
-        brick:HWS_Medium_Temperature_Hot_Water_Discharge_Temperature_High_Reset_Setpoint,
-        brick:HWS_Medium_Temperature_Hot_Water_Discharge_Temperature_Low_Reset_Setpoint,
-        brick:HWS_Medium_Temperature_Hot_Water_Discharge_Temperature_Sensor,
-        brick:HWS_Medium_Temperature_Hot_Water_Return_Temperature_Sensor,
-        brick:HWS_Medium_Temperature_Hot_Water_Supply_Temperature_High_Reset_Setpoint,
-        brick:HWS_Medium_Temperature_Hot_Water_Supply_Temperature_Low_Reset_Setpoint,
-        brick:HWS_Medium_Temperature_Hot_Water_Supply_Temperature_Sensor,
-        brick:HWS_Open_Heating_Valve_Outside_Air_Temperature_Setpoint,
-        brick:HWS_Shutdown_Hot_Water_When_Unoccupied_Command,
-        brick:HWS_Supply_Water_Temperature_Setpoint .
 
 :Low a owl:Class ;
     rdfs:label "Low"@en ;
@@ -14353,6 +14247,60 @@ brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_She
         brick:VAV_Freeze_Protect_Temperature_Low_Limit_Setpoint,
         brick:Zone_Heating_Temperature_Setpoint,
         brick:Zone_Temperature_Low_Setpoint .
+
+:Occupied a owl:Class ;
+    rdfs:label "Occupied"@en ;
+    rdfs:subClassOf bf:Tag ;
+    skos:definition "Indicates something is occupied."@en ;
+    bf:usedBy brick:AHU_Occupied_Mode_Status,
+        brick:Occupied_Cooling_Discharge_Air_Flow,
+        brick:Occupied_Cooling_Discharge_Air_Flow_Setpoint,
+        brick:Occupied_Cooling_Max_Discharge_Air_Flow,
+        brick:Occupied_Cooling_Max_Discharge_Air_Flow_Setpoint,
+        brick:Occupied_Cooling_Max_Supply_Air_Flow,
+        brick:Occupied_Cooling_Max_Supply_Air_Flow_Setpoint,
+        brick:Occupied_Cooling_Min_Discharge_Air_Flow,
+        brick:Occupied_Cooling_Min_Discharge_Air_Flow_Setpoint,
+        brick:Occupied_Cooling_Min_Supply_Air_Flow,
+        brick:Occupied_Cooling_Min_Supply_Air_Flow_Setpoint,
+        brick:Occupied_Cooling_Supply_Air_Flow,
+        brick:Occupied_Cooling_Supply_Air_Flow_Setpoint,
+        brick:Occupied_Cooling_Temperature_Dead_Band,
+        brick:Occupied_Cooling_Temperature_Dead_Band_Setpoint,
+        brick:Occupied_Cooling_Temperature_Setpoint,
+        brick:Occupied_Heating_Discharge_Air_Flow,
+        brick:Occupied_Heating_Discharge_Air_Flow_Setpoint,
+        brick:Occupied_Heating_Max_Discharge_Air_Flow,
+        brick:Occupied_Heating_Max_Discharge_Air_Flow_Setpoint,
+        brick:Occupied_Heating_Max_Supply_Air_Flow,
+        brick:Occupied_Heating_Max_Supply_Air_Flow_Setpoint,
+        brick:Occupied_Heating_Min_Discharge_Air_Flow,
+        brick:Occupied_Heating_Min_Discharge_Air_Flow_Setpoint,
+        brick:Occupied_Heating_Min_Supply_Air_Flow,
+        brick:Occupied_Heating_Min_Supply_Air_Flow_Setpoint,
+        brick:Occupied_Heating_Supply_Air_Flow,
+        brick:Occupied_Heating_Supply_Air_Flow_Setpoint,
+        brick:Occupied_Heating_Temperature_Dead_Band,
+        brick:Occupied_Heating_Temperature_Dead_Band_Setpoint,
+        brick:Occupied_Heating_Temperature_Setpoint,
+        brick:Occupied_Mode,
+        brick:Occupied_Mode_Status,
+        brick:VAV_Occupied_Cooling_Discharge_Air_Flow_Setpoint,
+        brick:VAV_Occupied_Cooling_Max_Discharge_Air_Flow_Setpoint,
+        brick:VAV_Occupied_Cooling_Max_Supply_Air_Flow_Setpoint,
+        brick:VAV_Occupied_Cooling_Min_Discharge_Air_Flow_Setpoint,
+        brick:VAV_Occupied_Cooling_Min_Supply_Air_Flow_Setpoint,
+        brick:VAV_Occupied_Cooling_Supply_Air_Flow_Setpoint,
+        brick:VAV_Occupied_Cooling_Temperature_Dead_Band_Setpoint,
+        brick:VAV_Occupied_Cooling_Temperature_Setpoint,
+        brick:VAV_Occupied_Heating_Discharge_Air_Flow_Setpoint,
+        brick:VAV_Occupied_Heating_Max_Discharge_Air_Flow_Setpoint,
+        brick:VAV_Occupied_Heating_Max_Supply_Air_Flow_Setpoint,
+        brick:VAV_Occupied_Heating_Min_Discharge_Air_Flow_Setpoint,
+        brick:VAV_Occupied_Heating_Min_Supply_Air_Flow_Setpoint,
+        brick:VAV_Occupied_Heating_Supply_Air_Flow_Setpoint,
+        brick:VAV_Occupied_Heating_Temperature_Dead_Band_Setpoint,
+        brick:VAV_Occupied_Heating_Temperature_Setpoint .
 
 :Economizer a owl:Class ;
     rdfs:label "Economizer"@en ;
@@ -14585,67 +14533,6 @@ brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_She
         brick:Thermal_Energy_Storage_Supply_Water_Differential_Pressure_Dead_Band_Setpoint,
         brick:VAV_Occupied_Cooling_Temperature_Dead_Band_Setpoint,
         brick:VAV_Occupied_Heating_Temperature_Dead_Band_Setpoint .
-
-:Occupied a owl:Class ;
-    rdfs:label "Occupied"@en ;
-    rdfs:subClassOf bf:Tag ;
-    skos:definition ""@en ;
-    bf:usedBy brick:AHU_Occupancy_Command,
-        brick:AHU_Occupied_Command,
-        brick:AHU_Occupied_Mode_Status,
-        brick:Occupancy_Command,
-        brick:Occupied,
-        brick:Occupied_Command,
-        brick:Occupied_Cooling_Discharge_Air_Flow,
-        brick:Occupied_Cooling_Discharge_Air_Flow_Setpoint,
-        brick:Occupied_Cooling_Max_Discharge_Air_Flow,
-        brick:Occupied_Cooling_Max_Discharge_Air_Flow_Setpoint,
-        brick:Occupied_Cooling_Max_Supply_Air_Flow,
-        brick:Occupied_Cooling_Max_Supply_Air_Flow_Setpoint,
-        brick:Occupied_Cooling_Min_Discharge_Air_Flow,
-        brick:Occupied_Cooling_Min_Discharge_Air_Flow_Setpoint,
-        brick:Occupied_Cooling_Min_Supply_Air_Flow,
-        brick:Occupied_Cooling_Min_Supply_Air_Flow_Setpoint,
-        brick:Occupied_Cooling_Supply_Air_Flow,
-        brick:Occupied_Cooling_Supply_Air_Flow_Setpoint,
-        brick:Occupied_Cooling_Temperature_Dead_Band,
-        brick:Occupied_Cooling_Temperature_Dead_Band_Setpoint,
-        brick:Occupied_Cooling_Temperature_Setpoint,
-        brick:Occupied_Heating_Discharge_Air_Flow,
-        brick:Occupied_Heating_Discharge_Air_Flow_Setpoint,
-        brick:Occupied_Heating_Max_Discharge_Air_Flow,
-        brick:Occupied_Heating_Max_Discharge_Air_Flow_Setpoint,
-        brick:Occupied_Heating_Max_Supply_Air_Flow,
-        brick:Occupied_Heating_Max_Supply_Air_Flow_Setpoint,
-        brick:Occupied_Heating_Min_Discharge_Air_Flow,
-        brick:Occupied_Heating_Min_Discharge_Air_Flow_Setpoint,
-        brick:Occupied_Heating_Min_Supply_Air_Flow,
-        brick:Occupied_Heating_Min_Supply_Air_Flow_Setpoint,
-        brick:Occupied_Heating_Supply_Air_Flow,
-        brick:Occupied_Heating_Supply_Air_Flow_Setpoint,
-        brick:Occupied_Heating_Temperature_Dead_Band,
-        brick:Occupied_Heating_Temperature_Dead_Band_Setpoint,
-        brick:Occupied_Heating_Temperature_Setpoint,
-        brick:Occupied_Mode,
-        brick:Occupied_Mode_Status,
-        brick:VAV_Occupancy_Command,
-        brick:VAV_Occupied_Command,
-        brick:VAV_Occupied_Cooling_Discharge_Air_Flow_Setpoint,
-        brick:VAV_Occupied_Cooling_Max_Discharge_Air_Flow_Setpoint,
-        brick:VAV_Occupied_Cooling_Max_Supply_Air_Flow_Setpoint,
-        brick:VAV_Occupied_Cooling_Min_Discharge_Air_Flow_Setpoint,
-        brick:VAV_Occupied_Cooling_Min_Supply_Air_Flow_Setpoint,
-        brick:VAV_Occupied_Cooling_Supply_Air_Flow_Setpoint,
-        brick:VAV_Occupied_Cooling_Temperature_Dead_Band_Setpoint,
-        brick:VAV_Occupied_Cooling_Temperature_Setpoint,
-        brick:VAV_Occupied_Heating_Discharge_Air_Flow_Setpoint,
-        brick:VAV_Occupied_Heating_Max_Discharge_Air_Flow_Setpoint,
-        brick:VAV_Occupied_Heating_Max_Supply_Air_Flow_Setpoint,
-        brick:VAV_Occupied_Heating_Min_Discharge_Air_Flow_Setpoint,
-        brick:VAV_Occupied_Heating_Min_Supply_Air_Flow_Setpoint,
-        brick:VAV_Occupied_Heating_Supply_Air_Flow_Setpoint,
-        brick:VAV_Occupied_Heating_Temperature_Dead_Band_Setpoint,
-        brick:VAV_Occupied_Heating_Temperature_Setpoint .
 
 :Valve a owl:Class ;
     rdfs:label "Valve"@en ;
@@ -14881,6 +14768,7 @@ brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_She
         brick:Hot_Water_System_Enable_Command,
         brick:Lighting_System,
         brick:Power_System,
+        brick:Shading_System,
         brick:Steam_System,
         brick:System,
         brick:System_Enable,
@@ -14911,11 +14799,11 @@ brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_She
         brick:Acceleration_Time_Setpoint,
         brick:Boiler_Run_Time_Sensor,
         brick:CWS_Chilled_Water_Differential_Pressure_Integral_Time_Setpoint,
-        brick:CWS_Chilled_Water_Pump_Differential_Pressure_Integration_Time_Setpoint,
+        brick:CWS_Chilled_Water_Pump_Differential_Pressure_Integral_Time_Setpoint,
         brick:Chilled_Water_Differential_Pressure_Integral_Time,
         brick:Chilled_Water_Differential_Pressure_Integral_Time_Setpoint,
-        brick:Chilled_Water_Pump_Differential_Pressure_Integration_Time,
-        brick:Chilled_Water_Pump_Differential_Pressure_Integration_Time_Setpoint,
+        brick:Chilled_Water_Pump_Differential_Pressure_Integral_Time,
+        brick:Chilled_Water_Pump_Differential_Pressure_Integral_Time_Setpoint,
         brick:Chiller_Run_Time_Sensor,
         brick:Cooling_Discharge_Air_Temperature_Integral_Time,
         brick:Cooling_Discharge_Air_Temperature_Integral_Time_Setpoint,
@@ -14957,71 +14845,6 @@ brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_She
         brick:VFD_Acceleration_Time_Setpoint,
         brick:VFD_Deceleration_Time_Setpoint,
         brick:VFD_Run_Time_Sensor .
-
-:Pump a owl:Class ;
-    rdfs:label "Pump"@en ;
-    rdfs:subClassOf bf:Tag ;
-    skos:definition ""@en ;
-    bf:usedBy brick:CRAC_Pump_Start_Stop_Command,
-        brick:CWS_Chilled_Water_Pump_Alarm_Delay_Setpoint,
-        brick:CWS_Chilled_Water_Pump_Command,
-        brick:CWS_Chilled_Water_Pump_Differential_Pressure_Dead_Band_Setpoint,
-        brick:CWS_Chilled_Water_Pump_Differential_Pressure_Integration_Time_Setpoint,
-        brick:CWS_Chilled_Water_Pump_Differential_Pressure_Proportional_Band_Setpoint,
-        brick:CWS_Chilled_Water_Pump_Enable_Status,
-        brick:CWS_Chilled_Water_Pump_Lead_Lag_Command,
-        brick:CWS_Chilled_Water_Pump_Lead_Lag_Status,
-        brick:CWS_Chilled_Water_Pump_Start_Stop_Command,
-        brick:CWS_Chilled_Water_Pump_Start_Stop_Status,
-        brick:CWS_Chilled_Water_Pump_Status,
-        brick:CWS_Chilled_Water_Pump_VFD_Speed_Command,
-        brick:Chilled_Water_Pump,
-        brick:Chilled_Water_Pump_Alarm_Delay,
-        brick:Chilled_Water_Pump_Alarm_Delay_Setpoint,
-        brick:Chilled_Water_Pump_Command,
-        brick:Chilled_Water_Pump_Differential_Pressure_Dead_Band,
-        brick:Chilled_Water_Pump_Differential_Pressure_Dead_Band_Setpoint,
-        brick:Chilled_Water_Pump_Differential_Pressure_Integration_Time,
-        brick:Chilled_Water_Pump_Differential_Pressure_Integration_Time_Setpoint,
-        brick:Chilled_Water_Pump_Differential_Pressure_Proportional_Band,
-        brick:Chilled_Water_Pump_Differential_Pressure_Proportional_Band_Setpoint,
-        brick:Chilled_Water_Pump_Enable,
-        brick:Chilled_Water_Pump_Enable_Status,
-        brick:Chilled_Water_Pump_Lead_Lag,
-        brick:Chilled_Water_Pump_Lead_Lag_Command,
-        brick:Chilled_Water_Pump_Lead_Lag_Status,
-        brick:Chilled_Water_Pump_Start_Stop,
-        brick:Chilled_Water_Pump_Start_Stop_Command,
-        brick:Chilled_Water_Pump_Start_Stop_Status,
-        brick:Chilled_Water_Pump_Status,
-        brick:Chilled_Water_Pump_VFD_Speed,
-        brick:Chilled_Water_Pump_VFD_Speed_Command,
-        brick:HWS_Hot_Water_Pump_Alarm,
-        brick:HWS_Hot_Water_Pump_Lead_Lag_Command,
-        brick:HWS_Hot_Water_Pump_Start_Stop_Command,
-        brick:HWS_Hot_Water_Pump_Status,
-        brick:HWS_Hot_Water_Pump_VFD_Speed_Command,
-        brick:Hot_Water_Pump,
-        brick:Hot_Water_Pump_Alarm,
-        brick:Hot_Water_Pump_Lead_Lag,
-        brick:Hot_Water_Pump_Lead_Lag_Command,
-        brick:Hot_Water_Pump_Start_Stop,
-        brick:Hot_Water_Pump_Start_Stop_Command,
-        brick:Hot_Water_Pump_Status,
-        brick:Hot_Water_Pump_VFD_Speed,
-        brick:Hot_Water_Pump_VFD_Speed_Command,
-        brick:Pump,
-        brick:Pump_Alarm,
-        brick:Pump_Alarm_Delay_Setpoint,
-        brick:Pump_Enable_Status,
-        brick:Pump_Lead_Lag_Command,
-        brick:Pump_Lead_On_Off_Command,
-        brick:Pump_Start_Stop,
-        brick:Pump_Start_Stop_Command,
-        brick:Pump_Start_Stop_Status,
-        brick:Pump_Status,
-        brick:Water_System_Pump_Start_Stop_Status,
-        brick:Water_System_Pump_Status .
 
 :Reset a owl:Class ;
     rdfs:label "Reset"@en ;
@@ -15154,6 +14977,73 @@ brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_She
         brick:Return_Heat_Valve_Command,
         brick:Trace_Heat,
         brick:Trace_Heat_Sensor .
+
+:Pump a owl:Class ;
+    rdfs:label "Pump"@en ;
+    rdfs:subClassOf bf:Tag ;
+    skos:definition ""@en ;
+    bf:usedBy brick:CRAC_Pump_Start_Stop_Command,
+        brick:CWS_Chilled_Water_Pump_Alarm,
+        brick:CWS_Chilled_Water_Pump_Alarm_Delay_Setpoint,
+        brick:CWS_Chilled_Water_Pump_Command,
+        brick:CWS_Chilled_Water_Pump_Differential_Pressure_Dead_Band_Setpoint,
+        brick:CWS_Chilled_Water_Pump_Differential_Pressure_Integral_Time_Setpoint,
+        brick:CWS_Chilled_Water_Pump_Differential_Pressure_Proportional_Band_Setpoint,
+        brick:CWS_Chilled_Water_Pump_Enable_Status,
+        brick:CWS_Chilled_Water_Pump_Lead_Lag_Command,
+        brick:CWS_Chilled_Water_Pump_Lead_Lag_Status,
+        brick:CWS_Chilled_Water_Pump_Start_Stop_Command,
+        brick:CWS_Chilled_Water_Pump_Start_Stop_Status,
+        brick:CWS_Chilled_Water_Pump_Status,
+        brick:CWS_Chilled_Water_Pump_VFD_Speed_Command,
+        brick:Chilled_Water_Pump,
+        brick:Chilled_Water_Pump_Alarm,
+        brick:Chilled_Water_Pump_Alarm_Delay,
+        brick:Chilled_Water_Pump_Alarm_Delay_Setpoint,
+        brick:Chilled_Water_Pump_Command,
+        brick:Chilled_Water_Pump_Differential_Pressure_Dead_Band,
+        brick:Chilled_Water_Pump_Differential_Pressure_Dead_Band_Setpoint,
+        brick:Chilled_Water_Pump_Differential_Pressure_Integral_Time,
+        brick:Chilled_Water_Pump_Differential_Pressure_Integral_Time_Setpoint,
+        brick:Chilled_Water_Pump_Differential_Pressure_Proportional_Band,
+        brick:Chilled_Water_Pump_Differential_Pressure_Proportional_Band_Setpoint,
+        brick:Chilled_Water_Pump_Enable,
+        brick:Chilled_Water_Pump_Enable_Status,
+        brick:Chilled_Water_Pump_Lead_Lag,
+        brick:Chilled_Water_Pump_Lead_Lag_Command,
+        brick:Chilled_Water_Pump_Lead_Lag_Status,
+        brick:Chilled_Water_Pump_Start_Stop,
+        brick:Chilled_Water_Pump_Start_Stop_Command,
+        brick:Chilled_Water_Pump_Start_Stop_Status,
+        brick:Chilled_Water_Pump_Status,
+        brick:Chilled_Water_Pump_VFD_Speed,
+        brick:Chilled_Water_Pump_VFD_Speed_Command,
+        brick:HWS_Hot_Water_Pump_Alarm,
+        brick:HWS_Hot_Water_Pump_Lead_Lag_Command,
+        brick:HWS_Hot_Water_Pump_Start_Stop_Command,
+        brick:HWS_Hot_Water_Pump_Status,
+        brick:HWS_Hot_Water_Pump_VFD_Speed_Command,
+        brick:Hot_Water_Pump,
+        brick:Hot_Water_Pump_Alarm,
+        brick:Hot_Water_Pump_Lead_Lag,
+        brick:Hot_Water_Pump_Lead_Lag_Command,
+        brick:Hot_Water_Pump_Start_Stop,
+        brick:Hot_Water_Pump_Start_Stop_Command,
+        brick:Hot_Water_Pump_Status,
+        brick:Hot_Water_Pump_VFD_Speed,
+        brick:Hot_Water_Pump_VFD_Speed_Command,
+        brick:Pump,
+        brick:Pump_Alarm,
+        brick:Pump_Alarm_Delay_Setpoint,
+        brick:Pump_Enable_Status,
+        brick:Pump_Lead_Lag_Command,
+        brick:Pump_Lead_On_Off_Command,
+        brick:Pump_Start_Stop,
+        brick:Pump_Start_Stop_Command,
+        brick:Pump_Start_Stop_Status,
+        brick:Pump_Status,
+        brick:Water_System_Pump_Start_Stop_Status,
+        brick:Water_System_Pump_Status .
 
 :CRAC a owl:Class ;
     rdfs:label "CRAC"@en ;
@@ -15654,6 +15544,98 @@ brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_She
         brick:VFD_On_Off_Status,
         brick:VFD_Start_Stop_Status .
 
+:VAV a owl:Class ;
+    rdfs:label "VAV"@en ;
+    rdfs:subClassOf bf:Tag ;
+    skos:definition ""@en ;
+    bf:usedBy brick:VAV,
+        brick:VAV_Booster_Fan_Air_Flow_Sensor,
+        brick:VAV_Booster_Fan_Air_Flow_Setpoint,
+        brick:VAV_Booster_Fan_Command,
+        brick:VAV_Booster_Fan_Start_Stop_Command,
+        brick:VAV_Box_Mode_Command,
+        brick:VAV_Box_Operating_Mode_Status,
+        brick:VAV_CO2_Level_Sensor,
+        brick:VAV_CO2_Sensor,
+        brick:VAV_Cooling_Command,
+        brick:VAV_Cooling_Demand_Setpoint,
+        brick:VAV_Cooling_Max_Discharge_Air_Flow_Setpoint,
+        brick:VAV_Cooling_Max_Supply_Air_Flow_Setpoint,
+        brick:VAV_Cooling_Min_Discharge_Air_Flow_Setpoint,
+        brick:VAV_Cooling_Min_Supply_Air_Flow_Setpoint,
+        brick:VAV_Cooling_Request_Setpoint,
+        brick:VAV_Cooling_Valve_Command,
+        brick:VAV_Damper_Command,
+        brick:VAV_Damper_Position_Sensor,
+        brick:VAV_Discharge_Air_Duct_Pressure_Status,
+        brick:VAV_Discharge_Air_Flow_Command,
+        brick:VAV_Discharge_Air_Flow_Sensor,
+        brick:VAV_Discharge_Air_Flow_Setpoint,
+        brick:VAV_Discharge_Air_Temperature_Cooling_Setpoint,
+        brick:VAV_Discharge_Air_Temperature_Heating_Setpoint,
+        brick:VAV_Discharge_Air_Temperature_Sensor,
+        brick:VAV_Discharge_Air_Temperature_Setpoint,
+        brick:VAV_Discharge_Air_Velocity_Pressure_Sensor,
+        brick:VAV_Effective_Cooling_Temperature_Setpoint,
+        brick:VAV_Effective_Heating_Temperature_Setpoint,
+        brick:VAV_Freeze_Protect_Temperature_Low_Limit_Setpoint,
+        brick:VAV_Heating_Command,
+        brick:VAV_Heating_Demand_Setpoint,
+        brick:VAV_Heating_Discharge_Air_Flow_Setpoint,
+        brick:VAV_Heating_Max_Discharge_Air_Flow_Setpoint,
+        brick:VAV_Heating_Max_Supply_Air_Flow_Setpoint,
+        brick:VAV_Heating_Min_Discharge_Air_Flow_Setpoint,
+        brick:VAV_Heating_Min_Supply_Air_Flow_Setpoint,
+        brick:VAV_Heating_Request_Setpoint,
+        brick:VAV_Heating_Supply_Air_Flow_Setpoint,
+        brick:VAV_Heating_Valve_Command,
+        brick:VAV_High_Static_Pressure_Cutout_Limit_Setpoint,
+        brick:VAV_Hot_Water_Valve_Command,
+        brick:VAV_Occupancy_Command,
+        brick:VAV_Occupancy_Sensor,
+        brick:VAV_Occupied_Cooling_Discharge_Air_Flow_Setpoint,
+        brick:VAV_Occupied_Cooling_Max_Discharge_Air_Flow_Setpoint,
+        brick:VAV_Occupied_Cooling_Max_Supply_Air_Flow_Setpoint,
+        brick:VAV_Occupied_Cooling_Min_Discharge_Air_Flow_Setpoint,
+        brick:VAV_Occupied_Cooling_Min_Supply_Air_Flow_Setpoint,
+        brick:VAV_Occupied_Cooling_Supply_Air_Flow_Setpoint,
+        brick:VAV_Occupied_Cooling_Temperature_Dead_Band_Setpoint,
+        brick:VAV_Occupied_Cooling_Temperature_Setpoint,
+        brick:VAV_Occupied_Heating_Discharge_Air_Flow_Setpoint,
+        brick:VAV_Occupied_Heating_Max_Discharge_Air_Flow_Setpoint,
+        brick:VAV_Occupied_Heating_Max_Supply_Air_Flow_Setpoint,
+        brick:VAV_Occupied_Heating_Min_Discharge_Air_Flow_Setpoint,
+        brick:VAV_Occupied_Heating_Min_Supply_Air_Flow_Setpoint,
+        brick:VAV_Occupied_Heating_Supply_Air_Flow_Setpoint,
+        brick:VAV_Occupied_Heating_Temperature_Dead_Band_Setpoint,
+        brick:VAV_Occupied_Heating_Temperature_Setpoint,
+        brick:VAV_Outside_Air_Damper_Close_Limit_Setpoint,
+        brick:VAV_Reheat_Valve_Command,
+        brick:VAV_Return_Air_Temperature_Sensor,
+        brick:VAV_Room_Temperature_Sensor,
+        brick:VAV_Room_Temperature_Setpoint,
+        brick:VAV_Schedule_Temperature_Setpoint,
+        brick:VAV_Supply_Air_Duct_Pressure_Status,
+        brick:VAV_Supply_Air_Flow_Command,
+        brick:VAV_Supply_Air_Flow_Sensor,
+        brick:VAV_Supply_Air_Flow_Setpoint,
+        brick:VAV_Supply_Air_Temperature_Cooling_Setpoint,
+        brick:VAV_Supply_Air_Temperature_Heating_Setpoint,
+        brick:VAV_Supply_Air_Temperature_Sensor,
+        brick:VAV_Supply_Air_Temperature_Setpoint,
+        brick:VAV_Supply_Air_Velocity_Pressure_Sensor,
+        brick:VAV_Thermostat_Adjust_Sensor,
+        brick:VAV_Unoccupied_Cooling_Discharge_Air_Flow_Setpoint,
+        brick:VAV_Unoccupied_Cooling_Supply_Air_Flow_Setpoint,
+        brick:VAV_Unoccupied_Cooling_Temperature_Setpoint,
+        brick:VAV_Unoccupied_Heating_Temperature_Setpoint,
+        brick:VAV_Vent_Operating_Mode_Status,
+        brick:VAV_Ventilation_Air_Flow_Ratio_Limit_Setpoint,
+        brick:VAV_Warm_Cool_Adjust_Sensor,
+        brick:VAV_Zone_Air_Temperature_Sensor,
+        brick:VAV_Zone_Temperature_Sensor,
+        brick:VAV_Zone_Temperature_Setpoint .
+
 :Return a owl:Class ;
     rdfs:label "Return"@en ;
     rdfs:subClassOf bf:Tag ;
@@ -15842,196 +15824,6 @@ brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_She
         brick:Wind_Speed,
         brick:Wind_Speed_Sensor .
 
-:Alarm a owl:Class ;
-    rdfs:label "Alarm"@en ;
-    rdfs:subClassOf bf:Tag ;
-    skos:definition ""@en ;
-    bf:usedBy brick:AHU_CO2_High_Alarm,
-        brick:AHU_Change_Filter_Alarm,
-        brick:AHU_Condensate_Leak_Alarm,
-        brick:AHU_Discharge_Air_Smoke_Detected_Alarm,
-        brick:AHU_Discharge_Air_Temperature_High_Limit_Alarm,
-        brick:AHU_Return_Air_Temperature_High_Limit_Alarm,
-        brick:AHU_Return_Air_Temperature_Low_Limit_Alarm,
-        brick:AHU_Supply_Air_Smoke_Detected_Alarm,
-        brick:AHU_Supply_Air_Temperature_High_Limit_Alarm,
-        brick:Air_Flow_Loss_Alarm,
-        brick:Alarm_Delay,
-        brick:Alarm_Delay_Setpoint,
-        brick:CO2_High_Alarm,
-        brick:CRAC_Air_Flow_Loss_Alarm,
-        brick:CRAC_Alarm_Delay_Setpoint,
-        brick:CRAC_Communication_Loss_Alarm,
-        brick:CRAC_Compressor_Overload_Alarm,
-        brick:CRAC_Condensate_Leak_Alarm,
-        brick:CRAC_Emergency_Power_Loss_Alarm,
-        brick:CRAC_Fan_Overload_Alarm,
-        brick:CRAC_High_Head_Pressure_Alarm,
-        brick:CRAC_High_Humidity_Alarm,
-        brick:CRAC_High_Humidity_Alarm_Setpoint,
-        brick:CRAC_High_Temperature_Alarm,
-        brick:CRAC_High_Temperature_Alarm_Setpoint,
-        brick:CRAC_Humidifier_Alarm,
-        brick:CRAC_Humidifier_Panel_No_Water_Alarm,
-        brick:CRAC_Liquid_Detected_Alarm,
-        brick:CRAC_Low_Humidity_Alarm,
-        brick:CRAC_Low_Humidity_Alarm_Setpoint,
-        brick:CRAC_Low_Suction_Pressure_Alarm,
-        brick:CRAC_Low_Temperature_Alarm,
-        brick:CRAC_Low_Temperature_Alarm_Setpoint,
-        brick:CRAC_Power_Loss_Alarm,
-        brick:CRAC_Short_Cycle_Alarm,
-        brick:CRAC_Smoke_Detected_Alarm,
-        brick:CRAC_Unit_Failed_Alarm,
-        brick:CRAC_Water_Loss_Alarm,
-        brick:CWS_Chilled_Water_Pump_Alarm_Delay_Setpoint,
-        brick:Change_Filter_Alarm,
-        brick:Chilled_Water_Pump_Alarm_Delay,
-        brick:Chilled_Water_Pump_Alarm_Delay_Setpoint,
-        brick:Chiller_Discharge_Water_Temperature_Alarm,
-        brick:Chiller_Failure_Alarm,
-        brick:Chiller_Supply_Water_Temperature_Alarm,
-        brick:Communication_Loss_Alarm,
-        brick:Compressor_Overload_Alarm,
-        brick:Condensate_Leak_Alarm,
-        brick:DI_Water_Alarm,
-        brick:Deionised_Water_Alarm,
-        brick:Discharge_Air_Smoke_Detected_Alarm,
-        brick:Discharge_Air_Temperature_High_Limit_Alarm,
-        brick:Emergency_Generator_Alarm,
-        brick:Emergency_Power_Loss_Alarm,
-        brick:Fan_Overload_Alarm,
-        brick:Fume_Hood_Alarm,
-        brick:HWS_Hot_Water_Pump_Alarm,
-        brick:High_Head_Pressure_Alarm,
-        brick:High_Humidity_Alarm,
-        brick:High_Humidity_Alarm_Setpoint,
-        brick:High_Temperature_Alarm,
-        brick:High_Temperature_Alarm_Setpoint,
-        brick:Hot_Water_Pump_Alarm,
-        brick:Humidifier_Alarm,
-        brick:Humidifier_Panel_No_Water_Alarm,
-        brick:Lighting_System_Luminance_Alarm,
-        brick:Liquid_Detected_Alarm,
-        brick:Low_Humidity_Alarm,
-        brick:Low_Humidity_Alarm_Setpoint,
-        brick:Low_Suction_Pressure_Alarm,
-        brick:Low_Temperature_Alarm,
-        brick:Low_Temperature_Alarm_Setpoint,
-        brick:Luminance_Alarm,
-        brick:Maintenance_Required_Alarm,
-        brick:Power_Loss_Alarm,
-        brick:Pump_Alarm,
-        brick:Pump_Alarm_Delay_Setpoint,
-        brick:Return_Air_Temperature_High_Limit_Alarm,
-        brick:Return_Air_Temperature_Low_Limit_Alarm,
-        brick:Short_Cycle_Alarm,
-        brick:Smoke_Detected_Alarm,
-        brick:Supply_Air_Smoke_Detected_Alarm,
-        brick:Supply_Air_Temperature_High_Limit_Alarm,
-        brick:Unit_Failed_Alarm,
-        brick:VFD_Alarm,
-        brick:VFD_Maintenance_Required_Alarm,
-        brick:Water_Loss_Alarm,
-        brick:Water_System_Alarm_Delay_Setpoint,
-        brick:Water_System_DI_Water_Alarm,
-        brick:Water_System_Deionised_Water_Alarm .
-
-:VAV a owl:Class ;
-    rdfs:label "VAV"@en ;
-    rdfs:subClassOf bf:Tag ;
-    skos:definition ""@en ;
-    bf:usedBy brick:VAV,
-        brick:VAV_Booster_Fan_Air_Flow_Sensor,
-        brick:VAV_Booster_Fan_Air_Flow_Setpoint,
-        brick:VAV_Booster_Fan_Command,
-        brick:VAV_Booster_Fan_Start_Stop_Command,
-        brick:VAV_Box_Mode_Command,
-        brick:VAV_Box_Operating_Mode_Status,
-        brick:VAV_CO2_Level_Sensor,
-        brick:VAV_CO2_Sensor,
-        brick:VAV_Cooling_Command,
-        brick:VAV_Cooling_Demand_Setpoint,
-        brick:VAV_Cooling_Max_Discharge_Air_Flow_Setpoint,
-        brick:VAV_Cooling_Max_Supply_Air_Flow_Setpoint,
-        brick:VAV_Cooling_Min_Discharge_Air_Flow_Setpoint,
-        brick:VAV_Cooling_Min_Supply_Air_Flow_Setpoint,
-        brick:VAV_Cooling_Request_Setpoint,
-        brick:VAV_Cooling_Valve_Command,
-        brick:VAV_Damper_Command,
-        brick:VAV_Damper_Position_Sensor,
-        brick:VAV_Discharge_Air_Duct_Pressure_Status,
-        brick:VAV_Discharge_Air_Flow_Command,
-        brick:VAV_Discharge_Air_Flow_Sensor,
-        brick:VAV_Discharge_Air_Flow_Setpoint,
-        brick:VAV_Discharge_Air_Temperature_Cooling_Setpoint,
-        brick:VAV_Discharge_Air_Temperature_Heating_Setpoint,
-        brick:VAV_Discharge_Air_Temperature_Sensor,
-        brick:VAV_Discharge_Air_Temperature_Setpoint,
-        brick:VAV_Discharge_Air_Velocity_Pressure_Sensor,
-        brick:VAV_Effective_Cooling_Temperature_Setpoint,
-        brick:VAV_Effective_Heating_Temperature_Setpoint,
-        brick:VAV_Freeze_Protect_Temperature_Low_Limit_Setpoint,
-        brick:VAV_Heating_Command,
-        brick:VAV_Heating_Demand_Setpoint,
-        brick:VAV_Heating_Discharge_Air_Flow_Setpoint,
-        brick:VAV_Heating_Max_Discharge_Air_Flow_Setpoint,
-        brick:VAV_Heating_Max_Supply_Air_Flow_Setpoint,
-        brick:VAV_Heating_Min_Discharge_Air_Flow_Setpoint,
-        brick:VAV_Heating_Min_Supply_Air_Flow_Setpoint,
-        brick:VAV_Heating_Request_Setpoint,
-        brick:VAV_Heating_Supply_Air_Flow_Setpoint,
-        brick:VAV_Heating_Valve_Command,
-        brick:VAV_High_Static_Pressure_Cutout_Limit_Setpoint,
-        brick:VAV_Hot_Water_Valve_Command,
-        brick:VAV_Occupancy_Command,
-        brick:VAV_Occupancy_Sensor,
-        brick:VAV_Occupancy_Status,
-        brick:VAV_Occupied_Command,
-        brick:VAV_Occupied_Cooling_Discharge_Air_Flow_Setpoint,
-        brick:VAV_Occupied_Cooling_Max_Discharge_Air_Flow_Setpoint,
-        brick:VAV_Occupied_Cooling_Max_Supply_Air_Flow_Setpoint,
-        brick:VAV_Occupied_Cooling_Min_Discharge_Air_Flow_Setpoint,
-        brick:VAV_Occupied_Cooling_Min_Supply_Air_Flow_Setpoint,
-        brick:VAV_Occupied_Cooling_Supply_Air_Flow_Setpoint,
-        brick:VAV_Occupied_Cooling_Temperature_Dead_Band_Setpoint,
-        brick:VAV_Occupied_Cooling_Temperature_Setpoint,
-        brick:VAV_Occupied_Heating_Discharge_Air_Flow_Setpoint,
-        brick:VAV_Occupied_Heating_Max_Discharge_Air_Flow_Setpoint,
-        brick:VAV_Occupied_Heating_Max_Supply_Air_Flow_Setpoint,
-        brick:VAV_Occupied_Heating_Min_Discharge_Air_Flow_Setpoint,
-        brick:VAV_Occupied_Heating_Min_Supply_Air_Flow_Setpoint,
-        brick:VAV_Occupied_Heating_Supply_Air_Flow_Setpoint,
-        brick:VAV_Occupied_Heating_Temperature_Dead_Band_Setpoint,
-        brick:VAV_Occupied_Heating_Temperature_Setpoint,
-        brick:VAV_Outside_Air_Damper_Close_Limit_Setpoint,
-        brick:VAV_Reheat_Valve_Command,
-        brick:VAV_Return_Air_Temperature_Sensor,
-        brick:VAV_Room_Temperature_Sensor,
-        brick:VAV_Room_Temperature_Setpoint,
-        brick:VAV_Schedule_Temperature_Setpoint,
-        brick:VAV_Supply_Air_Duct_Pressure_Status,
-        brick:VAV_Supply_Air_Flow_Command,
-        brick:VAV_Supply_Air_Flow_Sensor,
-        brick:VAV_Supply_Air_Flow_Setpoint,
-        brick:VAV_Supply_Air_Temperature_Cooling_Setpoint,
-        brick:VAV_Supply_Air_Temperature_Heating_Setpoint,
-        brick:VAV_Supply_Air_Temperature_Sensor,
-        brick:VAV_Supply_Air_Temperature_Setpoint,
-        brick:VAV_Supply_Air_Velocity_Pressure_Sensor,
-        brick:VAV_Temporary_Occupancy_Status,
-        brick:VAV_Thermostat_Adjust_Sensor,
-        brick:VAV_Unoccupied_Cooling_Discharge_Air_Flow_Setpoint,
-        brick:VAV_Unoccupied_Cooling_Supply_Air_Flow_Setpoint,
-        brick:VAV_Unoccupied_Cooling_Temperature_Setpoint,
-        brick:VAV_Unoccupied_Heating_Temperature_Setpoint,
-        brick:VAV_Vent_Operating_Mode_Status,
-        brick:VAV_Ventilation_Air_Flow_Ratio_Limit_Setpoint,
-        brick:VAV_Warm_Cool_Adjust_Sensor,
-        brick:VAV_Zone_Air_Temperature_Sensor,
-        brick:VAV_Zone_Temperature_Sensor,
-        brick:VAV_Zone_Temperature_Setpoint .
-
 :Static a owl:Class ;
     rdfs:label "Static"@en ;
     rdfs:subClassOf bf:Tag ;
@@ -16130,6 +15922,105 @@ brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_She
         brick:Supply_Fan_Supply_Air_Static_Pressure_Proportional_Band_Setpoint,
         brick:VAV_High_Static_Pressure_Cutout_Limit_Setpoint .
 
+:Alarm a owl:Class ;
+    rdfs:label "Alarm"@en ;
+    rdfs:subClassOf bf:Tag ;
+    skos:definition ""@en ;
+    bf:usedBy brick:AHU_CO2_High_Alarm,
+        brick:AHU_Change_Filter_Alarm,
+        brick:AHU_Condensate_Leak_Alarm,
+        brick:AHU_Discharge_Air_Smoke_Detected_Alarm,
+        brick:AHU_Discharge_Air_Temperature_High_Limit_Alarm,
+        brick:AHU_Return_Air_Temperature_High_Limit_Alarm,
+        brick:AHU_Return_Air_Temperature_Low_Limit_Alarm,
+        brick:AHU_Supply_Air_Smoke_Detected_Alarm,
+        brick:AHU_Supply_Air_Temperature_High_Limit_Alarm,
+        brick:Air_Flow_Loss_Alarm,
+        brick:Alarm,
+        brick:Alarm_Delay,
+        brick:Alarm_Delay_Setpoint,
+        brick:CO2_High_Alarm,
+        brick:CRAC_Air_Flow_Loss_Alarm,
+        brick:CRAC_Alarm_Delay_Setpoint,
+        brick:CRAC_Communication_Loss_Alarm,
+        brick:CRAC_Compressor_Overload_Alarm,
+        brick:CRAC_Condensate_Leak_Alarm,
+        brick:CRAC_Emergency_Power_Loss_Alarm,
+        brick:CRAC_Fan_Overload_Alarm,
+        brick:CRAC_High_Head_Pressure_Alarm,
+        brick:CRAC_High_Humidity_Alarm,
+        brick:CRAC_High_Humidity_Alarm_Setpoint,
+        brick:CRAC_High_Temperature_Alarm,
+        brick:CRAC_High_Temperature_Alarm_Setpoint,
+        brick:CRAC_Humidifier_Alarm,
+        brick:CRAC_Humidifier_Panel_No_Water_Alarm,
+        brick:CRAC_Liquid_Detected_Alarm,
+        brick:CRAC_Low_Humidity_Alarm,
+        brick:CRAC_Low_Humidity_Alarm_Setpoint,
+        brick:CRAC_Low_Suction_Pressure_Alarm,
+        brick:CRAC_Low_Temperature_Alarm,
+        brick:CRAC_Low_Temperature_Alarm_Setpoint,
+        brick:CRAC_Power_Loss_Alarm,
+        brick:CRAC_Short_Cycle_Alarm,
+        brick:CRAC_Smoke_Detected_Alarm,
+        brick:CRAC_Unit_Failed_Alarm,
+        brick:CRAC_Water_Loss_Alarm,
+        brick:CWS_Chilled_Water_Pump_Alarm,
+        brick:CWS_Chilled_Water_Pump_Alarm_Delay_Setpoint,
+        brick:Change_Filter_Alarm,
+        brick:Chilled_Water_Pump_Alarm,
+        brick:Chilled_Water_Pump_Alarm_Delay,
+        brick:Chilled_Water_Pump_Alarm_Delay_Setpoint,
+        brick:Chiller_Discharge_Water_Temperature_Alarm,
+        brick:Chiller_Failure_Alarm,
+        brick:Chiller_Supply_Water_Temperature_Alarm,
+        brick:Communication_Loss_Alarm,
+        brick:Compressor_Overload_Alarm,
+        brick:Condensate_Leak_Alarm,
+        brick:DI_Water_Alarm,
+        brick:Deionised_Water_Alarm,
+        brick:Discharge_Air_Smoke_Detected_Alarm,
+        brick:Discharge_Air_Temperature_High_Limit_Alarm,
+        brick:Emergency_Generator_Alarm,
+        brick:Emergency_Power_Loss_Alarm,
+        brick:Fan_Overload_Alarm,
+        brick:Fire_Alarm,
+        brick:Fume_Hood_Alarm,
+        brick:HWS_Hot_Water_Pump_Alarm,
+        brick:High_Head_Pressure_Alarm,
+        brick:High_Humidity_Alarm,
+        brick:High_Humidity_Alarm_Setpoint,
+        brick:High_Temperature_Alarm,
+        brick:High_Temperature_Alarm_Setpoint,
+        brick:Hot_Water_Pump_Alarm,
+        brick:Humidifier_Alarm,
+        brick:Humidifier_Panel_No_Water_Alarm,
+        brick:Lighting_System_Luminance_Alarm,
+        brick:Liquid_Detected_Alarm,
+        brick:Low_Humidity_Alarm,
+        brick:Low_Humidity_Alarm_Setpoint,
+        brick:Low_Suction_Pressure_Alarm,
+        brick:Low_Temperature_Alarm,
+        brick:Low_Temperature_Alarm_Setpoint,
+        brick:Luminance_Alarm,
+        brick:Maintenance_Required_Alarm,
+        brick:Power_Loss_Alarm,
+        brick:Pump_Alarm,
+        brick:Pump_Alarm_Delay_Setpoint,
+        brick:Return_Air_Temperature_High_Limit_Alarm,
+        brick:Return_Air_Temperature_Low_Limit_Alarm,
+        brick:Short_Cycle_Alarm,
+        brick:Smoke_Detected_Alarm,
+        brick:Supply_Air_Smoke_Detected_Alarm,
+        brick:Supply_Air_Temperature_High_Limit_Alarm,
+        brick:Unit_Failed_Alarm,
+        brick:VFD_Alarm,
+        brick:VFD_Maintenance_Required_Alarm,
+        brick:Water_Loss_Alarm,
+        brick:Water_System_Alarm_Delay_Setpoint,
+        brick:Water_System_DI_Water_Alarm,
+        brick:Water_System_Deionised_Water_Alarm .
+
 :Chilled a owl:Class ;
     rdfs:label "Chilled"@en ;
     rdfs:subClassOf bf:Tag ;
@@ -16143,11 +16034,11 @@ brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_She
         brick:CWS_Chilled_Water_Differential_Pressure_Setpoint,
         brick:CWS_Chilled_Water_Discharge_Flow_Sensor,
         brick:CWS_Chilled_Water_Discharge_Temperature_Sensor,
-        brick:CWS_Chilled_Water_Meter,
+        brick:CWS_Chilled_Water_Pump_Alarm,
         brick:CWS_Chilled_Water_Pump_Alarm_Delay_Setpoint,
         brick:CWS_Chilled_Water_Pump_Command,
         brick:CWS_Chilled_Water_Pump_Differential_Pressure_Dead_Band_Setpoint,
-        brick:CWS_Chilled_Water_Pump_Differential_Pressure_Integration_Time_Setpoint,
+        brick:CWS_Chilled_Water_Pump_Differential_Pressure_Integral_Time_Setpoint,
         brick:CWS_Chilled_Water_Pump_Differential_Pressure_Proportional_Band_Setpoint,
         brick:CWS_Chilled_Water_Pump_Enable_Status,
         brick:CWS_Chilled_Water_Pump_Lead_Lag_Command,
@@ -16189,15 +16080,16 @@ brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_She
         brick:Chilled_Water_Discharge_Flow_Sensor,
         brick:Chilled_Water_Discharge_Temperature,
         brick:Chilled_Water_Discharge_Temperature_Sensor,
-        brick:Chilled_Water_Meter,
+        brick:Chilled_Water_Flow_Sensor,
         brick:Chilled_Water_Pump,
+        brick:Chilled_Water_Pump_Alarm,
         brick:Chilled_Water_Pump_Alarm_Delay,
         brick:Chilled_Water_Pump_Alarm_Delay_Setpoint,
         brick:Chilled_Water_Pump_Command,
         brick:Chilled_Water_Pump_Differential_Pressure_Dead_Band,
         brick:Chilled_Water_Pump_Differential_Pressure_Dead_Band_Setpoint,
-        brick:Chilled_Water_Pump_Differential_Pressure_Integration_Time,
-        brick:Chilled_Water_Pump_Differential_Pressure_Integration_Time_Setpoint,
+        brick:Chilled_Water_Pump_Differential_Pressure_Integral_Time,
+        brick:Chilled_Water_Pump_Differential_Pressure_Integral_Time_Setpoint,
         brick:Chilled_Water_Pump_Differential_Pressure_Proportional_Band,
         brick:Chilled_Water_Pump_Differential_Pressure_Proportional_Band_Setpoint,
         brick:Chilled_Water_Pump_Enable,
@@ -16224,6 +16116,7 @@ brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_She
         brick:Chilled_Water_System_Enable_Command,
         brick:Chilled_Water_Temperature_Differential,
         brick:Chilled_Water_Temperature_Differential_Sensor,
+        brick:Chilled_Water_Usage_Sensor,
         brick:Chilled_Water_Valve,
         brick:DemandResponse_Chilled_Water_Differential_Pressure_Load_Shed_Reset_Status,
         brick:DemandResponse_Chilled_Water_Differential_Pressure_Load_Shed_Setpoint,
@@ -16515,8 +16408,7 @@ brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_She
         brick:Heating_Supply_Air_Temperature_Proportional_Band,
         brick:Heating_Supply_Air_Temperature_Proportional_Band_Setpoint,
         brick:Heating_Temperature,
-        brick:Heating_Thermal_Power,
-        brick:Heating_Thermal_Power_Meter,
+        brick:Heating_Thermal_Power_Sensor,
         brick:Heating_Valve,
         brick:Heating_Valve_Command,
         brick:Heating_Ventilation_Air_Conditioning_System,
@@ -16665,7 +16557,6 @@ brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_She
         brick:VFD_Motor_Current_Sensor,
         brick:VFD_Motor_Direction_Command,
         brick:VFD_Motor_Direction_Status,
-        brick:VFD_Motor_Power_Meter,
         brick:VFD_Motor_Speed_Sensor,
         brick:VFD_Motor_Start_Stop_Command,
         brick:VFD_Motor_Start_Stop_Status,
@@ -16675,7 +16566,6 @@ brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_She
         brick:VFD_Output_Frequency_Sensor,
         brick:VFD_Output_Voltage_Sensor,
         brick:VFD_Panel_Lockout_Command,
-        brick:VFD_Power_Meter,
         brick:VFD_Rated_Speed_Setpoint,
         brick:VFD_Run_Direction_Command,
         brick:VFD_Run_Direction_Status,
@@ -16696,7 +16586,6 @@ brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_She
     rdfs:subClassOf bf:Tag ;
     skos:definition ""@en ;
     bf:usedBy brick:AHU_CO2_Differential_Sensor,
-        brick:AHU_CO2_Sensor,
         brick:AHU_Differential_Pressure_Sensor,
         brick:AHU_Discharge_Air_Temperature_Reset_Differential_Setpoint,
         brick:AHU_Economizer_Differential_Air_Temperature_Setpoint,
@@ -16711,7 +16600,6 @@ brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_She
         brick:Air_Lockout_Temperature_Differential,
         brick:CO2_Differential,
         brick:CO2_Differential_Sensor,
-        brick:CO2_Sensor,
         brick:CWS_Chilled_Water_Differential_Pressure_Dead_Band_Setpoint,
         brick:CWS_Chilled_Water_Differential_Pressure_Increase_Decrease_Step_Setpoint,
         brick:CWS_Chilled_Water_Differential_Pressure_Integral_Time_Setpoint,
@@ -16719,7 +16607,7 @@ brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_She
         brick:CWS_Chilled_Water_Differential_Pressure_Sensor,
         brick:CWS_Chilled_Water_Differential_Pressure_Setpoint,
         brick:CWS_Chilled_Water_Pump_Differential_Pressure_Dead_Band_Setpoint,
-        brick:CWS_Chilled_Water_Pump_Differential_Pressure_Integration_Time_Setpoint,
+        brick:CWS_Chilled_Water_Pump_Differential_Pressure_Integral_Time_Setpoint,
         brick:CWS_Chilled_Water_Pump_Differential_Pressure_Proportional_Band_Setpoint,
         brick:CWS_Chilled_Water_Temperature_Differential_Sensor,
         brick:CWS_Max_Chilled_Water_Differential_Pressure_Setpoint,
@@ -16742,8 +16630,8 @@ brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_She
         brick:Chilled_Water_Differential_Pressure_Setpoint,
         brick:Chilled_Water_Pump_Differential_Pressure_Dead_Band,
         brick:Chilled_Water_Pump_Differential_Pressure_Dead_Band_Setpoint,
-        brick:Chilled_Water_Pump_Differential_Pressure_Integration_Time,
-        brick:Chilled_Water_Pump_Differential_Pressure_Integration_Time_Setpoint,
+        brick:Chilled_Water_Pump_Differential_Pressure_Integral_Time,
+        brick:Chilled_Water_Pump_Differential_Pressure_Integral_Time_Setpoint,
         brick:Chilled_Water_Pump_Differential_Pressure_Proportional_Band,
         brick:Chilled_Water_Pump_Differential_Pressure_Proportional_Band_Setpoint,
         brick:Chilled_Water_Temperature_Differential,
@@ -16886,8 +16774,7 @@ brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_She
         brick:Cooling_Supply_Air_Temperature_Proportional_Band,
         brick:Cooling_Supply_Air_Temperature_Proportional_Band_Setpoint,
         brick:Cooling_Temperature,
-        brick:Cooling_Thermal_Power,
-        brick:Cooling_Thermal_Power_Meter,
+        brick:Cooling_Thermal_Power_Sensor,
         brick:Cooling_Tower,
         brick:Cooling_Tower_Fan,
         brick:Cooling_Tower_Fan_Speed,
@@ -17006,8 +16893,6 @@ brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_She
         brick:HWS_Hot_Water_Differential_Pressure_Sensor,
         brick:HWS_Hot_Water_Differential_Pressure_Setpoint,
         brick:HWS_Hot_Water_Discharge_Temperature_Sensor,
-        brick:HWS_Hot_Water_Flow_Meter,
-        brick:HWS_Hot_Water_Meter,
         brick:HWS_Hot_Water_Pump_Alarm,
         brick:HWS_Hot_Water_Pump_Lead_Lag_Command,
         brick:HWS_Hot_Water_Pump_Start_Stop_Command,
@@ -17048,9 +16933,7 @@ brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_She
         brick:Hot_Water_Differential_Pressure_Setpoint,
         brick:Hot_Water_Discharge_Temperature,
         brick:Hot_Water_Discharge_Temperature_Sensor,
-        brick:Hot_Water_Flow,
-        brick:Hot_Water_Flow_Meter,
-        brick:Hot_Water_Meter,
+        brick:Hot_Water_Flow_Sensor,
         brick:Hot_Water_Pump,
         brick:Hot_Water_Pump_Alarm,
         brick:Hot_Water_Pump_Lead_Lag,
@@ -17067,6 +16950,7 @@ brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_She
         brick:Hot_Water_System,
         brick:Hot_Water_System_Enable,
         brick:Hot_Water_System_Enable_Command,
+        brick:Hot_Water_Usage_Sensor,
         brick:Hot_Water_Valve_Command,
         brick:Medium_Temperature_Hot_Water,
         brick:Medium_Temperature_Hot_Water_Differential_Pressure,
@@ -17104,7 +16988,7 @@ brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_She
 :Flow a owl:Class ;
     rdfs:label "Flow"@en ;
     rdfs:subClassOf bf:Tag ;
-    skos:definition ""@en ;
+    skos:definition "Fluidic stream"@en ;
     bf:usedBy brick:AHU_Bypass_Air_Flow_Sensor,
         brick:AHU_Discharge_Air_Flow_Demand_Setpoint,
         brick:AHU_Discharge_Air_Flow_Reset_High_Setpoint,
@@ -17140,6 +17024,7 @@ brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_She
         brick:CWS_Chilled_Water_Supply_Flow_Sensor,
         brick:Chilled_Water_Discharge_Flow,
         brick:Chilled_Water_Discharge_Flow_Sensor,
+        brick:Chilled_Water_Flow_Sensor,
         brick:Chilled_Water_Supply_Flow,
         brick:Chilled_Water_Supply_Flow_Sensor,
         brick:Cooling_Max_Discharge_Air_Flow,
@@ -17184,7 +17069,6 @@ brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_She
         brick:Fume_Hood_Emergency_Air_Flow_Status,
         brick:HVAC_Average_Discharge_Air_Flow_Sensor,
         brick:HVAC_Average_Supply_Air_Flow_Sensor,
-        brick:HWS_Hot_Water_Flow_Meter,
         brick:Heating_Discharge_Air_Flow,
         brick:Heating_Discharge_Air_Flow_Setpoint,
         brick:Heating_Max_Discharge_Air_Flow,
@@ -17197,8 +17081,7 @@ brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_She
         brick:Heating_Min_Supply_Air_Flow_Setpoint,
         brick:Heating_Supply_Air_Flow,
         brick:Heating_Supply_Air_Flow_Setpoint,
-        brick:Hot_Water_Flow,
-        brick:Hot_Water_Flow_Meter,
+        brick:Hot_Water_Flow_Sensor,
         brick:Min_Air_Flow,
         brick:Occupied_Cooling_Discharge_Air_Flow,
         brick:Occupied_Cooling_Discharge_Air_Flow_Setpoint,
@@ -17607,7 +17490,6 @@ brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_She
         brick:Medium_Temperature_Hot_Water_Supply_Temperature_Load_Shed_Status,
         brick:Motor_Direction_Status,
         brick:Motor_Start_Stop_Status,
-        brick:Occupancy_Status,
         brick:Occupied_Mode_Status,
         brick:On_Off_Status,
         brick:Overridden_Off_Status,
@@ -17638,13 +17520,10 @@ brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_She
         brick:System_Mode_Status,
         brick:System_Shutdown_Status,
         brick:System_Status,
-        brick:Temporary_Occupancy_Status,
         brick:Turn_Off_Status,
         brick:VAV_Box_Operating_Mode_Status,
         brick:VAV_Discharge_Air_Duct_Pressure_Status,
-        brick:VAV_Occupancy_Status,
         brick:VAV_Supply_Air_Duct_Pressure_Status,
-        brick:VAV_Temporary_Occupancy_Status,
         brick:VAV_Vent_Operating_Mode_Status,
         brick:VFD_Drive_Ready_Status,
         brick:VFD_Fault_Indicator_Status,
@@ -17714,7 +17593,7 @@ brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_She
         brick:CWS_Chilled_Water_Differential_Pressure_Sensor,
         brick:CWS_Chilled_Water_Differential_Pressure_Setpoint,
         brick:CWS_Chilled_Water_Pump_Differential_Pressure_Dead_Band_Setpoint,
-        brick:CWS_Chilled_Water_Pump_Differential_Pressure_Integration_Time_Setpoint,
+        brick:CWS_Chilled_Water_Pump_Differential_Pressure_Integral_Time_Setpoint,
         brick:CWS_Chilled_Water_Pump_Differential_Pressure_Proportional_Band_Setpoint,
         brick:CWS_Chilled_Water_Static_Pressure_Setpoint,
         brick:CWS_Max_Chilled_Water_Differential_Pressure_Setpoint,
@@ -17739,8 +17618,8 @@ brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_She
         brick:Chilled_Water_Differential_Pressure_Setpoint,
         brick:Chilled_Water_Pump_Differential_Pressure_Dead_Band,
         brick:Chilled_Water_Pump_Differential_Pressure_Dead_Band_Setpoint,
-        brick:Chilled_Water_Pump_Differential_Pressure_Integration_Time,
-        brick:Chilled_Water_Pump_Differential_Pressure_Integration_Time_Setpoint,
+        brick:Chilled_Water_Pump_Differential_Pressure_Integral_Time,
+        brick:Chilled_Water_Pump_Differential_Pressure_Integral_Time_Setpoint,
         brick:Chilled_Water_Pump_Differential_Pressure_Proportional_Band,
         brick:Chilled_Water_Pump_Differential_Pressure_Proportional_Band_Setpoint,
         brick:Chilled_Water_Static_Pressure,
@@ -17902,7 +17781,6 @@ brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_She
         brick:AHU_Highest_Zone_Cooling_Command,
         brick:AHU_Mixed_Air_Damper_Position_Command,
         brick:AHU_Occupancy_Command,
-        brick:AHU_Occupied_Command,
         brick:AHU_Outside_Air_Damper_Position_Command,
         brick:AHU_Preheat_Valve_Command,
         brick:AHU_Return_Air_Preheat_Valve_Command,
@@ -17945,6 +17823,7 @@ brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_She
         brick:Chilled_Water_Pump_Start_Stop_Command,
         brick:Chilled_Water_Pump_VFD_Speed_Command,
         brick:Chilled_Water_System_Enable_Command,
+        brick:Command,
         brick:Cooling_Command,
         brick:Cooling_Valve_Command,
         brick:Curtailment_Override_Command,
@@ -18021,7 +17900,6 @@ brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_She
         brick:Motor_Direction_Command,
         brick:Motor_Start_Stop_Command,
         brick:Occupancy_Command,
-        brick:Occupied_Command,
         brick:Outside_Air_Damper_Position_Command,
         brick:Panel_Lockout_Command,
         brick:Perimeter_Heating_Valve_Command,
@@ -18038,6 +17916,7 @@ brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_She
         brick:Run_Direction_Command,
         brick:Run_Enable_Command,
         brick:Run_Request_Command,
+        brick:Scheduled_Occupancy_Command,
         brick:Shutdown_Hot_Water_When_Unoccupied_Command,
         brick:Speed_Reset_Command,
         brick:Standby_Load_Shed_Command,
@@ -18062,7 +17941,6 @@ brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_She
         brick:VAV_Heating_Valve_Command,
         brick:VAV_Hot_Water_Valve_Command,
         brick:VAV_Occupancy_Command,
-        brick:VAV_Occupied_Command,
         brick:VAV_Reheat_Valve_Command,
         brick:VAV_Supply_Air_Flow_Command,
         brick:VFD_Cooling_Valve_Command,
@@ -18104,7 +17982,6 @@ brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_She
         brick:AHU_Bypass_Damper_Position_Sensor,
         brick:AHU_CO2_Differential_Sensor,
         brick:AHU_CO2_High_Alarm,
-        brick:AHU_CO2_Sensor,
         brick:AHU_Change_Filter_Alarm,
         brick:AHU_Coldest_Zone_Temperature_Sensor,
         brick:AHU_Condensate_Leak_Alarm,
@@ -18239,7 +18116,6 @@ brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_She
         brick:AHU_Mixed_Air_Temperature_Sensor,
         brick:AHU_Mixed_Air_Temperature_Setpoint,
         brick:AHU_Occupancy_Command,
-        brick:AHU_Occupied_Command,
         brick:AHU_Occupied_Mode_Status,
         brick:AHU_Off_LED,
         brick:AHU_Off_Status_LED,
@@ -18359,11 +18235,11 @@ brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_She
         brick:CWS_Chilled_Water_Differential_Pressure_Setpoint,
         brick:CWS_Chilled_Water_Discharge_Flow_Sensor,
         brick:CWS_Chilled_Water_Discharge_Temperature_Sensor,
-        brick:CWS_Chilled_Water_Meter,
+        brick:CWS_Chilled_Water_Pump_Alarm,
         brick:CWS_Chilled_Water_Pump_Alarm_Delay_Setpoint,
         brick:CWS_Chilled_Water_Pump_Command,
         brick:CWS_Chilled_Water_Pump_Differential_Pressure_Dead_Band_Setpoint,
-        brick:CWS_Chilled_Water_Pump_Differential_Pressure_Integration_Time_Setpoint,
+        brick:CWS_Chilled_Water_Pump_Differential_Pressure_Integral_Time_Setpoint,
         brick:CWS_Chilled_Water_Pump_Differential_Pressure_Proportional_Band_Setpoint,
         brick:CWS_Chilled_Water_Pump_Enable_Status,
         brick:CWS_Chilled_Water_Pump_Lead_Lag_Command,
@@ -18405,15 +18281,16 @@ brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_She
         brick:Chilled_Water_Discharge_Flow_Sensor,
         brick:Chilled_Water_Discharge_Temperature,
         brick:Chilled_Water_Discharge_Temperature_Sensor,
-        brick:Chilled_Water_Meter,
+        brick:Chilled_Water_Flow_Sensor,
         brick:Chilled_Water_Pump,
+        brick:Chilled_Water_Pump_Alarm,
         brick:Chilled_Water_Pump_Alarm_Delay,
         brick:Chilled_Water_Pump_Alarm_Delay_Setpoint,
         brick:Chilled_Water_Pump_Command,
         brick:Chilled_Water_Pump_Differential_Pressure_Dead_Band,
         brick:Chilled_Water_Pump_Differential_Pressure_Dead_Band_Setpoint,
-        brick:Chilled_Water_Pump_Differential_Pressure_Integration_Time,
-        brick:Chilled_Water_Pump_Differential_Pressure_Integration_Time_Setpoint,
+        brick:Chilled_Water_Pump_Differential_Pressure_Integral_Time,
+        brick:Chilled_Water_Pump_Differential_Pressure_Integral_Time_Setpoint,
         brick:Chilled_Water_Pump_Differential_Pressure_Proportional_Band,
         brick:Chilled_Water_Pump_Differential_Pressure_Proportional_Band_Setpoint,
         brick:Chilled_Water_Pump_Enable,
@@ -18440,6 +18317,7 @@ brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_She
         brick:Chilled_Water_System_Enable_Command,
         brick:Chilled_Water_Temperature_Differential,
         brick:Chilled_Water_Temperature_Differential_Sensor,
+        brick:Chilled_Water_Usage_Sensor,
         brick:Chilled_Water_Valve,
         brick:Chiller_Discharge_Water_Temperature_Alarm,
         brick:Chiller_Supply_Water_Temperature_Alarm,
@@ -18516,8 +18394,6 @@ brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_She
         brick:HWS_Hot_Water_Differential_Pressure_Sensor,
         brick:HWS_Hot_Water_Differential_Pressure_Setpoint,
         brick:HWS_Hot_Water_Discharge_Temperature_Sensor,
-        brick:HWS_Hot_Water_Flow_Meter,
-        brick:HWS_Hot_Water_Meter,
         brick:HWS_Hot_Water_Pump_Alarm,
         brick:HWS_Hot_Water_Pump_Lead_Lag_Command,
         brick:HWS_Hot_Water_Pump_Start_Stop_Command,
@@ -18575,9 +18451,7 @@ brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_She
         brick:Hot_Water_Differential_Pressure_Setpoint,
         brick:Hot_Water_Discharge_Temperature,
         brick:Hot_Water_Discharge_Temperature_Sensor,
-        brick:Hot_Water_Flow,
-        brick:Hot_Water_Flow_Meter,
-        brick:Hot_Water_Meter,
+        brick:Hot_Water_Flow_Sensor,
         brick:Hot_Water_Pump,
         brick:Hot_Water_Pump_Alarm,
         brick:Hot_Water_Pump_Lead_Lag,
@@ -18594,6 +18468,7 @@ brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_She
         brick:Hot_Water_System,
         brick:Hot_Water_System_Enable,
         brick:Hot_Water_System_Enable_Command,
+        brick:Hot_Water_Usage_Sensor,
         brick:Hot_Water_Valve_Command,
         brick:Humidifier_Panel_No_Water,
         brick:Humidifier_Panel_No_Water_Alarm,
@@ -18666,8 +18541,8 @@ brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_She
         brick:Water_System_Discharge_Water_Temperature_Setpoint,
         brick:Water_System_Supply_Water_Temperature_Setpoint,
         brick:Water_System_Water_Discharge_Temperature_Sensor,
-        brick:Water_System_Water_Meter,
-        brick:Water_System_Water_Supply_Temperature_Sensor .
+        brick:Water_System_Water_Supply_Temperature_Sensor,
+        brick:Water_Usage_Sensor .
 
 :Sensor a owl:Class ;
     rdfs:label "Sensor"@en ;
@@ -18679,7 +18554,6 @@ brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_She
         brick:AHU_Bypass_Air_Flow_Sensor,
         brick:AHU_Bypass_Damper_Position_Sensor,
         brick:AHU_CO2_Differential_Sensor,
-        brick:AHU_CO2_Sensor,
         brick:AHU_Coldest_Zone_Temperature_Sensor,
         brick:AHU_Cooling_Coil_Discharge_Air_Temperature_Sensor,
         brick:AHU_Cooling_Coil_Supply_Air_Temperature_Sensor,
@@ -18774,10 +18648,12 @@ brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_She
         brick:Chilled_Water_Differential_Pressure_Sensor,
         brick:Chilled_Water_Discharge_Flow_Sensor,
         brick:Chilled_Water_Discharge_Temperature_Sensor,
+        brick:Chilled_Water_Flow_Sensor,
         brick:Chilled_Water_Return_Temperature_Sensor,
         brick:Chilled_Water_Supply_Flow_Sensor,
         brick:Chilled_Water_Supply_Temperature_Sensor,
         brick:Chilled_Water_Temperature_Differential_Sensor,
+        brick:Chilled_Water_Usage_Sensor,
         brick:Chiller_On_Timer_Sensor,
         brick:Chiller_Run_Time_Sensor,
         brick:Cold_Box_Temperature_Sensor,
@@ -18787,7 +18663,9 @@ brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_She
         brick:Cooling_Coil_Discharge_Air_Temperature_Sensor,
         brick:Cooling_Coil_Supply_Air_Temperature_Sensor,
         brick:Cooling_Coil_Valve_Pressure_Sensor,
+        brick:Cooling_Thermal_Power_Sensor,
         brick:Current_Sensor,
+        brick:Current_Steam_Usage_Sensor,
         brick:DC_Bus_Voltage_Sensor,
         brick:DHWS_Domestic_Hot_Water_Discharge_Temperature_Sensor,
         brick:DHWS_Domestic_Hot_Water_Supply_Temperature_Sensor,
@@ -18808,6 +18686,8 @@ brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_She
         brick:Domestic_Hot_Water_Discharge_Temperature_Sensor,
         brick:Domestic_Hot_Water_Supply_Temperature_Sensor,
         brick:Drive_Temperature_Sensor,
+        brick:Electricity_Energy_Sensor,
+        brick:Electricity_Power_Sensor,
         brick:Energy_Sensor,
         brick:Environment_Box_Temperature_Sensor,
         brick:Exhaust_Air_Flow_Sensor,
@@ -18839,6 +18719,7 @@ brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_She
         brick:Frost_Sensor,
         brick:Fume_Hood_Air_Flow_Sensor,
         brick:Fume_Hood_Sash_Position_Sensor,
+        brick:Gas_Usage_Sensor,
         brick:HVAC_Average_Cooling_Demand_Sensor,
         brick:HVAC_Average_Discharge_Air_Flow_Sensor,
         brick:HVAC_Average_Supply_Air_Flow_Sensor,
@@ -18869,6 +18750,7 @@ brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_She
         brick:Heat_Wheel_Speed_Sensor,
         brick:Heat_Wheel_Supply_Air_Temperature_Sensor,
         brick:Heat_Wheel_Voltage_Sensor,
+        brick:Heating_Thermal_Power_Sensor,
         brick:High_Temperature_Hot_Water_Discharge_Temperature_Sensor,
         brick:High_Temperature_Hot_Water_Return_Temperature_Sensor,
         brick:High_Temperature_Hot_Water_Supply_Temperature_Sensor,
@@ -18877,8 +18759,10 @@ brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_She
         brick:Hot_Water_Coil_Entering_Temperature_Sensor,
         brick:Hot_Water_Differential_Pressure_Sensor,
         brick:Hot_Water_Discharge_Temperature_Sensor,
+        brick:Hot_Water_Flow_Sensor,
         brick:Hot_Water_Return_Temperature_Sensor,
         brick:Hot_Water_Supply_Temperature_Sensor,
+        brick:Hot_Water_Usage_Sensor,
         brick:Humidity_Sensor,
         brick:Ice_Tank_Entering_Water_Temperature_Sensor,
         brick:Ice_Tank_Leaving_Water_Temperature_Sensor,
@@ -18894,7 +18778,9 @@ brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_She
         brick:Medium_Temperature_Hot_Water_Supply_Temperature_Sensor,
         brick:Mixed_Air_Damper_Position_Sensor,
         brick:Mixed_Air_Temperature_Sensor,
+        brick:Monthly_Steam_Usage_Sensor,
         brick:Motor_Current_Sensor,
+        brick:Motor_Power_Sensor,
         brick:Motor_Speed_Sensor,
         brick:Motor_Torque_Sensor,
         brick:Occupancy_Sensor,
@@ -18916,6 +18802,7 @@ brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_She
         brick:PV_Current_Output_Sensor,
         brick:Peak_Power_Demand_Sensor,
         brick:Photovoltaic_Current_Output_Sensor,
+        brick:Power_Sensor,
         brick:Power_System_Peak_Power_Demand_Sensor,
         brick:Preheat_Coil_Entering_Air_Temperature_Sensor,
         brick:Preheat_Coil_Leaving_Water_Temperature_Sensor,
@@ -18939,6 +18826,7 @@ brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_She
         brick:Room_Temperature_Sensor,
         brick:Run_Time_Sensor,
         brick:Running_Hour_Sensor,
+        brick:Sensor,
         brick:Solar_Azimuth_Angle_Sensor,
         brick:Solar_Panel_Battery_Voltage_Sensor,
         brick:Solar_Panel_PV_Current_Output_Sensor,
@@ -18948,6 +18836,7 @@ brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_She
         brick:Solar_Radiance_Sensor,
         brick:Solar_Zenith_Angle_Sensor,
         brick:Static_Pressure_Sensor,
+        brick:Steam_Usage_Sensor,
         brick:Supply_Air_Flow_Sensor,
         brick:Supply_Air_Humidity_Sensor,
         brick:Supply_Air_Static_Pressure_Sensor,
@@ -18960,9 +18849,12 @@ brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_She
         brick:Supply_Fan_Piezoelectric_Sensor,
         brick:Supply_Fan_VFD_Speed_Sensor,
         brick:Temperature_Sensor,
+        brick:Thermal_Power_Sensor,
         brick:Thermostat_Adjust_Sensor,
+        brick:Today_Steam_Usage_Sensor,
         brick:Trace_Heat_Sensor,
         brick:Underfloor_Temperature_Sensor,
+        brick:Usage_Sensor,
         brick:VAV_Booster_Fan_Air_Flow_Sensor,
         brick:VAV_CO2_Level_Sensor,
         brick:VAV_CO2_Sensor,
@@ -19002,6 +18894,7 @@ brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_She
         brick:Water_System_Deionised_Water_Level_Sensor,
         brick:Water_System_Water_Discharge_Temperature_Sensor,
         brick:Water_System_Water_Supply_Temperature_Sensor,
+        brick:Water_Usage_Sensor,
         brick:Weather_Hail_Sensor,
         brick:Weather_Outside_Enthalpy_Sensor,
         brick:Weather_Rain_Duration_Sensor,
@@ -19012,6 +18905,7 @@ brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_She
         brick:Weather_Wind_Speed_Sensor,
         brick:Wind_Direction_Sensor,
         brick:Wind_Speed_Sensor,
+        brick:Yearly_Steam_Usage_Sensor,
         brick:Zone_Air_Temperature_Sensor,
         brick:Zone_Humidity_Sensor,
         brick:Zone_Temperature_Sensor .
@@ -20014,7 +19908,7 @@ brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_She
         brick:CWS_Chilled_Water_Differential_Pressure_Setpoint,
         brick:CWS_Chilled_Water_Pump_Alarm_Delay_Setpoint,
         brick:CWS_Chilled_Water_Pump_Differential_Pressure_Dead_Band_Setpoint,
-        brick:CWS_Chilled_Water_Pump_Differential_Pressure_Integration_Time_Setpoint,
+        brick:CWS_Chilled_Water_Pump_Differential_Pressure_Integral_Time_Setpoint,
         brick:CWS_Chilled_Water_Pump_Differential_Pressure_Proportional_Band_Setpoint,
         brick:CWS_Chilled_Water_Static_Pressure_Setpoint,
         brick:CWS_Discharge_Water_Temperature_Setpoint,
@@ -20029,7 +19923,7 @@ brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_She
         brick:Chilled_Water_Differential_Pressure_Setpoint,
         brick:Chilled_Water_Pump_Alarm_Delay_Setpoint,
         brick:Chilled_Water_Pump_Differential_Pressure_Dead_Band_Setpoint,
-        brick:Chilled_Water_Pump_Differential_Pressure_Integration_Time_Setpoint,
+        brick:Chilled_Water_Pump_Differential_Pressure_Integral_Time_Setpoint,
         brick:Chilled_Water_Pump_Differential_Pressure_Proportional_Band_Setpoint,
         brick:Chilled_Water_Static_Pressure_Setpoint,
         brick:Chiller_Max_Load_Setpoint,
@@ -20238,6 +20132,7 @@ brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_She
         brick:Return_Supply_Fan_Differential_Speed_Setpoint,
         brick:Room_Temperature_Setpoint,
         brick:Schedule_Temperature_Setpoint,
+        brick:Setpoint,
         brick:Static_Pressure_Max_Setpoint,
         brick:Static_Pressure_Min_Setpoint,
         brick:Supply_Air_Damper_Max_Position_Setpoint,
