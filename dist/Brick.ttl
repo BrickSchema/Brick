@@ -3872,6 +3872,14 @@
     rdfs:label "Thermostat Adjust"@en ;
     rdfs:subClassOf :UndefinedMeasurement .
 
+:Thermostat_HVAC_Mode_Command a owl:Class ;
+    rdfs:label "Thermostat HVAC Mode Command"@en ;
+    rdfs:subClassOf :Mode_Command .
+
+:Thermostat_HVAC_State a owl:Class ;
+    rdfs:label "Thermostat HVAC State"@en ;
+    rdfs:subClassOf :Status .
+
 :Thumbwheel_Temperature_High_Limit a owl:Class ;
     rdfs:label "Thumbwheel Temperature High Limit"@en ;
     rdfs:subClassOf :High_Temperature,
