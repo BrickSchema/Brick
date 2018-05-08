@@ -15,6 +15,13 @@ This repository tracks the main schema development of Brick.
 * `dist/` contains the Brick Turtle files containing the class structure, tagsets and relationships
 * `src/` contains the necessary tools for creating the Brick Turtle files
 
+## Schema Compilation
+
+1. Update information in ``config.json`` if needed.
+2. Run ``./build.sh`` at the root dir of the project. It consists of two steps.
+    1. Compile schema files from ``src/Tags.csv`` and ``src/TagSets.csv``.
+    2. Test if the generated files are correct with a couple of predefined rules. (It's currently very naive. If you have ideas to check, please add to the code or create an issue to discuss.)
+
 ## Discussion
 
 Discussion takes place primarily on the Brick User Form: [https://groups.google.com/forum/#!forum/brickschema](https://groups.google.com/forum/#!forum/brickschema)
