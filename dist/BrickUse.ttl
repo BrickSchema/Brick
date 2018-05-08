@@ -4057,8 +4057,8 @@ brick:Thermostat_HVAC_Mode_Command bf:usesEquipment brick:Thermostat ;
     bf:usesMeasurement brick:HVAC_Mode ;
     bf:usesPoint brick:Command .
 
-brick:Thermostat_HVAC_State bf:usesEquipment brick:Thermostat ;
-    bf:usesMeasurement brick:HVAC_State .
+brick:Thermostat_HVAC_Mode_Status bf:usesEquipment brick:Thermostat ;
+    bf:usesMeasurement brick:HVAC_Mode_Status .
 
 brick:Thumbwheel_Temperature_High_Limit_Setpoint bf:usesMeasurement brick:Thumbwheel_Temperature_High_Limit ;
     bf:usesPoint brick:Setpoint .

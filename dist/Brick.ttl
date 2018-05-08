@@ -3876,8 +3876,8 @@
     rdfs:label "Thermostat HVAC Mode Command"@en ;
     rdfs:subClassOf :Mode_Command .
 
-:Thermostat_HVAC_State a owl:Class ;
-    rdfs:label "Thermostat HVAC State"@en ;
+:Thermostat_HVAC_Mode_Status a owl:Class ;
+    rdfs:label "Thermostat HVAC Mode Status"@en ;
     rdfs:subClassOf :Status .
 
 :Thumbwheel_Temperature_High_Limit a owl:Class ;
