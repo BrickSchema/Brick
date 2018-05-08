@@ -700,6 +700,9 @@ brick:Fume_Hood bf:usesTag :Fume,
 brick:Gas_Meter bf:usesTag :Gas,
         :Meter .
 
+brick:HVAC_Mode bf:usesTag :HVAC,
+        :Mode .
+
 brick:HVAC_Zone bf:usesTag :HVAC,
         :Zone .
 
@@ -4314,6 +4317,16 @@ brick:Supply_Fan_VFD_Speed bf:usesTag :Fan,
         :Supply,
         :VFD .
 
+brick:Thermostat_HVAC_Mode_Command bf:usesTag :Command,
+        :HVAC,
+        :Mode,
+        :Thermostat .
+
+brick:Thermostat_HVAC_Mode_Status bf:usesTag :HVAC,
+        :Mode,
+        :Status,
+        :Thermostat .
+
 brick:Thumbwheel_Temperature_High_Limit bf:usesTag :High,
         :Limit,
         :Temperature,
@@ -4792,15 +4805,6 @@ brick:Zone_Air_Temperature_Sensor bf:usesTag :Air,
         brick:Ice_Tank_Entering_Water_Temperature_Sensor,
         brick:Ice_Tank_Leaving_Water_Temperature,
         brick:Ice_Tank_Leaving_Water_Temperature_Sensor .
-
-:Thermostat a owl:Class ;
-    rdfs:label "Thermostat"@en ;
-    rdfs:subClassOf bf:Tag ;
-    skos:definition ""@en ;
-    bf:usedBy brick:Thermostat,
-        brick:Thermostat_Adjust,
-        brick:Thermostat_Adjust_Sensor,
-        brick:VAV_Thermostat_Adjust_Sensor .
 
 :Thumbwheel a owl:Class ;
     rdfs:label "Thumbwheel"@en ;
@@ -8740,6 +8744,17 @@ brick:Water_System_Water_Supply_Temperature_Sensor bf:usesTag :Discharge,
         brick:Rain_Sensor,
         brick:Weather_Rain_Duration_Sensor,
         brick:Weather_Rain_Sensor .
+
+:Thermostat a owl:Class ;
+    rdfs:label "Thermostat"@en ;
+    rdfs:subClassOf bf:Tag ;
+    skos:definition ""@en ;
+    bf:usedBy brick:Thermostat,
+        brick:Thermostat_Adjust,
+        brick:Thermostat_Adjust_Sensor,
+        brick:Thermostat_HVAC_Mode_Command,
+        brick:Thermostat_HVAC_Mode_Status,
+        brick:VAV_Thermostat_Adjust_Sensor .
 
 :Tolerance a owl:Class ;
     rdfs:label "Tolerance"@en ;
@@ -12914,25 +12929,6 @@ brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_She
         brick:Pre_Filter_Status,
         brick:VFD_Filter_Reset_Command .
 
-:HVAC a owl:Class ;
-    rdfs:label "HVAC"@en ;
-    rdfs:subClassOf bf:Tag ;
-    skos:definition ""@en ;
-    bf:usedBy brick:HVAC,
-        brick:HVAC_Average_Cooling_Demand_Sensor,
-        brick:HVAC_Average_Discharge_Air_Flow_Sensor,
-        brick:HVAC_Average_Supply_Air_Flow_Sensor,
-        brick:HVAC_Average_Zone_Temperature_Sensor,
-        brick:HVAC_Coldest_Zone_Temperature_Sensor,
-        brick:HVAC_Disable_Command,
-        brick:HVAC_Enable_Command,
-        brick:HVAC_Heat_Exchanger_Valve_Status,
-        brick:HVAC_Highest_Zone_Cooling_Command,
-        brick:HVAC_Highest_Zone_Temperature_Sensor,
-        brick:HVAC_Lowest_Zone_Temperature_Sensor,
-        brick:HVAC_Warmest_Zone_Temperature_Sensor,
-        brick:HVAC_Zone .
-
 :Stack a owl:Class ;
     rdfs:label "Stack"@en ;
     rdfs:subClassOf bf:Tag ;
@@ -13195,6 +13191,28 @@ brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_She
         brick:VFD_Fault_Reset_Command,
         brick:VFD_Fault_Status,
         brick:VFD_Last_Fault_Code_Status .
+
+:HVAC a owl:Class ;
+    rdfs:label "HVAC"@en ;
+    rdfs:subClassOf bf:Tag ;
+    skos:definition ""@en ;
+    bf:usedBy brick:HVAC,
+        brick:HVAC_Average_Cooling_Demand_Sensor,
+        brick:HVAC_Average_Discharge_Air_Flow_Sensor,
+        brick:HVAC_Average_Supply_Air_Flow_Sensor,
+        brick:HVAC_Average_Zone_Temperature_Sensor,
+        brick:HVAC_Coldest_Zone_Temperature_Sensor,
+        brick:HVAC_Disable_Command,
+        brick:HVAC_Enable_Command,
+        brick:HVAC_Heat_Exchanger_Valve_Status,
+        brick:HVAC_Highest_Zone_Cooling_Command,
+        brick:HVAC_Highest_Zone_Temperature_Sensor,
+        brick:HVAC_Lowest_Zone_Temperature_Sensor,
+        brick:HVAC_Mode,
+        brick:HVAC_Warmest_Zone_Temperature_Sensor,
+        brick:HVAC_Zone,
+        brick:Thermostat_HVAC_Mode_Command,
+        brick:Thermostat_HVAC_Mode_Status .
 
 :Motor a owl:Class ;
     rdfs:label "Motor"@en ;
@@ -13471,39 +13489,6 @@ brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_She
         brick:VFD_Run_Status,
         brick:VFD_Run_Time_Sensor .
 
-:Mode a owl:Class ;
-    rdfs:label "Mode"@en ;
-    rdfs:subClassOf bf:Tag ;
-    skos:definition "Operation type"@en ;
-    bf:usedBy brick:AHU_Automatic_Mode_Command,
-        brick:AHU_Dual_Band_Mode_Setpoint,
-        brick:AHU_Economizer_Mode_Status,
-        brick:AHU_Occupied_Mode_Status,
-        brick:AHU_Unoccupied_Mode_Setpoint,
-        brick:Automatic_Mode,
-        brick:Automatic_Mode_Command,
-        brick:Box_Mode,
-        brick:Box_Mode_Command,
-        brick:Box_Operating_Mode,
-        brick:Dual_Band_Mode,
-        brick:Dual_Band_Mode_Setpoint,
-        brick:Economizer_Mode,
-        brick:Economizer_Mode_Status,
-        brick:Maintenance_Mode,
-        brick:Maintenance_Mode_Command,
-        brick:Occupied_Mode,
-        brick:Occupied_Mode_Status,
-        brick:System_Mode,
-        brick:System_Mode_Status,
-        brick:Unoccupied_Mode,
-        brick:Unoccupied_Mode_Setpoint,
-        brick:VAV_Box_Mode_Command,
-        brick:VAV_Box_Operating_Mode_Status,
-        brick:VAV_Vent_Operating_Mode_Status,
-        brick:VFD_Maintenance_Mode_Command,
-        brick:Vent_Operating_Mode,
-        brick:Vent_Operating_Mode_Status .
-
 :Position a owl:Class ;
     rdfs:label "Position"@en ;
     rdfs:subClassOf bf:Tag ;
@@ -13607,6 +13592,42 @@ brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_She
         brick:VFD_Current_Limit_Setpoint,
         brick:Ventilation_Air_Flow_Ratio_Limit,
         brick:Ventilation_Air_Flow_Ratio_Limit_Setpoint .
+
+:Mode a owl:Class ;
+    rdfs:label "Mode"@en ;
+    rdfs:subClassOf bf:Tag ;
+    skos:definition "Operation type"@en ;
+    bf:usedBy brick:AHU_Automatic_Mode_Command,
+        brick:AHU_Dual_Band_Mode_Setpoint,
+        brick:AHU_Economizer_Mode_Status,
+        brick:AHU_Occupied_Mode_Status,
+        brick:AHU_Unoccupied_Mode_Setpoint,
+        brick:Automatic_Mode,
+        brick:Automatic_Mode_Command,
+        brick:Box_Mode,
+        brick:Box_Mode_Command,
+        brick:Box_Operating_Mode,
+        brick:Dual_Band_Mode,
+        brick:Dual_Band_Mode_Setpoint,
+        brick:Economizer_Mode,
+        brick:Economizer_Mode_Status,
+        brick:HVAC_Mode,
+        brick:Maintenance_Mode,
+        brick:Maintenance_Mode_Command,
+        brick:Occupied_Mode,
+        brick:Occupied_Mode_Status,
+        brick:System_Mode,
+        brick:System_Mode_Status,
+        brick:Thermostat_HVAC_Mode_Command,
+        brick:Thermostat_HVAC_Mode_Status,
+        brick:Unoccupied_Mode,
+        brick:Unoccupied_Mode_Setpoint,
+        brick:VAV_Box_Mode_Command,
+        brick:VAV_Box_Operating_Mode_Status,
+        brick:VAV_Vent_Operating_Mode_Status,
+        brick:VFD_Maintenance_Mode_Command,
+        brick:Vent_Operating_Mode,
+        brick:Vent_Operating_Mode_Status .
 
 :Emergency a owl:Class ;
     rdfs:label "Emergency"@en ;
@@ -17520,6 +17541,7 @@ brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_She
         brick:System_Mode_Status,
         brick:System_Shutdown_Status,
         brick:System_Status,
+        brick:Thermostat_HVAC_Mode_Status,
         brick:Turn_Off_Status,
         brick:VAV_Box_Operating_Mode_Status,
         brick:VAV_Discharge_Air_Duct_Pressure_Status,
@@ -17929,6 +17951,7 @@ brick:DemandResponse_Medium_Temperature_Hot_Water_Differential_Pressure_Load_She
         brick:Supply_Fan_VFD_Speed_Command,
         brick:System_Enable_Command,
         brick:System_Shutdown_Command,
+        brick:Thermostat_HVAC_Mode_Command,
         brick:Unoccupied_Load_Shed_Command,
         brick:VAV_Booster_Fan_Command,
         brick:VAV_Booster_Fan_Start_Stop_Command,

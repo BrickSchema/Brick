@@ -4053,6 +4053,13 @@ brick:Thermal_Energy_Storage_Supply_Water_Differential_Pressure_Proportional_Ban
 brick:Thermostat_Adjust_Sensor bf:usesMeasurement brick:Thermostat_Adjust ;
     bf:usesPoint brick:Sensor .
 
+brick:Thermostat_HVAC_Mode_Command bf:usesEquipment brick:Thermostat ;
+    bf:usesMeasurement brick:HVAC_Mode ;
+    bf:usesPoint brick:Command .
+
+brick:Thermostat_HVAC_Mode_Status bf:usesEquipment brick:Thermostat ;
+    bf:usesMeasurement brick:HVAC_Mode_Status .
+
 brick:Thumbwheel_Temperature_High_Limit_Setpoint bf:usesMeasurement brick:Thumbwheel_Temperature_High_Limit ;
     bf:usesPoint brick:Setpoint .
 
