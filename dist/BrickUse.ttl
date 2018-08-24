@@ -1547,10 +1547,6 @@ brick:CWS_Chilled_Water_Supply_Temperature_Sensor bf:usesEquipment brick:CWS ;
         brick:Chilled_Water_Supply_Temperature ;
     bf:usesPoint brick:Sensor .
 
-brick:CWS_Chilled_Water_System_Enable_Command bf:usesEquipment brick:CWS ;
-    bf:usesMeasurement brick:Chilled_Water_System_Enable ;
-    bf:usesPoint brick:Command .
-
 brick:CWS_Chilled_Water_Temperature_Differential_Sensor bf:usesEquipment brick:CWS ;
     bf:usesMeasurement brick:Chilled_Water_Temperature_Differential ;
     bf:usesPoint brick:Sensor .
@@ -1671,7 +1667,8 @@ brick:Chilled_Water_Supply_Temperature_Sensor bf:usesMeasurement brick:Chilled_W
         brick:Chilled_Water_Supply_Temperature ;
     bf:usesPoint brick:Sensor .
 
-brick:Chilled_Water_System_Enable_Command bf:usesMeasurement brick:Chilled_Water_System_Enable ;
+brick:Chilled_Water_System_Enable_Command bf:usesEquipment brick:CWS ;
+    bf:usesMeasurement brick:Chilled_Water_System_Enable ;
     bf:usesPoint brick:Command .
 
 brick:Chilled_Water_Temperature_Differential_Sensor bf:usesMeasurement brick:Chilled_Water_Temperature_Differential ;
@@ -1842,14 +1839,6 @@ brick:DHWS_Domestic_Hot_Water_Supply_Temperature_Setpoint bf:usesEquipment brick
         brick:Domestic_Hot_Water_Supply_Temperature ;
     bf:usesPoint brick:Setpoint .
 
-brick:DHWS_Domestic_Hot_Water_System_Enable_Command bf:usesEquipment brick:DHWS ;
-    bf:usesMeasurement brick:Domestic_Hot_Water_System_Enable ;
-    bf:usesPoint brick:Command .
-
-brick:DHWS_Domestic_Hot_Water_System_Start_Stop_Command bf:usesEquipment brick:DHWS ;
-    bf:usesMeasurement brick:Domestic_Hot_Water_System_Start_Stop ;
-    bf:usesPoint brick:Command .
-
 brick:DHWS_Domestic_Hot_Water_Valve_Command bf:usesEquipment brick:DHWS ;
     bf:usesMeasurement brick:Domestic_Hot_Water_Valve ;
     bf:usesPoint brick:Command .
@@ -1961,7 +1950,8 @@ brick:Differential_Pressure_Sensor bf:usesMeasurement brick:Differential_Pressur
 brick:Differential_Temperature_Sensor bf:usesMeasurement brick:Differential_Temperature ;
     bf:usesPoint brick:Sensor .
 
-brick:Disable_Hot_Water_System_Outside_Air_Temperature_Setpoint bf:usesLocation brick:Outside ;
+brick:Disable_Hot_Water_System_Outside_Air_Temperature_Setpoint bf:usesEquipment brick:HWS ;
+    bf:usesLocation brick:Outside ;
     bf:usesMeasurement brick:Disable_Hot_Water_System_Air_Temperature ;
     bf:usesPoint brick:Setpoint .
 
@@ -2117,10 +2107,12 @@ brick:Domestic_Hot_Water_Supply_Temperature_Setpoint bf:usesMeasurement brick:Do
         brick:Domestic_Hot_Water_Supply_Temperature ;
     bf:usesPoint brick:Setpoint .
 
-brick:Domestic_Hot_Water_System_Enable_Command bf:usesMeasurement brick:Domestic_Hot_Water_System_Enable ;
+brick:Domestic_Hot_Water_System_Enable_Command bf:usesEquipment brick:DHWS ;
+    bf:usesMeasurement brick:Domestic_Hot_Water_System_Enable ;
     bf:usesPoint brick:Command .
 
-brick:Domestic_Hot_Water_System_Start_Stop_Command bf:usesMeasurement brick:Domestic_Hot_Water_System_Start_Stop ;
+brick:Domestic_Hot_Water_System_Start_Stop_Command bf:usesEquipment brick:DHWS ;
+    bf:usesMeasurement brick:Domestic_Hot_Water_System_Start_Stop ;
     bf:usesPoint brick:Command .
 
 brick:Domestic_Hot_Water_Valve_Command bf:usesMeasurement brick:Domestic_Hot_Water_Valve ;
@@ -2246,7 +2238,8 @@ brick:Emergency_Power_Off_System_Enable_Status bf:usesMeasurement brick:Emergenc
 brick:Emergency_Push_Button_Status bf:usesMeasurement brick:Emergency_Push_Button ;
     bf:usesPoint brick:Status .
 
-brick:Enable_Hot_Water_System_Outside_Air_Temperature_Setpoint bf:usesLocation brick:Outside ;
+brick:Enable_Hot_Water_System_Outside_Air_Temperature_Setpoint bf:usesEquipment brick:HWS ;
+    bf:usesLocation brick:Outside ;
     bf:usesMeasurement brick:Enable_Hot_Water_System_Air_Temperature ;
     bf:usesPoint brick:Setpoint .
 
@@ -2683,19 +2676,9 @@ brick:HVAC_Warmest_Zone_Temperature_Sensor bf:usesEquipment brick:HVAC ;
         brick:Warmest_Temperature ;
     bf:usesPoint brick:Sensor .
 
-brick:HWS_Disable_Hot_Water_System_Outside_Air_Temperature_Setpoint bf:usesEquipment brick:HWS ;
-    bf:usesLocation brick:Outside ;
-    bf:usesMeasurement brick:Disable_Hot_Water_System_Air_Temperature ;
-    bf:usesPoint brick:Setpoint .
-
 brick:HWS_Discharge_Water_Temperature_Setpoint bf:usesEquipment brick:HWS ;
     bf:usesMeasurement brick:Discharge_Water_Temperature,
         brick:Supply_Water_Temperature ;
-    bf:usesPoint brick:Setpoint .
-
-brick:HWS_Enable_Hot_Water_System_Outside_Air_Temperature_Setpoint bf:usesEquipment brick:HWS ;
-    bf:usesLocation brick:Outside ;
-    bf:usesMeasurement brick:Enable_Hot_Water_System_Air_Temperature ;
     bf:usesPoint brick:Setpoint .
 
 brick:HWS_Heat_Exchanger_Discharge_Water_Temperature_Dead_Band_Setpoint bf:usesEquipment brick:HWS ;
@@ -2830,10 +2813,6 @@ brick:HWS_Hot_Water_Supply_Temperature_Sensor bf:usesEquipment brick:HWS ;
     bf:usesMeasurement brick:Hot_Water_Discharge_Temperature,
         brick:Hot_Water_Supply_Temperature ;
     bf:usesPoint brick:Sensor .
-
-brick:HWS_Hot_Water_System_Enable_Command bf:usesEquipment brick:HWS ;
-    bf:usesMeasurement brick:Hot_Water_System_Enable ;
-    bf:usesPoint brick:Command .
 
 brick:HWS_Medium_Temperature_Hot_Water_Differential_Pressure_Sensor bf:usesEquipment brick:HWS ;
     bf:usesMeasurement brick:Medium_Temperature_Hot_Water_Differential_Pressure ;
@@ -3116,7 +3095,8 @@ brick:Hot_Water_Supply_Temperature_Sensor bf:usesMeasurement brick:Hot_Water_Dis
         brick:Hot_Water_Supply_Temperature ;
     bf:usesPoint brick:Sensor .
 
-brick:Hot_Water_System_Enable_Command bf:usesMeasurement brick:Hot_Water_System_Enable ;
+brick:Hot_Water_System_Enable_Command bf:usesEquipment brick:HWS ;
+    bf:usesMeasurement brick:Hot_Water_System_Enable ;
     bf:usesPoint brick:Command .
 
 brick:Humidification_On_Off_Status bf:usesMeasurement brick:Humidification_On_Off ;

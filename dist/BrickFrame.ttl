@@ -21,9 +21,6 @@
 :UnobservedSignal a owl:Class ;
     rdfs:subClassOf :Signal .
 
-:isLocationOf a owl:ObjectProperty ;
-    owl:inverseOf :hasLocation .
-
 :controls a owl:ObjectProperty ;
     owl:inverseOf :isControlledBy .
 
@@ -58,6 +55,9 @@
 
 :isHierarchical a owl:AnnotationProperty .
 
+:isLocationOf a owl:ObjectProperty ;
+    owl:inverseOf :hasLocation .
+
 :similarTagSet a owl:AnnotationProperty ;
     rdfs:domain :TagSet ;
     rdfs:range :TagSet .
@@ -78,6 +78,9 @@
     rdfs:subPropertyOf :usesDimension .
 
 :usesTag a owl:AnnotationProperty .
+
+:hasLocation a owl:ObjectProperty,
+        owl:TransitiveProperty .
 
 :hasTag a owl:ObjectProperty ;
     rdfs:domain :Taggable ;
@@ -101,9 +104,6 @@
 :isInputOf a owl:ObjectProperty ;
     rdfs:domain :Signal ;
     rdfs:range :FunctionBlock .
-
-:hasLocation a owl:ObjectProperty,
-        owl:TransitiveProperty .
 
 :isMeasuredBy a owl:ObjectProperty,
         owl:TransitiveProperty .

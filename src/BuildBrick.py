@@ -65,6 +65,24 @@ def replace_in_file(old, new, filename):
 def version_update_infile(version, filename):
     replace_in_file('\d+\.\d+\.\d+', BRICK_VERSION, filename)
 
+syn_dict = { # TODO: Rather refer the CSV file.
+            'CWS': 'Chilled Water System',
+            'HWS': 'Hot Water System',
+            'DHWS': 'Domestic Hot Water System',
+}
+def get_same_equips(equip):
+    # TODO: Hard-coded for a couple of cases for now.
+    #       This is a temporal solution before coming up with structured
+    #       TagSet generation.
+    synonyms = [equip, syn_dict.get(equip, equip)]
+    return synonyms
+
+def is_equip_in_tagsets(equip, tagset):
+    for eq in get_same_equips(equip):
+        if eq in tagset:
+            return True
+    return False
+
 
 
 # ### Load Tag and TagSets from Definition
@@ -238,7 +256,7 @@ for r in dfTagSetsPoints.index:
     tagsets = set([dfTagSetsPoints.TagSet[r]]) | set(str(dfTagSetsPoints.hasSynonym[r]).split(",")) - set(['', 'nan'])
     for tagset in tagsets:
         for eq in equip:
-            if eq != "" and eq not in tagset:
+            if eq != "" and not is_equip_in_tagsets(eq, tagset):
                 ts = eq.replace(" ", "_") + " " + tagset
             else:
                 ts = tagset

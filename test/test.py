@@ -70,19 +70,34 @@ for topclass in point_topclasses:
         point_topclass_dict[topclass].append(tagset)
 
 ################### Check all Points are well classifier ###################
-q = query_prefix + """
+qstr_alltagsets = query_prefix + """
 select ?s where {
   ?s rdfs:subClassOf+ bf:TagSet.
 }
 """
-res = g.query(q)
-tagsets = [get_tagset(row[0]) for row in res]
-for tagset in tagsets:
+res = g.query(qstr_alltagsets)
+curr_tagsets = [get_tagset(row[0]) for row in res]
+for tagset in curr_tagsets:
     topclass = parse_topclass(tagset)
     if topclass in point_topclass_dict:
         try:
             assert tagset in point_topclass_dict[topclass]
         except:
             print('INCORRECT: {0} is not in {1}'.format(tagset, topclass))
+
+###### Compare it to the previous version in origin/master ######
+prev_g = rdflib.Graph()
+prev_g.parse('https://raw.githubusercontent.com/BuildSysUniformMetadata/Brick/master/dist/Brick.ttl', format='turtle')
+res = prev_g.query(qstr_alltagsets)
+prev_tagsets = [get_tagset(row[0]) for row in res]
+
+removed_tagsets = [tagset for tagset in prev_tagsets
+                   if tagset not in curr_tagsets]
+new_tagsets = [tagset for tagset in curr_tagsets
+               if tagset not in prev_tagsets]
+
+print('Removed: {0}'.format(removed_tagsets))
+print('Added: {0}'.format(new_tagsets))
+
 
 print('Test complete.')
