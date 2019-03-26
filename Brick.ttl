@@ -1,0 +1,246 @@
+@prefix brick: <https://brickschema.org/schema/1.0.3/Brick#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+brick:Air a owl:Class ;
+    rdfs:subClassOf brick:Gas .
+
+brick:Boiler a owl:Class ;
+    rdfs:subClassOf brick:HVAC ;
+    skos:definition "A closed, pressure vessel that uses fuel or electricity for heating water or other fluids to supply steam or hot water for heating, humidification, or other applications." .
+
+brick:CWS a owl:Class ;
+    rdfs:subClassOf brick:HVAC ;
+    owl:equivalentClass brick:Chilled_Water_System .
+
+brick:Chilled_Water_Valve a owl:Class ;
+    rdfs:subClassOf brick:Valve .
+
+brick:Coil a owl:Class ;
+    rdfs:subClassOf brick:HVAC ;
+    skos:definition "Exchanger that transfers heat from an exhaust airstream to a separated supply airstream." .
+
+brick:Compressor a owl:Class ;
+    rdfs:subClassOf brick:HVAC ;
+    skos:definition "(1) device for mechanically increasing the pressure of a gas. (2) often described as being either open, hermetic, or semihermetic to describe how the compressor and motor drive is situated in relation to the gas or vapor being compressed. Types include centrifugal, axial flow, reciprocating, rotary screw, rotary vane, scroll, or diaphragm. 1. device for mechanically increasing the pressure of a gas. 2. specific machine, with or without accessories, for compressing refrigerant vapor." .
+
+brick:Damper a owl:Class ;
+    rdfs:subClassOf brick:HVAC ;
+    skos:definition "Element inserted into an air-distribution system or element of an air-distribution system permitting modification of the air resistance of the system and consequently changing the airflow rate or shutting off the airflow." .
+
+brick:Economizer a owl:Class ;
+    rdfs:subClassOf brick:HVAC ;
+    skos:definition "Device that, on proper variable sensing, initiates control signals or actions to conserve energy. A control system that reduces the mechanical heating and cooling requirement." .
+
+brick:Elevator a owl:Class ;
+    rdfs:subClassOf brick:Equipment .
+
+brick:Energy_Storage a owl:Class ;
+    rdfs:subClassOf brick:Equipment .
+
+brick:Fan a owl:Class ;
+    rdfs:subClassOf brick:HVAC ;
+    skos:definition "Any device with two or more blades or vanes attached to a rotating shaft used to produce an airflow for the purpose of comfort, ventilation, exhaust, heating, cooling, or any other gaseous transport." .
+
+brick:Filter a owl:Class ;
+    rdfs:subClassOf brick:HVAC ;
+    skos:definition "Device to remove gases from a mixture of gases" .
+
+brick:Fire_Safety_System a owl:Class ;
+    rdfs:subClassOf brick:Equipment .
+
+brick:Fume_Hood a owl:Class ;
+    rdfs:subClassOf brick:HVAC ;
+    skos:definition "A fume-collection device mounted over a work space, table, or shelf and serving to conduct unwanted gases away from the area enclosed." .
+
+brick:Furniture a owl:Class ;
+    rdfs:subClassOf brick:Equipment .
+
+brick:Ice a owl:Class ;
+    rdfs:subClassOf brick:Solid ;
+    skos:definition "Water in its solid form" .
+
+brick:Isolation_Valve a owl:Class ;
+    rdfs:subClassOf brick:Valve .
+
+brick:Lighting_System a owl:Class ;
+    rdfs:subClassOf brick:Equipment .
+
+brick:Meter a owl:Class ;
+    rdfs:subClassOf brick:Equipment .
+
+brick:PlugStrip a owl:Class ;
+    rdfs:subClassOf brick:Equipment .
+
+brick:Power_System a owl:Class ;
+    rdfs:subClassOf brick:Equipment .
+
+brick:Pump a owl:Class ;
+    rdfs:subClassOf brick:HVAC ;
+    skos:definition "Machine for imparting energy to a fluid, causing it to do work, drawing a fluid into itself through an entrance port, and forcing the fluid out through an exhaust port." .
+
+brick:Reheat_Valve a owl:Class ;
+    rdfs:subClassOf brick:Heating_Valve .
+
+brick:Shading_System a owl:Class ;
+    rdfs:subClassOf brick:Equipment .
+
+brick:Solar_Panel a owl:Class ;
+    rdfs:subClassOf brick:Equipment .
+
+brick:Space_Heater a owl:Class ;
+    rdfs:subClassOf brick:HVAC ;
+    skos:definition "A heater used to warm the air in an enclosed area, such as a room or office" .
+
+brick:Steam a owl:Class ;
+    rdfs:subClassOf brick:Gas ;
+    skos:definition "Water in its gaseous form" .
+
+brick:Steam_System a owl:Class ;
+    rdfs:subClassOf brick:Equipment .
+
+brick:Terminal_Unit a owl:Class ;
+    rdfs:subClassOf brick:HVAC ;
+    skos:definition "A device that regulates the volumetric flow rate and/or the temperature of the controlled medium." .
+
+brick:Thermostat a owl:Class ;
+    rdfs:subClassOf brick:HVAC ;
+    skos:definition "An automatic control device used to maintain temperature at a fixed or adjustable setpoint." .
+
+brick:Variable_Frequency_Drive a owl:Class ;
+    rdfs:subClassOf brick:HVAC ;
+    owl:equivalentClass brick:VFD ;
+    skos:definition "Electronic device that varies its output frequency to vary the rotating speed of a motor, given a fixed input frequency. Used with fans or pumps to vary the flow in the system as a function of a maintained pressure." .
+
+brick:WS a owl:Class ;
+    rdfs:subClassOf brick:Equipment .
+
+brick:Water a owl:Class ;
+    rdfs:subClassOf brick:Liquid ;
+    skos:definition "Water in its liquid form" .
+
+brick:Water_System a owl:Class ;
+    rdfs:subClassOf brick:Equipment .
+
+brick:Weather a owl:Class ;
+    rdfs:subClassOf brick:Equipment .
+
+brick:ahuRef a owl:ObjectProperty ;
+    rdfs:domain brick:AHU .
+
+brick:feedsAir a owl:ObjectProperty,
+        owl:TransitiveProperty ;
+    rdfs:subPropertyOf brick:feeds ;
+    skos:definition "Passes air" .
+
+brick:hasInputSubstance a owl:ObjectProperty ;
+    rdfs:range brick:Substance .
+
+brick:hasOutputSubstance a owl:ObjectProperty ;
+    rdfs:range brick:Substance .
+
+brick:Air_Handler_Unit a owl:Class ;
+    rdfs:subClassOf brick:HVAC ;
+    owl:equivalentClass brick:AHU ;
+    skos:definition "Assembly consisting of sections containing a fan or fans and other necessary equipment to perform one or more of the following functions: circulating, filtration, heating, cooling, heat recovery, humidifying, dehumidifying, and mixing of air. Is usually connected to an air-distribution system." .
+
+brick:CRAC a owl:Class ;
+    rdfs:subClassOf brick:HVAC ;
+    owl:equivalentClass brick:Computer_Room_Air_Conditioning .
+
+brick:Computer_Room_Air_Conditioning a owl:Class ;
+    rdfs:subClassOf brick:HVAC ;
+    owl:equivalentClass brick:CRAC ;
+    skos:definition "A device that monitors and maintains the temperature, air distribution and humidity in a network room or data center. " .
+
+brick:Condenser a owl:Class ;
+    rdfs:subClassOf brick:HVAC ;
+    owl:equivalentClass brick:Condensor .
+
+brick:Condensor a owl:Class ;
+    rdfs:subClassOf brick:HVAC ;
+    owl:equivalentClass brick:Condenser ;
+    skos:definition "A heat exchanger in which the primary heat transfer vapor changes its state to a liquid phase." .
+
+brick:Heating_Valve a owl:Class ;
+    rdfs:subClassOf brick:Valve .
+
+brick:Heating_Ventilation_Air_Conditioning_System a owl:Class ;
+    rdfs:subClassOf brick:Equipment ;
+    owl:equivalentClass brick:HVAC .
+
+brick:Liquid a owl:Class ;
+    rdfs:subClassOf brick:Fluid .
+
+brick:Solid a owl:Class ;
+    rdfs:subClassOf brick:Substance .
+
+brick:hasLocation a owl:ObjectProperty ;
+    rdfs:range brick:Location ;
+    owl:inverseOf brick:isLocationOf .
+
+brick:hasPart a owl:ObjectProperty ;
+    owl:inverseOf brick:isPartOf .
+
+brick:hasPoint a owl:ObjectProperty ;
+    rdfs:range brick:Point ;
+    owl:inverseOf brick:isPointOf .
+
+brick:hasTag a owl:ObjectProperty .
+
+brick:isFedBy a owl:ObjectProperty,
+        owl:TransitiveProperty ;
+    owl:inverseOf brick:feeds .
+
+brick:isLocationOf a owl:ObjectProperty ;
+    rdfs:domain brick:Location ;
+    owl:inverseOf brick:hasLocation .
+
+brick:isPartOf a owl:ObjectProperty ;
+    owl:inverseOf brick:hasPart .
+
+brick:isPointOf a owl:ObjectProperty ;
+    rdfs:domain brick:Point ;
+    owl:inverseOf brick:hasPoint .
+
+brick:AHU a owl:Class ;
+    rdfs:subClassOf brick:HVAC ;
+    owl:equivalentClass brick:Air_Handler_Unit .
+
+brick:Fluid a owl:Class ;
+    rdfs:subClassOf brick:Substance .
+
+brick:Gas a owl:Class ;
+    rdfs:subClassOf brick:Fluid .
+
+brick:Location a owl:Class .
+
+brick:Point a owl:Class .
+
+brick:VFD a owl:Class ;
+    rdfs:subClassOf brick:HVAC ;
+    owl:equivalentClass brick:VFD .
+
+brick:feeds a owl:ObjectProperty,
+        owl:TransitiveProperty ;
+    owl:inverseOf brick:isFedBy .
+
+brick:Substance a owl:Class .
+
+brick:Valve a owl:Class ;
+    rdfs:subClassOf brick:HVAC .
+
+brick:Equipment a owl:Class .
+
+brick:HVAC a owl:Class ;
+    rdfs:subClassOf brick:Equipment ;
+    owl:equivalentClass brick:Heating_Ventilation_Air_Conditioning_System .
+
+[] a owl:Restriction ;
+    owl:hasValue brick:Valve ;
+    owl:onProperty brick:hasTag .
+
