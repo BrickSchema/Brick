@@ -336,15 +336,18 @@ brick:Zone_Air_Temperature_Sensor a owl:Class ;
 brick:ahuRef a owl:ObjectProperty ;
     rdfs:range brick:AHU .
 
-brick:feedsAir a owl:ObjectProperty,
-        owl:TransitiveProperty ;
+brick:feedsAir a owl:ObjectProperty ;
     rdfs:subPropertyOf brick:feeds ;
     skos:definition "Passes air" .
 
-brick:hasInputSubstance a owl:ObjectProperty ;
+brick:hasInputSubstance a owl:AsymmetricProperty,
+        owl:IrreflexiveProperty,
+        owl:ObjectProperty ;
     rdfs:range brick:Substance .
 
-brick:hasOutputSubstance a owl:ObjectProperty ;
+brick:hasOutputSubstance a owl:AsymmetricProperty,
+        owl:IrreflexiveProperty,
+        owl:ObjectProperty ;
     rdfs:range brick:Substance .
 
 bricktag:Ice a brick:Tag .
@@ -353,7 +356,8 @@ bricktag:Steam a brick:Tag .
 
 bricktag:Valve a brick:Tag .
 
-bldg:AHU1 a brick:AHU .
+bldg:AHU1 a brick:AHU ;
+    brick:feedsAir bldg:VAV1 .
 
 bldg:CH1 a brick:Chiller .
 
@@ -427,29 +431,55 @@ brick:Variable_Air_Volume_Box a owl:Class ;
     rdfs:subClassOf brick:Terminal_Unit ;
     owl:equivalentClass brick:VAV .
 
-brick:hasLocation a owl:ObjectProperty ;
+brick:controls a owl:AsymmetricProperty,
+        owl:IrreflexiveProperty,
+        owl:ObjectProperty ;
+    owl:inverseOf brick:isControlledBy .
+
+brick:hasLocation a owl:AsymmetricProperty,
+        owl:IrreflexiveProperty,
+        owl:ObjectProperty ;
     rdfs:range brick:Location ;
     owl:inverseOf brick:isLocationOf .
 
-brick:hasPart a owl:ObjectProperty ;
+brick:hasPart a owl:AsymmetricProperty,
+        owl:IrreflexiveProperty,
+        owl:ObjectProperty,
+        owl:TransitiveProperty ;
     owl:inverseOf brick:isPartOf .
 
-brick:hasPoint a owl:ObjectProperty ;
+brick:hasPoint a owl:AsymmetricProperty,
+        owl:IrreflexiveProperty,
+        owl:ObjectProperty ;
     rdfs:range brick:Point ;
     owl:inverseOf brick:isPointOf .
 
-brick:isFedBy a owl:ObjectProperty,
+brick:isControlledBy a owl:AsymmetricProperty,
+        owl:IrreflexiveProperty,
+        owl:ObjectProperty ;
+    owl:inverseOf brick:controls .
+
+brick:isFedBy a owl:AsymmetricProperty,
+        owl:IrreflexiveProperty,
+        owl:ObjectProperty,
         owl:TransitiveProperty ;
     owl:inverseOf brick:feeds .
 
-brick:isLocationOf a owl:ObjectProperty ;
+brick:isLocationOf a owl:AsymmetricProperty,
+        owl:IrreflexiveProperty,
+        owl:ObjectProperty ;
     rdfs:domain brick:Location ;
     owl:inverseOf brick:hasLocation .
 
-brick:isPartOf a owl:ObjectProperty ;
+brick:isPartOf a owl:AsymmetricProperty,
+        owl:IrreflexiveProperty,
+        owl:ObjectProperty,
+        owl:TransitiveProperty ;
     owl:inverseOf brick:hasPart .
 
-brick:isPointOf a owl:ObjectProperty ;
+brick:isPointOf a owl:AsymmetricProperty,
+        owl:IrreflexiveProperty,
+        owl:ObjectProperty ;
     rdfs:domain brick:Point ;
     owl:inverseOf brick:hasPoint .
 
@@ -464,6 +494,8 @@ bricktag:Lighting a brick:Tag .
 bricktag:Loc a brick:Tag .
 
 bricktag:Point a brick:Tag .
+
+bldg:VAV1 a brick:VAV .
 
 brick:CO2_Sensor a owl:Class ;
     rdfs:subClassOf brick:Sensor .
@@ -516,7 +548,9 @@ brick:Terminal_Unit a owl:Class ;
     rdfs:subClassOf brick:HVAC ;
     skos:definition "A device that regulates the volumetric flow rate and/or the temperature of the controlled medium." .
 
-brick:feeds a owl:ObjectProperty,
+brick:feeds a owl:AsymmetricProperty,
+        owl:IrreflexiveProperty,
+        owl:ObjectProperty,
         owl:TransitiveProperty ;
     owl:inverseOf brick:isFedBy .
 
@@ -601,8 +635,10 @@ brick:Location a owl:Class ;
 
 brick:Tag a owl:Class .
 
-brick:hasTag a owl:ObjectProperty ;
-    owl:inverseOf brick:hasTagOf .
+brick:hasTag a owl:AsymmetricProperty,
+        owl:IrreflexiveProperty,
+        owl:ObjectProperty ;
+    owl:inverseOf brick:isTagOf .
 
 brick:Equipment a owl:Class ;
     owl:equivalentClass [ owl:intersectionOf ( [ a owl:Restriction ;

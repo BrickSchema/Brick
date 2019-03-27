@@ -79,6 +79,17 @@ def define_properties(definitions, superprop=None):
         if superprop is not None:
             G.add( (BRICK[prop], RDFS.subPropertyOf, superprop) )
         for k, v in properties.items():
+            #if k == "domain_value_prop":
+            #    assert isinstance(v, list)
+            #    domain_class = BNode()
+            #    print("domain", prop, v, domain_class)
+            #    add_restriction(domain_class, v)
+            #    G.add( (BRICK[prop], RDFS.domain, domain_class) )
+            #elif k == "range_value_prop":
+            #    assert isinstance(v, list)
+            #    range_class = BNode()
+            #    add_restriction(range_class, v)
+            #    G.add( (BRICK[prop], RDFS.range, range_class) )
             if not apply_prop(prop, k, v):
                 if isinstance(v, dict) and k == "subproperties":
                     define_properties(v, BRICK[prop])
@@ -136,6 +147,8 @@ G.add( (BLDG.Coil_2, BRICK.hasTag, BRICKTAG.Coil) )
 G.add( (BLDG.Coil_2, BRICK.hasTag, BRICKTAG.Heat) )
 
 G.add( (BLDG.AHU1, A, BRICK.AHU) )
+G.add( (BLDG.VAV1, A, BRICK.VAV) )
+G.add( (BLDG.AHU1, BRICK.feedsAir, BLDG.VAV1) )
 G.add( (BLDG.CH1, A, BRICK.Chiller) )
 
 
