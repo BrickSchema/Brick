@@ -17,6 +17,9 @@ Set up subclasses of the equipment superclass
 equipment_subclasses = {
     "HVAC": {
         OWL.equivalentClass: "Heating_Ventilation_Air_Conditioning_System",
+        "tagvalues": [
+            [BRICK.hasTag, BRICKTAG.HVAC],
+        ],
     },
     "Heating_Ventilation_Air_Conditioning_System": {
         OWL.equivalentClass: "HVAC",
@@ -38,6 +41,9 @@ equipment_subclasses = {
     "Meter": {
     },
     "Lighting_System": {
+        "tagvalues": [
+            [BRICK.hasTag, BRICKTAG.Lighting],
+        ],
         "subclasses": {
             "Lighting": {
                 "subclasses": {
@@ -179,13 +185,30 @@ hvac_subclasses = {
     },
     "Coil": {
         SKOS.definition: Literal("Exchanger that transfers heat from an exhaust airstream to a separated supply airstream."),
+        "tagvalues": [
+            [ BRICK.hasTag, BRICKTAG.Coil ],
+        ],
         "subclasses": {
-            "Cooling_Coil": {},
-            "Heating_Coil": {},
+            "Cooling_Coil": {
+                "tagvalues": [
+                    [ BRICK.hasTag, BRICKTAG.Coil ],
+                    [ BRICK.hasTag, BRICKTAG.Cool ],
+                ]
+            },
+            "Heating_Coil": {
+                "tagvalues": [
+                    [ BRICK.hasTag, BRICKTAG.Coil ],
+                    [ BRICK.hasTag, BRICKTAG.Heat ],
+                ]
+            },
         },
     },
     "CWS": {
         OWL.equivalentClass: "Chilled_Water_System",
+        "tagvalues": [
+            [BRICK.hasTag, BRICKTAG.Water],
+            [BRICK.hasTag, BRICKTAG.Equip],
+        ],
     },
     "Chiller": {
         "subclasses": {
@@ -202,6 +225,10 @@ hvac_subclasses = {
     },
     "AHU": {
         OWL.equivalentClass: "Air_Handler_Unit",
+        "tagvalues": [
+            [BRICK.hasTag, BRICKTAG.Air],
+            [BRICK.hasTag, BRICKTAG.Equip],
+        ],
         "subclasses": {
             "Rooftop_Unit": {
                 OWL.equivalentClass: "RTU",
