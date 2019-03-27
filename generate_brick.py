@@ -138,15 +138,16 @@ G.add( (BLDG.Coil_2, BRICK.hasTag, BRICKTAG.Heat) )
 G.add( (BLDG.AHU1, A, BRICK.AHU) )
 G.add( (BLDG.CH1, A, BRICK.Chiller) )
 
-# Apply reasoner
-import owlrl
-owlrl.DeductiveClosure(owlrl.OWLRL_Semantics).expand(G)
 
 s = G.serialize(format='ttl')
 print(len(G))
 
 with open('Brick.ttl','wb') as f:
     f.write(s)
+
+# Apply reasoner
+import owlrl
+owlrl.DeductiveClosure(owlrl.OWLRL_Semantics).expand(G)
 
 # now you can query!
 # ipython -i generate_brick.py
