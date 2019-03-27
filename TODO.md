@@ -31,6 +31,7 @@ Things to figure out
 
   The useful inference is from class to a set of tags
 
+  ```
     # this is intrinsic
     :ts1   a   brick:Air_Temperature_Sensor
 
@@ -39,6 +40,7 @@ Things to figure out
     :ts1    brick:hasTag    tag:Air
     :ts1    brick:hasTag    tag:Sensor
     :ts1    brick:hasTag    tag:Point
+  ```
 
   Once an individual has a clear class definition (via `a` or `rdf:type`), then we can later
   find that entity using the tags.
@@ -50,6 +52,7 @@ Things to figure out
 
   These two are equivalent
 
+  ```
     # using classes
     :ts1   a   brick:Air_Temperature_Sensor
 
@@ -58,9 +61,12 @@ Things to figure out
     :ts1    brick:hasTag    tag:Air
     :ts1    brick:hasTag    tag:Sensor
     :ts1    brick:hasTag    tag:Point
+  ```
 
   The following would just be a member of the `brick:Temperature_Sensor` class
 
+  ```
     :ts1    brick:hasTag    tag:Temp
     :ts1    brick:hasTag    tag:Sensor
     :ts1    brick:hasTag    tag:Point
+  ```
