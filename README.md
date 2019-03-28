@@ -34,6 +34,8 @@ We can serialize the expanded form of the graph to disk if we need to use a SPAR
 - Classes belong to `owl:Class` and are arranged into a hierarchy with `rdfs:subClassOf`
 - Equivalent classes (the members of the classes are the same) are related with the `owl:equivalentClass` property
 - Definitions given with `skos:definition`
+- We are eliminating equipment-flavored classes where it makes sense
+    - e.g. `brick:AHU_Average_Exhaust_Air_Static_Pressure_Sensor` is just a `Average_Exhaust_Air_Static_Pressure_Sensor` that is a point of an AHU.
 - Classes are equivalent to a set of tags
 
 The root classes we have defined are:
@@ -92,9 +94,44 @@ This means that a temperature sensor `:ts1` could be defined in two different wa
 
 ## Python Framework
 
-TODO: document
+Rather than getting lost in the Sisyphean bikeshedding of how to format everything as YAML, we're
+just using Python dictionaries so we don't have to worry about any (well, not that much) parsing logic.
+
+```python
+definitions = {
+    "Lighting_System": {
+        "tagvalues": [   # Lighting_System class is equivalent to the Lighting tag
+            (BRICK.hasTag, TAG.Lighting),
+            # if you have more required tags add them as their own tuple in the list
+        ],
+        # defining subclasses. This can be nested ad-infinitum
+        "subclasses": {
+            "Lighting": {
+                "subclasses": {
+                    "Luminaire": {},
+                    "Luminaire_Driver": {},
+                },
+            },
+            "Interface": {
+                "subclasses": {
+                    "Switch": {
+                        "subclasses": {
+                            "Dimmer": {},
+                        },
+                    },
+                    "Touchpanel": {},
+                },
+            },
+        },
+    }
+}
+define_subclasses(definitions, BRICK.Equipment)
+```
+
+For now, the code is the documentation. Look at `equipment.py`, `point.py`, etc for examples and how to add to each of the class hierarchies.
 
 ## TODOs
 
 - [ ] pull all tags from haystack
 - [ ] add Tag definitions
+- [ ] add alarms, other setpoints and the rest of the Brick points

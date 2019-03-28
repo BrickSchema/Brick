@@ -42,7 +42,7 @@ equipment_subclasses = {
     },
     "Lighting_System": {
         "tagvalues": [
-            [BRICK.hasTag, TAG.Lighting],
+            (BRICK.hasTag, TAG.Lighting),
         ],
         "subclasses": {
             "Lighting": {
