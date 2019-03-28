@@ -13,6 +13,8 @@ Things to figure out
   run into awkwardness later if we want to extend the hierarchy. Queries might be a little
   cleaner though
 
+---
+
 - [ ] How to rectify confusion/complication of substances that are tags as well as classes.
   Currently, Tags are in their own ontology "BrickTag" to avoid namespace conflicts with
   the actual `Substance` classes in the Brick ontology.
@@ -20,6 +22,8 @@ Things to figure out
   Once we figure out what the relationship for "relating" an equipment or point to a
   substance class/instance, then we can establish an inference rule that things that
   are related to that substance class must also be tagged appropriately.
+
+---
 
 - [ ] Using the OWL restriction stuff, we can express that sets of tags are equivalent to
   an OWL class (for example, `cool` and `coil` tags are equivalent to the `brick:Cooling_Coil`

@@ -12,17 +12,108 @@ SKOS = Namespace("http://www.w3.org/2004/02/skos/core#")
 A = RDF.type
 
 point_definitions = {
+    "Setpoint": {
+        "tagvalues": [[BRICK.hasTag, BRICKTAG.Setpoint]],
+        "subclasses": {
+            "Temperature_Setpoint": {
+                "tagvalues": [[BRICK.hasTag, BRICK["Temperature"]], [BRICK.hasTag, BRICK["Setpoint"]]],
+                "subclasses": {
+                    "Air_Temperature_Setpoint": {
+                        "tagvalues": [[BRICK.hasTag, BRICK["Air"]], [BRICK.hasTag, BRICK["Temperature"]], [BRICK.hasTag, BRICK["Setpoint"]]],
+                        "subclasses": {
+                            "Discharge_Air_Temperature_Setpoint": {
+                                "tagvalues": [[BRICK.hasTag, BRICK["Discharge"]], [BRICK.hasTag, BRICK["Air"]], [BRICK.hasTag, BRICK["Temperature"]], [BRICK.hasTag, BRICK["Setpoint"]]],
+                                "subclasses": {
+                                    "Discharge_Air_Temperature_Heating_Setpoint": {
+                                        OWL.equivalentClass: "Minimum_Discharge_Air_Temperature_Setpoint",
+                                    },
+                                    "Discharge_Air_Temperature_Cooling_Setpoint": {
+                                        OWL.equivalentClass: "Maximum_Discharge_Air_Temperature_Setpoint",
+                                    },
+                                },
+                            },
+                            "Mixed_Air_Temperature_Setpoint": {
+                                "tagvalues": [[BRICK.hasTag, BRICK["Mixed"]], [BRICK.hasTag, BRICK["Air"]], [BRICK.hasTag, BRICK["Temperature"]], [BRICK.hasTag, BRICK["Setpoint"]]],
+                            },
+                            "Room_Air_Temperature_Setpoint": {},
+                            "Outside_Air_Temperature_Setpoint": {
+                                "tagvalues": [[BRICK.hasTag, BRICK["Outside"]], [BRICK.hasTag, BRICK["Air"]], [BRICK.hasTag, BRICK["Temperature"]], [BRICK.hasTag, BRICK["Setpoint"]]],
+                                "subclasses": {
+                                    "Low_Outside_Air_Temperature_Enable_Setpoint": {},
+                                    "Open_Heating_Valve_Outside_Air_Temperature_Setpoint": {},
+                                    "Outside_Air_Lockout_Temperature_Setpoint": {},
+                                },
+                            },
+                        },
+                    },
+                    "Water_Temperature_Setpoint": {
+                        "tagvalues": [
+                            [BRICK.hasTag, BRICKTAG.Setpoint],
+                            [BRICK.hasTag, BRICKTAG.Temperature],
+                            [BRICK.hasTag, BRICKTAG.Water],
+                        ],
+                        "subclasses": {
+                            "Entering_Water_Temperature_Setpoint": {
+                                "tagvalues": [
+                                    [BRICK.hasTag, BRICKTAG.Entering],
+                                    [BRICK.hasTag, BRICKTAG.Setpoint],
+                                    [BRICK.hasTag, BRICKTAG.Temperature],
+                                    [BRICK.hasTag, BRICKTAG.Water],
+                                ],
+                            },
+                            "Leaving_Water_Temperature_Setpoint": {
+                                "tagvalues": [
+                                    [BRICK.hasTag, BRICKTAG.Entering],
+                                    [BRICK.hasTag, BRICKTAG.Setpoint],
+                                    [BRICK.hasTag, BRICKTAG.Temperature],
+                                    [BRICK.hasTag, BRICKTAG.Water],
+                                ],
+                            },
+                        },
+                    },
+                },
+            },
+            "CO2_Setpoint": {
+                "tagvalues": [
+                    [BRICK.hasTag, BRICKTAG.Setpoint],
+                    [BRICK.hasTag, BRICKTAG.CO2],
+                ],
+                "subclasses": {
+                    "Return_Air_CO2_Setpoint": {
+                        "tagvalues": [
+                            [BRICK.hasTag, BRICKTAG.Setpoint],
+                            [BRICK.hasTag, BRICKTAG.Return],
+                            [BRICK.hasTag, BRICKTAG.CO2],
+                        ],
+                        "subclasses": {
+                            "Max_Return_Air_CO2_Setpoint": {
+                            }
+                        },
+                    }
+                },
+            },
+        },
+    },
     "Sensor": {
+        "tagvalues": [
+            [BRICK.hasTag, BRICKTAG.Sensor]
+        ],
         "subclasses": {
             "CO2_Sensor": {
-                #"tags": ["CO2", "Sensor"],
+                "tagvalues": [
+                    [BRICK.hasTag, BRICKTAG.Sensor],
+                    [BRICK.hasTag, BRICKTAG.CO2],
+                ],
                 "subclasses": {
                     "CO2_Differential_Sensor": {},
                     "CO2_Level_Sensor": {},
                 },
             },
             "Temperature_Sensor": {
-                #"tags": ["Temperature", "Sensor"],
+                "tagvalues": [
+                    [BRICK.hasTag, BRICKTAG.Sensor],
+                    [BRICK.hasTag, BRICKTAG.Temperature],
+                ],
                 "subclasses": {
                     "Zone_Temperature_Sensor": {
                         "subclasses": {
