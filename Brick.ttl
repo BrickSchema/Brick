@@ -1,10 +1,10 @@
 @prefix bldg: <https://brickschema.org/schema/1.0.3/ExampleBuilding#> .
 @prefix brick: <https://brickschema.org/schema/1.0.3/Brick#> .
-@prefix bricktag: <https://brickschema.org/schema/1.0.3/BrickTag#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix tag: <https://brickschema.org/schema/1.0.3/BrickTag#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
@@ -36,9 +36,9 @@ brick:CO2_Level_Sensor a owl:Class ;
 brick:CWS a owl:Class ;
     rdfs:subClassOf brick:HVAC ;
     owl:equivalentClass [ owl:intersectionOf ( [ a owl:Restriction ;
-                        owl:hasValue bricktag:Water ;
+                        owl:hasValue tag:Water ;
                         owl:onProperty brick:hasTag ] [ a owl:Restriction ;
-                        owl:hasValue bricktag:Equip ;
+                        owl:hasValue tag:Equip ;
                         owl:onProperty brick:hasTag ] ) ],
         brick:Chilled_Water_System .
 
@@ -80,9 +80,9 @@ brick:Condenser_Water_Pump a owl:Class ;
 brick:Cooling_Coil a owl:Class ;
     rdfs:subClassOf brick:Coil ;
     owl:equivalentClass [ owl:intersectionOf ( [ a owl:Restriction ;
-                        owl:hasValue bricktag:Coil ;
+                        owl:hasValue tag:Coil ;
                         owl:onProperty brick:hasTag ] [ a owl:Restriction ;
-                        owl:hasValue bricktag:Cool ;
+                        owl:hasValue tag:Cool ;
                         owl:onProperty brick:hasTag ] ) ] .
 
 brick:Cooling_Coil_Discharge_Air_Temperature_Sensor a owl:Class ;
@@ -124,13 +124,13 @@ brick:Energy_Storage a owl:Class ;
 brick:Entering_Water_Temperature_Setpoint a owl:Class ;
     rdfs:subClassOf brick:Water_Temperature_Setpoint ;
     owl:equivalentClass [ owl:intersectionOf ( [ a owl:Restriction ;
-                        owl:hasValue bricktag:Entering ;
+                        owl:hasValue tag:Entering ;
                         owl:onProperty brick:hasTag ] [ a owl:Restriction ;
-                        owl:hasValue bricktag:Setpoint ;
+                        owl:hasValue tag:Setpoint ;
                         owl:onProperty brick:hasTag ] [ a owl:Restriction ;
-                        owl:hasValue bricktag:Temperature ;
+                        owl:hasValue tag:Temperature ;
                         owl:onProperty brick:hasTag ] [ a owl:Restriction ;
-                        owl:hasValue bricktag:Water ;
+                        owl:hasValue tag:Water ;
                         owl:onProperty brick:hasTag ] ) ] .
 
 brick:Environment_Box a owl:Class ;
@@ -221,13 +221,13 @@ brick:Isolation_Valve a owl:Class ;
 brick:Leaving_Water_Temperature_Setpoint a owl:Class ;
     rdfs:subClassOf brick:Water_Temperature_Setpoint ;
     owl:equivalentClass [ owl:intersectionOf ( [ a owl:Restriction ;
-                        owl:hasValue bricktag:Entering ;
+                        owl:hasValue tag:Entering ;
                         owl:onProperty brick:hasTag ] [ a owl:Restriction ;
-                        owl:hasValue bricktag:Setpoint ;
+                        owl:hasValue tag:Setpoint ;
                         owl:onProperty brick:hasTag ] [ a owl:Restriction ;
-                        owl:hasValue bricktag:Temperature ;
+                        owl:hasValue tag:Temperature ;
                         owl:onProperty brick:hasTag ] [ a owl:Restriction ;
-                        owl:hasValue bricktag:Water ;
+                        owl:hasValue tag:Water ;
                         owl:onProperty brick:hasTag ] ) ] .
 
 brick:Lighting_Zone a owl:Class ;
@@ -403,11 +403,11 @@ brick:hasOutputSubstance a owl:AsymmetricProperty,
         owl:ObjectProperty ;
     rdfs:range brick:Substance .
 
-bricktag:Ice a brick:Tag .
+tag:Ice a brick:Tag .
 
-bricktag:Steam a brick:Tag .
+tag:Steam a brick:Tag .
 
-bricktag:Valve a brick:Tag .
+tag:Valve a brick:Tag .
 
 bldg:AHU1 a brick:AHU ;
     brick:feedsAir bldg:VAV1 .
@@ -416,8 +416,8 @@ bldg:CH1 a brick:Chiller .
 
 bldg:Coil_1 a brick:Heating_Coil .
 
-bldg:Coil_2 brick:hasTag bricktag:Coil,
-        bricktag:Heat .
+bldg:Coil_2 brick:hasTag tag:Coil,
+        tag:Heat .
 
 brick:Air_Handler_Unit a owl:Class ;
     rdfs:subClassOf brick:HVAC ;
@@ -427,9 +427,9 @@ brick:Air_Handler_Unit a owl:Class ;
 brick:CO2_Setpoint a owl:Class ;
     rdfs:subClassOf brick:Setpoint ;
     owl:equivalentClass [ owl:intersectionOf ( [ a owl:Restriction ;
-                        owl:hasValue bricktag:Setpoint ;
+                        owl:hasValue tag:Setpoint ;
                         owl:onProperty brick:hasTag ] [ a owl:Restriction ;
-                        owl:hasValue bricktag:CO2 ;
+                        owl:hasValue tag:CO2 ;
                         owl:onProperty brick:hasTag ] ) ] .
 
 brick:CRAC a owl:Class ;
@@ -460,9 +460,9 @@ brick:Filter a owl:Class ;
 brick:Heating_Coil a owl:Class ;
     rdfs:subClassOf brick:Coil ;
     owl:equivalentClass [ owl:intersectionOf ( [ a owl:Restriction ;
-                        owl:hasValue bricktag:Coil ;
+                        owl:hasValue tag:Coil ;
                         owl:onProperty brick:hasTag ] [ a owl:Restriction ;
-                        owl:hasValue bricktag:Heat ;
+                        owl:hasValue tag:Heat ;
                         owl:onProperty brick:hasTag ] ) ] .
 
 brick:Heating_Ventilation_Air_Conditioning_System a owl:Class ;
@@ -485,11 +485,11 @@ brick:Pump a owl:Class ;
 brick:Return_Air_CO2_Setpoint a owl:Class ;
     rdfs:subClassOf brick:CO2_Setpoint ;
     owl:equivalentClass [ owl:intersectionOf ( [ a owl:Restriction ;
-                        owl:hasValue bricktag:Setpoint ;
+                        owl:hasValue tag:Setpoint ;
                         owl:onProperty brick:hasTag ] [ a owl:Restriction ;
-                        owl:hasValue bricktag:Return ;
+                        owl:hasValue tag:Return ;
                         owl:onProperty brick:hasTag ] [ a owl:Restriction ;
-                        owl:hasValue bricktag:CO2 ;
+                        owl:hasValue tag:CO2 ;
                         owl:onProperty brick:hasTag ] ) ] .
 
 brick:Solid a owl:Class ;
@@ -557,32 +557,32 @@ brick:isPointOf a owl:AsymmetricProperty,
     rdfs:domain brick:Point ;
     owl:inverseOf brick:hasPoint .
 
-bricktag:Air a brick:Tag .
+tag:Air a brick:Tag .
 
-bricktag:Cool a brick:Tag .
+tag:Cool a brick:Tag .
 
-bricktag:HVAC a brick:Tag .
+tag:HVAC a brick:Tag .
 
-bricktag:Lighting a brick:Tag .
+tag:Lighting a brick:Tag .
 
-bricktag:Loc a brick:Tag .
+tag:Loc a brick:Tag .
 
-bricktag:Point a brick:Tag .
+tag:Point a brick:Tag .
 
 bldg:VAV1 a brick:VAV .
 
 brick:CO2_Sensor a owl:Class ;
     rdfs:subClassOf brick:Sensor ;
     owl:equivalentClass [ owl:intersectionOf ( [ a owl:Restriction ;
-                        owl:hasValue bricktag:Sensor ;
+                        owl:hasValue tag:Sensor ;
                         owl:onProperty brick:hasTag ] [ a owl:Restriction ;
-                        owl:hasValue bricktag:CO2 ;
+                        owl:hasValue tag:CO2 ;
                         owl:onProperty brick:hasTag ] ) ] .
 
 brick:Coil a owl:Class ;
     rdfs:subClassOf brick:HVAC ;
     owl:equivalentClass [ owl:intersectionOf ( [ a owl:Restriction ;
-                        owl:hasValue bricktag:Coil ;
+                        owl:hasValue tag:Coil ;
                         owl:onProperty brick:hasTag ] ) ] ;
     skos:definition "Exchanger that transfers heat from an exhaust airstream to a separated supply airstream." .
 
@@ -620,7 +620,7 @@ brick:Lighting a owl:Class ;
 brick:Lighting_System a owl:Class ;
     rdfs:subClassOf brick:Equipment ;
     owl:equivalentClass [ owl:intersectionOf ( [ a owl:Restriction ;
-                        owl:hasValue bricktag:Lighting ;
+                        owl:hasValue tag:Lighting ;
                         owl:onProperty brick:hasTag ] ) ] .
 
 brick:Outside_Air_Lockout_Temperature_Differential_Sensor a owl:Class ;
@@ -635,7 +635,7 @@ brick:Room a owl:Class ;
 brick:Sensor a owl:Class ;
     rdfs:subClassOf brick:Point ;
     owl:equivalentClass [ owl:intersectionOf ( [ a owl:Restriction ;
-                        owl:hasValue bricktag:Sensor ;
+                        owl:hasValue tag:Sensor ;
                         owl:onProperty brick:hasTag ] ) ] .
 
 brick:Temperature_Setpoint a owl:Class ;
@@ -653,11 +653,11 @@ brick:Terminal_Unit a owl:Class ;
 brick:Water_Temperature_Setpoint a owl:Class ;
     rdfs:subClassOf brick:Temperature_Setpoint ;
     owl:equivalentClass [ owl:intersectionOf ( [ a owl:Restriction ;
-                        owl:hasValue bricktag:Setpoint ;
+                        owl:hasValue tag:Setpoint ;
                         owl:onProperty brick:hasTag ] [ a owl:Restriction ;
-                        owl:hasValue bricktag:Temperature ;
+                        owl:hasValue tag:Temperature ;
                         owl:onProperty brick:hasTag ] [ a owl:Restriction ;
-                        owl:hasValue bricktag:Water ;
+                        owl:hasValue tag:Water ;
                         owl:onProperty brick:hasTag ] ) ] .
 
 brick:feeds a owl:AsymmetricProperty,
@@ -666,7 +666,7 @@ brick:feeds a owl:AsymmetricProperty,
         owl:TransitiveProperty ;
     owl:inverseOf brick:isFedBy .
 
-bricktag:Heat a brick:Tag .
+tag:Heat a brick:Tag .
 
 brick:Chiller a owl:Class ;
     rdfs:subClassOf brick:HVAC .
@@ -699,9 +699,9 @@ brick:Outside_Air_Temperature_Setpoint a owl:Class ;
 brick:Temperature_Sensor a owl:Class ;
     rdfs:subClassOf brick:Sensor ;
     owl:equivalentClass [ owl:intersectionOf ( [ a owl:Restriction ;
-                        owl:hasValue bricktag:Sensor ;
+                        owl:hasValue tag:Sensor ;
                         owl:onProperty brick:hasTag ] [ a owl:Restriction ;
-                        owl:hasValue bricktag:Temperature ;
+                        owl:hasValue tag:Temperature ;
                         owl:onProperty brick:hasTag ] ) ] .
 
 brick:Valve a owl:Class ;
@@ -716,14 +716,14 @@ brick:Zone a owl:Class ;
 brick:Zone_Temperature_Sensor a owl:Class ;
     rdfs:subClassOf brick:Temperature_Sensor .
 
-bricktag:Equip a brick:Tag .
+tag:Equip a brick:Tag .
 
 brick:AHU a owl:Class ;
     rdfs:subClassOf brick:HVAC ;
     owl:equivalentClass [ owl:intersectionOf ( [ a owl:Restriction ;
-                        owl:hasValue bricktag:Air ;
+                        owl:hasValue tag:Air ;
                         owl:onProperty brick:hasTag ] [ a owl:Restriction ;
-                        owl:hasValue bricktag:Equip ;
+                        owl:hasValue tag:Equip ;
                         owl:onProperty brick:hasTag ] ) ],
         brick:Air_Handler_Unit .
 
@@ -749,7 +749,7 @@ brick:Laboratory a owl:Class ;
 
 brick:Point a owl:Class ;
     owl:equivalentClass [ owl:intersectionOf ( [ a owl:Restriction ;
-                        owl:hasValue bricktag:Point ;
+                        owl:hasValue tag:Point ;
                         owl:onProperty brick:hasTag ] ) ] .
 
 brick:Substance a owl:Class .
@@ -758,7 +758,7 @@ brick:VFD a owl:Class ;
     rdfs:subClassOf brick:HVAC ;
     owl:equivalentClass brick:VFD .
 
-bricktag:Coil a brick:Tag .
+tag:Coil a brick:Tag .
 
 brick:Fan a owl:Class ;
     rdfs:subClassOf brick:HVAC ;
@@ -770,7 +770,7 @@ brick:Air_Temperature_Sensor a owl:Class ;
 brick:Setpoint a owl:Class ;
     rdfs:subClassOf brick:Point ;
     owl:equivalentClass [ owl:intersectionOf ( [ a owl:Restriction ;
-                        owl:hasValue bricktag:Setpoint ;
+                        owl:hasValue tag:Setpoint ;
                         owl:onProperty brick:hasTag ] ) ] .
 
 brick:Water_Temperature_Sensor a owl:Class ;
@@ -778,20 +778,20 @@ brick:Water_Temperature_Sensor a owl:Class ;
 
 brick:Location a owl:Class ;
     owl:equivalentClass [ owl:intersectionOf ( [ a owl:Restriction ;
-                        owl:hasValue bricktag:Loc ;
+                        owl:hasValue tag:Loc ;
                         owl:onProperty brick:hasTag ] ) ] .
 
 brick:Tag a owl:Class .
 
 brick:Equipment a owl:Class ;
     owl:equivalentClass [ owl:intersectionOf ( [ a owl:Restriction ;
-                        owl:hasValue bricktag:Equip ;
+                        owl:hasValue tag:Equip ;
                         owl:onProperty brick:hasTag ] ) ] .
 
 brick:HVAC a owl:Class ;
     rdfs:subClassOf brick:Equipment ;
     owl:equivalentClass [ owl:intersectionOf ( [ a owl:Restriction ;
-                        owl:hasValue bricktag:HVAC ;
+                        owl:hasValue tag:HVAC ;
                         owl:onProperty brick:hasTag ] ) ],
         brick:Heating_Ventilation_Air_Conditioning_System .
 

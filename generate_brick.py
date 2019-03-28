@@ -3,7 +3,7 @@ from rdflib.collection import Collection
 from rdflib.extras.infixowl import Restriction
 
 BRICK = Namespace("https://brickschema.org/schema/1.0.3/Brick#")
-BRICKTAG = Namespace("https://brickschema.org/schema/1.0.3/BrickTag#")
+TAG = Namespace("https://brickschema.org/schema/1.0.3/BrickTag#")
 BLDG = Namespace("https://brickschema.org/schema/1.0.3/ExampleBuilding#")
 OWL = Namespace("http://www.w3.org/2002/07/owl#")
 RDF = Namespace("http://www.w3.org/1999/02/22-rdf-syntax-ns#")
@@ -16,7 +16,7 @@ G.bind('owl', OWL)
 G.bind('rdfs', RDFS)
 G.bind('skos', SKOS)
 G.bind('brick', BRICK)
-G.bind('bricktag', BRICKTAG)
+G.bind('tag', TAG)
 G.bind('bldg', BLDG)
 
 A = RDF.type
@@ -101,17 +101,17 @@ Declare root classes
 roots = {
     "Equipment": {
         "tagvalues": [
-            [BRICK.hasTag, BRICKTAG.Equip],
+            [BRICK.hasTag, TAG.Equip],
         ],
     },
     "Location": {
         "tagvalues": [
-            [BRICK.hasTag, BRICKTAG.Loc],
+            [BRICK.hasTag, TAG.Loc],
         ],
     },
     "Point": {
         "tagvalues": [
-            [BRICK.hasTag, BRICKTAG.Point],
+            [BRICK.hasTag, TAG.Point],
         ],
     },
     "Tag": {},
@@ -138,13 +138,13 @@ define_properties(properties)
 
 from tags import tags
 for tag, definition in tags.items():
-    G.add( (BRICKTAG[tag], A, BRICK.Tag) )
+    G.add( (TAG[tag], A, BRICK.Tag) )
 
 ## Instances
 G.add( (BLDG.Coil_1, A, BRICK.Heating_Coil) )
 
-G.add( (BLDG.Coil_2, BRICK.hasTag, BRICKTAG.Coil) )
-G.add( (BLDG.Coil_2, BRICK.hasTag, BRICKTAG.Heat) )
+G.add( (BLDG.Coil_2, BRICK.hasTag, TAG.Coil) )
+G.add( (BLDG.Coil_2, BRICK.hasTag, TAG.Heat) )
 
 G.add( (BLDG.AHU1, A, BRICK.AHU) )
 G.add( (BLDG.VAV1, A, BRICK.VAV) )

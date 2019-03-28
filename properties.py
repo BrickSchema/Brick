@@ -3,7 +3,7 @@ from rdflib.collection import Collection
 from rdflib.extras.infixowl import Restriction
 
 BRICK = Namespace("https://brickschema.org/schema/1.0.3/Brick#")
-BRICKTAG = Namespace("https://brickschema.org/schema/1.0.3/BrickTag#")
+TAG = Namespace("https://brickschema.org/schema/1.0.3/BrickTag#")
 BLDG = Namespace("https://brickschema.org/schema/1.0.3/ExampleBuilding#")
 OWL = Namespace("http://www.w3.org/2002/07/owl#")
 RDF = Namespace("http://www.w3.org/1999/02/22-rdf-syntax-ns#")
@@ -61,10 +61,10 @@ properties = {
 
                 # looks something like this
                 #"domain_value_prop": [
-                #    [BRICK.hasTag, BRICKTAG.Air],
+                #    [BRICK.hasTag, TAG.Air],
                 #],
                 #"range_value_prop": [
-                #    [BRICK.hasTag, BRICKTAG.Air],
+                #    [BRICK.hasTag, TAG.Air],
                 #],
             },
         },

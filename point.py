@@ -3,7 +3,7 @@ from rdflib.collection import Collection
 from rdflib.extras.infixowl import Restriction
 
 BRICK = Namespace("https://brickschema.org/schema/1.0.3/Brick#")
-BRICKTAG = Namespace("https://brickschema.org/schema/1.0.3/BrickTag#")
+TAG = Namespace("https://brickschema.org/schema/1.0.3/BrickTag#")
 BLDG = Namespace("https://brickschema.org/schema/1.0.3/ExampleBuilding#")
 OWL = Namespace("http://www.w3.org/2002/07/owl#")
 RDF = Namespace("http://www.w3.org/1999/02/22-rdf-syntax-ns#")
@@ -13,7 +13,7 @@ A = RDF.type
 
 point_definitions = {
     "Setpoint": {
-        "tagvalues": [[BRICK.hasTag, BRICKTAG.Setpoint]],
+        "tagvalues": [[BRICK.hasTag, TAG.Setpoint]],
         "subclasses": {
             "Temperature_Setpoint": {
                 "tagvalues": [[BRICK.hasTag, BRICK["Temperature"]], [BRICK.hasTag, BRICK["Setpoint"]]],
@@ -48,25 +48,25 @@ point_definitions = {
                     },
                     "Water_Temperature_Setpoint": {
                         "tagvalues": [
-                            [BRICK.hasTag, BRICKTAG.Setpoint],
-                            [BRICK.hasTag, BRICKTAG.Temperature],
-                            [BRICK.hasTag, BRICKTAG.Water],
+                            [BRICK.hasTag, TAG.Setpoint],
+                            [BRICK.hasTag, TAG.Temperature],
+                            [BRICK.hasTag, TAG.Water],
                         ],
                         "subclasses": {
                             "Entering_Water_Temperature_Setpoint": {
                                 "tagvalues": [
-                                    [BRICK.hasTag, BRICKTAG.Entering],
-                                    [BRICK.hasTag, BRICKTAG.Setpoint],
-                                    [BRICK.hasTag, BRICKTAG.Temperature],
-                                    [BRICK.hasTag, BRICKTAG.Water],
+                                    [BRICK.hasTag, TAG.Entering],
+                                    [BRICK.hasTag, TAG.Setpoint],
+                                    [BRICK.hasTag, TAG.Temperature],
+                                    [BRICK.hasTag, TAG.Water],
                                 ],
                             },
                             "Leaving_Water_Temperature_Setpoint": {
                                 "tagvalues": [
-                                    [BRICK.hasTag, BRICKTAG.Entering],
-                                    [BRICK.hasTag, BRICKTAG.Setpoint],
-                                    [BRICK.hasTag, BRICKTAG.Temperature],
-                                    [BRICK.hasTag, BRICKTAG.Water],
+                                    [BRICK.hasTag, TAG.Entering],
+                                    [BRICK.hasTag, TAG.Setpoint],
+                                    [BRICK.hasTag, TAG.Temperature],
+                                    [BRICK.hasTag, TAG.Water],
                                 ],
                             },
                         },
@@ -75,15 +75,15 @@ point_definitions = {
             },
             "CO2_Setpoint": {
                 "tagvalues": [
-                    [BRICK.hasTag, BRICKTAG.Setpoint],
-                    [BRICK.hasTag, BRICKTAG.CO2],
+                    [BRICK.hasTag, TAG.Setpoint],
+                    [BRICK.hasTag, TAG.CO2],
                 ],
                 "subclasses": {
                     "Return_Air_CO2_Setpoint": {
                         "tagvalues": [
-                            [BRICK.hasTag, BRICKTAG.Setpoint],
-                            [BRICK.hasTag, BRICKTAG.Return],
-                            [BRICK.hasTag, BRICKTAG.CO2],
+                            [BRICK.hasTag, TAG.Setpoint],
+                            [BRICK.hasTag, TAG.Return],
+                            [BRICK.hasTag, TAG.CO2],
                         ],
                         "subclasses": {
                             "Max_Return_Air_CO2_Setpoint": {
@@ -96,13 +96,13 @@ point_definitions = {
     },
     "Sensor": {
         "tagvalues": [
-            [BRICK.hasTag, BRICKTAG.Sensor]
+            [BRICK.hasTag, TAG.Sensor]
         ],
         "subclasses": {
             "CO2_Sensor": {
                 "tagvalues": [
-                    [BRICK.hasTag, BRICKTAG.Sensor],
-                    [BRICK.hasTag, BRICKTAG.CO2],
+                    [BRICK.hasTag, TAG.Sensor],
+                    [BRICK.hasTag, TAG.CO2],
                 ],
                 "subclasses": {
                     "CO2_Differential_Sensor": {},
@@ -111,8 +111,8 @@ point_definitions = {
             },
             "Temperature_Sensor": {
                 "tagvalues": [
-                    [BRICK.hasTag, BRICKTAG.Sensor],
-                    [BRICK.hasTag, BRICKTAG.Temperature],
+                    [BRICK.hasTag, TAG.Sensor],
+                    [BRICK.hasTag, TAG.Temperature],
                 ],
                 "subclasses": {
                     "Zone_Temperature_Sensor": {

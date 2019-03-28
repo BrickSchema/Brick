@@ -3,7 +3,7 @@ from rdflib.collection import Collection
 from rdflib.extras.infixowl import Restriction
 
 BRICK = Namespace("https://brickschema.org/schema/1.0.3/Brick#")
-BRICKTAG = Namespace("https://brickschema.org/schema/1.0.3/BrickTag#")
+TAG = Namespace("https://brickschema.org/schema/1.0.3/BrickTag#")
 BLDG = Namespace("https://brickschema.org/schema/1.0.3/ExampleBuilding#")
 OWL = Namespace("http://www.w3.org/2002/07/owl#")
 RDF = Namespace("http://www.w3.org/1999/02/22-rdf-syntax-ns#")
@@ -18,7 +18,7 @@ equipment_subclasses = {
     "HVAC": {
         OWL.equivalentClass: "Heating_Ventilation_Air_Conditioning_System",
         "tagvalues": [
-            [BRICK.hasTag, BRICKTAG.HVAC],
+            [BRICK.hasTag, TAG.HVAC],
         ],
     },
     "Heating_Ventilation_Air_Conditioning_System": {
@@ -42,7 +42,7 @@ equipment_subclasses = {
     },
     "Lighting_System": {
         "tagvalues": [
-            [BRICK.hasTag, BRICKTAG.Lighting],
+            [BRICK.hasTag, TAG.Lighting],
         ],
         "subclasses": {
             "Lighting": {
@@ -186,19 +186,19 @@ hvac_subclasses = {
     "Coil": {
         SKOS.definition: Literal("Exchanger that transfers heat from an exhaust airstream to a separated supply airstream."),
         "tagvalues": [
-            [ BRICK.hasTag, BRICKTAG.Coil ],
+            [ BRICK.hasTag, TAG.Coil ],
         ],
         "subclasses": {
             "Cooling_Coil": {
                 "tagvalues": [
-                    [ BRICK.hasTag, BRICKTAG.Coil ],
-                    [ BRICK.hasTag, BRICKTAG.Cool ],
+                    [ BRICK.hasTag, TAG.Coil ],
+                    [ BRICK.hasTag, TAG.Cool ],
                 ]
             },
             "Heating_Coil": {
                 "tagvalues": [
-                    [ BRICK.hasTag, BRICKTAG.Coil ],
-                    [ BRICK.hasTag, BRICKTAG.Heat ],
+                    [ BRICK.hasTag, TAG.Coil ],
+                    [ BRICK.hasTag, TAG.Heat ],
                 ]
             },
         },
@@ -206,8 +206,8 @@ hvac_subclasses = {
     "CWS": {
         OWL.equivalentClass: "Chilled_Water_System",
         "tagvalues": [
-            [BRICK.hasTag, BRICKTAG.Water],
-            [BRICK.hasTag, BRICKTAG.Equip],
+            [BRICK.hasTag, TAG.Water],
+            [BRICK.hasTag, TAG.Equip],
         ],
     },
     "Chiller": {
@@ -226,8 +226,8 @@ hvac_subclasses = {
     "AHU": {
         OWL.equivalentClass: "Air_Handler_Unit",
         "tagvalues": [
-            [BRICK.hasTag, BRICKTAG.Air],
-            [BRICK.hasTag, BRICKTAG.Equip],
+            [BRICK.hasTag, TAG.Air],
+            [BRICK.hasTag, TAG.Equip],
         ],
         "subclasses": {
             "Rooftop_Unit": {
