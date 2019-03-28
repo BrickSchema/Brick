@@ -36,7 +36,7 @@ We can serialize the expanded form of the graph to disk if we need to use a SPAR
 - Definitions given with `skos:definition`
 - We are eliminating equipment-flavored classes where it makes sense
     - e.g. `brick:AHU_Average_Exhaust_Air_Static_Pressure_Sensor` is just a `Average_Exhaust_Air_Static_Pressure_Sensor` that is a point of an AHU.
-- Classes are equivalent to a set of tags
+- Classes are equivalent to a set of tags (see below)
 
 The root classes we have defined are:
 
@@ -45,6 +45,25 @@ The root classes we have defined are:
 - `Point`
 - `Tag`
 - `Substance`
+
+### Relationships
+
+(Relationships are the Brick term for owl ObjectProperties between instances of classes)
+
+At the surface level, relationship work the same as they did in the original Brick.
+All the same relationships still exist (where I remembered to define them), and they have their
+inverses defined using `owl:inverseOf`.
+
+Domains and ranges are defined in terms of classes. Stating that the `rdfs:range` of a relationship
+is of class `brick:Equipment` means that the object of the relationship should be an instance of the
+`brick:Equipment` class.
+
+This prototype includes sub-relationships in addition to relationships.
+Sub-relationships can be used in place of the super-relationship to add more detail to the nature of that relationship.
+The only example so far is `feedsAir` being a subproperty of `feeds`.
+
+Something to figure out is how we could infer the `feedsAir` relationship; maybe if the two endpoint equipment have the `air` tag and a `feeds` relationship?
+This may be something that needs to be explicitly specified rather than inferred.
 
 ### Tags
 
