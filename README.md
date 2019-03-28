@@ -20,6 +20,9 @@ This also means that we need a reasoner, but thankfully not one that supports OW
 import owlrl
 owlrl.DeductiveClosure(owlrl.OWLRL_Semantics).expand(G)
 
+# get namespaces
+print(list(G.namespaces()))
+
 G.query("SELECT ?x WHERE { ?x brick:hasTag tag:Equip }")
 ```
 
@@ -30,6 +33,7 @@ We can serialize the expanded form of the graph to disk if we need to use a SPAR
 - The Brick class namespace is `https://brickschema.org/schema/1.0.3/Brick#`
 - Classes belong to `owl:Class` and are arranged into a hierarchy with `rdfs:subClassOf`
 - Equivalent classes (the members of the classes are the same) are related with the `owl:equivalentClass` property
+- Definitions given with `skos:definition`
 - Classes are equivalent to a set of tags
 
 The root classes we have defined are:
@@ -47,7 +51,7 @@ The root classes we have defined are:
 - We use Haystack tags and define our own set
 - Tags should have definitions, but this is not included yet
 - Sets of tags have a 1-1 mapping with a class name
-
+- definitions given using the `skos:definition` property
 
 
 This is accomplished by declaring a Brick class (e.g. `Air_Temperature_Sensor`) as equivalent to an anonymous class, which is an `owl:Restriction` that is the intersection of entities that have certain tags.
@@ -87,6 +91,8 @@ This means that a temperature sensor `:ts1` could be defined in two different wa
 ```
 
 ## Python Framework
+
+TODO: document
 
 ## TODOs
 
