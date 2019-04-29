@@ -36,6 +36,20 @@ def add_restriction(klass, definition):
     G.add( (equivalent_class, OWL.intersectionOf, list_name) )
     c = Collection(G, list_name, l)
 
+def add_class_restriction(klass, definition):
+    l = []
+    equivalent_class = BNode()
+    list_name = BNode()
+    for idnum, item in enumerate(definition):
+        restriction = BNode()
+        l.append(restriction)
+        G.add( (restriction, A, OWL.Restriction) )
+        G.add( (restriction, OWL.onProperty, item[0]) )
+        G.add( (restriction, item[1], item[2]) )
+    G.add( (BRICK[klass], OWL.equivalentClass, equivalent_class) )
+    G.add( (equivalent_class, OWL.intersectionOf, list_name) )
+    c = Collection(G, list_name, l)
+
 def define_subclasses(definitions, superclass):
     for subclass, properties in definitions.items():
         G.add( (BRICK[subclass], A, OWL.Class) )
@@ -43,6 +57,8 @@ def define_subclasses(definitions, superclass):
         for k, v in properties.items():
             if isinstance(v, list) and k == "tagvalues":
                 add_restriction(subclass, v)
+            elif isinstance(v, list) and k == "substances":
+                add_class_restriction(subclass, v)
             elif not apply_prop(subclass, k, v):
                 if isinstance(v, dict) and k == "subclasses":
                     define_subclasses(v, BRICK[subclass])
@@ -53,6 +69,8 @@ def define_rootclasses(definitions):
         for k, v in properties.items():
             if isinstance(v, list) and k == "tagvalues":
                 add_restriction(rootclass, v)
+            elif isinstance(v, list) and k == "substances":
+                add_class_restriction(subclass, v)
             elif not apply_prop(rootclass, k, v):
                 if isinstance(v, dict) and k == "subclasses":
                     define_subclasses(v, BRICK[rootclass])
@@ -150,6 +168,12 @@ G.add( (BLDG.AHU1, A, BRICK.AHU) )
 G.add( (BLDG.VAV1, A, BRICK.VAV) )
 G.add( (BLDG.AHU1, BRICK.feedsAir, BLDG.VAV1) )
 G.add( (BLDG.CH1, A, BRICK.Chiller) )
+
+# This gets inferred as an air temperature sensor
+G.add( (BLDG.TS1, A, BRICK.Temperature_Sensor) )
+G.add( (BLDG.ZoneAir1, A, BRICK.Air) )
+G.add( (BLDG.TS1, BRICK.measures, BLDG.ZoneAir1) )
+G.add( (BLDG.TS2, A, BRICK.Air_Temperature_Sensor) )
 
 
 s = G.serialize(format='ttl')

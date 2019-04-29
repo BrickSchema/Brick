@@ -17,7 +17,14 @@ substances = {
         "subclasses": {
             "Gas": {
                 "subclasses": {
-                    "Air": {},
+                    "Air": {
+                        "subclasses": {
+                            "Outside_Air": {},
+                            "Mixed_Air": {},
+                            "Return_Air": {},
+                            "Exhaust_Air": {},
+                        },
+                    },
                     "Steam": {
                         SKOS.definition: Literal("Water in its gaseous form"),
                     },
@@ -27,6 +34,9 @@ substances = {
                 "subclasses": {
                     "Water": {
                         SKOS.definition: Literal("Water in its liquid form"),
+                        "subclasses": {
+                            "Chilled_Water": {},
+                        },
                     },
                 },
             },

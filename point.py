@@ -16,13 +16,13 @@ point_definitions = {
         "tagvalues": [[BRICK.hasTag, TAG.Setpoint]],
         "subclasses": {
             "Temperature_Setpoint": {
-                "tagvalues": [[BRICK.hasTag, BRICK["Temperature"]], [BRICK.hasTag, BRICK["Setpoint"]]],
+                "tagvalues": [[BRICK.hasTag, TAG["Temperature"]], [BRICK.hasTag, TAG["Setpoint"]]],
                 "subclasses": {
                     "Air_Temperature_Setpoint": {
-                        "tagvalues": [[BRICK.hasTag, BRICK["Air"]], [BRICK.hasTag, BRICK["Temperature"]], [BRICK.hasTag, BRICK["Setpoint"]]],
+                        "tagvalues": [[BRICK.hasTag, TAG["Air"]], [BRICK.hasTag, TAG["Temperature"]], [BRICK.hasTag, TAG["Setpoint"]]],
                         "subclasses": {
                             "Discharge_Air_Temperature_Setpoint": {
-                                "tagvalues": [[BRICK.hasTag, BRICK["Discharge"]], [BRICK.hasTag, BRICK["Air"]], [BRICK.hasTag, BRICK["Temperature"]], [BRICK.hasTag, BRICK["Setpoint"]]],
+                                "tagvalues": [[BRICK.hasTag, TAG["Discharge"]], [BRICK.hasTag, TAG["Air"]], [BRICK.hasTag, TAG["Temperature"]], [BRICK.hasTag, TAG["Setpoint"]]],
                                 "subclasses": {
                                     "Discharge_Air_Temperature_Heating_Setpoint": {
                                         OWL.equivalentClass: "Minimum_Discharge_Air_Temperature_Setpoint",
@@ -33,11 +33,11 @@ point_definitions = {
                                 },
                             },
                             "Mixed_Air_Temperature_Setpoint": {
-                                "tagvalues": [[BRICK.hasTag, BRICK["Mixed"]], [BRICK.hasTag, BRICK["Air"]], [BRICK.hasTag, BRICK["Temperature"]], [BRICK.hasTag, BRICK["Setpoint"]]],
+                                "tagvalues": [[BRICK.hasTag, TAG["Mixed"]], [BRICK.hasTag, TAG["Air"]], [BRICK.hasTag, TAG["Temperature"]], [BRICK.hasTag, TAG["Setpoint"]]],
                             },
                             "Room_Air_Temperature_Setpoint": {},
                             "Outside_Air_Temperature_Setpoint": {
-                                "tagvalues": [[BRICK.hasTag, BRICK["Outside"]], [BRICK.hasTag, BRICK["Air"]], [BRICK.hasTag, BRICK["Temperature"]], [BRICK.hasTag, BRICK["Setpoint"]]],
+                                "tagvalues": [[BRICK.hasTag, TAG["Outside"]], [BRICK.hasTag, TAG["Air"]], [BRICK.hasTag, TAG["Temperature"]], [BRICK.hasTag, TAG["Setpoint"]]],
                                 "subclasses": {
                                     "Low_Outside_Air_Temperature_Enable_Setpoint": {},
                                     "Open_Heating_Valve_Outside_Air_Temperature_Setpoint": {},
@@ -127,6 +127,10 @@ point_definitions = {
                         },
                     },
                     "Air_Temperature_Sensor": {
+                        "substances": [
+                            [BRICK.measures, OWL.someValuesFrom, BRICK.Air],
+                            [RDF.type, OWL.hasValue, BRICK.Temperature_Sensor],
+                        ],
                         "subclasses": {
                             "Discharge_Air_Temperature_Sensor": {
                                 OWL.equivalentClass: "Supply_Air_Temperature_Sensor",
@@ -137,10 +141,29 @@ point_definitions = {
                                 },
                             },
                             "Zone_Air_Temperature_Sensor": {},
-                            "Exhaust_Air_Temperature_Sensor": {},
-                            "Mixed_Air_Temperature_Sensor": {},
-                            "Return_Air_Temperature_Sensor": {},
+                            "Exhaust_Air_Temperature_Sensor": {
+                                "substances": [
+                                    [BRICK.measures, OWL.someValuesFrom, BRICK.Exhaust_Air],
+                                    [RDF.type, OWL.hasValue, BRICK.Temperature_Sensor],
+                                ],
+                            },
+                            "Mixed_Air_Temperature_Sensor": {
+                                "substances": [
+                                    [BRICK.measures, OWL.someValuesFrom, BRICK.Mixed_Air],
+                                    [RDF.type, OWL.hasValue, BRICK.Temperature_Sensor],
+                                ],
+                            },
+                            "Return_Air_Temperature_Sensor": {
+                                "substances": [
+                                    [BRICK.measures, OWL.someValuesFrom, BRICK.Return_Air],
+                                    [RDF.type, OWL.hasValue, BRICK.Temperature_Sensor],
+                                ],
+                            },
                             "Outside_Air_Temperature_Sensor": {
+                                "substances": [
+                                    [BRICK.measures, OWL.someValuesFrom, BRICK.Outside_Air],
+                                    [RDF.type, OWL.hasValue, BRICK.Temperature_Sensor],
+                                ],
                                 "subclasses": {
                                     "Outside_Air_Lockout_Temperature_Differential_Sensor": {
                                         "subclasses": {
@@ -153,8 +176,16 @@ point_definitions = {
                         },
                     },
                     "Water_Temperature_Sensor": {
+                        "substances": [
+                            [BRICK.measures, OWL.someValuesFrom, BRICK.Water],
+                            [RDF.type, OWL.hasValue, BRICK.Temperature_Sensor],
+                        ],
                         "subclasses": {
                             "Chilled_Water_Supply_Temperature_Sensor": {
+                                "substances": [
+                                    [BRICK.measures, OWL.someValuesFrom, BRICK.Chilled_Water],
+                                    [RDF.type, OWL.hasValue, BRICK.Temperature_Sensor],
+                                ],
                                 OWL.equivalentClass: "Chilled_Water_Discharge_Temperature_Sensor",
                             },
                             "Heat_Exchanger_Supply_Water_Temperature_Sensor": {},

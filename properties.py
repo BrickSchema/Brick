@@ -47,7 +47,7 @@ properties = {
 
 
     "feeds": {
-        A: [OWL.TransitiveProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+        A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         OWL.inverseOf: "isFedBy",
         "subproperties": {
             "feedsAir": {
@@ -70,7 +70,7 @@ properties = {
         },
     },
     "isFedBy": {
-        A: [OWL.TransitiveProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+        A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         OWL.inverseOf: "feeds",
     },
 
@@ -86,17 +86,30 @@ properties = {
     },
 
     "hasPart": {
-        A: [OWL.TransitiveProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+        A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         OWL.inverseOf: "isPartOf",
     },
     "isPartOf": {
-        A: [OWL.TransitiveProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+        A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         OWL.inverseOf: "hasPart",
     },
 
     "hasTag": {
         A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         OWL.inverseOf: "isTagOf",
+        RDFS.range: BRICK.Tag,
+    },
+
+    "measures": {
+        A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+        OWL.inverseOf: "isMeasuredBy",
+        RDFS.domain: BRICK.Point,
+        RDFS.range: BRICK.Substance,
+    },
+    "isMeasuredBy": {
+        A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+        RDFS.domain: BRICK.Substance,
+        RDFS.range: BRICK.Point,
     },
 
     # Haystack-style

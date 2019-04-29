@@ -67,13 +67,11 @@ This may be something that needs to be explicitly specified rather than inferred
 
 ### Tags
 
-- Tag ontology namespace is `https://github.com/RDFLib/rdflib`
-- Tags are atomic, much like in Haystack
-- We use Haystack tags and define our own set
+- Tag ontology namespace is `https://brickschema.org/schema/1.0.3/BrickTag#`
+- We use Haystack tags and define our own set including them
 - Tags should have definitions, but this is not included yet
 - Sets of tags have a 1-1 mapping with a class name
 - definitions given using the `skos:definition` property
-
 
 This is accomplished by declaring a Brick class (e.g. `Air_Temperature_Sensor`) as equivalent to an anonymous class, which is an `owl:Restriction` that is the intersection of entities that have certain tags.
 
@@ -81,19 +79,15 @@ This is accomplished by declaring a Brick class (e.g. `Air_Temperature_Sensor`) 
 # in turtle format
 brick:Temperature_Sensor a owl:Class ;
     rdfs:subClassOf brick:Sensor ;
-    owl:equivalentClass [ owl:intersectionOf ( 
+    owl:equivalentClass [ owl:intersectionOf (
                             [ a owl:Restriction ;
                                 owl:hasValue tag:Sensor ;
-                                owl:onProperty brick:hasTag 
-                            ] 
+                                owl:onProperty brick:hasTag
+                            ]
                             [ a owl:Restriction ;
                                 owl:hasValue tag:Temperature ;
-                                owl:onProperty brick:hasTag 
-                            ] 
-                            [ a owl:Restriction ;
-                                owl:hasValue tag:Point ;
-                                owl:onProperty brick:hasTag 
-                            ] 
+                                owl:onProperty brick:hasTag
+                            ]
                         ) ] .
 ```
 
@@ -108,8 +102,45 @@ This means that a temperature sensor `:ts1` could be defined in two different wa
 # using tags
 :ts1    brick:hasTag    tag:Temp
 :ts1    brick:hasTag    tag:Sensor
-:ts1    brick:hasTag    tag:Point
 ```
+
+### Substances
+
+Brick now defines a hierarchy of substances (`substances.py`) as a set of classes.
+Defining these as classes permits the instantiation of a substance, which represents a particular section of duct/pipe/etc that sensors and equipment can interact with.
+
+```
+:ts1    a       brick:Temperature_Sensor
+:za1    a       brick:Air
+:za1    brick:hasLocation   :Room_410
+:ts1    brick:measures      :za1
+```
+
+Here, the `measures` relationship ties a temperature sensor to the air in a particular room.
+Brick uses OWL restrictions to refine classes based on such relationships.
+For this example, because `:ts1` measures Air (specifically, a member of the `brick:Air` class), OWL infers our sensor as a `brick:Air_Temperature_Sensor`.
+
+Here's what that looks like in turtle:
+
+```
+brick:Air_Temperature_Sensor a owl:Class ;
+    rdfs:subClassOf brick:Temperature_Sensor ;
+    owl:equivalentClass [ owl:intersectionOf (
+                            [
+                              a owl:Restriction ;
+                              owl:onProperty brick:measures ;
+                              owl:someValuesFrom brick:Air
+                            ]
+                            [
+                              a owl:Restriction ;
+                              owl:hasValue brick:Temperature_Sensor ;
+                              owl:onProperty rdf:type
+                            ]
+                        ) ] .
+```
+
+A limitation of this approach is we can only perform this inference in one direction.
+If a `brick:Temperature_Sensor` measures an instance of `brick:Air`, we can infer it is a `brick:Air_Temperature_Sensor`, but we cannot take an `brick:Air_Temperature_Sensor` and infer which air it measures.
 
 ## Python Framework
 
