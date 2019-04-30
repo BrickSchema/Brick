@@ -207,6 +207,7 @@ hvac_subclasses = {
         OWL.equivalentClass: "Chilled_Water_System",
         "tagvalues": [
             [BRICK.hasTag, TAG.Water],
+            [BRICK.hasTag, TAG.Chilled],
             [BRICK.hasTag, TAG.Equip],
         ],
     },

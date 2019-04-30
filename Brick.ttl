@@ -38,6 +38,8 @@ brick:CWS a owl:Class ;
     owl:equivalentClass [ owl:intersectionOf ( [ a owl:Restriction ;
                         owl:hasValue tag:Water ;
                         owl:onProperty brick:hasTag ] [ a owl:Restriction ;
+                        owl:hasValue tag:Chilled ;
+                        owl:onProperty brick:hasTag ] [ a owl:Restriction ;
                         owl:hasValue tag:Equip ;
                         owl:onProperty brick:hasTag ] ) ],
         brick:Chilled_Water_System .
@@ -600,6 +602,8 @@ brick:isPointOf a owl:AsymmetricProperty,
         owl:ObjectProperty ;
     rdfs:domain brick:Point ;
     owl:inverseOf brick:hasPoint .
+
+tag:Chilled a brick:Tag .
 
 tag:Cool a brick:Tag .
 

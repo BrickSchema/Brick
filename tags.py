@@ -34,4 +34,7 @@ tags = {
     "Air": {},
     "Steam": {},
     "Ice": {},
+
+    # substance flavors + process
+    "Chilled": {},
 }
