@@ -1,5 +1,6 @@
 # Brick 2 Electric Boogaloo
 
+
 Here's the gist of how I'm doing things and what kinds of inference/modeling are enabled
 
 ## Ontology Implementation
@@ -185,3 +186,7 @@ For now, the code is the documentation. Look at `equipment.py`, `point.py`, etc 
 - [ ] pull all tags from haystack
 - [ ] add Tag definitions
 - [ ] add alarms, other setpoints and the rest of the Brick points
+
+---
+
+**Authors: Gabe Fierro**
