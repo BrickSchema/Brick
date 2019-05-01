@@ -175,6 +175,207 @@ point_definitions = {
                     },
                 },
             },
+            "Humidity_Setpoint": {
+                "subclasses": {
+                    "High_Humidity_Alarm_Setpoint": {},
+                    "Low_Humidity_Alarm_Setpoint": {},
+                },
+            },
+            "Increase_Decrease_Step_Setpoint": {
+                "subclasses": {
+                    "Differential_Pressure_Increase_Decrease_Step_Setpoint": {
+                        "subclasses": {
+                            "Chilled_Water_Differential_Pressure_Increase_Decrease_Step_Setpoint": {},
+                        },
+                    },
+                    "Static_Pressure_Increase_Decrease_Step_Setpoint": {
+                        "subclasses": {
+                            "Air_Static_Pressure_Increase_Decrease_Step_Setpoint": {},
+                        },
+                    },
+                    "Temperature_Increase_Decrease_Step_Setpoint": {
+                        "subclasses": {
+                            "Air_Temperature_Increase_Decrease_Step_Setpoint": {},
+                        },
+                    },
+                },
+            },
+            "Integral_Gain_Setpoint": {},
+            "Integral_Time_Setpoint": {
+                "subclasses": {
+                  "Chilled_Water_Differential_Pressure_Integral_Time_Setpoint": {},
+                  "Cooling_Discharge_Air_Temperature_Integral_Time_Setpoint": {},
+                  "Cooling_Supply_Air_Temperature_Integral_Time_Setpoint": {},
+                  "Differential_Pressure_Integral_Time": {
+                    "subclasses": {
+                        "Chilled_Water_Pump_Differential_Pressure_Integration_Time_Setpoint": {},
+                    },
+                  },
+                  "Differential_Pressure_Integral_Time_Setpoint": {
+                      "subclasses": {
+                          "Hot_Water_Differential_Pressure_Integral_Time_Setpoint": {},
+                      },
+                  },
+                  "Discharge_Air_Static_Pressure_Integral_Time_Setpoint": {},
+                  "Exhaust_Air_Flow_Integral_Time_Setpoint": {
+                      "subclasses": {
+                          "Exhaust_Air_Stack_Flow_Integral_Time_Setpoint": {},
+                      },
+                  },
+                  "Heating_Discharge_Air_Temperature_Integral_Time_Setpoint": {},
+                  "Heating_Supply_Air_Temperature_Integral_Time_Setpoint": {},
+                  "Static_Pressure_Integral_Time_Setpoint": {},
+                  "Supply_Air_Static_Pressure_Integral_Time_Setpoint": {},
+                  "Supply_Water_Differential_Pressure_Integral_Time_Setpoint": {},
+                  "Supply_Water_Temperature_Integral_Time_Setpoint": {},
+                },
+            },
+            "Load_Setpoint": {
+                "subclasses": {
+                    "Max_Load_Setpoint": {},
+                },
+            },
+            "Luminance_Setpoint": {},
+            "Mode_Setpoint": {
+                "subclasses": {
+                    "Dual_Band_Mode_Setpoint": {}, # are these duplicated elsewhere?
+                    "Unoccupied_Mode_Setpoint": {},
+                    "Occupied_Mode_Setpoint": {},
+                },
+            },
+            "Pressure_Setpoint": {
+                "subclasses": {
+                    "Differential_Pressure_Setpoint": {
+                        "subclasses": {
+                            "Chilled_Water_Differential_Pressure_Setpoint": {
+                                "subclasses": {
+                                    "Max_Chilled_Water_Differential_Pressure_Setpoint": {},
+                                    "Min_Chilled_Water_Differential_Pressure_Setpoint": {},
+                                },
+                            },
+                            "Hot_Water_Differential_Pressure_Setpoint": {
+                                "subclasses": {
+                                    "Max_Hot_Water_Differential_Pressure_Setpoint": {},
+                                    "Min_Hot_Water_Differential_Pressure_Setpoint": {},
+                                },
+                            },
+                            "Load_Shed_Differential_Pressure_Setpoint": {
+                                "subclasses": {
+                                    "Chilled_Water_Differential_Pressure_Load_Shed_Setpoint": {},
+                                    "Medium_Temperature_Hot_Water_Differential_Pressure_Load_Shed_Setpoint": {},
+                                },
+                            },
+                        },
+                    },
+                    "Static_Pressure_Setpoint": {
+                        "subclasses": {
+                            "Building_Static_Pressure_Setpoint": {},
+                            "Chilled_Water_Static_Pressure_Setpoint": {},
+                            "Discharge_Air_Static_Pressure_Setpoint": {
+                                "subclasses": {
+                                    "Max_Discharge_Air_Static_Pressure_Setpoint": {},
+                                    "Max_Supply_Air_Static_Pressure_Setpoint": {},
+                                    "Min_Discharge_Air_Static_Pressure_Setpoint": {},
+                                    "Min_Supply_Air_Static_Pressure_Setpoint": {},
+                                },
+                            },
+                            "Exhaust_Air_Static_Pressure_Setpoint": {},
+                            "High_Static_Pressure_Cutout_Limit_Setpoint": {},
+                            "Hot_Water_Static_Pressure_Setpoint": {},
+                            "Static_Pressure_Max_Setpoint": {},
+                            "Static_Pressure_Min_Setpoint": {},
+                            "Supply_Air_Static_Pressure_Setpoint": {},
+                        },
+                    },
+                    "Velocity_Pressure_Setpoint": {},
+                },
+            },
+            "Proportional_Band_Setpoint": {
+                "subclasses": {
+                    "Chilled_Water_Differential_Pressure_Proportional_Band_Setpoint": {},
+                    "Cooling_Discharge_Air_Temperature_Proportional_Band_Setpoint": {},
+                    "Cooling_Supply_Air_Temperature_Proportional_Band_Setpoint": {},
+                    "Differential_Pressure_Proportional_Band": {},
+                    "Hot_Water_Differential_Pressure_Proportional_Band_Setpoint": {},
+                    "Discharge_Air_Static_Pressure_Proportional_Band_Setpoint": {},
+                    "Discharge_Air_Temperature_Proportional_Band_Setpoint": {},
+                    "Supply_Air_Temperature_Proportional_Band_Setpoint": {},
+                    "Exhaust_Air_Flow_Proportional_Band_Setpoint": {},
+                    "Heating_Discharge_Air_Temperature_Proportional_Band_Setpoint": {},
+                    "Heating_Supply_Air_Temperature_Proportional_Band_Setpoint": {},
+                    "Static_Pressure_Proportional_Band_Setpoint": {
+                        "subclasses": {
+                            "Exhaust_Air_Static_Pressure_Proportional_Band_Setpoint": {},
+                        },
+                    },
+                    "Supply_Air_Static_Pressure_Proportional_Band_Setpoint": {},
+                    "Supply_Water_Differential_Pressure_Proportional_Band_Setpoint": {
+                        "subclasses": {
+                            "Thermal_Energy_Storage_Discharge_Water_Differential_Pressure_Proportional" "Band" "Setpoint": {},
+                            "Thermal_Energy_Storage_Supply_Water_Differential_Pressure_Proportional_Band" "Setpoint": {},
+                        },
+                    },
+                    "Supply_Water_Temperature_Proportional_Band_Setpoint": {
+                        "subclasses": {
+                            "Heat_Exchanger_Discharge_Water_Temperature_Proportional_Band_Setpoint": {},
+                            "Heat_Exchanger_Supply_Water_Temperature_Proportional_Band_Setpoint": {},
+                        },
+                    }
+                },
+            },
+            "Reset_Setpoint": {
+                "Discharge_Air_Flow_Reset_Setpoint": {
+                    "subclasses": {
+                        "Discharge_Air_Flow_Reset_High_Setpoint": {},
+                        "Discharge_Air_Flow_Reset_Low_Setpoint": {},
+                    },
+                },
+                "Discharge_Air_Temperature_Reset_High_Setpoint": {},
+                "Discharge_Air_Temperature_Reset_Low_Setpoint": {},
+                "Supply_Air_Temperature_Reset_High_Setpoint": {},
+                "Supply_Air_Temperature_Reset_Low_Setpoint": {},
+                "Temperature_Differential_Reset_Setpoint": {
+                    "subclasses": {
+                        "Discharge_Air_Temperature_Reset_Differential_Setpoint": {},
+                        "Supply_Air_Temperature_Reset_Differential_Setpoint": {},
+                    },
+                },
+                "Temperature_High_Reset_Setpoint": {
+                    "subclasses": {
+                        "Hot_Water_Supply_Temperature_High_Reset_Setpoint": {
+                            "subclasses": {
+                                "Medium_Temperature_Hot_Water_Discharge_Temperature_High_Reset_Setpoint": {},
+                                "Medium_Temperature_Hot_Water_Supply_Temperature_High_Reset_Setpoint": {},
+                            },
+                        },
+                    },
+                  },
+                "Outside_Air_Temperature_High_Reset_Setpoint": {},
+                "Temperature_Low_Reset_Setpoint": {
+                    "subclasses": {
+                        "Hot_Water_Supply_Temperature_Low_Reset_Setpoint": {
+                            "subclasses": {
+                                "Medium_Temperature_Hot_Water_Discharge_Temperature_Low_Reset_Setpoint": {},
+                                "Medium_Temperature_Hot_Water_Supply_Temperature_Low_Reset_Setpoint": {},
+                            },
+                        },
+                        "Outside_Air_Temperature_Low_Reset_Setpoint": {},
+                    },
+                },
+            },
+            "Speed_Setpoint": {
+                "subclasses": {
+                    "Differential_Speed_Setpoint": {
+                        "subclasses": {
+                            "Return_Discharge_Fan_Differential_Speed_Setpoint": {},
+                            "Return_Fan_Differential_Speed_Setpoint": {},
+                            "Return_Supply_Fan_Differential_Speed_Setpoint": {},
+                        },
+                    },
+                    "Max_Speed_Setpoint": {},
+                    "Min_Speed_Setpoint": {},
+                },
+            },
             "Temperature_Setpoint": {
                 "tagvalues": [[BRICK.hasTag, TAG["Temperature"]], [BRICK.hasTag, TAG["Setpoint"]]],
                 "subclasses": {
