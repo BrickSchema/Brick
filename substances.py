@@ -19,23 +19,36 @@ substances = {
                 "subclasses": {
                     "Air": {
                         "subclasses": {
-                            "Outside_Air": {},
-                            "Mixed_Air": {},
-                            "Return_Air": {},
-                            "Exhaust_Air": {},
+                            "Outside_Air": {
+                                SKOS.definition: Literal("air external to a defined zone (e.g., corridors)."),
+                             },
+                            "Mixed_Air": {
+                                SKOS.definition: Literal("(1) air that contains two or more streams of air. (2) combined outdoor air and recirculated air."),
+                             },
+                            "Return_Air": {
+                                SKOS.definition: Literal("air removed from a space to be recirculated or exhausted. Air extracted from a space and totally or partially returned to an air conditioner, furnace, or other heating, cooling, or ventilating system."),
+                            },
+                            "Exhaust_Air": {
+                                SKOS.definition: Literal("air that must be removed from a space due to contaminants, regardless of pressurization"),
+                            },
+                            "Supply_Air": {
+                                SKOS.definition: Literal("(1) air delivered by mechanical or natural ventilation to a space, composed of any combination of outdoor air, recirculated air, or transfer air. (2) air entering a space from an air-conditioning, heating, or ventilating apparatus for the purpose of comfort conditioning. Supply air is generally filtered, fan forced, and either heated, cooled, humidified, or dehumidified as necessary to maintain specified conditions. Only the quantity of outdoor air within the supply airflow may be used as replacement air."),
+                            },
                         },
                     },
                     "Steam": {
-                        SKOS.definition: Literal("Water in its gaseous form"),
+                        SKOS.definition: Literal("water in the vapor phase."),
                     },
                 },
             },
             "Liquid": {
                 "subclasses": {
                     "Water": {
-                        SKOS.definition: Literal("Water in its liquid form"),
+                        SKOS.definition: Literal("transparent, odorless, tasteless liquid; a compound of hydrogen and oxygen (H2O), containing 11.188% hydrogen and 88.812% oxygen by mass; freezing at 32°F (0°C); boiling near 212°F (100°C)."),
                         "subclasses": {
-                            "Chilled_Water": {},
+                            "Chilled_Water": {
+                                SKOS.definition: Literal( "water used as a cooling medium (particularly in air-conditioning systems or in processes) at below ambient temperature."),
+                            },
                         },
                     },
                 },
@@ -48,5 +61,8 @@ substances = {
                 SKOS.definition: Literal("Water in its solid form"),
             },
         },
-    }
+    },
+    "Enthalpy": {
+        SKOS.definition: Literal("(also known as heat content), thermodynamic quantity equal to the sum of the internal energy of a system plus the product of the pressure volume work done on the system. H = E + pv, where H = enthalpy or total heat content, E = internal energy of the system, p = pressure, and v = volume. (Compare to [[specific enthalpy]].)"),
+    },
 }
