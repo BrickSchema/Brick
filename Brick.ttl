@@ -17,6 +17,12 @@ brick:Air_Static_Pressure_Increase_Decrease_Step_Setpoint a owl:Class ;
 brick:Air_Temperature_Increase_Decrease_Step_Setpoint a owl:Class ;
     rdfs:subClassOf brick:Temperature_Increase_Decrease_Step_Setpoint .
 
+brick:Average_Discharge_Air_Flow_Sensor a owl:Class ;
+    rdfs:subClassOf brick:Discharge_Air_Flow_Sensor .
+
+brick:Average_Supply_Air_Flow_Sensor a owl:Class ;
+    rdfs:subClassOf brick:Discharge_Air_Flow_Sensor .
+
 brick:Average_Zone_Temperature_Sensor a owl:Class ;
     rdfs:subClassOf brick:Zone_Temperature_Sensor .
 
@@ -30,16 +36,19 @@ brick:Boiler a owl:Class ;
 brick:Booster_Fan a owl:Class ;
     rdfs:subClassOf brick:Supply_Fan .
 
+brick:Booster_Fan_Air_Flow_Sensor a owl:Class ;
+    rdfs:subClassOf brick:Fan_Air_Flow_Sensor .
+
 brick:Building a owl:Class ;
     rdfs:subClassOf brick:Location .
 
 brick:Building_Static_Pressure_Setpoint a owl:Class ;
     rdfs:subClassOf brick:Static_Pressure_Setpoint .
 
-brick:CO2_Differential_Sensor a owl:Class ;
-    rdfs:subClassOf brick:CO2_Sensor .
+brick:Bypass_Air_Flow_Sensor a owl:Class ;
+    rdfs:subClassOf brick:Air_Flow_Sensor .
 
-brick:CO2_Level_Sensor a owl:Class ;
+brick:CO2_Differential_Sensor a owl:Class ;
     rdfs:subClassOf brick:CO2_Sensor .
 
 brick:CWS a owl:Class ;
@@ -52,6 +61,17 @@ brick:CWS a owl:Class ;
                         owl:hasValue tag:Equip ;
                         owl:onProperty brick:hasTag ] ) ],
         brick:Chilled_Water_System .
+
+brick:Capacity a owl:Class ;
+    rdfs:subClassOf brick:SubstanceProperty .
+
+brick:Capacity_Sensor a owl:Class ;
+    rdfs:subClassOf brick:Sensor ;
+    owl:equivalentClass [ owl:intersectionOf ( [ a owl:Restriction ;
+                        owl:hasValue tag:Sensor ;
+                        owl:onProperty brick:hasTag ] [ a owl:Restriction ;
+                        owl:hasValue tag:Capacity ;
+                        owl:onProperty brick:hasTag ] ) ] .
 
 brick:Centrifugal_Chiller a owl:Class ;
     rdfs:subClassOf brick:Chiller .
@@ -74,6 +94,9 @@ brick:Chilled_Water_Differential_Pressure_Proportional_Band_Setpoint a owl:Class
 brick:Chilled_Water_Differential_Temperature_Sensor a owl:Class ;
     rdfs:subClassOf brick:Chilled_Water_Temperature_Sensor .
 
+brick:Chilled_Water_Discharge_Flow_Sensor a owl:Class ;
+    rdfs:subClassOf brick:Supply_Water_Flow_Sensor .
+
 brick:Chilled_Water_Pump a owl:Class ;
     rdfs:subClassOf brick:Water_Pump .
 
@@ -88,6 +111,9 @@ brick:Chilled_Water_Return_Temperature_Sensor a owl:Class ;
 
 brick:Chilled_Water_Static_Pressure_Setpoint a owl:Class ;
     rdfs:subClassOf brick:Static_Pressure_Setpoint .
+
+brick:Chilled_Water_Supply_Flow_Sensor a owl:Class ;
+    rdfs:subClassOf brick:Supply_Water_Flow_Sensor .
 
 brick:Chilled_Water_Supply_Temperature_Sensor a owl:Class ;
     rdfs:subClassOf brick:Water_Temperature_Sensor ;
@@ -116,6 +142,9 @@ brick:Condenser_Heat_Exchanger a owl:Class ;
 
 brick:Condenser_Water_Pump a owl:Class ;
     rdfs:subClassOf brick:Water_Pump .
+
+brick:Conductivity a owl:Class ;
+    rdfs:subClassOf brick:SubstanceProperty .
 
 brick:Cooling_Coil a owl:Class ;
     rdfs:subClassOf brick:Coil ;
@@ -166,11 +195,26 @@ brick:Cooling_Supply_Air_Temperature_Proportional_Band_Setpoint a owl:Class ;
 brick:Cooling_Tower_Fan a owl:Class ;
     rdfs:subClassOf brick:Fan .
 
+brick:Current a owl:Class ;
+    rdfs:subClassOf brick:SubstanceProperty .
+
 brick:Damper_Max_Position_Setpoint a owl:Class ;
     rdfs:subClassOf brick:Damper_Position_Setpoint .
 
 brick:Damper_Min_Position_Setpoint a owl:Class ;
     rdfs:subClassOf brick:Damper_Position_Setpoint .
+
+brick:Damper_Position_Sensor a owl:Class ;
+    rdfs:subClassOf brick:Sensor .
+
+brick:Deionised_Water_Conductivity_Sensor a owl:Class ;
+    rdfs:subClassOf brick:Conductivity_Sensor ;
+    owl:equivalentClass [ owl:intersectionOf ( [ a owl:Restriction ;
+                        owl:minCardinality 1 ;
+                        owl:onProperty brick:measures ;
+                        owl:someValuesFrom brick:Water ] [ a owl:Restriction ;
+                        owl:hasValue brick:Sensor ;
+                        owl:onProperty rdf:type ] ) ] .
 
 brick:Dew_Point_Setpoint a owl:Class ;
     rdfs:subClassOf brick:Setpoint .
@@ -202,6 +246,9 @@ brick:Discharge_Air_Temperature_Heating_Setpoint a owl:Class ;
 brick:Discharge_Air_Temperature_Proportional_Band_Setpoint a owl:Class ;
     rdfs:subClassOf brick:Proportional_Band_Setpoint .
 
+brick:Discharge_Fan_Air_Flow_Sensor a owl:Class ;
+    rdfs:subClassOf brick:Fan_Air_Flow_Sensor .
+
 brick:Domestic_Hot_Water_Supply_Temperature_Sensor a owl:Class ;
     rdfs:subClassOf brick:Hot_Water_Supply_Temperature_Sensor .
 
@@ -221,6 +268,17 @@ brick:Economizer_Damper a owl:Class ;
 brick:Elevator a owl:Class ;
     rdfs:subClassOf brick:Equipment .
 
+brick:Energy a owl:Class ;
+    rdfs:subClassOf brick:SubstanceProperty .
+
+brick:Energy_Sensor a owl:Class ;
+    rdfs:subClassOf brick:Sensor ;
+    owl:equivalentClass [ owl:intersectionOf ( [ a owl:Restriction ;
+                        owl:hasValue tag:Sensor ;
+                        owl:onProperty brick:hasTag ] [ a owl:Restriction ;
+                        owl:hasValue tag:Energy ;
+                        owl:onProperty brick:hasTag ] ) ] .
+
 brick:Energy_Storage a owl:Class ;
     rdfs:subClassOf brick:Equipment .
 
@@ -237,7 +295,8 @@ brick:Entering_Water_Temperature_Setpoint a owl:Class ;
                         owl:onProperty brick:hasTag ] ) ] .
 
 brick:Enthalpy a owl:Class ;
-    rdfs:subClassOf brick:Substance ;
+    rdfs:subClassOf brick:Substance,
+        brick:SubstanceProperty ;
     skos:definition "(also known as heat content), thermodynamic quantity equal to the sum of the internal energy of a system plus the product of the pressure volume work done on the system. H = E + pv, where H = enthalpy or total heat content, E = internal energy of the system, p = pressure, and v = volume. (Compare to [[specific enthalpy]].)" .
 
 brick:Enthalpy_Setpoint a owl:Class ;
@@ -257,6 +316,9 @@ brick:Exhaust_Air_Stack_Flow_Dead_Band_Setpoint a owl:Class ;
 
 brick:Exhaust_Air_Stack_Flow_Integral_Time_Setpoint a owl:Class ;
     rdfs:subClassOf brick:Exhaust_Air_Flow_Integral_Time_Setpoint .
+
+brick:Exhaust_Air_Stack_Flow_Sensor a owl:Class ;
+    rdfs:subClassOf brick:Exhaust_Air_Flow_Sensor .
 
 brick:Exhaust_Air_Stack_Flow_Setpoint a owl:Class ;
     rdfs:subClassOf brick:Exhaust_Air_Flow_Setpoint .
@@ -303,6 +365,9 @@ brick:Freezer a owl:Class ;
 brick:Fume_Hood a owl:Class ;
     rdfs:subClassOf brick:HVAC ;
     skos:definition "A fume-collection device mounted over a work space, table, or shelf and serving to conduct unwanted gases away from the area enclosed." .
+
+brick:Fume_Hood_Air_Flow_Sensor a owl:Class ;
+    rdfs:subClassOf brick:Air_Flow_Sensor .
 
 brick:Furniture a owl:Class ;
     rdfs:subClassOf brick:Equipment .
@@ -432,6 +497,9 @@ brick:Leaving_Water_Temperature_Setpoint a owl:Class ;
 brick:Lighting_Zone a owl:Class ;
     rdfs:subClassOf brick:Zone .
 
+brick:Load_Current_Sensor a owl:Class ;
+    rdfs:subClassOf brick:Current_Sensor .
+
 brick:Low_Humidity_Alarm_Setpoint a owl:Class ;
     rdfs:subClassOf brick:Humidity_Setpoint .
 
@@ -525,6 +593,9 @@ brick:Mixed_Air_Temperature_Setpoint a owl:Class ;
                         owl:hasValue tag:Setpoint ;
                         owl:onProperty brick:hasTag ] ) ] .
 
+brick:Motor_Current_Sensor a owl:Class ;
+    rdfs:subClassOf brick:Current_Sensor .
+
 brick:Occupied_Cooling_Max_Discharge_Air_Flow_Setpoint a owl:Class ;
     rdfs:subClassOf brick:Cooling_Max_Discharge_Air_Flow_Setpoint .
 
@@ -564,14 +635,39 @@ brick:Open_Heating_Valve_Outside_Air_Temperature_Setpoint a owl:Class ;
 brick:Outside a owl:Class ;
     rdfs:subClassOf brick:Location .
 
+brick:Outside_Air_CO2_Sensor a owl:Class ;
+    rdfs:subClassOf brick:CO2_Sensor .
+
+brick:Outside_Air_Dewpoint_Sensor a owl:Class ;
+    rdfs:subClassOf brick:Dewpoint_Sensor .
+
+brick:Outside_Air_Enthalpy_Sensor a owl:Class ;
+    rdfs:subClassOf brick:Air_Enthalpy_Sensor .
+
+brick:Outside_Air_Flow_Sensor a owl:Class ;
+    rdfs:subClassOf brick:Air_Flow_Sensor .
+
+brick:Outside_Air_Grains_Sensor a owl:Class ;
+    rdfs:subClassOf brick:Air_Grains_Sensor .
+
 brick:Outside_Air_Lockout_Temperature_Setpoint a owl:Class ;
     rdfs:subClassOf brick:Outside_Air_Temperature_Setpoint .
 
 brick:Outside_Damper a owl:Class ;
     rdfs:subClassOf brick:Damper .
 
+brick:Peak_Power_Demand_Sensor a owl:Class ;
+    rdfs:subClassOf brick:Demand_Sensor .
+
+brick:Photovoltaic_Current_Output_Sensor a owl:Class ;
+    rdfs:subClassOf brick:Current_Sensor ;
+    owl:equivalentClass brick:PV_Current_Output_Sensor .
+
 brick:PlugStrip a owl:Class ;
     rdfs:subClassOf brick:Equipment .
+
+brick:Power a owl:Class ;
+    rdfs:subClassOf brick:SubstanceProperty .
 
 brick:Power_System a owl:Class ;
     rdfs:subClassOf brick:Equipment .
@@ -600,6 +696,21 @@ brick:Reheat_Valve a owl:Class ;
 brick:Reset_Setpoint a owl:Class ;
     rdfs:subClassOf brick:Setpoint .
 
+brick:Return_Air_CO2_Sensor a owl:Class ;
+    rdfs:subClassOf brick:CO2_Sensor .
+
+brick:Return_Air_Dewpoint_Sensor a owl:Class ;
+    rdfs:subClassOf brick:Dewpoint_Sensor .
+
+brick:Return_Air_Enthalpy_Sensor a owl:Class ;
+    rdfs:subClassOf brick:Air_Enthalpy_Sensor .
+
+brick:Return_Air_Flow_Sensor a owl:Class ;
+    rdfs:subClassOf brick:Air_Flow_Sensor .
+
+brick:Return_Air_Grains_Sensor a owl:Class ;
+    rdfs:subClassOf brick:Air_Grains_Sensor .
+
 brick:Return_Air_Temperature_Sensor a owl:Class ;
     rdfs:subClassOf brick:Air_Temperature_Sensor ;
     owl:equivalentClass [ owl:intersectionOf ( [ a owl:Restriction ;
@@ -616,6 +727,9 @@ brick:Return_Discharge_Fan_Differential_Speed_Setpoint a owl:Class ;
 
 brick:Return_Fan a owl:Class ;
     rdfs:subClassOf brick:Fan .
+
+brick:Return_Fan_Air_Flow_Sensor a owl:Class ;
+    rdfs:subClassOf brick:Fan_Air_Flow_Sensor .
 
 brick:Return_Fan_Differential_Speed_Setpoint a owl:Class ;
     rdfs:subClassOf brick:Differential_Speed_Setpoint .
@@ -639,8 +753,14 @@ brick:Server_Room a owl:Class ;
 brick:Shading_System a owl:Class ;
     rdfs:subClassOf brick:Equipment .
 
+brick:Solar_Azimuth_Angle_Sensor a owl:Class ;
+    rdfs:subClassOf brick:Angle_Sensor .
+
 brick:Solar_Panel a owl:Class ;
     rdfs:subClassOf brick:Equipment .
+
+brick:Solar_Zenith_Angle_Sensor a owl:Class ;
+    rdfs:subClassOf brick:Angle_Sensor .
 
 brick:Space a owl:Class ;
     rdfs:subClassOf brick:Location .
@@ -679,6 +799,9 @@ brick:Supply_Air_Flow_Demand_Setpoint a owl:Class ;
     rdfs:subClassOf brick:Demand_Setpoint,
         brick:Supply_Air_Flow_Setpoint .
 
+brick:Supply_Air_Flow_Sensor a owl:Class ;
+    rdfs:subClassOf brick:Air_Flow_Sensor .
+
 brick:Supply_Air_Static_Pressure_Integral_Time_Setpoint a owl:Class ;
     rdfs:subClassOf brick:Integral_Time_Setpoint .
 
@@ -691,11 +814,17 @@ brick:Supply_Air_Static_Pressure_Setpoint a owl:Class ;
 brick:Supply_Air_Temperature_Proportional_Band_Setpoint a owl:Class ;
     rdfs:subClassOf brick:Proportional_Band_Setpoint .
 
+brick:Supply_Fan_Air_Flow_Sensor a owl:Class ;
+    rdfs:subClassOf brick:Fan_Air_Flow_Sensor .
+
 brick:Supply_Water_Differential_Pressure_Integral_Time_Setpoint a owl:Class ;
     rdfs:subClassOf brick:Integral_Time_Setpoint .
 
 brick:Supply_Water_Temperature_Integral_Time_Setpoint a owl:Class ;
     rdfs:subClassOf brick:Integral_Time_Setpoint .
+
+brick:Temperature a owl:Class ;
+    rdfs:subClassOf brick:SubstanceProperty .
 
 brick:Thermal_Energy_Storage_Discharge_Water_Differential_Pressure_ProportionalBandSetpoint a owl:Class ;
     rdfs:subClassOf brick:Supply_Water_Differential_Pressure_Proportional_Band_Setpoint .
@@ -746,6 +875,9 @@ brick:Water_System a owl:Class ;
 brick:Weather a owl:Class ;
     rdfs:subClassOf brick:Equipment .
 
+brick:Wind_Direction_Sensor a owl:Class ;
+    rdfs:subClassOf brick:Direction_Sensor .
+
 brick:Wing a owl:Class ;
     rdfs:subClassOf brick:Location .
 
@@ -775,6 +907,8 @@ tag:Steam a brick:Tag .
 
 tag:Valve a brick:Tag .
 
+bldg:AFS1 a brick:Air_Flow_Sensor .
+
 bldg:AHU1 a brick:AHU ;
     brick:feedsAir bldg:VAV1 .
 
@@ -790,6 +924,8 @@ bldg:TS1 a brick:Temperature_Sensor ;
 
 bldg:TS2 a brick:Air_Temperature_Sensor .
 
+bldg:co2s1 a brick:CO2_Level_Sensor .
+
 brick:Air_Flow_Dead_Band_Setpoint a owl:Class ;
     rdfs:subClassOf brick:Dead_Band_Setpoint .
 
@@ -797,6 +933,13 @@ brick:Air_Handler_Unit a owl:Class ;
     rdfs:subClassOf brick:HVAC ;
     owl:equivalentClass brick:AHU ;
     skos:definition "Assembly consisting of sections containing a fan or fans and other necessary equipment to perform one or more of the following functions: circulating, filtration, heating, cooling, heat recovery, humidifying, dehumidifying, and mixing of air. Is usually connected to an air-distribution system." .
+
+brick:CO2 a owl:Class ;
+    rdfs:subClassOf brick:SubstanceProperty ;
+    owl:equivalentClass brick:Carbon_Dioxide .
+
+brick:CO2_Level_Sensor a owl:Class ;
+    rdfs:subClassOf brick:CO2_Sensor .
 
 brick:CO2_Setpoint a owl:Class ;
     rdfs:subClassOf brick:Setpoint ;
@@ -831,6 +974,22 @@ brick:Condensor a owl:Class ;
     owl:equivalentClass brick:Condenser ;
     skos:definition "A heat exchanger in which the primary heat transfer vapor changes its state to a liquid phase." .
 
+brick:Conductivity_Sensor a owl:Class ;
+    rdfs:subClassOf brick:Sensor ;
+    owl:equivalentClass [ owl:intersectionOf ( [ a owl:Restriction ;
+                        owl:hasValue tag:Sensor ;
+                        owl:onProperty brick:hasTag ] [ a owl:Restriction ;
+                        owl:hasValue tag:Conductivity ;
+                        owl:onProperty brick:hasTag ] ) ] .
+
+brick:Demand_Sensor a owl:Class ;
+    rdfs:subClassOf brick:Sensor ;
+    owl:equivalentClass [ owl:intersectionOf ( [ a owl:Restriction ;
+                        owl:hasValue tag:Sensor ;
+                        owl:onProperty brick:hasTag ] [ a owl:Restriction ;
+                        owl:hasValue tag:Power ;
+                        owl:onProperty brick:hasTag ] ) ] .
+
 brick:Differential_Pressure_Increase_Decrease_Step_Setpoint a owl:Class ;
     rdfs:subClassOf brick:Increase_Decrease_Step_Setpoint .
 
@@ -840,12 +999,26 @@ brick:Differential_Pressure_Integral_Time a owl:Class ;
 brick:Differential_Pressure_Integral_Time_Setpoint a owl:Class ;
     rdfs:subClassOf brick:Integral_Time_Setpoint .
 
+brick:Direction_Sensor a owl:Class ;
+    rdfs:subClassOf brick:Sensor .
+
+brick:Enthalpy_Sensor a owl:Class ;
+    rdfs:subClassOf brick:Sensor ;
+    owl:equivalentClass [ owl:intersectionOf ( [ a owl:Restriction ;
+                        owl:hasValue tag:Sensor ;
+                        owl:onProperty brick:hasTag ] [ a owl:Restriction ;
+                        owl:hasValue tag:Enthalpy ;
+                        owl:onProperty brick:hasTag ] ) ] .
+
 brick:Exhaust_Air a owl:Class ;
     rdfs:subClassOf brick:Air ;
     skos:definition "air that must be removed from a space due to contaminants, regardless of pressurization" .
 
 brick:Exhaust_Air_Flow_Integral_Time_Setpoint a owl:Class ;
     rdfs:subClassOf brick:Integral_Time_Setpoint .
+
+brick:Exhaust_Air_Flow_Sensor a owl:Class ;
+    rdfs:subClassOf brick:Air_Flow_Sensor .
 
 brick:Exhaust_Air_Flow_Setpoint a owl:Class ;
     rdfs:subClassOf brick:Air_Flow_Setpoint .
@@ -861,6 +1034,9 @@ brick:Flow_Setpoint a owl:Class ;
                         owl:onProperty brick:hasTag ] [ a owl:Restriction ;
                         owl:hasValue tag:Setpoint ;
                         owl:onProperty brick:hasTag ] ) ] .
+
+brick:Grains a owl:Class ;
+    rdfs:subClassOf brick:SubstanceProperty .
 
 brick:Heating_Coil a owl:Class ;
     rdfs:subClassOf brick:Coil ;
@@ -945,6 +1121,22 @@ brick:Variable_Air_Volume_Box a owl:Class ;
     rdfs:subClassOf brick:Terminal_Unit ;
     owl:equivalentClass brick:VAV .
 
+brick:Water_Flow_Sensor a owl:Class ;
+    rdfs:subClassOf brick:Flow_Sensor ;
+    owl:equivalentClass [ owl:intersectionOf ( [ a owl:Restriction ;
+                        owl:minCardinality 1 ;
+                        owl:onProperty brick:measures ;
+                        owl:someValuesFrom brick:Water ] [ a owl:Restriction ;
+                        owl:hasValue brick:Flow_Sensor ;
+                        owl:onProperty rdf:type ] ) ],
+        [ owl:intersectionOf ( [ a owl:Restriction ;
+                        owl:hasValue tag:Sensor ;
+                        owl:onProperty brick:hasTag ] [ a owl:Restriction ;
+                        owl:hasValue tag:Water ;
+                        owl:onProperty brick:hasTag ] [ a owl:Restriction ;
+                        owl:hasValue tag:Flow ;
+                        owl:onProperty brick:hasTag ] ) ] .
+
 brick:controls a owl:AsymmetricProperty,
         owl:IrreflexiveProperty,
         owl:ObjectProperty ;
@@ -1016,13 +1208,34 @@ bldg:VAV1 a brick:VAV .
 
 bldg:ZoneAir1 a brick:Air .
 
-brick:CO2_Sensor a owl:Class ;
+brick:Air_Enthalpy_Sensor a owl:Class ;
+    rdfs:subClassOf brick:Enthalpy_Sensor ;
+    owl:equivalentClass [ owl:intersectionOf ( [ a owl:Restriction ;
+                        owl:minCardinality 1 ;
+                        owl:onProperty brick:measures ;
+                        owl:someValuesFrom brick:Air ] [ a owl:Restriction ;
+                        owl:hasValue brick:Sensor ;
+                        owl:onProperty rdf:type ] ) ] .
+
+brick:Air_Grains_Sensor a owl:Class ;
     rdfs:subClassOf brick:Sensor ;
     owl:equivalentClass [ owl:intersectionOf ( [ a owl:Restriction ;
+                        owl:onProperty brick:measures ;
+                        owl:someValuesFrom brick:Air ] [ a owl:Restriction ;
+                        owl:onProperty brick:measures ;
+                        owl:someValuesFrom brick:Grains ] [ a owl:Restriction ;
+                        owl:hasValue brick:Sensor ;
+                        owl:onProperty rdf:type ] ) ],
+        [ owl:intersectionOf ( [ a owl:Restriction ;
                         owl:hasValue tag:Sensor ;
                         owl:onProperty brick:hasTag ] [ a owl:Restriction ;
-                        owl:hasValue tag:CO2 ;
+                        owl:hasValue tag:Air ;
+                        owl:onProperty brick:hasTag ] [ a owl:Restriction ;
+                        owl:hasValue tag:Grains ;
                         owl:onProperty brick:hasTag ] ) ] .
+
+brick:Angle_Sensor a owl:Class ;
+    rdfs:subClassOf brick:Sensor .
 
 brick:Chilled_Water_Differential_Pressure_Setpoint a owl:Class ;
     rdfs:subClassOf brick:Differential_Pressure_Setpoint .
@@ -1049,8 +1262,25 @@ brick:Cooling_Supply_Air_Flow_Setpoint a owl:Class ;
 brick:Damper_Position_Setpoint a owl:Class ;
     rdfs:subClassOf brick:Setpoint .
 
+brick:Dewpoint_Sensor a owl:Class ;
+    rdfs:subClassOf brick:Sensor ;
+    owl:equivalentClass [ owl:intersectionOf ( [ a owl:Restriction ;
+                        owl:minCardinality 1 ;
+                        owl:onProperty brick:measures ;
+                        owl:someValuesFrom brick:Air ] [ a owl:Restriction ;
+                        owl:hasValue brick:Sensor ;
+                        owl:onProperty rdf:type ] ) ],
+        [ owl:intersectionOf ( [ a owl:Restriction ;
+                        owl:hasValue tag:Sensor ;
+                        owl:onProperty brick:hasTag ] [ a owl:Restriction ;
+                        owl:hasValue tag:Dewpoint ;
+                        owl:onProperty brick:hasTag ] ) ] .
+
 brick:Differential_Pressure_Dead_Band_Setpoint a owl:Class ;
     rdfs:subClassOf brick:Dead_Band_Setpoint .
+
+brick:Discharge_Air_Flow_Sensor a owl:Class ;
+    rdfs:subClassOf brick:Air_Flow_Sensor .
 
 brick:Discharge_Air_Temperature_Dead_Band_Setpoint a owl:Class ;
     rdfs:subClassOf brick:Dead_Band_Setpoint .
@@ -1131,17 +1361,14 @@ brick:Return_Water_Temperature_Sensor a owl:Class ;
 brick:Room a owl:Class ;
     rdfs:subClassOf brick:Location .
 
-brick:Sensor a owl:Class ;
-    rdfs:subClassOf brick:Point ;
-    owl:equivalentClass [ owl:intersectionOf ( [ a owl:Restriction ;
-                        owl:hasValue tag:Sensor ;
-                        owl:onProperty brick:hasTag ] ) ] .
-
 brick:Supply_Air_Temperature_Dead_Band_Setpoint a owl:Class ;
     rdfs:subClassOf brick:Dead_Band_Setpoint .
 
 brick:Supply_Water_Differential_Pressure_Proportional_Band_Setpoint a owl:Class ;
     rdfs:subClassOf brick:Proportional_Band_Setpoint .
+
+brick:Supply_Water_Flow_Sensor a owl:Class ;
+    rdfs:subClassOf brick:Water_Flow_Sensor .
 
 brick:Supply_Water_Temperature_Proportional_Band_Setpoint a owl:Class ;
     rdfs:subClassOf brick:Proportional_Band_Setpoint .
@@ -1160,10 +1387,6 @@ brick:Temperature_Setpoint a owl:Class ;
 brick:Terminal_Unit a owl:Class ;
     rdfs:subClassOf brick:HVAC ;
     skos:definition "A device that regulates the volumetric flow rate and/or the temperature of the controlled medium." .
-
-brick:Water a owl:Class ;
-    rdfs:subClassOf brick:Liquid ;
-    skos:definition "transparent, odorless, tasteless liquid; a compound of hydrogen and oxygen (H2O), containing 11.188% hydrogen and 88.812% oxygen by mass; freezing at 32°F (0°C); boiling near 212°F (100°C)." .
 
 brick:Water_Temperature_Setpoint a owl:Class ;
     rdfs:subClassOf brick:Temperature_Setpoint ;
@@ -1184,6 +1407,14 @@ tag:Heat a brick:Tag .
 
 brick:Chiller a owl:Class ;
     rdfs:subClassOf brick:HVAC .
+
+brick:Current_Sensor a owl:Class ;
+    rdfs:subClassOf brick:Sensor ;
+    owl:equivalentClass [ owl:intersectionOf ( [ a owl:Restriction ;
+                        owl:hasValue tag:Sensor ;
+                        owl:onProperty brick:hasTag ] [ a owl:Restriction ;
+                        owl:hasValue tag:Current ;
+                        owl:onProperty brick:hasTag ] ) ] .
 
 brick:Differential_Pressure_Setpoint a owl:Class ;
     rdfs:subClassOf brick:Pressure_Setpoint .
@@ -1264,12 +1495,36 @@ brick:Air_Temperature_Setpoint a owl:Class ;
                         owl:hasValue tag:Setpoint ;
                         owl:onProperty brick:hasTag ] ) ] .
 
+brick:CO2_Sensor a owl:Class ;
+    rdfs:subClassOf brick:Sensor ;
+    owl:equivalentClass [ owl:intersectionOf ( [ a owl:Restriction ;
+                        owl:hasValue tag:Sensor ;
+                        owl:onProperty brick:hasTag ] [ a owl:Restriction ;
+                        owl:hasValue tag:CO2 ;
+                        owl:onProperty brick:hasTag ] ) ],
+        [ owl:intersectionOf ( [ a owl:Restriction ;
+                        owl:onProperty brick:measures ;
+                        owl:someValuesFrom brick:CO2 ] [ a owl:Restriction ;
+                        owl:hasValue brick:Sensor ;
+                        owl:onProperty rdf:type ] ) ] .
+
 brick:Damper a owl:Class ;
     rdfs:subClassOf brick:HVAC ;
     skos:definition "Element inserted into an air-distribution system or element of an air-distribution system permitting modification of the air resistance of the system and consequently changing the airflow rate or shutting off the airflow." .
 
 brick:Discharge_Air_Static_Pressure_Setpoint a owl:Class ;
     rdfs:subClassOf brick:Static_Pressure_Setpoint .
+
+brick:Fan_Air_Flow_Sensor a owl:Class ;
+    rdfs:subClassOf brick:Air_Flow_Sensor .
+
+brick:Flow_Sensor a owl:Class ;
+    rdfs:subClassOf brick:Sensor ;
+    owl:equivalentClass [ owl:intersectionOf ( [ a owl:Restriction ;
+                        owl:hasValue tag:Sensor ;
+                        owl:onProperty brick:hasTag ] [ a owl:Restriction ;
+                        owl:hasValue tag:Flow ;
+                        owl:onProperty brick:hasTag ] ) ] .
 
 brick:Laboratory a owl:Class ;
     rdfs:subClassOf brick:Room .
@@ -1280,6 +1535,10 @@ brick:Supply_Air_Flow_Setpoint a owl:Class ;
 brick:VFD a owl:Class ;
     rdfs:subClassOf brick:HVAC ;
     owl:equivalentClass brick:VFD .
+
+brick:Water a owl:Class ;
+    rdfs:subClassOf brick:Liquid ;
+    skos:definition "transparent, odorless, tasteless liquid; a compound of hydrogen and oxygen (H2O), containing 11.188% hydrogen and 88.812% oxygen by mass; freezing at 32°F (0°C); boiling near 212°F (100°C)." .
 
 tag:Coil a brick:Tag .
 
@@ -1302,14 +1561,10 @@ brick:Point a owl:Class ;
                         owl:hasValue tag:Point ;
                         owl:onProperty brick:hasTag ] ) ] .
 
-tag:Air a brick:Tag .
-
-brick:Air a owl:Class ;
-    rdfs:subClassOf brick:Gas .
-
 brick:Air_Temperature_Sensor a owl:Class ;
     rdfs:subClassOf brick:Temperature_Sensor ;
     owl:equivalentClass [ owl:intersectionOf ( [ a owl:Restriction ;
+                        owl:minCardinality 1 ;
                         owl:onProperty brick:measures ;
                         owl:someValuesFrom brick:Air ] [ a owl:Restriction ;
                         owl:hasValue brick:Temperature_Sensor ;
@@ -1325,18 +1580,34 @@ brick:Water_Temperature_Sensor a owl:Class ;
                         owl:hasValue brick:Temperature_Sensor ;
                         owl:onProperty rdf:type ] ) ] .
 
-brick:measures a owl:AsymmetricProperty,
-        owl:IrreflexiveProperty,
-        owl:ObjectProperty ;
-    rdfs:domain brick:Point ;
-    rdfs:range brick:Substance ;
-    owl:inverseOf brick:isMeasuredBy .
+tag:Air a brick:Tag .
+
+brick:Air_Flow_Sensor a owl:Class ;
+    rdfs:subClassOf brick:Flow_Sensor ;
+    owl:equivalentClass [ owl:intersectionOf ( [ a owl:Restriction ;
+                        owl:hasValue tag:Sensor ;
+                        owl:onProperty brick:hasTag ] [ a owl:Restriction ;
+                        owl:hasValue tag:Air ;
+                        owl:onProperty brick:hasTag ] [ a owl:Restriction ;
+                        owl:hasValue tag:Flow ;
+                        owl:onProperty brick:hasTag ] ) ],
+        [ owl:intersectionOf ( [ a owl:Restriction ;
+                        owl:minCardinality 1 ;
+                        owl:onProperty brick:measures ;
+                        owl:someValuesFrom brick:Air ] [ a owl:Restriction ;
+                        owl:hasValue brick:Flow_Sensor ;
+                        owl:onProperty rdf:type ] ) ] .
 
 brick:Demand_Setpoint a owl:Class ;
     rdfs:subClassOf brick:Setpoint .
 
 brick:Static_Pressure_Setpoint a owl:Class ;
     rdfs:subClassOf brick:Pressure_Setpoint .
+
+brick:SubstanceProperty a owl:Class .
+
+brick:Air a owl:Class ;
+    rdfs:subClassOf brick:Gas .
 
 brick:Dead_Band_Setpoint a owl:Class ;
     rdfs:subClassOf brick:Setpoint .
@@ -1366,6 +1637,19 @@ brick:Equipment a owl:Class ;
 
 brick:Proportional_Band_Setpoint a owl:Class ;
     rdfs:subClassOf brick:Setpoint .
+
+brick:measures a owl:AsymmetricProperty,
+        owl:IrreflexiveProperty,
+        owl:ObjectProperty ;
+    rdfs:domain brick:Point ;
+    rdfs:range brick:Substance ;
+    owl:inverseOf brick:isMeasuredBy .
+
+brick:Sensor a owl:Class ;
+    rdfs:subClassOf brick:Point ;
+    owl:equivalentClass [ owl:intersectionOf ( [ a owl:Restriction ;
+                        owl:hasValue tag:Sensor ;
+                        owl:onProperty brick:hasTag ] ) ] .
 
 brick:Setpoint a owl:Class ;
     rdfs:subClassOf brick:Point ;

@@ -1,4 +1,5 @@
 from rdflib import Graph, Literal, BNode, Namespace, RDF, URIRef
+from rdflib.namespace import XSD
 from rdflib.collection import Collection
 from rdflib.extras.infixowl import Restriction
 
@@ -46,6 +47,8 @@ def add_class_restriction(klass, definition):
         G.add( (restriction, A, OWL.Restriction) )
         G.add( (restriction, OWL.onProperty, item[0]) )
         G.add( (restriction, item[1], item[2]) )
+        if len(item) == 5:
+            G.add( (restriction, item[3], Literal('{0}'.format(item[4]), datatype=XSD.integer)) )
     G.add( (BRICK[klass], OWL.equivalentClass, equivalent_class) )
     G.add( (equivalent_class, OWL.intersectionOf, list_name) )
     c = Collection(G, list_name, l)
@@ -134,11 +137,15 @@ roots = {
     },
     "Tag": {},
     "Substance": {},
+    "SubstanceProperty": {},
 }
 define_rootclasses(roots)
 
 from point import point_definitions
 define_subclasses(point_definitions, BRICK.Point)
+
+from sensor import sensor_definitions
+define_subclasses(sensor_definitions, BRICK.Point)
 
 from location import location_subclasses
 define_subclasses(location_subclasses, BRICK.Location)
@@ -150,6 +157,9 @@ define_subclasses(valve_subclasses, BRICK.Valve)
 
 from substances import substances
 define_subclasses(substances, BRICK.Substance)
+
+from substance_properties import substance_properties
+define_subclasses(substance_properties, BRICK.SubstanceProperty)
 
 from properties import properties
 define_properties(properties)
@@ -175,6 +185,10 @@ G.add( (BLDG.ZoneAir1, A, BRICK.Air) )
 G.add( (BLDG.TS1, BRICK.measures, BLDG.ZoneAir1) )
 G.add( (BLDG.TS2, A, BRICK.Air_Temperature_Sensor) )
 
+G.add( (BLDG.AFS1, A, BRICK.Air_Flow_Sensor) )
+
+G.add( (BLDG.co2s1, A, BRICK.CO2_Level_Sensor) )
+
 
 s = G.serialize(format='ttl')
 print(len(G))
@@ -183,8 +197,55 @@ with open('Brick.ttl','wb') as f:
     f.write(s)
 
 # Apply reasoner
+import time
 import owlrl
+t1 = time.time()
 owlrl.DeductiveClosure(owlrl.OWLRL_Semantics).expand(G)
+t2 = time.time()
+print("Reasoning took {0}".format(t2-t1))
+
+# TODO: just write it using Python and simple SPARQL queries
+testq1 = """
+SELECT DISTINCT ?sensor ?substance_type (count(?substance) as ?count) WHERE {
+    ?sensor a brick:Sensor .
+    ?sensor a ?restriction .
+    ?restriction a owl:Restriction .
+    ?restriction owl:onProperty brick:measures .
+    ?restriction owl:someValuesFrom ?substance_type .
+    OPTIONAL { ?sensor brick:measures ?substance }
+} GROUP BY ?sensor ?substance_type
+"""
+
+for l in G.query(testq1):
+    if l[2].value == 0:
+        newsubstance = BNode()
+        print("Adding {0} measures new {1} {2}".format(l[0], l[1], newsubstance))
+        G.add( (l[0], BRICK.measures, newsubstance) )
+        G.add( (newsubstance, RDF.type, l[1]) )
+print('-'*20)
 
 # now you can query!
 # ipython -i generate_brick.py
+
+res1 = G.query("SELECT DISTINCT ?co2tag WHERE { bldg:co2s1 brick:hasTag ?co2tag }")
+assert len(res1) == 3
+
+# which sensors measure CO2?
+res2 = G.query("SELECT DISTINCT ?sensor WHERE { ?sensor brick:measures ?substance . ?substance rdf:type brick:CO2 }")
+print('CO2 sensors: ', list(res2))
+
+# measure air? use abbreviated form too
+res3 = G.query("SELECT DISTINCT ?sensor WHERE { ?sensor brick:measures/rdf:type brick:Air }")
+print('Air sensors: ', list(res3))
+
+# sensors that measure air temperature
+res4 = G.query("SELECT DISTINCT ?sensor WHERE { ?sensor brick:measures/rdf:type brick:Air . ?sensor rdf:type brick:Temperature_Sensor }")
+print('Air temperature sensors: ', list(res4))
+
+# air flow sensors
+res4 = G.query("SELECT DISTINCT ?sensor WHERE { ?sensor rdf:type brick:Air_Flow_Sensor }")
+print('Air flow sensors (using class): ', list(res4))
+
+# air flow sensors
+res4 = G.query("SELECT DISTINCT ?sensor WHERE { ?sensor brick:hasTag tag:Air . ?sensor brick:hasTag tag:Sensor . ?sensor brick:hasTag tag:Flow }")
+print('Air flow sensors (using tags): ', list(res4))
