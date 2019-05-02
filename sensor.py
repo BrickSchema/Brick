@@ -24,9 +24,8 @@ sensor_definitions = {
                     [BRICK.hasTag, TAG.Grains],
                 ],
                 "substances": [
-                    [BRICK.measures, OWL.someValuesFrom, BRICK.Air],
-                    [BRICK.measures, OWL.someValuesFrom, BRICK.Grains],
-                    [RDF.type, OWL.hasValue, BRICK.Sensor],
+                    [BRICK.measures, BRICK.Air],
+                    [BRICK.measures, BRICK.Grains],
                 ],
                 "subclasses": {
                     "Outside_Air_Grains_Sensor": {},
@@ -45,8 +44,8 @@ sensor_definitions = {
                     [BRICK.hasTag, TAG.CO2],
                 ],
                 "substances": [
-                    [BRICK.measures, OWL.someValuesFrom, BRICK.CO2],
-                    [RDF.type, OWL.hasValue, BRICK.Sensor],
+                    [BRICK.measures, BRICK.Air],
+                    [BRICK.measures, BRICK.CO2],
                 ],
                 "subclasses": {
                     "CO2_Differential_Sensor": {},
@@ -60,18 +59,20 @@ sensor_definitions = {
                     [BRICK.hasTag, TAG.Sensor],
                     [BRICK.hasTag, TAG.Capacity],
                 ],
+                "substances": [
+                    [BRICK.measures, BRICK.Capacity],
+                ],
             },
             "Conductivity_Sensor": {
                 "tagvalues": [
                     [BRICK.hasTag, TAG.Sensor],
                     [BRICK.hasTag, TAG.Conductivity],
                 ],
+                "substances": [
+                    [BRICK.measures, BRICK.Conductivity],
+                ],
                 "subclasses": {
                     "Deionised_Water_Conductivity_Sensor": {
-                        "substances": [
-                            [BRICK.measures, OWL.someValuesFrom, BRICK.Water, OWL.minCardinality, 1],
-                            [RDF.type, OWL.hasValue, BRICK.Sensor],
-                        ],
                     },
                 },
             },
@@ -103,10 +104,6 @@ sensor_definitions = {
                     [BRICK.hasTag, TAG.Sensor],
                     [BRICK.hasTag, TAG.Dewpoint],
                 ],
-                "substances": [
-                    [BRICK.measures, OWL.someValuesFrom, BRICK.Air, OWL.minCardinality, 1],
-                    [RDF.type, OWL.hasValue, BRICK.Sensor],
-                ],
                 "subclasses": {
                     "Outside_Air_Dewpoint_Sensor": {},
                     "Return_Air_Dewpoint_Sensor": {},
@@ -130,10 +127,6 @@ sensor_definitions = {
                 ],
                 "subclasses": {
                     "Air_Enthalpy_Sensor": {
-                        "substances": [
-                            [BRICK.measures, OWL.someValuesFrom, BRICK.Air, OWL.minCardinality, 1],
-                            [RDF.type, OWL.hasValue, BRICK.Sensor],
-                        ],
                         "subclasses": {
                             "Outside_Air_Enthalpy_Sensor": {},
                             "Return_Air_Enthalpy_Sensor": {},
@@ -146,16 +139,19 @@ sensor_definitions = {
                     [BRICK.hasTag, TAG.Sensor],
                     [BRICK.hasTag, TAG.Flow],
                 ],
+                "substances": [
+                    [BRICK.measures, BRICK.Flow],
+                ],
                 "subclasses": {
                     "Air_Flow_Sensor": {
+                        "substances": [
+                            [BRICK.measures, BRICK.Flow],
+                            [BRICK.measures, BRICK.Air],
+                        ],
                         "tagvalues": [
                             [BRICK.hasTag, TAG.Sensor],
                             [BRICK.hasTag, TAG.Air],
                             [BRICK.hasTag, TAG.Flow],
-                        ],
-                        "substances": [
-                            [BRICK.measures, OWL.someValuesFrom, BRICK.Air, OWL.minCardinality, 1],
-                            [RDF.type, OWL.hasValue, BRICK.Flow_Sensor],
                         ],
                         "subclasses": {
                             "Bypass_Air_Flow_Sensor": {},
@@ -191,10 +187,6 @@ sensor_definitions = {
                             [BRICK.hasTag, TAG.Water],
                             [BRICK.hasTag, TAG.Flow],
                         ],
-                        "substances": [
-                            [BRICK.measures, OWL.someValuesFrom, BRICK.Water, OWL.minCardinality, 1],
-                            [RDF.type, OWL.hasValue, BRICK.Flow_Sensor],
-                        ],
                         "subclasses": {
                             "Supply_Water_Flow_Sensor": {
                                 "subclasses": {
@@ -220,35 +212,15 @@ sensor_definitions = {
                 ],
                 "subclasses": {
                     "Discharge_Air_Humidity_Sensor:":{
-                        "substances": [
-                            [BRICK.measures, OWL.someValuesFrom, BRICK.Discharge_Air],
-                            [RDF.type, OWL.hasValue, BRICK.Humidity_Sensor],
-                        ],
                     },
                     "Exhaust_Air_Humidity_Sensor:":{
-                        "substances": [
-                            [BRICK.measures, OWL.someValuesFrom, BRICK.Exhaust_Air],
-                            [RDF.type, OWL.hasValue, BRICK.Humidity_Sensor],
-                        ],
                     },
                     "Outside_Air_Humidity_Sensor:":{
-                        "substances": [
-                            [BRICK.measures, OWL.someValuesFrom, BRICK.Outside_Air],
-                            [RDF.type, OWL.hasValue, BRICK.Humidity_Sensor],
-                        ],
                     },
                     "Relative_Humidity_Sensor:":{},
                     "Return_Air_Humidity_Sensor:":{
-                        "substances": [
-                            [BRICK.measures, OWL.someValuesFrom, BRICK.Return_Air],
-                            [RDF.type, OWL.hasValue, BRICK.Humidity_Sensor],
-                        ],
                     },
                     "Supply_Air_Humidity_Sensor:":{
-                        "substances": [
-                            [BRICK.measures, OWL.someValuesFrom, BRICK.Supply_Air],
-                            [RDF.type, OWL.hasValue, BRICK.Humidity_Sensor],
-                        ],
                     },
                     "Zone_Humidity_Sensor:":{},
                 },
@@ -369,12 +341,6 @@ sensor_definitions = {
                         },
                     },
                     "Air_Temperature_Sensor": {
-                        "substances": [
-                            #[BRICK.measures, OWL.someValuesFrom, BRICK.Air],
-                            #[RDF.type, OWL.hasValue, BRICK.Temperature_Sensor],
-                            [BRICK.measures, OWL.someValuesFrom, BRICK.Air, OWL.minCardinality, 1],
-                            [RDF.type, OWL.hasValue, BRICK.Temperature_Sensor],
-                        ],
                         "subclasses": {
                             "Discharge_Air_Temperature_Sensor": {
                                 OWL.equivalentClass: "Supply_Air_Temperature_Sensor",
@@ -386,28 +352,12 @@ sensor_definitions = {
                             },
                             "Zone_Air_Temperature_Sensor": {},
                             "Exhaust_Air_Temperature_Sensor": {
-                                "substances": [
-                                    [BRICK.measures, OWL.someValuesFrom, BRICK.Exhaust_Air],
-                                    [RDF.type, OWL.hasValue, BRICK.Temperature_Sensor],
-                                ],
                             },
                             "Mixed_Air_Temperature_Sensor": {
-                                "substances": [
-                                    [BRICK.measures, OWL.someValuesFrom, BRICK.Mixed_Air],
-                                    [RDF.type, OWL.hasValue, BRICK.Temperature_Sensor],
-                                ],
                             },
                             "Return_Air_Temperature_Sensor": {
-                                "substances": [
-                                    [BRICK.measures, OWL.someValuesFrom, BRICK.Return_Air],
-                                    [RDF.type, OWL.hasValue, BRICK.Temperature_Sensor],
-                                ],
                             },
                             "Outside_Air_Temperature_Sensor": {
-                                "substances": [
-                                    [BRICK.measures, OWL.someValuesFrom, BRICK.Outside_Air],
-                                    [RDF.type, OWL.hasValue, BRICK.Temperature_Sensor],
-                                ],
                                 "subclasses": {
                                     "Outside_Air_Lockout_Temperature_Differential_Sensor": {
                                         "subclasses": {
@@ -420,16 +370,8 @@ sensor_definitions = {
                         },
                     },
                     "Water_Temperature_Sensor": {
-                        "substances": [
-                            [BRICK.measures, OWL.someValuesFrom, BRICK.Water],
-                            [RDF.type, OWL.hasValue, BRICK.Temperature_Sensor],
-                        ],
                         "subclasses": {
                             "Chilled_Water_Supply_Temperature_Sensor": {
-                                "substances": [
-                                    [BRICK.measures, OWL.someValuesFrom, BRICK.Chilled_Water],
-                                    [RDF.type, OWL.hasValue, BRICK.Temperature_Sensor],
-                                ],
                                 OWL.equivalentClass: "Chilled_Water_Discharge_Temperature_Sensor",
                             },
                             "Heat_Exchanger_Supply_Water_Temperature_Sensor": {},

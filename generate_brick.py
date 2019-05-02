@@ -61,7 +61,7 @@ def define_subclasses(definitions, superclass):
             if isinstance(v, list) and k == "tagvalues":
                 add_restriction(subclass, v)
             elif isinstance(v, list) and k == "substances":
-                add_class_restriction(subclass, v)
+                add_restriction(subclass, v)
             elif not apply_prop(subclass, k, v):
                 if isinstance(v, dict) and k == "subclasses":
                     define_subclasses(v, BRICK[subclass])
@@ -137,7 +137,7 @@ roots = {
     },
     "Tag": {},
     "Substance": {},
-    "SubstanceProperty": {},
+    "Quantity": {},
 }
 define_rootclasses(roots)
 
@@ -161,8 +161,8 @@ define_subclasses(valve_subclasses, BRICK.Valve)
 from substances import substances
 define_subclasses(substances, BRICK.Substance)
 
-from substance_properties import substance_properties
-define_subclasses(substance_properties, BRICK.SubstanceProperty)
+from quantities import quantity_definitions
+define_subclasses(quantity_definitions, BRICK.Quantity)
 
 from properties import properties
 define_properties(properties)
@@ -207,25 +207,25 @@ owlrl.DeductiveClosure(owlrl.OWLRL_Semantics).expand(G)
 t2 = time.time()
 print("Reasoning took {0}".format(t2-t1))
 
-# TODO: just write it using Python and simple SPARQL queries
-testq1 = """
-SELECT DISTINCT ?sensor ?substance_type (count(?substance) as ?count) WHERE {
-    ?sensor a brick:Sensor .
-    ?sensor a ?restriction .
-    ?restriction a owl:Restriction .
-    ?restriction owl:onProperty brick:measures .
-    ?restriction owl:someValuesFrom ?substance_type .
-    OPTIONAL { ?sensor brick:measures ?substance }
-} GROUP BY ?sensor ?substance_type
-"""
-
-for l in G.query(testq1):
-    if l[2].value == 0:
-        newsubstance = BNode()
-        print("Adding {0} measures new {1} {2}".format(l[0], l[1], newsubstance))
-        G.add( (l[0], BRICK.measures, newsubstance) )
-        G.add( (newsubstance, RDF.type, l[1]) )
-print('-'*20)
+## TODO: just write it using Python and simple SPARQL queries
+#testq1 = """
+#SELECT DISTINCT ?sensor ?substance_type (count(?substance) as ?count) WHERE {
+#    ?sensor a brick:Sensor .
+#    ?sensor a ?restriction .
+#    ?restriction a owl:Restriction .
+#    ?restriction owl:onProperty brick:measures .
+#    ?restriction owl:someValuesFrom ?substance_type .
+#    OPTIONAL { ?sensor brick:measures ?substance }
+#} GROUP BY ?sensor ?substance_type
+#"""
+#
+#for l in G.query(testq1):
+#    if l[2].value == 0:
+#        newsubstance = BNode()
+#        print("Adding {0} measures new {1} {2}".format(l[0], l[1], newsubstance))
+#        G.add( (l[0], BRICK.measures, newsubstance) )
+#        G.add( (newsubstance, RDF.type, l[1]) )
+#print('-'*20)
 
 # now you can query!
 # ipython -i generate_brick.py
@@ -234,15 +234,15 @@ res1 = G.query("SELECT DISTINCT ?co2tag WHERE { bldg:co2s1 brick:hasTag ?co2tag 
 assert len(res1) == 3
 
 # which sensors measure CO2?
-res2 = G.query("SELECT DISTINCT ?sensor WHERE { ?sensor brick:measures ?substance . ?substance rdf:type brick:CO2 }")
+res2 = G.query("SELECT DISTINCT ?sensor WHERE { ?sensor brick:measures brick:CO2 }")
 print('CO2 sensors: ', list(res2))
 
 # measure air? use abbreviated form too
-res3 = G.query("SELECT DISTINCT ?sensor WHERE { ?sensor brick:measures/rdf:type brick:Air }")
+res3 = G.query("SELECT DISTINCT ?sensor WHERE { ?sensor brick:measures brick:Air }")
 print('Air sensors: ', list(res3))
 
 # sensors that measure air temperature
-res4 = G.query("SELECT DISTINCT ?sensor WHERE { ?sensor brick:measures/rdf:type brick:Air . ?sensor rdf:type brick:Temperature_Sensor }")
+res4 = G.query("SELECT DISTINCT ?sensor WHERE { ?sensor brick:measures brick:Air . ?sensor rdf:type brick:Temperature_Sensor }")
 print('Air temperature sensors: ', list(res4))
 
 # air flow sensors

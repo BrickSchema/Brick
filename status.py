@@ -14,7 +14,7 @@ A = RDF.type
 status_definitions = {
     "Status": {
         "tagvalues": [
-            [BRICK.hasTag, TAG.Sensor]
+            [BRICK.hasTag, TAG.Status]
         ],
         "subclasses": {
             "Direction_Status": {
