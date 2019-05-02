@@ -60,9 +60,12 @@ substances = {
             "Ice": {
                 SKOS.definition: Literal("Water in its solid form"),
             },
+            "Frost": {},
+            "Hail": {},
         },
     },
     "Enthalpy": {
         SKOS.definition: Literal("(also known as heat content), thermodynamic quantity equal to the sum of the internal energy of a system plus the product of the pressure volume work done on the system. H = E + pv, where H = enthalpy or total heat content, E = internal energy of the system, p = pressure, and v = volume. (Compare to [[specific enthalpy]].)"),
     },
+    "Luminance": {},
 }

@@ -23,4 +23,7 @@ substance_properties = {
     "Power": {},
     "Energy": {},
     "Enthalpy": {},
+    "Frequency": {},
+    "Pressure": {},
+    "Humidity": {},
 }

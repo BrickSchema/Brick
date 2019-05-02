@@ -206,6 +206,151 @@ sensor_definitions = {
                     },
                 },
             },
+            "Frequency_Sensor": {
+                "subclasses": {
+                    "Output_Frequency_Sensor": {},
+                },
+            },
+            "Frost_Sensor": {},
+            "Hail_Sensor": {},
+            "Humidity_Sensor": {
+                "tagvalues": [
+                    [BRICK.hasTag, TAG.Sensor],
+                    [BRICK.hasTag, TAG.Humidity],
+                ],
+                "subclasses": {
+                    "Discharge_Air_Humidity_Sensor:":{
+                        "substances": [
+                            [BRICK.measures, OWL.someValuesFrom, BRICK.Discharge_Air],
+                            [RDF.type, OWL.hasValue, BRICK.Humidity_Sensor],
+                        ],
+                    },
+                    "Exhaust_Air_Humidity_Sensor:":{
+                        "substances": [
+                            [BRICK.measures, OWL.someValuesFrom, BRICK.Exhaust_Air],
+                            [RDF.type, OWL.hasValue, BRICK.Humidity_Sensor],
+                        ],
+                    },
+                    "Outside_Air_Humidity_Sensor:":{
+                        "substances": [
+                            [BRICK.measures, OWL.someValuesFrom, BRICK.Outside_Air],
+                            [RDF.type, OWL.hasValue, BRICK.Humidity_Sensor],
+                        ],
+                    },
+                    "Relative_Humidity_Sensor:":{},
+                    "Return_Air_Humidity_Sensor:":{
+                        "substances": [
+                            [BRICK.measures, OWL.someValuesFrom, BRICK.Return_Air],
+                            [RDF.type, OWL.hasValue, BRICK.Humidity_Sensor],
+                        ],
+                    },
+                    "Supply_Air_Humidity_Sensor:":{
+                        "substances": [
+                            [BRICK.measures, OWL.someValuesFrom, BRICK.Supply_Air],
+                            [RDF.type, OWL.hasValue, BRICK.Humidity_Sensor],
+                        ],
+                    },
+                    "Zone_Humidity_Sensor:":{},
+                },
+            },
+            "Luminance_Sensor": {
+                "subclasses": {
+                    "Outside_Luminance_Sensor": {},
+                },
+            },
+            "Motion_Sensor": {
+                "subclasses": {
+                    "PIR_Sensor": {},
+                },
+            },
+            "Occupancy_Sensor": {
+                "subclasses": {
+                    "PIR_Sensor": {},
+                },
+            },
+            "Piezoelectric_Sensor": {},
+            "Pressure_Sensor": {
+                "subclasses": {
+                    "Differential_Pressure_Sensor": {
+                        "subclasses": {
+                            "Chilled_Water_Differential_Pressure_Sensor": {},
+                            "Filter_Differential_Pressure_Sensor": {},
+                            "Heat_Wheel_Differential_Pressure_Sensor": {},
+                            "Hot_Water_Differential_Pressure_Sensor": {
+                                "subclasses": {
+                                    "Medium_Temperature_Hot_Water_Differential_Pressure_Sensor": {},
+                                },
+                            },
+                        },
+                    },
+                    "Static_Pressure_Sensor": {
+                        "subclasses": {
+                            "Building_Static_Pressure_Sensor:": {},
+                            "Discharge_Air_Static_Pressure_Sensor:": {},
+                            "Supply_Air_Static_Pressure_Sensor:": {},
+                            "Exhaust_Air_Static_Pressure_Sensor:": {
+                                "subclasses": {
+                                    "Average_Exhaust_Air_Static_Pressure_Sensor:": {},
+                                    "Lowest_Exhaust_Air_Static_Pressure_Sensor:": {},
+                                },
+                            },
+                        },
+                    },
+                    "Velocity_Pressure_Sensor:": {
+                        "subclasses": {
+                            "Discharge_Air_Velocity_Pressure_Sensor:": {},
+                            "Exhaust_Air_Velocity_Pressure_Sensor:": {},
+                            "Supply_Air_Velocity_Pressure_Sensor:": {},
+                        },
+                    }
+                },
+            },
+            "Rain_Sensor": {
+                "subclasses": {
+                    "Rain_Duration_Sensor": {},
+                },
+            },
+            "Duration_Sensor": {
+                "subclasses": {
+                    "Rain_Duration_Sensor": {},
+                    "Run_Time_Sensor": {},
+                    "On_Timer_Sensor": {},
+                },
+            },
+            "Solar_Radiance_Sensor": {},
+            "Speed_Sensor": {
+                "subclasses": {
+                    "Differential_Speed_Sensor": {
+                        "subclasses": {
+                            "Heat_Wheel_Speed_Sensor": {},
+                            "Return_Fan_Differential_Speed_Sensor": {},
+                        },
+                    },
+                    "Motor_Speed_Sensor": {},
+                    "Wind_Speed_Sensor": {},
+                },
+            },
+            "Torque_Sensor": {
+                "subclasses": {
+                    "Motor_Torque_Sensor": {},
+                },
+            },
+            "Trace_Heat_Sensor": {},
+            "Voltage_Sensor": {
+                "subclasses": {
+                    "Battery_Voltage_Sensor": {},
+                    "DC_Bus_Voltage_Sensor": {},
+                    "Heat_Wheel_Voltage_Sensor": {},
+                    "Output_Voltage_Sensor": {},
+                },
+            },
+            "Water_Level_Sensor": {
+                "subclasses": {
+                    "Deionised_Water_Level_Sensor": {
+                        OWL.equivalentClass: "DI_Water_Level_Sensor",
+                    }
+                },
+            },
             "Temperature_Sensor": {
                 "tagvalues": [
                     [BRICK.hasTag, TAG.Sensor],
