@@ -107,41 +107,48 @@ This means that a temperature sensor `:ts1` could be defined in two different wa
 
 ### Substances
 
-Brick now defines a hierarchy of substances (`substances.py`) as a set of classes.
-Defining these as classes permits the instantiation of a substance, which represents a particular section of duct/pipe/etc that sensors and equipment can interact with.
+Brick now defines a hierarchy of substances (`substances.py`) and a hierarchy of quantities (`quantities.py`).
+Substances and quantities can be related to equipment and points.
+
+Not all of this is implemented. In the current prototype, sensors are related to substances and quantities
+through the `brick:measures` relationship.
 
 ```
 :ts1    a       brick:Temperature_Sensor
-:za1    a       brick:Air
-:za1    brick:hasLocation   :Room_410
-:ts1    brick:measures      :za1
+:ts1    brick:measures      :Air
+
+# this implies the following
+:ts1    a       brick:Air_Temperature_Sensor
 ```
 
-Here, the `measures` relationship ties a temperature sensor to the air in a particular room.
-Brick uses OWL restrictions to refine classes based on such relationships.
-For this example, because `:ts1` measures Air (specifically, a member of the `brick:Air` class), OWL infers our sensor as a `brick:Air_Temperature_Sensor`.
+We can further subclass substances to provide system- or process-level context to their definitions:
 
-Here's what that looks like in turtle:
+```
+:ts1    a       brick:Sensor
+:ts1    brick:measures      brick:Return_Air
+:ts1    brick:measures      brick:Temperature
+
+# implies...
+
+:ts1    a       brick:Return_Air_Temperature_Sensor
+```
+
+Brick uses OWL restrictions to refine classes based on such relationships.
+For this example, because `:ts1` measures Air (specifically the `brick:Air` class), OWL infers our sensor as a `brick:Air_Temperature_Sensor`.
+
+Here's what that the definition looks like in turtle:
 
 ```
 brick:Air_Temperature_Sensor a owl:Class ;
     rdfs:subClassOf brick:Temperature_Sensor ;
-    owl:equivalentClass [ owl:intersectionOf (
-                            [
-                              a owl:Restriction ;
-                              owl:onProperty brick:measures ;
-                              owl:someValuesFrom brick:Air
-                            ]
-                            [
-                              a owl:Restriction ;
-                              owl:hasValue brick:Temperature_Sensor ;
-                              owl:onProperty rdf:type
-                            ]
-                        ) ] .
+    owl:equivalentClass [ owl:intersectionOf ( [ a owl:Restriction ;
+                        owl:hasValue brick:Temperature ;
+                        owl:onProperty brick:measures ] [ a owl:Restriction ;
+                        owl:hasValue brick:Air ;
+                        owl:onProperty brick:measures ] ) ] .
 ```
 
-A limitation of this approach is we can only perform this inference in one direction.
-If a `brick:Temperature_Sensor` measures an instance of `brick:Air`, we can infer it is a `brick:Air_Temperature_Sensor`, but we cannot take an `brick:Air_Temperature_Sensor` and infer which air it measures.
+**Note**: we are using classes as values here, which is different than the rest of Brick. This is called ["punning"](https://www.w3.org/2007/OWL/wiki/Punning#Using_Classes_as_Property_Values). This is to avoid having to create instances of substances for our sensors to measure and so on, but reserves the possibility to implement this in the future. Instances of substances can model regions/chunks of "stuff" in a stage of a process, e.g. the water entering a chiller or the mixed air region of an air handling unit.
 
 ## Python Framework
 
