@@ -184,9 +184,9 @@ G.add( (BLDG.CH1, A, BRICK.Chiller) )
 
 # This gets inferred as an air temperature sensor
 G.add( (BLDG.TS1, A, BRICK.Temperature_Sensor) )
-G.add( (BLDG.ZoneAir1, A, BRICK.Air) )
-G.add( (BLDG.TS1, BRICK.measures, BLDG.ZoneAir1) )
+G.add( (BLDG.TS1, BRICK.measures, BRICK.Air) )
 G.add( (BLDG.TS2, A, BRICK.Air_Temperature_Sensor) )
+
 
 G.add( (BLDG.AFS1, A, BRICK.Air_Flow_Sensor) )
 
@@ -206,26 +206,6 @@ t1 = time.time()
 owlrl.DeductiveClosure(owlrl.OWLRL_Semantics).expand(G)
 t2 = time.time()
 print("Reasoning took {0}".format(t2-t1))
-
-## TODO: just write it using Python and simple SPARQL queries
-#testq1 = """
-#SELECT DISTINCT ?sensor ?substance_type (count(?substance) as ?count) WHERE {
-#    ?sensor a brick:Sensor .
-#    ?sensor a ?restriction .
-#    ?restriction a owl:Restriction .
-#    ?restriction owl:onProperty brick:measures .
-#    ?restriction owl:someValuesFrom ?substance_type .
-#    OPTIONAL { ?sensor brick:measures ?substance }
-#} GROUP BY ?sensor ?substance_type
-#"""
-#
-#for l in G.query(testq1):
-#    if l[2].value == 0:
-#        newsubstance = BNode()
-#        print("Adding {0} measures new {1} {2}".format(l[0], l[1], newsubstance))
-#        G.add( (l[0], BRICK.measures, newsubstance) )
-#        G.add( (newsubstance, RDF.type, l[1]) )
-#print('-'*20)
 
 # now you can query!
 # ipython -i generate_brick.py
