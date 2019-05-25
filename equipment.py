@@ -27,6 +27,20 @@ equipment_subclasses = {
     "Weather": {
     },
     "Water_System": {
+        "Chilled_Water_System": {
+            "tagvalues": [
+                [BRICK.hasTag, TAG.Water],
+                [BRICK.hasTag, TAG.Chilled],
+                [BRICK.hasTag, TAG.Equip],
+            ],
+        },
+        "Hot_Water_System": {
+            "tagvalues": [
+                [BRICK.hasTag, TAG.Water],
+                [BRICK.hasTag, TAG.Hot],
+                [BRICK.hasTag, TAG.Equip],
+            ],
+        },
     },
     "Steam_System": {
     },
@@ -166,12 +180,8 @@ hvac_subclasses = {
             "Return_Damper": {},
         },
     },
-    "Condensor": {
-        SKOS.definition: Literal("A heat exchanger in which the primary heat transfer vapor changes its state to a liquid phase."),
-        OWL.equivalentClass: "Condenser",
-    },
     "Condenser": {
-        OWL.equivalentClass: "Condensor",
+        SKOS.definition: Literal("A heat exchanger in which the primary heat transfer vapor changes its state to a liquid phase."),
     },
     "Computer_Room_Air_Conditioning": {
         SKOS.definition: Literal("A device that monitors and maintains the temperature, air distribution and humidity in a network room or data center. "),
@@ -202,14 +212,6 @@ hvac_subclasses = {
                 ]
             },
         },
-    },
-    "CWS": {
-        OWL.equivalentClass: "Chilled_Water_System",
-        "tagvalues": [
-            [BRICK.hasTag, TAG.Water],
-            [BRICK.hasTag, TAG.Chilled],
-            [BRICK.hasTag, TAG.Equip],
-        ],
     },
     "Chiller": {
         "subclasses": {

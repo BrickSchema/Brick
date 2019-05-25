@@ -37,7 +37,8 @@ quantity_definitions = {
                             "Reactive_Power": {},
                             "Complex_Power": {},
                         },
-                    }
+                    },
+                    "Thermal_Power": {}
                 },
             },
             "Cloudage": {},
@@ -103,6 +104,7 @@ quantity_definitions = {
             "Pressure": {
                 "subclasses": {
                     "Atmospheric_Pressure": {},
+                    "Static_Pressure": {},
                 },
             },
             "Speed": {
