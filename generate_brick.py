@@ -192,6 +192,8 @@ G.add( (BLDG.AFS1, A, BRICK.Air_Flow_Sensor) )
 
 G.add( (BLDG.co2s1, A, BRICK.CO2_Level_Sensor) )
 
+G.add( (BLDG.standalone, A, BRICK.Temperature_Sensor) )
+
 
 s = G.serialize(format='ttl')
 print(len(G))
@@ -232,3 +234,16 @@ print('Air flow sensors (using class): ', list(res4))
 # air flow sensors
 res4 = G.query("SELECT DISTINCT ?sensor WHERE { ?sensor brick:hasTag tag:Air . ?sensor brick:hasTag tag:Sensor . ?sensor brick:hasTag tag:Flow }")
 print('Air flow sensors (using tags): ', list(res4))
+
+q1 = """SELECT ?sen WHERE {
+  ?sen  rdf:type  brick:Temperature_Sensor
+  FILTER NOT EXISTS {
+     ?sen rdf:type ?c .
+     ?c rdfs:subClassOf+ brick:Temperature_Sensor .
+     FILTER (?c != brick:Temperature_Sensor) .
+     FILTER  (!isBlank(?c))
+  }
+}
+"""
+res5 = G.query(q1)
+print('Only temperature sensors: ', list(res5))
