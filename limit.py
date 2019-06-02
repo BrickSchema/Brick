@@ -17,8 +17,8 @@ limit_definitions = {
         "subclasses": {
             "Speed_Setpoint_Limit": {
                 "subclasses": {
-                    "Max_Speed_Setpoint": {},
-                    "Min_Speed_Setpoint": {},
+                    "Max_Speed_Setpoint_Limit": {},
+                    "Min_Speed_Setpoint_Limit": {},
                 },
             },
             "Air_Flow_Setpoint_Limit": {
@@ -29,33 +29,33 @@ limit_definitions = {
             },
             "Damper_Position_Limit": {
                 "subclasses": {
-                    "Damper_Max_Position_Setpoint_Limit": {},
-                    "Damper_Min_Position_Setpoint_Limit": {},
+                    "Max_Damper_Position_Setpoint_Limit": {},
+                    "Min_Damper_Position_Setpoint_Limit": {},
                 },
             },
             "Differential_Pressure_Setpoint_Limit": {
                 "subclasses": {
-                    "Max_Chilled_Water_Differential_Pressure_Setpoint": {},
-                    "Min_Chilled_Water_Differential_Pressure_Setpoint": {},
-                    "Max_Hot_Water_Differential_Pressure_Setpoint": {},
-                    "Min_Hot_Water_Differential_Pressure_Setpoint": {},
+                    "Max_Chilled_Water_Differential_Pressure_Setpoint_Limit": {},
+                    "Min_Chilled_Water_Differential_Pressure_Setpoint_Limit": {},
+                    "Max_Hot_Water_Differential_Pressure_Setpoint_Limit": {},
+                    "Min_Hot_Water_Differential_Pressure_Setpoint_Limit": {},
                 },
             },
             "Static_Pressure_Setpoint_Limit": {
                 "subclasses": {
-                    "Static_Pressure_Min_Setpoint_Limit": {},
-                    "Static_Pressure_Max_Setpoint_Limit": {},
+                    "Min_Static_Pressure_Setpoint_Limit": {},
+                    "Max_Static_Pressure_Setpoint_Limit": {},
                 },
             },
             "Max_Limit": {
                 "subclasses": {
-                    "Max_Speed_Setpoint": {},
-                    "Max_Discharge_Air_Static_Pressure_Setpoint": {},
-                    "Max_Supply_Air_Static_Pressure_Setpoint": {},
-                    "Damper_Max_Position_Setpoint_Limit": {},
-                    "Max_Chilled_Water_Differential_Pressure_Setpoint": {},
-                    "Max_Hot_Water_Differential_Pressure_Setpoint": {},
-                    "Static_Pressure_Max_Setpoint_Limit": {
+                    "Max_Speed_Setpoint_Limit": {},
+                    "Max_Discharge_Air_Static_Pressure_Setpoint_Limit": {},
+                    "Max_Supply_Air_Static_Pressure_Setpoint_Limit": {},
+                    "Max_Damper_Position_Setpoint_Limit": {},
+                    "Max_Chilled_Water_Differential_Pressure_Setpoint_Limit": {},
+                    "Max_Hot_Water_Differential_Pressure_Setpoint_Limit": {},
+                    "Max_Static_Pressure_Setpoint_Limit": {
                         "subclasses": {
                             "Max_Discharge_Air_Static_Pressure_Setpoint_Limit": {},
                             "Max_Supply_Air_Static_Pressure_Setpoint_Limit": {},
@@ -63,20 +63,28 @@ limit_definitions = {
                     },
                     "Max_Air_Flow_Setpoint_Limit": {
                         "subclasses": {
-                            "Cooling_Max_Discharge_Air_Flow_Setpoint_Limit": {
+                            "Max_Cooling_Supply_Air_Flow_Setpoint_Limit": {
                                 "subclasses": {
-                                    "Cooling_Max_Supply_Air_Flow_Setpoint_Limit": {},
-                                    "Occupied_Cooling_Max_Supply_Air_Flow_Setpoint_Limit": {},
-                                    "Occupied_Cooling_Max_Discharge_Air_Flow_Setpoint_Limit": {},
-                                    "Unoccupied_Cooling_Max_Discharge_Air_Flow_Setpoint_Limit": {},
+                                    "Max_Occupied_Cooling_Supply_Air_Flow_Setpoint_Limit": {},
+                                    "Max_Unoccupied_Cooling_Supply_Air_Flow_Setpoint_Limit": {},
                                 },
                             },
-                            "Heating_Max_Discharge_Air_Flow_Setpoint_Limit": {
+                            "Max_Cooling_Discharge_Air_Flow_Setpoint_Limit": {
                                 "subclasses": {
-                                    "Heating_Max_Supply_Air_Flow_Setpoint_Limit": {},
-                                    "Occupied_Heating_Max_Supply_Air_Flow_Setpoint_Limit": {},
-                                    "Occupied_Heating_Max_Discharge_Air_Flow_Setpoint_Limit": {},
-                                    "Unoccupied_Heating_Max_Discharge_Air_Flow_Setpoint_Limit": {},
+                                    "Max_Occupied_Cooling_Discharge_Air_Flow_Setpoint_Limit": {},
+                                    "Max_Unoccupied_Cooling_Discharge_Air_Flow_Setpoint_Limit": {},
+                                },
+                            },
+                            "Max_Heating_Supply_Air_Flow_Setpoint_Limit": {
+                                "subclasses": {
+                                    "Max_Occupied_Heating_Supply_Air_Flow_Setpoint_Limit": {},
+                                    "Max_Unoccupied_Heating_Supply_Air_Flow_Setpoint_Limit": {},
+                                },
+                            },
+                            "Max_Heating_Discharge_Air_Flow_Setpoint_Limit": {
+                                "subclasses": {
+                                    "Max_Occupied_Heating_Discharge_Air_Flow_Setpoint_Limit": {},
+                                    "Max_Unoccupied_Heating_Discharge_Air_Flow_Setpoint_Limit": {},
                                 },
                             },
                         },
@@ -85,13 +93,13 @@ limit_definitions = {
             },
             "Min_Limit": {
                 "subclasses": {
-                    "Min_Speed_Setpoint": {},
-                    "Min_Hot_Water_Differential_Pressure_Setpoint": {},
-                    "Min_Chilled_Water_Differential_Pressure_Setpoint": {},
-                    "Damper_Min_Position_Setpoint_Limit": {},
-                    "Min_Discharge_Air_Static_Pressure_Setpoint": {},
-                    "Min_Supply_Air_Static_Pressure_Setpoint": {},
-                    "Static_Pressure_Min_Setpoint_Limit": {
+                    "Min_Speed_Setpoint_Limit": {},
+                    "Min_Hot_Water_Differential_Pressure_Setpoint_Limit": {},
+                    "Min_Chilled_Water_Differential_Pressure_Setpoint_Limit": {},
+                    "Min_Damper_Position_Setpoint_Limit": {},
+                    "Min_Discharge_Air_Static_Pressure_Setpoint_Limit": {},
+                    "Min_Supply_Air_Static_Pressure_Setpoint_Limit": {},
+                    "Min_Static_Pressure_Setpoint_Limit": {
                         "subclasses": {
                             "Min_Discharge_Air_Static_Pressure_Setpoint_Limit": {},
                             "Min_Supply_Air_Static_Pressure_Setpoint_Limit": {},
@@ -100,20 +108,28 @@ limit_definitions = {
                     "Min_Air_Flow_Setpoint_Limit": {
                         "subclasses": {
                             "Min_Outside_Air_Flow_Setpoint_Limit": {},
-                            "Cooling_Min_Discharge_Air_Flow_Setpoint_Limit": {
+                            "Min_Cooling_Supply_Air_Flow_Setpoint_Limit": {
                                 "subclasses": {
-                                    "Cooling_Min_Supply_Air_Flow_Setpoint_Limit": {},
-                                    "Occupied_Cooling_Min_Supply_Air_Flow_Setpoint_Limit": {},
-                                    "Occupied_Cooling_Min_Discharge_Air_Flow_Setpoint_Limit": {},
-                                    "Unoccupied_Cooling_Min_Discharge_Air_Flow_Setpoint_Limit": {},
+                                    "Min_Occupied_Cooling_Supply_Air_Flow_Setpoint_Limit": {},
+                                    "Min_Unoccupied_Cooling_Supply_Air_Flow_Setpoint_Limit": {},
                                 },
                             },
-                            "Heating_Min_Discharge_Air_Flow_Setpoint_Limit": {
+                            "Min_Cooling_Discharge_Air_Flow_Setpoint_Limit": {
                                 "subclasses": {
-                                    "Heating_Min_Supply_Air_Flow_Setpoint_Limit": {},
-                                    "Occupied_Heating_Min_Supply_Air_Flow_Setpoint_Limit": {},
-                                    "Occupied_Heating_Min_Discharge_Air_Flow_Setpoint_Limit": {},
-                                    "Unoccupied_Heating_Min_Discharge_Air_Flow_Setpoint_Limit": {},
+                                    "Min_Occupied_Cooling_Discharge_Air_Flow_Setpoint_Limit": {},
+                                    "Min_Unoccupied_Cooling_Discharge_Air_Flow_Setpoint_Limit": {},
+                                },
+                            },
+                            "Min_Heating_Supply_Air_Flow_Setpoint_Limit": {
+                                "subclasses": {
+                                    "Min_Occupied_Heating_Supply_Air_Flow_Setpoint_Limit": {},
+                                    "Min_Unoccupied_Heating_Supply_Air_Flow_Setpoint_Limit": {},
+                                },
+                            },
+                            "Min_Heating_Discharge_Air_Flow_Setpoint_Limit": {
+                                "subclasses": {
+                                    "Min_Occupied_Heating_Discharge_Air_Flow_Setpoint_Limit": {},
+                                    "Min_Unoccupied_Heating_Discharge_Air_Flow_Setpoint_Limit": {},
                                 },
                             },
                         },
