@@ -150,6 +150,9 @@ define_subclasses(sensor_definitions, BRICK.Point)
 from status import status_definitions
 define_subclasses(status_definitions, BRICK.Point)
 
+from limit import limit_definitions
+define_subclasses(limit_definitions, BRICK.Point)
+
 from location import location_subclasses
 define_subclasses(location_subclasses, BRICK.Location)
 

@@ -126,6 +126,9 @@ brick:Chilled_Water_Differential_Pressure_Sensor a owl:Class ;
                         owl:hasValue brick:Water ;
                         owl:onProperty brick:measures ] ) ] .
 
+brick:Chilled_Water_Differential_Pressure_Setpoint a owl:Class ;
+    rdfs:subClassOf brick:Differential_Pressure_Setpoint .
+
 brick:Chilled_Water_Differential_Temperature_Sensor a owl:Class ;
     rdfs:subClassOf brick:Chilled_Water_Temperature_Sensor .
 
@@ -197,6 +200,9 @@ brick:Cooling_Coil_Discharge_Air_Temperature_Sensor a owl:Class ;
 brick:Cooling_Demand_Setpoint a owl:Class ;
     rdfs:subClassOf brick:Demand_Setpoint .
 
+brick:Cooling_Discharge_Air_Flow_Setpoint a owl:Class ;
+    rdfs:subClassOf brick:Discharge_Air_Flow_Setpoint .
+
 brick:Cooling_Discharge_Air_Temperature_Dead_Band_Setpoint a owl:Class ;
     rdfs:subClassOf brick:Dead_Band_Setpoint,
         brick:Discharge_Air_Temperature_Dead_Band_Setpoint .
@@ -207,11 +213,11 @@ brick:Cooling_Discharge_Air_Temperature_Integral_Time_Setpoint a owl:Class ;
 brick:Cooling_Discharge_Air_Temperature_Proportional_Band_Setpoint a owl:Class ;
     rdfs:subClassOf brick:Proportional_Band_Setpoint .
 
-brick:Cooling_Max_Supply_Air_Flow_Setpoint a owl:Class ;
-    rdfs:subClassOf brick:Cooling_Supply_Air_Flow_Setpoint .
+brick:Cooling_Max_Supply_Air_Flow_Setpoint_Limit a owl:Class ;
+    rdfs:subClassOf brick:Cooling_Max_Discharge_Air_Flow_Setpoint_Limit .
 
-brick:Cooling_Min_Supply_Air_Flow_Setpoint a owl:Class ;
-    rdfs:subClassOf brick:Cooling_Supply_Air_Flow_Setpoint .
+brick:Cooling_Min_Supply_Air_Flow_Setpoint_Limit a owl:Class ;
+    rdfs:subClassOf brick:Cooling_Min_Discharge_Air_Flow_Setpoint_Limit .
 
 brick:Cooling_On_Off_Status a owl:Class ;
     rdfs:subClassOf brick:On_Off_Status .
@@ -221,6 +227,9 @@ brick:Cooling_Request_Percent_Setpoint a owl:Class ;
 
 brick:Cooling_Request_Setpoint a owl:Class ;
     rdfs:subClassOf brick:Demand_Setpoint .
+
+brick:Cooling_Supply_Air_Flow_Setpoint a owl:Class ;
+    rdfs:subClassOf brick:Supply_Air_Flow_Setpoint .
 
 brick:Cooling_Supply_Air_Temperature_Dead_Band_Setpoint a owl:Class ;
     rdfs:subClassOf brick:Dead_Band_Setpoint,
@@ -250,14 +259,19 @@ brick:Current_Total_Harmonic_Distortion a owl:Class ;
 brick:DC_Bus_Voltage_Sensor a owl:Class ;
     rdfs:subClassOf brick:Voltage_Sensor .
 
-brick:Damper_Max_Position_Setpoint a owl:Class ;
-    rdfs:subClassOf brick:Damper_Position_Setpoint .
+brick:Damper_Max_Position_Setpoint_Limit a owl:Class ;
+    rdfs:subClassOf brick:Damper_Position_Limit,
+        brick:Max_Limit .
 
-brick:Damper_Min_Position_Setpoint a owl:Class ;
-    rdfs:subClassOf brick:Damper_Position_Setpoint .
+brick:Damper_Min_Position_Setpoint_Limit a owl:Class ;
+    rdfs:subClassOf brick:Damper_Position_Limit,
+        brick:Min_Limit .
 
 brick:Damper_Position_Sensor a owl:Class ;
     rdfs:subClassOf brick:Sensor .
+
+brick:Damper_Position_Setpoint a owl:Class ;
+    rdfs:subClassOf brick:Setpoint .
 
 brick:Daytime a owl:Class ;
     rdfs:subClassOf brick:Quantity .
@@ -307,6 +321,9 @@ brick:Discharge_Air_Static_Pressure_Proportional_Band_Setpoint a owl:Class ;
                         owl:onProperty brick:measures ] [ a owl:Restriction ;
                         owl:hasValue brick:Air ;
                         owl:onProperty brick:measures ] ) ] .
+
+brick:Discharge_Air_Static_Pressure_Setpoint a owl:Class ;
+    rdfs:subClassOf brick:Static_Pressure_Setpoint .
 
 brick:Discharge_Air_Temperature_Cooling_Setpoint a owl:Class ;
     rdfs:subClassOf brick:Discharge_Air_Temperature_Setpoint ;
@@ -377,13 +394,13 @@ brick:Emergency_Push_Button_Status a owl:Class ;
 brick:Energy_Sensor a owl:Class ;
     rdfs:subClassOf brick:Sensor ;
     owl:equivalentClass [ owl:intersectionOf ( [ a owl:Restriction ;
+                        owl:hasValue brick:Energy ;
+                        owl:onProperty brick:measures ] ) ],
+        [ owl:intersectionOf ( [ a owl:Restriction ;
                         owl:hasValue tag:Sensor ;
                         owl:onProperty brick:hasTag ] [ a owl:Restriction ;
                         owl:hasValue tag:Energy ;
-                        owl:onProperty brick:hasTag ] ) ],
-        [ owl:intersectionOf ( [ a owl:Restriction ;
-                        owl:hasValue brick:Energy ;
-                        owl:onProperty brick:measures ] ) ] .
+                        owl:onProperty brick:hasTag ] ) ] .
 
 brick:Energy_Storage a owl:Class ;
     rdfs:subClassOf brick:Equipment .
@@ -547,6 +564,9 @@ brick:Heat_Wheel_Voltage_Sensor a owl:Class ;
 brick:Heating_Demand_Setpoint a owl:Class ;
     rdfs:subClassOf brick:Demand_Setpoint .
 
+brick:Heating_Discharge_Air_Flow_Setpoint a owl:Class ;
+    rdfs:subClassOf brick:Discharge_Air_Flow_Setpoint .
+
 brick:Heating_Discharge_Air_Temperature_Dead_Band_Setpoint a owl:Class ;
     rdfs:subClassOf brick:Discharge_Air_Temperature_Dead_Band_Setpoint .
 
@@ -556,11 +576,11 @@ brick:Heating_Discharge_Air_Temperature_Integral_Time_Setpoint a owl:Class ;
 brick:Heating_Discharge_Air_Temperature_Proportional_Band_Setpoint a owl:Class ;
     rdfs:subClassOf brick:Proportional_Band_Setpoint .
 
-brick:Heating_Max_Supply_Air_Flow_Setpoint a owl:Class ;
-    rdfs:subClassOf brick:Heating_Supply_Air_Flow_Setpoint .
+brick:Heating_Max_Supply_Air_Flow_Setpoint_Limit a owl:Class ;
+    rdfs:subClassOf brick:Heating_Max_Discharge_Air_Flow_Setpoint_Limit .
 
-brick:Heating_Min_Supply_Air_Flow_Setpoint a owl:Class ;
-    rdfs:subClassOf brick:Heating_Supply_Air_Flow_Setpoint .
+brick:Heating_Min_Supply_Air_Flow_Setpoint_Limit a owl:Class ;
+    rdfs:subClassOf brick:Heating_Min_Discharge_Air_Flow_Setpoint_Limit .
 
 brick:Heating_On_Off_Status a owl:Class ;
     rdfs:subClassOf brick:On_Off_Status .
@@ -570,6 +590,9 @@ brick:Heating_Request_Percent_Setpoint a owl:Class ;
 
 brick:Heating_Request_Setpoint a owl:Class ;
     rdfs:subClassOf brick:Demand_Setpoint .
+
+brick:Heating_Supply_Air_Flow_Setpoint a owl:Class ;
+    rdfs:subClassOf brick:Supply_Air_Flow_Setpoint .
 
 brick:Heating_Supply_Air_Temperature_Dead_Band_Setpoint a owl:Class ;
     rdfs:subClassOf brick:Supply_Air_Temperature_Dead_Band_Setpoint .
@@ -619,6 +642,9 @@ brick:Hot_Water_Differential_Pressure_Load_Shed_Status a owl:Class ;
 
 brick:Hot_Water_Differential_Pressure_Proportional_Band_Setpoint a owl:Class ;
     rdfs:subClassOf brick:Proportional_Band_Setpoint .
+
+brick:Hot_Water_Differential_Pressure_Setpoint a owl:Class ;
+    rdfs:subClassOf brick:Differential_Pressure_Setpoint .
 
 brick:Hot_Water_Discharge_Temperature_Load_Shed_Status a owl:Class ;
     rdfs:subClassOf brick:Differential_Pressure_Load_Shed_Status .
@@ -722,13 +748,18 @@ brick:Manual_Auto_Status a owl:Class ;
     rdfs:subClassOf brick:Status .
 
 brick:Max_Chilled_Water_Differential_Pressure_Setpoint a owl:Class ;
-    rdfs:subClassOf brick:Chilled_Water_Differential_Pressure_Setpoint .
+    rdfs:subClassOf brick:Differential_Pressure_Setpoint_Limit,
+        brick:Max_Limit .
 
 brick:Max_Discharge_Air_Static_Pressure_Setpoint a owl:Class ;
-    rdfs:subClassOf brick:Discharge_Air_Static_Pressure_Setpoint .
+    rdfs:subClassOf brick:Max_Limit .
+
+brick:Max_Discharge_Air_Static_Pressure_Setpoint_Limit a owl:Class ;
+    rdfs:subClassOf brick:Static_Pressure_Max_Setpoint_Limit .
 
 brick:Max_Hot_Water_Differential_Pressure_Setpoint a owl:Class ;
-    rdfs:subClassOf brick:Hot_Water_Differential_Pressure_Setpoint .
+    rdfs:subClassOf brick:Differential_Pressure_Setpoint_Limit,
+        brick:Max_Limit .
 
 brick:Max_Load_Setpoint a owl:Class ;
     rdfs:subClassOf brick:Load_Setpoint .
@@ -737,10 +768,14 @@ brick:Max_Return_Air_CO2_Setpoint a owl:Class ;
     rdfs:subClassOf brick:Return_Air_CO2_Setpoint .
 
 brick:Max_Speed_Setpoint a owl:Class ;
-    rdfs:subClassOf brick:Speed_Setpoint .
+    rdfs:subClassOf brick:Max_Limit,
+        brick:Speed_Setpoint_Limit .
 
 brick:Max_Supply_Air_Static_Pressure_Setpoint a owl:Class ;
-    rdfs:subClassOf brick:Discharge_Air_Static_Pressure_Setpoint .
+    rdfs:subClassOf brick:Max_Limit .
+
+brick:Max_Supply_Air_Static_Pressure_Setpoint_Limit a owl:Class ;
+    rdfs:subClassOf brick:Static_Pressure_Max_Setpoint_Limit .
 
 brick:Medium_Temperature_Hot_Water_Differential_Pressure_Load_Shed_Setpoint a owl:Class ;
     rdfs:subClassOf brick:Load_Shed_Differential_Pressure_Setpoint .
@@ -755,22 +790,31 @@ brick:Meter a owl:Class ;
     rdfs:subClassOf brick:Equipment .
 
 brick:Min_Chilled_Water_Differential_Pressure_Setpoint a owl:Class ;
-    rdfs:subClassOf brick:Chilled_Water_Differential_Pressure_Setpoint .
+    rdfs:subClassOf brick:Differential_Pressure_Setpoint_Limit,
+        brick:Min_Limit .
 
 brick:Min_Discharge_Air_Static_Pressure_Setpoint a owl:Class ;
-    rdfs:subClassOf brick:Discharge_Air_Static_Pressure_Setpoint .
+    rdfs:subClassOf brick:Min_Limit .
+
+brick:Min_Discharge_Air_Static_Pressure_Setpoint_Limit a owl:Class ;
+    rdfs:subClassOf brick:Static_Pressure_Min_Setpoint_Limit .
 
 brick:Min_Hot_Water_Differential_Pressure_Setpoint a owl:Class ;
-    rdfs:subClassOf brick:Hot_Water_Differential_Pressure_Setpoint .
+    rdfs:subClassOf brick:Differential_Pressure_Setpoint_Limit,
+        brick:Min_Limit .
 
-brick:Min_Outside_Air_Flow_Setpoint a owl:Class ;
-    rdfs:subClassOf brick:Outside_Air_Flow_Setpoint .
+brick:Min_Outside_Air_Flow_Setpoint_Limit a owl:Class ;
+    rdfs:subClassOf brick:Min_Air_Flow_Setpoint_Limit .
 
 brick:Min_Speed_Setpoint a owl:Class ;
-    rdfs:subClassOf brick:Speed_Setpoint .
+    rdfs:subClassOf brick:Min_Limit,
+        brick:Speed_Setpoint_Limit .
 
 brick:Min_Supply_Air_Static_Pressure_Setpoint a owl:Class ;
-    rdfs:subClassOf brick:Discharge_Air_Static_Pressure_Setpoint .
+    rdfs:subClassOf brick:Min_Limit .
+
+brick:Min_Supply_Air_Static_Pressure_Setpoint_Limit a owl:Class ;
+    rdfs:subClassOf brick:Static_Pressure_Min_Setpoint_Limit .
 
 brick:Mixed_Air a owl:Class ;
     rdfs:subClassOf brick:Air ;
@@ -809,32 +853,38 @@ brick:Motor_Start_Stop_Status a owl:Class ;
 brick:Motor_Torque_Sensor a owl:Class ;
     rdfs:subClassOf brick:Torque_Sensor .
 
-brick:Occupied_Cooling_Max_Discharge_Air_Flow_Setpoint a owl:Class ;
-    rdfs:subClassOf brick:Cooling_Max_Discharge_Air_Flow_Setpoint .
+brick:Occupied_Cooling_Max_Discharge_Air_Flow_Setpoint_Limit a owl:Class ;
+    rdfs:subClassOf brick:Cooling_Max_Discharge_Air_Flow_Setpoint_Limit .
 
-brick:Occupied_Cooling_Max_Supply_Air_Flow_Setpoint a owl:Class ;
-    rdfs:subClassOf brick:Occupied_Cooling_Supply_Air_Flow_Setpoint .
+brick:Occupied_Cooling_Max_Supply_Air_Flow_Setpoint_Limit a owl:Class ;
+    rdfs:subClassOf brick:Cooling_Max_Discharge_Air_Flow_Setpoint_Limit .
 
-brick:Occupied_Cooling_Min_Discharge_Air_Flow_Setpoint a owl:Class ;
-    rdfs:subClassOf brick:Cooling_Min_Discharge_Air_Flow_Setpoint .
+brick:Occupied_Cooling_Min_Discharge_Air_Flow_Setpoint_Limit a owl:Class ;
+    rdfs:subClassOf brick:Cooling_Min_Discharge_Air_Flow_Setpoint_Limit .
 
-brick:Occupied_Cooling_Min_Supply_Air_Flow_Setpoint a owl:Class ;
-    rdfs:subClassOf brick:Occupied_Cooling_Supply_Air_Flow_Setpoint .
+brick:Occupied_Cooling_Min_Supply_Air_Flow_Setpoint_Limit a owl:Class ;
+    rdfs:subClassOf brick:Cooling_Min_Discharge_Air_Flow_Setpoint_Limit .
+
+brick:Occupied_Cooling_Supply_Air_Flow_Setpoint a owl:Class ;
+    rdfs:subClassOf brick:Occupied_Supply_Air_Flow_Setpoint .
 
 brick:Occupied_Cooling_Temperature_Dead_Band_Setpoint a owl:Class ;
     rdfs:subClassOf brick:Temperature_Dead_Band_Setpoint .
 
-brick:Occupied_Heating_Max_Discharge_Air_Flow_Setpoint a owl:Class ;
-    rdfs:subClassOf brick:Heating_Max_Discharge_Air_Flow_Setpoint .
+brick:Occupied_Heating_Max_Discharge_Air_Flow_Setpoint_Limit a owl:Class ;
+    rdfs:subClassOf brick:Heating_Max_Discharge_Air_Flow_Setpoint_Limit .
 
-brick:Occupied_Heating_Max_Supply_Air_Flow_Setpoint a owl:Class ;
-    rdfs:subClassOf brick:Occupied_Heating_Supply_Air_Flow_Setpoint .
+brick:Occupied_Heating_Max_Supply_Air_Flow_Setpoint_Limit a owl:Class ;
+    rdfs:subClassOf brick:Heating_Max_Discharge_Air_Flow_Setpoint_Limit .
 
-brick:Occupied_Heating_Min_Discharge_Air_Flow_Setpoint a owl:Class ;
-    rdfs:subClassOf brick:Heating_Min_Discharge_Air_Flow_Setpoint .
+brick:Occupied_Heating_Min_Discharge_Air_Flow_Setpoint_Limit a owl:Class ;
+    rdfs:subClassOf brick:Heating_Min_Discharge_Air_Flow_Setpoint_Limit .
 
-brick:Occupied_Heating_Min_Supply_Air_Flow_Setpoint a owl:Class ;
-    rdfs:subClassOf brick:Occupied_Heating_Supply_Air_Flow_Setpoint .
+brick:Occupied_Heating_Min_Supply_Air_Flow_Setpoint_Limit a owl:Class ;
+    rdfs:subClassOf brick:Heating_Min_Discharge_Air_Flow_Setpoint_Limit .
+
+brick:Occupied_Heating_Supply_Air_Flow_Setpoint a owl:Class ;
+    rdfs:subClassOf brick:Occupied_Supply_Air_Flow_Setpoint .
 
 brick:Occupied_Heating_Temperature_Dead_Band_Setpoint a owl:Class ;
     rdfs:subClassOf brick:Temperature_Dead_Band_Setpoint .
@@ -884,6 +934,9 @@ brick:Outside_Air_Enthalpy_Sensor a owl:Class ;
 
 brick:Outside_Air_Flow_Sensor a owl:Class ;
     rdfs:subClassOf brick:Air_Flow_Sensor .
+
+brick:Outside_Air_Flow_Setpoint a owl:Class ;
+    rdfs:subClassOf brick:Air_Flow_Setpoint .
 
 brick:Outside_Air_Grains_Sensor a owl:Class ;
     rdfs:subClassOf brick:Air_Grains_Sensor .
@@ -1104,12 +1157,6 @@ brick:Static_Pressure_Dead_Band_Setpoint a owl:Class ;
 brick:Static_Pressure_Integral_Time_Setpoint a owl:Class ;
     rdfs:subClassOf brick:Integral_Time_Setpoint .
 
-brick:Static_Pressure_Max_Setpoint a owl:Class ;
-    rdfs:subClassOf brick:Static_Pressure_Setpoint .
-
-brick:Static_Pressure_Min_Setpoint a owl:Class ;
-    rdfs:subClassOf brick:Static_Pressure_Setpoint .
-
 brick:Steam a owl:Class ;
     rdfs:subClassOf brick:Gas ;
     skos:definition "water in the vapor phase." .
@@ -1209,17 +1256,17 @@ brick:Trace_Heat_Sensor a owl:Class ;
 brick:Turn_Off_Status a owl:Class ;
     rdfs:subClassOf brick:Status .
 
-brick:Unoccupied_Cooling_Max_Discharge_Air_Flow_Setpoint a owl:Class ;
-    rdfs:subClassOf brick:Cooling_Max_Discharge_Air_Flow_Setpoint .
+brick:Unoccupied_Cooling_Max_Discharge_Air_Flow_Setpoint_Limit a owl:Class ;
+    rdfs:subClassOf brick:Cooling_Max_Discharge_Air_Flow_Setpoint_Limit .
 
-brick:Unoccupied_Cooling_Min_Discharge_Air_Flow_Setpoint a owl:Class ;
-    rdfs:subClassOf brick:Cooling_Min_Discharge_Air_Flow_Setpoint .
+brick:Unoccupied_Cooling_Min_Discharge_Air_Flow_Setpoint_Limit a owl:Class ;
+    rdfs:subClassOf brick:Cooling_Min_Discharge_Air_Flow_Setpoint_Limit .
 
-brick:Unoccupied_Heating_Max_Discharge_Air_Flow_Setpoint a owl:Class ;
-    rdfs:subClassOf brick:Heating_Max_Discharge_Air_Flow_Setpoint .
+brick:Unoccupied_Heating_Max_Discharge_Air_Flow_Setpoint_Limit a owl:Class ;
+    rdfs:subClassOf brick:Heating_Max_Discharge_Air_Flow_Setpoint_Limit .
 
-brick:Unoccupied_Heating_Min_Discharge_Air_Flow_Setpoint a owl:Class ;
-    rdfs:subClassOf brick:Heating_Min_Discharge_Air_Flow_Setpoint .
+brick:Unoccupied_Heating_Min_Discharge_Air_Flow_Setpoint_Limit a owl:Class ;
+    rdfs:subClassOf brick:Heating_Min_Discharge_Air_Flow_Setpoint_Limit .
 
 brick:Unoccupied_Mode_Setpoint a owl:Class ;
     rdfs:subClassOf brick:Mode_Setpoint .
@@ -1384,13 +1431,13 @@ brick:Current a owl:Class ;
 brick:Demand_Sensor a owl:Class ;
     rdfs:subClassOf brick:Sensor ;
     owl:equivalentClass [ owl:intersectionOf ( [ a owl:Restriction ;
-                        owl:hasValue brick:Power ;
-                        owl:onProperty brick:measures ] ) ],
-        [ owl:intersectionOf ( [ a owl:Restriction ;
                         owl:hasValue tag:Sensor ;
                         owl:onProperty brick:hasTag ] [ a owl:Restriction ;
                         owl:hasValue tag:Power ;
-                        owl:onProperty brick:hasTag ] ) ] .
+                        owl:onProperty brick:hasTag ] ) ],
+        [ owl:intersectionOf ( [ a owl:Restriction ;
+                        owl:hasValue brick:Power ;
+                        owl:onProperty brick:measures ] ) ] .
 
 brick:Dewpoint a owl:Class ;
     rdfs:subClassOf brick:Quantity .
@@ -1407,13 +1454,13 @@ brick:Differential_Pressure_Integral_Time_Setpoint a owl:Class ;
 brick:Direction_Sensor a owl:Class ;
     rdfs:subClassOf brick:Sensor ;
     owl:equivalentClass [ owl:intersectionOf ( [ a owl:Restriction ;
+                        owl:hasValue brick:Direction ;
+                        owl:onProperty brick:measures ] ) ],
+        [ owl:intersectionOf ( [ a owl:Restriction ;
                         owl:hasValue tag:Sensor ;
                         owl:onProperty brick:hasTag ] [ a owl:Restriction ;
                         owl:hasValue tag:Direction ;
-                        owl:onProperty brick:hasTag ] ) ],
-        [ owl:intersectionOf ( [ a owl:Restriction ;
-                        owl:hasValue brick:Direction ;
-                        owl:onProperty brick:measures ] ) ] .
+                        owl:onProperty brick:hasTag ] ) ] .
 
 brick:Enthalpy_Sensor a owl:Class ;
     rdfs:subClassOf brick:Sensor ;
@@ -1532,9 +1579,6 @@ brick:Occupancy_Status a owl:Class ;
 brick:Operating_Mode_Status a owl:Class ;
     rdfs:subClassOf brick:Mode_Status .
 
-brick:Outside_Air_Flow_Setpoint a owl:Class ;
-    rdfs:subClassOf brick:Air_Flow_Setpoint .
-
 brick:Outside_Air_Temperature_Sensor a owl:Class ;
     rdfs:subClassOf brick:Air_Temperature_Sensor .
 
@@ -1554,6 +1598,9 @@ brick:Return_Air_CO2_Setpoint a owl:Class ;
                         owl:onProperty brick:hasTag ] [ a owl:Restriction ;
                         owl:hasValue tag:CO2 ;
                         owl:onProperty brick:hasTag ] ) ] .
+
+brick:Speed_Setpoint a owl:Class ;
+    rdfs:subClassOf brick:Setpoint .
 
 brick:Static_Pressure_Increase_Decrease_Step_Setpoint a owl:Class ;
     rdfs:subClassOf brick:Increase_Decrease_Step_Setpoint .
@@ -1586,17 +1633,17 @@ brick:Variable_Air_Volume_Box a owl:Class ;
 brick:Water_Flow_Sensor a owl:Class ;
     rdfs:subClassOf brick:Flow_Sensor ;
     owl:equivalentClass [ owl:intersectionOf ( [ a owl:Restriction ;
-                        owl:hasValue brick:Flow ;
-                        owl:onProperty brick:measures ] [ a owl:Restriction ;
-                        owl:hasValue brick:Water ;
-                        owl:onProperty brick:measures ] ) ],
-        [ owl:intersectionOf ( [ a owl:Restriction ;
                         owl:hasValue tag:Sensor ;
                         owl:onProperty brick:hasTag ] [ a owl:Restriction ;
                         owl:hasValue tag:Water ;
                         owl:onProperty brick:hasTag ] [ a owl:Restriction ;
                         owl:hasValue tag:Flow ;
-                        owl:onProperty brick:hasTag ] ) ] .
+                        owl:onProperty brick:hasTag ] ) ],
+        [ owl:intersectionOf ( [ a owl:Restriction ;
+                        owl:hasValue brick:Flow ;
+                        owl:onProperty brick:measures ] [ a owl:Restriction ;
+                        owl:hasValue brick:Water ;
+                        owl:onProperty brick:measures ] ) ] .
 
 brick:Water_Level_Sensor a owl:Class ;
     rdfs:subClassOf brick:Sensor ;
@@ -1687,6 +1734,9 @@ brick:Air_Enthalpy_Sensor a owl:Class ;
                         owl:hasValue brick:Air ;
                         owl:onProperty brick:measures ] ) ] .
 
+brick:Air_Flow_Setpoint_Limit a owl:Class ;
+    rdfs:subClassOf brick:Limit .
+
 brick:Air_Grains_Sensor a owl:Class ;
     rdfs:subClassOf brick:Sensor ;
     owl:equivalentClass [ owl:intersectionOf ( [ a owl:Restriction ;
@@ -1705,9 +1755,6 @@ brick:Air_Grains_Sensor a owl:Class ;
 brick:Angle_Sensor a owl:Class ;
     rdfs:subClassOf brick:Sensor .
 
-brick:Chilled_Water_Differential_Pressure_Setpoint a owl:Class ;
-    rdfs:subClassOf brick:Differential_Pressure_Setpoint .
-
 brick:Coil a owl:Class ;
     rdfs:subClassOf brick:HVAC ;
     owl:equivalentClass [ owl:intersectionOf ( [ a owl:Restriction ;
@@ -1715,20 +1762,8 @@ brick:Coil a owl:Class ;
                         owl:onProperty brick:hasTag ] ) ] ;
     skos:definition "Exchanger that transfers heat from an exhaust airstream to a separated supply airstream." .
 
-brick:Cooling_Discharge_Air_Flow_Setpoint a owl:Class ;
-    rdfs:subClassOf brick:Discharge_Air_Flow_Setpoint .
-
-brick:Cooling_Max_Discharge_Air_Flow_Setpoint a owl:Class ;
-    rdfs:subClassOf brick:Cooling_Discharge_Air_Flow_Setpoint .
-
-brick:Cooling_Min_Discharge_Air_Flow_Setpoint a owl:Class ;
-    rdfs:subClassOf brick:Cooling_Discharge_Air_Flow_Setpoint .
-
-brick:Cooling_Supply_Air_Flow_Setpoint a owl:Class ;
-    rdfs:subClassOf brick:Supply_Air_Flow_Setpoint .
-
-brick:Damper_Position_Setpoint a owl:Class ;
-    rdfs:subClassOf brick:Setpoint .
+brick:Damper_Position_Limit a owl:Class ;
+    rdfs:subClassOf brick:Limit .
 
 brick:Dewpoint_Sensor a owl:Class ;
     rdfs:subClassOf brick:Sensor ;
@@ -1790,13 +1825,13 @@ brick:Enthalpy a owl:Class ;
 brick:Flow_Sensor a owl:Class ;
     rdfs:subClassOf brick:Sensor ;
     owl:equivalentClass [ owl:intersectionOf ( [ a owl:Restriction ;
+                        owl:hasValue brick:Flow ;
+                        owl:onProperty brick:measures ] ) ],
+        [ owl:intersectionOf ( [ a owl:Restriction ;
                         owl:hasValue tag:Sensor ;
                         owl:onProperty brick:hasTag ] [ a owl:Restriction ;
                         owl:hasValue tag:Flow ;
-                        owl:onProperty brick:hasTag ] ) ],
-        [ owl:intersectionOf ( [ a owl:Restriction ;
-                        owl:hasValue brick:Flow ;
-                        owl:onProperty brick:measures ] ) ] .
+                        owl:onProperty brick:hasTag ] ) ] .
 
 brick:Fluid a owl:Class ;
     rdfs:subClassOf brick:Substance .
@@ -1810,21 +1845,6 @@ brick:Gas a owl:Class ;
 brick:Heat_Exchanger a owl:Class ;
     rdfs:subClassOf brick:HVAC ;
     owl:equivalentClass brick:HX .
-
-brick:Heating_Discharge_Air_Flow_Setpoint a owl:Class ;
-    rdfs:subClassOf brick:Discharge_Air_Flow_Setpoint .
-
-brick:Heating_Max_Discharge_Air_Flow_Setpoint a owl:Class ;
-    rdfs:subClassOf brick:Heating_Discharge_Air_Flow_Setpoint .
-
-brick:Heating_Min_Discharge_Air_Flow_Setpoint a owl:Class ;
-    rdfs:subClassOf brick:Heating_Discharge_Air_Flow_Setpoint .
-
-brick:Heating_Supply_Air_Flow_Setpoint a owl:Class ;
-    rdfs:subClassOf brick:Supply_Air_Flow_Setpoint .
-
-brick:Hot_Water_Differential_Pressure_Setpoint a owl:Class ;
-    rdfs:subClassOf brick:Differential_Pressure_Setpoint .
 
 brick:Humidity a owl:Class ;
     rdfs:subClassOf brick:Quantity .
@@ -1850,11 +1870,9 @@ brick:Lighting_System a owl:Class ;
 brick:Load_Shed_Differential_Pressure_Setpoint a owl:Class ;
     rdfs:subClassOf brick:Differential_Pressure_Setpoint .
 
-brick:Occupied_Cooling_Supply_Air_Flow_Setpoint a owl:Class ;
-    rdfs:subClassOf brick:Occupied_Supply_Air_Flow_Setpoint .
-
-brick:Occupied_Heating_Supply_Air_Flow_Setpoint a owl:Class ;
-    rdfs:subClassOf brick:Occupied_Supply_Air_Flow_Setpoint .
+brick:Max_Air_Flow_Setpoint_Limit a owl:Class ;
+    rdfs:subClassOf brick:Air_Flow_Setpoint_Limit,
+        brick:Max_Limit .
 
 brick:Occupied_Supply_Air_Flow_Setpoint a owl:Class ;
     rdfs:subClassOf brick:Supply_Air_Flow_Setpoint .
@@ -1876,6 +1894,20 @@ brick:Room a owl:Class ;
 
 brick:Speed a owl:Class ;
     rdfs:subClassOf brick:Quantity .
+
+brick:Speed_Setpoint_Limit a owl:Class ;
+    rdfs:subClassOf brick:Limit .
+
+brick:Static_Pressure_Max_Setpoint_Limit a owl:Class ;
+    rdfs:subClassOf brick:Max_Limit,
+        brick:Static_Pressure_Setpoint_Limit .
+
+brick:Static_Pressure_Min_Setpoint_Limit a owl:Class ;
+    rdfs:subClassOf brick:Min_Limit,
+        brick:Static_Pressure_Setpoint_Limit .
+
+brick:Static_Pressure_Setpoint_Limit a owl:Class ;
+    rdfs:subClassOf brick:Limit .
 
 brick:Supply_Air_Temperature_Dead_Band_Setpoint a owl:Class ;
     rdfs:subClassOf brick:Dead_Band_Setpoint .
@@ -1978,6 +2010,10 @@ brick:Luminance a owl:Class ;
     rdfs:subClassOf brick:Quantity,
         brick:Substance .
 
+brick:Min_Air_Flow_Setpoint_Limit a owl:Class ;
+    rdfs:subClassOf brick:Air_Flow_Setpoint_Limit,
+        brick:Min_Limit .
+
 brick:Mode_Setpoint a owl:Class ;
     rdfs:subClassOf brick:Setpoint .
 
@@ -2016,9 +2052,6 @@ brick:Speed_Sensor a owl:Class ;
     owl:equivalentClass [ owl:intersectionOf ( [ a owl:Restriction ;
                         owl:hasValue brick:Speed ;
                         owl:onProperty brick:measures ] ) ] .
-
-brick:Speed_Setpoint a owl:Class ;
-    rdfs:subClassOf brick:Setpoint .
 
 brick:Valve a owl:Class ;
     rdfs:subClassOf brick:HVAC .
@@ -2070,6 +2103,12 @@ brick:CO2_Sensor a owl:Class ;
                         owl:hasValue brick:CO2 ;
                         owl:onProperty brick:measures ] ) ] .
 
+brick:Cooling_Max_Discharge_Air_Flow_Setpoint_Limit a owl:Class ;
+    rdfs:subClassOf brick:Max_Air_Flow_Setpoint_Limit .
+
+brick:Cooling_Min_Discharge_Air_Flow_Setpoint_Limit a owl:Class ;
+    rdfs:subClassOf brick:Min_Air_Flow_Setpoint_Limit .
+
 brick:Damper a owl:Class ;
     rdfs:subClassOf brick:HVAC ;
     skos:definition "Element inserted into an air-distribution system or element of an air-distribution system permitting modification of the air resistance of the system and consequently changing the airflow rate or shutting off the airflow." .
@@ -2077,8 +2116,8 @@ brick:Damper a owl:Class ;
 brick:Differential_Pressure_Sensor a owl:Class ;
     rdfs:subClassOf brick:Pressure_Sensor .
 
-brick:Discharge_Air_Static_Pressure_Setpoint a owl:Class ;
-    rdfs:subClassOf brick:Static_Pressure_Setpoint .
+brick:Differential_Pressure_Setpoint_Limit a owl:Class ;
+    rdfs:subClassOf brick:Limit .
 
 brick:Electric_Power a owl:Class ;
     rdfs:subClassOf brick:Power .
@@ -2088,6 +2127,12 @@ brick:Emergency_Power_Off_Status a owl:Class ;
 
 brick:Fan_Air_Flow_Sensor a owl:Class ;
     rdfs:subClassOf brick:Air_Flow_Sensor .
+
+brick:Heating_Max_Discharge_Air_Flow_Setpoint_Limit a owl:Class ;
+    rdfs:subClassOf brick:Max_Air_Flow_Setpoint_Limit .
+
+brick:Heating_Min_Discharge_Air_Flow_Setpoint_Limit a owl:Class ;
+    rdfs:subClassOf brick:Min_Air_Flow_Setpoint_Limit .
 
 brick:Laboratory a owl:Class ;
     rdfs:subClassOf brick:Room .
@@ -2133,13 +2178,13 @@ brick:Fan a owl:Class ;
 brick:Temperature_Sensor a owl:Class ;
     rdfs:subClassOf brick:Sensor ;
     owl:equivalentClass [ owl:intersectionOf ( [ a owl:Restriction ;
-                        owl:hasValue brick:Temperature ;
-                        owl:onProperty brick:measures ] ) ],
-        [ owl:intersectionOf ( [ a owl:Restriction ;
                         owl:hasValue tag:Sensor ;
                         owl:onProperty brick:hasTag ] [ a owl:Restriction ;
                         owl:hasValue tag:Temperature ;
-                        owl:onProperty brick:hasTag ] ) ] .
+                        owl:onProperty brick:hasTag ] ) ],
+        [ owl:intersectionOf ( [ a owl:Restriction ;
+                        owl:hasValue brick:Temperature ;
+                        owl:onProperty brick:measures ] ) ] .
 
 brick:Differential_Pressure_Load_Shed_Status a owl:Class ;
     rdfs:subClassOf brick:Load_Shed_Status .
@@ -2167,10 +2212,14 @@ brick:Air_Temperature_Sensor a owl:Class ;
                         owl:hasValue brick:Air ;
                         owl:onProperty brick:measures ] ) ] .
 
-brick:Point a owl:Class ;
+brick:Limit a owl:Class ;
+    rdfs:subClassOf brick:Point ;
     owl:equivalentClass [ owl:intersectionOf ( [ a owl:Restriction ;
-                        owl:hasValue tag:Point ;
+                        owl:hasValue tag:Limit ;
                         owl:onProperty brick:hasTag ] ) ] .
+
+brick:Static_Pressure_Setpoint a owl:Class ;
+    rdfs:subClassOf brick:Pressure_Setpoint .
 
 brick:Water_Temperature_Sensor a owl:Class ;
     rdfs:subClassOf brick:Temperature_Sensor ;
@@ -2179,6 +2228,17 @@ brick:Water_Temperature_Sensor a owl:Class ;
                         owl:onProperty brick:measures ] [ a owl:Restriction ;
                         owl:hasValue brick:Water ;
                         owl:onProperty brick:measures ] ) ] .
+
+brick:Max_Limit a owl:Class ;
+    rdfs:subClassOf brick:Limit .
+
+brick:Min_Limit a owl:Class ;
+    rdfs:subClassOf brick:Limit .
+
+brick:Point a owl:Class ;
+    owl:equivalentClass [ owl:intersectionOf ( [ a owl:Restriction ;
+                        owl:hasValue tag:Point ;
+                        owl:onProperty brick:hasTag ] ) ] .
 
 brick:Substance a owl:Class .
 
@@ -2207,9 +2267,6 @@ brick:On_Off_Status a owl:Class ;
 
 brick:Pressure a owl:Class ;
     rdfs:subClassOf brick:Quantity .
-
-brick:Static_Pressure_Setpoint a owl:Class ;
-    rdfs:subClassOf brick:Pressure_Setpoint .
 
 brick:Dead_Band_Setpoint a owl:Class ;
     rdfs:subClassOf brick:Setpoint .

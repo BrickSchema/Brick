@@ -30,12 +30,7 @@ point_definitions = {
                     "Supply_Air_Flow_Demand_Setpoint": {},
                 },
             },
-            "Damper_Position_Setpoint": {
-                "subclasses": {
-                    "Damper_Max_Position_Setpoint": {},
-                    "Damper_Min_Position_Setpoint": {},
-                },
-            },
+            "Damper_Position_Setpoint": {},
             "Dead_Band_Setpoint": {
                 "subclasses": {
                     "Chilled_Water_Differential_Pressure_Dead_Band_Setpoint": {},
@@ -93,38 +88,8 @@ point_definitions = {
                                 "subclasses": {
                                     # Do the same for Max/Min? Occupied/Unoccupied?
                                     "Discharge_Air_Flow_Demand_Setpoint": {},
-                                    "Cooling_Discharge_Air_Flow_Setpoint": {
-                                        "subclasses": {
-                                            "Cooling_Max_Discharge_Air_Flow_Setpoint": {
-                                                "subclasses": {
-                                                    "Occupied_Cooling_Max_Discharge_Air_Flow_Setpoint": {},
-                                                    "Unoccupied_Cooling_Max_Discharge_Air_Flow_Setpoint": {},
-                                                },
-                                            },
-                                            "Cooling_Min_Discharge_Air_Flow_Setpoint": {
-                                                "subclasses": {
-                                                    "Occupied_Cooling_Min_Discharge_Air_Flow_Setpoint": {},
-                                                    "Unoccupied_Cooling_Min_Discharge_Air_Flow_Setpoint": {},
-                                                },
-                                            },
-                                        },
-                                    },
-                                    "Heating_Discharge_Air_Flow_Setpoint": {
-                                        "subclasses": {
-                                            "Heating_Max_Discharge_Air_Flow_Setpoint": {
-                                                "subclasses": {
-                                                    "Occupied_Heating_Max_Discharge_Air_Flow_Setpoint": {},
-                                                    "Unoccupied_Heating_Max_Discharge_Air_Flow_Setpoint": {},
-                                                },
-                                            },
-                                            "Heating_Min_Discharge_Air_Flow_Setpoint": {
-                                                "subclasses": {
-                                                    "Occupied_Heating_Min_Discharge_Air_Flow_Setpoint": {},
-                                                    "Unoccupied_Heating_Min_Discharge_Air_Flow_Setpoint": {},
-                                                },
-                                            },
-                                        },
-                                    },
+                                    "Cooling_Discharge_Air_Flow_Setpoint": {},
+                                    "Heating_Discharge_Air_Flow_Setpoint": {},
                                 },
                             },
                             "Exhaust_Air_Flow_Setpoint": {
@@ -133,42 +98,18 @@ point_definitions = {
                                 },
                             },
                             "Fan_Air_Flow_Setpoint": {},
-                            "Outside_Air_Flow_Setpoint": {
-                                "subclasses": {
-                                    "Min_Outside_Air_Flow_Setpoint": {},
-                                },
-                            },
+                            "Outside_Air_Flow_Setpoint": {},
                             "Supply_Air_Flow_Setpoint": {
                                 "subclasses": {
                                     "Supply_Air_Flow_Demand_Setpoint": {},
                                     "Occupied_Supply_Air_Flow_Setpoint": {
                                         "subclasses": {
-                                            "Occupied_Cooling_Supply_Air_Flow_Setpoint": {
-                                                "subclasses": {
-                                                    "Occupied_Cooling_Max_Supply_Air_Flow_Setpoint": {},
-                                                    "Occupied_Cooling_Min_Supply_Air_Flow_Setpoint": {},
-                                                },
-                                            },
-                                            "Occupied_Heating_Supply_Air_Flow_Setpoint": {
-                                                "subclasses": {
-                                                    "Occupied_Heating_Max_Supply_Air_Flow_Setpoint": {},
-                                                    "Occupied_Heating_Min_Supply_Air_Flow_Setpoint": {},
-                                                },
-                                            },
+                                            "Occupied_Cooling_Supply_Air_Flow_Setpoint": {},
+                                            "Occupied_Heating_Supply_Air_Flow_Setpoint": {},
                                         },
                                     },
-                                    "Cooling_Supply_Air_Flow_Setpoint": {
-                                        "subclasses": {
-                                            "Cooling_Max_Supply_Air_Flow_Setpoint": {},
-                                            "Cooling_Min_Supply_Air_Flow_Setpoint": {},
-                                        },
-                                    },
-                                    "Heating_Supply_Air_Flow_Setpoint": {
-                                        "subclasses": {
-                                            "Heating_Max_Supply_Air_Flow_Setpoint": {},
-                                            "Heating_Min_Supply_Air_Flow_Setpoint": {},
-                                        },
-                                    },
+                                    "Cooling_Supply_Air_Flow_Setpoint": {},
+                                    "Heating_Supply_Air_Flow_Setpoint": {},
                                 },
                             },
                         },
@@ -247,18 +188,8 @@ point_definitions = {
                 "subclasses": {
                     "Differential_Pressure_Setpoint": {
                         "subclasses": {
-                            "Chilled_Water_Differential_Pressure_Setpoint": {
-                                "subclasses": {
-                                    "Max_Chilled_Water_Differential_Pressure_Setpoint": {},
-                                    "Min_Chilled_Water_Differential_Pressure_Setpoint": {},
-                                },
-                            },
-                            "Hot_Water_Differential_Pressure_Setpoint": {
-                                "subclasses": {
-                                    "Max_Hot_Water_Differential_Pressure_Setpoint": {},
-                                    "Min_Hot_Water_Differential_Pressure_Setpoint": {},
-                                },
-                            },
+                            "Chilled_Water_Differential_Pressure_Setpoint": {},
+                            "Hot_Water_Differential_Pressure_Setpoint": {},
                             "Load_Shed_Differential_Pressure_Setpoint": {
                                 "subclasses": {
                                     "Chilled_Water_Differential_Pressure_Load_Shed_Setpoint": {},
@@ -271,19 +202,10 @@ point_definitions = {
                         "subclasses": {
                             "Building_Static_Pressure_Setpoint": {},
                             "Chilled_Water_Static_Pressure_Setpoint": {},
-                            "Discharge_Air_Static_Pressure_Setpoint": {
-                                "subclasses": {
-                                    "Max_Discharge_Air_Static_Pressure_Setpoint": {},
-                                    "Max_Supply_Air_Static_Pressure_Setpoint": {},
-                                    "Min_Discharge_Air_Static_Pressure_Setpoint": {},
-                                    "Min_Supply_Air_Static_Pressure_Setpoint": {},
-                                },
-                            },
+                            "Discharge_Air_Static_Pressure_Setpoint": {},
                             "Exhaust_Air_Static_Pressure_Setpoint": {},
                             "High_Static_Pressure_Cutout_Limit_Setpoint": {},
                             "Hot_Water_Static_Pressure_Setpoint": {},
-                            "Static_Pressure_Max_Setpoint": {},
-                            "Static_Pressure_Min_Setpoint": {},
                             "Supply_Air_Static_Pressure_Setpoint": {},
                         },
                     },
@@ -372,8 +294,6 @@ point_definitions = {
                             "Return_Supply_Fan_Differential_Speed_Setpoint": {},
                         },
                     },
-                    "Max_Speed_Setpoint": {},
-                    "Min_Speed_Setpoint": {},
                 },
             },
             "Temperature_Setpoint": {
