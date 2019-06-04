@@ -37,6 +37,20 @@ def add_restriction(klass, definition):
     G.add( (equivalent_class, OWL.intersectionOf, list_name) )
     c = Collection(G, list_name, l)
 
+def add_tags(klass, definition):
+    l = []
+    equivalent_class = BNode()
+    list_name = BNode()
+    for idnum, item in enumerate(definition):
+        restriction = BNode()
+        l.append(restriction)
+        G.add( (restriction, A, OWL.Restriction) )
+        G.add( (restriction, OWL.onProperty, BRICK.hasTag) )
+        G.add( (restriction, OWL.hasValue, item) )
+    G.add( (BRICK[klass], OWL.equivalentClass, equivalent_class) )
+    G.add( (equivalent_class, OWL.intersectionOf, list_name) )
+    c = Collection(G, list_name, l)
+
 def add_class_restriction(klass, definition):
     l = []
     equivalent_class = BNode()
@@ -60,6 +74,8 @@ def define_subclasses(definitions, superclass):
         for k, v in properties.items():
             if isinstance(v, list) and k == "tagvalues":
                 add_restriction(subclass, v)
+            elif isinstance(v, list) and k == "tags":
+                add_tags(subclass, v)
             elif isinstance(v, list) and k == "substances":
                 add_restriction(subclass, v)
             elif not apply_prop(subclass, k, v):
@@ -72,6 +88,8 @@ def define_rootclasses(definitions):
         for k, v in properties.items():
             if isinstance(v, list) and k == "tagvalues":
                 add_restriction(rootclass, v)
+            elif isinstance(v, list) and k == "tags":
+                add_tags(rootclass, v)
             elif isinstance(v, list) and k == "substances":
                 add_class_restriction(subclass, v)
             elif not apply_prop(rootclass, k, v):
