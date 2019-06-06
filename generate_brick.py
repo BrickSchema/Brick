@@ -47,6 +47,7 @@ def add_tags(klass, definition):
         G.add( (restriction, A, OWL.Restriction) )
         G.add( (restriction, OWL.onProperty, BRICK.hasTag) )
         G.add( (restriction, OWL.hasValue, item) )
+        G.add( (item, A, BRICK.Tag) ) # make sure the tag is declared as such
     G.add( (BRICK[klass], OWL.equivalentClass, equivalent_class) )
     G.add( (equivalent_class, OWL.intersectionOf, list_name) )
     c = Collection(G, list_name, l)
