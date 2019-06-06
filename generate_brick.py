@@ -230,6 +230,11 @@ t1 = time.time()
 owlrl.DeductiveClosure(owlrl.OWLRL_Semantics).expand(G)
 t2 = time.time()
 print("Reasoning took {0}".format(t2-t1))
+s = G.serialize(format='ttl')
+print(len(G))
+
+with open('Brick_expanded.ttl','wb') as f:
+    f.write(s)
 
 # now you can query!
 # ipython -i generate_brick.py
