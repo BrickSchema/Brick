@@ -17,47 +17,44 @@ Set up subclasses of the equipment superclass
 equipment_subclasses = {
     "HVAC": {
         OWL.equivalentClass: "Heating_Ventilation_Air_Conditioning_System",
-        "tagvalues": [
-            [BRICK.hasTag, TAG.HVAC],
-        ],
+        "tags": [TAG.HVAC],
     },
     "Heating_Ventilation_Air_Conditioning_System": {
         OWL.equivalentClass: "HVAC",
     },
     "Weather": {
+        "tags": [TAG.Weather],
     },
     "Water_System": {
-        "Chilled_Water_System": {
-            "tagvalues": [
-                [BRICK.hasTag, TAG.Water],
-                [BRICK.hasTag, TAG.Chilled],
-                [BRICK.hasTag, TAG.Equip],
-            ],
-        },
-        "Hot_Water_System": {
-            "tagvalues": [
-                [BRICK.hasTag, TAG.Water],
-                [BRICK.hasTag, TAG.Hot],
-                [BRICK.hasTag, TAG.Equip],
-            ],
-        },
+        "subclasses": {
+            "Chilled_Water_System": {
+                "tags": [TAG.Water, TAG.Chilled, TAG.Equip],
+            },
+            "Hot_Water_System": {
+                "tags": [TAG.Water, TAG.Hot, TAG.Equip],
+            },
+        }
     },
     "Steam_System": {
+        "tags": [TAG.Steam, TAG.Equip],
     },
     "Solar_Panel": {
+        "tags": [TAG.Solar, TAG.Equip],
     },
     "Shading_System": {
+        "tags": [TAG.Shade, TAG.Equip],
     },
     "Power_System": {
+        "tags": [TAG.Power, TAG.Equip],
     },
     "PlugStrip": {
+        "tags": [TAG.Plugstrip, TAG.Equip],
     },
     "Meter": {
+        "tags": [TAG.Meter, TAG.Equip],
     },
     "Lighting_System": {
-        "tagvalues": [
-            (BRICK.hasTag, TAG.Lighting),
-        ],
+        "tags": [TAG.Lighting, TAG.Equip],
         "subclasses": {
             "Lighting": {
                 "subclasses": {
@@ -96,7 +93,10 @@ hvac_subclasses = {
         OWL.equivalentClass: "VFD",
         SKOS.definition: Literal("Electronic device that varies its output frequency to vary the rotating speed of a motor, given a fixed input frequency. Used with fans or pumps to vary the flow in the system as a function of a maintained pressure."),
     },
-    "Valve": {},
+    "Valve": {
+        "tags": [TAG.Valve, TAG.Equip]
+        # subclasses defined in 'valve_subclasses'
+    },
     "VFD": {
         OWL.equivalentClass: "VFD",
         "subclasses": {
@@ -245,13 +245,29 @@ Valve subclasses
 """
 valve_subclasses = {
     "Heating_Valve": {
+        "tags": [TAG.Valve, TAG.Heat, TAG.Equip],
         "subclasses": {
-            "Reheat_Valve": {},
-            "Domestic_Hot_Water_Valve": {},
-            "Preheat_Hot_Water_Valve": {},
+            "Reheat_Valve": {
+                "tags": [TAG.Valve, TAG.Reheat, TAG.Heat, TAG.Equip],
+            },
+            "Domestic_Hot_Water_Valve": {
+                "tags": [TAG.Domestic, TAG.Water, TAG.Hot, TAG.Valve, TAG.Heat, TAG.Equip],
+            },
+            "Preheat_Hot_Water_Valve": {
+                "tags": [TAG.Preheat, TAG.Water, TAG.Hot, TAG.Valve, TAG.Heat, TAG.Equip],
+            },
         },
         # OWL.equivalentClass: Restriction(BRICK.hasTag, graph=G, allValuesFrom=BRICK.Valve)
     },
-    "Chilled_Water_Valve": {},
-    "Isolation_Valve": {},
+    "Water_Valve": {
+        "tags": [TAG.Valve, TAG.Water, TAG.Equip],
+        "subclasses": {
+            "Chilled_Water_Valve": {
+                "tags": [TAG.Chilled, TAG.Valve, TAG.Water, TAG.Equip],
+            },
+        },
+    },
+    "Isolation_Valve": {
+        "tags": [TAG.Isolation, TAG.Valve, TAG.Equip],
+    },
 }

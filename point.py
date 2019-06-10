@@ -13,24 +13,44 @@ A = RDF.type
 
 point_definitions = {
     "Setpoint": {
-        "tagvalues": [[BRICK.hasTag, TAG.Setpoint]],
+        "tags": [TAG.Setpoint],
         "subclasses": {
-            "Enthalpy_Setpoint": {},
-            "Dew_Point_Setpoint": {},
+            "Enthalpy_Setpoint": {
+                "tags": [TAG.Enthalpy, TAG.Setpoint],
+            },
+            "Dew_Point_Setpoint": {
+                "tags": [TAG.Dewpoint, TAG.Setpoint],
+            },
             "Demand_Setpoint": {
+                "tags": [TAG.Demand, TAG.Setpoint],
                 "subclasses": {
-                    "Cooling_Demand_Setpoint": {},
+                    "Cooling_Demand_Setpoint": {
+                        "tags": [TAG.Cooling, TAG.Demand, TAG.Setpoint],
+                    },
                     "Cooling_Request_Percent_Setpoint": {},
                     "Cooling_Request_Setpoint": {},
-                    "Heating_Demand_Setpoint": {},
+                    "Heating_Demand_Setpoint": {
+                        "tags": [TAG.Heating, TAG.Demand, TAG.Setpoint],
+                    },
                     "Heating_Request_Percent_Setpoint": {},
                     "Heating_Request_Setpoint": {},
                     "Preheat_Demand_Setpoint": {},
-                    "Discharge_Air_Flow_Demand_Setpoint": {},
-                    "Supply_Air_Flow_Demand_Setpoint": {},
+                    "Air_Flow_Demand_Setpoint": {
+                        "tags": [TAG.Air, TAG.Flow, TAG.Demand, TAG.Setpoint],
+                        "subclasses": {
+                            "Discharge_Air_Flow_Demand_Setpoint": {
+                                "tags": [TAG.Discharge, TAG.Air, TAG.Flow, TAG.Demand, TAG.Setpoint],
+                            },
+                            "Supply_Air_Flow_Demand_Setpoint": {
+                                "tags": [TAG.Supply, TAG.Air, TAG.Flow, TAG.Demand, TAG.Setpoint],
+                            },
+                        },
+                    },
                 },
             },
-            "Damper_Position_Setpoint": {},
+            "Damper_Position_Setpoint": {
+                "tags": [TAG.Damper, TAG.Position, TAG.Setpoint],
+            },
             "Dead_Band_Setpoint": {
                 "subclasses": {
                     "Chilled_Water_Differential_Pressure_Dead_Band_Setpoint": {},
@@ -84,6 +104,7 @@ point_definitions = {
                     "Air_Flow_Setpoint": {
                         "tagvalues": [[BRICK.hasTag, TAG["Air"]], [BRICK.hasTag, TAG["Flow"]], [BRICK.hasTag, TAG["Setpoint"]]],
                         "subclasses": {
+                            "Air_Flow_Demand_Setpoint": {},
                             "Discharge_Air_Flow_Setpoint": {
                                 "subclasses": {
                                     # Do the same for Max/Min? Occupied/Unoccupied?
