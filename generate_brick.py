@@ -140,19 +140,13 @@ Declare root classes
 """
 roots = {
     "Equipment": {
-        "tagvalues": [
-            [BRICK.hasTag, TAG.Equip],
-        ],
+        "tags": [TAG.Equip],
     },
     "Location": {
-        "tagvalues": [
-            [BRICK.hasTag, TAG.Loc],
-        ],
+        "tags": [TAG.Loc],
     },
     "Point": {
-        "tagvalues": [
-            [BRICK.hasTag, TAG.Point],
-        ],
+        "tags": [TAG.Point],
     },
     "Tag": {},
     "Substance": {},
