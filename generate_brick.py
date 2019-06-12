@@ -2,6 +2,7 @@ from rdflib import Graph, Literal, BNode, Namespace, RDF, URIRef
 from rdflib.namespace import XSD
 from rdflib.collection import Collection
 from rdflib.extras.infixowl import Restriction
+import owlready2
 
 BRICK = Namespace("https://brickschema.org/schema/1.0.3/Brick#")
 TAG = Namespace("https://brickschema.org/schema/1.0.3/BrickTag#")
@@ -21,6 +22,9 @@ G.bind('tag', TAG)
 G.bind('bldg', BLDG)
 
 A = RDF.type
+
+from collections import defaultdict
+tag_lookup = defaultdict(set)
 
 #syntax for protege: http://protegeproject.github.io/protege/class-expression-syntax/
 def add_restriction(klass, definition):
@@ -48,9 +52,18 @@ def add_tags(klass, definition):
         G.add( (restriction, OWL.onProperty, BRICK.hasTag) )
         G.add( (restriction, OWL.hasValue, item) )
         G.add( (item, A, BRICK.Tag) ) # make sure the tag is declared as such
+
+    # tag index
+    tagset = tuple(sorted([item.split('#')[-1] for item in definition]))
+    tag_lookup[tagset].add(klass)
+
     G.add( (BRICK[klass], OWL.equivalentClass, equivalent_class) )
     G.add( (equivalent_class, OWL.intersectionOf, list_name) )
     c = Collection(G, list_name, l)
+
+def lookup_tagset(s):
+    s = set(map(lambda x: x.capitalize(), s))
+    return [klass for tagset, klass in tag_lookup.items() if s.issubset(set(tagset))]
 
 def add_class_restriction(klass, definition):
     l = []
@@ -154,8 +167,8 @@ roots = {
 }
 define_rootclasses(roots)
 
-from point import point_definitions
-define_subclasses(point_definitions, BRICK.Point)
+from setpoint import setpoint_definitions
+define_subclasses(setpoint_definitions, BRICK.Point)
 
 from sensor import sensor_definitions
 define_subclasses(sensor_definitions, BRICK.Point)
@@ -212,20 +225,42 @@ G.add( (BLDG.standalone, A, BRICK.Temperature_Sensor) )
 
 
 s = G.serialize(format='ttl')
-print(len(G))
+print('base:',len(G))
 
 with open('Brick.ttl','wb') as f:
     f.write(s)
+
+def rereason(G, filename):
+    world = owlready2.World()
+    with open(filename,'wb') as f:
+        f.write(G.serialize(format='ntriples'))
+    on = world.get_ontology(f"file://./{filename}").load()
+    owlready2.sync_reasoner(world, infer_property_values =True)
+    G = world.as_rdflib_graph()
+    G.bind('rdf', RDF)
+    G.bind('owl', OWL)
+    G.bind('rdfs', RDFS)
+    G.bind('skos', SKOS)
+    G.bind('brick', BRICK)
+    G.bind('tag', TAG)
+    G.bind('bldg', BLDG)
+    return G
+
+import pickle
+pickle.dump(tag_lookup, open('tag_lookup.pickle','wb'))
 
 # Apply reasoner
 import time
 import owlrl
 t1 = time.time()
-owlrl.DeductiveClosure(owlrl.OWLRL_Semantics).expand(G)
+try:
+    G = rereason(G, "Brick.n3")
+except:
+    owlrl.DeductiveClosure(owlrl.OWLRL_Semantics).expand(G)
 t2 = time.time()
 print("Reasoning took {0}".format(t2-t1))
 s = G.serialize(format='ttl')
-print(len(G))
+print('expanded:', len(G))
 
 with open('Brick_expanded.ttl','wb') as f:
     f.write(s)

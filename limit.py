@@ -200,10 +200,10 @@ limit_definitions = {
                             "Min_Cooling_Supply_Air_Flow_Setpoint_Limit": {
                                 "tags": [TAG.Min, TAG.Cooling, TAG.Supply, TAG.Air, TAG.Flow, TAG.Setpoint, TAG.Limit],
                                 "subclasses": {
-                                    "TAG.Min_TAG.Occupied_TAG.Cooling_TAG.Supply_TAG.Air_TAG.Flow_TAG.Setpoint_TAG.Limit": {
+                                    "Min_Occupied_Cooling_Supply_Air_Flow_Setpoint_Limit": {
                                         "tags": [TAG.Min, TAG.Occupied, TAG.Cooling, TAG.Supply, TAG.Air, TAG.Flow, TAG.Setpoint, TAG.Limit],
                                     },
-                                    "TAG.Min_TAG.Unoccupied_TAG.Cooling_TAG.Supply_TAG.Air_TAG.Flow_TAG.Setpoint_TAG.Limit": {
+                                    "Min_Unoccupied_Cooling_Supply_Air_Flow_Setpoint_Limit": {
                                         "tags": [TAG.Min, TAG.Unoccupied, TAG.Cooling, TAG.Supply, TAG.Air, TAG.Flow, TAG.Setpoint, TAG.Limit],
                                     },
                                 },
