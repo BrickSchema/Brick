@@ -16,10 +16,10 @@ quantity_definitions = {
         "subclasses": {
             "Air_Quality": {
                 "subclasses": {
-                    "CO2": {},
-                    "PM10": {},
-                    "PM25": {},
-                    "TVOC": {},
+                    "CO2_Level": {},
+                    "PM10_Level": {},
+                    "PM25_Level": {},
+                    "TVOC_Level": {},
                 },
             },
             "Conductivity": {},
@@ -92,7 +92,14 @@ quantity_definitions = {
                     "Solar_Irradiance": {},
                 },
             },
-            "Level": {},
+            "Level": {
+                "subclasses": {
+                    "CO2_Level": {},
+                    "PM10_Level": {},
+                    "PM25_Level": {},
+                    "TVOC_Level": {},
+                },
+            },
             "Luminance": {
                 "subclasses": {
                     "Luminous_Flux": {},
@@ -116,6 +123,7 @@ quantity_definitions = {
                 "subclasses": {
                     "Operative_Temperature": {},
                     "Radiant_Temperature": {},
+                    "Dry_Bulb_Temperature": {},
                     "Wet_Bulb_Temperature": {},
                 },
             },
