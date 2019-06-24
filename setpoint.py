@@ -554,6 +554,12 @@ setpoint_definitions = {
                             "Room_Air_Temperature_Setpoint": {
                                 "tags": [ TAG.Room, TAG.Air, TAG.Temperature, TAG.Setpoint ],
                             },
+                            "Zone_Air_Temperature_Setpoint": {
+                                "tags": [ TAG.Zone, TAG.Air, TAG.Temperature, TAG.Setpoint ],
+                            },
+                            "Effective_Air_Temperature_Setpoint": {
+                                "tags": [ TAG.Effective, TAG.Air, TAG.Temperature, TAG.Setpoint ],
+                            },
                             "Outside_Air_Temperature_Setpoint": {
                                 "subclasses": {
                                     "Low_Outside_Air_Temperature_Enable_Setpoint": {

@@ -156,14 +156,28 @@ hvac_subclasses = {
     },
     "Fan": {
         SKOS.definition: Literal("Any device with two or more blades or vanes attached to a rotating shaft used to produce an airflow for the purpose of comfort, ventilation, exhaust, heating, cooling, or any other gaseous transport."),
+        "tags": [TAG.Equip, TAG.Fan],
         "subclasses": {
-            "Cooling_Tower_Fan": {},
-            "Exhaust_Fan": {},
-            "Return_Fan": {},
-            "Standby_Fan": {},
+            "Cooling_Tower_Fan": {
+            },
+            "Exhaust_Fan": {
+                "tags": [TAG.Equip, TAG.Fan, TAG.Exhaust],
+            },
+            "Return_Fan": {
+                "tags": [TAG.Equip, TAG.Fan, TAG.Return],
+            },
+            "Standby_Fan": {
+                "tags": [TAG.Equip, TAG.Fan, TAG.Standby],
+            },
+            "Discharge_Fan": {
+                "tags": [TAG.Equip, TAG.Fan, TAG.Discharge],
+            },
             "Supply_Fan": {
+                "tags": [TAG.Equip, TAG.Fan, TAG.Supply],
                 "subclasses": {
-                    "Booster_Fan": {}
+                    "Booster_Fan": {
+                        "tags": [TAG.Equip, TAG.Fan, TAG.Booster],
+                    },
                 },
             },
         },
@@ -173,11 +187,20 @@ hvac_subclasses = {
     },
     "Damper": {
         SKOS.definition: Literal("Element inserted into an air-distribution system or element of an air-distribution system permitting modification of the air resistance of the system and consequently changing the airflow rate or shutting off the airflow."),
+        "tags": [TAG.Equip, TAG.Damper],
         "subclasses": {
-            "Economizer_Damper": {},
-            "Exhaust_Damper": {},
-            "Outside_Damper": {},
-            "Return_Damper": {},
+            "Economizer_Damper": {
+                "tags": [TAG.Equip, TAG.Damper, TAG.Economizer],
+            },
+            "Exhaust_Damper": {
+                "tags": [TAG.Equip, TAG.Damper, TAG.Exhaust],
+            },
+            "Outside_Damper": {
+                "tags": [TAG.Equip, TAG.Damper, TAG.Outside],
+            },
+            "Return_Damper": {
+                "tags": [TAG.Equip, TAG.Damper, TAG.Return],
+            },
         },
     },
     "Condenser": {

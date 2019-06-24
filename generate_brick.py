@@ -53,6 +53,12 @@ def add_tags(klass, definition):
         G.add( (restriction, OWL.onProperty, BRICK.hasTag) )
         G.add( (restriction, OWL.hasValue, item) )
         G.add( (item, A, BRICK.Tag) ) # make sure the tag is declared as such
+    # cardinality
+    #restriction = BNode()
+    #l.append(restriction)
+    #G.add( (restriction, A, OWL.Restriction) )
+    #G.add( (restriction, OWL.onProperty, BRICK.hasTag) )
+    #G.add( (restriction, OWL.cardinality, Literal(len(definition))) )
 
     # tag index
     tagset = tuple(sorted([item.split('#')[-1] for item in definition]))
@@ -177,6 +183,9 @@ define_subclasses(sensor_definitions, BRICK.Point)
 from status import status_definitions
 define_subclasses(status_definitions, BRICK.Point)
 
+from command import command_definitions
+define_subclasses(command_definitions, BRICK.Point)
+
 from limit import limit_definitions
 define_subclasses(limit_definitions, BRICK.Point)
 
@@ -217,6 +226,19 @@ G.add( (BLDG.TS1, A, BRICK.Temperature_Sensor) )
 G.add( (BLDG.TS1, BRICK.measures, BRICK.Air) )
 G.add( (BLDG.TS2, A, BRICK.Air_Temperature_Sensor) )
 
+# add air flow setpoint
+G.add( (BLDG.AFSP1, A, BRICK.Setpoint) )
+G.add( (BLDG.AFSP1, BRICK.hasTag, TAG.Air) )
+G.add( (BLDG.AFSP1, BRICK.hasTag, TAG.Flow) )
+G.add( (BLDG.AFSP1, BRICK.hasTag, TAG.Setpoint) )
+
+# add air flow setpoint limit
+G.add( (BLDG.MAFS1, A, BRICK.Setpoint) )
+G.add( (BLDG.MAFS1, BRICK.hasTag, TAG.Air) )
+G.add( (BLDG.MAFS1, BRICK.hasTag, TAG.Flow) )
+G.add( (BLDG.MAFS1, BRICK.hasTag, TAG.Setpoint) )
+G.add( (BLDG.MAFS1, BRICK.hasTag, TAG.Limit) )
+G.add( (BLDG.MAFS1, BRICK.hasTag, TAG.Max) )
 
 G.add( (BLDG.AFS1, A, BRICK.Air_Flow_Sensor) )
 
@@ -288,6 +310,10 @@ print('Air temperature sensors: ', list(res4))
 # air flow sensors
 res4 = G.query("SELECT DISTINCT ?sensor WHERE { ?sensor rdf:type brick:Air_Flow_Sensor }")
 print('Air flow sensors (using class): ', list(res4))
+
+# air flow setpoints
+res5 = G.query("SELECT DISTINCT ?sp WHERE { ?sp rdf:type brick:Air_Flow_Setpoint }")
+print('Air flow setpoints (using class): ', list(res5))
 
 # air flow sensors
 res4 = G.query("SELECT DISTINCT ?sensor WHERE { ?sensor brick:hasTag tag:Air . ?sensor brick:hasTag tag:Sensor . ?sensor brick:hasTag tag:Flow }")

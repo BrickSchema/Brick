@@ -111,6 +111,17 @@ properties = {
         RDFS.domain: BRICK.Substance,
         RDFS.range: BRICK.Point,
     },
+    "regulates": {
+        A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+        OWL.inverseOf: "isRegulatedBy",
+        RDFS.domain: BRICK.Equipment,
+        RDFS.range: BRICK.Substance,
+    },
+    "isRegulatedBy": {
+        A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+        RDFS.domain: BRICK.Substance,
+        RDFS.range: BRICK.Equipment,
+    },
 
     # Haystack-style
     "ahuRef": {
