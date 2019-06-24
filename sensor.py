@@ -90,6 +90,15 @@ sensor_definitions = {
                 "tags": [ TAG.Sensor, TAG.Power ],
                 "substances": [ [ BRICK.measures, BRICK.Power ], ],
                 "subclasses": {
+                    "Active_Power_Sensor": {
+                        "tags": [ TAG.Sensor, TAG.Power, TAG.Active ],
+                    },
+                    "Reactive_Power_Sensor": {
+                        "tags": [ TAG.Sensor, TAG.Power, TAG.Reactive ],
+                    },
+                    "Real_Power_Sensor": {
+                        "tags": [ TAG.Sensor, TAG.Power, TAG.Real ],
+                    },
                     "Peak_Power_Demand_Sensor": {
                         "tags": [ TAG.Peak, TAG.Power, TAG.Demand, TAG.Sensor ],
                     }
