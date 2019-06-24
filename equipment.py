@@ -52,6 +52,11 @@ equipment_subclasses = {
     },
     "Meter": {
         "tags": [TAG.Meter, TAG.Equip],
+        "subclasses": {
+            "Building_Meter": {
+                "tags": [TAG.Meter, TAG.Equip, TAG.Building],
+            },
+        },
     },
     "Lighting_System": {
         "tags": [TAG.Lighting, TAG.Equip],
@@ -251,13 +256,11 @@ hvac_subclasses = {
     },
     "AHU": {
         OWL.equivalentClass: "Air_Handler_Unit",
-        "tagvalues": [
-            [BRICK.hasTag, TAG.Air],
-            [BRICK.hasTag, TAG.Equip],
-        ],
+        "tags": [ TAG.Equip, TAG.AHU],
         "subclasses": {
             "Rooftop_Unit": {
                 OWL.equivalentClass: "RTU",
+                "tags": [TAG.Equip, TAG.Rooftop, TAG.AHU],
             },
         },
     },

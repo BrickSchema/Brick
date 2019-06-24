@@ -244,25 +244,25 @@ sensor_definitions = {
                         "tags": [ TAG.Sensor, TAG.Humidity, TAG.Air ],
                         "substances": [ [ BRICK.measures, BRICK.Humidity ], [ BRICK.measures, BRICK.Air ], ],
                         "subclasses": {
-                            "Discharge_Air_Humidity_Sensor:": {
+                            "Discharge_Air_Humidity_Sensor": {
                                 "tags": [ TAG.Sensor, TAG.Humidity, TAG.Air, TAG.Discharge ],
                             },
-                            "Exhaust_Air_Humidity_Sensor:": {
+                            "Exhaust_Air_Humidity_Sensor": {
                                 "tags": [ TAG.Sensor, TAG.Humidity, TAG.Air, TAG.Exhaust ],
                             },
-                            "Outside_Air_Humidity_Sensor:": {
+                            "Outside_Air_Humidity_Sensor": {
                                 "tags": [ TAG.Sensor, TAG.Humidity, TAG.Air, TAG.Outside ],
                             },
-                            "Relative_Humidity_Sensor:": {
+                            "Relative_Humidity_Sensor": {
                                 "tags": [ TAG.Sensor, TAG.Humidity, TAG.Air, TAG.Relative ],
                             },
-                            "Return_Air_Humidity_Sensor:": {
+                            "Return_Air_Humidity_Sensor": {
                                 "tags": [ TAG.Sensor, TAG.Humidity, TAG.Air, TAG.Return ],
                             },
-                            "Supply_Air_Humidity_Sensor:": {
+                            "Supply_Air_Humidity_Sensor": {
                                 "tags": [ TAG.Sensor, TAG.Humidity, TAG.Air, TAG.Supply ],
                             },
-                            "Zone_Humidity_Sensor:": {
+                            "Zone_Humidity_Sensor": {
                                 "tags": [ TAG.Sensor, TAG.Humidity, TAG.Zone ],
                             }
                         }
@@ -328,42 +328,42 @@ sensor_definitions = {
                     "Static_Pressure_Sensor": {
                         "tags": [ TAG.Sensor, TAG.Pressure, TAG.Static ],
                         "subclasses": {
-                            "Building_Static_Pressure_Sensor:": {
+                            "Building_Static_Pressure_Sensor": {
                                 "substances": [ [ BRICK.measures, BRICK.Pressure ], [ BRICK.measures, BRICK.Air ], ],
                                 "tags": [ TAG.Building, TAG.Static, TAG.Pressure, TAG.Sensor ],
                             },
-                            "Discharge_Air_Static_Pressure_Sensor:": {
+                            "Discharge_Air_Static_Pressure_Sensor": {
                                 "tags": [ TAG.Sensor, TAG.Pressure, TAG.Static, TAG.Air, TAG.Discharge ],
                                 "substances": [ [ BRICK.measures, BRICK.Pressure ], [ BRICK.measures, BRICK.Air ], ],
                             },
-                            "Supply_Air_Static_Pressure_Sensor:": {
+                            "Supply_Air_Static_Pressure_Sensor": {
                                 "tags": [ TAG.Sensor, TAG.Pressure, TAG.Static, TAG.Air, TAG.Supply ],
                                 "substances": [ [ BRICK.measures, BRICK.Pressure ], [ BRICK.measures, BRICK.Air ], ],
                             },
-                            "Exhaust_Air_Static_Pressure_Sensor:": {
+                            "Exhaust_Air_Static_Pressure_Sensor": {
                                 "tags": [ TAG.Sensor, TAG.Pressure, TAG.Static, TAG.Air, TAG.Exhaust ],
                                 "substances": [ [ BRICK.measures, BRICK.Pressure ], [ BRICK.measures, BRICK.Air ], ],
                                 "subclasses": {
-                                    "Average_Exhaust_Air_Static_Pressure_Sensor:": {
+                                    "Average_Exhaust_Air_Static_Pressure_Sensor": {
                                         "tags": [ TAG.Average, TAG.Exhaust, TAG.Air, TAG.Static, TAG.Pressure, TAG.Sensor ],
                                     },
-                                    "Lowest_Exhaust_Air_Static_Pressure_Sensor:": {
+                                    "Lowest_Exhaust_Air_Static_Pressure_Sensor": {
                                         "tags": [ TAG.Lowest, TAG.Exhaust, TAG.Air, TAG.Static, TAG.Pressure, TAG.Sensor ],
                                     }
                                 }
                             }
                         }
                     },
-                    "Velocity_Pressure_Sensor:": {
+                    "Velocity_Pressure_Sensor": {
                         "tags": [ TAG.Sensor, TAG.Pressure, TAG.Velocity ],
                         "subclasses": {
-                            "Discharge_Air_Velocity_Pressure_Sensor:": {
+                            "Discharge_Air_Velocity_Pressure_Sensor": {
                                 "tags": [ TAG.Sensor, TAG.Pressure, TAG.Velocity, TAG.Discharge, TAG.Air ],
                             },
-                            "Exhaust_Air_Velocity_Pressure_Sensor:": {
+                            "Exhaust_Air_Velocity_Pressure_Sensor": {
                                 "tags": [ TAG.Sensor, TAG.Pressure, TAG.Velocity, TAG.Exhaust, TAG.Air ],
                             },
-                            "Supply_Air_Velocity_Pressure_Sensor:": {
+                            "Supply_Air_Velocity_Pressure_Sensor": {
                                 "tags": [ TAG.Sensor, TAG.Pressure, TAG.Velocity, TAG.Supply, TAG.Air ],
                             }
                         }

@@ -166,7 +166,7 @@ roots = {
         "tags": [TAG.Loc],
     },
     "Point": {
-        "tags": [TAG.Point],
+        #"tags": [TAG.Point],
     },
     "Tag": {},
     "Substance": {},
