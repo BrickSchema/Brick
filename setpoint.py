@@ -2,14 +2,8 @@ from rdflib import Graph, Literal, BNode, Namespace, RDF, URIRef
 from rdflib.collection import Collection
 from rdflib.extras.infixowl import Restriction
 
-BRICK = Namespace("https://brickschema.org/schema/1.0.3/Brick#")
-TAG = Namespace("https://brickschema.org/schema/1.0.3/BrickTag#")
-BLDG = Namespace("https://brickschema.org/schema/1.0.3/ExampleBuilding#")
-OWL = Namespace("http://www.w3.org/2002/07/owl#")
-RDF = Namespace("http://www.w3.org/1999/02/22-rdf-syntax-ns#")
-RDFS = Namespace("http://www.w3.org/2000/01/rdf-schema#")
-SKOS = Namespace("http://www.w3.org/2004/02/skos/core#")
-A = RDF.type
+from namespaces import *
+
 
 setpoint_definitions = {
     "Setpoint": {
@@ -225,97 +219,6 @@ setpoint_definitions = {
                 },
                 "tags": [ TAG.Humidity, TAG.Setpoint ],
             },
-            "Increase_Decrease_Step_Setpoint": {
-                "subclasses": {
-                    "Differential_Pressure_Increase_Decrease_Step_Setpoint": {
-                        "subclasses": {
-                            "Chilled_Water_Differential_Pressure_Increase_Decrease_Step_Setpoint": {
-                                "tags": [ TAG.Chilled, TAG.Water, TAG.Differential, TAG.Pressure, TAG.Increase, TAG.Decrease, TAG.Step, TAG.Setpoint ],
-                            }
-                        },
-                        "tags": [ TAG.Differential, TAG.Pressure, TAG.Increase, TAG.Decrease, TAG.Step, TAG.Setpoint ],
-                    },
-                    "Static_Pressure_Increase_Decrease_Step_Setpoint": {
-                        "subclasses": {
-                            "Air_Static_Pressure_Increase_Decrease_Step_Setpoint": {
-                                "tags": [ TAG.Air, TAG.Static, TAG.Pressure, TAG.Increase, TAG.Decrease, TAG.Step, TAG.Setpoint ],
-                            }
-                        },
-                        "tags": [ TAG.Static, TAG.Pressure, TAG.Increase, TAG.Decrease, TAG.Step, TAG.Setpoint ],
-                    },
-                    "Temperature_Increase_Decrease_Step_Setpoint": {
-                        "subclasses": {
-                            "Air_Temperature_Increase_Decrease_Step_Setpoint": {
-                                "tags": [ TAG.Air, TAG.Temperature, TAG.Increase, TAG.Decrease, TAG.Step, TAG.Setpoint ],
-                            }
-                        },
-                        "tags": [ TAG.Temperature, TAG.Increase, TAG.Decrease, TAG.Step, TAG.Setpoint ],
-                    }
-                },
-                "tags": [ TAG.Increase, TAG.Decrease, TAG.Step, TAG.Setpoint ],
-            },
-            "Integral_Gain_Setpoint": {
-                "tags": [ TAG.Integral, TAG.Gain, TAG.Setpoint ],
-            },
-            "Integral_Time_Setpoint": {
-                "subclasses": {
-                    "Chilled_Water_Differential_Pressure_Integral_Time_Setpoint": {
-                        "tags": [ TAG.Chilled, TAG.Water, TAG.Differential, TAG.Pressure, TAG.Integral, TAG.Time, TAG.Setpoint ],
-                    },
-                    "Cooling_Discharge_Air_Temperature_Integral_Time_Setpoint": {
-                        "tags": [ TAG.Cooling, TAG.Discharge, TAG.Air, TAG.Temperature, TAG.Integral, TAG.Time, TAG.Setpoint ],
-                    },
-                    "Cooling_Supply_Air_Temperature_Integral_Time_Setpoint": {
-                        "tags": [ TAG.Cooling, TAG.Supply, TAG.Air, TAG.Temperature, TAG.Integral, TAG.Time, TAG.Setpoint ],
-                    },
-                    "Differential_Pressure_Integral_Time": {
-                        "subclasses": {
-                            "Chilled_Water_Pump_Differential_Pressure_Integration_Time_Setpoint": {
-                                "tags": [ TAG.Chilled, TAG.Water, TAG.Pump, TAG.Differential, TAG.Pressure, TAG.Integration, TAG.Time, TAG.Setpoint ],
-                            }
-                        },
-                        "tags": [ TAG.Differential, TAG.Pressure, TAG.Integral, TAG.Time ],
-                    },
-                    "Differential_Pressure_Integral_Time_Setpoint": {
-                        "subclasses": {
-                            "Hot_Water_Differential_Pressure_Integral_Time_Setpoint": {
-                                "tags": [ TAG.Hot, TAG.Water, TAG.Differential, TAG.Pressure, TAG.Integral, TAG.Time, TAG.Setpoint ],
-                            }
-                        },
-                        "tags": [ TAG.Differential, TAG.Pressure, TAG.Integral, TAG.Time, TAG.Setpoint ],
-                    },
-                    "Discharge_Air_Static_Pressure_Integral_Time_Setpoint": {
-                        "tags": [ TAG.Discharge, TAG.Air, TAG.Static, TAG.Pressure, TAG.Integral, TAG.Time, TAG.Setpoint ],
-                    },
-                    "Exhaust_Air_Flow_Integral_Time_Setpoint": {
-                        "subclasses": {
-                            "Exhaust_Air_Stack_Flow_Integral_Time_Setpoint": {
-                                "tags": [ TAG.Exhaust, TAG.Air, TAG.Stack, TAG.Flow, TAG.Integral, TAG.Time, TAG.Setpoint ],
-                            }
-                        },
-                        "tags": [ TAG.Exhaust, TAG.Air, TAG.Flow, TAG.Integral, TAG.Time, TAG.Setpoint ],
-                    },
-                    "Heating_Discharge_Air_Temperature_Integral_Time_Setpoint": {
-                        "tags": [ TAG.Heating, TAG.Discharge, TAG.Air, TAG.Temperature, TAG.Integral, TAG.Time, TAG.Setpoint ],
-                    },
-                    "Heating_Supply_Air_Temperature_Integral_Time_Setpoint": {
-                        "tags": [ TAG.Heating, TAG.Supply, TAG.Air, TAG.Temperature, TAG.Integral, TAG.Time, TAG.Setpoint ],
-                    },
-                    "Static_Pressure_Integral_Time_Setpoint": {
-                        "tags": [ TAG.Static, TAG.Pressure, TAG.Integral, TAG.Time, TAG.Setpoint ],
-                    },
-                    "Supply_Air_Static_Pressure_Integral_Time_Setpoint": {
-                        "tags": [ TAG.Supply, TAG.Air, TAG.Static, TAG.Pressure, TAG.Integral, TAG.Time, TAG.Setpoint ],
-                    },
-                    "Supply_Water_Differential_Pressure_Integral_Time_Setpoint": {
-                        "tags": [ TAG.Supply, TAG.Water, TAG.Differential, TAG.Pressure, TAG.Integral, TAG.Time, TAG.Setpoint ],
-                    },
-                    "Supply_Water_Temperature_Integral_Time_Setpoint": {
-                        "tags": [ TAG.Supply, TAG.Water, TAG.Temperature, TAG.Integral, TAG.Time, TAG.Setpoint ],
-                    }
-                },
-                "tags": [ TAG.Integral, TAG.Time, TAG.Setpoint ],
-            },
             "Load_Setpoint": {
                 "subclasses": {
                     "Max_Load_Setpoint": {
@@ -396,77 +299,6 @@ setpoint_definitions = {
                     }
                 },
                 "tags": [ TAG.Pressure, TAG.Setpoint ],
-            },
-            "Proportional_Band_Setpoint": {
-                "subclasses": {
-                    "Chilled_Water_Differential_Pressure_Proportional_Band_Setpoint": {
-                        "tags": [ TAG.Chilled, TAG.Water, TAG.Differential, TAG.Pressure, TAG.Proportional, TAG.Band, TAG.Setpoint ],
-                    },
-                    "Cooling_Discharge_Air_Temperature_Proportional_Band_Setpoint": {
-                        "tags": [ TAG.Cooling, TAG.Discharge, TAG.Air, TAG.Temperature, TAG.Proportional, TAG.Band, TAG.Setpoint ],
-                    },
-                    "Cooling_Supply_Air_Temperature_Proportional_Band_Setpoint": {
-                        "tags": [ TAG.Cooling, TAG.Supply, TAG.Air, TAG.Temperature, TAG.Proportional, TAG.Band, TAG.Setpoint ],
-                    },
-                    "Differential_Pressure_Proportional_Band": {
-                        "tags": [ TAG.Differential, TAG.Pressure, TAG.Proportional, TAG.Band ],
-                    },
-                    "Hot_Water_Differential_Pressure_Proportional_Band_Setpoint": {
-                        "tags": [ TAG.Hot, TAG.Water, TAG.Differential, TAG.Pressure, TAG.Proportional, TAG.Band, TAG.Setpoint ],
-                    },
-                    "Discharge_Air_Static_Pressure_Proportional_Band_Setpoint": {
-                        "tags": [ TAG.Discharge, TAG.Air, TAG.Static, TAG.Pressure, TAG.Proportional, TAG.Band, TAG.Setpoint ],
-                    },
-                    "Discharge_Air_Temperature_Proportional_Band_Setpoint": {
-                        "tags": [ TAG.Discharge, TAG.Air, TAG.Temperature, TAG.Proportional, TAG.Band, TAG.Setpoint ],
-                    },
-                    "Supply_Air_Temperature_Proportional_Band_Setpoint": {
-                        "tags": [ TAG.Supply, TAG.Air, TAG.Temperature, TAG.Proportional, TAG.Band, TAG.Setpoint ],
-                    },
-                    "Exhaust_Air_Flow_Proportional_Band_Setpoint": {
-                        "tags": [ TAG.Exhaust, TAG.Air, TAG.Flow, TAG.Proportional, TAG.Band, TAG.Setpoint ],
-                    },
-                    "Heating_Discharge_Air_Temperature_Proportional_Band_Setpoint": {
-                        "tags": [ TAG.Heating, TAG.Discharge, TAG.Air, TAG.Temperature, TAG.Proportional, TAG.Band, TAG.Setpoint ],
-                    },
-                    "Heating_Supply_Air_Temperature_Proportional_Band_Setpoint": {
-                        "tags": [ TAG.Heating, TAG.Supply, TAG.Air, TAG.Temperature, TAG.Proportional, TAG.Band, TAG.Setpoint ],
-                    },
-                    "Static_Pressure_Proportional_Band_Setpoint": {
-                        "subclasses": {
-                            "Exhaust_Air_Static_Pressure_Proportional_Band_Setpoint": {
-                                "tags": [ TAG.Exhaust, TAG.Air, TAG.Static, TAG.Pressure, TAG.Proportional, TAG.Band, TAG.Setpoint ],
-                            }
-                        },
-                        "tags": [ TAG.Static, TAG.Pressure, TAG.Proportional, TAG.Band, TAG.Setpoint ],
-                    },
-                    "Supply_Air_Static_Pressure_Proportional_Band_Setpoint": {
-                        "tags": [ TAG.Supply, TAG.Air, TAG.Static, TAG.Pressure, TAG.Proportional, TAG.Band, TAG.Setpoint ],
-                    },
-                    "Supply_Water_Differential_Pressure_Proportional_Band_Setpoint": {
-                        "subclasses": {
-                            "Thermal_Energy_Storage_Discharge_Water_Differential_Pressure_ProportionalBandSetpoint": {
-                                "tags": [ TAG.Thermal, TAG.Energy, TAG.Storage, TAG.Discharge, TAG.Water, TAG.Differential, TAG.Pressure, TAG.Proportionalbandsetpoint ],
-                            },
-                            "Thermal_Energy_Storage_Supply_Water_Differential_Pressure_Proportional_BandSetpoint": {
-                                "tags": [ TAG.Thermal, TAG.Energy, TAG.Storage, TAG.Supply, TAG.Water, TAG.Differential, TAG.Pressure, TAG.Proportional, TAG.Bandsetpoint ],
-                            }
-                        },
-                        "tags": [ TAG.Supply, TAG.Water, TAG.Differential, TAG.Pressure, TAG.Proportional, TAG.Band, TAG.Setpoint ],
-                    },
-                    "Supply_Water_Temperature_Proportional_Band_Setpoint": {
-                        "subclasses": {
-                            "Heat_Exchanger_Discharge_Water_Temperature_Proportional_Band_Setpoint": {
-                                "tags": [ TAG.Heat, TAG.Exchanger, TAG.Discharge, TAG.Water, TAG.Temperature, TAG.Proportional, TAG.Band, TAG.Setpoint ],
-                            },
-                            "Heat_Exchanger_Supply_Water_Temperature_Proportional_Band_Setpoint": {
-                                "tags": [ TAG.Heat, TAG.Exchanger, TAG.Supply, TAG.Water, TAG.Temperature, TAG.Proportional, TAG.Band, TAG.Setpoint ],
-                            }
-                        },
-                        "tags": [ TAG.Supply, TAG.Water, TAG.Temperature, TAG.Proportional, TAG.Band, TAG.Setpoint ],
-                    }
-                },
-                "tags": [ TAG.Proportional, TAG.Band, TAG.Setpoint ],
             },
             "Reset_Setpoint": {
                 "Discharge_Air_Flow_Reset_Setpoint": {

@@ -186,8 +186,8 @@ define_subclasses(status_definitions, BRICK.Point)
 from command import command_definitions
 define_subclasses(command_definitions, BRICK.Point)
 
-from limit import limit_definitions
-define_subclasses(limit_definitions, BRICK.Point)
+from parameter import parameter_definitions
+define_subclasses(parameter_definitions, BRICK.Point)
 
 from location import location_subclasses
 define_subclasses(location_subclasses, BRICK.Location)
