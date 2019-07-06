@@ -488,6 +488,7 @@ sensor_definitions = {
                             "Discharge_Air_Temperature_Sensor": {
                                 "tags": [ TAG.Sensor, TAG.Temperature, TAG.Air, TAG.Discharge ],
                                 OWL.equivalentClass: "Supply_Air_Temperature_Sensor",
+                                "substances": [ [ BRICK.measures, BRICK.Temperature ], [ BRICK.measures, BRICK.Supply_Air ], ],
                                 "subclasses": {
                                     "Cooling_Coil_Discharge_Air_Temperature_Sensor": {
                                         "tags": [ TAG.Cooling, TAG.Coil, TAG.Discharge, TAG.Air, TAG.Temperature, TAG.Sensor ],
