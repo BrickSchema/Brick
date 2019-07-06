@@ -12,10 +12,14 @@ OWL = Namespace("http://www.w3.org/2002/07/owl#")
 RDF = Namespace("http://www.w3.org/1999/02/22-rdf-syntax-ns#")
 RDFS = Namespace("http://www.w3.org/2000/01/rdf-schema#")
 SKOS = Namespace("http://www.w3.org/2004/02/skos/core#")
+DCTERMS = Namespace("http://purl.org/dc/terms#")
+SDO = Namespace("http://schema.org#")
 
 G = Graph()
 G.bind('rdf', RDF)
 G.bind('owl', OWL)
+G.bind('dcterms', DCTERMS)
+G.bind('sdo', SDO)
 G.bind('rdfs', RDFS)
 G.bind('skos', SKOS)
 G.bind('brick', BRICK)
@@ -53,6 +57,7 @@ def add_tags(klass, definition):
         G.add( (restriction, OWL.onProperty, BRICK.hasTag) )
         G.add( (restriction, OWL.hasValue, item) )
         G.add( (item, A, BRICK.Tag) ) # make sure the tag is declared as such
+        G.add( (item, RDFS.label, Literal(item.split('#')[-1])) ) # make sure the tag is declared as such
     # cardinality
     #restriction = BNode()
     #l.append(restriction)
@@ -91,6 +96,7 @@ def add_class_restriction(klass, definition):
 def define_subclasses(definitions, superclass):
     for subclass, properties in definitions.items():
         G.add( (BRICK[subclass], A, OWL.Class) )
+        G.add( (BRICK[subclass], RDFS.label, Literal(subclass.replace("_"," "))) )
         G.add( (BRICK[subclass], RDFS.subClassOf, superclass) )
         for k, v in properties.items():
             if isinstance(v, list) and k == "tagvalues":
@@ -154,6 +160,10 @@ def define_properties(definitions, superprop=None):
                 if isinstance(v, dict) and k == "subproperties":
                     define_properties(v, BRICK[prop])
 
+
+# handle ontology definition
+from ontology import define_ontology
+define_ontology(G)
 
 """
 Declare root classes
