@@ -46,6 +46,7 @@ The root classes we have defined are:
 - `Point`
 - `Tag`
 - `Substance`
+- `Quantity`
 
 ### Relationships
 
