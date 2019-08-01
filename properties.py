@@ -125,9 +125,4 @@ properties = {
         RDFS.domain: BRICK.Substance,
         RDFS.range: BRICK.Equipment,
     },
-
-    # Haystack-style
-    "ahuRef": {
-        RDFS.range: BRICK.AHU,
-    }
 }
