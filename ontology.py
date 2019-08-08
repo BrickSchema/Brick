@@ -16,7 +16,7 @@ ontology = {
             SDO.name: Literal("Jason Koh"),
         },
     ],
-    DCTERMS.license: URIRef("https://github.com/BrickSchema/brick-owl-dl/blob/master/LICENSE"),
+    DCTERMS.license: URIRef("https://github.com/BrickSchema/brick/blob/master/LICENSE"),
     RDFS.label: Literal("Brick"),
     RDFS.seeAlso: URIRef("https://brickschema.org"),
 }
