@@ -22,7 +22,7 @@ ontology = {
 }
 
 def define_ontology(G):
-    brick_ontology = URIRef("https://brickschema.org/schema/1.0.3/Brick#")
+    brick_ontology = URIRef("https://brickschema.org/schema/1.1.0/Brick#")
     G.add( (brick_ontology, RDF.type, OWL.Ontology) )
 
     creators = []

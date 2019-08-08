@@ -1,5 +1,4 @@
-# Brick 2 Electric Boogaloo
-
+# Brick
 
 Here's the gist of how I'm doing things and what kinds of inference/modeling are enabled
 
@@ -31,7 +30,7 @@ We can serialize the expanded form of the graph to disk if we need to use a SPAR
 
 ### Classes
 
-- The Brick class namespace is `https://brickschema.org/schema/1.0.3/Brick#`
+- The Brick class namespace is `https://brickschema.org/schema/1.1.0/Brick#`
 - Classes belong to `owl:Class` and are arranged into a hierarchy with `rdfs:subClassOf`
 - Equivalent classes (the members of the classes are the same) are related with the `owl:equivalentClass` property
 - Definitions given with `skos:definition`
@@ -69,7 +68,7 @@ This may be something that needs to be explicitly specified rather than inferred
 
 ### Tags
 
-- Tag ontology namespace is `https://brickschema.org/schema/1.0.3/BrickTag#`
+- Tag ontology namespace is `https://brickschema.org/schema/1.1.0/BrickTag#`
 - We use Haystack tags and define our own set including them
 - Tags should have definitions, but this is not included yet
 - Sets of tags have a 1-1 mapping with a class name
