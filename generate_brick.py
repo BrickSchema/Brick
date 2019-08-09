@@ -110,8 +110,10 @@ def define_subclasses(definitions, superclass):
                     define_subclasses(v, BRICK[subclass])
 
 def define_rootclasses(definitions):
+    G.add( (BRICK.Class, A, OWL.Class) )
     for rootclass, properties in definitions.items():
         G.add( (BRICK[rootclass], A, OWL.Class) )
+        G.add( (BRICK[rootclass], RDFS.subClassOf, BRICK.Class) )
         for k, v in properties.items():
             if isinstance(v, list) and k == "tagvalues":
                 add_restriction(rootclass, v)
