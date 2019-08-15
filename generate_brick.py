@@ -21,7 +21,6 @@ G.bind('rdfs', RDFS)
 G.bind('skos', SKOS)
 G.bind('brick', BRICK)
 G.bind('tag', TAG)
-G.bind('bldg', BLDG)
 
 A = RDF.type
 
