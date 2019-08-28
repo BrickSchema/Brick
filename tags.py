@@ -12,7 +12,7 @@ tags = {
     "Heat": {},
     "Cool": {},
 
-    # all Equipment have the Equip tag. This is accomplished by
+    # all Equipment have the Equipment tag. This is accomplished by
     # using a Restriction onValue property that says that all members of
     # the Equipment class have the "Equipment" value for at least one of their tags.
     # We could also accomplish this by having "rdfs:subclassof brick:Equipment"

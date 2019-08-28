@@ -47,7 +47,7 @@ owlrl.DeductiveClosure(owlrl.OWLRL_Semantics).expand(G)
 # get namespaces
 print(list(G.namespaces()))
 
-G.query("SELECT ?x WHERE { ?x brick:hasTag tag:Equip }")
+G.query("SELECT ?x WHERE { ?x brick:hasTag tag:Equipment }")
 ```
 
 We can serialize the expanded form of the graph to disk if we need to use a SPARQL query processor that does not support reasoning.
