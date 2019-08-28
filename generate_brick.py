@@ -168,10 +168,10 @@ Declare root classes
 """
 roots = {
     "Equipment": {
-        "tags": [TAG.Equip],
+        "tags": [TAG.Equipment],
     },
     "Location": {
-        "tags": [TAG.Loc],
+        "tags": [TAG.Location],
     },
     "Point": {
         #"tags": [TAG.Point],

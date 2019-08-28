@@ -18,8 +18,8 @@ tags = {
     # We could also accomplish this by having "rdfs:subclassof brick:Equipment" 
     # be the same as "brick:hasTag bricktag:Equip".
     # We use a similar idiom for these other tags
-    "Equip": {},
-    "Loc": {},
+    "Equipment": {},
+    "Location": {},
     "Point": {},
     "Lighting": {},
     "HVAC": {},
