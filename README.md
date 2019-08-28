@@ -211,3 +211,9 @@ define_subclasses(definitions, BRICK.Equipment)
 ```
 
 For now, the code is the documentation. Look at `equipment.py`, `point.py`, etc for examples and how to add to each of the class hierarchies.
+
+
+## How to Test?
+1. ``python tests/test_inference.py``: A basic test if Classes can be inferred from associated Tags.
+2. ``python tests/test_hierarchy_inference.py``: It tests whether all the instances associated with the right tags are correctly inferred through the hierarchy. For example, an instance with Tags of ``tag:Temperature`` and ``tag:Sensor`` should be inferred as ``brick:Temperature_Sensor``, ``brick:Sensor``, and ``brick:Point``.
+    - This test involves a time-consuming reasoning process, which took 4.5 hours in my desktop. In case you have the result graph at ``tests/test_hierarchy_inference.ttl``, you can reuse the file with an option like ``python tests/test_hierarchy_inference.py --reuse-inference``.
