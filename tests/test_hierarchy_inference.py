@@ -118,7 +118,7 @@ for entity, parents in inferred_klasses.items():
     elif parents != true_parents:
         wrong_inferences[entity] = serialized
 
-with open('test_hierarchy_inference.json', 'w') as fp:
+with open('tests/test_hierarchy_inference.json', 'w') as fp:
     json.dump({
         'over_inferences': over_inferences,
         'under_inferences': under_inferences,
