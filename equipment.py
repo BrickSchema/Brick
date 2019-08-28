@@ -21,38 +21,38 @@ equipment_subclasses = {
     "Water_System": {
         "subclasses": {
             "Chilled_Water_System": {
-                "tags": [TAG.Water, TAG.Chilled, TAG.Equip],
+                "tags": [TAG.Water, TAG.Chilled, TAG.Equipment],
             },
             "Hot_Water_System": {
-                "tags": [TAG.Water, TAG.Hot, TAG.Equip],
+                "tags": [TAG.Water, TAG.Hot, TAG.Equipment],
             },
         }
     },
     "Steam_System": {
-        "tags": [TAG.Steam, TAG.Equip],
+        "tags": [TAG.Steam, TAG.Equipment],
     },
     "Solar_Panel": {
-        "tags": [TAG.Solar, TAG.Equip],
+        "tags": [TAG.Solar, TAG.Equipment],
     },
     "Shading_System": {
-        "tags": [TAG.Shade, TAG.Equip],
+        "tags": [TAG.Shade, TAG.Equipment],
     },
     "Power_System": {
-        "tags": [TAG.Power, TAG.Equip],
+        "tags": [TAG.Power, TAG.Equipment],
     },
     "PlugStrip": {
-        "tags": [TAG.Plugstrip, TAG.Equip],
+        "tags": [TAG.Plugstrip, TAG.Equipment],
     },
     "Meter": {
-        "tags": [TAG.Meter, TAG.Equip],
+        "tags": [TAG.Meter, TAG.Equipment],
         "subclasses": {
             "Building_Meter": {
-                "tags": [TAG.Meter, TAG.Equip, TAG.Building],
+                "tags": [TAG.Meter, TAG.Equipment, TAG.Building],
             },
         },
     },
     "Lighting_System": {
-        "tags": [TAG.Lighting, TAG.Equip],
+        "tags": [TAG.Lighting, TAG.Equipment],
         "subclasses": {
             "Lighting": {
                 "subclasses": {
@@ -92,7 +92,7 @@ hvac_subclasses = {
         SKOS.definition: Literal("Electronic device that varies its output frequency to vary the rotating speed of a motor, given a fixed input frequency. Used with fans or pumps to vary the flow in the system as a function of a maintained pressure."),
     },
     "Valve": {
-        "tags": [TAG.Valve, TAG.Equip]
+        "tags": [TAG.Valve, TAG.Equipment]
         # subclasses defined in 'valve_subclasses'
     },
     "VFD": {
@@ -154,27 +154,27 @@ hvac_subclasses = {
     },
     "Fan": {
         SKOS.definition: Literal("Any device with two or more blades or vanes attached to a rotating shaft used to produce an airflow for the purpose of comfort, ventilation, exhaust, heating, cooling, or any other gaseous transport."),
-        "tags": [TAG.Equip, TAG.Fan],
+        "tags": [TAG.Equipment, TAG.Fan],
         "subclasses": {
             "Cooling_Tower_Fan": {
             },
             "Exhaust_Fan": {
-                "tags": [TAG.Equip, TAG.Fan, TAG.Exhaust],
+                "tags": [TAG.Equipment, TAG.Fan, TAG.Exhaust],
             },
             "Return_Fan": {
-                "tags": [TAG.Equip, TAG.Fan, TAG.Return],
+                "tags": [TAG.Equipment, TAG.Fan, TAG.Return],
             },
             "Standby_Fan": {
-                "tags": [TAG.Equip, TAG.Fan, TAG.Standby],
+                "tags": [TAG.Equipment, TAG.Fan, TAG.Standby],
             },
             "Discharge_Fan": {
-                "tags": [TAG.Equip, TAG.Fan, TAG.Discharge],
+                "tags": [TAG.Equipment, TAG.Fan, TAG.Discharge],
             },
             "Supply_Fan": {
-                "tags": [TAG.Equip, TAG.Fan, TAG.Supply],
+                "tags": [TAG.Equipment, TAG.Fan, TAG.Supply],
                 "subclasses": {
                     "Booster_Fan": {
-                        "tags": [TAG.Equip, TAG.Fan, TAG.Booster],
+                        "tags": [TAG.Equipment, TAG.Fan, TAG.Booster],
                     },
                 },
             },
@@ -185,19 +185,19 @@ hvac_subclasses = {
     },
     "Damper": {
         SKOS.definition: Literal("Element inserted into an air-distribution system or element of an air-distribution system permitting modification of the air resistance of the system and consequently changing the airflow rate or shutting off the airflow."),
-        "tags": [TAG.Equip, TAG.Damper],
+        "tags": [TAG.Equipment, TAG.Damper],
         "subclasses": {
             "Economizer_Damper": {
-                "tags": [TAG.Equip, TAG.Damper, TAG.Economizer],
+                "tags": [TAG.Equipment, TAG.Damper, TAG.Economizer],
             },
             "Exhaust_Damper": {
-                "tags": [TAG.Equip, TAG.Damper, TAG.Exhaust],
+                "tags": [TAG.Equipment, TAG.Damper, TAG.Exhaust],
             },
             "Outside_Damper": {
-                "tags": [TAG.Equip, TAG.Damper, TAG.Outside],
+                "tags": [TAG.Equipment, TAG.Damper, TAG.Outside],
             },
             "Return_Damper": {
-                "tags": [TAG.Equip, TAG.Damper, TAG.Return],
+                "tags": [TAG.Equipment, TAG.Damper, TAG.Return],
             },
         },
     },
@@ -249,11 +249,11 @@ hvac_subclasses = {
     },
     "AHU": {
         OWL.equivalentClass: "Air_Handler_Unit",
-        "tags": [ TAG.Equip, TAG.AHU],
+        "tags": [ TAG.Equipment, TAG.AHU],
         "subclasses": {
             "Rooftop_Unit": {
                 OWL.equivalentClass: "RTU",
-                "tags": [TAG.Equip, TAG.Rooftop, TAG.AHU],
+                "tags": [TAG.Equipment, TAG.Rooftop, TAG.AHU],
             },
         },
     },
@@ -264,29 +264,29 @@ Valve subclasses
 """
 valve_subclasses = {
     "Heating_Valve": {
-        "tags": [TAG.Valve, TAG.Heat, TAG.Equip],
+        "tags": [TAG.Valve, TAG.Heat, TAG.Equipment],
         "subclasses": {
             "Reheat_Valve": {
-                "tags": [TAG.Valve, TAG.Reheat, TAG.Heat, TAG.Equip],
+                "tags": [TAG.Valve, TAG.Reheat, TAG.Heat, TAG.Equipment],
             },
             "Domestic_Hot_Water_Valve": {
-                "tags": [TAG.Domestic, TAG.Water, TAG.Hot, TAG.Valve, TAG.Heat, TAG.Equip],
+                "tags": [TAG.Domestic, TAG.Water, TAG.Hot, TAG.Valve, TAG.Heat, TAG.Equipment],
             },
             "Preheat_Hot_Water_Valve": {
-                "tags": [TAG.Preheat, TAG.Water, TAG.Hot, TAG.Valve, TAG.Heat, TAG.Equip],
+                "tags": [TAG.Preheat, TAG.Water, TAG.Hot, TAG.Valve, TAG.Heat, TAG.Equipment],
             },
         },
         # OWL.equivalentClass: Restriction(BRICK.hasTag, graph=G, allValuesFrom=BRICK.Valve)
     },
     "Water_Valve": {
-        "tags": [TAG.Valve, TAG.Water, TAG.Equip],
+        "tags": [TAG.Valve, TAG.Water, TAG.Equipment],
         "subclasses": {
             "Chilled_Water_Valve": {
-                "tags": [TAG.Chilled, TAG.Valve, TAG.Water, TAG.Equip],
+                "tags": [TAG.Chilled, TAG.Valve, TAG.Water, TAG.Equipment],
             },
         },
     },
     "Isolation_Valve": {
-        "tags": [TAG.Isolation, TAG.Valve, TAG.Equip],
+        "tags": [TAG.Isolation, TAG.Valve, TAG.Equipment],
     },
 }
