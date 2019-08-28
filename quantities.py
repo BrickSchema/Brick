@@ -18,7 +18,10 @@ quantity_definitions = {
             },
             "Conductivity": {},
             "Capacity": {},
-            "Enthalpy": {},
+            "Enthalpy": {
+                "tags": [TAG.Enthalpy],
+                SKOS.definition: Literal("(also known as heat content), thermodynamic quantity equal to the sum of the internal energy of a system plus the product of the pressure volume work done on the system. H = E + pv, where H = enthalpy or total heat content, E = internal energy of the system, p = pressure, and v = volume. (Compare to [[specific enthalpy]].)"),
+            },
             "Grains": {},
             "Power": {
                 "subclasses": {
@@ -95,6 +98,7 @@ quantity_definitions = {
                 },
             },
             "Luminance": {
+                "tags": [TAG.Luminance],
                 "subclasses": {
                     "Luminous_Flux": {},
                     "Luminous_Intensity": {},
