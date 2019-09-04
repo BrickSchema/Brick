@@ -124,16 +124,3 @@ def test_air_flow_sensor2():
     # air flow sensors
     res = make_readable(G.query("SELECT DISTINCT ?sensor WHERE { ?sensor brick:hasTag tag:Air . ?sensor brick:hasTag tag:Sensor . ?sensor brick:hasTag tag:Flow }"))
     assert len(res) == 1
-
-#q1 = """SELECT ?sen WHERE {
-#  ?sen  rdf:type  brick:Temperature_Sensor
-#  FILTER NOT EXISTS {
-#     ?sen rdf:type ?c .
-#     ?c rdfs:subClassOf+ brick:Temperature_Sensor .
-#     FILTER (?c != brick:Temperature_Sensor) .
-#     FILTER  (!isBlank(?c))
-#  }
-#}
-#"""
-#res5 = G.query(q1)
-#print('Only temperature sensors: ', list(res5))
