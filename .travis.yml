@@ -7,5 +7,9 @@ install:
   - pip install -r requirements.txt
 
 script:
+  # test the repo as-is
+  - pytest
+  # generate new Brick ontology (in case this hasn't been run)
   - python generate_brick.py
+  # test again in case this broke anything
   - pytest

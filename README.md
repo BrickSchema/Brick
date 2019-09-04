@@ -1,5 +1,7 @@
 # Brick
 
+[![Build Status](https://travis-ci.org/BrickSchema/Brick.svg?branch=master)](https://travis-ci.org/BrickSchema/Brick)
+
 Brick is an open-source, BSD-licensed development effort to create a uniform schema for representing metadata in buildings. Brick has three components:
 
 * An RDF class hierarchy describing the various building subsystems and the entities and equipment therein
