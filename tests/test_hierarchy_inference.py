@@ -5,6 +5,7 @@ from collections import defaultdict
 import time
 
 from tqdm import tqdm
+import owlready2
 import owlrl
 from rdflib import RDF, OWL, RDFS, Namespace, URIRef, Graph
 
@@ -39,6 +40,16 @@ def owlrl_reason(g):
     end_time = time.time()
     print('owlrl reasoning took {0} seconds.'.format(int(end_time - start_time)))
     return g
+
+def owlready2_reason(g):
+    filename = 'buffer.n3'
+    world = owlready2.World()
+    with open(filename, 'wb') as f:
+        f.write(g.serialize(format='ntriples'))
+    on = world.get_ontology(f"file://./{filename}").load()
+    owlready2.sync_reasoner(world, infer_property_values =True)
+    G = world.as_rdflib_graph()
+    return G
 
 BRICK_VERSION = '1.1.0'
 BRICK = Namespace("https://brickschema.org/schema/{0}/Brick#".format(BRICK_VERSION))
@@ -85,11 +96,11 @@ def test_hierarchyinference():
             klass = row[0]
             entity = klass + entity_postfix  # Define an entity for the class
             g.add((entity, row[1], row[2]))  # Associate the entity with restrictions (i.e., Tags)
-        end_time = time.get()
+        end_time = time.time()
         print('Instantiation took {0} seconds'.format(int(end_time-start_time)))
 
         # Infer classes of the entities.
-        expanded_g = owlrl_reason(g)
+        expanded_g = owlready2_reason(g)
         expanded_g.serialize(inference_file, format='turtle')  # Store the inferred graph.
 
 
@@ -106,6 +117,7 @@ def test_hierarchyinference():
         klass = row[1]
         if BRICK in klass: # Filter out non-Brick classes such as Restrictions
             inferred_klasses[entity].add(klass)
+    pdb.set_trace()
 
     over_inferences = {}  # Inferred Classes that are not supposed to be inferred.
     under_inferences = {}  # Classes that should have been inferred but not actually inferred.
@@ -146,3 +158,6 @@ def test_hierarchyinference():
     assert not over_inferences, 'There are {0} classes that are over-inferred'.format(len(over_inferences))
     assert not under_inferences, 'There are {0} classes that are under-inferred'.format(len(under_inferences))
     assert not wrong_inferences, 'There are {0} classes that are inferred incorrectly in other ways'.format(len(wrong_inferences))
+
+if __name__ == '__main__':
+    test_hierarchyinference()
