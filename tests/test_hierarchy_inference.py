@@ -51,7 +51,6 @@ prefix brick: <https://brickschema.org/schema/1.1.0/Brick#>
 prefix owl: <http://www.w3.org/2002/07/owl#>
 """
 
-<<<<<<< HEAD
 def test_hierarchyinference():
 
     # Load the schema
