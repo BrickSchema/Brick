@@ -37,16 +37,16 @@ sensor_definitions = {
                 "substances": [ [ BRICK.measures, BRICK.Air ], [ BRICK.measures, BRICK.CO2 ], ],
                 "subclasses": {
                     "CO2_Differential_Sensor": {
-                        "tags": [ TAG.Co2, TAG.Differential, TAG.Sensor ],
+                        "tags": [ TAG.CO2, TAG.Differential, TAG.Sensor ],
                     },
                     "CO2_Level_Sensor": {
-                        "tags": [ TAG.Co2, TAG.Level, TAG.Sensor ],
+                        "tags": [ TAG.CO2, TAG.Level, TAG.Sensor ],
                     },
                     "Outside_Air_CO2_Sensor": {
-                        "tags": [ TAG.Outside, TAG.Air, TAG.Co2, TAG.Sensor ],
+                        "tags": [ TAG.Outside, TAG.Air, TAG.CO2, TAG.Sensor ],
                     },
                     "Return_Air_CO2_Sensor": {
-                        "tags": [ TAG.Return, TAG.Air, TAG.Co2, TAG.Sensor ],
+                        "tags": [ TAG.Return, TAG.Air, TAG.CO2, TAG.Sensor ],
                     }
                 }
             },
