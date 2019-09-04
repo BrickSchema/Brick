@@ -2,6 +2,7 @@ import argparse
 import json
 from copy import deepcopy
 from collections import defaultdict
+import time
 
 from tqdm import tqdm
 import owlrl
