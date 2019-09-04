@@ -4,7 +4,6 @@ from copy import deepcopy
 from collections import defaultdict
 
 from tqdm import tqdm
-import arrow
 import owlrl
 from rdflib import RDF, OWL, RDFS, Namespace, URIRef, Graph
 
@@ -34,10 +33,10 @@ args = parser.parse_args()
 inference_file = 'tests/test_hierarchy_inference.ttl'
 
 def owlrl_reason(g):
-    start_time = arrow.get()
+    start_time = time.time()
     owlrl.DeductiveClosure(owlrl.OWLRL_Semantics).expand(deepcopy(g))
-    end_time = arrow.get()
-    print('owlrl reasoning took {0} seconds.'.format(end_time - start_time))
+    end_time = time.time()
+    print('owlrl reasoning took {0} seconds.'.format(int(end_time - start_time)))
     return g
 
 BRICK_VERSION = '1.1.0'
@@ -80,13 +79,13 @@ def test_hierarchyinference():
           }
         }
         """
-        start_time = arrow.get()
+        start_time = time.time()
         for row in tqdm(g.query(qstr)):
             klass = row[0]
             entity = klass + entity_postfix  # Define an entity for the class
             g.add((entity, row[1], row[2]))  # Associate the entity with restrictions (i.e., Tags)
-        end_time = arrow.get()
-        print('Instantiation took {0} seconds'.format(end_time - start_time))
+        end_time = time.get()
+        print('Instantiation took {0} seconds'.format(int(end_time-start_time)))
 
         # Infer classes of the entities.
         expanded_g = owlrl_reason(g)
