@@ -26,6 +26,13 @@ If you have an issue with Brick's coverage, utility or usability, or any other B
 
 See [CONTRIBUTING.md](https://github.com/BrickSchema/Brick/blob/master/CONTRIBUTING.md)
 
+## Tests
+
+Tests go in the `tests/` directory and should be implemented using [pytest](https://pytest.readthedocs.io/en/latest/getting-started.html#getstarted).
+[`tests/test_inference.py`](https://github.com/BrickSchema/Brick/blob/master/tests/test_inference.py) is a good example.
+
+Run tests by executing `pytest` in the top-level directory of this repository.
+
 ## Ontology Implementation
 
 ### Complexity
