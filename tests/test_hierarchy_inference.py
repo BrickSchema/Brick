@@ -25,7 +25,7 @@ This test is a superset of ``test_inference.py``.
 parser = argparse.ArgumentParser()
 parser.add_argument('--reuse-inference',
                     action='store_const',
-                    default=True,
+                    default=False,
                     const=True,
                     dest='reuse_inference',
                     help='`True` forces the script to reuse previously inferred schema at `tests/test_hierarchy_inference.ttl`.',
@@ -37,7 +37,7 @@ def owlrl_reason(g):
     start_time = arrow.get()
     owlrl.DeductiveClosure(owlrl.OWLRL_Semantics).expand(deepcopy(g))
     end_time = arrow.get()
-    print('{0} took for owlrl reasoning'.format(end_time - start_time))
+    print('owlrl reasoning took {0} seconds.'.format(end_time - start_time))
     return g
 
 BRICK_VERSION = '1.1.0'
@@ -51,6 +51,7 @@ prefix brick: <https://brickschema.org/schema/1.1.0/Brick#>
 prefix owl: <http://www.w3.org/2002/07/owl#>
 """
 
+<<<<<<< HEAD
 def test_hierarchyinference():
 
     # Load the schema
