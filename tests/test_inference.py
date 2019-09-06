@@ -50,24 +50,11 @@ G.add( (BLDG.co2s1, A, BRICK.CO2_Level_Sensor) )
 
 G.add( (BLDG.standalone, A, BRICK.Temperature_Sensor) )
 
-def rereason(G, filename):
-    world = owlready2.World()
-    with open(filename,'wb') as f:
-        f.write(G.serialize(format='ntriples'))
-    on = world.get_ontology(f"file://./{filename}").load()
-    owlready2.sync_reasoner(world, infer_property_values =True)
-    G = world.as_rdflib_graph()
-    return G
-
 # Apply reasoner
 import time
 t1 = time.time()
-try:
-    import owlready2
-    G = rereason(G, "Brick.n3")
-except:
-    import owlrl
-    owlrl.DeductiveClosure(owlrl.OWLRL_Semantics).expand(G)
+import owlrl
+owlrl.DeductiveClosure(owlrl.OWLRL_Semantics).expand(G)
 
 G.bind('rdf', RDF)
 G.bind('owl', OWL)
