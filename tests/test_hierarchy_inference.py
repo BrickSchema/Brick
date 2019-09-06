@@ -1,6 +1,5 @@
 import argparse
 import json
-from copy import deepcopy
 from collections import defaultdict
 import time
 
@@ -35,7 +34,7 @@ inference_file = 'tests/test_hierarchy_inference.ttl'
 
 def owlrl_reason(g):
     start_time = time.time()
-    owlrl.DeductiveClosure(owlrl.OWLRL_Semantics).expand(deepcopy(g))
+    owlrl.DeductiveClosure(owlrl.OWLRL_Semantics).expand(g)
     end_time = time.time()
     print('owlrl reasoning took {0} seconds.'.format(int(end_time - start_time)))
     return g
