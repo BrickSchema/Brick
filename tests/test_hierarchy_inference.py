@@ -85,7 +85,7 @@ def test_hierarchyinference():
             klass = row[0]
             entity = klass + entity_postfix  # Define an entity for the class
             g.add((entity, row[1], row[2]))  # Associate the entity with restrictions (i.e., Tags)
-        end_time = time.get()
+        end_time = time.time()
         print('Instantiation took {0} seconds'.format(int(end_time-start_time)))
 
         # Infer classes of the entities.
