@@ -52,6 +52,12 @@ G.add( (BLDG.co2s1, A, BRICK.CO2_Level_Sensor) )
 
 G.add( (BLDG.standalone, A, BRICK.Temperature_Sensor) )
 
+import threading
+def status():
+    print(time.ctime())
+    threading.Timer(10, status).start()
+status()
+
 # Apply reasoner
 t1 = time.time()
 owlrl.DeductiveClosure(owlrl.OWLRL_Semantics).expand(G)
