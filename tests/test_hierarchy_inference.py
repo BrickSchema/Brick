@@ -1,4 +1,4 @@
-import argparse
+#import argparse
 import json
 from collections import defaultdict
 import time
@@ -21,15 +21,15 @@ This test is a superset of ``test_inference.py``.
 """
 
 
-parser = argparse.ArgumentParser()
-parser.add_argument('--reuse-inference',
-                    action='store_const',
-                    default=False,
-                    const=True,
-                    dest='reuse_inference',
-                    help='`True` forces the script to reuse previously inferred schema at `tests/test_hierarchy_inference.ttl`.',
-                    )
-args = parser.parse_args()
+#parser = argparse.ArgumentParser()
+#parser.add_argument('--reuse-inference',
+#                    action='store_const',
+#                    default=False,
+#                    const=True,
+#                    dest='reuse_inference',
+#                    help='`True` forces the script to reuse previously inferred schema at `tests/test_hierarchy_inference.ttl`.',
+#                    )
+#args = parser.parse_args()
 inference_file = 'tests/test_hierarchy_inference.ttl'
 
 def owlrl_reason(g):
@@ -56,40 +56,40 @@ def test_hierarchyinference():
     g = Graph()
     g.parse('Brick.ttl', format='turtle')
 
-    if args.reuse_inference:  # Reuse previously inferred file if the flag is set.
-        expanded_g = Graph()
-        expanded_g.parse(inference_file, format='turtle')
-    else:  # create instances and associate them with related Tags.
+    #if args.reuse_inference:  # Reuse previously inferred file if the flag is set.
+    #    expanded_g = Graph()
+    #    expanded_g.parse(inference_file, format='turtle')
+    #else:  # create instances and associate them with related Tags.
 
-        # Get all the Classes with their restrictions.
-        qstr = q_prefix + """
-        select ?class ?p ?o where {
-          ?class rdfs:subClassOf+ brick:Class.
-          ?class owl:equivalentClass ?restrictions.
-          ?restrictions owl:intersectionOf ?inter.
-          ?inter rdf:rest*/rdf:first ?node.
-          {
-              BIND (brick:hasTag as ?p)
-              ?node owl:onProperty ?p.
-              ?node owl:hasValue ?o.
-          } UNION {
-              BIND (brick:measures as ?p)
-              ?node owl:onProperty ?p.
-              ?node owl:hasValue ?o.
-          }
-        }
-        """
-        start_time = time.time()
-        for row in tqdm(g.query(qstr)):
-            klass = row[0]
-            entity = klass + entity_postfix  # Define an entity for the class
-            g.add((entity, row[1], row[2]))  # Associate the entity with restrictions (i.e., Tags)
-        end_time = time.time()
-        print('Instantiation took {0} seconds'.format(int(end_time-start_time)))
+    # Get all the Classes with their restrictions.
+    qstr = q_prefix + """
+    select ?class ?p ?o where {
+      ?class rdfs:subClassOf+ brick:Class.
+      ?class owl:equivalentClass ?restrictions.
+      ?restrictions owl:intersectionOf ?inter.
+      ?inter rdf:rest*/rdf:first ?node.
+      {
+          BIND (brick:hasTag as ?p)
+          ?node owl:onProperty ?p.
+          ?node owl:hasValue ?o.
+      } UNION {
+          BIND (brick:measures as ?p)
+          ?node owl:onProperty ?p.
+          ?node owl:hasValue ?o.
+      }
+    }
+    """
+    start_time = time.time()
+    for row in tqdm(g.query(qstr)):
+        klass = row[0]
+        entity = klass + entity_postfix  # Define an entity for the class
+        g.add((entity, row[1], row[2]))  # Associate the entity with restrictions (i.e., Tags)
+    end_time = time.time()
+    print('Instantiation took {0} seconds'.format(int(end_time-start_time)))
 
-        # Infer classes of the entities.
-        expanded_g = owlrl_reason(g)
-        expanded_g.serialize(inference_file, format='turtle')  # Store the inferred graph.
+    # Infer classes of the entities.
+    expanded_g = owlrl_reason(g)
+    expanded_g.serialize(inference_file, format='turtle')  # Store the inferred graph.
 
 
     # Find all instances and their parents from the inferred graph.
