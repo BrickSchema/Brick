@@ -1,5 +1,6 @@
 import time
 import owlrl
+import sys
 import rdflib
 from rdflib import RDF, RDFS, OWL, Namespace
 
@@ -54,7 +55,7 @@ G.add( (BLDG.standalone, A, BRICK.Temperature_Sensor) )
 
 import threading
 def status():
-    print(time.ctime())
+    print(time.ctime(), file=sys.stderr)
     threading.Timer(10, status).start()
 status()
 
