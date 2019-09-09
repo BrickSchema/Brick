@@ -53,12 +53,6 @@ G.add( (BLDG.co2s1, A, BRICK.CO2_Level_Sensor) )
 
 G.add( (BLDG.standalone, A, BRICK.Temperature_Sensor) )
 
-import threading
-def status():
-    print(time.ctime(), file=sys.stderr)
-    threading.Timer(10, status).start()
-status()
-
 # Apply reasoner
 t1 = time.time()
 owlrl.DeductiveClosure(owlrl.OWLRL_Semantics).expand(G)
@@ -102,7 +96,7 @@ def test_sensors_measure_air():
 def test_sensors_measure_air_temp():
     # sensors that measure air temperature
     res4 = make_readable(G.query("SELECT DISTINCT ?sensor WHERE { ?sensor brick:measures brick:Air . ?sensor rdf:type brick:Temperature_Sensor }"))
-    assert len(res4) == 1
+    assert len(res4) == 2
 
 def test_air_flow_sensor():
     # air flow sensors
@@ -112,7 +106,7 @@ def test_air_flow_sensor():
 def test_air_flow_sp():
     # air flow setpoints
     res = make_readable(G.query("SELECT DISTINCT ?sp WHERE { ?sp rdf:type brick:Air_Flow_Setpoint }"))
-    assert len(res) == 1
+    assert len(res) == 2
 
 def test_air_flow_sensor2():
     # air flow sensors
