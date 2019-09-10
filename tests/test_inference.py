@@ -1,5 +1,4 @@
 import time
-import owlrl
 import sys
 import rdflib
 from rdflib import RDF, RDFS, OWL, Namespace
@@ -54,8 +53,8 @@ G.add( (BLDG.co2s1, A, BRICK.CO2_Level_Sensor) )
 G.add( (BLDG.standalone, A, BRICK.Temperature_Sensor) )
 
 # Apply reasoner
-t1 = time.time()
-owlrl.DeductiveClosure(owlrl.OWLRL_Semantics).expand(G)
+from util.reasoner import reason_rdfs
+reason_rdfs(G)
 
 G.bind('rdf', RDF)
 G.bind('owl', OWL)
@@ -65,8 +64,6 @@ G.bind('brick', BRICK)
 G.bind('tag', TAG)
 G.bind('bldg', BLDG)
 
-t2 = time.time()
-print("Reasoning took {0}".format(t2-t1))
 s = G.serialize(format='ttl')
 print('expanded:', len(G))
 

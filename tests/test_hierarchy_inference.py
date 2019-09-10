@@ -4,7 +4,6 @@ from collections import defaultdict
 import time
 
 from tqdm import tqdm
-import owlrl
 from rdflib import RDF, OWL, RDFS, Namespace, URIRef, Graph
 
 """
@@ -31,13 +30,6 @@ This test is a superset of ``test_inference.py``.
 #                    )
 #args = parser.parse_args()
 inference_file = 'tests/test_hierarchy_inference.ttl'
-
-def owlrl_reason(g):
-    start_time = time.time()
-    owlrl.DeductiveClosure(owlrl.OWLRL_Semantics).expand(g)
-    end_time = time.time()
-    print('owlrl reasoning took {0} seconds.'.format(int(end_time - start_time)))
-    return g
 
 BRICK_VERSION = '1.1.0'
 BRICK = Namespace("https://brickschema.org/schema/{0}/Brick#".format(BRICK_VERSION))
@@ -88,8 +80,10 @@ def test_hierarchyinference():
     print('Instantiation took {0} seconds'.format(int(end_time-start_time)))
 
     # Infer classes of the entities.
-    expanded_g = owlrl_reason(g)
-    expanded_g.serialize(inference_file, format='turtle')  # Store the inferred graph.
+    # Apply reasoner
+    from util.reasoner import reason_rdfs
+    reason_rdfs(g)
+    g.serialize(inference_file, format='turtle')  # Store the inferred graph.
 
 
     # Find all instances and their parents from the inferred graph.
@@ -100,7 +94,7 @@ def test_hierarchyinference():
     }
     """
     inferred_klasses = defaultdict(set)
-    for row in tqdm(expanded_g.query(qstr)):
+    for row in tqdm(g.query(qstr)):
         entity = row[0]
         klass = row[1]
         if BRICK in klass: # Filter out non-Brick classes such as Restrictions

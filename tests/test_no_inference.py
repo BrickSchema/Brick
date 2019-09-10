@@ -92,3 +92,14 @@ def test_query_downstream_temperature():
     ?point rdf:type/rdfs:subClassOf* brick:Temperature_Sensor
     }"""))
     assert len(res) ==  2
+
+def test_query_room_temp_sensors_ahu1():
+    # temp sensors downstream of AHU1
+    res = make_readable(G.query("""SELECT DISTINCT ?zone ?room ?sensor WHERE {
+    bldg:AHU1 brick:feeds+ ?zone .
+    ?zone brick:hasPart ?room .
+    ?room rdf:type brick:Room .
+    ?room brick:isLocationOf ?sensor .
+    ?sensor rdf:type/rdfs:subClassOf* brick:Temperature_Sensor
+    }"""))
+    assert len(res) ==  1
