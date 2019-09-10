@@ -65,6 +65,19 @@ def reason_inverse_edges(g):
             g.add((o, prop, s))
 
 def reason_brick(g):
+    """
+    Basic hard-coded reasoning for Brick. Applies juuuust enough
+    of the OWLRL rules that we can use most of the features we need.
+    Almost certainly incomplete, and will be updated.
+
+    TODO: We should replace this as soon as we have a performant
+    OWLRL reasoner implementation
+
+    - adds inverse edges
+    - does a simple tag <--> class inference
+    - does a simple substance <--> class inference
+    - applies rdfs reasoning (adds in rdf:type edges)
+    """
     reason_inverse_edges(g)
 
     # handle tags
