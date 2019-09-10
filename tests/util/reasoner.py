@@ -125,7 +125,6 @@ def reason_brick(g):
         qstr = f"select ?inst where {{ ?inst rdf:type/rdfs:subClassOf* <{classname}> }}"
         for row in g.query(qstr):
             inst = row[0]
-            print(inst)
             for substance in substances:
                 g.add((inst, BRICK.measures, substance))
 
