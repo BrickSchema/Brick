@@ -1,6 +1,16 @@
 import time
 import owlrl
-from rdflib import Graph
+from rdflib import Graph, Namespace
+from rdflib import RDF, RDFS, OWL
+from collections import defaultdict
+from tqdm import tqdm
+
+BRICK_VERSION = '1.1.0'
+
+BRICK = Namespace("https://brickschema.org/schema/{0}/Brick#".format(BRICK_VERSION))
+
+def make_readable(res):
+    return [[uri.split('#')[-1] for uri in row] for row in res]
 
 def reason_owlrl(g):
     """
@@ -29,12 +39,14 @@ def reason_rdfs(g):
     owlrl.DeductiveClosure(owlrl.RDFS_Semantics).expand(g)
     end_time = time.time()
     print('owlrl reasoning took {0} seconds.'.format(int(end_time - start_time)))
-    
-def reason_classic(g):
+
+def reason_inverse_edges(g):
     """
     Applies the 'classic' Brick reasoning. Just fills in any edges
     implied by inverse relationships
     """
+
+    # inverse relationships
     res = g.query("""SELECT ?prop ?invprop WHERE {
     ?prop rdf:type owl:ObjectProperty .
     ?prop owl:inverseOf ?invprop
@@ -52,13 +64,80 @@ def reason_classic(g):
         for s, o in backward_edges:
             g.add((o, prop, s))
 
+def reason_brick(g):
+    reason_inverse_edges(g)
+
+    # handle tags
+    res = g.query("""
+    select ?class ?p ?o where {
+      ?class rdfs:subClassOf+ brick:Class.
+      ?class owl:equivalentClass ?restrictions.
+      ?restrictions owl:intersectionOf ?inter.
+      ?inter rdf:rest*/rdf:first ?node.
+      {
+          BIND (brick:hasTag as ?p)
+          ?node owl:onProperty ?p.
+          ?node owl:hasValue ?o.
+      } UNION {
+          BIND (brick:measures as ?p)
+          ?node owl:onProperty ?p.
+          ?node owl:hasValue ?o.
+      }
+    }""")
+    tag_properties = defaultdict(list)
+    measures_properties = defaultdict(list)
+    for (classname, prop, obj) in tqdm(res):
+        if prop == BRICK.hasTag:
+            tag_properties[classname].append(obj)
+        elif prop == BRICK.measures:
+            measures_properties[classname].append(obj)
+
+    # tag inference
+    for classname, tags in tag_properties.items():
+        # find entities with tags and instantiate the class
+        qstr = "select ?inst where {\n"
+        for tag in tags:
+            qstr += f"  ?inst brick:hasTag <{tag}> .\n"
+        qstr +="}"
+        for row in g.query(qstr):
+            inst = row[0]
+            g.add((inst, RDF.type, classname))
+
+        # find entities of the class and add the tags
+        qstr = f"select ?inst where {{ ?inst rdf:type/rdfs:subClassOf* <{classname}> }}"
+        for row in g.query(qstr):
+            inst = row[0]
+            for tag in tags:
+                g.add((inst, BRICK.hasTag, tag))
+
+    # measures inference
+    for classname, substances in measures_properties.items():
+        # find entities with substances and instantiate the class
+        qstr = "select ?inst where {\n"
+        for substance in substances:
+            qstr += f"  ?inst brick:measures <{substance}> .\n"
+        qstr +="}"
+        for row in g.query(qstr):
+            inst = row[0]
+            g.add((inst, RDF.type, classname))
+
+        # find entities of the class and add the substances
+        qstr = f"select ?inst where {{ ?inst rdf:type/rdfs:subClassOf* <{classname}> }}"
+        for row in g.query(qstr):
+            inst = row[0]
+            print(inst)
+            for substance in substances:
+                g.add((inst, BRICK.measures, substance))
+
+    # apply RDFS reasoning
+    reason_rdfs(g)
+
 if __name__ == '__main__':
     g = Graph()
     g.parse('Brick.ttl', format='turtle')
 
     #reason_owlrl(g)
-    #reason_simple(g)
-    reason_classic(g)
+    reason_inverse_edges(g)
 
     s = g.serialize(format='ttl')
     with open('compiled_brick.ttl','wb') as f:

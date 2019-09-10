@@ -53,8 +53,8 @@ G.add( (BLDG.co2s1, A, BRICK.CO2_Level_Sensor) )
 G.add( (BLDG.standalone, A, BRICK.Temperature_Sensor) )
 
 # Apply reasoner
-from util.reasoner import reason_rdfs
-reason_rdfs(G)
+from util.reasoner import reason_brick
+reason_brick(G)
 
 G.bind('rdf', RDF)
 G.bind('owl', OWL)

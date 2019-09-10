@@ -81,8 +81,8 @@ def test_hierarchyinference():
 
     # Infer classes of the entities.
     # Apply reasoner
-    from util.reasoner import reason_rdfs
-    reason_rdfs(g)
+    from util.reasoner import reason_brick
+    reason_brick(g)
     g.serialize(inference_file, format='turtle')  # Store the inferred graph.
 
 
