@@ -158,9 +158,6 @@ sensor_definitions = {
                                 "subclasses": {
                                     "Average_Discharge_Air_Flow_Sensor": {
                                         "tags": [ TAG.Average, TAG.Discharge, TAG.Air, TAG.Flow, TAG.Sensor ],
-                                    },
-                                    "Average_Supply_Air_Flow_Sensor": {
-                                        "tags": [ TAG.Average, TAG.Supply, TAG.Air, TAG.Flow, TAG.Sensor ],
                                     }
                                 }
                             },
@@ -200,6 +197,11 @@ sensor_definitions = {
                             },
                             "Supply_Air_Flow_Sensor": {
                                 "tags": [ TAG.Sensor, TAG.Flow, TAG.Air, TAG.Supply ],
+                                "subclasses": {
+                                    "Average_Supply_Air_Flow_Sensor": {
+                                        "tags": [ TAG.Average, TAG.Supply, TAG.Air, TAG.Flow, TAG.Sensor ],
+                                    }
+                                }
                             }
                         }
                     },
