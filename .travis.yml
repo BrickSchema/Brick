@@ -8,8 +8,9 @@ install:
 
 script:
   # test the repo as-is
-  - pytest
+  # -s flag: do not capture output (avoids killing test after 10 min)
+  - pytest -s
   # generate new Brick ontology (in case this hasn't been run)
   - python generate_brick.py
   # test again in case this broke anything
-  - pytest
+  - pytest -s

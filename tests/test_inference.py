@@ -1,3 +1,5 @@
+import time
+import sys
 import rdflib
 from rdflib import RDF, RDFS, OWL, Namespace
 
@@ -11,76 +13,59 @@ DCTERMS = Namespace("http://purl.org/dc/terms#")
 SDO = Namespace("http://schema.org#")
 A = RDF.type
 
-G = rdflib.Graph()
-G.parse('Brick.ttl', format='turtle')
+g = rdflib.Graph()
+g.parse('Brick.ttl', format='turtle')
 
 ## Instances
-G.add( (BLDG.Coil_1, A, BRICK.Heating_Coil) )
+g.add( (BLDG.Coil_1, A, BRICK.Heating_Coil) )
 
-G.add( (BLDG.Coil_2, BRICK.hasTag, TAG.Coil) )
-G.add( (BLDG.Coil_2, BRICK.hasTag, TAG.Heat) )
+g.add( (BLDG.Coil_2, BRICK.hasTag, TAG.Coil) )
+g.add( (BLDG.Coil_2, BRICK.hasTag, TAG.Heat) )
 
-G.add( (BLDG.AHU1, A, BRICK.AHU) )
-G.add( (BLDG.VAV1, A, BRICK.VAV) )
-G.add( (BLDG.AHU1, BRICK.feedsAir, BLDG.VAV1) )
-G.add( (BLDG.CH1, A, BRICK.Chiller) )
+g.add( (BLDG.AHU1, A, BRICK.AHU) )
+g.add( (BLDG.VAV1, A, BRICK.VAV) )
+g.add( (BLDG.AHU1, BRICK.feedsAir, BLDG.VAV1) )
+g.add( (BLDG.CH1, A, BRICK.Chiller) )
 
 # This gets inferred as an air temperature sensor
-G.add( (BLDG.TS1, A, BRICK.Temperature_Sensor) )
-G.add( (BLDG.TS1, BRICK.measures, BRICK.Air) )
-G.add( (BLDG.TS2, A, BRICK.Air_Temperature_Sensor) )
+g.add( (BLDG.TS1, A, BRICK.Temperature_Sensor) )
+g.add( (BLDG.TS1, BRICK.measures, BRICK.Air) )
+g.add( (BLDG.TS2, A, BRICK.Air_Temperature_Sensor) )
 
 # add air flow setpoint
-G.add( (BLDG.AFSP1, A, BRICK.Setpoint) )
-G.add( (BLDG.AFSP1, BRICK.hasTag, TAG.Air) )
-G.add( (BLDG.AFSP1, BRICK.hasTag, TAG.Flow) )
-G.add( (BLDG.AFSP1, BRICK.hasTag, TAG.Setpoint) )
+g.add( (BLDG.AFSP1, A, BRICK.Setpoint) )
+g.add( (BLDG.AFSP1, BRICK.hasTag, TAG.Air) )
+g.add( (BLDG.AFSP1, BRICK.hasTag, TAG.Flow) )
+g.add( (BLDG.AFSP1, BRICK.hasTag, TAG.Setpoint) )
 
 # add air flow setpoint limit
-G.add( (BLDG.MAFS1, A, BRICK.Setpoint) )
-G.add( (BLDG.MAFS1, BRICK.hasTag, TAG.Air) )
-G.add( (BLDG.MAFS1, BRICK.hasTag, TAG.Flow) )
-G.add( (BLDG.MAFS1, BRICK.hasTag, TAG.Setpoint) )
-G.add( (BLDG.MAFS1, BRICK.hasTag, TAG.Limit) )
-G.add( (BLDG.MAFS1, BRICK.hasTag, TAG.Max) )
+g.add( (BLDG.MAFS1, A, BRICK.Setpoint) )
+g.add( (BLDG.MAFS1, BRICK.hasTag, TAG.Air) )
+g.add( (BLDG.MAFS1, BRICK.hasTag, TAG.Flow) )
+g.add( (BLDG.MAFS1, BRICK.hasTag, TAG.Setpoint) )
+g.add( (BLDG.MAFS1, BRICK.hasTag, TAG.Limit) )
+g.add( (BLDG.MAFS1, BRICK.hasTag, TAG.Max) )
 
-G.add( (BLDG.AFS1, A, BRICK.Air_Flow_Sensor) )
+g.add( (BLDG.AFS1, A, BRICK.Air_Flow_Sensor) )
 
-G.add( (BLDG.co2s1, A, BRICK.CO2_Level_Sensor) )
+g.add( (BLDG.co2s1, A, BRICK.CO2_Level_Sensor) )
 
-G.add( (BLDG.standalone, A, BRICK.Temperature_Sensor) )
-
-def rereason(G, filename):
-    world = owlready2.World()
-    with open(filename,'wb') as f:
-        f.write(G.serialize(format='ntriples'))
-    on = world.get_ontology(f"file://./{filename}").load()
-    owlready2.sync_reasoner(world, infer_property_values =True)
-    G = world.as_rdflib_graph()
-    return G
+g.add( (BLDG.standalone, A, BRICK.Temperature_Sensor) )
 
 # Apply reasoner
-import time
-t1 = time.time()
-try:
-    import owlready2
-    G = rereason(G, "Brick.n3")
-except:
-    import owlrl
-    owlrl.DeductiveClosure(owlrl.OWLRL_Semantics).expand(G)
+from util.reasoner import reason_brick
+reason_brick(g)
 
-G.bind('rdf', RDF)
-G.bind('owl', OWL)
-G.bind('rdfs', RDFS)
-G.bind('skos', SKOS)
-G.bind('brick', BRICK)
-G.bind('tag', TAG)
-G.bind('bldg', BLDG)
+g.bind('rdf', RDF)
+g.bind('owl', OWL)
+g.bind('rdfs', RDFS)
+g.bind('skos', SKOS)
+g.bind('brick', BRICK)
+g.bind('tag', TAG)
+g.bind('bldg', BLDG)
 
-t2 = time.time()
-print("Reasoning took {0}".format(t2-t1))
-s = G.serialize(format='ttl')
-print('expanded:', len(G))
+s = g.serialize(format='ttl')
+print('expanded:', len(g))
 
 with open('Brick_expanded.ttl','wb') as f:
     f.write(s)
@@ -92,35 +77,35 @@ def make_readable(res):
     return [[uri.split('#')[-1] for uri in row] for row in res]
 
 def test_tag1():
-    res1 = make_readable(G.query("SELECT DISTINCT ?co2tag WHERE { bldg:co2s1 brick:hasTag ?co2tag }"))
+    res1 = make_readable(g.query("SELECT DISTINCT ?co2tag WHERE { bldg:co2s1 brick:hasTag ?co2tag }"))
     assert len(res1) == 3
 
 def test_sensors_measure_co2():
     # which sensors measure CO2?
-    res2 = make_readable(G.query("SELECT DISTINCT ?sensor WHERE { ?sensor brick:measures brick:CO2 }"))
+    res2 = make_readable(g.query("SELECT DISTINCT ?sensor WHERE { ?sensor brick:measures brick:CO2 }"))
     assert len(res2) == 1
 
 def test_sensors_measure_air():
     # measure air? use abbreviated form too
-    res3 = make_readable(G.query("SELECT DISTINCT ?sensor WHERE { ?sensor brick:measures brick:Air }"))
+    res3 = make_readable(g.query("SELECT DISTINCT ?sensor WHERE { ?sensor brick:measures brick:Air }"))
     assert len(res3) == 4
 
 def test_sensors_measure_air_temp():
     # sensors that measure air temperature
-    res4 = make_readable(G.query("SELECT DISTINCT ?sensor WHERE { ?sensor brick:measures brick:Air . ?sensor rdf:type brick:Temperature_Sensor }"))
-    assert len(res4) == 1
+    res4 = make_readable(g.query("SELECT DISTINCT ?sensor WHERE { ?sensor brick:measures brick:Air . ?sensor rdf:type brick:Temperature_Sensor }"))
+    assert len(res4) == 2
 
 def test_air_flow_sensor():
     # air flow sensors
-    res = make_readable(G.query("SELECT DISTINCT ?sensor WHERE { ?sensor rdf:type brick:Air_Flow_Sensor }"))
+    res = make_readable(g.query("SELECT DISTINCT ?sensor WHERE { ?sensor rdf:type brick:Air_Flow_Sensor }"))
     assert len(res) == 1
 
 def test_air_flow_sp():
     # air flow setpoints
-    res = make_readable(G.query("SELECT DISTINCT ?sp WHERE { ?sp rdf:type brick:Air_Flow_Setpoint }"))
-    assert len(res) == 1
+    res = make_readable(g.query("SELECT DISTINCT ?sp WHERE { ?sp rdf:type brick:Air_Flow_Setpoint }"))
+    assert len(res) == 2
 
 def test_air_flow_sensor2():
     # air flow sensors
-    res = make_readable(G.query("SELECT DISTINCT ?sensor WHERE { ?sensor brick:hasTag tag:Air . ?sensor brick:hasTag tag:Sensor . ?sensor brick:hasTag tag:Flow }"))
+    res = make_readable(g.query("SELECT DISTINCT ?sensor WHERE { ?sensor brick:hasTag tag:Air . ?sensor brick:hasTag tag:Sensor . ?sensor brick:hasTag tag:Flow }"))
     assert len(res) == 1
