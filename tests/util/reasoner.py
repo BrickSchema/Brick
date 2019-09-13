@@ -47,22 +47,15 @@ def reason_inverse_edges(g):
     """
 
     # inverse relationships
-    res = g.query("""SELECT ?prop ?invprop WHERE {
-    ?prop rdf:type owl:ObjectProperty .
-    ?prop owl:inverseOf ?invprop
-    }""")
-
-    for prop, invprop in res:
-        forward_edges = g.query(f"""SELECT ?subject ?object WHERE {{
-        ?subject <{prop}> ?object
-        }}""")
-        backward_edges = g.query(f"""SELECT ?subject ?object WHERE {{
-        ?subject <{invprop}> ?object
-        }}""")
-        for s, o in forward_edges:
-            g.add((o, invprop, s))
-        for s, o in backward_edges:
-            g.add((o, prop, s))
+    query = """
+    INSERT {
+        ?o ?invprop ?s
+    } WHERE {
+        ?s ?prop ?o.
+        ?prop owl:inverseOf ?invprop.
+    }
+    """
+    g.update(query)
 
 def reason_brick(g):
     """
