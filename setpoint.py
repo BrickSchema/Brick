@@ -270,8 +270,8 @@ setpoint_definitions = {
                     },
                     "Static_Pressure_Setpoint": {
                         "subclasses": {
-                            "Building_Static_Pressure_Setpoint": {
-                                "tags": [ TAG.Building, TAG.Static, TAG.Pressure, TAG.Setpoint ],
+                            "Building_Air_Static_Pressure_Setpoint": {
+                                "tags": [ TAG.Building, TAG.Air, TAG.Static, TAG.Pressure, TAG.Setpoint ],
                             },
                             "Chilled_Water_Static_Pressure_Setpoint": {
                                 "tags": [ TAG.Chilled, TAG.Water, TAG.Static, TAG.Pressure, TAG.Setpoint ],
