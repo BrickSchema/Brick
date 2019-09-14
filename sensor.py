@@ -267,8 +267,8 @@ sensor_definitions = {
                             "Supply_Air_Humidity_Sensor": {
                                 "tags": [ TAG.Sensor, TAG.Humidity, TAG.Air, TAG.Supply ],
                             },
-                            "Zone_Humidity_Sensor": {
-                                "tags": [ TAG.Sensor, TAG.Humidity, TAG.Zone ],
+                            "Zone_Air_Humidity_Sensor": {
+                                "tags": [ TAG.Sensor, TAG.Humidity, TAG.Air, TAG.Zone],
                             }
                         }
                     }
@@ -333,9 +333,9 @@ sensor_definitions = {
                     "Static_Pressure_Sensor": {
                         "tags": [ TAG.Sensor, TAG.Pressure, TAG.Static ],
                         "subclasses": {
-                            "Building_Static_Pressure_Sensor": {
+                            "Building_Air_Static_Pressure_Sensor": {
                                 "substances": [ [ BRICK.measures, BRICK.Pressure ], [ BRICK.measures, BRICK.Air ], ],
-                                "tags": [ TAG.Building, TAG.Static, TAG.Pressure, TAG.Sensor ],
+                                "tags": [ TAG.Building, TAG.Air, TAG.Static, TAG.Pressure, TAG.Sensor ],
                             },
                             "Discharge_Air_Static_Pressure_Sensor": {
                                 "tags": [ TAG.Sensor, TAG.Pressure, TAG.Static, TAG.Air, TAG.Discharge ],
