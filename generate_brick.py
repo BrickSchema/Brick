@@ -211,6 +211,20 @@ define_subclasses(substances, BRICK.Substance)
 from quantities import quantity_definitions
 define_subclasses(quantity_definitions, BRICK.Quantity)
 
+# We make the punning explicit here. Any subclass of brick:Substance
+# or brick:Quantity is itself a substance or quantity. There is one canonical
+# instance of each class, which is indicated by referencing the class itself.
+#
+#    bldg:tmp1      a           brick:Air_Temperature_Sensor;
+#               brick:measures  brick:Air ,
+#                               brick:Temperature .
+#
+# In the above example, brick:Air and brick:Temperature are both instances.
+G.update("""INSERT { ?sc rdf:type brick:Substance }
+            WHERE { ?sc rdfs:subClassOf* brick:Substance }""")
+G.update("""INSERT { ?qc rdf:type brick:Quantity }
+            WHERE { ?qc rdfs:subClassOf* brick:Quantity }""")
+
 from properties import properties
 define_properties(properties)
 
