@@ -211,6 +211,10 @@ define_subclasses(substances, BRICK.Substance)
 from quantities import quantity_definitions
 define_subclasses(quantity_definitions, BRICK.Quantity)
 
+G.add((BRICK.Measurable, A, OWL.Class))
+G.add((BRICK.Substance, RDFS.subClassOf, BRICK.Measurable))
+G.add((BRICK.Quantity, RDFS.subClassOf, BRICK.Measurable))
+
 # We make the punning explicit here. Any subclass of brick:Substance
 # or brick:Quantity is itself a substance or quantity. There is one canonical
 # instance of each class, which is indicated by referencing the class itself.

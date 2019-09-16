@@ -105,8 +105,7 @@ properties = {
         OWL.inverseOf: "isMeasuredBy",
         SKOS.definition: Literal("The subject measures a quantity or substance given by the object"),
         RDFS.domain: BRICK.Point,
-        # TODO: make a union class 'measurable' that is both quantities and substances
-        #RDFS.range: BRICK.Substance,
+        RDFS.range: BRICK.Measurable,
     },
     "isMeasuredBy": {
         A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
