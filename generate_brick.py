@@ -221,9 +221,9 @@ define_subclasses(quantity_definitions, BRICK.Quantity)
 #
 # In the above example, brick:Air and brick:Temperature are both instances.
 G.update("""INSERT { ?sc rdf:type brick:Substance }
-            WHERE { ?sc rdfs:subClassOf* brick:Substance }""")
+            WHERE { ?sc rdfs:subClassOf+ brick:Substance }""")
 G.update("""INSERT { ?qc rdf:type brick:Quantity }
-            WHERE { ?qc rdfs:subClassOf* brick:Quantity }""")
+            WHERE { ?qc rdfs:subClassOf+ brick:Quantity }""")
 
 from properties import properties
 define_properties(properties)
