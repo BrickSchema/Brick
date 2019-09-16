@@ -3,24 +3,11 @@ from rdflib.namespace import XSD
 from rdflib.collection import Collection
 from rdflib.extras.infixowl import Restriction
 
-BRICK_VERSION = '1.1.0'
-
-BRICK = Namespace("https://brickschema.org/schema/{0}/Brick#".format(BRICK_VERSION))
-TAG = Namespace("https://brickschema.org/schema/{0}/BrickTag#".format(BRICK_VERSION))
-SKOS = Namespace("http://www.w3.org/2004/02/skos/core#")
-DCTERMS = Namespace("http://purl.org/dc/terms#")
-SDO = Namespace("http://schema.org#")
+from namespaces import BRICK, RDF, OWL, DCTERMS, SDO, RDFS, SKOS, BRICK, TAG, SOSA
+from namespaces import bind_prefixes
 
 G = Graph()
-G.bind('rdf', RDF)
-G.bind('owl', OWL)
-G.bind('dcterms', DCTERMS)
-G.bind('sdo', SDO)
-G.bind('rdfs', RDFS)
-G.bind('skos', SKOS)
-G.bind('brick', BRICK)
-G.bind('tag', TAG)
-
+bind_prefixes(G)
 A = RDF.type
 
 from collections import defaultdict
