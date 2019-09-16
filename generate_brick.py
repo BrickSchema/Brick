@@ -199,6 +199,7 @@ from quantities import quantity_definitions
 define_subclasses(quantity_definitions, BRICK.Quantity)
 
 G.add((BRICK.Measurable, A, OWL.Class))
+G.add((BRICK.Measurable, RDFS.subClassOf, SOSA.ObservableProperty))
 G.add((BRICK.Substance, RDFS.subClassOf, BRICK.Measurable))
 G.add((BRICK.Quantity, RDFS.subClassOf, BRICK.Measurable))
 
