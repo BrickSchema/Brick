@@ -51,7 +51,7 @@ sensor_definitions = {
                     },
                     "Return_Air_CO2_Sensor": {
                         "tags": [ TAG.Return, TAG.Air, TAG.CO2, TAG.Sensor ],
-                        "substances": [ [ BRICK.measures, BRICK.Retur_Air ], [ BRICK.measures, BRICK.CO2 ], ],
+                        "substances": [ [ BRICK.measures, BRICK.Return_Air ], [ BRICK.measures, BRICK.CO2 ], ],
                     }
                 }
             },
@@ -99,9 +99,9 @@ sensor_definitions = {
                         "tags": [ TAG.Sensor, TAG.Power, TAG.Reactive ],
                         "substances": [ [BRICK.measures, BRICK.Reactive_Power] ],
                     },
-                    "Real_Power_Sensor": {
+                    "Active_Power_Sensor": {
                         "tags": [ TAG.Sensor, TAG.Power, TAG.Real ],
-                        "substances": [ [BRICK.measures, BRICK.Real_Power] ],
+                        "substances": [ [BRICK.measures, BRICK.Active_Power] ],
                     },
                     "Peak_Power_Demand_Sensor": {
                         "tags": [ TAG.Peak, TAG.Power, TAG.Demand, TAG.Sensor ],
