@@ -267,8 +267,8 @@ sensor_definitions = {
                             "Supply_Air_Humidity_Sensor": {
                                 "tags": [ TAG.Sensor, TAG.Humidity, TAG.Air, TAG.Supply ],
                             },
-                            "Zone_Humidity_Sensor": {
-                                "tags": [ TAG.Sensor, TAG.Humidity, TAG.Zone ],
+                            "Zone_Air_Humidity_Sensor": {
+                                "tags": [ TAG.Sensor, TAG.Humidity, TAG.Air, TAG.Zone],
                             }
                         }
                     }
@@ -333,9 +333,9 @@ sensor_definitions = {
                     "Static_Pressure_Sensor": {
                         "tags": [ TAG.Sensor, TAG.Pressure, TAG.Static ],
                         "subclasses": {
-                            "Building_Static_Pressure_Sensor": {
+                            "Building_Air_Static_Pressure_Sensor": {
                                 "substances": [ [ BRICK.measures, BRICK.Pressure ], [ BRICK.measures, BRICK.Air ], ],
-                                "tags": [ TAG.Building, TAG.Static, TAG.Pressure, TAG.Sensor ],
+                                "tags": [ TAG.Building, TAG.Air, TAG.Static, TAG.Pressure, TAG.Sensor ],
                             },
                             "Discharge_Air_Static_Pressure_Sensor": {
                                 "tags": [ TAG.Sensor, TAG.Pressure, TAG.Static, TAG.Air, TAG.Discharge ],
@@ -467,22 +467,6 @@ sensor_definitions = {
                 "tags": [ TAG.Sensor, TAG.Temperature ],
                 "substances": [ [ BRICK.measures, BRICK.Temperature ], ],
                 "subclasses": {
-                    "Zone_Temperature_Sensor": {
-                        "tags": [ TAG.Sensor, TAG.Temperature, TAG.Zone ],
-                        "subclasses": {
-                            "Average_Zone_Temperature_Sensor": {
-                                "tags": [ TAG.Sensor, TAG.Temperature, TAG.Zone, TAG.Average ],
-                            },
-                            "Highest_Zone_Temperature_Sensor": {
-                                "tags": [ TAG.Sensor, TAG.Temperature, TAG.Zone, TAG.Highest ],
-                                OWL.equivalentClass: "Warmest_Zone_Temperature_Sensor"
-                            },
-                            "Lowest_Zone_Temperature_Sensor": {
-                                "tags": [ TAG.Sensor, TAG.Temperature, TAG.Zone, TAG.Lowest ],
-                                OWL.equivalentClass: "Coldest_Zone_Temperature_Sensor"
-                            }
-                        }
-                    },
                     "Air_Temperature_Sensor": {
                         "tags": [ TAG.Sensor, TAG.Temperature, TAG.Air ],
                         "substances": [ [ BRICK.measures, BRICK.Temperature ], [ BRICK.measures, BRICK.Air ], ],
@@ -505,6 +489,19 @@ sensor_definitions = {
                             },
                             "Zone_Air_Temperature_Sensor": {
                                 "tags": [ TAG.Zone, TAG.Air, TAG.Temperature, TAG.Sensor ],
+                                "subclasses": {
+                                    "Average_Zone_Air_Temperature_Sensor": {
+                                        "tags": [ TAG.Sensor, TAG.Temperature, TAG.Zone, TAG.Average, TAG.Air],
+                                    },
+                                    "Highest_Zone_Air_Temperature_Sensor": {
+                                        "tags": [ TAG.Sensor, TAG.Temperature, TAG.Zone, TAG.Highest, TAG.Air],
+                                        OWL.equivalentClass: "Warmest_Zone_Air_Temperature_Sensor"
+                                    },
+                                    "Lowest_Zone_Air_Temperature_Sensor": {
+                                        "tags": [ TAG.Sensor, TAG.Temperature, TAG.Zone, TAG.Lowest, TAG.Air],
+                                        OWL.equivalentClass: "Coldest_Zone_Air_Temperature_Sensor"
+                                    }
+                                }
                             },
                             "Exhaust_Air_Temperature_Sensor": {
                                 "tags": [ TAG.Sensor, TAG.Temperature, TAG.Air, TAG.Exhaust ],
