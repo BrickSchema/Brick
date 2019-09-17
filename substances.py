@@ -121,17 +121,31 @@ substances = {
                                 "tags": [TAG.Liquid, TAG.Water, TAG.Domestic],
                                 SKOS.definition: Literal("Tap water for drinking, washing, cooking, and flushing of toliets"),
                             },
+                            "Entering_Water": {
+                                "tags": [TAG.Liquid, TAG.Water, TAG.Entering],
+                            },
+                            "Leaving_Water": {
+                                "tags": [TAG.Liquid, TAG.Water, TAG.Leaving],
+                            },
                             "Supply_Water": {
                                 "tags": [TAG.Liquid, TAG.Water, TAG.Supply],
                                 "subclasses": {
                                     "Supply_Chilled_Water": {
                                         "tags": [TAG.Liquid, TAG.Water, TAG.Chilled, TAG.Supply],
+                                    },
+                                    "Supply_Hot_Water": {
+                                        "tags": [TAG.Liquid, TAG.Water, TAG.Hot, TAG.Supply],
                                     }
                                 },
                             },
                             "Hot_Water": {
                                 "tags": [TAG.Liquid, TAG.Water, TAG.Hot],
                                 SKOS.definition: Literal("Hot water used for HVAC heating or supply to hot taps"),
+                                "subclasses": {
+                                    "Supply_Hot_Water": {
+                                        "tags": [TAG.Liquid, TAG.Water, TAG.Hot, TAG.Supply],
+                                    }
+                                }
                             },
                             "Makeup_Water": {
                                 "tags": [TAG.Liquid, TAG.Water, TAG.Makeup],

@@ -103,10 +103,15 @@ quantity_definitions = {
         },
     },
     "Luminance": {
-        "tags": [TAG.Luminance],
         "subclasses": {
             "Luminous_Flux": {},
             "Luminous_Intensity": {},
+        },
+    },
+    "Occupancy": {
+        "subclasses": {
+            "Occupancy_Count": {},
+            "Occupancy_Percentage": {},
         },
     },
     "Power_Factor": {},
@@ -115,6 +120,12 @@ quantity_definitions = {
         "subclasses": {
             "Atmospheric_Pressure": {},
             "Static_Pressure": {},
+            "Velocity_Pressure": {},
+        },
+    },
+    "Radiance": {
+        "subclasses": {
+            "Solar_Radiance": {},
         },
     },
     "Speed": {
@@ -130,6 +141,7 @@ quantity_definitions = {
             "Wet_Bulb_Temperature": {},
         },
     },
+    "Torque": {},
     "Weather_Condition": {
     },
 }

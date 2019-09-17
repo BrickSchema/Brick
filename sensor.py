@@ -324,6 +324,7 @@ sensor_definitions = {
             },
             "Occupancy_Sensor": {
                 "tags": [ TAG.Sensor, TAG.Occupancy ],
+                "substances": [ [BRICK.measures, BRICK.Occupancy] ],
                 "subclasses": {
                     "PIR_Sensor": {
                         "tags": [ TAG.Pir, TAG.Sensor ],
@@ -342,7 +343,7 @@ sensor_definitions = {
                         "subclasses": {
                             "Chilled_Water_Differential_Pressure_Sensor": {
                                 "tags": [ TAG.Sensor, TAG.Pressure, TAG.Differential, TAG.Water, TAG.Chilled ],
-                                "substances": [ [ BRICK.measures, BRICK.Pressure ], [ BRICK.measures, BRICK.Water ], ],
+                                "substances": [ [ BRICK.measures, BRICK.Pressure ], [ BRICK.measures, BRICK.Chilled_Water ], ],
                             },
                             "Filter_Differential_Pressure_Sensor": {
                                 "tags": [ TAG.Sensor, TAG.Pressure, TAG.Differential, TAG.Filter ],
@@ -352,7 +353,7 @@ sensor_definitions = {
                             },
                             "Hot_Water_Differential_Pressure_Sensor": {
                                 "tags": [ TAG.Sensor, TAG.Pressure, TAG.Differential, TAG.Water, TAG.Hot ],
-                                "substances": [ [ BRICK.measures, BRICK.Pressure ], [ BRICK.measures, BRICK.Water ], ],
+                                "substances": [ [ BRICK.measures, BRICK.Pressure ], [ BRICK.measures, BRICK.Hot_Water ], ],
                                 "subclasses": {
                                     "Medium_Temperature_Hot_Water_Differential_Pressure_Sensor": {
                                         "tags": [ TAG.Medium, TAG.Temperature, TAG.Hot, TAG.Water, TAG.Differential, TAG.Pressure, TAG.Sensor ],
@@ -392,15 +393,19 @@ sensor_definitions = {
                     },
                     "Velocity_Pressure_Sensor": {
                         "tags": [ TAG.Sensor, TAG.Pressure, TAG.Velocity ],
+                        "substances": [ [BRICK.measures, BRICK.Velocity_Pressure] ],
                         "subclasses": {
                             "Discharge_Air_Velocity_Pressure_Sensor": {
                                 "tags": [ TAG.Sensor, TAG.Pressure, TAG.Velocity, TAG.Discharge, TAG.Air ],
+                                "substances": [ [BRICK.measures, BRICK.Velocity_Pressure], [BRICK.measures, BRICK.Discharge_Air] ],
                             },
                             "Exhaust_Air_Velocity_Pressure_Sensor": {
                                 "tags": [ TAG.Sensor, TAG.Pressure, TAG.Velocity, TAG.Exhaust, TAG.Air ],
+                                "substances": [ [BRICK.measures, BRICK.Velocity_Pressure], [BRICK.measures, BRICK.Exhaust_Air] ],
                             },
                             "Supply_Air_Velocity_Pressure_Sensor": {
                                 "tags": [ TAG.Sensor, TAG.Pressure, TAG.Velocity, TAG.Supply, TAG.Air ],
+                                "substances": [ [BRICK.measures, BRICK.Velocity_Pressure], [BRICK.measures, BRICK.Supply_Air] ],
                             }
                         }
                     }
@@ -408,6 +413,7 @@ sensor_definitions = {
             },
             "Rain_Sensor": {
                 "tags": [ TAG.Sensor, TAG.Rain ],
+                #TODO: substances
                 "subclasses": {
                     "Rain_Duration_Sensor": {
                         "tags": [ TAG.Sensor, TAG.Rain, TAG.Duration ],
@@ -416,6 +422,7 @@ sensor_definitions = {
             },
             "Duration_Sensor": {
                 "tags": [ TAG.Sensor, TAG.Duration ],
+                #TODO: substances
                 "subclasses": {
                     "Rain_Duration_Sensor": {
                         "tags": [ TAG.Rain, TAG.Duration, TAG.Sensor ],
@@ -430,6 +437,7 @@ sensor_definitions = {
             },
             "Solar_Radiance_Sensor": {
                 "tags": [ TAG.Sensor, TAG.Radiance, TAG.Solar ],
+                "substances": [ [BRICK.measures, BRICK.Solar_Radiance] ],
             },
             "Speed_Sensor": {
                 "tags": [ TAG.Sensor, TAG.Speed ],
@@ -437,14 +445,6 @@ sensor_definitions = {
                 "subclasses": {
                     "Differential_Speed_Sensor": {
                         "tags": [ TAG.Sensor, TAG.Speed, TAG.Differential ],
-                        "subclasses": {
-                            "Heat_Wheel_Speed_Sensor": {
-                                "tags": [ TAG.Sensor, TAG.Speed, TAG.Heat, TAG.Wheel ],
-                            },
-                            "Return_Fan_Differential_Speed_Sensor": {
-                                "tags": [ TAG.Return, TAG.Fan, TAG.Differential, TAG.Speed, TAG.Sensor ],
-                            }
-                        }
                     },
                     "Motor_Speed_Sensor": {
                         "tags": [ TAG.Motor, TAG.Speed, TAG.Sensor ],
@@ -457,6 +457,7 @@ sensor_definitions = {
             },
             "Torque_Sensor": {
                 "tags": [ TAG.Sensor, TAG.Torque ],
+                "substances": [ [BRICK.measures, BRICK.Torque] ],
                 "subclasses": {
                     "Motor_Torque_Sensor": {
                         "tags": [ TAG.Motor, TAG.Torque, TAG.Sensor ],
@@ -464,6 +465,7 @@ sensor_definitions = {
                 }
             },
             "Trace_Heat_Sensor": {
+                #TODO: substance
                 "tags": [ TAG.Trace, TAG.Heat, TAG.Sensor ],
             },
             "Voltage_Sensor": {
@@ -476,9 +478,6 @@ sensor_definitions = {
                     "DC_Bus_Voltage_Sensor": {
                         "tags": [ TAG.Dc, TAG.Bus, TAG.Voltage, TAG.Sensor ],
                     },
-                    "Heat_Wheel_Voltage_Sensor": {
-                        "tags": [ TAG.Heat, TAG.Wheel, TAG.Voltage, TAG.Sensor ],
-                    },
                     "Output_Voltage_Sensor": {
                         "tags": [ TAG.Output, TAG.Voltage, TAG.Sensor ],
                     }
@@ -490,7 +489,7 @@ sensor_definitions = {
                 "subclasses": {
                     "Deionised_Water_Level_Sensor": {
                         "tags": [ TAG.Sensor, TAG.Water, TAG.Level, TAG.Deionised ],
-                        OWL.equivalentClass: "DI_Water_Level_Sensor"
+                        "substances": [ [ BRICK.measures, BRICK.Deionized_Water ], [ BRICK.measures, BRICK.Level ], ],
                     }
                 }
             },
@@ -520,6 +519,7 @@ sensor_definitions = {
                             },
                             "Zone_Air_Temperature_Sensor": {
                                 "tags": [ TAG.Zone, TAG.Air, TAG.Temperature, TAG.Sensor ],
+                                "substances": [ [ BRICK.measures, BRICK.Temperature ], [ BRICK.measures, BRICK.Zone_Air ], ],
                                 "subclasses": {
                                     "Average_Zone_Air_Temperature_Sensor": {
                                         "tags": [ TAG.Sensor, TAG.Temperature, TAG.Zone, TAG.Average, TAG.Air],
@@ -535,16 +535,20 @@ sensor_definitions = {
                                 }
                             },
                             "Exhaust_Air_Temperature_Sensor": {
+                                "substances": [ [ BRICK.measures, BRICK.Temperature ], [ BRICK.measures, BRICK.Exhaust_Air ], ],
                                 "tags": [ TAG.Sensor, TAG.Temperature, TAG.Air, TAG.Exhaust ],
                             },
                             "Mixed_Air_Temperature_Sensor": {
+                                "substances": [ [ BRICK.measures, BRICK.Temperature ], [ BRICK.measures, BRICK.Mixed_Air ], ],
                                 "tags": [ TAG.Sensor, TAG.Temperature, TAG.Air, TAG.Mixed ],
                             },
                             "Return_Air_Temperature_Sensor": {
+                                "substances": [ [ BRICK.measures, BRICK.Temperature ], [ BRICK.measures, BRICK.Return_Air ], ],
                                 "tags": [ TAG.Sensor, TAG.Temperature, TAG.Air, TAG.Return ],
                             },
                             "Outside_Air_Temperature_Sensor": {
                                 "tags": [ TAG.Sensor, TAG.Temperature, TAG.Air, TAG.Outside ],
+                                "substances": [ [ BRICK.measures, BRICK.Temperature ], [ BRICK.measures, BRICK.Outside_Air ], ],
                                 "subclasses": {
                                     "Outside_Air_Lockout_Temperature_Differential_Sensor": {
                                         "subclasses": {
@@ -570,6 +574,7 @@ sensor_definitions = {
                             },
                             "Hot_Water_Supply_Temperature_Sensor": {
                                 "tags": [ TAG.Sensor, TAG.Temperature, TAG.Water, TAG.Hot, TAG.Supply ],
+                                "substances": [ [ BRICK.measures, BRICK.Temperature ], [ BRICK.measures, BRICK.Supply_Hot_Water ], ],
                                 "subclasses": {
                                     "Domestic_Hot_Water_Supply_Temperature_Sensor": {
                                         "tags": [ TAG.Domestic, TAG.Hot, TAG.Water, TAG.Supply, TAG.Temperature, TAG.Sensor ],
@@ -584,18 +589,20 @@ sensor_definitions = {
                             },
                             "Chilled_Water_Temperature_Sensor": {
                                 "tags": [ TAG.Sensor, TAG.Temperature, TAG.Water, TAG.Chilled ],
+                                "substances": [ [ BRICK.measures, BRICK.Temperature ], [ BRICK.measures, BRICK.Chilled_Water ], ],
                                 "subclasses": {
                                     "Chilled_Water_Differential_Temperature_Sensor": {
                                         "tags": [ TAG.Chilled, TAG.Water, TAG.Differential, TAG.Temperature, TAG.Sensor ],
                                     },
                                     "Chilled_Water_Supply_Temperature_Sensor": {
                                         "tags": [ TAG.Sensor, TAG.Temperature, TAG.Water, TAG.Chilled, TAG.Supply ],
-                                        OWL.equivalentClass: "Chilled_Water_Discharge_Temperature_Sensor"
+                                        "substances": [ [ BRICK.measures, BRICK.Temperature ], [ BRICK.measures, BRICK.Supply_Chilled_Water ], ],
                                     }
                                 }
                             },
                             "Entering_Water_Temperature_Sensor": {
                                 "tags": [ TAG.Sensor, TAG.Temperature, TAG.Water, TAG.Entering ],
+                                "substances": [ [ BRICK.measures, BRICK.Temperature ], [ BRICK.measures, BRICK.Entering_Water ], ],
                                 "subclasses": {
                                     "Hot_Water_Coil_Entering_Temperature_Sensor": {
                                         "tags": [ TAG.Hot, TAG.Water, TAG.Coil, TAG.Entering, TAG.Temperature, TAG.Sensor ],
@@ -610,6 +617,7 @@ sensor_definitions = {
                             },
                             "Leaving_Water_Temperature_Sensor": {
                                 "tags": [ TAG.Sensor, TAG.Temperature, TAG.Water, TAG.Leaving ],
+                                "substances": [ [ BRICK.measures, BRICK.Temperature ], [ BRICK.measures, BRICK.Leaving_Water ], ],
                                 "subclasses": {
                                     "Ice_Tank_Leaving_Water_Temperature_Sensor": {
                                         "tags": [ TAG.Ice, TAG.Tank, TAG.Leaving, TAG.Water, TAG.Temperature, TAG.Sensor ],
@@ -621,6 +629,7 @@ sensor_definitions = {
                             },
                             "Return_Water_Temperature_Sensor": {
                                 "tags": [ TAG.Sensor, TAG.Temperature, TAG.Water, TAG.Return ],
+                                "substances": [ [ BRICK.measures, BRICK.Temperature ], [ BRICK.measures, BRICK.Return_Water ], ],
                                 "subclasses": {
                                     "Hot_Water_Return_Temperature_Sensor": {
                                         "tags": [ TAG.Hot, TAG.Water, TAG.Return, TAG.Temperature, TAG.Sensor ],
