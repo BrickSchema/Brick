@@ -33,6 +33,9 @@ quantity_definitions = {
                     "Complex_Power": {},
                 },
             },
+            "Peak_Power": {
+                SKOS.definition: Literal("Tracks the highest (peak) observed power in some interval"),
+            },
             "Thermal_Power": {}
         },
     },
@@ -80,7 +83,11 @@ quantity_definitions = {
             "Alternating_Current_Frequency": {},
         },
     },
-    "Humidity": {},
+    "Humidity": {
+        "subclasses": {
+            "Relative_Humidity": {},
+        },
+    },
     "Illuminance": {},
     "Irradiance": {
         "subclasses": {
