@@ -30,6 +30,10 @@ substances = {
                                 "tags": [TAG.Fluid, TAG.Gas, TAG.Air, TAG.Outside],
                                 SKOS.definition: Literal("air external to a defined zone (e.g., corridors)."),
                              },
+                            "Zone_Air": {
+                                "tags": [TAG.Fluid, TAG.Gas, TAG.Air, TAG.Zone],
+                                SKOS.definition: Literal("air inside a defined zone (e.g., corridors)."),
+                             },
                             "Mixed_Air": {
                                 "tags": [TAG.Fluid, TAG.Gas, TAG.Air, TAG.Mixed],
                                 SKOS.definition: Literal("(1) air that contains two or more streams of air. (2) combined outdoor air and recirculated air."),

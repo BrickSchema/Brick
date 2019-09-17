@@ -299,6 +299,7 @@ sensor_definitions = {
                             },
                             "Zone_Air_Humidity_Sensor": {
                                 "tags": [ TAG.Sensor, TAG.Humidity, TAG.Air, TAG.Zone],
+                                "substances": [ [ BRICK.measures, BRICK.Humidity ], [ BRICK.measures, BRICK.Zone_Air ], ],
                             }
                         }
                     }
