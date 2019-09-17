@@ -366,20 +366,20 @@ sensor_definitions = {
                         "tags": [ TAG.Sensor, TAG.Pressure, TAG.Static ],
                         "subclasses": {
                             "Building_Air_Static_Pressure_Sensor": {
-                                "substances": [ [ BRICK.measures, BRICK.Pressure ], [ BRICK.measures, BRICK.Air ], ],
+                                "substances": [ [ BRICK.measures, BRICK.Static_Pressure ], [ BRICK.measures, BRICK.Building_Air ], ],
                                 "tags": [ TAG.Building, TAG.Air, TAG.Static, TAG.Pressure, TAG.Sensor ],
                             },
                             "Discharge_Air_Static_Pressure_Sensor": {
                                 "tags": [ TAG.Sensor, TAG.Pressure, TAG.Static, TAG.Air, TAG.Discharge ],
-                                "substances": [ [ BRICK.measures, BRICK.Pressure ], [ BRICK.measures, BRICK.Air ], ],
+                                "substances": [ [ BRICK.measures, BRICK.Static_Pressure ], [ BRICK.measures, BRICK.Discharge_Air ], ],
                             },
                             "Supply_Air_Static_Pressure_Sensor": {
                                 "tags": [ TAG.Sensor, TAG.Pressure, TAG.Static, TAG.Air, TAG.Supply ],
-                                "substances": [ [ BRICK.measures, BRICK.Pressure ], [ BRICK.measures, BRICK.Air ], ],
+                                "substances": [ [ BRICK.measures, BRICK.Static_Pressure ], [ BRICK.measures, BRICK.Supply_Air ], ],
                             },
                             "Exhaust_Air_Static_Pressure_Sensor": {
                                 "tags": [ TAG.Sensor, TAG.Pressure, TAG.Static, TAG.Air, TAG.Exhaust ],
-                                "substances": [ [ BRICK.measures, BRICK.Pressure ], [ BRICK.measures, BRICK.Air ], ],
+                                "substances": [ [ BRICK.measures, BRICK.Static_Pressure ], [ BRICK.measures, BRICK.Exhaust_Air ], ],
                                 "subclasses": {
                                     "Average_Exhaust_Air_Static_Pressure_Sensor": {
                                         "tags": [ TAG.Average, TAG.Exhaust, TAG.Air, TAG.Static, TAG.Pressure, TAG.Sensor ],
