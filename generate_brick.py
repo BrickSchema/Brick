@@ -32,6 +32,7 @@ def add_tags(klass, definition):
     l = []
     equivalent_class = BNode()
     list_name = BNode()
+    is_limit = TAG.Setpoint in definition and TAG.Limit in definition
     for idnum, item in enumerate(definition):
         restriction = BNode()
         l.append(restriction)
@@ -40,6 +41,12 @@ def add_tags(klass, definition):
         G.add( (restriction, OWL.hasValue, item) )
         G.add( (item, A, BRICK.Tag) ) # make sure the tag is declared as such
         G.add( (item, RDFS.label, Literal(item.split('#')[-1])) ) # make sure the tag is declared as such
+    if is_limit:
+        restriction = BNode()
+        l.append(restriction)
+        G.add( (restriction, A, OWL.Restriction) )
+        G.add( (restriction, OWL.onProperty, RDF.type) )
+        G.add( (restriction, OWL.hasValue, BRICK.Parameter) )
     # cardinality
     #restriction = BNode()
     #l.append(restriction)

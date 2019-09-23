@@ -88,6 +88,10 @@ def reason_brick(g):
           BIND (brick:measures as ?p)
           ?node owl:onProperty ?p.
           ?node owl:hasValue ?o.
+      } UNION {
+          BIND (rdf:type as ?p)
+          ?node owl:onProperty ?p.
+          ?node owl:hasValue ?o.
       }
     }""")
     tag_properties = defaultdict(list)
