@@ -311,14 +311,18 @@ sensor_definitions = {
                     }
                 }
             },
+            "Illuminance_Sensor": {
+                "tags": [ TAG.Sensor, TAG.Illuminance ],
+                "substances": [ [ BRICK.measures, BRICK.Illuminance ], ],
+                "subclasses": {
+                    "Outside_Illuminance_Sensor": {
+                        "tags": [ TAG.Sensor, TAG.Illuminance, TAG.Outside ],
+                    }
+                }
+            },
             "Luminance_Sensor": {
                 "tags": [ TAG.Sensor, TAG.Luminance ],
                 "substances": [ [ BRICK.measures, BRICK.Luminance ], ],
-                "subclasses": {
-                    "Outside_Luminance_Sensor": {
-                        "tags": [ TAG.Sensor, TAG.Luminance, TAG.Outside ],
-                    }
-                }
             },
             "Motion_Sensor": {
                 "tags": [ TAG.Sensor, TAG.Motion ],
