@@ -76,15 +76,14 @@ def test_hierarchyinference():
         klass = row[0]
         entity = klass + entity_postfix  # Define an entity for the class
         g.add((entity, row[1], row[2]))  # Associate the entity with restrictions (i.e., Tags)
-        print(row[3],row[1],row[2])
     end_time = time.time()
     print('Instantiation took {0} seconds'.format(int(end_time-start_time)))
 
     # Infer classes of the entities.
     # Apply reasoner
     from util.reasoner import reason_brick, reason_owlrl
-    #reason_brick(g)
-    reason_owlrl(g)
+    reason_brick(g)
+    #reason_owlrl(g)
     g.serialize(inference_file, format='turtle')  # Store the inferred graph.
 
 
