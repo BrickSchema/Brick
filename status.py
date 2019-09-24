@@ -14,9 +14,6 @@ status_definitions = {
                     "Motor_Direction_Status": {
                         "tags": [ TAG.Motor, TAG.Direction, TAG.Status ],
                     },
-                    "Run_Direction_Status": {
-                        "tags": [ TAG.Run, TAG.Direction, TAG.Status ],
-                    }
                 },
                 "tags": [ TAG.Direction, TAG.Status ],
                 "distinct": True,
@@ -226,6 +223,7 @@ status_definitions = {
                 "subclasses": {
                     "Fan_Start_Stop_Status": {
                         "tags": [ TAG.Fan, TAG.Start, TAG.Stop, TAG.Status ],
+                        "parents": [BRICK.Fan_Status],
                     },
                     "Motor_Start_Stop_Status": {
                         "tags": [ TAG.Motor, TAG.Start, TAG.Stop, TAG.Status ],
