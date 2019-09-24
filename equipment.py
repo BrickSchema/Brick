@@ -10,7 +10,6 @@ Set up subclasses of the equipment superclass
 equipment_subclasses = {
     "HVAC": {
         OWL.equivalentClass: "Heating_Ventilation_Air_Conditioning_System",
-        "tags": [TAG.HVAC],
     },
     "Heating_Ventilation_Air_Conditioning_System": {
         OWL.equivalentClass: "HVAC",
@@ -216,21 +215,13 @@ hvac_subclasses = {
     },
     "Coil": {
         SKOS.definition: Literal("Exchanger that transfers heat from an exhaust airstream to a separated supply airstream."),
-        "tagvalues": [
-            [ BRICK.hasTag, TAG.Coil ],
-        ],
+                "tags": [TAG.Equipment, TAG.Coil],
         "subclasses": {
             "Cooling_Coil": {
-                "tagvalues": [
-                    [ BRICK.hasTag, TAG.Coil ],
-                    [ BRICK.hasTag, TAG.Cool ],
-                ]
+                "tags": [TAG.Equipment, TAG.Coil, TAG.Cool],
             },
             "Heating_Coil": {
-                "tagvalues": [
-                    [ BRICK.hasTag, TAG.Coil ],
-                    [ BRICK.hasTag, TAG.Heat ],
-                ]
+                "tags": [TAG.Equipment, TAG.Coil, TAG.Heat],
             },
         },
     },
@@ -271,9 +262,11 @@ valve_subclasses = {
             },
             "Domestic_Hot_Water_Valve": {
                 "tags": [TAG.Domestic, TAG.Water, TAG.Hot, TAG.Valve, TAG.Heat, TAG.Equipment],
+                "parents": [BRICK.Hot_Water_System],
             },
             "Preheat_Hot_Water_Valve": {
                 "tags": [TAG.Preheat, TAG.Water, TAG.Hot, TAG.Valve, TAG.Heat, TAG.Equipment],
+                "parents": [BRICK.Hot_Water_System],
             },
         },
         # OWL.equivalentClass: Restriction(BRICK.hasTag, graph=G, allValuesFrom=BRICK.Valve)

@@ -19,6 +19,7 @@ status_definitions = {
                     }
                 },
                 "tags": [ TAG.Direction, TAG.Status ],
+                "distinct": True,
             },
             "Disable_Status": {
                 "tags": [ TAG.Disable, TAG.Status ],
@@ -37,9 +38,7 @@ status_definitions = {
                 "subclasses": {
                     "Emergency_Power_Off_Activated_By_High_Temperature_Status": {},
                     "Emergency_Power_Off_Activated_By_Leak_Detection_System_Status": {},
-                    "Emergency_Power_Off_Enable_Status": {
-                        "tags": [ TAG.Emergency, TAG.Power, TAG.Off, TAG.Enable, TAG.Status ],
-                    },
+                    "Emergency_Power_Off_Enable_Status": {},
                     "Emergency_Power_Off_System_Enable_Status": {}
                 },
             },
@@ -50,6 +49,7 @@ status_definitions = {
                 "subclasses": {
                     "Heat_Exchanger_System_Enable_Status": {
                         "tags": [ TAG.Heat, TAG.Exchanger, TAG.System, TAG.Enable, TAG.Status ],
+                        "parents": [BRICK.System_Status],
                     },
                     "Run_Enable_Status": {
                         "tags": [ TAG.Run, TAG.Enable, TAG.Status ],
@@ -63,14 +63,15 @@ status_definitions = {
             "Fan_Status": {
                 "tags": [ TAG.Fan, TAG.Status ],
             },
-            "Fault_Indicator_Status": {
-                "tags": [ TAG.Fault, TAG.Indicator, TAG.Status ],
-            },
             "Fault_Status": {
+                OWL.equivalentClass: "Fault_Indicator_Status",
                 "subclasses": {
                     "Humidifier_Fault_Status": {
                         "tags": [ TAG.Humidifier, TAG.Fault, TAG.Status ],
-                    }
+                    },
+                    "Last_Fault_Code_Status": {
+                        "tags": [ TAG.Last, TAG.Fault, TAG.Code, TAG.Status ],
+                    },
                 },
                 "tags": [ TAG.Fault, TAG.Status ],
             },
@@ -90,9 +91,6 @@ status_definitions = {
             },
             "Hold_Status": {
                 "tags": [ TAG.Hold, TAG.Status ],
-            },
-            "Last_Fault_Code_Status": {
-                "tags": [ TAG.Last, TAG.Fault, TAG.Code, TAG.Status ],
             },
             "Load_Shed_Status": {
                 "subclasses": {
@@ -128,6 +126,7 @@ status_definitions = {
                     },
                     "System_Mode_Status": {
                         "tags": [ TAG.System, TAG.Mode, TAG.Status ],
+                        "parents": [BRICK.System_Status],
                     },
                     "Operating_Mode_Status": {
                         "subclasses": {
@@ -150,6 +149,12 @@ status_definitions = {
             },
             "Off_Status": {
                 "tags": [ TAG.Off, TAG.Status ],
+                "subclasses": {
+                    "Emergency_Power_Off_Status": {}, # defined elsewhere
+                    "Turn_Off_Status": {
+                        "tags": [ TAG.Turn, TAG.Off, TAG.Status ],
+                    },
+                }
             },
             "On_Status": {
                 "tags": [ TAG.On, TAG.Status ],
@@ -185,14 +190,17 @@ status_definitions = {
                     }
                 },
                 "tags": [ TAG.On, TAG.Off, TAG.Status ],
+                "distinct": True,
             },
             "Overridden_Status": {
                 "subclasses": {
                     "Overridden_Off_Status": {
                         "tags": [ TAG.Overridden, TAG.Off, TAG.Status ],
+                        "parents": [BRICK.Off_Status],
                     },
                     "Overridden_On_Status": {
                         "tags": [ TAG.Overridden, TAG.On, TAG.Status ],
+                        "parents": [BRICK.On_Status],
                     }
                 },
                 "tags": [ TAG.Overridden, TAG.Status ],
@@ -227,18 +235,19 @@ status_definitions = {
                     },
                     "Run_Status": {
                         "tags": [ TAG.Run, TAG.Status ],
+                        "subclasses": {
+                            "Run_Enable_Status": {}, # defined elsewhere
+                        }
                     }
                 },
                 "tags": [ TAG.Start, TAG.Stop, TAG.Status ],
             },
             "System_Shutdown_Status": {
                 "tags": [ TAG.System, TAG.Shutdown, TAG.Status ],
+                "parents": [BRICK.System_Status],
             },
             "System_Status": {
                 "tags": [ TAG.System, TAG.Status ],
-            },
-            "Turn_Off_Status": {
-                "tags": [ TAG.Turn, TAG.Off, TAG.Status ],
             },
             "Speed_Status": {
                 "tags": [ TAG.Speed, TAG.Status ],
