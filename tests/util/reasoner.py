@@ -104,9 +104,10 @@ def reason_brick(g):
         elif prop == BRICK.measures:
             measures_properties[classname].append(obj)
 
+        print(classname,groupname,prop,obj)
         grouped_properties[(classname,groupname)].append( (prop, obj) )
 
-    # add classes based on properties
+    # add properties based on classes
     for (classname, groupname), props in grouped_properties.items():
         q = "INSERT {\n"
         q += '\n'.join(
@@ -117,19 +118,20 @@ def reason_brick(g):
             [f"\t ?inst rdf:type <{classname}> ."]
         )
         q += "\n}"
+        #print(classname, q)
         g.update(q)
 
     # add properties based on classes
-    #for (classname, groupname), props in grouped_properties.items():
-    #    q = f"""INSERT {{
-    #    ?inst rdf:type <{classname}> 
-    #    }} WHERE {{ """
-
-    #    q += '\n'.join(
-    #        [f"\t ?inst <{prop}> <{obj}> ." for prop,obj in props]
-    #    )
-    #    q += "\n}"
-    #    g.update(q)
+    for (classname, groupname), props in grouped_properties.items():
+        q = f"""INSERT {{
+        ?inst rdf:type <{classname}> 
+        }} WHERE {{ """
+        q += '\n'.join(
+            [f"\t ?inst <{prop}> <{obj}> ." for prop,obj in props]
+        )
+        q += "\n}"
+        #print(classname, q)
+        g.update(q)
 
 
     # tag inference
