@@ -93,22 +93,30 @@ status_definitions = {
                 "subclasses": {
                     "Differential_Pressure_Load_Shed_Status": {
                         "subclasses": {
-                            "Chilled_Water_Differential_Pressure_Load_Shed_Reset_Status": {
-                                "tags": [ TAG.Chilled, TAG.Water, TAG.Differential, TAG.Pressure, TAG.Load, TAG.Shed, TAG.Reset, TAG.Status ],
-                            },
                             "Chilled_Water_Differential_Pressure_Load_Shed_Status": {
-                                "tags": [ TAG.Chilled, TAG.Water, TAG.Differential, TAG.Pressure, TAG.Load, TAG.Shed, TAG.Status ] },
-                            "Hot_Water_Differential_Pressure_Load_Shed_Reset_Status": {
-                                "tags": [ TAG.Hot, TAG.Water, TAG.Differential, TAG.Pressure, TAG.Load, TAG.Shed, TAG.Reset, TAG.Status ],
+                                "tags": [ TAG.Chilled, TAG.Water, TAG.Differential, TAG.Pressure, TAG.Load, TAG.Shed, TAG.Status ],
+                                "subclasses": {
+                                    "Chilled_Water_Differential_Pressure_Load_Shed_Reset_Status": {
+                                        "tags": [ TAG.Chilled, TAG.Water, TAG.Differential, TAG.Pressure, TAG.Load, TAG.Shed, TAG.Reset, TAG.Status ],
+                                    },
+                                }
                             },
                             "Hot_Water_Differential_Pressure_Load_Shed_Status": {
-                                "tags": [ TAG.Hot, TAG.Water, TAG.Differential, TAG.Pressure, TAG.Load, TAG.Shed, TAG.Status ] },
+                                "tags": [ TAG.Hot, TAG.Water, TAG.Differential, TAG.Pressure, TAG.Load, TAG.Shed, TAG.Status ] ,
+                                # TODO: conflicts with Pressure Status
+                                "subclasses": {
+                                    "Hot_Water_Differential_Pressure_Load_Shed_Reset_Status": {
+                                        "tags": [ TAG.Hot, TAG.Water, TAG.Differential, TAG.Pressure, TAG.Load, TAG.Shed, TAG.Reset, TAG.Status ],
+                                    },
+                                }
+                            },
                             "Hot_Water_Discharge_Temperature_Load_Shed_Status": {
                                 "tags": [ TAG.Hot, TAG.Water, TAG.Discharge, TAG.Temperature, TAG.Load, TAG.Shed, TAG.Status ] },
                             "Hot_Water_Supply_Temperature_Load_Shed_Status": {
                                 "tags": [ TAG.Hot, TAG.Water, TAG.Supply, TAG.Temperature, TAG.Load, TAG.Shed, TAG.Status ] }
                         },
                         "tags": [ TAG.Differential, TAG.Pressure, TAG.Load, TAG.Shed, TAG.Status ],
+                        "parents": [BRICK.Pressure_Status],
                     }
                 },
                 "tags": [ TAG.Load, TAG.Shed, TAG.Status ],
@@ -153,9 +161,6 @@ status_definitions = {
                     },
                 }
             },
-            "On_Status": {
-                "tags": [ TAG.On, TAG.Status ],
-            },
             "On_Off_Status": {
                 "subclasses": {
                     "Cooling_On_Off_Status": {
@@ -179,14 +184,17 @@ status_definitions = {
                     "Remotely_On_Off_Status": {
                         "tags": [ TAG.Remotely, TAG.On, TAG.Off, TAG.Status ],
                     },
-                    "Standby_Glycool_Unit_On_Off_Status": {
-                        "tags": [ TAG.Standby, TAG.Glycool, TAG.Unit, TAG.On, TAG.Off, TAG.Status ],
-                    },
                     "Standby_Unit_On_Off_Status": {
                         "tags": [ TAG.Standby, TAG.Unit, TAG.On, TAG.Off, TAG.Status ],
+                        "subclasses": {
+                            "Standby_Glycool_Unit_On_Off_Status": {
+                                "tags": [ TAG.Standby, TAG.Glycool, TAG.Unit, TAG.On, TAG.Off, TAG.Status ],
+                            },
+                        },
                     }
                 },
                 "tags": [ TAG.On, TAG.Off, TAG.Status ],
+                "parents": [BRICK.On_Status, BRICK.Off_Status],
                 "distinct": True,
             },
             "Overridden_Status": {
