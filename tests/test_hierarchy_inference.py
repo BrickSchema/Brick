@@ -81,7 +81,7 @@ def test_hierarchyinference():
 
     # Infer classes of the entities.
     # Apply reasoner
-    from util.reasoner import reason_brick, reason_owlrl
+    from util.reasoner import reason_brick, reason_owlrl, make_readable
     reason_brick(g)
     #reason_owlrl(g)
     g.serialize(inference_file, format='turtle')  # Store the inferred graph.
@@ -125,10 +125,15 @@ def test_hierarchyinference():
         }
         if inferred_parents > true_parents:
             over_inferences[entity] = serialized
+            diff = set(inferred_parents).difference(set(true_parents))
+            print(f"Tags for {true_class.split('#')[-1]} imply extra classes: {make_readable([diff])}")
         elif inferred_parents < true_parents:
             under_inferences[entity] = serialized
+            diff = set(true_parents).difference(set(inferred_parents))
+            print(f"Tags for {true_class.split('#')[-1]} do not imply classes, but should: {make_readable([diff])}")
         elif inferred_parents != true_parents:
             wrong_inferences[entity] = serialized
+
 
     with open('tests/test_hierarchy_inference.json', 'w') as fp:
         json.dump({

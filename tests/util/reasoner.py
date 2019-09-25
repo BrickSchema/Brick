@@ -104,7 +104,7 @@ def reason_brick(g):
         elif prop == BRICK.measures:
             measures_properties[classname].append(obj)
 
-        print(classname,groupname,prop,obj)
+        #print(classname,groupname,prop,obj)
         grouped_properties[(classname,groupname)].append( (prop, obj) )
 
     # add properties based on classes
