@@ -16,7 +16,6 @@ status_definitions = {
                     },
                 },
                 "tags": [ TAG.Direction, TAG.Status ],
-                "distinct": True,
             },
             "Disable_Status": {
                 "tags": [ TAG.Disable, TAG.Status ],
@@ -195,7 +194,6 @@ status_definitions = {
                 },
                 "tags": [ TAG.On, TAG.Off, TAG.Status ],
                 "parents": [BRICK.On_Status, BRICK.Off_Status],
-                "distinct": True,
             },
             "Overridden_Status": {
                 "subclasses": {

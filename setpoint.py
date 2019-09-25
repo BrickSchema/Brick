@@ -154,7 +154,6 @@ setpoint_definitions = {
                     },
                 },
                 "tags": [ TAG.Deadband, TAG.Setpoint ],
-                "distinct": True,
             },
             "Flow_Setpoint": {
                 "tags": [TAG.Flow, TAG.Setpoint],
@@ -244,7 +243,6 @@ setpoint_definitions = {
                     },
                     "Load_Shed_Setpoint": {
                         "tags": [ TAG.Shed, TAG.Load, TAG.Setpoint ],
-                        "distinct": True,
                     }
                 },
                 "tags": [ TAG.Load, TAG.Setpoint ],

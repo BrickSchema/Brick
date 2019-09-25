@@ -273,7 +273,6 @@ parameter_definitions = {
                     },
                     "Max_Limit": {
                         "tags": [TAG.Max, TAG.Limit],
-                        "distinct": True,
                         "subclasses": {
                             "Max_Speed_Setpoint_Limit": {
                                 "tags": [TAG.Max, TAG.Speed, TAG.Limit],
@@ -361,7 +360,6 @@ parameter_definitions = {
                     },
                     "Min_Limit": {
                         "tags": [TAG.Min, TAG.Limit],
-                        "distinct": True,
                         "subclasses": {
                             "Min_Speed_Setpoint_Limit": {
                                 "tags": [TAG.Min, TAG.Speed, TAG.Limit],

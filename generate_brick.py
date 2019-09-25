@@ -28,40 +28,14 @@ def add_restriction(klass, definition):
     G.add( (equivalent_class, OWL.intersectionOf, list_name) )
     c = Collection(G, list_name, l)
 
-# mapping of subsets of tags that imply a class;
-# sets tags that only belong to a certain subclass?
-
-tag_subclasses = {
-    #(TAG.Setpoint, TAG.Limit): BRICK.Parameter,    
-    #(TAG.Setpoint, TAG.Deadband): BRICK.Deadband_Setpoint,    
-    #(TAG.Status, TAG.Load, TAG.Shed): BRICK.Load_Shed_Status,
-    #(TAG.Setpoint, TAG.Load, TAG.Shed): BRICK.Load_Shed_Status,
-    ##(TAG.Valve, TAG.Equipment): BRICK.Valve,
-    #(TAG.Status, TAG.On, TAG.Off): BRICK.On_Off_Status,
-}
-
 def has_tags(tagset, definition):
     return all([t in definition for t in tagset])
 
-def add_tags(klass, definition, distinct):
+def add_tags(klass, definition):
     l = []
     equivalent_class = BNode()
     list_name = BNode()
 
-    additional_tag_restriction_classes = [c for tagset, c in tag_subclasses.items() 
-                                            if has_tags(tagset, definition)]
-
-    # if 'distinct' is true, then using the tags requires the additional class statement
-    # to disambiguate what is meant.
-    #if distinct:
-    #    restriction = BNode()
-    #    l.append(restriction)
-    #    G.add( (restriction, A, OWL.Restriction) )
-    #    G.add( (restriction, OWL.onProperty, RDF.type) )
-    #    G.add( (restriction, OWL.hasValue, BRICK[klass]) )
-
-
-    #is_limit = TAG.Setpoint in definition and TAG.Limit in definition
     for idnum, item in enumerate(definition):
         restriction = BNode()
         l.append(restriction)
@@ -70,12 +44,6 @@ def add_tags(klass, definition, distinct):
         G.add( (restriction, OWL.hasValue, item) )
         G.add( (item, A, BRICK.Tag) ) # make sure the tag is declared as such
         G.add( (item, RDFS.label, Literal(item.split('#')[-1])) ) # make sure the tag is declared as such
-    for c in additional_tag_restriction_classes:
-        restriction = BNode()
-        l.append(restriction)
-        G.add( (restriction, A, OWL.Restriction) )
-        G.add( (restriction, OWL.onProperty, RDF.type) )
-        G.add( (restriction, OWL.hasValue, c) )
 
     # tag index
     tagset = tuple(sorted([item.split('#')[-1] for item in definition]))
@@ -110,12 +78,11 @@ def define_subclasses(definitions, superclass):
         G.add( (BRICK[subclass], A, OWL.Class) )
         G.add( (BRICK[subclass], RDFS.label, Literal(subclass.replace("_"," "))) )
         G.add( (BRICK[subclass], RDFS.subClassOf, superclass) )
-        distinct = 'distinct' in properties and properties.pop('distinct')
         for k, v in properties.items():
             if isinstance(v, list) and k == "tagvalues":
                 add_restriction(subclass, v)
             elif isinstance(v, list) and k == "tags":
-                add_tags(subclass, v, distinct)
+                add_tags(subclass, v)
             elif isinstance(v, list) and k == "parents":
                 for parent in v:
                     G.add( (BRICK[subclass], RDFS.subClassOf, parent) )
@@ -131,14 +98,11 @@ def define_rootclasses(definitions):
     for rootclass, properties in definitions.items():
         G.add( (BRICK[rootclass], A, OWL.Class) )
         G.add( (BRICK[rootclass], RDFS.subClassOf, BRICK.Class) )
-
-        distinct = 'distinct' in properties and properties.pop('distinct')
-
         for k, v in properties.items():
             if isinstance(v, list) and k == "tagvalues":
                 add_restriction(rootclass, v)
             elif isinstance(v, list) and k == "tags":
-                add_tags(rootclass, v, distinct)
+                add_tags(rootclass, v)
             elif isinstance(v, list) and k == "substances":
                 add_class_restriction(subclass, v)
             elif not apply_prop(rootclass, k, v):

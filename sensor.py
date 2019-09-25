@@ -206,7 +206,6 @@ sensor_definitions = {
                                     }
                                 },
                                 "tags": [ TAG.Fan, TAG.Air, TAG.Flow, TAG.Sensor ],
-                                "distinct": True,
                             },
                             "Fume_Hood_Air_Flow_Sensor": {
                                 "tags": [ TAG.Fume, TAG.Hood, TAG.Air, TAG.Flow, TAG.Sensor ],
