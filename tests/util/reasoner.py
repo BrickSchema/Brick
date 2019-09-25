@@ -118,19 +118,17 @@ def reason_brick(g):
             [f"\t ?inst rdf:type <{classname}> ."]
         )
         q += "\n}"
-        #print(classname, q)
         g.update(q)
 
     # add properties based on classes
     for (classname, groupname), props in grouped_properties.items():
         q = f"""INSERT {{
-        ?inst rdf:type <{classname}> 
-        }} WHERE {{ """
+        ?inst rdf:type <{classname}>
+        }} WHERE {{ \n"""
         q += '\n'.join(
             [f"\t ?inst <{prop}> <{obj}> ." for prop,obj in props]
         )
-        q += "\n}"
-        #print(classname, q)
+        q += "}\n"
         g.update(q)
 
 
