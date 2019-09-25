@@ -208,26 +208,26 @@ parameter_definitions = {
                 "tags": [TAG.Parameter, TAG.Limit],
                 "subclasses": {
                     "Speed_Setpoint_Limit": {
-                        "tags": [TAG.Speed, TAG.Setpoint, TAG.Limit],
+                        "tags": [TAG.Speed, TAG.Limit],
                         "subclasses": {
                             "Max_Speed_Setpoint_Limit": {
-                                "tags": [TAG.Max, TAG.Speed, TAG.Setpoint, TAG.Limit],
+                                "tags": [TAG.Max, TAG.Speed, TAG.Limit],
                                 "parents": [BRICK.Max_Limit],
                             },
                             "Min_Speed_Setpoint_Limit": {
-                                "tags": [TAG.Min, TAG.Speed, TAG.Setpoint, TAG.Limit],
+                                "tags": [TAG.Min, TAG.Speed, TAG.Limit],
                                 "parents": [BRICK.Min_Limit],
                             },
                         },
                     },
                     "Air_Flow_Setpoint_Limit": {
-                        "tags": [TAG.Air, TAG.Flow, TAG.Setpoint, TAG.Limit],
+                        "tags": [TAG.Air, TAG.Flow, TAG.Limit],
                         "subclasses": {
                             "Max_Air_Flow_Setpoint_Limit": {
-                                "tags": [TAG.Max, TAG.Air, TAG.Flow, TAG.Setpoint, TAG.Limit],
+                                "tags": [TAG.Max, TAG.Air, TAG.Flow, TAG.Limit],
                             },
                             "Min_Air_Flow_Setpoint_Limit": {
-                                "tags": [TAG.Min, TAG.Air, TAG.Flow, TAG.Setpoint, TAG.Limit],
+                                "tags": [TAG.Min, TAG.Air, TAG.Flow, TAG.Limit],
                             },
                         },
                     },
@@ -235,118 +235,123 @@ parameter_definitions = {
                         "tags": [TAG.Damper, TAG.Position, TAG.Limit],
                         "subclasses": {
                             "Max_Damper_Position_Setpoint_Limit": {
-                                "tags": [TAG.Max, TAG.Damper, TAG.Position, TAG.Setpoint, TAG.Limit],
+                                "tags": [TAG.Max, TAG.Damper, TAG.Position, TAG.Limit],
                             },
                             "Min_Damper_Position_Setpoint_Limit": {
-                                "tags": [TAG.Min, TAG.Damper, TAG.Position, TAG.Setpoint, TAG.Limit],
+                                "tags": [TAG.Min, TAG.Damper, TAG.Position, TAG.Limit],
                             },
                         },
                     },
                     "Differential_Pressure_Setpoint_Limit": {
-                        "tags": [TAG.Differential, TAG.Pressure, TAG.Setpoint, TAG.Limit],
+                        "tags": [TAG.Differential, TAG.Pressure, TAG.Limit],
                         "subclasses": {
                             "Max_Chilled_Water_Differential_Pressure_Setpoint_Limit": {
-                                "tags": [TAG.Max, TAG.Chilled, TAG.Water, TAG.Differential, TAG.Pressure, TAG.Setpoint, TAG.Limit],
+                                "tags": [TAG.Max, TAG.Chilled, TAG.Water, TAG.Differential, TAG.Pressure, TAG.Limit],
                             },
                             "Min_Chilled_Water_Differential_Pressure_Setpoint_Limit": {
-                                "tags": [TAG.Min, TAG.Chilled, TAG.Water, TAG.Differential, TAG.Pressure, TAG.Setpoint, TAG.Limit],
+                                "tags": [TAG.Min, TAG.Chilled, TAG.Water, TAG.Differential, TAG.Pressure, TAG.Limit],
                             },
                             "Max_Hot_Water_Differential_Pressure_Setpoint_Limit": {
-                                "tags": [TAG.Max, TAG.Hot, TAG.Water, TAG.Differential, TAG.Pressure, TAG.Setpoint, TAG.Limit],
+                                "tags": [TAG.Max, TAG.Hot, TAG.Water, TAG.Differential, TAG.Pressure, TAG.Limit],
                             },
                             "Min_Hot_Water_Differential_Pressure_Setpoint_Limit": {
-                                "tags": [TAG.Min, TAG.Hot, TAG.Water, TAG.Differential, TAG.Pressure, TAG.Setpoint, TAG.Limit],
+                                "tags": [TAG.Min, TAG.Hot, TAG.Water, TAG.Differential, TAG.Pressure, TAG.Limit],
                             },
                         },
                     },
                     "Static_Pressure_Setpoint_Limit": {
-                        "tags": [TAG.Static, TAG.Pressure, TAG.Setpoint, TAG.Limit],
+                        "tags": [TAG.Static, TAG.Pressure, TAG.Limit],
                         "subclasses": {
                             "Min_Static_Pressure_Setpoint_Limit": {
-                                "tags": [TAG.Min, TAG.Static, TAG.Pressure, TAG.Setpoint, TAG.Limit],
+                                "tags": [TAG.Min, TAG.Static, TAG.Pressure, TAG.Limit],
                             },
                             "Max_Static_Pressure_Setpoint_Limit": {
-                                "tags": [TAG.Max, TAG.Static, TAG.Pressure, TAG.Setpoint, TAG.Limit],
+                                "tags": [TAG.Max, TAG.Static, TAG.Pressure, TAG.Limit],
                             },
                         },
+                        "parents": [BRICK.Static_Pressure_Setpoint],
                     },
                     "Max_Limit": {
                         "tags": [TAG.Max, TAG.Limit],
                         "distinct": True,
                         "subclasses": {
                             "Max_Speed_Setpoint_Limit": {
-                                "tags": [TAG.Max, TAG.Speed, TAG.Setpoint, TAG.Limit],
+                                "tags": [TAG.Max, TAG.Speed, TAG.Limit],
                             },
                             "Max_Discharge_Air_Static_Pressure_Setpoint_Limit": {
-                                "tags": [TAG.Max, TAG.Discharge, TAG.Air, TAG.Static, TAG.Pressure, TAG.Setpoint, TAG.Limit],
+                                "tags": [TAG.Max, TAG.Discharge, TAG.Air, TAG.Static, TAG.Pressure, TAG.Limit],
                             },
                             "Max_Supply_Air_Static_Pressure_Setpoint_Limit": {
-                                "tags": [TAG.Max, TAG.Supply, TAG.Air, TAG.Static, TAG.Pressure, TAG.Setpoint, TAG.Limit],
+                                "tags": [TAG.Max, TAG.Supply, TAG.Air, TAG.Static, TAG.Pressure, TAG.Limit],
+                            },
+                            "High_Static_Pressure_Cutout_Setpoint_Limit": {
+                                "tags": [ TAG.High, TAG.Static, TAG.Pressure, TAG.Cutout, TAG.Limit, TAG.Setpoint ],
+                                "parents": [BRICK.Static_Pressure_Setpoint_Limit],
                             },
                             "Max_Damper_Position_Setpoint_Limit": {
-                                "tags": [TAG.Max, TAG.Damper, TAG.Position, TAG.Setpoint, TAG.Limit],
+                                "tags": [TAG.Max, TAG.Damper, TAG.Position, TAG.Limit],
                             },
                             "Max_Chilled_Water_Differential_Pressure_Setpoint_Limit": {
-                                "tags": [TAG.Max, TAG.Chilled, TAG.Water, TAG.Differential, TAG.Pressure, TAG.Setpoint, TAG.Limit],
+                                "tags": [TAG.Max, TAG.Chilled, TAG.Water, TAG.Differential, TAG.Pressure, TAG.Limit],
                             },
                             "Max_Hot_Water_Differential_Pressure_Setpoint_Limit": {
-                                "tags": [TAG.Max, TAG.Hot, TAG.Water, TAG.Differential, TAG.Pressure, TAG.Setpoint, TAG.Limit],
+                                "tags": [TAG.Max, TAG.Hot, TAG.Water, TAG.Differential, TAG.Pressure, TAG.Limit],
                             },
                             "Max_Static_Pressure_Setpoint_Limit": {
-                                "tags": [TAG.Max, TAG.Static, TAG.Pressure, TAG.Setpoint, TAG.Limit],
+                                "tags": [TAG.Max, TAG.Static, TAG.Pressure, TAG.Limit],
                                 "subclasses": {
                                     "Max_Discharge_Air_Static_Pressure_Setpoint_Limit": {
-                                        "tags": [TAG.Max, TAG.Discharge, TAG.Air, TAG.Static, TAG.Pressure, TAG.Setpoint, TAG.Limit],
+                                        "tags": [TAG.Max, TAG.Discharge, TAG.Air, TAG.Static, TAG.Pressure, TAG.Limit],
                                     },
                                     "Max_Supply_Air_Static_Pressure_Setpoint_Limit": {
-                                        "tags": [TAG.Max, TAG.Supply, TAG.Air, TAG.Static, TAG.Pressure, TAG.Setpoint, TAG.Limit],
+                                        "tags": [TAG.Max, TAG.Supply, TAG.Air, TAG.Static, TAG.Pressure, TAG.Limit],
                                     },
                                 },
                             },
                             "Max_Air_Flow_Setpoint_Limit": {
-                                "tags": [TAG.Max, TAG.Air, TAG.Flow, TAG.Setpoint, TAG.Limit],
+                                "tags": [TAG.Max, TAG.Air, TAG.Flow, TAG.Limit],
                                 "subclasses": {
                                     "Max_Cooling_Supply_Air_Flow_Setpoint_Limit": {
-                                        "tags": [TAG.Max, TAG.Cooling, TAG.Supply, TAG.Air, TAG.Flow, TAG.Setpoint, TAG.Limit],
+                                        "tags": [TAG.Max, TAG.Cooling, TAG.Supply, TAG.Air, TAG.Flow, TAG.Limit],
                                         "subclasses": {
                                             "Max_Occupied_Cooling_Supply_Air_Flow_Setpoint_Limit": {
-                                                "tags": [TAG.Max, TAG.Occupied, TAG.Cooling, TAG.Supply, TAG.Air, TAG.Flow, TAG.Setpoint, TAG.Limit],
+                                                "tags": [TAG.Max, TAG.Occupied, TAG.Cooling, TAG.Supply, TAG.Air, TAG.Flow, TAG.Limit],
                                             },
                                             "Max_Unoccupied_Cooling_Supply_Air_Flow_Setpoint_Limit": {
-                                                "tags": [TAG.Max, TAG.Unoccupied, TAG.Cooling, TAG.Supply, TAG.Air, TAG.Flow, TAG.Setpoint, TAG.Limit],
+                                                "tags": [TAG.Max, TAG.Unoccupied, TAG.Cooling, TAG.Supply, TAG.Air, TAG.Flow, TAG.Limit],
                                             },
                                         },
                                     },
                                     "Max_Cooling_Discharge_Air_Flow_Setpoint_Limit": {
-                                        "tags": [TAG.Max, TAG.Cooling, TAG.Discharge, TAG.Air, TAG.Flow, TAG.Setpoint, TAG.Limit],
+                                        "tags": [TAG.Max, TAG.Cooling, TAG.Discharge, TAG.Air, TAG.Flow, TAG.Limit],
                                         "subclasses": {
                                             "Max_Occupied_Cooling_Discharge_Air_Flow_Setpoint_Limit": {
-                                                "tags": [TAG.Max, TAG.Occupied, TAG.Cooling, TAG.Discharge, TAG.Air, TAG.Flow, TAG.Setpoint, TAG.Limit],
+                                                "tags": [TAG.Max, TAG.Occupied, TAG.Cooling, TAG.Discharge, TAG.Air, TAG.Flow, TAG.Limit],
                                             },
                                             "Max_Unoccupied_Cooling_Discharge_Air_Flow_Setpoint_Limit": {
-                                                "tags": [TAG.Max, TAG.Unoccupied, TAG.Cooling, TAG.Discharge, TAG.Air, TAG.Flow, TAG.Setpoint, TAG.Limit],
+                                                "tags": [TAG.Max, TAG.Unoccupied, TAG.Cooling, TAG.Discharge, TAG.Air, TAG.Flow, TAG.Limit],
                                             },
                                         },
                                     },
                                     "Max_Heating_Supply_Air_Flow_Setpoint_Limit": {
-                                        "tags": [TAG.Max, TAG.Heating, TAG.Supply, TAG.Air, TAG.Flow, TAG.Setpoint, TAG.Limit],
+                                        "tags": [TAG.Max, TAG.Heating, TAG.Supply, TAG.Air, TAG.Flow, TAG.Limit],
                                         "subclasses": {
                                             "Max_Occupied_Heating_Supply_Air_Flow_Setpoint_Limit": {
-                                                "tags": [TAG.Max, TAG.Occupied, TAG.Heating, TAG.Supply, TAG.Air, TAG.Flow, TAG.Setpoint, TAG.Limit],
+                                                "tags": [TAG.Max, TAG.Occupied, TAG.Heating, TAG.Supply, TAG.Air, TAG.Flow, TAG.Limit],
                                             },
                                             "Max_Unoccupied_Heating_Supply_Air_Flow_Setpoint_Limit": {
-                                                "tags": [TAG.Max, TAG.Unoccupied, TAG.Heating, TAG.Supply, TAG.Air, TAG.Flow, TAG.Setpoint, TAG.Limit],
+                                                "tags": [TAG.Max, TAG.Unoccupied, TAG.Heating, TAG.Supply, TAG.Air, TAG.Flow, TAG.Limit],
                                             },
                                         },
                                     },
                                     "Max_Heating_Discharge_Air_Flow_Setpoint_Limit": {
-                                        "tags": [TAG.Max, TAG.Heating, TAG.Discharge, TAG.Air, TAG.Flow, TAG.Setpoint, TAG.Limit],
+                                        "tags": [TAG.Max, TAG.Heating, TAG.Discharge, TAG.Air, TAG.Flow, TAG.Limit],
                                         "subclasses": {
                                             "Max_Occupied_Heating_Discharge_Air_Flow_Setpoint_Limit": {
-                                                "tags": [TAG.Max, TAG.Occupied, TAG.Heating, TAG.Discharge, TAG.Air, TAG.Flow, TAG.Setpoint, TAG.Limit],
+                                                "tags": [TAG.Max, TAG.Occupied, TAG.Heating, TAG.Discharge, TAG.Air, TAG.Flow, TAG.Limit],
                                             },
                                             "Max_Unoccupied_Heating_Discharge_Air_Flow_Setpoint_Limit": {
-                                                "tags": [TAG.Max, TAG.Unoccupied, TAG.Heating, TAG.Discharge, TAG.Air, TAG.Flow, TAG.Setpoint, TAG.Limit],
+                                                "tags": [TAG.Max, TAG.Unoccupied, TAG.Heating, TAG.Discharge, TAG.Air, TAG.Flow, TAG.Limit],
                                             },
                                         },
                                     },
@@ -359,81 +364,81 @@ parameter_definitions = {
                         "distinct": True,
                         "subclasses": {
                             "Min_Speed_Setpoint_Limit": {
-                                "tags": [TAG.Min, TAG.Speed, TAG.Setpoint, TAG.Limit],
+                                "tags": [TAG.Min, TAG.Speed, TAG.Limit],
                             },
                             "Min_Hot_Water_Differential_Pressure_Setpoint_Limit": {
-                                "tags": [TAG.Min, TAG.Hot, TAG.Water, TAG.Differential, TAG.Pressure, TAG.Setpoint, TAG.Limit],
+                                "tags": [TAG.Min, TAG.Hot, TAG.Water, TAG.Differential, TAG.Pressure, TAG.Limit],
                             },
                             "Min_Chilled_Water_Differential_Pressure_Setpoint_Limit": {
-                                "tags": [TAG.Min, TAG.Chilled, TAG.Water, TAG.Differential, TAG.Pressure, TAG.Setpoint, TAG.Limit],
+                                "tags": [TAG.Min, TAG.Chilled, TAG.Water, TAG.Differential, TAG.Pressure, TAG.Limit],
                             },
                             "Min_Damper_Position_Setpoint_Limit": {
-                                "tags": [TAG.Min, TAG.Damper, TAG.Position, TAG.Setpoint, TAG.Limit],
+                                "tags": [TAG.Min, TAG.Damper, TAG.Position, TAG.Limit],
                             },
                             "Min_Discharge_Air_Static_Pressure_Setpoint_Limit": {
-                                "tags": [TAG.Min, TAG.Discharge, TAG.Air, TAG.Static, TAG.Pressure, TAG.Setpoint, TAG.Limit],
+                                "tags": [TAG.Min, TAG.Discharge, TAG.Air, TAG.Static, TAG.Pressure, TAG.Limit],
                             },
                             "Min_Supply_Air_Static_Pressure_Setpoint_Limit": {
-                                "tags": [TAG.Min, TAG.Supply, TAG.Air, TAG.Static, TAG.Pressure, TAG.Setpoint, TAG.Limit],
+                                "tags": [TAG.Min, TAG.Supply, TAG.Air, TAG.Static, TAG.Pressure, TAG.Limit],
                             },
                             "Min_Static_Pressure_Setpoint_Limit": {
-                                "tags": [TAG.Min, TAG.Static, TAG.Pressure, TAG.Setpoint, TAG.Limit],
+                                "tags": [TAG.Min, TAG.Static, TAG.Pressure, TAG.Limit],
                                 "subclasses": {
                                     "Min_Discharge_Air_Static_Pressure_Setpoint_Limit": {
-                                        "tags": [TAG.Min, TAG.Discharge, TAG.Air, TAG.Static, TAG.Pressure, TAG.Setpoint, TAG.Limit],
+                                        "tags": [TAG.Min, TAG.Discharge, TAG.Air, TAG.Static, TAG.Pressure, TAG.Limit],
                                     },
                                     "Min_Supply_Air_Static_Pressure_Setpoint_Limit": {
-                                        "tags": [TAG.Min, TAG.Supply, TAG.Air, TAG.Static, TAG.Pressure, TAG.Setpoint, TAG.Limit],
+                                        "tags": [TAG.Min, TAG.Supply, TAG.Air, TAG.Static, TAG.Pressure, TAG.Limit],
                                     },
                                 },
                             },
                             "Min_Air_Flow_Setpoint_Limit": {
-                                "tags": [TAG.Min, TAG.Air, TAG.Flow, TAG.Setpoint, TAG.Limit],
+                                "tags": [TAG.Min, TAG.Air, TAG.Flow, TAG.Limit],
                                 "subclasses": {
                                     "Min_Outside_Air_Flow_Setpoint_Limit": {
-                                        "tags": [TAG.Min, TAG.Outside, TAG.Air, TAG.Flow, TAG.Setpoint, TAG.Limit],
+                                        "tags": [TAG.Min, TAG.Outside, TAG.Air, TAG.Flow, TAG.Limit],
                                     },
                                     "Min_Cooling_Supply_Air_Flow_Setpoint_Limit": {
-                                        "tags": [TAG.Min, TAG.Cooling, TAG.Supply, TAG.Air, TAG.Flow, TAG.Setpoint, TAG.Limit],
+                                        "tags": [TAG.Min, TAG.Cooling, TAG.Supply, TAG.Air, TAG.Flow, TAG.Limit],
                                         "subclasses": {
                                             "Min_Occupied_Cooling_Supply_Air_Flow_Setpoint_Limit": {
-                                                "tags": [TAG.Min, TAG.Occupied, TAG.Cooling, TAG.Supply, TAG.Air, TAG.Flow, TAG.Setpoint, TAG.Limit],
+                                                "tags": [TAG.Min, TAG.Occupied, TAG.Cooling, TAG.Supply, TAG.Air, TAG.Flow, TAG.Limit],
                                             },
                                             "Min_Unoccupied_Cooling_Supply_Air_Flow_Setpoint_Limit": {
-                                                "tags": [TAG.Min, TAG.Unoccupied, TAG.Cooling, TAG.Supply, TAG.Air, TAG.Flow, TAG.Setpoint, TAG.Limit],
+                                                "tags": [TAG.Min, TAG.Unoccupied, TAG.Cooling, TAG.Supply, TAG.Air, TAG.Flow, TAG.Limit],
                                             },
                                         },
                                     },
                                     "Min_Cooling_Discharge_Air_Flow_Setpoint_Limit": {
-                                        "tags": [TAG.Min, TAG.Cooling, TAG.Discharge, TAG.Air, TAG.Flow, TAG.Setpoint, TAG.Limit],
+                                        "tags": [TAG.Min, TAG.Cooling, TAG.Discharge, TAG.Air, TAG.Flow, TAG.Limit],
                                         "subclasses": {
                                             "Min_Occupied_Cooling_Discharge_Air_Flow_Setpoint_Limit": {
-                                                "tags": [TAG.Min, TAG.Occupied, TAG.Cooling, TAG.Discharge, TAG.Air, TAG.Flow, TAG.Setpoint, TAG.Limit],
+                                                "tags": [TAG.Min, TAG.Occupied, TAG.Cooling, TAG.Discharge, TAG.Air, TAG.Flow, TAG.Limit],
                                             },
                                             "Min_Unoccupied_Cooling_Discharge_Air_Flow_Setpoint_Limit": {
-                                                "tags": [TAG.Min, TAG.Unoccupied, TAG.Cooling, TAG.Discharge, TAG.Air, TAG.Flow, TAG.Setpoint, TAG.Limit],
+                                                "tags": [TAG.Min, TAG.Unoccupied, TAG.Cooling, TAG.Discharge, TAG.Air, TAG.Flow, TAG.Limit],
                                             },
                                         },
                                     },
                                     "Min_Heating_Supply_Air_Flow_Setpoint_Limit": {
-                                        "tags": [TAG.Min, TAG.Heating, TAG.Supply, TAG.Air, TAG.Flow, TAG.Setpoint, TAG.Limit],
+                                        "tags": [TAG.Min, TAG.Heating, TAG.Supply, TAG.Air, TAG.Flow, TAG.Limit],
                                         "subclasses": {
                                             "Min_Occupied_Heating_Supply_Air_Flow_Setpoint_Limit": {
-                                                "tags": [TAG.Min, TAG.Occupied, TAG.Heating, TAG.Supply, TAG.Air, TAG.Flow, TAG.Setpoint, TAG.Limit],
+                                                "tags": [TAG.Min, TAG.Occupied, TAG.Heating, TAG.Supply, TAG.Air, TAG.Flow, TAG.Limit],
                                             },
                                             "Min_Unoccupied_Heating_Supply_Air_Flow_Setpoint_Limit": {
-                                                "tags": [TAG.Min, TAG.Unoccupied, TAG.Heating, TAG.Supply, TAG.Air, TAG.Flow, TAG.Setpoint, TAG.Limit],
+                                                "tags": [TAG.Min, TAG.Unoccupied, TAG.Heating, TAG.Supply, TAG.Air, TAG.Flow, TAG.Limit],
                                             },
                                         },
                                     },
                                     "Min_Heating_Discharge_Air_Flow_Setpoint_Limit": {
-                                        "tags": [TAG.Min, TAG.Heating, TAG.Discharge, TAG.Air, TAG.Flow, TAG.Setpoint, TAG.Limit],
+                                        "tags": [TAG.Min, TAG.Heating, TAG.Discharge, TAG.Air, TAG.Flow, TAG.Limit],
                                         "subclasses": {
                                             "Min_Occupied_Heating_Discharge_Air_Flow_Setpoint_Limit": {
-                                                "tags": [TAG.Min, TAG.Occupied, TAG.Heating, TAG.Discharge, TAG.Air, TAG.Flow, TAG.Setpoint, TAG.Limit],
+                                                "tags": [TAG.Min, TAG.Occupied, TAG.Heating, TAG.Discharge, TAG.Air, TAG.Flow, TAG.Limit],
                                             },
                                             "Min_Unoccupied_Heating_Discharge_Air_Flow_Setpoint_Limit": {
-                                                "tags": [TAG.Min, TAG.Unoccupied, TAG.Heating, TAG.Discharge, TAG.Air, TAG.Flow, TAG.Setpoint, TAG.Limit],
+                                                "tags": [TAG.Min, TAG.Unoccupied, TAG.Heating, TAG.Discharge, TAG.Air, TAG.Flow, TAG.Limit],
                                             },
                                         },
                                     },
