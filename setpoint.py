@@ -60,47 +60,36 @@ setpoint_definitions = {
             },
             "Deadband_Setpoint": {
                 "subclasses": {
-                    "Chilled_Water_Differential_Pressure_Deadband_Setpoint": {
-                        "tags": [ TAG.Chilled, TAG.Water, TAG.Differential, TAG.Pressure, TAG.Deadband, TAG.Setpoint ],
-                    },
-                    "Cooling_Discharge_Air_Temperature_Deadband_Setpoint": {
-                        "tags": [ TAG.Cooling, TAG.Discharge, TAG.Air, TAG.Temperature, TAG.Deadband, TAG.Setpoint ],
-                    },
-                    "Cooling_Supply_Air_Temperature_Deadband_Setpoint": {
-                        "tags": [ TAG.Cooling, TAG.Supply, TAG.Air, TAG.Temperature, TAG.Deadband, TAG.Setpoint ],
-                    },
                     "Differential_Pressure_Deadband_Setpoint": {
                         "subclasses": {
-                            "Chilled_Water_Pump_Differential_Pressure_Deadband_Setpoint": {
-                                "tags": [ TAG.Chilled, TAG.Water, TAG.Pump, TAG.Differential, TAG.Pressure, TAG.Deadband, TAG.Setpoint ],
-                            },
                             "Hot_Water_Differential_Pressure_Deadband_Setpoint": {
                                 "tags": [ TAG.Hot, TAG.Water, TAG.Differential, TAG.Pressure, TAG.Deadband, TAG.Setpoint ],
-                            }
-                        },
-                        "tags": [ TAG.Differential, TAG.Pressure, TAG.Deadband, TAG.Setpoint ],
-                    },
-                    "Discharge_Air_Temperature_Deadband_Setpoint": {
-                        "subclasses": {
-                            "Heating_Discharge_Air_Temperature_Deadband_Setpoint": {
-                                "tags": [ TAG.Heating, TAG.Discharge, TAG.Air, TAG.Temperature, TAG.Deadband, TAG.Setpoint ],
+                                "parents": [BRICK.Hot_Water_Differential_Pressure_Setpoint],
+                            },
+                            "Chilled_Water_Differential_Pressure_Deadband_Setpoint": {
+                                "tags": [ TAG.Chilled, TAG.Water, TAG.Differential, TAG.Pressure, TAG.Deadband, TAG.Setpoint ],
+                                "parents": [BRICK.Chilled_Water_Differential_Pressure_Setpoint],
+                                "subclasses": {
+                                    "Chilled_Water_Pump_Differential_Pressure_Deadband_Setpoint": {
+                                        "tags": [ TAG.Chilled, TAG.Water, TAG.Pump, TAG.Differential, TAG.Pressure, TAG.Deadband, TAG.Setpoint ],
+                                    },
+                                },
                             },
                             "Cooling_Discharge_Air_Temperature_Deadband_Setpoint": {
                                 "tags": [ TAG.Cooling, TAG.Discharge, TAG.Air, TAG.Temperature, TAG.Deadband, TAG.Setpoint ],
-                            }
-                        },
-                        "tags": [ TAG.Discharge, TAG.Air, TAG.Temperature, TAG.Deadband, TAG.Setpoint ],
-                    },
-                    "Supply_Air_Temperature_Deadband_Setpoint": {
-                        "subclasses": {
-                            "Heating_Supply_Air_Temperature_Deadband_Setpoint": {
-                                "tags": [ TAG.Heating, TAG.Supply, TAG.Air, TAG.Temperature, TAG.Deadband, TAG.Setpoint ],
+                                "parents": [BRICK.Discharge_Air_Temperature_Cooling_Setpoint],
                             },
-                            "Cooling_Supply_Air_Temperature_Deadband_Setpoint": {
-                                "tags": [ TAG.Cooling, TAG.Supply, TAG.Air, TAG.Temperature, TAG.Deadband, TAG.Setpoint ],
-                            }
+                            "Supply_Water_Differential_Pressure_Deadband_Setpoint": {
+                                "subclasses": {
+                                    "Thermal_Energy_Storage_Supply_Water_Differential_Pressure_Deadband_Setpoint": {
+                                        "tags": [ TAG.Thermal, TAG.Energy, TAG.Storage, TAG.Supply, TAG.Water, TAG.Differential, TAG.Pressure, TAG.Deadband, TAG.Setpoint ],
+                                    }
+                                },
+                                "tags": [ TAG.Supply, TAG.Water, TAG.Differential, TAG.Pressure, TAG.Deadband, TAG.Setpoint ],
+                            },
                         },
-                        "tags": [ TAG.Supply, TAG.Air, TAG.Temperature, TAG.Deadband, TAG.Setpoint ],
+                        "tags": [ TAG.Differential, TAG.Pressure, TAG.Deadband, TAG.Setpoint ],
+                        "parents": [BRICK.Differential_Pressure_Setpoint],
                     },
                     "Temperature_Deadband_Setpoint": {
                         "subclasses": {
@@ -109,37 +98,60 @@ setpoint_definitions = {
                             },
                             "Occupied_Heating_Temperature_Deadband_Setpoint": {
                                 "tags": [ TAG.Occupied, TAG.Heating, TAG.Temperature, TAG.Deadband, TAG.Setpoint ],
+                            },
+                            "Discharge_Air_Temperature_Deadband_Setpoint": {
+                                "subclasses": {
+                                    "Heating_Discharge_Air_Temperature_Deadband_Setpoint": {
+                                        "tags": [ TAG.Heating, TAG.Discharge, TAG.Air, TAG.Temperature, TAG.Deadband, TAG.Setpoint ],
+                                        "parents": [BRICK.Discharge_Air_Temperature_Heating_Setpoint],
+                                    },
+                                    "Cooling_Discharge_Air_Temperature_Deadband_Setpoint": {
+                                        "tags": [ TAG.Cooling, TAG.Discharge, TAG.Air, TAG.Temperature, TAG.Deadband, TAG.Setpoint ],
+                                        "parents": [BRICK.Discharge_Air_Temperature_Cooling_Setpoint],
+                                    }
+                                },
+                                "tags": [ TAG.Discharge, TAG.Air, TAG.Temperature, TAG.Deadband, TAG.Setpoint ],
+                                "parents": [BRICK.Discharge_Air_Temperature_Setpoint],
+                            },
+                            "Supply_Air_Temperature_Deadband_Setpoint": {
+                                "subclasses": {
+                                    "Heating_Supply_Air_Temperature_Deadband_Setpoint": {
+                                        "tags": [ TAG.Heating, TAG.Supply, TAG.Air, TAG.Temperature, TAG.Deadband, TAG.Setpoint ],
+                                    },
+                                    "Cooling_Supply_Air_Temperature_Deadband_Setpoint": {
+                                        "tags": [ TAG.Cooling, TAG.Supply, TAG.Air, TAG.Temperature, TAG.Deadband, TAG.Setpoint ],
+                                    }
+                                },
+                                "tags": [ TAG.Supply, TAG.Air, TAG.Temperature, TAG.Deadband, TAG.Setpoint ],
+                                "parents": [BRICK.Air_Temperature_Setpoint],
+                            },
+                            "Supply_Water_Temperature_Deadband_Setpoint": {
+                                "subclasses": {
+                                    "Heat_Exchanger_Supply_Water_Temperature_Deadband_Setpoint": {
+                                        "tags": [ TAG.Heat, TAG.Exchanger, TAG.Supply, TAG.Water, TAG.Temperature, TAG.Deadband, TAG.Setpoint ],
+                                    }
+                                },
+                                "tags": [ TAG.Supply, TAG.Water, TAG.Temperature, TAG.Deadband, TAG.Setpoint ],
+                                "parents": [BRICK.Water_Temperature_Setpoint],
                             }
                         },
                         "tags": [ TAG.Temperature, TAG.Deadband, TAG.Setpoint ],
+                        "parents": [BRICK.Temperature_Setpoint],
                     },
                     "Air_Flow_Deadband_Setpoint": {
                         "subclasses": {
                             "Exhaust_Air_Stack_Flow_Deadband_Setpoint": {
                                 "tags": [ TAG.Exhaust, TAG.Air, TAG.Stack, TAG.Flow, TAG.Deadband, TAG.Setpoint ],
+                                "parents": [BRICK.Exhaust_Air_Stack_Flow_Setpoint],
                             }
                         },
                         "tags": [ TAG.Air, TAG.Flow, TAG.Deadband, TAG.Setpoint ],
+                        "parents": [BRICK.Air_Flow_Setpoint],
                     },
                     "Static_Pressure_Deadband_Setpoint": {
                         "tags": [ TAG.Static, TAG.Pressure, TAG.Deadband, TAG.Setpoint ],
+                        "parents": [BRICK.Static_Pressure_Setpoint],
                     },
-                    "Supply_Water_Differential_Pressure_Deadband_Setpoint": {
-                        "subclasses": {
-                            "Thermal_Energy_Storage_Supply_Water_Differential_Pressure_Deadband_Setpoint": {
-                                "tags": [ TAG.Thermal, TAG.Energy, TAG.Storage, TAG.Supply, TAG.Water, TAG.Differential, TAG.Pressure, TAG.Deadband, TAG.Setpoint ],
-                            }
-                        },
-                        "tags": [ TAG.Supply, TAG.Water, TAG.Differential, TAG.Pressure, TAG.Deadband, TAG.Setpoint ],
-                    },
-                    "Supply_Water_Temperature_Deadband_Setpoint": {
-                        "subclasses": {
-                            "Heat_Exchanger_Supply_Water_Temperature_Deadband_Setpoint": {
-                                "tags": [ TAG.Heat, TAG.Exchanger, TAG.Supply, TAG.Water, TAG.Temperature, TAG.Deadband, TAG.Setpoint ],
-                            }
-                        },
-                        "tags": [ TAG.Supply, TAG.Water, TAG.Temperature, TAG.Deadband, TAG.Setpoint ],
-                    }
                 },
                 "tags": [ TAG.Deadband, TAG.Setpoint ],
                 "distinct": True,
@@ -290,9 +302,6 @@ setpoint_definitions = {
                             },
                             "Exhaust_Air_Static_Pressure_Setpoint": {
                                 "tags": [ TAG.Exhaust, TAG.Air, TAG.Static, TAG.Pressure, TAG.Setpoint ],
-                            },
-                            "High_Static_Pressure_Cutout_Limit_Setpoint": {
-                                "tags": [ TAG.High, TAG.Static, TAG.Pressure, TAG.Cutout, TAG.Limit, TAG.Setpoint ],
                             },
                             "Hot_Water_Static_Pressure_Setpoint": {
                                 "tags": [ TAG.Hot, TAG.Water, TAG.Static, TAG.Pressure, TAG.Setpoint ],
