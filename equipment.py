@@ -262,11 +262,11 @@ valve_subclasses = {
             },
             "Domestic_Hot_Water_Valve": {
                 "tags": [TAG.Domestic, TAG.Water, TAG.Hot, TAG.Valve, TAG.Heat, TAG.Equipment],
-                "parents": [BRICK.Hot_Water_System],
+                "parents": [BRICK.Hot_Water_System, BRICK.Water_Valve],
             },
             "Preheat_Hot_Water_Valve": {
                 "tags": [TAG.Preheat, TAG.Water, TAG.Hot, TAG.Valve, TAG.Heat, TAG.Equipment],
-                "parents": [BRICK.Hot_Water_System],
+                "parents": [BRICK.Hot_Water_System, BRICK.Water_Valve],
             },
         },
         # OWL.equivalentClass: Restriction(BRICK.hasTag, graph=G, allValuesFrom=BRICK.Valve)
@@ -276,6 +276,7 @@ valve_subclasses = {
         "subclasses": {
             "Chilled_Water_Valve": {
                 "tags": [TAG.Chilled, TAG.Valve, TAG.Water, TAG.Equipment],
+                "parents": [BRICK.Chilled_Water_System],
             },
         },
     },
