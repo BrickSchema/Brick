@@ -32,12 +32,12 @@ def add_restriction(klass, definition):
 # sets tags that only belong to a certain subclass?
 
 tag_subclasses = {
-    (TAG.Setpoint, TAG.Limit): BRICK.Parameter,    
-    (TAG.Setpoint, TAG.Deadband): BRICK.Deadband_Setpoint,    
-    (TAG.Status, TAG.Load, TAG.Shed): BRICK.Load_Shed_Status,
+    #(TAG.Setpoint, TAG.Limit): BRICK.Parameter,    
+    #(TAG.Setpoint, TAG.Deadband): BRICK.Deadband_Setpoint,    
+    #(TAG.Status, TAG.Load, TAG.Shed): BRICK.Load_Shed_Status,
     #(TAG.Setpoint, TAG.Load, TAG.Shed): BRICK.Load_Shed_Status,
-    (TAG.Valve, TAG.Equipment): BRICK.Valve,
-    (TAG.Status, TAG.On, TAG.Off): BRICK.On_Off_Status,
+    ##(TAG.Valve, TAG.Equipment): BRICK.Valve,
+    #(TAG.Status, TAG.On, TAG.Off): BRICK.On_Off_Status,
 }
 
 def has_tags(tagset, definition):
@@ -53,12 +53,12 @@ def add_tags(klass, definition, distinct):
 
     # if 'distinct' is true, then using the tags requires the additional class statement
     # to disambiguate what is meant.
-    if distinct:
-        restriction = BNode()
-        l.append(restriction)
-        G.add( (restriction, A, OWL.Restriction) )
-        G.add( (restriction, OWL.onProperty, RDF.type) )
-        G.add( (restriction, OWL.hasValue, BRICK[klass]) )
+    #if distinct:
+    #    restriction = BNode()
+    #    l.append(restriction)
+    #    G.add( (restriction, A, OWL.Restriction) )
+    #    G.add( (restriction, OWL.onProperty, RDF.type) )
+    #    G.add( (restriction, OWL.hasValue, BRICK[klass]) )
 
 
     #is_limit = TAG.Setpoint in definition and TAG.Limit in definition
@@ -76,18 +76,6 @@ def add_tags(klass, definition, distinct):
         G.add( (restriction, A, OWL.Restriction) )
         G.add( (restriction, OWL.onProperty, RDF.type) )
         G.add( (restriction, OWL.hasValue, c) )
-    #if is_limit:
-    #    restriction = BNode()
-    #    l.append(restriction)
-    #    G.add( (restriction, A, OWL.Restriction) )
-    #    G.add( (restriction, OWL.onProperty, RDF.type) )
-    #    G.add( (restriction, OWL.hasValue, BRICK.Parameter) )
-    # cardinality
-    #restriction = BNode()
-    #l.append(restriction)
-    #G.add( (restriction, A, OWL.Restriction) )
-    #G.add( (restriction, OWL.onProperty, BRICK.hasTag) )
-    #G.add( (restriction, OWL.cardinality, Literal(len(definition))) )
 
     # tag index
     tagset = tuple(sorted([item.split('#')[-1] for item in definition]))
@@ -252,8 +240,6 @@ G.add((BRICK.Quantity, RDFS.subClassOf, SOSA.ObservableProperty))
 G.add((BRICK.Substance, RDFS.subClassOf, SOSA.FeatureOfInterest))
 G.add((BRICK.Substance, RDFS.subClassOf, BRICK.Measurable))
 G.add((BRICK.Quantity, RDFS.subClassOf, BRICK.Measurable))
-
-G.add((BRICK.Parameter, OWL.disjointWith, BRICK.Setpoint))
 
 # We make the punning explicit here. Any subclass of brick:Substance
 # or brick:Quantity is itself a substance or quantity. There is one canonical
