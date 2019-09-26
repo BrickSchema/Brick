@@ -351,9 +351,6 @@ sensor_definitions = {
                             "Filter_Differential_Pressure_Sensor": {
                                 "tags": [ TAG.Sensor, TAG.Pressure, TAG.Differential, TAG.Filter ],
                             },
-                            "Heat_Wheel_Differential_Pressure_Sensor": {
-                                "tags": [ TAG.Sensor, TAG.Pressure, TAG.Differential, TAG.Wheel, TAG.Heat ],
-                            },
                             "Hot_Water_Differential_Pressure_Sensor": {
                                 "tags": [ TAG.Sensor, TAG.Pressure, TAG.Differential, TAG.Water, TAG.Hot ],
                                 "substances": [ [ BRICK.measures, BRICK.Pressure ], [ BRICK.measures, BRICK.Hot_Water ], ],
@@ -503,12 +500,6 @@ sensor_definitions = {
                                 "tags": [ TAG.Sensor, TAG.Temperature, TAG.Air, TAG.Discharge ],
                                 "substances": [ [ BRICK.measures, BRICK.Temperature ], [ BRICK.measures, BRICK.Discharge_Air ], ],
                                 "subclasses": {
-                                    "Cooling_Coil_Discharge_Air_Temperature_Sensor": {
-                                        "tags": [ TAG.Cooling, TAG.Coil, TAG.Discharge, TAG.Air, TAG.Temperature, TAG.Sensor ],
-                                    },
-                                    "Heat_Wheel_Discharge_Air_Temperature_Sensor": {
-                                        "tags": [ TAG.Heat, TAG.Wheel, TAG.Discharge, TAG.Air, TAG.Temperature, TAG.Sensor ],
-                                    },
                                     "Preheat_Discharge_Air_Temperature_Sensor": {
                                         "tags": [ TAG.Preheat, TAG.Discharge, TAG.Air, TAG.Temperature, TAG.Sensor ],
                                     }
@@ -518,12 +509,6 @@ sensor_definitions = {
                                 "tags": [ TAG.Sensor, TAG.Temperature, TAG.Air, TAG.Supply ],
                                 "substances": [ [ BRICK.measures, BRICK.Temperature ], [ BRICK.measures, BRICK.Supply_Air ], ],
                                 "subclasses": {
-                                    "Cooling_Coil_Supply_Air_Temperature_Sensor": {
-                                        "tags": [ TAG.Cooling, TAG.Coil, TAG.Supply, TAG.Air, TAG.Temperature, TAG.Sensor ],
-                                    },
-                                    "Heat_Wheel_Supply_Air_Temperature_Sensor": {
-                                        "tags": [ TAG.Heat, TAG.Wheel, TAG.Supply, TAG.Air, TAG.Temperature, TAG.Sensor ],
-                                    },
                                     "Preheat_Supply_Air_Temperature_Sensor": {
                                         "tags": [ TAG.Preheat, TAG.Supply, TAG.Air, TAG.Temperature, TAG.Sensor ],
                                     }
@@ -575,12 +560,6 @@ sensor_definitions = {
                                     }
                                 }
                             },
-                            "PreHeat_Coil_Leaving_Air_Temperature_Sensor": {
-                                "tags": [ TAG.Preheat, TAG.Coil, TAG.Leaving, TAG.Air, TAG.Temperature, TAG.Sensor ],
-                            },
-                            "PreHeat_Coil_Entering_Air_Temperature_Sensor": {
-                                "tags": [ TAG.Preheat, TAG.Coil, TAG.Entering, TAG.Air, TAG.Temperature, TAG.Sensor ],
-                            }
                         }
                     },
                     "Water_Temperature_Sensor": {
@@ -621,14 +600,6 @@ sensor_definitions = {
                             "Entering_Water_Temperature_Sensor": {
                                 "tags": [ TAG.Sensor, TAG.Temperature, TAG.Water, TAG.Entering ],
                                 "substances": [ [ BRICK.measures, BRICK.Temperature ], [ BRICK.measures, BRICK.Entering_Water ], ],
-                                "subclasses": {
-                                    "Hot_Water_Coil_Entering_Temperature_Sensor": {
-                                        "tags": [ TAG.Hot, TAG.Water, TAG.Coil, TAG.Entering, TAG.Temperature, TAG.Sensor ],
-                                    },
-                                    "Ice_Tank_Entering_Water_Temperature_Sensor": {
-                                        "tags": [ TAG.Ice, TAG.Tank, TAG.Entering, TAG.Water, TAG.Temperature, TAG.Sensor ],
-                                    },
-                                }
                             },
                             "Leaving_Water_Temperature_Sensor": {
                                 "tags": [ TAG.Sensor, TAG.Temperature, TAG.Water, TAG.Leaving ],
