@@ -2,7 +2,7 @@ from rdflib import Graph, Literal, BNode, Namespace, RDF, URIRef
 from rdflib.collection import Collection
 from rdflib.extras.infixowl import Restriction
 
-from namespaces import *
+from .namespaces import *
 
 
 """

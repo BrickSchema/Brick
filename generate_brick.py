@@ -3,8 +3,8 @@ from rdflib.namespace import XSD
 from rdflib.collection import Collection
 from rdflib.extras.infixowl import Restriction
 
-from namespaces import BRICK, RDF, OWL, DCTERMS, SDO, RDFS, SKOS, BRICK, TAG, SOSA
-from namespaces import bind_prefixes
+from bricksrc.namespaces import BRICK, RDF, OWL, DCTERMS, SDO, RDFS, SKOS, BRICK, TAG, SOSA
+from bricksrc.namespaces import bind_prefixes
 
 G = Graph()
 bind_prefixes(G)
@@ -148,7 +148,7 @@ def define_properties(definitions, superprop=None):
 
 
 # handle ontology definition
-from ontology import define_ontology
+from bricksrc.ontology import define_ontology
 define_ontology(G)
 
 """
@@ -170,33 +170,33 @@ roots = {
 }
 define_rootclasses(roots)
 
-from setpoint import setpoint_definitions
+from bricksrc.setpoint import setpoint_definitions
 define_subclasses(setpoint_definitions, BRICK.Point)
 
-from sensor import sensor_definitions
+from bricksrc.sensor import sensor_definitions
 define_subclasses(sensor_definitions, BRICK.Point)
 
-from status import status_definitions
+from bricksrc.status import status_definitions
 define_subclasses(status_definitions, BRICK.Point)
 
-from command import command_definitions
+from bricksrc.command import command_definitions
 define_subclasses(command_definitions, BRICK.Point)
 
-from parameter import parameter_definitions
+from bricksrc.parameter import parameter_definitions
 define_subclasses(parameter_definitions, BRICK.Point)
 
-from location import location_subclasses
+from bricksrc.location import location_subclasses
 define_subclasses(location_subclasses, BRICK.Location)
 
-from equipment import equipment_subclasses, hvac_subclasses, valve_subclasses
+from bricksrc.equipment import equipment_subclasses, hvac_subclasses, valve_subclasses
 define_subclasses(equipment_subclasses, BRICK.Equipment)
 define_subclasses(hvac_subclasses, BRICK.HVAC)
 define_subclasses(valve_subclasses, BRICK.Valve)
 
-from substances import substances
+from bricksrc.substances import substances
 define_subclasses(substances, BRICK.Substance)
 
-from quantities import quantity_definitions
+from bricksrc.quantities import quantity_definitions
 define_subclasses(quantity_definitions, BRICK.Quantity)
 
 G.add((BRICK.Measurable, A, OWL.Class))
@@ -219,10 +219,10 @@ G.update("""INSERT { ?sc rdf:type brick:Substance }
 G.update("""INSERT { ?qc rdf:type brick:Quantity }
             WHERE { ?qc rdfs:subClassOf+ brick:Quantity }""")
 
-from properties import properties
+from bricksrc.properties import properties
 define_properties(properties)
 
-from tags import tags
+from bricksrc.tags import tags
 for tag, definition in tags.items():
     G.add( (TAG[tag], A, BRICK.Tag) )
 
