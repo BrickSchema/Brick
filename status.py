@@ -151,15 +151,6 @@ status_definitions = {
                 },
                 "tags": [ TAG.Occupancy, TAG.Status ],
             },
-            "Off_Status": {
-                "tags": [ TAG.Off, TAG.Status ],
-                "subclasses": {
-                    "Emergency_Power_Off_Status": {}, # defined elsewhere
-                    "Turn_Off_Status": {
-                        "tags": [ TAG.Turn, TAG.Off, TAG.Status ],
-                    },
-                }
-            },
             "On_Off_Status": {
                 "subclasses": {
                     "Cooling_On_Off_Status": {
@@ -190,7 +181,16 @@ status_definitions = {
                                 "tags": [ TAG.Standby, TAG.Glycool, TAG.Unit, TAG.On, TAG.Off, TAG.Status ],
                             },
                         },
-                    }
+                    },
+                    "Off_Status": {
+                        "tags": [ TAG.Off, TAG.Status ],
+                        "subclasses": {
+                            "Emergency_Power_Off_Status": {}, # defined elsewhere
+                            "Turn_Off_Status": {
+                                "tags": [ TAG.Turn, TAG.Off, TAG.Status ],
+                            },
+                        }
+                    },
                 },
                 "tags": [ TAG.On, TAG.Off, TAG.Status ],
             },
