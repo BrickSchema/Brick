@@ -8,10 +8,7 @@ from namespaces import *
 Set up subclasses of the equipment superclass
 """
 equipment_subclasses = {
-    "HVAC": {
-        OWL.equivalentClass: "Heating_Ventilation_Air_Conditioning_System",
-        "tags": [TAG.HVAC],
-    },
+    "HVAC": {},
     "Heating_Ventilation_Air_Conditioning_System": {
         OWL.equivalentClass: "HVAC",
     },
@@ -96,7 +93,6 @@ hvac_subclasses = {
         # subclasses defined in 'valve_subclasses'
     },
     "VFD": {
-        OWL.equivalentClass: "VFD",
         "subclasses": {
             "Heat_Wheel_VFD": {},
             "Preheat_Valve_VFD": {},
@@ -111,14 +107,17 @@ hvac_subclasses = {
             "Fan_Coil_Unit": {
                 OWL.equivalentClass: "FCU",
             },
+            "FCU": {},
             "Variable_Air_Volume_Box": {
                 OWL.equivalentClass: "VAV",
                 "subclasses": {
                     "Variable_Air_Volume_Box_With_Reheat": {
                         OWL.equivalentClass: "RVAV",
                     },
+                    "RVAV": {},
                 },
             },
+            "VAV": {},
         },
     },
     "Space_Heater": {
@@ -143,6 +142,7 @@ hvac_subclasses = {
             "Condenser_Heat_Exchanger": {},
         },
     },
+    "HX": {},
     "Fume_Hood": {
         SKOS.definition: Literal("A fume-collection device mounted over a work space, table, or shelf and serving to conduct unwanted gases away from the area enclosed."),
     },
@@ -216,21 +216,13 @@ hvac_subclasses = {
     },
     "Coil": {
         SKOS.definition: Literal("Exchanger that transfers heat from an exhaust airstream to a separated supply airstream."),
-        "tagvalues": [
-            [ BRICK.hasTag, TAG.Coil ],
-        ],
+                "tags": [TAG.Equipment, TAG.Coil],
         "subclasses": {
             "Cooling_Coil": {
-                "tagvalues": [
-                    [ BRICK.hasTag, TAG.Coil ],
-                    [ BRICK.hasTag, TAG.Cool ],
-                ]
+                "tags": [TAG.Equipment, TAG.Coil, TAG.Cool],
             },
             "Heating_Coil": {
-                "tagvalues": [
-                    [ BRICK.hasTag, TAG.Coil ],
-                    [ BRICK.hasTag, TAG.Heat ],
-                ]
+                "tags": [TAG.Equipment, TAG.Coil, TAG.Heat],
             },
         },
     },
@@ -248,13 +240,13 @@ hvac_subclasses = {
         OWL.equivalentClass: "AHU",
     },
     "AHU": {
-        OWL.equivalentClass: "Air_Handler_Unit",
         "tags": [ TAG.Equipment, TAG.AHU],
         "subclasses": {
             "Rooftop_Unit": {
                 OWL.equivalentClass: "RTU",
                 "tags": [TAG.Equipment, TAG.Rooftop, TAG.AHU],
             },
+            "RTU": {},
         },
     },
 }
@@ -271,18 +263,20 @@ valve_subclasses = {
             },
             "Domestic_Hot_Water_Valve": {
                 "tags": [TAG.Domestic, TAG.Water, TAG.Hot, TAG.Valve, TAG.Heat, TAG.Equipment],
+                "parents": [BRICK.Hot_Water_System, BRICK.Water_Valve],
             },
             "Preheat_Hot_Water_Valve": {
                 "tags": [TAG.Preheat, TAG.Water, TAG.Hot, TAG.Valve, TAG.Heat, TAG.Equipment],
+                "parents": [BRICK.Hot_Water_System, BRICK.Water_Valve],
             },
         },
-        # OWL.equivalentClass: Restriction(BRICK.hasTag, graph=G, allValuesFrom=BRICK.Valve)
     },
     "Water_Valve": {
         "tags": [TAG.Valve, TAG.Water, TAG.Equipment],
         "subclasses": {
             "Chilled_Water_Valve": {
                 "tags": [TAG.Chilled, TAG.Valve, TAG.Water, TAG.Equipment],
+                "parents": [BRICK.Chilled_Water_System],
             },
         },
     },

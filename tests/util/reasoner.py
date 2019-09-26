@@ -75,7 +75,7 @@ def reason_brick(g):
 
     # handle tags
     res = g.query("""
-    select ?class ?p ?o where {
+    select ?class ?p ?o ?restrictions where {
       ?class rdfs:subClassOf+ brick:Class.
       ?class owl:equivalentClass ?restrictions.
       ?restrictions owl:intersectionOf ?inter.
@@ -88,26 +88,60 @@ def reason_brick(g):
           BIND (brick:measures as ?p)
           ?node owl:onProperty ?p.
           ?node owl:hasValue ?o.
+      } UNION {
+          BIND (rdf:type as ?p)
+          ?node owl:onProperty ?p.
+          ?node owl:hasValue ?o.
       }
     }""")
     tag_properties = defaultdict(list)
     measures_properties = defaultdict(list)
-    for (classname, prop, obj) in tqdm(res):
+    grouped_properties = defaultdict(list)
+
+    for (classname, prop, obj, groupname) in tqdm(res):
         if prop == BRICK.hasTag:
             tag_properties[classname].append(obj)
         elif prop == BRICK.measures:
             measures_properties[classname].append(obj)
 
+        #print(classname,groupname,prop,obj)
+        grouped_properties[(classname,groupname)].append( (prop, obj) )
+
+    # add properties based on classes
+    for (classname, groupname), props in grouped_properties.items():
+        q = "INSERT {\n"
+        q += '\n'.join(
+            [f"\t ?inst <{prop}> <{obj}> ." for prop,obj in props]
+        )
+        q += "\n} WHERE {\n"
+        q += '\n'.join(
+            [f"\t ?inst rdf:type <{classname}> ."]
+        )
+        q += "\n}"
+        g.update(q)
+
+    # add properties based on classes
+    for (classname, groupname), props in grouped_properties.items():
+        q = f"""INSERT {{
+        ?inst rdf:type <{classname}>
+        }} WHERE {{ \n"""
+        q += '\n'.join(
+            [f"\t ?inst <{prop}> <{obj}> ." for prop,obj in props]
+        )
+        q += "}\n"
+        g.update(q)
+
+
     # tag inference
     for classname, tags in tag_properties.items():
-        # find entities with tags and instantiate the class
-        qstr = "select ?inst where {\n"
-        for tag in tags:
-            qstr += f"  ?inst brick:hasTag <{tag}> .\n"
-        qstr +="}"
-        for row in g.query(qstr):
-            inst = row[0]
-            g.add((inst, RDF.type, classname))
+        ## find entities with tags and instantiate the class
+        #qstr = "select ?inst where {\n"
+        #for tag in tags:
+        #    qstr += f"  ?inst brick:hasTag <{tag}> .\n"
+        #qstr +="}"
+        #for row in g.query(qstr):
+        #    inst = row[0]
+        #    g.add((inst, RDF.type, classname))
 
         # find entities of the class and add the tags
         qstr = f"select ?inst where {{ ?inst rdf:type/rdfs:subClassOf* <{classname}> }}"
@@ -115,8 +149,8 @@ def reason_brick(g):
             inst = row[0]
             for tag in tags:
                 g.add((inst, BRICK.hasTag, tag))
-
-    # measures inference
+#
+#    # measures inference
     for classname, substances in measures_properties.items():
         # find entities with substances and instantiate the class
         qstr = "select ?inst where {\n"

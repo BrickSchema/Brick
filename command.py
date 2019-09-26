@@ -118,10 +118,9 @@ command_definitions = {
             },
             "On_Off_Command": {
                 "tags": [TAG.OnOff, TAG.Command],
-                OWL.equivalentClass: BRICK.Start_Stop_Command,
                 "subclasses": {
                     "Steam_On_Off_Command": {},
-                    "Booster_Fan_Start_Stop_Command": {},
+                    "Start_Stop_Command": {},
                 },
             },
             "Override_Command": {

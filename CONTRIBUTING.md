@@ -88,6 +88,7 @@ Class names should be alpha-numeric strings consisting of capitalized words sepa
 The class property dictionary can have the following keys:
 
 - `tags`: a list of Brick tags; an entity who has all of these tags will be inferred as an instance of the class
+- `parents`: a list of Brick *classes* that are parent classes of the current class; this lets us form the class lattice with less duplication
 - `subclasses`: a dictionary whose keys+values are class names and definitions; this recursively follows the same structure
 - `substances`: a nested list of Brick Substance classes. Each list item should be of the form `[BRICK.measures, BRICK.<substance name>]` where `<substance name>` is replaced with the substance that is measured. Substances are defined in `substances.py`
 - `SKOS.definition`: contains the definition of the class. The value must use the `Literal` constructor from RDFlib:

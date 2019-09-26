@@ -3,24 +3,11 @@ from rdflib.namespace import XSD
 from rdflib.collection import Collection
 from rdflib.extras.infixowl import Restriction
 
-BRICK_VERSION = '1.1.0'
-
-BRICK = Namespace("https://brickschema.org/schema/{0}/Brick#".format(BRICK_VERSION))
-TAG = Namespace("https://brickschema.org/schema/{0}/BrickTag#".format(BRICK_VERSION))
-SKOS = Namespace("http://www.w3.org/2004/02/skos/core#")
-DCTERMS = Namespace("http://purl.org/dc/terms#")
-SDO = Namespace("http://schema.org#")
+from namespaces import BRICK, RDF, OWL, DCTERMS, SDO, RDFS, SKOS, BRICK, TAG, SOSA
+from namespaces import bind_prefixes
 
 G = Graph()
-G.bind('rdf', RDF)
-G.bind('owl', OWL)
-G.bind('dcterms', DCTERMS)
-G.bind('sdo', SDO)
-G.bind('rdfs', RDFS)
-G.bind('skos', SKOS)
-G.bind('brick', BRICK)
-G.bind('tag', TAG)
-
+bind_prefixes(G)
 A = RDF.type
 
 from collections import defaultdict
@@ -41,10 +28,14 @@ def add_restriction(klass, definition):
     G.add( (equivalent_class, OWL.intersectionOf, list_name) )
     c = Collection(G, list_name, l)
 
+def has_tags(tagset, definition):
+    return all([t in definition for t in tagset])
+
 def add_tags(klass, definition):
     l = []
     equivalent_class = BNode()
     list_name = BNode()
+
     for idnum, item in enumerate(definition):
         restriction = BNode()
         l.append(restriction)
@@ -53,12 +44,6 @@ def add_tags(klass, definition):
         G.add( (restriction, OWL.hasValue, item) )
         G.add( (item, A, BRICK.Tag) ) # make sure the tag is declared as such
         G.add( (item, RDFS.label, Literal(item.split('#')[-1])) ) # make sure the tag is declared as such
-    # cardinality
-    #restriction = BNode()
-    #l.append(restriction)
-    #G.add( (restriction, A, OWL.Restriction) )
-    #G.add( (restriction, OWL.onProperty, BRICK.hasTag) )
-    #G.add( (restriction, OWL.cardinality, Literal(len(definition))) )
 
     # tag index
     tagset = tuple(sorted([item.split('#')[-1] for item in definition]))
@@ -98,6 +83,9 @@ def define_subclasses(definitions, superclass):
                 add_restriction(subclass, v)
             elif isinstance(v, list) and k == "tags":
                 add_tags(subclass, v)
+            elif isinstance(v, list) and k == "parents":
+                for parent in v:
+                    G.add( (BRICK[subclass], RDFS.subClassOf, parent) )
             elif isinstance(v, list) and k == "substances":
                 add_restriction(subclass, v)
             elif not apply_prop(subclass, k, v):
@@ -210,6 +198,26 @@ define_subclasses(substances, BRICK.Substance)
 
 from quantities import quantity_definitions
 define_subclasses(quantity_definitions, BRICK.Quantity)
+
+G.add((BRICK.Measurable, A, OWL.Class))
+G.add((BRICK.Quantity, RDFS.subClassOf, SOSA.ObservableProperty))
+G.add((BRICK.Substance, RDFS.subClassOf, SOSA.FeatureOfInterest))
+G.add((BRICK.Substance, RDFS.subClassOf, BRICK.Measurable))
+G.add((BRICK.Quantity, RDFS.subClassOf, BRICK.Measurable))
+
+# We make the punning explicit here. Any subclass of brick:Substance
+# or brick:Quantity is itself a substance or quantity. There is one canonical
+# instance of each class, which is indicated by referencing the class itself.
+#
+#    bldg:tmp1      a           brick:Air_Temperature_Sensor;
+#               brick:measures  brick:Air ,
+#                               brick:Temperature .
+#
+# In the above example, brick:Air and brick:Temperature are both instances.
+G.update("""INSERT { ?sc rdf:type brick:Substance }
+            WHERE { ?sc rdfs:subClassOf+ brick:Substance }""")
+G.update("""INSERT { ?qc rdf:type brick:Quantity }
+            WHERE { ?qc rdfs:subClassOf+ brick:Quantity }""")
 
 from properties import properties
 define_properties(properties)

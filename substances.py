@@ -22,9 +22,21 @@ substances = {
                     "Air": {
                         "tags": [TAG.Fluid, TAG.Gas, TAG.Air],
                         "subclasses": {
+                            "Bypass_Air": {
+                                "tags": [TAG.Fluid, TAG.Gas, TAG.Air, TAG.Bypass],
+                                SKOS.definition: Literal("air in a bypass duct, used to relieve static pressure"),
+                             },
                             "Outside_Air": {
                                 "tags": [TAG.Fluid, TAG.Gas, TAG.Air, TAG.Outside],
                                 SKOS.definition: Literal("air external to a defined zone (e.g., corridors)."),
+                             },
+                            "Zone_Air": {
+                                "tags": [TAG.Fluid, TAG.Gas, TAG.Air, TAG.Zone],
+                                SKOS.definition: Literal("air inside a defined zone (e.g., corridors)."),
+                             },
+                            "Building_Air": {
+                                "tags": [TAG.Fluid, TAG.Gas, TAG.Air, TAG.Building],
+                                SKOS.definition: Literal("air contained within a building"),
                              },
                             "Mixed_Air": {
                                 "tags": [TAG.Fluid, TAG.Gas, TAG.Air, TAG.Mixed],
@@ -42,7 +54,14 @@ substances = {
                                 "tags": [TAG.Fluid, TAG.Gas, TAG.Air, TAG.Supply],
                                 SKOS.definition: Literal("(1) air delivered by mechanical or natural ventilation to a space, composed of any combination of outdoor air, recirculated air, or transfer air. (2) air entering a space from an air-conditioning, heating, or ventilating apparatus for the purpose of comfort conditioning. Supply air is generally filtered, fan forced, and either heated, cooled, humidified, or dehumidified as necessary to maintain specified conditions. Only the quantity of outdoor air within the supply airflow may be used as replacement air."),
                             },
+                            "Discharge_Air": {
+                                "tags": [TAG.Fluid, TAG.Gas, TAG.Air, TAG.Discharge],
+                            },
                         },
+                    },
+                    "CO2": {
+                        "tags": [TAG.Fluid, TAG.Gas, TAG.CO2],
+                        SKOS.definition: Literal("Carbon Dioxide in the vapor phase"),
                     },
                     "Steam": {
                         "tags": [TAG.Fluid, TAG.Gas, TAG.Steam],
@@ -61,6 +80,10 @@ substances = {
                         "tags": [TAG.Liquid, TAG.Gasoline],
                         SKOS.definition: Literal("Petroleum derived liquid used as a fuel source"),
                     },
+                    "Liquid_CO2": {
+                        "tags": [TAG.Liquid, TAG.Gas, TAG.CO2],
+                        SKOS.definition: Literal("Carbon Dioxide in the liquid phase"),
+                    },
                     "Oil": {
                         "tags": [TAG.Liquid, TAG.Oil],
                         "subclasses": {
@@ -74,9 +97,21 @@ substances = {
                         "tags": [TAG.Liquid, TAG.Water],
                         SKOS.definition: Literal("transparent, odorless, tasteless liquid; a compound of hydrogen and oxygen (H2O), containing 11.188% hydrogen and 88.812% oxygen by mass; freezing at 32°F (0°C); boiling near 212°F (100°C)."),
                         "subclasses": {
+                            "Deionized_Water": {
+                                "tags": [TAG.Deionized, TAG.Water],
+                                SKOS.definition: Literal("Water which has been purified by removing its ions (constituting the majority of non-particulate contaminants)"),
+                            },
                             "Chilled_Water": {
                                 "tags": [TAG.Liquid, TAG.Water, TAG.Chilled],
                                 SKOS.definition: Literal( "water used as a cooling medium (particularly in air-conditioning systems or in processes) at below ambient temperature."),
+                                "subclasses": {
+                                    "Discharge_Chilled_Water": {
+                                        "tags": [TAG.Liquid, TAG.Water, TAG.Chilled, TAG.Discharge],
+                                    },
+                                    "Supply_Chilled_Water": {
+                                        "tags": [TAG.Liquid, TAG.Water, TAG.Chilled, TAG.Supply],
+                                    }
+                                },
                             },
                             "Blowdown_Water": {
                                 "tags": [TAG.Liquid, TAG.Water, TAG.Blowdown],
@@ -90,9 +125,34 @@ substances = {
                                 "tags": [TAG.Liquid, TAG.Water, TAG.Domestic],
                                 SKOS.definition: Literal("Tap water for drinking, washing, cooking, and flushing of toliets"),
                             },
+                            "Entering_Water": {
+                                "tags": [TAG.Liquid, TAG.Water, TAG.Entering],
+                            },
+                            "Leaving_Water": {
+                                "tags": [TAG.Liquid, TAG.Water, TAG.Leaving],
+                            },
+                            "Return_Water": {
+                                "tags": [TAG.Liquid, TAG.Water, TAG.Return],
+                            },
+                            "Supply_Water": {
+                                "tags": [TAG.Liquid, TAG.Water, TAG.Supply],
+                                "subclasses": {
+                                    "Supply_Chilled_Water": {
+                                        "tags": [TAG.Liquid, TAG.Water, TAG.Chilled, TAG.Supply],
+                                    },
+                                    "Supply_Hot_Water": {
+                                        "tags": [TAG.Liquid, TAG.Water, TAG.Hot, TAG.Supply],
+                                    }
+                                },
+                            },
                             "Hot_Water": {
                                 "tags": [TAG.Liquid, TAG.Water, TAG.Hot],
                                 SKOS.definition: Literal("Hot water used for HVAC heating or supply to hot taps"),
+                                "subclasses": {
+                                    "Supply_Hot_Water": {
+                                        "tags": [TAG.Liquid, TAG.Water, TAG.Hot, TAG.Supply],
+                                    }
+                                }
                             },
                             "Makeup_Water": {
                                 "tags": [TAG.Liquid, TAG.Water, TAG.Makeup],
