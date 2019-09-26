@@ -193,7 +193,6 @@ status_definitions = {
                     }
                 },
                 "tags": [ TAG.On, TAG.Off, TAG.Status ],
-                "parents": [BRICK.On_Status, BRICK.Off_Status],
             },
             "Overridden_Status": {
                 "subclasses": {
