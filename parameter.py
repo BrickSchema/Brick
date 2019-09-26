@@ -15,6 +15,14 @@ parameter_definitions = {
     "Parameter": {
         "tags": [TAG.Parameter],
         "subclasses": {
+            "Load_Parameter": {
+                "tags": [ TAG.Load, TAG.Parameter ],
+                "subclasses": {
+                    "Max_Load_Setpoint": {
+                        "tags": [ TAG.Max, TAG.Load, TAG.Parameter ],
+                    },
+                },
+            },
             "PID_Parameter":{
                 "tags": [TAG.Parameter, TAG.PID],
                 "subclasses": {

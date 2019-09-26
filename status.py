@@ -31,6 +31,7 @@ status_definitions = {
             },
             "Emergency_Power_Off_Status": {
                 "tags": [ TAG.Emergency, TAG.Power, TAG.Off, TAG.Status ],
+                "parents": [BRICK.Off_Status],
                 "subclasses": {
                     "Emergency_Power_Off_Activated_By_High_Temperature_Status": {},
                     "Emergency_Power_Off_Activated_By_Leak_Detection_System_Status": {},
@@ -49,6 +50,7 @@ status_definitions = {
                     },
                     "Run_Enable_Status": {
                         "tags": [ TAG.Run, TAG.Enable, TAG.Status ],
+                        "parents": [BRICK.Run_Status],
                     }
                 },
                 "tags": [ TAG.Enable, TAG.Status ],
@@ -185,14 +187,18 @@ status_definitions = {
                     "Off_Status": {
                         "tags": [ TAG.Off, TAG.Status ],
                         "subclasses": {
-                            "Emergency_Power_Off_Status": {}, # defined elsewhere
-                            "Turn_Off_Status": {
-                                "tags": [ TAG.Turn, TAG.Off, TAG.Status ],
-                            },
+                            "Turn_Off_Status": {},
+                        }
+                    },
+                    "On_Status": {
+                        "tags": [ TAG.On, TAG.Status ],
+                        "subclasses": {
+                            "Turn_On_Status": {},
                         }
                     },
                 },
                 "tags": [ TAG.On, TAG.Off, TAG.Status ],
+                "parents": [BRICK.Off_Status, BRICK.On_Status],
             },
             "Overridden_Status": {
                 "subclasses": {
@@ -238,9 +244,6 @@ status_definitions = {
                     },
                     "Run_Status": {
                         "tags": [ TAG.Run, TAG.Status ],
-                        "subclasses": {
-                            "Run_Enable_Status": {}, # defined elsewhere
-                        }
                     }
                 },
                 "tags": [ TAG.Start, TAG.Stop, TAG.Status ],

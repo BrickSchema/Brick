@@ -238,9 +238,6 @@ setpoint_definitions = {
             },
             "Load_Setpoint": {
                 "subclasses": {
-                    "Max_Load_Setpoint": {
-                        "tags": [ TAG.Max, TAG.Load, TAG.Setpoint ],
-                    },
                     "Load_Shed_Setpoint": {
                         "tags": [ TAG.Shed, TAG.Load, TAG.Setpoint ],
                     }
