@@ -386,6 +386,8 @@ setpoint_definitions = {
                                         OWL.equivalentClass: "Minimum_Discharge_Air_Temperature_Setpoint",
                                         "tags": [ TAG.Discharge, TAG.Air, TAG.Temperature, TAG.Heating, TAG.Setpoint ],
                                     },
+                                    "Minimum_Discharge_Air_Temperature_Setpoint": {},
+                                    "Maximum_Discharge_Air_Temperature_Setpoint": {},
                                     "Discharge_Air_Temperature_Cooling_Setpoint": {
                                         OWL.equivalentClass: "Maximum_Discharge_Air_Temperature_Setpoint",
                                         "tags": [ TAG.Discharge, TAG.Air, TAG.Temperature, TAG.Cooling, TAG.Setpoint ],

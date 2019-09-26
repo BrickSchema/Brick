@@ -81,7 +81,8 @@ sensor_definitions = {
                     "Photovoltaic_Current_Output_Sensor": {
                         OWL.equivalentClass: "PV_Current_Output_Sensor",
                         "tags": [ TAG.Photovoltaic, TAG.Current, TAG.Output, TAG.Sensor ],
-                    }
+                    },
+                    "PV_Current_Output_Sensor": {},
                 }
             },
             "Damper_Position_Sensor": {
@@ -528,7 +529,9 @@ sensor_definitions = {
                                     "Lowest_Zone_Air_Temperature_Sensor": {
                                         "tags": [ TAG.Sensor, TAG.Temperature, TAG.Zone, TAG.Lowest, TAG.Air],
                                         OWL.equivalentClass: "Coldest_Zone_Air_Temperature_Sensor"
-                                    }
+                                    },
+                                    "Coldest_Zone_Air_Temperature_Sensor": {},
+                                    "Warmest_Zone_Air_Temperature_Sensor": {},
                                 }
                             },
                             "Exhaust_Air_Temperature_Sensor": {

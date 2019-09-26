@@ -131,7 +131,9 @@ substances = {
                             "Leaving_Water": {
                                 "tags": [TAG.Liquid, TAG.Water, TAG.Leaving],
                             },
-                            "Return_Water": {},
+                            "Return_Water": {
+                                "tags": [TAG.Liquid, TAG.Water, TAG.Return],
+                            },
                             "Supply_Water": {
                                 "tags": [TAG.Liquid, TAG.Water, TAG.Supply],
                                 "subclasses": {
