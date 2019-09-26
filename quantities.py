@@ -14,6 +14,8 @@ quantity_definitions = {
             "TVOC_Level": {},
         },
     },
+    "Angle": {
+    },
     "Conductivity": {},
     "Capacity": {},
     "Enthalpy": {
@@ -114,6 +116,7 @@ quantity_definitions = {
             "Occupancy_Percentage": {},
         },
     },
+    "Position": {},
     "Power_Factor": {},
     "Precipitation": {},
     "Pressure": {

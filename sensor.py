@@ -25,6 +25,7 @@ sensor_definitions = {
             },
             "Angle_Sensor": {
                 #TODO substances
+                "substances": [[BRICK.measures, BRICK.Angle]],
                 "subclasses": {
                     "Solar_Azimuth_Angle_Sensor": {
                         "tags": [ TAG.Solar, TAG.Azimuth, TAG.Angle, TAG.Sensor ],
@@ -86,6 +87,7 @@ sensor_definitions = {
                 }
             },
             "Damper_Position_Sensor": {
+                "substances": [[BRICK.measures, BRICK.Position]],
                 "tags": [ TAG.Damper, TAG.Position, TAG.Sensor ],
             },
             "Demand_Sensor": {
