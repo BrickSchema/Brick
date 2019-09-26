@@ -24,6 +24,12 @@ If you have an issue with Brick's coverage, utility or usability, or any other B
    to check if anyone has asked your question already.
 2. If you find a previously submitted issue that closely mirrors your own, feel free to jump in on the conversation. Otherwise, please file a new issue or submit a new thread on the forum.
 
+## Examples
+
+The `examples/` directory contains executable code samples with extensive documentation that introduce Brick concepts and idioms.
+
+- `simple_example_1.py`: getting familiar with RDFlib, namespaces, Brick models and when and when not to import the Brick ontology definition
+
 ## How To Contribute
 
 See [CONTRIBUTING.md](https://github.com/BrickSchema/Brick/blob/master/CONTRIBUTING.md)
