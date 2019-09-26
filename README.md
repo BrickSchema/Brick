@@ -146,7 +146,7 @@ This means that a temperature sensor `:ts1` could be defined in two different wa
 
 ### Substances
 
-Brick now defines a hierarchy of substances (`substances.py`) and a hierarchy of quantities (`quantities.py`).
+Brick now defines a hierarchy of substances (`bricksrc/substances.py`) and a hierarchy of quantities (`bricksrc/quantities.py`).
 Substances and quantities can be related to equipment and points.
 
 Not all of this is implemented. In the current prototype, sensors are related to substances and quantities
@@ -225,4 +225,4 @@ definitions = {
 define_subclasses(definitions, BRICK.Equipment)
 ```
 
-For now, the code is the documentation. Look at `equipment.py`, `point.py`, etc for examples and how to add to each of the class hierarchies.
+For now, the code is the documentation. Look at `bricksrc/equipment.py`, `bricksrc/point.py`, etc. for examples and how to add to each of the class hierarchies.

@@ -40,26 +40,26 @@ It is recommended that you become familiar with how to [fork a repository](https
 
 ### Extending the Class Hierarchy
 
-The Brick class hierarchy is defined across several files, named according to the Brick class that roots the hierarchy defined in the file.
+The Brick class hierarchy is defined across several files in `bricksrc/`, named according to the Brick class that roots the hierarchy defined in the file.
 
 Brick point class definitions should be placed in one of the following files:
-- `command.py` for subclasses of the Brick `Command` class
-- `sensor.py` for subclasses of the Brick `Sensor` class
-- `setpoint.py` for subclasses of the Brick `Setpoint` class
-- `status.py` for subclasses of the Brick `Status` class
+- `bricksrc/command.py` for subclasses of the Brick `Command` class
+- `bricksrc/sensor.py` for subclasses of the Brick `Sensor` class
+- `bricksrc/setpoint.py` for subclasses of the Brick `Setpoint` class
+- `bricksrc/status.py` for subclasses of the Brick `Status` class
 
-Brick `Equipment` definitions should be placed in the `equipment.py` file.
+Brick `Equipment` definitions should be placed in the `bricksrc/equipment.py` file.
 
-Brick `Location` definitions should be placed in the `location.py` file.
+Brick `Location` definitions should be placed in the `bricksrc/location.py` file.
 
-Brick `Parameter` definitions should be placed in the `parameter.py` file.
+Brick `Parameter` definitions should be placed in the `bricksrc/parameter.py` file.
 
-Brick `Quantity` definitions should be placed in the `quantities.py` file.
+Brick `Quantity` definitions should be placed in the `bricksrc/quantities.py` file.
 
-Brick `Substance` definitions should be placed in the `substances.py` file.
+Brick `Substance` definitions should be placed in the `bricksrc/substances.py` file.
 
 Brick class definitions are written using a nested Python dictionary structure.
-Observe the example below from `sensor.py`:
+Observe the example below from `bricksrc/sensor.py`:
 
 ```python
 {
@@ -90,7 +90,7 @@ The class property dictionary can have the following keys:
 - `tags`: a list of Brick tags; an entity who has all of these tags will be inferred as an instance of the class
 - `parents`: a list of Brick *classes* that are parent classes of the current class; this lets us form the class lattice with less duplication
 - `subclasses`: a dictionary whose keys+values are class names and definitions; this recursively follows the same structure
-- `substances`: a nested list of Brick Substance classes. Each list item should be of the form `[BRICK.measures, BRICK.<substance name>]` where `<substance name>` is replaced with the substance that is measured. Substances are defined in `substances.py`
+- `substances`: a nested list of Brick Substance classes. Each list item should be of the form `[BRICK.measures, BRICK.<substance name>]` where `<substance name>` is replaced with the substance that is measured. Substances are defined in `bricksrc/substances.py`
 - `SKOS.definition`: contains the definition of the class. The value must use the `Literal` constructor from RDFlib:
     ```python
     # example
@@ -104,14 +104,14 @@ The class property dictionary can have the following keys:
 
 Tags provide an alternative way of instantiating classes; Brick can infer classifications from the set of tags applied to an entity with the `brick.hasTag` relationship.
 Each subclass's tags should contain *at least* the tags of its parent class; currently, the set of tags for a class must be explicitly annotated.
-Tags can be explicitly defined in `tags.py`.
+Tags can be explicitly defined in `bricksrc/tags.py`.
 
 The set of tags for a class should be unique to the hierarchy rooted at that class.
 For consistency, if the set of tags `T1` for a class `C1` is a subset of the set of tags `T2` for a class `C2`, then `C1` **must** be a superclass of `C2`.
 
 ### Defining Brick Relationships
 
-Brick relationships are defined in `properties.py`.
+Brick relationships are defined in `bricksrc/properties.py`.
 The `properties` dictionary contains these definitions and follows a similar structure to the Brick class definitions: keys are property names; values are dictionaries of properties of the relationships.
 
 The following keys are expected for each relationship:
