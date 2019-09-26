@@ -109,7 +109,7 @@ properties = {
     },
     "isMeasuredBy": {
         A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
-        RDFS.domain: BRICK.Substance,
+        RDFS.domain: BRICK.Measurable,
         RDFS.range: BRICK.Point,
     },
     "regulates": {

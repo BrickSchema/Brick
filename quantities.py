@@ -28,6 +28,7 @@ quantity_definitions = {
                     "Active_Power": {
                         OWL.equivalentClass: "Real_Power",
                     },
+                    "Real_Power": {},
                     "Reactive_Power": {},
                     "Complex_Power": {},
                 },
