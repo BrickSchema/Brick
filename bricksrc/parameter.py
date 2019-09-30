@@ -155,9 +155,6 @@ parameter_definitions = {
                                             "Discharge_Water_Differential_Pressure_Proportional_Band_Parameter": {
                                                 "tags": [TAG.Discharge, TAG.Water, TAG.Differential, TAG.Pressure, TAG.Proportional, TAG.Band, TAG.Parameter , TAG.PID ],
                                             },
-                                            "Supply_Water_Differential_Pressure_Proportional_Band_Parameter": {
-                                                "tags": [TAG.Supply, TAG.Water, TAG.Differential, TAG.Pressure, TAG.Proportional, TAG.Bandsetpoint , TAG.PID ],
-                                            }
                                         },
                                         "tags": [ TAG.Supply, TAG.Water, TAG.Differential, TAG.Pressure, TAG.Proportional, TAG.Band, TAG.Parameter , TAG.PID ],
                                     },
