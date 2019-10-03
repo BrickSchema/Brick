@@ -26,7 +26,7 @@ argparser.add_argument('--oldbrick',
                        nargs=2,
                        metavar=('VERSION', 'PATH'),
                        help='The version of and the path to the old Brick. The path can be either a URL or filesystem path.',
-                       default=['1.0.2', 'https://github.com/BrickSchema/Brick/releases/download/v1.0.2/Brick.ttl'],
+                       default=['1.0.3', 'https://github.com/BrickSchema/Brick/releases/download/v1.0.2/Brick.ttl'],
                        )
 argparser.add_argument('--newbrick',
                        nargs=2,
