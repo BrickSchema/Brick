@@ -4,21 +4,49 @@ import os
 import pdb
 from collections import defaultdict
 import json
+import argparse
+import semver
 
 from tqdm import tqdm
 import rdflib
 from rdflib import Namespace, URIRef, RDF, RDFS, OWL
 from bricksrc.namespaces import BRICK_VERSION
 
-OLD_VERSION = '1.0.3'
-NEW_VERSION = BRICK_VERSION
 
-old_ttl = 'https://github.com/BrickSchema/Brick/releases/download/v{0}/Brick.ttl'.format(OLD_VERSION)
-new_ttl = 'Brick.ttl'  # The current dev version.
-OLD_BRICK = Namespace('https://brickschema.org/schema/{0}/Brick#'.format(OLD_VERSION))
-OLD_ROOT = URIRef('https://brickschema.org/schema/{0}/BrickFrame#TagSet'.format(OLD_VERSION))
-NEW_BRICK = Namespace('https://brickschema.org/schema/{0}/Brick#'.format(NEW_VERSION))
-NEW_ROOT = NEW_BRICK.Class
+def get_root(version):
+    if semver.compare(version, '1.0.3'):  # if the current version is newer than 1.0.3
+        root_template = 'https://brickschema.org/schema/{0}/Brick#Class'
+    else:
+        root_template = 'https://brickschema.org/schema/{0}/BrickFrame#TagSet'
+    return root_template.format(version)
+
+
+argparser = argparse.ArgumentParser()
+argparser.add_argument('--oldbrick',
+                       nargs=2,
+                       metavar=('VERSION', 'PATH'),
+                       help='The version of and the path to the old Brick. The path can be either a URL or filesystem path.',
+                       default=['1.0.2', 'https://github.com/BrickSchema/Brick/releases/download/v1.0.2/Brick.ttl'],
+                       )
+argparser.add_argument('--newbrick',
+                       nargs=2,
+                       metavar=('VERSION', 'PATH'),
+                       help='The version of, and the path to the new Brick. The path can be either a URL or filesystem path.',
+                       default=['1.1.0', './Brick.ttl'],
+                       )
+args = argparser.parse_args()
+
+
+old_ver = args.oldbrick[0]
+old_ttl = args.oldbrick[1]
+new_ver = args.newbrick[0]
+new_ttl = args.newbrick[1]
+
+brick_ns_template = 'https://brickschema.org/schema/{0}/Brick#'
+OLD_BRICK = Namespace(brick_ns_template.format(old_ver))
+NEW_BRICK = Namespace(brick_ns_template.format(new_ver))
+OLD_ROOT = get_root(old_ver)
+NEW_ROOT = get_root(new_ver)
 
 g = rdflib.Graph()
 g.parse(old_ttl, format='turtle')
@@ -49,7 +77,7 @@ def get_tag_sets(root):
 old_tag_sets = get_tag_sets(OLD_ROOT)
 new_tag_sets = get_tag_sets(NEW_ROOT)
 
-history_dir = 'history/{0}'.format(NEW_VERSION)
+history_dir = 'history/{0}'.format(new_ver)
 if not os.path.exists(history_dir):
     os.makedirs(history_dir)
 
