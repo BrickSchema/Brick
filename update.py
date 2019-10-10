@@ -12,7 +12,7 @@ parser.add_argument('--target',
 
 args = parser.parse_args()
 versions_graph = Graph()
-versions_graph.parse('versions.ttl', format='ttl')
+versions_graph.parse('versions.ttl', format='turtle')
 versions_graph.bind('version', Namespace("https:brickschema.org/version#"))
 job = versions_graph.query("""ASK{
                     "%s" version:updatesTo+ "%s"
@@ -26,7 +26,8 @@ for doable in job:
         for model in args.models:
             print('Updating {}...'.format(model))
             model_graph = Graph()
-            model_graph.parse(model, format='ttl')
+            model_graph.parse(model, format='turtle')
             for conversion in conversions:
-                print("converting {} to {}...".format(model, conversion[1]))
+                print("Converting {} to {}...".format(model, conversion[1]))
                 convert(conversion, model_graph)
+            model_graph.serialize('{}-{}'.format(args.target, model), format='turtle')
