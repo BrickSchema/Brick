@@ -1,0 +1,104 @@
+{
+  "namespaces": {
+    "oldRelationship": "http://brickschema.org/schema/1.0.2/BrickFrame#",
+    "newRelationship": "http://brickschema.org/schema/1.1.0/Brick#",
+    "oldClass": "http://brickschema.org/schema/1.0.2/Brick#",
+    "newClass": "http://brickschema.org/schema/1.1.0/Brick#",
+    "oldTag": "http://brickschema.org/schema/1.0.2/BrickTag#",
+    "newTag": "http://brickschema.org/schema/1.1.0/BrickTag#"
+  },
+  "operations": [
+    {
+      "description": "Add hasPart",
+      "query": "INSERT{ ?subject newRelationship:hasPart ?object . } WHERE { ?subject oldRelationship:contains ?object . }"
+    },
+    {
+      "description": "Remove contains",
+      "query": "DELETE{ ?subject oldRelationship:contains ?object . } WHERE { ?subject oldRelationship:contains ?object . }"
+    },
+    {
+      "description": "Add measures",
+      "query": "INSERT{ ?subject newRelationship:measures ?object . } WHERE { ?subject oldRelationship:hasMeasurement ?object . }"
+    },
+    {
+      "description": "Remove hasMeasurement",
+      "query": "DELETE{ ?subject oldRelationship:hasMeasurement ?object . } WHERE { ?subject oldRelationship:hasMeasurement ?object . }"
+    },
+    {
+      "description": "Add hasLocation",
+      "query": "INSERT{ ?subject newRelationship:hasLocation ?object . } WHERE { ?subject oldRelationship:isLocatedIn ?object . }"
+    },
+    {
+      "description": "Remove isLocatedIn",
+      "query": "DELETE{ ?subject oldRelationship:isLocatedIn ?object . } WHERE { ?subject oldRelationship:isLocatedIn ?object . }"
+    },
+    {
+      "description": "Add isMeasuredBy",
+      "query": "INSERT{ ?subject newRelationship:isMeasuredBy ?object . } WHERE { ?subject oldRelationship:usesDimension ?object . }"
+    },
+    {
+      "description": "Remove usesDimension",
+      "query": "DELETE{ ?subject oldRelationship:usesDimension ?object . } WHERE { ?subject oldRelationship:usesDimension ?object . }"
+    },
+    {
+      "description": "Add isMeasuredBy",
+      "query": "INSERT{ ?subject newRelationship:isMeasuredBy ?object . } WHERE { ?subject oldRelationship:usesMeasurement ?object . }"
+    },
+    {
+      "description": "Remove usesMeasurement",
+      "query": "DELETE{ ?subject oldRelationship:usesMeasurement ?object . } WHERE { ?subject oldRelationship:usesMeasurement ?object . }"
+    },
+    {
+      "description": "Add hasTag",
+      "query": "INSERT{ ?subject newRelationship:hasTag ?object . } WHERE { ?subject oldRelationship:usesTag ?object . }"
+    },
+    {
+      "description": "Remove usesTag",
+      "query": "DELETE{ ?subject oldRelationship:usesTag ?object . } WHERE { ?subject oldRelationship:usesTag ?object . }"
+    },
+    {
+      "description": "Remove hasTagSet",
+      "query": "DELETE{ ?subject oldRelationship:hasTagSet ?object . } WHERE { ?subject oldRelationship:hasTagSet ?object . }"
+    },
+    {
+      "description": "Remove hasToken",
+      "query": "DELETE{ ?subject oldRelationship:hasToken ?object . } WHERE { ?subject oldRelationship:hasToken ?object . }"
+    },
+    {
+      "description": "Remove hasUnit",
+      "query": "DELETE{ ?subject oldRelationship:hasUnit ?object . } WHERE { ?subject oldRelationship:hasUnit ?object . }"
+    },
+    {
+      "description": "Remove isHierarchical",
+      "query": "DELETE{ ?subject oldRelationship:isHierarchical ?object . } WHERE { ?subject oldRelationship:isHierarchical ?object . }"
+    },
+    {
+      "description": "Remove isTagSetOf",
+      "query": "DELETE{ ?subject oldRelationship:isTagSetOf ?object . } WHERE { ?subject oldRelationship:isTagSetOf ?object . }"
+    },
+    {
+      "description": "Remove isTokenOf",
+      "query": "DELETE{ ?subject oldRelationship:isTokenOf ?object . } WHERE { ?subject oldRelationship:isTokenOf ?object . }"
+    },
+    {
+      "description": "Remove similarTagSet",
+      "query": "DELETE{ ?subject oldRelationship:similarTagSet ?object . } WHERE { ?subject oldRelationship:similarTagSet ?object . }"
+    },
+    {
+      "description": "Remove usesEquipment",
+      "query": "DELETE{ ?subject oldRelationship:usesEquipment ?object . } WHERE { ?subject oldRelationship:usesEquipment ?object . }"
+    },
+    {
+      "description": "Remove usesLocation",
+      "query": "DELETE{ ?subject oldRelationship:usesLocation ?object . } WHERE { ?subject oldRelationship:usesLocation ?object . }"
+    },
+    {
+      "description": "Remove usesPoint",
+      "query": "DELETE{ ?subject oldRelationship:usesPoint ?object . } WHERE { ?subject oldRelationship:usesPoint ?object . }"
+    },
+    {
+      "description": "Remove hasToken",
+      "query": "DELETE{ ?subject oldRelationship:hasToken ?object . } WHERE { ?subject oldRelationship:hasToken ?object . }"
+    }
+  ]
+}
