@@ -6,9 +6,9 @@ parser = argparse.ArgumentParser(description='Update Brick models.')
 parser.add_argument('models', metavar='model', type=str, nargs='+',
                     help='a turtle file with a brick model')
 parser.add_argument('--source',
-                    help='source version')
+                    help='source version', required=True)
 parser.add_argument('--target',
-                    help='target version')
+                    help='target version', required=True)
 
 args = parser.parse_args()
 versions_graph = Graph()
