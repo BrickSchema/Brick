@@ -1,4 +1,7 @@
 from dijkstar import Graph, find_path
+from rdflib import Namespace
+import json
+import logging
 
 
 def find_conversions(source, target, versions_graph):
@@ -7,10 +10,9 @@ def find_conversions(source, target, versions_graph):
                         ?source_version version:updatesTo ?target_version .
     }"""):
         graph.add_edge(str(source_version), str(target_version), {'conversions': 1})
-        print(str(source_version), str(target_version))
     res = find_path(graph, str(source), str(target), cost_func=lambda u, v, e, prev_e: e['conversions'])
     conversions = []
-    print(' -> '.join(res.nodes))
+    print(' -> '.join(res.nodes), '\n')
     current = source
     for node in res.nodes:
         conversions.append((current, node))
@@ -19,6 +21,11 @@ def find_conversions(source, target, versions_graph):
 
 
 def convert(conversion, model_graph):
-    with open('./conversions/{}-{}.sparql'.format(*conversion), 'r') as file:
-        conversion_query = file.read()
-    model_graph.query(conversion_query)
+    with open('./conversions/{}-{}.json'.format(*conversion), 'r') as file:
+        conversion_data = json.load(file)
+    for prefix, namespace in conversion_data['namespaces'].items():
+        model_graph.bind(prefix, Namespace(namespace))
+    for operation in conversion_data['operations']:
+        logging.info(operation['description'])
+        model_graph.update(operation['query'])
+
