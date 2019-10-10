@@ -2,7 +2,6 @@ from dijkstar import Graph, find_path
 
 
 def find_conversions(source, target, versions_graph):
-    print("finding transient versions")
     graph = Graph()
     for source_version, target_version in versions_graph.query("""SELECT ?source_version ?target_version{
                         ?source_version version:updatesTo ?target_version .
