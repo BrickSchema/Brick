@@ -21,7 +21,7 @@ job = versions_graph.query("""ASK{
 
 for doable in job:
     if doable:
-        print("Conversion available!")
+        print("Conversion available!\n=====================")
         conversions = find_conversions(args.source, args.target, versions_graph)
         for model in args.models:
             print('Updating {}...'.format(model))
@@ -31,3 +31,6 @@ for doable in job:
                 print("Converting {} to {}...".format(model, conversion[1]))
                 convert(conversion, model_graph)
             model_graph.serialize('{}-{}'.format(args.target, model), format='turtle')
+            print('Output stored as ./{}-{}.\n\n'.format(args.target, model))
+    else:
+        print("No conversions available from {} to {}.".format(args.source, args.target))
