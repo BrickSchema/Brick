@@ -39,10 +39,10 @@ def standardize_namespaces(filename):
         f.write(standardized_turtle)
 
 
-def bump_versions(model, source, target):
-    with open('./output/{}'.format(model)) as f:
+def bump_versions(filename, source, target):
+    with open(filename) as f:
         updated_turtle = f.read().replace('https://brickschema.org/schema/{}/Brick'.format(source),
                                    'https://brickschema.org/schema/{}/Brick'.format(target))
 
-    with open('./output/{}'.format(model), "w") as f:
+    with open(filename, "w") as f:
         f.write(updated_turtle)
