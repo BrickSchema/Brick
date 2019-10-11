@@ -1,7 +1,7 @@
 {
   "namespaces": {
-    "brickframe": "https://brickschema.org/schema/1.0.2/BrickFrame#",
-    "brick": "https://brickschema.org/schema/1.0.2/Brick#"
+    "brickframe": "https://brickschema.org/schema/1.0.3/BrickFrame#",
+    "brick": "https://brickschema.org/schema/1.0.3/Brick#"
   },
   "operations": [
     {
