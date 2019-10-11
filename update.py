@@ -31,6 +31,11 @@ for doable in job:
                 print("Converting {} to {}...".format(model, conversion[1]))
                 convert(conversion, model_graph)
             model_graph.serialize('./output/{}'.format(model), format='turtle')
+            with open('./output/{}'.format(model)) as f:
+                newText = f.read().replace('https://brickschema.org/schema/{}/Brick'.format(args.source), 'https://brickschema.org/schema/{}/Brick'.format(args.target))
+
+            with open('./output/{}'.format(model), "w") as f:
+                f.write(newText)
             print('Output stored at ./output.\n\n'.format(args.target, model))
     else:
         print("No conversions available from {} to {}.".format(args.source, args.target))
