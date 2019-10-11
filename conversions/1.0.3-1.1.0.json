@@ -1,104 +1,108 @@
 {
   "namespaces": {
-    "oldRelationship": "http://brickschema.org/schema/1.0.2/BrickFrame#",
-    "newRelationship": "http://brickschema.org/schema/1.1.0/Brick#",
-    "oldClass": "http://brickschema.org/schema/1.0.2/Brick#",
-    "newClass": "http://brickschema.org/schema/1.1.0/Brick#",
-    "oldTag": "http://brickschema.org/schema/1.0.2/BrickTag#",
-    "newTag": "http://brickschema.org/schema/1.1.0/BrickTag#"
+    "brickframe": "https://brickschema.org/schema/1.0.2/BrickFrame#",
+    "brick": "https://brickschema.org/schema/1.0.2/Brick#"
   },
   "operations": [
     {
       "description": "Add hasPart",
-      "query": "INSERT{ ?subject newRelationship:hasPart ?object . } WHERE { ?subject oldRelationship:contains ?object . }"
+      "query": "INSERT{ ?subject brick:hasPart ?object . } WHERE { ?subject brickframe:contains ?object . }"
     },
     {
       "description": "Remove contains",
-      "query": "DELETE{ ?subject oldRelationship:contains ?object . } WHERE { ?subject oldRelationship:contains ?object . }"
+      "query": "DELETE{ ?subject brickframe:contains ?object . } WHERE { ?subject brickframe:contains ?object . }"
     },
     {
       "description": "Add measures",
-      "query": "INSERT{ ?subject newRelationship:measures ?object . } WHERE { ?subject oldRelationship:hasMeasurement ?object . }"
+      "query": "INSERT{ ?subject brick:measures ?object . } WHERE { ?subject brickframe:hasMeasurement ?object . }"
     },
     {
       "description": "Remove hasMeasurement",
-      "query": "DELETE{ ?subject oldRelationship:hasMeasurement ?object . } WHERE { ?subject oldRelationship:hasMeasurement ?object . }"
+      "query": "DELETE{ ?subject brickframe:hasMeasurement ?object . } WHERE { ?subject brickframe:hasMeasurement ?object . }"
     },
     {
       "description": "Add hasLocation",
-      "query": "INSERT{ ?subject newRelationship:hasLocation ?object . } WHERE { ?subject oldRelationship:isLocatedIn ?object . }"
+      "query": "INSERT{ ?subject brick:hasLocation ?object . } WHERE { ?subject brickframe:isLocatedIn ?object . }"
     },
     {
       "description": "Remove isLocatedIn",
-      "query": "DELETE{ ?subject oldRelationship:isLocatedIn ?object . } WHERE { ?subject oldRelationship:isLocatedIn ?object . }"
+      "query": "DELETE{ ?subject brickframe:isLocatedIn ?object . } WHERE { ?subject brickframe:isLocatedIn ?object . }"
     },
     {
       "description": "Add isMeasuredBy",
-      "query": "INSERT{ ?subject newRelationship:isMeasuredBy ?object . } WHERE { ?subject oldRelationship:usesDimension ?object . }"
+      "query": "INSERT{ ?subject brick:isMeasuredBy ?object . } WHERE { ?subject brickframe:usesDimension ?object . }"
     },
     {
       "description": "Remove usesDimension",
-      "query": "DELETE{ ?subject oldRelationship:usesDimension ?object . } WHERE { ?subject oldRelationship:usesDimension ?object . }"
+      "query": "DELETE{ ?subject brickframe:usesDimension ?object . } WHERE { ?subject brickframe:usesDimension ?object . }"
     },
     {
       "description": "Add isMeasuredBy",
-      "query": "INSERT{ ?subject newRelationship:isMeasuredBy ?object . } WHERE { ?subject oldRelationship:usesMeasurement ?object . }"
+      "query": "INSERT{ ?subject brick:isMeasuredBy ?object . } WHERE { ?subject brickframe:usesMeasurement ?object . }"
     },
     {
       "description": "Remove usesMeasurement",
-      "query": "DELETE{ ?subject oldRelationship:usesMeasurement ?object . } WHERE { ?subject oldRelationship:usesMeasurement ?object . }"
+      "query": "DELETE{ ?subject brickframe:usesMeasurement ?object . } WHERE { ?subject brickframe:usesMeasurement ?object . }"
     },
     {
       "description": "Add hasTag",
-      "query": "INSERT{ ?subject newRelationship:hasTag ?object . } WHERE { ?subject oldRelationship:usesTag ?object . }"
+      "query": "INSERT{ ?subject brick:hasTag ?object . } WHERE { ?subject brickframe:usesTag ?object . }"
     },
     {
       "description": "Remove usesTag",
-      "query": "DELETE{ ?subject oldRelationship:usesTag ?object . } WHERE { ?subject oldRelationship:usesTag ?object . }"
+      "query": "DELETE{ ?subject brickframe:usesTag ?object . } WHERE { ?subject brickframe:usesTag ?object . }"
     },
     {
       "description": "Remove hasTagSet",
-      "query": "DELETE{ ?subject oldRelationship:hasTagSet ?object . } WHERE { ?subject oldRelationship:hasTagSet ?object . }"
+      "query": "DELETE{ ?subject brickframe:hasTagSet ?object . } WHERE { ?subject brickframe:hasTagSet ?object . }"
     },
     {
       "description": "Remove hasToken",
-      "query": "DELETE{ ?subject oldRelationship:hasToken ?object . } WHERE { ?subject oldRelationship:hasToken ?object . }"
+      "query": "DELETE{ ?subject brickframe:hasToken ?object . } WHERE { ?subject brickframe:hasToken ?object . }"
     },
     {
       "description": "Remove hasUnit",
-      "query": "DELETE{ ?subject oldRelationship:hasUnit ?object . } WHERE { ?subject oldRelationship:hasUnit ?object . }"
+      "query": "DELETE{ ?subject brickframe:hasUnit ?object . } WHERE { ?subject brickframe:hasUnit ?object . }"
     },
     {
       "description": "Remove isHierarchical",
-      "query": "DELETE{ ?subject oldRelationship:isHierarchical ?object . } WHERE { ?subject oldRelationship:isHierarchical ?object . }"
+      "query": "DELETE{ ?subject brickframe:isHierarchical ?object . } WHERE { ?subject brickframe:isHierarchical ?object . }"
     },
     {
       "description": "Remove isTagSetOf",
-      "query": "DELETE{ ?subject oldRelationship:isTagSetOf ?object . } WHERE { ?subject oldRelationship:isTagSetOf ?object . }"
+      "query": "DELETE{ ?subject brickframe:isTagSetOf ?object . } WHERE { ?subject brickframe:isTagSetOf ?object . }"
     },
     {
       "description": "Remove isTokenOf",
-      "query": "DELETE{ ?subject oldRelationship:isTokenOf ?object . } WHERE { ?subject oldRelationship:isTokenOf ?object . }"
+      "query": "DELETE{ ?subject brickframe:isTokenOf ?object . } WHERE { ?subject brickframe:isTokenOf ?object . }"
     },
     {
       "description": "Remove similarTagSet",
-      "query": "DELETE{ ?subject oldRelationship:similarTagSet ?object . } WHERE { ?subject oldRelationship:similarTagSet ?object . }"
+      "query": "DELETE{ ?subject brickframe:similarTagSet ?object . } WHERE { ?subject brickframe:similarTagSet ?object . }"
     },
     {
       "description": "Remove usesEquipment",
-      "query": "DELETE{ ?subject oldRelationship:usesEquipment ?object . } WHERE { ?subject oldRelationship:usesEquipment ?object . }"
+      "query": "DELETE{ ?subject brickframe:usesEquipment ?object . } WHERE { ?subject brickframe:usesEquipment ?object . }"
     },
     {
       "description": "Remove usesLocation",
-      "query": "DELETE{ ?subject oldRelationship:usesLocation ?object . } WHERE { ?subject oldRelationship:usesLocation ?object . }"
+      "query": "DELETE{ ?subject brickframe:usesLocation ?object . } WHERE { ?subject brickframe:usesLocation ?object . }"
     },
     {
       "description": "Remove usesPoint",
-      "query": "DELETE{ ?subject oldRelationship:usesPoint ?object . } WHERE { ?subject oldRelationship:usesPoint ?object . }"
+      "query": "DELETE{ ?subject brickframe:usesPoint ?object . } WHERE { ?subject brickframe:usesPoint ?object . }"
     },
     {
       "description": "Remove hasToken",
-      "query": "DELETE{ ?subject oldRelationship:hasToken ?object . } WHERE { ?subject oldRelationship:hasToken ?object . }"
+      "query": "DELETE{ ?subject brickframe:hasToken ?object . } WHERE { ?subject brickframe:hasToken ?object . }"
+    },
+    {
+      "description": "Add brick:relationships",
+      "query": "INSERT{ ?subject ?newPredicate ?object . } WHERE { ?subject  ?predicate  ?object . FILTER (isURI(?predicate) && STRSTARTS(str(?predicate), str(brickframe:) ) ) BIND(uri(REPLACE(str(?predicate), str(brickframe:), str(brick:) )) AS ?newPredicate) }"
+    },
+    {
+      "description": "Remove brickframe:relationships",
+      "query": "DELETE{ ?subject ?predicate ?object . } WHERE { ?subject  ?predicate  ?object . FILTER (isURI(?predicate) && STRSTARTS(str(?predicate), str(brickframe:) ) )}"
     }
   ]
 }
