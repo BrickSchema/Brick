@@ -1,8 +1,16 @@
 {
   "namespaces": {
-
+    "brickframe": "https://brickschema.org/schema/1.0.2/BrickFrame#",
+    "brick": "https://brickschema.org/schema/1.0.2/Brick#"
   },
   "operations": [
-
+    {
+      "description": "Add hasLocation",
+      "query": "INSERT{ ?subject brick:hasLocation ?object . } WHERE { ?subject brickframe:isLocatedIn ?object . }"
+    },
+    {
+      "description": "Remove isLocatedIn",
+      "query": "DELETE{ ?subject brickframe:isLocatedIn ?object . } WHERE { ?subject brickframe:isLocatedIn ?object . }"
+    }
   ]
 }

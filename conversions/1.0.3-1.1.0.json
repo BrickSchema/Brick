@@ -21,14 +21,6 @@
       "query": "DELETE{ ?subject brickframe:hasMeasurement ?object . } WHERE { ?subject brickframe:hasMeasurement ?object . }"
     },
     {
-      "description": "Add hasLocation",
-      "query": "INSERT{ ?subject brick:hasLocation ?object . } WHERE { ?subject brickframe:isLocatedIn ?object . }"
-    },
-    {
-      "description": "Remove isLocatedIn",
-      "query": "DELETE{ ?subject brickframe:isLocatedIn ?object . } WHERE { ?subject brickframe:isLocatedIn ?object . }"
-    },
-    {
       "description": "Add isMeasuredBy",
       "query": "INSERT{ ?subject brick:isMeasuredBy ?object . } WHERE { ?subject brickframe:usesDimension ?object . }"
     },
