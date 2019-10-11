@@ -1,9 +1,8 @@
-import argparse
+from argparse import ArgumentParser
 from rdflib import Graph, Namespace
-from utils import find_conversions, convert, standardize_namespaces, bump_versions
-from shutil import copyfile
+from utils import find_conversions, convert, standardize_namespaces, bump_versions, create_output_file
 
-parser = argparse.ArgumentParser(description='Update Brick models.')
+parser = ArgumentParser(description='Update Brick models.')
 parser.add_argument('models', metavar='model', type=str, nargs='+',
                     help='a turtle file with a brick model')
 parser.add_argument('--source',
@@ -25,16 +24,14 @@ for doable in job:
         print("Conversion available!\n=====================")
         conversions = find_conversions(args.source, args.target, versions_graph)
         for model in args.models:
-            print('Updating {}...'.format(model))
-            copyfile(model, '{}_{}'.format(args.target, model))
-            model = '{}_{}'.format(args.target, model)
-            standardize_namespaces(model)
+            print('\n\nUpdating {}...'.format(model))
+            output = create_output_file(model, args.target)
+            standardize_namespaces(output)
             for conversion in conversions:
                 model_graph = Graph()
-                model_graph.parse(model, format='turtle')
-                print("Converting {} to {}...".format(model, conversion[1]))
+                model_graph.parse(output, format='turtle')
+                print("Converting to v{}...".format(conversion[1]))
                 convert(conversion, model_graph)
-                output = model
                 model_graph.serialize(output, format='turtle')
                 bump_versions(output, conversion[0], conversion[1])
             print('Output stored: {}'.format(output))

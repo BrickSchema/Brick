@@ -1,7 +1,8 @@
 from dijkstar import Graph, find_path
 from rdflib import Namespace
-import json
-import logging
+from json import load
+from logging import info
+from shutil import copyfile
 
 
 def find_conversions(source, target, versions_graph):
@@ -12,7 +13,7 @@ def find_conversions(source, target, versions_graph):
         graph.add_edge(str(source_version), str(target_version), {'conversions': 1})
     res = find_path(graph, str(source), str(target), cost_func=lambda u, v, e, prev_e: e['conversions'])
     conversions = []
-    print(' -> '.join(res.nodes), '\n')
+    print(' -> '.join(res.nodes))
     current = source
     for node in res.nodes:
         conversions.append((current, node))
@@ -22,12 +23,12 @@ def find_conversions(source, target, versions_graph):
 
 def convert(conversion, model_graph):
     with open('./conversions/{}-{}.json'.format(*conversion), 'r') as file:
-        conversion_data = json.load(file)
+        conversion_data = load(file)
     namespaces = {}
     for prefix, namespace in conversion_data['namespaces'].items():
         namespaces[prefix] = Namespace(namespace)
     for operation in conversion_data['operations']:
-        logging.info(operation['description'])
+        info(operation['description'])
         model_graph.update(operation['query'], initNs=namespaces)
 
 
@@ -46,3 +47,9 @@ def bump_versions(filename, source, target):
 
     with open(filename, "w") as f:
         f.write(updated_turtle)
+
+
+def create_output_file(model, target):
+    output = '{}_{}'.format(target, model)
+    copyfile(model, output)
+    return output
