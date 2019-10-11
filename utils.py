@@ -30,3 +30,19 @@ def convert(conversion, model_graph):
         logging.info(operation['description'])
         model_graph.update(operation['query'], initNs=namespaces)
 
+
+def standardize_namespaces(filename):
+    with open(filename) as f:
+        standardized_turtle = f.read().replace('http://brickschema.org',
+                                   'https://brickschema.org')
+    with open(filename, "w") as f:
+        f.write(standardized_turtle)
+
+
+def bump_versions(model, source, target):
+    with open('./output/{}'.format(model)) as f:
+        updated_turtle = f.read().replace('https://brickschema.org/schema/{}/Brick'.format(source),
+                                   'https://brickschema.org/schema/{}/Brick'.format(target))
+
+    with open('./output/{}'.format(model), "w") as f:
+        f.write(updated_turtle)

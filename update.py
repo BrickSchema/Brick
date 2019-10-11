@@ -1,6 +1,6 @@
 import argparse
 from rdflib import Graph, Namespace
-from utils import find_conversions, convert
+from utils import find_conversions, convert, standardize_namespaces, bump_versions
 
 parser = argparse.ArgumentParser(description='Update Brick models.')
 parser.add_argument('models', metavar='model', type=str, nargs='+',
@@ -26,20 +26,13 @@ for doable in job:
         for model in args.models:
             print('Updating {}...'.format(model))
             model_graph = Graph()
-            with open(model) as f:
-                newText = f.read().replace('http://brickschema.org/schema/{}/Brick'.format(args.source), 'https://brickschema.org/schema/{}/Brick'.format(args.source))
-            with open(model, "w") as f:
-                f.write(newText)
+            standardize_namespaces(model)
             model_graph.parse(model, format='turtle')
             for conversion in conversions:
                 print("Converting {} to {}...".format(model, conversion[1]))
                 convert(conversion, model_graph)
             model_graph.serialize('./output/{}'.format(model), format='turtle')
-            with open('./output/{}'.format(model)) as f:
-                newText = f.read().replace('https://brickschema.org/schema/{}/Brick'.format(args.source), 'https://brickschema.org/schema/{}/Brick'.format(args.target))
-
-            with open('./output/{}'.format(model), "w") as f:
-                f.write(newText)
+            bump_versions(model, args.source, args.target)
             print('Output stored at ./output.\n\n'.format(args.target, model))
     else:
         print("No conversions available from {} to {}.".format(args.source, args.target))
