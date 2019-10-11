@@ -49,7 +49,6 @@ def bump_versions(filename, source, target):
         f.write(updated_turtle)
 
 
-def create_output_file(model, target):
-    output = '{}_{}'.format(target, model)
-    copyfile(model, output)
-    return output
+def backup(model):
+    backup_file = '{}.bak'.format(model)
+    copyfile(model, backup_file)
