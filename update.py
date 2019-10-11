@@ -26,6 +26,10 @@ for doable in job:
         for model in args.models:
             print('Updating {}...'.format(model))
             model_graph = Graph()
+            with open(model) as f:
+                newText = f.read().replace('http://brickschema.org/schema/{}/Brick'.format(args.source), 'https://brickschema.org/schema/{}/Brick'.format(args.source))
+            with open(model, "w") as f:
+                f.write(newText)
             model_graph.parse(model, format='turtle')
             for conversion in conversions:
                 print("Converting {} to {}...".format(model, conversion[1]))
