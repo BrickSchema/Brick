@@ -23,9 +23,10 @@ def find_conversions(source, target, versions_graph):
 def convert(conversion, model_graph):
     with open('./conversions/{}-{}.json'.format(*conversion), 'r') as file:
         conversion_data = json.load(file)
+    namespaces = {}
     for prefix, namespace in conversion_data['namespaces'].items():
-        model_graph.bind(prefix, Namespace(namespace))
+        namespaces[prefix] = Namespace(namespace)
     for operation in conversion_data['operations']:
         logging.info(operation['description'])
-        model_graph.update(operation['query'])
+        model_graph.update(operation['query'], initNs=namespaces)
 
