@@ -11,6 +11,14 @@
     {
       "description": "Remove isLocatedIn",
       "query": "DELETE{ ?subject brickframe:isLocatedIn ?object . } WHERE { ?subject brickframe:isLocatedIn ?object . }"
+    },
+    {
+      "description": "Add Energy_Sensor",
+      "query": "INSERT{ ?subject a ?newObject . } WHERE { ?subject  a  ?object . FILTER (isURI(?object) && STRENDS(str(?object), \"Power_Meter\" ) ) BIND(uri(REPLACE(str(?object), \"Power_Meter\", \"Energy_Sensor\" )) AS ?newObject) }"
+    },
+    {
+      "description": "Add Energy_Sensor",
+      "query": "DELETE{ ?subject a ?object . } WHERE { ?subject  a  ?object . FILTER (isURI(?object) && STRENDS(str(?object), \"Power_Meter\" ) ) }"
     }
   ]
 }
