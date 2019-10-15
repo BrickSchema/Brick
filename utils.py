@@ -3,7 +3,7 @@ from rdflib import Namespace
 from json import load
 from logging import info
 from shutil import copyfile
-
+from tqdm import tqdm
 
 def find_conversions(source, target, versions_graph):
     """
@@ -47,7 +47,7 @@ def convert(conversion, model_graph):
     namespaces = {}
     for prefix, namespace in conversion_data['namespaces'].items():
         namespaces[prefix] = Namespace(namespace)
-    for operation in conversion_data['operations']:
+    for operation in tqdm(conversion_data['operations']):
         info(operation['description'])
         model_graph.update(operation['query'], initNs=namespaces)
 
