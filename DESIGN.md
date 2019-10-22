@@ -30,6 +30,14 @@ To validate a graph, use [pySHACL](https://github.com/RDFLib/pySHACL):
 pyshacl -s shacl_test.ttl -m -e Brick.ttl -f human sample_graph.ttl
 ```
 
+You may want to expand a graph before validating it. In that case, run
+
+```bash
+python expand_graph.py sample_graph.ttl
+```
+
+which will drop the expanded graph into `output.ttl` in the same directory.
+
 ## Brick SHACL shapes
 
 Going through what the SHACL shapes would look for for different tests. The examples below declare shapes in the `bsh` ("brickshape") namespace for clarity
