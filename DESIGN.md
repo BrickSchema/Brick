@@ -18,6 +18,17 @@ SHACL shapes for Brick should validate the following:
   - equipment along a chain of `brick:feeds` should all operate on the same substance
   - proper relationships exist between equipment: e.g. thermostat should have `controls` relationship to RTU
 
+## Getting Started
+
+Install `pyshacl` from pip.
+
+`generate_shacl.py` uses `bricksrc/` to generate a Shapes graph that is serialized to `shacl_test.ttl`.
+
+To validate a graph, use [pySHACL](https://github.com/RDFLib/pySHACL):
+
+```bash
+pyshacl -s shacl_test.ttl -m -e Brick.ttl -f human sample_graph.ttl
+```
 
 ## Brick SHACL shapes
 
@@ -27,16 +38,12 @@ Going through what the SHACL shapes would look for for different tests. The exam
 
 Property definitions (from the `bricksrc/properties.py` file) define inverses, domains/ranges of properties and subproperties. The shape graph would contain one shape for each Brick property that encodes constraints on the domain and/or range of the property.
 
-For example, the definitions of `brick:isLocationOf` and `brick:hasLocation` are
+**TODO**: so far, I'm only sure how to encode the `rdfs:range` property
+
+For example, the definition of `brick:hasLocation` is
 
 ```python
 {
-  "isLocationOf": {
-    A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
-    OWL.inverseOf: "hasLocation",
-    RDFS.domain: BRICK.Location,
-    SKOS.definition: Literal("Subject is the physical location encapsulating the object"),
-  }
   "hasLocation": {
     A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
     OWL.inverseOf: "isLocationOf",
@@ -46,41 +53,20 @@ For example, the definitions of `brick:isLocationOf` and `brick:hasLocation` are
 }
 ```
 
-This definition informs the following Shapes
+This definition informs the following Shape for the `rdfs:range` property
 
 ```ttl
-bsh:IsLocationOfShape
-    a   sh:NodeShape ;
-    sh:targetSubjectsOf brick:isLocationOf ;
-    sh:property [
-        sh:class    brick:Location ;
-        sh:nodeKind sh:IRI ;
-    ] ;
-    sh:closed false .
-
-bsh:HasLocationShape
+bsh:HasLocationRangeShape
     a   sh:NodeShape ;
     sh:targetObjectsOf brick:hasLocation ;
     sh:property [
         sh:class    brick:Location ;
+        sh:path     brick:hasLocation ;
         sh:nodeKind sh:IRI ;
-    ] ;
-    sh:closed false .
+    ] .
 ```
 
-For properties with both a domain and a range, we will need both a "domain" Shape and a "range" Shape:
-
-```ttl
-bsh:isMeasuredByDomainShape a sh:NodeShape ;
-    sh:property [ sh:class brick:Measurable ;
-            sh:nodeKind sh:IRI ] ;
-    sh:targetSubjectsOf brick:isMeasuredBy .
-
-bsh:isMeasuredByRangeShape a sh:NodeShape ;
-    sh:property [ sh:class brick:Point ;
-            sh:nodeKind sh:IRI ] ;
-    sh:targetObjectsOf brick:isMeasuredBy .
-```
+For properties with both a domain and a range, we will need both a "domain" Shape and a "range" Shape; however, at this time I'm not sure how to encode constraints for `rdfs:domain`.
 
 ### Special Property Constraints
 
