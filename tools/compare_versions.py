@@ -1,7 +1,6 @@
 import sys
 sys.path.append('./')  # Assume that this file is run at the root of the repo.
 import os
-import pdb
 from collections import defaultdict
 import json
 import argparse
@@ -49,7 +48,6 @@ OLD_ROOT = get_root(old_ver)
 NEW_ROOT = get_root(new_ver)
 
 g = rdflib.Graph()
-pdb.set_trace()
 g.parse(old_ttl, format='turtle')
 g.parse(new_ttl, format='turtle')
 g.bind('old_brick', OLD_BRICK)
