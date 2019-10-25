@@ -569,8 +569,8 @@
       "query": "DELETE{ ?subject ?predicate brick:Heat_Exchanger_Discharge_Water_Temperature_Sensor . } WHERE { ?subject  ?predicate  brick:Heat_Exchanger_Discharge_Water_Temperature_Sensor . }"
     },
     {
-      "description": "Add brick:Temperature, brick:Heat_Exchanger_Suply_Water",
-      "query": "INSERT{ ?subject ?predicate brick:Temperature, brick:Heat_Exchanger_Suply_Water . } WHERE { ?subject  ?predicate  brick:Heat_Exchanger_Supply_Water_Temperature . }"
+      "description": "Add brick:Temperature, brick:Heat_Exchanger_Supply_Water",
+      "query": "INSERT{ ?subject ?predicate brick:Temperature, brick:Heat_Exchanger_Supply_Water . } WHERE { ?subject  ?predicate  brick:Heat_Exchanger_Supply_Water_Temperature . }"
     },
     {
       "description": "Remove brick:Heat_Exchanger_Supply_Water_Temperature",
