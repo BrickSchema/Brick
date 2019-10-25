@@ -184,21 +184,21 @@ status_definitions = {
                             },
                         },
                     },
-                    "Off_Status": {
-                        "tags": [ TAG.Off, TAG.Status ],
-                        "subclasses": {
-                            "Turn_Off_Status": {},
-                        }
-                    },
-                    "On_Status": {
-                        "tags": [ TAG.On, TAG.Status ],
-                        "subclasses": {
-                            "Turn_On_Status": {},
-                        }
-                    },
                 },
                 "tags": [ TAG.On, TAG.Off, TAG.Status ],
-                "parents": [BRICK.Off_Status, BRICK.On_Status],
+                "parents": [BRICK.On_Status, BRICK.Off_Status],
+            },
+            "Off_Status": {
+                "tags": [ TAG.Off, TAG.Status ],
+                "subclasses": {
+                    "Turn_Off_Status": {},
+                }
+            },
+            "On_Status": {
+                "tags": [ TAG.On, TAG.Status ],
+                "subclasses": {
+                    "Turn_On_Status": {},
+                }
             },
             "Overridden_Status": {
                 "subclasses": {
