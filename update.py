@@ -34,7 +34,7 @@ versions_graph.bind('version', Namespace("https:brickschema.org/version#"))
 
 # Ask if the conversion is possible
 job = versions_graph.query("""ASK{
-                    "%s" version:updatesTo+ "%s"
+                    "%s" version:convertsTo+ "%s"
 }""" % (args.source, args.target))
 
 # If yes, find the shortest path and convert

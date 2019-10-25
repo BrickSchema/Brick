@@ -3,8 +3,7 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-version:updatesTo a owl:TransitiveProperty .
+version:convertsTo a owl:TransitiveProperty .
 
-"1.0.2" version:updatesTo "1.0.3" .
-"1.0.3" version:updatesTo "1.1.0" .
-"1.0.2" version:updatesTo "1.1.0" .
+"1.0.2" version:convertsTo "1.0.3" .
+"1.0.3" version:convertsTo "1.1.0" .

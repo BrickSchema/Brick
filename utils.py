@@ -15,7 +15,7 @@ def find_conversions(source, target, versions_graph):
     """
     graph = Graph()
     for source_version, target_version in versions_graph.query("""SELECT ?source_version ?target_version{
-                        ?source_version version:updatesTo ?target_version .
+                        ?source_version version:convertsTo ?target_version .
     }"""):
         graph.add_edge(str(source_version), str(target_version), {'conversions': 1})
 
