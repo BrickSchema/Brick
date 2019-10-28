@@ -320,10 +320,6 @@ sensor_definitions = {
                     }
                 }
             },
-            "Luminance_Sensor": {
-                "tags": [ TAG.Sensor, TAG.Luminance ],
-                "substances": [ [ BRICK.measures, BRICK.Luminance ], ],
-            },
             "Motion_Sensor": {
                 "tags": [ TAG.Sensor, TAG.Motion ],
                 "subclasses": {
