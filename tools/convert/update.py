@@ -1,6 +1,6 @@
 from argparse import ArgumentParser
 from rdflib import Graph, Namespace
-from utils import find_conversions, convert, standardize_namespaces, bump_versions, backup
+from tools.convert.utils import find_conversions, convert, standardize_namespaces, bump_versions, backup
 from logging import getLogger
 
 
