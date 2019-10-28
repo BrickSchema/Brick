@@ -226,3 +226,16 @@ define_subclasses(definitions, BRICK.Equipment)
 ```
 
 For now, the code is the documentation. Look at `bricksrc/equipment.py`, `bricksrc/point.py`, etc. for examples and how to add to each of the class hierarchies.
+
+## Other Tools
+
+### Version Comparison
+
+We can track the different classes between versions. The below scripts produces comparison files.
+- `python tools/compare --oldbrick 1.0.3 https://github.com/BrickSchema/Brick/releases/download/v1.0.2/Brick.ttl --newbrick 1.1.0 ./Brick.ttl`
+
+It will produce three files inside `history/{current_version}`.
+- `added_classes.txt`: A list of new classes introduced in the current version compared to the previous version.
+- `removed_classes.txt`: A list of old classes removed in the current version compared to the previous version.
+- `possible_mapping.json`: A map of candidate classes that can replace removed classes. Keys are removed classes and the values are candidate correspondants in the new vesion.
+
