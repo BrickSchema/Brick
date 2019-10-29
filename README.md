@@ -232,7 +232,7 @@ For now, the code is the documentation. Look at `bricksrc/equipment.py`, `bricks
 ### Version Comparison
 
 We can track the different classes between versions. The below scripts produces comparison files.
-- `python tools/compare --oldbrick 1.0.3 https://github.com/BrickSchema/Brick/releases/download/v1.0.2/Brick.ttl --newbrick 1.1.0 ./Brick.ttl`
+- `python tools/compare_versions/compare_versions.py --oldbrick 1.0.3 https://github.com/BrickSchema/Brick/releases/download/v1.0.3/Brick.ttl --newbrick 1.1.0 ./Brick.ttl`
 
 It will produce three files inside `history/{current_version}`.
 - `added_classes.txt`: A list of new classes introduced in the current version compared to the previous version.

@@ -13,7 +13,7 @@ from bricksrc.namespaces import BRICK_VERSION
 
 
 def get_root(version):
-    if semver.compare(version, '1.0.3'):  # if the current version is newer than 1.0.3
+    if semver.compare(version, '1.0.3') > 0:  # if the current version is newer than 1.0.3
         root_template = 'https://brickschema.org/schema/{0}/Brick#Class'
     else:
         root_template = 'https://brickschema.org/schema/{0}/BrickFrame#TagSet'
