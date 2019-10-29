@@ -5,20 +5,140 @@
   },
   "operations": [
     {
-      "description": "Add hasLocation",
+      "description": "Add brickframe:hasLocation",
       "query": "INSERT{ ?subject brick:hasLocation ?object . } WHERE { ?subject brickframe:isLocatedIn ?object . }"
     },
     {
-      "description": "Remove isLocatedIn",
+      "description": "Remove brickframe:isLocatedIn",
       "query": "DELETE{ ?subject brickframe:isLocatedIn ?object . } WHERE { ?subject brickframe:isLocatedIn ?object . }"
     },
     {
-      "description": "Add Energy_Sensor",
-      "query": "INSERT{ ?subject a ?newObject . } WHERE { ?subject  a  ?object . FILTER (isURI(?object) && STRENDS(str(?object), \"Power_Meter\" ) ) BIND(uri(REPLACE(str(?object), \"Power_Meter\", \"Energy_Sensor\" )) AS ?newObject) }"
+      "description": "Add brick:AHU_Occupancy_Command",
+      "query": "INSERT{ ?subject ?predicate brick:AHU_Occupancy_Command . } WHERE { ?subject  ?predicate  brick:AHU_Occupied_Command . }"
     },
     {
-      "description": "Add Energy_Sensor",
-      "query": "DELETE{ ?subject a ?object . } WHERE { ?subject  a  ?object . FILTER (isURI(?object) && STRENDS(str(?object), \"Power_Meter\" ) ) }"
+      "description": "Remove brick:AHU_Occupied_Command",
+      "query": "DELETE{ ?subject ?predicate brick:AHU_Occupied_Command . } WHERE { ?subject  ?predicate  brick:AHU_Occupied_Command . }"
+    },
+    {
+      "description": "Add brick:CWS_Chilled_Water_Pump_Differential_Pressure_Integral_Time_Setpoint",
+      "query": "INSERT{ ?subject ?predicate brick:CWS_Chilled_Water_Pump_Differential_Pressure_Integral_Time_Setpoint . } WHERE { ?subject  ?predicate  brick:CWS_Chilled_Water_Pump_Differential_Pressure_Integration_Time_Setpoint . }"
+    },
+    {
+      "description": "Remove brick:CWS_Chilled_Water_Pump_Differential_Pressure_Integration_Time_Setpoint",
+      "query": "DELETE{ ?subject ?predicate brick:CWS_Chilled_Water_Pump_Differential_Pressure_Integration_Time_Setpoint . } WHERE { ?subject  ?predicate  brick:CWS_Chilled_Water_Pump_Differential_Pressure_Integration_Time_Setpoint . }"
+    },
+    {
+      "description": "Add brick:Chilled_Water_Pump_Differential_Pressure_Integral_Time",
+      "query": "INSERT{ ?subject ?predicate brick:Chilled_Water_Pump_Differential_Pressure_Integral_Time . } WHERE { ?subject  ?predicate  brick:Chilled_Water_Pump_Differential_Pressure_Integration_Time . }"
+    },
+    {
+      "description": "Remove brick:Chilled_Water_Pump_Differential_Pressure_Integration_Time",
+      "query": "DELETE{ ?subject ?predicate brick:Chilled_Water_Pump_Differential_Pressure_Integration_Time . } WHERE { ?subject  ?predicate  brick:Chilled_Water_Pump_Differential_Pressure_Integration_Time . }"
+    },
+    {
+      "description": "Add brick:Chilled_Water_Pump_Differential_Pressure_Integral_Time_Setpoint",
+      "query": "INSERT{ ?subject ?predicate brick:Chilled_Water_Pump_Differential_Pressure_Integral_Time_Setpoint . } WHERE { ?subject  ?predicate  brick:Chilled_Water_Pump_Differential_Pressure_Integration_Time_Setpoint . }"
+    },
+    {
+      "description": "Remove brick:Chilled_Water_Pump_Differential_Pressure_Integration_Time_Setpoint",
+      "query": "DELETE{ ?subject ?predicate brick:Chilled_Water_Pump_Differential_Pressure_Integration_Time_Setpoint . } WHERE { ?subject  ?predicate  brick:Chilled_Water_Pump_Differential_Pressure_Integration_Time_Setpoint . }"
+    },
+    {
+      "description": "Add brick:Cooling_Thermal_Power_Sensor",
+      "query": "INSERT{ ?subject ?predicate brick:Cooling_Thermal_Power_Sensor . } WHERE { ?subject  ?predicate  brick:Cooling_Thermal_Power_Meter . }"
+    },
+    {
+      "description": "Remove brick:Cooling_Thermal_Power_Meter",
+      "query": "DELETE{ ?subject ?predicate brick:Cooling_Thermal_Power_Meter . } WHERE { ?subject  ?predicate  brick:Cooling_Thermal_Power_Meter . }"
+    },
+    {
+      "description": "Add brick:Current_Steam_Usage_Sensor",
+      "query": "INSERT{ ?subject ?predicate brick:Current_Steam_Usage_Sensor . } WHERE { ?subject  ?predicate  brick:Current_Steam_Usage_Meter . }"
+    },
+    {
+      "description": "Remove brick:Current_Steam_Usage_Meter",
+      "query": "DELETE{ ?subject ?predicate brick:Current_Steam_Usage_Meter . } WHERE { ?subject  ?predicate  brick:Current_Steam_Usage_Meter . }"
+    },
+    {
+      "description": "Add brick:Heating_Thermal_Power_Sensor",
+      "query": "INSERT{ ?subject ?predicate brick:Heating_Thermal_Power_Sensor . } WHERE { ?subject  ?predicate  brick:Heating_Thermal_Power_Meter . }"
+    },
+    {
+      "description": "Remove brick:Heating_Thermal_Power_Meter",
+      "query": "DELETE{ ?subject ?predicate brick:Heating_Thermal_Power_Meter . } WHERE { ?subject  ?predicate  brick:Heating_Thermal_Power_Meter . }"
+    },
+    {
+      "description": "Add brick:Hot_Water_Flow_Sensor",
+      "query": "INSERT{ ?subject ?predicate brick:Hot_Water_Flow_Sensor . } WHERE { ?subject  ?predicate  brick:Hot_Water_Flow_Meter . }"
+    },
+    {
+      "description": "Remove brick:Hot_Water_Flow_Meter",
+      "query": "DELETE{ ?subject ?predicate brick:Hot_Water_Flow_Meter . } WHERE { ?subject  ?predicate  brick:Hot_Water_Flow_Meter . }"
+    },
+    {
+      "description": "Add brick:Monthly_Steam_Usage_Sensor",
+      "query": "INSERT{ ?subject ?predicate brick:Monthly_Steam_Usage_Sensor . } WHERE { ?subject  ?predicate  brick:Monthly_Steam_Usage_Meter . }"
+    },
+    {
+      "description": "Remove brick:Monthly_Steam_Usage_Meter",
+      "query": "DELETE{ ?subject ?predicate brick:Monthly_Steam_Usage_Meter . } WHERE { ?subject  ?predicate  brick:Monthly_Steam_Usage_Meter . }"
+    },
+    {
+      "description": "Add brick:Motor_Power_Sensor",
+      "query": "INSERT{ ?subject ?predicate brick:Motor_Power_Sensor . } WHERE { ?subject  ?predicate  brick:Motor_Power_Meter . }"
+    },
+    {
+      "description": "Remove brick:Motor_Power_Meter",
+      "query": "DELETE{ ?subject ?predicate brick:Motor_Power_Meter . } WHERE { ?subject  ?predicate  brick:Motor_Power_Meter . }"
+    },
+    {
+      "description": "Add brick:Occupied_Mode",
+      "query": "INSERT{ ?subject ?predicate brick:Occupied_Mode . } WHERE { ?subject  ?predicate  brick:Occupied . }"
+    },
+    {
+      "description": "Remove brick:Occupied",
+      "query": "DELETE{ ?subject ?predicate brick:Occupied . } WHERE { ?subject  ?predicate  brick:Occupied . }"
+    },
+    {
+      "description": "Add brick:Steam_Usage_Sensor",
+      "query": "INSERT{ ?subject ?predicate brick:Steam_Usage_Sensor . } WHERE { ?subject  ?predicate  brick:Steam_Usage_Meter . }"
+    },
+    {
+      "description": "Remove brick:Steam_Usage_Meter",
+      "query": "DELETE{ ?subject ?predicate brick:Steam_Usage_Meter . } WHERE { ?subject  ?predicate  brick:Steam_Usage_Meter . }"
+    },
+    {
+      "description": "Add brick:Today_Steam_Usage_Sensor",
+      "query": "INSERT{ ?subject ?predicate brick:Today_Steam_Usage_Sensor . } WHERE { ?subject  ?predicate  brick:Steam_Usage_Today_Meter . }"
+    },
+    {
+      "description": "Remove brick:Steam_Usage_Today_Meter",
+      "query": "DELETE{ ?subject ?predicate brick:Steam_Usage_Today_Meter . } WHERE { ?subject  ?predicate  brick:Steam_Usage_Today_Meter . }"
+    },
+    {
+      "description": "Add brick:Thermal_Power_Sensor",
+      "query": "INSERT{ ?subject ?predicate brick:Thermal_Power_Sensor . } WHERE { ?subject  ?predicate  brick:Thermal_Power_Meter . }"
+    },
+    {
+      "description": "Remove brick:Thermal_Power_Meter",
+      "query": "DELETE{ ?subject ?predicate brick:Thermal_Power_Meter . } WHERE { ?subject  ?predicate  brick:Thermal_Power_Meter . }"
+    },
+    {
+      "description": "Add brick:VAV_Occupancy_Command",
+      "query": "INSERT{ ?subject ?predicate brick:VAV_Occupancy_Command . } WHERE { ?subject  ?predicate  brick:VAV_Occupied_Command . }"
+    },
+    {
+      "description": "Remove brick:VAV_Occupied_Command",
+      "query": "DELETE{ ?subject ?predicate brick:VAV_Occupied_Command . } WHERE { ?subject  ?predicate  brick:VAV_Occupied_Command . }"
+    },
+    {
+      "description": "Add brick:Yearly_Steam_Usage_Sensor",
+      "query": "INSERT{ ?subject ?predicate brick:Yearly_Steam_Usage_Sensor . } WHERE { ?subject  ?predicate  brick:Yearly_Steam_Usage_Meter . }"
+    },
+    {
+      "description": "Remove brick:Yearly_Steam_Usage_Meter",
+      "query": "DELETE{ ?subject ?predicate brick:Yearly_Steam_Usage_Meter . } WHERE { ?subject  ?predicate  brick:Yearly_Steam_Usage_Meter . }"
     }
   ]
 }
