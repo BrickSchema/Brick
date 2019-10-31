@@ -1530,7 +1530,7 @@ brick:Photovoltaic_Current_Output a owl:Class ;
         btag:Output,
         btag:Photovoltaic ;
     rdfs:subClassOf brick:Current ;
-    owl:equivalentClass brick:_PV_Current_Output .
+    owl:equivalentClass brick:PV_Current_Output .
 
 brick:PreHeat_Coil_Leaving_Water_Temperature_Sensor a owl:Class ;
     rdfs:label "PreHeat Coil Leaving Water Temperature Sensor"@en ;
@@ -5975,8 +5975,8 @@ brick:Drive_Temperature_Sensor a owl:Class ;
     rdfs:subClassOf brick:Temperature_Sensor .
 
 brick:DualBand_Mode_Setpoint a owl:Class ;
-    rdfs:label "DualBand Mode Setpoint"@en ;
-    bf:usesTag btag:DualBand,
+    rdfs:label "Dual_Band Mode Setpoint"@en ;
+    bf:usesTag btag:Dual_Band,
         btag:Mode,
         btag:Setpoint ;
     rdfs:subClassOf brick:Mode_Setpoint .
@@ -8963,7 +8963,7 @@ brick:Zone_Unoccupied_Load_Shed_Command a owl:Class ;
         btag:Zone ;
     rdfs:subClassOf brick:Unoccupied_Load_Shed_Command .
 
-brick:_PV_Current_Output a owl:Class ;
+brick:PV_Current_Output a owl:Class ;
     rdfs:label "Photovoltaic Current Output"@en ;
     bf:usesTag btag:Current,
         btag:Output,
@@ -9144,8 +9144,8 @@ btag:Detection a owl:Class ;
     rdfs:label "Detection"@en ;
     rdfs:subClassOf btag:MeasurementProperty_Modifier .
 
-btag:DualBand a owl:Class ;
-    rdfs:label "DualBand"@en ;
+btag:Dual_Band a owl:Class ;
+    rdfs:label "Dual_Band"@en ;
     rdfs:subClassOf btag:MeasurementProperty_Modifier .
 
 btag:Duration a owl:Class ;
@@ -9605,10 +9605,10 @@ btag:Yearly a owl:Class ;
     bf:feeds <http://brickschema.org/schema/1.0.2/building_example#building:gtc/radiator_htb/port[so]> ;
     bf:isLocatedIn <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.A.1/room> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.A.1/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.A.1/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.0.1]> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.A.1/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.A.1/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.0.1]> .
 
 <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.A.1/temperature_sensor> a gtc:Celcius_Room_Temperature_Sensor ;
@@ -9692,10 +9692,10 @@ btag:Yearly a owl:Class ;
     bf:feeds <http://brickschema.org/schema/1.0.2/building_example#building:gtc/radiator_htb/port[so]> ;
     bf:isLocatedIn <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.A.11/room> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.A.11/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.A.11/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.0.1]> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.A.11/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.A.11/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.0.1]> .
 
 <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.A.11/temperature_sensor> a gtc:Celcius_Room_Temperature_Sensor ;
@@ -9787,10 +9787,10 @@ btag:Yearly a owl:Class ;
     bf:feeds <http://brickschema.org/schema/1.0.2/building_example#building:gtc/radiator_htb/port[so]> ;
     bf:isLocatedIn <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.A.20/room> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.A.20/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.A.20/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.0.2]> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.A.20/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.A.20/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.0.2]> .
 
 <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.A.20/temperature_sensor> a gtc:Celcius_Room_Temperature_Sensor ;
@@ -9894,10 +9894,10 @@ btag:Yearly a owl:Class ;
     bf:feeds <http://brickschema.org/schema/1.0.2/building_example#building:gtc/radiator_htb/port[so]> ;
     bf:isLocatedIn <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.A.22/room> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.A.22/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.A.22/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.0.2]> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.A.22/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.A.22/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.0.2]> .
 
 <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.A.22/temperature_sensor> a gtc:Celcius_Room_Temperature_Sensor ;
@@ -9981,10 +9981,10 @@ btag:Yearly a owl:Class ;
     bf:feeds <http://brickschema.org/schema/1.0.2/building_example#building:gtc/radiator_htb/port[so]> ;
     bf:isLocatedIn <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.A.28A/room> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.A.28A/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.A.28A/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.0.2]> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.A.28A/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.A.28A/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.0.2]> .
 
 <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.A.28A/temperature_sensor> a gtc:Celcius_Room_Temperature_Sensor ;
@@ -10078,10 +10078,10 @@ btag:Yearly a owl:Class ;
     bf:feeds <http://brickschema.org/schema/1.0.2/building_example#building:gtc/radiator_htb/port[so]> ;
     bf:isLocatedIn <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.A.28B/room> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.A.28B/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.A.28B/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.0.2]> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.A.28B/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.A.28B/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.0.2]> .
 
 <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.A.28B/temperature_sensor> a gtc:Celcius_Room_Temperature_Sensor ;
@@ -10155,10 +10155,10 @@ btag:Yearly a owl:Class ;
     bf:feeds <http://brickschema.org/schema/1.0.2/building_example#building:gtc/radiator_htb/port[so]> ;
     bf:isLocatedIn <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.A.5/room> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.A.5/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.A.5/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.0.1]> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.A.5/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.A.5/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.0.1]> .
 
 <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.A.5/temperature_sensor> a gtc:Celcius_Room_Temperature_Sensor ;
@@ -10232,10 +10232,10 @@ btag:Yearly a owl:Class ;
     bf:feeds <http://brickschema.org/schema/1.0.2/building_example#building:gtc/radiator_htb/port[so]> ;
     bf:isLocatedIn <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.A.7/room> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.A.7/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.A.7/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.0.1]> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.A.7/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.A.7/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.0.1]> .
 
 <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.A.7/temperature_sensor> a gtc:Celcius_Room_Temperature_Sensor ;
@@ -10309,10 +10309,10 @@ btag:Yearly a owl:Class ;
     bf:feeds <http://brickschema.org/schema/1.0.2/building_example#building:gtc/radiator_htb/port[so]> ;
     bf:isLocatedIn <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.A.9/room> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.A.9/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.A.9/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.0.1]> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.A.9/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.A.9/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.0.1]> .
 
 <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.A.9/temperature_sensor> a gtc:Celcius_Room_Temperature_Sensor ;
@@ -10392,10 +10392,10 @@ btag:Yearly a owl:Class ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/main_common_meter> ;
     bf:isLocatedIn <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.B.19/room> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.B.19/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.B.19/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/main_common_meter> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.B.19/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.B.19/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/main_common_meter> .
 
 <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.B.19/temperature_sensor> a gtc:Celcius_Room_Temperature_Sensor ;
@@ -10455,10 +10455,10 @@ btag:Yearly a owl:Class ;
 
 <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.E.5Gang/override> a gtc:Override_Command .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.E.5Gang/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.E.5Gang/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.2.4]> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.E.5Gang/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.E.5Gang/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.2.4]> .
 
 <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.E.5Gang/temperature_sensor> a gtc:Celcius_Room_Temperature_Sensor ;
@@ -10532,10 +10532,10 @@ btag:Yearly a owl:Class ;
     bf:feeds <http://brickschema.org/schema/1.0.2/building_example#building:gtc/radiator_htb/port[so]> ;
     bf:isLocatedIn <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.F.6/room> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.F.6/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.F.6/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.0.1]> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.F.6/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.F.6/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.0.1]> .
 
 <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.F.6/temperature_sensor> a gtc:Celcius_Room_Temperature_Sensor ;
@@ -10629,10 +10629,10 @@ btag:Yearly a owl:Class ;
     bf:feeds <http://brickschema.org/schema/1.0.2/building_example#building:gtc/radiator_htb/port[so]> ;
     bf:isLocatedIn <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.H.1/room> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.H.1/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.H.1/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.0.1]> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.H.1/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.H.1/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.0.1]> .
 
 <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.H.1/temperature_sensor> a gtc:Celcius_Room_Temperature_Sensor ;
@@ -10706,10 +10706,10 @@ btag:Yearly a owl:Class ;
     bf:feeds <http://brickschema.org/schema/1.0.2/building_example#building:gtc/radiator_htb/port[so]> ;
     bf:isLocatedIn <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.H.6/room> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.H.6/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.H.6/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.0.1]> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.H.6/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.H.6/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.0.1]> .
 
 <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.H.6/temperature_sensor> a gtc:Celcius_Room_Temperature_Sensor ;
@@ -10832,10 +10832,10 @@ btag:Yearly a owl:Class ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/main_common_meter> ;
     bf:isLocatedIn <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.I.19/room> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.I.19/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.I.19/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/main_common_meter> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.I.19/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.I.19/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/main_common_meter> .
 
 <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.I.19/temperature_sensor> a gtc:Celcius_Room_Temperature_Sensor ;
@@ -10883,10 +10883,10 @@ btag:Yearly a owl:Class ;
 
 <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.I.20Gang/override> a gtc:Override_Command .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.I.20Gang/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.I.20Gang/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.2.2]> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.I.20Gang/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.I.20Gang/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.2.2]> .
 
 <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.I.20Gang/temperature_sensor> a gtc:Celcius_Room_Temperature_Sensor ;
@@ -10934,10 +10934,10 @@ btag:Yearly a owl:Class ;
 
 <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.I.5Gang/override> a gtc:Override_Command .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.I.5Gang/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.I.5Gang/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.2.3]> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.I.5Gang/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.I.5Gang/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.2.3]> .
 
 <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.I.5Gang/temperature_sensor> a gtc:Celcius_Room_Temperature_Sensor ;
@@ -11011,10 +11011,10 @@ btag:Yearly a owl:Class ;
     bf:feeds <http://brickschema.org/schema/1.0.2/building_example#building:gtc/radiator_htb/port[so]> ;
     bf:isLocatedIn <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.J.13/room> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.J.13/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.J.13/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.0.1]> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.J.13/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.J.13/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.0.1]> .
 
 <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.J.13/temperature_sensor> a gtc:Celcius_Room_Temperature_Sensor ;
@@ -11088,10 +11088,10 @@ btag:Yearly a owl:Class ;
     bf:feeds <http://brickschema.org/schema/1.0.2/building_example#building:gtc/radiator_htb/port[so]> ;
     bf:isLocatedIn <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.J.5/room> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.J.5/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.J.5/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.0.1]> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.J.5/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.J.5/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.0.1]> .
 
 <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.J.5/temperature_sensor> a gtc:Celcius_Room_Temperature_Sensor ;
@@ -11165,10 +11165,10 @@ btag:Yearly a owl:Class ;
     bf:feeds <http://brickschema.org/schema/1.0.2/building_example#building:gtc/radiator_htb/port[so]> ;
     bf:isLocatedIn <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.J.7/room> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.J.7/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.J.7/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.0.1]> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.J.7/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.J.7/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.0.1]> .
 
 <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.J.7/temperature_sensor> a gtc:Celcius_Room_Temperature_Sensor ;
@@ -11242,10 +11242,10 @@ btag:Yearly a owl:Class ;
     bf:feeds <http://brickschema.org/schema/1.0.2/building_example#building:gtc/radiator_htb/port[so]> ;
     bf:isLocatedIn <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.J.9/room> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.J.9/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.J.9/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.0.1]> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.J.9/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.J.9/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.0.1]> .
 
 <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.J.9/temperature_sensor> a gtc:Celcius_Room_Temperature_Sensor ;
@@ -11319,10 +11319,10 @@ btag:Yearly a owl:Class ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/main_common_meter> ;
     bf:isLocatedIn <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.K.25/room> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.K.25/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.K.25/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/main_common_meter> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.K.25/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.K.25/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/main_common_meter> .
 
 <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.K.25/temperature_sensor> a gtc:Celcius_Room_Temperature_Sensor ;
@@ -11401,10 +11401,10 @@ btag:Yearly a owl:Class ;
     bf:feeds <http://brickschema.org/schema/1.0.2/building_example#building:gtc/radiator_htb/port[so]> ;
     bf:isLocatedIn <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.A.11/room> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.A.11/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.A.11/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.1.4]> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.A.11/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.A.11/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.1.4]> .
 
 <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.A.11/temperature_sensor> a gtc:Celcius_Room_Temperature_Sensor ;
@@ -11493,10 +11493,10 @@ btag:Yearly a owl:Class ;
     bf:feeds <http://brickschema.org/schema/1.0.2/building_example#building:gtc/radiator_htb/port[so]> ;
     bf:isLocatedIn <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.A.19/room> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.A.19/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.A.19/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.1.1]> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.A.19/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.A.19/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.1.1]> .
 
 <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.A.19/temperature_sensor> a gtc:Celcius_Room_Temperature_Sensor ;
@@ -11610,10 +11610,10 @@ btag:Yearly a owl:Class ;
     bf:feeds <http://brickschema.org/schema/1.0.2/building_example#building:gtc/radiator_htb/port[so]> ;
     bf:isLocatedIn <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.A.1a/room> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.A.1a/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.A.1a/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.1.4]> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.A.1a/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.A.1a/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.1.4]> .
 
 <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.A.1a/temperature_sensor> a gtc:Celcius_Room_Temperature_Sensor ;
@@ -11743,10 +11743,10 @@ btag:Yearly a owl:Class ;
     bf:feeds <http://brickschema.org/schema/1.0.2/building_example#building:gtc/radiator_htb/port[so]> ;
     bf:isLocatedIn <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.A.22A/room> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.A.22A/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.A.22A/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.1.1]> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.A.22A/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.A.22A/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.1.1]> .
 
 <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.A.22A/temperature_sensor> a gtc:Celcius_Room_Temperature_Sensor ;
@@ -11866,10 +11866,10 @@ btag:Yearly a owl:Class ;
     bf:feeds <http://brickschema.org/schema/1.0.2/building_example#building:gtc/radiator_htb/port[so]> ;
     bf:isLocatedIn <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.A.30/room> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.A.30/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.A.30/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.1.1]> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.A.30/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.A.30/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.1.1]> .
 
 <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.A.30/temperature_sensor> a gtc:Celcius_Room_Temperature_Sensor ;
@@ -11943,10 +11943,10 @@ btag:Yearly a owl:Class ;
     bf:feeds <http://brickschema.org/schema/1.0.2/building_example#building:gtc/radiator_htb/port[so]> ;
     bf:isLocatedIn <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.B.13/room> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.B.13/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.B.13/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.1.4]> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.B.13/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.B.13/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.1.4]> .
 
 <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.B.13/temperature_sensor> a gtc:Celcius_Room_Temperature_Sensor ;
@@ -12025,10 +12025,10 @@ btag:Yearly a owl:Class ;
     bf:feeds <http://brickschema.org/schema/1.0.2/building_example#building:gtc/radiator_htb/port[so]> ;
     bf:isLocatedIn <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.C.30/room> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.C.30/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.C.30/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.1.1]> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.C.30/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.C.30/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.1.1]> .
 
 <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.C.30/temperature_sensor> a gtc:Celcius_Room_Temperature_Sensor ;
@@ -12112,10 +12112,10 @@ btag:Yearly a owl:Class ;
     bf:feeds <http://brickschema.org/schema/1.0.2/building_example#building:gtc/radiator_htb/port[so]> ;
     bf:isLocatedIn <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.F.6A/room> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.F.6A/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.F.6A/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.1.4]> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.F.6A/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.F.6A/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.1.4]> .
 
 <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.F.6A/temperature_sensor> a gtc:Celcius_Room_Temperature_Sensor ;
@@ -12189,10 +12189,10 @@ btag:Yearly a owl:Class ;
     bf:feeds <http://brickschema.org/schema/1.0.2/building_example#building:gtc/radiator_htb/port[so]> ;
     bf:isLocatedIn <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.F.6B/room> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.F.6B/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.F.6B/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.1.3]> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.F.6B/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.F.6B/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.1.3]> .
 
 <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.F.6B/temperature_sensor> a gtc:Celcius_Room_Temperature_Sensor ;
@@ -12301,10 +12301,10 @@ btag:Yearly a owl:Class ;
     bf:feeds <http://brickschema.org/schema/1.0.2/building_example#building:gtc/radiator_htb/port[so]> ;
     bf:isLocatedIn <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.H.1A/room> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.H.1A/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.H.1A/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.1.3]> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.H.1A/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.H.1A/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.1.3]> .
 
 <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.H.1A/temperature_sensor> a gtc:Celcius_Room_Temperature_Sensor ;
@@ -12413,10 +12413,10 @@ btag:Yearly a owl:Class ;
     bf:feeds <http://brickschema.org/schema/1.0.2/building_example#building:gtc/radiator_htb/port[so]> ;
     bf:isLocatedIn <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.H.30/room> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.H.30/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.H.30/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.1.2]> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.H.30/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.H.30/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.1.2]> .
 
 <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.H.30/temperature_sensor> a gtc:Celcius_Room_Temperature_Sensor ;
@@ -12514,10 +12514,10 @@ btag:Yearly a owl:Class ;
     bf:feeds <http://brickschema.org/schema/1.0.2/building_example#building:gtc/radiator_htb/port[so]> ;
     bf:isLocatedIn <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.I.18A/room> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.I.18A/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.I.18A/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.1.1]> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.I.18A/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.I.18A/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.1.1]> .
 
 <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.I.18A/temperature_sensor> a gtc:Celcius_Room_Temperature_Sensor ;
@@ -12631,10 +12631,10 @@ btag:Yearly a owl:Class ;
     bf:feeds <http://brickschema.org/schema/1.0.2/building_example#building:gtc/radiator_htb/port[so]> ;
     bf:isLocatedIn <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.J.11/room> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.J.11/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.J.11/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.1.3]> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.J.11/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.J.11/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.1.3]> .
 
 <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.J.11/temperature_sensor> a gtc:Celcius_Room_Temperature_Sensor ;
@@ -12733,10 +12733,10 @@ btag:Yearly a owl:Class ;
     bf:feeds <http://brickschema.org/schema/1.0.2/building_example#building:gtc/radiator_htb/port[so]> ;
     bf:isLocatedIn <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.J.13/room> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.J.13/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.J.13/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.1.3]> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.J.13/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.J.13/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.1.3]> .
 
 <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.J.13/temperature_sensor> a gtc:Celcius_Room_Temperature_Sensor ;
@@ -12815,10 +12815,10 @@ btag:Yearly a owl:Class ;
     bf:feeds <http://brickschema.org/schema/1.0.2/building_example#building:gtc/radiator_htb/port[so]> ;
     bf:isLocatedIn <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.L.30/room> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.L.30/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.L.30/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.1.2]> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.L.30/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.L.30/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.1.2]> .
 
 <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.L.30/temperature_sensor> a gtc:Celcius_Room_Temperature_Sensor ;
@@ -12942,10 +12942,10 @@ btag:Yearly a owl:Class ;
     bf:feeds <http://brickschema.org/schema/1.0.2/building_example#building:gtc/radiator_htb/port[so]> ;
     bf:isLocatedIn <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.A.1/room> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.A.1/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.A.1/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.2.4]> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.A.1/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.A.1/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.2.4]> .
 
 <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.A.1/temperature_sensor> a gtc:Celcius_Room_Temperature_Sensor ;
@@ -13024,10 +13024,10 @@ btag:Yearly a owl:Class ;
     bf:feeds <http://brickschema.org/schema/1.0.2/building_example#building:gtc/radiator_htb/port[so]> ;
     bf:isLocatedIn <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.A.11/room> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.A.11/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.A.11/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.2.4]> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.A.11/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.A.11/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.2.4]> .
 
 <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.A.11/temperature_sensor> a gtc:Celcius_Room_Temperature_Sensor ;
@@ -13116,10 +13116,10 @@ btag:Yearly a owl:Class ;
     bf:feeds <http://brickschema.org/schema/1.0.2/building_example#building:gtc/radiator_htb/port[so]> ;
     bf:isLocatedIn <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.A.18/room> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.A.18/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.A.18/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.2.1]> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.A.18/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.A.18/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.2.1]> .
 
 <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.A.18/temperature_sensor> a gtc:Celcius_Room_Temperature_Sensor ;
@@ -13263,10 +13263,10 @@ btag:Yearly a owl:Class ;
     bf:feeds <http://brickschema.org/schema/1.0.2/building_example#building:gtc/radiator_htb/port[so]> ;
     bf:isLocatedIn <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.A.22/room> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.A.22/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.A.22/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.2.1]> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.A.22/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.A.22/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.2.1]> .
 
 <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.A.22/temperature_sensor> a gtc:Celcius_Room_Temperature_Sensor ;
@@ -13340,10 +13340,10 @@ btag:Yearly a owl:Class ;
     bf:feeds <http://brickschema.org/schema/1.0.2/building_example#building:gtc/radiator_htb/port[so]> ;
     bf:isLocatedIn <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.B.13/room> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.B.13/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.B.13/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.2.4]> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.B.13/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.B.13/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.2.4]> .
 
 <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.B.13/temperature_sensor> a gtc:Celcius_Room_Temperature_Sensor ;
@@ -13422,10 +13422,10 @@ btag:Yearly a owl:Class ;
     bf:feeds <http://brickschema.org/schema/1.0.2/building_example#building:gtc/radiator_htb/port[so]> ;
     bf:isLocatedIn <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.D.1/room> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.D.1/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.D.1/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.2.4]> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.D.1/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.D.1/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.2.4]> .
 
 <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.D.1/temperature_sensor> a gtc:Celcius_Room_Temperature_Sensor ;
@@ -13499,10 +13499,10 @@ btag:Yearly a owl:Class ;
     bf:feeds <http://brickschema.org/schema/1.0.2/building_example#building:gtc/radiator_htb/port[so]> ;
     bf:isLocatedIn <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.F.6_A/room> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.F.6_A/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.F.6_A/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.2.3]> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.F.6_A/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.F.6_A/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.2.3]> .
 
 <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.F.6_A/temperature_sensor> a gtc:Celcius_Room_Temperature_Sensor ;
@@ -13576,10 +13576,10 @@ btag:Yearly a owl:Class ;
     bf:feeds <http://brickschema.org/schema/1.0.2/building_example#building:gtc/radiator_htb/port[so]> ;
     bf:isLocatedIn <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.F.6_B/room> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.F.6_B/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.F.6_B/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.2.3]> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.F.6_B/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.F.6_B/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.2.3]> .
 
 <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.F.6_B/temperature_sensor> a gtc:Celcius_Room_Temperature_Sensor ;
@@ -13658,10 +13658,10 @@ btag:Yearly a owl:Class ;
     bf:feeds <http://brickschema.org/schema/1.0.2/building_example#building:gtc/radiator_htb/port[so]> ;
     bf:isLocatedIn <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.H.1/room> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.H.1/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.H.1/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.2.3]> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.H.1/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.H.1/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.2.3]> .
 
 <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.H.1/temperature_sensor> a gtc:Celcius_Room_Temperature_Sensor ;
@@ -13735,10 +13735,10 @@ btag:Yearly a owl:Class ;
     bf:feeds <http://brickschema.org/schema/1.0.2/building_example#building:gtc/radiator_htb/port[so]> ;
     bf:isLocatedIn <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.H.27_A/room> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.H.27_A/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.H.27_A/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.2.1]> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.H.27_A/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.H.27_A/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.2.1]> .
 
 <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.H.27_A/temperature_sensor> a gtc:Celcius_Room_Temperature_Sensor ;
@@ -13812,10 +13812,10 @@ btag:Yearly a owl:Class ;
     bf:feeds <http://brickschema.org/schema/1.0.2/building_example#building:gtc/radiator_htb/port[so]> ;
     bf:isLocatedIn <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.H.27_B/room> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.H.27_B/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.H.27_B/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.2.1]> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.H.27_B/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.H.27_B/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.2.1]> .
 
 <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.H.27_B/temperature_sensor> a gtc:Celcius_Room_Temperature_Sensor ;
@@ -13939,10 +13939,10 @@ btag:Yearly a owl:Class ;
     bf:feeds <http://brickschema.org/schema/1.0.2/building_example#building:gtc/radiator_htb/port[so]> ;
     bf:isLocatedIn <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.I.1/room> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.I.1/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.I.1/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.2.3]> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.I.1/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.I.1/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.2.3]> .
 
 <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.I.1/temperature_sensor> a gtc:Celcius_Room_Temperature_Sensor ;
@@ -14071,10 +14071,10 @@ btag:Yearly a owl:Class ;
     bf:feeds <http://brickschema.org/schema/1.0.2/building_example#building:gtc/radiator_htb/port[so]> ;
     bf:isLocatedIn <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.I.22/room> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.I.22/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.I.22/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.2.2]> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.I.22/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.I.22/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.2.2]> .
 
 <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.I.22/temperature_sensor> a gtc:Celcius_Room_Temperature_Sensor ;
@@ -14153,10 +14153,10 @@ btag:Yearly a owl:Class ;
     bf:feeds <http://brickschema.org/schema/1.0.2/building_example#building:gtc/radiator_htb/port[so]> ;
     bf:isLocatedIn <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.I.30/room> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.I.30/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.I.30/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.2.2]> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.I.30/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.I.30/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.2.2]> .
 
 <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.I.30/temperature_sensor> a gtc:Celcius_Room_Temperature_Sensor ;
@@ -14230,10 +14230,10 @@ btag:Yearly a owl:Class ;
     bf:feeds <http://brickschema.org/schema/1.0.2/building_example#building:gtc/radiator_htb/port[so]> ;
     bf:isLocatedIn <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.J.11/room> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.J.11/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.J.11/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.2.3]> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.J.11/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.J.11/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.2.3]> .
 
 <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.J.11/temperature_sensor> a gtc:Celcius_Room_Temperature_Sensor ;
@@ -14312,10 +14312,10 @@ btag:Yearly a owl:Class ;
     bf:feeds <http://brickschema.org/schema/1.0.2/building_example#building:gtc/radiator_htb/port[so]> ;
     bf:isLocatedIn <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.J.13/room> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.J.13/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.J.13/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.2.3]> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.J.13/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.J.13/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.2.3]> .
 
 <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.J.13/temperature_sensor> a gtc:Celcius_Room_Temperature_Sensor ;
@@ -14395,10 +14395,10 @@ btag:Yearly a owl:Class ;
     bf:feeds <http://brickschema.org/schema/1.0.2/building_example#building:gtc/radiator_htb/port[so]> ;
     bf:isLocatedIn <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.J.18/room> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.J.18/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.J.18/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.2.2]> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.J.18/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.J.18/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.2.2]> .
 
 <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.J.18/temperature_sensor> a gtc:Celcius_Room_Temperature_Sensor ;
@@ -14472,10 +14472,10 @@ btag:Yearly a owl:Class ;
     bf:feeds <http://brickschema.org/schema/1.0.2/building_example#building:gtc/radiator_htb/port[so]> ;
     bf:isLocatedIn <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.J.29/room> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.J.29/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.J.29/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.2.2]> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.J.29/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.J.29/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.2.2]> .
 
 <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.J.29/temperature_sensor> a gtc:Celcius_Room_Temperature_Sensor ;
@@ -14554,10 +14554,10 @@ btag:Yearly a owl:Class ;
     bf:feeds <http://brickschema.org/schema/1.0.2/building_example#building:gtc/radiator_htb/port[so]> ;
     bf:isLocatedIn <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.L.18/room> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.L.18/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.L.18/temperature_cooling_deadband> a brick:Cooling_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.2.2]> .
 
-<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.L.18/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_setpoint ;
+<http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.L.18/temperature_heating_deadband> a brick:Heating_Discharge_Air_Temperature_Dead_Band_Setpoint ;
     bf:hasPoint <http://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.2.2]> .
 
 <http://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.L.18/temperature_sensor> a gtc:Celcius_Room_Temperature_Sensor ;

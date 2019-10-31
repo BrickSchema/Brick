@@ -449,9 +449,9 @@ rice:Temp_2_BAS a brick:Unknown .
 
 rice:Temp_3_BAS a brick:Unknown .
 
-rice:Thumbwheel_Set_point_Hi_Limit a brick:Thumbwheel_Temperature_High_Limit_Setpoint_ .
+rice:Thumbwheel_Set_point_Hi_Limit a brick:Thumbwheel_Temperature_High_Limit_Setpoint .
 
-rice:Thumbwheel_Set_point_Lo_Limit a brick:Thumbwheel_Temperature_Low_Limit_Setpoint_ .
+rice:Thumbwheel_Set_point_Lo_Limit a brick:Thumbwheel_Temperature_Low_Limit_Setpoint .
 
 rice:VAV_211_HW_Return_Temp a brick:Hot_Water_Return_Temperature .
 
@@ -761,37 +761,37 @@ rice:occupiedOffsetA5th_Floor_Area1 a brick:Unknown .
 
 rice:occupiedOffsetABasement_Area2 a brick:Unknown .
 
-rice:operatingMode1st_Floor_Chilled_Beam_VAS2 a brick:VAV_Box_Operating_Mode_ .
+rice:operatingMode1st_Floor_Chilled_Beam_VAS2 a brick:VAV_Box_Operating_Mode .
 
-rice:operatingMode1st_Foor_Perimeter_Devices_VAS1 a brick:VAV_Box_Operating_Mode_ .
+rice:operatingMode1st_Foor_Perimeter_Devices_VAS1 a brick:VAV_Box_Operating_Mode .
 
-rice:operatingMode2nd_Floor_Chilled_Beam_Source_VAS2 a brick:VAV_Box_Operating_Mode_ .
+rice:operatingMode2nd_Floor_Chilled_Beam_Source_VAS2 a brick:VAV_Box_Operating_Mode .
 
-rice:operatingMode2nd_Floor_Perimeter_Devices_VAS1 a brick:VAV_Box_Operating_Mode_ .
+rice:operatingMode2nd_Floor_Perimeter_Devices_VAS1 a brick:VAV_Box_Operating_Mode .
 
-rice:operatingMode5th_Floor_Chilled_Beam_VAS1 a brick:VAV_Box_Operating_Mode_ .
+rice:operatingMode5th_Floor_Chilled_Beam_VAS1 a brick:VAV_Box_Operating_Mode .
 
-rice:operatingMode5th_Floor_Perimeter_Devices_VAS2 a brick:VAV_Box_Operating_Mode_ .
+rice:operatingMode5th_Floor_Perimeter_Devices_VAS2 a brick:VAV_Box_Operating_Mode .
 
-rice:operatingModeA1st_Floor_Area1 a brick:VAV_Box_Operating_Mode_ .
+rice:operatingModeA1st_Floor_Area1 a brick:VAV_Box_Operating_Mode .
 
-rice:operatingModeA2nd_Floor_Area1 a brick:VAV_Box_Operating_Mode_ .
+rice:operatingModeA2nd_Floor_Area1 a brick:VAV_Box_Operating_Mode .
 
-rice:operatingModeA3rd_Floor_Area1 a brick:VAV_Box_Operating_Mode_ .
+rice:operatingModeA3rd_Floor_Area1 a brick:VAV_Box_Operating_Mode .
 
-rice:operatingModeA5th_Floor_Area1 a brick:VAV_Box_Operating_Mode_ .
+rice:operatingModeA5th_Floor_Area1 a brick:VAV_Box_Operating_Mode .
 
-rice:operatingModeAAuditorium_Area4 a brick:VAV_Box_Operating_Mode_ .
+rice:operatingModeAAuditorium_Area4 a brick:VAV_Box_Operating_Mode .
 
-rice:operatingModeABasement_Area2 a brick:VAV_Box_Operating_Mode_ .
+rice:operatingModeABasement_Area2 a brick:VAV_Box_Operating_Mode .
 
-rice:operatingModeBasement_Perimeter_Devices2 a brick:VAV_Box_Operating_Mode_ .
+rice:operatingModeBasement_Perimeter_Devices2 a brick:VAV_Box_Operating_Mode .
 
-rice:operatingModeChilled_Beam_Source_VAS3 a brick:VAV_Box_Operating_Mode_ .
+rice:operatingModeChilled_Beam_Source_VAS3 a brick:VAV_Box_Operating_Mode .
 
-rice:operatingModeV3rd_Floor_CB_VAS2 a brick:VAV_Box_Operating_Mode_ .
+rice:operatingModeV3rd_Floor_CB_VAS2 a brick:VAV_Box_Operating_Mode .
 
-rice:operatingModeV3rd_Floor_Perimiter_VAS3 a brick:VAV_Box_Operating_Mode_ .
+rice:operatingModeV3rd_Floor_Perimiter_VAS3 a brick:VAV_Box_Operating_Mode .
 
 rice:outdoorAirHumidityA1st_Floor_Area1 a brick:Outside_Air_Humidity .
 
@@ -955,10 +955,10 @@ brick:Outside_Air_Damper_Close_Limit_Setpoint a brick:Point,
 brick:PreHeat_Coil_Leaving_Water_Temperature_Sensor a brick:Point,
         owl:NamedIndividual .
 
-brick:Thumbwheel_Temperature_High_Limit_Setpoint_ a brick:Point,
+brick:Thumbwheel_Temperature_High_Limit_Setpoint a brick:Point,
         owl:NamedIndividual .
 
-brick:Thumbwheel_Temperature_Low_Limit_Setpoint_ a brick:Point,
+brick:Thumbwheel_Temperature_Low_Limit_Setpoint a brick:Point,
         owl:NamedIndividual .
 
 brick:Ventilation_Air_Flow_Ratio_Limit_Setpoint a brick:Point,
@@ -2249,13 +2249,13 @@ rice:occupancyStatusARoom_322_Area4 a brick:Occupancy_Sensor .
 
 rice:occupancyStatusARoom_324_Area5 a brick:Occupancy_Sensor .
 
-rice:operatingModeARoom_305_Area2 a brick:VAV_Box_Operating_Mode_ .
+rice:operatingModeARoom_305_Area2 a brick:VAV_Box_Operating_Mode .
 
-rice:operatingModeARoom_306_Area3 a brick:VAV_Box_Operating_Mode_ .
+rice:operatingModeARoom_306_Area3 a brick:VAV_Box_Operating_Mode .
 
-rice:operatingModeARoom_322_Area4 a brick:VAV_Box_Operating_Mode_ .
+rice:operatingModeARoom_322_Area4 a brick:VAV_Box_Operating_Mode .
 
-rice:operatingModeARoom_324_Area5 a brick:VAV_Box_Operating_Mode_ .
+rice:operatingModeARoom_324_Area5 a brick:VAV_Box_Operating_Mode .
 
 rice:spaceSensorARoom_306_Area3 a brick:Zone_Temperature_Sensor .
 
@@ -2382,7 +2382,7 @@ brick:Chilled_Water_Discharge_Temperature a brick:Point,
 brick:Hot_Water_Supply_Temperature a brick:Point,
         owl:NamedIndividual .
 
-brick:VAV_Box_Operating_Mode_ a brick:Point,
+brick:VAV_Box_Operating_Mode a brick:Point,
         owl:NamedIndividual .
 
 brick:Occupancy_Sensor a brick:Point,

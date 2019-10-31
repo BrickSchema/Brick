@@ -43322,7 +43322,7 @@ GHC:Steam_Flow_Meter_InterfaceRoom ns1:hasPoint <http://cmu.edu/building/ontolog
         <http://cmu.edu/building/ontology/ghc#SCSC_Gates/Steam_Flow_Meter_Interface/Usage_Today>,
         <http://cmu.edu/building/ontology/ghc#SCSC_Gates/Steam_Flow_Meter_Interface/Usage_YTD> .
 
-brick:Heat_Wheel_Differential_Pressure ns1:hasTag brick:DifferntialPressure,
+brick:Heat_Wheel_Differential_Pressure ns1:hasTag brick:Differntial_Pressure,
         brick:Enthalpy,
         brick:Heating,
         brick:Sensor .
@@ -43553,7 +43553,7 @@ brick:Outside_Air_Damper_Position_Command ns1:hasTag brick:Airflow,
         brick:Outside .
 
 brick:Outside_Air_Humidity_Sensor ns1:hasTag brick:Air,
-        brick:Humidigy,
+        brick:Humidity,
         brick:Outside,
         brick:Sensor .
 
@@ -43943,7 +43943,7 @@ brick:Exhaust_Air_Flow_Sensor ns1:hasTag brick:Airflow,
         brick:Fan,
         brick:Sensor .
 
-brick:Exhaust_Fan_Piezoelectric_Sensor ns1:hasTag brick:Exaust,
+brick:Exhaust_Fan_Piezoelectric_Sensor ns1:hasTag brick:Exhaust,
         brick:Fan,
         brick:Piezoelectric,
         brick:Sensor .
@@ -65413,7 +65413,7 @@ brick:Perimeter_Heating_Valve_Command ns1:hasTag brick:Command,
 
 brick:CO2_High_Alarm ns1:hasTag brick:Air,
         brick:Alarm,
-        brick:C02,
+        brick:CO2,
         brick:Setpoint .
 
 brick:Outside_Air_Temperature_Sensor ns1:hasTag brick:Air,
@@ -65479,7 +65479,7 @@ brick:Zone_Heating_Temperature_Setpoint ns1:hasTag brick:Air,
         brick:Temperature .
 
 brick:Discharge_Air_Temperature_Sensor ns1:hasTag brick:Air,
-        brick:Disrchage,
+        brick:Discharge,
         brick:Sensor,
         brick:Temperature .
 
