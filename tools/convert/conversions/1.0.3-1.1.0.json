@@ -1129,8 +1129,8 @@
       "query": "DELETE{ ?subject ?predicate brick:Chilled_Water_Discharge_Flow . } WHERE { ?subject  ?predicate  brick:Chilled_Water_Discharge_Flow . }"
     },
     {
-      "description": "Add brick:Temperature, brick:Chilled Discharge Water",
-      "query": "INSERT{ ?subject ?predicate brick:Temperature, brick:Chilled Discharge Water . } WHERE { ?subject  ?predicate  brick:Chilled_Water_Discharge_Temperature . }"
+      "description": "Add brick:Temperature, brick:Chilled_Discharge_Water",
+      "query": "INSERT{ ?subject ?predicate brick:Temperature, brick:Chilled_Discharge_Water . } WHERE { ?subject  ?predicate  brick:Chilled_Water_Discharge_Temperature . }"
     },
     {
       "description": "Remove brick:Chilled_Water_Discharge_Temperature",
@@ -1385,8 +1385,8 @@
       "query": "DELETE{ ?subject ?predicate brick:DemandResponse_Zone_Unoccupied_Load_Shed_Command . } WHERE { ?subject  ?predicate  brick:DemandResponse_Zone_Unoccupied_Load_Shed_Command . }"
     },
     {
-      "description": "Add brick:Flow, brick:Discharge Air",
-      "query": "INSERT{ ?subject ?predicate brick:Flow, brick:Discharge Air . } WHERE { ?subject  ?predicate  brick:Discharge_Air_Flow . }"
+      "description": "Add brick:Flow, brick:Discharge_Air",
+      "query": "INSERT{ ?subject ?predicate brick:Flow, brick:Discharge_Air . } WHERE { ?subject  ?predicate  brick:Discharge_Air_Flow . }"
     },
     {
       "description": "Remove brick:Discharge_Air_Flow",
@@ -1409,8 +1409,8 @@
       "query": "DELETE{ ?subject ?predicate brick:Discharge_Air_Temperature . } WHERE { ?subject  ?predicate  brick:Discharge_Air_Temperature . }"
     },
     {
-      "description": "Add brick:Velocity Pressure, brick:Discharge Air",
-      "query": "INSERT{ ?subject ?predicate brick:Velocity Pressure, brick:Discharge Air . } WHERE { ?subject  ?predicate  brick:Discharge_Air_Velocity_Pressure . }"
+      "description": "Add brick:Velocity_Pressure, brick:Discharge_Air",
+      "query": "INSERT{ ?subject ?predicate brick:Velocity_Pressure, brick:Discharge_Air . } WHERE { ?subject  ?predicate  brick:Discharge_Air_Velocity_Pressure . }"
     },
     {
       "description": "Remove brick:Discharge_Air_Velocity_Pressure",
@@ -1529,16 +1529,16 @@
       "query": "DELETE{ ?subject ?predicate brick:Emergency_Push_Button . } WHERE { ?subject  ?predicate  brick:Emergency_Push_Button . }"
     },
     {
-      "description": "Add brick:Flow, brick:Exhaust Air",
-      "query": "INSERT{ ?subject ?predicate brick:Flow, brick:Exhaust Air . } WHERE { ?subject  ?predicate  brick:Exhaust_Air_Flow . }"
+      "description": "Add brick:Flow, brick:Exhaust_Air",
+      "query": "INSERT{ ?subject ?predicate brick:Flow, brick:Exhaust_Air . } WHERE { ?subject  ?predicate  brick:Exhaust_Air_Flow . }"
     },
     {
       "description": "Remove brick:Exhaust_Air_Flow",
       "query": "DELETE{ ?subject ?predicate brick:Exhaust_Air_Flow . } WHERE { ?subject  ?predicate  brick:Exhaust_Air_Flow . }"
     },
     {
-      "description": "Add brick:Flow, brick:Exhaust Air Stack",
-      "query": "INSERT{ ?subject ?predicate brick:Flow, brick:Exhaust Air Stack . } WHERE { ?subject  ?predicate  brick:Exhaust_Air_Stack_Flow . }"
+      "description": "Add brick:Flow, brick:Exhaust_Air_Stack",
+      "query": "INSERT{ ?subject ?predicate brick:Flow, brick:Exhaust_Air_Stack . } WHERE { ?subject  ?predicate  brick:Exhaust_Air_Stack_Flow . }"
     },
     {
       "description": "Remove brick:Exhaust_Air_Stack_Flow",
@@ -1561,16 +1561,16 @@
       "query": "DELETE{ ?subject ?predicate brick:Exhaust_Air_Static_Pressure_Proportional_Band . } WHERE { ?subject  ?predicate  brick:Exhaust_Air_Static_Pressure_Proportional_Band . }"
     },
     {
-      "description": "Add brick:Temperature, brick:Exhaust Air",
-      "query": "INSERT{ ?subject ?predicate brick:Temperature, brick:Exhaust Air . } WHERE { ?subject  ?predicate  brick:Exhaust_Air_Temperature . }"
+      "description": "Add brick:Temperature, brick:Exhaust_Air",
+      "query": "INSERT{ ?subject ?predicate brick:Temperature, brick:Exhaust_Air . } WHERE { ?subject  ?predicate  brick:Exhaust_Air_Temperature . }"
     },
     {
       "description": "Remove brick:Exhaust_Air_Temperature",
       "query": "DELETE{ ?subject ?predicate brick:Exhaust_Air_Temperature . } WHERE { ?subject  ?predicate  brick:Exhaust_Air_Temperature . }"
     },
     {
-      "description": "Add brick:Velocity Pressure, brick:Exhaust Air",
-      "query": "INSERT{ ?subject ?predicate brick:Velocity Pressure, brick:Exhaust Air . } WHERE { ?subject  ?predicate  brick:Exhaust_Air_Velocity_Pressure . }"
+      "description": "Add brick:Velocity_Pressure, brick:Exhaust_Air",
+      "query": "INSERT{ ?subject ?predicate brick:Velocity_Pressure, brick:Exhaust_Air . } WHERE { ?subject  ?predicate  brick:Exhaust_Air_Velocity_Pressure . }"
     },
     {
       "description": "Remove brick:Exhaust_Air_Velocity_Pressure",
