@@ -50,9 +50,10 @@ def convert(conversion, model_graph):
     namespaces = {}
     for prefix, namespace in conversion_data['namespaces'].items():
         namespaces[prefix] = Namespace(namespace)
-    for operation in tqdm(conversion_data['operations']):
-        info(operation['description'])
-        model_graph.update(operation['query'], initNs=namespaces)
+    with tqdm(conversion_data['operations'], bar_format='{l_bar}{bar}') as operations:
+        for operation in operations:
+            info(operation['description'])
+            model_graph.update(operation['query'], initNs=namespaces)
 
 
 def standardize_namespaces(filename):
