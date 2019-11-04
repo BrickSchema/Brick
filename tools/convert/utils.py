@@ -4,6 +4,8 @@ from json import load
 from logging import info
 from shutil import copyfile
 from tqdm import tqdm
+from os.path import dirname
+import sys
 
 def find_conversions(source, target, versions_graph):
     """
@@ -40,7 +42,8 @@ def convert(conversion, model_graph):
     """
 
     # Load conversion scripts
-    with open('./conversions/{}-{}.json'.format(*conversion), 'r') as file:
+    directory = dirname(sys.argv[0]) or '.'
+    with open(directory + '/conversions/{}-{}.json'.format(*conversion), 'r') as file:
         conversion_data = load(file)
 
     # Add query namespaces

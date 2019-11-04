@@ -2,6 +2,8 @@ from argparse import ArgumentParser
 from rdflib import Graph, Namespace
 from utils import find_conversions, convert, standardize_namespaces, bump_versions, backup
 from logging import getLogger
+from os.path import dirname
+import sys
 
 
 """
@@ -29,7 +31,8 @@ if args.info:
 
 # Load the versions graph which has information about possible conversions.
 versions_graph = Graph()
-versions_graph.parse('./conversions/versions.ttl', format='turtle')
+directory = dirname(sys.argv[0]) or '.'
+versions_graph.parse(directory + '/conversions/versions.ttl', format='turtle')
 versions_graph.bind('version', Namespace("https:brickschema.org/version#"))
 
 # Ask if the conversion is possible
