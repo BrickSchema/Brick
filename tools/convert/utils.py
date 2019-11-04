@@ -34,7 +34,7 @@ def find_conversions(source, target, versions_graph):
     return conversions[1:]
 
 
-def convert(conversion, model_graph):
+def execute_conversions(conversion, model_graph):
     """
     This function coverts the model graph from one version to another
     :param conversion: a tuple (from_version, to_version)
