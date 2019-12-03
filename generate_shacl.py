@@ -1,3 +1,5 @@
+#! /usr/bin/python3
+
 from rdflib import Graph, Literal, BNode, Namespace, RDF, URIRef, RDFS, OWL
 from rdflib.namespace import XSD
 from rdflib.collection import Collection
