@@ -35,17 +35,17 @@ for name, properties in property_definitions.items():
             G.add( (sh_prop, SH['message'], Literal(f"Property {name} has object with incorrect type")) )
 
         # TODO: broken SHACL for rdfs.domain
-        #if pred == RDFS.domain:
-        #    shapename = f"{name}DomainShape"
-        #    G.add( (BSH[shapename], SH['property'], sh_prop) )
-        #    G.add( (BSH[shapename], A, SH.NodeShape) )
+        if pred == RDFS.domain:
+            shapename = f"{name}DomainShape"
+            G.add( (BSH[shapename], SH['property'], sh_prop) )
+            G.add( (BSH[shapename], A, SH.NodeShape) )
 
-        #    G.add( (sh_prop, SH['nodeKind'], SH.IRI) )
-        #    G.add( (sh_prop, SH['path'], BRICK[name]) )
-        #    qualifier = SH.targetClass
-        #    G.add( (BSH[shapename], qualifier, obj) )
+            G.add( (sh_prop, SH['nodeKind'], SH.IRI) )
+            G.add( (sh_prop, SH['path'], BRICK[name]) )
+            qualifier = SH.targetClass
+            G.add( (BSH[shapename], qualifier, obj) )
 
-        #    G.add( (sh_prop, SH['message'], Literal(f"Property {name} has subject with incorrect type")) )
+            G.add( (sh_prop, SH['message'], Literal(f"Property {name} has subject with incorrect type")) )
 
 # subproperties
 # TODO: explicitly coded for now, but we should generalize
