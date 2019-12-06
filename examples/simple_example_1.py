@@ -1,3 +1,4 @@
+#! /usr/bin/python3
 
 from rdflib import RDF, RDFS, OWL, Namespace, Graph
 
@@ -20,7 +21,7 @@ referred to as such
 
 g = Graph()
 
-""" 
+"""
 
 Now that we have the graph object we have to decide what to put into it. At the
 very least, we probably want to put in triples describing the "things" in our
@@ -126,7 +127,7 @@ yet. The Brick schema definition contains a set of rules and definitions. These
 can help with:
 
 - ensuring that classes and relationships are being used correctly
-- allowing applications and users to query the Brick schema to better 
+- allowing applications and users to query the Brick schema to better
   understand a class or relationship
 - providing textual definitions of classes and relationships
 - inferring classes from sets of tags (like Haystack) or from behavioral
@@ -137,7 +138,7 @@ what kinds of air temperature sensors we have in our Brick model.
 """
 
 sensors = g.query("""SELECT ?sensor WHERE {
-    ?sensor rdf:type/rdfs:subClassOf* brick:Air_Temperature_Sensor 
+    ?sensor rdf:type/rdfs:subClassOf* brick:Air_Temperature_Sensor
 }""")
 
 """
@@ -167,7 +168,7 @@ Now our query should execute and return one result (BLDG.VAV2-4.ZN-T)
 """
 
 sensors = g.query("""SELECT ?sensor WHERE {
-    ?sensor rdf:type brick:Supply_Air_Temperature_Sensor 
+    ?sensor rdf:type brick:Supply_Air_Temperature_Sensor
 }""")
 assert len(sensors) == 1
 
@@ -179,7 +180,7 @@ be pushed upstream and contributed back to the community (see the Contribution g
 https://github.com/BrickSchema/Brick/blob/master/CONTRIBUTING.md)
 
 For now, lets define a new kind of zone called a Fire Zone. It is good practice when defining
-new classes to "attach" them to existing classes in the Brick class structure through the 
+new classes to "attach" them to existing classes in the Brick class structure through the
 RDFS.subClassOf relationship. Here's the triples we need to define a new class:
 """
 
