@@ -4,6 +4,9 @@ from rdflib import Graph, Literal, BNode, Namespace, RDF, URIRef, RDFS, OWL
 from rdflib.namespace import XSD
 from rdflib.collection import Collection
 
+import sys
+sys.path.append('..')
+
 from bricksrc.namespaces import BRICK, RDF, OWL, DCTERMS, SDO, RDFS, SKOS, BRICK, TAG, SOSA, BSH, SH
 from bricksrc.namespaces import bind_prefixes
 
