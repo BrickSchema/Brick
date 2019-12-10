@@ -1,10 +1,12 @@
 #! /usr/bin/python3
 
+import sys
+sys.path.append('..')
+
 from rdflib import Graph, Namespace
 from bricksrc.namespaces import BRICK, RDF, OWL, DCTERMS, SDO, RDFS, SKOS, BRICK, TAG, SOSA, BSH, SH
 from bricksrc.namespaces import bind_prefixes
 from tests.util.reasoner import reason_brick
-import sys
 
 G = Graph()
 bind_prefixes(G)
