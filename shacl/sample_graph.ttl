@@ -25,6 +25,8 @@ bldg:VAV2-3Zone a brick:HVAC_Zone ;
         bldg:Room-411,
         bldg:Room-412 .
 
+bldg:Room-412 brick:hasLocation brick:Air_Handler_Unit .
+
 bldg:VAV2-4 a brick:Variable_Air_Volume_Box ;
     brick:hasPart bldg:VAV2-4.DPR ;
     brick:hasPoint bldg:VAV2-4.SUPFLOW,
@@ -38,4 +40,3 @@ bldg:VAV2-4.DPRPOS a brick:Damper_Position_Setpoint .
 bldg:VAV2-4.SUPFLOW a brick:Supply_Air_Flow_Sensor .
 
 bldg:VAV2-4.SUPFLSP a brick:Supply_Air_Flow_Setpoint .
-
