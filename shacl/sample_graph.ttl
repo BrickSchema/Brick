@@ -25,6 +25,7 @@ bldg:VAV2-3Zone a brick:HVAC_Zone ;
         bldg:Room-411,
         bldg:Room-412 .
 
+# NOTE: introduct an error!
 bldg:Room-412 brick:hasLocation brick:Air_Handler_Unit .
 
 bldg:VAV2-4 a brick:Variable_Air_Volume_Box ;
