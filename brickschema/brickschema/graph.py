@@ -3,7 +3,7 @@
 import io
 import pkgutil
 import rdflib
-import brickschema.namespaces as ns
+from . import namespaces as ns
 
 
 class Graph:
@@ -32,9 +32,24 @@ class Graph:
             # wrap in StringIO to make it file-like
             self.g.parse(source=io.StringIO(data), format='turtle')
 
+    def add(self, *triples):
+        """
+        Adds triples to the graph
+        """
+        for triple in triples:
+            assert len(triple) == 3
+            self.g.add(triple)
+
+    @property
+    def nodes(self):
+        return self.g.all_nodes()
+
     def query(self, querystring):
         """
         Executes a SPARQL query against the underlying graph and returns
         the results
         """
         return list(self.g.query(querystring))
+
+    def __len__(self):
+        return len(self.g)
