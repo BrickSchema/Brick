@@ -199,7 +199,7 @@ class HaystackInferenceSession(TagInferenceSession):
         # index the entities by their ID field
         entities = {e['id'].replace('"', ''): {'tags': e} for e in entities}
         BLDG = Namespace(namespace)
-        brickgraph = Graph()
+        brickgraph = Graph(load_brick=True)
 
         # marker tag pass
         for entity_id, entity in entities.items():
