@@ -3,7 +3,7 @@ from brickschema.inference import TagInferenceSession
 
 
 def test_version():
-    assert __version__ == '0.1.0'
+    assert __version__ == '0.0.1-alpha0'
 
 
 def test_lookup_tagset():
