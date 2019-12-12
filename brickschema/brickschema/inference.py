@@ -2,6 +2,7 @@
 # Currently assumes that all tags are Brick tags
 
 import pkgutil
+import pickle
 from .namespaces import BRICK, A
 from .graph import Graph
 from collections import defaultdict
@@ -20,16 +21,17 @@ class TagInferenceSession:
         Creates new Tag Inference session
         """
         self.g = Graph(load_brick=True)
-        self.lookup = defaultdict(set)
-        self._make_tag_lookup()
-
-    def _make_tag_lookup(self):
-        import pickle
         # get ontology data from package
         data = pkgutil.get_data(__name__, "ontologies/taglookup.pickle")
+        # TODO: move on from moving pickle to something more secure?
         self.lookup = pickle.loads(data)
-        return
 
+    def _make_tag_lookup(self):
+        """
+        Builds taglookup dictionary. You shouldn't need to do this unless
+        the taglookup dictionary is out of date
+        """
+        self.lookup = defaultdict(set)
         res = self.g.query("""SELECT ?class ?p ?o ?restrictions WHERE {
           ?class rdfs:subClassOf+ brick:Class.
           ?class owl:equivalentClass ?restrictions.
@@ -66,9 +68,19 @@ class TagInferenceSession:
         return [(klass, tagset) for tagset, klass in self.lookup.items()
                 if s.issuperset(set(tagset)) or s.issubset(set(tagset))]
 
-    # TODO: save for haystack
-    # s = set(map(lambda x: tagmap[x.lower()] if x in tagmap else x, orig_s))
     def most_likely_tagsets(self, orig_s):
+        """
+        Returns the list of likely classes for a given set of tags,
+        as well as the list of tags that were 'leftover', i.e. not
+        used in the inference of a class
+
+        Args:
+            tagset (list of str): a list of tags
+
+        Returns:
+            most_likely_classes (list of str): list of Brick classes
+            leftover (set of str): list of tags not used
+        """
         s = set(map(lambda x: x[0].upper() + x[1:], orig_s))
         tagsets = [(klass, set(tagset)) for tagset, klass
                    in self.lookup.items()
@@ -211,7 +223,7 @@ class HaystackInferenceSession(TagInferenceSession):
             for f in self._filters:
                 marker_tags = list(filter(f, marker_tags))
             # translate tags
-            entity_tagset = list(map(lambda x: self._tagmap[x]
+            entity_tagset = list(map(lambda x: self._tagmap[x.lower()]
                                      if x in self._tagmap else x, marker_tags))
             # infer tags for single entity
             triples, _ = self.infer_entity(entity_tagset, identifier=entity_id)
