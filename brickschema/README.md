@@ -9,9 +9,9 @@ Then you can use this package as follows:
 ```python
 import json
 from brickschema.inference import HaystackInferenceSession
-haysess = HaystackInferenceSession()
+haysess = HaystackInferenceSession("http://project-haystack.org/carytown#")
 model = json.load(open('carytown.json'))
-model = haysess.infer_model(model, "http://project-haystack.org/carytown#")
+model = haysess.infer_model(model)
 print(len(model))
 
 points = model.query("""SELECT ?point ?type WHERE { 
