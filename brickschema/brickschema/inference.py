@@ -110,8 +110,17 @@ class HaystackInferenceSession(TagInferenceSession):
     TODO: double check this
     """
 
-    def __init__(self):
+    def __init__(self, namespace):
+        """
+        Creates a new HaystackInferenceSession that infers entities into
+        the given namespace
+
+        Args:
+            namespace (str): namespace into which the inferred Brick entities
+                             are deposited. Should be a valid URI
+        """
         super(HaystackInferenceSession, self).__init__()
+        self._BLDG = Namespace(namespace)
         self._tagmap = {
             'cmd': 'command',
             'sp': 'setpoint',
@@ -135,14 +144,12 @@ class HaystackInferenceSession(TagInferenceSession):
         self._point_tags = ['point', 'sensor', 'command', 'setpoint', 'alarm',
                             'status', 'parameter', 'limit']
 
-    def infer_entity(self, tagset, namespace, identifier=None):
+    def infer_entity(self, tagset, identifier=None):
         """
         Produces the Brick triples representing the given Haystack tag set
 
         Args:
             tagset (list of str): a list of tags representing a Haystack entity
-            namespace (str): namespace into which the inferred
-                             Brick entities are deposited
 
         Keyword Args:
             identifier (str): if provided, use this identifier for the entity,
@@ -150,7 +157,6 @@ class HaystackInferenceSession(TagInferenceSession):
         """
         triples = []
         infer_results = []
-        BLDG = Namespace(namespace)
         if identifier is None:
             raise Exception("PROVIDE IDENTIFIER")
 
@@ -169,7 +175,7 @@ class HaystackInferenceSession(TagInferenceSession):
                 tagset.remove('point')
             inferred_point_classes, leftover_points = \
                 self.most_likely_tagsets(tagset)
-            triples.append((BLDG[point_entity_id], A,
+            triples.append((self._BLDG[point_entity_id], A,
                             BRICK[inferred_point_classes[0]]))
             infer_results.append(
                 (identifier, list(tagset), inferred_point_classes)
@@ -177,28 +183,25 @@ class HaystackInferenceSession(TagInferenceSession):
 
         if len(inferred_equip_classes) > 0 and \
            inferred_equip_classes[0] != 'Equipment':
-            triples.append((BLDG[equip_entity_id], A,
+            triples.append((self._BLDG[equip_entity_id], A,
                            BRICK[inferred_equip_classes[0]]))
-            triples.append((BLDG[equip_entity_id], BRICK.hasPoint,
-                           BLDG[point_entity_id]))
+            triples.append((self._BLDG[equip_entity_id], BRICK.hasPoint,
+                           self._BLDG[point_entity_id]))
             infer_results.append(
                 (identifier, list(tagset), inferred_equip_classes)
             )
         return triples, infer_results
 
-    def infer_model(self, model, namespace):
+    def infer_model(self, model):
         """
         Produces the inferred Brick model from the given Haystack model
 
         Args:
             model (dict): a Haystack model
-            namespace (str): namespace into which the inferred
-                             Brick entities are deposited
         """
         entities = model['rows']
         # index the entities by their ID field
         entities = {e['id'].replace('"', ''): {'tags': e} for e in entities}
-        BLDG = Namespace(namespace)
         brickgraph = Graph(load_brick=True)
 
         # marker tag pass
@@ -211,8 +214,7 @@ class HaystackInferenceSession(TagInferenceSession):
             entity_tagset = list(map(lambda x: self._tagmap[x]
                                      if x in self._tagmap else x, marker_tags))
             # infer tags for single entity
-            triples, _ = self.infer_entity(entity_tagset, namespace,
-                                           identifier=entity_id)
+            triples, _ = self.infer_entity(entity_tagset, identifier=entity_id)
             brickgraph.add(*triples)
 
         # take a pass through for relationships
@@ -225,7 +227,7 @@ class HaystackInferenceSession(TagInferenceSession):
                 continue
             reffed_equip = relships['equipRef'].replace(' ', '_')\
                                                .replace('"', '') + '_equip'
-            if BLDG[point_entity_id] in brickgraph.nodes:
-                brickgraph.add((BLDG[reffed_equip], BRICK.hasPoint,
-                                BLDG[point_entity_id]))
+            if self._BLDG[point_entity_id] in brickgraph.nodes:
+                brickgraph.add((self._BLDG[reffed_equip], BRICK.hasPoint,
+                                self._BLDG[point_entity_id]))
         return brickgraph
