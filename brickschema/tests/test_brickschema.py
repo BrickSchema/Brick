@@ -1,5 +1,6 @@
 from brickschema import __version__
-from brickschema.inference import TagInferenceSession
+from brickschema.inference import TagInferenceSession, HaystackInferenceSession
+import json
 
 
 def test_version():
@@ -24,3 +25,19 @@ def test_lookup_tagset():
     inferred, leftover = session.most_likely_tagsets(tagset3)
     assert inferred == ['Air_Flow_Sensor']
     assert len(leftover) == 1
+
+
+def test_haystack_inference():
+    session = HaystackInferenceSession("http://example.org/carytown")
+    assert session is not None
+    raw_model = json.load(open('carytown.json'))
+    brick_model = session.infer_model(raw_model)
+    points = brick_model.query("""SELECT ?p WHERE {
+        ?p rdf:type/rdfs:subClassOf* brick:Point
+    }""")
+    assert len(points) == 17
+
+    equips = brick_model.query("""SELECT ?e WHERE {
+        ?e rdf:type/rdfs:subClassOf* brick:Equipment
+    }""")
+    assert len(equips) == 2
