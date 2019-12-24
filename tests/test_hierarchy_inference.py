@@ -1,9 +1,8 @@
-#import argparse
 import json
 from collections import defaultdict
 import time
 from tqdm import tqdm
-from rdflib import RDF, OWL, RDFS, Namespace, URIRef, Graph
+from rdflib import Namespace, URIRef, Graph
 from version import BRICK_VERSION
 
 """
@@ -19,38 +18,23 @@ If the schema is correctly designe, the following properties should be met
 This test is a superset of ``test_inference.py``.
 """
 
-
-#parser = argparse.ArgumentParser()
-#parser.add_argument('--reuse-inference',
-#                    action='store_const',
-#                    default=False,
-#                    const=True,
-#                    dest='reuse_inference',
-#                    help='`True` forces the script to reuse previously inferred schema at `tests/test_hierarchy_inference.ttl`.',
-#                    )
-#args = parser.parse_args()
 inference_file = 'tests/test_hierarchy_inference.ttl'
 
-BRICK = Namespace("https://brickschema.org/schema/{0}/Brick#".format(BRICK_VERSION))
-TAG = Namespace("https://brickschema.org/schema/{0}/BrickTag#".format(BRICK_VERSION))
+BRICK = Namespace(f"https://brickschema.org/schema/{BRICK_VERSION}/Brick#")
+TAG = Namespace(f"https://brickschema.org/schema/{BRICK_VERSION}/BrickTag#")
 SKOS = Namespace("http://www.w3.org/2004/02/skos/core#")
 entity_postfix = '_0'
 
-q_prefix = """
-prefix brick: <https://brickschema.org/schema/1.1/Brick#>
+q_prefix = f"""
+prefix brick: <https://brickschema.org/schema/{BRICK_VERSION}/Brick#>
 prefix owl: <http://www.w3.org/2002/07/owl#>
 """
 
-def test_hierarchyinference():
 
+def test_hierarchyinference():
     # Load the schema
     g = Graph()
     g.parse('Brick.ttl', format='turtle')
-
-    #if args.reuse_inference:  # Reuse previously inferred file if the flag is set.
-    #    expanded_g = Graph()
-    #    expanded_g.parse(inference_file, format='turtle')
-    #else:  # create instances and associate them with related Tags.
 
     # Get all the Classes with their restrictions.
     qstr = q_prefix + """
@@ -80,9 +64,8 @@ def test_hierarchyinference():
 
     # Infer classes of the entities.
     # Apply reasoner
-    from util.reasoner import reason_brick, reason_owlrl, make_readable
+    from util.reasoner import reason_brick, make_readable
     reason_brick(g)
-    #reason_owlrl(g)
     g.serialize(inference_file, format='turtle')  # Store the inferred graph.
 
 
