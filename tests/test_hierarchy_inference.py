@@ -37,7 +37,7 @@ SKOS = Namespace("http://www.w3.org/2004/02/skos/core#")
 entity_postfix = '_0'
 
 q_prefix = """
-prefix brick: <https://brickschema.org/schema/1.1.0/Brick#>
+prefix brick: <https://brickschema.org/schema/1.1/Brick#>
 prefix owl: <http://www.w3.org/2002/07/owl#>
 """
 
