@@ -4,8 +4,7 @@ import rdflib
 import json
 from collections import defaultdict
 from rdflib import RDF, RDFS, OWL, Namespace, URIRef
-
-BRICK_VERSION = '1.1.0'
+from version import BRICK_VERSION
 
 BRICK = Namespace("https://brickschema.org/schema/{0}/Brick#".format(BRICK_VERSION))
 TAG = Namespace("https://brickschema.org/schema/{0}/BrickTag#".format(BRICK_VERSION))

@@ -1,8 +1,8 @@
 import rdflib
 from rdflib import RDF, OWL, RDFS, Namespace
 from util.reasoner import reason_brick, make_readable
+from version import BRICK_VERSION
 
-BRICK_VERSION = '1.1.0'
 BRICK = Namespace("https://brickschema.org/schema/{0}/Brick#".format(BRICK_VERSION))
 TAG = Namespace("https://brickschema.org/schema/{0}/BrickTag#".format(BRICK_VERSION))
 BLDG = Namespace("https://brickschema.org/schema/ExampleBuilding#")

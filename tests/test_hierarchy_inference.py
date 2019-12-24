@@ -2,9 +2,9 @@
 import json
 from collections import defaultdict
 import time
-
 from tqdm import tqdm
 from rdflib import RDF, OWL, RDFS, Namespace, URIRef, Graph
+from version import BRICK_VERSION
 
 """
 This script does the following:
@@ -31,7 +31,6 @@ This test is a superset of ``test_inference.py``.
 #args = parser.parse_args()
 inference_file = 'tests/test_hierarchy_inference.ttl'
 
-BRICK_VERSION = '1.1.0'
 BRICK = Namespace("https://brickschema.org/schema/{0}/Brick#".format(BRICK_VERSION))
 TAG = Namespace("https://brickschema.org/schema/{0}/BrickTag#".format(BRICK_VERSION))
 SKOS = Namespace("http://www.w3.org/2004/02/skos/core#")

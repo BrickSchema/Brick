@@ -5,7 +5,7 @@ from rdflib import RDF, RDFS, OWL
 from collections import defaultdict
 from tqdm import tqdm
 
-BRICK_VERSION = '1.1.0'
+BRICK_VERSION = "1.1"
 
 BRICK = Namespace("https://brickschema.org/schema/{0}/Brick#".format(BRICK_VERSION))
 
