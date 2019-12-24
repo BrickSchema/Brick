@@ -1,25 +1,20 @@
-from rdflib import Graph, Literal, BNode, Namespace, RDF, URIRef
-from rdflib.collection import Collection
-from rdflib.extras.infixowl import Restriction
-
-from .namespaces import *
-
+from .namespaces import TAG
 
 """
 Location class structure
 """
 location_subclasses = {
     "Building": {
-        "tags": [ TAG.Site ],
+        "tags": [TAG.Site],
     },
     "Floor": {
-        "tags": [ TAG.Floor, TAG.Location ],
+        "tags": [TAG.Floor, TAG.Location],
     },
     "Roof": {
-        "tags": [ TAG.Roof, TAG.Location ],
+        "tags": [TAG.Roof, TAG.Location],
     },
     "Basement": {
-        "tags": [ TAG.Basement, TAG.Location ],
+        "tags": [TAG.Basement, TAG.Location],
     },
     "Outside": {
         "tags": [ TAG.Outside, TAG.Location ],

@@ -1,8 +1,8 @@
-from rdflib import Graph, Literal, BNode, Namespace, RDF, URIRef
+from rdflib import Literal, BNode, URIRef
 from rdflib.collection import Collection
-from rdflib.extras.infixowl import Restriction
 
-from .namespaces import *
+from .namespaces import DCTERMS, SDO, RDFS, RDF, OWL
+from .namespaces import MAJOR_MINOR
 
 # defines metadata about the Brick ontology
 ontology = {
@@ -22,8 +22,8 @@ ontology = {
 }
 
 def define_ontology(G):
-    brick_ontology = URIRef("https://brickschema.org/schema/1.1.0/Brick#")
-    G.add( (brick_ontology, RDF.type, OWL.Ontology) )
+    brick_ontology = URIRef(f"https://brickschema.org/schema/{MAJOR_MINOR}/Brick")
+    G.add((brick_ontology, RDF.type, OWL.Ontology))
 
     creators = []
     creator_list = BNode()
