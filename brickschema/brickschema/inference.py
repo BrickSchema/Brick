@@ -3,10 +3,205 @@
 
 import pkgutil
 import pickle
-from .namespaces import BRICK, A
+from .namespaces import BRICK, A, RDF
 from .graph import Graph
 from collections import defaultdict
 from rdflib import Namespace
+import owlrl
+
+
+class RDFSInferenceSession:
+    """
+    Provides methods and an inferface for producing the deductive closure
+    of a graph under RDFS semantics
+    """
+
+    def __init__(self):
+        """
+        Creates a new RDFS Inference session
+        """
+        self.g = Graph(load_brick=True)
+
+    def expand(self, graph):
+        for triple in graph:
+            self.g.add(triple)
+        owlrl.DeductiveClosure(owlrl.RDFS_Semantics).expand(self.g)
+
+
+class OWLRLInferenceSession:
+    """
+    Provides methods and an inferface for producing the deductive closure
+    of a graph under OWL-RL semantics. WARNING this may take a long time
+    """
+
+    def __init__(self):
+        """
+        Creates a new OWLRL Inference session
+        """
+        self.g = Graph(load_brick=True)
+
+    def expand(self, graph):
+        for triple in graph:
+            self.g.add(triple)
+        owlrl.DeductiveClosure(owlrl.OWLRL_Semantics).expand(self.g)
+
+
+class InverseEdgeInferenceSession:
+    """
+    Provides methods and an inferface for producing the deductive closure
+    of a graph that adds all properties implied by owl:inverseOf
+    """
+
+    def __init__(self):
+        """
+        Creates a new OWLRL Inference session
+        """
+        self.g = Graph(load_brick=True)
+
+    def expand(self, graph):
+        for triple in graph:
+            self.g.add(triple)
+        # inverse relationships
+        query = """
+        INSERT {
+            ?o ?invprop ?s
+        } WHERE {
+            ?s ?prop ?o.
+            ?prop owl:inverseOf ?invprop.
+        }
+        """
+        self.g.update(query)
+
+
+class ManualBrickInferenceSession:
+    """
+    Provides methods and an inferface for producing the deductive closure
+    of a graph under the semantics expected of Brick 1.1. Due to performance
+    issues in the OWLRL inference package, this package hard-codes the OWL
+    rules required, which runs much faster. However, it may not be 100%
+    complete, and we hope to replace it soon.
+
+    - adds inverse edges
+    - does a simple tag <--> class inference
+    - does a simple substance <--> class inference
+    - applies rdfs reasoning (adds in rdf:type edges)
+    """
+
+    def __init__(self):
+        """
+        Creates a new OWLRL Inference session
+        """
+        self.g = Graph(load_brick=True)
+
+    def _update_inverse_edges(self):
+        # inverse relationships
+        query = """
+        INSERT {
+            ?o ?invprop ?s
+        } WHERE {
+            ?s ?prop ?o.
+            ?prop owl:inverseOf ?invprop.
+        }
+        """
+        self.g.update(query)
+
+    def _get_inferred_properties(self):
+        res = self.g.query("""SELECT ?class ?p ?o ?restrictions WHERE {
+          ?class rdfs:subClassOf+ brick:Class.
+          ?class owl:equivalentClass ?restrictions.
+          ?restrictions owl:intersectionOf ?inter.
+          ?inter rdf:rest*/rdf:first ?node.
+          {
+              BIND (brick:hasTag as ?p)
+              ?node owl:onProperty ?p.
+              ?node owl:hasValue ?o.
+          } UNION {
+              BIND (brick:measures as ?p)
+              ?node owl:onProperty ?p.
+              ?node owl:hasValue ?o.
+          } UNION {
+              BIND (rdf:type as ?p)
+              ?node owl:onProperty ?p.
+              ?node owl:hasValue ?o.
+          }
+        }""")
+        self.tag_properties = defaultdict(list)
+        self.measures_properties = defaultdict(list)
+        self.grouped_properties = defaultdict(list)
+
+        for (classname, prop, obj, groupname) in res:
+            if prop == BRICK.hasTag:
+                self.tag_properties[classname].append(obj)
+            elif prop == BRICK.measures:
+                self.measures_properties[classname].append(obj)
+            self.grouped_properties[(classname, groupname)].append((prop, obj))
+
+    def _add_properties(self):
+        # add properties based on classes
+        for (classname, groupname), props in self.grouped_properties.items():
+            q = "INSERT {\n"
+            q += '\n'.join(
+                [f"\t ?inst <{prop}> <{obj}> ." for prop, obj in props]
+            )
+            q += "\n} WHERE {\n"
+            q += '\n'.join(
+                [f"\t ?inst rdf:type <{classname}> ."]
+            )
+            q += "\n}"
+            self.g.update(q)
+
+        # add properties based on classes
+        for (classname, groupname), props in self.grouped_properties.items():
+            q = f"""INSERT {{
+            ?inst rdf:type <{classname}>
+            }} WHERE {{ \n"""
+            q += '\n'.join(
+                [f"\t ?inst <{prop}> <{obj}> ." for prop, obj in props]
+            )
+            q += "}\n"
+            self.g.update(q)
+
+    def _add_tags(self):
+        # tag inference
+        for classname, tags in self.tag_properties.items():
+            # find entities of the class and add the tags
+            qstr = f"""SELECT ?inst WHERE
+                {{ ?inst rdf:type/rdfs:subClassOf* <{classname}>
+            }}"""
+            for row in self.g.query(qstr):
+                inst = row[0]
+                for tag in tags:
+                    self.g.add((inst, BRICK.hasTag, tag))
+
+    def _add_measures(self):
+        # measures inference
+        for classname, substances in self.measures_properties.items():
+            # find entities with substances and instantiate the class
+            qstr = "select ?inst where {\n"
+            for substance in substances:
+                qstr += f"  ?inst brick:measures <{substance}> .\n"
+            qstr += "}"
+            for row in self.g.query(qstr):
+                inst = row[0]
+                self.g.add((inst, RDF.type, classname))
+
+            # find entities of the class and add the substances
+            qstr = f"""SELECT ?inst WHERE
+                {{ ?inst rdf:type/rdfs:subClassOf* <{classname}>
+            }}"""
+            for row in self.g.query(qstr):
+                inst = row[0]
+                for substance in substances:
+                    self.g.add((inst, BRICK.measures, substance))
+
+    def expand(self, graph):
+        for triple in graph:
+            self.g.add(triple)
+        self._update_inverse_edges()
+        self._get_inferred_properties()
+        self._add_properties()
+        self._add_tags()
+        self._add_measures()
 
 
 class TagInferenceSession:
