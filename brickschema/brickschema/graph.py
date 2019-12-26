@@ -34,7 +34,16 @@ class Graph:
 
     def add(self, *triples):
         """
-        Adds triples to the graph
+        Adds triples to the graph. Triples should be 3-tuples of
+        rdflib.URIRefs, e.g.
+
+            from brickschema.graph import Graph
+            from brickschema.namespaces import BRICK, RDF
+            from rdflib import Namespace
+            mygraph = Namespace("http://example.com/mybuilding#")
+
+            g = Graph()
+            g.add((mygraph["ts1"], RDF["type"], BRICK["Temperature_Sensor"]))
         """
         for triple in triples:
             assert len(triple) == 3
@@ -42,6 +51,12 @@ class Graph:
 
     @property
     def nodes(self):
+        """
+        Returns all nodes in the graph
+
+        Returns:
+            nodes (list of rdflib.URIRef): nodes in the graph
+        """
         return self.g.all_nodes()
 
     def query(self, querystring):
