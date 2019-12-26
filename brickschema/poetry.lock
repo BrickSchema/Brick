@@ -55,6 +55,18 @@ python-versions = ">=3.5"
 version = "8.0.2"
 
 [[package]]
+category = "main"
+description = "OWL-RL and RDFS based RDF Closure inferencing for Python"
+name = "owlrl"
+optional = false
+python-versions = "*"
+version = "5.2.1"
+
+[package.dependencies]
+rdflib = ">=4.2.2"
+rdflib-jsonld = ">=0.4.0"
+
+[[package]]
 category = "dev"
 description = "plugin and hook calling mechanisms for python"
 name = "pluggy"
@@ -115,6 +127,17 @@ pyparsing = "*"
 
 [[package]]
 category = "main"
+description = "rdflib extension adding JSON-LD parser and serializer"
+name = "rdflib-jsonld"
+optional = false
+python-versions = "*"
+version = "0.4.0"
+
+[package.dependencies]
+rdflib = ">=4.2"
+
+[[package]]
+category = "main"
 description = "Python 2 and 3 compatibility utilities"
 name = "six"
 optional = false
@@ -134,7 +157,7 @@ version = "0.6.0"
 more-itertools = "*"
 
 [metadata]
-content-hash = "0e78bd2365554f743fcec082b4e385496db0e7b9f05e1dee27e5b09a830676c6"
+content-hash = "f32c2faaefe8d63e9ed2260a0c0c773752b074d72700c29920c648e10cd75293"
 python-versions = "^3.7"
 
 [metadata.hashes]
@@ -144,10 +167,12 @@ colorama = ["7d73d2a99753107a36ac6b455ee49046802e59d9d076ef8e47b61499fa29afff", 
 importlib-metadata = ["073a852570f92da5f744a3472af1b61e28e9f78ccf0c9117658dc32b15de7b45", "d95141fbfa7ef2ec65cfd945e2af7e5a6ddbd7c8d9a25e66ff3be8e3daf9f60f"]
 isodate = ["2e364a3d5759479cdb2d37cce6b9376ea504db2ff90252a2e5b7cc89cc9ff2d8", "aa4d33c06640f5352aca96e4b81afd8ab3b47337cc12089822d6f322ac772c81"]
 more-itertools = ["b84b238cce0d9adad5ed87e745778d20a3f8487d0f0cb8b8a586816c7496458d", "c833ef592a0324bcc6a60e48440da07645063c453880c9477ceb22490aec1564"]
+owlrl = ["2ad753f5ba6d1fe2d88bf36f427df31553f2eaa0283692e3cd06cab20ac8aec3", "efdebe76cf9ad148f316a9ae92e898e12b3b3690bd90218c898a2b676955b266"]
 pluggy = ["15b2acde666561e1298d71b523007ed7364de07029219b604cf808bfa1c765b0", "966c145cd83c96502c3c3868f50408687b38434af77734af1e9ca461a4081d2d"]
 py = ["64f65755aee5b381cea27766a3a147c3f15b9b6b9ac88676de66ba2ae36793fa", "dc639b046a6e2cff5bbe40194ad65936d6ba360b52b3c3fe1d08a82dd50b5e53"]
 pyparsing = ["20f995ecd72f2a1f4bf6b072b63b22e2eb457836601e76d6e5dfcd75436acc1f", "4ca62001be367f01bd3e92ecbb79070272a9d4964dce6a48a82ff0b8bc7e683a"]
 pytest = ["3f193df1cfe1d1609d4c583838bea3d532b18d6160fd3f55c9447fdca30848ec", "e246cf173c01169b9617fc07264b7b1316e78d7a650055235d6d897bc80d9660"]
 rdflib = ["58d5994610105a457cff7fdfe3d683d87786c5028a45ae032982498a7e913d6f", "da1df14552555c5c7715d8ce71c08f404c988c58a1ecd38552d0da4fc261280d"]
+rdflib-jsonld = ["144774786a2fc7de09b24a9309cbcccc78bc48b152536d2ea1c1df2ad715bc2d"]
 six = ["1f1b7d42e254082a9db6279deae68afb421ceba6158efa6131de7b3003ee93fd", "30f610279e8b2578cab6db20741130331735c781b56053c59c4076da27f06b66"]
 zipp = ["3718b1cbcd963c7d4c5511a8240812904164b7f381b647143a89d3b98f9bcd8e", "f06903e9f1f43b12d371004b4ac7b06ab39a44adc747266928ae6debfa7b3335"]
