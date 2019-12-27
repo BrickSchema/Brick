@@ -15,8 +15,6 @@ owlrl = "^5.2"
 [tool.poetry.dev-dependencies]
 pytest = "^3.0"
 mkdocs = "^1.0"
-mkdocs-windmill = "^1.0"
-mkdocs-rtd-dropdown = "^1.0"
 pdoc = "^0.3.2"
 
 [build-system]
