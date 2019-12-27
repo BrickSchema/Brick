@@ -1,0 +1,9 @@
+site_name: BrickSchema Python Documentation
+repo_url: https://github.com/BrickSchema/Brick
+theme: readthedocs
+markdown_extensions:
+  - codehilite
+nav:
+- Home: 'index.md'
+- Inference:
+    - 'Brick from Haystack': 'inference/haystack.md'
