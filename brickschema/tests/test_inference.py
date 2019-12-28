@@ -144,10 +144,8 @@ def test_manual_brick_inference_tags():
     }}""")
 
     expected = [
-        BRICK.Point,
-        BRICK.Class,
         BRICK.Setpoint,
-        RDFS.Resource,
+        BRICK.Flow_Setpoint,
         BRICK.Air_Flow_Setpoint,
     ]
 
