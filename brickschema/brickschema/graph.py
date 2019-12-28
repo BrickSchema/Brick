@@ -59,6 +59,10 @@ class Graph:
         """
         return self.g.all_nodes()
 
+    @property
+    def triples(self):
+        return list(self.g)
+
     def query(self, querystring):
         """
         Executes a SPARQL query against the underlying graph and returns

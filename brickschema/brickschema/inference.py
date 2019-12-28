@@ -25,7 +25,12 @@ class RDFSInferenceSession:
     def expand(self, graph):
         for triple in graph:
             self.g.add(triple)
-        owlrl.DeductiveClosure(owlrl.RDFS_Semantics).expand(self.g)
+        owlrl.DeductiveClosure(owlrl.RDFS_Semantics).expand(self.g.g)
+        return self.g
+
+    @property
+    def triples(self):
+        return self.g.triples
 
 
 class OWLRLInferenceSession:
@@ -43,7 +48,12 @@ class OWLRLInferenceSession:
     def expand(self, graph):
         for triple in graph:
             self.g.add(triple)
-        owlrl.DeductiveClosure(owlrl.OWLRL_Semantics).expand(self.g)
+        owlrl.DeductiveClosure(owlrl.OWLRL_Semantics).expand(self.g.g)
+        return self.g
+
+    @property
+    def triples(self):
+        return self.g.triples
 
 
 class InverseEdgeInferenceSession:
@@ -70,7 +80,8 @@ class InverseEdgeInferenceSession:
             ?prop owl:inverseOf ?invprop.
         }
         """
-        self.g.update(query)
+        self.g.g.update(query)
+        return self.g
 
 
 class ManualBrickInferenceSession:
@@ -103,7 +114,7 @@ class ManualBrickInferenceSession:
             ?prop owl:inverseOf ?invprop.
         }
         """
-        self.g.update(query)
+        self.g.g.update(query)
 
     def _get_inferred_properties(self):
         res = self.g.query("""SELECT ?class ?p ?o ?restrictions WHERE {
@@ -148,7 +159,7 @@ class ManualBrickInferenceSession:
                 [f"\t ?inst rdf:type <{classname}> ."]
             )
             q += "\n}"
-            self.g.update(q)
+            self.g.g.update(q)
 
         # add properties based on classes
         for (classname, groupname), props in self.grouped_properties.items():
@@ -159,7 +170,7 @@ class ManualBrickInferenceSession:
                 [f"\t ?inst <{prop}> <{obj}> ." for prop, obj in props]
             )
             q += "}\n"
-            self.g.update(q)
+            self.g.g.update(q)
 
     def _add_tags(self):
         # tag inference
@@ -202,6 +213,7 @@ class ManualBrickInferenceSession:
         self._add_properties()
         self._add_tags()
         self._add_measures()
+        return self.g
 
 
 class TagInferenceSession:
