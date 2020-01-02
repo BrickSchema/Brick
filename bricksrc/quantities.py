@@ -1,8 +1,5 @@
-from rdflib import Graph, Literal, BNode, Namespace, RDF, URIRef
-from rdflib.collection import Collection
-from rdflib.extras.infixowl import Restriction
-
-from .namespaces import *
+from rdflib import Literal
+from .namespaces import SKOS, OWL
 
 
 quantity_definitions = {
@@ -79,7 +76,11 @@ quantity_definitions = {
             "Thermal_Energy": {},
         },
     },
-    "Flow": {},
+    "Flow": {
+        "subclasses": {
+            "Flow_Loss": {},
+        },
+    },
     "Frequency": {
         "subclasses": {
             "Alternating_Current_Frequency": {},
@@ -142,6 +143,12 @@ quantity_definitions = {
             "Radiant_Temperature": {},
             "Dry_Bulb_Temperature": {},
             "Wet_Bulb_Temperature": {},
+        },
+    },
+    "Time": {
+        "subclasses": {
+            "Acceleration_Time": {},
+            "Deceleration_Time": {},
         },
     },
     "Torque": {},
