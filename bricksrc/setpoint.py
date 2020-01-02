@@ -426,10 +426,10 @@ setpoint_definitions = {
                         },
                     },
                     "Cooling_Temperature_Setpoint": {
-                        "tags": [TAG.Air, TAG.Temperature, TAG.Setpoint, TAG.Cooling],
+                        "tags": [TAG.Temperature, TAG.Setpoint, TAG.Cooling],
                     },
                     "Heating_Temperature_Setpoint": {
-                        "tags": [TAG.Air, TAG.Temperature, TAG.Setpoint, TAG.Heating],
+                        "tags": [TAG.Temperature, TAG.Setpoint, TAG.Heating],
                     },
                     "Water_Temperature_Setpoint": {
                         "subclasses": {
