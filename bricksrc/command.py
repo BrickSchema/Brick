@@ -1,13 +1,9 @@
-from rdflib import Graph, Literal, BNode, Namespace, RDF, URIRef
-from rdflib.collection import Collection
-from rdflib.extras.infixowl import Restriction
-
-from .namespaces import *
+from .namespaces import TAG, BRICK
 
 
 command_definitions = {
     "Command": {
-        "tags": [ TAG.Command ],
+        "tags": [TAG.Command],
         "subclasses": {
             "Cooling_Command": {
                 "tags": [TAG.Cool, TAG.Command],
@@ -26,8 +22,12 @@ command_definitions = {
                 "subclasses": {
                     "Damper_Position_Command": {
                         "tags": [TAG.Damper, TAG.Position, TAG.Command],
+                        "parents": [BRICK.Position_Command],
                     },
                 },
+            },
+            "Position_Command": {
+                "tags": [TAG.Position, TAG.Command],
             },
             "Direction_Command": {
                 "tags": [TAG.Direction, TAG.Command],
@@ -89,6 +89,9 @@ command_definitions = {
                         "tags": [TAG.Disable, TAG.Command, TAG.Fan, TAG.Exhaust],
                     },
                 },
+            },
+            "Lead_Lag_Command": {
+                "tags": [TAG.Lead, TAG.Lag, TAG.Command],
             },
             "Load_Shed_Command": {
                 "tags": [TAG.Load_Shed, TAG.Command],
