@@ -417,6 +417,7 @@ sensor_definitions = {
                     "Peak_Power_Demand_Sensor": {
                         "tags": [TAG.Peak, TAG.Power, TAG.Demand, TAG.Sensor],
                         "substances": [[BRICK.measures, BRICK.Peak_Power]],
+                        "parents": [BRICK.Demand_Sensor],
                     }
                 }
             },

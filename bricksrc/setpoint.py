@@ -231,14 +231,6 @@ setpoint_definitions = {
                 },
             },
             "Humidity_Setpoint": {
-                "subclasses": {
-                    "High_Humidity_Alarm_Setpoint": {
-                        "tags": [TAG.High, TAG.Humidity, TAG.Alarm, TAG.Setpoint],
-                    },
-                    "Low_Humidity_Alarm_Setpoint": {
-                        "tags": [TAG.Low, TAG.Humidity, TAG.Alarm, TAG.Setpoint],
-                    }
-                },
                 "tags": [TAG.Humidity, TAG.Setpoint],
             },
             "Load_Setpoint": {
@@ -420,6 +412,7 @@ setpoint_definitions = {
                                     },
                                     "Open_Heating_Valve_Outside_Air_Temperature_Setpoint": {
                                         "tags": [TAG.Open, TAG.Heating, TAG.Valve, TAG.Outside, TAG.Air, TAG.Temperature, TAG.Setpoint],
+                                        "parents": [BRICK.Heating_Temperature_Setpoint],
                                     },
                                     "Outside_Air_Lockout_Temperature_Setpoint": {
                                         "tags": [TAG.Outside, TAG.Air, TAG.Lockout, TAG.Temperature, TAG.Setpoint],

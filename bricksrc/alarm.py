@@ -1,4 +1,4 @@
-from .namespaces import TAG
+from .namespaces import TAG, BRICK
 
 alarm_definitions = {
     "Alarm": {
@@ -37,6 +37,7 @@ alarm_definitions = {
                 "subclasses": {
                     "Water_Temperature_Alarm": {
                         "tags": [TAG.Water, TAG.Temperature, TAG.Alarm],
+                        "parents": [BRICK.Water_Alarm],
                         "subclasses": {
                             "Discharge_Water_Temperature_Alarm": {
                                 "tags": [TAG.Discharge, TAG.Water,

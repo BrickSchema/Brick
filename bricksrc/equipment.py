@@ -34,14 +34,17 @@ equipment_subclasses = {
                 "subclasses": {
                     "Water_Meter": {
                         "tags": [TAG.Meter, TAG.Equipment, TAG.Water],
+                        "parents": [BRICK.Water_System],
                         "subclasses": {
                             "Chilled_Water_Meter": {
                                 "tags": [TAG.Meter, TAG.Equipment, TAG.Water, TAG.Chilled],
+                                "parents": [BRICK.Chilled_Water_System],
                             },
                         },
                     },
                     "Power_Meter": {
                         "tags": [TAG.Meter, TAG.Equipment, TAG.Power],
+                        "parents": [BRICK.Power_System],
                         "subclasses": {
                             "Thermal_Power_Meter": {
                                 "tags": [TAG.Meter, TAG.Equipment, TAG.Power, TAG.Thermal],

@@ -21,6 +21,17 @@ parameter_definitions = {
                     },
                 },
             },
+            "Humidity_Parameter": {
+                "tags": [TAG.Humidity, TAG.Parameter],
+                "subclasses": {
+                    "High_Humidity_Alarm_Parameter": {
+                        "tags": [TAG.High, TAG.Humidity, TAG.Alarm, TAG.Parameter],
+                    },
+                    "Low_Humidity_Alarm_Parameter": {
+                        "tags": [TAG.Low, TAG.Humidity, TAG.Alarm, TAG.Parameter],
+                    }
+                },
+            },
             "Load_Parameter": {
                 "tags": [TAG.Load, TAG.Parameter],
                 "subclasses": {
