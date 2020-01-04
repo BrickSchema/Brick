@@ -98,7 +98,7 @@ substances = {
                         SKOS.definition: Literal("transparent, odorless, tasteless liquid; a compound of hydrogen and oxygen (H2O), containing 11.188% hydrogen and 88.812% oxygen by mass; freezing at 32°F (0°C); boiling near 212°F (100°C)."),
                         "subclasses": {
                             "Deionized_Water": {
-                                "tags": [TAG.Deionized, TAG.Water],
+                                "tags": [TAG.Liquid, TAG.Deionized, TAG.Water],
                                 SKOS.definition: Literal("Water which has been purified by removing its ions (constituting the majority of non-particulate contaminants)"),
                             },
                             "Chilled_Water": {
