@@ -1,8 +1,5 @@
-from rdflib import Graph, Literal, BNode, Namespace, RDF, URIRef
-from rdflib.collection import Collection
-from rdflib.extras.infixowl import Restriction
-
-from .namespaces import *
+from rdflib import Literal
+from .namespaces import TAG, OWL, SKOS, BRICK
 
 """
 Set up subclasses of the equipment superclass
@@ -15,9 +12,61 @@ equipment_subclasses = {
     "Weather": {
         "tags": [TAG.Weather],
     },
+    "Electrical_System": {
+        "subclasses": {
+            "Energy_Storage": {
+                "tags": [TAG.Energy, TAG.Storage, TAG.Equipment],
+                "subclasses": {
+                    "Battery": {
+                        "tags": [TAG.Battery, TAG.Energy, TAG.Storage,
+                                 TAG.Equipment],
+                    },
+                },
+            },
+            "Power_System": {
+                "tags": [TAG.Power, TAG.Equipment],
+            },
+            "PlugStrip": {
+                "tags": [TAG.Plugstrip, TAG.Equipment],
+            },
+            "Meter": {
+                "tags": [TAG.Meter, TAG.Equipment],
+                "subclasses": {
+                    "Water_Meter": {
+                        "tags": [TAG.Meter, TAG.Equipment, TAG.Water],
+                        "subclasses": {
+                            "Chilled_Water_Meter": {
+                                "tags": [TAG.Meter, TAG.Equipment, TAG.Water, TAG.Chilled],
+                            },
+                        },
+                    },
+                    "Power_Meter": {
+                        "tags": [TAG.Meter, TAG.Equipment, TAG.Power],
+                        "subclasses": {
+                            "Thermal_Power_Meter": {
+                                "tags": [TAG.Meter, TAG.Equipment, TAG.Power, TAG.Thermal],
+                                "subclasses": {
+                                    "Cooling_Thermal_Power_Meter": {
+                                        "tags": [TAG.Meter, TAG.Equipment, TAG.Power, TAG.Thermal, TAG.Cooling],
+                                    },
+                                    "Heating_Thermal_Power_Meter": {
+                                        "tags": [TAG.Meter, TAG.Equipment, TAG.Power, TAG.Thermal, TAG.Heating],
+                                    },
+                                },
+                            },
+                        },
+                    },
+                    "Building_Meter": {
+                        "tags": [TAG.Meter, TAG.Equipment, TAG.Building],
+                    },
+                },
+            },
+        },
+    },
     "Water_System": {
         "subclasses": {
             "Chilled_Water_System": {
+                OWL.equivalentClass: "CWS",
                 "tags": [TAG.Water, TAG.Chilled, TAG.Equipment],
             },
             "Hot_Water_System": {
@@ -33,20 +82,6 @@ equipment_subclasses = {
     },
     "Shading_System": {
         "tags": [TAG.Shade, TAG.Equipment],
-    },
-    "Power_System": {
-        "tags": [TAG.Power, TAG.Equipment],
-    },
-    "PlugStrip": {
-        "tags": [TAG.Plugstrip, TAG.Equipment],
-    },
-    "Meter": {
-        "tags": [TAG.Meter, TAG.Equipment],
-        "subclasses": {
-            "Building_Meter": {
-                "tags": [TAG.Meter, TAG.Equipment, TAG.Building],
-            },
-        },
     },
     "Lighting_System": {
         "tags": [TAG.Lighting, TAG.Equipment],
@@ -72,8 +107,6 @@ equipment_subclasses = {
     "Furniture": {
     },
     "Fire_Safety_System": {
-    },
-    "Energy_Storage": {
     },
     "Elevator": {
     },
@@ -270,6 +303,9 @@ valve_subclasses = {
                 "parents": [BRICK.Hot_Water_System, BRICK.Water_Valve],
             },
         },
+    },
+    "Cooling_Valve": {
+        "tags": [TAG.Valve, TAG.Cool, TAG.Equipment],
     },
     "Water_Valve": {
         "tags": [TAG.Valve, TAG.Water, TAG.Equipment],
