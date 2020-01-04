@@ -74,6 +74,10 @@ setpoint_definitions = {
                                 "tags": [TAG.Cooling, TAG.Discharge, TAG.Air, TAG.Temperature, TAG.Deadband, TAG.Setpoint],
                                 "parents": [BRICK.Discharge_Air_Temperature_Cooling_Setpoint],
                             },
+                            "Cooling_Supply_Air_Temperature_Deadband_Setpoint": {
+                                "tags": [TAG.Cooling, TAG.Supply, TAG.Air, TAG.Temperature, TAG.Deadband, TAG.Setpoint],
+                                "parents": [BRICK.Supply_Air_Temperature_Cooling_Setpoint],
+                            },
                             "Supply_Water_Differential_Pressure_Deadband_Setpoint": {
                                 "subclasses": {
                                     "Thermal_Energy_Storage_Supply_Water_Differential_Pressure_Deadband_Setpoint": {
