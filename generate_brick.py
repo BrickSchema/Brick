@@ -176,6 +176,9 @@ define_subclasses(setpoint_definitions, BRICK.Point)
 from bricksrc.sensor import sensor_definitions
 define_subclasses(sensor_definitions, BRICK.Point)
 
+from bricksrc.alarm import alarm_definitions
+define_subclasses(alarm_definitions, BRICK.Point)
+
 from bricksrc.status import status_definitions
 define_subclasses(status_definitions, BRICK.Point)
 
