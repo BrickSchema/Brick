@@ -4,7 +4,7 @@ from collections import defaultdict
 import time
 
 from tqdm import tqdm
-from rdflib import RDF, OWL, RDFS, Namespace, URIRef, Graph
+from rdflib import RDF, OWL, RDFS, Namespace, URIRef, Graph, BNode
 
 """
 This script does the following:
@@ -81,9 +81,8 @@ def test_hierarchyinference():
 
     # Infer classes of the entities.
     # Apply reasoner
-    from util.reasoner import reason_brick, reason_owlrl, make_readable
-    reason_brick(g)
-    #reason_owlrl(g)
+    from util.reasoner import make_readable, reasonable_owlrl
+    reasonable_owlrl(g)
     g.serialize(inference_file, format='turtle')  # Store the inferred graph.
 
 
@@ -100,6 +99,15 @@ def test_hierarchyinference():
         klass = row[1]
         if BRICK in klass: # Filter out non-Brick classes such as Restrictions
             inferred_klasses[entity].add(klass)
+
+    # get equivalent classes
+    equivalent_classes = defaultdict(set)
+    res = g.query(q_prefix+"""\nSELECT ?c1 ?c2 WHERE {
+        ?c1 owl:equivalentClass ?c2
+    }""")
+    for (c1, c2) in res:
+        equivalent_classes[c1].add(c2)
+        equivalent_classes[c2].add(c1)
 
     over_inferences = {}  # Inferred Classes that are not supposed to be inferred.
     under_inferences = {}  # Classes that should have been inferred but not actually inferred.
@@ -118,7 +126,10 @@ def test_hierarchyinference():
         """.format(true_class)
         res = g.query(qstr)
         true_parents = [row[0] for row in res]
+        for tp in true_parents[:]:
+            true_parents.extend(equivalent_classes.get(tp, []))
         true_parents = set(filter(lambda parent: BRICK in parent, true_parents))
+        # TODO: bug here where this does not consider equivalent classes
         serialized = {
             'inferred_parents': list(inferred_parents),
             'true_parents': list(true_parents),
