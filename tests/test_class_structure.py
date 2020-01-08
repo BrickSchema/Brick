@@ -3,8 +3,8 @@ from rdflib import RDF, OWL, RDFS, Namespace
 from util.reasoner import reason_brick, make_readable
 
 BRICK_VERSION = '1.1.0'
-BRICK = Namespace("https://brickschema.org/schema/{0}/Brick#".format(BRICK_VERSION))
-TAG = Namespace("https://brickschema.org/schema/{0}/BrickTag#".format(BRICK_VERSION))
+BRICK = Namespace(f"https://brickschema.org/schema/{BRICK_VERSION}/Brick#")
+TAG = Namespace(f"https://brickschema.org/schema/{BRICK_VERSION}/BrickTag#")
 BLDG = Namespace("https://brickschema.org/schema/ExampleBuilding#")
 SOSA = Namespace("http://www.w3.org/ns/sosa#")
 
@@ -21,15 +21,27 @@ g.bind('tag', TAG)
 g.bind('bldg', BLDG)
 
 def test_subclasses():
-    subclasses1 = g.query("SELECT ?parent ?child WHERE { ?child rdfs:subClassOf ?parent }")
-    subclasses2 = g.query("SELECT ?parent ?child WHERE { ?child rdfs:subClassOf ?parent . ?child a owl:Class . ?parent a owl:Class }")
+    subclasses1 = g.query("SELECT ?parent ?child WHERE {\
+                                ?child rdfs:subClassOf ?parent\
+                          }")
+    subclasses2 = g.query("SELECT ?parent ?child WHERE {\
+                            ?child rdfs:subClassOf ?parent .\
+                            ?child a owl:Class .\
+                            ?parent a owl:Class\
+                          }")
     sc1 = [x[0] for x in subclasses1]
     sc2 = [x[0] for x in subclasses2]
     diff = set(sc1).difference(set(sc2))
 
-    # there should only be these two SOSA properties outside of Brick *at this point in time*
+    # there should only be these two SOSA properties
+    # outside of Brick *at this point in time*
     expected = set([
         SOSA.FeatureOfInterest,
-        SOSA.ObservableProperty
+        SOSA.ObservableProperty,
+        RDFS.Resource,
+        RDFS.Class,
+        RDF.Property
     ])
-    assert expected == diff, f"Got extra classes that may not be defined: {diff.difference(expected)}"
+
+    assert expected == diff, f"Got extra classes that may not be defined: \
+                               {diff.difference(expected)}"
