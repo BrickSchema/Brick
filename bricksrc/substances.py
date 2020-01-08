@@ -81,7 +81,7 @@ substances = {
                         SKOS.definition: Literal("Petroleum derived liquid used as a fuel source"),
                     },
                     "Liquid_CO2": {
-                        "tags": [TAG.Liquid, TAG.Gas, TAG.CO2],
+                        "tags": [TAG.Liquid, TAG.CO2],
                         SKOS.definition: Literal("Carbon Dioxide in the liquid phase"),
                     },
                     "Oil": {

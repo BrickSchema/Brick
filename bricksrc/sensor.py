@@ -67,6 +67,8 @@ sensor_definitions = {
             },
             "Conductivity_Sensor": {
                 # IFC ConductanceSensor
+                # TODO: pull from
+                # https://technical.buildingsmart.org/standards/ifc/ifc-schema-specifications/
                 SKOS.definition: Literal("senses or detects electrical conductance"),
                 "tags": [TAG.Sensor, TAG.Conductivity],
                 "substances": [[BRICK.measures, BRICK.Conductivity]],
@@ -214,13 +216,19 @@ sensor_definitions = {
                                 "tags": [TAG.Sensor, TAG.Flow, TAG.Water, TAG.Supply],
                                 "substances": [[BRICK.measures, BRICK.Flow], [BRICK.measures, BRICK.Supply_Water],],
                                 "subclasses": {
-                                    "Chilled_Water_Discharge_Flow_Sensor": {
-                                        "tags": [TAG.Sensor, TAG.Flow, TAG.Water, TAG.Discharge, TAG.Chilled],
-                                        "substances": [[BRICK.measures, BRICK.Flow], [BRICK.measures, BRICK.Discharge_Chilled_Water],],
-                                    },
                                     "Chilled_Water_Supply_Flow_Sensor": {
                                         "tags": [TAG.Sensor, TAG.Flow, TAG.Water, TAG.Supply, TAG.Chilled],
                                         "substances": [[BRICK.measures, BRICK.Flow], [BRICK.measures, BRICK.Supply_Chilled_Water],],
+                                    }
+                                }
+                            },
+                            "Discharge_Water_Flow_Sensor": {
+                                "tags": [TAG.Sensor, TAG.Flow, TAG.Water, TAG.Discharge],
+                                "substances": [[BRICK.measures, BRICK.Flow], [BRICK.measures, BRICK.Discharge_Water],],
+                                "subclasses": {
+                                    "Chilled_Water_Discharge_Flow_Sensor": {
+                                        "tags": [TAG.Sensor, TAG.Flow, TAG.Water, TAG.Discharge, TAG.Chilled],
+                                        "substances": [[BRICK.measures, BRICK.Flow], [BRICK.measures, BRICK.Discharge_Chilled_Water],],
                                     }
                                 }
                             }

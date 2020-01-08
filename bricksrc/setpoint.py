@@ -16,23 +16,8 @@ setpoint_definitions = {
                     "Cooling_Demand_Setpoint": {
                         "tags": [TAG.Cooling, TAG.Demand, TAG.Setpoint],
                     },
-                    "Cooling_Request_Percent_Setpoint": {
-                        "tags": [TAG.Cooling, TAG.Request, TAG.Percent, TAG.Setpoint],
-                        "parents": [BRICK.Cooling_Request_Setpoint],
-                    },
-                    "Cooling_Request_Setpoint": {
-                        "tags": [TAG.Cooling, TAG.Request, TAG.Setpoint],
-                    },
                     "Heating_Demand_Setpoint": {
                         "tags": [TAG.Heating, TAG.Demand, TAG.Setpoint],
-                    },
-                    "Heating_Request_Setpoint": {
-                        "tags": [TAG.Heating, TAG.Request, TAG.Setpoint],
-                        "subclasses": {
-                            "Heating_Request_Percent_Setpoint": {
-                                "tags": [TAG.Heating, TAG.Request, TAG.Percent, TAG.Setpoint],
-                            },
-                        }
                     },
                     "Preheat_Demand_Setpoint": {
                         "tags": [TAG.Preheat, TAG.Demand, TAG.Setpoint],
@@ -69,14 +54,6 @@ setpoint_definitions = {
                                         "tags": [TAG.Chilled, TAG.Water, TAG.Pump, TAG.Differential, TAG.Pressure, TAG.Deadband, TAG.Setpoint],
                                     },
                                 },
-                            },
-                            "Cooling_Discharge_Air_Temperature_Deadband_Setpoint": {
-                                "tags": [TAG.Cooling, TAG.Discharge, TAG.Air, TAG.Temperature, TAG.Deadband, TAG.Setpoint],
-                                "parents": [BRICK.Discharge_Air_Temperature_Cooling_Setpoint],
-                            },
-                            "Cooling_Supply_Air_Temperature_Deadband_Setpoint": {
-                                "tags": [TAG.Cooling, TAG.Supply, TAG.Air, TAG.Temperature, TAG.Deadband, TAG.Setpoint],
-                                "parents": [BRICK.Supply_Air_Temperature_Cooling_Setpoint],
                             },
                             "Supply_Water_Differential_Pressure_Deadband_Setpoint": {
                                 "subclasses": {
@@ -309,6 +286,27 @@ setpoint_definitions = {
                     }
                 },
                 "tags": [TAG.Pressure, TAG.Setpoint],
+            },
+            "Request_Setpoint": {
+                "tags": [TAG.Request, TAG.Setpoint],
+                "subclasses": {
+                    "Cooling_Request_Setpoint": {
+                        "tags": [TAG.Cooling, TAG.Request, TAG.Setpoint],
+                        "subclasses": {
+                            "Cooling_Request_Percent_Setpoint": {
+                                "tags": [TAG.Cooling, TAG.Request, TAG.Percent, TAG.Setpoint],
+                            },
+                        },
+                    },
+                    "Heating_Request_Setpoint": {
+                        "tags": [TAG.Heating, TAG.Request, TAG.Setpoint],
+                        "subclasses": {
+                            "Heating_Request_Percent_Setpoint": {
+                                "tags": [TAG.Heating, TAG.Request, TAG.Percent, TAG.Setpoint],
+                            },
+                        }
+                    },
+                },
             },
             "Reset_Setpoint": {
                 "Discharge_Air_Flow_Reset_Setpoint": {

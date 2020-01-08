@@ -5,7 +5,9 @@ from .namespaces import TAG, OWL, SKOS, BRICK
 Set up subclasses of the equipment superclass
 """
 equipment_subclasses = {
-    "HVAC": {},
+    "HVAC": {
+        OWL.equivalentClass: "Heating_Ventilation_Air_Conditioning_System",
+    },
     "Heating_Ventilation_Air_Conditioning_System": {
         OWL.equivalentClass: "HVAC",
     },
@@ -73,8 +75,15 @@ equipment_subclasses = {
                 "tags": [TAG.Water, TAG.Chilled, TAG.Equipment],
             },
             "Hot_Water_System": {
+                OWL.equivalentClass: "HWS",
                 "tags": [TAG.Water, TAG.Hot, TAG.Equipment],
             },
+            "CWS": {
+                OWL.equivalentClass: "Chilled_Water_System",
+            },
+            "HWS": {
+                OWL.equivalentClass: "Hot_Water_System",
+            }
         }
     },
     "Steam_System": {
@@ -282,7 +291,9 @@ hvac_subclasses = {
                 OWL.equivalentClass: "RTU",
                 "tags": [TAG.Equipment, TAG.Rooftop, TAG.AHU],
             },
-            "RTU": {},
+            "RTU": {
+                OWL.equivalentClass: "Rooftop_Unit",
+            },
         },
     },
 }

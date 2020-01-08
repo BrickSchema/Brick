@@ -62,8 +62,10 @@ status_definitions = {
                 "tags": [ TAG.Fan, TAG.Status ],
             },
             "Fault_Status": {
-                OWL.equivalentClass: "Fault_Indicator_Status",
                 "subclasses": {
+                    "Fault_Indicator_Status": {
+                        "tags": [ TAG.Indicator, TAG.Fault, TAG.Status ],
+                    },
                     "Humidifier_Fault_Status": {
                         "tags": [ TAG.Humidifier, TAG.Fault, TAG.Status ],
                     },
@@ -92,6 +94,12 @@ status_definitions = {
             },
             "Load_Shed_Status": {
                 "subclasses": {
+                    "Hot_Water_Discharge_Temperature_Load_Shed_Status": {
+                        "tags": [ TAG.Hot, TAG.Water, TAG.Discharge, TAG.Temperature, TAG.Load, TAG.Shed, TAG.Status ],
+                    },
+                    "Hot_Water_Supply_Temperature_Load_Shed_Status": {
+                        "tags": [ TAG.Hot, TAG.Water, TAG.Supply, TAG.Temperature, TAG.Load, TAG.Shed, TAG.Status ],
+                    },
                     "Differential_Pressure_Load_Shed_Status": {
                         "subclasses": {
                             "Chilled_Water_Differential_Pressure_Load_Shed_Status": {
@@ -111,10 +119,6 @@ status_definitions = {
                                     },
                                 }
                             },
-                            "Hot_Water_Discharge_Temperature_Load_Shed_Status": {
-                                "tags": [ TAG.Hot, TAG.Water, TAG.Discharge, TAG.Temperature, TAG.Load, TAG.Shed, TAG.Status ] },
-                            "Hot_Water_Supply_Temperature_Load_Shed_Status": {
-                                "tags": [ TAG.Hot, TAG.Water, TAG.Supply, TAG.Temperature, TAG.Load, TAG.Shed, TAG.Status ] }
                         },
                         "tags": [ TAG.Differential, TAG.Pressure, TAG.Load, TAG.Shed, TAG.Status ],
                         "parents": [BRICK.Pressure_Status],
