@@ -1,10 +1,21 @@
-from rdflib import Graph, Literal, BNode, Namespace, RDF, URIRef, RDFS, OWL
+from rdflib import Graph, Literal, BNode, URIRef
 from rdflib.namespace import XSD
 from rdflib.collection import Collection
-from rdflib.extras.infixowl import Restriction
 
-from bricksrc.namespaces import BRICK, RDF, OWL, DCTERMS, SDO, RDFS, SKOS, BRICK, TAG, SOSA
+
+from bricksrc.namespaces import BRICK, RDF, OWL, RDFS, TAG, SOSA
 from bricksrc.namespaces import bind_prefixes
+
+from bricksrc.setpoint import setpoint_definitions
+from bricksrc.sensor import sensor_definitions
+from bricksrc.alarm import alarm_definitions
+from bricksrc.status import status_definitions
+from bricksrc.command import command_definitions
+from bricksrc.parameter import parameter_definitions
+from bricksrc.location import location_subclasses
+from bricksrc.equipment import equipment_subclasses, hvac_subclasses, valve_subclasses
+from bricksrc.substances import substances
+from bricksrc.quantities import quantity_definitions
 
 G = Graph()
 bind_prefixes(G)
@@ -32,26 +43,113 @@ def has_tags(tagset, definition):
     return all([t in definition for t in tagset])
 
 def add_tags(klass, definition):
-    l = []
+    all_restrictions = []
     equivalent_class = BNode()
     list_name = BNode()
+    #for pointclass in ['Alarm' , 'Status', 'Command', 'Setpoint', 'Sensor', 'Parameter']:
+    #    res = G.query(f"""SELECT ?type WHERE {{
+    #        <{BRICK[klass]}> rdfs:subClassOf* <{BRICK[pointclass]}> .
+    #        <{BRICK[klass]}> a ?type
+    #    }}""")
+    #    if len(res) == 0:
+    #        continue
+
+    #    pointclass = TAG[f"{pointclass}_Tag"]
+
+    #    tag_restrictions = []
+    #    for idnum, item in enumerate(definition):
+    #        tag_requirement = BNode()
+    #        tag_restrictions.append(tag_requirement)
+    #        G.add((tag_requirement, A, OWL.Restriction))
+    #        G.add((tag_requirement, OWL.onProperty, BRICK.hasTag))
+    #        G.add((tag_requirement, OWL.hasValue, item))
+    #        tag_class_requirement = BNode()
+    #        tag_restrictions.append(tag_class_requirement)
+    #        G.add((tag_class_requirement, A, OWL.Restriction))
+    #        G.add((tag_class_requirement, OWL.onProperty, BRICK.hasTag))
+    #        G.add((tag_class_requirement, OWL.someValuesFrom, pointclass))
+    #    eqtag_class = BNode()
+    #    eqtag_list = BNode()
+    #    G.add((eqtag_class, OWL.intersectionOf, eqtag_list))
+    #    Collection(G, eqtag_list, tag_restrictions)
+    #    all_restrictions.append(eqtag_class)
+
+    # what are the necessary "NOT" tag stuffs?
+    # has tag   |  no tags  | implied class
+    # ----------|-----------|--------------
+    # sensor    |           | sensor
+    # parameter |           | parameter
+    # setpoint  | parameter |
+    # command   |           | command
+    # status    |           | status
+    # alarm     | parameter | alarm
+    #           | OR setpoint
+    opposites = {
+        'Setpoint': ['Parameter'],
+        'Alarm': ['Parameter', 'Setpoint'],
+    }
+    for pointclass in ['Alarm' , 'Status', 'Command', 'Setpoint', 'Sensor', 'Parameter']:
+        res = G.query(f"""SELECT ?type WHERE {{
+            <{BRICK[klass]}> rdfs:subClassOf* <{BRICK[pointclass]}> .
+            <{BRICK[klass]}> a ?type
+        }}""")
+
+        if len(res) == 0:
+            continue
+        if pointclass == 'Setpoint' or pointclass == 'Alarm':
+            for badtag in opposites[pointclass]:
+                class_restriction = BNode()
+                untag = BNode()
+                all_restrictions.append(class_restriction)
+                G.add((class_restriction, A, OWL.Class))
+                G.add((class_restriction, OWL.complementOf, untag))
+                G.add((untag, A, OWL.Restriction))
+                G.add((untag, OWL.hasValue, TAG[badtag]))
+                G.add((untag, OWL.onProperty, BRICK.hasTag))
 
     for idnum, item in enumerate(definition):
         restriction = BNode()
-        l.append(restriction)
+        all_restrictions.append(restriction)
         G.add( (restriction, A, OWL.Restriction) )
         G.add( (restriction, OWL.onProperty, BRICK.hasTag) )
         G.add( (restriction, OWL.hasValue, item) )
         G.add( (item, A, BRICK.Tag) ) # make sure the tag is declared as such
         G.add( (item, RDFS.label, Literal(item.split('#')[-1])) ) # make sure the tag is declared as such
 
+    # for pointclass in ['Alarm' , 'Status', 'Command', 'Setpoint', 'Sensor', 'Parameter']:
+    #     res = G.query(f"""SELECT ?type WHERE {{
+    #         <{BRICK[klass]}> rdfs:subClassOf* <{BRICK[pointclass]}> .
+    #         <{BRICK[klass]}> a ?type
+    #     }}""")
+
+    #     if len(res) == 0:
+    #         continue
+    #     restriction = BNode()
+    #     all_restrictions.append(restriction)
+    #     G.add((restriction, A, OWL.Restriction))
+    #     # TODO: might need a nested restriction: each
+    #     # hasValue/onProperty/hasTag restriction has to be an intersection
+    #     # where the tag is of the appropriate tag class e.g. Sensor_Tag
+    #     G.add((restriction, OWL.someValuesFrom, TAG[f"{pointclass}_Tag"]))
+    #     G.add((restriction, OWL.onProperty, BRICK.hasTag))
+
+    # for idnum, item in enumerate(definition):
+    #     restriction = BNode()
+    #     all_restrictions.append(restriction)
+    #     G.add( (restriction, A, OWL.Restriction) )
+    #     G.add( (restriction, OWL.onProperty, BRICK.hasTag) )
+    #     G.add( (restriction, OWL.hasValue, item) )
+    #     G.add( (item, A, BRICK.Tag) ) # make sure the tag is declared as such
+    #     G.add( (item, RDFS.label, Literal(item.split('#')[-1])) ) # make sure the tag is declared as such
+
     # tag index
     tagset = tuple(sorted([item.split('#')[-1] for item in definition]))
     tag_lookup[tagset].add(klass)
 
-    G.add( (BRICK[klass], OWL.equivalentClass, equivalent_class) )
-    G.add( (equivalent_class, OWL.intersectionOf, list_name) )
-    c = Collection(G, list_name, l)
+    if len(all_restrictions) > 0:
+        G.add( (BRICK[klass], OWL.equivalentClass, equivalent_class) )
+        G.add( (equivalent_class, OWL.intersectionOf, list_name) )
+        Collection(G, list_name, all_restrictions)
 
 def lookup_tagset(s):
     s = set(map(lambda x: x.capitalize(), s))
@@ -104,7 +202,7 @@ def define_rootclasses(definitions):
             elif isinstance(v, list) and k == "tags":
                 add_tags(rootclass, v)
             elif isinstance(v, list) and k == "substances":
-                add_class_restriction(subclass, v)
+                add_class_restriction(rootclass, v)
             elif not apply_prop(rootclass, k, v):
                 if isinstance(v, dict) and k == "subclasses":
                     define_subclasses(v, BRICK[rootclass])
@@ -170,36 +268,17 @@ roots = {
 }
 define_rootclasses(roots)
 
-from bricksrc.setpoint import setpoint_definitions
 define_subclasses(setpoint_definitions, BRICK.Point)
-
-from bricksrc.sensor import sensor_definitions
 define_subclasses(sensor_definitions, BRICK.Point)
-
-from bricksrc.alarm import alarm_definitions
 define_subclasses(alarm_definitions, BRICK.Point)
-
-from bricksrc.status import status_definitions
 define_subclasses(status_definitions, BRICK.Point)
-
-from bricksrc.command import command_definitions
 define_subclasses(command_definitions, BRICK.Point)
-
-from bricksrc.parameter import parameter_definitions
 define_subclasses(parameter_definitions, BRICK.Point)
-
-from bricksrc.location import location_subclasses
 define_subclasses(location_subclasses, BRICK.Location)
-
-from bricksrc.equipment import equipment_subclasses, hvac_subclasses, valve_subclasses
 define_subclasses(equipment_subclasses, BRICK.Equipment)
 define_subclasses(hvac_subclasses, BRICK.HVAC)
 define_subclasses(valve_subclasses, BRICK.Valve)
-
-from bricksrc.substances import substances
 define_subclasses(substances, BRICK.Substance)
-
-from bricksrc.quantities import quantity_definitions
 define_subclasses(quantity_definitions, BRICK.Quantity)
 
 G.add((BRICK.Measurable, A, OWL.Class))
@@ -207,6 +286,12 @@ G.add((BRICK.Quantity, RDFS.subClassOf, SOSA.ObservableProperty))
 G.add((BRICK.Substance, RDFS.subClassOf, SOSA.FeatureOfInterest))
 G.add((BRICK.Substance, RDFS.subClassOf, BRICK.Measurable))
 G.add((BRICK.Quantity, RDFS.subClassOf, BRICK.Measurable))
+
+# make disjoint
+pointclasses = ['Alarm', 'Status', 'Command', 'Setpoint', 'Sensor', 'Parameter']
+for pc in pointclasses:
+    for o in filter(lambda x: x != pc, pointclasses):
+        G.add((BRICK[pc], OWL.disjointWith, BRICK[o]))
 
 # We make the punning explicit here. Any subclass of brick:Substance
 # or brick:Quantity is itself a substance or quantity. There is one canonical
