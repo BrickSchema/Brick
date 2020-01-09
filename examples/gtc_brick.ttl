@@ -2,13 +2,10 @@
 @prefix bf: <http://brickschema.org/schema/1.0.2/BrickFrame#> .
 @prefix brick: <http://brickschema.org/schema/1.0.2/Brick#> .
 @prefix btag: <http://brickschema.org/schema/1.0.2/BrickTag#> .
-@prefix default1: <http://brickschema.org/schema/1.0.2/BrickFrame#> .
-@prefix default2: <http://brickschema.org/schema/1.0.2/BrickTag#> .
 @prefix gtc: <http://brickschema.org/schema/1.0.2/building_example#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix tag: <http://brickschema.org/schema/1.0.2/BrickTag#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
@@ -21956,4 +21953,3 @@ bf:hasPoint a owl:AsymmetricProperty,
         owl:ObjectProperty ;
     rdfs:range bf:Point ;
     owl:inverseOf bf:isPointOf .
-
