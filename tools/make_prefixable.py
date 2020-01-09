@@ -21,8 +21,6 @@ args = parser.parse_args()
 if args.info:
     getLogger().setLevel("INFO")
 
-separators = ('.', ',', ';', '\s+')
-
 models=args.models
 
 # deal with one file for now
