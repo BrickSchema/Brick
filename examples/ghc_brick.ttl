@@ -1,6 +1,7 @@
 @prefix GHC: <http://cmu.edu/building/ontology/ghc#> .
 @prefix brick: <http://brickschema.org/schema/1.0.2/Brick#> .
 @prefix ns1: <http://brickschema.org/schema/1.0.2/BrickFrame#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
@@ -65487,4 +65488,3 @@ brick:Schedule_Setpoint ns1:hasTag brick:Command .
 
 brick:Run_Time_Sensor ns1:hasTag brick:Run,
         brick:Sensor .
-
