@@ -14,6 +14,8 @@ A = RDF.type
 rootclasses = ["Equipment", "Location", "Point",
                "Substance", "Quantity"]
 
+fluidClasses = ['Gas', 'Liquid']
+
 for name, properties in property_definitions.items():
 
     for pred, obj in properties.items():
@@ -52,6 +54,20 @@ for name, properties in property_definitions.items():
 # as a Location even if it is already an Equipment).
 for rootclass1 in rootclasses:
     for rootclass2 in rootclasses:
+        if rootclass1 == rootclass2:
+            continue
+        sh_prop = BNode()
+        shapename = f"{rootclass1}CanNotBe{rootclass2}Shape"
+        G.add((BSH[shapename], A, SH.NodeShape))
+        G.add((BSH[shapename], SH.targetClass, BRICK[rootclass1]))
+        G.add((BSH[shapename], SH["not"], sh_prop))
+        G.add((sh_prop, SH["class"], BRICK[rootclass2]))
+        G.add((sh_prop, SH["message"], Literal(f"Node cannot be both a \
+               {BRICK[rootclass1]} and a {BRICK[rootclass2]}. Check the \
+               properties it has")))
+
+for rootclass1 in fluidClasses:
+    for rootclass2 in fluidClasses:
         if rootclass1 == rootclass2:
             continue
         sh_prop = BNode()
