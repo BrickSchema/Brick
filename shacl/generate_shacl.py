@@ -78,6 +78,7 @@ for subprop, desc in substance_subproperties.items():
     constraintlist = BNode()
     G.add((shape, A, SH.NodeShape))
     G.add((shape, SH.targetSubjectsOf, BRICK[subprop]))
+
     G.add((shape, SH['or'], constraintlist))
 
     constraints = []
