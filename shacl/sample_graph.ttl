@@ -42,3 +42,8 @@ bldg:VAV2-4.DPRPOS a brick:Damper_Position_Setpoint .
 bldg:VAV2-4.SUPFLOW a brick:Supply_Air_Flow_Sensor .
 
 bldg:VAV2-4.SUPFLSP a brick:Supply_Air_Flow_Setpoint .
+
+bldg:VAV2-4.DPR brick:feedsAir bldg:Room-412 .
+
+bldg:VAV2-4.DPR brick:regulates brick:Water .
+#bldg:VAV2-4.DPR brick:regulates brick:Air .
