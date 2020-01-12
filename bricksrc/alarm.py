@@ -18,6 +18,17 @@ alarm_definitions = {
             "Communication_Loss_Alarm": {
                 "tags": [TAG.Communication, TAG.Loss, TAG.Alarm],
             },
+            "Emergency_Alarm": {
+                "tags": [TAG.Emergency, TAG.Alarm],
+                "subclasses": {
+                    "Emergency_Generator_Alarm": {
+                        "tags": [TAG.Generator, TAG.Emergency, TAG.Alarm],
+                    },
+                    "Emergency_Power_Loss_Alarm": {
+                        "tags": [TAG.Power, TAG.Loss, TAG.Emergency, TAG.Alarm],
+                    },
+                },
+            },
             "Failure_Alarm": {
                 "tags": [TAG.Failure, TAG.Alarm],
             },
@@ -49,7 +60,41 @@ alarm_definitions = {
                             },
                         },
                     },
+                    "Air_Temperature_Alarm": {
+                        "tags": [TAG.Air, TAG.Temperature, TAG.Alarm],
+                        "parents": [BRICK.Air_Alarm],
+                        "subclasses": {
+                            "Discharge_Air_Temperature_Alarm": {
+                                "tags": [TAG.Discharge, TAG.Air,
+                                         TAG.Temperature, TAG.Alarm],
+                                "subclasses": {
+                                    "High_Discharge_Air_Temperature_Alarm": {
+                                        "tags": [TAG.High, TAG.Discharge,
+                                                 TAG.Air, TAG.Temperature,
+                                                 TAG.Alarm],
+                                    },
+                                },
+                            },
+                            "Supply_Air_Temperature_Alarm": {
+                                "tags": [TAG.Supply, TAG.Air,
+                                         TAG.Temperature, TAG.Alarm],
+                            },
+                        },
+                    },
                 }
+            },
+            "Smoke_Alarm": {
+                "tags": [TAG.Smoke, TAG.Alarm],
+                "subclasses": {
+                    "Smoke_Detected_Alarm": {
+                        "tags": [TAG.Smoke, TAG.Detected, TAG.Alarm],
+                        "subclasses": {
+                            "Discharge_Air_Smoke_Detected_Alarm": {
+                                "tags": [TAG.Discharge, TAG.Air, TAG.Smoke, TAG.Detected, TAG.Alarm],
+                            },
+                        },
+                    },
+                },
             },
             "Water_Alarm": {
                 "tags": [TAG.Water, TAG.Alarm],

@@ -40,6 +40,7 @@ parameter_definitions = {
                     },
                 },
             },
+            "Low_Freeze_Protect_Temperature_Parameter": {},
             "PID_Parameter": {
                 "tags": [TAG.Parameter, TAG.PID],
                 "subclasses": {
@@ -82,6 +83,11 @@ parameter_definitions = {
                                 "subclasses": {
                                     "Air_Static_Pressure_Step_Parameter": {
                                         "tags": [TAG.Air, TAG.Static, TAG.Pressure, TAG.Step, TAG.Parameter, TAG.PID],
+                                        "subclasses": {
+                                            "Discharge_Air_Static_Pressure_Step_Parameter": {
+                                                "tags": [TAG.Discharge, TAG.Air, TAG.Static, TAG.Pressure, TAG.Step, TAG.Parameter, TAG.PID],
+                                            },
+                                        },
                                     }
                                 },
                                 "tags": [TAG.Static, TAG.Pressure, TAG.Step, TAG.Parameter, TAG.PID],
@@ -89,7 +95,12 @@ parameter_definitions = {
                             "Temperature_Step_Parameter": {
                                 "subclasses": {
                                     "Air_Temperature_Step_Parameter": {
-                                        "tags": [TAG.Air, TAG.Temperature, TAG.Step, TAG.Parameter, TAG.PID],
+                                        "tags": [TAG.Air, TAG.Temperature, TAG.Step, TAG.Parameter],
+                                        "subclasses": {
+                                            "DischargeAir_Temperature_Step_Parameter": {
+                                                "tags": [TAG.Discharge, TAG.Air, TAG.Temperature, TAG.Step, TAG.Parameter],
+                                            }
+                                        }
                                     }
                                 },
                                 "tags": [TAG.Temperature, TAG.Step, TAG.Parameter, TAG.PID],
@@ -151,6 +162,9 @@ parameter_definitions = {
                                 }
                             },
                         },
+                        "Deceleration_Time_Parameter": {
+                            "tags": [TAG.Parameter, TAG.Time, TAG.Deceleration],
+                        },
                         "Derivative_Time_Parameter": {
                             "tags": [TAG.Parameter, TAG.PID, TAG.Time, TAG.Derivative],
                         },
@@ -201,6 +215,11 @@ parameter_definitions = {
                             },
                             "Exhaust_Air_Flow_Proportional_Band_Parameter": {
                                 "tags": [TAG.Exhaust, TAG.Air, TAG.Flow, TAG.Proportional, TAG.Band, TAG.Parameter, TAG.PID],
+                                "subclasses": {
+                                    "Exhaust_Air_Stack_Flow_Proportional_Band_Parameter": {
+                                        "tags": [TAG.Exhaust, TAG.Air, TAG.Stack, TAG.Flow, TAG.Proportional, TAG.Band, TAG.Parameter, TAG.PID],
+                                    },
+                                },
                             },
                             "Static_Pressure_Proportional_Band_Parameter": {
                                 "subclasses": {
@@ -293,8 +312,10 @@ parameter_definitions = {
                             "Max_Static_Pressure_Setpoint_Limit": {
                                 "tags": [TAG.Max, TAG.Static, TAG.Pressure, TAG.Limit],
                             },
+                            "High_Static_Pressure_Cutout_Setpoint_Limit": {
+                                "tags": [TAG.High, TAG.Static, TAG.Pressure, TAG.Cutout, TAG.Limit, TAG.Setpoint],
+                            },
                         },
-                        "parents": [BRICK.Static_Pressure_Setpoint],
                     },
                     "Max_Limit": {
                         "tags": [TAG.Max, TAG.Limit],
@@ -307,10 +328,6 @@ parameter_definitions = {
                             },
                             "Max_Supply_Air_Static_Pressure_Setpoint_Limit": {
                                 "tags": [TAG.Max, TAG.Supply, TAG.Air, TAG.Static, TAG.Pressure, TAG.Limit],
-                            },
-                            "High_Static_Pressure_Cutout_Setpoint_Limit": {
-                                "tags": [TAG.High, TAG.Static, TAG.Pressure, TAG.Cutout, TAG.Limit, TAG.Setpoint],
-                                "parents": [BRICK.Static_Pressure_Setpoint_Limit],
                             },
                             "Max_Damper_Position_Setpoint_Limit": {
                                 "tags": [TAG.Max, TAG.Damper, TAG.Position, TAG.Limit],

@@ -17,6 +17,9 @@ command_definitions = {
             "Luminance_Command": {
                 "tags": [TAG.Luminance, TAG.Command],
             },
+            "Bypass_Command": {
+                "tags": [TAG.Bypass, TAG.Command],
+            },
             "Damper_Command": {
                 "tags": [TAG.Damper, TAG.Command],
                 "subclasses": {
@@ -80,6 +83,18 @@ command_definitions = {
                     "Run_Enable_Command": {
                         "tags": [TAG.Enable, TAG.Command, TAG.Run],
                     },
+                    "Enable_Differential_Enthalpy_Command": {
+                        "tags": [TAG.Enable, TAG.Command, TAG.Differential, TAG.Enthalpy],
+                    },
+                    "Enable_Differential_Temperature_Command": {
+                        "tags": [TAG.Enable, TAG.Command, TAG.Differential, TAG.Temperature],
+                    },
+                    "Enable_Fixed_Enthalpy_Command": {
+                        "tags": [TAG.Enable, TAG.Command, TAG.Fixed, TAG.Enthalpy],
+                    },
+                    "Enable_Fixed_Temperature_Command": {
+                        "tags": [TAG.Enable, TAG.Command, TAG.Fixed, TAG.Temperature],
+                    },
                 },
             },
             "Disable_Command": {
@@ -87,6 +102,18 @@ command_definitions = {
                 "subclasses": {
                     "Exhaust_Fan_Disable_Command": {
                         "tags": [TAG.Disable, TAG.Command, TAG.Fan, TAG.Exhaust],
+                    },
+                    "Disable_Differential_Enthalpy_Command": {
+                        "tags": [TAG.Disable, TAG.Command, TAG.Differential, TAG.Enthalpy],
+                    },
+                    "Disable_Differential_Temperature_Command": {
+                        "tags": [TAG.Disable, TAG.Command, TAG.Differential, TAG.Temperature],
+                    },
+                    "Disable_Fixed_Enthalpy_Command": {
+                        "tags": [TAG.Disable, TAG.Command, TAG.Fixed, TAG.Enthalpy],
+                    },
+                    "Disable_Fixed_Temperature_Command": {
+                        "tags": [TAG.Disable, TAG.Command, TAG.Fixed, TAG.Temperature],
                     },
                 },
             },
@@ -122,8 +149,22 @@ command_definitions = {
             "On_Off_Command": {
                 "tags": [TAG.OnOff, TAG.Command],
                 "subclasses": {
+                    "Off_Command": {
+                        "subclasses": {
+                            "Exhaust_Fan_Fire_Control_Panel_Off_Command": {}
+                        },
+                    },
+                    "On_Command": {
+                        "subclasses": {
+                            "Exhaust_Fan_Fire_Control_Panel_On_Command": {}
+                        },
+                    },
                     "Steam_On_Off_Command": {},
-                    "Start_Stop_Command": {},
+                    "Start_Stop_Command": {
+                        "subclasses": {
+                            "Domestic_Hot_Water_System_Start_Stop_Command": {},
+                        },
+                    },
                 },
             },
             "Override_Command": {

@@ -77,6 +77,11 @@ equipment_subclasses = {
             "Hot_Water_System": {
                 OWL.equivalentClass: "HWS",
                 "tags": [TAG.Water, TAG.Hot, TAG.Equipment],
+                "subclasses": {
+                    "Domestic_Hot_Water_System": {
+                        "tags": [TAG.Domestic, TAG.Water, TAG.Hot, TAG.Equipment],
+                    },
+                },
             },
             "CWS": {
                 OWL.equivalentClass: "Chilled_Water_System",
@@ -119,6 +124,12 @@ equipment_subclasses = {
     "Furniture": {
     },
     "Fire_Safety_System": {
+        "subclasses": {
+            "Fire_Control_Panel": {
+                OWL.equivalentClass: "FCP",
+            },
+            "FCP": {},
+        },
     },
     "Elevator": {
     },

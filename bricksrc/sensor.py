@@ -96,9 +96,19 @@ sensor_definitions = {
                     "PV_Current_Output_Sensor": {},
                 }
             },
-            "Damper_Position_Sensor": {
+            "Position_Sensor": {
                 "substances": [[BRICK.measures, BRICK.Position]],
-                "tags": [TAG.Damper, TAG.Position, TAG.Sensor],
+                "tags": [TAG.Position, TAG.Sensor],
+                "subclasses": {
+                    "Sash_Position_Sensor": {
+                        "substances": [[BRICK.measures, BRICK.Position]],
+                        "tags": [TAG.Sash, TAG.Position, TAG.Sensor],
+                    },
+                    "Damper_Position_Sensor": {
+                        "substances": [[BRICK.measures, BRICK.Position]],
+                        "tags": [TAG.Damper, TAG.Position, TAG.Sensor],
+                    },
+                },
             },
             "Demand_Sensor": {
                 "tags": [TAG.Sensor, TAG.Demand],
@@ -410,23 +420,22 @@ sensor_definitions = {
             "Power_Sensor": {
                 "substances": [[BRICK.measures, BRICK.Power]],
                 "subclasses": {
-                    "Active_Power_Sensor": {
-                        "tags": [TAG.Sensor, TAG.Power, TAG.Active],
-                        "substances": [[BRICK.measures, BRICK.Active_Power]],
+                    "Electrical_Power_Sensor": {
+                        "tags": [TAG.Sensor, TAG.Power, TAG.Electrical],
+                        "Reactive_Power_Sensor": {
+                            "tags": [TAG.Sensor, TAG.Power, TAG.Reactive, TAG.Electrical],
+                            "substances": [[BRICK.measures, BRICK.Reactive_Power]],
+                        },
+                        "Active_Power_Sensor": {
+                            "tags": [TAG.Sensor, TAG.Power, TAG.Real, TAG.Electrical],
+                            "substances": [[BRICK.measures, BRICK.Active_Power]],
+                        },
+                        "Peak_Power_Demand_Sensor": {
+                            "tags": [TAG.Peak, TAG.Power, TAG.Demand, TAG.Sensor, TAG.Electrical],
+                            "substances": [[BRICK.measures, BRICK.Peak_Power]],
+                            "parents": [BRICK.Demand_Sensor],
+                        }
                     },
-                    "Reactive_Power_Sensor": {
-                        "tags": [TAG.Sensor, TAG.Power, TAG.Reactive],
-                        "substances": [[BRICK.measures, BRICK.Reactive_Power]],
-                    },
-                    "Active_Power_Sensor": {
-                        "tags": [TAG.Sensor, TAG.Power, TAG.Real],
-                        "substances": [[BRICK.measures, BRICK.Active_Power]],
-                    },
-                    "Peak_Power_Demand_Sensor": {
-                        "tags": [TAG.Peak, TAG.Power, TAG.Demand, TAG.Sensor],
-                        "substances": [[BRICK.measures, BRICK.Peak_Power]],
-                        "parents": [BRICK.Demand_Sensor],
-                    }
                 }
             },
             "Rain_Sensor": {
