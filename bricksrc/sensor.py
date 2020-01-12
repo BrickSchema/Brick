@@ -355,6 +355,10 @@ sensor_definitions = {
                     "Differential_Pressure_Sensor": {
                         "tags": [TAG.Sensor, TAG.Pressure, TAG.Differential],
                         "subclasses": {
+                            "Air_Differential_Pressure_Sensor": {
+                                "substances": [[BRICK.measures, BRICK.Pressure], [BRICK.measures, BRICK.Air],],
+                                "tags": [TAG.Air, TAG.Sensor, TAG.Pressure, TAG.Differential],
+                            },
                             "Chilled_Water_Differential_Pressure_Sensor": {
                                 "tags": [TAG.Sensor, TAG.Pressure, TAG.Differential, TAG.Water, TAG.Chilled],
                                 "substances": [[BRICK.measures, BRICK.Pressure], [BRICK.measures, BRICK.Chilled_Water],],
@@ -420,6 +424,14 @@ sensor_definitions = {
             "Power_Sensor": {
                 "substances": [[BRICK.measures, BRICK.Power]],
                 "subclasses": {
+                    "Thermal_Power_Sensor": {
+                        "tags": [TAG.Sensor, TAG.Power, TAG.Thermal],
+                        "subclasses": {
+                            "Heating_Thermal_Power_Sensor": {
+                                "tags": [TAG.Heating, TAG.Sensor, TAG.Power, TAG.Thermal],
+                            }
+                        },
+                    },
                     "Electrical_Power_Sensor": {
                         "tags": [TAG.Sensor, TAG.Power, TAG.Electrical],
                         "Reactive_Power_Sensor": {
@@ -635,6 +647,10 @@ sensor_definitions = {
                                     }
                                 }
                             },
+                            "Discharge_Water_Temperature_Sensor": {
+                                "tags": [TAG.Sensor, TAG.Temperature, TAG.Water, TAG.Discharge],
+                                "substances": [[BRICK.measures, BRICK.Temperature], [BRICK.measures, BRICK.Discharge_Water],],
+                            },
                             "Entering_Water_Temperature_Sensor": {
                                 "tags": [TAG.Sensor, TAG.Temperature, TAG.Water, TAG.Entering],
                                 "substances": [[BRICK.measures, BRICK.Temperature], [BRICK.measures, BRICK.Entering_Water],],
@@ -654,6 +670,12 @@ sensor_definitions = {
                                 "subclasses": {
                                     "Hot_Water_Return_Temperature_Sensor": {
                                         "tags": [TAG.Hot, TAG.Water, TAG.Return, TAG.Temperature, TAG.Sensor],
+                                        "subclasses": {
+                                            "High_Temperature_Hot_Water_Return_Temperature_Sensor": {
+                                                # TODO: remove?
+                                                "tags": [TAG.High, TAG.Hot, TAG.Water, TAG.Return, TAG.Temperature, TAG.Sensor],
+                                            },
+                                        },
                                     },
                                     "Chilled_Water_Return_Temperature_Sensor": {
                                         "tags": [TAG.Chilled, TAG.Water, TAG.Return, TAG.Temperature, TAG.Sensor],

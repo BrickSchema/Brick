@@ -125,6 +125,9 @@ substances = {
                                 "tags": [TAG.Liquid, TAG.Water, TAG.Domestic],
                                 SKOS.definition: Literal("Tap water for drinking, washing, cooking, and flushing of toliets"),
                             },
+                            "Discharge_Water": {
+                                "tags": [TAG.Liquid, TAG.Water, TAG.Discharge],
+                            },
                             "Entering_Water": {
                                 "tags": [TAG.Liquid, TAG.Water, TAG.Entering],
                             },

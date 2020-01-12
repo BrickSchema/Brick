@@ -469,6 +469,9 @@ setpoint_definitions = {
                                     }
                                 }
                             },
+                            "Discharge_Water_Temperature_Setpoint": {
+                                "tags": [TAG.Discharge, TAG.Water, TAG.Temperature, TAG.Setpoint],
+                            },
                             "Entering_Water_Temperature_Setpoint": {
                                 "tags": [TAG.Entering, TAG.Water, TAG.Temperature, TAG.Setpoint],
                             },

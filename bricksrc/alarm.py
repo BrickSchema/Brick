@@ -32,6 +32,14 @@ alarm_definitions = {
             "Failure_Alarm": {
                 "tags": [TAG.Failure, TAG.Alarm],
             },
+            "Humidity_Alarm": {
+                "tags": [TAG.Humidity, TAG.Alarm],
+                "subclasses": {
+                    "High_Humidity_Alarm": {
+                        "tags": [TAG.High, TAG.Humidity, TAG.Alarm],
+                    },
+                },
+            },
             "Leak_Alarm": {
                 "tags": [TAG.Leak, TAG.Alarm],
                 "subclasses": {
@@ -43,9 +51,18 @@ alarm_definitions = {
             "Overload_Alarm": {
                 "tags": [TAG.Overload, TAG.Alarm],
             },
+            "Pressure_Alarm": {
+                "tags": [TAG.Pressure, TAG.Alarm],
+                "subclasses": {
+                    "High_Head_Pressure_Alarm": {}
+                },
+            },
             "Temperature_Alarm": {
                 "tags": [TAG.Temperature, TAG.Alarm],
                 "subclasses": {
+                    "High_Temperature_Alarm": {
+                        "tags": [TAG.High, TAG.Temperature, TAG.Alarm],
+                    },
                     "Water_Temperature_Alarm": {
                         "tags": [TAG.Water, TAG.Temperature, TAG.Alarm],
                         "parents": [BRICK.Water_Alarm],

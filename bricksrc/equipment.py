@@ -288,6 +288,7 @@ hvac_subclasses = {
             "Centrifugal_Chiller": {},
         },
     },
+    "Humidifier": {},
     "Boiler": {
         SKOS.definition: Literal("A closed, pressure vessel that uses fuel or electricity for heating water or other fluids to supply steam or hot water for heating, humidification, or other applications."),
     },
