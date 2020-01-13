@@ -117,11 +117,9 @@ sensor_definitions = {
                 "tags": [TAG.Position, TAG.Sensor],
                 "subclasses": {
                     "Sash_Position_Sensor": {
-                        "substances": [[BRICK.measures, BRICK.Position]],
                         "tags": [TAG.Sash, TAG.Position, TAG.Sensor],
                     },
                     "Damper_Position_Sensor": {
-                        "substances": [[BRICK.measures, BRICK.Position]],
                         "tags": [TAG.Damper, TAG.Position, TAG.Sensor],
                     },
                 },
@@ -560,7 +558,7 @@ sensor_definitions = {
                         "tags": [TAG.Sensor, TAG.Usage, TAG.Steam],
                         "subclasses": {
                             "Today_Steam_Usage_Sensor": {
-                                "tags": [TAG.Monthly, TAG.Sensor, TAG.Usage, TAG.Steam],
+                                "tags": [TAG.Today, TAG.Sensor, TAG.Usage, TAG.Steam],
                             },
                             "Monthly_Steam_Usage_Sensor": {
                                 "tags": [TAG.Monthly, TAG.Sensor, TAG.Usage, TAG.Steam],

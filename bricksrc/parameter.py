@@ -117,6 +117,7 @@ parameter_definitions = {
                                         }
                                     }
                                 },
+                                "parents": [BRICK.Temperature_Parameter],
                                 "tags": [TAG.Temperature, TAG.Step, TAG.Parameter],
                             }
                         },
@@ -129,6 +130,7 @@ parameter_definitions = {
                                 "subclasses": {
                                     "Air_Temperature_Integral_Time_Parameter": {
                                         "tags": [TAG.Air, TAG.Temperature, TAG.Parameter, TAG.PID, TAG.Time, TAG.Integral],
+                                        "parents": [BRICK.Temperature_Parameter],
                                         "subclasses": {
                                             "Cooling_Discharge_Air_Temperature_Integral_Time_Parameter": {
                                                 "tags": [TAG.Cooling, TAG.Discharge, TAG.Air, TAG.Temperature, TAG.Integral, TAG.Time, TAG.Parameter, TAG.PID],
@@ -184,6 +186,7 @@ parameter_definitions = {
                                         "tags": [TAG.Supply, TAG.Water, TAG.Differential, TAG.Pressure, TAG.Integral, TAG.Time, TAG.Parameter, TAG.PID],
                                     },
                                     "Supply_Water_Temperature_Integral_Time_Parameter": {
+                                        "parents": [BRICK.Temperature_Parameter],
                                         "tags": [TAG.Supply, TAG.Water, TAG.Temperature, TAG.Integral, TAG.Time, TAG.Parameter, TAG.PID],
                                     }
                                 },
@@ -193,17 +196,6 @@ parameter_definitions = {
                             },
                             "Derivative_Time_Parameter": {
                                 "tags": [TAG.Parameter, TAG.PID, TAG.Time, TAG.Derivative],
-                            },
-                        },
-                    },
-                    "Tolerance_Parameter": {
-                        "tags": [TAG.Tolerance, TAG.Parameter],
-                        "subclasses": {
-                            "Humidity_Tolerance_Parameter": {
-                                "tags": [TAG.Tolerance, TAG.Parameter, TAG.Humidity],
-                            },
-                            "Temperature_Tolerance_Parameter": {
-                                "tags": [TAG.Tolerance, TAG.Parameter, TAG.Temperature],
                             },
                         },
                     },
@@ -239,6 +231,7 @@ parameter_definitions = {
                             },
                             "Discharge_Air_Temperature_Proportional_Band_Parameter": {
                                 "tags": [TAG.Discharge, TAG.Air, TAG.Temperature, TAG.Proportional, TAG.Band, TAG.Parameter, TAG.PID],
+                                "parents": [BRICK.Temperature_Parameter],
                                 "subclasses": {
                                     "Heating_Discharge_Air_Temperature_Proportional_Band_Parameter": {
                                         "tags": [TAG.Heating, TAG.Discharge, TAG.Air, TAG.Temperature, TAG.Proportional, TAG.Band, TAG.Parameter, TAG.PID],
@@ -250,6 +243,7 @@ parameter_definitions = {
                             },
                             "Supply_Air_Temperature_Proportional_Band_Parameter": {
                                 "tags": [TAG.Supply, TAG.Air, TAG.Temperature, TAG.Proportional, TAG.Band, TAG.Parameter, TAG.PID],
+                                "parents": [BRICK.Temperature_Parameter],
                                 "subclasses": {
                                     "Cooling_Supply_Air_Temperature_Proportional_Band_Parameter": {
                                         "tags": [TAG.Cooling, TAG.Supply, TAG.Air, TAG.Temperature, TAG.Proportional, TAG.Band, TAG.Parameter, TAG.PID],
@@ -282,14 +276,29 @@ parameter_definitions = {
                                 "tags": [TAG.Static, TAG.Pressure, TAG.Proportional, TAG.Band, TAG.Parameter, TAG.PID],
                             },
                             "Supply_Water_Temperature_Proportional_Band_Parameter": {
+                                "parents": [BRICK.Temperature_Parameter],
                                 "tags": [TAG.Supply, TAG.Water, TAG.Temperature, TAG.Proportional, TAG.Band, TAG.Parameter, TAG.PID],
                             },
                             "Discharge_Water_Temperature_Proportional_Band_Parameter": {
+                                "parents": [BRICK.Temperature_Parameter],
                                 "tags": [TAG.Discharge, TAG.Water, TAG.Temperature, TAG.Proportional, TAG.Band, TAG.Parameter, TAG.PID],
                             },
                         },
                     },
                 }
+            },
+            "Tolerance_Parameter": {
+                "tags": [TAG.Tolerance, TAG.Parameter],
+                "subclasses": {
+                    "Humidity_Tolerance_Parameter": {
+                        "tags": [TAG.Tolerance, TAG.Parameter, TAG.Humidity],
+                        "parents": [BRICK.Humidity_Parameter],
+                    },
+                    "Temperature_Tolerance_Parameter": {
+                        "parents": [BRICK.Temperature_Parameter],
+                        "tags": [TAG.Tolerance, TAG.Parameter, TAG.Temperature],
+                    },
+                },
             },
             "Limit": {
                 "tags": [TAG.Parameter, TAG.Limit],
@@ -312,17 +321,18 @@ parameter_definitions = {
                     },
                     "Air_Temperature_Setpoint_Limit": {
                         "tags": [TAG.Air, TAG.Temperature, TAG.Limit],
+                        "parents": [BRICK.Temperature_Parameter],
                         "subclasses": {
                             "Discharge_Air_Temperature_Setpoint_Limit": {
                                 "tags": [TAG.Discharge, TAG.Air, TAG.Temperature, TAG.Limit],
                                 "subclasses": {
                                     "Max_Discharge_Air_Temperature_Setpoint_Limit": {
                                         "tags": [TAG.Max, TAG.Discharge, TAG.Air, TAG.Temperature, TAG.Limit],
-                                        "parents": [BRICK.Max_Limit],
+                                        "parents": [BRICK.Max_Temperature_Setpoint_Limit],
                                     },
                                     "Min_Discharge_Air_Temperature_Setpoint_Limit": {
                                         "tags": [TAG.Min, TAG.Discharge, TAG.Air, TAG.Temperature, TAG.Limit],
-                                        "parents": [BRICK.Min_Limit],
+                                        "parents": [BRICK.Min_Temperature_Setpoint_Limit],
                                     },
                                 }
                             },
@@ -347,9 +357,11 @@ parameter_definitions = {
                         "subclasses": {
                             "Max_Position_Setpoint_Limit": {
                                 "tags": [TAG.Max, TAG.Damper, TAG.Position, TAG.Limit],
+                                "parents": [BRICK.Max_Limit],
                             },
                             "Min_Position_Setpoint_Limit": {
                                 "tags": [TAG.Min, TAG.Damper, TAG.Position, TAG.Limit],
+                                "parents": [BRICK.Min_Limit],
                             },
                         },
                     },
@@ -375,6 +387,7 @@ parameter_definitions = {
                         "subclasses": {
                             "Min_Fresh_Air_Setpoint_Limit": {
                                 "tags": [TAG.Min, TAG.Fresh, TAG.Air, TAG.Setpoint, TAG.Limit],
+                                "parents": [BRICK.Min_Limit],
                             },
                         },
                     },
@@ -405,9 +418,6 @@ parameter_definitions = {
                             "Max_Supply_Air_Static_Pressure_Setpoint_Limit": {
                                 "tags": [TAG.Max, TAG.Supply, TAG.Air, TAG.Static, TAG.Pressure, TAG.Limit],
                             },
-                            "Max_Damper_Position_Setpoint_Limit": {
-                                "tags": [TAG.Max, TAG.Damper, TAG.Position, TAG.Limit],
-                            },
                             "Max_Chilled_Water_Differential_Pressure_Setpoint_Limit": {
                                 "tags": [TAG.Max, TAG.Chilled, TAG.Water, TAG.Differential, TAG.Pressure, TAG.Limit],
                             },
@@ -427,9 +437,7 @@ parameter_definitions = {
                             },
                             "Max_Temperature_Setpoint_Limit": {
                                 "tags": [TAG.Max, TAG.Temperature, TAG.Limit],
-                            },
-                            "Min_Temperature_Setpoint_Limit": {
-                                "tags": [TAG.Min, TAG.Temperature, TAG.Limit],
+                                "parents": [BRICK.Temperature_Parameter],
                             },
                             "Max_Air_Flow_Setpoint_Limit": {
                                 "tags": [TAG.Max, TAG.Air, TAG.Flow, TAG.Limit],
@@ -494,14 +502,15 @@ parameter_definitions = {
                             "Min_Chilled_Water_Differential_Pressure_Setpoint_Limit": {
                                 "tags": [TAG.Min, TAG.Chilled, TAG.Water, TAG.Differential, TAG.Pressure, TAG.Limit],
                             },
-                            "Min_Damper_Position_Setpoint_Limit": {
-                                "tags": [TAG.Min, TAG.Damper, TAG.Position, TAG.Limit],
-                            },
                             "Min_Discharge_Air_Static_Pressure_Setpoint_Limit": {
                                 "tags": [TAG.Min, TAG.Discharge, TAG.Air, TAG.Static, TAG.Pressure, TAG.Limit],
                             },
                             "Min_Supply_Air_Static_Pressure_Setpoint_Limit": {
                                 "tags": [TAG.Min, TAG.Supply, TAG.Air, TAG.Static, TAG.Pressure, TAG.Limit],
+                            },
+                            "Min_Temperature_Setpoint_Limit": {
+                                "tags": [TAG.Min, TAG.Temperature, TAG.Limit],
+                                "parents": [BRICK.Temperature_Parameter],
                             },
                             "Min_Static_Pressure_Setpoint_Limit": {
                                 "tags": [TAG.Min, TAG.Static, TAG.Pressure, TAG.Limit],
