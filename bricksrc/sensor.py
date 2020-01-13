@@ -6,6 +6,17 @@ sensor_definitions = {
     "Sensor": {
         "tags": [TAG.Sensor],
         "subclasses": {
+            "Adjust_Sensor": {
+                "tags": [TAG.Sensor, TAG.Adjust],
+                "subclasses": {
+                    "Temperature_Adjust_Sensor": {
+                        "tags": [TAG.Sensor, TAG.Adjust, TAG.Temperature],
+                    },
+                    "Warm_Cool_Adjust_Sensor": {
+                        "tags": [TAG.Sensor, TAG.Adjust, TAG.Warm, TAG.Cool],
+                    },
+                },
+            },
             "Air_Grains_Sensor": {
                 "tags": [TAG.Sensor, TAG.Air, TAG.Grains],
                 "substances": [[BRICK.measures, BRICK.Air],
@@ -89,11 +100,16 @@ sensor_definitions = {
                     "Motor_Current_Sensor": {
                         "tags": [TAG.Motor, TAG.Current, TAG.Sensor],
                     },
-                    "Photovoltaic_Current_Output_Sensor": {
-                        OWL.equivalentClass: "PV_Current_Output_Sensor",
-                        "tags": [TAG.Photovoltaic, TAG.Current, TAG.Output, TAG.Sensor],
+                    "Current_Output_Sensor": {
+                        "tags": [TAG.Current, TAG.Output, TAG.Sensor],
+                        "subclasses": {
+                            "Photovoltaic_Current_Output_Sensor": {
+                                OWL.equivalentClass: "PV_Current_Output_Sensor",
+                                "tags": [TAG.Photovoltaic, TAG.Current, TAG.Output, TAG.Sensor],
+                            },
+                            "PV_Current_Output_Sensor": {},
+                        },
                     },
-                    "PV_Current_Output_Sensor": {},
                 }
             },
             "Position_Sensor": {
@@ -140,6 +156,9 @@ sensor_definitions = {
             "Energy_Sensor": {
                 "tags": [TAG.Sensor, TAG.Energy],
                 "substances": [[BRICK.measures, BRICK.Energy],],
+                "subclasses": {
+                    "Today_Peak_Energy_Sensor": {},
+                },
             },
             "Enthalpy_Sensor": {
                 "tags": [TAG.Sensor, TAG.Enthalpy],
@@ -222,6 +241,9 @@ sensor_definitions = {
                         "tags": [TAG.Sensor, TAG.Flow, TAG.Water],
                         "substances": [[BRICK.measures, BRICK.Flow], [BRICK.measures, BRICK.Water],],
                         "subclasses": {
+                            "Hot_Water_Flow_Sensor": {
+                                "tags": [TAG.Sensor, TAG.Flow, TAG.Water, TAG.Hot],
+                            },
                             "Supply_Water_Flow_Sensor": {
                                 "tags": [TAG.Sensor, TAG.Flow, TAG.Water, TAG.Supply],
                                 "substances": [[BRICK.measures, BRICK.Flow], [BRICK.measures, BRICK.Supply_Water],],
@@ -369,6 +391,9 @@ sensor_definitions = {
                             "Hot_Water_Differential_Pressure_Sensor": {
                                 "tags": [TAG.Sensor, TAG.Pressure, TAG.Differential, TAG.Water, TAG.Hot],
                                 "substances": [[BRICK.measures, BRICK.Pressure], [BRICK.measures, BRICK.Hot_Water],],
+                                "subclasses": {
+                                    "Medium_Temperature_Hot_Water_Differential_Pressure_Sensor": {},
+                                },
                             }
                         }
                     },
@@ -533,6 +558,25 @@ sensor_definitions = {
                 "subclasses": {
                     "Steam_Usage_Sensor": {
                         "tags": [TAG.Sensor, TAG.Usage, TAG.Steam],
+                        "subclasses": {
+                            "Today_Steam_Usage_Sensor": {
+                                "tags": [TAG.Monthly, TAG.Sensor, TAG.Usage, TAG.Steam],
+                            },
+                            "Monthly_Steam_Usage_Sensor": {
+                                "tags": [TAG.Monthly, TAG.Sensor, TAG.Usage, TAG.Steam],
+                            },
+                            "Yearly_Steam_Usage_Sensor": {
+                                "tags": [TAG.Yearly, TAG.Sensor, TAG.Usage, TAG.Steam],
+                            },
+                        },
+                    },
+                    "Water_Usage_Sensor": {
+                        "tags": [TAG.Sensor, TAG.Usage, TAG.Water],
+                        "subclasses": {
+                            "Hot_Water_Usage_Sensor": {
+                                "tags": [TAG.Sensor, TAG.Usage, TAG.Hot, TAG.Water],
+                            },
+                        },
                     },
                 },
             },
@@ -561,6 +605,9 @@ sensor_definitions = {
                                         "tags": [TAG.Preheat, TAG.Supply, TAG.Air, TAG.Temperature, TAG.Sensor],
                                     }
                                 }
+                            },
+                            "Underfloor_Air_Temperature_Sensor": {
+                                "tags": [TAG.Underfloor, TAG.Air, TAG.Temperature, TAG.Sensor],
                             },
                             "Zone_Air_Temperature_Sensor": {
                                 "tags": [TAG.Zone, TAG.Air, TAG.Temperature, TAG.Sensor],
@@ -597,7 +644,16 @@ sensor_definitions = {
                                 "tags": [TAG.Sensor, TAG.Temperature, TAG.Air, TAG.Outside],
                                 "substances": [[BRICK.measures, BRICK.Temperature], [BRICK.measures, BRICK.Outside_Air],],
                                 "subclasses": {
+                                    "Outside_Air_Temperature_Enable_Differential_Sensor": {
+                                        "tags": [TAG.Outside, TAG.Air, TAG.Temperature, TAG.Enable, TAG.Differential, TAG.Sensor],
+                                        "subclasses": {
+                                            "Low_Outside_Air_Temperature_Enable_Differential_Sensor": {
+                                                "tags": [TAG.Low, TAG.Outside, TAG.Air, TAG.Temperature, TAG.Enable, TAG.Differential, TAG.Sensor],
+                                            },
+                                        },
+                                    },
                                     "Outside_Air_Lockout_Temperature_Differential_Sensor": {
+                                        "tags": [TAG.Outside, TAG.Air, TAG.Lockout, TAG.Temperature, TAG.Differential, TAG.Sensor],
                                         "subclasses": {
                                             "Low_Outside_Air_Lockout_Temperature_Differential_Sensor": {
                                                 "tags": [TAG.Low, TAG.Outside, TAG.Air, TAG.Lockout, TAG.Temperature, TAG.Differential, TAG.Sensor],
@@ -606,7 +662,6 @@ sensor_definitions = {
                                                 "tags": [TAG.High, TAG.Outside, TAG.Air, TAG.Lockout, TAG.Temperature, TAG.Differential, TAG.Sensor],
                                             }
                                         },
-                                        "tags": [TAG.Outside, TAG.Air, TAG.Lockout, TAG.Temperature, TAG.Differential, TAG.Sensor],
                                     }
                                 }
                             },
@@ -671,10 +726,8 @@ sensor_definitions = {
                                     "Hot_Water_Return_Temperature_Sensor": {
                                         "tags": [TAG.Hot, TAG.Water, TAG.Return, TAG.Temperature, TAG.Sensor],
                                         "subclasses": {
-                                            "High_Temperature_Hot_Water_Return_Temperature_Sensor": {
-                                                # TODO: remove?
-                                                "tags": [TAG.High, TAG.Hot, TAG.Water, TAG.Return, TAG.Temperature, TAG.Sensor],
-                                            },
+                                            "Medium_Temperature_Hot_Water_Return_Temperature_Sensor": {},
+                                            "High_Temperature_Hot_Water_Return_Temperature_Sensor": {},
                                         },
                                     },
                                     "Chilled_Water_Return_Temperature_Sensor": {

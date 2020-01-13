@@ -99,9 +99,17 @@ status_definitions = {
                     },
                     "Hot_Water_Supply_Temperature_Load_Shed_Status": {
                         "tags": [TAG.Hot, TAG.Water, TAG.Supply, TAG.Temperature, TAG.Load, TAG.Shed, TAG.Status],
+                        "subclasses": {
+                            "Medium_Temperature_Hot_Water_Supply_Temperature_Load_Shed_Status": {},
+                        },
                     },
                     "Differential_Pressure_Load_Shed_Status": {
                         "subclasses": {
+                            "Medium_Temperature_Hot_Water_Differential_Pressure_Load_Shed_Status": {
+                                "subclasses": {
+                                    "Medium_Temperature_Hot_Water_Differential_Pressure_Load_Shed_Reset_Status": {},
+                                }
+                            },
                             "Chilled_Water_Differential_Pressure_Load_Shed_Status": {
                                 "tags": [TAG.Chilled, TAG.Water, TAG.Differential, TAG.Pressure, TAG.Load, TAG.Shed, TAG.Status],
                                 "subclasses": {

@@ -29,6 +29,9 @@ command_definitions = {
                     },
                 },
             },
+            "Humidify_Command": {
+                "tags": [TAG.Humidify, TAG.Command],
+            },
             "Position_Command": {
                 "tags": [TAG.Position, TAG.Command],
             },
@@ -54,6 +57,15 @@ command_definitions = {
             },
             "Shutdown_Command": {
                 "tags": [TAG.Shutdown, TAG.Command],
+                "subclasses": {
+                    "Hot_Water_Shutdown_Command": {
+                        "tags": [TAG.Hot, TAG.Water, TAG.Shutdown, TAG.Command],
+                        "subclasses": {
+                            "Unoccupied_Hot_Water_Shutdown_Command": {
+                            },
+                        },
+                    },
+                },
             },
             "Enable_Command": {
                 "tags": [TAG.Enable, TAG.Command],
@@ -145,6 +157,14 @@ command_definitions = {
             },
             "Frequency_Command": {
                 "tags": [TAG.Fequency, TAG.Command],
+                "subclasses": {
+                    "Max_Frequency_Command": {
+                        "tags": [TAG.Max, TAG.Fequency, TAG.Command],
+                    },
+                },
+            },
+            "Occupancy_Command": {
+                "tags": [TAG.Occupancy, TAG.Command],
             },
             "On_Off_Command": {
                 "tags": [TAG.OnOff, TAG.Command],
@@ -159,6 +179,7 @@ command_definitions = {
                             "Exhaust_Fan_Fire_Control_Panel_On_Command": {}
                         },
                     },
+                    "Lead_On_Off_Command": {},
                     "Steam_On_Off_Command": {},
                     "Start_Stop_Command": {
                         "subclasses": {
@@ -174,6 +195,12 @@ command_definitions = {
                         "tags": [TAG.Curtailment, TAG.Override, TAG.Command],
                     },
                 },
+            },
+            "Lockout_Command": {
+                "tags": [TAG.Lockout, TAG.Command],
+            },
+            "Run_Request_Command": {
+                "tags": [TAG.Run, TAG.Request, TAG.Command],
             },
         },
     }

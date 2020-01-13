@@ -25,6 +25,9 @@ equipment_subclasses = {
                     },
                 },
             },
+            "Inverter": {
+                "tags": [TAG.Inverter, TAG.Equipment],
+            },
             "Power_System": {
                 "tags": [TAG.Power, TAG.Equipment],
             },
@@ -319,6 +322,10 @@ valve_subclasses = {
         "subclasses": {
             "Reheat_Valve": {
                 "tags": [TAG.Valve, TAG.Reheat, TAG.Heat, TAG.Equipment],
+            },
+            "Return_Heating_Valve": {
+                "tags": [TAG.Valve, TAG.Return, TAG.Heat, TAG.Equipment],
+                SKOS.definition: Literal("A valve installed on the return side of a heat exchanger"),
             },
             "Domestic_Hot_Water_Valve": {
                 "tags": [TAG.Domestic, TAG.Water, TAG.Hot, TAG.Valve, TAG.Heat, TAG.Equipment],

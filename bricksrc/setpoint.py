@@ -56,6 +56,14 @@ setpoint_definitions = {
                                     },
                                 },
                             },
+                            "Discharge_Water_Differential_Pressure_Deadband_Setpoint": {
+                                "subclasses": {
+                                    "Thermal_Energy_Storage_Discharge_Water_Differential_Pressure_Deadband_Setpoint": {
+                                        "tags": [TAG.Thermal, TAG.Energy, TAG.Storage, TAG.Discharge, TAG.Water, TAG.Differential, TAG.Pressure, TAG.Deadband, TAG.Setpoint],
+                                    }
+                                },
+                                "tags": [TAG.Discharge, TAG.Water, TAG.Differential, TAG.Pressure, TAG.Deadband, TAG.Setpoint],
+                            },
                             "Supply_Water_Differential_Pressure_Deadband_Setpoint": {
                                 "subclasses": {
                                     "Thermal_Energy_Storage_Supply_Water_Differential_Pressure_Deadband_Setpoint": {
@@ -136,6 +144,9 @@ setpoint_definitions = {
                             "Discharge_Air_Static_Pressure_Deadband_Setpoint": {
                                 "tags": [TAG.Discharge, TAG.Air, TAG.Static, TAG.Pressure, TAG.Deadband, TAG.Setpoint],
                             },
+                            "Supply_Air_Static_Pressure_Deadband_Setpoint": {
+                                "tags": [TAG.Supply, TAG.Air, TAG.Static, TAG.Pressure, TAG.Deadband, TAG.Setpoint],
+                            },
                         },
                     },
                 },
@@ -158,11 +169,27 @@ setpoint_definitions = {
                                     "Cooling_Discharge_Air_Flow_Setpoint": {
                                         "tags": [TAG.Cooling, TAG.Discharge, TAG.Air, TAG.Flow, TAG.Setpoint],
                                         "parents": [BRICK.Cooling_Temperature_Setpoint],
+                                        "subclasses": {
+                                            "Unoccupied_Cooling_Discharge_Air_Flow_Setpoint": {},
+                                        },
                                     },
                                     "Heating_Discharge_Air_Flow_Setpoint": {
                                         "tags": [TAG.Heating, TAG.Discharge, TAG.Air, TAG.Flow, TAG.Setpoint],
                                         "parents": [BRICK.Heating_Temperature_Setpoint],
-                                    }
+                                    },
+                                    "Occupied_Discharge_Air_Flow_Setpoint": {
+                                        "subclasses": {
+                                            "Occupied_Cooling_Discharge_Air_Flow_Setpoint": {
+                                                "tags": [TAG.Occupied, TAG.Cooling, TAG.Discharge, TAG.Air, TAG.Flow, TAG.Setpoint],
+                                                "parents": [BRICK.Cooling_Discharge_Air_Flow_Setpoint],
+                                            },
+                                            "Occupied_Heating_Discharge_Air_Flow_Setpoint": {
+                                                "tags": [TAG.Occupied, TAG.Heating, TAG.Discharge, TAG.Air, TAG.Flow, TAG.Setpoint],
+                                                "parents": [BRICK.Heating_Discharge_Air_Flow_Setpoint],
+                                            }
+                                        },
+                                        "tags": [TAG.Occupied, TAG.Discharge, TAG.Air, TAG.Flow, TAG.Setpoint],
+                                    },
                                 },
                                 "tags": [TAG.Discharge, TAG.Air, TAG.Flow, TAG.Setpoint],
                             },
@@ -220,6 +247,10 @@ setpoint_definitions = {
                 "subclasses": {
                     "Load_Shed_Setpoint": {
                         "tags": [TAG.Shed, TAG.Load, TAG.Setpoint],
+                        "subclasses": {
+                            "Medium_Temperature_Hot_Water_Differential_Pressure_Load_Shed_Setpoint": {},
+                            "Medium_Temperature_Hot_Water_Supply_Temperature_Load_Shed_Setpoint": {},
+                        },
                     }
                 },
                 "tags": [TAG.Load, TAG.Setpoint],
@@ -353,8 +384,10 @@ setpoint_definitions = {
                     "subclasses": {
                         "Hot_Water_Supply_Temperature_Low_Reset_Setpoint": {
                             "subclasses": {
+                                "Medium_Temperature_Hot_Water_Supply_Temperature_High_Reset_Setpoint": {},
+                                "Medium_Temperature_Hot_Water_Supply_Temperature_Low_Reset_Setpoint": {},
                                 "Medium_Temperature_Hot_Water_Discharge_Temperature_Low_Reset_Setpoint": {},
-                                "Medium_Temperature_Hot_Water_Supply_Temperature_Low_Reset_Setpoint": {}
+                                "Medium_Temperature_Hot_Water_Discharge_Temperature_High_Reset_Setpoint": {},
                             }
                         },
                         "Outside_Air_Temperature_Low_Reset_Setpoint": {}
@@ -363,7 +396,12 @@ setpoint_definitions = {
                 "tags": [TAG.Reset, TAG.Setpoint],
             },
             "Speed_Setpoint": {
+                "tags": [TAG.Speed, TAG.Setpoint],
                 "subclasses": {
+                    "Rated_Speed_Setpoint": {
+                        "tags": [TAG.Rated, TAG.Speed, TAG.Setpoint],
+                        "tags": [TAG.Differential, TAG.Speed, TAG.Setpoint],
+                    },
                     "Differential_Speed_Setpoint": {
                         "subclasses": {
                             "Discharge_Fan_Differential_Speed_Setpoint": {
@@ -376,10 +414,8 @@ setpoint_definitions = {
                                 "tags": [TAG.Supply, TAG.Fan, TAG.Differential, TAG.Speed, TAG.Setpoint],
                             }
                         },
-                        "tags": [TAG.Differential, TAG.Speed, TAG.Setpoint],
                     }
                 },
-                "tags": [TAG.Speed, TAG.Setpoint],
             },
             "Temperature_Setpoint": {
                 "tags": [TAG.Temperature, TAG.Setpoint],
@@ -450,7 +486,20 @@ setpoint_definitions = {
                                     }
                                 },
                                 "tags": [TAG.Outside, TAG.Air, TAG.Temperature, TAG.Setpoint],
-                            }
+                            },
+                            "Unoccupied_Air_Temperature_Setpoint": {
+                                "tags": [TAG.Unoccupied, TAG.Air, TAG.Temperature, TAG.Setpoint],
+                                "subclasses": {
+                                    "Unoccupied_Air_Temperature_Cooling_Setpoint": {
+                                        "tags": [TAG.Unoccupied, TAG.Cooling, TAG.Air, TAG.Temperature, TAG.Setpoint],
+                                        "parents": [BRICK.Cooling_Temperature_Setpoint],
+                                    },
+                                    "Unoccupied_Air_Temperature_Heating_Setpoint": {
+                                        "tags": [TAG.Unoccupied, TAG.Heating, TAG.Air, TAG.Temperature, TAG.Setpoint],
+                                        "parents": [BRICK.Heating_Temperature_Setpoint],
+                                    },
+                                },
+                            },
                         },
                     },
                     "Cooling_Temperature_Setpoint": {
@@ -458,6 +507,10 @@ setpoint_definitions = {
                     },
                     "Heating_Temperature_Setpoint": {
                         "tags": [TAG.Temperature, TAG.Setpoint, TAG.Heating],
+                    },
+                    "Schedule_Temperature_Setpoint": {
+                        "tags": [TAG.Temperature, TAG.Setpoint, TAG.Schedule],
+                        SKOS.definition: Literal("The current setpoint as indicated by the schedule"),
                     },
                     "Water_Temperature_Setpoint": {
                         "subclasses": {
@@ -471,6 +524,9 @@ setpoint_definitions = {
                             },
                             "Discharge_Water_Temperature_Setpoint": {
                                 "tags": [TAG.Discharge, TAG.Water, TAG.Temperature, TAG.Setpoint],
+                            },
+                            "Supply_Water_Temperature_Setpoint": {
+                                "tags": [TAG.Supply, TAG.Water, TAG.Temperature, TAG.Setpoint],
                             },
                             "Entering_Water_Temperature_Setpoint": {
                                 "tags": [TAG.Entering, TAG.Water, TAG.Temperature, TAG.Setpoint],

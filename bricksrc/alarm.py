@@ -18,6 +18,14 @@ alarm_definitions = {
             "Communication_Loss_Alarm": {
                 "tags": [TAG.Communication, TAG.Loss, TAG.Alarm],
             },
+            "Cycle_Alarm": {
+                "tags": [TAG.Cycle, TAG.Alarm],
+                "subclasses": {
+                    "Short_Cycle_Alarm": {
+                        "tags": [TAG.Short, TAG.Cycle, TAG.Alarm],
+                    },
+                },
+            },
             "Emergency_Alarm": {
                 "tags": [TAG.Emergency, TAG.Alarm],
                 "subclasses": {
@@ -26,17 +34,26 @@ alarm_definitions = {
                     },
                     "Emergency_Power_Loss_Alarm": {
                         "tags": [TAG.Power, TAG.Loss, TAG.Emergency, TAG.Alarm],
+                        "parents": [BRICK.Power_Loss_Alarm],
                     },
                 },
             },
             "Failure_Alarm": {
                 "tags": [TAG.Failure, TAG.Alarm],
+                "subclasses": {
+                    "Unit_Failure_Alarm": {
+                        "tags": [TAG.Unit, TAG.Failure, TAG.Alarm],
+                    },
+                },
             },
             "Humidity_Alarm": {
                 "tags": [TAG.Humidity, TAG.Alarm],
                 "subclasses": {
                     "High_Humidity_Alarm": {
                         "tags": [TAG.High, TAG.Humidity, TAG.Alarm],
+                    },
+                    "Low_Humidity_Alarm": {
+                        "tags": [TAG.Low, TAG.Humidity, TAG.Alarm],
                     },
                 },
             },
@@ -48,13 +65,31 @@ alarm_definitions = {
                     },
                 },
             },
+            "Liquid_Detected_Alarm": {
+                "tags": [TAG.Liquid, TAG.Detected, TAG.Alarm],
+            },
+            "Luminance_Alarm": {
+                "tags": [TAG.Luminance, TAG.Alarm],
+            },
+            "Maintenance_Required_Alarm": {
+                "tags": [TAG.Maintenance, TAG.Required, TAG.Alarm],
+            },
             "Overload_Alarm": {
                 "tags": [TAG.Overload, TAG.Alarm],
+            },
+            "Power_Alarm": {
+                "tags": [TAG.Power, TAG.Alarm],
+                "subclasses": {
+                    "Power_Loss_Alarm": {
+                        "tags": [TAG.Power, TAG.Loss, TAG.Alarm],
+                    },
+                },
             },
             "Pressure_Alarm": {
                 "tags": [TAG.Pressure, TAG.Alarm],
                 "subclasses": {
-                    "High_Head_Pressure_Alarm": {}
+                    "High_Head_Pressure_Alarm": {},
+                    "Low_Suction_Pressure_Alarm": {},
                 },
             },
             "Temperature_Alarm": {
@@ -62,6 +97,9 @@ alarm_definitions = {
                 "subclasses": {
                     "High_Temperature_Alarm": {
                         "tags": [TAG.High, TAG.Temperature, TAG.Alarm],
+                    },
+                    "Low_Temperature_Alarm": {
+                        "tags": [TAG.Low, TAG.Temperature, TAG.Alarm],
                     },
                     "Water_Temperature_Alarm": {
                         "tags": [TAG.Water, TAG.Temperature, TAG.Alarm],
@@ -96,6 +134,17 @@ alarm_definitions = {
                                 "tags": [TAG.Supply, TAG.Air,
                                          TAG.Temperature, TAG.Alarm],
                             },
+                            "Return_Air_Temperature_Alarm": {
+                                "tags": [TAG.Return, TAG.Air, TAG.Temperature, TAG.Alarm],
+                                "subclasses": {
+                                    "High_Return_Air_Temperature_Alarm": {
+                                        "tags": [TAG.High, TAG.Return, TAG.Air, TAG.Temperature, TAG.Alarm],
+                                    },
+                                    "Low_Return_Air_Temperature_Alarm": {
+                                        "tags": [TAG.Low, TAG.Return, TAG.Air, TAG.Temperature, TAG.Alarm],
+                                    },
+                                },
+                            },
                         },
                     },
                 }
@@ -118,6 +167,12 @@ alarm_definitions = {
                 "subclasses": {
                     "Deionized_Water_Alarm": {
                         "tags": [TAG.Deionized, TAG.Water, TAG.Alarm],
+                    },
+                    "No_Water_Alarm": {
+                        "tags": [TAG.No, TAG.Water, TAG.Alarm],
+                    },
+                    "Water_Loss_Alarm": {
+                        "tags": [TAG.Loss, TAG.Water, TAG.Alarm],
                     },
                 },
             },
