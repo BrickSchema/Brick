@@ -3,7 +3,7 @@ from rdflib.namespace import XSD
 from rdflib.collection import Collection
 
 
-from bricksrc.namespaces import BRICK, RDF, OWL, RDFS, TAG, SOSA
+from bricksrc.namespaces import BRICK, RDF, OWL, RDFS, TAG, SOSA, HASTAG
 from bricksrc.namespaces import bind_prefixes
 
 from bricksrc.setpoint import setpoint_definitions
@@ -19,10 +19,23 @@ from bricksrc.quantities import quantity_definitions
 
 G = Graph()
 bind_prefixes(G)
+# make_exclusive_tag_groups(G)
 A = RDF.type
 
 from collections import defaultdict
 tag_lookup = defaultdict(set)
+
+# helps setup the restriction classes for having and not having tags
+def make_tag_classes(G, tag):
+    has_tag = HASTAG[f"has_{tag}"]
+    G.add((has_tag, A, OWL.Restriction))
+    G.add((has_tag, OWL.hasValue, TAG[tag]))
+    G.add((has_tag, OWL.onProperty, BRICK.hasTag))
+
+    has_no_tag = HASTAG[f"has_no_{tag}"]
+    G.add((has_no_tag, A, OWL.Class))
+    G.add((has_no_tag, OWL.complementOf, has_tag))
+    return has_tag, has_no_tag
 
 #syntax for protege: http://protegeproject.github.io/protege/class-expression-syntax/
 def add_restriction(klass, definition):
@@ -46,33 +59,6 @@ def add_tags(klass, definition):
     all_restrictions = []
     equivalent_class = BNode()
     list_name = BNode()
-    #for pointclass in ['Alarm' , 'Status', 'Command', 'Setpoint', 'Sensor', 'Parameter']:
-    #    res = G.query(f"""SELECT ?type WHERE {{
-    #        <{BRICK[klass]}> rdfs:subClassOf* <{BRICK[pointclass]}> .
-    #        <{BRICK[klass]}> a ?type
-    #    }}""")
-    #    if len(res) == 0:
-    #        continue
-
-    #    pointclass = TAG[f"{pointclass}_Tag"]
-
-    #    tag_restrictions = []
-    #    for idnum, item in enumerate(definition):
-    #        tag_requirement = BNode()
-    #        tag_restrictions.append(tag_requirement)
-    #        G.add((tag_requirement, A, OWL.Restriction))
-    #        G.add((tag_requirement, OWL.onProperty, BRICK.hasTag))
-    #        G.add((tag_requirement, OWL.hasValue, item))
-    #        tag_class_requirement = BNode()
-    #        tag_restrictions.append(tag_class_requirement)
-    #        G.add((tag_class_requirement, A, OWL.Restriction))
-    #        G.add((tag_class_requirement, OWL.onProperty, BRICK.hasTag))
-    #        G.add((tag_class_requirement, OWL.someValuesFrom, pointclass))
-    #    eqtag_class = BNode()
-    #    eqtag_list = BNode()
-    #    G.add((eqtag_class, OWL.intersectionOf, eqtag_list))
-    #    Collection(G, eqtag_list, tag_restrictions)
-    #    all_restrictions.append(eqtag_class)
 
     # what are the necessary "NOT" tag stuffs?
     # has tag   |  no tags  | implied class
@@ -96,51 +82,25 @@ def add_tags(klass, definition):
 
         if len(res) == 0:
             continue
-        if pointclass == 'Setpoint' or pointclass == 'Alarm':
-            for badtag in opposites[pointclass]:
-                class_restriction = BNode()
-                untag = BNode()
-                all_restrictions.append(class_restriction)
-                G.add((class_restriction, A, OWL.Class))
-                G.add((class_restriction, OWL.complementOf, untag))
-                G.add((untag, A, OWL.Restriction))
-                G.add((untag, OWL.hasValue, TAG[badtag]))
-                G.add((untag, OWL.onProperty, BRICK.hasTag))
+        has_param, has_no_param = make_tag_classes(G, 'Parameter')
+        has_sp, has_no_sp = make_tag_classes(G, 'Setpoint')
+        has_adjust, has_no_adjust = make_tag_classes(G, 'Adjust')
+        if pointclass == 'Setpoint':
+            all_restrictions.append(has_no_param)
+        elif pointclass == 'Alarm':
+            all_restrictions.append(has_no_param)
+            all_restrictions.append(has_no_sp)
+        elif klass == 'Temperature_Sensor':
+            all_restrictions.append(has_no_adjust)
 
     for idnum, item in enumerate(definition):
-        restriction = BNode()
+        restriction = HASTAG[f"has_{item.split('#')[-1]}"]
         all_restrictions.append(restriction)
         G.add( (restriction, A, OWL.Restriction) )
         G.add( (restriction, OWL.onProperty, BRICK.hasTag) )
         G.add( (restriction, OWL.hasValue, item) )
         G.add( (item, A, BRICK.Tag) ) # make sure the tag is declared as such
         G.add( (item, RDFS.label, Literal(item.split('#')[-1])) ) # make sure the tag is declared as such
-
-    # for pointclass in ['Alarm' , 'Status', 'Command', 'Setpoint', 'Sensor', 'Parameter']:
-    #     res = G.query(f"""SELECT ?type WHERE {{
-    #         <{BRICK[klass]}> rdfs:subClassOf* <{BRICK[pointclass]}> .
-    #         <{BRICK[klass]}> a ?type
-    #     }}""")
-
-    #     if len(res) == 0:
-    #         continue
-    #     restriction = BNode()
-    #     all_restrictions.append(restriction)
-    #     G.add((restriction, A, OWL.Restriction))
-    #     # TODO: might need a nested restriction: each
-    #     # hasValue/onProperty/hasTag restriction has to be an intersection
-    #     # where the tag is of the appropriate tag class e.g. Sensor_Tag
-    #     G.add((restriction, OWL.someValuesFrom, TAG[f"{pointclass}_Tag"]))
-    #     G.add((restriction, OWL.onProperty, BRICK.hasTag))
-
-    # for idnum, item in enumerate(definition):
-    #     restriction = BNode()
-    #     all_restrictions.append(restriction)
-    #     G.add( (restriction, A, OWL.Restriction) )
-    #     G.add( (restriction, OWL.onProperty, BRICK.hasTag) )
-    #     G.add( (restriction, OWL.hasValue, item) )
-    #     G.add( (item, A, BRICK.Tag) ) # make sure the tag is declared as such
-    #     G.add( (item, RDFS.label, Literal(item.split('#')[-1])) ) # make sure the tag is declared as such
 
     # tag index
     tagset = tuple(sorted([item.split('#')[-1] for item in definition]))
@@ -316,7 +276,7 @@ define_properties(properties)
 
 from bricksrc.tags import tags
 for tag, definition in tags.items():
-    G.add( (TAG[tag], A, BRICK.Tag) )
+    G.add((TAG[tag], A, BRICK.Tag))
 
 print('base:',len(G))
 G.serialize('Brick.ttl', format='turtle')
