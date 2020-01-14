@@ -209,22 +209,21 @@ def setup_input(g):
     return tarbytes
 
 def reason_agraph(g):
+    def check_error(res):
+        exit_code, message = res
+        if exit_code > 0:
+            print(f"Non-zero exit code {exit_code} with message {message}")
     # setup connection to docker
     client = get_docker_client()
     tar = setup_input(g)
+    # TODO: temporary name so we can have more than one running
     agraph = client.containers.run("franzinc/agraph", name="agraph", detach=True, shm_size='1G')
-    r = agraph.put_archive('/opt', tar)
-    print(f"Successfully added tar? {r}")
-    r = agraph.exec_run("ls /opt")
-    print(r)
-    r = agraph.exec_run("chown -R agraph /opt")
-    print(r)
-    r = agraph.exec_run("/app/agraph/bin/agload test /opt/input.ttl", user='agraph')
-    print(r)
-    r = agraph.exec_run("/app/agraph/bin/agmaterialize test --rule all", user='agraph')
-    print(r)
-    r = agraph.exec_run("/app/agraph/bin/agexport -o turtle test /opt/output.ttl", user='agraph')
-    print(r)
+    if not agraph.put_archive('/opt', tar):
+        print("Could not add input.ttl to docker container")
+    check_error(agraph.exec_run("chown -R agraph /opt"))
+    check_error(agraph.exec_run("/app/agraph/bin/agload test /opt/input.ttl", user='agraph'))
+    check_error(agraph.exec_run("/app/agraph/bin/agmaterialize test --rule all", user='agraph'))
+    check_error(agraph.exec_run("/app/agraph/bin/agexport -o turtle test /opt/output.ttl", user='agraph'))
     bits, stat = agraph.get_archive('/opt/output.ttl')
     with open('output.ttl.tar', 'wb') as f:
         for chunk in bits:
