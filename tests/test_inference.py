@@ -38,9 +38,9 @@ g.add((BLDG.AFSP1, BRICK.hasTag, TAG.Setpoint))
 # add air flow setpoint limit
 g.add((BLDG.MAFS1, BRICK.hasTag, TAG.Air))
 g.add((BLDG.MAFS1, BRICK.hasTag, TAG.Flow))
-g.add((BLDG.MAFS1, BRICK.hasTag, TAG.Setpoint))
 g.add((BLDG.MAFS1, BRICK.hasTag, TAG.Limit))
 g.add((BLDG.MAFS1, BRICK.hasTag, TAG.Max))
+g.add((BLDG.MAFS1, BRICK.hasTag, TAG.Parameter))
 
 g.add((BLDG.AFS1, A, BRICK.Air_Flow_Sensor))
 
