@@ -1,5 +1,5 @@
 import rdflib
-from rdflib import RDF, OWL, RDFS, Namespace
+from rdflib import RDF, OWL, RDFS, Namespace, BNode
 from util.reasoner import reason_brick, make_readable, reason_owlrl
 
 BRICK_VERSION = '1.1.0'
@@ -29,12 +29,15 @@ def test_subclasses():
                             ?child a owl:Class .\
                             ?parent a owl:Class\
                           }")
-    sc1 = [x[0] for x in subclasses1]
-    sc2 = [x[0] for x in subclasses2]
+    # filter out BNodes
+    sc1 = filter(lambda y: not isinstance(y, BNode), [x[0] for x in subclasses1])
+    sc2 = filter(lambda y: not isinstance(y, BNode), [x[0] for x in subclasses2])
     diff = set(sc1).difference(set(sc2))
 
-    # there should only be these two SOSA properties
-    # outside of Brick *at this point in time*
+    # there should only be these properties  outside of Brick *at this point
+    # in time*. We check for a subset because depending on differences in
+    # implementation details of reasoners, we may get some of these axiomatic
+    # classes or not
     expected = set([
         SOSA.FeatureOfInterest,
         SOSA.ObservableProperty,
@@ -43,5 +46,5 @@ def test_subclasses():
         RDF.Property
     ])
 
-    assert expected == diff, f"Got extra classes that may not be defined: \
-                               {diff.difference(expected)}"
+    assert diff.issubset(expected), f"Got extra classes that may not be defined: \
+                                      {diff.difference(expected)}"
