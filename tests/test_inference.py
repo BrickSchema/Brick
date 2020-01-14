@@ -30,7 +30,7 @@ g.add((BLDG.TS1, BRICK.measures, BRICK.Air))
 g.add((BLDG.TS2, A, BRICK.Air_Temperature_Sensor))
 
 # add air flow setpoint
-g.add((BLDG.AFSP1, A, BRICK.Setpoint))
+# g.add((BLDG.AFSP1, A, BRICK.Setpoint))
 g.add((BLDG.AFSP1, BRICK.hasTag, TAG.Air))
 g.add((BLDG.AFSP1, BRICK.hasTag, TAG.Flow))
 g.add((BLDG.AFSP1, BRICK.hasTag, TAG.Setpoint))

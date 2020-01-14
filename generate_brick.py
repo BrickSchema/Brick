@@ -83,16 +83,16 @@ def add_tags(klass, definition):
 
         if len(res) == 0:
             continue
-        has_param, has_no_param = make_tag_classes(G, 'Parameter')
-        has_sp, has_no_sp = make_tag_classes(G, 'Setpoint')
-        has_adjust, has_no_adjust = make_tag_classes(G, 'Adjust')
-        if pointclass == 'Setpoint':
-            all_restrictions.append(has_no_param)
-        elif pointclass == 'Alarm':
-            all_restrictions.append(has_no_param)
-            all_restrictions.append(has_no_sp)
-        elif klass == 'Temperature_Sensor':
-            all_restrictions.append(has_no_adjust)
+        # has_param, has_no_param = make_tag_classes(G, 'Parameter')
+        # has_sp, has_no_sp = make_tag_classes(G, 'Setpoint')
+        # has_adjust, has_no_adjust = make_tag_classes(G, 'Adjust')
+        # if pointclass == 'Setpoint':
+        #     all_restrictions.append(has_no_param)
+        # elif pointclass == 'Alarm':
+        #     all_restrictions.append(has_no_param)
+        #     all_restrictions.append(has_no_sp)
+        # elif klass == 'Temperature_Sensor':
+        #     all_restrictions.append(has_no_adjust)
 
     for idnum, item in enumerate(definition):
         restriction = BNode(f"has_{item.split('#')[-1]}")
