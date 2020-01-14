@@ -268,6 +268,10 @@ roots = {
 }
 define_rootclasses(roots)
 
+# TODO: make brick.point the UNION of these classes?
+# TODO: i think the issue here is if we have afsp1 = has tag{setpoint, air,
+# flow}, then the pointsubclasses are unsatisfiable because they are all
+# disjoint
 define_subclasses(setpoint_definitions, BRICK.Point)
 define_subclasses(sensor_definitions, BRICK.Point)
 define_subclasses(alarm_definitions, BRICK.Point)
@@ -288,10 +292,10 @@ G.add((BRICK.Substance, RDFS.subClassOf, BRICK.Measurable))
 G.add((BRICK.Quantity, RDFS.subClassOf, BRICK.Measurable))
 
 # make disjoint
-pointclasses = ['Alarm', 'Status', 'Command', 'Setpoint', 'Sensor', 'Parameter']
-for pc in pointclasses:
-    for o in filter(lambda x: x != pc, pointclasses):
-        G.add((BRICK[pc], OWL.disjointWith, BRICK[o]))
+# pointclasses = ['Alarm', 'Status', 'Command', 'Setpoint', 'Sensor', 'Parameter']
+# for pc in pointclasses:
+#     for o in filter(lambda x: x != pc, pointclasses):
+#         G.add((BRICK[pc], OWL.disjointWith, BRICK[o]))
 
 # We make the punning explicit here. Any subclass of brick:Substance
 # or brick:Quantity is itself a substance or quantity. There is one canonical
