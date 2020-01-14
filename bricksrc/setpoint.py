@@ -400,9 +400,9 @@ setpoint_definitions = {
                 "subclasses": {
                     "Rated_Speed_Setpoint": {
                         "tags": [TAG.Rated, TAG.Speed, TAG.Setpoint],
-                        "tags": [TAG.Differential, TAG.Speed, TAG.Setpoint],
                     },
                     "Differential_Speed_Setpoint": {
+                        "tags": [TAG.Differential, TAG.Speed, TAG.Setpoint],
                         "subclasses": {
                             "Discharge_Fan_Differential_Speed_Setpoint": {
                                 "tags": [TAG.Discharge, TAG.Fan, TAG.Differential, TAG.Speed, TAG.Setpoint],
