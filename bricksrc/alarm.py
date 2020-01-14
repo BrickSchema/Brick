@@ -130,6 +130,7 @@ alarm_definitions = {
                                         "tags": [TAG.High, TAG.Discharge,
                                                  TAG.Air, TAG.Temperature,
                                                  TAG.Alarm],
+                                        "parents": [BRICK.High_Temperature_Alarm],
                                     },
                                 },
                             },
@@ -162,6 +163,7 @@ alarm_definitions = {
                         "subclasses": {
                             "Discharge_Air_Smoke_Detected_Alarm": {
                                 "tags": [TAG.Discharge, TAG.Air, TAG.Smoke, TAG.Detected, TAG.Alarm],
+                                "parents": [BRICK.Air_Alarm],
                             },
                         },
                     },

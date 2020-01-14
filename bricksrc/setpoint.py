@@ -115,13 +115,8 @@ setpoint_definitions = {
                                 "parents": [BRICK.Air_Temperature_Setpoint],
                             },
                             "Supply_Water_Temperature_Deadband_Setpoint": {
-                                "subclasses": {
-                                    "Heat_Exchanger_Supply_Water_Temperature_Deadband_Setpoint": {
-                                        "tags": [TAG.Heat, TAG.Exchanger, TAG.Supply, TAG.Water, TAG.Temperature, TAG.Deadband, TAG.Setpoint],
-                                    }
-                                },
                                 "tags": [TAG.Supply, TAG.Water, TAG.Temperature, TAG.Deadband, TAG.Setpoint],
-                                "parents": [BRICK.Water_Temperature_Setpoint],
+                                "parents": [BRICK.Supply_Water_Temperature_Setpoint],
                             }
                         },
                         "tags": [TAG.Temperature, TAG.Deadband, TAG.Setpoint],
@@ -516,6 +511,7 @@ setpoint_definitions = {
                                 "subclasses": {
                                     "Domestic_Hot_Water_Supply_Temperature_Setpoint": {
                                         "tags": [TAG.Domestic, TAG.Hot, TAG.Supply, TAG.Water, TAG.Temperature, TAG.Setpoint],
+                                        "parents": [BRICK.Supply_Water_Temperature_Setpoint],
                                     }
                                 }
                             },
