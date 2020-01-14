@@ -29,9 +29,17 @@ def test_subclasses():
                             ?child a owl:Class .\
                             ?parent a owl:Class\
                           }")
+    # filter out subclass of self (reflexive)
+    subclasses1 = list(filter(lambda x: x[0] != x[1], subclasses1))
+    subclasses2 = list(filter(lambda x: x[0] != x[1], subclasses2))
     # filter out BNodes
-    sc1 = filter(lambda y: not isinstance(y, BNode), [x[0] for x in subclasses1])
-    sc2 = filter(lambda y: not isinstance(y, BNode), [x[0] for x in subclasses2])
+    subclasses1 = list(filter(lambda x: not isinstance(x[0], BNode), subclasses1))
+    subclasses2 = list(filter(lambda x: not isinstance(x[0], BNode), subclasses2))
+    subclasses1 = list(filter(lambda x: not isinstance(x[1], BNode), subclasses1))
+    subclasses2 = list(filter(lambda x: not isinstance(x[1], BNode), subclasses2))
+    # get parents
+    sc1 = [x[0] for x in subclasses1]
+    sc2 = [x[0] for x in subclasses2]
     diff = set(sc1).difference(set(sc2))
 
     # there should only be these properties  outside of Brick *at this point
