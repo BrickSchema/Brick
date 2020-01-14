@@ -115,6 +115,13 @@ def test_air_flow_sp():
                                  }"))
     assert len(res) == 1
 
+def test_sp():
+    # setpoints
+    res = make_readable(g.query("SELECT DISTINCT ?sp WHERE {\
+                                    ?sp rdf:type brick:Setpoint\
+                                 }"))
+    assert len(res) == 1
+
 def test_max_air_flow_sp():
     # air flow setpoints
     res = make_readable(g.query("SELECT DISTINCT ?sp WHERE {\
