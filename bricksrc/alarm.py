@@ -4,6 +4,9 @@ alarm_definitions = {
     "Alarm": {
         "tags": [TAG.Alarm],
         "subclasses": {
+            "Air_Alarm": {
+                "tags": [TAG.Air, TAG.Alarm],
+            },
             "CO2_Alarm": {
                 "tags": [TAG.CO2, TAG.Alarm],
                 "subclasses": {
