@@ -146,6 +146,7 @@ setpoint_definitions = {
                             },
                             "Supply_Air_Static_Pressure_Deadband_Setpoint": {
                                 "tags": [TAG.Supply, TAG.Air, TAG.Static, TAG.Pressure, TAG.Deadband, TAG.Setpoint],
+                                "parents": [BRICK.Supply_Air_Static_Pressure_Setpoint],
                             },
                         },
                     },
@@ -168,14 +169,12 @@ setpoint_definitions = {
                                     },
                                     "Cooling_Discharge_Air_Flow_Setpoint": {
                                         "tags": [TAG.Cooling, TAG.Discharge, TAG.Air, TAG.Flow, TAG.Setpoint],
-                                        "parents": [BRICK.Cooling_Temperature_Setpoint],
                                         "subclasses": {
                                             "Unoccupied_Cooling_Discharge_Air_Flow_Setpoint": {},
                                         },
                                     },
                                     "Heating_Discharge_Air_Flow_Setpoint": {
                                         "tags": [TAG.Heating, TAG.Discharge, TAG.Air, TAG.Flow, TAG.Setpoint],
-                                        "parents": [BRICK.Heating_Temperature_Setpoint],
                                     },
                                     "Occupied_Discharge_Air_Flow_Setpoint": {
                                         "subclasses": {
@@ -227,11 +226,9 @@ setpoint_definitions = {
                                     },
                                     "Cooling_Supply_Air_Flow_Setpoint": {
                                         "tags": [TAG.Cooling, TAG.Supply, TAG.Air, TAG.Flow, TAG.Setpoint],
-                                        "parents": [BRICK.Cooling_Temperature_Setpoint],
                                     },
                                     "Heating_Supply_Air_Flow_Setpoint": {
                                         "tags": [TAG.Heating, TAG.Supply, TAG.Air, TAG.Flow, TAG.Setpoint],
-                                        "parents": [BRICK.Heating_Temperature_Setpoint],
                                     }
                                 },
                                 "tags": [TAG.Supply, TAG.Air, TAG.Flow, TAG.Setpoint],

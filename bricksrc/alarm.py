@@ -142,9 +142,11 @@ alarm_definitions = {
                                 "subclasses": {
                                     "High_Return_Air_Temperature_Alarm": {
                                         "tags": [TAG.High, TAG.Return, TAG.Air, TAG.Temperature, TAG.Alarm],
+                                        "parents": [BRICK.High_Temperature_Alarm],
                                     },
                                     "Low_Return_Air_Temperature_Alarm": {
                                         "tags": [TAG.Low, TAG.Return, TAG.Air, TAG.Temperature, TAG.Alarm],
+                                        "parents": [BRICK.Low_Temperature_Alarm],
                                     },
                                 },
                             },
