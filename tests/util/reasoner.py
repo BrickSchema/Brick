@@ -216,7 +216,7 @@ def reason_agraph(g):
     # setup connection to docker
     client = get_docker_client()
     tar = setup_input(g)
-    # TODO: temporary name so we can have more than one running
+    # TODO: temporary name so we can have more than one running?
     agraph = client.containers.run("franzinc/agraph", name="agraph", detach=True, shm_size='1G')
     if not agraph.put_archive('/opt', tar):
         print("Could not add input.ttl to docker container")

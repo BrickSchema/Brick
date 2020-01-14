@@ -115,6 +115,12 @@ def test_air_flow_sp():
                                  }"))
     assert len(res) == 1
 
+def test_max_air_flow_sp():
+    # air flow setpoints
+    res = make_readable(g.query("SELECT DISTINCT ?sp WHERE {\
+                                    ?sp rdf:type brick:Max_Air_Flow_Setpoint_Limit\
+                                 }"))
+    assert len(res) == 1
 
 def test_air_flow_sensor2():
     # air flow sensors
