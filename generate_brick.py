@@ -3,7 +3,7 @@ from rdflib.namespace import XSD
 from rdflib.collection import Collection
 
 
-from bricksrc.namespaces import BRICK, RDF, OWL, RDFS, TAG, SOSA, HASTAG
+from bricksrc.namespaces import BRICK, RDF, OWL, RDFS, TAG, SOSA
 from bricksrc.namespaces import bind_prefixes
 
 from bricksrc.setpoint import setpoint_definitions
@@ -27,13 +27,14 @@ tag_lookup = defaultdict(set)
 
 # helps setup the restriction classes for having and not having tags
 def make_tag_classes(G, tag):
-    has_tag = HASTAG[f"has_{tag}"]
+    has_tag = BNode(f"has_{tag}")
     G.add((has_tag, A, OWL.Restriction))
+    G.add((has_tag, A, BRICK.Class))
     G.add((has_tag, OWL.hasValue, TAG[tag]))
     G.add((has_tag, OWL.onProperty, BRICK.hasTag))
 
-    has_no_tag = HASTAG[f"has_no_{tag}"]
-    G.add((has_no_tag, A, OWL.Class))
+    has_no_tag = BNode(f"has_no_{tag}")
+    G.add((has_no_tag, A, BRICK.Class))
     G.add((has_no_tag, OWL.complementOf, has_tag))
     return has_tag, has_no_tag
 
@@ -94,7 +95,7 @@ def add_tags(klass, definition):
             all_restrictions.append(has_no_adjust)
 
     for idnum, item in enumerate(definition):
-        restriction = HASTAG[f"has_{item.split('#')[-1]}"]
+        restriction = BNode(f"has_{item.split('#')[-1]}")
         all_restrictions.append(restriction)
         G.add( (restriction, A, OWL.Restriction) )
         G.add( (restriction, OWL.onProperty, BRICK.hasTag) )
@@ -222,7 +223,6 @@ roots = {
     "Point": {
         #"tags": [TAG.Point],
     },
-    #"Tag": {},
     "Substance": {},
     "Quantity": {},
 }
