@@ -81,8 +81,8 @@ def test_hierarchyinference():
 
     # Infer classes of the entities.
     # Apply reasoner
-    from util.reasoner import make_readable, reasonable_owlrl
-    reasonable_owlrl(g)
+    from util.reasoner import make_readable, reason_owlrl
+    reason_owlrl(g)
     g.serialize(inference_file, format='turtle')  # Store the inferred graph.
 
 

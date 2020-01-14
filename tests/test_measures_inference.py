@@ -35,8 +35,8 @@ def test_measures_infers():
 
     # Infer classes of the entities.
     # Apply reasoner
-    from util.reasoner import reason_brick
-    reason_brick(g)
+    from util.reasoner import reason_owlrl
+    reason_owlrl(g)
 
     qstr = """select ?instance ?class where {
         ?instance a ?class.

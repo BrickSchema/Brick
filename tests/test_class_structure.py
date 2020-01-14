@@ -1,6 +1,6 @@
 import rdflib
 from rdflib import RDF, OWL, RDFS, Namespace
-from util.reasoner import reason_brick, make_readable
+from util.reasoner import reason_brick, make_readable, reason_owlrl
 
 BRICK_VERSION = '1.1.0'
 BRICK = Namespace(f"https://brickschema.org/schema/{BRICK_VERSION}/Brick#")
@@ -11,7 +11,7 @@ SOSA = Namespace("http://www.w3.org/ns/sosa#")
 g = rdflib.Graph()
 g.parse('Brick.ttl', format='turtle')
 
-reason_brick(g)
+reason_owlrl(g)
 
 g.bind('rdf', RDF)
 g.bind('owl', OWL)

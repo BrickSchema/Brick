@@ -25,6 +25,9 @@ equipment_subclasses = {
                     },
                 },
             },
+            "Inverter": {
+                "tags": [TAG.Inverter, TAG.Equipment],
+            },
             "Power_System": {
                 "tags": [TAG.Power, TAG.Equipment],
             },
@@ -77,6 +80,11 @@ equipment_subclasses = {
             "Hot_Water_System": {
                 OWL.equivalentClass: "HWS",
                 "tags": [TAG.Water, TAG.Hot, TAG.Equipment],
+                "subclasses": {
+                    "Domestic_Hot_Water_System": {
+                        "tags": [TAG.Domestic, TAG.Water, TAG.Hot, TAG.Equipment],
+                    },
+                },
             },
             "CWS": {
                 OWL.equivalentClass: "Chilled_Water_System",
@@ -119,6 +127,12 @@ equipment_subclasses = {
     "Furniture": {
     },
     "Fire_Safety_System": {
+        "subclasses": {
+            "Fire_Control_Panel": {
+                OWL.equivalentClass: "FCP",
+            },
+            "FCP": {},
+        },
     },
     "Elevator": {
     },
@@ -277,6 +291,7 @@ hvac_subclasses = {
             "Centrifugal_Chiller": {},
         },
     },
+    "Humidifier": {},
     "Boiler": {
         SKOS.definition: Literal("A closed, pressure vessel that uses fuel or electricity for heating water or other fluids to supply steam or hot water for heating, humidification, or other applications."),
     },
@@ -308,9 +323,13 @@ valve_subclasses = {
             "Reheat_Valve": {
                 "tags": [TAG.Valve, TAG.Reheat, TAG.Heat, TAG.Equipment],
             },
+            "Return_Heating_Valve": {
+                "tags": [TAG.Valve, TAG.Return, TAG.Heat, TAG.Equipment],
+                SKOS.definition: Literal("A valve installed on the return side of a heat exchanger"),
+            },
             "Domestic_Hot_Water_Valve": {
                 "tags": [TAG.Domestic, TAG.Water, TAG.Hot, TAG.Valve, TAG.Heat, TAG.Equipment],
-                "parents": [BRICK.Hot_Water_System, BRICK.Water_Valve],
+                "parents": [BRICK.Domestic_Hot_Water_System, BRICK.Water_Valve],
             },
             "Preheat_Hot_Water_Valve": {
                 "tags": [TAG.Preheat, TAG.Water, TAG.Hot, TAG.Valve, TAG.Heat, TAG.Equipment],

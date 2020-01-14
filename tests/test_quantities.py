@@ -1,6 +1,6 @@
 import rdflib
 from rdflib import RDF, OWL, RDFS, Namespace
-from util.reasoner import reason_brick, make_readable
+from util.reasoner import reason_brick, make_readable, reason_owlrl
 
 BRICK_VERSION = '1.1.0'
 BRICK = Namespace("https://brickschema.org/schema/{0}/Brick#".format(BRICK_VERSION))
@@ -13,7 +13,7 @@ g.parse('Brick.ttl', format='turtle')
 
 g.add((BLDG.Tmp1, RDF.type, BRICK.Air_Temperature_Sensor))
 
-reason_brick(g)
+reason_owlrl(g)
 
 g.bind('rdf', RDF)
 g.bind('owl', OWL)
