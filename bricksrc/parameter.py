@@ -311,11 +311,11 @@ parameter_definitions = {
                         "subclasses": {
                             "Max_Speed_Setpoint_Limit": {
                                 "tags": [TAG.Max, TAG.Speed, TAG.Limit, TAG.Parameter],
-                                "parents": [BRICK.Max_Limit, TAG.Parameter],
+                                "parents": [BRICK.Max_Limit],
                             },
                             "Min_Speed_Setpoint_Limit": {
                                 "tags": [TAG.Min, TAG.Speed, TAG.Limit, TAG.Parameter],
-                                "parents": [BRICK.Min_Limit, TAG.Parameter],
+                                "parents": [BRICK.Min_Limit],
                             },
                         },
                     },
