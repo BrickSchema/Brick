@@ -138,6 +138,7 @@ setpoint_definitions = {
                         "subclasses": {
                             "Discharge_Air_Static_Pressure_Deadband_Setpoint": {
                                 "tags": [TAG.Discharge, TAG.Air, TAG.Static, TAG.Pressure, TAG.Deadband, TAG.Setpoint],
+                                "parents": [BRICK.Discharge_Air_Static_Pressure_Setpoint],
                             },
                             "Supply_Air_Static_Pressure_Deadband_Setpoint": {
                                 "tags": [TAG.Supply, TAG.Air, TAG.Static, TAG.Pressure, TAG.Deadband, TAG.Setpoint],
