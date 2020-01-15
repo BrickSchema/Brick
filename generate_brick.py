@@ -223,8 +223,7 @@ roots = {
     "Point": {
         #"tags": [TAG.Point],
     },
-    "Substance": {},
-    "Quantity": {},
+    "Measurable": {},
 }
 define_rootclasses(roots)
 
