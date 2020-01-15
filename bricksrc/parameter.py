@@ -383,10 +383,10 @@ parameter_definitions = {
                         },
                     },
                     "Fresh_Air_Setpoint_Limit": {
-                        "tags": [TAG.Fresh, TAG.Air, TAG.Setpoint, TAG.Limit],
+                        "tags": [TAG.Fresh, TAG.Air, TAG.Limit],
                         "subclasses": {
                             "Min_Fresh_Air_Setpoint_Limit": {
-                                "tags": [TAG.Min, TAG.Fresh, TAG.Air, TAG.Setpoint, TAG.Limit],
+                                "tags": [TAG.Min, TAG.Fresh, TAG.Air, TAG.Limit],
                                 "parents": [BRICK.Min_Limit],
                             },
                         },
@@ -402,7 +402,7 @@ parameter_definitions = {
                                 "tags": [TAG.Max, TAG.Static, TAG.Pressure, TAG.Limit, TAG.Parameter],
                             },
                             "High_Static_Pressure_Cutout_Setpoint_Limit": {
-                                "tags": [TAG.High, TAG.Static, TAG.Pressure, TAG.Cutout, TAG.Limit, TAG.Setpoint],
+                                "tags": [TAG.High, TAG.Static, TAG.Pressure, TAG.Cutout, TAG.Limit],
                             },
                         },
                     },

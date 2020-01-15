@@ -86,9 +86,9 @@ def add_tags(klass, definition):
         has_param, has_no_param = make_tag_classes(G, 'Parameter')
         has_sp, has_no_sp = make_tag_classes(G, 'Setpoint')
         has_adjust, has_no_adjust = make_tag_classes(G, 'Adjust')
-        # if pointclass == 'Setpoint':
-        #     all_restrictions.append(has_no_param)
-        if pointclass == 'Alarm':
+        if pointclass == 'Setpoint':
+            pass # all_restrictions.append(has_no_param)
+        elif pointclass == 'Alarm':
             all_restrictions.append(has_no_param)
             all_restrictions.append(has_no_sp)
         elif klass == 'Temperature_Sensor':
@@ -97,11 +97,11 @@ def add_tags(klass, definition):
     for idnum, item in enumerate(definition):
         restriction = BNode(f"has_{item.split('#')[-1]}")
         all_restrictions.append(restriction)
-        G.add( (restriction, A, OWL.Restriction) )
-        G.add( (restriction, OWL.onProperty, BRICK.hasTag) )
-        G.add( (restriction, OWL.hasValue, item) )
-        G.add( (item, A, BRICK.Tag) ) # make sure the tag is declared as such
-        G.add( (item, RDFS.label, Literal(item.split('#')[-1])) ) # make sure the tag is declared as such
+        G.add((restriction, A, OWL.Restriction))
+        G.add((restriction, OWL.onProperty, BRICK.hasTag))
+        G.add((restriction, OWL.hasValue, item))
+        G.add((item, A, BRICK.Tag)) # make sure the tag is declared as such
+        G.add((item, RDFS.label, Literal(item.split('#')[-1]))) # make sure the tag is declared as such
 
     # tag index
     tagset = tuple(sorted([item.split('#')[-1] for item in definition]))
