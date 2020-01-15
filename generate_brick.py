@@ -256,6 +256,10 @@ G.add((BRICK.Quantity, RDFS.subClassOf, BRICK.Measurable))
 #     for o in filter(lambda x: x != pc, pointclasses):
 #         G.add((BRICK[pc], OWL.disjointWith, BRICK[o]))
 
+# NOTE: currently removing explicit punning ue to issues with OWL--RL
+# reasoning. These can still be punned (and this is their intended use), but
+# explicitly instantiating the puns seems to cause issues with the reasoner
+#
 # We make the punning explicit here. Any subclass of brick:Substance
 # or brick:Quantity is itself a substance or quantity. There is one canonical
 # instance of each class, which is indicated by referencing the class itself.
@@ -265,10 +269,10 @@ G.add((BRICK.Quantity, RDFS.subClassOf, BRICK.Measurable))
 #                               brick:Temperature .
 #
 # In the above example, brick:Air and brick:Temperature are both instances.
-G.update("""INSERT { ?sc rdf:type brick:Substance }
-            WHERE { ?sc rdfs:subClassOf+ brick:Substance }""")
-G.update("""INSERT { ?qc rdf:type brick:Quantity }
-            WHERE { ?qc rdfs:subClassOf+ brick:Quantity }""")
+# G.update("""INSERT { ?sc rdf:type brick:Substance }
+#             WHERE { ?sc rdfs:subClassOf+ brick:Substance }""")
+# G.update("""INSERT { ?qc rdf:type brick:Quantity }
+#             WHERE { ?qc rdfs:subClassOf+ brick:Quantity }""")
 
 from bricksrc.properties import properties
 define_properties(properties)
