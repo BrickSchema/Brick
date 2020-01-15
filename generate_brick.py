@@ -29,12 +29,12 @@ tag_lookup = defaultdict(set)
 def make_tag_classes(G, tag):
     has_tag = BNode(f"has_{tag}")
     G.add((has_tag, A, OWL.Restriction))
-    G.add((has_tag, A, BRICK.Class))
+    G.add((has_tag, RDFS.subClassOf, BRICK.Class))
     G.add((has_tag, OWL.hasValue, TAG[tag]))
     G.add((has_tag, OWL.onProperty, BRICK.hasTag))
 
     has_no_tag = BNode(f"has_no_{tag}")
-    G.add((has_no_tag, A, BRICK.Class))
+    G.add((has_no_tag, RDFS.subClassOf, BRICK.Class))
     G.add((has_no_tag, OWL.complementOf, has_tag))
     return has_tag, has_no_tag
 
@@ -83,16 +83,16 @@ def add_tags(klass, definition):
 
         if len(res) == 0:
             continue
-        # has_param, has_no_param = make_tag_classes(G, 'Parameter')
-        # has_sp, has_no_sp = make_tag_classes(G, 'Setpoint')
-        # has_adjust, has_no_adjust = make_tag_classes(G, 'Adjust')
+        has_param, has_no_param = make_tag_classes(G, 'Parameter')
+        has_sp, has_no_sp = make_tag_classes(G, 'Setpoint')
+        has_adjust, has_no_adjust = make_tag_classes(G, 'Adjust')
         # if pointclass == 'Setpoint':
         #     all_restrictions.append(has_no_param)
-        # elif pointclass == 'Alarm':
-        #     all_restrictions.append(has_no_param)
-        #     all_restrictions.append(has_no_sp)
-        # elif klass == 'Temperature_Sensor':
-        #     all_restrictions.append(has_no_adjust)
+        if pointclass == 'Alarm':
+            all_restrictions.append(has_no_param)
+            all_restrictions.append(has_no_sp)
+        elif klass == 'Temperature_Sensor':
+            all_restrictions.append(has_no_adjust)
 
     for idnum, item in enumerate(definition):
         restriction = BNode(f"has_{item.split('#')[-1]}")
@@ -245,7 +245,7 @@ define_subclasses(valve_subclasses, BRICK.Valve)
 define_subclasses(substances, BRICK.Substance)
 define_subclasses(quantity_definitions, BRICK.Quantity)
 
-G.add((BRICK.Measurable, A, OWL.Class))
+G.add((BRICK.Measurable, RDFS.subClassOf, BRICK.Class))
 G.add((BRICK.Quantity, RDFS.subClassOf, SOSA.ObservableProperty))
 G.add((BRICK.Substance, RDFS.subClassOf, SOSA.FeatureOfInterest))
 G.add((BRICK.Substance, RDFS.subClassOf, BRICK.Measurable))
