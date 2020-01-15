@@ -4,7 +4,6 @@ BRICK_VERSION = '1.1.0'
 
 BRICK = Namespace(f"https://brickschema.org/schema/{BRICK_VERSION}/Brick#")
 TAG = Namespace(f"https://brickschema.org/schema/{BRICK_VERSION}/BrickTag#")
-HASTAG = Namespace(f"https://brickschema.org/schema/{BRICK_VERSION}/BrickHasTag#")
 #BLDG = Namespace(f"https://brickschema.org/schema/{BRICK_VERSION}/ExampleBuilding#")
 OWL = Namespace("http://www.w3.org/2002/07/owl#")
 RDF = Namespace("http://www.w3.org/1999/02/22-rdf-syntax-ns#")
@@ -25,4 +24,3 @@ def bind_prefixes(g):
     g.bind('sosa', SOSA)
     g.bind('brick', BRICK)
     g.bind('tag', TAG)
-    g.bind('hastag', HASTAG)
