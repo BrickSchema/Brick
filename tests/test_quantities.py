@@ -32,7 +32,7 @@ for row in res:
     measurable_mapping[c].add(m)
 desired_inferences = {}
 for c, measurables in measurable_mapping.items():
-    print(f"{c} => {measurables}")
+    # print(f"{c} => {measurables}")
     inst = BLDG[f"test_inst_{c.split('#')[-1]}"]
     desired_inferences[inst] = c
     for m in measurables:
@@ -65,21 +65,21 @@ g.bind('bldg', BLDG)
 #     substances = make_readable(g.query("SELECT ?q WHERE { ?q a brick:Substance}"))
 #     substance_classes = make_readable(g.query("SELECT ?q WHERE { ?q rdfs:subClassOf+ brick:Substance}"))
 #     assert(sorted(substances) == sorted(substance_classes))
-
-def test_measurables_defined():
-    # test to make sure all objects of the brick:measures relationship are a Measurable
-    measurable = make_readable(g.query("SELECT ?m WHERE { ?m a brick:Measurable }"))
-
-    measured = make_readable(g.query("""SELECT ?m WHERE {
-        ?class rdfs:subClassOf brick:Class .
-        ?class owl:equivalentClass ?restrictions .
-        ?restrictions owl:intersectionOf ?inter .
-        ?inter rdf:rest*/rdf:first ?node .
-        ?node owl:onProperty brick:measures .
-        ?node owl:hasValue ?m
-        }"""))
-    for m in measured:
-        assert m in measurable
+#
+# def test_measurables_defined():
+#     # test to make sure all objects of the brick:measures relationship are a Measurable
+#     measurable = make_readable(g.query("SELECT ?m WHERE { ?m a brick:Measurable }"))
+#
+#     measured = make_readable(g.query("""SELECT ?m WHERE {
+#         ?class rdfs:subClassOf brick:Class .
+#         ?class owl:equivalentClass ?restrictions .
+#         ?restrictions owl:intersectionOf ?inter .
+#         ?inter rdf:rest*/rdf:first ?node .
+#         ?node owl:onProperty brick:measures .
+#         ?node owl:hasValue ?m
+#         }"""))
+#     for m in measured:
+#         assert m in measurable
 
 def test_measurable_inference():
     for inst, klass in desired_inferences.items():
