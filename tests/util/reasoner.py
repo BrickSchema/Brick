@@ -31,7 +31,7 @@ def reason_owlrl(g):
     - inverse properties
     - class hierarchy (rdf:type, not rdf:type/rdfs:subClassOf*)
     """
-    # return reason_agraph(g)
+    return reason_agraph(g)
     start_time = time.time()
     owlrl.DeductiveClosure(owlrl.OWLRL_Semantics).expand(g)
     end_time = time.time()
