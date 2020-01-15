@@ -134,9 +134,10 @@ def add_class_restriction(klass, definition):
 
 def define_subclasses(definitions, superclass):
     for subclass, properties in definitions.items():
-        G.add( (BRICK[subclass], A, OWL.Class) )
-        G.add( (BRICK[subclass], RDFS.label, Literal(subclass.replace("_"," "))) )
-        G.add( (BRICK[subclass], RDFS.subClassOf, superclass) )
+        G.add((BRICK[superclass], A, OWL.Class))
+        G.add((BRICK[subclass], A, OWL.Class))
+        G.add((BRICK[subclass], RDFS.label, Literal(subclass.replace("_"," "))))
+        G.add((BRICK[subclass], RDFS.subClassOf, superclass))
         for k, v in properties.items():
             if isinstance(v, list) and k == "tagvalues":
                 add_restriction(subclass, v)
@@ -245,10 +246,14 @@ define_subclasses(substances, BRICK.Substance)
 define_subclasses(quantity_definitions, BRICK.Quantity)
 
 G.add((BRICK.Measurable, RDFS.subClassOf, BRICK.Class))
+# set up Quantity definition
 G.add((BRICK.Quantity, RDFS.subClassOf, SOSA.ObservableProperty))
+G.add((BRICK.Quantity, RDFS.subClassOf, BRICK.Measurable))
+G.add((BRICK.Quantity, A, OWL.Class))
+# set up Substance definition
 G.add((BRICK.Substance, RDFS.subClassOf, SOSA.FeatureOfInterest))
 G.add((BRICK.Substance, RDFS.subClassOf, BRICK.Measurable))
-G.add((BRICK.Quantity, RDFS.subClassOf, BRICK.Measurable))
+G.add((BRICK.Substance, A, OWL.Class))
 
 # make disjoint
 # pointclasses = ['Alarm', 'Status', 'Command', 'Setpoint', 'Sensor', 'Parameter']
