@@ -1,19 +1,15 @@
 import rdflib
 from rdflib import RDF, OWL, RDFS, Namespace, BNode
-from util.reasoner import reason_brick, make_readable, reason_owlrl
+from util.reasoner import make_readable, reason_owlrl
 from collections import defaultdict
 
 BRICK_VERSION = '1.1.0'
-BRICK = Namespace("https://brickschema.org/schema/{0}/Brick#".format(BRICK_VERSION))
-TAG = Namespace("https://brickschema.org/schema/{0}/BrickTag#".format(BRICK_VERSION))
+BRICK = Namespace(f"https://brickschema.org/schema/{BRICK_VERSION}/Brick#")
+TAG = Namespace(f"https://brickschema.org/schema/{BRICK_VERSION}/BrickTag#")
 BLDG = Namespace("https://brickschema.org/schema/ExampleBuilding#")
 
 g = rdflib.Graph()
 g.parse('Brick.ttl', format='turtle')
-
-
-g.add((BLDG.Tmp1, RDF.type, BRICK.Air_Temperature_Sensor))
-
 reason_owlrl(g)
 
 res = g.query("""SELECT ?m ?class WHERE {
@@ -55,31 +51,48 @@ g.bind('bldg', BLDG)
 # OWL-RL reasoning. The new test 'test_measurable_inference' tests that the use
 # of the brick:measures relationship properly infers classes
 #
-# def test_quantity_instances():
-#     quantities = make_readable(g.query("SELECT ?q WHERE { ?q a brick:Quantity}"))
-#     quantity_classes = make_readable(g.query("SELECT ?q WHERE { ?q rdfs:subClassOf+ brick:Quantity}"))
-#     assert(sorted(quantities) == sorted(quantity_classes))
-#
-#
-# def test_substance_instances():
-#     substances = make_readable(g.query("SELECT ?q WHERE { ?q a brick:Substance}"))
-#     substance_classes = make_readable(g.query("SELECT ?q WHERE { ?q rdfs:subClassOf+ brick:Substance}"))
-#     assert(sorted(substances) == sorted(substance_classes))
-#
-# def test_measurables_defined():
-#     # test to make sure all objects of the brick:measures relationship are a Measurable
-#     measurable = make_readable(g.query("SELECT ?m WHERE { ?m a brick:Measurable }"))
-#
-#     measured = make_readable(g.query("""SELECT ?m WHERE {
-#         ?class rdfs:subClassOf brick:Class .
-#         ?class owl:equivalentClass ?restrictions .
-#         ?restrictions owl:intersectionOf ?inter .
-#         ?inter rdf:rest*/rdf:first ?node .
-#         ?node owl:onProperty brick:measures .
-#         ?node owl:hasValue ?m
-#         }"""))
-#     for m in measured:
-#         assert m in measurable
+def test_quantity_instances():
+    quantities = g.query("SELECT ?q WHERE {\
+                          ?q a brick:Quantity\
+                          }")
+    quantity_classes = g.query("SELECT ?q WHERE {\
+                            ?q rdfs:subClassOf+ brick:Quantity}")
+    quantities = set(quantities)
+    quantity_classes = set(quantity_classes)
+    quantity_classes.remove((OWL.Nothing, ))
+    assert(set(quantities) == set(quantity_classes))
+
+
+def test_substance_instances():
+    substances = g.query("SELECT ?q WHERE {\
+                          ?q a brick:Substance\
+                          }")
+    substance_classes = g.query("SELECT ?q WHERE {\
+                            ?q rdfs:subClassOf+ brick:Substance}")
+    substances = set(substances)
+    substance_classes = set(substance_classes)
+    substance_classes.remove((OWL.Nothing, ))
+    assert(set(substances) == set(substance_classes))
+
+
+def test_measurables_defined():
+    # test to make sure all objects of the
+    # brick:measures relationship are a Measurable
+    measurable = make_readable(g.query("SELECT ?m WHERE {\
+                                        ?m a brick:Measurable\
+                                        }"))
+
+    measured = make_readable(g.query("""SELECT ?m WHERE {
+        ?class rdfs:subClassOf brick:Class .
+        ?class owl:equivalentClass ?restrictions .
+        ?restrictions owl:intersectionOf ?inter .
+        ?inter rdf:rest*/rdf:first ?node .
+        ?node owl:onProperty brick:measures .
+        ?node owl:hasValue ?m
+        }"""))
+    for m in measured:
+        assert m in measurable
+
 
 def test_measurable_inference():
     for inst, klass in desired_inferences.items():

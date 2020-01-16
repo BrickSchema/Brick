@@ -154,6 +154,26 @@ def define_subclasses(definitions, superclass):
                 if isinstance(v, dict) and k == "subclasses":
                     define_subclasses(v, BRICK[subclass])
 
+def define_measurable_subclasses(definitions, measurable_class):
+    for subclass, properties in definitions.items():
+        G.add((BRICK[subclass], A, OWL.Class))
+        G.add((BRICK[subclass], RDFS.label, Literal(subclass.replace("_"," "))))
+        # first level: we are instances of the measurable_class
+        G.add((BRICK[subclass], A, measurable_class))
+        for k, v in properties.items():
+            if isinstance(v, list) and k == "tagvalues":
+                add_restriction(subclass, v)
+            elif isinstance(v, list) and k == "tags":
+                add_tags(subclass, v)
+            elif isinstance(v, list) and k == "parents":
+                for parent in v:
+                    G.add( (BRICK[subclass], RDFS.subClassOf, parent) )
+            elif isinstance(v, list) and k == "substances":
+                add_restriction(subclass, v)
+            elif not apply_prop(subclass, k, v):
+                if isinstance(v, dict) and k == "subclasses":
+                    define_subclasses(v, BRICK[subclass])
+
 def define_rootclasses(definitions):
     G.add( (BRICK.Class, A, OWL.Class) )
     G.add( (BRICK.Tag, A, OWL.Class) )
@@ -234,19 +254,24 @@ define_rootclasses(roots)
 # define BRICK properties
 define_properties(properties)
 
-# TODO: make brick.point the UNION of these classes?
+# define Point subclasses
 define_subclasses(setpoint_definitions, BRICK.Point)
 define_subclasses(sensor_definitions, BRICK.Point)
 define_subclasses(alarm_definitions, BRICK.Point)
 define_subclasses(status_definitions, BRICK.Point)
 define_subclasses(command_definitions, BRICK.Point)
 define_subclasses(parameter_definitions, BRICK.Point)
+# make points disjoint
+pointclasses = ['Alarm', 'Status', 'Command', 'Setpoint', 'Sensor', 'Parameter']
+for pc in pointclasses:
+    for o in filter(lambda x: x != pc, pointclasses):
+        G.add((BRICK[pc], OWL.disjointWith, BRICK[o]))
+
+# define other root class structures
 define_subclasses(location_subclasses, BRICK.Location)
 define_subclasses(equipment_subclasses, BRICK.Equipment)
 define_subclasses(hvac_subclasses, BRICK.HVAC)
 define_subclasses(valve_subclasses, BRICK.Valve)
-define_subclasses(substances, BRICK.Substance)
-define_subclasses(quantity_definitions, BRICK.Quantity)
 
 G.add((BRICK.Measurable, RDFS.subClassOf, BRICK.Class))
 # set up Quantity definition
@@ -258,12 +283,6 @@ G.add((BRICK.Substance, RDFS.subClassOf, SOSA.FeatureOfInterest))
 G.add((BRICK.Substance, RDFS.subClassOf, BRICK.Measurable))
 G.add((BRICK.Substance, A, OWL.Class))
 
-# make disjoint
-# pointclasses = ['Alarm', 'Status', 'Command', 'Setpoint', 'Sensor', 'Parameter']
-# for pc in pointclasses:
-#     for o in filter(lambda x: x != pc, pointclasses):
-#         G.add((BRICK[pc], OWL.disjointWith, BRICK[o]))
-
 # We make the punning explicit here. Any subclass of brick:Substance
 # or brick:Quantity is itself a substance or quantity. There is one canonical
 # instance of each class, which is indicated by referencing the class itself.
@@ -271,15 +290,13 @@ G.add((BRICK.Substance, A, OWL.Class))
 #    bldg:tmp1      a           brick:Air_Temperature_Sensor;
 #               brick:measures  brick:Air ,
 #                               brick:Temperature .
-#
-# In the above example, brick:Air and brick:Temperature are both instances.
-G.update("""INSERT { ?sc rdf:type brick:Substance }
-            WHERE { ?sc rdfs:subClassOf+ brick:Substance }""")
-G.update("""INSERT { ?qc rdf:type brick:Quantity }
-            WHERE { ?qc rdfs:subClassOf+ brick:Quantity }""")
+define_measurable_subclasses(substances, BRICK.Substance)
+define_measurable_subclasses(quantity_definitions, BRICK.Quantity)
 
+# define tags
 for tag, definition in tags.items():
     G.add((TAG[tag], A, BRICK.Tag))
 
+# serialize to output
 print('base:',len(G))
 G.serialize('Brick.ttl', format='turtle')
