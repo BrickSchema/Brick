@@ -1,9 +1,4 @@
-from rdflib import Graph, Literal, BNode, Namespace, RDF, URIRef
-from rdflib.collection import Collection
-from rdflib.extras.infixowl import Restriction
-
-from .namespaces import *
-
+from .namespaces import TAG, BRICK
 
 status_definitions = {
     "Status": {
@@ -119,8 +114,7 @@ status_definitions = {
                                 }
                             },
                             "Hot_Water_Differential_Pressure_Load_Shed_Status": {
-                                "tags": [TAG.Hot, TAG.Water, TAG.Differential, TAG.Pressure, TAG.Load, TAG.Shed, TAG.Status] ,
-                                # TODO: conflicts with Pressure Status
+                                "tags": [TAG.Hot, TAG.Water, TAG.Differential, TAG.Pressure, TAG.Load, TAG.Shed, TAG.Status],
                                 "subclasses": {
                                     "Hot_Water_Differential_Pressure_Load_Shed_Reset_Status": {
                                         "tags": [TAG.Hot, TAG.Water, TAG.Differential, TAG.Pressure, TAG.Load, TAG.Shed, TAG.Reset, TAG.Status],
@@ -278,4 +272,3 @@ status_definitions = {
         },
     }
 }
-

@@ -1,6 +1,5 @@
 from .namespaces import TAG, BRICK
 
-
 command_definitions = {
     "Command": {
         "tags": [TAG.Command],

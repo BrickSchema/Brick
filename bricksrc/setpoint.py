@@ -441,9 +441,11 @@ setpoint_definitions = {
                                 "subclasses": {
                                     "Effective_Air_Temperature_Cooling_Setpoint": {
                                         "tags": [TAG.Effective, TAG.Air, TAG.Cooling, TAG.Temperature, TAG.Setpoint],
+                                        "parents": [BRICK.Cooling_Temperature_Setpoint],
                                     },
                                     "Effective_Air_Temperature_Heating_Setpoint": {
                                         "tags": [TAG.Effective, TAG.Air, TAG.Heating, TAG.Temperature, TAG.Setpoint],
+                                        "parents": [BRICK.Heating_Temperature_Setpoint],
                                     },
                                 }
                             },
@@ -455,9 +457,6 @@ setpoint_definitions = {
                             },
                             "Zone_Air_Temperature_Setpoint": {
                                 "tags": [TAG.Zone, TAG.Air, TAG.Temperature, TAG.Setpoint],
-                            },
-                            "Effective_Air_Temperature_Setpoint": {
-                                "tags": [TAG.Effective, TAG.Air, TAG.Temperature, TAG.Setpoint],
                             },
                             "Outside_Air_Temperature_Setpoint": {
                                 "subclasses": {

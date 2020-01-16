@@ -1,7 +1,6 @@
 from rdflib import Literal
 from .namespaces import A, OWL, RDFS, SKOS, BRICK
 
-
 """
 Defining properties
 """
@@ -46,8 +45,6 @@ properties = {
         "subproperties": {
             "feedsAir": {
                 SKOS.definition: Literal("Passes air"),
-
-
                 # TODO: add restriction that it needs an air-based equipment on either side?
                 # this is equivalent with the classes that have :
                 # Restriction (onProperty=brick:hasInputSubstance, hasValue=brick:Air) AND
