@@ -50,29 +50,29 @@ g.bind('bldg', BLDG)
 # that *explicitly* instantiating these punned classes can cause issues with
 # OWL-RL reasoning. The new test 'test_measurable_inference' tests that the use
 # of the brick:measures relationship properly infers classes
+
+# def test_quantity_instances():
+#     quantities = g.query("SELECT ?q WHERE {\
+#                           ?q a brick:Quantity\
+#                           }")
+#     quantity_classes = g.query("SELECT ?q WHERE {\
+#                             ?q rdfs:subClassOf+ brick:Quantity}")
+#     quantities = set(quantities)
+#     quantity_classes = set(quantity_classes)
+#     quantity_classes.remove((OWL.Nothing, ))
+#     assert(set(quantities) == set(quantity_classes))
 #
-def test_quantity_instances():
-    quantities = g.query("SELECT ?q WHERE {\
-                          ?q a brick:Quantity\
-                          }")
-    quantity_classes = g.query("SELECT ?q WHERE {\
-                            ?q rdfs:subClassOf+ brick:Quantity}")
-    quantities = set(quantities)
-    quantity_classes = set(quantity_classes)
-    quantity_classes.remove((OWL.Nothing, ))
-    assert(set(quantities) == set(quantity_classes))
-
-
-def test_substance_instances():
-    substances = g.query("SELECT ?q WHERE {\
-                          ?q a brick:Substance\
-                          }")
-    substance_classes = g.query("SELECT ?q WHERE {\
-                            ?q rdfs:subClassOf+ brick:Substance}")
-    substances = set(substances)
-    substance_classes = set(substance_classes)
-    substance_classes.remove((OWL.Nothing, ))
-    assert(set(substances) == set(substance_classes))
+#
+# def test_substance_instances():
+#     substances = g.query("SELECT ?q WHERE {\
+#                           ?q a brick:Substance\
+#                           }")
+#     substance_classes = g.query("SELECT ?q WHERE {\
+#                             ?q rdfs:subClassOf+ brick:Substance}")
+#     substances = set(substances)
+#     substance_classes = set(substance_classes)
+#     substance_classes.remove((OWL.Nothing, ))
+#     assert(set(substances) == set(substance_classes))
 
 
 def test_measurables_defined():

@@ -290,6 +290,7 @@ G.add((BRICK.Substance, A, OWL.Class))
 #    bldg:tmp1      a           brick:Air_Temperature_Sensor;
 #               brick:measures  brick:Air ,
 #                               brick:Temperature .
+# This makes Substance and Quantity metaclasses.
 define_measurable_subclasses(substances, BRICK.Substance)
 define_measurable_subclasses(quantity_definitions, BRICK.Quantity)
 
