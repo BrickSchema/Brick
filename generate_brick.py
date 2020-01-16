@@ -16,6 +16,8 @@ from bricksrc.location import location_subclasses
 from bricksrc.equipment import equipment_subclasses, hvac_subclasses, valve_subclasses
 from bricksrc.substances import substances
 from bricksrc.quantities import quantity_definitions
+from bricksrc.properties import properties
+from bricksrc.tags import tags
 
 G = Graph()
 bind_prefixes(G)
@@ -226,12 +228,13 @@ roots = {
     },
     "Measurable": {},
 }
+# define root classes
 define_rootclasses(roots)
 
+# define BRICK properties
+define_properties(properties)
+
 # TODO: make brick.point the UNION of these classes?
-# TODO: i think the issue here is if we have afsp1 = has tag{setpoint, air,
-# flow}, then the pointsubclasses are unsatisfiable because they are all
-# disjoint
 define_subclasses(setpoint_definitions, BRICK.Point)
 define_subclasses(sensor_definitions, BRICK.Point)
 define_subclasses(alarm_definitions, BRICK.Point)
@@ -261,10 +264,6 @@ G.add((BRICK.Substance, A, OWL.Class))
 #     for o in filter(lambda x: x != pc, pointclasses):
 #         G.add((BRICK[pc], OWL.disjointWith, BRICK[o]))
 
-# NOTE: currently removing explicit punning ue to issues with OWL--RL
-# reasoning. These can still be punned (and this is their intended use), but
-# explicitly instantiating the puns seems to cause issues with the reasoner
-#
 # We make the punning explicit here. Any subclass of brick:Substance
 # or brick:Quantity is itself a substance or quantity. There is one canonical
 # instance of each class, which is indicated by referencing the class itself.
@@ -274,15 +273,11 @@ G.add((BRICK.Substance, A, OWL.Class))
 #                               brick:Temperature .
 #
 # In the above example, brick:Air and brick:Temperature are both instances.
-# G.update("""INSERT { ?sc rdf:type brick:Substance }
-#             WHERE { ?sc rdfs:subClassOf+ brick:Substance }""")
-# G.update("""INSERT { ?qc rdf:type brick:Quantity }
-#             WHERE { ?qc rdfs:subClassOf+ brick:Quantity }""")
+G.update("""INSERT { ?sc rdf:type brick:Substance }
+            WHERE { ?sc rdfs:subClassOf+ brick:Substance }""")
+G.update("""INSERT { ?qc rdf:type brick:Quantity }
+            WHERE { ?qc rdfs:subClassOf+ brick:Quantity }""")
 
-from bricksrc.properties import properties
-define_properties(properties)
-
-from bricksrc.tags import tags
 for tag, definition in tags.items():
     G.add((TAG[tag], A, BRICK.Tag))
 
