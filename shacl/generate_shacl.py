@@ -52,6 +52,7 @@ for name, properties in property_definitions.items():
 # make sure that root classes are disjoint, even if inference has generated
 # some invalid properties (e.g. a subject of hasLocation will be inferred
 # as a Location even if it is already an Equipment).
+'''
 for rootclass1 in rootclasses:
     for rootclass2 in rootclasses:
         if rootclass1 == rootclass2:
@@ -79,6 +80,7 @@ for rootclass1 in fluidClasses:
         G.add((sh_prop, SH["message"], Literal(f"Node cannot be both a \
                {BRICK[rootclass1]} and a {BRICK[rootclass2]}. Check the \
                properties it has")))
+'''
 
 # subproperties
 # TODO: explicitly coded for now, but we should generalize
