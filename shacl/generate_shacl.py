@@ -1,9 +1,9 @@
-from rdflib import Graph, Literal, BNode
+from rdflib import Graph, Literal, BNode, URIRef
 from rdflib.collection import Collection
 
 import sys
 sys.path.append('..')
-from bricksrc.namespaces import RDF, RDFS, BRICK, BSH, SH
+from bricksrc.namespaces import RDF, RDFS, BRICK, BSH, SH, SKOS
 from bricksrc.namespaces import bind_prefixes
 # add SHACL shapes from properties
 from bricksrc.properties import properties as property_definitions
@@ -23,7 +23,10 @@ for name, properties in property_definitions.items():
 
         # TODO: currently just for rdfs:{domain, range}
 
-        if pred == RDFS.range:
+        if pred == SKOS.notation and str(obj).startswith('RDFS.range'):
+            (RDFS_range, range_obj) = str(obj).split()
+            obj = eval(range_obj)
+
             shapename = f"{name}RangeShape"
             G.add((BSH[shapename], SH['property'], sh_prop))
             G.add((BSH[shapename], A, SH.NodeShape))
@@ -92,23 +95,16 @@ substance_subproperties = {
 }
 
 for subprop, desc in substance_subproperties.items():
-    shape = BSH[f"{subprop}SubstanceShape"]
-    constraintlist = BNode()
-    G.add((shape, A, SH.NodeShape))
-    G.add((shape, SH.targetSubjectsOf, BRICK[subprop]))
-
-    G.add((shape, SH['or'], constraintlist))
-
-    constraints = []
     for prop in desc['properties']:
-        constraint = BNode()
-        definition = BNode()
-        G.add( (constraint, SH['property'], definition))
-        G.add( (definition, SH['path'], prop))
-        G.add( (definition, SH['class'], desc['substance']))
-        constraints.append(constraint)
-
-    c = Collection(G, constraintlist, constraints)
+        sh_prop = BNode()
+        (prefix, name) = prop.split('#')
+        shapename = f"feedsAir{name.capitalize()}Shape"
+        G.add((BSH[shapename], SH['property'], sh_prop))
+        G.add((BSH[shapename], A, SH.NodeShape))
+        G.add((sh_prop, SH['nodeKind'], SH.IRI))
+        G.add((sh_prop, SH['path'], prop))
+        G.add((sh_prop, SH['class'], desc['substance']))
+        G.add((BSH[shapename], SH.targetSubjectsOf, BRICK[subprop]))
 
 with open('shacl_test.ttl', 'wb') as f:
     f.write(G.serialize(format='ttl'))

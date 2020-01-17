@@ -46,4 +46,5 @@ bldg:VAV2-4.SUPFLSP a brick:Supply_Air_Flow_Setpoint .
 bldg:VAV2-4.DPR brick:feedsAir bldg:Room-412 .
 
 bldg:VAV2-4.DPR brick:regulates brick:Water .
+bldg:VAV2-4.DPR brick:measures brick:Water .
 #bldg:VAV2-4.DPR brick:regulates brick:Air .
