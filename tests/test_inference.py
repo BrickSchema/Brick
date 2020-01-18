@@ -34,6 +34,8 @@ g.add((BLDG.AFS1, BRICK.hasTag, TAG.Air))
 g.add((BLDG.AFS1, BRICK.hasTag, TAG.Flow))
 g.add((BLDG.AFS1, BRICK.hasTag, TAG.Sensor))
 
+g.add((BLDG.S1, BRICK.hasTag, TAG.Sensor))
+
 # add air flow setpoint
 # g.add((BLDG.AFSP1, A, BRICK.Setpoint))
 g.add((BLDG.AFSP1, BRICK.hasTag, TAG.Air))
@@ -69,9 +71,22 @@ g.bind('bldg', BLDG)
 s = g.serialize('output.ttl', format='ttl')
 print('expanded:', len(g))
 
-
 def make_readable(res):
     return [[uri.split('#')[-1] for uri in row] for row in res]
+
+print('Sensor', make_readable(g.query("SELECT ?x WHERE { ?x a tag:all_tags_Sensor }")))
+print('Setpoint', make_readable(g.query("SELECT ?x WHERE { ?x a tag:all_tags_Setpoint }")))
+print('Alarm', make_readable(g.query("SELECT ?x WHERE { ?x a tag:all_tags_Alarm }")))
+print('Status', make_readable(g.query("SELECT ?x WHERE { ?x a tag:all_tags_Status }")))
+print('Command', make_readable(g.query("SELECT ?x WHERE { ?x a tag:all_tags_Command }")))
+print('Parameter', make_readable(g.query("SELECT ?x WHERE { ?x a tag:all_tags_Parameter }")))
+print('-'*20)
+print('Sensor', make_readable(g.query("SELECT ?x WHERE { ?x a tag:Sensor_Tag }")))
+print('Setpoint', make_readable(g.query("SELECT ?x WHERE { ?x a tag:Setpoint_Tag }")))
+print('Alarm', make_readable(g.query("SELECT ?x WHERE { ?x a tag:Alarm_Tag }")))
+print('Status', make_readable(g.query("SELECT ?x WHERE { ?x a tag:Status_Tag }")))
+print('Command', make_readable(g.query("SELECT ?x WHERE { ?x a tag:Command_Tag }")))
+print('Parameter', make_readable(g.query("SELECT ?x WHERE { ?x a tag:Parameter_Tag }")))
 
 
 def test_tag1():

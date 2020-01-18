@@ -90,7 +90,7 @@ def add_tags(klass, definition):
         # - [ ] explicitly enumerate the tags that can be used with each hierarchy; this
         #   may require all of the classes in a hierarchy (e.g. parameter) to have
         #   a unique tag (e.g. all Parameters have Parameter tag)
-        r = BNode(f"all_tags_{pointclass}")
+        r = TAG[f"all_tags_{pointclass}"]
         G.add((r, A, OWL.Restriction))
         G.add((r, OWL.onProperty, BRICK.hasTag))
         G.add((r, OWL.allValuesFrom, TAG[f"{pointclass}_Tag"]))
@@ -269,10 +269,10 @@ define_properties(properties)
 # define Point subclasses
 # define_subclasses(setpoint_definitions, BRICK.Point)
 define_subclasses(sensor_definitions, BRICK.Point)
-# define_subclasses(alarm_definitions, BRICK.Point)
-# define_subclasses(status_definitions, BRICK.Point)
-# define_subclasses(command_definitions, BRICK.Point)
-# define_subclasses(parameter_definitions, BRICK.Point)
+define_subclasses(alarm_definitions, BRICK.Point)
+define_subclasses(status_definitions, BRICK.Point)
+define_subclasses(command_definitions, BRICK.Point)
+define_subclasses(parameter_definitions, BRICK.Point)
 # make points disjoint
 pointclasses = ['Alarm', 'Status', 'Command', 'Setpoint', 'Sensor', 'Parameter']
 for pc in pointclasses:
