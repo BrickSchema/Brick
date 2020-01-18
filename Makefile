@@ -6,4 +6,9 @@ test: Brick.ttl
 
 quantity-test: Brick.ttl
 	pytest -s -vvvv tests/test_quantities.py
-	$(shell python get_unsatisfiable.py output.ttl | sort > unsat)
+
+inference-test: Brick.ttl
+	pytest -s -vvvv tests/test_inference.py
+
+hierarchy-test: Brick.ttl
+	pytest -s -vvvv tests/test_hierarchy_inference.py

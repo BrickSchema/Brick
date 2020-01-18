@@ -2,7 +2,7 @@ from rdflib import Graph, Literal, BNode, URIRef
 from rdflib.namespace import XSD
 from rdflib.collection import Collection
 
-
+from bricksrc.tag_exclusion import make_exclusive_tag_groups
 from bricksrc.namespaces import BRICK, RDF, OWL, RDFS, TAG, SOSA
 from bricksrc.namespaces import bind_prefixes
 
@@ -21,7 +21,7 @@ from bricksrc.tags import tags
 
 G = Graph()
 bind_prefixes(G)
-# make_exclusive_tag_groups(G)
+make_exclusive_tag_groups(G)
 A = RDF.type
 
 from collections import defaultdict
@@ -85,16 +85,28 @@ def add_tags(klass, definition):
 
         if len(res) == 0:
             continue
-        has_param, has_no_param = make_tag_classes(G, 'Parameter')
-        has_sp, has_no_sp = make_tag_classes(G, 'Setpoint')
-        has_adjust, has_no_adjust = make_tag_classes(G, 'Adjust')
-        if pointclass == 'Setpoint':
-            pass # all_restrictions.append(has_no_param)
-        elif pointclass == 'Alarm':
-            all_restrictions.append(has_no_param)
-            all_restrictions.append(has_no_sp)
-        elif klass == 'Temperature_Sensor':
-            all_restrictions.append(has_no_adjust)
+        # How to get complements working:
+        # - [X] make sure that all the tags are Different Individuals (done below)
+        # - [ ] explicitly enumerate the tags that can be used with each hierarchy; this
+        #   may require all of the classes in a hierarchy (e.g. parameter) to have
+        #   a unique tag (e.g. all Parameters have Parameter tag)
+        r = BNode(f"all_tags_{pointclass}")
+        G.add((r, A, OWL.Restriction))
+        G.add((r, OWL.onProperty, BRICK.hasTag))
+        G.add((r, OWL.allValuesFrom, TAG[f"{pointclass}_Tag"]))
+        all_restrictions.append(r)
+
+        # has_param, has_no_param = make_tag_classes(G, 'Parameter')
+        # has_sp, has_no_sp = make_tag_classes(G, 'Setpoint')
+        # has_adjust, has_no_adjust = make_tag_classes(G, 'Adjust')
+
+        # if pointclass == 'Setpoint':
+        #     all_restrictions.append(has_no_param)
+        # elif pointclass == 'Alarm':
+        #     all_restrictions.append(has_no_param)
+        #     all_restrictions.append(has_no_sp)
+        # elif klass == 'Temperature_Sensor':
+        #     all_restrictions.append(has_no_adjust)
 
     for idnum, item in enumerate(definition):
         restriction = BNode(f"has_{item.split('#')[-1]}")
@@ -255,12 +267,12 @@ define_rootclasses(roots)
 define_properties(properties)
 
 # define Point subclasses
-define_subclasses(setpoint_definitions, BRICK.Point)
+# define_subclasses(setpoint_definitions, BRICK.Point)
 define_subclasses(sensor_definitions, BRICK.Point)
-define_subclasses(alarm_definitions, BRICK.Point)
-define_subclasses(status_definitions, BRICK.Point)
-define_subclasses(command_definitions, BRICK.Point)
-define_subclasses(parameter_definitions, BRICK.Point)
+# define_subclasses(alarm_definitions, BRICK.Point)
+# define_subclasses(status_definitions, BRICK.Point)
+# define_subclasses(command_definitions, BRICK.Point)
+# define_subclasses(parameter_definitions, BRICK.Point)
 # make points disjoint
 pointclasses = ['Alarm', 'Status', 'Command', 'Setpoint', 'Sensor', 'Parameter']
 for pc in pointclasses:
@@ -294,9 +306,18 @@ G.add((BRICK.Substance, A, OWL.Class))
 define_measurable_subclasses(substances, BRICK.Substance)
 define_measurable_subclasses(quantity_definitions, BRICK.Quantity)
 
+different_tag_list = []
 # define tags
 for tag, definition in tags.items():
+    different_tag_list.append(TAG[tag])
     G.add((TAG[tag], A, BRICK.Tag))
+
+# declares that all tags are pairwise different; i.e. no two tags refer
+# to the same tag
+different_tag = BNode("tags_are_different")
+G.add((BRICK.Tag, A, OWL.AllDifferent))
+G.add((BRICK.Tag, OWL.distinctMembers, different_tag))
+Collection(G, different_tag, different_tag_list)
 
 # serialize to output
 print('base:',len(G))

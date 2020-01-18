@@ -29,6 +29,11 @@ g.add((BLDG.TS1, A, BRICK.Temperature_Sensor))
 g.add((BLDG.TS1, BRICK.measures, BRICK.Air))
 g.add((BLDG.TS2, A, BRICK.Air_Temperature_Sensor))
 
+# add air flow sensor
+g.add((BLDG.AFS1, BRICK.hasTag, TAG.Air))
+g.add((BLDG.AFS1, BRICK.hasTag, TAG.Flow))
+g.add((BLDG.AFS1, BRICK.hasTag, TAG.Sensor))
+
 # add air flow setpoint
 # g.add((BLDG.AFSP1, A, BRICK.Setpoint))
 g.add((BLDG.AFSP1, BRICK.hasTag, TAG.Air))
@@ -36,13 +41,14 @@ g.add((BLDG.AFSP1, BRICK.hasTag, TAG.Flow))
 g.add((BLDG.AFSP1, BRICK.hasTag, TAG.Setpoint))
 
 # add air flow setpoint limit
+g.add((BLDG.MAFS1, BRICK.hasTag, TAG.Max))
 g.add((BLDG.MAFS1, BRICK.hasTag, TAG.Air))
 g.add((BLDG.MAFS1, BRICK.hasTag, TAG.Flow))
+g.add((BLDG.MAFS1, BRICK.hasTag, TAG.Setpoint))
 g.add((BLDG.MAFS1, BRICK.hasTag, TAG.Limit))
-g.add((BLDG.MAFS1, BRICK.hasTag, TAG.Max))
 g.add((BLDG.MAFS1, BRICK.hasTag, TAG.Parameter))
 
-g.add((BLDG.AFS1, A, BRICK.Air_Flow_Sensor))
+g.add((BLDG.AFS2, A, BRICK.Air_Flow_Sensor))
 
 g.add((BLDG.co2s1, A, BRICK.CO2_Level_Sensor))
 
@@ -60,7 +66,7 @@ g.bind('brick', BRICK)
 g.bind('tag', TAG)
 g.bind('bldg', BLDG)
 
-s = g.serialize(format='ttl')
+s = g.serialize('output.ttl', format='ttl')
 print('expanded:', len(g))
 
 
@@ -88,7 +94,7 @@ def test_sensors_measure_air():
     res3 = make_readable(g.query("SELECT DISTINCT ?sensor WHERE {\
                                     ?sensor brick:measures brick:Air\
                                   }"))
-    assert len(res3) == 4
+    assert len(res3) == 5
 
 
 def test_sensors_measure_air_temp():
@@ -105,7 +111,7 @@ def test_air_flow_sensor():
     res = make_readable(g.query("SELECT DISTINCT ?sensor WHERE {\
                                     ?sensor rdf:type brick:Air_Flow_Sensor\
                                  }"))
-    assert len(res) == 1
+    assert len(res) == 2
 
 
 def test_air_flow_sp():
@@ -136,4 +142,4 @@ def test_air_flow_sensor2():
                                     ?sensor brick:hasTag tag:Sensor .\
                                     ?sensor brick:hasTag tag:Flow\
                                  }"))
-    assert len(res) == 1
+    assert len(res) == 2
