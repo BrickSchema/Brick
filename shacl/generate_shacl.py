@@ -20,34 +20,41 @@ for name, properties in property_definitions.items():
 
     for pred, obj in properties.items():
         sh_prop = BNode()
+        if pred != SKOS.notation:
+            continue
 
-        # TODO: currently just for rdfs:{domain, range}
+        # For now the shapes are generated with the guidance of RDFS.notation
+        # For example: (extracted from ../bricksrc/properties.py)
+        # SKOS.notation: [Literal("RDFS.domain: BRICK.Point"),
+        #                Literal("RDFS.range: BRICK.Measurable")],
+        # which dictates the subject and object types of the property.
 
-        if pred == SKOS.notation and str(obj).startswith('RDFS.range'):
-            (RDFS_range, range_obj) = str(obj).split()
-            obj = eval(range_obj)
+        for elt in obj:
+            if str(elt).startswith('RDFS.range'):
+                (RDFS_range, range_elt) = str(elt).split()
+                range_value = eval(range_elt)
 
-            shapename = f"{name}RangeShape"
-            G.add((BSH[shapename], SH['property'], sh_prop))
-            G.add((BSH[shapename], A, SH.NodeShape))
+                shapename = f"{name}RangeShape"
+                G.add((BSH[shapename], SH['property'], sh_prop))
+                G.add((BSH[shapename], A, SH.NodeShape))
 
-            G.add((sh_prop, SH['nodeKind'], SH.IRI))
-            G.add((sh_prop, SH['path'], BRICK[name]))
-            G.add((sh_prop, SH['class'], obj))
-            G.add((BSH[shapename], SH.targetSubjectsOf, BRICK[name]))
-            G.add((sh_prop, SH['message'],
-                   Literal(f"Property {name} has object with incorrect type")))
+                G.add((sh_prop, SH['nodeKind'], SH.IRI))
+                G.add((sh_prop, SH['path'], BRICK[name]))
+                G.add((sh_prop, SH['class'], range_value))
+                G.add((BSH[shapename], SH.targetSubjectsOf, BRICK[name]))
+                G.add((sh_prop, SH['message'],
+                       Literal(f"Property {name} has object with incorrect type")))
 
-        if pred == SKOS.notation and str(obj).startswith('RDFS.domain'):
-            (RDFS_domain, domain_obj) = str(obj).split()
-            obj = eval(domain_obj)
+            if str(elt).startswith('RDFS.domain'):
+                (RDFS_domain, domain_elt) = str(elt).split()
+                domain_value = eval(domain_elt)
 
-            shapename = f"{name}DomainShape"
-            G.add( (BSH[shapename], A, SH.NodeShape))
-            G.add( (BSH[shapename], SH.targetSubjectsOf, BRICK[name]))
-            G.add( (BSH[shapename], SH['class'], obj))
-            G.add( (BSH[shapename], SH['message'],
-                    Literal(f"Property {name} has subject with incorrect type")))
+                shapename = f"{name}DomainShape"
+                G.add( (BSH[shapename], A, SH.NodeShape))
+                G.add( (BSH[shapename], SH.targetSubjectsOf, BRICK[name]))
+                G.add( (BSH[shapename], SH['class'], domain_value))
+                G.add( (BSH[shapename], SH['message'],
+                        Literal(f"Property {name} has subject with incorrect type")))
 
 # make sure that root classes are disjoint, even if inference has generated
 # some invalid properties (e.g. a subject of hasLocation will be inferred

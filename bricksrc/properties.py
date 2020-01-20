@@ -12,24 +12,24 @@ properties = {
     "isLocationOf": {
         A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         OWL.inverseOf: "hasLocation",
-        SKOS.notation: Literal("RDFS.domain: BRICK.Location"),
+        SKOS.notation: [Literal("RDFS.domain: BRICK.Location")],
         SKOS.definition: Literal("Subject is the physical location encapsulating the object"),
     },
     "hasLocation": {
         A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         OWL.inverseOf: "isLocationOf",
-        SKOS.notation: Literal("RDFS.range: BRICK.Location"),
+        SKOS.notation: [Literal("RDFS.range: BRICK.Location")],
         SKOS.definition: Literal("Subject is physically located in the location given by the object"),
     },
 
     "hasInputSubstance": {
         A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
-        SKOS.notation: Literal("RDFS.range: BRICK.Substance"),
+        SKOS.notation: [Literal("RDFS.range: BRICK.Substance")],
         SKOS.definition: Literal("The subject receives the given substance as an input to its internal process"),
     },
     "hasOutputSubstance": {
         A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
-        SKOS.notation: Literal("RDFS.range: BRICK.Substance"),
+        SKOS.notation: [Literal("RDFS.range: BRICK.Substance")],
         SKOS.definition: Literal("The subject produces or exports the given substance from its internal process"),
     },
 
@@ -75,12 +75,12 @@ properties = {
         A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         OWL.inverseOf: "isPointOf",
         SKOS.definition: Literal("The subject has a digital/analog input/output point given by the object"),
-        SKOS.notation: Literal("RDFS.range: BRICK.Point"),
+        SKOS.notation: [Literal("RDFS.range: BRICK.Point")],
     },
     "isPointOf": {
         A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         OWL.inverseOf: "hasPoint",
-        SKOS.notation: Literal("RDFS.domain: BRICK.Point"),
+        SKOS.notation: [Literal("RDFS.domain: BRICK.Point")],
     },
 
     "hasPart": {
@@ -97,11 +97,11 @@ properties = {
         A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         OWL.inverseOf: "isTagOf",
         SKOS.definition: Literal("The subject has the given tag"),
-        SKOS.notation: Literal("RDFS.range: BRICK.Tag"),
+        SKOS.notation: [Literal("RDFS.range: BRICK.Tag")],
     },
     "isTagOf": {
         A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
-        SKOS.notation: Literal("RDFS.domain: BRICK.Tag"),
+        SKOS.notation: [Literal("RDFS.domain: BRICK.Tag")],
     },
 
     "measures": {
