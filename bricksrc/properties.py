@@ -12,7 +12,7 @@ properties = {
     "isLocationOf": {
         A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         OWL.inverseOf: "hasLocation",
-        RDFS.domain: BRICK.Location,
+        SKOS.notation: Literal("RDFS.domain: BRICK.Location"),
         SKOS.definition: Literal("Subject is the physical location encapsulating the object"),
     },
     "hasLocation": {
@@ -80,7 +80,7 @@ properties = {
     "isPointOf": {
         A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         OWL.inverseOf: "hasPoint",
-        RDFS.domain: BRICK.Point,
+        SKOS.notation: Literal("RDFS.domain: BRICK.Point"),
     },
 
     "hasPart": {
@@ -101,31 +101,31 @@ properties = {
     },
     "isTagOf": {
         A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
-        RDFS.domain: BRICK.Tag,
+        SKOS.notation: Literal("RDFS.domain: BRICK.Tag"),
     },
 
     "measures": {
         A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         OWL.inverseOf: "isMeasuredBy",
         SKOS.definition: Literal("The subject measures a quantity or substance given by the object"),
-        RDFS.domain: BRICK.Point,
-        SKOS.notation: Literal("RDFS.range: BRICK.Measurable"),
+        SKOS.notation: [Literal("RDFS.domain: BRICK.Point"),
+                        Literal("RDFS.range: BRICK.Measurable")],
     },
     "isMeasuredBy": {
         A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
-        RDFS.domain: BRICK.Measurable,
-        SKOS.notation: Literal("RDFS.range: BRICK.Point"),
+        SKOS.notation: [Literal("RDFS.domain: BRICK.Measurable"),
+                        Literal("RDFS.range: BRICK.Point")],
     },
     "regulates": {
         A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         OWL.inverseOf: "isRegulatedBy",
         SKOS.definition: Literal("The subject contributes to or performs the regulation of the substance given by the object"),
-        RDFS.domain: BRICK.Equipment,
-        SKOS.notation: Literal("RDFS.range: BRICK.Substance"),
+        SKOS.notation: [Literal("RDFS.domain: BRICK.Equipment"),
+                        Literal("RDFS.range: BRICK.Substance")],
     },
     "isRegulatedBy": {
         A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
-        RDFS.domain: BRICK.Substance,
-        SKOS.notation: Literal("RDFS.range: BRICK.Equipment"),
+        SKOS.notation: [Literal("RDFS.domain: BRICK.Substance"),
+                        Literal("RDFS.range: BRICK.Equipment")],
     },
 }

@@ -38,19 +38,16 @@ for name, properties in property_definitions.items():
             G.add((sh_prop, SH['message'],
                    Literal(f"Property {name} has object with incorrect type")))
 
+        if pred == SKOS.notation and str(obj).startswith('RDFS.domain'):
+            (RDFS_domain, domain_obj) = str(obj).split()
+            obj = eval(domain_obj)
 
-        # TODO: broken SHACL for rdfs.domain
-        #if pred == RDFS.domain:
-        #    shapename = f"{name}DomainShape"
-        #    G.add( (BSH[shapename], SH['property'], sh_prop))
-        #    G.add( (BSH[shapename], A, SH.NodeShape))
-
-        #    G.add( (sh_prop, SH['nodeKind'], SH.IRI))
-        #    G.add( (sh_prop, SH['path'], BRICK[name]))
-        #    qualifier = SH.targetClass
-        #    G.add( (BSH[shapename], qualifier, obj))
-
-        #    G.add( (sh_prop, SH['message'], Literal(f"Property {name} has subject with incorrect type")))
+            shapename = f"{name}DomainShape"
+            G.add( (BSH[shapename], A, SH.NodeShape))
+            G.add( (BSH[shapename], SH.targetSubjectsOf, BRICK[name]))
+            G.add( (BSH[shapename], SH['class'], obj))
+            G.add( (BSH[shapename], SH['message'],
+                    Literal(f"Property {name} has subject with incorrect type")))
 
 # make sure that root classes are disjoint, even if inference has generated
 # some invalid properties (e.g. a subject of hasLocation will be inferred

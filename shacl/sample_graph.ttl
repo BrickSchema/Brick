@@ -25,10 +25,6 @@ bldg:VAV2-3Zone a brick:HVAC_Zone ;
         bldg:Room-411,
         bldg:Room-412 .
 
-# NOTE: introduce errors!
-bldg:Room-412 brick:hasLocation bldg:AHU1A .
-bldg:VAV2-4.DPR brick:hasPoint bldg:Room-410 .
-
 bldg:VAV2-4 a brick:Variable_Air_Volume_Box ;
     brick:hasPart bldg:VAV2-4.DPR ;
     brick:hasPoint bldg:VAV2-4.SUPFLOW,
@@ -43,8 +39,20 @@ bldg:VAV2-4.SUPFLOW a brick:Supply_Air_Flow_Sensor .
 
 bldg:VAV2-4.SUPFLSP a brick:Supply_Air_Flow_Setpoint .
 
-bldg:VAV2-4.DPR brick:feedsAir bldg:Room-412 .
+# NOTE: introduce errors!
 
+# object has incorrect type
+bldg:Room-412 brick:hasLocation bldg:AHU1A .
+
+# object has incorrect type
+bldg:VAV2-4.DPR brick:hasPoint bldg:Room-410 .
+
+# subject has incorrect type
+bldg:VAV2-3 brick:isLocationOf bldg:Room-412 .
+
+# whatever feedsAir should regulate Air, not water
+bldg:VAV2-4.DPR brick:feedsAir bldg:Room-412 .
 bldg:VAV2-4.DPR brick:regulates brick:Water .
 bldg:VAV2-4.DPR brick:measures brick:Water .
+
 #bldg:VAV2-4.DPR brick:regulates brick:Air .
