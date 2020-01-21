@@ -8,7 +8,32 @@ import pytest
 
 
 def test_lookup_tagset():
-    session = TagInferenceSession()
+    session = TagInferenceSession(approximate=False)
+    assert session is not None
+
+    tagsets = session.lookup_tagset(['AHU', 'Equipment'])
+    assert tagsets[0][0] == set(['AHU'])
+
+    tagsets = session.lookup_tagset(['Air', 'Flow', 'Sensor'])
+    assert tagsets[0][0] == set(['Air_Flow_Sensor'])
+
+    tagsets = session.lookup_tagset(['Air', 'Flow', 'Sensor', 'Equipment'])
+    assert len(tagsets) == 0
+
+    tagsets = session.lookup_tagset(['Air', 'Flow', 'Setpoint'])
+    assert tagsets[0][0] == set(['Air_Flow_Setpoint'])
+
+    tagsets = session.lookup_tagset(['Air', 'Flow', 'Setpoint', 'Limit',
+                                     'Parameter'])
+    assert tagsets[0][0] == set(['Air_Flow_Setpoint_Limit'])
+
+    tagsets = session.lookup_tagset(['Max', 'Air', 'Flow', 'Setpoint',
+                                     'Limit', 'Parameter'])
+    assert tagsets[0][0] == set(['Max_Air_Flow_Setpoint_Limit'])
+
+
+def test_most_likely_tagsets():
+    session = TagInferenceSession(approximate=True)
     assert session is not None
 
     tagset1 = ['AHU', 'Equipment']
@@ -25,6 +50,21 @@ def test_lookup_tagset():
     inferred, leftover = session.most_likely_tagsets(tagset3)
     assert inferred == ['Air_Flow_Sensor']
     assert len(leftover) == 1
+
+    tagset4 = ['Air', 'Flow', 'Setpoint']
+    inferred, leftover = session.most_likely_tagsets(tagset4, num=1)
+    assert inferred == ['Air_Flow_Setpoint']
+    assert len(leftover) == 0
+
+    tagset5 = ['Air', 'Flow', 'Setpoint', 'Limit']
+    inferred, leftover = session.most_likely_tagsets(tagset5, num=1)
+    assert inferred == ['Air_Flow_Setpoint_Limit']
+    assert len(leftover) == 0
+
+    tagset6 = ['Max', 'Air', 'Flow', 'Setpoint', 'Limit']
+    inferred, leftover = session.most_likely_tagsets(tagset6, num=1)
+    assert inferred == ['Max_Air_Flow_Setpoint_Limit']
+    assert len(leftover) == 0
 
 
 def test_haystack_inference():
