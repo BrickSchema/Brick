@@ -1,5 +1,7 @@
-# This file provides inference of Brick entities from sets of tags.
-# Currently assumes that all tags are Brick tags
+"""
+The `inference` module implements inference of Brick entities from tags
+and other representations of building metadata
+"""
 
 import pkgutil
 import pickle

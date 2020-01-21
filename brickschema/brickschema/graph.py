@@ -1,4 +1,7 @@
-# wrapper class and convenience methods for a Brick graph
+"""
+The `graph` module provides a wrapper class + convenience methods for
+building and querying a Brick graph
+"""
 import io
 import pkgutil
 import rdflib
