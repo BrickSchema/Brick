@@ -1,5 +1,5 @@
 from rdflib import RDF, RDFS, OWL, Namespace, Graph
-from .util.reasoner import reason_brick, reason_owlrl
+from .util.reasoner import reason_owlrl
 
 BRICK_VERSION = '1.1.0'
 

@@ -1,3 +1,4 @@
+from collections import defaultdict
 from rdflib import Graph, Literal, BNode, URIRef
 from rdflib.namespace import XSD
 from rdflib.collection import Collection
@@ -24,7 +25,6 @@ bind_prefixes(G)
 make_exclusive_tag_groups(G)
 A = RDF.type
 
-from collections import defaultdict
 tag_lookup = defaultdict(set)
 
 # helps setup the restriction classes for having and not having tags
@@ -171,6 +171,7 @@ def define_subclasses(definitions, superclass):
 def define_measurable_subclasses(definitions, measurable_class):
     for subclass, properties in definitions.items():
         G.add((BRICK[subclass], A, OWL.Class))
+        G.add((BRICK[subclass], A, BRICK[subclass]))
         G.add((BRICK[subclass], RDFS.label, Literal(subclass.replace("_"," "))))
         # first level: we are instances of the measurable_class
         G.add((BRICK[subclass], A, measurable_class))
@@ -186,7 +187,7 @@ def define_measurable_subclasses(definitions, measurable_class):
                 add_restriction(subclass, v)
             elif not apply_prop(subclass, k, v):
                 if isinstance(v, dict) and k == "subclasses":
-                    define_subclasses(v, BRICK[subclass])
+                    define_measurable_subclasses(v, BRICK[subclass])
 
 def define_rootclasses(definitions):
     G.add( (BRICK.Class, A, OWL.Class) )
@@ -269,7 +270,7 @@ define_rootclasses(roots)
 define_properties(properties)
 
 # define Point subclasses
-# define_subclasses(setpoint_definitions, BRICK.Point)
+define_subclasses(setpoint_definitions, BRICK.Point)
 define_subclasses(sensor_definitions, BRICK.Point)
 define_subclasses(alarm_definitions, BRICK.Point)
 define_subclasses(status_definitions, BRICK.Point)
