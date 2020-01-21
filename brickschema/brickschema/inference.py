@@ -223,15 +223,27 @@ class TagInferenceSession:
     will need to use a wrapper class (see HaystackInferenceSession)
     """
 
-    def __init__(self):
+    def __init__(self, rebuild_tag_lookup=False, approximate=False):
         """
         Creates new Tag Inference session
+
+        Args:
+            rebuild_tag_lookup (bool): if True, rebuild the dictionary
+                used for performing the inference of tags -> classes.
+                By default, uses the dictionary for the packaged Brick
+                version
+            approximate (bool): if True, considers a more permissive set of
+                possibly related classes. If False, performs exact tag mapping
         """
         self.g = Graph(load_brick=True)
-        # get ontology data from package
-        data = pkgutil.get_data(__name__, "ontologies/taglookup.pickle")
-        # TODO: move on from moving pickle to something more secure?
-        self.lookup = pickle.loads(data)
+        self._approximate = approximate
+        if rebuild_tag_lookup:
+            self._make_tag_lookup()
+        else:
+            # get ontology data from package
+            data = pkgutil.get_data(__name__, "ontologies/taglookup.pickle")
+            # TODO: move on from moving pickle to something more secure?
+            self.lookup = pickle.loads(data)
 
     def _make_tag_lookup(self):
         """
@@ -248,10 +260,6 @@ class TagInferenceSession:
               BIND (brick:hasTag as ?p)
               ?node owl:onProperty ?p.
               ?node owl:hasValue ?o.
-          } UNION {
-              BIND (brick:measures as ?p)
-              ?node owl:onProperty ?p.
-              ?node owl:hasValue ?o.
           }
         }""")
         class2tag = defaultdict(set)
@@ -261,7 +269,8 @@ class TagInferenceSession:
             if p == BRICK.hasTag:
                 class2tag[cname].add(o)
         for cname, tagset in class2tag.items():
-            self.lookup[tuple(tagset)].add(cname)
+            self.lookup[tuple(sorted(tagset))].add(cname)
+        pickle.dump(self.lookup, open('taglookup.pickle', 'wb'))
 
     def lookup_tagset(self, tagset):
         """
@@ -271,11 +280,14 @@ class TagInferenceSession:
         Args:
             tagset (list of str): a list of tags
         """
-        s = set(map(lambda x: x[0].upper() + x[1:], tagset))
-        return [(klass, tagset) for tagset, klass in self.lookup.items()
-                if s.issuperset(set(tagset)) or s.issubset(set(tagset))]
+        s = set(map(_to_tag_case, tagset))
+        if self._approximate:
+            return [(klass, set(tagset)) for tagset, klass in self.lookup.items()
+                    if s.issuperset(set(tagset)) or s.issubset(set(tagset))]
+        return [(klass, set(tagset)) for tagset, klass in self.lookup.items()
+                if s == set(tagset)]
 
-    def most_likely_tagsets(self, orig_s):
+    def most_likely_tagsets(self, orig_s, num=-1):
         """
         Returns the list of likely classes for a given set of tags,
         as well as the list of tags that were 'leftover', i.e. not
@@ -283,15 +295,14 @@ class TagInferenceSession:
 
         Args:
             tagset (list of str): a list of tags
+            num (int): number of likely tagsets to be returned; -1 returns all
 
         Returns:
             most_likely_classes (list of str): list of Brick classes
             leftover (set of str): list of tags not used
         """
-        s = set(map(lambda x: x[0].upper() + x[1:], orig_s))
-        tagsets = [(klass, set(tagset)) for tagset, klass
-                   in self.lookup.items()
-                   if s.issuperset(set(tagset)) or s.issubset(set(tagset))]
+        s = set(map(_to_tag_case, orig_s))
+        tagsets = self.lookup_tagset(s)
         if len(tagsets) == 0:
             # no tags
             return [], orig_s
@@ -317,7 +328,10 @@ class TagInferenceSession:
         most_likely_classes = [list(x[0])[0] for x in most_likely]
         # return most likely classes (list) and leftover tags
         # (what of 'orig_s' wasn't used)
-        return most_likely_classes, leftover
+        if num < 0:
+            return most_likely_classes, leftover
+        else:
+            return most_likely_classes[:num], leftover
 
 
 class HaystackInferenceSession(TagInferenceSession):
@@ -338,7 +352,7 @@ class HaystackInferenceSession(TagInferenceSession):
             namespace (str): namespace into which the inferred Brick entities
                              are deposited. Should be a valid URI
         """
-        super(HaystackInferenceSession, self).__init__()
+        super(HaystackInferenceSession, self).__init__(approximate=True)
         self._BLDG = Namespace(namespace)
         self._tagmap = {
             'cmd': 'command',
@@ -450,3 +464,15 @@ class HaystackInferenceSession(TagInferenceSession):
                 brickgraph.add((self._BLDG[reffed_equip], BRICK.hasPoint,
                                 self._BLDG[point_entity_id]))
         return brickgraph
+
+def _to_tag_case(x):
+    """
+    Returns the string in "tag case" where the first letter
+    is capitalized
+
+    Args:
+        x (str): input string
+    Returns:
+        x (str): transformed string
+    """
+    return x[0].upper() + x[1:]
