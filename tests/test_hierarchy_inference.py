@@ -5,6 +5,7 @@ import time
 
 from tqdm import tqdm
 from rdflib import RDF, OWL, RDFS, Namespace, URIRef, Graph, BNode
+from .util.reasoner import make_readable, reason_owlrl
 
 """
 This script does the following:
@@ -81,7 +82,7 @@ def test_hierarchyinference():
 
     # Infer classes of the entities.
     # Apply reasoner
-    from util.reasoner import make_readable, reason_owlrl
+    g.serialize('test.ttl', format='ttl')
     reason_owlrl(g)
     g.serialize(inference_file, format='turtle')  # Store the inferred graph.
 

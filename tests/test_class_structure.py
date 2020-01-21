@@ -1,6 +1,6 @@
 import rdflib
 from rdflib import RDF, OWL, RDFS, Namespace, BNode
-from util.reasoner import reason_brick, make_readable, reason_owlrl
+from .util.reasoner import reason_brick, make_readable, reason_owlrl
 
 BRICK_VERSION = '1.1.0'
 BRICK = Namespace(f"https://brickschema.org/schema/{BRICK_VERSION}/Brick#")

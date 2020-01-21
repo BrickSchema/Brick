@@ -4,6 +4,7 @@ import rdflib
 import json
 from collections import defaultdict
 from rdflib import RDF, RDFS, OWL, Namespace, URIRef
+from .util.reasoner import reason_owlrl
 
 BRICK_VERSION = '1.1.0'
 
@@ -35,7 +36,6 @@ def test_measures_infers():
 
     # Infer classes of the entities.
     # Apply reasoner
-    from util.reasoner import reason_owlrl
     reason_owlrl(g)
 
     qstr = """select ?instance ?class where {

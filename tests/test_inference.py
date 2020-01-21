@@ -1,4 +1,5 @@
 from rdflib import RDF, RDFS, OWL, Namespace, Graph
+from .util.reasoner import reason_brick, reason_owlrl
 
 BRICK_VERSION = '1.1.0'
 
@@ -57,7 +58,6 @@ g.add((BLDG.co2s1, A, BRICK.CO2_Level_Sensor))
 g.add((BLDG.standalone, A, BRICK.Temperature_Sensor))
 
 # Apply reasoner
-from util.reasoner import reason_brick, reason_owlrl
 reason_owlrl(g)
 
 g.bind('rdf', RDF)

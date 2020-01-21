@@ -60,7 +60,7 @@ g.add( (BLDG.Zone1, BRICK.hasPart, BLDG.Room2) )
 g.add( (BLDG.TS1, BRICK.hasLocation, BLDG.Room1) )
 
 # lets us use both relationships
-from util.reasoner import reason_inverse_edges
+from .util.reasoner import reason_inverse_edges
 reason_inverse_edges(g)
 
 def make_readable(res):

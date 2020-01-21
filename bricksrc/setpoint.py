@@ -6,7 +6,7 @@ setpoint_definitions = {
         "tags": [TAG.Setpoint],
         "subclasses": {
             "Enthalpy_Setpoint": {
-                "tags": [TAG.Enthalpy, TAG.Setpoint],
+                "tags": [TAG.Setpoint, TAG.Enthalpy],
             },
             "Dew_Point_Setpoint": {
                 "tags": [TAG.Dewpoint, TAG.Setpoint],

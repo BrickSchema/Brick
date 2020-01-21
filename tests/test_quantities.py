@@ -1,6 +1,6 @@
 import rdflib
 from rdflib import RDF, OWL, RDFS, Namespace, BNode
-from util.reasoner import make_readable, reason_owlrl
+from .util.reasoner import make_readable, reason_owlrl
 from collections import defaultdict
 
 BRICK_VERSION = '1.1.0'

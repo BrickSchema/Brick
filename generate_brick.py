@@ -121,7 +121,9 @@ def add_tags(klass, definition):
     tagset = tuple(sorted([item.split('#')[-1] for item in definition]))
     tag_lookup[tagset].add(klass)
 
-    if len(all_restrictions) > 0:
+    if len(all_restrictions) == 1:
+        G.add( (BRICK[klass], OWL.equivalentClass, all_restrictions[0]) )
+    if len(all_restrictions) > 1:
         G.add( (BRICK[klass], OWL.equivalentClass, equivalent_class) )
         G.add( (equivalent_class, OWL.intersectionOf, list_name) )
         Collection(G, list_name, all_restrictions)
@@ -148,7 +150,7 @@ def add_class_restriction(klass, definition):
 
 def define_subclasses(definitions, superclass):
     for subclass, properties in definitions.items():
-        G.add((BRICK[superclass], A, OWL.Class))
+        G.add((superclass, A, OWL.Class))
         G.add((BRICK[subclass], A, OWL.Class))
         G.add((BRICK[subclass], RDFS.label, Literal(subclass.replace("_"," "))))
         G.add((BRICK[subclass], RDFS.subClassOf, superclass))
