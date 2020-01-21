@@ -4,6 +4,7 @@ from brickschema.inference import TagInferenceSession, \
 from brickschema.namespaces import RDF, RDFS, BRICK, TAG
 from rdflib import Namespace
 import json
+import pkgutil
 import pytest
 
 
@@ -70,7 +71,8 @@ def test_most_likely_tagsets():
 def test_haystack_inference():
     session = HaystackInferenceSession("http://example.org/carytown")
     assert session is not None
-    raw_model = json.load(open('carytown.json'))
+    data = pkgutil.get_data(__name__, "data/carytown.json").decode()
+    raw_model = json.loads(data)
     brick_model = session.infer_model(raw_model)
     points = brick_model.query("""SELECT ?p WHERE {
         ?p rdf:type/rdfs:subClassOf* brick:Point

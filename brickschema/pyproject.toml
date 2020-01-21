@@ -1,9 +1,9 @@
 [tool.poetry]
 name = "brickschema"
-version = "0.0.1-alpha3"
+version = "0.0.1-alpha4"
 description = "A library for working with the Brick ontology for buildings (brickschema.org)"
 authors = ["Gabe Fierro <gtfierro@cs.berkeley.edu>"]
-include = ["brickschema/ontologies"]
+include = ["brickschema/ontologies", "tests/data"]
 homepage = "https://brickschema.org"
 license = "BSD-3-Clause"
 
