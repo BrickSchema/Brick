@@ -65,10 +65,6 @@ def test_hierarchyinference():
           BIND (brick:hasTag as ?p)
           ?node owl:onProperty ?p.
           ?node owl:hasValue ?o.
-      } UNION {
-          BIND (brick:measures as ?p)
-          ?node owl:onProperty ?p.
-          ?node owl:hasValue ?o.
       }
     }
     """
