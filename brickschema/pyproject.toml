@@ -15,7 +15,7 @@ owlrl = "^5.2"
 [tool.poetry.dev-dependencies]
 pytest = "^3.0"
 mkdocs = "^1.0"
-pdoc = "^0.3.2"
+pdoc3 = "^0.7.4"
 
 [build-system]
 requires = ["poetry>=0.12"]

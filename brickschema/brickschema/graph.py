@@ -1,5 +1,4 @@
 # wrapper class and convenience methods for a Brick graph
-
 import io
 import pkgutil
 import rdflib
@@ -8,18 +7,17 @@ from . import namespaces as ns
 
 class Graph:
     def __init__(self, load_brick=False, ontologies=None):
-        """
-        Wrapper class and convenience methods for handling Brick models
+        """Wrapper class and convenience methods for handling Brick models
         and graphs.
 
-        Keyword Args:
+        Args:
             load_brick (bool): if True, loads packaged Brick ontology
                 into graph
             ontologies (list of str): if provided, loads in the given
                 ontology files into the graph
 
         Returns:
-            graph (Graph): Graph object
+            A Graph object
         """
         self.g = rdflib.Graph()
         self.g.bind('rdf', ns.RDF)
@@ -50,6 +48,10 @@ class Graph:
 
             g = Graph()
             g.add((mygraph["ts1"], RDF["type"], BRICK["Temperature_Sensor"]))
+
+        Args:
+            *triples (list of rdflib.URIRef): list of 3-tuples
+                constituting subject, predicate, object
         """
         for triple in triples:
             assert len(triple) == 3
@@ -73,6 +75,12 @@ class Graph:
         """
         Executes a SPARQL query against the underlying graph and returns
         the results
+
+        Args:
+            querystring (str): SPARQL query string to be executed
+
+        Returns:
+            results (list of list of rdflib.URIRef): query results
         """
         return list(self.g.query(querystring))
 
