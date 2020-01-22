@@ -9,15 +9,13 @@ from . import namespaces as ns
 
 
 class Graph:
-    def __init__(self, load_brick=False, ontologies=None):
+    def __init__(self, load_brick=False):
         """Wrapper class and convenience methods for handling Brick models
         and graphs.
 
         Args:
             load_brick (bool): if True, loads packaged Brick ontology
                 into graph
-            ontologies (list of str): if provided, loads in the given
-                ontology files into the graph
 
         Returns:
             A Graph object
@@ -35,9 +33,18 @@ class Graph:
             data = pkgutil.get_data(__name__, "ontologies/Brick.ttl").decode()
             # wrap in StringIO to make it file-like
             self.g.parse(source=io.StringIO(data), format='turtle')
-        if ontologies is not None:
-            for ontologyfile in ontologies:
-                _parse(self.g, ontologyfile)
+
+    def load_file(self, filename):
+        """
+        Imports the triples contained in the indicated file into the graph
+
+        Args:
+            filename (str): relative or absolute path to the file
+        """
+        if filename.endswith('.ttl'):
+            self.g.parse(filename, format='ttl')
+        elif filename.endswith('.n3'):
+            self.g.parse(filename, format='n3')
 
     def add(self, *triples):
         """
@@ -95,7 +102,3 @@ def _parse(graph, filename):
     """
     Determines the correct parse format to use from the file extension
     """
-    if filename.endswith('.ttl'):
-        graph.parse(filename, format='ttl')
-    elif filename.endswith('.n3'):
-        graph.parse(filename, format='n3')
