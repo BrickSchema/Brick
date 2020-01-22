@@ -14,6 +14,7 @@ from bricksrc.namespaces import bind_prefixes
 # add SHACL shapes from properties
 from bricksrc.properties import properties as property_definitions
 
+outfile = sys.stdout.buffer
 
 parser = argparse.ArgumentParser(description='pySHACL wrapper for better violation reporting.')
 parser.add_argument('data', metavar='DataGraph',
@@ -24,12 +25,25 @@ data_graph = Graph().parse(args.data, format='turtle')
 
 results_graph = Graph().parse('results_graph.ttl', format='ttl')
 
+# streamline (remove @prefix lines) and append to file
+def appendGraphToFile(m, g, f):
+    bind_prefixes(g)
+    g.bind('bldg', Namespace(f"http://example.com/mybuilding#"))
+    f.write(m)
+    firstLine = True
+    for b_line in g.serialize(format='ttl').splitlines():
+        line = b_line.decode('utf-8')
+        if not line.startswith('@prefix'):
+            if not firstLine:
+                f.write('\n')
+            f.write(line)
+            firstLine = False
+
 def getViolationPredicateObj(violation, predicate):
     # print ('SELECT ?s ?p ?o WHERE {?s %s ?o .}' % predicate)
     q = prepareQuery('SELECT ?s ?p ?o WHERE {?s %s ?o .}' % predicate,
                        initNs=dict(sh=Namespace('http://www.w3.org/ns/shacl#')))
     res = violation.query(q)
-
     if len(res):
         for (s, p, o) in res:
             return o
@@ -38,47 +52,11 @@ def getViolationPredicateObj(violation, predicate):
 def findCulprit(violation):
     resultPath = getViolationPredicateObj(violation, 'sh:resultPath')
     if resultPath:
-        print('resultPath', resultPath)
         focusNode = getViolationPredicateObj(violation, 'sh:focusNode')
-        print('focusNode', focusNode)
         valueNode = getViolationPredicateObj(violation, 'sh:value')
-        print('value', valueNode)
-    '''
-    resultPathRes = violation.query(
-        """SELECT ?s ?p ?o
-        WHERE {
-        ?s sh:resultPath ?o .
-        }""",
-    )
-
-    if len(resultPathRes):  # have resultPath property
-        focusNodeRes = violation.query(
-            """SELECT ?s ?p ?o
-            WHERE {
-            ?s sh:focusNode ?o .
-            }""",
-        )
-
-        print(type(resultPathRes))
-        for (s, p, o) in focusNodeRes:
-            focusNode = o
-        print(focusNode)
-    '''
-'''
-        q = prepareQuery('SELECT ?s ?p ?o WHERE {%s %s %s .}' % (s, o
-        WHERE {
-        ?s sh:resultPath ?o .
-        }""",
-
-
-
-        tripleByPath = violation.query(
-        """SELECT ?s ?p ?o
-        WHERE {
-        ?s sh:resultPath ?o .
-        }""",
-    )
-'''
+        g = Graph()
+        g.add((focusNode, resultPath, valueNode))
+        appendGraphToFile('Offending triple:', g, sys.stdout)
 
 violation_dict = {}
 for (s, p, o) in results_graph:
@@ -92,13 +70,11 @@ for (s, p, o) in results_graph:
     if s in violation_dict:
         violation_dict[s].add((s, p, o))
 
-outfile = sys.stdout.buffer
-for k in violation_dict:
-    for b_line in violation_dict[k].serialize(format='ttl').splitlines():
-        line = b_line.decode('utf-8')
-        if not line.startswith('@prefix'):
-            print(line)
+for (e, f) in results_graph.namespaces():
+    print('namespace', e, f)
 
+for k in violation_dict:
+    appendGraphToFile('\nConstraint violation:', violation_dict[k], sys.stdout)
     findCulprit(violation_dict[k])
 
 exit()
