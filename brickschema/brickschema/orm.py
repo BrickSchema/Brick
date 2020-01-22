@@ -166,7 +166,6 @@ class SQLORM:
                               .filter(Location.name==loc_name)\
                               .one()
             self.session.merge(loc)
-            print(dir(loc))
             loc.equipment.append(equip)
             self.session.merge(loc)
 

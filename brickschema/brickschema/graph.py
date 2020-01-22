@@ -34,17 +34,31 @@ class Graph:
             # wrap in StringIO to make it file-like
             self.g.parse(source=io.StringIO(data), format='turtle')
 
-    def load_file(self, filename):
+    def load_file(self, filename=None, source=None):
         """
         Imports the triples contained in the indicated file into the graph
 
         Args:
             filename (str): relative or absolute path to the file
+            source (file): file-like object
         """
-        if filename.endswith('.ttl'):
-            self.g.parse(filename, format='ttl')
-        elif filename.endswith('.n3'):
-            self.g.parse(filename, format='n3')
+        if filename is not None:
+            if filename.endswith('.ttl'):
+                self.g.parse(filename, format='ttl')
+            elif filename.endswith('.n3'):
+                self.g.parse(filename, format='n3')
+        elif source is not None:
+            for fmt in ['ttl', 'n3']:
+                try:
+                    self.g.parse(source=source, format=fmt)
+                    return
+                except Exception as e:
+                    print(f"could not load {filename} as {fmt}: {e}")
+            raise Exception(f"unknown file format for {filename}")
+        else:
+            raise Exception("Must provide either a filename or file-like\
+source to load_file")
+
 
     def add(self, *triples):
         """
