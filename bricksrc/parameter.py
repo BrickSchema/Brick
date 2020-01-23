@@ -295,7 +295,7 @@ parameter_definitions = {
                 },
             },
             "Limit": {
-                "tags": [TAG.Parameter, TAG.Limit, TAG.Parameter],
+                "tags": [TAG.Parameter, TAG.Limit],
                 "subclasses": {
                     "Close_Limit": {
                         "tags": [TAG.Close, TAG.Parameter, TAG.Limit],
