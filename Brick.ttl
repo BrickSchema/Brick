@@ -3297,12 +3297,12 @@ brick:Overridden_On_Status a owl:Class ;
 
 brick:PIR_Sensor a owl:Class ;
     rdfs:label "PIR Sensor" ;
-    rdfs:subClassOf [ owl:intersectionOf ( [ a owl:Restriction ;
-                        owl:hasValue tag:Pir ;
-                        owl:onProperty brick:hasTag ] _:has_Sensor ) ],
-        [ owl:intersectionOf ( _:has_Sensor [ a owl:Restriction ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Sensor [ a owl:Restriction ;
                         owl:hasValue tag:PIR ;
                         owl:onProperty brick:hasTag ] ) ],
+        [ owl:intersectionOf ( [ a owl:Restriction ;
+                        owl:hasValue tag:Pir ;
+                        owl:onProperty brick:hasTag ] _:has_Sensor ) ],
         brick:Motion_Sensor,
         brick:Occupancy_Sensor ;
     brick:hasAssociatedTag tag:PIR,
@@ -6658,8 +6658,7 @@ brick:feeds a owl:AsymmetricProperty,
     owl:inverseOf brick:isFedBy ;
     skos:definition "The subject is upstream of the object in the context of some sequential process; some media is passed between them" .
 
-tag:Azimuth a brick:Tag,
-        tag:Sensor_Tag ;
+tag:Azimuth a brick:Tag ;
     rdfs:label "Azimuth" .
 
 tag:Basement a brick:Tag ;
@@ -6671,142 +6670,112 @@ tag:Blowdown a brick:Tag ;
 tag:Booster a brick:Tag ;
     rdfs:label "Booster" .
 
-tag:Bus a brick:Tag,
-        tag:Sensor_Tag ;
+tag:Bus a brick:Tag ;
     rdfs:label "Bus" .
 
-tag:Button a brick:Tag,
-        tag:Status_Tag ;
+tag:Button a brick:Tag ;
     rdfs:label "Button" .
 
-tag:Capacity a brick:Tag,
-        tag:Sensor_Tag ;
+tag:Capacity a brick:Tag ;
     rdfs:label "Capacity" .
 
-tag:Change a brick:Tag,
-        tag:Alarm_Tag ;
+tag:Change a brick:Tag ;
     rdfs:label "Change" .
 
 tag:City a brick:Tag ;
     rdfs:label "City" .
 
-tag:Close a brick:Tag,
-        tag:Parameter_Tag ;
+tag:Close a brick:Tag ;
     rdfs:label "Close" .
 
-tag:Code a brick:Tag,
-        tag:Status_Tag ;
+tag:Code a brick:Tag ;
     rdfs:label "Code" .
 
-tag:Communication a brick:Tag,
-        tag:Alarm_Tag ;
+tag:Communication a brick:Tag ;
     rdfs:label "Communication" .
 
-tag:Condensate a brick:Tag,
-        tag:Alarm_Tag ;
+tag:Condensate a brick:Tag ;
     rdfs:label "Condensate" .
 
 tag:Condenser a brick:Tag ;
     rdfs:label "Condenser" .
 
-tag:Contact a brick:Tag,
-        tag:Sensor_Tag ;
+tag:Contact a brick:Tag ;
     rdfs:label "Contact" .
 
-tag:Curtailment a brick:Tag,
-        tag:Command_Tag ;
+tag:Curtailment a brick:Tag ;
     rdfs:label "Curtailment" .
 
-tag:Cutout a brick:Tag,
-        tag:Parameter_Tag ;
+tag:Cutout a brick:Tag ;
     rdfs:label "Cutout" .
 
-tag:Dc a brick:Tag,
-        tag:Sensor_Tag ;
+tag:Dc a brick:Tag ;
     rdfs:label "Dc" .
 
-tag:Deceleration a brick:Tag,
-        tag:Parameter_Tag ;
+tag:Deceleration a brick:Tag ;
     rdfs:label "Deceleration" .
 
-tag:Dehumidification a brick:Tag,
-        tag:Status_Tag ;
+tag:Dehumidification a brick:Tag ;
     rdfs:label "Dehumidification" .
 
-tag:Drive a brick:Tag,
-        tag:Status_Tag ;
+tag:Drive a brick:Tag ;
     rdfs:label "Drive" .
 
-tag:Dual a brick:Tag,
-        tag:Setpoint_Tag ;
+tag:Dual a brick:Tag ;
     rdfs:label "Dual" .
 
-tag:Econcycle a brick:Tag,
-        tag:Status_Tag ;
+tag:Econcycle a brick:Tag ;
     rdfs:label "Econcycle" .
 
 tag:Economizer a brick:Tag ;
     rdfs:label "Economizer" .
 
-tag:Electrical a brick:Tag,
-        tag:Sensor_Tag ;
+tag:Electrical a brick:Tag ;
     rdfs:label "Electrical" .
 
-tag:Even a brick:Tag,
-        tag:Status_Tag ;
+tag:Even a brick:Tag ;
     rdfs:label "Even" .
 
 tag:Floor a brick:Tag ;
     rdfs:label "Floor" .
 
-tag:Freeze a brick:Tag,
-        tag:Status_Tag ;
+tag:Freeze a brick:Tag ;
     rdfs:label "Freeze" .
 
 tag:Fuel a brick:Tag ;
     rdfs:label "Fuel" .
 
-tag:Fume a brick:Tag,
-        tag:Sensor_Tag ;
+tag:Fume a brick:Tag ;
     rdfs:label "Fume" .
 
 tag:Gasoline a brick:Tag ;
     rdfs:label "Gasoline" .
 
-tag:Glycool a brick:Tag,
-        tag:Status_Tag ;
+tag:Glycool a brick:Tag ;
     rdfs:label "Glycool" .
 
-tag:Hand a brick:Tag,
-        tag:Status_Tag ;
+tag:Hand a brick:Tag ;
     rdfs:label "Hand" .
 
-tag:Highest a brick:Tag,
-        tag:Sensor_Tag ;
+tag:Highest a brick:Tag ;
     rdfs:label "Highest" .
 
-tag:Hold a brick:Tag,
-        tag:Status_Tag ;
+tag:Hold a brick:Tag ;
     rdfs:label "Hold" .
 
-tag:Hood a brick:Tag,
-        tag:Sensor_Tag ;
+tag:Hood a brick:Tag ;
     rdfs:label "Hood" .
 
-tag:Humidification a brick:Tag,
-        tag:Status_Tag ;
+tag:Humidification a brick:Tag ;
     rdfs:label "Humidification" .
 
-tag:Humidifier a brick:Tag,
-        tag:Status_Tag ;
+tag:Humidifier a brick:Tag ;
     rdfs:label "Humidifier" .
 
-tag:Humidify a brick:Tag,
-        tag:Command_Tag ;
+tag:Humidify a brick:Tag ;
     rdfs:label "Humidify" .
 
-tag:Indicator a brick:Tag,
-        tag:Status_Tag ;
+tag:Indicator a brick:Tag ;
     rdfs:label "Indicator" .
 
 tag:Inverter a brick:Tag ;
@@ -6815,116 +6784,91 @@ tag:Inverter a brick:Tag ;
 tag:Isolation a brick:Tag ;
     rdfs:label "Isolation" .
 
-tag:Last a brick:Tag,
-        tag:Status_Tag ;
+tag:Last a brick:Tag ;
     rdfs:label "Last" .
 
-tag:Load_Shed a brick:Tag,
-        tag:Command_Tag ;
+tag:Load_Shed a brick:Tag ;
     rdfs:label "Load_Shed" .
 
-tag:Locally a brick:Tag,
-        tag:Status_Tag ;
+tag:Locally a brick:Tag ;
     rdfs:label "Locally" .
 
-tag:Maintenance a brick:Tag,
-        tag:Alarm_Tag ;
+tag:Maintenance a brick:Tag ;
     rdfs:label "Maintenance" .
 
 tag:Makeup a brick:Tag ;
     rdfs:label "Makeup" .
 
-tag:Manual a brick:Tag,
-        tag:Status_Tag ;
+tag:Manual a brick:Tag ;
     rdfs:label "Manual" .
 
-tag:Medium a brick:Tag,
-        tag:Sensor_Tag ;
+tag:Medium a brick:Tag ;
     rdfs:label "Medium" .
 
-tag:Month a brick:Tag,
-        tag:Status_Tag ;
+tag:Month a brick:Tag ;
     rdfs:label "Month" .
 
-tag:Monthly a brick:Tag,
-        tag:Sensor_Tag ;
+tag:Monthly a brick:Tag ;
     rdfs:label "Monthly" .
 
-tag:Motion a brick:Tag,
-        tag:Sensor_Tag ;
+tag:Motion a brick:Tag ;
     rdfs:label "Motion" .
 
 tag:Natural a brick:Tag ;
     rdfs:label "Natural" .
 
-tag:No a brick:Tag,
-        tag:Alarm_Tag ;
+tag:No a brick:Tag ;
     rdfs:label "No" .
 
-tag:OnOff a brick:Tag,
-        tag:Command_Tag ;
+tag:OnOff a brick:Tag ;
     rdfs:label "OnOff" .
 
-tag:Open a brick:Tag,
-        tag:Setpoint_Tag ;
+tag:Open a brick:Tag ;
     rdfs:label "Open" .
 
-tag:Overload a brick:Tag,
-        tag:Alarm_Tag ;
+tag:Overload a brick:Tag ;
     rdfs:label "Overload" .
 
-tag:PIR a brick:Tag,
-        tag:Sensor_Tag ;
+tag:PIR a brick:Tag ;
     rdfs:label "PIR" .
 
-tag:Photovoltaic a brick:Tag,
-        tag:Sensor_Tag ;
+tag:Photovoltaic a brick:Tag ;
     rdfs:label "Photovoltaic" .
 
-tag:Piezoelectric a brick:Tag,
-        tag:Sensor_Tag ;
+tag:Piezoelectric a brick:Tag ;
     rdfs:label "Piezoelectric" .
 
-tag:Pir a brick:Tag,
-        tag:Sensor_Tag ;
+tag:Pir a brick:Tag ;
     rdfs:label "Pir" .
 
 tag:Plugstrip a brick:Tag ;
     rdfs:label "Plugstrip" .
 
-tag:Pre a brick:Tag,
-        tag:Status_Tag ;
+tag:Pre a brick:Tag ;
     rdfs:label "Pre" .
 
-tag:Push a brick:Tag,
-        tag:Status_Tag ;
+tag:Push a brick:Tag ;
     rdfs:label "Push" .
 
-tag:Radiance a brick:Tag,
-        tag:Sensor_Tag ;
+tag:Radiance a brick:Tag ;
     rdfs:label "Radiance" .
 
-tag:Rated a brick:Tag,
-        tag:Setpoint_Tag ;
+tag:Rated a brick:Tag ;
     rdfs:label "Rated" .
 
-tag:Ready a brick:Tag,
-        tag:Status_Tag ;
+tag:Ready a brick:Tag ;
     rdfs:label "Ready" .
 
 tag:Reheat a brick:Tag ;
     rdfs:label "Reheat" .
 
-tag:Relative a brick:Tag,
-        tag:Sensor_Tag ;
+tag:Relative a brick:Tag ;
     rdfs:label "Relative" .
 
-tag:Remotely a brick:Tag,
-        tag:Status_Tag ;
+tag:Remotely a brick:Tag ;
     rdfs:label "Remotely" .
 
-tag:Required a brick:Tag,
-        tag:Alarm_Tag ;
+tag:Required a brick:Tag ;
     rdfs:label "Required" .
 
 tag:Roof a brick:Tag ;
@@ -6933,23 +6877,19 @@ tag:Roof a brick:Tag ;
 tag:Rooftop a brick:Tag ;
     rdfs:label "Rooftop" .
 
-tag:Room a brick:Tag,
-        tag:Setpoint_Tag ;
+tag:Room a brick:Tag ;
     rdfs:label "Room" .
 
-tag:Sash a brick:Tag,
-        tag:Sensor_Tag ;
+tag:Sash a brick:Tag ;
     rdfs:label "Sash" .
 
-tag:Schedule a brick:Tag,
-        tag:Setpoint_Tag ;
+tag:Schedule a brick:Tag ;
     rdfs:label "Schedule" .
 
 tag:Shade a brick:Tag ;
     rdfs:label "Shade" .
 
-tag:Short a brick:Tag,
-        tag:Alarm_Tag ;
+tag:Short a brick:Tag ;
     rdfs:label "Short" .
 
 tag:Site a brick:Tag ;
@@ -6958,44 +6898,34 @@ tag:Site a brick:Tag ;
 tag:Space a brick:Tag ;
     rdfs:label "Space" .
 
-tag:Stages a brick:Tag,
-        tag:Status_Tag ;
+tag:Stages a brick:Tag ;
     rdfs:label "Stages" .
 
-tag:Tank a brick:Tag,
-        tag:Sensor_Tag ;
+tag:Tank a brick:Tag ;
     rdfs:label "Tank" .
 
-tag:Temporary a brick:Tag,
-        tag:Status_Tag ;
+tag:Temporary a brick:Tag ;
     rdfs:label "Temporary" .
 
-tag:Timer a brick:Tag,
-        tag:Sensor_Tag ;
+tag:Timer a brick:Tag ;
     rdfs:label "Timer" .
 
-tag:Today a brick:Tag,
-        tag:Sensor_Tag ;
+tag:Today a brick:Tag ;
     rdfs:label "Today" .
 
-tag:Trace a brick:Tag,
-        tag:Sensor_Tag ;
+tag:Trace a brick:Tag ;
     rdfs:label "Trace" .
 
-tag:Underfloor a brick:Tag,
-        tag:Sensor_Tag ;
+tag:Underfloor a brick:Tag ;
     rdfs:label "Underfloor" .
 
-tag:VFD a brick:Tag,
-        tag:Command_Tag ;
+tag:VFD a brick:Tag ;
     rdfs:label "VFD" .
 
-tag:Vent a brick:Tag,
-        tag:Status_Tag ;
+tag:Vent a brick:Tag ;
     rdfs:label "Vent" .
 
-tag:Warm a brick:Tag,
-        tag:Sensor_Tag ;
+tag:Warm a brick:Tag ;
     rdfs:label "Warm" .
 
 tag:Weather a brick:Tag ;
@@ -7004,12 +6934,10 @@ tag:Weather a brick:Tag ;
 tag:Wing a brick:Tag ;
     rdfs:label "Wing" .
 
-tag:Yearly a brick:Tag,
-        tag:Sensor_Tag ;
+tag:Yearly a brick:Tag ;
     rdfs:label "Yearly" .
 
-tag:Zenith a brick:Tag,
-        tag:Sensor_Tag ;
+tag:Zenith a brick:Tag ;
     rdfs:label "Zenith" .
 
 brick:AHU a owl:Class ;
@@ -7417,134 +7345,100 @@ brick:Zone_Air a owl:Class,
 tag:AHU a brick:Tag ;
     rdfs:label "AHU" .
 
-tag:Auto a brick:Tag,
-        tag:Status_Tag ;
+tag:Auto a brick:Tag ;
     rdfs:label "Auto" .
 
-tag:Battery a brick:Tag,
-        tag:Sensor_Tag ;
+tag:Battery a brick:Tag ;
     rdfs:label "Battery" .
 
-tag:Conductivity a brick:Tag,
-        tag:Sensor_Tag ;
+tag:Conductivity a brick:Tag ;
     rdfs:label "Conductivity" .
 
-tag:Cycle a brick:Tag,
-        tag:Alarm_Tag ;
+tag:Cycle a brick:Tag ;
     rdfs:label "Cycle" .
 
-tag:Deionised a brick:Tag,
-        tag:Sensor_Tag ;
+tag:Deionised a brick:Tag ;
     rdfs:label "Deionised" .
 
-tag:Deionized a brick:Tag,
-        tag:Alarm_Tag ;
+tag:Deionized a brick:Tag ;
     rdfs:label "Deionized" .
 
-tag:Delay a brick:Tag,
-        tag:Parameter_Tag ;
+tag:Delay a brick:Tag ;
     rdfs:label "Delay" .
 
-tag:Derivative a brick:Tag,
-        tag:Parameter_Tag ;
+tag:Derivative a brick:Tag ;
     rdfs:label "Derivative" .
 
-tag:Duct a brick:Tag,
-        tag:Status_Tag ;
+tag:Duct a brick:Tag ;
     rdfs:label "Duct" .
 
-tag:Duration a brick:Tag,
-        tag:Sensor_Tag ;
+tag:Duration a brick:Tag ;
     rdfs:label "Duration" .
 
-tag:Exchanger a brick:Tag,
-        tag:Sensor_Tag,
-        tag:Status_Tag ;
+tag:Exchanger a brick:Tag ;
     rdfs:label "Exchanger" .
 
-tag:Failure a brick:Tag,
-        tag:Alarm_Tag ;
+tag:Failure a brick:Tag ;
     rdfs:label "Failure" .
 
-tag:Fequency a brick:Tag,
-        tag:Command_Tag ;
+tag:Fequency a brick:Tag ;
     rdfs:label "Fequency" .
 
-tag:Fire a brick:Tag,
-        tag:Sensor_Tag ;
+tag:Fire a brick:Tag ;
     rdfs:label "Fire" .
 
-tag:Frequency a brick:Tag,
-        tag:Sensor_Tag ;
+tag:Frequency a brick:Tag ;
     rdfs:label "Frequency" .
 
-tag:Fresh a brick:Tag,
-        tag:Parameter_Tag ;
+tag:Fresh a brick:Tag ;
     rdfs:label "Fresh" .
 
-tag:Frost a brick:Tag,
-        tag:Sensor_Tag ;
+tag:Frost a brick:Tag ;
     rdfs:label "Frost" .
 
-tag:Generator a brick:Tag,
-        tag:Alarm_Tag,
-        tag:Status_Tag ;
+tag:Generator a brick:Tag ;
     rdfs:label "Generator" .
 
 tag:HVAC a brick:Tag ;
     rdfs:label "HVAC" .
 
-tag:Hail a brick:Tag,
-        tag:Sensor_Tag ;
+tag:Hail a brick:Tag ;
     rdfs:label "Hail" .
 
-tag:Illuminance a brick:Tag,
-        tag:Sensor_Tag ;
+tag:Illuminance a brick:Tag ;
     rdfs:label "Illuminance" .
 
-tag:Lag a brick:Tag,
-        tag:Command_Tag,
-        tag:Status_Tag ;
+tag:Lag a brick:Tag ;
     rdfs:label "Lag" .
 
-tag:Lead a brick:Tag,
-        tag:Command_Tag,
-        tag:Status_Tag ;
+tag:Lead a brick:Tag ;
     rdfs:label "Lead" .
 
-tag:Leak a brick:Tag,
-        tag:Alarm_Tag ;
+tag:Leak a brick:Tag ;
     rdfs:label "Leak" .
 
-tag:Lowest a brick:Tag,
-        tag:Sensor_Tag ;
+tag:Lowest a brick:Tag ;
     rdfs:label "Lowest" .
 
 tag:Oil a brick:Tag ;
     rdfs:label "Oil" .
 
-tag:Operating a brick:Tag,
-        tag:Status_Tag ;
+tag:Operating a brick:Tag ;
     rdfs:label "Operating" .
 
-tag:Override a brick:Tag,
-        tag:Command_Tag ;
+tag:Override a brick:Tag ;
     rdfs:label "Override" .
 
-tag:Percent a brick:Tag,
-        tag:Setpoint_Tag ;
+tag:Percent a brick:Tag ;
     rdfs:label "Percent" .
 
-tag:Rain a brick:Tag,
-        tag:Sensor_Tag ;
+tag:Rain a brick:Tag ;
     rdfs:label "Rain" .
 
-tag:Torque a brick:Tag,
-        tag:Sensor_Tag ;
+tag:Torque a brick:Tag ;
     rdfs:label "Torque" .
 
-tag:Wind a brick:Tag,
-        tag:Sensor_Tag ;
+tag:Wind a brick:Tag ;
     rdfs:label "Wind" .
 
 brick:Air_Temperature_Integral_Time_Parameter a owl:Class ;
@@ -7828,82 +7722,58 @@ brick:Water_Alarm a owl:Class ;
     brick:hasAssociatedTag tag:Alarm,
         tag:Water .
 
-tag:Adjust a brick:Tag,
-        tag:Sensor_Tag ;
+tag:Adjust a brick:Tag ;
     rdfs:label "Adjust" .
 
-tag:Angle a brick:Tag,
-        tag:Sensor_Tag ;
+tag:Angle a brick:Tag ;
     rdfs:label "Angle" .
 
-tag:Bypass a brick:Tag,
-        tag:Command_Tag,
-        tag:Sensor_Tag ;
+tag:Bypass a brick:Tag ;
     rdfs:label "Bypass" .
 
-tag:Detected a brick:Tag,
-        tag:Alarm_Tag ;
+tag:Detected a brick:Tag ;
     rdfs:label "Detected" .
 
-tag:Effective a brick:Tag,
-        tag:Setpoint_Tag ;
+tag:Effective a brick:Tag ;
     rdfs:label "Effective" .
 
-tag:Entering a brick:Tag,
-        tag:Sensor_Tag,
-        tag:Setpoint_Tag ;
+tag:Entering a brick:Tag ;
     rdfs:label "Entering" .
 
-tag:Grains a brick:Tag,
-        tag:Sensor_Tag ;
+tag:Grains a brick:Tag ;
     rdfs:label "Grains" .
 
-tag:Ice a brick:Tag,
-        tag:Sensor_Tag ;
+tag:Ice a brick:Tag ;
     rdfs:label "Ice" .
 
-tag:Level a brick:Tag,
-        tag:Sensor_Tag ;
+tag:Level a brick:Tag ;
     rdfs:label "Level" .
 
 tag:Lighting a brick:Tag ;
     rdfs:label "Lighting" .
 
-tag:Mixed a brick:Tag,
-        tag:Sensor_Tag,
-        tag:Setpoint_Tag ;
+tag:Mixed a brick:Tag ;
     rdfs:label "Mixed" .
 
-tag:Overridden a brick:Tag,
-        tag:Status_Tag ;
+tag:Overridden a brick:Tag ;
     rdfs:label "Overridden" .
 
-tag:Pump a brick:Tag,
-        tag:Command_Tag,
-        tag:Setpoint_Tag,
-        tag:Status_Tag ;
+tag:Pump a brick:Tag ;
     rdfs:label "Pump" .
 
-tag:Shutdown a brick:Tag,
-        tag:Command_Tag,
-        tag:Status_Tag ;
+tag:Shutdown a brick:Tag ;
     rdfs:label "Shutdown" .
 
-tag:Smoke a brick:Tag,
-        tag:Alarm_Tag ;
+tag:Smoke a brick:Tag ;
     rdfs:label "Smoke" .
 
-tag:Standby a brick:Tag,
-        tag:Status_Tag ;
+tag:Standby a brick:Tag ;
     rdfs:label "Standby" .
 
-tag:Tolerance a brick:Tag,
-        tag:Parameter_Tag ;
+tag:Tolerance a brick:Tag ;
     rdfs:label "Tolerance" .
 
-tag:Unit a brick:Tag,
-        tag:Alarm_Tag,
-        tag:Status_Tag ;
+tag:Unit a brick:Tag ;
     rdfs:label "Unit" .
 
 brick:Air_Quality a owl:Class,
@@ -8063,95 +7933,64 @@ brick:Zone_Air_Temperature_Sensor a owl:Class ;
         tag:Temperature,
         tag:Zone .
 
-tag:Average a brick:Tag,
-        tag:Sensor_Tag ;
+tag:Average a brick:Tag ;
     rdfs:label "Average" .
 
-tag:Building a brick:Tag,
-        tag:Sensor_Tag,
-        tag:Setpoint_Tag ;
+tag:Building a brick:Tag ;
     rdfs:label "Building" .
 
 tag:Coil a brick:Tag ;
     rdfs:label "Coil" .
 
-tag:Dewpoint a brick:Tag,
-        tag:Sensor_Tag,
-        tag:Setpoint_Tag ;
+tag:Dewpoint a brick:Tag ;
     rdfs:label "Dewpoint" .
 
-tag:Fault a brick:Tag,
-        tag:Status_Tag ;
+tag:Fault a brick:Tag ;
     rdfs:label "Fault" .
 
-tag:Filter a brick:Tag,
-        tag:Alarm_Tag,
-        tag:Sensor_Tag,
-        tag:Status_Tag ;
+tag:Filter a brick:Tag ;
     rdfs:label "Filter" .
 
-tag:Fixed a brick:Tag,
-        tag:Command_Tag ;
+tag:Fixed a brick:Tag ;
     rdfs:label "Fixed" .
 
-tag:Leaving a brick:Tag,
-        tag:Sensor_Tag,
-        tag:Setpoint_Tag ;
+tag:Leaving a brick:Tag ;
     rdfs:label "Leaving" .
 
-tag:Loss a brick:Tag,
-        tag:Alarm_Tag ;
+tag:Loss a brick:Tag ;
     rdfs:label "Loss" .
 
-tag:Luminance a brick:Tag,
-        tag:Alarm_Tag,
-        tag:Command_Tag,
-        tag:Sensor_Tag,
-        tag:Setpoint_Tag ;
+tag:Luminance a brick:Tag ;
     rdfs:label "Luminance" .
 
-tag:Occupancy a brick:Tag,
-        tag:Command_Tag,
-        tag:Sensor_Tag,
-        tag:Status_Tag ;
+tag:Occupancy a brick:Tag ;
     rdfs:label "Occupancy" .
 
-tag:Output a brick:Tag,
-        tag:Sensor_Tag ;
+tag:Output a brick:Tag ;
     rdfs:label "Output" .
 
-tag:Preheat a brick:Tag,
-        tag:Sensor_Tag,
-        tag:Setpoint_Tag ;
+tag:Preheat a brick:Tag ;
     rdfs:label "Preheat" .
 
-tag:Reset a brick:Tag,
-        tag:Command_Tag,
-        tag:Setpoint_Tag,
-        tag:Status_Tag ;
+tag:Reset a brick:Tag ;
     rdfs:label "Reset" .
 
-tag:Solar a brick:Tag,
-        tag:Sensor_Tag ;
+tag:Solar a brick:Tag ;
     rdfs:label "Solar" .
 
 tag:Solid a brick:Tag ;
     rdfs:label "Solid" .
 
-tag:Start a brick:Tag,
-        tag:Status_Tag ;
+tag:Start a brick:Tag ;
     rdfs:label "Start" .
 
-tag:Stop a brick:Tag,
-        tag:Status_Tag ;
+tag:Stop a brick:Tag ;
     rdfs:label "Stop" .
 
-tag:Storage a brick:Tag,
-        tag:Setpoint_Tag ;
+tag:Storage a brick:Tag ;
     rdfs:label "Storage" .
 
-tag:Voltage a brick:Tag,
-        tag:Sensor_Tag ;
+tag:Voltage a brick:Tag ;
     rdfs:label "Voltage" .
 
 brick:Discharge_Air a owl:Class,
@@ -8232,42 +8071,25 @@ brick:Temperature_Setpoint a owl:Class ;
     brick:hasAssociatedTag tag:Setpoint,
         tag:Temperature .
 
-tag:Cool a brick:Tag,
-        tag:Command_Tag,
-        tag:Sensor_Tag ;
+tag:Cool a brick:Tag ;
     rdfs:label "Cool" .
 
-tag:Direction a brick:Tag,
-        tag:Command_Tag,
-        tag:Sensor_Tag,
-        tag:Status_Tag ;
+tag:Direction a brick:Tag ;
     rdfs:label "Direction" .
 
-tag:Energy a brick:Tag,
-        tag:Sensor_Tag,
-        tag:Setpoint_Tag ;
+tag:Energy a brick:Tag ;
     rdfs:label "Energy" .
 
-tag:Lockout a brick:Tag,
-        tag:Command_Tag,
-        tag:Sensor_Tag,
-        tag:Setpoint_Tag ;
+tag:Lockout a brick:Tag ;
     rdfs:label "Lockout" .
 
-tag:Motor a brick:Tag,
-        tag:Sensor_Tag,
-        tag:Status_Tag ;
+tag:Motor a brick:Tag ;
     rdfs:label "Motor" .
 
-tag:Stack a brick:Tag,
-        tag:Parameter_Tag,
-        tag:Sensor_Tag,
-        tag:Setpoint_Tag ;
+tag:Stack a brick:Tag ;
     rdfs:label "Stack" .
 
-tag:Velocity a brick:Tag,
-        tag:Sensor_Tag,
-        tag:Setpoint_Tag ;
+tag:Velocity a brick:Tag ;
     rdfs:label "Velocity" .
 
 brick:Air_Flow_Sensor a owl:Class ;
@@ -8339,19 +8161,13 @@ brick:Water_Temperature_Sensor a owl:Class ;
         tag:Temperature,
         tag:Water .
 
-tag:Current a brick:Tag,
-        tag:Parameter_Tag,
-        tag:Sensor_Tag ;
+tag:Current a brick:Tag ;
     rdfs:label "Current" .
 
-tag:Gain a brick:Tag,
-        tag:Parameter_Tag ;
+tag:Gain a brick:Tag ;
     rdfs:label "Gain" .
 
-tag:Run a brick:Tag,
-        tag:Command_Tag,
-        tag:Sensor_Tag,
-        tag:Status_Tag ;
+tag:Run a brick:Tag ;
     rdfs:label "Run" .
 
 brick:Air_Temperature_Sensor a owl:Class ;
@@ -8411,39 +8227,25 @@ brick:Return_Air a owl:Class,
         tag:Gas,
         tag:Return .
 
-tag:Disable a brick:Tag,
-        tag:Command_Tag,
-        tag:Status_Tag ;
+tag:Disable a brick:Tag ;
     rdfs:label "Disable" .
 
-tag:Domestic a brick:Tag,
-        tag:Command_Tag,
-        tag:Sensor_Tag,
-        tag:Setpoint_Tag ;
+tag:Domestic a brick:Tag ;
     rdfs:label "Domestic" .
 
-tag:Emergency a brick:Tag,
-        tag:Alarm_Tag,
-        tag:Status_Tag ;
+tag:Emergency a brick:Tag ;
     rdfs:label "Emergency" .
 
-tag:Request a brick:Tag,
-        tag:Command_Tag,
-        tag:Setpoint_Tag,
-        tag:Status_Tag ;
+tag:Request a brick:Tag ;
     rdfs:label "Request" .
 
-tag:Steam a brick:Tag,
-        tag:Sensor_Tag ;
+tag:Steam a brick:Tag ;
     rdfs:label "Steam" .
 
-tag:Thermal a brick:Tag,
-        tag:Sensor_Tag,
-        tag:Setpoint_Tag ;
+tag:Thermal a brick:Tag ;
     rdfs:label "Thermal" .
 
-tag:Usage a brick:Tag,
-        tag:Sensor_Tag ;
+tag:Usage a brick:Tag ;
     rdfs:label "Usage" .
 
 brick:Air_Temperature_Setpoint a owl:Class ;
@@ -8462,24 +8264,16 @@ brick:Max_Limit a owl:Class ;
         tag:Max,
         tag:Parameter .
 
-tag:Demand a brick:Tag,
-        tag:Sensor_Tag,
-        tag:Setpoint_Tag ;
+tag:Demand a brick:Tag ;
     rdfs:label "Demand" .
 
-tag:Low a brick:Tag,
-        tag:Alarm_Tag,
-        tag:Parameter_Tag,
-        tag:Sensor_Tag,
-        tag:Setpoint_Tag ;
+tag:Low a brick:Tag ;
     rdfs:label "Low" .
 
 tag:Meter a brick:Tag ;
     rdfs:label "Meter" .
 
-tag:System a brick:Tag,
-        tag:Command_Tag,
-        tag:Status_Tag ;
+tag:System a brick:Tag ;
     rdfs:label "System" .
 
 brick:Humidity a owl:Class,
@@ -8498,38 +8292,24 @@ brick:Min_Limit a owl:Class ;
 brick:Point a owl:Class ;
     rdfs:subClassOf brick:Class .
 
-tag:Enthalpy a brick:Tag,
-        tag:Command_Tag,
-        tag:Sensor_Tag,
-        tag:Setpoint_Tag ;
+tag:Enthalpy a brick:Tag ;
     rdfs:label "Enthalpy" .
 
-tag:Position a brick:Tag,
-        tag:Command_Tag,
-        tag:Parameter_Tag,
-        tag:Sensor_Tag,
-        tag:Setpoint_Tag ;
+tag:Position a brick:Tag ;
     rdfs:label "Position" .
 
-tag:High a brick:Tag,
-        tag:Alarm_Tag,
-        tag:Parameter_Tag,
-        tag:Sensor_Tag ;
+tag:High a brick:Tag ;
     rdfs:label "High" .
 
-tag:Mode a brick:Tag,
-        tag:Command_Tag,
-        tag:Setpoint_Tag,
-        tag:Status_Tag ;
+tag:Mode a brick:Tag ;
     rdfs:label "Mode" .
 
-tag:Step a brick:Tag,
-        tag:Parameter_Tag ;
+tag:Step a brick:Tag ;
     rdfs:label "Step" .
 
 brick:Limit a owl:Class ;
     rdfs:label "Limit" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Parameter _:has_Limit _:has_Parameter ) ],
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Parameter _:has_Limit ) ],
         brick:Parameter ;
     brick:hasAssociatedTag tag:Limit,
         tag:Parameter .
@@ -8550,44 +8330,25 @@ brick:Parameter a owl:Class ;
         brick:Status ;
     brick:hasAssociatedTag tag:Parameter .
 
-tag:Heat a brick:Tag,
-        tag:Command_Tag,
-        tag:Sensor_Tag,
-        tag:Status_Tag ;
+tag:Heat a brick:Tag ;
     rdfs:label "Heat" .
 
-tag:Shed a brick:Tag,
-        tag:Setpoint_Tag,
-        tag:Status_Tag ;
+tag:Shed a brick:Tag ;
     rdfs:label "Shed" .
 
-tag:Zone a brick:Tag,
-        tag:Sensor_Tag,
-        tag:Setpoint_Tag ;
+tag:Zone a brick:Tag ;
     rdfs:label "Zone" .
 
-tag:CO2 a brick:Tag,
-        tag:Alarm_Tag,
-        tag:Sensor_Tag,
-        tag:Setpoint_Tag ;
+tag:CO2 a brick:Tag ;
     rdfs:label "CO2" .
 
-tag:Damper a brick:Tag,
-        tag:Command_Tag,
-        tag:Parameter_Tag,
-        tag:Sensor_Tag,
-        tag:Setpoint_Tag ;
+tag:Damper a brick:Tag ;
     rdfs:label "Damper" .
 
-tag:Power a brick:Tag,
-        tag:Alarm_Tag,
-        tag:Sensor_Tag,
-        tag:Status_Tag ;
+tag:Power a brick:Tag ;
     rdfs:label "Power" .
 
-tag:Unoccupied a brick:Tag,
-        tag:Parameter_Tag,
-        tag:Setpoint_Tag ;
+tag:Unoccupied a brick:Tag ;
     rdfs:label "Unoccupied" .
 
 brick:Equipment a owl:Class ;
@@ -8605,18 +8366,13 @@ brick:Temperature_Parameter a owl:Class ;
 tag:Location a brick:Tag ;
     rdfs:label "Location" .
 
-tag:Off a brick:Tag,
-        tag:Status_Tag ;
+tag:Off a brick:Tag ;
     rdfs:label "Off" .
 
-tag:On a brick:Tag,
-        tag:Sensor_Tag,
-        tag:Status_Tag ;
+tag:On a brick:Tag ;
     rdfs:label "On" .
 
-tag:Valve a brick:Tag,
-        tag:Command_Tag,
-        tag:Setpoint_Tag ;
+tag:Valve a brick:Tag ;
     rdfs:label "Valve" .
 
 brick:Flow a owl:Class,
@@ -8624,11 +8380,7 @@ brick:Flow a owl:Class,
         brick:Quantity ;
     rdfs:label "Flow" .
 
-tag:Speed a brick:Tag,
-        tag:Parameter_Tag,
-        tag:Sensor_Tag,
-        tag:Setpoint_Tag,
-        tag:Status_Tag ;
+tag:Speed a brick:Tag ;
     rdfs:label "Speed" .
 
 brick:Water a owl:Class,
@@ -8641,21 +8393,13 @@ brick:Water a owl:Class,
         tag:Liquid,
         tag:Water .
 
-tag:Fan a brick:Tag,
-        tag:Command_Tag,
-        tag:Setpoint_Tag,
-        tag:Status_Tag ;
+tag:Fan a brick:Tag ;
     rdfs:label "Fan" .
 
-tag:Gas a brick:Tag,
-        tag:Sensor_Tag ;
+tag:Gas a brick:Tag ;
     rdfs:label "Gas" .
 
-tag:Load a brick:Tag,
-        tag:Parameter_Tag,
-        tag:Sensor_Tag,
-        tag:Setpoint_Tag,
-        tag:Status_Tag ;
+tag:Load a brick:Tag ;
     rdfs:label "Load" .
 
 brick:Air a owl:Class,
@@ -8667,28 +8411,16 @@ brick:Air a owl:Class,
         tag:Fluid,
         tag:Gas .
 
-tag:Humidity a brick:Tag,
-        tag:Alarm_Tag,
-        tag:Parameter_Tag,
-        tag:Sensor_Tag,
-        tag:Setpoint_Tag ;
+tag:Humidity a brick:Tag ;
     rdfs:label "Humidity" .
 
-tag:Enable a brick:Tag,
-        tag:Command_Tag,
-        tag:Sensor_Tag,
-        tag:Setpoint_Tag,
-        tag:Status_Tag ;
+tag:Enable a brick:Tag ;
     rdfs:label "Enable" .
 
-tag:Occupied a brick:Tag,
-        tag:Parameter_Tag,
-        tag:Setpoint_Tag,
-        tag:Status_Tag ;
+tag:Occupied a brick:Tag ;
     rdfs:label "Occupied" .
 
-tag:Integral a brick:Tag,
-        tag:Parameter_Tag ;
+tag:Integral a brick:Tag ;
     rdfs:label "Integral" .
 
 brick:Setpoint a owl:Class ;
@@ -8707,20 +8439,13 @@ brick:Temperature a owl:Class,
         brick:Temperature ;
     rdfs:label "Temperature" .
 
-tag:Band a brick:Tag,
-        tag:Parameter_Tag,
-        tag:Setpoint_Tag ;
+tag:Band a brick:Tag ;
     rdfs:label "Band" .
 
-tag:Return a brick:Tag,
-        tag:Alarm_Tag,
-        tag:Sensor_Tag,
-        tag:Setpoint_Tag ;
+tag:Return a brick:Tag ;
     rdfs:label "Return" .
 
-tag:Time a brick:Tag,
-        tag:Parameter_Tag,
-        tag:Sensor_Tag ;
+tag:Time a brick:Tag ;
     rdfs:label "Time" .
 
 brick:Alarm a owl:Class ;
@@ -8734,25 +8459,16 @@ brick:Alarm a owl:Class ;
         brick:Status ;
     brick:hasAssociatedTag tag:Alarm .
 
-tag:Exhaust a brick:Tag,
-        tag:Command_Tag,
-        tag:Parameter_Tag,
-        tag:Sensor_Tag,
-        tag:Setpoint_Tag ;
+tag:Exhaust a brick:Tag ;
     rdfs:label "Exhaust" .
 
-tag:Liquid a brick:Tag,
-        tag:Alarm_Tag ;
+tag:Liquid a brick:Tag ;
     rdfs:label "Liquid" .
 
-tag:Outside a brick:Tag,
-        tag:Parameter_Tag,
-        tag:Sensor_Tag,
-        tag:Setpoint_Tag ;
+tag:Outside a brick:Tag ;
     rdfs:label "Outside" .
 
-tag:Proportional a brick:Tag,
-        tag:Parameter_Tag ;
+tag:Proportional a brick:Tag ;
     rdfs:label "Proportional" .
 
 brick:HVAC a owl:Class ;
@@ -8760,18 +8476,13 @@ brick:HVAC a owl:Class ;
     rdfs:subClassOf brick:Equipment ;
     owl:equivalentClass brick:Heating_Ventilation_Air_Conditioning_System .
 
-tag:Deadband a brick:Tag,
-        tag:Setpoint_Tag ;
+tag:Deadband a brick:Tag ;
     rdfs:label "Deadband" .
 
-tag:Min a brick:Tag,
-        tag:Parameter_Tag ;
+tag:Min a brick:Tag ;
     rdfs:label "Min" .
 
-tag:Max a brick:Tag,
-        tag:Command_Tag,
-        tag:Parameter_Tag,
-        tag:Setpoint_Tag ;
+tag:Max a brick:Tag ;
     rdfs:label "Max" .
 
 brick:Command a owl:Class ;
@@ -8785,33 +8496,18 @@ brick:Command a owl:Class ;
         brick:Status ;
     brick:hasAssociatedTag tag:Command .
 
-tag:Chilled a brick:Tag,
-        tag:Command_Tag,
-        tag:Parameter_Tag,
-        tag:Sensor_Tag,
-        tag:Setpoint_Tag,
-        tag:Status_Tag ;
+tag:Chilled a brick:Tag ;
     rdfs:label "Chilled" .
 
-tag:Hot a brick:Tag,
-        tag:Command_Tag,
-        tag:Parameter_Tag,
-        tag:Sensor_Tag,
-        tag:Setpoint_Tag,
-        tag:Status_Tag ;
+tag:Hot a brick:Tag ;
     rdfs:label "Hot" .
 
 brick:Quantity a owl:Class ;
     rdfs:subClassOf sosa:ObservableProperty,
         brick:Measurable .
 
-tag:Cooling a brick:Tag,
-        tag:Parameter_Tag,
-        tag:Setpoint_Tag,
-        tag:Status_Tag ;
+tag:Cooling a brick:Tag ;
     rdfs:label "Cooling" .
-
-tag:Alarm_Tag a owl:Class .
 
 brick:Status a owl:Class ;
     rdfs:label "Status" ;
@@ -8824,23 +8520,14 @@ brick:Status a owl:Class ;
         brick:Setpoint ;
     brick:hasAssociatedTag tag:Status .
 
-tag:Heating a brick:Tag,
-        tag:Parameter_Tag,
-        tag:Sensor_Tag,
-        tag:Setpoint_Tag,
-        tag:Status_Tag ;
+tag:Heating a brick:Tag ;
     rdfs:label "Heating" .
 
 tag:Fluid a brick:Tag ;
     rdfs:label "Fluid" .
 
-tag:Static a brick:Tag,
-        tag:Parameter_Tag,
-        tag:Sensor_Tag,
-        tag:Setpoint_Tag ;
+tag:Static a brick:Tag ;
     rdfs:label "Static" .
-
-tag:Command_Tag a owl:Class .
 
 brick:Sensor a owl:Class ;
     rdfs:label "Sensor" ;
@@ -8853,97 +8540,46 @@ brick:Sensor a owl:Class ;
         brick:Status ;
     brick:hasAssociatedTag tag:Sensor .
 
-tag:Command a brick:Tag,
-        tag:Command_Tag ;
+tag:Command a brick:Tag ;
     rdfs:label "Command" .
 
-tag:PID a brick:Tag,
-        tag:Parameter_Tag ;
+tag:PID a brick:Tag ;
     rdfs:label "PID" .
-
-tag:Parameter_Tag a owl:Class .
 
 tag:Equipment a brick:Tag ;
     rdfs:label "Equipment" .
 
-tag:Alarm a brick:Tag,
-        tag:Alarm_Tag,
-        tag:Parameter_Tag ;
+tag:Alarm a brick:Tag ;
     rdfs:label "Alarm" .
 
-tag:Differential a brick:Tag,
-        tag:Command_Tag,
-        tag:Parameter_Tag,
-        tag:Sensor_Tag,
-        tag:Setpoint_Tag,
-        tag:Status_Tag ;
+tag:Differential a brick:Tag ;
     rdfs:label "Differential" .
 
-tag:Limit a brick:Tag,
-        tag:Parameter_Tag ;
+tag:Limit a brick:Tag ;
     rdfs:label "Limit" .
 
-tag:Setpoint_Tag a owl:Class .
-
-tag:Discharge a brick:Tag,
-        tag:Alarm_Tag,
-        tag:Parameter_Tag,
-        tag:Sensor_Tag,
-        tag:Setpoint_Tag,
-        tag:Status_Tag ;
+tag:Discharge a brick:Tag ;
     rdfs:label "Discharge" .
 
-tag:Status a brick:Tag,
-        tag:Status_Tag ;
+tag:Status a brick:Tag ;
     rdfs:label "Status" .
 
-tag:Supply a brick:Tag,
-        tag:Alarm_Tag,
-        tag:Parameter_Tag,
-        tag:Sensor_Tag,
-        tag:Setpoint_Tag,
-        tag:Status_Tag ;
+tag:Supply a brick:Tag ;
     rdfs:label "Supply" .
 
-tag:Status_Tag a owl:Class .
-
-tag:Flow a brick:Tag,
-        tag:Parameter_Tag,
-        tag:Sensor_Tag,
-        tag:Setpoint_Tag,
-        tag:Status_Tag ;
+tag:Flow a brick:Tag ;
     rdfs:label "Flow" .
 
-tag:Pressure a brick:Tag,
-        tag:Alarm_Tag,
-        tag:Parameter_Tag,
-        tag:Sensor_Tag,
-        tag:Setpoint_Tag,
-        tag:Status_Tag ;
+tag:Pressure a brick:Tag ;
     rdfs:label "Pressure" .
 
-tag:Sensor_Tag a owl:Class .
-
-tag:Water a brick:Tag,
-        tag:Alarm_Tag,
-        tag:Command_Tag,
-        tag:Parameter_Tag,
-        tag:Sensor_Tag,
-        tag:Setpoint_Tag,
-        tag:Status_Tag ;
+tag:Water a brick:Tag ;
     rdfs:label "Water" .
 
-tag:Parameter a brick:Tag,
-        tag:Parameter_Tag ;
+tag:Parameter a brick:Tag ;
     rdfs:label "Parameter" .
 
-tag:Temperature a brick:Tag,
-        tag:Alarm_Tag,
-        tag:Command_Tag,
-        tag:Parameter_Tag,
-        tag:Sensor_Tag,
-        tag:Setpoint_Tag,
-        tag:Status_Tag ;
+tag:Temperature a brick:Tag ;
     rdfs:label "Temperature" .
 
 brick:measures a owl:AsymmetricProperty,
@@ -8954,21 +8590,13 @@ brick:measures a owl:AsymmetricProperty,
     owl:inverseOf brick:isMeasuredBy ;
     skos:definition "The subject measures a quantity or substance given by the object" .
 
-tag:Sensor a brick:Tag,
-        tag:Sensor_Tag ;
+tag:Sensor a brick:Tag ;
     rdfs:label "Sensor" .
 
-tag:Setpoint a brick:Tag,
-        tag:Parameter_Tag,
-        tag:Setpoint_Tag ;
+tag:Setpoint a brick:Tag ;
     rdfs:label "Setpoint" .
 
-tag:Air a brick:Tag,
-        tag:Alarm_Tag,
-        tag:Parameter_Tag,
-        tag:Sensor_Tag,
-        tag:Setpoint_Tag,
-        tag:Status_Tag ;
+tag:Air a brick:Tag ;
     rdfs:label "Air" .
 
 brick:hasTag a owl:AsymmetricProperty,
