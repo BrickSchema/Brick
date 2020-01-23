@@ -12,3 +12,6 @@ inference-test: Brick.ttl
 
 hierarchy-test: Brick.ttl
 	pytest -s -vvvv tests/test_hierarchy_inference.py
+
+measures-test: Brick.ttl
+	pytest -s -vvvv tests/test_measures_inference.py

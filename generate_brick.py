@@ -3,7 +3,6 @@ from rdflib import Graph, Literal, BNode, URIRef
 from rdflib.namespace import XSD
 from rdflib.collection import Collection
 
-from bricksrc.tag_exclusion import make_exclusive_tag_groups
 from bricksrc.namespaces import BRICK, RDF, OWL, RDFS, TAG, SOSA
 from bricksrc.namespaces import bind_prefixes
 
@@ -22,10 +21,9 @@ from bricksrc.tags import tags
 
 G = Graph()
 bind_prefixes(G)
-make_exclusive_tag_groups(G)
 A = RDF.type
-
 tag_lookup = defaultdict(set)
+intersection_classes = {}
 
 # helps setup the restriction classes for having and not having tags
 def make_tag_classes(G, tag):
@@ -66,51 +64,6 @@ def add_tags(klass, definition):
     for tag in definition:
         G.add((BRICK[klass], BRICK.hasAssociatedTag, tag))
 
-    # what are the necessary "NOT" tag stuffs?
-    # has tag   |  no tags  | implied class
-    # ----------|-----------|--------------
-    # sensor    |           | sensor
-    # parameter |           | parameter
-    # setpoint  | parameter |
-    # command   |           | command
-    # status    |           | status
-    # alarm     | parameter | alarm
-    #           | OR setpoint
-    opposites = {
-        'Setpoint': ['Parameter'],
-        'Alarm': ['Parameter', 'Setpoint'],
-    }
-    # for pointclass in ['Alarm' , 'Status', 'Command', 'Setpoint', 'Sensor', 'Parameter']:
-    #     res = G.query(f"""SELECT ?type WHERE {{
-    #         <{BRICK[klass]}> rdfs:subClassOf* <{BRICK[pointclass]}> .
-    #         <{BRICK[klass]}> a ?type
-    #     }}""")
-
-    #     if len(res) == 0:
-    #         continue
-    #     # How to get complements working:
-    #     # - [X] make sure that all the tags are Different Individuals (done below)
-    #     # - [ ] explicitly enumerate the tags that can be used with each hierarchy; this
-    #     #   may require all of the classes in a hierarchy (e.g. parameter) to have
-    #     #   a unique tag (e.g. all Parameters have Parameter tag)
-    #     r = TAG[f"all_tags_{pointclass}"]
-    #     G.add((r, A, OWL.Restriction))
-    #     G.add((r, OWL.onProperty, BRICK.hasTag))
-    #     G.add((r, OWL.allValuesFrom, TAG[f"{pointclass}_Tag"]))
-    #     all_restrictions.append(r)
-
-    #     # has_param, has_no_param = make_tag_classes(G, 'Parameter')
-    #     # has_sp, has_no_sp = make_tag_classes(G, 'Setpoint')
-    #     # has_adjust, has_no_adjust = make_tag_classes(G, 'Adjust')
-
-    #     # if pointclass == 'Setpoint':
-    #     #     all_restrictions.append(has_no_param)
-    #     # elif pointclass == 'Alarm':
-    #     #     all_restrictions.append(has_no_param)
-    #     #     all_restrictions.append(has_no_sp)
-    #     # elif klass == 'Temperature_Sensor':
-    #     #     all_restrictions.append(has_no_adjust)
-
     for idnum, item in enumerate(definition):
         restriction = BNode(f"has_{item.split('#')[-1]}")
         all_restrictions.append(restriction)
@@ -130,6 +83,9 @@ def add_tags(klass, definition):
         G.add( (BRICK[klass], RDFS.subClassOf, equivalent_class) )
         G.add( (equivalent_class, OWL.intersectionOf, list_name) )
         Collection(G, list_name, all_restrictions)
+    if klass in intersection_classes:
+        print(f"{klass} already mapped? {intersection_classes[klass]}")
+    intersection_classes[klass] = tuple(sorted(definition))
 
 def lookup_tagset(s):
     s = set(map(lambda x: x.capitalize(), s))
