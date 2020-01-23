@@ -54,5 +54,5 @@ bldg:VAV2-3 brick:isLocationOf bldg:Room-412 .
 bldg:VAV2-4.DPR brick:feedsAir bldg:Room-412 .
 bldg:VAV2-4.DPR brick:regulates brick:Water .
 bldg:VAV2-4.DPR brick:measures brick:Water .
-
-#bldg:VAV2-4.DPR brick:regulates brick:Air .
+bldg:something a brick:Air .
+bldg:VAV2-4.DPR brick:measures bldg:something .
