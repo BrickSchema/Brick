@@ -1,6 +1,7 @@
 import rdflib
 from rdflib import RDF, OWL, RDFS, Namespace, BNode
-from .util.reasoner import make_readable, reason_owlrl
+import brickschema
+from .util.reasoner import make_readable
 from collections import defaultdict
 
 BRICK_VERSION = '1.1.0'
@@ -10,7 +11,7 @@ BLDG = Namespace("https://brickschema.org/schema/ExampleBuilding#")
 
 g = rdflib.Graph()
 g.parse('Brick.ttl', format='turtle')
-reason_owlrl(g)
+g = brickschema.inference.OWLRLAllegroInferenceSession(load_brick=False).expand(g)
 
 res = g.query("""SELECT ?m ?class WHERE {
     ?class rdfs:subClassOf brick:Class .
@@ -34,7 +35,7 @@ for c, measurables in measurable_mapping.items():
     for m in measurables:
         g.add((inst, BRICK.measures, m))
 
-reason_owlrl(g)
+g = brickschema.inference.OWLRLAllegroInferenceSession(load_brick=False).expand(g)
 
 g.bind('rdf', RDF)
 g.bind('owl', OWL)

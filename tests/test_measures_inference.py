@@ -4,7 +4,7 @@ import rdflib
 import json
 from collections import defaultdict
 from rdflib import RDF, RDFS, OWL, Namespace, URIRef
-from .util.reasoner import reason_owlrl
+import brickschema
 
 BRICK_VERSION = '1.1.0'
 
@@ -16,10 +16,11 @@ DCTERMS = Namespace("http://purl.org/dc/terms#")
 SDO = Namespace("http://schema.org#")
 A = RDF.type
 
-g = rdflib.Graph()
-g.parse('Brick.ttl', format='turtle')
 
 def test_measures_infers():
+    g = rdflib.Graph()
+    g.parse('Brick.ttl', format='turtle')
+
     qstr = """select ?class ?o where {
       ?class rdfs:subClassOf+ brick:Class.
       ?class owl:equivalentClass ?restrictions.
@@ -36,7 +37,7 @@ def test_measures_infers():
 
     # Infer classes of the entities.
     # Apply reasoner
-    reason_owlrl(g)
+    g = brickschema.inference.OWLRLAllegroInferenceSession(load_brick=False).expand(g)
 
     qstr = """select ?instance ?class where {
         ?instance a ?class.

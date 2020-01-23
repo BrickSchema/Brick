@@ -1,6 +1,5 @@
 from rdflib import RDF, RDFS, OWL, Namespace, Graph
 import brickschema
-from .util.reasoner import reason_owlrl
 
 BRICK_VERSION = '1.1.0'
 
@@ -59,8 +58,8 @@ g.add((BLDG.co2s1, A, BRICK.CO2_Level_Sensor))
 g.add((BLDG.standalone, A, BRICK.Temperature_Sensor))
 
 # Apply reasoner
-g = brickschema.inference.TagInferenceSession(approximate=False).expand(g)
-g = brickschema.inference.OWLRLInferenceSession(load_brick=False).expand(g)
+g = brickschema.inference.TagInferenceSession(load_brick=False, approximate=False).expand(g)
+g = brickschema.inference.OWLRLAllegroInferenceSession(load_brick=False).expand(g)
 
 g.bind('rdf', RDF)
 g.bind('owl', OWL)

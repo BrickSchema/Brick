@@ -5,7 +5,7 @@ import brickschema
 
 from tqdm import tqdm
 from rdflib import Namespace, URIRef, Graph
-from .util.reasoner import make_readable, reason_owlrl
+from .util.reasoner import make_readable
 
 """
 This script does the following:
@@ -63,11 +63,8 @@ def test_hierarchyinference():
     # Infer classes of the entities.
     # Apply reasoner
     g.serialize('test.ttl', format='ttl')
-    tag_sess = brickschema.inference.TagInferenceSession(approximate=False, load_brick=False)
-    owl_sess = brickschema.inference.OWLRLInferenceSession(load_brick=False)
-    # perform tag inference
-    g = tag_sess.expand(g)
-    g = owl_sess.expand(g)
+    g = brickschema.inference.TagInferenceSession(approximate=False, load_brick=False).expand(g)
+    g = brickschema.inference.OWLRLAllegroInferenceSession(load_brick=False).expand(g)
     g.serialize(inference_file, format='turtle')  # Store the inferred graph.
 
 

@@ -1,7 +1,7 @@
 import rdflib
 import brickschema
 from rdflib import RDF, OWL, RDFS, Namespace, BNode
-from .util.reasoner import reason_brick, make_readable, reason_owlrl
+from .util.reasoner import make_readable
 
 BRICK_VERSION = '1.1.0'
 BRICK = Namespace(f"https://brickschema.org/schema/{BRICK_VERSION}/Brick#")
@@ -12,8 +12,8 @@ SOSA = Namespace("http://www.w3.org/ns/sosa#")
 g = rdflib.Graph()
 g.parse('Brick.ttl', format='turtle')
 
-g = brickschema.inference.TagInferenceSession().expand(g)
-g = brickschema.inference.OWLRLInferenceSession().expand(g)
+g = brickschema.inference.TagInferenceSession(approximate=False, load_brick=False).expand(g)
+g = brickschema.inference.OWLRLAllegroInferenceSession(load_brick=False).expand(g)
 
 g.bind('rdf', RDF)
 g.bind('owl', OWL)
@@ -53,7 +53,8 @@ def test_subclasses():
         SOSA.ObservableProperty,
         RDFS.Resource,
         RDFS.Class,
-        RDF.Property
+        RDF.Property,
+        OWL.Class
     ])
 
     assert diff.issubset(expected), f"Got extra classes that may not be defined: \
