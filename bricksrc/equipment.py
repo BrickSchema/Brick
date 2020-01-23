@@ -300,7 +300,7 @@ hvac_subclasses = {
         OWL.equivalentClass: "AHU",
     },
     "AHU": {
-        "tags": [ TAG.Equipment, TAG.AHU],
+        "tags": [TAG.Equipment, TAG.AHU],
         "subclasses": {
             "Rooftop_Unit": {
                 OWL.equivalentClass: "RTU",

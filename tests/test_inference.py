@@ -1,4 +1,5 @@
 from rdflib import RDF, RDFS, OWL, Namespace, Graph
+import brickschema
 from .util.reasoner import reason_owlrl
 
 BRICK_VERSION = '1.1.0'
@@ -58,7 +59,8 @@ g.add((BLDG.co2s1, A, BRICK.CO2_Level_Sensor))
 g.add((BLDG.standalone, A, BRICK.Temperature_Sensor))
 
 # Apply reasoner
-reason_owlrl(g)
+g = brickschema.inference.TagInferenceSession(approximate=False).expand(g)
+g = brickschema.inference.OWLRLInferenceSession(load_brick=False).expand(g)
 
 g.bind('rdf', RDF)
 g.bind('owl', OWL)
@@ -73,21 +75,6 @@ print('expanded:', len(g))
 
 def make_readable(res):
     return [[uri.split('#')[-1] for uri in row] for row in res]
-
-print('Sensor', make_readable(g.query("SELECT ?x WHERE { ?x a tag:all_tags_Sensor }")))
-print('Setpoint', make_readable(g.query("SELECT ?x WHERE { ?x a tag:all_tags_Setpoint }")))
-print('Alarm', make_readable(g.query("SELECT ?x WHERE { ?x a tag:all_tags_Alarm }")))
-print('Status', make_readable(g.query("SELECT ?x WHERE { ?x a tag:all_tags_Status }")))
-print('Command', make_readable(g.query("SELECT ?x WHERE { ?x a tag:all_tags_Command }")))
-print('Parameter', make_readable(g.query("SELECT ?x WHERE { ?x a tag:all_tags_Parameter }")))
-print('-'*20)
-print('Sensor', make_readable(g.query("SELECT ?x WHERE { ?x a tag:Sensor_Tag }")))
-print('Setpoint', make_readable(g.query("SELECT ?x WHERE { ?x a tag:Setpoint_Tag }")))
-print('Alarm', make_readable(g.query("SELECT ?x WHERE { ?x a tag:Alarm_Tag }")))
-print('Status', make_readable(g.query("SELECT ?x WHERE { ?x a tag:Status_Tag }")))
-print('Command', make_readable(g.query("SELECT ?x WHERE { ?x a tag:Command_Tag }")))
-print('Parameter', make_readable(g.query("SELECT ?x WHERE { ?x a tag:Parameter_Tag }")))
-
 
 def test_tag1():
     res1 = make_readable(g.query("SELECT DISTINCT ?co2tag WHERE {\

@@ -63,6 +63,9 @@ def add_tags(klass, definition):
     equivalent_class = BNode()
     list_name = BNode()
 
+    for tag in definition:
+        G.add((BRICK[klass], BRICK.hasAssociatedTag, tag))
+
     # what are the necessary "NOT" tag stuffs?
     # has tag   |  no tags  | implied class
     # ----------|-----------|--------------
@@ -77,36 +80,36 @@ def add_tags(klass, definition):
         'Setpoint': ['Parameter'],
         'Alarm': ['Parameter', 'Setpoint'],
     }
-    for pointclass in ['Alarm' , 'Status', 'Command', 'Setpoint', 'Sensor', 'Parameter']:
-        res = G.query(f"""SELECT ?type WHERE {{
-            <{BRICK[klass]}> rdfs:subClassOf* <{BRICK[pointclass]}> .
-            <{BRICK[klass]}> a ?type
-        }}""")
+    # for pointclass in ['Alarm' , 'Status', 'Command', 'Setpoint', 'Sensor', 'Parameter']:
+    #     res = G.query(f"""SELECT ?type WHERE {{
+    #         <{BRICK[klass]}> rdfs:subClassOf* <{BRICK[pointclass]}> .
+    #         <{BRICK[klass]}> a ?type
+    #     }}""")
 
-        if len(res) == 0:
-            continue
-        # How to get complements working:
-        # - [X] make sure that all the tags are Different Individuals (done below)
-        # - [ ] explicitly enumerate the tags that can be used with each hierarchy; this
-        #   may require all of the classes in a hierarchy (e.g. parameter) to have
-        #   a unique tag (e.g. all Parameters have Parameter tag)
-        r = TAG[f"all_tags_{pointclass}"]
-        G.add((r, A, OWL.Restriction))
-        G.add((r, OWL.onProperty, BRICK.hasTag))
-        G.add((r, OWL.allValuesFrom, TAG[f"{pointclass}_Tag"]))
-        all_restrictions.append(r)
+    #     if len(res) == 0:
+    #         continue
+    #     # How to get complements working:
+    #     # - [X] make sure that all the tags are Different Individuals (done below)
+    #     # - [ ] explicitly enumerate the tags that can be used with each hierarchy; this
+    #     #   may require all of the classes in a hierarchy (e.g. parameter) to have
+    #     #   a unique tag (e.g. all Parameters have Parameter tag)
+    #     r = TAG[f"all_tags_{pointclass}"]
+    #     G.add((r, A, OWL.Restriction))
+    #     G.add((r, OWL.onProperty, BRICK.hasTag))
+    #     G.add((r, OWL.allValuesFrom, TAG[f"{pointclass}_Tag"]))
+    #     all_restrictions.append(r)
 
-        # has_param, has_no_param = make_tag_classes(G, 'Parameter')
-        # has_sp, has_no_sp = make_tag_classes(G, 'Setpoint')
-        # has_adjust, has_no_adjust = make_tag_classes(G, 'Adjust')
+    #     # has_param, has_no_param = make_tag_classes(G, 'Parameter')
+    #     # has_sp, has_no_sp = make_tag_classes(G, 'Setpoint')
+    #     # has_adjust, has_no_adjust = make_tag_classes(G, 'Adjust')
 
-        # if pointclass == 'Setpoint':
-        #     all_restrictions.append(has_no_param)
-        # elif pointclass == 'Alarm':
-        #     all_restrictions.append(has_no_param)
-        #     all_restrictions.append(has_no_sp)
-        # elif klass == 'Temperature_Sensor':
-        #     all_restrictions.append(has_no_adjust)
+    #     # if pointclass == 'Setpoint':
+    #     #     all_restrictions.append(has_no_param)
+    #     # elif pointclass == 'Alarm':
+    #     #     all_restrictions.append(has_no_param)
+    #     #     all_restrictions.append(has_no_sp)
+    #     # elif klass == 'Temperature_Sensor':
+    #     #     all_restrictions.append(has_no_adjust)
 
     for idnum, item in enumerate(definition):
         restriction = BNode(f"has_{item.split('#')[-1]}")
@@ -122,9 +125,9 @@ def add_tags(klass, definition):
     tag_lookup[tagset].add(klass)
 
     if len(all_restrictions) == 1:
-        G.add( (BRICK[klass], OWL.equivalentClass, all_restrictions[0]) )
+        G.add( (BRICK[klass], RDFS.subClassOf, all_restrictions[0]) )
     if len(all_restrictions) > 1:
-        G.add( (BRICK[klass], OWL.equivalentClass, equivalent_class) )
+        G.add( (BRICK[klass], RDFS.subClassOf, equivalent_class) )
         G.add( (equivalent_class, OWL.intersectionOf, list_name) )
         Collection(G, list_name, all_restrictions)
 
@@ -155,9 +158,7 @@ def define_subclasses(definitions, superclass):
         G.add((BRICK[subclass], RDFS.label, Literal(subclass.replace("_"," "))))
         G.add((BRICK[subclass], RDFS.subClassOf, superclass))
         for k, v in properties.items():
-            if isinstance(v, list) and k == "tagvalues":
-                add_restriction(subclass, v)
-            elif isinstance(v, list) and k == "tags":
+            if isinstance(v, list) and k == "tags":
                 add_tags(subclass, v)
             elif isinstance(v, list) and k == "parents":
                 for parent in v:
@@ -176,9 +177,7 @@ def define_measurable_subclasses(definitions, measurable_class):
         # first level: we are instances of the measurable_class
         G.add((BRICK[subclass], A, measurable_class))
         for k, v in properties.items():
-            if isinstance(v, list) and k == "tagvalues":
-                add_restriction(subclass, v)
-            elif isinstance(v, list) and k == "tags":
+            if isinstance(v, list) and k == "tags":
                 add_tags(subclass, v)
             elif isinstance(v, list) and k == "parents":
                 for parent in v:
@@ -196,9 +195,7 @@ def define_rootclasses(definitions):
         G.add( (BRICK[rootclass], A, OWL.Class) )
         G.add( (BRICK[rootclass], RDFS.subClassOf, BRICK.Class) )
         for k, v in properties.items():
-            if isinstance(v, list) and k == "tagvalues":
-                add_restriction(rootclass, v)
-            elif isinstance(v, list) and k == "tags":
+            if isinstance(v, list) and k == "tags":
                 add_tags(rootclass, v)
             elif isinstance(v, list) and k == "substances":
                 add_class_restriction(rootclass, v)

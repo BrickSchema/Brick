@@ -1,10 +1,10 @@
-#import argparse
 import json
 from collections import defaultdict
 import time
+import brickschema
 
 from tqdm import tqdm
-from rdflib import RDF, OWL, RDFS, Namespace, URIRef, Graph, BNode
+from rdflib import Namespace, URIRef, Graph
 from .util.reasoner import make_readable, reason_owlrl
 
 """
@@ -20,21 +20,11 @@ If the schema is correctly designe, the following properties should be met
 This test is a superset of ``test_inference.py``.
 """
 
-
-#parser = argparse.ArgumentParser()
-#parser.add_argument('--reuse-inference',
-#                    action='store_const',
-#                    default=False,
-#                    const=True,
-#                    dest='reuse_inference',
-#                    help='`True` forces the script to reuse previously inferred schema at `tests/test_hierarchy_inference.ttl`.',
-#                    )
-#args = parser.parse_args()
 inference_file = 'tests/test_hierarchy_inference.ttl'
 
 BRICK_VERSION = '1.1.0'
-BRICK = Namespace("https://brickschema.org/schema/{0}/Brick#".format(BRICK_VERSION))
-TAG = Namespace("https://brickschema.org/schema/{0}/BrickTag#".format(BRICK_VERSION))
+BRICK = Namespace(f"https://brickschema.org/schema/{BRICK_VERSION}/Brick#")
+TAG = Namespace(f"https://brickschema.org/schema/{BRICK_VERSION}/BrickTag#")
 SKOS = Namespace("http://www.w3.org/2004/02/skos/core#")
 entity_postfix = '_0'
 
@@ -42,6 +32,7 @@ q_prefix = """
 prefix brick: <https://brickschema.org/schema/1.1.0/Brick#>
 prefix owl: <http://www.w3.org/2002/07/owl#>
 """
+
 
 def test_hierarchyinference():
 
@@ -56,30 +47,27 @@ def test_hierarchyinference():
 
     # Get all the Classes with their restrictions.
     qstr = q_prefix + """
-    select ?class ?p ?o ?restrictions where {
+    select ?class ?tag where {
       ?class rdfs:subClassOf+ brick:Class.
-      ?class owl:equivalentClass ?restrictions.
-      ?restrictions owl:intersectionOf ?inter.
-      ?inter rdf:rest*/rdf:first ?node.
-      {
-          BIND (brick:hasTag as ?p)
-          ?node owl:onProperty ?p.
-          ?node owl:hasValue ?o.
-      }
+      ?class brick:hasAssociatedTag ?tag
     }
     """
     start_time = time.time()
     for row in tqdm(g.query(qstr)):
         klass = row[0]
         entity = klass + entity_postfix  # Define an entity for the class
-        g.add((entity, row[1], row[2]))  # Associate the entity with restrictions (i.e., Tags)
+        g.add((entity, BRICK.hasTag, row[1]))  # Associate the entity with restrictions (i.e., Tags)
     end_time = time.time()
     print('Instantiation took {0} seconds'.format(int(end_time-start_time)))
 
     # Infer classes of the entities.
     # Apply reasoner
     g.serialize('test.ttl', format='ttl')
-    reason_owlrl(g)
+    tag_sess = brickschema.inference.TagInferenceSession(approximate=False, load_brick=False)
+    owl_sess = brickschema.inference.OWLRLInferenceSession(load_brick=False)
+    # perform tag inference
+    g = tag_sess.expand(g)
+    g = owl_sess.expand(g)
     g.serialize(inference_file, format='turtle')  # Store the inferred graph.
 
 

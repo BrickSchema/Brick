@@ -1,4 +1,5 @@
 import rdflib
+import brickschema
 from rdflib import RDF, OWL, RDFS, Namespace, BNode
 from .util.reasoner import reason_brick, make_readable, reason_owlrl
 
@@ -11,7 +12,8 @@ SOSA = Namespace("http://www.w3.org/ns/sosa#")
 g = rdflib.Graph()
 g.parse('Brick.ttl', format='turtle')
 
-reason_owlrl(g)
+g = brickschema.inference.TagInferenceSession().expand(g)
+g = brickschema.inference.OWLRLInferenceSession().expand(g)
 
 g.bind('rdf', RDF)
 g.bind('owl', OWL)

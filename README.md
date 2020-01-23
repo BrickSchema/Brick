@@ -194,37 +194,6 @@ brick:Air_Temperature_Sensor a owl:Class ;
 Rather than getting lost in the Sisyphean bikeshedding of how to format everything as YAML, we're
 just using Python dictionaries so we don't have to worry about any (well, not that much) parsing logic.
 
-```python
-definitions = {
-    "Lighting_System": {
-        "tagvalues": [   # Lighting_System class is equivalent to the Lighting tag
-            (BRICK.hasTag, TAG.Lighting),
-            # if you have more required tags add them as their own tuple in the list
-        ],
-        # defining subclasses. This can be nested ad-infinitum
-        "subclasses": {
-            "Lighting": {
-                "subclasses": {
-                    "Luminaire": {},
-                    "Luminaire_Driver": {},
-                },
-            },
-            "Interface": {
-                "subclasses": {
-                    "Switch": {
-                        "subclasses": {
-                            "Dimmer": {},
-                        },
-                    },
-                    "Touchpanel": {},
-                },
-            },
-        },
-    }
-}
-define_subclasses(definitions, BRICK.Equipment)
-```
-
 For now, the code is the documentation. Look at `bricksrc/equipment.py`, `bricksrc/point.py`, etc. for examples and how to add to each of the class hierarchies.
 
 ## Other Tools
@@ -238,4 +207,3 @@ It will produce three files inside `history/{current_version}`.
 - `added_classes.txt`: A list of new classes introduced in the current version compared to the previous version.
 - `removed_classes.txt`: A list of old classes removed in the current version compared to the previous version.
 - `possible_mapping.json`: A map of candidate classes that can replace removed classes. Keys are removed classes and the values are candidate correspondants in the new vesion.
-

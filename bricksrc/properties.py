@@ -122,4 +122,19 @@ properties = {
         RDFS.domain: BRICK.Substance,
         RDFS.range: BRICK.Equipment,
     },
+
+    "hasAssociatedTag": {
+        A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+        OWL.inverseOf: "isAssociatedWith",
+        SKOS.definition: Literal("The class is associated with the given tag"),
+        RDFS.domain: OWL.Class,
+        RDFS.range: BRICK.Tag,
+    },
+    "hasAssociatedTag": {
+        A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+        OWL.inverseOf: "hasAssociatedTag",
+        SKOS.definition: Literal("The tag is associated with the given class"),
+        RDFS.domain: BRICK.Tag,
+        RDFS.range: OWL.Class,
+    },
 }
