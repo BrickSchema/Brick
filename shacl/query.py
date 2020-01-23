@@ -25,6 +25,15 @@ data_graph = Graph().parse(args.data, format='turtle')
 
 results_graph = Graph().parse('results_graph.ttl', format='ttl')
 
+namespaceDict = {}
+
+def buildNamespaceDict(g):
+    for (prefix, path) in g.namespaces():
+        assert (prefix not in namespaceDict) or (Namespace(path) == namespaceDict[prefix]), \
+        "Same prefix \'%s\' used for %s and %s" % (prefix, namespaceDict[prefix], path)
+        if prefix not in namespaceDict:
+            namespaceDict[prefix] = Namespace(path)
+
 # streamline (remove @prefix lines) and append to file
 def appendGraphToFile(m, g, f):
     bind_prefixes(g)
@@ -39,10 +48,27 @@ def appendGraphToFile(m, g, f):
             f.write(line)
             firstLine = False
 
+def queryDataGraph(s, p, o):
+    print('SELECT ?s ?p ?o WHERE {%s %s %s .}' %
+          (s if s else '?s',
+           p if p else '?p',
+           o if o else '?o'))
+    q = prepareQuery('SELECT * WHERE {%s %s %s .}' %
+                     (s if s else '?s',
+                      p if p else '?p',
+                      o if o else '?o'),
+                     initNs=namespaceDict
+                     )
+
+    res = data_graph.query(q)
+    assert len(res), 'Must have at lease one triple like \'%s %s %s\'' % (s, p, o)
+    return res
+
 def getViolationPredicateObj(violation, predicate):
-    # print ('SELECT ?s ?p ?o WHERE {?s %s ?o .}' % predicate)
     q = prepareQuery('SELECT ?s ?p ?o WHERE {?s %s ?o .}' % predicate,
-                       initNs=dict(sh=Namespace('http://www.w3.org/ns/shacl#')))
+                     initNs=dict(sh=Namespace('http://www.w3.org/ns/shacl#'),
+                                 brick=Namespace('https://brickschema.org/schema/1.1.0/Brick#'),
+                                 bldg=Namespace("http://example.com/mybuilding#")))
     res = violation.query(q)
     if len(res):
         for (s, p, o) in res:
@@ -57,21 +83,50 @@ def findCulprit(violation):
         g = Graph()
         g.add((focusNode, resultPath, valueNode))
         appendGraphToFile('Offending triple:', g, sys.stdout)
+        return
+
+    sourceShape = getViolationPredicateObj(violation, 'sh:sourceShape')
+    (bsh, shapeName) = sourceShape.split('#')
+    if shapeName.endswith('DomainShape'):
+        path = 'brick:' + shapeName[:-len('DomainShape')]
+        focusNode = getViolationPredicateObj(violation, 'sh:focusNode')
+        (ns, name) = focusNode.split('#')
+        print(ns, name)
+        namespaces = [key  for (key, value) in namespaceDict.items() \
+                      if Namespace(ns+'#') == value]
+        assert len(namespaces), "Must find a prefix for %s" % focusNode
+        res = queryDataGraph('%s:%s' % (namespaces[0], name),
+                             path, None)
+        for o in res:
+            print(name, path, o)
 
 violation_dict = {}
 for (s, p, o) in results_graph:
     if (o not in violation_dict) and (p == SH.result):
-        print(s, p, o)
         violation_dict[o] = Graph()
         bind_prefixes(violation_dict[o])
-        violation_dict[o].bind('bldg', Namespace(f"http://example.com/mybuilding#"))
+        violation_dict[o].bind('bldg', Namespace('http://example.com/mybuilding#'))
 
 for (s, p, o) in results_graph:
     if s in violation_dict:
         violation_dict[s].add((s, p, o))
 
-for (e, f) in results_graph.namespaces():
-    print('namespace', e, f)
+buildNamespaceDict(results_graph)
+buildNamespaceDict(data_graph)
+
+res = data_graph.query(
+    """ SELECT ?s ?p ?o
+    WHERE {
+    bldg:VAV2-4.DPR  brick:measures ?o .
+    }""",
+    initNs=namespaceDict
+#    initNs=dict(bldg=Namespace('http://example.com/mybuilding#'),
+#                brick=Namespace('https://brickschema.org/schema/1.1.0/Brick#'))
+ )
+if len(res):
+    for (s, p, o) in res:
+        print(s, p, o)
+
 
 for k in violation_dict:
     appendGraphToFile('\nConstraint violation:', violation_dict[k], sys.stdout)
