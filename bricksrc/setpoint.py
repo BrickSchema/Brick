@@ -339,54 +339,56 @@ setpoint_definitions = {
                 },
             },
             "Reset_Setpoint": {
-                "Discharge_Air_Flow_Reset_Setpoint": {
-                    SKOS.definition: Literal("Setpoints used in Reset strategies"),
-                    "subclasses": {
-                        "Discharge_Air_Flow_Reset_High_Setpoint": {},
-                        "Discharge_Air_Flow_Reset_Low_Setpoint": {}
-                    }
-                },
-                "Temperature_Differential_Reset_Setpoint": {
-                    "subclasses": {
-                        "Discharge_Air_Temperature_Reset_Differential_Setpoint": {
-                            "subclasses": {
-                                "Discharge_Air_Temperature_Reset_High_Setpoint": {},
-                                "Discharge_Air_Temperature_Reset_Low_Setpoint": {},
-                            }
-                        },
-                        "Supply_Air_Temperature_Reset_Differential_Setpoint": {
-                            "subclasses": {
-                                "Supply_Air_Temperature_Reset_High_Setpoint": {},
-                                "Supply_Air_Temperature_Reset_Low_Setpoint": {},
-                            }
-                        }
-                    }
-                },
-                "Temperature_High_Reset_Setpoint": {
-                    "subclasses": {
-                        "Hot_Water_Supply_Temperature_High_Reset_Setpoint": {
-                            "subclasses": {
-                                "Medium_Temperature_Hot_Water_Discharge_Temperature_High_Reset_Setpoint": {},
-                                "Medium_Temperature_Hot_Water_Supply_Temperature_High_Reset_Setpoint": {}
-                            }
-                        }
-                    }
-                },
-                "Outside_Air_Temperature_High_Reset_Setpoint": {},
-                "Temperature_Low_Reset_Setpoint": {
-                    "subclasses": {
-                        "Hot_Water_Supply_Temperature_Low_Reset_Setpoint": {
-                            "subclasses": {
-                                "Medium_Temperature_Hot_Water_Supply_Temperature_High_Reset_Setpoint": {},
-                                "Medium_Temperature_Hot_Water_Supply_Temperature_Low_Reset_Setpoint": {},
-                                "Medium_Temperature_Hot_Water_Discharge_Temperature_Low_Reset_Setpoint": {},
-                                "Medium_Temperature_Hot_Water_Discharge_Temperature_High_Reset_Setpoint": {},
-                            }
-                        },
-                        "Outside_Air_Temperature_Low_Reset_Setpoint": {}
-                    }
-                },
                 "tags": [TAG.Reset, TAG.Setpoint],
+                "subclasses": {
+                    "Discharge_Air_Flow_Reset_Setpoint": {
+                        SKOS.definition: Literal("Setpoints used in Reset strategies"),
+                        "subclasses": {
+                            "Discharge_Air_Flow_Reset_High_Setpoint": {},
+                            "Discharge_Air_Flow_Reset_Low_Setpoint": {}
+                        }
+                    },
+                    "Temperature_Differential_Reset_Setpoint": {
+                        "subclasses": {
+                            "Discharge_Air_Temperature_Reset_Differential_Setpoint": {
+                                "subclasses": {
+                                    "Discharge_Air_Temperature_Reset_High_Setpoint": {},
+                                    "Discharge_Air_Temperature_Reset_Low_Setpoint": {},
+                                }
+                            },
+                            "Supply_Air_Temperature_Reset_Differential_Setpoint": {
+                                "subclasses": {
+                                    "Supply_Air_Temperature_Reset_High_Setpoint": {},
+                                    "Supply_Air_Temperature_Reset_Low_Setpoint": {},
+                                }
+                            }
+                        }
+                    },
+                    "Temperature_High_Reset_Setpoint": {
+                        "subclasses": {
+                            "Hot_Water_Supply_Temperature_High_Reset_Setpoint": {
+                                "subclasses": {
+                                    "Medium_Temperature_Hot_Water_Discharge_Temperature_High_Reset_Setpoint": {},
+                                    "Medium_Temperature_Hot_Water_Supply_Temperature_High_Reset_Setpoint": {}
+                                }
+                            }
+                        }
+                    },
+                    "Outside_Air_Temperature_High_Reset_Setpoint": {},
+                    "Temperature_Low_Reset_Setpoint": {
+                        "subclasses": {
+                            "Hot_Water_Supply_Temperature_Low_Reset_Setpoint": {
+                                "subclasses": {
+                                    "Medium_Temperature_Hot_Water_Supply_Temperature_High_Reset_Setpoint": {},
+                                    "Medium_Temperature_Hot_Water_Supply_Temperature_Low_Reset_Setpoint": {},
+                                    "Medium_Temperature_Hot_Water_Discharge_Temperature_Low_Reset_Setpoint": {},
+                                    "Medium_Temperature_Hot_Water_Discharge_Temperature_High_Reset_Setpoint": {},
+                                }
+                            },
+                            "Outside_Air_Temperature_Low_Reset_Setpoint": {}
+                        }
+                    },
+                }
             },
             "Speed_Setpoint": {
                 "tags": [TAG.Speed, TAG.Setpoint],
@@ -544,7 +546,18 @@ setpoint_definitions = {
                     }
                 },
                 "tags": [TAG.CO2, TAG.Setpoint],
-            }
+            },
+            "Time_Setpoint": {
+                "tags": [TAG.Time, TAG.Setpoint],
+                "subclasses": {
+                    "Deceleration_Time_Setpoint": {
+                        "tags": [TAG.Time, TAG.Setpoint, TAG.Deceleration],
+                    },
+                    "Acceleration_Time_Setpoint": {
+                        "tags": [TAG.Time, TAG.Setpoint, TAG.Acceleration],
+                    },
+                },
+            },
         }
     }
 }

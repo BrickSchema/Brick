@@ -185,9 +185,6 @@ parameter_definitions = {
                                     }
                                 },
                             },
-                            "Deceleration_Time_Parameter": {
-                                "tags": [TAG.Parameter, TAG.Time, TAG.Deceleration],
-                            },
                             "Derivative_Time_Parameter": {
                                 "tags": [TAG.Parameter, TAG.PID, TAG.Time, TAG.Derivative],
                             },
@@ -347,14 +344,14 @@ parameter_definitions = {
                         "tags": [TAG.Current, TAG.Limit, TAG.Parameter],
                     },
                     "Position_Limit": {
-                        "tags": [TAG.Damper, TAG.Position, TAG.Limit],
+                        "tags": [TAG.Position, TAG.Limit],
                         "subclasses": {
                             "Max_Position_Setpoint_Limit": {
-                                "tags": [TAG.Max, TAG.Damper, TAG.Position, TAG.Limit, TAG.Setpoint],
+                                "tags": [TAG.Max, TAG.Position, TAG.Limit, TAG.Setpoint],
                                 "parents": [BRICK.Max_Limit],
                             },
                             "Min_Position_Setpoint_Limit": {
-                                "tags": [TAG.Min, TAG.Damper, TAG.Position, TAG.Limit, TAG.Setpoint],
+                                "tags": [TAG.Min, TAG.Position, TAG.Limit, TAG.Setpoint],
                                 "parents": [BRICK.Min_Limit],
                             },
                         },
