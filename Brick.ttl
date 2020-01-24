@@ -883,7 +883,6 @@ brick:Discharge_Air_Duct_Pressure_Status a owl:Class ;
 brick:Discharge_Air_Flow_Demand_Setpoint a owl:Class ;
     rdfs:label "Discharge Air Flow Demand Setpoint" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Discharge _:has_Air _:has_Flow _:has_Demand _:has_Setpoint ) ],
-        [ owl:intersectionOf ( _:has_Discharge _:has_Air _:has_Flow _:has_Demand _:has_Setpoint ) ],
         brick:Air_Flow_Demand_Setpoint,
         brick:Discharge_Air_Flow_Setpoint ;
     brick:hasAssociatedTag tag:Air,
@@ -2421,7 +2420,6 @@ brick:Manual_Auto_Status a owl:Class ;
 brick:Max_Chilled_Water_Differential_Pressure_Setpoint_Limit a owl:Class ;
     rdfs:label "Max Chilled Water Differential Pressure Setpoint Limit" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Max _:has_Chilled _:has_Water _:has_Differential _:has_Pressure _:has_Limit _:has_Parameter _:has_Setpoint ) ],
-        [ owl:intersectionOf ( _:has_Max _:has_Chilled _:has_Water _:has_Differential _:has_Pressure _:has_Limit _:has_Parameter _:has_Setpoint ) ],
         brick:Differential_Pressure_Setpoint_Limit,
         brick:Max_Limit ;
     brick:hasAssociatedTag tag:Chilled,
@@ -2436,7 +2434,6 @@ brick:Max_Chilled_Water_Differential_Pressure_Setpoint_Limit a owl:Class ;
 brick:Max_Discharge_Air_Static_Pressure_Setpoint_Limit a owl:Class ;
     rdfs:label "Max Discharge Air Static Pressure Setpoint Limit" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Max _:has_Discharge _:has_Air _:has_Static _:has_Pressure _:has_Limit _:has_Parameter _:has_Setpoint ) ],
-        [ owl:intersectionOf ( _:has_Max _:has_Discharge _:has_Air _:has_Static _:has_Pressure _:has_Limit _:has_Parameter _:has_Setpoint ) ],
         brick:Max_Limit,
         brick:Max_Static_Pressure_Setpoint_Limit ;
     brick:hasAssociatedTag tag:Air,
@@ -2471,7 +2468,6 @@ brick:Max_Frequency_Command a owl:Class ;
 brick:Max_Hot_Water_Differential_Pressure_Setpoint_Limit a owl:Class ;
     rdfs:label "Max Hot Water Differential Pressure Setpoint Limit" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Max _:has_Hot _:has_Water _:has_Differential _:has_Pressure _:has_Limit _:has_Parameter _:has_Setpoint ) ],
-        [ owl:intersectionOf ( _:has_Max _:has_Hot _:has_Water _:has_Differential _:has_Pressure _:has_Limit _:has_Parameter _:has_Setpoint ) ],
         brick:Differential_Pressure_Setpoint_Limit,
         brick:Max_Limit ;
     brick:hasAssociatedTag tag:Differential,
@@ -2572,7 +2568,6 @@ brick:Max_Return_Air_CO2_Setpoint a owl:Class ;
 brick:Max_Speed_Setpoint_Limit a owl:Class ;
     rdfs:label "Max Speed Setpoint Limit" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Max _:has_Speed _:has_Limit _:has_Parameter _:has_Setpoint ) ],
-        [ owl:intersectionOf ( _:has_Max _:has_Speed _:has_Limit _:has_Parameter _:has_Setpoint ) ],
         brick:Max_Limit,
         brick:Speed_Setpoint_Limit ;
     brick:hasAssociatedTag tag:Limit,
@@ -2584,7 +2579,6 @@ brick:Max_Speed_Setpoint_Limit a owl:Class ;
 brick:Max_Supply_Air_Static_Pressure_Setpoint_Limit a owl:Class ;
     rdfs:label "Max Supply Air Static Pressure Setpoint Limit" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Max _:has_Supply _:has_Air _:has_Static _:has_Pressure _:has_Limit _:has_Parameter _:has_Setpoint ) ],
-        [ owl:intersectionOf ( _:has_Max _:has_Supply _:has_Air _:has_Static _:has_Pressure _:has_Limit _:has_Parameter _:has_Setpoint ) ],
         brick:Max_Limit,
         brick:Max_Static_Pressure_Setpoint_Limit ;
     brick:hasAssociatedTag tag:Air,
@@ -2692,7 +2686,6 @@ brick:Medium_Temperature_Hot_Water_Supply_Temperature_Sensor a owl:Class ;
 brick:Min_Chilled_Water_Differential_Pressure_Setpoint_Limit a owl:Class ;
     rdfs:label "Min Chilled Water Differential Pressure Setpoint Limit" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Min _:has_Chilled _:has_Water _:has_Differential _:has_Pressure _:has_Limit _:has_Parameter _:has_Setpoint ) ],
-        [ owl:intersectionOf ( _:has_Min _:has_Chilled _:has_Water _:has_Differential _:has_Pressure _:has_Limit _:has_Parameter _:has_Setpoint ) ],
         brick:Differential_Pressure_Setpoint_Limit,
         brick:Min_Limit ;
     brick:hasAssociatedTag tag:Chilled,
@@ -2707,7 +2700,6 @@ brick:Min_Chilled_Water_Differential_Pressure_Setpoint_Limit a owl:Class ;
 brick:Min_Discharge_Air_Static_Pressure_Setpoint_Limit a owl:Class ;
     rdfs:label "Min Discharge Air Static Pressure Setpoint Limit" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Min _:has_Discharge _:has_Air _:has_Static _:has_Pressure _:has_Limit _:has_Parameter _:has_Setpoint ) ],
-        [ owl:intersectionOf ( _:has_Min _:has_Discharge _:has_Air _:has_Static _:has_Pressure _:has_Limit _:has_Parameter _:has_Setpoint ) ],
         brick:Min_Limit,
         brick:Min_Static_Pressure_Setpoint_Limit ;
     brick:hasAssociatedTag tag:Air,
@@ -2745,7 +2737,6 @@ brick:Min_Fresh_Air_Setpoint_Limit a owl:Class ;
 brick:Min_Hot_Water_Differential_Pressure_Setpoint_Limit a owl:Class ;
     rdfs:label "Min Hot Water Differential Pressure Setpoint Limit" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Min _:has_Hot _:has_Water _:has_Differential _:has_Pressure _:has_Limit _:has_Parameter _:has_Setpoint ) ],
-        [ owl:intersectionOf ( _:has_Min _:has_Hot _:has_Water _:has_Differential _:has_Pressure _:has_Limit _:has_Parameter _:has_Setpoint ) ],
         brick:Differential_Pressure_Setpoint_Limit,
         brick:Min_Limit ;
     brick:hasAssociatedTag tag:Differential,
@@ -2839,7 +2830,6 @@ brick:Min_Position_Setpoint_Limit a owl:Class ;
 brick:Min_Speed_Setpoint_Limit a owl:Class ;
     rdfs:label "Min Speed Setpoint Limit" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Min _:has_Speed _:has_Limit _:has_Parameter _:has_Setpoint ) ],
-        [ owl:intersectionOf ( _:has_Min _:has_Speed _:has_Limit _:has_Parameter _:has_Setpoint ) ],
         brick:Min_Limit,
         brick:Speed_Setpoint_Limit ;
     brick:hasAssociatedTag tag:Limit,
@@ -2851,7 +2841,6 @@ brick:Min_Speed_Setpoint_Limit a owl:Class ;
 brick:Min_Supply_Air_Static_Pressure_Setpoint_Limit a owl:Class ;
     rdfs:label "Min Supply Air Static Pressure Setpoint Limit" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Min _:has_Supply _:has_Air _:has_Static _:has_Pressure _:has_Limit _:has_Parameter _:has_Setpoint ) ],
-        [ owl:intersectionOf ( _:has_Min _:has_Supply _:has_Air _:has_Static _:has_Pressure _:has_Limit _:has_Parameter _:has_Setpoint ) ],
         brick:Min_Limit,
         brick:Min_Static_Pressure_Setpoint_Limit ;
     brick:hasAssociatedTag tag:Air,
@@ -3300,9 +3289,6 @@ brick:PIR_Sensor a owl:Class ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Sensor [ a owl:Restriction ;
                         owl:hasValue tag:PIR ;
                         owl:onProperty brick:hasTag ] ) ],
-        [ owl:intersectionOf ( [ a owl:Restriction ;
-                        owl:hasValue tag:Pir ;
-                        owl:onProperty brick:hasTag ] _:has_Sensor ) ],
         brick:Motion_Sensor,
         brick:Occupancy_Sensor ;
     brick:hasAssociatedTag tag:PIR,
@@ -3413,7 +3399,6 @@ brick:Pump_Start_Stop_Status a owl:Class ;
 brick:Rain_Duration_Sensor a owl:Class ;
     rdfs:label "Rain Duration Sensor" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Sensor _:has_Rain _:has_Duration ) ],
-        [ owl:intersectionOf ( _:has_Rain _:has_Duration _:has_Sensor ) ],
         brick:Duration_Sensor,
         brick:Rain_Sensor ;
     brick:hasAssociatedTag tag:Duration,
@@ -3835,7 +3820,6 @@ brick:Supply_Air_Duct_Pressure_Status a owl:Class ;
 brick:Supply_Air_Flow_Demand_Setpoint a owl:Class ;
     rdfs:label "Supply Air Flow Demand Setpoint" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Supply _:has_Air _:has_Flow _:has_Demand _:has_Setpoint ) ],
-        [ owl:intersectionOf ( _:has_Supply _:has_Air _:has_Flow _:has_Demand _:has_Setpoint ) ],
         brick:Air_Flow_Demand_Setpoint,
         brick:Supply_Air_Flow_Setpoint ;
     brick:hasAssociatedTag tag:Air,
@@ -3980,7 +3964,6 @@ brick:Supply_Fan_Differential_Speed_Setpoint a owl:Class ;
 brick:Supply_Water_Differential_Pressure_Integral_Time_Parameter a owl:Class ;
     rdfs:label "Supply Water Differential Pressure Integral Time Parameter" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Supply _:has_Water _:has_Differential _:has_Pressure _:has_Integral _:has_Time _:has_Parameter _:has_PID ) ],
-        [ owl:intersectionOf ( _:has_Supply _:has_Water _:has_Differential _:has_Pressure _:has_Integral _:has_Time _:has_Parameter _:has_PID ) ],
         brick:Differential_Pressure_Integral_Time_Parameter,
         brick:Integral_Time_Parameter ;
     brick:hasAssociatedTag tag:Differential,
@@ -4740,8 +4723,6 @@ brick:Discharge_Water_Differential_Pressure_Deadband_Setpoint a owl:Class ;
 brick:Discharge_Water_Differential_Pressure_Proportional_Band_Parameter a owl:Class ;
     rdfs:label "Discharge Water Differential Pressure Proportional Band Parameter" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Discharge _:has_Water _:has_Differential _:has_Pressure _:has_Proportional _:has_Band _:has_Parameter _:has_PID ) ],
-        [ owl:intersectionOf ( _:has_Discharge _:has_Water _:has_Differential _:has_Pressure _:has_Proportional _:has_Band _:has_Parameter _:has_PID ) ],
-        [ owl:intersectionOf ( _:has_Discharge _:has_Water _:has_Differential _:has_Pressure _:has_Proportional _:has_Band _:has_Parameter _:has_PID ) ],
         brick:Differential_Pressure_Proportional_Band,
         brick:Discharge_Water_Differential_Pressure_Proportional_Band_Parameter,
         brick:Supply_Water_Differential_Pressure_Proportional_Band_Parameter ;
@@ -5747,10 +5728,10 @@ brick:controls a owl:AsymmetricProperty,
 brick:hasAssociatedTag a owl:AsymmetricProperty,
         owl:IrreflexiveProperty,
         owl:ObjectProperty ;
-    rdfs:domain brick:Tag ;
-    rdfs:range owl:Class ;
-    owl:inverseOf brick:hasAssociatedTag ;
-    skos:definition "The tag is associated with the given class" .
+    rdfs:domain owl:Class ;
+    rdfs:range brick:Tag ;
+    owl:inverseOf brick:isAssociatedWith ;
+    skos:definition "The class is associated with the given tag" .
 
 brick:hasLocation a owl:AsymmetricProperty,
         owl:IrreflexiveProperty,
@@ -5771,6 +5752,14 @@ brick:hasPoint a owl:AsymmetricProperty,
     rdfs:range brick:Point ;
     owl:inverseOf brick:isPointOf ;
     skos:definition "The subject has a digital/analog input/output point given by the object" .
+
+brick:isAssociatedWith a owl:AsymmetricProperty,
+        owl:IrreflexiveProperty,
+        owl:ObjectProperty ;
+    rdfs:domain brick:Tag ;
+    rdfs:range owl:Class ;
+    owl:inverseOf brick:hasAssociatedTag ;
+    skos:definition "The tag is associated with the given class" .
 
 brick:isControlledBy a owl:AsymmetricProperty,
         owl:IrreflexiveProperty,
@@ -5849,7 +5838,6 @@ brick:Air_Enthalpy_Sensor a owl:Class ;
 brick:Air_Flow_Demand_Setpoint a owl:Class ;
     rdfs:label "Air Flow Demand Setpoint" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Air _:has_Flow _:has_Demand _:has_Setpoint ) ],
-        [ owl:intersectionOf ( _:has_Air _:has_Flow _:has_Demand _:has_Setpoint ) ],
         brick:Air_Flow_Setpoint,
         brick:Demand_Setpoint ;
     brick:hasAssociatedTag tag:Air,
@@ -6235,7 +6223,6 @@ brick:Max_Heating_Supply_Air_Flow_Setpoint_Limit a owl:Class ;
 brick:Max_Static_Pressure_Setpoint_Limit a owl:Class ;
     rdfs:label "Max Static Pressure Setpoint Limit" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Max _:has_Static _:has_Pressure _:has_Limit _:has_Parameter _:has_Setpoint ) ],
-        [ owl:intersectionOf ( _:has_Max _:has_Static _:has_Pressure _:has_Limit _:has_Parameter _:has_Setpoint ) ],
         brick:Max_Limit,
         brick:Static_Pressure_Setpoint_Limit ;
     brick:hasAssociatedTag tag:Limit,
@@ -6300,7 +6287,6 @@ brick:Min_Heating_Supply_Air_Flow_Setpoint_Limit a owl:Class ;
 brick:Min_Static_Pressure_Setpoint_Limit a owl:Class ;
     rdfs:label "Min Static Pressure Setpoint Limit" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Min _:has_Static _:has_Pressure _:has_Limit _:has_Parameter _:has_Setpoint ) ],
-        [ owl:intersectionOf ( _:has_Min _:has_Static _:has_Pressure _:has_Limit _:has_Parameter _:has_Setpoint ) ],
         brick:Min_Limit,
         brick:Static_Pressure_Setpoint_Limit ;
     brick:hasAssociatedTag tag:Limit,
@@ -6556,8 +6542,7 @@ brick:Supply_Hot_Water a owl:Class,
         brick:Supply_Hot_Water,
         brick:Supply_Water ;
     rdfs:label "Supply Hot Water" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Fluid _:has_Liquid _:has_Water _:has_Hot _:has_Supply ) ],
-        [ owl:intersectionOf ( _:has_Fluid _:has_Liquid _:has_Water _:has_Hot _:has_Supply ) ] ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Fluid _:has_Liquid _:has_Water _:has_Hot _:has_Supply ) ] ;
     brick:hasAssociatedTag tag:Fluid,
         tag:Hot,
         tag:Liquid,
@@ -7242,7 +7227,6 @@ brick:Supply_Chilled_Water a owl:Class,
         brick:Supply_Water ;
     rdfs:label "Supply Chilled Water" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Fluid _:has_Liquid _:has_Water _:has_Chilled _:has_Supply ) ],
-        [ owl:intersectionOf ( _:has_Fluid _:has_Liquid _:has_Water _:has_Chilled _:has_Supply ) ],
         brick:Supply_Water ;
     brick:hasAssociatedTag tag:Chilled,
         tag:Fluid,
@@ -7625,7 +7609,6 @@ brick:Luminance a owl:Class,
 brick:Max_Air_Flow_Setpoint_Limit a owl:Class ;
     rdfs:label "Max Air Flow Setpoint Limit" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Max _:has_Air _:has_Flow _:has_Limit _:has_Parameter _:has_Setpoint ) ],
-        [ owl:intersectionOf ( _:has_Max _:has_Air _:has_Flow _:has_Limit _:has_Parameter _:has_Setpoint ) ],
         brick:Air_Flow_Setpoint_Limit,
         brick:Max_Limit ;
     brick:hasAssociatedTag tag:Air,
@@ -7845,7 +7828,6 @@ brick:Liquid a owl:Class,
 brick:Min_Air_Flow_Setpoint_Limit a owl:Class ;
     rdfs:label "Min Air Flow Setpoint Limit" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Min _:has_Air _:has_Flow _:has_Limit _:has_Parameter _:has_Setpoint ) ],
-        [ owl:intersectionOf ( _:has_Min _:has_Air _:has_Flow _:has_Limit _:has_Parameter _:has_Setpoint ) ],
         brick:Air_Flow_Setpoint_Limit,
         brick:Min_Limit ;
     brick:hasAssociatedTag tag:Air,
@@ -8610,6 +8592,10 @@ brick:Tag a owl:AllDifferent,
         owl:Class ;
     owl:distinctMembers ( tag:Coil tag:Valve tag:Heat tag:Cool tag:Equipment tag:Location tag:Point tag:Lighting tag:HVAC tag:Air tag:Steam tag:Ice tag:Chilled ) .
 
+[] a owl:Restriction ;
+    owl:hasValue tag:Pir ;
+    owl:onProperty brick:hasTag .
+
 _:has_AHU a owl:Restriction ;
     owl:hasValue tag:AHU ;
     owl:onProperty brick:hasTag .
@@ -8648,6 +8634,10 @@ _:has_Derivative a owl:Restriction ;
 
 _:has_Duct a owl:Restriction ;
     owl:hasValue tag:Duct ;
+    owl:onProperty brick:hasTag .
+
+_:has_Duration a owl:Restriction ;
+    owl:hasValue tag:Duration ;
     owl:onProperty brick:hasTag .
 
 _:has_Exchanger a owl:Restriction ;
@@ -8730,6 +8720,10 @@ _:has_Percent a owl:Restriction ;
     owl:hasValue tag:Percent ;
     owl:onProperty brick:hasTag .
 
+_:has_Rain a owl:Restriction ;
+    owl:hasValue tag:Rain ;
+    owl:onProperty brick:hasTag .
+
 _:has_Torque a owl:Restriction ;
     owl:hasValue tag:Torque ;
     owl:onProperty brick:hasTag .
@@ -8758,10 +8752,6 @@ _:has_Detected a owl:Restriction ;
     owl:hasValue tag:Detected ;
     owl:onProperty brick:hasTag .
 
-_:has_Duration a owl:Restriction ;
-    owl:hasValue tag:Duration ;
-    owl:onProperty brick:hasTag .
-
 _:has_Effective a owl:Restriction ;
     owl:hasValue tag:Effective ;
     owl:onProperty brick:hasTag .
@@ -8788,10 +8778,6 @@ _:has_Overridden a owl:Restriction ;
 
 _:has_Pump a owl:Restriction ;
     owl:hasValue tag:Pump ;
-    owl:onProperty brick:hasTag .
-
-_:has_Rain a owl:Restriction ;
-    owl:hasValue tag:Rain ;
     owl:onProperty brick:hasTag .
 
 _:has_Shutdown a owl:Restriction ;
@@ -8958,6 +8944,10 @@ _:has_Usage a owl:Restriction ;
     owl:hasValue tag:Usage ;
     owl:onProperty brick:hasTag .
 
+_:has_Demand a owl:Restriction ;
+    owl:hasValue tag:Demand ;
+    owl:onProperty brick:hasTag .
+
 _:has_Low a owl:Restriction ;
     owl:hasValue tag:Low ;
     owl:onProperty brick:hasTag .
@@ -8992,10 +8982,6 @@ _:has_Mode a owl:Restriction ;
 
 _:has_Step a owl:Restriction ;
     owl:hasValue tag:Step ;
-    owl:onProperty brick:hasTag .
-
-_:has_Demand a owl:Restriction ;
-    owl:hasValue tag:Demand ;
     owl:onProperty brick:hasTag .
 
 _:has_Shed a owl:Restriction ;
@@ -9038,6 +9024,10 @@ _:has_On a owl:Restriction ;
     owl:hasValue tag:On ;
     owl:onProperty brick:hasTag .
 
+_:has_Speed a owl:Restriction ;
+    owl:hasValue tag:Speed ;
+    owl:onProperty brick:hasTag .
+
 _:has_Fan a owl:Restriction ;
     owl:hasValue tag:Fan ;
     owl:onProperty brick:hasTag .
@@ -9048,10 +9038,6 @@ _:has_Gas a owl:Restriction ;
 
 _:has_Load a owl:Restriction ;
     owl:hasValue tag:Load ;
-    owl:onProperty brick:hasTag .
-
-_:has_Speed a owl:Restriction ;
-    owl:hasValue tag:Speed ;
     owl:onProperty brick:hasTag .
 
 _:has_Humidity a owl:Restriction ;
@@ -9070,56 +9056,56 @@ _:has_Integral a owl:Restriction ;
     owl:hasValue tag:Integral ;
     owl:onProperty brick:hasTag .
 
+_:has_Band a owl:Restriction ;
+    owl:hasValue tag:Band ;
+    owl:onProperty brick:hasTag .
+
 _:has_Return a owl:Restriction ;
     owl:hasValue tag:Return ;
-    owl:onProperty brick:hasTag .
-
-_:has_Exhaust a owl:Restriction ;
-    owl:hasValue tag:Exhaust ;
-    owl:onProperty brick:hasTag .
-
-_:has_Outside a owl:Restriction ;
-    owl:hasValue tag:Outside ;
     owl:onProperty brick:hasTag .
 
 _:has_Time a owl:Restriction ;
     owl:hasValue tag:Time ;
     owl:onProperty brick:hasTag .
 
-_:has_Band a owl:Restriction ;
-    owl:hasValue tag:Band ;
-    owl:onProperty brick:hasTag .
-
-_:has_Deadband a owl:Restriction ;
-    owl:hasValue tag:Deadband ;
+_:has_Exhaust a owl:Restriction ;
+    owl:hasValue tag:Exhaust ;
     owl:onProperty brick:hasTag .
 
 _:has_Liquid a owl:Restriction ;
     owl:hasValue tag:Liquid ;
     owl:onProperty brick:hasTag .
 
+_:has_Outside a owl:Restriction ;
+    owl:hasValue tag:Outside ;
+    owl:onProperty brick:hasTag .
+
 _:has_Proportional a owl:Restriction ;
     owl:hasValue tag:Proportional ;
     owl:onProperty brick:hasTag .
 
-_:has_Chilled a owl:Restriction ;
-    owl:hasValue tag:Chilled ;
-    owl:onProperty brick:hasTag .
-
-_:has_Cooling a owl:Restriction ;
-    owl:hasValue tag:Cooling ;
+_:has_Deadband a owl:Restriction ;
+    owl:hasValue tag:Deadband ;
     owl:onProperty brick:hasTag .
 
 _:has_Min a owl:Restriction ;
     owl:hasValue tag:Min ;
     owl:onProperty brick:hasTag .
 
-_:has_Hot a owl:Restriction ;
-    owl:hasValue tag:Hot ;
+_:has_Chilled a owl:Restriction ;
+    owl:hasValue tag:Chilled ;
     owl:onProperty brick:hasTag .
 
 _:has_Max a owl:Restriction ;
     owl:hasValue tag:Max ;
+    owl:onProperty brick:hasTag .
+
+_:has_Hot a owl:Restriction ;
+    owl:hasValue tag:Hot ;
+    owl:onProperty brick:hasTag .
+
+_:has_Cooling a owl:Restriction ;
+    owl:hasValue tag:Cooling ;
     owl:onProperty brick:hasTag .
 
 _:has_Heating a owl:Restriction ;
@@ -9138,12 +9124,12 @@ _:has_Command a owl:Restriction ;
     owl:hasValue tag:Command ;
     owl:onProperty brick:hasTag .
 
-_:has_Equipment a owl:Restriction ;
-    owl:hasValue tag:Equipment ;
-    owl:onProperty brick:hasTag .
-
 _:has_PID a owl:Restriction ;
     owl:hasValue tag:PID ;
+    owl:onProperty brick:hasTag .
+
+_:has_Equipment a owl:Restriction ;
+    owl:hasValue tag:Equipment ;
     owl:onProperty brick:hasTag .
 
 _:has_Alarm a owl:Restriction ;
@@ -9154,16 +9140,16 @@ _:has_Differential a owl:Restriction ;
     owl:hasValue tag:Differential ;
     owl:onProperty brick:hasTag .
 
-_:has_Status a owl:Restriction ;
-    owl:hasValue tag:Status ;
+_:has_Limit a owl:Restriction ;
+    owl:hasValue tag:Limit ;
     owl:onProperty brick:hasTag .
 
 _:has_Discharge a owl:Restriction ;
     owl:hasValue tag:Discharge ;
     owl:onProperty brick:hasTag .
 
-_:has_Limit a owl:Restriction ;
-    owl:hasValue tag:Limit ;
+_:has_Status a owl:Restriction ;
+    owl:hasValue tag:Status ;
     owl:onProperty brick:hasTag .
 
 _:has_Supply a owl:Restriction ;
@@ -9182,12 +9168,12 @@ _:has_Water a owl:Restriction ;
     owl:hasValue tag:Water ;
     owl:onProperty brick:hasTag .
 
-_:has_Temperature a owl:Restriction ;
-    owl:hasValue tag:Temperature ;
-    owl:onProperty brick:hasTag .
-
 _:has_Parameter a owl:Restriction ;
     owl:hasValue tag:Parameter ;
+    owl:onProperty brick:hasTag .
+
+_:has_Temperature a owl:Restriction ;
+    owl:hasValue tag:Temperature ;
     owl:onProperty brick:hasTag .
 
 _:has_Sensor a owl:Restriction ;

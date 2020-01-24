@@ -77,14 +77,15 @@ def add_tags(klass, definition):
     tagset = tuple(sorted([item.split('#')[-1] for item in definition]))
     tag_lookup[tagset].add(klass)
 
+    # if we've already mapped this class, don't map it again
+    if klass in intersection_classes:
+        return
     if len(all_restrictions) == 1:
         G.add( (BRICK[klass], RDFS.subClassOf, all_restrictions[0]) )
     if len(all_restrictions) > 1:
         G.add( (BRICK[klass], RDFS.subClassOf, equivalent_class) )
         G.add( (equivalent_class, OWL.intersectionOf, list_name) )
         Collection(G, list_name, all_restrictions)
-    if klass in intersection_classes:
-        print(f"{klass} already mapped? {intersection_classes[klass]}")
     intersection_classes[klass] = tuple(sorted(definition))
 
 def lookup_tagset(s):
