@@ -3,6 +3,7 @@ Set of tests to demonstrate use of Brick *without* the use of a reasoner
 """
 
 import rdflib
+import brickschema
 from rdflib import RDF, RDFS, OWL, Namespace
 
 BRICK_VERSION = '1.1.0'
@@ -60,8 +61,7 @@ g.add( (BLDG.Zone1, BRICK.hasPart, BLDG.Room2) )
 g.add( (BLDG.TS1, BRICK.hasLocation, BLDG.Room1) )
 
 # lets us use both relationships
-from util.reasoner import reason_inverse_edges
-reason_inverse_edges(g)
+g = brickschema.inference.InverseEdgeInferenceSession(load_brick=False).expand(g)
 
 def make_readable(res):
     return [[uri.split('#')[-1] for uri in row] for row in res]
