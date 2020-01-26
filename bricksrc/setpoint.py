@@ -40,8 +40,11 @@ setpoint_definitions = {
                 "tags": [TAG.Damper, TAG.Position, TAG.Setpoint],
             },
             "Deadband_Setpoint": {
+                "tags": [TAG.Deadband, TAG.Setpoint],
                 "subclasses": {
                     "Differential_Pressure_Deadband_Setpoint": {
+                        "tags": [TAG.Differential, TAG.Pressure, TAG.Deadband, TAG.Setpoint],
+                        "parents": [BRICK.Differential_Pressure_Setpoint],
                         "subclasses": {
                             "Hot_Water_Differential_Pressure_Deadband_Setpoint": {
                                 "tags": [TAG.Hot, TAG.Water, TAG.Differential, TAG.Pressure, TAG.Deadband, TAG.Setpoint],
@@ -73,8 +76,6 @@ setpoint_definitions = {
                                 "tags": [TAG.Supply, TAG.Water, TAG.Differential, TAG.Pressure, TAG.Deadband, TAG.Setpoint],
                             },
                         },
-                        "tags": [TAG.Differential, TAG.Pressure, TAG.Deadband, TAG.Setpoint],
-                        "parents": [BRICK.Differential_Pressure_Setpoint],
                     },
                     "Temperature_Deadband_Setpoint": {
                         "subclasses": {
@@ -147,7 +148,6 @@ setpoint_definitions = {
                         },
                     },
                 },
-                "tags": [TAG.Deadband, TAG.Setpoint],
             },
             "Flow_Setpoint": {
                 "tags": [TAG.Flow, TAG.Setpoint],

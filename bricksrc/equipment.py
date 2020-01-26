@@ -16,6 +16,9 @@ equipment_subclasses = {
     },
     "Electrical_System": {
         "subclasses": {
+            "Emergency_Power_Off_System": {
+                "tags": [TAG.Emergency, TAG.Power, TAG.Off, TAG.Equipment],
+            },
             "Energy_Storage": {
                 "tags": [TAG.Energy, TAG.Storage, TAG.Equipment],
                 "subclasses": {
@@ -72,6 +75,7 @@ equipment_subclasses = {
         },
     },
     "Water_System": {
+        "tags": [TAG.Water, TAG.Equipment],
         "subclasses": {
             "Chilled_Water_System": {
                 OWL.equivalentClass: "CWS",
@@ -275,7 +279,7 @@ hvac_subclasses = {
     },
     "Coil": {
         SKOS.definition: Literal("Exchanger that transfers heat from an exhaust airstream to a separated supply airstream."),
-                "tags": [TAG.Equipment, TAG.Coil],
+        "tags": [TAG.Equipment, TAG.Coil],
         "subclasses": {
             "Cooling_Coil": {
                 "tags": [TAG.Equipment, TAG.Coil, TAG.Cool],

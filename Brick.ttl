@@ -3369,11 +3369,11 @@ brick:Piezoelectric_Sensor a owl:Class ;
 brick:PlugStrip a owl:Class ;
     rdfs:label "PlugStrip" ;
     rdfs:subClassOf [ owl:intersectionOf ( [ a owl:Restriction ;
-                        owl:hasValue tag:Plugstrip ;
+                        owl:hasValue tag:PlugStrip ;
                         owl:onProperty brick:hasTag ] _:has_Equipment ) ],
         brick:Electrical_System ;
     brick:hasAssociatedTag tag:Equipment,
-        tag:Plugstrip .
+        tag:PlugStrip .
 
 brick:Pre_Filter_Status a owl:Class ;
     rdfs:label "Pre Filter Status" ;
@@ -6922,8 +6922,8 @@ tag:Piezoelectric a brick:Tag ;
 tag:Pir a brick:Tag ;
     rdfs:label "Pir" .
 
-tag:Plugstrip a brick:Tag ;
-    rdfs:label "Plugstrip" .
+tag:PlugStrip a brick:Tag ;
+    rdfs:label "PlugStrip" .
 
 tag:Pre a brick:Tag ;
     rdfs:label "Pre" .
