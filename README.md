@@ -113,13 +113,14 @@ This may be something that needs to be explicitly specified rather than inferred
 - Sets of tags have a 1-1 mapping with a class name
 - definitions given using the `skos:definition` property
 
-This is accomplished by declaring a Brick class (e.g. `Air_Temperature_Sensor`) as equivalent to an anonymous class, which is an `owl:Restriction` that is the intersection of entities that have certain tags.
+The equivalency of a class to a set of tags is accomplished by modeling a Brick class (e.g. `Air_Temperature_Sensor`) a subclass of an anonymous class which is the intersection of entities that have the
+required tags. If we instantiate a class directly, an OWL reasoner will infer the correct tags for that entity
 
 ```
 # in turtle format
 brick:Temperature_Sensor a owl:Class ;
     rdfs:subClassOf brick:Sensor ;
-    owl:equivalentClass [ owl:intersectionOf (
+    rdfs:subClassOf [ owl:intersectionOf (
                             [ a owl:Restriction ;
                                 owl:hasValue tag:Sensor ;
                                 owl:onProperty brick:hasTag
@@ -130,6 +131,7 @@ brick:Temperature_Sensor a owl:Class ;
                             ]
                         ) ] .
 ```
+
 
 The first `owl:Restriction` is the set of all classes that have `tag:Sensor` as the value for one of their `brick:hasTag` properties.
 
@@ -142,6 +144,31 @@ This means that a temperature sensor `:ts1` could be defined in two different wa
 # using tags
 :ts1    brick:hasTag    tag:Temp
 :ts1    brick:hasTag    tag:Sensor
+```
+
+To perform the inference of a class from a set of tags, use the `TagInferenceSession` from the `brickschema` package (this cannot currently be performed by an OWL reasoner)
+
+For a sample entity modeled with tags:
+
+```turtle
+# myfile.ttl
+@prefix brick: <https://brickschema.org/schema/1.1.0/Brick#> .
+@prefix tag: <https://brickschema.org/schema/1.1.0/BrickTag#> .
+@prefix bldg: <https://example.org/example#> .
+
+bldg:my_entity  brick:hasTag    tag:Air, tag:Flow, tag:Setpoint .
+```
+
+Load the graph into a `brickschema.Graph` and run the TagInferenceSession:
+
+```python
+import brickschema
+g = brickschema.graph.Graph()
+g.load_file("myfile.ttl")
+g = brickschema.inference.TagInferenceSession(approximate=False).expand(g)
+
+print(g.query("SELECT ?type WHERE { bldg:my_entity a ?type }"))
+# => ['Brick:Air_Flow_Setpoint']
 ```
 
 ### Substances
