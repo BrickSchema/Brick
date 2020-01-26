@@ -32,7 +32,7 @@ equipment_subclasses = {
                 "tags": [TAG.Power, TAG.Equipment],
             },
             "PlugStrip": {
-                "tags": [TAG.Plugstrip, TAG.Equipment],
+                "tags": [TAG.PlugStrip, TAG.Equipment],
             },
             "Meter": {
                 "tags": [TAG.Meter, TAG.Equipment],
