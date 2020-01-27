@@ -1,1 +1,0 @@
-BRICK_VERSION = "1.1"

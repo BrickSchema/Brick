@@ -1,18 +1,13 @@
+import sys
+sys.path.append('..')
+from bricksrc.namespaces import BRICK
 import rdflib
 import json
 from collections import defaultdict
-from rdflib import RDF, Namespace, URIRef
-from version import BRICK_VERSION
+from rdflib import Namespace, URIRef
 import brickschema
 
-BRICK = Namespace(f"https://brickschema.org/schema/{BRICK_VERSION}/Brick#")
-TAG = Namespace(f"https://brickschema.org/schema/{BRICK_VERSION}/BrickTag#")
-BLDG = Namespace(f"https://brickschema.org/schema/{BRICK_VERSION}/ExampleBuilding#")
-SKOS = Namespace("http://www.w3.org/2004/02/skos/core#")
-DCTERMS = Namespace("http://purl.org/dc/terms#")
-SDO = Namespace("http://schema.org#")
-A = RDF.type
-
+BLDG = Namespace("https://brickschema.org/schema/ExampleBuilding#")
 
 def test_measures_infers():
     g = rdflib.Graph()

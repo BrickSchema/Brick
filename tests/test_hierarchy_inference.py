@@ -1,7 +1,11 @@
+import sys
+sys.path.append('..')
+from bricksrc.version import BRICK_VERSION
+from bricksrc.namespaces import BRICK
+
 import json
 from collections import defaultdict
 import time
-from version import BRICK_VERSION
 import brickschema
 from tqdm import tqdm
 from rdflib import Namespace, URIRef, Graph
@@ -22,9 +26,6 @@ This test is a superset of ``test_inference.py``.
 
 inference_file = 'tests/test_hierarchy_inference.ttl'
 
-BRICK = Namespace(f"https://brickschema.org/schema/{BRICK_VERSION}/Brick#")
-TAG = Namespace(f"https://brickschema.org/schema/{BRICK_VERSION}/BrickTag#")
-SKOS = Namespace("http://www.w3.org/2004/02/skos/core#")
 entity_postfix = '_0'
 
 q_prefix = f"""
