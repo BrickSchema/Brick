@@ -2,7 +2,7 @@ from rdflib import Literal, BNode, URIRef
 from rdflib.collection import Collection
 
 from .namespaces import DCTERMS, SDO, RDFS, RDF, OWL
-from .namespaces import MAJOR_MINOR
+from .version import BRICK_VERSION, BRICK_FULL_VERSION
 
 # defines metadata about the Brick ontology
 ontology = {
@@ -17,12 +17,13 @@ ontology = {
         },
     ],
     DCTERMS.license: URIRef("https://github.com/BrickSchema/brick/blob/master/LICENSE"),
+    DCTERMS.version: Literal(BRICK_FULL_VERSION),
     RDFS.label: Literal("Brick"),
     RDFS.seeAlso: URIRef("https://brickschema.org"),
 }
 
 def define_ontology(G):
-    brick_ontology = URIRef(f"https://brickschema.org/schema/{MAJOR_MINOR}/Brick")
+    brick_ontology = URIRef(f"https://brickschema.org/schema/{BRICK_VERSION}/Brick")
     G.add((brick_ontology, RDF.type, OWL.Ontology))
 
     creators = []

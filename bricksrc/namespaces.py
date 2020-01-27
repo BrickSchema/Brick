@@ -1,14 +1,8 @@
 from rdflib import Namespace
+from .version import BRICK_VERSION
 
-BRICK_MAJOR_VERSION = 1
-BRICK_MINOR_VERSION = 1
-BRICK_PATCH_VERSION = 0
-
-MAJOR_MINOR = f"{BRICK_MAJOR_VERSION}.{BRICK_MINOR_VERSION}"
-FULL_VERSION = f"{MAJOR_MINOR}.{BRICK_PATCH_VERSION}"
-
-BRICK = Namespace(f"https://brickschema.org/schema/{MAJOR_MINOR}/Brick#")
-TAG = Namespace(f"https://brickschema.org/schema/{MAJOR_MINOR}/BrickTag#")
+BRICK = Namespace(f"https://brickschema.org/schema/{BRICK_VERSION}/Brick#")
+TAG = Namespace(f"https://brickschema.org/schema/{BRICK_VERSION}/BrickTag#")
 OWL = Namespace("http://www.w3.org/2002/07/owl#")
 RDF = Namespace("http://www.w3.org/1999/02/22-rdf-syntax-ns#")
 RDFS = Namespace("http://www.w3.org/2000/01/rdf-schema#")
