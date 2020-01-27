@@ -18,10 +18,20 @@ properties = {
         A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         SKOS.definition: Literal("Temporary replacement for RDFS.domain"),
     },
+
     "expectedRange": {
         A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         SKOS.definition: Literal("Temporary replacement for RDFS.range"),
     },
+
+    "hasSubproperty": {
+        A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+        OWL.inverseOf: RDFS.subPropertyOf,
+        BRICK.expectedRange: RDFS.Property,
+        BRICK.expectedDomain: RDFS.Property,
+        SKOS.definition: Literal("Subject is a property that has the object as its sub-properity")
+    },
+
     "isLocationOf": {
         A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         OWL.inverseOf: "hasLocation",
@@ -59,26 +69,27 @@ properties = {
         A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         SKOS.definition: Literal("The subject is upstream of the object in the context of some sequential process; some media is passed between them"),
         OWL.inverseOf: "isFedBy",
-        "subproperties": {
+        # a property may have multiple hasSubproperty predicates
+        "hasSubproperty": {
             "feedsAir": {
                 SKOS.definition: Literal("Passes air"),
                 'substance': BRICK.Air,
                 'properties': [BRICK.regulates, BRICK.measures]
-
-                # TODO: add restriction that it needs an air-based equipment on either side?
-                # this is equivalent with the classes that have :
-                # Restriction (onProperty=brick:hasInputSubstance, hasValue=brick:Air) AND
-                # Restriction (onProperty=brick:hasOutputSubstance, hasValue=brick:Air)
-
-                # looks something like this
-                #"domain_value_prop": [
-                #    [BRICK.hasTag, TAG.Air],
-                #],
-                #"range_value_prop": [
-                #    [BRICK.hasTag, TAG.Air],
-                #],
             },
         },
+
+        # TODO: add restriction that it needs an air-based equipment on either side?
+        # this is equivalent with the classes that have :
+        # Restriction (onProperty=brick:hasInputSubstance, hasValue=brick:Air) AND
+        # Restriction (onProperty=brick:hasOutputSubstance, hasValue=brick:Air)
+
+        # looks something like this
+        #"domain_value_prop": [
+        #    [BRICK.hasTag, TAG.Air],
+        #],
+        #"range_value_prop": [
+        #    [BRICK.hasTag, TAG.Air],
+        #],
     },
     "isFedBy": {
         A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],

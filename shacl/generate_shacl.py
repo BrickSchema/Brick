@@ -41,7 +41,7 @@ for name, properties in property_definitions.items():
             G.add( (BSH[shapename], SH['message'],
                     Literal(f"Property {name} has subject with incorrect type")))
 
-        if pred == "subproperties":
+        if pred == "hasSubproperty":
             for subprop, desc in obj.items():
                 for prop in desc['properties']:
                     sh_prop = BNode()

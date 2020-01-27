@@ -139,8 +139,6 @@ def findOffendingTriples(v_graph, d_file, output):
     buildNamespaceDict(results_graph)
     buildNamespaceDict(data_graph)
 
-    outFile.write('\nAdditional info (constraint violations with offending tripless):\n')
-
     # The results_graph contains a list of graphs.  Some graphs are violation graphs
     # each representing a violation with the sh:result predicate.
     # There are also other graphs without sh:result and we don't care about them.
@@ -158,6 +156,9 @@ def findOffendingTriples(v_graph, d_file, output):
     for (s, p, o) in results_graph:
         if s in violationDict:
             violationDict[s].add((s, p, o))
+
+    outFile.write('\nAdditional info (%d constraint violations with offending triples):\n' %
+                  len(violationDict))
 
     # Print each violation graph, find and print the offending triple(s), too
     for k in violationDict:
