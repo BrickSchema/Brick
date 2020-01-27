@@ -1,13 +1,20 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+# This file is
+# https://github.com/RDFLib/pySHACL/blob/master/pyshacl/cli.py
+# @ release 0.11.3 when this comment is made
+# with minimal changes to find offending triples for each
+# reported constraint violation -- see offendingTriples.py.
+
 import sys
 import argparse
+import offendingTriples
 
 from pyshacl import validate
 from pyshacl.errors import ReportableRuntimeError, ValidationFailure
 
-parser = argparse.ArgumentParser(description='Run the pySHACL validator from the command line.')
+parser = argparse.ArgumentParser(description='pySHACL wrapper for reporting constraint violating triples.')
 parser.add_argument('data', metavar='DataGraph', type=argparse.FileType('rb'),
                     help='The file containing the Target Data Graph.')
 parser.add_argument('-s', '--shacl', dest='shacl', action='store', nargs='?',
@@ -105,10 +112,14 @@ def main():
         if isinstance(v_graph, bytes):
             v_graph = v_graph.decode('utf-8')
         args.output.write(v_graph)
-    args.output.close()
     if is_conform:
+        args.output.close()
         sys.exit(0)
     else:
+        # Note: Although pyshacl supports many formats of data graph file, the
+        # offendingTriples module assumes that data graph is .ttl.
+        offendingTriples.findOffendingTriples(v_graph, args.data, args.output)
+        args.output.close()
         sys.exit(1)
 
 
