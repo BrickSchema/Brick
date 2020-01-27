@@ -62,7 +62,8 @@ properties = {
         "subproperties": {
             "feedsAir": {
                 SKOS.definition: Literal("Passes air"),
-
+                'substance': BRICK.Air,
+                'properties': [BRICK.regulates, BRICK.measures]
 
                 # TODO: add restriction that it needs an air-based equipment on either side?
                 # this is equivalent with the classes that have :

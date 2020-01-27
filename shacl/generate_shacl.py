@@ -41,28 +41,20 @@ for name, properties in property_definitions.items():
             G.add( (BSH[shapename], SH['message'],
                     Literal(f"Property {name} has subject with incorrect type")))
 
-# subproperties
-# TODO: explicitly coded for now, but we should generalize
-substance_subproperties = {
-    'feedsAir':  {
-        'substance': BRICK.Air,
-        'properties': [BRICK.regulates, BRICK.measures]
-    },
-}
+        if pred == "subproperties":
+            for subprop, desc in obj.items():
+                for prop in desc['properties']:
+                    sh_prop = BNode()
+                    (prefix, name) = prop.split('#')
+                    shapename = f"feedsAir{name.capitalize()}Shape"
+                    G.add((BSH[shapename], SH['property'], sh_prop))
+                    G.add((BSH[shapename], A, SH.NodeShape))
+                    G.add((sh_prop, SH['path'], prop))
+                    G.add((sh_prop, SH['class'], desc['substance']))
+                    G.add((sh_prop, SH['message'],
+                           Literal(f"Subject of property {subprop} has object with incorrect type")))
 
-for subprop, desc in substance_subproperties.items():
-    for prop in desc['properties']:
-        sh_prop = BNode()
-        (prefix, name) = prop.split('#')
-        shapename = f"feedsAir{name.capitalize()}Shape"
-        G.add((BSH[shapename], SH['property'], sh_prop))
-        G.add((BSH[shapename], A, SH.NodeShape))
-        G.add((sh_prop, SH['path'], prop))
-        G.add((sh_prop, SH['class'], desc['substance']))
-        G.add((sh_prop, SH['message'],
-               Literal(f"Subject of property {subprop} has object with incorrect type")))
-
-        G.add((BSH[shapename], SH.targetSubjectsOf, BRICK[subprop]))
+                    G.add((BSH[shapename], SH.targetSubjectsOf, BRICK[subprop]))
 
 with open('shacl_test.ttl', 'wb') as f:
     f.write(G.serialize(format='ttl'))
