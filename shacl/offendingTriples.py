@@ -76,7 +76,7 @@ def getViolationPredicateObj(violation, predicate, mustFind=True):
 
 
 # Take one contraint violation (a graph) and find the potential offending
-# triples.
+# triples.  Return the triples in a list.
 def offendingTriplesForOneViolation(violation):
     resultPath = getViolationPredicateObj(violation, 'sh:resultPath', mustFind=False)
     if resultPath:
@@ -90,8 +90,7 @@ def offendingTriplesForOneViolation(violation):
 
         g = Graph()
         g.add((focusNode, resultPath, valueNode))
-        appendGraphToOutput('Offending triple:\n', g, outFile)
-        return
+        return [g]
 
     # Without sh:resultPath in the violation. We are currently only concerned
     # with the RDFS.domain shape.
@@ -112,20 +111,18 @@ def offendingTriplesForOneViolation(violation):
         assert len(namespaces), "Must find a prefix for %s" % focusNode
         res = queryDataGraph('%s:%s' % (namespaces[0], name), path, None)
 
-        if len(res) > 1:
-            outFile.write('Potential offending triples:\n')
-        else:
-            outFile.write('Offending triple:\n')
+        # Due to inherent ambiguity of this kind of shape, multiple triples may be found.
+        triplesFound = []
         for (s, p, o) in res:
             g = Graph()
             g.add((focusNode, URIRef(path), o))
-            appendGraphToOutput(None, g, outFile)
-        return
+            triplesFound.append(g)
 
-    # When control reaches here, we need to add handler for the violation.
-    # Give a warning.
-    outFile.write('Please add triple finder for the above violation!!!\n')
-    return
+        return triplesFound
+
+    # When control reaches here, a violation handler is missing. for the violation.
+    return []
+
 # end of offendingTriplesForOneViolation()
 
 
@@ -141,6 +138,8 @@ def findOffendingTriples(v_graph, d_file, output):
     data_graph = Graph().parse(d_file, format='ttl')
     buildNamespaceDict(results_graph)
     buildNamespaceDict(data_graph)
+
+    outFile.write('\nAdditional info (constraint violations with offending tripless):\n')
 
     # The results_graph contains a list of graphs.  Some graphs are violation graphs
     # each representing a violation with the sh:result predicate.
@@ -160,7 +159,18 @@ def findOffendingTriples(v_graph, d_file, output):
         if s in violationDict:
             violationDict[s].add((s, p, o))
 
-    # Print out the violation graphs, print out the offending triple(s), too
+    # Print each violation graph, find and print the offending triple(s), too
     for k in violationDict:
         appendGraphToOutput('\nConstraint violation:\n', violationDict[k], outFile)
-        offendingTriplesForOneViolation(violationDict[k])
+
+        tripleGraphList = offendingTriplesForOneViolation(violationDict[k])
+        if not tripleGraphList:
+            outFile.write('Please add triple finder for the above violation!!!\n')
+            continue
+
+        if len(tripleGraphList) == 1:
+            outFile.write('Offending triple:\n')
+        else:
+            outFile.write('Potential offending triples:\n')
+        for g in tripleGraphList:
+            appendGraphToOutput(None, g, outFile)
