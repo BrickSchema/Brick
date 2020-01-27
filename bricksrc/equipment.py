@@ -1,28 +1,101 @@
-from rdflib import Graph, Literal, BNode, Namespace, RDF, URIRef
-from rdflib.collection import Collection
-from rdflib.extras.infixowl import Restriction
-
-from .namespaces import *
+from rdflib import Literal
+from .namespaces import TAG, OWL, SKOS, BRICK
 
 """
 Set up subclasses of the equipment superclass
 """
 equipment_subclasses = {
-    "HVAC": {},
+    "HVAC": {
+        OWL.equivalentClass: "Heating_Ventilation_Air_Conditioning_System",
+    },
     "Heating_Ventilation_Air_Conditioning_System": {
         OWL.equivalentClass: "HVAC",
     },
     "Weather": {
         "tags": [TAG.Weather],
     },
+    "Electrical_System": {
+        "subclasses": {
+            "Emergency_Power_Off_System": {
+                "tags": [TAG.Emergency, TAG.Power, TAG.Off, TAG.Equipment],
+            },
+            "Energy_Storage": {
+                "tags": [TAG.Energy, TAG.Storage, TAG.Equipment],
+                "subclasses": {
+                    "Battery": {
+                        "tags": [TAG.Battery, TAG.Energy, TAG.Storage,
+                                 TAG.Equipment],
+                    },
+                },
+            },
+            "Inverter": {
+                "tags": [TAG.Inverter, TAG.Equipment],
+            },
+            "Power_System": {
+                "tags": [TAG.Power, TAG.Equipment],
+            },
+            "PlugStrip": {
+                "tags": [TAG.PlugStrip, TAG.Equipment],
+            },
+            "Meter": {
+                "tags": [TAG.Meter, TAG.Equipment],
+                "subclasses": {
+                    "Water_Meter": {
+                        "tags": [TAG.Meter, TAG.Equipment, TAG.Water],
+                        "parents": [BRICK.Water_System],
+                        "subclasses": {
+                            "Chilled_Water_Meter": {
+                                "tags": [TAG.Meter, TAG.Equipment, TAG.Water, TAG.Chilled],
+                                "parents": [BRICK.Chilled_Water_System],
+                            },
+                        },
+                    },
+                    "Power_Meter": {
+                        "tags": [TAG.Meter, TAG.Equipment, TAG.Power],
+                        "parents": [BRICK.Power_System],
+                        "subclasses": {
+                            "Thermal_Power_Meter": {
+                                "tags": [TAG.Meter, TAG.Equipment, TAG.Power, TAG.Thermal],
+                                "subclasses": {
+                                    "Cooling_Thermal_Power_Meter": {
+                                        "tags": [TAG.Meter, TAG.Equipment, TAG.Power, TAG.Thermal, TAG.Cooling],
+                                    },
+                                    "Heating_Thermal_Power_Meter": {
+                                        "tags": [TAG.Meter, TAG.Equipment, TAG.Power, TAG.Thermal, TAG.Heating],
+                                    },
+                                },
+                            },
+                        },
+                    },
+                    "Building_Meter": {
+                        "tags": [TAG.Meter, TAG.Equipment, TAG.Building],
+                    },
+                },
+            },
+        },
+    },
     "Water_System": {
+        "tags": [TAG.Water, TAG.Equipment],
         "subclasses": {
             "Chilled_Water_System": {
+                OWL.equivalentClass: "CWS",
                 "tags": [TAG.Water, TAG.Chilled, TAG.Equipment],
             },
             "Hot_Water_System": {
+                OWL.equivalentClass: "HWS",
                 "tags": [TAG.Water, TAG.Hot, TAG.Equipment],
+                "subclasses": {
+                    "Domestic_Hot_Water_System": {
+                        "tags": [TAG.Domestic, TAG.Water, TAG.Hot, TAG.Equipment],
+                    },
+                },
             },
+            "CWS": {
+                OWL.equivalentClass: "Chilled_Water_System",
+            },
+            "HWS": {
+                OWL.equivalentClass: "Hot_Water_System",
+            }
         }
     },
     "Steam_System": {
@@ -33,20 +106,6 @@ equipment_subclasses = {
     },
     "Shading_System": {
         "tags": [TAG.Shade, TAG.Equipment],
-    },
-    "Power_System": {
-        "tags": [TAG.Power, TAG.Equipment],
-    },
-    "PlugStrip": {
-        "tags": [TAG.Plugstrip, TAG.Equipment],
-    },
-    "Meter": {
-        "tags": [TAG.Meter, TAG.Equipment],
-        "subclasses": {
-            "Building_Meter": {
-                "tags": [TAG.Meter, TAG.Equipment, TAG.Building],
-            },
-        },
     },
     "Lighting_System": {
         "tags": [TAG.Lighting, TAG.Equipment],
@@ -72,8 +131,12 @@ equipment_subclasses = {
     "Furniture": {
     },
     "Fire_Safety_System": {
-    },
-    "Energy_Storage": {
+        "subclasses": {
+            "Fire_Control_Panel": {
+                OWL.equivalentClass: "FCP",
+            },
+            "FCP": {},
+        },
     },
     "Elevator": {
     },
@@ -216,7 +279,7 @@ hvac_subclasses = {
     },
     "Coil": {
         SKOS.definition: Literal("Exchanger that transfers heat from an exhaust airstream to a separated supply airstream."),
-                "tags": [TAG.Equipment, TAG.Coil],
+        "tags": [TAG.Equipment, TAG.Coil],
         "subclasses": {
             "Cooling_Coil": {
                 "tags": [TAG.Equipment, TAG.Coil, TAG.Cool],
@@ -232,6 +295,7 @@ hvac_subclasses = {
             "Centrifugal_Chiller": {},
         },
     },
+    "Humidifier": {},
     "Boiler": {
         SKOS.definition: Literal("A closed, pressure vessel that uses fuel or electricity for heating water or other fluids to supply steam or hot water for heating, humidification, or other applications."),
     },
@@ -240,13 +304,15 @@ hvac_subclasses = {
         OWL.equivalentClass: "AHU",
     },
     "AHU": {
-        "tags": [ TAG.Equipment, TAG.AHU],
+        "tags": [TAG.Equipment, TAG.AHU],
         "subclasses": {
             "Rooftop_Unit": {
                 OWL.equivalentClass: "RTU",
                 "tags": [TAG.Equipment, TAG.Rooftop, TAG.AHU],
             },
-            "RTU": {},
+            "RTU": {
+                OWL.equivalentClass: "Rooftop_Unit",
+            },
         },
     },
 }
@@ -261,15 +327,22 @@ valve_subclasses = {
             "Reheat_Valve": {
                 "tags": [TAG.Valve, TAG.Reheat, TAG.Heat, TAG.Equipment],
             },
+            "Return_Heating_Valve": {
+                "tags": [TAG.Valve, TAG.Return, TAG.Heat, TAG.Equipment],
+                SKOS.definition: Literal("A valve installed on the return side of a heat exchanger"),
+            },
             "Domestic_Hot_Water_Valve": {
                 "tags": [TAG.Domestic, TAG.Water, TAG.Hot, TAG.Valve, TAG.Heat, TAG.Equipment],
-                "parents": [BRICK.Hot_Water_System, BRICK.Water_Valve],
+                "parents": [BRICK.Domestic_Hot_Water_System, BRICK.Water_Valve],
             },
             "Preheat_Hot_Water_Valve": {
                 "tags": [TAG.Preheat, TAG.Water, TAG.Hot, TAG.Valve, TAG.Heat, TAG.Equipment],
                 "parents": [BRICK.Hot_Water_System, BRICK.Water_Valve],
             },
         },
+    },
+    "Cooling_Valve": {
+        "tags": [TAG.Valve, TAG.Cool, TAG.Equipment],
     },
     "Water_Valve": {
         "tags": [TAG.Valve, TAG.Water, TAG.Equipment],

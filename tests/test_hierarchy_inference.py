@@ -1,9 +1,11 @@
 import json
 from collections import defaultdict
 import time
+from version import BRICK_VERSION
+import brickschema
 from tqdm import tqdm
 from rdflib import Namespace, URIRef, Graph
-from version import BRICK_VERSION
+from .util.reasoner import make_readable
 
 """
 This script does the following:
@@ -30,7 +32,6 @@ prefix brick: <https://brickschema.org/schema/{BRICK_VERSION}/Brick#>
 prefix owl: <http://www.w3.org/2002/07/owl#>
 """
 
-
 def test_hierarchyinference():
     # Load the schema
     g = Graph()
@@ -38,34 +39,24 @@ def test_hierarchyinference():
 
     # Get all the Classes with their restrictions.
     qstr = q_prefix + """
-    select ?class ?p ?o ?restrictions where {
+    select ?class ?tag where {
       ?class rdfs:subClassOf+ brick:Class.
-      ?class owl:equivalentClass ?restrictions.
-      ?restrictions owl:intersectionOf ?inter.
-      ?inter rdf:rest*/rdf:first ?node.
-      {
-          BIND (brick:hasTag as ?p)
-          ?node owl:onProperty ?p.
-          ?node owl:hasValue ?o.
-      } UNION {
-          BIND (brick:measures as ?p)
-          ?node owl:onProperty ?p.
-          ?node owl:hasValue ?o.
-      }
+      ?class brick:hasAssociatedTag ?tag
     }
     """
     start_time = time.time()
     for row in tqdm(g.query(qstr)):
         klass = row[0]
         entity = klass + entity_postfix  # Define an entity for the class
-        g.add((entity, row[1], row[2]))  # Associate the entity with restrictions (i.e., Tags)
+        g.add((entity, BRICK.hasTag, row[1]))  # Associate the entity with restrictions (i.e., Tags)
     end_time = time.time()
     print('Instantiation took {0} seconds'.format(int(end_time-start_time)))
 
     # Infer classes of the entities.
     # Apply reasoner
-    from util.reasoner import reason_brick, make_readable
-    reason_brick(g)
+    g.serialize('test.ttl', format='ttl')
+    g = brickschema.inference.TagInferenceSession(approximate=False, load_brick=False).expand(g)
+    g = brickschema.inference.OWLRLAllegroInferenceSession(load_brick=False).expand(g)
     g.serialize(inference_file, format='turtle')  # Store the inferred graph.
 
 
@@ -82,6 +73,15 @@ def test_hierarchyinference():
         klass = row[1]
         if BRICK in klass: # Filter out non-Brick classes such as Restrictions
             inferred_klasses[entity].add(klass)
+
+    # get equivalent classes
+    equivalent_classes = defaultdict(set)
+    res = g.query(q_prefix+"""\nSELECT ?c1 ?c2 WHERE {
+        ?c1 owl:equivalentClass ?c2
+    }""")
+    for (c1, c2) in res:
+        equivalent_classes[c1].add(c2)
+        equivalent_classes[c2].add(c1)
 
     over_inferences = {}  # Inferred Classes that are not supposed to be inferred.
     under_inferences = {}  # Classes that should have been inferred but not actually inferred.
@@ -100,7 +100,10 @@ def test_hierarchyinference():
         """.format(true_class)
         res = g.query(qstr)
         true_parents = [row[0] for row in res]
+        for tp in true_parents[:]:
+            true_parents.extend(equivalent_classes.get(tp, []))
         true_parents = set(filter(lambda parent: BRICK in parent, true_parents))
+        # TODO: bug here where this does not consider equivalent classes
         serialized = {
             'inferred_parents': list(inferred_parents),
             'true_parents': list(true_parents),

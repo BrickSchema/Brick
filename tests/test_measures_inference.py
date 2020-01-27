@@ -1,23 +1,23 @@
-import time
-import sys
 import rdflib
 import json
 from collections import defaultdict
-from rdflib import RDF, RDFS, OWL, Namespace, URIRef
+from rdflib import RDF, Namespace, URIRef
 from version import BRICK_VERSION
+import brickschema
 
-BRICK = Namespace("https://brickschema.org/schema/{0}/Brick#".format(BRICK_VERSION))
-TAG = Namespace("https://brickschema.org/schema/{0}/BrickTag#".format(BRICK_VERSION))
-BLDG = Namespace("https://brickschema.org/schema/{0}/ExampleBuilding#".format(BRICK_VERSION))
+BRICK = Namespace(f"https://brickschema.org/schema/{BRICK_VERSION}/Brick#")
+TAG = Namespace(f"https://brickschema.org/schema/{BRICK_VERSION}/BrickTag#")
+BLDG = Namespace(f"https://brickschema.org/schema/{BRICK_VERSION}/ExampleBuilding#")
 SKOS = Namespace("http://www.w3.org/2004/02/skos/core#")
 DCTERMS = Namespace("http://purl.org/dc/terms#")
 SDO = Namespace("http://schema.org#")
 A = RDF.type
 
-g = rdflib.Graph()
-g.parse('Brick.ttl', format='turtle')
 
 def test_measures_infers():
+    g = rdflib.Graph()
+    g.parse('Brick.ttl', format='turtle')
+
     qstr = """select ?class ?o where {
       ?class rdfs:subClassOf+ brick:Class.
       ?class owl:equivalentClass ?restrictions.
@@ -34,8 +34,7 @@ def test_measures_infers():
 
     # Infer classes of the entities.
     # Apply reasoner
-    from util.reasoner import reason_brick
-    reason_brick(g)
+    g = brickschema.inference.OWLRLAllegroInferenceSession(load_brick=False).expand(g)
 
     qstr = """select ?instance ?class where {
         ?instance a ?class.

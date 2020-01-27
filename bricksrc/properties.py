@@ -1,9 +1,5 @@
-from rdflib import Graph, Literal, BNode, Namespace, RDF, URIRef
-from rdflib.collection import Collection
-from rdflib.extras.infixowl import Restriction
-
-from .namespaces import *
-
+from rdflib import Literal
+from .namespaces import A, OWL, RDFS, SKOS, BRICK
 
 """
 Defining properties
@@ -49,8 +45,6 @@ properties = {
         "subproperties": {
             "feedsAir": {
                 SKOS.definition: Literal("Passes air"),
-
-
                 # TODO: add restriction that it needs an air-based equipment on either side?
                 # this is equivalent with the classes that have :
                 # Restriction (onProperty=brick:hasInputSubstance, hasValue=brick:Air) AND
@@ -127,5 +121,20 @@ properties = {
         A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         RDFS.domain: BRICK.Substance,
         RDFS.range: BRICK.Equipment,
+    },
+
+    "hasAssociatedTag": {
+        A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+        OWL.inverseOf: "isAssociatedWith",
+        SKOS.definition: Literal("The class is associated with the given tag"),
+        RDFS.domain: OWL.Class,
+        RDFS.range: BRICK.Tag,
+    },
+    "isAssociatedWith": {
+        A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+        OWL.inverseOf: "hasAssociatedTag",
+        SKOS.definition: Literal("The tag is associated with the given class"),
+        RDFS.domain: BRICK.Tag,
+        RDFS.range: OWL.Class,
     },
 }
