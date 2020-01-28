@@ -42,11 +42,9 @@ equipment_subclasses = {
                 "subclasses": {
                     "Water_Meter": {
                         "tags": [TAG.Meter, TAG.Equipment, TAG.Water],
-                        "parents": [BRICK.Water_System],
                         "subclasses": {
                             "Chilled_Water_Meter": {
                                 "tags": [TAG.Meter, TAG.Equipment, TAG.Water, TAG.Chilled],
-                                "parents": [BRICK.Chilled_Water_System],
                             },
                         },
                     },
@@ -333,11 +331,11 @@ valve_subclasses = {
             },
             "Domestic_Hot_Water_Valve": {
                 "tags": [TAG.Domestic, TAG.Water, TAG.Hot, TAG.Valve, TAG.Heat, TAG.Equipment],
-                "parents": [BRICK.Domestic_Hot_Water_System, BRICK.Water_Valve],
+                "parents": [BRICK.Water_Valve],
             },
             "Preheat_Hot_Water_Valve": {
                 "tags": [TAG.Preheat, TAG.Water, TAG.Hot, TAG.Valve, TAG.Heat, TAG.Equipment],
-                "parents": [BRICK.Hot_Water_System, BRICK.Water_Valve],
+                "parents": [BRICK.Water_Valve],
             },
         },
     },
