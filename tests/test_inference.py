@@ -1,15 +1,10 @@
+import sys
+sys.path.append('..')
+from bricksrc.namespaces import BRICK, TAG, A, SKOS
 from rdflib import RDF, RDFS, OWL, Namespace, Graph
 import brickschema
 
-BRICK_VERSION = '1.1.0'
-
-BRICK = Namespace(f"https://brickschema.org/schema/{BRICK_VERSION}/Brick#")
-TAG = Namespace(f"https://brickschema.org/schema/{BRICK_VERSION}/BrickTag#")
-BLDG = Namespace(f"https://brickschema.org/schema/{BRICK_VERSION}/ExampleBuilding#")
-SKOS = Namespace("http://www.w3.org/2004/02/skos/core#")
-DCTERMS = Namespace("http://purl.org/dc/terms#")
-SDO = Namespace("http://schema.org#")
-A = RDF.type
+BLDG = Namespace(f"https://brickschema.org/schema/ExampleBuilding#")
 
 g = Graph()
 g.parse('Brick.ttl', format='turtle')

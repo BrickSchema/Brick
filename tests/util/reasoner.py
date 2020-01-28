@@ -1,24 +1,21 @@
 import time
 import owlrl
 from rdflib import Graph, Namespace
-from rdflib import RDF, RDFS, OWL
+from rdflib import RDF
 from collections import defaultdict
 from tqdm import tqdm
-
 import io
-import os
-import sys
 import tarfile
-from pathlib import Path
-import shutil
 import docker
 
-BRICK_VERSION = '1.1.0'
+BRICK_VERSION = "1.1"
 
-BRICK = Namespace("https://brickschema.org/schema/{0}/Brick#".format(BRICK_VERSION))
+BRICK = Namespace("https://brickschema.org/schema/{BRICK_VERSION}/Brick#")
+
 
 def make_readable(res):
     return [[uri.split('#')[-1] for uri in row] for row in res]
+
 
 def reason_owlrl(g):
     """
@@ -36,6 +33,7 @@ def reason_owlrl(g):
     owlrl.DeductiveClosure(owlrl.OWLRL_Semantics).expand(g)
     end_time = time.time()
     print('owlrl reasoning took {0} seconds.'.format(int(end_time - start_time)))
+
 
 def reason_rdfs(g):
     """

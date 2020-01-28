@@ -1,4 +1,4 @@
-@prefix brick: <https://brickschema.org/schema/1.1.0/Brick#> .
+@prefix brick: <https://brickschema.org/schema/1.1/Brick#> .
 @prefix dcterms: <http://purl.org/dc/terms#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -6,11 +6,11 @@
 @prefix sdo: <http://schema.org#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix sosa: <http://www.w3.org/ns/sosa#> .
-@prefix tag: <https://brickschema.org/schema/1.1.0/BrickTag#> .
+@prefix tag: <https://brickschema.org/schema/1.1/BrickTag#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-brick: a owl:Ontology ;
+<https://brickschema.org/schema/1.1/Brick> a owl:Ontology ;
     rdfs:label "Brick" ;
     dcterms:creator ( [ a sdo:Person ;
                 sdo:email "gtfierro@cs.berkeley.edu" ;
@@ -18,6 +18,7 @@ brick: a owl:Ontology ;
                 sdo:email "jbkoh@eng.ucsd.edu" ;
                 sdo:name "Jason Koh" ] ) ;
     dcterms:license <https://github.com/BrickSchema/brick/blob/master/LICENSE> ;
+    dcterms:version "1.1.0" ;
     rdfs:seeAlso <https://brickschema.org> .
 
 brick:Absorption_Chiller a owl:Class ;
@@ -1289,6 +1290,15 @@ brick:Emergency_Power_Off_Activated_By_Leak_Detection_System_Status a owl:Class 
 brick:Emergency_Power_Off_Enable_Status a owl:Class ;
     rdfs:label "Emergency Power Off Enable Status" ;
     rdfs:subClassOf brick:Emergency_Power_Off_Status .
+
+brick:Emergency_Power_Off_System a owl:Class ;
+    rdfs:label "Emergency Power Off System" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Emergency _:has_Power _:has_Off _:has_Equipment ) ],
+        brick:Electrical_System ;
+    brick:hasAssociatedTag tag:Emergency,
+        tag:Equipment,
+        tag:Off,
+        tag:Power .
 
 brick:Emergency_Power_Off_System_Enable_Status a owl:Class ;
     rdfs:label "Emergency Power Off System Enable Status" ;
@@ -7892,10 +7902,6 @@ brick:Discharge_Air_Temperature_Setpoint a owl:Class ;
         tag:Setpoint,
         tag:Temperature .
 
-brick:Electrical_System a owl:Class ;
-    rdfs:label "Electrical System" ;
-    rdfs:subClassOf brick:Equipment .
-
 brick:Enthalpy a owl:Class,
         brick:Enthalpy,
         brick:Quantity ;
@@ -7991,7 +7997,10 @@ brick:Velocity_Pressure a owl:Class,
 
 brick:Water_System a owl:Class ;
     rdfs:label "Water System" ;
-    rdfs:subClassOf brick:Equipment .
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Water _:has_Equipment ) ],
+        brick:Equipment ;
+    brick:hasAssociatedTag tag:Equipment,
+        tag:Water .
 
 brick:Water_Temperature_Setpoint a owl:Class ;
     rdfs:label "Water Temperature Setpoint" ;
@@ -8094,6 +8103,10 @@ brick:Electric_Power a owl:Class,
         brick:Electric_Power,
         brick:Power ;
     rdfs:label "Electric Power" .
+
+brick:Electrical_System a owl:Class ;
+    rdfs:label "Electrical System" ;
+    rdfs:subClassOf brick:Equipment .
 
 brick:Exhaust_Air a owl:Class,
         brick:Air,
@@ -8315,9 +8328,6 @@ tag:Disable a brick:Tag ;
 tag:Domestic a brick:Tag ;
     rdfs:label "Domestic" .
 
-tag:Emergency a brick:Tag ;
-    rdfs:label "Emergency" .
-
 tag:Request a brick:Tag ;
     rdfs:label "Request" .
 
@@ -8348,6 +8358,9 @@ brick:Max_Limit a owl:Class ;
 
 tag:Demand a brick:Tag ;
     rdfs:label "Demand" .
+
+tag:Emergency a brick:Tag ;
+    rdfs:label "Emergency" .
 
 tag:Low a brick:Tag ;
     rdfs:label "Low" .
@@ -8427,9 +8440,6 @@ tag:Zone a brick:Tag ;
 tag:CO2 a brick:Tag ;
     rdfs:label "CO2" .
 
-tag:Power a brick:Tag ;
-    rdfs:label "Power" .
-
 tag:Unoccupied a brick:Tag ;
     rdfs:label "Unoccupied" .
 
@@ -8448,11 +8458,11 @@ brick:Temperature_Parameter a owl:Class ;
 tag:Location a brick:Tag ;
     rdfs:label "Location" .
 
-tag:Off a brick:Tag ;
-    rdfs:label "Off" .
-
 tag:On a brick:Tag ;
     rdfs:label "On" .
+
+tag:Power a brick:Tag ;
+    rdfs:label "Power" .
 
 tag:Valve a brick:Tag ;
     rdfs:label "Valve" .
@@ -8461,6 +8471,9 @@ brick:Flow a owl:Class,
         brick:Flow,
         brick:Quantity ;
     rdfs:label "Flow" .
+
+tag:Off a brick:Tag ;
+    rdfs:label "Off" .
 
 tag:Speed a brick:Tag ;
     rdfs:label "Speed" .
@@ -8628,11 +8641,11 @@ tag:Command a brick:Tag ;
 tag:PID a brick:Tag ;
     rdfs:label "PID" .
 
-tag:Equipment a brick:Tag ;
-    rdfs:label "Equipment" .
-
 tag:Alarm a brick:Tag ;
     rdfs:label "Alarm" .
+
+tag:Equipment a brick:Tag ;
+    rdfs:label "Equipment" .
 
 tag:Differential a brick:Tag ;
     rdfs:label "Differential" .
@@ -9028,10 +9041,6 @@ _:has_Domestic a owl:Restriction ;
     owl:hasValue tag:Domestic ;
     owl:onProperty brick:hasTag .
 
-_:has_Emergency a owl:Restriction ;
-    owl:hasValue tag:Emergency ;
-    owl:onProperty brick:hasTag .
-
 _:has_Request a owl:Restriction ;
     owl:hasValue tag:Request ;
     owl:onProperty brick:hasTag .
@@ -9046,6 +9055,10 @@ _:has_Usage a owl:Restriction ;
 
 _:has_Demand a owl:Restriction ;
     owl:hasValue tag:Demand ;
+    owl:onProperty brick:hasTag .
+
+_:has_Emergency a owl:Restriction ;
+    owl:hasValue tag:Emergency ;
     owl:onProperty brick:hasTag .
 
 _:has_Low a owl:Restriction ;
@@ -9104,10 +9117,6 @@ _:has_Location a owl:Restriction ;
     owl:hasValue tag:Location ;
     owl:onProperty brick:hasTag .
 
-_:has_Power a owl:Restriction ;
-    owl:hasValue tag:Power ;
-    owl:onProperty brick:hasTag .
-
 _:has_Unoccupied a owl:Restriction ;
     owl:hasValue tag:Unoccupied ;
     owl:onProperty brick:hasTag .
@@ -9116,12 +9125,16 @@ _:has_Valve a owl:Restriction ;
     owl:hasValue tag:Valve ;
     owl:onProperty brick:hasTag .
 
-_:has_Off a owl:Restriction ;
-    owl:hasValue tag:Off ;
-    owl:onProperty brick:hasTag .
-
 _:has_On a owl:Restriction ;
     owl:hasValue tag:On ;
+    owl:onProperty brick:hasTag .
+
+_:has_Power a owl:Restriction ;
+    owl:hasValue tag:Power ;
+    owl:onProperty brick:hasTag .
+
+_:has_Off a owl:Restriction ;
+    owl:hasValue tag:Off ;
     owl:onProperty brick:hasTag .
 
 _:has_Speed a owl:Restriction ;
@@ -9228,12 +9241,12 @@ _:has_PID a owl:Restriction ;
     owl:hasValue tag:PID ;
     owl:onProperty brick:hasTag .
 
-_:has_Equipment a owl:Restriction ;
-    owl:hasValue tag:Equipment ;
-    owl:onProperty brick:hasTag .
-
 _:has_Alarm a owl:Restriction ;
     owl:hasValue tag:Alarm ;
+    owl:onProperty brick:hasTag .
+
+_:has_Equipment a owl:Restriction ;
+    owl:hasValue tag:Equipment ;
     owl:onProperty brick:hasTag .
 
 _:has_Differential a owl:Restriction ;
