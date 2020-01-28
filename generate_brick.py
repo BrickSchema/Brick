@@ -1,4 +1,6 @@
 from collections import defaultdict
+import warnings
+
 from rdflib import Graph, Literal, BNode, URIRef
 from rdflib.namespace import XSD
 from rdflib.collection import Collection
@@ -18,6 +20,13 @@ from bricksrc.substances import substances
 from bricksrc.quantities import quantity_definitions
 from bricksrc.properties import properties
 from bricksrc.tags import tags
+
+
+def warning_on_one_line(message, category, filename, lineno, file=None, line=None):
+    return ' %s:%s: %s:%s\n' % (filename, lineno, category.__name__, message)
+
+warnings.formatwarning = warning_on_one_line
+
 
 G = Graph()
 bind_prefixes(G)
@@ -57,6 +66,9 @@ def has_tags(tagset, definition):
     return all([t in definition for t in tagset])
 
 def add_tags(klass, definition):
+    if not definition:
+        warnings.warn('{0} has no tags.'.format(klass))
+        return
     all_restrictions = []
     equivalent_class = BNode()
     list_name = BNode()
