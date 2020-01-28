@@ -349,7 +349,7 @@ valve_subclasses = {
         "subclasses": {
             "Chilled_Water_Valve": {
                 "tags": [TAG.Chilled, TAG.Valve, TAG.Water, TAG.Equipment],
-                "parents": [BRICK.Chilled_Water_System],
+                "parents": [BRICK.Water_Valve],
             },
         },
     },
