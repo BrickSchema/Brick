@@ -1,8 +1,12 @@
+import sys
+sys.path.append('..')
+from bricksrc.version import BRICK_VERSION
+from bricksrc.namespaces import BRICK
+
 import json
 from collections import defaultdict
 import time
 import brickschema
-
 from tqdm import tqdm
 from rdflib import Namespace, URIRef, Graph
 from .util.reasoner import make_readable
@@ -22,28 +26,17 @@ This test is a superset of ``test_inference.py``.
 
 inference_file = 'tests/test_hierarchy_inference.ttl'
 
-BRICK_VERSION = '1.1.0'
-BRICK = Namespace(f"https://brickschema.org/schema/{BRICK_VERSION}/Brick#")
-TAG = Namespace(f"https://brickschema.org/schema/{BRICK_VERSION}/BrickTag#")
-SKOS = Namespace("http://www.w3.org/2004/02/skos/core#")
 entity_postfix = '_0'
 
-q_prefix = """
-prefix brick: <https://brickschema.org/schema/1.1.0/Brick#>
+q_prefix = f"""
+prefix brick: <https://brickschema.org/schema/{BRICK_VERSION}/Brick#>
 prefix owl: <http://www.w3.org/2002/07/owl#>
 """
 
-
 def test_hierarchyinference():
-
     # Load the schema
     g = Graph()
     g.parse('Brick.ttl', format='turtle')
-
-    #if args.reuse_inference:  # Reuse previously inferred file if the flag is set.
-    #    expanded_g = Graph()
-    #    expanded_g.parse(inference_file, format='turtle')
-    #else:  # create instances and associate them with related Tags.
 
     # Get all the Classes with their restrictions.
     qstr = q_prefix + """

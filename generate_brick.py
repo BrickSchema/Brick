@@ -22,6 +22,7 @@ from bricksrc.tags import tags
 G = Graph()
 bind_prefixes(G)
 A = RDF.type
+
 tag_lookup = defaultdict(set)
 intersection_classes = {}
 
@@ -38,23 +39,27 @@ def make_tag_classes(G, tag):
     G.add((has_no_tag, OWL.complementOf, has_tag))
     return has_tag, has_no_tag
 
-#syntax for protege: http://protegeproject.github.io/protege/class-expression-syntax/
+
+# syntax for protege:
+# http://protegeproject.github.io/protege/class-expression-syntax/
 def add_restriction(klass, definition):
-    l = []
+    elements = []
     equivalent_class = BNode()
     list_name = BNode()
     for idnum, item in enumerate(definition):
         restriction = BNode()
-        l.append(restriction)
-        G.add( (restriction, A, OWL.Restriction) )
-        G.add( (restriction, OWL.onProperty, item[0]) )
-        G.add( (restriction, OWL.hasValue, item[1]) )
-    G.add( (BRICK[klass], OWL.equivalentClass, equivalent_class) )
-    G.add( (equivalent_class, OWL.intersectionOf, list_name) )
-    c = Collection(G, list_name, l)
+        elements.append(restriction)
+        G.add((restriction, A, OWL.Restriction))
+        G.add((restriction, OWL.onProperty, item[0]))
+        G.add((restriction, OWL.hasValue, item[1]))
+    G.add((BRICK[klass], OWL.equivalentClass, equivalent_class))
+    G.add((equivalent_class, OWL.intersectionOf, list_name))
+    Collection(G, list_name, elements)
+
 
 def has_tags(tagset, definition):
     return all([t in definition for t in tagset])
+
 
 def add_tags(klass, definition):
     all_restrictions = []
@@ -90,23 +95,27 @@ def add_tags(klass, definition):
 
 def lookup_tagset(s):
     s = set(map(lambda x: x.capitalize(), s))
-    return [klass for tagset, klass in tag_lookup.items() if s.issubset(set(tagset))]
+    return [klass for tagset, klass in tag_lookup.items()
+            if s.issubset(set(tagset))]
+
 
 def add_class_restriction(klass, definition):
-    l = []
+    elements = []
     equivalent_class = BNode()
     list_name = BNode()
     for idnum, item in enumerate(definition):
         restriction = BNode()
-        l.append(restriction)
-        G.add( (restriction, A, OWL.Restriction) )
-        G.add( (restriction, OWL.onProperty, item[0]) )
-        G.add( (restriction, item[1], item[2]) )
+        elements.append(restriction)
+        G.add((restriction, A, OWL.Restriction))
+        G.add((restriction, OWL.onProperty, item[0]))
+        G.add((restriction, item[1], item[2]))
         if len(item) == 5:
-            G.add( (restriction, item[3], Literal('{0}'.format(item[4]), datatype=XSD.integer)) )
-    G.add( (BRICK[klass], OWL.equivalentClass, equivalent_class) )
-    G.add( (equivalent_class, OWL.intersectionOf, list_name) )
-    c = Collection(G, list_name, l)
+            G.add((restriction, item[3], Literal('{0}'.format(item[4]),
+                  datatype=XSD.integer)))
+    G.add((BRICK[klass], OWL.equivalentClass, equivalent_class))
+    G.add((equivalent_class, OWL.intersectionOf, list_name))
+    Collection(G, list_name, elements)
+
 
 def define_subclasses(definitions, superclass):
     for subclass, properties in definitions.items():
@@ -119,12 +128,13 @@ def define_subclasses(definitions, superclass):
                 add_tags(subclass, v)
             elif isinstance(v, list) and k == "parents":
                 for parent in v:
-                    G.add( (BRICK[subclass], RDFS.subClassOf, parent) )
+                    G.add((BRICK[subclass], RDFS.subClassOf, parent))
             elif isinstance(v, list) and k == "substances":
                 add_restriction(subclass, v)
             elif not apply_prop(subclass, k, v):
                 if isinstance(v, dict) and k == "subclasses":
                     define_subclasses(v, BRICK[subclass])
+
 
 def define_measurable_subclasses(definitions, measurable_class):
     for subclass, properties in definitions.items():
@@ -160,15 +170,16 @@ def define_rootclasses(definitions):
                 if isinstance(v, dict) and k == "subclasses":
                     define_subclasses(v, BRICK[rootclass])
 
+
 def apply_prop(prop, pred, obj):
     if isinstance(obj, Literal):
-        G.add( (BRICK[prop], pred, obj) )
+        G.add((BRICK[prop], pred, obj))
         return True
     elif isinstance(obj, URIRef):
-        G.add( (BRICK[prop], pred, obj) )
+        G.add((BRICK[prop], pred, obj))
         return True
     elif isinstance(obj, str):
-        G.add( (BRICK[prop], pred, BRICK[obj]) )
+        G.add((BRICK[prop], pred, BRICK[obj]))
         return True
     elif isinstance(obj, list):
         for l in obj:
@@ -176,23 +187,13 @@ def apply_prop(prop, pred, obj):
         return True
     return False
 
+
 def define_properties(definitions, superprop=None):
-    for prop, properties in definitions.items():
-        G.add( (BRICK[prop], A, OWL.ObjectProperty) )
+    for prop, propdef in definitions.items():
+        G.add((BRICK[prop], A, OWL.ObjectProperty))
         if superprop is not None:
-            G.add( (BRICK[prop], RDFS.subPropertyOf, superprop) )
-        for k, v in properties.items():
-            #if k == "domain_value_prop":
-            #    assert isinstance(v, list)
-            #    domain_class = BNode()
-            #    print("domain", prop, v, domain_class)
-            #    add_restriction(domain_class, v)
-            #    G.add( (BRICK[prop], RDFS.domain, domain_class) )
-            #elif k == "range_value_prop":
-            #    assert isinstance(v, list)
-            #    range_class = BNode()
-            #    add_restriction(range_class, v)
-            #    G.add( (BRICK[prop], RDFS.range, range_class) )
+            G.add((BRICK[prop], RDFS.subPropertyOf, superprop))
+        for k, v in propdef.items():
             if not apply_prop(prop, k, v):
                 if isinstance(v, dict) and k == "subproperties":
                     define_properties(v, BRICK[prop])
@@ -213,7 +214,7 @@ roots = {
         "tags": [TAG.Location],
     },
     "Point": {
-        #"tags": [TAG.Point],
+        # "tags": [TAG.Point],
     },
     "Measurable": {},
 }

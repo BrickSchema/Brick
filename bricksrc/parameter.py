@@ -1,7 +1,4 @@
-from rdflib import Namespace
-from .namespaces import TAG, BRICK, OWL, RDF, RDFS, SKOS, A
-
-BLDG = Namespace("https://brickschema.org/schema/1.1.0/ExampleBuilding#")
+from .namespaces import TAG, BRICK
 
 parameter_definitions = {
     "Parameter": {

@@ -1,12 +1,12 @@
+import sys
+sys.path.append('..')
+from bricksrc.namespaces import BRICK, TAG
 import rdflib
 from rdflib import RDF, OWL, RDFS, Namespace, BNode
 import brickschema
 from .util.reasoner import make_readable
 from collections import defaultdict
 
-BRICK_VERSION = '1.1.0'
-BRICK = Namespace(f"https://brickschema.org/schema/{BRICK_VERSION}/Brick#")
-TAG = Namespace(f"https://brickschema.org/schema/{BRICK_VERSION}/BrickTag#")
 BLDG = Namespace("https://brickschema.org/schema/ExampleBuilding#")
 
 g = rdflib.Graph()

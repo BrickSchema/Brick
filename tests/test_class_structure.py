@@ -1,13 +1,12 @@
+import sys
+sys.path.append('..')
+from bricksrc.namespaces import BRICK, TAG, SOSA
+
 import rdflib
 import brickschema
 from rdflib import RDF, OWL, RDFS, Namespace, BNode
-from .util.reasoner import make_readable
 
-BRICK_VERSION = '1.1.0'
-BRICK = Namespace(f"https://brickschema.org/schema/{BRICK_VERSION}/Brick#")
-TAG = Namespace(f"https://brickschema.org/schema/{BRICK_VERSION}/BrickTag#")
 BLDG = Namespace("https://brickschema.org/schema/ExampleBuilding#")
-SOSA = Namespace("http://www.w3.org/ns/sosa#")
 
 g = rdflib.Graph()
 g.parse('Brick.ttl', format='turtle')
