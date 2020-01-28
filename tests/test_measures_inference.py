@@ -1,6 +1,8 @@
 import sys
 sys.path.append('..')
 from bricksrc.namespaces import BRICK
+from bricksrc.substances import substances
+from bricksrc.quantities import quantity_definitions
 import rdflib
 import json
 from collections import defaultdict
@@ -8,6 +10,44 @@ from rdflib import Namespace, URIRef
 import brickschema
 
 BLDG = Namespace("https://brickschema.org/schema/ExampleBuilding#")
+
+
+def _get_subclasses(hierarchy):
+    """
+    Helper method to generate a list of pairwise
+    subclass relationships denoted by a hierarchy definition in 'bricksrc'
+    """
+    for klass, defn in hierarchy.items():
+        if 'subclasses' not in defn:
+            continue
+        for subklass, subdefn in defn['subclasses'].items():
+            yield (klass, subklass)
+        for tup in _get_subclasses(defn['subclasses']):
+            yield tup
+
+
+def test_measurable_hierarchy():
+    """
+    Checks to make sure the hierarchy is preserved when the
+    ontology is serialized. All subclass relationships explicitly
+    included in the substances + quantities hierarchies should
+    be in the ontology
+    """
+    g = rdflib.Graph()
+    g.parse('Brick.ttl', format='turtle')
+
+    # check substance classes
+    for klass, subklass in _get_subclasses(substances):
+        query = f"SELECT ?x WHERE {{ <{BRICK[subklass]}> rdfs:subClassOf ?x }}"
+        res = list(g.query(query))
+        assert (BRICK[klass], ) in res
+
+    # check quantity classes
+    for klass, subklass in _get_subclasses(quantity_definitions):
+        query = f"SELECT ?x WHERE {{ <{BRICK[subklass]}> rdfs:subClassOf ?x }}"
+        res = list(g.query(query))
+        assert (BRICK[klass], ) in res
+
 
 def test_measures_infers():
     g = rdflib.Graph()
