@@ -25,6 +25,7 @@ from bricksrc.tags import tags
 def warning_on_one_line(message, category, filename, lineno, file=None, line=None):
     return ' %s:%s: %s:%s\n' % (filename, lineno, category.__name__, message)
 
+
 warnings.formatwarning = warning_on_one_line
 
 
@@ -49,6 +50,8 @@ def make_tag_classes(G, tag):
 
 #syntax for protege: http://protegeproject.github.io/protege/class-expression-syntax/
 def add_restriction(klass, definition):
+    if not definition:
+        return
     l = []
     equivalent_class = BNode()
     list_name = BNode()
@@ -69,6 +72,7 @@ def add_tags(klass, definition):
     if not definition:
         warnings.warn('{0} has no tags.'.format(klass))
         return
+
     all_restrictions = []
     equivalent_class = BNode()
     list_name = BNode()
@@ -120,42 +124,28 @@ def add_class_restriction(klass, definition):
     G.add( (equivalent_class, OWL.intersectionOf, list_name) )
     c = Collection(G, list_name, l)
 
-def define_subclasses(definitions, superclass):
-    for subclass, properties in definitions.items():
-        G.add((superclass, A, OWL.Class))
-        G.add((BRICK[subclass], A, OWL.Class))
-        G.add((BRICK[subclass], RDFS.label, Literal(subclass.replace("_"," "))))
-        G.add((BRICK[subclass], RDFS.subClassOf, superclass))
-        for k, v in properties.items():
-            if isinstance(v, list) and k == "tags":
-                add_tags(subclass, v)
-            elif isinstance(v, list) and k == "parents":
-                for parent in v:
-                    G.add( (BRICK[subclass], RDFS.subClassOf, parent) )
-            elif isinstance(v, list) and k == "substances":
-                add_restriction(subclass, v)
-            elif not apply_prop(subclass, k, v):
-                if isinstance(v, dict) and k == "subclasses":
-                    define_subclasses(v, BRICK[subclass])
 
-def define_measurable_subclasses(definitions, measurable_class):
+def define_subclasses(definitions, superclass, punning_level=0):
+    G.add((superclass, A, OWL.Class))
     for subclass, properties in definitions.items():
         G.add((BRICK[subclass], A, OWL.Class))
-        G.add((BRICK[subclass], A, BRICK[subclass]))
-        G.add((BRICK[subclass], RDFS.label, Literal(subclass.replace("_"," "))))
-        # first level: we are instances of the measurable_class
-        G.add((BRICK[subclass], A, measurable_class))
+        G.add((BRICK[subclass], RDFS.label, Literal(subclass.replace("_", " "))))
+        if punning_level >= 1:
+            G.add((BRICK[subclass], A, BRICK[subclass]))
+        if punning_level >= 2:
+            G.add((BRICK[subclass], A, superclass))
+        else:
+            G.add((BRICK[subclass], RDFS.subClassOf, superclass)) # TODO: Isn't this necessary for substances too?
+
+        add_tags(subclass, properties.get('tags', []))
+        for parent in properties.get('parents', []):
+            G.add( (BRICK[subclass], RDFS.subClassOf, parent) )
+        add_restriction(subclass, properties.get('substances', []))
         for k, v in properties.items():
-            if isinstance(v, list) and k == "tags":
-                add_tags(subclass, v)
-            elif isinstance(v, list) and k == "parents":
-                for parent in v:
-                    G.add( (BRICK[subclass], RDFS.subClassOf, parent) )
-            elif isinstance(v, list) and k == "substances":
-                add_restriction(subclass, v)
-            elif not apply_prop(subclass, k, v):
-                if isinstance(v, dict) and k == "subclasses":
-                    define_measurable_subclasses(v, BRICK[subclass])
+            if k not in ['tags', 'parents', 'substances', 'subclasses']:
+                apply_prop(subclass, k, v)
+        define_subclasses(properties.get('subclasses', {}), BRICK[subclass], punning_level=punning_level)
+
 
 def define_rootclasses(definitions):
     G.add( (BRICK.Class, A, OWL.Class) )
@@ -194,17 +184,6 @@ def define_properties(definitions, superprop=None):
         if superprop is not None:
             G.add( (BRICK[prop], RDFS.subPropertyOf, superprop) )
         for k, v in properties.items():
-            #if k == "domain_value_prop":
-            #    assert isinstance(v, list)
-            #    domain_class = BNode()
-            #    print("domain", prop, v, domain_class)
-            #    add_restriction(domain_class, v)
-            #    G.add( (BRICK[prop], RDFS.domain, domain_class) )
-            #elif k == "range_value_prop":
-            #    assert isinstance(v, list)
-            #    range_class = BNode()
-            #    add_restriction(range_class, v)
-            #    G.add( (BRICK[prop], RDFS.range, range_class) )
             if not apply_prop(prop, k, v):
                 if isinstance(v, dict) and k == "subproperties":
                     define_properties(v, BRICK[prop])
@@ -272,8 +251,10 @@ G.add((BRICK.Substance, A, OWL.Class))
 #               brick:measures  brick:Air ,
 #                               brick:Temperature .
 # This makes Substance and Quantity metaclasses.
-define_measurable_subclasses(substances, BRICK.Substance)
-define_measurable_subclasses(quantity_definitions, BRICK.Quantity)
+define_subclasses(substances, BRICK.Substance, punning_level=2)
+define_subclasses(quantity_definitions, BRICK.Quantity, punning_level=2)
+#define_measurable_subclasses(substances, BRICK.Substance)
+#define_measurable_subclasses(quantity_definitions, BRICK.Quantity)
 
 different_tag_list = []
 # define tags
