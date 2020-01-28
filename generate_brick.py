@@ -143,6 +143,7 @@ def define_measurable_subclasses(definitions, measurable_class):
         G.add((BRICK[subclass], RDFS.label, Literal(subclass.replace("_"," "))))
         # first level: we are instances of the measurable_class
         G.add((BRICK[subclass], A, measurable_class))
+        G.add((BRICK[subclass], RDFS.subClassOf, measurable_class))
         for k, v in properties.items():
             if isinstance(v, list) and k == "tags":
                 add_tags(subclass, v)
