@@ -75,18 +75,18 @@ equipment_subclasses = {
         },
     },
     "Water_System": {
-        "tags": [TAG.Water, TAG.Equipment],
+        "tags": [TAG.Water, TAG.Equipment, TAG.System],
         "subclasses": {
             "Chilled_Water_System": {
                 OWL.equivalentClass: "CWS",
-                "tags": [TAG.Water, TAG.Chilled, TAG.Equipment],
+                "tags": [TAG.Water, TAG.Chilled, TAG.Equipment, TAG.System],
             },
             "Hot_Water_System": {
                 OWL.equivalentClass: "HWS",
-                "tags": [TAG.Water, TAG.Hot, TAG.Equipment],
+                "tags": [TAG.Water, TAG.Hot, TAG.Equipment, TAG.System],
                 "subclasses": {
                     "Domestic_Hot_Water_System": {
-                        "tags": [TAG.Domestic, TAG.Water, TAG.Hot, TAG.Equipment],
+                        "tags": [TAG.Domestic, TAG.Water, TAG.Hot, TAG.Equipment, TAG.System],
                     },
                 },
             },
