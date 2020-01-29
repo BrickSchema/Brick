@@ -7,7 +7,9 @@ command_definitions = {
             "Cooling_Command": {
                 "tags": [TAG.Cool, TAG.Command],
                 "subclasses": {
-                    "Highest_Zone_Cooling_Command": {},
+                    "Highest_Zone_Cooling_Command": {
+                        "tags": [TAG.Highest, TAG.Zone, TAG.Cool, TAG.Command],
+                    },
                 },
             },
             "Heating_Command": {
@@ -48,10 +50,20 @@ command_definitions = {
             "Reset_Command": {
                 "tags": [TAG.Reset, TAG.Command],
                 "subclasses": {
-                    "Fault_Reset_Command": {},
-                    "Filter_Reset_Command": {},
-                    "Speed_Reset_Command": {},
-                    "Fan_Speed_Reset_Command": {},
+                    "Fault_Reset_Command": {
+                        "tags": [TAG.Fault, TAG.Reset, TAG.Command],
+                    },
+                    "Filter_Reset_Command": {
+                        "tags": [TAG.Filter, TAG.Reset, TAG.Command],
+                    },
+                    "Speed_Reset_Command": {
+                        "tags": [TAG.Speed, TAG.Reset, TAG.Command],
+                        "subclasses": {
+                            "Fan_Speed_Reset_Command": {
+                                "tags": [TAG.Fan, TAG.Speed, TAG.Reset, TAG.Command],
+                            },
+                        }
+                    },
                 },
             },
             "Shutdown_Command": {
