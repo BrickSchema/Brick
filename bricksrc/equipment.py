@@ -6,10 +6,10 @@ Set up subclasses of the equipment superclass
 """
 equipment_subclasses = {
     "HVAC": {
-        OWL.equivalentClass: "Heating_Ventilation_Air_Conditioning_System",
+        OWL.equivalentClass: BRICK["Heating_Ventilation_Air_Conditioning_System"],
     },
     "Heating_Ventilation_Air_Conditioning_System": {
-        OWL.equivalentClass: "HVAC",
+        OWL.equivalentClass: BRICK["HVAC"],
     },
     "Weather": {
         "tags": [TAG.Weather],
@@ -78,11 +78,11 @@ equipment_subclasses = {
         "tags": [TAG.Water, TAG.Equipment],
         "subclasses": {
             "Chilled_Water_System": {
-                OWL.equivalentClass: "CWS",
+                OWL.equivalentClass: BRICK["CWS"],
                 "tags": [TAG.Water, TAG.Chilled, TAG.Equipment],
             },
             "Hot_Water_System": {
-                OWL.equivalentClass: "HWS",
+                OWL.equivalentClass: BRICK["HWS"],
                 "tags": [TAG.Water, TAG.Hot, TAG.Equipment],
                 "subclasses": {
                     "Domestic_Hot_Water_System": {
@@ -91,10 +91,10 @@ equipment_subclasses = {
                 },
             },
             "CWS": {
-                OWL.equivalentClass: "Chilled_Water_System",
+                OWL.equivalentClass: BRICK["Chilled_Water_System"],
             },
             "HWS": {
-                OWL.equivalentClass: "Hot_Water_System",
+                OWL.equivalentClass: BRICK["Hot_Water_System"],
             }
         }
     },
@@ -133,7 +133,7 @@ equipment_subclasses = {
     "Fire_Safety_System": {
         "subclasses": {
             "Fire_Control_Panel": {
-                OWL.equivalentClass: "FCP",
+                OWL.equivalentClass: BRICK["FCP"],
             },
             "FCP": {},
         },
@@ -148,7 +148,7 @@ Define classes of HVAC equipment
 """
 hvac_subclasses = {
     "Variable_Frequency_Drive": {
-        OWL.equivalentClass: "VFD",
+        OWL.equivalentClass: BRICK["VFD"],
         SKOS.definition: Literal("Electronic device that varies its output frequency to vary the rotating speed of a motor, given a fixed input frequency. Used with fans or pumps to vary the flow in the system as a function of a maintained pressure."),
     },
     "Valve": {
@@ -168,14 +168,14 @@ hvac_subclasses = {
         SKOS.definition: Literal("A device that regulates the volumetric flow rate and/or the temperature of the controlled medium."),
         "subclasses": {
             "Fan_Coil_Unit": {
-                OWL.equivalentClass: "FCU",
+                OWL.equivalentClass: BRICK["FCU"],
             },
             "FCU": {},
             "Variable_Air_Volume_Box": {
-                OWL.equivalentClass: "VAV",
+                OWL.equivalentClass: BRICK["VAV"],
                 "subclasses": {
                     "Variable_Air_Volume_Box_With_Reheat": {
-                        OWL.equivalentClass: "RVAV",
+                        OWL.equivalentClass: BRICK["RVAV"],
                     },
                     "RVAV": {},
                 },
@@ -199,7 +199,7 @@ hvac_subclasses = {
         },
     },
     "Heat_Exchanger": {
-        OWL.equivalentClass: "HX",
+        OWL.equivalentClass: BRICK["HX"],
         "subclasses": {
             "Evaporative_Heat_Exchanger": {},
             "Condenser_Heat_Exchanger": {},
@@ -269,10 +269,10 @@ hvac_subclasses = {
     },
     "Computer_Room_Air_Conditioning": {
         SKOS.definition: Literal("A device that monitors and maintains the temperature, air distribution and humidity in a network room or data center. "),
-        OWL.equivalentClass: "CRAC",
+        OWL.equivalentClass: BRICK["CRAC"],
     },
     "CRAC": {
-        OWL.equivalentClass: "Computer_Room_Air_Conditioning",
+        OWL.equivalentClass: BRICK["Computer_Room_Air_Conditioning"],
     },
     "Compressor": {
         SKOS.definition: Literal("(1) device for mechanically increasing the pressure of a gas. (2) often described as being either open, hermetic, or semihermetic to describe how the compressor and motor drive is situated in relation to the gas or vapor being compressed. Types include centrifugal, axial flow, reciprocating, rotary screw, rotary vane, scroll, or diaphragm. 1. device for mechanically increasing the pressure of a gas. 2. specific machine, with or without accessories, for compressing refrigerant vapor."),
@@ -301,17 +301,17 @@ hvac_subclasses = {
     },
     "Air_Handler_Unit": {
         SKOS.definition: Literal("Assembly consisting of sections containing a fan or fans and other necessary equipment to perform one or more of the following functions: circulating, filtration, heating, cooling, heat recovery, humidifying, dehumidifying, and mixing of air. Is usually connected to an air-distribution system."),
-        OWL.equivalentClass: "AHU",
+        OWL.equivalentClass: BRICK["AHU"],
     },
     "AHU": {
         "tags": [TAG.Equipment, TAG.AHU],
         "subclasses": {
             "Rooftop_Unit": {
-                OWL.equivalentClass: "RTU",
+                OWL.equivalentClass: BRICK["RTU"],
                 "tags": [TAG.Equipment, TAG.Rooftop, TAG.AHU],
             },
             "RTU": {
-                OWL.equivalentClass: "Rooftop_Unit",
+                OWL.equivalentClass: BRICK["Rooftop_Unit"],
             },
         },
     },

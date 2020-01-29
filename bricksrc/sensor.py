@@ -103,7 +103,7 @@ sensor_definitions = {
                         "tags": [TAG.Current, TAG.Output, TAG.Sensor],
                         "subclasses": {
                             "Photovoltaic_Current_Output_Sensor": {
-                                OWL.equivalentClass: "PV_Current_Output_Sensor",
+                                OWL.equivalentClass: BRICK["PV_Current_Output_Sensor"],,
                                 "tags": [TAG.Photovoltaic, TAG.Current, TAG.Output, TAG.Sensor],
                             },
                             "PV_Current_Output_Sensor": {},
@@ -617,11 +617,11 @@ sensor_definitions = {
                                     },
                                     "Highest_Zone_Air_Temperature_Sensor": {
                                         "tags": [TAG.Sensor, TAG.Temperature, TAG.Zone, TAG.Highest, TAG.Air],
-                                        OWL.equivalentClass: "Warmest_Zone_Air_Temperature_Sensor"
+                                        OWL.equivalentClass: BRICK["Warmest_Zone_Air_Temperature_Sensor"],
                                     },
                                     "Lowest_Zone_Air_Temperature_Sensor": {
                                         "tags": [TAG.Sensor, TAG.Temperature, TAG.Zone, TAG.Lowest, TAG.Air],
-                                        OWL.equivalentClass: "Coldest_Zone_Air_Temperature_Sensor"
+                                        OWL.equivalentClass: BRICK["Coldest_Zone_Air_Temperature_Sensor"],
                                     },
                                     "Coldest_Zone_Air_Temperature_Sensor": {},
                                     "Warmest_Zone_Air_Temperature_Sensor": {},
