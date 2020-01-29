@@ -4,6 +4,8 @@ from rdflib import Graph, Literal, BNode, URIRef
 from rdflib.namespace import XSD
 from rdflib.collection import Collection
 
+from bricksrc.ontology import define_ontology
+
 from bricksrc.namespaces import BRICK, RDF, OWL, RDFS, TAG, SOSA
 from bricksrc.namespaces import bind_prefixes
 
@@ -21,8 +23,7 @@ from bricksrc.properties import properties
 from bricksrc.tags import tags
 
 logging.basicConfig(format='%(asctime)s,%(msecs)d %(levelname)-8s [%(filename)s:%(lineno)d] %(message)s',
-    datefmt='%Y-%m-%d:%H:%M:%S',
-        level=logging.DEBUG)
+    datefmt='%Y-%m-%d:%H:%M:%S', level=logging.INFO)
 
 G = Graph()
 bind_prefixes(G)
@@ -186,23 +187,49 @@ def apply_prop(prop, pred, obj):
 
 
 def define_properties(definitions, superprop=None):
-    for prop, propdef in definitions.items():
+    """
+    Define BRICK properties
+    """
+    if len(definitions) == 0:
+        return
+
+    for prop, propdefn in definitions.items():
         G.add((BRICK[prop], A, OWL.ObjectProperty))
         if superprop is not None:
             G.add((BRICK[prop], RDFS.subPropertyOf, superprop))
-        for k, v in propdef.items():
-            if not apply_prop(prop, k, v):
-                if isinstance(v, dict) and k == "subproperties":
-                    define_properties(v, BRICK[prop])
+
+        # define property types
+        prop_types = propdefn.get(A, [])
+        assert isinstance(prop_types, list)
+        for prop_type in prop_types:
+            G.add((BRICK[prop], A, prop_type))
+
+        # define any subproperties
+        subproperties_def = propdefn.get('subproperties', {})
+        assert isinstance(subproperties_def, dict)
+        define_properties(subproperties_def, BRICK[prop])
+
+        # define other properties of the Brick property
+        for propname, propval in propdefn.items():
+            # all other key-value pairs in the definition are
+            # property-object pairs
+            expected_properties = ['subproperties', A]
+            other_properties = [prop for prop in propdefn.keys()
+                                if prop not in expected_properties]
+
+            for propname in other_properties:
+                propval = propdefn[propname]
+                G.add((BRICK[prop], propname, propval))
 
 
 # handle ontology definition
-from bricksrc.ontology import define_ontology
 define_ontology(G)
 
-"""
-Declare root classes
-"""
+# Declare root classes
+
+G.add((BRICK.Class, A, OWL.Class))
+G.add((BRICK.Tag, A, OWL.Class))
+
 roots = {
     "Equipment": {
         "tags": [TAG.Equipment],
@@ -211,14 +238,10 @@ roots = {
         "tags": [TAG.Location],
     },
     "Point": {
-        # "tags": [TAG.Point],
+        "tags": [TAG.Point],
     },
     "Measurable": {},
 }
-G.add((BRICK.Class, A, OWL.Class))
-G.add((BRICK.Tag, A, OWL.Class))
-
-# define root classes
 define_classes(roots, BRICK.Class)
 
 # define BRICK properties
@@ -231,6 +254,7 @@ define_classes(alarm_definitions, BRICK.Point)
 define_classes(status_definitions, BRICK.Point)
 define_classes(command_definitions, BRICK.Point)
 define_classes(parameter_definitions, BRICK.Point)
+
 # make points disjoint
 pointclasses = ['Alarm', 'Status', 'Command', 'Setpoint', 'Sensor', 'Parameter']
 for pc in pointclasses:
@@ -243,6 +267,7 @@ define_classes(equipment_subclasses, BRICK.Equipment)
 define_classes(hvac_subclasses, BRICK.HVAC)
 define_classes(valve_subclasses, BRICK.Valve)
 
+# define measurable hierarchy
 G.add((BRICK.Measurable, RDFS.subClassOf, BRICK.Class))
 # set up Quantity definition
 G.add((BRICK.Quantity, RDFS.subClassOf, SOSA.ObservableProperty))
@@ -264,14 +289,12 @@ G.add((BRICK.Substance, A, OWL.Class))
 define_classes(substances, BRICK.Substance, pun_classes=True)
 define_classes(quantity_definitions, BRICK.Quantity, pun_classes=True)
 
+# declares that all tags are pairwise different; i.e. no two tags refer
+# to the same tag
 different_tag_list = []
-# define tags
 for tag, definition in tags.items():
     different_tag_list.append(TAG[tag])
     G.add((TAG[tag], A, BRICK.Tag))
-
-# declares that all tags are pairwise different; i.e. no two tags refer
-# to the same tag
 different_tag = BNode("tags_are_different")
 G.add((BRICK.Tag, A, OWL.AllDifferent))
 G.add((BRICK.Tag, OWL.distinctMembers, different_tag))
