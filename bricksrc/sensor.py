@@ -106,7 +106,9 @@ sensor_definitions = {
                                 OWL.equivalentClass: BRICK["PV_Current_Output_Sensor"],
                                 "tags": [TAG.Photovoltaic, TAG.Current, TAG.Output, TAG.Sensor],
                             },
-                            "PV_Current_Output_Sensor": {},
+                            "PV_Current_Output_Sensor": {
+                                "tags": [TAG.PV, TAG.Current, TAG.Output, TAG.Sensor],
+                            },
                         },
                     },
                 }
@@ -154,7 +156,9 @@ sensor_definitions = {
                 "tags": [TAG.Sensor, TAG.Energy],
                 "substances": [[BRICK.measures, BRICK.Energy]],
                 "subclasses": {
-                    "Today_Peak_Energy_Sensor": {},
+                    "Today_Peak_Energy_Sensor": {
+                        "tags": [TAG.Sensor, TAG.Energy, TAG.Today, TAG.Peak],
+                    },
                 },
             },
             "Enthalpy_Sensor": {
@@ -287,6 +291,7 @@ sensor_definitions = {
                 "substances": [[BRICK.measures, BRICK.Hail]],
             },
             "Heat_Sensor": {
+                "tags": [TAG.Sensor, TAG.Heat],
                 "subclasses": {
                     "Trace_Heat_Sensor": {
                         #TODO: substance
@@ -389,7 +394,9 @@ sensor_definitions = {
                                 "tags": [TAG.Sensor, TAG.Pressure, TAG.Differential, TAG.Water, TAG.Hot],
                                 "substances": [[BRICK.measures, BRICK.Pressure], [BRICK.measures, BRICK.Hot_Water]],
                                 "subclasses": {
-                                    "Medium_Temperature_Hot_Water_Differential_Pressure_Sensor": {},
+                                    "Medium_Temperature_Hot_Water_Differential_Pressure_Sensor": {
+                                        "tags": [TAG.Medium, TAG.Temperature, TAG.Sensor, TAG.Pressure, TAG.Differential, TAG.Water, TAG.Hot],
+                                    },
                                 },
                             }
                         }
@@ -444,6 +451,7 @@ sensor_definitions = {
                 }
             },
             "Power_Sensor": {
+                "tags": [TAG.Sensor, TAG.Power],
                 "substances": [[BRICK.measures, BRICK.Power]],
                 "subclasses": {
                     "Thermal_Power_Sensor": {
@@ -623,8 +631,12 @@ sensor_definitions = {
                                         "tags": [TAG.Sensor, TAG.Temperature, TAG.Zone, TAG.Lowest, TAG.Air],
                                         OWL.equivalentClass: BRICK["Coldest_Zone_Air_Temperature_Sensor"],
                                     },
-                                    "Coldest_Zone_Air_Temperature_Sensor": {},
-                                    "Warmest_Zone_Air_Temperature_Sensor": {},
+                                    "Coldest_Zone_Air_Temperature_Sensor": {
+                                        "tags": [TAG.Coldest, TAG.Zone, TAG.Air, TAG.Temperature, TAG.Sensor],
+                                    },
+                                    "Warmest_Zone_Air_Temperature_Sensor": {
+                                        "tags": [TAG.Warmest, TAG.Zone, TAG.Air, TAG.Temperature, TAG.Sensor],
+                                    },
                                 }
                             },
                             "Exhaust_Air_Temperature_Sensor": {
@@ -725,8 +737,12 @@ sensor_definitions = {
                                     "Hot_Water_Return_Temperature_Sensor": {
                                         "tags": [TAG.Hot, TAG.Water, TAG.Return, TAG.Temperature, TAG.Sensor],
                                         "subclasses": {
-                                            "Medium_Temperature_Hot_Water_Return_Temperature_Sensor": {},
-                                            "High_Temperature_Hot_Water_Return_Temperature_Sensor": {},
+                                            "Medium_Temperature_Hot_Water_Return_Temperature_Sensor": {
+                                                "tags": [TAG.Medium, TAG.Hot, TAG.Water, TAG.Return, TAG.Temperature, TAG.Sensor],
+                                            },
+                                            "High_Temperature_Hot_Water_Return_Temperature_Sensor": {
+                                                "tags": [TAG.High, TAG.Hot, TAG.Water, TAG.Return, TAG.Temperature, TAG.Sensor],
+                                            },
                                         },
                                     },
                                     "Chilled_Water_Return_Temperature_Sensor": {
