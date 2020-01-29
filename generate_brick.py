@@ -160,8 +160,8 @@ def define_classes(definitions, parent, pun_classes=False):
         # handle 'parents' subclasses (links outside of tree-based hierarchy)
         parents = defn.get('parents', [])
         assert isinstance(parents, list)
-        for parent in parents:
-            G.add((classname, RDFS.subClassOf, parent))
+        for _parent in parents:
+            G.add((classname, RDFS.subClassOf, _parent))
 
         # all other key-value pairs in the definition are
         # property-object pairs
