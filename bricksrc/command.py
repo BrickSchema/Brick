@@ -73,6 +73,7 @@ command_definitions = {
                         "tags": [TAG.Hot, TAG.Water, TAG.Shutdown, TAG.Command],
                         "subclasses": {
                             "Unoccupied_Hot_Water_Shutdown_Command": {
+                                "tags": [TAG.Unoccupied, TAG.Hot, TAG.Water, TAG.Shutdown, TAG.Command],
                             },
                         },
                     },
@@ -147,13 +148,19 @@ command_definitions = {
                 "tags": [TAG.Load, TAG.Shed, TAG.Command],
                 "subclasses": {
                     "Standby_Load_Shed_Command": {
+                        "tags": [TAG.Standby, TAG.Load, TAG.Shed, TAG.Command],
                         "subclasses": {
-                            "Zone_Standby_Load_Shed_Command": {},
+                            "Zone_Standby_Load_Shed_Command": {
+                                "tags": [TAG.Zone, TAG.Standby, TAG.Load, TAG.Shed, TAG.Command],
+                            },
                         },
                     },
                     "Unoccupied_Load_Shed_Command": {
+                        "tags": [TAG.Unoccupied, TAG.Load, TAG.Shed, TAG.Command],
                         "subclasses": {
-                            "Zone_Unoccupied_Load_Shed_Command": {},
+                            "Zone_Unoccupied_Load_Shed_Command": {
+                                "tags": [TAG.Zone, TAG.Unoccupied, TAG.Load, TAG.Shed, TAG.Command],
+                            },
                         },
                     },
                 },
@@ -161,9 +168,15 @@ command_definitions = {
             "Mode_Command": {
                 "tags": [TAG.Mode, TAG.Command],
                 "subclasses": {
-                    "Automatic_Mode_Command": {},
-                    "Maintenance_Mode_Command": {},
-                    "Box_Mode_Command": {},
+                    "Automatic_Mode_Command": {
+                        "tags": [TAG.Automatic, TAG.Mode, TAG.Command],
+                    },
+                    "Maintenance_Mode_Command": {
+                        "tags": [TAG.Maintenance, TAG.Mode, TAG.Command],
+                    },
+                    "Box_Mode_Command": {
+                        "tags": [TAG.Box, TAG.Mode, TAG.Command],
+                    },
                 },
             },
             "Frequency_Command": {
