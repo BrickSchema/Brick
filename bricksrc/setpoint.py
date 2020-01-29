@@ -166,7 +166,9 @@ setpoint_definitions = {
                                     "Cooling_Discharge_Air_Flow_Setpoint": {
                                         "tags": [TAG.Cooling, TAG.Discharge, TAG.Air, TAG.Flow, TAG.Setpoint],
                                         "subclasses": {
-                                            "Unoccupied_Cooling_Discharge_Air_Flow_Setpoint": {},
+                                            "Unoccupied_Cooling_Discharge_Air_Flow_Setpoint": {
+                                                "tags": [TAG.Unoccupied, TAG.Cooling, TAG.Discharge, TAG.Air, TAG.Flow, TAG.Setpoint],
+                                            },
                                         },
                                     },
                                     "Heating_Discharge_Air_Flow_Setpoint": {
@@ -241,8 +243,12 @@ setpoint_definitions = {
                     "Load_Shed_Setpoint": {
                         "tags": [TAG.Shed, TAG.Load, TAG.Setpoint],
                         "subclasses": {
-                            "Medium_Temperature_Hot_Water_Differential_Pressure_Load_Shed_Setpoint": {},
-                            "Medium_Temperature_Hot_Water_Supply_Temperature_Load_Shed_Setpoint": {},
+                            "Medium_Temperature_Hot_Water_Differential_Pressure_Load_Shed_Setpoint": {
+                                "tags": [TAG.Medium, TAG.Temperature, TAG.Hot, TAG.Water, TAG.Differential, TAG.Pressure, TAG.Shed, TAG.Load, TAG.Setpoint],
+                            },
+                            "Medium_Temperature_Hot_Water_Supply_Temperature_Load_Shed_Setpoint": {
+                                "tags": [TAG.Medium, TAG.Temperature, TAG.Hot, TAG.Water, TAG.Supply, TAG.Pressure, TAG.Shed, TAG.Load, TAG.Setpoint],
+                            },
                         },
                     }
                 },
@@ -343,6 +349,7 @@ setpoint_definitions = {
                 "subclasses": {
                     "Discharge_Air_Flow_Reset_Setpoint": {
                         SKOS.definition: Literal("Setpoints used in Reset strategies"),
+                        "tags": [TAG.Discharge, TAG.Air, TAG.Flow, TAG.Reset, TAG.Setpoint],
                         "subclasses": {
                             "Discharge_Air_Flow_Reset_High_Setpoint": {},
                             "Discharge_Air_Flow_Reset_Low_Setpoint": {}
