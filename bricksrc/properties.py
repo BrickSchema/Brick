@@ -7,13 +7,13 @@ Defining properties
 properties = {
     "isLocationOf": {
         A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
-        OWL.inverseOf: "hasLocation",
+        OWL.inverseOf: BRICK["hasLocation"],
         RDFS.domain: BRICK.Location,
         SKOS.definition: Literal("Subject is the physical location encapsulating the object"),
     },
     "hasLocation": {
         A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
-        OWL.inverseOf: "isLocationOf",
+        OWL.inverseOf: BRICK["isLocationOf"],
         RDFS.range: BRICK.Location,
         SKOS.definition: Literal("Subject is physically located in the location given by the object"),
     },
@@ -31,17 +31,17 @@ properties = {
 
     "controls": {
         A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
-        OWL.inverseOf: "isControlledBy",
+        OWL.inverseOf: BRICK["isControlledBy"],
     },
     "isControlledBy": {
         A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
-        OWL.inverseOf: "controls",
+        OWL.inverseOf: BRICK["controls"],
     },
 
     "feeds": {
         A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         SKOS.definition: Literal("The subject is upstream of the object in the context of some sequential process; some media is passed between them"),
-        OWL.inverseOf: "isFedBy",
+        OWL.inverseOf: BRICK["isFedBy"],
         "subproperties": {
             "feedsAir": {
                 SKOS.definition: Literal("Passes air"),
@@ -62,34 +62,34 @@ properties = {
     },
     "isFedBy": {
         A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
-        OWL.inverseOf: "feeds",
+        OWL.inverseOf: BRICK["feeds"],
     },
 
     "hasPoint": {
         A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
-        OWL.inverseOf: "isPointOf",
+        OWL.inverseOf: BRICK["isPointOf"],
         SKOS.definition: Literal("The subject has a digital/analog input/output point given by the object"),
         RDFS.range: BRICK.Point,
     },
     "isPointOf": {
         A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
-        OWL.inverseOf: "hasPoint",
+        OWL.inverseOf: BRICK["hasPoint"],
         RDFS.domain: BRICK.Point,
     },
 
     "hasPart": {
         A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         SKOS.definition: Literal("The subject is composed in part of the entity given by the object"),
-        OWL.inverseOf: "isPartOf",
+        OWL.inverseOf: BRICK["isPartOf"],
     },
     "isPartOf": {
         A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
-        OWL.inverseOf: "hasPart",
+        OWL.inverseOf: BRICK["hasPart"],
     },
 
     "hasTag": {
         A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
-        OWL.inverseOf: "isTagOf",
+        OWL.inverseOf: BRICK["isTagOf"],
         SKOS.definition: Literal("The subject has the given tag"),
         RDFS.range: BRICK.Tag,
     },
@@ -100,7 +100,7 @@ properties = {
 
     "measures": {
         A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
-        OWL.inverseOf: "isMeasuredBy",
+        OWL.inverseOf: BRICK["isMeasuredBy"],
         SKOS.definition: Literal("The subject measures a quantity or substance given by the object"),
         RDFS.domain: BRICK.Point,
         RDFS.range: BRICK.Measurable,
@@ -112,7 +112,7 @@ properties = {
     },
     "regulates": {
         A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
-        OWL.inverseOf: "isRegulatedBy",
+        OWL.inverseOf: BRICK["isRegulatedBy"],
         SKOS.definition: Literal("The subject contributes to or performs the regulation of the substance given by the object"),
         RDFS.domain: BRICK.Equipment,
         RDFS.range: BRICK.Substance,
@@ -125,14 +125,14 @@ properties = {
 
     "hasAssociatedTag": {
         A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
-        OWL.inverseOf: "isAssociatedWith",
+        OWL.inverseOf: BRICK["isAssociatedWith"],
         SKOS.definition: Literal("The class is associated with the given tag"),
         RDFS.domain: OWL.Class,
         RDFS.range: BRICK.Tag,
     },
     "isAssociatedWith": {
         A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
-        OWL.inverseOf: "hasAssociatedTag",
+        OWL.inverseOf: BRICK["hasAssociatedTag"],
         SKOS.definition: Literal("The tag is associated with the given class"),
         RDFS.domain: BRICK.Tag,
         RDFS.range: OWL.Class,

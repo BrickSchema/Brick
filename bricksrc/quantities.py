@@ -1,5 +1,5 @@
 from rdflib import Literal
-from .namespaces import SKOS, OWL
+from .namespaces import SKOS, OWL, BRICK
 
 
 quantity_definitions = {
@@ -25,7 +25,7 @@ quantity_definitions = {
                 "subclasses": {
                     "Apparent_Power": {},
                     "Active_Power": {
-                        OWL.equivalentClass: "Real_Power",
+                        OWL.equivalentClass: BRICK["Real_Power"],
                     },
                     "Real_Power": {},
                     "Reactive_Power": {},
