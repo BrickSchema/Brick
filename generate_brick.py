@@ -222,6 +222,7 @@ def define_properties(definitions, superprop=None):
                 G.add((BRICK[prop], propname, propval))
 
 
+logging.info("Beginning BRICK Ontology compilation")
 # handle ontology definition
 define_ontology(G)
 
@@ -244,9 +245,11 @@ roots = {
 }
 define_classes(roots, BRICK.Class)
 
+logging.info("Defining properties")
 # define BRICK properties
 define_properties(properties)
 
+logging.info("Defining Point subclasses")
 # define Point subclasses
 define_classes(setpoint_definitions, BRICK.Point)
 define_classes(sensor_definitions, BRICK.Point)
@@ -261,12 +264,14 @@ for pc in pointclasses:
     for o in filter(lambda x: x != pc, pointclasses):
         G.add((BRICK[pc], OWL.disjointWith, BRICK[o]))
 
+logging.info("Defining Equipment, Location subclasses")
 # define other root class structures
 define_classes(location_subclasses, BRICK.Location)
 define_classes(equipment_subclasses, BRICK.Equipment)
 define_classes(hvac_subclasses, BRICK.HVAC)
 define_classes(valve_subclasses, BRICK.Valve)
 
+logging.info("Defining Measurable hierarchy")
 # define measurable hierarchy
 G.add((BRICK.Measurable, RDFS.subClassOf, BRICK.Class))
 # set up Quantity definition
@@ -289,6 +294,7 @@ G.add((BRICK.Substance, A, OWL.Class))
 define_classes(substances, BRICK.Substance, pun_classes=True)
 define_classes(quantity_definitions, BRICK.Quantity, pun_classes=True)
 
+logging.info("Finishing Tag definitions")
 # declares that all tags are pairwise different; i.e. no two tags refer
 # to the same tag
 different_tag_list = []
@@ -300,6 +306,6 @@ G.add((BRICK.Tag, A, OWL.AllDifferent))
 G.add((BRICK.Tag, OWL.distinctMembers, different_tag))
 Collection(G, different_tag, different_tag_list)
 
+logging.info(f"Brick ontology compilation finished! Generated {len(G)} triples")
 # serialize to output
-print('base:',len(G))
 G.serialize('Brick.ttl', format='turtle')
