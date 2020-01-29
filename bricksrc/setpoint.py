@@ -382,37 +382,44 @@ setpoint_definitions = {
                         "tags": [TAG.Temperature, TAG.High, TAG.Reset, TAG.Setpoint],
                         "subclasses": {
                             "Hot_Water_Supply_Temperature_High_Reset_Setpoint": {
+                                "tags": [TAG.Hot, TAG.Water, TAG.Supply, TAG.Temperature, TAG.High, TAG.Reset, TAG.Setpoint],
                                 "subclasses": {
-                                    "Medium_Temperature_Hot_Water_Discharge_Temperature_High_Reset_Setpoint": {},
-                                    "Medium_Temperature_Hot_Water_Supply_Temperature_High_Reset_Setpoint": {}
+                                    "Medium_Temperature_Hot_Water_Discharge_Temperature_High_Reset_Setpoint": {
+                                        "tags": [TAG.Medium, TAG.Temperature, TAG.Hot, TAG.Water, TAG.Discharge, TAG.Temperature, TAG.High, TAG.Reset, TAG.Setpoint],
+                                    },
+                                    "Medium_Temperature_Hot_Water_Supply_Temperature_High_Reset_Setpoint": {
+                                        "tags": [TAG.Medium, TAG.Temperature, TAG.Hot, TAG.Water, TAG.Supply, TAG.Temperature, TAG.High, TAG.Reset, TAG.Setpoint],
+                                    },
                                 }
                             },
                             "Supply_Air_Temperature_Reset_High_Setpoint": {
                                 "tags": [TAG.Supply, TAG.Air, TAG.Temperature, TAG.High, TAG.Reset, TAG.Setpoint],
                             },
+                            "Outside_Air_Temperature_High_Reset_Setpoint": {
+                                "tags": [TAG.Outside, TAG.Air, TAG.Temperature, TAG.High, TAG.Reset, TAG.Setpoint],
+                            },
                         }
                     },
-                    "Outside_Air_Temperature_High_Reset_Setpoint": {},
                     "Temperature_Low_Reset_Setpoint": {
+                        "tags": [TAG.Temperature, TAG.Low, TAG.Reset, TAG.Setpoint],
                         "subclasses": {
                             "Supply_Air_Temperature_Reset_Low_Setpoint": {
                                 "tags": [TAG.Supply, TAG.Air, TAG.Temperature, TAG.Low, TAG.Reset, TAG.Setpoint],
                             },
                             "Hot_Water_Supply_Temperature_Low_Reset_Setpoint": {
+                                "tags": [TAG.Hot, TAG.Water, TAG.Supply, TAG.Temperature, TAG.Low, TAG.Reset, TAG.Setpoint],
                                 "subclasses": {
-                                    "Medium_Temperature_Hot_Water_Supply_Temperature_High_Reset_Setpoint": {
-                                        "tags": [TAG.Medium, TAG.Temperature, TAG.Hot, TAG.Water, TAG.Supply, TAG.Temperature, TAG.High, TAG.Reset, TAG.Setpoint],
-                                    },
                                     "Medium_Temperature_Hot_Water_Supply_Temperature_Low_Reset_Setpoint": {
                                         "tags": [TAG.Medium, TAG.Temperature, TAG.Hot, TAG.Water, TAG.Supply, TAG.Temperature, TAG.Low, TAG.Reset, TAG.Setpoint],
                                     },
                                     "Medium_Temperature_Hot_Water_Discharge_Temperature_Low_Reset_Setpoint": {
-                                    },
-                                    "Medium_Temperature_Hot_Water_Discharge_Temperature_High_Reset_Setpoint": {
+                                        "tags": [TAG.Medium, TAG.Temperature, TAG.Hot, TAG.Water, TAG.Discharge, TAG.Temperature, TAG.Low, TAG.Reset, TAG.Setpoint],
                                     },
                                 }
                             },
-                            "Outside_Air_Temperature_Low_Reset_Setpoint": {}
+                            "Outside_Air_Temperature_Low_Reset_Setpoint": {
+                                "tags": [TAG.Outside, TAG.Air, TAG.Temperature, TAG.Low, TAG.Reset, TAG.Setpoint],
+                            }
                         }
                     },
                 }
