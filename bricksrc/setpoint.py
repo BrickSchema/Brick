@@ -375,28 +375,27 @@ setpoint_definitions = {
                             },
                             "Supply_Air_Temperature_Reset_Differential_Setpoint": {
                                 "tags": [TAG.Supply, TAG.Air, TAG.Temperature, TAG.Differential, TAG.Reset, TAG.Setpoint],
-                                "subclasses": {
-                                    "Supply_Air_Temperature_Reset_High_Setpoint": {
-                                    },
-                                    "Supply_Air_Temperature_Reset_Low_Setpoint": {
-                                    },
-                                }
-                            }
+                            },
                         }
                     },
                     "Temperature_High_Reset_Setpoint": {
+                        "tags": [TAG.Temperature, TAG.High, TAG.Reset, TAG.Setpoint],
                         "subclasses": {
                             "Hot_Water_Supply_Temperature_High_Reset_Setpoint": {
                                 "subclasses": {
                                     "Medium_Temperature_Hot_Water_Discharge_Temperature_High_Reset_Setpoint": {},
                                     "Medium_Temperature_Hot_Water_Supply_Temperature_High_Reset_Setpoint": {}
                                 }
-                            }
+                            },
+                            "Supply_Air_Temperature_Reset_High_Setpoint": {
+                            },
                         }
                     },
                     "Outside_Air_Temperature_High_Reset_Setpoint": {},
                     "Temperature_Low_Reset_Setpoint": {
                         "subclasses": {
+                            "Supply_Air_Temperature_Reset_Low_Setpoint": {
+                            },
                             "Hot_Water_Supply_Temperature_Low_Reset_Setpoint": {
                                 "subclasses": {
                                     "Medium_Temperature_Hot_Water_Supply_Temperature_High_Reset_Setpoint": {},
