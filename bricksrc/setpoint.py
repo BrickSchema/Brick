@@ -463,8 +463,12 @@ setpoint_definitions = {
                                         "parents": [BRICK.Heating_Temperature_Setpoint],
                                         "tags": [TAG.Discharge, TAG.Air, TAG.Temperature, TAG.Heating, TAG.Setpoint],
                                     },
-                                    "Min_Discharge_Air_Temperature_Setpoint": {},
-                                    "Max_Discharge_Air_Temperature_Setpoint": {},
+                                    "Min_Discharge_Air_Temperature_Setpoint": {
+                                        "tags": [TAG.Discharge, TAG.Air, TAG.Temperature, TAG.Min, TAG.Setpoint],
+                                    },
+                                    "Max_Discharge_Air_Temperature_Setpoint": {
+                                        "tags": [TAG.Discharge, TAG.Air, TAG.Temperature, TAG.Max, TAG.Setpoint],
+                                    },
                                     "Discharge_Air_Temperature_Cooling_Setpoint": {
                                         OWL.equivalentClass: BRICK["Max_Discharge_Air_Temperature_Setpoint"],
                                         "parents": [BRICK.Cooling_Temperature_Setpoint],
@@ -500,9 +504,11 @@ setpoint_definitions = {
                                         "tags": [TAG.Low, TAG.Outside, TAG.Air, TAG.Temperature, TAG.Enable, TAG.Setpoint],
                                     },
                                     "Disable_Hot_Water_System_Outside_Air_Temperature_Setpoint": {
+                                        "tags": [TAG.Disable, TAG.Hot, TAG.Water, TAG.System, TAG.Outside, TAG.Air, TAG.Temperature, TAG.Setpoint],
                                         SKOS.definition: Literal("Disables hot water system when outside air temperature reaches the indicated value"),
                                     },
                                     "Enable_Hot_Water_System_Outside_Air_Temperature_Setpoint": {
+                                        "tags": [TAG.Enable, TAG.Hot, TAG.Water, TAG.System, TAG.Outside, TAG.Air, TAG.Temperature, TAG.Setpoint],
                                         SKOS.definition: Literal("Enables hot water system when outside air temperature reaches the indicated value"),
                                     },
                                     "Open_Heating_Valve_Outside_Air_Temperature_Setpoint": {
