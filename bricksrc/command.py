@@ -191,7 +191,7 @@ command_definitions = {
                 "tags": [TAG.Occupancy, TAG.Command],
             },
             "On_Off_Command": {
-                "tags": [TAG.OnOff, TAG.Command],
+                "tags": [TAG.On, TAG.Off, TAG.Command],
                 "subclasses": {
                     "Off_Command": {
                         "subclasses": {
