@@ -351,22 +351,35 @@ setpoint_definitions = {
                     "Discharge_Air_Flow_Reset_Setpoint": {
                         "tags": [TAG.Discharge, TAG.Air, TAG.Flow, TAG.Reset, TAG.Setpoint],
                         "subclasses": {
-                            "Discharge_Air_Flow_Reset_High_Setpoint": {},
-                            "Discharge_Air_Flow_Reset_Low_Setpoint": {}
+                            "Discharge_Air_Flow_Reset_High_Setpoint": {
+                                "tags": [TAG.Discharge, TAG.Air, TAG.Flow, TAG.Reset, TAG.Setpoint, TAG.High],
+                            },
+                            "Discharge_Air_Flow_Reset_Low_Setpoint": {
+                                "tags": [TAG.Discharge, TAG.Air, TAG.Flow, TAG.Reset, TAG.Setpoint, TAG.Low],
+                            }
                         }
                     },
                     "Temperature_Differential_Reset_Setpoint": {
+                        "tags": [TAG.Temperature, TAG.Differential, TAG.Reset, TAG.Setpoint],
                         "subclasses": {
                             "Discharge_Air_Temperature_Reset_Differential_Setpoint": {
+                                "tags": [TAG.Discharge, TAG.Air, TAG.Temperature, TAG.Differential, TAG.Reset, TAG.Setpoint],
                                 "subclasses": {
-                                    "Discharge_Air_Temperature_Reset_High_Setpoint": {},
-                                    "Discharge_Air_Temperature_Reset_Low_Setpoint": {},
+                                    "Discharge_Air_Temperature_Reset_High_Setpoint": {
+                                        "tags": [TAG.Discharge, TAG.Air, TAG.Temperature, TAG.Differential, TAG.Reset, TAG.Setpoint, TAG.High],
+                                    },
+                                    "Discharge_Air_Temperature_Reset_Low_Setpoint": {
+                                        "tags": [TAG.Discharge, TAG.Air, TAG.Temperature, TAG.Differential, TAG.Reset, TAG.Setpoint, TAG.Low],
+                                    },
                                 }
                             },
                             "Supply_Air_Temperature_Reset_Differential_Setpoint": {
+                                "tags": [TAG.Supply, TAG.Air, TAG.Temperature, TAG.Differential, TAG.Reset, TAG.Setpoint],
                                 "subclasses": {
-                                    "Supply_Air_Temperature_Reset_High_Setpoint": {},
-                                    "Supply_Air_Temperature_Reset_Low_Setpoint": {},
+                                    "Supply_Air_Temperature_Reset_High_Setpoint": {
+                                    },
+                                    "Supply_Air_Temperature_Reset_Low_Setpoint": {
+                                    },
                                 }
                             }
                         }
