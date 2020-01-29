@@ -459,14 +459,14 @@ setpoint_definitions = {
                                 "tags": [TAG.Discharge, TAG.Air, TAG.Temperature, TAG.Setpoint],
                                 "subclasses": {
                                     "Discharge_Air_Temperature_Heating_Setpoint": {
-                                        OWL.equivalentClass: BRICK["Minimum_Discharge_Air_Temperature_Setpoint"],
+                                        OWL.equivalentClass: BRICK["Min_Discharge_Air_Temperature_Setpoint"],
                                         "parents": [BRICK.Heating_Temperature_Setpoint],
                                         "tags": [TAG.Discharge, TAG.Air, TAG.Temperature, TAG.Heating, TAG.Setpoint],
                                     },
-                                    "Minimum_Discharge_Air_Temperature_Setpoint": {},
-                                    "Maximum_Discharge_Air_Temperature_Setpoint": {},
+                                    "Min_Discharge_Air_Temperature_Setpoint": {},
+                                    "Max_Discharge_Air_Temperature_Setpoint": {},
                                     "Discharge_Air_Temperature_Cooling_Setpoint": {
-                                        OWL.equivalentClass: BRICK["Maximum_Discharge_Air_Temperature_Setpoint"],
+                                        OWL.equivalentClass: BRICK["Max_Discharge_Air_Temperature_Setpoint"],
                                         "parents": [BRICK.Cooling_Temperature_Setpoint],
                                         "tags": [TAG.Discharge, TAG.Air, TAG.Temperature, TAG.Cooling, TAG.Setpoint],
                                     }
