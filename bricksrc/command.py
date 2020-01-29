@@ -217,9 +217,6 @@ command_definitions = {
                     },
                     "Start_Stop_Command": {
                         "tags": [TAG.Start, TAG.Stop, TAG.Command],
-                        "subclasses": {
-                            "Domestic_Hot_Water_System_Start_Stop_Command": {},
-                        },
                     },
                 },
             },
