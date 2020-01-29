@@ -103,7 +103,7 @@ sensor_definitions = {
                         "tags": [TAG.Current, TAG.Output, TAG.Sensor],
                         "subclasses": {
                             "Photovoltaic_Current_Output_Sensor": {
-                                OWL.equivalentClass: BRICK["PV_Current_Output_Sensor"],,
+                                OWL.equivalentClass: BRICK["PV_Current_Output_Sensor"],
                                 "tags": [TAG.Photovoltaic, TAG.Current, TAG.Output, TAG.Sensor],
                             },
                             "PV_Current_Output_Sensor": {},
