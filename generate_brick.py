@@ -169,23 +169,6 @@ def define_classes(definitions, parent, pun_classes=False):
             G.add((classname, propname, propval))
 
 
-def apply_prop(prop, pred, obj):
-    if isinstance(obj, Literal):
-        G.add((BRICK[prop], pred, obj))
-        return True
-    elif isinstance(obj, URIRef):
-        G.add((BRICK[prop], pred, obj))
-        return True
-    elif isinstance(obj, str):
-        G.add((BRICK[prop], pred, BRICK[obj]))
-        return True
-    elif isinstance(obj, list):
-        for l in obj:
-            apply_prop(prop, pred, l)
-        return True
-    return False
-
-
 def define_properties(definitions, superprop=None):
     """
     Define BRICK properties
