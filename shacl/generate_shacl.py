@@ -35,10 +35,10 @@ for name, properties in property_definitions.items():
 
         if pred == BRICK.expectedDomain:
             shapename = f"{name}DomainShape"
-            G.add( (BSH[shapename], A, SH.NodeShape))
-            G.add( (BSH[shapename], SH.targetSubjectsOf, BRICK[name]))
-            G.add( (BSH[shapename], SH['class'], obj))
-            G.add( (BSH[shapename], SH['message'],
+            G.add((BSH[shapename], A, SH.NodeShape))
+            G.add((BSH[shapename], SH.targetSubjectsOf, BRICK[name]))
+            G.add((BSH[shapename], SH['class'], obj))
+            G.add((BSH[shapename], SH['message'],
                     Literal(f"Property {name} has subject with incorrect type")))
 
         if pred == "hasSubproperty":

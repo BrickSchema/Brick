@@ -9,7 +9,7 @@
 
 import sys
 import argparse
-import offendingTriples
+from offendingTriples import OffendingTriples
 
 from pyshacl import validate
 from pyshacl.errors import ReportableRuntimeError, ValidationFailure
@@ -118,7 +118,7 @@ def main():
     else:
         # Note: Although pyshacl supports many formats of data graph file, the
         # offendingTriples module assumes that data graph is .ttl.
-        offendingTriples.findOffendingTriples(v_graph, args.data, args.output)
+        OffendingTriples(v_graph, args.data, args.output).findAndPrint()
         args.output.close()
         sys.exit(1)
 

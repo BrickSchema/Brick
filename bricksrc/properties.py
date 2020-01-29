@@ -6,10 +6,17 @@ Defining properties
 """
 properties = {
     # About expectedDomain and expectedRange: They replace temporarily
-    # RDFS.domin and RDFS.range respectively.  The .domain and .range
-    # properties confuse pre-inferencing of a SHACL validator without
-    # respecting disjointness.  Thus we want to remove them for now
-    # but still need the replacements to guide the shape generator.
+    # RDFS.domin and RDFS.range. The RDFS.domain and RDFS.range infer
+    # the type of the subject and object of a property, respectively.
+    # However the type inference can lead to the root class of the types,
+    # making all types compatible with each other, thus rendering type
+    # contraint using SHACL ineffective.  This problem should be solved
+    # by declaring disjointness among certain types but it doesn't seem
+    # to work well.
+    # Thus, we adopt BRICK.expectedDomain and BRICK.expectedRange which
+    # imply nothing about their subject or object, but can be used to
+    # validate the type of their subject or object.  See shacl/DESIGN.md
+    # for more discussion.
     "expectedDomain": {
         A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         SKOS.definition: Literal("Temporary replacement for RDFS.domain"),
