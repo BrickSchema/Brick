@@ -115,13 +115,15 @@ def define_measurable_subclasses(definitions, measurable_class):
                     define_measurable_subclasses(v, BRICK[subclass])
 
 
-def define_classes(definitions, parent):
+def define_classes(definitions, parent, pun_classes=False):
     """
     Generates triples for the hierarchy given by 'definitions', rooted
     at the class given by 'parent'
     - class hierarchy ('subclasses')
     - tag mappings
     - substance + quantity modeling
+
+    If pun_classes is True, then create punned instances of the classes
     """
     for classname, defn in definitions.items():
         classname = BRICK[classname]
@@ -129,6 +131,10 @@ def define_classes(definitions, parent):
         G.add((classname, A, OWL.Class))
         # subclass of parent
         G.add((classname, RDFS.subClassOf, parent))
+        # add label
+        G.add((classname, RDFS.label, Literal(classname.replace("_"," "))))
+        if pun_classes:
+            G.add((classname, A, classname))
 
         # define mapping to tags if it exists
         # "tags" property is a list of URIs naming Tags
@@ -148,7 +154,7 @@ def define_classes(definitions, parent):
         # this is a nested dictionary
         subclassdef = defn.get('subclasses', {})
         assert isinstance(subclassdef, dict)
-        define_classes(subclassdef, classname)
+        define_classes(subclassdef, classname, pun_classes=pun_classes)
 
         # handle 'parents' subclasses (links outside of tree-based hierarchy)
         parents = defn.get('parents', [])
@@ -263,8 +269,8 @@ G.add((BRICK.Substance, A, OWL.Class))
 #               brick:measures  brick:Air ,
 #                               brick:Temperature .
 # This makes Substance and Quantity metaclasses.
-define_measurable_subclasses(substances, BRICK.Substance)
-define_measurable_subclasses(quantity_definitions, BRICK.Quantity)
+define_classes(substances, BRICK.Substance, pun_classes=True)
+define_classes(quantity_definitions, BRICK.Quantity, pun_classes=True)
 
 different_tag_list = []
 # define tags
