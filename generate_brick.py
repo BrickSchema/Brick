@@ -1,3 +1,4 @@
+import logging
 from collections import defaultdict
 from rdflib import Graph, Literal, BNode, URIRef
 from rdflib.namespace import XSD
@@ -19,6 +20,10 @@ from bricksrc.quantities import quantity_definitions
 from bricksrc.properties import properties
 from bricksrc.tags import tags
 
+logging.basicConfig(format='%(asctime)s,%(msecs)d %(levelname)-8s [%(filename)s:%(lineno)d] %(message)s',
+    datefmt='%Y-%m-%d:%H:%M:%S',
+        level=logging.DEBUG)
+
 G = Graph()
 bind_prefixes(G)
 A = RDF.type
@@ -26,23 +31,10 @@ A = RDF.type
 tag_lookup = defaultdict(set)
 intersection_classes = {}
 
-# helps setup the restriction classes for having and not having tags
-def make_tag_classes(G, tag):
-    has_tag = BNode(f"has_{tag}")
-    G.add((has_tag, A, OWL.Restriction))
-    G.add((has_tag, RDFS.subClassOf, BRICK.Class))
-    G.add((has_tag, OWL.hasValue, TAG[tag]))
-    G.add((has_tag, OWL.onProperty, BRICK.hasTag))
 
-    has_no_tag = BNode(f"has_no_{tag}")
-    G.add((has_no_tag, RDFS.subClassOf, BRICK.Class))
-    G.add((has_no_tag, OWL.complementOf, has_tag))
-    return has_tag, has_no_tag
-
-
-# syntax for protege:
-# http://protegeproject.github.io/protege/class-expression-syntax/
 def add_restriction(klass, definition):
+    if len(definition) == 0:
+        return
     elements = []
     equivalent_class = BNode()
     list_name = BNode()
@@ -62,6 +54,8 @@ def has_tags(tagset, definition):
 
 
 def add_tags(klass, definition):
+    if len(definition) == 0:
+        return
     all_restrictions = []
     equivalent_class = BNode()
     list_name = BNode()
@@ -93,47 +87,11 @@ def add_tags(klass, definition):
         Collection(G, list_name, all_restrictions)
     intersection_classes[klass] = tuple(sorted(definition))
 
+
 def lookup_tagset(s):
     s = set(map(lambda x: x.capitalize(), s))
     return [klass for tagset, klass in tag_lookup.items()
             if s.issubset(set(tagset))]
-
-
-def add_class_restriction(klass, definition):
-    elements = []
-    equivalent_class = BNode()
-    list_name = BNode()
-    for idnum, item in enumerate(definition):
-        restriction = BNode()
-        elements.append(restriction)
-        G.add((restriction, A, OWL.Restriction))
-        G.add((restriction, OWL.onProperty, item[0]))
-        G.add((restriction, item[1], item[2]))
-        if len(item) == 5:
-            G.add((restriction, item[3], Literal('{0}'.format(item[4]),
-                  datatype=XSD.integer)))
-    G.add((BRICK[klass], OWL.equivalentClass, equivalent_class))
-    G.add((equivalent_class, OWL.intersectionOf, list_name))
-    Collection(G, list_name, elements)
-
-
-def define_subclasses(definitions, superclass):
-    for subclass, properties in definitions.items():
-        G.add((superclass, A, OWL.Class))
-        G.add((BRICK[subclass], A, OWL.Class))
-        G.add((BRICK[subclass], RDFS.label, Literal(subclass.replace("_"," "))))
-        G.add((BRICK[subclass], RDFS.subClassOf, superclass))
-        for k, v in properties.items():
-            if isinstance(v, list) and k == "tags":
-                add_tags(subclass, v)
-            elif isinstance(v, list) and k == "parents":
-                for parent in v:
-                    G.add((BRICK[subclass], RDFS.subClassOf, parent))
-            elif isinstance(v, list) and k == "substances":
-                add_restriction(subclass, v)
-            elif not apply_prop(subclass, k, v):
-                if isinstance(v, dict) and k == "subclasses":
-                    define_subclasses(v, BRICK[subclass])
 
 
 def define_measurable_subclasses(definitions, measurable_class):
@@ -156,20 +114,58 @@ def define_measurable_subclasses(definitions, measurable_class):
                 if isinstance(v, dict) and k == "subclasses":
                     define_measurable_subclasses(v, BRICK[subclass])
 
-def define_rootclasses(definitions):
-    G.add( (BRICK.Class, A, OWL.Class) )
-    G.add( (BRICK.Tag, A, OWL.Class) )
-    for rootclass, properties in definitions.items():
-        G.add( (BRICK[rootclass], A, OWL.Class) )
-        G.add( (BRICK[rootclass], RDFS.subClassOf, BRICK.Class) )
-        for k, v in properties.items():
-            if isinstance(v, list) and k == "tags":
-                add_tags(rootclass, v)
-            elif isinstance(v, list) and k == "substances":
-                add_class_restriction(rootclass, v)
-            elif not apply_prop(rootclass, k, v):
-                if isinstance(v, dict) and k == "subclasses":
-                    define_subclasses(v, BRICK[rootclass])
+
+def define_classes(definitions, parent):
+    """
+    Generates triples for the hierarchy given by 'definitions', rooted
+    at the class given by 'parent'
+    - class hierarchy ('subclasses')
+    - tag mappings
+    - substance + quantity modeling
+    """
+    for classname, defn in definitions.items():
+        classname = BRICK[classname]
+        # class is a owl:Class
+        G.add((classname, A, OWL.Class))
+        # subclass of parent
+        G.add((classname, RDFS.subClassOf, parent))
+
+        # define mapping to tags if it exists
+        # "tags" property is a list of URIs naming Tags
+        taglist = defn.get('tags', [])
+        assert isinstance(taglist, list)
+        if len(taglist) == 0:
+            logging.warning(f"Property 'tags' not defined for {classname}")
+        add_tags(classname, taglist)
+
+        # define mapping to substances + quantities if it exists
+        # "substances" property is a list of (predicate, object) pairs
+        substancedef = defn.get('substances', [])
+        assert isinstance(substancedef, list)
+        add_restriction(classname, substancedef)
+
+        # define class structure
+        # this is a nested dictionary
+        subclassdef = defn.get('subclasses', {})
+        assert isinstance(subclassdef, dict)
+        define_classes(subclassdef, classname)
+
+        # handle 'parents' subclasses (links outside of tree-based hierarchy)
+        parents = defn.get('parents', [])
+        assert isinstance(parents, list)
+        for parent in parents:
+            G.add((classname, RDFS.subClassOf, parent))
+
+        # all other key-value pairs in the definition are
+        # property-object pairs
+        expected_properties = ['parents', 'tags', 'substances', 'subclasses']
+        other_properties = [prop for prop in defn.keys()
+                            if prop not in expected_properties]
+        for propname in other_properties:
+            propval = defn[propname]
+            if isinstance(propval, str):
+                propval = Literal(str)
+            G.add((classname, propname, propval))
 
 
 def apply_prop(prop, pred, obj):
@@ -219,19 +215,22 @@ roots = {
     },
     "Measurable": {},
 }
+G.add((BRICK.Class, A, OWL.Class))
+G.add((BRICK.Tag, A, OWL.Class))
+
 # define root classes
-define_rootclasses(roots)
+define_classes(roots, BRICK.Class)
 
 # define BRICK properties
 define_properties(properties)
 
 # define Point subclasses
-define_subclasses(setpoint_definitions, BRICK.Point)
-define_subclasses(sensor_definitions, BRICK.Point)
-define_subclasses(alarm_definitions, BRICK.Point)
-define_subclasses(status_definitions, BRICK.Point)
-define_subclasses(command_definitions, BRICK.Point)
-define_subclasses(parameter_definitions, BRICK.Point)
+define_classes(setpoint_definitions, BRICK.Point)
+define_classes(sensor_definitions, BRICK.Point)
+define_classes(alarm_definitions, BRICK.Point)
+define_classes(status_definitions, BRICK.Point)
+define_classes(command_definitions, BRICK.Point)
+define_classes(parameter_definitions, BRICK.Point)
 # make points disjoint
 pointclasses = ['Alarm', 'Status', 'Command', 'Setpoint', 'Sensor', 'Parameter']
 for pc in pointclasses:
@@ -239,10 +238,10 @@ for pc in pointclasses:
         G.add((BRICK[pc], OWL.disjointWith, BRICK[o]))
 
 # define other root class structures
-define_subclasses(location_subclasses, BRICK.Location)
-define_subclasses(equipment_subclasses, BRICK.Equipment)
-define_subclasses(hvac_subclasses, BRICK.HVAC)
-define_subclasses(valve_subclasses, BRICK.Valve)
+define_classes(location_subclasses, BRICK.Location)
+define_classes(equipment_subclasses, BRICK.Equipment)
+define_classes(hvac_subclasses, BRICK.HVAC)
+define_classes(valve_subclasses, BRICK.Valve)
 
 G.add((BRICK.Measurable, RDFS.subClassOf, BRICK.Class))
 # set up Quantity definition
