@@ -164,7 +164,7 @@ def define_classes(definitions, parent):
         for propname in other_properties:
             propval = defn[propname]
             if isinstance(propval, str):
-                propval = Literal(str)
+                propval = Brick[propval]
             G.add((classname, propname, propval))
 
 
