@@ -74,7 +74,9 @@ def test_tag1():
     res1 = make_readable(g.query("SELECT DISTINCT ?co2tag WHERE {\
                                    bldg:co2s1 brick:hasTag ?co2tag\
                                   }"))
-    assert len(res1) == 3
+    assert len(res1) == 4
+    res1 = [x[0] for x in res1]
+    assert set(res1) == {'CO2', 'Level', 'Sensor', 'Point'}
 
 
 def test_sensors_measure_co2():
