@@ -194,18 +194,29 @@ command_definitions = {
                 "tags": [TAG.On, TAG.Off, TAG.Command],
                 "subclasses": {
                     "Off_Command": {
+                        "tags": [TAG.Off, TAG.Command],
                         "subclasses": {
-                            "Exhaust_Fan_Fire_Control_Panel_Off_Command": {}
+                            "Exhaust_Fan_Fire_Control_Panel_Off_Command": {
+                                "tags": [TAG.Exhaust, TAG.Fan, TAG.Fire, TAG.Control, TAG.Panel, TAG.Off, TAG.Command],
+                            }
                         },
                     },
                     "On_Command": {
+                        "tags": [TAG.On, TAG.Command],
                         "subclasses": {
-                            "Exhaust_Fan_Fire_Control_Panel_On_Command": {}
+                            "Exhaust_Fan_Fire_Control_Panel_On_Command": {
+                                "tags": [TAG.Exhaust, TAG.Fan, TAG.Fire, TAG.Control, TAG.Panel, TAG.On, TAG.Command],
+                            }
                         },
                     },
-                    "Lead_On_Off_Command": {},
-                    "Steam_On_Off_Command": {},
+                    "Lead_On_Off_Command": {
+                        "tags": [TAG.Lead, TAG.On, TAG.Off, TAG.Command],
+                    },
+                    "Steam_On_Off_Command": {
+                        "tags": [TAG.Steam, TAG.On, TAG.Off, TAG.Command],
+                    },
                     "Start_Stop_Command": {
+                        "tags": [TAG.Start, TAG.Stop, TAG.Command],
                         "subclasses": {
                             "Domestic_Hot_Water_System_Start_Stop_Command": {},
                         },
