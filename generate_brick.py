@@ -44,7 +44,7 @@ def add_restriction(klass, definition):
         G.add((restriction, A, OWL.Restriction))
         G.add((restriction, OWL.onProperty, item[0]))
         G.add((restriction, OWL.hasValue, item[1]))
-    G.add((BRICK[klass], OWL.equivalentClass, equivalent_class))
+    G.add((klass, OWL.equivalentClass, equivalent_class))
     G.add((equivalent_class, OWL.intersectionOf, list_name))
     Collection(G, list_name, elements)
 
@@ -61,7 +61,7 @@ def add_tags(klass, definition):
     list_name = BNode()
 
     for tag in definition:
-        G.add((BRICK[klass], BRICK.hasAssociatedTag, tag))
+        G.add((klass, BRICK.hasAssociatedTag, tag))
 
     for idnum, item in enumerate(definition):
         restriction = BNode(f"has_{item.split('#')[-1]}")
@@ -80,10 +80,10 @@ def add_tags(klass, definition):
     if klass in intersection_classes:
         return
     if len(all_restrictions) == 1:
-        G.add( (BRICK[klass], RDFS.subClassOf, all_restrictions[0]) )
+        G.add((klass, RDFS.subClassOf, all_restrictions[0]) )
     if len(all_restrictions) > 1:
-        G.add( (BRICK[klass], RDFS.subClassOf, equivalent_class) )
-        G.add( (equivalent_class, OWL.intersectionOf, list_name) )
+        G.add((klass, RDFS.subClassOf, equivalent_class) )
+        G.add((equivalent_class, OWL.intersectionOf, list_name) )
         Collection(G, list_name, all_restrictions)
     intersection_classes[klass] = tuple(sorted(definition))
 
@@ -104,7 +104,7 @@ def define_measurable_subclasses(definitions, measurable_class):
         G.add((BRICK[subclass], RDFS.subClassOf, measurable_class))
         for k, v in properties.items():
             if isinstance(v, list) and k == "tags":
-                add_tags(subclass, v)
+                add_tags(BRICK[subclass], v)
             elif isinstance(v, list) and k == "parents":
                 for parent in v:
                     G.add( (BRICK[subclass], RDFS.subClassOf, parent) )
@@ -163,8 +163,10 @@ def define_classes(definitions, parent):
                             if prop not in expected_properties]
         for propname in other_properties:
             propval = defn[propname]
-            if isinstance(propval, str):
-                propval = Brick[propval]
+            if isinstance(propval, Literal):
+                propval = propval
+            elif isinstance(propval, str):
+                propval = BRICK[propval]
             G.add((classname, propname, propval))
 
 
