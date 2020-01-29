@@ -346,9 +346,9 @@ setpoint_definitions = {
             },
             "Reset_Setpoint": {
                 "tags": [TAG.Reset, TAG.Setpoint],
+                SKOS.definition: Literal("Setpoints used in Reset strategies"),
                 "subclasses": {
                     "Discharge_Air_Flow_Reset_Setpoint": {
-                        SKOS.definition: Literal("Setpoints used in Reset strategies"),
                         "tags": [TAG.Discharge, TAG.Air, TAG.Flow, TAG.Reset, TAG.Setpoint],
                         "subclasses": {
                             "Discharge_Air_Flow_Reset_High_Setpoint": {},
