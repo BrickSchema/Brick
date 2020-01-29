@@ -144,7 +144,7 @@ command_definitions = {
                 "tags": [TAG.Lead, TAG.Lag, TAG.Command],
             },
             "Load_Shed_Command": {
-                "tags": [TAG.Load_Shed, TAG.Command],
+                "tags": [TAG.Load, TAG.Shed, TAG.Command],
                 "subclasses": {
                     "Standby_Load_Shed_Command": {
                         "subclasses": {
