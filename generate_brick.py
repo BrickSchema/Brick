@@ -33,6 +33,18 @@ intersection_classes = {}
 
 
 def add_restriction(klass, definition):
+    """
+    Defines OWL.Restrictions linked to Brick classes
+    through OWL.equivalentClass.
+
+    This populates the property-object pairs (OWL.onProperty, 'property'),
+    (OWL.hasValue, 'value'). The intersection of these properties is made to be
+    equivalent to the given class.
+
+    Args:
+        klass: the URI of the Brick class to be modeled
+        definition: a list of (property, value) pairs
+    """
     if len(definition) == 0:
         return
     elements = []
@@ -49,11 +61,21 @@ def add_restriction(klass, definition):
     Collection(G, list_name, elements)
 
 
-def has_tags(tagset, definition):
-    return all([t in definition for t in tagset])
-
-
 def add_tags(klass, definition):
+    """
+    Adds the definition of tags to the given class. This method adds two
+    group of triples. The first group models the class as a subclass
+    of entities that have all of the given tags (the 'OWL.intersectionOf'
+    the OWL.Restriction classes modeled as entities that have a given tag).
+
+    The second group of triples uses the BRICK.hasAssociatedTag property
+    to associate the tags with this class. While this is duplicate information,
+    it is much easier to query for.
+
+    Args:
+        klass: the URI of the Brick class to be modeled
+        definition: a list of BRICK.Tag instances (e.g. TAG.Air)
+    """
     if len(definition) == 0:
         return
     all_restrictions = []
@@ -86,33 +108,6 @@ def add_tags(klass, definition):
         G.add((equivalent_class, OWL.intersectionOf, list_name) )
         Collection(G, list_name, all_restrictions)
     intersection_classes[klass] = tuple(sorted(definition))
-
-
-def lookup_tagset(s):
-    s = set(map(lambda x: x.capitalize(), s))
-    return [klass for tagset, klass in tag_lookup.items()
-            if s.issubset(set(tagset))]
-
-
-def define_measurable_subclasses(definitions, measurable_class):
-    for subclass, properties in definitions.items():
-        G.add((BRICK[subclass], A, OWL.Class))
-        G.add((BRICK[subclass], A, BRICK[subclass]))
-        G.add((BRICK[subclass], RDFS.label, Literal(subclass.replace("_"," "))))
-        # first level: we are instances of the measurable_class
-        G.add((BRICK[subclass], A, measurable_class))
-        G.add((BRICK[subclass], RDFS.subClassOf, measurable_class))
-        for k, v in properties.items():
-            if isinstance(v, list) and k == "tags":
-                add_tags(BRICK[subclass], v)
-            elif isinstance(v, list) and k == "parents":
-                for parent in v:
-                    G.add( (BRICK[subclass], RDFS.subClassOf, parent) )
-            elif isinstance(v, list) and k == "substances":
-                add_restriction(subclass, v)
-            elif not apply_prop(subclass, k, v):
-                if isinstance(v, dict) and k == "subclasses":
-                    define_measurable_subclasses(v, BRICK[subclass])
 
 
 def define_classes(definitions, parent, pun_classes=False):
@@ -170,10 +165,6 @@ def define_classes(definitions, parent, pun_classes=False):
                             if prop not in expected_properties]
         for propname in other_properties:
             propval = defn[propname]
-            if isinstance(propval, Literal):
-                propval = propval
-            elif isinstance(propval, str):
-                propval = BRICK[propval]
             G.add((classname, propname, propval))
 
 
