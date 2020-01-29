@@ -28,10 +28,18 @@ status_definitions = {
                 "tags": [TAG.Emergency, TAG.Power, TAG.Off, TAG.Status],
                 "parents": [BRICK.Off_Status],
                 "subclasses": {
-                    "Emergency_Power_Off_Activated_By_High_Temperature_Status": {},
-                    "Emergency_Power_Off_Activated_By_Leak_Detection_System_Status": {},
-                    "Emergency_Power_Off_Enable_Status": {},
-                    "Emergency_Power_Off_System_Enable_Status": {}
+                    "Emergency_Power_Off_Activated_By_High_Temperature_Status": {
+                        "tags": [TAG.Emergency, TAG.Power, TAG.Off, TAG.High, TAG.Temperature, TAG.Status],
+                    },
+                    "Emergency_Power_Off_Activated_By_Leak_Detection_System_Status": {
+                        "tags": [TAG.Emergency, TAG.Power, TAG.Off, TAG.Leak, TAG.Detection, TAG.Status],
+                    },
+                    "Emergency_Power_Off_Enable_Status": {
+                        "tags": [TAG.Emergency, TAG.Power, TAG.Off, TAG.Leak, TAG.Detection, TAG.Status],
+                    },
+                    "Emergency_Power_Off_System_Enable_Status": {
+                        "tags": [TAG.Emergency, TAG.Power, TAG.Off, TAG.Enable, TAG.Status],
+                    }
                 },
             },
             "Emergency_Push_Button_Status": {
@@ -95,14 +103,19 @@ status_definitions = {
                     "Hot_Water_Supply_Temperature_Load_Shed_Status": {
                         "tags": [TAG.Hot, TAG.Water, TAG.Supply, TAG.Temperature, TAG.Load, TAG.Shed, TAG.Status],
                         "subclasses": {
-                            "Medium_Temperature_Hot_Water_Supply_Temperature_Load_Shed_Status": {},
+                            "Medium_Temperature_Hot_Water_Supply_Temperature_Load_Shed_Status": {
+                                "tags": [TAG.Medium, TAG.Temperature, TAG.Hot, TAG.Water, TAG.Supply, TAG.Temperature, TAG.Load, TAG.Shed, TAG.Status],
+                            },
                         },
                     },
                     "Differential_Pressure_Load_Shed_Status": {
                         "subclasses": {
                             "Medium_Temperature_Hot_Water_Differential_Pressure_Load_Shed_Status": {
+                                "tags": [TAG.Medium, TAG.Temperature, TAG.Differential, TAG.Pressure, TAG.Load, TAG.Shed, TAG.Status],
                                 "subclasses": {
-                                    "Medium_Temperature_Hot_Water_Differential_Pressure_Load_Shed_Reset_Status": {},
+                                    "Medium_Temperature_Hot_Water_Differential_Pressure_Load_Shed_Reset_Status": {
+                                        "tags": [TAG.Medium, TAG.Temperature, TAG.Differential, TAG.Pressure, TAG.Load, TAG.Shed, TAG.Reset, TAG.Status],
+                                    },
                                 }
                             },
                             "Chilled_Water_Differential_Pressure_Load_Shed_Status": {
@@ -197,13 +210,17 @@ status_definitions = {
             "Off_Status": {
                 "tags": [TAG.Off, TAG.Status],
                 "subclasses": {
-                    "Turn_Off_Status": {},
+                    "Turn_Off_Status": {
+                        "tags": [TAG.Turn, TAG.Off, TAG.Status],
+                    },
                 }
             },
             "On_Status": {
                 "tags": [TAG.On, TAG.Status],
                 "subclasses": {
-                    "Turn_On_Status": {},
+                    "Turn_On_Status": {
+                        "tags": [TAG.Turn, TAG.On, TAG.Status],
+                    },
                 }
             },
             "Overridden_Status": {
