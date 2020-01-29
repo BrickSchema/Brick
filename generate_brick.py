@@ -132,7 +132,8 @@ def define_classes(definitions, parent, pun_classes=False):
         # subclass of parent
         G.add((classname, RDFS.subClassOf, parent))
         # add label
-        G.add((classname, RDFS.label, Literal(classname.replace("_"," "))))
+        class_label = classname.split('#')[-1].replace("_", " ")
+        G.add((classname, RDFS.label, Literal(class_label)))
         if pun_classes:
             G.add((classname, A, classname))
 
