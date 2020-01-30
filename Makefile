@@ -1,5 +1,12 @@
+.PHONY: format
+
 Brick.ttl: bricksrc/*.py generate_brick.py
 	python generate_brick.py
+
+format:
+	black generate_brick.py
+	black bricksrc/
+	black tests/
 
 test: Brick.ttl
 	pytest -s -vvvv tests
