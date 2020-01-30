@@ -43,16 +43,28 @@ location_subclasses = {
         },
     },
     "Room": {
+        "tags": [TAG.Room, TAG.Location],
         "subclasses": {
             "Laboratory": {
+                "tags": [TAG.Laboratory, TAG.Room, TAG.Location],
                 "subclasses": {
-                    "Freezer": {},
-                    "Cold_Box": {},
-                    "Hot_Box": {},
-                    "Environment_Box": {},
+                    "Freezer": {
+                        "tags": [TAG.Freezer, TAG.Laboratory, TAG.Room, TAG.Location],
+                    },
+                    "Cold_Box": {
+                        "tags": [TAG.Cold, TAG.Box, TAG.Laboratory, TAG.Room, TAG.Location],
+                    },
+                    "Hot_Box": {
+                        "tags": [TAG.Hot, TAG.Box, TAG.Laboratory, TAG.Room, TAG.Location],
+                    },
+                    "Environment_Box": {
+                        "tags": [TAG.Environment, TAG.Box, TAG.Laboratory, TAG.Room, TAG.Location],
+                    },
                 },
             },
-            "Server_Room": {},
+            "Server_Room": {
+                "tags": [TAG.Server, TAG.Room, TAG.Location],
+            },
         },
     },
 }
