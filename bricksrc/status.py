@@ -12,12 +12,8 @@ status_definitions = {
                 },
                 "tags": [TAG.Direction, TAG.Status],
             },
-            "Disable_Status": {
-                "tags": [TAG.Disable, TAG.Status],
-            },
-            "Drive_Ready_Status": {
-                "tags": [TAG.Drive, TAG.Ready, TAG.Status],
-            },
+            "Disable_Status": {"tags": [TAG.Disable, TAG.Status],},
+            "Drive_Ready_Status": {"tags": [TAG.Drive, TAG.Ready, TAG.Status],},
             "Emergency_Air_Flow_Status": {
                 "tags": [TAG.Emergency, TAG.Air, TAG.Flow, TAG.Status],
             },
@@ -31,7 +27,7 @@ status_definitions = {
                     "Emergency_Power_Off_Activated_By_High_Temperature_Status": {},
                     "Emergency_Power_Off_Activated_By_Leak_Detection_System_Status": {},
                     "Emergency_Power_Off_Enable_Status": {},
-                    "Emergency_Power_Off_System_Enable_Status": {}
+                    "Emergency_Power_Off_System_Enable_Status": {},
                 },
             },
             "Emergency_Push_Button_Status": {
@@ -40,22 +36,24 @@ status_definitions = {
             "Enable_Status": {
                 "subclasses": {
                     "Heat_Exchanger_System_Enable_Status": {
-                        "tags": [TAG.Heat, TAG.Exchanger, TAG.System, TAG.Enable, TAG.Status],
+                        "tags": [
+                            TAG.Heat,
+                            TAG.Exchanger,
+                            TAG.System,
+                            TAG.Enable,
+                            TAG.Status,
+                        ],
                         "parents": [BRICK.System_Status],
                     },
                     "Run_Enable_Status": {
                         "tags": [TAG.Run, TAG.Enable, TAG.Status],
                         "parents": [BRICK.Run_Status],
-                    }
+                    },
                 },
                 "tags": [TAG.Enable, TAG.Status],
             },
-            "Even_Month_Status": {
-                "tags": [TAG.Even, TAG.Month, TAG.Status],
-            },
-            "Fan_Status": {
-                "tags": [TAG.Fan, TAG.Status],
-            },
+            "Even_Month_Status": {"tags": [TAG.Even, TAG.Month, TAG.Status],},
+            "Fan_Status": {"tags": [TAG.Fan, TAG.Status],},
             "Fault_Status": {
                 "subclasses": {
                     "Fault_Indicator_Status": {
@@ -72,28 +70,36 @@ status_definitions = {
             },
             "Filter_Status": {
                 "subclasses": {
-                    "Pre_Filter_Status": {
-                        "tags": [TAG.Pre, TAG.Filter, TAG.Status],
-                    }
+                    "Pre_Filter_Status": {"tags": [TAG.Pre, TAG.Filter, TAG.Status],}
                 },
                 "tags": [TAG.Filter, TAG.Status],
             },
-            "Freeze_Status": {
-                "tags": [TAG.Freeze, TAG.Status],
-            },
-            "Hand_Auto_Status": {
-                "tags": [TAG.Hand, TAG.Auto, TAG.Status],
-            },
-            "Hold_Status": {
-                "tags": [TAG.Hold, TAG.Status],
-            },
+            "Freeze_Status": {"tags": [TAG.Freeze, TAG.Status],},
+            "Hand_Auto_Status": {"tags": [TAG.Hand, TAG.Auto, TAG.Status],},
+            "Hold_Status": {"tags": [TAG.Hold, TAG.Status],},
             "Load_Shed_Status": {
                 "subclasses": {
                     "Hot_Water_Discharge_Temperature_Load_Shed_Status": {
-                        "tags": [TAG.Hot, TAG.Water, TAG.Discharge, TAG.Temperature, TAG.Load, TAG.Shed, TAG.Status],
+                        "tags": [
+                            TAG.Hot,
+                            TAG.Water,
+                            TAG.Discharge,
+                            TAG.Temperature,
+                            TAG.Load,
+                            TAG.Shed,
+                            TAG.Status,
+                        ],
                     },
                     "Hot_Water_Supply_Temperature_Load_Shed_Status": {
-                        "tags": [TAG.Hot, TAG.Water, TAG.Supply, TAG.Temperature, TAG.Load, TAG.Shed, TAG.Status],
+                        "tags": [
+                            TAG.Hot,
+                            TAG.Water,
+                            TAG.Supply,
+                            TAG.Temperature,
+                            TAG.Load,
+                            TAG.Shed,
+                            TAG.Status,
+                        ],
                         "subclasses": {
                             "Medium_Temperature_Hot_Water_Supply_Temperature_Load_Shed_Status": {},
                         },
@@ -106,31 +112,69 @@ status_definitions = {
                                 }
                             },
                             "Chilled_Water_Differential_Pressure_Load_Shed_Status": {
-                                "tags": [TAG.Chilled, TAG.Water, TAG.Differential, TAG.Pressure, TAG.Load, TAG.Shed, TAG.Status],
+                                "tags": [
+                                    TAG.Chilled,
+                                    TAG.Water,
+                                    TAG.Differential,
+                                    TAG.Pressure,
+                                    TAG.Load,
+                                    TAG.Shed,
+                                    TAG.Status,
+                                ],
                                 "subclasses": {
                                     "Chilled_Water_Differential_Pressure_Load_Shed_Reset_Status": {
-                                        "tags": [TAG.Chilled, TAG.Water, TAG.Differential, TAG.Pressure, TAG.Load, TAG.Shed, TAG.Reset, TAG.Status],
+                                        "tags": [
+                                            TAG.Chilled,
+                                            TAG.Water,
+                                            TAG.Differential,
+                                            TAG.Pressure,
+                                            TAG.Load,
+                                            TAG.Shed,
+                                            TAG.Reset,
+                                            TAG.Status,
+                                        ],
                                     },
-                                }
+                                },
                             },
                             "Hot_Water_Differential_Pressure_Load_Shed_Status": {
-                                "tags": [TAG.Hot, TAG.Water, TAG.Differential, TAG.Pressure, TAG.Load, TAG.Shed, TAG.Status],
+                                "tags": [
+                                    TAG.Hot,
+                                    TAG.Water,
+                                    TAG.Differential,
+                                    TAG.Pressure,
+                                    TAG.Load,
+                                    TAG.Shed,
+                                    TAG.Status,
+                                ],
                                 "subclasses": {
                                     "Hot_Water_Differential_Pressure_Load_Shed_Reset_Status": {
-                                        "tags": [TAG.Hot, TAG.Water, TAG.Differential, TAG.Pressure, TAG.Load, TAG.Shed, TAG.Reset, TAG.Status],
+                                        "tags": [
+                                            TAG.Hot,
+                                            TAG.Water,
+                                            TAG.Differential,
+                                            TAG.Pressure,
+                                            TAG.Load,
+                                            TAG.Shed,
+                                            TAG.Reset,
+                                            TAG.Status,
+                                        ],
                                     },
-                                }
+                                },
                             },
                         },
-                        "tags": [TAG.Differential, TAG.Pressure, TAG.Load, TAG.Shed, TAG.Status],
+                        "tags": [
+                            TAG.Differential,
+                            TAG.Pressure,
+                            TAG.Load,
+                            TAG.Shed,
+                            TAG.Status,
+                        ],
                         "parents": [BRICK.Pressure_Status],
-                    }
+                    },
                 },
                 "tags": [TAG.Load, TAG.Shed, TAG.Status],
             },
-            "Manual_Auto_Status": {
-                "tags": [TAG.Manual, TAG.Auto, TAG.Status],
-            },
+            "Manual_Auto_Status": {"tags": [TAG.Manual, TAG.Auto, TAG.Status],},
             "Mode_Status": {
                 "subclasses": {
                     "Occupied_Mode_Status": {
@@ -147,7 +191,7 @@ status_definitions = {
                             }
                         },
                         "tags": [TAG.Operating, TAG.Mode, TAG.Status],
-                    }
+                    },
                 },
                 "tags": [TAG.Mode, TAG.Status],
             },
@@ -186,7 +230,14 @@ status_definitions = {
                         "tags": [TAG.Standby, TAG.Unit, TAG.On, TAG.Off, TAG.Status],
                         "subclasses": {
                             "Standby_Glycool_Unit_On_Off_Status": {
-                                "tags": [TAG.Standby, TAG.Glycool, TAG.Unit, TAG.On, TAG.Off, TAG.Status],
+                                "tags": [
+                                    TAG.Standby,
+                                    TAG.Glycool,
+                                    TAG.Unit,
+                                    TAG.On,
+                                    TAG.Off,
+                                    TAG.Status,
+                                ],
                             },
                         },
                     },
@@ -196,15 +247,11 @@ status_definitions = {
             },
             "Off_Status": {
                 "tags": [TAG.Off, TAG.Status],
-                "subclasses": {
-                    "Turn_Off_Status": {},
-                }
+                "subclasses": {"Turn_Off_Status": {},},
             },
             "On_Status": {
                 "tags": [TAG.On, TAG.Status],
-                "subclasses": {
-                    "Turn_On_Status": {},
-                }
+                "subclasses": {"Turn_On_Status": {},},
             },
             "Overridden_Status": {
                 "subclasses": {
@@ -215,27 +262,35 @@ status_definitions = {
                     "Overridden_On_Status": {
                         "tags": [TAG.Overridden, TAG.On, TAG.Status],
                         "parents": [BRICK.On_Status],
-                    }
+                    },
                 },
                 "tags": [TAG.Overridden, TAG.Status],
             },
             "Pressure_Status": {
                 "subclasses": {
                     "Discharge_Air_Duct_Pressure_Status": {
-                        "tags": [TAG.Discharge, TAG.Air, TAG.Duct, TAG.Pressure, TAG.Status],
+                        "tags": [
+                            TAG.Discharge,
+                            TAG.Air,
+                            TAG.Duct,
+                            TAG.Pressure,
+                            TAG.Status,
+                        ],
                     },
                     "Supply_Air_Duct_Pressure_Status": {
-                        "tags": [TAG.Supply, TAG.Air, TAG.Duct, TAG.Pressure, TAG.Status],
-                    }
+                        "tags": [
+                            TAG.Supply,
+                            TAG.Air,
+                            TAG.Duct,
+                            TAG.Pressure,
+                            TAG.Status,
+                        ],
+                    },
                 },
                 "tags": [TAG.Pressure, TAG.Status],
             },
-            "Lead_Lag_Status": {
-                "tags": [TAG.Lead, TAG.Lag, TAG.Status],
-            },
-            "Stages_Status": {
-                "tags": [TAG.Stages, TAG.Status],
-            },
+            "Lead_Lag_Status": {"tags": [TAG.Lead, TAG.Lag, TAG.Status],},
+            "Stages_Status": {"tags": [TAG.Stages, TAG.Status],},
             "Start_Stop_Status": {
                 "subclasses": {
                     "Fan_Start_Stop_Status": {
@@ -255,7 +310,7 @@ status_definitions = {
                                 "tags": [TAG.Request, TAG.Run, TAG.Status],
                             },
                         },
-                    }
+                    },
                 },
                 "tags": [TAG.Start, TAG.Stop, TAG.Status],
             },
@@ -263,12 +318,8 @@ status_definitions = {
                 "tags": [TAG.System, TAG.Shutdown, TAG.Status],
                 "parents": [BRICK.System_Status],
             },
-            "System_Status": {
-                "tags": [TAG.System, TAG.Status],
-            },
-            "Speed_Status": {
-                "tags": [TAG.Speed, TAG.Status],
-            }
+            "System_Status": {"tags": [TAG.System, TAG.Status],},
+            "Speed_Status": {"tags": [TAG.Speed, TAG.Status],},
         },
     }
 }

@@ -20,7 +20,7 @@ parameter_definitions = {
                     },
                     "Low_Humidity_Alarm_Parameter": {
                         "tags": [TAG.Low, TAG.Humidity, TAG.Alarm, TAG.Parameter],
-                    }
+                    },
                 },
             },
             "Load_Parameter": {
@@ -50,25 +50,54 @@ parameter_definitions = {
                         "tags": [TAG.Parameter, TAG.PID, TAG.Gain],
                         "subclasses": {
                             "Integral_Gain_Parameter": {
-                                "tags": [TAG.Parameter, TAG.PID, TAG.Gain, TAG.Integral],
+                                "tags": [
+                                    TAG.Parameter,
+                                    TAG.PID,
+                                    TAG.Gain,
+                                    TAG.Integral,
+                                ],
                                 "subclasses": {
                                     "Supply_Air_Integral_Gain_Parameter": {
-                                        "tags": [TAG.Supply, TAG.Air, TAG.Integral, TAG.Gain, TAG.Parameter, TAG.PID],
+                                        "tags": [
+                                            TAG.Supply,
+                                            TAG.Air,
+                                            TAG.Integral,
+                                            TAG.Gain,
+                                            TAG.Parameter,
+                                            TAG.PID,
+                                        ],
                                     }
-                                }
+                                },
                             },
                             "Proportional_Gain_Parameter": {
-                                "tags": [TAG.Parameter, TAG.PID, TAG.Gain, TAG.Proportional],
+                                "tags": [
+                                    TAG.Parameter,
+                                    TAG.PID,
+                                    TAG.Gain,
+                                    TAG.Proportional,
+                                ],
                                 "subclasses": {
                                     "Supply_Air_Proportional_Gain_Parameter": {
-                                        "tags": [TAG.Parameter, TAG.PID, TAG.Gain, TAG.Proportional, TAG.Supply, TAG.Air],
+                                        "tags": [
+                                            TAG.Parameter,
+                                            TAG.PID,
+                                            TAG.Gain,
+                                            TAG.Proportional,
+                                            TAG.Supply,
+                                            TAG.Air,
+                                        ],
                                     },
-                                }
+                                },
                             },
                             "Derivative_Gain_Parameter": {
-                                "tags": [TAG.Parameter, TAG.PID, TAG.Gain, TAG.Derivative],
+                                "tags": [
+                                    TAG.Parameter,
+                                    TAG.PID,
+                                    TAG.Gain,
+                                    TAG.Derivative,
+                                ],
                             },
-                        }
+                        },
                     },
                     "Step_Parameter": {
                         "tags": [TAG.Parameter, TAG.Step],
@@ -76,204 +105,592 @@ parameter_definitions = {
                             "Differential_Pressure_Step_Parameter": {
                                 "subclasses": {
                                     "Chilled_Water_Differential_Pressure_Step_Parameter": {
-                                        "tags": [TAG.Chilled, TAG.Water, TAG.Differential, TAG.Pressure, TAG.Step, TAG.Parameter],
+                                        "tags": [
+                                            TAG.Chilled,
+                                            TAG.Water,
+                                            TAG.Differential,
+                                            TAG.Pressure,
+                                            TAG.Step,
+                                            TAG.Parameter,
+                                        ],
                                     }
                                 },
-                                "tags": [TAG.Differential, TAG.Pressure, TAG.Step, TAG.Parameter],
+                                "tags": [
+                                    TAG.Differential,
+                                    TAG.Pressure,
+                                    TAG.Step,
+                                    TAG.Parameter,
+                                ],
                             },
                             "Static_Pressure_Step_Parameter": {
                                 "subclasses": {
                                     "Air_Static_Pressure_Step_Parameter": {
-                                        "tags": [TAG.Air, TAG.Static, TAG.Pressure, TAG.Step, TAG.Parameter],
+                                        "tags": [
+                                            TAG.Air,
+                                            TAG.Static,
+                                            TAG.Pressure,
+                                            TAG.Step,
+                                            TAG.Parameter,
+                                        ],
                                         "subclasses": {
                                             "Discharge_Air_Static_Pressure_Step_Parameter": {
-                                                "tags": [TAG.Discharge, TAG.Air, TAG.Static, TAG.Pressure, TAG.Step, TAG.Parameter],
+                                                "tags": [
+                                                    TAG.Discharge,
+                                                    TAG.Air,
+                                                    TAG.Static,
+                                                    TAG.Pressure,
+                                                    TAG.Step,
+                                                    TAG.Parameter,
+                                                ],
                                             },
                                         },
                                     }
                                 },
-                                "tags": [TAG.Static, TAG.Pressure, TAG.Step, TAG.Parameter],
+                                "tags": [
+                                    TAG.Static,
+                                    TAG.Pressure,
+                                    TAG.Step,
+                                    TAG.Parameter,
+                                ],
                             },
                             "Temperature_Step_Parameter": {
                                 "subclasses": {
                                     "Air_Temperature_Step_Parameter": {
-                                        "tags": [TAG.Air, TAG.Temperature, TAG.Step, TAG.Parameter],
+                                        "tags": [
+                                            TAG.Air,
+                                            TAG.Temperature,
+                                            TAG.Step,
+                                            TAG.Parameter,
+                                        ],
                                         "subclasses": {
                                             "Discharge_Air_Temperature_Step_Parameter": {
-                                                "tags": [TAG.Discharge, TAG.Air, TAG.Temperature, TAG.Step, TAG.Parameter],
+                                                "tags": [
+                                                    TAG.Discharge,
+                                                    TAG.Air,
+                                                    TAG.Temperature,
+                                                    TAG.Step,
+                                                    TAG.Parameter,
+                                                ],
                                             },
                                             "Supply_Air_Temperature_Step_Parameter": {
-                                                "tags": [TAG.Supply, TAG.Air, TAG.Temperature, TAG.Step, TAG.Parameter],
+                                                "tags": [
+                                                    TAG.Supply,
+                                                    TAG.Air,
+                                                    TAG.Temperature,
+                                                    TAG.Step,
+                                                    TAG.Parameter,
+                                                ],
                                             },
-                                        }
+                                        },
                                     }
                                 },
                                 "parents": [BRICK.Temperature_Parameter],
                                 "tags": [TAG.Temperature, TAG.Step, TAG.Parameter],
-                            }
+                            },
                         },
                     },
                     "Time_Parameter": {
                         "tags": [TAG.Parameter, TAG.Time],
                         "subclasses": {
                             "Integral_Time_Parameter": {
-                                "tags": [TAG.Parameter, TAG.PID, TAG.Time, TAG.Integral],
+                                "tags": [
+                                    TAG.Parameter,
+                                    TAG.PID,
+                                    TAG.Time,
+                                    TAG.Integral,
+                                ],
                                 "subclasses": {
                                     "Air_Temperature_Integral_Time_Parameter": {
-                                        "tags": [TAG.Air, TAG.Temperature, TAG.Parameter, TAG.PID, TAG.Time, TAG.Integral],
+                                        "tags": [
+                                            TAG.Air,
+                                            TAG.Temperature,
+                                            TAG.Parameter,
+                                            TAG.PID,
+                                            TAG.Time,
+                                            TAG.Integral,
+                                        ],
                                         "parents": [BRICK.Temperature_Parameter],
                                         "subclasses": {
                                             "Cooling_Discharge_Air_Temperature_Integral_Time_Parameter": {
-                                                "tags": [TAG.Cooling, TAG.Discharge, TAG.Air, TAG.Temperature, TAG.Integral, TAG.Time, TAG.Parameter, TAG.PID],
+                                                "tags": [
+                                                    TAG.Cooling,
+                                                    TAG.Discharge,
+                                                    TAG.Air,
+                                                    TAG.Temperature,
+                                                    TAG.Integral,
+                                                    TAG.Time,
+                                                    TAG.Parameter,
+                                                    TAG.PID,
+                                                ],
                                             },
                                             "Cooling_Supply_Air_Temperature_Integral_Time_Parameter": {
-                                                "tags": [TAG.Cooling, TAG.Supply, TAG.Air, TAG.Temperature, TAG.Integral, TAG.Time, TAG.Parameter, TAG.PID],
+                                                "tags": [
+                                                    TAG.Cooling,
+                                                    TAG.Supply,
+                                                    TAG.Air,
+                                                    TAG.Temperature,
+                                                    TAG.Integral,
+                                                    TAG.Time,
+                                                    TAG.Parameter,
+                                                    TAG.PID,
+                                                ],
                                             },
                                             "Heating_Discharge_Air_Temperature_Integral_Time_Parameter": {
-                                                "tags": [TAG.Heating, TAG.Discharge, TAG.Air, TAG.Temperature, TAG.Integral, TAG.Time, TAG.Parameter, TAG.PID],
+                                                "tags": [
+                                                    TAG.Heating,
+                                                    TAG.Discharge,
+                                                    TAG.Air,
+                                                    TAG.Temperature,
+                                                    TAG.Integral,
+                                                    TAG.Time,
+                                                    TAG.Parameter,
+                                                    TAG.PID,
+                                                ],
                                             },
                                             "Heating_Supply_Air_Temperature_Integral_Time_Parameter": {
-                                                "tags": [TAG.Heating, TAG.Supply, TAG.Air, TAG.Temperature, TAG.Integral, TAG.Time, TAG.Parameter, TAG.PID],
+                                                "tags": [
+                                                    TAG.Heating,
+                                                    TAG.Supply,
+                                                    TAG.Air,
+                                                    TAG.Temperature,
+                                                    TAG.Integral,
+                                                    TAG.Time,
+                                                    TAG.Parameter,
+                                                    TAG.PID,
+                                                ],
                                             },
-                                        }
+                                        },
                                     },
                                     "Differential_Pressure_Integral_Time_Parameter": {
-                                        "tags": [TAG.Differential, TAG.Pressure, TAG.Integral, TAG.Time, TAG.Parameter, TAG.PID],
+                                        "tags": [
+                                            TAG.Differential,
+                                            TAG.Pressure,
+                                            TAG.Integral,
+                                            TAG.Time,
+                                            TAG.Parameter,
+                                            TAG.PID,
+                                        ],
                                         "subclasses": {
                                             "Hot_Water_Differential_Pressure_Integral_Time_Parameter": {
-                                                "tags": [TAG.Hot, TAG.Water, TAG.Differential, TAG.Pressure, TAG.Integral, TAG.Time, TAG.Parameter, TAG.PID],
+                                                "tags": [
+                                                    TAG.Hot,
+                                                    TAG.Water,
+                                                    TAG.Differential,
+                                                    TAG.Pressure,
+                                                    TAG.Integral,
+                                                    TAG.Time,
+                                                    TAG.Parameter,
+                                                    TAG.PID,
+                                                ],
                                             },
                                             "Chilled_Water_Differential_Pressure_Integral_Time_Parameter": {
-                                                "tags": [TAG.Chilled, TAG.Water, TAG.Differential, TAG.Pressure, TAG.Integral, TAG.Time, TAG.Parameter, TAG.PID],
+                                                "tags": [
+                                                    TAG.Chilled,
+                                                    TAG.Water,
+                                                    TAG.Differential,
+                                                    TAG.Pressure,
+                                                    TAG.Integral,
+                                                    TAG.Time,
+                                                    TAG.Parameter,
+                                                    TAG.PID,
+                                                ],
                                             },
                                             "Discharge_Water_Differential_Pressure_Integral_Time_Parameter": {
-                                                "tags": [TAG.Discharge, TAG.Water, TAG.Differential, TAG.Pressure, TAG.Integral, TAG.Time, TAG.Parameter, TAG.PID],
+                                                "tags": [
+                                                    TAG.Discharge,
+                                                    TAG.Water,
+                                                    TAG.Differential,
+                                                    TAG.Pressure,
+                                                    TAG.Integral,
+                                                    TAG.Time,
+                                                    TAG.Parameter,
+                                                    TAG.PID,
+                                                ],
                                             },
                                             "Supply_Water_Differential_Pressure_Integral_Time_Parameter": {
-                                                "tags": [TAG.Supply, TAG.Water, TAG.Differential, TAG.Pressure, TAG.Integral, TAG.Time, TAG.Parameter, TAG.PID],
-                                            }
+                                                "tags": [
+                                                    TAG.Supply,
+                                                    TAG.Water,
+                                                    TAG.Differential,
+                                                    TAG.Pressure,
+                                                    TAG.Integral,
+                                                    TAG.Time,
+                                                    TAG.Parameter,
+                                                    TAG.PID,
+                                                ],
+                                            },
                                         },
                                     },
                                     "Exhaust_Air_Flow_Integral_Time_Parameter": {
                                         "subclasses": {
                                             "Exhaust_Air_Stack_Flow_Integral_Time_Parameter": {
-                                                "tags": [TAG.Exhaust, TAG.Air, TAG.Stack, TAG.Flow, TAG.Integral, TAG.Time, TAG.Parameter, TAG.PID],
+                                                "tags": [
+                                                    TAG.Exhaust,
+                                                    TAG.Air,
+                                                    TAG.Stack,
+                                                    TAG.Flow,
+                                                    TAG.Integral,
+                                                    TAG.Time,
+                                                    TAG.Parameter,
+                                                    TAG.PID,
+                                                ],
                                             }
                                         },
-                                        "tags": [TAG.Exhaust, TAG.Air, TAG.Flow, TAG.Integral, TAG.Time, TAG.Parameter, TAG.PID],
+                                        "tags": [
+                                            TAG.Exhaust,
+                                            TAG.Air,
+                                            TAG.Flow,
+                                            TAG.Integral,
+                                            TAG.Time,
+                                            TAG.Parameter,
+                                            TAG.PID,
+                                        ],
                                     },
                                     "Static_Pressure_Integral_Time_Parameter": {
-                                        "tags": [TAG.Static, TAG.Pressure, TAG.Integral, TAG.Time, TAG.Parameter, TAG.PID],
+                                        "tags": [
+                                            TAG.Static,
+                                            TAG.Pressure,
+                                            TAG.Integral,
+                                            TAG.Time,
+                                            TAG.Parameter,
+                                            TAG.PID,
+                                        ],
                                         "subclasses": {
                                             "Discharge_Air_Static_Pressure_Integral_Time_Parameter": {
-                                                "tags": [TAG.Discharge, TAG.Air, TAG.Static, TAG.Pressure, TAG.Integral, TAG.Time, TAG.Parameter, TAG.PID],
+                                                "tags": [
+                                                    TAG.Discharge,
+                                                    TAG.Air,
+                                                    TAG.Static,
+                                                    TAG.Pressure,
+                                                    TAG.Integral,
+                                                    TAG.Time,
+                                                    TAG.Parameter,
+                                                    TAG.PID,
+                                                ],
                                             },
                                             "Supply_Air_Static_Pressure_Integral_Time_Parameter": {
-                                                "tags": [TAG.Supply, TAG.Air, TAG.Static, TAG.Pressure, TAG.Integral, TAG.Time, TAG.Parameter, TAG.PID],
+                                                "tags": [
+                                                    TAG.Supply,
+                                                    TAG.Air,
+                                                    TAG.Static,
+                                                    TAG.Pressure,
+                                                    TAG.Integral,
+                                                    TAG.Time,
+                                                    TAG.Parameter,
+                                                    TAG.PID,
+                                                ],
                                             },
                                         },
                                     },
                                     "Supply_Water_Differential_Pressure_Integral_Time_Parameter": {
-                                        "tags": [TAG.Supply, TAG.Water, TAG.Differential, TAG.Pressure, TAG.Integral, TAG.Time, TAG.Parameter, TAG.PID],
+                                        "tags": [
+                                            TAG.Supply,
+                                            TAG.Water,
+                                            TAG.Differential,
+                                            TAG.Pressure,
+                                            TAG.Integral,
+                                            TAG.Time,
+                                            TAG.Parameter,
+                                            TAG.PID,
+                                        ],
                                     },
                                     "Supply_Water_Temperature_Integral_Time_Parameter": {
                                         "parents": [BRICK.Temperature_Parameter],
-                                        "tags": [TAG.Supply, TAG.Water, TAG.Temperature, TAG.Integral, TAG.Time, TAG.Parameter, TAG.PID],
-                                    }
+                                        "tags": [
+                                            TAG.Supply,
+                                            TAG.Water,
+                                            TAG.Temperature,
+                                            TAG.Integral,
+                                            TAG.Time,
+                                            TAG.Parameter,
+                                            TAG.PID,
+                                        ],
+                                    },
                                 },
                             },
                             "Derivative_Time_Parameter": {
-                                "tags": [TAG.Parameter, TAG.PID, TAG.Time, TAG.Derivative],
+                                "tags": [
+                                    TAG.Parameter,
+                                    TAG.PID,
+                                    TAG.Time,
+                                    TAG.Derivative,
+                                ],
                             },
                         },
                     },
                     "Proportional_Band_Parameter": {
-                        "tags": [TAG.Parameter, TAG.PID, TAG.Proportional, TAG.Band, TAG.Parameter, TAG.PID],
+                        "tags": [
+                            TAG.Parameter,
+                            TAG.PID,
+                            TAG.Proportional,
+                            TAG.Band,
+                            TAG.Parameter,
+                            TAG.PID,
+                        ],
                         "subclasses": {
                             "Differential_Pressure_Proportional_Band": {
-                                "tags": [TAG.Differential, TAG.Pressure, TAG.Proportional, TAG.Band, TAG.PID],
+                                "tags": [
+                                    TAG.Differential,
+                                    TAG.Pressure,
+                                    TAG.Proportional,
+                                    TAG.Band,
+                                    TAG.PID,
+                                ],
                                 "subclasses": {
                                     "Hot_Water_Differential_Pressure_Proportional_Band_Parameter": {
-                                        "tags": [TAG.Hot, TAG.Water, TAG.Differential, TAG.Pressure, TAG.Proportional, TAG.Band, TAG.Parameter, TAG.PID],
+                                        "tags": [
+                                            TAG.Hot,
+                                            TAG.Water,
+                                            TAG.Differential,
+                                            TAG.Pressure,
+                                            TAG.Proportional,
+                                            TAG.Band,
+                                            TAG.Parameter,
+                                            TAG.PID,
+                                        ],
                                     },
                                     "Chilled_Water_Differential_Pressure_Proportional_Band_Parameter": {
-                                        "tags": [TAG.Chilled, TAG.Water, TAG.Differential, TAG.Pressure, TAG.Proportional, TAG.Band, TAG.Parameter, TAG.PID],
+                                        "tags": [
+                                            TAG.Chilled,
+                                            TAG.Water,
+                                            TAG.Differential,
+                                            TAG.Pressure,
+                                            TAG.Proportional,
+                                            TAG.Band,
+                                            TAG.Parameter,
+                                            TAG.PID,
+                                        ],
                                     },
                                     "Discharge_Water_Differential_Pressure_Proportional_Band_Parameter": {
                                         "subclasses": {
                                             "Discharge_Water_Differential_Pressure_Proportional_Band_Parameter": {
-                                                "tags": [TAG.Discharge, TAG.Water, TAG.Differential, TAG.Pressure, TAG.Proportional, TAG.Band, TAG.Parameter, TAG.PID],
+                                                "tags": [
+                                                    TAG.Discharge,
+                                                    TAG.Water,
+                                                    TAG.Differential,
+                                                    TAG.Pressure,
+                                                    TAG.Proportional,
+                                                    TAG.Band,
+                                                    TAG.Parameter,
+                                                    TAG.PID,
+                                                ],
                                             },
                                         },
-                                        "tags": [TAG.Discharge, TAG.Water, TAG.Differential, TAG.Pressure, TAG.Proportional, TAG.Band, TAG.Parameter, TAG.PID],
+                                        "tags": [
+                                            TAG.Discharge,
+                                            TAG.Water,
+                                            TAG.Differential,
+                                            TAG.Pressure,
+                                            TAG.Proportional,
+                                            TAG.Band,
+                                            TAG.Parameter,
+                                            TAG.PID,
+                                        ],
                                     },
                                     "Supply_Water_Differential_Pressure_Proportional_Band_Parameter": {
                                         "subclasses": {
                                             "Discharge_Water_Differential_Pressure_Proportional_Band_Parameter": {
-                                                "tags": [TAG.Discharge, TAG.Water, TAG.Differential, TAG.Pressure, TAG.Proportional, TAG.Band, TAG.Parameter, TAG.PID],
+                                                "tags": [
+                                                    TAG.Discharge,
+                                                    TAG.Water,
+                                                    TAG.Differential,
+                                                    TAG.Pressure,
+                                                    TAG.Proportional,
+                                                    TAG.Band,
+                                                    TAG.Parameter,
+                                                    TAG.PID,
+                                                ],
                                             },
                                         },
-                                        "tags": [TAG.Supply, TAG.Water, TAG.Differential, TAG.Pressure, TAG.Proportional, TAG.Band, TAG.Parameter, TAG.PID],
+                                        "tags": [
+                                            TAG.Supply,
+                                            TAG.Water,
+                                            TAG.Differential,
+                                            TAG.Pressure,
+                                            TAG.Proportional,
+                                            TAG.Band,
+                                            TAG.Parameter,
+                                            TAG.PID,
+                                        ],
                                     },
-                                }
+                                },
                             },
                             "Discharge_Air_Temperature_Proportional_Band_Parameter": {
-                                "tags": [TAG.Discharge, TAG.Air, TAG.Temperature, TAG.Proportional, TAG.Band, TAG.Parameter, TAG.PID],
+                                "tags": [
+                                    TAG.Discharge,
+                                    TAG.Air,
+                                    TAG.Temperature,
+                                    TAG.Proportional,
+                                    TAG.Band,
+                                    TAG.Parameter,
+                                    TAG.PID,
+                                ],
                                 "parents": [BRICK.Temperature_Parameter],
                                 "subclasses": {
                                     "Heating_Discharge_Air_Temperature_Proportional_Band_Parameter": {
-                                        "tags": [TAG.Heating, TAG.Discharge, TAG.Air, TAG.Temperature, TAG.Proportional, TAG.Band, TAG.Parameter, TAG.PID],
+                                        "tags": [
+                                            TAG.Heating,
+                                            TAG.Discharge,
+                                            TAG.Air,
+                                            TAG.Temperature,
+                                            TAG.Proportional,
+                                            TAG.Band,
+                                            TAG.Parameter,
+                                            TAG.PID,
+                                        ],
                                     },
                                     "Cooling_Discharge_Air_Temperature_Proportional_Band_Parameter": {
-                                        "tags": [TAG.Cooling, TAG.Discharge, TAG.Air, TAG.Temperature, TAG.Proportional, TAG.Band, TAG.Parameter, TAG.PID],
+                                        "tags": [
+                                            TAG.Cooling,
+                                            TAG.Discharge,
+                                            TAG.Air,
+                                            TAG.Temperature,
+                                            TAG.Proportional,
+                                            TAG.Band,
+                                            TAG.Parameter,
+                                            TAG.PID,
+                                        ],
                                     },
                                 },
                             },
                             "Supply_Air_Temperature_Proportional_Band_Parameter": {
-                                "tags": [TAG.Supply, TAG.Air, TAG.Temperature, TAG.Proportional, TAG.Band, TAG.Parameter, TAG.PID],
+                                "tags": [
+                                    TAG.Supply,
+                                    TAG.Air,
+                                    TAG.Temperature,
+                                    TAG.Proportional,
+                                    TAG.Band,
+                                    TAG.Parameter,
+                                    TAG.PID,
+                                ],
                                 "parents": [BRICK.Temperature_Parameter],
                                 "subclasses": {
                                     "Cooling_Supply_Air_Temperature_Proportional_Band_Parameter": {
-                                        "tags": [TAG.Cooling, TAG.Supply, TAG.Air, TAG.Temperature, TAG.Proportional, TAG.Band, TAG.Parameter, TAG.PID],
+                                        "tags": [
+                                            TAG.Cooling,
+                                            TAG.Supply,
+                                            TAG.Air,
+                                            TAG.Temperature,
+                                            TAG.Proportional,
+                                            TAG.Band,
+                                            TAG.Parameter,
+                                            TAG.PID,
+                                        ],
                                     },
                                     "Heating_Supply_Air_Temperature_Proportional_Band_Parameter": {
-                                        "tags": [TAG.Heating, TAG.Supply, TAG.Air, TAG.Temperature, TAG.Proportional, TAG.Band, TAG.Parameter, TAG.PID],
+                                        "tags": [
+                                            TAG.Heating,
+                                            TAG.Supply,
+                                            TAG.Air,
+                                            TAG.Temperature,
+                                            TAG.Proportional,
+                                            TAG.Band,
+                                            TAG.Parameter,
+                                            TAG.PID,
+                                        ],
                                     },
-                                }
+                                },
                             },
                             "Exhaust_Air_Flow_Proportional_Band_Parameter": {
-                                "tags": [TAG.Exhaust, TAG.Air, TAG.Flow, TAG.Proportional, TAG.Band, TAG.Parameter, TAG.PID],
+                                "tags": [
+                                    TAG.Exhaust,
+                                    TAG.Air,
+                                    TAG.Flow,
+                                    TAG.Proportional,
+                                    TAG.Band,
+                                    TAG.Parameter,
+                                    TAG.PID,
+                                ],
                                 "subclasses": {
                                     "Exhaust_Air_Stack_Flow_Proportional_Band_Parameter": {
-                                        "tags": [TAG.Exhaust, TAG.Air, TAG.Stack, TAG.Flow, TAG.Proportional, TAG.Band, TAG.Parameter, TAG.PID],
+                                        "tags": [
+                                            TAG.Exhaust,
+                                            TAG.Air,
+                                            TAG.Stack,
+                                            TAG.Flow,
+                                            TAG.Proportional,
+                                            TAG.Band,
+                                            TAG.Parameter,
+                                            TAG.PID,
+                                        ],
                                     },
                                 },
                             },
                             "Static_Pressure_Proportional_Band_Parameter": {
                                 "subclasses": {
                                     "Discharge_Air_Static_Pressure_Proportional_Band_Parameter": {
-                                        "tags": [TAG.Discharge, TAG.Air, TAG.Static, TAG.Pressure, TAG.Proportional, TAG.Band, TAG.Parameter, TAG.PID],
+                                        "tags": [
+                                            TAG.Discharge,
+                                            TAG.Air,
+                                            TAG.Static,
+                                            TAG.Pressure,
+                                            TAG.Proportional,
+                                            TAG.Band,
+                                            TAG.Parameter,
+                                            TAG.PID,
+                                        ],
                                     },
                                     "Exhaust_Air_Static_Pressure_Proportional_Band_Parameter": {
-                                        "tags": [TAG.Exhaust, TAG.Air, TAG.Static, TAG.Pressure, TAG.Proportional, TAG.Band, TAG.Parameter, TAG.PID],
+                                        "tags": [
+                                            TAG.Exhaust,
+                                            TAG.Air,
+                                            TAG.Static,
+                                            TAG.Pressure,
+                                            TAG.Proportional,
+                                            TAG.Band,
+                                            TAG.Parameter,
+                                            TAG.PID,
+                                        ],
                                     },
                                     "Supply_Air_Static_Pressure_Proportional_Band_Parameter": {
-                                        "tags": [TAG.Supply, TAG.Air, TAG.Static, TAG.Pressure, TAG.Proportional, TAG.Band, TAG.Parameter, TAG.PID],
+                                        "tags": [
+                                            TAG.Supply,
+                                            TAG.Air,
+                                            TAG.Static,
+                                            TAG.Pressure,
+                                            TAG.Proportional,
+                                            TAG.Band,
+                                            TAG.Parameter,
+                                            TAG.PID,
+                                        ],
                                     },
                                 },
-                                "tags": [TAG.Static, TAG.Pressure, TAG.Proportional, TAG.Band, TAG.Parameter, TAG.PID],
+                                "tags": [
+                                    TAG.Static,
+                                    TAG.Pressure,
+                                    TAG.Proportional,
+                                    TAG.Band,
+                                    TAG.Parameter,
+                                    TAG.PID,
+                                ],
                             },
                             "Supply_Water_Temperature_Proportional_Band_Parameter": {
                                 "parents": [BRICK.Temperature_Parameter],
-                                "tags": [TAG.Supply, TAG.Water, TAG.Temperature, TAG.Proportional, TAG.Band, TAG.Parameter, TAG.PID],
+                                "tags": [
+                                    TAG.Supply,
+                                    TAG.Water,
+                                    TAG.Temperature,
+                                    TAG.Proportional,
+                                    TAG.Band,
+                                    TAG.Parameter,
+                                    TAG.PID,
+                                ],
                             },
                             "Discharge_Water_Temperature_Proportional_Band_Parameter": {
                                 "parents": [BRICK.Temperature_Parameter],
-                                "tags": [TAG.Discharge, TAG.Water, TAG.Temperature, TAG.Proportional, TAG.Band, TAG.Parameter, TAG.PID],
+                                "tags": [
+                                    TAG.Discharge,
+                                    TAG.Water,
+                                    TAG.Temperature,
+                                    TAG.Proportional,
+                                    TAG.Band,
+                                    TAG.Parameter,
+                                    TAG.PID,
+                                ],
                             },
                         },
                     },
-                }
+                },
             },
             "Tolerance_Parameter": {
                 "tags": [TAG.Tolerance, TAG.Parameter],
@@ -291,18 +708,28 @@ parameter_definitions = {
             "Limit": {
                 "tags": [TAG.Parameter, TAG.Limit],
                 "subclasses": {
-                    "Close_Limit": {
-                        "tags": [TAG.Close, TAG.Parameter, TAG.Limit],
-                    },
+                    "Close_Limit": {"tags": [TAG.Close, TAG.Parameter, TAG.Limit],},
                     "Speed_Setpoint_Limit": {
                         "tags": [TAG.Speed, TAG.Limit, TAG.Parameter, TAG.Setpoint],
                         "subclasses": {
                             "Max_Speed_Setpoint_Limit": {
-                                "tags": [TAG.Max, TAG.Speed, TAG.Limit, TAG.Parameter, TAG.Setpoint],
+                                "tags": [
+                                    TAG.Max,
+                                    TAG.Speed,
+                                    TAG.Limit,
+                                    TAG.Parameter,
+                                    TAG.Setpoint,
+                                ],
                                 "parents": [BRICK.Max_Limit],
                             },
                             "Min_Speed_Setpoint_Limit": {
-                                "tags": [TAG.Min, TAG.Speed, TAG.Limit, TAG.Parameter, TAG.Setpoint],
+                                "tags": [
+                                    TAG.Min,
+                                    TAG.Speed,
+                                    TAG.Limit,
+                                    TAG.Parameter,
+                                    TAG.Setpoint,
+                                ],
                                 "parents": [BRICK.Min_Limit],
                             },
                         },
@@ -312,61 +739,155 @@ parameter_definitions = {
                         "parents": [BRICK.Temperature_Parameter],
                         "subclasses": {
                             "Discharge_Air_Temperature_Setpoint_Limit": {
-                                "tags": [TAG.Discharge, TAG.Air, TAG.Temperature, TAG.Limit, TAG.Setpoint],
+                                "tags": [
+                                    TAG.Discharge,
+                                    TAG.Air,
+                                    TAG.Temperature,
+                                    TAG.Limit,
+                                    TAG.Setpoint,
+                                ],
                                 "subclasses": {
                                     "Max_Discharge_Air_Temperature_Setpoint_Limit": {
-                                        "tags": [TAG.Max, TAG.Discharge, TAG.Air, TAG.Temperature, TAG.Limit, TAG.Setpoint],
-                                        "parents": [BRICK.Max_Temperature_Setpoint_Limit],
+                                        "tags": [
+                                            TAG.Max,
+                                            TAG.Discharge,
+                                            TAG.Air,
+                                            TAG.Temperature,
+                                            TAG.Limit,
+                                            TAG.Setpoint,
+                                        ],
+                                        "parents": [
+                                            BRICK.Max_Temperature_Setpoint_Limit
+                                        ],
                                     },
                                     "Min_Discharge_Air_Temperature_Setpoint_Limit": {
-                                        "tags": [TAG.Min, TAG.Discharge, TAG.Air, TAG.Temperature, TAG.Limit, TAG.Setpoint],
-                                        "parents": [BRICK.Min_Temperature_Setpoint_Limit],
+                                        "tags": [
+                                            TAG.Min,
+                                            TAG.Discharge,
+                                            TAG.Air,
+                                            TAG.Temperature,
+                                            TAG.Limit,
+                                            TAG.Setpoint,
+                                        ],
+                                        "parents": [
+                                            BRICK.Min_Temperature_Setpoint_Limit
+                                        ],
                                     },
-                                }
+                                },
                             },
                         },
                     },
                     "Air_Flow_Setpoint_Limit": {
-                        "tags": [TAG.Air, TAG.Flow, TAG.Limit, TAG.Parameter, TAG.Setpoint],
+                        "tags": [
+                            TAG.Air,
+                            TAG.Flow,
+                            TAG.Limit,
+                            TAG.Parameter,
+                            TAG.Setpoint,
+                        ],
                         "subclasses": {
                             "Max_Air_Flow_Setpoint_Limit": {
-                                "tags": [TAG.Max, TAG.Air, TAG.Flow, TAG.Limit, TAG.Parameter, TAG.Setpoint],
+                                "tags": [
+                                    TAG.Max,
+                                    TAG.Air,
+                                    TAG.Flow,
+                                    TAG.Limit,
+                                    TAG.Parameter,
+                                    TAG.Setpoint,
+                                ],
                             },
                             "Min_Air_Flow_Setpoint_Limit": {
-                                "tags": [TAG.Min, TAG.Air, TAG.Flow, TAG.Limit, TAG.Parameter, TAG.Setpoint],
+                                "tags": [
+                                    TAG.Min,
+                                    TAG.Air,
+                                    TAG.Flow,
+                                    TAG.Limit,
+                                    TAG.Parameter,
+                                    TAG.Setpoint,
+                                ],
                             },
                         },
                     },
-                    "Current_Limit": {
-                        "tags": [TAG.Current, TAG.Limit, TAG.Parameter],
-                    },
+                    "Current_Limit": {"tags": [TAG.Current, TAG.Limit, TAG.Parameter],},
                     "Position_Limit": {
                         "tags": [TAG.Position, TAG.Limit],
                         "subclasses": {
                             "Max_Position_Setpoint_Limit": {
-                                "tags": [TAG.Max, TAG.Position, TAG.Limit, TAG.Setpoint],
+                                "tags": [
+                                    TAG.Max,
+                                    TAG.Position,
+                                    TAG.Limit,
+                                    TAG.Setpoint,
+                                ],
                                 "parents": [BRICK.Max_Limit],
                             },
                             "Min_Position_Setpoint_Limit": {
-                                "tags": [TAG.Min, TAG.Position, TAG.Limit, TAG.Setpoint],
+                                "tags": [
+                                    TAG.Min,
+                                    TAG.Position,
+                                    TAG.Limit,
+                                    TAG.Setpoint,
+                                ],
                                 "parents": [BRICK.Min_Limit],
                             },
                         },
                     },
                     "Differential_Pressure_Setpoint_Limit": {
-                        "tags": [TAG.Differential, TAG.Pressure, TAG.Limit, TAG.Parameter, TAG.Setpoint],
+                        "tags": [
+                            TAG.Differential,
+                            TAG.Pressure,
+                            TAG.Limit,
+                            TAG.Parameter,
+                            TAG.Setpoint,
+                        ],
                         "subclasses": {
                             "Max_Chilled_Water_Differential_Pressure_Setpoint_Limit": {
-                                "tags": [TAG.Max, TAG.Chilled, TAG.Water, TAG.Differential, TAG.Pressure, TAG.Limit, TAG.Parameter, TAG.Setpoint],
+                                "tags": [
+                                    TAG.Max,
+                                    TAG.Chilled,
+                                    TAG.Water,
+                                    TAG.Differential,
+                                    TAG.Pressure,
+                                    TAG.Limit,
+                                    TAG.Parameter,
+                                    TAG.Setpoint,
+                                ],
                             },
                             "Min_Chilled_Water_Differential_Pressure_Setpoint_Limit": {
-                                "tags": [TAG.Min, TAG.Chilled, TAG.Water, TAG.Differential, TAG.Pressure, TAG.Limit, TAG.Parameter, TAG.Setpoint],
+                                "tags": [
+                                    TAG.Min,
+                                    TAG.Chilled,
+                                    TAG.Water,
+                                    TAG.Differential,
+                                    TAG.Pressure,
+                                    TAG.Limit,
+                                    TAG.Parameter,
+                                    TAG.Setpoint,
+                                ],
                             },
                             "Max_Hot_Water_Differential_Pressure_Setpoint_Limit": {
-                                "tags": [TAG.Max, TAG.Hot, TAG.Water, TAG.Differential, TAG.Pressure, TAG.Limit, TAG.Parameter, TAG.Setpoint],
+                                "tags": [
+                                    TAG.Max,
+                                    TAG.Hot,
+                                    TAG.Water,
+                                    TAG.Differential,
+                                    TAG.Pressure,
+                                    TAG.Limit,
+                                    TAG.Parameter,
+                                    TAG.Setpoint,
+                                ],
                             },
                             "Min_Hot_Water_Differential_Pressure_Setpoint_Limit": {
-                                "tags": [TAG.Min, TAG.Hot, TAG.Water, TAG.Differential, TAG.Pressure, TAG.Limit, TAG.Parameter, TAG.Setpoint],
+                                "tags": [
+                                    TAG.Min,
+                                    TAG.Hot,
+                                    TAG.Water,
+                                    TAG.Differential,
+                                    TAG.Pressure,
+                                    TAG.Limit,
+                                    TAG.Parameter,
+                                    TAG.Setpoint,
+                                ],
                             },
                         },
                     },
@@ -374,23 +895,56 @@ parameter_definitions = {
                         "tags": [TAG.Fresh, TAG.Air, TAG.Limit, TAG.Setpoint],
                         "subclasses": {
                             "Min_Fresh_Air_Setpoint_Limit": {
-                                "tags": [TAG.Min, TAG.Fresh, TAG.Air, TAG.Limit, TAG.Setpoint],
+                                "tags": [
+                                    TAG.Min,
+                                    TAG.Fresh,
+                                    TAG.Air,
+                                    TAG.Limit,
+                                    TAG.Setpoint,
+                                ],
                                 "parents": [BRICK.Min_Limit],
                             },
                         },
                     },
                     "Ventilation_Air_Flow_Ratio_Limit": {},
                     "Static_Pressure_Setpoint_Limit": {
-                        "tags": [TAG.Static, TAG.Pressure, TAG.Limit, TAG.Parameter, TAG.Setpoint],
+                        "tags": [
+                            TAG.Static,
+                            TAG.Pressure,
+                            TAG.Limit,
+                            TAG.Parameter,
+                            TAG.Setpoint,
+                        ],
                         "subclasses": {
                             "Min_Static_Pressure_Setpoint_Limit": {
-                                "tags": [TAG.Min, TAG.Static, TAG.Pressure, TAG.Limit, TAG.Parameter, TAG.Setpoint],
+                                "tags": [
+                                    TAG.Min,
+                                    TAG.Static,
+                                    TAG.Pressure,
+                                    TAG.Limit,
+                                    TAG.Parameter,
+                                    TAG.Setpoint,
+                                ],
                             },
                             "Max_Static_Pressure_Setpoint_Limit": {
-                                "tags": [TAG.Max, TAG.Static, TAG.Pressure, TAG.Limit, TAG.Parameter, TAG.Setpoint],
+                                "tags": [
+                                    TAG.Max,
+                                    TAG.Static,
+                                    TAG.Pressure,
+                                    TAG.Limit,
+                                    TAG.Parameter,
+                                    TAG.Setpoint,
+                                ],
                             },
                             "High_Static_Pressure_Cutout_Setpoint_Limit": {
-                                "tags": [TAG.High, TAG.Static, TAG.Pressure, TAG.Cutout, TAG.Limit, TAG.Setpoint],
+                                "tags": [
+                                    TAG.High,
+                                    TAG.Static,
+                                    TAG.Pressure,
+                                    TAG.Cutout,
+                                    TAG.Limit,
+                                    TAG.Setpoint,
+                                ],
                             },
                         },
                     },
@@ -398,79 +952,274 @@ parameter_definitions = {
                         "tags": [TAG.Max, TAG.Limit, TAG.Parameter],
                         "subclasses": {
                             "Max_Speed_Setpoint_Limit": {
-                                "tags": [TAG.Max, TAG.Speed, TAG.Limit, TAG.Parameter, TAG.Setpoint],
+                                "tags": [
+                                    TAG.Max,
+                                    TAG.Speed,
+                                    TAG.Limit,
+                                    TAG.Parameter,
+                                    TAG.Setpoint,
+                                ],
                             },
                             "Max_Discharge_Air_Static_Pressure_Setpoint_Limit": {
-                                "tags": [TAG.Max, TAG.Discharge, TAG.Air, TAG.Static, TAG.Pressure, TAG.Limit, TAG.Parameter, TAG.Setpoint],
+                                "tags": [
+                                    TAG.Max,
+                                    TAG.Discharge,
+                                    TAG.Air,
+                                    TAG.Static,
+                                    TAG.Pressure,
+                                    TAG.Limit,
+                                    TAG.Parameter,
+                                    TAG.Setpoint,
+                                ],
                             },
                             "Max_Supply_Air_Static_Pressure_Setpoint_Limit": {
-                                "tags": [TAG.Max, TAG.Supply, TAG.Air, TAG.Static, TAG.Pressure, TAG.Limit, TAG.Parameter, TAG.Setpoint],
+                                "tags": [
+                                    TAG.Max,
+                                    TAG.Supply,
+                                    TAG.Air,
+                                    TAG.Static,
+                                    TAG.Pressure,
+                                    TAG.Limit,
+                                    TAG.Parameter,
+                                    TAG.Setpoint,
+                                ],
                             },
                             "Max_Chilled_Water_Differential_Pressure_Setpoint_Limit": {
-                                "tags": [TAG.Max, TAG.Chilled, TAG.Water, TAG.Differential, TAG.Pressure, TAG.Limit, TAG.Parameter, TAG.Setpoint],
+                                "tags": [
+                                    TAG.Max,
+                                    TAG.Chilled,
+                                    TAG.Water,
+                                    TAG.Differential,
+                                    TAG.Pressure,
+                                    TAG.Limit,
+                                    TAG.Parameter,
+                                    TAG.Setpoint,
+                                ],
                             },
                             "Max_Hot_Water_Differential_Pressure_Setpoint_Limit": {
-                                "tags": [TAG.Max, TAG.Hot, TAG.Water, TAG.Differential, TAG.Pressure, TAG.Limit, TAG.Parameter, TAG.Setpoint],
+                                "tags": [
+                                    TAG.Max,
+                                    TAG.Hot,
+                                    TAG.Water,
+                                    TAG.Differential,
+                                    TAG.Pressure,
+                                    TAG.Limit,
+                                    TAG.Parameter,
+                                    TAG.Setpoint,
+                                ],
                             },
                             "Max_Static_Pressure_Setpoint_Limit": {
-                                "tags": [TAG.Max, TAG.Static, TAG.Pressure, TAG.Limit, TAG.Parameter, TAG.Setpoint],
+                                "tags": [
+                                    TAG.Max,
+                                    TAG.Static,
+                                    TAG.Pressure,
+                                    TAG.Limit,
+                                    TAG.Parameter,
+                                    TAG.Setpoint,
+                                ],
                                 "subclasses": {
                                     "Max_Discharge_Air_Static_Pressure_Setpoint_Limit": {
-                                        "tags": [TAG.Max, TAG.Discharge, TAG.Air, TAG.Static, TAG.Pressure, TAG.Limit, TAG.Parameter, TAG.Setpoint],
+                                        "tags": [
+                                            TAG.Max,
+                                            TAG.Discharge,
+                                            TAG.Air,
+                                            TAG.Static,
+                                            TAG.Pressure,
+                                            TAG.Limit,
+                                            TAG.Parameter,
+                                            TAG.Setpoint,
+                                        ],
                                     },
                                     "Max_Supply_Air_Static_Pressure_Setpoint_Limit": {
-                                        "tags": [TAG.Max, TAG.Supply, TAG.Air, TAG.Static, TAG.Pressure, TAG.Limit, TAG.Parameter, TAG.Setpoint],
+                                        "tags": [
+                                            TAG.Max,
+                                            TAG.Supply,
+                                            TAG.Air,
+                                            TAG.Static,
+                                            TAG.Pressure,
+                                            TAG.Limit,
+                                            TAG.Parameter,
+                                            TAG.Setpoint,
+                                        ],
                                     },
                                 },
                             },
                             "Max_Temperature_Setpoint_Limit": {
-                                "tags": [TAG.Max, TAG.Temperature, TAG.Limit, TAG.Setpoint],
+                                "tags": [
+                                    TAG.Max,
+                                    TAG.Temperature,
+                                    TAG.Limit,
+                                    TAG.Setpoint,
+                                ],
                                 "parents": [BRICK.Temperature_Parameter],
                             },
                             "Max_Air_Flow_Setpoint_Limit": {
-                                "tags": [TAG.Max, TAG.Air, TAG.Flow, TAG.Limit, TAG.Parameter, TAG.Setpoint],
+                                "tags": [
+                                    TAG.Max,
+                                    TAG.Air,
+                                    TAG.Flow,
+                                    TAG.Limit,
+                                    TAG.Parameter,
+                                    TAG.Setpoint,
+                                ],
                                 "subclasses": {
                                     "Max_Cooling_Supply_Air_Flow_Setpoint_Limit": {
-                                        "tags": [TAG.Max, TAG.Cooling, TAG.Supply, TAG.Air, TAG.Flow, TAG.Limit, TAG.Parameter, TAG.Setpoint],
+                                        "tags": [
+                                            TAG.Max,
+                                            TAG.Cooling,
+                                            TAG.Supply,
+                                            TAG.Air,
+                                            TAG.Flow,
+                                            TAG.Limit,
+                                            TAG.Parameter,
+                                            TAG.Setpoint,
+                                        ],
                                         "subclasses": {
                                             "Max_Occupied_Cooling_Supply_Air_Flow_Setpoint_Limit": {
-                                                "tags": [TAG.Max, TAG.Occupied, TAG.Cooling, TAG.Supply, TAG.Air, TAG.Flow, TAG.Limit, TAG.Parameter, TAG.Setpoint],
+                                                "tags": [
+                                                    TAG.Max,
+                                                    TAG.Occupied,
+                                                    TAG.Cooling,
+                                                    TAG.Supply,
+                                                    TAG.Air,
+                                                    TAG.Flow,
+                                                    TAG.Limit,
+                                                    TAG.Parameter,
+                                                    TAG.Setpoint,
+                                                ],
                                             },
                                             "Max_Unoccupied_Cooling_Supply_Air_Flow_Setpoint_Limit": {
-                                                "tags": [TAG.Max, TAG.Unoccupied, TAG.Cooling, TAG.Supply, TAG.Air, TAG.Flow, TAG.Limit, TAG.Parameter, TAG.Setpoint],
+                                                "tags": [
+                                                    TAG.Max,
+                                                    TAG.Unoccupied,
+                                                    TAG.Cooling,
+                                                    TAG.Supply,
+                                                    TAG.Air,
+                                                    TAG.Flow,
+                                                    TAG.Limit,
+                                                    TAG.Parameter,
+                                                    TAG.Setpoint,
+                                                ],
                                             },
                                         },
                                     },
                                     "Max_Cooling_Discharge_Air_Flow_Setpoint_Limit": {
-                                        "tags": [TAG.Max, TAG.Cooling, TAG.Discharge, TAG.Air, TAG.Flow, TAG.Limit, TAG.Parameter, TAG.Setpoint],
+                                        "tags": [
+                                            TAG.Max,
+                                            TAG.Cooling,
+                                            TAG.Discharge,
+                                            TAG.Air,
+                                            TAG.Flow,
+                                            TAG.Limit,
+                                            TAG.Parameter,
+                                            TAG.Setpoint,
+                                        ],
                                         "subclasses": {
                                             "Max_Occupied_Cooling_Discharge_Air_Flow_Setpoint_Limit": {
-                                                "tags": [TAG.Max, TAG.Occupied, TAG.Cooling, TAG.Discharge, TAG.Air, TAG.Flow, TAG.Limit, TAG.Parameter, TAG.Setpoint],
+                                                "tags": [
+                                                    TAG.Max,
+                                                    TAG.Occupied,
+                                                    TAG.Cooling,
+                                                    TAG.Discharge,
+                                                    TAG.Air,
+                                                    TAG.Flow,
+                                                    TAG.Limit,
+                                                    TAG.Parameter,
+                                                    TAG.Setpoint,
+                                                ],
                                             },
                                             "Max_Unoccupied_Cooling_Discharge_Air_Flow_Setpoint_Limit": {
-                                                "tags": [TAG.Max, TAG.Unoccupied, TAG.Cooling, TAG.Discharge, TAG.Air, TAG.Flow, TAG.Limit, TAG.Parameter, TAG.Setpoint],
+                                                "tags": [
+                                                    TAG.Max,
+                                                    TAG.Unoccupied,
+                                                    TAG.Cooling,
+                                                    TAG.Discharge,
+                                                    TAG.Air,
+                                                    TAG.Flow,
+                                                    TAG.Limit,
+                                                    TAG.Parameter,
+                                                    TAG.Setpoint,
+                                                ],
                                             },
                                         },
                                     },
                                     "Max_Heating_Supply_Air_Flow_Setpoint_Limit": {
-                                        "tags": [TAG.Max, TAG.Heating, TAG.Supply, TAG.Air, TAG.Flow, TAG.Limit, TAG.Parameter, TAG.Setpoint],
+                                        "tags": [
+                                            TAG.Max,
+                                            TAG.Heating,
+                                            TAG.Supply,
+                                            TAG.Air,
+                                            TAG.Flow,
+                                            TAG.Limit,
+                                            TAG.Parameter,
+                                            TAG.Setpoint,
+                                        ],
                                         "subclasses": {
                                             "Max_Occupied_Heating_Supply_Air_Flow_Setpoint_Limit": {
-                                                "tags": [TAG.Max, TAG.Occupied, TAG.Heating, TAG.Supply, TAG.Air, TAG.Flow, TAG.Limit, TAG.Parameter, TAG.Setpoint],
+                                                "tags": [
+                                                    TAG.Max,
+                                                    TAG.Occupied,
+                                                    TAG.Heating,
+                                                    TAG.Supply,
+                                                    TAG.Air,
+                                                    TAG.Flow,
+                                                    TAG.Limit,
+                                                    TAG.Parameter,
+                                                    TAG.Setpoint,
+                                                ],
                                             },
                                             "Max_Unoccupied_Heating_Supply_Air_Flow_Setpoint_Limit": {
-                                                "tags": [TAG.Max, TAG.Unoccupied, TAG.Heating, TAG.Supply, TAG.Air, TAG.Flow, TAG.Limit, TAG.Parameter, TAG.Setpoint],
+                                                "tags": [
+                                                    TAG.Max,
+                                                    TAG.Unoccupied,
+                                                    TAG.Heating,
+                                                    TAG.Supply,
+                                                    TAG.Air,
+                                                    TAG.Flow,
+                                                    TAG.Limit,
+                                                    TAG.Parameter,
+                                                    TAG.Setpoint,
+                                                ],
                                             },
                                         },
                                     },
                                     "Max_Heating_Discharge_Air_Flow_Setpoint_Limit": {
-                                        "tags": [TAG.Max, TAG.Heating, TAG.Discharge, TAG.Air, TAG.Flow, TAG.Limit, TAG.Parameter, TAG.Setpoint],
+                                        "tags": [
+                                            TAG.Max,
+                                            TAG.Heating,
+                                            TAG.Discharge,
+                                            TAG.Air,
+                                            TAG.Flow,
+                                            TAG.Limit,
+                                            TAG.Parameter,
+                                            TAG.Setpoint,
+                                        ],
                                         "subclasses": {
                                             "Max_Occupied_Heating_Discharge_Air_Flow_Setpoint_Limit": {
-                                                "tags": [TAG.Max, TAG.Occupied, TAG.Heating, TAG.Discharge, TAG.Air, TAG.Flow, TAG.Limit, TAG.Parameter, TAG.Setpoint],
+                                                "tags": [
+                                                    TAG.Max,
+                                                    TAG.Occupied,
+                                                    TAG.Heating,
+                                                    TAG.Discharge,
+                                                    TAG.Air,
+                                                    TAG.Flow,
+                                                    TAG.Limit,
+                                                    TAG.Parameter,
+                                                    TAG.Setpoint,
+                                                ],
                                             },
                                             "Max_Unoccupied_Heating_Discharge_Air_Flow_Setpoint_Limit": {
-                                                "tags": [TAG.Max, TAG.Unoccupied, TAG.Heating, TAG.Discharge, TAG.Air, TAG.Flow, TAG.Limit, TAG.Parameter, TAG.Setpoint],
+                                                "tags": [
+                                                    TAG.Max,
+                                                    TAG.Unoccupied,
+                                                    TAG.Heating,
+                                                    TAG.Discharge,
+                                                    TAG.Air,
+                                                    TAG.Flow,
+                                                    TAG.Limit,
+                                                    TAG.Parameter,
+                                                    TAG.Setpoint,
+                                                ],
                                             },
                                         },
                                     },
@@ -482,82 +1231,285 @@ parameter_definitions = {
                         "tags": [TAG.Min, TAG.Limit, TAG.Parameter],
                         "subclasses": {
                             "Min_Speed_Setpoint_Limit": {
-                                "tags": [TAG.Min, TAG.Speed, TAG.Limit, TAG.Parameter, TAG.Setpoint],
+                                "tags": [
+                                    TAG.Min,
+                                    TAG.Speed,
+                                    TAG.Limit,
+                                    TAG.Parameter,
+                                    TAG.Setpoint,
+                                ],
                             },
                             "Min_Hot_Water_Differential_Pressure_Setpoint_Limit": {
-                                "tags": [TAG.Min, TAG.Hot, TAG.Water, TAG.Differential, TAG.Pressure, TAG.Limit, TAG.Parameter, TAG.Setpoint],
+                                "tags": [
+                                    TAG.Min,
+                                    TAG.Hot,
+                                    TAG.Water,
+                                    TAG.Differential,
+                                    TAG.Pressure,
+                                    TAG.Limit,
+                                    TAG.Parameter,
+                                    TAG.Setpoint,
+                                ],
                             },
                             "Min_Chilled_Water_Differential_Pressure_Setpoint_Limit": {
-                                "tags": [TAG.Min, TAG.Chilled, TAG.Water, TAG.Differential, TAG.Pressure, TAG.Limit, TAG.Parameter, TAG.Setpoint],
+                                "tags": [
+                                    TAG.Min,
+                                    TAG.Chilled,
+                                    TAG.Water,
+                                    TAG.Differential,
+                                    TAG.Pressure,
+                                    TAG.Limit,
+                                    TAG.Parameter,
+                                    TAG.Setpoint,
+                                ],
                             },
                             "Min_Discharge_Air_Static_Pressure_Setpoint_Limit": {
-                                "tags": [TAG.Min, TAG.Discharge, TAG.Air, TAG.Static, TAG.Pressure, TAG.Limit, TAG.Parameter, TAG.Setpoint],
+                                "tags": [
+                                    TAG.Min,
+                                    TAG.Discharge,
+                                    TAG.Air,
+                                    TAG.Static,
+                                    TAG.Pressure,
+                                    TAG.Limit,
+                                    TAG.Parameter,
+                                    TAG.Setpoint,
+                                ],
                             },
                             "Min_Supply_Air_Static_Pressure_Setpoint_Limit": {
-                                "tags": [TAG.Min, TAG.Supply, TAG.Air, TAG.Static, TAG.Pressure, TAG.Limit, TAG.Parameter, TAG.Setpoint],
+                                "tags": [
+                                    TAG.Min,
+                                    TAG.Supply,
+                                    TAG.Air,
+                                    TAG.Static,
+                                    TAG.Pressure,
+                                    TAG.Limit,
+                                    TAG.Parameter,
+                                    TAG.Setpoint,
+                                ],
                             },
                             "Min_Temperature_Setpoint_Limit": {
-                                "tags": [TAG.Min, TAG.Temperature, TAG.Limit, TAG.Setpoint],
+                                "tags": [
+                                    TAG.Min,
+                                    TAG.Temperature,
+                                    TAG.Limit,
+                                    TAG.Setpoint,
+                                ],
                                 "parents": [BRICK.Temperature_Parameter],
                             },
                             "Min_Static_Pressure_Setpoint_Limit": {
-                                "tags": [TAG.Min, TAG.Static, TAG.Pressure, TAG.Limit, TAG.Parameter, TAG.Setpoint],
+                                "tags": [
+                                    TAG.Min,
+                                    TAG.Static,
+                                    TAG.Pressure,
+                                    TAG.Limit,
+                                    TAG.Parameter,
+                                    TAG.Setpoint,
+                                ],
                                 "subclasses": {
                                     "Min_Discharge_Air_Static_Pressure_Setpoint_Limit": {
-                                        "tags": [TAG.Min, TAG.Discharge, TAG.Air, TAG.Static, TAG.Pressure, TAG.Limit, TAG.Parameter, TAG.Setpoint],
+                                        "tags": [
+                                            TAG.Min,
+                                            TAG.Discharge,
+                                            TAG.Air,
+                                            TAG.Static,
+                                            TAG.Pressure,
+                                            TAG.Limit,
+                                            TAG.Parameter,
+                                            TAG.Setpoint,
+                                        ],
                                     },
                                     "Min_Supply_Air_Static_Pressure_Setpoint_Limit": {
-                                        "tags": [TAG.Min, TAG.Supply, TAG.Air, TAG.Static, TAG.Pressure, TAG.Limit, TAG.Parameter, TAG.Setpoint],
+                                        "tags": [
+                                            TAG.Min,
+                                            TAG.Supply,
+                                            TAG.Air,
+                                            TAG.Static,
+                                            TAG.Pressure,
+                                            TAG.Limit,
+                                            TAG.Parameter,
+                                            TAG.Setpoint,
+                                        ],
                                     },
                                 },
                             },
                             "Min_Air_Flow_Setpoint_Limit": {
-                                "tags": [TAG.Min, TAG.Air, TAG.Flow, TAG.Limit, TAG.Parameter, TAG.Setpoint],
+                                "tags": [
+                                    TAG.Min,
+                                    TAG.Air,
+                                    TAG.Flow,
+                                    TAG.Limit,
+                                    TAG.Parameter,
+                                    TAG.Setpoint,
+                                ],
                                 "subclasses": {
                                     "Min_Outside_Air_Flow_Setpoint_Limit": {
-                                        "tags": [TAG.Min, TAG.Outside, TAG.Air, TAG.Flow, TAG.Limit, TAG.Parameter, TAG.Setpoint],
+                                        "tags": [
+                                            TAG.Min,
+                                            TAG.Outside,
+                                            TAG.Air,
+                                            TAG.Flow,
+                                            TAG.Limit,
+                                            TAG.Parameter,
+                                            TAG.Setpoint,
+                                        ],
                                     },
                                     "Min_Cooling_Supply_Air_Flow_Setpoint_Limit": {
-                                        "tags": [TAG.Min, TAG.Cooling, TAG.Supply, TAG.Air, TAG.Flow, TAG.Limit, TAG.Parameter, TAG.Setpoint],
+                                        "tags": [
+                                            TAG.Min,
+                                            TAG.Cooling,
+                                            TAG.Supply,
+                                            TAG.Air,
+                                            TAG.Flow,
+                                            TAG.Limit,
+                                            TAG.Parameter,
+                                            TAG.Setpoint,
+                                        ],
                                         "subclasses": {
                                             "Min_Occupied_Cooling_Supply_Air_Flow_Setpoint_Limit": {
-                                                "tags": [TAG.Min, TAG.Occupied, TAG.Cooling, TAG.Supply, TAG.Air, TAG.Flow, TAG.Limit, TAG.Parameter, TAG.Setpoint],
+                                                "tags": [
+                                                    TAG.Min,
+                                                    TAG.Occupied,
+                                                    TAG.Cooling,
+                                                    TAG.Supply,
+                                                    TAG.Air,
+                                                    TAG.Flow,
+                                                    TAG.Limit,
+                                                    TAG.Parameter,
+                                                    TAG.Setpoint,
+                                                ],
                                             },
                                             "Min_Unoccupied_Cooling_Supply_Air_Flow_Setpoint_Limit": {
-                                                "tags": [TAG.Min, TAG.Unoccupied, TAG.Cooling, TAG.Supply, TAG.Air, TAG.Flow, TAG.Limit, TAG.Parameter, TAG.Setpoint],
+                                                "tags": [
+                                                    TAG.Min,
+                                                    TAG.Unoccupied,
+                                                    TAG.Cooling,
+                                                    TAG.Supply,
+                                                    TAG.Air,
+                                                    TAG.Flow,
+                                                    TAG.Limit,
+                                                    TAG.Parameter,
+                                                    TAG.Setpoint,
+                                                ],
                                             },
                                         },
                                     },
                                     "Min_Cooling_Discharge_Air_Flow_Setpoint_Limit": {
-                                        "tags": [TAG.Min, TAG.Cooling, TAG.Discharge, TAG.Air, TAG.Flow, TAG.Limit, TAG.Parameter, TAG.Setpoint],
+                                        "tags": [
+                                            TAG.Min,
+                                            TAG.Cooling,
+                                            TAG.Discharge,
+                                            TAG.Air,
+                                            TAG.Flow,
+                                            TAG.Limit,
+                                            TAG.Parameter,
+                                            TAG.Setpoint,
+                                        ],
                                         "subclasses": {
                                             "Min_Occupied_Cooling_Discharge_Air_Flow_Setpoint_Limit": {
-                                                "tags": [TAG.Min, TAG.Occupied, TAG.Cooling, TAG.Discharge, TAG.Air, TAG.Flow, TAG.Limit, TAG.Parameter, TAG.Setpoint],
+                                                "tags": [
+                                                    TAG.Min,
+                                                    TAG.Occupied,
+                                                    TAG.Cooling,
+                                                    TAG.Discharge,
+                                                    TAG.Air,
+                                                    TAG.Flow,
+                                                    TAG.Limit,
+                                                    TAG.Parameter,
+                                                    TAG.Setpoint,
+                                                ],
                                             },
                                             "Min_Unoccupied_Cooling_Discharge_Air_Flow_Setpoint_Limit": {
-                                                "tags": [TAG.Min, TAG.Unoccupied, TAG.Cooling, TAG.Discharge, TAG.Air, TAG.Flow, TAG.Limit, TAG.Parameter, TAG.Setpoint],
+                                                "tags": [
+                                                    TAG.Min,
+                                                    TAG.Unoccupied,
+                                                    TAG.Cooling,
+                                                    TAG.Discharge,
+                                                    TAG.Air,
+                                                    TAG.Flow,
+                                                    TAG.Limit,
+                                                    TAG.Parameter,
+                                                    TAG.Setpoint,
+                                                ],
                                             },
                                         },
                                     },
                                     "Min_Heating_Supply_Air_Flow_Setpoint_Limit": {
-                                        "tags": [TAG.Min, TAG.Heating, TAG.Supply, TAG.Air, TAG.Flow, TAG.Limit, TAG.Parameter, TAG.Setpoint],
+                                        "tags": [
+                                            TAG.Min,
+                                            TAG.Heating,
+                                            TAG.Supply,
+                                            TAG.Air,
+                                            TAG.Flow,
+                                            TAG.Limit,
+                                            TAG.Parameter,
+                                            TAG.Setpoint,
+                                        ],
                                         "subclasses": {
                                             "Min_Occupied_Heating_Supply_Air_Flow_Setpoint_Limit": {
-                                                "tags": [TAG.Min, TAG.Occupied, TAG.Heating, TAG.Supply, TAG.Air, TAG.Flow, TAG.Limit, TAG.Parameter, TAG.Setpoint],
+                                                "tags": [
+                                                    TAG.Min,
+                                                    TAG.Occupied,
+                                                    TAG.Heating,
+                                                    TAG.Supply,
+                                                    TAG.Air,
+                                                    TAG.Flow,
+                                                    TAG.Limit,
+                                                    TAG.Parameter,
+                                                    TAG.Setpoint,
+                                                ],
                                             },
                                             "Min_Unoccupied_Heating_Supply_Air_Flow_Setpoint_Limit": {
-                                                "tags": [TAG.Min, TAG.Unoccupied, TAG.Heating, TAG.Supply, TAG.Air, TAG.Flow, TAG.Limit, TAG.Parameter, TAG.Setpoint],
+                                                "tags": [
+                                                    TAG.Min,
+                                                    TAG.Unoccupied,
+                                                    TAG.Heating,
+                                                    TAG.Supply,
+                                                    TAG.Air,
+                                                    TAG.Flow,
+                                                    TAG.Limit,
+                                                    TAG.Parameter,
+                                                    TAG.Setpoint,
+                                                ],
                                             },
                                         },
                                     },
                                     "Min_Heating_Discharge_Air_Flow_Setpoint_Limit": {
-                                        "tags": [TAG.Min, TAG.Heating, TAG.Discharge, TAG.Air, TAG.Flow, TAG.Limit, TAG.Parameter, TAG.Setpoint],
+                                        "tags": [
+                                            TAG.Min,
+                                            TAG.Heating,
+                                            TAG.Discharge,
+                                            TAG.Air,
+                                            TAG.Flow,
+                                            TAG.Limit,
+                                            TAG.Parameter,
+                                            TAG.Setpoint,
+                                        ],
                                         "subclasses": {
                                             "Min_Occupied_Heating_Discharge_Air_Flow_Setpoint_Limit": {
-                                                "tags": [TAG.Min, TAG.Occupied, TAG.Heating, TAG.Discharge, TAG.Air, TAG.Flow, TAG.Limit, TAG.Parameter, TAG.Setpoint],
+                                                "tags": [
+                                                    TAG.Min,
+                                                    TAG.Occupied,
+                                                    TAG.Heating,
+                                                    TAG.Discharge,
+                                                    TAG.Air,
+                                                    TAG.Flow,
+                                                    TAG.Limit,
+                                                    TAG.Parameter,
+                                                    TAG.Setpoint,
+                                                ],
                                             },
                                             "Min_Unoccupied_Heating_Discharge_Air_Flow_Setpoint_Limit": {
-                                                "tags": [TAG.Min, TAG.Unoccupied, TAG.Heating, TAG.Discharge, TAG.Air, TAG.Flow, TAG.Limit, TAG.Parameter, TAG.Setpoint],
+                                                "tags": [
+                                                    TAG.Min,
+                                                    TAG.Unoccupied,
+                                                    TAG.Heating,
+                                                    TAG.Discharge,
+                                                    TAG.Air,
+                                                    TAG.Flow,
+                                                    TAG.Limit,
+                                                    TAG.Parameter,
+                                                    TAG.Setpoint,
+                                                ],
                                             },
                                         },
                                     },
@@ -567,6 +1519,6 @@ parameter_definitions = {
                     },
                 },
             },
-        }
+        },
     }
 }

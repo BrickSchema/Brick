@@ -14,12 +14,12 @@ A = RDF.type
 
 
 def bind_prefixes(g):
-    g.bind('rdf', RDF)
-    g.bind('owl', OWL)
-    g.bind('dcterms', DCTERMS)
-    g.bind('sdo', SDO)
-    g.bind('rdfs', RDFS)
-    g.bind('skos', SKOS)
-    g.bind('sosa', SOSA)
-    g.bind('brick', BRICK)
-    g.bind('tag', TAG)
+    g.bind("rdf", RDF)
+    g.bind("owl", OWL)
+    g.bind("dcterms", DCTERMS)
+    g.bind("sdo", SDO)
+    g.bind("rdfs", RDFS)
+    g.bind("skos", SKOS)
+    g.bind("sosa", SOSA)
+    g.bind("brick", BRICK)
+    g.bind("tag", TAG)
