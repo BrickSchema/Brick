@@ -40,7 +40,9 @@ parameter_definitions = {
                     "Low_Temperature_Alarm_Parameter": {
                         "tags": [TAG.Low, TAG.Temperature, TAG.Alarm, TAG.Parameter],
                     },
-                    "Low_Freeze_Protect_Temperature_Parameter": {},
+                    "Low_Freeze_Protect_Temperature_Parameter": {
+                        "tags": [TAG.Low, TAG.Freeze, TAG.Protect, TAG.Temperature, TAG.Parameter],
+                    },
                 },
             },
             "PID_Parameter": {
@@ -379,7 +381,9 @@ parameter_definitions = {
                             },
                         },
                     },
-                    "Ventilation_Air_Flow_Ratio_Limit": {},
+                    "Ventilation_Air_Flow_Ratio_Limit": {
+                        "tags": [TAG.Ventilation, TAG.Air, TAG.Ratio, TAG.Limit],
+                    },
                     "Static_Pressure_Setpoint_Limit": {
                         "tags": [TAG.Static, TAG.Pressure, TAG.Limit, TAG.Parameter, TAG.Setpoint],
                         "subclasses": {
