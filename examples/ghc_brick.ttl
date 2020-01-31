@@ -40350,7 +40350,7 @@ GHC:VAV_Room_9233_Future_UseZone a owl:NamedIndividual,
     brickframe:isFedBy GHC:VAV_Room_9233_Future_Use .
 
 brick:Current_Usage_Meter brickframe:hasTag btag:Demand,
-        btag:Equip,
+        btag:Equipment,
         btag:Steam .
 
 GHC:DOMESTIC_WATER_MONITORING a owl:NamedIndividual,
@@ -43463,7 +43463,7 @@ GHC:VAV_Room_7017_Admin_Office a owl:NamedIndividual,
         <http://cmu.edu/building/ontology/ghc#SCSC_Gates/VAV_Room_7017_Admin_Office/Zone_Temp___Zone_Temp> .
 
 brick:Peak_Energy_Today_Meter brickframe:hasTag btag:Energy,
-        btag:Equip,
+        btag:Equipment,
         btag:Sensor .
 
 GHC:VAV_Room_7017_Admin_OfficeRoom a owl:NamedIndividual,
@@ -43564,7 +43564,7 @@ brick:Exhaust_Air_Damper brickframe:hasTag btag:Air,
         btag:Exhaust .
 
 brick:Exhaust_Air_Temperature_Sensor brickframe:hasTag btag:Airflow,
-        btag:Exhuast,
+        btag:Exhaust,
         btag:Sensor,
         btag:Temperature .
 
@@ -43903,17 +43903,17 @@ GHC:VAV_Room_9115_Conference_Room a owl:NamedIndividual,
         <http://cmu.edu/building/ontology/ghc#SCSC_Gates/VAV_Room_9115_Conference_Room/Discharge_Temp>,
         <http://cmu.edu/building/ontology/ghc#SCSC_Gates/VAV_Room_9115_Conference_Room/Heat_Request> .
 
-brick:Monthly_Usage_Meter brickframe:hasTag btag:Equip,
+brick:Monthly_Usage_Meter brickframe:hasTag btag:Equipment,
         btag:Estimation,
         btag:Sensor,
         btag:Steam .
 
-brick:Usage_Today_Meter brickframe:hasTag btag:Equip,
+brick:Usage_Today_Meter brickframe:hasTag btag:Equipment,
         btag:Estimation,
         btag:Sensor,
         btag:Steam .
 
-brick:Yearly_Usage_Meter brickframe:hasTag btag:Equip,
+brick:Yearly_Usage_Meter brickframe:hasTag btag:Equipment,
         btag:Estimation,
         btag:Sensor,
         btag:Steam .
@@ -44094,7 +44094,7 @@ brick:VFD_Voltage_Sensor brickframe:hasTag btag:Exhaust,
         btag:Volts .
 
 brick:Variable_Frequency_Drive brickframe:hasTag btag:,
-        btag:Equip,
+        btag:Equipment,
         btag:Exhaust,
         btag:Fan,
         btag:Sensor,
