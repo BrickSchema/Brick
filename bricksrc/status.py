@@ -35,7 +35,7 @@ status_definitions = {
                         "tags": [TAG.Point, TAG.Emergency, TAG.Power, TAG.Off, TAG.Leak, TAG.Detection, TAG.Status],
                     },
                     "Emergency_Power_Off_Enable_Status": {
-                        "tags": [TAG.Point, TAG.Emergency, TAG.Power, TAG.Off, TAG.Leak, TAG.Detection, TAG.Status],
+                        "tags": [TAG.Point, TAG.Emergency, TAG.Power, TAG.Off, TAG.Enable, TAG.Status],
                     },
                     "Emergency_Power_Off_System_Enable_Status": {
                         "tags": [TAG.Point, TAG.Emergency, TAG.Power, TAG.Off, TAG.Enable, TAG.Status],
