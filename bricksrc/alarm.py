@@ -6,6 +6,11 @@ alarm_definitions = {
         "subclasses": {
             "Air_Alarm": {
                 "tags": [TAG.Point, TAG.Air, TAG.Alarm],
+                "subclasses": {
+                    "Air_Flow_Loss_Alarm": {
+                        "tags": [TAG.Point, TAG.Air, TAG.Alarm, TAG.Flow, TAG.Loss],
+                    }
+                }
             },
             "CO2_Alarm": {
                 "tags": [TAG.Point, TAG.CO2, TAG.Alarm],
