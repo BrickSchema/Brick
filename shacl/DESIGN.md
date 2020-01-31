@@ -58,6 +58,8 @@ For example, the definition of `brick:hasLocation` is
 This definition informs the following Shape for the `brick:expectedRange` property
 
 ```ttl
+@prefix bsh: <https://brickschema.org/schema/{BRICK_VERSION}/BrickShape#>
+
 bsh:HasLocationRangeShape
     a   sh:NodeShape ;
     sh:targetSubjectsOf brick:hasLocation ;

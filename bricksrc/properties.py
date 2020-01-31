@@ -8,15 +8,13 @@ properties = {
     # About expectedDomain and expectedRange: They replace temporarily
     # RDFS.domin and RDFS.range. The RDFS.domain and RDFS.range infer
     # the type of the subject and object of a property, respectively.
-    # However the type inference can lead to the root class of the types,
-    # making all types compatible with each other, thus rendering type
-    # contraint using SHACL ineffective.  This problem should be solved
-    # by declaring disjointness among certain types but it doesn't seem
-    # to work well.
-    # Thus, we adopt BRICK.expectedDomain and BRICK.expectedRange which
-    # imply nothing about their subject or object, but can be used to
-    # validate the type of their subject or object.  See shacl/DESIGN.md
-    # for more discussion.
+    # However, rather than imply the type of the subject or object by
+    # the use of the property, we want to verify that the property is
+    # used correctly given the types of the subject and object.
+    # Thus, we adopt the brick:expectedDomain and brick:expectedRange
+    # properties which imply nothing about the subject/object of the
+    # property they are annotating, but can be used to validate the type
+    # of their subject or object.  See shacl/DESIGN.md for more discussion.
     "expectedDomain": {
         A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         SKOS.definition: Literal("Temporary replacement for RDFS.domain"),
@@ -38,12 +36,11 @@ properties = {
     "isLocationOf": {
         A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         OWL.inverseOf: BRICK["hasLocation"],
-        RDFS.domain: BRICK.Location,
+        BRICK.expectedDomain: BRICK.Location,
         SKOS.definition: Literal("Subject is the physical location encapsulating the object"),
     },
     "hasLocation": {
         A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
-
         OWL.inverseOf: BRICK["isLocationOf"],
         RDFS.range: BRICK.Location,
         SKOS.definition: Literal("Subject is physically located in the location given by the object"),
@@ -77,8 +74,7 @@ properties = {
         "subproperties": {
             "feedsAir": {
                 SKOS.definition: Literal("Passes air"),
-                'substance': BRICK.Air,
-                'properties': [BRICK.regulates, BRICK.measures]
+                BRICK.expectedRange: BRICK.Air,
             },
         },
 
@@ -109,7 +105,7 @@ properties = {
     "isPointOf": {
         A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         OWL.inverseOf: BRICK["hasPoint"],
-        RDFS.domain: BRICK.Point,
+        BRICK.expectedDomain: BRICK.Point,
     },
 
     "hasPart": {
@@ -162,14 +158,14 @@ properties = {
         A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         OWL.inverseOf: BRICK["isAssociatedWith"],
         SKOS.definition: Literal("The class is associated with the given tag"),
-        RDFS.domain: OWL.Class,
-        RDFS.range: BRICK.Tag,
+        BRICK.expectedDomain: OWL.Class,
+        BRICK.expectedRange: BRICK.Tag,
     },
     "isAssociatedWith": {
         A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         OWL.inverseOf: BRICK["hasAssociatedTag"],
         SKOS.definition: Literal("The tag is associated with the given class"),
-        RDFS.domain: BRICK.Tag,
-        RDFS.range: OWL.Class,
+        BRICK.expectedDomain: BRICK.Tag,
+        BRICK.expectedRange: OWL.Class,
     },
 }
