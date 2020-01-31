@@ -72,6 +72,16 @@ brick:Air_Differential_Pressure_Sensor a owl:Class ;
         tag:Pressure,
         tag:Sensor .
 
+brick:Air_Flow_Loss_Alarm a owl:Class ;
+    rdfs:label "Air Flow Loss Alarm" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Air _:has_Alarm _:has_Flow _:has_Loss ) ],
+        brick:Air_Alarm ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Alarm,
+        tag:Flow,
+        tag:Loss,
+        tag:Point .
+
 brick:Air_Handler_Unit a owl:Class ;
     rdfs:label "Air Handler Unit" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Equipment _:has_Air [ a owl:Restriction ;
@@ -1510,7 +1520,9 @@ brick:Emergency_Power_Off_Activated_By_High_Temperature_Status a owl:Class ;
 
 brick:Emergency_Power_Off_Activated_By_Leak_Detection_System_Status a owl:Class ;
     rdfs:label "Emergency Power Off Activated By Leak Detection System Status" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Emergency _:has_Power _:has_Off _:has_Leak _:has_Detection _:has_Status ) ],
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Emergency _:has_Power _:has_Off _:has_Leak [ a owl:Restriction ;
+                        owl:hasValue tag:Detection ;
+                        owl:onProperty brick:hasTag ] _:has_Status ) ],
         brick:Emergency_Power_Off_Status ;
     brick:hasAssociatedTag tag:Detection,
         tag:Emergency,
@@ -1522,11 +1534,10 @@ brick:Emergency_Power_Off_Activated_By_Leak_Detection_System_Status a owl:Class 
 
 brick:Emergency_Power_Off_Enable_Status a owl:Class ;
     rdfs:label "Emergency Power Off Enable Status" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Emergency _:has_Power _:has_Off _:has_Leak _:has_Detection _:has_Status ) ],
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Emergency _:has_Power _:has_Off _:has_Enable _:has_Status ) ],
         brick:Emergency_Power_Off_Status ;
-    brick:hasAssociatedTag tag:Detection,
-        tag:Emergency,
-        tag:Leak,
+    brick:hasAssociatedTag tag:Emergency,
+        tag:Enable,
         tag:Off,
         tag:Point,
         tag:Power,
@@ -7005,14 +7016,6 @@ brick:Adjust_Sensor a owl:Class ;
         tag:Point,
         tag:Sensor .
 
-brick:Air_Alarm a owl:Class ;
-    rdfs:label "Air Alarm" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Air _:has_Alarm ) ],
-        brick:Alarm ;
-    brick:hasAssociatedTag tag:Air,
-        tag:Alarm,
-        tag:Point .
-
 brick:Air_Enthalpy_Sensor a owl:Class ;
     rdfs:label "Air Enthalpy Sensor" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Air _:has_Enthalpy _:has_Sensor ) ],
@@ -8092,6 +8095,9 @@ tag:Deceleration a brick:Tag ;
 tag:Dehumidification a brick:Tag ;
     rdfs:label "Dehumidification" .
 
+tag:Detection a brick:Tag ;
+    rdfs:label "Detection" .
+
 tag:Dimmer a brick:Tag ;
     rdfs:label "Dimmer" .
 
@@ -8359,6 +8365,14 @@ brick:AHU a owl:Class ;
         brick:HVAC ;
     brick:hasAssociatedTag tag:AHU,
         tag:Equipment .
+
+brick:Air_Alarm a owl:Class ;
+    rdfs:label "Air Alarm" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Air _:has_Alarm ) ],
+        brick:Alarm ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Alarm,
+        tag:Point .
 
 brick:Air_Temperature_Alarm a owl:Class ;
     rdfs:label "Air Temperature Alarm" ;
@@ -8851,9 +8865,6 @@ tag:Delay a brick:Tag ;
 tag:Derivative a brick:Tag ;
     rdfs:label "Derivative" .
 
-tag:Detection a brick:Tag ;
-    rdfs:label "Detection" .
-
 tag:Drive a brick:Tag ;
     rdfs:label "Drive" .
 
@@ -9321,6 +9332,9 @@ tag:Ice a brick:Tag ;
 tag:Lead a brick:Tag ;
     rdfs:label "Lead" .
 
+tag:Leak a brick:Tag ;
+    rdfs:label "Leak" .
+
 tag:Level a brick:Tag ;
     rdfs:label "Level" .
 
@@ -9513,14 +9527,8 @@ tag:Fixed a brick:Tag ;
 tag:Interface a brick:Tag ;
     rdfs:label "Interface" .
 
-tag:Leak a brick:Tag ;
-    rdfs:label "Leak" .
-
 tag:Leaving a brick:Tag ;
     rdfs:label "Leaving" .
-
-tag:Loss a brick:Tag ;
-    rdfs:label "Loss" .
 
 tag:Luminance a brick:Tag ;
     rdfs:label "Luminance" .
@@ -9657,6 +9665,9 @@ tag:Laboratory a brick:Tag ;
 
 tag:Lockout a brick:Tag ;
     rdfs:label "Lockout" .
+
+tag:Loss a brick:Tag ;
+    rdfs:label "Loss" .
 
 tag:Motor a brick:Tag ;
     rdfs:label "Motor" .
@@ -10036,9 +10047,6 @@ tag:Integral a brick:Tag ;
 tag:On a brick:Tag ;
     rdfs:label "On" .
 
-tag:Enable a brick:Tag ;
-    rdfs:label "Enable" .
-
 tag:Fan a brick:Tag ;
     rdfs:label "Fan" .
 
@@ -10064,6 +10072,9 @@ brick:Temperature a owl:Class,
 
 tag:Band a brick:Tag ;
     rdfs:label "Band" .
+
+tag:Enable a brick:Tag ;
+    rdfs:label "Enable" .
 
 tag:High a brick:Tag ;
     rdfs:label "High" .
@@ -10209,11 +10220,11 @@ tag:Differential a brick:Tag ;
 tag:Status a brick:Tag ;
     rdfs:label "Status" .
 
-tag:Flow a brick:Tag ;
-    rdfs:label "Flow" .
-
 tag:Discharge a brick:Tag ;
     rdfs:label "Discharge" .
+
+tag:Flow a brick:Tag ;
+    rdfs:label "Flow" .
 
 tag:Supply a brick:Tag ;
     rdfs:label "Supply" .
@@ -10310,10 +10321,6 @@ _:has_Delay a owl:Restriction ;
 
 _:has_Derivative a owl:Restriction ;
     owl:hasValue tag:Derivative ;
-    owl:onProperty brick:hasTag .
-
-_:has_Detection a owl:Restriction ;
-    owl:hasValue tag:Detection ;
     owl:onProperty brick:hasTag .
 
 _:has_Drive a owl:Restriction ;
@@ -10512,6 +10519,10 @@ _:has_Lead a owl:Restriction ;
     owl:hasValue tag:Lead ;
     owl:onProperty brick:hasTag .
 
+_:has_Leak a owl:Restriction ;
+    owl:hasValue tag:Leak ;
+    owl:onProperty brick:hasTag .
+
 _:has_Level a owl:Restriction ;
     owl:hasValue tag:Level ;
     owl:onProperty brick:hasTag .
@@ -10564,16 +10575,8 @@ _:has_Interface a owl:Restriction ;
     owl:hasValue tag:Interface ;
     owl:onProperty brick:hasTag .
 
-_:has_Leak a owl:Restriction ;
-    owl:hasValue tag:Leak ;
-    owl:onProperty brick:hasTag .
-
 _:has_Leaving a owl:Restriction ;
     owl:hasValue tag:Leaving ;
-    owl:onProperty brick:hasTag .
-
-_:has_Loss a owl:Restriction ;
-    owl:hasValue tag:Loss ;
     owl:onProperty brick:hasTag .
 
 _:has_Luminance a owl:Restriction ;
@@ -10638,6 +10641,10 @@ _:has_Laboratory a owl:Restriction ;
 
 _:has_Lockout a owl:Restriction ;
     owl:hasValue tag:Lockout ;
+    owl:onProperty brick:hasTag .
+
+_:has_Loss a owl:Restriction ;
+    owl:hasValue tag:Loss ;
     owl:onProperty brick:hasTag .
 
 _:has_Motor a owl:Restriction ;
@@ -10828,16 +10835,16 @@ _:has_On a owl:Restriction ;
     owl:hasValue tag:On ;
     owl:onProperty brick:hasTag .
 
-_:has_Enable a owl:Restriction ;
-    owl:hasValue tag:Enable ;
-    owl:onProperty brick:hasTag .
-
 _:has_Fan a owl:Restriction ;
     owl:hasValue tag:Fan ;
     owl:onProperty brick:hasTag .
 
 _:has_Band a owl:Restriction ;
     owl:hasValue tag:Band ;
+    owl:onProperty brick:hasTag .
+
+_:has_Enable a owl:Restriction ;
+    owl:hasValue tag:Enable ;
     owl:onProperty brick:hasTag .
 
 _:has_High a owl:Restriction ;
@@ -10948,12 +10955,12 @@ _:has_Status a owl:Restriction ;
     owl:hasValue tag:Status ;
     owl:onProperty brick:hasTag .
 
-_:has_Flow a owl:Restriction ;
-    owl:hasValue tag:Flow ;
-    owl:onProperty brick:hasTag .
-
 _:has_Discharge a owl:Restriction ;
     owl:hasValue tag:Discharge ;
+    owl:onProperty brick:hasTag .
+
+_:has_Flow a owl:Restriction ;
+    owl:hasValue tag:Flow ;
     owl:onProperty brick:hasTag .
 
 _:has_Supply a owl:Restriction ;
