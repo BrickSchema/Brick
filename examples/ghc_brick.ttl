@@ -1,6 +1,7 @@
 @prefix GHC: <http://cmu.edu/building/ontology/ghc#> .
 @prefix brick: <https://brickschema.org/schema/1.0.2/Brick#> .
 @prefix brickframe: <https://brickschema.org/schema/1.0.2/BrickFrame#> .
+@prefix btag: <https://brickschema.org/schema/1.0.2/BrickTag#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -994,10 +995,10 @@ GHC:CMUSCSC_HillmanSixth_Floor a owl:NamedIndividual,
 <http://cmu.edu/building/ontology/ghc#SCSC_Hillman/Stairwell_5_Pressure_Control/Schedule> a owl:NamedIndividual,
         brick:Schedule_Setpoint .
 
-brick:Cooling_Max_Discharge_Air_Flow_Setpoint brickframe:hasTag brick:Air,
-        brick:Airflow,
-        brick:Discharge,
-        brick:Setpoint .
+brick:Cooling_Max_Discharge_Air_Flow_Setpoint brickframe:hasTag btag:Air,
+        btag:Airflow,
+        btag:Discharge,
+        btag:Setpoint .
 
 GHC:AHU-12_RF_Interface brickframe:hasPoint <http://cmu.edu/building/ontology/ghc#SCSC_Hillman/AHU-12_RF_Interface/OA_Temp> .
 
@@ -40348,9 +40349,9 @@ GHC:VAV_Room_9233_Future_UseZone a owl:NamedIndividual,
     brickframe:hasPoint GHC:VAV_Room_9233_Future_UseRoom ;
     brickframe:isFedBy GHC:VAV_Room_9233_Future_Use .
 
-brick:Current_Usage_Meter brickframe:hasTag brick:Demand,
-        brick:Equip,
-        brick:Steam .
+brick:Current_Usage_Meter brickframe:hasTag btag:Demand,
+        btag:Equip,
+        btag:Steam .
 
 GHC:DOMESTIC_WATER_MONITORING a owl:NamedIndividual,
         brick:Meter ;
@@ -43232,9 +43233,9 @@ GHC:Liebert_DC-2_kWh_MonitoringRoom brickframe:hasPoint <http://cmu.edu/building
     brickframe:isPointOf GHC:VAV_Room_7723,
         GHC:VAV_Room_7723Room .
 
-brick:Outside_Air_Flow_Sensor brickframe:hasTag brick:Airflow,
-        brick:Outside,
-        brick:Sensor .
+brick:Outside_Air_Flow_Sensor brickframe:hasTag btag:Airflow,
+        btag:Outside,
+        btag:Sensor .
 
 GHC:Building_Electric_Meter a owl:NamedIndividual,
         brick:Meter ;
@@ -43318,10 +43319,10 @@ GHC:Steam_Flow_Meter_InterfaceRoom brickframe:hasPoint <http://cmu.edu/building/
         <http://cmu.edu/building/ontology/ghc#SCSC_Gates/Steam_Flow_Meter_Interface/Usage_Today>,
         <http://cmu.edu/building/ontology/ghc#SCSC_Gates/Steam_Flow_Meter_Interface/Usage_YTD> .
 
-brick:Exhaust_Fan_Air_Flow_Setpoint brickframe:hasTag brick:Airflow,
-        brick:Exhaust,
-        brick:Fan,
-        brick:Setpoint .
+brick:Exhaust_Fan_Air_Flow_Setpoint brickframe:hasTag btag:Airflow,
+        btag:Exhaust,
+        btag:Fan,
+        btag:Setpoint .
 
 GHC:Data_Center_CRAC-1 a owl:NamedIndividual,
         brick:CRAC ;
@@ -43354,14 +43355,14 @@ GHC:VAV_Room_8003_Office a owl:NamedIndividual,
     brickframe:hasPoint <http://cmu.edu/building/ontology/ghc#SCSC_Gates/VAV_Room_8003_Office/Airflow>,
         <http://cmu.edu/building/ontology/ghc#SCSC_Gates/VAV_Room_8003_Office/Airflow_Request> .
 
-brick:Heat_Wheel_Differential_Pressure brickframe:hasTag brick:Differntial_Pressure,
-        brick:Enthalpy,
-        brick:Heating,
-        brick:Sensor .
+brick:Heat_Wheel_Differential_Pressure brickframe:hasTag btag:Differntial_Pressure,
+        btag:Enthalpy,
+        btag:Heating,
+        btag:Sensor .
 
-brick:Humidity_Sensor brickframe:hasTag brick:Air,
-        brick:Humidity,
-        brick:Sensor .
+brick:Humidity_Sensor brickframe:hasTag btag:Air,
+        btag:Humidity,
+        btag:Sensor .
 
 GHC:VAV_Room_8003_OfficeRoom a owl:NamedIndividual,
         brick:Room ;
@@ -43461,9 +43462,9 @@ GHC:VAV_Room_7017_Admin_Office a owl:NamedIndividual,
         <http://cmu.edu/building/ontology/ghc#SCSC_Gates/VAV_Room_7017_Admin_Office/ZTMP_LO>,
         <http://cmu.edu/building/ontology/ghc#SCSC_Gates/VAV_Room_7017_Admin_Office/Zone_Temp___Zone_Temp> .
 
-brick:Peak_Energy_Today_Meter brickframe:hasTag brick:Energy,
-        brick:Equip,
-        brick:Sensor .
+brick:Peak_Energy_Today_Meter brickframe:hasTag btag:Energy,
+        btag:Equip,
+        btag:Sensor .
 
 GHC:VAV_Room_7017_Admin_OfficeRoom a owl:NamedIndividual,
         brick:Room ;
@@ -43476,19 +43477,19 @@ GHC:VAV_Room_7017_Admin_OfficeRoom a owl:NamedIndividual,
     brickframe:isFedBy GHC:VAV_Room_7017_Admin_Office ;
     brickframe:isPointOf GHC:VAV_Room_7017_Admin_OfficeZone .
 
-brick:CRAC_Capacity_Setpoint brickframe:hasTag brick:Air,
-        brick:Capacity,
-        brick:Cooling,
-        brick:Temperature .
+brick:CRAC_Capacity_Setpoint brickframe:hasTag btag:Air,
+        btag:Capacity,
+        btag:Cooling,
+        btag:Temperature .
 
-brick:Discharge_Air_Flow_Demand_Sensor brickframe:hasTag brick:Air,
-        brick:Airflow,
-        brick:Command,
-        brick:Discharge .
+brick:Discharge_Air_Flow_Demand_Sensor brickframe:hasTag btag:Air,
+        btag:Airflow,
+        btag:Command,
+        btag:Discharge .
 
-brick:Humidification_On_Off_Status brickframe:hasTag brick:Air,
-        brick:Command,
-        brick:Humidity .
+brick:Humidification_On_Off_Status brickframe:hasTag btag:Air,
+        btag:Command,
+        btag:Humidity .
 
 <http://cmu.edu/building/ontology/ghc#3309_BEF_CRAC-4Room> a owl:NamedIndividual,
         brick:Room ;
@@ -43550,73 +43551,73 @@ brick:Humidification_On_Off_Status brickframe:hasTag brick:Air,
     brickframe:isFedBy <http://cmu.edu/building/ontology/ghc#8126_Machine_Room_CRAC-9> ;
     brickframe:isPointOf <http://cmu.edu/building/ontology/ghc#8126_Machine_Room_CRAC-9Zone> .
 
-brick:AHU_Auto_Cooling_Setpoint brickframe:hasTag brick:Cooling,
-        brick:Setpoint,
-        brick:Temperature .
+brick:AHU_Auto_Cooling_Setpoint brickframe:hasTag btag:Cooling,
+        btag:Setpoint,
+        btag:Temperature .
 
-brick:AHU_Current_Cooling_Setpoint brickframe:hasTag brick:Cooling,
-        brick:Setpoint,
-        brick:Temperature .
+brick:AHU_Current_Cooling_Setpoint brickframe:hasTag btag:Cooling,
+        btag:Setpoint,
+        btag:Temperature .
 
-brick:Exhaust_Air_Damper brickframe:hasTag brick:Air,
-        brick:Damper,
-        brick:Exhaust .
+brick:Exhaust_Air_Damper brickframe:hasTag btag:Air,
+        btag:Damper,
+        btag:Exhaust .
 
-brick:Exhaust_Air_Temperature_Sensor brickframe:hasTag brick:Airflow,
-        brick:Exhuast,
-        brick:Sensor,
-        brick:Temperature .
+brick:Exhaust_Air_Temperature_Sensor brickframe:hasTag btag:Airflow,
+        btag:Exhuast,
+        btag:Sensor,
+        btag:Temperature .
 
-brick:Heat_Wheel_Speed brickframe:hasTag brick:Enthalpy,
-        brick:Heating,
-        brick:RPM,
-        brick:Sensor .
+brick:Heat_Wheel_Speed brickframe:hasTag btag:Enthalpy,
+        btag:Heating,
+        btag:RPM,
+        btag:Sensor .
 
-brick:Heat_Wheel_Supply_Air_Temperature_Sensor brickframe:hasTag brick:Air,
-        brick:Enthalpy,
-        brick:Heating,
-        brick:Sensor,
-        brick:Temperature .
+brick:Heat_Wheel_Supply_Air_Temperature_Sensor brickframe:hasTag btag:Air,
+        btag:Enthalpy,
+        btag:Heating,
+        btag:Sensor,
+        btag:Temperature .
 
-brick:Heat_Wheel_VFD brickframe:hasTag brick:Enthalpy,
-        brick:Heating,
-        brick:Sensor,
-        brick:VFD .
+brick:Heat_Wheel_VFD brickframe:hasTag btag:Enthalpy,
+        btag:Heating,
+        btag:Sensor,
+        btag:VFD .
 
-brick:Heat_Wheel_Voltage brickframe:hasTag brick:Enthalpy,
-        brick:Heating,
-        brick:Sensor,
-        brick:Volts .
+brick:Heat_Wheel_Voltage brickframe:hasTag btag:Enthalpy,
+        btag:Heating,
+        btag:Sensor,
+        btag:Volts .
 
-brick:Max_Return_Air_CO2_Setpoint brickframe:hasTag brick:CO2,
-        brick:Return,
-        brick:Setpoint,
-        brick:air .
+brick:Max_Return_Air_CO2_Setpoint brickframe:hasTag btag:CO2,
+        btag:Return,
+        btag:Setpoint,
+        btag:air .
 
-brick:Mixed_Air_Damper_Position_Command brickframe:hasTag brick:Air,
-        brick:Command,
-        brick:Damper,
-        brick:Mixed .
+brick:Mixed_Air_Damper_Position_Command brickframe:hasTag btag:Air,
+        btag:Command,
+        btag:Damper,
+        btag:Mixed .
 
-brick:Mixed_Air_Damper_Position_Sensor brickframe:hasTag brick:Air,
-        brick:Damper,
-        brick:Mixed,
-        brick:Sensor .
+brick:Mixed_Air_Damper_Position_Sensor brickframe:hasTag btag:Air,
+        btag:Damper,
+        btag:Mixed,
+        btag:Sensor .
 
-brick:Outside_Air_CO2_Sensor brickframe:hasTag brick:Air,
-        brick:CO2,
-        brick:Outside,
-        brick:Sensor .
+brick:Outside_Air_CO2_Sensor brickframe:hasTag btag:Air,
+        btag:CO2,
+        btag:Outside,
+        btag:Sensor .
 
-brick:Outside_Air_Damper_Position_Command brickframe:hasTag brick:Airflow,
-        brick:Command,
-        brick:Damper,
-        brick:Outside .
+brick:Outside_Air_Damper_Position_Command brickframe:hasTag btag:Airflow,
+        btag:Command,
+        btag:Damper,
+        btag:Outside .
 
-brick:Outside_Air_Humidity_Sensor brickframe:hasTag brick:Air,
-        brick:Humidity,
-        brick:Outside,
-        brick:Sensor .
+brick:Outside_Air_Humidity_Sensor brickframe:hasTag btag:Air,
+        btag:Humidity,
+        btag:Outside,
+        btag:Sensor .
 
 GHC:FCU-1 a owl:NamedIndividual,
         brick:Fan_Coil_Unit ;
@@ -43902,20 +43903,20 @@ GHC:VAV_Room_9115_Conference_Room a owl:NamedIndividual,
         <http://cmu.edu/building/ontology/ghc#SCSC_Gates/VAV_Room_9115_Conference_Room/Discharge_Temp>,
         <http://cmu.edu/building/ontology/ghc#SCSC_Gates/VAV_Room_9115_Conference_Room/Heat_Request> .
 
-brick:Monthly_Usage_Meter brickframe:hasTag brick:Equip,
-        brick:Estimation,
-        brick:Sensor,
-        brick:Steam .
+brick:Monthly_Usage_Meter brickframe:hasTag btag:Equip,
+        btag:Estimation,
+        btag:Sensor,
+        btag:Steam .
 
-brick:Usage_Today_Meter brickframe:hasTag brick:Equip,
-        brick:Estimation,
-        brick:Sensor,
-        brick:Steam .
+brick:Usage_Today_Meter brickframe:hasTag btag:Equip,
+        btag:Estimation,
+        btag:Sensor,
+        btag:Steam .
 
-brick:Yearly_Usage_Meter brickframe:hasTag brick:Equip,
-        brick:Estimation,
-        brick:Sensor,
-        brick:Steam .
+brick:Yearly_Usage_Meter brickframe:hasTag btag:Equip,
+        btag:Estimation,
+        btag:Sensor,
+        btag:Steam .
 
 GHC:VAV_Corridor_4100_NorthwestRoom a owl:NamedIndividual,
         brick:Room ;
@@ -43971,133 +43972,133 @@ GHC:VAV_Room_9115_Conference_RoomRoom a owl:NamedIndividual,
     brickframe:isFedBy GHC:VAV_Room_9115_Conference_Room ;
     brickframe:isPointOf GHC:VAV_Room_9115_Conference_RoomZone .
 
-brick:Bypass_Air_Flow_Sensor brickframe:hasTag brick:Airflow,
-        brick:Bypass,
-        brick:Sensor .
+brick:Bypass_Air_Flow_Sensor brickframe:hasTag btag:Airflow,
+        btag:Bypass,
+        btag:Sensor .
 
-brick:Chilled_Water_Valve brickframe:hasTag brick:Chilled,
-        brick:Command,
-        brick:Valve,
-        brick:Water .
+brick:Chilled_Water_Valve brickframe:hasTag btag:Chilled,
+        btag:Command,
+        btag:Valve,
+        btag:Water .
 
-brick:Cooling_Request_Percent_Setpoint brickframe:hasTag brick:Cooling .
+brick:Cooling_Request_Percent_Setpoint brickframe:hasTag btag:Cooling .
 
-brick:Discharge_Air_Static_Pressure_Sensor brickframe:hasTag brick:Air,
-        brick:Discharge,
-        brick:Pressure,
-        brick:Sensor .
+brick:Discharge_Air_Static_Pressure_Sensor brickframe:hasTag btag:Air,
+        btag:Discharge,
+        btag:Pressure,
+        btag:Sensor .
 
-brick:Discharge_Air_Static_Pressure_Setpoint brickframe:hasTag brick:Air,
-        brick:Command,
-        brick:Discharge,
-        brick:Fan,
-        brick:VFD .
+brick:Discharge_Air_Static_Pressure_Setpoint brickframe:hasTag btag:Air,
+        btag:Command,
+        btag:Discharge,
+        btag:Fan,
+        btag:VFD .
 
-brick:Exhaust_Air_Flow_Sensor brickframe:hasTag brick:Airflow,
-        brick:Exhaust,
-        brick:Fan,
-        brick:Sensor .
+brick:Exhaust_Air_Flow_Sensor brickframe:hasTag btag:Airflow,
+        btag:Exhaust,
+        btag:Fan,
+        btag:Sensor .
 
-brick:Exhaust_Fan_Piezoelectric_Sensor brickframe:hasTag brick:Exhaust,
-        brick:Fan,
-        brick:Piezoelectric,
-        brick:Sensor .
+brick:Exhaust_Fan_Piezoelectric_Sensor brickframe:hasTag btag:Exhaust,
+        btag:Fan,
+        btag:Piezoelectric,
+        btag:Sensor .
 
-brick:Exhaust_Fan_Start_Stop_Command brickframe:hasTag brick:Airflow,
-        brick:Command,
-        brick:Exhaust,
-        brick:Fan .
+brick:Exhaust_Fan_Start_Stop_Command brickframe:hasTag btag:Airflow,
+        btag:Command,
+        btag:Exhaust,
+        btag:Fan .
 
-brick:Heat_Request_Percent_Setpoint brickframe:hasTag brick:,
-        brick:Demand,
-        brick:Heating,
-        brick:Request .
+brick:Heat_Request_Percent_Setpoint brickframe:hasTag btag:,
+        btag:Demand,
+        btag:Heating,
+        btag:Request .
 
-brick:Outside_Air_Damper_Position_Sensor brickframe:hasTag brick:Airflow,
-        brick:Damper,
-        brick:Outside,
-        brick:Sensor .
+brick:Outside_Air_Damper_Position_Sensor brickframe:hasTag btag:Airflow,
+        btag:Damper,
+        btag:Outside,
+        btag:Sensor .
 
-brick:Outside_Air_Dewpoint_Sensor brickframe:hasTag brick:Air,
-        brick:Humidity,
-        brick:Outside,
-        brick:Sensor .
+brick:Outside_Air_Dewpoint_Sensor brickframe:hasTag btag:Air,
+        btag:Humidity,
+        btag:Outside,
+        btag:Sensor .
 
-brick:Outside_Air_Enthalpy_Sensor brickframe:hasTag brick:Air,
-        brick:Enthalpy,
-        brick:Outside,
-        brick:Sensor .
+brick:Outside_Air_Enthalpy_Sensor brickframe:hasTag btag:Air,
+        btag:Enthalpy,
+        btag:Outside,
+        btag:Sensor .
 
-brick:Outside_Air_Grains_Sensor brickframe:hasTag brick:Air,
-        brick:Grains,
-        brick:Outside,
-        brick:Sensor .
+brick:Outside_Air_Grains_Sensor brickframe:hasTag btag:Air,
+        btag:Grains,
+        btag:Outside,
+        btag:Sensor .
 
-brick:Preheat_Demand_Setpoint brickframe:hasTag brick:,
-        brick:Demand,
-        brick:Heating .
+brick:Preheat_Demand_Setpoint brickframe:hasTag btag:,
+        btag:Demand,
+        btag:Heating .
 
-brick:Preheat_Supply_Air_Temperature brickframe:hasTag brick:Air,
-        brick:Heating,
-        brick:Sensor,
-        brick:Temperature .
+brick:Preheat_Supply_Air_Temperature brickframe:hasTag btag:Air,
+        btag:Heating,
+        btag:Sensor,
+        btag:Temperature .
 
-brick:Preheat_Valve_VFD brickframe:hasTag brick:Heating,
-        brick:Sensor,
-        brick:VFD .
+brick:Preheat_Valve_VFD brickframe:hasTag btag:Heating,
+        btag:Sensor,
+        btag:VFD .
 
-brick:Return_Air_CO2_Sensor brickframe:hasTag brick:Air,
-        brick:CO2,
-        brick:Return,
-        brick:Sensor .
+brick:Return_Air_CO2_Sensor brickframe:hasTag btag:Air,
+        btag:CO2,
+        btag:Return,
+        btag:Sensor .
 
-brick:Return_Air_Dewpoint_Sensor brickframe:hasTag brick:Air,
-        brick:Humidity,
-        brick:Return,
-        brick:Sensor .
+brick:Return_Air_Dewpoint_Sensor brickframe:hasTag btag:Air,
+        btag:Humidity,
+        btag:Return,
+        btag:Sensor .
 
-brick:Return_Air_Enthalpy_Sensor brickframe:hasTag brick:Air,
-        brick:Enthalpy,
-        brick:Return,
-        brick:Sensor .
+brick:Return_Air_Enthalpy_Sensor brickframe:hasTag btag:Air,
+        btag:Enthalpy,
+        btag:Return,
+        btag:Sensor .
 
-brick:Return_Air_Grains_Sensor brickframe:hasTag brick:Air,
-        brick:Return,
-        brick:Sensor,
-        brick:grains .
+brick:Return_Air_Grains_Sensor brickframe:hasTag btag:Air,
+        btag:Return,
+        btag:Sensor,
+        btag:grains .
 
-brick:Return_Air_Preheat_Valve_Command brickframe:hasTag brick:Air,
-        brick:Command,
-        brick:Heating,
-        brick:Return,
-        brick:Valve .
+brick:Return_Air_Preheat_Valve_Command brickframe:hasTag btag:Air,
+        btag:Command,
+        btag:Heating,
+        btag:Return,
+        btag:Valve .
 
-brick:Return_Air_Temperature_Sensor brickframe:hasTag brick:Air,
-        brick:Return,
-        brick:Sensor,
-        brick:Temperature .
+brick:Return_Air_Temperature_Sensor brickframe:hasTag btag:Air,
+        btag:Return,
+        btag:Sensor,
+        btag:Temperature .
 
-brick:Return_Fan_Air_Flow_Sensor brickframe:hasTag brick:Airflow,
-        brick:Fan,
-        brick:Return,
-        brick:Sensor .
+brick:Return_Fan_Air_Flow_Sensor brickframe:hasTag btag:Airflow,
+        btag:Fan,
+        btag:Return,
+        btag:Sensor .
 
-brick:Run_Direction_Status brickframe:hasTag brick:Chilled,
-        brick:Sensor,
-        brick:Valve,
-        brick:Water .
+brick:Run_Direction_Status brickframe:hasTag btag:Chilled,
+        btag:Sensor,
+        btag:Valve,
+        btag:Water .
 
-brick:VFD_Voltage_Sensor brickframe:hasTag brick:Exhaust,
-        brick:Sensor,
-        brick:VFD,
-        brick:Volts .
+brick:VFD_Voltage_Sensor brickframe:hasTag btag:Exhaust,
+        btag:Sensor,
+        btag:VFD,
+        btag:Volts .
 
-brick:Variable_Frequency_Drive brickframe:hasTag brick:,
-        brick:Equip,
-        brick:Exhaust,
-        brick:Fan,
-        brick:Sensor,
-        brick:VFD .
+brick:Variable_Frequency_Drive brickframe:hasTag btag:,
+        btag:Equip,
+        btag:Exhaust,
+        btag:Fan,
+        btag:Sensor,
+        btag:VFD .
 
 GHC:FCU-10Room a owl:NamedIndividual,
         brick:Room ;
@@ -60221,9 +60222,9 @@ GHC:VAV_Room_9231_OfficeRoom a owl:NamedIndividual,
     brickframe:isFedBy GHC:VAV_Room_9231_Office ;
     brickframe:isPointOf GHC:VAV_Room_9231_OfficeZone .
 
-brick:Fan_Overload_Alarm brickframe:hasTag brick:,
-        brick:Alarm,
-        brick:Fan .
+brick:Fan_Overload_Alarm brickframe:hasTag btag:,
+        btag:Alarm,
+        btag:Fan .
 
 GHC:FSB-1__Room_4307_ClassroomRoom a owl:NamedIndividual,
         brick:Room ;
@@ -62797,10 +62798,10 @@ GHC:VAV_Room_9232_Project_RoomRoom a owl:NamedIndividual,
     brickframe:isFedBy GHC:VAV_Room_9232_Project_Room ;
     brickframe:isPointOf GHC:VAV_Room_9232_Project_RoomZone .
 
-brick:Supply_Fan_Piezoelectric_Sensor brickframe:hasTag brick:Fan,
-        brick:Supply,
-        brick:VFD,
-        brick:Volt .
+brick:Supply_Fan_Piezoelectric_Sensor brickframe:hasTag btag:Fan,
+        btag:Supply,
+        btag:VFD,
+        btag:Volt .
 
 GHC:VAV_Room_3201_Project a owl:NamedIndividual,
         brick:VAV ;
@@ -63413,13 +63414,13 @@ GHC:VAV_Room_9022_Project_Room a owl:NamedIndividual,
         <http://cmu.edu/building/ontology/ghc#SCSC_Gates/VAV_Room_9022_Project_Room/Zone_CO2>,
         <http://cmu.edu/building/ontology/ghc#SCSC_Gates/VAV_Room_9022_Project_Room/Zone_Temp___Zone_Temp> .
 
-brick:Supply_Fan_Start_Stop_Command brickframe:hasTag brick:Air,
-        brick:Command,
-        brick:Fan .
+brick:Supply_Fan_Start_Stop_Command brickframe:hasTag btag:Air,
+        btag:Command,
+        btag:Fan .
 
-brick:Supply_Fan_Start_Stop_Status brickframe:hasTag brick:Air,
-        brick:Fan,
-        brick:Sensor .
+brick:Supply_Fan_Start_Stop_Status brickframe:hasTag btag:Air,
+        btag:Fan,
+        btag:Sensor .
 
 GHC:VAV_Room_3201_ProjectRoom a owl:NamedIndividual,
         brick:Room ;
@@ -65399,93 +65400,93 @@ GHC:AHU-2_IRoom brickframe:hasPoint <http://cmu.edu/building/ontology/ghc#SCSC_G
         <http://cmu.edu/building/ontology/ghc#SCSC_Gates/AHU-2_I/supply_temp>,
         <http://cmu.edu/building/ontology/ghc#SCSC_Gates/AHU-2_I/supply_vfd_volts> .
 
-brick:CO2_Sensor brickframe:hasTag brick:,
-        brick:Air,
-        brick:CO2,
-        brick:Sensor .
+brick:CO2_Sensor brickframe:hasTag btag:,
+        btag:Air,
+        btag:CO2,
+        btag:Sensor .
 
-brick:Reheat_Valve_Command brickframe:hasTag brick:Command,
-        brick:Reheat,
-        brick:Valve .
+brick:Reheat_Valve_Command brickframe:hasTag btag:Command,
+        btag:Reheat,
+        btag:Valve .
 
-brick:Perimeter_Heating_Valve_Command brickframe:hasTag brick:Command,
-        brick:Heat,
-        brick:Valve .
+brick:Perimeter_Heating_Valve_Command brickframe:hasTag btag:Command,
+        btag:Heat,
+        btag:Valve .
 
-brick:CO2_High_Alarm brickframe:hasTag brick:Air,
-        brick:Alarm,
-        brick:CO2,
-        brick:Setpoint .
+brick:CO2_High_Alarm brickframe:hasTag btag:Air,
+        btag:Alarm,
+        btag:CO2,
+        btag:Setpoint .
 
-brick:Outside_Air_Temperature_Sensor brickframe:hasTag brick:Air,
-        brick:Outside,
-        brick:Sensor,
-        brick:Temperature .
+brick:Outside_Air_Temperature_Sensor brickframe:hasTag btag:Air,
+        btag:Outside,
+        btag:Sensor,
+        btag:Temperature .
 
-brick:Supply_Fan_Air_Flow_Sensor brickframe:hasTag brick:Air,
-        brick:Airflow,
-        brick:Command,
-        brick:Fan .
+brick:Supply_Fan_Air_Flow_Sensor brickframe:hasTag btag:Air,
+        btag:Airflow,
+        btag:Command,
+        btag:Fan .
 
-brick:Occupancy_Sensor brickframe:hasTag brick:Occupancy,
-        brick:Sensor .
+brick:Occupancy_Sensor brickframe:hasTag btag:Occupancy,
+        btag:Sensor .
 
-brick:Zone_Temperature_Sensor brickframe:hasTag brick:Air,
-        brick:Sensor,
-        brick:Temperature .
+brick:Zone_Temperature_Sensor brickframe:hasTag btag:Air,
+        btag:Sensor,
+        btag:Temperature .
 
-brick:Discharge_Air_Flow_Sensor brickframe:hasTag brick:Air,
-        brick:Airflow,
-        brick:Discharge,
-        brick:Sensor .
+brick:Discharge_Air_Flow_Sensor brickframe:hasTag btag:Air,
+        btag:Airflow,
+        btag:Discharge,
+        btag:Sensor .
 
-brick:Discharge_Air_Flow_Setpoint brickframe:hasTag brick:Air,
-        brick:Airflow,
-        brick:Discharge,
-        brick:Setpoint .
+brick:Discharge_Air_Flow_Setpoint brickframe:hasTag btag:Air,
+        btag:Airflow,
+        btag:Discharge,
+        btag:Setpoint .
 
-brick:Damper_Position_Sensor brickframe:hasTag brick:Air,
-        brick:Damper,
-        brick:Sensor .
+brick:Damper_Position_Sensor brickframe:hasTag btag:Air,
+        btag:Damper,
+        btag:Sensor .
 
-brick:Domestic_Hot_Water_Valve_Command brickframe:hasTag brick:Command,
-        brick:Heating,
-        brick:Water .
+brick:Domestic_Hot_Water_Valve_Command brickframe:hasTag btag:Command,
+        btag:Heating,
+        btag:Water .
 
-brick:Run_Request_Command brickframe:hasTag brick:Command,
-        brick:Run .
+brick:Run_Request_Command brickframe:hasTag btag:Command,
+        btag:Run .
 
-brick:Cooling_Command brickframe:hasTag brick:Air,
-        brick:Command,
-        brick:Cooling,
-        brick:Temperature .
+brick:Cooling_Command brickframe:hasTag btag:Air,
+        btag:Command,
+        btag:Cooling,
+        btag:Temperature .
 
-brick:Heating_Command brickframe:hasTag brick:,
-        brick:Command,
-        brick:Heating .
+brick:Heating_Command brickframe:hasTag btag:,
+        btag:Command,
+        btag:Heating .
 
-brick:Discharge_Air_Flow_Command brickframe:hasTag brick:Air,
-        brick:Airflow,
-        brick:Command,
-        brick:Discharge .
+brick:Discharge_Air_Flow_Command brickframe:hasTag btag:Air,
+        btag:Airflow,
+        btag:Command,
+        btag:Discharge .
 
-brick:Zone_Cooling_Temperature_Setpoint brickframe:hasTag brick:Air,
-        brick:Alarm,
-        brick:SetPoint,
-        brick:Temperature .
+brick:Zone_Cooling_Temperature_Setpoint brickframe:hasTag btag:Air,
+        btag:Alarm,
+        btag:SetPoint,
+        btag:Temperature .
 
-brick:Zone_Heating_Temperature_Setpoint brickframe:hasTag brick:Air,
-        brick:Alarm,
-        brick:SetPoint,
-        brick:Temperature .
+brick:Zone_Heating_Temperature_Setpoint brickframe:hasTag btag:Air,
+        btag:Alarm,
+        btag:SetPoint,
+        btag:Temperature .
 
-brick:Discharge_Air_Temperature_Sensor brickframe:hasTag brick:Air,
-        brick:Discharge,
-        brick:Sensor,
-        brick:Temperature .
+brick:Discharge_Air_Temperature_Sensor brickframe:hasTag btag:Air,
+        btag:Discharge,
+        btag:Sensor,
+        btag:Temperature .
 
-brick:Schedule_Setpoint brickframe:hasTag brick:Command .
+brick:Schedule_Setpoint brickframe:hasTag btag:Command .
 
-brick:Run_Time_Sensor brickframe:hasTag brick:Run,
-        brick:Sensor .
+brick:Run_Time_Sensor brickframe:hasTag btag:Run,
+        btag:Sensor .
 
