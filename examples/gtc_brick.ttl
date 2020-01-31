@@ -789,7 +789,7 @@ brick:Power_System rdfs:subClassOf [ a owl:Restriction ;
             owl:onProperty brickframe:hasPoint ;
             owl:someValuesFrom brick:Peak_Power_Demand_Sensor ] .
 
-brick:PreHeat_Coil_Leaving_Water_Temperature_Sensor a owl:Class ;
+brick:Preheat_Coil_Leaving_Water_Temperature_Sensor a owl:Class ;
     rdfs:label "PreHeat Coil Leaving Water Temperature Sensor"@en ;
     rdfs:subClassOf brick:Leaving_Water_Temperature_Sensor ;
     brickframe:usesTag btag:Coil,
@@ -799,7 +799,7 @@ brick:PreHeat_Coil_Leaving_Water_Temperature_Sensor a owl:Class ;
         btag:Temperature,
         btag:Water .
 
-brick:PreHeat_Hot_Water_Valve a owl:Class ;
+brick:Preheat_Hot_Water_Valve a owl:Class ;
     rdfs:label "PreHeat Hot Water Valve"@en ;
     rdfs:subClassOf brick:AHU ;
     brickframe:usesTag btag:Hot,
@@ -807,7 +807,7 @@ brick:PreHeat_Hot_Water_Valve a owl:Class ;
         btag:Valve,
         btag:Water .
 
-brick:PreHeat_Valve_VFD a owl:Class ;
+brick:Preheat_Valve_VFD a owl:Class ;
     rdfs:label "PreHeat Valve VFD"@en ;
     rdfs:subClassOf brick:AHU ;
     brickframe:usesTag btag:PreHeat,
@@ -4491,7 +4491,7 @@ brick:PV_System_Output a owl:Class ;
 
 brick:Perimeter_Heating_Valve_Command rdfs:subClassOf brick:Valve_Command .
 
-brick:PreHeat_Coil_Entering_Air_Temperature_Sensor a owl:Class ;
+brick:Preheat_Coil_Entering_Air_Temperature_Sensor a owl:Class ;
     rdfs:label "PreHeat Coil Entering Air Temperature Sensor"@en ;
     rdfs:subClassOf brick:Entering_Water_Temperature_Sensor ;
     brickframe:usesTag btag:Air,
@@ -4501,14 +4501,14 @@ brick:PreHeat_Coil_Entering_Air_Temperature_Sensor a owl:Class ;
         btag:Sensor,
         btag:Temperature .
 
-brick:PreHeat_Demand_Setpoint a owl:Class ;
+brick:Preheat_Demand_Setpoint a owl:Class ;
     rdfs:label "PreHeat Demand Setpoint"@en ;
     rdfs:subClassOf brick:Demand_Setpoint ;
     brickframe:usesTag btag:Demand,
         btag:PreHeat,
         btag:Setpoint .
 
-brick:PreHeat_Valve_Command a owl:Class ;
+brick:Preheat_Valve_Command a owl:Class ;
     rdfs:label "PreHeat Valve Command"@en ;
     rdfs:subClassOf brick:Valve_Command ;
     brickframe:usesTag btag:Command,
@@ -11435,7 +11435,7 @@ brick:AHU rdfs:subClassOf [ a owl:Restriction ;
             owl:someValuesFrom brick:Heating_Valve_Command ],
         [ a owl:Restriction ;
             owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:PreHeat_Valve_Command ],
+            owl:someValuesFrom brick:Preheat_Valve_Command ],
         [ a owl:Restriction ;
             owl:onProperty brickframe:hasPoint ;
             owl:someValuesFrom brick:Return_Air_Preheat_Valve_Command ],
@@ -11600,7 +11600,7 @@ brick:AHU rdfs:subClassOf [ a owl:Restriction ;
             owl:someValuesFrom brick:Preheat_Discharge_Air_Temperature_Sensor ],
         [ a owl:Restriction ;
             owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:PreHeat_Coil_Entering_Air_Temperature_Sensor ],
+            owl:someValuesFrom brick:Preheat_Coil_Entering_Air_Temperature_Sensor ],
         [ a owl:Restriction ;
             owl:onProperty brickframe:hasPoint ;
             owl:someValuesFrom brick:Heat_Wheel_Voltage_Sensor ],
@@ -11651,7 +11651,7 @@ brick:AHU rdfs:subClassOf [ a owl:Restriction ;
             owl:someValuesFrom brick:Heating_Demand_Setpoint ],
         [ a owl:Restriction ;
             owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:PreHeat_Demand_Setpoint ],
+            owl:someValuesFrom brick:Preheat_Demand_Setpoint ],
         [ a owl:Restriction ;
             owl:onProperty brickframe:hasPoint ;
             owl:someValuesFrom brick:Economizer_Outside_Air_Flow_Setpoint ],

@@ -371,7 +371,7 @@ rice:Outdoor_Air_Humiditypgm1UIP03 a brick:Outside_Air_Humidity .
 
 rice:PreheatCoilLeave_AirTempscc2UIP02 a brick:PreHeat_Coil_Leaving_Air_Temperature_Sensor .
 
-rice:PreheatLeavingWaterTempdac3UIP15 a brick:PreHeat_Coil_Leaving_Water_Temperature_Sensor .
+rice:PreheatLeavingWaterTempdac3UIP15 a brick:Preheat_Coil_Leaving_Water_Temperature_Sensor .
 
 rice:Pump_CHW_Supply_Temppgm2UIP15 a brick:Chilled_Water_Discharge_Temperature .
 
@@ -952,7 +952,7 @@ brick:Low_Humidity_Alarm_Setpoint a brick:Point,
 brick:Outside_Air_Damper_Close_Limit_Setpoint a brick:Point,
         owl:NamedIndividual .
 
-brick:PreHeat_Coil_Leaving_Water_Temperature_Sensor a brick:Point,
+brick:Preheat_Coil_Leaving_Water_Temperature_Sensor a brick:Point,
         owl:NamedIndividual .
 
 brick:Thumbwheel_Temperature_High_Limit_Setpoint a brick:Point,

@@ -43592,7 +43592,7 @@ brick:Heat_Wheel_Voltage brickframe:hasTag btag:Enthalpy,
 brick:Max_Return_Air_CO2_Setpoint brickframe:hasTag btag:CO2,
         btag:Return,
         btag:Setpoint,
-        btag:air .
+        btag:Air .
 
 brick:Mixed_Air_Damper_Position_Command brickframe:hasTag btag:Air,
         btag:Command,
@@ -44065,7 +44065,7 @@ brick:Return_Air_Enthalpy_Sensor brickframe:hasTag btag:Air,
 brick:Return_Air_Grains_Sensor brickframe:hasTag btag:Air,
         btag:Return,
         btag:Sensor,
-        btag:grains .
+        btag:Grains .
 
 brick:Return_Air_Preheat_Valve_Command brickframe:hasTag btag:Air,
         btag:Command,
@@ -65472,12 +65472,12 @@ brick:Discharge_Air_Flow_Command brickframe:hasTag btag:Air,
 
 brick:Zone_Cooling_Temperature_Setpoint brickframe:hasTag btag:Air,
         btag:Alarm,
-        btag:SetPoint,
+        btag:Setpoint,
         btag:Temperature .
 
 brick:Zone_Heating_Temperature_Setpoint brickframe:hasTag btag:Air,
         btag:Alarm,
-        btag:SetPoint,
+        btag:Setpoint,
         btag:Temperature .
 
 brick:Discharge_Air_Temperature_Sensor brickframe:hasTag btag:Air,
