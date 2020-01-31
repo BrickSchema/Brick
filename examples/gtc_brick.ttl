@@ -16,7 +16,100 @@ brick:Booster_Fan_Air_Flow rdfs:subClassOf brick:Air_Flow .
 
 brick:CRAC rdfs:subClassOf [ a owl:Restriction ;
             owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Zone_Humidity_Sensor ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:CRAC_Temperature_Sensor ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Alarm_Delay_Setpoint ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:High_Humidity_Alarm_Setpoint ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:High_Temperature_Alarm_Setpoint ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Humidity_Setpoint ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Temperature_Setpoint ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Capacity_Sensor ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Low_Humidity_Alarm_Setpoint ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Low_Temperature_Alarm_Setpoint ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Humidity_Tolerance_Setpoint ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Temperature_Tolerance_Setpoint ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Stages_Status ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Hold_Status ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Start_Stop_Status ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Emergency_Power_Off_Activated_By_High_Temperature_Status ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Emergency_Power_Off_Activated_By_Leak_Detection_System_Status ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Emergency_Power_Off_Enable_Status ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Emergency_Power_Off_System_Enable_Status ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Humidifier_Fault_Status ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Cooling_On_Off_Status ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Dehumidification_On_Off_Status ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:EconCycle_On_Off_Status ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Heating_On_Off_Status ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
             owl:someValuesFrom brick:Air_Flow_Loss_Alarm ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Humidification_On_Off_Status ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Standby_Glycool_Unit_On_Off_Status ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Standby_Unit_On_Off_Status ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Run_Status ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Standby_Fan_Status ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Locally_On_Off_Status ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Remotely_On_Off_Status ],
         [ a owl:Restriction ;
             owl:onProperty brickframe:hasPoint ;
             owl:someValuesFrom brick:Communication_Loss_Alarm ],
@@ -97,100 +190,7 @@ brick:CRAC rdfs:subClassOf [ a owl:Restriction ;
             owl:someValuesFrom brick:Pump_Start_Stop_Command ],
         [ a owl:Restriction ;
             owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Humidity_Sensor ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Zone_Humidity_Sensor ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:CRAC_Temperature_Sensor ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Alarm_Delay_Setpoint ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:High_Humidity_Alarm_Setpoint ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:High_Temperature_Alarm_Setpoint ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Humidity_Setpoint ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Temperature_Setpoint ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Capacity_Sensor ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Low_Humidity_Alarm_Setpoint ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Low_Temperature_Alarm_Setpoint ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Humidity_Tolerance_Setpoint ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Temperature_Tolerance_Setpoint ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Stages_Status ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Hold_Status ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Start_Stop_Status ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Emergency_Power_Off_Activated_By_High_Temperature_Status ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Emergency_Power_Off_Activated_By_Leak_Detection_System_Status ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Emergency_Power_Off_Enable_Status ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Emergency_Power_Off_System_Enable_Status ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Humidifier_Fault_Status ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Cooling_On_Off_Status ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Dehumidification_On_Off_Status ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:EconCycle_On_Off_Status ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Heating_On_Off_Status ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Humidification_On_Off_Status ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Standby_Glycool_Unit_On_Off_Status ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Standby_Unit_On_Off_Status ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Run_Status ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Standby_Fan_Status ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Locally_On_Off_Status ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Remotely_On_Off_Status ] .
+            owl:someValuesFrom brick:Humidity_Sensor ] .
 
 brick:CRAC_Temperature a owl:Class ;
     rdfs:label "CRAC Temperature"@en ;
@@ -789,35 +789,19 @@ brick:Power_System rdfs:subClassOf [ a owl:Restriction ;
             owl:onProperty brickframe:hasPoint ;
             owl:someValuesFrom brick:Peak_Power_Demand_Sensor ] .
 
-brick:Preheat_Coil_Leaving_Water_Temperature_Sensor a owl:Class ;
-    rdfs:label "PreHeat Coil Leaving Water Temperature Sensor"@en ;
-    rdfs:subClassOf brick:Leaving_Water_Temperature_Sensor ;
-    brickframe:usesTag btag:Coil,
-        btag:Leaving,
-        btag:PreHeat,
-        btag:Sensor,
-        btag:Temperature,
-        btag:Water .
-
-brick:Preheat_Hot_Water_Valve a owl:Class ;
-    rdfs:label "PreHeat Hot Water Valve"@en ;
-    rdfs:subClassOf brick:AHU ;
-    brickframe:usesTag btag:Hot,
-        btag:PreHeat,
-        btag:Valve,
-        btag:Water .
-
-brick:Preheat_Valve_VFD a owl:Class ;
-    rdfs:label "PreHeat Valve VFD"@en ;
-    rdfs:subClassOf brick:AHU ;
-    brickframe:usesTag btag:PreHeat,
-        btag:VFD,
-        btag:Valve .
+brick:Preheat_Coil_Leaving_Water_Temperature_Sensor rdfs:label "PreHeat Coil Leaving Water Temperature Sensor"@en ;
+    brickframe:usesTag btag:PreHeat .
 
 brick:Preheat_Discharge_Air_Temperature rdfs:subClassOf brick:Temperature ;
     owl:equivalentClass brick:Preheat_Supply_Air_Temperature .
 
+brick:Preheat_Hot_Water_Valve rdfs:label "PreHeat Hot Water Valve"@en ;
+    brickframe:usesTag btag:PreHeat .
+
 brick:Preheat_Supply_Air_Temperature_Sensor rdfs:subClassOf brick:Temperature_Sensor .
+
+brick:Preheat_Valve_VFD rdfs:label "PreHeat Valve VFD"@en ;
+    brickframe:usesTag btag:PreHeat .
 
 brick:Relative_Humidity rdfs:subClassOf brick:Humidity .
 
@@ -958,48 +942,6 @@ brick:Unoccupied_Cooling_Supply_Air_Flow_Setpoint owl:equivalentClass brick:Unoc
 
 brick:VFD rdfs:subClassOf [ a owl:Restriction ;
             owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Maintenance_Required_Alarm ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:VFD_Alarm ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Frequency_Command ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Panel_Lockout_Command ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Start_Stop_Command ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Motor_Direction_Command ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Run_Direction_Command ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:System_Enable_Command ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Run_Enable_Command ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Max_Frequency_Command ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Maintenance_Mode_Command ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Fault_Reset_Command ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Filter_Reset_Command ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Speed_Reset_Command ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
             owl:someValuesFrom brick:VFD_Speed_Command ],
         [ a owl:Restriction ;
             owl:onProperty brickframe:hasPoint ;
@@ -1093,7 +1035,49 @@ brick:VFD rdfs:subClassOf [ a owl:Restriction ;
             owl:someValuesFrom brick:Motor_Start_Stop_Status ],
         [ a owl:Restriction ;
             owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Run_Status ] .
+            owl:someValuesFrom brick:Run_Status ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Maintenance_Required_Alarm ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:VFD_Alarm ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Frequency_Command ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Panel_Lockout_Command ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Start_Stop_Command ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Motor_Direction_Command ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Run_Direction_Command ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:System_Enable_Command ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Run_Enable_Command ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Max_Frequency_Command ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Maintenance_Mode_Command ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Fault_Reset_Command ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Filter_Reset_Command ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Speed_Reset_Command ] .
 
 brick:WS owl:equivalentClass brick:Water_System .
 
@@ -1201,7 +1185,11 @@ btag:Close rdfs:subClassOf btag:MeasurementProperty_Modifier .
 
 btag:Code rdfs:subClassOf btag:MeasurementProperty_Modifier .
 
+btag:Coil rdfs:subClassOf btag:Equipment_HVAC_AHU .
+
 btag:Coldest rdfs:subClassOf btag:MeasurementProperty_Modifier .
+
+btag:Command rdfs:subClassOf btag:Point .
 
 btag:Communication rdfs:subClassOf btag:MeasurementProperty_Modifier .
 
@@ -1257,6 +1245,8 @@ btag:Deionised rdfs:subClassOf btag:MeasurementProperty_Modifier .
 
 btag:Delay rdfs:subClassOf btag:MeasurementProperty_Modifier .
 
+btag:Demand rdfs:subClassOf btag:MeasurementProperty_Modifier .
+
 btag:Detected rdfs:subClassOf btag:MeasurementProperty_Modifier .
 
 btag:Detection rdfs:subClassOf btag:MeasurementProperty_Modifier .
@@ -1291,6 +1281,8 @@ btag:Emergency rdfs:subClassOf btag:MeasurementProperty_Modifier .
 
 btag:Enable rdfs:subClassOf btag:Equipment_HVAC_VFD,
         btag:MeasurementProperty_Modifier .
+
+btag:Entering rdfs:subClassOf btag:MeasurementProperty_Modifier .
 
 btag:Estimation rdfs:subClassOf btag:MeasurementProperty_Modifier .
 
@@ -1407,6 +1399,8 @@ btag:Last rdfs:subClassOf btag:MeasurementProperty_Modifier .
 btag:Lead rdfs:subClassOf btag:MeasurementProperty_Modifier .
 
 btag:Leak rdfs:subClassOf btag:MeasurementProperty_Modifier .
+
+btag:Leaving rdfs:subClassOf btag:MeasurementProperty_Modifier .
 
 btag:Level rdfs:subClassOf btag:MeasurementProperty_Modifier .
 
@@ -1540,6 +1534,8 @@ btag:Sash rdfs:subClassOf btag:MeasurementProperty_Modifier .
 
 btag:Schedule rdfs:subClassOf btag:MeasurementProperty_Modifier .
 
+btag:Sensor rdfs:subClassOf btag:Point .
+
 btag:Server rdfs:subClassOf btag:Equipment .
 
 btag:Shed rdfs:subClassOf btag:MeasurementProperty_Modifier .
@@ -1624,6 +1620,8 @@ btag:Unoccupied rdfs:subClassOf btag:MeasurementProperty_PhysicalProperties .
 btag:Usage rdfs:subClassOf btag:MeasurementProperty_Modifier .
 
 btag:VAV rdfs:subClassOf btag:Equipment_HVAC .
+
+btag:Valve rdfs:subClassOf btag:Equipment_HVAC_Water .
 
 btag:Variable rdfs:subClassOf btag:Equipment_HVAC_VAV .
 
@@ -4291,6 +4289,551 @@ btag:Zenith rdfs:subClassOf btag:MeasurementProperty_Modifier .
     brickframe:feeds <https://brickschema.org/schema/1.0.2/building_example#building:gtc/district_supply_temp> ;
     brickframe:isPartOf <https://brickschema.org/schema/1.0.2/building_example#building:gtcahu_meter/fb> .
 
+brick:AHU rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Change_Filter_Alarm ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:CO2_High_Alarm ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Condensate_Leak_Alarm ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Discharge_Air_Smoke_Detected_Alarm ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Discharge_Air_Temperature_High_Limit_Alarm ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Return_Air_Temperature_High_Limit_Alarm ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Return_Air_Temperature_Low_Limit_Alarm ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Curtailment_Override_Command ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Occupancy_Command ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Economizer_Damper_Command ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Exhaust_Bypass_Damper_Command ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Mixed_Air_Damper_Position_Command ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Outside_Air_Damper_Position_Command ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:System_Enable_Command ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Exhaust_Fan_Enable_Command ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Exhaust_Fan_System_Enable_Command ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Building_Exhaust_Fans_Stage_Command ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Fire_Control_Panel_Off_Command ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Exhaust_Fan_Fire_Control_Panel_Off_Command ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Fire_Control_Panel_On_Command ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Exhaust_Fan_Fire_Control_Panel_On_Command ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Automatic_Mode_Command ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Steam_On_Off_Command ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Run_Request_Command ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:System_Status ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:System_Shutdown_Command ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:VFD_Speed_Command ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Return_Fan_VFD_Speed_Status ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Supply_Fan_VFD_Speed_Status ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Return_Fan_VFD_Speed_Setpoint ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Supply_Fan_VFD_Speed_Setpoint ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Return_Fan_VFD_Speed_Command ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Supply_Fan_VFD_Speed_Command ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Return_Fan_VFD_Speed_Sensor ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Supply_Fan_VFD_Speed_Sensor ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Exhaust_Fan_Start_Stop_Command ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Return_Fan_Command ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Return_Fan_Start_Stop_Command ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Supply_Fan_Command ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Supply_Fan_Start_Stop_Command ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Cooling_Valve_Command ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Heating_Valve_Command ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Preheat_Valve_Command ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Return_Air_Preheat_Valve_Command ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Return_Heat_Valve_Command ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:CO2_Differential_Sensor ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Frost_Sensor ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Run_Time_Sensor ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Trace_Heat_Sensor ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Outside_Air_Grains_Sensor ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Return_Air_Grains_Sensor ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Outside_Air_CO2_Sensor ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Return_Air_CO2_Sensor ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Bypass_Damper_Position_Sensor ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Mixed_Air_Damper_Position_Sensor ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Outside_Air_Damper_Position_Sensor ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Outside_Air_Dewpoint_Sensor ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Return_Air_Dewpoint_Sensor ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Outside_Air_Enthalpy_Sensor ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Return_Air_Enthalpy_Sensor ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Bypass_Air_Flow_Sensor ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Exhaust_Air_Flow_Sensor ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Outside_Air_Flow_Sensor ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Return_Air_Flow_Sensor ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Exhaust_Air_Stack_Flow_Sensor ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Return_Fan_Air_Flow_Sensor ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Supply_Fan_Air_Flow_Sensor ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Discharge_Air_Humidity_Sensor ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Exhaust_Air_Humidity_Sensor ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Outside_Air_Humidity_Sensor ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Return_Air_Humidity_Sensor ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Exhaust_Fan_Piezoelectric_Sensor ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Supply_Fan_Piezoelectric_Sensor ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Differential_Pressure_Sensor ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Static_Pressure_Sensor ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Heat_Wheel_Differential_Pressure_Sensor ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Building_Static_Pressure_Sensor ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Discharge_Air_Static_Pressure_Sensor ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Exhaust_Air_Static_Pressure_Sensor ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Average_Exhaust_Air_Static_Pressure_Sensor ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Lowest_Exhaust_Air_Static_Pressure_Sensor ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Exhaust_Air_Velocity_Pressure_Sensor ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Heat_Wheel_Speed_Sensor ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Return_Fan_Differential_Speed_Sensor ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Discharge_Air_Temperature_Sensor ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Exhaust_Air_Temperature_Sensor ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Mixed_Air_Temperature_Sensor ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Outside_Air_Temperature_Sensor ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Return_Air_Temperature_Sensor ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Underfloor_Temperature_Sensor ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Zone_Air_Temperature_Sensor ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Zone_Temperature_Sensor ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Low_Outside_Air_Temperature_Enable_Differential_Sensor ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Outside_Air_Lockout_Temperature_Differential_Sensor ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Cooling_Coil_Discharge_Air_Temperature_Sensor ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Heat_Wheel_Discharge_Air_Temperature_Sensor ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Preheat_Discharge_Air_Temperature_Sensor ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Preheat_Coil_Entering_Air_Temperature_Sensor ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Heat_Wheel_Voltage_Sensor ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Min_Fresh_Air_Setpoint ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Max_Return_Air_CO2_Setpoint ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Economizer_Damper_Min_Position_Setpoint ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Outside_Air_Damper_Min_Position_Setpoint ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Cooling_Discharge_Air_Temperature_Dead_Band_Setpoint ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Economizer_Discharge_Air_Temperature_Dead_Band_Setpoint ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Heating_Discharge_Air_Temperature_Dead_Band_Setpoint ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Exhaust_Air_Stack_Flow_Dead_Band_Setpoint ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Discharge_Air_Static_Pressure_Dead_Band_Setpoint ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Exhaust_Air_Static_Pressure_Dead_Band_Setpoint ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Cooling_Demand_Setpoint ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Cooling_Request_Percent_Setpoint ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Discharge_Air_Flow_Demand_Setpoint ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Heat_Request_Percent_Setpoint ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Heating_Demand_Setpoint ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Preheat_Demand_Setpoint ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Economizer_Outside_Air_Flow_Setpoint ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Exhaust_Fan_Air_Flow_Setpoint ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Outside_Min_Air_Flow_Setpoint ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Exhaust_Air_Stack_Flow_Setpoint ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Discharge_Air_Static_Pressure_Increase_Decrease_Step_Setpoint ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Discharge_Air_Temperature_Setpoint_Increase_Decrease_Step ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Discharge_Air_Static_Pressure_Integral_Time_Setpoint ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Cooling_Discharge_Air_Temperature_Integral_Time_Setpoint ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Heating_Discharge_Air_Temperature_Integral_Time_Setpoint ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Exhaust_Air_Stack_Flow_Integral_Time_Setpoint ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Exhaust_Air_Static_Pressure_Integral_Time_Setpoint ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:DualBand_Mode_Setpoint ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Unoccupied_Mode_Setpoint ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Building_Static_Pressure_Setpoint ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Discharge_Air_Static_Pressure_Setpoint ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Exhaust_Air_Static_Pressure_Setpoint ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Static_Pressure_Max_Setpoint ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Static_Pressure_Min_Setpoint ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Max_Discharge_Air_Static_Pressure_Setpoint ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Min_Discharge_Air_Static_Pressure_Setpoint ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Supply_Air_Proportional_Gain_Factor ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Discharge_Air_Static_Pressure_Proportional_Band_Setpoint ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Cooling_Discharge_Air_Temperature_Proportional_Band_Setpoint ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Economizer_Discharge_Air_Temperature_Proportional_Band_Setpoint ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Heating_Discharge_Air_Temperature_Proportional_Band_Setpoint ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Exhaust_Air_Stack_Flow_Proportional_Band_Setpoint ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Exhaust_Air_Static_Pressure_Proportional_Band_Setpoint ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Discharge_Air_Temperature_Reset_High_Setpoint ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Discharge_Air_Temperature_Reset_Low_Setpoint ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Discharge_Air_Temperature_Reset_Differential_Setpoint ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Discharge_Air_Flow_Reset_Low_Setpoint ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Discharge_Air_Flow_Reset_High_Setpoint ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Return_Fan_Differential_Speed_Setpoint ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Return_Supply_Fan_Differential_Speed_Setpoint ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Max_VFD_Speed_Setpoint ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Min_VFD_Speed_Setpoint ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Discharge_Air_Temperature_Setpoint ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Low_Outside_Air_Temperature_Enable_Setpoint ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Mixed_Air_Temperature_Setpoint ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Outside_Air_Lockout_Temperature_Setpoint ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Auto_Cooling_Temperature_Setpoint ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Current_Cooling_Setpoint ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Discharge_Air_Temperature_Cooling_Setpoint ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Discharge_Air_Temperature_Heating_Setpoint ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Economizer_Differential_Air_Temperature_Setpoint ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Max_Discharge_Air_Temperature_Setpoint ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Min_Discharge_Air_Temperature_Setpoint ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Fan_Run_Request_Status ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Filter_Status ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:System_Shutdown_Status ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Exhaust_Fan_Disable_Status ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Pre_Filter_Status ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Economizer_Mode_Status ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Economizer_Status ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Occupied_Mode_Status ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Overridden_Off_Status ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Overridden_On_Status ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Exhaust_Fan_Overridden_Off_Status ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Exhaust_Fan_Overridden_On_Status ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Exhaust_Fan_Start_Stop_Status ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Exhaust_Fan_Status ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Fan_Start_Stop_Status ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Return_Fan_Start_Stop_Status ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Return_Fan_Status ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Supply_Fan_Start_Stop_Status ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Supply_Fan_Status ] ;
+    owl:equivalentClass brick:Air_Handler_Unit .
+
 brick:CO2_Level_Sensor rdfs:subClassOf brick:Sensor .
 
 brick:Chilled_Water_Differential_Pressure_Load_Shed_Reset_Status rdfs:subClassOf brick:Differential_Pressure_Load_Shed_Status .
@@ -4491,34 +5034,19 @@ brick:PV_System_Output a owl:Class ;
 
 brick:Perimeter_Heating_Valve_Command rdfs:subClassOf brick:Valve_Command .
 
-brick:Preheat_Coil_Entering_Air_Temperature_Sensor a owl:Class ;
-    rdfs:label "PreHeat Coil Entering Air Temperature Sensor"@en ;
-    rdfs:subClassOf brick:Entering_Water_Temperature_Sensor ;
-    brickframe:usesTag btag:Air,
-        btag:Coil,
-        btag:Entering,
-        btag:PreHeat,
-        btag:Sensor,
-        btag:Temperature .
+brick:Preheat_Coil_Entering_Air_Temperature_Sensor rdfs:label "PreHeat Coil Entering Air Temperature Sensor"@en ;
+    brickframe:usesTag btag:PreHeat .
 
-brick:Preheat_Demand_Setpoint a owl:Class ;
-    rdfs:label "PreHeat Demand Setpoint"@en ;
-    rdfs:subClassOf brick:Demand_Setpoint ;
-    brickframe:usesTag btag:Demand,
-        btag:PreHeat,
-        btag:Setpoint .
-
-brick:Preheat_Valve_Command a owl:Class ;
-    rdfs:label "PreHeat Valve Command"@en ;
-    rdfs:subClassOf brick:Valve_Command ;
-    brickframe:usesTag btag:Command,
-        btag:PreHeat,
-        btag:Valve .
+brick:Preheat_Demand_Setpoint rdfs:label "PreHeat Demand Setpoint"@en ;
+    brickframe:usesTag btag:PreHeat .
 
 brick:Preheat_Discharge_Air_Temperature_Sensor rdfs:subClassOf brick:Temperature_Sensor .
 
 brick:Preheat_Supply_Air_Temperature rdfs:label "Preheat Discharge Air Temperature"@en ;
     rdfs:subClassOf brick:Temperature .
+
+brick:Preheat_Valve_Command rdfs:label "PreHeat Valve Command"@en ;
+    brickframe:usesTag btag:PreHeat .
 
 brick:Pump_Status rdfs:subClassOf brick:Start_Stop_Status .
 
@@ -4627,10 +5155,6 @@ btag:Chilled rdfs:subClassOf btag:Equipment_HVAC_AHU,
 
 btag:Cold rdfs:subClassOf btag:MeasurementProperty_Modifier .
 
-btag:Command rdfs:subClassOf btag:Point .
-
-btag:Demand rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
 btag:Dewpoint rdfs:subClassOf btag:MeasurementProperty_Modifier,
         btag:MeasurementProperty_PhysicalProperties .
 
@@ -4639,8 +5163,6 @@ btag:Discharge rdfs:subClassOf btag:Equipment_HVAC_VAV .
 btag:Dual_Band a owl:Class ;
     rdfs:label "Dual_Band"@en ;
     rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Entering rdfs:subClassOf btag:MeasurementProperty_Modifier .
 
 btag:Environment rdfs:subClassOf btag:MeasurementProperty_Modifier .
 
@@ -4671,8 +5193,6 @@ btag:Grains rdfs:subClassOf btag:MeasurementProperty_Modifier .
 
 btag:Humidity rdfs:subClassOf btag:MeasurementProperty_PhysicalProperties .
 
-btag:Leaving rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
 btag:Mode rdfs:subClassOf btag:MeasurementProperty_Modifier .
 
 btag:Output rdfs:subClassOf btag:Equipment_HVAC_VFD,
@@ -4685,6 +5205,8 @@ btag:Percent rdfs:subClassOf btag:MeasurementProperty_Modifier .
 btag:System rdfs:subClassOf btag:MeasurementProperty_Modifier .
 
 btag:Thermal rdfs:subClassOf btag:MeasurementProperty_Modifier .
+
+btag:VFD rdfs:subClassOf btag:Equipment_HVAC .
 
 btag:Voltage rdfs:subClassOf btag:MeasurementProperty_PhysicalProperties .
 
@@ -10646,8 +11168,6 @@ brickframe:Token rdfs:subClassOf [ a owl:Restriction ;
             owl:onProperty brickframe:hasTagSet ;
             owl:someValuesFrom brickframe:TagSet ] .
 
-btag:Coil rdfs:subClassOf btag:Equipment_HVAC_AHU .
-
 btag:Energy rdfs:subClassOf btag:MeasurementProperty_PhysicalProperties .
 
 btag:Enthalpy rdfs:subClassOf btag:MeasurementProperty_Modifier,
@@ -10666,11 +11186,7 @@ btag:Request rdfs:subClassOf btag:MeasurementProperty_Modifier .
 
 btag:Room rdfs:subClassOf btag:Location .
 
-btag:Sensor rdfs:subClassOf btag:Point .
-
 btag:Supply rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:VFD rdfs:subClassOf btag:Equipment_HVAC .
 
 gtc:DPT_Functional_Block rdf:isSubClassOf brick:Functional_Block .
 
@@ -11307,551 +11823,6 @@ gtc:Heat_Transfer_Box_Functional_Block rdf:isSubClassOf brick:Functional_Block .
     brickframe:feeds <https://brickschema.org/schema/1.0.2/building_example#building:gtcreturn_fe/port[o]> ;
     brickframe:isPartOf <https://brickschema.org/schema/1.0.2/building_example#building:gtcreturn_fe/fb> .
 
-brick:AHU rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Change_Filter_Alarm ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:CO2_High_Alarm ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Condensate_Leak_Alarm ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Discharge_Air_Smoke_Detected_Alarm ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Discharge_Air_Temperature_High_Limit_Alarm ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Return_Air_Temperature_High_Limit_Alarm ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Return_Air_Temperature_Low_Limit_Alarm ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Curtailment_Override_Command ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Occupancy_Command ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Economizer_Damper_Command ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Exhaust_Bypass_Damper_Command ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Mixed_Air_Damper_Position_Command ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Outside_Air_Damper_Position_Command ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:System_Enable_Command ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Exhaust_Fan_Enable_Command ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Exhaust_Fan_System_Enable_Command ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Building_Exhaust_Fans_Stage_Command ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Fire_Control_Panel_Off_Command ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Exhaust_Fan_Fire_Control_Panel_Off_Command ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Fire_Control_Panel_On_Command ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Exhaust_Fan_Fire_Control_Panel_On_Command ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Automatic_Mode_Command ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Steam_On_Off_Command ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Run_Request_Command ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:System_Status ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:System_Shutdown_Command ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:VFD_Speed_Command ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Return_Fan_VFD_Speed_Status ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Supply_Fan_VFD_Speed_Status ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Return_Fan_VFD_Speed_Setpoint ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Supply_Fan_VFD_Speed_Setpoint ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Return_Fan_VFD_Speed_Command ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Supply_Fan_VFD_Speed_Command ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Return_Fan_VFD_Speed_Sensor ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Supply_Fan_VFD_Speed_Sensor ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Exhaust_Fan_Start_Stop_Command ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Return_Fan_Command ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Return_Fan_Start_Stop_Command ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Supply_Fan_Command ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Supply_Fan_Start_Stop_Command ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Cooling_Valve_Command ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Heating_Valve_Command ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Preheat_Valve_Command ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Return_Air_Preheat_Valve_Command ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Return_Heat_Valve_Command ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:CO2_Differential_Sensor ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Frost_Sensor ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Run_Time_Sensor ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Trace_Heat_Sensor ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Outside_Air_Grains_Sensor ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Return_Air_Grains_Sensor ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Outside_Air_CO2_Sensor ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Return_Air_CO2_Sensor ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Bypass_Damper_Position_Sensor ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Mixed_Air_Damper_Position_Sensor ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Outside_Air_Damper_Position_Sensor ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Outside_Air_Dewpoint_Sensor ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Return_Air_Dewpoint_Sensor ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Outside_Air_Enthalpy_Sensor ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Return_Air_Enthalpy_Sensor ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Bypass_Air_Flow_Sensor ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Exhaust_Air_Flow_Sensor ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Outside_Air_Flow_Sensor ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Return_Air_Flow_Sensor ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Exhaust_Air_Stack_Flow_Sensor ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Return_Fan_Air_Flow_Sensor ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Supply_Fan_Air_Flow_Sensor ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Discharge_Air_Humidity_Sensor ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Exhaust_Air_Humidity_Sensor ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Outside_Air_Humidity_Sensor ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Return_Air_Humidity_Sensor ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Exhaust_Fan_Piezoelectric_Sensor ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Supply_Fan_Piezoelectric_Sensor ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Differential_Pressure_Sensor ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Static_Pressure_Sensor ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Heat_Wheel_Differential_Pressure_Sensor ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Building_Static_Pressure_Sensor ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Discharge_Air_Static_Pressure_Sensor ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Exhaust_Air_Static_Pressure_Sensor ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Average_Exhaust_Air_Static_Pressure_Sensor ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Lowest_Exhaust_Air_Static_Pressure_Sensor ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Exhaust_Air_Velocity_Pressure_Sensor ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Heat_Wheel_Speed_Sensor ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Return_Fan_Differential_Speed_Sensor ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Discharge_Air_Temperature_Sensor ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Exhaust_Air_Temperature_Sensor ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Mixed_Air_Temperature_Sensor ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Outside_Air_Temperature_Sensor ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Return_Air_Temperature_Sensor ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Underfloor_Temperature_Sensor ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Zone_Air_Temperature_Sensor ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Zone_Temperature_Sensor ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Low_Outside_Air_Temperature_Enable_Differential_Sensor ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Outside_Air_Lockout_Temperature_Differential_Sensor ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Cooling_Coil_Discharge_Air_Temperature_Sensor ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Heat_Wheel_Discharge_Air_Temperature_Sensor ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Preheat_Discharge_Air_Temperature_Sensor ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Preheat_Coil_Entering_Air_Temperature_Sensor ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Heat_Wheel_Voltage_Sensor ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Min_Fresh_Air_Setpoint ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Max_Return_Air_CO2_Setpoint ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Economizer_Damper_Min_Position_Setpoint ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Outside_Air_Damper_Min_Position_Setpoint ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Cooling_Discharge_Air_Temperature_Dead_Band_Setpoint ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Economizer_Discharge_Air_Temperature_Dead_Band_Setpoint ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Heating_Discharge_Air_Temperature_Dead_Band_Setpoint ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Exhaust_Air_Stack_Flow_Dead_Band_Setpoint ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Discharge_Air_Static_Pressure_Dead_Band_Setpoint ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Exhaust_Air_Static_Pressure_Dead_Band_Setpoint ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Cooling_Demand_Setpoint ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Cooling_Request_Percent_Setpoint ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Discharge_Air_Flow_Demand_Setpoint ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Heat_Request_Percent_Setpoint ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Heating_Demand_Setpoint ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Preheat_Demand_Setpoint ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Economizer_Outside_Air_Flow_Setpoint ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Exhaust_Fan_Air_Flow_Setpoint ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Outside_Min_Air_Flow_Setpoint ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Exhaust_Air_Stack_Flow_Setpoint ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Discharge_Air_Static_Pressure_Increase_Decrease_Step_Setpoint ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Discharge_Air_Temperature_Setpoint_Increase_Decrease_Step ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Discharge_Air_Static_Pressure_Integral_Time_Setpoint ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Cooling_Discharge_Air_Temperature_Integral_Time_Setpoint ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Heating_Discharge_Air_Temperature_Integral_Time_Setpoint ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Exhaust_Air_Stack_Flow_Integral_Time_Setpoint ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Exhaust_Air_Static_Pressure_Integral_Time_Setpoint ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:DualBand_Mode_Setpoint ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Unoccupied_Mode_Setpoint ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Building_Static_Pressure_Setpoint ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Discharge_Air_Static_Pressure_Setpoint ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Exhaust_Air_Static_Pressure_Setpoint ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Static_Pressure_Max_Setpoint ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Static_Pressure_Min_Setpoint ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Max_Discharge_Air_Static_Pressure_Setpoint ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Min_Discharge_Air_Static_Pressure_Setpoint ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Supply_Air_Proportional_Gain_Factor ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Discharge_Air_Static_Pressure_Proportional_Band_Setpoint ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Cooling_Discharge_Air_Temperature_Proportional_Band_Setpoint ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Economizer_Discharge_Air_Temperature_Proportional_Band_Setpoint ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Heating_Discharge_Air_Temperature_Proportional_Band_Setpoint ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Exhaust_Air_Stack_Flow_Proportional_Band_Setpoint ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Exhaust_Air_Static_Pressure_Proportional_Band_Setpoint ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Discharge_Air_Temperature_Reset_High_Setpoint ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Discharge_Air_Temperature_Reset_Low_Setpoint ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Discharge_Air_Temperature_Reset_Differential_Setpoint ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Discharge_Air_Flow_Reset_Low_Setpoint ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Discharge_Air_Flow_Reset_High_Setpoint ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Return_Fan_Differential_Speed_Setpoint ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Return_Supply_Fan_Differential_Speed_Setpoint ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Max_VFD_Speed_Setpoint ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Min_VFD_Speed_Setpoint ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Discharge_Air_Temperature_Setpoint ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Low_Outside_Air_Temperature_Enable_Setpoint ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Mixed_Air_Temperature_Setpoint ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Outside_Air_Lockout_Temperature_Setpoint ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Auto_Cooling_Temperature_Setpoint ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Current_Cooling_Setpoint ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Discharge_Air_Temperature_Cooling_Setpoint ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Discharge_Air_Temperature_Heating_Setpoint ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Economizer_Differential_Air_Temperature_Setpoint ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Max_Discharge_Air_Temperature_Setpoint ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Min_Discharge_Air_Temperature_Setpoint ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Fan_Run_Request_Status ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Filter_Status ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:System_Shutdown_Status ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Exhaust_Fan_Disable_Status ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Pre_Filter_Status ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Economizer_Mode_Status ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Economizer_Status ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Occupied_Mode_Status ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Overridden_Off_Status ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Overridden_On_Status ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Exhaust_Fan_Overridden_Off_Status ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Exhaust_Fan_Overridden_On_Status ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Exhaust_Fan_Start_Stop_Status ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Exhaust_Fan_Status ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Fan_Start_Stop_Status ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Return_Fan_Start_Stop_Status ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Return_Fan_Status ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Supply_Fan_Start_Stop_Status ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Supply_Fan_Status ] ;
-    owl:equivalentClass brick:Air_Handler_Unit .
-
 brick:Discharge_Air_Temperature_Heating_Setpoint rdfs:subClassOf brick:Temperature_Setpoint .
 
 brick:Pump rdfs:subClassOf [ a owl:Restriction ;
@@ -11891,7 +11862,7 @@ btag:Equipment_HVAC_Misc a owl:Class ;
 
 btag:Return rdfs:subClassOf btag:Equipment_HVAC_AHU .
 
-btag:Valve rdfs:subClassOf btag:Equipment_HVAC_Water .
+btag:Setpoint rdfs:subClassOf btag:Point .
 
 <https://brickschema.org/schema/1.0.2/building_example#building:gtc/damper> a brick:Damper ;
     brickframe:feeds <https://brickschema.org/schema/1.0.2/building_example#building:gtcreturn_fe/port[i]> ;
@@ -12188,7 +12159,11 @@ btag:Equipment_Water_System a owl:Class ;
     rdfs:subClassOf btag:Equipment ;
     brickframe:isHierarchical "" .
 
-btag:Setpoint rdfs:subClassOf btag:Point .
+btag:Hot rdfs:subClassOf btag:Equipment_HVAC_AHU,
+        btag:Equipment_HVAC_Water .
+
+btag:Water rdfs:subClassOf btag:Equipment_HVAC_AHU,
+        btag:Equipment_HVAC_Water .
 
 gtc:Heat_Power_Meter_Functional_Block rdf:isSubClassOf brick:Functional_Block .
 
@@ -12357,9 +12332,6 @@ btag:Equipment_Energy_Power a owl:Class ;
 
 btag:Flow rdfs:subClassOf btag:MeasurementProperty_PhysicalProperties .
 
-btag:Hot rdfs:subClassOf btag:Equipment_HVAC_AHU,
-        btag:Equipment_HVAC_Water .
-
 <https://brickschema.org/schema/1.0.2/building_example#building:gtcahu_meter/port[metered_return]> a gtc:Heat_Power_Meter_Metered_Return ;
     brickframe:feeds <https://brickschema.org/schema/1.0.2/building_example#building:gtcahu_meter/return_temp> ;
     brickframe:isPartOf <https://brickschema.org/schema/1.0.2/building_example#building:gtcahu_meter/fb> .
@@ -12375,9 +12347,6 @@ btag:Hot rdfs:subClassOf btag:Equipment_HVAC_AHU,
 btag:PreHeat a owl:Class ;
     rdfs:label "PreHeat"@en ;
     rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Water rdfs:subClassOf btag:Equipment_HVAC_AHU,
-        btag:Equipment_HVAC_Water .
 
 <https://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.A.1/lighting_zone/0> a brick:Lighting_Zone ;
     rdfs:label "LEDGO" ;
@@ -12683,6 +12652,8 @@ btag:Outside rdfs:subClassOf btag:Equipment_HVAC_AHU,
         <https://brickschema.org/schema/1.0.2/building_example#building:gtc/vavs/9/cooled_flow>,
         <https://brickschema.org/schema/1.0.2/building_example#building:gtc/vavs/9/cooled_valve_control> .
 
+btag:Air rdfs:subClassOf btag:Equipment_HVAC_VAV .
+
 btag:Equipment_HVAC_Water a owl:Class ;
     rdfs:label "Water"@en ;
     rdfs:subClassOf btag:Equipment_HVAC ;
@@ -12732,7 +12703,7 @@ btag:Equipment_HVAC_Water a owl:Class ;
 
 brick:Chilled_Water_Supply_Flow rdfs:subClassOf brick:Water_Flow .
 
-btag:Air rdfs:subClassOf btag:Equipment_HVAC_VAV .
+btag:Temperature rdfs:subClassOf btag:MeasurementProperty_PhysicalProperties .
 
 gtc:GTC_VAV_Functional_Block rdf:isSubClassOf brick:Functional_Block ;
     rdfs:subClassOf brick:VAV .
@@ -13047,8 +13018,6 @@ brick:VAV rdfs:subClassOf [ a owl:Restriction ;
         <https://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.B.13/room>,
         <https://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.D.1/room>,
         <https://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.F.6_A/room> .
-
-btag:Temperature rdfs:subClassOf btag:MeasurementProperty_PhysicalProperties .
 
 <https://brickschema.org/schema/1.0.2/building_example#building:gtc/vavs/0/fb> a gtc:GTC_VAV_Functional_Block ;
     brickframe:hasPoint <https://brickschema.org/schema/1.0.2/building_example#building:gtc/vavs/0/cooled_flow>,
