@@ -313,63 +313,63 @@ soda_hall:energy_demand_building_SOD__BLD_1_KWD a brick:Energy_Demand .
 soda_hall:energy_meter_building_SOD__BLD_1_KWH a brick:Energy_Meter .
 
 soda_hall:flow_sensor_SODA1F1_VAV_AV a brick:Supply_Air_Flow_Sensor ;
-    brickframe:hasTag brick:Average ;
+    brickframe:hasTag btag:Average ;
     brickframe:isLocatedIn soda_hall:floor_1 .
 
 soda_hall:flow_sensor_SODA1F1_VAV_MN a brick:Supply_Air_Flow_Sensor ;
-    brickframe:hasTag brick:Min ;
+    brickframe:hasTag btag:Min ;
     brickframe:isLocatedIn soda_hall:floor_1 .
 
 soda_hall:flow_sensor_SODA1F1_VAV_MX a brick:Supply_Air_Flow_Sensor ;
-    brickframe:hasTag brick:Max ;
+    brickframe:hasTag btag:Max ;
     brickframe:isLocatedIn soda_hall:floor_1 .
 
 soda_hall:flow_sensor_SODA1F2_VAV_AV a brick:Supply_Air_Flow_Sensor ;
-    brickframe:hasTag brick:Average ;
+    brickframe:hasTag btag:Average ;
     brickframe:isLocatedIn soda_hall:floor_2 .
 
 soda_hall:flow_sensor_SODA1F2_VAV_MN a brick:Supply_Air_Flow_Sensor ;
-    brickframe:hasTag brick:Min ;
+    brickframe:hasTag btag:Min ;
     brickframe:isLocatedIn soda_hall:floor_2 .
 
 soda_hall:flow_sensor_SODA1F2_VAV_MX a brick:Supply_Air_Flow_Sensor ;
-    brickframe:hasTag brick:Max ;
+    brickframe:hasTag btag:Max ;
     brickframe:isLocatedIn soda_hall:floor_2 .
 
 soda_hall:flow_sensor_SODA1F3_VAV_AV a brick:Supply_Air_Flow_Sensor ;
-    brickframe:hasTag brick:Average ;
+    brickframe:hasTag btag:Average ;
     brickframe:isLocatedIn soda_hall:floor_3 .
 
 soda_hall:flow_sensor_SODA1F3_VAV_MN a brick:Supply_Air_Flow_Sensor ;
-    brickframe:hasTag brick:Min ;
+    brickframe:hasTag btag:Min ;
     brickframe:isLocatedIn soda_hall:floor_3 .
 
 soda_hall:flow_sensor_SODA1F3_VAV_MX a brick:Supply_Air_Flow_Sensor ;
-    brickframe:hasTag brick:Max ;
+    brickframe:hasTag btag:Max ;
     brickframe:isLocatedIn soda_hall:floor_3 .
 
 soda_hall:flow_sensor_SODA1F4_VAV_AV a brick:Supply_Air_Flow_Sensor ;
-    brickframe:hasTag brick:Average ;
+    brickframe:hasTag btag:Average ;
     brickframe:isLocatedIn soda_hall:floor_4 .
 
 soda_hall:flow_sensor_SODA1F4_VAV_MN a brick:Supply_Air_Flow_Sensor ;
-    brickframe:hasTag brick:Min ;
+    brickframe:hasTag btag:Min ;
     brickframe:isLocatedIn soda_hall:floor_4 .
 
 soda_hall:flow_sensor_SODA1F4_VAV_MX a brick:Supply_Air_Flow_Sensor ;
-    brickframe:hasTag brick:Max ;
+    brickframe:hasTag btag:Max ;
     brickframe:isLocatedIn soda_hall:floor_4 .
 
 soda_hall:flow_sensor_SODA1F5_VAV_AV a brick:Supply_Air_Flow_Sensor ;
-    brickframe:hasTag brick:Average ;
+    brickframe:hasTag btag:Average ;
     brickframe:isLocatedIn soda_hall:floor_5 .
 
 soda_hall:flow_sensor_SODA1F5_VAV_MN a brick:Supply_Air_Flow_Sensor ;
-    brickframe:hasTag brick:Min ;
+    brickframe:hasTag btag:Min ;
     brickframe:isLocatedIn soda_hall:floor_5 .
 
 soda_hall:flow_sensor_SODA1F5_VAV_MX a brick:Supply_Air_Flow_Sensor ;
-    brickframe:hasTag brick:Max ;
+    brickframe:hasTag btag:Max ;
     brickframe:isLocatedIn soda_hall:floor_5 .
 
 soda_hall:vav_R179 a brick:VAV ;
