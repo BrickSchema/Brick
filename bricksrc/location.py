@@ -17,42 +17,54 @@ location_subclasses = {
         "tags": [TAG.Basement, TAG.Location],
     },
     "Outside": {
-        "tags": [ TAG.Outside, TAG.Location ],
+        "tags": [TAG.Outside, TAG.Location],
     },
     "City": {
-        "tags": [ TAG.City, TAG.Location ],
+        "tags": [TAG.City, TAG.Location],
     },
     "Wing": {
-        "tags": [ TAG.Wing, TAG.Location ],
+        "tags": [TAG.Wing, TAG.Location],
     },
     "Space": {
-        "tags": [ TAG.Space, TAG.Location ],
+        "tags": [TAG.Space, TAG.Location],
     },
     "Zone": {
-        "tags": [ TAG.Zone, TAG.Location ],
+        "tags": [TAG.Zone, TAG.Location],
         "subclasses": {
             "HVAC_Zone": {
-                "tags": [ TAG.HVAC, TAG.Zone, TAG.Location ],
+                "tags": [TAG.HVAC, TAG.Zone, TAG.Location],
             },
             "Lighting_Zone": {
-                "tags": [ TAG.Lighting, TAG.Zone, TAG.Location ],
+                "tags": [TAG.Lighting, TAG.Zone, TAG.Location],
             },
             "Fire_Zone": {
-                "tags": [ TAG.Fire, TAG.Zone, TAG.Location ],
+                "tags": [TAG.Fire, TAG.Zone, TAG.Location],
             },
         },
     },
     "Room": {
+        "tags": [TAG.Room, TAG.Location],
         "subclasses": {
             "Laboratory": {
+                "tags": [TAG.Laboratory, TAG.Room, TAG.Location],
                 "subclasses": {
-                    "Freezer": {},
-                    "Cold_Box": {},
-                    "Hot_Box": {},
-                    "Environment_Box": {},
+                    "Freezer": {
+                        "tags": [TAG.Freezer, TAG.Laboratory, TAG.Room, TAG.Location],
+                    },
+                    "Cold_Box": {
+                        "tags": [TAG.Cold, TAG.Box, TAG.Laboratory, TAG.Room, TAG.Location],
+                    },
+                    "Hot_Box": {
+                        "tags": [TAG.Hot, TAG.Box, TAG.Laboratory, TAG.Room, TAG.Location],
+                    },
+                    "Environment_Box": {
+                        "tags": [TAG.Environment, TAG.Box, TAG.Laboratory, TAG.Room, TAG.Location],
+                    },
                 },
             },
-            "Server_Room": {},
+            "Server_Room": {
+                "tags": [TAG.Server, TAG.Room, TAG.Location],
+            },
         },
     },
 }
