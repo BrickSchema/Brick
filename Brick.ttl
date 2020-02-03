@@ -8577,7 +8577,7 @@ brick:Load_Shed_Status a owl:Class ;
 brick:Meter a owl:Class ;
     rdfs:label "Meter" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Meter _:has_Equipment ) ],
-        brick:Electrical_System ;
+        brick:Equipment ;
     brick:hasAssociatedTag tag:Equipment,
         tag:Meter .
 
@@ -9399,6 +9399,13 @@ brick:Discharge_Air_Temperature_Setpoint a owl:Class ;
         tag:Setpoint,
         tag:Temperature .
 
+brick:Electrical_System a owl:Class ;
+    rdfs:label "Electrical System" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Electrical _:has_System ) ],
+        brick:Equipment ;
+    brick:hasAssociatedTag tag:Electrical,
+        tag:System .
+
 brick:Enthalpy a owl:Class,
         brick:Enthalpy ;
     rdfs:label "Enthalpy" ;
@@ -9576,13 +9583,6 @@ brick:Electric_Power a owl:Class,
         brick:Electric_Power ;
     rdfs:label "Electric Power" ;
     rdfs:subClassOf brick:Power .
-
-brick:Electrical_System a owl:Class ;
-    rdfs:label "Electrical System" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Electrical _:has_System ) ],
-        brick:Equipment ;
-    brick:hasAssociatedTag tag:Electrical,
-        tag:System .
 
 brick:Exhaust_Air a owl:Class,
         brick:Exhaust_Air ;
@@ -9970,12 +9970,6 @@ tag:Emergency a brick:Tag ;
 tag:Medium a brick:Tag ;
     rdfs:label "Medium" .
 
-brick:Equipment a owl:Class ;
-    rdfs:label "Equipment" ;
-    rdfs:subClassOf _:has_Equipment,
-        brick:Class ;
-    brick:hasAssociatedTag tag:Equipment .
-
 brick:Temperature_Parameter a owl:Class ;
     rdfs:label "Temperature Parameter" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Temperature _:has_Parameter ) ],
@@ -9992,6 +9986,12 @@ tag:System a brick:Tag ;
 
 tag:Valve a brick:Tag ;
     rdfs:label "Valve" .
+
+brick:Equipment a owl:Class ;
+    rdfs:label "Equipment" ;
+    rdfs:subClassOf _:has_Equipment,
+        brick:Class ;
+    brick:hasAssociatedTag tag:Equipment .
 
 brick:Flow a owl:Class,
         brick:Flow ;
