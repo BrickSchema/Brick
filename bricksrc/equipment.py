@@ -40,43 +40,43 @@ equipment_subclasses = {
             "PlugStrip": {
                 "tags": [TAG.PlugStrip, TAG.Equipment],
             },
-            "Meter": {
-                "tags": [TAG.Meter, TAG.Equipment],
+        },
+    },
+    "Meter": {
+        "tags": [TAG.Meter, TAG.Equipment],
+        "subclasses": {
+            "Water_Meter": {
+                "tags": [TAG.Meter, TAG.Equipment, TAG.Water],
+                "parents": [BRICK.Water_System],
                 "subclasses": {
-                    "Water_Meter": {
-                        "tags": [TAG.Meter, TAG.Equipment, TAG.Water],
-                        "parents": [BRICK.Water_System],
-                        "subclasses": {
-                            "Chilled_Water_Meter": {
-                                "tags": [TAG.Meter, TAG.Equipment, TAG.Water, TAG.Chilled],
-                                "parents": [BRICK.Chilled_Water_System],
-                            },
+                    "Chilled_Water_Meter": {
+                        "tags": [TAG.Meter, TAG.Equipment, TAG.Water, TAG.Chilled],
+                        "parents": [BRICK.Chilled_Water_System],
                         },
                     },
-                    "Power_Meter": {
-                        "tags": [TAG.Meter, TAG.Equipment, TAG.Power],
-                        "parents": [BRICK.Power_System],
+                },
+            "Power_Meter": {
+                "tags": [TAG.Meter, TAG.Equipment, TAG.Power],
+                "parents": [BRICK.Power_System],
+                "subclasses": {
+                    "Thermal_Power_Meter": {
+                        "tags": [TAG.Meter, TAG.Equipment, TAG.Power, TAG.Thermal],
                         "subclasses": {
-                            "Thermal_Power_Meter": {
-                                "tags": [TAG.Meter, TAG.Equipment, TAG.Power, TAG.Thermal],
-                                "subclasses": {
-                                    "Cooling_Thermal_Power_Meter": {
-                                        "tags": [TAG.Meter, TAG.Equipment, TAG.Power, TAG.Thermal, TAG.Cooling],
-                                    },
-                                    "Heating_Thermal_Power_Meter": {
-                                        "tags": [TAG.Meter, TAG.Equipment, TAG.Power, TAG.Thermal, TAG.Heating],
-                                    },
+                            "Cooling_Thermal_Power_Meter": {
+                                "tags": [TAG.Meter, TAG.Equipment, TAG.Power, TAG.Thermal, TAG.Cooling],
+                                },
+                            "Heating_Thermal_Power_Meter": {
+                                "tags": [TAG.Meter, TAG.Equipment, TAG.Power, TAG.Thermal, TAG.Heating],
                                 },
                             },
                         },
                     },
-                    "Building_Meter": {
-                        "tags": [TAG.Meter, TAG.Equipment, TAG.Building],
-                    },
+                },
+            "Building_Meter": {
+                "tags": [TAG.Meter, TAG.Equipment, TAG.Building],
                 },
             },
         },
-    },
     "Water_System": {
         "tags": [TAG.Water, TAG.Equipment],
         "subclasses": {
