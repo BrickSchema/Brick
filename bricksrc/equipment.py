@@ -34,9 +34,6 @@ equipment_subclasses = {
             "Inverter": {
                 "tags": [TAG.Inverter, TAG.Equipment],
             },
-            "Power_System": {
-                "tags": [TAG.Power, TAG.Equipment],
-            },
             "PlugStrip": {
                 "tags": [TAG.PlugStrip, TAG.Equipment],
             },
@@ -57,7 +54,6 @@ equipment_subclasses = {
             },
             "Power_Meter": {
                 "tags": [TAG.Meter, TAG.Equipment, TAG.Power],
-                "parents": [BRICK.Power_System],
                 "subclasses": {
                     "Thermal_Power_Meter": {
                         "tags": [TAG.Meter, TAG.Equipment, TAG.Power, TAG.Thermal],
