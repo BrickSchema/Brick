@@ -2,8 +2,8 @@ Brick_expanded.ttl
 history/
 
 # test files
-tests/test_measures_inference.json
-tests/test_measures_inference.ttl
+tests/*.json
+tests/*.ttl
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
