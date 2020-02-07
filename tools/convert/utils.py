@@ -51,6 +51,7 @@ def execute_conversions(conversion, model_graph):
     namespaces = {}
     for prefix, namespace in conversion_data['namespaces'].items():
         namespaces[prefix] = Namespace(namespace)
+        model_graph.bind(prefix, Namespace(namespace), override=True)
     with tqdm(conversion_data['operations'], bar_format='{l_bar}{bar}') as operations:
         for operation in operations:
             info(operation['description'])
