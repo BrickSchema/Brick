@@ -12,6 +12,33 @@ G = Graph()
 bind_prefixes(G)
 A = RDF.type
 
+substance_subproperties = {
+    BRICK.feedsAir:  {
+        'substance': BRICK.Air,
+    },
+}
+
+def addExpectedDomainShape(propertyName, expectedType):
+    sh_prop = BNode()
+    shapename = f"{propertyName}DomainShape"
+    G.add((BSH[shapename], A, SH.NodeShape))
+    G.add((BSH[shapename], SH.targetSubjectsOf, BRICK[propertyName]))
+    G.add((BSH[shapename], SH['class'], expectedType))
+    G.add((BSH[shapename], SH['message'],
+           Literal(f"Property {propertyName} has subject with incorrect type")))
+
+def addExpectedRangeShape(propertyName, expectedType):
+    sh_prop = BNode()
+    shapename = f"{propertyName}RangeShape"
+    G.add((BSH[shapename], SH['property'], sh_prop))
+    G.add((BSH[shapename], A, SH.NodeShape))
+
+    G.add((sh_prop, SH['path'], BRICK[propertyName]))
+    G.add((sh_prop, SH['class'], expectedType))
+    G.add((BSH[shapename], SH.targetSubjectsOf, BRICK[propertyName]))
+    G.add((sh_prop, SH['message'],
+           Literal(f"Property {propertyName} has object with incorrect type")))
+
 for name, properties in property_definitions.items():
 
     for pred, obj in properties.items():
@@ -22,25 +49,13 @@ for name, properties in property_definitions.items():
         # brick:expectedDomain and :expectedRange.  See properties.py for
         # explanation.
 
-        if pred == BRICK.expectedRange:
-            shapename = f"{name}RangeShape"
-            G.add((BSH[shapename], SH['property'], sh_prop))
-            G.add((BSH[shapename], A, SH.NodeShape))
-
-            G.add((sh_prop, SH['path'], BRICK[name]))
-            G.add((sh_prop, SH['class'], obj))
-            G.add((BSH[shapename], SH.targetSubjectsOf, BRICK[name]))
-            G.add((sh_prop, SH['message'],
-                   Literal(f"Property {name} has object with incorrect type")))
-
         if pred == BRICK.expectedDomain:
-            shapename = f"{name}DomainShape"
-            G.add((BSH[shapename], A, SH.NodeShape))
-            G.add((BSH[shapename], SH.targetSubjectsOf, BRICK[name]))
-            G.add((BSH[shapename], SH['class'], obj))
-            G.add((BSH[shapename], SH['message'],
-                    Literal(f"Property {name} has subject with incorrect type")))
+            addExpectedDomainShape(name, obj)
 
+        if pred == BRICK.expectedRange:
+            addExpectedRangeShape(name, obj)
+
+        '''
         if pred == "hasSubproperty":
             for subprop, desc in obj.items():
                 for prop in desc['properties']:
@@ -55,6 +70,7 @@ for name, properties in property_definitions.items():
                            Literal(f"Subject of property {subprop} has object with incorrect type")))
 
                     G.add((BSH[shapename], SH.targetSubjectsOf, BRICK[subprop]))
+        '''
 
 with open('shacl_test.ttl', 'wb') as f:
     f.write(G.serialize(format='ttl'))
