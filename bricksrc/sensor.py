@@ -127,6 +127,24 @@ sensor_definitions = {
             },
             "Demand_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Demand],
+                "subclasses": {
+                    "Cooling_Demand_Sensor": {
+                        "tags": [TAG.Point, TAG.Sensor, TAG.Demand, TAG.Cooling],
+                        "subclasses": {
+                            "Average_Cooling_Demand_Sensor": {
+                                "tags": [TAG.Point, TAG.Sensor, TAG.Demand, TAG.Cooling, TAG.Average],
+                            },
+                        },
+                    },
+                    "Heating_Demand_Sensor": {
+                        "tags": [TAG.Point, TAG.Sensor, TAG.Demand, TAG.Heating],
+                        "subclasses": {
+                            "Average_Heating_Demand_Sensor": {
+                                "tags": [TAG.Point, TAG.Sensor, TAG.Demand, TAG.Heating, TAG.Average],
+                            },
+                        },
+                    },
+                }
             },
             "Dewpoint_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Dewpoint],
