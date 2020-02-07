@@ -126,16 +126,16 @@ parameter_definitions = {
                                         "parents": [BRICK.Temperature_Parameter],
                                         "subclasses": {
                                             "Cooling_Discharge_Air_Temperature_Integral_Time_Parameter": {
-                                                "tags": [TAG.Point, TAG.Cooling, TAG.Discharge, TAG.Air, TAG.Temperature, TAG.Integral, TAG.Time, TAG.Parameter, TAG.PID],
+                                                "tags": [TAG.Point, TAG.Cool, TAG.Discharge, TAG.Air, TAG.Temperature, TAG.Integral, TAG.Time, TAG.Parameter, TAG.PID],
                                             },
                                             "Cooling_Supply_Air_Temperature_Integral_Time_Parameter": {
-                                                "tags": [TAG.Point, TAG.Cooling, TAG.Supply, TAG.Air, TAG.Temperature, TAG.Integral, TAG.Time, TAG.Parameter, TAG.PID],
+                                                "tags": [TAG.Point, TAG.Cool, TAG.Supply, TAG.Air, TAG.Temperature, TAG.Integral, TAG.Time, TAG.Parameter, TAG.PID],
                                             },
                                             "Heating_Discharge_Air_Temperature_Integral_Time_Parameter": {
-                                                "tags": [TAG.Point, TAG.Heating, TAG.Discharge, TAG.Air, TAG.Temperature, TAG.Integral, TAG.Time, TAG.Parameter, TAG.PID],
+                                                "tags": [TAG.Point, TAG.Heat, TAG.Discharge, TAG.Air, TAG.Temperature, TAG.Integral, TAG.Time, TAG.Parameter, TAG.PID],
                                             },
                                             "Heating_Supply_Air_Temperature_Integral_Time_Parameter": {
-                                                "tags": [TAG.Point, TAG.Heating, TAG.Supply, TAG.Air, TAG.Temperature, TAG.Integral, TAG.Time, TAG.Parameter, TAG.PID],
+                                                "tags": [TAG.Point, TAG.Heat, TAG.Supply, TAG.Air, TAG.Temperature, TAG.Integral, TAG.Time, TAG.Parameter, TAG.PID],
                                             },
                                         }
                                     },
@@ -224,10 +224,10 @@ parameter_definitions = {
                                 "parents": [BRICK.Temperature_Parameter],
                                 "subclasses": {
                                     "Heating_Discharge_Air_Temperature_Proportional_Band_Parameter": {
-                                        "tags": [TAG.Point, TAG.Heating, TAG.Discharge, TAG.Air, TAG.Temperature, TAG.Proportional, TAG.Band, TAG.Parameter, TAG.PID],
+                                        "tags": [TAG.Point, TAG.Heat, TAG.Discharge, TAG.Air, TAG.Temperature, TAG.Proportional, TAG.Band, TAG.Parameter, TAG.PID],
                                     },
                                     "Cooling_Discharge_Air_Temperature_Proportional_Band_Parameter": {
-                                        "tags": [TAG.Point, TAG.Cooling, TAG.Discharge, TAG.Air, TAG.Temperature, TAG.Proportional, TAG.Band, TAG.Parameter, TAG.PID],
+                                        "tags": [TAG.Point, TAG.Cool, TAG.Discharge, TAG.Air, TAG.Temperature, TAG.Proportional, TAG.Band, TAG.Parameter, TAG.PID],
                                     },
                                 },
                             },
@@ -236,10 +236,10 @@ parameter_definitions = {
                                 "parents": [BRICK.Temperature_Parameter],
                                 "subclasses": {
                                     "Cooling_Supply_Air_Temperature_Proportional_Band_Parameter": {
-                                        "tags": [TAG.Point, TAG.Cooling, TAG.Supply, TAG.Air, TAG.Temperature, TAG.Proportional, TAG.Band, TAG.Parameter, TAG.PID],
+                                        "tags": [TAG.Point, TAG.Cool, TAG.Supply, TAG.Air, TAG.Temperature, TAG.Proportional, TAG.Band, TAG.Parameter, TAG.PID],
                                     },
                                     "Heating_Supply_Air_Temperature_Proportional_Band_Parameter": {
-                                        "tags": [TAG.Point, TAG.Heating, TAG.Supply, TAG.Air, TAG.Temperature, TAG.Proportional, TAG.Band, TAG.Parameter, TAG.PID],
+                                        "tags": [TAG.Point, TAG.Heat, TAG.Supply, TAG.Air, TAG.Temperature, TAG.Proportional, TAG.Band, TAG.Parameter, TAG.PID],
                                     },
                                 }
                             },
@@ -435,46 +435,46 @@ parameter_definitions = {
                                 "tags": [TAG.Point, TAG.Max, TAG.Air, TAG.Flow, TAG.Limit, TAG.Parameter, TAG.Setpoint],
                                 "subclasses": {
                                     "Max_Cooling_Supply_Air_Flow_Setpoint_Limit": {
-                                        "tags": [TAG.Point, TAG.Max, TAG.Cooling, TAG.Supply, TAG.Air, TAG.Flow, TAG.Limit, TAG.Parameter, TAG.Setpoint],
+                                        "tags": [TAG.Point, TAG.Max, TAG.Cool, TAG.Supply, TAG.Air, TAG.Flow, TAG.Limit, TAG.Parameter, TAG.Setpoint],
                                         "subclasses": {
                                             "Max_Occupied_Cooling_Supply_Air_Flow_Setpoint_Limit": {
-                                                "tags": [TAG.Point, TAG.Max, TAG.Occupied, TAG.Cooling, TAG.Supply, TAG.Air, TAG.Flow, TAG.Limit, TAG.Parameter, TAG.Setpoint],
+                                                "tags": [TAG.Point, TAG.Max, TAG.Occupied, TAG.Cool, TAG.Supply, TAG.Air, TAG.Flow, TAG.Limit, TAG.Parameter, TAG.Setpoint],
                                             },
                                             "Max_Unoccupied_Cooling_Supply_Air_Flow_Setpoint_Limit": {
-                                                "tags": [TAG.Point, TAG.Max, TAG.Unoccupied, TAG.Cooling, TAG.Supply, TAG.Air, TAG.Flow, TAG.Limit, TAG.Parameter, TAG.Setpoint],
+                                                "tags": [TAG.Point, TAG.Max, TAG.Unoccupied, TAG.Cool, TAG.Supply, TAG.Air, TAG.Flow, TAG.Limit, TAG.Parameter, TAG.Setpoint],
                                             },
                                         },
                                     },
                                     "Max_Cooling_Discharge_Air_Flow_Setpoint_Limit": {
-                                        "tags": [TAG.Point, TAG.Max, TAG.Cooling, TAG.Discharge, TAG.Air, TAG.Flow, TAG.Limit, TAG.Parameter, TAG.Setpoint],
+                                        "tags": [TAG.Point, TAG.Max, TAG.Cool, TAG.Discharge, TAG.Air, TAG.Flow, TAG.Limit, TAG.Parameter, TAG.Setpoint],
                                         "subclasses": {
                                             "Max_Occupied_Cooling_Discharge_Air_Flow_Setpoint_Limit": {
-                                                "tags": [TAG.Point, TAG.Max, TAG.Occupied, TAG.Cooling, TAG.Discharge, TAG.Air, TAG.Flow, TAG.Limit, TAG.Parameter, TAG.Setpoint],
+                                                "tags": [TAG.Point, TAG.Max, TAG.Occupied, TAG.Cool, TAG.Discharge, TAG.Air, TAG.Flow, TAG.Limit, TAG.Parameter, TAG.Setpoint],
                                             },
                                             "Max_Unoccupied_Cooling_Discharge_Air_Flow_Setpoint_Limit": {
-                                                "tags": [TAG.Point, TAG.Max, TAG.Unoccupied, TAG.Cooling, TAG.Discharge, TAG.Air, TAG.Flow, TAG.Limit, TAG.Parameter, TAG.Setpoint],
+                                                "tags": [TAG.Point, TAG.Max, TAG.Unoccupied, TAG.Cool, TAG.Discharge, TAG.Air, TAG.Flow, TAG.Limit, TAG.Parameter, TAG.Setpoint],
                                             },
                                         },
                                     },
                                     "Max_Heating_Supply_Air_Flow_Setpoint_Limit": {
-                                        "tags": [TAG.Point, TAG.Max, TAG.Heating, TAG.Supply, TAG.Air, TAG.Flow, TAG.Limit, TAG.Parameter, TAG.Setpoint],
+                                        "tags": [TAG.Point, TAG.Max, TAG.Heat, TAG.Supply, TAG.Air, TAG.Flow, TAG.Limit, TAG.Parameter, TAG.Setpoint],
                                         "subclasses": {
                                             "Max_Occupied_Heating_Supply_Air_Flow_Setpoint_Limit": {
-                                                "tags": [TAG.Point, TAG.Max, TAG.Occupied, TAG.Heating, TAG.Supply, TAG.Air, TAG.Flow, TAG.Limit, TAG.Parameter, TAG.Setpoint],
+                                                "tags": [TAG.Point, TAG.Max, TAG.Occupied, TAG.Heat, TAG.Supply, TAG.Air, TAG.Flow, TAG.Limit, TAG.Parameter, TAG.Setpoint],
                                             },
                                             "Max_Unoccupied_Heating_Supply_Air_Flow_Setpoint_Limit": {
-                                                "tags": [TAG.Point, TAG.Max, TAG.Unoccupied, TAG.Heating, TAG.Supply, TAG.Air, TAG.Flow, TAG.Limit, TAG.Parameter, TAG.Setpoint],
+                                                "tags": [TAG.Point, TAG.Max, TAG.Unoccupied, TAG.Heat, TAG.Supply, TAG.Air, TAG.Flow, TAG.Limit, TAG.Parameter, TAG.Setpoint],
                                             },
                                         },
                                     },
                                     "Max_Heating_Discharge_Air_Flow_Setpoint_Limit": {
-                                        "tags": [TAG.Point, TAG.Max, TAG.Heating, TAG.Discharge, TAG.Air, TAG.Flow, TAG.Limit, TAG.Parameter, TAG.Setpoint],
+                                        "tags": [TAG.Point, TAG.Max, TAG.Heat, TAG.Discharge, TAG.Air, TAG.Flow, TAG.Limit, TAG.Parameter, TAG.Setpoint],
                                         "subclasses": {
                                             "Max_Occupied_Heating_Discharge_Air_Flow_Setpoint_Limit": {
-                                                "tags": [TAG.Point, TAG.Max, TAG.Occupied, TAG.Heating, TAG.Discharge, TAG.Air, TAG.Flow, TAG.Limit, TAG.Parameter, TAG.Setpoint],
+                                                "tags": [TAG.Point, TAG.Max, TAG.Occupied, TAG.Heat, TAG.Discharge, TAG.Air, TAG.Flow, TAG.Limit, TAG.Parameter, TAG.Setpoint],
                                             },
                                             "Max_Unoccupied_Heating_Discharge_Air_Flow_Setpoint_Limit": {
-                                                "tags": [TAG.Point, TAG.Max, TAG.Unoccupied, TAG.Heating, TAG.Discharge, TAG.Air, TAG.Flow, TAG.Limit, TAG.Parameter, TAG.Setpoint],
+                                                "tags": [TAG.Point, TAG.Max, TAG.Unoccupied, TAG.Heat, TAG.Discharge, TAG.Air, TAG.Flow, TAG.Limit, TAG.Parameter, TAG.Setpoint],
                                             },
                                         },
                                     },
@@ -522,46 +522,46 @@ parameter_definitions = {
                                         "tags": [TAG.Point, TAG.Min, TAG.Outside, TAG.Air, TAG.Flow, TAG.Limit, TAG.Parameter, TAG.Setpoint],
                                     },
                                     "Min_Cooling_Supply_Air_Flow_Setpoint_Limit": {
-                                        "tags": [TAG.Point, TAG.Min, TAG.Cooling, TAG.Supply, TAG.Air, TAG.Flow, TAG.Limit, TAG.Parameter, TAG.Setpoint],
+                                        "tags": [TAG.Point, TAG.Min, TAG.Cool, TAG.Supply, TAG.Air, TAG.Flow, TAG.Limit, TAG.Parameter, TAG.Setpoint],
                                         "subclasses": {
                                             "Min_Occupied_Cooling_Supply_Air_Flow_Setpoint_Limit": {
-                                                "tags": [TAG.Point, TAG.Min, TAG.Occupied, TAG.Cooling, TAG.Supply, TAG.Air, TAG.Flow, TAG.Limit, TAG.Parameter, TAG.Setpoint],
+                                                "tags": [TAG.Point, TAG.Min, TAG.Occupied, TAG.Cool, TAG.Supply, TAG.Air, TAG.Flow, TAG.Limit, TAG.Parameter, TAG.Setpoint],
                                             },
                                             "Min_Unoccupied_Cooling_Supply_Air_Flow_Setpoint_Limit": {
-                                                "tags": [TAG.Point, TAG.Min, TAG.Unoccupied, TAG.Cooling, TAG.Supply, TAG.Air, TAG.Flow, TAG.Limit, TAG.Parameter, TAG.Setpoint],
+                                                "tags": [TAG.Point, TAG.Min, TAG.Unoccupied, TAG.Cool, TAG.Supply, TAG.Air, TAG.Flow, TAG.Limit, TAG.Parameter, TAG.Setpoint],
                                             },
                                         },
                                     },
                                     "Min_Cooling_Discharge_Air_Flow_Setpoint_Limit": {
-                                        "tags": [TAG.Point, TAG.Min, TAG.Cooling, TAG.Discharge, TAG.Air, TAG.Flow, TAG.Limit, TAG.Parameter, TAG.Setpoint],
+                                        "tags": [TAG.Point, TAG.Min, TAG.Cool, TAG.Discharge, TAG.Air, TAG.Flow, TAG.Limit, TAG.Parameter, TAG.Setpoint],
                                         "subclasses": {
                                             "Min_Occupied_Cooling_Discharge_Air_Flow_Setpoint_Limit": {
-                                                "tags": [TAG.Point, TAG.Min, TAG.Occupied, TAG.Cooling, TAG.Discharge, TAG.Air, TAG.Flow, TAG.Limit, TAG.Parameter, TAG.Setpoint],
+                                                "tags": [TAG.Point, TAG.Min, TAG.Occupied, TAG.Cool, TAG.Discharge, TAG.Air, TAG.Flow, TAG.Limit, TAG.Parameter, TAG.Setpoint],
                                             },
                                             "Min_Unoccupied_Cooling_Discharge_Air_Flow_Setpoint_Limit": {
-                                                "tags": [TAG.Point, TAG.Min, TAG.Unoccupied, TAG.Cooling, TAG.Discharge, TAG.Air, TAG.Flow, TAG.Limit, TAG.Parameter, TAG.Setpoint],
+                                                "tags": [TAG.Point, TAG.Min, TAG.Unoccupied, TAG.Cool, TAG.Discharge, TAG.Air, TAG.Flow, TAG.Limit, TAG.Parameter, TAG.Setpoint],
                                             },
                                         },
                                     },
                                     "Min_Heating_Supply_Air_Flow_Setpoint_Limit": {
-                                        "tags": [TAG.Point, TAG.Min, TAG.Heating, TAG.Supply, TAG.Air, TAG.Flow, TAG.Limit, TAG.Parameter, TAG.Setpoint],
+                                        "tags": [TAG.Point, TAG.Min, TAG.Heat, TAG.Supply, TAG.Air, TAG.Flow, TAG.Limit, TAG.Parameter, TAG.Setpoint],
                                         "subclasses": {
                                             "Min_Occupied_Heating_Supply_Air_Flow_Setpoint_Limit": {
-                                                "tags": [TAG.Point, TAG.Min, TAG.Occupied, TAG.Heating, TAG.Supply, TAG.Air, TAG.Flow, TAG.Limit, TAG.Parameter, TAG.Setpoint],
+                                                "tags": [TAG.Point, TAG.Min, TAG.Occupied, TAG.Heat, TAG.Supply, TAG.Air, TAG.Flow, TAG.Limit, TAG.Parameter, TAG.Setpoint],
                                             },
                                             "Min_Unoccupied_Heating_Supply_Air_Flow_Setpoint_Limit": {
-                                                "tags": [TAG.Point, TAG.Min, TAG.Unoccupied, TAG.Heating, TAG.Supply, TAG.Air, TAG.Flow, TAG.Limit, TAG.Parameter, TAG.Setpoint],
+                                                "tags": [TAG.Point, TAG.Min, TAG.Unoccupied, TAG.Heat, TAG.Supply, TAG.Air, TAG.Flow, TAG.Limit, TAG.Parameter, TAG.Setpoint],
                                             },
                                         },
                                     },
                                     "Min_Heating_Discharge_Air_Flow_Setpoint_Limit": {
-                                        "tags": [TAG.Point, TAG.Min, TAG.Heating, TAG.Discharge, TAG.Air, TAG.Flow, TAG.Limit, TAG.Parameter, TAG.Setpoint],
+                                        "tags": [TAG.Point, TAG.Min, TAG.Heat, TAG.Discharge, TAG.Air, TAG.Flow, TAG.Limit, TAG.Parameter, TAG.Setpoint],
                                         "subclasses": {
                                             "Min_Occupied_Heating_Discharge_Air_Flow_Setpoint_Limit": {
-                                                "tags": [TAG.Point, TAG.Min, TAG.Occupied, TAG.Heating, TAG.Discharge, TAG.Air, TAG.Flow, TAG.Limit, TAG.Parameter, TAG.Setpoint],
+                                                "tags": [TAG.Point, TAG.Min, TAG.Occupied, TAG.Heat, TAG.Discharge, TAG.Air, TAG.Flow, TAG.Limit, TAG.Parameter, TAG.Setpoint],
                                             },
                                             "Min_Unoccupied_Heating_Discharge_Air_Flow_Setpoint_Limit": {
-                                                "tags": [TAG.Point, TAG.Min, TAG.Unoccupied, TAG.Heating, TAG.Discharge, TAG.Air, TAG.Flow, TAG.Limit, TAG.Parameter, TAG.Setpoint],
+                                                "tags": [TAG.Point, TAG.Min, TAG.Unoccupied, TAG.Heat, TAG.Discharge, TAG.Air, TAG.Flow, TAG.Limit, TAG.Parameter, TAG.Setpoint],
                                             },
                                         },
                                     },

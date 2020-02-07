@@ -7,7 +7,7 @@ Set up subclasses of the equipment superclass
 equipment_subclasses = {
     "HVAC": {
         OWL.equivalentClass: BRICK["Heating_Ventilation_Air_Conditioning_System"],
-        "tags": [TAG.Heating, TAG.Ventilation, TAG.Air, TAG.Conditioning, TAG.System],
+        "tags": [TAG.Heat, TAG.Ventilation, TAG.Air, TAG.Conditioning, TAG.System],
     },
     "Heating_Ventilation_Air_Conditioning_System": {
         OWL.equivalentClass: BRICK["HVAC"],
@@ -61,10 +61,10 @@ equipment_subclasses = {
                                 "tags": [TAG.Meter, TAG.Equipment, TAG.Power, TAG.Thermal],
                                 "subclasses": {
                                     "Cooling_Thermal_Power_Meter": {
-                                        "tags": [TAG.Meter, TAG.Equipment, TAG.Power, TAG.Thermal, TAG.Cooling],
+                                        "tags": [TAG.Meter, TAG.Equipment, TAG.Power, TAG.Thermal, TAG.Cool],
                                     },
                                     "Heating_Thermal_Power_Meter": {
-                                        "tags": [TAG.Meter, TAG.Equipment, TAG.Power, TAG.Thermal, TAG.Heating],
+                                        "tags": [TAG.Meter, TAG.Equipment, TAG.Power, TAG.Thermal, TAG.Heat],
                                     },
                                 },
                             },
@@ -278,7 +278,7 @@ hvac_subclasses = {
         "tags": [TAG.Equipment, TAG.Fan],
         "subclasses": {
             "Cooling_Tower_Fan": {
-                "tags": [TAG.Cooling, TAG.Tower, TAG.Equipment, TAG.Fan],
+                "tags": [TAG.Cool, TAG.Tower, TAG.Equipment, TAG.Fan],
             },
             "Exhaust_Fan": {
                 "tags": [TAG.Equipment, TAG.Fan, TAG.Exhaust],
