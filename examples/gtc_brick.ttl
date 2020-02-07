@@ -195,7 +195,7 @@ brick:CRAC rdfs:subClassOf [ a owl:Restriction ;
 brick:CRAC_Temperature a owl:Class ;
     rdfs:label "CRAC Temperature"@en ;
     rdfs:subClassOf brick:Temperature ;
-    brickframe:usesTag btag:CRAC,
+    brickframe:hasTag btag:CRAC,
         btag:Temperature .
 
 brick:Chilled_Water_Differential_Pressure rdfs:subClassOf brick:Differential_Pressure .
@@ -208,7 +208,7 @@ brick:Chilled_Water_Return_Temperature rdfs:subClassOf brick:Temperature .
 brick:Chilled_Water_Supply_Return_Differential_Temperature a owl:Class ;
     rdfs:label "Chilled Water Supply Return Differential Temperature"@en ;
     rdfs:subClassOf brick:Differential_Temperature ;
-    brickframe:usesTag btag:Chilled,
+    brickframe:hasTag btag:Chilled,
         btag:Differential,
         btag:Return,
         btag:Supply,
@@ -242,7 +242,7 @@ brick:Chiller_Discharge_Water_Temperature_Alarm rdfs:label "Chiller Supply Water
 brick:Cold_Box_Temperature a owl:Class ;
     rdfs:label "Cold Box Temperature"@en ;
     rdfs:subClassOf brick:Temperature ;
-    brickframe:usesTag btag:Box,
+    brickframe:hasTag btag:Box,
         btag:Cold,
         btag:Temperature .
 
@@ -361,7 +361,7 @@ brick:Emergency_Generator rdfs:subClassOf [ a owl:Restriction ;
 brick:Environment_Box_Temperature a owl:Class ;
     rdfs:label "Environment Box Temperature"@en ;
     rdfs:subClassOf brick:Temperature ;
-    brickframe:usesTag btag:Box,
+    brickframe:hasTag btag:Box,
         btag:Environment,
         btag:Temperature .
 
@@ -459,14 +459,14 @@ brick:FCU rdfs:subClassOf [ a owl:Restriction ;
 brick:Fan_Air_Flow a owl:Class ;
     rdfs:label "Fan Air Flow"@en ;
     rdfs:subClassOf brick:Air_Flow ;
-    brickframe:usesTag btag:Air,
+    brickframe:hasTag btag:Air,
         btag:Fan,
         btag:Flow .
 
 brick:Filter_Differential_Pressure a owl:Class ;
     rdfs:label "Filter Differential Pressure"@en ;
     rdfs:subClassOf brick:Differential_Pressure ;
-    brickframe:usesTag btag:Differential,
+    brickframe:hasTag btag:Differential,
         btag:Filter,
         btag:Pressure .
 
@@ -499,7 +499,7 @@ brick:Fire_Control_Panel rdfs:subClassOf [ a owl:Restriction ;
 brick:Freezer_Temperature a owl:Class ;
     rdfs:label "Freezer Temperature"@en ;
     rdfs:subClassOf brick:Temperature ;
-    brickframe:usesTag btag:Freezer,
+    brickframe:hasTag btag:Freezer,
         btag:Temperature .
 
 brick:Fume_Hood rdfs:subClassOf [ a owl:Restriction ;
@@ -660,7 +660,7 @@ brick:Heat_Request_Setpoint a owl:Class ;
     rdfs:label "Heating Demand Setpoint"@en ;
     rdfs:subClassOf brick:Demand_Setpoint ;
     owl:equivalentClass brick:Heating_Demand_Setpoint ;
-    brickframe:usesTag btag:Heat,
+    brickframe:hasTag btag:Heat,
         btag:Request,
         btag:Setpoint .
 
@@ -683,7 +683,7 @@ brick:High_Temperature_Hot_Water_Supply_Temperature rdfs:subClassOf brick:Hot_Wa
 brick:Hot_Box_Temperature a owl:Class ;
     rdfs:label "Hot Box Temperature"@en ;
     rdfs:subClassOf brick:Temperature ;
-    brickframe:usesTag btag:Box,
+    brickframe:hasTag btag:Box,
         btag:Hot,
         btag:Temperature .
 
@@ -723,56 +723,56 @@ brick:Output_Voltage rdfs:subClassOf brick:Voltage ;
 brick:Outside_Air_CO2 a owl:Class ;
     rdfs:label "Outside Air CO2"@en ;
     rdfs:subClassOf brick:CO2 ;
-    brickframe:usesTag btag:Air,
+    brickframe:hasTag btag:Air,
         btag:CO2,
         btag:Outside .
 
 brick:Outside_Air_Dewpoint a owl:Class ;
     rdfs:label "Outside Air Dewpoint"@en ;
     rdfs:subClassOf brick:Dewpoint ;
-    brickframe:usesTag btag:Air,
+    brickframe:hasTag btag:Air,
         btag:Dewpoint,
         btag:Outside .
 
 brick:Outside_Air_Enthalpy a owl:Class ;
     rdfs:label "Outside Air Enthalpy"@en ;
     rdfs:subClassOf brick:Enthalpy ;
-    brickframe:usesTag btag:Air,
+    brickframe:hasTag btag:Air,
         btag:Enthalpy,
         btag:Outside .
 
 brick:Outside_Air_Flow a owl:Class ;
     rdfs:label "Outside Air Flow"@en ;
     rdfs:subClassOf brick:Air_Flow ;
-    brickframe:usesTag btag:Air,
+    brickframe:hasTag btag:Air,
         btag:Flow,
         btag:Outside .
 
 brick:Outside_Air_Grains a owl:Class ;
     rdfs:label "Outside Air Grains"@en ;
     rdfs:subClassOf brick:Grains ;
-    brickframe:usesTag btag:Air,
+    brickframe:hasTag btag:Air,
         btag:Grains,
         btag:Outside .
 
 brick:Outside_Air_Humidity a owl:Class ;
     rdfs:label "Outside Air Humidity"@en ;
     rdfs:subClassOf brick:Humidity ;
-    brickframe:usesTag btag:Air,
+    brickframe:hasTag btag:Air,
         btag:Humidity,
         btag:Outside .
 
 brick:Outside_Air_Temperature a owl:Class ;
     rdfs:label "Outside Air Temperature"@en ;
     rdfs:subClassOf brick:Temperature ;
-    brickframe:usesTag btag:Air,
+    brickframe:hasTag btag:Air,
         btag:Outside,
         btag:Temperature .
 
 brick:Outside_Enthalpy a owl:Class ;
     rdfs:label "Outside Enthalpy"@en ;
     rdfs:subClassOf brick:Enthalpy ;
-    brickframe:usesTag btag:Enthalpy,
+    brickframe:hasTag btag:Enthalpy,
         btag:Outside .
 
 brick:Outside_Luminance_Sensor rdfs:subClassOf brick:Sensor .
@@ -790,18 +790,18 @@ brick:Power_System rdfs:subClassOf [ a owl:Restriction ;
             owl:someValuesFrom brick:Peak_Power_Demand_Sensor ] .
 
 brick:Preheat_Coil_Leaving_Water_Temperature_Sensor rdfs:label "PreHeat Coil Leaving Water Temperature Sensor"@en ;
-    brickframe:usesTag btag:PreHeat .
+    brickframe:hasTag btag:PreHeat .
 
 brick:Preheat_Discharge_Air_Temperature rdfs:subClassOf brick:Temperature ;
     owl:equivalentClass brick:Preheat_Supply_Air_Temperature .
 
 brick:Preheat_Hot_Water_Valve rdfs:label "PreHeat Hot Water Valve"@en ;
-    brickframe:usesTag btag:PreHeat .
+    brickframe:hasTag btag:PreHeat .
 
 brick:Preheat_Supply_Air_Temperature_Sensor rdfs:subClassOf brick:Temperature_Sensor .
 
 brick:Preheat_Valve_VFD rdfs:label "PreHeat Valve VFD"@en ;
-    brickframe:usesTag btag:PreHeat .
+    brickframe:hasTag btag:PreHeat .
 
 brick:Relative_Humidity rdfs:subClassOf brick:Humidity .
 
@@ -925,7 +925,7 @@ brick:Supply_Fan_Piezoelectric rdfs:subClassOf brick:Piezoelectric .
 brick:Thermal_Energy a owl:Class ;
     rdfs:label "Thermal Energy"@en ;
     rdfs:subClassOf brick:Energy ;
-    brickframe:usesTag btag:Energy,
+    brickframe:hasTag btag:Energy,
         btag:Thermal .
 
 brick:Thermal_Energy_Storage rdfs:subClassOf [ a owl:Restriction ;
@@ -1115,7 +1115,7 @@ brick:Wind_Speed rdfs:subClassOf brick:Speed .
 brick:Zone_Temperature a owl:Class ;
     rdfs:label "Zone Temperature"@en ;
     rdfs:subClassOf brick:Temperature ;
-    brickframe:usesTag btag:Temperature,
+    brickframe:hasTag btag:Temperature,
         btag:Zone .
 
 brickframe:Label rdfs:subClassOf [ a owl:Restriction ;
@@ -4878,7 +4878,7 @@ brick:Differential_Pressure_Proportional_Band a owl:Class ;
     rdfs:subClassOf brick:Proportional_Band_Setpoint .
 
 brick:Discharge_Air_Flow owl:equivalentClass brick:Supply_Air_Flow ;
-    brickframe:usesTag btag:Air,
+    brickframe:hasTag btag:Air,
         btag:Discharge,
         btag:Flow .
 
@@ -4905,7 +4905,7 @@ brick:Domestic_Hot_Water_Valve_Command rdfs:subClassOf brick:Valve_Command .
 brick:DualBand_Mode_Setpoint a owl:Class ;
     rdfs:label "Dual_Band Mode Setpoint"@en ;
     rdfs:subClassOf brick:Mode_Setpoint ;
-    brickframe:usesTag btag:Dual_Band,
+    brickframe:hasTag btag:Dual_Band,
         btag:Mode,
         btag:Setpoint .
 
@@ -4919,9 +4919,9 @@ brick:Emergency_Power_Off_Switch_Command rdfs:subClassOf brick:Command .
 
 brick:Emergency_Power_Off_System_Enable_Status rdfs:subClassOf brick:Emergency_Power_Off_Status .
 
-brick:Energy brickframe:usesTag btag:Energy .
+brick:Energy brickframe:hasTag btag:Energy .
 
-brick:Exhaust_Air_Flow brickframe:usesTag btag:Air,
+brick:Exhaust_Air_Flow brickframe:hasTag btag:Air,
         btag:Exhaust,
         btag:Flow .
 
@@ -4958,7 +4958,7 @@ brick:Heat_Exchanger_Supply_Water_Temperature_Setpoint owl:equivalentClass brick
 brick:Heat_Request_Percent_Setpoint a owl:Class ;
     rdfs:label "Heat Request Percent Setpoint"@en ;
     rdfs:subClassOf brick:Demand_Setpoint ;
-    brickframe:usesTag btag:Heat,
+    brickframe:hasTag btag:Heat,
         btag:Percent,
         btag:Request,
         btag:Setpoint .
@@ -4973,7 +4973,7 @@ brick:High_Humidity_Alarm_Setpoint rdfs:subClassOf brick:Setpoint .
 
 brick:High_Temperature_Alarm_Setpoint rdfs:subClassOf brick:Setpoint .
 
-brick:Hot_Water_Differential_Pressure brickframe:usesTag btag:Differential,
+brick:Hot_Water_Differential_Pressure brickframe:hasTag btag:Differential,
         btag:Hot,
         btag:Pressure,
         btag:Water .
@@ -5028,17 +5028,17 @@ brick:PV_Current_Output rdfs:label "Photovoltaic Current Output"@en ;
 brick:PV_System_Output a owl:Class ;
     rdfs:label "Photovoltaic Current Output"@en ;
     rdfs:subClassOf brick:Current ;
-    brickframe:usesTag btag:Output,
+    brickframe:hasTag btag:Output,
         btag:PV,
         btag:System .
 
 brick:Perimeter_Heating_Valve_Command rdfs:subClassOf brick:Valve_Command .
 
 brick:Preheat_Coil_Entering_Air_Temperature_Sensor rdfs:label "PreHeat Coil Entering Air Temperature Sensor"@en ;
-    brickframe:usesTag btag:PreHeat .
+    brickframe:hasTag btag:PreHeat .
 
 brick:Preheat_Demand_Setpoint rdfs:label "PreHeat Demand Setpoint"@en ;
-    brickframe:usesTag btag:PreHeat .
+    brickframe:hasTag btag:PreHeat .
 
 brick:Preheat_Discharge_Air_Temperature_Sensor rdfs:subClassOf brick:Temperature_Sensor .
 
@@ -5046,13 +5046,13 @@ brick:Preheat_Supply_Air_Temperature rdfs:label "Preheat Discharge Air Temperatu
     rdfs:subClassOf brick:Temperature .
 
 brick:Preheat_Valve_Command rdfs:label "PreHeat Valve Command"@en ;
-    brickframe:usesTag btag:PreHeat .
+    brickframe:hasTag btag:PreHeat .
 
 brick:Pump_Status rdfs:subClassOf brick:Start_Stop_Status .
 
 brick:Rain_Duration_Sensor rdfs:subClassOf brick:Sensor .
 
-brick:Return_Air_Flow brickframe:usesTag btag:Air,
+brick:Return_Air_Flow brickframe:hasTag btag:Air,
         btag:Flow,
         btag:Return .
 
@@ -5097,7 +5097,7 @@ brick:Thermal_Energy_Storage_Supply_Water_Differential_Pressure_Proportional_Ban
 brick:VFD_Voltage a owl:Class ;
     rdfs:label "Output Voltage"@en ;
     rdfs:subClassOf brick:Voltage ;
-    brickframe:usesTag btag:VFD,
+    brickframe:hasTag btag:VFD,
         btag:Voltage .
 
 brick:Water_Supply_Temperature_Sensor owl:equivalentClass brick:Water_Discharge_Temperature_Sensor .
@@ -11143,12 +11143,12 @@ brick:Filter rdfs:subClassOf [ a owl:Restriction ;
             owl:onProperty brickframe:hasPoint ;
             owl:someValuesFrom brick:Filter_Differential_Pressure_Sensor ] .
 
-brick:Hot_Water_Return_Temperature brickframe:usesTag btag:Hot,
+brick:Hot_Water_Return_Temperature brickframe:hasTag btag:Hot,
         btag:Return,
         btag:Temperature,
         btag:Water .
 
-brick:Hot_Water_Supply_Temperature brickframe:usesTag btag:Hot,
+brick:Hot_Water_Supply_Temperature brickframe:hasTag btag:Hot,
         btag:Supply,
         btag:Temperature,
         btag:Water .
