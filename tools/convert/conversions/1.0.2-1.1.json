@@ -1439,6 +1439,14 @@
     },
     {
       "description": "Add brick:Air_Flow_Sensor",
+      "query": "INSERT{ ?subject ?predicate brick:Air_Flow_Sensor . } WHERE { ?subject  ?predicate  brick_v_1_0_2:Booster_Fan_Air_Flow_Sensor . }"
+    },
+    {
+      "description": "Remove brick:Booster_Fan_Air_Flow_Sensor",
+      "query": "DELETE{ ?subject ?predicate brick_v_1_0_2:Booster_Fan_Air_Flow_Sensor . } WHERE { ?subject  ?predicate  brick_v_1_0_2:Booster_Fan_Air_Flow_Sensor . }"
+    },
+    {
+      "description": "Add brick:Air_Flow_Sensor",
       "query": "INSERT{ ?subject ?predicate brick:Air_Flow_Sensor . } WHERE { ?subject  ?predicate  brick_v_1_0_2:Booster_Fan_Air_Flow . }"
     },
     {
@@ -5214,6 +5222,14 @@
       "query": "DELETE{ ?subject ?predicate brick_v_1_0_2:High_Humidity_Alarm . } WHERE { ?subject  ?predicate  brick_v_1_0_2:High_Humidity_Alarm . }"
     },
     {
+      "description": "Add brick:High_Humidity_Alarm_Parameter",
+      "query": "INSERT{ ?subject ?predicate brick:High_Humidity_Alarm_Parameter . } WHERE { ?subject  ?predicate  brick_v_1_0_2:High_Humidity_Alarm_Setpoint . }"
+    },
+    {
+      "description": "Remove brick:High_Humidity_Alarm_Setpoint",
+      "query": "DELETE{ ?subject ?predicate brick_v_1_0_2:High_Humidity_Alarm_Setpoint . } WHERE { ?subject  ?predicate  brick_v_1_0_2:High_Humidity_Alarm_Setpoint . }"
+    },
+    {
       "description": "Add brick:High_Static_Pressure_Cutout_Setpoint_Limit",
       "query": "INSERT{ ?subject ?predicate brick:High_Static_Pressure_Cutout_Setpoint_Limit . } WHERE { ?subject  ?predicate  brick_v_1_0_2:High_Static_Pressure_Cutout_Limit . }"
     },
@@ -5732,6 +5748,14 @@
     {
       "description": "Remove brick:Low_Humidity_Alarm",
       "query": "DELETE{ ?subject ?predicate brick_v_1_0_2:Low_Humidity_Alarm . } WHERE { ?subject  ?predicate  brick_v_1_0_2:Low_Humidity_Alarm . }"
+    },
+    {
+      "description": "Add brick:Low_Humidity_Alarm_Parameter",
+      "query": "INSERT{ ?subject ?predicate brick:Low_Humidity_Alarm_Parameter . } WHERE { ?subject  ?predicate  brick_v_1_0_2:Low_Humidity_Alarm_Setpoint . }"
+    },
+    {
+      "description": "Remove brick:Low_Humidity_Alarm_Setpoint",
+      "query": "DELETE{ ?subject ?predicate brick_v_1_0_2:Low_Humidity_Alarm_Setpoint . } WHERE { ?subject  ?predicate  brick_v_1_0_2:Low_Humidity_Alarm_Setpoint . }"
     },
     {
       "description": "Add brick:Low_Outside_Air_Temperature_Enable_Differential_Sensor",
@@ -7206,6 +7230,14 @@
       "query": "DELETE{ ?subject ?predicate brick_v_1_0_2:Return_Fan . } WHERE { ?subject  ?predicate  brick_v_1_0_2:Return_Fan . }"
     },
     {
+      "description": "Add brick:Air_Flow_Sensor",
+      "query": "INSERT{ ?subject ?predicate brick:Air_Flow_Sensor . } WHERE { ?subject  ?predicate  brick_v_1_0_2:Return_Fan_Air_Flow_Sensor . }"
+    },
+    {
+      "description": "Remove brick:Return_Fan_Air_Flow_Sensor",
+      "query": "DELETE{ ?subject ?predicate brick_v_1_0_2:Return_Fan_Air_Flow_Sensor . } WHERE { ?subject  ?predicate  brick_v_1_0_2:Return_Fan_Air_Flow_Sensor . }"
+    },
+    {
       "description": "Add brick:Command",
       "query": "INSERT{ ?subject ?predicate brick:Command . } WHERE { ?subject  ?predicate  brick_v_1_0_2:Return_Fan_Command . }"
     },
@@ -7924,6 +7956,14 @@
     {
       "description": "Remove brick:Supply_Fan",
       "query": "DELETE{ ?subject ?predicate brick_v_1_0_2:Supply_Fan . } WHERE { ?subject  ?predicate  brick_v_1_0_2:Supply_Fan . }"
+    },
+    {
+      "description": "Add brick:Air_Flow_Sensor",
+      "query": "INSERT{ ?subject ?predicate brick:Air_Flow_Sensor . } WHERE { ?subject  ?predicate  brick_v_1_0_2:Supply_Fan_Air_Flow_Sensor . }"
+    },
+    {
+      "description": "Remove brick:Supply_Fan_Air_Flow_Sensor",
+      "query": "DELETE{ ?subject ?predicate brick_v_1_0_2:Supply_Fan_Air_Flow_Sensor . } WHERE { ?subject  ?predicate  brick_v_1_0_2:Supply_Fan_Air_Flow_Sensor . }"
     },
     {
       "description": "Add brick:Command",
