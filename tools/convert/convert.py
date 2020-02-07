@@ -52,8 +52,6 @@ def convert(source=args.source, target=args.target, models=args.models):
             for model in models:
                 print('\n\nUpdating {}...'.format(model))
 
-                # Create a model.bak
-                backup(model)
                 standardize_namespaces(model)
 
                 # Execute all conversions
@@ -62,9 +60,9 @@ def convert(source=args.source, target=args.target, models=args.models):
                     model_graph.parse(model, format='turtle')
                     print("Converting to {}...".format(conversion[1]))
                     execute_conversions(conversion, model_graph)
-                    model_graph.serialize(model, format='turtle')
-                    bump_versions(model, conversion[0], conversion[1])
-                print('Output stored: {}'.format(model))
+                    output = get_output_filename(model, conversion[1])
+                    model_graph.serialize(output, format='turtle')
+                print('Output stored: {}'.format(output))
         else:
             print("No conversions available from {} to {}.".format(source, target))
 

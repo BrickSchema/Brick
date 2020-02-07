@@ -67,17 +67,9 @@ def standardize_namespaces(filename):
         f.write(standardized_turtle)
 
 
-def bump_versions(filename, source, target):
-    # This function updates the version numbers of the model.
-    with open(filename) as f:
-        updated_turtle = f.read().replace('https://brickschema.org/schema/{}/Brick'.format(source),
-                                   'https://brickschema.org/schema/{}/Brick'.format(target))
-
-    with open(filename, "w") as f:
-        f.write(updated_turtle)
-
-
-def backup(model):
-    # The models are backed up as $modelname.bak in the same directory
-    backup_file = '{}.bak'.format(model)
-    copyfile(model, backup_file)
+def get_output_filename(filename, version):
+    # This function returns an output filename
+    if (len(filename) > 2) and filename[-4:].lower() == '.ttl':
+        return filename[:-4] + "(v%s)" % version + filename[-4:]
+    else:
+        return filename + "v%s" % version + ".ttl"
