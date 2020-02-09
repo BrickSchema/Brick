@@ -34,7 +34,7 @@ As an example, try `./validate.sh sample_graph.ttl`.
 ## Brick SHACL shapes
 
 Those are the rules focusing on certain type of triples in the building graph and enforcing restrictions.  The
-examples below declare shapes in the `bsh` ("brickshape") namespace for clarity.
+examples below declare shapes in the `bsh` ("brickshape" ) namespace (`https://brickschema.org/schema/1.1/BrickShape#`) for clarity.
 
 ### Property Constraints
 
