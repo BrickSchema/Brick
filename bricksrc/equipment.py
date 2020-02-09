@@ -52,24 +52,10 @@ equipment_subclasses = {
                     },
                 },
             },
-            "Power_Meter": {
-                "tags": [TAG.Meter, TAG.Equipment, TAG.Power],
-                "subclasses": {
-                    "Thermal_Power_Meter": {
-                        "tags": [TAG.Meter, TAG.Equipment, TAG.Power, TAG.Thermal],
-                        "subclasses": {
-                            "Cooling_Thermal_Power_Meter": {
-                                "tags": [TAG.Meter, TAG.Equipment, TAG.Power, TAG.Thermal, TAG.Cooling],
-                            },
-                            "Heating_Thermal_Power_Meter": {
-                                "tags": [TAG.Meter, TAG.Equipment, TAG.Power, TAG.Thermal, TAG.Heating],
-                            },
-                        },
-                    },
-                },
-            },
             "Building_Meter": {
                 "tags": [TAG.Meter, TAG.Equipment, TAG.Building],
+                "subclasses": {
+                }
             },
         },
     },
