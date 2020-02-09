@@ -34,46 +34,64 @@ equipment_subclasses = {
             "Inverter": {
                 "tags": [TAG.Inverter, TAG.Equipment],
             },
-            "Power_System": {
-                "tags": [TAG.Power, TAG.Equipment],
-            },
             "PlugStrip": {
                 "tags": [TAG.PlugStrip, TAG.Equipment],
             },
-            "Meter": {
-                "tags": [TAG.Meter, TAG.Equipment],
+        },
+    },
+    "Meter": {
+        "tags": [TAG.Meter, TAG.Equipment],
+        "subclasses": {
+            "Electrical_Meter": {
+                "tags": [TAG.Electrical, TAG.Meter, TAG.Equipment],
                 "subclasses": {
-                    "Water_Meter": {
-                        "tags": [TAG.Meter, TAG.Equipment, TAG.Water],
-                        "parents": [BRICK.Water_System],
+                    "Building_Electrical_Meter": {
+                        "tags": [TAG.Building, TAG.Electrical, TAG.Meter, TAG.Equipment],
+                        "parents": [BRICK.Building_Meter],
+                    }
+                }
+            },
+            "Gas_Meter": {
+                "tags": [TAG.Meter, TAG.Equipment, TAG.Gas],
+                "subclasses": {
+                    "Building_Gas_Meter": {
+                        "tags": [TAG.Building, TAG.Gas, TAG.Meter, TAG.Equipment],
+                        "parents": [BRICK.Building_Meter],
+                    }
+                }
+            },
+            "Water_Meter": {
+                "tags": [TAG.Meter, TAG.Equipment, TAG.Water],
+                "parents": [BRICK.Water_System],
+                "subclasses": {
+                    "Building_Water_Meter": {
+                        "tags": [TAG.Building, TAG.Water, TAG.Meter, TAG.Equipment],
+                        "parents": [BRICK.Building_Meter],
+                    },
+                    "Chilled_Water_Meter": {
+                        "tags": [TAG.Meter, TAG.Equipment, TAG.Water, TAG.Chilled],
+                        "parents": [BRICK.Chilled_Water_System],
                         "subclasses": {
-                            "Chilled_Water_Meter": {
-                                "tags": [TAG.Meter, TAG.Equipment, TAG.Water, TAG.Chilled],
-                                "parents": [BRICK.Chilled_Water_System],
+                            "Building_Chilled_Water_Meter": {
+                                "tags": [TAG.Building, TAG.Chilled, TAG.Water, TAG.Meter, TAG.Equipment],
+                                "parents": [BRICK.Building_Meter],
                             },
                         },
                     },
-                    "Power_Meter": {
-                        "tags": [TAG.Meter, TAG.Equipment, TAG.Power],
-                        "parents": [BRICK.Power_System],
+                    "Hot_Water_Meter": {
+                        "tags": [TAG.Meter, TAG.Equipment, TAG.Water, TAG.Hot],
+                        "parents": [BRICK.Chilled_Water_System],
                         "subclasses": {
-                            "Thermal_Power_Meter": {
-                                "tags": [TAG.Meter, TAG.Equipment, TAG.Power, TAG.Thermal],
-                                "subclasses": {
-                                    "Cooling_Thermal_Power_Meter": {
-                                        "tags": [TAG.Meter, TAG.Equipment, TAG.Power, TAG.Thermal, TAG.Cooling],
-                                    },
-                                    "Heating_Thermal_Power_Meter": {
-                                        "tags": [TAG.Meter, TAG.Equipment, TAG.Power, TAG.Thermal, TAG.Heating],
-                                    },
-                                },
+                            "Building_Hot_Water_Meter": {
+                                "tags": [TAG.Building, TAG.Hot, TAG.Water, TAG.Meter, TAG.Equipment],
+                                "parents": [BRICK.Building_Meter],
                             },
                         },
-                    },
-                    "Building_Meter": {
-                        "tags": [TAG.Meter, TAG.Equipment, TAG.Building],
                     },
                 },
+            },
+            "Building_Meter": {
+                "tags": [TAG.Meter, TAG.Equipment, TAG.Building],
             },
         },
     },
