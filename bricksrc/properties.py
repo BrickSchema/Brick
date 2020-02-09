@@ -69,12 +69,10 @@ properties = {
     "feeds": {
         A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         SKOS.definition: Literal("The subject is upstream of the object in the context of some sequential process; some media is passed between them"),
-
         OWL.inverseOf: BRICK["isFedBy"],
         "subproperties": {
             "feedsAir": {
                 SKOS.definition: Literal("Passes air"),
-                BRICK.expectedRange: BRICK.Air,
             },
         },
 

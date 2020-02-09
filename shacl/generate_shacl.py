@@ -12,13 +12,13 @@ G = Graph()
 bind_prefixes(G)
 A = RDF.type
 
-substance_subproperties = {
-    BRICK.feedsAir:  {
-        'substance': BRICK.Air,
-    },
-}
+domainShapeDict = {}
+rangeShapeDict = {}
+subpropertyDict = {}
 
-def addExpectedDomainShape(propertyName, expectedType):
+# Make shape for expectedDomain property
+def addDomainShape(propertyName, expectedType):
+    domainShapeDict[propertyName] = expectedType
     sh_prop = BNode()
     shapename = f"{propertyName}DomainShape"
     G.add((BSH[shapename], A, SH.NodeShape))
@@ -27,12 +27,13 @@ def addExpectedDomainShape(propertyName, expectedType):
     G.add((BSH[shapename], SH['message'],
            Literal(f"Property {propertyName} has subject with incorrect type")))
 
-def addExpectedRangeShape(propertyName, expectedType):
+# Make shape for expectedRange property
+def addRangeShape(propertyName, expectedType):
+    rangeShapeDict[propertyName] = expectedType
     sh_prop = BNode()
     shapename = f"{propertyName}RangeShape"
     G.add((BSH[shapename], SH['property'], sh_prop))
     G.add((BSH[shapename], A, SH.NodeShape))
-
     G.add((sh_prop, SH['path'], BRICK[propertyName]))
     G.add((sh_prop, SH['class'], expectedType))
     G.add((BSH[shapename], SH.targetSubjectsOf, BRICK[propertyName]))
@@ -40,37 +41,56 @@ def addExpectedRangeShape(propertyName, expectedType):
            Literal(f"Property {propertyName} has object with incorrect type")))
 
 for name, properties in property_definitions.items():
-
     for pred, obj in properties.items():
-        sh_prop = BNode()
-
         # We are only concerned with properties that have RDFS.domain or .range
         # predicate.  The temporary replacements for those predicates are
         # brick:expectedDomain and :expectedRange.  See properties.py for
         # explanation.
 
         if pred == BRICK.expectedDomain:
-            addExpectedDomainShape(name, obj)
+            addDomainShape(name, obj)
 
         if pred == BRICK.expectedRange:
-            addExpectedRangeShape(name, obj)
+            addRangeShape(name, obj)
 
-        '''
-        if pred == "hasSubproperty":
+        # subproperties are considered after "domain" and "range" are counted for
+        if pred == 'subproperties':
             for subprop, desc in obj.items():
-                for prop in desc['properties']:
-                    sh_prop = BNode()
-                    (prefix, name) = prop.split('#')
-                    shapename = f"feedsAir{name.capitalize()}Shape"
-                    G.add((BSH[shapename], SH['property'], sh_prop))
-                    G.add((BSH[shapename], A, SH.NodeShape))
-                    G.add((sh_prop, SH['path'], prop))
-                    G.add((sh_prop, SH['class'], desc['substance']))
-                    G.add((sh_prop, SH['message'],
-                           Literal(f"Subject of property {subprop} has object with incorrect type")))
+                subpropertyDict[subprop] = desc
 
-                    G.add((BSH[shapename], SH.targetSubjectsOf, BRICK[subprop]))
-        '''
+# TODO: A better way to describe the subproperties is probably
+# using OWL restrictions while generateing Brick.ttl.  But
+# that kind of schema change is beyond the scope for now.
+substance_subproperties = {
+    'feedsAir':  {
+        'substanceType': BRICK.Air,
+        'substanceSuperType': BRICK.Substance,
+    },
+}
+
+# For each substance_subproperties element, such as Brick:feedsAir,
+# the subject of the Brick:feedsAir predicate should satisfy triples like
+# subject <property> Brick:Air ("substanceType") where a range shape can
+# be found for a triple
+# <property> RDFS.range Brick:Substance ("substanceSuperType").
+
+for subprop, desc in subpropertyDict.items():
+    subpropInfo = substance_subproperties[subprop]
+    if not subpropInfo:  # subprop not in substance_subproperties
+        continue
+
+    for propertyName, expectedType in rangeShapeDict.items():
+        if expectedType == subpropInfo['substanceSuperType']:
+            sh_prop = BNode()
+            capitalized = '%s%s' % (propertyName[0].upper(), propertyName[1:])
+            shapename = f"feedsAir{capitalized}Shape"
+            G.add((BSH[shapename], SH['property'], sh_prop))
+            G.add((BSH[shapename], A, SH.NodeShape))
+            G.add((sh_prop, SH['path'], BRICK[propertyName]))
+            G.add((sh_prop, SH['class'], subpropInfo['substanceType']))
+            G.add((sh_prop, SH['message'],
+            Literal(f"Subject of property {subprop} has object with incorrect type")))
+            G.add((BSH[shapename], SH.targetSubjectsOf, BRICK[subprop]))
 
 with open('shacl_test.ttl', 'wb') as f:
     f.write(G.serialize(format='ttl'))
