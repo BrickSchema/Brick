@@ -2486,8 +2486,8 @@
       "query": "DELETE{ ?subject ?predicate brick_v_1_0_2:Cooling_Coil_Discharge_Air_Temperature_Sensor . } WHERE { ?subject  ?predicate  brick_v_1_0_2:Cooling_Coil_Discharge_Air_Temperature_Sensor . }"
     },
     {
-      "description": "Add brick:Deceleration_Time_Setpoint",
-      "query": "INSERT{ ?subject ?predicate brick:Deceleration_Time_Setpoint . } WHERE { ?subject  ?predicate  brick_v_1_0_2:Cooling_Coil_Valve_Pressure . }"
+      "description": "Add brick:Pressure_Sensor",
+      "query": "INSERT{ ?subject ?predicate brick:Pressure_Sensor . } WHERE { ?subject  ?predicate  brick_v_1_0_2:Cooling_Coil_Valve_Pressure . }"
     },
     {
       "description": "Remove brick:Cooling_Coil_Valve_Pressure",
