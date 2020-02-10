@@ -595,6 +595,21 @@ sensor_definitions = {
                             },
                         },
                     },
+                    "Energy_Usage_Sensor": {
+                        "parents": [BRICK.Energy_Sensor],
+                        "tags": [TAG.Point, TAG.Sensor, TAG.Energy, TAG.Usage],
+                        "subclasses": {
+                            "Yearly_Usage_Energy_Sensor": {
+                                "tags": [TAG.Point, TAG.Sensor, TAG.Energy, TAG.Usage, TAG.Yearly],
+                            },
+                            "Monthly_Usage_Energy_Sensor": {
+                                "tags": [TAG.Point, TAG.Sensor, TAG.Energy, TAG.Usage, TAG.Monthly],
+                            },
+                            "Daily_Usage_Energy_Sensor": {
+                                "tags": [TAG.Point, TAG.Sensor, TAG.Energy, TAG.Usage, TAG.Daily],
+                            },
+                        }
+                    },
                     "Water_Usage_Sensor": {
                         "tags": [TAG.Point, TAG.Sensor, TAG.Usage, TAG.Water],
                         "subclasses": {
