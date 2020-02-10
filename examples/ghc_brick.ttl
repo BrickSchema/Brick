@@ -279,13 +279,13 @@ GHC:CMUSCSC_HillmanSixth_Floor a owl:NamedIndividual,
         brick:Outside_Air_Temperature_Sensor .
 
 <http://cmu.edu/building/ontology/ghc#SCSC_Gates/Hot_Water_BTU_Meter/Instant_Demand> a owl:NamedIndividual,
-        brick:Current_Usage_Meter .
+        brick:Usage_Sensor .
 
 <http://cmu.edu/building/ontology/ghc#SCSC_Gates/Rainwater_System/Schedule> a owl:NamedIndividual,
         brick:Schedule_Setpoint .
 
 <http://cmu.edu/building/ontology/ghc#SCSC_Gates/Steam_Flow_Meter_Interface/Instant_Demand> a owl:NamedIndividual,
-        brick:Current_Usage_Meter .
+        brick:Usage_Sensor .
 
 <http://cmu.edu/building/ontology/ghc#SCSC_Hillman/4400_N_Corridor/Airflow> a owl:NamedIndividual,
         brick:Discharge_Air_Flow_Sensor .
@@ -1325,7 +1325,7 @@ GHC:Room_3301_FCU-3Zone a owl:NamedIndividual,
         GHC:AHU-10_IRoom .
 
 <http://cmu.edu/building/ontology/ghc#SCSC_Gates/AHU-10_I/auto_cc_sp> a owl:NamedIndividual,
-        brick:AHU_Auto_Cooling_Setpoint ;
+        brick:Cooling_Temperature_Setpoint ;
     brickframe:isPointOf GHC:AHU-10_I,
         GHC:AHU-10_IRoom .
 
@@ -1385,12 +1385,12 @@ GHC:Room_3301_FCU-3Zone a owl:NamedIndividual,
         GHC:AHU-10_IRoom .
 
 <http://cmu.edu/building/ontology/ghc#SCSC_Gates/AHU-10_I/exhaust_vfd_volts> a owl:NamedIndividual,
-        brick:VFD_Voltage_Sensor ;
+        brick:Voltage_Sensor ;
     brickframe:isPointOf GHC:AHU-10_I,
         GHC:AHU-10_IRoom .
 
 <http://cmu.edu/building/ontology/ghc#SCSC_Gates/AHU-10_I/htg_demand> a owl:NamedIndividual,
-        brick:Heat_Request_Percent_Setpoint ;
+        brick:Heating_Request_Percent_Setpoint ;
     brickframe:isPointOf GHC:AHU-10_I,
         GHC:AHU-10_IRoom .
 
@@ -1580,7 +1580,7 @@ GHC:Room_3301_FCU-3Zone a owl:NamedIndividual,
         GHC:AHU-11_IRoom .
 
 <http://cmu.edu/building/ontology/ghc#SCSC_Gates/AHU-11_I/auto_cc_sp> a owl:NamedIndividual,
-        brick:AHU_Auto_Cooling_Setpoint ;
+        brick:Cooling_Temperature_Setpoint ;
     brickframe:isPointOf GHC:AHU-11_I,
         GHC:AHU-11_IRoom .
 
@@ -1640,12 +1640,12 @@ GHC:Room_3301_FCU-3Zone a owl:NamedIndividual,
         GHC:AHU-11_IRoom .
 
 <http://cmu.edu/building/ontology/ghc#SCSC_Gates/AHU-11_I/exhaust_vfd_volts> a owl:NamedIndividual,
-        brick:VFD_Voltage_Sensor ;
+        brick:Voltage_Sensor ;
     brickframe:isPointOf GHC:AHU-11_I,
         GHC:AHU-11_IRoom .
 
 <http://cmu.edu/building/ontology/ghc#SCSC_Gates/AHU-11_I/htg_demand> a owl:NamedIndividual,
-        brick:Heat_Request_Percent_Setpoint ;
+        brick:Heating_Request_Percent_Setpoint ;
     brickframe:isPointOf GHC:AHU-11_I,
         GHC:AHU-11_IRoom .
 
@@ -1840,7 +1840,7 @@ GHC:Room_3301_FCU-3Zone a owl:NamedIndividual,
         GHC:AHU-1_IRoom .
 
 <http://cmu.edu/building/ontology/ghc#SCSC_Gates/AHU-1_I/auto_cc_sp> a owl:NamedIndividual,
-        brick:AHU_Auto_Cooling_Setpoint ;
+        brick:Cooling_Temperature_Setpoint ;
     brickframe:isPointOf GHC:AHU-1_I,
         GHC:AHU-1_IRoom .
 
@@ -1900,12 +1900,12 @@ GHC:Room_3301_FCU-3Zone a owl:NamedIndividual,
         GHC:AHU-1_IRoom .
 
 <http://cmu.edu/building/ontology/ghc#SCSC_Gates/AHU-1_I/exhaust_vfd_volts> a owl:NamedIndividual,
-        brick:VFD_Voltage_Sensor ;
+        brick:Voltage_Sensor ;
     brickframe:isPointOf GHC:AHU-1_I,
         GHC:AHU-1_IRoom .
 
 <http://cmu.edu/building/ontology/ghc#SCSC_Gates/AHU-1_I/htg_demand> a owl:NamedIndividual,
-        brick:Heat_Request_Percent_Setpoint ;
+        brick:Heating_Request_Percent_Setpoint ;
     brickframe:isPointOf GHC:AHU-1_I,
         GHC:AHU-1_IRoom .
 
@@ -2115,7 +2115,7 @@ GHC:Room_3301_FCU-3Zone a owl:NamedIndividual,
         GHC:AHU-2_IRoom .
 
 <http://cmu.edu/building/ontology/ghc#SCSC_Gates/AHU-2_I/auto_cc_sp> a owl:NamedIndividual,
-        brick:AHU_Auto_Cooling_Setpoint ;
+        brick:Cooling_Temperature_Setpoint ;
     brickframe:isPointOf GHC:AHU-2_I,
         GHC:AHU-2_IRoom .
 
@@ -2180,12 +2180,12 @@ GHC:Room_3301_FCU-3Zone a owl:NamedIndividual,
         GHC:AHU-2_IRoom .
 
 <http://cmu.edu/building/ontology/ghc#SCSC_Gates/AHU-2_I/exhaust_vfd_volts> a owl:NamedIndividual,
-        brick:VFD_Voltage_Sensor ;
+        brick:Voltage_Sensor ;
     brickframe:isPointOf GHC:AHU-2_I,
         GHC:AHU-2_IRoom .
 
 <http://cmu.edu/building/ontology/ghc#SCSC_Gates/AHU-2_I/htg_demand> a owl:NamedIndividual,
-        brick:Heat_Request_Percent_Setpoint ;
+        brick:Heating_Request_Percent_Setpoint ;
     brickframe:isPointOf GHC:AHU-2_I,
         GHC:AHU-2_IRoom .
 
@@ -2380,7 +2380,7 @@ GHC:Room_3301_FCU-3Zone a owl:NamedIndividual,
         GHC:AHU-3_IRoom .
 
 <http://cmu.edu/building/ontology/ghc#SCSC_Gates/AHU-3_I/auto_cc_sp> a owl:NamedIndividual,
-        brick:AHU_Auto_Cooling_Setpoint ;
+        brick:Cooling_Temperature_Setpoint ;
     brickframe:isPointOf GHC:AHU-3_I,
         GHC:AHU-3_IRoom .
 
@@ -2445,12 +2445,12 @@ GHC:Room_3301_FCU-3Zone a owl:NamedIndividual,
         GHC:AHU-3_IRoom .
 
 <http://cmu.edu/building/ontology/ghc#SCSC_Gates/AHU-3_I/exhaust_vfd_volts> a owl:NamedIndividual,
-        brick:VFD_Voltage_Sensor ;
+        brick:Voltage_Sensor ;
     brickframe:isPointOf GHC:AHU-3_I,
         GHC:AHU-3_IRoom .
 
 <http://cmu.edu/building/ontology/ghc#SCSC_Gates/AHU-3_I/htg_demand> a owl:NamedIndividual,
-        brick:Heat_Request_Percent_Setpoint ;
+        brick:Heating_Request_Percent_Setpoint ;
     brickframe:isPointOf GHC:AHU-3_I,
         GHC:AHU-3_IRoom .
 
@@ -2645,7 +2645,7 @@ GHC:Room_3301_FCU-3Zone a owl:NamedIndividual,
         GHC:AHU-4_IRoom .
 
 <http://cmu.edu/building/ontology/ghc#SCSC_Gates/AHU-4_I/auto_cc_sp> a owl:NamedIndividual,
-        brick:AHU_Auto_Cooling_Setpoint ;
+        brick:Cooling_Temperature_Setpoint ;
     brickframe:isPointOf GHC:AHU-4_I,
         GHC:AHU-4_IRoom .
 
@@ -2710,12 +2710,12 @@ GHC:Room_3301_FCU-3Zone a owl:NamedIndividual,
         GHC:AHU-4_IRoom .
 
 <http://cmu.edu/building/ontology/ghc#SCSC_Gates/AHU-4_I/exhaust_vfd_volts> a owl:NamedIndividual,
-        brick:VFD_Voltage_Sensor ;
+        brick:Voltage_Sensor ;
     brickframe:isPointOf GHC:AHU-4_I,
         GHC:AHU-4_IRoom .
 
 <http://cmu.edu/building/ontology/ghc#SCSC_Gates/AHU-4_I/htg_demand> a owl:NamedIndividual,
-        brick:Heat_Request_Percent_Setpoint ;
+        brick:Heating_Request_Percent_Setpoint ;
     brickframe:isPointOf GHC:AHU-4_I,
         GHC:AHU-4_IRoom .
 
@@ -2940,12 +2940,12 @@ GHC:Room_3301_FCU-3Zone a owl:NamedIndividual,
         GHC:AHU-5_IRoom .
 
 <http://cmu.edu/building/ontology/ghc#SCSC_Gates/AHU-5_I/exhaust_vfd_volts> a owl:NamedIndividual,
-        brick:VFD_Voltage_Sensor ;
+        brick:Voltage_Sensor ;
     brickframe:isPointOf GHC:AHU-5_I,
         GHC:AHU-5_IRoom .
 
 <http://cmu.edu/building/ontology/ghc#SCSC_Gates/AHU-5_I/htg_demand> a owl:NamedIndividual,
-        brick:Heat_Request_Percent_Setpoint ;
+        brick:Heating_Request_Percent_Setpoint ;
     brickframe:isPointOf GHC:AHU-5_I,
         GHC:AHU-5_IRoom .
 
@@ -3130,7 +3130,7 @@ GHC:Room_3301_FCU-3Zone a owl:NamedIndividual,
         GHC:AHU-7_IRoom .
 
 <http://cmu.edu/building/ontology/ghc#SCSC_Gates/AHU-7_I/auto_cc_sp> a owl:NamedIndividual,
-        brick:AHU_Auto_Cooling_Setpoint ;
+        brick:Cooling_Temperature_Setpoint ;
     brickframe:isPointOf GHC:AHU-7_I,
         GHC:AHU-7_IRoom .
 
@@ -3195,12 +3195,12 @@ GHC:Room_3301_FCU-3Zone a owl:NamedIndividual,
         GHC:AHU-7_IRoom .
 
 <http://cmu.edu/building/ontology/ghc#SCSC_Gates/AHU-7_I/exhaust_vfd_volts> a owl:NamedIndividual,
-        brick:VFD_Voltage_Sensor ;
+        brick:Voltage_Sensor ;
     brickframe:isPointOf GHC:AHU-7_I,
         GHC:AHU-7_IRoom .
 
 <http://cmu.edu/building/ontology/ghc#SCSC_Gates/AHU-7_I/htg_demand> a owl:NamedIndividual,
-        brick:Heat_Request_Percent_Setpoint ;
+        brick:Heating_Request_Percent_Setpoint ;
     brickframe:isPointOf GHC:AHU-7_I,
         GHC:AHU-7_IRoom .
 
@@ -3405,12 +3405,12 @@ GHC:Room_3301_FCU-3Zone a owl:NamedIndividual,
         GHC:AHU-8_IRoom .
 
 <http://cmu.edu/building/ontology/ghc#SCSC_Gates/AHU-8_I/exhaust_vfd_volts> a owl:NamedIndividual,
-        brick:VFD_Voltage_Sensor ;
+        brick:Voltage_Sensor ;
     brickframe:isPointOf GHC:AHU-8_I,
         GHC:AHU-8_IRoom .
 
 <http://cmu.edu/building/ontology/ghc#SCSC_Gates/AHU-8_I/htg_demand> a owl:NamedIndividual,
-        brick:Heat_Request_Percent_Setpoint ;
+        brick:Heating_Request_Percent_Setpoint ;
     brickframe:isPointOf GHC:AHU-8_I,
         GHC:AHU-8_IRoom .
 
@@ -3575,7 +3575,7 @@ GHC:Room_3301_FCU-3Zone a owl:NamedIndividual,
         GHC:AHU-9_IRoom .
 
 <http://cmu.edu/building/ontology/ghc#SCSC_Gates/AHU-9_I/auto_cc_sp> a owl:NamedIndividual,
-        brick:AHU_Auto_Cooling_Setpoint ;
+        brick:Cooling_Temperature_Setpoint ;
     brickframe:isPointOf GHC:AHU-9_I,
         GHC:AHU-9_IRoom .
 
@@ -3635,12 +3635,12 @@ GHC:Room_3301_FCU-3Zone a owl:NamedIndividual,
         GHC:AHU-9_IRoom .
 
 <http://cmu.edu/building/ontology/ghc#SCSC_Gates/AHU-9_I/exhaust_vfd_volts> a owl:NamedIndividual,
-        brick:VFD_Voltage_Sensor ;
+        brick:Voltage_Sensor ;
     brickframe:isPointOf GHC:AHU-9_I,
         GHC:AHU-9_IRoom .
 
 <http://cmu.edu/building/ontology/ghc#SCSC_Gates/AHU-9_I/htg_demand> a owl:NamedIndividual,
-        brick:Heat_Request_Percent_Setpoint ;
+        brick:Heating_Request_Percent_Setpoint ;
     brickframe:isPointOf GHC:AHU-9_I,
         GHC:AHU-9_IRoom .
 
@@ -29120,7 +29120,7 @@ GHC:Room_3301_FCU-3Zone a owl:NamedIndividual,
         GHC:AHU-12_IRoom .
 
 <http://cmu.edu/building/ontology/ghc#SCSC_Hillman/AHU-12_I/auto_cc_sp> a owl:NamedIndividual,
-        brick:AHU_Auto_Cooling_Setpoint ;
+        brick:Cooling_Temperature_Setpoint ;
     brickframe:isPointOf GHC:AHU-12_I,
         GHC:AHU-12_IRoom .
 
@@ -29180,12 +29180,12 @@ GHC:Room_3301_FCU-3Zone a owl:NamedIndividual,
         GHC:AHU-12_IRoom .
 
 <http://cmu.edu/building/ontology/ghc#SCSC_Hillman/AHU-12_I/exhaust_vfd_volts> a owl:NamedIndividual,
-        brick:VFD_Voltage_Sensor ;
+        brick:Voltage_Sensor ;
     brickframe:isPointOf GHC:AHU-12_I,
         GHC:AHU-12_IRoom .
 
 <http://cmu.edu/building/ontology/ghc#SCSC_Hillman/AHU-12_I/htg_demand> a owl:NamedIndividual,
-        brick:Heat_Request_Percent_Setpoint ;
+        brick:Heating_Request_Percent_Setpoint ;
     brickframe:isPointOf GHC:AHU-12_I,
         GHC:AHU-12_IRoom .
 
@@ -40349,7 +40349,7 @@ GHC:VAV_Room_9233_Future_UseZone a owl:NamedIndividual,
     brickframe:hasPoint GHC:VAV_Room_9233_Future_UseRoom ;
     brickframe:isFedBy GHC:VAV_Room_9233_Future_Use .
 
-brick:Current_Usage_Meter brickframe:hasTag btag:Demand,
+brick:Usage_Sensor brickframe:hasTag btag:Demand,
         btag:Equipment,
         btag:Steam .
 
@@ -40384,37 +40384,37 @@ GHC:Liebert_DC-2_kWh_MonitoringRoom brickframe:hasPoint <http://cmu.edu/building
         <http://cmu.edu/building/ontology/ghc#SCSC_Gates/Liebert_DC-2_kWh_Monitoring/Usage_YTD> .
 
 <http://cmu.edu/building/ontology/ghc#SCSC_Gates/3309_BEF_CRAC-4/%_Capacity> a owl:NamedIndividual,
-        brick:CRAC_Capacity_Setpoint ;
+        brick:Capacity_Sensor ;
     brickframe:isLocatedIn <http://cmu.edu/building/ontology/ghc#3309_BEF_CRAC-4Room> ;
     brickframe:isPointOf <http://cmu.edu/building/ontology/ghc#3309_BEF_CRAC-4>,
         <http://cmu.edu/building/ontology/ghc#3309_BEF_CRAC-4Room> .
 
 <http://cmu.edu/building/ontology/ghc#SCSC_Gates/7126_Machine_Room_CRAC-8/%_Capacity> a owl:NamedIndividual,
-        brick:CRAC_Capacity_Setpoint ;
+        brick:Capacity_Sensor ;
     brickframe:isLocatedIn <http://cmu.edu/building/ontology/ghc#7126_Machine_Room_CRAC-8Room> ;
     brickframe:isPointOf <http://cmu.edu/building/ontology/ghc#7126_Machine_Room_CRAC-8>,
         <http://cmu.edu/building/ontology/ghc#7126_Machine_Room_CRAC-8Room> .
 
 <http://cmu.edu/building/ontology/ghc#SCSC_Gates/8126_Machine_Room_CRAC-9/%_Capacity> a owl:NamedIndividual,
-        brick:CRAC_Capacity_Setpoint ;
+        brick:Capacity_Sensor ;
     brickframe:isLocatedIn <http://cmu.edu/building/ontology/ghc#8126_Machine_Room_CRAC-9Room> ;
     brickframe:isPointOf <http://cmu.edu/building/ontology/ghc#8126_Machine_Room_CRAC-9>,
         <http://cmu.edu/building/ontology/ghc#8126_Machine_Room_CRAC-9Room> .
 
 <http://cmu.edu/building/ontology/ghc#SCSC_Gates/Data_Center_CRAC-1/%_Capacity> a owl:NamedIndividual,
-        brick:CRAC_Capacity_Setpoint ;
+        brick:Capacity_Sensor ;
     brickframe:isLocatedIn GHC:Data_Center_CRAC-1Room ;
     brickframe:isPointOf GHC:Data_Center_CRAC-1,
         GHC:Data_Center_CRAC-1Room .
 
 <http://cmu.edu/building/ontology/ghc#SCSC_Gates/Data_Center_CRAC-2/%_Capacity> a owl:NamedIndividual,
-        brick:CRAC_Capacity_Setpoint ;
+        brick:Capacity_Sensor ;
     brickframe:isLocatedIn GHC:Data_Center_CRAC-2Room ;
     brickframe:isPointOf GHC:Data_Center_CRAC-2,
         GHC:Data_Center_CRAC-2Room .
 
 <http://cmu.edu/building/ontology/ghc#SCSC_Gates/Data_Center_CRAC-3/%_Capacity> a owl:NamedIndividual,
-        brick:CRAC_Capacity_Setpoint ;
+        brick:Capacity_Sensor ;
     brickframe:isLocatedIn GHC:Data_Center_CRAC-3Room ;
     brickframe:isPointOf GHC:Data_Center_CRAC-3,
         GHC:Data_Center_CRAC-3Room .
@@ -42466,13 +42466,13 @@ GHC:Liebert_DC-2_kWh_MonitoringRoom brickframe:hasPoint <http://cmu.edu/building
         GHC:VAV_Room_9233_Future_UseRoom .
 
 <http://cmu.edu/building/ontology/ghc#SCSC_Hillman/5708_Machine_Room_CRAC-5/%_Capacity> a owl:NamedIndividual,
-        brick:CRAC_Capacity_Setpoint ;
+        brick:Capacity_Sensor ;
     brickframe:isLocatedIn <http://cmu.edu/building/ontology/ghc#5708_Machine_Room_CRAC-5Room> ;
     brickframe:isPointOf <http://cmu.edu/building/ontology/ghc#5708_Machine_Room_CRAC-5>,
         <http://cmu.edu/building/ontology/ghc#5708_Machine_Room_CRAC-5Room> .
 
 <http://cmu.edu/building/ontology/ghc#SCSC_Hillman/7708_Machine_Room_CRAC-7/%_Capacity> a owl:NamedIndividual,
-        brick:CRAC_Capacity_Setpoint ;
+        brick:Capacity_Sensor ;
     brickframe:isLocatedIn <http://cmu.edu/building/ontology/ghc#7708_Machine_Room_CRAC-7Room> ;
     brickframe:isPointOf <http://cmu.edu/building/ontology/ghc#7708_Machine_Room_CRAC-7>,
         <http://cmu.edu/building/ontology/ghc#7708_Machine_Room_CRAC-7Room> .
@@ -43477,7 +43477,7 @@ GHC:VAV_Room_7017_Admin_OfficeRoom a owl:NamedIndividual,
     brickframe:isFedBy GHC:VAV_Room_7017_Admin_Office ;
     brickframe:isPointOf GHC:VAV_Room_7017_Admin_OfficeZone .
 
-brick:CRAC_Capacity_Setpoint brickframe:hasTag btag:Air,
+brick:Capacity_Sensor brickframe:hasTag btag:Air,
         btag:Capacity,
         btag:Cooling,
         btag:Temperature .
@@ -43551,7 +43551,7 @@ brick:Humidification_On_Off_Status brickframe:hasTag btag:Air,
     brickframe:isFedBy <http://cmu.edu/building/ontology/ghc#8126_Machine_Room_CRAC-9> ;
     brickframe:isPointOf <http://cmu.edu/building/ontology/ghc#8126_Machine_Room_CRAC-9Zone> .
 
-brick:AHU_Auto_Cooling_Setpoint brickframe:hasTag btag:Cooling,
+brick:Cooling_Temperature_Setpoint brickframe:hasTag btag:Cooling,
         btag:Setpoint,
         btag:Temperature .
 
@@ -44009,7 +44009,7 @@ brick:Exhaust_Fan_Start_Stop_Command brickframe:hasTag btag:Airflow,
         btag:Exhaust,
         btag:Fan .
 
-brick:Heat_Request_Percent_Setpoint brickframe:hasTag btag:,
+brick:Heating_Request_Percent_Setpoint brickframe:hasTag btag:,
         btag:Demand,
         btag:Heating,
         btag:Request .
@@ -44088,7 +44088,7 @@ brick:Run_Direction_Status brickframe:hasTag btag:Chilled,
         btag:Valve,
         btag:Water .
 
-brick:VFD_Voltage_Sensor brickframe:hasTag btag:Exhaust,
+brick:Voltage_Sensor brickframe:hasTag btag:Exhaust,
         btag:Sensor,
         btag:VFD,
         btag:Volts .

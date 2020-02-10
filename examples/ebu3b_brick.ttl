@@ -275,7 +275,7 @@ ebu3b:EBU3B_AH1_1_SF4_STS a brick:Supply_Fan_Start_Stop_Status ;
     brickframe:isPointOf ebu3b:EBU3B_AHU_1,
         ebu3b:EBU3B_AHU_1_Supply_Fan_4 .
 
-ebu3b:EBU3B_AH1_1_SF_SPD a brick:Supply_Fan_VFD_Command ;
+ebu3b:EBU3B_AH1_1_SF_SPD a brick:Command ;
     brickframe:isPointOf ebu3b:EBU3B_AHU_1 .
 
 ebu3b:EBU3B_AH1_1_SP_SP a brick:Discharge_Air_Static_Pressure_Setpoint ;
@@ -606,7 +606,7 @@ ebu3b:EBU3B_CHWP_SYS_CHW_LEAD a brick:Chilled_Water_Pump_Lead_Lag_Command ;
 ebu3b:EBU3B_CHW_SYS_CHWP1_ALM a brick:Point ;
     brickframe:isPointOf ebu3b:EBU3B_Chilled_Water_System_Pump_1 .
 
-ebu3b:EBU3B_CHW_SYS_CHWP1_SPD a brick:Chilled_Water_Pump_VFD_Command ;
+ebu3b:EBU3B_CHW_SYS_CHWP1_SPD a brick:Command ;
     brickframe:isPointOf ebu3b:EBU3B_Chilled_Water_System_Pump_1 .
 
 ebu3b:EBU3B_CHW_SYS_CHWP1_SS a brick:Chilled_Water_Pump_Start_Stop_Command ;
@@ -618,7 +618,7 @@ ebu3b:EBU3B_CHW_SYS_CHWP1_STS a brick:Chilled_Water_Pump_Status ;
 ebu3b:EBU3B_CHW_SYS_CHWP2_ALM a brick:Point ;
     brickframe:isPointOf ebu3b:EBU3B_Chilled_Water_System_Pump_2 .
 
-ebu3b:EBU3B_CHW_SYS_CHWP2_SPD a brick:Chilled_Water_Pump_VFD_Command ;
+ebu3b:EBU3B_CHW_SYS_CHWP2_SPD a brick:Command ;
     brickframe:isPointOf ebu3b:EBU3B_Chilled_Water_System_Pump_2 .
 
 ebu3b:EBU3B_CHW_SYS_CHWP2_SS a brick:Chilled_Water_Pump_Start_Stop_Command ;
@@ -639,7 +639,7 @@ ebu3b:EBU3B_CHW_SYS_CWDP_SP a brick:Chilled_Water_Differential_Pressure_Setpoint
 ebu3b:EBU3B_CO2_Conrol_Co2_Differiential a brick:CO2_Differential_Sensor ;
     brickframe:isPointOf ebu3b:EBU3B_HVAC .
 
-<http://ucsd.edu/building/ontology/ebu3b#EBU3B_CRAC_1_%CAPACTY> a brick:CRAC_Capacity_Setpoint ;
+<http://ucsd.edu/building/ontology/ebu3b#EBU3B_CRAC_1_%CAPACTY> a brick:Capacity_Sensor ;
     brickframe:isPointOf ebu3b:EBU3B_CRAC_1 .
 
 ebu3b:EBU3B_CRAC_1_ALRMPRES a brick:Alarm ;
@@ -747,10 +747,10 @@ ebu3b:EBU3B_CRAC_1_MAN_OVRD a brick:Manual_Auto_Status ;
 ebu3b:EBU3B_CRAC_1_NO_E_POW a brick:Emergency_Power_Loss_Alarm ;
     brickframe:isPointOf ebu3b:EBU3B_CRAC_1 .
 
-ebu3b:EBU3B_CRAC_1_OFF_LOCL a brick:CRAC_Unit_Turned_Off_Locally_Status ;
+ebu3b:EBU3B_CRAC_1_OFF_LOCL a brick:Locally_On_Off_Status ;
     brickframe:isPointOf ebu3b:EBU3B_CRAC_1 .
 
-ebu3b:EBU3B_CRAC_1_OFF_REMT a brick:CRAC_Unit_Turned_Off_Remotely_Status ;
+ebu3b:EBU3B_CRAC_1_OFF_REMT a brick:Remotely_On_Off_Status ;
     brickframe:isPointOf ebu3b:EBU3B_CRAC_1 .
 
 ebu3b:EBU3B_CRAC_1_POW_LOSS a brick:Power_Loss_Alarm ;
@@ -783,13 +783,13 @@ ebu3b:EBU3B_CRAC_1_TEMP_TOL a brick:Temperature_Tolerance_Setpoint ;
 ebu3b:EBU3B_CRAC_1_UNIT_LOC a brick:Communication_Loss_Alarm ;
     brickframe:isPointOf ebu3b:EBU3B_CRAC_1 .
 
-ebu3b:EBU3B_CRAC_1_UNIT_RUN a brick:Unit_Run_Command ;
+ebu3b:EBU3B_CRAC_1_UNIT_RUN a brick:On_Off_Command ;
     brickframe:isPointOf ebu3b:EBU3B_CRAC_1 .
 
 ebu3b:EBU3B_CRAC_1_UNIT_STS a brick:Point ;
     brickframe:isPointOf ebu3b:EBU3B_CRAC_1 .
 
-<http://ucsd.edu/building/ontology/ebu3b#EBU3B_CRAC_2_%CAPACTY> a brick:CRAC_Capacity_Setpoint ;
+<http://ucsd.edu/building/ontology/ebu3b#EBU3B_CRAC_2_%CAPACTY> a brick:Capacity_Sensor ;
     brickframe:isPointOf ebu3b:EBU3B_CRAC_2 .
 
 ebu3b:EBU3B_CRAC_2_ALRMPRES a brick:Alarm ;
@@ -897,10 +897,10 @@ ebu3b:EBU3B_CRAC_2_MAN_OVRD a brick:Manual_Auto_Status ;
 ebu3b:EBU3B_CRAC_2_NO_E_POW a brick:Emergency_Power_Loss_Alarm ;
     brickframe:isPointOf ebu3b:EBU3B_CRAC_2 .
 
-ebu3b:EBU3B_CRAC_2_OFF_LOCL a brick:CRAC_Unit_Turned_Off_Locally_Status ;
+ebu3b:EBU3B_CRAC_2_OFF_LOCL a brick:Locally_On_Off_Status ;
     brickframe:isPointOf ebu3b:EBU3B_CRAC_2 .
 
-ebu3b:EBU3B_CRAC_2_OFF_REMT a brick:CRAC_Unit_Turned_Off_Remotely_Status ;
+ebu3b:EBU3B_CRAC_2_OFF_REMT a brick:Remotely_On_Off_Status ;
     brickframe:isPointOf ebu3b:EBU3B_CRAC_2 .
 
 ebu3b:EBU3B_CRAC_2_POW_LOSS a brick:Power_Loss_Alarm ;
@@ -933,13 +933,13 @@ ebu3b:EBU3B_CRAC_2_TEMP_TOL a brick:Temperature_Tolerance_Setpoint ;
 ebu3b:EBU3B_CRAC_2_UNIT_LOC a brick:Communication_Loss_Alarm ;
     brickframe:isPointOf ebu3b:EBU3B_CRAC_2 .
 
-ebu3b:EBU3B_CRAC_2_UNIT_RUN a brick:Unit_Run_Command ;
+ebu3b:EBU3B_CRAC_2_UNIT_RUN a brick:On_Off_Command ;
     brickframe:isPointOf ebu3b:EBU3B_CRAC_2 .
 
 ebu3b:EBU3B_CRAC_2_UNIT_STS a brick:Point ;
     brickframe:isPointOf ebu3b:EBU3B_CRAC_2 .
 
-<http://ucsd.edu/building/ontology/ebu3b#EBU3B_CRAC_3_%CAPACTY> a brick:CRAC_Capacity_Setpoint ;
+<http://ucsd.edu/building/ontology/ebu3b#EBU3B_CRAC_3_%CAPACTY> a brick:Capacity_Sensor ;
     brickframe:isPointOf ebu3b:EBU3B_CRAC_3 .
 
 ebu3b:EBU3B_CRAC_3_ALRMPRES a brick:Alarm ;
@@ -1047,10 +1047,10 @@ ebu3b:EBU3B_CRAC_3_MAN_OVRD a brick:Manual_Auto_Status ;
 ebu3b:EBU3B_CRAC_3_NO_E_POW a brick:Emergency_Power_Loss_Alarm ;
     brickframe:isPointOf ebu3b:EBU3B_CRAC_3 .
 
-ebu3b:EBU3B_CRAC_3_OFF_LOCL a brick:CRAC_Unit_Turned_Off_Locally_Status ;
+ebu3b:EBU3B_CRAC_3_OFF_LOCL a brick:Locally_On_Off_Status ;
     brickframe:isPointOf ebu3b:EBU3B_CRAC_3 .
 
-ebu3b:EBU3B_CRAC_3_OFF_REMT a brick:CRAC_Unit_Turned_Off_Remotely_Status ;
+ebu3b:EBU3B_CRAC_3_OFF_REMT a brick:Remotely_On_Off_Status ;
     brickframe:isPointOf ebu3b:EBU3B_CRAC_3 .
 
 ebu3b:EBU3B_CRAC_3_POW_LOSS a brick:Power_Loss_Alarm ;
@@ -1083,13 +1083,13 @@ ebu3b:EBU3B_CRAC_3_TEMP_TOL a brick:Temperature_Tolerance_Setpoint ;
 ebu3b:EBU3B_CRAC_3_UNIT_LOC a brick:Communication_Loss_Alarm ;
     brickframe:isPointOf ebu3b:EBU3B_CRAC_3 .
 
-ebu3b:EBU3B_CRAC_3_UNIT_RUN a brick:Unit_Run_Command ;
+ebu3b:EBU3B_CRAC_3_UNIT_RUN a brick:On_Off_Command ;
     brickframe:isPointOf ebu3b:EBU3B_CRAC_3 .
 
 ebu3b:EBU3B_CRAC_3_UNIT_STS a brick:Point ;
     brickframe:isPointOf ebu3b:EBU3B_CRAC_3 .
 
-<http://ucsd.edu/building/ontology/ebu3b#EBU3B_CRAC_4_%CAPACTY> a brick:CRAC_Capacity_Setpoint ;
+<http://ucsd.edu/building/ontology/ebu3b#EBU3B_CRAC_4_%CAPACTY> a brick:Capacity_Sensor ;
     brickframe:isPointOf ebu3b:EBU3B_CRAC_4 .
 
 ebu3b:EBU3B_CRAC_4_ALRMPRES a brick:Alarm ;
@@ -1197,10 +1197,10 @@ ebu3b:EBU3B_CRAC_4_MAN_OVRD a brick:Manual_Auto_Status ;
 ebu3b:EBU3B_CRAC_4_NO_E_POW a brick:Emergency_Power_Loss_Alarm ;
     brickframe:isPointOf ebu3b:EBU3B_CRAC_4 .
 
-ebu3b:EBU3B_CRAC_4_OFF_LOCL a brick:CRAC_Unit_Turned_Off_Locally_Status ;
+ebu3b:EBU3B_CRAC_4_OFF_LOCL a brick:Locally_On_Off_Status ;
     brickframe:isPointOf ebu3b:EBU3B_CRAC_4 .
 
-ebu3b:EBU3B_CRAC_4_OFF_REMT a brick:CRAC_Unit_Turned_Off_Remotely_Status ;
+ebu3b:EBU3B_CRAC_4_OFF_REMT a brick:Remotely_On_Off_Status ;
     brickframe:isPointOf ebu3b:EBU3B_CRAC_4 .
 
 ebu3b:EBU3B_CRAC_4_POW_LOSS a brick:Power_Loss_Alarm ;
@@ -1233,7 +1233,7 @@ ebu3b:EBU3B_CRAC_4_TEMP_TOL a brick:Temperature_Tolerance_Setpoint ;
 ebu3b:EBU3B_CRAC_4_UNIT_LOC a brick:Communication_Loss_Alarm ;
     brickframe:isPointOf ebu3b:EBU3B_CRAC_4 .
 
-ebu3b:EBU3B_CRAC_4_UNIT_RUN a brick:Unit_Run_Command ;
+ebu3b:EBU3B_CRAC_4_UNIT_RUN a brick:On_Off_Command ;
     brickframe:isPointOf ebu3b:EBU3B_CRAC_4 .
 
 ebu3b:EBU3B_CRAC_4_UNIT_STS a brick:Point ;
@@ -1266,7 +1266,7 @@ ebu3b:EBU3B_FSCHW_CHWP3_DLY a brick:Chilled_Water_Pump_Alarm_Delay_Setpoint ;
 ebu3b:EBU3B_FSCHW_CHWP3_SS a brick:Chilled_Water_Pump_Start_Stop_Command ;
     brickframe:isPointOf ebu3b:EBU3B_Chilled_Water_System_Pump_3 .
 
-ebu3b:EBU3B_FSCHW_CHWP3_VFD a brick:Chilled_Water_Pump_VFD_Command ;
+ebu3b:EBU3B_FSCHW_CHWP3_VFD a brick:Command ;
     brickframe:isPointOf ebu3b:EBU3B_Chilled_Water_System_Pump_3 .
 
 ebu3b:EBU3B_FSCHW_CHWP4_ALM a brick:Point ;
@@ -1278,7 +1278,7 @@ ebu3b:EBU3B_FSCHW_CHWP4_DLY a brick:Chilled_Water_Pump_Alarm_Delay_Setpoint ;
 ebu3b:EBU3B_FSCHW_CHWP4_SS a brick:Chilled_Water_Pump_Start_Stop_Command ;
     brickframe:isPointOf ebu3b:EBU3B_Chilled_Water_System_Pump_4 .
 
-ebu3b:EBU3B_FSCHW_CHWP4_VFD a brick:Chilled_Water_Pump_VFD_Command ;
+ebu3b:EBU3B_FSCHW_CHWP4_VFD a brick:Command ;
     brickframe:isPointOf ebu3b:EBU3B_Chilled_Water_System_Pump_4 .
 
 ebu3b:EBU3B_FSCHW_CHWP_DB a brick:Chilled_Water_Pump_Differential_Pressure_Dead_Band_Setpoint ;
@@ -1461,7 +1461,7 @@ ebu3b:EBU3B_HW_SYS_HWDP_SP a brick:Hot_Water_Differential_Pressure_Setpoint ;
 ebu3b:EBU3B_HW_SYS_HWP1_ALM a brick:Hot_Water_Pump_Alarm ;
     brickframe:isPointOf ebu3b:EBU3B_Hot_Water_System_Pump_1 .
 
-ebu3b:EBU3B_HW_SYS_HWP1_SPD a brick:VFD_Command ;
+ebu3b:EBU3B_HW_SYS_HWP1_SPD a brick:Command ;
     brickframe:isPointOf ebu3b:EBU3B_Hot_Water_System_Pump_1 .
 
 ebu3b:EBU3B_HW_SYS_HWP1_SS a brick:Hot_Water_Pump_Start_Stop_Command ;
@@ -1473,7 +1473,7 @@ ebu3b:EBU3B_HW_SYS_HWP1_STS a brick:Point ;
 ebu3b:EBU3B_HW_SYS_HWP2_ALM a brick:Hot_Water_Pump_Alarm ;
     brickframe:isPointOf ebu3b:EBU3B_Hot_Water_System_Pump_2 .
 
-ebu3b:EBU3B_HW_SYS_HWP2_SPD a brick:VFD_Command ;
+ebu3b:EBU3B_HW_SYS_HWP2_SPD a brick:Command ;
     brickframe:isPointOf ebu3b:EBU3B_Hot_Water_System_Pump_2 .
 
 ebu3b:EBU3B_HW_SYS_HWP2_SS a brick:Hot_Water_Pump_Start_Stop_Command ;
@@ -1572,7 +1572,7 @@ ebu3b:EBU3B_Load_Shed_MTW_DP_Load_Shed a brick:Medium_Temperature_Hot_Water_Diff
 ebu3b:EBU3B_Load_Shed_Stndby_Load_Shed_Switch a brick:Standby_Load_Shed_Switch ;
     brickframe:isPointOf ebu3b:EBU3B_HVAC .
 
-ebu3b:EBU3B_Load_Shed_Unocc_Load_Shed_Switch a brick:Unoccupied_Load_Shed_Switch ;
+ebu3b:EBU3B_Load_Shed_Unocc_Load_Shed_Switch a brick:Unoccupied_Load_Shed_Command ;
     brickframe:isPointOf ebu3b:EBU3B_HVAC .
 
 ebu3b:EBU3B_Power_Meter_Elevator a brick:Electrical_Power_Meter ;

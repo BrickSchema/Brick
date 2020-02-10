@@ -1674,13 +1674,13 @@ soda_hall:mixed_air_temp_supply_fan_S18 a brick:Mixed_Air_Temperature_Sensor .
 
 soda_hall:oat_SODA3______OAT a brick:Outside_Air_Temperature .
 
-soda_hall:override_event_SODA1____EVENT a brick:AHU_Overriden_On_Status .
+soda_hall:override_event_SODA1____EVENT a brick:Overridden_Status .
 
-soda_hall:override_event_SODA2____EVENT a brick:AHU_Overriden_On_Status .
+soda_hall:override_event_SODA2____EVENT a brick:Overridden_Status .
 
-soda_hall:override_event_SODA3____EVENT a brick:AHU_Overriden_On_Status .
+soda_hall:override_event_SODA3____EVENT a brick:Overridden_Status .
 
-soda_hall:override_event_SODA4____EVENT a brick:AHU_Overriden_On_Status .
+soda_hall:override_event_SODA4____EVENT a brick:Overridden_Status .
 
 soda_hall:pid_i_supply_fan_S11 a brick:Supply_Air_Integrative_Gain_Factor .
 

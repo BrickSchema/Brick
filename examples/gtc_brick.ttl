@@ -192,12 +192,6 @@ brick:CRAC rdfs:subClassOf [ a owl:Restriction ;
             owl:onProperty brickframe:hasPoint ;
             owl:someValuesFrom brick:Humidity_Sensor ] .
 
-brick:CRAC_Temperature a owl:Class ;
-    rdfs:label "CRAC Temperature"@en ;
-    rdfs:subClassOf brick:Temperature ;
-    brickframe:hasTag btag:CRAC,
-        btag:Temperature .
-
 brick:Chilled_Water_Differential_Pressure rdfs:subClassOf brick:Differential_Pressure .
 
 brick:Chilled_Water_Discharge_Temperature rdfs:subClassOf brick:Temperature ;
@@ -228,13 +222,6 @@ brick:Chiller rdfs:subClassOf [ a owl:Restriction ;
 
 brick:Chiller_Discharge_Water_Temperature_Alarm rdfs:label "Chiller Supply Water Temperature Alarm"@en ;
     owl:equivalentClass brick:Chiller_Supply_Water_Temperature_Alarm .
-
-brick:Cold_Box_Temperature a owl:Class ;
-    rdfs:label "Cold Box Temperature"@en ;
-    rdfs:subClassOf brick:Temperature ;
-    brickframe:hasTag btag:Box,
-        btag:Cold,
-        btag:Temperature .
 
 brick:Condenser rdfs:subClassOf [ a owl:Restriction ;
             owl:onProperty brickframe:hasPoint ;
@@ -337,7 +324,7 @@ brick:Economizer rdfs:subClassOf [ a owl:Restriction ;
             owl:onProperty brickframe:hasPoint ;
             owl:someValuesFrom brick:Economizer_Temperature_Setpoint ] .
 
-brick:Economizer_Dewpoint_Setpoint rdfs:subClassOf brick:Dew_Point_Setpoint .
+brick:Economizer_Dewpoint_Setpoint rdfs:subClassOf brick:Dewpoint_Sensor .
 
 brick:Economizer_Supply_Air_Temperature_Proportional_Band_Setpoint owl:equivalentClass brick:Economizer_Discharge_Air_Temperature_Proportional_Band_Setpoint .
 
@@ -4613,7 +4600,7 @@ brick:AHU rdfs:subClassOf [ a owl:Restriction ;
             owl:someValuesFrom brick:Discharge_Air_Flow_Demand_Setpoint ],
         [ a owl:Restriction ;
             owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Heat_Request_Percent_Setpoint ],
+            owl:someValuesFrom brick:Heating_Request_Percent_Setpoint ],
         [ a owl:Restriction ;
             owl:onProperty brickframe:hasPoint ;
             owl:someValuesFrom brick:Heating_Demand_Setpoint ],
@@ -4826,7 +4813,7 @@ brick:Chilled_Water_Differential_Pressure_Load_Shed_Reset_Status rdfs:subClassOf
 
 brick:Chilled_Water_Pump_Differential_Pressure_Dead_Band_Setpoint rdfs:subClassOf brick:Differential_Pressure_Dead_Band_Setpoint .
 
-brick:Chilled_Water_Pump_Differential_Pressure_Integration_Time_Setpoint rdfs:subClassOf brick:Differential_Pressure_Integral_Time .
+brick:Chilled_Water_Pump_Differential_Pressure_Integration_Time_Setpoint rdfs:subClassOf brick:Differential_Pressure_Integral_Time_Parameter .
 
 brick:Chilled_Water_Pump_Differential_Pressure_Proportional_Band_Setpoint rdfs:subClassOf brick:Differential_Pressure_Proportional_Band .
 
@@ -4851,11 +4838,11 @@ brick:Cooling_Coil_Discharge_Air_Temperature_Sensor rdfs:subClassOf brick:Temper
 
 brick:Deionised_Water_Alarm owl:equivalentClass brick:DI_Water_Alarm .
 
-brick:Dew_Point_Setpoint a owl:Class ;
+brick:Dewpoint_Sensor a owl:Class ;
     rdfs:label "Dew Point Setpoint"@en ;
     rdfs:subClassOf brick:Setpoint .
 
-brick:Differential_Pressure_Integral_Time a owl:Class ;
+brick:Differential_Pressure_Integral_Time_Parameter a owl:Class ;
     rdfs:label "Differential Pressure Integral Time"@en ;
     rdfs:subClassOf brick:Integral_Time_Setpoint .
 
@@ -4941,7 +4928,7 @@ brick:Heat_Exchanger_Supply_Water_Temperature_Sensor owl:equivalentClass brick:H
 
 brick:Heat_Exchanger_Supply_Water_Temperature_Setpoint owl:equivalentClass brick:Heat_Exchanger_Discharge_Water_Temperature_Setpoint .
 
-brick:Heat_Request_Percent_Setpoint a owl:Class ;
+brick:Heating_Request_Percent_Setpoint a owl:Class ;
     rdfs:label "Heat Request Percent Setpoint"@en ;
     rdfs:subClassOf brick:Demand_Setpoint ;
     brickframe:hasTag btag:Heat,
