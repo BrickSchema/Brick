@@ -205,16 +205,6 @@ brick:Chilled_Water_Discharge_Temperature rdfs:subClassOf brick:Temperature ;
 
 brick:Chilled_Water_Return_Temperature rdfs:subClassOf brick:Temperature .
 
-brick:Chilled_Water_Supply_Return_Differential_Temperature a owl:Class ;
-    rdfs:label "Chilled Water Supply Return Differential Temperature"@en ;
-    rdfs:subClassOf brick:Differential_Temperature ;
-    brickframe:hasTag btag:Chilled,
-        btag:Differential,
-        btag:Return,
-        btag:Supply,
-        btag:Temperature,
-        btag:Water .
-
 brick:Chilled_Water_System owl:equivalentClass brick:CWS .
 
 brick:Chiller rdfs:subClassOf [ a owl:Restriction ;
@@ -370,8 +360,6 @@ brick:Exhaust_Air_Stack_Flow rdfs:subClassOf brick:Exhaust_Air_Flow .
 brick:Exhaust_Air_Temperature rdfs:subClassOf brick:Temperature .
 
 brick:Exhaust_Air_Velocity_Pressure rdfs:subClassOf brick:Velocity_Pressure .
-
-brick:Exhaust_Fan_Piezoelectric rdfs:subClassOf brick:Piezoelectric .
 
 brick:FCU rdfs:subClassOf [ a owl:Restriction ;
             owl:onProperty brickframe:hasPoint ;
@@ -919,8 +907,6 @@ brick:Supply_Fan rdfs:subClassOf [ a owl:Restriction ;
             owl:someValuesFrom brick:Discharge_Air_Static_Pressure_Proportional_Band_Setpoint ] .
 
 brick:Supply_Fan_Air_Flow rdfs:subClassOf brick:Discharge_Air_Flow .
-
-brick:Supply_Fan_Piezoelectric rdfs:subClassOf brick:Piezoelectric .
 
 brick:Thermal_Energy a owl:Class ;
     rdfs:label "Thermal Energy"@en ;
