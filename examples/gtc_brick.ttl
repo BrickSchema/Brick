@@ -1,4 +1,5 @@
 @prefix brick: <https://brickschema.org/schema/1.0.2/Brick#> .
+@prefix brick11: <https://brickschema.org/schema/1.1/Brick#> .
 @prefix brickframe: <https://brickschema.org/schema/1.0.2/BrickFrame#> .
 @prefix btag: <https://brickschema.org/schema/1.0.2/BrickTag#> .
 @prefix gtc: <https://brickschema.org/schema/1.0.2/building_example#> .
@@ -4813,9 +4814,9 @@ brick:Chilled_Water_Differential_Pressure_Load_Shed_Reset_Status rdfs:subClassOf
 
 brick:Chilled_Water_Pump_Differential_Pressure_Dead_Band_Setpoint rdfs:subClassOf brick:Differential_Pressure_Dead_Band_Setpoint .
 
-brick:Chilled_Water_Pump_Differential_Pressure_Integration_Time_Setpoint rdfs:subClassOf brick:Differential_Pressure_Integral_Time_Parameter .
+brick:Chilled_Water_Pump_Differential_Pressure_Integration_Time_Setpoint rdfs:subClassOf brick11:Differential_Pressure_Integral_Time_Parameter .
 
-brick:Chilled_Water_Pump_Differential_Pressure_Proportional_Band_Setpoint rdfs:subClassOf brick:Differential_Pressure_Proportional_Band .
+brick:Chilled_Water_Pump_Differential_Pressure_Proportional_Band_Setpoint rdfs:subClassOf brick11:Differential_Pressure_Proportional_Band .
 
 brick:Chilled_Water_Pump_Enable_Status rdfs:subClassOf brick:Enable_Status .
 
@@ -4842,11 +4843,11 @@ brick:Dewpoint_Sensor a owl:Class ;
     rdfs:label "Dew Point Setpoint"@en ;
     rdfs:subClassOf brick:Setpoint .
 
-brick:Differential_Pressure_Integral_Time_Parameter a owl:Class ;
+brick11:Differential_Pressure_Integral_Time_Parameter a owl:Class ;
     rdfs:label "Differential Pressure Integral Time"@en ;
     rdfs:subClassOf brick:Integral_Time_Setpoint .
 
-brick:Differential_Pressure_Proportional_Band a owl:Class ;
+brick11:Differential_Pressure_Proportional_Band a owl:Class ;
     rdfs:label "Differential Pressure Proportional Band"@en ;
     rdfs:subClassOf brick:Proportional_Band_Setpoint .
 

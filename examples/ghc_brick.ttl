@@ -1,5 +1,6 @@
 @prefix GHC: <http://cmu.edu/building/ontology/ghc#> .
 @prefix brick: <https://brickschema.org/schema/1.0.2/Brick#> .
+@prefix brick11: <https://brickschema.org/schema/1.1/Brick#> .
 @prefix brickframe: <https://brickschema.org/schema/1.0.2/BrickFrame#> .
 @prefix btag: <https://brickschema.org/schema/1.0.2/BrickTag#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -279,13 +280,13 @@ GHC:CMUSCSC_HillmanSixth_Floor a owl:NamedIndividual,
         brick:Outside_Air_Temperature_Sensor .
 
 <http://cmu.edu/building/ontology/ghc#SCSC_Gates/Hot_Water_BTU_Meter/Instant_Demand> a owl:NamedIndividual,
-        brick:Usage_Sensor .
+        brick11:Hot_Water_Usage_Sensor .
 
 <http://cmu.edu/building/ontology/ghc#SCSC_Gates/Rainwater_System/Schedule> a owl:NamedIndividual,
         brick:Schedule_Setpoint .
 
 <http://cmu.edu/building/ontology/ghc#SCSC_Gates/Steam_Flow_Meter_Interface/Instant_Demand> a owl:NamedIndividual,
-        brick:Usage_Sensor .
+        brick11:Steam_Usage_Sensor .
 
 <http://cmu.edu/building/ontology/ghc#SCSC_Hillman/4400_N_Corridor/Airflow> a owl:NamedIndividual,
         brick:Discharge_Air_Flow_Sensor .
@@ -40349,7 +40350,7 @@ GHC:VAV_Room_9233_Future_UseZone a owl:NamedIndividual,
     brickframe:hasPoint GHC:VAV_Room_9233_Future_UseRoom ;
     brickframe:isFedBy GHC:VAV_Room_9233_Future_Use .
 
-brick:Usage_Sensor brickframe:hasTag btag:Demand,
+brick11:Usage_Sensor brickframe:hasTag btag:Demand,
         btag:Equipment,
         btag:Steam .
 
