@@ -38,6 +38,39 @@ The more detail, the better!
 Changes to Brick are performed through [Pull Requests](https://github.com/BrickSchema/Brick/pulls).
 It is recommended that you become familiar with how to [fork a repository](https://help.github.com/en/articles/fork-a-repo) and [create a pull request](https://help.github.com/en/articles/creating-a-pull-request-from-a-fork).
 
+### Setting up Development Environment
+
+Brick requires Python >= 3.6. We recommend using [virtual environments](https://docs.python.org/3/library/venv.html) to manage dependencies. We use [pre-commit hooks](https://pre-commit.com/) to automatically run code formatters and style checkers when you commit.
+
+1. Check out the Brick repository (or your own fork of it)
+
+```bash
+git clone https://github.com/BrickSchema/Brick
+cd Brick
+```
+
+2. Install the virtual environment and set up dependencies
+
+```bash
+# creates virtual environment
+python3 -m venv venv
+
+# activates virtual environment; do this every time you develop on Brick
+source venv/bin/activate
+
+# install dependencies
+pip install -r requirements.txt
+
+# install pre-commit hooks
+pre-commit install
+```
+
+3. Run tests to make sure the build is not broken
+
+```bash
+make test
+```
+
 ### Extending the Class Hierarchy
 
 The Brick class hierarchy is defined across several files in `bricksrc/`, named according to the Brick class that roots the hierarchy defined in the file.
