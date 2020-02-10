@@ -767,6 +767,9 @@ sensor_definitions = {
                                         "tags": [TAG.Point, TAG.Chilled, TAG.Water, TAG.Return, TAG.Temperature, TAG.Sensor],
                                         "parents": [BRICK.Chilled_Water_Temperature_Sensor],
                                     }
+                                    "Differential_Supply_Return_Water_Temperature_Sensor": {
+                                        "tags": [TAG.Point, TAG.Differential, TAG.Supply, TAG.Return, TAG.Temperature, TAG.Sensor],
+                                    },
                                 }
                             }
                         }
