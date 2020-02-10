@@ -14,14 +14,6 @@
       "query": "DELETE{ ?subject brickframe:contains ?object . } WHERE { ?subject brickframe:contains ?object . }"
     },
     {
-      "description": "Add brick:isLocationOf",
-      "query": "INSERT{ ?subject brick:isLocationOf ?object . } WHERE { ?subject brickframe:contains ?object . }"
-    },
-    {
-      "description": "Remove brickframe:contains",
-      "query": "DELETE{ ?subject brickframe:contains ?object . } WHERE { ?subject brickframe:contains ?object . }"
-    },
-    {
       "description": "Add brick:controls",
       "query": "INSERT{ ?subject brick:controls ?object . } WHERE { ?subject brickframe:controls ?object . }"
     },
@@ -1332,6 +1324,14 @@
     {
       "description": "Remove brick:Automatic_Mode_Command",
       "query": "DELETE{ ?subject ?predicate brick_v_1_0_2:Automatic_Mode_Command . } WHERE { ?subject  ?predicate  brick_v_1_0_2:Automatic_Mode_Command . }"
+    },
+    {
+      "description": "Add brick:Average_Cooling_Demand_Sensor",
+      "query": "INSERT{ ?subject ?predicate brick:Average_Cooling_Demand_Sensor . } WHERE { ?subject  ?predicate  brick_v_1_0_2:Average_Cooling_Demand_Sensor . }"
+    },
+    {
+      "description": "Remove brick:Average_Cooling_Demand_Sensor",
+      "query": "DELETE{ ?subject ?predicate brick_v_1_0_2:Average_Cooling_Demand_Sensor . } WHERE { ?subject  ?predicate  brick_v_1_0_2:Average_Cooling_Demand_Sensor . }"
     },
     {
       "description": "Add brick:Average_Discharge_Air_Flow_Sensor",
@@ -3124,6 +3124,22 @@
     {
       "description": "Remove brick:Discharge_Air_Flow_Demand_Setpoint",
       "query": "DELETE{ ?subject ?predicate brick_v_1_0_2:Discharge_Air_Flow_Demand_Setpoint . } WHERE { ?subject  ?predicate  brick_v_1_0_2:Discharge_Air_Flow_Demand_Setpoint . }"
+    },
+    {
+      "description": "Add brick:Discharge_Air_Flow_Reset_High_Setpoint",
+      "query": "INSERT{ ?subject ?predicate brick:Discharge_Air_Flow_Reset_High_Setpoint . } WHERE { ?subject  ?predicate  brick_v_1_0_2:Discharge_Air_Flow_Reset_High_Setpoint . }"
+    },
+    {
+      "description": "Remove brick:Discharge_Air_Flow_Reset_High_Setpoint",
+      "query": "DELETE{ ?subject ?predicate brick_v_1_0_2:Discharge_Air_Flow_Reset_High_Setpoint . } WHERE { ?subject  ?predicate  brick_v_1_0_2:Discharge_Air_Flow_Reset_High_Setpoint . }"
+    },
+    {
+      "description": "Add brick:Discharge_Air_Flow_Reset_Low_Setpoint",
+      "query": "INSERT{ ?subject ?predicate brick:Discharge_Air_Flow_Reset_Low_Setpoint . } WHERE { ?subject  ?predicate  brick_v_1_0_2:Discharge_Air_Flow_Reset_Low_Setpoint . }"
+    },
+    {
+      "description": "Remove brick:Discharge_Air_Flow_Reset_Low_Setpoint",
+      "query": "DELETE{ ?subject ?predicate brick_v_1_0_2:Discharge_Air_Flow_Reset_Low_Setpoint . } WHERE { ?subject  ?predicate  brick_v_1_0_2:Discharge_Air_Flow_Reset_Low_Setpoint . }"
     },
     {
       "description": "Add brick:Discharge_Air_Flow_Sensor",
@@ -5246,6 +5262,14 @@
       "query": "DELETE{ ?subject ?predicate brick_v_1_0_2:High_Humidity_Alarm . } WHERE { ?subject  ?predicate  brick_v_1_0_2:High_Humidity_Alarm . }"
     },
     {
+      "description": "Add brick:High_Humidity_Alarm_Parameter",
+      "query": "INSERT{ ?subject ?predicate brick:High_Humidity_Alarm_Parameter . } WHERE { ?subject  ?predicate  brick_v_1_0_2:High_Humidity_Alarm_Setpoint . }"
+    },
+    {
+      "description": "Remove brick:High_Humidity_Alarm_Setpoint",
+      "query": "DELETE{ ?subject ?predicate brick_v_1_0_2:High_Humidity_Alarm_Setpoint . } WHERE { ?subject  ?predicate  brick_v_1_0_2:High_Humidity_Alarm_Setpoint . }"
+    },
+    {
       "description": "Add brick:High_Static_Pressure_Cutout_Setpoint_Limit",
       "query": "INSERT{ ?subject ?predicate brick:High_Static_Pressure_Cutout_Setpoint_Limit . } WHERE { ?subject  ?predicate  brick_v_1_0_2:High_Static_Pressure_Cutout_Limit . }"
     },
@@ -5348,6 +5372,14 @@
     {
       "description": "Remove brick:Hot_Water_Coil_Entering_Temperature_Sensor",
       "query": "DELETE{ ?subject ?predicate brick_v_1_0_2:Hot_Water_Coil_Entering_Temperature_Sensor . } WHERE { ?subject  ?predicate  brick_v_1_0_2:Hot_Water_Coil_Entering_Temperature_Sensor . }"
+    },
+    {
+      "description": "Add brick:Hot_Water_Differential_Pressure_Sensor",
+      "query": "INSERT{ ?subject ?predicate brick:Hot_Water_Differential_Pressure_Sensor . } WHERE { ?subject  ?predicate  brick_v_1_0_2:Hot_Water_Differential_Pressure . }"
+    },
+    {
+      "description": "Remove brick:Hot_Water_Differential_Pressure",
+      "query": "DELETE{ ?subject ?predicate brick_v_1_0_2:Hot_Water_Differential_Pressure . } WHERE { ?subject  ?predicate  brick_v_1_0_2:Hot_Water_Differential_Pressure . }"
     },
     {
       "description": "Add brick:Hot_Water_Differential_Pressure_Setpoint",
@@ -5774,6 +5806,14 @@
       "query": "DELETE{ ?subject ?predicate brick_v_1_0_2:Low_Humidity_Alarm . } WHERE { ?subject  ?predicate  brick_v_1_0_2:Low_Humidity_Alarm . }"
     },
     {
+      "description": "Add brick:Low_Humidity_Alarm_Parameter",
+      "query": "INSERT{ ?subject ?predicate brick:Low_Humidity_Alarm_Parameter . } WHERE { ?subject  ?predicate  brick_v_1_0_2:Low_Humidity_Alarm_Setpoint . }"
+    },
+    {
+      "description": "Remove brick:Low_Humidity_Alarm_Setpoint",
+      "query": "DELETE{ ?subject ?predicate brick_v_1_0_2:Low_Humidity_Alarm_Setpoint . } WHERE { ?subject  ?predicate  brick_v_1_0_2:Low_Humidity_Alarm_Setpoint . }"
+    },
+    {
       "description": "Add brick:Low_Outside_Air_Temperature_Enable_Differential_Sensor",
       "query": "INSERT{ ?subject ?predicate brick:Low_Outside_Air_Temperature_Enable_Differential_Sensor . } WHERE { ?subject  ?predicate  brick_v_1_0_2:Low_Outside_Air_Temperature_Enable_Differential_Sensor . }"
     },
@@ -5956,6 +5996,14 @@
     {
       "description": "Remove brick:Max_VFD_Speed_Setpoint",
       "query": "DELETE{ ?subject ?predicate brick_v_1_0_2:Max_VFD_Speed_Setpoint . } WHERE { ?subject  ?predicate  brick_v_1_0_2:Max_VFD_Speed_Setpoint . }"
+    },
+    {
+      "description": "Add brick:Quantity",
+      "query": "INSERT{ ?subject ?predicate brick:Quantity . } WHERE { ?subject  ?predicate  brick_v_1_0_2:MeasurementProperty . }"
+    },
+    {
+      "description": "Remove brick:MeasurementProperty",
+      "query": "DELETE{ ?subject ?predicate brick_v_1_0_2:MeasurementProperty . } WHERE { ?subject  ?predicate  brick_v_1_0_2:MeasurementProperty . }"
     },
     {
       "description": "Add brick:Medium_Temperature_Hot_Water_Differential_Pressure_Load_Shed_Reset_Status",
@@ -7246,6 +7294,14 @@
       "query": "DELETE{ ?subject ?predicate brick_v_1_0_2:Return_Fan . } WHERE { ?subject  ?predicate  brick_v_1_0_2:Return_Fan . }"
     },
     {
+      "description": "Add brick:Air_Flow_Sensor",
+      "query": "INSERT{ ?subject ?predicate brick:Air_Flow_Sensor . } WHERE { ?subject  ?predicate  brick_v_1_0_2:Return_Fan_Air_Flow_Sensor . }"
+    },
+    {
+      "description": "Remove brick:Return_Fan_Air_Flow_Sensor",
+      "query": "DELETE{ ?subject ?predicate brick_v_1_0_2:Return_Fan_Air_Flow_Sensor . } WHERE { ?subject  ?predicate  brick_v_1_0_2:Return_Fan_Air_Flow_Sensor . }"
+    },
+    {
       "description": "Add brick:Command",
       "query": "INSERT{ ?subject ?predicate brick:Command . } WHERE { ?subject  ?predicate  brick_v_1_0_2:Return_Fan_Command . }"
     },
@@ -7964,6 +8020,14 @@
     {
       "description": "Remove brick:Supply_Fan",
       "query": "DELETE{ ?subject ?predicate brick_v_1_0_2:Supply_Fan . } WHERE { ?subject  ?predicate  brick_v_1_0_2:Supply_Fan . }"
+    },
+    {
+      "description": "Add brick:Air_Flow_Sensor",
+      "query": "INSERT{ ?subject ?predicate brick:Air_Flow_Sensor . } WHERE { ?subject  ?predicate  brick_v_1_0_2:Supply_Fan_Air_Flow_Sensor . }"
+    },
+    {
+      "description": "Remove brick:Supply_Fan_Air_Flow_Sensor",
+      "query": "DELETE{ ?subject ?predicate brick_v_1_0_2:Supply_Fan_Air_Flow_Sensor . } WHERE { ?subject  ?predicate  brick_v_1_0_2:Supply_Fan_Air_Flow_Sensor . }"
     },
     {
       "description": "Add brick:Command",
