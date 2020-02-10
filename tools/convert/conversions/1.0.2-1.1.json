@@ -134,8 +134,8 @@
       "query": "DELETE{ ?subject brickframe:isMeasuredBy ?object . } WHERE { ?subject brickframe:isMeasuredBy ?object . }"
     },
     {
-      "description": "Add brick:isTagOf,",
-      "query": "INSERT{ ?subject brick:isTagOf, ?object . } WHERE { ?subject brickframe:isTagOf ?object . }"
+      "description": "Add brick:isTagOf",
+      "query": "INSERT{ ?subject brick:isTagOf ?object . } WHERE { ?subject brickframe:isTagOf ?object . }"
     },
     {
       "description": "Remove brickframe:isTagOf",
