@@ -11002,4 +11002,3 @@ _:has_Air a owl:Restriction ;
 _:has_Point a owl:Restriction ;
     owl:hasValue tag:Point ;
     owl:onProperty brick:hasTag .
-

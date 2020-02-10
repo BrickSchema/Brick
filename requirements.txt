@@ -10,3 +10,4 @@ tqdm
 docker
 brickschema
 black
+pre-commit
