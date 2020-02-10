@@ -17,17 +17,24 @@ def find_conversions(source, target, versions_graph):
     :return: list of conversions in order of execution
     """
     graph = Graph()
-    for source_version, target_version in versions_graph.query("""SELECT ?source_version ?target_version{
+    for source_version, target_version in versions_graph.query(
+        """SELECT ?source_version ?target_version{
                         ?source_version version:convertsTo ?target_version .
-    }"""):
-        graph.add_edge(str(source_version), str(target_version), {'conversions': 1})
+    }"""
+    ):
+        graph.add_edge(str(source_version), str(target_version), {"conversions": 1})
 
     # Find the shortest path
-    res = find_path(graph, str(source), str(target), cost_func=lambda u, v, e, prev_e: e['conversions'])
+    res = find_path(
+        graph,
+        str(source),
+        str(target),
+        cost_func=lambda u, v, e, prev_e: e["conversions"],
+    )
 
     # Create and return the conversions
     conversions = []
-    print(' -> '.join(res.nodes))
+    print(" -> ".join(res.nodes))
     current = source
     for node in res.nodes:
         conversions.append((current, node))
@@ -43,33 +50,34 @@ def execute_conversions(conversion, model_graph):
     """
 
     # Load conversion scripts
-    directory = dirname(sys.argv[0]) or '.'
-    with open(directory + '/conversions/{}-{}.json'.format(*conversion), 'r') as file:
+    directory = dirname(sys.argv[0]) or "."
+    with open(directory + "/conversions/{}-{}.json".format(*conversion), "r") as file:
         conversion_data = load(file)
 
     # Add query namespaces
     namespaces = {}
-    for prefix, namespace in conversion_data['namespaces'].items():
+    for prefix, namespace in conversion_data["namespaces"].items():
         namespaces[prefix] = Namespace(namespace)
         model_graph.bind(prefix, Namespace(namespace), override=True)
-    with tqdm(conversion_data['operations'], bar_format='{l_bar}{bar}') as operations:
+    with tqdm(conversion_data["operations"], bar_format="{l_bar}{bar}") as operations:
         for operation in operations:
-            info(operation['description'])
-            model_graph.update(operation['query'], initNs=namespaces)
+            info(operation["description"])
+            model_graph.update(operation["query"], initNs=namespaces)
 
 
 def standardize_namespaces(filename):
     # This function standardises https on all brick namespaces
     with open(filename) as f:
-        standardized_turtle = f.read().replace('http://brickschema.org',
-                                   'https://brickschema.org')
+        standardized_turtle = f.read().replace(
+            "http://brickschema.org", "https://brickschema.org"
+        )
     with open(filename, "w") as f:
         f.write(standardized_turtle)
 
 
 def get_output_filename(filename, version):
     # This function returns an output filename
-    if (len(filename) > 2) and filename[-4:].lower() == '.ttl':
+    if (len(filename) > 2) and filename[-4:].lower() == ".ttl":
         return filename[:-4] + "(v%s)" % version + filename[-4:]
     else:
         return filename + "v%s" % version + ".ttl"
