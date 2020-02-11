@@ -6,7 +6,7 @@
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:bricks="https://brickschema.org/schema/1.1.0/Brick#"
+     xmlns:brick="https://brickschema.org/schema/1.1/Brick#"
      xmlns:rec-core="https://w3id.org/rec/core/"
      xmlns:rec-device="https://w3id.org/rec/device/"
      xmlns:rec-building="https://w3id.org/rec/building/">
