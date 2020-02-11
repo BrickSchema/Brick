@@ -17,90 +17,6 @@ brick:Booster_Fan_Air_Flow rdfs:subClassOf brick:Air_Flow .
 
 brick:CRAC rdfs:subClassOf [ a owl:Restriction ;
             owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Air_Flow_Loss_Alarm ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Humidification_On_Off_Status ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Standby_Glycool_Unit_On_Off_Status ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Standby_Unit_On_Off_Status ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Standby_Fan_Status ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Locally_On_Off_Status ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Remotely_On_Off_Status ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Communication_Loss_Alarm ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Compressor_Overload_Alarm ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Condensate_Leak_Alarm ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Emergency_Power_Loss_Alarm ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Fan_Overload_Alarm ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:High_Head_Pressure_Alarm ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:High_Humidity_Alarm ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:High_Temperature_Alarm ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Humidifier_Alarm ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Humidifier_Panel_No_Water_Alarm ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Liquid_Detected_Alarm ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Low_Humidity_Alarm ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Low_Suction_Pressure_Alarm ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Low_Temperature_Alarm ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Power_Loss_Alarm ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Short_Cycle_Alarm ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Smoke_Detected_Alarm ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Unit_Failed_Alarm ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Water_Loss_Alarm ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Emergency_Power_Off_Command ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Start_Stop_Command ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
             owl:someValuesFrom brick:Emergency_Power_Off_Switch_Command ],
         [ a owl:Restriction ;
             owl:onProperty brickframe:hasPoint ;
@@ -182,6 +98,9 @@ brick:CRAC rdfs:subClassOf [ a owl:Restriction ;
             owl:someValuesFrom brick:Cooling_On_Off_Status ],
         [ a owl:Restriction ;
             owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Air_Flow_Loss_Alarm ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
             owl:someValuesFrom brick:Dehumidification_On_Off_Status ],
         [ a owl:Restriction ;
             owl:onProperty brickframe:hasPoint ;
@@ -191,7 +110,88 @@ brick:CRAC rdfs:subClassOf [ a owl:Restriction ;
             owl:someValuesFrom brick:Heating_On_Off_Status ],
         [ a owl:Restriction ;
             owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Run_Status ] .
+            owl:someValuesFrom brick:Run_Status ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Humidification_On_Off_Status ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Standby_Glycool_Unit_On_Off_Status ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Standby_Unit_On_Off_Status ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Standby_Fan_Status ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Locally_On_Off_Status ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Remotely_On_Off_Status ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Communication_Loss_Alarm ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Compressor_Overload_Alarm ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Condensate_Leak_Alarm ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Emergency_Power_Loss_Alarm ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Fan_Overload_Alarm ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:High_Head_Pressure_Alarm ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:High_Humidity_Alarm ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:High_Temperature_Alarm ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Humidifier_Alarm ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Humidifier_Panel_No_Water_Alarm ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Liquid_Detected_Alarm ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Low_Humidity_Alarm ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Low_Suction_Pressure_Alarm ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Low_Temperature_Alarm ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Power_Loss_Alarm ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Short_Cycle_Alarm ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Smoke_Detected_Alarm ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Unit_Failed_Alarm ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Water_Loss_Alarm ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Emergency_Power_Off_Command ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Start_Stop_Command ] .
 
 brick:Chilled_Water_Differential_Pressure rdfs:subClassOf brick:Differential_Pressure .
 
@@ -335,6 +335,8 @@ brick:Emergency_Generator rdfs:subClassOf [ a owl:Restriction ;
         [ a owl:Restriction ;
             owl:onProperty brickframe:hasPoint ;
             owl:someValuesFrom brick:Emergency_Generator_Status ] .
+
+brick:Energy brickframe:hasTag btag:Energy .
 
 brick:Environment_Box_Temperature a owl:Class ;
     rdfs:label "Environment Box Temperature"@en ;
@@ -909,6 +911,51 @@ brick:Unoccupied_Cooling_Supply_Air_Flow_Setpoint owl:equivalentClass brick:Unoc
 
 brick:VFD rdfs:subClassOf [ a owl:Restriction ;
             owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Fault_Status ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Last_Fault_Code_Status ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Manual_Auto_Status ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Start_Stop_Status ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Motor_Direction_Status ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Run_Direction_Status ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Run_Enable_Status ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Motor_Start_Stop_Status ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Run_Status ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Maintenance_Required_Alarm ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:VFD_Alarm ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Frequency_Command ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Panel_Lockout_Command ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Start_Stop_Command ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
+            owl:someValuesFrom brick:Motor_Direction_Command ],
+        [ a owl:Restriction ;
+            owl:onProperty brickframe:hasPoint ;
             owl:someValuesFrom brick:Run_Direction_Command ],
         [ a owl:Restriction ;
             owl:onProperty brickframe:hasPoint ;
@@ -999,52 +1046,7 @@ brick:VFD rdfs:subClassOf [ a owl:Restriction ;
             owl:someValuesFrom brick:Drive_Ready_Status ],
         [ a owl:Restriction ;
             owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Fault_Indicator_Status ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Fault_Status ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Last_Fault_Code_Status ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Manual_Auto_Status ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Start_Stop_Status ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Motor_Direction_Status ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Run_Direction_Status ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Run_Enable_Status ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Motor_Start_Stop_Status ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Run_Status ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Maintenance_Required_Alarm ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:VFD_Alarm ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Frequency_Command ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Panel_Lockout_Command ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Start_Stop_Command ],
-        [ a owl:Restriction ;
-            owl:onProperty brickframe:hasPoint ;
-            owl:someValuesFrom brick:Motor_Direction_Command ] .
+            owl:someValuesFrom brick:Fault_Indicator_Status ] .
 
 brick:WS owl:equivalentClass brick:Water_System .
 
@@ -1089,543 +1091,35 @@ brickframe:Label rdfs:subClassOf [ a owl:Restriction ;
             owl:onProperty brickframe:hasToken ;
             owl:someValuesFrom brickframe:Token ] .
 
-btag:AHU rdfs:subClassOf btag:Equipment_HVAC .
-
-btag:Acceleration rdfs:subClassOf btag:Equipment_HVAC_VFD .
-
-btag:Activated rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Adjust rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Adjustment rdfs:subClassOf btag:Equipment_HVAC_VAV .
-
-btag:Alarm rdfs:subClassOf btag:Point .
-
-btag:Analog rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Angle rdfs:subClassOf btag:MeasurementProperty_PhysicalProperties .
-
-btag:Auto rdfs:subClassOf btag:Equipment_HVAC_VFD,
-        btag:MeasurementProperty_Modifier .
-
-btag:Automatic rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Average rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Azimuth rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Band rdfs:subClassOf btag:Equipment_HVAC_VFD .
-
-btag:Basement rdfs:subClassOf btag:Location .
-
-btag:Battery rdfs:subClassOf btag:Equipment_Energy_Power .
-
-btag:Boiler rdfs:subClassOf btag:Equipment_HVAC .
-
-btag:Booster rdfs:subClassOf btag:Equipment_HVAC_VAV .
-
-btag:Building rdfs:subClassOf btag:Location .
-
-btag:Bus rdfs:subClassOf btag:Equipment_Energy_Power .
-
-btag:Button rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:By rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Bypass rdfs:subClassOf btag:Equipment_HVAC_AHU .
-
-btag:CFM a owl:Class ;
-    rdfs:label "CFM"@en ;
-    rdfs:subClassOf btag:MeasurementProperty_Unit .
-
-btag:CRAC rdfs:subClassOf btag:Equipment_HVAC .
-
-btag:CWS rdfs:subClassOf btag:Equipment_Water_System .
-
-btag:Capacity rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Change rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Chilled rdfs:subClassOf btag:Equipment_HVAC_AHU,
-        btag:Equipment_HVAC_Water .
-
-btag:Chiller rdfs:subClassOf btag:Equipment_HVAC .
-
-btag:City rdfs:subClassOf btag:Location .
-
-btag:Close rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Code rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Coil rdfs:subClassOf btag:Equipment_HVAC_AHU .
-
-btag:Cold rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Coldest rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Command rdfs:subClassOf btag:Point .
-
-btag:Communication rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Compressor rdfs:subClassOf btag:Equipment_HVAC .
-
-btag:Computer rdfs:subClassOf btag:Equipment_HVAC_Misc .
-
-btag:Condensate rdfs:subClassOf btag:Equipment_HVAC_AHU .
-
-btag:Condenser rdfs:subClassOf btag:Equipment_HVAC .
-
-btag:Condensor rdfs:subClassOf btag:Equipment_HVAC_AHU .
-
-btag:Conditioning rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Conductivity rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Control rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Cool rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Cooling rdfs:subClassOf btag:Equipment_HVAC_AHU,
-        btag:MeasurementProperty_Modifier .
-
-btag:Current rdfs:subClassOf btag:MeasurementProperty_Modifier,
-        btag:MeasurementProperty_PhysicalProperties .
-
-btag:Curtailment rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Cutout rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Cycle rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:DC rdfs:subClassOf btag:MeasurementProperty_PhysicalProperties .
-
-btag:DHWS rdfs:subClassOf btag:Equipment_Water_System .
-
-btag:DI rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Damper rdfs:subClassOf btag:Equipment_HVAC_VAV .
-
-btag:Date rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Dead rdfs:subClassOf btag:Equipment_HVAC_VFD .
-
-btag:Deceleration rdfs:subClassOf btag:Equipment_HVAC_VFD .
-
-btag:Decrease rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Dehumidification rdfs:subClassOf btag:Equipment_HVAC_AHU .
-
-btag:Deionised rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Delay rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Demand rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Detected rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Detection rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Dew rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Digital rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Direction rdfs:subClassOf btag:Equipment_HVAC_VFD .
-
-btag:Disable rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Domestic rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Drive rdfs:subClassOf btag:Equipment_HVAC_VFD .
-
-btag:Duct rdfs:subClassOf btag:Equipment_HVAC .
-
-btag:Duration rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:EconCycle rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Economizer rdfs:subClassOf btag:Equipment_HVAC_VFD .
-
-btag:Effective rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Electrical rdfs:subClassOf btag:Equipment_Energy .
-
-btag:Elevator rdfs:subClassOf btag:Equipment_HVAC .
-
-btag:Emergency rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Enable rdfs:subClassOf btag:Equipment_HVAC_VFD,
-        btag:MeasurementProperty_Modifier .
-
-btag:Entering rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Estimation rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Even rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Exchanger rdfs:subClassOf btag:Equipment_HVAC_Water .
-
-btag:FCP rdfs:subClassOf btag:Equipment_Fire_Safety_System .
-
-btag:FCU rdfs:subClassOf btag:Equipment_HVAC .
-
-btag:Face rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Factor rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Fahrenheit a owl:Class ;
-    rdfs:label "Fahrenheit"@en ;
-    rdfs:subClassOf btag:MeasurementProperty_Unit .
-
-btag:Failed rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Failure rdfs:subClassOf btag:MeasurementProperty_PhysicalProperties .
-
-btag:Fans rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Fault rdfs:subClassOf btag:MeasurementProperty_PhysicalProperties .
-
-btag:Fire rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Fixed rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Floor rdfs:subClassOf btag:Location .
-
-btag:Freeze rdfs:subClassOf btag:Equipment_HVAC_Water .
-
-btag:Frequency rdfs:subClassOf btag:MeasurementProperty_PhysicalProperties .
-
-btag:Fresh rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:From rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Frost rdfs:subClassOf btag:MeasurementProperty_PhysicalProperties .
-
-btag:Fume rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Gain rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Gas rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Generator rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Glycool rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:HVAC rdfs:subClassOf btag:Equipment .
-
-btag:HWS rdfs:subClassOf btag:Equipment_Water_System .
-
-btag:HX rdfs:subClassOf btag:Equipment_HVAC .
-
-btag:Hail rdfs:subClassOf btag:MeasurementProperty_PhysicalProperties .
-
-btag:Hand rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Handler rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Head rdfs:subClassOf btag:Equipment_HVAC_Misc .
-
-btag:Heater rdfs:subClassOf btag:Equipment_HVAC_VAV .
-
-btag:Heating rdfs:subClassOf btag:Equipment_HVAC_AHU .
-
-btag:High rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Highest rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Hold rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Hood rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Hour rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Humidification rdfs:subClassOf btag:Equipment_HVAC_AHU .
-
-btag:Humidifier rdfs:subClassOf btag:Equipment_HVAC_Misc .
-
-btag:Humidify rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Ice rdfs:subClassOf btag:MeasurementProperty_PhysicalProperties .
-
-btag:Increase rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Indicator rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Input rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Integral rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Integration rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Integrative rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Inverter rdfs:subClassOf btag:Equipment_HVAC .
-
-btag:Isolation rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:LED rdfs:subClassOf btag:Equipment_Lighting .
-
-btag:Laboratory rdfs:subClassOf btag:Location .
-
-btag:Lag rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Last rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Lead rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Leak rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Leaving rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Level rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Lighting rdfs:subClassOf btag:Equipment .
-
-btag:Limit rdfs:subClassOf btag:Equipment_HVAC_VFD .
-
-btag:Liquid rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Load rdfs:subClassOf btag:Equipment_Energy_Power .
-
-btag:Locally rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Lockout rdfs:subClassOf btag:Equipment_HVAC_VFD .
-
-btag:Loss rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Low rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Lowest rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Luminance rdfs:subClassOf btag:MeasurementProperty_PhysicalProperties .
-
-btag:Maintenance rdfs:subClassOf btag:Equipment_HVAC_VFD .
-
-btag:Manual rdfs:subClassOf btag:Equipment_HVAC_VFD .
-
-btag:Max rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Medium rdfs:subClassOf btag:Equipment_HVAC_Water .
-
-btag:Meter rdfs:subClassOf btag:MeasurementProperty_Modifier,
-        btag:Point .
-
-btag:Min rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Minimum rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Mixed rdfs:subClassOf btag:Equipment_HVAC_AHU,
-        btag:Equipment_HVAC_VAV .
-
-btag:Month rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Monthly rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Motor rdfs:subClassOf btag:Equipment_HVAC_VFD .
-
-btag:No rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Occupancy rdfs:subClassOf btag:MeasurementProperty_PhysicalProperties .
-
-btag:Occupied rdfs:subClassOf btag:MeasurementProperty_PhysicalProperties .
-
-btag:Off rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:On rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Open rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Operating rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Overload rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Overridden rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Override rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:PID rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:PIR rdfs:subClassOf btag:MeasurementProperty_PhysicalProperties .
-
-btag:Panel rdfs:subClassOf btag:Equipment_HVAC_VFD .
-
-btag:Peak rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Perimeter rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Photovoltaic rdfs:subClassOf btag:Equipment_Energy_SolarPanel .
-
-btag:Piezoelectric rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Position rdfs:subClassOf btag:Equipment_HVAC_VAV .
-
-btag:Power rdfs:subClassOf btag:MeasurementProperty_PhysicalProperties .
-
-btag:Pre rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Preheat rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Proportional rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Protect rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Pump rdfs:subClassOf btag:Equipment_HVAC_Water .
-
-btag:Push rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Radiance rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Rain rdfs:subClassOf btag:MeasurementProperty_PhysicalProperties .
-
-btag:Rated rdfs:subClassOf btag:Equipment_HVAC_VFD .
-
-btag:Ratio rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Ready rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Reference rdfs:subClassOf btag:Equipment_HVAC_VFD .
-
-btag:Reheat rdfs:subClassOf btag:Equipment_HVAC_VAV .
-
-btag:Relative rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Remotely rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Required rdfs:subClassOf btag:Equipment_HVAC_VFD .
-
-btag:Reset rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Response rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Roof rdfs:subClassOf btag:Location .
-
-btag:Run rdfs:subClassOf btag:Equipment_HVAC_VFD .
-
-btag:Running rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Safety rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Sash rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Schedule rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Sensor rdfs:subClassOf btag:Point .
-
-btag:Server rdfs:subClassOf btag:Equipment .
-
-btag:Shed rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Short rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Shutdown rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Smoke rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Solar rdfs:subClassOf btag:Equipment_Energy_Power .
-
-btag:Space rdfs:subClassOf btag:Location .
-
-btag:Speed rdfs:subClassOf btag:Equipment_HVAC_VFD .
-
-btag:Stack rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Stage rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Stages rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Standby rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Start rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Static rdfs:subClassOf btag:Equipment_HVAC_VAV .
-
-btag:Status rdfs:subClassOf btag:MeasurementProperty_PhysicalProperties,
-        btag:Point .
-
-btag:Steam rdfs:subClassOf btag:Equipment_HVAC_AHU .
-
-btag:Step rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Stop rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Storage rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Stream rdfs:subClassOf btag:Equipment_HVAC_Water .
-
-btag:Suction rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Switch rdfs:subClassOf btag:MeasurementProperty_PhysicalProperties .
-
-btag:Tank rdfs:subClassOf btag:Equipment_HVAC_AHU .
-
-btag:Temporary rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Terminal rdfs:subClassOf btag:Equipment_HVAC .
-
-btag:Thermostat rdfs:subClassOf btag:Equipment_HVAC_VAV .
-
-btag:Thumbwheel rdfs:subClassOf btag:Equipment_HVAC .
-
-btag:Time rdfs:subClassOf btag:MeasurementProperty_PhysicalProperties .
-
-btag:Timer rdfs:subClassOf btag:MeasurementProperty_PhysicalProperties .
-
-btag:To rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Today rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Tolerance rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Torque rdfs:subClassOf btag:Equipment_HVAC_VFD .
-
-btag:Tower rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Trace rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Turn rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Turned rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Underfloor rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Unit rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Unoccupied rdfs:subClassOf btag:MeasurementProperty_PhysicalProperties .
-
-btag:Usage rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:VAV rdfs:subClassOf btag:Equipment_HVAC .
-
-btag:Valve rdfs:subClassOf btag:Equipment_HVAC_Water .
-
-btag:Variable rdfs:subClassOf btag:Equipment_HVAC_VAV .
-
-btag:Velocity rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Vent rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Ventilation rdfs:subClassOf btag:MeasurementProperty_PhysicalProperties .
-
-btag:Volume rdfs:subClassOf btag:Equipment_HVAC_VAV .
-
-btag:WS rdfs:subClassOf btag:Equipment_Water_System .
-
-btag:Warm rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Warmest rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Weather rdfs:subClassOf btag:MeasurementProperty_PhysicalProperties .
-
-btag:Wheel rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:When rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Wind rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Wing rdfs:subClassOf btag:Location .
-
-btag:Yearly rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Zenith rdfs:subClassOf btag:MeasurementProperty_Modifier .
+btag:Equipment_Energy_SolarPanel a owl:Class ;
+    rdfs:label "SolarPanel"@en ;
+    rdfs:subClassOf btag:Equipment_Energy ;
+    brickframe:isHierarchical "" .
+
+btag:Equipment_Fire_Safety_System a owl:Class ;
+    rdfs:label "Fire Safety System"@en ;
+    rdfs:subClassOf btag:Equipment ;
+    brickframe:isHierarchical "" .
+
+btag:Equipment_HVAC_Misc a owl:Class ;
+    rdfs:label "Misc"@en ;
+    rdfs:subClassOf btag:Equipment_HVAC ;
+    brickframe:isHierarchical "" .
+
+btag:Equipment_Lighting a owl:Class ;
+    rdfs:label "Lighting"@en ;
+    rdfs:subClassOf btag:Equipment ;
+    brickframe:isHierarchical "" .
+
+btag:Equipment_Water_System a owl:Class ;
+    rdfs:label "Water System"@en ;
+    rdfs:subClassOf btag:Equipment ;
+    brickframe:isHierarchical "" .
+
+btag:MeasurementProperty_Unit a owl:Class ;
+    rdfs:label "Unit"@en ;
+    rdfs:subClassOf btag:MeasurementProperty ;
+    brickframe:isHierarchical "" .
 
 <https://brickschema.org/schema/1.0.2/building_example#building:gtc/ahu> a brick:AHU ;
     brickframe:feeds <https://brickschema.org/schema/1.0.2/building_example#building:gtc/vavs/0/vav>,
@@ -4834,8 +4328,6 @@ brick:Emergency_Power_Off_Switch_Command rdfs:subClassOf brick:Command .
 
 brick:Emergency_Power_Off_System_Enable_Status rdfs:subClassOf brick:Emergency_Power_Off_Status .
 
-brick:Energy brickframe:hasTag btag:Energy .
-
 brick:Exhaust_Air_Flow brickframe:hasTag btag:Air,
         btag:Exhaust,
         btag:Flow .
@@ -5066,21 +4558,13 @@ btag:Dual_Band a owl:Class ;
     rdfs:label "Dual_Band"@en ;
     rdfs:subClassOf btag:MeasurementProperty_Modifier .
 
+btag:Energy rdfs:subClassOf btag:MeasurementProperty_PhysicalProperties .
+
 btag:Environment rdfs:subClassOf btag:MeasurementProperty_Modifier .
 
-btag:Equipment_Energy_SolarPanel a owl:Class ;
-    rdfs:label "SolarPanel"@en ;
+btag:Equipment_Energy_Power a owl:Class ;
+    rdfs:label "Power"@en ;
     rdfs:subClassOf btag:Equipment_Energy ;
-    brickframe:isHierarchical "" .
-
-btag:Equipment_Fire_Safety_System a owl:Class ;
-    rdfs:label "Fire Safety System"@en ;
-    rdfs:subClassOf btag:Equipment ;
-    brickframe:isHierarchical "" .
-
-btag:Equipment_Lighting a owl:Class ;
-    rdfs:label "Lighting"@en ;
-    rdfs:subClassOf btag:Equipment ;
     brickframe:isHierarchical "" .
 
 btag:Exhaust rdfs:subClassOf btag:Equipment_HVAC_AHU .
@@ -5107,12 +4591,6 @@ btag:Percent rdfs:subClassOf btag:MeasurementProperty_Modifier .
 btag:Supply rdfs:subClassOf btag:MeasurementProperty_Modifier .
 
 btag:System rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:Thermal rdfs:subClassOf btag:MeasurementProperty_Modifier .
-
-btag:VFD rdfs:subClassOf btag:Equipment_HVAC .
-
-btag:Voltage rdfs:subClassOf btag:MeasurementProperty_PhysicalProperties .
 
 btag:Zone rdfs:subClassOf btag:Location .
 
@@ -10975,17 +10453,20 @@ btag:Box rdfs:subClassOf btag:Equipment_HVAC_VAV .
 
 btag:Differential rdfs:subClassOf btag:Equipment_HVAC_Water .
 
-btag:Energy rdfs:subClassOf btag:MeasurementProperty_PhysicalProperties .
-
 btag:Enthalpy rdfs:subClassOf btag:MeasurementProperty_Modifier,
         btag:MeasurementProperty_PhysicalProperties .
 
-btag:Heat rdfs:subClassOf btag:Equipment_HVAC_Water .
-
-btag:MeasurementProperty_Unit a owl:Class ;
-    rdfs:label "Unit"@en ;
-    rdfs:subClassOf btag:MeasurementProperty ;
+btag:Equipment_Energy a owl:Class ;
+    rdfs:label "Energy"@en ;
+    rdfs:subClassOf btag:Equipment ;
     brickframe:isHierarchical "" .
+
+btag:Equipment_HVAC_VFD a owl:Class ;
+    rdfs:label "VFD"@en ;
+    rdfs:subClassOf btag:Equipment_HVAC ;
+    brickframe:isHierarchical "" .
+
+btag:Heat rdfs:subClassOf btag:Equipment_HVAC_Water .
 
 btag:Pressure rdfs:subClassOf btag:MeasurementProperty_PhysicalProperties .
 
@@ -11562,16 +11043,6 @@ brick:Pump rdfs:subClassOf [ a owl:Restriction ;
 
 brick:Zone_Air_Temperature_Sensor rdfs:subClassOf brick:Temperature_Sensor .
 
-btag:Equipment_Energy a owl:Class ;
-    rdfs:label "Energy"@en ;
-    rdfs:subClassOf btag:Equipment ;
-    brickframe:isHierarchical "" .
-
-btag:Equipment_HVAC_Misc a owl:Class ;
-    rdfs:label "Misc"@en ;
-    rdfs:subClassOf btag:Equipment_HVAC ;
-    brickframe:isHierarchical "" .
-
 btag:Setpoint rdfs:subClassOf btag:Point .
 
 btag:Water rdfs:subClassOf btag:Equipment_HVAC_AHU,
@@ -11603,9 +11074,14 @@ btag:Water rdfs:subClassOf btag:Equipment_HVAC_AHU,
 
 brick:Discharge_Air_Temperature_Cooling_Setpoint rdfs:subClassOf brick:Temperature_Setpoint .
 
-btag:Equipment_Water_System a owl:Class ;
-    rdfs:label "Water System"@en ;
-    rdfs:subClassOf btag:Equipment ;
+btag:Equipment_HVAC_VAV a owl:Class ;
+    rdfs:label "VAV"@en ;
+    rdfs:subClassOf btag:Equipment_HVAC ;
+    brickframe:isHierarchical "" .
+
+btag:Equipment_HVAC_Water a owl:Class ;
+    rdfs:label "Water"@en ;
+    rdfs:subClassOf btag:Equipment_HVAC ;
     brickframe:isHierarchical "" .
 
 btag:Hot rdfs:subClassOf btag:Equipment_HVAC_AHU,
@@ -11689,9 +11165,14 @@ btag:Hot rdfs:subClassOf btag:Equipment_HVAC_AHU,
     brickframe:hasPoint <https://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.A.18/lighting_zone/0_command>,
         <https://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.A.18/lighting_zone/0_status> .
 
-btag:Equipment_Energy_Power a owl:Class ;
-    rdfs:label "Power"@en ;
-    rdfs:subClassOf btag:Equipment_Energy ;
+btag:Equipment_HVAC a owl:Class ;
+    rdfs:label "HVAC"@en ;
+    rdfs:subClassOf btag:Equipment ;
+    brickframe:isHierarchical "" .
+
+btag:Equipment_HVAC_AHU a owl:Class ;
+    rdfs:label "AHU"@en ;
+    rdfs:subClassOf btag:Equipment_HVAC ;
     brickframe:isHierarchical "" .
 
 btag:Flow rdfs:subClassOf btag:MeasurementProperty_PhysicalProperties .
@@ -11747,6 +11228,11 @@ btag:PreHeat a owl:Class ;
     brickframe:hasPoint <https://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.1.3]>,
         <https://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.H.1B/override> ;
     brickframe:isPartOf <https://brickschema.org/schema/1.0.2/building_example#building:gtc/vavs/7/port[zn]> .
+
+btag:MeasurementProperty_PhysicalProperties a owl:Class ;
+    rdfs:label "PhysicalProperties"@en ;
+    rdfs:subClassOf btag:MeasurementProperty ;
+    brickframe:isHierarchical "" .
 
 btag:Outside rdfs:subClassOf btag:Equipment_HVAC_AHU,
         btag:Location .
@@ -11886,11 +11372,6 @@ btag:Outside rdfs:subClassOf btag:Equipment_HVAC_AHU,
 btag:Temperature rdfs:subClassOf btag:MeasurementProperty_PhysicalProperties .
 
 btag:Air rdfs:subClassOf btag:Equipment_HVAC_VAV .
-
-btag:Equipment_HVAC_Water a owl:Class ;
-    rdfs:label "Water"@en ;
-    rdfs:subClassOf btag:Equipment_HVAC ;
-    brickframe:isHierarchical "" .
 
 <https://brickschema.org/schema/1.0.2/building_example#building:gtc/vavs/1/port[zn]> a brick:HVAC_Zone ;
     brickframe:feeds <https://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.A.20/input_dampers/0>,
@@ -12180,6 +11661,11 @@ brick:VAV rdfs:subClassOf [ a owl:Restriction ;
         <https://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.J.11/room>,
         <https://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.J.13/room> .
 
+btag:MeasurementProperty_Modifier a owl:Class ;
+    rdfs:label "Modifier"@en ;
+    rdfs:subClassOf btag:MeasurementProperty ;
+    brickframe:isHierarchical "" .
+
 <https://brickschema.org/schema/1.0.2/building_example#building:gtc/vavs/11/port[zn]> a brick:HVAC_Zone ;
     brickframe:feeds <https://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.F.6_B/input_dampers/0>,
         <https://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.H.1/input_dampers/0>,
@@ -12280,11 +11766,6 @@ brick:VAV rdfs:subClassOf [ a owl:Restriction ;
         <https://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.J.7/room>,
         <https://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.J.9/room> .
 
-btag:Equipment_HVAC_VAV a owl:Class ;
-    rdfs:label "VAV"@en ;
-    rdfs:subClassOf btag:Equipment_HVAC ;
-    brickframe:isHierarchical "" .
-
 <https://brickschema.org/schema/1.0.2/building_example#building:gtc/floor_htb/port[so]> a gtc:Heat_Transfer_Box_Secondary_Output ;
     brickframe:feeds <https://brickschema.org/schema/1.0.2/building_example#building:gtc/floor_htb/return_temp>,
         <https://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.A.14/floorheaters/0-1>,
@@ -12336,11 +11817,6 @@ btag:Equipment_HVAC_VAV a owl:Class ;
     brickframe:contains <https://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.H.1/room> ;
     brickframe:hasPoint <https://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.H.1/lighting_zone/0_command>,
         <https://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.H.1/lighting_zone/0_status> .
-
-btag:Equipment_HVAC_AHU a owl:Class ;
-    rdfs:label "AHU"@en ;
-    rdfs:subClassOf btag:Equipment_HVAC ;
-    brickframe:isHierarchical "" .
 
 <https://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.B.19/room> a brick:Room ;
     rdfs:label "1.B.19" ;
@@ -12395,11 +11871,6 @@ btag:Equipment_HVAC_AHU a owl:Class ;
     brickframe:contains <https://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.J.29/room> ;
     brickframe:hasPoint <https://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.J.29/lighting_zone/0_command>,
         <https://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.J.29/lighting_zone/0_status> .
-
-btag:Equipment_HVAC a owl:Class ;
-    rdfs:label "HVAC"@en ;
-    rdfs:subClassOf btag:Equipment ;
-    brickframe:isHierarchical "" .
 
 <https://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.A.14/room> a brick:Room ;
     rdfs:label "1.A.14" ;
@@ -12880,11 +12351,6 @@ btag:Equipment_HVAC a owl:Class ;
         <https://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.L.18/temperature_setpoint_standby2> ;
     brickframe:isPartOf <https://brickschema.org/schema/1.0.2/building_example#building:gtc/vavs/10/port[zn]> .
 
-btag:Equipment_HVAC_VFD a owl:Class ;
-    rdfs:label "VFD"@en ;
-    rdfs:subClassOf btag:Equipment_HVAC ;
-    brickframe:isHierarchical "" .
-
 <https://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.F.6A/room> a brick:Room ;
     rdfs:label "2.F.6A" ;
     brickframe:hasPoint <https://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.1.4]>,
@@ -13124,11 +12590,6 @@ btag:Equipment_HVAC_VFD a owl:Class ;
         <https://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.A.18/temperature_setpoint_standby1>,
         <https://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.A.18/temperature_setpoint_standby2> ;
     brickframe:isPartOf <https://brickschema.org/schema/1.0.2/building_example#building:gtc/vavs/9/port[zn]> .
-
-btag:MeasurementProperty_PhysicalProperties a owl:Class ;
-    rdfs:label "PhysicalProperties"@en ;
-    rdfs:subClassOf btag:MeasurementProperty ;
-    brickframe:isHierarchical "" .
 
 <https://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.A.28B/room> a brick:Room ;
     rdfs:label "1.A.28B" ;
@@ -13521,11 +12982,6 @@ gtc:Celcius_Temperature_Sensor rdfs:subClassOf brick:Sensor ;
 <https://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/submeter[-A1.2.3]> a gtc:Electrical_Energy_Meter ;
     rdfs:label "-A1.2.3" ;
     brickframe:isPartOf <https://brickschema.org/schema/1.0.2/building_example#building:gtc/floors/2> .
-
-btag:MeasurementProperty_Modifier a owl:Class ;
-    rdfs:label "Modifier"@en ;
-    rdfs:subClassOf btag:MeasurementProperty ;
-    brickframe:isHierarchical "" .
 
 <https://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/main_common_meter> a brick:Power_Meter,
         gtc:Fuse ;
