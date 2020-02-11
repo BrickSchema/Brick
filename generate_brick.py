@@ -222,9 +222,9 @@ G.add((BRICK.Class, A, OWL.Class))
 G.add((BRICK.Tag, A, OWL.Class))
 
 roots = {
-    "Equipment": {"tags": [TAG.Equipment],},
-    "Location": {"tags": [TAG.Location],},
-    "Point": {"tags": [TAG.Point],},
+    "Equipment": {"tags": [TAG.Equipment]},
+    "Location": {"tags": [TAG.Location]},
+    "Point": {"tags": [TAG.Point]},
     "Measurable": {},
 }
 define_classes(roots, BRICK.Class)
