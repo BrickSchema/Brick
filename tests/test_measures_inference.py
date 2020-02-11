@@ -1,14 +1,14 @@
-import sys
-
-sys.path.append("..")
-from bricksrc.namespaces import BRICK
-from bricksrc.substances import substances
-from bricksrc.quantities import quantity_definitions
 import rdflib
 import json
 from collections import defaultdict
 from rdflib import Namespace, URIRef
 import brickschema
+import sys
+
+sys.path.append("..")
+from bricksrc.namespaces import BRICK  # noqa: E402
+from bricksrc.substances import substances  # noqa: E402
+from bricksrc.quantities import quantity_definitions  # noqa: E402
 
 BLDG = Namespace("https://brickschema.org/schema/ExampleBuilding#")
 

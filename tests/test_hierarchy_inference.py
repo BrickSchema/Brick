@@ -1,9 +1,3 @@
-import sys
-
-sys.path.append("..")
-from bricksrc.version import BRICK_VERSION
-from bricksrc.namespaces import BRICK
-
 import json
 from collections import defaultdict
 import time
@@ -11,6 +5,12 @@ import brickschema
 from tqdm import tqdm
 from rdflib import Namespace, URIRef, Graph
 from .util.reasoner import make_readable
+import sys
+
+sys.path.append("..")
+from bricksrc.version import BRICK_VERSION  # noqa: E402
+from bricksrc.namespaces import BRICK  # noqa: E402
+
 
 """
 This script does the following:

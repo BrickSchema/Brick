@@ -1,9 +1,9 @@
+from rdflib import RDF, RDFS, OWL, Namespace, Graph
+import brickschema
 import sys
 
 sys.path.append("..")
-from bricksrc.namespaces import BRICK, TAG, A, SKOS
-from rdflib import RDF, RDFS, OWL, Namespace, Graph
-import brickschema
+from bricksrc.namespaces import BRICK, TAG, A, SKOS  # noqa: E402
 
 BLDG = Namespace(f"https://brickschema.org/schema/ExampleBuilding#")
 

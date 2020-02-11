@@ -1,12 +1,12 @@
-import sys
-
-sys.path.append("..")
-from bricksrc.namespaces import BRICK, TAG
 import rdflib
 from rdflib import RDF, OWL, RDFS, Namespace, BNode
 import brickschema
 from .util.reasoner import make_readable
 from collections import defaultdict
+import sys
+
+sys.path.append("..")
+from bricksrc.namespaces import BRICK, TAG  # noqa: E402
 
 BLDG = Namespace("https://brickschema.org/schema/ExampleBuilding#")
 

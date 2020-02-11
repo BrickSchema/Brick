@@ -1,14 +1,11 @@
-"""
-Set of tests to demonstrate use of Brick *without* the use of a reasoner
-"""
-
-import sys
-
-sys.path.append("..")
-from bricksrc.namespaces import BRICK, TAG, SKOS, A
+# Set of tests to demonstrate use of Brick *without* the use of a reasoner
 import rdflib
 import brickschema
 from rdflib import RDF, RDFS, OWL, Namespace
+import sys
+
+sys.path.append("..")
+from bricksrc.namespaces import BRICK, TAG, SKOS, A  # noqa: E402
 
 BLDG = Namespace("https://brickschema.org/schema/ExampleBuilding#")
 
