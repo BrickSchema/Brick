@@ -1,8 +1,10 @@
 {
   "namespaces": {
     "brick": "https://brickschema.org/schema/1.1/Brick#",
+    "tag": "https://brickschema.org/schema/1.1/BrickTag#",
     "brick_v_1_0_2": "https://brickschema.org/schema/1.0.2/Brick#",
-    "brickframe": "https://brickschema.org/schema/1.0.2/BrickFrame#"
+    "brickframe": "https://brickschema.org/schema/1.0.2/BrickFrame#",
+    "btag": "https://brickschema.org/schema/1.0.2/BrickTag#"
   },
   "operations": [
     {
@@ -9748,6 +9750,2246 @@
     {
       "description": "Remove brick:Zone_Unoccupied_Load_Shed_Command",
       "query": "DELETE{ ?subject ?predicate brick_v_1_0_2:Zone_Unoccupied_Load_Shed_Command . } WHERE { ?subject  ?predicate  brick_v_1_0_2:Zone_Unoccupied_Load_Shed_Command . }"
+    },
+    {
+      "description": "Add tag:Acceleration",
+      "query": "INSERT{ ?subject ?predicate tag:Acceleration . } WHERE { ?subject  ?predicate  btag:Acceleration . }"
+    },
+    {
+      "description": "Remove btag:Acceleration",
+      "query": "DELETE{ ?subject ?predicate btag:Acceleration . } WHERE { ?subject  ?predicate  btag:Acceleration . }"
+    },
+    {
+      "description": "Add tag:Adjust",
+      "query": "INSERT{ ?subject ?predicate tag:Adjust . } WHERE { ?subject  ?predicate  btag:Adjust . }"
+    },
+    {
+      "description": "Remove btag:Adjust",
+      "query": "DELETE{ ?subject ?predicate btag:Adjust . } WHERE { ?subject  ?predicate  btag:Adjust . }"
+    },
+    {
+      "description": "Add tag:AHU",
+      "query": "INSERT{ ?subject ?predicate tag:AHU . } WHERE { ?subject  ?predicate  btag:AHU . }"
+    },
+    {
+      "description": "Remove btag:AHU",
+      "query": "DELETE{ ?subject ?predicate btag:AHU . } WHERE { ?subject  ?predicate  btag:AHU . }"
+    },
+    {
+      "description": "Add tag:Air",
+      "query": "INSERT{ ?subject ?predicate tag:Air . } WHERE { ?subject  ?predicate  btag:Air . }"
+    },
+    {
+      "description": "Remove btag:Air",
+      "query": "DELETE{ ?subject ?predicate btag:Air . } WHERE { ?subject  ?predicate  btag:Air . }"
+    },
+    {
+      "description": "Add tag:Alarm",
+      "query": "INSERT{ ?subject ?predicate tag:Alarm . } WHERE { ?subject  ?predicate  btag:Alarm . }"
+    },
+    {
+      "description": "Remove btag:Alarm",
+      "query": "DELETE{ ?subject ?predicate btag:Alarm . } WHERE { ?subject  ?predicate  btag:Alarm . }"
+    },
+    {
+      "description": "Add tag:Angle",
+      "query": "INSERT{ ?subject ?predicate tag:Angle . } WHERE { ?subject  ?predicate  btag:Angle . }"
+    },
+    {
+      "description": "Remove btag:Angle",
+      "query": "DELETE{ ?subject ?predicate btag:Angle . } WHERE { ?subject  ?predicate  btag:Angle . }"
+    },
+    {
+      "description": "Add tag:Auto",
+      "query": "INSERT{ ?subject ?predicate tag:Auto . } WHERE { ?subject  ?predicate  btag:Auto . }"
+    },
+    {
+      "description": "Remove btag:Auto",
+      "query": "DELETE{ ?subject ?predicate btag:Auto . } WHERE { ?subject  ?predicate  btag:Auto . }"
+    },
+    {
+      "description": "Add tag:Automatic",
+      "query": "INSERT{ ?subject ?predicate tag:Automatic . } WHERE { ?subject  ?predicate  btag:Automatic . }"
+    },
+    {
+      "description": "Remove btag:Automatic",
+      "query": "DELETE{ ?subject ?predicate btag:Automatic . } WHERE { ?subject  ?predicate  btag:Automatic . }"
+    },
+    {
+      "description": "Add tag:Average",
+      "query": "INSERT{ ?subject ?predicate tag:Average . } WHERE { ?subject  ?predicate  btag:Average . }"
+    },
+    {
+      "description": "Remove btag:Average",
+      "query": "DELETE{ ?subject ?predicate btag:Average . } WHERE { ?subject  ?predicate  btag:Average . }"
+    },
+    {
+      "description": "Add tag:Azimuth",
+      "query": "INSERT{ ?subject ?predicate tag:Azimuth . } WHERE { ?subject  ?predicate  btag:Azimuth . }"
+    },
+    {
+      "description": "Remove btag:Azimuth",
+      "query": "DELETE{ ?subject ?predicate btag:Azimuth . } WHERE { ?subject  ?predicate  btag:Azimuth . }"
+    },
+    {
+      "description": "Add tag:Band",
+      "query": "INSERT{ ?subject ?predicate tag:Band . } WHERE { ?subject  ?predicate  btag:Band . }"
+    },
+    {
+      "description": "Remove btag:Band",
+      "query": "DELETE{ ?subject ?predicate btag:Band . } WHERE { ?subject  ?predicate  btag:Band . }"
+    },
+    {
+      "description": "Add tag:Basement",
+      "query": "INSERT{ ?subject ?predicate tag:Basement . } WHERE { ?subject  ?predicate  btag:Basement . }"
+    },
+    {
+      "description": "Remove btag:Basement",
+      "query": "DELETE{ ?subject ?predicate btag:Basement . } WHERE { ?subject  ?predicate  btag:Basement . }"
+    },
+    {
+      "description": "Add tag:Battery",
+      "query": "INSERT{ ?subject ?predicate tag:Battery . } WHERE { ?subject  ?predicate  btag:Battery . }"
+    },
+    {
+      "description": "Remove btag:Battery",
+      "query": "DELETE{ ?subject ?predicate btag:Battery . } WHERE { ?subject  ?predicate  btag:Battery . }"
+    },
+    {
+      "description": "Add tag:Boiler",
+      "query": "INSERT{ ?subject ?predicate tag:Boiler . } WHERE { ?subject  ?predicate  btag:Boiler . }"
+    },
+    {
+      "description": "Remove btag:Boiler",
+      "query": "DELETE{ ?subject ?predicate btag:Boiler . } WHERE { ?subject  ?predicate  btag:Boiler . }"
+    },
+    {
+      "description": "Add tag:Booster",
+      "query": "INSERT{ ?subject ?predicate tag:Booster . } WHERE { ?subject  ?predicate  btag:Booster . }"
+    },
+    {
+      "description": "Remove btag:Booster",
+      "query": "DELETE{ ?subject ?predicate btag:Booster . } WHERE { ?subject  ?predicate  btag:Booster . }"
+    },
+    {
+      "description": "Add tag:Box",
+      "query": "INSERT{ ?subject ?predicate tag:Box . } WHERE { ?subject  ?predicate  btag:Box . }"
+    },
+    {
+      "description": "Remove btag:Box",
+      "query": "DELETE{ ?subject ?predicate btag:Box . } WHERE { ?subject  ?predicate  btag:Box . }"
+    },
+    {
+      "description": "Add tag:Building",
+      "query": "INSERT{ ?subject ?predicate tag:Building . } WHERE { ?subject  ?predicate  btag:Building . }"
+    },
+    {
+      "description": "Remove btag:Building",
+      "query": "DELETE{ ?subject ?predicate btag:Building . } WHERE { ?subject  ?predicate  btag:Building . }"
+    },
+    {
+      "description": "Add tag:Bus",
+      "query": "INSERT{ ?subject ?predicate tag:Bus . } WHERE { ?subject  ?predicate  btag:Bus . }"
+    },
+    {
+      "description": "Remove btag:Bus",
+      "query": "DELETE{ ?subject ?predicate btag:Bus . } WHERE { ?subject  ?predicate  btag:Bus . }"
+    },
+    {
+      "description": "Add tag:Button",
+      "query": "INSERT{ ?subject ?predicate tag:Button . } WHERE { ?subject  ?predicate  btag:Button . }"
+    },
+    {
+      "description": "Remove btag:Button",
+      "query": "DELETE{ ?subject ?predicate btag:Button . } WHERE { ?subject  ?predicate  btag:Button . }"
+    },
+    {
+      "description": "Add tag:Bypass",
+      "query": "INSERT{ ?subject ?predicate tag:Bypass . } WHERE { ?subject  ?predicate  btag:Bypass . }"
+    },
+    {
+      "description": "Remove btag:Bypass",
+      "query": "DELETE{ ?subject ?predicate btag:Bypass . } WHERE { ?subject  ?predicate  btag:Bypass . }"
+    },
+    {
+      "description": "Add tag:Capacity",
+      "query": "INSERT{ ?subject ?predicate tag:Capacity . } WHERE { ?subject  ?predicate  btag:Capacity . }"
+    },
+    {
+      "description": "Remove btag:Capacity",
+      "query": "DELETE{ ?subject ?predicate btag:Capacity . } WHERE { ?subject  ?predicate  btag:Capacity . }"
+    },
+    {
+      "description": "Add tag:Change",
+      "query": "INSERT{ ?subject ?predicate tag:Change . } WHERE { ?subject  ?predicate  btag:Change . }"
+    },
+    {
+      "description": "Remove btag:Change",
+      "query": "DELETE{ ?subject ?predicate btag:Change . } WHERE { ?subject  ?predicate  btag:Change . }"
+    },
+    {
+      "description": "Add tag:Chilled",
+      "query": "INSERT{ ?subject ?predicate tag:Chilled . } WHERE { ?subject  ?predicate  btag:Chilled . }"
+    },
+    {
+      "description": "Remove btag:Chilled",
+      "query": "DELETE{ ?subject ?predicate btag:Chilled . } WHERE { ?subject  ?predicate  btag:Chilled . }"
+    },
+    {
+      "description": "Add tag:Chiller",
+      "query": "INSERT{ ?subject ?predicate tag:Chiller . } WHERE { ?subject  ?predicate  btag:Chiller . }"
+    },
+    {
+      "description": "Remove btag:Chiller",
+      "query": "DELETE{ ?subject ?predicate btag:Chiller . } WHERE { ?subject  ?predicate  btag:Chiller . }"
+    },
+    {
+      "description": "Add tag:City",
+      "query": "INSERT{ ?subject ?predicate tag:City . } WHERE { ?subject  ?predicate  btag:City . }"
+    },
+    {
+      "description": "Remove btag:City",
+      "query": "DELETE{ ?subject ?predicate btag:City . } WHERE { ?subject  ?predicate  btag:City . }"
+    },
+    {
+      "description": "Add tag:Close",
+      "query": "INSERT{ ?subject ?predicate tag:Close . } WHERE { ?subject  ?predicate  btag:Close . }"
+    },
+    {
+      "description": "Remove btag:Close",
+      "query": "DELETE{ ?subject ?predicate btag:Close . } WHERE { ?subject  ?predicate  btag:Close . }"
+    },
+    {
+      "description": "Add tag:CO2",
+      "query": "INSERT{ ?subject ?predicate tag:CO2 . } WHERE { ?subject  ?predicate  btag:CO2 . }"
+    },
+    {
+      "description": "Remove btag:CO2",
+      "query": "DELETE{ ?subject ?predicate btag:CO2 . } WHERE { ?subject  ?predicate  btag:CO2 . }"
+    },
+    {
+      "description": "Add tag:Code",
+      "query": "INSERT{ ?subject ?predicate tag:Code . } WHERE { ?subject  ?predicate  btag:Code . }"
+    },
+    {
+      "description": "Remove btag:Code",
+      "query": "DELETE{ ?subject ?predicate btag:Code . } WHERE { ?subject  ?predicate  btag:Code . }"
+    },
+    {
+      "description": "Add tag:Coil",
+      "query": "INSERT{ ?subject ?predicate tag:Coil . } WHERE { ?subject  ?predicate  btag:Coil . }"
+    },
+    {
+      "description": "Remove btag:Coil",
+      "query": "DELETE{ ?subject ?predicate btag:Coil . } WHERE { ?subject  ?predicate  btag:Coil . }"
+    },
+    {
+      "description": "Add tag:Cold",
+      "query": "INSERT{ ?subject ?predicate tag:Cold . } WHERE { ?subject  ?predicate  btag:Cold . }"
+    },
+    {
+      "description": "Remove btag:Cold",
+      "query": "DELETE{ ?subject ?predicate btag:Cold . } WHERE { ?subject  ?predicate  btag:Cold . }"
+    },
+    {
+      "description": "Add tag:Coldest",
+      "query": "INSERT{ ?subject ?predicate tag:Coldest . } WHERE { ?subject  ?predicate  btag:Coldest . }"
+    },
+    {
+      "description": "Remove btag:Coldest",
+      "query": "DELETE{ ?subject ?predicate btag:Coldest . } WHERE { ?subject  ?predicate  btag:Coldest . }"
+    },
+    {
+      "description": "Add tag:Command",
+      "query": "INSERT{ ?subject ?predicate tag:Command . } WHERE { ?subject  ?predicate  btag:Command . }"
+    },
+    {
+      "description": "Remove btag:Command",
+      "query": "DELETE{ ?subject ?predicate btag:Command . } WHERE { ?subject  ?predicate  btag:Command . }"
+    },
+    {
+      "description": "Add tag:Communication",
+      "query": "INSERT{ ?subject ?predicate tag:Communication . } WHERE { ?subject  ?predicate  btag:Communication . }"
+    },
+    {
+      "description": "Remove btag:Communication",
+      "query": "DELETE{ ?subject ?predicate btag:Communication . } WHERE { ?subject  ?predicate  btag:Communication . }"
+    },
+    {
+      "description": "Add tag:Compressor",
+      "query": "INSERT{ ?subject ?predicate tag:Compressor . } WHERE { ?subject  ?predicate  btag:Compressor . }"
+    },
+    {
+      "description": "Remove btag:Compressor",
+      "query": "DELETE{ ?subject ?predicate btag:Compressor . } WHERE { ?subject  ?predicate  btag:Compressor . }"
+    },
+    {
+      "description": "Add tag:Computer",
+      "query": "INSERT{ ?subject ?predicate tag:Computer . } WHERE { ?subject  ?predicate  btag:Computer . }"
+    },
+    {
+      "description": "Remove btag:Computer",
+      "query": "DELETE{ ?subject ?predicate btag:Computer . } WHERE { ?subject  ?predicate  btag:Computer . }"
+    },
+    {
+      "description": "Add tag:Condensate",
+      "query": "INSERT{ ?subject ?predicate tag:Condensate . } WHERE { ?subject  ?predicate  btag:Condensate . }"
+    },
+    {
+      "description": "Remove btag:Condensate",
+      "query": "DELETE{ ?subject ?predicate btag:Condensate . } WHERE { ?subject  ?predicate  btag:Condensate . }"
+    },
+    {
+      "description": "Add tag:Condenser",
+      "query": "INSERT{ ?subject ?predicate tag:Condenser . } WHERE { ?subject  ?predicate  btag:Condenser . }"
+    },
+    {
+      "description": "Remove btag:Condenser",
+      "query": "DELETE{ ?subject ?predicate btag:Condenser . } WHERE { ?subject  ?predicate  btag:Condenser . }"
+    },
+    {
+      "description": "Add tag:Condenser",
+      "query": "INSERT{ ?subject ?predicate tag:Condenser . } WHERE { ?subject  ?predicate  btag:Condensor . }"
+    },
+    {
+      "description": "Remove btag:Condensor",
+      "query": "DELETE{ ?subject ?predicate btag:Condensor . } WHERE { ?subject  ?predicate  btag:Condensor . }"
+    },
+    {
+      "description": "Add tag:Conditioning",
+      "query": "INSERT{ ?subject ?predicate tag:Conditioning . } WHERE { ?subject  ?predicate  btag:Conditioning . }"
+    },
+    {
+      "description": "Remove btag:Conditioning",
+      "query": "DELETE{ ?subject ?predicate btag:Conditioning . } WHERE { ?subject  ?predicate  btag:Conditioning . }"
+    },
+    {
+      "description": "Add tag:Conductivity",
+      "query": "INSERT{ ?subject ?predicate tag:Conductivity . } WHERE { ?subject  ?predicate  btag:Conductivity . }"
+    },
+    {
+      "description": "Remove btag:Conductivity",
+      "query": "DELETE{ ?subject ?predicate btag:Conductivity . } WHERE { ?subject  ?predicate  btag:Conductivity . }"
+    },
+    {
+      "description": "Add tag:Control",
+      "query": "INSERT{ ?subject ?predicate tag:Control . } WHERE { ?subject  ?predicate  btag:Control . }"
+    },
+    {
+      "description": "Remove btag:Control",
+      "query": "DELETE{ ?subject ?predicate btag:Control . } WHERE { ?subject  ?predicate  btag:Control . }"
+    },
+    {
+      "description": "Add tag:Cool",
+      "query": "INSERT{ ?subject ?predicate tag:Cool . } WHERE { ?subject  ?predicate  btag:Cool . }"
+    },
+    {
+      "description": "Remove btag:Cool",
+      "query": "DELETE{ ?subject ?predicate btag:Cool . } WHERE { ?subject  ?predicate  btag:Cool . }"
+    },
+    {
+      "description": "Add tag:Cool",
+      "query": "INSERT{ ?subject ?predicate tag:Cool . } WHERE { ?subject  ?predicate  btag:Cooling . }"
+    },
+    {
+      "description": "Remove btag:Cooling",
+      "query": "DELETE{ ?subject ?predicate btag:Cooling . } WHERE { ?subject  ?predicate  btag:Cooling . }"
+    },
+    {
+      "description": "Add tag:CRAC",
+      "query": "INSERT{ ?subject ?predicate tag:CRAC . } WHERE { ?subject  ?predicate  btag:CRAC . }"
+    },
+    {
+      "description": "Remove btag:CRAC",
+      "query": "DELETE{ ?subject ?predicate btag:CRAC . } WHERE { ?subject  ?predicate  btag:CRAC . }"
+    },
+    {
+      "description": "Add tag:Current",
+      "query": "INSERT{ ?subject ?predicate tag:Current . } WHERE { ?subject  ?predicate  btag:Current . }"
+    },
+    {
+      "description": "Remove btag:Current",
+      "query": "DELETE{ ?subject ?predicate btag:Current . } WHERE { ?subject  ?predicate  btag:Current . }"
+    },
+    {
+      "description": "Add tag:Curtailment",
+      "query": "INSERT{ ?subject ?predicate tag:Curtailment . } WHERE { ?subject  ?predicate  btag:Curtailment . }"
+    },
+    {
+      "description": "Remove btag:Curtailment",
+      "query": "DELETE{ ?subject ?predicate btag:Curtailment . } WHERE { ?subject  ?predicate  btag:Curtailment . }"
+    },
+    {
+      "description": "Add tag:Cutout",
+      "query": "INSERT{ ?subject ?predicate tag:Cutout . } WHERE { ?subject  ?predicate  btag:Cutout . }"
+    },
+    {
+      "description": "Remove btag:Cutout",
+      "query": "DELETE{ ?subject ?predicate btag:Cutout . } WHERE { ?subject  ?predicate  btag:Cutout . }"
+    },
+    {
+      "description": "Add tag:CWS",
+      "query": "INSERT{ ?subject ?predicate tag:CWS . } WHERE { ?subject  ?predicate  btag:CWS . }"
+    },
+    {
+      "description": "Remove btag:CWS",
+      "query": "DELETE{ ?subject ?predicate btag:CWS . } WHERE { ?subject  ?predicate  btag:CWS . }"
+    },
+    {
+      "description": "Add tag:Cycle",
+      "query": "INSERT{ ?subject ?predicate tag:Cycle . } WHERE { ?subject  ?predicate  btag:Cycle . }"
+    },
+    {
+      "description": "Remove btag:Cycle",
+      "query": "DELETE{ ?subject ?predicate btag:Cycle . } WHERE { ?subject  ?predicate  btag:Cycle . }"
+    },
+    {
+      "description": "Add tag:Damper",
+      "query": "INSERT{ ?subject ?predicate tag:Damper . } WHERE { ?subject  ?predicate  btag:Damper . }"
+    },
+    {
+      "description": "Remove btag:Damper",
+      "query": "DELETE{ ?subject ?predicate btag:Damper . } WHERE { ?subject  ?predicate  btag:Damper . }"
+    },
+    {
+      "description": "Add tag:DC",
+      "query": "INSERT{ ?subject ?predicate tag:DC . } WHERE { ?subject  ?predicate  btag:DC . }"
+    },
+    {
+      "description": "Remove btag:DC",
+      "query": "DELETE{ ?subject ?predicate btag:DC . } WHERE { ?subject  ?predicate  btag:DC . }"
+    },
+    {
+      "description": "Add tag:Deceleration",
+      "query": "INSERT{ ?subject ?predicate tag:Deceleration . } WHERE { ?subject  ?predicate  btag:Deceleration . }"
+    },
+    {
+      "description": "Remove btag:Deceleration",
+      "query": "DELETE{ ?subject ?predicate btag:Deceleration . } WHERE { ?subject  ?predicate  btag:Deceleration . }"
+    },
+    {
+      "description": "Add tag:Dehumidification",
+      "query": "INSERT{ ?subject ?predicate tag:Dehumidification . } WHERE { ?subject  ?predicate  btag:Dehumidification . }"
+    },
+    {
+      "description": "Remove btag:Dehumidification",
+      "query": "DELETE{ ?subject ?predicate btag:Dehumidification . } WHERE { ?subject  ?predicate  btag:Dehumidification . }"
+    },
+    {
+      "description": "Add tag:Deionised",
+      "query": "INSERT{ ?subject ?predicate tag:Deionised . } WHERE { ?subject  ?predicate  btag:Deionised . }"
+    },
+    {
+      "description": "Remove btag:Deionised",
+      "query": "DELETE{ ?subject ?predicate btag:Deionised . } WHERE { ?subject  ?predicate  btag:Deionised . }"
+    },
+    {
+      "description": "Add tag:Delay",
+      "query": "INSERT{ ?subject ?predicate tag:Delay . } WHERE { ?subject  ?predicate  btag:Delay . }"
+    },
+    {
+      "description": "Remove btag:Delay",
+      "query": "DELETE{ ?subject ?predicate btag:Delay . } WHERE { ?subject  ?predicate  btag:Delay . }"
+    },
+    {
+      "description": "Add tag:Demand",
+      "query": "INSERT{ ?subject ?predicate tag:Demand . } WHERE { ?subject  ?predicate  btag:Demand . }"
+    },
+    {
+      "description": "Remove btag:Demand",
+      "query": "DELETE{ ?subject ?predicate btag:Demand . } WHERE { ?subject  ?predicate  btag:Demand . }"
+    },
+    {
+      "description": "Add tag:Detected",
+      "query": "INSERT{ ?subject ?predicate tag:Detected . } WHERE { ?subject  ?predicate  btag:Detected . }"
+    },
+    {
+      "description": "Remove btag:Detected",
+      "query": "DELETE{ ?subject ?predicate btag:Detected . } WHERE { ?subject  ?predicate  btag:Detected . }"
+    },
+    {
+      "description": "Add tag:Detection",
+      "query": "INSERT{ ?subject ?predicate tag:Detection . } WHERE { ?subject  ?predicate  btag:Detection . }"
+    },
+    {
+      "description": "Remove btag:Detection",
+      "query": "DELETE{ ?subject ?predicate btag:Detection . } WHERE { ?subject  ?predicate  btag:Detection . }"
+    },
+    {
+      "description": "Add tag:Dewpoint",
+      "query": "INSERT{ ?subject ?predicate tag:Dewpoint . } WHERE { ?subject  ?predicate  btag:Dewpoint . }"
+    },
+    {
+      "description": "Remove btag:Dewpoint",
+      "query": "DELETE{ ?subject ?predicate btag:Dewpoint . } WHERE { ?subject  ?predicate  btag:Dewpoint . }"
+    },
+    {
+      "description": "Add tag:Differential",
+      "query": "INSERT{ ?subject ?predicate tag:Differential . } WHERE { ?subject  ?predicate  btag:Differential . }"
+    },
+    {
+      "description": "Remove btag:Differential",
+      "query": "DELETE{ ?subject ?predicate btag:Differential . } WHERE { ?subject  ?predicate  btag:Differential . }"
+    },
+    {
+      "description": "Add tag:Direction",
+      "query": "INSERT{ ?subject ?predicate tag:Direction . } WHERE { ?subject  ?predicate  btag:Direction . }"
+    },
+    {
+      "description": "Remove btag:Direction",
+      "query": "DELETE{ ?subject ?predicate btag:Direction . } WHERE { ?subject  ?predicate  btag:Direction . }"
+    },
+    {
+      "description": "Add tag:Disable",
+      "query": "INSERT{ ?subject ?predicate tag:Disable . } WHERE { ?subject  ?predicate  btag:Disable . }"
+    },
+    {
+      "description": "Remove btag:Disable",
+      "query": "DELETE{ ?subject ?predicate btag:Disable . } WHERE { ?subject  ?predicate  btag:Disable . }"
+    },
+    {
+      "description": "Add tag:Discharge",
+      "query": "INSERT{ ?subject ?predicate tag:Discharge . } WHERE { ?subject  ?predicate  btag:Discharge . }"
+    },
+    {
+      "description": "Remove btag:Discharge",
+      "query": "DELETE{ ?subject ?predicate btag:Discharge . } WHERE { ?subject  ?predicate  btag:Discharge . }"
+    },
+    {
+      "description": "Add tag:Domestic",
+      "query": "INSERT{ ?subject ?predicate tag:Domestic . } WHERE { ?subject  ?predicate  btag:Domestic . }"
+    },
+    {
+      "description": "Remove btag:Domestic",
+      "query": "DELETE{ ?subject ?predicate btag:Domestic . } WHERE { ?subject  ?predicate  btag:Domestic . }"
+    },
+    {
+      "description": "Add tag:Drive",
+      "query": "INSERT{ ?subject ?predicate tag:Drive . } WHERE { ?subject  ?predicate  btag:Drive . }"
+    },
+    {
+      "description": "Remove btag:Drive",
+      "query": "DELETE{ ?subject ?predicate btag:Drive . } WHERE { ?subject  ?predicate  btag:Drive . }"
+    },
+    {
+      "description": "Add tag:Dual",
+      "query": "INSERT{ ?subject ?predicate tag:Dual . } WHERE { ?subject  ?predicate  btag:Dual . }"
+    },
+    {
+      "description": "Remove btag:Dual",
+      "query": "DELETE{ ?subject ?predicate btag:Dual . } WHERE { ?subject  ?predicate  btag:Dual . }"
+    },
+    {
+      "description": "Add tag:Duct",
+      "query": "INSERT{ ?subject ?predicate tag:Duct . } WHERE { ?subject  ?predicate  btag:Duct . }"
+    },
+    {
+      "description": "Remove btag:Duct",
+      "query": "DELETE{ ?subject ?predicate btag:Duct . } WHERE { ?subject  ?predicate  btag:Duct . }"
+    },
+    {
+      "description": "Add tag:Duration",
+      "query": "INSERT{ ?subject ?predicate tag:Duration . } WHERE { ?subject  ?predicate  btag:Duration . }"
+    },
+    {
+      "description": "Remove btag:Duration",
+      "query": "DELETE{ ?subject ?predicate btag:Duration . } WHERE { ?subject  ?predicate  btag:Duration . }"
+    },
+    {
+      "description": "Add tag:EconCycle",
+      "query": "INSERT{ ?subject ?predicate tag:EconCycle . } WHERE { ?subject  ?predicate  btag:EconCycle . }"
+    },
+    {
+      "description": "Remove btag:EconCycle",
+      "query": "DELETE{ ?subject ?predicate btag:EconCycle . } WHERE { ?subject  ?predicate  btag:EconCycle . }"
+    },
+    {
+      "description": "Add tag:Economizer",
+      "query": "INSERT{ ?subject ?predicate tag:Economizer . } WHERE { ?subject  ?predicate  btag:Economizer . }"
+    },
+    {
+      "description": "Remove btag:Economizer",
+      "query": "DELETE{ ?subject ?predicate btag:Economizer . } WHERE { ?subject  ?predicate  btag:Economizer . }"
+    },
+    {
+      "description": "Add tag:Effective",
+      "query": "INSERT{ ?subject ?predicate tag:Effective . } WHERE { ?subject  ?predicate  btag:Effective . }"
+    },
+    {
+      "description": "Remove btag:Effective",
+      "query": "DELETE{ ?subject ?predicate btag:Effective . } WHERE { ?subject  ?predicate  btag:Effective . }"
+    },
+    {
+      "description": "Add tag:Electrical",
+      "query": "INSERT{ ?subject ?predicate tag:Electrical . } WHERE { ?subject  ?predicate  btag:Electrical . }"
+    },
+    {
+      "description": "Remove btag:Electrical",
+      "query": "DELETE{ ?subject ?predicate btag:Electrical . } WHERE { ?subject  ?predicate  btag:Electrical . }"
+    },
+    {
+      "description": "Add tag:Elevator",
+      "query": "INSERT{ ?subject ?predicate tag:Elevator . } WHERE { ?subject  ?predicate  btag:Elevator . }"
+    },
+    {
+      "description": "Remove btag:Elevator",
+      "query": "DELETE{ ?subject ?predicate btag:Elevator . } WHERE { ?subject  ?predicate  btag:Elevator . }"
+    },
+    {
+      "description": "Add tag:Emergency",
+      "query": "INSERT{ ?subject ?predicate tag:Emergency . } WHERE { ?subject  ?predicate  btag:Emergency . }"
+    },
+    {
+      "description": "Remove btag:Emergency",
+      "query": "DELETE{ ?subject ?predicate btag:Emergency . } WHERE { ?subject  ?predicate  btag:Emergency . }"
+    },
+    {
+      "description": "Add tag:Enable",
+      "query": "INSERT{ ?subject ?predicate tag:Enable . } WHERE { ?subject  ?predicate  btag:Enable . }"
+    },
+    {
+      "description": "Remove btag:Enable",
+      "query": "DELETE{ ?subject ?predicate btag:Enable . } WHERE { ?subject  ?predicate  btag:Enable . }"
+    },
+    {
+      "description": "Add tag:Energy",
+      "query": "INSERT{ ?subject ?predicate tag:Energy . } WHERE { ?subject  ?predicate  btag:Energy . }"
+    },
+    {
+      "description": "Remove btag:Energy",
+      "query": "DELETE{ ?subject ?predicate btag:Energy . } WHERE { ?subject  ?predicate  btag:Energy . }"
+    },
+    {
+      "description": "Add tag:Entering",
+      "query": "INSERT{ ?subject ?predicate tag:Entering . } WHERE { ?subject  ?predicate  btag:Entering . }"
+    },
+    {
+      "description": "Remove btag:Entering",
+      "query": "DELETE{ ?subject ?predicate btag:Entering . } WHERE { ?subject  ?predicate  btag:Entering . }"
+    },
+    {
+      "description": "Add tag:Enthalpy",
+      "query": "INSERT{ ?subject ?predicate tag:Enthalpy . } WHERE { ?subject  ?predicate  btag:Enthalpy . }"
+    },
+    {
+      "description": "Remove btag:Enthalpy",
+      "query": "DELETE{ ?subject ?predicate btag:Enthalpy . } WHERE { ?subject  ?predicate  btag:Enthalpy . }"
+    },
+    {
+      "description": "Add tag:Environment",
+      "query": "INSERT{ ?subject ?predicate tag:Environment . } WHERE { ?subject  ?predicate  btag:Environment . }"
+    },
+    {
+      "description": "Remove btag:Environment",
+      "query": "DELETE{ ?subject ?predicate btag:Environment . } WHERE { ?subject  ?predicate  btag:Environment . }"
+    },
+    {
+      "description": "Add tag:Equipment",
+      "query": "INSERT{ ?subject ?predicate tag:Equipment . } WHERE { ?subject  ?predicate  btag:Equipment . }"
+    },
+    {
+      "description": "Remove btag:Equipment",
+      "query": "DELETE{ ?subject ?predicate btag:Equipment . } WHERE { ?subject  ?predicate  btag:Equipment . }"
+    },
+    {
+      "description": "Add tag:Even",
+      "query": "INSERT{ ?subject ?predicate tag:Even . } WHERE { ?subject  ?predicate  btag:Even . }"
+    },
+    {
+      "description": "Remove btag:Even",
+      "query": "DELETE{ ?subject ?predicate btag:Even . } WHERE { ?subject  ?predicate  btag:Even . }"
+    },
+    {
+      "description": "Add tag:Exchanger",
+      "query": "INSERT{ ?subject ?predicate tag:Exchanger . } WHERE { ?subject  ?predicate  btag:Exchanger . }"
+    },
+    {
+      "description": "Remove btag:Exchanger",
+      "query": "DELETE{ ?subject ?predicate btag:Exchanger . } WHERE { ?subject  ?predicate  btag:Exchanger . }"
+    },
+    {
+      "description": "Add tag:Exhaust",
+      "query": "INSERT{ ?subject ?predicate tag:Exhaust . } WHERE { ?subject  ?predicate  btag:Exhaust . }"
+    },
+    {
+      "description": "Remove btag:Exhaust",
+      "query": "DELETE{ ?subject ?predicate btag:Exhaust . } WHERE { ?subject  ?predicate  btag:Exhaust . }"
+    },
+    {
+      "description": "Add tag:Exhaust, tag:Fan",
+      "query": "INSERT{ ?subject ?predicate tag:Exhaust, brick:Fan . } WHERE { ?subject  ?predicate  btag:Exhaust_Fan . }"
+    },
+    {
+      "description": "Remove btag:Exhaust_Fan",
+      "query": "DELETE{ ?subject ?predicate btag:Exhaust_Fan . } WHERE { ?subject  ?predicate  btag:Exhaust_Fan . }"
+    },
+    {
+      "description": "Add tag:Failure",
+      "query": "INSERT{ ?subject ?predicate tag:Failure . } WHERE { ?subject  ?predicate  btag:Failure . }"
+    },
+    {
+      "description": "Remove btag:Failure",
+      "query": "DELETE{ ?subject ?predicate btag:Failure . } WHERE { ?subject  ?predicate  btag:Failure . }"
+    },
+    {
+      "description": "Add tag:Fan",
+      "query": "INSERT{ ?subject ?predicate tag:Fan . } WHERE { ?subject  ?predicate  btag:Fan . }"
+    },
+    {
+      "description": "Remove btag:Fan",
+      "query": "DELETE{ ?subject ?predicate btag:Fan . } WHERE { ?subject  ?predicate  btag:Fan . }"
+    },
+    {
+      "description": "Add tag:Fault",
+      "query": "INSERT{ ?subject ?predicate tag:Fault . } WHERE { ?subject  ?predicate  btag:Fault . }"
+    },
+    {
+      "description": "Remove btag:Fault",
+      "query": "DELETE{ ?subject ?predicate btag:Fault . } WHERE { ?subject  ?predicate  btag:Fault . }"
+    },
+    {
+      "description": "Add tag:FCP",
+      "query": "INSERT{ ?subject ?predicate tag:FCP . } WHERE { ?subject  ?predicate  btag:FCP . }"
+    },
+    {
+      "description": "Remove btag:FCP",
+      "query": "DELETE{ ?subject ?predicate btag:FCP . } WHERE { ?subject  ?predicate  btag:FCP . }"
+    },
+    {
+      "description": "Add tag:FCU",
+      "query": "INSERT{ ?subject ?predicate tag:FCU . } WHERE { ?subject  ?predicate  btag:FCU . }"
+    },
+    {
+      "description": "Remove btag:FCU",
+      "query": "DELETE{ ?subject ?predicate btag:FCU . } WHERE { ?subject  ?predicate  btag:FCU . }"
+    },
+    {
+      "description": "Add tag:Filter",
+      "query": "INSERT{ ?subject ?predicate tag:Filter . } WHERE { ?subject  ?predicate  btag:Filter . }"
+    },
+    {
+      "description": "Remove btag:Filter",
+      "query": "DELETE{ ?subject ?predicate btag:Filter . } WHERE { ?subject  ?predicate  btag:Filter . }"
+    },
+    {
+      "description": "Add tag:Fire",
+      "query": "INSERT{ ?subject ?predicate tag:Fire . } WHERE { ?subject  ?predicate  btag:Fire . }"
+    },
+    {
+      "description": "Remove btag:Fire",
+      "query": "DELETE{ ?subject ?predicate btag:Fire . } WHERE { ?subject  ?predicate  btag:Fire . }"
+    },
+    {
+      "description": "Add tag:FCP",
+      "query": "INSERT{ ?subject ?predicate tag:FCP . } WHERE { ?subject  ?predicate  btag:Fire_Control_Panel . }"
+    },
+    {
+      "description": "Remove btag:Fire_Control_Panel",
+      "query": "DELETE{ ?subject ?predicate btag:Fire_Control_Panel . } WHERE { ?subject  ?predicate  btag:Fire_Control_Panel . }"
+    },
+    {
+      "description": "Add tag:Fixed",
+      "query": "INSERT{ ?subject ?predicate tag:Fixed . } WHERE { ?subject  ?predicate  btag:Fixed . }"
+    },
+    {
+      "description": "Remove btag:Fixed",
+      "query": "DELETE{ ?subject ?predicate btag:Fixed . } WHERE { ?subject  ?predicate  btag:Fixed . }"
+    },
+    {
+      "description": "Add tag:Floor",
+      "query": "INSERT{ ?subject ?predicate tag:Floor . } WHERE { ?subject  ?predicate  btag:Floor . }"
+    },
+    {
+      "description": "Remove btag:Floor",
+      "query": "DELETE{ ?subject ?predicate btag:Floor . } WHERE { ?subject  ?predicate  btag:Floor . }"
+    },
+    {
+      "description": "Add tag:Flow",
+      "query": "INSERT{ ?subject ?predicate tag:Flow . } WHERE { ?subject  ?predicate  btag:Flow . }"
+    },
+    {
+      "description": "Remove btag:Flow",
+      "query": "DELETE{ ?subject ?predicate btag:Flow . } WHERE { ?subject  ?predicate  btag:Flow . }"
+    },
+    {
+      "description": "Add tag:Freeze",
+      "query": "INSERT{ ?subject ?predicate tag:Freeze . } WHERE { ?subject  ?predicate  btag:Freeze . }"
+    },
+    {
+      "description": "Remove btag:Freeze",
+      "query": "DELETE{ ?subject ?predicate btag:Freeze . } WHERE { ?subject  ?predicate  btag:Freeze . }"
+    },
+    {
+      "description": "Add tag:Freezer",
+      "query": "INSERT{ ?subject ?predicate tag:Freezer . } WHERE { ?subject  ?predicate  btag:Freezer . }"
+    },
+    {
+      "description": "Remove btag:Freezer",
+      "query": "DELETE{ ?subject ?predicate btag:Freezer . } WHERE { ?subject  ?predicate  btag:Freezer . }"
+    },
+    {
+      "description": "Add tag:Frequency",
+      "query": "INSERT{ ?subject ?predicate tag:Frequency . } WHERE { ?subject  ?predicate  btag:Frequency . }"
+    },
+    {
+      "description": "Remove btag:Frequency",
+      "query": "DELETE{ ?subject ?predicate btag:Frequency . } WHERE { ?subject  ?predicate  btag:Frequency . }"
+    },
+    {
+      "description": "Add tag:Fresh",
+      "query": "INSERT{ ?subject ?predicate tag:Fresh . } WHERE { ?subject  ?predicate  btag:Fresh . }"
+    },
+    {
+      "description": "Remove btag:Fresh",
+      "query": "DELETE{ ?subject ?predicate btag:Fresh . } WHERE { ?subject  ?predicate  btag:Fresh . }"
+    },
+    {
+      "description": "Add tag:Frost",
+      "query": "INSERT{ ?subject ?predicate tag:Frost . } WHERE { ?subject  ?predicate  btag:Frost . }"
+    },
+    {
+      "description": "Remove btag:Frost",
+      "query": "DELETE{ ?subject ?predicate btag:Frost . } WHERE { ?subject  ?predicate  btag:Frost . }"
+    },
+    {
+      "description": "Add tag:Fume",
+      "query": "INSERT{ ?subject ?predicate tag:Fume . } WHERE { ?subject  ?predicate  btag:Fume . }"
+    },
+    {
+      "description": "Remove btag:Fume",
+      "query": "DELETE{ ?subject ?predicate btag:Fume . } WHERE { ?subject  ?predicate  btag:Fume . }"
+    },
+    {
+      "description": "Add tag:Fume, tag:Hood",
+      "query": "INSERT{ ?subject ?predicate tag:Fume, brick:Hood . } WHERE { ?subject  ?predicate  btag:Fume_Hood . }"
+    },
+    {
+      "description": "Remove btag:Fume_Hood",
+      "query": "DELETE{ ?subject ?predicate btag:Fume_Hood . } WHERE { ?subject  ?predicate  btag:Fume_Hood . }"
+    },
+    {
+      "description": "Add tag:Furniture",
+      "query": "INSERT{ ?subject ?predicate tag:Furniture . } WHERE { ?subject  ?predicate  btag:Furniture . }"
+    },
+    {
+      "description": "Remove btag:Furniture",
+      "query": "DELETE{ ?subject ?predicate btag:Furniture . } WHERE { ?subject  ?predicate  btag:Furniture . }"
+    },
+    {
+      "description": "Add tag:Gain",
+      "query": "INSERT{ ?subject ?predicate tag:Gain . } WHERE { ?subject  ?predicate  btag:Gain . }"
+    },
+    {
+      "description": "Remove btag:Gain",
+      "query": "DELETE{ ?subject ?predicate btag:Gain . } WHERE { ?subject  ?predicate  btag:Gain . }"
+    },
+    {
+      "description": "Add tag:Gas",
+      "query": "INSERT{ ?subject ?predicate tag:Gas . } WHERE { ?subject  ?predicate  btag:Gas . }"
+    },
+    {
+      "description": "Remove btag:Gas",
+      "query": "DELETE{ ?subject ?predicate btag:Gas . } WHERE { ?subject  ?predicate  btag:Gas . }"
+    },
+    {
+      "description": "Add tag:Generator",
+      "query": "INSERT{ ?subject ?predicate tag:Generator . } WHERE { ?subject  ?predicate  btag:Generator . }"
+    },
+    {
+      "description": "Remove btag:Generator",
+      "query": "DELETE{ ?subject ?predicate btag:Generator . } WHERE { ?subject  ?predicate  btag:Generator . }"
+    },
+    {
+      "description": "Add tag:Glycool",
+      "query": "INSERT{ ?subject ?predicate tag:Glycool . } WHERE { ?subject  ?predicate  btag:Glycool . }"
+    },
+    {
+      "description": "Remove btag:Glycool",
+      "query": "DELETE{ ?subject ?predicate btag:Glycool . } WHERE { ?subject  ?predicate  btag:Glycool . }"
+    },
+    {
+      "description": "Add tag:Grains",
+      "query": "INSERT{ ?subject ?predicate tag:Grains . } WHERE { ?subject  ?predicate  btag:Grains . }"
+    },
+    {
+      "description": "Remove btag:Grains",
+      "query": "DELETE{ ?subject ?predicate btag:Grains . } WHERE { ?subject  ?predicate  btag:Grains . }"
+    },
+    {
+      "description": "Add tag:Hail",
+      "query": "INSERT{ ?subject ?predicate tag:Hail . } WHERE { ?subject  ?predicate  btag:Hail . }"
+    },
+    {
+      "description": "Remove btag:Hail",
+      "query": "DELETE{ ?subject ?predicate btag:Hail . } WHERE { ?subject  ?predicate  btag:Hail . }"
+    },
+    {
+      "description": "Add tag:Hand",
+      "query": "INSERT{ ?subject ?predicate tag:Hand . } WHERE { ?subject  ?predicate  btag:Hand . }"
+    },
+    {
+      "description": "Remove btag:Hand",
+      "query": "DELETE{ ?subject ?predicate btag:Hand . } WHERE { ?subject  ?predicate  btag:Hand . }"
+    },
+    {
+      "description": "Add tag:Handler",
+      "query": "INSERT{ ?subject ?predicate tag:Handler . } WHERE { ?subject  ?predicate  btag:Handler . }"
+    },
+    {
+      "description": "Remove btag:Handler",
+      "query": "DELETE{ ?subject ?predicate btag:Handler . } WHERE { ?subject  ?predicate  btag:Handler . }"
+    },
+    {
+      "description": "Add tag:Head",
+      "query": "INSERT{ ?subject ?predicate tag:Head . } WHERE { ?subject  ?predicate  btag:Head . }"
+    },
+    {
+      "description": "Remove btag:Head",
+      "query": "DELETE{ ?subject ?predicate btag:Head . } WHERE { ?subject  ?predicate  btag:Head . }"
+    },
+    {
+      "description": "Add tag:Heat",
+      "query": "INSERT{ ?subject ?predicate tag:Heat . } WHERE { ?subject  ?predicate  btag:Heat . }"
+    },
+    {
+      "description": "Remove btag:Heat",
+      "query": "DELETE{ ?subject ?predicate btag:Heat . } WHERE { ?subject  ?predicate  btag:Heat . }"
+    },
+    {
+      "description": "Add tag:Heat, tag:Exchanger",
+      "query": "INSERT{ ?subject ?predicate tag:Heat, brick:Exchanger . } WHERE { ?subject  ?predicate  btag:Heat_Exchanger . }"
+    },
+    {
+      "description": "Remove btag:Heat_Exchanger",
+      "query": "DELETE{ ?subject ?predicate btag:Heat_Exchanger . } WHERE { ?subject  ?predicate  btag:Heat_Exchanger . }"
+    },
+    {
+      "description": "Add tag:Heater",
+      "query": "INSERT{ ?subject ?predicate tag:Heater . } WHERE { ?subject  ?predicate  btag:Heater . }"
+    },
+    {
+      "description": "Remove btag:Heater",
+      "query": "DELETE{ ?subject ?predicate btag:Heater . } WHERE { ?subject  ?predicate  btag:Heater . }"
+    },
+    {
+      "description": "Add tag:Heat",
+      "query": "INSERT{ ?subject ?predicate tag:Heat . } WHERE { ?subject  ?predicate  btag:Heating . }"
+    },
+    {
+      "description": "Remove btag:Heating",
+      "query": "DELETE{ ?subject ?predicate btag:Heating . } WHERE { ?subject  ?predicate  btag:Heating . }"
+    },
+    {
+      "description": "Add tag:High",
+      "query": "INSERT{ ?subject ?predicate tag:High . } WHERE { ?subject  ?predicate  btag:High . }"
+    },
+    {
+      "description": "Remove btag:High",
+      "query": "DELETE{ ?subject ?predicate btag:High . } WHERE { ?subject  ?predicate  btag:High . }"
+    },
+    {
+      "description": "Add tag:Highest",
+      "query": "INSERT{ ?subject ?predicate tag:Highest . } WHERE { ?subject  ?predicate  btag:Highest . }"
+    },
+    {
+      "description": "Remove btag:Highest",
+      "query": "DELETE{ ?subject ?predicate btag:Highest . } WHERE { ?subject  ?predicate  btag:Highest . }"
+    },
+    {
+      "description": "Add tag:Hold",
+      "query": "INSERT{ ?subject ?predicate tag:Hold . } WHERE { ?subject  ?predicate  btag:Hold . }"
+    },
+    {
+      "description": "Remove btag:Hold",
+      "query": "DELETE{ ?subject ?predicate btag:Hold . } WHERE { ?subject  ?predicate  btag:Hold . }"
+    },
+    {
+      "description": "Add tag:Hood",
+      "query": "INSERT{ ?subject ?predicate tag:Hood . } WHERE { ?subject  ?predicate  btag:Hood . }"
+    },
+    {
+      "description": "Remove btag:Hood",
+      "query": "DELETE{ ?subject ?predicate btag:Hood . } WHERE { ?subject  ?predicate  btag:Hood . }"
+    },
+    {
+      "description": "Add tag:Hot",
+      "query": "INSERT{ ?subject ?predicate tag:Hot . } WHERE { ?subject  ?predicate  btag:Hot . }"
+    },
+    {
+      "description": "Remove btag:Hot",
+      "query": "DELETE{ ?subject ?predicate btag:Hot . } WHERE { ?subject  ?predicate  btag:Hot . }"
+    },
+    {
+      "description": "Add tag:Humidification",
+      "query": "INSERT{ ?subject ?predicate tag:Humidification . } WHERE { ?subject  ?predicate  btag:Humidification . }"
+    },
+    {
+      "description": "Remove btag:Humidification",
+      "query": "DELETE{ ?subject ?predicate btag:Humidification . } WHERE { ?subject  ?predicate  btag:Humidification . }"
+    },
+    {
+      "description": "Add tag:Humidifier",
+      "query": "INSERT{ ?subject ?predicate tag:Humidifier . } WHERE { ?subject  ?predicate  btag:Humidifier . }"
+    },
+    {
+      "description": "Remove btag:Humidifier",
+      "query": "DELETE{ ?subject ?predicate btag:Humidifier . } WHERE { ?subject  ?predicate  btag:Humidifier . }"
+    },
+    {
+      "description": "Add tag:Humidify",
+      "query": "INSERT{ ?subject ?predicate tag:Humidify . } WHERE { ?subject  ?predicate  btag:Humidify . }"
+    },
+    {
+      "description": "Remove btag:Humidify",
+      "query": "DELETE{ ?subject ?predicate btag:Humidify . } WHERE { ?subject  ?predicate  btag:Humidify . }"
+    },
+    {
+      "description": "Add tag:Humidity",
+      "query": "INSERT{ ?subject ?predicate tag:Humidity . } WHERE { ?subject  ?predicate  btag:Humidity . }"
+    },
+    {
+      "description": "Remove btag:Humidity",
+      "query": "DELETE{ ?subject ?predicate btag:Humidity . } WHERE { ?subject  ?predicate  btag:Humidity . }"
+    },
+    {
+      "description": "Add tag:HVAC",
+      "query": "INSERT{ ?subject ?predicate tag:HVAC . } WHERE { ?subject  ?predicate  btag:HVAC . }"
+    },
+    {
+      "description": "Remove btag:HVAC",
+      "query": "DELETE{ ?subject ?predicate btag:HVAC . } WHERE { ?subject  ?predicate  btag:HVAC . }"
+    },
+    {
+      "description": "Add tag:HWS",
+      "query": "INSERT{ ?subject ?predicate tag:HWS . } WHERE { ?subject  ?predicate  btag:HWS . }"
+    },
+    {
+      "description": "Remove btag:HWS",
+      "query": "DELETE{ ?subject ?predicate btag:HWS . } WHERE { ?subject  ?predicate  btag:HWS . }"
+    },
+    {
+      "description": "Add tag:HX",
+      "query": "INSERT{ ?subject ?predicate tag:HX . } WHERE { ?subject  ?predicate  btag:HX . }"
+    },
+    {
+      "description": "Remove btag:HX",
+      "query": "DELETE{ ?subject ?predicate btag:HX . } WHERE { ?subject  ?predicate  btag:HX . }"
+    },
+    {
+      "description": "Add tag:Ice",
+      "query": "INSERT{ ?subject ?predicate tag:Ice . } WHERE { ?subject  ?predicate  btag:Ice . }"
+    },
+    {
+      "description": "Remove btag:Ice",
+      "query": "DELETE{ ?subject ?predicate btag:Ice . } WHERE { ?subject  ?predicate  btag:Ice . }"
+    },
+    {
+      "description": "Add tag:Indicator",
+      "query": "INSERT{ ?subject ?predicate tag:Indicator . } WHERE { ?subject  ?predicate  btag:Indicator . }"
+    },
+    {
+      "description": "Remove btag:Indicator",
+      "query": "DELETE{ ?subject ?predicate btag:Indicator . } WHERE { ?subject  ?predicate  btag:Indicator . }"
+    },
+    {
+      "description": "Add tag:Integral",
+      "query": "INSERT{ ?subject ?predicate tag:Integral . } WHERE { ?subject  ?predicate  btag:Integral . }"
+    },
+    {
+      "description": "Remove btag:Integral",
+      "query": "DELETE{ ?subject ?predicate btag:Integral . } WHERE { ?subject  ?predicate  btag:Integral . }"
+    },
+    {
+      "description": "Add tag:Inverter",
+      "query": "INSERT{ ?subject ?predicate tag:Inverter . } WHERE { ?subject  ?predicate  btag:Inverter . }"
+    },
+    {
+      "description": "Remove btag:Inverter",
+      "query": "DELETE{ ?subject ?predicate btag:Inverter . } WHERE { ?subject  ?predicate  btag:Inverter . }"
+    },
+    {
+      "description": "Add tag:Isolation",
+      "query": "INSERT{ ?subject ?predicate tag:Isolation . } WHERE { ?subject  ?predicate  btag:Isolation . }"
+    },
+    {
+      "description": "Remove btag:Isolation",
+      "query": "DELETE{ ?subject ?predicate btag:Isolation . } WHERE { ?subject  ?predicate  btag:Isolation . }"
+    },
+    {
+      "description": "Add tag:Laboratory",
+      "query": "INSERT{ ?subject ?predicate tag:Laboratory . } WHERE { ?subject  ?predicate  btag:Laboratory . }"
+    },
+    {
+      "description": "Remove btag:Laboratory",
+      "query": "DELETE{ ?subject ?predicate btag:Laboratory . } WHERE { ?subject  ?predicate  btag:Laboratory . }"
+    },
+    {
+      "description": "Add tag:Lag",
+      "query": "INSERT{ ?subject ?predicate tag:Lag . } WHERE { ?subject  ?predicate  btag:Lag . }"
+    },
+    {
+      "description": "Remove btag:Lag",
+      "query": "DELETE{ ?subject ?predicate btag:Lag . } WHERE { ?subject  ?predicate  btag:Lag . }"
+    },
+    {
+      "description": "Add tag:Last",
+      "query": "INSERT{ ?subject ?predicate tag:Last . } WHERE { ?subject  ?predicate  btag:Last . }"
+    },
+    {
+      "description": "Remove btag:Last",
+      "query": "DELETE{ ?subject ?predicate btag:Last . } WHERE { ?subject  ?predicate  btag:Last . }"
+    },
+    {
+      "description": "Add tag:Lead",
+      "query": "INSERT{ ?subject ?predicate tag:Lead . } WHERE { ?subject  ?predicate  btag:Lead . }"
+    },
+    {
+      "description": "Remove btag:Lead",
+      "query": "DELETE{ ?subject ?predicate btag:Lead . } WHERE { ?subject  ?predicate  btag:Lead . }"
+    },
+    {
+      "description": "Add tag:Leak",
+      "query": "INSERT{ ?subject ?predicate tag:Leak . } WHERE { ?subject  ?predicate  btag:Leak . }"
+    },
+    {
+      "description": "Remove btag:Leak",
+      "query": "DELETE{ ?subject ?predicate btag:Leak . } WHERE { ?subject  ?predicate  btag:Leak . }"
+    },
+    {
+      "description": "Add tag:Leaving",
+      "query": "INSERT{ ?subject ?predicate tag:Leaving . } WHERE { ?subject  ?predicate  btag:Leaving . }"
+    },
+    {
+      "description": "Remove btag:Leaving",
+      "query": "DELETE{ ?subject ?predicate btag:Leaving . } WHERE { ?subject  ?predicate  btag:Leaving . }"
+    },
+    {
+      "description": "Add tag:Level",
+      "query": "INSERT{ ?subject ?predicate tag:Level . } WHERE { ?subject  ?predicate  btag:Level . }"
+    },
+    {
+      "description": "Remove btag:Level",
+      "query": "DELETE{ ?subject ?predicate btag:Level . } WHERE { ?subject  ?predicate  btag:Level . }"
+    },
+    {
+      "description": "Add tag:Lighting",
+      "query": "INSERT{ ?subject ?predicate tag:Lighting . } WHERE { ?subject  ?predicate  btag:Lighting . }"
+    },
+    {
+      "description": "Remove btag:Lighting",
+      "query": "DELETE{ ?subject ?predicate btag:Lighting . } WHERE { ?subject  ?predicate  btag:Lighting . }"
+    },
+    {
+      "description": "Add tag:Lighting, tag:System",
+      "query": "INSERT{ ?subject ?predicate tag:Lighting, brick:System . } WHERE { ?subject  ?predicate  btag:Lighting_System . }"
+    },
+    {
+      "description": "Remove btag:Lighting_System",
+      "query": "DELETE{ ?subject ?predicate btag:Lighting_System . } WHERE { ?subject  ?predicate  btag:Lighting_System . }"
+    },
+    {
+      "description": "Add tag:Limit",
+      "query": "INSERT{ ?subject ?predicate tag:Limit . } WHERE { ?subject  ?predicate  btag:Limit . }"
+    },
+    {
+      "description": "Remove btag:Limit",
+      "query": "DELETE{ ?subject ?predicate btag:Limit . } WHERE { ?subject  ?predicate  btag:Limit . }"
+    },
+    {
+      "description": "Add tag:Liquid",
+      "query": "INSERT{ ?subject ?predicate tag:Liquid . } WHERE { ?subject  ?predicate  btag:Liquid . }"
+    },
+    {
+      "description": "Remove btag:Liquid",
+      "query": "DELETE{ ?subject ?predicate btag:Liquid . } WHERE { ?subject  ?predicate  btag:Liquid . }"
+    },
+    {
+      "description": "Add tag:Load",
+      "query": "INSERT{ ?subject ?predicate tag:Load . } WHERE { ?subject  ?predicate  btag:Load . }"
+    },
+    {
+      "description": "Remove btag:Load",
+      "query": "DELETE{ ?subject ?predicate btag:Load . } WHERE { ?subject  ?predicate  btag:Load . }"
+    },
+    {
+      "description": "Add tag:Locally",
+      "query": "INSERT{ ?subject ?predicate tag:Locally . } WHERE { ?subject  ?predicate  btag:Locally . }"
+    },
+    {
+      "description": "Remove btag:Locally",
+      "query": "DELETE{ ?subject ?predicate btag:Locally . } WHERE { ?subject  ?predicate  btag:Locally . }"
+    },
+    {
+      "description": "Add tag:Location",
+      "query": "INSERT{ ?subject ?predicate tag:Location . } WHERE { ?subject  ?predicate  btag:Location . }"
+    },
+    {
+      "description": "Remove btag:Location",
+      "query": "DELETE{ ?subject ?predicate btag:Location . } WHERE { ?subject  ?predicate  btag:Location . }"
+    },
+    {
+      "description": "Add tag:Lockout",
+      "query": "INSERT{ ?subject ?predicate tag:Lockout . } WHERE { ?subject  ?predicate  btag:Lockout . }"
+    },
+    {
+      "description": "Remove btag:Lockout",
+      "query": "DELETE{ ?subject ?predicate btag:Lockout . } WHERE { ?subject  ?predicate  btag:Lockout . }"
+    },
+    {
+      "description": "Add tag:Loss",
+      "query": "INSERT{ ?subject ?predicate tag:Loss . } WHERE { ?subject  ?predicate  btag:Loss . }"
+    },
+    {
+      "description": "Remove btag:Loss",
+      "query": "DELETE{ ?subject ?predicate btag:Loss . } WHERE { ?subject  ?predicate  btag:Loss . }"
+    },
+    {
+      "description": "Add tag:Low",
+      "query": "INSERT{ ?subject ?predicate tag:Low . } WHERE { ?subject  ?predicate  btag:Low . }"
+    },
+    {
+      "description": "Remove btag:Low",
+      "query": "DELETE{ ?subject ?predicate btag:Low . } WHERE { ?subject  ?predicate  btag:Low . }"
+    },
+    {
+      "description": "Add tag:Lowest",
+      "query": "INSERT{ ?subject ?predicate tag:Lowest . } WHERE { ?subject  ?predicate  btag:Lowest . }"
+    },
+    {
+      "description": "Remove btag:Lowest",
+      "query": "DELETE{ ?subject ?predicate btag:Lowest . } WHERE { ?subject  ?predicate  btag:Lowest . }"
+    },
+    {
+      "description": "Add tag:Luminance",
+      "query": "INSERT{ ?subject ?predicate tag:Luminance . } WHERE { ?subject  ?predicate  btag:Luminance . }"
+    },
+    {
+      "description": "Remove btag:Luminance",
+      "query": "DELETE{ ?subject ?predicate btag:Luminance . } WHERE { ?subject  ?predicate  btag:Luminance . }"
+    },
+    {
+      "description": "Add tag:Maintenance",
+      "query": "INSERT{ ?subject ?predicate tag:Maintenance . } WHERE { ?subject  ?predicate  btag:Maintenance . }"
+    },
+    {
+      "description": "Remove btag:Maintenance",
+      "query": "DELETE{ ?subject ?predicate btag:Maintenance . } WHERE { ?subject  ?predicate  btag:Maintenance . }"
+    },
+    {
+      "description": "Add tag:Manual",
+      "query": "INSERT{ ?subject ?predicate tag:Manual . } WHERE { ?subject  ?predicate  btag:Manual . }"
+    },
+    {
+      "description": "Remove btag:Manual",
+      "query": "DELETE{ ?subject ?predicate btag:Manual . } WHERE { ?subject  ?predicate  btag:Manual . }"
+    },
+    {
+      "description": "Add tag:Max",
+      "query": "INSERT{ ?subject ?predicate tag:Max . } WHERE { ?subject  ?predicate  btag:Max . }"
+    },
+    {
+      "description": "Remove btag:Max",
+      "query": "DELETE{ ?subject ?predicate btag:Max . } WHERE { ?subject  ?predicate  btag:Max . }"
+    },
+    {
+      "description": "Add tag:Medium",
+      "query": "INSERT{ ?subject ?predicate tag:Medium . } WHERE { ?subject  ?predicate  btag:Medium . }"
+    },
+    {
+      "description": "Remove btag:Medium",
+      "query": "DELETE{ ?subject ?predicate btag:Medium . } WHERE { ?subject  ?predicate  btag:Medium . }"
+    },
+    {
+      "description": "Add tag:Meter",
+      "query": "INSERT{ ?subject ?predicate tag:Meter . } WHERE { ?subject  ?predicate  btag:Meter . }"
+    },
+    {
+      "description": "Remove btag:Meter",
+      "query": "DELETE{ ?subject ?predicate btag:Meter . } WHERE { ?subject  ?predicate  btag:Meter . }"
+    },
+    {
+      "description": "Add tag:Min",
+      "query": "INSERT{ ?subject ?predicate tag:Min . } WHERE { ?subject  ?predicate  btag:Min . }"
+    },
+    {
+      "description": "Remove btag:Min",
+      "query": "DELETE{ ?subject ?predicate btag:Min . } WHERE { ?subject  ?predicate  btag:Min . }"
+    },
+    {
+      "description": "Add tag:Min",
+      "query": "INSERT{ ?subject ?predicate tag:Min . } WHERE { ?subject  ?predicate  btag:Minimum . }"
+    },
+    {
+      "description": "Remove btag:Minimum",
+      "query": "DELETE{ ?subject ?predicate btag:Minimum . } WHERE { ?subject  ?predicate  btag:Minimum . }"
+    },
+    {
+      "description": "Add tag:Mixed",
+      "query": "INSERT{ ?subject ?predicate tag:Mixed . } WHERE { ?subject  ?predicate  btag:Mixed . }"
+    },
+    {
+      "description": "Remove btag:Mixed",
+      "query": "DELETE{ ?subject ?predicate btag:Mixed . } WHERE { ?subject  ?predicate  btag:Mixed . }"
+    },
+    {
+      "description": "Add tag:Mode",
+      "query": "INSERT{ ?subject ?predicate tag:Mode . } WHERE { ?subject  ?predicate  btag:Mode . }"
+    },
+    {
+      "description": "Remove btag:Mode",
+      "query": "DELETE{ ?subject ?predicate btag:Mode . } WHERE { ?subject  ?predicate  btag:Mode . }"
+    },
+    {
+      "description": "Add tag:Month",
+      "query": "INSERT{ ?subject ?predicate tag:Month . } WHERE { ?subject  ?predicate  btag:Month . }"
+    },
+    {
+      "description": "Remove btag:Month",
+      "query": "DELETE{ ?subject ?predicate btag:Month . } WHERE { ?subject  ?predicate  btag:Month . }"
+    },
+    {
+      "description": "Add tag:Monthly",
+      "query": "INSERT{ ?subject ?predicate tag:Monthly . } WHERE { ?subject  ?predicate  btag:Monthly . }"
+    },
+    {
+      "description": "Remove btag:Monthly",
+      "query": "DELETE{ ?subject ?predicate btag:Monthly . } WHERE { ?subject  ?predicate  btag:Monthly . }"
+    },
+    {
+      "description": "Add tag:Motor",
+      "query": "INSERT{ ?subject ?predicate tag:Motor . } WHERE { ?subject  ?predicate  btag:Motor . }"
+    },
+    {
+      "description": "Remove btag:Motor",
+      "query": "DELETE{ ?subject ?predicate btag:Motor . } WHERE { ?subject  ?predicate  btag:Motor . }"
+    },
+    {
+      "description": "Add tag:No",
+      "query": "INSERT{ ?subject ?predicate tag:No . } WHERE { ?subject  ?predicate  btag:No . }"
+    },
+    {
+      "description": "Remove btag:No",
+      "query": "DELETE{ ?subject ?predicate btag:No . } WHERE { ?subject  ?predicate  btag:No . }"
+    },
+    {
+      "description": "Add tag:Occupancy",
+      "query": "INSERT{ ?subject ?predicate tag:Occupancy . } WHERE { ?subject  ?predicate  btag:Occupancy . }"
+    },
+    {
+      "description": "Remove btag:Occupancy",
+      "query": "DELETE{ ?subject ?predicate btag:Occupancy . } WHERE { ?subject  ?predicate  btag:Occupancy . }"
+    },
+    {
+      "description": "Add tag:Occupied",
+      "query": "INSERT{ ?subject ?predicate tag:Occupied . } WHERE { ?subject  ?predicate  btag:Occupied . }"
+    },
+    {
+      "description": "Remove btag:Occupied",
+      "query": "DELETE{ ?subject ?predicate btag:Occupied . } WHERE { ?subject  ?predicate  btag:Occupied . }"
+    },
+    {
+      "description": "Add tag:Off",
+      "query": "INSERT{ ?subject ?predicate tag:Off . } WHERE { ?subject  ?predicate  btag:Off . }"
+    },
+    {
+      "description": "Remove btag:Off",
+      "query": "DELETE{ ?subject ?predicate btag:Off . } WHERE { ?subject  ?predicate  btag:Off . }"
+    },
+    {
+      "description": "Add tag:On",
+      "query": "INSERT{ ?subject ?predicate tag:On . } WHERE { ?subject  ?predicate  btag:On . }"
+    },
+    {
+      "description": "Remove btag:On",
+      "query": "DELETE{ ?subject ?predicate btag:On . } WHERE { ?subject  ?predicate  btag:On . }"
+    },
+    {
+      "description": "Add tag:Open",
+      "query": "INSERT{ ?subject ?predicate tag:Open . } WHERE { ?subject  ?predicate  btag:Open . }"
+    },
+    {
+      "description": "Remove btag:Open",
+      "query": "DELETE{ ?subject ?predicate btag:Open . } WHERE { ?subject  ?predicate  btag:Open . }"
+    },
+    {
+      "description": "Add tag:Operating",
+      "query": "INSERT{ ?subject ?predicate tag:Operating . } WHERE { ?subject  ?predicate  btag:Operating . }"
+    },
+    {
+      "description": "Remove btag:Operating",
+      "query": "DELETE{ ?subject ?predicate btag:Operating . } WHERE { ?subject  ?predicate  btag:Operating . }"
+    },
+    {
+      "description": "Add tag:Output",
+      "query": "INSERT{ ?subject ?predicate tag:Output . } WHERE { ?subject  ?predicate  btag:Output . }"
+    },
+    {
+      "description": "Remove btag:Output",
+      "query": "DELETE{ ?subject ?predicate btag:Output . } WHERE { ?subject  ?predicate  btag:Output . }"
+    },
+    {
+      "description": "Add tag:Outside",
+      "query": "INSERT{ ?subject ?predicate tag:Outside . } WHERE { ?subject  ?predicate  btag:Outside . }"
+    },
+    {
+      "description": "Remove btag:Outside",
+      "query": "DELETE{ ?subject ?predicate btag:Outside . } WHERE { ?subject  ?predicate  btag:Outside . }"
+    },
+    {
+      "description": "Add tag:Overload",
+      "query": "INSERT{ ?subject ?predicate tag:Overload . } WHERE { ?subject  ?predicate  btag:Overload . }"
+    },
+    {
+      "description": "Remove btag:Overload",
+      "query": "DELETE{ ?subject ?predicate btag:Overload . } WHERE { ?subject  ?predicate  btag:Overload . }"
+    },
+    {
+      "description": "Add tag:Overridden",
+      "query": "INSERT{ ?subject ?predicate tag:Overridden . } WHERE { ?subject  ?predicate  btag:Overridden . }"
+    },
+    {
+      "description": "Remove btag:Overridden",
+      "query": "DELETE{ ?subject ?predicate btag:Overridden . } WHERE { ?subject  ?predicate  btag:Overridden . }"
+    },
+    {
+      "description": "Add tag:Override",
+      "query": "INSERT{ ?subject ?predicate tag:Override . } WHERE { ?subject  ?predicate  btag:Override . }"
+    },
+    {
+      "description": "Remove btag:Override",
+      "query": "DELETE{ ?subject ?predicate btag:Override . } WHERE { ?subject  ?predicate  btag:Override . }"
+    },
+    {
+      "description": "Add tag:Panel",
+      "query": "INSERT{ ?subject ?predicate tag:Panel . } WHERE { ?subject  ?predicate  btag:Panel . }"
+    },
+    {
+      "description": "Remove btag:Panel",
+      "query": "DELETE{ ?subject ?predicate btag:Panel . } WHERE { ?subject  ?predicate  btag:Panel . }"
+    },
+    {
+      "description": "Add tag:Peak",
+      "query": "INSERT{ ?subject ?predicate tag:Peak . } WHERE { ?subject  ?predicate  btag:Peak . }"
+    },
+    {
+      "description": "Remove btag:Peak",
+      "query": "DELETE{ ?subject ?predicate btag:Peak . } WHERE { ?subject  ?predicate  btag:Peak . }"
+    },
+    {
+      "description": "Add tag:Percent",
+      "query": "INSERT{ ?subject ?predicate tag:Percent . } WHERE { ?subject  ?predicate  btag:Percent . }"
+    },
+    {
+      "description": "Remove btag:Percent",
+      "query": "DELETE{ ?subject ?predicate btag:Percent . } WHERE { ?subject  ?predicate  btag:Percent . }"
+    },
+    {
+      "description": "Add tag:Photovoltaic",
+      "query": "INSERT{ ?subject ?predicate tag:Photovoltaic . } WHERE { ?subject  ?predicate  btag:Photovoltaic . }"
+    },
+    {
+      "description": "Remove btag:Photovoltaic",
+      "query": "DELETE{ ?subject ?predicate btag:Photovoltaic . } WHERE { ?subject  ?predicate  btag:Photovoltaic . }"
+    },
+    {
+      "description": "Add tag:PID",
+      "query": "INSERT{ ?subject ?predicate tag:PID . } WHERE { ?subject  ?predicate  btag:PID . }"
+    },
+    {
+      "description": "Remove btag:PID",
+      "query": "DELETE{ ?subject ?predicate btag:PID . } WHERE { ?subject  ?predicate  btag:PID . }"
+    },
+    {
+      "description": "Add tag:Piezoelectric",
+      "query": "INSERT{ ?subject ?predicate tag:Piezoelectric . } WHERE { ?subject  ?predicate  btag:Piezoelectric . }"
+    },
+    {
+      "description": "Remove btag:Piezoelectric",
+      "query": "DELETE{ ?subject ?predicate btag:Piezoelectric . } WHERE { ?subject  ?predicate  btag:Piezoelectric . }"
+    },
+    {
+      "description": "Add tag:PIR",
+      "query": "INSERT{ ?subject ?predicate tag:PIR . } WHERE { ?subject  ?predicate  btag:PIR . }"
+    },
+    {
+      "description": "Remove btag:PIR",
+      "query": "DELETE{ ?subject ?predicate btag:PIR . } WHERE { ?subject  ?predicate  btag:PIR . }"
+    },
+    {
+      "description": "Add tag:Point",
+      "query": "INSERT{ ?subject ?predicate tag:Point . } WHERE { ?subject  ?predicate  btag:Point . }"
+    },
+    {
+      "description": "Remove btag:Point",
+      "query": "DELETE{ ?subject ?predicate btag:Point . } WHERE { ?subject  ?predicate  btag:Point . }"
+    },
+    {
+      "description": "Add tag:Position",
+      "query": "INSERT{ ?subject ?predicate tag:Position . } WHERE { ?subject  ?predicate  btag:Position . }"
+    },
+    {
+      "description": "Remove btag:Position",
+      "query": "DELETE{ ?subject ?predicate btag:Position . } WHERE { ?subject  ?predicate  btag:Position . }"
+    },
+    {
+      "description": "Add tag:Power",
+      "query": "INSERT{ ?subject ?predicate tag:Power . } WHERE { ?subject  ?predicate  btag:Power . }"
+    },
+    {
+      "description": "Remove btag:Power",
+      "query": "DELETE{ ?subject ?predicate btag:Power . } WHERE { ?subject  ?predicate  btag:Power . }"
+    },
+    {
+      "description": "Add tag:Power, tag:System",
+      "query": "INSERT{ ?subject ?predicate tag:Power, brick:System . } WHERE { ?subject  ?predicate  btag:Power_System . }"
+    },
+    {
+      "description": "Remove btag:Power_System",
+      "query": "DELETE{ ?subject ?predicate btag:Power_System . } WHERE { ?subject  ?predicate  btag:Power_System . }"
+    },
+    {
+      "description": "Add tag:Pre",
+      "query": "INSERT{ ?subject ?predicate tag:Pre . } WHERE { ?subject  ?predicate  btag:Pre . }"
+    },
+    {
+      "description": "Remove btag:Pre",
+      "query": "DELETE{ ?subject ?predicate btag:Pre . } WHERE { ?subject  ?predicate  btag:Pre . }"
+    },
+    {
+      "description": "Add tag:Preheat",
+      "query": "INSERT{ ?subject ?predicate tag:Preheat . } WHERE { ?subject  ?predicate  btag:Preheat . }"
+    },
+    {
+      "description": "Remove btag:Preheat",
+      "query": "DELETE{ ?subject ?predicate btag:Preheat . } WHERE { ?subject  ?predicate  btag:Preheat . }"
+    },
+    {
+      "description": "Add tag:Pressure",
+      "query": "INSERT{ ?subject ?predicate tag:Pressure . } WHERE { ?subject  ?predicate  btag:Pressure . }"
+    },
+    {
+      "description": "Remove btag:Pressure",
+      "query": "DELETE{ ?subject ?predicate btag:Pressure . } WHERE { ?subject  ?predicate  btag:Pressure . }"
+    },
+    {
+      "description": "Add tag:Proportional",
+      "query": "INSERT{ ?subject ?predicate tag:Proportional . } WHERE { ?subject  ?predicate  btag:Proportional . }"
+    },
+    {
+      "description": "Remove btag:Proportional",
+      "query": "DELETE{ ?subject ?predicate btag:Proportional . } WHERE { ?subject  ?predicate  btag:Proportional . }"
+    },
+    {
+      "description": "Add tag:Protect",
+      "query": "INSERT{ ?subject ?predicate tag:Protect . } WHERE { ?subject  ?predicate  btag:Protect . }"
+    },
+    {
+      "description": "Remove btag:Protect",
+      "query": "DELETE{ ?subject ?predicate btag:Protect . } WHERE { ?subject  ?predicate  btag:Protect . }"
+    },
+    {
+      "description": "Add tag:Pump",
+      "query": "INSERT{ ?subject ?predicate tag:Pump . } WHERE { ?subject  ?predicate  btag:Pump . }"
+    },
+    {
+      "description": "Remove btag:Pump",
+      "query": "DELETE{ ?subject ?predicate btag:Pump . } WHERE { ?subject  ?predicate  btag:Pump . }"
+    },
+    {
+      "description": "Add tag:Push",
+      "query": "INSERT{ ?subject ?predicate tag:Push . } WHERE { ?subject  ?predicate  btag:Push . }"
+    },
+    {
+      "description": "Remove btag:Push",
+      "query": "DELETE{ ?subject ?predicate btag:Push . } WHERE { ?subject  ?predicate  btag:Push . }"
+    },
+    {
+      "description": "Add tag:PV",
+      "query": "INSERT{ ?subject ?predicate tag:PV . } WHERE { ?subject  ?predicate  btag:PV . }"
+    },
+    {
+      "description": "Remove btag:PV",
+      "query": "DELETE{ ?subject ?predicate btag:PV . } WHERE { ?subject  ?predicate  btag:PV . }"
+    },
+    {
+      "description": "Add tag:Radiance",
+      "query": "INSERT{ ?subject ?predicate tag:Radiance . } WHERE { ?subject  ?predicate  btag:Radiance . }"
+    },
+    {
+      "description": "Remove btag:Radiance",
+      "query": "DELETE{ ?subject ?predicate btag:Radiance . } WHERE { ?subject  ?predicate  btag:Radiance . }"
+    },
+    {
+      "description": "Add tag:Rain",
+      "query": "INSERT{ ?subject ?predicate tag:Rain . } WHERE { ?subject  ?predicate  btag:Rain . }"
+    },
+    {
+      "description": "Remove btag:Rain",
+      "query": "DELETE{ ?subject ?predicate btag:Rain . } WHERE { ?subject  ?predicate  btag:Rain . }"
+    },
+    {
+      "description": "Add tag:Rated",
+      "query": "INSERT{ ?subject ?predicate tag:Rated . } WHERE { ?subject  ?predicate  btag:Rated . }"
+    },
+    {
+      "description": "Remove btag:Rated",
+      "query": "DELETE{ ?subject ?predicate btag:Rated . } WHERE { ?subject  ?predicate  btag:Rated . }"
+    },
+    {
+      "description": "Add tag:Ratio",
+      "query": "INSERT{ ?subject ?predicate tag:Ratio . } WHERE { ?subject  ?predicate  btag:Ratio . }"
+    },
+    {
+      "description": "Remove btag:Ratio",
+      "query": "DELETE{ ?subject ?predicate btag:Ratio . } WHERE { ?subject  ?predicate  btag:Ratio . }"
+    },
+    {
+      "description": "Add tag:Ready",
+      "query": "INSERT{ ?subject ?predicate tag:Ready . } WHERE { ?subject  ?predicate  btag:Ready . }"
+    },
+    {
+      "description": "Remove btag:Ready",
+      "query": "DELETE{ ?subject ?predicate btag:Ready . } WHERE { ?subject  ?predicate  btag:Ready . }"
+    },
+    {
+      "description": "Add tag:Reheat",
+      "query": "INSERT{ ?subject ?predicate tag:Reheat . } WHERE { ?subject  ?predicate  btag:Reheat . }"
+    },
+    {
+      "description": "Remove btag:Reheat",
+      "query": "DELETE{ ?subject ?predicate btag:Reheat . } WHERE { ?subject  ?predicate  btag:Reheat . }"
+    },
+    {
+      "description": "Add tag:Relative",
+      "query": "INSERT{ ?subject ?predicate tag:Relative . } WHERE { ?subject  ?predicate  btag:Relative . }"
+    },
+    {
+      "description": "Remove btag:Relative",
+      "query": "DELETE{ ?subject ?predicate btag:Relative . } WHERE { ?subject  ?predicate  btag:Relative . }"
+    },
+    {
+      "description": "Add tag:Remotely",
+      "query": "INSERT{ ?subject ?predicate tag:Remotely . } WHERE { ?subject  ?predicate  btag:Remotely . }"
+    },
+    {
+      "description": "Remove btag:Remotely",
+      "query": "DELETE{ ?subject ?predicate btag:Remotely . } WHERE { ?subject  ?predicate  btag:Remotely . }"
+    },
+    {
+      "description": "Add tag:Request",
+      "query": "INSERT{ ?subject ?predicate tag:Request . } WHERE { ?subject  ?predicate  btag:Request . }"
+    },
+    {
+      "description": "Remove btag:Request",
+      "query": "DELETE{ ?subject ?predicate btag:Request . } WHERE { ?subject  ?predicate  btag:Request . }"
+    },
+    {
+      "description": "Add tag:Required",
+      "query": "INSERT{ ?subject ?predicate tag:Required . } WHERE { ?subject  ?predicate  btag:Required . }"
+    },
+    {
+      "description": "Remove btag:Required",
+      "query": "DELETE{ ?subject ?predicate btag:Required . } WHERE { ?subject  ?predicate  btag:Required . }"
+    },
+    {
+      "description": "Add tag:Reset",
+      "query": "INSERT{ ?subject ?predicate tag:Reset . } WHERE { ?subject  ?predicate  btag:Reset . }"
+    },
+    {
+      "description": "Remove btag:Reset",
+      "query": "DELETE{ ?subject ?predicate btag:Reset . } WHERE { ?subject  ?predicate  btag:Reset . }"
+    },
+    {
+      "description": "Add tag:Return",
+      "query": "INSERT{ ?subject ?predicate tag:Return . } WHERE { ?subject  ?predicate  btag:Return . }"
+    },
+    {
+      "description": "Remove btag:Return",
+      "query": "DELETE{ ?subject ?predicate btag:Return . } WHERE { ?subject  ?predicate  btag:Return . }"
+    },
+    {
+      "description": "Add tag:Return, tag:Fan",
+      "query": "INSERT{ ?subject ?predicate tag:Return, brick:Fan . } WHERE { ?subject  ?predicate  btag:Return_Fan . }"
+    },
+    {
+      "description": "Remove btag:Return_Fan",
+      "query": "DELETE{ ?subject ?predicate btag:Return_Fan . } WHERE { ?subject  ?predicate  btag:Return_Fan . }"
+    },
+    {
+      "description": "Add tag:Roof",
+      "query": "INSERT{ ?subject ?predicate tag:Roof . } WHERE { ?subject  ?predicate  btag:Roof . }"
+    },
+    {
+      "description": "Remove btag:Roof",
+      "query": "DELETE{ ?subject ?predicate btag:Roof . } WHERE { ?subject  ?predicate  btag:Roof . }"
+    },
+    {
+      "description": "Add tag:Room",
+      "query": "INSERT{ ?subject ?predicate tag:Room . } WHERE { ?subject  ?predicate  btag:Room . }"
+    },
+    {
+      "description": "Remove btag:Room",
+      "query": "DELETE{ ?subject ?predicate btag:Room . } WHERE { ?subject  ?predicate  btag:Room . }"
+    },
+    {
+      "description": "Add tag:Run",
+      "query": "INSERT{ ?subject ?predicate tag:Run . } WHERE { ?subject  ?predicate  btag:Run . }"
+    },
+    {
+      "description": "Remove btag:Run",
+      "query": "DELETE{ ?subject ?predicate btag:Run . } WHERE { ?subject  ?predicate  btag:Run . }"
+    },
+    {
+      "description": "Add tag:Safety",
+      "query": "INSERT{ ?subject ?predicate tag:Safety . } WHERE { ?subject  ?predicate  btag:Safety . }"
+    },
+    {
+      "description": "Remove btag:Safety",
+      "query": "DELETE{ ?subject ?predicate btag:Safety . } WHERE { ?subject  ?predicate  btag:Safety . }"
+    },
+    {
+      "description": "Add tag:Sash",
+      "query": "INSERT{ ?subject ?predicate tag:Sash . } WHERE { ?subject  ?predicate  btag:Sash . }"
+    },
+    {
+      "description": "Remove btag:Sash",
+      "query": "DELETE{ ?subject ?predicate btag:Sash . } WHERE { ?subject  ?predicate  btag:Sash . }"
+    },
+    {
+      "description": "Add tag:Schedule",
+      "query": "INSERT{ ?subject ?predicate tag:Schedule . } WHERE { ?subject  ?predicate  btag:Schedule . }"
+    },
+    {
+      "description": "Remove btag:Schedule",
+      "query": "DELETE{ ?subject ?predicate btag:Schedule . } WHERE { ?subject  ?predicate  btag:Schedule . }"
+    },
+    {
+      "description": "Add tag:Sensor",
+      "query": "INSERT{ ?subject ?predicate tag:Sensor . } WHERE { ?subject  ?predicate  btag:Sensor . }"
+    },
+    {
+      "description": "Remove btag:Sensor",
+      "query": "DELETE{ ?subject ?predicate btag:Sensor . } WHERE { ?subject  ?predicate  btag:Sensor . }"
+    },
+    {
+      "description": "Add tag:Server",
+      "query": "INSERT{ ?subject ?predicate tag:Server . } WHERE { ?subject  ?predicate  btag:Server . }"
+    },
+    {
+      "description": "Remove btag:Server",
+      "query": "DELETE{ ?subject ?predicate btag:Server . } WHERE { ?subject  ?predicate  btag:Server . }"
+    },
+    {
+      "description": "Add tag:Setpoint",
+      "query": "INSERT{ ?subject ?predicate tag:Setpoint . } WHERE { ?subject  ?predicate  btag:Setpoint . }"
+    },
+    {
+      "description": "Remove btag:Setpoint",
+      "query": "DELETE{ ?subject ?predicate btag:Setpoint . } WHERE { ?subject  ?predicate  btag:Setpoint . }"
+    },
+    {
+      "description": "Add tag:Shed",
+      "query": "INSERT{ ?subject ?predicate tag:Shed . } WHERE { ?subject  ?predicate  btag:Shed . }"
+    },
+    {
+      "description": "Remove btag:Shed",
+      "query": "DELETE{ ?subject ?predicate btag:Shed . } WHERE { ?subject  ?predicate  btag:Shed . }"
+    },
+    {
+      "description": "Add tag:Short",
+      "query": "INSERT{ ?subject ?predicate tag:Short . } WHERE { ?subject  ?predicate  btag:Short . }"
+    },
+    {
+      "description": "Remove btag:Short",
+      "query": "DELETE{ ?subject ?predicate btag:Short . } WHERE { ?subject  ?predicate  btag:Short . }"
+    },
+    {
+      "description": "Add tag:Shutdown",
+      "query": "INSERT{ ?subject ?predicate tag:Shutdown . } WHERE { ?subject  ?predicate  btag:Shutdown . }"
+    },
+    {
+      "description": "Remove btag:Shutdown",
+      "query": "DELETE{ ?subject ?predicate btag:Shutdown . } WHERE { ?subject  ?predicate  btag:Shutdown . }"
+    },
+    {
+      "description": "Add tag:Smoke",
+      "query": "INSERT{ ?subject ?predicate tag:Smoke . } WHERE { ?subject  ?predicate  btag:Smoke . }"
+    },
+    {
+      "description": "Remove btag:Smoke",
+      "query": "DELETE{ ?subject ?predicate btag:Smoke . } WHERE { ?subject  ?predicate  btag:Smoke . }"
+    },
+    {
+      "description": "Add tag:Solar",
+      "query": "INSERT{ ?subject ?predicate tag:Solar . } WHERE { ?subject  ?predicate  btag:Solar . }"
+    },
+    {
+      "description": "Remove btag:Solar",
+      "query": "DELETE{ ?subject ?predicate btag:Solar . } WHERE { ?subject  ?predicate  btag:Solar . }"
+    },
+    {
+      "description": "Add tag:Solar, tag:Panel",
+      "query": "INSERT{ ?subject ?predicate tag:Solar, brick:Panel . } WHERE { ?subject  ?predicate  btag:Solar_Panel . }"
+    },
+    {
+      "description": "Remove btag:Solar_Panel",
+      "query": "DELETE{ ?subject ?predicate btag:Solar_Panel . } WHERE { ?subject  ?predicate  btag:Solar_Panel . }"
+    },
+    {
+      "description": "Add tag:Space",
+      "query": "INSERT{ ?subject ?predicate tag:Space . } WHERE { ?subject  ?predicate  btag:Space . }"
+    },
+    {
+      "description": "Remove btag:Space",
+      "query": "DELETE{ ?subject ?predicate btag:Space . } WHERE { ?subject  ?predicate  btag:Space . }"
+    },
+    {
+      "description": "Add tag:Speed",
+      "query": "INSERT{ ?subject ?predicate tag:Speed . } WHERE { ?subject  ?predicate  btag:Speed . }"
+    },
+    {
+      "description": "Remove btag:Speed",
+      "query": "DELETE{ ?subject ?predicate btag:Speed . } WHERE { ?subject  ?predicate  btag:Speed . }"
+    },
+    {
+      "description": "Add tag:Stack",
+      "query": "INSERT{ ?subject ?predicate tag:Stack . } WHERE { ?subject  ?predicate  btag:Stack . }"
+    },
+    {
+      "description": "Remove btag:Stack",
+      "query": "DELETE{ ?subject ?predicate btag:Stack . } WHERE { ?subject  ?predicate  btag:Stack . }"
+    },
+    {
+      "description": "Add tag:Stages",
+      "query": "INSERT{ ?subject ?predicate tag:Stages . } WHERE { ?subject  ?predicate  btag:Stages . }"
+    },
+    {
+      "description": "Remove btag:Stages",
+      "query": "DELETE{ ?subject ?predicate btag:Stages . } WHERE { ?subject  ?predicate  btag:Stages . }"
+    },
+    {
+      "description": "Add tag:Standby",
+      "query": "INSERT{ ?subject ?predicate tag:Standby . } WHERE { ?subject  ?predicate  btag:Standby . }"
+    },
+    {
+      "description": "Remove btag:Standby",
+      "query": "DELETE{ ?subject ?predicate btag:Standby . } WHERE { ?subject  ?predicate  btag:Standby . }"
+    },
+    {
+      "description": "Add tag:Start",
+      "query": "INSERT{ ?subject ?predicate tag:Start . } WHERE { ?subject  ?predicate  btag:Start . }"
+    },
+    {
+      "description": "Remove btag:Start",
+      "query": "DELETE{ ?subject ?predicate btag:Start . } WHERE { ?subject  ?predicate  btag:Start . }"
+    },
+    {
+      "description": "Add tag:Static",
+      "query": "INSERT{ ?subject ?predicate tag:Static . } WHERE { ?subject  ?predicate  btag:Static . }"
+    },
+    {
+      "description": "Remove btag:Static",
+      "query": "DELETE{ ?subject ?predicate btag:Static . } WHERE { ?subject  ?predicate  btag:Static . }"
+    },
+    {
+      "description": "Add tag:Status",
+      "query": "INSERT{ ?subject ?predicate tag:Status . } WHERE { ?subject  ?predicate  btag:Status . }"
+    },
+    {
+      "description": "Remove btag:Status",
+      "query": "DELETE{ ?subject ?predicate btag:Status . } WHERE { ?subject  ?predicate  btag:Status . }"
+    },
+    {
+      "description": "Add tag:Steam",
+      "query": "INSERT{ ?subject ?predicate tag:Steam . } WHERE { ?subject  ?predicate  btag:Steam . }"
+    },
+    {
+      "description": "Remove btag:Steam",
+      "query": "DELETE{ ?subject ?predicate btag:Steam . } WHERE { ?subject  ?predicate  btag:Steam . }"
+    },
+    {
+      "description": "Add tag:Steam, tag:System",
+      "query": "INSERT{ ?subject ?predicate tag:Steam, brick:System . } WHERE { ?subject  ?predicate  btag:Steam_System . }"
+    },
+    {
+      "description": "Remove btag:Steam_System",
+      "query": "DELETE{ ?subject ?predicate btag:Steam_System . } WHERE { ?subject  ?predicate  btag:Steam_System . }"
+    },
+    {
+      "description": "Add tag:Step",
+      "query": "INSERT{ ?subject ?predicate tag:Step . } WHERE { ?subject  ?predicate  btag:Step . }"
+    },
+    {
+      "description": "Remove btag:Step",
+      "query": "DELETE{ ?subject ?predicate btag:Step . } WHERE { ?subject  ?predicate  btag:Step . }"
+    },
+    {
+      "description": "Add tag:Stop",
+      "query": "INSERT{ ?subject ?predicate tag:Stop . } WHERE { ?subject  ?predicate  btag:Stop . }"
+    },
+    {
+      "description": "Remove btag:Stop",
+      "query": "DELETE{ ?subject ?predicate btag:Stop . } WHERE { ?subject  ?predicate  btag:Stop . }"
+    },
+    {
+      "description": "Add tag:Storage",
+      "query": "INSERT{ ?subject ?predicate tag:Storage . } WHERE { ?subject  ?predicate  btag:Storage . }"
+    },
+    {
+      "description": "Remove btag:Storage",
+      "query": "DELETE{ ?subject ?predicate btag:Storage . } WHERE { ?subject  ?predicate  btag:Storage . }"
+    },
+    {
+      "description": "Add tag:Suction",
+      "query": "INSERT{ ?subject ?predicate tag:Suction . } WHERE { ?subject  ?predicate  btag:Suction . }"
+    },
+    {
+      "description": "Remove btag:Suction",
+      "query": "DELETE{ ?subject ?predicate btag:Suction . } WHERE { ?subject  ?predicate  btag:Suction . }"
+    },
+    {
+      "description": "Add tag:Supply",
+      "query": "INSERT{ ?subject ?predicate tag:Supply . } WHERE { ?subject  ?predicate  btag:Supply . }"
+    },
+    {
+      "description": "Remove btag:Supply",
+      "query": "DELETE{ ?subject ?predicate btag:Supply . } WHERE { ?subject  ?predicate  btag:Supply . }"
+    },
+    {
+      "description": "Add tag:Supply, tag:Fan",
+      "query": "INSERT{ ?subject ?predicate tag:Supply, brick:Fan . } WHERE { ?subject  ?predicate  btag:Supply_Fan . }"
+    },
+    {
+      "description": "Remove btag:Supply_Fan",
+      "query": "DELETE{ ?subject ?predicate btag:Supply_Fan . } WHERE { ?subject  ?predicate  btag:Supply_Fan . }"
+    },
+    {
+      "description": "Add tag:Switch",
+      "query": "INSERT{ ?subject ?predicate tag:Switch . } WHERE { ?subject  ?predicate  btag:Switch . }"
+    },
+    {
+      "description": "Remove btag:Switch",
+      "query": "DELETE{ ?subject ?predicate btag:Switch . } WHERE { ?subject  ?predicate  btag:Switch . }"
+    },
+    {
+      "description": "Add tag:System",
+      "query": "INSERT{ ?subject ?predicate tag:System . } WHERE { ?subject  ?predicate  btag:System . }"
+    },
+    {
+      "description": "Remove btag:System",
+      "query": "DELETE{ ?subject ?predicate btag:System . } WHERE { ?subject  ?predicate  btag:System . }"
+    },
+    {
+      "description": "Add tag:Tank",
+      "query": "INSERT{ ?subject ?predicate tag:Tank . } WHERE { ?subject  ?predicate  btag:Tank . }"
+    },
+    {
+      "description": "Remove btag:Tank",
+      "query": "DELETE{ ?subject ?predicate btag:Tank . } WHERE { ?subject  ?predicate  btag:Tank . }"
+    },
+    {
+      "description": "Add tag:Temperature",
+      "query": "INSERT{ ?subject ?predicate tag:Temperature . } WHERE { ?subject  ?predicate  btag:Temperature . }"
+    },
+    {
+      "description": "Remove btag:Temperature",
+      "query": "DELETE{ ?subject ?predicate btag:Temperature . } WHERE { ?subject  ?predicate  btag:Temperature . }"
+    },
+    {
+      "description": "Add tag:Temporary",
+      "query": "INSERT{ ?subject ?predicate tag:Temporary . } WHERE { ?subject  ?predicate  btag:Temporary . }"
+    },
+    {
+      "description": "Remove btag:Temporary",
+      "query": "DELETE{ ?subject ?predicate btag:Temporary . } WHERE { ?subject  ?predicate  btag:Temporary . }"
+    },
+    {
+      "description": "Add tag:Terminal",
+      "query": "INSERT{ ?subject ?predicate tag:Terminal . } WHERE { ?subject  ?predicate  btag:Terminal . }"
+    },
+    {
+      "description": "Remove btag:Terminal",
+      "query": "DELETE{ ?subject ?predicate btag:Terminal . } WHERE { ?subject  ?predicate  btag:Terminal . }"
+    },
+    {
+      "description": "Add tag:Thermal",
+      "query": "INSERT{ ?subject ?predicate tag:Thermal . } WHERE { ?subject  ?predicate  btag:Thermal . }"
+    },
+    {
+      "description": "Remove btag:Thermal",
+      "query": "DELETE{ ?subject ?predicate btag:Thermal . } WHERE { ?subject  ?predicate  btag:Thermal . }"
+    },
+    {
+      "description": "Add tag:Thermostat",
+      "query": "INSERT{ ?subject ?predicate tag:Thermostat . } WHERE { ?subject  ?predicate  btag:Thermostat . }"
+    },
+    {
+      "description": "Remove btag:Thermostat",
+      "query": "DELETE{ ?subject ?predicate btag:Thermostat . } WHERE { ?subject  ?predicate  btag:Thermostat . }"
+    },
+    {
+      "description": "Add tag:Time",
+      "query": "INSERT{ ?subject ?predicate tag:Time . } WHERE { ?subject  ?predicate  btag:Time . }"
+    },
+    {
+      "description": "Remove btag:Time",
+      "query": "DELETE{ ?subject ?predicate btag:Time . } WHERE { ?subject  ?predicate  btag:Time . }"
+    },
+    {
+      "description": "Add tag:Timer",
+      "query": "INSERT{ ?subject ?predicate tag:Timer . } WHERE { ?subject  ?predicate  btag:Timer . }"
+    },
+    {
+      "description": "Remove btag:Timer",
+      "query": "DELETE{ ?subject ?predicate btag:Timer . } WHERE { ?subject  ?predicate  btag:Timer . }"
+    },
+    {
+      "description": "Add tag:Today",
+      "query": "INSERT{ ?subject ?predicate tag:Today . } WHERE { ?subject  ?predicate  btag:Today . }"
+    },
+    {
+      "description": "Remove btag:Today",
+      "query": "DELETE{ ?subject ?predicate btag:Today . } WHERE { ?subject  ?predicate  btag:Today . }"
+    },
+    {
+      "description": "Add tag:Tolerance",
+      "query": "INSERT{ ?subject ?predicate tag:Tolerance . } WHERE { ?subject  ?predicate  btag:Tolerance . }"
+    },
+    {
+      "description": "Remove btag:Tolerance",
+      "query": "DELETE{ ?subject ?predicate btag:Tolerance . } WHERE { ?subject  ?predicate  btag:Tolerance . }"
+    },
+    {
+      "description": "Add tag:Torque",
+      "query": "INSERT{ ?subject ?predicate tag:Torque . } WHERE { ?subject  ?predicate  btag:Torque . }"
+    },
+    {
+      "description": "Remove btag:Torque",
+      "query": "DELETE{ ?subject ?predicate btag:Torque . } WHERE { ?subject  ?predicate  btag:Torque . }"
+    },
+    {
+      "description": "Add tag:Tower",
+      "query": "INSERT{ ?subject ?predicate tag:Tower . } WHERE { ?subject  ?predicate  btag:Tower . }"
+    },
+    {
+      "description": "Remove btag:Tower",
+      "query": "DELETE{ ?subject ?predicate btag:Tower . } WHERE { ?subject  ?predicate  btag:Tower . }"
+    },
+    {
+      "description": "Add tag:Trace",
+      "query": "INSERT{ ?subject ?predicate tag:Trace . } WHERE { ?subject  ?predicate  btag:Trace . }"
+    },
+    {
+      "description": "Remove btag:Trace",
+      "query": "DELETE{ ?subject ?predicate btag:Trace . } WHERE { ?subject  ?predicate  btag:Trace . }"
+    },
+    {
+      "description": "Add tag:Turn",
+      "query": "INSERT{ ?subject ?predicate tag:Turn . } WHERE { ?subject  ?predicate  btag:Turn . }"
+    },
+    {
+      "description": "Remove btag:Turn",
+      "query": "DELETE{ ?subject ?predicate btag:Turn . } WHERE { ?subject  ?predicate  btag:Turn . }"
+    },
+    {
+      "description": "Add tag:Underfloor",
+      "query": "INSERT{ ?subject ?predicate tag:Underfloor . } WHERE { ?subject  ?predicate  btag:Underfloor . }"
+    },
+    {
+      "description": "Remove btag:Underfloor",
+      "query": "DELETE{ ?subject ?predicate btag:Underfloor . } WHERE { ?subject  ?predicate  btag:Underfloor . }"
+    },
+    {
+      "description": "Add tag:Unit",
+      "query": "INSERT{ ?subject ?predicate tag:Unit . } WHERE { ?subject  ?predicate  btag:Unit . }"
+    },
+    {
+      "description": "Remove btag:Unit",
+      "query": "DELETE{ ?subject ?predicate btag:Unit . } WHERE { ?subject  ?predicate  btag:Unit . }"
+    },
+    {
+      "description": "Add tag:Unoccupied",
+      "query": "INSERT{ ?subject ?predicate tag:Unoccupied . } WHERE { ?subject  ?predicate  btag:Unoccupied . }"
+    },
+    {
+      "description": "Remove btag:Unoccupied",
+      "query": "DELETE{ ?subject ?predicate btag:Unoccupied . } WHERE { ?subject  ?predicate  btag:Unoccupied . }"
+    },
+    {
+      "description": "Add tag:Usage",
+      "query": "INSERT{ ?subject ?predicate tag:Usage . } WHERE { ?subject  ?predicate  btag:Usage . }"
+    },
+    {
+      "description": "Remove btag:Usage",
+      "query": "DELETE{ ?subject ?predicate btag:Usage . } WHERE { ?subject  ?predicate  btag:Usage . }"
+    },
+    {
+      "description": "Add tag:Valve",
+      "query": "INSERT{ ?subject ?predicate tag:Valve . } WHERE { ?subject  ?predicate  btag:Valve . }"
+    },
+    {
+      "description": "Remove btag:Valve",
+      "query": "DELETE{ ?subject ?predicate btag:Valve . } WHERE { ?subject  ?predicate  btag:Valve . }"
+    },
+    {
+      "description": "Add tag:Variable",
+      "query": "INSERT{ ?subject ?predicate tag:Variable . } WHERE { ?subject  ?predicate  btag:Variable . }"
+    },
+    {
+      "description": "Remove btag:Variable",
+      "query": "DELETE{ ?subject ?predicate btag:Variable . } WHERE { ?subject  ?predicate  btag:Variable . }"
+    },
+    {
+      "description": "Add tag:VAV",
+      "query": "INSERT{ ?subject ?predicate tag:VAV . } WHERE { ?subject  ?predicate  btag:VAV . }"
+    },
+    {
+      "description": "Remove btag:VAV",
+      "query": "DELETE{ ?subject ?predicate btag:VAV . } WHERE { ?subject  ?predicate  btag:VAV . }"
+    },
+    {
+      "description": "Add tag:Velocity",
+      "query": "INSERT{ ?subject ?predicate tag:Velocity . } WHERE { ?subject  ?predicate  btag:Velocity . }"
+    },
+    {
+      "description": "Remove btag:Velocity",
+      "query": "DELETE{ ?subject ?predicate btag:Velocity . } WHERE { ?subject  ?predicate  btag:Velocity . }"
+    },
+    {
+      "description": "Add tag:Vent",
+      "query": "INSERT{ ?subject ?predicate tag:Vent . } WHERE { ?subject  ?predicate  btag:Vent . }"
+    },
+    {
+      "description": "Remove btag:Vent",
+      "query": "DELETE{ ?subject ?predicate btag:Vent . } WHERE { ?subject  ?predicate  btag:Vent . }"
+    },
+    {
+      "description": "Add tag:Ventilation",
+      "query": "INSERT{ ?subject ?predicate tag:Ventilation . } WHERE { ?subject  ?predicate  btag:Ventilation . }"
+    },
+    {
+      "description": "Remove btag:Ventilation",
+      "query": "DELETE{ ?subject ?predicate btag:Ventilation . } WHERE { ?subject  ?predicate  btag:Ventilation . }"
+    },
+    {
+      "description": "Add tag:VFD",
+      "query": "INSERT{ ?subject ?predicate tag:VFD . } WHERE { ?subject  ?predicate  btag:VFD . }"
+    },
+    {
+      "description": "Remove btag:VFD",
+      "query": "DELETE{ ?subject ?predicate btag:VFD . } WHERE { ?subject  ?predicate  btag:VFD . }"
+    },
+    {
+      "description": "Add tag:Voltage",
+      "query": "INSERT{ ?subject ?predicate tag:Voltage . } WHERE { ?subject  ?predicate  btag:Voltage . }"
+    },
+    {
+      "description": "Remove btag:Voltage",
+      "query": "DELETE{ ?subject ?predicate btag:Voltage . } WHERE { ?subject  ?predicate  btag:Voltage . }"
+    },
+    {
+      "description": "Add tag:Volume",
+      "query": "INSERT{ ?subject ?predicate tag:Volume . } WHERE { ?subject  ?predicate  btag:Volume . }"
+    },
+    {
+      "description": "Remove btag:Volume",
+      "query": "DELETE{ ?subject ?predicate btag:Volume . } WHERE { ?subject  ?predicate  btag:Volume . }"
+    },
+    {
+      "description": "Add tag:Warm",
+      "query": "INSERT{ ?subject ?predicate tag:Warm . } WHERE { ?subject  ?predicate  btag:Warm . }"
+    },
+    {
+      "description": "Remove btag:Warm",
+      "query": "DELETE{ ?subject ?predicate btag:Warm . } WHERE { ?subject  ?predicate  btag:Warm . }"
+    },
+    {
+      "description": "Add tag:Warmest",
+      "query": "INSERT{ ?subject ?predicate tag:Warmest . } WHERE { ?subject  ?predicate  btag:Warmest . }"
+    },
+    {
+      "description": "Remove btag:Warmest",
+      "query": "DELETE{ ?subject ?predicate btag:Warmest . } WHERE { ?subject  ?predicate  btag:Warmest . }"
+    },
+    {
+      "description": "Add tag:Water",
+      "query": "INSERT{ ?subject ?predicate tag:Water . } WHERE { ?subject  ?predicate  btag:Water . }"
+    },
+    {
+      "description": "Remove btag:Water",
+      "query": "DELETE{ ?subject ?predicate btag:Water . } WHERE { ?subject  ?predicate  btag:Water . }"
+    },
+    {
+      "description": "Add tag:Water, tag:System",
+      "query": "INSERT{ ?subject ?predicate tag:Water, brick:System . } WHERE { ?subject  ?predicate  btag:Water_System . }"
+    },
+    {
+      "description": "Remove btag:Water_System",
+      "query": "DELETE{ ?subject ?predicate btag:Water_System . } WHERE { ?subject  ?predicate  btag:Water_System . }"
+    },
+    {
+      "description": "Add tag:Weather",
+      "query": "INSERT{ ?subject ?predicate tag:Weather . } WHERE { ?subject  ?predicate  btag:Weather . }"
+    },
+    {
+      "description": "Remove btag:Weather",
+      "query": "DELETE{ ?subject ?predicate btag:Weather . } WHERE { ?subject  ?predicate  btag:Weather . }"
+    },
+    {
+      "description": "Add tag:Wheel",
+      "query": "INSERT{ ?subject ?predicate tag:Wheel . } WHERE { ?subject  ?predicate  btag:Wheel . }"
+    },
+    {
+      "description": "Remove btag:Wheel",
+      "query": "DELETE{ ?subject ?predicate btag:Wheel . } WHERE { ?subject  ?predicate  btag:Wheel . }"
+    },
+    {
+      "description": "Add tag:Wind",
+      "query": "INSERT{ ?subject ?predicate tag:Wind . } WHERE { ?subject  ?predicate  btag:Wind . }"
+    },
+    {
+      "description": "Remove btag:Wind",
+      "query": "DELETE{ ?subject ?predicate btag:Wind . } WHERE { ?subject  ?predicate  btag:Wind . }"
+    },
+    {
+      "description": "Add tag:Wing",
+      "query": "INSERT{ ?subject ?predicate tag:Wing . } WHERE { ?subject  ?predicate  btag:Wing . }"
+    },
+    {
+      "description": "Remove btag:Wing",
+      "query": "DELETE{ ?subject ?predicate btag:Wing . } WHERE { ?subject  ?predicate  btag:Wing . }"
+    },
+    {
+      "description": "Add tag:Water, tag:System",
+      "query": "INSERT{ ?subject ?predicate tag:Water, brick:System . } WHERE { ?subject  ?predicate  btag:WS . }"
+    },
+    {
+      "description": "Remove btag:WS",
+      "query": "DELETE{ ?subject ?predicate btag:WS . } WHERE { ?subject  ?predicate  btag:WS . }"
+    },
+    {
+      "description": "Add tag:Yearly",
+      "query": "INSERT{ ?subject ?predicate tag:Yearly . } WHERE { ?subject  ?predicate  btag:Yearly . }"
+    },
+    {
+      "description": "Remove btag:Yearly",
+      "query": "DELETE{ ?subject ?predicate btag:Yearly . } WHERE { ?subject  ?predicate  btag:Yearly . }"
+    },
+    {
+      "description": "Add tag:Zenith",
+      "query": "INSERT{ ?subject ?predicate tag:Zenith . } WHERE { ?subject  ?predicate  btag:Zenith . }"
+    },
+    {
+      "description": "Remove btag:Zenith",
+      "query": "DELETE{ ?subject ?predicate btag:Zenith . } WHERE { ?subject  ?predicate  btag:Zenith . }"
+    },
+    {
+      "description": "Add tag:Zone",
+      "query": "INSERT{ ?subject ?predicate tag:Zone . } WHERE { ?subject  ?predicate  btag:Zone . }"
+    },
+    {
+      "description": "Remove btag:Zone",
+      "query": "DELETE{ ?subject ?predicate btag:Zone . } WHERE { ?subject  ?predicate  btag:Zone . }"
     }
   ]
 }
