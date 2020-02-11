@@ -1377,7 +1377,7 @@ rice:RMI534_Space_Temperature_Perimeter a brick:Room_Temperature_Sensor .
 
 rice:RMI536_Space_Temperature_Perimeter a brick:Room_Temperature_Sensor .
 
-rice:RMIC160_Space_Relative_Humidity_Local a brick:Room_Humidity_Sensor .
+rice:RMIC160_Space_Relative_Humidity_Local a brick:Humidity_Sensor .
 
 rice:RmI504_Space_Temperature_Perimeter a brick:Room_Temperature_Sensor .
 
@@ -1774,19 +1774,19 @@ rice:Space_CO2_Room_513 a brick:CO2_Sensor .
 
 rice:Space_CO2_level_RM242 a brick:CO2_Sensor .
 
-rice:Space_Humidity_RMI206 a brick:Room_Humidity_Sensor .
+rice:Space_Humidity_RMI206 a brick:Humidity_Sensor .
 
-rice:Space_Humidity_RMI326 a brick:Room_Humidity_Sensor .
+rice:Space_Humidity_RMI326 a brick:Humidity_Sensor .
 
-rice:Space_Humidity_RMIC259 a brick:Room_Humidity_Sensor .
+rice:Space_Humidity_RMIC259 a brick:Humidity_Sensor .
 
-rice:Space_Relative_Humidity_RMI226 a brick:Room_Humidity_Sensor .
+rice:Space_Relative_Humidity_RMI226 a brick:Humidity_Sensor .
 
-rice:Space_Relative_Humidity_RMI305 a brick:Room_Humidity_Sensor .
+rice:Space_Relative_Humidity_RMI305 a brick:Humidity_Sensor .
 
-rice:Space_Relative_Humidity_RMI306 a brick:Room_Humidity_Sensor .
+rice:Space_Relative_Humidity_RMI306 a brick:Humidity_Sensor .
 
-rice:Space_Relative_Humidity_RMI308 a brick:Room_Humidity_Sensor .
+rice:Space_Relative_Humidity_RMI308 a brick:Humidity_Sensor .
 
 rice:Zone_Temp_RMI104 a brick:Room_Temperature_Sensor .
 
@@ -2333,7 +2333,7 @@ brick:Outside_Air_Humidity a brick:Point,
 brick:Discharge_Air_Flow_Sensor a brick:Point,
         owl:NamedIndividual .
 
-brick:Room_Humidity_Sensor a brick:Point,
+brick:Humidity_Sensor a brick:Point,
         owl:NamedIndividual .
 
 brick:Supply_Air_Duct_Max_Position_Setpoint a brick:Point,

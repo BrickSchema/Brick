@@ -16125,7 +16125,7 @@ ebu3b:EBU3B_SERVER_ROOM_LEAK_SHUTDOWN a brick:Emergency_Power_Off_Activated_By_L
 ebu3b:EBU3B_SERVER_ROOM_PAGER_TEST a brick:Point ;
     brickframe:isPointOf ebu3b:EBU3B_CRAC .
 
-ebu3b:EBU3B_SERVER_ROOM_RM_H a brick:Room_Humidity_Sensor ;
+ebu3b:EBU3B_SERVER_ROOM_RM_H a brick:Humidity_Sensor ;
     brickframe:isPointOf ebu3b:EBU3B_CRAC .
 
 ebu3b:EBU3B_SERVER_ROOM_TEMP_SHUTDOWN a brick:Point ;
