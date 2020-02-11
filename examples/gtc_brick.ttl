@@ -11162,11 +11162,11 @@ btag:Room rdfs:subClassOf btag:Location .
 
 btag:Supply rdfs:subClassOf btag:MeasurementProperty_Modifier .
 
-gtc:DPT_Functional_Block rdf:isSubClassOf brick:Functional_Block .
+gtc:DPT_Functional_Block rdfs:subClassOf brick:Functional_Block .
 
-gtc:GTC_Filter_Element_Functional_Block rdf:isSubClassOf brick:Functional_Block .
+gtc:GTC_Filter_Element_Functional_Block rdfs:subClassOf brick:Functional_Block .
 
-gtc:Heat_Transfer_Box_Functional_Block rdf:isSubClassOf brick:Functional_Block .
+gtc:Heat_Transfer_Box_Functional_Block rdfs:subClassOf brick:Functional_Block .
 
 <https://brickschema.org/schema/1.0.2/building_example#building:gtc/> a brick:Fan ;
     brickframe:feeds <https://brickschema.org/schema/1.0.2/building_example#building:gtc/return_hx/port[si]> ;
@@ -12139,7 +12139,7 @@ btag:Hot rdfs:subClassOf btag:Equipment_HVAC_AHU,
 btag:Water rdfs:subClassOf btag:Equipment_HVAC_AHU,
         btag:Equipment_HVAC_Water .
 
-gtc:Heat_Power_Meter_Functional_Block rdf:isSubClassOf brick:Functional_Block .
+gtc:Heat_Power_Meter_Functional_Block rdfs:subClassOf brick:Functional_Block .
 
 <https://brickschema.org/schema/1.0.2/building_example#building:gtc/district_hx/fb> a brick:Heat_Exchanger_Functional_Block ;
     brickframe:hasPoint <https://brickschema.org/schema/1.0.2/building_example#building:gtc/electrical/main_common_meter> ;
@@ -12679,10 +12679,10 @@ brick:Chilled_Water_Supply_Flow rdfs:subClassOf brick:Water_Flow .
 
 btag:Temperature rdfs:subClassOf btag:MeasurementProperty_PhysicalProperties .
 
-gtc:GTC_VAV_Functional_Block rdf:isSubClassOf brick:Functional_Block ;
+gtc:GTC_VAV_Functional_Block rdfs:subClassOf brick:Functional_Block ;
     rdfs:subClassOf brick:VAV .
 
-gtc:IJ_Valve_Functional_Block rdf:isSubClassOf brick:Functional_Block .
+gtc:IJ_Valve_Functional_Block rdfs:subClassOf brick:Functional_Block .
 
 <https://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/1.E.5Gang/room> a brick:Room ;
     rdfs:label "1.E.5Gang" ;
@@ -14170,7 +14170,7 @@ gtc:Celcius_Temperature_Sensor rdfs:subClassOf brick:Sensor ;
     brickframe:isPartOf <https://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/2.A.1a/fb>,
         <https://brickschema.org/schema/1.0.2/building_example#building:gtc/vavs/4/port[zn]> .
 
-gtc:GTC_Room_Functional_Block rdf:isSubClassOf brick:Functional_Block .
+gtc:GTC_Room_Functional_Block rdfs:subClassOf brick:Functional_Block .
 
 <https://brickschema.org/schema/1.0.2/building_example#building:gtc/rooms/3.H.1/room> a brick:Room ;
     rdfs:label "3.H.1" ;
