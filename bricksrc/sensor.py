@@ -599,13 +599,13 @@ sensor_definitions = {
                         "parents": [BRICK.Energy_Sensor],
                         "tags": [TAG.Point, TAG.Sensor, TAG.Energy, TAG.Usage],
                         "subclasses": {
-                            "Yearly_Usage_Energy_Sensor": {
+                            "Yearly_Energy_Usage_Sensor": {
                                 "tags": [TAG.Point, TAG.Sensor, TAG.Energy, TAG.Usage, TAG.Yearly],
                             },
-                            "Monthly_Usage_Energy_Sensor": {
+                            "Monthly_Energy_Usage_Sensor": {
                                 "tags": [TAG.Point, TAG.Sensor, TAG.Energy, TAG.Usage, TAG.Monthly],
                             },
-                            "Daily_Usage_Energy_Sensor": {
+                            "Daily_Energy_Usage_Sensor": {
                                 "tags": [TAG.Point, TAG.Sensor, TAG.Energy, TAG.Usage, TAG.Daily],
                             },
                         }
