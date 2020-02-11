@@ -2,9 +2,9 @@ repos:
 -   repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v2.5.0
     hooks:
-    -   id: check-yaml
-    -   id: end-of-file-fixer
-    -   id: trailing-whitespace
+    - id: check-yaml
+    - id: end-of-file-fixer
+    - id: trailing-whitespace
     - id: flake8
       args: ['--config=.flake8.cfg']
 -   repo: https://github.com/psf/black
