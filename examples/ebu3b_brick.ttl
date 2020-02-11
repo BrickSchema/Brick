@@ -1240,10 +1240,10 @@ ebu3b:EBU3B_CRAC_4_UNIT_STS a brick:Point ;
     brickframe:isPointOf ebu3b:EBU3B_CRAC_4 .
 
 ebu3b:EBU3B_Cooling_Thermal_Power_CRAC a brick:Cooling_Thermal_Power_Meter ;
-    brick:isPointOf ebu3b:EBU3B_CRAC .
+    brickframe:isPointOf ebu3b:EBU3B_CRAC .
 
 ebu3b:EBU3B_Cooling_Thermal_Power_HVAC a brick:Cooling_Thermal_Power_Meter ;
-    brick:isPointOf ebu3b:EBU3B_Chilled_Water_System .
+    brickframe:isPointOf ebu3b:EBU3B_Chilled_Water_System .
 
 ebu3b:EBU3B_FILE_SERVER_HIx2TEMPALM_STPT a brick:High_Temperature_Alarm_Setpoint ;
     brickframe:isPointOf ebu3b:EBU3B_CRAC .
@@ -1540,10 +1540,10 @@ ebu3b:EBU3B_HX_OSA_Low_Span a brick:Point ;
     brickframe:isPointOf ebu3b:EBU3B_Hot_Water_System_Heat_Exchanger .
 
 ebu3b:EBU3B_Heating_Thermal_Power_CRAC a brick:Heating_Thermal_Power_Meter ;
-    brick:isPointOf ebu3b:EBU3B_CRAC .
+    brickframe:isPointOf ebu3b:EBU3B_CRAC .
 
 ebu3b:EBU3B_Heating_Thermal_Power_HVAC a brick:Heating_Thermal_Power_Meter ;
-    brick:isPointOf ebu3b:EBU3B_Hot_Water_System .
+    brickframe:isPointOf ebu3b:EBU3B_Hot_Water_System .
 
 ebu3b:EBU3B_Load_Shed_CHW_DP_Load_Shed a brick:Chilled_Water_Differential_Pressure_Load_Shed_Status ;
     brickframe:isPointOf ebu3b:EBU3B_Chilled_Water_System .
@@ -1576,10 +1576,10 @@ ebu3b:EBU3B_Load_Shed_Unocc_Load_Shed_Switch a brick:Unoccupied_Load_Shed_Comman
     brickframe:isPointOf ebu3b:EBU3B_HVAC .
 
 ebu3b:EBU3B_Power_Meter_Elevator a brick:Electrical_Power_Meter ;
-    brick:isPointOf ebu3b:EBU3B_Elevator .
+    brickframe:isPointOf ebu3b:EBU3B_Elevator .
 
 ebu3b:EBU3B_Power_Meter_HVAC a brick:Electrical_Power_Meter ;
-    brick:isPointOf ebu3b:EBU3B_HVAC .
+    brickframe:isPointOf ebu3b:EBU3B_HVAC .
 
 ebu3b:EBU3B_Power_Meter_Lighting_Basement a brick:Electrical_Power_Meter .
 
@@ -1592,13 +1592,13 @@ ebu3b:EBU3B_Power_Meter_Lighting_Floor_3 a brick:Electrical_Power_Meter .
 ebu3b:EBU3B_Power_Meter_Lighting_Floor_4 a brick:Electrical_Power_Meter .
 
 ebu3b:EBU3B_Power_Meter_Main_A a brick:Electrical_Power_Meter ;
-    brick:isPointOf ebu3b:EBU3B .
+    brickframe:isPointOf ebu3b:EBU3B .
 
 ebu3b:EBU3B_Power_Meter_Main_B a brick:Electrical_Power_Meter ;
-    brick:isPointOf ebu3b:EBU3B .
+    brickframe:isPointOf ebu3b:EBU3B .
 
 ebu3b:EBU3B_Power_Meter_Server_Room a brick:Electrical_Power_Meter ;
-    brick:isPointOf ebu3b:EBU3B_Server_Room .
+    brickframe:isPointOf ebu3b:EBU3B_Server_Room .
 
 ebu3b:EBU3B_RF1_AI1_ACTUAL a brick:Point ;
     brickframe:isPointOf ebu3b:EBU3B_AHU_1,
