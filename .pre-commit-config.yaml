@@ -5,9 +5,12 @@ repos:
     - id: check-yaml
     - id: end-of-file-fixer
     - id: trailing-whitespace
-    - id: flake8
-      args: ['--config=.flake8.cfg']
 -   repo: https://github.com/psf/black
     rev: stable
     hooks:
     -   id: black
+-   repo: https://gitlab.com/pycqa/flake8
+    rev: master
+    hooks:
+    - id: flake8
+      args: ['--config=.flake8.cfg']
