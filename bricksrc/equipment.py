@@ -13,7 +13,7 @@ equipment_subclasses = {
         OWL.equivalentClass: BRICK["HVAC"],
         "tags": [TAG.HVAC],
     },
-    "Weather": {"tags": [TAG.Weather],},
+    "Weather": {"tags": [TAG.Weather]},
     "Electrical_System": {
         "tags": [TAG.Electrical, TAG.System],
         "subclasses": {
@@ -28,8 +28,8 @@ equipment_subclasses = {
                     },
                 },
             },
-            "Inverter": {"tags": [TAG.Inverter, TAG.Equipment],},
-            "PlugStrip": {"tags": [TAG.PlugStrip, TAG.Equipment],},
+            "Inverter": {"tags": [TAG.Inverter, TAG.Equipment]},
+            "PlugStrip": {"tags": [TAG.PlugStrip, TAG.Equipment]},
         },
     },
     "Meter": {
@@ -100,7 +100,7 @@ equipment_subclasses = {
                     },
                 },
             },
-            "Building_Meter": {"tags": [TAG.Meter, TAG.Equipment, TAG.Building],},
+            "Building_Meter": {"tags": [TAG.Meter, TAG.Equipment, TAG.Building]},
         },
     },
     "Water_System": {
@@ -123,21 +123,18 @@ equipment_subclasses = {
                 OWL.equivalentClass: BRICK["Chilled_Water_System"],
                 "tags": [TAG.CWS],
             },
-            "HWS": {OWL.equivalentClass: BRICK["Hot_Water_System"], "tags": [TAG.HWS],},
+            "HWS": {OWL.equivalentClass: BRICK["Hot_Water_System"], "tags": [TAG.HWS]},
         },
     },
-    "Steam_System": {"tags": [TAG.Steam, TAG.Equipment],},
-    "Solar_Panel": {"tags": [TAG.Solar, TAG.Equipment],},
-    "Shading_System": {"tags": [TAG.Shade, TAG.Equipment],},
-    "Steam_System": {"tags": [TAG.Steam, TAG.Equipment],},
-    "Solar_Panel": {"tags": [TAG.Solar, TAG.Equipment],},
-    "Shading_System": {"tags": [TAG.Shade, TAG.Equipment],},
+    "Steam_System": {"tags": [TAG.Steam, TAG.Equipment]},
+    "Solar_Panel": {"tags": [TAG.Solar, TAG.Equipment]},
+    "Shading_System": {"tags": [TAG.Shade, TAG.Equipment]},
     "Lighting_System": {
         "tags": [TAG.Lighting, TAG.Equipment],
         "subclasses": {
             "Lighting": {
                 "subclasses": {
-                    "Luminaire": {"tags": [TAG.Luminaire, TAG.Equipment],},
+                    "Luminaire": {"tags": [TAG.Luminaire, TAG.Equipment]},
                     "Luminaire_Driver": {
                         "tags": [TAG.Luminaire, TAG.Driver, TAG.Equipment],
                     },
@@ -166,7 +163,7 @@ equipment_subclasses = {
             },
         },
     },
-    "Furniture": {"tags": [TAG.Equipment, TAG.Furniture],},
+    "Furniture": {"tags": [TAG.Equipment, TAG.Furniture]},
     "Fire_Safety_System": {
         "tags": [TAG.Equipment, TAG.Fire, TAG.Safety, TAG.System],
         "subclasses": {
@@ -174,10 +171,10 @@ equipment_subclasses = {
                 "tags": [TAG.Equipment, TAG.Fire, TAG.Safety, TAG.Panel],
                 OWL.equivalentClass: BRICK["FCP"],
             },
-            "FCP": {"tags": [TAG.FCP, TAG.Equipment],},
+            "FCP": {"tags": [TAG.FCP, TAG.Equipment]},
         },
     },
-    "Elevator": {"tags": [TAG.Elevator, TAG.Equipment],},
+    "Elevator": {"tags": [TAG.Elevator, TAG.Equipment]},
 }
 
 
@@ -199,8 +196,8 @@ hvac_subclasses = {
     "VFD": {
         "tags": [TAG.Equipment, TAG.VFD],
         "subclasses": {
-            "Heat_Wheel_VFD": {"tags": [TAG.Equipment, TAG.Heat, TAG.Wheel, TAG.VFD],},
-            "Preheat_Valve_VFD": {"tags": [TAG.Equipment, TAG.Preheat, TAG.VFD],},
+            "Heat_Wheel_VFD": {"tags": [TAG.Equipment, TAG.Heat, TAG.Wheel, TAG.VFD]},
+            "Preheat_Valve_VFD": {"tags": [TAG.Equipment, TAG.Preheat, TAG.VFD]},
         },
     },
     "Thermostat": {
@@ -219,7 +216,7 @@ hvac_subclasses = {
                 "tags": [TAG.Equipment, TAG.Fan, TAG.Coil, TAG.Unit],
                 OWL.equivalentClass: BRICK["FCU"],
             },
-            "FCU": {"tags": [TAG.FCU],},
+            "FCU": {"tags": [TAG.FCU]},
             "Variable_Air_Volume_Box": {
                 "tags": [TAG.Equipment, TAG.Variable, TAG.Volume, TAG.Box],
                 OWL.equivalentClass: BRICK["VAV"],
@@ -234,10 +231,10 @@ hvac_subclasses = {
                         ],
                         OWL.equivalentClass: BRICK["RVAV"],
                     },
-                    "RVAV": {"tags": [TAG.Equipment, TAG.RVAV],},
+                    "RVAV": {"tags": [TAG.Equipment, TAG.RVAV]},
                 },
             },
-            "VAV": {"tags": [TAG.Equipment, TAG.VAV],},
+            "VAV": {"tags": [TAG.Equipment, TAG.VAV]},
         },
     },
     "Space_Heater": {
@@ -280,7 +277,7 @@ hvac_subclasses = {
             },
         },
     },
-    "HX": {"tags": [TAG.Equipment, TAG.HX],},
+    "HX": {"tags": [TAG.Equipment, TAG.HX]},
     "Fume_Hood": {
         "tags": [TAG.Equipment, TAG.Fume, TAG.Hood],
         SKOS.definition: Literal(
@@ -305,14 +302,14 @@ hvac_subclasses = {
             "Cooling_Tower_Fan": {
                 "tags": [TAG.Cooling, TAG.Tower, TAG.Equipment, TAG.Fan],
             },
-            "Exhaust_Fan": {"tags": [TAG.Equipment, TAG.Fan, TAG.Exhaust],},
-            "Return_Fan": {"tags": [TAG.Equipment, TAG.Fan, TAG.Return],},
-            "Standby_Fan": {"tags": [TAG.Equipment, TAG.Fan, TAG.Standby],},
-            "Discharge_Fan": {"tags": [TAG.Equipment, TAG.Fan, TAG.Discharge],},
+            "Exhaust_Fan": {"tags": [TAG.Equipment, TAG.Fan, TAG.Exhaust]},
+            "Return_Fan": {"tags": [TAG.Equipment, TAG.Fan, TAG.Return]},
+            "Standby_Fan": {"tags": [TAG.Equipment, TAG.Fan, TAG.Standby]},
+            "Discharge_Fan": {"tags": [TAG.Equipment, TAG.Fan, TAG.Discharge]},
             "Supply_Fan": {
                 "tags": [TAG.Equipment, TAG.Fan, TAG.Supply],
                 "subclasses": {
-                    "Booster_Fan": {"tags": [TAG.Equipment, TAG.Fan, TAG.Booster],},
+                    "Booster_Fan": {"tags": [TAG.Equipment, TAG.Fan, TAG.Booster]},
                 },
             },
         },
@@ -329,10 +326,10 @@ hvac_subclasses = {
         ),
         "tags": [TAG.Equipment, TAG.Damper],
         "subclasses": {
-            "Economizer_Damper": {"tags": [TAG.Equipment, TAG.Damper, TAG.Economizer],},
-            "Exhaust_Damper": {"tags": [TAG.Equipment, TAG.Damper, TAG.Exhaust],},
-            "Outside_Damper": {"tags": [TAG.Equipment, TAG.Damper, TAG.Outside],},
-            "Return_Damper": {"tags": [TAG.Equipment, TAG.Damper, TAG.Return],},
+            "Economizer_Damper": {"tags": [TAG.Equipment, TAG.Damper, TAG.Economizer]},
+            "Exhaust_Damper": {"tags": [TAG.Equipment, TAG.Damper, TAG.Exhaust]},
+            "Outside_Damper": {"tags": [TAG.Equipment, TAG.Damper, TAG.Outside]},
+            "Return_Damper": {"tags": [TAG.Equipment, TAG.Damper, TAG.Return]},
         },
     },
     "Condenser": {
@@ -364,8 +361,8 @@ hvac_subclasses = {
         ),
         "tags": [TAG.Equipment, TAG.Coil],
         "subclasses": {
-            "Cooling_Coil": {"tags": [TAG.Equipment, TAG.Coil, TAG.Cool],},
-            "Heating_Coil": {"tags": [TAG.Equipment, TAG.Coil, TAG.Heat],},
+            "Cooling_Coil": {"tags": [TAG.Equipment, TAG.Coil, TAG.Cool]},
+            "Heating_Coil": {"tags": [TAG.Equipment, TAG.Coil, TAG.Heat]},
         },
     },
     "Chiller": {
@@ -379,7 +376,7 @@ hvac_subclasses = {
             },
         },
     },
-    "Humidifier": {"tags": [TAG.Equipment, TAG.Humidifier],},
+    "Humidifier": {"tags": [TAG.Equipment, TAG.Humidifier]},
     "Boiler": {
         "tags": [TAG.Equipment, TAG.Boiler],
         SKOS.definition: Literal(
@@ -415,7 +412,7 @@ valve_subclasses = {
     "Heating_Valve": {
         "tags": [TAG.Valve, TAG.Heat, TAG.Equipment],
         "subclasses": {
-            "Reheat_Valve": {"tags": [TAG.Valve, TAG.Reheat, TAG.Heat, TAG.Equipment],},
+            "Reheat_Valve": {"tags": [TAG.Valve, TAG.Reheat, TAG.Heat, TAG.Equipment]},
             "Return_Heating_Valve": {
                 "tags": [TAG.Valve, TAG.Return, TAG.Heat, TAG.Equipment],
                 SKOS.definition: Literal(
@@ -446,7 +443,7 @@ valve_subclasses = {
             },
         },
     },
-    "Cooling_Valve": {"tags": [TAG.Valve, TAG.Cool, TAG.Equipment],},
+    "Cooling_Valve": {"tags": [TAG.Valve, TAG.Cool, TAG.Equipment]},
     "Water_Valve": {
         "tags": [TAG.Valve, TAG.Water, TAG.Equipment],
         "subclasses": {
@@ -456,5 +453,5 @@ valve_subclasses = {
             },
         },
     },
-    "Isolation_Valve": {"tags": [TAG.Isolation, TAG.Valve, TAG.Equipment],},
+    "Isolation_Valve": {"tags": [TAG.Isolation, TAG.Valve, TAG.Equipment]},
 }

@@ -5,8 +5,8 @@ setpoint_definitions = {
     "Setpoint": {
         "tags": [TAG.Point, TAG.Setpoint],
         "subclasses": {
-            "Enthalpy_Setpoint": {"tags": [TAG.Point, TAG.Setpoint, TAG.Enthalpy],},
-            "Dew_Point_Setpoint": {"tags": [TAG.Point, TAG.Dewpoint, TAG.Setpoint],},
+            "Enthalpy_Setpoint": {"tags": [TAG.Point, TAG.Setpoint, TAG.Enthalpy]},
+            "Dew_Point_Setpoint": {"tags": [TAG.Point, TAG.Dewpoint, TAG.Setpoint]},
             "Demand_Setpoint": {
                 "tags": [TAG.Point, TAG.Demand, TAG.Setpoint],
                 "subclasses": {
@@ -585,7 +585,7 @@ setpoint_definitions = {
                     }
                 },
             },
-            "Humidity_Setpoint": {"tags": [TAG.Point, TAG.Humidity, TAG.Setpoint],},
+            "Humidity_Setpoint": {"tags": [TAG.Point, TAG.Humidity, TAG.Setpoint]},
             "Load_Setpoint": {
                 "subclasses": {
                     "Load_Shed_Setpoint": {
@@ -624,7 +624,7 @@ setpoint_definitions = {
                 },
                 "tags": [TAG.Point, TAG.Load, TAG.Setpoint],
             },
-            "Luminance_Setpoint": {"tags": [TAG.Point, TAG.Luminance, TAG.Setpoint],},
+            "Luminance_Setpoint": {"tags": [TAG.Point, TAG.Luminance, TAG.Setpoint]},
             "Mode_Setpoint": {
                 "subclasses": {
                     "Dual_Band_Mode_Setpoint": {

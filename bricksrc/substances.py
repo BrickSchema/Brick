@@ -264,8 +264,8 @@ substances = {
                 "tags": [TAG.Solid, TAG.Ice],
                 SKOS.definition: Literal("Water in its solid form"),
             },
-            "Frost": {"tags": [TAG.Solid, TAG.Frost],},
-            "Hail": {"tags": [TAG.Solid, TAG.Hail],},
+            "Frost": {"tags": [TAG.Solid, TAG.Frost]},
+            "Hail": {"tags": [TAG.Solid, TAG.Hail]},
         },
     },
 }

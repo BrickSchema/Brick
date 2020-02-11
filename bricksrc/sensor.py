@@ -185,7 +185,7 @@ sensor_definitions = {
                     },
                 },
             },
-            "Demand_Sensor": {"tags": [TAG.Point, TAG.Sensor, TAG.Demand],},
+            "Demand_Sensor": {"tags": [TAG.Point, TAG.Sensor, TAG.Demand]},
             "Dewpoint_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Dewpoint],
                 "substances": [[BRICK.measures, BRICK.Dewpoint]],
@@ -664,20 +664,19 @@ sensor_definitions = {
             "Motion_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Motion],
                 "subclasses": {
-                    "PIR_Sensor": {"tags": [TAG.Point, TAG.Sensor, TAG.PIR],}
+                    "PIR_Sensor": {"tags": [TAG.Point, TAG.Sensor, TAG.PIR]}
                 },
             },
             "Occupancy_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Occupancy],
                 "substances": [[BRICK.measures, BRICK.Occupancy]],
                 "subclasses": {
-                    "PIR_Sensor": {"tags": [TAG.Point, TAG.Pir, TAG.Sensor],}
+                    "PIR_Sensor": {"tags": [TAG.Point, TAG.Pir, TAG.Sensor]}
                 },
             },
             "Piezoelectric_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Piezoelectric],
             },
-            "Piezoelectric_Sensor": {"tags": [TAG.Sensor, TAG.Piezoelectric],},
             "Pressure_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Pressure],
                 "substances": [[BRICK.measures, BRICK.Pressure]],

@@ -18,12 +18,9 @@ command_definitions = {
                     },
                 },
             },
-            "Heating_Command": {"tags": [TAG.Point, TAG.Heat, TAG.Command],},
-            "Luminance_Command": {"tags": [TAG.Point, TAG.Luminance, TAG.Command],},
-            "Bypass_Command": {"tags": [TAG.Point, TAG.Bypass, TAG.Command],},
-            "Heating_Command": {"tags": [TAG.Heat, TAG.Command],},
-            "Luminance_Command": {"tags": [TAG.Luminance, TAG.Command],},
-            "Bypass_Command": {"tags": [TAG.Bypass, TAG.Command],},
+            "Heating_Command": {"tags": [TAG.Point, TAG.Heat, TAG.Command]},
+            "Luminance_Command": {"tags": [TAG.Point, TAG.Luminance, TAG.Command]},
+            "Bypass_Command": {"tags": [TAG.Point, TAG.Bypass, TAG.Command]},
             "Damper_Command": {
                 "tags": [TAG.Point, TAG.Damper, TAG.Command],
                 "subclasses": {
@@ -33,9 +30,9 @@ command_definitions = {
                     },
                 },
             },
-            "Humidify_Command": {"tags": [TAG.Point, TAG.Humidify, TAG.Command],},
-            "Position_Command": {"tags": [TAG.Point, TAG.Position, TAG.Command],},
-            "Direction_Command": {"tags": [TAG.Point, TAG.Direction, TAG.Command],},
+            "Humidify_Command": {"tags": [TAG.Point, TAG.Humidify, TAG.Command]},
+            "Position_Command": {"tags": [TAG.Point, TAG.Position, TAG.Command]},
+            "Direction_Command": {"tags": [TAG.Point, TAG.Direction, TAG.Command]},
             "Pump_Command": {
                 # TODO: position?
                 "tags": [TAG.Point, TAG.Pump, TAG.Command],
@@ -239,7 +236,7 @@ command_definitions = {
                     },
                 },
             },
-            "Lead_Lag_Command": {"tags": [TAG.Point, TAG.Lead, TAG.Lag, TAG.Command],},
+            "Lead_Lag_Command": {"tags": [TAG.Point, TAG.Lead, TAG.Lag, TAG.Command]},
             "Load_Shed_Command": {
                 "tags": [TAG.Point, TAG.Load, TAG.Shed, TAG.Command],
                 "subclasses": {
@@ -309,7 +306,7 @@ command_definitions = {
                     },
                 },
             },
-            "Occupancy_Command": {"tags": [TAG.Point, TAG.Occupancy, TAG.Command],},
+            "Occupancy_Command": {"tags": [TAG.Point, TAG.Occupancy, TAG.Command]},
             "On_Off_Command": {
                 "tags": [TAG.Point, TAG.On, TAG.Off, TAG.Command],
                 "subclasses": {
@@ -366,7 +363,7 @@ command_definitions = {
                     },
                 },
             },
-            "Lockout_Command": {"tags": [TAG.Point, TAG.Lockout, TAG.Command],},
+            "Lockout_Command": {"tags": [TAG.Point, TAG.Lockout, TAG.Command]},
             "Run_Request_Command": {
                 "tags": [TAG.Point, TAG.Run, TAG.Request, TAG.Command],
             },

@@ -82,11 +82,11 @@ alarm_definitions = {
             "Liquid_Detected_Alarm": {
                 "tags": [TAG.Point, TAG.Liquid, TAG.Detected, TAG.Alarm],
             },
-            "Luminance_Alarm": {"tags": [TAG.Point, TAG.Luminance, TAG.Alarm],},
+            "Luminance_Alarm": {"tags": [TAG.Point, TAG.Luminance, TAG.Alarm]},
             "Maintenance_Required_Alarm": {
                 "tags": [TAG.Point, TAG.Maintenance, TAG.Required, TAG.Alarm],
             },
-            "Overload_Alarm": {"tags": [TAG.Point, TAG.Overload, TAG.Alarm],},
+            "Overload_Alarm": {"tags": [TAG.Point, TAG.Overload, TAG.Alarm]},
             "Power_Alarm": {
                 "tags": [TAG.Point, TAG.Power, TAG.Alarm],
                 "subclasses": {

@@ -25,7 +25,7 @@ quantity_definitions = {
             "Electric_Power": {
                 "subclasses": {
                     "Apparent_Power": {},
-                    "Active_Power": {OWL.equivalentClass: BRICK["Real_Power"],},
+                    "Active_Power": {OWL.equivalentClass: BRICK["Real_Power"]},
                     "Real_Power": {},
                     "Reactive_Power": {},
                     "Complex_Power": {},
@@ -66,13 +66,13 @@ quantity_definitions = {
     },
     "Daytime": {},
     "Dewpoint": {},
-    "Direction": {"subclasses": {"Wind_Direction": {},},},
-    "Energy": {"subclasses": {"Electric_Energy": {}, "Thermal_Energy": {},},},
-    "Flow": {"subclasses": {"Flow_Loss": {},},},
-    "Frequency": {"subclasses": {"Alternating_Current_Frequency": {},},},
-    "Humidity": {"subclasses": {"Relative_Humidity": {},},},
+    "Direction": {"subclasses": {"Wind_Direction": {}}},
+    "Energy": {"subclasses": {"Electric_Energy": {}, "Thermal_Energy": {}}},
+    "Flow": {"subclasses": {"Flow_Loss": {}}},
+    "Frequency": {"subclasses": {"Alternating_Current_Frequency": {}}},
+    "Humidity": {"subclasses": {"Relative_Humidity": {}}},
     "Illuminance": {},
-    "Irradiance": {"subclasses": {"Solar_Irradiance": {},},},
+    "Irradiance": {"subclasses": {"Solar_Irradiance": {}}},
     "Level": {
         "subclasses": {
             "CO2_Level": {},
@@ -81,8 +81,8 @@ quantity_definitions = {
             "TVOC_Level": {},
         },
     },
-    "Luminance": {"subclasses": {"Luminous_Flux": {}, "Luminous_Intensity": {},},},
-    "Occupancy": {"subclasses": {"Occupancy_Count": {}, "Occupancy_Percentage": {},},},
+    "Luminance": {"subclasses": {"Luminous_Flux": {}, "Luminous_Intensity": {}}},
+    "Occupancy": {"subclasses": {"Occupancy_Count": {}, "Occupancy_Percentage": {}}},
     "Position": {},
     "Power_Factor": {},
     "Precipitation": {},
@@ -93,8 +93,8 @@ quantity_definitions = {
             "Velocity_Pressure": {},
         },
     },
-    "Radiance": {"subclasses": {"Solar_Radiance": {},},},
-    "Speed": {"subclasses": {"Wind_Speed": {},},},
+    "Radiance": {"subclasses": {"Solar_Radiance": {}}},
+    "Speed": {"subclasses": {"Wind_Speed": {}}},
     "Temperature": {
         "subclasses": {
             "Operative_Temperature": {},
@@ -103,7 +103,7 @@ quantity_definitions = {
             "Wet_Bulb_Temperature": {},
         },
     },
-    "Time": {"subclasses": {"Acceleration_Time": {}, "Deceleration_Time": {},},},
+    "Time": {"subclasses": {"Acceleration_Time": {}, "Deceleration_Time": {}}},
     "Torque": {},
     "Weather_Condition": {},
 }

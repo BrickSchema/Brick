@@ -12,7 +12,7 @@ status_definitions = {
                 },
                 "tags": [TAG.Point, TAG.Direction, TAG.Status],
             },
-            "Disable_Status": {"tags": [TAG.Point, TAG.Disable, TAG.Status],},
+            "Disable_Status": {"tags": [TAG.Point, TAG.Disable, TAG.Status]},
             "Drive_Ready_Status": {
                 "tags": [TAG.Point, TAG.Drive, TAG.Ready, TAG.Status],
             },
@@ -96,7 +96,7 @@ status_definitions = {
             "Even_Month_Status": {
                 "tags": [TAG.Point, TAG.Even, TAG.Month, TAG.Status],
             },
-            "Fan_Status": {"tags": [TAG.Point, TAG.Fan, TAG.Status],},
+            "Fan_Status": {"tags": [TAG.Point, TAG.Fan, TAG.Status]},
             "Fault_Status": {
                 "subclasses": {
                     "Fault_Indicator_Status": {
@@ -119,9 +119,9 @@ status_definitions = {
                 },
                 "tags": [TAG.Point, TAG.Filter, TAG.Status],
             },
-            "Freeze_Status": {"tags": [TAG.Point, TAG.Freeze, TAG.Status],},
-            "Hand_Auto_Status": {"tags": [TAG.Point, TAG.Hand, TAG.Auto, TAG.Status],},
-            "Hold_Status": {"tags": [TAG.Point, TAG.Hold, TAG.Status],},
+            "Freeze_Status": {"tags": [TAG.Point, TAG.Freeze, TAG.Status]},
+            "Hand_Auto_Status": {"tags": [TAG.Point, TAG.Hand, TAG.Auto, TAG.Status]},
+            "Hold_Status": {"tags": [TAG.Point, TAG.Hold, TAG.Status]},
             "Load_Shed_Status": {
                 "subclasses": {
                     "Hot_Water_Discharge_Temperature_Load_Shed_Status": {
@@ -414,8 +414,8 @@ status_definitions = {
                 },
                 "tags": [TAG.Point, TAG.Pressure, TAG.Status],
             },
-            "Lead_Lag_Status": {"tags": [TAG.Point, TAG.Lead, TAG.Lag, TAG.Status],},
-            "Stages_Status": {"tags": [TAG.Point, TAG.Stages, TAG.Status],},
+            "Lead_Lag_Status": {"tags": [TAG.Point, TAG.Lead, TAG.Lag, TAG.Status]},
+            "Stages_Status": {"tags": [TAG.Point, TAG.Stages, TAG.Status]},
             "Start_Stop_Status": {
                 "subclasses": {
                     "Fan_Start_Stop_Status": {
@@ -443,8 +443,8 @@ status_definitions = {
                 "tags": [TAG.Point, TAG.System, TAG.Shutdown, TAG.Status],
                 "parents": [BRICK.System_Status],
             },
-            "System_Status": {"tags": [TAG.Point, TAG.System, TAG.Status],},
-            "Speed_Status": {"tags": [TAG.Point, TAG.Speed, TAG.Status],},
+            "System_Status": {"tags": [TAG.Point, TAG.System, TAG.Status]},
+            "Speed_Status": {"tags": [TAG.Point, TAG.Speed, TAG.Status]},
         },
     }
 }
