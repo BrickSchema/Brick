@@ -4750,6 +4750,14 @@
       "query": "DELETE{ ?subject ?predicate brick_v_1_0_2:HVAC . } WHERE { ?subject  ?predicate  brick_v_1_0_2:HVAC . }"
     },
     {
+      "description": "Add brick:Average_Cooling_Demand_Sensor",
+      "query": "INSERT{ ?subject ?predicate brick:Average_Cooling_Demand_Sensor . } WHERE { ?subject  ?predicate  brick_v_1_0_2:HVAC_Average_Cooling_Demand_Sensor . }"
+    },
+    {
+      "description": "Remove brick:HVAC_Average_Cooling_Demand_Sensor",
+      "query": "DELETE{ ?subject ?predicate brick_v_1_0_2:HVAC_Average_Cooling_Demand_Sensor . } WHERE { ?subject  ?predicate  brick_v_1_0_2:HVAC_Average_Cooling_Demand_Sensor . }"
+    },
+    {
       "description": "Add brick:Average_Discharge_Air_Flow_Sensor",
       "query": "INSERT{ ?subject ?predicate brick:Average_Discharge_Air_Flow_Sensor . } WHERE { ?subject  ?predicate  brick_v_1_0_2:HVAC_Average_Discharge_Air_Flow_Sensor . }"
     },
@@ -4790,6 +4798,14 @@
       "query": "DELETE{ ?subject ?predicate brick_v_1_0_2:HWS_Heat_Exchanger_Supply_Water_Temperature_Sensor . } WHERE { ?subject  ?predicate  brick_v_1_0_2:HWS_Heat_Exchanger_Supply_Water_Temperature_Sensor . }"
     },
     {
+      "description": "Add brick:Supply_Water_Temperature_Setpoint",
+      "query": "INSERT{ ?subject ?predicate brick:Supply_Water_Temperature_Setpoint . } WHERE { ?subject  ?predicate  brick_v_1_0_2:HWS_Heat_Exchanger_Supply_Water_Temperature_Setpoint . }"
+    },
+    {
+      "description": "Remove brick:HWS_Heat_Exchanger_Supply_Water_Temperature_Setpoint",
+      "query": "DELETE{ ?subject ?predicate brick_v_1_0_2:HWS_Heat_Exchanger_Supply_Water_Temperature_Setpoint . } WHERE { ?subject  ?predicate  brick_v_1_0_2:HWS_Heat_Exchanger_Supply_Water_Temperature_Setpoint . }"
+    },
+    {
       "description": "Add brick:Heat_Exchanger_System_Enable_Status",
       "query": "INSERT{ ?subject ?predicate brick:Heat_Exchanger_System_Enable_Status . } WHERE { ?subject  ?predicate  brick_v_1_0_2:HWS_Heat_Exchanger_System_Enable_Status . }"
     },
@@ -4804,6 +4820,14 @@
     {
       "description": "Remove brick:HWS_High_Temperature_Hot_Water_Supply_Temperature_Sensor",
       "query": "DELETE{ ?subject ?predicate brick_v_1_0_2:HWS_High_Temperature_Hot_Water_Supply_Temperature_Sensor . } WHERE { ?subject  ?predicate  brick_v_1_0_2:HWS_High_Temperature_Hot_Water_Supply_Temperature_Sensor . }"
+    },
+    {
+      "description": "Add brick:Entering_Water_Temperature_Sensor",
+      "query": "INSERT{ ?subject ?predicate brick:Entering_Water_Temperature_Sensor . } WHERE { ?subject  ?predicate  brick_v_1_0_2:HWS_Hot_Water_Coil_Entering_Temperature_Sensor . }"
+    },
+    {
+      "description": "Remove brick:HWS_Hot_Water_Coil_Entering_Temperature_Sensor",
+      "query": "DELETE{ ?subject ?predicate brick_v_1_0_2:HWS_Hot_Water_Coil_Entering_Temperature_Sensor . } WHERE { ?subject  ?predicate  brick_v_1_0_2:HWS_Hot_Water_Coil_Entering_Temperature_Sensor . }"
     },
     {
       "description": "Add brick:Hot_Water_Differential_Pressure_Sensor",
