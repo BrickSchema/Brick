@@ -7,6 +7,7 @@ format:
 	black generate_brick.py
 	black bricksrc/
 	black tests/
+	black tools/
 
 test: Brick.ttl
 	pytest -s -vvvv tests
