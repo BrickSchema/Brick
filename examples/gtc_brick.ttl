@@ -896,12 +896,6 @@ brick:Supply_Fan rdfs:subClassOf [ a owl:Restriction ;
 
 brick:Supply_Fan_Air_Flow rdfs:subClassOf brick:Discharge_Air_Flow .
 
-brick:Thermal_Energy a owl:Class ;
-    rdfs:label "Thermal Energy"@en ;
-    rdfs:subClassOf brick:Energy ;
-    brickframe:hasTag btag:Energy,
-        btag:Thermal .
-
 brick:Thermal_Energy_Storage rdfs:subClassOf [ a owl:Restriction ;
             owl:onProperty brickframe:hasPoint ;
             owl:someValuesFrom brick:Thermal_Energy_Storage_Supply_Water_Differential_Pressure_Dead_Band_Setpoint ],
