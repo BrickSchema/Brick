@@ -42,17 +42,17 @@
     
 
 
-    <!-- https://brickschema.org/schema/1.1.0/Brick#Building -->
+    <!-- https://brickschema.org/schema/1.1/Brick#Building -->
 
-    <owl:Class rdf:about="https://brickschema.org/schema/1.1.0/Brick#Building">
+    <owl:Class rdf:about="https://brickschema.org/schema/1.1/Brick#Building">
         <owl:equivalentClass rdf:resource="https://w3id.org/rec/core/Building"/>
     </owl:Class>
     
 
 
-    <!-- https://brickschema.org/schema/1.1.0/Brick#Fan -->
+    <!-- https://brickschema.org/schema/1.1/Brick#Fan -->
 
-    <owl:Class rdf:about="https://brickschema.org/schema/1.1.0/Brick#Fan">
+    <owl:Class rdf:about="https://brickschema.org/schema/1.1/Brick#Fan">
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
@@ -68,33 +68,33 @@
     
 
 
-    <!-- https://brickschema.org/schema/1.1.0/Brick#Floor -->
+    <!-- https://brickschema.org/schema/1.1/Brick#Floor -->
 
-    <owl:Class rdf:about="https://brickschema.org/schema/1.1.0/Brick#Floor">
+    <owl:Class rdf:about="https://brickschema.org/schema/1.1/Brick#Floor">
         <owl:equivalentClass rdf:resource="https://w3id.org/rec/building/StoreyLevel"/>
     </owl:Class>
     
 
 
-    <!-- https://brickschema.org/schema/1.1.0/Brick#Room -->
+    <!-- https://brickschema.org/schema/1.1/Brick#Room -->
 
-    <owl:Class rdf:about="https://brickschema.org/schema/1.1.0/Brick#Room">
+    <owl:Class rdf:about="https://brickschema.org/schema/1.1/Brick#Room">
         <owl:equivalentClass rdf:resource="https://w3id.org/rec/core/Room"/>
     </owl:Class>
     
 
 
-    <!-- https://brickschema.org/schema/1.1.0/Brick#Sensor -->
+    <!-- https://brickschema.org/schema/1.1/Brick#Sensor -->
 
-    <owl:Class rdf:about="https://brickschema.org/schema/1.1.0/Brick#Sensor">
+    <owl:Class rdf:about="https://brickschema.org/schema/1.1/Brick#Sensor">
         <owl:equivalentClass rdf:resource="https://w3id.org/rec/device/Sensor"/>
     </owl:Class>
     
 
 
-    <!-- https://brickschema.org/schema/1.1.0/Brick#Status -->
+    <!-- https://brickschema.org/schema/1.1/Brick#Status -->
 
-    <owl:Class rdf:about="https://brickschema.org/schema/1.1.0/Brick#Status">
+    <owl:Class rdf:about="https://brickschema.org/schema/1.1/Brick#Status">
         <owl:equivalentClass rdf:resource="https://w3id.org/rec/device/Observation"/>
     </owl:Class>
     

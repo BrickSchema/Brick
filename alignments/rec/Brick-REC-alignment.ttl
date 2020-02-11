@@ -9,27 +9,6 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://brickschema.org/schema/1.1.0/Brick#Building> a owl:Class ;
-    owl:equivalentClass rec-core:Building .
-
-<https://brickschema.org/schema/1.1.0/Brick#Fan> a owl:Class ;
-    owl:equivalentClass [ a owl:Class ;
-            owl:intersectionOf ( rec-core:Device [ a owl:Restriction ;
-                        owl:hasValue rec-device:Fan ;
-                        owl:onProperty rec-device:hasDeviceFunctionType ] ) ] .
-
-<https://brickschema.org/schema/1.1.0/Brick#Floor> a owl:Class ;
-    owl:equivalentClass rec-building:StoreyLevel .
-
-<https://brickschema.org/schema/1.1.0/Brick#Room> a owl:Class ;
-    owl:equivalentClass rec-core:Room .
-
-<https://brickschema.org/schema/1.1.0/Brick#Sensor> a owl:Class ;
-    owl:equivalentClass rec-device:Sensor .
-
-<https://brickschema.org/schema/1.1.0/Brick#Status> a owl:Class ;
-    owl:equivalentClass rec-device:Observation .
-
 brick:Air_Handler_Unit owl:equivalentClass [ owl:intersectionOf ( rec-core:Device [ a owl:Class,
                             owl:Restriction ;
                         owl:hasValue rec-device:AirHandlingUnit ;
@@ -39,6 +18,9 @@ brick:Boiler owl:equivalentClass [ owl:intersectionOf ( rec-core:Device [ a owl:
                             owl:Restriction ;
                         owl:hasValue rec-device:Boiler ;
                         owl:onProperty rec-device:hasDeviceFunctionType ] ) ] .
+
+brick:Building a owl:Class ;
+    owl:equivalentClass rec-core:Building .
 
 brick:Chiller owl:equivalentClass [ owl:intersectionOf ( rec-core:Device [ a owl:Class,
                             owl:Restriction ;
@@ -60,10 +42,28 @@ brick:Damper owl:equivalentClass [ owl:intersectionOf ( rec-core:Device [ a owl:
                         owl:hasValue rec-device:Damper ;
                         owl:onProperty rec-device:hasDeviceFunctionType ] ) ] .
 
+brick:Fan a owl:Class ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( rec-core:Device [ a owl:Restriction ;
+                        owl:hasValue rec-device:Fan ;
+                        owl:onProperty rec-device:hasDeviceFunctionType ] ) ] .
+
+brick:Floor a owl:Class ;
+    owl:equivalentClass rec-building:StoreyLevel .
+
 brick:Pump owl:equivalentClass [ owl:intersectionOf ( rec-core:Device [ a owl:Class,
                             owl:Restriction ;
                         owl:hasValue rec-device:Pump ;
                         owl:onProperty rec-device:hasDeviceFunctionType ] ) ] .
+
+brick:Room a owl:Class ;
+    owl:equivalentClass rec-core:Room .
+
+brick:Sensor a owl:Class ;
+    owl:equivalentClass rec-device:Sensor .
+
+brick:Status a owl:Class ;
+    owl:equivalentClass rec-device:Observation .
 
 brick:Thermostat owl:equivalentClass [ owl:intersectionOf ( rec-core:Device [ a owl:Class,
                             owl:Restriction ;
