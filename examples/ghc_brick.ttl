@@ -44018,7 +44018,7 @@ brick:Exhaust_Fan_Start_Stop_Command brickframe:hasTag btag:Air,
         btag:Fan,
         btag:Flow .
 
-brick:Heating_Request_Percent_Setpoint brickframe:hasTag btag:,
+brick:Heating_Request_Percent_Setpoint brickframe:hasTag btag:Setpoint,
         btag:Demand,
         btag:Heating,
         btag:Request .
@@ -44044,8 +44044,7 @@ brick:Outside_Air_Grains_Sensor brickframe:hasTag btag:Air,
         btag:Outside,
         btag:Sensor .
 
-brick:Preheat_Demand_Setpoint brickframe:hasTag btag:,
-        btag:Demand,
+brick:Preheat_Demand_Setpoint brickframe:hasTag btag:Demand,
         btag:Heating .
 
 brick:Preheat_Supply_Air_Temperature brickframe:hasTag btag:Air,
@@ -44099,8 +44098,7 @@ brick:Run_Direction_Status brickframe:hasTag btag:Chilled,
         btag:Valve,
         btag:Water .
 
-brick:Variable_Frequency_Drive brickframe:hasTag btag:,
-        btag:Equipment,
+brick:Variable_Frequency_Drive brickframe:hasTag btag:Equipment,
         btag:Exhaust,
         btag:Fan,
         btag:Sensor,
@@ -60233,8 +60231,7 @@ GHC:VAV_Room_9231_OfficeRoom a owl:NamedIndividual,
     brickframe:isFedBy GHC:VAV_Room_9231_Office ;
     brickframe:isPointOf GHC:VAV_Room_9231_OfficeZone .
 
-brick:Fan_Overload_Alarm brickframe:hasTag btag:,
-        btag:Alarm,
+brick:Fan_Overload_Alarm brickframe:hasTag btag:Alarm,
         btag:Fan .
 
 GHC:FSB-1__Room_4307_ClassroomRoom a owl:NamedIndividual,
@@ -65411,8 +65408,7 @@ GHC:AHU-2_IRoom brickframe:hasPoint <http://cmu.edu/building/ontology/ghc#SCSC_G
         <http://cmu.edu/building/ontology/ghc#SCSC_Gates/AHU-2_I/supply_temp>,
         <http://cmu.edu/building/ontology/ghc#SCSC_Gates/AHU-2_I/supply_vfd_volts> .
 
-brick:CO2_Sensor brickframe:hasTag btag:,
-        btag:Air,
+brick:CO2_Sensor brickframe:hasTag btag:Air,
         btag:CO2,
         btag:Sensor .
 
@@ -65472,8 +65468,7 @@ brick:Cooling_Command brickframe:hasTag btag:Air,
         btag:Cooling,
         btag:Temperature .
 
-brick:Heating_Command brickframe:hasTag btag:,
-        btag:Command,
+brick:Heating_Command brickframe:hasTag btag:Command,
         btag:Heating .
 
 brick:Discharge_Air_Flow_Command brickframe:hasTag btag:Air,
