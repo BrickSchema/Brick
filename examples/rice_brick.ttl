@@ -1,4 +1,5 @@
 @prefix brick: <https://brickschema.org/schema/1.0.2/Brick#> .
+@prefix brick11: <https://brickschema.org/schema/1.1/Brick#> .
 @prefix brickframe: <https://brickschema.org/schema/1.0.2/BrickFrame#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -893,37 +894,37 @@ rice:ventOptVavAirflowGrossBasement_Perimeter_Devices2 a brick:Discharge_Air_Flo
 
 rice:ventOptVavAirflowGrossChilled_Beam_Source_VAS3 a brick:Discharge_Air_Flow_Sensor .
 
-rice:ventRatioLimitAhuV1st_Floor_Chilled_Beam_VAS2 a brick:Ventilation_Ratio_Limit .
+rice:ventRatioLimitAhuV1st_Floor_Chilled_Beam_VAS2 a brick11:Ventilation_Air_Flow_Ratio_Limit .
 
-rice:ventRatioLimitAhuV1st_Foor_Perimeter_Devices_VAS1 a brick:Ventilation_Ratio_Limit .
+rice:ventRatioLimitAhuV1st_Foor_Perimeter_Devices_VAS1 a brick11:Ventilation_Air_Flow_Ratio_Limit .
 
-rice:ventRatioLimitAhuV2nd_Floor_Chilled_Beam_Source_VAS2 a brick:Ventilation_Ratio_Limit .
+rice:ventRatioLimitAhuV2nd_Floor_Chilled_Beam_Source_VAS2 a brick11:Ventilation_Air_Flow_Ratio_Limit .
 
-rice:ventRatioLimitAhuV2nd_Floor_Perimeter_Devices_VAS1 a brick:Ventilation_Ratio_Limit .
+rice:ventRatioLimitAhuV2nd_Floor_Perimeter_Devices_VAS1 a brick11:Ventilation_Air_Flow_Ratio_Limit .
 
-rice:ventRatioLimitAhuV5th_Floor_Chilled_Beam_VAS1 a brick:Ventilation_Ratio_Limit .
+rice:ventRatioLimitAhuV5th_Floor_Chilled_Beam_VAS1 a brick11:Ventilation_Air_Flow_Ratio_Limit .
 
-rice:ventRatioLimitAhuV5th_Floor_Perimeter_Devices_VAS2 a brick:Ventilation_Ratio_Limit .
+rice:ventRatioLimitAhuV5th_Floor_Perimeter_Devices_VAS2 a brick11:Ventilation_Air_Flow_Ratio_Limit .
 
-rice:ventRatioLimitAhuVBasement_Perimeter_Devices2 a brick:Ventilation_Ratio_Limit .
+rice:ventRatioLimitAhuVBasement_Perimeter_Devices2 a brick11:Ventilation_Air_Flow_Ratio_Limit .
 
-rice:ventRatioLimitAhuVChilled_Beam_Source_VAS3 a brick:Ventilation_Ratio_Limit .
+rice:ventRatioLimitAhuVChilled_Beam_Source_VAS3 a brick11:Ventilation_Air_Flow_Ratio_Limit .
 
-rice:ventRatioLimitVavV1st_Floor_Chilled_Beam_VAS2 a brick:Ventilation_Ratio_Limit .
+rice:ventRatioLimitVavV1st_Floor_Chilled_Beam_VAS2 a brick11:Ventilation_Air_Flow_Ratio_Limit .
 
-rice:ventRatioLimitVavV1st_Foor_Perimeter_Devices_VAS1 a brick:Ventilation_Ratio_Limit .
+rice:ventRatioLimitVavV1st_Foor_Perimeter_Devices_VAS1 a brick11:Ventilation_Air_Flow_Ratio_Limit .
 
-rice:ventRatioLimitVavV2nd_Floor_Chilled_Beam_Source_VAS2 a brick:Ventilation_Ratio_Limit .
+rice:ventRatioLimitVavV2nd_Floor_Chilled_Beam_Source_VAS2 a brick11:Ventilation_Air_Flow_Ratio_Limit .
 
-rice:ventRatioLimitVavV2nd_Floor_Perimeter_Devices_VAS1 a brick:Ventilation_Ratio_Limit .
+rice:ventRatioLimitVavV2nd_Floor_Perimeter_Devices_VAS1 a brick11:Ventilation_Air_Flow_Ratio_Limit .
 
-rice:ventRatioLimitVavV5th_Floor_Chilled_Beam_VAS1 a brick:Ventilation_Ratio_Limit .
+rice:ventRatioLimitVavV5th_Floor_Chilled_Beam_VAS1 a brick11:Ventilation_Air_Flow_Ratio_Limit .
 
-rice:ventRatioLimitVavV5th_Floor_Perimeter_Devices_VAS2 a brick:Ventilation_Ratio_Limit .
+rice:ventRatioLimitVavV5th_Floor_Perimeter_Devices_VAS2 a brick11:Ventilation_Air_Flow_Ratio_Limit .
 
-rice:ventRatioLimitVavVBasement_Perimeter_Devices2 a brick:Ventilation_Ratio_Limit .
+rice:ventRatioLimitVavVBasement_Perimeter_Devices2 a brick11:Ventilation_Air_Flow_Ratio_Limit .
 
-rice:ventRatioLimitVavVChilled_Beam_Source_VAS3 a brick:Ventilation_Ratio_Limit .
+rice:ventRatioLimitVavVChilled_Beam_Source_VAS3 a brick11:Ventilation_Air_Flow_Ratio_Limit .
 
 brick:Chilled_Water_Supply_Temperature_Sensor a brick:Point,
         owl:NamedIndividual .
@@ -2373,7 +2374,7 @@ brick:Zone_Temperature_Sensor a brick:Point,
 brick:Hot_Water_Return_Temperature a brick:Point,
         owl:NamedIndividual .
 
-brick:Ventilation_Ratio_Limit a brick:Point,
+brick11:Ventilation_Air_Flow_Ratio_Limit a brick:Point,
         owl:NamedIndividual .
 
 brick:Chilled_Water_Discharge_Temperature a brick:Point,
