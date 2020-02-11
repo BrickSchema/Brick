@@ -997,9 +997,13 @@ GHC:CMUSCSC_HillmanSixth_Floor a owl:NamedIndividual,
         brick:Schedule_Setpoint .
 
 brick:Cooling_Max_Discharge_Air_Flow_Setpoint brickframe:hasTag btag:Air,
-        btag:Airflow,
         btag:Discharge,
+        btag:Flow,
         btag:Setpoint .
+
+brick11:Usage_Sensor brickframe:hasTag btag:Demand,
+        btag:Equipment,
+        btag:Steam .
 
 GHC:AHU-12_RF_Interface brickframe:hasPoint <http://cmu.edu/building/ontology/ghc#SCSC_Hillman/AHU-12_RF_Interface/OA_Temp> .
 
@@ -40350,10 +40354,6 @@ GHC:VAV_Room_9233_Future_UseZone a owl:NamedIndividual,
     brickframe:hasPoint GHC:VAV_Room_9233_Future_UseRoom ;
     brickframe:isFedBy GHC:VAV_Room_9233_Future_Use .
 
-brick11:Usage_Sensor brickframe:hasTag btag:Demand,
-        btag:Equipment,
-        btag:Steam .
-
 GHC:DOMESTIC_WATER_MONITORING a owl:NamedIndividual,
         brick:Meter ;
     brickframe:hasPoint <http://cmu.edu/building/ontology/ghc#SCSC_Gates/DOMESTIC_WATER_MONITORING/Usage_MTD>,
@@ -43234,7 +43234,8 @@ GHC:Liebert_DC-2_kWh_MonitoringRoom brickframe:hasPoint <http://cmu.edu/building
     brickframe:isPointOf GHC:VAV_Room_7723,
         GHC:VAV_Room_7723Room .
 
-brick:Outside_Air_Flow_Sensor brickframe:hasTag btag:Airflow,
+brick:Outside_Air_Flow_Sensor brickframe:hasTag btag:Air,
+        btag:Flow,
         btag:Outside,
         btag:Sensor .
 
@@ -43320,9 +43321,10 @@ GHC:Steam_Flow_Meter_InterfaceRoom brickframe:hasPoint <http://cmu.edu/building/
         <http://cmu.edu/building/ontology/ghc#SCSC_Gates/Steam_Flow_Meter_Interface/Usage_Today>,
         <http://cmu.edu/building/ontology/ghc#SCSC_Gates/Steam_Flow_Meter_Interface/Usage_YTD> .
 
-brick:Exhaust_Fan_Air_Flow_Setpoint brickframe:hasTag btag:Airflow,
+brick:Exhaust_Fan_Air_Flow_Setpoint brickframe:hasTag btag:Air,
         btag:Exhaust,
         btag:Fan,
+        btag:Flow,
         btag:Setpoint .
 
 GHC:Data_Center_CRAC-1 a owl:NamedIndividual,
@@ -43356,9 +43358,10 @@ GHC:VAV_Room_8003_Office a owl:NamedIndividual,
     brickframe:hasPoint <http://cmu.edu/building/ontology/ghc#SCSC_Gates/VAV_Room_8003_Office/Airflow>,
         <http://cmu.edu/building/ontology/ghc#SCSC_Gates/VAV_Room_8003_Office/Airflow_Request> .
 
-brick:Heat_Wheel_Differential_Pressure brickframe:hasTag btag:Differntial_Pressure,
+brick:Heat_Wheel_Differential_Pressure brickframe:hasTag btag:Differntial,
         btag:Enthalpy,
         btag:Heating,
+        btag:Pressure,
         btag:Sensor .
 
 brick:Humidity_Sensor brickframe:hasTag btag:Air,
@@ -43484,9 +43487,9 @@ brick:Capacity_Sensor brickframe:hasTag btag:Air,
         btag:Temperature .
 
 brick:Discharge_Air_Flow_Demand_Sensor brickframe:hasTag btag:Air,
-        btag:Airflow,
         btag:Command,
-        btag:Discharge .
+        btag:Discharge,
+        btag:Flow .
 
 brick:Humidification_On_Off_Status brickframe:hasTag btag:Air,
         btag:Command,
@@ -43552,11 +43555,11 @@ brick:Humidification_On_Off_Status brickframe:hasTag btag:Air,
     brickframe:isFedBy <http://cmu.edu/building/ontology/ghc#8126_Machine_Room_CRAC-9> ;
     brickframe:isPointOf <http://cmu.edu/building/ontology/ghc#8126_Machine_Room_CRAC-9Zone> .
 
-brick:Cooling_Temperature_Setpoint brickframe:hasTag btag:Cooling,
+brick:AHU_Current_Cooling_Setpoint brickframe:hasTag btag:Cooling,
         btag:Setpoint,
         btag:Temperature .
 
-brick:AHU_Current_Cooling_Setpoint brickframe:hasTag btag:Cooling,
+brick:Cooling_Temperature_Setpoint brickframe:hasTag btag:Cooling,
         btag:Setpoint,
         btag:Temperature .
 
@@ -43564,8 +43567,9 @@ brick:Exhaust_Air_Damper brickframe:hasTag btag:Air,
         btag:Damper,
         btag:Exhaust .
 
-brick:Exhaust_Air_Temperature_Sensor brickframe:hasTag btag:Airflow,
+brick:Exhaust_Air_Temperature_Sensor brickframe:hasTag btag:Air,
         btag:Exhaust,
+        btag:Flow,
         btag:Sensor,
         btag:Temperature .
 
@@ -43590,10 +43594,10 @@ brick:Heat_Wheel_Voltage brickframe:hasTag btag:Enthalpy,
         btag:Sensor,
         btag:Volts .
 
-brick:Max_Return_Air_CO2_Setpoint brickframe:hasTag btag:CO2,
+brick:Max_Return_Air_CO2_Setpoint brickframe:hasTag btag:Air,
+        btag:CO2,
         btag:Return,
-        btag:Setpoint,
-        btag:Air .
+        btag:Setpoint .
 
 brick:Mixed_Air_Damper_Position_Command brickframe:hasTag btag:Air,
         btag:Command,
@@ -43610,9 +43614,10 @@ brick:Outside_Air_CO2_Sensor brickframe:hasTag btag:Air,
         btag:Outside,
         btag:Sensor .
 
-brick:Outside_Air_Damper_Position_Command brickframe:hasTag btag:Airflow,
+brick:Outside_Air_Damper_Position_Command brickframe:hasTag btag:Air,
         btag:Command,
         btag:Damper,
+        btag:Flow,
         btag:Outside .
 
 brick:Outside_Air_Humidity_Sensor brickframe:hasTag btag:Air,
@@ -43973,8 +43978,9 @@ GHC:VAV_Room_9115_Conference_RoomRoom a owl:NamedIndividual,
     brickframe:isFedBy GHC:VAV_Room_9115_Conference_Room ;
     brickframe:isPointOf GHC:VAV_Room_9115_Conference_RoomZone .
 
-brick:Bypass_Air_Flow_Sensor brickframe:hasTag btag:Airflow,
+brick:Bypass_Air_Flow_Sensor brickframe:hasTag btag:Air,
         btag:Bypass,
+        btag:Flow,
         btag:Sensor .
 
 brick:Chilled_Water_Valve brickframe:hasTag btag:Chilled,
@@ -43995,9 +44001,10 @@ brick:Discharge_Air_Static_Pressure_Setpoint brickframe:hasTag btag:Air,
         btag:Fan,
         btag:VFD .
 
-brick:Exhaust_Air_Flow_Sensor brickframe:hasTag btag:Airflow,
+brick:Exhaust_Air_Flow_Sensor brickframe:hasTag btag:Air,
         btag:Exhaust,
         btag:Fan,
+        btag:Flow,
         btag:Sensor .
 
 brick:Exhaust_Fan_Piezoelectric_Sensor brickframe:hasTag btag:Exhaust,
@@ -44005,18 +44012,20 @@ brick:Exhaust_Fan_Piezoelectric_Sensor brickframe:hasTag btag:Exhaust,
         btag:Piezoelectric,
         btag:Sensor .
 
-brick:Exhaust_Fan_Start_Stop_Command brickframe:hasTag btag:Airflow,
+brick:Exhaust_Fan_Start_Stop_Command brickframe:hasTag btag:Air,
         btag:Command,
         btag:Exhaust,
-        btag:Fan .
+        btag:Fan,
+        btag:Flow .
 
 brick:Heating_Request_Percent_Setpoint brickframe:hasTag btag:,
         btag:Demand,
         btag:Heating,
         btag:Request .
 
-brick:Outside_Air_Damper_Position_Sensor brickframe:hasTag btag:Airflow,
+brick:Outside_Air_Damper_Position_Sensor brickframe:hasTag btag:Air,
         btag:Damper,
+        btag:Flow,
         btag:Outside,
         btag:Sensor .
 
@@ -44064,9 +44073,9 @@ brick:Return_Air_Enthalpy_Sensor brickframe:hasTag btag:Air,
         btag:Sensor .
 
 brick:Return_Air_Grains_Sensor brickframe:hasTag btag:Air,
+        btag:Grains,
         btag:Return,
-        btag:Sensor,
-        btag:Grains .
+        btag:Sensor .
 
 brick:Return_Air_Preheat_Valve_Command brickframe:hasTag btag:Air,
         btag:Command,
@@ -44079,8 +44088,9 @@ brick:Return_Air_Temperature_Sensor brickframe:hasTag btag:Air,
         btag:Sensor,
         btag:Temperature .
 
-brick:Return_Fan_Air_Flow_Sensor brickframe:hasTag btag:Airflow,
+brick:Return_Fan_Air_Flow_Sensor brickframe:hasTag btag:Air,
         btag:Fan,
+        btag:Flow,
         btag:Return,
         btag:Sensor .
 
@@ -44089,17 +44099,17 @@ brick:Run_Direction_Status brickframe:hasTag btag:Chilled,
         btag:Valve,
         btag:Water .
 
-brick:Voltage_Sensor brickframe:hasTag btag:Exhaust,
-        btag:Sensor,
-        btag:VFD,
-        btag:Volts .
-
 brick:Variable_Frequency_Drive brickframe:hasTag btag:,
         btag:Equipment,
         btag:Exhaust,
         btag:Fan,
         btag:Sensor,
         btag:VFD .
+
+brick:Voltage_Sensor brickframe:hasTag btag:Exhaust,
+        btag:Sensor,
+        btag:VFD,
+        btag:Volts .
 
 GHC:FCU-10Room a owl:NamedIndividual,
         brick:Room ;
@@ -65425,9 +65435,9 @@ brick:Outside_Air_Temperature_Sensor brickframe:hasTag btag:Air,
         btag:Temperature .
 
 brick:Supply_Fan_Air_Flow_Sensor brickframe:hasTag btag:Air,
-        btag:Airflow,
         btag:Command,
-        btag:Fan .
+        btag:Fan,
+        btag:Flow .
 
 brick:Occupancy_Sensor brickframe:hasTag btag:Occupancy,
         btag:Sensor .
@@ -65437,13 +65447,13 @@ brick:Zone_Temperature_Sensor brickframe:hasTag btag:Air,
         btag:Temperature .
 
 brick:Discharge_Air_Flow_Sensor brickframe:hasTag btag:Air,
-        btag:Airflow,
         btag:Discharge,
+        btag:Flow,
         btag:Sensor .
 
 brick:Discharge_Air_Flow_Setpoint brickframe:hasTag btag:Air,
-        btag:Airflow,
         btag:Discharge,
+        btag:Flow,
         btag:Setpoint .
 
 brick:Damper_Position_Sensor brickframe:hasTag btag:Air,
@@ -65467,9 +65477,9 @@ brick:Heating_Command brickframe:hasTag btag:,
         btag:Heating .
 
 brick:Discharge_Air_Flow_Command brickframe:hasTag btag:Air,
-        btag:Airflow,
         btag:Command,
-        btag:Discharge .
+        btag:Discharge,
+        btag:Flow .
 
 brick:Zone_Cooling_Temperature_Setpoint brickframe:hasTag btag:Air,
         btag:Alarm,
