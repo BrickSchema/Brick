@@ -693,8 +693,7 @@ brick:Occupied_Cooling_Max_Supply_Air_Flow_Setpoint owl:equivalentClass brick:Oc
 
 brick:Output_Frequency rdfs:subClassOf brick:Frequency .
 
-brick:Output_Voltage rdfs:subClassOf brick:Voltage ;
-    owl:equivalentClass brick:VFD_Voltage .
+brick:Output_Voltage rdfs:subClassOf brick:Voltage .
 
 brick:Outside_Air_CO2 a owl:Class ;
     rdfs:label "Outside Air CO2"@en ;
@@ -5009,12 +5008,6 @@ brick:Thermal_Energy_Storage_Supply_Water_Differential_Pressure_Dead_Band_Setpoi
 brick:Thermal_Energy_Storage_Supply_Water_Differential_Pressure_Integral_Time_Setpoint owl:equivalentClass brick:Thermal_Energy_Storage_Discharge_Water_Differential_Pressure_Integral_Time_Setpoint .
 
 brick:Thermal_Energy_Storage_Supply_Water_Differential_Pressure_Proportional_Band_Setpoint owl:equivalentClass brick:Thermal_Energy_Storage_Discharge_Water_Differential_Pressure_Proportional_Band_Setpoint .
-
-brick:VFD_Voltage a owl:Class ;
-    rdfs:label "Output Voltage"@en ;
-    rdfs:subClassOf brick:Voltage ;
-    brickframe:hasTag btag:VFD,
-        btag:Voltage .
 
 brick:Water_Supply_Temperature_Sensor owl:equivalentClass brick:Water_Discharge_Temperature_Sensor .
 
