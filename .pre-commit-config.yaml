@@ -13,4 +13,4 @@ repos:
     rev: master
     hooks:
     - id: flake8
-      args: ['--config=.flake8.cfg']
+      args: ['--config=.flake8']
