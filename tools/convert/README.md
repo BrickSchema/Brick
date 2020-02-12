@@ -12,10 +12,10 @@ python convert.py --help
 
 ## Usage
 ```bash
-python convert.py --source 1.0.2 --target 1.1 ../../examples/ebu3b_brick.ttl 
+python convert.py --source 1.0.2 --target 1.1 examples/ebu3b_brick.ttl 
 ```
 
 For multiple files, use glob patterns or filenames separated by whitespaces.
 ```bash
-python convert.py --source 1.0.2 --target 1.1 ../../examples/*.ttl
+python convert.py --source 1.0.2 --target 1.1 examples/*.ttl
 ```
