@@ -14,7 +14,7 @@ from utils import (
 """
 Argument Parsing:
 source: source version (for example '1.0.3')
-target: target version (for example '1.1.0')
+target: target version (for example '1.1')
 info: log operation description
 """
 parser = ArgumentParser(description="Update Brick models.")
