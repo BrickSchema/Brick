@@ -301,7 +301,7 @@ status_definitions = {
             "On_Off_Status": {
                 "subclasses": {
                     "Cooling_On_Off_Status": {
-                        "tags": [TAG.Point, TAG.Cooling, TAG.On, TAG.Off, TAG.Status],
+                        "tags": [TAG.Point, TAG.Cool, TAG.On, TAG.Off, TAG.Status],
                     },
                     "Dehumidification_On_Off_Status": {
                         "tags": [
@@ -316,7 +316,7 @@ status_definitions = {
                         "tags": [TAG.Point, TAG.Econcycle, TAG.On, TAG.Off, TAG.Status],
                     },
                     "Heating_On_Off_Status": {
-                        "tags": [TAG.Point, TAG.Heating, TAG.On, TAG.Off, TAG.Status],
+                        "tags": [TAG.Point, TAG.Heat, TAG.On, TAG.Off, TAG.Status],
                     },
                     "Humidification_On_Off_Status": {
                         "tags": [

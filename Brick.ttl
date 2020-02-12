@@ -115,6 +115,16 @@ brick:Automatic_Mode_Command a owl:Class ;
         tag:Mode,
         tag:Point .
 
+brick:Average_Cooling_Demand_Sensor a owl:Class ;
+    rdfs:label "Average Cooling Demand Sensor" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Sensor _:has_Demand _:has_Cool _:has_Average ) ],
+        brick:Cooling_Demand_Sensor ;
+    brick:hasAssociatedTag tag:Average,
+        tag:Cool,
+        tag:Demand,
+        tag:Point,
+        tag:Sensor .
+
 brick:Average_Discharge_Air_Flow_Sensor a owl:Class ;
     rdfs:label "Average Discharge Air Flow Sensor" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Average _:has_Discharge _:has_Air _:has_Flow _:has_Sensor ) ],
@@ -137,6 +147,16 @@ brick:Average_Exhaust_Air_Static_Pressure_Sensor a owl:Class ;
         tag:Pressure,
         tag:Sensor,
         tag:Static .
+
+brick:Average_Heating_Demand_Sensor a owl:Class ;
+    rdfs:label "Average Heating Demand Sensor" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Sensor _:has_Demand _:has_Heat _:has_Average ) ],
+        brick:Heating_Demand_Sensor ;
+    brick:hasAssociatedTag tag:Average,
+        tag:Demand,
+        tag:Heat,
+        tag:Point,
+        tag:Sensor .
 
 brick:Average_Supply_Air_Flow_Sensor a owl:Class ;
     rdfs:label "Average Supply Air Flow Sensor" ;
@@ -251,13 +271,57 @@ brick:Building_Air_Static_Pressure_Setpoint a owl:Class ;
         tag:Setpoint,
         tag:Static .
 
-brick:Building_Meter a owl:Class ;
-    rdfs:label "Building Meter" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Meter _:has_Equipment _:has_Building ) ],
-        brick:Meter ;
+brick:Building_Chilled_Water_Meter a owl:Class ;
+    rdfs:label "Building Chilled Water Meter" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Building _:has_Chilled _:has_Water _:has_Meter _:has_Equipment ) ],
+        brick:Building_Meter,
+        brick:Chilled_Water_Meter ;
     brick:hasAssociatedTag tag:Building,
+        tag:Chilled,
+        tag:Equipment,
+        tag:Meter,
+        tag:Water .
+
+brick:Building_Electrical_Meter a owl:Class ;
+    rdfs:label "Building Electrical Meter" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Building _:has_Electrical _:has_Meter _:has_Equipment ) ],
+        brick:Building_Meter,
+        brick:Electrical_Meter ;
+    brick:hasAssociatedTag tag:Building,
+        tag:Electrical,
         tag:Equipment,
         tag:Meter .
+
+brick:Building_Gas_Meter a owl:Class ;
+    rdfs:label "Building Gas Meter" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Building _:has_Gas _:has_Meter _:has_Equipment ) ],
+        brick:Building_Meter,
+        brick:Gas_Meter ;
+    brick:hasAssociatedTag tag:Building,
+        tag:Equipment,
+        tag:Gas,
+        tag:Meter .
+
+brick:Building_Hot_Water_Meter a owl:Class ;
+    rdfs:label "Building Hot Water Meter" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Building _:has_Hot _:has_Water _:has_Meter _:has_Equipment ) ],
+        brick:Building_Meter,
+        brick:Hot_Water_Meter ;
+    brick:hasAssociatedTag tag:Building,
+        tag:Equipment,
+        tag:Hot,
+        tag:Meter,
+        tag:Water .
+
+brick:Building_Water_Meter a owl:Class ;
+    rdfs:label "Building Water Meter" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Building _:has_Water _:has_Meter _:has_Equipment ) ],
+        brick:Building_Meter,
+        brick:Water_Meter ;
+    brick:hasAssociatedTag tag:Building,
+        tag:Equipment,
+        tag:Meter,
+        tag:Water .
 
 brick:Bypass_Air_Flow_Sensor a owl:Class ;
     rdfs:label "Bypass Air Flow Sensor" ;
@@ -443,16 +507,6 @@ brick:Chilled_Water_Discharge_Flow_Sensor a owl:Class ;
         tag:Flow,
         tag:Point,
         tag:Sensor,
-        tag:Water .
-
-brick:Chilled_Water_Meter a owl:Class ;
-    rdfs:label "Chilled Water Meter" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Meter _:has_Equipment _:has_Water _:has_Chilled ) ],
-        brick:Chilled_Water_System,
-        brick:Water_Meter ;
-    brick:hasAssociatedTag tag:Chilled,
-        tag:Equipment,
-        tag:Meter,
         tag:Water .
 
 brick:Chilled_Water_Pump a owl:Class ;
@@ -664,20 +718,20 @@ brick:Cooling_Coil a owl:Class ;
 
 brick:Cooling_Demand_Setpoint a owl:Class ;
     rdfs:label "Cooling Demand Setpoint" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Cooling _:has_Demand _:has_Setpoint ) ],
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Cool _:has_Demand _:has_Setpoint ) ],
         brick:Demand_Setpoint ;
-    brick:hasAssociatedTag tag:Cooling,
+    brick:hasAssociatedTag tag:Cool,
         tag:Demand,
         tag:Point,
         tag:Setpoint .
 
 brick:Cooling_Discharge_Air_Temperature_Deadband_Setpoint a owl:Class ;
     rdfs:label "Cooling Discharge Air Temperature Deadband Setpoint" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Cooling _:has_Discharge _:has_Air _:has_Temperature _:has_Deadband _:has_Setpoint ) ],
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Cool _:has_Discharge _:has_Air _:has_Temperature _:has_Deadband _:has_Setpoint ) ],
         brick:Discharge_Air_Temperature_Cooling_Setpoint,
         brick:Discharge_Air_Temperature_Deadband_Setpoint ;
     brick:hasAssociatedTag tag:Air,
-        tag:Cooling,
+        tag:Cool,
         tag:Deadband,
         tag:Discharge,
         tag:Point,
@@ -686,10 +740,10 @@ brick:Cooling_Discharge_Air_Temperature_Deadband_Setpoint a owl:Class ;
 
 brick:Cooling_Discharge_Air_Temperature_Integral_Time_Parameter a owl:Class ;
     rdfs:label "Cooling Discharge Air Temperature Integral Time Parameter" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Cooling _:has_Discharge _:has_Air _:has_Temperature _:has_Integral _:has_Time _:has_Parameter _:has_PID ) ],
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Cool _:has_Discharge _:has_Air _:has_Temperature _:has_Integral _:has_Time _:has_Parameter _:has_PID ) ],
         brick:Air_Temperature_Integral_Time_Parameter ;
     brick:hasAssociatedTag tag:Air,
-        tag:Cooling,
+        tag:Cool,
         tag:Discharge,
         tag:Integral,
         tag:PID,
@@ -700,11 +754,11 @@ brick:Cooling_Discharge_Air_Temperature_Integral_Time_Parameter a owl:Class ;
 
 brick:Cooling_Discharge_Air_Temperature_Proportional_Band_Parameter a owl:Class ;
     rdfs:label "Cooling Discharge Air Temperature Proportional Band Parameter" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Cooling _:has_Discharge _:has_Air _:has_Temperature _:has_Proportional _:has_Band _:has_Parameter _:has_PID ) ],
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Cool _:has_Discharge _:has_Air _:has_Temperature _:has_Proportional _:has_Band _:has_Parameter _:has_PID ) ],
         brick:Discharge_Air_Temperature_Proportional_Band_Parameter ;
     brick:hasAssociatedTag tag:Air,
         tag:Band,
-        tag:Cooling,
+        tag:Cool,
         tag:Discharge,
         tag:PID,
         tag:Parameter,
@@ -714,9 +768,9 @@ brick:Cooling_Discharge_Air_Temperature_Proportional_Band_Parameter a owl:Class 
 
 brick:Cooling_On_Off_Status a owl:Class ;
     rdfs:label "Cooling On Off Status" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Cooling _:has_On _:has_Off _:has_Status ) ],
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Cool _:has_On _:has_Off _:has_Status ) ],
         brick:On_Off_Status ;
-    brick:hasAssociatedTag tag:Cooling,
+    brick:hasAssociatedTag tag:Cool,
         tag:Off,
         tag:On,
         tag:Point,
@@ -724,9 +778,9 @@ brick:Cooling_On_Off_Status a owl:Class ;
 
 brick:Cooling_Request_Percent_Setpoint a owl:Class ;
     rdfs:label "Cooling Request Percent Setpoint" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Cooling _:has_Request _:has_Percent _:has_Setpoint ) ],
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Cool _:has_Request _:has_Percent _:has_Setpoint ) ],
         brick:Cooling_Request_Setpoint ;
-    brick:hasAssociatedTag tag:Cooling,
+    brick:hasAssociatedTag tag:Cool,
         tag:Percent,
         tag:Point,
         tag:Request,
@@ -734,11 +788,11 @@ brick:Cooling_Request_Percent_Setpoint a owl:Class ;
 
 brick:Cooling_Supply_Air_Temperature_Deadband_Setpoint a owl:Class ;
     rdfs:label "Cooling Supply Air Temperature Deadband Setpoint" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Cooling _:has_Supply _:has_Air _:has_Temperature _:has_Deadband _:has_Setpoint ) ],
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Cool _:has_Supply _:has_Air _:has_Temperature _:has_Deadband _:has_Setpoint ) ],
         brick:Cooling_Temperature_Setpoint,
         brick:Supply_Air_Temperature_Deadband_Setpoint ;
     brick:hasAssociatedTag tag:Air,
-        tag:Cooling,
+        tag:Cool,
         tag:Deadband,
         tag:Point,
         tag:Setpoint,
@@ -747,10 +801,10 @@ brick:Cooling_Supply_Air_Temperature_Deadband_Setpoint a owl:Class ;
 
 brick:Cooling_Supply_Air_Temperature_Integral_Time_Parameter a owl:Class ;
     rdfs:label "Cooling Supply Air Temperature Integral Time Parameter" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Cooling _:has_Supply _:has_Air _:has_Temperature _:has_Integral _:has_Time _:has_Parameter _:has_PID ) ],
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Cool _:has_Supply _:has_Air _:has_Temperature _:has_Integral _:has_Time _:has_Parameter _:has_PID ) ],
         brick:Air_Temperature_Integral_Time_Parameter ;
     brick:hasAssociatedTag tag:Air,
-        tag:Cooling,
+        tag:Cool,
         tag:Integral,
         tag:PID,
         tag:Parameter,
@@ -761,11 +815,11 @@ brick:Cooling_Supply_Air_Temperature_Integral_Time_Parameter a owl:Class ;
 
 brick:Cooling_Supply_Air_Temperature_Proportional_Band_Parameter a owl:Class ;
     rdfs:label "Cooling Supply Air Temperature Proportional Band Parameter" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Cooling _:has_Supply _:has_Air _:has_Temperature _:has_Proportional _:has_Band _:has_Parameter _:has_PID ) ],
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Cool _:has_Supply _:has_Air _:has_Temperature _:has_Proportional _:has_Band _:has_Parameter _:has_PID ) ],
         brick:Supply_Air_Temperature_Proportional_Band_Parameter ;
     brick:hasAssociatedTag tag:Air,
         tag:Band,
-        tag:Cooling,
+        tag:Cool,
         tag:PID,
         tag:Parameter,
         tag:Point,
@@ -773,23 +827,13 @@ brick:Cooling_Supply_Air_Temperature_Proportional_Band_Parameter a owl:Class ;
         tag:Supply,
         tag:Temperature .
 
-brick:Cooling_Thermal_Power_Meter a owl:Class ;
-    rdfs:label "Cooling Thermal Power Meter" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Meter _:has_Equipment _:has_Power _:has_Thermal _:has_Cooling ) ],
-        brick:Thermal_Power_Meter ;
-    brick:hasAssociatedTag tag:Cooling,
-        tag:Equipment,
-        tag:Meter,
-        tag:Power,
-        tag:Thermal .
-
 brick:Cooling_Tower_Fan a owl:Class ;
     rdfs:label "Cooling Tower Fan" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Cooling [ a owl:Restriction ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Cool [ a owl:Restriction ;
                         owl:hasValue tag:Tower ;
                         owl:onProperty brick:hasTag ] _:has_Equipment _:has_Fan ) ],
         brick:Fan ;
-    brick:hasAssociatedTag tag:Cooling,
+    brick:hasAssociatedTag tag:Cool,
         tag:Equipment,
         tag:Fan,
         tag:Tower .
@@ -835,6 +879,18 @@ brick:DC_Bus_Voltage_Sensor a owl:Class ;
         tag:Point,
         tag:Sensor,
         tag:Voltage .
+
+brick:Daily_Usage_Energy_Sensor a owl:Class ;
+    rdfs:label "Daily Usage Energy Sensor" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Sensor _:has_Energy _:has_Usage [ a owl:Restriction ;
+                        owl:hasValue tag:Daily ;
+                        owl:onProperty brick:hasTag ] ) ],
+        brick:Energy_Usage_Sensor ;
+    brick:hasAssociatedTag tag:Daily,
+        tag:Energy,
+        tag:Point,
+        tag:Sensor,
+        tag:Usage .
 
 brick:Damper_Position_Command a owl:Class ;
     rdfs:label "Damper Position Command" ;
@@ -972,6 +1028,17 @@ brick:Differential_Speed_Sensor a owl:Class ;
         tag:Point,
         tag:Sensor,
         tag:Speed .
+
+brick:Differential_Supply_Return_Water_Temperature_Sensor a owl:Class ;
+    rdfs:label "Differential Supply Return Water Temperature Sensor" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Differential _:has_Supply _:has_Return _:has_Temperature _:has_Sensor ) ],
+        brick:Return_Water_Temperature_Sensor ;
+    brick:hasAssociatedTag tag:Differential,
+        tag:Point,
+        tag:Return,
+        tag:Sensor,
+        tag:Supply,
+        tag:Temperature .
 
 brick:Dimmer a owl:Class ;
     rdfs:label "Dimmer" ;
@@ -1436,11 +1503,11 @@ brick:Economizer_Damper a owl:Class ;
 
 brick:Effective_Air_Temperature_Cooling_Setpoint a owl:Class ;
     rdfs:label "Effective Air Temperature Cooling Setpoint" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Effective _:has_Air _:has_Cooling _:has_Temperature _:has_Setpoint ) ],
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Effective _:has_Air _:has_Cool _:has_Temperature _:has_Setpoint ) ],
         brick:Cooling_Temperature_Setpoint,
         brick:Effective_Air_Temperature_Setpoint ;
     brick:hasAssociatedTag tag:Air,
-        tag:Cooling,
+        tag:Cool,
         tag:Effective,
         tag:Point,
         tag:Setpoint,
@@ -1448,12 +1515,12 @@ brick:Effective_Air_Temperature_Cooling_Setpoint a owl:Class ;
 
 brick:Effective_Air_Temperature_Heating_Setpoint a owl:Class ;
     rdfs:label "Effective Air Temperature Heating Setpoint" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Effective _:has_Air _:has_Heating _:has_Temperature _:has_Setpoint ) ],
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Effective _:has_Air _:has_Heat _:has_Temperature _:has_Setpoint ) ],
         brick:Effective_Air_Temperature_Setpoint,
         brick:Heating_Temperature_Setpoint ;
     brick:hasAssociatedTag tag:Air,
         tag:Effective,
-        tag:Heating,
+        tag:Heat,
         tag:Point,
         tag:Setpoint,
         tag:Temperature .
@@ -2153,33 +2220,33 @@ brick:Heating_Command a owl:Class ;
 
 brick:Heating_Demand_Setpoint a owl:Class ;
     rdfs:label "Heating Demand Setpoint" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Heating _:has_Demand _:has_Setpoint ) ],
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Heat _:has_Demand _:has_Setpoint ) ],
         brick:Demand_Setpoint ;
     brick:hasAssociatedTag tag:Demand,
-        tag:Heating,
+        tag:Heat,
         tag:Point,
         tag:Setpoint .
 
 brick:Heating_Discharge_Air_Temperature_Deadband_Setpoint a owl:Class ;
     rdfs:label "Heating Discharge Air Temperature Deadband Setpoint" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Heating _:has_Discharge _:has_Air _:has_Temperature _:has_Deadband _:has_Setpoint ) ],
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Heat _:has_Discharge _:has_Air _:has_Temperature _:has_Deadband _:has_Setpoint ) ],
         brick:Discharge_Air_Temperature_Deadband_Setpoint,
         brick:Discharge_Air_Temperature_Heating_Setpoint ;
     brick:hasAssociatedTag tag:Air,
         tag:Deadband,
         tag:Discharge,
-        tag:Heating,
+        tag:Heat,
         tag:Point,
         tag:Setpoint,
         tag:Temperature .
 
 brick:Heating_Discharge_Air_Temperature_Integral_Time_Parameter a owl:Class ;
     rdfs:label "Heating Discharge Air Temperature Integral Time Parameter" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Heating _:has_Discharge _:has_Air _:has_Temperature _:has_Integral _:has_Time _:has_Parameter _:has_PID ) ],
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Heat _:has_Discharge _:has_Air _:has_Temperature _:has_Integral _:has_Time _:has_Parameter _:has_PID ) ],
         brick:Air_Temperature_Integral_Time_Parameter ;
     brick:hasAssociatedTag tag:Air,
         tag:Discharge,
-        tag:Heating,
+        tag:Heat,
         tag:Integral,
         tag:PID,
         tag:Parameter,
@@ -2189,12 +2256,12 @@ brick:Heating_Discharge_Air_Temperature_Integral_Time_Parameter a owl:Class ;
 
 brick:Heating_Discharge_Air_Temperature_Proportional_Band_Parameter a owl:Class ;
     rdfs:label "Heating Discharge Air Temperature Proportional Band Parameter" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Heating _:has_Discharge _:has_Air _:has_Temperature _:has_Proportional _:has_Band _:has_Parameter _:has_PID ) ],
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Heat _:has_Discharge _:has_Air _:has_Temperature _:has_Proportional _:has_Band _:has_Parameter _:has_PID ) ],
         brick:Discharge_Air_Temperature_Proportional_Band_Parameter ;
     brick:hasAssociatedTag tag:Air,
         tag:Band,
         tag:Discharge,
-        tag:Heating,
+        tag:Heat,
         tag:PID,
         tag:Parameter,
         tag:Point,
@@ -2203,9 +2270,9 @@ brick:Heating_Discharge_Air_Temperature_Proportional_Band_Parameter a owl:Class 
 
 brick:Heating_On_Off_Status a owl:Class ;
     rdfs:label "Heating On Off Status" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Heating _:has_On _:has_Off _:has_Status ) ],
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Heat _:has_On _:has_Off _:has_Status ) ],
         brick:On_Off_Status ;
-    brick:hasAssociatedTag tag:Heating,
+    brick:hasAssociatedTag tag:Heat,
         tag:Off,
         tag:On,
         tag:Point,
@@ -2213,9 +2280,9 @@ brick:Heating_On_Off_Status a owl:Class ;
 
 brick:Heating_Request_Percent_Setpoint a owl:Class ;
     rdfs:label "Heating Request Percent Setpoint" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Heating _:has_Request _:has_Percent _:has_Setpoint ) ],
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Heat _:has_Request _:has_Percent _:has_Setpoint ) ],
         brick:Heating_Request_Setpoint ;
-    brick:hasAssociatedTag tag:Heating,
+    brick:hasAssociatedTag tag:Heat,
         tag:Percent,
         tag:Point,
         tag:Request,
@@ -2223,12 +2290,12 @@ brick:Heating_Request_Percent_Setpoint a owl:Class ;
 
 brick:Heating_Supply_Air_Temperature_Deadband_Setpoint a owl:Class ;
     rdfs:label "Heating Supply Air Temperature Deadband Setpoint" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Heating _:has_Supply _:has_Air _:has_Temperature _:has_Deadband _:has_Setpoint ) ],
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Heat _:has_Supply _:has_Air _:has_Temperature _:has_Deadband _:has_Setpoint ) ],
         brick:Heating_Temperature_Setpoint,
         brick:Supply_Air_Temperature_Deadband_Setpoint ;
     brick:hasAssociatedTag tag:Air,
         tag:Deadband,
-        tag:Heating,
+        tag:Heat,
         tag:Point,
         tag:Setpoint,
         tag:Supply,
@@ -2236,10 +2303,10 @@ brick:Heating_Supply_Air_Temperature_Deadband_Setpoint a owl:Class ;
 
 brick:Heating_Supply_Air_Temperature_Integral_Time_Parameter a owl:Class ;
     rdfs:label "Heating Supply Air Temperature Integral Time Parameter" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Heating _:has_Supply _:has_Air _:has_Temperature _:has_Integral _:has_Time _:has_Parameter _:has_PID ) ],
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Heat _:has_Supply _:has_Air _:has_Temperature _:has_Integral _:has_Time _:has_Parameter _:has_PID ) ],
         brick:Air_Temperature_Integral_Time_Parameter ;
     brick:hasAssociatedTag tag:Air,
-        tag:Heating,
+        tag:Heat,
         tag:Integral,
         tag:PID,
         tag:Parameter,
@@ -2250,11 +2317,11 @@ brick:Heating_Supply_Air_Temperature_Integral_Time_Parameter a owl:Class ;
 
 brick:Heating_Supply_Air_Temperature_Proportional_Band_Parameter a owl:Class ;
     rdfs:label "Heating Supply Air Temperature Proportional Band Parameter" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Heating _:has_Supply _:has_Air _:has_Temperature _:has_Proportional _:has_Band _:has_Parameter _:has_PID ) ],
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Heat _:has_Supply _:has_Air _:has_Temperature _:has_Proportional _:has_Band _:has_Parameter _:has_PID ) ],
         brick:Supply_Air_Temperature_Proportional_Band_Parameter ;
     brick:hasAssociatedTag tag:Air,
         tag:Band,
-        tag:Heating,
+        tag:Heat,
         tag:PID,
         tag:Parameter,
         tag:Point,
@@ -2262,21 +2329,11 @@ brick:Heating_Supply_Air_Temperature_Proportional_Band_Parameter a owl:Class ;
         tag:Supply,
         tag:Temperature .
 
-brick:Heating_Thermal_Power_Meter a owl:Class ;
-    rdfs:label "Heating Thermal Power Meter" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Meter _:has_Equipment _:has_Power _:has_Thermal _:has_Heating ) ],
-        brick:Thermal_Power_Meter ;
-    brick:hasAssociatedTag tag:Equipment,
-        tag:Heating,
-        tag:Meter,
-        tag:Power,
-        tag:Thermal .
-
 brick:Heating_Thermal_Power_Sensor a owl:Class ;
     rdfs:label "Heating Thermal Power Sensor" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Heating _:has_Sensor _:has_Power _:has_Thermal ) ],
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Heat _:has_Sensor _:has_Power _:has_Thermal ) ],
         brick:Thermal_Power_Sensor ;
-    brick:hasAssociatedTag tag:Heating,
+    brick:hasAssociatedTag tag:Heat,
         tag:Point,
         tag:Power,
         tag:Sensor,
@@ -3034,10 +3091,10 @@ brick:Max_Load_Setpoint a owl:Class ;
 
 brick:Max_Occupied_Cooling_Discharge_Air_Flow_Setpoint_Limit a owl:Class ;
     rdfs:label "Max Occupied Cooling Discharge Air Flow Setpoint Limit" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Max _:has_Occupied _:has_Cooling _:has_Discharge _:has_Air _:has_Flow _:has_Limit _:has_Parameter _:has_Setpoint ) ],
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Max _:has_Occupied _:has_Cool _:has_Discharge _:has_Air _:has_Flow _:has_Limit _:has_Parameter _:has_Setpoint ) ],
         brick:Max_Cooling_Discharge_Air_Flow_Setpoint_Limit ;
     brick:hasAssociatedTag tag:Air,
-        tag:Cooling,
+        tag:Cool,
         tag:Discharge,
         tag:Flow,
         tag:Limit,
@@ -3049,10 +3106,10 @@ brick:Max_Occupied_Cooling_Discharge_Air_Flow_Setpoint_Limit a owl:Class ;
 
 brick:Max_Occupied_Cooling_Supply_Air_Flow_Setpoint_Limit a owl:Class ;
     rdfs:label "Max Occupied Cooling Supply Air Flow Setpoint Limit" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Max _:has_Occupied _:has_Cooling _:has_Supply _:has_Air _:has_Flow _:has_Limit _:has_Parameter _:has_Setpoint ) ],
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Max _:has_Occupied _:has_Cool _:has_Supply _:has_Air _:has_Flow _:has_Limit _:has_Parameter _:has_Setpoint ) ],
         brick:Max_Cooling_Supply_Air_Flow_Setpoint_Limit ;
     brick:hasAssociatedTag tag:Air,
-        tag:Cooling,
+        tag:Cool,
         tag:Flow,
         tag:Limit,
         tag:Max,
@@ -3064,12 +3121,12 @@ brick:Max_Occupied_Cooling_Supply_Air_Flow_Setpoint_Limit a owl:Class ;
 
 brick:Max_Occupied_Heating_Discharge_Air_Flow_Setpoint_Limit a owl:Class ;
     rdfs:label "Max Occupied Heating Discharge Air Flow Setpoint Limit" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Max _:has_Occupied _:has_Heating _:has_Discharge _:has_Air _:has_Flow _:has_Limit _:has_Parameter _:has_Setpoint ) ],
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Max _:has_Occupied _:has_Heat _:has_Discharge _:has_Air _:has_Flow _:has_Limit _:has_Parameter _:has_Setpoint ) ],
         brick:Max_Heating_Discharge_Air_Flow_Setpoint_Limit ;
     brick:hasAssociatedTag tag:Air,
         tag:Discharge,
         tag:Flow,
-        tag:Heating,
+        tag:Heat,
         tag:Limit,
         tag:Max,
         tag:Occupied,
@@ -3079,11 +3136,11 @@ brick:Max_Occupied_Heating_Discharge_Air_Flow_Setpoint_Limit a owl:Class ;
 
 brick:Max_Occupied_Heating_Supply_Air_Flow_Setpoint_Limit a owl:Class ;
     rdfs:label "Max Occupied Heating Supply Air Flow Setpoint Limit" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Max _:has_Occupied _:has_Heating _:has_Supply _:has_Air _:has_Flow _:has_Limit _:has_Parameter _:has_Setpoint ) ],
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Max _:has_Occupied _:has_Heat _:has_Supply _:has_Air _:has_Flow _:has_Limit _:has_Parameter _:has_Setpoint ) ],
         brick:Max_Heating_Supply_Air_Flow_Setpoint_Limit ;
     brick:hasAssociatedTag tag:Air,
         tag:Flow,
-        tag:Heating,
+        tag:Heat,
         tag:Limit,
         tag:Max,
         tag:Occupied,
@@ -3143,10 +3200,10 @@ brick:Max_Supply_Air_Static_Pressure_Setpoint_Limit a owl:Class ;
 
 brick:Max_Unoccupied_Cooling_Discharge_Air_Flow_Setpoint_Limit a owl:Class ;
     rdfs:label "Max Unoccupied Cooling Discharge Air Flow Setpoint Limit" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Max _:has_Unoccupied _:has_Cooling _:has_Discharge _:has_Air _:has_Flow _:has_Limit _:has_Parameter _:has_Setpoint ) ],
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Max _:has_Unoccupied _:has_Cool _:has_Discharge _:has_Air _:has_Flow _:has_Limit _:has_Parameter _:has_Setpoint ) ],
         brick:Max_Cooling_Discharge_Air_Flow_Setpoint_Limit ;
     brick:hasAssociatedTag tag:Air,
-        tag:Cooling,
+        tag:Cool,
         tag:Discharge,
         tag:Flow,
         tag:Limit,
@@ -3158,10 +3215,10 @@ brick:Max_Unoccupied_Cooling_Discharge_Air_Flow_Setpoint_Limit a owl:Class ;
 
 brick:Max_Unoccupied_Cooling_Supply_Air_Flow_Setpoint_Limit a owl:Class ;
     rdfs:label "Max Unoccupied Cooling Supply Air Flow Setpoint Limit" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Max _:has_Unoccupied _:has_Cooling _:has_Supply _:has_Air _:has_Flow _:has_Limit _:has_Parameter _:has_Setpoint ) ],
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Max _:has_Unoccupied _:has_Cool _:has_Supply _:has_Air _:has_Flow _:has_Limit _:has_Parameter _:has_Setpoint ) ],
         brick:Max_Cooling_Supply_Air_Flow_Setpoint_Limit ;
     brick:hasAssociatedTag tag:Air,
-        tag:Cooling,
+        tag:Cool,
         tag:Flow,
         tag:Limit,
         tag:Max,
@@ -3173,12 +3230,12 @@ brick:Max_Unoccupied_Cooling_Supply_Air_Flow_Setpoint_Limit a owl:Class ;
 
 brick:Max_Unoccupied_Heating_Discharge_Air_Flow_Setpoint_Limit a owl:Class ;
     rdfs:label "Max Unoccupied Heating Discharge Air Flow Setpoint Limit" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Max _:has_Unoccupied _:has_Heating _:has_Discharge _:has_Air _:has_Flow _:has_Limit _:has_Parameter _:has_Setpoint ) ],
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Max _:has_Unoccupied _:has_Heat _:has_Discharge _:has_Air _:has_Flow _:has_Limit _:has_Parameter _:has_Setpoint ) ],
         brick:Max_Heating_Discharge_Air_Flow_Setpoint_Limit ;
     brick:hasAssociatedTag tag:Air,
         tag:Discharge,
         tag:Flow,
-        tag:Heating,
+        tag:Heat,
         tag:Limit,
         tag:Max,
         tag:Parameter,
@@ -3188,11 +3245,11 @@ brick:Max_Unoccupied_Heating_Discharge_Air_Flow_Setpoint_Limit a owl:Class ;
 
 brick:Max_Unoccupied_Heating_Supply_Air_Flow_Setpoint_Limit a owl:Class ;
     rdfs:label "Max Unoccupied Heating Supply Air Flow Setpoint Limit" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Max _:has_Unoccupied _:has_Heating _:has_Supply _:has_Air _:has_Flow _:has_Limit _:has_Parameter _:has_Setpoint ) ],
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Max _:has_Unoccupied _:has_Heat _:has_Supply _:has_Air _:has_Flow _:has_Limit _:has_Parameter _:has_Setpoint ) ],
         brick:Max_Heating_Supply_Air_Flow_Setpoint_Limit ;
     brick:hasAssociatedTag tag:Air,
         tag:Flow,
-        tag:Heating,
+        tag:Heat,
         tag:Limit,
         tag:Max,
         tag:Parameter,
@@ -3424,10 +3481,10 @@ brick:Min_Hot_Water_Differential_Pressure_Setpoint_Limit a owl:Class ;
 
 brick:Min_Occupied_Cooling_Discharge_Air_Flow_Setpoint_Limit a owl:Class ;
     rdfs:label "Min Occupied Cooling Discharge Air Flow Setpoint Limit" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Min _:has_Occupied _:has_Cooling _:has_Discharge _:has_Air _:has_Flow _:has_Limit _:has_Parameter _:has_Setpoint ) ],
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Min _:has_Occupied _:has_Cool _:has_Discharge _:has_Air _:has_Flow _:has_Limit _:has_Parameter _:has_Setpoint ) ],
         brick:Min_Cooling_Discharge_Air_Flow_Setpoint_Limit ;
     brick:hasAssociatedTag tag:Air,
-        tag:Cooling,
+        tag:Cool,
         tag:Discharge,
         tag:Flow,
         tag:Limit,
@@ -3439,10 +3496,10 @@ brick:Min_Occupied_Cooling_Discharge_Air_Flow_Setpoint_Limit a owl:Class ;
 
 brick:Min_Occupied_Cooling_Supply_Air_Flow_Setpoint_Limit a owl:Class ;
     rdfs:label "Min Occupied Cooling Supply Air Flow Setpoint Limit" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Min _:has_Occupied _:has_Cooling _:has_Supply _:has_Air _:has_Flow _:has_Limit _:has_Parameter _:has_Setpoint ) ],
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Min _:has_Occupied _:has_Cool _:has_Supply _:has_Air _:has_Flow _:has_Limit _:has_Parameter _:has_Setpoint ) ],
         brick:Min_Cooling_Supply_Air_Flow_Setpoint_Limit ;
     brick:hasAssociatedTag tag:Air,
-        tag:Cooling,
+        tag:Cool,
         tag:Flow,
         tag:Limit,
         tag:Min,
@@ -3454,12 +3511,12 @@ brick:Min_Occupied_Cooling_Supply_Air_Flow_Setpoint_Limit a owl:Class ;
 
 brick:Min_Occupied_Heating_Discharge_Air_Flow_Setpoint_Limit a owl:Class ;
     rdfs:label "Min Occupied Heating Discharge Air Flow Setpoint Limit" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Min _:has_Occupied _:has_Heating _:has_Discharge _:has_Air _:has_Flow _:has_Limit _:has_Parameter _:has_Setpoint ) ],
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Min _:has_Occupied _:has_Heat _:has_Discharge _:has_Air _:has_Flow _:has_Limit _:has_Parameter _:has_Setpoint ) ],
         brick:Min_Heating_Discharge_Air_Flow_Setpoint_Limit ;
     brick:hasAssociatedTag tag:Air,
         tag:Discharge,
         tag:Flow,
-        tag:Heating,
+        tag:Heat,
         tag:Limit,
         tag:Min,
         tag:Occupied,
@@ -3469,11 +3526,11 @@ brick:Min_Occupied_Heating_Discharge_Air_Flow_Setpoint_Limit a owl:Class ;
 
 brick:Min_Occupied_Heating_Supply_Air_Flow_Setpoint_Limit a owl:Class ;
     rdfs:label "Min Occupied Heating Supply Air Flow Setpoint Limit" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Min _:has_Occupied _:has_Heating _:has_Supply _:has_Air _:has_Flow _:has_Limit _:has_Parameter _:has_Setpoint ) ],
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Min _:has_Occupied _:has_Heat _:has_Supply _:has_Air _:has_Flow _:has_Limit _:has_Parameter _:has_Setpoint ) ],
         brick:Min_Heating_Supply_Air_Flow_Setpoint_Limit ;
     brick:hasAssociatedTag tag:Air,
         tag:Flow,
-        tag:Heating,
+        tag:Heat,
         tag:Limit,
         tag:Min,
         tag:Occupied,
@@ -3535,10 +3592,10 @@ brick:Min_Supply_Air_Static_Pressure_Setpoint_Limit a owl:Class ;
 
 brick:Min_Unoccupied_Cooling_Discharge_Air_Flow_Setpoint_Limit a owl:Class ;
     rdfs:label "Min Unoccupied Cooling Discharge Air Flow Setpoint Limit" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Min _:has_Unoccupied _:has_Cooling _:has_Discharge _:has_Air _:has_Flow _:has_Limit _:has_Parameter _:has_Setpoint ) ],
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Min _:has_Unoccupied _:has_Cool _:has_Discharge _:has_Air _:has_Flow _:has_Limit _:has_Parameter _:has_Setpoint ) ],
         brick:Min_Cooling_Discharge_Air_Flow_Setpoint_Limit ;
     brick:hasAssociatedTag tag:Air,
-        tag:Cooling,
+        tag:Cool,
         tag:Discharge,
         tag:Flow,
         tag:Limit,
@@ -3550,10 +3607,10 @@ brick:Min_Unoccupied_Cooling_Discharge_Air_Flow_Setpoint_Limit a owl:Class ;
 
 brick:Min_Unoccupied_Cooling_Supply_Air_Flow_Setpoint_Limit a owl:Class ;
     rdfs:label "Min Unoccupied Cooling Supply Air Flow Setpoint Limit" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Min _:has_Unoccupied _:has_Cooling _:has_Supply _:has_Air _:has_Flow _:has_Limit _:has_Parameter _:has_Setpoint ) ],
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Min _:has_Unoccupied _:has_Cool _:has_Supply _:has_Air _:has_Flow _:has_Limit _:has_Parameter _:has_Setpoint ) ],
         brick:Min_Cooling_Supply_Air_Flow_Setpoint_Limit ;
     brick:hasAssociatedTag tag:Air,
-        tag:Cooling,
+        tag:Cool,
         tag:Flow,
         tag:Limit,
         tag:Min,
@@ -3565,12 +3622,12 @@ brick:Min_Unoccupied_Cooling_Supply_Air_Flow_Setpoint_Limit a owl:Class ;
 
 brick:Min_Unoccupied_Heating_Discharge_Air_Flow_Setpoint_Limit a owl:Class ;
     rdfs:label "Min Unoccupied Heating Discharge Air Flow Setpoint Limit" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Min _:has_Unoccupied _:has_Heating _:has_Discharge _:has_Air _:has_Flow _:has_Limit _:has_Parameter _:has_Setpoint ) ],
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Min _:has_Unoccupied _:has_Heat _:has_Discharge _:has_Air _:has_Flow _:has_Limit _:has_Parameter _:has_Setpoint ) ],
         brick:Min_Heating_Discharge_Air_Flow_Setpoint_Limit ;
     brick:hasAssociatedTag tag:Air,
         tag:Discharge,
         tag:Flow,
-        tag:Heating,
+        tag:Heat,
         tag:Limit,
         tag:Min,
         tag:Parameter,
@@ -3580,11 +3637,11 @@ brick:Min_Unoccupied_Heating_Discharge_Air_Flow_Setpoint_Limit a owl:Class ;
 
 brick:Min_Unoccupied_Heating_Supply_Air_Flow_Setpoint_Limit a owl:Class ;
     rdfs:label "Min Unoccupied Heating Supply Air Flow Setpoint Limit" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Min _:has_Unoccupied _:has_Heating _:has_Supply _:has_Air _:has_Flow _:has_Limit _:has_Parameter _:has_Setpoint ) ],
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Min _:has_Unoccupied _:has_Heat _:has_Supply _:has_Air _:has_Flow _:has_Limit _:has_Parameter _:has_Setpoint ) ],
         brick:Min_Heating_Supply_Air_Flow_Setpoint_Limit ;
     brick:hasAssociatedTag tag:Air,
         tag:Flow,
-        tag:Heating,
+        tag:Heat,
         tag:Limit,
         tag:Min,
         tag:Parameter,
@@ -3629,14 +3686,22 @@ brick:Mixed_Air_Temperature_Setpoint a owl:Class ;
 
 brick:Monthly_Steam_Usage_Sensor a owl:Class ;
     rdfs:label "Monthly Steam Usage Sensor" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point [ a owl:Restriction ;
-                        owl:hasValue tag:Monthly ;
-                        owl:onProperty brick:hasTag ] _:has_Sensor _:has_Usage _:has_Steam ) ],
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Monthly _:has_Sensor _:has_Usage _:has_Steam ) ],
         brick:Steam_Usage_Sensor ;
     brick:hasAssociatedTag tag:Monthly,
         tag:Point,
         tag:Sensor,
         tag:Steam,
+        tag:Usage .
+
+brick:Monthly_Usage_Energy_Sensor a owl:Class ;
+    rdfs:label "Monthly Usage Energy Sensor" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Sensor _:has_Energy _:has_Usage _:has_Monthly ) ],
+        brick:Energy_Usage_Sensor ;
+    brick:hasAssociatedTag tag:Energy,
+        tag:Monthly,
+        tag:Point,
+        tag:Sensor,
         tag:Usage .
 
 brick:Motor_Current_Sensor a owl:Class ;
@@ -3706,11 +3771,11 @@ brick:Occupancy_Command a owl:Class ;
 
 brick:Occupied_Cooling_Discharge_Air_Flow_Setpoint a owl:Class ;
     rdfs:label "Occupied Cooling Discharge Air Flow Setpoint" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Occupied _:has_Cooling _:has_Discharge _:has_Air _:has_Flow _:has_Setpoint ) ],
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Occupied _:has_Cool _:has_Discharge _:has_Air _:has_Flow _:has_Setpoint ) ],
         brick:Cooling_Discharge_Air_Flow_Setpoint,
         brick:Occupied_Discharge_Air_Flow_Setpoint ;
     brick:hasAssociatedTag tag:Air,
-        tag:Cooling,
+        tag:Cool,
         tag:Discharge,
         tag:Flow,
         tag:Occupied,
@@ -3719,11 +3784,11 @@ brick:Occupied_Cooling_Discharge_Air_Flow_Setpoint a owl:Class ;
 
 brick:Occupied_Cooling_Supply_Air_Flow_Setpoint a owl:Class ;
     rdfs:label "Occupied Cooling Supply Air Flow Setpoint" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Occupied _:has_Cooling _:has_Supply _:has_Air _:has_Flow _:has_Setpoint ) ],
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Occupied _:has_Cool _:has_Supply _:has_Air _:has_Flow _:has_Setpoint ) ],
         brick:Cooling_Supply_Air_Flow_Setpoint,
         brick:Occupied_Supply_Air_Flow_Setpoint ;
     brick:hasAssociatedTag tag:Air,
-        tag:Cooling,
+        tag:Cool,
         tag:Flow,
         tag:Occupied,
         tag:Point,
@@ -3732,10 +3797,10 @@ brick:Occupied_Cooling_Supply_Air_Flow_Setpoint a owl:Class ;
 
 brick:Occupied_Cooling_Temperature_Deadband_Setpoint a owl:Class ;
     rdfs:label "Occupied Cooling Temperature Deadband Setpoint" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Occupied _:has_Cooling _:has_Temperature _:has_Deadband _:has_Setpoint ) ],
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Occupied _:has_Cool _:has_Temperature _:has_Deadband _:has_Setpoint ) ],
         brick:Cooling_Temperature_Setpoint,
         brick:Temperature_Deadband_Setpoint ;
-    brick:hasAssociatedTag tag:Cooling,
+    brick:hasAssociatedTag tag:Cool,
         tag:Deadband,
         tag:Occupied,
         tag:Point,
@@ -3744,25 +3809,25 @@ brick:Occupied_Cooling_Temperature_Deadband_Setpoint a owl:Class ;
 
 brick:Occupied_Heating_Discharge_Air_Flow_Setpoint a owl:Class ;
     rdfs:label "Occupied Heating Discharge Air Flow Setpoint" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Occupied _:has_Heating _:has_Discharge _:has_Air _:has_Flow _:has_Setpoint ) ],
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Occupied _:has_Heat _:has_Discharge _:has_Air _:has_Flow _:has_Setpoint ) ],
         brick:Heating_Discharge_Air_Flow_Setpoint,
         brick:Occupied_Discharge_Air_Flow_Setpoint ;
     brick:hasAssociatedTag tag:Air,
         tag:Discharge,
         tag:Flow,
-        tag:Heating,
+        tag:Heat,
         tag:Occupied,
         tag:Point,
         tag:Setpoint .
 
 brick:Occupied_Heating_Supply_Air_Flow_Setpoint a owl:Class ;
     rdfs:label "Occupied Heating Supply Air Flow Setpoint" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Occupied _:has_Heating _:has_Supply _:has_Air _:has_Flow _:has_Setpoint ) ],
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Occupied _:has_Heat _:has_Supply _:has_Air _:has_Flow _:has_Setpoint ) ],
         brick:Heating_Supply_Air_Flow_Setpoint,
         brick:Occupied_Supply_Air_Flow_Setpoint ;
     brick:hasAssociatedTag tag:Air,
         tag:Flow,
-        tag:Heating,
+        tag:Heat,
         tag:Occupied,
         tag:Point,
         tag:Setpoint,
@@ -3770,11 +3835,11 @@ brick:Occupied_Heating_Supply_Air_Flow_Setpoint a owl:Class ;
 
 brick:Occupied_Heating_Temperature_Deadband_Setpoint a owl:Class ;
     rdfs:label "Occupied Heating Temperature Deadband Setpoint" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Occupied _:has_Heating _:has_Temperature _:has_Deadband _:has_Setpoint ) ],
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Occupied _:has_Heat _:has_Temperature _:has_Deadband _:has_Setpoint ) ],
         brick:Heating_Temperature_Setpoint,
         brick:Temperature_Deadband_Setpoint ;
     brick:hasAssociatedTag tag:Deadband,
-        tag:Heating,
+        tag:Heat,
         tag:Occupied,
         tag:Point,
         tag:Setpoint,
@@ -3813,11 +3878,11 @@ brick:Open_Heating_Valve_Outside_Air_Temperature_Setpoint a owl:Class ;
     rdfs:label "Open Heating Valve Outside Air Temperature Setpoint" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Point [ a owl:Restriction ;
                         owl:hasValue tag:Open ;
-                        owl:onProperty brick:hasTag ] _:has_Heating _:has_Valve _:has_Outside _:has_Air _:has_Temperature _:has_Setpoint ) ],
+                        owl:onProperty brick:hasTag ] _:has_Heat _:has_Valve _:has_Outside _:has_Air _:has_Temperature _:has_Setpoint ) ],
         brick:Heating_Temperature_Setpoint,
         brick:Outside_Air_Temperature_Setpoint ;
     brick:hasAssociatedTag tag:Air,
-        tag:Heating,
+        tag:Heat,
         tag:Open,
         tag:Outside,
         tag:Point,
@@ -5075,11 +5140,11 @@ brick:Unit_Failure_Alarm a owl:Class ;
 
 brick:Unoccupied_Air_Temperature_Cooling_Setpoint a owl:Class ;
     rdfs:label "Unoccupied Air Temperature Cooling Setpoint" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Unoccupied _:has_Cooling _:has_Air _:has_Temperature _:has_Setpoint ) ],
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Unoccupied _:has_Cool _:has_Air _:has_Temperature _:has_Setpoint ) ],
         brick:Cooling_Temperature_Setpoint,
         brick:Unoccupied_Air_Temperature_Setpoint ;
     brick:hasAssociatedTag tag:Air,
-        tag:Cooling,
+        tag:Cool,
         tag:Point,
         tag:Setpoint,
         tag:Temperature,
@@ -5087,11 +5152,11 @@ brick:Unoccupied_Air_Temperature_Cooling_Setpoint a owl:Class ;
 
 brick:Unoccupied_Air_Temperature_Heating_Setpoint a owl:Class ;
     rdfs:label "Unoccupied Air Temperature Heating Setpoint" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Unoccupied _:has_Heating _:has_Air _:has_Temperature _:has_Setpoint ) ],
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Unoccupied _:has_Heat _:has_Air _:has_Temperature _:has_Setpoint ) ],
         brick:Heating_Temperature_Setpoint,
         brick:Unoccupied_Air_Temperature_Setpoint ;
     brick:hasAssociatedTag tag:Air,
-        tag:Heating,
+        tag:Heat,
         tag:Point,
         tag:Setpoint,
         tag:Temperature,
@@ -5099,10 +5164,10 @@ brick:Unoccupied_Air_Temperature_Heating_Setpoint a owl:Class ;
 
 brick:Unoccupied_Cooling_Discharge_Air_Flow_Setpoint a owl:Class ;
     rdfs:label "Unoccupied Cooling Discharge Air Flow Setpoint" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Unoccupied _:has_Cooling _:has_Discharge _:has_Air _:has_Flow _:has_Setpoint ) ],
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Unoccupied _:has_Cool _:has_Discharge _:has_Air _:has_Flow _:has_Setpoint ) ],
         brick:Cooling_Discharge_Air_Flow_Setpoint ;
     brick:hasAssociatedTag tag:Air,
-        tag:Cooling,
+        tag:Cool,
         tag:Discharge,
         tag:Flow,
         tag:Point,
@@ -5265,13 +5330,21 @@ brick:Wing a owl:Class ;
 
 brick:Yearly_Steam_Usage_Sensor a owl:Class ;
     rdfs:label "Yearly Steam Usage Sensor" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point [ a owl:Restriction ;
-                        owl:hasValue tag:Yearly ;
-                        owl:onProperty brick:hasTag ] _:has_Sensor _:has_Usage _:has_Steam ) ],
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Yearly _:has_Sensor _:has_Usage _:has_Steam ) ],
         brick:Steam_Usage_Sensor ;
     brick:hasAssociatedTag tag:Point,
         tag:Sensor,
         tag:Steam,
+        tag:Usage,
+        tag:Yearly .
+
+brick:Yearly_Usage_Energy_Sensor a owl:Class ;
+    rdfs:label "Yearly Usage Energy Sensor" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Sensor _:has_Energy _:has_Usage _:has_Yearly ) ],
+        brick:Energy_Usage_Sensor ;
+    brick:hasAssociatedTag tag:Energy,
+        tag:Point,
+        tag:Sensor,
         tag:Usage,
         tag:Yearly .
 
@@ -5480,6 +5553,16 @@ brick:Chilled_Water_Differential_Pressure_Load_Shed_Status a owl:Class ;
         tag:Status,
         tag:Water .
 
+brick:Chilled_Water_Meter a owl:Class ;
+    rdfs:label "Chilled Water Meter" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Meter _:has_Equipment _:has_Water _:has_Chilled ) ],
+        brick:Chilled_Water_System,
+        brick:Water_Meter ;
+    brick:hasAssociatedTag tag:Chilled,
+        tag:Equipment,
+        tag:Meter,
+        tag:Water .
+
 brick:Cloudage a owl:Class,
         brick:Cloudage ;
     rdfs:label "Cloudage" ;
@@ -5548,21 +5631,30 @@ brick:Cooling_Command a owl:Class ;
         tag:Cool,
         tag:Point .
 
+brick:Cooling_Demand_Sensor a owl:Class ;
+    rdfs:label "Cooling Demand Sensor" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Sensor _:has_Demand _:has_Cool ) ],
+        brick:Demand_Sensor ;
+    brick:hasAssociatedTag tag:Cool,
+        tag:Demand,
+        tag:Point,
+        tag:Sensor .
+
 brick:Cooling_Request_Setpoint a owl:Class ;
     rdfs:label "Cooling Request Setpoint" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Cooling _:has_Request _:has_Setpoint ) ],
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Cool _:has_Request _:has_Setpoint ) ],
         brick:Request_Setpoint ;
-    brick:hasAssociatedTag tag:Cooling,
+    brick:hasAssociatedTag tag:Cool,
         tag:Point,
         tag:Request,
         tag:Setpoint .
 
 brick:Cooling_Supply_Air_Flow_Setpoint a owl:Class ;
     rdfs:label "Cooling Supply Air Flow Setpoint" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Cooling _:has_Supply _:has_Air _:has_Flow _:has_Setpoint ) ],
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Cool _:has_Supply _:has_Air _:has_Flow _:has_Setpoint ) ],
         brick:Supply_Air_Flow_Setpoint ;
     brick:hasAssociatedTag tag:Air,
-        tag:Cooling,
+        tag:Cool,
         tag:Flow,
         tag:Point,
         tag:Setpoint,
@@ -5621,14 +5713,6 @@ brick:Delay_Parameter a owl:Class ;
     brick:hasAssociatedTag tag:Delay,
         tag:Parameter,
         tag:Point .
-
-brick:Demand_Sensor a owl:Class ;
-    rdfs:label "Demand Sensor" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Sensor _:has_Demand ) ],
-        brick:Sensor ;
-    brick:hasAssociatedTag tag:Demand,
-        tag:Point,
-        tag:Sensor .
 
 brick:Differential_Pressure_Step_Parameter a owl:Class ;
     rdfs:label "Differential Pressure Step Parameter" ;
@@ -5697,12 +5781,12 @@ brick:Discharge_Air_Temperature_Alarm a owl:Class ;
 
 brick:Discharge_Air_Temperature_Cooling_Setpoint a owl:Class ;
     rdfs:label "Discharge Air Temperature Cooling Setpoint" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Discharge _:has_Air _:has_Temperature _:has_Cooling _:has_Setpoint ) ],
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Discharge _:has_Air _:has_Temperature _:has_Cool _:has_Setpoint ) ],
         brick:Cooling_Temperature_Setpoint,
         brick:Discharge_Air_Temperature_Setpoint ;
     owl:equivalentClass brick:Max_Discharge_Air_Temperature_Setpoint ;
     brick:hasAssociatedTag tag:Air,
-        tag:Cooling,
+        tag:Cool,
         tag:Discharge,
         tag:Point,
         tag:Setpoint,
@@ -5710,13 +5794,13 @@ brick:Discharge_Air_Temperature_Cooling_Setpoint a owl:Class ;
 
 brick:Discharge_Air_Temperature_Heating_Setpoint a owl:Class ;
     rdfs:label "Discharge Air Temperature Heating Setpoint" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Discharge _:has_Air _:has_Temperature _:has_Heating _:has_Setpoint ) ],
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Discharge _:has_Air _:has_Temperature _:has_Heat _:has_Setpoint ) ],
         brick:Discharge_Air_Temperature_Setpoint,
         brick:Heating_Temperature_Setpoint ;
     owl:equivalentClass brick:Min_Discharge_Air_Temperature_Setpoint ;
     brick:hasAssociatedTag tag:Air,
         tag:Discharge,
-        tag:Heating,
+        tag:Heat,
         tag:Point,
         tag:Setpoint,
         tag:Temperature .
@@ -5820,16 +5904,13 @@ brick:Electric_Energy a owl:Class,
     rdfs:label "Electric Energy" ;
     rdfs:subClassOf brick:Energy .
 
-brick:Energy_Sensor a owl:Class ;
-    rdfs:label "Energy Sensor" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Sensor _:has_Energy ) ],
-        brick:Sensor ;
-    owl:equivalentClass [ owl:intersectionOf ( [ a owl:Restriction ;
-                        owl:hasValue brick:Energy ;
-                        owl:onProperty brick:measures ] ) ] ;
-    brick:hasAssociatedTag tag:Energy,
-        tag:Point,
-        tag:Sensor .
+brick:Electrical_Meter a owl:Class ;
+    rdfs:label "Electrical Meter" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Electrical _:has_Meter _:has_Equipment ) ],
+        brick:Meter ;
+    brick:hasAssociatedTag tag:Electrical,
+        tag:Equipment,
+        tag:Meter .
 
 brick:Energy_Storage a owl:Class ;
     rdfs:label "Energy Storage" ;
@@ -6015,6 +6096,14 @@ brick:Fuel_Oil a owl:Class,
         tag:Liquid,
         tag:Oil .
 
+brick:Gas_Meter a owl:Class ;
+    rdfs:label "Gas Meter" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Meter _:has_Equipment _:has_Gas ) ],
+        brick:Meter ;
+    brick:hasAssociatedTag tag:Equipment,
+        tag:Gas,
+        tag:Meter .
+
 brick:Gasoline a owl:Class,
         brick:Gasoline ;
     rdfs:label "Gasoline" ;
@@ -6053,33 +6142,42 @@ brick:Heat_Sensor a owl:Class ;
         tag:Point,
         tag:Sensor .
 
+brick:Heating_Demand_Sensor a owl:Class ;
+    rdfs:label "Heating Demand Sensor" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Sensor _:has_Demand _:has_Heat ) ],
+        brick:Demand_Sensor ;
+    brick:hasAssociatedTag tag:Demand,
+        tag:Heat,
+        tag:Point,
+        tag:Sensor .
+
 brick:Heating_Discharge_Air_Flow_Setpoint a owl:Class ;
     rdfs:label "Heating Discharge Air Flow Setpoint" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Heating _:has_Discharge _:has_Air _:has_Flow _:has_Setpoint ) ],
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Heat _:has_Discharge _:has_Air _:has_Flow _:has_Setpoint ) ],
         brick:Discharge_Air_Flow_Setpoint ;
     brick:hasAssociatedTag tag:Air,
         tag:Discharge,
         tag:Flow,
-        tag:Heating,
+        tag:Heat,
         tag:Point,
         tag:Setpoint .
 
 brick:Heating_Request_Setpoint a owl:Class ;
     rdfs:label "Heating Request Setpoint" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Heating _:has_Request _:has_Setpoint ) ],
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Heat _:has_Request _:has_Setpoint ) ],
         brick:Request_Setpoint ;
-    brick:hasAssociatedTag tag:Heating,
+    brick:hasAssociatedTag tag:Heat,
         tag:Point,
         tag:Request,
         tag:Setpoint .
 
 brick:Heating_Supply_Air_Flow_Setpoint a owl:Class ;
     rdfs:label "Heating Supply Air Flow Setpoint" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Heating _:has_Supply _:has_Air _:has_Flow _:has_Setpoint ) ],
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Heat _:has_Supply _:has_Air _:has_Flow _:has_Setpoint ) ],
         brick:Supply_Air_Flow_Setpoint ;
     brick:hasAssociatedTag tag:Air,
         tag:Flow,
-        tag:Heating,
+        tag:Heat,
         tag:Point,
         tag:Setpoint,
         tag:Supply .
@@ -6129,6 +6227,16 @@ brick:Hot_Water_Differential_Pressure_Setpoint a owl:Class ;
         tag:Point,
         tag:Pressure,
         tag:Setpoint,
+        tag:Water .
+
+brick:Hot_Water_Meter a owl:Class ;
+    rdfs:label "Hot Water Meter" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Meter _:has_Equipment _:has_Water _:has_Hot ) ],
+        brick:Chilled_Water_System,
+        brick:Water_Meter ;
+    brick:hasAssociatedTag tag:Equipment,
+        tag:Hot,
+        tag:Meter,
         tag:Water .
 
 brick:Hot_Water_Shutdown_Command a owl:Class ;
@@ -6511,22 +6619,6 @@ brick:Power_Loss_Alarm a owl:Class ;
         tag:Point,
         tag:Power .
 
-brick:Power_Meter a owl:Class ;
-    rdfs:label "Power Meter" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Meter _:has_Equipment _:has_Power ) ],
-        brick:Meter,
-        brick:Power_System ;
-    brick:hasAssociatedTag tag:Equipment,
-        tag:Meter,
-        tag:Power .
-
-brick:Power_System a owl:Class ;
-    rdfs:label "Power System" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Power _:has_Equipment ) ],
-        brick:Electrical_System ;
-    brick:hasAssociatedTag tag:Equipment,
-        tag:Power .
-
 brick:Precipitation a owl:Class,
         brick:Precipitation ;
     rdfs:label "Precipitation" ;
@@ -6888,15 +6980,6 @@ brick:Water_Level_Sensor a owl:Class ;
         tag:Sensor,
         tag:Water .
 
-brick:Water_Meter a owl:Class ;
-    rdfs:label "Water Meter" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Meter _:has_Equipment _:has_Water ) ],
-        brick:Meter,
-        brick:Water_System ;
-    brick:hasAssociatedTag tag:Equipment,
-        tag:Meter,
-        tag:Water .
-
 brick:Water_Usage_Sensor a owl:Class ;
     rdfs:label "Water Usage Sensor" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Sensor _:has_Usage _:has_Water ) ],
@@ -7147,10 +7230,10 @@ brick:Coil a owl:Class ;
 
 brick:Cooling_Discharge_Air_Flow_Setpoint a owl:Class ;
     rdfs:label "Cooling Discharge Air Flow Setpoint" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Cooling _:has_Discharge _:has_Air _:has_Flow _:has_Setpoint ) ],
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Cool _:has_Discharge _:has_Air _:has_Flow _:has_Setpoint ) ],
         brick:Discharge_Air_Flow_Setpoint ;
     brick:hasAssociatedTag tag:Air,
-        tag:Cooling,
+        tag:Cool,
         tag:Discharge,
         tag:Flow,
         tag:Point,
@@ -7273,6 +7356,17 @@ brick:Enable_Status a owl:Class ;
     brick:hasAssociatedTag tag:Enable,
         tag:Point,
         tag:Status .
+
+brick:Energy_Sensor a owl:Class ;
+    rdfs:label "Energy Sensor" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Sensor _:has_Energy ) ],
+        brick:Sensor ;
+    owl:equivalentClass [ owl:intersectionOf ( [ a owl:Restriction ;
+                        owl:hasValue brick:Energy ;
+                        owl:onProperty brick:measures ] ) ] ;
+    brick:hasAssociatedTag tag:Energy,
+        tag:Point,
+        tag:Sensor .
 
 brick:Entering_Water a owl:Class,
         brick:Entering_Water ;
@@ -7449,10 +7543,10 @@ brick:Load_Shed_Command a owl:Class ;
 
 brick:Max_Cooling_Discharge_Air_Flow_Setpoint_Limit a owl:Class ;
     rdfs:label "Max Cooling Discharge Air Flow Setpoint Limit" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Max _:has_Cooling _:has_Discharge _:has_Air _:has_Flow _:has_Limit _:has_Parameter _:has_Setpoint ) ],
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Max _:has_Cool _:has_Discharge _:has_Air _:has_Flow _:has_Limit _:has_Parameter _:has_Setpoint ) ],
         brick:Max_Air_Flow_Setpoint_Limit ;
     brick:hasAssociatedTag tag:Air,
-        tag:Cooling,
+        tag:Cool,
         tag:Discharge,
         tag:Flow,
         tag:Limit,
@@ -7463,10 +7557,10 @@ brick:Max_Cooling_Discharge_Air_Flow_Setpoint_Limit a owl:Class ;
 
 brick:Max_Cooling_Supply_Air_Flow_Setpoint_Limit a owl:Class ;
     rdfs:label "Max Cooling Supply Air Flow Setpoint Limit" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Max _:has_Cooling _:has_Supply _:has_Air _:has_Flow _:has_Limit _:has_Parameter _:has_Setpoint ) ],
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Max _:has_Cool _:has_Supply _:has_Air _:has_Flow _:has_Limit _:has_Parameter _:has_Setpoint ) ],
         brick:Max_Air_Flow_Setpoint_Limit ;
     brick:hasAssociatedTag tag:Air,
-        tag:Cooling,
+        tag:Cool,
         tag:Flow,
         tag:Limit,
         tag:Max,
@@ -7477,12 +7571,12 @@ brick:Max_Cooling_Supply_Air_Flow_Setpoint_Limit a owl:Class ;
 
 brick:Max_Heating_Discharge_Air_Flow_Setpoint_Limit a owl:Class ;
     rdfs:label "Max Heating Discharge Air Flow Setpoint Limit" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Max _:has_Heating _:has_Discharge _:has_Air _:has_Flow _:has_Limit _:has_Parameter _:has_Setpoint ) ],
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Max _:has_Heat _:has_Discharge _:has_Air _:has_Flow _:has_Limit _:has_Parameter _:has_Setpoint ) ],
         brick:Max_Air_Flow_Setpoint_Limit ;
     brick:hasAssociatedTag tag:Air,
         tag:Discharge,
         tag:Flow,
-        tag:Heating,
+        tag:Heat,
         tag:Limit,
         tag:Max,
         tag:Parameter,
@@ -7491,11 +7585,11 @@ brick:Max_Heating_Discharge_Air_Flow_Setpoint_Limit a owl:Class ;
 
 brick:Max_Heating_Supply_Air_Flow_Setpoint_Limit a owl:Class ;
     rdfs:label "Max Heating Supply Air Flow Setpoint Limit" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Max _:has_Heating _:has_Supply _:has_Air _:has_Flow _:has_Limit _:has_Parameter _:has_Setpoint ) ],
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Max _:has_Heat _:has_Supply _:has_Air _:has_Flow _:has_Limit _:has_Parameter _:has_Setpoint ) ],
         brick:Max_Air_Flow_Setpoint_Limit ;
     brick:hasAssociatedTag tag:Air,
         tag:Flow,
-        tag:Heating,
+        tag:Heat,
         tag:Limit,
         tag:Max,
         tag:Parameter,
@@ -7518,10 +7612,10 @@ brick:Max_Static_Pressure_Setpoint_Limit a owl:Class ;
 
 brick:Min_Cooling_Discharge_Air_Flow_Setpoint_Limit a owl:Class ;
     rdfs:label "Min Cooling Discharge Air Flow Setpoint Limit" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Min _:has_Cooling _:has_Discharge _:has_Air _:has_Flow _:has_Limit _:has_Parameter _:has_Setpoint ) ],
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Min _:has_Cool _:has_Discharge _:has_Air _:has_Flow _:has_Limit _:has_Parameter _:has_Setpoint ) ],
         brick:Min_Air_Flow_Setpoint_Limit ;
     brick:hasAssociatedTag tag:Air,
-        tag:Cooling,
+        tag:Cool,
         tag:Discharge,
         tag:Flow,
         tag:Limit,
@@ -7532,10 +7626,10 @@ brick:Min_Cooling_Discharge_Air_Flow_Setpoint_Limit a owl:Class ;
 
 brick:Min_Cooling_Supply_Air_Flow_Setpoint_Limit a owl:Class ;
     rdfs:label "Min Cooling Supply Air Flow Setpoint Limit" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Min _:has_Cooling _:has_Supply _:has_Air _:has_Flow _:has_Limit _:has_Parameter _:has_Setpoint ) ],
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Min _:has_Cool _:has_Supply _:has_Air _:has_Flow _:has_Limit _:has_Parameter _:has_Setpoint ) ],
         brick:Min_Air_Flow_Setpoint_Limit ;
     brick:hasAssociatedTag tag:Air,
-        tag:Cooling,
+        tag:Cool,
         tag:Flow,
         tag:Limit,
         tag:Min,
@@ -7546,12 +7640,12 @@ brick:Min_Cooling_Supply_Air_Flow_Setpoint_Limit a owl:Class ;
 
 brick:Min_Heating_Discharge_Air_Flow_Setpoint_Limit a owl:Class ;
     rdfs:label "Min Heating Discharge Air Flow Setpoint Limit" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Min _:has_Heating _:has_Discharge _:has_Air _:has_Flow _:has_Limit _:has_Parameter _:has_Setpoint ) ],
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Min _:has_Heat _:has_Discharge _:has_Air _:has_Flow _:has_Limit _:has_Parameter _:has_Setpoint ) ],
         brick:Min_Air_Flow_Setpoint_Limit ;
     brick:hasAssociatedTag tag:Air,
         tag:Discharge,
         tag:Flow,
-        tag:Heating,
+        tag:Heat,
         tag:Limit,
         tag:Min,
         tag:Parameter,
@@ -7560,11 +7654,11 @@ brick:Min_Heating_Discharge_Air_Flow_Setpoint_Limit a owl:Class ;
 
 brick:Min_Heating_Supply_Air_Flow_Setpoint_Limit a owl:Class ;
     rdfs:label "Min Heating Supply Air Flow Setpoint Limit" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Min _:has_Heating _:has_Supply _:has_Air _:has_Flow _:has_Limit _:has_Parameter _:has_Setpoint ) ],
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Min _:has_Heat _:has_Supply _:has_Air _:has_Flow _:has_Limit _:has_Parameter _:has_Setpoint ) ],
         brick:Min_Air_Flow_Setpoint_Limit ;
     brick:hasAssociatedTag tag:Air,
         tag:Flow,
-        tag:Heating,
+        tag:Heat,
         tag:Limit,
         tag:Min,
         tag:Parameter,
@@ -7759,21 +7853,6 @@ brick:Return_Water a owl:Class,
         tag:Return,
         tag:Water .
 
-brick:Return_Water_Temperature_Sensor a owl:Class ;
-    rdfs:label "Return Water Temperature Sensor" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Sensor _:has_Temperature _:has_Water _:has_Return ) ],
-        brick:Water_Temperature_Sensor ;
-    owl:equivalentClass [ owl:intersectionOf ( [ a owl:Restriction ;
-                        owl:hasValue brick:Temperature ;
-                        owl:onProperty brick:measures ] [ a owl:Restriction ;
-                        owl:hasValue brick:Return_Water ;
-                        owl:onProperty brick:measures ] ) ] ;
-    brick:hasAssociatedTag tag:Point,
-        tag:Return,
-        tag:Sensor,
-        tag:Temperature,
-        tag:Water .
-
 brick:Room a owl:Class ;
     rdfs:label "Room" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Room _:has_Location ) ],
@@ -7913,15 +7992,6 @@ brick:Temperature_Sensor a owl:Class ;
         tag:Sensor,
         tag:Temperature .
 
-brick:Thermal_Power_Meter a owl:Class ;
-    rdfs:label "Thermal Power Meter" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Meter _:has_Equipment _:has_Power _:has_Thermal ) ],
-        brick:Power_Meter ;
-    brick:hasAssociatedTag tag:Equipment,
-        tag:Meter,
-        tag:Power,
-        tag:Thermal .
-
 brick:Time_Parameter a owl:Class ;
     rdfs:label "Time Parameter" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Parameter _:has_Time ) ],
@@ -7960,14 +8030,6 @@ brick:Unoccupied_Air_Temperature_Setpoint a owl:Class ;
         tag:Setpoint,
         tag:Temperature,
         tag:Unoccupied .
-
-brick:Usage_Sensor a owl:Class ;
-    rdfs:label "Usage Sensor" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Sensor _:has_Usage ) ],
-        brick:Sensor ;
-    brick:hasAssociatedTag tag:Point,
-        tag:Sensor,
-        tag:Usage .
 
 brick:Variable_Air_Volume_Box a owl:Class ;
     rdfs:label "Variable Air Volume Box" ;
@@ -8086,6 +8148,9 @@ tag:Curtailment a brick:Tag ;
 tag:Cutout a brick:Tag ;
     rdfs:label "Cutout" .
 
+tag:Daily a brick:Tag ;
+    rdfs:label "Daily" .
+
 tag:Dc a brick:Tag ;
     rdfs:label "Dc" .
 
@@ -8196,9 +8261,6 @@ tag:Manual a brick:Tag ;
 
 tag:Month a brick:Tag ;
     rdfs:label "Month" .
-
-tag:Monthly a brick:Tag ;
-    rdfs:label "Monthly" .
 
 tag:Motion a brick:Tag ;
     rdfs:label "Motion" .
@@ -8353,9 +8415,6 @@ tag:Wheel a brick:Tag ;
 tag:Wing a brick:Tag ;
     rdfs:label "Wing" .
 
-tag:Yearly a brick:Tag ;
-    rdfs:label "Yearly" .
-
 tag:Zenith a brick:Tag ;
     rdfs:label "Zenith" .
 
@@ -8383,15 +8442,6 @@ brick:Air_Temperature_Alarm a owl:Class ;
         tag:Alarm,
         tag:Point,
         tag:Temperature .
-
-brick:Chilled_Water_System a owl:Class ;
-    rdfs:label "Chilled Water System" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Water _:has_Chilled _:has_Equipment ) ],
-        brick:Water_System ;
-    owl:equivalentClass brick:CWS ;
-    brick:hasAssociatedTag tag:Chilled,
-        tag:Equipment,
-        tag:Water .
 
 brick:Chilled_Water_Temperature_Sensor a owl:Class ;
     rdfs:label "Chilled Water Temperature Sensor" ;
@@ -8440,6 +8490,14 @@ brick:Deionized_Water a owl:Class,
         tag:Liquid,
         tag:Water .
 
+brick:Demand_Sensor a owl:Class ;
+    rdfs:label "Demand Sensor" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Sensor _:has_Demand ) ],
+        brick:Sensor ;
+    brick:hasAssociatedTag tag:Demand,
+        tag:Point,
+        tag:Sensor .
+
 brick:Differential_Pressure_Load_Shed_Status a owl:Class ;
     rdfs:label "Differential Pressure Load Shed Status" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Differential _:has_Pressure _:has_Load _:has_Shed _:has_Status ) ],
@@ -8482,6 +8540,16 @@ brick:Electrical_Power_Sensor a owl:Class ;
         tag:Point,
         tag:Power,
         tag:Sensor .
+
+brick:Energy_Usage_Sensor a owl:Class ;
+    rdfs:label "Energy Usage Sensor" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Sensor _:has_Energy _:has_Usage ) ],
+        brick:Energy_Sensor,
+        brick:Usage_Sensor ;
+    brick:hasAssociatedTag tag:Energy,
+        tag:Point,
+        tag:Sensor,
+        tag:Usage .
 
 brick:Fault_Status a owl:Class ;
     rdfs:label "Fault Status" ;
@@ -8574,13 +8642,6 @@ brick:Load_Shed_Status a owl:Class ;
         tag:Shed,
         tag:Status .
 
-brick:Meter a owl:Class ;
-    rdfs:label "Meter" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Meter _:has_Equipment ) ],
-        brick:Equipment ;
-    brick:hasAssociatedTag tag:Equipment,
-        tag:Meter .
-
 brick:Mode_Command a owl:Class ;
     rdfs:label "Mode Command" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Mode _:has_Command ) ],
@@ -8647,6 +8708,21 @@ brick:Reset_Command a owl:Class ;
     brick:hasAssociatedTag tag:Command,
         tag:Point,
         tag:Reset .
+
+brick:Return_Water_Temperature_Sensor a owl:Class ;
+    rdfs:label "Return Water Temperature Sensor" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Sensor _:has_Temperature _:has_Water _:has_Return ) ],
+        brick:Water_Temperature_Sensor ;
+    owl:equivalentClass [ owl:intersectionOf ( [ a owl:Restriction ;
+                        owl:hasValue brick:Temperature ;
+                        owl:onProperty brick:measures ] [ a owl:Restriction ;
+                        owl:hasValue brick:Return_Water ;
+                        owl:onProperty brick:measures ] ) ] ;
+    brick:hasAssociatedTag tag:Point,
+        tag:Return,
+        tag:Sensor,
+        tag:Temperature,
+        tag:Water .
 
 brick:Speed a owl:Class,
         brick:Speed ;
@@ -8749,6 +8825,14 @@ brick:Time a owl:Class,
     rdfs:label "Time" ;
     rdfs:subClassOf brick:Quantity .
 
+brick:Usage_Sensor a owl:Class ;
+    rdfs:label "Usage Sensor" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Sensor _:has_Usage ) ],
+        brick:Sensor ;
+    brick:hasAssociatedTag tag:Point,
+        tag:Sensor,
+        tag:Usage .
+
 brick:VFD a owl:Class ;
     rdfs:label "VFD" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Equipment _:has_VFD ) ],
@@ -8796,6 +8880,15 @@ brick:Water_Flow_Sensor a owl:Class ;
     brick:hasAssociatedTag tag:Flow,
         tag:Point,
         tag:Sensor,
+        tag:Water .
+
+brick:Water_Meter a owl:Class ;
+    rdfs:label "Water Meter" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Meter _:has_Equipment _:has_Water ) ],
+        brick:Meter,
+        brick:Water_System ;
+    brick:hasAssociatedTag tag:Equipment,
+        tag:Meter,
         tag:Water .
 
 brick:Water_Pump a owl:Class ;
@@ -8925,6 +9018,9 @@ tag:Luminaire a brick:Tag ;
 tag:Maintenance a brick:Tag ;
     rdfs:label "Maintenance" .
 
+tag:Monthly a brick:Tag ;
+    rdfs:label "Monthly" .
+
 tag:Oil a brick:Tag ;
     rdfs:label "Oil" .
 
@@ -8973,6 +9069,9 @@ tag:Volume a brick:Tag ;
 tag:Wind a brick:Tag ;
     rdfs:label "Wind" .
 
+tag:Yearly a brick:Tag ;
+    rdfs:label "Yearly" .
+
 brick:Air_Temperature_Integral_Time_Parameter a owl:Class ;
     rdfs:label "Air Temperature Integral Time Parameter" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Air _:has_Temperature _:has_Parameter _:has_PID _:has_Time _:has_Integral ) ],
@@ -9008,6 +9107,15 @@ brick:CO2_Sensor a owl:Class ;
     brick:hasAssociatedTag tag:CO2,
         tag:Point,
         tag:Sensor .
+
+brick:Chilled_Water_System a owl:Class ;
+    rdfs:label "Chilled Water System" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Water _:has_Chilled _:has_Equipment ) ],
+        brick:Water_System ;
+    owl:equivalentClass brick:CWS ;
+    brick:hasAssociatedTag tag:Chilled,
+        tag:Equipment,
+        tag:Water .
 
 brick:Class a owl:Class .
 
@@ -9128,6 +9236,13 @@ brick:Electric_Voltage a owl:Class,
     rdfs:label "Electric Voltage" ;
     rdfs:subClassOf brick:Voltage .
 
+brick:Electrical_System a owl:Class ;
+    rdfs:label "Electrical System" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Electrical _:has_System ) ],
+        brick:Equipment ;
+    brick:hasAssociatedTag tag:Electrical,
+        tag:System .
+
 brick:Emergency_Power_Off_Status a owl:Class ;
     rdfs:label "Emergency Power Off Status" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Emergency _:has_Power _:has_Off _:has_Status ) ],
@@ -9186,6 +9301,13 @@ brick:Max_Air_Flow_Setpoint_Limit a owl:Class ;
 brick:Measurable a owl:Class ;
     rdfs:label "Measurable" ;
     rdfs:subClassOf brick:Class .
+
+brick:Meter a owl:Class ;
+    rdfs:label "Meter" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Meter _:has_Equipment ) ],
+        brick:Equipment ;
+    brick:hasAssociatedTag tag:Equipment,
+        tag:Meter .
 
 brick:Occupancy a owl:Class,
         brick:Occupancy ;
@@ -9361,6 +9483,14 @@ brick:Air_Quality a owl:Class,
     rdfs:label "Air Quality" ;
     rdfs:subClassOf brick:Quantity .
 
+brick:Building_Meter a owl:Class ;
+    rdfs:label "Building Meter" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Meter _:has_Equipment _:has_Building ) ],
+        brick:Meter ;
+    brick:hasAssociatedTag tag:Building,
+        tag:Equipment,
+        tag:Meter .
+
 brick:Chilled_Water a owl:Class,
         brick:Chilled_Water ;
     rdfs:label "Chilled Water" ;
@@ -9374,9 +9504,9 @@ brick:Chilled_Water a owl:Class,
 
 brick:Cooling_Temperature_Setpoint a owl:Class ;
     rdfs:label "Cooling Temperature Setpoint" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Temperature _:has_Setpoint _:has_Cooling ) ],
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Temperature _:has_Setpoint _:has_Cool ) ],
         brick:Temperature_Setpoint ;
-    brick:hasAssociatedTag tag:Cooling,
+    brick:hasAssociatedTag tag:Cool,
         tag:Point,
         tag:Setpoint,
         tag:Temperature .
@@ -9398,13 +9528,6 @@ brick:Discharge_Air_Temperature_Setpoint a owl:Class ;
         tag:Point,
         tag:Setpoint,
         tag:Temperature .
-
-brick:Electrical_System a owl:Class ;
-    rdfs:label "Electrical System" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Electrical _:has_System ) ],
-        brick:Equipment ;
-    brick:hasAssociatedTag tag:Electrical,
-        tag:System .
 
 brick:Enthalpy a owl:Class,
         brick:Enthalpy ;
@@ -9516,12 +9639,6 @@ brick:Zone_Air_Temperature_Sensor a owl:Class ;
         tag:Temperature,
         tag:Zone .
 
-tag:Average a brick:Tag ;
-    rdfs:label "Average" .
-
-tag:Building a brick:Tag ;
-    rdfs:label "Building" .
-
 tag:Condenser a brick:Tag ;
     rdfs:label "Condenser" .
 
@@ -9557,6 +9674,9 @@ tag:Solid a brick:Tag ;
 
 tag:Storage a brick:Tag ;
     rdfs:label "Storage" .
+
+tag:Thermal a brick:Tag ;
+    rdfs:label "Thermal" .
 
 tag:VFD a brick:Tag ;
     rdfs:label "VFD" .
@@ -9605,9 +9725,9 @@ brick:Fan a owl:Class ;
 
 brick:Heating_Temperature_Setpoint a owl:Class ;
     rdfs:label "Heating Temperature Setpoint" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Temperature _:has_Setpoint _:has_Heating ) ],
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Temperature _:has_Setpoint _:has_Heat ) ],
         brick:Temperature_Setpoint ;
-    brick:hasAssociatedTag tag:Heating,
+    brick:hasAssociatedTag tag:Heat,
         tag:Point,
         tag:Setpoint,
         tag:Temperature .
@@ -9650,9 +9770,6 @@ tag:Coil a brick:Tag ;
 
 tag:Direction a brick:Tag ;
     rdfs:label "Direction" .
-
-tag:Electrical a brick:Tag ;
-    rdfs:label "Electrical" .
 
 tag:Exchanger a brick:Tag ;
     rdfs:label "Exchanger" .
@@ -9768,14 +9885,11 @@ brick:Water_Temperature_Sensor a owl:Class ;
         tag:Temperature,
         tag:Water .
 
+tag:Average a brick:Tag ;
+    rdfs:label "Average" .
+
 tag:Box a brick:Tag ;
     rdfs:label "Box" .
-
-tag:Cool a brick:Tag ;
-    rdfs:label "Cool" .
-
-tag:Energy a brick:Tag ;
-    rdfs:label "Energy" .
 
 tag:Fire a brick:Tag ;
     rdfs:label "Fire" .
@@ -9855,17 +9969,14 @@ tag:Current a brick:Tag ;
 tag:Domestic a brick:Tag ;
     rdfs:label "Domestic" .
 
+tag:Electrical a brick:Tag ;
+    rdfs:label "Electrical" .
+
 tag:Filter a brick:Tag ;
     rdfs:label "Filter" .
 
 tag:Request a brick:Tag ;
     rdfs:label "Request" .
-
-tag:Thermal a brick:Tag ;
-    rdfs:label "Thermal" .
-
-tag:Usage a brick:Tag ;
-    rdfs:label "Usage" .
 
 brick:Air_Temperature_Setpoint a owl:Class ;
     rdfs:label "Air Temperature Setpoint" ;
@@ -9887,9 +9998,6 @@ brick:Max_Limit a owl:Class ;
 
 tag:Disable a brick:Tag ;
     rdfs:label "Disable" .
-
-tag:Meter a brick:Tag ;
-    rdfs:label "Meter" .
 
 tag:Pump a brick:Tag ;
     rdfs:label "Pump" .
@@ -9917,11 +10025,11 @@ brick:Point a owl:Class ;
         brick:Class ;
     brick:hasAssociatedTag tag:Point .
 
+tag:Building a brick:Tag ;
+    rdfs:label "Building" .
+
 tag:Damper a brick:Tag ;
     rdfs:label "Damper" .
-
-tag:Demand a brick:Tag ;
-    rdfs:label "Demand" .
 
 tag:Enthalpy a brick:Tag ;
     rdfs:label "Enthalpy" .
@@ -9931,6 +10039,9 @@ tag:Position a brick:Tag ;
 
 tag:Room a brick:Tag ;
     rdfs:label "Room" .
+
+tag:Energy a brick:Tag ;
+    rdfs:label "Energy" .
 
 tag:Step a brick:Tag ;
     rdfs:label "Step" .
@@ -9961,6 +10072,9 @@ brick:Parameter a owl:Class ;
     brick:hasAssociatedTag tag:Parameter,
         tag:Point .
 
+tag:Usage a brick:Tag ;
+    rdfs:label "Usage" .
+
 tag:CO2 a brick:Tag ;
     rdfs:label "CO2" .
 
@@ -9970,6 +10084,9 @@ tag:Emergency a brick:Tag ;
 tag:Medium a brick:Tag ;
     rdfs:label "Medium" .
 
+tag:Meter a brick:Tag ;
+    rdfs:label "Meter" .
+
 brick:Temperature_Parameter a owl:Class ;
     rdfs:label "Temperature Parameter" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Temperature _:has_Parameter ) ],
@@ -9977,6 +10094,9 @@ brick:Temperature_Parameter a owl:Class ;
     brick:hasAssociatedTag tag:Parameter,
         tag:Point,
         tag:Temperature .
+
+tag:Demand a brick:Tag ;
+    rdfs:label "Demand" .
 
 tag:Mode a brick:Tag ;
     rdfs:label "Mode" .
@@ -10008,11 +10128,8 @@ brick:Water a owl:Class,
         tag:Liquid,
         tag:Water .
 
-tag:Gas a brick:Tag ;
-    rdfs:label "Gas" .
-
-tag:Heat a brick:Tag ;
-    rdfs:label "Heat" .
+tag:Power a brick:Tag ;
+    rdfs:label "Power" .
 
 tag:Speed a brick:Tag ;
     rdfs:label "Speed" .
@@ -10031,6 +10148,9 @@ brick:Air a owl:Class,
     brick:hasAssociatedTag tag:Air,
         tag:Fluid,
         tag:Gas .
+
+tag:Gas a brick:Tag ;
+    rdfs:label "Gas" .
 
 tag:Humidity a brick:Tag ;
     rdfs:label "Humidity" .
@@ -10079,9 +10199,6 @@ tag:Enable a brick:Tag ;
 tag:High a brick:Tag ;
     rdfs:label "High" .
 
-tag:Power a brick:Tag ;
-    rdfs:label "Power" .
-
 tag:Shed a brick:Tag ;
     rdfs:label "Shed" .
 
@@ -10103,20 +10220,17 @@ tag:Liquid a brick:Tag ;
 tag:Proportional a brick:Tag ;
     rdfs:label "Proportional" .
 
-tag:Return a brick:Tag ;
-    rdfs:label "Return" .
-
 tag:Time a brick:Tag ;
     rdfs:label "Time" .
 
 brick:HVAC a owl:Class ;
     rdfs:label "HVAC" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Heating _:has_Ventilation _:has_Air _:has_Conditioning _:has_System ) ],
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Heat _:has_Ventilation _:has_Air _:has_Conditioning _:has_System ) ],
         brick:Equipment ;
     owl:equivalentClass brick:Heating_Ventilation_Air_Conditioning_System ;
     brick:hasAssociatedTag tag:Air,
         tag:Conditioning,
-        tag:Heating,
+        tag:Heat,
         tag:System,
         tag:Ventilation .
 
@@ -10128,6 +10242,9 @@ tag:Exhaust a brick:Tag ;
 
 tag:Off a brick:Tag ;
     rdfs:label "Off" .
+
+tag:Return a brick:Tag ;
+    rdfs:label "Return" .
 
 tag:Load a brick:Tag ;
     rdfs:label "Load" .
@@ -10175,17 +10292,14 @@ brick:Status a owl:Class ;
     brick:hasAssociatedTag tag:Point,
         tag:Status .
 
-tag:Cooling a brick:Tag ;
-    rdfs:label "Cooling" .
-
 tag:Fluid a brick:Tag ;
     rdfs:label "Fluid" .
 
-tag:Heating a brick:Tag ;
-    rdfs:label "Heating" .
-
 tag:Static a brick:Tag ;
     rdfs:label "Static" .
+
+tag:Cool a brick:Tag ;
+    rdfs:label "Cool" .
 
 brick:Sensor a owl:Class ;
     rdfs:label "Sensor" ;
@@ -10204,6 +10318,9 @@ tag:PID a brick:Tag ;
 
 tag:Hot a brick:Tag ;
     rdfs:label "Hot" .
+
+tag:Heat a brick:Tag ;
+    rdfs:label "Heat" .
 
 tag:Alarm a brick:Tag ;
     rdfs:label "Alarm" .
@@ -10415,6 +10532,10 @@ _:has_Maintenance a owl:Restriction ;
     owl:hasValue tag:Maintenance ;
     owl:onProperty brick:hasTag .
 
+_:has_Monthly a owl:Restriction ;
+    owl:hasValue tag:Monthly ;
+    owl:onProperty brick:hasTag .
+
 _:has_Oil a owl:Restriction ;
     owl:hasValue tag:Oil ;
     owl:onProperty brick:hasTag .
@@ -10477,6 +10598,10 @@ _:has_Volume a owl:Restriction ;
 
 _:has_Wind a owl:Restriction ;
     owl:hasValue tag:Wind ;
+    owl:onProperty brick:hasTag .
+
+_:has_Yearly a owl:Restriction ;
+    owl:hasValue tag:Yearly ;
     owl:onProperty brick:hasTag .
 
 _:has_Adjust a owl:Restriction ;
@@ -10547,14 +10672,6 @@ _:has_Variable a owl:Restriction ;
     owl:hasValue tag:Variable ;
     owl:onProperty brick:hasTag .
 
-_:has_Average a owl:Restriction ;
-    owl:hasValue tag:Average ;
-    owl:onProperty brick:hasTag .
-
-_:has_Building a owl:Restriction ;
-    owl:hasValue tag:Building ;
-    owl:onProperty brick:hasTag .
-
 _:has_Coil a owl:Restriction ;
     owl:hasValue tag:Coil ;
     owl:onProperty brick:hasTag .
@@ -10607,6 +10724,10 @@ _:has_Storage a owl:Restriction ;
     owl:hasValue tag:Storage ;
     owl:onProperty brick:hasTag .
 
+_:has_Thermal a owl:Restriction ;
+    owl:hasValue tag:Thermal ;
+    owl:onProperty brick:hasTag .
+
 _:has_VFD a owl:Restriction ;
     owl:hasValue tag:VFD ;
     owl:onProperty brick:hasTag .
@@ -10615,16 +10736,8 @@ _:has_Voltage a owl:Restriction ;
     owl:hasValue tag:Voltage ;
     owl:onProperty brick:hasTag .
 
-_:has_Cool a owl:Restriction ;
-    owl:hasValue tag:Cool ;
-    owl:onProperty brick:hasTag .
-
 _:has_Direction a owl:Restriction ;
     owl:hasValue tag:Direction ;
-    owl:onProperty brick:hasTag .
-
-_:has_Electrical a owl:Restriction ;
-    owl:hasValue tag:Electrical ;
     owl:onProperty brick:hasTag .
 
 _:has_Exchanger a owl:Restriction ;
@@ -10679,12 +10792,12 @@ _:has_Velocity a owl:Restriction ;
     owl:hasValue tag:Velocity ;
     owl:onProperty brick:hasTag .
 
-_:has_Box a owl:Restriction ;
-    owl:hasValue tag:Box ;
+_:has_Average a owl:Restriction ;
+    owl:hasValue tag:Average ;
     owl:onProperty brick:hasTag .
 
-_:has_Energy a owl:Restriction ;
-    owl:hasValue tag:Energy ;
+_:has_Box a owl:Restriction ;
+    owl:hasValue tag:Box ;
     owl:onProperty brick:hasTag .
 
 _:has_Fire a owl:Restriction ;
@@ -10711,6 +10824,10 @@ _:has_Domestic a owl:Restriction ;
     owl:hasValue tag:Domestic ;
     owl:onProperty brick:hasTag .
 
+_:has_Electrical a owl:Restriction ;
+    owl:hasValue tag:Electrical ;
+    owl:onProperty brick:hasTag .
+
 _:has_Filter a owl:Restriction ;
     owl:hasValue tag:Filter ;
     owl:onProperty brick:hasTag .
@@ -10723,32 +10840,20 @@ _:has_Steam a owl:Restriction ;
     owl:hasValue tag:Steam ;
     owl:onProperty brick:hasTag .
 
-_:has_Thermal a owl:Restriction ;
-    owl:hasValue tag:Thermal ;
-    owl:onProperty brick:hasTag .
-
-_:has_Usage a owl:Restriction ;
-    owl:hasValue tag:Usage ;
-    owl:onProperty brick:hasTag .
-
 _:has_Disable a owl:Restriction ;
     owl:hasValue tag:Disable ;
-    owl:onProperty brick:hasTag .
-
-_:has_Meter a owl:Restriction ;
-    owl:hasValue tag:Meter ;
     owl:onProperty brick:hasTag .
 
 _:has_Pump a owl:Restriction ;
     owl:hasValue tag:Pump ;
     owl:onProperty brick:hasTag .
 
-_:has_Damper a owl:Restriction ;
-    owl:hasValue tag:Damper ;
+_:has_Building a owl:Restriction ;
+    owl:hasValue tag:Building ;
     owl:onProperty brick:hasTag .
 
-_:has_Demand a owl:Restriction ;
-    owl:hasValue tag:Demand ;
+_:has_Damper a owl:Restriction ;
+    owl:hasValue tag:Damper ;
     owl:onProperty brick:hasTag .
 
 _:has_Enthalpy a owl:Restriction ;
@@ -10763,8 +10868,16 @@ _:has_Room a owl:Restriction ;
     owl:hasValue tag:Room ;
     owl:onProperty brick:hasTag .
 
+_:has_Energy a owl:Restriction ;
+    owl:hasValue tag:Energy ;
+    owl:onProperty brick:hasTag .
+
 _:has_Step a owl:Restriction ;
     owl:hasValue tag:Step ;
+    owl:onProperty brick:hasTag .
+
+_:has_Usage a owl:Restriction ;
+    owl:hasValue tag:Usage ;
     owl:onProperty brick:hasTag .
 
 _:has_CO2 a owl:Restriction ;
@@ -10779,8 +10892,16 @@ _:has_Medium a owl:Restriction ;
     owl:hasValue tag:Medium ;
     owl:onProperty brick:hasTag .
 
+_:has_Meter a owl:Restriction ;
+    owl:hasValue tag:Meter ;
+    owl:onProperty brick:hasTag .
+
 _:has_Valve a owl:Restriction ;
     owl:hasValue tag:Valve ;
+    owl:onProperty brick:hasTag .
+
+_:has_Demand a owl:Restriction ;
+    owl:hasValue tag:Demand ;
     owl:onProperty brick:hasTag .
 
 _:has_Mode a owl:Restriction ;
@@ -10791,12 +10912,8 @@ _:has_System a owl:Restriction ;
     owl:hasValue tag:System ;
     owl:onProperty brick:hasTag .
 
-_:has_Gas a owl:Restriction ;
-    owl:hasValue tag:Gas ;
-    owl:onProperty brick:hasTag .
-
-_:has_Heat a owl:Restriction ;
-    owl:hasValue tag:Heat ;
+_:has_Power a owl:Restriction ;
+    owl:hasValue tag:Power ;
     owl:onProperty brick:hasTag .
 
 _:has_Speed a owl:Restriction ;
@@ -10809,6 +10926,10 @@ _:has_Unoccupied a owl:Restriction ;
 
 _:has_Zone a owl:Restriction ;
     owl:hasValue tag:Zone ;
+    owl:onProperty brick:hasTag .
+
+_:has_Gas a owl:Restriction ;
+    owl:hasValue tag:Gas ;
     owl:onProperty brick:hasTag .
 
 _:has_Humidity a owl:Restriction ;
@@ -10851,10 +10972,6 @@ _:has_High a owl:Restriction ;
     owl:hasValue tag:High ;
     owl:onProperty brick:hasTag .
 
-_:has_Power a owl:Restriction ;
-    owl:hasValue tag:Power ;
-    owl:onProperty brick:hasTag .
-
 _:has_Shed a owl:Restriction ;
     owl:hasValue tag:Shed ;
     owl:onProperty brick:hasTag .
@@ -10865,10 +10982,6 @@ _:has_Liquid a owl:Restriction ;
 
 _:has_Proportional a owl:Restriction ;
     owl:hasValue tag:Proportional ;
-    owl:onProperty brick:hasTag .
-
-_:has_Return a owl:Restriction ;
-    owl:hasValue tag:Return ;
     owl:onProperty brick:hasTag .
 
 _:has_Time a owl:Restriction ;
@@ -10887,6 +11000,10 @@ _:has_Off a owl:Restriction ;
     owl:hasValue tag:Off ;
     owl:onProperty brick:hasTag .
 
+_:has_Return a owl:Restriction ;
+    owl:hasValue tag:Return ;
+    owl:onProperty brick:hasTag .
+
 _:has_Load a owl:Restriction ;
     owl:hasValue tag:Load ;
     owl:onProperty brick:hasTag .
@@ -10899,32 +11016,28 @@ _:has_Outside a owl:Restriction ;
     owl:hasValue tag:Outside ;
     owl:onProperty brick:hasTag .
 
-_:has_Chilled a owl:Restriction ;
-    owl:hasValue tag:Chilled ;
-    owl:onProperty brick:hasTag .
-
 _:has_Max a owl:Restriction ;
     owl:hasValue tag:Max ;
+    owl:onProperty brick:hasTag .
+
+_:has_Chilled a owl:Restriction ;
+    owl:hasValue tag:Chilled ;
     owl:onProperty brick:hasTag .
 
 _:has_Reset a owl:Restriction ;
     owl:hasValue tag:Reset ;
     owl:onProperty brick:hasTag .
 
-_:has_Cooling a owl:Restriction ;
-    owl:hasValue tag:Cooling ;
-    owl:onProperty brick:hasTag .
-
 _:has_Fluid a owl:Restriction ;
     owl:hasValue tag:Fluid ;
     owl:onProperty brick:hasTag .
 
-_:has_Heating a owl:Restriction ;
-    owl:hasValue tag:Heating ;
-    owl:onProperty brick:hasTag .
-
 _:has_Static a owl:Restriction ;
     owl:hasValue tag:Static ;
+    owl:onProperty brick:hasTag .
+
+_:has_Cool a owl:Restriction ;
+    owl:hasValue tag:Cool ;
     owl:onProperty brick:hasTag .
 
 _:has_PID a owl:Restriction ;
@@ -10933,6 +11046,10 @@ _:has_PID a owl:Restriction ;
 
 _:has_Hot a owl:Restriction ;
     owl:hasValue tag:Hot ;
+    owl:onProperty brick:hasTag .
+
+_:has_Heat a owl:Restriction ;
+    owl:hasValue tag:Heat ;
     owl:onProperty brick:hasTag .
 
 _:has_Alarm a owl:Restriction ;

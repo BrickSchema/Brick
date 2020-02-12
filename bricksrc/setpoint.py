@@ -11,10 +11,10 @@ setpoint_definitions = {
                 "tags": [TAG.Point, TAG.Demand, TAG.Setpoint],
                 "subclasses": {
                     "Cooling_Demand_Setpoint": {
-                        "tags": [TAG.Point, TAG.Cooling, TAG.Demand, TAG.Setpoint],
+                        "tags": [TAG.Point, TAG.Cool, TAG.Demand, TAG.Setpoint],
                     },
                     "Heating_Demand_Setpoint": {
-                        "tags": [TAG.Point, TAG.Heating, TAG.Demand, TAG.Setpoint],
+                        "tags": [TAG.Point, TAG.Heat, TAG.Demand, TAG.Setpoint],
                     },
                     "Preheat_Demand_Setpoint": {
                         "tags": [TAG.Point, TAG.Preheat, TAG.Demand, TAG.Setpoint],
@@ -172,7 +172,7 @@ setpoint_definitions = {
                                 "tags": [
                                     TAG.Point,
                                     TAG.Occupied,
-                                    TAG.Cooling,
+                                    TAG.Cool,
                                     TAG.Temperature,
                                     TAG.Deadband,
                                     TAG.Setpoint,
@@ -183,7 +183,7 @@ setpoint_definitions = {
                                 "tags": [
                                     TAG.Point,
                                     TAG.Occupied,
-                                    TAG.Heating,
+                                    TAG.Heat,
                                     TAG.Temperature,
                                     TAG.Deadband,
                                     TAG.Setpoint,
@@ -195,7 +195,7 @@ setpoint_definitions = {
                                     "Heating_Discharge_Air_Temperature_Deadband_Setpoint": {
                                         "tags": [
                                             TAG.Point,
-                                            TAG.Heating,
+                                            TAG.Heat,
                                             TAG.Discharge,
                                             TAG.Air,
                                             TAG.Temperature,
@@ -209,7 +209,7 @@ setpoint_definitions = {
                                     "Cooling_Discharge_Air_Temperature_Deadband_Setpoint": {
                                         "tags": [
                                             TAG.Point,
-                                            TAG.Cooling,
+                                            TAG.Cool,
                                             TAG.Discharge,
                                             TAG.Air,
                                             TAG.Temperature,
@@ -236,7 +236,7 @@ setpoint_definitions = {
                                     "Heating_Supply_Air_Temperature_Deadband_Setpoint": {
                                         "tags": [
                                             TAG.Point,
-                                            TAG.Heating,
+                                            TAG.Heat,
                                             TAG.Supply,
                                             TAG.Air,
                                             TAG.Temperature,
@@ -248,7 +248,7 @@ setpoint_definitions = {
                                     "Cooling_Supply_Air_Temperature_Deadband_Setpoint": {
                                         "tags": [
                                             TAG.Point,
-                                            TAG.Cooling,
+                                            TAG.Cool,
                                             TAG.Supply,
                                             TAG.Air,
                                             TAG.Temperature,
@@ -382,7 +382,7 @@ setpoint_definitions = {
                                     "Cooling_Discharge_Air_Flow_Setpoint": {
                                         "tags": [
                                             TAG.Point,
-                                            TAG.Cooling,
+                                            TAG.Cool,
                                             TAG.Discharge,
                                             TAG.Air,
                                             TAG.Flow,
@@ -393,7 +393,7 @@ setpoint_definitions = {
                                                 "tags": [
                                                     TAG.Point,
                                                     TAG.Unoccupied,
-                                                    TAG.Cooling,
+                                                    TAG.Cool,
                                                     TAG.Discharge,
                                                     TAG.Air,
                                                     TAG.Flow,
@@ -405,7 +405,7 @@ setpoint_definitions = {
                                     "Heating_Discharge_Air_Flow_Setpoint": {
                                         "tags": [
                                             TAG.Point,
-                                            TAG.Heating,
+                                            TAG.Heat,
                                             TAG.Discharge,
                                             TAG.Air,
                                             TAG.Flow,
@@ -418,7 +418,7 @@ setpoint_definitions = {
                                                 "tags": [
                                                     TAG.Point,
                                                     TAG.Occupied,
-                                                    TAG.Cooling,
+                                                    TAG.Cool,
                                                     TAG.Discharge,
                                                     TAG.Air,
                                                     TAG.Flow,
@@ -432,7 +432,7 @@ setpoint_definitions = {
                                                 "tags": [
                                                     TAG.Point,
                                                     TAG.Occupied,
-                                                    TAG.Heating,
+                                                    TAG.Heat,
                                                     TAG.Discharge,
                                                     TAG.Air,
                                                     TAG.Flow,
@@ -518,7 +518,7 @@ setpoint_definitions = {
                                                 "tags": [
                                                     TAG.Point,
                                                     TAG.Occupied,
-                                                    TAG.Cooling,
+                                                    TAG.Cool,
                                                     TAG.Supply,
                                                     TAG.Air,
                                                     TAG.Flow,
@@ -532,7 +532,7 @@ setpoint_definitions = {
                                                 "tags": [
                                                     TAG.Point,
                                                     TAG.Occupied,
-                                                    TAG.Heating,
+                                                    TAG.Heat,
                                                     TAG.Supply,
                                                     TAG.Air,
                                                     TAG.Flow,
@@ -555,7 +555,7 @@ setpoint_definitions = {
                                     "Cooling_Supply_Air_Flow_Setpoint": {
                                         "tags": [
                                             TAG.Point,
-                                            TAG.Cooling,
+                                            TAG.Cool,
                                             TAG.Supply,
                                             TAG.Air,
                                             TAG.Flow,
@@ -565,7 +565,7 @@ setpoint_definitions = {
                                     "Heating_Supply_Air_Flow_Setpoint": {
                                         "tags": [
                                             TAG.Point,
-                                            TAG.Heating,
+                                            TAG.Heat,
                                             TAG.Supply,
                                             TAG.Air,
                                             TAG.Flow,
@@ -774,12 +774,12 @@ setpoint_definitions = {
                 "tags": [TAG.Point, TAG.Request, TAG.Setpoint],
                 "subclasses": {
                     "Cooling_Request_Setpoint": {
-                        "tags": [TAG.Point, TAG.Cooling, TAG.Request, TAG.Setpoint],
+                        "tags": [TAG.Point, TAG.Cool, TAG.Request, TAG.Setpoint],
                         "subclasses": {
                             "Cooling_Request_Percent_Setpoint": {
                                 "tags": [
                                     TAG.Point,
-                                    TAG.Cooling,
+                                    TAG.Cool,
                                     TAG.Request,
                                     TAG.Percent,
                                     TAG.Setpoint,
@@ -788,12 +788,12 @@ setpoint_definitions = {
                         },
                     },
                     "Heating_Request_Setpoint": {
-                        "tags": [TAG.Point, TAG.Heating, TAG.Request, TAG.Setpoint],
+                        "tags": [TAG.Point, TAG.Heat, TAG.Request, TAG.Setpoint],
                         "subclasses": {
                             "Heating_Request_Percent_Setpoint": {
                                 "tags": [
                                     TAG.Point,
-                                    TAG.Heating,
+                                    TAG.Heat,
                                     TAG.Request,
                                     TAG.Percent,
                                     TAG.Setpoint,
@@ -1129,7 +1129,7 @@ setpoint_definitions = {
                                             TAG.Discharge,
                                             TAG.Air,
                                             TAG.Temperature,
-                                            TAG.Heating,
+                                            TAG.Heat,
                                             TAG.Setpoint,
                                         ],
                                     },
@@ -1163,7 +1163,7 @@ setpoint_definitions = {
                                             TAG.Discharge,
                                             TAG.Air,
                                             TAG.Temperature,
-                                            TAG.Cooling,
+                                            TAG.Cool,
                                             TAG.Setpoint,
                                         ],
                                     },
@@ -1183,7 +1183,7 @@ setpoint_definitions = {
                                             TAG.Point,
                                             TAG.Effective,
                                             TAG.Air,
-                                            TAG.Cooling,
+                                            TAG.Cool,
                                             TAG.Temperature,
                                             TAG.Setpoint,
                                         ],
@@ -1194,7 +1194,7 @@ setpoint_definitions = {
                                             TAG.Point,
                                             TAG.Effective,
                                             TAG.Air,
-                                            TAG.Heating,
+                                            TAG.Heat,
                                             TAG.Temperature,
                                             TAG.Setpoint,
                                         ],
@@ -1278,7 +1278,7 @@ setpoint_definitions = {
                                         "tags": [
                                             TAG.Point,
                                             TAG.Open,
-                                            TAG.Heating,
+                                            TAG.Heat,
                                             TAG.Valve,
                                             TAG.Outside,
                                             TAG.Air,
@@ -1319,7 +1319,7 @@ setpoint_definitions = {
                                         "tags": [
                                             TAG.Point,
                                             TAG.Unoccupied,
-                                            TAG.Cooling,
+                                            TAG.Cool,
                                             TAG.Air,
                                             TAG.Temperature,
                                             TAG.Setpoint,
@@ -1330,7 +1330,7 @@ setpoint_definitions = {
                                         "tags": [
                                             TAG.Point,
                                             TAG.Unoccupied,
-                                            TAG.Heating,
+                                            TAG.Heat,
                                             TAG.Air,
                                             TAG.Temperature,
                                             TAG.Setpoint,
@@ -1342,10 +1342,10 @@ setpoint_definitions = {
                         },
                     },
                     "Cooling_Temperature_Setpoint": {
-                        "tags": [TAG.Point, TAG.Temperature, TAG.Setpoint, TAG.Cooling],
+                        "tags": [TAG.Point, TAG.Temperature, TAG.Setpoint, TAG.Cool],
                     },
                     "Heating_Temperature_Setpoint": {
-                        "tags": [TAG.Point, TAG.Temperature, TAG.Setpoint, TAG.Heating],
+                        "tags": [TAG.Point, TAG.Temperature, TAG.Setpoint, TAG.Heat],
                     },
                     "Schedule_Temperature_Setpoint": {
                         "tags": [

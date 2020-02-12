@@ -7,7 +7,7 @@ Set up subclasses of the equipment superclass
 equipment_subclasses = {
     "HVAC": {
         OWL.equivalentClass: BRICK["Heating_Ventilation_Air_Conditioning_System"],
-        "tags": [TAG.Heating, TAG.Ventilation, TAG.Air, TAG.Conditioning, TAG.System],
+        "tags": [TAG.Heat, TAG.Ventilation, TAG.Air, TAG.Conditioning, TAG.System],
     },
     "Heating_Ventilation_Air_Conditioning_System": {
         OWL.equivalentClass: BRICK["HVAC"],
@@ -300,7 +300,7 @@ hvac_subclasses = {
         "tags": [TAG.Equipment, TAG.Fan],
         "subclasses": {
             "Cooling_Tower_Fan": {
-                "tags": [TAG.Cooling, TAG.Tower, TAG.Equipment, TAG.Fan],
+                "tags": [TAG.Cool, TAG.Tower, TAG.Equipment, TAG.Fan],
             },
             "Exhaust_Fan": {"tags": [TAG.Equipment, TAG.Fan, TAG.Exhaust]},
             "Return_Fan": {"tags": [TAG.Equipment, TAG.Fan, TAG.Return]},

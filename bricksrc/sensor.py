@@ -185,7 +185,39 @@ sensor_definitions = {
                     },
                 },
             },
-            "Demand_Sensor": {"tags": [TAG.Point, TAG.Sensor, TAG.Demand]},
+            "Demand_Sensor": {
+                "tags": [TAG.Point, TAG.Sensor, TAG.Demand],
+                "subclasses": {
+                    "Cooling_Demand_Sensor": {
+                        "tags": [TAG.Point, TAG.Sensor, TAG.Demand, TAG.Cool],
+                        "subclasses": {
+                            "Average_Cooling_Demand_Sensor": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Sensor,
+                                    TAG.Demand,
+                                    TAG.Cool,
+                                    TAG.Average,
+                                ],
+                            },
+                        },
+                    },
+                    "Heating_Demand_Sensor": {
+                        "tags": [TAG.Point, TAG.Sensor, TAG.Demand, TAG.Heat],
+                        "subclasses": {
+                            "Average_Heating_Demand_Sensor": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Sensor,
+                                    TAG.Demand,
+                                    TAG.Heat,
+                                    TAG.Average,
+                                ],
+                            },
+                        },
+                    },
+                },
+            },
             "Dewpoint_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Dewpoint],
                 "substances": [[BRICK.measures, BRICK.Dewpoint]],
@@ -895,7 +927,7 @@ sensor_definitions = {
                             "Heating_Thermal_Power_Sensor": {
                                 "tags": [
                                     TAG.Point,
-                                    TAG.Heating,
+                                    TAG.Heat,
                                     TAG.Sensor,
                                     TAG.Power,
                                     TAG.Thermal,
@@ -1063,6 +1095,39 @@ sensor_definitions = {
                                     TAG.Sensor,
                                     TAG.Usage,
                                     TAG.Steam,
+                                ],
+                            },
+                        },
+                    },
+                    "Energy_Usage_Sensor": {
+                        "parents": [BRICK.Energy_Sensor],
+                        "tags": [TAG.Point, TAG.Sensor, TAG.Energy, TAG.Usage],
+                        "subclasses": {
+                            "Yearly_Energy_Usage_Sensor": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Sensor,
+                                    TAG.Energy,
+                                    TAG.Usage,
+                                    TAG.Yearly,
+                                ],
+                            },
+                            "Monthly_Energy_Usage_Sensor": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Sensor,
+                                    TAG.Energy,
+                                    TAG.Usage,
+                                    TAG.Monthly,
+                                ],
+                            },
+                            "Daily_Energy_Usage_Sensor": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Sensor,
+                                    TAG.Energy,
+                                    TAG.Usage,
+                                    TAG.Daily,
                                 ],
                             },
                         },
@@ -1563,6 +1628,16 @@ sensor_definitions = {
                                         ],
                                         "parents": [
                                             BRICK.Chilled_Water_Temperature_Sensor
+                                        ],
+                                    },
+                                    "Differential_Supply_Return_Water_Temperature_Sensor": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Differential,
+                                            TAG.Supply,
+                                            TAG.Return,
+                                            TAG.Temperature,
+                                            TAG.Sensor,
                                         ],
                                     },
                                 },
