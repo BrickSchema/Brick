@@ -11,7 +11,7 @@ BLDG = Namespace("https://brickschema.org/schema/ExampleBuilding#")
 
 g = rdflib.Graph()
 g.parse('Brick.ttl', format='turtle')
-g = brickschema.inference.OWLRLAllegroInferenceSession(load_brick=False).expand(g)
+g = brickschema.inference.OWLRLInferenceSession(load_brick=False).expand(g)
 
 res = g.query("""SELECT ?m ?class WHERE {
     ?class rdfs:subClassOf brick:Class .
@@ -35,7 +35,7 @@ for c, measurables in measurable_mapping.items():
     for m in measurables:
         g.add((inst, BRICK.measures, m))
 
-g = brickschema.inference.OWLRLAllegroInferenceSession(load_brick=False).expand(g)
+g = brickschema.inference.OWLRLInferenceSession(load_brick=False).expand(g)
 
 g.bind('rdf', RDF)
 g.bind('owl', OWL)
