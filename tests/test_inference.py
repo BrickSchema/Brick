@@ -3,6 +3,7 @@ sys.path.append('..')
 from bricksrc.namespaces import BRICK, TAG, A, SKOS
 from rdflib import RDF, RDFS, OWL, Namespace, Graph
 import brickschema
+from .util import make_readable
 
 BLDG = Namespace(f"https://brickschema.org/schema/ExampleBuilding#")
 
@@ -67,8 +68,6 @@ g.bind('bldg', BLDG)
 s = g.serialize('output.ttl', format='ttl')
 print('expanded:', len(g))
 
-def make_readable(res):
-    return [[uri.split('#')[-1] for uri in row] for row in res]
 
 def test_tag1():
     res1 = make_readable(g.query("SELECT DISTINCT ?co2tag WHERE {\

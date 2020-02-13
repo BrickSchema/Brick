@@ -9,7 +9,7 @@ import time
 import brickschema
 from tqdm import tqdm
 from rdflib import Namespace, URIRef, Graph
-from .util.reasoner import make_readable
+from .util import make_readable
 
 """
 This script does the following:

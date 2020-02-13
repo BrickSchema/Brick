@@ -4,7 +4,7 @@ from bricksrc.namespaces import BRICK, TAG
 import rdflib
 from rdflib import RDF, OWL, RDFS, Namespace, BNode
 import brickschema
-from .util.reasoner import make_readable
+from .util import make_readable
 from collections import defaultdict
 
 BLDG = Namespace("https://brickschema.org/schema/ExampleBuilding#")
