@@ -129,6 +129,11 @@ equipment_subclasses = {
     },
     "Shading_System": {
         "tags": [TAG.Shade, TAG.Equipment],
+        "subclasses": {
+            "Louver": {
+                "tags": [TAG.Shade, TAG.Equipment, TAG.Louver],
+            },
+        },
     },
     "Lighting_System": {
         "tags": [TAG.Lighting, TAG.Equipment],
@@ -354,6 +359,11 @@ hvac_subclasses = {
     "CRAC": {
         "tags": [TAG.Equipment, TAG.CRAC],
         OWL.equivalentClass: BRICK["Computer_Room_Air_Conditioning"],
+        "subclasses": {
+            "Standby_CRAC": {
+                "tags": [TAG.Equipment, TAG.CRAC, TAG.Standby],
+            },
+        },
     },
     "Compressor": {
         "tags": [TAG.Equipment, TAG.Compressor],
