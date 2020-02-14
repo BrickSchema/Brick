@@ -69,7 +69,7 @@ def test_measures_infers():
 
     # Infer classes of the entities.
     # Apply reasoner
-    g = brickschema.inference.OWLRLAllegroInferenceSession(load_brick=False).expand(g)
+    g = brickschema.inference.OWLRLInferenceSession(load_brick=False).expand(g)
 
     qstr = """select ?instance ?class where {
         ?instance a ?class.

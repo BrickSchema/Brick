@@ -1,0 +1,5481 @@
+@prefix brick: <https://brickschema.org/schema/1.1/Brick#> .
+@prefix brick_v_1_0_2: <https://brickschema.org/schema/1.0.2/Brick#> .
+@prefix brickframe: <https://brickschema.org/schema/1.0.2/BrickFrame#> .
+@prefix btag: <https://brickschema.org/schema/1.0.2/BrickTag#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix soda_hall: <https://brickschema.org/schema/1.0.2/building_example#> .
+@prefix tag: <https://brickschema.org/schema/1.1/BrickTag#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+soda_hall:ahu brick:isLocationOf soda_hall:exhaust_fan_E12,
+        soda_hall:exhaust_fan_E13,
+        soda_hall:exhaust_fan_E15,
+        soda_hall:exhaust_fan_E17,
+        soda_hall:exhaust_fan_E19 .
+
+soda_hall:ahu_A1 a brick:AHU ;
+    brick:feeds soda_hall:vav_C180,
+        soda_hall:vav_C300,
+        soda_hall:vav_C300B,
+        soda_hall:vav_C400A,
+        soda_hall:vav_C400B,
+        soda_hall:vav_C400C,
+        soda_hall:vav_C500A,
+        soda_hall:vav_C500B,
+        soda_hall:vav_C600A,
+        soda_hall:vav_C600B,
+        soda_hall:vav_C700A,
+        soda_hall:vav_C700B,
+        soda_hall:vav_C700C,
+        soda_hall:vav_C700D,
+        soda_hall:vav_R184,
+        soda_hall:vav_R187,
+        soda_hall:vav_R187A,
+        soda_hall:vav_R190A,
+        soda_hall:vav_R190B,
+        soda_hall:vav_R252,
+        soda_hall:vav_R271,
+        soda_hall:vav_R273,
+        soda_hall:vav_R275,
+        soda_hall:vav_R277,
+        soda_hall:vav_R280,
+        soda_hall:vav_R283E,
+        soda_hall:vav_R284,
+        soda_hall:vav_R287,
+        soda_hall:vav_R288,
+        soda_hall:vav_R290,
+        soda_hall:vav_R310,
+        soda_hall:vav_R316,
+        soda_hall:vav_R320,
+        soda_hall:vav_R326,
+        soda_hall:vav_R330A,
+        soda_hall:vav_R330B,
+        soda_hall:vav_R336,
+        soda_hall:vav_R340,
+        soda_hall:vav_R342,
+        soda_hall:vav_R352,
+        soda_hall:vav_R364,
+        soda_hall:vav_R369,
+        soda_hall:vav_R376A,
+        soda_hall:vav_R380,
+        soda_hall:vav_R384,
+        soda_hall:vav_R398,
+        soda_hall:vav_R405A,
+        soda_hall:vav_R405B,
+        soda_hall:vav_R410A,
+        soda_hall:vav_R410B,
+        soda_hall:vav_R416,
+        soda_hall:vav_R420,
+        soda_hall:vav_R420A,
+        soda_hall:vav_R430,
+        soda_hall:vav_R430A,
+        soda_hall:vav_R434,
+        soda_hall:vav_R438,
+        soda_hall:vav_R440,
+        soda_hall:vav_R442,
+        soda_hall:vav_R444,
+        soda_hall:vav_R452,
+        soda_hall:vav_R465B,
+        soda_hall:vav_R465D,
+        soda_hall:vav_R465_6,
+        soda_hall:vav_R498,
+        soda_hall:vav_R500A,
+        soda_hall:vav_R500B,
+        soda_hall:vav_R508,
+        soda_hall:vav_R510,
+        soda_hall:vav_R514,
+        soda_hall:vav_R516,
+        soda_hall:vav_R524,
+        soda_hall:vav_R530,
+        soda_hall:vav_R534,
+        soda_hall:vav_R542,
+        soda_hall:vav_R544,
+        soda_hall:vav_R552,
+        soda_hall:vav_R562A,
+        soda_hall:vav_R564,
+        soda_hall:vav_R566,
+        soda_hall:vav_R582,
+        soda_hall:vav_R582_1,
+        soda_hall:vav_R582_2,
+        soda_hall:vav_R598,
+        soda_hall:vav_R600A,
+        soda_hall:vav_R600B,
+        soda_hall:vav_R606,
+        soda_hall:vav_R626,
+        soda_hall:vav_R634,
+        soda_hall:vav_R652,
+        soda_hall:vav_R676,
+        soda_hall:vav_R678,
+        soda_hall:vav_R682,
+        soda_hall:vav_R684,
+        soda_hall:vav_R726,
+        soda_hall:vav_R734,
+        soda_hall:vav_R776,
+        soda_hall:vav_R784 ;
+    brick:hasPoint soda_hall:ahu_occpy_SODA1____OCCPY,
+        soda_hall:ahu_start_stop_SODA1______S_S,
+        soda_hall:curtl_SODA1____CURTL,
+        soda_hall:override_event_SODA1____EVENT,
+        soda_hall:rat_SODA1_LOW_RAT2,
+        soda_hall:rat_SODA1_LOW_RAT3,
+        soda_hall:rat_SODA1_LOW_RAT4,
+        soda_hall:rat_SODA1__LOW_RAT,
+        soda_hall:smoke_alarm_SODA1_SMK_ALM2,
+        soda_hall:smoke_alarm_SODA1_SMK_ALM3,
+        soda_hall:smoke_alarm_SODA1_SMK_ALM4 ;
+    brick:isLocationOf soda_hall:supply_fan_S11 .
+
+soda_hall:ahu_A2 a brick:AHU ;
+    brick:feeds soda_hall:vav_R306 ;
+    brick:hasPoint soda_hall:ahu_occpy_SODA2____OCCPY,
+        soda_hall:ahu_start_stop_SODA2______S_S,
+        soda_hall:curtl_SODA2____CURTL,
+        soda_hall:override_event_SODA2____EVENT,
+        soda_hall:rat_SODA2__LOW_RAT ;
+    brick:isLocationOf soda_hall:supply_fan_S14 .
+
+soda_hall:ahu_A3 a brick:AHU ;
+    brick:feeds soda_hall:vav_C411,
+        soda_hall:vav_C511,
+        soda_hall:vav_C611,
+        soda_hall:vav_C711,
+        soda_hall:vav_R311,
+        soda_hall:vav_R313,
+        soda_hall:vav_R315,
+        soda_hall:vav_R317,
+        soda_hall:vav_R319,
+        soda_hall:vav_R321,
+        soda_hall:vav_R323,
+        soda_hall:vav_R325,
+        soda_hall:vav_R327,
+        soda_hall:vav_R329,
+        soda_hall:vav_R331,
+        soda_hall:vav_R381,
+        soda_hall:vav_R383,
+        soda_hall:vav_R385,
+        soda_hall:vav_R389,
+        soda_hall:vav_R393,
+        soda_hall:vav_R395,
+        soda_hall:vav_R411,
+        soda_hall:vav_R413,
+        soda_hall:vav_R415,
+        soda_hall:vav_R417,
+        soda_hall:vav_R419,
+        soda_hall:vav_R421,
+        soda_hall:vav_R465K,
+        soda_hall:vav_R465_4,
+        soda_hall:vav_R465_5,
+        soda_hall:vav_R465_7,
+        soda_hall:vav_R513,
+        soda_hall:vav_R515,
+        soda_hall:vav_R517,
+        soda_hall:vav_R523,
+        soda_hall:vav_R525,
+        soda_hall:vav_R527,
+        soda_hall:vav_R529,
+        soda_hall:vav_R579,
+        soda_hall:vav_R583,
+        soda_hall:vav_R5831,
+        soda_hall:vav_R587,
+        soda_hall:vav_R5871,
+        soda_hall:vav_R595,
+        soda_hall:vav_R615,
+        soda_hall:vav_R617,
+        soda_hall:vav_R621,
+        soda_hall:vav_R623,
+        soda_hall:vav_R625,
+        soda_hall:vav_R627,
+        soda_hall:vav_R629,
+        soda_hall:vav_R681A,
+        soda_hall:vav_R683,
+        soda_hall:vav_R685,
+        soda_hall:vav_R687,
+        soda_hall:vav_R689,
+        soda_hall:vav_R695,
+        soda_hall:vav_R698,
+        soda_hall:vav_R719,
+        soda_hall:vav_R721,
+        soda_hall:vav_R723,
+        soda_hall:vav_R725,
+        soda_hall:vav_R727,
+        soda_hall:vav_R729,
+        soda_hall:vav_R781,
+        soda_hall:vav_R783,
+        soda_hall:vav_R785,
+        soda_hall:vav_R787,
+        soda_hall:vav_R789,
+        soda_hall:vav_R795,
+        soda_hall:vav_R798 ;
+    brick:hasPoint soda_hall:ahu_occpy_SODA3____OCCPY,
+        soda_hall:ahu_start_stop_SODA3______S_S,
+        soda_hall:curtl_SODA3____CURTL,
+        soda_hall:oat_SODA3______OAT,
+        soda_hall:override_event_SODA3____EVENT,
+        soda_hall:rat_SODA3_LOW_RAT1,
+        soda_hall:rat_SODA3_LOW_RAT2,
+        soda_hall:rat_SODA3_LOW_RAT3,
+        soda_hall:rat_SODA3__LOW_RAT,
+        soda_hall:smoke_alarm_SODA3_SMK_ALM1,
+        soda_hall:smoke_alarm_SODA3_SMK_ALM2,
+        soda_hall:smoke_alarm_SODA3_SMK_ALM3 ;
+    brick:isLocationOf soda_hall:supply_fan_S16 .
+
+soda_hall:ahu_A4 a brick:AHU ;
+    brick:feeds soda_hall:vav_C300T,
+        soda_hall:vav_C751,
+        soda_hall:vav_R333,
+        soda_hall:vav_R337,
+        soda_hall:vav_R337A,
+        soda_hall:vav_R339,
+        soda_hall:vav_R341,
+        soda_hall:vav_R343,
+        soda_hall:vav_R345,
+        soda_hall:vav_R347,
+        soda_hall:vav_R349,
+        soda_hall:vav_R365,
+        soda_hall:vav_R367,
+        soda_hall:vav_R369,
+        soda_hall:vav_R373,
+        soda_hall:vav_R375,
+        soda_hall:vav_R377,
+        soda_hall:vav_R379,
+        soda_hall:vav_R441,
+        soda_hall:vav_R443,
+        soda_hall:vav_R445,
+        soda_hall:vav_R447,
+        soda_hall:vav_R449,
+        soda_hall:vav_R465A,
+        soda_hall:vav_R465C,
+        soda_hall:vav_R465E,
+        soda_hall:vav_R465H,
+        soda_hall:vav_R465_3,
+        soda_hall:vav_R531,
+        soda_hall:vav_R533,
+        soda_hall:vav_R535,
+        soda_hall:vav_R537,
+        soda_hall:vav_R543,
+        soda_hall:vav_R545,
+        soda_hall:vav_R551,
+        soda_hall:vav_R5511,
+        soda_hall:vav_R563,
+        soda_hall:vav_R567,
+        soda_hall:vav_R573,
+        soda_hall:vav_R576,
+        soda_hall:vav_R577,
+        soda_hall:vav_R580,
+        soda_hall:vav_R631,
+        soda_hall:vav_R633,
+        soda_hall:vav_R635,
+        soda_hall:vav_R637,
+        soda_hall:vav_R639,
+        soda_hall:vav_R643,
+        soda_hall:vav_R645,
+        soda_hall:vav_R651,
+        soda_hall:vav_R665,
+        soda_hall:vav_R671,
+        soda_hall:vav_R673,
+        soda_hall:vav_R675,
+        soda_hall:vav_R677,
+        soda_hall:vav_R681B,
+        soda_hall:vav_R731,
+        soda_hall:vav_R733,
+        soda_hall:vav_R735,
+        soda_hall:vav_R737,
+        soda_hall:vav_R739,
+        soda_hall:vav_R741,
+        soda_hall:vav_R752,
+        soda_hall:vav_R765,
+        soda_hall:vav_R771,
+        soda_hall:vav_R773,
+        soda_hall:vav_R775,
+        soda_hall:vav_R777,
+        soda_hall:vav_R779,
+        soda_hall:vav_zone_337A ;
+    brick:hasPoint soda_hall:ahu_occpy_SODA4____OCCPY,
+        soda_hall:ahu_start_stop_SODA4______S_S,
+        soda_hall:curtl_SODA4____CURTL,
+        soda_hall:override_event_SODA4____EVENT,
+        soda_hall:rat_SODA4_LOW_RAT1,
+        soda_hall:rat_SODA4_LOW_RAT2,
+        soda_hall:rat_SODA4_LOW_RAT3,
+        soda_hall:rat_SODA4__LOW_RAT,
+        soda_hall:smoke_alarm_SODA4_SMK_ALM1,
+        soda_hall:smoke_alarm_SODA4_SMK_ALM2,
+        soda_hall:smoke_alarm_SODA4_SMK_ALM3 ;
+    brick:isLocationOf soda_hall:supply_fan_S18 .
+
+soda_hall:ahu_A5 a brick:AHU ;
+    brick:feeds soda_hall:vav_R800A ;
+    brick:isLocationOf soda_hall:supply_fan_S20 .
+
+soda_hall:energy_demand_building_SOD__BLD_1_KWD a brick_v_1_0_2:Energy_Demand .
+
+soda_hall:energy_meter_building_SOD__BLD_1_KWH a brick:Energy_Sensor .
+
+soda_hall:flow_sensor_SODA1F1_VAV_AV a brick:Supply_Air_Flow_Sensor ;
+    brick:hasLocation soda_hall:floor_1 ;
+    brick:hasTag tag:Average .
+
+soda_hall:flow_sensor_SODA1F1_VAV_MN a brick:Supply_Air_Flow_Sensor ;
+    brick:hasLocation soda_hall:floor_1 ;
+    brick:hasTag tag:Min .
+
+soda_hall:flow_sensor_SODA1F1_VAV_MX a brick:Supply_Air_Flow_Sensor ;
+    brick:hasLocation soda_hall:floor_1 ;
+    brick:hasTag tag:Max .
+
+soda_hall:flow_sensor_SODA1F2_VAV_AV a brick:Supply_Air_Flow_Sensor ;
+    brick:hasLocation soda_hall:floor_2 ;
+    brick:hasTag tag:Average .
+
+soda_hall:flow_sensor_SODA1F2_VAV_MN a brick:Supply_Air_Flow_Sensor ;
+    brick:hasLocation soda_hall:floor_2 ;
+    brick:hasTag tag:Min .
+
+soda_hall:flow_sensor_SODA1F2_VAV_MX a brick:Supply_Air_Flow_Sensor ;
+    brick:hasLocation soda_hall:floor_2 ;
+    brick:hasTag tag:Max .
+
+soda_hall:flow_sensor_SODA1F3_VAV_AV a brick:Supply_Air_Flow_Sensor ;
+    brick:hasLocation soda_hall:floor_3 ;
+    brick:hasTag tag:Average .
+
+soda_hall:flow_sensor_SODA1F3_VAV_MN a brick:Supply_Air_Flow_Sensor ;
+    brick:hasLocation soda_hall:floor_3 ;
+    brick:hasTag tag:Min .
+
+soda_hall:flow_sensor_SODA1F3_VAV_MX a brick:Supply_Air_Flow_Sensor ;
+    brick:hasLocation soda_hall:floor_3 ;
+    brick:hasTag tag:Max .
+
+soda_hall:flow_sensor_SODA1F4_VAV_AV a brick:Supply_Air_Flow_Sensor ;
+    brick:hasLocation soda_hall:floor_4 ;
+    brick:hasTag tag:Average .
+
+soda_hall:flow_sensor_SODA1F4_VAV_MN a brick:Supply_Air_Flow_Sensor ;
+    brick:hasLocation soda_hall:floor_4 ;
+    brick:hasTag tag:Min .
+
+soda_hall:flow_sensor_SODA1F4_VAV_MX a brick:Supply_Air_Flow_Sensor ;
+    brick:hasLocation soda_hall:floor_4 ;
+    brick:hasTag tag:Max .
+
+soda_hall:flow_sensor_SODA1F5_VAV_AV a brick:Supply_Air_Flow_Sensor ;
+    brick:hasLocation soda_hall:floor_5 ;
+    brick:hasTag tag:Average .
+
+soda_hall:flow_sensor_SODA1F5_VAV_MN a brick:Supply_Air_Flow_Sensor ;
+    brick:hasLocation soda_hall:floor_5 ;
+    brick:hasTag tag:Min .
+
+soda_hall:flow_sensor_SODA1F5_VAV_MX a brick:Supply_Air_Flow_Sensor ;
+    brick:hasLocation soda_hall:floor_5 ;
+    brick:hasTag tag:Max .
+
+soda_hall:vav_R179 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R179 ;
+    brick:hasPoint soda_hall:temp_sensor_hvac_zone_R179,
+        soda_hall:temp_setpoint_hvac_zone_R179 .
+
+soda_hall:vav_R181 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R181 ;
+    brick:hasPoint soda_hall:temp_sensor_hvac_zone_R181,
+        soda_hall:temp_setpoint_hvac_zone_R181 .
+
+soda_hall:vav_R183 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R183 ;
+    brick:hasPoint soda_hall:temp_sensor_hvac_zone_R183,
+        soda_hall:temp_setpoint_hvac_zone_R183 .
+
+soda_hall:ahu_occpy_SODA1____OCCPY a brick:Occupancy_Command .
+
+soda_hall:ahu_occpy_SODA2____OCCPY a brick:Occupancy_Command .
+
+soda_hall:ahu_occpy_SODA3____OCCPY a brick:Occupancy_Command .
+
+soda_hall:ahu_occpy_SODA4____OCCPY a brick:Occupancy_Command .
+
+soda_hall:ahu_start_stop_SODA1______S_S a brick:Start_Stop_Command .
+
+soda_hall:ahu_start_stop_SODA2______S_S a brick:Start_Stop_Command .
+
+soda_hall:ahu_start_stop_SODA3______S_S a brick:Start_Stop_Command .
+
+soda_hall:ahu_start_stop_SODA4______S_S a brick:Start_Stop_Command .
+
+soda_hall:c_water_vlv_press_supply_fan_S11 a brick:Pressure_Sensor .
+
+soda_hall:c_water_vlv_press_supply_fan_S14 a brick:Pressure_Sensor .
+
+soda_hall:c_water_vlv_press_supply_fan_S16 a brick:Pressure_Sensor .
+
+soda_hall:c_water_vlv_press_supply_fan_S18 a brick:Pressure_Sensor .
+
+soda_hall:c_water_vlv_press_supply_fan_S20 a brick:Pressure_Sensor .
+
+soda_hall:curtl_SODA1____CURTL a brick:Curtailment_Override_Command .
+
+soda_hall:curtl_SODA2____CURTL a brick:Curtailment_Override_Command .
+
+soda_hall:curtl_SODA3____CURTL a brick:Curtailment_Override_Command .
+
+soda_hall:curtl_SODA4____CURTL a brick:Curtailment_Override_Command .
+
+soda_hall:exhaust_fan_E12 a brick:Exhaust_Fan ;
+    brick:hasPoint soda_hall:exhaust_fan_cfm_exhaust_fan_E12,
+        soda_hall:fan_speed_reset_exhaust_fan_E12 .
+
+soda_hall:exhaust_fan_E13 a brick:Exhaust_Fan ;
+    brick:hasPoint soda_hall:exhaust_fan_cfm_exhaust_fan_E13,
+        soda_hall:fan_speed_reset_exhaust_fan_E13 .
+
+soda_hall:exhaust_fan_E15 a brick:Exhaust_Fan .
+
+soda_hall:exhaust_fan_E17 a brick:Exhaust_Fan ;
+    brick:hasPoint soda_hall:exhaust_fan_cfm_exhaust_fan_E17,
+        soda_hall:fan_speed_reset_exhaust_fan_E17 .
+
+soda_hall:exhaust_fan_E19 a brick:Exhaust_Fan ;
+    brick:hasPoint soda_hall:exhaust_fan_cfm_exhaust_fan_E19,
+        soda_hall:fan_speed_reset_exhaust_fan_E19 .
+
+soda_hall:exhaust_fan_cfm_exhaust_fan_E12 a brick:Exhaust_Air_Flow_Sensor .
+
+soda_hall:exhaust_fan_cfm_exhaust_fan_E13 a brick:Exhaust_Air_Flow_Sensor .
+
+soda_hall:exhaust_fan_cfm_exhaust_fan_E17 a brick:Exhaust_Air_Flow_Sensor .
+
+soda_hall:exhaust_fan_cfm_exhaust_fan_E19 a brick:Exhaust_Air_Flow_Sensor .
+
+soda_hall:fan_speed_reset_exhaust_fan_E12 a brick:Fan_Speed_Reset_Command .
+
+soda_hall:fan_speed_reset_exhaust_fan_E13 a brick:Fan_Speed_Reset_Command .
+
+soda_hall:fan_speed_reset_exhaust_fan_E17 a brick:Fan_Speed_Reset_Command .
+
+soda_hall:fan_speed_reset_exhaust_fan_E19 a brick:Fan_Speed_Reset_Command .
+
+soda_hall:fan_speed_reset_supply_fan_S11 a brick:Fan_Speed_Reset_Command .
+
+soda_hall:fan_speed_reset_supply_fan_S16 a brick:Fan_Speed_Reset_Command .
+
+soda_hall:fan_speed_reset_supply_fan_S18 a brick:Fan_Speed_Reset_Command .
+
+soda_hall:fan_speed_supply_fan_S11 a brick:Speed_Setpoint .
+
+soda_hall:fan_speed_supply_fan_S16 a brick:Speed_Setpoint .
+
+soda_hall:fault_status_supply_fan_S11 a brick:Fault_Status .
+
+soda_hall:fault_status_supply_fan_S14 a brick:Fault_Status .
+
+soda_hall:fault_status_supply_fan_S16 a brick:Fault_Status .
+
+soda_hall:fault_status_supply_fan_S18 a brick:Fault_Status .
+
+soda_hall:flow_sensor_hvac_zone_C180 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_C300 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_C300B a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_C300T a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_C400A a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_C400B a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_C400C a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_C511 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_C611 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_C700A a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_C700B a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_C700C a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_C700D a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_C711 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_C751 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R184 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R187 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R187A a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R190A a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R190B a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R252 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R271 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R273 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R275 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R277 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R280 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R283E a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R284 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R287 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R288 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R290 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R310 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R311 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R313 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R315 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R316 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R317 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R319 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R320 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R321 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R323 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R325 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R326 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R327 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R329 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R330A a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R330B a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R331 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R333 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R336 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R337 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R339 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R340 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R341 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R342 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R343 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R345 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R347 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R349 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R352 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R364 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R365 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R367 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R369 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R373 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R375 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R376A a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R377 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R379 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R380 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R381 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R383 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R384 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R385 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R389 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R393 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R395 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R398 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R405A a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R405B a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R410A a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R410B a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R411 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R413 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R415 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R416 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R417 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R419 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R420 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R420A a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R421 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R430 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R430A a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R434 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R438 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R440 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R441 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R442 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R443 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R444 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R445 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R447 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R449 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R465A a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R465B a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R465D a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R465K a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R465_3 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R465_4 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R465_6 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R465_7 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R498 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R500A a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R500B a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R508 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R510 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R513 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R514 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R515 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R516 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R517 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R523 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R524 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R525 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R527 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R529 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R530 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R531 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R533 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R534 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R535 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R537 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R542 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R543 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R544 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R545 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R551 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R5511 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R552 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R562A a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R563 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R564 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R566 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R567 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R573 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R576 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R577 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R579 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R580 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R582 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R582_1 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R582_2 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R583 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R5831 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R587 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R5871 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R595 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R598 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R600A a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R600B a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R606 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R615 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R617 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R621 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R623 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R625 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R626 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R627 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R629 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R631 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R633 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R634 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R635 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R637 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R639 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R643 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R645 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R651 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R652 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R665 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R671 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R673 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R675 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R676 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R677 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R678 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R681A a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R681B a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R682 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R683 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R684 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R685 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R687 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R689 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R695 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R698 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R719 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R721 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R723 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R725 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R726 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R727 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R729 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R731 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R733 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R734 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R735 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R737 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R739 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R741 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R752 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R765 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R771 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R773 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R775 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R776 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R777 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R779 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R781 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R783 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R784 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R785 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R787 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R789 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R795 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_R798 a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:flow_sensor_hvac_zone_zone_337A a brick:Supply_Air_Flow_Sensor .
+
+soda_hall:hvac_zone_C180 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_C180 .
+
+soda_hall:hvac_zone_C300 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_C300 .
+
+soda_hall:hvac_zone_C300B a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_C300B .
+
+soda_hall:hvac_zone_C300T a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_C300T .
+
+soda_hall:hvac_zone_C400A a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_C400A .
+
+soda_hall:hvac_zone_C400B a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_C400B .
+
+soda_hall:hvac_zone_C400C a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_C400C .
+
+soda_hall:hvac_zone_C411 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_C411 .
+
+soda_hall:hvac_zone_C500A a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_C500A .
+
+soda_hall:hvac_zone_C500B a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_C500B .
+
+soda_hall:hvac_zone_C511 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_C511 .
+
+soda_hall:hvac_zone_C600A a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_C600A .
+
+soda_hall:hvac_zone_C600B a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_C600B .
+
+soda_hall:hvac_zone_C611 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_C611 .
+
+soda_hall:hvac_zone_C700A a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_C700A .
+
+soda_hall:hvac_zone_C700B a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_C700B .
+
+soda_hall:hvac_zone_C700C a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_C700C .
+
+soda_hall:hvac_zone_C700D a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_C700D .
+
+soda_hall:hvac_zone_C711 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_C711 .
+
+soda_hall:hvac_zone_C751 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_C751 .
+
+soda_hall:hvac_zone_R179 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R179 .
+
+soda_hall:hvac_zone_R181 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R181 .
+
+soda_hall:hvac_zone_R183 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R183 .
+
+soda_hall:hvac_zone_R184 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R184 .
+
+soda_hall:hvac_zone_R187 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R187 .
+
+soda_hall:hvac_zone_R187A a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R187A .
+
+soda_hall:hvac_zone_R190A a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R190A .
+
+soda_hall:hvac_zone_R190B a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R190B .
+
+soda_hall:hvac_zone_R252 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R252 .
+
+soda_hall:hvac_zone_R271 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R271 .
+
+soda_hall:hvac_zone_R273 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R273 .
+
+soda_hall:hvac_zone_R275 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R275 .
+
+soda_hall:hvac_zone_R277 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R277 .
+
+soda_hall:hvac_zone_R280 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R280 .
+
+soda_hall:hvac_zone_R283E a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R283E .
+
+soda_hall:hvac_zone_R284 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R284 .
+
+soda_hall:hvac_zone_R287 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R287 .
+
+soda_hall:hvac_zone_R288 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R288 .
+
+soda_hall:hvac_zone_R290 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R290 .
+
+soda_hall:hvac_zone_R306 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R306 .
+
+soda_hall:hvac_zone_R310 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R310 .
+
+soda_hall:hvac_zone_R311 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R311 .
+
+soda_hall:hvac_zone_R313 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R313 .
+
+soda_hall:hvac_zone_R315 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R315 .
+
+soda_hall:hvac_zone_R316 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R316 .
+
+soda_hall:hvac_zone_R317 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R317 .
+
+soda_hall:hvac_zone_R319 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R319 .
+
+soda_hall:hvac_zone_R320 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R320 .
+
+soda_hall:hvac_zone_R321 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R321 .
+
+soda_hall:hvac_zone_R323 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R323 .
+
+soda_hall:hvac_zone_R325 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R325 .
+
+soda_hall:hvac_zone_R326 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R326 .
+
+soda_hall:hvac_zone_R327 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R327 .
+
+soda_hall:hvac_zone_R329 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R329 .
+
+soda_hall:hvac_zone_R330A a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R330A .
+
+soda_hall:hvac_zone_R330B a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R330B .
+
+soda_hall:hvac_zone_R331 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R331 .
+
+soda_hall:hvac_zone_R333 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R333 .
+
+soda_hall:hvac_zone_R336 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R336 .
+
+soda_hall:hvac_zone_R337 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R337 .
+
+soda_hall:hvac_zone_R337A a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R337A .
+
+soda_hall:hvac_zone_R339 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R339 .
+
+soda_hall:hvac_zone_R340 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R340 .
+
+soda_hall:hvac_zone_R341 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R341 .
+
+soda_hall:hvac_zone_R342 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R342 .
+
+soda_hall:hvac_zone_R343 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R343 .
+
+soda_hall:hvac_zone_R345 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R345 .
+
+soda_hall:hvac_zone_R347 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R347 .
+
+soda_hall:hvac_zone_R349 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R349 .
+
+soda_hall:hvac_zone_R352 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R352 .
+
+soda_hall:hvac_zone_R364 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R364 .
+
+soda_hall:hvac_zone_R365 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R365 .
+
+soda_hall:hvac_zone_R367 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R367 .
+
+soda_hall:hvac_zone_R369 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R369 .
+
+soda_hall:hvac_zone_R373 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R373 .
+
+soda_hall:hvac_zone_R375 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R375 .
+
+soda_hall:hvac_zone_R376A a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R376A .
+
+soda_hall:hvac_zone_R377 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R377 .
+
+soda_hall:hvac_zone_R379 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R379 .
+
+soda_hall:hvac_zone_R380 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R380 .
+
+soda_hall:hvac_zone_R381 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R381 .
+
+soda_hall:hvac_zone_R383 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R383 .
+
+soda_hall:hvac_zone_R384 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R384 .
+
+soda_hall:hvac_zone_R385 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R385 .
+
+soda_hall:hvac_zone_R389 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R389 .
+
+soda_hall:hvac_zone_R393 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R393 .
+
+soda_hall:hvac_zone_R395 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R395 .
+
+soda_hall:hvac_zone_R398 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R398 .
+
+soda_hall:hvac_zone_R405A a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R405A .
+
+soda_hall:hvac_zone_R405B a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R405B .
+
+soda_hall:hvac_zone_R410A a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R410A .
+
+soda_hall:hvac_zone_R410B a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R410B .
+
+soda_hall:hvac_zone_R411 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R411 .
+
+soda_hall:hvac_zone_R413 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R413 .
+
+soda_hall:hvac_zone_R415 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R415 .
+
+soda_hall:hvac_zone_R416 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R416 .
+
+soda_hall:hvac_zone_R417 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R417 .
+
+soda_hall:hvac_zone_R419 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R419 .
+
+soda_hall:hvac_zone_R420 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R420 .
+
+soda_hall:hvac_zone_R420A a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R420A .
+
+soda_hall:hvac_zone_R421 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R421 .
+
+soda_hall:hvac_zone_R430 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R430 .
+
+soda_hall:hvac_zone_R430A a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R430A .
+
+soda_hall:hvac_zone_R434 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R434 .
+
+soda_hall:hvac_zone_R438 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R438 .
+
+soda_hall:hvac_zone_R440 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R440 .
+
+soda_hall:hvac_zone_R441 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R441 .
+
+soda_hall:hvac_zone_R442 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R442 .
+
+soda_hall:hvac_zone_R443 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R443 .
+
+soda_hall:hvac_zone_R444 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R444 .
+
+soda_hall:hvac_zone_R445 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R445 .
+
+soda_hall:hvac_zone_R447 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R447 .
+
+soda_hall:hvac_zone_R449 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R449 .
+
+soda_hall:hvac_zone_R452 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R452 .
+
+soda_hall:hvac_zone_R465A a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R465A .
+
+soda_hall:hvac_zone_R465B a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R465B .
+
+soda_hall:hvac_zone_R465C a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R465C .
+
+soda_hall:hvac_zone_R465D a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R465D .
+
+soda_hall:hvac_zone_R465E a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R465E .
+
+soda_hall:hvac_zone_R465H a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R465H .
+
+soda_hall:hvac_zone_R465K a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R465K .
+
+soda_hall:hvac_zone_R465_3 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R465_3 .
+
+soda_hall:hvac_zone_R465_4 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R465_4 .
+
+soda_hall:hvac_zone_R465_5 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R465_5 .
+
+soda_hall:hvac_zone_R465_6 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R465_6 .
+
+soda_hall:hvac_zone_R465_7 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R465_7 .
+
+soda_hall:hvac_zone_R498 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R498 .
+
+soda_hall:hvac_zone_R500A a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R500A .
+
+soda_hall:hvac_zone_R500B a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R500B .
+
+soda_hall:hvac_zone_R508 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R508 .
+
+soda_hall:hvac_zone_R510 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R510 .
+
+soda_hall:hvac_zone_R513 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R513 .
+
+soda_hall:hvac_zone_R514 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R514 .
+
+soda_hall:hvac_zone_R515 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R515 .
+
+soda_hall:hvac_zone_R516 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R516 .
+
+soda_hall:hvac_zone_R517 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R517 .
+
+soda_hall:hvac_zone_R523 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R523 .
+
+soda_hall:hvac_zone_R524 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R524 .
+
+soda_hall:hvac_zone_R525 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R525 .
+
+soda_hall:hvac_zone_R527 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R527 .
+
+soda_hall:hvac_zone_R529 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R529 .
+
+soda_hall:hvac_zone_R530 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R530 .
+
+soda_hall:hvac_zone_R531 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R531 .
+
+soda_hall:hvac_zone_R533 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R533 .
+
+soda_hall:hvac_zone_R534 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R534 .
+
+soda_hall:hvac_zone_R535 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R535 .
+
+soda_hall:hvac_zone_R537 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R537 .
+
+soda_hall:hvac_zone_R542 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R542 .
+
+soda_hall:hvac_zone_R543 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R543 .
+
+soda_hall:hvac_zone_R544 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R544 .
+
+soda_hall:hvac_zone_R545 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R545 .
+
+soda_hall:hvac_zone_R551 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R551 .
+
+soda_hall:hvac_zone_R5511 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R5511 .
+
+soda_hall:hvac_zone_R552 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R552 .
+
+soda_hall:hvac_zone_R562A a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R562A .
+
+soda_hall:hvac_zone_R563 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R563 .
+
+soda_hall:hvac_zone_R564 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R564 .
+
+soda_hall:hvac_zone_R566 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R566 .
+
+soda_hall:hvac_zone_R567 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R567 .
+
+soda_hall:hvac_zone_R573 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R573 .
+
+soda_hall:hvac_zone_R576 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R576 .
+
+soda_hall:hvac_zone_R577 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R577 .
+
+soda_hall:hvac_zone_R579 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R579 .
+
+soda_hall:hvac_zone_R580 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R580 .
+
+soda_hall:hvac_zone_R582 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R582 .
+
+soda_hall:hvac_zone_R582_1 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R582_1 .
+
+soda_hall:hvac_zone_R582_2 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R582_2 .
+
+soda_hall:hvac_zone_R583 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R583 .
+
+soda_hall:hvac_zone_R5831 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R5831 .
+
+soda_hall:hvac_zone_R587 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R587 .
+
+soda_hall:hvac_zone_R5871 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R5871 .
+
+soda_hall:hvac_zone_R595 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R595 .
+
+soda_hall:hvac_zone_R598 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R598 .
+
+soda_hall:hvac_zone_R600A a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R600A .
+
+soda_hall:hvac_zone_R600B a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R600B .
+
+soda_hall:hvac_zone_R606 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R606 .
+
+soda_hall:hvac_zone_R615 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R615 .
+
+soda_hall:hvac_zone_R617 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R617 .
+
+soda_hall:hvac_zone_R621 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R621 .
+
+soda_hall:hvac_zone_R623 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R623 .
+
+soda_hall:hvac_zone_R625 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R625 .
+
+soda_hall:hvac_zone_R626 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R626 .
+
+soda_hall:hvac_zone_R627 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R627 .
+
+soda_hall:hvac_zone_R629 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R629 .
+
+soda_hall:hvac_zone_R631 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R631 .
+
+soda_hall:hvac_zone_R633 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R633 .
+
+soda_hall:hvac_zone_R634 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R634 .
+
+soda_hall:hvac_zone_R635 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R635 .
+
+soda_hall:hvac_zone_R637 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R637 .
+
+soda_hall:hvac_zone_R639 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R639 .
+
+soda_hall:hvac_zone_R643 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R643 .
+
+soda_hall:hvac_zone_R645 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R645 .
+
+soda_hall:hvac_zone_R651 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R651 .
+
+soda_hall:hvac_zone_R652 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R652 .
+
+soda_hall:hvac_zone_R665 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R665 .
+
+soda_hall:hvac_zone_R671 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R671 .
+
+soda_hall:hvac_zone_R673 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R673 .
+
+soda_hall:hvac_zone_R675 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R675 .
+
+soda_hall:hvac_zone_R676 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R676 .
+
+soda_hall:hvac_zone_R677 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R677 .
+
+soda_hall:hvac_zone_R678 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R678 .
+
+soda_hall:hvac_zone_R681A a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R681A .
+
+soda_hall:hvac_zone_R681B a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R681B .
+
+soda_hall:hvac_zone_R682 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R682 .
+
+soda_hall:hvac_zone_R683 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R683 .
+
+soda_hall:hvac_zone_R684 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R684 .
+
+soda_hall:hvac_zone_R685 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R685 .
+
+soda_hall:hvac_zone_R687 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R687 .
+
+soda_hall:hvac_zone_R689 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R689 .
+
+soda_hall:hvac_zone_R695 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R695 .
+
+soda_hall:hvac_zone_R698 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R698 .
+
+soda_hall:hvac_zone_R719 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R719 .
+
+soda_hall:hvac_zone_R721 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R721 .
+
+soda_hall:hvac_zone_R723 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R723 .
+
+soda_hall:hvac_zone_R725 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R725 .
+
+soda_hall:hvac_zone_R726 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R726 .
+
+soda_hall:hvac_zone_R727 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R727 .
+
+soda_hall:hvac_zone_R729 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R729 .
+
+soda_hall:hvac_zone_R731 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R731 .
+
+soda_hall:hvac_zone_R733 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R733 .
+
+soda_hall:hvac_zone_R734 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R734 .
+
+soda_hall:hvac_zone_R735 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R735 .
+
+soda_hall:hvac_zone_R737 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R737 .
+
+soda_hall:hvac_zone_R739 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R739 .
+
+soda_hall:hvac_zone_R741 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R741 .
+
+soda_hall:hvac_zone_R752 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R752 .
+
+soda_hall:hvac_zone_R765 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R765 .
+
+soda_hall:hvac_zone_R771 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R771 .
+
+soda_hall:hvac_zone_R773 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R773 .
+
+soda_hall:hvac_zone_R775 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R775 .
+
+soda_hall:hvac_zone_R776 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R776 .
+
+soda_hall:hvac_zone_R777 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R777 .
+
+soda_hall:hvac_zone_R779 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R779 .
+
+soda_hall:hvac_zone_R781 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R781 .
+
+soda_hall:hvac_zone_R783 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R783 .
+
+soda_hall:hvac_zone_R784 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R784 .
+
+soda_hall:hvac_zone_R785 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R785 .
+
+soda_hall:hvac_zone_R787 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R787 .
+
+soda_hall:hvac_zone_R789 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R789 .
+
+soda_hall:hvac_zone_R795 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R795 .
+
+soda_hall:hvac_zone_R798 a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R798 .
+
+soda_hall:hvac_zone_R800A a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_R800A .
+
+soda_hall:hvac_zone_zone_337A a brick:HVAC_Zone ;
+    brick:hasPart soda_hall:room_zone_337A .
+
+soda_hall:mixed_air_dmp_supply_fan_S11 a brick:Damper_Position_Sensor .
+
+soda_hall:mixed_air_dmp_supply_fan_S14 a brick:Damper_Position_Sensor .
+
+soda_hall:mixed_air_dmp_supply_fan_S16 a brick:Damper_Position_Sensor .
+
+soda_hall:mixed_air_dmp_supply_fan_S18 a brick:Damper_Position_Sensor .
+
+soda_hall:mixed_air_temp_supply_fan_S11 a brick:Mixed_Air_Temperature_Sensor .
+
+soda_hall:mixed_air_temp_supply_fan_S14 a brick:Mixed_Air_Temperature_Sensor .
+
+soda_hall:mixed_air_temp_supply_fan_S16 a brick:Mixed_Air_Temperature_Sensor .
+
+soda_hall:mixed_air_temp_supply_fan_S18 a brick:Mixed_Air_Temperature_Sensor .
+
+soda_hall:oat_SODA3______OAT a brick_v_1_0_2:Outside_Air_Temperature .
+
+soda_hall:override_event_SODA1____EVENT a brick:Overridden_Status .
+
+soda_hall:override_event_SODA2____EVENT a brick:Overridden_Status .
+
+soda_hall:override_event_SODA3____EVENT a brick:Overridden_Status .
+
+soda_hall:override_event_SODA4____EVENT a brick:Overridden_Status .
+
+soda_hall:pid_i_supply_fan_S11 a brick:Integral_Gain_Parameter .
+
+soda_hall:pid_i_supply_fan_S16 a brick:Integral_Gain_Parameter .
+
+soda_hall:pid_i_supply_fan_S18 a brick:Integral_Gain_Parameter .
+
+soda_hall:pid_p_supply_fan_S11 a brick:Proportional_Gain_Parameter .
+
+soda_hall:pid_p_supply_fan_S14 a brick:Proportional_Gain_Parameter .
+
+soda_hall:pid_p_supply_fan_S16 a brick:Proportional_Gain_Parameter .
+
+soda_hall:rat_SODA1_LOW_RAT2 a brick:Low_Return_Air_Temperature_Alarm .
+
+soda_hall:rat_SODA1_LOW_RAT3 a brick:Low_Return_Air_Temperature_Alarm .
+
+soda_hall:rat_SODA1_LOW_RAT4 a brick:Low_Return_Air_Temperature_Alarm .
+
+soda_hall:rat_SODA1__LOW_RAT a brick:Low_Return_Air_Temperature_Alarm .
+
+soda_hall:rat_SODA2__LOW_RAT a brick:Low_Return_Air_Temperature_Alarm .
+
+soda_hall:rat_SODA3_LOW_RAT1 a brick:Low_Return_Air_Temperature_Alarm .
+
+soda_hall:rat_SODA3_LOW_RAT2 a brick:Low_Return_Air_Temperature_Alarm .
+
+soda_hall:rat_SODA3_LOW_RAT3 a brick:Low_Return_Air_Temperature_Alarm .
+
+soda_hall:rat_SODA3__LOW_RAT a brick:Low_Return_Air_Temperature_Alarm .
+
+soda_hall:rat_SODA4_LOW_RAT1 a brick:Low_Return_Air_Temperature_Alarm .
+
+soda_hall:rat_SODA4_LOW_RAT2 a brick:Low_Return_Air_Temperature_Alarm .
+
+soda_hall:rat_SODA4_LOW_RAT3 a brick:Low_Return_Air_Temperature_Alarm .
+
+soda_hall:rat_SODA4__LOW_RAT a brick:Low_Return_Air_Temperature_Alarm .
+
+soda_hall:reheat_sensor_hvac_zone_C300T a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_C400A a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_C400B a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_C511 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_C611 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_C700A a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_C700B a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_C700C a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_C700D a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_C711 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_C751 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R311 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R313 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R315 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R317 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R319 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R321 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R323 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R325 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R327 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R329 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R331 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R333 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R337 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R339 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R341 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R343 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R345 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R347 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R349 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R365 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R367 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R369 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R373 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R375 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R377 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R379 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R381 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R383 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R385 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R389 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R393 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R395 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R411 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R413 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R415 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R417 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R419 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R421 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R434 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R438 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R441 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R443 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R445 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R447 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R449 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R513 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R515 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R517 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R523 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R525 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R527 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R529 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R531 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R533 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R535 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R537 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R543 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R545 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R551 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R5511 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R563 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R567 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R573 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R576 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R577 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R579 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R580 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R583 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R5831 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R587 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R5871 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R595 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R615 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R617 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R621 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R623 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R625 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R627 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R629 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R631 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R633 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R635 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R637 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R639 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R643 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R645 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R651 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R665 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R671 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R673 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R675 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R677 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R681A a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R681B a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R683 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R685 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R687 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R689 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R695 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R719 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R721 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R723 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R725 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R727 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R729 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R731 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R733 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R735 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R737 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R739 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R741 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R765 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R771 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R773 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R775 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R777 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R779 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R781 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R783 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R785 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R787 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R789 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_R795 a brick:Command .
+
+soda_hall:reheat_sensor_hvac_zone_zone_337A a brick:Command .
+
+soda_hall:room_C180 a brick:Room ;
+    brick:isPartOf soda_hall:floor_1 .
+
+soda_hall:room_C300 a brick:Room ;
+    brick:isPartOf soda_hall:floor_3 .
+
+soda_hall:room_C300B a brick:Room ;
+    brick:isPartOf soda_hall:floor_3 .
+
+soda_hall:room_C300T a brick:Room ;
+    brick:isPartOf soda_hall:floor_3 .
+
+soda_hall:room_C400A a brick:Room ;
+    brick:isPartOf soda_hall:floor_4 .
+
+soda_hall:room_C400B a brick:Room ;
+    brick:isPartOf soda_hall:floor_4 .
+
+soda_hall:room_C400C a brick:Room ;
+    brick:isPartOf soda_hall:floor_4 .
+
+soda_hall:room_C411 a brick:Room ;
+    brick:isPartOf soda_hall:floor_4 .
+
+soda_hall:room_C500A a brick:Room ;
+    brick:isPartOf soda_hall:floor_5 .
+
+soda_hall:room_C500B a brick:Room ;
+    brick:isPartOf soda_hall:floor_5 .
+
+soda_hall:room_C511 a brick:Room ;
+    brick:isPartOf soda_hall:floor_5 .
+
+soda_hall:room_C600A a brick:Room ;
+    brick:isPartOf soda_hall:floor_6 .
+
+soda_hall:room_C600B a brick:Room ;
+    brick:isPartOf soda_hall:floor_6 .
+
+soda_hall:room_C611 a brick:Room ;
+    brick:isPartOf soda_hall:floor_6 .
+
+soda_hall:room_C700A a brick:Room ;
+    brick:isPartOf soda_hall:floor_7 .
+
+soda_hall:room_C700B a brick:Room ;
+    brick:isPartOf soda_hall:floor_7 .
+
+soda_hall:room_C700C a brick:Room ;
+    brick:isPartOf soda_hall:floor_7 .
+
+soda_hall:room_C700D a brick:Room ;
+    brick:isPartOf soda_hall:floor_7 .
+
+soda_hall:room_C711 a brick:Room ;
+    brick:isPartOf soda_hall:floor_7 .
+
+soda_hall:room_C751 a brick:Room ;
+    brick:isPartOf soda_hall:floor_7 .
+
+soda_hall:room_R179 a brick:Room ;
+    brick:isPartOf soda_hall:floor_1 .
+
+soda_hall:room_R181 a brick:Room ;
+    brick:isPartOf soda_hall:floor_1 .
+
+soda_hall:room_R183 a brick:Room ;
+    brick:isPartOf soda_hall:floor_1 .
+
+soda_hall:room_R184 a brick:Room ;
+    brick:isPartOf soda_hall:floor_1 .
+
+soda_hall:room_R187 a brick:Room ;
+    brick:isPartOf soda_hall:floor_1 .
+
+soda_hall:room_R187A a brick:Room ;
+    brick:isPartOf soda_hall:floor_1 .
+
+soda_hall:room_R190A a brick:Room ;
+    brick:isPartOf soda_hall:floor_1 .
+
+soda_hall:room_R190B a brick:Room ;
+    brick:isPartOf soda_hall:floor_1 .
+
+soda_hall:room_R252 a brick:Room ;
+    brick:isPartOf soda_hall:floor_2 .
+
+soda_hall:room_R271 a brick:Room ;
+    brick:isPartOf soda_hall:floor_2 .
+
+soda_hall:room_R273 a brick:Room ;
+    brick:isPartOf soda_hall:floor_2 .
+
+soda_hall:room_R275 a brick:Room ;
+    brick:isPartOf soda_hall:floor_2 .
+
+soda_hall:room_R277 a brick:Room ;
+    brick:isPartOf soda_hall:floor_2 .
+
+soda_hall:room_R280 a brick:Room ;
+    brick:isPartOf soda_hall:floor_2 .
+
+soda_hall:room_R283E a brick:Room ;
+    brick:isPartOf soda_hall:floor_2 .
+
+soda_hall:room_R284 a brick:Room ;
+    brick:isPartOf soda_hall:floor_2 .
+
+soda_hall:room_R287 a brick:Room ;
+    brick:isPartOf soda_hall:floor_2 .
+
+soda_hall:room_R288 a brick:Room ;
+    brick:isPartOf soda_hall:floor_2 .
+
+soda_hall:room_R290 a brick:Room ;
+    brick:isPartOf soda_hall:floor_2 .
+
+soda_hall:room_R306 a brick:Room ;
+    brick:isPartOf soda_hall:floor_3 .
+
+soda_hall:room_R310 a brick:Room ;
+    brick:isPartOf soda_hall:floor_3 .
+
+soda_hall:room_R311 a brick:Room ;
+    brick:isPartOf soda_hall:floor_3 .
+
+soda_hall:room_R313 a brick:Room ;
+    brick:isPartOf soda_hall:floor_3 .
+
+soda_hall:room_R315 a brick:Room ;
+    brick:isPartOf soda_hall:floor_3 .
+
+soda_hall:room_R316 a brick:Room ;
+    brick:isPartOf soda_hall:floor_3 .
+
+soda_hall:room_R317 a brick:Room ;
+    brick:isPartOf soda_hall:floor_3 .
+
+soda_hall:room_R319 a brick:Room ;
+    brick:isPartOf soda_hall:floor_3 .
+
+soda_hall:room_R320 a brick:Room ;
+    brick:isPartOf soda_hall:floor_3 .
+
+soda_hall:room_R321 a brick:Room ;
+    brick:isPartOf soda_hall:floor_3 .
+
+soda_hall:room_R323 a brick:Room ;
+    brick:isPartOf soda_hall:floor_3 .
+
+soda_hall:room_R325 a brick:Room ;
+    brick:isPartOf soda_hall:floor_3 .
+
+soda_hall:room_R326 a brick:Room ;
+    brick:isPartOf soda_hall:floor_3 .
+
+soda_hall:room_R327 a brick:Room ;
+    brick:isPartOf soda_hall:floor_3 .
+
+soda_hall:room_R329 a brick:Room ;
+    brick:isPartOf soda_hall:floor_3 .
+
+soda_hall:room_R330A a brick:Room ;
+    brick:isPartOf soda_hall:floor_3 .
+
+soda_hall:room_R330B a brick:Room ;
+    brick:isPartOf soda_hall:floor_3 .
+
+soda_hall:room_R331 a brick:Room ;
+    brick:isPartOf soda_hall:floor_3 .
+
+soda_hall:room_R333 a brick:Room ;
+    brick:isPartOf soda_hall:floor_3 .
+
+soda_hall:room_R336 a brick:Room ;
+    brick:isPartOf soda_hall:floor_3 .
+
+soda_hall:room_R337 a brick:Room ;
+    brick:isPartOf soda_hall:floor_3 .
+
+soda_hall:room_R337A a brick:Room ;
+    brick:isPartOf soda_hall:floor_3 .
+
+soda_hall:room_R339 a brick:Room ;
+    brick:isPartOf soda_hall:floor_3 .
+
+soda_hall:room_R340 a brick:Room ;
+    brick:isPartOf soda_hall:floor_3 .
+
+soda_hall:room_R341 a brick:Room ;
+    brick:isPartOf soda_hall:floor_3 .
+
+soda_hall:room_R342 a brick:Room ;
+    brick:isPartOf soda_hall:floor_3 .
+
+soda_hall:room_R343 a brick:Room ;
+    brick:isPartOf soda_hall:floor_3 .
+
+soda_hall:room_R345 a brick:Room ;
+    brick:isPartOf soda_hall:floor_3 .
+
+soda_hall:room_R347 a brick:Room ;
+    brick:isPartOf soda_hall:floor_3 .
+
+soda_hall:room_R349 a brick:Room ;
+    brick:isPartOf soda_hall:floor_3 .
+
+soda_hall:room_R352 a brick:Room ;
+    brick:isPartOf soda_hall:floor_3 .
+
+soda_hall:room_R364 a brick:Room ;
+    brick:isPartOf soda_hall:floor_3 .
+
+soda_hall:room_R365 a brick:Room ;
+    brick:isPartOf soda_hall:floor_3 .
+
+soda_hall:room_R367 a brick:Room ;
+    brick:isPartOf soda_hall:floor_3 .
+
+soda_hall:room_R369 a brick:Room ;
+    brick:isPartOf soda_hall:floor_3 .
+
+soda_hall:room_R373 a brick:Room ;
+    brick:isPartOf soda_hall:floor_3 .
+
+soda_hall:room_R375 a brick:Room ;
+    brick:isPartOf soda_hall:floor_3 .
+
+soda_hall:room_R376A a brick:Room ;
+    brick:isPartOf soda_hall:floor_3 .
+
+soda_hall:room_R377 a brick:Room ;
+    brick:isPartOf soda_hall:floor_3 .
+
+soda_hall:room_R379 a brick:Room ;
+    brick:isPartOf soda_hall:floor_3 .
+
+soda_hall:room_R380 a brick:Room ;
+    brick:isPartOf soda_hall:floor_3 .
+
+soda_hall:room_R381 a brick:Room ;
+    brick:isPartOf soda_hall:floor_3 .
+
+soda_hall:room_R383 a brick:Room ;
+    brick:isPartOf soda_hall:floor_3 .
+
+soda_hall:room_R384 a brick:Room ;
+    brick:isPartOf soda_hall:floor_3 .
+
+soda_hall:room_R385 a brick:Room ;
+    brick:isPartOf soda_hall:floor_3 .
+
+soda_hall:room_R389 a brick:Room ;
+    brick:isPartOf soda_hall:floor_3 .
+
+soda_hall:room_R393 a brick:Room ;
+    brick:isPartOf soda_hall:floor_3 .
+
+soda_hall:room_R395 a brick:Room ;
+    brick:isPartOf soda_hall:floor_3 .
+
+soda_hall:room_R398 a brick:Room ;
+    brick:isPartOf soda_hall:floor_3 .
+
+soda_hall:room_R405A a brick:Room ;
+    brick:isPartOf soda_hall:floor_4 .
+
+soda_hall:room_R405B a brick:Room ;
+    brick:isPartOf soda_hall:floor_4 .
+
+soda_hall:room_R410A a brick:Room ;
+    brick:isPartOf soda_hall:floor_4 .
+
+soda_hall:room_R410B a brick:Room ;
+    brick:isPartOf soda_hall:floor_4 .
+
+soda_hall:room_R411 a brick:Room ;
+    brick:isPartOf soda_hall:floor_4 .
+
+soda_hall:room_R413 a brick:Room ;
+    brick:isPartOf soda_hall:floor_4 .
+
+soda_hall:room_R415 a brick:Room ;
+    brick:isPartOf soda_hall:floor_4 .
+
+soda_hall:room_R416 a brick:Room ;
+    brick:isPartOf soda_hall:floor_4 .
+
+soda_hall:room_R417 a brick:Room ;
+    brick:isPartOf soda_hall:floor_4 .
+
+soda_hall:room_R419 a brick:Room ;
+    brick:isPartOf soda_hall:floor_4 .
+
+soda_hall:room_R420 a brick:Room ;
+    brick:isPartOf soda_hall:floor_4 .
+
+soda_hall:room_R420A a brick:Room ;
+    brick:isPartOf soda_hall:floor_4 .
+
+soda_hall:room_R421 a brick:Room ;
+    brick:isPartOf soda_hall:floor_4 .
+
+soda_hall:room_R430 a brick:Room ;
+    brick:isPartOf soda_hall:floor_4 .
+
+soda_hall:room_R430A a brick:Room ;
+    brick:isPartOf soda_hall:floor_4 .
+
+soda_hall:room_R434 a brick:Room ;
+    brick:isPartOf soda_hall:floor_4 .
+
+soda_hall:room_R438 a brick:Room ;
+    brick:isPartOf soda_hall:floor_4 .
+
+soda_hall:room_R440 a brick:Room ;
+    brick:isPartOf soda_hall:floor_4 .
+
+soda_hall:room_R441 a brick:Room ;
+    brick:isPartOf soda_hall:floor_4 .
+
+soda_hall:room_R442 a brick:Room ;
+    brick:isPartOf soda_hall:floor_4 .
+
+soda_hall:room_R443 a brick:Room ;
+    brick:isPartOf soda_hall:floor_4 .
+
+soda_hall:room_R444 a brick:Room ;
+    brick:isPartOf soda_hall:floor_4 .
+
+soda_hall:room_R445 a brick:Room ;
+    brick:isPartOf soda_hall:floor_4 .
+
+soda_hall:room_R447 a brick:Room ;
+    brick:isPartOf soda_hall:floor_4 .
+
+soda_hall:room_R449 a brick:Room ;
+    brick:isPartOf soda_hall:floor_4 .
+
+soda_hall:room_R452 a brick:Room ;
+    brick:isPartOf soda_hall:floor_4 .
+
+soda_hall:room_R465A a brick:Room ;
+    brick:isPartOf soda_hall:floor_4 .
+
+soda_hall:room_R465B a brick:Room ;
+    brick:isPartOf soda_hall:floor_4 .
+
+soda_hall:room_R465C a brick:Room ;
+    brick:isPartOf soda_hall:floor_4 .
+
+soda_hall:room_R465D a brick:Room ;
+    brick:isPartOf soda_hall:floor_4 .
+
+soda_hall:room_R465E a brick:Room ;
+    brick:isPartOf soda_hall:floor_4 .
+
+soda_hall:room_R465H a brick:Room ;
+    brick:isPartOf soda_hall:floor_4 .
+
+soda_hall:room_R465K a brick:Room ;
+    brick:isPartOf soda_hall:floor_4 .
+
+soda_hall:room_R465_3 a brick:Room ;
+    brick:isPartOf soda_hall:floor_4 .
+
+soda_hall:room_R465_4 a brick:Room ;
+    brick:isPartOf soda_hall:floor_4 .
+
+soda_hall:room_R465_5 a brick:Room ;
+    brick:isPartOf soda_hall:floor_4 .
+
+soda_hall:room_R465_6 a brick:Room ;
+    brick:isPartOf soda_hall:floor_4 .
+
+soda_hall:room_R465_7 a brick:Room ;
+    brick:isPartOf soda_hall:floor_4 .
+
+soda_hall:room_R498 a brick:Room ;
+    brick:isPartOf soda_hall:floor_4 .
+
+soda_hall:room_R500A a brick:Room ;
+    brick:isPartOf soda_hall:floor_5 .
+
+soda_hall:room_R500B a brick:Room ;
+    brick:isPartOf soda_hall:floor_5 .
+
+soda_hall:room_R508 a brick:Room ;
+    brick:isPartOf soda_hall:floor_5 .
+
+soda_hall:room_R510 a brick:Room ;
+    brick:isPartOf soda_hall:floor_5 .
+
+soda_hall:room_R513 a brick:Room ;
+    brick:isPartOf soda_hall:floor_5 .
+
+soda_hall:room_R514 a brick:Room ;
+    brick:isPartOf soda_hall:floor_5 .
+
+soda_hall:room_R515 a brick:Room ;
+    brick:isPartOf soda_hall:floor_5 .
+
+soda_hall:room_R516 a brick:Room ;
+    brick:isPartOf soda_hall:floor_5 .
+
+soda_hall:room_R517 a brick:Room ;
+    brick:isPartOf soda_hall:floor_5 .
+
+soda_hall:room_R523 a brick:Room ;
+    brick:isPartOf soda_hall:floor_5 .
+
+soda_hall:room_R524 a brick:Room ;
+    brick:isPartOf soda_hall:floor_5 .
+
+soda_hall:room_R525 a brick:Room ;
+    brick:isPartOf soda_hall:floor_5 .
+
+soda_hall:room_R527 a brick:Room ;
+    brick:isPartOf soda_hall:floor_5 .
+
+soda_hall:room_R529 a brick:Room ;
+    brick:isPartOf soda_hall:floor_5 .
+
+soda_hall:room_R530 a brick:Room ;
+    brick:isPartOf soda_hall:floor_5 .
+
+soda_hall:room_R531 a brick:Room ;
+    brick:isPartOf soda_hall:floor_5 .
+
+soda_hall:room_R533 a brick:Room ;
+    brick:isPartOf soda_hall:floor_5 .
+
+soda_hall:room_R534 a brick:Room ;
+    brick:isPartOf soda_hall:floor_5 .
+
+soda_hall:room_R535 a brick:Room ;
+    brick:isPartOf soda_hall:floor_5 .
+
+soda_hall:room_R537 a brick:Room ;
+    brick:isPartOf soda_hall:floor_5 .
+
+soda_hall:room_R542 a brick:Room ;
+    brick:isPartOf soda_hall:floor_5 .
+
+soda_hall:room_R543 a brick:Room ;
+    brick:isPartOf soda_hall:floor_5 .
+
+soda_hall:room_R544 a brick:Room ;
+    brick:isPartOf soda_hall:floor_5 .
+
+soda_hall:room_R545 a brick:Room ;
+    brick:isPartOf soda_hall:floor_5 .
+
+soda_hall:room_R551 a brick:Room ;
+    brick:isPartOf soda_hall:floor_5 .
+
+soda_hall:room_R5511 a brick:Room ;
+    brick:isPartOf soda_hall:floor_5 .
+
+soda_hall:room_R552 a brick:Room ;
+    brick:isPartOf soda_hall:floor_5 .
+
+soda_hall:room_R562A a brick:Room ;
+    brick:isPartOf soda_hall:floor_5 .
+
+soda_hall:room_R563 a brick:Room ;
+    brick:isPartOf soda_hall:floor_5 .
+
+soda_hall:room_R564 a brick:Room ;
+    brick:isPartOf soda_hall:floor_5 .
+
+soda_hall:room_R566 a brick:Room ;
+    brick:isPartOf soda_hall:floor_5 .
+
+soda_hall:room_R567 a brick:Room ;
+    brick:isPartOf soda_hall:floor_5 .
+
+soda_hall:room_R573 a brick:Room ;
+    brick:isPartOf soda_hall:floor_5 .
+
+soda_hall:room_R576 a brick:Room ;
+    brick:isPartOf soda_hall:floor_5 .
+
+soda_hall:room_R577 a brick:Room ;
+    brick:isPartOf soda_hall:floor_5 .
+
+soda_hall:room_R579 a brick:Room ;
+    brick:isPartOf soda_hall:floor_5 .
+
+soda_hall:room_R580 a brick:Room ;
+    brick:isPartOf soda_hall:floor_5 .
+
+soda_hall:room_R582 a brick:Room ;
+    brick:isPartOf soda_hall:floor_5 .
+
+soda_hall:room_R582_1 a brick:Room ;
+    brick:isPartOf soda_hall:floor_5 .
+
+soda_hall:room_R582_2 a brick:Room ;
+    brick:isPartOf soda_hall:floor_5 .
+
+soda_hall:room_R583 a brick:Room ;
+    brick:isPartOf soda_hall:floor_5 .
+
+soda_hall:room_R5831 a brick:Room ;
+    brick:isPartOf soda_hall:floor_5 .
+
+soda_hall:room_R587 a brick:Room ;
+    brick:isPartOf soda_hall:floor_5 .
+
+soda_hall:room_R5871 a brick:Room ;
+    brick:isPartOf soda_hall:floor_5 .
+
+soda_hall:room_R595 a brick:Room ;
+    brick:isPartOf soda_hall:floor_5 .
+
+soda_hall:room_R598 a brick:Room ;
+    brick:isPartOf soda_hall:floor_5 .
+
+soda_hall:room_R600A a brick:Room ;
+    brick:isPartOf soda_hall:floor_6 .
+
+soda_hall:room_R600B a brick:Room ;
+    brick:isPartOf soda_hall:floor_6 .
+
+soda_hall:room_R606 a brick:Room ;
+    brick:isPartOf soda_hall:floor_6 .
+
+soda_hall:room_R615 a brick:Room ;
+    brick:isPartOf soda_hall:floor_6 .
+
+soda_hall:room_R617 a brick:Room ;
+    brick:isPartOf soda_hall:floor_6 .
+
+soda_hall:room_R621 a brick:Room ;
+    brick:isPartOf soda_hall:floor_6 .
+
+soda_hall:room_R623 a brick:Room ;
+    brick:isPartOf soda_hall:floor_6 .
+
+soda_hall:room_R625 a brick:Room ;
+    brick:isPartOf soda_hall:floor_6 .
+
+soda_hall:room_R626 a brick:Room ;
+    brick:isPartOf soda_hall:floor_6 .
+
+soda_hall:room_R627 a brick:Room ;
+    brick:isPartOf soda_hall:floor_6 .
+
+soda_hall:room_R629 a brick:Room ;
+    brick:isPartOf soda_hall:floor_6 .
+
+soda_hall:room_R631 a brick:Room ;
+    brick:isPartOf soda_hall:floor_6 .
+
+soda_hall:room_R633 a brick:Room ;
+    brick:isPartOf soda_hall:floor_6 .
+
+soda_hall:room_R634 a brick:Room ;
+    brick:isPartOf soda_hall:floor_6 .
+
+soda_hall:room_R635 a brick:Room ;
+    brick:isPartOf soda_hall:floor_6 .
+
+soda_hall:room_R637 a brick:Room ;
+    brick:isPartOf soda_hall:floor_6 .
+
+soda_hall:room_R639 a brick:Room ;
+    brick:isPartOf soda_hall:floor_6 .
+
+soda_hall:room_R643 a brick:Room ;
+    brick:isPartOf soda_hall:floor_6 .
+
+soda_hall:room_R645 a brick:Room ;
+    brick:isPartOf soda_hall:floor_6 .
+
+soda_hall:room_R651 a brick:Room ;
+    brick:isPartOf soda_hall:floor_6 .
+
+soda_hall:room_R652 a brick:Room ;
+    brick:isPartOf soda_hall:floor_6 .
+
+soda_hall:room_R665 a brick:Room ;
+    brick:isPartOf soda_hall:floor_6 .
+
+soda_hall:room_R671 a brick:Room ;
+    brick:isPartOf soda_hall:floor_6 .
+
+soda_hall:room_R673 a brick:Room ;
+    brick:isPartOf soda_hall:floor_6 .
+
+soda_hall:room_R675 a brick:Room ;
+    brick:isPartOf soda_hall:floor_6 .
+
+soda_hall:room_R676 a brick:Room ;
+    brick:isPartOf soda_hall:floor_6 .
+
+soda_hall:room_R677 a brick:Room ;
+    brick:isPartOf soda_hall:floor_6 .
+
+soda_hall:room_R678 a brick:Room ;
+    brick:isPartOf soda_hall:floor_6 .
+
+soda_hall:room_R681A a brick:Room ;
+    brick:isPartOf soda_hall:floor_6 .
+
+soda_hall:room_R681B a brick:Room ;
+    brick:isPartOf soda_hall:floor_6 .
+
+soda_hall:room_R682 a brick:Room ;
+    brick:isPartOf soda_hall:floor_6 .
+
+soda_hall:room_R683 a brick:Room ;
+    brick:isPartOf soda_hall:floor_6 .
+
+soda_hall:room_R684 a brick:Room ;
+    brick:isPartOf soda_hall:floor_6 .
+
+soda_hall:room_R685 a brick:Room ;
+    brick:isPartOf soda_hall:floor_6 .
+
+soda_hall:room_R687 a brick:Room ;
+    brick:isPartOf soda_hall:floor_6 .
+
+soda_hall:room_R689 a brick:Room ;
+    brick:isPartOf soda_hall:floor_6 .
+
+soda_hall:room_R695 a brick:Room ;
+    brick:isPartOf soda_hall:floor_6 .
+
+soda_hall:room_R698 a brick:Room ;
+    brick:isPartOf soda_hall:floor_6 .
+
+soda_hall:room_R719 a brick:Room ;
+    brick:isPartOf soda_hall:floor_7 .
+
+soda_hall:room_R721 a brick:Room ;
+    brick:isPartOf soda_hall:floor_7 .
+
+soda_hall:room_R723 a brick:Room ;
+    brick:isPartOf soda_hall:floor_7 .
+
+soda_hall:room_R725 a brick:Room ;
+    brick:isPartOf soda_hall:floor_7 .
+
+soda_hall:room_R726 a brick:Room ;
+    brick:isPartOf soda_hall:floor_7 .
+
+soda_hall:room_R727 a brick:Room ;
+    brick:isPartOf soda_hall:floor_7 .
+
+soda_hall:room_R729 a brick:Room ;
+    brick:isPartOf soda_hall:floor_7 .
+
+soda_hall:room_R731 a brick:Room ;
+    brick:isPartOf soda_hall:floor_7 .
+
+soda_hall:room_R733 a brick:Room ;
+    brick:isPartOf soda_hall:floor_7 .
+
+soda_hall:room_R734 a brick:Room ;
+    brick:isPartOf soda_hall:floor_7 .
+
+soda_hall:room_R735 a brick:Room ;
+    brick:isPartOf soda_hall:floor_7 .
+
+soda_hall:room_R737 a brick:Room ;
+    brick:isPartOf soda_hall:floor_7 .
+
+soda_hall:room_R739 a brick:Room ;
+    brick:isPartOf soda_hall:floor_7 .
+
+soda_hall:room_R741 a brick:Room ;
+    brick:isPartOf soda_hall:floor_7 .
+
+soda_hall:room_R752 a brick:Room ;
+    brick:isPartOf soda_hall:floor_7 .
+
+soda_hall:room_R765 a brick:Room ;
+    brick:isPartOf soda_hall:floor_7 .
+
+soda_hall:room_R771 a brick:Room ;
+    brick:isPartOf soda_hall:floor_7 .
+
+soda_hall:room_R773 a brick:Room ;
+    brick:isPartOf soda_hall:floor_7 .
+
+soda_hall:room_R775 a brick:Room ;
+    brick:isPartOf soda_hall:floor_7 .
+
+soda_hall:room_R776 a brick:Room ;
+    brick:isPartOf soda_hall:floor_7 .
+
+soda_hall:room_R777 a brick:Room ;
+    brick:isPartOf soda_hall:floor_7 .
+
+soda_hall:room_R779 a brick:Room ;
+    brick:isPartOf soda_hall:floor_7 .
+
+soda_hall:room_R781 a brick:Room ;
+    brick:isPartOf soda_hall:floor_7 .
+
+soda_hall:room_R783 a brick:Room ;
+    brick:isPartOf soda_hall:floor_7 .
+
+soda_hall:room_R784 a brick:Room ;
+    brick:isPartOf soda_hall:floor_7 .
+
+soda_hall:room_R785 a brick:Room ;
+    brick:isPartOf soda_hall:floor_7 .
+
+soda_hall:room_R787 a brick:Room ;
+    brick:isPartOf soda_hall:floor_7 .
+
+soda_hall:room_R789 a brick:Room ;
+    brick:isPartOf soda_hall:floor_7 .
+
+soda_hall:room_R795 a brick:Room ;
+    brick:isPartOf soda_hall:floor_7 .
+
+soda_hall:room_R798 a brick:Room ;
+    brick:isPartOf soda_hall:floor_7 .
+
+soda_hall:room_R800A a brick:Room ;
+    brick:isPartOf soda_hall:floor_8 .
+
+soda_hall:room_zone_337A a brick:Room ;
+    brick:isPartOf soda_hall:floor_o .
+
+soda_hall:s_s_supply_fan_S11 a brick:Start_Stop_Status .
+
+soda_hall:s_s_supply_fan_S14 a brick:Start_Stop_Status .
+
+soda_hall:s_s_supply_fan_S16 a brick:Start_Stop_Status .
+
+soda_hall:s_s_supply_fan_S18 a brick:Start_Stop_Status .
+
+soda_hall:s_s_supply_fan_S20 a brick:Start_Stop_Status .
+
+soda_hall:smoke_alarm_SODA1_SMK_ALM2 a brick:Smoke_Detected_Alarm .
+
+soda_hall:smoke_alarm_SODA1_SMK_ALM3 a brick:Smoke_Detected_Alarm .
+
+soda_hall:smoke_alarm_SODA1_SMK_ALM4 a brick:Smoke_Detected_Alarm .
+
+soda_hall:smoke_alarm_SODA3_SMK_ALM1 a brick:Smoke_Detected_Alarm .
+
+soda_hall:smoke_alarm_SODA3_SMK_ALM2 a brick:Smoke_Detected_Alarm .
+
+soda_hall:smoke_alarm_SODA3_SMK_ALM3 a brick:Smoke_Detected_Alarm .
+
+soda_hall:smoke_alarm_SODA4_SMK_ALM1 a brick:Smoke_Detected_Alarm .
+
+soda_hall:smoke_alarm_SODA4_SMK_ALM2 a brick:Smoke_Detected_Alarm .
+
+soda_hall:smoke_alarm_SODA4_SMK_ALM3 a brick:Smoke_Detected_Alarm .
+
+soda_hall:smoke_alarm_supply_fan_S11 a brick:Smoke_Detected_Alarm .
+
+soda_hall:smoke_alarm_supply_fan_S14 a brick:Smoke_Detected_Alarm .
+
+soda_hall:smoke_alarm_supply_fan_S16 a brick:Smoke_Detected_Alarm .
+
+soda_hall:smoke_alarm_supply_fan_S18 a brick:Smoke_Detected_Alarm .
+
+soda_hall:static_pressure_sensor_supply_fan_S11 a brick:Static_Pressure_Sensor .
+
+soda_hall:static_pressure_sensor_supply_fan_S16 a brick:Static_Pressure_Sensor .
+
+soda_hall:static_pressure_sensor_supply_fan_S18 a brick:Static_Pressure_Sensor .
+
+soda_hall:static_pressure_setpoint_supply_fan_S11 a brick:Static_Pressure_Setpoint .
+
+soda_hall:static_pressure_setpoint_supply_fan_S16 a brick:Static_Pressure_Setpoint .
+
+soda_hall:static_pressure_setpoint_supply_fan_S18 a brick:Static_Pressure_Setpoint .
+
+soda_hall:supply_air_setpoint_supply_fan_S11 a brick:Discharge_Air_Temperature_Setpoint .
+
+soda_hall:supply_air_setpoint_supply_fan_S14 a brick:Discharge_Air_Temperature_Setpoint .
+
+soda_hall:supply_air_setpoint_supply_fan_S16 a brick:Discharge_Air_Temperature_Setpoint .
+
+soda_hall:supply_air_setpoint_supply_fan_S18 a brick:Discharge_Air_Temperature_Setpoint .
+
+soda_hall:supply_air_temp_supply_fan_S11 a brick:Discharge_Air_Temperature_Sensor .
+
+soda_hall:supply_air_temp_supply_fan_S14 a brick:Discharge_Air_Temperature_Sensor .
+
+soda_hall:supply_air_temp_supply_fan_S16 a brick:Discharge_Air_Temperature_Sensor .
+
+soda_hall:supply_air_temp_supply_fan_S18 a brick:Discharge_Air_Temperature_Sensor .
+
+soda_hall:supply_fan_S11 a brick:Supply_Fan ;
+    brick:hasPoint soda_hall:c_water_vlv_press_supply_fan_S11,
+        soda_hall:fan_speed_reset_supply_fan_S11,
+        soda_hall:fan_speed_supply_fan_S11,
+        soda_hall:fault_status_supply_fan_S11,
+        soda_hall:mixed_air_dmp_supply_fan_S11,
+        soda_hall:mixed_air_temp_supply_fan_S11,
+        soda_hall:pid_i_supply_fan_S11,
+        soda_hall:pid_p_supply_fan_S11,
+        soda_hall:s_s_supply_fan_S11,
+        soda_hall:smoke_alarm_supply_fan_S11,
+        soda_hall:static_pressure_sensor_supply_fan_S11,
+        soda_hall:static_pressure_setpoint_supply_fan_S11,
+        soda_hall:supply_air_setpoint_supply_fan_S11,
+        soda_hall:supply_air_temp_supply_fan_S11,
+        soda_hall:supply_fan_cfm_supply_fan_S11 .
+
+soda_hall:supply_fan_S14 a brick:Supply_Fan ;
+    brick:hasPoint soda_hall:c_water_vlv_press_supply_fan_S14,
+        soda_hall:fault_status_supply_fan_S14,
+        soda_hall:mixed_air_dmp_supply_fan_S14,
+        soda_hall:mixed_air_temp_supply_fan_S14,
+        soda_hall:pid_p_supply_fan_S14,
+        soda_hall:s_s_supply_fan_S14,
+        soda_hall:smoke_alarm_supply_fan_S14,
+        soda_hall:supply_air_setpoint_supply_fan_S14,
+        soda_hall:supply_air_temp_supply_fan_S14 .
+
+soda_hall:supply_fan_S16 a brick:Supply_Fan ;
+    brick:hasPoint soda_hall:c_water_vlv_press_supply_fan_S16,
+        soda_hall:fan_speed_reset_supply_fan_S16,
+        soda_hall:fan_speed_supply_fan_S16,
+        soda_hall:fault_status_supply_fan_S16,
+        soda_hall:mixed_air_dmp_supply_fan_S16,
+        soda_hall:mixed_air_temp_supply_fan_S16,
+        soda_hall:pid_i_supply_fan_S16,
+        soda_hall:pid_p_supply_fan_S16,
+        soda_hall:s_s_supply_fan_S16,
+        soda_hall:smoke_alarm_supply_fan_S16,
+        soda_hall:static_pressure_sensor_supply_fan_S16,
+        soda_hall:static_pressure_setpoint_supply_fan_S16,
+        soda_hall:supply_air_setpoint_supply_fan_S16,
+        soda_hall:supply_air_temp_supply_fan_S16,
+        soda_hall:supply_fan_cfm_supply_fan_S16 .
+
+soda_hall:supply_fan_S18 a brick:Supply_Fan ;
+    brick:hasPoint soda_hall:c_water_vlv_press_supply_fan_S18,
+        soda_hall:fan_speed_reset_supply_fan_S18,
+        soda_hall:fault_status_supply_fan_S18,
+        soda_hall:mixed_air_dmp_supply_fan_S18,
+        soda_hall:mixed_air_temp_supply_fan_S18,
+        soda_hall:pid_i_supply_fan_S18,
+        soda_hall:s_s_supply_fan_S18,
+        soda_hall:smoke_alarm_supply_fan_S18,
+        soda_hall:static_pressure_sensor_supply_fan_S18,
+        soda_hall:static_pressure_setpoint_supply_fan_S18,
+        soda_hall:supply_air_setpoint_supply_fan_S18,
+        soda_hall:supply_air_temp_supply_fan_S18,
+        soda_hall:supply_fan_cfm_supply_fan_S18 .
+
+soda_hall:supply_fan_S20 a brick:Supply_Fan ;
+    brick:hasPoint soda_hall:c_water_vlv_press_supply_fan_S20,
+        soda_hall:s_s_supply_fan_S20 .
+
+soda_hall:supply_fan_cfm_supply_fan_S11 a brick:Air_Flow_Sensor .
+
+soda_hall:supply_fan_cfm_supply_fan_S16 a brick:Air_Flow_Sensor .
+
+soda_hall:supply_fan_cfm_supply_fan_S18 a brick:Air_Flow_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_C180 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_C300 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_C300B a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_C300T a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_C400A a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_C400B a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_C400C a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_C411 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_C500A a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_C500B a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_C511 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_C600A a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_C600B a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_C611 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_C700A a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_C700B a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_C700C a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_C700D a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_C711 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_C751 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R179 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R181 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R183 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R184 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R187 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R187A a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R190A a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R190B a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R252 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R271 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R273 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R275 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R277 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R280 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R283E a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R284 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R287 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R288 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R290 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R306 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R310 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R311 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R313 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R315 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R316 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R317 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R319 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R320 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R321 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R323 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R325 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R326 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R327 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R329 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R330A a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R330B a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R331 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R333 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R336 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R337 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R337A a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R339 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R340 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R341 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R342 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R343 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R345 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R347 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R349 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R352 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R364 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R365 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R367 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R369 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R373 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R375 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R376A a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R377 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R379 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R380 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R381 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R383 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R384 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R385 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R389 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R393 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R395 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R398 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R405A a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R405B a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R410A a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R410B a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R413 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R415 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R416 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R417 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R419 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R420 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R420A a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R421 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R430 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R430A a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R434 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R438 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R440 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R441 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R442 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R443 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R444 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R445 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R447 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R449 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R452 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R465A a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R465B a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R465C a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R465D a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R465E a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R465H a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R465K a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R465_3 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R465_4 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R465_5 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R465_6 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R465_7 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R498 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R508 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R510 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R513 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R514 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R515 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R516 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R517 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R523 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R524 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R525 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R527 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R529 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R530 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R531 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R533 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R534 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R535 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R537 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R542 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R543 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R544 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R545 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R551 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R552 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R562A a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R563 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R564 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R566 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R567 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R573 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R576 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R577 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R579 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R580 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R582 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R583 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R587 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R595 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R598 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R606 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R615 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R617 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R621 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R623 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R625 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R626 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R627 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R629 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R631 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R633 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R634 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R635 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R637 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R639 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R643 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R645 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R651 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R652 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R665 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R671 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R673 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R675 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R676 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R677 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R678 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R681A a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R681B a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R682 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R683 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R684 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R685 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R687 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R689 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R695 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R698 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R719 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R721 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R723 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R725 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R726 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R727 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R729 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R731 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R733 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R734 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R735 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R737 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R739 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R741 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R752 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R765 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R771 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R773 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R775 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R776 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R777 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R779 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R781 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R783 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R784 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R785 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R787 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R789 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R795 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R798 a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_sensor_hvac_zone_R800A a brick:Zone_Air_Temperature_Sensor .
+
+soda_hall:temp_setpoint_hvac_zone_C180 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_C300 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_C300B a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_C300T a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_C400A a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_C400B a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_C400C a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_C411 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_C500A a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_C500B a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_C511 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_C600A a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_C600B a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_C611 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_C700A a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_C700B a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_C700C a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_C700D a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_C711 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_C751 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R179 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R181 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R183 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R184 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R187 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R187A a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R190A a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R190B a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R252 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R271 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R273 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R275 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R277 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R280 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R283E a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R284 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R287 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R288 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R290 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R306 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R310 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R311 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R313 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R315 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R316 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R317 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R319 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R320 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R321 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R323 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R325 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R326 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R327 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R329 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R330A a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R330B a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R331 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R333 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R336 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R337 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R337A a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R339 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R340 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R341 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R342 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R343 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R345 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R347 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R349 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R352 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R364 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R365 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R367 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R369 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R373 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R375 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R376A a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R377 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R379 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R380 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R381 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R383 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R384 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R385 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R389 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R393 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R395 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R398 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R405A a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R405B a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R410A a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R410B a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R413 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R415 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R416 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R417 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R419 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R420 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R420A a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R421 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R430 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R430A a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R434 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R438 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R440 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R441 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R442 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R443 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R444 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R445 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R447 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R449 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R465A a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R465B a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R465C a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R465D a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R465E a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R465H a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R465K a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R465_3 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R465_4 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R465_5 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R465_6 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R465_7 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R498 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R508 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R510 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R513 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R514 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R515 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R516 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R517 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R523 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R524 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R525 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R527 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R529 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R530 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R531 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R533 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R534 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R535 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R537 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R542 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R543 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R544 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R545 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R551 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R552 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R562A a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R563 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R564 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R566 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R567 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R573 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R576 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R577 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R579 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R580 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R582 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R583 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R587 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R595 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R598 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R606 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R615 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R617 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R621 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R623 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R625 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R626 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R627 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R629 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R631 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R633 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R634 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R635 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R637 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R639 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R643 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R645 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R651 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R652 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R665 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R671 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R673 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R675 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R676 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R677 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R678 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R681A a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R681B a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R682 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R683 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R684 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R685 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R687 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R689 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R695 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R698 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R719 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R721 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R723 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R725 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R726 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R727 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R729 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R731 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R733 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R734 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R735 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R737 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R739 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R741 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R752 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R765 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R771 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R773 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R775 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R776 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R777 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R779 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R781 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R783 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R784 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R785 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R787 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R789 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R795 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R798 a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:temp_setpoint_hvac_zone_R800A a brick:Zone_Air_Temperature_Setpoint .
+
+soda_hall:vav_C180 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_C180 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_C180,
+        soda_hall:temp_sensor_hvac_zone_C180,
+        soda_hall:temp_setpoint_hvac_zone_C180 .
+
+soda_hall:vav_C300 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_C300 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_C300,
+        soda_hall:temp_sensor_hvac_zone_C300,
+        soda_hall:temp_setpoint_hvac_zone_C300 .
+
+soda_hall:vav_C300B a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_C300B ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_C300B,
+        soda_hall:temp_sensor_hvac_zone_C300B,
+        soda_hall:temp_setpoint_hvac_zone_C300B .
+
+soda_hall:vav_C300T a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_C300T ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_C300T,
+        soda_hall:reheat_sensor_hvac_zone_C300T,
+        soda_hall:temp_sensor_hvac_zone_C300T,
+        soda_hall:temp_setpoint_hvac_zone_C300T ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_C400A a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_C400A ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_C400A,
+        soda_hall:reheat_sensor_hvac_zone_C400A,
+        soda_hall:temp_sensor_hvac_zone_C400A,
+        soda_hall:temp_setpoint_hvac_zone_C400A ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_C400B a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_C400B ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_C400B,
+        soda_hall:reheat_sensor_hvac_zone_C400B,
+        soda_hall:temp_sensor_hvac_zone_C400B,
+        soda_hall:temp_setpoint_hvac_zone_C400B ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_C400C a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_C400C ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_C400C,
+        soda_hall:temp_sensor_hvac_zone_C400C,
+        soda_hall:temp_setpoint_hvac_zone_C400C .
+
+soda_hall:vav_C411 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_C411 ;
+    brick:hasPoint soda_hall:temp_sensor_hvac_zone_C411,
+        soda_hall:temp_setpoint_hvac_zone_C411 .
+
+soda_hall:vav_C500A a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_C500A ;
+    brick:hasPoint soda_hall:temp_sensor_hvac_zone_C500A,
+        soda_hall:temp_setpoint_hvac_zone_C500A .
+
+soda_hall:vav_C500B a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_C500B ;
+    brick:hasPoint soda_hall:temp_sensor_hvac_zone_C500B,
+        soda_hall:temp_setpoint_hvac_zone_C500B .
+
+soda_hall:vav_C511 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_C511 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_C511,
+        soda_hall:reheat_sensor_hvac_zone_C511,
+        soda_hall:temp_sensor_hvac_zone_C511,
+        soda_hall:temp_setpoint_hvac_zone_C511 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_C600A a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_C600A ;
+    brick:hasPoint soda_hall:temp_sensor_hvac_zone_C600A,
+        soda_hall:temp_setpoint_hvac_zone_C600A .
+
+soda_hall:vav_C600B a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_C600B ;
+    brick:hasPoint soda_hall:temp_sensor_hvac_zone_C600B,
+        soda_hall:temp_setpoint_hvac_zone_C600B .
+
+soda_hall:vav_C611 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_C611 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_C611,
+        soda_hall:reheat_sensor_hvac_zone_C611,
+        soda_hall:temp_sensor_hvac_zone_C611,
+        soda_hall:temp_setpoint_hvac_zone_C611 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_C700A a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_C700A ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_C700A,
+        soda_hall:reheat_sensor_hvac_zone_C700A,
+        soda_hall:temp_sensor_hvac_zone_C700A,
+        soda_hall:temp_setpoint_hvac_zone_C700A ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_C700B a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_C700B ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_C700B,
+        soda_hall:reheat_sensor_hvac_zone_C700B,
+        soda_hall:temp_sensor_hvac_zone_C700B,
+        soda_hall:temp_setpoint_hvac_zone_C700B ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_C700C a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_C700C ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_C700C,
+        soda_hall:reheat_sensor_hvac_zone_C700C,
+        soda_hall:temp_sensor_hvac_zone_C700C,
+        soda_hall:temp_setpoint_hvac_zone_C700C ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_C700D a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_C700D ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_C700D,
+        soda_hall:reheat_sensor_hvac_zone_C700D,
+        soda_hall:temp_sensor_hvac_zone_C700D,
+        soda_hall:temp_setpoint_hvac_zone_C700D ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_C711 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_C711 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_C711,
+        soda_hall:reheat_sensor_hvac_zone_C711,
+        soda_hall:temp_sensor_hvac_zone_C711,
+        soda_hall:temp_setpoint_hvac_zone_C711 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_C751 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_C751 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_C751,
+        soda_hall:reheat_sensor_hvac_zone_C751,
+        soda_hall:temp_sensor_hvac_zone_C751,
+        soda_hall:temp_setpoint_hvac_zone_C751 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R184 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R184 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R184,
+        soda_hall:temp_sensor_hvac_zone_R184,
+        soda_hall:temp_setpoint_hvac_zone_R184 .
+
+soda_hall:vav_R187 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R187 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R187,
+        soda_hall:temp_sensor_hvac_zone_R187,
+        soda_hall:temp_setpoint_hvac_zone_R187 .
+
+soda_hall:vav_R187A a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R187A ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R187A,
+        soda_hall:temp_sensor_hvac_zone_R187A,
+        soda_hall:temp_setpoint_hvac_zone_R187A .
+
+soda_hall:vav_R190A a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R190A ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R190A,
+        soda_hall:temp_sensor_hvac_zone_R190A,
+        soda_hall:temp_setpoint_hvac_zone_R190A .
+
+soda_hall:vav_R190B a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R190B ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R190B,
+        soda_hall:temp_sensor_hvac_zone_R190B,
+        soda_hall:temp_setpoint_hvac_zone_R190B .
+
+soda_hall:vav_R252 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R252 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R252,
+        soda_hall:temp_sensor_hvac_zone_R252,
+        soda_hall:temp_setpoint_hvac_zone_R252 .
+
+soda_hall:vav_R271 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R271 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R271,
+        soda_hall:temp_sensor_hvac_zone_R271,
+        soda_hall:temp_setpoint_hvac_zone_R271 .
+
+soda_hall:vav_R273 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R273 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R273,
+        soda_hall:temp_sensor_hvac_zone_R273,
+        soda_hall:temp_setpoint_hvac_zone_R273 .
+
+soda_hall:vav_R275 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R275 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R275,
+        soda_hall:temp_sensor_hvac_zone_R275,
+        soda_hall:temp_setpoint_hvac_zone_R275 .
+
+soda_hall:vav_R277 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R277 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R277,
+        soda_hall:temp_sensor_hvac_zone_R277,
+        soda_hall:temp_setpoint_hvac_zone_R277 .
+
+soda_hall:vav_R280 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R280 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R280,
+        soda_hall:temp_sensor_hvac_zone_R280,
+        soda_hall:temp_setpoint_hvac_zone_R280 .
+
+soda_hall:vav_R283E a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R283E ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R283E,
+        soda_hall:temp_sensor_hvac_zone_R283E,
+        soda_hall:temp_setpoint_hvac_zone_R283E .
+
+soda_hall:vav_R284 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R284 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R284,
+        soda_hall:temp_sensor_hvac_zone_R284,
+        soda_hall:temp_setpoint_hvac_zone_R284 .
+
+soda_hall:vav_R287 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R287 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R287,
+        soda_hall:temp_sensor_hvac_zone_R287,
+        soda_hall:temp_setpoint_hvac_zone_R287 .
+
+soda_hall:vav_R288 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R288 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R288,
+        soda_hall:temp_sensor_hvac_zone_R288,
+        soda_hall:temp_setpoint_hvac_zone_R288 .
+
+soda_hall:vav_R290 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R290 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R290,
+        soda_hall:temp_sensor_hvac_zone_R290,
+        soda_hall:temp_setpoint_hvac_zone_R290 .
+
+soda_hall:vav_R306 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R306 ;
+    brick:hasPoint soda_hall:temp_sensor_hvac_zone_R306,
+        soda_hall:temp_setpoint_hvac_zone_R306 .
+
+soda_hall:vav_R310 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R310 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R310,
+        soda_hall:temp_sensor_hvac_zone_R310,
+        soda_hall:temp_setpoint_hvac_zone_R310 .
+
+soda_hall:vav_R311 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R311 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R311,
+        soda_hall:reheat_sensor_hvac_zone_R311,
+        soda_hall:temp_sensor_hvac_zone_R311,
+        soda_hall:temp_setpoint_hvac_zone_R311 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R313 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R313 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R313,
+        soda_hall:reheat_sensor_hvac_zone_R313,
+        soda_hall:temp_sensor_hvac_zone_R313,
+        soda_hall:temp_setpoint_hvac_zone_R313 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R315 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R315 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R315,
+        soda_hall:reheat_sensor_hvac_zone_R315,
+        soda_hall:temp_sensor_hvac_zone_R315,
+        soda_hall:temp_setpoint_hvac_zone_R315 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R316 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R316 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R316,
+        soda_hall:temp_sensor_hvac_zone_R316,
+        soda_hall:temp_setpoint_hvac_zone_R316 .
+
+soda_hall:vav_R317 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R317 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R317,
+        soda_hall:reheat_sensor_hvac_zone_R317,
+        soda_hall:temp_sensor_hvac_zone_R317,
+        soda_hall:temp_setpoint_hvac_zone_R317 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R319 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R319 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R319,
+        soda_hall:reheat_sensor_hvac_zone_R319,
+        soda_hall:temp_sensor_hvac_zone_R319,
+        soda_hall:temp_setpoint_hvac_zone_R319 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R320 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R320 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R320,
+        soda_hall:temp_sensor_hvac_zone_R320,
+        soda_hall:temp_setpoint_hvac_zone_R320 .
+
+soda_hall:vav_R321 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R321 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R321,
+        soda_hall:reheat_sensor_hvac_zone_R321,
+        soda_hall:temp_sensor_hvac_zone_R321,
+        soda_hall:temp_setpoint_hvac_zone_R321 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R323 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R323 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R323,
+        soda_hall:reheat_sensor_hvac_zone_R323,
+        soda_hall:temp_sensor_hvac_zone_R323,
+        soda_hall:temp_setpoint_hvac_zone_R323 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R325 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R325 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R325,
+        soda_hall:reheat_sensor_hvac_zone_R325,
+        soda_hall:temp_sensor_hvac_zone_R325,
+        soda_hall:temp_setpoint_hvac_zone_R325 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R326 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R326 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R326,
+        soda_hall:temp_sensor_hvac_zone_R326,
+        soda_hall:temp_setpoint_hvac_zone_R326 .
+
+soda_hall:vav_R327 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R327 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R327,
+        soda_hall:reheat_sensor_hvac_zone_R327,
+        soda_hall:temp_sensor_hvac_zone_R327,
+        soda_hall:temp_setpoint_hvac_zone_R327 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R329 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R329 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R329,
+        soda_hall:reheat_sensor_hvac_zone_R329,
+        soda_hall:temp_sensor_hvac_zone_R329,
+        soda_hall:temp_setpoint_hvac_zone_R329 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R330A a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R330A ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R330A,
+        soda_hall:temp_sensor_hvac_zone_R330A,
+        soda_hall:temp_setpoint_hvac_zone_R330A .
+
+soda_hall:vav_R330B a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R330B ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R330B,
+        soda_hall:temp_sensor_hvac_zone_R330B,
+        soda_hall:temp_setpoint_hvac_zone_R330B .
+
+soda_hall:vav_R331 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R331 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R331,
+        soda_hall:reheat_sensor_hvac_zone_R331,
+        soda_hall:temp_sensor_hvac_zone_R331,
+        soda_hall:temp_setpoint_hvac_zone_R331 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R333 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R333 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R333,
+        soda_hall:reheat_sensor_hvac_zone_R333,
+        soda_hall:temp_sensor_hvac_zone_R333,
+        soda_hall:temp_setpoint_hvac_zone_R333 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R336 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R336 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R336,
+        soda_hall:temp_sensor_hvac_zone_R336,
+        soda_hall:temp_setpoint_hvac_zone_R336 .
+
+soda_hall:vav_R337 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R337 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R337,
+        soda_hall:reheat_sensor_hvac_zone_R337,
+        soda_hall:temp_sensor_hvac_zone_R337,
+        soda_hall:temp_setpoint_hvac_zone_R337 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R337A a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R337A ;
+    brick:hasPoint soda_hall:temp_sensor_hvac_zone_R337A,
+        soda_hall:temp_setpoint_hvac_zone_R337A .
+
+soda_hall:vav_R339 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R339 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R339,
+        soda_hall:reheat_sensor_hvac_zone_R339,
+        soda_hall:temp_sensor_hvac_zone_R339,
+        soda_hall:temp_setpoint_hvac_zone_R339 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R340 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R340 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R340,
+        soda_hall:temp_sensor_hvac_zone_R340,
+        soda_hall:temp_setpoint_hvac_zone_R340 .
+
+soda_hall:vav_R341 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R341 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R341,
+        soda_hall:reheat_sensor_hvac_zone_R341,
+        soda_hall:temp_sensor_hvac_zone_R341,
+        soda_hall:temp_setpoint_hvac_zone_R341 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R342 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R342 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R342,
+        soda_hall:temp_sensor_hvac_zone_R342,
+        soda_hall:temp_setpoint_hvac_zone_R342 .
+
+soda_hall:vav_R343 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R343 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R343,
+        soda_hall:reheat_sensor_hvac_zone_R343,
+        soda_hall:temp_sensor_hvac_zone_R343,
+        soda_hall:temp_setpoint_hvac_zone_R343 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R345 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R345 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R345,
+        soda_hall:reheat_sensor_hvac_zone_R345,
+        soda_hall:temp_sensor_hvac_zone_R345,
+        soda_hall:temp_setpoint_hvac_zone_R345 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R347 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R347 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R347,
+        soda_hall:reheat_sensor_hvac_zone_R347,
+        soda_hall:temp_sensor_hvac_zone_R347,
+        soda_hall:temp_setpoint_hvac_zone_R347 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R349 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R349 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R349,
+        soda_hall:reheat_sensor_hvac_zone_R349,
+        soda_hall:temp_sensor_hvac_zone_R349,
+        soda_hall:temp_setpoint_hvac_zone_R349 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R352 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R352 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R352,
+        soda_hall:temp_sensor_hvac_zone_R352,
+        soda_hall:temp_setpoint_hvac_zone_R352 .
+
+soda_hall:vav_R364 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R364 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R364,
+        soda_hall:temp_sensor_hvac_zone_R364,
+        soda_hall:temp_setpoint_hvac_zone_R364 .
+
+soda_hall:vav_R365 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R365 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R365,
+        soda_hall:reheat_sensor_hvac_zone_R365,
+        soda_hall:temp_sensor_hvac_zone_R365,
+        soda_hall:temp_setpoint_hvac_zone_R365 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R367 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R367 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R367,
+        soda_hall:reheat_sensor_hvac_zone_R367,
+        soda_hall:temp_sensor_hvac_zone_R367,
+        soda_hall:temp_setpoint_hvac_zone_R367 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R373 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R373 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R373,
+        soda_hall:reheat_sensor_hvac_zone_R373,
+        soda_hall:temp_sensor_hvac_zone_R373,
+        soda_hall:temp_setpoint_hvac_zone_R373 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R375 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R375 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R375,
+        soda_hall:reheat_sensor_hvac_zone_R375,
+        soda_hall:temp_sensor_hvac_zone_R375,
+        soda_hall:temp_setpoint_hvac_zone_R375 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R376A a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R376A ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R376A,
+        soda_hall:temp_sensor_hvac_zone_R376A,
+        soda_hall:temp_setpoint_hvac_zone_R376A .
+
+soda_hall:vav_R377 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R377 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R377,
+        soda_hall:reheat_sensor_hvac_zone_R377,
+        soda_hall:temp_sensor_hvac_zone_R377,
+        soda_hall:temp_setpoint_hvac_zone_R377 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R379 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R379 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R379,
+        soda_hall:reheat_sensor_hvac_zone_R379,
+        soda_hall:temp_sensor_hvac_zone_R379,
+        soda_hall:temp_setpoint_hvac_zone_R379 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R380 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R380 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R380,
+        soda_hall:temp_sensor_hvac_zone_R380,
+        soda_hall:temp_setpoint_hvac_zone_R380 .
+
+soda_hall:vav_R381 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R381 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R381,
+        soda_hall:reheat_sensor_hvac_zone_R381,
+        soda_hall:temp_sensor_hvac_zone_R381,
+        soda_hall:temp_setpoint_hvac_zone_R381 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R383 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R383 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R383,
+        soda_hall:reheat_sensor_hvac_zone_R383,
+        soda_hall:temp_sensor_hvac_zone_R383,
+        soda_hall:temp_setpoint_hvac_zone_R383 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R384 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R384 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R384,
+        soda_hall:temp_sensor_hvac_zone_R384,
+        soda_hall:temp_setpoint_hvac_zone_R384 .
+
+soda_hall:vav_R385 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R385 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R385,
+        soda_hall:reheat_sensor_hvac_zone_R385,
+        soda_hall:temp_sensor_hvac_zone_R385,
+        soda_hall:temp_setpoint_hvac_zone_R385 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R389 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R389 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R389,
+        soda_hall:reheat_sensor_hvac_zone_R389,
+        soda_hall:temp_sensor_hvac_zone_R389,
+        soda_hall:temp_setpoint_hvac_zone_R389 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R393 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R393 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R393,
+        soda_hall:reheat_sensor_hvac_zone_R393,
+        soda_hall:temp_sensor_hvac_zone_R393,
+        soda_hall:temp_setpoint_hvac_zone_R393 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R395 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R395 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R395,
+        soda_hall:reheat_sensor_hvac_zone_R395,
+        soda_hall:temp_sensor_hvac_zone_R395,
+        soda_hall:temp_setpoint_hvac_zone_R395 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R398 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R398 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R398,
+        soda_hall:temp_sensor_hvac_zone_R398,
+        soda_hall:temp_setpoint_hvac_zone_R398 .
+
+soda_hall:vav_R405A a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R405A ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R405A,
+        soda_hall:temp_sensor_hvac_zone_R405A,
+        soda_hall:temp_setpoint_hvac_zone_R405A .
+
+soda_hall:vav_R405B a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R405B ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R405B,
+        soda_hall:temp_sensor_hvac_zone_R405B,
+        soda_hall:temp_setpoint_hvac_zone_R405B .
+
+soda_hall:vav_R410A a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R410A ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R410A,
+        soda_hall:temp_sensor_hvac_zone_R410A,
+        soda_hall:temp_setpoint_hvac_zone_R410A .
+
+soda_hall:vav_R410B a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R410B ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R410B,
+        soda_hall:temp_sensor_hvac_zone_R410B,
+        soda_hall:temp_setpoint_hvac_zone_R410B .
+
+soda_hall:vav_R411 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R411 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R411,
+        soda_hall:reheat_sensor_hvac_zone_R411 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R413 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R413 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R413,
+        soda_hall:reheat_sensor_hvac_zone_R413,
+        soda_hall:temp_sensor_hvac_zone_R413,
+        soda_hall:temp_setpoint_hvac_zone_R413 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R415 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R415 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R415,
+        soda_hall:reheat_sensor_hvac_zone_R415,
+        soda_hall:temp_sensor_hvac_zone_R415,
+        soda_hall:temp_setpoint_hvac_zone_R415 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R416 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R416 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R416,
+        soda_hall:temp_sensor_hvac_zone_R416,
+        soda_hall:temp_setpoint_hvac_zone_R416 .
+
+soda_hall:vav_R417 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R417 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R417,
+        soda_hall:reheat_sensor_hvac_zone_R417,
+        soda_hall:temp_sensor_hvac_zone_R417,
+        soda_hall:temp_setpoint_hvac_zone_R417 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R419 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R419 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R419,
+        soda_hall:reheat_sensor_hvac_zone_R419,
+        soda_hall:temp_sensor_hvac_zone_R419,
+        soda_hall:temp_setpoint_hvac_zone_R419 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R420 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R420 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R420,
+        soda_hall:temp_sensor_hvac_zone_R420,
+        soda_hall:temp_setpoint_hvac_zone_R420 .
+
+soda_hall:vav_R420A a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R420A ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R420A,
+        soda_hall:temp_sensor_hvac_zone_R420A,
+        soda_hall:temp_setpoint_hvac_zone_R420A .
+
+soda_hall:vav_R421 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R421 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R421,
+        soda_hall:reheat_sensor_hvac_zone_R421,
+        soda_hall:temp_sensor_hvac_zone_R421,
+        soda_hall:temp_setpoint_hvac_zone_R421 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R430 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R430 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R430,
+        soda_hall:temp_sensor_hvac_zone_R430,
+        soda_hall:temp_setpoint_hvac_zone_R430 .
+
+soda_hall:vav_R430A a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R430A ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R430A,
+        soda_hall:temp_sensor_hvac_zone_R430A,
+        soda_hall:temp_setpoint_hvac_zone_R430A .
+
+soda_hall:vav_R434 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R434 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R434,
+        soda_hall:reheat_sensor_hvac_zone_R434,
+        soda_hall:temp_sensor_hvac_zone_R434,
+        soda_hall:temp_setpoint_hvac_zone_R434 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R438 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R438 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R438,
+        soda_hall:reheat_sensor_hvac_zone_R438,
+        soda_hall:temp_sensor_hvac_zone_R438,
+        soda_hall:temp_setpoint_hvac_zone_R438 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R440 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R440 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R440,
+        soda_hall:temp_sensor_hvac_zone_R440,
+        soda_hall:temp_setpoint_hvac_zone_R440 .
+
+soda_hall:vav_R441 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R441 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R441,
+        soda_hall:reheat_sensor_hvac_zone_R441,
+        soda_hall:temp_sensor_hvac_zone_R441,
+        soda_hall:temp_setpoint_hvac_zone_R441 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R442 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R442 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R442,
+        soda_hall:temp_sensor_hvac_zone_R442,
+        soda_hall:temp_setpoint_hvac_zone_R442 .
+
+soda_hall:vav_R443 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R443 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R443,
+        soda_hall:reheat_sensor_hvac_zone_R443,
+        soda_hall:temp_sensor_hvac_zone_R443,
+        soda_hall:temp_setpoint_hvac_zone_R443 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R444 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R444 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R444,
+        soda_hall:temp_sensor_hvac_zone_R444,
+        soda_hall:temp_setpoint_hvac_zone_R444 .
+
+soda_hall:vav_R445 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R445 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R445,
+        soda_hall:reheat_sensor_hvac_zone_R445,
+        soda_hall:temp_sensor_hvac_zone_R445,
+        soda_hall:temp_setpoint_hvac_zone_R445 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R447 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R447 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R447,
+        soda_hall:reheat_sensor_hvac_zone_R447,
+        soda_hall:temp_sensor_hvac_zone_R447,
+        soda_hall:temp_setpoint_hvac_zone_R447 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R449 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R449 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R449,
+        soda_hall:reheat_sensor_hvac_zone_R449,
+        soda_hall:temp_sensor_hvac_zone_R449,
+        soda_hall:temp_setpoint_hvac_zone_R449 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R452 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R452 ;
+    brick:hasPoint soda_hall:temp_sensor_hvac_zone_R452 .
+
+soda_hall:vav_R465A a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R465A ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R465A,
+        soda_hall:temp_sensor_hvac_zone_R465A,
+        soda_hall:temp_setpoint_hvac_zone_R465A .
+
+soda_hall:vav_R465B a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R465B ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R465B,
+        soda_hall:temp_sensor_hvac_zone_R465B,
+        soda_hall:temp_setpoint_hvac_zone_R465B .
+
+soda_hall:vav_R465C a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R465C ;
+    brick:hasPoint soda_hall:temp_sensor_hvac_zone_R465C,
+        soda_hall:temp_setpoint_hvac_zone_R465C .
+
+soda_hall:vav_R465D a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R465D ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R465D,
+        soda_hall:temp_sensor_hvac_zone_R465D,
+        soda_hall:temp_setpoint_hvac_zone_R465D .
+
+soda_hall:vav_R465E a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R465E ;
+    brick:hasPoint soda_hall:temp_sensor_hvac_zone_R465E,
+        soda_hall:temp_setpoint_hvac_zone_R465E .
+
+soda_hall:vav_R465H a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R465H ;
+    brick:hasPoint soda_hall:temp_sensor_hvac_zone_R465H,
+        soda_hall:temp_setpoint_hvac_zone_R465H .
+
+soda_hall:vav_R465K a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R465K ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R465K,
+        soda_hall:temp_sensor_hvac_zone_R465K,
+        soda_hall:temp_setpoint_hvac_zone_R465K .
+
+soda_hall:vav_R465_3 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R465_3 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R465_3,
+        soda_hall:temp_sensor_hvac_zone_R465_3,
+        soda_hall:temp_setpoint_hvac_zone_R465_3 .
+
+soda_hall:vav_R465_4 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R465_4 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R465_4,
+        soda_hall:temp_sensor_hvac_zone_R465_4,
+        soda_hall:temp_setpoint_hvac_zone_R465_4 .
+
+soda_hall:vav_R465_5 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R465_5 ;
+    brick:hasPoint soda_hall:temp_sensor_hvac_zone_R465_5,
+        soda_hall:temp_setpoint_hvac_zone_R465_5 .
+
+soda_hall:vav_R465_6 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R465_6 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R465_6,
+        soda_hall:temp_sensor_hvac_zone_R465_6,
+        soda_hall:temp_setpoint_hvac_zone_R465_6 .
+
+soda_hall:vav_R465_7 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R465_7 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R465_7,
+        soda_hall:temp_sensor_hvac_zone_R465_7,
+        soda_hall:temp_setpoint_hvac_zone_R465_7 .
+
+soda_hall:vav_R498 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R498 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R498,
+        soda_hall:temp_sensor_hvac_zone_R498,
+        soda_hall:temp_setpoint_hvac_zone_R498 .
+
+soda_hall:vav_R500A a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R500A ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R500A .
+
+soda_hall:vav_R500B a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R500B ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R500B .
+
+soda_hall:vav_R508 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R508 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R508,
+        soda_hall:temp_sensor_hvac_zone_R508,
+        soda_hall:temp_setpoint_hvac_zone_R508 .
+
+soda_hall:vav_R510 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R510 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R510,
+        soda_hall:temp_sensor_hvac_zone_R510,
+        soda_hall:temp_setpoint_hvac_zone_R510 .
+
+soda_hall:vav_R513 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R513 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R513,
+        soda_hall:reheat_sensor_hvac_zone_R513,
+        soda_hall:temp_sensor_hvac_zone_R513,
+        soda_hall:temp_setpoint_hvac_zone_R513 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R514 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R514 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R514,
+        soda_hall:temp_sensor_hvac_zone_R514,
+        soda_hall:temp_setpoint_hvac_zone_R514 .
+
+soda_hall:vav_R515 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R515 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R515,
+        soda_hall:reheat_sensor_hvac_zone_R515,
+        soda_hall:temp_sensor_hvac_zone_R515,
+        soda_hall:temp_setpoint_hvac_zone_R515 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R516 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R516 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R516,
+        soda_hall:temp_sensor_hvac_zone_R516,
+        soda_hall:temp_setpoint_hvac_zone_R516 .
+
+soda_hall:vav_R517 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R517 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R517,
+        soda_hall:reheat_sensor_hvac_zone_R517,
+        soda_hall:temp_sensor_hvac_zone_R517,
+        soda_hall:temp_setpoint_hvac_zone_R517 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R523 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R523 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R523,
+        soda_hall:reheat_sensor_hvac_zone_R523,
+        soda_hall:temp_sensor_hvac_zone_R523,
+        soda_hall:temp_setpoint_hvac_zone_R523 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R524 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R524 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R524,
+        soda_hall:temp_sensor_hvac_zone_R524,
+        soda_hall:temp_setpoint_hvac_zone_R524 .
+
+soda_hall:vav_R525 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R525 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R525,
+        soda_hall:reheat_sensor_hvac_zone_R525,
+        soda_hall:temp_sensor_hvac_zone_R525,
+        soda_hall:temp_setpoint_hvac_zone_R525 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R527 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R527 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R527,
+        soda_hall:reheat_sensor_hvac_zone_R527,
+        soda_hall:temp_sensor_hvac_zone_R527,
+        soda_hall:temp_setpoint_hvac_zone_R527 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R529 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R529 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R529,
+        soda_hall:reheat_sensor_hvac_zone_R529,
+        soda_hall:temp_sensor_hvac_zone_R529,
+        soda_hall:temp_setpoint_hvac_zone_R529 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R530 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R530 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R530,
+        soda_hall:temp_sensor_hvac_zone_R530,
+        soda_hall:temp_setpoint_hvac_zone_R530 .
+
+soda_hall:vav_R531 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R531 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R531,
+        soda_hall:reheat_sensor_hvac_zone_R531,
+        soda_hall:temp_sensor_hvac_zone_R531,
+        soda_hall:temp_setpoint_hvac_zone_R531 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R533 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R533 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R533,
+        soda_hall:reheat_sensor_hvac_zone_R533,
+        soda_hall:temp_sensor_hvac_zone_R533,
+        soda_hall:temp_setpoint_hvac_zone_R533 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R534 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R534 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R534,
+        soda_hall:temp_sensor_hvac_zone_R534,
+        soda_hall:temp_setpoint_hvac_zone_R534 .
+
+soda_hall:vav_R535 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R535 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R535,
+        soda_hall:reheat_sensor_hvac_zone_R535,
+        soda_hall:temp_sensor_hvac_zone_R535,
+        soda_hall:temp_setpoint_hvac_zone_R535 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R537 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R537 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R537,
+        soda_hall:reheat_sensor_hvac_zone_R537,
+        soda_hall:temp_sensor_hvac_zone_R537,
+        soda_hall:temp_setpoint_hvac_zone_R537 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R542 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R542 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R542,
+        soda_hall:temp_sensor_hvac_zone_R542,
+        soda_hall:temp_setpoint_hvac_zone_R542 .
+
+soda_hall:vav_R543 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R543 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R543,
+        soda_hall:reheat_sensor_hvac_zone_R543,
+        soda_hall:temp_sensor_hvac_zone_R543,
+        soda_hall:temp_setpoint_hvac_zone_R543 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R544 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R544 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R544,
+        soda_hall:temp_sensor_hvac_zone_R544,
+        soda_hall:temp_setpoint_hvac_zone_R544 .
+
+soda_hall:vav_R545 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R545 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R545,
+        soda_hall:reheat_sensor_hvac_zone_R545,
+        soda_hall:temp_sensor_hvac_zone_R545,
+        soda_hall:temp_setpoint_hvac_zone_R545 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R551 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R551 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R551,
+        soda_hall:reheat_sensor_hvac_zone_R551,
+        soda_hall:temp_sensor_hvac_zone_R551,
+        soda_hall:temp_setpoint_hvac_zone_R551 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R5511 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R5511 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R5511,
+        soda_hall:reheat_sensor_hvac_zone_R5511 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R552 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R552 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R552,
+        soda_hall:temp_sensor_hvac_zone_R552,
+        soda_hall:temp_setpoint_hvac_zone_R552 .
+
+soda_hall:vav_R562A a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R562A ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R562A,
+        soda_hall:temp_sensor_hvac_zone_R562A,
+        soda_hall:temp_setpoint_hvac_zone_R562A .
+
+soda_hall:vav_R563 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R563 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R563,
+        soda_hall:reheat_sensor_hvac_zone_R563,
+        soda_hall:temp_sensor_hvac_zone_R563,
+        soda_hall:temp_setpoint_hvac_zone_R563 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R564 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R564 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R564,
+        soda_hall:temp_sensor_hvac_zone_R564,
+        soda_hall:temp_setpoint_hvac_zone_R564 .
+
+soda_hall:vav_R566 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R566 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R566,
+        soda_hall:temp_sensor_hvac_zone_R566,
+        soda_hall:temp_setpoint_hvac_zone_R566 .
+
+soda_hall:vav_R567 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R567 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R567,
+        soda_hall:reheat_sensor_hvac_zone_R567,
+        soda_hall:temp_sensor_hvac_zone_R567,
+        soda_hall:temp_setpoint_hvac_zone_R567 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R573 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R573 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R573,
+        soda_hall:reheat_sensor_hvac_zone_R573,
+        soda_hall:temp_sensor_hvac_zone_R573,
+        soda_hall:temp_setpoint_hvac_zone_R573 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R576 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R576 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R576,
+        soda_hall:reheat_sensor_hvac_zone_R576,
+        soda_hall:temp_sensor_hvac_zone_R576,
+        soda_hall:temp_setpoint_hvac_zone_R576 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R577 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R577 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R577,
+        soda_hall:reheat_sensor_hvac_zone_R577,
+        soda_hall:temp_sensor_hvac_zone_R577,
+        soda_hall:temp_setpoint_hvac_zone_R577 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R579 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R579 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R579,
+        soda_hall:reheat_sensor_hvac_zone_R579,
+        soda_hall:temp_sensor_hvac_zone_R579,
+        soda_hall:temp_setpoint_hvac_zone_R579 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R580 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R580 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R580,
+        soda_hall:reheat_sensor_hvac_zone_R580,
+        soda_hall:temp_sensor_hvac_zone_R580,
+        soda_hall:temp_setpoint_hvac_zone_R580 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R582 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R582 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R582,
+        soda_hall:temp_sensor_hvac_zone_R582,
+        soda_hall:temp_setpoint_hvac_zone_R582 .
+
+soda_hall:vav_R582_1 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R582_1 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R582_1 .
+
+soda_hall:vav_R582_2 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R582_2 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R582_2 .
+
+soda_hall:vav_R583 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R583 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R583,
+        soda_hall:reheat_sensor_hvac_zone_R583,
+        soda_hall:temp_sensor_hvac_zone_R583,
+        soda_hall:temp_setpoint_hvac_zone_R583 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R5831 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R5831 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R5831,
+        soda_hall:reheat_sensor_hvac_zone_R5831 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R587 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R587 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R587,
+        soda_hall:reheat_sensor_hvac_zone_R587,
+        soda_hall:temp_sensor_hvac_zone_R587,
+        soda_hall:temp_setpoint_hvac_zone_R587 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R5871 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R5871 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R5871,
+        soda_hall:reheat_sensor_hvac_zone_R5871 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R595 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R595 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R595,
+        soda_hall:reheat_sensor_hvac_zone_R595,
+        soda_hall:temp_sensor_hvac_zone_R595,
+        soda_hall:temp_setpoint_hvac_zone_R595 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R598 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R598 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R598,
+        soda_hall:temp_sensor_hvac_zone_R598,
+        soda_hall:temp_setpoint_hvac_zone_R598 .
+
+soda_hall:vav_R600A a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R600A ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R600A .
+
+soda_hall:vav_R600B a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R600B ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R600B .
+
+soda_hall:vav_R606 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R606 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R606,
+        soda_hall:temp_sensor_hvac_zone_R606,
+        soda_hall:temp_setpoint_hvac_zone_R606 .
+
+soda_hall:vav_R615 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R615 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R615,
+        soda_hall:reheat_sensor_hvac_zone_R615,
+        soda_hall:temp_sensor_hvac_zone_R615,
+        soda_hall:temp_setpoint_hvac_zone_R615 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R617 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R617 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R617,
+        soda_hall:reheat_sensor_hvac_zone_R617,
+        soda_hall:temp_sensor_hvac_zone_R617,
+        soda_hall:temp_setpoint_hvac_zone_R617 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R621 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R621 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R621,
+        soda_hall:reheat_sensor_hvac_zone_R621,
+        soda_hall:temp_sensor_hvac_zone_R621,
+        soda_hall:temp_setpoint_hvac_zone_R621 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R623 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R623 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R623,
+        soda_hall:reheat_sensor_hvac_zone_R623,
+        soda_hall:temp_sensor_hvac_zone_R623,
+        soda_hall:temp_setpoint_hvac_zone_R623 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R625 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R625 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R625,
+        soda_hall:reheat_sensor_hvac_zone_R625,
+        soda_hall:temp_sensor_hvac_zone_R625,
+        soda_hall:temp_setpoint_hvac_zone_R625 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R626 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R626 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R626,
+        soda_hall:temp_sensor_hvac_zone_R626,
+        soda_hall:temp_setpoint_hvac_zone_R626 .
+
+soda_hall:vav_R627 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R627 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R627,
+        soda_hall:reheat_sensor_hvac_zone_R627,
+        soda_hall:temp_sensor_hvac_zone_R627,
+        soda_hall:temp_setpoint_hvac_zone_R627 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R629 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R629 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R629,
+        soda_hall:reheat_sensor_hvac_zone_R629,
+        soda_hall:temp_sensor_hvac_zone_R629,
+        soda_hall:temp_setpoint_hvac_zone_R629 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R631 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R631 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R631,
+        soda_hall:reheat_sensor_hvac_zone_R631,
+        soda_hall:temp_sensor_hvac_zone_R631,
+        soda_hall:temp_setpoint_hvac_zone_R631 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R633 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R633 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R633,
+        soda_hall:reheat_sensor_hvac_zone_R633,
+        soda_hall:temp_sensor_hvac_zone_R633,
+        soda_hall:temp_setpoint_hvac_zone_R633 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R634 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R634 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R634,
+        soda_hall:temp_sensor_hvac_zone_R634,
+        soda_hall:temp_setpoint_hvac_zone_R634 .
+
+soda_hall:vav_R635 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R635 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R635,
+        soda_hall:reheat_sensor_hvac_zone_R635,
+        soda_hall:temp_sensor_hvac_zone_R635,
+        soda_hall:temp_setpoint_hvac_zone_R635 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R637 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R637 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R637,
+        soda_hall:reheat_sensor_hvac_zone_R637,
+        soda_hall:temp_sensor_hvac_zone_R637,
+        soda_hall:temp_setpoint_hvac_zone_R637 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R639 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R639 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R639,
+        soda_hall:reheat_sensor_hvac_zone_R639,
+        soda_hall:temp_sensor_hvac_zone_R639,
+        soda_hall:temp_setpoint_hvac_zone_R639 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R643 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R643 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R643,
+        soda_hall:reheat_sensor_hvac_zone_R643,
+        soda_hall:temp_sensor_hvac_zone_R643,
+        soda_hall:temp_setpoint_hvac_zone_R643 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R645 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R645 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R645,
+        soda_hall:reheat_sensor_hvac_zone_R645,
+        soda_hall:temp_sensor_hvac_zone_R645,
+        soda_hall:temp_setpoint_hvac_zone_R645 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R651 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R651 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R651,
+        soda_hall:reheat_sensor_hvac_zone_R651,
+        soda_hall:temp_sensor_hvac_zone_R651,
+        soda_hall:temp_setpoint_hvac_zone_R651 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R652 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R652 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R652,
+        soda_hall:temp_sensor_hvac_zone_R652,
+        soda_hall:temp_setpoint_hvac_zone_R652 .
+
+soda_hall:vav_R665 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R665 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R665,
+        soda_hall:reheat_sensor_hvac_zone_R665,
+        soda_hall:temp_sensor_hvac_zone_R665,
+        soda_hall:temp_setpoint_hvac_zone_R665 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R671 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R671 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R671,
+        soda_hall:reheat_sensor_hvac_zone_R671,
+        soda_hall:temp_sensor_hvac_zone_R671,
+        soda_hall:temp_setpoint_hvac_zone_R671 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R673 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R673 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R673,
+        soda_hall:reheat_sensor_hvac_zone_R673,
+        soda_hall:temp_sensor_hvac_zone_R673,
+        soda_hall:temp_setpoint_hvac_zone_R673 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R675 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R675 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R675,
+        soda_hall:reheat_sensor_hvac_zone_R675,
+        soda_hall:temp_sensor_hvac_zone_R675,
+        soda_hall:temp_setpoint_hvac_zone_R675 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R676 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R676 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R676,
+        soda_hall:temp_sensor_hvac_zone_R676,
+        soda_hall:temp_setpoint_hvac_zone_R676 .
+
+soda_hall:vav_R677 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R677 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R677,
+        soda_hall:reheat_sensor_hvac_zone_R677,
+        soda_hall:temp_sensor_hvac_zone_R677,
+        soda_hall:temp_setpoint_hvac_zone_R677 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R678 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R678 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R678,
+        soda_hall:temp_sensor_hvac_zone_R678,
+        soda_hall:temp_setpoint_hvac_zone_R678 .
+
+soda_hall:vav_R681A a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R681A ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R681A,
+        soda_hall:reheat_sensor_hvac_zone_R681A,
+        soda_hall:temp_sensor_hvac_zone_R681A,
+        soda_hall:temp_setpoint_hvac_zone_R681A ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R681B a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R681B ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R681B,
+        soda_hall:reheat_sensor_hvac_zone_R681B,
+        soda_hall:temp_sensor_hvac_zone_R681B,
+        soda_hall:temp_setpoint_hvac_zone_R681B ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R682 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R682 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R682,
+        soda_hall:temp_sensor_hvac_zone_R682,
+        soda_hall:temp_setpoint_hvac_zone_R682 .
+
+soda_hall:vav_R683 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R683 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R683,
+        soda_hall:reheat_sensor_hvac_zone_R683,
+        soda_hall:temp_sensor_hvac_zone_R683,
+        soda_hall:temp_setpoint_hvac_zone_R683 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R684 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R684 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R684,
+        soda_hall:temp_sensor_hvac_zone_R684,
+        soda_hall:temp_setpoint_hvac_zone_R684 .
+
+soda_hall:vav_R685 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R685 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R685,
+        soda_hall:reheat_sensor_hvac_zone_R685,
+        soda_hall:temp_sensor_hvac_zone_R685,
+        soda_hall:temp_setpoint_hvac_zone_R685 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R687 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R687 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R687,
+        soda_hall:reheat_sensor_hvac_zone_R687,
+        soda_hall:temp_sensor_hvac_zone_R687,
+        soda_hall:temp_setpoint_hvac_zone_R687 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R689 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R689 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R689,
+        soda_hall:reheat_sensor_hvac_zone_R689,
+        soda_hall:temp_sensor_hvac_zone_R689,
+        soda_hall:temp_setpoint_hvac_zone_R689 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R695 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R695 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R695,
+        soda_hall:reheat_sensor_hvac_zone_R695,
+        soda_hall:temp_sensor_hvac_zone_R695,
+        soda_hall:temp_setpoint_hvac_zone_R695 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R698 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R698 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R698,
+        soda_hall:temp_sensor_hvac_zone_R698,
+        soda_hall:temp_setpoint_hvac_zone_R698 .
+
+soda_hall:vav_R719 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R719 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R719,
+        soda_hall:reheat_sensor_hvac_zone_R719,
+        soda_hall:temp_sensor_hvac_zone_R719,
+        soda_hall:temp_setpoint_hvac_zone_R719 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R721 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R721 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R721,
+        soda_hall:reheat_sensor_hvac_zone_R721,
+        soda_hall:temp_sensor_hvac_zone_R721,
+        soda_hall:temp_setpoint_hvac_zone_R721 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R723 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R723 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R723,
+        soda_hall:reheat_sensor_hvac_zone_R723,
+        soda_hall:temp_sensor_hvac_zone_R723,
+        soda_hall:temp_setpoint_hvac_zone_R723 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R725 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R725 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R725,
+        soda_hall:reheat_sensor_hvac_zone_R725,
+        soda_hall:temp_sensor_hvac_zone_R725,
+        soda_hall:temp_setpoint_hvac_zone_R725 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R726 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R726 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R726,
+        soda_hall:temp_sensor_hvac_zone_R726,
+        soda_hall:temp_setpoint_hvac_zone_R726 .
+
+soda_hall:vav_R727 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R727 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R727,
+        soda_hall:reheat_sensor_hvac_zone_R727,
+        soda_hall:temp_sensor_hvac_zone_R727,
+        soda_hall:temp_setpoint_hvac_zone_R727 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R729 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R729 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R729,
+        soda_hall:reheat_sensor_hvac_zone_R729,
+        soda_hall:temp_sensor_hvac_zone_R729,
+        soda_hall:temp_setpoint_hvac_zone_R729 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R731 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R731 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R731,
+        soda_hall:reheat_sensor_hvac_zone_R731,
+        soda_hall:temp_sensor_hvac_zone_R731,
+        soda_hall:temp_setpoint_hvac_zone_R731 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R733 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R733 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R733,
+        soda_hall:reheat_sensor_hvac_zone_R733,
+        soda_hall:temp_sensor_hvac_zone_R733,
+        soda_hall:temp_setpoint_hvac_zone_R733 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R734 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R734 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R734,
+        soda_hall:temp_sensor_hvac_zone_R734,
+        soda_hall:temp_setpoint_hvac_zone_R734 .
+
+soda_hall:vav_R735 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R735 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R735,
+        soda_hall:reheat_sensor_hvac_zone_R735,
+        soda_hall:temp_sensor_hvac_zone_R735,
+        soda_hall:temp_setpoint_hvac_zone_R735 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R737 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R737 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R737,
+        soda_hall:reheat_sensor_hvac_zone_R737,
+        soda_hall:temp_sensor_hvac_zone_R737,
+        soda_hall:temp_setpoint_hvac_zone_R737 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R739 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R739 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R739,
+        soda_hall:reheat_sensor_hvac_zone_R739,
+        soda_hall:temp_sensor_hvac_zone_R739,
+        soda_hall:temp_setpoint_hvac_zone_R739 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R741 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R741 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R741,
+        soda_hall:reheat_sensor_hvac_zone_R741,
+        soda_hall:temp_sensor_hvac_zone_R741,
+        soda_hall:temp_setpoint_hvac_zone_R741 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R752 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R752 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R752,
+        soda_hall:temp_sensor_hvac_zone_R752,
+        soda_hall:temp_setpoint_hvac_zone_R752 .
+
+soda_hall:vav_R765 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R765 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R765,
+        soda_hall:reheat_sensor_hvac_zone_R765,
+        soda_hall:temp_sensor_hvac_zone_R765,
+        soda_hall:temp_setpoint_hvac_zone_R765 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R771 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R771 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R771,
+        soda_hall:reheat_sensor_hvac_zone_R771,
+        soda_hall:temp_sensor_hvac_zone_R771,
+        soda_hall:temp_setpoint_hvac_zone_R771 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R773 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R773 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R773,
+        soda_hall:reheat_sensor_hvac_zone_R773,
+        soda_hall:temp_sensor_hvac_zone_R773,
+        soda_hall:temp_setpoint_hvac_zone_R773 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R775 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R775 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R775,
+        soda_hall:reheat_sensor_hvac_zone_R775,
+        soda_hall:temp_sensor_hvac_zone_R775,
+        soda_hall:temp_setpoint_hvac_zone_R775 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R776 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R776 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R776,
+        soda_hall:temp_sensor_hvac_zone_R776,
+        soda_hall:temp_setpoint_hvac_zone_R776 .
+
+soda_hall:vav_R777 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R777 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R777,
+        soda_hall:reheat_sensor_hvac_zone_R777,
+        soda_hall:temp_sensor_hvac_zone_R777,
+        soda_hall:temp_setpoint_hvac_zone_R777 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R779 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R779 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R779,
+        soda_hall:reheat_sensor_hvac_zone_R779,
+        soda_hall:temp_sensor_hvac_zone_R779,
+        soda_hall:temp_setpoint_hvac_zone_R779 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R781 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R781 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R781,
+        soda_hall:reheat_sensor_hvac_zone_R781,
+        soda_hall:temp_sensor_hvac_zone_R781,
+        soda_hall:temp_setpoint_hvac_zone_R781 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R783 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R783 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R783,
+        soda_hall:reheat_sensor_hvac_zone_R783,
+        soda_hall:temp_sensor_hvac_zone_R783,
+        soda_hall:temp_setpoint_hvac_zone_R783 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R784 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R784 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R784,
+        soda_hall:temp_sensor_hvac_zone_R784,
+        soda_hall:temp_setpoint_hvac_zone_R784 .
+
+soda_hall:vav_R785 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R785 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R785,
+        soda_hall:reheat_sensor_hvac_zone_R785,
+        soda_hall:temp_sensor_hvac_zone_R785,
+        soda_hall:temp_setpoint_hvac_zone_R785 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R787 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R787 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R787,
+        soda_hall:reheat_sensor_hvac_zone_R787,
+        soda_hall:temp_sensor_hvac_zone_R787,
+        soda_hall:temp_setpoint_hvac_zone_R787 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R789 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R789 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R789,
+        soda_hall:reheat_sensor_hvac_zone_R789,
+        soda_hall:temp_sensor_hvac_zone_R789,
+        soda_hall:temp_setpoint_hvac_zone_R789 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R795 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R795 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R795,
+        soda_hall:reheat_sensor_hvac_zone_R795,
+        soda_hall:temp_sensor_hvac_zone_R795,
+        soda_hall:temp_setpoint_hvac_zone_R795 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R798 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R798 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R798,
+        soda_hall:temp_sensor_hvac_zone_R798,
+        soda_hall:temp_setpoint_hvac_zone_R798 .
+
+soda_hall:vav_R800A a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R800A ;
+    brick:hasPoint soda_hall:temp_sensor_hvac_zone_R800A,
+        soda_hall:temp_setpoint_hvac_zone_R800A .
+
+soda_hall:vav_zone_337A a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_zone_337A ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_zone_337A,
+        soda_hall:reheat_sensor_hvac_zone_zone_337A ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:vav_R369 a brick:VAV ;
+    brick:feeds soda_hall:hvac_zone_R369 ;
+    brick:hasPoint soda_hall:flow_sensor_hvac_zone_R369,
+        soda_hall:reheat_sensor_hvac_zone_R369,
+        soda_hall:temp_sensor_hvac_zone_R369,
+        soda_hall:temp_setpoint_hvac_zone_R369 ;
+    brick:hasTag tag:Reheat .
+
+soda_hall:building_1 a brick:Building ;
+    rdfs:label "Soda Hall" .
+
+soda_hall:floor_1 a brick:Floor ;
+    brick:isPartOf soda_hall:building_1 .
+
+soda_hall:floor_2 a brick:Floor ;
+    brick:isPartOf soda_hall:building_1 .
+
+soda_hall:floor_7 a brick:Floor ;
+    brick:isPartOf soda_hall:building_1 .
+
+soda_hall:floor_6 a brick:Floor ;
+    brick:isPartOf soda_hall:building_1 .
+
+soda_hall:floor_4 a brick:Floor ;
+    brick:isPartOf soda_hall:building_1 .
+
+soda_hall:floor_5 a brick:Floor ;
+    brick:isPartOf soda_hall:building_1 .
+
+soda_hall:floor_3 a brick:Floor ;
+    brick:isPartOf soda_hall:building_1 .
+

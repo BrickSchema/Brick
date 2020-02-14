@@ -9,7 +9,7 @@ import time
 import brickschema
 from tqdm import tqdm
 from rdflib import Namespace, URIRef, Graph
-from .util.reasoner import make_readable
+from .util import make_readable
 
 """
 This script does the following:
@@ -57,7 +57,7 @@ def test_hierarchyinference():
     # Apply reasoner
     g.serialize('test.ttl', format='ttl')
     g = brickschema.inference.TagInferenceSession(approximate=False, load_brick=False).expand(g)
-    g = brickschema.inference.OWLRLAllegroInferenceSession(load_brick=False).expand(g)
+    g = brickschema.inference.OWLRLInferenceSession(load_brick=False).expand(g)
     g.serialize(inference_file, format='turtle')  # Store the inferred graph.
 
 

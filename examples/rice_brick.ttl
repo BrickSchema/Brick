@@ -1,0 +1,2431 @@
+@prefix brick: <https://brickschema.org/schema/1.1/Brick#> .
+@prefix brick_v_1_0_2: <https://brickschema.org/schema/1.0.2/Brick#> .
+@prefix brickframe: <https://brickschema.org/schema/1.0.2/BrickFrame#> .
+@prefix btag: <https://brickschema.org/schema/1.0.2/BrickTag#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rice: <http://virginia.edu/building/ontology/rice#> .
+@prefix tag: <https://brickschema.org/schema/1.1/BrickTag#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://virginia.edu/building/ontology/rice#1st_Floor_Avg_Space_Humidity> a brick:Humidity_Sensor .
+
+<http://virginia.edu/building/ontology/rice#2_Mag_CHW_Return_Temp> a brick:Chilled_Return_Water,
+        brick:Temperature .
+
+<http://virginia.edu/building/ontology/rice#2_Mag_CHW_Supply_Temp> a brick:Chilled_Discharge_Water,
+        brick:Temperature .
+
+<http://virginia.edu/building/ontology/rice#2_Mag_HW_Return_Temp> a brick:Hot_Water_Return_Temperature_Sensor .
+
+<http://virginia.edu/building/ontology/rice#2_Mag_HW_Supply_Temp> a brick:Hot_Water_Supply_Temperature_Sensor .
+
+<http://virginia.edu/building/ontology/rice#2nd_Floor_Avg_Space_Humidity> a brick:Humidity_Sensor .
+
+<http://virginia.edu/building/ontology/rice#2nd_Floor_CHW_Return_Temp> a brick:Chilled_Return_Water,
+        brick:Temperature .
+
+<http://virginia.edu/building/ontology/rice#2nd_Floor_CHW_Supply_Temp> a brick:Chilled_Discharge_Water,
+        brick:Temperature .
+
+<http://virginia.edu/building/ontology/rice#2nd_Floor_HW_Return_Temp> a brick:Hot_Water_Supply_Temperature_Sensor .
+
+<http://virginia.edu/building/ontology/rice#2nd_Floor_HW_Supply_Temp> a brick:Chilled_Discharge_Water,
+        brick:Temperature .
+
+<http://virginia.edu/building/ontology/rice#5th_Floor_Avg_Space_Humidity> a brick:Humidity_Sensor .
+
+rice:AHU1_PreHeat_Coil_Temp a brick_v_1_0_2:PreHeat_Coil_Leaving_Air_Temperature_Sensor .
+
+rice:AHU2_PreHeat_Coil_Temp a brick_v_1_0_2:PreHeat_Coil_Leaving_Air_Temperature_Sensor .
+
+rice:AHU3_CHW_Return_Temppgm2UIP09 a brick:Chilled_Return_Water,
+        brick:Temperature .
+
+rice:AHU3_HW_Supply_Temppgm2UIP11 a brick:Hot_Water_Supply_Temperature_Sensor .
+
+rice:AHU_1 a brick:AHU ;
+    brick:feeds rice:VAV1 ;
+    brick:isPartOf rice:RICE .
+
+rice:AHU_2 a brick:AHU ;
+    brick:feeds rice:VAV2 ;
+    brick:isPartOf rice:RICE .
+
+rice:AHU_3 a brick:AHU ;
+    brick:feeds rice:VAV3 ;
+    brick:isPartOf rice:RICE .
+
+rice:AHU_3_Supply_Fan_Temp a brick:Discharge_Air_Temperature_Sensor .
+
+rice:AHU_4 a brick:AHU ;
+    brick:feeds rice:VAV4 ;
+    brick:isPartOf rice:RICE .
+
+rice:AHU_5 brick:feeds rice:VAV5 .
+
+rice:AHU_6 brick:feeds rice:VAV6 .
+
+rice:AHU_7 brick:feeds rice:VAV7 .
+
+rice:AHU_8 brick:feeds rice:VAV8 .
+
+rice:Active_Cool_DAT_Stptscc2AV003 a brick:Discharge_Air_Temperature_Cooling_Setpoint .
+
+rice:Active_Heat_DAT_Stptscc2AV005 a brick:Discharge_Air_Temperature_Heating_Setpoint .
+
+rice:CB_CHW_Return_Temp a brick:Chilled_Return_Water,
+        brick:Temperature .
+
+rice:CB_CHW_Supply_Temp a brick:Chilled_Discharge_Water,
+        brick:Temperature .
+
+rice:CB_Supply_Temp a brick:Chilled_Discharge_Water,
+        brick:Temperature .
+
+rice:CHWCoilLeavingAirTempscc2UIP01 a brick:Chilled_Discharge_Water,
+        brick:Temperature .
+
+rice:CHW_Coil_Entering_Tempscc2UIP06 a brick:Chilled_Discharge_Water,
+        brick:Temperature .
+
+rice:CHW_Main_Return_Temp_T4 a brick:Chilled_Return_Water,
+        brick:Temperature .
+
+rice:CHW_Main_Supply_Temp_T3 a brick:Chilled_Discharge_Water,
+        brick:Temperature .
+
+rice:CHW_Return_Mag_Temp a brick:Chilled_Return_Water,
+        brick:Temperature .
+
+rice:CHW_Supply_Mag_Temp a brick:Chilled_Discharge_Water,
+        brick:Temperature .
+
+rice:CHW_System_Return_Temppgm2UIP20 a brick:Chilled_Return_Water,
+        brick:Temperature .
+
+rice:CHW_System_Supply_Temppgm2UIP19 a brick:Chilled_Discharge_Water,
+        brick:Temperature .
+
+rice:ChilledBeamCHWReturnTemppgm2UIP14 a brick:Chilled_Return_Water,
+        brick:Temperature .
+
+rice:ChilledBeamCHWSupplyTemppgm2UIP13 a brick:Chilled_Discharge_Water,
+        brick:Temperature .
+
+rice:Chilled_Water_Return_Temperature a brick:Chilled_Return_Water,
+        brick:Temperature .
+
+rice:Chilled_Water_Supply_Temperature a brick:Chilled_Discharge_Water,
+        brick:Temperature .
+
+rice:CoolingEnteringWaterTempdac2UIP16 a brick:Entering_Water_Temperature_Sensor .
+
+rice:CoolingEnterngWaterTempdac3UIP16 a brick:Entering_Water_Temperature_Sensor .
+
+rice:CoolingLeavingWaterTempdac1UIP16 a brick:Ice_Tank_Leaving_Water_Temperature_Sensor .
+
+rice:Cooling_Coil_DA_Tempdac1UIP26 a brick:Discharge_Air_Temperature_Sensor .
+
+rice:Cooling_Coil_DA_Tempdac2UIP26 a brick:Discharge_Air_Temperature_Sensor .
+
+rice:Cooling_Stpt_Activescc2AV006 a brick:Discharge_Air_Temperature_Cooling_Setpoint .
+
+rice:Cooling_Stpt_Localdac3AV008 a brick:Discharge_Air_Temperature_Cooling_Setpoint .
+
+rice:Corridor_Humidity_BAS a brick:Humidity_Sensor .
+
+rice:DA_Humiditydac4UIP17 a brick:Discharge_Air_Humidity_Sensor .
+
+rice:Discharge_Air_Flow a brick:Discharge_Air,
+        brick:Flow .
+
+rice:Discharge_Air_Humiditydac1UIP09 a brick:Discharge_Air_Humidity_Sensor .
+
+rice:Discharge_Air_Humiditydac2UIP09 a brick:Discharge_Air_Humidity_Sensor .
+
+rice:Discharge_Air_Humiditydac3UIP09 a brick:Discharge_Air_Humidity_Sensor .
+
+rice:Discharge_Air_Tempdac1UIP06 a brick:Discharge_Air_Temperature_Sensor .
+
+rice:Discharge_Air_Tempdac2UIP06 a brick:Discharge_Air_Temperature_Sensor .
+
+rice:Discharge_Air_Tempdac3UIP06 a brick:Discharge_Air_Temperature_Sensor .
+
+rice:Discharge_Air_Temperature a brick:Discharge_Air_Temperature_Sensor .
+
+rice:Discharge_Air_Temperaturedac1 a brick:Discharge_Air_Temperature_Sensor .
+
+rice:Discharge_Air_Temperaturedac2 a brick:Discharge_Air_Temperature_Sensor .
+
+rice:Discharge_Air_Temperaturedac3 a brick:Discharge_Air_Temperature_Sensor .
+
+rice:Discharge_Air_Temperaturedac4 a brick:Discharge_Air_Temperature_Sensor .
+
+rice:Discharge_Air_Temperaturescc2 a brick:Discharge_Air_Temperature_Sensor .
+
+rice:Discharge_Air_Temperaturewshp1 a brick:Discharge_Air_Temperature_Sensor .
+
+rice:Discharge_Air_Temperaturewshp2 a brick:Discharge_Air_Temperature_Sensor .
+
+rice:ER_PHRH_Water_Temppgm2UIP03 a brick_v_1_0_2:Unknown .
+
+rice:EX_Air_Temp_From_ERWdac4UIP01 a brick_v_1_0_2:Unknown .
+
+rice:East_Space_Humidityscc2UIP19 a brick:Humidity_Sensor .
+
+rice:East_Space_Temperaturescc2UIP33 a brick:Zone_Air_Temperature_Sensor .
+
+rice:Effective_RA_CO2dac1AV004 a brick:Return_Air_CO2_Sensor .
+
+rice:Effective_RA_CO2dac2AV004 a brick:Return_Air_CO2_Sensor .
+
+rice:Effective_RA_CO2dac3AV004 a brick:Return_Air_CO2_Sensor .
+
+rice:Enter_CDQ_Regen_Humidityscc2UIP24 a brick:Humidity_Sensor .
+
+rice:Enter_CDQ_Regen_Tempscc2UIP23 a brick_v_1_0_2:Unknown .
+
+rice:Enter_CDQ_Supply_Tempscc2UIP25 a brick_v_1_0_2:Unknown .
+
+rice:Entering_Water_Temperaturewshp1 a brick:Entering_Water_Temperature_Sensor .
+
+rice:Entering_Water_Temperaturewshp2 a brick:Entering_Water_Temperature_Sensor .
+
+rice:Exhaust_Air_Humiditydac4UIP21 a brick:Exhaust_Air_Humidity_Sensor .
+
+rice:Exhaust_Air_Tempdac4UIP22 a brick:Exhaust_Air_Temperature_Sensor .
+
+rice:FCU_CHW_Return_Temppgm2UIP16 a brick:Chilled_Return_Water,
+        brick:Temperature .
+
+rice:FPVAV_Hot_Water_Return_Temp a brick:Hot_Water_Return_Temperature_Sensor .
+
+rice:FPVAV_Hot_Water_Supply_Temp a brick:Hot_Water_Supply_Temperature_Sensor .
+
+rice:FP_VAV_Hot_Water_Return_Temp a brick:Hot_Water_Return_Temperature_Sensor .
+
+rice:FP_VAV_Hot_Water_Supply_Temp a brick:Hot_Water_Supply_Temperature_Sensor .
+
+rice:Floor_0 a brick:Floor ;
+    brick:hasPart rice:Room11,
+        rice:Room13,
+        rice:Room15,
+        rice:Room17,
+        rice:Room19,
+        rice:Room20,
+        rice:Room24,
+        rice:Room32,
+        rice:Room50,
+        rice:Room52,
+        rice:Room54,
+        rice:Room57,
+        rice:Room58,
+        rice:Room59,
+        rice:Room7 ;
+    brick:isPartOf rice:RICE .
+
+rice:Floor_1 a brick:Floor ;
+    brick:hasPart rice:Room101,
+        rice:Room102,
+        rice:Room103,
+        rice:Room104,
+        rice:Room105,
+        rice:Room106,
+        rice:Room107,
+        rice:Room1071,
+        rice:Room1072,
+        rice:Room108,
+        rice:Room1091,
+        rice:Room1092,
+        rice:Room122,
+        rice:Room128,
+        rice:Room150,
+        rice:Room154,
+        rice:Room156,
+        rice:Room160 ;
+    brick:isPartOf rice:RICE .
+
+rice:Floor_2 a brick:Floor ;
+    brick:hasPart rice:Room201,
+        rice:Room202,
+        rice:Room203,
+        rice:Room204,
+        rice:Room205,
+        rice:Room206,
+        rice:Room207,
+        rice:Room208,
+        rice:Room209,
+        rice:Room210,
+        rice:Room211,
+        rice:Room212,
+        rice:Room220,
+        rice:Room222,
+        rice:Room224,
+        rice:Room226,
+        rice:Room228,
+        rice:Room230,
+        rice:Room232,
+        rice:Room242,
+        rice:Room252,
+        rice:Room259,
+        rice:Room276 ;
+    brick:isPartOf rice:RICE .
+
+rice:Floor_3 a brick:Floor ;
+    brick:hasPart rice:Room305,
+        rice:Room306,
+        rice:Room308,
+        rice:Room322,
+        rice:Room324,
+        rice:Room326 ;
+    brick:isPartOf rice:RICE .
+
+rice:Floor_4 a brick:Floor ;
+    brick:isPartOf rice:RICE .
+
+rice:Floor_5 a brick:Floor ;
+    brick:hasPart rice:Room501,
+        rice:Room502,
+        rice:Room503,
+        rice:Room504,
+        rice:Room505,
+        rice:Room506,
+        rice:Room507,
+        rice:Room508,
+        rice:Room509,
+        rice:Room511,
+        rice:Room512,
+        rice:Room513,
+        rice:Room514,
+        rice:Room516,
+        rice:Room521,
+        rice:Room522,
+        rice:Room524,
+        rice:Room526,
+        rice:Room527,
+        rice:Room528,
+        rice:Room530,
+        rice:Room532,
+        rice:Room534,
+        rice:Room536,
+        rice:Room542,
+        rice:Room552,
+        rice:Room557,
+        rice:Room561 ;
+    brick:isPartOf rice:RICE .
+
+rice:Freeze_Protect_Low_Limitpgm1AV013 a brick_v_1_0_2:Freeze_Protect_Low_Limit .
+
+rice:Glycol_Enterng_WaterTempdac3UIP17 a brick_v_1_0_2:Unknown .
+
+rice:HWS_Temp a brick:Hot_Water_Supply_Temperature_Sensor .
+
+rice:HW_Coil_Entering_Tempscc2UIP36 a brick:Entering_Water_Temperature_Sensor .
+
+rice:HW_Main_Return_Temp_T2 a brick:Hot_Water_Return_Temperature_Sensor .
+
+rice:HW_Main_Supply_Temp_T1 a brick:Hot_Water_Supply_Temperature_Sensor .
+
+rice:HW_Return_Mag_Temp1 a brick:Hot_Water_Return_Temperature_Sensor .
+
+rice:HW_Return_Temperature_Local a brick:Hot_Water_Return_Temperature_Sensor .
+
+rice:HW_Return_Temppgm1UIP02 a brick:Hot_Water_Return_Temperature_Sensor .
+
+rice:HW_Supply_Mag_Temp1 a brick:Hot_Water_Supply_Temperature_Sensor .
+
+rice:HW_Supply_Temp_RM_I324 a brick:Hot_Water_Supply_Temperature_Sensor .
+
+rice:HW_Supply_Temperature_Local a brick:Hot_Water_Supply_Temperature_Sensor .
+
+rice:HW_Supply_Temppgm1UIP01 a brick:Hot_Water_Supply_Temperature_Sensor .
+
+rice:HW_VAV_Return_Temp a brick:Hot_Water_Return_Temperature_Sensor .
+
+rice:HW_VAV_Supply_Temp a brick:Hot_Water_Supply_Temperature_Sensor .
+
+rice:Heating_Stpt_Activescc2AV007 a brick:Discharge_Air_Temperature_Heating_Setpoint .
+
+rice:High_Static_Cutout_Limitscc2AV022 a brick:High_Static_Pressure_Cutout_Setpoint_Limit .
+
+rice:Hot_Water_ReturnTemperature a brick:Hot_Water_Return_Temperature_Sensor .
+
+rice:Hot_Water_Supply_Temperature a brick:Hot_Water_Supply_Temperature_Sensor .
+
+rice:Humidity_1 a brick:Humidity_Sensor .
+
+rice:Humidity_Corr_NESHS a brick:Humidity_Sensor .
+
+rice:LT_Chiller_CHW_SP_OPR a brick:Chilled_Water_Supply_Temperature_Sensor .
+
+rice:Leave_CDQ_Regen_Tempscc2UIP29 a brick_v_1_0_2:Unknown .
+
+rice:Leave_CDQ_Supply_Tempscc2UIP27 a brick_v_1_0_2:Unknown .
+
+rice:Leaving_Water_Temperaturewshp1 a brick:Ice_Tank_Leaving_Water_Temperature_Sensor .
+
+rice:Leaving_Water_Temperaturewshp2 a brick:Ice_Tank_Leaving_Water_Temperature_Sensor .
+
+rice:Max_CoolMin_Ht_DAT_Stptscc2TrAV03 a brick:Discharge_Air_Temperature_Cooling_Setpoint .
+
+rice:Medium_Temp_HW_Returnpgm1UIP24 a brick:Hot_Water_Return_Temperature_Sensor .
+
+rice:Medium_Temp_HW_Supplypgm1UIP23 a brick:Hot_Water_Supply_Temperature_Sensor .
+
+rice:Mixed_Air_Tempdac1UIP03 a brick:Mixed_Air_Temperature_Sensor .
+
+rice:Mixed_Air_Tempdac2UIP03 a brick:Mixed_Air_Temperature_Sensor .
+
+rice:Mixed_Air_Tempdac3UIP03 a brick:Mixed_Air_Temperature_Sensor .
+
+rice:Mixed_Air_Temperature_Localscc2 a brick:Mixed_Air_Temperature_Sensor .
+
+rice:Mixed_Air_Tempscc2UIP03 a brick:Mixed_Air_Temperature_Sensor .
+
+rice:Nominal_Air_Flow_Status a brick:Discharge_Air,
+        brick:Flow .
+
+rice:OA_CO_Damper_Close_Limit a brick:Close_Limit .
+
+rice:Occupied_Offsetscc2 a brick_v_1_0_2:Unknown .
+
+rice:Occupied_Standby_Offsetscc2 a brick_v_1_0_2:Unknown .
+
+rice:Outdoor_Air_Humiditypgm1UIP03 a brick_v_1_0_2:Outside_Air_Humidity .
+
+rice:PreheatCoilLeave_AirTempscc2UIP02 a brick_v_1_0_2:PreHeat_Coil_Leaving_Air_Temperature_Sensor .
+
+rice:PreheatLeavingWaterTempdac3UIP15 a brick:Leaving_Water_Temperature_Sensor .
+
+rice:Pump_CHW_Supply_Temppgm2UIP15 a brick:Chilled_Discharge_Water,
+        brick:Temperature .
+
+rice:Return_Air_CFM a brick:Return_Air_Flow_Sensor .
+
+rice:Return_Air_CO2_Sensordac1UIP36 a brick:Return_Air_CO2_Sensor .
+
+rice:Return_Air_CO2_Sensordac2UIP36 a brick:Return_Air_CO2_Sensor .
+
+rice:Return_Air_CO2_Sensordac3UIP36 a brick:Return_Air_CO2_Sensor .
+
+rice:Return_Air_CO2scc2UIP17 a brick:Return_Air_CO2_Sensor .
+
+rice:Return_Air_Humiditydac1UIP27 a brick:Return_Air_Humidity_Sensor .
+
+rice:Return_Air_Humiditydac2UIP27 a brick:Return_Air_Humidity_Sensor .
+
+rice:Return_Air_Humiditydac3UIP21 a brick:Return_Air_Humidity_Sensor .
+
+rice:Return_Air_Humidityscc2UIP14 a brick:Return_Air_Humidity_Sensor .
+
+rice:Return_Air_Tempdac1UIP28 a brick:Return_Air_Temperature_Sensor .
+
+rice:Return_Air_Tempdac2UIP28 a brick:Return_Air_Temperature_Sensor .
+
+rice:Return_Air_Tempdac3UIP22 a brick:Return_Air_Temperature_Sensor .
+
+rice:Return_Air_Tempscc2UIP15 a brick:Return_Air_Temperature_Sensor .
+
+rice:Return_Airflow a brick:Return_Air_Flow_Sensor .
+
+rice:Return_Airflow_CFM a brick:Return_Air_Flow_Sensor .
+
+rice:Return_CO2_Diffdac1TrAV04 a brick:Return_Air_CO2_Sensor .
+
+rice:Return_CO2_Diffdac2TrAV04 a brick:Return_Air_CO2_Sensor .
+
+rice:Return_CO2_Diffdac3TrAV04 a brick:Return_Air_CO2_Sensor .
+
+rice:Space_CO2_Concentration_BASscc2 a brick:CO2_Sensor .
+
+rice:Space_CO2_Concentration_Local a brick:CO2_Sensor .
+
+rice:Space_CO2_Limit a brick:CO2_Sensor .
+
+rice:Space_CO2_Low_Limit a brick:CO2_Sensor .
+
+rice:Space_Humidity a brick:Humidity_Sensor .
+
+rice:Space_Humidity_Active a brick:Humidity_Sensor .
+
+rice:Space_Humidity_Activedac1 a brick:Humidity_Sensor .
+
+rice:Space_Humidity_Activedac2 a brick:Humidity_Sensor .
+
+rice:Space_Humidity_Activedac3 a brick:Humidity_Sensor .
+
+rice:Space_Humidity_Activedac4 a brick:Humidity_Sensor .
+
+rice:Space_Humidity_Activescc2AV019 a brick:Humidity_Sensor .
+
+rice:Space_Humidity_BAS a brick:Humidity_Sensor .
+
+rice:Space_Humidity_High_Limit a brick:High_Humidity_Alarm_Parameter .
+
+rice:Space_Humidity_Low_Limit a brick:Low_Humidity_Alarm_Parameter .
+
+rice:Space_Relative_Humidity_Corr_NW a brick:Humidity_Sensor .
+
+rice:Space_Relative_Humidity_Local a brick:Humidity_Sensor .
+
+rice:Space_Stpt_Activescc2AV017 a brick_v_1_0_2:Unknown .
+
+rice:Temp_2_BAS a brick_v_1_0_2:Unknown .
+
+rice:Temp_3_BAS a brick_v_1_0_2:Unknown .
+
+rice:Thumbwheel_Set_point_Hi_Limit a brick:Max_Temperature_Setpoint_Limit .
+
+rice:Thumbwheel_Set_point_Lo_Limit a brick:Min_Temperature_Setpoint_Limit .
+
+rice:VAV_211_HW_Return_Temp a brick:Hot_Water_Return_Temperature_Sensor .
+
+rice:VAV_211_HW_Supply_Temp a brick:Hot_Water_Supply_Temperature_Sensor .
+
+rice:VAV_26_HW_Return_Temp a brick:Hot_Water_Return_Temperature_Sensor .
+
+rice:VAV_26_HW_Supply_Temp a brick:Hot_Water_Supply_Temperature_Sensor .
+
+rice:VAV_HW_Return_Temp a brick:Hot_Water_Return_Temperature_Sensor .
+
+rice:VAV_HW_Supply_Temp a brick:Hot_Water_Supply_Temperature_Sensor .
+
+rice:Ventilation_Ratio_Limit_BAS a brick:Ventilation_Air_Flow_Ratio_Limit .
+
+rice:WTS1_Chiller_CHWS_Temp a brick:Chilled_Discharge_Water,
+        brick:Temperature .
+
+rice:WTS1_Chiller_CHWS_Temppgm3UIP07 a brick:Chilled_Discharge_Water,
+        brick:Temperature .
+
+rice:WTS2_Ice_Tank_Entering_Temp a brick:Entering_Water_Temperature_Sensor .
+
+rice:WTS3_Ice_Tank_Leaving_Temp a brick:Ice_Tank_Leaving_Water_Temperature_Sensor .
+
+rice:WTS4_AHU3_Entering_GLY_Temp a brick_v_1_0_2:Unknown .
+
+rice:West_Space_Humidityscc2UIP20 a brick:Humidity_Sensor .
+
+rice:West_Space_Temperaturescc2UIP34 a brick:Zone_Air_Temperature_Sensor .
+
+rice:Zone_2_Temp_RMCorr a brick:Zone_Air_Temperature_Sensor .
+
+rice:Zone_Humidity_2_CORRNWSHS a brick:Humidity_Sensor .
+
+rice:Zone_Humidity_2_Corr_NESHS a brick:Humidity_Sensor .
+
+rice:Zone_Humidity_Corr_SESHS a brick:Humidity_Sensor .
+
+rice:Zone_Humidity_Corr_SWSHS a brick:Humidity_Sensor .
+
+rice:averageSpaceTemperatureA1st_Floor_Area1 a brick:Average_Zone_Air_Temperature_Sensor .
+
+rice:averageSpaceTemperatureA2nd_Floor_Area1 a brick:Average_Zone_Air_Temperature_Sensor .
+
+rice:averageSpaceTemperatureA3rd_Floor_Area1 a brick:Average_Zone_Air_Temperature_Sensor .
+
+rice:averageSpaceTemperatureA5th_Floor_Area1 a brick:Average_Zone_Air_Temperature_Sensor .
+
+rice:averageSpaceTemperatureAAuditorium_Area4 a brick:Average_Zone_Air_Temperature_Sensor .
+
+rice:averageSpaceTemperatureABasement_Area2 a brick:Average_Zone_Air_Temperature_Sensor .
+
+rice:deltaTemperatureA1st_Floor_Area1 a brick_v_1_0_2:Unknown .
+
+rice:deltaTemperatureA2nd_Floor_Area1 a brick_v_1_0_2:Unknown .
+
+rice:deltaTemperatureA5th_Floor_Area1 a brick_v_1_0_2:Unknown .
+
+rice:deltaTemperatureAAuditorium_Area4 a brick_v_1_0_2:Unknown .
+
+rice:deltaTemperatureABasement_Area2 a brick_v_1_0_2:Unknown .
+
+rice:diagCalculationA1st_Floor_Area1 a brick_v_1_0_2:Unknown .
+
+rice:diagCalculationA2nd_Floor_Area1 a brick_v_1_0_2:Unknown .
+
+rice:diagCalculationA5th_Floor_Area1 a brick_v_1_0_2:Unknown .
+
+rice:diagCalculationABasement_Area2 a brick_v_1_0_2:Unknown .
+
+rice:diagVasSourceTempFailureVBasement_Perimeter_Devices2 a brick_v_1_0_2:Unknown .
+
+rice:diagVasSourceTempFailureVChilled_Beam_Source_VAS3 a brick_v_1_0_2:Unknown .
+
+rice:diagVasSystemFailureV2nd_Floor_Chilled_Beam_Source_VAS2 a brick_v_1_0_2:Unknown .
+
+rice:diagVasSystemFailureV2nd_Floor_Perimeter_Devices_VAS1 a brick_v_1_0_2:Unknown .
+
+rice:diagVasSystemFailureVBasement_Perimeter_Devices2 a brick_v_1_0_2:Unknown .
+
+rice:diagVasSystemFailureVChilled_Beam_Source_VAS3 a brick_v_1_0_2:Unknown .
+
+rice:diagVasUnableToDriveMaxV2nd_Floor_Chilled_Beam_Source_VAS2 a brick_v_1_0_2:Unknown .
+
+rice:diagVasUnableToDriveMaxV2nd_Floor_Perimeter_Devices_VAS1 a brick_v_1_0_2:Unknown .
+
+rice:diagVasUnableToDriveMaxVBasement_Perimeter_Devices2 a brick_v_1_0_2:Unknown .
+
+rice:diagVasUnableToDriveMaxVChilled_Beam_Source_VAS3 a brick_v_1_0_2:Unknown .
+
+rice:diagnosticAlarmPresentA1st_Floor_Area1 a brick_v_1_0_2:Unknown .
+
+rice:diagnosticAlarmPresentA2nd_Floor_Area1 a brick_v_1_0_2:Unknown .
+
+rice:diagnosticAlarmPresentA5th_Floor_Area1 a brick_v_1_0_2:Unknown .
+
+rice:ductPressOptMaxPos1st_Floor_Chilled_Beam_VAS2 a brick_v_1_0_2:Supply_Air_Duct_Max_Position_Setpoint .
+
+rice:ductPressOptMaxPos1st_Foor_Perimeter_Devices_VAS1 a brick_v_1_0_2:Supply_Air_Duct_Max_Position_Setpoint .
+
+rice:ductPressOptMaxPos2nd_Floor_Chilled_Beam_Source_VAS2 a brick_v_1_0_2:Supply_Air_Duct_Max_Position_Setpoint .
+
+rice:ductPressOptMaxPos2nd_Floor_Perimeter_Devices_VAS1 a brick_v_1_0_2:Supply_Air_Duct_Max_Position_Setpoint .
+
+rice:ductPressOptMaxPos5th_Floor_Chilled_Beam_VAS1 a brick_v_1_0_2:Supply_Air_Duct_Max_Position_Setpoint .
+
+rice:ductPressOptMaxPos5th_Floor_Perimeter_Devices_VAS2 a brick_v_1_0_2:Supply_Air_Duct_Max_Position_Setpoint .
+
+rice:ductPressOptMaxPosBasement_Perimeter_Devices2 a brick_v_1_0_2:Supply_Air_Duct_Max_Position_Setpoint .
+
+rice:ductPressOptMaxPosChilled_Beam_Source_VAS3 a brick_v_1_0_2:Supply_Air_Duct_Max_Position_Setpoint .
+
+rice:ductPressOptStatusV1st_Floor_Chilled_Beam_VAS2 a brick:Supply_Air_Duct_Pressure_Status .
+
+rice:ductPressOptStatusV1st_Foor_Perimeter_Devices_VAS1 a brick:Supply_Air_Duct_Pressure_Status .
+
+rice:ductPressOptStatusV2nd_Floor_Chilled_Beam_Source_VAS2 a brick:Supply_Air_Duct_Pressure_Status .
+
+rice:ductPressOptStatusV2nd_Floor_Perimeter_Devices_VAS1 a brick:Supply_Air_Duct_Pressure_Status .
+
+rice:ductPressOptStatusV5th_Floor_Chilled_Beam_VAS1 a brick:Supply_Air_Duct_Pressure_Status .
+
+rice:ductPressOptStatusV5th_Floor_Perimeter_Devices_VAS2 a brick:Supply_Air_Duct_Pressure_Status .
+
+rice:ductPressOptStatusVBasement_Perimeter_Devices2 a brick:Supply_Air_Duct_Pressure_Status .
+
+rice:ductPressOptStatusVChilled_Beam_Source_VAS3 a brick:Supply_Air_Duct_Pressure_Status .
+
+rice:economizerDisableDifferentialDryBulbA1st_Floor_Area1 a brick:Disable_Differential_Temperature_Command .
+
+rice:economizerDisableDifferentialDryBulbA2nd_Floor_Area1 a brick:Disable_Differential_Temperature_Command .
+
+rice:economizerDisableDifferentialDryBulbA5th_Floor_Area1 a brick:Disable_Differential_Temperature_Command .
+
+rice:economizerDisableDifferentialDryBulbAAuditorium_Area4 a brick:Disable_Differential_Temperature_Command .
+
+rice:economizerDisableDifferentialDryBulbABasement_Area2 a brick:Disable_Differential_Temperature_Command .
+
+rice:economizerDisableDifferentialEnthalpyA1st_Floor_Area1 a brick:Disable_Differential_Enthalpy_Command .
+
+rice:economizerDisableDifferentialEnthalpyA2nd_Floor_Area1 a brick:Disable_Differential_Enthalpy_Command .
+
+rice:economizerDisableDifferentialEnthalpyA5th_Floor_Area1 a brick:Disable_Differential_Enthalpy_Command .
+
+rice:economizerDisableDifferentialEnthalpyAAuditorium_Area4 a brick:Disable_Differential_Enthalpy_Command .
+
+rice:economizerDisableDifferentialEnthalpyABasement_Area2 a brick:Disable_Differential_Enthalpy_Command .
+
+rice:economizerDisableFixedDewPointA1st_Floor_Area1 a brick_v_1_0_2:Economizer_Disable_Fixed_Dew_Point .
+
+rice:economizerDisableFixedDewPointA2nd_Floor_Area1 a brick_v_1_0_2:Economizer_Disable_Fixed_Dew_Point .
+
+rice:economizerDisableFixedDewPointA5th_Floor_Area1 a brick_v_1_0_2:Economizer_Disable_Fixed_Dew_Point .
+
+rice:economizerDisableFixedDewPointAAuditorium_Area4 a brick_v_1_0_2:Economizer_Disable_Fixed_Dew_Point .
+
+rice:economizerDisableFixedDewPointABasement_Area2 a brick_v_1_0_2:Economizer_Disable_Fixed_Dew_Point .
+
+rice:economizerDisableFixedDryBulbA1st_Floor_Area1 a brick:Disable_Fixed_Temperature_Command .
+
+rice:economizerDisableFixedDryBulbA2nd_Floor_Area1 a brick:Disable_Fixed_Temperature_Command .
+
+rice:economizerDisableFixedDryBulbA5th_Floor_Area1 a brick:Disable_Fixed_Temperature_Command .
+
+rice:economizerDisableFixedDryBulbAAuditorium_Area4 a brick:Disable_Fixed_Temperature_Command .
+
+rice:economizerDisableFixedDryBulbABasement_Area2 a brick:Disable_Fixed_Temperature_Command .
+
+rice:economizerDisableFixedEnthalpyA1st_Floor_Area1 a brick:Disable_Fixed_Enthalpy_Command .
+
+rice:economizerDisableFixedEnthalpyA2nd_Floor_Area1 a brick:Disable_Fixed_Enthalpy_Command .
+
+rice:economizerDisableFixedEnthalpyA5th_Floor_Area1 a brick:Disable_Fixed_Enthalpy_Command .
+
+rice:economizerDisableFixedEnthalpyAAuditorium_Area4 a brick:Disable_Fixed_Enthalpy_Command .
+
+rice:economizerDisableFixedEnthalpyABasement_Area2 a brick:Disable_Fixed_Enthalpy_Command .
+
+rice:economizerEnableDifferentialDryBulbA1st_Floor_Area1 a brick:Enable_Differential_Temperature_Command .
+
+rice:economizerEnableDifferentialDryBulbA2nd_Floor_Area1 a brick:Enable_Differential_Temperature_Command .
+
+rice:economizerEnableDifferentialDryBulbA5th_Floor_Area1 a brick:Enable_Differential_Temperature_Command .
+
+rice:economizerEnableDifferentialDryBulbAAuditorium_Area4 a brick:Enable_Differential_Temperature_Command .
+
+rice:economizerEnableDifferentialDryBulbABasement_Area2 a brick:Enable_Differential_Temperature_Command .
+
+rice:economizerEnableDifferentialEnthalpyA1st_Floor_Area1 a brick:Enable_Differential_Enthalpy_Command .
+
+rice:economizerEnableDifferentialEnthalpyA2nd_Floor_Area1 a brick:Enable_Differential_Enthalpy_Command .
+
+rice:economizerEnableDifferentialEnthalpyA5th_Floor_Area1 a brick:Enable_Differential_Enthalpy_Command .
+
+rice:economizerEnableDifferentialEnthalpyAAuditorium_Area4 a brick:Enable_Differential_Enthalpy_Command .
+
+rice:economizerEnableDifferentialEnthalpyABasement_Area2 a brick:Enable_Differential_Enthalpy_Command .
+
+rice:economizerEnableFixedDewPointA1st_Floor_Area1 a brick_v_1_0_2:Economizer_Enable_Fixed_Dew_Point .
+
+rice:economizerEnableFixedDewPointA2nd_Floor_Area1 a brick_v_1_0_2:Economizer_Enable_Fixed_Dew_Point .
+
+rice:economizerEnableFixedDewPointA5th_Floor_Area1 a brick_v_1_0_2:Economizer_Enable_Fixed_Dew_Point .
+
+rice:economizerEnableFixedDewPointAAuditorium_Area4 a brick_v_1_0_2:Economizer_Enable_Fixed_Dew_Point .
+
+rice:economizerEnableFixedDewPointABasement_Area2 a brick_v_1_0_2:Economizer_Enable_Fixed_Dew_Point .
+
+rice:economizerEnableFixedDryBulbA1st_Floor_Area1 a brick:Enable_Fixed_Temperature_Command .
+
+rice:economizerEnableFixedDryBulbA2nd_Floor_Area1 a brick:Enable_Fixed_Temperature_Command .
+
+rice:economizerEnableFixedDryBulbA5th_Floor_Area1 a brick:Enable_Fixed_Temperature_Command .
+
+rice:economizerEnableFixedDryBulbAAuditorium_Area4 a brick:Enable_Fixed_Temperature_Command .
+
+rice:economizerEnableFixedDryBulbABasement_Area2 a brick:Enable_Fixed_Temperature_Command .
+
+rice:economizerEnableFixedEnthalpyA1st_Floor_Area1 a brick:Enable_Fixed_Enthalpy_Command .
+
+rice:economizerEnableFixedEnthalpyA2nd_Floor_Area1 a brick:Enable_Fixed_Enthalpy_Command .
+
+rice:economizerEnableFixedEnthalpyA5th_Floor_Area1 a brick:Enable_Fixed_Enthalpy_Command .
+
+rice:economizerEnableFixedEnthalpyAAuditorium_Area4 a brick:Enable_Fixed_Enthalpy_Command .
+
+rice:economizerEnableFixedEnthalpyABasement_Area2 a brick:Enable_Fixed_Enthalpy_Command .
+
+rice:economizerStatusA1st_Floor_Area1 a brick:Mode_Status .
+
+rice:economizerStatusA2nd_Floor_Area1 a brick:Mode_Status .
+
+rice:economizerStatusA5th_Floor_Area1 a brick:Mode_Status .
+
+rice:economizerStatusAAuditorium_Area4 a brick:Mode_Status .
+
+rice:economizerStatusABasement_Area2 a brick:Mode_Status .
+
+rice:heatCoolModeStatusA1st_Floor_Area1 a brick:Heating_On_Off_Status .
+
+rice:heatCoolModeStatusA2nd_Floor_Area1 a brick:Heating_On_Off_Status .
+
+rice:heatCoolModeStatusA3rd_Floor_Area1 a brick:Heating_On_Off_Status .
+
+rice:heatCoolModeStatusA5th_Floor_Area1 a brick:Heating_On_Off_Status .
+
+rice:heatCoolModeStatusAAuditorium_Area4 a brick:Heating_On_Off_Status .
+
+rice:heatCoolModeStatusABasement_Area2 a brick:Heating_On_Off_Status .
+
+rice:occupancyA1st_Floor_Area1 a brick:Occupancy_Sensor .
+
+rice:occupancyA2nd_Floor_Area1 a brick:Occupancy_Sensor .
+
+rice:occupancyA5th_Floor_Area1 a brick:Occupancy_Sensor .
+
+rice:occupancyAAuditorium_Area4 a brick:Occupancy_Sensor .
+
+rice:occupancyABasement_Area2 a brick:Occupancy_Sensor .
+
+rice:occupancyStatus1st_Floor_Chilled_Beam_VAS2 a brick:Occupancy_Sensor .
+
+rice:occupancyStatus1st_Foor_Perimeter_Devices_VAS1 a brick:Occupancy_Sensor .
+
+rice:occupancyStatus2nd_Floor_Chilled_Beam_Source_VAS2 a brick:Occupancy_Sensor .
+
+rice:occupancyStatus2nd_Floor_Perimeter_Devices_VAS1 a brick:Occupancy_Sensor .
+
+rice:occupancyStatus5th_Floor_Chilled_Beam_VAS1 a brick:Occupancy_Sensor .
+
+rice:occupancyStatus5th_Floor_Perimeter_Devices_VAS2 a brick:Occupancy_Sensor .
+
+rice:occupancyStatusA1st_Floor_Area1 a brick:Occupancy_Sensor .
+
+rice:occupancyStatusA2nd_Floor_Area1 a brick:Occupancy_Sensor .
+
+rice:occupancyStatusA3rd_Floor_Area1 a brick:Occupancy_Sensor .
+
+rice:occupancyStatusA5th_Floor_Area1 a brick:Occupancy_Sensor .
+
+rice:occupancyStatusAAuditorium_Area4 a brick:Occupancy_Sensor .
+
+rice:occupancyStatusABasement_Area2 a brick:Occupancy_Sensor .
+
+rice:occupancyStatusBasement_Perimeter_Devices2 a brick:Occupancy_Sensor .
+
+rice:occupancyStatusChilled_Beam_Source_VAS3 a brick:Occupancy_Sensor .
+
+rice:occupancyStatusV3rd_Floor_CB_VAS2 a brick:Occupancy_Sensor .
+
+rice:occupancyStatusV3rd_Floor_Perimiter_VAS3 a brick:Occupancy_Sensor .
+
+rice:occupiedDifferenceA1st_Floor_Area1 a brick_v_1_0_2:Unknown .
+
+rice:occupiedDifferenceA2nd_Floor_Area1 a brick_v_1_0_2:Unknown .
+
+rice:occupiedDifferenceA5th_Floor_Area1 a brick_v_1_0_2:Unknown .
+
+rice:occupiedDifferenceAAuditorium_Area4 a brick_v_1_0_2:Unknown .
+
+rice:occupiedDifferenceABasement_Area2 a brick_v_1_0_2:Unknown .
+
+rice:occupiedOffsetA1st_Floor_Area1 a brick_v_1_0_2:Unknown .
+
+rice:occupiedOffsetA2nd_Floor_Area1 a brick_v_1_0_2:Unknown .
+
+rice:occupiedOffsetA5th_Floor_Area1 a brick_v_1_0_2:Unknown .
+
+rice:occupiedOffsetABasement_Area2 a brick_v_1_0_2:Unknown .
+
+rice:operatingMode1st_Floor_Chilled_Beam_VAS2 a brick_v_1_0_2:VAV_Box_Operating_Mode .
+
+rice:operatingMode1st_Foor_Perimeter_Devices_VAS1 a brick_v_1_0_2:VAV_Box_Operating_Mode .
+
+rice:operatingMode2nd_Floor_Chilled_Beam_Source_VAS2 a brick_v_1_0_2:VAV_Box_Operating_Mode .
+
+rice:operatingMode2nd_Floor_Perimeter_Devices_VAS1 a brick_v_1_0_2:VAV_Box_Operating_Mode .
+
+rice:operatingMode5th_Floor_Chilled_Beam_VAS1 a brick_v_1_0_2:VAV_Box_Operating_Mode .
+
+rice:operatingMode5th_Floor_Perimeter_Devices_VAS2 a brick_v_1_0_2:VAV_Box_Operating_Mode .
+
+rice:operatingModeA1st_Floor_Area1 a brick_v_1_0_2:VAV_Box_Operating_Mode .
+
+rice:operatingModeA2nd_Floor_Area1 a brick_v_1_0_2:VAV_Box_Operating_Mode .
+
+rice:operatingModeA3rd_Floor_Area1 a brick_v_1_0_2:VAV_Box_Operating_Mode .
+
+rice:operatingModeA5th_Floor_Area1 a brick_v_1_0_2:VAV_Box_Operating_Mode .
+
+rice:operatingModeAAuditorium_Area4 a brick_v_1_0_2:VAV_Box_Operating_Mode .
+
+rice:operatingModeABasement_Area2 a brick_v_1_0_2:VAV_Box_Operating_Mode .
+
+rice:operatingModeBasement_Perimeter_Devices2 a brick_v_1_0_2:VAV_Box_Operating_Mode .
+
+rice:operatingModeChilled_Beam_Source_VAS3 a brick_v_1_0_2:VAV_Box_Operating_Mode .
+
+rice:operatingModeV3rd_Floor_CB_VAS2 a brick_v_1_0_2:VAV_Box_Operating_Mode .
+
+rice:operatingModeV3rd_Floor_Perimiter_VAS3 a brick_v_1_0_2:VAV_Box_Operating_Mode .
+
+rice:outdoorAirHumidityA1st_Floor_Area1 a brick_v_1_0_2:Outside_Air_Humidity .
+
+rice:outdoorAirHumidityA2nd_Floor_Area1 a brick_v_1_0_2:Outside_Air_Humidity .
+
+rice:outdoorAirHumidityA5th_Floor_Area1 a brick_v_1_0_2:Outside_Air_Humidity .
+
+rice:outdoorAirHumidityAAuditorium_Area4 a brick_v_1_0_2:Outside_Air_Humidity .
+
+rice:outdoorAirHumidityABasement_Area2 a brick_v_1_0_2:Outside_Air_Humidity .
+
+rice:spaceHumidityA1st_Floor_Area1 a brick:Humidity_Sensor .
+
+rice:spaceHumidityA2nd_Floor_Area1 a brick:Humidity_Sensor .
+
+rice:spaceHumidityA5th_Floor_Area1 a brick:Humidity_Sensor .
+
+rice:spaceHumidityAAuditorium_Area4 a brick:Humidity_Sensor .
+
+rice:spaceHumidityABasement_Area2 a brick:Humidity_Sensor .
+
+rice:spaceSensorA1st_Floor_Area1 a brick:Zone_Air_Temperature_Sensor .
+
+rice:spaceSensorA2nd_Floor_Area1 a brick:Zone_Air_Temperature_Sensor .
+
+rice:spaceSensorA3rd_Floor_Area1 a brick:Zone_Air_Temperature_Sensor .
+
+rice:spaceSensorA5th_Floor_Area1 a brick:Zone_Air_Temperature_Sensor .
+
+rice:spaceSensorAAuditorium_Area4 a brick:Zone_Air_Temperature_Sensor .
+
+rice:spaceSensorABasement_Area2 a brick:Zone_Air_Temperature_Sensor .
+
+rice:standbyOffsetA1st_Floor_Area1 a brick_v_1_0_2:Unknown .
+
+rice:standbyOffsetA2nd_Floor_Area1 a brick_v_1_0_2:Unknown .
+
+rice:standbyOffsetA5th_Floor_Area1 a brick_v_1_0_2:Unknown .
+
+rice:standbyOffsetAAuditorium_Area4 a brick_v_1_0_2:Unknown .
+
+rice:standbyOffsetABasement_Area2 a brick_v_1_0_2:Unknown .
+
+rice:systemMode1st_Floor_Chilled_Beam_VAS2 a brick:Mode_Status .
+
+rice:systemMode1st_Foor_Perimeter_Devices_VAS1 a brick:Mode_Status .
+
+rice:systemMode2nd_Floor_Chilled_Beam_Source_VAS2 a brick:Mode_Status .
+
+rice:systemMode2nd_Floor_Perimeter_Devices_VAS1 a brick:Mode_Status .
+
+rice:systemMode5th_Floor_Chilled_Beam_VAS1 a brick:Mode_Status .
+
+rice:systemMode5th_Floor_Perimeter_Devices_VAS2 a brick:Mode_Status .
+
+rice:systemModeBasement_Perimeter_Devices2 a brick:Mode_Status .
+
+rice:systemModeChilled_Beam_Source_VAS3 a brick:Mode_Status .
+
+rice:unoccupiedDifferenceA1st_Floor_Area1 a brick_v_1_0_2:Unknown .
+
+rice:unoccupiedDifferenceA2nd_Floor_Area1 a brick_v_1_0_2:Unknown .
+
+rice:unoccupiedDifferenceA5th_Floor_Area1 a brick_v_1_0_2:Unknown .
+
+rice:unoccupiedDifferenceAAuditorium_Area4 a brick_v_1_0_2:Unknown .
+
+rice:unoccupiedDifferenceABasement_Area2 a brick_v_1_0_2:Unknown .
+
+rice:ventOptStatusV1st_Floor_Chilled_Beam_VAS2 a brick:Vent_Operating_Mode_Status .
+
+rice:ventOptStatusV1st_Foor_Perimeter_Devices_VAS1 a brick:Vent_Operating_Mode_Status .
+
+rice:ventOptStatusV2nd_Floor_Chilled_Beam_Source_VAS2 a brick:Vent_Operating_Mode_Status .
+
+rice:ventOptStatusV2nd_Floor_Perimeter_Devices_VAS1 a brick:Vent_Operating_Mode_Status .
+
+rice:ventOptStatusV5th_Floor_Chilled_Beam_VAS1 a brick:Vent_Operating_Mode_Status .
+
+rice:ventOptStatusV5th_Floor_Perimeter_Devices_VAS2 a brick:Vent_Operating_Mode_Status .
+
+rice:ventOptStatusVBasement_Perimeter_Devices2 a brick:Vent_Operating_Mode_Status .
+
+rice:ventOptStatusVChilled_Beam_Source_VAS3 a brick:Vent_Operating_Mode_Status .
+
+rice:ventOptVavAirflowGross1st_Floor_Chilled_Beam_VAS2 a brick:Discharge_Air_Flow_Sensor .
+
+rice:ventOptVavAirflowGross1st_Foor_Perimeter_Devices_VAS1 a brick:Discharge_Air_Flow_Sensor .
+
+rice:ventOptVavAirflowGross2nd_Floor_Chilled_Beam_Source_VAS2 a brick:Discharge_Air_Flow_Sensor .
+
+rice:ventOptVavAirflowGross2nd_Floor_Perimeter_Devices_VAS1 a brick:Discharge_Air_Flow_Sensor .
+
+rice:ventOptVavAirflowGross5th_Floor_Chilled_Beam_VAS1 a brick:Discharge_Air_Flow_Sensor .
+
+rice:ventOptVavAirflowGross5th_Floor_Perimeter_Devices_VAS2 a brick:Discharge_Air_Flow_Sensor .
+
+rice:ventOptVavAirflowGrossBasement_Perimeter_Devices2 a brick:Discharge_Air_Flow_Sensor .
+
+rice:ventOptVavAirflowGrossChilled_Beam_Source_VAS3 a brick:Discharge_Air_Flow_Sensor .
+
+rice:ventRatioLimitAhuV1st_Floor_Chilled_Beam_VAS2 a brick:Ventilation_Air_Flow_Ratio_Limit .
+
+rice:ventRatioLimitAhuV1st_Foor_Perimeter_Devices_VAS1 a brick:Ventilation_Air_Flow_Ratio_Limit .
+
+rice:ventRatioLimitAhuV2nd_Floor_Chilled_Beam_Source_VAS2 a brick:Ventilation_Air_Flow_Ratio_Limit .
+
+rice:ventRatioLimitAhuV2nd_Floor_Perimeter_Devices_VAS1 a brick:Ventilation_Air_Flow_Ratio_Limit .
+
+rice:ventRatioLimitAhuV5th_Floor_Chilled_Beam_VAS1 a brick:Ventilation_Air_Flow_Ratio_Limit .
+
+rice:ventRatioLimitAhuV5th_Floor_Perimeter_Devices_VAS2 a brick:Ventilation_Air_Flow_Ratio_Limit .
+
+rice:ventRatioLimitAhuVBasement_Perimeter_Devices2 a brick:Ventilation_Air_Flow_Ratio_Limit .
+
+rice:ventRatioLimitAhuVChilled_Beam_Source_VAS3 a brick:Ventilation_Air_Flow_Ratio_Limit .
+
+rice:ventRatioLimitVavV1st_Floor_Chilled_Beam_VAS2 a brick:Ventilation_Air_Flow_Ratio_Limit .
+
+rice:ventRatioLimitVavV1st_Foor_Perimeter_Devices_VAS1 a brick:Ventilation_Air_Flow_Ratio_Limit .
+
+rice:ventRatioLimitVavV2nd_Floor_Chilled_Beam_Source_VAS2 a brick:Ventilation_Air_Flow_Ratio_Limit .
+
+rice:ventRatioLimitVavV2nd_Floor_Perimeter_Devices_VAS1 a brick:Ventilation_Air_Flow_Ratio_Limit .
+
+rice:ventRatioLimitVavV5th_Floor_Chilled_Beam_VAS1 a brick:Ventilation_Air_Flow_Ratio_Limit .
+
+rice:ventRatioLimitVavV5th_Floor_Perimeter_Devices_VAS2 a brick:Ventilation_Air_Flow_Ratio_Limit .
+
+rice:ventRatioLimitVavVBasement_Perimeter_Devices2 a brick:Ventilation_Air_Flow_Ratio_Limit .
+
+rice:ventRatioLimitVavVChilled_Beam_Source_VAS3 a brick:Ventilation_Air_Flow_Ratio_Limit .
+
+brick_v_1_0_2:Average_Zone_Temperature_Sensor a owl:NamedIndividual,
+        brick:Point .
+
+brick_v_1_0_2:CO2_Sensor a owl:NamedIndividual,
+        brick:Point .
+
+brick_v_1_0_2:Chilled_Water_Discharge_Temperature a owl:NamedIndividual,
+        brick:Point .
+
+brick_v_1_0_2:Chilled_Water_Return_Temperature a owl:NamedIndividual,
+        brick:Point .
+
+brick_v_1_0_2:Chilled_Water_Supply_Temperature_Sensor a owl:NamedIndividual,
+        brick:Point .
+
+brick_v_1_0_2:Cooling_Coil_Discharge_Air_Temperature_Sensor a owl:NamedIndividual,
+        brick:Point .
+
+brick_v_1_0_2:Discharge_Air_Flow a owl:NamedIndividual,
+        brick:Point .
+
+brick_v_1_0_2:Discharge_Air_Flow_Sensor a owl:NamedIndividual,
+        brick:Point .
+
+brick_v_1_0_2:Discharge_Air_Humidity_Sensor a owl:NamedIndividual,
+        brick:Point .
+
+brick_v_1_0_2:Discharge_Air_Temperature_Cooling_Setpoint a owl:NamedIndividual,
+        brick:Point .
+
+brick_v_1_0_2:Discharge_Air_Temperature_Heating_Setpoint a owl:NamedIndividual,
+        brick:Point .
+
+brick_v_1_0_2:Discharge_Air_Temperature_Sensor a owl:NamedIndividual,
+        brick:Point .
+
+brick_v_1_0_2:Economizer_Disable_Differential_Enthalpy a owl:NamedIndividual,
+        brick:Point .
+
+brick_v_1_0_2:Economizer_Disable_Differential_Temperature a owl:NamedIndividual,
+        brick:Point .
+
+brick_v_1_0_2:Economizer_Disable_Fixed_Enthalpy a owl:NamedIndividual,
+        brick:Point .
+
+brick_v_1_0_2:Economizer_Disable_Fixed_Temperature a owl:NamedIndividual,
+        brick:Point .
+
+brick_v_1_0_2:Economizer_Enable_Differential_Enthalpy a owl:NamedIndividual,
+        brick:Point .
+
+brick_v_1_0_2:Economizer_Enable_Differential_Temperature a owl:NamedIndividual,
+        brick:Point .
+
+brick_v_1_0_2:Economizer_Enable_Fixed_Enthalpy a owl:NamedIndividual,
+        brick:Point .
+
+brick_v_1_0_2:Economizer_Enable_Fixed_Temperature a owl:NamedIndividual,
+        brick:Point .
+
+brick_v_1_0_2:Economizer_Mode_Status a owl:NamedIndividual,
+        brick:Point .
+
+brick_v_1_0_2:Exhaust_Air_Humidity_Sensor a owl:NamedIndividual,
+        brick:Point .
+
+brick_v_1_0_2:Exhaust_Air_Temperature_Sensor a owl:NamedIndividual,
+        brick:Point .
+
+brick_v_1_0_2:Heating_On_Off_Status a owl:NamedIndividual,
+        brick:Point .
+
+brick_v_1_0_2:High_Humidity_Alarm_Setpoint a owl:NamedIndividual,
+        brick:Point .
+
+brick_v_1_0_2:High_Static_Pressure_Cutout_Limit a owl:NamedIndividual,
+        brick:Point .
+
+brick_v_1_0_2:Hot_Water_Coil_Entering_Temperature a owl:NamedIndividual,
+        brick:Point .
+
+brick_v_1_0_2:Hot_Water_Return_Temperature a owl:NamedIndividual,
+        brick:Point .
+
+brick_v_1_0_2:Hot_Water_Supply_Temperature a owl:NamedIndividual,
+        brick:Point .
+
+brick_v_1_0_2:Humidity_Sensor a owl:NamedIndividual,
+        brick:Point .
+
+brick_v_1_0_2:Ice_Tank_Entering_Water_Temperature_Sensor a owl:NamedIndividual,
+        brick:Point .
+
+brick_v_1_0_2:Ice_Tank_Leaving_Water_Temperature_Sensor a owl:NamedIndividual,
+        brick:Point .
+
+brick_v_1_0_2:Low_Humidity_Alarm_Setpoint a owl:NamedIndividual,
+        brick:Point .
+
+brick_v_1_0_2:Mixed_Air_Temperature_Sensor a owl:NamedIndividual,
+        brick:Point .
+
+brick_v_1_0_2:Occupancy_Sensor a owl:NamedIndividual,
+        brick:Point .
+
+brick_v_1_0_2:Outside_Air_Damper_Close_Limit_Setpoint a owl:NamedIndividual,
+        brick:Point .
+
+brick_v_1_0_2:Preheat_Coil_Leaving_Water_Temperature_Sensor a owl:NamedIndividual,
+        brick:Point .
+
+brick_v_1_0_2:Return_Air_CO2_Sensor a owl:NamedIndividual,
+        brick:Point .
+
+brick_v_1_0_2:Return_Air_Flow_Sensor a owl:NamedIndividual,
+        brick:Point .
+
+brick_v_1_0_2:Return_Air_Humidity_Sensor a owl:NamedIndividual,
+        brick:Point .
+
+brick_v_1_0_2:Return_Air_Temperature_Sensor a owl:NamedIndividual,
+        brick:Point .
+
+brick_v_1_0_2:Room_Temperature_Sensor a owl:NamedIndividual,
+        brick:Point .
+
+brick_v_1_0_2:Supply_Air_Duct_Pressure_Status a owl:NamedIndividual,
+        brick:Point .
+
+brick_v_1_0_2:System_Mode a owl:NamedIndividual,
+        brick:Point .
+
+brick_v_1_0_2:Thumbwheel_Temperature_High_Limit_Setpoint a owl:NamedIndividual,
+        brick:Point .
+
+brick_v_1_0_2:Thumbwheel_Temperature_Low_Limit_Setpoint a owl:NamedIndividual,
+        brick:Point .
+
+brick_v_1_0_2:Vent_Operating_Mode a owl:NamedIndividual,
+        brick:Point .
+
+brick_v_1_0_2:Ventilation_Air_Flow_Ratio_Limit_Setpoint a owl:NamedIndividual,
+        brick:Point .
+
+brick_v_1_0_2:Zone_Temperature_Sensor a owl:NamedIndividual,
+        brick:Point .
+
+brick_v_1_0_2:Zone_Temperature_Setpoint a owl:NamedIndividual,
+        brick:Point .
+
+rice:HVAC_Zone1 a owl:NamedIndividual,
+        brick:HVAC_Zone ;
+    brick:hasPart rice:Room102,
+        rice:Room103,
+        rice:Room106,
+        rice:Room11,
+        rice:Room13,
+        rice:Room150,
+        rice:Room20,
+        rice:Room203,
+        rice:Room204,
+        rice:Room207,
+        rice:Room208,
+        rice:Room212,
+        rice:Room220,
+        rice:Room228,
+        rice:Room230,
+        rice:Room259,
+        rice:Room276,
+        rice:Room308,
+        rice:Room322,
+        rice:Room50,
+        rice:Room58 .
+
+rice:HVAC_Zone2 a owl:NamedIndividual,
+        brick:HVAC_Zone ;
+    brick:hasPart rice:Room101,
+        rice:Room105,
+        rice:Room108,
+        rice:Room122,
+        rice:Room15,
+        rice:Room202,
+        rice:Room204,
+        rice:Room207,
+        rice:Room209,
+        rice:Room211,
+        rice:Room222,
+        rice:Room226,
+        rice:Room230,
+        rice:Room232,
+        rice:Room24,
+        rice:Room242,
+        rice:Room252,
+        rice:Room305,
+        rice:Room32,
+        rice:Room504,
+        rice:Room511,
+        rice:Room513,
+        rice:Room516,
+        rice:Room521,
+        rice:Room532,
+        rice:Room536,
+        rice:Room542,
+        rice:Room7 .
+
+rice:HVAC_Zone3 a owl:NamedIndividual,
+        brick:HVAC_Zone ;
+    brick:hasPart rice:Room103,
+        rice:Room104,
+        rice:Room107,
+        rice:Room128,
+        rice:Room17,
+        rice:Room201,
+        rice:Room205,
+        rice:Room206,
+        rice:Room210,
+        rice:Room224,
+        rice:Room306,
+        rice:Room32,
+        rice:Room503,
+        rice:Room511,
+        rice:Room52,
+        rice:Room522,
+        rice:Room552,
+        rice:Room561,
+        rice:Room7 .
+
+rice:HVAC_Zone4 a owl:NamedIndividual,
+        brick:HVAC_Zone ;
+    brick:hasPart rice:Room102,
+        rice:Room106,
+        rice:Room11,
+        rice:Room154,
+        rice:Room19,
+        rice:Room203,
+        rice:Room205,
+        rice:Room209,
+        rice:Room211,
+        rice:Room252,
+        rice:Room32,
+        rice:Room322,
+        rice:Room502,
+        rice:Room509,
+        rice:Room524 .
+
+rice:HVAC_Zone5 a owl:NamedIndividual,
+        brick:HVAC_Zone ;
+    brick:hasPart rice:Room101,
+        rice:Room154,
+        rice:Room156,
+        rice:Room202,
+        rice:Room208,
+        rice:Room324,
+        rice:Room501,
+        rice:Room508,
+        rice:Room526,
+        rice:Room54,
+        rice:Room57,
+        rice:Room59 .
+
+rice:HVAC_Zone6 a owl:NamedIndividual,
+        brick:HVAC_Zone ;
+    brick:hasPart rice:Room156,
+        rice:Room201,
+        rice:Room212,
+        rice:Room507,
+        rice:Room528,
+        rice:Room54,
+        rice:Room557 .
+
+rice:HVAC_Zone7 a owl:NamedIndividual,
+        brick:HVAC_Zone ;
+    brick:hasPart rice:Room506,
+        rice:Room552 .
+
+rice:HVAC_Zone8 a owl:NamedIndividual,
+        brick:HVAC_Zone ;
+    brick:hasPart rice:Room527,
+        rice:Room557 .
+
+rice:Room1071 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:RMI1071_Space_Temperature_Local ;
+    brick:isLocationOf rice:RMI1071_Space_Temperature_Local .
+
+rice:Room1072 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:RMI1072_Space_Temperature_Local ;
+    brick:isLocationOf rice:RMI1072_Space_Temperature_Local .
+
+rice:Room1091 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:RMI1091_Space_Temperature_Local ;
+    brick:isLocationOf rice:RMI1091_Space_Temperature_Local .
+
+rice:Room1092 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:RMI1092_Space_Temperature_Local ;
+    brick:isLocationOf rice:RMI1092_Space_Temperature_Local .
+
+rice:Room160 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:RMIC160_Space_Relative_Humidity_Local ;
+    brick:isLocationOf rice:RMIC160_Space_Relative_Humidity_Local .
+
+rice:Room326 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:Space_Humidity_RMI326 ;
+    brick:isLocationOf rice:Space_Humidity_RMI326 .
+
+rice:Room505 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:RMI505_Space_Temperature_Perimeter ;
+    brick:isLocationOf rice:RMI505_Space_Temperature_Perimeter .
+
+rice:Room512 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:RMI512_Space_Temperature_Perimeter ;
+    brick:isLocationOf rice:RMI512_Space_Temperature_Perimeter .
+
+rice:Room514 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:rmi514_Space_CO2_Concentration ;
+    brick:isLocationOf rice:rmi514_Space_CO2_Concentration .
+
+rice:Room530 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:RMI530_Space_Temperature ;
+    brick:isLocationOf rice:RMI530_Space_Temperature .
+
+rice:Room534 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:RMI534_Space_Temperature_Perimeter ;
+    brick:isLocationOf rice:RMI534_Space_Temperature_Perimeter .
+
+rice:VAV1 a owl:NamedIndividual,
+        brick:VAV ;
+    brick:feeds rice:HVAC_Zone1 ;
+    brick:hasPoint rice:Humidity_Zone_1_RMI207,
+        rice:Humidity_Zone_1_RMI212,
+        rice:TEMP1_Perm_Temp_Rm_230,
+        rice:TEMP1_Space_TemperatureRMI050,
+        rice:TEMP1_Space_Temperature_Perm_Rm_I228,
+        rice:TEMP1_Space_Temperature_RME220,
+        rice:TEMP1_Space_Temperature_RMI013,
+        rice:TEMP1_Space_Temperature_RMI020,
+        rice:TEMP1_Space_Temperature_RMI102,
+        rice:TEMP1_Space_Temperature_RMI103,
+        rice:TEMP1_Space_Temperature_RMI106,
+        rice:TEMP1_Space_Temperature_RMI203,
+        rice:TEMP1_Space_Temperature_RMI204,
+        rice:TEMP1_Space_Temperature_RMI208,
+        rice:TEMP1_Space_Temperature_RMI308,
+        rice:TEMP1_Space_Temperature_RMIC058,
+        rice:TEMP1_Space_Temperature_RMIC150A,
+        rice:TEMP1_Space_Temperature_RMIC259,
+        rice:TEMP1_Space_Temperature_RMIC276,
+        rice:TEMP1_Space_Temperature_RM_212,
+        rice:TEMP1_Space_Temperature_RM_I322,
+        rice:TEMP1_Space_Temperature_RmI011 .
+
+rice:VAV2 a owl:NamedIndividual,
+        brick:VAV ;
+    brick:feeds rice:HVAC_Zone2 ;
+    brick:hasPoint rice:RMI504_Zone_Temp_2,
+        rice:RMI511B_Zone_Temp_2,
+        rice:RMI513_Zone_Temp_2,
+        rice:RMI516_Space_CO2_Concentration_Zone_2,
+        rice:RMI521_Zone_Temp_2,
+        rice:RMI536_Zone_Temp_2,
+        rice:RMI542_Zone_Temp_2,
+        rice:RmI532_Zone_Temp_2,
+        rice:Space_CO2_Concentration_Zone_2_RMI230,
+        rice:TEMP2_Perm_Temperature_Rm_232,
+        rice:TEMP2_Space_Temperature_Perm_RM_I226,
+        rice:TEMP2_Space_Temperature_RME222,
+        rice:TEMP2_Space_Temperature_RMI015,
+        rice:TEMP2_Space_Temperature_RMI024,
+        rice:TEMP2_Space_Temperature_RMI101,
+        rice:TEMP2_Space_Temperature_RMI105,
+        rice:TEMP2_Space_Temperature_RMI202,
+        rice:TEMP2_Space_Temperature_RMI207,
+        rice:TEMP2_Space_Temperature_RM_211,
+        rice:TEMP2_Space_Temperature_RmI007,
+        rice:Zone_2_Temp_Corr_252,
+        rice:Zone_Temp_2_RME222,
+        rice:Zone_Temp_2_RMI007,
+        rice:Zone_Temp_2_RMI015,
+        rice:Zone_Temp_2_RMI024,
+        rice:Zone_Temp_2_RMI032,
+        rice:Zone_Temp_2_RMI108,
+        rice:Zone_Temp_2_RMI122,
+        rice:Zone_Temp_2_RMI209,
+        rice:Zone_Temp_2_RM_242,
+        rice:Zone_Temp_2_RM_I232,
+        rice:Zone_Temp_2_RmI204,
+        rice:averageSpaceTemperatureARoom_305_Area2,
+        rice:heatCoolModeStatusARoom_305_Area2,
+        rice:occupancyStatusARoom_305_Area2,
+        rice:operatingModeARoom_305_Area2 .
+
+rice:VAV3 a owl:NamedIndividual,
+        brick:VAV ;
+    brick:feeds rice:HVAC_Zone3 ;
+    brick:hasPoint rice:RM511A_Zone_Temp_3,
+        rice:RMI503_Zone_Temp_3,
+        rice:RMI522_Zone_Temp_3,
+        rice:RMI552_Zone_Temp_3,
+        rice:RMI561_Zone_Temp_3,
+        rice:RMIC552_Zone_Temp_3,
+        rice:TEMP3_Space_Temperature_Perm_RM_I224,
+        rice:TEMP3_Space_Temperature_RMI017,
+        rice:TEMP3_Space_Temperature_RMI104,
+        rice:TEMP3_Space_Temperature_RMI201,
+        rice:TEMP3_Space_Temperature_RMI206,
+        rice:TEMP3_Space_Temperature_RM_210,
+        rice:TEMP3_Space_Temperature_RmI007A,
+        rice:Zone_Temp_3_RM210,
+        rice:Zone_Temp_3_RMI007A,
+        rice:Zone_Temp_3_RMI017,
+        rice:Zone_Temp_3_RMI032A,
+        rice:Zone_Temp_3_RMI052,
+        rice:Zone_Temp_3_RMI103,
+        rice:Zone_Temp_3_RMI107,
+        rice:Zone_Temp_3_RMI128,
+        rice:Zone_Temp_3_RM_I205,
+        rice:Zone_Temp_3_Rm_I224,
+        rice:averageSpaceTemperatureARoom_306_Area3,
+        rice:heatCoolModeStatusARoom_306_Area3,
+        rice:occupancyStatusARoom_306_Area3,
+        rice:operatingModeARoom_306_Area3,
+        rice:spaceSensorARoom_306_Area3 .
+
+rice:VAV4 a owl:NamedIndividual,
+        brick:VAV ;
+    brick:feeds rice:HVAC_Zone4 ;
+    brick:hasPoint rice:RMI502_Zone_Temp_4,
+        rice:RMI509_Zone_Temp_4,
+        rice:RMI_524_Zone_Temp_4,
+        rice:TEMP4_Space_Temperature_RMI019,
+        rice:TEMP4_Space_Temperature_RMI205,
+        rice:TEMP4_Space_Temperature_RM_209,
+        rice:Zone_Temp_4_RM211,
+        rice:Zone_Temp_4_RMI011,
+        rice:Zone_Temp_4_RMI019,
+        rice:Zone_Temp_4_RMI032B,
+        rice:Zone_Temp_4_RMI102,
+        rice:Zone_Temp_4_RMI106,
+        rice:Zone_Temp_4_RMIC154_Corr,
+        rice:Zone_Temp_4_RM_C252,
+        rice:Zone_Temp_4_RM_I203,
+        rice:averageSpaceTemperatureARoom_322_Area4,
+        rice:heatCoolModeStatusARoom_322_Area4,
+        rice:occupancyStatusARoom_322_Area4,
+        rice:operatingModeARoom_322_Area4,
+        rice:spaceSensorARoom_322_Area4 .
+
+rice:VAV5 a owl:NamedIndividual,
+        brick:VAV ;
+    brick:feeds rice:HVAC_Zone5 ;
+    brick:hasPoint rice:RMI501_Zone_Temp_5,
+        rice:RMI508_Zone_Temp_5,
+        rice:RMI526_Zone_Temp_5,
+        rice:Zone_Temp_5_Local_RMI208,
+        rice:Zone_Temp_5_RMI101,
+        rice:Zone_Temp_5_RMIC054,
+        rice:Zone_Temp_5_RMIC057,
+        rice:Zone_Temp_5_RMIC059,
+        rice:Zone_Temp_5_RMIC154A,
+        rice:Zone_Temp_5_RMIC156E,
+        rice:Zone_Temp_5_RM_I202,
+        rice:averageSpaceTemperatureARoom_324_Area5,
+        rice:heatCoolModeStatusARoom_324_Area5,
+        rice:occupancyStatusARoom_324_Area5,
+        rice:operatingModeARoom_324_Area5,
+        rice:spaceSensorARoom_324_Area5 .
+
+rice:VAV6 a owl:NamedIndividual,
+        brick:VAV ;
+    brick:feeds rice:HVAC_Zone6 ;
+    brick:hasPoint rice:RMI507_Zone_Temp_6,
+        rice:RMI528_Zone_Temp_6,
+        rice:RMIC557_Zone_Temp_6,
+        rice:Zone_Temp_6_RMI054,
+        rice:Zone_Temp_6_RMI212,
+        rice:Zone_Temp_6_RMIC156,
+        rice:Zone_Temp_6_RM_I201 .
+
+rice:VAV7 a owl:NamedIndividual,
+        brick:VAV ;
+    brick:feeds rice:HVAC_Zone7 ;
+    brick:hasPoint rice:RMI506_Zone_Temp_7,
+        rice:RMIC552_Zone_Temp_7 .
+
+rice:VAV8 a owl:NamedIndividual,
+        brick:VAV ;
+    brick:feeds rice:HVAC_Zone8 ;
+    brick:hasPoint rice:RMI527_Zone_Temp_8,
+        rice:RMI527_Zone_Temp_8_Stpt,
+        rice:RMIC557_Zone_Temp_8 .
+
+brick_v_1_0_2:Freeze_Protect_Low_Limit a owl:NamedIndividual,
+        brick:Point .
+
+rice:CB228_CHW_Return_Temp a brick:Chilled_Return_Water,
+        brick:Temperature .
+
+rice:CB228_CHW_Supply_Temp a brick:Chilled_Discharge_Water,
+        brick:Temperature .
+
+rice:CB_Flow_Meter_RMI308 a brick:Discharge_Air,
+        brick:Flow .
+
+rice:CB_Return_Temp_RMI308 a brick:Chilled_Return_Water,
+        brick:Temperature .
+
+rice:CB_Supply_Temp_RMI308 a brick:Chilled_Discharge_Water,
+        brick:Temperature .
+
+rice:HW_Return_Temp_RM_I324 a brick:Hot_Water_Return_Temperature_Sensor .
+
+rice:Lab_Humidity_RM_I228 a brick:Humidity_Sensor .
+
+rice:RMI1071_Space_Temperature_Local a brick:Air_Temperature_Sensor .
+
+rice:RMI1072_Space_Temperature_Local a brick:Air_Temperature_Sensor .
+
+rice:RMI108_Space_Temperature_Local a brick:Air_Temperature_Sensor .
+
+rice:RMI1091_Space_Temperature_Local a brick:Air_Temperature_Sensor .
+
+rice:RMI1092_Space_Temperature_Local a brick:Air_Temperature_Sensor .
+
+rice:RMI501_Space_Temperature_Perimeter a brick:Air_Temperature_Sensor .
+
+rice:RMI502_Space_Temperature_Perimeter a brick:Air_Temperature_Sensor .
+
+rice:RMI503_Space_Temperature_Perimeter a brick:Air_Temperature_Sensor .
+
+rice:RMI505_Space_Temperature_Perimeter a brick:Air_Temperature_Sensor .
+
+rice:RMI506_Space_Temperature_Perimeter a brick:Air_Temperature_Sensor .
+
+rice:RMI507_Space_Temperature_Perimeter a brick:Air_Temperature_Sensor .
+
+rice:RMI508_Space_Temperature_Perimeter a brick:Air_Temperature_Sensor .
+
+rice:RMI509_Space_Temperature_Perimeter a brick:Air_Temperature_Sensor .
+
+rice:RMI511A_Space_Temperature_Perimeter a brick:Air_Temperature_Sensor .
+
+rice:RMI511B_Space_Temperature_Perimeter a brick:Air_Temperature_Sensor .
+
+rice:RMI512_Space_Temperature_Perimeter a brick:Air_Temperature_Sensor .
+
+rice:RMI530_Space_Temperature a brick:Air_Temperature_Sensor .
+
+rice:RMI534_Space_Temperature_Perimeter a brick:Air_Temperature_Sensor .
+
+rice:RMI536_Space_Temperature_Perimeter a brick:Air_Temperature_Sensor .
+
+rice:RMIC160_Space_Relative_Humidity_Local a brick:Humidity_Sensor .
+
+rice:RmI504_Space_Temperature_Perimeter a brick:Air_Temperature_Sensor .
+
+rice:RmI521_Space_Temperature a brick:Air_Temperature_Sensor .
+
+rice:RmI522_Space_Temperature a brick:Air_Temperature_Sensor .
+
+rice:RmI524_Space_Temperature a brick:Air_Temperature_Sensor .
+
+rice:RmI526_Space_Temperature a brick:Air_Temperature_Sensor .
+
+rice:RmI528_Space_Temperature a brick:Air_Temperature_Sensor .
+
+rice:RmI532_Space_Temperature a brick:Air_Temperature_Sensor .
+
+rice:Room104 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:TEMP3_Space_Temperature_RMI104,
+        rice:Zone_Temp_RMI104 ;
+    brick:isLocationOf rice:TEMP3_Space_Temperature_RMI104,
+        rice:Zone_Temp_RMI104 .
+
+rice:Room105 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:TEMP2_Space_Temperature_RMI105 ;
+    brick:isLocationOf rice:TEMP2_Space_Temperature_RMI105 .
+
+rice:Room107 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:Zone_Temp_3_RMI107 ;
+    brick:isLocationOf rice:Zone_Temp_3_RMI107 .
+
+rice:Room108 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:RMI108_Space_Temperature_Local,
+        rice:Zone_Temp_2_RMI108 ;
+    brick:isLocationOf rice:RMI108_Space_Temperature_Local,
+        rice:Zone_Temp_2_RMI108 .
+
+rice:Room122 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:Zone_Temp_2_RMI122 ;
+    brick:isLocationOf rice:Zone_Temp_2_RMI122 .
+
+rice:Room128 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:Zone_Temp_3_RMI128 ;
+    brick:isLocationOf rice:Zone_Temp_3_RMI128 .
+
+rice:Room13 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:TEMP1_Space_Temperature_RMI013 ;
+    brick:isLocationOf rice:TEMP1_Space_Temperature_RMI013 .
+
+rice:Room15 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:TEMP2_Space_Temperature_RMI015,
+        rice:Zone_Temp_2_RMI015 ;
+    brick:isLocationOf rice:TEMP2_Space_Temperature_RMI015,
+        rice:Zone_Temp_2_RMI015 .
+
+rice:Room150 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:TEMP1_Space_Temperature_RMIC150A ;
+    brick:isLocationOf rice:TEMP1_Space_Temperature_RMIC150A .
+
+rice:Room17 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:TEMP3_Space_Temperature_RMI017,
+        rice:Zone_Temp_3_RMI017 ;
+    brick:isLocationOf rice:TEMP3_Space_Temperature_RMI017,
+        rice:Zone_Temp_3_RMI017 .
+
+rice:Room19 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:TEMP4_Space_Temperature_RMI019,
+        rice:Zone_Temp_4_RMI019 ;
+    brick:isLocationOf rice:TEMP4_Space_Temperature_RMI019,
+        rice:Zone_Temp_4_RMI019 .
+
+rice:Room20 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:TEMP1_Space_Temperature_RMI020 ;
+    brick:isLocationOf rice:TEMP1_Space_Temperature_RMI020 .
+
+rice:Room206 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:Space_CO2_RMI206,
+        rice:Space_Humidity_RMI206,
+        rice:TEMP3_Space_Temperature_RMI206 ;
+    brick:isLocationOf rice:Space_CO2_RMI206,
+        rice:Space_Humidity_RMI206,
+        rice:TEMP3_Space_Temperature_RMI206 .
+
+rice:Room210 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:TEMP3_Space_Temperature_RM_210,
+        rice:Zone_Temp_3_RM210 ;
+    brick:isLocationOf rice:TEMP3_Space_Temperature_RM_210,
+        rice:Zone_Temp_3_RM210 .
+
+rice:Room220 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:TEMP1_Space_Temperature_RME220 ;
+    brick:isLocationOf rice:TEMP1_Space_Temperature_RME220 .
+
+rice:Room222 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:TEMP2_Space_Temperature_RME222,
+        rice:Zone_Temp_2_RME222 ;
+    brick:isLocationOf rice:TEMP2_Space_Temperature_RME222,
+        rice:Zone_Temp_2_RME222 .
+
+rice:Room224 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:TEMP3_Space_Temperature_Perm_RM_I224,
+        rice:Zone_Temp_3_Rm_I224 ;
+    brick:isLocationOf rice:TEMP3_Space_Temperature_Perm_RM_I224,
+        rice:Zone_Temp_3_Rm_I224 .
+
+rice:Room226 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:Space_Relative_Humidity_RMI226,
+        rice:TEMP2_Space_Temperature_Perm_RM_I226 ;
+    brick:isLocationOf rice:Space_Relative_Humidity_RMI226,
+        rice:TEMP2_Space_Temperature_Perm_RM_I226 .
+
+rice:Room228 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:CB228_CHW_Return_Temp,
+        rice:CB228_CHW_Supply_Temp,
+        rice:Lab_Humidity_RM_I228,
+        rice:TEMP1_Space_Temperature_Perm_Rm_I228 ;
+    brick:isLocationOf rice:CB228_CHW_Return_Temp,
+        rice:CB228_CHW_Supply_Temp,
+        rice:Lab_Humidity_RM_I228,
+        rice:TEMP1_Space_Temperature_Perm_Rm_I228 .
+
+rice:Room232 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:TEMP2_Perm_Temperature_Rm_232,
+        rice:Zone_Temp_2_RM_I232 ;
+    brick:isLocationOf rice:TEMP2_Perm_Temperature_Rm_232,
+        rice:Zone_Temp_2_RM_I232 .
+
+rice:Room24 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:TEMP2_Space_Temperature_RMI024,
+        rice:Zone_Temp_2_RMI024 ;
+    brick:isLocationOf rice:TEMP2_Space_Temperature_RMI024,
+        rice:Zone_Temp_2_RMI024 .
+
+rice:Room242 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:Space_CO2_level_RM242,
+        rice:Zone_Temp_2_RM_242 ;
+    brick:isLocationOf rice:Space_CO2_level_RM242,
+        rice:Zone_Temp_2_RM_242 .
+
+rice:Room259 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:Space_Humidity_RMIC259,
+        rice:TEMP1_Space_Temperature_RMIC259 ;
+    brick:isLocationOf rice:Space_Humidity_RMIC259,
+        rice:TEMP1_Space_Temperature_RMIC259 .
+
+rice:Room276 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:TEMP1_Space_Temperature_RMIC276 ;
+    brick:isLocationOf rice:TEMP1_Space_Temperature_RMIC276 .
+
+rice:Room305 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:Space_Relative_Humidity_RMI305,
+        rice:averageSpaceTemperatureARoom_305_Area2,
+        rice:heatCoolModeStatusARoom_305_Area2,
+        rice:occupancyStatusARoom_305_Area2,
+        rice:operatingModeARoom_305_Area2 ;
+    brick:isLocationOf rice:Space_Relative_Humidity_RMI305,
+        rice:averageSpaceTemperatureARoom_305_Area2,
+        rice:heatCoolModeStatusARoom_305_Area2,
+        rice:occupancyStatusARoom_305_Area2,
+        rice:operatingModeARoom_305_Area2 .
+
+rice:Room306 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:Space_Relative_Humidity_RMI306,
+        rice:averageSpaceTemperatureARoom_306_Area3,
+        rice:heatCoolModeStatusARoom_306_Area3,
+        rice:occupancyStatusARoom_306_Area3,
+        rice:operatingModeARoom_306_Area3,
+        rice:spaceSensorARoom_306_Area3 ;
+    brick:isLocationOf rice:Space_Relative_Humidity_RMI306,
+        rice:averageSpaceTemperatureARoom_306_Area3,
+        rice:heatCoolModeStatusARoom_306_Area3,
+        rice:occupancyStatusARoom_306_Area3,
+        rice:operatingModeARoom_306_Area3,
+        rice:spaceSensorARoom_306_Area3 .
+
+rice:Room308 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:CB_Flow_Meter_RMI308,
+        rice:CB_Return_Temp_RMI308,
+        rice:CB_Supply_Temp_RMI308,
+        rice:Space_Relative_Humidity_RMI308,
+        rice:TEMP1_Space_Temperature_RMI308 ;
+    brick:isLocationOf rice:CB_Flow_Meter_RMI308,
+        rice:CB_Return_Temp_RMI308,
+        rice:CB_Supply_Temp_RMI308,
+        rice:Space_Relative_Humidity_RMI308,
+        rice:TEMP1_Space_Temperature_RMI308 .
+
+rice:Room324 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:HW_Return_Temp_RM_I324,
+        rice:averageSpaceTemperatureARoom_324_Area5,
+        rice:heatCoolModeStatusARoom_324_Area5,
+        rice:occupancyStatusARoom_324_Area5,
+        rice:operatingModeARoom_324_Area5,
+        rice:spaceSensorARoom_324_Area5 ;
+    brick:isLocationOf rice:HW_Return_Temp_RM_I324,
+        rice:averageSpaceTemperatureARoom_324_Area5,
+        rice:heatCoolModeStatusARoom_324_Area5,
+        rice:occupancyStatusARoom_324_Area5,
+        rice:operatingModeARoom_324_Area5,
+        rice:spaceSensorARoom_324_Area5 .
+
+rice:Room50 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:Space_CO2_Concentration_RMI050,
+        rice:TEMP1_Space_TemperatureRMI050 ;
+    brick:isLocationOf rice:Space_CO2_Concentration_RMI050,
+        rice:TEMP1_Space_TemperatureRMI050 .
+
+rice:Room501 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:RMI501_Space_Temperature_Perimeter,
+        rice:RMI501_Zone_Temp_5 ;
+    brick:isLocationOf rice:RMI501_Space_Temperature_Perimeter,
+        rice:RMI501_Zone_Temp_5 .
+
+rice:Room502 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:RMI502_Space_Temperature_Perimeter,
+        rice:RMI502_Zone_Temp_4 ;
+    brick:isLocationOf rice:RMI502_Space_Temperature_Perimeter,
+        rice:RMI502_Zone_Temp_4 .
+
+rice:Room503 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:RMI503_Space_Temperature_Perimeter,
+        rice:RMI503_Zone_Temp_3 ;
+    brick:isLocationOf rice:RMI503_Space_Temperature_Perimeter,
+        rice:RMI503_Zone_Temp_3 .
+
+rice:Room504 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:RMI504_Zone_Temp_2,
+        rice:RmI504_Space_Temperature_Perimeter ;
+    brick:isLocationOf rice:RMI504_Zone_Temp_2,
+        rice:RmI504_Space_Temperature_Perimeter .
+
+rice:Room506 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:RMI506_Space_Temperature_Perimeter,
+        rice:RMI506_Zone_Temp_7 ;
+    brick:isLocationOf rice:RMI506_Space_Temperature_Perimeter,
+        rice:RMI506_Zone_Temp_7 .
+
+rice:Room507 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:RMI507_Space_Temperature_Perimeter,
+        rice:RMI507_Zone_Temp_6 ;
+    brick:isLocationOf rice:RMI507_Space_Temperature_Perimeter,
+        rice:RMI507_Zone_Temp_6 .
+
+rice:Room508 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:RMI508_Space_Temperature_Perimeter,
+        rice:RMI508_Zone_Temp_5 ;
+    brick:isLocationOf rice:RMI508_Space_Temperature_Perimeter,
+        rice:RMI508_Zone_Temp_5 .
+
+rice:Room509 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:RMI509_Space_Temperature_Perimeter,
+        rice:RMI509_Zone_Temp_4 ;
+    brick:isLocationOf rice:RMI509_Space_Temperature_Perimeter,
+        rice:RMI509_Zone_Temp_4 .
+
+rice:Room513 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:RMI513_Zone_Temp_2,
+        rice:Space_CO2_Room_513 ;
+    brick:isLocationOf rice:RMI513_Zone_Temp_2,
+        rice:Space_CO2_Room_513 .
+
+rice:Room516 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:RMI516_Space_CO2_Concentration_Zone_2 ;
+    brick:isLocationOf rice:RMI516_Space_CO2_Concentration_Zone_2 .
+
+rice:Room52 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:Zone_Temp_3_RMI052 ;
+    brick:isLocationOf rice:Zone_Temp_3_RMI052 .
+
+rice:Room521 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:RMI521_Zone_Temp_2,
+        rice:RmI521_Space_Temperature ;
+    brick:isLocationOf rice:RMI521_Zone_Temp_2,
+        rice:RmI521_Space_Temperature .
+
+rice:Room522 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:RMI522_Zone_Temp_3,
+        rice:RmI522_Space_Temperature ;
+    brick:isLocationOf rice:RMI522_Zone_Temp_3,
+        rice:RmI522_Space_Temperature .
+
+rice:Room524 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:RMI_524_Zone_Temp_4,
+        rice:RmI524_Space_Temperature ;
+    brick:isLocationOf rice:RMI_524_Zone_Temp_4,
+        rice:RmI524_Space_Temperature .
+
+rice:Room526 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:RMI526_Zone_Temp_5,
+        rice:RmI526_Space_Temperature ;
+    brick:isLocationOf rice:RMI526_Zone_Temp_5,
+        rice:RmI526_Space_Temperature .
+
+rice:Room527 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:RMI527_Zone_Temp_8,
+        rice:RMI527_Zone_Temp_8_Stpt ;
+    brick:isLocationOf rice:RMI527_Zone_Temp_8,
+        rice:RMI527_Zone_Temp_8_Stpt .
+
+rice:Room528 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:RMI528_Zone_Temp_6,
+        rice:RmI528_Space_Temperature ;
+    brick:isLocationOf rice:RMI528_Zone_Temp_6,
+        rice:RmI528_Space_Temperature .
+
+rice:Room532 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:RmI532_Space_Temperature,
+        rice:RmI532_Zone_Temp_2 ;
+    brick:isLocationOf rice:RmI532_Space_Temperature,
+        rice:RmI532_Zone_Temp_2 .
+
+rice:Room536 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:RMI536_Space_Temperature_Perimeter,
+        rice:RMI536_Zone_Temp_2 ;
+    brick:isLocationOf rice:RMI536_Space_Temperature_Perimeter,
+        rice:RMI536_Zone_Temp_2 .
+
+rice:Room542 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:RMI542_Zone_Temp_2 ;
+    brick:isLocationOf rice:RMI542_Zone_Temp_2 .
+
+rice:Room561 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:RMI561_Zone_Temp_3 ;
+    brick:isLocationOf rice:RMI561_Zone_Temp_3 .
+
+rice:Room57 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:Zone_Temp_5_RMIC057 ;
+    brick:isLocationOf rice:Zone_Temp_5_RMIC057 .
+
+rice:Room58 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:TEMP1_Space_Temperature_RMIC058 ;
+    brick:isLocationOf rice:TEMP1_Space_Temperature_RMIC058 .
+
+rice:Room59 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:Zone_Temp_5_RMIC059 ;
+    brick:isLocationOf rice:Zone_Temp_5_RMIC059 .
+
+rice:Space_CO2_Concentration_RMI050 a brick:CO2_Sensor .
+
+rice:Space_CO2_RMI206 a brick:CO2_Sensor .
+
+rice:Space_CO2_Room_513 a brick:CO2_Sensor .
+
+rice:Space_CO2_level_RM242 a brick:CO2_Sensor .
+
+rice:Space_Humidity_RMI206 a brick:Humidity_Sensor .
+
+rice:Space_Humidity_RMI326 a brick:Humidity_Sensor .
+
+rice:Space_Humidity_RMIC259 a brick:Humidity_Sensor .
+
+rice:Space_Relative_Humidity_RMI226 a brick:Humidity_Sensor .
+
+rice:Space_Relative_Humidity_RMI305 a brick:Humidity_Sensor .
+
+rice:Space_Relative_Humidity_RMI306 a brick:Humidity_Sensor .
+
+rice:Space_Relative_Humidity_RMI308 a brick:Humidity_Sensor .
+
+rice:Zone_Temp_RMI104 a brick:Air_Temperature_Sensor .
+
+rice:rmi514_Space_CO2_Concentration a brick:CO2_Sensor .
+
+rice:Humidity_Zone_1_RMI207 a brick:Humidity_Sensor .
+
+rice:Humidity_Zone_1_RMI212 a brick:Humidity_Sensor .
+
+rice:RM511A_Zone_Temp_3 a brick:Air_Temperature_Sensor .
+
+rice:RMI501_Zone_Temp_5 a brick:Air_Temperature_Sensor .
+
+rice:RMI502_Zone_Temp_4 a brick:Air_Temperature_Sensor .
+
+rice:RMI503_Zone_Temp_3 a brick:Air_Temperature_Sensor .
+
+rice:RMI504_Zone_Temp_2 a brick:Air_Temperature_Sensor .
+
+rice:RMI506_Zone_Temp_7 a brick:Air_Temperature_Sensor .
+
+rice:RMI507_Zone_Temp_6 a brick:Air_Temperature_Sensor .
+
+rice:RMI508_Zone_Temp_5 a brick:Air_Temperature_Sensor .
+
+rice:RMI509_Zone_Temp_4 a brick:Air_Temperature_Sensor .
+
+rice:RMI511B_Zone_Temp_2 a brick:Air_Temperature_Sensor .
+
+rice:RMI513_Zone_Temp_2 a brick:Air_Temperature_Sensor .
+
+rice:RMI516_Space_CO2_Concentration_Zone_2 a brick:CO2_Sensor .
+
+rice:RMI521_Zone_Temp_2 a brick:Air_Temperature_Sensor .
+
+rice:RMI522_Zone_Temp_3 a brick:Air_Temperature_Sensor .
+
+rice:RMI526_Zone_Temp_5 a brick:Air_Temperature_Sensor .
+
+rice:RMI527_Zone_Temp_8 a brick:Air_Temperature_Sensor .
+
+rice:RMI527_Zone_Temp_8_Stpt a brick:Zone_Air_Temperature_Setpoint .
+
+rice:RMI528_Zone_Temp_6 a brick:Air_Temperature_Sensor .
+
+rice:RMI536_Zone_Temp_2 a brick:Air_Temperature_Sensor .
+
+rice:RMI542_Zone_Temp_2 a brick:Air_Temperature_Sensor .
+
+rice:RMI552_Zone_Temp_3 a brick:Air_Temperature_Sensor .
+
+rice:RMI561_Zone_Temp_3 a brick:Air_Temperature_Sensor .
+
+rice:RMIC552_Zone_Temp_3 a brick:Air_Temperature_Sensor .
+
+rice:RMIC552_Zone_Temp_7 a brick:Air_Temperature_Sensor .
+
+rice:RMIC557_Zone_Temp_6 a brick:Air_Temperature_Sensor .
+
+rice:RMIC557_Zone_Temp_8 a brick:Air_Temperature_Sensor .
+
+rice:RMI_524_Zone_Temp_4 a brick:Air_Temperature_Sensor .
+
+rice:RmI532_Zone_Temp_2 a brick:Air_Temperature_Sensor .
+
+rice:Room101 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:TEMP2_Space_Temperature_RMI101,
+        rice:Zone_Temp_5_RMI101 ;
+    brick:isLocationOf rice:TEMP2_Space_Temperature_RMI101,
+        rice:Zone_Temp_5_RMI101 .
+
+rice:Room102 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:TEMP1_Space_Temperature_RMI102,
+        rice:Zone_Temp_4_RMI102 ;
+    brick:isLocationOf rice:TEMP1_Space_Temperature_RMI102,
+        rice:Zone_Temp_4_RMI102 .
+
+rice:Room103 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:TEMP1_Space_Temperature_RMI103,
+        rice:Zone_Temp_3_RMI103 ;
+    brick:isLocationOf rice:TEMP1_Space_Temperature_RMI103,
+        rice:Zone_Temp_3_RMI103 .
+
+rice:Room106 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:TEMP1_Space_Temperature_RMI106,
+        rice:Zone_Temp_4_RMI106 ;
+    brick:isLocationOf rice:TEMP1_Space_Temperature_RMI106,
+        rice:Zone_Temp_4_RMI106 .
+
+rice:Room11 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:TEMP1_Space_Temperature_RmI011,
+        rice:Zone_Temp_4_RMI011 ;
+    brick:isLocationOf rice:TEMP1_Space_Temperature_RmI011,
+        rice:Zone_Temp_4_RMI011 .
+
+rice:Room154 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:Zone_Temp_4_RMIC154_Corr,
+        rice:Zone_Temp_5_RMIC154A ;
+    brick:isLocationOf rice:Zone_Temp_4_RMIC154_Corr,
+        rice:Zone_Temp_5_RMIC154A .
+
+rice:Room156 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:Zone_Temp_5_RMIC156E,
+        rice:Zone_Temp_6_RMIC156 ;
+    brick:isLocationOf rice:Zone_Temp_5_RMIC156E,
+        rice:Zone_Temp_6_RMIC156 .
+
+rice:Room201 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:TEMP3_Space_Temperature_RMI201,
+        rice:Zone_Temp_6_RM_I201 ;
+    brick:isLocationOf rice:TEMP3_Space_Temperature_RMI201,
+        rice:Zone_Temp_6_RM_I201 .
+
+rice:Room202 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:TEMP2_Space_Temperature_RMI202,
+        rice:Zone_Temp_5_RM_I202 ;
+    brick:isLocationOf rice:TEMP2_Space_Temperature_RMI202,
+        rice:Zone_Temp_5_RM_I202 .
+
+rice:Room203 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:TEMP1_Space_Temperature_RMI203,
+        rice:Zone_Temp_4_RM_I203 ;
+    brick:isLocationOf rice:TEMP1_Space_Temperature_RMI203,
+        rice:Zone_Temp_4_RM_I203 .
+
+rice:Room204 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:TEMP1_Space_Temperature_RMI204,
+        rice:Zone_Temp_2_RmI204 ;
+    brick:isLocationOf rice:TEMP1_Space_Temperature_RMI204,
+        rice:Zone_Temp_2_RmI204 .
+
+rice:Room205 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:TEMP4_Space_Temperature_RMI205,
+        rice:Zone_Temp_3_RM_I205 ;
+    brick:isLocationOf rice:TEMP4_Space_Temperature_RMI205,
+        rice:Zone_Temp_3_RM_I205 .
+
+rice:Room207 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:Humidity_Zone_1_RMI207,
+        rice:TEMP2_Space_Temperature_RMI207 ;
+    brick:isLocationOf rice:Humidity_Zone_1_RMI207,
+        rice:TEMP2_Space_Temperature_RMI207 .
+
+rice:Room208 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:TEMP1_Space_Temperature_RMI208,
+        rice:Zone_Temp_5_Local_RMI208 ;
+    brick:isLocationOf rice:TEMP1_Space_Temperature_RMI208,
+        rice:Zone_Temp_5_Local_RMI208 .
+
+rice:Room209 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:TEMP4_Space_Temperature_RM_209,
+        rice:Zone_Temp_2_RMI209 ;
+    brick:isLocationOf rice:TEMP4_Space_Temperature_RM_209,
+        rice:Zone_Temp_2_RMI209 .
+
+rice:Room211 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:TEMP2_Space_Temperature_RM_211,
+        rice:Zone_Temp_4_RM211 ;
+    brick:isLocationOf rice:TEMP2_Space_Temperature_RM_211,
+        rice:Zone_Temp_4_RM211 .
+
+rice:Room212 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:Humidity_Zone_1_RMI212,
+        rice:TEMP1_Space_Temperature_RM_212,
+        rice:Zone_Temp_6_RMI212 ;
+    brick:isLocationOf rice:Humidity_Zone_1_RMI212,
+        rice:TEMP1_Space_Temperature_RM_212,
+        rice:Zone_Temp_6_RMI212 .
+
+rice:Room230 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:Space_CO2_Concentration_Zone_2_RMI230,
+        rice:TEMP1_Perm_Temp_Rm_230 ;
+    brick:isLocationOf rice:Space_CO2_Concentration_Zone_2_RMI230,
+        rice:TEMP1_Perm_Temp_Rm_230 .
+
+rice:Room252 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:Zone_2_Temp_Corr_252,
+        rice:Zone_Temp_4_RM_C252 ;
+    brick:isLocationOf rice:Zone_2_Temp_Corr_252,
+        rice:Zone_Temp_4_RM_C252 .
+
+rice:Room322 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:TEMP1_Space_Temperature_RM_I322,
+        rice:averageSpaceTemperatureARoom_322_Area4,
+        rice:heatCoolModeStatusARoom_322_Area4,
+        rice:occupancyStatusARoom_322_Area4,
+        rice:operatingModeARoom_322_Area4,
+        rice:spaceSensorARoom_322_Area4 ;
+    brick:isLocationOf rice:TEMP1_Space_Temperature_RM_I322,
+        rice:averageSpaceTemperatureARoom_322_Area4,
+        rice:heatCoolModeStatusARoom_322_Area4,
+        rice:occupancyStatusARoom_322_Area4,
+        rice:operatingModeARoom_322_Area4,
+        rice:spaceSensorARoom_322_Area4 .
+
+rice:Room511 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:RM511A_Zone_Temp_3,
+        rice:RMI511A_Space_Temperature_Perimeter,
+        rice:RMI511B_Space_Temperature_Perimeter,
+        rice:RMI511B_Zone_Temp_2 ;
+    brick:isLocationOf rice:RM511A_Zone_Temp_3,
+        rice:RMI511A_Space_Temperature_Perimeter,
+        rice:RMI511B_Space_Temperature_Perimeter,
+        rice:RMI511B_Zone_Temp_2 .
+
+rice:Room54 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:Zone_Temp_5_RMIC054,
+        rice:Zone_Temp_6_RMI054 ;
+    brick:isLocationOf rice:Zone_Temp_5_RMIC054,
+        rice:Zone_Temp_6_RMI054 .
+
+rice:Room552 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:RMI552_Zone_Temp_3,
+        rice:RMIC552_Zone_Temp_3,
+        rice:RMIC552_Zone_Temp_7 ;
+    brick:isLocationOf rice:RMI552_Zone_Temp_3,
+        rice:RMIC552_Zone_Temp_3,
+        rice:RMIC552_Zone_Temp_7 .
+
+rice:Room557 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:RMIC557_Zone_Temp_6,
+        rice:RMIC557_Zone_Temp_8 ;
+    brick:isLocationOf rice:RMIC557_Zone_Temp_6,
+        rice:RMIC557_Zone_Temp_8 .
+
+rice:Room7 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:TEMP2_Space_Temperature_RmI007,
+        rice:TEMP3_Space_Temperature_RmI007A,
+        rice:Zone_Temp_2_RMI007,
+        rice:Zone_Temp_3_RMI007A ;
+    brick:isLocationOf rice:TEMP2_Space_Temperature_RmI007,
+        rice:TEMP3_Space_Temperature_RmI007A,
+        rice:Zone_Temp_2_RMI007,
+        rice:Zone_Temp_3_RMI007A .
+
+rice:Space_CO2_Concentration_Zone_2_RMI230 a brick:CO2_Sensor .
+
+rice:TEMP1_Perm_Temp_Rm_230 a brick:Air_Temperature_Sensor .
+
+rice:TEMP1_Space_TemperatureRMI050 a brick:Air_Temperature_Sensor .
+
+rice:TEMP1_Space_Temperature_Perm_Rm_I228 a brick:Air_Temperature_Sensor .
+
+rice:TEMP1_Space_Temperature_RME220 a brick:Air_Temperature_Sensor .
+
+rice:TEMP1_Space_Temperature_RMI013 a brick:Air_Temperature_Sensor .
+
+rice:TEMP1_Space_Temperature_RMI020 a brick:Air_Temperature_Sensor .
+
+rice:TEMP1_Space_Temperature_RMI102 a brick:Air_Temperature_Sensor .
+
+rice:TEMP1_Space_Temperature_RMI103 a brick:Air_Temperature_Sensor .
+
+rice:TEMP1_Space_Temperature_RMI106 a brick:Air_Temperature_Sensor .
+
+rice:TEMP1_Space_Temperature_RMI203 a brick:Air_Temperature_Sensor .
+
+rice:TEMP1_Space_Temperature_RMI204 a brick:Air_Temperature_Sensor .
+
+rice:TEMP1_Space_Temperature_RMI208 a brick:Air_Temperature_Sensor .
+
+rice:TEMP1_Space_Temperature_RMI308 a brick:Air_Temperature_Sensor .
+
+rice:TEMP1_Space_Temperature_RMIC058 a brick:Air_Temperature_Sensor .
+
+rice:TEMP1_Space_Temperature_RMIC150A a brick:Air_Temperature_Sensor .
+
+rice:TEMP1_Space_Temperature_RMIC259 a brick:Air_Temperature_Sensor .
+
+rice:TEMP1_Space_Temperature_RMIC276 a brick:Air_Temperature_Sensor .
+
+rice:TEMP1_Space_Temperature_RM_212 a brick:Air_Temperature_Sensor .
+
+rice:TEMP1_Space_Temperature_RM_I322 a brick:Air_Temperature_Sensor .
+
+rice:TEMP1_Space_Temperature_RmI011 a brick:Air_Temperature_Sensor .
+
+rice:TEMP2_Perm_Temperature_Rm_232 a brick:Air_Temperature_Sensor .
+
+rice:TEMP2_Space_Temperature_Perm_RM_I226 a brick:Air_Temperature_Sensor .
+
+rice:TEMP2_Space_Temperature_RME222 a brick:Air_Temperature_Sensor .
+
+rice:TEMP2_Space_Temperature_RMI015 a brick:Air_Temperature_Sensor .
+
+rice:TEMP2_Space_Temperature_RMI024 a brick:Air_Temperature_Sensor .
+
+rice:TEMP2_Space_Temperature_RMI101 a brick:Air_Temperature_Sensor .
+
+rice:TEMP2_Space_Temperature_RMI105 a brick:Air_Temperature_Sensor .
+
+rice:TEMP2_Space_Temperature_RMI202 a brick:Air_Temperature_Sensor .
+
+rice:TEMP2_Space_Temperature_RMI207 a brick:Air_Temperature_Sensor .
+
+rice:TEMP2_Space_Temperature_RM_211 a brick:Air_Temperature_Sensor .
+
+rice:TEMP2_Space_Temperature_RmI007 a brick:Air_Temperature_Sensor .
+
+rice:TEMP3_Space_Temperature_Perm_RM_I224 a brick:Air_Temperature_Sensor .
+
+rice:TEMP3_Space_Temperature_RMI017 a brick:Air_Temperature_Sensor .
+
+rice:TEMP3_Space_Temperature_RMI104 a brick:Air_Temperature_Sensor .
+
+rice:TEMP3_Space_Temperature_RMI201 a brick:Air_Temperature_Sensor .
+
+rice:TEMP3_Space_Temperature_RMI206 a brick:Air_Temperature_Sensor .
+
+rice:TEMP3_Space_Temperature_RM_210 a brick:Air_Temperature_Sensor .
+
+rice:TEMP3_Space_Temperature_RmI007A a brick:Air_Temperature_Sensor .
+
+rice:TEMP4_Space_Temperature_RMI019 a brick:Air_Temperature_Sensor .
+
+rice:TEMP4_Space_Temperature_RMI205 a brick:Air_Temperature_Sensor .
+
+rice:TEMP4_Space_Temperature_RM_209 a brick:Air_Temperature_Sensor .
+
+rice:Zone_2_Temp_Corr_252 a brick:Air_Temperature_Sensor .
+
+rice:Zone_Temp_2_RME222 a brick:Air_Temperature_Sensor .
+
+rice:Zone_Temp_2_RMI007 a brick:Air_Temperature_Sensor .
+
+rice:Zone_Temp_2_RMI015 a brick:Air_Temperature_Sensor .
+
+rice:Zone_Temp_2_RMI024 a brick:Air_Temperature_Sensor .
+
+rice:Zone_Temp_2_RMI032 a brick:Air_Temperature_Sensor .
+
+rice:Zone_Temp_2_RMI108 a brick:Air_Temperature_Sensor .
+
+rice:Zone_Temp_2_RMI122 a brick:Air_Temperature_Sensor .
+
+rice:Zone_Temp_2_RMI209 a brick:Air_Temperature_Sensor .
+
+rice:Zone_Temp_2_RM_242 a brick:Air_Temperature_Sensor .
+
+rice:Zone_Temp_2_RM_I232 a brick:Air_Temperature_Sensor .
+
+rice:Zone_Temp_2_RmI204 a brick:Air_Temperature_Sensor .
+
+rice:Zone_Temp_3_RM210 a brick:Air_Temperature_Sensor .
+
+rice:Zone_Temp_3_RMI007A a brick:Air_Temperature_Sensor .
+
+rice:Zone_Temp_3_RMI017 a brick:Air_Temperature_Sensor .
+
+rice:Zone_Temp_3_RMI032A a brick:Air_Temperature_Sensor .
+
+rice:Zone_Temp_3_RMI052 a brick:Air_Temperature_Sensor .
+
+rice:Zone_Temp_3_RMI103 a brick:Air_Temperature_Sensor .
+
+rice:Zone_Temp_3_RMI107 a brick:Air_Temperature_Sensor .
+
+rice:Zone_Temp_3_RMI128 a brick:Air_Temperature_Sensor .
+
+rice:Zone_Temp_3_RM_I205 a brick:Air_Temperature_Sensor .
+
+rice:Zone_Temp_3_Rm_I224 a brick:Air_Temperature_Sensor .
+
+rice:Zone_Temp_4_RM211 a brick:Air_Temperature_Sensor .
+
+rice:Zone_Temp_4_RMI011 a brick:Air_Temperature_Sensor .
+
+rice:Zone_Temp_4_RMI019 a brick:Air_Temperature_Sensor .
+
+rice:Zone_Temp_4_RMI032B a brick:Air_Temperature_Sensor .
+
+rice:Zone_Temp_4_RMI102 a brick:Air_Temperature_Sensor .
+
+rice:Zone_Temp_4_RMI106 a brick:Air_Temperature_Sensor .
+
+rice:Zone_Temp_4_RMIC154_Corr a brick:Air_Temperature_Sensor .
+
+rice:Zone_Temp_4_RM_C252 a brick:Air_Temperature_Sensor .
+
+rice:Zone_Temp_4_RM_I203 a brick:Air_Temperature_Sensor .
+
+rice:Zone_Temp_5_Local_RMI208 a brick:Air_Temperature_Sensor .
+
+rice:Zone_Temp_5_RMI101 a brick:Air_Temperature_Sensor .
+
+rice:Zone_Temp_5_RMIC054 a brick:Air_Temperature_Sensor .
+
+rice:Zone_Temp_5_RMIC057 a brick:Air_Temperature_Sensor .
+
+rice:Zone_Temp_5_RMIC059 a brick:Air_Temperature_Sensor .
+
+rice:Zone_Temp_5_RMIC154A a brick:Air_Temperature_Sensor .
+
+rice:Zone_Temp_5_RMIC156E a brick:Air_Temperature_Sensor .
+
+rice:Zone_Temp_5_RM_I202 a brick:Air_Temperature_Sensor .
+
+rice:Zone_Temp_6_RMI054 a brick:Air_Temperature_Sensor .
+
+rice:Zone_Temp_6_RMI212 a brick:Air_Temperature_Sensor .
+
+rice:Zone_Temp_6_RMIC156 a brick:Air_Temperature_Sensor .
+
+rice:Zone_Temp_6_RM_I201 a brick:Air_Temperature_Sensor .
+
+rice:averageSpaceTemperatureARoom_305_Area2 a brick:Average_Zone_Air_Temperature_Sensor .
+
+rice:averageSpaceTemperatureARoom_306_Area3 a brick:Average_Zone_Air_Temperature_Sensor .
+
+rice:averageSpaceTemperatureARoom_322_Area4 a brick:Average_Zone_Air_Temperature_Sensor .
+
+rice:averageSpaceTemperatureARoom_324_Area5 a brick:Average_Zone_Air_Temperature_Sensor .
+
+rice:heatCoolModeStatusARoom_305_Area2 a brick:Heating_On_Off_Status .
+
+rice:heatCoolModeStatusARoom_306_Area3 a brick:Heating_On_Off_Status .
+
+rice:heatCoolModeStatusARoom_322_Area4 a brick:Heating_On_Off_Status .
+
+rice:heatCoolModeStatusARoom_324_Area5 a brick:Heating_On_Off_Status .
+
+rice:occupancyStatusARoom_305_Area2 a brick:Occupancy_Sensor .
+
+rice:occupancyStatusARoom_306_Area3 a brick:Occupancy_Sensor .
+
+rice:occupancyStatusARoom_322_Area4 a brick:Occupancy_Sensor .
+
+rice:occupancyStatusARoom_324_Area5 a brick:Occupancy_Sensor .
+
+rice:operatingModeARoom_305_Area2 a brick_v_1_0_2:VAV_Box_Operating_Mode .
+
+rice:operatingModeARoom_306_Area3 a brick_v_1_0_2:VAV_Box_Operating_Mode .
+
+rice:operatingModeARoom_322_Area4 a brick_v_1_0_2:VAV_Box_Operating_Mode .
+
+rice:operatingModeARoom_324_Area5 a brick_v_1_0_2:VAV_Box_Operating_Mode .
+
+rice:spaceSensorARoom_306_Area3 a brick:Zone_Air_Temperature_Sensor .
+
+rice:spaceSensorARoom_322_Area4 a brick:Zone_Air_Temperature_Sensor .
+
+rice:spaceSensorARoom_324_Area5 a brick:Zone_Air_Temperature_Sensor .
+
+brick_v_1_0_2:PreHeat_Coil_Leaving_Air_Temperature_Sensor a owl:NamedIndividual,
+        brick:Point .
+
+rice:Room32 a owl:NamedIndividual,
+        brick:Room ;
+    brick:hasPoint rice:Zone_Temp_2_RMI032,
+        rice:Zone_Temp_3_RMI032A,
+        rice:Zone_Temp_4_RMI032B ;
+    brick:isLocationOf rice:Zone_Temp_2_RMI032,
+        rice:Zone_Temp_3_RMI032A,
+        rice:Zone_Temp_4_RMI032B .
+
+brick_v_1_0_2:Economizer_Disable_Fixed_Dew_Point a owl:NamedIndividual,
+        brick:Point .
+
+brick_v_1_0_2:Economizer_Enable_Fixed_Dew_Point a owl:NamedIndividual,
+        brick:Point .
+
+brick_v_1_0_2:Outside_Air_Humidity a owl:NamedIndividual,
+        brick:Point .
+
+brick_v_1_0_2:Supply_Air_Duct_Max_Position_Setpoint a owl:NamedIndividual,
+        brick:Point .
+
+rice:RICE a brick:Building .
+
+brick:Ventilation_Air_Flow_Ratio_Limit a owl:NamedIndividual,
+        brick:Point .
+
+brick_v_1_0_2:VAV_Box_Operating_Mode a owl:NamedIndividual,
+        brick:Point .
+
+brick_v_1_0_2:Unknown a owl:NamedIndividual,
+        brick:Point .
+
