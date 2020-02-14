@@ -1,5 +1,6 @@
 from rdflib import RDF, RDFS, OWL, Namespace, Graph
 import brickschema
+from .util import make_readable
 import sys
 
 sys.path.append("..")
@@ -57,7 +58,7 @@ g.add((BLDG.standalone, A, BRICK.Temperature_Sensor))
 g = brickschema.inference.TagInferenceSession(
     load_brick=False, approximate=False
 ).expand(g)
-g = brickschema.inference.OWLRLAllegroInferenceSession(load_brick=False).expand(g)
+g = brickschema.inference.OWLRLInferenceSession(load_brick=False).expand(g)
 
 g.bind("rdf", RDF)
 g.bind("owl", OWL)
@@ -69,10 +70,6 @@ g.bind("bldg", BLDG)
 
 s = g.serialize("output.ttl", format="ttl")
 print("expanded:", len(g))
-
-
-def make_readable(res):
-    return [[uri.split("#")[-1] for uri in row] for row in res]
 
 
 def test_tag1():
