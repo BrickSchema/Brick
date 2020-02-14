@@ -56,11 +56,12 @@ def test_hierarchyinference():
 
     # Infer classes of the entities.
     # Apply reasoner
-    g.serialize('test.ttl', format='ttl')
-    g = brickschema.inference.TagInferenceSession(approximate=False, load_brick=False).expand(g)
+    g.serialize("test.ttl", format="ttl")
+    g = brickschema.inference.TagInferenceSession(
+        approximate=False, load_brick=False
+    ).expand(g)
     g = brickschema.inference.OWLRLInferenceSession(load_brick=False).expand(g)
-    g.serialize(inference_file, format='turtle')  # Store the inferred graph.
-
+    g.serialize(inference_file, format="turtle")  # Store the inferred graph.
 
     # Find all instances and their parents from the inferred graph.
     qstr = (

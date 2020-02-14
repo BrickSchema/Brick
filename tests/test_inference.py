@@ -51,7 +51,9 @@ g.add((BLDG.co2s1, A, BRICK.CO2_Level_Sensor))
 g.add((BLDG.standalone, A, BRICK.Temperature_Sensor))
 
 # Apply reasoner
-g = brickschema.inference.TagInferenceSession(load_brick=False, approximate=False).expand(g)
+g = brickschema.inference.TagInferenceSession(
+    load_brick=False, approximate=False
+).expand(g)
 g = brickschema.inference.OWLRLInferenceSession(load_brick=False).expand(g)
 
 g.bind("rdf", RDF)
@@ -64,7 +66,6 @@ g.bind("bldg", BLDG)
 
 s = g.serialize("output.ttl", format="ttl")
 print("expanded:", len(g))
-
 
 
 def test_tag1():

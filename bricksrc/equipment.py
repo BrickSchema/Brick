@@ -123,25 +123,14 @@ equipment_subclasses = {
                 OWL.equivalentClass: BRICK["Chilled_Water_System"],
                 "tags": [TAG.CWS],
             },
-            "HWS": {
-                OWL.equivalentClass: BRICK["Hot_Water_System"],
-                "tags": [TAG.HWS],
-            }
-        }
+            "HWS": {OWL.equivalentClass: BRICK["Hot_Water_System"], "tags": [TAG.HWS],},
+        },
     },
-    "Steam_System": {
-        "tags": [TAG.Steam, TAG.Equipment],
-    },
-    "Solar_Panel": {
-        "tags": [TAG.Solar, TAG.Equipment],
-    },
+    "Steam_System": {"tags": [TAG.Steam, TAG.Equipment],},
+    "Solar_Panel": {"tags": [TAG.Solar, TAG.Equipment],},
     "Shading_System": {
         "tags": [TAG.Shade, TAG.Equipment],
-        "subclasses": {
-            "Louver": {
-                "tags": [TAG.Shade, TAG.Equipment, TAG.Louver],
-            },
-        },
+        "subclasses": {"Louver": {"tags": [TAG.Shade, TAG.Equipment, TAG.Louver],},},
     },
     "Steam_System": {"tags": [TAG.Steam, TAG.Equipment]},
     "Solar_Panel": {"tags": [TAG.Solar, TAG.Equipment]},
@@ -366,9 +355,7 @@ hvac_subclasses = {
         "tags": [TAG.Equipment, TAG.CRAC],
         OWL.equivalentClass: BRICK["Computer_Room_Air_Conditioning"],
         "subclasses": {
-            "Standby_CRAC": {
-                "tags": [TAG.Equipment, TAG.CRAC, TAG.Standby],
-            },
+            "Standby_CRAC": {"tags": [TAG.Equipment, TAG.CRAC, TAG.Standby],},
         },
     },
     "Compressor": {
