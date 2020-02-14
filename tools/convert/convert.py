@@ -38,7 +38,7 @@ if args.info:
     getLogger().setLevel("INFO")
 
 
-def convert(source=args.source, target=args.target, models=args.models):
+def convert(source, target, models):
     # Load the versions graph which has information about possible conversions.
     versions_graph = Graph()
     directory = dirname(sys.argv[0]) or "."
@@ -79,4 +79,4 @@ def convert(source=args.source, target=args.target, models=args.models):
             print("No conversions available from {} to {}.".format(source, target))
 
 
-convert()
+convert(args.source, args.target, args.models)
