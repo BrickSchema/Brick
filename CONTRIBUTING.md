@@ -71,6 +71,25 @@ pre-commit install
 make test
 ```
 
+4. Whenever you commit, the `pre-commit` script will run the Black code formatting tool and the flake8 style checker. It will automatically format the code where it can, and indicate when there is a style error. If you see a "Failed" message, please fix the style and re-commit the code. An example of what this looks like is below; the failed flake8 check results in a short error report at the bottom.
+
+```
+gabe@arkestra:~/src/Brick$ git commit -m 'adding changes to Alarm hierarchy'
+[WARNING] Unstaged files detected.
+[INFO] Stashing unstaged files to /home/gabe/.cache/pre-commit/patch1581700010.
+Check Yaml...........................................(no files to check)Skipped
+Fix End of Files.........................................................Passed
+Trim Trailing Whitespace.................................................Passed
+black....................................................................Passed
+flake8...................................................................Failed
+- hook id: flake8
+- exit code: 1
+
+bricksrc/alarm.py:85:78: E231 missing whitespace after ','
+
+[INFO] Restored changes from /home/gabe/.cache/pre-commit/patch1581700010.
+```
+
 ### Extending the Class Hierarchy
 
 The Brick class hierarchy is defined across several files in `bricksrc/`, named according to the Brick class that roots the hierarchy defined in the file.
