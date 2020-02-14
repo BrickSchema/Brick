@@ -1,6 +1,10 @@
 from rdflib import RDF, RDFS, OWL, Namespace, Graph
 import brickschema
 from .util import make_readable
+import sys
+
+sys.path.append("..")
+from bricksrc.namespaces import BRICK, TAG, A, SKOS  # noqa: E402
 
 BLDG = Namespace(f"https://brickschema.org/schema/ExampleBuilding#")
 
