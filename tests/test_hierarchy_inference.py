@@ -4,13 +4,7 @@ import time
 import brickschema
 from tqdm import tqdm
 from rdflib import Namespace, URIRef, Graph
-from .util.reasoner import make_readable
-import sys
-
-sys.path.append("..")
-from bricksrc.version import BRICK_VERSION  # noqa: E402
-from bricksrc.namespaces import BRICK  # noqa: E402
-
+from .util import make_readable
 
 """
 This script does the following:
@@ -62,12 +56,11 @@ def test_hierarchyinference():
 
     # Infer classes of the entities.
     # Apply reasoner
-    g.serialize("test.ttl", format="ttl")
-    g = brickschema.inference.TagInferenceSession(
-        approximate=False, load_brick=False
-    ).expand(g)
-    g = brickschema.inference.OWLRLAllegroInferenceSession(load_brick=False).expand(g)
-    g.serialize(inference_file, format="turtle")  # Store the inferred graph.
+    g.serialize('test.ttl', format='ttl')
+    g = brickschema.inference.TagInferenceSession(approximate=False, load_brick=False).expand(g)
+    g = brickschema.inference.OWLRLInferenceSession(load_brick=False).expand(g)
+    g.serialize(inference_file, format='turtle')  # Store the inferred graph.
+
 
     # Find all instances and their parents from the inferred graph.
     qstr = (

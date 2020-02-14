@@ -1,7 +1,7 @@
 import rdflib
 from rdflib import RDF, OWL, RDFS, Namespace, BNode
 import brickschema
-from .util.reasoner import make_readable
+from .util import make_readable
 from collections import defaultdict
 import sys
 
@@ -11,8 +11,8 @@ from bricksrc.namespaces import BRICK, TAG  # noqa: E402
 BLDG = Namespace("https://brickschema.org/schema/ExampleBuilding#")
 
 g = rdflib.Graph()
-g.parse("Brick.ttl", format="turtle")
-g = brickschema.inference.OWLRLAllegroInferenceSession(load_brick=False).expand(g)
+g.parse('Brick.ttl', format='turtle')
+g = brickschema.inference.OWLRLInferenceSession(load_brick=False).expand(g)
 
 res = g.query(
     """SELECT ?m ?class WHERE {
@@ -38,7 +38,7 @@ for c, measurables in measurable_mapping.items():
     for m in measurables:
         g.add((inst, BRICK.measures, m))
 
-g = brickschema.inference.OWLRLAllegroInferenceSession(load_brick=False).expand(g)
+g = brickschema.inference.OWLRLInferenceSession(load_brick=False).expand(g)
 
 g.bind("rdf", RDF)
 g.bind("owl", OWL)

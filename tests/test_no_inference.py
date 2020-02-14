@@ -2,10 +2,7 @@
 import rdflib
 import brickschema
 from rdflib import RDF, RDFS, OWL, Namespace
-import sys
-
-sys.path.append("..")
-from bricksrc.namespaces import BRICK, TAG, SKOS, A  # noqa: E402
+from .util import make_readable
 
 BLDG = Namespace("https://brickschema.org/schema/ExampleBuilding#")
 
@@ -55,10 +52,6 @@ g.add((BLDG.TS1, BRICK.hasLocation, BLDG.Room1))
 
 # lets us use both relationships
 g = brickschema.inference.InverseEdgeInferenceSession(load_brick=False).expand(g)
-
-
-def make_readable(res):
-    return [[uri.split("#")[-1] for uri in row] for row in res]
 
 
 def test_query_equipment():

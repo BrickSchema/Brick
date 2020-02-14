@@ -12,10 +12,8 @@ BLDG = Namespace("https://brickschema.org/schema/ExampleBuilding#")
 g = rdflib.Graph()
 g.parse("Brick.ttl", format="turtle")
 
-g = brickschema.inference.TagInferenceSession(
-    approximate=False, load_brick=False
-).expand(g)
-g = brickschema.inference.OWLRLAllegroInferenceSession(load_brick=False).expand(g)
+g = brickschema.inference.TagInferenceSession(approximate=False, load_brick=False).expand(g)
+g = brickschema.inference.OWLRLInferenceSession(load_brick=False).expand(g)
 
 g.bind("rdf", RDF)
 g.bind("owl", OWL)
