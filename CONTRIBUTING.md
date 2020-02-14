@@ -71,7 +71,7 @@ pre-commit install
 make test
 ```
 
-4. Whenever you commit, the `pre-commit` script will run the Black code formatting tool and the flake8 style checker. It will automatically format the code where it can, and indicate when there is a style error. If you see a "Failed" message, please fix the style and re-commit the code. An example of what this looks like is below; the failed flake8 check results in a short error report at the bottom.
+4. Whenever you commit, the `pre-commit` script will run the Black code formatting tool and the flake8 style checker. It will automatically format the code where it can, and indicate when there is a style error. **The tools will not commit unformatted code**; if you see a "Failed" message, please fix the style and re-commit the code. An example of what this looks like is below; the failed flake8 check results in a short error report at the bottom.
 
 ```
 gabe@arkestra:~/src/Brick$ git commit -m 'adding changes to Alarm hierarchy'
