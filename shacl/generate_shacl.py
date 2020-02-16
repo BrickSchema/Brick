@@ -1,5 +1,6 @@
-from rdflib import Graph, Literal, BNode, URIRef
+from rdflib import Graph, Literal, BNode, URIRef, Namespace
 from rdflib.collection import Collection
+from rdflib.plugins.sparql import prepareQuery
 
 import sys
 sys.path.append('..')
@@ -15,6 +16,17 @@ A = RDF.type
 domainShapeDict = {}
 rangeShapeDict = {}
 subpropertyDict = {}
+
+namespaceDict = {}
+def buildNamespaceDict(g):
+    for (prefix, path) in g.namespaces():
+        assert (prefix not in namespaceDict) or \
+            (Namespace(path) == namespaceDict[prefix]), \
+            "Same prefix \'%s\' used for %s and %s" % \
+            (prefix, namespaceDict[prefix], path)
+
+        if prefix not in namespaceDict:
+            namespaceDict[prefix] = Namespace(path)
 
 # Make shape for expectedDomain property
 def addDomainShape(propertyName, expectedType):
@@ -40,6 +52,24 @@ def addRangeShape(propertyName, expectedType):
     G.add((sh_prop, SH['message'],
            Literal(f"Property {propertyName} has object with incorrect type")))
 
+
+brickG = Graph()
+brickG.parse('Brick.ttl', format='turtle')
+buildNamespaceDict(brickG)
+'''
+res = brickG.query('SELECT ?s ?p ?o  WHERE { ?s rdfs:domain ?o . }',
+                   initNs=namespaceDict)
+print(len(res))
+for (s, p, o) in res:
+    print(s, p, o)
+'''
+brickG.update('DELETE { ?s rdfs:domain ?o .} WHERE { ?s rdfs:domain ?o . }',
+              initNs=namespaceDict)
+brickG.update('DELETE { ?s rdfs:range ?o .} WHERE { ?s rdfs:range ?o . }',
+              initNs=namespaceDict)
+with open('ModifiedBrick.ttl', 'wb') as f:
+    f.write(brickG.serialize(format='ttl'))
+
 for name, properties in property_definitions.items():
     for pred, obj in properties.items():
         # We are only concerned with properties that have RDFS.domain or .range
@@ -47,10 +77,10 @@ for name, properties in property_definitions.items():
         # brick:expectedDomain and :expectedRange.  See properties.py for
         # explanation.
 
-        if pred == BRICK.expectedDomain:
+        if pred == RDFS.domain:
             addDomainShape(name, obj)
 
-        if pred == BRICK.expectedRange:
+        if pred == RDFS.range:
             addRangeShape(name, obj)
 
         # subproperties are considered after "domain" and "range" are counted for
