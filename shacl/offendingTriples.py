@@ -7,6 +7,7 @@ from rdflib.plugins.sparql import prepareQuery
 import sys
 sys.path.append('..')
 from bricksrc.namespaces import RDF, RDFS, BRICK, BSH, SH, SKOS
+from bricksrc.namespaces import bind_prefixes
 
 class OffendingTriples():
 
@@ -143,6 +144,7 @@ class OffendingTriples():
             triplesFound = []
             for (s, p, o) in res:
                 g = Graph()
+                bind_prefixes(g)
                 g.add((focusNode, URIRef(path), o))
                 triplesFound.append(g)
 
