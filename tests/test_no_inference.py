@@ -2,18 +2,15 @@
 Set of tests to demonstrate use of Brick *without* the use of a reasoner
 """
 
+import sys
+sys.path.append('..')
+from bricksrc.namespaces import BRICK, TAG, SKOS, A
 import rdflib
+import brickschema
 from rdflib import RDF, RDFS, OWL, Namespace
+from .util import make_readable
 
-BRICK_VERSION = '1.1.0'
-
-BRICK = Namespace("https://brickschema.org/schema/{0}/Brick#".format(BRICK_VERSION))
-TAG = Namespace("https://brickschema.org/schema/{0}/BrickTag#".format(BRICK_VERSION))
-BLDG = Namespace("https://brickschema.org/schema/{0}/ExampleBuilding#".format(BRICK_VERSION))
-SKOS = Namespace("http://www.w3.org/2004/02/skos/core#")
-DCTERMS = Namespace("http://purl.org/dc/terms#")
-SDO = Namespace("http://schema.org#")
-A = RDF.type
+BLDG = Namespace("https://brickschema.org/schema/ExampleBuilding#")
 
 g = rdflib.Graph()
 g.parse('Brick.ttl', format='turtle')
@@ -60,11 +57,8 @@ g.add( (BLDG.Zone1, BRICK.hasPart, BLDG.Room2) )
 g.add( (BLDG.TS1, BRICK.hasLocation, BLDG.Room1) )
 
 # lets us use both relationships
-from util.reasoner import reason_inverse_edges
-reason_inverse_edges(g)
+g = brickschema.inference.InverseEdgeInferenceSession(load_brick=False).expand(g)
 
-def make_readable(res):
-    return [[uri.split('#')[-1] for uri in row] for row in res]
 
 def test_query_equipment():
     res = make_readable(g.query("""SELECT DISTINCT ?equip WHERE {

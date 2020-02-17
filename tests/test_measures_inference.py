@@ -1,24 +1,58 @@
-import time
 import sys
+sys.path.append('..')
+from bricksrc.namespaces import BRICK
+from bricksrc.substances import substances
+from bricksrc.quantities import quantity_definitions
 import rdflib
 import json
 from collections import defaultdict
-from rdflib import RDF, RDFS, OWL, Namespace, URIRef
+from rdflib import Namespace, URIRef
+import brickschema
 
-BRICK_VERSION = '1.1.0'
+BLDG = Namespace("https://brickschema.org/schema/ExampleBuilding#")
 
-BRICK = Namespace("https://brickschema.org/schema/{0}/Brick#".format(BRICK_VERSION))
-TAG = Namespace("https://brickschema.org/schema/{0}/BrickTag#".format(BRICK_VERSION))
-BLDG = Namespace("https://brickschema.org/schema/{0}/ExampleBuilding#".format(BRICK_VERSION))
-SKOS = Namespace("http://www.w3.org/2004/02/skos/core#")
-DCTERMS = Namespace("http://purl.org/dc/terms#")
-SDO = Namespace("http://schema.org#")
-A = RDF.type
 
-g = rdflib.Graph()
-g.parse('Brick.ttl', format='turtle')
+def _get_subclasses(hierarchy):
+    """
+    Helper method to generate a list of pairwise
+    subclass relationships denoted by a hierarchy definition in 'bricksrc'
+    """
+    for klass, defn in hierarchy.items():
+        if 'subclasses' not in defn:
+            continue
+        for subklass, subdefn in defn['subclasses'].items():
+            yield (klass, subklass)
+        for tup in _get_subclasses(defn['subclasses']):
+            yield tup
+
+
+def test_measurable_hierarchy():
+    """
+    Checks to make sure the hierarchy is preserved when the
+    ontology is serialized. All subclass relationships explicitly
+    included in the substances + quantities hierarchies should
+    be in the ontology
+    """
+    g = rdflib.Graph()
+    g.parse('Brick.ttl', format='turtle')
+
+    # check substance classes
+    for klass, subklass in _get_subclasses(substances):
+        query = f"SELECT ?x WHERE {{ <{BRICK[subklass]}> rdfs:subClassOf ?x }}"
+        res = list(g.query(query))
+        assert (BRICK[klass], ) in res
+
+    # check quantity classes
+    for klass, subklass in _get_subclasses(quantity_definitions):
+        query = f"SELECT ?x WHERE {{ <{BRICK[subklass]}> rdfs:subClassOf ?x }}"
+        res = list(g.query(query))
+        assert (BRICK[klass], ) in res
+
 
 def test_measures_infers():
+    g = rdflib.Graph()
+    g.parse('Brick.ttl', format='turtle')
+
     qstr = """select ?class ?o where {
       ?class rdfs:subClassOf+ brick:Class.
       ?class owl:equivalentClass ?restrictions.
@@ -35,8 +69,7 @@ def test_measures_infers():
 
     # Infer classes of the entities.
     # Apply reasoner
-    from util.reasoner import reason_brick
-    reason_brick(g)
+    g = brickschema.inference.OWLRLInferenceSession(load_brick=False).expand(g)
 
     qstr = """select ?instance ?class where {
         ?instance a ?class.

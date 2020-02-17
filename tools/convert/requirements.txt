@@ -1,0 +1,6 @@
+Dijkstar==2.4.0
+isodate==0.6.0
+pyparsing==2.4.2
+rdflib==4.2.2
+six==1.12.0
+tqdm==4.36.1
