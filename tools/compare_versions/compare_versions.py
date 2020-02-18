@@ -1,6 +1,4 @@
 import sys
-
-sys.path.append("./")  # Assume that this file is run at the root of the repo.
 import os
 from collections import defaultdict
 import json
@@ -10,7 +8,6 @@ import semver
 from tqdm import tqdm
 import rdflib
 from rdflib import Namespace, URIRef, RDF, RDFS, OWL
-from bricksrc.namespaces import BRICK_VERSION
 
 
 def get_root(version):
@@ -20,7 +17,15 @@ def get_root(version):
         root_template = "https://brickschema.org/schema/{0}/Brick#Class"
     else:
         root_template = "https://brickschema.org/schema/{0}/BrickFrame#TagSet"
-    return root_template.format(version)
+    return root_template.format(get_short_version(version))
+
+
+def get_short_version(version):
+    version = semver.parse_version_info(version)
+    if version.major >= 1 and version.minor >= 1:
+        return ".".join([str(version.major), str(version.minor)])
+    else:
+        return version
 
 
 argparser = argparse.ArgumentParser()
@@ -50,8 +55,8 @@ new_ver = args.newbrick[0]
 new_ttl = args.newbrick[1]
 
 brick_ns_template = "https://brickschema.org/schema/{0}/Brick#"
-OLD_BRICK = Namespace(brick_ns_template.format(old_ver))
-NEW_BRICK = Namespace(brick_ns_template.format(new_ver))
+OLD_BRICK = Namespace(brick_ns_template.format(get_short_version(old_ver)))
+NEW_BRICK = Namespace(brick_ns_template.format(get_short_version(new_ver)))
 OLD_ROOT = get_root(old_ver)
 NEW_ROOT = get_root(new_ver)
 
@@ -112,5 +117,6 @@ for old_class, old_tag_set in tqdm(old_tag_sets.items()):
             > 0.7
         ):
             mapping_candidates[old_class].append(new_class)
+
 with open(history_dir + "/possible_mapping.json", "w") as fp:
     json.dump(mapping_candidates, fp, indent=2)

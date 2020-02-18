@@ -12,3 +12,4 @@ brickschema
 black
 pre-commit
 flake8
+semver
