@@ -44,8 +44,7 @@ Thanks to all of the contributors!
 
 
 
-<details>
-<summary>### Added Classes</summary>
+### Added Classes
 ```
 Absorption_Chiller
 Active_Power
@@ -441,10 +440,8 @@ Zone_Air
 Zone_Air_Humidity_Sensor
 Zone_Air_Temperature_Setpoint
 ```
-</details>
 
-<details>
-<summary>### Removed Classes</summary>
+### Removed Classes
 ```
 AHU_Auto_Cooling_Temperature_Setpoint
 AHU_Automatic_Mode_Command
@@ -1964,4 +1961,3 @@ Zone_Temperature_Low_Setpoint
 Zone_Temperature_Sensor
 Zone_Temperature_Setpoint
 ```
-</details>
