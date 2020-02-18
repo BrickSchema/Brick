@@ -1,7 +1,7 @@
 # This module is used by _pyshacl.py, a thin wrapper of pyshacl
 # to find offending triples for each reported constraint violation.
 
-from rdflib import Graph, Namespace, URIRef
+from rdflib import Graph, Namespace, URIRef, BNode
 from rdflib.plugins.sparql import prepareQuery
 
 import sys
@@ -64,11 +64,35 @@ class OffendingTriples():
         for n in self.namespaceDict:
             g.bind(n, self.namespaceDict[n])
 
+        tripleGraphs = []
+        for (s, p, o) in g:
+            if p == BSH['offendingTriple']:
+                tripleG = Graph()
+                for (s1, p1, o1) in o:
+                    tripleG.add((s1, p1, o1))
+                tripleGraphs.append(tripleG)
+
         for b_line in g.serialize(format='ttl').splitlines():
             line = b_line.decode('utf-8')
-            if (not line.startswith('@prefix')) and line.strip():
+            if (not line.startswith('@prefix')) and \
+               ('offendingTriple' not in line) \
+               and line.strip():
                 self.outFile.write(line)
                 self.outFile.write('\n')
+
+        # graph has only one triple: must be an offending triple
+        if len(g) == 1:
+            return
+
+        if len(tripleGraphs) == 0:
+            self.outFile.write('Please add triple finder for the above violation!!!\n')
+            return
+        elif len(tripleGraphs) == 1:
+            self.outFile.write('Offending triple:\n')
+        else:
+            self.outFile.write('Potential offending triples:\n')
+        for tripleG in tripleGraphs:
+            self.appendGraphToOutput(None, tripleG)  # recursive call, max depth 1
 
 
     # Query data graph and return the list of resulting triples
@@ -163,19 +187,12 @@ class OffendingTriples():
 
         # Print each violation graph, find and print the offending triple(s), too
         for k in self.violationDict:
+            tripleGraphs = self.triplesForOneViolation(self.violationDict[k])
+            for g in tripleGraphs:
+                tNode = BNode()
+                self.violationDict[k].add((tNode, BSH['offendingTriple'], g))
+
             self.appendGraphToOutput('\nConstraint violation:\n',
                                      self.violationDict[k])
-
-            tripleGraphList = self.triplesForOneViolation(self.violationDict[k])
-            if not tripleGraphList:
-                self.outFile.write('Please add triple finder for the above violation!!!\n')
-                continue
-
-            if len(tripleGraphList) == 1:
-                self.outFile.write('Offending triple:\n')
-            else:
-                self.outFile.write('Potential offending triples:\n')
-            for g in tripleGraphList:
-                self.appendGraphToOutput(None, g)
 
 # end of class OffendingTriples()
