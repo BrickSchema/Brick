@@ -4,7 +4,7 @@
 ## Brick v1.1.0
 -------------
 
-### Release Notes
+### Brick Release Notes
 
 Brick v1.1 represents the latest release of Brick since v1.0.3. To update existing Brick models, see the [`convert`](https://github.com/BrickSchema/Brick/tree/master/tools/convert) tool in the main Brick repository
 
@@ -18,12 +18,8 @@ Finally, Brick v1.1 incorporates a set of tags --- atomic identifiers --- which 
 For technical details on these changes, we refer the reader to a [recent publication in BuildSys 2019](https://brickschema.org/papers/HouseOfSticks-BuildSys-2019-Fierro.pdf).
 
 Changes:
-- addition of unit test framework under `tests/`
 - the ontological reasoning requirements of Brick are consistent with the [OWL RL ontology profile](https://www.w3.org/TR/owl2-profiles/#OWL_2_RL)
-- alignment with the RealEstateCore ontology under `alignments/rec/`; more alignments coming soon
-- we recommend the [`brickschema`](https://github.com/BrickSchema/py-brickschema) package for working with Brick models from Python
 - some restructuring of the class structure in order to make it more consistent
-- tools for comparing and converting between Brick versions have been introduced
 - tags have been applied to the majority of classes in the Brick definition: For more information on Brick's tags, see the [Tags](https://github.com/BrickSchema/brick#tags) section of the main `README`
 
 
@@ -32,6 +28,13 @@ Backwards incompatible changes:
 - Brick relationships have been moved from the old `brickframe` namespace to the `brick` namespace.
 
 **Added 393 classes, removed 1517 classes**: the vast majority of the removed classes are not truely gone! They have been separated into their constituent "equipment" and "point" parts.
+
+### Other Release Notes
+
+- addition of unit test framework under `tests/`
+- alignment with the RealEstateCore ontology under `alignments/rec/`; more alignments coming soon
+- we recommend the [`brickschema`](https://github.com/BrickSchema/py-brickschema) package for working with Brick models from Python
+- tools for comparing and converting between Brick versions have been introduced
 
 ### Contributors
 
