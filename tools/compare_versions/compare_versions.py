@@ -6,7 +6,6 @@ import json
 import argparse
 import semver
 
-import pdb
 from tqdm import tqdm
 import rdflib
 from rdflib import Namespace, URIRef, RDF, RDFS, OWL
