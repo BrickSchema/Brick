@@ -19,12 +19,13 @@ For technical details on these changes, we refer the reader to a [recent publica
 
 Changes:
 - addition of unit test framework under `tests/`
-- Brick ontology now fits under OWL RL ontology profile
+- the ontological reasoning requirements of Brick are consistent with the [OWL RL ontology profile](https://www.w3.org/TR/owl2-profiles/#OWL_2_RL)
 - alignment with the RealEstateCore ontology under `alignments/rec/`; more alignments coming soon
 - we recommend the [`brickschema`](https://github.com/BrickSchema/py-brickschema) package for working with Brick models from Python
 - some restructuring of the class structure in order to make it more consistent
 - tools for comparing and converting between Brick versions have been introduced
-- tags have been applied to the majority of classes in the Brick definition
+- tags have been applied to the majority of classes in the Brick definition: For more information on Brick's tags, see the [Tags](https://github.com/BrickSchema/brick#tags) section of the main `README`
+
 
 Backwards incompatible changes:
 - the Brick namespace URI has changed from `https://brickschema.org/schema/1.0.3/Brick#` to `https://brickschema.org/schema/1.1/Brick#`. We will use SemVer for the full versions (this release represents `1.1.0`), but the patch version will be elided from the Brick namespace URI in order to facilitate migrating to backwards compatible future version of Brick
