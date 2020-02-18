@@ -30,7 +30,7 @@ Backwards incompatible changes:
 - the Brick namespace URI has changed from `https://brickschema.org/schema/1.0.3/Brick#` to `https://brickschema.org/schema/1.1/Brick#`. We will use SemVer for the full versions (this release represents `1.1.0`), but the patch version will be elided from the Brick namespace URI in order to facilitate migrating to backwards compatible future version of Brick
 - Brick relationships have been moved from the old `brickframe` namespace to the `brick` namespace.
 
-**Added 393 classes, removed 1517 classes**
+**Added 393 classes, removed 1517 classes**: the vast majority of the removed classes are not truely gone! They have been separated into their constituent "equipment" and "point" parts.
 
 ### Contributors
 
