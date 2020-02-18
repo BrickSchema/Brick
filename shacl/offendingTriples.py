@@ -56,21 +56,13 @@ class OffendingTriples():
             if prefix not in self.namespaceDict:
                 self.namespaceDict[prefix] = Namespace(path)
 
-
-    # Serialize and streamline (remove @prefix lines) and append to output
+    # Serialize and streamline (remove @prefix lines) a grpah and append to output
     def appendGraphToOutput(self, msg, g):
         if msg:
             self.outFile.write(msg)
         for n in self.namespaceDict:
             g.bind(n, self.namespaceDict[n])
-
-        tripleGraphs = []
-        for (s, p, o) in g:
-            if p == BSH['offendingTriple']:
-                tripleG = Graph()
-                for (s1, p1, o1) in o:
-                    tripleG.add((s1, p1, o1))
-                tripleGraphs.append(tripleG)
+        bind_prefixes(g)
 
         for b_line in g.serialize(format='ttl').splitlines():
             line = b_line.decode('utf-8')
@@ -80,19 +72,31 @@ class OffendingTriples():
                 self.outFile.write(line)
                 self.outFile.write('\n')
 
-        # graph has only one triple: must be an offending triple
-        if len(g) == 1:
-            return
+
+
+    def appendViolationToOutput(self, msg, g):
+        # first print the violation body
+        self.appendGraphToOutput(msg, g)
+
+        # tease out the triples with offendingTriple as predicate
+        tripleGraphs = []
+        for (s, p, o) in g:
+            if p == BSH['offendingTriple']:
+                tripleG = Graph()
+                for (s1, p1, o1) in o:
+                    tripleG.add((s1, p1, o1))
+                tripleGraphs.append(tripleG)
 
         if len(tripleGraphs) == 0:
             self.outFile.write('Please add triple finder for the above violation!!!\n')
             return
-        elif len(tripleGraphs) == 1:
+
+        if len(tripleGraphs) == 1:
             self.outFile.write('Offending triple:\n')
         else:
             self.outFile.write('Potential offending triples:\n')
         for tripleG in tripleGraphs:
-            self.appendGraphToOutput(None, tripleG)  # recursive call, max depth 1
+            self.appendGraphToOutput(None, tripleG)
 
 
     # Query data graph and return the list of resulting triples
@@ -142,7 +146,8 @@ class OffendingTriples():
 
             g = Graph()
             g.add((focusNode, resultPath, valueNode))
-            return [g]
+            violation.add((BNode(), BSH['offendingTriple'], g))
+            return
 
         # Without sh:resultPath in the violation. We are currently only concerned
         # with the RDFS.domain shape.
@@ -165,17 +170,16 @@ class OffendingTriples():
 
             # Due to inherent ambiguity of this kind of shape,
             # multiple triples may be found.
-            triplesFound = []
             for (s, p, o) in res:
                 g = Graph()
                 bind_prefixes(g)
                 g.add((focusNode, URIRef(path), o))
-                triplesFound.append(g)
+                violation.add((BNode(), BSH['offendingTriple'], g))
 
-            return triplesFound
+            return
 
         # When control reaches here, a handler is missing for the violation.
-        return []
+        return
 
     # end of triplesForOneViolation()
 
@@ -187,12 +191,8 @@ class OffendingTriples():
 
         # Print each violation graph, find and print the offending triple(s), too
         for k in self.violationDict:
-            tripleGraphs = self.triplesForOneViolation(self.violationDict[k])
-            for g in tripleGraphs:
-                tNode = BNode()
-                self.violationDict[k].add((tNode, BSH['offendingTriple'], g))
-
-            self.appendGraphToOutput('\nConstraint violation:\n',
-                                     self.violationDict[k])
+            self.triplesForOneViolation(self.violationDict[k])
+            self.appendViolationToOutput('\nConstraint violation:\n',
+                                         self.violationDict[k])
 
 # end of class OffendingTriples()
