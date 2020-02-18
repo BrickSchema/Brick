@@ -11,17 +11,19 @@ from rdflib import Namespace, URIRef, RDF, RDFS, OWL
 
 
 def get_root(version):
-    if semver.compare(version, "1.0.3") > 0:  # if the current version is newer than 1.0.3
+    if (
+        semver.compare(version, "1.0.3") > 0
+    ):  # if the current version is newer than 1.0.3
         root_template = "https://brickschema.org/schema/{0}/Brick#Class"
     else:
-        root_template = 'https://brickschema.org/schema/{0}/BrickFrame#TagSet'
+        root_template = "https://brickschema.org/schema/{0}/BrickFrame#TagSet"
     return root_template.format(get_short_version(version))
 
 
 def get_short_version(version):
     version = semver.parse_version_info(version)
     if version.major >= 1 and version.minor >= 1:
-        return '.'.join([str(version.major), str(version.minor)])
+        return ".".join([str(version.major), str(version.minor)])
     else:
         return version
 
@@ -52,7 +54,7 @@ old_ttl = args.oldbrick[1]
 new_ver = args.newbrick[0]
 new_ttl = args.newbrick[1]
 
-brick_ns_template = 'https://brickschema.org/schema/{0}/Brick#'
+brick_ns_template = "https://brickschema.org/schema/{0}/Brick#"
 OLD_BRICK = Namespace(brick_ns_template.format(get_short_version(old_ver)))
 NEW_BRICK = Namespace(brick_ns_template.format(get_short_version(new_ver)))
 OLD_ROOT = get_root(old_ver)
@@ -115,5 +117,6 @@ for old_class, old_tag_set in tqdm(old_tag_sets.items()):
             > 0.7
         ):
             mapping_candidates[old_class].append(new_class)
+
 with open(history_dir + "/possible_mapping.json", "w") as fp:
     json.dump(mapping_candidates, fp, indent=2)
