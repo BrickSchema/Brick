@@ -9,3 +9,4 @@ pytest
 tqdm
 docker
 brickschema
+semver
