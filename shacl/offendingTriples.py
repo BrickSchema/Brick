@@ -62,10 +62,10 @@ class OffendingTriples():
             self.outFile.write(msg)
         for n in self.namespaceDict:
             g.bind(n, self.namespaceDict[n])
-        bind_prefixes(g)
 
         for b_line in g.serialize(format='ttl').splitlines():
             line = b_line.decode('utf-8')
+            # skip prefix, offendingTriple and blank line
             if (not line.startswith('@prefix')) and \
                ('offendingTriple' not in line) \
                and line.strip():
@@ -157,7 +157,9 @@ class OffendingTriples():
         if shapeName.endswith('DomainShape'):
             # For a brick property xyz with RDFS.domain predicate, the shape's name
             # is bsh:xyzDomainShape.  Here we tease out brick:xyz to make the query.
-            path = 'brick:' + shapeName[:-len('DomainShape')]
+            brickProp = shapeName[:-len('DomainShape')]
+            path = 'brick:' + brickProp
+            fullPath = self.namespaceDict['brick'] + brickProp
 
             # The full name (http...) of the focusNode doesn't seem to work
             # in the query.  Therefore make a prefixed version for the query.
@@ -172,8 +174,7 @@ class OffendingTriples():
             # multiple triples may be found.
             for (s, p, o) in res:
                 g = Graph()
-                bind_prefixes(g)
-                g.add((focusNode, URIRef(path), o))
+                g.add((focusNode, URIRef(fullPath), o))
                 violation.add((BNode(), BSH['offendingTriple'], g))
 
             return
