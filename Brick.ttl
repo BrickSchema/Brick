@@ -880,8 +880,8 @@ brick:DC_Bus_Voltage_Sensor a owl:Class ;
         tag:Sensor,
         tag:Voltage .
 
-brick:Daily_Usage_Energy_Sensor a owl:Class ;
-    rdfs:label "Daily Usage Energy Sensor" ;
+brick:Daily_Energy_Usage_Sensor a owl:Class ;
+    rdfs:label "Daily Energy Usage Sensor" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Sensor _:has_Energy _:has_Usage [ a owl:Restriction ;
                         owl:hasValue tag:Daily ;
                         owl:onProperty brick:hasTag ] ) ],
@@ -2801,6 +2801,16 @@ brick:Lockout_Command a owl:Class ;
         tag:Lockout,
         tag:Point .
 
+brick:Louver a owl:Class ;
+    rdfs:label "Louver" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Shade _:has_Equipment [ a owl:Restriction ;
+                        owl:hasValue tag:Louver ;
+                        owl:onProperty brick:hasTag ] ) ],
+        brick:Shading_System ;
+    brick:hasAssociatedTag tag:Equipment,
+        tag:Louver,
+        tag:Shade .
+
 brick:Low_Freeze_Protect_Temperature_Parameter a owl:Class ;
     rdfs:label "Low Freeze Protect Temperature Parameter" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Low _:has_Freeze [ a owl:Restriction ;
@@ -3684,6 +3694,16 @@ brick:Mixed_Air_Temperature_Setpoint a owl:Class ;
         tag:Setpoint,
         tag:Temperature .
 
+brick:Monthly_Energy_Usage_Sensor a owl:Class ;
+    rdfs:label "Monthly Energy Usage Sensor" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Sensor _:has_Energy _:has_Usage _:has_Monthly ) ],
+        brick:Energy_Usage_Sensor ;
+    brick:hasAssociatedTag tag:Energy,
+        tag:Monthly,
+        tag:Point,
+        tag:Sensor,
+        tag:Usage .
+
 brick:Monthly_Steam_Usage_Sensor a owl:Class ;
     rdfs:label "Monthly Steam Usage Sensor" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Monthly _:has_Sensor _:has_Usage _:has_Steam ) ],
@@ -3692,16 +3712,6 @@ brick:Monthly_Steam_Usage_Sensor a owl:Class ;
         tag:Point,
         tag:Sensor,
         tag:Steam,
-        tag:Usage .
-
-brick:Monthly_Usage_Energy_Sensor a owl:Class ;
-    rdfs:label "Monthly Usage Energy Sensor" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Sensor _:has_Energy _:has_Usage _:has_Monthly ) ],
-        brick:Energy_Usage_Sensor ;
-    brick:hasAssociatedTag tag:Energy,
-        tag:Monthly,
-        tag:Point,
-        tag:Sensor,
         tag:Usage .
 
 brick:Motor_Current_Sensor a owl:Class ;
@@ -4551,15 +4561,6 @@ brick:Server_Room a owl:Class ;
         tag:Room,
         tag:Server .
 
-brick:Shading_System a owl:Class ;
-    rdfs:label "Shading System" ;
-    rdfs:subClassOf [ owl:intersectionOf ( [ a owl:Restriction ;
-                        owl:hasValue tag:Shade ;
-                        owl:onProperty brick:hasTag ] _:has_Equipment ) ],
-        brick:Equipment ;
-    brick:hasAssociatedTag tag:Equipment,
-        tag:Shade .
-
 brick:Short_Cycle_Alarm a owl:Class ;
     rdfs:label "Short Cycle Alarm" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Point [ a owl:Restriction ;
@@ -4651,6 +4652,14 @@ brick:Stages_Status a owl:Class ;
     brick:hasAssociatedTag tag:Point,
         tag:Stages,
         tag:Status .
+
+brick:Standby_CRAC a owl:Class ;
+    rdfs:label "Standby CRAC" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Equipment _:has_CRAC _:has_Standby ) ],
+        brick:CRAC ;
+    brick:hasAssociatedTag tag:CRAC,
+        tag:Equipment,
+        tag:Standby .
 
 brick:Standby_Fan a owl:Class ;
     rdfs:label "Standby Fan" ;
@@ -5328,6 +5337,16 @@ brick:Wing a owl:Class ;
     brick:hasAssociatedTag tag:Location,
         tag:Wing .
 
+brick:Yearly_Energy_Usage_Sensor a owl:Class ;
+    rdfs:label "Yearly Energy Usage Sensor" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Sensor _:has_Energy _:has_Usage _:has_Yearly ) ],
+        brick:Energy_Usage_Sensor ;
+    brick:hasAssociatedTag tag:Energy,
+        tag:Point,
+        tag:Sensor,
+        tag:Usage,
+        tag:Yearly .
+
 brick:Yearly_Steam_Usage_Sensor a owl:Class ;
     rdfs:label "Yearly Steam Usage Sensor" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Yearly _:has_Sensor _:has_Usage _:has_Steam ) ],
@@ -5335,16 +5354,6 @@ brick:Yearly_Steam_Usage_Sensor a owl:Class ;
     brick:hasAssociatedTag tag:Point,
         tag:Sensor,
         tag:Steam,
-        tag:Usage,
-        tag:Yearly .
-
-brick:Yearly_Usage_Energy_Sensor a owl:Class ;
-    rdfs:label "Yearly Usage Energy Sensor" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Sensor _:has_Energy _:has_Usage _:has_Yearly ) ],
-        brick:Energy_Usage_Sensor ;
-    brick:hasAssociatedTag tag:Energy,
-        tag:Point,
-        tag:Sensor,
         tag:Usage,
         tag:Yearly .
 
@@ -5507,16 +5516,6 @@ brick:CO2_Setpoint a owl:Class ;
     brick:hasAssociatedTag tag:CO2,
         tag:Point,
         tag:Setpoint .
-
-brick:CRAC a owl:Class ;
-    rdfs:label "CRAC" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Equipment [ a owl:Restriction ;
-                        owl:hasValue tag:CRAC ;
-                        owl:onProperty brick:hasTag ] ) ],
-        brick:HVAC ;
-    owl:equivalentClass brick:Computer_Room_Air_Conditioning ;
-    brick:hasAssociatedTag tag:CRAC,
-        tag:Equipment .
 
 brick:CWS a owl:Class ;
     rdfs:label "CWS" ;
@@ -6695,6 +6694,13 @@ brick:Rooftop_Unit a owl:Class ;
         tag:Equipment,
         tag:Rooftop .
 
+brick:Shading_System a owl:Class ;
+    rdfs:label "Shading System" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Shade _:has_Equipment ) ],
+        brick:Equipment ;
+    brick:hasAssociatedTag tag:Equipment,
+        tag:Shade .
+
 brick:Shutdown_Command a owl:Class ;
     rdfs:label "Shutdown Command" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Shutdown _:has_Command ) ],
@@ -7196,6 +7202,14 @@ brick:Bypass_Air a owl:Class,
         tag:Bypass,
         tag:Fluid,
         tag:Gas .
+
+brick:CRAC a owl:Class ;
+    rdfs:label "CRAC" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Equipment _:has_CRAC ) ],
+        brick:HVAC ;
+    owl:equivalentClass brick:Computer_Room_Air_Conditioning ;
+    brick:hasAssociatedTag tag:CRAC,
+        tag:Equipment .
 
 brick:Capacity a owl:Class,
         brick:Capacity ;
@@ -8097,9 +8111,6 @@ tag:Bus a brick:Tag ;
 tag:Button a brick:Tag ;
     rdfs:label "Button" .
 
-tag:CRAC a brick:Tag ;
-    rdfs:label "CRAC" .
-
 tag:CWS a brick:Tag ;
     rdfs:label "CWS" .
 
@@ -8253,6 +8264,9 @@ tag:Last a brick:Tag ;
 tag:Locally a brick:Tag ;
     rdfs:label "Locally" .
 
+tag:Louver a brick:Tag ;
+    rdfs:label "Louver" .
+
 tag:Makeup a brick:Tag ;
     rdfs:label "Makeup" .
 
@@ -8351,9 +8365,6 @@ tag:Schedule a brick:Tag ;
 
 tag:Server a brick:Tag ;
     rdfs:label "Server" .
-
-tag:Shade a brick:Tag ;
-    rdfs:label "Shade" .
 
 tag:Short a brick:Tag ;
     rdfs:label "Short" .
@@ -8934,6 +8945,9 @@ tag:Auto a brick:Tag ;
 tag:Battery a brick:Tag ;
     rdfs:label "Battery" .
 
+tag:CRAC a brick:Tag ;
+    rdfs:label "CRAC" .
+
 tag:Conditioning a brick:Tag ;
     rdfs:label "Conditioning" .
 
@@ -9044,6 +9058,9 @@ tag:Reheat a brick:Tag ;
 
 tag:Safety a brick:Tag ;
     rdfs:label "Safety" .
+
+tag:Shade a brick:Tag ;
+    rdfs:label "Shade" .
 
 tag:Space a brick:Tag ;
     rdfs:label "Space" .
@@ -9798,9 +9815,6 @@ tag:Preheat a brick:Tag ;
 tag:Stack a brick:Tag ;
     rdfs:label "Stack" .
 
-tag:Standby a brick:Tag ;
-    rdfs:label "Standby" .
-
 tag:Start a brick:Tag ;
     rdfs:label "Start" .
 
@@ -9899,6 +9913,9 @@ tag:Gain a brick:Tag ;
 
 tag:Run a brick:Tag ;
     rdfs:label "Run" .
+
+tag:Standby a brick:Tag ;
+    rdfs:label "Standby" .
 
 tag:Unit a brick:Tag ;
     rdfs:label "Unit" .
@@ -10408,6 +10425,10 @@ _:has_Battery a owl:Restriction ;
     owl:hasValue tag:Battery ;
     owl:onProperty brick:hasTag .
 
+_:has_CRAC a owl:Restriction ;
+    owl:hasValue tag:CRAC ;
+    owl:onProperty brick:hasTag .
+
 _:has_Conditioning a owl:Restriction ;
     owl:hasValue tag:Conditioning ;
     owl:onProperty brick:hasTag .
@@ -10566,6 +10587,10 @@ _:has_Reheat a owl:Restriction ;
 
 _:has_Safety a owl:Restriction ;
     owl:hasValue tag:Safety ;
+    owl:onProperty brick:hasTag .
+
+_:has_Shade a owl:Restriction ;
+    owl:hasValue tag:Shade ;
     owl:onProperty brick:hasTag .
 
 _:has_Space a owl:Restriction ;
@@ -10776,10 +10801,6 @@ _:has_Stack a owl:Restriction ;
     owl:hasValue tag:Stack ;
     owl:onProperty brick:hasTag .
 
-_:has_Standby a owl:Restriction ;
-    owl:hasValue tag:Standby ;
-    owl:onProperty brick:hasTag .
-
 _:has_Start a owl:Restriction ;
     owl:hasValue tag:Start ;
     owl:onProperty brick:hasTag .
@@ -10810,6 +10831,10 @@ _:has_Gain a owl:Restriction ;
 
 _:has_Run a owl:Restriction ;
     owl:hasValue tag:Run ;
+    owl:onProperty brick:hasTag .
+
+_:has_Standby a owl:Restriction ;
+    owl:hasValue tag:Standby ;
     owl:onProperty brick:hasTag .
 
 _:has_Unit a owl:Restriction ;
@@ -11119,4 +11144,3 @@ _:has_Air a owl:Restriction ;
 _:has_Point a owl:Restriction ;
     owl:hasValue tag:Point ;
     owl:onProperty brick:hasTag .
-

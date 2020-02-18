@@ -8,7 +8,8 @@ from bricksrc.status import status_definitions
 from bricksrc.command import command_definitions
 from bricksrc.parameter import parameter_definitions
 
-base_tags = set(['Alarm', 'Sensor', 'Status', 'Command', 'Setpoint', 'Parameter'])
+base_tags = set(["Alarm", "Sensor", "Status", "Command", "Setpoint", "Parameter"])
+
 
 def get_hierarchy_tags(definitions, tag):
     """
@@ -18,19 +19,22 @@ def get_hierarchy_tags(definitions, tag):
     tags = _get_hierarchy_tags(definitions[tag], set())
     return tags.difference(base_tags.difference(tag))
 
+
 def _get_hierarchy_tags(defns, tags):
-    for tag in defns.get('tags', []):
+    for tag in defns.get("tags", []):
         tags.add(tag)
-    for subclass, sc_defn in defns.get('subclasses', {}).items():
+    for subclass, sc_defn in defns.get("subclasses", {}).items():
         _get_hierarchy_tags(sc_defn, tags)
     return tags
 
-alarm_tags = get_hierarchy_tags(alarm_definitions, 'Alarm')
-sensor_tags = get_hierarchy_tags(sensor_definitions, 'Sensor')
-status_tags = get_hierarchy_tags(status_definitions, 'Status')
-command_tags = get_hierarchy_tags(command_definitions, 'Command')
-setpoint_tags = get_hierarchy_tags(setpoint_definitions, 'Setpoint')
-parameter_tags = get_hierarchy_tags(parameter_definitions, 'Parameter')
+
+alarm_tags = get_hierarchy_tags(alarm_definitions, "Alarm")
+sensor_tags = get_hierarchy_tags(sensor_definitions, "Sensor")
+status_tags = get_hierarchy_tags(status_definitions, "Status")
+command_tags = get_hierarchy_tags(command_definitions, "Command")
+setpoint_tags = get_hierarchy_tags(setpoint_definitions, "Setpoint")
+parameter_tags = get_hierarchy_tags(parameter_definitions, "Parameter")
+
 
 def make_exclusive_tag_groups(G):
     G.add((TAG.Alarm_Tag, A, OWL.Class))
