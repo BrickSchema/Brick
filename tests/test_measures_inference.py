@@ -1,13 +1,14 @@
-import sys
-sys.path.append('..')
-from bricksrc.namespaces import BRICK
-from bricksrc.substances import substances
-from bricksrc.quantities import quantity_definitions
 import rdflib
 import json
 from collections import defaultdict
 from rdflib import Namespace, URIRef
 import brickschema
+import sys
+
+sys.path.append("..")
+from bricksrc.namespaces import BRICK  # noqa: E402
+from bricksrc.substances import substances  # noqa: E402
+from bricksrc.quantities import quantity_definitions  # noqa: E402
 
 BLDG = Namespace("https://brickschema.org/schema/ExampleBuilding#")
 
@@ -18,11 +19,11 @@ def _get_subclasses(hierarchy):
     subclass relationships denoted by a hierarchy definition in 'bricksrc'
     """
     for klass, defn in hierarchy.items():
-        if 'subclasses' not in defn:
+        if "subclasses" not in defn:
             continue
-        for subklass, subdefn in defn['subclasses'].items():
+        for subklass, subdefn in defn["subclasses"].items():
             yield (klass, subklass)
-        for tup in _get_subclasses(defn['subclasses']):
+        for tup in _get_subclasses(defn["subclasses"]):
             yield tup
 
 
@@ -34,24 +35,24 @@ def test_measurable_hierarchy():
     be in the ontology
     """
     g = rdflib.Graph()
-    g.parse('Brick.ttl', format='turtle')
+    g.parse("Brick.ttl", format="turtle")
 
     # check substance classes
     for klass, subklass in _get_subclasses(substances):
         query = f"SELECT ?x WHERE {{ <{BRICK[subklass]}> rdfs:subClassOf ?x }}"
         res = list(g.query(query))
-        assert (BRICK[klass], ) in res
+        assert (BRICK[klass],) in res
 
     # check quantity classes
     for klass, subklass in _get_subclasses(quantity_definitions):
         query = f"SELECT ?x WHERE {{ <{BRICK[subklass]}> rdfs:subClassOf ?x }}"
         res = list(g.query(query))
-        assert (BRICK[klass], ) in res
+        assert (BRICK[klass],) in res
 
 
 def test_measures_infers():
     g = rdflib.Graph()
-    g.parse('Brick.ttl', format='turtle')
+    g.parse("Brick.ttl", format="turtle")
 
     qstr = """select ?class ?o where {
       ?class rdfs:subClassOf+ brick:Class.
@@ -64,8 +65,10 @@ def test_measures_infers():
     """
     for row in g.query(qstr):
         klass = row[0]
-        entity = klass + '_entity'  # Define an entity for the class
-        g.add((entity, BRICK.measures, row[1]))  # Associate the entity with measurement restrictions
+        entity = klass + "_entity"  # Define an entity for the class
+        g.add(
+            (entity, BRICK.measures, row[1])
+        )  # Associate the entity with measurement restrictions
 
     # Infer classes of the entities.
     # Apply reasoner
@@ -80,29 +83,35 @@ def test_measures_infers():
     for row in g.query(qstr):
         entity = row[0]
         klass = row[1]
-        if BRICK in klass: # Filter out non-Brick classes such as Restrictions
+        if BRICK in klass:  # Filter out non-Brick classes such as Restrictions
             inferred_klasses[entity].add(klass)
 
     over_inferences = {}  # Inferred Classes that are not supposed to be inferred.
-    under_inferences = {}  # Classes that should have been inferred but not actually inferred.
+    under_inferences = (
+        {}
+    )  # Classes that should have been inferred but not actually inferred.
     wrong_inferences = {}  # Other wrongly inferred Classes.
     for entity, inferred_parents in inferred_klasses.items():
-        if entity[-7:] != '_entity':
+        if entity[-7:] != "_entity":
             continue
-        true_class = URIRef(entity[0:-7])  # This is based on how the entity name is defined above.
+        true_class = URIRef(
+            entity[0:-7]
+        )  # This is based on how the entity name is defined above.
 
         # Find the original classes through the hierarchy from the original graph.
         qstr = """select ?parent where {{
             <{0}> rdfs:subClassOf* ?parent.
             ?parent rdfs:subClassOf* brick:Class.
         }}
-        """.format(true_class)
+        """.format(
+            true_class
+        )
         res = g.query(qstr)
         true_parents = [row[0] for row in res]
         true_parents = set(filter(lambda parent: BRICK in parent, true_parents))
         serialized = {
-            'inferred_parents': list(inferred_parents),
-            'true_parents': list(true_parents),
+            "inferred_parents": list(inferred_parents),
+            "true_parents": list(true_parents),
         }
         if inferred_parents > true_parents:
             over_inferences[entity] = serialized
@@ -111,13 +120,25 @@ def test_measures_infers():
         elif inferred_parents != true_parents:
             wrong_inferences[entity] = serialized
 
-    with open('tests/test_measures_inference.json', 'w') as fp:
-        json.dump({
-            'over_inferences': over_inferences,
-            'under_inferences': under_inferences,
-            'wrong_inferencers': wrong_inferences,
-        }, fp, indent=2)
+    with open("tests/test_measures_inference.json", "w") as fp:
+        json.dump(
+            {
+                "over_inferences": over_inferences,
+                "under_inferences": under_inferences,
+                "wrong_inferencers": wrong_inferences,
+            },
+            fp,
+            indent=2,
+        )
 
-    assert not over_inferences, 'There are {0} classes that are over-inferred'.format(len(over_inferences))
-    assert not under_inferences, 'There are {0} classes that are under-inferred'.format(len(under_inferences))
-    assert not wrong_inferences, 'There are {0} classes that are inferred incorrectly in other ways'.format(len(wrong_inferences))
+    assert not over_inferences, "There are {0} classes that are over-inferred".format(
+        len(over_inferences)
+    )
+    assert not under_inferences, "There are {0} classes that are under-inferred".format(
+        len(under_inferences)
+    )
+    assert (
+        not wrong_inferences
+    ), "There are {0} classes that are inferred incorrectly in other ways".format(
+        len(wrong_inferences)
+    )

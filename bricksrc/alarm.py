@@ -10,7 +10,7 @@ alarm_definitions = {
                     "Air_Flow_Loss_Alarm": {
                         "tags": [TAG.Point, TAG.Air, TAG.Alarm, TAG.Flow, TAG.Loss],
                     }
-                }
+                },
             },
             "CO2_Alarm": {
                 "tags": [TAG.Point, TAG.CO2, TAG.Alarm],
@@ -41,7 +41,13 @@ alarm_definitions = {
                         "tags": [TAG.Point, TAG.Generator, TAG.Emergency, TAG.Alarm],
                     },
                     "Emergency_Power_Loss_Alarm": {
-                        "tags": [TAG.Point, TAG.Power, TAG.Loss, TAG.Emergency, TAG.Alarm],
+                        "tags": [
+                            TAG.Point,
+                            TAG.Power,
+                            TAG.Loss,
+                            TAG.Emergency,
+                            TAG.Alarm,
+                        ],
                         "parents": [BRICK.Power_Loss_Alarm],
                     },
                 },
@@ -76,15 +82,11 @@ alarm_definitions = {
             "Liquid_Detected_Alarm": {
                 "tags": [TAG.Point, TAG.Liquid, TAG.Detected, TAG.Alarm],
             },
-            "Luminance_Alarm": {
-                "tags": [TAG.Point, TAG.Luminance, TAG.Alarm],
-            },
+            "Luminance_Alarm": {"tags": [TAG.Point, TAG.Luminance, TAG.Alarm]},
             "Maintenance_Required_Alarm": {
                 "tags": [TAG.Point, TAG.Maintenance, TAG.Required, TAG.Alarm],
             },
-            "Overload_Alarm": {
-                "tags": [TAG.Point, TAG.Overload, TAG.Alarm],
-            },
+            "Overload_Alarm": {"tags": [TAG.Point, TAG.Overload, TAG.Alarm]},
             "Power_Alarm": {
                 "tags": [TAG.Point, TAG.Power, TAG.Alarm],
                 "subclasses": {
@@ -97,10 +99,22 @@ alarm_definitions = {
                 "tags": [TAG.Point, TAG.Pressure, TAG.Alarm],
                 "subclasses": {
                     "High_Head_Pressure_Alarm": {
-                        "tags": [TAG.Point, TAG.High, TAG.Head, TAG.Pressure, TAG.Alarm],
+                        "tags": [
+                            TAG.Point,
+                            TAG.High,
+                            TAG.Head,
+                            TAG.Pressure,
+                            TAG.Alarm,
+                        ],
                     },
                     "Low_Suction_Pressure_Alarm": {
-                        "tags": [TAG.Point, TAG.Low, TAG.Suction, TAG.Pressure, TAG.Alarm],
+                        "tags": [
+                            TAG.Point,
+                            TAG.Low,
+                            TAG.Suction,
+                            TAG.Pressure,
+                            TAG.Alarm,
+                        ],
                     },
                 },
             },
@@ -118,12 +132,22 @@ alarm_definitions = {
                         "parents": [BRICK.Water_Alarm],
                         "subclasses": {
                             "Discharge_Water_Temperature_Alarm": {
-                                "tags": [TAG.Point, TAG.Discharge, TAG.Water,
-                                         TAG.Temperature, TAG.Alarm],
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Discharge,
+                                    TAG.Water,
+                                    TAG.Temperature,
+                                    TAG.Alarm,
+                                ],
                             },
                             "Supply_Water_Temperature_Alarm": {
-                                "tags": [TAG.Point, TAG.Supply, TAG.Water,
-                                         TAG.Temperature, TAG.Alarm],
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Supply,
+                                    TAG.Water,
+                                    TAG.Temperature,
+                                    TAG.Alarm,
+                                ],
                             },
                         },
                     },
@@ -132,37 +156,72 @@ alarm_definitions = {
                         "parents": [BRICK.Air_Alarm],
                         "subclasses": {
                             "Discharge_Air_Temperature_Alarm": {
-                                "tags": [TAG.Point, TAG.Discharge, TAG.Air,
-                                         TAG.Temperature, TAG.Alarm],
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Discharge,
+                                    TAG.Air,
+                                    TAG.Temperature,
+                                    TAG.Alarm,
+                                ],
                                 "subclasses": {
                                     "High_Discharge_Air_Temperature_Alarm": {
-                                        "tags": [TAG.Point, TAG.High, TAG.Discharge,
-                                                 TAG.Air, TAG.Temperature,
-                                                 TAG.Alarm],
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.High,
+                                            TAG.Discharge,
+                                            TAG.Air,
+                                            TAG.Temperature,
+                                            TAG.Alarm,
+                                        ],
                                         "parents": [BRICK.High_Temperature_Alarm],
                                     },
                                 },
                             },
                             "Supply_Air_Temperature_Alarm": {
-                                "tags": [TAG.Point, TAG.Supply, TAG.Air,
-                                         TAG.Temperature, TAG.Alarm],
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Supply,
+                                    TAG.Air,
+                                    TAG.Temperature,
+                                    TAG.Alarm,
+                                ],
                             },
                             "Return_Air_Temperature_Alarm": {
-                                "tags": [TAG.Point, TAG.Return, TAG.Air, TAG.Temperature, TAG.Alarm],
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Return,
+                                    TAG.Air,
+                                    TAG.Temperature,
+                                    TAG.Alarm,
+                                ],
                                 "subclasses": {
                                     "High_Return_Air_Temperature_Alarm": {
-                                        "tags": [TAG.Point, TAG.High, TAG.Return, TAG.Air, TAG.Temperature, TAG.Alarm],
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.High,
+                                            TAG.Return,
+                                            TAG.Air,
+                                            TAG.Temperature,
+                                            TAG.Alarm,
+                                        ],
                                         "parents": [BRICK.High_Temperature_Alarm],
                                     },
                                     "Low_Return_Air_Temperature_Alarm": {
-                                        "tags": [TAG.Point, TAG.Low, TAG.Return, TAG.Air, TAG.Temperature, TAG.Alarm],
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Low,
+                                            TAG.Return,
+                                            TAG.Air,
+                                            TAG.Temperature,
+                                            TAG.Alarm,
+                                        ],
                                         "parents": [BRICK.Low_Temperature_Alarm],
                                     },
                                 },
                             },
                         },
                     },
-                }
+                },
             },
             "Smoke_Alarm": {
                 "tags": [TAG.Point, TAG.Smoke, TAG.Alarm],
@@ -171,7 +230,14 @@ alarm_definitions = {
                         "tags": [TAG.Point, TAG.Smoke, TAG.Detected, TAG.Alarm],
                         "subclasses": {
                             "Discharge_Air_Smoke_Detected_Alarm": {
-                                "tags": [TAG.Point, TAG.Discharge, TAG.Air, TAG.Smoke, TAG.Detected, TAG.Alarm],
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Discharge,
+                                    TAG.Air,
+                                    TAG.Smoke,
+                                    TAG.Detected,
+                                    TAG.Alarm,
+                                ],
                                 "parents": [BRICK.Air_Alarm],
                             },
                         },

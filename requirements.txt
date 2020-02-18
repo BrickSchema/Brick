@@ -9,4 +9,7 @@ pytest
 tqdm
 docker
 brickschema
+black
+pre-commit
+flake8
 semver
