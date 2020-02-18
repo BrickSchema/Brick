@@ -9,7 +9,6 @@ import semver
 from tqdm import tqdm
 import rdflib
 from rdflib import Namespace, URIRef, RDF, RDFS, OWL
-from bricksrc.namespaces import BRICK_VERSION
 
 
 def get_root(version):
