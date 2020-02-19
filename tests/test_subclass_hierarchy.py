@@ -2,7 +2,7 @@ import sys
 from rdflib import RDFS, Graph
 
 sys.path.append("..")
-from bricksrc.namespaces import BRICK
+from bricksrc.namespaces import BRICK  # noqa: E402
 
 g = Graph()
 g.parse("Brick.ttl", format="turtle")
@@ -37,4 +37,4 @@ def test_cycles():
         )
         for s, o in res2:
             loops.add("%s -> subClassOf -> %s" % (minify(s), minify(o)))
-    assert not loops, f"Loops found in the class hierarchy!"
+    assert len(loops) == 0, f"Loops found in the class hierarchy!"
