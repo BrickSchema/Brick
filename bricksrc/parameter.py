@@ -542,21 +542,6 @@ parameter_definitions = {
                                         ],
                                     },
                                     "Discharge_Water_Differential_Pressure_Proportional_Band_Parameter": {
-                                        "subclasses": {
-                                            "Discharge_Water_Differential_Pressure_Proportional_Band_Parameter": {
-                                                "tags": [
-                                                    TAG.Point,
-                                                    TAG.Discharge,
-                                                    TAG.Water,
-                                                    TAG.Differential,
-                                                    TAG.Pressure,
-                                                    TAG.Proportional,
-                                                    TAG.Band,
-                                                    TAG.Parameter,
-                                                    TAG.PID,
-                                                ],
-                                            },
-                                        },
                                         "tags": [
                                             TAG.Point,
                                             TAG.Discharge,
@@ -570,21 +555,6 @@ parameter_definitions = {
                                         ],
                                     },
                                     "Supply_Water_Differential_Pressure_Proportional_Band_Parameter": {
-                                        "subclasses": {
-                                            "Discharge_Water_Differential_Pressure_Proportional_Band_Parameter": {
-                                                "tags": [
-                                                    TAG.Point,
-                                                    TAG.Discharge,
-                                                    TAG.Water,
-                                                    TAG.Differential,
-                                                    TAG.Pressure,
-                                                    TAG.Proportional,
-                                                    TAG.Band,
-                                                    TAG.Parameter,
-                                                    TAG.PID,
-                                                ],
-                                            },
-                                        },
                                         "tags": [
                                             TAG.Point,
                                             TAG.Supply,
