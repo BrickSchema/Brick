@@ -83,8 +83,7 @@ The root classes we have defined are:
 - `Location`
 - `Point`
 - `Tag`
-- `Substance`
-- `Quantity`
+- `Measurable` (containing the `Substance` and `Quantity` classes)
 
 ### Relationships
 
