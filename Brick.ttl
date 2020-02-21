@@ -1351,6 +1351,20 @@ brick:Discharge_Water_Differential_Pressure_Integral_Time_Parameter a owl:Class 
         tag:Time,
         tag:Water .
 
+brick:Discharge_Water_Differential_Pressure_Proportional_Band_Parameter a owl:Class ;
+    rdfs:label "Discharge Water Differential Pressure Proportional Band Parameter" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Discharge _:has_Water _:has_Differential _:has_Pressure _:has_Proportional _:has_Band _:has_Parameter _:has_PID ) ],
+        brick:Differential_Pressure_Proportional_Band ;
+    brick:hasAssociatedTag tag:Band,
+        tag:Differential,
+        tag:Discharge,
+        tag:PID,
+        tag:Parameter,
+        tag:Point,
+        tag:Pressure,
+        tag:Proportional,
+        tag:Water .
+
 brick:Discharge_Water_Temperature_Alarm a owl:Class ;
     rdfs:label "Discharge Water Temperature Alarm" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Discharge _:has_Water _:has_Temperature _:has_Alarm ) ],
@@ -4927,6 +4941,20 @@ brick:Supply_Water_Differential_Pressure_Integral_Time_Parameter a owl:Class ;
         tag:Time,
         tag:Water .
 
+brick:Supply_Water_Differential_Pressure_Proportional_Band_Parameter a owl:Class ;
+    rdfs:label "Supply Water Differential Pressure Proportional Band Parameter" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Supply _:has_Water _:has_Differential _:has_Pressure _:has_Proportional _:has_Band _:has_Parameter _:has_PID ) ],
+        brick:Differential_Pressure_Proportional_Band ;
+    brick:hasAssociatedTag tag:Band,
+        tag:Differential,
+        tag:PID,
+        tag:Parameter,
+        tag:Point,
+        tag:Pressure,
+        tag:Proportional,
+        tag:Supply,
+        tag:Water .
+
 brick:Supply_Water_Temperature_Alarm a owl:Class ;
     rdfs:label "Supply Water Temperature Alarm" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Supply _:has_Water _:has_Temperature _:has_Alarm ) ],
@@ -5829,22 +5857,6 @@ brick:Discharge_Water_Differential_Pressure_Deadband_Setpoint a owl:Class ;
         tag:Point,
         tag:Pressure,
         tag:Setpoint,
-        tag:Water .
-
-brick:Discharge_Water_Differential_Pressure_Proportional_Band_Parameter a owl:Class ;
-    rdfs:label "Discharge Water Differential Pressure Proportional Band Parameter" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Discharge _:has_Water _:has_Differential _:has_Pressure _:has_Proportional _:has_Band _:has_Parameter _:has_PID ) ],
-        brick:Differential_Pressure_Proportional_Band,
-        brick:Discharge_Water_Differential_Pressure_Proportional_Band_Parameter,
-        brick:Supply_Water_Differential_Pressure_Proportional_Band_Parameter ;
-    brick:hasAssociatedTag tag:Band,
-        tag:Differential,
-        tag:Discharge,
-        tag:PID,
-        tag:Parameter,
-        tag:Point,
-        tag:Pressure,
-        tag:Proportional,
         tag:Water .
 
 brick:Discharge_Water_Flow_Sensor a owl:Class ;
@@ -6839,20 +6851,6 @@ brick:Supply_Water_Differential_Pressure_Deadband_Setpoint a owl:Class ;
         tag:Point,
         tag:Pressure,
         tag:Setpoint,
-        tag:Supply,
-        tag:Water .
-
-brick:Supply_Water_Differential_Pressure_Proportional_Band_Parameter a owl:Class ;
-    rdfs:label "Supply Water Differential Pressure Proportional Band Parameter" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Supply _:has_Water _:has_Differential _:has_Pressure _:has_Proportional _:has_Band _:has_Parameter _:has_PID ) ],
-        brick:Differential_Pressure_Proportional_Band ;
-    brick:hasAssociatedTag tag:Band,
-        tag:Differential,
-        tag:PID,
-        tag:Parameter,
-        tag:Point,
-        tag:Pressure,
-        tag:Proportional,
         tag:Supply,
         tag:Water .
 
