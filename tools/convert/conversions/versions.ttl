@@ -6,3 +6,5 @@
 version:convertsTo a owl:TransitiveProperty .
 
 "1.0.2" version:convertsTo "1.1" .
+
+"1.0.3" version:convertsTo "1.1" .
