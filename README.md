@@ -69,7 +69,7 @@ We can serialize the expanded form of the graph to disk if we need to use a SPAR
 
 ### Classes
 
-- The Brick class namespace is `https://brickschema.org/schema/1.1.0/Brick#`
+- The Brick class namespace is `https://brickschema.org/schema/1.1/Brick#`
 - Classes belong to `owl:Class` and are arranged into a hierarchy with `rdfs:subClassOf`
 - Equivalent classes (the members of the classes are the same) are related with the `owl:equivalentClass` property
 - Definitions given with `skos:definition`
