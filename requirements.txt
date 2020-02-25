@@ -10,3 +10,7 @@ tqdm
 pyshacl
 docker
 brickschema
+black
+pre-commit
+flake8
+semver

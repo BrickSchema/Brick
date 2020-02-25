@@ -22,8 +22,11 @@ from bricksrc.quantities import quantity_definitions
 from bricksrc.properties import properties
 from bricksrc.tags import tags
 
-logging.basicConfig(format='%(asctime)s,%(msecs)d %(levelname)-8s [%(filename)s:%(lineno)d] %(message)s',
-    datefmt='%Y-%m-%d:%H:%M:%S', level=logging.INFO)
+logging.basicConfig(
+    format="%(asctime)s,%(msecs)d %(levelname)-8s [%(filename)s:%(lineno)d] %(message)s",
+    datefmt="%Y-%m-%d:%H:%M:%S",
+    level=logging.INFO,
+)
 
 G = Graph()
 bind_prefixes(G)
@@ -92,21 +95,23 @@ def add_tags(klass, definition):
         G.add((restriction, A, OWL.Restriction))
         G.add((restriction, OWL.onProperty, BRICK.hasTag))
         G.add((restriction, OWL.hasValue, item))
-        G.add((item, A, BRICK.Tag)) # make sure the tag is declared as such
-        G.add((item, RDFS.label, Literal(item.split('#')[-1]))) # make sure the tag is declared as such
+        G.add((item, A, BRICK.Tag))  # make sure the tag is declared as such
+        G.add(
+            (item, RDFS.label, Literal(item.split("#")[-1]))
+        )  # make sure the tag is declared as such
 
     # tag index
-    tagset = tuple(sorted([item.split('#')[-1] for item in definition]))
+    tagset = tuple(sorted([item.split("#")[-1] for item in definition]))
     tag_lookup[tagset].add(klass)
 
     # if we've already mapped this class, don't map it again
     if klass in intersection_classes:
         return
     if len(all_restrictions) == 1:
-        G.add((klass, RDFS.subClassOf, all_restrictions[0]) )
+        G.add((klass, RDFS.subClassOf, all_restrictions[0]))
     if len(all_restrictions) > 1:
-        G.add((klass, RDFS.subClassOf, equivalent_class) )
-        G.add((equivalent_class, OWL.intersectionOf, list_name) )
+        G.add((klass, RDFS.subClassOf, equivalent_class))
+        G.add((equivalent_class, OWL.intersectionOf, list_name))
         Collection(G, list_name, all_restrictions)
     intersection_classes[klass] = tuple(sorted(definition))
 
@@ -128,14 +133,14 @@ def define_classes(definitions, parent, pun_classes=False):
         # subclass of parent
         G.add((classname, RDFS.subClassOf, parent))
         # add label
-        class_label = classname.split('#')[-1].replace("_", " ")
+        class_label = classname.split("#")[-1].replace("_", " ")
         G.add((classname, RDFS.label, Literal(class_label)))
         if pun_classes:
             G.add((classname, A, classname))
 
         # define mapping to tags if it exists
         # "tags" property is a list of URIs naming Tags
-        taglist = defn.get('tags', [])
+        taglist = defn.get("tags", [])
         assert isinstance(taglist, list)
         if len(taglist) == 0:
             logging.warning(f"Property 'tags' not defined for {classname}")
@@ -143,27 +148,28 @@ def define_classes(definitions, parent, pun_classes=False):
 
         # define mapping to substances + quantities if it exists
         # "substances" property is a list of (predicate, object) pairs
-        substancedef = defn.get('substances', [])
+        substancedef = defn.get("substances", [])
         assert isinstance(substancedef, list)
         add_restriction(classname, substancedef)
 
         # define class structure
         # this is a nested dictionary
-        subclassdef = defn.get('subclasses', {})
+        subclassdef = defn.get("subclasses", {})
         assert isinstance(subclassdef, dict)
         define_classes(subclassdef, classname, pun_classes=pun_classes)
 
         # handle 'parents' subclasses (links outside of tree-based hierarchy)
-        parents = defn.get('parents', [])
+        parents = defn.get("parents", [])
         assert isinstance(parents, list)
         for _parent in parents:
             G.add((classname, RDFS.subClassOf, _parent))
 
         # all other key-value pairs in the definition are
         # property-object pairs
-        expected_properties = ['parents', 'tags', 'substances', 'subclasses']
-        other_properties = [prop for prop in defn.keys()
-                            if prop not in expected_properties]
+        expected_properties = ["parents", "tags", "substances", "subclasses"]
+        other_properties = [
+            prop for prop in defn.keys() if prop not in expected_properties
+        ]
         for propname in other_properties:
             propval = defn[propname]
             G.add((classname, propname, propval))
@@ -188,7 +194,7 @@ def define_properties(definitions, superprop=None):
             G.add((BRICK[prop], A, prop_type))
 
         # define any subproperties
-        subproperties_def = propdefn.get('subproperties', {})
+        subproperties_def = propdefn.get("subproperties", {})
         assert isinstance(subproperties_def, dict)
         define_properties(subproperties_def, BRICK[prop])
 
@@ -196,9 +202,10 @@ def define_properties(definitions, superprop=None):
         for propname, propval in propdefn.items():
             # all other key-value pairs in the definition are
             # property-object pairs
-            expected_properties = ['subproperties', A]
-            other_properties = [prop for prop in propdefn.keys()
-                                if prop not in expected_properties]
+            expected_properties = ["subproperties", A]
+            other_properties = [
+                prop for prop in propdefn.keys() if prop not in expected_properties
+            ]
 
             for propname in other_properties:
                 propval = propdefn[propname]
@@ -215,15 +222,9 @@ G.add((BRICK.Class, A, OWL.Class))
 G.add((BRICK.Tag, A, OWL.Class))
 
 roots = {
-    "Equipment": {
-        "tags": [TAG.Equipment],
-    },
-    "Location": {
-        "tags": [TAG.Location],
-    },
-    "Point": {
-        "tags": [TAG.Point],
-    },
+    "Equipment": {"tags": [TAG.Equipment]},
+    "Location": {"tags": [TAG.Location]},
+    "Point": {"tags": [TAG.Point]},
     "Measurable": {},
 }
 define_classes(roots, BRICK.Class)
@@ -242,7 +243,7 @@ define_classes(command_definitions, BRICK.Point)
 define_classes(parameter_definitions, BRICK.Point)
 
 # make points disjoint
-pointclasses = ['Alarm', 'Status', 'Command', 'Setpoint', 'Sensor', 'Parameter']
+pointclasses = ["Alarm", "Status", "Command", "Setpoint", "Sensor", "Parameter"]
 for pc in pointclasses:
     for o in filter(lambda x: x != pc, pointclasses):
         G.add((BRICK[pc], OWL.disjointWith, BRICK[o]))
@@ -291,4 +292,4 @@ Collection(G, different_tag, different_tag_list)
 
 logging.info(f"Brick ontology compilation finished! Generated {len(G)} triples")
 # serialize to output
-G.serialize('Brick.ttl', format='turtle')
+G.serialize("Brick.ttl", format="turtle")

@@ -69,7 +69,7 @@ We can serialize the expanded form of the graph to disk if we need to use a SPAR
 
 ### Classes
 
-- The Brick class namespace is `https://brickschema.org/schema/1.1.0/Brick#`
+- The Brick class namespace is `https://brickschema.org/schema/1.1/Brick#`
 - Classes belong to `owl:Class` and are arranged into a hierarchy with `rdfs:subClassOf`
 - Equivalent classes (the members of the classes are the same) are related with the `owl:equivalentClass` property
 - Definitions given with `skos:definition`
@@ -83,8 +83,7 @@ The root classes we have defined are:
 - `Location`
 - `Point`
 - `Tag`
-- `Substance`
-- `Quantity`
+- `Measurable` (containing the `Substance` and `Quantity` classes)
 
 ### Relationships
 
@@ -107,14 +106,13 @@ This may be something that needs to be explicitly specified rather than inferred
 
 ### Tags
 
-- Tag ontology namespace is `https://brickschema.org/schema/1.1.0/BrickTag#`
-- We use Haystack tags and define our own set including them
-- Tags should have definitions, but this is not included yet
-- Sets of tags have a 1-1 mapping with a class name
-- definitions given using the `skos:definition` property
+Brick is a "concept-first" ontology, which means that it focuses on modeling the definition and behavior of concepts (equipment, points, locations, and so on) and the relationships between them. This stands in contrast to efforts like Project Haystack, which use combinations of tags (short, atomic words and phrases) to hint at concepts. To facilitate the use of Brick's formal model over existing tag-based models and the use of tag-based "annotations", the Brick v1.1 release includes a mapping between Brick's classes and a set of tags.
 
-The equivalency of a class to a set of tags is accomplished by modeling a Brick class (e.g. `Air_Temperature_Sensor`) a subclass of an anonymous class which is the intersection of entities that have the
-required tags. If we instantiate a class directly, an OWL reasoner will infer the correct tags for that entity
+Like all entities in Brick, tags are URIs with a consistent prefix (namespace); in the case of tags, the namespace is `https://brickschema.org/schema/1.1/BrickTag#`, commonly abbreviated as `tag:`. Examples of tags are `tag:Air`, `tag:Temperature` and `tag:Sensor`. Many of the Brick tags are drawn from Haystack.
+
+The equivalency of a class to a set of tags is accomplished by modeling a Brick class (e.g. `Air_Temperature_Sensor`) a subclass of an anonymous class which is the intersection of entities that have the required tags. If we instantiate a class directly, an OWL reasoner will infer the correct tags for that entity.
+
+Here is the Brick "class-to-tag" mapping definition for the `Temperature_Sensor` class:
 
 ```
 # in turtle format
@@ -129,24 +127,28 @@ brick:Temperature_Sensor a owl:Class ;
                                 owl:hasValue tag:Temperature ;
                                 owl:onProperty brick:hasTag
                             ]
+                            [ a owl:Restriction ;
+                                owl:hasValue tag:Point ;
+                                owl:onProperty brick:hasTag
+                            ]
                         ) ] .
 ```
 
 
 The first `owl:Restriction` is the set of all classes that have `tag:Sensor` as the value for one of their `brick:hasTag` properties.
-
-This means that a temperature sensor `:ts1` could be defined in two different ways and the reasoner would infer the other triples:
-
+Through a reasoning process, all instances of `brick:Temperature_Sensor` will inherit the tag annotations.
 ```
-# using classes
+# input Brick model has an instance of brick:Temperature_Sensor
 :ts1   a   brick:Temperature_Sensor
 
-# using tags
+# the reasoner infers these tags and adds them to the model
 :ts1    brick:hasTag    tag:Temp
 :ts1    brick:hasTag    tag:Sensor
+:ts1    brick:hasTag    tag:Point
 ```
 
-To perform the inference of a class from a set of tags, use the `TagInferenceSession` from the `brickschema` package (this cannot currently be performed by an OWL reasoner)
+
+To perform the inference of a class from a set of tags (the inverse of the process above), use the `TagInferenceSession` from the `brickschema` package (this cannot currently be performed by an OWL reasoner)
 
 For a sample entity modeled with tags:
 
@@ -156,7 +158,7 @@ For a sample entity modeled with tags:
 @prefix tag: <https://brickschema.org/schema/1.1.0/BrickTag#> .
 @prefix bldg: <https://example.org/example#> .
 
-bldg:my_entity  brick:hasTag    tag:Air, tag:Flow, tag:Setpoint .
+bldg:my_entity  brick:hasTag    tag:Air, tag:Flow, tag:Setpoint, tag:Point .
 ```
 
 Load the graph into a `brickschema.Graph` and run the TagInferenceSession:

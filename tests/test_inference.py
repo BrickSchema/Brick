@@ -1,14 +1,15 @@
-import sys
-sys.path.append('..')
-from bricksrc.namespaces import BRICK, TAG, A, SKOS
 from rdflib import RDF, RDFS, OWL, Namespace, Graph
 import brickschema
 from .util import make_readable
+import sys
+
+sys.path.append("..")
+from bricksrc.namespaces import BRICK, TAG, A, SKOS  # noqa: E402
 
 BLDG = Namespace(f"https://brickschema.org/schema/ExampleBuilding#")
 
 g = Graph()
-g.parse('Brick.ttl', format='turtle')
+g.parse("Brick.ttl", format="turtle")
 
 # Instances
 g.add((BLDG.Coil_1, A, BRICK.Heating_Coil))
@@ -54,89 +55,130 @@ g.add((BLDG.co2s1, A, BRICK.CO2_Level_Sensor))
 g.add((BLDG.standalone, A, BRICK.Temperature_Sensor))
 
 # Apply reasoner
-g = brickschema.inference.TagInferenceSession(load_brick=False, approximate=False).expand(g)
+g = brickschema.inference.TagInferenceSession(
+    load_brick=False, approximate=False
+).expand(g)
 g = brickschema.inference.OWLRLInferenceSession(load_brick=False).expand(g)
 
-g.bind('rdf', RDF)
-g.bind('owl', OWL)
-g.bind('rdfs', RDFS)
-g.bind('skos', SKOS)
-g.bind('brick', BRICK)
-g.bind('tag', TAG)
-g.bind('bldg', BLDG)
+g.bind("rdf", RDF)
+g.bind("owl", OWL)
+g.bind("rdfs", RDFS)
+g.bind("skos", SKOS)
+g.bind("brick", BRICK)
+g.bind("tag", TAG)
+g.bind("bldg", BLDG)
 
-s = g.serialize('output.ttl', format='ttl')
-print('expanded:', len(g))
+s = g.serialize("output.ttl", format="ttl")
+print("expanded:", len(g))
 
 
 def test_tag1():
-    res1 = make_readable(g.query("SELECT DISTINCT ?co2tag WHERE {\
+    res1 = make_readable(
+        g.query(
+            "SELECT DISTINCT ?co2tag WHERE {\
                                    bldg:co2s1 brick:hasTag ?co2tag\
-                                  }"))
+                                  }"
+        )
+    )
     assert len(res1) == 4
     res1 = [x[0] for x in res1]
-    assert set(res1) == {'CO2', 'Level', 'Sensor', 'Point'}
+    assert set(res1) == {"CO2", "Level", "Sensor", "Point"}
 
 
 def test_sensors_measure_co2():
     # which sensors measure CO2?
-    res2 = make_readable(g.query("SELECT DISTINCT ?sensor WHERE {\
+    res2 = make_readable(
+        g.query(
+            "SELECT DISTINCT ?sensor WHERE {\
                                     ?sensor brick:measures brick:CO2\
-                                  }"))
+                                  }"
+        )
+    )
     assert len(res2) == 1
 
 
 def test_sensors_measure_air():
     # measure air? use abbreviated form too
-    res3 = make_readable(g.query("SELECT DISTINCT ?sensor WHERE {\
+    res3 = make_readable(
+        g.query(
+            "SELECT DISTINCT ?sensor WHERE {\
                                     ?sensor brick:measures brick:Air\
-                                  }"))
+                                  }"
+        )
+    )
     assert len(res3) == 5
 
 
 def test_sensors_measure_air_temp():
     # sensors that measure air temperature
-    res4 = make_readable(g.query("SELECT DISTINCT ?sensor WHERE {\
+    res4 = make_readable(
+        g.query(
+            "SELECT DISTINCT ?sensor WHERE {\
                                     ?sensor brick:measures brick:Air .\
                                     ?sensor rdf:type brick:Temperature_Sensor\
-                                  }"))
+                                  }"
+        )
+    )
     assert len(res4) == 2
 
 
 def test_air_flow_sensor():
     # air flow sensors
-    res = make_readable(g.query("SELECT DISTINCT ?sensor WHERE {\
+    res = make_readable(
+        g.query(
+            "SELECT DISTINCT ?sensor WHERE {\
                                     ?sensor rdf:type brick:Air_Flow_Sensor\
-                                 }"))
+                                 }"
+        )
+    )
     assert len(res) == 2
 
 
 def test_air_flow_sp():
     # air flow setpoints
-    res = make_readable(g.query("SELECT DISTINCT ?sp WHERE {\
+    res = make_readable(
+        g.query(
+            "SELECT DISTINCT ?sp WHERE {\
                                     ?sp rdf:type brick:Air_Flow_Setpoint\
-                                 }"))
+                                 }"
+        )
+    )
     assert len(res) == 1
+
 
 def test_sp():
     # setpoints
-    res = make_readable(g.query("SELECT DISTINCT ?sp WHERE {\
+    res = make_readable(
+        g.query(
+            "SELECT DISTINCT ?sp WHERE {\
                                     ?sp rdf:type brick:Setpoint\
-                                 }"))
+                                 }"
+        )
+    )
     assert len(res) == 1
+
 
 def test_max_air_flow_sp():
     # air flow setpoints
-    res = make_readable(g.query("SELECT DISTINCT ?sp WHERE {\
+    res = make_readable(
+        g.query(
+            "SELECT DISTINCT ?sp WHERE {\
                                     ?sp rdf:type brick:Max_Air_Flow_Setpoint_Limit\
-                                 }"))
+                                 }"
+        )
+    )
     assert len(res) == 1
+
 
 def test_air_flow_sensor2():
     # air flow sensors
-    res = make_readable(g.query("SELECT DISTINCT ?sensor WHERE {\
+    res = make_readable(
+        g.query(
+            "SELECT DISTINCT ?sensor WHERE {\
                                     ?sensor brick:hasTag tag:Air .\
                                     ?sensor brick:hasTag tag:Sensor .\
                                     ?sensor brick:hasTag tag:Flow\
-                                 }"))
+                                 }"
+        )
+    )
     assert len(res) == 2

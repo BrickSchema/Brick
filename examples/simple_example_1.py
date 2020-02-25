@@ -1,5 +1,3 @@
-#! /usr/bin/python3
-
 from rdflib import RDF, RDFS, OWL, Namespace, Graph
 
 """
@@ -72,9 +70,9 @@ predicate is how we create "instances" of Brick classes.
 """
 
 # (subject, predicate, object)
-g.add( (BLDG.AHU1A, RDF.type, BRICK.Air_Handler_Unit) )
+g.add((BLDG.AHU1A, RDF.type, BRICK.Air_Handler_Unit))
 # you can use "quotes" to name entities as well
-g.add( (BLDG["VAV2-3"], RDF.type, BRICK.Variable_Air_Volume_Box) )
+g.add((BLDG["VAV2-3"], RDF.type, BRICK.Variable_Air_Volume_Box))
 
 
 """
@@ -82,7 +80,7 @@ We can also add relationships between entities in our Brick model. The
 BRICK.feeds relationship indicates a sequence between two pieces of equipment
 """
 
-g.add( (BLDG.AHU1A, BRICK.feeds, BLDG.VAV2_3) )
+g.add((BLDG.AHU1A, BRICK.feeds, BLDG.VAV2_3))
 
 """
 Let's add a few more entities so the graph is more interesting. We will
@@ -91,34 +89,34 @@ brickschema.org
 """
 
 # declare entities first
-g.add( (BLDG["VAV2-4"], RDF.type, BRICK.Variable_Air_Volume_Box) )
-g.add( (BLDG["VAV2-4.DPR"], RDF.type, BRICK.Damper) )
-g.add( (BLDG["VAV2-4.DPRPOS"], RDF.type, BRICK.Damper_Position_Setpoint) )
-g.add( (BLDG["VAV2-4.ZN_T"], RDF.type, BRICK.Supply_Air_Temperature_Sensor) )
-g.add( (BLDG["VAV2-4.SUPFLOW"], RDF.type, BRICK.Supply_Air_Flow_Sensor) )
-g.add( (BLDG["VAV2-4.SUPFLSP"], RDF.type, BRICK.Supply_Air_Flow_Setpoint) )
-g.add( (BLDG["VAV2-3Zone"], RDF.type, BRICK.HVAC_Zone) )
-g.add( (BLDG["Room-410"], RDF.type, BRICK.Room) )
-g.add( (BLDG["Room-411"], RDF.type, BRICK.Room) )
-g.add( (BLDG["Room-412"], RDF.type, BRICK.Room) )
+g.add((BLDG["VAV2-4"], RDF.type, BRICK.Variable_Air_Volume_Box))
+g.add((BLDG["VAV2-4.DPR"], RDF.type, BRICK.Damper))
+g.add((BLDG["VAV2-4.DPRPOS"], RDF.type, BRICK.Damper_Position_Setpoint))
+g.add((BLDG["VAV2-4.ZN_T"], RDF.type, BRICK.Supply_Air_Temperature_Sensor))
+g.add((BLDG["VAV2-4.SUPFLOW"], RDF.type, BRICK.Supply_Air_Flow_Sensor))
+g.add((BLDG["VAV2-4.SUPFLSP"], RDF.type, BRICK.Supply_Air_Flow_Setpoint))
+g.add((BLDG["VAV2-3Zone"], RDF.type, BRICK.HVAC_Zone))
+g.add((BLDG["Room-410"], RDF.type, BRICK.Room))
+g.add((BLDG["Room-411"], RDF.type, BRICK.Room))
+g.add((BLDG["Room-412"], RDF.type, BRICK.Room))
 
 # declare edges
-g.add( (BLDG["AHU1A"], BRICK.feeds, BLDG["VAV2-4"]) )
-g.add( (BLDG["VAV2-4"], BRICK.hasPart, BLDG["VAV2-4.DPR"]) )
-g.add( (BLDG["VAV2-4.DPR"], BRICK.hasPoint, BLDG["VAV2-4.DPRPOS"]) )
-g.add( (BLDG["VAV2-4"], BRICK.hasPoint, BLDG["VAV2-4.SUPFLOW"]) )
-g.add( (BLDG["VAV2-4"], BRICK.hasPoint, BLDG["VAV2-4.SUPFLSP"]) )
-g.add( (BLDG["VAV2-3"], BRICK.feeds, BLDG["VAV2-3Zone"]) )
-g.add( (BLDG["VAV2-3Zone"], BRICK.hasPart, BLDG["Room-410"]) )
-g.add( (BLDG["VAV2-3Zone"], BRICK.hasPart, BLDG["Room-411"]) )
-g.add( (BLDG["VAV2-3Zone"], BRICK.hasPart, BLDG["Room-412"]) )
+g.add((BLDG["AHU1A"], BRICK.feeds, BLDG["VAV2-4"]))
+g.add((BLDG["VAV2-4"], BRICK.hasPart, BLDG["VAV2-4.DPR"]))
+g.add((BLDG["VAV2-4.DPR"], BRICK.hasPoint, BLDG["VAV2-4.DPRPOS"]))
+g.add((BLDG["VAV2-4"], BRICK.hasPoint, BLDG["VAV2-4.SUPFLOW"]))
+g.add((BLDG["VAV2-4"], BRICK.hasPoint, BLDG["VAV2-4.SUPFLSP"]))
+g.add((BLDG["VAV2-3"], BRICK.feeds, BLDG["VAV2-3Zone"]))
+g.add((BLDG["VAV2-3Zone"], BRICK.hasPart, BLDG["Room-410"]))
+g.add((BLDG["VAV2-3Zone"], BRICK.hasPart, BLDG["Room-411"]))
+g.add((BLDG["VAV2-3Zone"], BRICK.hasPart, BLDG["Room-412"]))
 
 """
 We can "serialize" this model to a file if we want to load it into another program.
 """
-with open('sample_graph.ttl', 'wb') as f:
+with open("sample_graph.ttl", "wb") as f:
     # the Turtle format strikes a balance beteween being compact and easy to read
-    f.write(g.serialize(format='ttl'))
+    f.write(g.serialize(format="ttl"))
 
 
 """
@@ -136,10 +134,11 @@ can help with:
 To understand what the Brick schema definition can give us, lets try finding
 what kinds of air temperature sensors we have in our Brick model.
 """
-
-sensors = g.query("""SELECT ?sensor WHERE {
+sensors = g.query(
+    """SELECT ?sensor WHERE {
     ?sensor rdf:type/rdfs:subClassOf* brick:Air_Temperature_Sensor
-}""")
+}"""
+)
 
 """
 This query uses the definition of the Brick class structure to find what
@@ -167,9 +166,11 @@ g.parse("Brick.ttl", format="ttl")
 Now our query should execute and return one result (BLDG.VAV2-4.ZN-T)
 """
 
-sensors = g.query("""SELECT ?sensor WHERE {
+sensors = g.query(
+    """SELECT ?sensor WHERE {
     ?sensor rdf:type brick:Supply_Air_Temperature_Sensor
-}""")
+}"""
+)
 assert len(sensors) == 1
 
 
@@ -184,11 +185,11 @@ new classes to "attach" them to existing classes in the Brick class structure th
 RDFS.subClassOf relationship. Here's the triples we need to define a new class:
 """
 
-g.add( (BRICK.Fire_Zone, RDF.type, OWL.Class) )
+g.add((BRICK.Fire_Zone, RDF.type, OWL.Class))
 # We can make Fire Zone a subclass of the more generic "Location" class.
 # It is easy to change this later.
-g.add( (BRICK.Fire_Zone, RDFS.subClassOf, BRICK.Location) )
+g.add((BRICK.Fire_Zone, RDFS.subClassOf, BRICK.Location))
 
 # now we can use our new class
-g.add( (BLDG.FZ1, RDF.type, BRICK.Fire_Zone) )
-g.add( (BLDG.FZ1, BRICK.hasPart, BLDG["Room-410"]) )
+g.add((BLDG.FZ1, RDF.type, BRICK.Fire_Zone))
+g.add((BLDG.FZ1, BRICK.hasPart, BLDG["Room-410"]))
