@@ -8,7 +8,7 @@ this document we are specifically looking at writing SHACL shapes for validating
 SHACL shapes for Brick should validate the following:
 
 - validating endpoints of Brick relationships (properties):
-  - check type of subject/object: are the `brick:expectedDomain` and `brick:expectedRange` properties respected?
+  - check type of subject/object: are the `brick:domain` and `brick:range` properties respected?
   - cardinality checks: with varying severity
     - floors without rooms
     - equipment missing certain points (e.g. thermostat should have a temperature sensor, at least one setpoint)
@@ -21,15 +21,13 @@ SHACL shapes for Brick should validate the following:
   - equipment along a chain of `brick:feeds` should all operate on the same substance
   - proper relationships exist between equipment: e.g. thermostat should have `controls` relationship to RTU
 
-## Getting Started
+## Use SHACL to validate Brick ontology
 
-Install [`pyshacl`](https://github.com/RDFLib/pySHACL) from pip.  Run
- `./validate.sh <building graph file>` to
-* generate ontology file Brick.ttl
-* generate shapes grapph shacl_test.ttl
-* execute a wrapper of the `pyshacl` tool to validate the building graph and report violations
+The `generate_shacl.py` generates `BrickShape.ttl` which contains the basic shapes for the Brick Schema.
 
-As an example, try `./validate.sh sample_graph.ttl`.
+In [`brickschema`](https://github.com/BrickSchema/py-brickschema) package the `validate` sub-module
+provides an API and a command line tool for validating a building ontology.  In addtion to the default
+`BrickShape.ttl`, the user can add their only constraints into the validation.
 
 ## Brick SHACL shapes
 
@@ -49,13 +47,13 @@ For example, the definition of `brick:hasLocation` is
   "hasLocation": {
     A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
     OWL.inverseOf: "isLocationOf",
-    BRICK.expectedRange: BRICK.Location,
+    BRICK.range: BRICK.Location,
     SKOS.definition: Literal("Subject is physically located in the location given by the object"),
   },
 }
 ```
 
-This definition informs the following Shape for the `brick:expectedRange` property
+This definition informs the following Shape for the `brick:range` property
 
 ```ttl
 @prefix bsh: <https://brickschema.org/schema/{BRICK_VERSION}/BrickShape#>
@@ -77,13 +75,20 @@ For example, the `feedsAir` subproperty should require that all equipments on it
 have the `brick:regulates brick:Air` property.
 
 We can model this by requiring that all subjects of the `brick:feedsAir`
-property have the `brick:Air` value for either a `brick:requlates` or `brick:measures` property.
+property have the `brick:Air` value for either a `brick:requlates`, `brick:hasInputSubstance`
+or `brick:hasOutputSubstance` property.
 
 ```ttl
-bsh:feedsAirMeasuresShape a sh:NodeShape ;
+bsh:feedsAirHasInputSubstanceShape a sh:NodeShape ;
     sh:property [ sh:class brick:Air ;
             sh:message "Subject of property feedsAir has object with incorrect type" ;
-            sh:path brick:measures ] ;
+            sh:path brick:hasInputSubstance ] ;
+    sh:targetSubjectsOf brick:feedsAir .
+
+bsh:feedsAirHasOutputSubstanceShape a sh:NodeShape ;
+    sh:property [ sh:class brick:Air ;
+            sh:message "Subject of property feedsAir has object with incorrect type" ;
+            sh:path brick:hasOutputSubstance ] ;
     sh:targetSubjectsOf brick:feedsAir .
 
 bsh:feedsAirRegulatesShape a sh:NodeShape ;

@@ -17,17 +17,6 @@ domainShapeDict = {}
 rangeShapeDict = {}
 subpropertyDict = {}
 
-namespaceDict = {}
-def buildNamespaceDict(g):
-    for (prefix, path) in g.namespaces():
-        assert (prefix not in namespaceDict) or \
-            (Namespace(path) == namespaceDict[prefix]), \
-            "Same prefix \'%s\' used for %s and %s" % \
-            (prefix, namespaceDict[prefix], path)
-
-        if prefix not in namespaceDict:
-            namespaceDict[prefix] = Namespace(path)
-
 # Make shape for expectedDomain property
 def addDomainShape(propertyName, expectedType):
     domainShapeDict[propertyName] = expectedType
@@ -51,24 +40,6 @@ def addRangeShape(propertyName, expectedType):
     G.add((BSH[shapename], SH.targetSubjectsOf, BRICK[propertyName]))
     G.add((sh_prop, SH['message'],
            Literal(f"Property {propertyName} has object with incorrect type")))
-
-
-brickG = Graph()
-brickG.parse('Brick.ttl', format='turtle')
-buildNamespaceDict(brickG)
-'''
-res = brickG.query('SELECT ?s ?p ?o  WHERE { ?s rdfs:domain ?o . }',
-                   initNs=namespaceDict)
-print(len(res))
-for (s, p, o) in res:
-    print(s, p, o)
-'''
-brickG.update('DELETE { ?s rdfs:domain ?o .} WHERE { ?s rdfs:domain ?o . }',
-              initNs=namespaceDict)
-brickG.update('DELETE { ?s rdfs:range ?o .} WHERE { ?s rdfs:range ?o . }',
-              initNs=namespaceDict)
-with open('ModifiedBrick.ttl', 'wb') as f:
-    f.write(brickG.serialize(format='ttl'))
 
 for name, properties in property_definitions.items():
     for pred, obj in properties.items():
@@ -122,5 +93,5 @@ for subprop, desc in subpropertyDict.items():
             Literal(f"Subject of property {subprop} has object with incorrect type")))
             G.add((BSH[shapename], SH.targetSubjectsOf, BRICK[subprop]))
 
-with open('shacl_test.ttl', 'wb') as f:
+with open('BrickShape.ttl', 'wb') as f:
     f.write(G.serialize(format='ttl'))
