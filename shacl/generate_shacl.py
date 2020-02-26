@@ -83,7 +83,7 @@ for subprop, desc in subpropertyDict.items():
     for propertyName, expectedType in rangeShapeDict.items():
         if expectedType == subpropInfo['substanceSuperType']:
             sh_prop = BNode()
-            capitalized = '%s%s' % (propertyName[0].upper(), propertyName[1:])
+            capitalized = f"{propertyName[0].upper()}{propertyName[1:]}"
             shapename = f"feedsAir{capitalized}Shape"
             G.add((BSH[shapename], SH['property'], sh_prop))
             G.add((BSH[shapename], A, SH.NodeShape))
