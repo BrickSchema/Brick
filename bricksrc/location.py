@@ -13,6 +13,7 @@ location_subclasses = {
         },
     },
     "Outside": {"tags": [TAG.Outside, TAG.Location]},
+    "Site": {"tags": [TAG.Site, TAG.Location]},
     "Wing": {"tags": [TAG.Wing, TAG.Location]},
     "Space": {
         "tags": [TAG.Space, TAG.Location],
