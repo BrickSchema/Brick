@@ -5,9 +5,13 @@ Location class structure
 """
 location_subclasses = {
     "Building": {"tags": [TAG.Site]},
-    "Floor": {"tags": [TAG.Floor, TAG.Location]},
-    "Roof": {"tags": [TAG.Roof, TAG.Location]},
-    "Basement": {"tags": [TAG.Basement, TAG.Location]},
+    "Floor": {
+        "tags": [TAG.Floor, TAG.Location],
+        "subclasses": {
+            "Basement": {"tags": [TAG.Basement, TAG.Location, TAG.Floor]},
+            "Roof": {"tags": [TAG.Roof, TAG.Location, TAG.Floor]},
+        },
+    },
     "Outside": {"tags": [TAG.Outside, TAG.Location]},
     "City": {"tags": [TAG.City, TAG.Location]},
     "Wing": {"tags": [TAG.Wing, TAG.Location]},
