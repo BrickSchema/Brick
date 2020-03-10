@@ -178,6 +178,37 @@ equipment_subclasses = {
         },
     },
     "Elevator": {"tags": [TAG.Elevator, TAG.Equipment]},
+    "Security_Device": {
+        "tags": [TAG.Equipment, TAG.Security, TAG.Safety],
+        "subclasses": {
+            "Camera": {"tags": [TAG.Equipment, TAG.Security, TAG.Safety, TAG.Camera]},
+            "NVR": {
+                "tags": [TAG.Equipment, TAG.Security, TAG.Safety, TAG.NVR],
+                SKOS.definition: Literal("A Network Video Recorder."),
+            },
+            "AED": {
+                "tags": [
+                    TAG.Equipment,
+                    TAG.Security,
+                    TAG.Safety,
+                    TAG.AED,
+                    TAG.Defibrillator,
+                ],
+                SKOS.definition: Literal(
+                    "Automated External Defibrillator. Used by trained people to help those experiencing cardiac issues."
+                ),
+            },
+            "Access_Reader": {
+                "tags": [
+                    TAG.Equipment,
+                    TAG.Security,
+                    TAG.Safety,
+                    TAG.Access,
+                    TAG.Reader,
+                ]
+            },
+        },
+    },
 }
 
 
