@@ -10,29 +10,13 @@ g = Graph()
 g.parse('shacl/BrickShape.ttl', format='turtle')
 bind_prefixes(g)
 
-namespaceDict = {
-    str(RDFS):'rdfs',
-    str(BRICK): 'brick',
-    str(OWL): 'owl',
-    str(SH): 'sh',
-    str(BSH):'bsh'
-}
-
-for (path, prefix) in namespaceDict.items():
-    print(prefix, path)
-
-def prefixed(node):
-    (ns, term) = node.split('#')
-    ns += '#'
-    return f"{namespaceDict[ns]}:{term}"
-
 def test_domainProperties():
     for (name, props) in properties.items():
         if RDFS.domain in props:
             q = f"""SELECT $shape WHERE {{
             ?shape a sh:NodeShape .
             ?shape sh:targetSubjectsOf brick:{name} .
-            ?shape sh:class {prefixed(props[RDFS.domain])} . }}
+            ?shape sh:class <{props[RDFS.domain]}> . }}
             """
             res = make_readable(
                 g.query(q)
@@ -46,7 +30,7 @@ def test_rangeProperties():
             q = f"""SELECT $shape WHERE {{
             ?shape a sh:NodeShape .
             ?shape sh:property [
-            sh:class {prefixed(props[RDFS.range])} ;
+            sh:class <{props[RDFS.range]}> ;
             sh:path brick:{name} ;
             ] }}
             """
