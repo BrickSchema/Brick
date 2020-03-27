@@ -610,7 +610,7 @@ security_subclasses = {
                 ),
             },
             "Video_Intercom": {
-                "tags": [TAG.Equipment, TAG.Security, TAG.Intercom, TAG.Video,],
+                "tags": [TAG.Equipment, TAG.Security, TAG.Intercom, TAG.Video],
                 SKOS.definition: Literal(
                     "An intercom device that has video capabilites as well as voice capabilities"
                 ),
