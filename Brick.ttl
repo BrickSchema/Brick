@@ -1,9 +1,11 @@
 @prefix brick: <https://brickschema.org/schema/1.1/Brick#> .
+@prefix bsh: <https://brickschema.org/schema/1.1/BrickShape#> .
 @prefix dcterms: <http://purl.org/dc/terms#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix sdo: <http://schema.org#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix sosa: <http://www.w3.org/ns/sosa#> .
 @prefix tag: <https://brickschema.org/schema/1.1/BrickTag#> .
@@ -1613,17 +1615,6 @@ brick:Emergency_Power_Off_Activated_By_Leak_Detection_System_Status a owl:Class 
         tag:Power,
         tag:Status .
 
-brick:Emergency_Power_Off_Enable_Status a owl:Class ;
-    rdfs:label "Emergency Power Off Enable Status" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Emergency _:has_Power _:has_Off _:has_Enable _:has_Status ) ],
-        brick:Emergency_Power_Off_Status ;
-    brick:hasAssociatedTag tag:Emergency,
-        tag:Enable,
-        tag:Off,
-        tag:Point,
-        tag:Power,
-        tag:Status .
-
 brick:Emergency_Power_Off_System a owl:Class ;
     rdfs:label "Emergency Power Off System" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Emergency _:has_Power _:has_Off _:has_Equipment ) ],
@@ -1635,14 +1626,15 @@ brick:Emergency_Power_Off_System a owl:Class ;
 
 brick:Emergency_Power_Off_System_Enable_Status a owl:Class ;
     rdfs:label "Emergency Power Off System Enable Status" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Emergency _:has_Power _:has_Off _:has_Enable _:has_Status ) ],
-        brick:Emergency_Power_Off_Status ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Emergency _:has_Power _:has_Off _:has_System _:has_Enable _:has_Status ) ],
+        brick:Emergency_Power_Off_Enable_Status ;
     brick:hasAssociatedTag tag:Emergency,
         tag:Enable,
         tag:Off,
         tag:Point,
         tag:Power,
-        tag:Status .
+        tag:Status,
+        tag:System .
 
 brick:Emergency_Push_Button_Status a owl:Class ;
     rdfs:label "Emergency Push Button Status" ;
@@ -3066,6 +3058,17 @@ brick:Max_Discharge_Air_Static_Pressure_Setpoint_Limit a owl:Class ;
         tag:Setpoint,
         tag:Static .
 
+brick:Max_Discharge_Air_Temperature_Setpoint a owl:Class ;
+    rdfs:label "Max Discharge Air Temperature Setpoint" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Discharge _:has_Air _:has_Temperature _:has_Max _:has_Setpoint ) ],
+        brick:Discharge_Air_Temperature_Setpoint ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Discharge,
+        tag:Max,
+        tag:Point,
+        tag:Setpoint,
+        tag:Temperature .
+
 brick:Max_Discharge_Air_Temperature_Setpoint_Limit a owl:Class ;
     rdfs:label "Max Discharge Air Temperature Setpoint Limit" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Max _:has_Discharge _:has_Air _:has_Temperature _:has_Limit _:has_Setpoint ) ],
@@ -3462,6 +3465,17 @@ brick:Min_Discharge_Air_Static_Pressure_Setpoint_Limit a owl:Class ;
         tag:Pressure,
         tag:Setpoint,
         tag:Static .
+
+brick:Min_Discharge_Air_Temperature_Setpoint a owl:Class ;
+    rdfs:label "Min Discharge Air Temperature Setpoint" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Discharge _:has_Air _:has_Temperature _:has_Min _:has_Setpoint ) ],
+        brick:Discharge_Air_Temperature_Setpoint ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Discharge,
+        tag:Min,
+        tag:Point,
+        tag:Setpoint,
+        tag:Temperature .
 
 brick:Min_Discharge_Air_Temperature_Setpoint_Limit a owl:Class ;
     rdfs:label "Min Discharge Air Temperature Setpoint Limit" ;
@@ -5811,7 +5825,6 @@ brick:Discharge_Air_Temperature_Cooling_Setpoint a owl:Class ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Discharge _:has_Air _:has_Temperature _:has_Cool _:has_Setpoint ) ],
         brick:Cooling_Temperature_Setpoint,
         brick:Discharge_Air_Temperature_Setpoint ;
-    owl:equivalentClass brick:Max_Discharge_Air_Temperature_Setpoint ;
     brick:hasAssociatedTag tag:Air,
         tag:Cool,
         tag:Discharge,
@@ -5824,7 +5837,6 @@ brick:Discharge_Air_Temperature_Heating_Setpoint a owl:Class ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Discharge _:has_Air _:has_Temperature _:has_Heat _:has_Setpoint ) ],
         brick:Discharge_Air_Temperature_Setpoint,
         brick:Heating_Temperature_Setpoint ;
-    owl:equivalentClass brick:Min_Discharge_Air_Temperature_Setpoint ;
     brick:hasAssociatedTag tag:Air,
         tag:Discharge,
         tag:Heat,
@@ -5922,6 +5934,17 @@ brick:Electrical_Meter a owl:Class ;
     brick:hasAssociatedTag tag:Electrical,
         tag:Equipment,
         tag:Meter .
+
+brick:Emergency_Power_Off_Enable_Status a owl:Class ;
+    rdfs:label "Emergency Power Off Enable Status" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Emergency _:has_Power _:has_Off _:has_Enable _:has_Status ) ],
+        brick:Emergency_Power_Off_Status ;
+    brick:hasAssociatedTag tag:Emergency,
+        tag:Enable,
+        tag:Off,
+        tag:Point,
+        tag:Power,
+        tag:Status .
 
 brick:Energy_Storage a owl:Class ;
     rdfs:label "Energy Storage" ;
@@ -6418,17 +6441,6 @@ brick:Makeup_Water a owl:Class,
         tag:Makeup,
         tag:Water .
 
-brick:Max_Discharge_Air_Temperature_Setpoint a owl:Class ;
-    rdfs:label "Max Discharge Air Temperature Setpoint" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Discharge _:has_Air _:has_Temperature _:has_Max _:has_Setpoint ) ],
-        brick:Discharge_Air_Temperature_Setpoint ;
-    brick:hasAssociatedTag tag:Air,
-        tag:Discharge,
-        tag:Max,
-        tag:Point,
-        tag:Setpoint,
-        tag:Temperature .
-
 brick:Max_Temperature_Setpoint_Limit a owl:Class ;
     rdfs:label "Max Temperature Setpoint Limit" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Max _:has_Temperature _:has_Limit _:has_Setpoint ) ],
@@ -6451,17 +6463,6 @@ brick:Medium_Temperature_Hot_Water_Differential_Pressure_Load_Shed_Status a owl:
         tag:Pressure,
         tag:Shed,
         tag:Status,
-        tag:Temperature .
-
-brick:Min_Discharge_Air_Temperature_Setpoint a owl:Class ;
-    rdfs:label "Min Discharge Air Temperature Setpoint" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Discharge _:has_Air _:has_Temperature _:has_Min _:has_Setpoint ) ],
-        brick:Discharge_Air_Temperature_Setpoint ;
-    brick:hasAssociatedTag tag:Air,
-        tag:Discharge,
-        tag:Min,
-        tag:Point,
-        tag:Setpoint,
         tag:Temperature .
 
 brick:Min_Temperature_Setpoint_Limit a owl:Class ;
@@ -8550,6 +8551,17 @@ brick:Electrical_Power_Sensor a owl:Class ;
         tag:Power,
         tag:Sensor .
 
+brick:Emergency_Power_Off_Status a owl:Class ;
+    rdfs:label "Emergency Power Off Status" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Emergency _:has_Power _:has_Off _:has_Status ) ],
+        brick:Off_Status,
+        brick:Status ;
+    brick:hasAssociatedTag tag:Emergency,
+        tag:Off,
+        tag:Point,
+        tag:Power,
+        tag:Status .
+
 brick:Energy_Usage_Sensor a owl:Class ;
     rdfs:label "Energy Usage Sensor" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Sensor _:has_Energy _:has_Usage ) ],
@@ -9257,17 +9269,6 @@ brick:Electrical_System a owl:Class ;
         brick:Equipment ;
     brick:hasAssociatedTag tag:Electrical,
         tag:System .
-
-brick:Emergency_Power_Off_Status a owl:Class ;
-    rdfs:label "Emergency Power Off Status" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Emergency _:has_Power _:has_Off _:has_Status ) ],
-        brick:Off_Status,
-        brick:Status ;
-    brick:hasAssociatedTag tag:Emergency,
-        tag:Off,
-        tag:Point,
-        tag:Power,
-        tag:Status .
 
 brick:Energy a owl:Class,
         brick:Energy ;
@@ -10116,9 +10117,6 @@ tag:Demand a brick:Tag ;
 tag:Mode a brick:Tag ;
     rdfs:label "Mode" .
 
-tag:System a brick:Tag ;
-    rdfs:label "System" .
-
 tag:Valve a brick:Tag ;
     rdfs:label "Valve" .
 
@@ -10132,6 +10130,9 @@ brick:Flow a owl:Class,
         brick:Flow ;
     rdfs:label "Flow" ;
     rdfs:subClassOf brick:Quantity .
+
+tag:System a brick:Tag ;
+    rdfs:label "System" .
 
 brick:Water a owl:Class,
         brick:Water ;
