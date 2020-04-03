@@ -1,4 +1,4 @@
-from .namespaces import TAG
+from .namespaces import BRICK, TAG, OWL, SKOS
 
 """
 Location class structure
@@ -11,6 +11,7 @@ location_subclasses = {
             "Basement": {"tags": [TAG.Basement, TAG.Location, TAG.Floor]},
             "Roof": {"tags": [TAG.Roof, TAG.Location, TAG.Floor]},
         },
+        OWL.equivalentClass: BRICK["Storey"],
     },
     "Outside": {"tags": [TAG.Outside, TAG.Location]},
     "Site": {"tags": [TAG.Site, TAG.Location]},
