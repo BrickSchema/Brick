@@ -1,3 +1,5 @@
+from rdflib import Literal
+
 from .namespaces import BRICK, TAG, OWL, SKOS
 
 """
@@ -15,7 +17,12 @@ location_subclasses = {
     },
     "Roof": {"tags": [TAG.Roof, TAG.Location]},
     "Outside": {"tags": [TAG.Outside, TAG.Location]},
-    "Site": {"tags": [TAG.Site, TAG.Location]},
+    "Site": {
+        "tags": [TAG.Site, TAG.Location],
+        SKOS.definition: Literal(
+            "A site is a geographic region used to describe the scope of a project. A project may or may not include built structures"
+        ),
+    },
     "Wing": {"tags": [TAG.Wing, TAG.Location]},
     "Space": {
         "tags": [TAG.Space, TAG.Location],
