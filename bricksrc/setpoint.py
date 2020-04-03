@@ -1,4 +1,4 @@
-from .namespaces import TAG, BRICK, OWL, SKOS
+from .namespaces import TAG, BRICK, SKOS
 from rdflib import Literal
 
 setpoint_definitions = {
@@ -1120,9 +1120,6 @@ setpoint_definitions = {
                                 ],
                                 "subclasses": {
                                     "Discharge_Air_Temperature_Heating_Setpoint": {
-                                        OWL.equivalentClass: BRICK[
-                                            "Min_Discharge_Air_Temperature_Setpoint"
-                                        ],
                                         "parents": [BRICK.Heating_Temperature_Setpoint],
                                         "tags": [
                                             TAG.Point,
@@ -1154,9 +1151,6 @@ setpoint_definitions = {
                                         ],
                                     },
                                     "Discharge_Air_Temperature_Cooling_Setpoint": {
-                                        OWL.equivalentClass: BRICK[
-                                            "Max_Discharge_Air_Temperature_Setpoint"
-                                        ],
                                         "parents": [BRICK.Cooling_Temperature_Setpoint],
                                         "tags": [
                                             TAG.Point,
