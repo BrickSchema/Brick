@@ -12,72 +12,144 @@
       "query": "DELETE{ ?subject brickframe:controls ?object . } INSERT{ ?subject brick:controls ?object . } WHERE { ?subject brickframe:controls ?object . }"
     },
     {
+      "description": "controls => controls",
+      "query": "DELETE{ ?subject ?predicate brickframe:controls . } INSERT{ ?subject ?predicate brick:controls . } WHERE { ?subject  ?predicate  brickframe:controls . }"
+    },
+    {
       "description": "feeds => feeds",
       "query": "DELETE{ ?subject brickframe:feeds ?object . } INSERT{ ?subject brick:feeds ?object . } WHERE { ?subject brickframe:feeds ?object . }"
+    },
+    {
+      "description": "feeds => feeds",
+      "query": "DELETE{ ?subject ?predicate brickframe:feeds . } INSERT{ ?subject ?predicate brick:feeds . } WHERE { ?subject  ?predicate  brickframe:feeds . }"
     },
     {
       "description": "hasInput => hasInputSubstance",
       "query": "DELETE{ ?subject brickframe:hasInput ?object . } INSERT{ ?subject brick:hasInputSubstance ?object . } WHERE { ?subject brickframe:hasInput ?object . }"
     },
     {
+      "description": "hasInput => hasInputSubstance",
+      "query": "DELETE{ ?subject ?predicate brickframe:hasInput . } INSERT{ ?subject ?predicate brick:hasInputSubstance . } WHERE { ?subject  ?predicate  brickframe:hasInput . }"
+    },
+    {
       "description": "hasMeasurement => measures",
       "query": "DELETE{ ?subject brickframe:hasMeasurement ?object . } INSERT{ ?subject brick:measures ?object . } WHERE { ?subject brickframe:hasMeasurement ?object . }"
+    },
+    {
+      "description": "hasMeasurement => measures",
+      "query": "DELETE{ ?subject ?predicate brickframe:hasMeasurement . } INSERT{ ?subject ?predicate brick:measures . } WHERE { ?subject  ?predicate  brickframe:hasMeasurement . }"
     },
     {
       "description": "hasOutput => hasOutputSubstance",
       "query": "DELETE{ ?subject brickframe:hasOutput ?object . } INSERT{ ?subject brick:hasOutputSubstance ?object . } WHERE { ?subject brickframe:hasOutput ?object . }"
     },
     {
+      "description": "hasOutput => hasOutputSubstance",
+      "query": "DELETE{ ?subject ?predicate brickframe:hasOutput . } INSERT{ ?subject ?predicate brick:hasOutputSubstance . } WHERE { ?subject  ?predicate  brickframe:hasOutput . }"
+    },
+    {
       "description": "hasPart => hasPart",
       "query": "DELETE{ ?subject brickframe:hasPart ?object . } INSERT{ ?subject brick:hasPart ?object . } WHERE { ?subject brickframe:hasPart ?object . }"
+    },
+    {
+      "description": "hasPart => hasPart",
+      "query": "DELETE{ ?subject ?predicate brickframe:hasPart . } INSERT{ ?subject ?predicate brick:hasPart . } WHERE { ?subject  ?predicate  brickframe:hasPart . }"
     },
     {
       "description": "hasPoint => hasPoint",
       "query": "DELETE{ ?subject brickframe:hasPoint ?object . } INSERT{ ?subject brick:hasPoint ?object . } WHERE { ?subject brickframe:hasPoint ?object . }"
     },
     {
+      "description": "hasPoint => hasPoint",
+      "query": "DELETE{ ?subject ?predicate brickframe:hasPoint . } INSERT{ ?subject ?predicate brick:hasPoint . } WHERE { ?subject  ?predicate  brickframe:hasPoint . }"
+    },
+    {
       "description": "hasTag => hasTag",
       "query": "DELETE{ ?subject brickframe:hasTag ?object . } INSERT{ ?subject brick:hasTag ?object . } WHERE { ?subject brickframe:hasTag ?object . }"
+    },
+    {
+      "description": "hasTag => hasTag",
+      "query": "DELETE{ ?subject ?predicate brickframe:hasTag . } INSERT{ ?subject ?predicate brick:hasTag . } WHERE { ?subject  ?predicate  brickframe:hasTag . }"
     },
     {
       "description": "hasTagSet => hasTag",
       "query": "DELETE{ ?subject brickframe:hasTagSet ?object . } INSERT{ ?subject brick:hasTag ?object . } WHERE { ?subject brickframe:hasTagSet ?object . }"
     },
     {
+      "description": "hasTagSet => hasTag",
+      "query": "DELETE{ ?subject ?predicate brickframe:hasTagSet . } INSERT{ ?subject ?predicate brick:hasTag . } WHERE { ?subject  ?predicate  brickframe:hasTagSet . }"
+    },
+    {
       "description": "isControlledBy => isControlledBy",
       "query": "DELETE{ ?subject brickframe:isControlledBy ?object . } INSERT{ ?subject brick:isControlledBy ?object . } WHERE { ?subject brickframe:isControlledBy ?object . }"
+    },
+    {
+      "description": "isControlledBy => isControlledBy",
+      "query": "DELETE{ ?subject ?predicate brickframe:isControlledBy . } INSERT{ ?subject ?predicate brick:isControlledBy . } WHERE { ?subject  ?predicate  brickframe:isControlledBy . }"
     },
     {
       "description": "isFedBy => isFedBy",
       "query": "DELETE{ ?subject brickframe:isFedBy ?object . } INSERT{ ?subject brick:isFedBy ?object . } WHERE { ?subject brickframe:isFedBy ?object . }"
     },
     {
+      "description": "isFedBy => isFedBy",
+      "query": "DELETE{ ?subject ?predicate brickframe:isFedBy . } INSERT{ ?subject ?predicate brick:isFedBy . } WHERE { ?subject  ?predicate  brickframe:isFedBy . }"
+    },
+    {
       "description": "isLocationOf => hasLocation",
       "query": "DELETE{ ?subject brickframe:isLocationOf ?object . } INSERT{ ?subject brick:hasLocation ?object . } WHERE { ?subject brickframe:isLocationOf ?object . }"
+    },
+    {
+      "description": "isLocationOf => hasLocation",
+      "query": "DELETE{ ?subject ?predicate brickframe:isLocationOf . } INSERT{ ?subject ?predicate brick:hasLocation . } WHERE { ?subject  ?predicate  brickframe:isLocationOf . }"
     },
     {
       "description": "isMeasuredBy => isMeasuredBy",
       "query": "DELETE{ ?subject brickframe:isMeasuredBy ?object . } INSERT{ ?subject brick:isMeasuredBy ?object . } WHERE { ?subject brickframe:isMeasuredBy ?object . }"
     },
     {
+      "description": "isMeasuredBy => isMeasuredBy",
+      "query": "DELETE{ ?subject ?predicate brickframe:isMeasuredBy . } INSERT{ ?subject ?predicate brick:isMeasuredBy . } WHERE { ?subject  ?predicate  brickframe:isMeasuredBy . }"
+    },
+    {
       "description": "isPartOf => isPartOf",
       "query": "DELETE{ ?subject brickframe:isPartOf ?object . } INSERT{ ?subject brick:isPartOf ?object . } WHERE { ?subject brickframe:isPartOf ?object . }"
+    },
+    {
+      "description": "isPartOf => isPartOf",
+      "query": "DELETE{ ?subject ?predicate brickframe:isPartOf . } INSERT{ ?subject ?predicate brick:isPartOf . } WHERE { ?subject  ?predicate  brickframe:isPartOf . }"
     },
     {
       "description": "isPointOf => isPointOf",
       "query": "DELETE{ ?subject brickframe:isPointOf ?object . } INSERT{ ?subject brick:isPointOf ?object . } WHERE { ?subject brickframe:isPointOf ?object . }"
     },
     {
+      "description": "isPointOf => isPointOf",
+      "query": "DELETE{ ?subject ?predicate brickframe:isPointOf . } INSERT{ ?subject ?predicate brick:isPointOf . } WHERE { ?subject  ?predicate  brickframe:isPointOf . }"
+    },
+    {
       "description": "isTagOf => isTagOf",
       "query": "DELETE{ ?subject brickframe:isTagOf ?object . } INSERT{ ?subject brick:isTagOf ?object . } WHERE { ?subject brickframe:isTagOf ?object . }"
+    },
+    {
+      "description": "isTagOf => isTagOf",
+      "query": "DELETE{ ?subject ?predicate brickframe:isTagOf . } INSERT{ ?subject ?predicate brick:isTagOf . } WHERE { ?subject  ?predicate  brickframe:isTagOf . }"
     },
     {
       "description": "usesTag => hasTag",
       "query": "DELETE{ ?subject brickframe:usesTag ?object . } INSERT{ ?subject brick:hasTag ?object . } WHERE { ?subject brickframe:usesTag ?object . }"
     },
     {
-      "description": "hasLocation => hasLocation",
-      "query": "DELETE{ ?subject brickframe:hasLocation ?object . } INSERT{ ?subject brick:hasLocation ?object . } WHERE { ?subject brickframe:hasLocation ?object . }"
+      "description": "usesTag => hasTag",
+      "query": "DELETE{ ?subject ?predicate brickframe:usesTag . } INSERT{ ?subject ?predicate brick:hasTag . } WHERE { ?subject  ?predicate  brickframe:usesTag . }"
+    },
+    {
+      "description": "hasLocation => hasLocation,",
+      "query": "DELETE{ ?subject brickframe:hasLocation ?object . } INSERT{ ?subject brick:hasLocation, ?object . } WHERE { ?subject brickframe:hasLocation ?object . }"
+    },
+    {
+      "description": "hasLocation => hasLocation,",
+      "query": "DELETE{ ?subject ?predicate brickframe:hasLocation . } INSERT{ ?subject ?predicate brick:hasLocation, . } WHERE { ?subject  ?predicate  brickframe:hasLocation . }"
     },
     {
       "description": "AHU => AHU",
