@@ -7,7 +7,10 @@ location_subclasses = {
     "Building": {"tags": [TAG.Site]},
     "Floor": {
         "tags": [TAG.Floor, TAG.Location],
-        "subclasses": {"Basement": {"tags": [TAG.Basement, TAG.Location, TAG.Floor]}},
+        "subclasses": {
+            "Basement": {"tags": [TAG.Basement, TAG.Location, TAG.Floor]},
+            "Rooftop": {"tags": [TAG.Rooftop, TAG.Location, TAG.Floor]},
+        },
         OWL.equivalentClass: BRICK["Storey"],
     },
     "Roof": {"tags": [TAG.Roof, TAG.Location]},
