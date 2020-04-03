@@ -4463,11 +4463,18 @@ brick:Roof a owl:Class ;
     rdfs:label "Roof" ;
     rdfs:subClassOf [ owl:intersectionOf ( [ a owl:Restriction ;
                         owl:hasValue tag:Roof ;
-                        owl:onProperty brick:hasTag ] _:has_Location _:has_Floor ) ],
+                        owl:onProperty brick:hasTag ] _:has_Location ) ],
+        brick:Location ;
+    brick:hasAssociatedTag tag:Location,
+        tag:Roof .
+
+brick:Rooftop a owl:Class ;
+    rdfs:label "Rooftop" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Rooftop _:has_Location _:has_Floor ) ],
         brick:Floor ;
     brick:hasAssociatedTag tag:Floor,
         tag:Location,
-        tag:Roof .
+        tag:Rooftop .
 
 brick:Room_Air_Temperature_Setpoint a owl:Class ;
     rdfs:label "Room Air Temperature Setpoint" ;
@@ -4573,6 +4580,7 @@ brick:Site a owl:Class ;
     rdfs:label "Site" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Site _:has_Location ) ],
         brick:Location ;
+    skos:definition "A site is a geographic region used to describe the scope of a project. A project may or may not include built structures" ;
     brick:hasAssociatedTag tag:Location,
         tag:Site .
 
@@ -6686,9 +6694,7 @@ brick:Return_Air_CO2_Setpoint a owl:Class ;
 
 brick:Rooftop_Unit a owl:Class ;
     rdfs:label "Rooftop Unit" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Equipment [ a owl:Restriction ;
-                        owl:hasValue tag:Rooftop ;
-                        owl:onProperty brick:hasTag ] _:has_AHU ) ],
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Equipment _:has_Rooftop _:has_AHU ) ],
         brick:AHU ;
     owl:equivalentClass brick:RTU ;
     brick:hasAssociatedTag tag:AHU,
@@ -7415,6 +7421,7 @@ brick:Floor a owl:Class ;
     rdfs:label "Floor" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Floor _:has_Location ) ],
         brick:Location ;
+    owl:equivalentClass brick:Storey ;
     brick:hasAssociatedTag tag:Floor,
         tag:Location .
 
@@ -8349,9 +8356,6 @@ tag:Required a brick:Tag ;
 tag:Roof a brick:Tag ;
     rdfs:label "Roof" .
 
-tag:Rooftop a brick:Tag ;
-    rdfs:label "Rooftop" .
-
 tag:Sash a brick:Tag ;
     rdfs:label "Sash" .
 
@@ -9047,6 +9051,9 @@ tag:Rain a brick:Tag ;
 
 tag:Reheat a brick:Tag ;
     rdfs:label "Reheat" .
+
+tag:Rooftop a brick:Tag ;
+    rdfs:label "Rooftop" .
 
 tag:Safety a brick:Tag ;
     rdfs:label "Safety" .
@@ -10025,12 +10032,6 @@ brick:Humidity a owl:Class,
     rdfs:label "Humidity" ;
     rdfs:subClassOf brick:Quantity .
 
-brick:Location a owl:Class ;
-    rdfs:label "Location" ;
-    rdfs:subClassOf _:has_Location,
-        brick:Class ;
-    brick:hasAssociatedTag tag:Location .
-
 brick:Min_Limit a owl:Class ;
     rdfs:label "Min Limit" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Min _:has_Limit _:has_Parameter ) ],
@@ -10060,6 +10061,12 @@ tag:Position a brick:Tag ;
 
 tag:Room a brick:Tag ;
     rdfs:label "Room" .
+
+brick:Location a owl:Class ;
+    rdfs:label "Location" ;
+    rdfs:subClassOf _:has_Location,
+        brick:Class ;
+    brick:hasAssociatedTag tag:Location .
 
 tag:Energy a brick:Tag ;
     rdfs:label "Energy" .
@@ -10185,9 +10192,6 @@ tag:On a brick:Tag ;
 tag:Fan a brick:Tag ;
     rdfs:label "Fan" .
 
-tag:Location a brick:Tag ;
-    rdfs:label "Location" .
-
 brick:Setpoint a owl:Class ;
     rdfs:label "Setpoint" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Setpoint ) ],
@@ -10213,6 +10217,9 @@ tag:Enable a brick:Tag ;
 
 tag:High a brick:Tag ;
     rdfs:label "High" .
+
+tag:Location a brick:Tag ;
+    rdfs:label "Location" .
 
 tag:Shed a brick:Tag ;
     rdfs:label "Shed" .
@@ -10581,6 +10588,10 @@ _:has_Rain a owl:Restriction ;
 
 _:has_Reheat a owl:Restriction ;
     owl:hasValue tag:Reheat ;
+    owl:onProperty brick:hasTag .
+
+_:has_Rooftop a owl:Restriction ;
+    owl:hasValue tag:Rooftop ;
     owl:onProperty brick:hasTag .
 
 _:has_Safety a owl:Restriction ;
@@ -10979,16 +10990,16 @@ _:has_Integral a owl:Restriction ;
     owl:hasValue tag:Integral ;
     owl:onProperty brick:hasTag .
 
-_:has_Location a owl:Restriction ;
-    owl:hasValue tag:Location ;
-    owl:onProperty brick:hasTag .
-
 _:has_On a owl:Restriction ;
     owl:hasValue tag:On ;
     owl:onProperty brick:hasTag .
 
 _:has_Fan a owl:Restriction ;
     owl:hasValue tag:Fan ;
+    owl:onProperty brick:hasTag .
+
+_:has_Location a owl:Restriction ;
+    owl:hasValue tag:Location ;
     owl:onProperty brick:hasTag .
 
 _:has_Band a owl:Restriction ;
