@@ -1130,26 +1130,6 @@ setpoint_definitions = {
                                             TAG.Setpoint,
                                         ],
                                     },
-                                    "Min_Discharge_Air_Temperature_Setpoint": {
-                                        "tags": [
-                                            TAG.Point,
-                                            TAG.Discharge,
-                                            TAG.Air,
-                                            TAG.Temperature,
-                                            TAG.Min,
-                                            TAG.Setpoint,
-                                        ],
-                                    },
-                                    "Max_Discharge_Air_Temperature_Setpoint": {
-                                        "tags": [
-                                            TAG.Point,
-                                            TAG.Discharge,
-                                            TAG.Air,
-                                            TAG.Temperature,
-                                            TAG.Max,
-                                            TAG.Setpoint,
-                                        ],
-                                    },
                                     "Discharge_Air_Temperature_Cooling_Setpoint": {
                                         "parents": [BRICK.Cooling_Temperature_Setpoint],
                                         "tags": [
