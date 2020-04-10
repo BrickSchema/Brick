@@ -4574,7 +4574,7 @@ brick:Site a owl:Class ;
     rdfs:label "Site" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Site _:has_Location ) ],
         brick:Location ;
-    skos:definition "A site is a geographic region used to describe the scope of a project. A project may or may not include built structures" ;
+    skos:definition "A site is a geographic region that may or may not include built structures." ;
     brick:hasAssociatedTag tag:Location,
         tag:Site .
 
@@ -8578,7 +8578,7 @@ brick:Floor a owl:Class ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Floor _:has_Location ) ],
         brick:Location ;
     owl:equivalentClass brick:Storey ;
-    skos:definition "A level, typically representing a horizontal aggregation of spaces that are vertically bound." ;
+    skos:definition "A level, typically representing a horizontal aggregation of spaces that are vertically bound. (referring to IFC)" ;
     brick:hasAssociatedTag tag:Floor,
         tag:Location .
 
@@ -11156,4 +11156,3 @@ _:has_Air a owl:Restriction ;
 _:has_Point a owl:Restriction ;
     owl:hasValue tag:Point ;
     owl:onProperty brick:hasTag .
-
