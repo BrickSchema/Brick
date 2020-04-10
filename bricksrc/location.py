@@ -13,14 +13,12 @@ location_subclasses = {
             "Basement": {"tags": [TAG.Basement, TAG.Location, TAG.Floor]},
             "Rooftop": {
                 "tags": [TAG.Rooftop, TAG.Location, TAG.Floor],
-                SKOS.definition: Literal(
-                    "The top surface area of a roof."
-                ),
+                SKOS.definition: Literal("The top surface area of a roof."),
             },
         },
         OWL.equivalentClass: BRICK["Storey"],
         SKOS.definition: Literal(
-            "A level, typically representing a horizontal aggregation of spaces that are vertically bound."
+            "A level, typically representing a horizontal aggregation of spaces that are vertically bound. (referring to IFC)"
         ),
     },
     "Storey": {
