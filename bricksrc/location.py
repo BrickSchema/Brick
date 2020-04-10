@@ -11,15 +11,28 @@ location_subclasses = {
         "tags": [TAG.Floor, TAG.Location],
         "subclasses": {
             "Basement": {"tags": [TAG.Basement, TAG.Location, TAG.Floor]},
-            "Rooftop": {"tags": [TAG.Rooftop, TAG.Location, TAG.Floor]},
+            "Rooftop": {
+                "tags": [TAG.Rooftop, TAG.Location, TAG.Floor],
+                SKOS.definition: Literal(
+                    "The top surface area of a roof."
+                ),
+            },
         },
         OWL.equivalentClass: BRICK["Storey"],
+        SKOS.definition: Literal(
+            "A level, typically representing a horizontal aggregation of spaces that are vertically bound."
+        ),
     },
     "Storey": {
         "tags": [TAG.Storey, TAG.Location],
         OWL.equivalentClass: BRICK["Floor"],
     },
-    "Roof": {"tags": [TAG.Roof, TAG.Location]},
+    "Roof": {
+        "tags": [TAG.Roof, TAG.Location],
+        SKOS.definition: Literal(
+            "A roof is the top covering of a building, including all materials and constructions necessary to support it on the walls of the building or on uprights. (https://en.wikipedia.org/wiki/Roof)"
+        ),
+    },
     "Outside": {"tags": [TAG.Outside, TAG.Location]},
     "Site": {
         "tags": [TAG.Site, TAG.Location],
