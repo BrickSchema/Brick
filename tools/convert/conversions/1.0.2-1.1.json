@@ -12,64 +12,136 @@
       "query": "DELETE{ ?subject brickframe:contains ?object . } INSERT{ ?subject brick:isLocationOf ?object . } WHERE { ?subject brickframe:contains ?object . }"
     },
     {
+      "description": "contains => isLocationOf",
+      "query": "DELETE{ ?subject ?predicate brickframe:contains . } INSERT{ ?subject ?predicate brick:isLocationOf . } WHERE { ?subject  ?predicate  brickframe:contains . }"
+    },
+    {
       "description": "controls => controls",
       "query": "DELETE{ ?subject brickframe:controls ?object . } INSERT{ ?subject brick:controls ?object . } WHERE { ?subject brickframe:controls ?object . }"
+    },
+    {
+      "description": "controls => controls",
+      "query": "DELETE{ ?subject ?predicate brickframe:controls . } INSERT{ ?subject ?predicate brick:controls . } WHERE { ?subject  ?predicate  brickframe:controls . }"
     },
     {
       "description": "feeds => feeds",
       "query": "DELETE{ ?subject brickframe:feeds ?object . } INSERT{ ?subject brick:feeds ?object . } WHERE { ?subject brickframe:feeds ?object . }"
     },
     {
+      "description": "feeds => feeds",
+      "query": "DELETE{ ?subject ?predicate brickframe:feeds . } INSERT{ ?subject ?predicate brick:feeds . } WHERE { ?subject  ?predicate  brickframe:feeds . }"
+    },
+    {
       "description": "hasPart => hasPart",
       "query": "DELETE{ ?subject brickframe:hasPart ?object . } INSERT{ ?subject brick:hasPart ?object . } WHERE { ?subject brickframe:hasPart ?object . }"
+    },
+    {
+      "description": "hasPart => hasPart",
+      "query": "DELETE{ ?subject ?predicate brickframe:hasPart . } INSERT{ ?subject ?predicate brick:hasPart . } WHERE { ?subject  ?predicate  brickframe:hasPart . }"
     },
     {
       "description": "hasPoint => hasPoint",
       "query": "DELETE{ ?subject brickframe:hasPoint ?object . } INSERT{ ?subject brick:hasPoint ?object . } WHERE { ?subject brickframe:hasPoint ?object . }"
     },
     {
+      "description": "hasPoint => hasPoint",
+      "query": "DELETE{ ?subject ?predicate brickframe:hasPoint . } INSERT{ ?subject ?predicate brick:hasPoint . } WHERE { ?subject  ?predicate  brickframe:hasPoint . }"
+    },
+    {
       "description": "hasTag => hasTag",
       "query": "DELETE{ ?subject brickframe:hasTag ?object . } INSERT{ ?subject brick:hasTag ?object . } WHERE { ?subject brickframe:hasTag ?object . }"
+    },
+    {
+      "description": "hasTag => hasTag",
+      "query": "DELETE{ ?subject ?predicate brickframe:hasTag . } INSERT{ ?subject ?predicate brick:hasTag . } WHERE { ?subject  ?predicate  brickframe:hasTag . }"
     },
     {
       "description": "isFedBy => isFedBy",
       "query": "DELETE{ ?subject brickframe:isFedBy ?object . } INSERT{ ?subject brick:isFedBy ?object . } WHERE { ?subject brickframe:isFedBy ?object . }"
     },
     {
+      "description": "isFedBy => isFedBy",
+      "query": "DELETE{ ?subject ?predicate brickframe:isFedBy . } INSERT{ ?subject ?predicate brick:isFedBy . } WHERE { ?subject  ?predicate  brickframe:isFedBy . }"
+    },
+    {
       "description": "isLocatedIn => hasLocation",
       "query": "DELETE{ ?subject brickframe:isLocatedIn ?object . } INSERT{ ?subject brick:hasLocation ?object . } WHERE { ?subject brickframe:isLocatedIn ?object . }"
+    },
+    {
+      "description": "isLocatedIn => hasLocation",
+      "query": "DELETE{ ?subject ?predicate brickframe:isLocatedIn . } INSERT{ ?subject ?predicate brick:hasLocation . } WHERE { ?subject  ?predicate  brickframe:isLocatedIn . }"
     },
     {
       "description": "isPartOf => isPartOf",
       "query": "DELETE{ ?subject brickframe:isPartOf ?object . } INSERT{ ?subject brick:isPartOf ?object . } WHERE { ?subject brickframe:isPartOf ?object . }"
     },
     {
+      "description": "isPartOf => isPartOf",
+      "query": "DELETE{ ?subject ?predicate brickframe:isPartOf . } INSERT{ ?subject ?predicate brick:isPartOf . } WHERE { ?subject  ?predicate  brickframe:isPartOf . }"
+    },
+    {
       "description": "isPointOf => isPointOf",
       "query": "DELETE{ ?subject brickframe:isPointOf ?object . } INSERT{ ?subject brick:isPointOf ?object . } WHERE { ?subject brickframe:isPointOf ?object . }"
+    },
+    {
+      "description": "isPointOf => isPointOf",
+      "query": "DELETE{ ?subject ?predicate brickframe:isPointOf . } INSERT{ ?subject ?predicate brick:isPointOf . } WHERE { ?subject  ?predicate  brickframe:isPointOf . }"
     },
     {
       "description": "hasInput => hasInputSubstance",
       "query": "DELETE{ ?subject brickframe:hasInput ?object . } INSERT{ ?subject brick:hasInputSubstance ?object . } WHERE { ?subject brickframe:hasInput ?object . }"
     },
     {
+      "description": "hasInput => hasInputSubstance",
+      "query": "DELETE{ ?subject ?predicate brickframe:hasInput . } INSERT{ ?subject ?predicate brick:hasInputSubstance . } WHERE { ?subject  ?predicate  brickframe:hasInput . }"
+    },
+    {
       "description": "hasMeasurement => measures",
       "query": "DELETE{ ?subject brickframe:hasMeasurement ?object . } INSERT{ ?subject brick:measures ?object . } WHERE { ?subject brickframe:hasMeasurement ?object . }"
+    },
+    {
+      "description": "hasMeasurement => measures",
+      "query": "DELETE{ ?subject ?predicate brickframe:hasMeasurement . } INSERT{ ?subject ?predicate brick:measures . } WHERE { ?subject  ?predicate  brickframe:hasMeasurement . }"
     },
     {
       "description": "hasOutput => hasOutputSubstance",
       "query": "DELETE{ ?subject brickframe:hasOutput ?object . } INSERT{ ?subject brick:hasOutputSubstance ?object . } WHERE { ?subject brickframe:hasOutput ?object . }"
     },
     {
+      "description": "hasOutput => hasOutputSubstance",
+      "query": "DELETE{ ?subject ?predicate brickframe:hasOutput . } INSERT{ ?subject ?predicate brick:hasOutputSubstance . } WHERE { ?subject  ?predicate  brickframe:hasOutput . }"
+    },
+    {
       "description": "isControlledBy => isControlledBy",
       "query": "DELETE{ ?subject brickframe:isControlledBy ?object . } INSERT{ ?subject brick:isControlledBy ?object . } WHERE { ?subject brickframe:isControlledBy ?object . }"
+    },
+    {
+      "description": "isControlledBy => isControlledBy",
+      "query": "DELETE{ ?subject ?predicate brickframe:isControlledBy . } INSERT{ ?subject ?predicate brick:isControlledBy . } WHERE { ?subject  ?predicate  brickframe:isControlledBy . }"
     },
     {
       "description": "isMeasuredBy => isMeasuredBy",
       "query": "DELETE{ ?subject brickframe:isMeasuredBy ?object . } INSERT{ ?subject brick:isMeasuredBy ?object . } WHERE { ?subject brickframe:isMeasuredBy ?object . }"
     },
     {
+      "description": "isMeasuredBy => isMeasuredBy",
+      "query": "DELETE{ ?subject ?predicate brickframe:isMeasuredBy . } INSERT{ ?subject ?predicate brick:isMeasuredBy . } WHERE { ?subject  ?predicate  brickframe:isMeasuredBy . }"
+    },
+    {
       "description": "isTagOf => isTagOf",
       "query": "DELETE{ ?subject brickframe:isTagOf ?object . } INSERT{ ?subject brick:isTagOf ?object . } WHERE { ?subject brickframe:isTagOf ?object . }"
+    },
+    {
+      "description": "isTagOf => isTagOf",
+      "query": "DELETE{ ?subject ?predicate brickframe:isTagOf . } INSERT{ ?subject ?predicate brick:isTagOf . } WHERE { ?subject  ?predicate  brickframe:isTagOf . }"
+    },
+    {
+      "description": "usesTag => hasTag",
+      "query": "DELETE{ ?subject brickframe:usesTag ?object . } INSERT{ ?subject brick:hasTag ?object . } WHERE { ?subject brickframe:usesTag ?object . }"
+    },
+    {
+      "description": "usesTag => hasTag",
+      "query": "DELETE{ ?subject ?predicate brickframe:usesTag . } INSERT{ ?subject ?predicate brick:hasTag . } WHERE { ?subject  ?predicate  brickframe:usesTag . }"
     },
     {
       "description": "AHU => AHU",
@@ -100,12 +172,32 @@
       "query": "DELETE{ ?subject ?predicate brick_v_1_0_2:AHU_Bypass_Air_Flow_Sensor . } INSERT{ ?subject ?predicate brick:Bypass_Air_Flow_Sensor . } WHERE { ?subject  ?predicate  brick_v_1_0_2:AHU_Bypass_Air_Flow_Sensor . }"
     },
     {
+      "description": "AHU_Bypass_Damper_Position_Sensor => Damper_Position_Sensor",
+      "query": "DELETE{ ?subject ?predicate brick_v_1_0_2:AHU_Bypass_Damper_Position_Sensor . } INSERT{ ?subject ?predicate brick:Damper_Position_Sensor . } WHERE { ?subject  ?predicate  brick_v_1_0_2:AHU_Bypass_Damper_Position_Sensor . }"
+    },
+    {
       "description": "AHU_CO2_Differential_Sensor => CO2_Differential_Sensor",
       "query": "DELETE{ ?subject ?predicate brick_v_1_0_2:AHU_CO2_Differential_Sensor . } INSERT{ ?subject ?predicate brick:CO2_Differential_Sensor . } WHERE { ?subject  ?predicate  brick_v_1_0_2:AHU_CO2_Differential_Sensor . }"
     },
     {
+      "description": "AHU_CO2_High_Alarm => High_CO2_Alarm",
+      "query": "DELETE{ ?subject ?predicate brick_v_1_0_2:AHU_CO2_High_Alarm . } INSERT{ ?subject ?predicate brick:High_CO2_Alarm . } WHERE { ?subject  ?predicate  brick_v_1_0_2:AHU_CO2_High_Alarm . }"
+    },
+    {
+      "description": "AHU_CO2_Sensor => CO2_Sensor",
+      "query": "DELETE{ ?subject ?predicate brick_v_1_0_2:AHU_CO2_Sensor . } INSERT{ ?subject ?predicate brick:CO2_Sensor . } WHERE { ?subject  ?predicate  brick_v_1_0_2:AHU_CO2_Sensor . }"
+    },
+    {
+      "description": "AHU_Change_Filter_Alarm => Change_Filter_Alarm",
+      "query": "DELETE{ ?subject ?predicate brick_v_1_0_2:AHU_Change_Filter_Alarm . } INSERT{ ?subject ?predicate brick:Change_Filter_Alarm . } WHERE { ?subject  ?predicate  brick_v_1_0_2:AHU_Change_Filter_Alarm . }"
+    },
+    {
       "description": "AHU_Coldest_Zone_Temperature_Sensor => Coldest_Zone_Air_Temperature_Sensor",
       "query": "DELETE{ ?subject ?predicate brick_v_1_0_2:AHU_Coldest_Zone_Temperature_Sensor . } INSERT{ ?subject ?predicate brick:Coldest_Zone_Air_Temperature_Sensor . } WHERE { ?subject  ?predicate  brick_v_1_0_2:AHU_Coldest_Zone_Temperature_Sensor . }"
+    },
+    {
+      "description": "AHU_Condensate_Leak_Alarm => Condensate_Leak_Alarm",
+      "query": "DELETE{ ?subject ?predicate brick_v_1_0_2:AHU_Condensate_Leak_Alarm . } INSERT{ ?subject ?predicate brick:Condensate_Leak_Alarm . } WHERE { ?subject  ?predicate  brick_v_1_0_2:AHU_Condensate_Leak_Alarm . }"
     },
     {
       "description": "AHU_Cooling_Coil_Discharge_Air_Temperature_Sensor => Discharge_Air_Temperature_Sensor",
@@ -120,6 +212,14 @@
       "query": "DELETE{ ?subject ?predicate brick_v_1_0_2:AHU_Cooling_Demand_Setpoint . } INSERT{ ?subject ?predicate brick:Cooling_Demand_Setpoint . } WHERE { ?subject  ?predicate  brick_v_1_0_2:AHU_Cooling_Demand_Setpoint . }"
     },
     {
+      "description": "AHU_Cooling_Discharge_Air_Temperature_Dead_Band_Setpoint => Cooling_Discharge_Air_Temperature_Deadband_Setpoint",
+      "query": "DELETE{ ?subject ?predicate brick_v_1_0_2:AHU_Cooling_Discharge_Air_Temperature_Dead_Band_Setpoint . } INSERT{ ?subject ?predicate brick:Cooling_Discharge_Air_Temperature_Deadband_Setpoint . } WHERE { ?subject  ?predicate  brick_v_1_0_2:AHU_Cooling_Discharge_Air_Temperature_Dead_Band_Setpoint . }"
+    },
+    {
+      "description": "AHU_Cooling_Discharge_Air_Temperature_Integral_Time_Setpoint => Cooling_Discharge_Air_Temperature_Integral_Time_Parameter",
+      "query": "DELETE{ ?subject ?predicate brick_v_1_0_2:AHU_Cooling_Discharge_Air_Temperature_Integral_Time_Setpoint . } INSERT{ ?subject ?predicate brick:Cooling_Discharge_Air_Temperature_Integral_Time_Parameter . } WHERE { ?subject  ?predicate  brick_v_1_0_2:AHU_Cooling_Discharge_Air_Temperature_Integral_Time_Setpoint . }"
+    },
+    {
       "description": "AHU_Cooling_Discharge_Air_Temperature_Proportional_Band_Setpoint => Cooling_Discharge_Air_Temperature_Proportional_Band_Parameter",
       "query": "DELETE{ ?subject ?predicate brick_v_1_0_2:AHU_Cooling_Discharge_Air_Temperature_Proportional_Band_Setpoint . } INSERT{ ?subject ?predicate brick:Cooling_Discharge_Air_Temperature_Proportional_Band_Parameter . } WHERE { ?subject  ?predicate  brick_v_1_0_2:AHU_Cooling_Discharge_Air_Temperature_Proportional_Band_Setpoint . }"
     },
@@ -130,6 +230,14 @@
     {
       "description": "AHU_Cooling_Request_Setpoint => Cooling_Request_Setpoint",
       "query": "DELETE{ ?subject ?predicate brick_v_1_0_2:AHU_Cooling_Request_Setpoint . } INSERT{ ?subject ?predicate brick:Cooling_Request_Setpoint . } WHERE { ?subject  ?predicate  brick_v_1_0_2:AHU_Cooling_Request_Setpoint . }"
+    },
+    {
+      "description": "AHU_Cooling_Supply_Air_Temperature_Dead_Band_Setpoint => Cooling_Supply_Air_Temperature_Deadband_Setpoint",
+      "query": "DELETE{ ?subject ?predicate brick_v_1_0_2:AHU_Cooling_Supply_Air_Temperature_Dead_Band_Setpoint . } INSERT{ ?subject ?predicate brick:Cooling_Supply_Air_Temperature_Deadband_Setpoint . } WHERE { ?subject  ?predicate  brick_v_1_0_2:AHU_Cooling_Supply_Air_Temperature_Dead_Band_Setpoint . }"
+    },
+    {
+      "description": "AHU_Cooling_Supply_Air_Temperature_Integral_Time_Setpoint => Cooling_Supply_Air_Temperature_Integral_Time_Parameter",
+      "query": "DELETE{ ?subject ?predicate brick_v_1_0_2:AHU_Cooling_Supply_Air_Temperature_Integral_Time_Setpoint . } INSERT{ ?subject ?predicate brick:Cooling_Supply_Air_Temperature_Integral_Time_Parameter . } WHERE { ?subject  ?predicate  brick_v_1_0_2:AHU_Cooling_Supply_Air_Temperature_Integral_Time_Setpoint . }"
     },
     {
       "description": "AHU_Cooling_Supply_Air_Temperature_Proportional_Band_Setpoint => Cooling_Supply_Air_Temperature_Proportional_Band_Parameter",
@@ -156,8 +264,28 @@
       "query": "DELETE{ ?subject ?predicate brick_v_1_0_2:AHU_Discharge_Air_Flow_Demand_Setpoint . } INSERT{ ?subject ?predicate brick:Discharge_Air_Flow_Demand_Setpoint . } WHERE { ?subject  ?predicate  brick_v_1_0_2:AHU_Discharge_Air_Flow_Demand_Setpoint . }"
     },
     {
+      "description": "AHU_Discharge_Air_Flow_Reset_High_Setpoint => Discharge_Air_Flow_Reset_High_Setpoint",
+      "query": "DELETE{ ?subject ?predicate brick_v_1_0_2:AHU_Discharge_Air_Flow_Reset_High_Setpoint . } INSERT{ ?subject ?predicate brick:Discharge_Air_Flow_Reset_High_Setpoint . } WHERE { ?subject  ?predicate  brick_v_1_0_2:AHU_Discharge_Air_Flow_Reset_High_Setpoint . }"
+    },
+    {
+      "description": "AHU_Discharge_Air_Flow_Reset_Low_Setpoint => Discharge_Air_Flow_Reset_Low_Setpoint",
+      "query": "DELETE{ ?subject ?predicate brick_v_1_0_2:AHU_Discharge_Air_Flow_Reset_Low_Setpoint . } INSERT{ ?subject ?predicate brick:Discharge_Air_Flow_Reset_Low_Setpoint . } WHERE { ?subject  ?predicate  brick_v_1_0_2:AHU_Discharge_Air_Flow_Reset_Low_Setpoint . }"
+    },
+    {
       "description": "AHU_Discharge_Air_Humidity_Sensor => Discharge_Air_Humidity_Sensor",
       "query": "DELETE{ ?subject ?predicate brick_v_1_0_2:AHU_Discharge_Air_Humidity_Sensor . } INSERT{ ?subject ?predicate brick:Discharge_Air_Humidity_Sensor . } WHERE { ?subject  ?predicate  brick_v_1_0_2:AHU_Discharge_Air_Humidity_Sensor . }"
+    },
+    {
+      "description": "AHU_Discharge_Air_Smoke_Detected_Alarm => Discharge_Air_Smoke_Detected_Alarm",
+      "query": "DELETE{ ?subject ?predicate brick_v_1_0_2:AHU_Discharge_Air_Smoke_Detected_Alarm . } INSERT{ ?subject ?predicate brick:Discharge_Air_Smoke_Detected_Alarm . } WHERE { ?subject  ?predicate  brick_v_1_0_2:AHU_Discharge_Air_Smoke_Detected_Alarm . }"
+    },
+    {
+      "description": "AHU_Discharge_Air_Static_Pressure_Dead_Band_Setpoint => Discharge_Air_Static_Pressure_Deadband_Setpoint",
+      "query": "DELETE{ ?subject ?predicate brick_v_1_0_2:AHU_Discharge_Air_Static_Pressure_Dead_Band_Setpoint . } INSERT{ ?subject ?predicate brick:Discharge_Air_Static_Pressure_Deadband_Setpoint . } WHERE { ?subject  ?predicate  brick_v_1_0_2:AHU_Discharge_Air_Static_Pressure_Dead_Band_Setpoint . }"
+    },
+    {
+      "description": "AHU_Discharge_Air_Static_Pressure_Integral_Time_Setpoint => Discharge_Air_Static_Pressure_Integral_Time_Parameter",
+      "query": "DELETE{ ?subject ?predicate brick_v_1_0_2:AHU_Discharge_Air_Static_Pressure_Integral_Time_Setpoint . } INSERT{ ?subject ?predicate brick:Discharge_Air_Static_Pressure_Integral_Time_Parameter . } WHERE { ?subject  ?predicate  brick_v_1_0_2:AHU_Discharge_Air_Static_Pressure_Integral_Time_Setpoint . }"
     },
     {
       "description": "AHU_Discharge_Air_Static_Pressure_Proportional_Band_Setpoint => Discharge_Air_Static_Pressure_Proportional_Band_Parameter",
@@ -180,6 +308,18 @@
       "query": "DELETE{ ?subject ?predicate brick_v_1_0_2:AHU_Discharge_Air_Temperature_Heating_Setpoint . } INSERT{ ?subject ?predicate brick:Discharge_Air_Temperature_Heating_Setpoint . } WHERE { ?subject  ?predicate  brick_v_1_0_2:AHU_Discharge_Air_Temperature_Heating_Setpoint . }"
     },
     {
+      "description": "AHU_Discharge_Air_Temperature_Reset_Differential_Setpoint => Discharge_Air_Temperature_Reset_Differential_Setpoint",
+      "query": "DELETE{ ?subject ?predicate brick_v_1_0_2:AHU_Discharge_Air_Temperature_Reset_Differential_Setpoint . } INSERT{ ?subject ?predicate brick:Discharge_Air_Temperature_Reset_Differential_Setpoint . } WHERE { ?subject  ?predicate  brick_v_1_0_2:AHU_Discharge_Air_Temperature_Reset_Differential_Setpoint . }"
+    },
+    {
+      "description": "AHU_Discharge_Air_Temperature_Reset_High_Setpoint => Discharge_Air_Temperature_Reset_High_Setpoint",
+      "query": "DELETE{ ?subject ?predicate brick_v_1_0_2:AHU_Discharge_Air_Temperature_Reset_High_Setpoint . } INSERT{ ?subject ?predicate brick:Discharge_Air_Temperature_Reset_High_Setpoint . } WHERE { ?subject  ?predicate  brick_v_1_0_2:AHU_Discharge_Air_Temperature_Reset_High_Setpoint . }"
+    },
+    {
+      "description": "AHU_Discharge_Air_Temperature_Reset_Low_Setpoint => Discharge_Air_Temperature_Reset_Low_Setpoint",
+      "query": "DELETE{ ?subject ?predicate brick_v_1_0_2:AHU_Discharge_Air_Temperature_Reset_Low_Setpoint . } INSERT{ ?subject ?predicate brick:Discharge_Air_Temperature_Reset_Low_Setpoint . } WHERE { ?subject  ?predicate  brick_v_1_0_2:AHU_Discharge_Air_Temperature_Reset_Low_Setpoint . }"
+    },
+    {
       "description": "AHU_Discharge_Air_Temperature_Sensor => Discharge_Air_Temperature_Sensor",
       "query": "DELETE{ ?subject ?predicate brick_v_1_0_2:AHU_Discharge_Air_Temperature_Sensor . } INSERT{ ?subject ?predicate brick:Discharge_Air_Temperature_Sensor . } WHERE { ?subject  ?predicate  brick_v_1_0_2:AHU_Discharge_Air_Temperature_Sensor . }"
     },
@@ -188,8 +328,16 @@
       "query": "DELETE{ ?subject ?predicate brick_v_1_0_2:AHU_Discharge_Air_Temperature_Setpoint . } INSERT{ ?subject ?predicate brick:Discharge_Air_Temperature_Setpoint . } WHERE { ?subject  ?predicate  brick_v_1_0_2:AHU_Discharge_Air_Temperature_Setpoint . }"
     },
     {
+      "description": "AHU_Discharge_Fan_Air_Flow_Sensor => Air_Flow_Sensor",
+      "query": "DELETE{ ?subject ?predicate brick_v_1_0_2:AHU_Discharge_Fan_Air_Flow_Sensor . } INSERT{ ?subject ?predicate brick:Air_Flow_Sensor . } WHERE { ?subject  ?predicate  brick_v_1_0_2:AHU_Discharge_Fan_Air_Flow_Sensor . }"
+    },
+    {
       "description": "AHU_Discharge_Fan_Command => Command",
       "query": "DELETE{ ?subject ?predicate brick_v_1_0_2:AHU_Discharge_Fan_Command . } INSERT{ ?subject ?predicate brick:Command . } WHERE { ?subject  ?predicate  brick_v_1_0_2:AHU_Discharge_Fan_Command . }"
+    },
+    {
+      "description": "AHU_Discharge_Fan_Piezoelectric_Sensor => Piezoelectric_Sensor",
+      "query": "DELETE{ ?subject ?predicate brick_v_1_0_2:AHU_Discharge_Fan_Piezoelectric_Sensor . } INSERT{ ?subject ?predicate brick:Piezoelectric_Sensor . } WHERE { ?subject  ?predicate  brick_v_1_0_2:AHU_Discharge_Fan_Piezoelectric_Sensor . }"
     },
     {
       "description": "AHU_Discharge_Fan_Start_Stop_Command => Start_Stop_Command",
@@ -204,12 +352,36 @@
       "query": "DELETE{ ?subject ?predicate brick_v_1_0_2:AHU_Discharge_Fan_Status . } INSERT{ ?subject ?predicate brick:Status . } WHERE { ?subject  ?predicate  brick_v_1_0_2:AHU_Discharge_Fan_Status . }"
     },
     {
+      "description": "AHU_Discharge_Fan_VFD_Speed_Command => Speed_Reset_Command",
+      "query": "DELETE{ ?subject ?predicate brick_v_1_0_2:AHU_Discharge_Fan_VFD_Speed_Command . } INSERT{ ?subject ?predicate brick:Speed_Reset_Command . } WHERE { ?subject  ?predicate  brick_v_1_0_2:AHU_Discharge_Fan_VFD_Speed_Command . }"
+    },
+    {
+      "description": "AHU_Discharge_Fan_VFD_Speed_Sensor => Speed_Sensor",
+      "query": "DELETE{ ?subject ?predicate brick_v_1_0_2:AHU_Discharge_Fan_VFD_Speed_Sensor . } INSERT{ ?subject ?predicate brick:Speed_Sensor . } WHERE { ?subject  ?predicate  brick_v_1_0_2:AHU_Discharge_Fan_VFD_Speed_Sensor . }"
+    },
+    {
+      "description": "AHU_Discharge_Fan_VFD_Speed_Setpoint => Speed_Setpoint",
+      "query": "DELETE{ ?subject ?predicate brick_v_1_0_2:AHU_Discharge_Fan_VFD_Speed_Setpoint . } INSERT{ ?subject ?predicate brick:Speed_Setpoint . } WHERE { ?subject  ?predicate  brick_v_1_0_2:AHU_Discharge_Fan_VFD_Speed_Setpoint . }"
+    },
+    {
+      "description": "AHU_Discharge_Fan_VFD_Speed_Status => Speed_Status",
+      "query": "DELETE{ ?subject ?predicate brick_v_1_0_2:AHU_Discharge_Fan_VFD_Speed_Status . } INSERT{ ?subject ?predicate brick:Speed_Status . } WHERE { ?subject  ?predicate  brick_v_1_0_2:AHU_Discharge_Fan_VFD_Speed_Status . }"
+    },
+    {
       "description": "AHU_Dual_Band_Mode_Setpoint => Dual_Band_Mode_Setpoint",
       "query": "DELETE{ ?subject ?predicate brick_v_1_0_2:AHU_Dual_Band_Mode_Setpoint . } INSERT{ ?subject ?predicate brick:Dual_Band_Mode_Setpoint . } WHERE { ?subject  ?predicate  brick_v_1_0_2:AHU_Dual_Band_Mode_Setpoint . }"
     },
     {
       "description": "AHU_Economizer_Damper_Command => Damper_Command",
       "query": "DELETE{ ?subject ?predicate brick_v_1_0_2:AHU_Economizer_Damper_Command . } INSERT{ ?subject ?predicate brick:Damper_Command . } WHERE { ?subject  ?predicate  brick_v_1_0_2:AHU_Economizer_Damper_Command . }"
+    },
+    {
+      "description": "AHU_Economizer_Damper_Min_Position_Setpoint => Min_Position_Setpoint_Limit",
+      "query": "DELETE{ ?subject ?predicate brick_v_1_0_2:AHU_Economizer_Damper_Min_Position_Setpoint . } INSERT{ ?subject ?predicate brick:Min_Position_Setpoint_Limit . } WHERE { ?subject  ?predicate  brick_v_1_0_2:AHU_Economizer_Damper_Min_Position_Setpoint . }"
+    },
+    {
+      "description": "AHU_Economizer_Differential_Air_Temperature_Setpoint => Differential_Air_Temperature_Setpoint",
+      "query": "DELETE{ ?subject ?predicate brick_v_1_0_2:AHU_Economizer_Differential_Air_Temperature_Setpoint . } INSERT{ ?subject ?predicate brick:Differential_Air_Temperature_Setpoint . } WHERE { ?subject  ?predicate  brick_v_1_0_2:AHU_Economizer_Differential_Air_Temperature_Setpoint . }"
     },
     {
       "description": "AHU_Economizer_Mode_Status => Mode_Status",

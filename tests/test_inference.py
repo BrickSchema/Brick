@@ -14,6 +14,7 @@ g.parse("Brick.ttl", format="turtle")
 # Instances
 g.add((BLDG.Coil_1, A, BRICK.Heating_Coil))
 
+g.add((BLDG.Coil_2, BRICK.hasTag, TAG.Equipment))
 g.add((BLDG.Coil_2, BRICK.hasTag, TAG.Coil))
 g.add((BLDG.Coil_2, BRICK.hasTag, TAG.Heat))
 
@@ -28,19 +29,23 @@ g.add((BLDG.TS1, BRICK.measures, BRICK.Air))
 g.add((BLDG.TS2, A, BRICK.Air_Temperature_Sensor))
 
 # add air flow sensor
+g.add((BLDG.AFS1, BRICK.hasTag, TAG.Point))
 g.add((BLDG.AFS1, BRICK.hasTag, TAG.Air))
 g.add((BLDG.AFS1, BRICK.hasTag, TAG.Flow))
 g.add((BLDG.AFS1, BRICK.hasTag, TAG.Sensor))
 
+g.add((BLDG.S1, BRICK.hasTag, TAG.Point))
 g.add((BLDG.S1, BRICK.hasTag, TAG.Sensor))
 
 # add air flow setpoint
 # g.add((BLDG.AFSP1, A, BRICK.Setpoint))
+g.add((BLDG.AFSP1, BRICK.hasTag, TAG.Point))
 g.add((BLDG.AFSP1, BRICK.hasTag, TAG.Air))
 g.add((BLDG.AFSP1, BRICK.hasTag, TAG.Flow))
 g.add((BLDG.AFSP1, BRICK.hasTag, TAG.Setpoint))
 
 # add air flow setpoint limit
+g.add((BLDG.MAFS1, BRICK.hasTag, TAG.Point))
 g.add((BLDG.MAFS1, BRICK.hasTag, TAG.Max))
 g.add((BLDG.MAFS1, BRICK.hasTag, TAG.Air))
 g.add((BLDG.MAFS1, BRICK.hasTag, TAG.Flow))

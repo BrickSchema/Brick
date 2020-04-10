@@ -1,0 +1,142 @@
+@prefix brick: <https://brickschema.org/schema/1.1/Brick#> .
+@prefix bsh: <https://brickschema.org/schema/1.1/BrickShape#> .
+@prefix dcterms: <http://purl.org/dc/terms#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sdo: <http://schema.org#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sosa: <http://www.w3.org/ns/sosa#> .
+@prefix tag: <https://brickschema.org/schema/1.1/BrickTag#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+bsh:feedsAirHasInputSubstanceShape a sh:NodeShape ;
+    sh:property [ sh:class brick:Air ;
+            sh:message "Subject of property feedsAir has object with incorrect type" ;
+            sh:path brick:hasInputSubstance ] ;
+    sh:targetSubjectsOf brick:feedsAir .
+
+bsh:feedsAirHasOutputSubstanceShape a sh:NodeShape ;
+    sh:property [ sh:class brick:Air ;
+            sh:message "Subject of property feedsAir has object with incorrect type" ;
+            sh:path brick:hasOutputSubstance ] ;
+    sh:targetSubjectsOf brick:feedsAir .
+
+bsh:feedsAirRegulatesShape a sh:NodeShape ;
+    sh:property [ sh:class brick:Air ;
+            sh:message "Subject of property feedsAir has object with incorrect type" ;
+            sh:path brick:regulates ] ;
+    sh:targetSubjectsOf brick:feedsAir .
+
+bsh:hasAssociatedTagDomainShape a sh:NodeShape ;
+    sh:class owl:Class ;
+    sh:message "Property hasAssociatedTag has subject with incorrect type" ;
+    sh:targetSubjectsOf brick:hasAssociatedTag .
+
+bsh:hasAssociatedTagRangeShape a sh:NodeShape ;
+    sh:property [ sh:class brick:Tag ;
+            sh:message "Property hasAssociatedTag has object with incorrect type" ;
+            sh:path brick:hasAssociatedTag ] ;
+    sh:targetSubjectsOf brick:hasAssociatedTag .
+
+bsh:hasInputSubstanceRangeShape a sh:NodeShape ;
+    sh:property [ sh:class brick:Substance ;
+            sh:message "Property hasInputSubstance has object with incorrect type" ;
+            sh:path brick:hasInputSubstance ] ;
+    sh:targetSubjectsOf brick:hasInputSubstance .
+
+bsh:hasLocationRangeShape a sh:NodeShape ;
+    sh:property [ sh:class brick:Location ;
+            sh:message "Property hasLocation has object with incorrect type" ;
+            sh:path brick:hasLocation ] ;
+    sh:targetSubjectsOf brick:hasLocation .
+
+bsh:hasOutputSubstanceRangeShape a sh:NodeShape ;
+    sh:property [ sh:class brick:Substance ;
+            sh:message "Property hasOutputSubstance has object with incorrect type" ;
+            sh:path brick:hasOutputSubstance ] ;
+    sh:targetSubjectsOf brick:hasOutputSubstance .
+
+bsh:hasPointRangeShape a sh:NodeShape ;
+    sh:property [ sh:class brick:Point ;
+            sh:message "Property hasPoint has object with incorrect type" ;
+            sh:path brick:hasPoint ] ;
+    sh:targetSubjectsOf brick:hasPoint .
+
+bsh:hasTagRangeShape a sh:NodeShape ;
+    sh:property [ sh:class brick:Tag ;
+            sh:message "Property hasTag has object with incorrect type" ;
+            sh:path brick:hasTag ] ;
+    sh:targetSubjectsOf brick:hasTag .
+
+bsh:isAssociatedWithDomainShape a sh:NodeShape ;
+    sh:class brick:Tag ;
+    sh:message "Property isAssociatedWith has subject with incorrect type" ;
+    sh:targetSubjectsOf brick:isAssociatedWith .
+
+bsh:isAssociatedWithRangeShape a sh:NodeShape ;
+    sh:property [ sh:class owl:Class ;
+            sh:message "Property isAssociatedWith has object with incorrect type" ;
+            sh:path brick:isAssociatedWith ] ;
+    sh:targetSubjectsOf brick:isAssociatedWith .
+
+bsh:isLocationOfDomainShape a sh:NodeShape ;
+    sh:class brick:Location ;
+    sh:message "Property isLocationOf has subject with incorrect type" ;
+    sh:targetSubjectsOf brick:isLocationOf .
+
+bsh:isMeasuredByDomainShape a sh:NodeShape ;
+    sh:class brick:Measurable ;
+    sh:message "Property isMeasuredBy has subject with incorrect type" ;
+    sh:targetSubjectsOf brick:isMeasuredBy .
+
+bsh:isMeasuredByRangeShape a sh:NodeShape ;
+    sh:property [ sh:class brick:Point ;
+            sh:message "Property isMeasuredBy has object with incorrect type" ;
+            sh:path brick:isMeasuredBy ] ;
+    sh:targetSubjectsOf brick:isMeasuredBy .
+
+bsh:isPointOfDomainShape a sh:NodeShape ;
+    sh:class brick:Point ;
+    sh:message "Property isPointOf has subject with incorrect type" ;
+    sh:targetSubjectsOf brick:isPointOf .
+
+bsh:isRegulatedByDomainShape a sh:NodeShape ;
+    sh:class brick:Substance ;
+    sh:message "Property isRegulatedBy has subject with incorrect type" ;
+    sh:targetSubjectsOf brick:isRegulatedBy .
+
+bsh:isRegulatedByRangeShape a sh:NodeShape ;
+    sh:property [ sh:class brick:Equipment ;
+            sh:message "Property isRegulatedBy has object with incorrect type" ;
+            sh:path brick:isRegulatedBy ] ;
+    sh:targetSubjectsOf brick:isRegulatedBy .
+
+bsh:isTagOfDomainShape a sh:NodeShape ;
+    sh:class brick:Tag ;
+    sh:message "Property isTagOf has subject with incorrect type" ;
+    sh:targetSubjectsOf brick:isTagOf .
+
+bsh:measuresDomainShape a sh:NodeShape ;
+    sh:class brick:Point ;
+    sh:message "Property measures has subject with incorrect type" ;
+    sh:targetSubjectsOf brick:measures .
+
+bsh:measuresRangeShape a sh:NodeShape ;
+    sh:property [ sh:class brick:Measurable ;
+            sh:message "Property measures has object with incorrect type" ;
+            sh:path brick:measures ] ;
+    sh:targetSubjectsOf brick:measures .
+
+bsh:regulatesDomainShape a sh:NodeShape ;
+    sh:class brick:Equipment ;
+    sh:message "Property regulates has subject with incorrect type" ;
+    sh:targetSubjectsOf brick:regulates .
+
+bsh:regulatesRangeShape a sh:NodeShape ;
+    sh:property [ sh:class brick:Substance ;
+            sh:message "Property regulates has object with incorrect type" ;
+            sh:path brick:regulates ] ;
+    sh:targetSubjectsOf brick:regulates .
