@@ -15,6 +15,10 @@ location_subclasses = {
         },
         OWL.equivalentClass: BRICK["Storey"],
     },
+    "Storey": {
+        "tags": [TAG.Storey, TAG.Location],
+        OWL.equivalentClass: BRICK["Floor"],
+    },
     "Roof": {"tags": [TAG.Roof, TAG.Location]},
     "Outside": {"tags": [TAG.Outside, TAG.Location]},
     "Site": {
