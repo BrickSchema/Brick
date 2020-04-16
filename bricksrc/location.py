@@ -25,12 +25,6 @@ location_subclasses = {
         "tags": [TAG.Storey, TAG.Location],
         OWL.equivalentClass: BRICK["Floor"],
     },
-    "Roof": {
-        "tags": [TAG.Roof, TAG.Location],
-        SKOS.definition: Literal(
-            "A roof is the top covering of a building, including all materials and constructions necessary to support it on the walls of the building or on uprights. (https://en.wikipedia.org/wiki/Roof)"
-        ),
-    },
     "Outside": {"tags": [TAG.Outside, TAG.Location]},
     "Site": {
         "tags": [TAG.Site, TAG.Location],
