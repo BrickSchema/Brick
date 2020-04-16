@@ -4451,16 +4451,6 @@ brick:Return_Heating_Valve a owl:Class ;
         tag:Return,
         tag:Valve .
 
-brick:Roof a owl:Class ;
-    rdfs:label "Roof" ;
-    rdfs:subClassOf [ owl:intersectionOf ( [ a owl:Restriction ;
-                        owl:hasValue tag:Roof ;
-                        owl:onProperty brick:hasTag ] _:has_Location ) ],
-        brick:Location ;
-    skos:definition "A roof is the top covering of a building, including all materials and constructions necessary to support it on the walls of the building or on uprights. (https://en.wikipedia.org/wiki/Roof)" ;
-    brick:hasAssociatedTag tag:Location,
-        tag:Roof .
-
 brick:Rooftop a owl:Class ;
     rdfs:label "Rooftop" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Rooftop _:has_Location _:has_Floor ) ],
@@ -8336,9 +8326,6 @@ tag:Remotely a brick:Tag ;
 tag:Required a brick:Tag ;
     rdfs:label "Required" .
 
-tag:Roof a brick:Tag ;
-    rdfs:label "Roof" .
-
 tag:Sash a brick:Tag ;
     rdfs:label "Sash" .
 
@@ -10057,6 +10044,12 @@ tag:Position a brick:Tag ;
 tag:Room a brick:Tag ;
     rdfs:label "Room" .
 
+brick:Location a owl:Class ;
+    rdfs:label "Location" ;
+    rdfs:subClassOf _:has_Location,
+        brick:Class ;
+    brick:hasAssociatedTag tag:Location .
+
 tag:Energy a brick:Tag ;
     rdfs:label "Energy" .
 
@@ -10070,12 +10063,6 @@ brick:Limit a owl:Class ;
     brick:hasAssociatedTag tag:Limit,
         tag:Parameter,
         tag:Point .
-
-brick:Location a owl:Class ;
-    rdfs:label "Location" ;
-    rdfs:subClassOf _:has_Location,
-        brick:Class ;
-    brick:hasAssociatedTag tag:Location .
 
 brick:Parameter a owl:Class ;
     rdfs:label "Parameter" ;
@@ -10213,6 +10200,9 @@ tag:Enable a brick:Tag ;
 tag:High a brick:Tag ;
     rdfs:label "High" .
 
+tag:Location a brick:Tag ;
+    rdfs:label "Location" .
+
 tag:Shed a brick:Tag ;
     rdfs:label "Shed" .
 
@@ -10230,9 +10220,6 @@ brick:Alarm a owl:Class ;
 
 tag:Liquid a brick:Tag ;
     rdfs:label "Liquid" .
-
-tag:Location a brick:Tag ;
-    rdfs:label "Location" .
 
 tag:Proportional a brick:Tag ;
     rdfs:label "Proportional" .
@@ -10993,6 +10980,10 @@ _:has_Fan a owl:Restriction ;
     owl:hasValue tag:Fan ;
     owl:onProperty brick:hasTag .
 
+_:has_Location a owl:Restriction ;
+    owl:hasValue tag:Location ;
+    owl:onProperty brick:hasTag .
+
 _:has_Band a owl:Restriction ;
     owl:hasValue tag:Band ;
     owl:onProperty brick:hasTag .
@@ -11003,10 +10994,6 @@ _:has_Enable a owl:Restriction ;
 
 _:has_High a owl:Restriction ;
     owl:hasValue tag:High ;
-    owl:onProperty brick:hasTag .
-
-_:has_Location a owl:Restriction ;
-    owl:hasValue tag:Location ;
     owl:onProperty brick:hasTag .
 
 _:has_Shed a owl:Restriction ;
