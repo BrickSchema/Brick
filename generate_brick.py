@@ -172,7 +172,11 @@ def define_classes(definitions, parent, pun_classes=False):
         ]
         for propname in other_properties:
             propval = defn[propname]
-            G.add((classname, propname, propval))
+            if isinstance(propval, list):
+                for pv in propval:
+                    G.add((classname, propname, pv))
+            else:
+                G.add((classname, propname, propval))
 
 
 def define_properties(definitions, superprop=None):
