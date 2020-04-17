@@ -12,6 +12,7 @@ SKOS = Namespace("http://www.w3.org/2004/02/skos/core#")
 DCTERMS = Namespace("http://purl.org/dc/terms#")
 SDO = Namespace("http://schema.org#")
 SOSA = Namespace("http://www.w3.org/ns/sosa#")
+QUDTQK = Namespace("http://qudt.org/vocab/quantitykind/")
 A = RDF.type
 
 

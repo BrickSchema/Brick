@@ -1,5 +1,5 @@
 from rdflib import Literal
-from .namespaces import SKOS, OWL, BRICK
+from .namespaces import SKOS, OWL, BRICK, QUDTQK
 
 
 quantity_definitions = {
@@ -11,30 +11,38 @@ quantity_definitions = {
             "TVOC_Level": {},
         },
     },
-    "Angle": {},
-    "Conductivity": {},
-    "Capacity": {},
+    "Angle": {OWL.equivalentClass: QUDTQK["Angle"]},
+    "Conductivity": {OWL.equivalentClass: QUDTQK["Conductivity"]},
+    "Capacity": {OWL.equivalentClass: QUDTQK["Capacity"]},
     "Enthalpy": {
         SKOS.definition: Literal(
             "(also known as heat content), thermodynamic quantity equal to the sum of the internal energy of a system plus the product of the pressure volume work done on the system. H = E + pv, where H = enthalpy or total heat content, E = internal energy of the system, p = pressure, and v = volume. (Compare to [[specific enthalpy]].)"
         ),
+        OWL.equivalentClass: QUDTQK["Enthalpy"],
     },
     "Grains": {},
     "Power": {
+        OWL.equivalentClass: QUDTQK["Power"],
         "subclasses": {
             "Electric_Power": {
+                OWL.equivalentClass: QUDTQK["ElectricPower"],
                 "subclasses": {
-                    "Apparent_Power": {},
-                    "Active_Power": {OWL.equivalentClass: BRICK["Real_Power"]},
+                    "Apparent_Power": {OWL.equivalentClass: QUDTQK["ApparentPower"]},
+                    "Active_Power": {
+                        OWL.equivalentClass: [
+                            BRICK["Real_Power"],
+                            QUDTQK["ActivePower"],
+                        ]
+                    },
                     "Real_Power": {},
-                    "Reactive_Power": {},
-                    "Complex_Power": {},
+                    "Reactive_Power": {OWL.equivalentClass: QUDTQK["ReactivePower"]},
+                    "Complex_Power": {OWL.equivalentClass: QUDTQK["ComplexPower"]},
                 },
             },
             "Peak_Power": {
                 SKOS.definition: Literal(
                     "Tracks the highest (peak) observed power in some interval"
-                ),
+                )
             },
             "Thermal_Power": {},
         },
@@ -43,6 +51,7 @@ quantity_definitions = {
     "Current": {
         "subclasses": {
             "Electric_Current": {
+                OWL.equivalentClass: QUDTQK["ElectricCurrent"],
                 "subclasses": {
                     "Current_Angle": {},
                     "Current_Magnitude": {},
