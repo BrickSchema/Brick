@@ -63,6 +63,7 @@ quantity_definitions = {
         },
     },
     "Voltage": {
+        OWL.equivalentClass: QUDTQK["Voltage"],
         "subclasses": {
             "Electric_Voltage": {
                 "subclasses": {
@@ -74,14 +75,34 @@ quantity_definitions = {
         },
     },
     "Daytime": {},
-    "Dewpoint": {},
+    "Dewpoint": {OWL.equivalentClass: QUDTQK["DewPointTemperature"]},
     "Direction": {"subclasses": {"Wind_Direction": {}}},
-    "Energy": {"subclasses": {"Electric_Energy": {}, "Thermal_Energy": {}}},
-    "Flow": {"subclasses": {"Flow_Loss": {}}},
-    "Frequency": {"subclasses": {"Alternating_Current_Frequency": {}}},
-    "Humidity": {"subclasses": {"Relative_Humidity": {}}},
-    "Illuminance": {},
-    "Irradiance": {"subclasses": {"Solar_Irradiance": {}}},
+    "Energy": {
+        OWL.equivalentClass: QUDTQK["Energy"],
+        "subclasses": {
+            "Electric_Energy": {},
+            "Thermal_Energy": {OWL.equivalentClass: QUDTQK["ThermalEnergy"]},
+        },
+    },
+    "Flow": {
+        OWL.equivalentClass: QUDTQK["VolumeFlowRate"],
+        "subclasses": {"Flow_Loss": {}},
+    },
+    "Frequency": {
+        OWL.equivalentClass: QUDTQK["Frequency"],
+        "subclasses": {"Alternating_Current_Frequency": {}},
+    },
+    "Humidity": {
+        "subclasses": {
+            "Relative_Humidity": {OWL.equivalentClass: QUDTQK["RelativeHumidity"]},
+            "Absolute_Humidity": {OWL.equivalentClass: QUDTQK["AbsoluteHumidity"]},
+        }
+    },
+    "Illuminance": {OWL.equivalentClass: QUDTQK["Illuminance"]},
+    "Irradiance": {
+        OWL.equivalentClass: QUDTQK["Irradiance"],
+        "subclasses": {"Solar_Irradiance": {}},
+    },
     "Level": {
         "subclasses": {
             "CO2_Level": {},
@@ -90,21 +111,40 @@ quantity_definitions = {
             "TVOC_Level": {},
         },
     },
-    "Luminance": {"subclasses": {"Luminous_Flux": {}, "Luminous_Intensity": {}}},
-    "Occupancy": {"subclasses": {"Occupancy_Count": {}, "Occupancy_Percentage": {}}},
-    "Position": {},
-    "Power_Factor": {},
-    "Precipitation": {},
-    "Pressure": {
+    "Luminance": {
+        OWL.equivalentClass: QUDTQK["Luminance"],
         "subclasses": {
-            "Atmospheric_Pressure": {},
-            "Static_Pressure": {},
-            "Velocity_Pressure": {},
+            "Luminous_Flux": {OWL.equivalentClass: QUDTQK["LuminousFlux"]},
+            "Luminous_Intensity": {OWL.equivalentClass: QUDTQK["LuminousIntensity"]},
         },
     },
-    "Radiance": {"subclasses": {"Solar_Radiance": {}}},
-    "Speed": {"subclasses": {"Wind_Speed": {}}},
+    "Occupancy": {"subclasses": {"Occupancy_Count": {}, "Occupancy_Percentage": {}}},
+    "Position": {},
+    "Power_Factor": {OWL.equivalentClass: QUDTQK["PowerFactor"]},
+    "Precipitation": {},
+    "Pressure": {
+        OWL.equivalentClass: QUDTQK["Pressure"],
+        "subclasses": {
+            "Atmospheric_Pressure": {
+                OWL.equivalentClass: QUDTQK["AtmosphericPressure"]
+            },
+            "Dynamic_Pressure": {},
+            "Static_Pressure": {OWL.equivalentClass: QUDTQK["StaticPressure"]},
+            "Velocity_Pressure": {
+                OWL.equivalentClass: [
+                    QUDTQK["DynamicPressure"],
+                    BRICK["Dynamic_Pressure"],
+                ]
+            },
+        },
+    },
+    "Radiance": {
+        OWL.equivalentClass: QUDTQK["Radiance"],
+        "subclasses": {"Solar_Radiance": {}},
+    },
+    "Speed": {OWL.equivalentClass: QUDTQK["Speed"], "subclasses": {"Wind_Speed": {}}},
     "Temperature": {
+        OWL.equivalentClass: QUDTQK["Temperature"],
         "subclasses": {
             "Operative_Temperature": {},
             "Radiant_Temperature": {},
@@ -112,7 +152,10 @@ quantity_definitions = {
             "Wet_Bulb_Temperature": {},
         },
     },
-    "Time": {"subclasses": {"Acceleration_Time": {}, "Deceleration_Time": {}}},
-    "Torque": {},
+    "Time": {
+        OWL.equivalentClass: QUDTQK["Time"],
+        "subclasses": {"Acceleration_Time": {}, "Deceleration_Time": {}},
+    },
+    "Torque": {OWL.equivalentClass: QUDTQK["Torque"]},
     "Weather_Condition": {},
 }
