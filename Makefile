@@ -2,6 +2,7 @@
 
 Brick.ttl: bricksrc/*.py generate_brick.py
 	python generate_brick.py
+	cd shacl && python generate_shacl.py
 
 shacl/BrickShape.ttl: bricksrc/*.py generate_brick.py shacl/generate_shacl.py
 	cd shacl && python generate_shacl.py
