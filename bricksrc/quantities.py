@@ -22,10 +22,10 @@ quantity_definitions = {
     },
     "Grains": {},
     "Power": {
-        OWL.sameAs: QUDTQK["Power"],
+        # OWL.sameAs: QUDTQK["Power"],
         "subclasses": {
             "Electric_Power": {
-                OWL.sameAs: QUDTQK["ElectricPower"],
+                # OWL.sameAs: QUDTQK["ElectricPower"],
                 "subclasses": {
                     "Apparent_Power": {OWL.sameAs: QUDTQK["ApparentPower"]},
                     "Active_Power": {
@@ -76,7 +76,7 @@ quantity_definitions = {
     "Dewpoint": {OWL.sameAs: QUDTQK["DewPointTemperature"]},
     "Direction": {"subclasses": {"Wind_Direction": {}}},
     "Energy": {
-        OWL.sameAs: QUDTQK["Energy"],
+        # OWL.sameAs: QUDTQK["Energy"],
         "subclasses": {
             "Electric_Energy": {},
             "Thermal_Energy": {OWL.sameAs: QUDTQK["ThermalEnergy"]},
@@ -118,7 +118,7 @@ quantity_definitions = {
     "Power_Factor": {OWL.sameAs: QUDTQK["PowerFactor"]},
     "Precipitation": {},
     "Pressure": {
-        OWL.sameAs: QUDTQK["Pressure"],
+        # OWL.sameAs: QUDTQK["Pressure"],
         "subclasses": {
             "Atmospheric_Pressure": {OWL.sameAs: QUDTQK["AtmosphericPressure"]},
             "Dynamic_Pressure": {},
