@@ -148,8 +148,8 @@ properties = {
     },
     "hasAddress": {
         RDFS.subPropertyOf: VCARD.hasAddress,
-        SKOS.definition: Literal("To specify the address of a location."),
-        RDFS.domain: BRICK.Location,
+        SKOS.definition: Literal("To specify the address of a building."),
+        RDFS.domain: BRICK.Building,
         RDFS.range: VCARD.Address,
     },
 }
