@@ -240,12 +240,6 @@ brick:Box_Mode_Command a owl:Class ;
         tag:Mode,
         tag:Point .
 
-brick:Building a owl:Class ;
-    rdfs:label "Building" ;
-    rdfs:subClassOf _:has_Site,
-        brick:Location ;
-    brick:hasAssociatedTag tag:Site .
-
 brick:Building_Air_Static_Pressure_Sensor a owl:Class ;
     rdfs:label "Building Air Static Pressure Sensor" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Building _:has_Air _:has_Static _:has_Pressure _:has_Sensor ) ],
@@ -5412,10 +5406,10 @@ brick:feedsAir a owl:ObjectProperty ;
     skos:definition "Passes air" .
 
 brick:hasAddress a owl:ObjectProperty ;
-    rdfs:domain brick:Location ;
+    rdfs:domain brick:Building ;
     rdfs:range vcard:Address ;
     rdfs:subPropertyOf vcard:hasAddress ;
-    skos:definition "To specify the address of a location." .
+    skos:definition "To specify the address of a building." .
 
 brick:hasInputSubstance a owl:AsymmetricProperty,
         owl:IrreflexiveProperty,
@@ -5503,6 +5497,12 @@ brick:Blowdown_Water a owl:Class,
         tag:Fluid,
         tag:Liquid,
         tag:Water .
+
+brick:Building a owl:Class ;
+    rdfs:label "Building" ;
+    rdfs:subClassOf _:has_Site,
+        brick:Location ;
+    brick:hasAssociatedTag tag:Site .
 
 brick:CO2_Alarm a owl:Class ;
     rdfs:label "CO2 Alarm" ;
@@ -10014,6 +10014,12 @@ brick:Humidity a owl:Class,
     rdfs:label "Humidity" ;
     rdfs:subClassOf brick:Quantity .
 
+brick:Location a owl:Class ;
+    rdfs:label "Location" ;
+    rdfs:subClassOf _:has_Location,
+        brick:Class ;
+    brick:hasAssociatedTag tag:Location .
+
 brick:Min_Limit a owl:Class ;
     rdfs:label "Min Limit" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Min _:has_Limit _:has_Parameter ) ],
@@ -10043,12 +10049,6 @@ tag:Position a brick:Tag ;
 
 tag:Room a brick:Tag ;
     rdfs:label "Room" .
-
-brick:Location a owl:Class ;
-    rdfs:label "Location" ;
-    rdfs:subClassOf _:has_Location,
-        brick:Class ;
-    brick:hasAssociatedTag tag:Location .
 
 tag:Energy a brick:Tag ;
     rdfs:label "Energy" .
