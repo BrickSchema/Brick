@@ -12,6 +12,9 @@ SKOS = Namespace("http://www.w3.org/2004/02/skos/core#")
 DCTERMS = Namespace("http://purl.org/dc/terms#")
 SDO = Namespace("http://schema.org#")
 SOSA = Namespace("http://www.w3.org/ns/sosa#")
+
+# QUDT prefixes
+QUDT = Namespace("http://qudt.org/schema/qudt/")
 QUDTQK = Namespace("http://qudt.org/vocab/quantitykind/")
 QUDTUNIT = Namespace("http://qudt.org/vocab/unit/")
 A = RDF.type
@@ -29,3 +32,6 @@ def bind_prefixes(g):
     g.bind("brick", BRICK)
     g.bind("tag", TAG)
     g.bind("bsh", BSH)
+    g.bind("qudt", QUDT)
+    g.bind("qudtqk", QUDTQK)
+    g.bind("qudtunit", QUDTUNIT)
