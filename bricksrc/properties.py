@@ -1,5 +1,5 @@
 from rdflib import Literal
-from .namespaces import A, OWL, RDFS, SKOS, BRICK
+from .namespaces import A, OWL, RDFS, SKOS, BRICK, VCARD
 
 """
 Defining properties
@@ -145,5 +145,11 @@ properties = {
         SKOS.definition: Literal("The tag is associated with the given class"),
         RDFS.domain: BRICK.Tag,
         RDFS.range: OWL.Class,
+    },
+    "hasAddress": {
+        RDFS.subPropertyOf: VCARD.hasAddress,
+        SKOS.definition: Literal("To specify the address of a building."),
+        RDFS.domain: BRICK.Building,
+        RDFS.range: VCARD.Address,
     },
 }

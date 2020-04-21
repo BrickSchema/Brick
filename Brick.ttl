@@ -9,6 +9,7 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix sosa: <http://www.w3.org/ns/sosa#> .
 @prefix tag: <https://brickschema.org/schema/1.1/BrickTag#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
@@ -186,9 +187,10 @@ brick:Basement a owl:Class ;
     rdfs:label "Basement" ;
     rdfs:subClassOf [ owl:intersectionOf ( [ a owl:Restriction ;
                         owl:hasValue tag:Basement ;
-                        owl:onProperty brick:hasTag ] _:has_Location ) ],
-        brick:Location ;
+                        owl:onProperty brick:hasTag ] _:has_Location _:has_Floor ) ],
+        brick:Floor ;
     brick:hasAssociatedTag tag:Basement,
+        tag:Floor,
         tag:Location .
 
 brick:Battery a owl:Class ;
@@ -237,14 +239,6 @@ brick:Box_Mode_Command a owl:Class ;
         tag:Command,
         tag:Mode,
         tag:Point .
-
-brick:Building a owl:Class ;
-    rdfs:label "Building" ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:hasValue tag:Site ;
-            owl:onProperty brick:hasTag ],
-        brick:Location ;
-    brick:hasAssociatedTag tag:Site .
 
 brick:Building_Air_Static_Pressure_Sensor a owl:Class ;
     rdfs:label "Building Air Static Pressure Sensor" ;
@@ -608,15 +602,6 @@ brick:Chilled_Water_Valve a owl:Class ;
         tag:Equipment,
         tag:Valve,
         tag:Water .
-
-brick:City a owl:Class ;
-    rdfs:label "City" ;
-    rdfs:subClassOf [ owl:intersectionOf ( [ a owl:Restriction ;
-                        owl:hasValue tag:City ;
-                        owl:onProperty brick:hasTag ] _:has_Location ) ],
-        brick:Location ;
-    brick:hasAssociatedTag tag:City,
-        tag:Location .
 
 brick:Close_Limit a owl:Class ;
     rdfs:label "Close Limit" ;
@@ -2066,15 +2051,6 @@ brick:Fire_Zone a owl:Class ;
         tag:Location,
         tag:Zone .
 
-brick:Floor a owl:Class ;
-    rdfs:label "Floor" ;
-    rdfs:subClassOf [ owl:intersectionOf ( [ a owl:Restriction ;
-                        owl:hasValue tag:Floor ;
-                        owl:onProperty brick:hasTag ] _:has_Location ) ],
-        brick:Location ;
-    brick:hasAssociatedTag tag:Floor,
-        tag:Location .
-
 brick:Freeze_Status a owl:Class ;
     rdfs:label "Freeze Status" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Freeze _:has_Status ) ],
@@ -3058,17 +3034,6 @@ brick:Max_Discharge_Air_Static_Pressure_Setpoint_Limit a owl:Class ;
         tag:Setpoint,
         tag:Static .
 
-brick:Max_Discharge_Air_Temperature_Setpoint a owl:Class ;
-    rdfs:label "Max Discharge Air Temperature Setpoint" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Discharge _:has_Air _:has_Temperature _:has_Max _:has_Setpoint ) ],
-        brick:Discharge_Air_Temperature_Setpoint ;
-    brick:hasAssociatedTag tag:Air,
-        tag:Discharge,
-        tag:Max,
-        tag:Point,
-        tag:Setpoint,
-        tag:Temperature .
-
 brick:Max_Discharge_Air_Temperature_Setpoint_Limit a owl:Class ;
     rdfs:label "Max Discharge Air Temperature Setpoint Limit" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Max _:has_Discharge _:has_Air _:has_Temperature _:has_Limit _:has_Setpoint ) ],
@@ -3465,17 +3430,6 @@ brick:Min_Discharge_Air_Static_Pressure_Setpoint_Limit a owl:Class ;
         tag:Pressure,
         tag:Setpoint,
         tag:Static .
-
-brick:Min_Discharge_Air_Temperature_Setpoint a owl:Class ;
-    rdfs:label "Min Discharge Air Temperature Setpoint" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Discharge _:has_Air _:has_Temperature _:has_Min _:has_Setpoint ) ],
-        brick:Discharge_Air_Temperature_Setpoint ;
-    brick:hasAssociatedTag tag:Air,
-        tag:Discharge,
-        tag:Min,
-        tag:Point,
-        tag:Setpoint,
-        tag:Temperature .
 
 brick:Min_Discharge_Air_Temperature_Setpoint_Limit a owl:Class ;
     rdfs:label "Min Discharge Air Temperature Setpoint Limit" ;
@@ -4491,14 +4445,14 @@ brick:Return_Heating_Valve a owl:Class ;
         tag:Return,
         tag:Valve .
 
-brick:Roof a owl:Class ;
-    rdfs:label "Roof" ;
-    rdfs:subClassOf [ owl:intersectionOf ( [ a owl:Restriction ;
-                        owl:hasValue tag:Roof ;
-                        owl:onProperty brick:hasTag ] _:has_Location ) ],
-        brick:Location ;
-    brick:hasAssociatedTag tag:Location,
-        tag:Roof .
+brick:Rooftop a owl:Class ;
+    rdfs:label "Rooftop" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Rooftop _:has_Location _:has_Floor ) ],
+        brick:Floor ;
+    skos:definition "The top surface area of a roof." ;
+    brick:hasAssociatedTag tag:Floor,
+        tag:Location,
+        tag:Rooftop .
 
 brick:Room_Air_Temperature_Setpoint a owl:Class ;
     rdfs:label "Room Air Temperature Setpoint" ;
@@ -4600,6 +4554,14 @@ brick:Short_Cycle_Alarm a owl:Class ;
         tag:Point,
         tag:Short .
 
+brick:Site a owl:Class ;
+    rdfs:label "Site" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Site _:has_Location ) ],
+        brick:Location ;
+    skos:definition "A site is a geographic region that may or may not include built structures." ;
+    brick:hasAssociatedTag tag:Location,
+        tag:Site .
+
 brick:Solar_Azimuth_Angle_Sensor a owl:Class ;
     rdfs:label "Solar Azimuth Angle Sensor" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Solar [ a owl:Restriction ;
@@ -4644,13 +4606,6 @@ brick:Solar_Zenith_Angle_Sensor a owl:Class ;
         tag:Sensor,
         tag:Solar,
         tag:Zenith .
-
-brick:Space a owl:Class ;
-    rdfs:label "Space" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Space _:has_Location ) ],
-        brick:Location ;
-    brick:hasAssociatedTag tag:Location,
-        tag:Space .
 
 brick:Space_Heater a owl:Class ;
     rdfs:label "Space Heater" ;
@@ -5450,6 +5405,12 @@ brick:feedsAir a owl:ObjectProperty ;
     rdfs:subPropertyOf brick:feeds ;
     skos:definition "Passes air" .
 
+brick:hasAddress a owl:ObjectProperty ;
+    rdfs:domain brick:Building ;
+    rdfs:range vcard:Address ;
+    rdfs:subPropertyOf vcard:hasAddress ;
+    skos:definition "To specify the address of a building." .
+
 brick:hasInputSubstance a owl:AsymmetricProperty,
         owl:IrreflexiveProperty,
         owl:ObjectProperty ;
@@ -5536,6 +5497,12 @@ brick:Blowdown_Water a owl:Class,
         tag:Fluid,
         tag:Liquid,
         tag:Water .
+
+brick:Building a owl:Class ;
+    rdfs:label "Building" ;
+    rdfs:subClassOf _:has_Site,
+        brick:Location ;
+    brick:hasAssociatedTag tag:Site .
 
 brick:CO2_Alarm a owl:Class ;
     rdfs:label "CO2 Alarm" ;
@@ -6698,9 +6665,7 @@ brick:Return_Air_CO2_Setpoint a owl:Class ;
 
 brick:Rooftop_Unit a owl:Class ;
     rdfs:label "Rooftop Unit" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Equipment [ a owl:Restriction ;
-                        owl:hasValue tag:Rooftop ;
-                        owl:onProperty brick:hasTag ] _:has_AHU ) ],
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Equipment _:has_Rooftop _:has_AHU ) ],
         brick:AHU ;
     owl:equivalentClass brick:RTU ;
     brick:hasAssociatedTag tag:AHU,
@@ -6743,6 +6708,13 @@ brick:Solar_Irradiance a owl:Class,
         brick:Solar_Irradiance ;
     rdfs:label "Solar Irradiance" ;
     rdfs:subClassOf brick:Irradiance .
+
+brick:Space a owl:Class ;
+    rdfs:label "Space" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Space _:has_Location ) ],
+        brick:Location ;
+    brick:hasAssociatedTag tag:Location,
+        tag:Space .
 
 brick:Speed_Reset_Command a owl:Class ;
     rdfs:label "Speed Reset Command" ;
@@ -6793,6 +6765,16 @@ brick:Steam a owl:Class,
     brick:hasAssociatedTag tag:Fluid,
         tag:Gas,
         tag:Steam .
+
+brick:Storey a owl:Class ;
+    rdfs:label "Storey" ;
+    rdfs:subClassOf [ owl:intersectionOf ( [ a owl:Restriction ;
+                        owl:hasValue tag:Storey ;
+                        owl:onProperty brick:hasTag ] _:has_Location ) ],
+        brick:Location ;
+    owl:equivalentClass brick:Floor ;
+    brick:hasAssociatedTag tag:Location,
+        tag:Storey .
 
 brick:Supply_Air_Flow_Sensor a owl:Class ;
     rdfs:label "Supply Air Flow Sensor" ;
@@ -7869,7 +7851,7 @@ brick:Return_Water a owl:Class,
 brick:Room a owl:Class ;
     rdfs:label "Room" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Room _:has_Location ) ],
-        brick:Location ;
+        brick:Space ;
     brick:hasAssociatedTag tag:Location,
         tag:Room .
 
@@ -8122,9 +8104,6 @@ tag:Centrifugal a brick:Tag ;
 tag:Change a brick:Tag ;
     rdfs:label "Change" .
 
-tag:City a brick:Tag ;
-    rdfs:label "City" .
-
 tag:Close a brick:Tag ;
     rdfs:label "Close" .
 
@@ -8202,9 +8181,6 @@ tag:FCP a brick:Tag ;
 
 tag:FCU a brick:Tag ;
     rdfs:label "FCU" .
-
-tag:Floor a brick:Tag ;
-    rdfs:label "Floor" .
 
 tag:Freezer a brick:Tag ;
     rdfs:label "Freezer" .
@@ -8350,12 +8326,6 @@ tag:Remotely a brick:Tag ;
 tag:Required a brick:Tag ;
     rdfs:label "Required" .
 
-tag:Roof a brick:Tag ;
-    rdfs:label "Roof" .
-
-tag:Rooftop a brick:Tag ;
-    rdfs:label "Rooftop" .
-
 tag:Sash a brick:Tag ;
     rdfs:label "Sash" .
 
@@ -8368,11 +8338,11 @@ tag:Server a brick:Tag ;
 tag:Short a brick:Tag ;
     rdfs:label "Short" .
 
-tag:Site a brick:Tag ;
-    rdfs:label "Site" .
-
 tag:Stages a brick:Tag ;
     rdfs:label "Stages" .
+
+tag:Storey a brick:Tag ;
+    rdfs:label "Storey" .
 
 tag:Suction a brick:Tag ;
     rdfs:label "Suction" .
@@ -8534,6 +8504,16 @@ brick:Direction a owl:Class,
     rdfs:label "Direction" ;
     rdfs:subClassOf brick:Quantity .
 
+brick:Discharge_Air_Temperature_Setpoint a owl:Class ;
+    rdfs:label "Discharge Air Temperature Setpoint" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Discharge _:has_Air _:has_Temperature _:has_Setpoint ) ],
+        brick:Air_Temperature_Setpoint ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Discharge,
+        tag:Point,
+        tag:Setpoint,
+        tag:Temperature .
+
 brick:Duration_Sensor a owl:Class ;
     rdfs:label "Duration Sensor" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Sensor _:has_Duration ) ],
@@ -8579,6 +8559,15 @@ brick:Fault_Status a owl:Class ;
     brick:hasAssociatedTag tag:Fault,
         tag:Point,
         tag:Status .
+
+brick:Floor a owl:Class ;
+    rdfs:label "Floor" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Floor _:has_Location ) ],
+        brick:Location ;
+    owl:equivalentClass brick:Storey ;
+    skos:definition "A level, typically representing a horizontal aggregation of spaces that are vertically bound. (referring to IFC)" ;
+    brick:hasAssociatedTag tag:Floor,
+        tag:Location .
 
 brick:Fluid a owl:Class,
         brick:Fluid ;
@@ -9066,11 +9055,17 @@ tag:Rain a brick:Tag ;
 tag:Reheat a brick:Tag ;
     rdfs:label "Reheat" .
 
+tag:Rooftop a brick:Tag ;
+    rdfs:label "Rooftop" .
+
 tag:Safety a brick:Tag ;
     rdfs:label "Safety" .
 
 tag:Shade a brick:Tag ;
     rdfs:label "Shade" .
+
+tag:Site a brick:Tag ;
+    rdfs:label "Site" .
 
 tag:Space a brick:Tag ;
     rdfs:label "Space" .
@@ -9455,6 +9450,9 @@ tag:Effective a brick:Tag ;
 tag:Entering a brick:Tag ;
     rdfs:label "Entering" .
 
+tag:Floor a brick:Tag ;
+    rdfs:label "Floor" .
+
 tag:Frequency a brick:Tag ;
     rdfs:label "Frequency" .
 
@@ -9534,16 +9532,6 @@ brick:Disable_Command a owl:Class ;
     brick:hasAssociatedTag tag:Command,
         tag:Disable,
         tag:Point .
-
-brick:Discharge_Air_Temperature_Setpoint a owl:Class ;
-    rdfs:label "Discharge Air Temperature Setpoint" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Discharge _:has_Air _:has_Temperature _:has_Setpoint ) ],
-        brick:Air_Temperature_Setpoint ;
-    brick:hasAssociatedTag tag:Air,
-        tag:Discharge,
-        tag:Point,
-        tag:Setpoint,
-        tag:Temperature .
 
 brick:Enthalpy a owl:Class,
         brick:Enthalpy ;
@@ -10026,6 +10014,12 @@ brick:Humidity a owl:Class,
     rdfs:label "Humidity" ;
     rdfs:subClassOf brick:Quantity .
 
+brick:Location a owl:Class ;
+    rdfs:label "Location" ;
+    rdfs:subClassOf _:has_Location,
+        brick:Class ;
+    brick:hasAssociatedTag tag:Location .
+
 brick:Min_Limit a owl:Class ;
     rdfs:label "Min Limit" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Min _:has_Limit _:has_Parameter ) ],
@@ -10069,12 +10063,6 @@ brick:Limit a owl:Class ;
     brick:hasAssociatedTag tag:Limit,
         tag:Parameter,
         tag:Point .
-
-brick:Location a owl:Class ;
-    rdfs:label "Location" ;
-    rdfs:subClassOf _:has_Location,
-        brick:Class ;
-    brick:hasAssociatedTag tag:Location .
 
 brick:Parameter a owl:Class ;
     rdfs:label "Parameter" ;
@@ -10186,9 +10174,6 @@ tag:On a brick:Tag ;
 tag:Fan a brick:Tag ;
     rdfs:label "Fan" .
 
-tag:Location a brick:Tag ;
-    rdfs:label "Location" .
-
 brick:Setpoint a owl:Class ;
     rdfs:label "Setpoint" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Setpoint ) ],
@@ -10214,6 +10199,9 @@ tag:Enable a brick:Tag ;
 
 tag:High a brick:Tag ;
     rdfs:label "High" .
+
+tag:Location a brick:Tag ;
+    rdfs:label "Location" .
 
 tag:Shed a brick:Tag ;
     rdfs:label "Shed" .
@@ -10268,6 +10256,9 @@ tag:Load a brick:Tag ;
 tag:Min a brick:Tag ;
     rdfs:label "Min" .
 
+tag:Max a brick:Tag ;
+    rdfs:label "Max" .
+
 tag:Outside a brick:Tag ;
     rdfs:label "Outside" .
 
@@ -10282,9 +10273,6 @@ brick:Command a owl:Class ;
         brick:Status ;
     brick:hasAssociatedTag tag:Command,
         tag:Point .
-
-tag:Max a brick:Tag ;
-    rdfs:label "Max" .
 
 tag:Chilled a brick:Tag ;
     rdfs:label "Chilled" .
@@ -10350,11 +10338,11 @@ tag:Command a brick:Tag ;
 tag:Differential a brick:Tag ;
     rdfs:label "Differential" .
 
-tag:Status a brick:Tag ;
-    rdfs:label "Status" .
-
 tag:Discharge a brick:Tag ;
     rdfs:label "Discharge" .
+
+tag:Status a brick:Tag ;
+    rdfs:label "Status" .
 
 tag:Flow a brick:Tag ;
     rdfs:label "Flow" .
@@ -10584,12 +10572,20 @@ _:has_Reheat a owl:Restriction ;
     owl:hasValue tag:Reheat ;
     owl:onProperty brick:hasTag .
 
+_:has_Rooftop a owl:Restriction ;
+    owl:hasValue tag:Rooftop ;
+    owl:onProperty brick:hasTag .
+
 _:has_Safety a owl:Restriction ;
     owl:hasValue tag:Safety ;
     owl:onProperty brick:hasTag .
 
 _:has_Shade a owl:Restriction ;
     owl:hasValue tag:Shade ;
+    owl:onProperty brick:hasTag .
+
+_:has_Site a owl:Restriction ;
+    owl:hasValue tag:Site ;
     owl:onProperty brick:hasTag .
 
 _:has_Space a owl:Restriction ;
@@ -10654,6 +10650,10 @@ _:has_Effective a owl:Restriction ;
 
 _:has_Entering a owl:Restriction ;
     owl:hasValue tag:Entering ;
+    owl:onProperty brick:hasTag .
+
+_:has_Floor a owl:Restriction ;
+    owl:hasValue tag:Floor ;
     owl:onProperty brick:hasTag .
 
 _:has_Frequency a owl:Restriction ;
@@ -10972,16 +10972,16 @@ _:has_Integral a owl:Restriction ;
     owl:hasValue tag:Integral ;
     owl:onProperty brick:hasTag .
 
-_:has_Location a owl:Restriction ;
-    owl:hasValue tag:Location ;
-    owl:onProperty brick:hasTag .
-
 _:has_On a owl:Restriction ;
     owl:hasValue tag:On ;
     owl:onProperty brick:hasTag .
 
 _:has_Fan a owl:Restriction ;
     owl:hasValue tag:Fan ;
+    owl:onProperty brick:hasTag .
+
+_:has_Location a owl:Restriction ;
+    owl:hasValue tag:Location ;
     owl:onProperty brick:hasTag .
 
 _:has_Band a owl:Restriction ;
@@ -11036,12 +11036,12 @@ _:has_Min a owl:Restriction ;
     owl:hasValue tag:Min ;
     owl:onProperty brick:hasTag .
 
-_:has_Outside a owl:Restriction ;
-    owl:hasValue tag:Outside ;
-    owl:onProperty brick:hasTag .
-
 _:has_Max a owl:Restriction ;
     owl:hasValue tag:Max ;
+    owl:onProperty brick:hasTag .
+
+_:has_Outside a owl:Restriction ;
+    owl:hasValue tag:Outside ;
     owl:onProperty brick:hasTag .
 
 _:has_Chilled a owl:Restriction ;
@@ -11092,12 +11092,12 @@ _:has_Differential a owl:Restriction ;
     owl:hasValue tag:Differential ;
     owl:onProperty brick:hasTag .
 
-_:has_Status a owl:Restriction ;
-    owl:hasValue tag:Status ;
-    owl:onProperty brick:hasTag .
-
 _:has_Discharge a owl:Restriction ;
     owl:hasValue tag:Discharge ;
+    owl:onProperty brick:hasTag .
+
+_:has_Status a owl:Restriction ;
+    owl:hasValue tag:Status ;
     owl:onProperty brick:hasTag .
 
 _:has_Flow a owl:Restriction ;
