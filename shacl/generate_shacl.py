@@ -106,5 +106,7 @@ for subprop, desc in subpropertyDict.items():
             )
             G.add((BSH[shapename], SH.targetSubjectsOf, BRICK[subprop]))
 
-with open("BrickShape.ttl", "w") as f:
-    f.write(G.serialize(format="ttl", encoding="utf-8").decode("utf-8").rstrip("\r\n"))
+# serialize to output
+with open("BrickShape.ttl", "wb") as fp:
+    fp.write(G.serialize(format="turtle").rstrip())
+    fp.write(b"\n")

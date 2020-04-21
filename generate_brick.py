@@ -292,7 +292,6 @@ Collection(G, different_tag, different_tag_list)
 
 logging.info(f"Brick ontology compilation finished! Generated {len(G)} triples")
 # serialize to output
-with open("Brick.ttl", "w") as fp:
-    fp.write(
-        G.serialize(format="turtle", encoding="utf-8").decode("utf-8").rstrip("\r\n")
-    )
+with open("Brick.ttl", "wb") as fp:
+    fp.write(G.serialize(format="turtle").rstrip())
+    fp.write(b"\n")
