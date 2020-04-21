@@ -1,5 +1,5 @@
 from rdflib import Literal
-from .namespaces import SKOS, OWL, BRICK, QUDTQK, QUDT
+from .namespaces import SKOS, OWL, BRICK, QUDTQK
 
 
 quantity_definitions = {
@@ -11,30 +11,32 @@ quantity_definitions = {
             "TVOC_Level": {},
         },
     },
-    "Angle": {OWL.sameAs: QUDTQK["Angle"]},
-    "Conductivity": {OWL.sameAs: QUDTQK["Conductivity"]},
-    "Capacity": {OWL.sameAs: QUDTQK["Capacity"]},
+    "Angle": {OWL.equivalentClass: QUDTQK["Angle"]},
+    "Conductivity": {OWL.equivalentClass: QUDTQK["Conductivity"]},
+    "Capacity": {OWL.equivalentClass: QUDTQK["Capacity"]},
     "Enthalpy": {
         SKOS.definition: Literal(
             "(also known as heat content), thermodynamic quantity equal to the sum of the internal energy of a system plus the product of the pressure volume work done on the system. H = E + pv, where H = enthalpy or total heat content, E = internal energy of the system, p = pressure, and v = volume. (Compare to [[specific enthalpy]].)"
         ),
-        OWL.sameAs: QUDTQK["Enthalpy"],
+        OWL.equivalentClass: QUDTQK["Enthalpy"],
     },
     "Grains": {},
     "Power": {
-        # OWL.sameAs: QUDTQK["Power"],
+        OWL.equivalentClass: QUDTQK["Power"],
         "subclasses": {
             "Electric_Power": {
-                # OWL.sameAs: QUDTQK["ElectricPower"],
+                OWL.equivalentClass: QUDTQK["ElectricPower"],
                 "subclasses": {
-                    "Apparent_Power": {OWL.sameAs: QUDTQK["ApparentPower"]},
+                    "Apparent_Power": {OWL.equivalentClass: QUDTQK["ApparentPower"]},
                     "Active_Power": {
-                        OWL.sameAs: QUDTQK["ActivePower"],
-                        OWL.equivalentClass: BRICK["Real_Power"],
+                        OWL.equivalentClass: [
+                            QUDTQK["ActivePower"],
+                            BRICK["Real_Power"],
+                        ],
                     },
                     "Real_Power": {},
-                    "Reactive_Power": {OWL.sameAs: QUDTQK["ReactivePower"]},
-                    "Complex_Power": {OWL.sameAs: QUDTQK["ComplexPower"]},
+                    "Reactive_Power": {OWL.equivalentClass: QUDTQK["ReactivePower"]},
+                    "Complex_Power": {OWL.equivalentClass: QUDTQK["ComplexPower"]},
                 },
             },
             "Peak_Power": {
@@ -49,7 +51,7 @@ quantity_definitions = {
     "Current": {
         "subclasses": {
             "Electric_Current": {
-                OWL.sameAs: QUDTQK["ElectricCurrent"],
+                OWL.equivalentClass: QUDTQK["ElectricCurrent"],
                 "subclasses": {
                     "Current_Angle": {},
                     "Current_Magnitude": {},
@@ -61,7 +63,7 @@ quantity_definitions = {
         },
     },
     "Voltage": {
-        OWL.sameAs: QUDTQK["Voltage"],
+        OWL.equivalentClass: QUDTQK["Voltage"],
         "subclasses": {
             "Electric_Voltage": {
                 "subclasses": {
@@ -73,28 +75,31 @@ quantity_definitions = {
         },
     },
     "Daytime": {},
-    "Dewpoint": {OWL.sameAs: QUDTQK["DewPointTemperature"]},
+    "Dewpoint": {OWL.equivalentClass: QUDTQK["DewPointTemperature"]},
     "Direction": {"subclasses": {"Wind_Direction": {}}},
     "Energy": {
         "subclasses": {
-            "Electric_Energy": {OWL.sameAs: QUDTQK["Energy"]},
-            "Thermal_Energy": {OWL.sameAs: QUDTQK["ThermalEnergy"]},
+            "Electric_Energy": {OWL.equivalentClass: QUDTQK["Energy"]},
+            "Thermal_Energy": {OWL.equivalentClass: QUDTQK["ThermalEnergy"]},
         },
     },
-    "Flow": {OWL.sameAs: QUDTQK["VolumeFlowRate"], "subclasses": {"Flow_Loss": {}}},
+    "Flow": {
+        OWL.equivalentClass: QUDTQK["VolumeFlowRate"],
+        "subclasses": {"Flow_Loss": {}},
+    },
     "Frequency": {
-        OWL.sameAs: QUDTQK["Frequency"],
+        OWL.equivalentClass: QUDTQK["Frequency"],
         "subclasses": {"Alternating_Current_Frequency": {}},
     },
     "Humidity": {
         "subclasses": {
-            "Relative_Humidity": {OWL.sameAs: QUDTQK["RelativeHumidity"]},
-            "Absolute_Humidity": {OWL.sameAs: QUDTQK["AbsoluteHumidity"]},
+            "Relative_Humidity": {OWL.equivalentClass: QUDTQK["RelativeHumidity"]},
+            "Absolute_Humidity": {OWL.equivalentClass: QUDTQK["AbsoluteHumidity"]},
         }
     },
-    "Illuminance": {OWL.sameAs: QUDTQK["Illuminance"]},
+    "Illuminance": {OWL.equivalentClass: QUDTQK["Illuminance"]},
     "Irradiance": {
-        OWL.sameAs: QUDTQK["Irradiance"],
+        OWL.equivalentClass: QUDTQK["Irradiance"],
         "subclasses": {"Solar_Irradiance": {}},
     },
     "Level": {
@@ -106,32 +111,39 @@ quantity_definitions = {
         },
     },
     "Luminance": {
-        OWL.sameAs: QUDTQK["Luminance"],
+        OWL.equivalentClass: QUDTQK["Luminance"],
         "subclasses": {
-            "Luminous_Flux": {OWL.sameAs: QUDTQK["LuminousFlux"]},
-            "Luminous_Intensity": {OWL.sameAs: QUDTQK["LuminousIntensity"]},
+            "Luminous_Flux": {OWL.equivalentClass: QUDTQK["LuminousFlux"]},
+            "Luminous_Intensity": {OWL.equivalentClass: QUDTQK["LuminousIntensity"]},
         },
     },
     "Occupancy": {"subclasses": {"Occupancy_Count": {}, "Occupancy_Percentage": {}}},
     "Position": {},
-    "Power_Factor": {OWL.sameAs: QUDTQK["PowerFactor"]},
+    "Power_Factor": {OWL.equivalentClass: QUDTQK["PowerFactor"]},
     "Precipitation": {},
     "Pressure": {
-        # OWL.sameAs: QUDTQK["Pressure"],
+        OWL.equivalentClass: QUDTQK["Pressure"],
         "subclasses": {
-            "Atmospheric_Pressure": {OWL.sameAs: QUDTQK["AtmosphericPressure"]},
+            "Atmospheric_Pressure": {
+                OWL.equivalentClass: QUDTQK["AtmosphericPressure"]
+            },
             "Dynamic_Pressure": {},
-            "Static_Pressure": {OWL.sameAs: QUDTQK["StaticPressure"]},
+            "Static_Pressure": {OWL.equivalentClass: QUDTQK["StaticPressure"]},
             "Velocity_Pressure": {
-                OWL.sameAs: QUDTQK["DynamicPressure"],
-                OWL.equivalentClass: BRICK["Dynamic_Pressure"],
+                OWL.equivalentClass: [
+                    QUDTQK["DynamicPressure"],
+                    BRICK["Dynamic_Pressure"],
+                ],
             },
         },
     },
-    "Radiance": {OWL.sameAs: QUDTQK["Radiance"], "subclasses": {"Solar_Radiance": {}}},
-    "Speed": {OWL.sameAs: QUDTQK["Speed"], "subclasses": {"Wind_Speed": {}}},
+    "Radiance": {
+        OWL.equivalentClass: QUDTQK["Radiance"],
+        "subclasses": {"Solar_Radiance": {}},
+    },
+    "Speed": {OWL.equivalentClass: QUDTQK["Speed"], "subclasses": {"Wind_Speed": {}}},
     "Temperature": {
-        OWL.sameAs: QUDTQK["Temperature"],
+        OWL.equivalentClass: QUDTQK["Temperature"],
         "subclasses": {
             "Operative_Temperature": {},
             "Radiant_Temperature": {},
@@ -140,9 +152,9 @@ quantity_definitions = {
         },
     },
     "Time": {
-        OWL.sameAs: QUDTQK["Time"],
+        OWL.equivalentClass: QUDTQK["Time"],
         "subclasses": {"Acceleration_Time": {}, "Deceleration_Time": {}},
     },
-    "Torque": {OWL.sameAs: QUDTQK["Torque"]},
+    "Torque": {OWL.equivalentClass: QUDTQK["Torque"]},
     "Weather_Condition": {},
 }

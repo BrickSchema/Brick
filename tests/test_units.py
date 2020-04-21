@@ -1,8 +1,6 @@
-import rdflib
-from rdflib import RDF, OWL, RDFS, Namespace, BNode
+from rdflib import Namespace
 import re
 import brickschema
-from .util import make_readable
 from collections import defaultdict
 import sys
 
@@ -14,7 +12,7 @@ BLDG = Namespace("https://brickschema.org/schema/ExampleBuilding#")
 
 def test_quantity_has_one_quantitykind():
     """
-    In the current implementation, using owl:sameAs to align Brick Quantity
+    In the current implementation, using owl:equivalentClass to align Quantity
     with QUDT QuantityKinds, we need to make sure that through RDFS subclassing
     that a Brick Quantity does not end up with more than 1 QuantityKind
     """
@@ -26,7 +24,7 @@ def test_quantity_has_one_quantitykind():
     quantity_qk = g.query(
         "SELECT ?quantity ?kind WHERE {\
             ?quantity   a   brick:Quantity .\
-            ?quantity   owl:sameAs ?kind }"
+            ?quantity   owl:equivalentClass ?kind }"
     )
     assert len(quantity_qk) > 0
     seen = defaultdict(list)
@@ -51,7 +49,7 @@ def test_instances_measure_correct_units():
 
     Recall that the Brick unit model is such:
 
-    Brick class ---measures---> Brick quantity ---sameAs---> QUDT QuantityKind
+    Brick class ---measures---> Brick quantity ---equivCls---> QuantityKind
         |                                                           |
         |                            +-----applicableUnit-----------+
         |                            |
@@ -76,7 +74,7 @@ def test_instances_measure_correct_units():
         "SELECT ?class ?quantity ?unit WHERE { \
              ?class a   brick:Class .\
              ?class brick:measures ?quantity .\
-             ?quantity qudt:applicableUnit ?unit }"
+             ?quantity owl:equivalentClass/qudt:applicableUnit ?unit }"
     )
     triples = []
     for brickclass, quantity, unit in classes_with_quantities:
@@ -111,6 +109,6 @@ def test_quantity_units():
     quantities_with_units = g.query(
         "SELECT ?q WHERE { \
              ?q rdf:type brick:Quantity .\
-             ?q qudt:applicableUnit ?unit}"
+             ?q owl:equivalentClass/qudt:applicableUnit ?unit}"
     )
     assert len(quantities_with_units) > 0
