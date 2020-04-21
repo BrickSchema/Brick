@@ -1,5 +1,5 @@
 from rdflib import Literal
-from .namespaces import SKOS, OWL, BRICK, QUDTQK
+from .namespaces import SKOS, OWL, BRICK, QUDTQK, QUDT
 
 
 quantity_definitions = {
@@ -76,9 +76,8 @@ quantity_definitions = {
     "Dewpoint": {OWL.sameAs: QUDTQK["DewPointTemperature"]},
     "Direction": {"subclasses": {"Wind_Direction": {}}},
     "Energy": {
-        # OWL.sameAs: QUDTQK["Energy"],
         "subclasses": {
-            "Electric_Energy": {},
+            "Electric_Energy": {OWL.sameAs: QUDTQK["Energy"]},
             "Thermal_Energy": {OWL.sameAs: QUDTQK["ThermalEnergy"]},
         },
     },
