@@ -12,32 +12,36 @@ quantity_definitions = {
             "TVOC_Level": {},
         },
     },
-    "Angle": {OWL.equivalentClass: QUDTQK["Angle"]},
-    "Conductivity": {OWL.equivalentClass: QUDTQK["Conductivity"]},
-    "Capacity": {OWL.equivalentClass: QUDTQK["Capacity"]},
+    "Angle": {BRICK.associatedQuantityKind: QUDTQK["Angle"]},
+    "Conductivity": {BRICK.associatedQuantityKind: QUDTQK["Conductivity"]},
+    "Capacity": {BRICK.associatedQuantityKind: QUDTQK["Capacity"]},
     "Enthalpy": {
         SKOS.definition: Literal(
             "(also known as heat content), thermodynamic quantity equal to the sum of the internal energy of a system plus the product of the pressure volume work done on the system. H = E + pv, where H = enthalpy or total heat content, E = internal energy of the system, p = pressure, and v = volume. (Compare to [[specific enthalpy]].)"
         ),
-        OWL.equivalentClass: QUDTQK["Enthalpy"],
+        BRICK.associatedQuantityKind: QUDTQK["Enthalpy"],
     },
     "Grains": {},
     "Power": {
-        OWL.equivalentClass: QUDTQK["Power"],
+        BRICK.associatedQuantityKind: QUDTQK["Power"],
         "subclasses": {
             "Electric_Power": {
-                OWL.equivalentClass: QUDTQK["ElectricPower"],
+                BRICK.associatedQuantityKind: QUDTQK["ElectricPower"],
                 "subclasses": {
-                    "Apparent_Power": {OWL.equivalentClass: QUDTQK["ApparentPower"]},
+                    "Apparent_Power": {
+                        BRICK.associatedQuantityKind: QUDTQK["ApparentPower"]
+                    },
                     "Active_Power": {
-                        OWL.equivalentClass: [
-                            QUDTQK["ActivePower"],
-                            BRICK["Real_Power"],
-                        ],
+                        OWL.equivalentClass: BRICK["Real_Power"],
+                        BRICK.associatedQuantityKind: QUDTQK["ActivePower"],
                     },
                     "Real_Power": {},
-                    "Reactive_Power": {OWL.equivalentClass: QUDTQK["ReactivePower"]},
-                    "Complex_Power": {OWL.equivalentClass: QUDTQK["ComplexPower"]},
+                    "Reactive_Power": {
+                        BRICK.associatedQuantityKind: QUDTQK["ReactivePower"]
+                    },
+                    "Complex_Power": {
+                        BRICK.associatedQuantityKind: QUDTQK["ComplexPower"]
+                    },
                 },
             },
             "Peak_Power": {
@@ -52,7 +56,7 @@ quantity_definitions = {
     "Current": {
         "subclasses": {
             "Electric_Current": {
-                OWL.equivalentClass: QUDTQK["ElectricCurrent"],
+                BRICK.associatedQuantityKind: QUDTQK["ElectricCurrent"],
                 "subclasses": {
                     "Current_Angle": {},
                     "Current_Magnitude": {},
@@ -64,7 +68,7 @@ quantity_definitions = {
         },
     },
     "Voltage": {
-        OWL.equivalentClass: QUDTQK["Voltage"],
+        BRICK.associatedQuantityKind: QUDTQK["Voltage"],
         "subclasses": {
             "Voltage_Magnitude": {},
             "Voltage_Angle": {},
@@ -72,31 +76,35 @@ quantity_definitions = {
         },
     },
     "Daytime": {},
-    "Dewpoint": {OWL.equivalentClass: QUDTQK["DewPointTemperature"]},
+    "Dewpoint": {BRICK.associatedQuantityKind: QUDTQK["DewPointTemperature"]},
     "Direction": {"subclasses": {"Wind_Direction": {}}},
     "Energy": {
         "subclasses": {
-            "Electric_Energy": {OWL.equivalentClass: QUDTQK["Energy"]},
-            "Thermal_Energy": {OWL.equivalentClass: QUDTQK["ThermalEnergy"]},
+            "Electric_Energy": {BRICK.associatedQuantityKind: QUDTQK["Energy"]},
+            "Thermal_Energy": {BRICK.associatedQuantityKind: QUDTQK["ThermalEnergy"]},
         },
     },
     "Flow": {
-        OWL.equivalentClass: QUDTQK["VolumeFlowRate"],
+        BRICK.associatedQuantityKind: QUDTQK["VolumeFlowRate"],
         "subclasses": {"Flow_Loss": {}},
     },
     "Frequency": {
-        OWL.equivalentClass: QUDTQK["Frequency"],
+        BRICK.associatedQuantityKind: QUDTQK["Frequency"],
         "subclasses": {"Alternating_Current_Frequency": {}},
     },
     "Humidity": {
         "subclasses": {
-            "Relative_Humidity": {OWL.equivalentClass: QUDTQK["RelativeHumidity"]},
-            "Absolute_Humidity": {OWL.equivalentClass: QUDTQK["AbsoluteHumidity"]},
+            "Relative_Humidity": {
+                BRICK.associatedQuantityKind: QUDTQK["RelativeHumidity"]
+            },
+            "Absolute_Humidity": {
+                BRICK.associatedQuantityKind: QUDTQK["AbsoluteHumidity"]
+            },
         }
     },
-    "Illuminance": {OWL.equivalentClass: QUDTQK["Illuminance"]},
+    "Illuminance": {BRICK.associatedQuantityKind: QUDTQK["Illuminance"]},
     "Irradiance": {
-        OWL.equivalentClass: QUDTQK["Irradiance"],
+        BRICK.associatedQuantityKind: QUDTQK["Irradiance"],
         "subclasses": {"Solar_Irradiance": {}},
     },
     "Level": {
@@ -108,39 +116,42 @@ quantity_definitions = {
         },
     },
     "Luminance": {
-        OWL.equivalentClass: QUDTQK["Luminance"],
+        BRICK.associatedQuantityKind: QUDTQK["Luminance"],
         "subclasses": {
-            "Luminous_Flux": {OWL.equivalentClass: QUDTQK["LuminousFlux"]},
-            "Luminous_Intensity": {OWL.equivalentClass: QUDTQK["LuminousIntensity"]},
+            "Luminous_Flux": {BRICK.associatedQuantityKind: QUDTQK["LuminousFlux"]},
+            "Luminous_Intensity": {
+                BRICK.associatedQuantityKind: QUDTQK["LuminousIntensity"]
+            },
         },
     },
     "Occupancy": {"subclasses": {"Occupancy_Count": {}, "Occupancy_Percentage": {}}},
     "Position": {},
-    "Power_Factor": {OWL.equivalentClass: QUDTQK["PowerFactor"]},
+    "Power_Factor": {BRICK.associatedQuantityKind: QUDTQK["PowerFactor"]},
     "Precipitation": {},
     "Pressure": {
-        OWL.equivalentClass: QUDTQK["Pressure"],
+        BRICK.associatedQuantityKind: QUDTQK["Pressure"],
         "subclasses": {
             "Atmospheric_Pressure": {
-                OWL.equivalentClass: QUDTQK["AtmosphericPressure"]
+                BRICK.associatedQuantityKind: QUDTQK["AtmosphericPressure"]
             },
             "Dynamic_Pressure": {},
-            "Static_Pressure": {OWL.equivalentClass: QUDTQK["StaticPressure"]},
+            "Static_Pressure": {BRICK.associatedQuantityKind: QUDTQK["StaticPressure"]},
             "Velocity_Pressure": {
-                OWL.equivalentClass: [
-                    QUDTQK["DynamicPressure"],
-                    BRICK["Dynamic_Pressure"],
-                ],
+                OWL.equivalentClass: BRICK["Dynamic_Pressure"],
+                BRICK.associatedQuantityKind: QUDTQK["DynamicPressure"],
             },
         },
     },
     "Radiance": {
-        OWL.equivalentClass: QUDTQK["Radiance"],
+        BRICK.associatedQuantityKind: QUDTQK["Radiance"],
         "subclasses": {"Solar_Radiance": {}},
     },
-    "Speed": {OWL.equivalentClass: QUDTQK["Speed"], "subclasses": {"Wind_Speed": {}}},
+    "Speed": {
+        BRICK.associatedQuantityKind: QUDTQK["Speed"],
+        "subclasses": {"Wind_Speed": {}},
+    },
     "Temperature": {
-        OWL.equivalentClass: QUDTQK["Temperature"],
+        BRICK.associatedQuantityKind: QUDTQK["Temperature"],
         "subclasses": {
             "Operative_Temperature": {},
             "Radiant_Temperature": {},
@@ -149,10 +160,10 @@ quantity_definitions = {
         },
     },
     "Time": {
-        OWL.equivalentClass: QUDTQK["Time"],
+        BRICK.associatedQuantityKind: QUDTQK["Time"],
         "subclasses": {"Acceleration_Time": {}, "Deceleration_Time": {}},
     },
-    "Torque": {OWL.equivalentClass: QUDTQK["Torque"]},
+    "Torque": {BRICK.associatedQuantityKind: QUDTQK["Torque"]},
     "Weather_Condition": {},
 }
 
@@ -163,10 +174,11 @@ def associate_units(outputG):
     for triple in outputG:
         g.add(triple)
     g.load_file("support/VOCAB_QUDT-QUANTITY-KINDS-ALL-v2.1.ttl")
+    g = brickschema.inference.OWLRLInferenceSession(load_brick=False).expand(g)
     unit_map = g.query(
         "SELECT ?quant ?unit WHERE {\
         ?quant a brick:Quantity .\
-        ?quant owl:equivalentClass/qudt:applicableUnit ?unit . }"
+        ?quant brick:associatedQuantityKind/qudt:applicableUnit ?unit . }"
     )
     for brickquant, unit in unit_map:
         outputG.add((brickquant, QUDT.applicableUnit, unit))
