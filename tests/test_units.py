@@ -29,17 +29,14 @@ def test_quantity_has_one_quantitykind():
     assert len(quantity_qk) > 0
     seen = defaultdict(list)
     for quant, quantkind in quantity_qk:
-        if "Brick" not in quant:
+        if quant == quantkind:
             continue
-        if "qudt" not in quantkind:
-            continue
-        seen[quant].append(quantkind)
+        if "Brick" in quant and "qudt" in quantkind:
+            seen[quant].append(quantkind)
     for quant, kindlist in seen.items():
-        if len(kindlist) > 1:
-            raise Exception(
-                f"Quantity {quant} has more than one associated \
-QuantityKind! {kindlist}"
-            )
+        assert (
+            len(kindlist) == 1
+        ), f"Quantity {quant} has more than one associated QuantityKind! {kindlist}"
 
 
 def test_instances_measure_correct_units():
@@ -74,7 +71,7 @@ def test_instances_measure_correct_units():
         "SELECT ?class ?quantity ?unit WHERE { \
              ?class a   brick:Class .\
              ?class brick:measures ?quantity .\
-             ?quantity owl:equivalentClass/qudt:applicableUnit ?unit }"
+             ?quantity qudt:applicableUnit ?unit }"
     )
     triples = []
     for brickclass, quantity, unit in classes_with_quantities:
@@ -109,6 +106,6 @@ def test_quantity_units():
     quantities_with_units = g.query(
         "SELECT ?q WHERE { \
              ?q rdf:type brick:Quantity .\
-             ?q owl:equivalentClass/qudt:applicableUnit ?unit}"
+             ?q qudt:applicableUnit ?unit}"
     )
     assert len(quantities_with_units) > 0
