@@ -1241,32 +1241,6 @@ sensor_definitions = {
                                             TAG.Air,
                                         ],
                                     },
-                                    "Highest_Zone_Air_Temperature_Sensor": {
-                                        "tags": [
-                                            TAG.Point,
-                                            TAG.Sensor,
-                                            TAG.Temperature,
-                                            TAG.Zone,
-                                            TAG.Highest,
-                                            TAG.Air,
-                                        ],
-                                        OWL.equivalentClass: BRICK[
-                                            "Warmest_Zone_Air_Temperature_Sensor"
-                                        ],
-                                    },
-                                    "Lowest_Zone_Air_Temperature_Sensor": {
-                                        "tags": [
-                                            TAG.Point,
-                                            TAG.Sensor,
-                                            TAG.Temperature,
-                                            TAG.Zone,
-                                            TAG.Lowest,
-                                            TAG.Air,
-                                        ],
-                                        OWL.equivalentClass: BRICK[
-                                            "Coldest_Zone_Air_Temperature_Sensor"
-                                        ],
-                                    },
                                     "Coldest_Zone_Air_Temperature_Sensor": {
                                         "tags": [
                                             TAG.Point,
