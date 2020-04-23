@@ -15,5 +15,7 @@ install:
 script:
   # generate new Brick ontology (in case this hasn't been run)
   - python generate_brick.py
+  # regenerate SHACL shapes
+  - cd shacl && python generate_shacl.py
   # -s flag: do not capture output (avoids killing test after 10 min)
   - pytest -s -vvvv
