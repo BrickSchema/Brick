@@ -1,7 +1,11 @@
-from .namespaces import TAG, BRICK
+from rdflib import Literal
+from .namespaces import TAG, BRICK, SKOS
 
 status_definitions = {
     "Status": {
+        SKOS.definition: Literal(
+            "A Status is a point that reports the current logical status of equipment; Statuses are read-only and are typically produced through reading a register rather than interpreting the output of a transducer"
+        ),
         "tags": [TAG.Point, TAG.Status],
         "subclasses": {
             "Direction_Status": {

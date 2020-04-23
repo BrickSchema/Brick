@@ -3,6 +3,9 @@ from .namespaces import BRICK, TAG, OWL, SKOS
 
 sensor_definitions = {
     "Sensor": {
+        SKOS.definition: Literal(
+            "A Sensor point represents the output of transducers recording the state of the physical world"
+        ),
         "tags": [TAG.Point, TAG.Sensor],
         "subclasses": {
             "Adjust_Sensor": {

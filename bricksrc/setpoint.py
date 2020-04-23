@@ -3,6 +3,9 @@ from rdflib import Literal
 
 setpoint_definitions = {
     "Setpoint": {
+        SKOS.definition: Literal(
+            "Setpoint points are control points used to guide the operation of a feedback-driven control system"
+        ),
         "tags": [TAG.Point, TAG.Setpoint],
         "subclasses": {
             "Enthalpy_Setpoint": {"tags": [TAG.Point, TAG.Setpoint, TAG.Enthalpy]},

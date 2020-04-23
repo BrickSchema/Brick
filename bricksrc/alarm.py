@@ -1,7 +1,11 @@
-from .namespaces import TAG, BRICK
+from rdflib import Literal
+from .namespaces import BRICK, TAG, SKOS
 
 alarm_definitions = {
     "Alarm": {
+        SKOS.definition: Literal(
+            "Alarm points are high-priority indicators conveying non-nominal behavior"
+        ),
         "tags": [TAG.Point, TAG.Alarm],
         "subclasses": {
             "Air_Alarm": {
