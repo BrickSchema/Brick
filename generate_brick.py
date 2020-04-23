@@ -18,7 +18,7 @@ from bricksrc.parameter import parameter_definitions
 from bricksrc.location import location_subclasses
 from bricksrc.equipment import equipment_subclasses, hvac_subclasses, valve_subclasses
 from bricksrc.substances import substances
-from bricksrc.quantities import quantity_definitions
+from bricksrc.quantities import quantity_definitions, associate_units
 from bricksrc.properties import properties
 from bricksrc.tags import tags
 
@@ -281,6 +281,10 @@ G.add((BRICK.Substance, A, OWL.Class))
 # This makes Substance and Quantity metaclasses.
 define_classes(substances, BRICK.Substance, pun_classes=True)
 define_classes(quantity_definitions, BRICK.Quantity, pun_classes=True)
+
+# associate QUDT units using QUDT.applicableUnit by following the
+# owl.equivalentClass constructions in bricksrc/quantities.py
+associate_units(G)
 
 logging.info("Finishing Tag definitions")
 # declares that all tags are pairwise different; i.e. no two tags refer

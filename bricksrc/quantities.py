@@ -1,5 +1,6 @@
+import brickschema
 from rdflib import Literal
-from .namespaces import SKOS, OWL, BRICK, QUDTQK
+from .namespaces import SKOS, OWL, RDFS, BRICK, QUDTQK, QUDT
 
 
 quantity_definitions = {
@@ -65,13 +66,9 @@ quantity_definitions = {
     "Voltage": {
         OWL.equivalentClass: QUDTQK["Voltage"],
         "subclasses": {
-            "Electric_Voltage": {
-                "subclasses": {
-                    "Voltage_Magnitude": {},
-                    "Voltage_Angle": {},
-                    "Voltage_Imbalance": {},
-                },
-            },
+            "Voltage_Magnitude": {},
+            "Voltage_Angle": {},
+            "Voltage_Imbalance": {},
         },
     },
     "Daytime": {},
@@ -158,3 +155,18 @@ quantity_definitions = {
     "Torque": {OWL.equivalentClass: QUDTQK["Torque"]},
     "Weather_Condition": {},
 }
+
+
+def associate_units(outputG):
+    g = brickschema.graph.Graph()
+    g.g.bind("qudt", QUDT)
+    for triple in outputG:
+        g.add(triple)
+    g.load_file("support/VOCAB_QUDT-QUANTITY-KINDS-ALL-v2.1.ttl")
+    unit_map = g.query(
+        "SELECT ?quant ?unit WHERE {\
+        ?quant a brick:Quantity .\
+        ?quant owl:equivalentClass/qudt:applicableUnit ?unit . }"
+    )
+    for brickquant, unit in unit_map:
+        outputG.add((brickquant, QUDT.applicableUnit, unit))
