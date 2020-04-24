@@ -4,7 +4,7 @@ from .namespaces import TAG, BRICK, SKOS
 command_definitions = {
     "Command": {
         SKOS.definition: Literal(
-            "A Command is a control point offering read/write functionality that directly affect the state of equipment"
+            "A Command is an output point that directly determines the behavior of equipment and/or affects relevant operational points."
         ),
         "tags": [TAG.Point, TAG.Command],
         "subclasses": {

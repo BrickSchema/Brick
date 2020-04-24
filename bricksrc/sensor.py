@@ -1,10 +1,13 @@
 from rdflib import Literal
-from .namespaces import BRICK, TAG, OWL, SKOS
+from .namespaces import BRICK, TAG, OWL, SKOS, RDFS
 
 sensor_definitions = {
     "Sensor": {
         SKOS.definition: Literal(
-            "A Sensor point represents the output of transducers recording the state of the physical world"
+            "A Sensor is an input point that represents the value of a device or instrument designed to detect and measure a variable (ASHRAE Dictionary)."
+        ),
+        RDFS.seeAlso: Literal(
+            "https://xp20.ashrae.org/terminology/index.php?term=Sensor"
         ),
         "tags": [TAG.Point, TAG.Sensor],
         "subclasses": {
