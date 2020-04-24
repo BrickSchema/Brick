@@ -179,6 +179,7 @@ equipment_subclasses = {
     },
     "Elevator": {"tags": [TAG.Elevator, TAG.Equipment]},
     "Security_Equipment": {"tags": [TAG.Security, TAG.Equipment]},
+    "Camera_Equipment": {"tags": [TAG.Camera, TAG.Equipment]},
 }
 
 
@@ -464,10 +465,10 @@ valve_subclasses = {
 }
 
 security_subclasses = {
-    "Access_Control": {
+    "Access_Control_Equipment": {
         "tags": [TAG.Equipment, TAG.Security, TAG.Access, TAG.Control],
         "subclasses": {
-            "Access_Reader": {
+            "Access_Reader_Equipment": {
                 "tags": [
                     TAG.Equipment,
                     TAG.Security,
@@ -500,10 +501,10 @@ security_subclasses = {
         # Door_Release: An electronic input device used to immediately unlock specififed doors that are equipped with electronic locks.
         # Badge Station: A kiosk or checkpoint that requires the use of a badge in order to verify credentials and to grant access.
     },
-    "Video_Surveillance": {
+    "Video_Surveillance_Equipment": {
         "tags": [TAG.Equipment, TAG.Security, TAG.Video, TAG.Surveillance],
         "subclasses": {
-            "Camera": {
+            "Surveillance_Camera": {
                 "tags": [
                     TAG.Equipment,
                     TAG.Security,
@@ -514,6 +515,7 @@ security_subclasses = {
                 SKOS.definition: Literal(
                     "An optical instrument to capture still images or record moving images, which are stored on a physical or digital medium."
                 ),
+                "parents": [BRICK.Camera_Equipment]
                 # TODO: subclass of PTZ (Pan/Tilt/Zoom) cameras?
             },
             "NVR": {
@@ -528,7 +530,6 @@ security_subclasses = {
                 SKOS.definition: Literal("A Network Video Recorder."),
             },
             "Network_Video_Recorder": {
-                OWL.equivalentClass: BRICK["NVR"],
                 "tags": [
                     TAG.NVR,
                     TAG.Equipment,
@@ -537,6 +538,8 @@ security_subclasses = {
                     TAG.Recorder,
                     TAG.Network,
                 ],
+                OWL.equivalentClass: BRICK["NVR"],
+                SKOS.definition: Literal("A Network Video Recorder."),
             },
         },
         # TODO
@@ -545,46 +548,10 @@ security_subclasses = {
         # - is any specific kind of switch e.g. PoESwitch implied here?
         # Video_Wall (or should this be in a separate classification with displays and monitors?)
     },
-    "Safety": {
-        "tags": [TAG.Equipment, TAG.Security, TAG.Safety],
-        "subclasses": {
-            "Automated_External_Defibrillator": {
-                OWL.equivalentClass: BRICK["AED"],
-                "tags": [TAG.AED],
-                SKOS.definition: Literal(
-                    "Automated External Defibrillator. Used by trained people to help those experiencing cardiac issues."
-                ),
-            },
-            "AED": {
-                "tags": [
-                    TAG.Equipment,
-                    TAG.Security,
-                    TAG.Safety,
-                    TAG.AED,
-                    TAG.Defibrillator,
-                ],
-                SKOS.definition: Literal(
-                    "Automated External Defibrillator. Used by trained people to help those experiencing cardiac issues."
-                ),
-            },
-        },
-    },
-    "Intrusion": {
+    "Intrusion_Equipment": {
         "tags": [TAG.Equipment, TAG.Security, TAG.Intrusion],
-        "subclasses": {
-            "Motion_Sensor": {
-                "tags": [
-                    TAG.Equipment,
-                    TAG.Security,
-                    TAG.Intrusion,
-                    TAG.Motion,
-                    TAG.Sensor,
-                ],
-                SKOS.definition: Literal(
-                    "Sensor to indicate motion detected. Similar to Occupancy Sensor"
-                ),
-            },
             # TODO
+            # Motion sensor - but maybe to Points, but still need a way to represent security motion sensors
             # Security Control Panel: The central hub of a security system. All devices are connected to the security panel for easy
             #    and efficient access for different security protocols (i.e. Intrusion security) and events. Question: How’s this different from
             #    Access Panel? Is this specific to Intrusion detection system or more general?
@@ -592,9 +559,8 @@ security_subclasses = {
             # Duress_Button: Panic button, an electronic input device used to help alerting someone in emergency situations.
             # Door_Contacts: Door contact sensor, a peripheral security sensor that lets an alarm system know whether a door is
             # open or closed.
-        },
     },
-    "Intercom": {
+    "Intercom_Equipment": {
         "tags": [TAG.Equipment, TAG.Security, TAG.Intercom],
         "subclasses": {
             "Emergency_Phone": {
