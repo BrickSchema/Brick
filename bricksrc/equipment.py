@@ -179,7 +179,7 @@ equipment_subclasses = {
     },
     "Elevator": {"tags": [TAG.Elevator, TAG.Equipment]},
     "Security_Equipment": {"tags": [TAG.Security, TAG.Equipment]},
-    "Camera_Equipment": {"tags": [TAG.Camera, TAG.Equipment]},
+    "Camera": {"tags": [TAG.Camera, TAG.Equipment]},
 }
 
 
@@ -468,7 +468,7 @@ security_subclasses = {
     "Access_Control_Equipment": {
         "tags": [TAG.Equipment, TAG.Security, TAG.Access, TAG.Control],
         "subclasses": {
-            "Access_Reader_Equipment": {
+            "Access_Reader": {
                 "tags": [
                     TAG.Equipment,
                     TAG.Security,
@@ -515,7 +515,7 @@ security_subclasses = {
                 SKOS.definition: Literal(
                     "An optical instrument to capture still images or record moving images, which are stored on a physical or digital medium."
                 ),
-                "parents": [BRICK.Camera_Equipment]
+                "parents": [BRICK.Camera]
                 # TODO: subclass of PTZ (Pan/Tilt/Zoom) cameras?
             },
             "NVR": {
