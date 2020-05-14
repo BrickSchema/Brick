@@ -548,8 +548,8 @@ security_subclasses = {
         # - is any specific kind of switch e.g. PoESwitch implied here?
         # Video_Wall (or should this be in a separate classification with displays and monitors?)
     },
-    "Intrusion_Equipment": {
-        "tags": [TAG.Equipment, TAG.Security, TAG.Intrusion],
+    "Intrusion_Detection_Equipment": {
+        "tags": [TAG.Equipment, TAG.Security, TAG.Intrusion, TAG.Detection],
             # TODO
             # Motion sensor - but maybe to Points, but still need a way to represent security motion sensors
             # Security Control Panel: The central hub of a security system. All devices are connected to the security panel for easy
