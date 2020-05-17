@@ -30,6 +30,59 @@ equipment_subclasses = {
             },
             "Inverter": {"tags": [TAG.Inverter, TAG.Equipment]},
             "PlugStrip": {"tags": [TAG.PlugStrip, TAG.Equipment]},
+            "Disconnect_Switch": {
+                "tags": [TAG.Disconnect, TAG.Switch, TAG.Equipment],
+                SKOS.definition: Literal(
+                    "Building power is most commonly provided by utility company through a master disconnect switch (sometimes called a service disconnect) in the main electrical room of a building. The Utility Company provided master disconnect switch often owns or restricts access to this switch. There can also be other cases where a disconnect is placed into an electrical system to allow service cut-off to a portion of the building."
+                ),
+            },
+            "Switchgear": {
+                "tags": [TAG.Switchgear, TAG.Equipment],
+                SKOS.definition: Literal(
+                    "A main disconnect or service disconnect feeds power to a switchgear, which then distributes power to the rest of the building through smaller amperage-rated disconnects."
+                ),
+            },
+            "Bus_Riser": {
+                "tags": [TAG.Riser, TAG.Equipment],
+                SKOS.definition: Literal(
+                    "Bus Risers are commonly fed from a switchgear and rise up through a series of floors to the main power distribution source for each floor."
+                ),
+            },
+            "Transformer": {
+                "tags": [TAG.Transformer, TAG.Equipment],
+                SKOS.definition: Literal(
+                    "A Transformer is usually fed by a high-voltage source and then steps down the voltage to a lower-voltage feed for low-voltage application (such as lights). Transformers also can step up voltage, but this generally does not apply to in building distribution."
+                ),
+            },
+            "Motor_Control_Center": {
+                "tags": [TAG.Motor, TAG.Equipment],
+                SKOS.definition: Literal(
+                    "The Motor Control Center is a specialized type of switchgear which provides electrical power to major mechanical systems in the building such as HVAC components."
+                ),
+            },
+            "Breaker_Panel": {
+                "tags": [TAG.Breaker, TAG.Equipment],
+                SKOS.definition: Literal(
+                    "Breaker Panel distributes power into various end-uses."
+                ),
+            },
+        },
+    },
+    "Gas_System": {
+        "tags": [TAG.Gas, TAG.System, TAG.Equipment],
+        "subclasses": {
+            "Gas_Valve": {
+                "tags": [TAG.Gas, TAG.Valve, TAG.Equipment],
+                SKOS.definition: Literal(
+                    "Building gas is provided by utility company and sourced through a master building feed."
+                ),
+            },
+            "Gas_Distribution": {
+                "tags": [TAG.Gas, TAG.Distribution, TAG.Equipment],
+                SKOS.definition: Literal(
+                    "Utilize a gas distribution source to represent how gas is distributed across multiple destinations"
+                ),
+            },
         },
     },
     "Meter": {
@@ -124,9 +177,37 @@ equipment_subclasses = {
                 "tags": [TAG.CWS],
             },
             "HWS": {OWL.equivalentClass: BRICK["Hot_Water_System"], "tags": [TAG.HWS]},
+            "Water_Valve": {
+                "tags": [TAG.Water, TAG.Valve, TAG.Equipment],
+                SKOS.definition: Literal(
+                    "Building water is provided by utility company and sourced through a master building feed."
+                ),
+            },
+            "Water_Distribution": {
+                "tags": [TAG.Water, TAG.Distribution, TAG.Equipment],
+                SKOS.definition: Literal(
+                    "Utilize a water distribution source to represent how water is distributed across multiple destinations (pipes)"
+                ),
+            },
         },
     },
-    "Steam_System": {"tags": [TAG.Steam, TAG.Equipment]},
+    "Steam_System": {
+        "tags": [TAG.Steam, TAG.Equipment],
+        "subclasses": {
+            "Steam_Valve": {
+                "tags": [TAG.Steam, TAG.Valve, TAG.Equipment],
+                SKOS.definition: Literal(
+                    "Building steam is provided by the utility company and sourced through a master building feed."
+                ),
+            },
+            "Steam_Distribution": {
+                "tags": [TAG.Steam, TAG.Distribution, TAG.Equipment],
+                SKOS.definition: Literal(
+                    "Utilize a steam distribution source to represent how steam is distributed across multiple destinations"
+                ),
+            },
+        },
+    },
     "Solar_Panel": {"tags": [TAG.Solar, TAG.Equipment]},
     "Shading_System": {
         "tags": [TAG.Shade, TAG.Equipment],
@@ -270,6 +351,9 @@ hvac_subclasses = {
     },
     "Heat_Exchanger": {
         "tags": [TAG.Equipment, TAG.Heat, TAG.Exchanger],
+        SKOS.definition: Literal(
+            "A heat exchanger transfers heat from one piping system to another."
+        ),
         OWL.equivalentClass: BRICK["HX"],
         "subclasses": {
             "Evaporative_Heat_Exchanger": {
