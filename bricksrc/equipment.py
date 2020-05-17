@@ -71,12 +71,6 @@ equipment_subclasses = {
     "Gas_System": {
         "tags": [TAG.Gas, TAG.System, TAG.Equipment],
         "subclasses": {
-            "Gas_Valve": {
-                "tags": [TAG.Gas, TAG.Valve, TAG.Equipment],
-                SKOS.definition: Literal(
-                    "Building gas is provided by utility company and sourced through a master building feed."
-                ),
-            },
             "Gas_Distribution": {
                 "tags": [TAG.Gas, TAG.Distribution, TAG.Equipment],
                 SKOS.definition: Literal(
@@ -177,12 +171,6 @@ equipment_subclasses = {
                 "tags": [TAG.CWS],
             },
             "HWS": {OWL.equivalentClass: BRICK["Hot_Water_System"], "tags": [TAG.HWS]},
-            "Water_Valve": {
-                "tags": [TAG.Water, TAG.Valve, TAG.Equipment],
-                SKOS.definition: Literal(
-                    "Building water is provided by utility company and sourced through a master building feed."
-                ),
-            },
             "Water_Distribution": {
                 "tags": [TAG.Water, TAG.Distribution, TAG.Equipment],
                 SKOS.definition: Literal(
@@ -194,12 +182,6 @@ equipment_subclasses = {
     "Steam_System": {
         "tags": [TAG.Steam, TAG.Equipment],
         "subclasses": {
-            "Steam_Valve": {
-                "tags": [TAG.Steam, TAG.Valve, TAG.Equipment],
-                SKOS.definition: Literal(
-                    "Building steam is provided by the utility company and sourced through a master building feed."
-                ),
-            },
             "Steam_Distribution": {
                 "tags": [TAG.Steam, TAG.Distribution, TAG.Equipment],
                 SKOS.definition: Literal(
@@ -536,12 +518,30 @@ valve_subclasses = {
     "Cooling_Valve": {"tags": [TAG.Valve, TAG.Cool, TAG.Equipment]},
     "Water_Valve": {
         "tags": [TAG.Valve, TAG.Water, TAG.Equipment],
+        SKOS.definition: Literal(
+            "Building water is provided by utility company and sourced through a master building feed."
+        ),
         "subclasses": {
             "Chilled_Water_Valve": {
                 "tags": [TAG.Chilled, TAG.Valve, TAG.Water, TAG.Equipment],
                 "parents": [BRICK.Chilled_Water_System],
             },
         },
+        "parents": [BRICK.Water_System],
+    },
+    "Gas_Valve": {
+        "tags": [TAG.Gas, TAG.Valve, TAG.Equipment],
+        SKOS.definition: Literal(
+            "Building gas is provided by utility company and sourced through a master building feed."
+        ),
+        "parents": [BRICK.Gas_System],
     },
     "Isolation_Valve": {"tags": [TAG.Isolation, TAG.Valve, TAG.Equipment]},
+    "Steam_Valve": {
+        "tags": [TAG.Steam, TAG.Valve, TAG.Equipment],
+        SKOS.definition: Literal(
+            "Building steam is provided by the utility company and sourced through a master building feed."
+        ),
+        "parents": [BRICK.Steam_System],
+    },
 }
