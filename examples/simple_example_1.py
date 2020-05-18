@@ -134,7 +134,6 @@ can help with:
 To understand what the Brick schema definition can give us, lets try finding
 what kinds of air temperature sensors we have in our Brick model.
 """
-
 sensors = g.query(
     """SELECT ?sensor WHERE {
     ?sensor rdf:type/rdfs:subClassOf* brick:Air_Temperature_Sensor

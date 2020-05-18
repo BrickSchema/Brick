@@ -3,13 +3,17 @@
 Brick.ttl: bricksrc/*.py generate_brick.py
 	python generate_brick.py
 
+shacl/BrickShape.ttl: bricksrc/*.py generate_brick.py shacl/generate_shacl.py
+	cd shacl && python generate_shacl.py
+
 format:
 	black generate_brick.py
+	black shacl/
 	black bricksrc/
 	black tests/
 	black tools/
 
-test: Brick.ttl
+test: Brick.ttl shacl/BrickShape.ttl
 	pytest -s -vvvv tests
 
 quantity-test: Brick.ttl

@@ -7,7 +7,7 @@ services:
   - docker
 
 before_install:
-  - docker pull franzinc/agraph
+  - docker pull franzinc/agraph:v7.0.0
 
 install:
   - pip install -r requirements.txt
