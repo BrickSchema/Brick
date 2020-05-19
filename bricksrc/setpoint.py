@@ -823,7 +823,7 @@ setpoint_definitions = {
                             TAG.Setpoint,
                         ],
                         "subclasses": {
-                            "Discharge_Air_Flow_Reset_High_Setpoint": {
+                            "Discharge_Air_Flow_High_Reset_Setpoint": {
                                 "tags": [
                                     TAG.Point,
                                     TAG.Discharge,
@@ -834,7 +834,7 @@ setpoint_definitions = {
                                     TAG.High,
                                 ],
                             },
-                            "Discharge_Air_Flow_Reset_Low_Setpoint": {
+                            "Discharge_Air_Flow_Low_Reset_Setpoint": {
                                 "tags": [
                                     TAG.Point,
                                     TAG.Discharge,
@@ -867,7 +867,7 @@ setpoint_definitions = {
                                     TAG.Setpoint,
                                 ],
                                 "subclasses": {
-                                    "Discharge_Air_Temperature_Reset_High_Setpoint": {
+                                    "Discharge_Air_Temperature_High_Reset_Setpoint": {
                                         "tags": [
                                             TAG.Point,
                                             TAG.Discharge,
@@ -879,7 +879,7 @@ setpoint_definitions = {
                                             TAG.High,
                                         ],
                                     },
-                                    "Discharge_Air_Temperature_Reset_Low_Setpoint": {
+                                    "Discharge_Air_Temperature_Low_Reset_Setpoint": {
                                         "tags": [
                                             TAG.Point,
                                             TAG.Discharge,
@@ -957,7 +957,7 @@ setpoint_definitions = {
                                     },
                                 },
                             },
-                            "Supply_Air_Temperature_Reset_High_Setpoint": {
+                            "Supply_Air_Temperature_High_Reset_Setpoint": {
                                 "tags": [
                                     TAG.Point,
                                     TAG.Supply,
@@ -990,7 +990,7 @@ setpoint_definitions = {
                             TAG.Setpoint,
                         ],
                         "subclasses": {
-                            "Supply_Air_Temperature_Reset_Low_Setpoint": {
+                            "Supply_Air_Temperature_Low_Reset_Setpoint": {
                                 "tags": [
                                     TAG.Point,
                                     TAG.Supply,
