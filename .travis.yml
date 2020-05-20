@@ -17,3 +17,5 @@ script:
   - python generate_brick.py
   # -s flag: do not capture output (avoids killing test after 10 min)
   - pytest -s -vvvv
+  # do integration tests
+  - cd tests/integration && bash run_integration_tests.sh
