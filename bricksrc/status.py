@@ -57,16 +57,19 @@ status_definitions = {
                             TAG.Enable,
                             TAG.Status,
                         ],
-                    },
-                    "Emergency_Power_Off_System_Enable_Status": {
-                        "tags": [
-                            TAG.Point,
-                            TAG.Emergency,
-                            TAG.Power,
-                            TAG.Off,
-                            TAG.Enable,
-                            TAG.Status,
-                        ],
+                        "subclasses": {
+                            "Emergency_Power_Off_System_Enable_Status": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Emergency,
+                                    TAG.Power,
+                                    TAG.Off,
+                                    TAG.System,
+                                    TAG.Enable,
+                                    TAG.Status,
+                                ],
+                            },
+                        },
                     },
                 },
             },

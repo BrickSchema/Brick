@@ -1,4 +1,4 @@
-from .namespaces import TAG, BRICK, OWL, SKOS
+from .namespaces import TAG, BRICK, SKOS
 from rdflib import Literal
 
 setpoint_definitions = {
@@ -817,7 +817,7 @@ setpoint_definitions = {
                             TAG.Setpoint,
                         ],
                         "subclasses": {
-                            "Discharge_Air_Flow_Reset_High_Setpoint": {
+                            "Discharge_Air_Flow_High_Reset_Setpoint": {
                                 "tags": [
                                     TAG.Point,
                                     TAG.Discharge,
@@ -828,7 +828,7 @@ setpoint_definitions = {
                                     TAG.High,
                                 ],
                             },
-                            "Discharge_Air_Flow_Reset_Low_Setpoint": {
+                            "Discharge_Air_Flow_Low_Reset_Setpoint": {
                                 "tags": [
                                     TAG.Point,
                                     TAG.Discharge,
@@ -861,7 +861,7 @@ setpoint_definitions = {
                                     TAG.Setpoint,
                                 ],
                                 "subclasses": {
-                                    "Discharge_Air_Temperature_Reset_High_Setpoint": {
+                                    "Discharge_Air_Temperature_High_Reset_Setpoint": {
                                         "tags": [
                                             TAG.Point,
                                             TAG.Discharge,
@@ -873,7 +873,7 @@ setpoint_definitions = {
                                             TAG.High,
                                         ],
                                     },
-                                    "Discharge_Air_Temperature_Reset_Low_Setpoint": {
+                                    "Discharge_Air_Temperature_Low_Reset_Setpoint": {
                                         "tags": [
                                             TAG.Point,
                                             TAG.Discharge,
@@ -951,7 +951,7 @@ setpoint_definitions = {
                                     },
                                 },
                             },
-                            "Supply_Air_Temperature_Reset_High_Setpoint": {
+                            "Supply_Air_Temperature_High_Reset_Setpoint": {
                                 "tags": [
                                     TAG.Point,
                                     TAG.Supply,
@@ -984,7 +984,7 @@ setpoint_definitions = {
                             TAG.Setpoint,
                         ],
                         "subclasses": {
-                            "Supply_Air_Temperature_Reset_Low_Setpoint": {
+                            "Supply_Air_Temperature_Low_Reset_Setpoint": {
                                 "tags": [
                                     TAG.Point,
                                     TAG.Supply,
@@ -1120,9 +1120,6 @@ setpoint_definitions = {
                                 ],
                                 "subclasses": {
                                     "Discharge_Air_Temperature_Heating_Setpoint": {
-                                        OWL.equivalentClass: BRICK[
-                                            "Min_Discharge_Air_Temperature_Setpoint"
-                                        ],
                                         "parents": [BRICK.Heating_Temperature_Setpoint],
                                         "tags": [
                                             TAG.Point,
@@ -1133,30 +1130,7 @@ setpoint_definitions = {
                                             TAG.Setpoint,
                                         ],
                                     },
-                                    "Min_Discharge_Air_Temperature_Setpoint": {
-                                        "tags": [
-                                            TAG.Point,
-                                            TAG.Discharge,
-                                            TAG.Air,
-                                            TAG.Temperature,
-                                            TAG.Min,
-                                            TAG.Setpoint,
-                                        ],
-                                    },
-                                    "Max_Discharge_Air_Temperature_Setpoint": {
-                                        "tags": [
-                                            TAG.Point,
-                                            TAG.Discharge,
-                                            TAG.Air,
-                                            TAG.Temperature,
-                                            TAG.Max,
-                                            TAG.Setpoint,
-                                        ],
-                                    },
                                     "Discharge_Air_Temperature_Cooling_Setpoint": {
-                                        OWL.equivalentClass: BRICK[
-                                            "Max_Discharge_Air_Temperature_Setpoint"
-                                        ],
                                         "parents": [BRICK.Cooling_Temperature_Setpoint],
                                         "tags": [
                                             TAG.Point,

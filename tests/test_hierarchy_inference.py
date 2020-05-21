@@ -63,7 +63,7 @@ def test_hierarchyinference():
     # Apply reasoner
     g.serialize("test.ttl", format="ttl")
     g = brickschema.inference.TagInferenceSession(
-        approximate=False, load_brick=False
+        approximate=False, load_brick=False, rebuild_tag_lookup=True
     ).expand(g)
     g = brickschema.inference.OWLRLInferenceSession(load_brick=False).expand(g)
     g.serialize(inference_file, format="turtle")  # Store the inferred graph.
