@@ -1,8 +1,14 @@
-from .namespaces import TAG, BRICK, SKOS
+from .namespaces import TAG, BRICK, SKOS, RDFS
 from rdflib import Literal
 
 setpoint_definitions = {
     "Setpoint": {
+        SKOS.definition: Literal(
+            "A Setpoint is an input value at which the desired property is set"
+        ),
+        RDFS.seeAlso: Literal(
+            "https://xp20.ashrae.org/terminology/index.php?term=setpoint"
+        ),
         "tags": [TAG.Point, TAG.Setpoint],
         "subclasses": {
             "Enthalpy_Setpoint": {"tags": [TAG.Point, TAG.Setpoint, TAG.Enthalpy]},
