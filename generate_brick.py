@@ -23,7 +23,7 @@ from bricksrc.equipment import (
     security_subclasses,
 )
 from bricksrc.substances import substances
-from bricksrc.quantities_sameas import quantity_definitions, get_units
+from bricksrc.quantities import quantity_definitions, get_units
 from bricksrc.properties import properties
 from bricksrc.tags import tags
 
