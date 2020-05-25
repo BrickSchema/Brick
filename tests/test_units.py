@@ -18,13 +18,12 @@ def test_quantity_has_one_quantitykind():
     """
     g = brickschema.graph.Graph()
     g.load_file("Brick.ttl")
-    g.load_file("support/VOCAB_QUDT-QUANTITY-KINDS-ALL-v2.1.ttl")
     g.g.bind("qudt", QUDT)
     g = brickschema.inference.OWLRLInferenceSession(load_brick=False).expand(g)
     quantity_qk = g.query(
         "SELECT ?quantity ?kind WHERE {\
             ?quantity   a   brick:Quantity .\
-            ?quantity   owl:equivalentClass ?kind }"
+            ?quantity   owl:sameAs ?kind }"
     )
     assert len(quantity_qk) > 0
     seen = defaultdict(list)
@@ -61,7 +60,6 @@ def test_instances_measure_correct_units():
 
     g = brickschema.graph.Graph()
     g.load_file("Brick.ttl")
-    g.load_file("support/VOCAB_QUDT-QUANTITY-KINDS-ALL-v2.1.ttl")
     g.g.bind("qudt", QUDT)
     g = brickschema.inference.OWLRLInferenceSession(load_brick=False).expand(g)
 
@@ -97,7 +95,6 @@ def test_instances_measure_correct_units():
 def test_quantity_units():
     g = brickschema.graph.Graph()
     g.load_file("Brick.ttl")
-    g.load_file("support/VOCAB_QUDT-QUANTITY-KINDS-ALL-v2.1.ttl")
     g.g.bind("qudt", QUDT)
     g = brickschema.inference.OWLRLInferenceSession(load_brick=False).expand(g)
 

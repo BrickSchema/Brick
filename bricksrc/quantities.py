@@ -52,8 +52,7 @@ quantity_definitions = {
                 "subclasses": {
                     "Apparent_Power": {OWL.sameAs: QUDTQK["ApparentPower"]},
                     "Active_Power": {
-                        OWL.sameAs: QUDTQK["ActivePower"],
-                        OWL.equivalentClass: BRICK["Real_Power"],
+                        OWL.sameAs: [QUDTQK["ActivePower"], BRICK["Real_Power"]],
                     },
                     "Real_Power": {},
                     "Reactive_Power": {OWL.sameAs: QUDTQK["ReactivePower"]},
@@ -142,8 +141,7 @@ quantity_definitions = {
             "Dynamic_Pressure": {},
             "Static_Pressure": {OWL.sameAs: QUDTQK["StaticPressure"]},
             "Velocity_Pressure": {
-                OWL.sameAs: QUDTQK["DynamicPressure"],
-                OWL.equivalentClass: BRICK["Dynamic_Pressure"],
+                OWL.sameAs: [QUDTQK["DynamicPressure"], BRICK["Dynamic_Pressure"]],
             },
         },
     },

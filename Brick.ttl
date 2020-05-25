@@ -5777,8 +5777,8 @@ brick:Access_Control_Equipment a owl:Class ;
 
 brick:Active_Power a brick:Quantity ;
     rdfs:label "Active Power" ;
-    owl:equivalentClass brick:Real_Power ;
-    owl:sameAs qudtqk:ActivePower ;
+    owl:sameAs qudtqk:ActivePower,
+        brick:Real_Power ;
     skos:broader brick:Electric_Power .
 
 brick:Air_Flow_Deadband_Setpoint a owl:Class ;
@@ -9690,8 +9690,8 @@ brick:Valve a owl:Class ;
 
 brick:Velocity_Pressure a brick:Quantity ;
     rdfs:label "Velocity Pressure" ;
-    owl:equivalentClass brick:Dynamic_Pressure ;
-    owl:sameAs qudtqk:DynamicPressure ;
+    owl:sameAs qudtqk:DynamicPressure,
+        brick:Dynamic_Pressure ;
     skos:broader brick:Pressure .
 
 brick:Voltage a brick:Quantity ;
