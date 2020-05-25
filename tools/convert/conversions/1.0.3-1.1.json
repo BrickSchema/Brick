@@ -144,12 +144,12 @@
       "query": "DELETE{ ?subject ?predicate brickframe:usesTag . } INSERT{ ?subject ?predicate brick:hasTag . } WHERE { ?subject  ?predicate  brickframe:usesTag . }"
     },
     {
-      "description": "hasLocation => hasLocation,",
-      "query": "DELETE{ ?subject brickframe:hasLocation ?object . } INSERT{ ?subject brick:hasLocation, ?object . } WHERE { ?subject brickframe:hasLocation ?object . }"
+      "description": "hasLocation => hasLocation",
+      "query": "DELETE{ ?subject brickframe:hasLocation ?object . } INSERT{ ?subject brick:hasLocation ?object . } WHERE { ?subject brickframe:hasLocation ?object . }"
     },
     {
-      "description": "hasLocation => hasLocation,",
-      "query": "DELETE{ ?subject ?predicate brickframe:hasLocation . } INSERT{ ?subject ?predicate brick:hasLocation, . } WHERE { ?subject  ?predicate  brickframe:hasLocation . }"
+      "description": "hasLocation => hasLocation",
+      "query": "DELETE{ ?subject ?predicate brickframe:hasLocation . } INSERT{ ?subject ?predicate brick:hasLocation . } WHERE { ?subject  ?predicate  brickframe:hasLocation . }"
     },
     {
       "description": "AHU => AHU",

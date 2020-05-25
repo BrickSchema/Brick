@@ -16,7 +16,12 @@ from bricksrc.status import status_definitions
 from bricksrc.command import command_definitions
 from bricksrc.parameter import parameter_definitions
 from bricksrc.location import location_subclasses
-from bricksrc.equipment import equipment_subclasses, hvac_subclasses, valve_subclasses
+from bricksrc.equipment import (
+    equipment_subclasses,
+    hvac_subclasses,
+    valve_subclasses,
+    security_subclasses,
+)
 from bricksrc.substances import substances
 from bricksrc.quantities_sameas import quantity_definitions, get_units
 from bricksrc.properties import properties
@@ -318,6 +323,7 @@ define_classes(location_subclasses, BRICK.Location)
 define_classes(equipment_subclasses, BRICK.Equipment)
 define_classes(hvac_subclasses, BRICK.HVAC)
 define_classes(valve_subclasses, BRICK.Valve)
+define_classes(security_subclasses, BRICK.Security_Equipment)
 
 logging.info("Defining Measurable hierarchy")
 # define measurable hierarchy

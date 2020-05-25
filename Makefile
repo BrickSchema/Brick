@@ -16,6 +16,7 @@ format:
 
 test: Brick.ttl shacl/BrickShape.ttl
 	pytest -s -vvvv tests
+	cd tests/integration && bash run_integration_tests.sh
 
 quantity-test: Brick.ttl
 	pytest -s -vvvv tests/test_quantities.py
