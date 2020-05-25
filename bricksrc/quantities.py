@@ -34,7 +34,7 @@ quantity_definitions = {
             "TVOC_Level": {},
         },
     },
-    "Angle": {RDFS.seeAlso: QUDTQK["Angle"], OWL.sameAs: QUDTQK["Angle"]},
+    "Angle": {OWL.sameAs: QUDTQK["Angle"]},
     "Conductivity": {OWL.sameAs: QUDTQK["Conductivity"]},
     "Capacity": {OWL.sameAs: QUDTQK["Capacity"]},
     "Enthalpy": {
@@ -45,10 +45,10 @@ quantity_definitions = {
     },
     "Grains": {},
     "Power": {
-        # OWL.sameAs: QUDTQK["Power"],
+        OWL.sameAs: QUDTQK["Power"],
         "subclasses": {
             "Electric_Power": {
-                # OWL.sameAs: QUDTQK["ElectricPower"],
+                OWL.sameAs: QUDTQK["ElectricPower"],
                 "subclasses": {
                     "Apparent_Power": {OWL.sameAs: QUDTQK["ApparentPower"]},
                     "Active_Power": {
@@ -124,7 +124,7 @@ quantity_definitions = {
         },
     },
     "Luminance": {
-        # OWL.sameAs: QUDTQK["Luminance"],
+        OWL.sameAs: QUDTQK["Luminance"],
         "subclasses": {
             "Luminous_Flux": {OWL.sameAs: QUDTQK["LuminousFlux"]},
             "Luminous_Intensity": {OWL.sameAs: QUDTQK["LuminousIntensity"]},
@@ -135,7 +135,7 @@ quantity_definitions = {
     "Power_Factor": {OWL.sameAs: QUDTQK["PowerFactor"]},
     "Precipitation": {},
     "Pressure": {
-        # OWL.sameAs: QUDTQK["Pressure"],
+        OWL.sameAs: QUDTQK["Pressure"],
         "subclasses": {
             "Atmospheric_Pressure": {OWL.sameAs: QUDTQK["AtmosphericPressure"]},
             "Dynamic_Pressure": {},
@@ -148,7 +148,7 @@ quantity_definitions = {
     "Radiance": {OWL.sameAs: QUDTQK["Radiance"], "subclasses": {"Solar_Radiance": {}}},
     "Speed": {OWL.sameAs: QUDTQK["Speed"], "subclasses": {"Wind_Speed": {}}},
     "Temperature": {
-        OWL.sameAs: QUDTQK["Temperature"],
+        OWL.sameAs: QUDTQK["ThermodynamicTemperature"],
         "subclasses": {
             "Operative_Temperature": {},
             "Radiant_Temperature": {},

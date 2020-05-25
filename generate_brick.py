@@ -121,54 +121,49 @@ def add_tags(klass, definition):
     intersection_classes[klass] = tuple(sorted(definition))
 
 
-def define_classes_narrower(definitions, parent, typeclass, pun_classes=False):
+def define_concept_hierarchy(definitions, typeclass, broader=None):
     """
-    Generates triples for the hierarchy given by 'definitions', rooted
-    at the class given by 'parent'
-    - class hierarchy (using skos:narrower)
-    - tag mappings
-    - substance + quantity modeling
+    Generates triples to define the SKOS hierarchy of concepts given by
+    'definitions', which are all instances of the class given by 'typeclass'.
+    'broader', if provided, is the skos:broader concept
 
-    If pun_classes is True, then create punned instances of the classes
+    Currently this is used for Brick Quantities
     """
-    for classname, defn in definitions.items():
-        classname = BRICK[classname]
-        G.add((classname, A, typeclass))
-        # subclass of parent using SKOS broader (parent is the broader concept)
-        G.add((classname, SKOS.broader, parent))
+    for concept, defn in definitions.items():
+        concept = BRICK[concept]
+        G.add((concept, A, typeclass))
+        # mark broader concept if one exists
+        if broader is not None:
+            G.add((concept, SKOS.broader, broader))
         # add label
-        class_label = classname.split("#")[-1].replace("_", " ")
-        G.add((classname, RDFS.label, Literal(class_label)))
-        if pun_classes:
-            G.add((classname, A, classname))
+        class_label = concept.split("#")[-1].replace("_", " ")
+        G.add((concept, RDFS.label, Literal(class_label)))
 
         # define mapping to tags if it exists
         # "tags" property is a list of URIs naming Tags
         taglist = defn.get("tags", [])
         assert isinstance(taglist, list)
         if len(taglist) == 0:
-            logging.warning(f"Property 'tags' not defined for {classname}")
-        add_tags(classname, taglist)
+            logging.warning(f"Property 'tags' not defined for {concept}")
+        add_tags(concept, taglist)
 
         # define mapping to substances + quantities if it exists
         # "substances" property is a list of (predicate, object) pairs
         substancedef = defn.get("substances", [])
         assert isinstance(substancedef, list)
-        add_restriction(classname, substancedef)
+        add_restriction(concept, substancedef)
 
         # define class structure
         # this is a nested dictionary
         subclassdef = defn.get("subclasses", {})
         assert isinstance(subclassdef, dict)
-        define_classes_narrower(
-            subclassdef, classname, BRICK.Quantity, pun_classes=pun_classes
-        )
+        define_concept_hierarchy(subclassdef, BRICK.Quantity, broader=concept)
 
         # handle 'parents' subclasses (links outside of tree-based hierarchy)
         parents = defn.get("parents", [])
         assert isinstance(parents, list)
         for _parent in parents:
-            G.add((classname, SKOS.broader, _parent))
+            G.add((concept, SKOS.broader, _parent))
 
         # all other key-value pairs in the definition are
         # property-object pairs
@@ -180,9 +175,9 @@ def define_classes_narrower(definitions, parent, typeclass, pun_classes=False):
             propval = defn[propname]
             if isinstance(propval, list):
                 for pv in propval:
-                    G.add((classname, propname, pv))
+                    G.add((concept, propname, pv))
             else:
-                G.add((classname, propname, propval))
+                G.add((concept, propname, propval))
 
 
 def define_classes(definitions, parent, pun_classes=False):
@@ -350,16 +345,16 @@ G.add((BRICK.Substance, RDFS.subClassOf, SKOS.Concept))
 #    bldg:tmp1      a           brick:Air_Temperature_Sensor;
 #               brick:measures  brick:Air ,
 #                               brick:Temperature .
-# This makes Substance and Quantity metaclasses.
+# This makes Substance metaclasses.
 define_classes(substances, BRICK.Substance, pun_classes=True)
-define_classes_narrower(
-    quantity_definitions, BRICK.Quantity, BRICK.Quantity, pun_classes=False
-)
+
+# this defines the SKOS-based concept hierarchy for BRICK Quantities
+define_concept_hierarchy(quantity_definitions, BRICK.Quantity)
 
 # for all Quantities, copy part of the QUDT unit definitions over
 res = G.query(
     """SELECT ?quantity ?qudtquant WHERE {
-                ?quantity skos:broader+ brick:Quantity .
+                ?quantity rdf:type brick:Quantity .
                 ?quantity owl:sameAs ?qudtquant
                 }"""
 )

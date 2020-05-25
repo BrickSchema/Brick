@@ -45,7 +45,7 @@ def test_instances_measure_correct_units():
 
     Recall that the Brick unit model is such:
 
-    Brick class ---measures---> Brick quantity ---equivCls---> QuantityKind
+    Brick class ---measures---> Brick quantity -- sameAs --> QuantityKind
         |                                                           |
         |                            +-----applicableUnit-----------+
         |                            |
