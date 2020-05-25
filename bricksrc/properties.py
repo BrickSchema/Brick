@@ -1,5 +1,5 @@
 from rdflib import Literal
-from .namespaces import A, OWL, RDFS, SKOS, BRICK, VCARD, QUDTUNIT, QUDT
+from .namespaces import A, OWL, RDFS, SKOS, BRICK, VCARD, UNIT, QUDT
 
 """
 Defining properties
@@ -156,7 +156,7 @@ properties = {
         A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         SKOS.definition: Literal("The QUDT unit associated with this Point"),
         RDFS.domain: BRICK.Point,
-        RDFS.range: QUDTUNIT.Unit,
+        RDFS.range: UNIT.Unit,
     },
     "associatedQuantityKind": {
         A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],

@@ -14,10 +14,11 @@ SDO = Namespace("http://schema.org#")
 SOSA = Namespace("http://www.w3.org/ns/sosa#")
 VCARD = Namespace("http://www.w3.org/2006/vcard/ns#")
 
-# QUDT prefixes
+# QUDT namespaces
 QUDT = Namespace("http://qudt.org/schema/qudt/")
 QUDTQK = Namespace("http://qudt.org/vocab/quantitykind/")
-QUDTUNIT = Namespace("http://qudt.org/vocab/unit/")
+UNIT = Namespace("http://qudt.org/vocab/unit/")
+
 A = RDF.type
 
 
@@ -34,6 +35,6 @@ def bind_prefixes(g):
     g.bind("tag", TAG)
     g.bind("vcard", VCARD)
     g.bind("bsh", BSH)
-    g.bind("qudt", QUDT)
     g.bind("qudtqk", QUDTQK)
-    g.bind("qudtunit", QUDTUNIT)
+    g.bind("qudt", QUDT)
+    g.bind("unit", UNIT)
