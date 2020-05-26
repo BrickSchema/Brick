@@ -14,6 +14,10 @@ g = sess.expand(g)
 
 
 def get_units(brick_quantity):
+    """
+    Fetches the QUDT unit and symbol (as a Literal) from the QUDT ontology so
+    in order to avoid having to pull the full QUDT ontology into Brick
+    """
     res = g.query(
         f"""SELECT ?unit ?symbol WHERE {{
                     <{brick_quantity}> qudt:applicableUnit ?unit .

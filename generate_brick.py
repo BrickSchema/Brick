@@ -339,12 +339,13 @@ G.add((BRICK.Substance, A, OWL.Class))
 G.add((BRICK.Substance, RDFS.subClassOf, SKOS.Concept))
 
 # We make the punning explicit here. Any subclass of brick:Substance
-# or brick:Quantity is itself a substance or quantity. There is one canonical
-# instance of each class, which is indicated by referencing the class itself.
+# is itself a substance or quantity. There is one canonical instance of
+# each class, which is indicated by referencing the class itself.
 #
 #    bldg:tmp1      a           brick:Air_Temperature_Sensor;
 #               brick:measures  brick:Air ,
 #                               brick:Temperature .
+#
 # This makes Substance metaclasses.
 define_classes(substances, BRICK.Substance, pun_classes=True)
 

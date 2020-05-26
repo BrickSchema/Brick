@@ -657,8 +657,7 @@ brick:Close_Limit a owl:Class ;
         tag:Point .
 
 brick:Cloudage a brick:Quantity ;
-    rdfs:label "Cloudage" ;
-    skos:broader brick:Quantity .
+    rdfs:label "Cloudage" .
 
 brick:Cold_Box a owl:Class ;
     rdfs:label "Cold Box" ;
@@ -989,8 +988,7 @@ brick:Damper_Position_Setpoint a owl:Class ;
         tag:Setpoint .
 
 brick:Daytime a brick:Quantity ;
-    rdfs:label "Daytime" ;
-    skos:broader brick:Quantity .
+    rdfs:label "Daytime" .
 
 brick:Deceleration_Time a brick:Quantity ;
     rdfs:label "Deceleration Time" ;
@@ -4291,8 +4289,7 @@ brick:PlugStrip a owl:Class ;
 brick:Power_Factor a brick:Quantity ;
     rdfs:label "Power Factor" ;
     qudt:applicableUnit unit:UNITLESS ;
-    owl:sameAs qudtqk:PowerFactor ;
-    skos:broader brick:Quantity .
+    owl:sameAs qudtqk:PowerFactor .
 
 brick:Pre_Filter_Status a owl:Class ;
     rdfs:label "Pre Filter Status" ;
@@ -4306,8 +4303,7 @@ brick:Pre_Filter_Status a owl:Class ;
         tag:Status .
 
 brick:Precipitation a brick:Quantity ;
-    rdfs:label "Precipitation" ;
-    skos:broader brick:Quantity .
+    rdfs:label "Precipitation" .
 
 brick:Preheat_Demand_Setpoint a owl:Class ;
     rdfs:label "Preheat Demand Setpoint" ;
@@ -5529,8 +5525,7 @@ brick:Weather a owl:Class ;
     brick:hasAssociatedTag tag:Weather .
 
 brick:Weather_Condition a brick:Quantity ;
-    rdfs:label "Weather Condition" ;
-    skos:broader brick:Quantity .
+    rdfs:label "Weather Condition" .
 
 brick:Wet_Bulb_Temperature a brick:Quantity ;
     rdfs:label "Wet Bulb Temperature" ;
@@ -5686,6 +5681,8 @@ unit:A_Ab qudt:symbol "abA" .
 
 unit:A_Stat qudt:symbol "statA" .
 
+unit:BARYE qudt:symbol "\\rho" .
+
 unit:BIOT qudt:symbol "Bi" .
 
 unit:BTU_IT qudt:symbol "Btu_{it}" .
@@ -5702,7 +5699,14 @@ unit:DAY qudt:symbol "d" .
 
 unit:DAY_Sidereal qudt:symbol "d" .
 
+unit:DEG_R qudt:symbol "°R",
+        "°Ra" .
+
 unit:GigaHZ qudt:symbol "GHz" .
+
+unit:HP qudt:symbol "HP" .
+
+unit:HP_Water qudt:symbol "hp_water" .
 
 unit:HR qudt:symbol "hr" .
 
@@ -5712,6 +5716,8 @@ unit:HZ qudt:symbol "Hz" .
 
 unit:J qudt:symbol "J" .
 
+unit:K qudt:symbol "K" .
+
 unit:KiloA qudt:symbol "kA" .
 
 unit:KiloCAL qudt:symbol "kcal" .
@@ -5720,7 +5726,7 @@ unit:KiloHZ qudt:symbol "KHz" .
 
 unit:KiloSEC qudt:symbol "ks" .
 
-unit:KiloW qudt:symbol "kW" .
+unit:LA qudt:symbol "L" .
 
 unit:LM qudt:symbol "lm" .
 
@@ -5744,9 +5750,13 @@ unit:MilliSEC qudt:symbol "ms" .
 
 unit:N-M qudt:symbol "N-m" .
 
+unit:N-PER-M2 qudt:symbol "Pa" .
+
 unit:NanoA qudt:symbol "nA" .
 
 unit:NanoSEC qudt:symbol "ms" .
+
+unit:PA qudt:symbol "Pa" .
 
 unit:PicoA qudt:symbol "pA" .
 
@@ -5756,7 +5766,11 @@ unit:SEC qudt:symbol "s" .
 
 unit:SH qudt:symbol "Sh" .
 
+unit:STILB qudt:symbol "sb" .
+
 unit:THM_US qudt:symbol "thm" .
+
+unit:W qudt:symbol "W" .
 
 unit:WK qudt:symbol "wk" .
 
@@ -5817,9 +5831,7 @@ brick:Air_Temperature_Setpoint_Limit a owl:Class ;
 brick:Angle a brick:Quantity ;
     rdfs:label "Angle" ;
     qudt:applicableUnit unit:MIN_Angle ;
-    rdfs:seeAlso qudtqk:Angle ;
-    owl:sameAs qudtqk:Angle ;
-    skos:broader brick:Quantity .
+    owl:sameAs qudtqk:Angle .
 
 brick:Blowdown_Water a owl:Class,
         brick:Blowdown_Water ;
@@ -5874,8 +5886,7 @@ brick:Camera a owl:Class ;
 
 brick:Capacity a brick:Quantity ;
     rdfs:label "Capacity" ;
-    owl:sameAs qudtqk:Capacity ;
-    skos:broader brick:Quantity .
+    owl:sameAs qudtqk:Capacity .
 
 brick:Chilled_Water_Differential_Pressure_Deadband_Setpoint a owl:Class ;
     rdfs:label "Chilled Water Differential Pressure Deadband Setpoint" ;
@@ -6574,8 +6585,7 @@ brick:Ice a owl:Class,
 
 brick:Illuminance a brick:Quantity ;
     rdfs:label "Illuminance" ;
-    owl:sameAs qudtqk:Illuminance ;
-    skos:broader brick:Quantity .
+    owl:sameAs qudtqk:Illuminance .
 
 brick:Illuminance_Sensor a owl:Class ;
     rdfs:label "Illuminance Sensor" ;
@@ -6600,8 +6610,7 @@ brick:Integral_Gain_Parameter a owl:Class ;
 
 brick:Irradiance a brick:Quantity ;
     rdfs:label "Irradiance" ;
-    owl:sameAs qudtqk:Irradiance ;
-    skos:broader brick:Quantity .
+    owl:sameAs qudtqk:Irradiance .
 
 brick:Leak_Alarm a owl:Class ;
     rdfs:label "Leak Alarm" ;
@@ -6858,8 +6867,7 @@ brick:Peak_Power a brick:Quantity ;
     skos:definition "Tracks the highest (peak) observed power in some interval" .
 
 brick:Position a brick:Quantity ;
-    rdfs:label "Position" ;
-    skos:broader brick:Quantity .
+    rdfs:label "Position" .
 
 brick:Position_Command a owl:Class ;
     rdfs:label "Position Command" ;
@@ -6925,8 +6933,7 @@ brick:RVAV a owl:Class ;
 
 brick:Radiance a brick:Quantity ;
     rdfs:label "Radiance" ;
-    owl:sameAs qudtqk:Radiance ;
-    skos:broader brick:Quantity .
+    owl:sameAs qudtqk:Radiance .
 
 brick:Rain_Sensor a owl:Class ;
     rdfs:label "Rain Sensor" ;
@@ -7179,8 +7186,7 @@ brick:Thermal_Power_Sensor a owl:Class ;
 brick:Torque a brick:Quantity ;
     rdfs:label "Torque" ;
     qudt:applicableUnit unit:N-M ;
-    owl:sameAs qudtqk:Torque ;
-    skos:broader brick:Quantity .
+    owl:sameAs qudtqk:Torque .
 
 brick:Torque_Sensor a owl:Class ;
     rdfs:label "Torque Sensor" ;
@@ -7466,8 +7472,7 @@ brick:Coil a owl:Class ;
 
 brick:Conductivity a brick:Quantity ;
     rdfs:label "Conductivity" ;
-    owl:sameAs qudtqk:Conductivity ;
-    skos:broader brick:Quantity .
+    owl:sameAs qudtqk:Conductivity .
 
 brick:Cooling_Discharge_Air_Flow_Setpoint a owl:Class ;
     rdfs:label "Cooling Discharge Air Flow Setpoint" ;
@@ -7481,8 +7486,7 @@ brick:Cooling_Discharge_Air_Flow_Setpoint a owl:Class ;
         tag:Setpoint .
 
 brick:Current a brick:Quantity ;
-    rdfs:label "Current" ;
-    skos:broader brick:Quantity .
+    rdfs:label "Current" .
 
 brick:Current_Output_Sensor a owl:Class ;
     rdfs:label "Current Output Sensor" ;
@@ -7505,8 +7509,7 @@ brick:Dewpoint_Sensor a owl:Class ;
         tag:Sensor .
 
 brick:Direction a brick:Quantity ;
-    rdfs:label "Direction" ;
-    skos:broader brick:Quantity .
+    rdfs:label "Direction" .
 
 brick:Discharge_Air_Flow_Reset_Setpoint a owl:Class ;
     rdfs:label "Discharge Air Flow Reset Setpoint" ;
@@ -7670,8 +7673,7 @@ brick:Frequency a brick:Quantity ;
         unit:HZ,
         unit:KiloHZ,
         unit:MegaHZ ;
-    owl:sameAs qudtqk:Frequency ;
-    skos:broader brick:Quantity .
+    owl:sameAs qudtqk:Frequency .
 
 brick:Frost a owl:Class,
         brick:Frost ;
@@ -8095,8 +8097,7 @@ brick:Run_Status a owl:Class ;
 
 brick:Speed a brick:Quantity ;
     rdfs:label "Speed" ;
-    owl:sameAs qudtqk:Speed ;
-    skos:broader brick:Quantity .
+    owl:sameAs qudtqk:Speed .
 
 brick:Speed_Setpoint a owl:Class ;
     rdfs:label "Speed Setpoint" ;
@@ -8237,8 +8238,7 @@ brick:Time a brick:Quantity ;
         unit:YR,
         unit:YR_Sidereal,
         unit:YR_TROPICAL ;
-    owl:sameAs qudtqk:Time ;
-    skos:broader brick:Quantity .
+    owl:sameAs qudtqk:Time .
 
 brick:Time_Parameter a owl:Class ;
     rdfs:label "Time Parameter" ;
@@ -8654,6 +8654,8 @@ tag:Wing a brick:Tag ;
 tag:Zenith a brick:Tag ;
     rdfs:label "Zenith" .
 
+unit:KiloW qudt:symbol "kW" .
+
 unit:UNITLESS qudt:symbol "U" .
 
 brick:AHU a owl:Class ;
@@ -8728,8 +8730,7 @@ brick:Demand_Sensor a owl:Class ;
 
 brick:Dewpoint a brick:Quantity ;
     rdfs:label "Dewpoint" ;
-    owl:sameAs qudtqk:DewPointTemperature ;
-    skos:broader brick:Quantity .
+    owl:sameAs qudtqk:DewPointTemperature .
 
 brick:Differential_Pressure_Load_Shed_Status a owl:Class ;
     rdfs:label "Differential Pressure Load Shed Status" ;
@@ -8791,8 +8792,7 @@ brick:Emergency_Power_Off_Status a owl:Class ;
         tag:Status .
 
 brick:Energy a brick:Quantity ;
-    rdfs:label "Energy" ;
-    skos:broader brick:Quantity .
+    rdfs:label "Energy" .
 
 brick:Energy_Usage_Sensor a owl:Class ;
     rdfs:label "Energy Usage Sensor" ;
@@ -8838,8 +8838,7 @@ brick:Gain_Parameter a owl:Class ;
         tag:Point .
 
 brick:Grains a brick:Quantity ;
-    rdfs:label "Grains" ;
-    skos:broader brick:Quantity .
+    rdfs:label "Grains" .
 
 brick:Hot_Water a owl:Class,
         brick:Hot_Water ;
@@ -8905,7 +8904,9 @@ brick:Load_Shed_Status a owl:Class ;
 
 brick:Luminance a brick:Quantity ;
     rdfs:label "Luminance" ;
-    skos:broader brick:Quantity .
+    qudt:applicableUnit unit:LA,
+        unit:STILB ;
+    owl:sameAs qudtqk:Luminance .
 
 brick:Mode_Command a owl:Class ;
     rdfs:label "Mode Command" ;
@@ -8932,8 +8933,7 @@ brick:Mode_Status a owl:Class ;
         tag:Status .
 
 brick:Occupancy a brick:Quantity ;
-    rdfs:label "Occupancy" ;
-    skos:broader brick:Quantity .
+    rdfs:label "Occupancy" .
 
 brick:On_Status a owl:Class ;
     rdfs:label "On Status" ;
@@ -9366,8 +9366,7 @@ tag:Yearly a brick:Tag ;
     rdfs:label "Yearly" .
 
 brick:Air_Quality a brick:Quantity ;
-    rdfs:label "Air Quality" ;
-    skos:broader brick:Quantity .
+    rdfs:label "Air Quality" .
 
 brick:Air_Temperature_Integral_Time_Parameter a owl:Class ;
     rdfs:label "Air Temperature Integral Time Parameter" ;
@@ -9533,7 +9532,6 @@ brick:Electrical_System a owl:Class ;
 brick:Enthalpy a brick:Quantity ;
     rdfs:label "Enthalpy" ;
     owl:sameAs qudtqk:Enthalpy ;
-    skos:broader brick:Quantity ;
     skos:definition "(also known as heat content), thermodynamic quantity equal to the sum of the internal energy of a system plus the product of the pressure volume work done on the system. H = E + pv, where H = enthalpy or total heat content, E = internal energy of the system, p = pressure, and v = volume. (Compare to [[specific enthalpy]].)" .
 
 brick:Heating_Valve a owl:Class ;
@@ -9594,7 +9592,11 @@ brick:PID_Parameter a owl:Class ;
 
 brick:Power a brick:Quantity ;
     rdfs:label "Power" ;
-    skos:broader brick:Quantity .
+    qudt:applicableUnit unit:HP,
+        unit:HP_Water,
+        unit:KiloW,
+        unit:W ;
+    owl:sameAs qudtqk:Power .
 
 brick:Reset_Setpoint a owl:Class ;
     rdfs:label "Reset Setpoint" ;
@@ -9695,8 +9697,7 @@ brick:Velocity_Pressure a brick:Quantity ;
     skos:broader brick:Pressure .
 
 brick:Voltage a brick:Quantity ;
-    rdfs:label "Voltage" ;
-    skos:broader brick:Quantity .
+    rdfs:label "Voltage" .
 
 brick:Water_Alarm a owl:Class ;
     rdfs:label "Water Alarm" ;
@@ -9827,6 +9828,8 @@ brick:Electric_Current a brick:Quantity ;
 
 brick:Electric_Power a brick:Quantity ;
     rdfs:label "Electric Power" ;
+    qudt:applicableUnit unit:KiloW ;
+    owl:sameAs qudtqk:ElectricPower ;
     skos:broader brick:Power .
 
 brick:Gas a owl:Class,
@@ -10001,8 +10004,7 @@ brick:Integral_Time_Parameter a owl:Class ;
         tag:Time .
 
 brick:Level a brick:Quantity ;
-    rdfs:label "Level" ;
-    skos:broader brick:Quantity .
+    rdfs:label "Level" .
 
 brick:Substance a owl:Class ;
     rdfs:subClassOf skos:Concept,
@@ -10199,7 +10201,10 @@ brick:Outside_Air a owl:Class,
 
 brick:Pressure a brick:Quantity ;
     rdfs:label "Pressure" ;
-    skos:broader brick:Quantity .
+    qudt:applicableUnit unit:BARYE,
+        unit:N-PER-M2,
+        unit:PA ;
+    owl:sameAs qudtqk:Pressure .
 
 brick:Return_Air a owl:Class,
         brick:Return_Air ;
@@ -10266,8 +10271,7 @@ tag:Steam a brick:Tag ;
     rdfs:label "Steam" .
 
 brick:Humidity a brick:Quantity ;
-    rdfs:label "Humidity" ;
-    skos:broader brick:Quantity .
+    rdfs:label "Humidity" .
 
 brick:Location a owl:Class ;
     rdfs:label "Location" ;
@@ -10349,8 +10353,7 @@ tag:Meter a brick:Tag ;
 
 brick:Flow a brick:Quantity ;
     rdfs:label "Flow" ;
-    owl:sameAs qudtqk:VolumeFlowRate ;
-    skos:broader brick:Quantity .
+    owl:sameAs qudtqk:VolumeFlowRate .
 
 brick:Temperature_Parameter a owl:Class ;
     rdfs:label "Temperature Parameter" ;
@@ -10432,8 +10435,9 @@ tag:On a brick:Tag ;
 
 brick:Temperature a brick:Quantity ;
     rdfs:label "Temperature" ;
-    owl:sameAs qudtqk:Temperature ;
-    skos:broader brick:Quantity .
+    qudt:applicableUnit unit:DEG_R,
+        unit:K ;
+    owl:sameAs qudtqk:ThermodynamicTemperature .
 
 tag:Fan a brick:Tag ;
     rdfs:label "Fan" .
@@ -10602,6 +10606,11 @@ tag:Command a brick:Tag ;
 tag:Differential a brick:Tag ;
     rdfs:label "Differential" .
 
+brick:Quantity a owl:Class ;
+    rdfs:subClassOf skos:Concept,
+        sosa:ObservableProperty,
+        brick:Measurable .
+
 tag:Discharge a brick:Tag ;
     rdfs:label "Discharge" .
 
@@ -10616,11 +10625,6 @@ tag:Supply a brick:Tag ;
 
 tag:Pressure a brick:Tag ;
     rdfs:label "Pressure" .
-
-brick:Quantity a owl:Class ;
-    rdfs:subClassOf skos:Concept,
-        sosa:ObservableProperty,
-        brick:Measurable .
 
 tag:Equipment a brick:Tag ;
     rdfs:label "Equipment" .
