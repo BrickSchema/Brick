@@ -17,4 +17,6 @@ done
 # cleanup
 deactivate
 rm -rf venv
+rm -rf examples/*.ttl
+git checkout examples/*.ttl
 popd
