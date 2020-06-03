@@ -179,6 +179,7 @@ equipment_subclasses = {
     },
     "Elevator": {"tags": [TAG.Elevator, TAG.Equipment]},
     "Security_Equipment": {"tags": [TAG.Security, TAG.Equipment]},
+    "Safety_Equipment": {"tags": [TAG.Safety, TAG.Equipment]},
     "Camera": {"tags": [TAG.Camera, TAG.Equipment]},
 }
 
@@ -550,15 +551,15 @@ security_subclasses = {
     },
     "Intrusion_Detection_Equipment": {
         "tags": [TAG.Equipment, TAG.Security, TAG.Intrusion, TAG.Detection],
-            # TODO
-            # Motion sensor - but maybe to Points, but still need a way to represent security motion sensors
-            # Security Control Panel: The central hub of a security system. All devices are connected to the security panel for easy
-            #    and efficient access for different security protocols (i.e. Intrusion security) and events. Question: How’s this different from
-            #    Access Panel? Is this specific to Intrusion detection system or more general?
-            # Glass_Break_Sensor: a sensor used in electronic alarms that detect if pane of glass has been shattered or is broken.
-            # Duress_Button: Panic button, an electronic input device used to help alerting someone in emergency situations.
-            # Door_Contacts: Door contact sensor, a peripheral security sensor that lets an alarm system know whether a door is
-            # open or closed.
+        # TODO
+        # Motion sensor - but maybe to Points, but still need a way to represent security motion sensors
+        # Security Control Panel: The central hub of a security system. All devices are connected to the security panel for easy
+        #    and efficient access for different security protocols (i.e. Intrusion security) and events. Question: How’s this different from
+        #    Access Panel? Is this specific to Intrusion detection system or more general?
+        # Glass_Break_Sensor: a sensor used in electronic alarms that detect if pane of glass has been shattered or is broken.
+        # Duress_Button: Panic button, an electronic input device used to help alerting someone in emergency situations.
+        # Door_Contacts: Door contact sensor, a peripheral security sensor that lets an alarm system know whether a door is
+        # open or closed.
     },
     "Intercom_Equipment": {
         "tags": [TAG.Equipment, TAG.Security, TAG.Intercom],
@@ -579,6 +580,77 @@ security_subclasses = {
                 "tags": [TAG.Equipment, TAG.Security, TAG.Intercom, TAG.Video],
                 SKOS.definition: Literal(
                     "An intercom device that has video capabilites as well as voice capabilities"
+                ),
+            },
+        },
+    },
+}
+
+safety_subclasses = {
+    "Automated_External_Defibrillator": {
+        OWL.equivalentClass: BRICK["AED"],
+        "tags": [TAG.Equipment, TAG.Safety, TAG.AED, TAG.Defibrillator],
+        SKOS.definition: Literal(
+            "Automated External Defibrillator. Used by trained people to help those experiencing cardiac issues."
+        ),
+    },
+    "AED": {
+        OWL.equivalentClass: BRICK["Automated_External_Defibrillator"],
+        "tags": [TAG.Equipment, TAG.Safety, TAG.AED, TAG.Defibrillator],
+        SKOS.definition: Literal(
+            "Automated External Defibrillator. Used by trained people to help those experiencing cardiac issues."
+        ),
+    },
+    "First_Aid_Kit": {
+        "tags": [TAG.Equipment, TAG.Safety, TAG.Aid, TAG.FirstAid],
+        SKOS.definition: Literal(
+            "A collection of medical supplies placed in a well-known location to provide immediate treatment"
+        ),
+    },
+    "Emergency_Wash_Station": {
+        "tags": [TAG.Equipment, TAG.Safety, TAG.Wash, TAG.Station, TAG.Emergency],
+        SKOS.definition: Literal(
+            "A piece of plumbed equipment to flush chemicals or hazardous substances off of a person"
+        ),
+        "subclasses": {
+            "Eye_Wash_Station": {
+                "tags": [
+                    TAG.Equipment,
+                    TAG.Safety,
+                    TAG.Wash,
+                    TAG.Station,
+                    TAG.Emergency,
+                    TAG.Eye,
+                ],
+                SKOS.definition: Literal(
+                    "An emergency wash station to flush chemicals or hazardous substances out of a persons eye"
+                ),
+            },
+            "Safety_Shower": {
+                "tags": [
+                    TAG.Equipment,
+                    TAG.Safety,
+                    TAG.Wash,
+                    TAG.Station,
+                    TAG.Emergency,
+                    TAG.Shower,
+                ],
+                SKOS.definition: Literal(
+                    "An emergency wash station to flush chemicals or hazardous substances off of a person"
+                ),
+            },
+            "Drench_Hose": {
+                "tags": [
+                    TAG.Equipment,
+                    TAG.Safety,
+                    TAG.Wash,
+                    TAG.Station,
+                    TAG.Emergency,
+                    TAG.Drench,
+                    TAG.Hose,
+                ],
+                SKOS.definition: Literal(
+                    "An emergency wash station to flush chemicals or hazardous substances off of a person by spraying water on them from a distance"
                 ),
             },
         },

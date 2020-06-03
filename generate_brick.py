@@ -21,6 +21,7 @@ from bricksrc.equipment import (
     hvac_subclasses,
     valve_subclasses,
     security_subclasses,
+    safety_subclasses,
 )
 from bricksrc.substances import substances
 from bricksrc.quantities import quantity_definitions
@@ -260,6 +261,7 @@ define_classes(equipment_subclasses, BRICK.Equipment)
 define_classes(hvac_subclasses, BRICK.HVAC)
 define_classes(valve_subclasses, BRICK.Valve)
 define_classes(security_subclasses, BRICK.Security_Equipment)
+define_classes(safety_subclasses, BRICK.Safety_Equipment)
 
 logging.info("Defining Measurable hierarchy")
 # define measurable hierarchy
