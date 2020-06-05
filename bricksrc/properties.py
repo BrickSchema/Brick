@@ -158,10 +158,4 @@ properties = {
         RDFS.domain: BRICK.Point,
         RDFS.range: UNIT.Unit,
     },
-    "associatedQuantityKind": {
-        A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
-        SKOS.definition: Literal("The QUDT QuantityKind associated with this Quantity"),
-        RDFS.domain: BRICK.Quantity,
-        RDFS.range: QUDT.QuantityKind,
-    },
 }
