@@ -336,7 +336,6 @@ G.add((BRICK.Quantity, RDFS.subClassOf, SKOS.Concept))
 G.add((BRICK.Substance, RDFS.subClassOf, SOSA.FeatureOfInterest))
 G.add((BRICK.Substance, RDFS.subClassOf, BRICK.Measurable))
 G.add((BRICK.Substance, A, OWL.Class))
-G.add((BRICK.Substance, RDFS.subClassOf, SKOS.Concept))
 
 # We make the punning explicit here. Any subclass of brick:Substance
 # is itself a substance or quantity. There is one canonical instance of
