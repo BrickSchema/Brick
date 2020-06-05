@@ -390,6 +390,7 @@ brick:CO2_Differential_Sensor a owl:Class ;
 
 brick:CO2_Level a brick:Quantity ;
     rdfs:label "CO2 Level" ;
+    owl:sameAs qudtqk:Concentration ;
     skos:broader brick:Air_Quality,
         brick:Level .
 
@@ -4231,11 +4232,13 @@ brick:PIR_Sensor a owl:Class ;
 
 brick:PM10_Level a brick:Quantity ;
     rdfs:label "PM10 Level" ;
+    owl:sameAs qudtqk:Concentration ;
     skos:broader brick:Air_Quality,
         brick:Level .
 
 brick:PM25_Level a brick:Quantity ;
     rdfs:label "PM25 Level" ;
+    owl:sameAs qudtqk:Concentration ;
     skos:broader brick:Air_Quality,
         brick:Level .
 
@@ -5163,6 +5166,7 @@ brick:System_Shutdown_Status a owl:Class ;
 
 brick:TVOC_Level a brick:Quantity ;
     rdfs:label "TVOC Level" ;
+    owl:sameAs qudtqk:Concentration ;
     skos:broader brick:Air_Quality,
         brick:Level .
 
@@ -9358,6 +9362,14 @@ tag:Wind a brick:Tag ;
 tag:Yearly a brick:Tag ;
     rdfs:label "Yearly" .
 
+qudtqk:Concentration a qudt:QuantityKind ;
+    rdfs:label "Concentration" ;
+    qudt:applicableUnit unit:PPM ;
+    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L0I0M0H0T0D1> ;
+    qudt:plainTextDescription "The concentration ratio of some substance" ;
+    rdfs:isDefinedBy <http://qudt.org/vocab/quantitykind> ;
+    skos:broader qudtqk:Dimensionless .
+
 brick:Air_Quality a brick:Quantity ;
     rdfs:label "Air Quality" .
 
@@ -10000,8 +10012,7 @@ brick:Level a brick:Quantity ;
     rdfs:label "Level" .
 
 brick:Substance a owl:Class ;
-    rdfs:subClassOf skos:Concept,
-        sosa:FeatureOfInterest,
+    rdfs:subClassOf sosa:FeatureOfInterest,
         brick:Measurable .
 
 brick:Supply_Air a owl:Class,
