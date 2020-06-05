@@ -155,11 +155,11 @@ def define_concept_hierarchy(definitions, typeclass, broader=None):
 
         # define class structure
         # this is a nested dictionary
-        subclassdef = defn.get("subclasses", {})
-        assert isinstance(subclassdef, dict)
-        define_concept_hierarchy(subclassdef, BRICK.Quantity, broader=concept)
+        subconceptdef = defn.get("subconcepts", {})
+        assert isinstance(subconceptdef, dict)
+        define_concept_hierarchy(subconceptdef, BRICK.Quantity, broader=concept)
 
-        # handle 'parents' subclasses (links outside of tree-based hierarchy)
+        # handle 'parents' subconcepts (links outside of tree-based hierarchy)
         parents = defn.get("parents", [])
         assert isinstance(parents, list)
         for _parent in parents:
@@ -167,7 +167,7 @@ def define_concept_hierarchy(definitions, typeclass, broader=None):
 
         # all other key-value pairs in the definition are
         # property-object pairs
-        expected_properties = ["parents", "tags", "substances", "subclasses"]
+        expected_properties = ["parents", "tags", "substances", "subconcepts"]
         other_properties = [
             prop for prop in defn.keys() if prop not in expected_properties
         ]

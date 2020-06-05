@@ -47,7 +47,7 @@ quantitykind_extensions = {
 
 quantity_definitions = {
     "Air_Quality": {
-        "subclasses": {
+        "subconcepts": {
             "CO2_Level": {OWL.sameAs: QUDTQK["Concentration"]},
             "PM10_Level": {OWL.sameAs: QUDTQK["Concentration"]},
             "PM25_Level": {OWL.sameAs: QUDTQK["Concentration"]},
@@ -66,10 +66,10 @@ quantity_definitions = {
     "Grains": {},
     "Power": {
         OWL.sameAs: QUDTQK["Power"],
-        "subclasses": {
+        "subconcepts": {
             "Electric_Power": {
                 OWL.sameAs: QUDTQK["ElectricPower"],
-                "subclasses": {
+                "subconcepts": {
                     "Apparent_Power": {OWL.sameAs: QUDTQK["ApparentPower"]},
                     "Active_Power": {
                         OWL.sameAs: [QUDTQK["ActivePower"], BRICK["Real_Power"]],
@@ -85,15 +85,15 @@ quantity_definitions = {
                     "Tracks the highest (peak) observed power in some interval"
                 ),
             },
-            "Thermal_Power": {},
+            "Thermal_Power": {OWL.sameAs: QUDTQK["ThermalPower"]},
         },
     },
     "Cloudage": {},
     "Current": {
-        "subclasses": {
+        "subconcepts": {
             "Electric_Current": {
                 OWL.sameAs: QUDTQK["ElectricCurrent"],
-                "subclasses": {
+                "subconcepts": {
                     "Current_Angle": {},
                     "Current_Magnitude": {},
                     "Current_Imbalance": {},
@@ -104,7 +104,7 @@ quantity_definitions = {
         },
     },
     "Voltage": {
-        "subclasses": {
+        "subconcepts": {
             "Voltage_Magnitude": {OWL.sameAs: QUDTQK["Voltage"]},
             "Voltage_Angle": {},
             "Voltage_Imbalance": {},
@@ -112,20 +112,20 @@ quantity_definitions = {
     },
     "Daytime": {},
     "Dewpoint": {OWL.sameAs: QUDTQK["DewPointTemperature"]},
-    "Direction": {"subclasses": {"Wind_Direction": {}}},
+    "Direction": {"subconcepts": {"Wind_Direction": {}}},
     "Energy": {
-        "subclasses": {
+        "subconcepts": {
             "Electric_Energy": {OWL.sameAs: QUDTQK["Energy"]},
             "Thermal_Energy": {OWL.sameAs: QUDTQK["ThermalEnergy"]},
         },
     },
-    "Flow": {OWL.sameAs: QUDTQK["VolumeFlowRate"], "subclasses": {"Flow_Loss": {}}},
+    "Flow": {OWL.sameAs: QUDTQK["VolumeFlowRate"], "subconcepts": {"Flow_Loss": {}}},
     "Frequency": {
         OWL.sameAs: QUDTQK["Frequency"],
-        "subclasses": {"Alternating_Current_Frequency": {}},
+        "subconcepts": {"Alternating_Current_Frequency": {}},
     },
     "Humidity": {
-        "subclasses": {
+        "subconcepts": {
             "Relative_Humidity": {OWL.sameAs: QUDTQK["RelativeHumidity"]},
             "Absolute_Humidity": {OWL.sameAs: QUDTQK["AbsoluteHumidity"]},
         }
@@ -133,10 +133,10 @@ quantity_definitions = {
     "Illuminance": {OWL.sameAs: QUDTQK["Illuminance"]},
     "Irradiance": {
         OWL.sameAs: QUDTQK["Irradiance"],
-        "subclasses": {"Solar_Irradiance": {}},
+        "subconcepts": {"Solar_Irradiance": {}},
     },
     "Level": {
-        "subclasses": {
+        "subconcepts": {
             "CO2_Level": {},
             "PM10_Level": {},
             "PM25_Level": {},
@@ -145,18 +145,18 @@ quantity_definitions = {
     },
     "Luminance": {
         OWL.sameAs: QUDTQK["Luminance"],
-        "subclasses": {
+        "subconcepts": {
             "Luminous_Flux": {OWL.sameAs: QUDTQK["LuminousFlux"]},
             "Luminous_Intensity": {OWL.sameAs: QUDTQK["LuminousIntensity"]},
         },
     },
-    "Occupancy": {"subclasses": {"Occupancy_Count": {}, "Occupancy_Percentage": {}}},
+    "Occupancy": {"subconcepts": {"Occupancy_Count": {}, "Occupancy_Percentage": {}}},
     "Position": {},
     "Power_Factor": {OWL.sameAs: QUDTQK["PowerFactor"]},
     "Precipitation": {},
     "Pressure": {
         OWL.sameAs: QUDTQK["Pressure"],
-        "subclasses": {
+        "subconcepts": {
             "Atmospheric_Pressure": {OWL.sameAs: QUDTQK["AtmosphericPressure"]},
             "Dynamic_Pressure": {},
             "Static_Pressure": {OWL.sameAs: QUDTQK["StaticPressure"]},
@@ -165,11 +165,11 @@ quantity_definitions = {
             },
         },
     },
-    "Radiance": {OWL.sameAs: QUDTQK["Radiance"], "subclasses": {"Solar_Radiance": {}}},
-    "Speed": {OWL.sameAs: QUDTQK["Speed"], "subclasses": {"Wind_Speed": {}}},
+    "Radiance": {OWL.sameAs: QUDTQK["Radiance"], "subconcepts": {"Solar_Radiance": {}}},
+    "Speed": {OWL.sameAs: QUDTQK["Speed"], "subconcepts": {"Wind_Speed": {}}},
     "Temperature": {
         OWL.sameAs: QUDTQK["ThermodynamicTemperature"],
-        "subclasses": {
+        "subconcepts": {
             "Operative_Temperature": {},
             "Radiant_Temperature": {},
             "Dry_Bulb_Temperature": {},
@@ -178,7 +178,7 @@ quantity_definitions = {
     },
     "Time": {
         OWL.sameAs: QUDTQK["Time"],
-        "subclasses": {"Acceleration_Time": {}, "Deceleration_Time": {}},
+        "subconcepts": {"Acceleration_Time": {}, "Deceleration_Time": {}},
     },
     "Torque": {OWL.sameAs: QUDTQK["Torque"]},
     "Weather_Condition": {},
