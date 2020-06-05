@@ -1,21 +1,9 @@
 @prefix brick: <https://brickschema.org/schema/1.1/Brick#> .
 @prefix bsh: <https://brickschema.org/schema/1.1/BrickShape#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix qudt: <http://qudt.org/schema/qudt/> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix unit: <http://qudt.org/vocab/unit/> .
 @prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
-
-bsh:associatedQuantityKindDomainShape a sh:NodeShape ;
-    sh:class brick:Quantity ;
-    sh:message "Property associatedQuantityKind has subject with incorrect type" ;
-    sh:targetSubjectsOf brick:associatedQuantityKind .
-
-bsh:associatedQuantityKindRangeShape a sh:NodeShape ;
-    sh:property [ sh:class qudt:QuantityKind ;
-            sh:message "Property associatedQuantityKind has object with incorrect type" ;
-            sh:path brick:associatedQuantityKind ] ;
-    sh:targetSubjectsOf brick:associatedQuantityKind .
 
 bsh:feedsAirHasInputSubstanceShape a sh:NodeShape ;
     sh:property [ sh:class brick:Air ;

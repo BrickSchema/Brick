@@ -5631,13 +5631,6 @@ brick:Zone_Unoccupied_Load_Shed_Command a owl:Class ;
         tag:Unoccupied,
         tag:Zone .
 
-brick:associatedQuantityKind a owl:AsymmetricProperty,
-        owl:IrreflexiveProperty,
-        owl:ObjectProperty ;
-    rdfs:domain brick:Quantity ;
-    rdfs:range qudt:QuantityKind ;
-    skos:definition "The QUDT QuantityKind associated with this Quantity" .
-
 brick:feedsAir a owl:ObjectProperty ;
     rdfs:subPropertyOf brick:feeds ;
     skos:definition "Passes air" .
