@@ -1,7 +1,7 @@
 from brickschema.graph import Graph
 from brickschema.inference import BrickInferenceSession
-from rdflib import Literal
-from .namespaces import SKOS, OWL, RDFS, BRICK, QUDTQK, QUDT
+from rdflib import Literal, URIRef
+from .namespaces import SKOS, OWL, RDFS, BRICK, QUDTQK, QUDTDV, QUDT, UNIT
 
 
 g = Graph()
@@ -29,13 +29,29 @@ def get_units(brick_quantity):
         yield r
 
 
+"""
+Each is a qudt:QuantityKind
+"""
+# TODO: define these on QUDTQK namespace
+quantitykind_extensions = {
+    "Concentration": {
+        QUDT.applicableUnit: [UNIT.PPM],
+        QUDT.hasDimensionVector: QUDTDV.A0E0L0I0M0H0T0D1,
+        QUDT.plainTextDescription: Literal("The concentration ratio of some substance"),
+        RDFS.isDefinedBy: URIRef(str(QUDTQK).strip("/")),
+        RDFS.label: Literal("Concentration"),
+        SKOS.broader: QUDTQK.Dimensionless,
+    },
+}
+
+
 quantity_definitions = {
     "Air_Quality": {
         "subclasses": {
-            "CO2_Level": {},
-            "PM10_Level": {},
-            "PM25_Level": {},
-            "TVOC_Level": {},
+            "CO2_Level": {OWL.sameAs: QUDTQK["Concentration"]},
+            "PM10_Level": {OWL.sameAs: QUDTQK["Concentration"]},
+            "PM25_Level": {OWL.sameAs: QUDTQK["Concentration"]},
+            "TVOC_Level": {OWL.sameAs: QUDTQK["Concentration"]},
         },
     },
     "Angle": {OWL.sameAs: QUDTQK["Angle"]},

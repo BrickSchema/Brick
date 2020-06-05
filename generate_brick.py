@@ -6,7 +6,7 @@ from rdflib.collection import Collection
 
 from bricksrc.ontology import define_ontology
 
-from bricksrc.namespaces import BRICK, RDF, OWL, RDFS, TAG, SOSA, SKOS, QUDT
+from bricksrc.namespaces import BRICK, RDF, OWL, RDFS, TAG, SOSA, SKOS, QUDT, QUDTQK
 from bricksrc.namespaces import bind_prefixes
 
 from bricksrc.setpoint import setpoint_definitions
@@ -23,7 +23,7 @@ from bricksrc.equipment import (
     security_subclasses,
 )
 from bricksrc.substances import substances
-from bricksrc.quantities import quantity_definitions, get_units
+from bricksrc.quantities import quantity_definitions, get_units, quantitykind_extensions
 from bricksrc.properties import properties
 from bricksrc.tags import tags
 
@@ -280,6 +280,19 @@ def define_properties(definitions, superprop=None):
                 G.add((BRICK[prop], propname, propval))
 
 
+def define_quantitykind_extensions(defs):
+    """
+    Defines extensions to QUDT's QuantityKinds
+    """
+    for quantitykind, defn in defs.items():
+        G.add((QUDTQK[quantitykind], A, QUDT.QuantityKind))
+        for propname, propvals in defn.items():
+            if not isinstance(propvals, list):
+                propvals = [propvals]
+            for propval in propvals:
+                G.add((QUDTQK[quantitykind], propname, propval))
+
+
 logging.info("Beginning BRICK Ontology compilation")
 # handle ontology definition
 define_ontology(G)
@@ -350,6 +363,7 @@ define_classes(substances, BRICK.Substance, pun_classes=True)
 
 # this defines the SKOS-based concept hierarchy for BRICK Quantities
 define_concept_hierarchy(quantity_definitions, BRICK.Quantity)
+define_quantitykind_extensions(quantitykind_extensions)
 
 # for all Quantities, copy part of the QUDT unit definitions over
 res = G.query(

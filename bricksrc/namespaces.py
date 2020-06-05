@@ -17,6 +17,7 @@ VCARD = Namespace("http://www.w3.org/2006/vcard/ns#")
 # QUDT namespaces
 QUDT = Namespace("http://qudt.org/schema/qudt/")
 QUDTQK = Namespace("http://qudt.org/vocab/quantitykind/")
+QUDTDV = Namespace("http://qudt.org/vocab/dimensionvector/")
 UNIT = Namespace("http://qudt.org/vocab/unit/")
 
 A = RDF.type
