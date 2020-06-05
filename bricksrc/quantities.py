@@ -36,11 +36,17 @@ Each is a qudt:QuantityKind
 quantitykind_extensions = {
     "Concentration": {
         QUDT.applicableUnit: [UNIT.PPM],
-        QUDT.hasDimensionVector: QUDTDV.A0E0L0I0M0H0T0D1,
+        QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M0H0T0D1"],
         QUDT.plainTextDescription: Literal("The concentration ratio of some substance"),
         RDFS.isDefinedBy: URIRef(str(QUDTQK).strip("/")),
         RDFS.label: Literal("Concentration"),
         SKOS.broader: QUDTQK.Dimensionless,
+    },
+    "ThermalPower": {
+        QUDT.applicableUnit: [UNIT.MilliW, UNIT.W, UNIT.KiloW, UNIT.MegaW],
+        QUDT.hasDimensionVector: QUDTDV["A0E0L2I0M1H0T-3D0"],
+        RDFS.isDefinedBy: URIRef(str(QUDTQK).strip("/")),
+        RDFS.label: Literal("ThermalPower"),
     },
 }
 
@@ -63,7 +69,10 @@ quantity_definitions = {
         ),
         OWL.sameAs: QUDTQK["Enthalpy"],
     },
-    "Grains": {},
+    "Mass": {
+        OWL.sameAs: QUDTQK["Mass"],
+        "subconcepts": {"Grains": {QUDT.applicableUnit: UNIT.GRAINS}},
+    },
     "Power": {
         OWL.sameAs: QUDTQK["Power"],
         "subconcepts": {
