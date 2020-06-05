@@ -13,6 +13,7 @@ install:
   - pip install -r requirements.txt
 
 script:
+  - pip freeze
   # generate new Brick ontology (in case this hasn't been run)
   - python generate_brick.py
   # regenerate SHACL shapes
