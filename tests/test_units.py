@@ -12,9 +12,9 @@ BLDG = Namespace("https://brickschema.org/schema/ExampleBuilding#")
 
 def test_quantity_has_one_quantitykind():
     """
-    In the current implementation, using owl:equivalentClass to align Quantity
-    with QUDT QuantityKinds, we need to make sure that through RDFS subclassing
-    that a Brick Quantity does not end up with more than 1 QuantityKind
+    In the current implementation, using owl:sameAs to align Quantity
+    with QUDT QuantityKinds, we need to make sure that  a Brick Quantity
+    does not end up with more than 1 QuantityKind
     """
     g = brickschema.graph.Graph()
     g.load_file("Brick.ttl")
