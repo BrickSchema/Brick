@@ -32,167 +32,49 @@ def get_units(brick_quantity):
 """
 Each is a qudt:QuantityKind
 """
-# TODO: define these on QUDTQK namespace
-quantitykind_extensions = {
-    "Cloudage": {
-        # TODO: define Okta
-        QUDT.applicableUnit: [UNIT.Okta],
-        QUDT.plainTextDescription: Literal(
-            "The fraction of the sky obscured by clouds when observed from a particular location"
-        ),
-        RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
-        RDFS.label: Literal("Cloudage"),
-        SKOS.broader: QUDTQK.Dimensionless,
-    },
-    "Concentration": {
-        QUDT.applicableUnit: [UNIT.PPM],
-        QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M0H0T0D1"],
-        QUDT.plainTextDescription: Literal("The concentration ratio of some substance"),
-        RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
-        RDFS.label: Literal("Concentration"),
-        SKOS.broader: QUDTQK.Dimensionless,
-    },
-    "CurrentAngle": {
-        QUDT.applicableUnit: [
-            UNIT.ARCMIN,
-            UNIT.ARCSEC,
-            UNIT.DEG,
-            UNIT.GON,
-            UNIT.GRAD,
-            UNIT.MIL,
-            UNIT.RAD,
-            UNIT.MicroRAD,
-            UNIT.MilliRAD,
-            UNIT.MilliARCSEC,
-            UNIT.REV,
-        ],
-        QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M0H0T0D1"],
-        QUDT.plainTextDescription: Literal("Angle of current phasor"),
-        RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
-        RDFS.label: Literal("CurrentAngle"),
-        SKOS.broader: QUDTQK.PhasorAngle,
-        # TODO: units?
-    },
-    "CurrentMagnitude": {
-        QUDT.applicableUnit: [UNIT.A, UNIT.MilliA, UNIT.MicroA, UNIT.KiloA],
-        QUDT.plainTextDescription: Literal("Magnitude of current phasor"),
-        RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
-        RDFS.label: Literal("CurrentMagnitude"),
-        SKOS.broader: QUDTQK.PhasorMagnitude,
-    },
-    "Irradiance": {
-        QUDT.applicableUnit: [
-            UNIT["W-PER-M2"],
-            UNIT["W-PER-IN2"],
-            UNIT["W-PER-FT2"],
-            UNIT["W-PER-CeniM2"],
-        ],
-        QUDT.plainTextDescription: Literal(
-            "The power per unit area of electromagnetic radiation incident on a surface"
-        ),
-        RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
-        RDFS.label: Literal("Irradiance"),
-        SKOS.broader: QUDTQK.PowerPerArea,
-    },
-    "PhasorAngle": {
-        QUDT.applicableUnit: [
-            UNIT.ARCMIN,
-            UNIT.ARCSEC,
-            UNIT.DEG,
-            UNIT.GON,
-            UNIT.GRAD,
-            UNIT.MIL,
-            UNIT.RAD,
-            UNIT.MicroRAD,
-            UNIT.MilliRAD,
-            UNIT.MilliARCSEC,
-            UNIT.REV,
-        ],
-        QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M0H0T0D1"],
-        QUDT.plainTextDescription: Literal("Angle component of a phasor"),
-        RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
-        RDFS.label: Literal("PhasorAngle"),
-        SKOS.broader: QUDTQK.PlaneAngle,
-    },
-    "PhasorMagnitude": {
-        QUDT.applicableUnit: [
-            UNIT.ARCMIN,
-            UNIT.ARCSEC,
-            UNIT.DEG,
-            UNIT.GON,
-            UNIT.GRAD,
-            UNIT.MIL,
-            UNIT.RAD,
-            UNIT.MicroRAD,
-            UNIT.MilliRAD,
-            UNIT.MilliARCSEC,
-            UNIT.REV,
-        ],
-        QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M0H0T0D1"],
-        QUDT.plainTextDescription: Literal("Magnitude component of a phasor"),
-        RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
-        RDFS.label: Literal("PhasorMagnitude"),
-        # TODO: finish
-    },
-    "Position": {
-        QUDT.applicableUnit: [UNIT["PERCENT"]],
-        QUDT.plainTextDescription: Literal("The fraction of the full range of motion"),
-        RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
-        RDFS.label: Literal("Position"),
-        SKOS.broader: QUDTQK.DimensionlessRatio,
-    },
-    "SolarIrradiance": {
-        QUDT.applicableUnit: [
-            UNIT["W-PER-M2"],
-            UNIT["W-PER-IN2"],
-            UNIT["W-PER-FT2"],
-            UNIT["W-PER-CeniM2"],
-        ],
-        QUDT.plainTextDescription: Literal(
-            "The power per unit area of solar electromagnetic radiation incident on a surface"
-        ),
-        RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
-        RDFS.label: Literal("SolarIrradiance"),
-        SKOS.broader: QUDTQK.Irradiance,
-    },
-    "ThermalPower": {
-        QUDT.applicableUnit: [UNIT.MilliW, UNIT.W, UNIT.KiloW, UNIT.MegaW],
-        QUDT.hasDimensionVector: QUDTDV["A0E0L2I0M1H0T-3D0"],
-        RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
-        RDFS.label: Literal("ThermalPower"),
-        SKOS.broader: QUDTQK.Power,
-    },
-    "VoltageAngle": {
-        QUDT.applicableUnit: [
-            UNIT.ARCMIN,
-            UNIT.ARCSEC,
-            UNIT.DEG,
-            UNIT.GON,
-            UNIT.GRAD,
-            UNIT.MIL,
-            UNIT.RAD,
-            UNIT.MicroRAD,
-            UNIT.MilliRAD,
-            UNIT.MilliARCSEC,
-            UNIT.REV,
-        ],
-        QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M0H0T0D1"],
-        QUDT.plainTextDescription: Literal("Angle of voltage phasor"),
-        RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
-        RDFS.label: Literal("VoltageAngle"),
-        SKOS.broader: QUDTQK.PhasorAngle,
-        # TODO: units?
-    },
-}
-
-
 quantity_definitions = {
     "Air_Quality": {
         "subconcepts": {
-            "CO2_Level": {OWL.sameAs: QUDTQK["Concentration"]},
-            "PM10_Level": {OWL.sameAs: QUDTQK["Concentration"]},
-            "PM25_Level": {OWL.sameAs: QUDTQK["Concentration"]},
-            "TVOC_Level": {OWL.sameAs: QUDTQK["Concentration"]},
+            "CO2_Level": {
+                QUDT.applicableUnit: [UNIT.PPM],
+                QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M0H0T0D1"],
+                QUDT.plainTextDescription: Literal(
+                    "The concentration ratio of some substance"
+                ),
+                RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
+                RDFS.label: Literal("Concentration"),
+                SKOS.broader: QUDTQK.Dimensionless,
+            },
+            "PM10_Level": {
+                QUDT.applicableUnit: [UNIT.PPM],
+                QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M0H0T0D1"],
+                QUDT.plainTextDescription: Literal(
+                    "The concentration ratio of some substance"
+                ),
+                RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
+                RDFS.label: Literal("Concentration"),
+                SKOS.broader: QUDTQK.Dimensionless,
+            },
+            "PM25_Level": {
+                QUDT.applicableUnit: [UNIT.PPM],
+                QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M0H0T0D1"],
+                QUDT.plainTextDescription: Literal(
+                    "The concentration ratio of some substance"
+                ),
+                RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
+                RDFS.label: Literal("Concentration"),
+                SKOS.broader: QUDTQK.Dimensionless,
+            },
+            "TVOC_Level": {
+                QUDT.applicableUnit: [UNIT.PPM],
+                QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M0H0T0D1"],
+                QUDT.plainTextDescription: Literal(
+                    "The concentration ratio of some substance"
+                ),
+                RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
+                RDFS.label: Literal("Concentration"),
+                SKOS.broader: QUDTQK.Dimensionless,
+            },
         },
     },
     "Angle": {OWL.sameAs: QUDTQK["Angle"]},
@@ -207,6 +89,50 @@ quantity_definitions = {
     "Mass": {
         OWL.sameAs: QUDTQK["Mass"],
         "subconcepts": {"Grains": {QUDT.applicableUnit: UNIT.GRAINS}},
+    },
+    "Phasor": {
+        "subconcepts": {
+            "PhasorAngle": {
+                QUDT.applicableUnit: [
+                    UNIT.ARCMIN,
+                    UNIT.ARCSEC,
+                    UNIT.DEG,
+                    UNIT.GON,
+                    UNIT.GRAD,
+                    UNIT.MIL,
+                    UNIT.RAD,
+                    UNIT.MicroRAD,
+                    UNIT.MilliRAD,
+                    UNIT.MilliARCSEC,
+                    UNIT.REV,
+                ],
+                QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M0H0T0D1"],
+                QUDT.plainTextDescription: Literal("Angle component of a phasor"),
+                RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
+                RDFS.label: Literal("PhasorAngle"),
+                SKOS.broader: QUDTQK.PlaneAngle,
+            },
+            "PhasorMagnitude": {
+                QUDT.applicableUnit: [
+                    UNIT.ARCMIN,
+                    UNIT.ARCSEC,
+                    UNIT.DEG,
+                    UNIT.GON,
+                    UNIT.GRAD,
+                    UNIT.MIL,
+                    UNIT.RAD,
+                    UNIT.MicroRAD,
+                    UNIT.MilliRAD,
+                    UNIT.MilliARCSEC,
+                    UNIT.REV,
+                ],
+                QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M0H0T0D1"],
+                QUDT.plainTextDescription: Literal("Magnitude component of a phasor"),
+                RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
+                RDFS.label: Literal("PhasorMagnitude"),
+                # TODO: finish
+            },
+        },
     },
     "Power": {
         OWL.sameAs: QUDTQK["Power"],
@@ -229,10 +155,24 @@ quantity_definitions = {
                     "Tracks the highest (peak) observed power in some interval"
                 ),
             },
-            "Thermal_Power": {OWL.sameAs: QUDTQK["ThermalPower"]},
+            "Thermal_Power": {
+                QUDT.applicableUnit: [UNIT.MilliW, UNIT.W, UNIT.KiloW, UNIT.MegaW],
+                QUDT.hasDimensionVector: QUDTDV["A0E0L2I0M1H0T-3D0"],
+                RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
+                RDFS.label: Literal("ThermalPower"),
+                SKOS.broader: QUDTQK.Power,
+            },
         },
     },
-    "Cloudage": {OWL.sameAs: QUDTQK["Cloudage"]},
+    "Cloudage": {
+        QUDT.applicableUnit: [UNIT.Okta],
+        QUDT.plainTextDescription: Literal(
+            "The fraction of the sky obscured by clouds when observed from a particular location"
+        ),
+        RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
+        RDFS.label: Literal("Cloudage"),
+        SKOS.broader: QUDTQK.Dimensionless,
+    },
     "Current": {
         "subconcepts": {
             "Electric_Current": {
@@ -242,13 +182,41 @@ quantity_definitions = {
                         SKOS.definition: Literal(
                             "The angle of the phasor representing a measurement of electric current"
                         ),
-                        OWL.sameAs: QUDTQK["CurrentAngle"],
+                        QUDT.applicableUnit: [
+                            UNIT.ARCMIN,
+                            UNIT.ARCSEC,
+                            UNIT.DEG,
+                            UNIT.GON,
+                            UNIT.GRAD,
+                            UNIT.MIL,
+                            UNIT.RAD,
+                            UNIT.MicroRAD,
+                            UNIT.MilliRAD,
+                            UNIT.MilliARCSEC,
+                            UNIT.REV,
+                        ],
+                        QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M0H0T0D1"],
+                        QUDT.plainTextDescription: Literal("Angle of current phasor"),
+                        RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
+                        RDFS.label: Literal("CurrentAngle"),
+                        SKOS.broader: BRICK.PhasorAngle,
                     },
                     "Current_Magnitude": {
                         SKOS.definition: Literal(
                             "The magnitude of the phasor representing a measurement of electric current"
                         ),
-                        OWL.sameAs: QUDTQK["CurrentMagnitude"],
+                        QUDT.applicableUnit: [
+                            UNIT.A,
+                            UNIT.MilliA,
+                            UNIT.MicroA,
+                            UNIT.KiloA,
+                        ],
+                        QUDT.plainTextDescription: Literal(
+                            "Magnitude of current phasor"
+                        ),
+                        RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
+                        RDFS.label: Literal("CurrentMagnitude"),
+                        SKOS.broader: BRICK.PhasorMagnitude,
                     },
                     "Current_Imbalance": {},
                     "Current_Total_Harmonic_Distortion": {},
@@ -264,7 +232,25 @@ quantity_definitions = {
                 SKOS.definition: Literal(
                     "The angle of the phasor representing a measurement of electric voltage"
                 ),
-                OWL.sameAs: QUDTQK["VoltageAngle"],
+                QUDT.applicableUnit: [
+                    UNIT.ARCMIN,
+                    UNIT.ARCSEC,
+                    UNIT.DEG,
+                    UNIT.GON,
+                    UNIT.GRAD,
+                    UNIT.MIL,
+                    UNIT.RAD,
+                    UNIT.MicroRAD,
+                    UNIT.MilliRAD,
+                    UNIT.MilliARCSEC,
+                    UNIT.REV,
+                ],
+                QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M0H0T0D1"],
+                QUDT.plainTextDescription: Literal("Angle of voltage phasor"),
+                RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
+                RDFS.label: Literal("VoltageAngle"),
+                SKOS.broader: BRICK.PhasorAngle,
+                # TODO: units?
             },
             "Voltage_Imbalance": {},
         },
@@ -294,8 +280,34 @@ quantity_definitions = {
     },
     "Illuminance": {OWL.sameAs: QUDTQK["Illuminance"]},
     "Irradiance": {
-        OWL.sameAs: QUDTQK["Irradiance"],
-        "subconcepts": {"Solar_Irradiance": {OWL.sameAs: QUDTQK["SolarIrradiance"]}},
+        QUDT.applicableUnit: [
+            UNIT["W-PER-M2"],
+            UNIT["W-PER-IN2"],
+            UNIT["W-PER-FT2"],
+            UNIT["W-PER-CeniM2"],
+        ],
+        QUDT.plainTextDescription: Literal(
+            "The power per unit area of electromagnetic radiation incident on a surface"
+        ),
+        RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
+        RDFS.label: Literal("Irradiance"),
+        SKOS.broader: QUDTQK.PowerPerArea,
+        "subconcepts": {
+            "Solar_Irradiance": {
+                QUDT.applicableUnit: [
+                    UNIT["W-PER-M2"],
+                    UNIT["W-PER-IN2"],
+                    UNIT["W-PER-FT2"],
+                    UNIT["W-PER-CeniM2"],
+                ],
+                QUDT.plainTextDescription: Literal(
+                    "The power per unit area of solar electromagnetic radiation incident on a surface"
+                ),
+                RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
+                RDFS.label: Literal("SolarIrradiance"),
+                SKOS.broader: BRICK.Irradiance,
+            }
+        },
     },
     "Level": {
         "subconcepts": {
@@ -313,7 +325,13 @@ quantity_definitions = {
         },
     },
     "Occupancy": {"subconcepts": {"Occupancy_Count": {}, "Occupancy_Percentage": {}}},
-    "Position": {OWL.sameAs: QUDTQK["Position"]},
+    "Position": {
+        QUDT.applicableUnit: [UNIT["PERCENT"]],
+        QUDT.plainTextDescription: Literal("The fraction of the full range of motion"),
+        RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
+        RDFS.label: Literal("Position"),
+        SKOS.broader: QUDTQK.DimensionlessRatio,
+    },
     "Power_Factor": {OWL.sameAs: QUDTQK["PowerFactor"]},
     "Precipitation": {},
     "Pressure": {
