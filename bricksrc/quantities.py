@@ -283,7 +283,6 @@ quantity_definitions = {
                 RDFS.label: Literal("VoltageAngle"),
                 SKOS.broader: BRICK.PhasorAngle,
             },
-            # TODO: finish this
             "Voltage_Imbalance": {
                 SKOS.definition: Literal("The percent deviation from average voltage"),
                 QUDT.applicableUnit: [UNIT.PERCENT],
