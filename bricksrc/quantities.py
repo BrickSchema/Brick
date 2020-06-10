@@ -494,7 +494,6 @@ quantity_definitions = {
     },
     "Temperature": {
         OWL.sameAs: QUDTQK["ThermodynamicTemperature"],
-        # TODO: finish
         "subconcepts": {
             "Operative_Temperature": {
                 QUDT.applicableUnit: [UNIT["DEG_F"], UNIT["DEG_C"], UNIT["K"]],

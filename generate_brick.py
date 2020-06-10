@@ -121,7 +121,7 @@ def add_tags(klass, definition):
     intersection_classes[klass] = tuple(sorted(definition))
 
 
-def define_concept_hierarchy(definitions, typeclass, broader=None):
+def define_concept_hierarchy(definitions, typeclasses, broader=None):
     """
     Generates triples to define the SKOS hierarchy of concepts given by
     'definitions', which are all instances of the class given by 'typeclass'.
@@ -131,7 +131,8 @@ def define_concept_hierarchy(definitions, typeclass, broader=None):
     """
     for concept, defn in definitions.items():
         concept = BRICK[concept]
-        G.add((concept, A, typeclass))
+        for typeclass in typeclasses:
+            G.add((concept, A, typeclass))
         # mark broader concept if one exists
         if broader is not None:
             G.add((concept, SKOS.broader, broader))
@@ -157,7 +158,9 @@ def define_concept_hierarchy(definitions, typeclass, broader=None):
         # this is a nested dictionary
         subconceptdef = defn.get("subconcepts", {})
         assert isinstance(subconceptdef, dict)
-        define_concept_hierarchy(subconceptdef, BRICK.Quantity, broader=concept)
+        define_concept_hierarchy(
+            subconceptdef, [BRICK.Quantity, QUDT.QuantityKind], broader=concept
+        )
 
         # handle 'parents' subconcepts (links outside of tree-based hierarchy)
         parents = defn.get("parents", [])
@@ -363,7 +366,7 @@ G.add((BRICK.Substance, A, OWL.Class))
 define_classes(substances, BRICK.Substance, pun_classes=True)
 
 # this defines the SKOS-based concept hierarchy for BRICK Quantities
-define_concept_hierarchy(quantity_definitions, BRICK.Quantity)
+define_concept_hierarchy(quantity_definitions, [BRICK.Quantity, QUDT.QuantityKind])
 
 # for all Quantities, copy part of the QUDT unit definitions over
 res = G.query(
