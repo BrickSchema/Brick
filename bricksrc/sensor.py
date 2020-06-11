@@ -559,6 +559,7 @@ sensor_definitions = {
             },
             "Frost_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Frost],
+                "parents": [BRICK.Temperature_Sensor],
                 "substances": [
                     [BRICK.measures, BRICK.Frost],
                     [BRICK.measures, BRICK.Temperature],
