@@ -985,6 +985,7 @@ sensor_definitions = {
             "Rain_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Rain],
                 # TODO: substances
+                "substances": [[BRICK.measures, BRICK.Precipitation]],
                 "subclasses": {
                     "Rain_Duration_Sensor": {
                         "tags": [TAG.Point, TAG.Sensor, TAG.Rain, TAG.Duration],
@@ -1003,6 +1004,7 @@ sensor_definitions = {
                     },
                     "On_Timer_Sensor": {
                         "tags": [TAG.Point, TAG.On, TAG.Timer, TAG.Sensor],
+                        OWL.equivalentClass: BRICK.Run_Time_Sensor,
                     },
                 },
             },
