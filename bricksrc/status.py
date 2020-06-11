@@ -23,60 +23,54 @@ status_definitions = {
             "Drive_Ready_Status": {
                 "tags": [TAG.Point, TAG.Drive, TAG.Ready, TAG.Status],
             },
-            "Emergency_Air_Flow_Status": {
-                "tags": [TAG.Point, TAG.Emergency, TAG.Air, TAG.Flow, TAG.Status],
-            },
             "Emergency_Generator_Status": {
                 "tags": [TAG.Point, TAG.Emergency, TAG.Generator, TAG.Status],
             },
-            "Emergency_Power_Off_Status": {
-                "tags": [TAG.Point, TAG.Emergency, TAG.Power, TAG.Off, TAG.Status],
+            "Emergency_Power_Off_System_Status": {
+                "tags": [
+                    TAG.Point,
+                    TAG.Emergency,
+                    TAG.Power,
+                    TAG.Off,
+                    TAG.System,
+                    TAG.Status,
+                ],
                 "parents": [BRICK.Off_Status],
                 "subclasses": {
-                    "Emergency_Power_Off_Activated_By_High_Temperature_Status": {
+                    "Emergency_Power_Off_System_Activated_By_High_Temperature_Status": {
                         "tags": [
                             TAG.Point,
                             TAG.Emergency,
                             TAG.Power,
                             TAG.Off,
+                            TAG.System,
                             TAG.High,
                             TAG.Temperature,
                             TAG.Status,
                         ],
                     },
-                    "Emergency_Power_Off_Activated_By_Leak_Detection_System_Status": {
+                    "Emergency_Power_Off_System_Activated_By_Leak_Detection_System_Status": {
                         "tags": [
                             TAG.Point,
                             TAG.Emergency,
                             TAG.Power,
                             TAG.Off,
+                            TAG.System,
                             TAG.Leak,
                             TAG.Detection,
                             TAG.Status,
                         ],
                     },
-                    "Emergency_Power_Off_Enable_Status": {
+                    "Emergency_Power_Off_System_Enable_Status": {
                         "tags": [
                             TAG.Point,
                             TAG.Emergency,
                             TAG.Power,
                             TAG.Off,
+                            TAG.System,
                             TAG.Enable,
                             TAG.Status,
                         ],
-                        "subclasses": {
-                            "Emergency_Power_Off_System_Enable_Status": {
-                                "tags": [
-                                    TAG.Point,
-                                    TAG.Emergency,
-                                    TAG.Power,
-                                    TAG.Off,
-                                    TAG.System,
-                                    TAG.Enable,
-                                    TAG.Status,
-                                ],
-                            },
-                        },
                     },
                 },
             },
