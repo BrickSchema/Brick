@@ -151,6 +151,7 @@ quantity_definitions = {
                 },
             },
             "Peak_Power": {
+                SKOS.broader: QUDTQK.Power,
                 QUDT.applicableUnit: [UNIT.KiloW, UNIT.MegaW, UNIT.MilliW, UNIT.W],
                 QUDT.hasDimensionVector: QUDTDV["A0E0L2I0M1H0T-3D0"],
                 RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
