@@ -559,7 +559,10 @@ sensor_definitions = {
             },
             "Frost_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Frost],
-                "substances": [[BRICK.measures, BRICK.Frost]],
+                "substances": [
+                    [BRICK.measures, BRICK.Frost],
+                    [BRICK.measures, BRICK.Temperature],
+                ],
             },
             "Gas_Sensor": {
                 SKOS.definition: Literal(
@@ -584,10 +587,16 @@ sensor_definitions = {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Humidity],
                 "substances": [[BRICK.measures, BRICK.Humidity]],
                 "subclasses": {
-                    "Air_Humidity_Sensor": {
-                        "tags": [TAG.Point, TAG.Sensor, TAG.Humidity, TAG.Air],
+                    "Relative_Humidity_Sensor": {
+                        "tags": [
+                            TAG.Point,
+                            TAG.Sensor,
+                            TAG.Humidity,
+                            TAG.Air,
+                            TAG.Relative,
+                        ],
                         "substances": [
-                            [BRICK.measures, BRICK.Humidity],
+                            [BRICK.measures, BRICK.Relative_Humidity],
                             [BRICK.measures, BRICK.Air],
                         ],
                         "subclasses": {
@@ -596,11 +605,12 @@ sensor_definitions = {
                                     TAG.Point,
                                     TAG.Sensor,
                                     TAG.Humidity,
+                                    TAG.Relative,
                                     TAG.Air,
                                     TAG.Discharge,
                                 ],
                                 "substances": [
-                                    [BRICK.measures, BRICK.Humidity],
+                                    [BRICK.measures, BRICK.Relative_Humidity],
                                     [BRICK.measures, BRICK.Discharge_Air],
                                 ],
                             },
@@ -609,11 +619,12 @@ sensor_definitions = {
                                     TAG.Point,
                                     TAG.Sensor,
                                     TAG.Humidity,
+                                    TAG.Relative,
                                     TAG.Air,
                                     TAG.Exhaust,
                                 ],
                                 "substances": [
-                                    [BRICK.measures, BRICK.Humidity],
+                                    [BRICK.measures, BRICK.Relative_Humidity],
                                     [BRICK.measures, BRICK.Exhaust_Air],
                                 ],
                             },
@@ -622,25 +633,13 @@ sensor_definitions = {
                                     TAG.Point,
                                     TAG.Sensor,
                                     TAG.Humidity,
+                                    TAG.Relative,
                                     TAG.Air,
                                     TAG.Outside,
                                 ],
                                 "substances": [
-                                    [BRICK.measures, BRICK.Humidity],
-                                    [BRICK.measures, BRICK.Outside_Air],
-                                ],
-                            },
-                            "Relative_Humidity_Sensor": {
-                                "tags": [
-                                    TAG.Point,
-                                    TAG.Sensor,
-                                    TAG.Humidity,
-                                    TAG.Air,
-                                    TAG.Relative,
-                                ],
-                                "substances": [
                                     [BRICK.measures, BRICK.Relative_Humidity],
-                                    [BRICK.measures, BRICK.Air],
+                                    [BRICK.measures, BRICK.Outside_Air],
                                 ],
                             },
                             "Return_Air_Humidity_Sensor": {
@@ -648,11 +647,12 @@ sensor_definitions = {
                                     TAG.Point,
                                     TAG.Sensor,
                                     TAG.Humidity,
+                                    TAG.Relative,
                                     TAG.Air,
                                     TAG.Return,
                                 ],
                                 "substances": [
-                                    [BRICK.measures, BRICK.Humidity],
+                                    [BRICK.measures, BRICK.Relative_Humidity],
                                     [BRICK.measures, BRICK.Return_Air],
                                 ],
                             },
@@ -661,11 +661,12 @@ sensor_definitions = {
                                     TAG.Point,
                                     TAG.Sensor,
                                     TAG.Humidity,
+                                    TAG.Relative,
                                     TAG.Air,
                                     TAG.Supply,
                                 ],
                                 "substances": [
-                                    [BRICK.measures, BRICK.Humidity],
+                                    [BRICK.measures, BRICK.Relative_Humidity],
                                     [BRICK.measures, BRICK.Supply_Air],
                                 ],
                             },
@@ -674,16 +675,17 @@ sensor_definitions = {
                                     TAG.Point,
                                     TAG.Sensor,
                                     TAG.Humidity,
+                                    TAG.Relative,
                                     TAG.Air,
                                     TAG.Zone,
                                 ],
                                 "substances": [
-                                    [BRICK.measures, BRICK.Humidity],
+                                    [BRICK.measures, BRICK.Relative_Humidity],
                                     [BRICK.measures, BRICK.Zone_Air],
                                 ],
                             },
                         },
-                    }
+                    },
                 },
             },
             "Illuminance_Sensor": {
