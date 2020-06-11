@@ -26,54 +26,6 @@ status_definitions = {
             "Emergency_Generator_Status": {
                 "tags": [TAG.Point, TAG.Emergency, TAG.Generator, TAG.Status],
             },
-            "Emergency_Power_Off_System_Status": {
-                "tags": [
-                    TAG.Point,
-                    TAG.Emergency,
-                    TAG.Power,
-                    TAG.Off,
-                    TAG.System,
-                    TAG.Status,
-                ],
-                "parents": [BRICK.Off_Status],
-                "subclasses": {
-                    "Emergency_Power_Off_System_Activated_By_High_Temperature_Status": {
-                        "tags": [
-                            TAG.Point,
-                            TAG.Emergency,
-                            TAG.Power,
-                            TAG.Off,
-                            TAG.System,
-                            TAG.High,
-                            TAG.Temperature,
-                            TAG.Status,
-                        ],
-                    },
-                    "Emergency_Power_Off_System_Activated_By_Leak_Detection_System_Status": {
-                        "tags": [
-                            TAG.Point,
-                            TAG.Emergency,
-                            TAG.Power,
-                            TAG.Off,
-                            TAG.System,
-                            TAG.Leak,
-                            TAG.Detection,
-                            TAG.Status,
-                        ],
-                    },
-                    "Emergency_Power_Off_System_Enable_Status": {
-                        "tags": [
-                            TAG.Point,
-                            TAG.Emergency,
-                            TAG.Power,
-                            TAG.Off,
-                            TAG.System,
-                            TAG.Enable,
-                            TAG.Status,
-                        ],
-                    },
-                },
-            },
             "Emergency_Push_Button_Status": {
                 "tags": [TAG.Point, TAG.Emergency, TAG.Push, TAG.Button, TAG.Status],
             },
@@ -481,6 +433,54 @@ status_definitions = {
                             TAG.System,
                             TAG.Status,
                         ],
+                    },
+                    "Emergency_Power_Off_System_Status": {
+                        "tags": [
+                            TAG.Point,
+                            TAG.Emergency,
+                            TAG.Power,
+                            TAG.Off,
+                            TAG.System,
+                            TAG.Status,
+                        ],
+                        "parents": [BRICK.Off_Status],
+                        "subclasses": {
+                            "Emergency_Power_Off_System_Activated_By_High_Temperature_Status": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Emergency,
+                                    TAG.Power,
+                                    TAG.Off,
+                                    TAG.System,
+                                    TAG.High,
+                                    TAG.Temperature,
+                                    TAG.Status,
+                                ],
+                            },
+                            "Emergency_Power_Off_System_Activated_By_Leak_Detection_System_Status": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Emergency,
+                                    TAG.Power,
+                                    TAG.Off,
+                                    TAG.System,
+                                    TAG.Leak,
+                                    TAG.Detection,
+                                    TAG.Status,
+                                ],
+                            },
+                            "Emergency_Power_Off_System_Enable_Status": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Emergency,
+                                    TAG.Power,
+                                    TAG.Off,
+                                    TAG.System,
+                                    TAG.Enable,
+                                    TAG.Status,
+                                ],
+                            },
+                        },
                     },
                 },
             },
