@@ -459,7 +459,7 @@ quantity_definitions = {
             "Solar_Radiance": {
                 QUDT.applicableUnit: [UNIT["W-PER-M2-SR"]],
                 SKOS.definition: Literal(
-                    "The amount of light that passes through or is emitted from the sun and falls withi na given solid angle in a specified direction",
+                    "The amount of light that passes through or is emitted from the sun and falls within a given solid angle in a specified direction",
                 ),
                 RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
                 RDFS.label: Literal("Solar_Radiance"),
