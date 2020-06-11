@@ -1352,43 +1352,6 @@ sensor_definitions = {
                                             },
                                         },
                                     },
-                                    "Outside_Air_Lockout_Temperature_Differential_Sensor": {
-                                        "tags": [
-                                            TAG.Point,
-                                            TAG.Outside,
-                                            TAG.Air,
-                                            TAG.Lockout,
-                                            TAG.Temperature,
-                                            TAG.Differential,
-                                            TAG.Sensor,
-                                        ],
-                                        "subclasses": {
-                                            "Low_Outside_Air_Lockout_Temperature_Differential_Sensor": {
-                                                "tags": [
-                                                    TAG.Point,
-                                                    TAG.Low,
-                                                    TAG.Outside,
-                                                    TAG.Air,
-                                                    TAG.Lockout,
-                                                    TAG.Temperature,
-                                                    TAG.Differential,
-                                                    TAG.Sensor,
-                                                ],
-                                            },
-                                            "High_Outside_Air_Lockout_Temperature_Differential_Sensor": {
-                                                "tags": [
-                                                    TAG.Point,
-                                                    TAG.High,
-                                                    TAG.Outside,
-                                                    TAG.Air,
-                                                    TAG.Lockout,
-                                                    TAG.Temperature,
-                                                    TAG.Differential,
-                                                    TAG.Sensor,
-                                                ],
-                                            },
-                                        },
-                                    },
                                 },
                             },
                         },
