@@ -1,5 +1,5 @@
 from rdflib import Literal
-from .namespaces import TAG, OWL, SKOS, BRICK
+from .namespaces import TAG, OWL, SKOS, BRICK, RDFS
 
 """
 Set up subclasses of the equipment superclass
@@ -280,6 +280,13 @@ hvac_subclasses = {
             "Condenser_Heat_Exchanger": {
                 "tags": [TAG.Condenser, TAG.Equipment, TAG.Heat, TAG.Exchanger],
             },
+            "Heat_Wheel": {
+                "tags": [TAG.Equipment, TAG.Heat, TAG.Wheel],
+                SKOS.definition: Literal(
+                    "A type of energy recovery heat exchanger positioned within the supply and exhaust air streams of an air-handling system or in the exhaust gases of an industrial process, in order to recover the heat energy"
+                ),
+                RDFS.seeAlso: Literal("https://en.wikipedia.org/wiki/Thermal_wheel"),
+            },
         },
     },
     "HX": {"tags": [TAG.Equipment, TAG.HX]},
@@ -550,15 +557,15 @@ security_subclasses = {
     },
     "Intrusion_Detection_Equipment": {
         "tags": [TAG.Equipment, TAG.Security, TAG.Intrusion, TAG.Detection],
-            # TODO
-            # Motion sensor - but maybe to Points, but still need a way to represent security motion sensors
-            # Security Control Panel: The central hub of a security system. All devices are connected to the security panel for easy
-            #    and efficient access for different security protocols (i.e. Intrusion security) and events. Question: How’s this different from
-            #    Access Panel? Is this specific to Intrusion detection system or more general?
-            # Glass_Break_Sensor: a sensor used in electronic alarms that detect if pane of glass has been shattered or is broken.
-            # Duress_Button: Panic button, an electronic input device used to help alerting someone in emergency situations.
-            # Door_Contacts: Door contact sensor, a peripheral security sensor that lets an alarm system know whether a door is
-            # open or closed.
+        # TODO
+        # Motion sensor - but maybe to Points, but still need a way to represent security motion sensors
+        # Security Control Panel: The central hub of a security system. All devices are connected to the security panel for easy
+        #    and efficient access for different security protocols (i.e. Intrusion security) and events. Question: How’s this different from
+        #    Access Panel? Is this specific to Intrusion detection system or more general?
+        # Glass_Break_Sensor: a sensor used in electronic alarms that detect if pane of glass has been shattered or is broken.
+        # Duress_Button: Panic button, an electronic input device used to help alerting someone in emergency situations.
+        # Door_Contacts: Door contact sensor, a peripheral security sensor that lets an alarm system know whether a door is
+        # open or closed.
     },
     "Intercom_Equipment": {
         "tags": [TAG.Equipment, TAG.Security, TAG.Intercom],
