@@ -151,7 +151,10 @@ quantity_definitions = {
                 },
             },
             "Peak_Power": {
-                OWL.sameAs: QUDTQK["ElectricPower"],
+                QUDT.applicableUnit: [UNIT.KiloW, UNIT.MegaW, UNIT.MilliW, UNIT.W],
+                QUDT.hasDimensionVector: QUDTDV["A0E0L2I0M1H0T-3D0"],
+                RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
+                RDFS.label: Literal("PeakPower"),
                 SKOS.definition: Literal(
                     "Tracks the highest (peak) observed power in some interval"
                 ),
