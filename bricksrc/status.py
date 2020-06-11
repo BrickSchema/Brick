@@ -124,7 +124,6 @@ status_definitions = {
                 "tags": [TAG.Point, TAG.Filter, TAG.Status],
             },
             "Freeze_Status": {"tags": [TAG.Point, TAG.Freeze, TAG.Status]},
-            "Hand_Auto_Status": {"tags": [TAG.Point, TAG.Hand, TAG.Auto, TAG.Status]},
             "Hold_Status": {"tags": [TAG.Point, TAG.Hold, TAG.Status]},
             "Load_Shed_Status": {
                 "subclasses": {
@@ -304,32 +303,15 @@ status_definitions = {
             },
             "On_Off_Status": {
                 "subclasses": {
-                    "Cooling_On_Off_Status": {
-                        "tags": [TAG.Point, TAG.Cool, TAG.On, TAG.Off, TAG.Status],
+                    "Fan_On_Off_Status": {
+                        "tags": [TAG.Point, TAG.Fan, TAG.On, TAG.Off, TAG.Status],
+                        "parents": [BRICK.Fan_Status],
                     },
-                    "Dehumidification_On_Off_Status": {
-                        "tags": [
-                            TAG.Point,
-                            TAG.Dehumidification,
-                            TAG.On,
-                            TAG.Off,
-                            TAG.Status,
-                        ],
+                    "Motor_On_Off_Status": {
+                        "tags": [TAG.Point, TAG.Motor, TAG.On, TAG.Off, TAG.Status],
                     },
-                    "EconCycle_On_Off_Status": {
-                        "tags": [TAG.Point, TAG.Econcycle, TAG.On, TAG.Off, TAG.Status],
-                    },
-                    "Heating_On_Off_Status": {
-                        "tags": [TAG.Point, TAG.Heat, TAG.On, TAG.Off, TAG.Status],
-                    },
-                    "Humidification_On_Off_Status": {
-                        "tags": [
-                            TAG.Point,
-                            TAG.Humidification,
-                            TAG.On,
-                            TAG.Off,
-                            TAG.Status,
-                        ],
+                    "Pump_On_Off_Status": {
+                        "tags": [TAG.Point, TAG.Pump, TAG.On, TAG.Off, TAG.Status],
                     },
                     "Locally_On_Off_Status": {
                         "tags": [TAG.Point, TAG.Locally, TAG.On, TAG.Off, TAG.Status],
@@ -362,29 +344,46 @@ status_definitions = {
                     },
                     "Start_Stop_Status": {
                         "subclasses": {
-                            "Fan_Start_Stop_Status": {
+                            "Cooling_Start_Stop_Status": {
                                 "tags": [
                                     TAG.Point,
-                                    TAG.Fan,
-                                    TAG.Start,
-                                    TAG.Stop,
-                                    TAG.Status,
-                                ],
-                                "parents": [BRICK.Fan_Status],
-                            },
-                            "Motor_Start_Stop_Status": {
-                                "tags": [
-                                    TAG.Point,
-                                    TAG.Motor,
+                                    TAG.Cool,
                                     TAG.Start,
                                     TAG.Stop,
                                     TAG.Status,
                                 ],
                             },
-                            "Pump_Start_Stop_Status": {
+                            "Dehumidification_Start_Stop_Status": {
                                 "tags": [
                                     TAG.Point,
-                                    TAG.Pump,
+                                    TAG.Dehumidification,
+                                    TAG.Start,
+                                    TAG.Stop,
+                                    TAG.Status,
+                                ],
+                            },
+                            "EconCycle_Start_Stop_Status": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Econcycle,
+                                    TAG.Start,
+                                    TAG.Stop,
+                                    TAG.Status,
+                                ],
+                            },
+                            "Heating_Start_Stop_Status": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Heat,
+                                    TAG.Start,
+                                    TAG.Stop,
+                                    TAG.Status,
+                                ],
+                            },
+                            "Humidification_Start_Stop_Status": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Humidification,
                                     TAG.Start,
                                     TAG.Stop,
                                     TAG.Status,
@@ -470,7 +469,21 @@ status_definitions = {
                 "tags": [TAG.Point, TAG.System, TAG.Shutdown, TAG.Status],
                 "parents": [BRICK.System_Status],
             },
-            "System_Status": {"tags": [TAG.Point, TAG.System, TAG.Status]},
+            "System_Status": {
+                "tags": [TAG.Point, TAG.System, TAG.Status],
+                "subclasses": {
+                    "Emergency_Air_Flow_System_Status": {
+                        "tags": [
+                            TAG.Point,
+                            TAG.Emergency,
+                            TAG.Air,
+                            TAG.Flow,
+                            TAG.System,
+                            TAG.Status,
+                        ],
+                    },
+                },
+            },
             "Speed_Status": {"tags": [TAG.Point, TAG.Speed, TAG.Status]},
         },
     }
