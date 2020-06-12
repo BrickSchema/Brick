@@ -12,6 +12,7 @@ SKOS = Namespace("http://www.w3.org/2004/02/skos/core#")
 DCTERMS = Namespace("http://purl.org/dc/terms#")
 SDO = Namespace("http://schema.org#")
 SOSA = Namespace("http://www.w3.org/ns/sosa#")
+VCARD = Namespace("http://www.w3.org/2006/vcard/ns#")
 A = RDF.type
 
 
@@ -26,4 +27,5 @@ def bind_prefixes(g):
     g.bind("sh", SH)
     g.bind("brick", BRICK)
     g.bind("tag", TAG)
+    g.bind("vcard", VCARD)
     g.bind("bsh", BSH)

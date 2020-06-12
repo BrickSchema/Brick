@@ -1,8 +1,14 @@
 from rdflib import Literal
-from .namespaces import BRICK, TAG, OWL, SKOS
+from .namespaces import BRICK, TAG, OWL, SKOS, RDFS
 
 sensor_definitions = {
     "Sensor": {
+        SKOS.definition: Literal(
+            "A Sensor is an input point that represents the value of a device or instrument designed to detect and measure a variable (ASHRAE Dictionary)."
+        ),
+        RDFS.seeAlso: Literal(
+            "https://xp20.ashrae.org/terminology/index.php?term=Sensor"
+        ),
         "tags": [TAG.Point, TAG.Sensor],
         "subclasses": {
             "Adjust_Sensor": {
@@ -1241,33 +1247,10 @@ sensor_definitions = {
                                             TAG.Air,
                                         ],
                                     },
-                                    "Highest_Zone_Air_Temperature_Sensor": {
-                                        "tags": [
-                                            TAG.Point,
-                                            TAG.Sensor,
-                                            TAG.Temperature,
-                                            TAG.Zone,
-                                            TAG.Highest,
-                                            TAG.Air,
-                                        ],
-                                        OWL.equivalentClass: BRICK[
-                                            "Warmest_Zone_Air_Temperature_Sensor"
-                                        ],
-                                    },
-                                    "Lowest_Zone_Air_Temperature_Sensor": {
-                                        "tags": [
-                                            TAG.Point,
-                                            TAG.Sensor,
-                                            TAG.Temperature,
-                                            TAG.Zone,
-                                            TAG.Lowest,
-                                            TAG.Air,
-                                        ],
-                                        OWL.equivalentClass: BRICK[
-                                            "Coldest_Zone_Air_Temperature_Sensor"
-                                        ],
-                                    },
                                     "Coldest_Zone_Air_Temperature_Sensor": {
+                                        SKOS.definition: Literal(
+                                            "The zone temperature that is coldest; drives the supply temperature of hot air. A computed value rather than a physical sensor. Also referred to as a 'Lowest Zone Air Temperature Sensor'"
+                                        ),
                                         "tags": [
                                             TAG.Point,
                                             TAG.Coldest,
@@ -1278,6 +1261,9 @@ sensor_definitions = {
                                         ],
                                     },
                                     "Warmest_Zone_Air_Temperature_Sensor": {
+                                        SKOS.definition: Literal(
+                                            "The zone temperature that is warmest; drives the supply temperature of cold air. A computed value rather than a physical sensor. Also referred to as a 'Highest Zone Air Temperature Sensor'"
+                                        ),
                                         "tags": [
                                             TAG.Point,
                                             TAG.Warmest,

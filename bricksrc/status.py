@@ -1,7 +1,14 @@
-from .namespaces import TAG, BRICK
+from rdflib import Literal
+from .namespaces import TAG, BRICK, SKOS, RDFS
 
 status_definitions = {
     "Status": {
+        SKOS.definition: Literal(
+            "A Status is input point that reports the current operating mode, state, position, or condition of an item. Statuses are observations and should be considered 'read-only'"
+        ),
+        RDFS.seeAlso: Literal(
+            "https://xp20.ashrae.org/terminology/index.php?term=status"
+        ),
         "tags": [TAG.Point, TAG.Status],
         "subclasses": {
             "Direction_Status": {
@@ -359,6 +366,52 @@ status_definitions = {
                             },
                         },
                     },
+                    "Start_Stop_Status": {
+                        "subclasses": {
+                            "Fan_Start_Stop_Status": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Fan,
+                                    TAG.Start,
+                                    TAG.Stop,
+                                    TAG.Status,
+                                ],
+                                "parents": [BRICK.Fan_Status],
+                            },
+                            "Motor_Start_Stop_Status": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Motor,
+                                    TAG.Start,
+                                    TAG.Stop,
+                                    TAG.Status,
+                                ],
+                            },
+                            "Pump_Start_Stop_Status": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Pump,
+                                    TAG.Start,
+                                    TAG.Stop,
+                                    TAG.Status,
+                                ],
+                            },
+                            "Run_Status": {
+                                "tags": [TAG.Point, TAG.Run, TAG.Status],
+                                "subclasses": {
+                                    "Run_Request_Status": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Request,
+                                            TAG.Run,
+                                            TAG.Status,
+                                        ],
+                                    },
+                                },
+                            },
+                        },
+                        "tags": [TAG.Point, TAG.Start, TAG.Stop, TAG.Status],
+                    },
                 },
                 "tags": [TAG.Point, TAG.On, TAG.Off, TAG.Status],
                 "parents": [BRICK.On_Status, BRICK.Off_Status],
@@ -419,29 +472,6 @@ status_definitions = {
             },
             "Lead_Lag_Status": {"tags": [TAG.Point, TAG.Lead, TAG.Lag, TAG.Status]},
             "Stages_Status": {"tags": [TAG.Point, TAG.Stages, TAG.Status]},
-            "Start_Stop_Status": {
-                "subclasses": {
-                    "Fan_Start_Stop_Status": {
-                        "tags": [TAG.Point, TAG.Fan, TAG.Start, TAG.Stop, TAG.Status],
-                        "parents": [BRICK.Fan_Status],
-                    },
-                    "Motor_Start_Stop_Status": {
-                        "tags": [TAG.Point, TAG.Motor, TAG.Start, TAG.Stop, TAG.Status],
-                    },
-                    "Pump_Start_Stop_Status": {
-                        "tags": [TAG.Point, TAG.Pump, TAG.Start, TAG.Stop, TAG.Status],
-                    },
-                    "Run_Status": {
-                        "tags": [TAG.Point, TAG.Run, TAG.Status],
-                        "subclasses": {
-                            "Run_Request_Status": {
-                                "tags": [TAG.Point, TAG.Request, TAG.Run, TAG.Status],
-                            },
-                        },
-                    },
-                },
-                "tags": [TAG.Point, TAG.Start, TAG.Stop, TAG.Status],
-            },
             "System_Shutdown_Status": {
                 "tags": [TAG.Point, TAG.System, TAG.Shutdown, TAG.Status],
                 "parents": [BRICK.System_Status],

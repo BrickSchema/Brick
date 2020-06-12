@@ -9,6 +9,7 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix sosa: <http://www.w3.org/ns/sosa#> .
 @prefix tag: <https://brickschema.org/schema/1.1/BrickTag#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
@@ -29,6 +30,17 @@ bsh:feedsAirRegulatesShape a sh:NodeShape ;
             sh:message "Subject of property feedsAir has object with incorrect type" ;
             sh:path brick:regulates ] ;
     sh:targetSubjectsOf brick:feedsAir .
+
+bsh:hasAddressDomainShape a sh:NodeShape ;
+    sh:class brick:Building ;
+    sh:message "Property hasAddress has subject with incorrect type" ;
+    sh:targetSubjectsOf brick:hasAddress .
+
+bsh:hasAddressRangeShape a sh:NodeShape ;
+    sh:property [ sh:class vcard:Address ;
+            sh:message "Property hasAddress has object with incorrect type" ;
+            sh:path brick:hasAddress ] ;
+    sh:targetSubjectsOf brick:hasAddress .
 
 bsh:hasAssociatedTagDomainShape a sh:NodeShape ;
     sh:class owl:Class ;

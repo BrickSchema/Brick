@@ -1,8 +1,14 @@
-from .namespaces import TAG, BRICK, SKOS
+from .namespaces import TAG, BRICK, SKOS, RDFS
 from rdflib import Literal
 
 setpoint_definitions = {
     "Setpoint": {
+        SKOS.definition: Literal(
+            "A Setpoint is an input value at which the desired property is set"
+        ),
+        RDFS.seeAlso: Literal(
+            "https://xp20.ashrae.org/terminology/index.php?term=setpoint"
+        ),
         "tags": [TAG.Point, TAG.Setpoint],
         "subclasses": {
             "Enthalpy_Setpoint": {"tags": [TAG.Point, TAG.Setpoint, TAG.Enthalpy]},
@@ -817,7 +823,7 @@ setpoint_definitions = {
                             TAG.Setpoint,
                         ],
                         "subclasses": {
-                            "Discharge_Air_Flow_Reset_High_Setpoint": {
+                            "Discharge_Air_Flow_High_Reset_Setpoint": {
                                 "tags": [
                                     TAG.Point,
                                     TAG.Discharge,
@@ -828,7 +834,7 @@ setpoint_definitions = {
                                     TAG.High,
                                 ],
                             },
-                            "Discharge_Air_Flow_Reset_Low_Setpoint": {
+                            "Discharge_Air_Flow_Low_Reset_Setpoint": {
                                 "tags": [
                                     TAG.Point,
                                     TAG.Discharge,
@@ -861,7 +867,7 @@ setpoint_definitions = {
                                     TAG.Setpoint,
                                 ],
                                 "subclasses": {
-                                    "Discharge_Air_Temperature_Reset_High_Setpoint": {
+                                    "Discharge_Air_Temperature_High_Reset_Setpoint": {
                                         "tags": [
                                             TAG.Point,
                                             TAG.Discharge,
@@ -873,7 +879,7 @@ setpoint_definitions = {
                                             TAG.High,
                                         ],
                                     },
-                                    "Discharge_Air_Temperature_Reset_Low_Setpoint": {
+                                    "Discharge_Air_Temperature_Low_Reset_Setpoint": {
                                         "tags": [
                                             TAG.Point,
                                             TAG.Discharge,
@@ -951,7 +957,7 @@ setpoint_definitions = {
                                     },
                                 },
                             },
-                            "Supply_Air_Temperature_Reset_High_Setpoint": {
+                            "Supply_Air_Temperature_High_Reset_Setpoint": {
                                 "tags": [
                                     TAG.Point,
                                     TAG.Supply,
@@ -984,7 +990,7 @@ setpoint_definitions = {
                             TAG.Setpoint,
                         ],
                         "subclasses": {
-                            "Supply_Air_Temperature_Reset_Low_Setpoint": {
+                            "Supply_Air_Temperature_Low_Reset_Setpoint": {
                                 "tags": [
                                     TAG.Point,
                                     TAG.Supply,
