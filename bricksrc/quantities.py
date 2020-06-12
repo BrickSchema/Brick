@@ -327,8 +327,21 @@ quantity_definitions = {
             "Thermal_Energy": {OWL.sameAs: QUDTQK["ThermalEnergy"]},
         },
     },
-    # TODO: is this https://en.wikipedia.org/wiki/Friction_loss ? need to ask
-    "Flow": {OWL.sameAs: QUDTQK["VolumeFlowRate"], "subconcepts": {"Flow_Loss": {}}},
+    "Flow": {
+        OWL.sameAs: QUDTQK["VolumeFlowRate"],
+        "subconcepts": {
+            "Flow_Loss": {
+                QUDT.applicableUnit: [UNIT["M3-PER-SEC"]],
+                QUDT.hasDimensionVector: QUDTDV["A0E0L3I0M0H0T-1D0"],
+                SKOS.definition: Literal(
+                    "The amount of flow rate that is lost during distribution"
+                ),
+                RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
+                RDFS.label: Literal("FlowLoss"),
+                SKOS.broader: BRICK.Flow,
+            },
+        },
+    },
     "Frequency": {
         OWL.sameAs: QUDTQK["Frequency"],
         "subconcepts": {"Alternating_Current_Frequency": {}},
