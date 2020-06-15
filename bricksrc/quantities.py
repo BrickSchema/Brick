@@ -35,36 +35,42 @@ Each is a qudt:QuantityKind
 quantity_definitions = {
     "Air_Quality": {
         "subconcepts": {
-            "CO2_Level": {
+            "CO2_Concentration": {
                 QUDT.applicableUnit: [UNIT.PPM],
                 QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M0H0T0D1"],
-                SKOS.definition: Literal("The concentration ratio of some substance"),
+                SKOS.definition: Literal("The concentration of CO2 in air"),
                 RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
-                RDFS.label: Literal("Concentration"),
+                RDFS.label: Literal("CO2Concentration"),
                 SKOS.broader: QUDTQK.Dimensionless,
             },
-            "PM10_Level": {
+            "PM10_Concentration": {
                 QUDT.applicableUnit: [UNIT.PPM],
                 QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M0H0T0D1"],
-                SKOS.definition: Literal("The concentration ratio of some substance"),
+                SKOS.definition: Literal(
+                    "The concentration of particulates with diameter of 10 microns or less in air"
+                ),
                 RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
-                RDFS.label: Literal("Concentration"),
+                RDFS.label: Literal("PM10Concentration"),
                 SKOS.broader: QUDTQK.Dimensionless,
             },
-            "PM25_Level": {
+            "PM25_Concentration": {
                 QUDT.applicableUnit: [UNIT.PPM],
                 QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M0H0T0D1"],
-                SKOS.definition: Literal("The concentration ratio of some substance"),
+                SKOS.definition: Literal(
+                    "The concentration of particulates with diameter of 25 microns or less in air"
+                ),
                 RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
-                RDFS.label: Literal("Concentration"),
+                RDFS.label: Literal("PM25Concentration"),
                 SKOS.broader: QUDTQK.Dimensionless,
             },
-            "TVOC_Level": {
+            "TVOC_Concentration": {
                 QUDT.applicableUnit: [UNIT.PPM],
                 QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M0H0T0D1"],
-                SKOS.definition: Literal("The concentration ratio of some substance"),
+                SKOS.definition: Literal(
+                    "The concentration of total volatile organic compounds in air"
+                ),
                 RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
-                RDFS.label: Literal("Concentration"),
+                RDFS.label: Literal("TVOCConcentration"),
                 SKOS.broader: QUDTQK.Dimensionless,
             },
         },
@@ -81,11 +87,11 @@ quantity_definitions = {
     "Mass": {
         OWL.sameAs: QUDTQK["Mass"],
         "subconcepts": {
-            "Grains": {
+            "GrainsOfMoisture": {
                 QUDT.applicableUnit: UNIT.GRAIN,
                 QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M1H0T0D0"],
                 RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
-                RDFS.label: Literal("Grains"),
+                RDFS.label: Literal("GrainsOfMoisture"),
                 SKOS.broader: QUDTQK.Mass,
             }
         },
@@ -161,7 +167,13 @@ quantity_definitions = {
                 ),
             },
             "Thermal_Power": {
-                QUDT.applicableUnit: [UNIT.MilliW, UNIT.W, UNIT.KiloW, UNIT.MegaW],
+                QUDT.applicableUnit: [
+                    UNIT.MilliW,
+                    UNIT.W,
+                    UNIT.KiloW,
+                    UNIT.MegaW,
+                    UNIT.BTU_IT,
+                ],
                 QUDT.hasDimensionVector: QUDTDV["A0E0L2I0M1H0T-3D0"],
                 RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
                 RDFS.label: Literal("ThermalPower"),
@@ -323,7 +335,16 @@ quantity_definitions = {
     },
     "Energy": {
         "subconcepts": {
-            "Electric_Energy": {OWL.sameAs: QUDTQK["Energy"]},
+            "Electric_Energy": {
+                QUDT.applicableUnit: [UNIT.J],
+                QUDT.hasDimensionVector: QUDTDV["A0E0L2I0M1H0T-2D0"],
+                SKOS.definition: Literal(
+                    "A form of energy resulting from the flow of electrical charge"
+                ),
+                RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
+                RDFS.label: Literal("ElectricEnergy"),
+                SKOS.broader: QUDTQK["Energy"],
+            },
             "Thermal_Energy": {OWL.sameAs: QUDTQK["ThermalEnergy"]},
         },
     },
