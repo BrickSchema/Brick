@@ -68,16 +68,11 @@ equipment_subclasses = {
             },
         },
     },
-    "Gas_System": {
-        "tags": [TAG.Gas, TAG.System, TAG.Equipment],
-        "subclasses": {
-            "Gas_Distribution": {
-                "tags": [TAG.Gas, TAG.Distribution, TAG.Equipment],
-                SKOS.definition: Literal(
-                    "Utilize a gas distribution source to represent how gas is distributed across multiple destinations"
-                ),
-            },
-        },
+    "Gas_Distribution": {
+        "tags": [TAG.Gas, TAG.Distribution, TAG.Equipment],
+        SKOS.definition: Literal(
+            "Utilize a gas distribution source to represent how gas is distributed across multiple destinations"
+        ),
     },
     "Meter": {
         "tags": [TAG.Meter, TAG.Equipment],
@@ -107,7 +102,6 @@ equipment_subclasses = {
             },
             "Water_Meter": {
                 "tags": [TAG.Meter, TAG.Equipment, TAG.Water],
-                "parents": [BRICK.Water_System],
                 "subclasses": {
                     "Building_Water_Meter": {
                         "tags": [TAG.Building, TAG.Water, TAG.Meter, TAG.Equipment],
@@ -115,7 +109,6 @@ equipment_subclasses = {
                     },
                     "Chilled_Water_Meter": {
                         "tags": [TAG.Meter, TAG.Equipment, TAG.Water, TAG.Chilled],
-                        "parents": [BRICK.Chilled_Water_System],
                         "subclasses": {
                             "Building_Chilled_Water_Meter": {
                                 "tags": [
@@ -131,7 +124,6 @@ equipment_subclasses = {
                     },
                     "Hot_Water_Meter": {
                         "tags": [TAG.Meter, TAG.Equipment, TAG.Water, TAG.Hot],
-                        "parents": [BRICK.Chilled_Water_System],
                         "subclasses": {
                             "Building_Hot_Water_Meter": {
                                 "tags": [
@@ -171,24 +163,19 @@ equipment_subclasses = {
                 "tags": [TAG.CWS],
             },
             "HWS": {OWL.equivalentClass: BRICK["Hot_Water_System"], "tags": [TAG.HWS]},
-            "Water_Distribution": {
-                "tags": [TAG.Water, TAG.Distribution, TAG.Equipment],
-                SKOS.definition: Literal(
-                    "Utilize a water distribution source to represent how water is distributed across multiple destinations (pipes)"
-                ),
-            },
         },
     },
-    "Steam_System": {
-        "tags": [TAG.Steam, TAG.Equipment],
-        "subclasses": {
-            "Steam_Distribution": {
-                "tags": [TAG.Steam, TAG.Distribution, TAG.Equipment],
-                SKOS.definition: Literal(
-                    "Utilize a steam distribution source to represent how steam is distributed across multiple destinations"
-                ),
-            },
-        },
+    "Water_Distribution": {
+        "tags": [TAG.Water, TAG.Distribution, TAG.Equipment],
+        SKOS.definition: Literal(
+            "Utilize a water distribution source to represent how water is distributed across multiple destinations (pipes)"
+        ),
+    },
+    "Steam_Distribution": {
+        "tags": [TAG.Steam, TAG.Distribution, TAG.Equipment],
+        SKOS.definition: Literal(
+            "Utilize a steam distribution source to represent how steam is distributed across multiple destinations"
+        ),
     },
     "Solar_Panel": {"tags": [TAG.Solar, TAG.Equipment]},
     "Shading_System": {
@@ -503,7 +490,7 @@ valve_subclasses = {
                     TAG.Heat,
                     TAG.Equipment,
                 ],
-                "parents": [BRICK.Domestic_Hot_Water_System, BRICK.Water_Valve],
+                "parents": [BRICK.Water_Valve],
             },
             "Preheat_Hot_Water_Valve": {
                 "tags": [
@@ -514,7 +501,7 @@ valve_subclasses = {
                     TAG.Heat,
                     TAG.Equipment,
                 ],
-                "parents": [BRICK.Hot_Water_System, BRICK.Water_Valve],
+                "parents": [BRICK.Water_Valve],
             },
         },
     },
@@ -527,17 +514,14 @@ valve_subclasses = {
         "subclasses": {
             "Chilled_Water_Valve": {
                 "tags": [TAG.Chilled, TAG.Valve, TAG.Water, TAG.Equipment],
-                "parents": [BRICK.Chilled_Water_System],
             },
         },
-        "parents": [BRICK.Water_System],
     },
     "Gas_Valve": {
         "tags": [TAG.Gas, TAG.Valve, TAG.Equipment],
         SKOS.definition: Literal(
             "Building gas is provided by utility company and sourced through a master building feed."
         ),
-        "parents": [BRICK.Gas_System],
     },
     "Isolation_Valve": {"tags": [TAG.Isolation, TAG.Valve, TAG.Equipment]},
     "Steam_Valve": {
@@ -545,7 +529,6 @@ valve_subclasses = {
         SKOS.definition: Literal(
             "Building steam is provided by the utility company and sourced through a master building feed."
         ),
-        "parents": [BRICK.Steam_System],
     },
 }
 
