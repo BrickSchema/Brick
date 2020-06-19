@@ -6,7 +6,7 @@ from rdflib.collection import Collection
 
 from bricksrc.ontology import define_ontology
 
-from bricksrc.namespaces import BRICK, RDF, OWL, RDFS, TAG, SOSA
+from bricksrc.namespaces import BRICK, RDF, OWL, RDFS, TAG, SOSA, SKOS
 from bricksrc.namespaces import bind_prefixes
 
 from bricksrc.setpoint import setpoint_definitions
@@ -15,6 +15,7 @@ from bricksrc.alarm import alarm_definitions
 from bricksrc.status import status_definitions
 from bricksrc.command import command_definitions
 from bricksrc.parameter import parameter_definitions
+from bricksrc.system import system_subclasses
 from bricksrc.location import location_subclasses
 from bricksrc.equipment import (
     equipment_subclasses,
@@ -232,6 +233,12 @@ roots = {
     "Location": {"tags": [TAG.Location]},
     "Point": {"tags": [TAG.Point]},
     "Measurable": {},
+    "System": {
+        SKOS.definition: Literal(
+            "A System is a combination of equipment and auxiliary devices (e.g., controls, accessories, interconnecting means, and termi­nal elements) by which energy is transformed so it performs a specific function such as HVAC, service water heating, or lighting. (ASHRAE Dictionary)."
+        ),
+        "tags": [TAG.System],
+    },
 }
 define_classes(roots, BRICK.Class)
 
@@ -254,10 +261,11 @@ for pc in pointclasses:
     for o in filter(lambda x: x != pc, pointclasses):
         G.add((BRICK[pc], OWL.disjointWith, BRICK[o]))
 
-logging.info("Defining Equipment, Location subclasses")
+logging.info("Defining Equipment, System and Location subclasses")
 # define other root class structures
 define_classes(location_subclasses, BRICK.Location)
 define_classes(equipment_subclasses, BRICK.Equipment)
+define_classes(system_subclasses, BRICK.System)
 define_classes(hvac_subclasses, BRICK.HVAC)
 define_classes(valve_subclasses, BRICK.Valve)
 define_classes(security_subclasses, BRICK.Security_Equipment)
