@@ -419,6 +419,9 @@ quantity_definitions = {
         QUDT.hasDimensionVector: QUDTDV["A0E0L1I0M0H0T0D0"],
         RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
         RDFS.label: Literal("Level"),
+        SKOS.definition: Literal(
+            "Amount of substance in a container; typically measured in height"
+        ),
         SKOS.broader: QUDTQK.Length,
         "subconcepts": {
             "Precipitation": {
