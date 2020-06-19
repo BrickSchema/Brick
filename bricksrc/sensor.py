@@ -14,9 +14,6 @@ sensor_definitions = {
             "Adjust_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Adjust],
                 "subclasses": {
-                    "Temperature_Adjust_Sensor": {
-                        "tags": [TAG.Point, TAG.Sensor, TAG.Adjust, TAG.Temperature],
-                    },
                     "Warm_Cool_Adjust_Sensor": {
                         "tags": [TAG.Point, TAG.Sensor, TAG.Adjust, TAG.Warm, TAG.Cool],
                     },

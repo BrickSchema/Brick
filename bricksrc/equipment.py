@@ -202,7 +202,6 @@ hvac_subclasses = {
         "tags": [TAG.Equipment, TAG.VFD],
         "subclasses": {
             "Heat_Wheel_VFD": {"tags": [TAG.Equipment, TAG.Heat, TAG.Wheel, TAG.VFD]},
-            "Preheat_Valve_VFD": {"tags": [TAG.Equipment, TAG.Preheat, TAG.VFD]},
         },
     },
     "Thermostat": {

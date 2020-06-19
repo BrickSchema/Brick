@@ -47,16 +47,6 @@ alarm_definitions = {
                     "Emergency_Generator_Alarm": {
                         "tags": [TAG.Point, TAG.Generator, TAG.Emergency, TAG.Alarm],
                     },
-                    "Emergency_Power_Loss_Alarm": {
-                        "tags": [
-                            TAG.Point,
-                            TAG.Power,
-                            TAG.Loss,
-                            TAG.Emergency,
-                            TAG.Alarm,
-                        ],
-                        "parents": [BRICK.Power_Loss_Alarm],
-                    },
                 },
             },
             "Failure_Alarm": {
