@@ -42,10 +42,6 @@ status_definitions = {
                         ],
                         "parents": [BRICK.System_Status],
                     },
-                    "Run_Enable_Status": {
-                        "tags": [TAG.Point, TAG.Run, TAG.Enable, TAG.Status],
-                        "parents": [BRICK.Run_Status],
-                    },
                 },
                 "tags": [TAG.Point, TAG.Enable, TAG.Status],
             },
@@ -55,9 +51,6 @@ status_definitions = {
             "Fan_Status": {"tags": [TAG.Point, TAG.Fan, TAG.Status]},
             "Fault_Status": {
                 "subclasses": {
-                    "Fault_Indicator_Status": {
-                        "tags": [TAG.Point, TAG.Indicator, TAG.Fault, TAG.Status],
-                    },
                     "Humidifier_Fault_Status": {
                         "tags": [TAG.Point, TAG.Humidifier, TAG.Fault, TAG.Status],
                     },
@@ -224,10 +217,6 @@ status_definitions = {
                     "Occupied_Mode_Status": {
                         "tags": [TAG.Point, TAG.Occupied, TAG.Mode, TAG.Status],
                     },
-                    "System_Mode_Status": {
-                        "tags": [TAG.Point, TAG.System, TAG.Mode, TAG.Status],
-                        "parents": [BRICK.System_Status],
-                    },
                     "Operating_Mode_Status": {
                         "subclasses": {
                             "Vent_Operating_Mode_Status": {
@@ -361,22 +350,8 @@ status_definitions = {
                 "tags": [TAG.Point, TAG.On, TAG.Off, TAG.Status],
                 "parents": [BRICK.On_Status, BRICK.Off_Status],
             },
-            "Off_Status": {
-                "tags": [TAG.Point, TAG.Off, TAG.Status],
-                "subclasses": {
-                    "Turn_Off_Status": {
-                        "tags": [TAG.Point, TAG.Turn, TAG.Off, TAG.Status],
-                    },
-                },
-            },
-            "On_Status": {
-                "tags": [TAG.Point, TAG.On, TAG.Status],
-                "subclasses": {
-                    "Turn_On_Status": {
-                        "tags": [TAG.Point, TAG.Turn, TAG.On, TAG.Status],
-                    },
-                },
-            },
+            "Off_Status": {"tags": [TAG.Point, TAG.Off, TAG.Status]},
+            "On_Status": {"tags": [TAG.Point, TAG.On, TAG.Status]},
             "Overridden_Status": {
                 "subclasses": {
                     "Overridden_Off_Status": {
@@ -466,17 +441,6 @@ status_definitions = {
                                     TAG.System,
                                     TAG.Leak,
                                     TAG.Detection,
-                                    TAG.Status,
-                                ],
-                            },
-                            "Emergency_Power_Off_System_Enable_Status": {
-                                "tags": [
-                                    TAG.Point,
-                                    TAG.Emergency,
-                                    TAG.Power,
-                                    TAG.Off,
-                                    TAG.System,
-                                    TAG.Enable,
                                     TAG.Status,
                                 ],
                             },
