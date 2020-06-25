@@ -34,7 +34,7 @@ Each is a qudt:QuantityKind
 """
 quantity_definitions = {
     "Air_Quality": {
-        "subconcepts": {
+        SKOS.narrower: {
             "CO2_Concentration": {
                 QUDT.applicableUnit: [UNIT.PPM],
                 QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M0H0T0D1"],
@@ -86,7 +86,7 @@ quantity_definitions = {
     },
     "Mass": {
         OWL.sameAs: QUDTQK["Mass"],
-        "subconcepts": {
+        SKOS.narrower: {
             "GrainsOfMoisture": {
                 QUDT.applicableUnit: UNIT.GRAIN,
                 QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M1H0T0D0"],
@@ -100,7 +100,7 @@ quantity_definitions = {
         },
     },
     "Phasor": {
-        "subconcepts": {
+        SKOS.related: {
             "PhasorAngle": {
                 QUDT.applicableUnit: [
                     UNIT.ARCMIN,
@@ -144,10 +144,10 @@ quantity_definitions = {
     },
     "Power": {
         OWL.sameAs: QUDTQK["Power"],
-        "subconcepts": {
+        SKOS.narrower: {
             "Electric_Power": {
                 OWL.sameAs: QUDTQK["ElectricPower"],
-                "subconcepts": {
+                SKOS.narrower: {
                     "Apparent_Power": {OWL.sameAs: QUDTQK["ApparentPower"]},
                     "Active_Power": {
                         OWL.sameAs: [QUDTQK["ActivePower"], BRICK["Real_Power"]],
@@ -194,91 +194,65 @@ quantity_definitions = {
         RDFS.label: Literal("Cloudage"),
         SKOS.broader: QUDTQK.Dimensionless,
     },
-    "Current": {
-        "subconcepts": {
-            "Electric_Current": {
-                OWL.sameAs: QUDTQK["ElectricCurrent"],
-                "subconcepts": {
-                    "Current_Angle": {
-                        SKOS.definition: Literal(
-                            "The angle of the phasor representing a measurement of electric current"
-                        ),
-                        QUDT.applicableUnit: [
-                            UNIT.ARCMIN,
-                            UNIT.ARCSEC,
-                            UNIT.DEG,
-                            UNIT.GON,
-                            UNIT.GRAD,
-                            UNIT.MIL,
-                            UNIT.RAD,
-                            UNIT.MicroRAD,
-                            UNIT.MilliRAD,
-                            UNIT.MilliARCSEC,
-                            UNIT.REV,
-                        ],
-                        QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M0H0T0D1"],
-                        SKOS.definition: Literal("Angle of current phasor"),
-                        RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
-                        RDFS.label: Literal("CurrentAngle"),
-                        SKOS.broader: BRICK.PhasorAngle,
-                    },
-                    "Current_Magnitude": {
-                        SKOS.definition: Literal(
-                            "The magnitude of the phasor representing a measurement of electric current"
-                        ),
-                        QUDT.applicableUnit: [
-                            UNIT.A,
-                            UNIT.MilliA,
-                            UNIT.MicroA,
-                            UNIT.KiloA,
-                        ],
-                        SKOS.definition: Literal("Magnitude of current phasor"),
-                        RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
-                        RDFS.label: Literal("CurrentMagnitude"),
-                        SKOS.broader: BRICK.PhasorMagnitude,
-                    },
-                    "Current_Imbalance": {
-                        SKOS.definition: Literal(
-                            "The percent deviation from average current"
-                        ),
-                        QUDT.applicableUnit: [UNIT.PERCENT],
-                        QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M0H0T0D1"],
-                        RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
-                        RDFS.label: Literal("CurrentImbalance"),
-                        SKOS.broader: BRICK.Dimensionless,
-                    },
-                    "Current_Total_Harmonic_Distortion": {
-                        SKOS.definition: Literal(
-                            "Measurement of harmonic distortion present in a signal defined as the sum of the powers of all harmonic components to the power of the fundamental frequency. (https://en.wikipedia.org/wiki/Total_harmonic_distortion)"
-                        ),
-                        QUDT.applicableUnit: [UNIT.PERCENT, UNIT.DeciB_M],
-                        QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M0H0T0D1"],
-                        RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
-                        RDFS.label: Literal("CurrentTotalHarmonicDistortion"),
-                        SKOS.broader: BRICK.Dimensionless,
-                    },
-                    "Alternating_Current_Frequency": {
-                        QUDT.applicableUnit: [
-                            QUDT.GigaHZ,
-                            QUDT.MegaHZ,
-                            QUDT.KiloHZ,
-                            QUDT.HZ,
-                        ],
-                        SKOS.definition: Literal(
-                            "The frequency of the oscillations of alternating current"
-                        ),
-                        QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M0H0T-1D0"],
-                        RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
-                        RDFS.label: Literal("Alternating_Current_Frequency"),
-                        SKOS.broader: QUDTQK.Frequency,
-                    },
-                },
+    "Electric_Current": {
+        OWL.sameAs: QUDTQK["ElectricCurrent"],
+        SKOS.related: {
+            "Current_Angle": {
+                SKOS.definition: Literal(
+                    "The angle of the phasor representing a measurement of electric current"
+                ),
+                QUDT.applicableUnit: [
+                    UNIT.ARCMIN,
+                    UNIT.ARCSEC,
+                    UNIT.DEG,
+                    UNIT.GON,
+                    UNIT.GRAD,
+                    UNIT.MIL,
+                    UNIT.RAD,
+                    UNIT.MicroRAD,
+                    UNIT.MilliRAD,
+                    UNIT.MilliARCSEC,
+                    UNIT.REV,
+                ],
+                QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M0H0T0D1"],
+                SKOS.definition: Literal("Angle of current phasor"),
+                RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
+                RDFS.label: Literal("CurrentAngle"),
+                SKOS.broader: BRICK.PhasorAngle,
+            },
+            "Current_Imbalance": {
+                SKOS.definition: Literal("The percent deviation from average current"),
+                QUDT.applicableUnit: [UNIT.PERCENT],
+                QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M0H0T0D1"],
+                RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
+                RDFS.label: Literal("CurrentImbalance"),
+                SKOS.broader: BRICK.Dimensionless,
+            },
+            "Current_Total_Harmonic_Distortion": {
+                SKOS.definition: Literal(
+                    "Measurement of harmonic distortion present in a signal defined as the sum of the powers of all harmonic components to the power of the fundamental frequency. (https://en.wikipedia.org/wiki/Total_harmonic_distortion)"
+                ),
+                QUDT.applicableUnit: [UNIT.PERCENT, UNIT.DeciB_M],
+                QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M0H0T0D1"],
+                RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
+                RDFS.label: Literal("CurrentTotalHarmonicDistortion"),
+                SKOS.broader: BRICK.Dimensionless,
+            },
+            "Alternating_Current_Frequency": {
+                QUDT.applicableUnit: [QUDT.GigaHZ, QUDT.MegaHZ, QUDT.KiloHZ, QUDT.HZ],
+                SKOS.definition: Literal(
+                    "The frequency of the oscillations of alternating current"
+                ),
+                QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M0H0T-1D0"],
+                RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
+                RDFS.label: Literal("Alternating_Current_Frequency"),
+                SKOS.broader: QUDTQK.Frequency,
             },
         },
     },
     "Voltage": {
-        "subconcepts": {
-            "Voltage_Magnitude": {OWL.sameAs: QUDTQK["Voltage"]},
+        OWL.sameAs: QUDTQK["Voltage"],
+        SKOS.related: {
             "Voltage_Angle": {
                 SKOS.definition: Literal(
                     "The angle of the phasor representing a measurement of electric voltage"
@@ -314,7 +288,7 @@ quantity_definitions = {
     },
     "Dewpoint": {OWL.sameAs: QUDTQK["DewPointTemperature"]},
     "Direction": {
-        "subconcepts": {
+        SKOS.narrower: {
             "Wind_Direction": {
                 QUDT.applicableUnit: [
                     UNIT.ARCMIN,
@@ -337,7 +311,7 @@ quantity_definitions = {
         }
     },
     "Energy": {
-        "subconcepts": {
+        SKOS.narrower: {
             "Electric_Energy": {
                 QUDT.applicableUnit: [UNIT.J],
                 QUDT.hasDimensionVector: QUDTDV["A0E0L2I0M1H0T-2D0"],
@@ -353,7 +327,7 @@ quantity_definitions = {
     },
     "Flow": {
         OWL.sameAs: QUDTQK["VolumeFlowRate"],
-        "subconcepts": {
+        SKOS.narrower: {
             "Flow_Loss": {
                 QUDT.applicableUnit: [UNIT["M3-PER-SEC"]],
                 QUDT.hasDimensionVector: QUDTDV["A0E0L3I0M0H0T-1D0"],
@@ -368,10 +342,10 @@ quantity_definitions = {
     },
     "Frequency": {
         OWL.sameAs: QUDTQK["Frequency"],
-        "subconcepts": {"Alternating_Current_Frequency": {}},
+        SKOS.narrower: {"Alternating_Current_Frequency": {}},
     },
     "Humidity": {
-        "subconcepts": {
+        SKOS.narrower: {
             "Relative_Humidity": {OWL.sameAs: QUDTQK["RelativeHumidity"]},
             "Absolute_Humidity": {OWL.sameAs: QUDTQK["AbsoluteHumidity"]},
         }
@@ -390,7 +364,7 @@ quantity_definitions = {
         RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
         RDFS.label: Literal("Irradiance"),
         SKOS.broader: QUDTQK.PowerPerArea,
-        "subconcepts": {
+        SKOS.narrower: {
             "Solar_Irradiance": {
                 QUDT.applicableUnit: [
                     UNIT["W-PER-M2"],
@@ -426,7 +400,7 @@ quantity_definitions = {
             "Amount of substance in a container; typically measured in height"
         ),
         SKOS.broader: QUDTQK.Length,
-        "subconcepts": {
+        SKOS.narrower: {
             "Precipitation": {
                 QUDT.applicableUnit: [
                     UNIT["CentiM"],
@@ -451,13 +425,13 @@ quantity_definitions = {
     },
     "Luminance": {
         OWL.sameAs: QUDTQK["Luminance"],
-        "subconcepts": {
+        SKOS.narrower: {
             "Luminous_Flux": {OWL.sameAs: QUDTQK["LuminousFlux"]},
             "Luminous_Intensity": {OWL.sameAs: QUDTQK["LuminousIntensity"]},
         },
     },
     "Occupancy": {
-        "subconcepts": {
+        SKOS.narrower: {
             "Occupancy_Count": {
                 QUDT.applicableUnit: [UNIT["People"]],
                 SKOS.definition: Literal("Number of people in an area"),
@@ -488,7 +462,7 @@ quantity_definitions = {
     "Power_Factor": {OWL.sameAs: QUDTQK["PowerFactor"]},
     "Pressure": {
         OWL.sameAs: QUDTQK["Pressure"],
-        "subconcepts": {
+        SKOS.narrower: {
             "Atmospheric_Pressure": {OWL.sameAs: QUDTQK["AtmosphericPressure"]},
             "Dynamic_Pressure": {},
             "Static_Pressure": {OWL.sameAs: QUDTQK["StaticPressure"]},
@@ -499,7 +473,7 @@ quantity_definitions = {
     },
     "Radiance": {
         OWL.sameAs: QUDTQK["Radiance"],
-        "subconcepts": {
+        SKOS.narrower: {
             "Solar_Radiance": {
                 QUDT.applicableUnit: [UNIT["W-PER-M2-SR"]],
                 SKOS.definition: Literal(
@@ -514,7 +488,7 @@ quantity_definitions = {
     "Speed": {
         # TODO: fan speed is not meter/sec
         OWL.sameAs: QUDTQK["Speed"],
-        "subconcepts": {
+        SKOS.narrower: {
             "Wind_Speed": {
                 QUDT.applicableUnit: [
                     UNIT["M-PER-HR"],
@@ -538,7 +512,7 @@ quantity_definitions = {
     },
     "Temperature": {
         OWL.sameAs: QUDTQK["ThermodynamicTemperature"],
-        "subconcepts": {
+        SKOS.narrower: {
             "Operative_Temperature": {
                 QUDT.applicableUnit: [UNIT["DEG_F"], UNIT["DEG_C"], UNIT["K"]],
                 SKOS.definition: Literal(
@@ -584,7 +558,7 @@ quantity_definitions = {
     "Time": {
         OWL.sameAs: QUDTQK["Time"],
         # TODO: what are these?
-        "subconcepts": {"Acceleration_Time": {}, "Deceleration_Time": {}},
+        SKOS.narrower: {"Acceleration_Time": {}, "Deceleration_Time": {}},
     },
     "Torque": {OWL.sameAs: QUDTQK["Torque"]},
     # TODO: https://ci.mines-stetienne.fr/seas/WeatherOntology-0.9#AirTemperature ?

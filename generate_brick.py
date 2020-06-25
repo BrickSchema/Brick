@@ -121,11 +121,12 @@ def add_tags(klass, definition):
     intersection_classes[klass] = tuple(sorted(definition))
 
 
-def define_concept_hierarchy(definitions, typeclasses, broader=None):
+def define_concept_hierarchy(definitions, typeclasses, broader=None, related=None):
     """
     Generates triples to define the SKOS hierarchy of concepts given by
     'definitions', which are all instances of the class given by 'typeclass'.
     'broader', if provided, is the skos:broader concept
+    'related', if provided, is the skos:related concept
 
     Currently this is used for Brick Quantities
     """
@@ -136,6 +137,9 @@ def define_concept_hierarchy(definitions, typeclasses, broader=None):
         # mark broader concept if one exists
         if broader is not None:
             G.add((concept, SKOS.broader, broader))
+        # mark related concept if one exists
+        if related is not None:
+            G.add((concept, SKOS.related, related))
         # add label
         class_label = concept.split("#")[-1].replace("_", " ")
         G.add((concept, RDFS.label, Literal(class_label)))
@@ -154,13 +158,18 @@ def define_concept_hierarchy(definitions, typeclasses, broader=None):
         assert isinstance(substancedef, list)
         add_restriction(concept, substancedef)
 
-        # define class structure
+        # define concept hierarchy
         # this is a nested dictionary
-        subconceptdef = defn.get("subconcepts", {})
-        assert isinstance(subconceptdef, dict)
-        define_concept_hierarchy(
-            subconceptdef, [BRICK.Quantity, QUDT.QuantityKind], broader=concept
-        )
+        narrower_defs = defn.get(SKOS.narrower, {})
+        if narrower_defs is not None and isinstance(narrower_defs, dict):
+            define_concept_hierarchy(
+                narrower_defs, [BRICK.Quantity, QUDT.QuantityKind], broader=concept
+            )
+        related_defs = defn.get(SKOS.related, {})
+        if related_defs is not None and isinstance(related_defs, dict):
+            define_concept_hierarchy(
+                related_defs, [BRICK.Quantity, QUDT.QuantityKind], related=concept
+            )
 
         # handle 'parents' subconcepts (links outside of tree-based hierarchy)
         parents = defn.get("parents", [])
@@ -170,7 +179,7 @@ def define_concept_hierarchy(definitions, typeclasses, broader=None):
 
         # all other key-value pairs in the definition are
         # property-object pairs
-        expected_properties = ["parents", "tags", "substances", "subconcepts"]
+        expected_properties = ["parents", "tags", "substances"]
         other_properties = [
             prop for prop in defn.keys() if prop not in expected_properties
         ]
@@ -179,7 +188,7 @@ def define_concept_hierarchy(definitions, typeclasses, broader=None):
             if isinstance(propval, list):
                 for pv in propval:
                     G.add((concept, propname, pv))
-            else:
+            elif not isinstance(propval, dict):
                 G.add((concept, propname, propval))
 
 
