@@ -101,7 +101,7 @@ quantity_definitions = {
     },
     "Phasor": {
         SKOS.related: {
-            "PhasorAngle": {
+            "Phasor_Angle": {
                 QUDT.applicableUnit: [
                     UNIT.ARCMIN,
                     UNIT.ARCSEC,
@@ -121,7 +121,7 @@ quantity_definitions = {
                 RDFS.label: Literal("PhasorAngle"),
                 SKOS.broader: QUDTQK.PlaneAngle,
             },
-            "PhasorMagnitude": {
+            "Phasor_Magnitude": {
                 QUDT.applicableUnit: [
                     UNIT.ARCMIN,
                     UNIT.ARCSEC,
@@ -218,7 +218,7 @@ quantity_definitions = {
                 SKOS.definition: Literal("Angle of current phasor"),
                 RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
                 RDFS.label: Literal("CurrentAngle"),
-                SKOS.broader: BRICK.PhasorAngle,
+                SKOS.broader: BRICK.Phasor_Angle,
             },
             "Current_Imbalance": {
                 SKOS.definition: Literal("The percent deviation from average current"),
@@ -274,7 +274,7 @@ quantity_definitions = {
                 SKOS.definition: Literal("Angle of voltage phasor"),
                 RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
                 RDFS.label: Literal("VoltageAngle"),
-                SKOS.broader: BRICK.PhasorAngle,
+                SKOS.broader: BRICK.Phasor_Angle,
             },
             "Voltage_Imbalance": {
                 SKOS.definition: Literal("The percent deviation from average voltage"),
