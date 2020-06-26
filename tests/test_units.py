@@ -2,6 +2,7 @@ from rdflib import Namespace
 import re
 import brickschema
 from collections import defaultdict
+import warnings
 import sys
 
 sys.path.append("..")
@@ -106,3 +107,22 @@ def test_quantity_units():
              ?q qudt:applicableUnit ?unit}"
     )
     assert len(quantities_with_units) > 0
+
+
+def test_all_quantities_have_units():
+    g = brickschema.graph.Graph()
+    g.load_file("Brick.ttl")
+    g.g.bind("qudt", QUDT)
+    g = brickschema.inference.OWLRLInferenceSession(load_brick=False).expand(g)
+
+    # test the definitions by making sure that some quantities have applicable
+    # units
+    quantities_without_units = g.query(
+        "SELECT ?q WHERE { \
+             ?q rdf:type brick:Quantity .\
+             FILTER NOT EXISTS {?q qudt:applicableUnit ?unit} }"
+    )
+    if len(quantities_without_units) > 0:
+        warnings.warn(
+            f"The following quantities do not have associated units: {quantities_without_units}"
+        )
