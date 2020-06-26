@@ -929,7 +929,7 @@ brick:Current_Angle a qudt:QuantityKind,
         unit:REV ;
     qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L0I0M0H0T0D1> ;
     rdfs:isDefinedBy <https://brickschema.org/schema/1.1/Brick> ;
-    skos:broader brick:PhasorAngle ;
+    skos:broader brick:Phasor_Angle ;
     skos:definition "Angle of current phasor" ;
     skos:related brick:Electric_Current .
 
@@ -4343,9 +4343,10 @@ brick:Peak_Power_Demand_Sensor a owl:Class ;
         tag:Power,
         tag:Sensor .
 
-brick:PhasorMagnitude a qudt:QuantityKind,
+brick:Phasor_Magnitude a qudt:QuantityKind,
         brick:Quantity ;
-    rdfs:label "PhasorMagnitude" ;
+    rdfs:label "Phasor Magnitude",
+        "PhasorMagnitude" ;
     qudt:applicableUnit unit:ARCMIN,
         unit:ARCSEC,
         unit:DEG,
@@ -5634,7 +5635,7 @@ brick:Voltage_Angle a qudt:QuantityKind,
         unit:REV ;
     qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L0I0M0H0T0D1> ;
     rdfs:isDefinedBy <https://brickschema.org/schema/1.1/Brick> ;
-    skos:broader brick:PhasorAngle ;
+    skos:broader brick:Phasor_Angle ;
     skos:definition "Angle of voltage phasor" ;
     skos:related brick:Voltage .
 
@@ -8280,9 +8281,10 @@ brick:Phasor a qudt:QuantityKind,
         brick:Quantity ;
     rdfs:label "Phasor" .
 
-brick:PhasorAngle a qudt:QuantityKind,
+brick:Phasor_Angle a qudt:QuantityKind,
         brick:Quantity ;
-    rdfs:label "PhasorAngle" ;
+    rdfs:label "Phasor Angle",
+        "PhasorAngle" ;
     qudt:applicableUnit unit:ARCMIN,
         unit:ARCSEC,
         unit:DEG,
