@@ -1,5 +1,5 @@
 from rdflib import Literal
-from .namespaces import SKOS, OWL, BRICK
+from .namespaces import OWL, BRICK
 
 
 quantity_definitions = {
@@ -14,11 +14,7 @@ quantity_definitions = {
     "Angle": {},
     "Conductivity": {},
     "Capacity": {},
-    "Enthalpy": {
-        SKOS.definition: Literal(
-            "(also known as heat content), thermodynamic quantity equal to the sum of the internal energy of a system plus the product of the pressure volume work done on the system. H = E + pv, where H = enthalpy or total heat content, E = internal energy of the system, p = pressure, and v = volume. (Compare to [[specific enthalpy]].)"
-        ),
-    },
+    "Enthalpy": {},
     "Grains": {},
     "Power": {
         "subclasses": {
@@ -31,11 +27,7 @@ quantity_definitions = {
                     "Complex_Power": {},
                 },
             },
-            "Peak_Power": {
-                SKOS.definition: Literal(
-                    "Tracks the highest (peak) observed power in some interval"
-                ),
-            },
+            "Peak_Power": {},
             "Thermal_Power": {},
         },
     },

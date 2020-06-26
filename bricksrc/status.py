@@ -1,14 +1,8 @@
 from rdflib import Literal
-from .namespaces import TAG, BRICK, SKOS, RDFS
+from .namespaces import TAG, BRICK, RDFS
 
 status_definitions = {
     "Status": {
-        SKOS.definition: Literal(
-            "A Status is input point that reports the current operating mode, state, position, or condition of an item. Statuses are observations and should be considered 'read-only'"
-        ),
-        RDFS.seeAlso: Literal(
-            "https://xp20.ashrae.org/terminology/index.php?term=status"
-        ),
         "tags": [TAG.Point, TAG.Status],
         "subclasses": {
             "Direction_Status": {

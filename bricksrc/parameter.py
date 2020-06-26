@@ -1,11 +1,8 @@
 from rdflib import Literal
-from .namespaces import BRICK, TAG, SKOS
+from .namespaces import BRICK, TAG
 
 parameter_definitions = {
     "Parameter": {
-        SKOS.definition: Literal(
-            "Parameter points are configuration settings used to guide the operation of equipment and control systems; for example they may provide bounds on valid setpoint values"
-        ),
         "tags": [TAG.Point, TAG.Parameter],
         "subclasses": {
             "Delay_Parameter": {

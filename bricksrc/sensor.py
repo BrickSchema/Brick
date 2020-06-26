@@ -1,11 +1,8 @@
 from rdflib import Literal
-from .namespaces import BRICK, TAG, OWL, SKOS, RDFS
+from .namespaces import BRICK, TAG, OWL, RDFS
 
 sensor_definitions = {
     "Sensor": {
-        SKOS.definition: Literal(
-            "A Sensor is an input point that represents the value of a device or instrument designed to detect and measure a variable (ASHRAE Dictionary)."
-        ),
         RDFS.seeAlso: Literal(
             "https://xp20.ashrae.org/terminology/index.php?term=Sensor"
         ),
@@ -114,17 +111,11 @@ sensor_definitions = {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Capacity],
                 "substances": [[BRICK.measures, BRICK.Capacity]],
             },
-            "Contact_Sensor": {
-                SKOS.definition: Literal(
-                    "Senses or detects contact, such as for detecting if a door is closed."
-                ),
-                "tags": [TAG.Point, TAG.Sensor, TAG.Contact],
-            },
+            "Contact_Sensor": {"tags": [TAG.Point, TAG.Sensor, TAG.Contact]},
             "Conductivity_Sensor": {
                 # IFC ConductanceSensor
                 # TODO: pull from
                 # https://technical.buildingsmart.org/standards/ifc/ifc-schema-specifications/
-                SKOS.definition: Literal("senses or detects electrical conductance"),
                 "tags": [TAG.Point, TAG.Sensor, TAG.Conductivity],
                 "substances": [[BRICK.measures, BRICK.Conductivity]],
                 "subclasses": {
@@ -322,12 +313,8 @@ sensor_definitions = {
                     }
                 },
             },
-            "Fire_Sensor": {
-                SKOS.definition: Literal("senses or detects fire"),
-                "tags": [TAG.Point, TAG.Sensor, TAG.Fire],
-            },
+            "Fire_Sensor": {"tags": [TAG.Point, TAG.Sensor, TAG.Fire]},
             "Flow_Sensor": {
-                SKOS.definition: Literal("senses or detects flow in a fluid"),
                 "tags": [TAG.Point, TAG.Sensor, TAG.Flow],
                 "substances": [[BRICK.measures, BRICK.Flow]],
                 "subclasses": {
@@ -561,12 +548,7 @@ sensor_definitions = {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Frost],
                 "substances": [[BRICK.measures, BRICK.Frost]],
             },
-            "Gas_Sensor": {
-                SKOS.definition: Literal(
-                    "senses or detects gas concentration (other than CO2)"
-                ),
-                "tags": [TAG.Point, TAG.Sensor, TAG.Gas],
-            },
+            "Gas_Sensor": {"tags": [TAG.Point, TAG.Sensor, TAG.Gas]},
             "Hail_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Hail],
                 "substances": [[BRICK.measures, BRICK.Hail]],
@@ -1248,9 +1230,6 @@ sensor_definitions = {
                                         ],
                                     },
                                     "Coldest_Zone_Air_Temperature_Sensor": {
-                                        SKOS.definition: Literal(
-                                            "The zone temperature that is coldest; drives the supply temperature of hot air. A computed value rather than a physical sensor. Also referred to as a 'Lowest Zone Air Temperature Sensor'"
-                                        ),
                                         "tags": [
                                             TAG.Point,
                                             TAG.Coldest,
@@ -1261,9 +1240,6 @@ sensor_definitions = {
                                         ],
                                     },
                                     "Warmest_Zone_Air_Temperature_Sensor": {
-                                        SKOS.definition: Literal(
-                                            "The zone temperature that is warmest; drives the supply temperature of cold air. A computed value rather than a physical sensor. Also referred to as a 'Highest Zone Air Temperature Sensor'"
-                                        ),
                                         "tags": [
                                             TAG.Point,
                                             TAG.Warmest,
