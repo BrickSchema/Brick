@@ -1,3 +1,4 @@
+import csv
 import logging
 from collections import defaultdict
 from rdflib import Graph, Literal, BNode, URIRef
@@ -6,7 +7,7 @@ from rdflib.collection import Collection
 
 from bricksrc.ontology import define_ontology
 
-from bricksrc.namespaces import BRICK, RDF, OWL, RDFS, TAG, SOSA
+from bricksrc.namespaces import BRICK, RDF, OWL, RDFS, TAG, SOSA, SKOS
 from bricksrc.namespaces import bind_prefixes
 
 from bricksrc.setpoint import setpoint_definitions
@@ -218,6 +219,30 @@ def define_properties(definitions, superprop=None):
                 G.add((BRICK[prop], propname, propval))
 
 
+def add_definitions():
+    """
+    Adds definitions for Brick subclasses
+    through SKOS.definitions.
+
+    This parses the definitions from ./bricksrc/definitions.csv and
+    adds it to the graph. If available, adds the source information of
+    through RDFS.seeAlso.
+    """
+    with open("./bricksrc/definitions.csv") as dictionary_file:
+        dictionary = csv.reader(dictionary_file)
+
+        # skip the header
+        next(dictionary)
+
+        # add
+        for definition in dictionary:
+            term = URIRef(definition[0])
+            if len(definition[1]):
+                G.add((term, SKOS.definition, Literal(definition[1], lang="en")))
+            if len(definition[2]):
+                G.add((term, RDFS.seeAlso, URIRef(definition[2])))
+
+
 logging.info("Beginning BRICK Ontology compilation")
 # handle ontology definition
 define_ontology(G)
@@ -297,6 +322,9 @@ different_tag = BNode("tags_are_different")
 G.add((BRICK.Tag, A, OWL.AllDifferent))
 G.add((BRICK.Tag, OWL.distinctMembers, different_tag))
 Collection(G, different_tag, different_tag_list)
+
+logging.info("Adding class definitions")
+add_definitions()
 
 logging.info(f"Brick ontology compilation finished! Generated {len(G)} triples")
 # serialize to output
