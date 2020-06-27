@@ -2,21 +2,15 @@ from rdflib import Literal
 from .namespaces import BRICK, TAG, OWL, RDFS
 
 system_subclasses = {
-    "Domestic_Hot_Water_System":{
+    "Domestic_Hot_Water_System": {
         "tags": [TAG.Domestic, TAG.Water, TAG.Hot, TAG.System]
     },
-    "Electrical_System":{
-        "tags": [TAG.Electrical, TAG.System]
-    },
-    "Gas_System":{
-        "tags": [TAG.Gas, TAG.System]
-    },
-    "Heating_Ventilation_Air_Conditioning_System":{
+    "Electrical_System": {"tags": [TAG.Electrical, TAG.System]},
+    "Gas_System": {"tags": [TAG.Gas, TAG.System]},
+    "Heating_Ventilation_Air_Conditioning_System": {
         "tags": [TAG.Heat, TAG.Ventilation, TAG.Air, TAG.Conditioning, TAG.System],
-        "subclasses":{
-            "Steam_System":{
-                "tags": [TAG.Steam, TAG.System],
-            },
+        "subclasses": {
+            "Steam_System": {"tags": [TAG.Steam, TAG.System]},
             "Water_System": {
                 "tags": [TAG.Water, TAG.System],
                 "subclasses": {
@@ -27,20 +21,45 @@ system_subclasses = {
                     "Hot_Water_System": {
                         OWL.equivalentClass: BRICK["HWS"],
                         "tags": [TAG.Water, TAG.Hot, TAG.System],
-                        "subclasses":{
-                            "Preheat_Hot_Water_System":{
-                                "tags": [TAG.Hot, TAG.Water, TAG.System, TAG.Preheat, TAG.System]
+                        "subclasses": {
+                            "Preheat_Hot_Water_System": {
+                                "tags": [
+                                    TAG.Hot,
+                                    TAG.Water,
+                                    TAG.System,
+                                    TAG.Preheat,
+                                    TAG.System,
+                                ]
                             },
-                            "Reheat_Hot_Water_System":{
-                                "tags": [TAG.Hot, TAG.Water, TAG.System, TAG.Reheat, TAG.System]
+                            "Reheat_Hot_Water_System": {
+                                "tags": [
+                                    TAG.Hot,
+                                    TAG.Water,
+                                    TAG.System,
+                                    TAG.Reheat,
+                                    TAG.System,
+                                ]
                             },
-                            "Radiation_Hot_Water_System":{
-                                "tags": [TAG.Hot, TAG.Water, TAG.System, TAG.Radiation, TAG.System]
+                            "Radiation_Hot_Water_System": {
+                                "tags": [
+                                    TAG.Hot,
+                                    TAG.Water,
+                                    TAG.System,
+                                    TAG.Radiation,
+                                    TAG.System,
+                                ]
                             },
-                            "Heat_Recovery_Hot_Water_System":{
-                                "tags": [TAG.Hot, TAG.Water, TAG.System, TAG.Heat, TAG.Recovery, TAG.System]
+                            "Heat_Recovery_Hot_Water_System": {
+                                "tags": [
+                                    TAG.Hot,
+                                    TAG.Water,
+                                    TAG.System,
+                                    TAG.Heat,
+                                    TAG.Recovery,
+                                    TAG.System,
+                                ]
                             },
-                        }
+                        },
                     },
                     "CWS": {
                         OWL.equivalentClass: BRICK["Chilled_Water_System"],
@@ -48,27 +67,24 @@ system_subclasses = {
                     },
                     "HWS": {
                         OWL.equivalentClass: BRICK["Hot_Water_System"],
-                        "tags": [TAG.HWS]
+                        "tags": [TAG.HWS],
                     },
                 },
             },
-        }
+        },
     },
-    "Lighting_System":{
-        "tags": [TAG.Lighting, TAG.System]
-    },
-    "Safety_System":{
+    "Lighting_System": {"tags": [TAG.Lighting, TAG.System]},
+    "Safety_System": {
         "tags": [TAG.Safety, TAG.System],
-        "subclasses":{
-            "Fire_Safety_System": {
-                "tags": [TAG.Fire, TAG.Safety, TAG.System],
-            },
+        "subclasses": {
+            "Fire_Safety_System": {"tags": [TAG.Fire, TAG.Safety, TAG.System]},
             "Emergency_Power_Off_System": {
                 "tags": [TAG.Emergency, TAG.Power, TAG.Off, TAG.System],
             },
-        }
+            "Emergency_Air_Flow_System": {
+                "tags": [TAG.Emergency, TAG.Air, TAG.Flow, TAG.System],
+            },
+        },
     },
-    "Shading_System":{
-        "tags": [TAG.Shade, TAG.System]
-    },
+    "Shading_System": {"tags": [TAG.Shade, TAG.System]},
 }
