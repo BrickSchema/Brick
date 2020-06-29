@@ -21,13 +21,13 @@ g.bind("brick", BRICK)
 def test_class_definitions():
     classes_without_definitions = g.query(
         """SELECT DISTINCT ?brick_class WHERE {
-                              ?brick_class rdfs:subClassOf* brick:Class .
+                              ?brick_class (rdfs:subClassOf|a)+ brick:Class .
                               FILTER NOT EXISTS {
                                 ?brick_class skos:definition ?definition .
                               }
                         }"""
     )
-    with open("tests/test_no_definitions.json", "w") as fp:
+    with open("tests/classes_no_definitions.json", "w") as fp:
         json.dump(
             [
                 class_without_definition[0]
@@ -40,29 +40,65 @@ def test_class_definitions():
         warn(
             UserWarning(
                 f"No definitions specified for {len(classes_without_definitions)} "
-                f"brick classes. For more information, see ./tests/test_no_definitions.json"
+                f"brick class(es). For more information, see ./tests/classes_no_definitions.json"
             )
         )
 
 
-def test_non_class_definitions():
-    definitions_without_classes = g.query(
-        """SELECT DISTINCT ?brick_class WHERE {
-                              ?brick_class skos:definition|rdfs:seeAlso ?definition .
+def test_relationship_definitions():
+    relationships_without_definitions = g.query(
+        """SELECT DISTINCT ?brick_relationship WHERE {
+                              ?brick_relationship (rdfs:subPropertyOf|a)+ ?some_property .
+                              VALUES ?some_property {owl:AsymmetricProperty owl:IrreflexiveProperty owl:ObjectProperty} .
                               FILTER NOT EXISTS {
-                                ?brick_class rdfs:subClassOf* brick:Class .
+                                ?brick_relationship skos:definition ?definition .
+                              }
+                        }"""
+    )
+    with open("tests/relationships_no_definitions.json", "w") as fp:
+        json.dump(
+            [
+                relationship_without_definition[0]
+                for relationship_without_definition in relationships_without_definitions
+            ],
+            fp,
+            indent=2,
+        )
+    if relationships_without_definitions:
+        warn(
+            UserWarning(
+                f"No definitions specified for {len(relationships_without_definitions)} "
+                f"brick relationship(s). For more information, see ./tests/relationships_no_definitions.json"
+            )
+        )
+
+
+def test_obsolete_definitions():
+    definitions_without_terms = g.query(
+        """SELECT DISTINCT ?term WHERE {
+                              ?term skos:definition|rdfs:seeAlso ?definition .
+                              FILTER NOT EXISTS {
+                                ?term (rdfs:subPropertyOf|rdfs:subClassOf|a)+ ?something .
+                                VALUES ?something {
+                                  brick:Class
+                                  brick:Relationship
+                                  owl:AsymmetricProperty
+                                  owl:IrreflexiveProperty
+                                  owl:ObjectProperty
+                                  owl:Ontology
+                                } .
                               }
                         }"""
     )
     with open("tests/obsolete_definitions.json", "w") as fp:
         json.dump(
             [
-                definition_without_class[0]
-                for definition_without_class in definitions_without_classes
+                definitions_without_term[0]
+                for definitions_without_term in definitions_without_terms
             ],
             fp,
             indent=2,
         )
     assert (
-        not definitions_without_classes
-    ), f"{len(definitions_without_classes)} definitions found for deprecated classes. For more information, see ./tests/test_no_definitions.json"
+        not definitions_without_terms
+    ), f"{len(definitions_without_terms)} definitions found for deprecated term(s). For more information, see ./tests/obsolete_definitions.json"
