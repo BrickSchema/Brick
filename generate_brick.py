@@ -244,50 +244,46 @@ def add_definitions():
 
     qstr = """
     select ?param where {
-      ?param rdfs:subClassOf* brick:Parameter.
+      ?param rdfs:subClassOf* brick:Limit.
     }
     """
     params = [row["param"] for row in G.query(qstr)]
     for param in params:
         words = param.split("#")[-1].split("_")
         prefix = words[0]
-        suffix = words[-1]
         limit_def_template = "A parameter that places {direction} bound on the range of permitted values of a {setpoint}."
 
-        if suffix == "Limit":
-            if prefix == "Min":
-                direction = "a lower"
-            elif prefix == "Max":
-                direction = "an upper"
-            else:
-                prefix = None
-                direction = "a lower or upper"
+        if prefix == "Min":
+            direction = "a lower"
+        elif prefix == "Max":
+            direction = "an upper"
+        else:
+            prefix = None
+            direction = "a lower or upper"
 
-            if param.split("#")[-1] in ["Max_Limit", "Min_Limit", "Limit"]:
-                setpoint = "Setpoint"
+        if param.split("#")[-1] in ["Max_Limit", "Min_Limit", "Limit"]:
+            setpoint = "Setpoint"
+        else:
+            if prefix:
+                setpoint = "_".join(words[1:-1])
             else:
-                if prefix:
-                    setpoint = "_".join(words[1:-1])
-                else:
-                    setpoint = "_".join(words[:-1])
+                setpoint = "_".join(words[:-1])
 
-            if setpoint.split("_")[-1] != "Setpoint":
-                setpoint = setpoint + "_Setpoint"
-                print(f"Created setpoint: {setpoint}")
-            limit_def = limit_def_template.format(
-                direction=direction, setpoint=setpoint
-            )
-            G.add((param, SKOS.definition, Literal(limit_def, lang="en")))
-            is_class_exists = G.query(
-                f"""
-            select ?class where {{
-                BIND(brick:{setpoint} as ?class)
-                ?class rdfs:subClassOf* brick:Class.
-            }}
-            """
-            ).bindings
-            if not is_class_exists:
-                print(f"WARNING: {setpoint} does not exist in Brick for {param}.")
+        if setpoint.split("_")[-1] != "Setpoint":
+            setpoint = setpoint + "_Setpoint"
+            print(f"Inferred setpoint: {setpoint}")
+        limit_def = limit_def_template.format(direction=direction, setpoint=setpoint)
+        G.add((param, SKOS.definition, Literal(limit_def, lang="en")))
+        is_class_exists = G.query(
+            f"""
+        select ?class where {{
+            BIND(brick:{setpoint} as ?class)
+            ?class rdfs:subClassOf* brick:Class.
+        }}
+        """
+        ).bindings
+        if not is_class_exists:
+            print(f"WARNING: {setpoint} does not exist in Brick for {param}.")
 
 
 logging.info("Beginning BRICK Ontology compilation")
