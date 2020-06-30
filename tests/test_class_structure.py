@@ -4,7 +4,7 @@ import brickschema
 from rdflib import RDF, OWL, RDFS, Namespace, BNode
 
 sys.path.append("..")
-from bricksrc.namespaces import BRICK, TAG, SOSA, VCARD  # noqa: E402
+from bricksrc.namespaces import BRICK, TAG, SOSA, VCARD, SKOS, UNIT, QUDT  # noqa: E402
 
 
 BLDG = Namespace("https://brickschema.org/schema/ExampleBuilding#")
@@ -64,6 +64,9 @@ def test_subclasses():
             RDF.Property,
             OWL.Class,
             VCARD.Address,
+            SKOS.Concept,
+            UNIT.Unit,
+            QUDT.QuantityKind,
         ]
     )
 

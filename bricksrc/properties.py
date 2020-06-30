@@ -1,5 +1,5 @@
 from rdflib import Literal
-from .namespaces import A, OWL, RDFS, SKOS, BRICK, VCARD
+from .namespaces import A, OWL, RDFS, SKOS, BRICK, VCARD, UNIT, QUDT
 
 """
 Defining properties
@@ -151,5 +151,11 @@ properties = {
         SKOS.definition: Literal("To specify the address of a building."),
         RDFS.domain: BRICK.Building,
         RDFS.range: VCARD.Address,
+    },
+    "hasUnit": {
+        A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+        SKOS.definition: Literal("The QUDT unit associated with this Point"),
+        RDFS.domain: BRICK.Point,
+        RDFS.range: UNIT.Unit,
     },
 }

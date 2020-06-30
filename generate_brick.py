@@ -6,7 +6,7 @@ from rdflib.collection import Collection
 
 from bricksrc.ontology import define_ontology
 
-from bricksrc.namespaces import BRICK, RDF, OWL, RDFS, TAG, SOSA
+from bricksrc.namespaces import BRICK, RDF, OWL, RDFS, TAG, SOSA, SKOS, QUDT, QUDTQK
 from bricksrc.namespaces import bind_prefixes
 
 from bricksrc.setpoint import setpoint_definitions
@@ -24,7 +24,7 @@ from bricksrc.equipment import (
     safety_subclasses,
 )
 from bricksrc.substances import substances
-from bricksrc.quantities import quantity_definitions
+from bricksrc.quantities import quantity_definitions, get_units
 from bricksrc.properties import properties
 from bricksrc.tags import tags
 
@@ -122,6 +122,77 @@ def add_tags(klass, definition):
     intersection_classes[klass] = tuple(sorted(definition))
 
 
+def define_concept_hierarchy(definitions, typeclasses, broader=None, related=None):
+    """
+    Generates triples to define the SKOS hierarchy of concepts given by
+    'definitions', which are all instances of the class given by 'typeclass'.
+    'broader', if provided, is the skos:broader concept
+    'related', if provided, is the skos:related concept
+
+    Currently this is used for Brick Quantities
+    """
+    for concept, defn in definitions.items():
+        concept = BRICK[concept]
+        for typeclass in typeclasses:
+            G.add((concept, A, typeclass))
+        # mark broader concept if one exists
+        if broader is not None:
+            G.add((concept, SKOS.broader, broader))
+        # mark related concept if one exists
+        if related is not None:
+            G.add((concept, SKOS.related, related))
+        # add label
+        class_label = concept.split("#")[-1].replace("_", " ")
+        G.add((concept, RDFS.label, Literal(class_label)))
+
+        # define mapping to tags if it exists
+        # "tags" property is a list of URIs naming Tags
+        taglist = defn.get("tags", [])
+        assert isinstance(taglist, list)
+        if len(taglist) == 0:
+            logging.warning(f"Property 'tags' not defined for {concept}")
+        add_tags(concept, taglist)
+
+        # define mapping to substances + quantities if it exists
+        # "substances" property is a list of (predicate, object) pairs
+        substancedef = defn.get("substances", [])
+        assert isinstance(substancedef, list)
+        add_restriction(concept, substancedef)
+
+        # define concept hierarchy
+        # this is a nested dictionary
+        narrower_defs = defn.get(SKOS.narrower, {})
+        if narrower_defs is not None and isinstance(narrower_defs, dict):
+            define_concept_hierarchy(
+                narrower_defs, [BRICK.Quantity, QUDT.QuantityKind], broader=concept
+            )
+        related_defs = defn.get(SKOS.related, {})
+        if related_defs is not None and isinstance(related_defs, dict):
+            define_concept_hierarchy(
+                related_defs, [BRICK.Quantity, QUDT.QuantityKind], related=concept
+            )
+
+        # handle 'parents' subconcepts (links outside of tree-based hierarchy)
+        parents = defn.get("parents", [])
+        assert isinstance(parents, list)
+        for _parent in parents:
+            G.add((concept, SKOS.broader, _parent))
+
+        # all other key-value pairs in the definition are
+        # property-object pairs
+        expected_properties = ["parents", "tags", "substances"]
+        other_properties = [
+            prop for prop in defn.keys() if prop not in expected_properties
+        ]
+        for propname in other_properties:
+            propval = defn[propname]
+            if isinstance(propval, list):
+                for pv in propval:
+                    G.add((concept, propname, pv))
+            elif not isinstance(propval, dict):
+                G.add((concept, propname, propval))
+
+
 def define_classes(definitions, parent, pun_classes=False):
     """
     Generates triples for the hierarchy given by 'definitions', rooted
@@ -178,7 +249,11 @@ def define_classes(definitions, parent, pun_classes=False):
         ]
         for propname in other_properties:
             propval = defn[propname]
-            G.add((classname, propname, propval))
+            if isinstance(propval, list):
+                for pv in propval:
+                    G.add((classname, propname, pv))
+            else:
+                G.add((classname, propname, propval))
 
 
 def define_properties(definitions, superprop=None):
@@ -216,6 +291,20 @@ def define_properties(definitions, superprop=None):
             for propname in other_properties:
                 propval = propdefn[propname]
                 G.add((BRICK[prop], propname, propval))
+
+
+# TODO: remove
+def define_quantitykind_extensions(defs):
+    """
+    Defines extensions to QUDT's QuantityKinds
+    """
+    for quantitykind, defn in defs.items():
+        G.add((QUDTQK[quantitykind], A, QUDT.QuantityKind))
+        for propname, propvals in defn.items():
+            if not isinstance(propvals, list):
+                propvals = [propvals]
+            for propval in propvals:
+                G.add((QUDTQK[quantitykind], propname, propval))
 
 
 logging.info("Beginning BRICK Ontology compilation")
@@ -270,21 +359,37 @@ G.add((BRICK.Measurable, RDFS.subClassOf, BRICK.Class))
 G.add((BRICK.Quantity, RDFS.subClassOf, SOSA.ObservableProperty))
 G.add((BRICK.Quantity, RDFS.subClassOf, BRICK.Measurable))
 G.add((BRICK.Quantity, A, OWL.Class))
+G.add((BRICK.Quantity, RDFS.subClassOf, SKOS.Concept))
 # set up Substance definition
 G.add((BRICK.Substance, RDFS.subClassOf, SOSA.FeatureOfInterest))
 G.add((BRICK.Substance, RDFS.subClassOf, BRICK.Measurable))
 G.add((BRICK.Substance, A, OWL.Class))
 
 # We make the punning explicit here. Any subclass of brick:Substance
-# or brick:Quantity is itself a substance or quantity. There is one canonical
-# instance of each class, which is indicated by referencing the class itself.
+# is itself a substance or quantity. There is one canonical instance of
+# each class, which is indicated by referencing the class itself.
 #
 #    bldg:tmp1      a           brick:Air_Temperature_Sensor;
 #               brick:measures  brick:Air ,
 #                               brick:Temperature .
-# This makes Substance and Quantity metaclasses.
+#
+# This makes Substance metaclasses.
 define_classes(substances, BRICK.Substance, pun_classes=True)
-define_classes(quantity_definitions, BRICK.Quantity, pun_classes=True)
+
+# this defines the SKOS-based concept hierarchy for BRICK Quantities
+define_concept_hierarchy(quantity_definitions, [BRICK.Quantity, QUDT.QuantityKind])
+
+# for all Quantities, copy part of the QUDT unit definitions over
+res = G.query(
+    """SELECT ?quantity ?qudtquant WHERE {
+                ?quantity rdf:type brick:Quantity .
+                ?quantity owl:sameAs ?qudtquant
+                }"""
+)
+for r in res:
+    for unit, symb in get_units(r[1]):
+        G.add((r[0], QUDT.applicableUnit, unit))
+        G.add((unit, QUDT.symbol, symb))
 
 logging.info("Finishing Tag definitions")
 # declares that all tags are pairwise different; i.e. no two tags refer

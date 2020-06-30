@@ -56,43 +56,6 @@ command_definitions = {
                     },
                     "Speed_Reset_Command": {
                         "tags": [TAG.Point, TAG.Speed, TAG.Reset, TAG.Command],
-                        "subclasses": {
-                            "Fan_Speed_Reset_Command": {
-                                "tags": [
-                                    TAG.Point,
-                                    TAG.Fan,
-                                    TAG.Speed,
-                                    TAG.Reset,
-                                    TAG.Command,
-                                ],
-                            },
-                        },
-                    },
-                },
-            },
-            "Shutdown_Command": {
-                "tags": [TAG.Point, TAG.Shutdown, TAG.Command],
-                "subclasses": {
-                    "Hot_Water_Shutdown_Command": {
-                        "tags": [
-                            TAG.Point,
-                            TAG.Hot,
-                            TAG.Water,
-                            TAG.Shutdown,
-                            TAG.Command,
-                        ],
-                        "subclasses": {
-                            "Unoccupied_Hot_Water_Shutdown_Command": {
-                                "tags": [
-                                    TAG.Point,
-                                    TAG.Unoccupied,
-                                    TAG.Hot,
-                                    TAG.Water,
-                                    TAG.Shutdown,
-                                    TAG.Command,
-                                ],
-                            },
-                        },
                     },
                 },
             },
@@ -378,10 +341,6 @@ command_definitions = {
                         "tags": [TAG.Point, TAG.Curtailment, TAG.Override, TAG.Command],
                     },
                 },
-            },
-            "Lockout_Command": {"tags": [TAG.Point, TAG.Lockout, TAG.Command]},
-            "Run_Request_Command": {
-                "tags": [TAG.Point, TAG.Run, TAG.Request, TAG.Command],
             },
         },
     }
