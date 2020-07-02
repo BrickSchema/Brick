@@ -1,5 +1,5 @@
 from rdflib import Literal
-from .namespaces import TAG, OWL, SKOS, BRICK
+from .namespaces import TAG, OWL, SKOS, BRICK, RDFS
 
 """
 Set up subclasses of the equipment superclass
@@ -203,7 +203,6 @@ hvac_subclasses = {
         "tags": [TAG.Equipment, TAG.VFD],
         "subclasses": {
             "Heat_Wheel_VFD": {"tags": [TAG.Equipment, TAG.Heat, TAG.Wheel, TAG.VFD]},
-            "Preheat_Valve_VFD": {"tags": [TAG.Equipment, TAG.Preheat, TAG.VFD]},
         },
     },
     "Thermostat": {
@@ -280,6 +279,13 @@ hvac_subclasses = {
             },
             "Condenser_Heat_Exchanger": {
                 "tags": [TAG.Condenser, TAG.Equipment, TAG.Heat, TAG.Exchanger],
+            },
+            "Heat_Wheel": {
+                "tags": [TAG.Equipment, TAG.Heat, TAG.Wheel],
+                SKOS.definition: Literal(
+                    "A type of energy recovery heat exchanger positioned within the supply and exhaust air streams of an air-handling system or in the exhaust gases of an industrial process, in order to recover the heat energy"
+                ),
+                RDFS.seeAlso: Literal("https://en.wikipedia.org/wiki/Thermal_wheel"),
             },
         },
     },

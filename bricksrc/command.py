@@ -8,20 +8,7 @@ command_definitions = {
         ),
         "tags": [TAG.Point, TAG.Command],
         "subclasses": {
-            "Cooling_Command": {
-                "tags": [TAG.Point, TAG.Cool, TAG.Command],
-                "subclasses": {
-                    "Highest_Zone_Cooling_Command": {
-                        "tags": [
-                            TAG.Point,
-                            TAG.Highest,
-                            TAG.Zone,
-                            TAG.Cool,
-                            TAG.Command,
-                        ],
-                    },
-                },
-            },
+            "Cooling_Command": {"tags": [TAG.Point, TAG.Cool, TAG.Command]},
             "Heating_Command": {"tags": [TAG.Point, TAG.Heat, TAG.Command]},
             "Luminance_Command": {"tags": [TAG.Point, TAG.Luminance, TAG.Command]},
             "Bypass_Command": {"tags": [TAG.Point, TAG.Bypass, TAG.Command]},
@@ -285,40 +272,12 @@ command_definitions = {
                             "An Off Command controls or reports the binary 'off' status of a control loop, relay or equipment activity. It can only be used to stop/terminate/deactivate an associated equipment or process, or determine that the related entity is 'off'"
                         ),
                         "tags": [TAG.Point, TAG.Off, TAG.Command],
-                        "subclasses": {
-                            "Exhaust_Fan_Fire_Control_Panel_Off_Command": {
-                                "tags": [
-                                    TAG.Point,
-                                    TAG.Exhaust,
-                                    TAG.Fan,
-                                    TAG.Fire,
-                                    TAG.Control,
-                                    TAG.Panel,
-                                    TAG.Off,
-                                    TAG.Command,
-                                ],
-                            }
-                        },
                     },
                     "On_Command": {
                         SKOS.definition: Literal(
                             "An On Command controls or reports the binary 'on' status of a control loop, relay or equipment activity. It can only be used to start/activate an associated equipment or process, or determine that the related entity is 'on'"
                         ),
                         "tags": [TAG.Point, TAG.On, TAG.Command],
-                        "subclasses": {
-                            "Exhaust_Fan_Fire_Control_Panel_On_Command": {
-                                "tags": [
-                                    TAG.Point,
-                                    TAG.Exhaust,
-                                    TAG.Fan,
-                                    TAG.Fire,
-                                    TAG.Control,
-                                    TAG.Panel,
-                                    TAG.On,
-                                    TAG.Command,
-                                ],
-                            }
-                        },
                     },
                     "Lead_On_Off_Command": {
                         "tags": [TAG.Point, TAG.Lead, TAG.On, TAG.Off, TAG.Command],
