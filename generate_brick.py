@@ -221,8 +221,7 @@ def define_properties(definitions, superprop=None):
 
 def add_definitions():
     """
-    Adds definitions for Brick subclasses
-    through SKOS.definitions.
+    Adds definitions for Brick subclasses through SKOS.definitions.
 
     This parses the definitions from ./bricksrc/definitions.csv and
     adds it to the graph. If available, adds the source information of
@@ -234,7 +233,7 @@ def add_definitions():
         # skip the header
         next(dictionary)
 
-        # add
+        # add definitions, citations to the graph
         for definition in dictionary:
             term = URIRef(definition[0])
             if len(definition[1]):
@@ -247,12 +246,13 @@ def add_definitions():
       ?param rdfs:subClassOf* brick:Limit.
     }
     """
+    limit_def_template = "A parameter that places {direction} bound on the range of permitted values of a {setpoint}."
     params = [row["param"] for row in G.query(qstr)]
     for param in params:
         words = param.split("#")[-1].split("_")
         prefix = words[0]
-        limit_def_template = "A parameter that places {direction} bound on the range of permitted values of a {setpoint}."
 
+        # define "direction" component of Limit definition
         if prefix == "Min":
             direction = "a lower"
         elif prefix == "Max":
@@ -261,6 +261,7 @@ def add_definitions():
             prefix = None
             direction = "a lower or upper"
 
+        # define the "setpoint" component of a Limit definition
         if param.split("#")[-1] in ["Max_Limit", "Min_Limit", "Limit"]:
             setpoint = "Setpoint"
         else:
@@ -276,8 +277,7 @@ def add_definitions():
         limit_def = limit_def_template.format(direction=direction, setpoint=setpoint)
         G.add((param, SKOS.definition, Literal(limit_def, lang="en")))
         class_exists = G.query(
-            f"""
-        select ?class where {{
+            f"""select ?class where {{
             BIND(brick:{setpoint} as ?class)
             ?class rdfs:subClassOf* brick:Class.
         }}
