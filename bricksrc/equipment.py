@@ -200,7 +200,6 @@ hvac_subclasses = {
         "tags": [TAG.Equipment, TAG.VFD],
         "subclasses": {
             "Heat_Wheel_VFD": {"tags": [TAG.Equipment, TAG.Heat, TAG.Wheel, TAG.VFD]},
-            "Preheat_Valve_VFD": {"tags": [TAG.Equipment, TAG.Preheat, TAG.VFD]},
         },
     },
     "Thermostat": {"tags": [TAG.Equipment, TAG.Thermostat]},
@@ -262,6 +261,7 @@ hvac_subclasses = {
             "Condenser_Heat_Exchanger": {
                 "tags": [TAG.Condenser, TAG.Equipment, TAG.Heat, TAG.Exchanger],
             },
+            "Heat_Wheel": {"tags": [TAG.Equipment, TAG.Heat, TAG.Wheel]},
         },
     },
     "HX": {"tags": [TAG.Equipment, TAG.HX]},

@@ -81,6 +81,54 @@ parameter_definitions = {
                             TAG.Parameter,
                         ],
                     },
+                    "Lockout_Temperature_Differential_Parameter": {
+                        "tags": [
+                            TAG.Point,
+                            TAG.Lockout,
+                            TAG.Temperature,
+                            TAG.Differential,
+                            TAG.Sensor,
+                        ],
+                        "subclasses": {
+                            "Outside_Air_Lockout_Temperature_Differential_Parameter": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Outside,
+                                    TAG.Air,
+                                    TAG.Lockout,
+                                    TAG.Temperature,
+                                    TAG.Differential,
+                                    TAG.Parameter,
+                                ],
+                                "subclasses": {
+                                    "Low_Outside_Air_Lockout_Temperature_Differential_Parameter": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Low,
+                                            TAG.Outside,
+                                            TAG.Air,
+                                            TAG.Lockout,
+                                            TAG.Temperature,
+                                            TAG.Differential,
+                                            TAG.Parameter,
+                                        ],
+                                    },
+                                    "High_Outside_Air_Lockout_Temperature_Differential_Parameter": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.High,
+                                            TAG.Outside,
+                                            TAG.Air,
+                                            TAG.Lockout,
+                                            TAG.Temperature,
+                                            TAG.Differential,
+                                            TAG.Parameter,
+                                        ],
+                                    },
+                                },
+                            },
+                        },
+                    },
                 },
             },
             "PID_Parameter": {

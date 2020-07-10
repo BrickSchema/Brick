@@ -13,6 +13,13 @@ DCTERMS = Namespace("http://purl.org/dc/terms#")
 SDO = Namespace("http://schema.org#")
 SOSA = Namespace("http://www.w3.org/ns/sosa#")
 VCARD = Namespace("http://www.w3.org/2006/vcard/ns#")
+
+# QUDT namespaces
+QUDT = Namespace("http://qudt.org/schema/qudt/")
+QUDTQK = Namespace("http://qudt.org/vocab/quantitykind/")
+QUDTDV = Namespace("http://qudt.org/vocab/dimensionvector/")
+UNIT = Namespace("http://qudt.org/vocab/unit/")
+
 A = RDF.type
 
 
@@ -29,3 +36,6 @@ def bind_prefixes(g):
     g.bind("tag", TAG)
     g.bind("vcard", VCARD)
     g.bind("bsh", BSH)
+    g.bind("qudtqk", QUDTQK)
+    g.bind("qudt", QUDT)
+    g.bind("unit", UNIT)

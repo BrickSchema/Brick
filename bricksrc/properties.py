@@ -1,5 +1,5 @@
 from rdflib import Literal
-from .namespaces import A, OWL, RDFS, BRICK, VCARD
+from .namespaces import A, OWL, RDFS, BRICK, VCARD, UNIT
 
 """
 Defining properties
@@ -119,5 +119,10 @@ properties = {
         RDFS.subPropertyOf: VCARD.hasAddress,
         RDFS.domain: BRICK.Building,
         RDFS.range: VCARD.Address,
+    },
+    "hasUnit": {
+        A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+        RDFS.domain: BRICK.Point,
+        RDFS.range: UNIT.Unit,
     },
 }

@@ -43,12 +43,6 @@ def test_measurable_hierarchy():
         res = list(g.query(query))
         assert (BRICK[klass],) in res
 
-    # check quantity classes
-    for klass, subklass in _get_subclasses(quantity_definitions):
-        query = f"SELECT ?x WHERE {{ <{BRICK[subklass]}> rdfs:subClassOf ?x }}"
-        res = list(g.query(query))
-        assert (BRICK[klass],) in res
-
 
 def test_measures_infers():
     g = rdflib.Graph()
