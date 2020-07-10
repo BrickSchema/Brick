@@ -271,7 +271,9 @@ def add_definitions():
                 setpoint = "_".join(words[:-1])
 
         if setpoint.split("_")[-1] != "Setpoint":
-            # While Limits are a boundary of a Setpoint, the associated Setpoint names are not explicit in class's names. Thus needs to be explicily added for the definition text.
+            # While Limits are a boundary of a Setpoint, the associated
+            # Setpoint names are not explicit in class's names. Thus needs
+            # to be explicily added for the definition text.
             setpoint = setpoint + "_Setpoint"
             logging.info(f"Inferred setpoint: {setpoint}")
         limit_def = limit_def_template.format(direction=direction, setpoint=setpoint)
