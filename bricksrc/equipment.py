@@ -1,5 +1,5 @@
 from rdflib import Literal
-from .namespaces import TAG, OWL, SKOS, BRICK, RDFS
+from .namespaces import TAG, OWL, BRICK
 
 """
 Set up subclasses of the equipment superclass
@@ -191,9 +191,6 @@ hvac_subclasses = {
     "Variable_Frequency_Drive": {
         "tags": [TAG.Equipment, TAG.Variable, TAG.Frequency, TAG.Drive],
         OWL.equivalentClass: BRICK["VFD"],
-        SKOS.definition: Literal(
-            "Electronic device that varies its output frequency to vary the rotating speed of a motor, given a fixed input frequency. Used with fans or pumps to vary the flow in the system as a function of a maintained pressure."
-        ),
     },
     "Valve": {
         "tags": [TAG.Valve, TAG.Equipment]
@@ -205,17 +202,9 @@ hvac_subclasses = {
             "Heat_Wheel_VFD": {"tags": [TAG.Equipment, TAG.Heat, TAG.Wheel, TAG.VFD]},
         },
     },
-    "Thermostat": {
-        "tags": [TAG.Equipment, TAG.Thermostat],
-        SKOS.definition: Literal(
-            "An automatic control device used to maintain temperature at a fixed or adjustable setpoint."
-        ),
-    },
+    "Thermostat": {"tags": [TAG.Equipment, TAG.Thermostat]},
     "Terminal_Unit": {
         "tags": [TAG.Equipment, TAG.Terminal, TAG.Unit],
-        SKOS.definition: Literal(
-            "A device that regulates the volumetric flow rate and/or the temperature of the controlled medium."
-        ),
         "subclasses": {
             "Fan_Coil_Unit": {
                 "tags": [TAG.Equipment, TAG.Fan, TAG.Coil, TAG.Unit],
@@ -242,17 +231,9 @@ hvac_subclasses = {
             "VAV": {"tags": [TAG.Equipment, TAG.VAV]},
         },
     },
-    "Space_Heater": {
-        "tags": [TAG.Equipment, TAG.Space, TAG.Heater],
-        SKOS.definition: Literal(
-            "A heater used to warm the air in an enclosed area, such as a room or office"
-        ),
-    },
+    "Space_Heater": {"tags": [TAG.Equipment, TAG.Space, TAG.Heater]},
     "Pump": {
         "tags": [TAG.Equipment, TAG.Pump],
-        SKOS.definition: Literal(
-            "Machine for imparting energy to a fluid, causing it to do work, drawing a fluid into itself through an entrance port, and forcing the fluid out through an exhaust port."
-        ),
         "subclasses": {
             "Water_Pump": {
                 "tags": [TAG.Equipment, TAG.Pump, TAG.Water],
@@ -280,25 +261,13 @@ hvac_subclasses = {
             "Condenser_Heat_Exchanger": {
                 "tags": [TAG.Condenser, TAG.Equipment, TAG.Heat, TAG.Exchanger],
             },
-            "Heat_Wheel": {
-                "tags": [TAG.Equipment, TAG.Heat, TAG.Wheel],
-                SKOS.definition: Literal(
-                    "A type of energy recovery heat exchanger positioned within the supply and exhaust air streams of an air-handling system or in the exhaust gases of an industrial process, in order to recover the heat energy"
-                ),
-                RDFS.seeAlso: Literal("https://en.wikipedia.org/wiki/Thermal_wheel"),
-            },
+            "Heat_Wheel": {"tags": [TAG.Equipment, TAG.Heat, TAG.Wheel]},
         },
     },
     "HX": {"tags": [TAG.Equipment, TAG.HX]},
-    "Fume_Hood": {
-        "tags": [TAG.Equipment, TAG.Fume, TAG.Hood],
-        SKOS.definition: Literal(
-            "A fume-collection device mounted over a work space, table, or shelf and serving to conduct unwanted gases away from the area enclosed."
-        ),
-    },
+    "Fume_Hood": {"tags": [TAG.Equipment, TAG.Fume, TAG.Hood]},
     "Filter": {
         "tags": [TAG.Equipment, TAG.Filter],
-        SKOS.definition: Literal("Device to remove gases from a mixture of gases"),
         "subclasses": {
             "Mixed_Air_Filter": {
                 "tags": [TAG.Equipment, TAG.Mixed, TAG.Air, TAG.Filter],
@@ -306,9 +275,6 @@ hvac_subclasses = {
         },
     },
     "Fan": {
-        SKOS.definition: Literal(
-            "Any device with two or more blades or vanes attached to a rotating shaft used to produce an airflow for the purpose of comfort, ventilation, exhaust, heating, cooling, or any other gaseous transport."
-        ),
         "tags": [TAG.Equipment, TAG.Fan],
         "subclasses": {
             "Cooling_Tower_Fan": {
@@ -326,16 +292,8 @@ hvac_subclasses = {
             },
         },
     },
-    "Economizer": {
-        "tags": [TAG.Equipment, TAG.Economizer],
-        SKOS.definition: Literal(
-            "Device that, on proper variable sensing, initiates control signals or actions to conserve energy. A control system that reduces the mechanical heating and cooling requirement."
-        ),
-    },
+    "Economizer": {"tags": [TAG.Equipment, TAG.Economizer]},
     "Damper": {
-        SKOS.definition: Literal(
-            "Element inserted into an air-distribution system or element of an air-distribution system permitting modification of the air resistance of the system and consequently changing the airflow rate or shutting off the airflow."
-        ),
         "tags": [TAG.Equipment, TAG.Damper],
         "subclasses": {
             "Economizer_Damper": {"tags": [TAG.Equipment, TAG.Damper, TAG.Economizer]},
@@ -344,17 +302,9 @@ hvac_subclasses = {
             "Return_Damper": {"tags": [TAG.Equipment, TAG.Damper, TAG.Return]},
         },
     },
-    "Condenser": {
-        "tags": [TAG.Equipment, TAG.Condenser],
-        SKOS.definition: Literal(
-            "A heat exchanger in which the primary heat transfer vapor changes its state to a liquid phase."
-        ),
-    },
+    "Condenser": {"tags": [TAG.Equipment, TAG.Condenser]},
     "Computer_Room_Air_Conditioning": {
         "tags": [TAG.Equipment, TAG.Computer, TAG.Room, TAG.Air, TAG.Conditioning],
-        SKOS.definition: Literal(
-            "A device that monitors and maintains the temperature, air distribution and humidity in a network room or data center. "
-        ),
         OWL.equivalentClass: BRICK["CRAC"],
     },
     "CRAC": {
@@ -364,16 +314,8 @@ hvac_subclasses = {
             "Standby_CRAC": {"tags": [TAG.Equipment, TAG.CRAC, TAG.Standby]},
         },
     },
-    "Compressor": {
-        "tags": [TAG.Equipment, TAG.Compressor],
-        SKOS.definition: Literal(
-            "(1) device for mechanically increasing the pressure of a gas. (2) often described as being either open, hermetic, or semihermetic to describe how the compressor and motor drive is situated in relation to the gas or vapor being compressed. Types include centrifugal, axial flow, reciprocating, rotary screw, rotary vane, scroll, or diaphragm. 1. device for mechanically increasing the pressure of a gas. 2. specific machine, with or without accessories, for compressing refrigerant vapor."
-        ),
-    },
+    "Compressor": {"tags": [TAG.Equipment, TAG.Compressor]},
     "Coil": {
-        SKOS.definition: Literal(
-            "Exchanger that transfers heat from an exhaust airstream to a separated supply airstream."
-        ),
         "tags": [TAG.Equipment, TAG.Coil],
         "subclasses": {
             "Cooling_Coil": {"tags": [TAG.Equipment, TAG.Coil, TAG.Cool]},
@@ -392,17 +334,9 @@ hvac_subclasses = {
         },
     },
     "Humidifier": {"tags": [TAG.Equipment, TAG.Humidifier]},
-    "Boiler": {
-        "tags": [TAG.Equipment, TAG.Boiler],
-        SKOS.definition: Literal(
-            "A closed, pressure vessel that uses fuel or electricity for heating water or other fluids to supply steam or hot water for heating, humidification, or other applications."
-        ),
-    },
+    "Boiler": {"tags": [TAG.Equipment, TAG.Boiler]},
     "Air_Handler_Unit": {
         "tags": [TAG.Equipment, TAG.Air, TAG.Handler, TAG.Unit],
-        SKOS.definition: Literal(
-            "Assembly consisting of sections containing a fan or fans and other necessary equipment to perform one or more of the following functions: circulating, filtration, heating, cooling, heat recovery, humidifying, dehumidifying, and mixing of air. Is usually connected to an air-distribution system."
-        ),
         OWL.equivalentClass: BRICK["AHU"],
     },
     "AHU": {
@@ -430,9 +364,6 @@ valve_subclasses = {
             "Reheat_Valve": {"tags": [TAG.Valve, TAG.Reheat, TAG.Heat, TAG.Equipment]},
             "Return_Heating_Valve": {
                 "tags": [TAG.Valve, TAG.Return, TAG.Heat, TAG.Equipment],
-                SKOS.definition: Literal(
-                    "A valve installed on the return side of a heat exchanger"
-                ),
             },
             "Domestic_Hot_Water_Valve": {
                 "tags": [
@@ -483,10 +414,6 @@ security_subclasses = {
                     TAG.Reader,
                     TAG.Control,
                 ],
-                SKOS.definition: Literal(
-                    "Used in physical security systems to read a credential that allows access through access points. "
-                    "Usually card badge credentials for locked doors or monitored checkpoints."
-                ),
             },
         },
         # TODO subclasses
@@ -519,9 +446,6 @@ security_subclasses = {
                     TAG.Surveillance,
                     TAG.Camera,
                 ],
-                SKOS.definition: Literal(
-                    "An optical instrument to capture still images or record moving images, which are stored on a physical or digital medium."
-                ),
                 "parents": [BRICK.Camera]
                 # TODO: subclass of PTZ (Pan/Tilt/Zoom) cameras?
             },
@@ -534,7 +458,6 @@ security_subclasses = {
                     TAG.NVR,
                 ],
                 OWL.equivalentClass: BRICK["Network_Video_Recorder"],
-                SKOS.definition: Literal("A Network Video Recorder."),
             },
             "Network_Video_Recorder": {
                 "tags": [
@@ -546,7 +469,6 @@ security_subclasses = {
                     TAG.Network,
                 ],
                 OWL.equivalentClass: BRICK["NVR"],
-                SKOS.definition: Literal("A Network Video Recorder."),
             },
         },
         # TODO
@@ -578,15 +500,9 @@ security_subclasses = {
                     TAG.Emergency,
                     TAG.Phone,
                 ],
-                SKOS.definition: Literal(
-                    "A phone specifically provided for making calls to emergency services."
-                ),
             },
             "Video_Intercom": {
                 "tags": [TAG.Equipment, TAG.Security, TAG.Intercom, TAG.Video],
-                SKOS.definition: Literal(
-                    "An intercom device that has video capabilites as well as voice capabilities"
-                ),
             },
         },
     },
@@ -596,28 +512,14 @@ safety_subclasses = {
     "Automated_External_Defibrillator": {
         OWL.equivalentClass: BRICK["AED"],
         "tags": [TAG.Equipment, TAG.Safety, TAG.AED, TAG.Defibrillator],
-        SKOS.definition: Literal(
-            "Automated External Defibrillator. Used by trained people to help those experiencing cardiac issues."
-        ),
     },
     "AED": {
         OWL.equivalentClass: BRICK["Automated_External_Defibrillator"],
         "tags": [TAG.Equipment, TAG.Safety, TAG.AED, TAG.Defibrillator],
-        SKOS.definition: Literal(
-            "Automated External Defibrillator. Used by trained people to help those experiencing cardiac issues."
-        ),
     },
-    "First_Aid_Kit": {
-        "tags": [TAG.Equipment, TAG.Safety, TAG.Aid, TAG.FirstAid],
-        SKOS.definition: Literal(
-            "A collection of medical supplies placed in a well-known location to provide immediate treatment"
-        ),
-    },
+    "First_Aid_Kit": {"tags": [TAG.Equipment, TAG.Safety, TAG.Aid, TAG.FirstAid]},
     "Emergency_Wash_Station": {
         "tags": [TAG.Equipment, TAG.Safety, TAG.Wash, TAG.Station, TAG.Emergency],
-        SKOS.definition: Literal(
-            "A piece of plumbed equipment to flush chemicals or hazardous substances off of a person"
-        ),
         "subclasses": {
             "Eye_Wash_Station": {
                 "tags": [
@@ -628,9 +530,6 @@ safety_subclasses = {
                     TAG.Emergency,
                     TAG.Eye,
                 ],
-                SKOS.definition: Literal(
-                    "An emergency wash station to flush chemicals or hazardous substances out of a persons eye"
-                ),
             },
             "Safety_Shower": {
                 "tags": [
@@ -641,9 +540,6 @@ safety_subclasses = {
                     TAG.Emergency,
                     TAG.Shower,
                 ],
-                SKOS.definition: Literal(
-                    "An emergency wash station to flush chemicals or hazardous substances off of a person"
-                ),
             },
             "Drench_Hose": {
                 "tags": [
@@ -655,9 +551,6 @@ safety_subclasses = {
                     TAG.Drench,
                     TAG.Hose,
                 ],
-                SKOS.definition: Literal(
-                    "An emergency wash station to flush chemicals or hazardous substances off of a person by spraying water on them from a distance"
-                ),
             },
         },
     },

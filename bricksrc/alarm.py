@@ -1,14 +1,8 @@
 from rdflib import Literal
-from .namespaces import BRICK, TAG, SKOS, RDFS
+from .namespaces import BRICK, TAG, RDFS
 
 alarm_definitions = {
     "Alarm": {
-        SKOS.definition: Literal(
-            "Alarm points are signals (either audible or visual) that alert an operator to an off-normal condition which requires some form of corrective action"
-        ),
-        RDFS.seeAlso: Literal(
-            "https://xp20.ashrae.org/terminology/index.php?term=alarm"
-        ),
         "tags": [TAG.Point, TAG.Alarm],
         "subclasses": {
             "Air_Alarm": {

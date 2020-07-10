@@ -1,3 +1,4 @@
+import csv
 import logging
 from collections import defaultdict
 from rdflib import Graph, Literal, BNode, URIRef
@@ -293,18 +294,74 @@ def define_properties(definitions, superprop=None):
                 G.add((BRICK[prop], propname, propval))
 
 
-# TODO: remove
-def define_quantitykind_extensions(defs):
+def add_definitions():
     """
-    Defines extensions to QUDT's QuantityKinds
+    Adds definitions for Brick subclasses through SKOS.definitions.
+
+    This parses the definitions from ./bricksrc/definitions.csv and
+    adds it to the graph. If available, adds the source information of
+    through RDFS.seeAlso.
     """
-    for quantitykind, defn in defs.items():
-        G.add((QUDTQK[quantitykind], A, QUDT.QuantityKind))
-        for propname, propvals in defn.items():
-            if not isinstance(propvals, list):
-                propvals = [propvals]
-            for propval in propvals:
-                G.add((QUDTQK[quantitykind], propname, propval))
+    with open("./bricksrc/definitions.csv") as dictionary_file:
+        dictionary = csv.reader(dictionary_file)
+
+        # skip the header
+        next(dictionary)
+
+        # add definitions, citations to the graph
+        for definition in dictionary:
+            term = URIRef(definition[0])
+            if len(definition[1]):
+                G.add((term, SKOS.definition, Literal(definition[1], lang="en")))
+            if len(definition[2]):
+                G.add((term, RDFS.seeAlso, URIRef(definition[2])))
+
+    qstr = """
+    select ?param where {
+      ?param rdfs:subClassOf* brick:Limit.
+    }
+    """
+    limit_def_template = "A parameter that places {direction} bound on the range of permitted values of a {setpoint}."
+    params = [row["param"] for row in G.query(qstr)]
+    for param in params:
+        words = param.split("#")[-1].split("_")
+        prefix = words[0]
+
+        # define "direction" component of Limit definition
+        if prefix == "Min":
+            direction = "a lower"
+        elif prefix == "Max":
+            direction = "an upper"
+        else:
+            prefix = None
+            direction = "a lower or upper"
+
+        # define the "setpoint" component of a Limit definition
+        if param.split("#")[-1] in ["Max_Limit", "Min_Limit", "Limit"]:
+            setpoint = "Setpoint"
+        else:
+            if prefix:
+                setpoint = "_".join(words[1:-1])
+            else:
+                setpoint = "_".join(words[:-1])
+
+        if setpoint.split("_")[-1] != "Setpoint":
+            # While Limits are a boundary of a Setpoint, the associated
+            # Setpoint names are not explicit in class's names. Thus needs
+            # to be explicily added for the definition text.
+            setpoint = setpoint + "_Setpoint"
+            logging.info(f"Inferred setpoint: {setpoint}")
+        limit_def = limit_def_template.format(direction=direction, setpoint=setpoint)
+        G.add((param, SKOS.definition, Literal(limit_def, lang="en")))
+        class_exists = G.query(
+            f"""select ?class where {{
+            BIND(brick:{setpoint} as ?class)
+            ?class rdfs:subClassOf* brick:Class.
+        }}
+        """
+        ).bindings
+        if not class_exists:
+            logging.warning(f"WARNING: {setpoint} does not exist in Brick for {param}.")
 
 
 logging.info("Beginning BRICK Ontology compilation")
@@ -402,6 +459,9 @@ different_tag = BNode("tags_are_different")
 G.add((BRICK.Tag, A, OWL.AllDifferent))
 G.add((BRICK.Tag, OWL.distinctMembers, different_tag))
 Collection(G, different_tag, different_tag_list)
+
+logging.info("Adding class definitions")
+add_definitions()
 
 logging.info(f"Brick ontology compilation finished! Generated {len(G)} triples")
 # serialize to output

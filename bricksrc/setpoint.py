@@ -1,11 +1,8 @@
-from .namespaces import TAG, BRICK, SKOS, RDFS
+from .namespaces import TAG, BRICK, RDFS
 from rdflib import Literal
 
 setpoint_definitions = {
     "Setpoint": {
-        SKOS.definition: Literal(
-            "A Setpoint is an input value at which the desired property is set"
-        ),
         RDFS.seeAlso: Literal(
             "https://xp20.ashrae.org/terminology/index.php?term=setpoint"
         ),
@@ -723,7 +720,6 @@ setpoint_definitions = {
             },
             "Reset_Setpoint": {
                 "tags": [TAG.Point, TAG.Reset, TAG.Setpoint],
-                SKOS.definition: Literal("Setpoints used in Reset strategies"),
                 "subclasses": {
                     "Discharge_Air_Flow_Reset_Setpoint": {
                         "tags": [
@@ -1114,9 +1110,6 @@ setpoint_definitions = {
                                             TAG.Temperature,
                                             TAG.Setpoint,
                                         ],
-                                        SKOS.definition: Literal(
-                                            "Disables hot water system when outside air temperature reaches the indicated value"
-                                        ),
                                     },
                                     "Enable_Hot_Water_System_Outside_Air_Temperature_Setpoint": {
                                         "tags": [
@@ -1130,9 +1123,6 @@ setpoint_definitions = {
                                             TAG.Temperature,
                                             TAG.Setpoint,
                                         ],
-                                        SKOS.definition: Literal(
-                                            "Enables hot water system when outside air temperature reaches the indicated value"
-                                        ),
                                     },
                                     "Open_Heating_Valve_Outside_Air_Temperature_Setpoint": {
                                         "tags": [
@@ -1214,9 +1204,6 @@ setpoint_definitions = {
                             TAG.Setpoint,
                             TAG.Schedule,
                         ],
-                        SKOS.definition: Literal(
-                            "The current setpoint as indicated by the schedule"
-                        ),
                     },
                     "Water_Temperature_Setpoint": {
                         "subclasses": {

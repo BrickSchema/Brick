@@ -1,11 +1,8 @@
 from rdflib import Literal
-from .namespaces import BRICK, TAG, SKOS
+from .namespaces import BRICK, TAG
 
 parameter_definitions = {
     "Parameter": {
-        SKOS.definition: Literal(
-            "Parameter points are configuration settings used to guide the operation of equipment and control systems; for example they may provide bounds on valid setpoint values"
-        ),
         "tags": [TAG.Point, TAG.Parameter],
         "subclasses": {
             "Delay_Parameter": {
@@ -85,9 +82,6 @@ parameter_definitions = {
                         ],
                     },
                     "Lockout_Temperature_Differential_Parameter": {
-                        SKOS.definition: Literal(
-                            "Parameters determining a range of temperature during which a process cannot be activated (cool-down period)",
-                        ),
                         "tags": [
                             TAG.Point,
                             TAG.Lockout,
@@ -97,9 +91,6 @@ parameter_definitions = {
                         ],
                         "subclasses": {
                             "Outside_Air_Lockout_Temperature_Differential_Parameter": {
-                                SKOS.definition: Literal(
-                                    "Parameters determining a range of outside air temperature during which a process cannot be activated (cool-down period)",
-                                ),
                                 "tags": [
                                     TAG.Point,
                                     TAG.Outside,
@@ -111,9 +102,6 @@ parameter_definitions = {
                                 ],
                                 "subclasses": {
                                     "Low_Outside_Air_Lockout_Temperature_Differential_Parameter": {
-                                        SKOS.definition: Literal(
-                                            "The lower bound of the outside air temperature lockout range",
-                                        ),
                                         "tags": [
                                             TAG.Point,
                                             TAG.Low,
@@ -126,9 +114,6 @@ parameter_definitions = {
                                         ],
                                     },
                                     "High_Outside_Air_Lockout_Temperature_Differential_Parameter": {
-                                        SKOS.definition: Literal(
-                                            "The upper bound of the outside air temperature lockout range",
-                                        ),
                                         "tags": [
                                             TAG.Point,
                                             TAG.High,
