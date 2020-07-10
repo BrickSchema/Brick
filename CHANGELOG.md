@@ -18,9 +18,11 @@ Finally, Brick v1.1 incorporates a set of tags --- atomic identifiers --- which 
 For technical details on these changes, we refer the reader to a [recent publication in BuildSys 2019](https://brickschema.org/papers/HouseOfSticks-BuildSys-2019-Fierro.pdf).
 
 Changes:
+- definitions have been added to the majority of the Brick classes: please file an issue if you have feedback on any of the definitions or would like to add a new one
 - the ontological reasoning requirements of Brick are consistent with the [OWL RL ontology profile](https://www.w3.org/TR/owl2-profiles/#OWL_2_RL)
 - some restructuring of the class structure in order to make it more consistent
 - tags have been applied to the majority of classes in the Brick definition: For more information on Brick's tags, see the [Tags](https://github.com/BrickSchema/brick#tags) section of the main `README`
+- adding safety, security equipment into the hierarchy
 
 
 Backwards incompatible changes:
