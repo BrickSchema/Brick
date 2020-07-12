@@ -129,24 +129,6 @@ equipment_subclasses = {
             "Building_Meter": {"tags": [TAG.Meter, TAG.Equipment, TAG.Building]},
         },
     },
-    "Water_System": {
-        "tags": [TAG.Water, TAG.Equipment],
-        "subclasses": {
-            "Chilled_Water_System": {
-                OWL.equivalentClass: BRICK["CWS"],
-                "tags": [TAG.Water, TAG.Chilled, TAG.Equipment],
-            },
-            "Hot_Water_System": {
-                OWL.equivalentClass: BRICK["HWS"],
-                "tags": [TAG.Water, TAG.Hot, TAG.Equipment],
-            },
-            "CWS": {
-                OWL.equivalentClass: BRICK["Chilled_Water_System"],
-                "tags": [TAG.CWS],
-            },
-            "HWS": {OWL.equivalentClass: BRICK["Hot_Water_System"], "tags": [TAG.HWS]},
-        },
-    },
     "Water_Distribution": {
         "tags": [TAG.Water, TAG.Distribution, TAG.Equipment],
         SKOS.definition: Literal(
