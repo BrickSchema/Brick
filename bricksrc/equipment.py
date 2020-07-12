@@ -9,51 +9,56 @@ equipment_subclasses = {
         "tags": [TAG.HVAC]
     },
     "Weather": {"tags": [TAG.Weather]},
-    "Energy_Storage": {
-        "tags": [TAG.Energy, TAG.Storage, TAG.Equipment],
+    "Electrical_Equipment": {
+        "tags": [TAG.Electrical, TAG.Equipment],
         "subclasses": {
-            "Battery": {
-                "tags": [TAG.Battery, TAG.Energy, TAG.Storage, TAG.Equipment],
+            "Energy_Storage": {
+                "tags": [TAG.Energy, TAG.Storage, TAG.Equipment],
+                "subclasses": {
+                    "Battery": {
+                        "tags": [TAG.Battery, TAG.Energy, TAG.Storage, TAG.Equipment],
+                    },
+                },
+            },
+            "Inverter": {"tags": [TAG.Inverter, TAG.Equipment]},
+            "PlugStrip": {"tags": [TAG.PlugStrip, TAG.Equipment]},
+            "Disconnect_Switch": {
+                "tags": [TAG.Disconnect, TAG.Switch, TAG.Equipment],
+                SKOS.definition: Literal(
+                    "Building power is most commonly provided by utility company through a master disconnect switch (sometimes called a service disconnect) in the main electrical room of a building. The Utility Company provided master disconnect switch often owns or restricts access to this switch. There can also be other cases where a disconnect is placed into an electrical system to allow service cut-off to a portion of the building."
+                ),
+            },
+            "Switchgear": {
+                "tags": [TAG.Switchgear, TAG.Equipment],
+                SKOS.definition: Literal(
+                    "A main disconnect or service disconnect feeds power to a switchgear, which then distributes power to the rest of the building through smaller amperage-rated disconnects."
+                ),
+            },
+            "Bus_Riser": {
+                "tags": [TAG.Riser, TAG.Equipment],
+                SKOS.definition: Literal(
+                    "Bus Risers are commonly fed from a switchgear and rise up through a series of floors to the main power distribution source for each floor."
+                ),
+            },
+            "Transformer": {
+                "tags": [TAG.Transformer, TAG.Equipment],
+                SKOS.definition: Literal(
+                    "A Transformer is usually fed by a high-voltage source and then steps down the voltage to a lower-voltage feed for low-voltage application (such as lights). Transformers also can step up voltage, but this generally does not apply to in building distribution."
+                ),
+            },
+            "Motor_Control_Center": {
+                "tags": [TAG.Motor, TAG.Equipment],
+                SKOS.definition: Literal(
+                    "The Motor Control Center is a specialized type of switchgear which provides electrical power to major mechanical systems in the building such as HVAC components."
+                ),
+            },
+            "Breaker_Panel": {
+                "tags": [TAG.Breaker, TAG.Equipment],
+                SKOS.definition: Literal(
+                    "Breaker Panel distributes power into various end-uses."
+                ),
             },
         },
-    },
-    "Inverter": {"tags": [TAG.Inverter, TAG.Equipment]},
-    "PlugStrip": {"tags": [TAG.PlugStrip, TAG.Equipment]},
-    "Disconnect_Switch": {
-        "tags": [TAG.Disconnect, TAG.Switch, TAG.Equipment],
-        SKOS.definition: Literal(
-            "Building power is most commonly provided by utility company through a master disconnect switch (sometimes called a service disconnect) in the main electrical room of a building. The Utility Company provided master disconnect switch often owns or restricts access to this switch. There can also be other cases where a disconnect is placed into an electrical system to allow service cut-off to a portion of the building."
-        ),
-    },
-    "Switchgear": {
-        "tags": [TAG.Switchgear, TAG.Equipment],
-        SKOS.definition: Literal(
-            "A main disconnect or service disconnect feeds power to a switchgear, which then distributes power to the rest of the building through smaller amperage-rated disconnects."
-        ),
-    },
-    "Bus_Riser": {
-        "tags": [TAG.Riser, TAG.Equipment],
-        SKOS.definition: Literal(
-            "Bus Risers are commonly fed from a switchgear and rise up through a series of floors to the main power distribution source for each floor."
-        ),
-    },
-    "Transformer": {
-        "tags": [TAG.Transformer, TAG.Equipment],
-        SKOS.definition: Literal(
-            "A Transformer is usually fed by a high-voltage source and then steps down the voltage to a lower-voltage feed for low-voltage application (such as lights). Transformers also can step up voltage, but this generally does not apply to in building distribution."
-        ),
-    },
-    "Motor_Control_Center": {
-        "tags": [TAG.Motor, TAG.Equipment],
-        SKOS.definition: Literal(
-            "The Motor Control Center is a specialized type of switchgear which provides electrical power to major mechanical systems in the building such as HVAC components."
-        ),
-    },
-    "Breaker_Panel": {
-        "tags": [TAG.Breaker, TAG.Equipment],
-        SKOS.definition: Literal(
-            "Breaker Panel distributes power into various end-uses."
-        ),
     },
     "Gas_Distribution": {
         "tags": [TAG.Gas, TAG.Distribution, TAG.Equipment],
@@ -143,39 +148,50 @@ equipment_subclasses = {
     },
     "Solar_Panel": {"tags": [TAG.Solar, TAG.Equipment]},
     "Louver": {"tags": [TAG.Shade, TAG.Equipment, TAG.Louver]},
-    "Lighting": {
+    "Lighting_Equipment": {
+        "tags": [TAG.Lighting, TAG.Equipment],
         "subclasses": {
-            "Luminaire": {"tags": [TAG.Luminaire, TAG.Equipment]},
-            "Luminaire_Driver": {
-                "tags": [TAG.Luminaire, TAG.Driver, TAG.Equipment],
-            },
-        },
-    },
-    "Interface": {
-        "tags": [TAG.Equipment, TAG.Interface],
-        "subclasses": {
-            "Switch": {
-                "tags": [TAG.Equipment, TAG.Interface, TAG.Switch],
+            "Lighting": {
                 "subclasses": {
-                    "Dimmer": {
-                        "tags": [
-                            TAG.Equipment,
-                            TAG.Interface,
-                            TAG.Switch,
-                            TAG.Dimmer,
-                        ],
+                    "Luminaire": {"tags": [TAG.Luminaire, TAG.Equipment]},
+                    "Luminaire_Driver": {
+                        "tags": [TAG.Luminaire, TAG.Driver, TAG.Equipment],
                     },
                 },
             },
-            "Touchpanel": {
-                "tags": [TAG.Equipment, TAG.Interface, TAG.Touchpanel],
+            "Interface": {
+                "tags": [TAG.Equipment, TAG.Interface],
+                "subclasses": {
+                    "Switch": {
+                        "tags": [TAG.Equipment, TAG.Interface, TAG.Switch],
+                        "subclasses": {
+                            "Dimmer": {
+                                "tags": [
+                                    TAG.Equipment,
+                                    TAG.Interface,
+                                    TAG.Switch,
+                                    TAG.Dimmer,
+                                ],
+                            },
+                        },
+                    },
+                    "Touchpanel": {
+                        "tags": [TAG.Equipment, TAG.Interface, TAG.Touchpanel],
+                    },
+                },
             },
         },
     },
     "Furniture": {"tags": [TAG.Equipment, TAG.Furniture]},
-    "Fire_Control_Panel": {
-        "tags": [TAG.Equipment, TAG.Fire, TAG.Safety, TAG.Panel],
-        OWL.equivalentClass: BRICK["FCP"],
+    "Fire_Safety_Equipment": {
+        "tags": [TAG.Equipment, TAG.Fire, TAG.Safety, TAG.Equipment],
+        "subclasses": {
+            "Fire_Control_Panel": {
+                "tags": [TAG.Equipment, TAG.Fire, TAG.Safety, TAG.Panel],
+                OWL.equivalentClass: BRICK["FCP"],
+            },
+            "FCP": {"tags": [TAG.FCP, TAG.Equipment]},
+        },
     },
     "FCP": {"tags": [TAG.FCP, TAG.Equipment]},
     "Elevator": {"tags": [TAG.Elevator, TAG.Equipment]},
