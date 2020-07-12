@@ -15,11 +15,9 @@ system_subclasses = {
                 "tags": [TAG.Water, TAG.System],
                 "subclasses": {
                     "Chilled_Water_System": {
-                        OWL.equivalentClass: BRICK["CWS"],
                         "tags": [TAG.Water, TAG.Chilled, TAG.System],
                     },
                     "Hot_Water_System": {
-                        OWL.equivalentClass: BRICK["HWS"],
                         "tags": [TAG.Water, TAG.Hot, TAG.System],
                         "subclasses": {
                             "Preheat_Hot_Water_System": {
@@ -60,14 +58,6 @@ system_subclasses = {
                                 ]
                             },
                         },
-                    },
-                    "CWS": {
-                        OWL.equivalentClass: BRICK["Chilled_Water_System"],
-                        "tags": [TAG.CWS],
-                    },
-                    "HWS": {
-                        OWL.equivalentClass: BRICK["Hot_Water_System"],
-                        "tags": [TAG.HWS],
                     },
                 },
             },
