@@ -1,27 +1,11 @@
 from rdflib import Literal
-from .namespaces import TAG, BRICK, SKOS
+from .namespaces import TAG, BRICK
 
 command_definitions = {
     "Command": {
-        SKOS.definition: Literal(
-            "A Command is an output point that directly determines the behavior of equipment and/or affects relevant operational points."
-        ),
         "tags": [TAG.Point, TAG.Command],
         "subclasses": {
-            "Cooling_Command": {
-                "tags": [TAG.Point, TAG.Cool, TAG.Command],
-                "subclasses": {
-                    "Highest_Zone_Cooling_Command": {
-                        "tags": [
-                            TAG.Point,
-                            TAG.Highest,
-                            TAG.Zone,
-                            TAG.Cool,
-                            TAG.Command,
-                        ],
-                    },
-                },
-            },
+            "Cooling_Command": {"tags": [TAG.Point, TAG.Cool, TAG.Command]},
             "Heating_Command": {"tags": [TAG.Point, TAG.Heat, TAG.Command]},
             "Luminance_Command": {"tags": [TAG.Point, TAG.Luminance, TAG.Command]},
             "Bypass_Command": {"tags": [TAG.Point, TAG.Bypass, TAG.Command]},
@@ -56,43 +40,6 @@ command_definitions = {
                     },
                     "Speed_Reset_Command": {
                         "tags": [TAG.Point, TAG.Speed, TAG.Reset, TAG.Command],
-                        "subclasses": {
-                            "Fan_Speed_Reset_Command": {
-                                "tags": [
-                                    TAG.Point,
-                                    TAG.Fan,
-                                    TAG.Speed,
-                                    TAG.Reset,
-                                    TAG.Command,
-                                ],
-                            },
-                        },
-                    },
-                },
-            },
-            "Shutdown_Command": {
-                "tags": [TAG.Point, TAG.Shutdown, TAG.Command],
-                "subclasses": {
-                    "Hot_Water_Shutdown_Command": {
-                        "tags": [
-                            TAG.Point,
-                            TAG.Hot,
-                            TAG.Water,
-                            TAG.Shutdown,
-                            TAG.Command,
-                        ],
-                        "subclasses": {
-                            "Unoccupied_Hot_Water_Shutdown_Command": {
-                                "tags": [
-                                    TAG.Point,
-                                    TAG.Unoccupied,
-                                    TAG.Hot,
-                                    TAG.Water,
-                                    TAG.Shutdown,
-                                    TAG.Command,
-                                ],
-                            },
-                        },
                     },
                 },
             },
@@ -312,51 +259,10 @@ command_definitions = {
             },
             "Occupancy_Command": {"tags": [TAG.Point, TAG.Occupancy, TAG.Command]},
             "On_Off_Command": {
-                SKOS.definition: Literal(
-                    "An On/Off Command controls or reports the binary status of a control loop, relay or equipment activity"
-                ),
                 "tags": [TAG.Point, TAG.On, TAG.Off, TAG.Command],
                 "subclasses": {
-                    "Off_Command": {
-                        SKOS.definition: Literal(
-                            "An Off Command controls or reports the binary 'off' status of a control loop, relay or equipment activity. It can only be used to stop/terminate/deactivate an associated equipment or process, or determine that the related entity is 'off'"
-                        ),
-                        "tags": [TAG.Point, TAG.Off, TAG.Command],
-                        "subclasses": {
-                            "Exhaust_Fan_Fire_Control_Panel_Off_Command": {
-                                "tags": [
-                                    TAG.Point,
-                                    TAG.Exhaust,
-                                    TAG.Fan,
-                                    TAG.Fire,
-                                    TAG.Control,
-                                    TAG.Panel,
-                                    TAG.Off,
-                                    TAG.Command,
-                                ],
-                            }
-                        },
-                    },
-                    "On_Command": {
-                        SKOS.definition: Literal(
-                            "An On Command controls or reports the binary 'on' status of a control loop, relay or equipment activity. It can only be used to start/activate an associated equipment or process, or determine that the related entity is 'on'"
-                        ),
-                        "tags": [TAG.Point, TAG.On, TAG.Command],
-                        "subclasses": {
-                            "Exhaust_Fan_Fire_Control_Panel_On_Command": {
-                                "tags": [
-                                    TAG.Point,
-                                    TAG.Exhaust,
-                                    TAG.Fan,
-                                    TAG.Fire,
-                                    TAG.Control,
-                                    TAG.Panel,
-                                    TAG.On,
-                                    TAG.Command,
-                                ],
-                            }
-                        },
-                    },
+                    "Off_Command": {"tags": [TAG.Point, TAG.Off, TAG.Command]},
+                    "On_Command": {"tags": [TAG.Point, TAG.On, TAG.Command]},
                     "Lead_On_Off_Command": {
                         "tags": [TAG.Point, TAG.Lead, TAG.On, TAG.Off, TAG.Command],
                     },
@@ -365,9 +271,6 @@ command_definitions = {
                     },
                     "Start_Stop_Command": {
                         "tags": [TAG.Point, TAG.Start, TAG.Stop, TAG.Command],
-                        SKOS.definition: Literal(
-                            "A Start/Stop Command controls or reports the active/inactive status of a control sequence"
-                        ),
                     },
                 },
             },
@@ -378,10 +281,6 @@ command_definitions = {
                         "tags": [TAG.Point, TAG.Curtailment, TAG.Override, TAG.Command],
                     },
                 },
-            },
-            "Lockout_Command": {"tags": [TAG.Point, TAG.Lockout, TAG.Command]},
-            "Run_Request_Command": {
-                "tags": [TAG.Point, TAG.Run, TAG.Request, TAG.Command],
             },
         },
     }

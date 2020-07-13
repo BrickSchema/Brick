@@ -1,6 +1,6 @@
 from rdflib import Literal
 
-from .namespaces import BRICK, TAG, OWL, SKOS
+from .namespaces import BRICK, TAG, OWL
 
 """
 Location class structure
@@ -11,27 +11,16 @@ location_subclasses = {
         "tags": [TAG.Floor, TAG.Location],
         "subclasses": {
             "Basement": {"tags": [TAG.Basement, TAG.Location, TAG.Floor]},
-            "Rooftop": {
-                "tags": [TAG.Rooftop, TAG.Location, TAG.Floor],
-                SKOS.definition: Literal("The top surface area of a roof."),
-            },
+            "Rooftop": {"tags": [TAG.Rooftop, TAG.Location, TAG.Floor]},
         },
         OWL.equivalentClass: BRICK["Storey"],
-        SKOS.definition: Literal(
-            "A level, typically representing a horizontal aggregation of spaces that are vertically bound. (referring to IFC)"
-        ),
     },
     "Storey": {
         "tags": [TAG.Storey, TAG.Location],
         OWL.equivalentClass: BRICK["Floor"],
     },
     "Outside": {"tags": [TAG.Outside, TAG.Location]},
-    "Site": {
-        "tags": [TAG.Site, TAG.Location],
-        SKOS.definition: Literal(
-            "A site is a geographic region that may or may not include built structures."
-        ),
-    },
+    "Site": {"tags": [TAG.Site, TAG.Location]},
     "Wing": {"tags": [TAG.Wing, TAG.Location]},
     "Space": {
         "tags": [TAG.Space, TAG.Location],

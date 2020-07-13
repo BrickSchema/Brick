@@ -1,11 +1,8 @@
 from rdflib import Literal
-from .namespaces import BRICK, TAG, SKOS
+from .namespaces import BRICK, TAG
 
 parameter_definitions = {
     "Parameter": {
-        SKOS.definition: Literal(
-            "Parameter points are configuration settings used to guide the operation of equipment and control systems; for example they may provide bounds on valid setpoint values"
-        ),
         "tags": [TAG.Point, TAG.Parameter],
         "subclasses": {
             "Delay_Parameter": {
@@ -83,6 +80,54 @@ parameter_definitions = {
                             TAG.Temperature,
                             TAG.Parameter,
                         ],
+                    },
+                    "Lockout_Temperature_Differential_Parameter": {
+                        "tags": [
+                            TAG.Point,
+                            TAG.Lockout,
+                            TAG.Temperature,
+                            TAG.Differential,
+                            TAG.Sensor,
+                        ],
+                        "subclasses": {
+                            "Outside_Air_Lockout_Temperature_Differential_Parameter": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Outside,
+                                    TAG.Air,
+                                    TAG.Lockout,
+                                    TAG.Temperature,
+                                    TAG.Differential,
+                                    TAG.Parameter,
+                                ],
+                                "subclasses": {
+                                    "Low_Outside_Air_Lockout_Temperature_Differential_Parameter": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Low,
+                                            TAG.Outside,
+                                            TAG.Air,
+                                            TAG.Lockout,
+                                            TAG.Temperature,
+                                            TAG.Differential,
+                                            TAG.Parameter,
+                                        ],
+                                    },
+                                    "High_Outside_Air_Lockout_Temperature_Differential_Parameter": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.High,
+                                            TAG.Outside,
+                                            TAG.Air,
+                                            TAG.Lockout,
+                                            TAG.Temperature,
+                                            TAG.Differential,
+                                            TAG.Parameter,
+                                        ],
+                                    },
+                                },
+                            },
+                        },
                     },
                 },
             },
