@@ -472,9 +472,6 @@ valve_subclasses = {
     "Cooling_Valve": {"tags": [TAG.Valve, TAG.Cool, TAG.Equipment]},
     "Water_Valve": {
         "tags": [TAG.Valve, TAG.Water, TAG.Equipment],
-        SKOS.definition: Literal(
-            "Building water is provided by utility company and sourced through a master building feed."
-        ),
         "subclasses": {
             "Chilled_Water_Valve": {
                 "tags": [TAG.Chilled, TAG.Valve, TAG.Water, TAG.Equipment],
@@ -483,16 +480,10 @@ valve_subclasses = {
     },
     "Gas_Valve": {
         "tags": [TAG.Gas, TAG.Valve, TAG.Equipment],
-        SKOS.definition: Literal(
-            "Building gas is provided by utility company and sourced through a master building feed."
-        ),
     },
     "Isolation_Valve": {"tags": [TAG.Isolation, TAG.Valve, TAG.Equipment]},
     "Steam_Valve": {
         "tags": [TAG.Steam, TAG.Valve, TAG.Equipment],
-        SKOS.definition: Literal(
-            "Building steam is provided by the utility company and sourced through a master building feed."
-        ),
     },
 }
 
