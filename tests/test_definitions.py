@@ -79,14 +79,6 @@ def test_obsolete_definitions():
                               ?term skos:definition|rdfs:seeAlso ?definition .
                               FILTER NOT EXISTS {
                                 ?term (rdfs:subPropertyOf|rdfs:subClassOf|a)+ ?something .
-                                VALUES ?something {
-                                  brick:Class
-                                  brick:Relationship
-                                  owl:AsymmetricProperty
-                                  owl:IrreflexiveProperty
-                                  owl:ObjectProperty
-                                  owl:Ontology
-                                } .
                               }
                         }"""
     )
