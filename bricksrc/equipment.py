@@ -188,12 +188,9 @@ equipment_subclasses = {
         "subclasses": {
             "Fire_Control_Panel": {
                 "tags": [TAG.Equipment, TAG.Fire, TAG.Safety, TAG.Panel],
-                OWL.equivalentClass: BRICK["FCP"],
             },
-            "FCP": {"tags": [TAG.FCP, TAG.Equipment]},
         },
     },
-    "FCP": {"tags": [TAG.FCP, TAG.Equipment]},
     "Elevator": {"tags": [TAG.Elevator, TAG.Equipment]},
     "Security_Equipment": {"tags": [TAG.Security, TAG.Equipment]},
     "Safety_Equipment": {"tags": [TAG.Safety, TAG.Equipment]},
