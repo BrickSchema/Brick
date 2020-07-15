@@ -6,20 +6,12 @@ Set up subclasses of the equipment superclass
 """
 equipment_subclasses = {
     "HVAC": {
-        OWL.equivalentClass: BRICK["Heating_Ventilation_Air_Conditioning_System"],
-        "tags": [TAG.Heat, TAG.Ventilation, TAG.Air, TAG.Conditioning, TAG.System],
-    },
-    "Heating_Ventilation_Air_Conditioning_System": {
-        OWL.equivalentClass: BRICK["HVAC"],
-        "tags": [TAG.HVAC],
+        "tags": [TAG.HVAC]
     },
     "Weather": {"tags": [TAG.Weather]},
-    "Electrical_System": {
-        "tags": [TAG.Electrical, TAG.System],
+    "Electrical_Equipment": {
+        "tags": [TAG.Electrical, TAG.Equipment],
         "subclasses": {
-            "Emergency_Power_Off_System": {
-                "tags": [TAG.Emergency, TAG.Power, TAG.Off, TAG.Equipment],
-            },
             "Energy_Storage": {
                 "tags": [TAG.Energy, TAG.Storage, TAG.Equipment],
                 "subclasses": {
@@ -30,7 +22,28 @@ equipment_subclasses = {
             },
             "Inverter": {"tags": [TAG.Inverter, TAG.Equipment]},
             "PlugStrip": {"tags": [TAG.PlugStrip, TAG.Equipment]},
+            "Disconnect_Switch": {
+                "tags": [TAG.Disconnect, TAG.Switch, TAG.Equipment],
+            },
+            "Switchgear": {
+                "tags": [TAG.Switchgear, TAG.Equipment],
+            },
+            "Bus_Riser": {
+                "tags": [TAG.Riser, TAG.Equipment],
+            },
+            "Transformer": {
+                "tags": [TAG.Transformer, TAG.Equipment],
+            },
+            "Motor_Control_Center": {
+                "tags": [TAG.Motor, TAG.Equipment],
+            },
+            "Breaker_Panel": {
+                "tags": [TAG.Breaker, TAG.Equipment],
+            },
         },
+    },
+    "Gas_Distribution": {
+        "tags": [TAG.Gas, TAG.Distribution, TAG.Equipment],
     },
     "Meter": {
         "tags": [TAG.Meter, TAG.Equipment],
@@ -60,7 +73,6 @@ equipment_subclasses = {
             },
             "Water_Meter": {
                 "tags": [TAG.Meter, TAG.Equipment, TAG.Water],
-                "parents": [BRICK.Water_System],
                 "subclasses": {
                     "Building_Water_Meter": {
                         "tags": [TAG.Building, TAG.Water, TAG.Meter, TAG.Equipment],
@@ -68,7 +80,6 @@ equipment_subclasses = {
                     },
                     "Chilled_Water_Meter": {
                         "tags": [TAG.Meter, TAG.Equipment, TAG.Water, TAG.Chilled],
-                        "parents": [BRICK.Chilled_Water_System],
                         "subclasses": {
                             "Building_Chilled_Water_Meter": {
                                 "tags": [
@@ -84,7 +95,6 @@ equipment_subclasses = {
                     },
                     "Hot_Water_Meter": {
                         "tags": [TAG.Meter, TAG.Equipment, TAG.Water, TAG.Hot],
-                        "parents": [BRICK.Chilled_Water_System],
                         "subclasses": {
                             "Building_Hot_Water_Meter": {
                                 "tags": [
@@ -103,36 +113,15 @@ equipment_subclasses = {
             "Building_Meter": {"tags": [TAG.Meter, TAG.Equipment, TAG.Building]},
         },
     },
-    "Water_System": {
-        "tags": [TAG.Water, TAG.Equipment],
-        "subclasses": {
-            "Chilled_Water_System": {
-                OWL.equivalentClass: BRICK["CWS"],
-                "tags": [TAG.Water, TAG.Chilled, TAG.Equipment],
-            },
-            "Hot_Water_System": {
-                OWL.equivalentClass: BRICK["HWS"],
-                "tags": [TAG.Water, TAG.Hot, TAG.Equipment],
-                "subclasses": {
-                    "Domestic_Hot_Water_System": {
-                        "tags": [TAG.Domestic, TAG.Water, TAG.Hot, TAG.Equipment],
-                    },
-                },
-            },
-            "CWS": {
-                OWL.equivalentClass: BRICK["Chilled_Water_System"],
-                "tags": [TAG.CWS],
-            },
-            "HWS": {OWL.equivalentClass: BRICK["Hot_Water_System"], "tags": [TAG.HWS]},
-        },
+    "Water_Distribution": {
+        "tags": [TAG.Water, TAG.Distribution, TAG.Equipment],
     },
-    "Steam_System": {"tags": [TAG.Steam, TAG.Equipment]},
+    "Steam_Distribution": {
+        "tags": [TAG.Steam, TAG.Distribution, TAG.Equipment],
+    },
     "Solar_Panel": {"tags": [TAG.Solar, TAG.Equipment]},
-    "Shading_System": {
-        "tags": [TAG.Shade, TAG.Equipment],
-        "subclasses": {"Louver": {"tags": [TAG.Shade, TAG.Equipment, TAG.Louver]}},
-    },
-    "Lighting_System": {
+    "Louver": {"tags": [TAG.Shade, TAG.Equipment, TAG.Louver]},
+    "Lighting_Equipment": {
         "tags": [TAG.Lighting, TAG.Equipment],
         "subclasses": {
             "Lighting": {
@@ -167,14 +156,12 @@ equipment_subclasses = {
         },
     },
     "Furniture": {"tags": [TAG.Equipment, TAG.Furniture]},
-    "Fire_Safety_System": {
-        "tags": [TAG.Equipment, TAG.Fire, TAG.Safety, TAG.System],
+    "Fire_Safety_Equipment": {
+        "tags": [TAG.Equipment, TAG.Fire, TAG.Safety, TAG.Equipment],
         "subclasses": {
             "Fire_Control_Panel": {
                 "tags": [TAG.Equipment, TAG.Fire, TAG.Safety, TAG.Panel],
-                OWL.equivalentClass: BRICK["FCP"],
             },
-            "FCP": {"tags": [TAG.FCP, TAG.Equipment]},
         },
     },
     "Elevator": {"tags": [TAG.Elevator, TAG.Equipment]},
@@ -374,7 +361,7 @@ valve_subclasses = {
                     TAG.Heat,
                     TAG.Equipment,
                 ],
-                "parents": [BRICK.Domestic_Hot_Water_System, BRICK.Water_Valve],
+                "parents": [BRICK.Water_Valve],
             },
             "Preheat_Hot_Water_Valve": {
                 "tags": [
@@ -385,7 +372,7 @@ valve_subclasses = {
                     TAG.Heat,
                     TAG.Equipment,
                 ],
-                "parents": [BRICK.Hot_Water_System, BRICK.Water_Valve],
+                "parents": [BRICK.Water_Valve],
             },
         },
     },
@@ -395,11 +382,16 @@ valve_subclasses = {
         "subclasses": {
             "Chilled_Water_Valve": {
                 "tags": [TAG.Chilled, TAG.Valve, TAG.Water, TAG.Equipment],
-                "parents": [BRICK.Chilled_Water_System],
             },
         },
     },
+    "Gas_Valve": {
+        "tags": [TAG.Gas, TAG.Valve, TAG.Equipment],
+    },
     "Isolation_Valve": {"tags": [TAG.Isolation, TAG.Valve, TAG.Equipment]},
+    "Steam_Valve": {
+        "tags": [TAG.Steam, TAG.Valve, TAG.Equipment],
+    },
 }
 
 security_subclasses = {
