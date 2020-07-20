@@ -5,10 +5,8 @@ from .namespaces import TAG, OWL, BRICK
 Set up subclasses of the equipment superclass
 """
 equipment_subclasses = {
-    "HVAC": {
-        "tags": [TAG.HVAC]
-    },
-    "Weather": {"tags": [TAG.Weather]},
+    "HVAC": {"tags": [TAG.HVAC]},
+    "Weather_Station": {"tags": [TAG.Weather, TAG.Station]},
     "Electrical_Equipment": {
         "tags": [TAG.Electrical, TAG.Equipment],
         "subclasses": {
@@ -22,29 +20,15 @@ equipment_subclasses = {
             },
             "Inverter": {"tags": [TAG.Inverter, TAG.Equipment]},
             "PlugStrip": {"tags": [TAG.PlugStrip, TAG.Equipment]},
-            "Disconnect_Switch": {
-                "tags": [TAG.Disconnect, TAG.Switch, TAG.Equipment],
-            },
-            "Switchgear": {
-                "tags": [TAG.Switchgear, TAG.Equipment],
-            },
-            "Bus_Riser": {
-                "tags": [TAG.Riser, TAG.Equipment],
-            },
-            "Transformer": {
-                "tags": [TAG.Transformer, TAG.Equipment],
-            },
-            "Motor_Control_Center": {
-                "tags": [TAG.Motor, TAG.Equipment],
-            },
-            "Breaker_Panel": {
-                "tags": [TAG.Breaker, TAG.Equipment],
-            },
+            "Disconnect_Switch": {"tags": [TAG.Disconnect, TAG.Switch, TAG.Equipment]},
+            "Switchgear": {"tags": [TAG.Switchgear, TAG.Equipment]},
+            "Bus_Riser": {"tags": [TAG.Riser, TAG.Equipment]},
+            "Transformer": {"tags": [TAG.Transformer, TAG.Equipment]},
+            "Motor_Control_Center": {"tags": [TAG.Motor, TAG.Equipment]},
+            "Breaker_Panel": {"tags": [TAG.Breaker, TAG.Equipment]},
         },
     },
-    "Gas_Distribution": {
-        "tags": [TAG.Gas, TAG.Distribution, TAG.Equipment],
-    },
+    "Gas_Distribution": {"tags": [TAG.Gas, TAG.Distribution, TAG.Equipment]},
     "Meter": {
         "tags": [TAG.Meter, TAG.Equipment],
         "subclasses": {
@@ -113,12 +97,8 @@ equipment_subclasses = {
             "Building_Meter": {"tags": [TAG.Meter, TAG.Equipment, TAG.Building]},
         },
     },
-    "Water_Distribution": {
-        "tags": [TAG.Water, TAG.Distribution, TAG.Equipment],
-    },
-    "Steam_Distribution": {
-        "tags": [TAG.Steam, TAG.Distribution, TAG.Equipment],
-    },
+    "Water_Distribution": {"tags": [TAG.Water, TAG.Distribution, TAG.Equipment]},
+    "Steam_Distribution": {"tags": [TAG.Steam, TAG.Distribution, TAG.Equipment]},
     "Solar_Panel": {"tags": [TAG.Solar, TAG.Equipment]},
     "Louver": {"tags": [TAG.Shade, TAG.Equipment, TAG.Louver]},
     "Lighting_Equipment": {
@@ -385,13 +365,9 @@ valve_subclasses = {
             },
         },
     },
-    "Gas_Valve": {
-        "tags": [TAG.Gas, TAG.Valve, TAG.Equipment],
-    },
+    "Gas_Valve": {"tags": [TAG.Gas, TAG.Valve, TAG.Equipment]},
     "Isolation_Valve": {"tags": [TAG.Isolation, TAG.Valve, TAG.Equipment]},
-    "Steam_Valve": {
-        "tags": [TAG.Steam, TAG.Valve, TAG.Equipment],
-    },
+    "Steam_Valve": {"tags": [TAG.Steam, TAG.Valve, TAG.Equipment]},
 }
 
 security_subclasses = {
