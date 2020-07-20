@@ -349,7 +349,7 @@ https://brickschema.org/schema/1.1/Brick#Heat_Exchanger_System_Enable_Status,Ind
 https://brickschema.org/schema/1.1/Brick#Heat_Sensor,Measures heat,
 https://brickschema.org/schema/1.1/Brick#Heat_Wheel_VFD,A VFD that drives a heat wheel,
 https://brickschema.org/schema/1.1/Brick#Heating_Coil,"A heating element typically made of pipe, tube or wire that emits heat. Typically filled with hot water, or, in the case of wire, uses electricity.",
-https://brickschema.org/schema/1.1/Brick#Heating_Command,Controls the amount of heating to be delivered (typically as a proportion of total cooling output),
+https://brickschema.org/schema/1.1/Brick#Heating_Command,Controls the amount of heating to be delivered (typically as a proportion of total heating output),
 https://brickschema.org/schema/1.1/Brick#Heating_Demand_Sensor,Measures the amount of power consumed by a heating process; typically found by multiplying the tonnage of a unit (e.g. RTU) by the efficiency rating in kW/ton,
 https://brickschema.org/schema/1.1/Brick#Heating_Demand_Setpoint,Sets the rate required for heating,
 https://brickschema.org/schema/1.1/Brick#Heating_Discharge_Air_Flow_Setpoint,Sets discharge air flow for heating,
