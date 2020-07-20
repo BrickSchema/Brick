@@ -96,7 +96,7 @@ https://brickschema.org/schema/1.1/Brick#CO2_Differential_Sensor,Measures the di
 https://brickschema.org/schema/1.1/Brick#CO2_Level_Sensor,Measures the concentration of CO2,
 https://brickschema.org/schema/1.1/Brick#CO2_Sensor,Measures properties of CO2,
 https://brickschema.org/schema/1.1/Brick#CO2_Setpoint,Sets some property of CO2,
-https://brickschema.org/schema/1.1/Brick#Coil,Exchanger that transfers heat to or from an exhaust airstream to a separated supply airstream.,
+https://brickschema.org/schema/1.1/Brick#Coil,Cooling or heating element made of pipe or tube that may or may not be finned and formed into helical or serpentine shape,ASHRAE
 https://brickschema.org/schema/1.1/Brick#Cold_Box,"in a gas separation unit, the insulated section that contains the low-temperature heat exchangers and distillation columns.",
 https://brickschema.org/schema/1.1/Brick#Coldest_Zone_Air_Temperature_Sensor,The zone temperature that is coldest; drives the supply temperature of hot air. A computed value rather than a physical sensor. Also referred to as a 'Lowest Zone Air Temperature Sensor',
 https://brickschema.org/schema/1.1/Brick#Command,A Command is an output point that directly determines the behavior of equipment and/or affects relevant operational points.,
@@ -343,13 +343,13 @@ https://brickschema.org/schema/1.1/Brick#hasPart,The subject is composed in part
 https://brickschema.org/schema/1.1/Brick#hasPoint,The subject has a digital/analog input/output point given by the object,
 https://brickschema.org/schema/1.1/Brick#hasTag,The subject has the given tag,
 https://brickschema.org/schema/1.1/Brick#hasUnit,The QUDT unit associated with this Point,
-https://brickschema.org/schema/1.1/Brick#Heat_Exchanger,A system that transfers heats between two or more fluids,https://en.wikipedia.org/wiki/Heat_exchanger
+https://brickschema.org/schema/1.1/Brick#Heat_Exchanger,A heat exchanger is a piece of equipment built for efficient heat transfer from one medium to another. The media may be separated by a solid wall to prevent mixing or they may be in direct contact,BEDES
 https://brickschema.org/schema/1.1/Brick#Heat_Exchanger_Supply_Water_Temperature_Sensor,Measures the temperature of water supplied by a heat exchanger,
 https://brickschema.org/schema/1.1/Brick#Heat_Exchanger_System_Enable_Status,Indicates if the heat exchanger system has been enabled,
 https://brickschema.org/schema/1.1/Brick#Heat_Sensor,Measures heat,
 https://brickschema.org/schema/1.1/Brick#Heat_Wheel_VFD,A VFD that drives a heat wheel,
 https://brickschema.org/schema/1.1/Brick#Heating_Coil,"A heating element typically made of pipe, tube or wire that emits heat. Typically filled with hot water, or, in the case of wire, uses electricity.",
-https://brickschema.org/schema/1.1/Brick#Heating_Command,Controls the amount of heating to be delivered (typically as a proportion of total cooling output),
+https://brickschema.org/schema/1.1/Brick#Heating_Command,Controls the amount of heating to be delivered (typically as a proportion of total heating output),
 https://brickschema.org/schema/1.1/Brick#Heating_Demand_Sensor,Measures the amount of power consumed by a heating process; typically found by multiplying the tonnage of a unit (e.g. RTU) by the efficiency rating in kW/ton,
 https://brickschema.org/schema/1.1/Brick#Heating_Demand_Setpoint,Sets the rate required for heating,
 https://brickschema.org/schema/1.1/Brick#Heating_Discharge_Air_Flow_Setpoint,Sets discharge air flow for heating,

@@ -229,6 +229,13 @@ hvac_subclasses = {
                 "tags": [TAG.Condenser, TAG.Equipment, TAG.Heat, TAG.Exchanger],
             },
             "Heat_Wheel": {"tags": [TAG.Equipment, TAG.Heat, TAG.Wheel]},
+            "Coil": {
+                "tags": [TAG.Equipment, TAG.Coil],
+                "subclasses": {
+                    "Cooling_Coil": {"tags": [TAG.Equipment, TAG.Coil, TAG.Cool]},
+                    "Heating_Coil": {"tags": [TAG.Equipment, TAG.Coil, TAG.Heat]},
+                },
+            },
         },
     },
     "HX": {"tags": [TAG.Equipment, TAG.HX]},
@@ -282,13 +289,6 @@ hvac_subclasses = {
         },
     },
     "Compressor": {"tags": [TAG.Equipment, TAG.Compressor]},
-    "Coil": {
-        "tags": [TAG.Equipment, TAG.Coil],
-        "subclasses": {
-            "Cooling_Coil": {"tags": [TAG.Equipment, TAG.Coil, TAG.Cool]},
-            "Heating_Coil": {"tags": [TAG.Equipment, TAG.Coil, TAG.Heat]},
-        },
-    },
     "Chiller": {
         "tags": [TAG.Equipment, TAG.Chiller],
         "subclasses": {
