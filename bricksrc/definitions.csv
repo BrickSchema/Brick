@@ -506,6 +506,7 @@ https://brickschema.org/schema/1.1/Brick#Mode_Status,"Indicates which mode a sys
 https://brickschema.org/schema/1.1/Brick#Monthly_Energy_Usage_Sensor,Measures the total amount of energy used over the current month,
 https://brickschema.org/schema/1.1/Brick#Monthly_Steam_Usage_Sensor,Measures the amount of steam that is consumed or used so far this month,
 https://brickschema.org/schema/1.1/Brick#Motion_Sensor,Detects the presence of motion in some area,
+https://brickschema.org/schema/1.1/Brick#Motor,A machine in which power is applied to do work by the conversion of various forms of energy into mechanical force and motion.,https://xp20.ashrae.org/terminology/index.php?term=motor
 https://brickschema.org/schema/1.1/Brick#Motor_Control_Center,The Motor Control Center is a specialized type of switchgear which provides electrical power to major mechanical systems in the building such as HVAC components.,
 https://brickschema.org/schema/1.1/Brick#Motor_Current_Sensor,Measures the current consumed by a motor,
 https://brickschema.org/schema/1.1/Brick#Motor_Direction_Status,"Indicates which direction a motor is operating in, e.g. forward or reverse",
