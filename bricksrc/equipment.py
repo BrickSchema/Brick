@@ -246,6 +246,8 @@ hvac_subclasses = {
             "Mixed_Air_Filter": {
                 "tags": [TAG.Equipment, TAG.Mixed, TAG.Air, TAG.Filter],
             },
+            "Pre_Filter": {"tags": [TAG.Equipment, TAG.Pre, TAG.Filter]},
+            "Final_Filter": {"tags": [TAG.Equipment, TAG.Final, TAG.Filter]},
         },
     },
     "Fan": {
