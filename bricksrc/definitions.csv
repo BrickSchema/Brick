@@ -789,7 +789,7 @@ https://brickschema.org/schema/1.1/Brick#Water_Temperature_Sensor,Measures the t
 https://brickschema.org/schema/1.1/Brick#Water_Temperature_Setpoint,Sets temperature of water,
 https://brickschema.org/schema/1.1/Brick#Water_Usage_Sensor,"Measures the amount of water that is consumed, over some period of time",
 https://brickschema.org/schema/1.1/Brick#Water_Valve,A valve that modulates the flow of water,
-https://brickschema.org/schema/1.1/Brick#Weather,,
+https://brickschema.org/schema/1.1/Brick#Weather_Station,A dedicated weather measurement station,https://bedes.lbl.gov/bedes-online/weather-station
 https://brickschema.org/schema/1.1/Brick#Weather_Condition,,
 https://brickschema.org/schema/1.1/Brick#Wet_Bulb_Temperature,"The temperature read by a thermometer covered in water-soaked cloth (wet-bulb thermometer) over which air is passed. A wet-bulb thermometer indicates a temperature close to the true (thermodynamic) wet-bulb temperature. The wet-bulb temperature is the lowest temperature that can be reached under current ambient conditions by the evaporation of water only.  DBT is the temperature that is usually thought of as air temperature, and it is the true thermodynamic temperature. It indicates the amount of heat in the air and is directly proportional to the mean kinetic energy of the air molecule. (https://en.wikipedia.org/wiki/Wet-bulb_temperature)",
 https://brickschema.org/schema/1.1/Brick#Wind_Direction,Direction of wind relative to North,
