@@ -256,14 +256,10 @@ hvac_subclasses = {
             },
             "Exhaust_Fan": {"tags": [TAG.Equipment, TAG.Fan, TAG.Exhaust]},
             "Return_Fan": {"tags": [TAG.Equipment, TAG.Fan, TAG.Return]},
+            "Booster_Fan": {"tags": [TAG.Equipment, TAG.Fan, TAG.Booster]},
             "Standby_Fan": {"tags": [TAG.Equipment, TAG.Fan, TAG.Standby]},
             "Discharge_Fan": {"tags": [TAG.Equipment, TAG.Fan, TAG.Discharge]},
-            "Supply_Fan": {
-                "tags": [TAG.Equipment, TAG.Fan, TAG.Supply],
-                "subclasses": {
-                    "Booster_Fan": {"tags": [TAG.Equipment, TAG.Fan, TAG.Booster]},
-                },
-            },
+            "Supply_Fan": {"tags": [TAG.Equipment, TAG.Fan, TAG.Supply]},
         },
     },
     "Economizer": {"tags": [TAG.Equipment, TAG.Economizer]},
