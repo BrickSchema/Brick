@@ -97,6 +97,23 @@ equipment_subclasses = {
             "Building_Meter": {"tags": [TAG.Meter, TAG.Equipment, TAG.Building]},
         },
     },
+    "Motor": {
+        "tags": [TAG.Equipment, TAG.Motor],
+        "subclasses": {
+            "Variable_Frequency_Drive": {
+                "tags": [TAG.Equipment, TAG.Variable, TAG.Frequency, TAG.Drive],
+                OWL.equivalentClass: BRICK["VFD"],
+            },
+            "VFD": {
+                "tags": [TAG.Equipment, TAG.VFD],
+                "subclasses": {
+                    "Heat_Wheel_VFD": {
+                        "tags": [TAG.Equipment, TAG.Heat, TAG.Wheel, TAG.VFD]
+                    },
+                },
+            },
+        },
+    },
     "Water_Distribution": {"tags": [TAG.Water, TAG.Distribution, TAG.Equipment]},
     "Steam_Distribution": {"tags": [TAG.Steam, TAG.Distribution, TAG.Equipment]},
     "Solar_Panel": {"tags": [TAG.Solar, TAG.Equipment]},
@@ -155,19 +172,9 @@ equipment_subclasses = {
 Define classes of HVAC equipment
 """
 hvac_subclasses = {
-    "Variable_Frequency_Drive": {
-        "tags": [TAG.Equipment, TAG.Variable, TAG.Frequency, TAG.Drive],
-        OWL.equivalentClass: BRICK["VFD"],
-    },
     "Valve": {
         "tags": [TAG.Valve, TAG.Equipment]
         # subclasses defined in 'valve_subclasses'
-    },
-    "VFD": {
-        "tags": [TAG.Equipment, TAG.VFD],
-        "subclasses": {
-            "Heat_Wheel_VFD": {"tags": [TAG.Equipment, TAG.Heat, TAG.Wheel, TAG.VFD]},
-        },
     },
     "Thermostat": {"tags": [TAG.Equipment, TAG.Thermostat]},
     "Terminal_Unit": {
