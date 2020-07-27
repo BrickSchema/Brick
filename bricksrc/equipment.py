@@ -1,4 +1,3 @@
-from rdflib import Literal
 from .namespaces import TAG, OWL, BRICK
 
 """
@@ -259,7 +258,10 @@ hvac_subclasses = {
             "Booster_Fan": {"tags": [TAG.Equipment, TAG.Fan, TAG.Booster]},
             "Standby_Fan": {"tags": [TAG.Equipment, TAG.Fan, TAG.Standby]},
             "Discharge_Fan": {"tags": [TAG.Equipment, TAG.Fan, TAG.Discharge]},
-            "Supply_Fan": {"tags": [TAG.Equipment, TAG.Fan, TAG.Supply]},
+            "Supply_Fan": {
+                "tags": [TAG.Equipment, TAG.Fan, TAG.Supply],
+                OWL.equivalentClass: BRICK["Discharge_Fan"],
+            },
         },
     },
     "Economizer": {"tags": [TAG.Equipment, TAG.Economizer]},
