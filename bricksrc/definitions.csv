@@ -622,6 +622,7 @@ https://brickschema.org/schema/1.1/Brick#Return_Air,"air removed from a space to
 https://brickschema.org/schema/1.1/Brick#Return_Air_CO2_Sensor,Measures the concentration of CO2 in return air,
 https://brickschema.org/schema/1.1/Brick#Return_Air_CO2_Setpoint,Sets some property of CO2 in Return Air,
 https://brickschema.org/schema/1.1/Brick#Return_Air_Dewpoint_Sensor,Senses the dewpoint temperature of return air,
+https://brickschema.org/schema/1.1/Brick#Return_Air_Differential_Pressure_Sensor,Measures the difference in pressure between the return and supply side
 https://brickschema.org/schema/1.1/Brick#Return_Air_Enthalpy_Sensor,Measures the total heat content of return air,
 https://brickschema.org/schema/1.1/Brick#Return_Air_Flow_Sensor,Measures the rate of flow of return air,
 https://brickschema.org/schema/1.1/Brick#Return_Air_Grains_Sensor,Measures the mass of water vapor in return air,

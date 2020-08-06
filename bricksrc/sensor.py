@@ -716,6 +716,22 @@ sensor_definitions = {
                                     TAG.Pressure,
                                     TAG.Differential,
                                 ],
+                                "subclasses": {
+                                    "Return_Air_Differential_Pressure_Sensor": {
+                                        "substances": [
+                                            [BRICK.measures, BRICK.Pressure],
+                                            [BRICK.measures, BRICK.Return_Air],
+                                        ],
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Return,
+                                            TAG.Air,
+                                            TAG.Sensor,
+                                            TAG.Pressure,
+                                            TAG.Differential,
+                                        ],
+                                    },
+                                },
                             },
                             "Chilled_Water_Differential_Pressure_Sensor": {
                                 "tags": [
