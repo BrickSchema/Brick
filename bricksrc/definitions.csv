@@ -172,7 +172,7 @@ https://brickschema.org/schema/1.1/Brick#Differential_Speed_Setpoint,Sets differ
 https://brickschema.org/schema/1.1/Brick#Differential_Supply_Return_Water_Temperature_Sensor,Measures the difference in temperature between return and supply water,
 https://brickschema.org/schema/1.1/Brick#Dimmer,A switch providing continuous control over all or part of a lighting installation; typically potentiometer-based,
 https://brickschema.org/schema/1.1/Brick#Direction,,
-https://brickschema.org/schema/1.1/Brick#Direction_Command,Commands that disable functionality,
+https://brickschema.org/schema/1.1/Brick#Direction_Command,Commands that affect the direction of some phenomenon,
 https://brickschema.org/schema/1.1/Brick#Direction_Sensor,Measures the direction in degrees in which a phenomenon is occuring,
 https://brickschema.org/schema/1.1/Brick#Direction_Status,Indicates which direction a device is operating in,
 https://brickschema.org/schema/1.1/Brick#Disable_Command,Commands that disable functionality,
