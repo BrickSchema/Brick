@@ -353,28 +353,6 @@ valve_subclasses = {
             "Return_Heating_Valve": {
                 "tags": [TAG.Valve, TAG.Return, TAG.Heat, TAG.Equipment],
             },
-            "Domestic_Hot_Water_Valve": {
-                "tags": [
-                    TAG.Domestic,
-                    TAG.Water,
-                    TAG.Hot,
-                    TAG.Valve,
-                    TAG.Heat,
-                    TAG.Equipment,
-                ],
-                "parents": [BRICK.Hot_Water_Valve],
-            },
-            "Preheat_Hot_Water_Valve": {
-                "tags": [
-                    TAG.Preheat,
-                    TAG.Water,
-                    TAG.Hot,
-                    TAG.Valve,
-                    TAG.Heat,
-                    TAG.Equipment,
-                ],
-                "parents": [BRICK.Hot_Water_Valve],
-            },
         },
     },
     "Cooling_Valve": {"tags": [TAG.Valve, TAG.Cool, TAG.Equipment]},
@@ -386,6 +364,29 @@ valve_subclasses = {
             },
             "Hot_Water_Valve": {
                 "tags": [TAG.Hot, TAG.Valve, TAG.Water, TAG.Equipment],
+                "parents": [BRICK.Heating_Valve],
+                "subclasses": {
+                    "Domestic_Hot_Water_Valve": {
+                        "tags": [
+                            TAG.Domestic,
+                            TAG.Water,
+                            TAG.Hot,
+                            TAG.Valve,
+                            TAG.Heat,
+                            TAG.Equipment,
+                        ]
+                    },
+                    "Preheat_Hot_Water_Valve": {
+                        "tags": [
+                            TAG.Preheat,
+                            TAG.Water,
+                            TAG.Hot,
+                            TAG.Valve,
+                            TAG.Heat,
+                            TAG.Equipment,
+                        ]
+                    },
+                },
             },
         },
     },
