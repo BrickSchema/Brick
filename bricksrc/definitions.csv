@@ -348,6 +348,7 @@ https://brickschema.org/schema/1.1/Brick#Heat_Exchanger,A heat exchanger is a pi
 https://brickschema.org/schema/1.1/Brick#Heat_Exchanger_Supply_Water_Temperature_Sensor,Measures the temperature of water supplied by a heat exchanger,
 https://brickschema.org/schema/1.1/Brick#Heat_Exchanger_System_Enable_Status,Indicates if the heat exchanger system has been enabled,
 https://brickschema.org/schema/1.1/Brick#Heat_Sensor,Measures heat,
+https://brickschema.org/schema/1.1/Brick#Heat_Wheel,A rotary heat exchanger positioned within the supply and exhaust air streams of an air handling system in order to recover heat energy,https://en.wikipedia.org/wiki/Thermal_wheel
 https://brickschema.org/schema/1.1/Brick#Heat_Wheel_VFD,A VFD that drives a heat wheel,
 https://brickschema.org/schema/1.1/Brick#Heating_Coil,"A heating element typically made of pipe, tube or wire that emits heat. Typically filled with hot water, or, in the case of wire, uses electricity.",
 https://brickschema.org/schema/1.1/Brick#Heating_Command,Controls the amount of heating to be delivered (typically as a proportion of total heating output),
