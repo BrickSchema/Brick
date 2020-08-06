@@ -127,6 +127,7 @@ https://brickschema.org/schema/1.1/Brick#Cooling_Supply_Air_Temperature_Integral
 https://brickschema.org/schema/1.1/Brick#Cooling_Supply_Air_Temperature_Proportional_Band_Parameter,,
 https://brickschema.org/schema/1.1/Brick#Cooling_Temperature_Setpoint,Sets temperature for cooling,
 https://brickschema.org/schema/1.1/Brick#Cooling_Tower_Fan,A fan that pulls air through a cooling tower and across the louvers where the water falls to aid in heat exchange by the process of evaporation,https://highperformancehvac.com/cooling-tower-fan/
+https://brickschema.org/schema/1.1/Brick#Cooling_Tower,"A cooling tower is a heat rejection device that rejects waste heat to the atmosphere through the cooling of a water stream to a lower temperature. Cooling towers may either use the evaporation of water to remove process heat and cool the working fluid to near the wet-bulb air temperature or, in the case of closed circuit dry cooling towers, rely solely on air to cool the working fluid to near the dry-bulb air temperature.",https://en.wikipedia.org/wiki/Cooling_tower
 https://brickschema.org/schema/1.1/Brick#Cooling_Valve,A valve that controls air temperature by modulating the amount of cold water flowing through a cooling coil,
 https://brickschema.org/schema/1.1/Brick#CRAC,,
 https://brickschema.org/schema/1.1/Brick#Current,,
