@@ -238,8 +238,22 @@ hvac_subclasses = {
             "Coil": {
                 "tags": [TAG.Equipment, TAG.Coil],
                 "subclasses": {
-                    "Cooling_Coil": {"tags": [TAG.Equipment, TAG.Coil, TAG.Cool]},
-                    "Heating_Coil": {"tags": [TAG.Equipment, TAG.Coil, TAG.Heat]},
+                    "Cooling_Coil": {
+                        "tags": [TAG.Equipment, TAG.Coil, TAG.Cool],
+                        "subclasses": {
+                            "Chilled_Water_Coil": {
+                                "tags": [TAG.Equipment, TAG.Coil, TAG.Hot, TAG.Water]
+                            },
+                        },
+                    },
+                    "Heating_Coil": {
+                        "tags": [TAG.Equipment, TAG.Coil, TAG.Heat],
+                        "subclasses": {
+                            "Hot_Water_Coil": {
+                                "tags": [TAG.Equipment, TAG.Coil, TAG.Hot, TAG.Water]
+                            },
+                        },
+                    },
                 },
             },
         },
@@ -345,28 +359,6 @@ valve_subclasses = {
             "Return_Heating_Valve": {
                 "tags": [TAG.Valve, TAG.Return, TAG.Heat, TAG.Equipment],
             },
-            "Domestic_Hot_Water_Valve": {
-                "tags": [
-                    TAG.Domestic,
-                    TAG.Water,
-                    TAG.Hot,
-                    TAG.Valve,
-                    TAG.Heat,
-                    TAG.Equipment,
-                ],
-                "parents": [BRICK.Water_Valve],
-            },
-            "Preheat_Hot_Water_Valve": {
-                "tags": [
-                    TAG.Preheat,
-                    TAG.Water,
-                    TAG.Hot,
-                    TAG.Valve,
-                    TAG.Heat,
-                    TAG.Equipment,
-                ],
-                "parents": [BRICK.Water_Valve],
-            },
         },
     },
     "Cooling_Valve": {"tags": [TAG.Valve, TAG.Cool, TAG.Equipment]},
@@ -375,6 +367,32 @@ valve_subclasses = {
         "subclasses": {
             "Chilled_Water_Valve": {
                 "tags": [TAG.Chilled, TAG.Valve, TAG.Water, TAG.Equipment],
+            },
+            "Hot_Water_Valve": {
+                "tags": [TAG.Hot, TAG.Valve, TAG.Water, TAG.Equipment],
+                "parents": [BRICK.Heating_Valve],
+                "subclasses": {
+                    "Domestic_Hot_Water_Valve": {
+                        "tags": [
+                            TAG.Domestic,
+                            TAG.Water,
+                            TAG.Hot,
+                            TAG.Valve,
+                            TAG.Heat,
+                            TAG.Equipment,
+                        ]
+                    },
+                    "Preheat_Hot_Water_Valve": {
+                        "tags": [
+                            TAG.Preheat,
+                            TAG.Water,
+                            TAG.Hot,
+                            TAG.Valve,
+                            TAG.Heat,
+                            TAG.Equipment,
+                        ]
+                    },
+                },
             },
         },
     },
