@@ -8,7 +8,7 @@ six==1.12.0
 pytest
 tqdm
 pyshacl
-docker
+docker>=4.3.0
 brickschema>=0.1.5
 black
 pre-commit
