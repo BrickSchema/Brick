@@ -321,6 +321,28 @@ quantity_definitions = {
                 RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
                 RDFS.label: Literal("ElectricEnergy"),
                 SKOS.broader: QUDTQK["Energy"],
+                SKOS.narrower: {
+                    "Active_Energy": {
+                        QUDT.applicableUnit: [
+                            UNIT["W-HR"],
+                            UNIT["KiloW-HR"],
+                            UNIT["MegaW-HR"],
+                        ],
+                        SKOS.definition: Literal(
+                            "The integral of the active power over a time interval"
+                        ),
+                        RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
+                        RDFS.label: Literal("Active_Energy"),
+                    },
+                    "Apparent_Energy": {
+                        QUDT.applicableUnit: [UNIT["KiloV-A-HR"]],
+                        SKOS.definition: Literal(
+                            "The integral of the apparent power over a time interval"
+                        ),
+                        RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
+                        RDFS.label: Literal("Apparent_Energy"),
+                    },
+                },
             },
             "Thermal_Energy": {OWL.sameAs: QUDTQK["ThermalEnergy"]},
         },
