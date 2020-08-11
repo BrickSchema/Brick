@@ -3,14 +3,6 @@ python:
   - "3.6"
   - "3.7"
 
-addons:
-  apt:
-    packages:
-      - docker-ce
-
-env:
-  - DOCKER_API_VERSION=1.38
-
 services:
   - docker
 
@@ -23,6 +15,7 @@ install:
 
 script:
   - pip freeze
+  - python test_docker.py
   # generate new Brick ontology (in case this hasn't been run)
   - python generate_brick.py
   # regenerate SHACL shapes
