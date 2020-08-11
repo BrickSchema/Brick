@@ -8,6 +8,9 @@ addons:
     packages:
       - docker-ce
 
+env:
+  - DOCKER_API_VERSION=1.38
+
 services:
   - docker
 
