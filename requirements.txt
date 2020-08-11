@@ -9,7 +9,7 @@ pytest
 tqdm
 pyshacl
 docker>=4.3.0
-brickschema>=0.1.5
+brickschema>=0.1.8a5
 black
 pre-commit
 flake8
