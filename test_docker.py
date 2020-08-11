@@ -1,5 +1,5 @@
 import docker
 
-client = docker.from_env(version="1.38")
+client = docker.from_env(version="auto")
 
 print(client.version())
