@@ -7,9 +7,9 @@ rdflib-jsonld==0.4.0
 six==1.12.0
 pytest
 tqdm
-pyshacl
-docker
-brickschema>=0.1.5
+pyshacl>=0.12.0
+docker>=4.3.0
+brickschema>=0.1.8
 black
 pre-commit
 flake8
