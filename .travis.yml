@@ -15,7 +15,6 @@ install:
 
 script:
   - pip freeze
-  - python test_docker.py
   # generate new Brick ontology (in case this hasn't been run)
   - python generate_brick.py
   # regenerate SHACL shapes
