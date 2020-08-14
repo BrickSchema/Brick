@@ -441,8 +441,12 @@ sensor_definitions = {
                                     [BRICK.measures, BRICK.Flow],
                                     [BRICK.measures, BRICK.Supply_Air],
                                 ],
+                                OWL.equivalentClass: BRICK["Discharge_Air_Flow_Sensor"],
                                 "subclasses": {
                                     "Average_Supply_Air_Flow_Sensor": {
+                                        OWL.equivalentClass: BRICK[
+                                            "Average_Discharge_Air_Flow_Sensor"
+                                        ],
                                         "tags": [
                                             TAG.Point,
                                             TAG.Average,
@@ -484,8 +488,14 @@ sensor_definitions = {
                                     [BRICK.measures, BRICK.Flow],
                                     [BRICK.measures, BRICK.Supply_Water],
                                 ],
+                                OWL.equivalentClass: BRICK[
+                                    "Discharge_Water_Flow_Sensor"
+                                ],
                                 "subclasses": {
                                     "Chilled_Water_Supply_Flow_Sensor": {
+                                        OWL.equivalentClass: BRICK[
+                                            "Chilled_Water_Discharge_Flow_Sensor"
+                                        ],
                                         "tags": [
                                             TAG.Point,
                                             TAG.Sensor,
@@ -652,6 +662,9 @@ sensor_definitions = {
                                     TAG.Relative,
                                     TAG.Air,
                                     TAG.Supply,
+                                ],
+                                OWL.equivalentClass: BRICK[
+                                    "Discharge_Air_Humidity_Sensor"
                                 ],
                                 "substances": [
                                     [BRICK.measures, BRICK.Relative_Humidity],
@@ -834,6 +847,9 @@ sensor_definitions = {
                                     TAG.Air,
                                     TAG.Supply,
                                 ],
+                                OWL.equivalentClass: BRICK[
+                                    "Discharge_Air_Static_Pressure_Sensor"
+                                ],
                                 "substances": [
                                     [BRICK.measures, BRICK.Static_Pressure],
                                     [BRICK.measures, BRICK.Supply_Air],
@@ -919,6 +935,9 @@ sensor_definitions = {
                                     TAG.Velocity,
                                     TAG.Supply,
                                     TAG.Air,
+                                ],
+                                OWL.equivalentClass: BRICK[
+                                    "Discharge_Air_Velocity_Pressure_Sensor"
                                 ],
                                 "substances": [
                                     [BRICK.measures, BRICK.Velocity_Pressure],
@@ -1210,8 +1229,14 @@ sensor_definitions = {
                                     [BRICK.measures, BRICK.Temperature],
                                     [BRICK.measures, BRICK.Supply_Air],
                                 ],
+                                OWL.equivalentClass: BRICK[
+                                    "Discharge_Air_Temperature_Sensor"
+                                ],
                                 "subclasses": {
                                     "Preheat_Supply_Air_Temperature_Sensor": {
+                                        OWL.equivalentClass: BRICK[
+                                            "Preheat_Discharge_Air_Temperature_Sensor"
+                                        ],
                                         "tags": [
                                             TAG.Point,
                                             TAG.Preheat,
