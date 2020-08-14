@@ -1,5 +1,4 @@
-from rdflib import Literal
-from .namespaces import TAG, BRICK, RDFS
+from .namespaces import TAG, BRICK, OWL
 
 status_definitions = {
     "Status": {
@@ -372,6 +371,9 @@ status_definitions = {
                         ],
                     },
                     "Supply_Air_Duct_Pressure_Status": {
+                        OWL.equivalentClass: BRICK[
+                            "Discharge_Air_Duct_Pressure_Status"
+                        ],
                         "tags": [
                             TAG.Point,
                             TAG.Supply,
