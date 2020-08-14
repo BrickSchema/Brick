@@ -1,5 +1,4 @@
-from rdflib import Literal
-from .namespaces import BRICK, TAG, RDFS
+from .namespaces import BRICK, TAG, OWL
 
 alarm_definitions = {
     "Alarm": {
@@ -132,6 +131,9 @@ alarm_definitions = {
                                 ],
                             },
                             "Supply_Water_Temperature_Alarm": {
+                                OWL.equivalentClass: BRICK[
+                                    "Discharge_Water_Temperature_Alarm"
+                                ],
                                 "tags": [
                                     TAG.Point,
                                     TAG.Supply,
@@ -169,6 +171,9 @@ alarm_definitions = {
                                 },
                             },
                             "Supply_Air_Temperature_Alarm": {
+                                OWL.equivalentClass: BRICK[
+                                    "Discharge_Air_Temperature_Alarm"
+                                ],
                                 "tags": [
                                     TAG.Point,
                                     TAG.Supply,
