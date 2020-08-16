@@ -1,4 +1,4 @@
-from .namespaces import TAG, BRICK, RDFS
+from .namespaces import TAG, BRICK, RDFS, OWL
 from rdflib import Literal
 
 setpoint_definitions = {
@@ -42,6 +42,9 @@ setpoint_definitions = {
                                 ],
                             },
                             "Supply_Air_Flow_Demand_Setpoint": {
+                                OWL.equivalentClass: BRICK[
+                                    "Discharge_Air_Flow_Demand_Setpoint"
+                                ],
                                 "tags": [
                                     TAG.Point,
                                     TAG.Supply,
@@ -125,6 +128,9 @@ setpoint_definitions = {
                                 ],
                             },
                             "Supply_Water_Differential_Pressure_Deadband_Setpoint": {
+                                OWL.equivalentClass: BRICK[
+                                    "Discharge_Water_Differential_Pressure_Deadband_Setpoint"
+                                ],
                                 "tags": [
                                     TAG.Point,
                                     TAG.Supply,
@@ -203,8 +209,14 @@ setpoint_definitions = {
                                 "parents": [BRICK.Discharge_Air_Temperature_Setpoint],
                             },
                             "Supply_Air_Temperature_Deadband_Setpoint": {
+                                OWL.equivalentClass: BRICK[
+                                    "Discharge_Air_Temperature_Deadband_Setpoint"
+                                ],
                                 "subclasses": {
                                     "Heating_Supply_Air_Temperature_Deadband_Setpoint": {
+                                        OWL.equivalentClass: BRICK[
+                                            "Heating_Discharge_Air_Temperature_Deadband_Setpoint"
+                                        ],
                                         "tags": [
                                             TAG.Point,
                                             TAG.Heat,
@@ -217,6 +229,9 @@ setpoint_definitions = {
                                         "parents": [BRICK.Heating_Temperature_Setpoint],
                                     },
                                     "Cooling_Supply_Air_Temperature_Deadband_Setpoint": {
+                                        OWL.equivalentClass: BRICK[
+                                            "Cooling_Discharge_Air_Temperature_Deadband_Setpoint"
+                                        ],
                                         "tags": [
                                             TAG.Point,
                                             TAG.Cool,
@@ -240,6 +255,9 @@ setpoint_definitions = {
                                 "parents": [BRICK.Air_Temperature_Setpoint],
                             },
                             "Supply_Water_Temperature_Deadband_Setpoint": {
+                                OWL.equivalentClass: BRICK[
+                                    "Discharge_Water_Temperature_Deadband_Setpoint"
+                                ],
                                 "tags": [
                                     TAG.Point,
                                     TAG.Supply,
@@ -308,6 +326,9 @@ setpoint_definitions = {
                                 ],
                             },
                             "Supply_Air_Static_Pressure_Deadband_Setpoint": {
+                                OWL.equivalentClass: BRICK[
+                                    "Discharge_Air_Static_Pressure_Deadband_Setpoint"
+                                ],
                                 "tags": [
                                     TAG.Point,
                                     TAG.Supply,
@@ -463,8 +484,14 @@ setpoint_definitions = {
                                 ],
                             },
                             "Supply_Air_Flow_Setpoint": {
+                                OWL.equivalentClass: BRICK[
+                                    "Discharge_Air_Flow_Setpoint"
+                                ],
                                 "subclasses": {
                                     "Supply_Air_Flow_Demand_Setpoint": {
+                                        OWL.equivalentClass: BRICK[
+                                            "Discharge_Air_Flow_Demand_Setpoint"
+                                        ],
                                         "tags": [
                                             TAG.Point,
                                             TAG.Supply,
@@ -475,8 +502,14 @@ setpoint_definitions = {
                                         ],
                                     },
                                     "Occupied_Supply_Air_Flow_Setpoint": {
+                                        OWL.equivalentClass: BRICK[
+                                            "Occupied_Discharge_Air_Flow_Setpoint"
+                                        ],
                                         "subclasses": {
                                             "Occupied_Cooling_Supply_Air_Flow_Setpoint": {
+                                                OWL.equivalentClass: BRICK[
+                                                    "Occupied_Cooling_Discharge_Air_Flow_Setpoint"
+                                                ],
                                                 "tags": [
                                                     TAG.Point,
                                                     TAG.Occupied,
@@ -491,6 +524,9 @@ setpoint_definitions = {
                                                 ],
                                             },
                                             "Occupied_Heating_Supply_Air_Flow_Setpoint": {
+                                                OWL.equivalentClass: BRICK[
+                                                    "Occupied_Heating_Discharge_Air_Flow_Setpoint"
+                                                ],
                                                 "tags": [
                                                     TAG.Point,
                                                     TAG.Occupied,
@@ -515,6 +551,9 @@ setpoint_definitions = {
                                         ],
                                     },
                                     "Cooling_Supply_Air_Flow_Setpoint": {
+                                        OWL.equivalentClass: BRICK[
+                                            "Cooling_Discharge_Air_Flow_Setpoint"
+                                        ],
                                         "tags": [
                                             TAG.Point,
                                             TAG.Cool,
@@ -525,6 +564,9 @@ setpoint_definitions = {
                                         ],
                                     },
                                     "Heating_Supply_Air_Flow_Setpoint": {
+                                        OWL.equivalentClass: BRICK[
+                                            "Heating_Discharge_Air_Flow_Setpoint"
+                                        ],
                                         "tags": [
                                             TAG.Point,
                                             TAG.Heat,
@@ -700,6 +742,9 @@ setpoint_definitions = {
                                 ],
                             },
                             "Supply_Air_Static_Pressure_Setpoint": {
+                                OWL.equivalentClass: BRICK[
+                                    "Discharge_Air_Static_Pressure_Setpoint"
+                                ],
                                 "tags": [
                                     TAG.Point,
                                     TAG.Supply,
@@ -802,6 +847,9 @@ setpoint_definitions = {
                                 },
                             },
                             "Supply_Air_Temperature_Reset_Differential_Setpoint": {
+                                OWL.equivalentClass: BRICK[
+                                    "Discharge_Air_Temperature_Reset_Differential_Setpoint"
+                                ],
                                 "tags": [
                                     TAG.Point,
                                     TAG.Supply,
@@ -866,6 +914,9 @@ setpoint_definitions = {
                                 },
                             },
                             "Supply_Air_Temperature_High_Reset_Setpoint": {
+                                OWL.equivalentClass: BRICK[
+                                    "Discharge_Air_Temperature_High_Reset_Setpoint"
+                                ],
                                 "tags": [
                                     TAG.Point,
                                     TAG.Supply,
@@ -899,6 +950,9 @@ setpoint_definitions = {
                         ],
                         "subclasses": {
                             "Supply_Air_Temperature_Low_Reset_Setpoint": {
+                                OWL.equivalentClass: BRICK[
+                                    "Discharge_Air_Temperature_Low_Reset_Setpoint"
+                                ],
                                 "tags": [
                                     TAG.Point,
                                     TAG.Supply,
