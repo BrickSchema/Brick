@@ -255,9 +255,6 @@ setpoint_definitions = {
                                 "parents": [BRICK.Air_Temperature_Setpoint],
                             },
                             "Supply_Water_Temperature_Deadband_Setpoint": {
-                                OWL.equivalentClass: BRICK[
-                                    "Discharge_Water_Temperature_Deadband_Setpoint"
-                                ],
                                 "tags": [
                                     TAG.Point,
                                     TAG.Supply,
