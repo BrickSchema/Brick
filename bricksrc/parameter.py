@@ -1,5 +1,5 @@
 from rdflib import Literal
-from .namespaces import BRICK, TAG
+from .namespaces import BRICK, TAG, OWL
 
 parameter_definitions = {
     "Parameter": {
@@ -273,6 +273,9 @@ parameter_definitions = {
                                                 ],
                                             },
                                             "Supply_Air_Temperature_Step_Parameter": {
+                                                OWL.equivalentClass: BRICK[
+                                                    "Discharge_Air_Temperature_Step_Parameter"
+                                                ],
                                                 "tags": [
                                                     TAG.Point,
                                                     TAG.Supply,
@@ -333,6 +336,9 @@ parameter_definitions = {
                                                 ],
                                             },
                                             "Cooling_Supply_Air_Temperature_Integral_Time_Parameter": {
+                                                OWL.equivalentClass: BRICK[
+                                                    "Cooling_Discharge_Air_Temperature_Integral_Time_Parameter"
+                                                ],
                                                 "tags": [
                                                     TAG.Point,
                                                     TAG.Cool,
@@ -359,6 +365,9 @@ parameter_definitions = {
                                                 ],
                                             },
                                             "Heating_Supply_Air_Temperature_Integral_Time_Parameter": {
+                                                OWL.equivalentClass: BRICK[
+                                                    "Heating_Discharge_Air_Temperature_Integral_Time_Parameter"
+                                                ],
                                                 "tags": [
                                                     TAG.Point,
                                                     TAG.Heat,
@@ -490,6 +499,9 @@ parameter_definitions = {
                                                 ],
                                             },
                                             "Supply_Air_Static_Pressure_Integral_Time_Parameter": {
+                                                OWL.equivalentClass: BRICK[
+                                                    "Discharge_Air_Static_Pressure_Integral_Time_Parameter"
+                                                ],
                                                 "tags": [
                                                     TAG.Point,
                                                     TAG.Supply,
@@ -660,6 +672,9 @@ parameter_definitions = {
                                 },
                             },
                             "Supply_Air_Temperature_Proportional_Band_Parameter": {
+                                OWL.equivalentClass: BRICK[
+                                    "Discharge_Air_Temperature_Proportional_Band_Parameter"
+                                ],
                                 "tags": [
                                     TAG.Point,
                                     TAG.Supply,
@@ -673,6 +688,9 @@ parameter_definitions = {
                                 "parents": [BRICK.Temperature_Parameter],
                                 "subclasses": {
                                     "Cooling_Supply_Air_Temperature_Proportional_Band_Parameter": {
+                                        OWL.equivalentClass: BRICK[
+                                            "Cooling_Discharge_Air_Temperature_Proportional_Band_Parameter"
+                                        ],
                                         "tags": [
                                             TAG.Point,
                                             TAG.Cool,
@@ -686,6 +704,9 @@ parameter_definitions = {
                                         ],
                                     },
                                     "Heating_Supply_Air_Temperature_Proportional_Band_Parameter": {
+                                        OWL.equivalentClass: BRICK[
+                                            "Heating_Discharge_Air_Temperature_Proportional_Band_Parameter"
+                                        ],
                                         "tags": [
                                             TAG.Point,
                                             TAG.Heat,
@@ -756,6 +777,9 @@ parameter_definitions = {
                                         ],
                                     },
                                     "Supply_Air_Static_Pressure_Proportional_Band_Parameter": {
+                                        OWL.equivalentClass: BRICK[
+                                            "Discharge_Air_Static_Pressure_Proportional_Band_Parameter"
+                                        ],
                                         "tags": [
                                             TAG.Point,
                                             TAG.Supply,
@@ -1147,6 +1171,9 @@ parameter_definitions = {
                                 ],
                             },
                             "Max_Supply_Air_Static_Pressure_Setpoint_Limit": {
+                                OWL.equivalentClass: BRICK[
+                                    "Max_Discharge_Air_Static_Pressure_Setpoint_Limit"
+                                ],
                                 "tags": [
                                     TAG.Point,
                                     TAG.Max,
@@ -1210,6 +1237,9 @@ parameter_definitions = {
                                         ],
                                     },
                                     "Max_Supply_Air_Static_Pressure_Setpoint_Limit": {
+                                        OWL.equivalentClass: BRICK[
+                                            "Max_Discharge_Air_Static_Pressure_Setpoint_Limit"
+                                        ],
                                         "tags": [
                                             TAG.Point,
                                             TAG.Max,
@@ -1246,6 +1276,9 @@ parameter_definitions = {
                                 ],
                                 "subclasses": {
                                     "Max_Cooling_Supply_Air_Flow_Setpoint_Limit": {
+                                        OWL.equivalentClass: BRICK[
+                                            "Max_Cooling_Discharge_Air_Flow_Setpoint_Limit"
+                                        ],
                                         "tags": [
                                             TAG.Point,
                                             TAG.Max,
@@ -1259,6 +1292,9 @@ parameter_definitions = {
                                         ],
                                         "subclasses": {
                                             "Max_Occupied_Cooling_Supply_Air_Flow_Setpoint_Limit": {
+                                                OWL.equivalentClass: BRICK[
+                                                    "Max_Occupied_Cooling_Discharge_Air_Flow_Setpoint_Limit"
+                                                ],
                                                 "tags": [
                                                     TAG.Point,
                                                     TAG.Max,
@@ -1273,6 +1309,9 @@ parameter_definitions = {
                                                 ],
                                             },
                                             "Max_Unoccupied_Cooling_Supply_Air_Flow_Setpoint_Limit": {
+                                                OWL.equivalentClass: BRICK[
+                                                    "Max_Unoccupied_Cooling_Discharge_Air_Flow_Setpoint_Limit"
+                                                ],
                                                 "tags": [
                                                     TAG.Point,
                                                     TAG.Max,
@@ -1332,6 +1371,9 @@ parameter_definitions = {
                                         },
                                     },
                                     "Max_Heating_Supply_Air_Flow_Setpoint_Limit": {
+                                        OWL.equivalentClass: BRICK[
+                                            "Max_Heating_Discharge_Air_Flow_Setpoint_Limit"
+                                        ],
                                         "tags": [
                                             TAG.Point,
                                             TAG.Max,
@@ -1345,6 +1387,9 @@ parameter_definitions = {
                                         ],
                                         "subclasses": {
                                             "Max_Occupied_Heating_Supply_Air_Flow_Setpoint_Limit": {
+                                                OWL.equivalentClass: BRICK[
+                                                    "Max_Occupied_Heating_Discharge_Air_Flow_Setpoint_Limit"
+                                                ],
                                                 "tags": [
                                                     TAG.Point,
                                                     TAG.Max,
@@ -1359,6 +1404,9 @@ parameter_definitions = {
                                                 ],
                                             },
                                             "Max_Unoccupied_Heating_Supply_Air_Flow_Setpoint_Limit": {
+                                                OWL.equivalentClass: BRICK[
+                                                    "Max_Unoccupied_Heating_Discharge_Air_Flow_Setpoint_Limit"
+                                                ],
                                                 "tags": [
                                                     TAG.Point,
                                                     TAG.Max,
@@ -1474,6 +1522,9 @@ parameter_definitions = {
                                 ],
                             },
                             "Min_Supply_Air_Static_Pressure_Setpoint_Limit": {
+                                OWL.equivalentClass: BRICK[
+                                    "Min_Discharge_Air_Static_Pressure_Setpoint_Limit"
+                                ],
                                 "tags": [
                                     TAG.Point,
                                     TAG.Min,
@@ -1521,6 +1572,9 @@ parameter_definitions = {
                                         ],
                                     },
                                     "Min_Supply_Air_Static_Pressure_Setpoint_Limit": {
+                                        OWL.equivalentClass: BRICK[
+                                            "Min_Discharge_Air_Static_Pressure_Setpoint_Limit"
+                                        ],
                                         "tags": [
                                             TAG.Point,
                                             TAG.Min,
@@ -1559,6 +1613,9 @@ parameter_definitions = {
                                         ],
                                     },
                                     "Min_Cooling_Supply_Air_Flow_Setpoint_Limit": {
+                                        OWL.equivalentClass: BRICK[
+                                            "Min_Cooling_Discharge_Air_Flow_Setpoint_Limit"
+                                        ],
                                         "tags": [
                                             TAG.Point,
                                             TAG.Min,
@@ -1572,6 +1629,9 @@ parameter_definitions = {
                                         ],
                                         "subclasses": {
                                             "Min_Occupied_Cooling_Supply_Air_Flow_Setpoint_Limit": {
+                                                OWL.equivalentClass: BRICK[
+                                                    "Min_Occupied_Cooling_Discharge_Air_Flow_Setpoint_Limit"
+                                                ],
                                                 "tags": [
                                                     TAG.Point,
                                                     TAG.Min,
@@ -1586,6 +1646,9 @@ parameter_definitions = {
                                                 ],
                                             },
                                             "Min_Unoccupied_Cooling_Supply_Air_Flow_Setpoint_Limit": {
+                                                OWL.equivalentClass: BRICK[
+                                                    "Min_Unoccupied_Cooling_Discharge_Air_Flow_Setpoint_Limit"
+                                                ],
                                                 "tags": [
                                                     TAG.Point,
                                                     TAG.Min,
@@ -1645,6 +1708,9 @@ parameter_definitions = {
                                         },
                                     },
                                     "Min_Heating_Supply_Air_Flow_Setpoint_Limit": {
+                                        OWL.equivalentClass: BRICK[
+                                            "Min_Heating_Discharge_Air_Flow_Setpoint_Limit"
+                                        ],
                                         "tags": [
                                             TAG.Point,
                                             TAG.Min,
@@ -1658,6 +1724,9 @@ parameter_definitions = {
                                         ],
                                         "subclasses": {
                                             "Min_Occupied_Heating_Supply_Air_Flow_Setpoint_Limit": {
+                                                OWL.equivalentClass: BRICK[
+                                                    "Min_Occupied_Heating_Discharge_Air_Flow_Setpoint_Limit"
+                                                ],
                                                 "tags": [
                                                     TAG.Point,
                                                     TAG.Min,
@@ -1672,6 +1741,9 @@ parameter_definitions = {
                                                 ],
                                             },
                                             "Min_Unoccupied_Heating_Supply_Air_Flow_Setpoint_Limit": {
+                                                OWL.equivalentClass: BRICK[
+                                                    "Min_Unoccupied_Heating_Discharge_Air_Flow_Setpoint_Limit"
+                                                ],
                                                 "tags": [
                                                     TAG.Point,
                                                     TAG.Min,
