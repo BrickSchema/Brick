@@ -1,0 +1,35 @@
+name: Nightly Build
+on:
+  schedule:
+    - cron: '0 2 * * *' # run at 2 AM UTC
+
+jobs:
+  build:
+    name: Nightly Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Get current date
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
+
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.8.5
+          architecture: x64
+      - name: install deps
+        run: |
+          pip install -r requirements.txt
+          python generate_brick.py
+          cd shacl && python generate_shacl.py
+
+      - uses: meeDamian/github-release@2.0
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          name: Nightly Build
+          tag: nightly-${{ steps.date.outputs.date }}
+          body: >
+            This is an automatically generated release
+          files: >
+            Brick.ttl
+          gzip: false
