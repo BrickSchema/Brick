@@ -242,7 +242,7 @@ hvac_subclasses = {
                         "tags": [TAG.Equipment, TAG.Coil, TAG.Cool],
                         "subclasses": {
                             "Chilled_Water_Coil": {
-                                "tags": [TAG.Equipment, TAG.Coil, TAG.Hot, TAG.Water]
+                                "tags": [TAG.Equipment, TAG.Coil, TAG.Cool, TAG.Water]
                             },
                         },
                     },
