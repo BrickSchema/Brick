@@ -26,10 +26,11 @@ jobs:
       - uses: meeDamian/github-release@2.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          name: Nightly Build
-          tag: nightly-${{ steps.date.outputs.date }}
+          name: Nightly Build ${{ steps.date.outputs.date }}
+          tag: nightly
           body: >
             This is an automatically generated release
           files: >
             Brick.ttl
           gzip: false
+          allow_override: true
