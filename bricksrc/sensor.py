@@ -81,8 +81,10 @@ sensor_definitions = {
                     [BRICK.measures, BRICK.Air],
                     [BRICK.measures, BRICK.CO],
                 ],
-                "CO_Level_Sensor": {
-                    "tags": [TAG.Point, TAG.CO, TAG.Level, TAG.Sensor],
+                "subclasses": {
+                    "CO_Level_Sensor": {
+                        "tags": [TAG.Point, TAG.CO, TAG.Level, TAG.Sensor],
+                    }
                 },
             },
             "CO2_Sensor": {
