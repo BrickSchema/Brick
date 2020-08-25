@@ -114,6 +114,7 @@ https://brickschema.org/schema/1.1/Brick#Condenser_Heat_Exchanger,A heat exchang
 https://brickschema.org/schema/1.1/Brick#Condenser_Water,Water used used to remove heat through condensation,
 https://brickschema.org/schema/1.1/Brick#Condenser_Water_Pump,A pump that is part of a condenser system; the pump circulates condenser water from the chiller back to the cooling tower,
 https://brickschema.org/schema/1.1/Brick#Conductivity,,
+https://brickschema.org/schema/1.1/Brick#Constant_Air_Volume_Box,A terminal unit for which supply air flow rate is constant and the supply air temperature is varied to meet thermal load,https://en.wikipedia.org/wiki/Constant_air_volume
 https://brickschema.org/schema/1.1/Brick#Conductivity_Sensor,Measures electrical conductance,
 https://brickschema.org/schema/1.1/Brick#Contact_Sensor,"Senses or detects contact, such as for determining if a door is closed.",
 https://brickschema.org/schema/1.1/Brick#controls,,
@@ -774,7 +775,7 @@ https://brickschema.org/schema/1.1/Brick#Valve_Command,Controls or reports the o
 https://brickschema.org/schema/1.1/Brick#Variable_Air_Volume_Box,A device that regulates the volume and temperature of air delivered to a zone by opening or closing a damper,https://en.wikipedia.org/wiki/Variable_air_volume
 https://brickschema.org/schema/1.1/Brick#Variable_Air_Volume_Box_With_Reheat,A VAV box with a reheat coil mounted on the discharge end of the unit that can heat the air delivered to a zone,
 https://brickschema.org/schema/1.1/Brick#Variable_Frequency_Drive,"Electronic device that varies its output frequency to vary the rotating speed of a motor, given a fixed input frequency. Used with fans or pumps to vary the flow in the system as a function of a maintained pressure.",https://xp20.ashrae.org/terminology/index.php?term=vfd&submit=Search
-https://brickschema.org/schema/1.1/Brick#VAV,See VAV,
+https://brickschema.org/schema/1.1/Brick#VAV,See Variable_Air_Volume_Box,
 https://brickschema.org/schema/1.1/Brick#Velocity_Pressure,"Dynamic Pressure (indicated with q, or Q, and sometimes called velocity pressure) is the quantity defined by: (q = 1/2 * ρ v^{2}), where (using SI units),  (q) is dynamic pressure in (pascals), (ρ) is fluid density in (kg/m^{3}) (for example, density of air) and (v ) is fluid velocity in (m/s).",
 https://brickschema.org/schema/1.1/Brick#Velocity_Pressure_Sensor,Measures the difference between total pressure and static pressure,
 https://brickschema.org/schema/1.1/Brick#Velocity_Pressure_Setpoint,Sets static veloicty pressure,

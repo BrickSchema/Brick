@@ -179,6 +179,11 @@ hvac_subclasses = {
     "Terminal_Unit": {
         "tags": [TAG.Equipment, TAG.Terminal, TAG.Unit],
         "subclasses": {
+            "Constant_Air_Volume_Box": {
+                "tags": [TAG.Equipment, TAG.Constant, TAG.Volume, TAG.Box],
+                OWL.equivalentClass: BRICK["CAV"],
+            },
+            "CAV": {"tags": [TAG.Equipment, TAG.CAV]},
             "Fan_Coil_Unit": {
                 "tags": [TAG.Equipment, TAG.Fan, TAG.Coil, TAG.Unit],
                 OWL.equivalentClass: BRICK["FCU"],
