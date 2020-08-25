@@ -42,6 +42,7 @@ substances = {
                         },
                     },
                     "CO2": {"tags": [TAG.Fluid, TAG.Gas, TAG.CO2]},
+                    "CO": {"tags": [TAG.Fluid, TAG.Gas, TAG.CO]},
                     "Steam": {"tags": [TAG.Fluid, TAG.Gas, TAG.Steam]},
                     "Natural_Gas": {"tags": [TAG.Fluid, TAG.Gas, TAG.Natural]},
                 },

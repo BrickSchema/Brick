@@ -75,6 +75,16 @@ sensor_definitions = {
                 },
                 "tags": [TAG.Point, TAG.Angle, TAG.Sensor],
             },
+            "CO_Sensor": {
+                "tags": [TAG.Point, TAG.Sensor, TAG.CO],
+                "substances": [
+                    [BRICK.measures, BRICK.Air],
+                    [BRICK.measures, BRICK.CO],
+                ],
+                "CO_Level_Sensor": {
+                    "tags": [TAG.Point, TAG.CO, TAG.Level, TAG.Sensor],
+                },
+            },
             "CO2_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.CO2],
                 "substances": [
