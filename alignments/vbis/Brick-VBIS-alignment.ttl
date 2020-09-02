@@ -1,0 +1,194 @@
+@prefix brick: <https://brickschema.org/schema/1.1/Brick#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vbisalign: <https://brickschema.org/schema/1.1/Brick/alignments/vbis/v3#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+brick:AHU vbisalign:hasVBISTag "ME-AHU*" .
+
+brick:Absorption_Chiller vbisalign:hasVBISTag "ME-Chr-Ab*" .
+
+brick:Air_Curtain vbisalign:hasVBISTag "ME-AC" .
+
+brick:Air_Handler_Unit vbisalign:hasVBISTag "ME-AHU*" .
+
+brick:Battery vbisalign:hasVBISTag "EP-BS-Ba*" .
+
+brick:Boiler vbisalign:hasVBISTag "ME-Bo*" .
+
+brick:Booster_Fan vbisalign:hasVBISTag "ME-Fa*" .
+
+brick:Breaker_Panel vbisalign:hasVBISTag "EP-SB*" .
+
+brick:Bus_Riser vbisalign:hasVBISTag "EP-BD*" .
+
+brick:CRAC vbisalign:hasVBISTag "ME-PAC*" .
+
+brick:Camera vbisalign:hasVBISTag "SE-CCTV-Ca*" .
+
+brick:Chilled_Water_Pump vbisalign:hasVBISTag "ME-Pu*" .
+
+brick:Chilled_Water_Valve vbisalign:hasVBISTag "ME-Va*" .
+
+brick:Chiller vbisalign:hasVBISTag "ME-Chr*" .
+
+brick:Coil vbisalign:hasVBISTag "ME-Co*" .
+
+brick:Compressor vbisalign:hasVBISTag "ME-ACPR*" .
+
+brick:Computer_Room_Air_Conditioning vbisalign:hasVBISTag "ME-PAC*" .
+
+brick:Condenser vbisalign:hasVBISTag "ME-ACC*" .
+
+brick:Condenser_Heat_Exchanger vbisalign:hasVBISTag "ME-HE*" .
+
+brick:Condenser_Water_Pump vbisalign:hasVBISTag "ME-Pu*" .
+
+brick:Cooling_Coil vbisalign:hasVBISTag "ME-Co*" .
+
+brick:Cooling_Tower_Fan vbisalign:hasVBISTag "ME-Fa*" .
+
+brick:Cooling_Valve vbisalign:hasVBISTag "ME-Va*" .
+
+brick:Damper vbisalign:hasVBISTag "ME-Da*" .
+
+brick:Discharge_Fan vbisalign:hasVBISTag "ME-Fa*" .
+
+brick:Disconnect_Switch vbisalign:hasVBISTag "EP-SG*" .
+
+brick:Domestic_Hot_Water_Valve vbisalign:hasVBISTag "ME-Va*" .
+
+brick:Economizer_Damper vbisalign:hasVBISTag "ME-Da*" .
+
+brick:Electrical_Equipment vbisalign:hasVBISTag "EP*" .
+
+brick:Elevator vbisalign:hasVBISTag "VT-Li*" .
+
+brick:Energy_Storage vbisalign:hasVBISTag "EP-BS*" .
+
+brick:Evaporative_Heat_Exchnger vbisalign:hasVBISTag "ME-HE*" .
+
+brick:Exhaust_Damper vbisalign:hasVBISTag "ME-Da*" .
+
+brick:Exhaust_Fan vbisalign:hasVBISTag "ME-Fa*" .
+
+brick:FCU vbisalign:hasVBISTag "ME-FCU*" .
+
+brick:Fan vbisalign:hasVBISTag "ME-Fa*" .
+
+brick:Fan_Coil_Unit vbisalign:hasVBISTag "ME-FCU*" .
+
+brick:Filter vbisalign:hasVBISTag "ME-AFP*" .
+
+brick:Fire_Control_Panel vbisalign:hasVBISTag "FD-FDCIE-MP*" .
+
+brick:Fire_Safety_Equipment vbisalign:hasVBISTag "FD*",
+        "FR*",
+        "FS*" .
+
+brick:Fume_Hood vbisalign:hasVBISTag "ME-FEE*" .
+
+brick:Furniture vbisalign:hasVBISTag "FFE-*" .
+
+brick:Gas_Distribution vbisalign:hasVBISTag "GRE*" .
+
+brick:Gas_Valve vbisalign:hasVBISTag "ME-Va*" .
+
+brick:HVAC vbisalign:hasVBISTag "ME" .
+
+brick:HX vbisalign:hasVBISTag "ME-HE*" .
+
+brick:Heat_Exchanger vbisalign:hasVBISTag "ME-HE*" .
+
+brick:Heat_Wheel vbisalign:hasVBISTag "ME-HE-ATA-AW" .
+
+brick:Heat_Wheel_VFD vbisalign:hasVBISTag "ME-EMS-VSD*" .
+
+brick:Heating_Coil vbisalign:hasVBISTag "ME-Co*" .
+
+brick:Heating_Valve vbisalign:hasVBISTag "ME-Va*" .
+
+brick:Hot_Water_Pump vbisalign:hasVBISTag "ME-Pu*" .
+
+brick:Inverter vbisalign:hasVBISTag "EP-SPS-In" .
+
+brick:Isolation_Valve vbisalign:hasVBISTag "ME-Va*" .
+
+brick:Lighting_Equipment vbisalign:hasVBISTag "EL*" .
+
+brick:Louver vbisalign:hasVBISTag "ST-AL*" .
+
+brick:Meter vbisalign:hasVBISTag "BMC-FM*",
+        "BMC-Me*",
+        "EP-Me*",
+        "HY-Me*" .
+
+brick:Mixed_Air_Filter vbisalign:hasVBISTag "ME-AFP*" .
+
+brick:Motor_Control_Center vbisalign:hasVBISTag "EP-SB*" .
+
+brick:Outside_Damper vbisalign:hasVBISTag "ME-Da*" .
+
+brick:Preheat_Hot_Water_Valve vbisalign:hasVBISTag "ME-Va*" .
+
+brick:Prehet_Hot_Water_Valve vbisalign:hasVBISTag "ME-Va*" .
+
+brick:Reheat_Valve vbisalign:hasVBISTag "ME-Va*" .
+
+brick:Return_Damper vbisalign:hasVBISTag "ME-Da*" .
+
+brick:Return_Fan vbisalign:hasVBISTag "ME-Fa*" .
+
+brick:Return_Heating_Valve vbisalign:hasVBISTag "ME-Va*" .
+
+brick:Safety_Equipment vbisalign:hasVBISTag "SA*" .
+
+brick:Security_Equipment vbisalign:hasVBISTag "SE*" .
+
+brick:Solar_Panel vbisalign:hasVBISTag "EP-SPS-Pa*" .
+
+brick:Space_Heater vbisalign:hasVBISTag "FFE-He*" .
+
+brick:Standby_Fan vbisalign:hasVBISTag "ME-Fa*" .
+
+brick:Steam_Distribution vbisalign:hasVBISTag "ME-Bo-St" .
+
+brick:Steam_Valve vbisalign:hasVBISTag "ME-Va*" .
+
+brick:Supply_Fan vbisalign:hasVBISTag "ME-Fa*" .
+
+brick:Switchgear vbisalign:hasVBISTag "EP-SG*" .
+
+brick:Terminal_Unit vbisalign:hasVBISTag "ME-ATU",
+        "ME-ATU*" .
+
+brick:Thermostat vbisalign:hasVBISTag "BMC-TST*" .
+
+brick:Transformer vbisalign:hasVBISTag "EP-Tr*" .
+
+brick:VAV vbisalign:hasVBISTag "ME-ATU-VAV",
+        "ME-ATU-VAV*" .
+
+brick:VFD vbisalign:hasVBISTag "ME-EMS-VSD*" .
+
+brick:Valve vbisalign:hasVBISTag "ME-Va*" .
+
+brick:Variable_Air_Volume_Box vbisalign:hasVBISTag "ME-ATU-VAV*" .
+
+brick:Variable_Air_Volume_Box_with_Reheat vbisalign:hasVBISTag "ME-ATU-VAV-SDEH",
+        "ME-ATU-VAV-SDHC" .
+
+brick:Variable_Frequency_Drive vbisalign:hasVBISTag "ME-EMS-VSD*" .
+
+brick:Water_Distribution vbisalign:hasVBISTag "HY*" .
+
+brick:Water_Pump vbisalign:hasVBISTag "FS-Pu",
+        "HY-Pu",
+        "ME-Pu*" .
+
+brick:Water_Valve vbisalign:hasVBISTag "ME-Va*" .
+
+brick:Weather_Station vbisalign:hasVBISTag "BMC-WS*" .
+
+vbisalign:hasVBISTag a <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
+    rdfs:domain brick:Class ;
+    rdfs:range xsd:String .
