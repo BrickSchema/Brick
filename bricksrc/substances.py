@@ -1,5 +1,4 @@
-from rdflib import Literal
-from .namespaces import TAG, BRICK
+from .namespaces import TAG, BRICK, OWL
 
 # Defining substances
 substances = {
@@ -34,6 +33,7 @@ substances = {
                                 "tags": [TAG.Fluid, TAG.Gas, TAG.Air, TAG.Exhaust],
                             },
                             "Supply_Air": {
+                                OWL.equivalentClass: BRICK["Discharge_Air"],
                                 "tags": [TAG.Fluid, TAG.Gas, TAG.Air, TAG.Supply],
                             },
                             "Discharge_Air": {
@@ -42,6 +42,7 @@ substances = {
                         },
                     },
                     "CO2": {"tags": [TAG.Fluid, TAG.Gas, TAG.CO2]},
+                    "CO": {"tags": [TAG.Fluid, TAG.Gas, TAG.CO]},
                     "Steam": {"tags": [TAG.Fluid, TAG.Gas, TAG.Steam]},
                     "Natural_Gas": {"tags": [TAG.Fluid, TAG.Gas, TAG.Natural]},
                 },
@@ -82,6 +83,9 @@ substances = {
                                         "parents": [BRICK.Discharge_Water],
                                     },
                                     "Supply_Chilled_Water": {
+                                        OWL.equivalentClass: BRICK[
+                                            "Discharge_Chilled_Water"
+                                        ],
                                         "tags": [
                                             TAG.Fluid,
                                             TAG.Liquid,
@@ -141,26 +145,7 @@ substances = {
                             },
                             "Supply_Water": {
                                 "tags": [TAG.Fluid, TAG.Liquid, TAG.Water, TAG.Supply],
-                                "subclasses": {
-                                    "Supply_Chilled_Water": {
-                                        "tags": [
-                                            TAG.Fluid,
-                                            TAG.Liquid,
-                                            TAG.Water,
-                                            TAG.Chilled,
-                                            TAG.Supply,
-                                        ],
-                                    },
-                                    "Supply_Hot_Water": {
-                                        "tags": [
-                                            TAG.Fluid,
-                                            TAG.Liquid,
-                                            TAG.Water,
-                                            TAG.Hot,
-                                            TAG.Supply,
-                                        ],
-                                    },
-                                },
+                                OWL.equivalentClass: BRICK["Discharge_Water"],
                             },
                             "Hot_Water": {
                                 "tags": [TAG.Fluid, TAG.Liquid, TAG.Water, TAG.Hot],
@@ -173,7 +158,21 @@ substances = {
                                             TAG.Hot,
                                             TAG.Supply,
                                         ],
-                                    }
+                                        "parents": [BRICK.Supply_Water],
+                                        OWL.equivalentClass: BRICK[
+                                            "Discharge_Hot_Water"
+                                        ],
+                                    },
+                                    "Discharge_Hot_Water": {
+                                        "tags": [
+                                            TAG.Fluid,
+                                            TAG.Liquid,
+                                            TAG.Water,
+                                            TAG.Hot,
+                                            TAG.Discharge,
+                                        ],
+                                        "parents": [BRICK.Discharge_Water],
+                                    },
                                 },
                             },
                             "Makeup_Water": {

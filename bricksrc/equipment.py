@@ -179,6 +179,11 @@ hvac_subclasses = {
     "Terminal_Unit": {
         "tags": [TAG.Equipment, TAG.Terminal, TAG.Unit],
         "subclasses": {
+            "Constant_Air_Volume_Box": {
+                "tags": [TAG.Equipment, TAG.Constant, TAG.Volume, TAG.Box],
+                OWL.equivalentClass: BRICK["CAV"],
+            },
+            "CAV": {"tags": [TAG.Equipment, TAG.CAV]},
             "Fan_Coil_Unit": {
                 "tags": [TAG.Equipment, TAG.Fan, TAG.Coil, TAG.Unit],
                 OWL.equivalentClass: BRICK["FCU"],
@@ -242,7 +247,7 @@ hvac_subclasses = {
                         "tags": [TAG.Equipment, TAG.Coil, TAG.Cool],
                         "subclasses": {
                             "Chilled_Water_Coil": {
-                                "tags": [TAG.Equipment, TAG.Coil, TAG.Hot, TAG.Water]
+                                "tags": [TAG.Equipment, TAG.Coil, TAG.Cool, TAG.Water]
                             },
                         },
                     },
@@ -310,6 +315,7 @@ hvac_subclasses = {
         },
     },
     "Compressor": {"tags": [TAG.Equipment, TAG.Compressor]},
+    "Cooling_Tower": {"tags": [TAG.Equipment, TAG.Cooling, TAG.Tower]},
     "Chiller": {
         "tags": [TAG.Equipment, TAG.Chiller],
         "subclasses": {
@@ -324,7 +330,12 @@ hvac_subclasses = {
     "Humidifier": {"tags": [TAG.Equipment, TAG.Humidifier]},
     "Boiler": {"tags": [TAG.Equipment, TAG.Boiler]},
     "Air_Handler_Unit": {
+        # here for historical purposes
         "tags": [TAG.Equipment, TAG.Air, TAG.Handler, TAG.Unit],
+        OWL.equivalentClass: BRICK["AHU"],
+    },
+    "Air_Handling_Unit": {
+        "tags": [TAG.Equipment, TAG.Air, TAG.Handling, TAG.Unit],
         OWL.equivalentClass: BRICK["AHU"],
     },
     "AHU": {

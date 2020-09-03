@@ -35,6 +35,14 @@ Each is a qudt:QuantityKind
 quantity_definitions = {
     "Air_Quality": {
         SKOS.narrower: {
+            "CO_Concentration": {
+                QUDT.applicableUnit: [UNIT.PPM],
+                QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M0H0T0D1"],
+                SKOS.definition: Literal("The concentration of CO in air"),
+                RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
+                RDFS.label: Literal("COConcentration"),
+                SKOS.broader: QUDTQK.Dimensionless,
+            },
             "CO2_Concentration": {
                 QUDT.applicableUnit: [UNIT.PPM],
                 QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M0H0T0D1"],
@@ -321,6 +329,28 @@ quantity_definitions = {
                 RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
                 RDFS.label: Literal("ElectricEnergy"),
                 SKOS.broader: QUDTQK["Energy"],
+                SKOS.narrower: {
+                    "Active_Energy": {
+                        QUDT.applicableUnit: [
+                            UNIT["W-HR"],
+                            UNIT["KiloW-HR"],
+                            UNIT["MegaW-HR"],
+                        ],
+                        SKOS.definition: Literal(
+                            "The integral of the active power over a time interval"
+                        ),
+                        RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
+                        RDFS.label: Literal("Active_Energy"),
+                    },
+                    "Apparent_Energy": {
+                        QUDT.applicableUnit: [UNIT["KiloV-A-HR"]],
+                        SKOS.definition: Literal(
+                            "The integral of the apparent power over a time interval"
+                        ),
+                        RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
+                        RDFS.label: Literal("Apparent_Energy"),
+                    },
+                },
             },
             "Thermal_Energy": {OWL.sameAs: QUDTQK["ThermalEnergy"]},
         },
