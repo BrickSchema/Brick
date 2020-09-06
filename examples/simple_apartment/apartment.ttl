@@ -1,0 +1,30 @@
+@prefix apt: <apartment#> .
+@prefix brick: <https://brickschema.org/schema/1.1/Brick#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+apt:bedroom a brick:Room ;
+    brick:isPartOf apt:bedroom_lighting,
+        apt:my_apartment,
+        apt:thermostat_zone .
+
+apt:kitchen a brick:Room ;
+    brick:isPartOf apt:kitchen_lighting,
+        apt:my_apartment,
+        apt:thermostat_zone .
+
+apt:living_room a brick:Room ;
+    brick:isPartOf apt:living_room_lighting,
+        apt:my_apartment,
+        apt:thermostat_zone .
+
+apt:bedroom_lighting a brick:Lighting_Zone .
+
+apt:kitchen_lighting a brick:Lighting_Zone .
+
+apt:living_room_lighting a brick:Lighting_Zone .
+
+brick:Apartment rdfs:subClassOf brick:Space .
+
+apt:my_apartment a brick:Apartment .
+
+apt:thermostat_zone a brick:HVAC_Zone .
