@@ -1,0 +1,63 @@
+@prefix brick: <https://brickschema.org/schema/1.1/Brick#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix tag: <https://brickschema.org/schema/1.1/BrickTag#> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix ex: <http://example.org#> .
+
+#  AHU (A-9 from G36)
+ex:ahu1 a   brick:AHU ;
+    brick:hasPart   ex:exad1, ex:rad1, ex:ead1, ex:raf1, ex:saf1,
+                    ex:hw_coil_ahu, ex:chw_coil_ahu ;
+    brick:hasPoint  ex:radps1, ex:oats1, ex:oafs1, ex:mats1, ex:fdps1 ,
+                    ex:safs_ahu1, ex:sats_ahu1, ex:duct_sp1, ex:rats1, ex:rafs1 ;
+    brick:feeds     ex:vav1 .
+
+ex:radps1 a  brick:Return_Air_Differential_Pressure_Sensor .
+ex:oats1    a   brick:Outside_Air_Temperature_Sensor .
+ex:oafs1     a   brick:Outside_Air_Flow_Sensor .
+ex:mats1    a   brick:Mixed_Air_Temperature_Sensor .
+ex:rats1    a   brick:Return_Air_Temperature_Sensor .
+ex:rafs1    a   brick:Return_Air_Flow_Sensor .
+ex:fdps1    a   brick:Filter_Differential_Pressure_Sensor .
+ex:safs_ahu1    a   brick:Supply_Air_Flow_Sensor .
+ex:sats_ahu1    a   brick:Supply_Air_Temperature_Sensor .
+ex:duct_sp1     a   brick:Static_Pressure_Sensor .
+
+ex:exad1 a   brick:Exhaust_Damper ;
+    brick:hasPoint  ex:exad1_pos .
+ex:exad1_pos a  brick:Damper_Position_Command .
+
+ex:rad1 a   brick:Return_Damper ;
+    brick:hasPoint  ex:rad1_pos .
+ex:rad1_pos a  brick:Damper_Position_Command .
+
+ex:ead1 a   brick:Economizer_Damper ;
+    brick:hasPoint ex:ead_min1, ex:ead1_pos .
+ex:ead_min1 a brick:Min_Limit .
+ex:ead1_pos a  brick:Damper_Position_Command .
+
+ex:raf1 a   brick:Return_Fan ;
+    brick:hasPoint ex:raf1_status, ex:raf1_speed, ex:raf1_start .
+ex:raf1_status  a   brick:Fan_Status .
+ex:raf1_speed  a   brick:Speed_Setpoint .
+ex:raf1_start  a   brick:Start_Stop_Command .
+
+ex:saf1 a   brick:Supply_Fan ;
+    brick:hasPoint ex:saf1_status, ex:saf1_speed, ex:saf1_start .
+ex:saf1_status  a   brick:Fan_Status .
+ex:saf1_speed  a   brick:Speed_Setpoint .
+ex:saf1_start  a   brick:Start_Stop_Command .
+
+ex:hw_coil_ahu  a   brick:Hot_Water_Coil ;
+    brick:hasPart ex:hwvlv_ahu .
+ex:hwvlv_ahu    a   brick:Heating_Valve ;
+    brick:hasPoint   ex:hwvlv_ahu_cmd .
+ex:hwvlv_ahu_cmd    a   brick:Valve_Command .
+
+ex:chw_coil_ahu a   brick:Chilled_Water_Coil ;
+    brick:hasPart   ex:chwvlv_ahu .
+ex:chwvlv_ahu    a   brick:Cooling_Valve ;
+    brick:hasPoint   ex:chwvlv_ahu_cmd .
+ex:chwvlv_ahu_cmd    a   brick:Valve_Command .
