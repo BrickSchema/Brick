@@ -348,6 +348,7 @@ https://brickschema.org/schema/1.1/Brick#hasLocation,Subject is physically locat
 https://brickschema.org/schema/1.1/Brick#hasOutputSubstance,The subject produces or exports the given substance from its internal process,
 https://brickschema.org/schema/1.1/Brick#hasPart,The subject is composed in part of the entity given by the object,
 https://brickschema.org/schema/1.1/Brick#hasPoint,The subject has a digital/analog input/output point given by the object,
+https://brickschema.org/schema/1.1/Brick#hasSite,Subject is physically located in the site given by the object,
 https://brickschema.org/schema/1.1/Brick#hasTag,The subject has the given tag,
 https://brickschema.org/schema/1.1/Brick#hasUnit,The QUDT unit associated with this Point,
 https://brickschema.org/schema/1.1/Brick#Heat_Exchanger,A heat exchanger is a piece of equipment built for efficient heat transfer from one medium to another. The media may be separated by a solid wall to prevent mixing or they may be in direct contact,BEDES
@@ -438,6 +439,7 @@ https://brickschema.org/schema/1.1/Brick#Isolation_Valve,"A valve that stops the
 https://brickschema.org/schema/1.1/Brick#isPartOf,,
 https://brickschema.org/schema/1.1/Brick#isPointOf,,
 https://brickschema.org/schema/1.1/Brick#isRegulatedBy,,
+https://brickschema.org/schema/1.1/Brick#isSiteOf,Subject is the site encapsulating the object,
 https://brickschema.org/schema/1.1/Brick#isTagOf,,
 https://brickschema.org/schema/1.1/Brick#Laboratory,"facility acceptable to the local, national, or international recognized authority having jurisdiction and which provides uniform testing and examination procedures and standards for meeting design, manufacturing, and factory testing requirements.",
 https://brickschema.org/schema/1.1/Brick#Last_Fault_Code_Status,Indicates the last fault code that occurred,
