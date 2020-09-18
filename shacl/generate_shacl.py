@@ -75,6 +75,11 @@ substance_subproperties = {
     "feedsAir": {"substanceType": BRICK.Air, "substanceSuperType": BRICK.Substance},
 }
 
+location_subproperties = {
+    "hasSite": {"locationType": BRICK.Site, "locationSuperType": BRICK.Location},
+    "isSiteOf": {"locationType": BRICK.Site, "locationSuperType": BRICK.Location},
+}
+
 # For each substance_subproperties element, such as Brick:feedsAir,
 # the subject of the Brick:feedsAir predicate should satisfy triples like
 # subject <property> Brick:Air ("substanceType") where a range shape can
@@ -82,19 +87,28 @@ substance_subproperties = {
 # <property> RDFS.range Brick:Substance ("substanceSuperType").
 
 for subprop, desc in subpropertyDict.items():
-    subpropInfo = substance_subproperties[subprop]
-    if not subpropInfo:  # subprop not in substance_subproperties
+    substanceSubpropInfo = {}
+    locationSubpropInfo = {}
+    if subprop in substance_subproperties:
+        substanceSubpropInfo = substance_subproperties[subprop]
+    if subprop in location_subproperties:
+        locationSubpropInfo = location_subproperties[subprop]
+    if not any(
+        [substanceSubpropInfo, locationSubpropInfo]
+    ):  # subprop not in substance_subproperties or location_subproperties
         continue
 
     for propertyName, expectedType in rangeShapeDict.items():
-        if expectedType == subpropInfo["substanceSuperType"]:
+        if ("substanceSuperType" in substanceSubpropInfo) and (
+            expectedType == substanceSubpropInfo["substanceSuperType"]
+        ):
             sh_prop = BNode()
             capitalized = f"{propertyName[0].upper()}{propertyName[1:]}"
             shapename = f"feedsAir{capitalized}Shape"
             G.add((BSH[shapename], SH["property"], sh_prop))
             G.add((BSH[shapename], A, SH.NodeShape))
             G.add((sh_prop, SH["path"], BRICK[propertyName]))
-            G.add((sh_prop, SH["class"], subpropInfo["substanceType"]))
+            G.add((sh_prop, SH["class"], substanceSubpropInfo["substanceType"]))
             G.add(
                 (
                     sh_prop,
@@ -105,6 +119,49 @@ for subprop, desc in subpropertyDict.items():
                 )
             )
             G.add((BSH[shapename], SH.targetSubjectsOf, BRICK[subprop]))
+
+        if ("locationSuperType" in locationSubpropInfo) and (
+            expectedType == locationSubpropInfo["locationSuperType"]
+        ):
+            sh_prop = BNode()
+            capitalized = f"{propertyName[0].upper()}{propertyName[1:]}"
+            shapename = f"hasSite{capitalized}Shape"
+            G.add((BSH[shapename], SH["property"], sh_prop))
+            G.add((BSH[shapename], A, SH.NodeShape))
+            G.add((sh_prop, SH["path"], BRICK[propertyName]))
+            G.add((sh_prop, SH["class"], locationSubpropInfo["locationType"]))
+            G.add(
+                (
+                    sh_prop,
+                    SH["message"],
+                    Literal(
+                        f"Subject of property {subprop} has object with incorrect type"
+                    ),
+                )
+            )
+            G.add((BSH[shapename], SH.targetSubjectsOf, BRICK[subprop]))
+
+    for propertyName, expectedType in domainShapeDict.items():
+        if ("locationSuperType" in locationSubpropInfo) and (
+            expectedType == locationSubpropInfo["locationSuperType"]
+        ):
+            sh_prop = BNode()
+            capitalized = f"{propertyName[0].upper()}{propertyName[1:]}"
+            shapename = f"isSiteOf{capitalized}Shape"
+            G.add((BSH[shapename], SH["property"], sh_prop))
+            G.add((BSH[shapename], A, SH.NodeShape))
+            G.add((sh_prop, SH["path"], BRICK[propertyName]))
+            G.add((sh_prop, SH["class"], locationSubpropInfo["locationType"]))
+            G.add(
+                (
+                    sh_prop,
+                    SH["message"],
+                    Literal(
+                        f"Object of property {subprop} has subject with incorrect type"
+                    ),
+                )
+            )
+            G.add((BSH[shapename], SH.targetObjectsOf, BRICK[subprop]))
 
 # serialize to output
 with open("BrickShape.ttl", "wb") as fp:
