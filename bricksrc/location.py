@@ -1,12 +1,10 @@
-from rdflib import Literal
-
 from .namespaces import BRICK, TAG, OWL
 
 """
 Location class structure
 """
 location_subclasses = {
-    "Building": {"tags": [TAG.Site]},
+    "Building": {"tags": [TAG.Building, TAG.Location]},
     "Floor": {
         "tags": [TAG.Floor, TAG.Location],
         "subclasses": {
