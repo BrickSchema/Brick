@@ -71,13 +71,19 @@ bsh:hasPointRangeShape a sh:NodeShape ;
 
 bsh:hasSiteHasLocationShape a sh:NodeShape ;
     sh:property [ sh:class brick:Site ;
-            sh:message "Subject of property hasSite has object with incorrect type" ;
+            sh:message "Subject of property isSiteOf has object with incorrect type" ;
             sh:path brick:hasLocation ],
         [ sh:class brick:Site ;
-            sh:message "Subject of property isSiteOf has object with incorrect type" ;
+            sh:message "Subject of property hasSite has object with incorrect type" ;
             sh:path brick:hasLocation ] ;
     sh:targetSubjectsOf brick:hasSite,
         brick:isSiteOf .
+
+bsh:hasSiteRangeShape a sh:NodeShape ;
+    sh:property [ sh:class brick:Site ;
+            sh:message "Property hasSite has object with incorrect type" ;
+            sh:path brick:hasSite ] ;
+    sh:targetSubjectsOf brick:hasSite .
 
 bsh:hasTagRangeShape a sh:NodeShape ;
     sh:property [ sh:class brick:Tag ;
@@ -139,12 +145,17 @@ bsh:isRegulatedByRangeShape a sh:NodeShape ;
             sh:path brick:isRegulatedBy ] ;
     sh:targetSubjectsOf brick:isRegulatedBy .
 
+bsh:isSiteOfDomainShape a sh:NodeShape ;
+    sh:class brick:Site ;
+    sh:message "Property isSiteOf has subject with incorrect type" ;
+    sh:targetSubjectsOf brick:isSiteOf .
+
 bsh:isSiteOfIsLocationOfShape a sh:NodeShape ;
     sh:property [ sh:class brick:Site ;
-            sh:message "Object of property hasSite has subject with incorrect type" ;
+            sh:message "Object of property isSiteOf has subject with incorrect type" ;
             sh:path brick:isLocationOf ],
         [ sh:class brick:Site ;
-            sh:message "Object of property isSiteOf has subject with incorrect type" ;
+            sh:message "Object of property hasSite has subject with incorrect type" ;
             sh:path brick:isLocationOf ] ;
     sh:targetObjectsOf brick:hasSite,
         brick:isSiteOf .

@@ -50,23 +50,28 @@ def addRangeShape(propertyName, expectedType):
     )
 
 
-for name, properties in property_definitions.items():
-    for pred, obj in properties.items():
-        # We are only concerned with properties that have RDFS.domain or .range
-        # predicate.  The temporary replacements for those predicates are
-        # brick:expectedDomain and :expectedRange.  See properties.py for
-        # explanation.
+def add_property_shapes(property_definitions):
+    for name, properties in property_definitions.items():
+        for pred, obj in properties.items():
+            # We are only concerned with properties that have RDFS.domain or .range
+            # predicate.  The temporary replacements for those predicates are
+            # brick:expectedDomain and :expectedRange.  See properties.py for
+            # explanation.
 
-        if pred == RDFS.domain:
-            addDomainShape(name, obj)
+            if pred == RDFS.domain:
+                addDomainShape(name, obj)
 
-        if pred == RDFS.range:
-            addRangeShape(name, obj)
+            if pred == RDFS.range:
+                addRangeShape(name, obj)
 
-        # subproperties are considered after "domain" and "range" are counted for
-        if pred == "subproperties":
-            for subprop, desc in obj.items():
-                subpropertyDict[subprop] = desc
+            # subproperties are considered after "domain" and "range" are counted for
+            if pred == "subproperties":
+                for subprop, desc in obj.items():
+                    subpropertyDict[subprop] = desc
+                add_property_shapes(obj)
+
+
+add_property_shapes(property_definitions)
 
 # TODO: A better way to describe the subproperties is probably
 # using OWL restrictions while generateing Brick.ttl.  But
