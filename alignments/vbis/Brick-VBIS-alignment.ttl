@@ -15,8 +15,6 @@ brick:Battery vbisalign:hasVBISTag "EP-BS-Ba*" .
 
 brick:Boiler vbisalign:hasVBISTag "ME-Bo*" .
 
-brick:Booster_Fan vbisalign:hasVBISTag "ME-Fa*" .
-
 brick:Breaker_Panel vbisalign:hasVBISTag "EP-SB*" .
 
 brick:Bus_Riser vbisalign:hasVBISTag "EP-BD*" .
@@ -24,10 +22,6 @@ brick:Bus_Riser vbisalign:hasVBISTag "EP-BD*" .
 brick:CRAC vbisalign:hasVBISTag "ME-PAC*" .
 
 brick:Camera vbisalign:hasVBISTag "SE-CCTV-Ca*" .
-
-brick:Chilled_Water_Pump vbisalign:hasVBISTag "ME-Pu*" .
-
-brick:Chilled_Water_Valve vbisalign:hasVBISTag "ME-Va*" .
 
 brick:Chiller vbisalign:hasVBISTag "ME-Chr*" .
 
@@ -39,37 +33,15 @@ brick:Computer_Room_Air_Conditioning vbisalign:hasVBISTag "ME-PAC*" .
 
 brick:Condenser vbisalign:hasVBISTag "ME-ACC*" .
 
-brick:Condenser_Heat_Exchanger vbisalign:hasVBISTag "ME-HE*" .
-
-brick:Condenser_Water_Pump vbisalign:hasVBISTag "ME-Pu*" .
-
-brick:Cooling_Coil vbisalign:hasVBISTag "ME-Co*" .
-
-brick:Cooling_Tower_Fan vbisalign:hasVBISTag "ME-Fa*" .
-
-brick:Cooling_Valve vbisalign:hasVBISTag "ME-Va*" .
-
 brick:Damper vbisalign:hasVBISTag "ME-Da*" .
 
-brick:Discharge_Fan vbisalign:hasVBISTag "ME-Fa*" .
-
 brick:Disconnect_Switch vbisalign:hasVBISTag "EP-SG*" .
-
-brick:Domestic_Hot_Water_Valve vbisalign:hasVBISTag "ME-Va*" .
-
-brick:Economizer_Damper vbisalign:hasVBISTag "ME-Da*" .
 
 brick:Electrical_Equipment vbisalign:hasVBISTag "EP*" .
 
 brick:Elevator vbisalign:hasVBISTag "VT-Li*" .
 
 brick:Energy_Storage vbisalign:hasVBISTag "EP-BS*" .
-
-brick:Evaporative_Heat_Exchnger vbisalign:hasVBISTag "ME-HE*" .
-
-brick:Exhaust_Damper vbisalign:hasVBISTag "ME-Da*" .
-
-brick:Exhaust_Fan vbisalign:hasVBISTag "ME-Fa*" .
 
 brick:FCU vbisalign:hasVBISTag "ME-FCU*" .
 
@@ -91,8 +63,6 @@ brick:Furniture vbisalign:hasVBISTag "FFE-*" .
 
 brick:Gas_Distribution vbisalign:hasVBISTag "GRE*" .
 
-brick:Gas_Valve vbisalign:hasVBISTag "ME-Va*" .
-
 brick:HVAC vbisalign:hasVBISTag "ME" .
 
 brick:HX vbisalign:hasVBISTag "ME-HE*" .
@@ -103,15 +73,7 @@ brick:Heat_Wheel vbisalign:hasVBISTag "ME-HE-ATA-AW" .
 
 brick:Heat_Wheel_VFD vbisalign:hasVBISTag "ME-EMS-VSD*" .
 
-brick:Heating_Coil vbisalign:hasVBISTag "ME-Co*" .
-
-brick:Heating_Valve vbisalign:hasVBISTag "ME-Va*" .
-
-brick:Hot_Water_Pump vbisalign:hasVBISTag "ME-Pu*" .
-
 brick:Inverter vbisalign:hasVBISTag "EP-SPS-In" .
-
-brick:Isolation_Valve vbisalign:hasVBISTag "ME-Va*" .
 
 brick:Lighting_Equipment vbisalign:hasVBISTag "EL*" .
 
@@ -126,20 +88,6 @@ brick:Mixed_Air_Filter vbisalign:hasVBISTag "ME-AFP*" .
 
 brick:Motor_Control_Center vbisalign:hasVBISTag "EP-SB*" .
 
-brick:Outside_Damper vbisalign:hasVBISTag "ME-Da*" .
-
-brick:Preheat_Hot_Water_Valve vbisalign:hasVBISTag "ME-Va*" .
-
-brick:Prehet_Hot_Water_Valve vbisalign:hasVBISTag "ME-Va*" .
-
-brick:Reheat_Valve vbisalign:hasVBISTag "ME-Va*" .
-
-brick:Return_Damper vbisalign:hasVBISTag "ME-Da*" .
-
-brick:Return_Fan vbisalign:hasVBISTag "ME-Fa*" .
-
-brick:Return_Heating_Valve vbisalign:hasVBISTag "ME-Va*" .
-
 brick:Safety_Equipment vbisalign:hasVBISTag "SA*" .
 
 brick:Security_Equipment vbisalign:hasVBISTag "SE*" .
@@ -148,13 +96,7 @@ brick:Solar_Panel vbisalign:hasVBISTag "EP-SPS-Pa*" .
 
 brick:Space_Heater vbisalign:hasVBISTag "FFE-He*" .
 
-brick:Standby_Fan vbisalign:hasVBISTag "ME-Fa*" .
-
 brick:Steam_Distribution vbisalign:hasVBISTag "ME-Bo-St" .
-
-brick:Steam_Valve vbisalign:hasVBISTag "ME-Va*" .
-
-brick:Supply_Fan vbisalign:hasVBISTag "ME-Fa*" .
 
 brick:Switchgear vbisalign:hasVBISTag "EP-SG*" .
 
@@ -184,8 +126,6 @@ brick:Water_Distribution vbisalign:hasVBISTag "HY*" .
 brick:Water_Pump vbisalign:hasVBISTag "FS-Pu",
         "HY-Pu",
         "ME-Pu*" .
-
-brick:Water_Valve vbisalign:hasVBISTag "ME-Va*" .
 
 brick:Weather_Station vbisalign:hasVBISTag "BMC-WS*" .
 
