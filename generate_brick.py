@@ -303,7 +303,7 @@ def add_definitions():
     adds it to the graph. If available, adds the source information of
     through RDFS.seeAlso.
     """
-    with open("./bricksrc/definitions.csv") as dictionary_file:
+    with open("./bricksrc/definitions.csv", encoding="utf-8") as dictionary_file:
         dictionary = csv.reader(dictionary_file)
 
         # skip the header
