@@ -730,6 +730,14 @@ sensor_definitions = {
             "Piezoelectric_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Piezoelectric],
             },
+            "Particulate_Matter_Sensor": {
+                "tags": [TAG.Point, TAG.Sensor],
+                "substances": [
+                    [BRICK.measures, BRICK.Air],
+                    [BRICK.measures, BRICK.Exhaust_Air],
+                    [BRICK.measures, BRICK.Particulate_Air],
+                ],
+            },
             "Pressure_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Pressure],
                 "substances": [[BRICK.measures, BRICK.Pressure]],

@@ -39,6 +39,7 @@ substances = {
                             "Discharge_Air": {
                                 "tags": [TAG.Fluid, TAG.Gas, TAG.Air, TAG.Discharge],
                             },
+                            "Particulate_Air": {"tags": [TAG.Air, TAG.Exhaust]},
                         },
                     },
                     "CO2": {"tags": [TAG.Fluid, TAG.Gas, TAG.CO2]},
