@@ -734,8 +734,15 @@ sensor_definitions = {
                 "tags": [TAG.Point, TAG.Sensor],
                 "substances": [
                     [BRICK.measures, BRICK.Air],
-                    [BRICK.measures, BRICK.Exhaust_Air],
                 ],
+                "subclasses": {
+                    "PM_1.0_Sensor": {
+                        "tags": [TAG.Point, TAG.Sensor],
+                        "substances": [
+                            [BRICK.measures, BRICK.Air],
+                        ],
+                    }
+                },
             },
             "Pressure_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Pressure],
