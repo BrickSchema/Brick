@@ -12992,4 +12992,3 @@ gtc:Celcius_Room_Temperature_Setpoint rdfs:subClassOf brick:Setpoint ;
     brickframe:hasUnit btag:Celcius ;
     brick:hasTag tag:Room,
         tag:Temperature .
-

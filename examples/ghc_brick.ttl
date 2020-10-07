@@ -65496,4 +65496,3 @@ GHC:AHU-2_IRoom brick:hasPoint <http://cmu.edu/building/ontology/ghc#SCSC_Gates/
         <http://cmu.edu/building/ontology/ghc#SCSC_Gates/AHU-2_I/supply_vfd_volts> .
 
 brick_v_1_0_2:Schedule_Setpoint brick:hasTag tag:Command .
-

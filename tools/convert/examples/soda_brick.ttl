@@ -5476,4 +5476,3 @@ soda_hall:floor_5 a brick:Floor ;
 
 soda_hall:floor_3 a brick:Floor ;
     brickframe:isPartOf soda_hall:building_1 .
-

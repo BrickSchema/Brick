@@ -735,7 +735,6 @@ sensor_definitions = {
                 "substances": [
                     [BRICK.measures, BRICK.Air],
                     [BRICK.measures, BRICK.Exhaust_Air],
-                    [BRICK.measures, BRICK.Particulate_Air],
                 ],
             },
             "Pressure_Sensor": {

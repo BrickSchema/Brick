@@ -575,7 +575,6 @@ https://brickschema.org/schema/1.1/Brick#Overridden_On_Status,"Indicates if a co
 https://brickschema.org/schema/1.1/Brick#Overridden_Status,Indicates if the expected operating status of an equipment or control loop has been overridden,
 https://brickschema.org/schema/1.1/Brick#Override_Command,Controls or reports whether or not a device or control loop is in 'override',
 https://brickschema.org/schema/1.1/Brick#Parameter,Parameter points are configuration settings used to guide the operation of equipment and control systems; for example they may provide bounds on valid setpoint values,
-https://brickschema.org/schema/1.1/Brick#Particulate_Air,Air that has matter in it, which could be harmful if inhaled
 https://brickschema.org/schema/1.1/Brick#Particulate_Matter_Sensor,Detects pollutants in the ambient air,
 https://brickschema.org/schema/1.1/Brick#Peak_Power,Tracks the highest (peak) observed power in some interval,
 https://brickschema.org/schema/1.1/Brick#Peak_Power_Demand_Sensor,The peak power consumed by a process over some period of time,
