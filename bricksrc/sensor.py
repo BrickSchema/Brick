@@ -741,7 +741,13 @@ sensor_definitions = {
                         "substances": [
                             [BRICK.measures, BRICK.Air],
                         ],
-                    }
+                    },
+                    "PM_2.5_Sensor": {
+                        "tags": [TAG.Point, TAG.Sensor],
+                        "substances": [
+                            [BRICK.measures, BRICK.Air],
+                        ],
+                    },
                 },
             },
             "Pressure_Sensor": {
