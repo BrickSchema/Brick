@@ -168,6 +168,20 @@ brick:Apparent_Energy_Sensor a owl:Class ;
 brick:Apparent_Power a qudt:QuantityKind,
         brick:Quantity ;
     rdfs:label "Apparent Power" ;
+    qudt:applicableUnit unit:A,
+        unit:A_Ab,
+        unit:A_Stat,
+        unit:BIOT,
+        unit:HP,
+        unit:HP_Water,
+        unit:KiloA,
+        unit:KiloW,
+        unit:MicroA,
+        unit:MilliA,
+        unit:NanoA,
+        unit:PicoA,
+        unit:UNITLESS,
+        unit:W ;
     owl:sameAs qudtqk:ApparentPower ;
     skos:broader brick:Electric_Power ;
     skos:definition "Apparent Power is the product of the rms voltage (U) between the terminals of a two-terminal element or two-terminal circuit and the rms electric current I in the element or circuit. Under sinusoidal conditions, the apparent power is the modulus of the complex power."@en .
@@ -175,6 +189,9 @@ brick:Apparent_Power a qudt:QuantityKind,
 brick:Atmospheric_Pressure a qudt:QuantityKind,
         brick:Quantity ;
     rdfs:label "Atmospheric Pressure" ;
+    qudt:applicableUnit unit:BARYE,
+        unit:N-PER-M2,
+        unit:PA ;
     owl:sameAs qudtqk:AtmosphericPressure ;
     skos:broader brick:Pressure ;
     skos:definition "The pressure exerted by the weight of the air above it at any point on the earth's surface. At sea level the atmosphere will support a column of mercury about (760 mm) high. This decreases with increasing altitude. The standard value for the atmospheric pressure at sea level in SI units is (101,325 pascals)."@en .
@@ -483,6 +500,15 @@ brick:CO_Concentration a qudt:QuantityKind,
     skos:broader qudtqk:Dimensionless,
         brick:Air_Quality ;
     skos:definition "The concentration of CO in air" .
+
+brick:CO_Differential_Sensor a owl:Class ;
+    rdfs:label "CO Differential Sensor" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_CO2 _:has_Differential _:has_Sensor ) ],
+        brick:CO_Sensor ;
+    brick:hasAssociatedTag tag:CO2,
+        tag:Differential,
+        tag:Point,
+        tag:Sensor .
 
 brick:CO_Level_Sensor a owl:Class ;
     rdfs:label "CO Level Sensor" ;
@@ -816,6 +842,20 @@ brick:Communication_Loss_Alarm a owl:Class ;
 brick:Complex_Power a qudt:QuantityKind,
         brick:Quantity ;
     rdfs:label "Complex Power" ;
+    qudt:applicableUnit unit:A,
+        unit:A_Ab,
+        unit:A_Stat,
+        unit:BIOT,
+        unit:HP,
+        unit:HP_Water,
+        unit:KiloA,
+        unit:KiloW,
+        unit:MicroA,
+        unit:MilliA,
+        unit:NanoA,
+        unit:PicoA,
+        unit:UNITLESS,
+        unit:W ;
     owl:sameAs qudtqk:ComplexPower ;
     skos:broader brick:Electric_Power ;
     skos:definition "Complex Power, under sinusoidal conditions, is the product of the phasor (U) representing the voltage between the terminals of a linear two-terminal element or two-terminal circuit and the complex conjugate of the phasor (I) representing the electric current in the element or circuit."@en .
@@ -3168,7 +3208,11 @@ brick:Luminance_Setpoint a owl:Class ;
 brick:Luminous_Flux a qudt:QuantityKind,
         brick:Quantity ;
     rdfs:label "Luminous Flux" ;
-    qudt:applicableUnit unit:LM ;
+    qudt:applicableUnit unit:CD,
+        unit:CP,
+        unit:LA,
+        unit:LM,
+        unit:STILB ;
     owl:sameAs qudtqk:LuminousFlux ;
     skos:broader brick:Luminance .
 
@@ -3176,7 +3220,10 @@ brick:Luminous_Intensity a qudt:QuantityKind,
         brick:Quantity ;
     rdfs:label "Luminous Intensity" ;
     qudt:applicableUnit unit:CD,
-        unit:CP ;
+        unit:CP,
+        unit:LA,
+        unit:LM,
+        unit:STILB ;
     owl:sameAs qudtqk:LuminousIntensity ;
     skos:broader brick:Luminance .
 
@@ -4057,6 +4104,21 @@ brick:Outside_Air_CO2_Sensor a owl:Class ;
         tag:Point,
         tag:Sensor .
 
+brick:Outside_Air_CO_Sensor a owl:Class ;
+    rdfs:label "Outside Air CO Sensor" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Outside _:has_Air _:has_CO _:has_Sensor ) ],
+        brick:CO_Sensor ;
+    owl:equivalentClass [ owl:intersectionOf ( [ a owl:Restriction ;
+                        owl:hasValue brick:Outside_Air ;
+                        owl:onProperty brick:measures ] [ a owl:Restriction ;
+                        owl:hasValue brick:CO ;
+                        owl:onProperty brick:measures ] ) ] ;
+    brick:hasAssociatedTag tag:Air,
+        tag:CO,
+        tag:Outside,
+        tag:Point,
+        tag:Sensor .
+
 brick:Outside_Air_Dewpoint_Sensor a owl:Class ;
     rdfs:label "Outside Air Dewpoint Sensor" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Sensor _:has_Dewpoint _:has_Air _:has_Outside ) ],
@@ -4249,27 +4311,27 @@ brick:PIR_Sensor a owl:Class ;
         tag:Point,
         tag:Sensor .
 
-brick:PM10_Concentration a qudt:QuantityKind,
-        brick:Quantity ;
-    rdfs:label "PM10 Concentration",
-        "PM10Concentration" ;
-    qudt:applicableUnit unit:PPM ;
-    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L0I0M0H0T0D1> ;
-    rdfs:isDefinedBy <https://brickschema.org/schema/1.1/Brick> ;
-    skos:broader qudtqk:Dimensionless,
-        brick:Air_Quality ;
-    skos:definition "The concentration of particulates with diameter of 10 microns or less in air" .
+brick:PM10_Level_Sensor a owl:Class ;
+    rdfs:label "PM10 Level Sensor" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Level _:has_Sensor _:has_Particulate _:has_Matter ) ],
+        brick:PM10_Sensor ;
+    skos:definition "Detects level of particulates of size 10 microns"@en ;
+    brick:hasAssociatedTag tag:Level,
+        tag:Matter,
+        tag:Particulate,
+        tag:Point,
+        tag:Sensor .
 
-brick:PM25_Concentration a qudt:QuantityKind,
-        brick:Quantity ;
-    rdfs:label "PM25 Concentration",
-        "PM25Concentration" ;
-    qudt:applicableUnit unit:PPM ;
-    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L0I0M0H0T0D1> ;
-    rdfs:isDefinedBy <https://brickschema.org/schema/1.1/Brick> ;
-    skos:broader qudtqk:Dimensionless,
-        brick:Air_Quality ;
-    skos:definition "The concentration of particulates with diameter of 25 microns or less in air" .
+brick:PM25_Level_Sensor a owl:Class ;
+    rdfs:label "PM25 Level Sensor" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Level _:has_Sensor _:has_Particulate _:has_Matter ) ],
+        brick:PM25_Sensor ;
+    skos:definition "Detects level of particulates of size 25 microns"@en ;
+    brick:hasAssociatedTag tag:Level,
+        tag:Matter,
+        tag:Particulate,
+        tag:Point,
+        tag:Sensor .
 
 brick:Peak_Power_Demand_Sensor a owl:Class ;
     rdfs:label "Peak Power Demand Sensor" ;
@@ -4346,7 +4408,20 @@ brick:PlugStrip a owl:Class ;
 brick:Power_Factor a qudt:QuantityKind,
         brick:Quantity ;
     rdfs:label "Power Factor" ;
-    qudt:applicableUnit unit:UNITLESS ;
+    qudt:applicableUnit unit:A,
+        unit:A_Ab,
+        unit:A_Stat,
+        unit:BIOT,
+        unit:HP,
+        unit:HP_Water,
+        unit:KiloA,
+        unit:KiloW,
+        unit:MicroA,
+        unit:MilliA,
+        unit:NanoA,
+        unit:PicoA,
+        unit:UNITLESS,
+        unit:W ;
     owl:sameAs qudtqk:PowerFactor ;
     skos:definition "Power Factor, under periodic conditions, is the ratio of the absolute value of the active power (P) to the apparent power (S)."@en .
 
@@ -4562,6 +4637,21 @@ brick:Return_Air_CO2_Setpoint a owl:Class ;
         tag:Point,
         tag:Return,
         tag:Setpoint .
+
+brick:Return_Air_CO_Sensor a owl:Class ;
+    rdfs:label "Return Air CO Sensor" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Return _:has_Air _:has_CO _:has_Sensor ) ],
+        brick:CO_Sensor ;
+    owl:equivalentClass [ owl:intersectionOf ( [ a owl:Restriction ;
+                        owl:hasValue brick:Return_Air ;
+                        owl:onProperty brick:measures ] [ a owl:Restriction ;
+                        owl:hasValue brick:CO ;
+                        owl:onProperty brick:measures ] ) ] ;
+    brick:hasAssociatedTag tag:Air,
+        tag:CO,
+        tag:Point,
+        tag:Return,
+        tag:Sensor .
 
 brick:Return_Air_Dewpoint_Sensor a owl:Class ;
     rdfs:label "Return Air Dewpoint Sensor" ;
@@ -5886,15 +5976,9 @@ brick:regulates a owl:AsymmetricProperty,
 
 unit:AMU qudt:symbol "\\(\\mu\\)" .
 
-unit:BARYE qudt:symbol "\\rho" .
-
 unit:BTU_TH qudt:symbol "Btu_{th}" .
 
 unit:CAL_TH qudt:symbol "cal_{th}" .
-
-unit:CD qudt:symbol "cd" .
-
-unit:CP qudt:symbol "cd" .
 
 unit:DAY qudt:symbol "d" .
 
@@ -5923,13 +6007,9 @@ unit:KiloHZ qudt:symbol "KHz" .
 
 unit:KiloSEC qudt:symbol "ks" .
 
-unit:LA qudt:symbol "L" .
-
 unit:LB_M qudt:symbol "lbm" .
 
 unit:LB_T qudt:symbol "lbt" .
-
-unit:LM qudt:symbol "lm" .
 
 unit:MIN qudt:symbol "min" .
 
@@ -5947,15 +6027,11 @@ unit:MilliSEC qudt:symbol "ms" .
 
 unit:N-M qudt:symbol "N-m" .
 
-unit:N-PER-M2 qudt:symbol "Pa" .
-
 unit:NanoSEC qudt:symbol "ms" .
 
 unit:OZ_M qudt:symbol "ozm" .
 
 unit:OZ_TROY qudt:symbol "oz" .
-
-unit:PA qudt:symbol "Pa" .
 
 unit:PlanckMass qudt:symbol "m_P" .
 
@@ -5966,8 +6042,6 @@ unit:SEC qudt:symbol "s" .
 unit:SH qudt:symbol "Sh" .
 
 unit:SLUG qudt:symbol "slug" .
-
-unit:STILB qudt:symbol "sb" .
 
 unit:SolarMass qudt:symbol "S" .
 
@@ -6167,20 +6241,6 @@ brick:CO2_Setpoint a owl:Class ;
     brick:hasAssociatedTag tag:CO2,
         tag:Point,
         tag:Setpoint .
-
-brick:CO_Sensor a owl:Class ;
-    rdfs:label "CO Sensor" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Sensor _:has_CO ) ],
-        brick:Sensor ;
-    owl:equivalentClass [ owl:intersectionOf ( [ a owl:Restriction ;
-                        owl:hasValue brick:Air ;
-                        owl:onProperty brick:measures ] [ a owl:Restriction ;
-                        owl:hasValue brick:CO ;
-                        owl:onProperty brick:measures ] ) ] ;
-    skos:definition "Measures properties of CO"@en ;
-    brick:hasAssociatedTag tag:CO,
-        tag:Point,
-        tag:Sensor .
 
 brick:Camera a owl:Class ;
     rdfs:label "Camera" ;
@@ -7581,6 +7641,58 @@ brick:Override_Command a owl:Class ;
         tag:Override,
         tag:Point .
 
+brick:PM10_Concentration a qudt:QuantityKind,
+        brick:Quantity ;
+    rdfs:label "PM10 Concentration",
+        "PM10Concentration" ;
+    qudt:applicableUnit unit:PPM ;
+    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L0I0M0H0T0D1> ;
+    rdfs:isDefinedBy <https://brickschema.org/schema/1.1/Brick> ;
+    skos:broader qudtqk:Dimensionless,
+        brick:Air_Quality ;
+    skos:definition "The concentration of particulates with diameter of 10 microns or less in air" .
+
+brick:PM10_Sensor a owl:Class ;
+    rdfs:label "PM10 Sensor" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Sensor _:has_Particulate _:has_Matter ) ],
+        brick:Particulate_Matter_Sensor ;
+    owl:equivalentClass [ owl:intersectionOf ( [ a owl:Restriction ;
+                        owl:hasValue brick:Air ;
+                        owl:onProperty brick:measures ] [ a owl:Restriction ;
+                        owl:hasValue brick:PM10_Concentration ;
+                        owl:onProperty brick:measures ] ) ] ;
+    skos:definition "Detects matter of size 10 microns"@en ;
+    brick:hasAssociatedTag tag:Matter,
+        tag:Particulate,
+        tag:Point,
+        tag:Sensor .
+
+brick:PM25_Concentration a qudt:QuantityKind,
+        brick:Quantity ;
+    rdfs:label "PM25 Concentration",
+        "PM25Concentration" ;
+    qudt:applicableUnit unit:PPM ;
+    qudt:hasDimensionVector <http://qudt.org/vocab/dimensionvector/A0E0L0I0M0H0T0D1> ;
+    rdfs:isDefinedBy <https://brickschema.org/schema/1.1/Brick> ;
+    skos:broader qudtqk:Dimensionless,
+        brick:Air_Quality ;
+    skos:definition "The concentration of particulates with diameter of 25 microns or less in air" .
+
+brick:PM25_Sensor a owl:Class ;
+    rdfs:label "PM25 Sensor" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Sensor _:has_Particulate _:has_Matter ) ],
+        brick:Particulate_Matter_Sensor ;
+    owl:equivalentClass [ owl:intersectionOf ( [ a owl:Restriction ;
+                        owl:hasValue brick:Air ;
+                        owl:onProperty brick:measures ] [ a owl:Restriction ;
+                        owl:hasValue brick:PM25_Concentration ;
+                        owl:onProperty brick:measures ] ) ] ;
+    skos:definition "Detects matter of size 25 microns"@en ;
+    brick:hasAssociatedTag tag:Matter,
+        tag:Particulate,
+        tag:Point,
+        tag:Sensor .
+
 brick:PV_Current_Output_Sensor a owl:Class ;
     rdfs:label "PV Current Output Sensor" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Point [ a owl:Restriction ;
@@ -7727,6 +7839,20 @@ brick:Rain_Sensor a owl:Class ;
 brick:Reactive_Power a qudt:QuantityKind,
         brick:Quantity ;
     rdfs:label "Reactive Power" ;
+    qudt:applicableUnit unit:A,
+        unit:A_Ab,
+        unit:A_Stat,
+        unit:BIOT,
+        unit:HP,
+        unit:HP_Water,
+        unit:KiloA,
+        unit:KiloW,
+        unit:MicroA,
+        unit:MilliA,
+        unit:NanoA,
+        unit:PicoA,
+        unit:UNITLESS,
+        unit:W ;
     owl:sameAs qudtqk:ReactivePower ;
     skos:broader brick:Electric_Power ;
     skos:definition "Reactive Power}, for a linear two-terminal element or two-terminal circuit, under sinusoidal conditions, is the quantity equal to the product of the apparent power (S) and the sine of the displacement angle (\\psi). The absolute value of the reactive power is equal to the non-active power. The ISO (and SI) unit for reactive power is the voltampere. The special name var and symbol \\textit{var are given in IEC 60027 1."@en .
@@ -8273,16 +8399,6 @@ brick:Bypass_Air a owl:Class,
     skos:definition "air in a bypass duct, used to relieve static pressure"@en ;
     brick:hasAssociatedTag tag:Air,
         tag:Bypass,
-        tag:Fluid,
-        tag:Gas .
-
-brick:CO a owl:Class,
-        brick:CO ;
-    rdfs:label "CO" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Fluid _:has_Gas _:has_CO ) ],
-        brick:Gas ;
-    skos:definition "Carbon Monoxide in the vapor phase"@en ;
-    brick:hasAssociatedTag tag:CO,
         tag:Fluid,
         tag:Gas .
 
@@ -9611,27 +9727,15 @@ tag:Wing a brick:Tag ;
 tag:Zenith a brick:Tag ;
     rdfs:label "Zenith" .
 
-unit:A qudt:symbol "A" .
+unit:CD qudt:symbol "cd" .
 
-unit:A_Ab qudt:symbol "abA" .
+unit:CP qudt:symbol "cd" .
 
-unit:A_Stat qudt:symbol "statA" .
+unit:LA qudt:symbol "L" .
 
-unit:BIOT qudt:symbol "Bi" .
+unit:LM qudt:symbol "lm" .
 
-unit:HP qudt:symbol "HP" .
-
-unit:HP_Water qudt:symbol "hp_water" .
-
-unit:KiloA qudt:symbol "kA" .
-
-unit:MicroA qudt:symbol "µA" .
-
-unit:MilliA qudt:symbol "mA" .
-
-unit:NanoA qudt:symbol "nA" .
-
-unit:PicoA qudt:symbol "pA" .
+unit:STILB qudt:symbol "sb" .
 
 brick:Air_Alarm a owl:Class ;
     rdfs:label "Air Alarm" ;
@@ -9947,7 +10051,10 @@ brick:Load_Shed_Status a owl:Class ;
 brick:Luminance a qudt:QuantityKind,
         brick:Quantity ;
     rdfs:label "Luminance" ;
-    qudt:applicableUnit unit:LA,
+    qudt:applicableUnit unit:CD,
+        unit:CP,
+        unit:LA,
+        unit:LM,
         unit:STILB ;
     owl:sameAs qudtqk:Luminance .
 
@@ -10240,6 +10347,20 @@ brick:Video_Surveillance_Equipment a owl:Class ;
 brick:Voltage a qudt:QuantityKind,
         brick:Quantity ;
     rdfs:label "Voltage" ;
+    qudt:applicableUnit unit:A,
+        unit:A_Ab,
+        unit:A_Stat,
+        unit:BIOT,
+        unit:HP,
+        unit:HP_Water,
+        unit:KiloA,
+        unit:KiloW,
+        unit:MicroA,
+        unit:MilliA,
+        unit:NanoA,
+        unit:PicoA,
+        unit:UNITLESS,
+        unit:W ;
     owl:sameAs qudtqk:Voltage ;
     skos:definition "Voltage, also referred to as Electric Tension, is the difference between electrical potentials of two points. For an electric field within a medium, (U_{ab} = - \\int_{r_a}^{r_b} E . {dr}), where (E) is electric field strength. For an irrotational electric field, the voltage is independent of the path between the two points (a) and (b)."@en .
 
@@ -10485,6 +10606,12 @@ tag:Wind a brick:Tag ;
 tag:Yearly a brick:Tag ;
     rdfs:label "Yearly" .
 
+unit:BARYE qudt:symbol "\\rho" .
+
+unit:N-PER-M2 qudt:symbol "Pa" .
+
+unit:PA qudt:symbol "Pa" .
+
 brick:AHU a owl:Class ;
     rdfs:label "AHU" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Equipment _:has_AHU ) ],
@@ -10506,6 +10633,16 @@ brick:Air_Temperature_Integral_Time_Parameter a owl:Class ;
         tag:Temperature,
         tag:Time .
 
+brick:CO a owl:Class,
+        brick:CO ;
+    rdfs:label "CO" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Fluid _:has_Gas _:has_CO ) ],
+        brick:Gas ;
+    skos:definition "Carbon Monoxide in the vapor phase"@en ;
+    brick:hasAssociatedTag tag:CO,
+        tag:Fluid,
+        tag:Gas .
+
 brick:CO2 a owl:Class,
         brick:CO2 ;
     rdfs:label "CO2" ;
@@ -10519,7 +10656,7 @@ brick:CO2 a owl:Class,
 brick:CO2_Sensor a owl:Class ;
     rdfs:label "CO2 Sensor" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Sensor _:has_CO2 ) ],
-        brick:Sensor ;
+        brick:Particulate_Matter_Sensor ;
     owl:equivalentClass [ owl:intersectionOf ( [ a owl:Restriction ;
                         owl:hasValue brick:Air ;
                         owl:onProperty brick:measures ] [ a owl:Restriction ;
@@ -10527,6 +10664,20 @@ brick:CO2_Sensor a owl:Class ;
                         owl:onProperty brick:measures ] ) ] ;
     skos:definition "Measures properties of CO2"@en ;
     brick:hasAssociatedTag tag:CO2,
+        tag:Point,
+        tag:Sensor .
+
+brick:CO_Sensor a owl:Class ;
+    rdfs:label "CO Sensor" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Sensor _:has_CO ) ],
+        brick:Particulate_Matter_Sensor ;
+    owl:equivalentClass [ owl:intersectionOf ( [ a owl:Restriction ;
+                        owl:hasValue brick:Air ;
+                        owl:onProperty brick:measures ] [ a owl:Restriction ;
+                        owl:hasValue brick:CO ;
+                        owl:onProperty brick:measures ] ) ] ;
+    skos:definition "Measures properties of CO"@en ;
+    brick:hasAssociatedTag tag:CO,
         tag:Point,
         tag:Sensor .
 
@@ -10630,11 +10781,16 @@ brick:Electric_Current a qudt:QuantityKind,
         unit:A_Ab,
         unit:A_Stat,
         unit:BIOT,
+        unit:HP,
+        unit:HP_Water,
         unit:KiloA,
+        unit:KiloW,
         unit:MicroA,
         unit:MilliA,
         unit:NanoA,
-        unit:PicoA ;
+        unit:PicoA,
+        unit:UNITLESS,
+        unit:W ;
     owl:sameAs qudtqk:ElectricCurrent .
 
 brick:Energy_Sensor a owl:Class ;
@@ -10730,12 +10886,37 @@ brick:PID_Parameter a owl:Class ;
         tag:Parameter,
         tag:Point .
 
+brick:Particulate_Matter_Sensor a owl:Class ;
+    rdfs:label "Particulate Matter Sensor" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Sensor _:has_Particulate _:has_Matter ) ],
+        brick:Sensor ;
+    owl:equivalentClass [ owl:intersectionOf ( [ a owl:Restriction ;
+                        owl:hasValue brick:Air ;
+                        owl:onProperty brick:measures ] [ a owl:Restriction ;
+                        owl:hasValue brick:Air_Quality ;
+                        owl:onProperty brick:measures ] ) ] ;
+    skos:definition "Detects pollutants in the ambient air"@en ;
+    brick:hasAssociatedTag tag:Matter,
+        tag:Particulate,
+        tag:Point,
+        tag:Sensor .
+
 brick:Power a qudt:QuantityKind,
         brick:Quantity ;
     rdfs:label "Power" ;
-    qudt:applicableUnit unit:HP,
+    qudt:applicableUnit unit:A,
+        unit:A_Ab,
+        unit:A_Stat,
+        unit:BIOT,
+        unit:HP,
         unit:HP_Water,
+        unit:KiloA,
         unit:KiloW,
+        unit:MicroA,
+        unit:MilliA,
+        unit:NanoA,
+        unit:PicoA,
+        unit:UNITLESS,
         unit:W ;
     owl:sameAs qudtqk:Power ;
     skos:definition "Power is the rate at which work is performed or energy is transmitted, or the amount of energy required or expended for a given unit of time. As a rate of change of work done or the energy of a subsystem, power is: (P = W/t), where (P) is power, (W) is work and {t} is time."@en .
@@ -10774,6 +10955,9 @@ brick:Solid a owl:Class,
 brick:Static_Pressure a qudt:QuantityKind,
         brick:Quantity ;
     rdfs:label "Static Pressure" ;
+    qudt:applicableUnit unit:BARYE,
+        unit:N-PER-M2,
+        unit:PA ;
     owl:sameAs qudtqk:StaticPressure ;
     skos:broader brick:Pressure .
 
@@ -10831,6 +11015,9 @@ brick:Temperature_Alarm a owl:Class ;
 brick:Velocity_Pressure a qudt:QuantityKind,
         brick:Quantity ;
     rdfs:label "Velocity Pressure" ;
+    qudt:applicableUnit unit:BARYE,
+        unit:N-PER-M2,
+        unit:PA ;
     owl:sameAs qudtqk:DynamicPressure,
         brick:Dynamic_Pressure ;
     skos:broader brick:Pressure ;
@@ -10850,9 +11037,6 @@ tag:Angle a brick:Tag ;
 
 tag:Bypass a brick:Tag ;
     rdfs:label "Bypass" .
-
-tag:CO a brick:Tag ;
-    rdfs:label "CO" .
 
 tag:Chiller a brick:Tag ;
     rdfs:label "Chiller" .
@@ -10919,14 +11103,6 @@ tag:Volume a brick:Tag ;
 
 unit:K qudt:symbol "K" .
 
-unit:UNITLESS qudt:symbol "U" .
-
-unit:W qudt:symbol "W" .
-
-brick:Air_Quality a qudt:QuantityKind,
-        brick:Quantity ;
-    rdfs:label "Air Quality" .
-
 brick:Building_Meter a owl:Class ;
     rdfs:label "Building Meter" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Meter _:has_Equipment _:has_Building ) ],
@@ -10982,7 +11158,20 @@ brick:Discharge_Air_Flow_Setpoint a owl:Class ;
 brick:Electric_Power a qudt:QuantityKind,
         brick:Quantity ;
     rdfs:label "Electric Power" ;
-    qudt:applicableUnit unit:KiloW ;
+    qudt:applicableUnit unit:A,
+        unit:A_Ab,
+        unit:A_Stat,
+        unit:BIOT,
+        unit:HP,
+        unit:HP_Water,
+        unit:KiloA,
+        unit:KiloW,
+        unit:MicroA,
+        unit:MilliA,
+        unit:NanoA,
+        unit:PicoA,
+        unit:UNITLESS,
+        unit:W ;
     owl:sameAs qudtqk:ElectricPower ;
     skos:broader brick:Power ;
     skos:definition "Electric Power is the rate at which electrical energy is transferred by an electric circuit. In the simple case of direct current circuits, electric power can be calculated as the product of the potential difference in the circuit (V) and the amount of current flowing in the circuit (I): (P = VI), where (P) is the power, (V) is the potential difference, and (I) is the current. However, in general electric power is calculated by taking the integral of the vector cross-product of the electrical and magnetic fields over a specified area."@en .
@@ -11070,9 +11259,6 @@ tag:Interface a brick:Tag ;
 tag:Leaving a brick:Tag ;
     rdfs:label "Leaving" .
 
-tag:Level a brick:Tag ;
-    rdfs:label "Level" .
-
 tag:Lighting a brick:Tag ;
     rdfs:label "Lighting" .
 
@@ -11103,8 +11289,6 @@ tag:Voltage a brick:Tag ;
 tag:Wash a brick:Tag ;
     rdfs:label "Wash" .
 
-unit:KiloW qudt:symbol "kW" .
-
 brick:Air_Flow_Setpoint a owl:Class ;
     rdfs:label "Air Flow Setpoint" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Air _:has_Flow _:has_Setpoint ) ],
@@ -11114,6 +11298,10 @@ brick:Air_Flow_Setpoint a owl:Class ;
         tag:Flow,
         tag:Point,
         tag:Setpoint .
+
+brick:Air_Quality a qudt:QuantityKind,
+        brick:Quantity ;
+    rdfs:label "Air Quality" .
 
 brick:Discharge_Water a owl:Class,
         brick:Discharge_Water ;
@@ -11236,6 +11424,9 @@ brick:Valve a owl:Class ;
     brick:hasAssociatedTag tag:Equipment,
         tag:Valve .
 
+tag:CO a brick:Tag ;
+    rdfs:label "CO" .
+
 tag:Detection a brick:Tag ;
     rdfs:label "Detection" .
 
@@ -11254,8 +11445,14 @@ tag:Laboratory a brick:Tag ;
 tag:Lockout a brick:Tag ;
     rdfs:label "Lockout" .
 
+tag:Matter a brick:Tag ;
+    rdfs:label "Matter" .
+
 tag:Output a brick:Tag ;
     rdfs:label "Output" .
+
+tag:Particulate a brick:Tag ;
+    rdfs:label "Particulate" .
 
 tag:Preheat a brick:Tag ;
     rdfs:label "Preheat" .
@@ -11374,6 +11571,9 @@ tag:Average a brick:Tag ;
 tag:Gain a brick:Tag ;
     rdfs:label "Gain" .
 
+tag:Level a brick:Tag ;
+    rdfs:label "Level" .
+
 tag:Standby a brick:Tag ;
     rdfs:label "Standby" .
 
@@ -11400,17 +11600,6 @@ brick:Enable_Command a owl:Class ;
     brick:hasAssociatedTag tag:Command,
         tag:Enable,
         tag:Point .
-
-brick:Outside_Air a owl:Class,
-        brick:Outside_Air ;
-    rdfs:label "Outside Air" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Fluid _:has_Gas _:has_Air _:has_Outside ) ],
-        brick:Air ;
-    skos:definition "air external to a defined zone (e.g., corridors)."@en ;
-    brick:hasAssociatedTag tag:Air,
-        tag:Fluid,
-        tag:Gas,
-        tag:Outside .
 
 tag:Box a brick:Tag ;
     rdfs:label "Box" .
@@ -11466,6 +11655,17 @@ brick:Max_Limit a owl:Class ;
         tag:Parameter,
         tag:Point .
 
+brick:Outside_Air a owl:Class,
+        brick:Outside_Air ;
+    rdfs:label "Outside Air" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Fluid _:has_Gas _:has_Air _:has_Outside ) ],
+        brick:Air ;
+    skos:definition "air external to a defined zone (e.g., corridors)."@en ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Fluid,
+        tag:Gas,
+        tag:Outside .
+
 brick:Pressure a qudt:QuantityKind,
         brick:Quantity ;
     rdfs:label "Pressure" ;
@@ -11473,17 +11673,6 @@ brick:Pressure a qudt:QuantityKind,
         unit:N-PER-M2,
         unit:PA ;
     owl:sameAs qudtqk:Pressure .
-
-brick:Return_Air a owl:Class,
-        brick:Return_Air ;
-    rdfs:label "Return Air" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Fluid _:has_Gas _:has_Air _:has_Return ) ],
-        brick:Air ;
-    skos:definition "air removed from a space to be recirculated or exhausted. Air extracted from a space and totally or partially returned to an air conditioner, furnace, or other heating, cooling, or ventilating system."@en ;
-    brick:hasAssociatedTag tag:Air,
-        tag:Fluid,
-        tag:Gas,
-        tag:Return .
 
 tag:Disable a brick:Tag ;
     rdfs:label "Disable" .
@@ -11496,6 +11685,28 @@ tag:Mode a brick:Tag ;
 
 tag:Pump a brick:Tag ;
     rdfs:label "Pump" .
+
+unit:A qudt:symbol "A" .
+
+unit:A_Ab qudt:symbol "abA" .
+
+unit:A_Stat qudt:symbol "statA" .
+
+unit:BIOT qudt:symbol "Bi" .
+
+unit:HP qudt:symbol "HP" .
+
+unit:HP_Water qudt:symbol "hp_water" .
+
+unit:KiloA qudt:symbol "kA" .
+
+unit:MicroA qudt:symbol "µA" .
+
+unit:MilliA qudt:symbol "mA" .
+
+unit:NanoA qudt:symbol "nA" .
+
+unit:PicoA qudt:symbol "pA" .
 
 brick:Location a owl:Class ;
     rdfs:label "Location" ;
@@ -11512,6 +11723,17 @@ brick:Min_Limit a owl:Class ;
         tag:Min,
         tag:Parameter,
         tag:Point .
+
+brick:Return_Air a owl:Class,
+        brick:Return_Air ;
+    rdfs:label "Return Air" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Fluid _:has_Gas _:has_Air _:has_Return ) ],
+        brick:Air ;
+    skos:definition "air removed from a space to be recirculated or exhausted. Air extracted from a space and totally or partially returned to an air conditioner, furnace, or other heating, cooling, or ventilating system."@en ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Fluid,
+        tag:Gas,
+        tag:Return .
 
 tag:Damper a brick:Tag ;
     rdfs:label "Damper" .
@@ -11546,6 +11768,12 @@ tag:Steam a brick:Tag ;
 tag:Step a brick:Tag ;
     rdfs:label "Step" .
 
+unit:KiloW qudt:symbol "kW" .
+
+unit:UNITLESS qudt:symbol "U" .
+
+unit:W qudt:symbol "W" .
+
 brick:Limit a owl:Class ;
     rdfs:label "Limit" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Parameter _:has_Limit ) ],
@@ -11569,14 +11797,14 @@ brick:Parameter a owl:Class ;
     brick:hasAssociatedTag tag:Parameter,
         tag:Point .
 
-tag:CO2 a brick:Tag ;
-    rdfs:label "CO2" .
-
 tag:Security a brick:Tag ;
     rdfs:label "Security" .
 
 tag:Usage a brick:Tag ;
     rdfs:label "Usage" .
+
+tag:CO2 a brick:Tag ;
+    rdfs:label "CO2" .
 
 tag:Medium a brick:Tag ;
     rdfs:label "Medium" .
@@ -11641,16 +11869,6 @@ tag:Humidity a brick:Tag ;
 tag:Valve a brick:Tag ;
     rdfs:label "Valve" .
 
-brick:Air a owl:Class,
-        brick:Air ;
-    rdfs:label "Air" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Fluid _:has_Gas _:has_Air ) ],
-        brick:Gas ;
-    skos:definition "the invisible gaseous substance surrounding the earth, a mixture mainly of oxygen and nitrogen."@en ;
-    brick:hasAssociatedTag tag:Air,
-        tag:Fluid,
-        tag:Gas .
-
 tag:Occupied a brick:Tag ;
     rdfs:label "Occupied" .
 
@@ -11687,6 +11905,16 @@ brick:Setpoint a owl:Class ;
 
 tag:Integral a brick:Tag ;
     rdfs:label "Integral" .
+
+brick:Air a owl:Class,
+        brick:Air ;
+    rdfs:label "Air" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Fluid _:has_Gas _:has_Air ) ],
+        brick:Gas ;
+    skos:definition "the invisible gaseous substance surrounding the earth, a mixture mainly of oxygen and nitrogen."@en ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Fluid,
+        tag:Gas .
 
 tag:Band a brick:Tag ;
     rdfs:label "Band" .
@@ -11743,9 +11971,6 @@ tag:Proportional a brick:Tag ;
 tag:Liquid a brick:Tag ;
     rdfs:label "Liquid" .
 
-tag:Return a brick:Tag ;
-    rdfs:label "Return" .
-
 tag:Time a brick:Tag ;
     rdfs:label "Time" .
 
@@ -11761,6 +11986,9 @@ brick:Command a owl:Class ;
     skos:definition "A Command is an output point that directly determines the behavior of equipment and/or affects relevant operational points."@en ;
     brick:hasAssociatedTag tag:Command,
         tag:Point .
+
+tag:Return a brick:Tag ;
+    rdfs:label "Return" .
 
 tag:Load a brick:Tag ;
     rdfs:label "Load" .
@@ -11891,11 +12119,11 @@ brick:measures a owl:AsymmetricProperty,
     owl:inverseOf brick:isMeasuredBy ;
     skos:definition "The subject measures a quantity or substance given by the object"@en .
 
-tag:Sensor a brick:Tag ;
-    rdfs:label "Sensor" .
-
 tag:Setpoint a brick:Tag ;
     rdfs:label "Setpoint" .
+
+tag:Sensor a brick:Tag ;
+    rdfs:label "Sensor" .
 
 tag:Air a brick:Tag ;
     rdfs:label "Air" .
@@ -12150,10 +12378,6 @@ _:has_Bypass a owl:Restriction ;
     owl:hasValue tag:Bypass ;
     owl:onProperty brick:hasTag .
 
-_:has_CO a owl:Restriction ;
-    owl:hasValue tag:CO ;
-    owl:onProperty brick:hasTag .
-
 _:has_Chiller a owl:Restriction ;
     owl:hasValue tag:Chiller ;
     owl:onProperty brick:hasTag .
@@ -12258,10 +12482,6 @@ _:has_Leaving a owl:Restriction ;
     owl:hasValue tag:Leaving ;
     owl:onProperty brick:hasTag .
 
-_:has_Level a owl:Restriction ;
-    owl:hasValue tag:Level ;
-    owl:onProperty brick:hasTag .
-
 _:has_Loss a owl:Restriction ;
     owl:hasValue tag:Loss ;
     owl:onProperty brick:hasTag .
@@ -12298,6 +12518,10 @@ _:has_Wash a owl:Restriction ;
     owl:hasValue tag:Wash ;
     owl:onProperty brick:hasTag .
 
+_:has_CO a owl:Restriction ;
+    owl:hasValue tag:CO ;
+    owl:onProperty brick:hasTag .
+
 _:has_Detection a owl:Restriction ;
     owl:hasValue tag:Detection ;
     owl:onProperty brick:hasTag .
@@ -12322,8 +12546,16 @@ _:has_Lockout a owl:Restriction ;
     owl:hasValue tag:Lockout ;
     owl:onProperty brick:hasTag .
 
+_:has_Matter a owl:Restriction ;
+    owl:hasValue tag:Matter ;
+    owl:onProperty brick:hasTag .
+
 _:has_Output a owl:Restriction ;
     owl:hasValue tag:Output ;
+    owl:onProperty brick:hasTag .
+
+_:has_Particulate a owl:Restriction ;
+    owl:hasValue tag:Particulate ;
     owl:onProperty brick:hasTag .
 
 _:has_Preheat a owl:Restriction ;
@@ -12356,6 +12588,10 @@ _:has_Coil a owl:Restriction ;
 
 _:has_Gain a owl:Restriction ;
     owl:hasValue tag:Gain ;
+    owl:onProperty brick:hasTag .
+
+_:has_Level a owl:Restriction ;
+    owl:hasValue tag:Level ;
     owl:onProperty brick:hasTag .
 
 _:has_Standby a owl:Restriction ;
@@ -12446,16 +12682,16 @@ _:has_Step a owl:Restriction ;
     owl:hasValue tag:Step ;
     owl:onProperty brick:hasTag .
 
-_:has_CO2 a owl:Restriction ;
-    owl:hasValue tag:CO2 ;
-    owl:onProperty brick:hasTag .
-
 _:has_Security a owl:Restriction ;
     owl:hasValue tag:Security ;
     owl:onProperty brick:hasTag .
 
 _:has_Usage a owl:Restriction ;
     owl:hasValue tag:Usage ;
+    owl:onProperty brick:hasTag .
+
+_:has_CO2 a owl:Restriction ;
+    owl:hasValue tag:CO2 ;
     owl:onProperty brick:hasTag .
 
 _:has_Medium a owl:Restriction ;
@@ -12566,12 +12802,12 @@ _:has_Liquid a owl:Restriction ;
     owl:hasValue tag:Liquid ;
     owl:onProperty brick:hasTag .
 
-_:has_Return a owl:Restriction ;
-    owl:hasValue tag:Return ;
-    owl:onProperty brick:hasTag .
-
 _:has_Time a owl:Restriction ;
     owl:hasValue tag:Time ;
+    owl:onProperty brick:hasTag .
+
+_:has_Return a owl:Restriction ;
+    owl:hasValue tag:Return ;
     owl:onProperty brick:hasTag .
 
 _:has_Load a owl:Restriction ;
@@ -12678,12 +12914,12 @@ _:has_Temperature a owl:Restriction ;
     owl:hasValue tag:Temperature ;
     owl:onProperty brick:hasTag .
 
-_:has_Sensor a owl:Restriction ;
-    owl:hasValue tag:Sensor ;
-    owl:onProperty brick:hasTag .
-
 _:has_Setpoint a owl:Restriction ;
     owl:hasValue tag:Setpoint ;
+    owl:onProperty brick:hasTag .
+
+_:has_Sensor a owl:Restriction ;
+    owl:hasValue tag:Sensor ;
     owl:onProperty brick:hasTag .
 
 _:has_Air a owl:Restriction ;
