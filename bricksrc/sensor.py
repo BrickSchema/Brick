@@ -656,6 +656,20 @@ sensor_definitions = {
                                     [BRICK.measures, BRICK.Zone_Air],
                                 ],
                             },
+                            "Mixed_Air_Humidity_Sensor": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Sensor,
+                                    TAG.Humidity,
+                                    TAG.Relative,
+                                    TAG.Air,
+                                    TAG.Mixed,
+                                ],
+                                "substances": [
+                                    [BRICK.measures, BRICK.Relative_Humidity],
+                                    [BRICK.measures, BRICK.Mixed_Air],
+                                ],
+                            },
                         },
                     },
                 },

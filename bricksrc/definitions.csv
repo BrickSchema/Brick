@@ -514,6 +514,7 @@ https://brickschema.org/schema/1.1/Brick#Meter,A device that measure usage or co
 https://brickschema.org/schema/1.1/Brick#Mixed_Air,(1) air that contains two or more streams of air. (2) combined outdoor air and recirculated air.,
 https://brickschema.org/schema/1.1/Brick#Mixed_Air_Filter,A filter that is applied to the mixture of recirculated and outside air,
 https://brickschema.org/schema/1.1/Brick#Mixed_Air_Temperature_Sensor,Measures the temperature of mixed air,
+https://brickschema.org/schema/1.1/Brick#Mixed_Air_Humidity_Sensor,Measures the humidity of mixed air,
 https://brickschema.org/schema/1.1/Brick#Mixed_Air_Humidity_Setpoint,,
 https://brickschema.org/schema/1.1/Brick#Mixed_Air_Temperature_Setpoint,Sets temperature of mixed air,
 https://brickschema.org/schema/1.1/Brick#Mode_Command,Controls the operating mode of a device or controller,

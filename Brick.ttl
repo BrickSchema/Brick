@@ -3817,6 +3817,23 @@ brick:Mixed_Air_Filter a owl:Class ;
         tag:Filter,
         tag:Mixed .
 
+brick:Mixed_Air_Humidity_Sensor a owl:Class ;
+    rdfs:label "Mixed Air Humidity Sensor" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Sensor _:has_Humidity _:has_Relative _:has_Air _:has_Mixed ) ],
+        brick:Relative_Humidity_Sensor ;
+    owl:equivalentClass [ owl:intersectionOf ( [ a owl:Restriction ;
+                        owl:hasValue brick:Relative_Humidity ;
+                        owl:onProperty brick:measures ] [ a owl:Restriction ;
+                        owl:hasValue brick:Mixed_Air ;
+                        owl:onProperty brick:measures ] ) ] ;
+    skos:definition "Measures the humidity of mixed air"@en ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Humidity,
+        tag:Mixed,
+        tag:Point,
+        tag:Relative,
+        tag:Sensor .
+
 brick:Mixed_Air_Humidity_Setpoint a owl:Class ;
     rdfs:label "Mixed Air Humidity Setpoint" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Humidity _:has_Setpoint _:has_Air _:has_Mixed ) ],
@@ -9054,17 +9071,6 @@ brick:Min_Static_Pressure_Setpoint_Limit a owl:Class ;
         tag:Setpoint,
         tag:Static .
 
-brick:Mixed_Air a owl:Class,
-        brick:Mixed_Air ;
-    rdfs:label "Mixed Air" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Fluid _:has_Gas _:has_Air _:has_Mixed ) ],
-        brick:Air ;
-    skos:definition "(1) air that contains two or more streams of air. (2) combined outdoor air and recirculated air."@en ;
-    brick:hasAssociatedTag tag:Air,
-        tag:Fluid,
-        tag:Gas,
-        tag:Mixed .
-
 brick:Mode_Status a owl:Class ;
     rdfs:label "Mode Status" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Mode _:has_Status ) ],
@@ -10244,6 +10250,17 @@ brick:Min_Heating_Discharge_Air_Flow_Setpoint_Limit a owl:Class ;
         tag:Parameter,
         tag:Point,
         tag:Setpoint .
+
+brick:Mixed_Air a owl:Class,
+        brick:Mixed_Air ;
+    rdfs:label "Mixed Air" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Fluid _:has_Gas _:has_Air _:has_Mixed ) ],
+        brick:Air ;
+    skos:definition "(1) air that contains two or more streams of air. (2) combined outdoor air and recirculated air."@en ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Fluid,
+        tag:Gas,
+        tag:Mixed .
 
 brick:Mode_Command a owl:Class ;
     rdfs:label "Mode Command" ;
@@ -11477,22 +11494,6 @@ brick:Integral_Time_Parameter a owl:Class ;
         tag:Point,
         tag:Time .
 
-brick:Relative_Humidity_Sensor a owl:Class ;
-    rdfs:label "Relative Humidity Sensor" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Sensor _:has_Humidity _:has_Air _:has_Relative ) ],
-        brick:Humidity_Sensor ;
-    owl:equivalentClass [ owl:intersectionOf ( [ a owl:Restriction ;
-                        owl:hasValue brick:Relative_Humidity ;
-                        owl:onProperty brick:measures ] [ a owl:Restriction ;
-                        owl:hasValue brick:Air ;
-                        owl:onProperty brick:measures ] ) ] ;
-    skos:definition "Measures the present state of absolute humidity relative to a maximum humidity given the same temperature"@en ;
-    brick:hasAssociatedTag tag:Air,
-        tag:Humidity,
-        tag:Point,
-        tag:Relative,
-        tag:Sensor .
-
 brick:Start_Stop_Status a owl:Class ;
     rdfs:label "Start Stop Status" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Start _:has_Stop _:has_Status ) ],
@@ -11582,9 +11583,6 @@ tag:Lockout a brick:Tag ;
 tag:Matter a brick:Tag ;
     rdfs:label "Matter" .
 
-tag:Mixed a brick:Tag ;
-    rdfs:label "Mixed" .
-
 tag:Output a brick:Tag ;
     rdfs:label "Output" .
 
@@ -11662,13 +11660,21 @@ brick:Proportional_Band_Parameter a owl:Class ;
         tag:Point,
         tag:Proportional .
 
-brick:Relative_Humidity a qudt:QuantityKind,
-        brick:Quantity ;
-    rdfs:label "Relative Humidity" ;
-    qudt:applicableUnit unit:UNITLESS ;
-    owl:sameAs qudtqk:RelativeHumidity ;
-    skos:broader brick:Humidity ;
-    skos:definition "Relative Humidity} is the ratio of the partial pressure of water vapor in an air-water mixture to the saturated vapor pressure of water at a prescribed temperature. The relative humidity of air depends not only on temperature but also on the pressure of the system of interest. Relative Humidity is also referred to as \\text{Relative Partial Pressure. Relative partial pressure is often referred to as (RH) and expressed in percent."@en .
+brick:Relative_Humidity_Sensor a owl:Class ;
+    rdfs:label "Relative Humidity Sensor" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Sensor _:has_Humidity _:has_Air _:has_Relative ) ],
+        brick:Humidity_Sensor ;
+    owl:equivalentClass [ owl:intersectionOf ( [ a owl:Restriction ;
+                        owl:hasValue brick:Relative_Humidity ;
+                        owl:onProperty brick:measures ] [ a owl:Restriction ;
+                        owl:hasValue brick:Air ;
+                        owl:onProperty brick:measures ] ) ] ;
+    skos:definition "Measures the present state of absolute humidity relative to a maximum humidity given the same temperature"@en ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Humidity,
+        tag:Point,
+        tag:Relative,
+        tag:Sensor .
 
 brick:Static_Pressure_Setpoint a owl:Class ;
     rdfs:label "Static Pressure Setpoint" ;
@@ -11711,6 +11717,9 @@ tag:Gain a brick:Tag ;
 tag:Level a brick:Tag ;
     rdfs:label "Level" .
 
+tag:Mixed a brick:Tag ;
+    rdfs:label "Mixed" .
+
 tag:Standby a brick:Tag ;
     rdfs:label "Standby" .
 
@@ -11738,6 +11747,14 @@ brick:Enable_Command a owl:Class ;
         tag:Enable,
         tag:Point .
 
+brick:Relative_Humidity a qudt:QuantityKind,
+        brick:Quantity ;
+    rdfs:label "Relative Humidity" ;
+    qudt:applicableUnit unit:UNITLESS ;
+    owl:sameAs qudtqk:RelativeHumidity ;
+    skos:broader brick:Humidity ;
+    skos:definition "Relative Humidity} is the ratio of the partial pressure of water vapor in an air-water mixture to the saturated vapor pressure of water at a prescribed temperature. The relative humidity of air depends not only on temperature but also on the pressure of the system of interest. Relative Humidity is also referred to as \\text{Relative Partial Pressure. Relative partial pressure is often referred to as (RH) and expressed in percent."@en .
+
 tag:Box a brick:Tag ;
     rdfs:label "Box" .
 
@@ -11752,9 +11769,6 @@ tag:Domestic a brick:Tag ;
 
 tag:Motor a brick:Tag ;
     rdfs:label "Motor" .
-
-tag:Relative a brick:Tag ;
-    rdfs:label "Relative" .
 
 tag:Start a brick:Tag ;
     rdfs:label "Start" .
@@ -11831,6 +11845,9 @@ tag:Mode a brick:Tag ;
 
 tag:Pump a brick:Tag ;
     rdfs:label "Pump" .
+
+tag:Relative a brick:Tag ;
+    rdfs:label "Relative" .
 
 unit:A qudt:symbol "A" .
 
@@ -12692,10 +12709,6 @@ _:has_Matter a owl:Restriction ;
     owl:hasValue tag:Matter ;
     owl:onProperty brick:hasTag .
 
-_:has_Mixed a owl:Restriction ;
-    owl:hasValue tag:Mixed ;
-    owl:onProperty brick:hasTag .
-
 _:has_Output a owl:Restriction ;
     owl:hasValue tag:Output ;
     owl:onProperty brick:hasTag .
@@ -12740,6 +12753,10 @@ _:has_Level a owl:Restriction ;
     owl:hasValue tag:Level ;
     owl:onProperty brick:hasTag .
 
+_:has_Mixed a owl:Restriction ;
+    owl:hasValue tag:Mixed ;
+    owl:onProperty brick:hasTag .
+
 _:has_Standby a owl:Restriction ;
     owl:hasValue tag:Standby ;
     owl:onProperty brick:hasTag .
@@ -12758,10 +12775,6 @@ _:has_Domestic a owl:Restriction ;
 
 _:has_Motor a owl:Restriction ;
     owl:hasValue tag:Motor ;
-    owl:onProperty brick:hasTag .
-
-_:has_Relative a owl:Restriction ;
-    owl:hasValue tag:Relative ;
     owl:onProperty brick:hasTag .
 
 _:has_Start a owl:Restriction ;
@@ -12790,6 +12803,10 @@ _:has_Mode a owl:Restriction ;
 
 _:has_Pump a owl:Restriction ;
     owl:hasValue tag:Pump ;
+    owl:onProperty brick:hasTag .
+
+_:has_Relative a owl:Restriction ;
+    owl:hasValue tag:Relative ;
     owl:onProperty brick:hasTag .
 
 _:has_Damper a owl:Restriction ;
