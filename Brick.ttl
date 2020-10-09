@@ -5428,6 +5428,17 @@ brick:Supply_Air_Velocity_Pressure_Sensor a owl:Class ;
         tag:Supply,
         tag:Velocity .
 
+brick:Supply_Chilled_Water_Temperature_Setpoint a owl:Class ;
+    rdfs:label "Supply Chilled Water Temperature Setpoint" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Supply _:has_Water _:has_Temperature _:has_Setpoint _:has_Chilled ) ],
+        brick:Supply_Water_Temperature_Setpoint ;
+    brick:hasAssociatedTag tag:Chilled,
+        tag:Point,
+        tag:Setpoint,
+        tag:Supply,
+        tag:Temperature,
+        tag:Water .
+
 brick:Supply_Fan a owl:Class ;
     rdfs:label "Supply Fan" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Equipment _:has_Fan _:has_Supply ) ],
@@ -5437,6 +5448,17 @@ brick:Supply_Fan a owl:Class ;
     brick:hasAssociatedTag tag:Equipment,
         tag:Fan,
         tag:Supply .
+
+brick:Supply_Hot_Water_Temperature_Setpoint a owl:Class ;
+    rdfs:label "Supply Hot Water Temperature Setpoint" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Supply _:has_Water _:has_Temperature _:has_Setpoint _:has_Hot ) ],
+        brick:Supply_Water_Temperature_Setpoint ;
+    brick:hasAssociatedTag tag:Hot,
+        tag:Point,
+        tag:Setpoint,
+        tag:Supply,
+        tag:Temperature,
+        tag:Water .
 
 brick:Supply_Water_Differential_Pressure_Deadband_Setpoint a owl:Class ;
     rdfs:label "Supply Water Differential Pressure Deadband Setpoint" ;
@@ -9319,17 +9341,6 @@ brick:Supply_Hot_Water a owl:Class,
         tag:Supply,
         tag:Water .
 
-brick:Supply_Water_Temperature_Setpoint a owl:Class ;
-    rdfs:label "Supply Water Temperature Setpoint" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Supply _:has_Water _:has_Temperature _:has_Setpoint ) ],
-        brick:Water_Temperature_Setpoint ;
-    skos:definition "Sets temperature of supply water"@en ;
-    brick:hasAssociatedTag tag:Point,
-        tag:Setpoint,
-        tag:Supply,
-        tag:Temperature,
-        tag:Water .
-
 brick:System_Enable_Command a owl:Class ;
     rdfs:label "System Enable Command" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Enable _:has_Command _:has_System ) ],
@@ -11117,6 +11128,17 @@ brick:Supply_Water a owl:Class,
         tag:Supply,
         tag:Water .
 
+brick:Supply_Water_Temperature_Setpoint a owl:Class ;
+    rdfs:label "Supply Water Temperature Setpoint" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Supply _:has_Water _:has_Temperature _:has_Setpoint ) ],
+        brick:Water_Temperature_Setpoint ;
+    skos:definition "Sets temperature of supply water"@en ;
+    brick:hasAssociatedTag tag:Point,
+        tag:Setpoint,
+        tag:Supply,
+        tag:Temperature,
+        tag:Water .
+
 brick:System_Status a owl:Class ;
     rdfs:label "System Status" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_System _:has_Status ) ],
@@ -12162,9 +12184,6 @@ tag:Humidity a brick:Tag ;
 tag:Outside a brick:Tag ;
     rdfs:label "Outside" .
 
-tag:Chilled a brick:Tag ;
-    rdfs:label "Chilled" .
-
 tag:Return a brick:Tag ;
     rdfs:label "Return" .
 
@@ -12180,6 +12199,9 @@ brick:Status a owl:Class ;
     skos:definition "A Status is input point that reports the current operating mode, state, position, or condition of an item. Statuses are observations and should be considered 'read-only'"@en ;
     brick:hasAssociatedTag tag:Point,
         tag:Status .
+
+tag:Chilled a brick:Tag ;
+    rdfs:label "Chilled" .
 
 tag:Reset a brick:Tag ;
     rdfs:label "Reset" .
@@ -12981,12 +13003,12 @@ _:has_Humidity a owl:Restriction ;
     owl:hasValue tag:Humidity ;
     owl:onProperty brick:hasTag .
 
-_:has_Chilled a owl:Restriction ;
-    owl:hasValue tag:Chilled ;
-    owl:onProperty brick:hasTag .
-
 _:has_Outside a owl:Restriction ;
     owl:hasValue tag:Outside ;
+    owl:onProperty brick:hasTag .
+
+_:has_Chilled a owl:Restriction ;
+    owl:hasValue tag:Chilled ;
     owl:onProperty brick:hasTag .
 
 _:has_Return a owl:Restriction ;

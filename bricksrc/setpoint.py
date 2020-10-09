@@ -1423,6 +1423,28 @@ setpoint_definitions = {
                                     TAG.Temperature,
                                     TAG.Setpoint,
                                 ],
+                                "subclasses": {
+                                    "Supply_Hot_Water_Temperature_Setpoint": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Supply,
+                                            TAG.Water,
+                                            TAG.Temperature,
+                                            TAG.Setpoint,
+                                            TAG.Hot,
+                                        ],
+                                    },
+                                    "Supply_Chilled_Water_Temperature_Setpoint": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Supply,
+                                            TAG.Water,
+                                            TAG.Temperature,
+                                            TAG.Setpoint,
+                                            TAG.Chilled,
+                                        ],
+                                    },
+                                },
                             },
                             "Entering_Water_Temperature_Setpoint": {
                                 "tags": [
