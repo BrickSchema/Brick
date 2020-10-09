@@ -5431,6 +5431,16 @@ brick:Supply_Air_Temperature_Reset_Differential_Setpoint a owl:Class ;
         tag:Supply,
         tag:Temperature .
 
+brick:Supply_Air_Temperature_Setpoint a owl:Class ;
+    rdfs:label "Supply Air Temperature Setpoint" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Supply _:has_Air _:has_Temperature _:has_Setpoint ) ],
+        brick:Air_Temperature_Setpoint ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Point,
+        tag:Setpoint,
+        tag:Supply,
+        tag:Temperature .
+
 brick:Supply_Air_Temperature_Step_Parameter a owl:Class ;
     rdfs:label "Supply Air Temperature Step Parameter" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Supply _:has_Air _:has_Temperature _:has_Step _:has_Parameter ) ],
@@ -11858,16 +11868,6 @@ brick:Air_Humidity_Setpoint a owl:Class ;
         tag:Point,
         tag:Setpoint .
 
-brick:Air_Temperature_Setpoint a owl:Class ;
-    rdfs:label "Air Temperature Setpoint" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Air _:has_Temperature _:has_Setpoint ) ],
-        brick:Temperature_Setpoint ;
-    skos:definition "Sets temperature of air"@en ;
-    brick:hasAssociatedTag tag:Air,
-        tag:Point,
-        tag:Setpoint,
-        tag:Temperature .
-
 brick:Electrical_Equipment a owl:Class ;
     rdfs:label "Electrical Equipment" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Electrical _:has_Equipment ) ],
@@ -11940,6 +11940,16 @@ unit:MilliA qudt:symbol "mA" .
 unit:NanoA qudt:symbol "nA" .
 
 unit:PicoA qudt:symbol "pA" .
+
+brick:Air_Temperature_Setpoint a owl:Class ;
+    rdfs:label "Air Temperature Setpoint" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Air _:has_Temperature _:has_Setpoint ) ],
+        brick:Temperature_Setpoint ;
+    skos:definition "Sets temperature of air"@en ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Point,
+        tag:Setpoint,
+        tag:Temperature .
 
 brick:Location a owl:Class ;
     rdfs:label "Location" ;

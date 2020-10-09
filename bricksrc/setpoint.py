@@ -1352,6 +1352,15 @@ setpoint_definitions = {
                                     },
                                 },
                             },
+                            "Supply_Air_Temperature_Setpoint": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Supply,
+                                    TAG.Air,
+                                    TAG.Temperature,
+                                    TAG.Setpoint,
+                                ],
+                            },
                         },
                     },
                     "Cooling_Temperature_Setpoint": {

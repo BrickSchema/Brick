@@ -735,6 +735,7 @@ https://brickschema.org/schema/1.1/Brick#Supply_Air_Temperature_Reset_Differenti
 https://brickschema.org/schema/1.1/Brick#Supply_Air_Temperature_Reset_High_Setpoint,,
 https://brickschema.org/schema/1.1/Brick#Supply_Air_Temperature_Reset_Low_Setpoint,,
 https://brickschema.org/schema/1.1/Brick#Supply_Air_Temperature_Sensor,Measures the temperature of supply air,
+https://brickschema.org/schema/1.1/Brick#Supply_Air_Temperature_Setpoint,,
 https://brickschema.org/schema/1.1/Brick#Supply_Air_Temperature_Step_Parameter,,
 https://brickschema.org/schema/1.1/Brick#Supply_Air_Velocity_Pressure_Sensor,,
 https://brickschema.org/schema/1.1/Brick#Supply_Chilled_Water,,
