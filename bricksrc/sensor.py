@@ -213,6 +213,45 @@ sensor_definitions = {
                             [BRICK.measures, BRICK.Return_Air],
                         ],
                     },
+                    "Exhaust_Air_Dewpoint_Sensor": {
+                        "tags": [
+                            TAG.Point,
+                            TAG.Sensor,
+                            TAG.Dewpoint,
+                            TAG.Air,
+                            TAG.Exhaust,
+                        ],
+                        "substances": [
+                            [BRICK.measures, BRICK.Dewpoint],
+                            [BRICK.measures, BRICK.Exhaust_Air],
+                        ],
+                    },
+                    "Discharge_Air_Dewpoint_Sensor": {
+                        "tags": [
+                            TAG.Point,
+                            TAG.Sensor,
+                            TAG.Dewpoint,
+                            TAG.Air,
+                            TAG.Discharge,
+                        ],
+                        "substances": [
+                            [BRICK.measures, BRICK.Dewpoint],
+                            [BRICK.measures, BRICK.Discharge_Air],
+                        ],
+                    },
+                    "Zone_Air_Dewpoint_Sensor": {
+                        "tags": [
+                            TAG.Point,
+                            TAG.Sensor,
+                            TAG.Dewpoint,
+                            TAG.Air,
+                            TAG.Zone,
+                        ],
+                        "substances": [
+                            [BRICK.measures, BRICK.Dewpoint],
+                            [BRICK.measures, BRICK.Zone_Air],
+                        ],
+                    },
                 },
             },
             "Direction_Sensor": {
