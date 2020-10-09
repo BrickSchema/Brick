@@ -109,6 +109,8 @@ equipment_subclasses = {
                     "Heat_Wheel_VFD": {
                         "tags": [TAG.Equipment, TAG.Heat, TAG.Wheel, TAG.VFD]
                     },
+                    "Pump_VFD": {"tags": [TAG.Equipment, TAG.Pump, TAG.VFD]},
+                    "Fan_VFD": {"tags": [TAG.Equipment, TAG.Fan, TAG.VFD]},
                 },
             },
         },

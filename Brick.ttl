@@ -2214,6 +2214,15 @@ brick:Fan_On_Off_Status a owl:Class ;
         tag:Point,
         tag:Status .
 
+brick:Fan_VFD a owl:Class ;
+    rdfs:label "Fan VFD" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Equipment _:has_Fan _:has_VFD ) ],
+        brick:VFD ;
+    skos:definition "Variable-frequency drive for fans"@en ;
+    brick:hasAssociatedTag tag:Equipment,
+        tag:Fan,
+        tag:VFD .
+
 brick:Fault_Reset_Command a owl:Class ;
     rdfs:label "Fault Reset Command" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Fault _:has_Reset _:has_Command ) ],
@@ -4615,6 +4624,15 @@ brick:Pump_On_Off_Status a owl:Class ;
         tag:Point,
         tag:Pump,
         tag:Status .
+
+brick:Pump_VFD a owl:Class ;
+    rdfs:label "Pump VFD" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Equipment _:has_Pump _:has_VFD ) ],
+        brick:VFD ;
+    skos:definition "Variable-frequency drive for pumps"@en ;
+    brick:hasAssociatedTag tag:Equipment,
+        tag:Pump,
+        tag:VFD .
 
 brick:Radiant_Temperature a qudt:QuantityKind,
         brick:Quantity ;
@@ -9465,15 +9483,6 @@ brick:Unoccupied_Air_Temperature_Setpoint a owl:Class ;
         tag:Temperature,
         tag:Unoccupied .
 
-brick:VFD a owl:Class ;
-    rdfs:label "VFD" ;
-    rdfs:seeAlso <https://xp20.ashrae.org/terminology/index.php?term=vfd&submit=Search> ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Equipment _:has_VFD ) ],
-        brick:Motor ;
-    skos:definition "Electronic device that varies its output frequency to vary the rotating speed of a motor, given a fixed input frequency. Used with fans or pumps to vary the flow in the system as a function of a maintained pressure."@en ;
-    brick:hasAssociatedTag tag:Equipment,
-        tag:VFD .
-
 brick:Variable_Air_Volume_Box a owl:Class ;
     rdfs:label "Variable Air Volume Box" ;
     rdfs:seeAlso <https://en.wikipedia.org/wiki/Variable_air_volume> ;
@@ -11206,6 +11215,15 @@ brick:Temperature_Low_Reset_Setpoint a owl:Class ;
         tag:Setpoint,
         tag:Temperature .
 
+brick:VFD a owl:Class ;
+    rdfs:label "VFD" ;
+    rdfs:seeAlso <https://xp20.ashrae.org/terminology/index.php?term=vfd&submit=Search> ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Equipment _:has_VFD ) ],
+        brick:Motor ;
+    skos:definition "Electronic device that varies its output frequency to vary the rotating speed of a motor, given a fixed input frequency. Used with fans or pumps to vary the flow in the system as a function of a maintained pressure."@en ;
+    brick:hasAssociatedTag tag:Equipment,
+        tag:VFD .
+
 brick:Velocity_Pressure a qudt:QuantityKind,
         brick:Quantity ;
     rdfs:label "Velocity Pressure" ;
@@ -11293,9 +11311,6 @@ tag:Switch a brick:Tag ;
 
 tag:Tolerance a brick:Tag ;
     rdfs:label "Tolerance" .
-
-tag:VFD a brick:Tag ;
-    rdfs:label "VFD" .
 
 tag:Variable a brick:Tag ;
     rdfs:label "Variable" .
@@ -11664,6 +11679,9 @@ tag:Stack a brick:Tag ;
 tag:Station a brick:Tag ;
     rdfs:label "Station" .
 
+tag:VFD a brick:Tag ;
+    rdfs:label "VFD" .
+
 tag:Velocity a brick:Tag ;
     rdfs:label "Velocity" .
 
@@ -11913,9 +11931,6 @@ tag:Electrical a brick:Tag ;
 tag:Mode a brick:Tag ;
     rdfs:label "Mode" .
 
-tag:Pump a brick:Tag ;
-    rdfs:label "Pump" .
-
 tag:Relative a brick:Tag ;
     rdfs:label "Relative" .
 
@@ -11989,6 +12004,9 @@ tag:Filter a brick:Tag ;
 
 tag:Position a brick:Tag ;
     rdfs:label "Position" .
+
+tag:Pump a brick:Tag ;
+    rdfs:label "Pump" .
 
 tag:Room a brick:Tag ;
     rdfs:label "Room" .
@@ -12069,9 +12087,6 @@ brick:Flow a qudt:QuantityKind,
 tag:Demand a brick:Tag ;
     rdfs:label "Demand" .
 
-tag:Fan a brick:Tag ;
-    rdfs:label "Fan" .
-
 tag:Power a brick:Tag ;
     rdfs:label "Power" .
 
@@ -12083,6 +12098,9 @@ brick:Temperature_Parameter a owl:Class ;
     brick:hasAssociatedTag tag:Parameter,
         tag:Point,
         tag:Temperature .
+
+tag:Fan a brick:Tag ;
+    rdfs:label "Fan" .
 
 tag:Unoccupied a brick:Tag ;
     rdfs:label "Unoccupied" .
@@ -12685,10 +12703,6 @@ _:has_Tolerance a owl:Restriction ;
     owl:hasValue tag:Tolerance ;
     owl:onProperty brick:hasTag .
 
-_:has_VFD a owl:Restriction ;
-    owl:hasValue tag:VFD ;
-    owl:onProperty brick:hasTag .
-
 _:has_Variable a owl:Restriction ;
     owl:hasValue tag:Variable ;
     owl:onProperty brick:hasTag .
@@ -12805,6 +12819,10 @@ _:has_Station a owl:Restriction ;
     owl:hasValue tag:Station ;
     owl:onProperty brick:hasTag .
 
+_:has_VFD a owl:Restriction ;
+    owl:hasValue tag:VFD ;
+    owl:onProperty brick:hasTag .
+
 _:has_Velocity a owl:Restriction ;
     owl:hasValue tag:Velocity ;
     owl:onProperty brick:hasTag .
@@ -12881,10 +12899,6 @@ _:has_Mode a owl:Restriction ;
     owl:hasValue tag:Mode ;
     owl:onProperty brick:hasTag .
 
-_:has_Pump a owl:Restriction ;
-    owl:hasValue tag:Pump ;
-    owl:onProperty brick:hasTag .
-
 _:has_Relative a owl:Restriction ;
     owl:hasValue tag:Relative ;
     owl:onProperty brick:hasTag .
@@ -12903,6 +12917,10 @@ _:has_Filter a owl:Restriction ;
 
 _:has_Position a owl:Restriction ;
     owl:hasValue tag:Position ;
+    owl:onProperty brick:hasTag .
+
+_:has_Pump a owl:Restriction ;
+    owl:hasValue tag:Pump ;
     owl:onProperty brick:hasTag .
 
 _:has_Room a owl:Restriction ;
@@ -12957,12 +12975,12 @@ _:has_Demand a owl:Restriction ;
     owl:hasValue tag:Demand ;
     owl:onProperty brick:hasTag .
 
-_:has_Fan a owl:Restriction ;
-    owl:hasValue tag:Fan ;
-    owl:onProperty brick:hasTag .
-
 _:has_Power a owl:Restriction ;
     owl:hasValue tag:Power ;
+    owl:onProperty brick:hasTag .
+
+_:has_Fan a owl:Restriction ;
+    owl:hasValue tag:Fan ;
     owl:onProperty brick:hasTag .
 
 _:has_Unoccupied a owl:Restriction ;
