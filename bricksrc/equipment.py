@@ -275,6 +275,12 @@ hvac_subclasses = {
             },
             "Pre_Filter": {"tags": [TAG.Equipment, TAG.Pre, TAG.Filter]},
             "Final_Filter": {"tags": [TAG.Equipment, TAG.Final, TAG.Filter]},
+            "Intake_Air_Filter": {
+                "tags": [TAG.Equipment, TAG.Intake, TAG.Air, TAG.Filter]
+            },
+            "Return_Air_Filter": {
+                "tags": [TAG.Equipment, TAG.Return, TAG.Air, TAG.Filter]
+            },
         },
     },
     "Fan": {
