@@ -1298,6 +1298,17 @@ brick:Differential_Air_Temperature_Setpoint a owl:Class ;
         tag:Setpoint,
         tag:Temperature .
 
+brick:Differential_Pressure_Bypass_Valve a owl:Class ;
+    rdfs:label "Differential Pressure Bypass Valve" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Differential _:has_Pressure _:has_Bypass _:has_Valve _:has_Equipment ) ],
+        brick:Valve ;
+    skos:definition "A 2-way, self contained proportional valve with an integral differential pressure adjustment setting."@en ;
+    brick:hasAssociatedTag tag:Bypass,
+        tag:Differential,
+        tag:Equipment,
+        tag:Pressure,
+        tag:Valve .
+
 brick:Differential_Speed_Sensor a owl:Class ;
     rdfs:label "Differential Speed Sensor" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Sensor _:has_Speed _:has_Differential ) ],
@@ -11472,9 +11483,6 @@ brick:Temperature_Deadband_Setpoint a owl:Class ;
         tag:Setpoint,
         tag:Temperature .
 
-tag:Bypass a brick:Tag ;
-    rdfs:label "Bypass" .
-
 tag:Condenser a brick:Tag ;
     rdfs:label "Condenser" .
 
@@ -11621,15 +11629,6 @@ brick:Terminal_Unit a owl:Class ;
         tag:Terminal,
         tag:Unit .
 
-brick:Valve a owl:Class ;
-    rdfs:label "Valve" ;
-    rdfs:seeAlso <https://en.wikipedia.org/wiki/Valve> ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Valve _:has_Equipment ) ],
-        brick:HVAC ;
-    skos:definition "A device that regulates, directs or controls the flow of a fluid by opening, closing or partially obstructing various passageways"@en ;
-    brick:hasAssociatedTag tag:Equipment,
-        tag:Valve .
-
 brick:Water_Temperature_Setpoint a owl:Class ;
     rdfs:label "Water Temperature Setpoint" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Water _:has_Temperature _:has_Setpoint ) ],
@@ -11639,6 +11638,9 @@ brick:Water_Temperature_Setpoint a owl:Class ;
         tag:Setpoint,
         tag:Temperature,
         tag:Water .
+
+tag:Bypass a brick:Tag ;
+    rdfs:label "Bypass" .
 
 tag:CO a brick:Tag ;
     rdfs:label "CO" .
@@ -11776,6 +11778,15 @@ brick:System a owl:Class ;
         brick:Class ;
     skos:definition "A System is a combination of equipment and auxiliary devices (e.g., controls, accessories, interconnecting means, and termi­nal elements) by which energy is transformed so it performs a specific function such as HVAC, service water heating, or lighting. (ASHRAE Dictionary)." ;
     brick:hasAssociatedTag tag:System .
+
+brick:Valve a owl:Class ;
+    rdfs:label "Valve" ;
+    rdfs:seeAlso <https://en.wikipedia.org/wiki/Valve> ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Valve _:has_Equipment ) ],
+        brick:HVAC ;
+    skos:definition "A device that regulates, directs or controls the flow of a fluid by opening, closing or partially obstructing various passageways"@en ;
+    brick:hasAssociatedTag tag:Equipment,
+        tag:Valve .
 
 brick:Water_Temperature_Sensor a owl:Class ;
     rdfs:label "Water Temperature Sensor" ;
@@ -12124,11 +12135,11 @@ tag:On a brick:Tag ;
 tag:Zone a brick:Tag ;
     rdfs:label "Zone" .
 
-tag:Valve a brick:Tag ;
-    rdfs:label "Valve" .
-
 tag:Occupied a brick:Tag ;
     rdfs:label "Occupied" .
+
+tag:Valve a brick:Tag ;
+    rdfs:label "Valve" .
 
 brick:Equipment a owl:Class ;
     rdfs:label "Equipment" ;
@@ -12363,11 +12374,11 @@ tag:Pressure a brick:Tag ;
 tag:Parameter a brick:Tag ;
     rdfs:label "Parameter" .
 
-tag:Equipment a brick:Tag ;
-    rdfs:label "Equipment" .
-
 tag:Water a brick:Tag ;
     rdfs:label "Water" .
+
+tag:Equipment a brick:Tag ;
+    rdfs:label "Equipment" .
 
 tag:Temperature a brick:Tag ;
     rdfs:label "Temperature" .
@@ -12711,10 +12722,6 @@ _:has_Volume a owl:Restriction ;
     owl:hasValue tag:Volume ;
     owl:onProperty brick:hasTag .
 
-_:has_Bypass a owl:Restriction ;
-    owl:hasValue tag:Bypass ;
-    owl:onProperty brick:hasTag .
-
 _:has_Condenser a owl:Restriction ;
     owl:hasValue tag:Condenser ;
     owl:onProperty brick:hasTag .
@@ -12765,6 +12772,10 @@ _:has_Voltage a owl:Restriction ;
 
 _:has_Wash a owl:Restriction ;
     owl:hasValue tag:Wash ;
+    owl:onProperty brick:hasTag .
+
+_:has_Bypass a owl:Restriction ;
+    owl:hasValue tag:Bypass ;
     owl:onProperty brick:hasTag .
 
 _:has_CO a owl:Restriction ;
@@ -12995,12 +13006,12 @@ _:has_On a owl:Restriction ;
     owl:hasValue tag:On ;
     owl:onProperty brick:hasTag .
 
-_:has_Valve a owl:Restriction ;
-    owl:hasValue tag:Valve ;
-    owl:onProperty brick:hasTag .
-
 _:has_Zone a owl:Restriction ;
     owl:hasValue tag:Zone ;
+    owl:onProperty brick:hasTag .
+
+_:has_Valve a owl:Restriction ;
+    owl:hasValue tag:Valve ;
     owl:onProperty brick:hasTag .
 
 _:has_Occupied a owl:Restriction ;
@@ -13163,12 +13174,12 @@ _:has_Parameter a owl:Restriction ;
     owl:hasValue tag:Parameter ;
     owl:onProperty brick:hasTag .
 
-_:has_Equipment a owl:Restriction ;
-    owl:hasValue tag:Equipment ;
-    owl:onProperty brick:hasTag .
-
 _:has_Water a owl:Restriction ;
     owl:hasValue tag:Water ;
+    owl:onProperty brick:hasTag .
+
+_:has_Equipment a owl:Restriction ;
+    owl:hasValue tag:Equipment ;
     owl:onProperty brick:hasTag .
 
 _:has_Temperature a owl:Restriction ;

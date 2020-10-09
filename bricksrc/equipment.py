@@ -406,6 +406,9 @@ valve_subclasses = {
     "Gas_Valve": {"tags": [TAG.Gas, TAG.Valve, TAG.Equipment]},
     "Isolation_Valve": {"tags": [TAG.Isolation, TAG.Valve, TAG.Equipment]},
     "Steam_Valve": {"tags": [TAG.Steam, TAG.Valve, TAG.Equipment]},
+    "Differential_Pressure_Bypass_Valve": {
+        "tags": [TAG.Differential, TAG.Pressure, TAG.Bypass, TAG.Valve, TAG.Equipment],
+    },
 }
 
 security_subclasses = {

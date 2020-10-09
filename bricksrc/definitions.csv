@@ -169,6 +169,7 @@ https://brickschema.org/schema/1.1/Brick#Dewpoint,,
 https://brickschema.org/schema/1.1/Brick#Dewpoint_Sensor,Senses the dewpoint temperature . Dew point is the temperature to which air must be cooled to become saturated with water vapor,https://en.wikipedia.org/wiki/Dew_point
 https://brickschema.org/schema/1.1/Brick#Discharge_Air_Dewpoint_Sensor,Measures dewpoint of discharge air,
 https://brickschema.org/schema/1.1/Brick#Differential_Air_Temperature_Setpoint,Sets temperature of diffrential air,
+https://brickschema.org/schema/1.1/Brick#Differential_Pressure_Bypass_Valve,"A 2-way, self contained proportional valve with an integral differential pressure adjustment setting.",
 https://brickschema.org/schema/1.1/Brick#Differential_Pressure_Deadband_Setpoint,Sets the size of a deadband of differential pressure,
 https://brickschema.org/schema/1.1/Brick#Differential_Pressure_Integral_Time_Parameter,,
 https://brickschema.org/schema/1.1/Brick#Differential_Pressure_Load_Shed_Status,,
