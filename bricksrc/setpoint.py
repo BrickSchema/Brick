@@ -1306,6 +1306,16 @@ setpoint_definitions = {
                                     }
                                 },
                             },
+                            "Return_Hot_Water_Temperature_Setpoint": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Hot,
+                                    TAG.Water,
+                                    TAG.Temperature,
+                                    TAG.Setpoint,
+                                    TAG.Return,
+                                ],
+                            },
                             "Discharge_Water_Temperature_Setpoint": {
                                 "tags": [
                                     TAG.Point,

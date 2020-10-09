@@ -4819,6 +4819,17 @@ brick:Return_Heating_Valve a owl:Class ;
         tag:Return,
         tag:Valve .
 
+brick:Return_Hot_Water_Temperature_Setpoint a owl:Class ;
+    rdfs:label "Return Hot Water Temperature Setpoint" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Hot _:has_Water _:has_Temperature _:has_Setpoint _:has_Return ) ],
+        brick:Water_Temperature_Setpoint ;
+    brick:hasAssociatedTag tag:Hot,
+        tag:Point,
+        tag:Return,
+        tag:Setpoint,
+        tag:Temperature,
+        tag:Water .
+
 brick:Rooftop a owl:Class ;
     rdfs:label "Rooftop" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Rooftop _:has_Location _:has_Floor ) ],
@@ -7903,6 +7914,18 @@ brick:Real_Power a qudt:QuantityKind,
     skos:broader brick:Electric_Power ;
     skos:definition "(Active Power) is, under periodic conditions, the mean value, taken over one period (T), of the instantaneous power (p). In complex notation, (P = Re \\; S), where (S) is (complex power)\"."@en .
 
+brick:Return_Hot_Water a owl:Class,
+        brick:Return_Hot_Water ;
+    rdfs:label "Return Hot Water" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Fluid _:has_Liquid _:has_Water _:has_Hot _:has_Return ) ],
+        brick:Hot_Water,
+        brick:Return_Water ;
+    brick:hasAssociatedTag tag:Fluid,
+        tag:Hot,
+        tag:Liquid,
+        tag:Return,
+        tag:Water .
+
 brick:Rooftop_Unit a owl:Class ;
     rdfs:label "Rooftop Unit" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Equipment _:has_Rooftop _:has_AHU ) ],
@@ -9101,16 +9124,6 @@ brick:Return_Air_Temperature_Alarm a owl:Class ;
         tag:Return,
         tag:Temperature .
 
-brick:Return_Water a owl:Class,
-        brick:Return_Water ;
-    rdfs:label "Return Water" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Fluid _:has_Liquid _:has_Water _:has_Return ) ],
-        brick:Water ;
-    brick:hasAssociatedTag tag:Fluid,
-        tag:Liquid,
-        tag:Return,
-        tag:Water .
-
 brick:Room a owl:Class ;
     rdfs:label "Room" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Room _:has_Location ) ],
@@ -10215,6 +10228,16 @@ brick:Reset_Command a owl:Class ;
         tag:Point,
         tag:Reset .
 
+brick:Return_Water a owl:Class,
+        brick:Return_Water ;
+    rdfs:label "Return Water" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Fluid _:has_Liquid _:has_Water _:has_Return ) ],
+        brick:Water ;
+    brick:hasAssociatedTag tag:Fluid,
+        tag:Liquid,
+        tag:Return,
+        tag:Water .
+
 brick:Return_Water_Temperature_Sensor a owl:Class ;
     rdfs:label "Return Water Temperature Sensor" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Sensor _:has_Temperature _:has_Water _:has_Return ) ],
@@ -10827,17 +10850,6 @@ brick:Heat_Exchanger a owl:Class ;
         tag:Exchanger,
         tag:Heat .
 
-brick:Hot_Water a owl:Class,
-        brick:Hot_Water ;
-    rdfs:label "Hot Water" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Fluid _:has_Liquid _:has_Water _:has_Hot ) ],
-        brick:Water ;
-    skos:definition "Hot water used for HVAC heating or supply to hot taps"@en ;
-    brick:hasAssociatedTag tag:Fluid,
-        tag:Hot,
-        tag:Liquid,
-        tag:Water .
-
 brick:Hot_Water_System a owl:Class ;
     rdfs:label "Hot Water System" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Water _:has_Hot _:has_System ) ],
@@ -11200,6 +11212,17 @@ brick:Electric_Power a qudt:QuantityKind,
     skos:broader brick:Power ;
     skos:definition "Electric Power is the rate at which electrical energy is transferred by an electric circuit. In the simple case of direct current circuits, electric power can be calculated as the product of the potential difference in the circuit (V) and the amount of current flowing in the circuit (I): (P = VI), where (P) is the power, (V) is the potential difference, and (I) is the current. However, in general electric power is calculated by taking the integral of the vector cross-product of the electrical and magnetic fields over a specified area."@en .
 
+brick:Hot_Water a owl:Class,
+        brick:Hot_Water ;
+    rdfs:label "Hot Water" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Fluid _:has_Liquid _:has_Water _:has_Hot ) ],
+        brick:Water ;
+    skos:definition "Hot water used for HVAC heating or supply to hot taps"@en ;
+    brick:hasAssociatedTag tag:Fluid,
+        tag:Hot,
+        tag:Liquid,
+        tag:Water .
+
 brick:Liquid a owl:Class,
         brick:Liquid ;
     rdfs:label "Liquid" ;
@@ -11254,16 +11277,6 @@ brick:Temperature_Deadband_Setpoint a owl:Class ;
         tag:Point,
         tag:Setpoint,
         tag:Temperature .
-
-brick:Water_Temperature_Setpoint a owl:Class ;
-    rdfs:label "Water Temperature Setpoint" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Water _:has_Temperature _:has_Setpoint ) ],
-        brick:Temperature_Setpoint ;
-    skos:definition "Sets temperature of water"@en ;
-    brick:hasAssociatedTag tag:Point,
-        tag:Setpoint,
-        tag:Temperature,
-        tag:Water .
 
 tag:Condenser a brick:Tag ;
     rdfs:label "Condenser" .
@@ -11447,6 +11460,16 @@ brick:Valve a owl:Class ;
     skos:definition "A device that regulates, directs or controls the flow of a fluid by opening, closing or partially obstructing various passageways"@en ;
     brick:hasAssociatedTag tag:Equipment,
         tag:Valve .
+
+brick:Water_Temperature_Setpoint a owl:Class ;
+    rdfs:label "Water Temperature Setpoint" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Water _:has_Temperature _:has_Setpoint ) ],
+        brick:Temperature_Setpoint ;
+    skos:definition "Sets temperature of water"@en ;
+    brick:hasAssociatedTag tag:Point,
+        tag:Setpoint,
+        tag:Temperature,
+        tag:Water .
 
 tag:CO a brick:Tag ;
     rdfs:label "CO" .
@@ -11992,9 +12015,6 @@ tag:Location a brick:Tag ;
 tag:Proportional a brick:Tag ;
     rdfs:label "Proportional" .
 
-tag:Liquid a brick:Tag ;
-    rdfs:label "Liquid" .
-
 tag:Time a brick:Tag ;
     rdfs:label "Time" .
 
@@ -12011,6 +12031,9 @@ brick:Command a owl:Class ;
     brick:hasAssociatedTag tag:Command,
         tag:Point .
 
+tag:Liquid a brick:Tag ;
+    rdfs:label "Liquid" .
+
 tag:Load a brick:Tag ;
     rdfs:label "Load" .
 
@@ -12020,11 +12043,11 @@ tag:Max a brick:Tag ;
 tag:Min a brick:Tag ;
     rdfs:label "Min" .
 
-tag:Return a brick:Tag ;
-    rdfs:label "Return" .
-
 tag:Outside a brick:Tag ;
     rdfs:label "Outside" .
+
+tag:Return a brick:Tag ;
+    rdfs:label "Return" .
 
 tag:Chilled a brick:Tag ;
     rdfs:label "Chilled" .
@@ -12091,11 +12114,11 @@ tag:Alarm a brick:Tag ;
 tag:Heat a brick:Tag ;
     rdfs:label "Heat" .
 
-tag:Hot a brick:Tag ;
-    rdfs:label "Hot" .
-
 tag:Command a brick:Tag ;
     rdfs:label "Command" .
+
+tag:Hot a brick:Tag ;
+    rdfs:label "Hot" .
 
 tag:Limit a brick:Tag ;
     rdfs:label "Limit" .
@@ -12126,11 +12149,11 @@ tag:Pressure a brick:Tag ;
 tag:Parameter a brick:Tag ;
     rdfs:label "Parameter" .
 
-tag:Water a brick:Tag ;
-    rdfs:label "Water" .
-
 tag:Equipment a brick:Tag ;
     rdfs:label "Equipment" .
+
+tag:Water a brick:Tag ;
+    rdfs:label "Water" .
 
 tag:Temperature a brick:Tag ;
     rdfs:label "Temperature" .
@@ -12822,12 +12845,12 @@ _:has_Proportional a owl:Restriction ;
     owl:hasValue tag:Proportional ;
     owl:onProperty brick:hasTag .
 
-_:has_Liquid a owl:Restriction ;
-    owl:hasValue tag:Liquid ;
-    owl:onProperty brick:hasTag .
-
 _:has_Time a owl:Restriction ;
     owl:hasValue tag:Time ;
+    owl:onProperty brick:hasTag .
+
+_:has_Liquid a owl:Restriction ;
+    owl:hasValue tag:Liquid ;
     owl:onProperty brick:hasTag .
 
 _:has_Load a owl:Restriction ;
@@ -12842,16 +12865,16 @@ _:has_Min a owl:Restriction ;
     owl:hasValue tag:Min ;
     owl:onProperty brick:hasTag .
 
-_:has_Return a owl:Restriction ;
-    owl:hasValue tag:Return ;
-    owl:onProperty brick:hasTag .
-
 _:has_Outside a owl:Restriction ;
     owl:hasValue tag:Outside ;
     owl:onProperty brick:hasTag .
 
 _:has_Chilled a owl:Restriction ;
     owl:hasValue tag:Chilled ;
+    owl:onProperty brick:hasTag .
+
+_:has_Return a owl:Restriction ;
+    owl:hasValue tag:Return ;
     owl:onProperty brick:hasTag .
 
 _:has_Reset a owl:Restriction ;
@@ -12866,12 +12889,12 @@ _:has_System a owl:Restriction ;
     owl:hasValue tag:System ;
     owl:onProperty brick:hasTag .
 
-_:has_Fluid a owl:Restriction ;
-    owl:hasValue tag:Fluid ;
-    owl:onProperty brick:hasTag .
-
 _:has_Cool a owl:Restriction ;
     owl:hasValue tag:Cool ;
+    owl:onProperty brick:hasTag .
+
+_:has_Fluid a owl:Restriction ;
+    owl:hasValue tag:Fluid ;
     owl:onProperty brick:hasTag .
 
 _:has_PID a owl:Restriction ;
@@ -12886,12 +12909,12 @@ _:has_Alarm a owl:Restriction ;
     owl:hasValue tag:Alarm ;
     owl:onProperty brick:hasTag .
 
-_:has_Hot a owl:Restriction ;
-    owl:hasValue tag:Hot ;
-    owl:onProperty brick:hasTag .
-
 _:has_Command a owl:Restriction ;
     owl:hasValue tag:Command ;
+    owl:onProperty brick:hasTag .
+
+_:has_Hot a owl:Restriction ;
+    owl:hasValue tag:Hot ;
     owl:onProperty brick:hasTag .
 
 _:has_Limit a owl:Restriction ;
@@ -12926,12 +12949,12 @@ _:has_Parameter a owl:Restriction ;
     owl:hasValue tag:Parameter ;
     owl:onProperty brick:hasTag .
 
-_:has_Water a owl:Restriction ;
-    owl:hasValue tag:Water ;
-    owl:onProperty brick:hasTag .
-
 _:has_Equipment a owl:Restriction ;
     owl:hasValue tag:Equipment ;
+    owl:onProperty brick:hasTag .
+
+_:has_Water a owl:Restriction ;
+    owl:hasValue tag:Water ;
     owl:onProperty brick:hasTag .
 
 _:has_Temperature a owl:Restriction ;

@@ -646,6 +646,8 @@ https://brickschema.org/schema/1.1/Brick#Return_Air_Temperature_Sensor,Measures 
 https://brickschema.org/schema/1.1/Brick#Return_Damper,A damper that modulates the flow of return air,
 https://brickschema.org/schema/1.1/Brick#Return_Fan,Fan moving return air -- air that is circulated from the building back into the HVAC system,
 https://brickschema.org/schema/1.1/Brick#Return_Heating_Valve,A valve installed on the return side of a heat exchanger,
+https://brickschema.org/schema/1.1/Brick#Return_Hot_Water,,
+https://brickschema.org/schema/1.1/Brick#Return_Hot_Water_Temperature_Setpoint,,
 https://brickschema.org/schema/1.1/Brick#Return_Water,,
 https://brickschema.org/schema/1.1/Brick#Return_Water_Temperature_Sensor,Measures the temperature of return water,
 https://brickschema.org/schema/1.1/Brick#Rooftop_Unit,"Packaged air conditioner mounted on a roof, the conditioned air being discharged directly into the rooms below or through a duct system.",

@@ -173,6 +173,16 @@ substances = {
                                         ],
                                         "parents": [BRICK.Discharge_Water],
                                     },
+                                    "Return_Hot_Water": {
+                                        "tags": [
+                                            TAG.Fluid,
+                                            TAG.Liquid,
+                                            TAG.Water,
+                                            TAG.Hot,
+                                            TAG.Return,
+                                        ],
+                                        "parents": [BRICK.Return_Water],
+                                    },
                                 },
                             },
                             "Makeup_Water": {
