@@ -935,6 +935,17 @@ setpoint_definitions = {
                                     TAG.Setpoint,
                                 ],
                             },
+                            "Return_Air_Temperature_High_Reset_Setpoint": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Return,
+                                    TAG.Air,
+                                    TAG.Temperature,
+                                    TAG.High,
+                                    TAG.Reset,
+                                    TAG.Setpoint,
+                                ],
+                            },
                         },
                     },
                     "Temperature_Low_Reset_Setpoint": {
@@ -1006,6 +1017,17 @@ setpoint_definitions = {
                                 "tags": [
                                     TAG.Point,
                                     TAG.Outside,
+                                    TAG.Air,
+                                    TAG.Temperature,
+                                    TAG.Low,
+                                    TAG.Reset,
+                                    TAG.Setpoint,
+                                ],
+                            },
+                            "Return_Air_Temperature_Low_Reset_Setpoint": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Return,
                                     TAG.Air,
                                     TAG.Temperature,
                                     TAG.Low,

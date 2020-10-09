@@ -4751,6 +4751,30 @@ brick:Return_Air_Humidity_Sensor a owl:Class ;
         tag:Return,
         tag:Sensor .
 
+brick:Return_Air_Temperature_High_Reset_Setpoint a owl:Class ;
+    rdfs:label "Return Air Temperature High Reset Setpoint" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Return _:has_Air _:has_Temperature _:has_High _:has_Reset _:has_Setpoint ) ],
+        brick:Temperature_High_Reset_Setpoint ;
+    brick:hasAssociatedTag tag:Air,
+        tag:High,
+        tag:Point,
+        tag:Reset,
+        tag:Return,
+        tag:Setpoint,
+        tag:Temperature .
+
+brick:Return_Air_Temperature_Low_Reset_Setpoint a owl:Class ;
+    rdfs:label "Return Air Temperature Low Reset Setpoint" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Return _:has_Air _:has_Temperature _:has_Low _:has_Reset _:has_Setpoint ) ],
+        brick:Temperature_Low_Reset_Setpoint ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Low,
+        tag:Point,
+        tag:Reset,
+        tag:Return,
+        tag:Setpoint,
+        tag:Temperature .
+
 brick:Return_Air_Temperature_Sensor a owl:Class ;
     rdfs:label "Return Air Temperature Sensor" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Sensor _:has_Temperature _:has_Air _:has_Return ) ],
@@ -10281,26 +10305,6 @@ brick:Supply_Chilled_Water a owl:Class,
         tag:Supply,
         tag:Water .
 
-brick:Temperature_High_Reset_Setpoint a owl:Class ;
-    rdfs:label "Temperature High Reset Setpoint" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Temperature _:has_High _:has_Reset _:has_Setpoint ) ],
-        brick:Reset_Setpoint ;
-    brick:hasAssociatedTag tag:High,
-        tag:Point,
-        tag:Reset,
-        tag:Setpoint,
-        tag:Temperature .
-
-brick:Temperature_Low_Reset_Setpoint a owl:Class ;
-    rdfs:label "Temperature Low Reset Setpoint" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Temperature _:has_Low _:has_Reset _:has_Setpoint ) ],
-        brick:Reset_Setpoint ;
-    brick:hasAssociatedTag tag:Low,
-        tag:Point,
-        tag:Reset,
-        tag:Setpoint,
-        tag:Temperature .
-
 brick:Temperature_Sensor a owl:Class ;
     rdfs:label "Temperature Sensor" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Sensor _:has_Temperature ) ],
@@ -11010,6 +11014,26 @@ brick:Temperature_Alarm a owl:Class ;
     skos:definition "An alarm that indicates the off-normal conditions associated with temperature."@en ;
     brick:hasAssociatedTag tag:Alarm,
         tag:Point,
+        tag:Temperature .
+
+brick:Temperature_High_Reset_Setpoint a owl:Class ;
+    rdfs:label "Temperature High Reset Setpoint" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Temperature _:has_High _:has_Reset _:has_Setpoint ) ],
+        brick:Reset_Setpoint ;
+    brick:hasAssociatedTag tag:High,
+        tag:Point,
+        tag:Reset,
+        tag:Setpoint,
+        tag:Temperature .
+
+brick:Temperature_Low_Reset_Setpoint a owl:Class ;
+    rdfs:label "Temperature Low Reset Setpoint" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Temperature _:has_Low _:has_Reset _:has_Setpoint ) ],
+        brick:Reset_Setpoint ;
+    brick:hasAssociatedTag tag:Low,
+        tag:Point,
+        tag:Reset,
+        tag:Setpoint,
         tag:Temperature .
 
 brick:Velocity_Pressure a qudt:QuantityKind,
@@ -11882,9 +11906,6 @@ brick:Equipment a owl:Class ;
 tag:Enable a brick:Tag ;
     rdfs:label "Enable" .
 
-tag:Low a brick:Tag ;
-    rdfs:label "Low" .
-
 tag:Off a brick:Tag ;
     rdfs:label "Off" .
 
@@ -11905,6 +11926,9 @@ brick:Setpoint a owl:Class ;
 
 tag:Integral a brick:Tag ;
     rdfs:label "Integral" .
+
+tag:Low a brick:Tag ;
+    rdfs:label "Low" .
 
 brick:Air a owl:Class,
         brick:Air ;
@@ -11928,9 +11952,6 @@ brick:Temperature a qudt:QuantityKind,
 
 tag:Gas a brick:Tag ;
     rdfs:label "Gas" .
-
-tag:High a brick:Tag ;
-    rdfs:label "High" .
 
 tag:Shed a brick:Tag ;
     rdfs:label "Shed" .
@@ -11962,6 +11983,9 @@ tag:Deadband a brick:Tag ;
 tag:Exhaust a brick:Tag ;
     rdfs:label "Exhaust" .
 
+tag:High a brick:Tag ;
+    rdfs:label "High" .
+
 tag:Location a brick:Tag ;
     rdfs:label "Location" .
 
@@ -11987,9 +12011,6 @@ brick:Command a owl:Class ;
     brick:hasAssociatedTag tag:Command,
         tag:Point .
 
-tag:Return a brick:Tag ;
-    rdfs:label "Return" .
-
 tag:Load a brick:Tag ;
     rdfs:label "Load" .
 
@@ -11999,11 +12020,11 @@ tag:Max a brick:Tag ;
 tag:Min a brick:Tag ;
     rdfs:label "Min" .
 
+tag:Return a brick:Tag ;
+    rdfs:label "Return" .
+
 tag:Outside a brick:Tag ;
     rdfs:label "Outside" .
-
-tag:Reset a brick:Tag ;
-    rdfs:label "Reset" .
 
 tag:Chilled a brick:Tag ;
     rdfs:label "Chilled" .
@@ -12020,6 +12041,9 @@ brick:Status a owl:Class ;
     skos:definition "A Status is input point that reports the current operating mode, state, position, or condition of an item. Statuses are observations and should be considered 'read-only'"@en ;
     brick:hasAssociatedTag tag:Point,
         tag:Status .
+
+tag:Reset a brick:Tag ;
+    rdfs:label "Reset" .
 
 tag:System a brick:Tag ;
     rdfs:label "System" .
@@ -12119,11 +12143,11 @@ brick:measures a owl:AsymmetricProperty,
     owl:inverseOf brick:isMeasuredBy ;
     skos:definition "The subject measures a quantity or substance given by the object"@en .
 
-tag:Setpoint a brick:Tag ;
-    rdfs:label "Setpoint" .
-
 tag:Sensor a brick:Tag ;
     rdfs:label "Sensor" .
+
+tag:Setpoint a brick:Tag ;
+    rdfs:label "Setpoint" .
 
 tag:Air a brick:Tag ;
     rdfs:label "Air" .
@@ -12754,10 +12778,6 @@ _:has_Enable a owl:Restriction ;
     owl:hasValue tag:Enable ;
     owl:onProperty brick:hasTag .
 
-_:has_Low a owl:Restriction ;
-    owl:hasValue tag:Low ;
-    owl:onProperty brick:hasTag .
-
 _:has_Off a owl:Restriction ;
     owl:hasValue tag:Off ;
     owl:onProperty brick:hasTag .
@@ -12766,16 +12786,16 @@ _:has_Integral a owl:Restriction ;
     owl:hasValue tag:Integral ;
     owl:onProperty brick:hasTag .
 
+_:has_Low a owl:Restriction ;
+    owl:hasValue tag:Low ;
+    owl:onProperty brick:hasTag .
+
 _:has_Band a owl:Restriction ;
     owl:hasValue tag:Band ;
     owl:onProperty brick:hasTag .
 
 _:has_Gas a owl:Restriction ;
     owl:hasValue tag:Gas ;
-    owl:onProperty brick:hasTag .
-
-_:has_High a owl:Restriction ;
-    owl:hasValue tag:High ;
     owl:onProperty brick:hasTag .
 
 _:has_Location a owl:Restriction ;
@@ -12794,6 +12814,10 @@ _:has_Exhaust a owl:Restriction ;
     owl:hasValue tag:Exhaust ;
     owl:onProperty brick:hasTag .
 
+_:has_High a owl:Restriction ;
+    owl:hasValue tag:High ;
+    owl:onProperty brick:hasTag .
+
 _:has_Proportional a owl:Restriction ;
     owl:hasValue tag:Proportional ;
     owl:onProperty brick:hasTag .
@@ -12806,10 +12830,6 @@ _:has_Time a owl:Restriction ;
     owl:hasValue tag:Time ;
     owl:onProperty brick:hasTag .
 
-_:has_Return a owl:Restriction ;
-    owl:hasValue tag:Return ;
-    owl:onProperty brick:hasTag .
-
 _:has_Load a owl:Restriction ;
     owl:hasValue tag:Load ;
     owl:onProperty brick:hasTag .
@@ -12820,6 +12840,10 @@ _:has_Max a owl:Restriction ;
 
 _:has_Min a owl:Restriction ;
     owl:hasValue tag:Min ;
+    owl:onProperty brick:hasTag .
+
+_:has_Return a owl:Restriction ;
+    owl:hasValue tag:Return ;
     owl:onProperty brick:hasTag .
 
 _:has_Outside a owl:Restriction ;
@@ -12914,12 +12938,12 @@ _:has_Temperature a owl:Restriction ;
     owl:hasValue tag:Temperature ;
     owl:onProperty brick:hasTag .
 
-_:has_Setpoint a owl:Restriction ;
-    owl:hasValue tag:Setpoint ;
-    owl:onProperty brick:hasTag .
-
 _:has_Sensor a owl:Restriction ;
     owl:hasValue tag:Sensor ;
+    owl:onProperty brick:hasTag .
+
+_:has_Setpoint a owl:Restriction ;
+    owl:hasValue tag:Setpoint ;
     owl:onProperty brick:hasTag .
 
 _:has_Air a owl:Restriction ;

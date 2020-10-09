@@ -640,6 +640,8 @@ https://brickschema.org/schema/1.1/Brick#Return_Air_Flow_Sensor,Measures the rat
 https://brickschema.org/schema/1.1/Brick#Return_Air_Grains_Sensor,Measures the mass of water vapor in return air,
 https://brickschema.org/schema/1.1/Brick#Return_Air_Humidity_Sensor,Measures the relative humidity of return air,
 https://brickschema.org/schema/1.1/Brick#Return_Air_Temperature_Alarm,An alarm that indicates the off-normal conditions associated with the temperature of return air.,
+https://brickschema.org/schema/1.1/Brick#Return_Air_Temperature_High_Reset_Setpoint,,
+https://brickschema.org/schema/1.1/Brick#Return_Air_Temperature_Low_Reset_Setpoint,,
 https://brickschema.org/schema/1.1/Brick#Return_Air_Temperature_Sensor,Measures the temperature of return air,
 https://brickschema.org/schema/1.1/Brick#Return_Damper,A damper that modulates the flow of return air,
 https://brickschema.org/schema/1.1/Brick#Return_Fan,Fan moving return air -- air that is circulated from the building back into the HVAC system,
