@@ -40,7 +40,7 @@ def addRangeShape(propertyName, expectedType):
     G.add((BSH[shapename], A, SH.NodeShape))
     G.add((sh_prop, SH["path"], BRICK[propertyName]))
     G.add((sh_prop, SH["class"], expectedType))
-    G.add((BSH[shapename], SH.targetObjectsOf, BRICK[propertyName]))
+    G.add((BSH[shapename], SH.targetSubjectsOf, BRICK[propertyName]))
     G.add(
         (
             sh_prop,
