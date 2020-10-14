@@ -398,6 +398,7 @@ hvac_subclasses = {
                 "tags": [TAG.Equipment, TAG.RTU],
                 OWL.equivalentClass: BRICK["Rooftop_Unit"],
             },
+            "PAU": {"tags": [TAG.Equipment, TAG.PAU]},
         },
     },
 }

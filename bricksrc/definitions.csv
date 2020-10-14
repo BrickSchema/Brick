@@ -592,6 +592,7 @@ https://brickschema.org/schema/1.1/Brick#Overridden_Status,Indicates if the expe
 https://brickschema.org/schema/1.1/Brick#Override_Command,Controls or reports whether or not a device or control loop is in 'override',
 https://brickschema.org/schema/1.1/Brick#Parameter,Parameter points are configuration settings used to guide the operation of equipment and control systems; for example they may provide bounds on valid setpoint values,
 https://brickschema.org/schema/1.1/Brick#Particulate_Matter_Sensor,Detects pollutants in the ambient air,
+https://brickschema.org/schema/1.1/Brick#PAU,"A type of AHU, use to pre-treat the outdoor air before feed to AHU",
 https://brickschema.org/schema/1.1/Brick#Peak_Power,Tracks the highest (peak) observed power in some interval,
 https://brickschema.org/schema/1.1/Brick#Peak_Power_Demand_Sensor,The peak power consumed by a process over some period of time,
 https://brickschema.org/schema/1.1/Brick#Photovoltaic_Current_Output_Sensor,Senses the amperes of electrical current produced as output by a photovoltaic device,

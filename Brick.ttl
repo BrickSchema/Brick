@@ -4461,6 +4461,16 @@ brick:Overridden_On_Status a owl:Class ;
         tag:Point,
         tag:Status .
 
+brick:PAU a owl:Class ;
+    rdfs:label "PAU" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Equipment [ a owl:Restriction ;
+                        owl:hasValue tag:PAU ;
+                        owl:onProperty brick:hasTag ] ) ],
+        brick:AHU ;
+    skos:definition "A type of AHU, use to pre-treat the outdoor air before feed to AHU"@en ;
+    brick:hasAssociatedTag tag:Equipment,
+        tag:PAU .
+
 brick:PIR_Sensor a owl:Class ;
     rdfs:label "PIR Sensor" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Sensor [ a owl:Restriction ;
@@ -9854,6 +9864,9 @@ tag:Open a brick:Tag ;
 tag:Overload a brick:Tag ;
     rdfs:label "Overload" .
 
+tag:PAU a brick:Tag ;
+    rdfs:label "PAU" .
+
 tag:PIR a brick:Tag ;
     rdfs:label "PIR" .
 
@@ -10892,14 +10905,6 @@ unit:N-PER-M2 qudt:symbol "Pa" .
 
 unit:PA qudt:symbol "Pa" .
 
-brick:AHU a owl:Class ;
-    rdfs:label "AHU" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Equipment _:has_AHU ) ],
-        brick:HVAC ;
-    skos:definition "Assembly consisting of sections containing a fan or fans and other necessary equipment to perform one or more of the following functions: circulating, filtration, heating, cooling, heat recovery, humidifying, dehumidifying, and mixing of air. Is usually connected to an air-distribution system."@en ;
-    brick:hasAssociatedTag tag:AHU,
-        tag:Equipment .
-
 brick:Air_Temperature_Integral_Time_Parameter a owl:Class ;
     rdfs:label "Air Temperature Integral Time Parameter" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Air _:has_Temperature _:has_Parameter _:has_PID _:has_Time _:has_Integral ) ],
@@ -11416,6 +11421,14 @@ tag:Volume a brick:Tag ;
     rdfs:label "Volume" .
 
 unit:K qudt:symbol "K" .
+
+brick:AHU a owl:Class ;
+    rdfs:label "AHU" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Equipment _:has_AHU ) ],
+        brick:HVAC ;
+    skos:definition "Assembly consisting of sections containing a fan or fans and other necessary equipment to perform one or more of the following functions: circulating, filtration, heating, cooling, heat recovery, humidifying, dehumidifying, and mixing of air. Is usually connected to an air-distribution system."@en ;
+    brick:hasAssociatedTag tag:AHU,
+        tag:Equipment .
 
 brick:Building_Meter a owl:Class ;
     rdfs:label "Building Meter" ;
