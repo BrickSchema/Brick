@@ -209,6 +209,47 @@ hvac_subclasses = {
                 },
             },
             "VAV": {"tags": [TAG.Equipment, TAG.VAV]},
+            "Radiator": {
+                "tags": [TAG.Equipment, TAG.Radiator],
+                "subclasses": {
+                    "Steam_Radiator": {
+                        "tags": [TAG.Equipment, TAG.Radiator, TAG.Steam]
+                    },
+                    "Hot_Water_Radiator": {
+                        "tags": [TAG.Equipment, TAG.Radiator, TAG.Hot, TAG.Water]
+                    },
+                    "Baseboard_Radiator": {
+                        "tags": [TAG.Equipment, TAG.Radiator, TAG.Baseboard],
+                        "subclasses": {
+                            "Steam_Baseboard_Radiator": {
+                                "tags": [
+                                    TAG.Equipment,
+                                    TAG.Radiator,
+                                    TAG.Baseboard,
+                                    TAG.Steam,
+                                ]
+                            },
+                            "Electric_Baseboard_Radiator": {
+                                "tags": [
+                                    TAG.Equipment,
+                                    TAG.Radiator,
+                                    TAG.Baseboard,
+                                    TAG.Electric,
+                                ]
+                            },
+                            "Hot_Water_Baseboard_Radiator": {
+                                "tags": [
+                                    TAG.Equipment,
+                                    TAG.Radiator,
+                                    TAG.Hot,
+                                    TAG.Water,
+                                    TAG.Baseboard,
+                                ]
+                            },
+                        },
+                    },
+                },
+            },
         },
     },
     "Space_Heater": {"tags": [TAG.Equipment, TAG.Space, TAG.Heater]},

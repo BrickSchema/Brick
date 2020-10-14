@@ -1740,6 +1740,17 @@ brick:Effective_Air_Temperature_Heating_Setpoint a owl:Class ;
         tag:Setpoint,
         tag:Temperature .
 
+brick:Electric_Baseboard_Radiator a owl:Class ;
+    rdfs:label "Electric Baseboard Radiator" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Equipment _:has_Radiator _:has_Baseboard [ a owl:Restriction ;
+                        owl:hasValue tag:Electric ;
+                        owl:onProperty brick:hasTag ] ) ],
+        brick:Baseboard_Radiator ;
+    brick:hasAssociatedTag tag:Baseboard,
+        tag:Electric,
+        tag:Equipment,
+        tag:Radiator .
+
 brick:Electrical_System a owl:Class ;
     rdfs:label "Electrical System" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Electrical _:has_System ) ],
@@ -2769,6 +2780,16 @@ brick:Hot_Box a owl:Class ;
         tag:Location,
         tag:Room .
 
+brick:Hot_Water_Baseboard_Radiator a owl:Class ;
+    rdfs:label "Hot Water Baseboard Radiator" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Equipment _:has_Radiator _:has_Hot _:has_Water _:has_Baseboard ) ],
+        brick:Baseboard_Radiator ;
+    brick:hasAssociatedTag tag:Baseboard,
+        tag:Equipment,
+        tag:Hot,
+        tag:Radiator,
+        tag:Water .
+
 brick:Hot_Water_Coil a owl:Class ;
     rdfs:label "Hot Water Coil" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Equipment _:has_Coil _:has_Hot _:has_Water ) ],
@@ -2867,6 +2888,16 @@ brick:Hot_Water_Pump a owl:Class ;
     brick:hasAssociatedTag tag:Equipment,
         tag:Hot,
         tag:Pump,
+        tag:Water .
+
+brick:Hot_Water_Radiator a owl:Class ;
+    rdfs:label "Hot Water Radiator" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Equipment _:has_Radiator _:has_Hot _:has_Water ) ],
+        brick:Radiator ;
+    skos:definition "Radiator that uses hot water"@en ;
+    brick:hasAssociatedTag tag:Equipment,
+        tag:Hot,
+        tag:Radiator,
         tag:Water .
 
 brick:Hot_Water_Static_Pressure_Setpoint a owl:Class ;
@@ -5254,6 +5285,15 @@ brick:Start_Stop_Command a owl:Class ;
         tag:Start,
         tag:Stop .
 
+brick:Steam_Baseboard_Radiator a owl:Class ;
+    rdfs:label "Steam Baseboard Radiator" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Equipment _:has_Radiator _:has_Baseboard _:has_Steam ) ],
+        brick:Baseboard_Radiator ;
+    brick:hasAssociatedTag tag:Baseboard,
+        tag:Equipment,
+        tag:Radiator,
+        tag:Steam .
+
 brick:Steam_Distribution a owl:Class ;
     rdfs:label "Steam Distribution" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Steam _:has_Distribution _:has_Equipment ) ],
@@ -5271,6 +5311,15 @@ brick:Steam_On_Off_Command a owl:Class ;
         tag:Off,
         tag:On,
         tag:Point,
+        tag:Steam .
+
+brick:Steam_Radiator a owl:Class ;
+    rdfs:label "Steam Radiator" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Equipment _:has_Radiator _:has_Steam ) ],
+        brick:Radiator ;
+    skos:definition "Radiator that uses steam"@en ;
+    brick:hasAssociatedTag tag:Equipment,
+        tag:Radiator,
         tag:Steam .
 
 brick:Steam_System a owl:Class ;
@@ -9685,6 +9734,9 @@ tag:Driver a brick:Tag ;
 tag:Econcycle a brick:Tag ;
     rdfs:label "Econcycle" .
 
+tag:Electric a brick:Tag ;
+    rdfs:label "Electric" .
+
 tag:Elevator a brick:Tag ;
     rdfs:label "Elevator" .
 
@@ -9989,6 +10041,15 @@ brick:Air_Temperature_Alarm a owl:Class ;
         tag:Alarm,
         tag:Point,
         tag:Temperature .
+
+brick:Baseboard_Radiator a owl:Class ;
+    rdfs:label "Baseboard Radiator" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Equipment _:has_Radiator _:has_Baseboard ) ],
+        brick:Radiator ;
+    skos:definition "Steam, hydronic, or electric heating device located at or near the floor."@en ;
+    brick:hasAssociatedTag tag:Baseboard,
+        tag:Equipment,
+        tag:Radiator .
 
 brick:Chilled_Water_Temperature_Sensor a owl:Class ;
     rdfs:label "Chilled Water Temperature Sensor" ;
@@ -10413,6 +10474,14 @@ brick:Pressure_Status a owl:Class ;
     brick:hasAssociatedTag tag:Point,
         tag:Pressure,
         tag:Status .
+
+brick:Radiator a owl:Class ;
+    rdfs:label "Radiator" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Equipment _:has_Radiator ) ],
+        brick:Terminal_Unit ;
+    skos:definition "Heat exchangers designed to transfer thermal energy from one medium to another"@en ;
+    brick:hasAssociatedTag tag:Equipment,
+        tag:Radiator .
 
 brick:Reset_Command a owl:Class ;
     rdfs:label "Reset Command" ;
@@ -11508,6 +11577,9 @@ brick:Temperature_Deadband_Setpoint a owl:Class ;
         tag:Setpoint,
         tag:Temperature .
 
+tag:Baseboard a brick:Tag ;
+    rdfs:label "Baseboard" .
+
 tag:Condenser a brick:Tag ;
     rdfs:label "Condenser" .
 
@@ -11642,17 +11714,6 @@ brick:Temperature_Setpoint a owl:Class ;
     brick:hasAssociatedTag tag:Point,
         tag:Setpoint,
         tag:Temperature .
-
-brick:Terminal_Unit a owl:Class ;
-    rdfs:label "Terminal Unit" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Equipment [ a owl:Restriction ;
-                        owl:hasValue tag:Terminal ;
-                        owl:onProperty brick:hasTag ] _:has_Unit ) ],
-        brick:HVAC ;
-    skos:definition "A device that regulates the volumetric flow rate and/or the temperature of the controlled medium."@en ;
-    brick:hasAssociatedTag tag:Equipment,
-        tag:Terminal,
-        tag:Unit .
 
 brick:Water_Temperature_Setpoint a owl:Class ;
     rdfs:label "Water Temperature Setpoint" ;
@@ -11804,6 +11865,17 @@ brick:System a owl:Class ;
     skos:definition "A System is a combination of equipment and auxiliary devices (e.g., controls, accessories, interconnecting means, and termi­nal elements) by which energy is transformed so it performs a specific function such as HVAC, service water heating, or lighting. (ASHRAE Dictionary)." ;
     brick:hasAssociatedTag tag:System .
 
+brick:Terminal_Unit a owl:Class ;
+    rdfs:label "Terminal Unit" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Equipment [ a owl:Restriction ;
+                        owl:hasValue tag:Terminal ;
+                        owl:onProperty brick:hasTag ] _:has_Unit ) ],
+        brick:HVAC ;
+    skos:definition "A device that regulates the volumetric flow rate and/or the temperature of the controlled medium."@en ;
+    brick:hasAssociatedTag tag:Equipment,
+        tag:Terminal,
+        tag:Unit .
+
 brick:Valve a owl:Class ;
     rdfs:label "Valve" ;
     rdfs:seeAlso <https://en.wikipedia.org/wiki/Valve> ;
@@ -11903,6 +11975,9 @@ tag:Domestic a brick:Tag ;
 
 tag:Motor a brick:Tag ;
     rdfs:label "Motor" .
+
+tag:Radiator a brick:Tag ;
+    rdfs:label "Radiator" .
 
 tag:Start a brick:Tag ;
     rdfs:label "Start" .
@@ -12053,9 +12128,6 @@ brick:Point a owl:Class ;
 tag:Energy a brick:Tag ;
     rdfs:label "Energy" .
 
-tag:Steam a brick:Tag ;
-    rdfs:label "Steam" .
-
 tag:Step a brick:Tag ;
     rdfs:label "Step" .
 
@@ -12114,6 +12186,9 @@ tag:Safety a brick:Tag ;
 
 tag:Speed a brick:Tag ;
     rdfs:label "Speed" .
+
+tag:Steam a brick:Tag ;
+    rdfs:label "Steam" .
 
 brick:Flow a qudt:QuantityKind,
         brick:Quantity ;
@@ -12747,6 +12822,10 @@ _:has_Volume a owl:Restriction ;
     owl:hasValue tag:Volume ;
     owl:onProperty brick:hasTag .
 
+_:has_Baseboard a owl:Restriction ;
+    owl:hasValue tag:Baseboard ;
+    owl:onProperty brick:hasTag .
+
 _:has_Condenser a owl:Restriction ;
     owl:hasValue tag:Condenser ;
     owl:onProperty brick:hasTag .
@@ -12911,6 +12990,10 @@ _:has_Motor a owl:Restriction ;
     owl:hasValue tag:Motor ;
     owl:onProperty brick:hasTag .
 
+_:has_Radiator a owl:Restriction ;
+    owl:hasValue tag:Radiator ;
+    owl:onProperty brick:hasTag .
+
 _:has_Start a owl:Restriction ;
     owl:hasValue tag:Start ;
     owl:onProperty brick:hasTag .
@@ -12959,10 +13042,6 @@ _:has_Room a owl:Restriction ;
     owl:hasValue tag:Room ;
     owl:onProperty brick:hasTag .
 
-_:has_Steam a owl:Restriction ;
-    owl:hasValue tag:Steam ;
-    owl:onProperty brick:hasTag .
-
 _:has_Energy a owl:Restriction ;
     owl:hasValue tag:Energy ;
     owl:onProperty brick:hasTag .
@@ -12981,6 +13060,10 @@ _:has_Filter a owl:Restriction ;
 
 _:has_Security a owl:Restriction ;
     owl:hasValue tag:Security ;
+    owl:onProperty brick:hasTag .
+
+_:has_Steam a owl:Restriction ;
+    owl:hasValue tag:Steam ;
     owl:onProperty brick:hasTag .
 
 _:has_Usage a owl:Restriction ;
