@@ -437,6 +437,7 @@ https://brickschema.org/schema/1.1/Brick#Ice_Tank_Leaving_Water_Temperature_Sens
 https://brickschema.org/schema/1.1/Brick#Illuminance,,
 https://brickschema.org/schema/1.1/Brick#Illuminance_Sensor,"Measures the total luminous flux incident on a surface, per unit area",
 https://brickschema.org/schema/1.1/Brick#Intake_Air_Filter,Filters air intake,
+https://brickschema.org/schema/1.1/Brick#Intake_Air_Temperature_Sensor,Measures air at the interface between the building and the outside,
 https://brickschema.org/schema/1.1/Brick#Integral_Gain_Parameter,,
 https://brickschema.org/schema/1.1/Brick#Integral_Time_Parameter,,
 https://brickschema.org/schema/1.1/Brick#Interface,A device that provides an occupant control over a lighting system,

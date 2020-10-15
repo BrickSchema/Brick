@@ -1540,6 +1540,16 @@ sensor_definitions = {
                                             },
                                         },
                                     },
+                                    "Intake_Air_Temperature_Sensor": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Outside,
+                                            TAG.Air,
+                                            TAG.Temperature,
+                                            TAG.Intake,
+                                            TAG.Sensor,
+                                        ],
+                                    },
                                 },
                             },
                         },

@@ -2991,15 +2991,25 @@ brick:Ice_Tank_Leaving_Water_Temperature_Sensor a owl:Class ;
 
 brick:Intake_Air_Filter a owl:Class ;
     rdfs:label "Intake Air Filter" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Equipment [ a owl:Restriction ;
-                        owl:hasValue tag:Intake ;
-                        owl:onProperty brick:hasTag ] _:has_Air _:has_Filter ) ],
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Equipment _:has_Intake _:has_Air _:has_Filter ) ],
         brick:Filter ;
     skos:definition "Filters air intake"@en ;
     brick:hasAssociatedTag tag:Air,
         tag:Equipment,
         tag:Filter,
         tag:Intake .
+
+brick:Intake_Air_Temperature_Sensor a owl:Class ;
+    rdfs:label "Intake Air Temperature Sensor" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Outside _:has_Air _:has_Temperature _:has_Intake _:has_Sensor ) ],
+        brick:Outside_Air_Temperature_Sensor ;
+    skos:definition "Measures air at the interface between the building and the outside"@en ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Intake,
+        tag:Outside,
+        tag:Point,
+        tag:Sensor,
+        tag:Temperature .
 
 brick:Intrusion_Detection_Equipment a owl:Class ;
     rdfs:label "Intrusion Detection Equipment" ;
@@ -7948,22 +7958,6 @@ brick:Outside_Air_Temperature_Enable_Differential_Sensor a owl:Class ;
         tag:Sensor,
         tag:Temperature .
 
-brick:Outside_Air_Temperature_Sensor a owl:Class ;
-    rdfs:label "Outside Air Temperature Sensor" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Sensor _:has_Temperature _:has_Air _:has_Outside ) ],
-        brick:Air_Temperature_Sensor ;
-    owl:equivalentClass [ owl:intersectionOf ( [ a owl:Restriction ;
-                        owl:hasValue brick:Temperature ;
-                        owl:onProperty brick:measures ] [ a owl:Restriction ;
-                        owl:hasValue brick:Outside_Air ;
-                        owl:onProperty brick:measures ] ) ] ;
-    skos:definition "Measures the temperature of outside air"@en ;
-    brick:hasAssociatedTag tag:Air,
-        tag:Outside,
-        tag:Point,
-        tag:Sensor,
-        tag:Temperature .
-
 brick:Override_Command a owl:Class ;
     rdfs:label "Override Command" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Override _:has_Command ) ],
@@ -9310,6 +9304,22 @@ brick:Outside_Air_Lockout_Temperature_Differential_Parameter a owl:Class ;
         tag:Point,
         tag:Temperature .
 
+brick:Outside_Air_Temperature_Sensor a owl:Class ;
+    rdfs:label "Outside Air Temperature Sensor" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Sensor _:has_Temperature _:has_Air _:has_Outside ) ],
+        brick:Air_Temperature_Sensor ;
+    owl:equivalentClass [ owl:intersectionOf ( [ a owl:Restriction ;
+                        owl:hasValue brick:Temperature ;
+                        owl:onProperty brick:measures ] [ a owl:Restriction ;
+                        owl:hasValue brick:Outside_Air ;
+                        owl:onProperty brick:measures ] ) ] ;
+    skos:definition "Measures the temperature of outside air"@en ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Outside,
+        tag:Point,
+        tag:Sensor,
+        tag:Temperature .
+
 brick:Overridden_Status a owl:Class ;
     rdfs:label "Overridden Status" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Overridden _:has_Status ) ],
@@ -9812,9 +9822,6 @@ tag:Humidification a brick:Tag ;
 
 tag:Humidify a brick:Tag ;
     rdfs:label "Humidify" .
-
-tag:Intake a brick:Tag ;
-    rdfs:label "Intake" .
 
 tag:Intrusion a brick:Tag ;
     rdfs:label "Intrusion" .
@@ -10829,6 +10836,9 @@ tag:Humidifier a brick:Tag ;
 
 tag:Illuminance a brick:Tag ;
     rdfs:label "Illuminance" .
+
+tag:Intake a brick:Tag ;
+    rdfs:label "Intake" .
 
 tag:Lag a brick:Tag ;
     rdfs:label "Lag" .
@@ -12663,6 +12673,10 @@ _:has_Illuminance a owl:Restriction ;
     owl:hasValue tag:Illuminance ;
     owl:onProperty brick:hasTag .
 
+_:has_Intake a owl:Restriction ;
+    owl:hasValue tag:Intake ;
+    owl:onProperty brick:hasTag .
+
 _:has_Lag a owl:Restriction ;
     owl:hasValue tag:Lag ;
     owl:onProperty brick:hasTag .
@@ -13211,12 +13225,12 @@ _:has_Humidity a owl:Restriction ;
     owl:hasValue tag:Humidity ;
     owl:onProperty brick:hasTag .
 
-_:has_Outside a owl:Restriction ;
-    owl:hasValue tag:Outside ;
-    owl:onProperty brick:hasTag .
-
 _:has_Chilled a owl:Restriction ;
     owl:hasValue tag:Chilled ;
+    owl:onProperty brick:hasTag .
+
+_:has_Outside a owl:Restriction ;
+    owl:hasValue tag:Outside ;
     owl:onProperty brick:hasTag .
 
 _:has_Reset a owl:Restriction ;
