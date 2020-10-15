@@ -3399,6 +3399,17 @@ brick:Manual_Auto_Status a owl:Class ;
         tag:Point,
         tag:Status .
 
+brick:Max_Air_Temperature_Setpoint a owl:Class ;
+    rdfs:label "Max Air Temperature Setpoint" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Max _:has_Air _:has_Temperature _:has_Setpoint ) ],
+        brick:Air_Temperature_Setpoint ;
+    skos:definition "Setpoint for maximum air temperature"@en ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Max,
+        tag:Point,
+        tag:Setpoint,
+        tag:Temperature .
+
 brick:Max_Chilled_Water_Differential_Pressure_Setpoint_Limit a owl:Class ;
     rdfs:label "Max Chilled Water Differential Pressure Setpoint Limit" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Max _:has_Chilled _:has_Water _:has_Differential _:has_Pressure _:has_Limit _:has_Parameter _:has_Setpoint ) ],
@@ -3575,6 +3586,17 @@ brick:Max_Unoccupied_Heating_Supply_Air_Flow_Setpoint_Limit a owl:Class ;
         tag:Supply,
         tag:Unoccupied .
 
+brick:Max_Water_Temperature_Setpoint a owl:Class ;
+    rdfs:label "Max Water Temperature Setpoint" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Max _:has_Water _:has_Temperature _:has_Setpoint ) ],
+        brick:Water_Temperature_Setpoint ;
+    skos:definition "Setpoint for max water temperature"@en ;
+    brick:hasAssociatedTag tag:Max,
+        tag:Point,
+        tag:Setpoint,
+        tag:Temperature,
+        tag:Water .
+
 brick:Medium_Temperature_Hot_Water_Differential_Pressure_Load_Shed_Reset_Status a owl:Class ;
     rdfs:label "Medium Temperature Hot Water Differential Pressure Load Shed Reset Status" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Medium _:has_Temperature _:has_Differential _:has_Pressure _:has_Load _:has_Shed _:has_Reset _:has_Status ) ],
@@ -3728,6 +3750,17 @@ brick:Medium_Temperature_Hot_Water_Supply_Temperature_Sensor a owl:Class ;
         tag:Supply,
         tag:Temperature,
         tag:Water .
+
+brick:Min_Air_Temperature_Setpoint a owl:Class ;
+    rdfs:label "Min Air Temperature Setpoint" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Min _:has_Air _:has_Temperature _:has_Setpoint ) ],
+        brick:Air_Temperature_Setpoint ;
+    skos:definition "Setpoint for minimum air temperature"@en ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Min,
+        tag:Point,
+        tag:Setpoint,
+        tag:Temperature .
 
 brick:Min_Chilled_Water_Differential_Pressure_Setpoint_Limit a owl:Class ;
     rdfs:label "Min Chilled Water Differential Pressure Setpoint Limit" ;
@@ -3911,6 +3944,17 @@ brick:Min_Unoccupied_Heating_Supply_Air_Flow_Setpoint_Limit a owl:Class ;
         tag:Setpoint,
         tag:Supply,
         tag:Unoccupied .
+
+brick:Min_Water_Temperature_Setpoint a owl:Class ;
+    rdfs:label "Min Water Temperature Setpoint" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Min _:has_Water _:has_Temperature _:has_Setpoint ) ],
+        brick:Water_Temperature_Setpoint ;
+    skos:definition "Setpoint for min water temperature"@en ;
+    brick:hasAssociatedTag tag:Min,
+        tag:Point,
+        tag:Setpoint,
+        tag:Temperature,
+        tag:Water .
 
 brick:Mixed_Air_Filter a owl:Class ;
     rdfs:label "Mixed Air Filter" ;
@@ -11738,16 +11782,6 @@ brick:Temperature_Setpoint a owl:Class ;
         tag:Setpoint,
         tag:Temperature .
 
-brick:Water_Temperature_Setpoint a owl:Class ;
-    rdfs:label "Water Temperature Setpoint" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Water _:has_Temperature _:has_Setpoint ) ],
-        brick:Temperature_Setpoint ;
-    skos:definition "Sets temperature of water"@en ;
-    brick:hasAssociatedTag tag:Point,
-        tag:Setpoint,
-        tag:Temperature,
-        tag:Water .
-
 tag:Bypass a brick:Tag ;
     rdfs:label "Bypass" .
 
@@ -11981,6 +12015,16 @@ brick:Relative_Humidity a qudt:QuantityKind,
     skos:broader brick:Humidity ;
     skos:definition "Relative Humidity} is the ratio of the partial pressure of water vapor in an air-water mixture to the saturated vapor pressure of water at a prescribed temperature. The relative humidity of air depends not only on temperature but also on the pressure of the system of interest. Relative Humidity is also referred to as \\text{Relative Partial Pressure. Relative partial pressure is often referred to as (RH) and expressed in percent."@en .
 
+brick:Water_Temperature_Setpoint a owl:Class ;
+    rdfs:label "Water Temperature Setpoint" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Water _:has_Temperature _:has_Setpoint ) ],
+        brick:Temperature_Setpoint ;
+    skos:definition "Sets temperature of water"@en ;
+    brick:hasAssociatedTag tag:Point,
+        tag:Setpoint,
+        tag:Temperature,
+        tag:Water .
+
 tag:Box a brick:Tag ;
     rdfs:label "Box" .
 
@@ -12090,16 +12134,6 @@ unit:NanoA qudt:symbol "nA" .
 
 unit:PicoA qudt:symbol "pA" .
 
-brick:Air_Temperature_Setpoint a owl:Class ;
-    rdfs:label "Air Temperature Setpoint" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Air _:has_Temperature _:has_Setpoint ) ],
-        brick:Temperature_Setpoint ;
-    skos:definition "Sets temperature of air"@en ;
-    brick:hasAssociatedTag tag:Air,
-        tag:Point,
-        tag:Setpoint,
-        tag:Temperature .
-
 brick:Location a owl:Class ;
     rdfs:label "Location" ;
     rdfs:subClassOf _:has_Location,
@@ -12159,6 +12193,16 @@ unit:KiloW qudt:symbol "kW" .
 unit:UNITLESS qudt:symbol "U" .
 
 unit:W qudt:symbol "W" .
+
+brick:Air_Temperature_Setpoint a owl:Class ;
+    rdfs:label "Air Temperature Setpoint" ;
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Air _:has_Temperature _:has_Setpoint ) ],
+        brick:Temperature_Setpoint ;
+    skos:definition "Sets temperature of air"@en ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Point,
+        tag:Setpoint,
+        tag:Temperature .
 
 brick:Limit a owl:Class ;
     rdfs:label "Limit" ;
@@ -12382,14 +12426,14 @@ tag:Liquid a brick:Tag ;
 tag:Load a brick:Tag ;
     rdfs:label "Load" .
 
+tag:Humidity a brick:Tag ;
+    rdfs:label "Humidity" .
+
 tag:Max a brick:Tag ;
     rdfs:label "Max" .
 
 tag:Min a brick:Tag ;
     rdfs:label "Min" .
-
-tag:Humidity a brick:Tag ;
-    rdfs:label "Humidity" .
 
 tag:Outside a brick:Tag ;
     rdfs:label "Outside" .
@@ -13213,16 +13257,16 @@ _:has_Load a owl:Restriction ;
     owl:hasValue tag:Load ;
     owl:onProperty brick:hasTag .
 
+_:has_Humidity a owl:Restriction ;
+    owl:hasValue tag:Humidity ;
+    owl:onProperty brick:hasTag .
+
 _:has_Max a owl:Restriction ;
     owl:hasValue tag:Max ;
     owl:onProperty brick:hasTag .
 
 _:has_Min a owl:Restriction ;
     owl:hasValue tag:Min ;
-    owl:onProperty brick:hasTag .
-
-_:has_Humidity a owl:Restriction ;
-    owl:hasValue tag:Humidity ;
     owl:onProperty brick:hasTag .
 
 _:has_Chilled a owl:Restriction ;

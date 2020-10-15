@@ -1361,6 +1361,24 @@ setpoint_definitions = {
                                     TAG.Setpoint,
                                 ],
                             },
+                            "Min_Air_Temperature_Setpoint": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Min,
+                                    TAG.Air,
+                                    TAG.Temperature,
+                                    TAG.Setpoint,
+                                ]
+                            },
+                            "Max_Air_Temperature_Setpoint": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Max,
+                                    TAG.Air,
+                                    TAG.Temperature,
+                                    TAG.Setpoint,
+                                ]
+                            },
                         },
                     },
                     "Cooling_Temperature_Setpoint": {
@@ -1472,6 +1490,24 @@ setpoint_definitions = {
                                     TAG.Temperature,
                                     TAG.Water,
                                 ],
+                            },
+                            "Min_Water_Temperature_Setpoint": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Min,
+                                    TAG.Water,
+                                    TAG.Temperature,
+                                    TAG.Setpoint,
+                                ]
+                            },
+                            "Max_Water_Temperature_Setpoint": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Max,
+                                    TAG.Water,
+                                    TAG.Temperature,
+                                    TAG.Setpoint,
+                                ]
                             },
                         },
                         "tags": [TAG.Point, TAG.Water, TAG.Temperature, TAG.Setpoint],
