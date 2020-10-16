@@ -50,7 +50,7 @@ def test_subclasses():
     sc1 = [x[0] for x in subclasses1]
     sc2 = [x[0] for x in subclasses2]
     diff = set(sc1).difference(set(sc2))
-
+    print(str(diff))
     # there should only be these properties  outside of Brick *at this point
     # in time*. We check for a subset because depending on differences in
     # implementation details of reasoners, we may get some of these axiomatic

@@ -168,6 +168,22 @@ equipment_subclasses = {
     "Camera": {"tags": [TAG.Camera, TAG.Equipment]},
 }
 
+"""
+Define classes of Controller equipment
+"""
+controller_subclasses = {
+    "HVAC_Controller": {
+        "tags": [TAG.Controller, TAG.HVAC],
+        "subclasses": {
+            "Terminal_Unit_Controller": {
+                "tags": [TAG.Controller, TAG.Terminal, TAG.Unit],
+                "subclasses": {
+                    "VAV_Controller": {"tags": [TAG.Controller, TAG.VAV]},
+                },
+            },
+        },
+    },
+}
 
 """
 Define classes of HVAC equipment

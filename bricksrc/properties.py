@@ -1,5 +1,5 @@
 from rdflib import Literal
-from .namespaces import A, OWL, RDFS, BRICK, VCARD, UNIT
+from .namespaces import A, OWL, RDFS, BRICK, VCARD, UNIT, TAG
 
 """
 Defining properties
@@ -26,10 +26,13 @@ properties = {
     "controls": {
         A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         OWL.inverseOf: BRICK["isControlledBy"],
+        RDFS.domain: BRICK.Controller,
+        RDFS.range: TAG.Equipment,
     },
     "isControlledBy": {
         A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         OWL.inverseOf: BRICK["controls"],
+        RDFS.range: BRICK.Controller,
     },
     "feeds": {
         A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
