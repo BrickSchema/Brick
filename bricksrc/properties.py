@@ -9,23 +9,11 @@ properties = {
         A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         OWL.inverseOf: BRICK["hasLocation"],
         RDFS.domain: BRICK.Location,
-        "subproperties": {
-            "isSiteOf": {
-                RDFS.domain: BRICK.Site,
-                OWL.inverseOf: BRICK["hasSite"],
-            },
-        },
     },
     "hasLocation": {
         A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         OWL.inverseOf: BRICK["isLocationOf"],
         RDFS.range: BRICK.Location,
-        "subproperties": {
-            "hasSite": {
-                RDFS.range: BRICK.Site,
-                OWL.inverseOf: BRICK["isSiteOf"],
-            },
-        },
     },
     "hasInputSubstance": {
         A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
