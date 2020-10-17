@@ -51,12 +51,6 @@ bsh:hasPointRangeShape a sh:NodeShape ;
             sh:path brick:hasPoint ] ;
     sh:targetSubjectsOf brick:hasPoint .
 
-bsh:hasSiteRangeShape a sh:NodeShape ;
-    sh:property [ sh:class brick:Site ;
-            sh:message "Property hasSite has object with incorrect type" ;
-            sh:path brick:hasSite ] ;
-    sh:targetSubjectsOf brick:hasSite .
-
 bsh:hasTagRangeShape a sh:NodeShape ;
     sh:property [ sh:class brick:Tag ;
             sh:message "Property hasTag has object with incorrect type" ;
@@ -116,11 +110,6 @@ bsh:isRegulatedByRangeShape a sh:NodeShape ;
             sh:message "Property isRegulatedBy has object with incorrect type" ;
             sh:path brick:isRegulatedBy ] ;
     sh:targetSubjectsOf brick:isRegulatedBy .
-
-bsh:isSiteOfDomainShape a sh:NodeShape ;
-    sh:class brick:Site ;
-    sh:message "Property isSiteOf has subject with incorrect type" ;
-    sh:targetSubjectsOf brick:isSiteOf .
 
 bsh:isTagOfDomainShape a sh:NodeShape ;
     sh:class brick:Tag ;
