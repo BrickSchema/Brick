@@ -5,24 +5,6 @@
 @prefix unit: <http://qudt.org/vocab/unit/> .
 @prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
-bsh:feedsAirHasInputSubstanceShape a sh:NodeShape ;
-    sh:property [ sh:class brick:Air ;
-            sh:message "Subject of property feedsAir has object with incorrect type" ;
-            sh:path brick:hasInputSubstance ] ;
-    sh:targetSubjectsOf brick:feedsAir .
-
-bsh:feedsAirHasOutputSubstanceShape a sh:NodeShape ;
-    sh:property [ sh:class brick:Air ;
-            sh:message "Subject of property feedsAir has object with incorrect type" ;
-            sh:path brick:hasOutputSubstance ] ;
-    sh:targetSubjectsOf brick:feedsAir .
-
-bsh:feedsAirRegulatesShape a sh:NodeShape ;
-    sh:property [ sh:class brick:Air ;
-            sh:message "Subject of property feedsAir has object with incorrect type" ;
-            sh:path brick:regulates ] ;
-    sh:targetSubjectsOf brick:feedsAir .
-
 bsh:hasAddressDomainShape a sh:NodeShape ;
     sh:class brick:Building ;
     sh:message "Property hasAddress has subject with incorrect type" ;
