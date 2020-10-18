@@ -143,23 +143,22 @@ The class property dictionary can have the following keys:
 - `parents`: a list of Brick *classes* that are parent classes of the current class; this lets us form the class lattice with less duplication
 - `subclasses`: a dictionary whose keys+values are class names and definitions; this recursively follows the same structure
 - `substances`: a nested list of Brick Substance classes. Each list item should be of the form `[BRICK.measures, BRICK.<substance name>]` where `<substance name>` is replaced with the substance that is measured. Substances are defined in `bricksrc/substances.py`
-- `SKOS.definition`: contains the definition of the class. The value must use the `Literal` constructor from RDFlib:
-    ```python
-    # example
-    from rdflib import Literal
-    "Thermostat": {
-        SKOS.definition: Literal("An automatic control device used to maintain temperature at a fixed or adjustable setpoint."),
-    }
-    ```
+
+To provide a textual definition for a Brick class (which will be linked to its definition via the `SKOS.definition` property), add the class name and its definition to `bricksrc/definitions.csv`.
+Each entry has 3 columns: the full Brick URI for the class name (with the Brick namespace prefix), a textual definition (if this contains commas, then make sure the definition is enclosed in quotes), and an optional citation or additional resource.
+Entries should be placed into the file alphabetically to facilitate maintenance.
+
+For example, here is the row providing the textual definition of a `brick:Thermostat`:
+
+```
+https://brickschema.org/schema/1.1/Brick#Thermostat,An automatic control device used to maintain temperature at a fixed or adjustable setpoint.,
+```
 
 ### Managing Tags
 
 Tags provide an alternative way of instantiating classes; Brick can infer classifications from the set of tags applied to an entity with the `brick.hasTag` relationship.
 Each subclass's tags should contain *at least* the tags of its parent class; currently, the set of tags for a class must be explicitly annotated.
-Tags can be explicitly defined in `bricksrc/tags.py`.
-
-The set of tags for a class should be unique to the hierarchy rooted at that class.
-For consistency, if the set of tags `T1` for a class `C1` is a subset of the set of tags `T2` for a class `C2`, then `C1` **must** be a superclass of `C2`.
+Tags can also be explicitly defined in `bricksrc/tags.py`.
 
 ### Defining Brick Relationships
 

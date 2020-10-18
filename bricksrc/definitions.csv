@@ -657,6 +657,7 @@ https://brickschema.org/schema/1.1/Brick#Server_Room,,
 https://brickschema.org/schema/1.1/Brick#Setpoint,A Setpoint is an input value at which the desired property is set,https://xp20.ashrae.org/terminology/index.php?term=setpoint
 https://brickschema.org/schema/1.1/Brick#Shading_System,Devices that can control daylighting through various means,
 https://brickschema.org/schema/1.1/Brick#Short_Cycle_Alarm,An alarm that indicates a short cycle occurred. A short cycle occurs when a cooling cycle is prevented from completing its full cycle,
+https://brickschema.org/schema/1.1/Brick#Site,A geographic region containing 0 or more buildings. Typically used as the encapsulating location for a collection of Brick entities through the hasSite/isSiteOf relationships,
 https://brickschema.org/schema/1.1/Brick#Smoke_Alarm,An alarm that indicates the off-normal conditions associated with smoke.,
 https://brickschema.org/schema/1.1/Brick#Solar_Azimuth_Angle_Sensor,Measures the azimuth angle of the sun,
 https://brickschema.org/schema/1.1/Brick#Solar_Irradiance,The power per unit area of solar electromagnetic radiation incident on a surface,
