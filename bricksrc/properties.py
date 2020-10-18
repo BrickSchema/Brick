@@ -1,4 +1,3 @@
-from rdflib import Literal
 from .namespaces import A, OWL, RDFS, BRICK, VCARD, UNIT
 
 """
@@ -34,21 +33,7 @@ properties = {
     "feeds": {
         A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         OWL.inverseOf: BRICK["isFedBy"],
-        "subproperties": {
-            "feedsAir": {
-                # TODO: add restriction that it needs an air-based equipment on either side?
-                # this is equivalent with the classes that have :
-                # Restriction (onProperty=brick:hasInputSubstance, hasValue=brick:Air) AND
-                # Restriction (onProperty=brick:hasOutputSubstance, hasValue=brick:Air)
-                # looks something like this
-                # "domain_value_prop": [
-                #    [BRICK.hasTag, TAG.Air],
-                # ],
-                # "range_value_prop": [
-                #    [BRICK.hasTag, TAG.Air],
-                # ],
-            },
-        },
+        "subproperties": {"feedsAir": {}},
     },
     "isFedBy": {
         A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
