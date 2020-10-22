@@ -6722,15 +6722,6 @@ brick:Conductivity_Sensor a owl:Class ;
         tag:Point,
         tag:Sensor .
 
-brick:Controller a owl:Class ;
-    rdfs:label "Controller" ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:hasValue tag:Controller ;
-            owl:onProperty brick:hasTag ],
-        brick:Controller ;
-    skos:definition "Device for regulation of a system or component in normal operation, manual or automatic"@en ;
-    brick:hasAssociatedTag tag:Controller .
-
 brick:Cooling_Coil a owl:Class ;
     rdfs:label "Cooling Coil" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Equipment _:has_Coil _:has_Cool ) ],
@@ -9770,9 +9761,6 @@ tag:Constant a brick:Tag ;
 
 tag:Contact a brick:Tag ;
     rdfs:label "Contact" .
-
-tag:Controller a brick:Tag ;
-    rdfs:label "Controller" .
 
 tag:Cooling a brick:Tag ;
     rdfs:label "Cooling" .

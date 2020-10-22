@@ -169,11 +169,6 @@ equipment_subclasses = {
 }
 
 """
-Define classes of Controller equipment
-"""
-controller_subclasses = {"Controller": {"tags": [TAG.Controller]}}
-
-"""
 Define classes of HVAC equipment
 """
 hvac_subclasses = {

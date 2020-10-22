@@ -20,7 +20,6 @@ from bricksrc.system import system_subclasses
 from bricksrc.location import location_subclasses
 from bricksrc.equipment import (
     equipment_subclasses,
-    controller_subclasses,
     hvac_subclasses,
     valve_subclasses,
     security_subclasses,
@@ -414,7 +413,6 @@ define_classes(location_subclasses, BRICK.Location)
 define_classes(equipment_subclasses, BRICK.Equipment)
 define_classes(system_subclasses, BRICK.System)
 define_classes(hvac_subclasses, BRICK.HVAC)
-define_classes(controller_subclasses, BRICK.Controller)
 define_classes(valve_subclasses, BRICK.Valve)
 define_classes(security_subclasses, BRICK.Security_Equipment)
 define_classes(safety_subclasses, BRICK.Safety_Equipment)

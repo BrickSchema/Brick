@@ -120,7 +120,6 @@ https://brickschema.org/schema/1.1/Brick#Conductivity,,
 https://brickschema.org/schema/1.1/Brick#Constant_Air_Volume_Box,A terminal unit for which supply air flow rate is constant and the supply air temperature is varied to meet thermal load,https://en.wikipedia.org/wiki/Constant_air_volume
 https://brickschema.org/schema/1.1/Brick#Conductivity_Sensor,Measures electrical conductance,
 https://brickschema.org/schema/1.1/Brick#Contact_Sensor,"Senses or detects contact, such as for determining if a door is closed.",
-https://brickschema.org/schema/1.1/Brick#Controller,"Device for regulation of a system or component in normal operation, manual or automatic",
 https://brickschema.org/schema/1.1/Brick#controls,,
 https://brickschema.org/schema/1.1/Brick#Cooling_Coil,"A cooling element made of pipe or tube that removes heat from equipment, machines or airflows. Typically filled with either refrigerant or cold water.",
 https://brickschema.org/schema/1.1/Brick#Cooling_Command,Controls the amount of cooling to be delivered (typically as a proportion of total cooling output),
