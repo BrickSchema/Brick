@@ -1,133 +1,321 @@
 @prefix brick: <https://brickschema.org/schema/1.1/Brick#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix vbisalign: <https://brickschema.org/schema/1.1/Brick/alignments/vbis/v3#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-brick:AHU vbisalign:hasVBISTag "ME-AHU*" .
+brick:AHU a sh:NodeShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:path vbisalign:hasVBISTag ;
+            sh:pattern "ME-AHU*" ] .
 
-brick:Absorption_Chiller vbisalign:hasVBISTag "ME-Chr-Ab*" .
+brick:Absorption_Chiller a sh:NodeShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:path vbisalign:hasVBISTag ;
+            sh:pattern "ME-Chr-Ab*" ] .
 
-brick:Air_Curtain vbisalign:hasVBISTag "ME-AC" .
+brick:Air_Curtain a sh:NodeShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:path vbisalign:hasVBISTag ;
+            sh:pattern "ME-AC" ] .
 
-brick:Air_Handler_Unit vbisalign:hasVBISTag "ME-AHU*" .
+brick:Air_Handler_Unit a sh:NodeShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:path vbisalign:hasVBISTag ;
+            sh:pattern "ME-AHU*" ] .
 
-brick:Battery vbisalign:hasVBISTag "EP-BS-Ba*" .
+brick:Battery a sh:NodeShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:path vbisalign:hasVBISTag ;
+            sh:pattern "EP-BS-Ba*" ] .
 
-brick:Boiler vbisalign:hasVBISTag "ME-Bo*" .
+brick:Boiler a sh:NodeShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:path vbisalign:hasVBISTag ;
+            sh:pattern "ME-Bo*" ] .
 
-brick:Breaker_Panel vbisalign:hasVBISTag "EP-SB*" .
+brick:Breaker_Panel a sh:NodeShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:path vbisalign:hasVBISTag ;
+            sh:pattern "EP-SB*" ] .
 
-brick:Bus_Riser vbisalign:hasVBISTag "EP-BD*" .
+brick:Bus_Riser a sh:NodeShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:path vbisalign:hasVBISTag ;
+            sh:pattern "EP-BD*" ] .
 
-brick:CRAC vbisalign:hasVBISTag "ME-PAC*" .
+brick:CRAC a sh:NodeShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:path vbisalign:hasVBISTag ;
+            sh:pattern "ME-PAC*" ] .
 
-brick:Camera vbisalign:hasVBISTag "SE-CCTV-Ca*" .
+brick:Camera a sh:NodeShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:path vbisalign:hasVBISTag ;
+            sh:pattern "SE-CCTV-Ca*" ] .
 
-brick:Chiller vbisalign:hasVBISTag "ME-Chr*" .
+brick:Chiller a sh:NodeShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:path vbisalign:hasVBISTag ;
+            sh:pattern "ME-Chr*" ] .
 
-brick:Coil vbisalign:hasVBISTag "ME-Co*" .
+brick:Coil a sh:NodeShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:path vbisalign:hasVBISTag ;
+            sh:pattern "ME-Co*" ] .
 
-brick:Compressor vbisalign:hasVBISTag "ME-ACPR*" .
+brick:Compressor a sh:NodeShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:path vbisalign:hasVBISTag ;
+            sh:pattern "ME-ACPR*" ] .
 
-brick:Computer_Room_Air_Conditioning vbisalign:hasVBISTag "ME-PAC*" .
+brick:Computer_Room_Air_Conditioning a sh:NodeShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:path vbisalign:hasVBISTag ;
+            sh:pattern "ME-PAC*" ] .
 
-brick:Condenser vbisalign:hasVBISTag "ME-ACC*" .
+brick:Condenser a sh:NodeShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:path vbisalign:hasVBISTag ;
+            sh:pattern "ME-ACC*" ] .
 
-brick:Damper vbisalign:hasVBISTag "ME-Da*" .
+brick:Damper a sh:NodeShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:path vbisalign:hasVBISTag ;
+            sh:pattern "ME-Da*" ] .
 
-brick:Disconnect_Switch vbisalign:hasVBISTag "EP-SG*" .
+brick:Disconnect_Switch a sh:NodeShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:path vbisalign:hasVBISTag ;
+            sh:pattern "EP-SG*" ] .
 
-brick:Electrical_Equipment vbisalign:hasVBISTag "EP*" .
+brick:Electrical_Equipment a sh:NodeShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:path vbisalign:hasVBISTag ;
+            sh:pattern "EP*" ] .
 
-brick:Elevator vbisalign:hasVBISTag "VT-Li*" .
+brick:Elevator a sh:NodeShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:path vbisalign:hasVBISTag ;
+            sh:pattern "VT-Li*" ] .
 
-brick:Energy_Storage vbisalign:hasVBISTag "EP-BS*" .
+brick:Energy_Storage a sh:NodeShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:path vbisalign:hasVBISTag ;
+            sh:pattern "EP-BS*" ] .
 
-brick:FCU vbisalign:hasVBISTag "ME-FCU*" .
+brick:FCU a sh:NodeShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:path vbisalign:hasVBISTag ;
+            sh:pattern "ME-FCU*" ] .
 
-brick:Fan vbisalign:hasVBISTag "ME-Fa*" .
+brick:Fan a sh:NodeShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:path vbisalign:hasVBISTag ;
+            sh:pattern "ME-Fa*" ] .
 
-brick:Fan_Coil_Unit vbisalign:hasVBISTag "ME-FCU*" .
+brick:Fan_Coil_Unit a sh:NodeShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:path vbisalign:hasVBISTag ;
+            sh:pattern "ME-FCU*" ] .
 
-brick:Filter vbisalign:hasVBISTag "ME-AFP*" .
+brick:Filter a sh:NodeShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:path vbisalign:hasVBISTag ;
+            sh:pattern "ME-AFP*" ] .
 
-brick:Fire_Control_Panel vbisalign:hasVBISTag "FD-FDCIE-MP*" .
+brick:Fire_Control_Panel a sh:NodeShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:path vbisalign:hasVBISTag ;
+            sh:pattern "FD-FDCIE-MP*" ] .
 
-brick:Fire_Safety_Equipment vbisalign:hasVBISTag "FD*",
-        "FR*",
-        "FS*" .
+brick:Fire_Safety_Equipment a sh:NodeShape ;
+    sh:or ( [ a sh:PropertyShape ;
+                sh:path vbisalign:hasVBISTag ;
+                sh:pattern "FD*" ] [ a sh:PropertyShape ;
+                sh:path vbisalign:hasVBISTag ;
+                sh:pattern "FS*" ] [ a sh:PropertyShape ;
+                sh:path vbisalign:hasVBISTag ;
+                sh:pattern "FR*" ] ) .
 
-brick:Fume_Hood vbisalign:hasVBISTag "ME-FEE*" .
+brick:Fume_Hood a sh:NodeShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:path vbisalign:hasVBISTag ;
+            sh:pattern "ME-FEE*" ] .
 
-brick:Furniture vbisalign:hasVBISTag "FFE-*" .
+brick:Furniture a sh:NodeShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:path vbisalign:hasVBISTag ;
+            sh:pattern "FFE-*" ] .
 
-brick:Gas_Distribution vbisalign:hasVBISTag "GRE*" .
+brick:Gas_Distribution a sh:NodeShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:path vbisalign:hasVBISTag ;
+            sh:pattern "GRE*" ] .
 
-brick:HVAC vbisalign:hasVBISTag "ME" .
+brick:HVAC a sh:NodeShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:path vbisalign:hasVBISTag ;
+            sh:pattern "ME" ] .
 
-brick:HX vbisalign:hasVBISTag "ME-HE*" .
+brick:HX a sh:NodeShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:path vbisalign:hasVBISTag ;
+            sh:pattern "ME-HE*" ] .
 
-brick:Heat_Exchanger vbisalign:hasVBISTag "ME-HE*" .
+brick:Heat_Exchanger a sh:NodeShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:path vbisalign:hasVBISTag ;
+            sh:pattern "ME-HE*" ] .
 
-brick:Heat_Wheel vbisalign:hasVBISTag "ME-HE-ATA-AW" .
+brick:Heat_Wheel a sh:NodeShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:path vbisalign:hasVBISTag ;
+            sh:pattern "ME-HE-ATA-AW" ] .
 
-brick:Heat_Wheel_VFD vbisalign:hasVBISTag "ME-EMS-VSD*" .
+brick:Heat_Wheel_VFD a sh:NodeShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:path vbisalign:hasVBISTag ;
+            sh:pattern "ME-EMS-VSD*" ] .
 
-brick:Inverter vbisalign:hasVBISTag "EP-SPS-In" .
+brick:Inverter a sh:NodeShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:path vbisalign:hasVBISTag ;
+            sh:pattern "EP-SPS-In" ] .
 
-brick:Lighting_Equipment vbisalign:hasVBISTag "EL*" .
+brick:Lighting_Equipment a sh:NodeShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:path vbisalign:hasVBISTag ;
+            sh:pattern "EL*" ] .
 
-brick:Louver vbisalign:hasVBISTag "ST-AL*" .
+brick:Louver a sh:NodeShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:path vbisalign:hasVBISTag ;
+            sh:pattern "ST-AL*" ] .
 
-brick:Meter vbisalign:hasVBISTag "BMC-FM*",
-        "BMC-Me*",
-        "EP-Me*",
-        "HY-Me*" .
+brick:Meter a sh:NodeShape ;
+    sh:or ( [ a sh:PropertyShape ;
+                sh:path vbisalign:hasVBISTag ;
+                sh:pattern "EP-Me*" ] [ a sh:PropertyShape ;
+                sh:path vbisalign:hasVBISTag ;
+                sh:pattern "BMC-Me*" ] [ a sh:PropertyShape ;
+                sh:path vbisalign:hasVBISTag ;
+                sh:pattern "HY-Me*" ] [ a sh:PropertyShape ;
+                sh:path vbisalign:hasVBISTag ;
+                sh:pattern "BMC-FM*" ] ) .
 
-brick:Mixed_Air_Filter vbisalign:hasVBISTag "ME-AFP*" .
+brick:Mixed_Air_Filter a sh:NodeShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:path vbisalign:hasVBISTag ;
+            sh:pattern "ME-AFP*" ] .
 
-brick:Motor_Control_Center vbisalign:hasVBISTag "EP-SB*" .
+brick:Motor_Control_Center a sh:NodeShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:path vbisalign:hasVBISTag ;
+            sh:pattern "EP-SB*" ] .
 
-brick:Safety_Equipment vbisalign:hasVBISTag "SA*" .
+brick:Safety_Equipment a sh:NodeShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:path vbisalign:hasVBISTag ;
+            sh:pattern "SA*" ] .
 
-brick:Security_Equipment vbisalign:hasVBISTag "SE*" .
+brick:Security_Equipment a sh:NodeShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:path vbisalign:hasVBISTag ;
+            sh:pattern "SE*" ] .
 
-brick:Solar_Panel vbisalign:hasVBISTag "EP-SPS-Pa*" .
+brick:Solar_Panel a sh:NodeShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:path vbisalign:hasVBISTag ;
+            sh:pattern "EP-SPS-Pa*" ] .
 
-brick:Space_Heater vbisalign:hasVBISTag "FFE-He*" .
+brick:Space_Heater a sh:NodeShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:path vbisalign:hasVBISTag ;
+            sh:pattern "FFE-He*" ] .
 
-brick:Steam_Distribution vbisalign:hasVBISTag "ME-Bo-St" .
+brick:Steam_Distribution a sh:NodeShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:path vbisalign:hasVBISTag ;
+            sh:pattern "ME-Bo-St" ] .
 
-brick:Switchgear vbisalign:hasVBISTag "EP-SG*" .
+brick:Switchgear a sh:NodeShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:path vbisalign:hasVBISTag ;
+            sh:pattern "EP-SG*" ] .
 
-brick:Terminal_Unit vbisalign:hasVBISTag "ME-ATU",
-        "ME-ATU*" .
+brick:Terminal_Unit a sh:NodeShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:path vbisalign:hasVBISTag ;
+            sh:pattern "ME-ATU*" ],
+        [ a sh:PropertyShape ;
+            sh:path vbisalign:hasVBISTag ;
+            sh:pattern "ME-ATU" ] .
 
-brick:Thermostat vbisalign:hasVBISTag "BMC-TST*" .
+brick:Thermostat a sh:NodeShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:path vbisalign:hasVBISTag ;
+            sh:pattern "BMC-TST*" ] .
 
-brick:Transformer vbisalign:hasVBISTag "EP-Tr*" .
+brick:Transformer a sh:NodeShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:path vbisalign:hasVBISTag ;
+            sh:pattern "EP-Tr*" ] .
 
-brick:VAV vbisalign:hasVBISTag "ME-ATU-VAV",
-        "ME-ATU-VAV*" .
+brick:VAV a sh:NodeShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:path vbisalign:hasVBISTag ;
+            sh:pattern "ME-ATU-VAV*" ],
+        [ a sh:PropertyShape ;
+            sh:path vbisalign:hasVBISTag ;
+            sh:pattern "ME-ATU-VAV" ] .
 
-brick:VFD vbisalign:hasVBISTag "ME-EMS-VSD*" .
+brick:VFD a sh:NodeShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:path vbisalign:hasVBISTag ;
+            sh:pattern "ME-EMS-VSD*" ] .
 
-brick:Valve vbisalign:hasVBISTag "ME-Va*" .
+brick:Valve a sh:NodeShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:path vbisalign:hasVBISTag ;
+            sh:pattern "ME-Va*" ] .
 
-brick:Variable_Air_Volume_Box vbisalign:hasVBISTag "ME-ATU-VAV*" .
+brick:Variable_Air_Volume_Box a sh:NodeShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:path vbisalign:hasVBISTag ;
+            sh:pattern "ME-ATU-VAV*" ] .
 
-brick:Variable_Air_Volume_Box_with_Reheat vbisalign:hasVBISTag "ME-ATU-VAV-SDEH",
-        "ME-ATU-VAV-SDHC" .
+brick:Variable_Air_Volume_Box_with_Reheat a sh:NodeShape ;
+    sh:or ( [ a sh:PropertyShape ;
+                sh:path vbisalign:hasVBISTag ;
+                sh:pattern "ME-ATU-VAV-SDHC" ] [ a sh:PropertyShape ;
+                sh:path vbisalign:hasVBISTag ;
+                sh:pattern "ME-ATU-VAV-SDEH" ] ) .
 
-brick:Variable_Frequency_Drive vbisalign:hasVBISTag "ME-EMS-VSD*" .
+brick:Variable_Frequency_Drive a sh:NodeShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:path vbisalign:hasVBISTag ;
+            sh:pattern "ME-EMS-VSD*" ] .
 
-brick:Water_Distribution vbisalign:hasVBISTag "HY*" .
+brick:Water_Distribution a sh:NodeShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:path vbisalign:hasVBISTag ;
+            sh:pattern "HY*" ] .
 
-brick:Water_Pump vbisalign:hasVBISTag "FS-Pu",
-        "HY-Pu",
-        "ME-Pu*" .
+brick:Water_Pump a sh:NodeShape ;
+    sh:or ( [ a sh:PropertyShape ;
+                sh:path vbisalign:hasVBISTag ;
+                sh:pattern "ME-Pu*" ] [ a sh:PropertyShape ;
+                sh:path vbisalign:hasVBISTag ;
+                sh:pattern "HY-Pu" ] [ a sh:PropertyShape ;
+                sh:path vbisalign:hasVBISTag ;
+                sh:pattern "FS-Pu" ] ) .
 
-brick:Weather_Station vbisalign:hasVBISTag "BMC-WS*" .
+brick:Weather_Station a sh:NodeShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:path vbisalign:hasVBISTag ;
+            sh:pattern "BMC-WS*" ] .
 
 vbisalign:hasVBISTag a <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
     rdfs:domain brick:Class ;
