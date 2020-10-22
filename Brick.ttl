@@ -5984,14 +5984,6 @@ brick:Unoccupied_Cooling_Discharge_Air_Flow_Setpoint a owl:Class ;
         tag:Setpoint,
         tag:Unoccupied .
 
-brick:VAV_Controller a owl:Class ;
-    rdfs:label "VAV Controller" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Controller _:has_VAV ) ],
-        brick:Terminal_Unit_Controller ;
-    skos:definition "Device that communicates with and controls Variable Air Volume equipment"@en ;
-    brick:hasAssociatedTag tag:Controller,
-        tag:VAV .
-
 brick:VFD_Enable_Command a owl:Class ;
     rdfs:label "VFD Enable Command" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Enable _:has_Command _:has_VFD ) ],
@@ -6730,6 +6722,15 @@ brick:Conductivity_Sensor a owl:Class ;
         tag:Point,
         tag:Sensor .
 
+brick:Controller a owl:Class ;
+    rdfs:label "Controller" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:hasValue tag:Controller ;
+            owl:onProperty brick:hasTag ],
+        brick:Controller ;
+    skos:definition "Device for regulation of a system or component in normal operation, manual or automatic"@en ;
+    brick:hasAssociatedTag tag:Controller .
+
 brick:Cooling_Coil a owl:Class ;
     rdfs:label "Cooling Coil" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Equipment _:has_Coil _:has_Cool ) ],
@@ -7333,14 +7334,6 @@ brick:Gasoline a owl:Class,
     brick:hasAssociatedTag tag:Fluid,
         tag:Gasoline,
         tag:Liquid .
-
-brick:HVAC_Controller a owl:Class ;
-    rdfs:label "HVAC Controller" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Controller _:has_HVAC ) ],
-        brick:Controller ;
-    skos:definition "Device that communicates with and controls HVAC equipment"@en ;
-    brick:hasAssociatedTag tag:Controller,
-        tag:HVAC .
 
 brick:HX a owl:Class ;
     rdfs:label "HX" ;
@@ -8477,15 +8470,6 @@ brick:Temperature_Step_Parameter a owl:Class ;
         tag:Step,
         tag:Temperature .
 
-brick:Terminal_Unit_Controller a owl:Class ;
-    rdfs:label "Terminal Unit Controller" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Controller _:has_Terminal _:has_Unit ) ],
-        brick:HVAC_Controller ;
-    skos:definition "A device that communicates with and controls terminal units"@en ;
-    brick:hasAssociatedTag tag:Controller,
-        tag:Terminal,
-        tag:Unit .
-
 brick:Thermal_Power_Sensor a owl:Class ;
     rdfs:label "Thermal Power Sensor" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Sensor _:has_Power _:has_Thermal ) ],
@@ -8526,7 +8510,9 @@ brick:Unoccupied_Load_Shed_Command a owl:Class ;
 
 brick:VAV a owl:Class ;
     rdfs:label "VAV" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Equipment _:has_VAV ) ],
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Equipment [ a owl:Restriction ;
+                        owl:hasValue tag:VAV ;
+                        owl:onProperty brick:hasTag ] ) ],
         brick:Terminal_Unit ;
     skos:definition "See Variable_Air_Volume_Box"@en ;
     brick:hasAssociatedTag tag:Equipment,
@@ -8600,8 +8586,6 @@ brick:Wind_Speed a qudt:QuantityKind,
 brick:controls a owl:AsymmetricProperty,
         owl:IrreflexiveProperty,
         owl:ObjectProperty ;
-    rdfs:domain brick:Controller ;
-    rdfs:range tag:Equipment ;
     owl:inverseOf brick:isControlledBy .
 
 brick:hasAssociatedTag a owl:AsymmetricProperty,
@@ -8643,7 +8627,6 @@ brick:isAssociatedWith a owl:AsymmetricProperty,
 brick:isControlledBy a owl:AsymmetricProperty,
         owl:IrreflexiveProperty,
         owl:ObjectProperty ;
-    rdfs:range brick:Controller ;
     owl:inverseOf brick:controls .
 
 brick:isFedBy a owl:AsymmetricProperty,
@@ -9788,6 +9771,9 @@ tag:Constant a brick:Tag ;
 tag:Contact a brick:Tag ;
     rdfs:label "Contact" .
 
+tag:Controller a brick:Tag ;
+    rdfs:label "Controller" .
+
 tag:Cooling a brick:Tag ;
     rdfs:label "Cooling" .
 
@@ -10061,6 +10047,9 @@ tag:Tank a brick:Tag ;
 tag:Temporary a brick:Tag ;
     rdfs:label "Temporary" .
 
+tag:Terminal a brick:Tag ;
+    rdfs:label "Terminal" .
+
 tag:Thermostat a brick:Tag ;
     rdfs:label "Thermostat" .
 
@@ -10078,6 +10067,9 @@ tag:Transformer a brick:Tag ;
 
 tag:Underfloor a brick:Tag ;
     rdfs:label "Underfloor" .
+
+tag:VAV a brick:Tag ;
+    rdfs:label "VAV" .
 
 tag:Vent a brick:Tag ;
     rdfs:label "Vent" .
@@ -10150,8 +10142,6 @@ brick:Chilled_Water_Temperature_Sensor a owl:Class ;
         tag:Sensor,
         tag:Temperature,
         tag:Water .
-
-brick:Controller skos:definition "Device for regulation of a system or component in normal operation, manual or automatic"@en .
 
 brick:Cooling_Discharge_Air_Flow_Setpoint a owl:Class ;
     rdfs:label "Cooling Discharge Air Flow Setpoint" ;
@@ -10951,9 +10941,6 @@ tag:Space a brick:Tag ;
 tag:Storage a brick:Tag ;
     rdfs:label "Storage" .
 
-tag:Terminal a brick:Tag ;
-    rdfs:label "Terminal" .
-
 tag:Thermal a brick:Tag ;
     rdfs:label "Thermal" .
 
@@ -10965,9 +10952,6 @@ tag:Torque a brick:Tag ;
 
 tag:Tower a brick:Tag ;
     rdfs:label "Tower" .
-
-tag:VAV a brick:Tag ;
-    rdfs:label "VAV" .
 
 tag:Ventilation a brick:Tag ;
     rdfs:label "Ventilation" .
@@ -11445,9 +11429,6 @@ tag:Angle a brick:Tag ;
 tag:Chiller a brick:Tag ;
     rdfs:label "Chiller" .
 
-tag:Controller a brick:Tag ;
-    rdfs:label "Controller" .
-
 tag:Distribution a brick:Tag ;
     rdfs:label "Distribution" .
 
@@ -11465,6 +11446,9 @@ tag:Frequency a brick:Tag ;
 
 tag:Grains a brick:Tag ;
     rdfs:label "Grains" .
+
+tag:HVAC a brick:Tag ;
+    rdfs:label "HVAC" .
 
 tag:Ice a brick:Tag ;
     rdfs:label "Ice" .
@@ -11683,9 +11667,6 @@ tag:Fault a brick:Tag ;
 
 tag:Fixed a brick:Tag ;
     rdfs:label "Fixed" .
-
-tag:HVAC a brick:Tag ;
-    rdfs:label "HVAC" .
 
 tag:Interface a brick:Tag ;
     rdfs:label "Interface" .
@@ -11955,7 +11936,9 @@ brick:System a owl:Class ;
 
 brick:Terminal_Unit a owl:Class ;
     rdfs:label "Terminal Unit" ;
-    rdfs:subClassOf [ owl:intersectionOf ( _:has_Equipment _:has_Terminal _:has_Unit ) ],
+    rdfs:subClassOf [ owl:intersectionOf ( _:has_Equipment [ a owl:Restriction ;
+                        owl:hasValue tag:Terminal ;
+                        owl:onProperty brick:hasTag ] _:has_Unit ) ],
         brick:HVAC ;
     skos:definition "A device that regulates the volumetric flow rate and/or the temperature of the controlled medium."@en ;
     brick:hasAssociatedTag tag:Equipment,
@@ -12081,6 +12064,9 @@ tag:Start a brick:Tag ;
 tag:Stop a brick:Tag ;
     rdfs:label "Stop" .
 
+tag:Unit a brick:Tag ;
+    rdfs:label "Unit" .
+
 brick:Air_Humidity_Setpoint a owl:Class ;
     rdfs:label "Air Humidity Setpoint" ;
     rdfs:subClassOf [ owl:intersectionOf ( _:has_Point _:has_Humidity _:has_Setpoint _:has_Air ) ],
@@ -12137,9 +12123,6 @@ tag:Mode a brick:Tag ;
 
 tag:Relative a brick:Tag ;
     rdfs:label "Relative" .
-
-tag:Unit a brick:Tag ;
-    rdfs:label "Unit" .
 
 unit:A qudt:symbol "A" .
 
@@ -12722,6 +12705,10 @@ _:has_Generator a owl:Restriction ;
     owl:hasValue tag:Generator ;
     owl:onProperty brick:hasTag .
 
+_:has_HVAC a owl:Restriction ;
+    owl:hasValue tag:HVAC ;
+    owl:onProperty brick:hasTag .
+
 _:has_Hail a owl:Restriction ;
     owl:hasValue tag:Hail ;
     owl:onProperty brick:hasTag .
@@ -12806,10 +12793,6 @@ _:has_Storage a owl:Restriction ;
     owl:hasValue tag:Storage ;
     owl:onProperty brick:hasTag .
 
-_:has_Terminal a owl:Restriction ;
-    owl:hasValue tag:Terminal ;
-    owl:onProperty brick:hasTag .
-
 _:has_Thermal a owl:Restriction ;
     owl:hasValue tag:Thermal ;
     owl:onProperty brick:hasTag .
@@ -12824,10 +12807,6 @@ _:has_Torque a owl:Restriction ;
 
 _:has_Tower a owl:Restriction ;
     owl:hasValue tag:Tower ;
-    owl:onProperty brick:hasTag .
-
-_:has_VAV a owl:Restriction ;
-    owl:hasValue tag:VAV ;
     owl:onProperty brick:hasTag .
 
 _:has_Ventilation a owl:Restriction ;
@@ -12854,10 +12833,6 @@ _:has_Chiller a owl:Restriction ;
     owl:hasValue tag:Chiller ;
     owl:onProperty brick:hasTag .
 
-_:has_Controller a owl:Restriction ;
-    owl:hasValue tag:Controller ;
-    owl:onProperty brick:hasTag .
-
 _:has_Distribution a owl:Restriction ;
     owl:hasValue tag:Distribution ;
     owl:onProperty brick:hasTag .
@@ -12880,10 +12855,6 @@ _:has_Frequency a owl:Restriction ;
 
 _:has_Grains a owl:Restriction ;
     owl:hasValue tag:Grains ;
-    owl:onProperty brick:hasTag .
-
-_:has_HVAC a owl:Restriction ;
-    owl:hasValue tag:HVAC ;
     owl:onProperty brick:hasTag .
 
 _:has_Intercom a owl:Restriction ;
@@ -13114,6 +13085,10 @@ _:has_Stop a owl:Restriction ;
     owl:hasValue tag:Stop ;
     owl:onProperty brick:hasTag .
 
+_:has_Unit a owl:Restriction ;
+    owl:hasValue tag:Unit ;
+    owl:onProperty brick:hasTag .
+
 _:has_Disable a owl:Restriction ;
     owl:hasValue tag:Disable ;
     owl:onProperty brick:hasTag .
@@ -13128,10 +13103,6 @@ _:has_Mode a owl:Restriction ;
 
 _:has_Relative a owl:Restriction ;
     owl:hasValue tag:Relative ;
-    owl:onProperty brick:hasTag .
-
-_:has_Unit a owl:Restriction ;
-    owl:hasValue tag:Unit ;
     owl:onProperty brick:hasTag .
 
 _:has_Damper a owl:Restriction ;

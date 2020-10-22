@@ -2,20 +2,8 @@
 @prefix bsh: <https://brickschema.org/schema/1.1/BrickShape#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
-@prefix tag: <https://brickschema.org/schema/1.1/BrickTag#> .
 @prefix unit: <http://qudt.org/vocab/unit/> .
 @prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
-
-bsh:controlsDomainShape a sh:NodeShape ;
-    sh:class brick:Controller ;
-    sh:message "Property controls has subject with incorrect type" ;
-    sh:targetSubjectsOf brick:controls .
-
-bsh:controlsRangeShape a sh:NodeShape ;
-    sh:property [ sh:class tag:Equipment ;
-            sh:message "Property controls has object with incorrect type" ;
-            sh:path brick:controls ] ;
-    sh:targetSubjectsOf brick:controls .
 
 bsh:feedsAirHasInputSubstanceShape a sh:NodeShape ;
     sh:property [ sh:class brick:Air ;
@@ -108,12 +96,6 @@ bsh:isAssociatedWithRangeShape a sh:NodeShape ;
             sh:message "Property isAssociatedWith has object with incorrect type" ;
             sh:path brick:isAssociatedWith ] ;
     sh:targetSubjectsOf brick:isAssociatedWith .
-
-bsh:isControlledByRangeShape a sh:NodeShape ;
-    sh:property [ sh:class brick:Controller ;
-            sh:message "Property isControlledBy has object with incorrect type" ;
-            sh:path brick:isControlledBy ] ;
-    sh:targetSubjectsOf brick:isControlledBy .
 
 bsh:isLocationOfDomainShape a sh:NodeShape ;
     sh:class brick:Location ;
