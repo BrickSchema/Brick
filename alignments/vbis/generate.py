@@ -24,6 +24,14 @@ def get_brick_class(d):
             return d.get(key).replace(" ", "_")
 
 
+def rewrite_vbis_pattern(pat):
+    """
+    Rewrite VBIS patterns to match the format of regular expressions
+    required by XML schema
+    """
+    return "^" + pat.replace("*", ".*") + "$"
+
+
 def get_vbis_tags(d):
     vbis_tags = []
     for key in [
@@ -57,7 +65,7 @@ with open("vbis-brick.csv") as f:
             graph.add((VBIS[f"{bc}Shape"], SH.property, shape))
             graph.add((shape, RDF.type, SH.PropertyShape))
             graph.add((shape, SH.path, VBIS.hasVBISTag))
-            graph.add((shape, SH.pattern, Literal(vbtags[0])))
+            graph.add((shape, SH.pattern, Literal(rewrite_vbis_pattern(vbtags[0]))))
         else:
             shapeList = BNode()
             graph.add((VBIS[f"{bc}Shape"], SH["or"], shapeList))
@@ -66,7 +74,7 @@ with open("vbis-brick.csv") as f:
                 patterns.append(pattern)
                 graph.add((pattern, RDF.type, SH.PropertyShape))
                 graph.add((pattern, SH.path, VBIS.hasVBISTag))
-                graph.add((pattern, SH.pattern, Literal(vb)))
+                graph.add((pattern, SH.pattern, Literal(rewrite_vbis_pattern(vb))))
             Collection(graph, shapeList, patterns)
 
 graph.serialize("Brick-VBIS-alignment.ttl", format="turtle")
