@@ -810,7 +810,7 @@ https://brickschema.org/schema/1.1/Brick#Wind_Direction,Direction of wind relati
 https://brickschema.org/schema/1.1/Brick#Wind_Direction_Sensor,Measures the direction of wind in degrees relative to North,
 https://brickschema.org/schema/1.1/Brick#Wind_Speed,"Measured speed of wind, caused by air moving from high to low pressure",
 https://brickschema.org/schema/1.1/Brick#Wind_Speed_Sensor,"Measured speed of wind, caused by air moving from high to low pressure",
-https://brickschema.org/schema/1.1/Brick#Wing,,
+https://brickschema.org/schema/1.1/Brick#Wing,"A wing is part of a building – or any feature of a building – that is subordinate to the main, central structure.",
 https://brickschema.org/schema/1.1/Brick#Yearly_Energy_Usage_Sensor,Measures the total amount of energy used over the current year,
 https://brickschema.org/schema/1.1/Brick#Yearly_Steam_Usage_Sensor,Measures the amount of steam that is consumed or used so far this year,
 https://brickschema.org/schema/1.1/Brick#Zone,"(1) a separately controlled heated or cooled space. (2) one occupied space or several occupied spaces with similar occupancy category, occupant density, zone air distribution effectiveness, and zone primary airflow per unit area. (3) space or group of spaces within a building for which the heating, cooling, or lighting requirements are sufficiently similar that desired conditions can be maintained throughout by a single controlling device.",
