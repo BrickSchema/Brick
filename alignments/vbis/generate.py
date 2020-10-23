@@ -49,17 +49,18 @@ with open("vbis-brick.csv") as f:
         if len(vbtags) == 0:
             continue
         # create a shape for each set of tags
-        graph.add((BRICK[bc], RDF.type, SH.NodeShape))
+        graph.add((VBIS[f"{bc}Shape"], RDF.type, SH.NodeShape))
+        graph.add((VBIS[f"{bc}Shape"], SH.targetClass, BRICK[bc]))
         patterns = []
         if len(vbtags) == 1:
             shape = BNode()
-            graph.add((BRICK[bc], SH.property, shape))
+            graph.add((VBIS[f"{bc}Shape"], SH.property, shape))
             graph.add((shape, RDF.type, SH.PropertyShape))
             graph.add((shape, SH.path, VBIS.hasVBISTag))
             graph.add((shape, SH.pattern, Literal(vbtags[0])))
         else:
             shapeList = BNode()
-            graph.add((BRICK[bc], SH["or"], shapeList))
+            graph.add((VBIS[f"{bc}Shape"], SH["or"], shapeList))
             for vb in vbtags:
                 pattern = BNode()
                 patterns.append(pattern)
