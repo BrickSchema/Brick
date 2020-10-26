@@ -1,5 +1,5 @@
 from rdflib import Literal
-from .namespaces import A, OWL, RDFS, BRICK, VCARD, UNIT, TAG
+from .namespaces import A, OWL, RDFS, BRICK, VCARD, UNIT
 
 """
 Defining properties
