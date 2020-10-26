@@ -217,6 +217,9 @@ hvac_subclasses = {
                     "Hot_Water_Radiator": {
                         "tags": [TAG.Equipment, TAG.Radiator, TAG.Hot, TAG.Water]
                     },
+                    "Electric_Radiator": {
+                        "tags": [TAG.Equipment, TAG.Radiator, TAG.Electric]
+                    },
                     "Baseboard_Radiator": {
                         "tags": [TAG.Equipment, TAG.Radiator, TAG.Baseboard],
                         "subclasses": {
@@ -226,7 +229,8 @@ hvac_subclasses = {
                                     TAG.Radiator,
                                     TAG.Baseboard,
                                     TAG.Steam,
-                                ]
+                                ],
+                                "parents": [BRICK.Steam_Radiator],
                             },
                             "Electric_Baseboard_Radiator": {
                                 "tags": [
@@ -234,7 +238,8 @@ hvac_subclasses = {
                                     TAG.Radiator,
                                     TAG.Baseboard,
                                     TAG.Electric,
-                                ]
+                                ],
+                                "parents": [BRICK.Electric_Radiator],
                             },
                             "Hot_Water_Baseboard_Radiator": {
                                 "tags": [
@@ -243,7 +248,8 @@ hvac_subclasses = {
                                     TAG.Hot,
                                     TAG.Water,
                                     TAG.Baseboard,
-                                ]
+                                ],
+                                "parents": [BRICK.Hot_Water_Radiator],
                             },
                         },
                     },
