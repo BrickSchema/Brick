@@ -1,6 +1,7 @@
 # Brick
 
 [![Build Status](https://github.com/BrickSchema/Brick/workflows/Build/badge.svg)](https://github.com/BrickSchema/Brick/actions)
+[![Python 3.6](https://img.shields.io/badge/python-3.6+-blue.svg)](https://www.python.org/downloads/release/python-360/)
 
 Brick is an open-source, BSD-licensed development effort to create a uniform schema for representing metadata in buildings. Brick has three components:
 
