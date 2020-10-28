@@ -7,9 +7,9 @@ if len(sys.argv) < 2:
     sys.exit(1)
 
 graph = Graph()
-file_format = sys.argv[1].split('.')[-1]
-if file_format == 'rdf':
-    file_format = 'xml'
+file_format = sys.argv[1].split(".")[-1]
+if file_format == "rdf":
+    file_format = "xml"
 graph.parse(sys.argv[1], format=file_format)
 
 OWL = Namespace("http://www.w3.org/2002/07/owl#")
@@ -35,8 +35,7 @@ for device_type, brick_class in mapping.items():
     restriction_class = BNode()
     graph.add((restriction_class, RDF.type, OWL.Restriction))
     graph.add((restriction_class, RDF.type, OWL.Class))
-    graph.add((restriction_class, OWL.onProperty,
-               REC_DEVICE.hasDeviceFunctionType))
+    graph.add((restriction_class, OWL.onProperty, REC_DEVICE.hasDeviceFunctionType))
     graph.add((restriction_class, OWL.hasValue, device_type))
     graph.add((device_type, RDF.type, OWL.NamedIndividual))
 
@@ -51,4 +50,4 @@ for device_type, brick_class in mapping.items():
 
     graph.add((brick_class, OWL.equivalentClass, equivalent_class))
 
-graph.serialize(f'Brick-REC-alignment.ttl', format='turtle')
+graph.serialize("Brick-REC-alignment.ttl")

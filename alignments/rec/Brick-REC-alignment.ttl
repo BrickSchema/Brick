@@ -112,4 +112,3 @@ rec-device:Valve a owl:NamedIndividual .
 rec-core:Device a owl:Class .
 
 rec-device:hasDeviceFunctionType a owl:ObjectProperty .
-

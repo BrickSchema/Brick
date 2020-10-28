@@ -109,6 +109,8 @@ equipment_subclasses = {
                     "Heat_Wheel_VFD": {
                         "tags": [TAG.Equipment, TAG.Heat, TAG.Wheel, TAG.VFD]
                     },
+                    "Pump_VFD": {"tags": [TAG.Equipment, TAG.Pump, TAG.VFD]},
+                    "Fan_VFD": {"tags": [TAG.Equipment, TAG.Fan, TAG.VFD]},
                 },
             },
         },
@@ -166,7 +168,6 @@ equipment_subclasses = {
     "Camera": {"tags": [TAG.Camera, TAG.Equipment]},
 }
 
-
 """
 Define classes of HVAC equipment
 """
@@ -207,6 +208,53 @@ hvac_subclasses = {
                 },
             },
             "VAV": {"tags": [TAG.Equipment, TAG.VAV]},
+            "Radiator": {
+                "tags": [TAG.Equipment, TAG.Radiator],
+                "subclasses": {
+                    "Steam_Radiator": {
+                        "tags": [TAG.Equipment, TAG.Radiator, TAG.Steam]
+                    },
+                    "Hot_Water_Radiator": {
+                        "tags": [TAG.Equipment, TAG.Radiator, TAG.Hot, TAG.Water]
+                    },
+                    "Electric_Radiator": {
+                        "tags": [TAG.Equipment, TAG.Radiator, TAG.Electric]
+                    },
+                    "Baseboard_Radiator": {
+                        "tags": [TAG.Equipment, TAG.Radiator, TAG.Baseboard],
+                        "subclasses": {
+                            "Steam_Baseboard_Radiator": {
+                                "tags": [
+                                    TAG.Equipment,
+                                    TAG.Radiator,
+                                    TAG.Baseboard,
+                                    TAG.Steam,
+                                ],
+                                "parents": [BRICK.Steam_Radiator],
+                            },
+                            "Electric_Baseboard_Radiator": {
+                                "tags": [
+                                    TAG.Equipment,
+                                    TAG.Radiator,
+                                    TAG.Baseboard,
+                                    TAG.Electric,
+                                ],
+                                "parents": [BRICK.Electric_Radiator],
+                            },
+                            "Hot_Water_Baseboard_Radiator": {
+                                "tags": [
+                                    TAG.Equipment,
+                                    TAG.Radiator,
+                                    TAG.Hot,
+                                    TAG.Water,
+                                    TAG.Baseboard,
+                                ],
+                                "parents": [BRICK.Hot_Water_Radiator],
+                            },
+                        },
+                    },
+                },
+            },
         },
     },
     "Space_Heater": {"tags": [TAG.Equipment, TAG.Space, TAG.Heater]},
@@ -273,6 +321,12 @@ hvac_subclasses = {
             },
             "Pre_Filter": {"tags": [TAG.Equipment, TAG.Pre, TAG.Filter]},
             "Final_Filter": {"tags": [TAG.Equipment, TAG.Final, TAG.Filter]},
+            "Intake_Air_Filter": {
+                "tags": [TAG.Equipment, TAG.Intake, TAG.Air, TAG.Filter]
+            },
+            "Return_Air_Filter": {
+                "tags": [TAG.Equipment, TAG.Return, TAG.Air, TAG.Filter]
+            },
         },
     },
     "Fan": {
@@ -349,6 +403,7 @@ hvac_subclasses = {
                 "tags": [TAG.Equipment, TAG.RTU],
                 OWL.equivalentClass: BRICK["Rooftop_Unit"],
             },
+            "PAU": {"tags": [TAG.Equipment, TAG.PAU]},
         },
     },
 }
@@ -404,6 +459,9 @@ valve_subclasses = {
     "Gas_Valve": {"tags": [TAG.Gas, TAG.Valve, TAG.Equipment]},
     "Isolation_Valve": {"tags": [TAG.Isolation, TAG.Valve, TAG.Equipment]},
     "Steam_Valve": {"tags": [TAG.Steam, TAG.Valve, TAG.Equipment]},
+    "Differential_Pressure_Bypass_Valve": {
+        "tags": [TAG.Differential, TAG.Pressure, TAG.Bypass, TAG.Valve, TAG.Equipment],
+    },
 }
 
 security_subclasses = {

@@ -6,7 +6,7 @@ import sys
 sys.path.append("..")
 from bricksrc.namespaces import BRICK, TAG, A, SKOS  # noqa: E402
 
-BLDG = Namespace(f"https://brickschema.org/schema/ExampleBuilding#")
+BLDG = Namespace("https://brickschema.org/schema/ExampleBuilding#")
 
 g = Graph()
 g.parse("Brick.ttl", format="turtle")
@@ -85,9 +85,9 @@ def test_tag1():
                                   }"
         )
     )
-    assert len(res1) == 4
+    assert len(res1) == 6
     res1 = [x[0] for x in res1]
-    assert set(res1) == {"CO2", "Level", "Sensor", "Point"}
+    assert set(res1) == {"CO2", "Level", "Sensor", "Point", "Particulate", "Matter"}
 
 
 def test_sensors_measure_co2():

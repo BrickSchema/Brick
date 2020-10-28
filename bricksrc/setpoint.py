@@ -586,7 +586,97 @@ setpoint_definitions = {
                     }
                 },
             },
-            "Humidity_Setpoint": {"tags": [TAG.Point, TAG.Humidity, TAG.Setpoint]},
+            "Humidity_Setpoint": {
+                "tags": [TAG.Point, TAG.Humidity, TAG.Setpoint],
+                "subclasses": {
+                    "Air_Humidity_Setpoint": {
+                        "tags": [TAG.Point, TAG.Humidity, TAG.Setpoint, TAG.Air],
+                        "subclasses": {
+                            "Bypass_Air_Humidity_Setpoint": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Humidity,
+                                    TAG.Setpoint,
+                                    TAG.Air,
+                                    TAG.Bypass,
+                                ],
+                            },
+                            "Outside_Air_Humidity_Setpoint": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Humidity,
+                                    TAG.Setpoint,
+                                    TAG.Air,
+                                    TAG.Outside,
+                                ],
+                            },
+                            "Zone_Air_Humidity_Setpoint": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Humidity,
+                                    TAG.Setpoint,
+                                    TAG.Air,
+                                    TAG.Zone,
+                                ],
+                            },
+                            "Building_Air_Humidity_Setpoint": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Humidity,
+                                    TAG.Setpoint,
+                                    TAG.Air,
+                                    TAG.Building,
+                                ],
+                            },
+                            "Discharge_Air_Humidity_Setpoint": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Humidity,
+                                    TAG.Setpoint,
+                                    TAG.Air,
+                                    TAG.Discharge,
+                                ],
+                            },
+                            "Mixed_Air_Humidity_Setpoint": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Humidity,
+                                    TAG.Setpoint,
+                                    TAG.Air,
+                                    TAG.Mixed,
+                                ],
+                            },
+                            "Return_Air_Humidity_Setpoint": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Humidity,
+                                    TAG.Setpoint,
+                                    TAG.Air,
+                                    TAG.Return,
+                                ],
+                            },
+                            "Exhaust_Air_Humidity_Setpoint": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Humidity,
+                                    TAG.Setpoint,
+                                    TAG.Air,
+                                    TAG.Exhaust,
+                                ],
+                            },
+                            "Supply_Air_Humidity_Setpoint": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Humidity,
+                                    TAG.Setpoint,
+                                    TAG.Air,
+                                    TAG.Supply,
+                                ],
+                            },
+                        },
+                    },
+                },
+            },
             "Load_Setpoint": {
                 "subclasses": {
                     "Load_Shed_Setpoint": {
@@ -935,6 +1025,17 @@ setpoint_definitions = {
                                     TAG.Setpoint,
                                 ],
                             },
+                            "Return_Air_Temperature_High_Reset_Setpoint": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Return,
+                                    TAG.Air,
+                                    TAG.Temperature,
+                                    TAG.High,
+                                    TAG.Reset,
+                                    TAG.Setpoint,
+                                ],
+                            },
                         },
                     },
                     "Temperature_Low_Reset_Setpoint": {
@@ -1006,6 +1107,17 @@ setpoint_definitions = {
                                 "tags": [
                                     TAG.Point,
                                     TAG.Outside,
+                                    TAG.Air,
+                                    TAG.Temperature,
+                                    TAG.Low,
+                                    TAG.Reset,
+                                    TAG.Setpoint,
+                                ],
+                            },
+                            "Return_Air_Temperature_Low_Reset_Setpoint": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Return,
                                     TAG.Air,
                                     TAG.Temperature,
                                     TAG.Low,
@@ -1240,6 +1352,33 @@ setpoint_definitions = {
                                     },
                                 },
                             },
+                            "Supply_Air_Temperature_Setpoint": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Supply,
+                                    TAG.Air,
+                                    TAG.Temperature,
+                                    TAG.Setpoint,
+                                ],
+                            },
+                            "Min_Air_Temperature_Setpoint": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Min,
+                                    TAG.Air,
+                                    TAG.Temperature,
+                                    TAG.Setpoint,
+                                ]
+                            },
+                            "Max_Air_Temperature_Setpoint": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Max,
+                                    TAG.Air,
+                                    TAG.Temperature,
+                                    TAG.Setpoint,
+                                ]
+                            },
                         },
                     },
                     "Cooling_Temperature_Setpoint": {
@@ -1284,6 +1423,16 @@ setpoint_definitions = {
                                     }
                                 },
                             },
+                            "Return_Hot_Water_Temperature_Setpoint": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Hot,
+                                    TAG.Water,
+                                    TAG.Temperature,
+                                    TAG.Setpoint,
+                                    TAG.Return,
+                                ],
+                            },
                             "Discharge_Water_Temperature_Setpoint": {
                                 "tags": [
                                     TAG.Point,
@@ -1301,6 +1450,28 @@ setpoint_definitions = {
                                     TAG.Temperature,
                                     TAG.Setpoint,
                                 ],
+                                "subclasses": {
+                                    "Supply_Hot_Water_Temperature_Setpoint": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Supply,
+                                            TAG.Water,
+                                            TAG.Temperature,
+                                            TAG.Setpoint,
+                                            TAG.Hot,
+                                        ],
+                                    },
+                                    "Supply_Chilled_Water_Temperature_Setpoint": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Supply,
+                                            TAG.Water,
+                                            TAG.Temperature,
+                                            TAG.Setpoint,
+                                            TAG.Chilled,
+                                        ],
+                                    },
+                                },
                             },
                             "Entering_Water_Temperature_Setpoint": {
                                 "tags": [
@@ -1319,6 +1490,24 @@ setpoint_definitions = {
                                     TAG.Temperature,
                                     TAG.Water,
                                 ],
+                            },
+                            "Min_Water_Temperature_Setpoint": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Min,
+                                    TAG.Water,
+                                    TAG.Temperature,
+                                    TAG.Setpoint,
+                                ]
+                            },
+                            "Max_Water_Temperature_Setpoint": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Max,
+                                    TAG.Water,
+                                    TAG.Temperature,
+                                    TAG.Setpoint,
+                                ]
                             },
                         },
                         "tags": [TAG.Point, TAG.Water, TAG.Temperature, TAG.Setpoint],

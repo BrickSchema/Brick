@@ -2397,4 +2397,3 @@ brick:Unknown a brick:Point,
 
 brick:Room_Temperature_Sensor a brick:Point,
         owl:NamedIndividual .
-

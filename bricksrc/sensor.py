@@ -75,47 +75,6 @@ sensor_definitions = {
                 },
                 "tags": [TAG.Point, TAG.Angle, TAG.Sensor],
             },
-            "CO_Sensor": {
-                "tags": [TAG.Point, TAG.Sensor, TAG.CO],
-                "substances": [
-                    [BRICK.measures, BRICK.Air],
-                    [BRICK.measures, BRICK.CO],
-                ],
-                "subclasses": {
-                    "CO_Level_Sensor": {
-                        "tags": [TAG.Point, TAG.CO, TAG.Level, TAG.Sensor],
-                    }
-                },
-            },
-            "CO2_Sensor": {
-                "tags": [TAG.Point, TAG.Sensor, TAG.CO2],
-                "substances": [
-                    [BRICK.measures, BRICK.Air],
-                    [BRICK.measures, BRICK.CO2],
-                ],
-                "subclasses": {
-                    "CO2_Differential_Sensor": {
-                        "tags": [TAG.Point, TAG.CO2, TAG.Differential, TAG.Sensor],
-                    },
-                    "CO2_Level_Sensor": {
-                        "tags": [TAG.Point, TAG.CO2, TAG.Level, TAG.Sensor],
-                    },
-                    "Outside_Air_CO2_Sensor": {
-                        "tags": [TAG.Point, TAG.Outside, TAG.Air, TAG.CO2, TAG.Sensor],
-                        "substances": [
-                            [BRICK.measures, BRICK.Outside_Air],
-                            [BRICK.measures, BRICK.CO2],
-                        ],
-                    },
-                    "Return_Air_CO2_Sensor": {
-                        "tags": [TAG.Point, TAG.Return, TAG.Air, TAG.CO2, TAG.Sensor],
-                        "substances": [
-                            [BRICK.measures, BRICK.Return_Air],
-                            [BRICK.measures, BRICK.CO2],
-                        ],
-                    },
-                },
-            },
             "Capacity_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Capacity],
                 "substances": [[BRICK.measures, BRICK.Capacity]],
@@ -252,6 +211,45 @@ sensor_definitions = {
                         "substances": [
                             [BRICK.measures, BRICK.Dewpoint],
                             [BRICK.measures, BRICK.Return_Air],
+                        ],
+                    },
+                    "Exhaust_Air_Dewpoint_Sensor": {
+                        "tags": [
+                            TAG.Point,
+                            TAG.Sensor,
+                            TAG.Dewpoint,
+                            TAG.Air,
+                            TAG.Exhaust,
+                        ],
+                        "substances": [
+                            [BRICK.measures, BRICK.Dewpoint],
+                            [BRICK.measures, BRICK.Exhaust_Air],
+                        ],
+                    },
+                    "Discharge_Air_Dewpoint_Sensor": {
+                        "tags": [
+                            TAG.Point,
+                            TAG.Sensor,
+                            TAG.Dewpoint,
+                            TAG.Air,
+                            TAG.Discharge,
+                        ],
+                        "substances": [
+                            [BRICK.measures, BRICK.Dewpoint],
+                            [BRICK.measures, BRICK.Discharge_Air],
+                        ],
+                    },
+                    "Zone_Air_Dewpoint_Sensor": {
+                        "tags": [
+                            TAG.Point,
+                            TAG.Sensor,
+                            TAG.Dewpoint,
+                            TAG.Air,
+                            TAG.Zone,
+                        ],
+                        "substances": [
+                            [BRICK.measures, BRICK.Dewpoint],
+                            [BRICK.measures, BRICK.Zone_Air],
                         ],
                     },
                 },
@@ -697,6 +695,20 @@ sensor_definitions = {
                                     [BRICK.measures, BRICK.Zone_Air],
                                 ],
                             },
+                            "Mixed_Air_Humidity_Sensor": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Sensor,
+                                    TAG.Humidity,
+                                    TAG.Relative,
+                                    TAG.Air,
+                                    TAG.Mixed,
+                                ],
+                                "substances": [
+                                    [BRICK.measures, BRICK.Relative_Humidity],
+                                    [BRICK.measures, BRICK.Mixed_Air],
+                                ],
+                            },
                         },
                     },
                 },
@@ -729,6 +741,143 @@ sensor_definitions = {
             },
             "Piezoelectric_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Piezoelectric],
+            },
+            "Particulate_Matter_Sensor": {
+                "tags": [TAG.Point, TAG.Sensor, TAG.Particulate, TAG.Matter],
+                "substances": [
+                    [BRICK.measures, BRICK.Air],
+                    [BRICK.measures, BRICK.Air_Quality],
+                ],
+                "subclasses": {
+                    "CO_Sensor": {
+                        "tags": [TAG.Point, TAG.Sensor, TAG.CO],
+                        "substances": [
+                            [BRICK.measures, BRICK.Air],
+                            [BRICK.measures, BRICK.CO],
+                        ],
+                        "subclasses": {
+                            "CO_Level_Sensor": {
+                                "tags": [TAG.Point, TAG.CO, TAG.Level, TAG.Sensor],
+                            },
+                            "CO_Differential_Sensor": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.CO2,
+                                    TAG.Differential,
+                                    TAG.Sensor,
+                                ],
+                            },
+                            "Outside_Air_CO_Sensor": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Outside,
+                                    TAG.Air,
+                                    TAG.CO,
+                                    TAG.Sensor,
+                                ],
+                                "substances": [
+                                    [BRICK.measures, BRICK.Outside_Air],
+                                    [BRICK.measures, BRICK.CO],
+                                ],
+                            },
+                            "Return_Air_CO_Sensor": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Return,
+                                    TAG.Air,
+                                    TAG.CO,
+                                    TAG.Sensor,
+                                ],
+                                "substances": [
+                                    [BRICK.measures, BRICK.Return_Air],
+                                    [BRICK.measures, BRICK.CO],
+                                ],
+                            },
+                        },
+                    },
+                    "CO2_Sensor": {
+                        "tags": [TAG.Point, TAG.Sensor, TAG.CO2],
+                        "substances": [
+                            [BRICK.measures, BRICK.Air],
+                            [BRICK.measures, BRICK.CO2],
+                        ],
+                        "subclasses": {
+                            "CO2_Differential_Sensor": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.CO2,
+                                    TAG.Differential,
+                                    TAG.Sensor,
+                                ],
+                            },
+                            "CO2_Level_Sensor": {
+                                "tags": [TAG.Point, TAG.CO2, TAG.Level, TAG.Sensor],
+                            },
+                            "Outside_Air_CO2_Sensor": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Outside,
+                                    TAG.Air,
+                                    TAG.CO2,
+                                    TAG.Sensor,
+                                ],
+                                "substances": [
+                                    [BRICK.measures, BRICK.Outside_Air],
+                                    [BRICK.measures, BRICK.CO2],
+                                ],
+                            },
+                            "Return_Air_CO2_Sensor": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Return,
+                                    TAG.Air,
+                                    TAG.CO2,
+                                    TAG.Sensor,
+                                ],
+                                "substances": [
+                                    [BRICK.measures, BRICK.Return_Air],
+                                    [BRICK.measures, BRICK.CO2],
+                                ],
+                            },
+                        },
+                    },
+                    "PM10_Sensor": {
+                        "tags": [TAG.Point, TAG.Sensor, TAG.Particulate, TAG.Matter],
+                        "substances": [
+                            [BRICK.measures, BRICK.Air],
+                            [BRICK.measures, BRICK.PM10_Concentration],
+                        ],
+                        "subclasses": {
+                            "PM10_Level_Sensor": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Level,
+                                    TAG.Sensor,
+                                    TAG.Particulate,
+                                    TAG.Matter,
+                                ],
+                            }
+                        },
+                    },
+                    "PM25_Sensor": {
+                        "tags": [TAG.Point, TAG.Sensor, TAG.Particulate, TAG.Matter],
+                        "substances": [
+                            [BRICK.measures, BRICK.Air],
+                            [BRICK.measures, BRICK.PM25_Concentration],
+                        ],
+                        "subclasses": {
+                            "PM25_Level_Sensor": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Level,
+                                    TAG.Sensor,
+                                    TAG.Particulate,
+                                    TAG.Matter,
+                                ],
+                            }
+                        },
+                    },
+                },
             },
             "Pressure_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Pressure],
@@ -1390,6 +1539,16 @@ sensor_definitions = {
                                                 ],
                                             },
                                         },
+                                    },
+                                    "Intake_Air_Temperature_Sensor": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Outside,
+                                            TAG.Air,
+                                            TAG.Temperature,
+                                            TAG.Intake,
+                                            TAG.Sensor,
+                                        ],
                                     },
                                 },
                             },
