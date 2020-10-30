@@ -28,7 +28,6 @@ from bricksrc.equipment import (
 from bricksrc.substances import substances
 from bricksrc.quantities import quantity_definitions, get_units
 from bricksrc.properties import properties
-from bricksrc.tags import tags
 
 logging.basicConfig(
     format="%(asctime)s,%(msecs)d %(levelname)-8s [%(filename)s:%(lineno)d] %(message)s",
@@ -460,7 +459,8 @@ logging.info("Finishing Tag definitions")
 # declares that all tags are pairwise different; i.e. no two tags refer
 # to the same tag
 different_tag_list = []
-for tag, definition in tags.items():
+tags = G.query("""SELECT ?tag WHERE { ?tag a brick:Tag }""")
+for tag in tags:
     different_tag_list.append(TAG[tag])
     G.add((TAG[tag], A, BRICK.Tag))
 different_tag = BNode("tags_are_different")
