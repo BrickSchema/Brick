@@ -1,9 +1,14 @@
 Brick_expanded.ttl
-history/
 
 # test files
 tests/*.json
 tests/*.ttl
+#
+# files from brickshema inference
+input.ttl
+output.ttl
+output.ttl.tar
+history/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
