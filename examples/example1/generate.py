@@ -114,7 +114,7 @@ g.add((BLDG["VAV2-3Zone"], BRICK.hasPart, BLDG["Room-412"]))
 """
 We can "serialize" this model to a file if we want to load it into another program.
 """
-with open("sample_graph.ttl", "wb") as f:
+with open("example.ttl", "wb") as f:
     # the Turtle format strikes a balance beteween being compact and easy to read
     f.write(g.serialize(format="ttl"))
 

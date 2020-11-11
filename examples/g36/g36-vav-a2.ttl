@@ -1,0 +1,41 @@
+@prefix brick: <https://brickschema.org/schema/1.1/Brick#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix tag: <https://brickschema.org/schema/1.1/BrickTag#> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix ex: <http://example.org#> .
+
+#  VAV (A-2 from G36)
+
+ex:vav1 a   brick:VAV ;
+    brick:hasPoint ex:safs1, ex:sats1, ex:zts1, ex:co2s1 ;
+    brick:hasPart  ex:vdmp1, ex:hw_coil ;
+    brick:feeds ex:zone1 .
+
+ex:safs1    a   brick:Supply_Air_Flow_Sensor .
+ex:sats1    a   brick:Supply_Air_Temperature_Sensor .
+ex:zts1     a   brick:Zone_Air_Temperature_Sensor .
+ex:co2s1     a   brick:CO2_Sensor .
+
+ex:vdmp1    a   brick:Damper ;
+    brick:hasPoint ex:dmppos1 .
+
+ex:dmppos1  a   brick:Damper_Position_Command .
+
+ex:hw_coil    a   brick:Hot_Water_Coil ;
+    brick:hasPart   ex:hwvlv .
+ex:hwvlv    a   brick:Heating_Valve ;
+    brick:hasPoint ex:vlvcmd1 .
+
+ex:vlvcmd1  a   brick:Valve_Command .
+
+
+# Zone + Rooms
+
+ex:zone1    a   brick:HVAC_Zone ;
+    brick:hasPart   ex:room1, ex:room2 .
+
+ex:room1    a   brick:Room .
+ex:room2    a   brick:Room ;
+    brick:isLocationOf ex:zts1, ex:co2s1 .
