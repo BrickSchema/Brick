@@ -29,7 +29,7 @@ def rewrite_vbis_pattern(pat):
     Rewrite VBIS patterns to match the format of regular expressions
     required by XML schema
     """
-    return "^" + pat.replace("*", ".*") + "$"
+    return "^" + pat.strip().replace("*", ".*") + "$"
 
 
 def get_vbis_tags(d):
@@ -45,7 +45,7 @@ def get_vbis_tags(d):
     return vbis_tags
 
 
-with open("vbis-brick.csv") as f:
+with open("vbis-brick-v4.csv") as f:
     r = csv.reader(f)
     header = next(r)
     for row in r:
