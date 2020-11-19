@@ -36,13 +36,11 @@ def rewrite_vbis_pattern(pat):
     required by XML schema
     """
     if "*" in pat:
-        newpat = "^" + re.sub(r"-?\*", "-.*", pat.strip()) + "$"
+        newpat = "^" + re.sub(r"-?\*", ".*", pat.strip()) + "$"
         return True, newpat
     elif len(re.findall("-", pat)) < 3:
         # treat this as a prefix
-        if pat.endswith("-"):
-            pat = pat.rstrip("-")
-        return True, "^" + pat.strip() + "-.*$"
+        return True, "^" + pat.strip() + ".*$"
     return False, pat
 
 
