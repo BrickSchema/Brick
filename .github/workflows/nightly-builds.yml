@@ -7,6 +7,7 @@ jobs:
   build:
     name: Nightly Build
     runs-on: ubuntu-latest
+    if: (github.event_name == 'schedule' && github.repository == 'BrickSchema/Brick') || (github.event_name != 'schedule')
     steps:
       - uses: actions/checkout@v2
       - name: Get current date
