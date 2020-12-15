@@ -1,16 +1,15 @@
 isodate==0.6.0
-owlrl>=5.2.0
-git+https://github.com/RDFLib/OWL-RL.git@471d1dfe8f6 # because of issue https://github.com/RDFLib/OWL-RL/issues/29, use git directly until it's released.
+owlrl>=5.2.1
 pyparsing==2.3.1
 rdflib>=5.0.0
-rdflib-jsonld==0.4.0
+rdflib-jsonld==0.5.0
 six==1.12.0
-pytest
-tqdm
+pytest>=5.4.3
+tqdm>=4.46.1
 pyshacl>=0.12.0
 docker>=4.3.0
 brickschema>=0.1.8
-black
-pre-commit
-flake8
-semver
+black==19.10b0
+pre-commit==2.4.0
+flake8==3.8.2
+semver>=2.10.1
