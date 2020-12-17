@@ -59,10 +59,12 @@ prop:hasArea    a  prop:PhysicalProperty ;
     skos:definition "Entity has 2-dimensional area" ;
     rdfs:range  prop:AreaShape .
 
+# https://bedes.lbl.gov/bedes-online/gross
 prop:hasGrossArea    rdfs:subPropertyOf  prop:hasArea ;
     skos:definition "Entity has gross 2-dimensional area" ;
     rdfs:range  prop:AreaShape .
 
+# https://bedes.lbl.gov/bedes-online/net
 prop:hasNetArea    rdfs:subPropertyOf  prop:hasArea ;
     skos:definition "Entity has gross 2-dimensional area" ;
     rdfs:range  prop:AreaShape .
@@ -201,7 +203,13 @@ prop:AggregationShape   a   sh:NodeShape ;
     ] ;
     sh:property [
         # TODO: how to represent durations?
+        # https://en.wikipedia.org/wiki/ISO_8601#Durations
         sh:path prop:aggregationInterval ;
         sh:datatype xsd:string ; # e.g. "15m" ?
         sh:minCount 1 ;
     ] .
+
+
+# identity properties:
+# - BSync Premises Identifier https://github.com/BuildingSync/schema/blob/4db7102a6c627bade6e5dbb1861ac96633adfb9b/BuildingSync.xsd#L15215
+# - UBID: https://ubid.pnnl.gov/

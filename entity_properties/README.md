@@ -38,18 +38,6 @@ prop:hasNetArea    rdfs:subPropertyOf  prop:hasArea ;
 prop:hasVolume  a  prop:PhysicalProperty ;
     skos:definition "Entity has 3-dimensional volume" ;
     rdfs:range  prop:VolumeShape .
-
-prop:hasHeight a prop:PhysicalProperty ;
-    skos:definition "Entity has height" ;
-    rdfs:range  prop:OneDimensionalMagnitudeShape .
-
-prop:hasWidth a prop:PhysicalProperty ;
-    skos:definition "Entity has width" ;
-    rdfs:range  prop:OneDimensionalMagnitudeShape .
-
-prop:hasLength a prop:PhysicalProperty ;
-    skos:definition "Entity has length" ;
-    rdfs:range  prop:OneDimensionalMagnitudeShape .
 ```
 
 The subject of each property will be a Brick entity; the value is an anonymous class which is goverened by a SHACL Shape. Note that the use of SHACL is optional here. We don't need SHACL inference for anything; we can use the SHACL shapes for "type checking" on the properties. That kind of SHACL validation is fairly easy to find implementations of.
@@ -71,16 +59,9 @@ prop:VolumeShape    a   sh:NodeShape ;
         sh:in   (unit:FT3 unit:M3) ;
         sh:minCount 1 ;
     ] .
-
-
-prop:OneDimensionalMagnitudeShape   a   sh:NodeShape ;
-    rdfs:range qudt:Quantity ;
-    sh:property [
-        sh:path brick:hasUnit ;
-        sh:in   (unit:FT unit:M) ;
-        sh:minCount 1 ;
-    ] .
 ```
+
+
 
 ## Example 1: Room and Floor Geometry
 
@@ -145,7 +126,7 @@ An example of an single-phase active power sensor that measures net power, and a
     brick:hasUnit   unit:KiloW-HR ;
     prop:aggregate [
         prop:aggregationFunction    "sum" ;
-        prop:aggregationInterval    "1d" ;
+        prop:aggregationInterval    "RP1D" ;
     ] ;
     prop:hasComplexity [
         prop:value  "active" ;
@@ -159,7 +140,7 @@ An example of an single-phase active power sensor that measures net power, and a
     brick:hasUnit   unit:KiloW-HR ;
     prop:aggregate [
         prop:aggregationFunction    "max" ;
-        prop:aggregationInterval    "1h" ;
+        prop:aggregationInterval    "RPT1H" ;
     ] ;
     prop:hasComplexity [
         prop:value  "real" ;
