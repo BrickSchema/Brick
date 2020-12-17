@@ -1,0 +1,160 @@
+@prefix brick: <https://brickschema.org/schema/1.1/Brick#> .
+@prefix prop: <https://brickschema.org/schema/1.1/BrickEntityProperties#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sosa: <http://www.w3.org/ns/sosa#> .
+@prefix tag: <https://brickschema.org/schema/1.1/BrickTag#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+
+prop:value  rdfs:subPropertyOf  qudt:value .
+prop:EntityProperty  rdfs:subClassOf owl:ObjectProperty .
+
+prop:InherentProperty  a   owl:ObjectProperty ;
+    skos:definition "A permanent, characteristic property of the entity" ;
+    rdfs:subClassOf prop:EntityProperty .
+
+prop:ConfigurableProperty  a   owl:ObjectProperty ;
+    skos:definition "A temporary, changeable property of the entity" ;
+    rdfs:subClassOf prop:EntityProperty .
+
+prop:PhysicalProperty a   owl:ObjectProperty ;
+    skos:definition "A property of the entity's physical existence" ;
+    rdfs:subClassOf prop:EntityProperty .
+
+prop:VirtualProperty a   owl:ObjectProperty ;
+    skos:definition "A property of the entity's virtual (networked, computed) existence" ;
+    rdfs:subClassOf prop:EntityProperty .
+
+prop:IdentityProperty a   owl:ObjectProperty ;
+    skos:definition "A property that identifies the entity in some way" ;
+    rdfs:subClassOf prop:EntityProperty .
+
+prop:InherentPhysicalProperty  a   owl:ObjectProperty ;
+    rdfs:subClassOf prop:PhysicalProperty, prop:InherentProperty .
+prop:ConfigurablePhysicalProperty  a   owl:ObjectProperty ;
+    rdfs:subClassOf prop:PhysicalProperty, prop:ConfigurableProperty .
+
+prop:InherentVirtualProperty  a   owl:ObjectProperty ;
+    rdfs:subClassOf prop:VirtualProperty, prop:InherentProperty .
+prop:ConfigurableVirtualProperty  a   owl:ObjectProperty ;
+    rdfs:subClassOf prop:VirtualProperty, prop:ConfigurableProperty .
+
+prop:InherentIdentityProperty  a   owl:ObjectProperty ;
+    rdfs:subClassOf prop:IdentityProperty, prop:InherentProperty .
+prop:ConfigurableIdentityProperty  a   owl:ObjectProperty ;
+    rdfs:subClassOf prop:IdentityProperty, prop:ConfigurableProperty .
+
+
+################################
+### Inherent Physical Properties
+################################
+
+prop:hasArea    a  prop:PhysicalProperty ;
+    skos:definition "Entity has 2-dimensional area" ;
+    rdfs:range  prop:AreaShape .
+
+prop:hasGrossArea    rdfs:subPropertyOf  prop:hasArea ;
+    skos:definition "Entity has gross 2-dimensional area" ;
+    rdfs:range  prop:AreaShape .
+
+prop:hasNetArea    rdfs:subPropertyOf  prop:hasArea ;
+    skos:definition "Entity has gross 2-dimensional area" ;
+    rdfs:range  prop:AreaShape .
+
+prop:AreaShape a sh:NodeShape ;
+    rdfs:subClassOf qudt:Quantity ;
+    sh:property [
+        sh:path brick:hasUnit ;
+        sh:in   (unit:FT2 unit:M2) ;
+        sh:minCount 1 ;
+    ] .
+
+prop:hasVolume  a  prop:PhysicalProperty ;
+    skos:definition "Entity has 3-dimensional volume" ;
+    rdfs:range  prop:VolumeShape .
+
+prop:VolumeShape    a   sh:NodeShape ;
+    rdfs:subClassOf qudt:Quantity ;
+    sh:property [
+        sh:path brick:hasUnit ;
+        sh:in   (unit:FT unit:M) ;
+        sh:minCount 1 ;
+    ] .
+
+prop:hasHeight a prop:PhysicalProperty ;
+    skos:definition "Entity has height" ;
+    rdfs:range  prop:OneDimensionalMagnitudeShape .
+
+prop:hasWidth a prop:PhysicalProperty ;
+    skos:definition "Entity has width" ;
+    rdfs:range  prop:OneDimensionalMagnitudeShape .
+
+prop:hasLength a prop:PhysicalProperty ;
+    skos:definition "Entity has length" ;
+    rdfs:range  prop:OneDimensionalMagnitudeShape .
+
+prop:OneDimensionalMagnitudeShape   a   sh:NodeShape ;
+    sh:property [
+        sh:path brick:hasUnit ;
+        sh:in   (unit:FT unit:M) ;
+        sh:minCount 1 ;
+    ] .
+
+################################
+### Electrical Properties
+################################
+prop:ElectricalProperty rdfs:subClassOf prop:PhysicalProperty ;
+    skos:definition "Physical properties relating to electrical characteristics" .
+
+prop:hasPowerComplexity a  prop:ElectricalProperty ;
+    skos:definition "Entity has given power complexity" ;
+    rdfs:range prop:PowerComplexityShape .
+
+prop:hasPowerFlow a  prop:ElectricalProperty ;
+    skos:definition "Entity has given power flow" ;
+    rdfs:range prop:PowerFlowShape .
+
+prop:hasPhases a  prop:ElectricalProperty ;
+    skos:definition "Entity has given phases" ;
+    rdfs:range prop:PhasesShape .
+
+prop:hasPhaseCount a  prop:ElectricalProperty ;
+    skos:definition "Entity has given phase count" ;
+    rdfs:range prop:PhaseCountShape .
+
+prop:PowerComplexityShape a sh:NodeShape ;
+    rdfs:subClassOf qudt:Quantity ;
+    sh:property [
+        sh:path prop:value ;
+        sh:in   ("real" "reactive" "apparent") ;
+        sh:minCount 1 ;
+    ] .
+prop:PowerFlowShape  a sh:NodeShape ;
+    rdfs:subClassOf qudt:Quantity ;
+    sh:property [
+        sh:path brick:value ;
+        sh:in   ("import" "export" "net" "absolute") ;
+        sh:minCount 1 ;
+    ] .
+prop:PhasesShape  a sh:NodeShape ;
+    rdfs:subClassOf qudt:Quantity ;
+    sh:property [
+        sh:path brick:value ;
+        sh:in   ("A" "B" "C" "AB" "BC" "AC" "ABC") ;
+        sh:minCount 1 ;
+    ] .
+
+prop:PhaseCountShape    a sh:NodeShape ;
+    rdfs:subClassOf qudt:Quantity ;
+    sh:property [
+        a   sh:PropertyShape ;
+        sh:path brick:value ;
+        sh:datatype xsd:nonNegativeInteger ;
+        sh:minCount 1 ;
+    ] .
