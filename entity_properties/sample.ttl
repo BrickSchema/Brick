@@ -34,13 +34,44 @@
         brick:hasUnit   unit:F ;
     ] .
 
-:meter1 a   brick:Active_Power_Sensor ;
-    brick:hasPowerComplexity   [
+
+#  single-phase active power sensor that measures net power
+:meter1 a   brick:Power_Sensor ;
+    brick:hasUnit   unit:KiloW ;
+    prop:hasComplexity   [
         prop:value  "active" ;
     ] ;
-    brick:hasPowerFlow   [
+    prop:hasPowerFlow   [
         prop:value  "net" ;
     ] ;
-    brick:hasPhaseCount   [
+    prop:hasPhaseCount   [
         prop:value  "1"^^xsd:integer ;
+    ] ;
+    prop:hasIP6Address  [
+        prop:value  "fe80::1",
     ] .
+
+:daily_energy_usage_meter   a   brick:Energy_Sensor ;
+    brick:hasUnit   unit:KiloW-HR ;
+    prop:aggregate [
+        prop:aggregationFunction    "sum" ;
+        prop:aggregationInterval    "1d" ;
+    ] ;
+    prop:hasComplexity [
+        prop:value  "active" ;
+    ] ;
+    prop:hasPowerFlow [
+        prop:value  "net" ;
+    ]
+.
+
+:hourly_peak_real_power_meter   a   brick:Power_Sensor ;
+    brick:hasUnit   unit:KiloW-HR ;
+    prop:aggregate [
+        prop:aggregationFunction    "max" ;
+        prop:aggregationInterval    "1h" ;
+    ] ;
+    prop:hasComplexity [
+        prop:value  "real" ;
+    ]
+.

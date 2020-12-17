@@ -113,7 +113,7 @@ prop:OneDimensionalMagnitudeShape   a   sh:NodeShape ;
 prop:ElectricalProperty rdfs:subClassOf prop:PhysicalProperty ;
     skos:definition "Physical properties relating to electrical characteristics" .
 
-prop:hasPowerComplexity a  prop:ElectricalProperty ;
+prop:hasComplexity a  prop:ElectricalProperty ;
     skos:definition "Entity has given power complexity" ;
     rdfs:range prop:PowerComplexityShape .
 
@@ -204,3 +204,24 @@ prop:hasIPAddress   rdfs:subPropertyOf  prop:hasNetworkAddress ;
     a   prop:ConfigurableProperty .
 prop:hasIP4Address  rdfs:subPropertyOf  prop:hasIP4Address .
 prop:hasIP6Address  rdfs:subPropertyOf  prop:hasIP4Address .
+
+
+################################
+### Aggregation Properties
+################################
+
+prop:aggregate  a prop:VirtualProperty ;
+    rdfs:range  prop:AggregationShape .
+
+prop:AggregationShape   a   sh:NodeShape ;
+    sh:property [
+        sh:path prop:aggregationFunction ;
+        sh:in   ("max", "min", "mean", "mode", "median", "count", "sum") ;
+        sh:minCount 1 ;
+    ] ;
+    sh:property [
+        # TODO: how to represent durations?
+        sh:path prop:aggregationInterval ;
+        sh:datatype xsd:string ; # e.g. "15m" ?
+        sh:minCount 1 ;
+    ] .

@@ -122,3 +122,47 @@ SELECT ?room ?area ?unit WHERE {
 ```
 
 ## Example 2: Electrical Metering Points
+
+An example of an single-phase active power sensor that measures net power, and a daily energy usage meter
+
+```ttl
+:meter1 a   brick:Power_Sensor ;
+    brick:hasUnit   unit:KiloW ;
+    prop:hasComplexity   [
+        prop:value  "active" ;
+    ] ;
+    prop:hasPowerFlow   [
+        prop:value  "net" ;
+    ] ;
+    prop:hasPhaseCount   [
+        prop:value  "1"^^xsd:integer ;
+    ] ;
+    prop:hasIP6Address  [
+        prop:value  "fe80::1",
+    ] .
+
+:daily_energy_usage_meter   a   brick:Energy_Sensor ;
+    brick:hasUnit   unit:KiloW-HR ;
+    prop:aggregate [
+        prop:aggregationFunction    "sum" ;
+        prop:aggregationInterval    "1d" ;
+    ] ;
+    prop:hasComplexity [
+        prop:value  "active" ;
+    ] ;
+    prop:hasPowerFlow [
+        prop:value  "net" ;
+    ]
+.
+
+:hourly_peak_real_power_meter   a   brick:Power_Sensor ;
+    brick:hasUnit   unit:KiloW-HR ;
+    prop:aggregate [
+        prop:aggregationFunction    "max" ;
+        prop:aggregationInterval    "1h" ;
+    ] ;
+    prop:hasComplexity [
+        prop:value  "real" ;
+    ]
+.
+```
