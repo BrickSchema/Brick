@@ -52,11 +52,11 @@ prop:hasLength a prop:PhysicalProperty ;
     rdfs:range  prop:OneDimensionalMagnitudeShape .
 ```
 
-The subject of each property will be a Brick entity; the value is an anonymous class which is goverened by a SHACL Shape:
+The subject of each property will be a Brick entity; the value is an anonymous class which is goverened by a SHACL Shape. Note that the use of SHACL is optional here. We don't need SHACL inference for anything; we can use the SHACL shapes for "type checking" on the properties. That kind of SHACL validation is fairly easy to find implementations of.
 
 ```ttl
 prop:AreaShape a sh:NodeShape ;
-    rdfs:subClassOf qudt:Quantity ;
+    rdfs:range qudt:Quantity ;
     sh:property [
         sh:path brick:hasUnit ;
         sh:in   (unit:FT2 unit:M2) ;
@@ -65,7 +65,7 @@ prop:AreaShape a sh:NodeShape ;
 
 
 prop:VolumeShape    a   sh:NodeShape ;
-    rdfs:subClassOf qudt:Quantity ;
+    rdfs:range qudt:Quantity ;
     sh:property [
         sh:path brick:hasUnit ;
         sh:in   (unit:FT unit:M) ;
@@ -74,13 +74,15 @@ prop:VolumeShape    a   sh:NodeShape ;
 
 
 prop:OneDimensionalMagnitudeShape   a   sh:NodeShape ;
-    rdfs:subClassOf qudt:Quantity ;
+    rdfs:range qudt:Quantity ;
     sh:property [
         sh:path brick:hasUnit ;
         sh:in   (unit:FT unit:M) ;
         sh:minCount 1 ;
     ] .
 ```
+
+## Example 1: Room and Floor Geometry
 
 Here's an example of how the above properties would be used to describe the net area of a floor, and the height and area of a room. Benefits of this approach:
 - easy to add other metadata to the value itself (precision, timestamp, etc)
@@ -118,3 +120,5 @@ SELECT ?room ?area ?unit WHERE {
     ?room brick:hasArea/prop:unit   ?unit
 }
 ```
+
+## Example 2: Electrical Metering Points

@@ -52,7 +52,7 @@ prop:ConfigurableIdentityProperty  a   owl:ObjectProperty ;
 
 
 ################################
-### Inherent Physical Properties
+### Physical Properties
 ################################
 
 prop:hasArea    a  prop:PhysicalProperty ;
@@ -68,7 +68,7 @@ prop:hasNetArea    rdfs:subPropertyOf  prop:hasArea ;
     rdfs:range  prop:AreaShape .
 
 prop:AreaShape a sh:NodeShape ;
-    rdfs:subClassOf qudt:Quantity ;
+    rdfs:range qudt:Quantity ;
     sh:property [
         sh:path brick:hasUnit ;
         sh:in   (unit:FT2 unit:M2) ;
@@ -80,7 +80,7 @@ prop:hasVolume  a  prop:PhysicalProperty ;
     rdfs:range  prop:VolumeShape .
 
 prop:VolumeShape    a   sh:NodeShape ;
-    rdfs:subClassOf qudt:Quantity ;
+    rdfs:range qudt:Quantity ;
     sh:property [
         sh:path brick:hasUnit ;
         sh:in   (unit:FT unit:M) ;
@@ -100,7 +100,7 @@ prop:hasLength a prop:PhysicalProperty ;
     rdfs:range  prop:OneDimensionalMagnitudeShape .
 
 prop:OneDimensionalMagnitudeShape   a   sh:NodeShape ;
-    rdfs:subClassOf qudt:Quantity ;
+    rdfs:range qudt:Quantity ;
     sh:property [
         sh:path brick:hasUnit ;
         sh:in   (unit:FT unit:M) ;
@@ -130,21 +130,21 @@ prop:hasPhaseCount a  prop:ElectricalProperty ;
     rdfs:range prop:PhaseCountShape .
 
 prop:PowerComplexityShape a sh:NodeShape ;
-    rdfs:subClassOf qudt:Quantity ;
+    rdfs:range qudt:Quantity ;
     sh:property [
         sh:path prop:value ;
         sh:in   ("real" "reactive" "apparent") ;
         sh:minCount 1 ;
     ] .
 prop:PowerFlowShape  a sh:NodeShape ;
-    rdfs:subClassOf qudt:Quantity ;
+    rdfs:range qudt:Quantity ;
     sh:property [
         sh:path brick:value ;
         sh:in   ("import" "export" "net" "absolute") ;
         sh:minCount 1 ;
     ] .
 prop:PhasesShape  a sh:NodeShape ;
-    rdfs:subClassOf qudt:Quantity ;
+    rdfs:range qudt:Quantity ;
     sh:property [
         sh:path brick:value ;
         sh:in   ("A" "B" "C" "AB" "BC" "AC" "ABC") ;
@@ -152,10 +152,55 @@ prop:PhasesShape  a sh:NodeShape ;
     ] .
 
 prop:PhaseCountShape    a sh:NodeShape ;
-    rdfs:subClassOf qudt:Quantity ;
+    rdfs:range qudt:Quantity ;
     sh:property [
         a   sh:PropertyShape ;
         sh:path brick:value ;
         sh:datatype xsd:nonNegativeInteger ;
         sh:minCount 1 ;
     ] .
+
+
+prop:hasSerialNumber    a   prop:InherentProperty, prop:IdentityProperty ;
+    rdfs:range qudt:Quantity ;
+    sh:property [
+        a   sh:PropertyShape ;
+        sh:path brick:value ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+    ] .
+
+################################
+### Networking Properties
+################################
+
+prop:NetworkProperty    rdfs:subClassOf prop:VirtualProperty ;
+    skos:definition "Properties related to the networked aspects of an entity" .
+
+prop:hasNetworkAddress  a   prop:NetworkProperty ;
+    skos:definition "Entity has the given network address" .
+
+prop:hasMACAddress  rdfs:subPropertyOf  prop:hasNetworkAddress ;
+    a   prop:InherentProperty ;
+    rdfs:range qudt:Quantity ;
+    sh:property [
+        a   sh:PropertyShape ;
+        sh:path brick:value ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+    ] .
+
+prop:hasNMI  rdfs:subPropertyOf  prop:hasNetworkAddress ;
+    a   prop:InherentProperty ;
+    rdfs:range qudt:Quantity ;
+    sh:property [
+        a   sh:PropertyShape ;
+        sh:path brick:value ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+    ] .
+
+prop:hasIPAddress   rdfs:subPropertyOf  prop:hasNetworkAddress ;
+    a   prop:ConfigurableProperty .
+prop:hasIP4Address  rdfs:subPropertyOf  prop:hasIP4Address .
+prop:hasIP6Address  rdfs:subPropertyOf  prop:hasIP4Address .
