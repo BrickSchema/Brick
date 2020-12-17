@@ -68,7 +68,7 @@ prop:VolumeShape    a   sh:NodeShape ;
     rdfs:range qudt:Quantity ;
     sh:property [
         sh:path brick:hasUnit ;
-        sh:in   (unit:FT unit:M) ;
+        sh:in   (unit:FT3 unit:M3) ;
         sh:minCount 1 ;
     ] .
 
