@@ -87,26 +87,6 @@ prop:VolumeShape    a   sh:NodeShape ;
         sh:minCount 1 ;
     ] .
 
-prop:hasHeight a prop:PhysicalProperty ;
-    skos:definition "Entity has height" ;
-    rdfs:range  prop:OneDimensionalMagnitudeShape .
-
-prop:hasWidth a prop:PhysicalProperty ;
-    skos:definition "Entity has width" ;
-    rdfs:range  prop:OneDimensionalMagnitudeShape .
-
-prop:hasLength a prop:PhysicalProperty ;
-    skos:definition "Entity has length" ;
-    rdfs:range  prop:OneDimensionalMagnitudeShape .
-
-prop:OneDimensionalMagnitudeShape   a   sh:NodeShape ;
-    rdfs:range qudt:Quantity ;
-    sh:property [
-        sh:path brick:hasUnit ;
-        sh:in   (unit:FT unit:M) ;
-        sh:minCount 1 ;
-    ] .
-
 ################################
 ### Electrical Properties
 ################################
