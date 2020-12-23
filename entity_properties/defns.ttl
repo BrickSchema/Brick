@@ -148,7 +148,6 @@ prop:hasSerialNumber    a   prop:InherentProperty, prop:IdentityProperty ;
     sh:property [
         a   sh:PropertyShape ;
         sh:path brick:value ;
-        sh:datatype xsd:string ;
         sh:minCount 1 ;
     ] .
 
@@ -168,7 +167,6 @@ prop:hasMACAddress  rdfs:subPropertyOf  prop:hasNetworkAddress ;
     sh:property [
         a   sh:PropertyShape ;
         sh:path brick:value ;
-        sh:datatype xsd:string ;
         sh:minCount 1 ;
     ] .
 
@@ -178,7 +176,6 @@ prop:hasNMI  rdfs:subPropertyOf  prop:hasNetworkAddress ;
     sh:property [
         a   sh:PropertyShape ;
         sh:path brick:value ;
-        sh:datatype xsd:string ;
         sh:minCount 1 ;
     ] .
 
