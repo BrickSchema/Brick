@@ -1,0 +1,83 @@
+"Brick Class 1","Brick Class 2","Brick Class 3","Brick Class 4","Brick Class 5","VBIS Tag","New To Brick?","Suggested Parent Class",,"Other VBIS Asset Types #1","Other VBIS Asset Types #2","Other VBIS Asset Types #3","Comment"
+"Terminal_Unit",,,,,"ME-ATU",,,,,,,
+"VAV",,,,,"ME-ATU-VAV",,,,,,,
+"Air_Curtain",,,,,"ME-AC",1,"HVAC Equipment",,,,,
+,,,,,"AC*",,,,,,,
+,,,,,,,,,,,,
+"Camera",,,,,"SE-CCTV-Ca*",,,,,,,
+,"Surveillance Camera",,,,,,,,,,,
+"Electrical Equipment",,,,,"EP*",,,,,,,
+,"Breaker Panel",,,,"EP-SB*",,,,,,,
+,"Bus Riser",,,,"EP-BD*",,,,,,,
+,"Disconnect Switch",,,,"EP-SG*",,,,,,,
+,"Energy Storage",,,,"EP-BS*",,,,,,,
+,,"Battery",,,"EP-BS-Ba*",,,,,,,
+,"Inverter",,,,"EP-SPS-In",,,,,,,
+,"Motor Control Center",,,,"EP-SB*",,,,,,,
+,"PlugStrip",,,,,,,,,,,
+,"Switchgear",,,,"EP-SG*",,,,,,,
+,"Transformer",,,,"EP-Tr*",,,,,,,
+"Elevator",,,,,"VT-Li*",,,,,,,
+"Fire Safety Equipment",,,,,"FD*",,,,"FS*","FR*",,"Also see FS* and FR* (Fire Supression & Fire Resistance)"
+,"Fire Control Panel",,,,"FD-FDCIE-MP*",,,,,,,
+"Furniture",,,,,"FFE-*",,,,,,,"This is an entire discipline in VBIS"
+"Gas Distribution",,,,,"GRE*",,,,,,,"This discipline table has not been released yet but the discipline acronym has been reserved."
+"HVAC",,,,,"ME",,,,,,,
+,"AHU",,,,"ME-AHU*",,,,,,,
+,,"RTU",,,,,,,,,,
+,,"Rooftop Unit",,,,,,,,,,
+,"Air Handler Unit",,,,"ME-AHU*",,,,,,,
+,"Boiler",,,,"ME-Bo*",,,,,,,
+,"CRAC",,,,"ME-PAC*",,,,,,,
+,,"Standby CRAC",,,,,,,,,,
+,"Chiller",,,,"ME-Chr*",,,,,,,
+,,"Absorption Chiller",,,"ME-Chr-Ab*",,,,,,,
+,,"Centrifugal Chiller",,,,,,,,,,
+,"Compressor",,,,"ME-ACPR*",,,,,,,
+,"Computer Room Air Conditioning",,,,"ME-PAC*",,,,,,,
+,"Condenser",,,,"ME-ACC*",,,,,,,
+,"Damper",,,,"ME-Da*",,,,,,,
+,"Economizer",,,,,,,,,,,
+,"Fan",,,,"ME-Fa*",,,,,,,
+,"Filter",,,,"ME-AFP*",,,,,,,
+,,"Mixed Air Filter",,,"ME-AFP*",,,,,,,
+,"Fume Hood",,,,"ME-FEE*",,,,,,,
+,"HX",,,,"ME-HE*",,,,,,,
+,"Heat Exchanger",,,,"ME-HE*",,,,,,,
+,,"Coil",,,"ME-Co*",,,,,,,"VBIS has Coils structured as its own product"
+,,"Heat Wheel",,,"ME-HE-ATA-AW",,,,,,,
+,"Pump",,,,,,,,,,,
+,,"Water Pump",,,"ME-Pu*",,,,"HY-Pu","FS-Pu",,"Note: VBIS also has pumps in Hydraulics [HY-Pu*] and Fire [FS-Pu*]"
+,"Space Heater",,,,"FFE-He*",,,,,,,
+,"Terminal Unit",,,,"ME-ATU*",,,,,,,
+,,"FCU",,,"ME-FCU*",,,,,,,
+,,"Fan Coil Unit",,,"ME-FCU*",,,,,,,
+,,"VAV",,,"ME-ATU-VAV*",,,,,,,
+,,"Variable Air Volume Box",,,"ME-ATU-VAV*",,,,,,,
+,,,"RVAV",,,,,,,,,
+,,,"Variable Air Volume Box with Reheat",,"ME-ATU-VAV-SDHC",,,,"ME-ATU-VAV-SDEH",,,"ME-ATU-VAV-SDHC is Heating Coil and ME-ATU-VAV-SDEH is electric heating"
+,"Thermostat",,,,"BMC-TST*",,,,,,,
+,"VFD",,,,"ME-EMS-VSD*",,,,,,,
+,,"Heat Wheel VFD",,,"ME-EMS-VSD*",,,,,,,"VFD associated with a specific use, in VBIS as VFDs are classfied by types it can have the same selection of VFD products be applicable."
+,"Valve",,,,"ME-Va*",,,,,,,
+,"Variable Frequency Drive",,,,"ME-EMS-VSD*",,,,,,,
+"Lighting Equipment",,,,,"EL*",,,,,,,"This is an entire discipline in VBIS"
+"Louver",,,,,"ST-AL*",,,,,,,"Mapped is Stuctural Architectural Louvre"
+"Meter",,,,,"EP-Me*",,,,"BMC-Me*","HY-Me*","BMC-FM*","This is Electrical Metering. Also see BMC-Me* for Building Management and Controls Metering,  HY-Me* for Hydraulics Metering and BMC-FM* for Building Management and Controls Flow Metering"
+"Safety Equipment",,,,,"SA*",,,,,,,"This is an entire discipline in VBIS"
+"Security Equipment",,,,,"SE*",,,,,,,"This is an entire discipline in VBIS"
+"Solar Panel",,,,,"EP-SPS-Pa*",,,,,,,
+"Steam Distribution",,,,,"ME-Bo-St",,,,,,,"Mechanical - Boiler - Steam"
+,,,,,"ME-CL-St",,,,,,,"Mechanical - Calorifier - Steam"
+,,,,,"ME-CHR-Ab-St",,,,,,,"Mechanical - Chiller - Absorption - Steam"
+,,,,,"ME-CHR-ADS-St",,,,,,,"Mechanical - Chiller - Adsorption - Steam"
+,,,,,"ME-HE-STF",,,,,,,"Mechanical - Heat Exchanger - Steam to Fluid"
+,,,,,"ME-HE-STF-Pl",,,,,,,"Mechanical - Heat Exchanger - Steam to Fluid - Plate"
+,,,,,"E-HE-STF-SAT",,,,,,,"Mechanical - Heat Exchanger - Steam to Fluid - Tube and Shell"
+,,,,,"ME-Hu-St",,,,,,,"Mechanical - Humidifier - Steam"
+,,,,,"ME-SCT",,,,,,,"Mechanical - Steam Condensate Trap"
+,,,,,"MG-St",,,,,,,"Medical Gases - Steam"
+,,,,,"MG-St-Va",,,,,,,"Medical Gases - Steam - Valves"
+,,,,,"MG-St-SG",,,,,,,"Medical Gases - Steam - Sight Glass"
+"Water Distribution",,,,,"HY*",,,,,,,"This is an entire discipline in VBIS"
+"Weather Station",,,,,"BMC-WS*",,,,,,,
