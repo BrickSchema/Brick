@@ -736,7 +736,7 @@ sensor_definitions = {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Occupancy],
                 "substances": [[BRICK.measures, BRICK.Occupancy]],
                 "subclasses": {
-                    "PIR_Sensor": {"tags": [TAG.Point, TAG.Pir, TAG.Sensor]}
+                    "PIR_Sensor": {"tags": [TAG.Point, TAG.PIR, TAG.Sensor]}
                 },
             },
             "Piezoelectric_Sensor": {
