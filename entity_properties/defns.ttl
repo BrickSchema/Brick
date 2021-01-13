@@ -133,12 +133,12 @@ prop:CADRRatingShape a sh:NodeShape ;
     ] ;
 .
 
-prop:hasPowerRating a prop:RatedPhysicalProperty ;
-    skos:definition "The maximum power input allowed to flow through a particular equipment" ;
-    rdfs:range prop:WattageShape ;
+prop:hasMaximumFrequencyRating a prop:RatedPhysicalProperty ;
+    skos:definition "The maximum operating frequency for a piece of equipment" ;
+    rdfs:range prop:FrequencyShape ;
 .
 
-prop:WattageShape a sh:NodeShape ;
+prop:FrequencyShape a sh:NodeShape ;
     rdfs:range qudt:Quantity ;
     sh:property [
         a sh:PropertyShape ;
@@ -148,12 +148,12 @@ prop:WattageShape a sh:NodeShape ;
     ] ;
     sh:property [
         sh:path brick:hasUnit ;
-        sh:in   (unit:W unit:KiloW) ;
+        sh:in   (unit:HZ unit:MegaHZ unit:REV-PER-MIN) ;
         sh:minCount 1 ;
     ] ;
 .
 
-prop:hasRatedCFM a prop:RatedPhysicalProperty ;
+prop:hasMaximumCFMRating a prop:RatedPhysicalProperty ;
     skos:definition "The maximum volume of air per minute that can be moved by this equipment" ;
     rdfs:range prop:CFMShape ;
 .
@@ -169,6 +169,68 @@ prop:CFMShape a sh:NodeShape ;
     sh:property [
         sh:path brick:hasUnit ;
         sh:hasValue unit:CFM ;
+        sh:minCount 1 ;
+    ] ;
+.
+
+prop:hasHXInterfaceType a prop:InherentPhysicalProperty ;
+    skos:definition "The type of the interface utilized by a heat exchanger" ;
+    rdfs:range prop:HXInterfaceShape ;
+.
+
+prop:HXInterfaceShape a sh:NodeShape ;
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path brick:value ;
+        # from Si-WG Crowdsourcing Document
+        sh:in ("plate" "plate-fin" "double-pipe" "double-wall" "multichannel" "scraped" "shell-and-tube" "runaround") ;
+        sh:minCount 1 ;
+    ] ;
+.
+
+# from SI-WG crowdsourcing document
+prop:hasCoilDepth a prop:InherentPhysicalProperty ;
+    rdfs:range prop:OneDimensionalCoilShape ;
+.
+prop:hasCoilFaceArea a prop:InherentPhysicalProperty ;
+    rdfs:range prop:TwoDimensionalCoilShape ;
+.
+prop:hasCoilHeight a prop:InherentPhysicalProperty ;
+    rdfs:range prop:OneDimensionalCoilShape ;
+.
+prop:hasCoilLength a prop:InherentPhysicalProperty ;
+    rdfs:range prop:OneDimensionalCoilShape ;
+.
+prop:hasCoilWidth a prop:InherentPhysicalProperty ;
+    rdfs:range prop:OneDimensionalCoilShape ;
+.
+
+prop:OneDimensionalCoilShape a sh:NodeShape ;
+    rdfs:range qudt:Quantity ;
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path brick:value ;
+        sh:datatype xsd:decimal ;
+        sh:minCount 1;
+    ] ;
+    sh:property [
+        sh:path brick:hasUnit ;
+        sh:in (unit:IN unit:CentiM) ;
+        sh:minCount 1 ;
+    ] ;
+.
+
+prop:TwoDimensionalCoilShape a sh:NodeShape ;
+    rdfs:range qudt:Quantity ;
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path brick:value ;
+        sh:datatype xsd:decimal ;
+        sh:minCount 1;
+    ] ;
+    sh:property [
+        sh:path brick:hasUnit ;
+        sh:in (unit:IN2 unit:CentiM2) ;
         sh:minCount 1 ;
     ] ;
 .
@@ -234,6 +296,67 @@ prop:hasSerialNumber    a   prop:InherentProperty, prop:IdentityProperty ;
         sh:path brick:value ;
         sh:minCount 1 ;
     ] .
+
+
+prop:hasPowerRating a prop:RatedPhysicalProperty, prop:ElectricalProperty ;
+    skos:definition "The maximum power input allowed to flow through a particular equipment" ;
+    rdfs:range prop:WattageShape ;
+.
+
+prop:hasElectricalVoltageRating a prop:RatedPhysicalProperty, prop:ElectricalProperty ;
+    skos:definition "The maximum voltage allowed to be supplied to this equipment" ;
+    rdfs:range prop:VoltageShape ;
+.
+
+prop:hasElectricalFrequencyRated a prop:RatedPhysicalProperty, prop:ElectricalProperty ;
+    skos:definition "The maximum electrical frequency allowed to be supplied to this equipment" ;
+    rdfs:range prop:ElectricalFrequencyShape ;
+.
+
+prop:WattageShape a sh:NodeShape ;
+    rdfs:range qudt:Quantity ;
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path brick:value ;
+        sh:datatype xsd:decimal ;
+        sh:minCount 1;
+    ] ;
+    sh:property [
+        sh:path brick:hasUnit ;
+        sh:in   (unit:W unit:KiloW) ;
+        sh:minCount 1 ;
+    ] ;
+.
+
+prop:VoltageShape a sh:NodeShape ;
+    rdfs:range qudt:Quantity ;
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path brick:value ;
+        sh:datatype xsd:decimal ;
+        sh:minCount 1;
+    ] ;
+    sh:property [
+        sh:path brick:hasUnit ;
+        sh:in   (unit:V unit:KiloV) ;
+        sh:minCount 1 ;
+    ] ;
+.
+
+prop:ElectricalFrequencyShape a sh:NodeShape ;
+    rdfs:range qudt:Quantity ;
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path brick:value ;
+        sh:datatype xsd:decimal ;
+        sh:minCount 1;
+    ] ;
+    sh:property [
+        sh:path brick:hasUnit ;
+        sh:in   (unit:HZ unit:MegaHZ) ;
+        sh:minCount 1 ;
+    ] ;
+.
 
 ################################
 ### Networking Properties
