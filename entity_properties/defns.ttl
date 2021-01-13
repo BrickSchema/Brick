@@ -27,6 +27,11 @@ prop:PhysicalProperty a   owl:ObjectProperty ;
     skos:definition "A property of the entity's physical existence" ;
     rdfs:subClassOf prop:EntityProperty .
 
+prop:RatedPhysicalProperty a owl:ObjectProperty ;
+    skos:definition "A property that is 'rated' --- provided as part of the specification" ;
+    rdfs:subClassOf prop:PhysicalProperty ;
+.
+
 prop:VirtualProperty a   owl:ObjectProperty ;
     skos:definition "A property of the entity's virtual (networked, computed) existence" ;
     rdfs:subClassOf prop:EntityProperty .
@@ -57,17 +62,20 @@ prop:ConfigurableIdentityProperty  a   owl:ObjectProperty ;
 
 prop:hasArea    a  prop:PhysicalProperty ;
     skos:definition "Entity has 2-dimensional area" ;
-    rdfs:range  prop:AreaShape .
+    rdfs:range  prop:AreaShape ;
+.
 
 # https://bedes.lbl.gov/bedes-online/gross
 prop:hasGrossArea    rdfs:subPropertyOf  prop:hasArea ;
     skos:definition "Entity has gross 2-dimensional area" ;
-    rdfs:range  prop:AreaShape .
+    rdfs:range  prop:AreaShape ;
+.
 
 # https://bedes.lbl.gov/bedes-online/net
 prop:hasNetArea    rdfs:subPropertyOf  prop:hasArea ;
     skos:definition "Entity has gross 2-dimensional area" ;
-    rdfs:range  prop:AreaShape .
+    rdfs:range  prop:AreaShape ;
+.
 
 prop:AreaShape a sh:NodeShape ;
     rdfs:range qudt:Quantity ;
@@ -88,6 +96,82 @@ prop:VolumeShape    a   sh:NodeShape ;
         sh:in   (unit:FT3 unit:M3) ;
         sh:minCount 1 ;
     ] .
+
+prop:hasThermalResistance a prop:PhysicalProperty, prop:InherentProperty ;
+    skos:definition "Entity has given thermal resistance (R-value)" ;
+    rdfs:range prop:RValueShape ;
+.
+
+prop:RValueShape a sh:NodeShape ;
+    rdfs:range qudt:Quantity ;
+    sh:property [
+        a   sh:PropertyShape ;
+        sh:path brick:value ;
+        sh:datatype xsd:decimal ;
+        sh:minCount 1 ;
+    ] ;
+.
+
+prop:hasCADRRating a prop:RatedPhysicalProperty ;
+    skos:definition  "The rated Clean Air Delivery Rate (CADR) for an equipment" ;
+    rdfs:range prop:CADRRatingShape ;
+.
+
+prop:CADRRatingShape a sh:NodeShape ;
+    rdfs:range  qudt:Quantity ;
+    qudt:hasQuantityKind qudtqk:VolumeFlowRate ;
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path brick:value ;
+        sh:datatype xsd:decimal ;
+        sh:minCount 1;
+    ] ;
+    sh:property [
+        sh:path brick:hasUnit ;
+        sh:in   (unit:FT3-PER-MIN unit:FT3-PER-HR unit:M3-PER-MIN) ;
+        sh:minCount 1 ;
+    ] .
+.
+
+prop:hasPowerRating a prop:RatedPhysicalProperty ;
+    skos:definition "The maximum power input allowed to flow through a particular equipment" ;
+    rdfs:range prop:WattageShape ;
+.
+
+prop:WattageShape a sh:NodeShape ;
+    rdfs:range qudt:Quantity ;
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path brick:value ;
+        sh:datatype xsd:decimal ;
+        sh:minCount 1;
+    ] ;
+    sh:property [
+        sh:path brick:hasUnit ;
+        sh:in   (unit:W unit:KiloW) ;
+        sh:minCount 1 ;
+    ] ;
+.
+
+prop:hasRatedCFM a prop:RatedPhysicalProperty ;
+    skos:definition "The maximum volume of air per minute that can be moved by this equipment" ;
+    rdfs:range prop:CFMShape ;
+.
+
+prop:CFMShape a sh:NodeShape ;
+    rdfs:range qudt:Quantity ;
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path brick:value ;
+        sh:datatype xsd:decimal ;
+        sh:minCount 1;
+    ] ;
+    sh:property [
+        sh:path brick:hasUnit ;
+        sh:hasValue unit:CFM ;
+        sh:minCount 1 ;
+    ] ;
+.
 
 ################################
 ### Electrical Properties
@@ -195,7 +279,7 @@ prop:aggregate  a prop:VirtualProperty ;
 prop:AggregationShape   a   sh:NodeShape ;
     sh:property [
         sh:path prop:aggregationFunction ;
-        sh:in   ("max", "min", "mean", "mode", "median", "count", "sum") ;
+        sh:in   ("max" "min" "mean" "mode" "median" "count" "sum") ;
         sh:minCount 1 ;
     ] ;
     sh:property [
