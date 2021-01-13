@@ -130,7 +130,7 @@ prop:CADRRatingShape a sh:NodeShape ;
         sh:path brick:hasUnit ;
         sh:in   (unit:FT3-PER-MIN unit:FT3-PER-HR unit:M3-PER-MIN) ;
         sh:minCount 1 ;
-    ] .
+    ] ;
 .
 
 prop:hasPowerRating a prop:RatedPhysicalProperty ;
