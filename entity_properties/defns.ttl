@@ -55,6 +55,22 @@ prop:InherentIdentityProperty  a   owl:ObjectProperty ;
 prop:ConfigurableIdentityProperty  a   owl:ObjectProperty ;
     rdfs:subClassOf prop:IdentityProperty, prop:ConfigurableProperty .
 
+################################
+### Identifiers
+################################
+
+prop:hasUBID a prop:IdentityProperty ;
+    skos:definition "A Unique Building Identifier for the building, following the PNNL-developed standard" ;
+    rdfs:seeAlso <https://buildingid.pnnl.gov/> ;
+    rdfs:range qudt:Quantity ;
+    sh:property [
+        a   sh:PropertyShape ;
+        sh:path brick:value ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+    ] ;
+.
+
 
 ################################
 ### Physical Properties
