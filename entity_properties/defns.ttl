@@ -112,12 +112,12 @@ prop:RValueShape a sh:NodeShape ;
     ] ;
 .
 
-prop:hasCADRRating a prop:RatedPhysicalProperty ;
+prop:hasRatedCADR a prop:RatedPhysicalProperty ;
     skos:definition  "The rated Clean Air Delivery Rate (CADR) for an equipment" ;
-    rdfs:range prop:CADRRatingShape ;
+    rdfs:range prop:RatedCADRShape ;
 .
 
-prop:CADRRatingShape a sh:NodeShape ;
+prop:RatedCADRShape a sh:NodeShape ;
     rdfs:range  qudt:Quantity ;
     qudt:hasQuantityKind qudtqk:VolumeFlowRate ;
     sh:property [
@@ -133,7 +133,7 @@ prop:CADRRatingShape a sh:NodeShape ;
     ] ;
 .
 
-prop:hasMaximumFrequencyRating a prop:RatedPhysicalProperty ;
+prop:hasMaximumRatedFrequency a prop:RatedPhysicalProperty ;
     skos:definition "The maximum operating frequency for a piece of equipment" ;
     rdfs:range prop:FrequencyShape ;
 .
@@ -153,7 +153,7 @@ prop:FrequencyShape a sh:NodeShape ;
     ] ;
 .
 
-prop:hasMaximumCFMRating a prop:RatedPhysicalProperty ;
+prop:hasMaximumRatedCFM a prop:RatedPhysicalProperty ;
     skos:definition "The maximum volume of air per minute that can be moved by this equipment" ;
     rdfs:range prop:CFMShape ;
 .
@@ -298,18 +298,23 @@ prop:hasSerialNumber    a   prop:InherentProperty, prop:IdentityProperty ;
     ] .
 
 
-prop:hasPowerRating a prop:RatedPhysicalProperty, prop:ElectricalProperty ;
+prop:hasMaximumRatedPower a prop:RatedPhysicalProperty, prop:ElectricalProperty ;
     skos:definition "The maximum power input allowed to flow through a particular equipment" ;
     rdfs:range prop:WattageShape ;
 .
 
-prop:hasElectricalVoltageRating a prop:RatedPhysicalProperty, prop:ElectricalProperty ;
-    skos:definition "The maximum voltage allowed to be supplied to this equipment" ;
+prop:hasRatedPower a prop:RatedPhysicalProperty, prop:ElectricalProperty ;
+    skos:definition "The nominal power draw of a particular equipment" ;
+    rdfs:range prop:WattageShape ;
+.
+
+prop:hasRatedVoltage a prop:RatedPhysicalProperty, prop:ElectricalProperty ;
+    skos:definition "The nominal voltage allowed to be supplied to this equipment" ;
     rdfs:range prop:VoltageShape ;
 .
 
-prop:hasElectricalFrequencyRated a prop:RatedPhysicalProperty, prop:ElectricalProperty ;
-    skos:definition "The maximum electrical frequency allowed to be supplied to this equipment" ;
+prop:hasRatedElectricalFrequency a prop:RatedPhysicalProperty, prop:ElectricalProperty ;
+    skos:definition "The nominal electrical frequency allowed to be supplied to this equipment" ;
     rdfs:range prop:ElectricalFrequencyShape ;
 .
 
