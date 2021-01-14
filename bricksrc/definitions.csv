@@ -259,6 +259,7 @@ https://brickschema.org/schema/1.1/Brick#Electrical_Meter,A meter that measures 
 https://brickschema.org/schema/1.1/Brick#Electrical_Power_Sensor,Measures the amount of instantaneous electric power consumed,
 https://brickschema.org/schema/1.1/Brick#Electrical_System,Devices that serve or are part of the electrical subsystem in the building,
 https://brickschema.org/schema/1.1/Brick#Elevator,"A device that provides vertical transportation between floors, levels or decks of a building, vessel or other structure",https://en.wikipedia.org/wiki/Elevator
+https://brickschema.org/schema/1.1/Brick#Embedded_Surface_System,Radiant panel heating and cooling system where the energy heat source or sink is embedded in a radiant layer which is thermally insulated from the building structure.,See also Low temperature heating and high temperature cooling REHVA guidebook
 https://brickschema.org/schema/1.1/Brick#Emergency_Alarm,Alarms that indicate off-normal conditions associated with emergency systems,
 https://brickschema.org/schema/1.1/Brick#Emergency_Generator_Alarm,An alarm that indicates off-normal conditions associated with an emergency generator,
 https://brickschema.org/schema/1.1/Brick#Emergency_Generator_Status,Indicates if an emergency generator is active,
@@ -283,6 +284,7 @@ https://brickschema.org/schema/1.1/Brick#Enthalpy_Sensor,Measures the total heat
 https://brickschema.org/schema/1.1/Brick#Enthalpy_Setpoint,Sets enthalpy,
 https://brickschema.org/schema/1.1/Brick#Environment_Box,"(also known as climatic chamber), enclosed space designed to create a particular environment.",
 https://brickschema.org/schema/1.1/Brick#Equipment,"devices that serve all or part of the building and may include electric power, lighting, transportation, or service water heating, including, but not limited to, furnaces, boilers, air conditioners, heat pumps, chillers, water heaters, lamps, luminaires, ballasts, elevators, escalators, or other devices or installations.",
+https://brickschema.org/schema/1.1/Brick#ESS,See Embedded_Surface_System,
 https://brickschema.org/schema/1.1/Brick#Evaporative_Heat_Exchanger,,
 https://brickschema.org/schema/1.1/Brick#Even_Month_Status,,
 https://brickschema.org/schema/1.1/Brick#Exhaust_Air,"air that must be removed from a space due to contaminants, regardless of pressurization",
@@ -640,11 +642,14 @@ https://brickschema.org/schema/1.1/Brick#Pump_VFD,Variable-frequency drive for p
 https://brickschema.org/schema/1.1/Brick#PV_Current_Output_Sensor,See Photovoltaic_Current_Output_Sensor,
 https://brickschema.org/schema/1.1/Brick#Quantity,,
 https://brickschema.org/schema/1.1/Brick#Radiance,,
+https://brickschema.org/schema/1.1/Brick#Radiant_Ceiling_Panel,Radiant panel heating and cooling system that are usually made from metal and suspended under the ceiling or insulated from the building structure.,See also Low temperature heating and high temperature cooling REHVA guidebook
+https://brickschema.org/schema/1.1/Brick#Radiant_Panel,A temperature-controlled surface that provides fifty percent (50%) or more of the design heat transfer by thermal radiation.,"See also ASHRAE HVAC Systems & Equipment, Ch 6: Radiant Heating & Cooling"
 https://brickschema.org/schema/1.1/Brick#Radiant_Temperature,the uniform temperature of an imaginary enclosure in which the radiant heat transfer from the human body is equal to the radiant heat transfer in the actual non-uniform enclosure. (https://en.wikipedia.org/wiki/Mean_radiant_temperature),
 https://brickschema.org/schema/1.1/Brick#Radiator,Heat exchangers designed to transfer thermal energy from one medium to another,
 https://brickschema.org/schema/1.1/Brick#Rain_Duration_Sensor,Measures the duration of precipitation within some time frame,
 https://brickschema.org/schema/1.1/Brick#Rain_Sensor,Measures the amount of precipitation fallen,
 https://brickschema.org/schema/1.1/Brick#Rated_Speed_Setpoint,Sets rated speed,
+https://brickschema.org/schema/1.1/Brick#RCP,See Radiant_Ceiling_Panel,
 https://brickschema.org/schema/1.1/Brick#Reactive_Power,"Reactive Power}, for a linear two-terminal element or two-terminal circuit, under sinusoidal conditions, is the quantity equal to the product of the apparent power (S) and the sine of the displacement angle (\psi). The absolute value of the reactive power is equal to the non-active power. The ISO (and SI) unit for reactive power is the voltampere. The special name var and symbol \textit{var are given in IEC 60027 1.",
 https://brickschema.org/schema/1.1/Brick#Reactive_Power_Sensor,"Measures the portion of power that, averaged over a complete cycle of the AC waveform, is due to stored energy which returns to the source in each cycle",
 https://brickschema.org/schema/1.1/Brick#Real_Power,"(Active Power) is, under periodic conditions, the mean value, taken over one period (T), of the instantaneous power (p). In complex notation, (P = Re \; S), where (S) is (complex power)"".",
@@ -777,6 +782,7 @@ https://brickschema.org/schema/1.1/Brick#Switchgear,"A main disconnect or servic
 https://brickschema.org/schema/1.1/Brick#System_Enable_Command,Enables operation of a system,
 https://brickschema.org/schema/1.1/Brick#System_Shutdown_Status,Indicates if a system has been shutdown,
 https://brickschema.org/schema/1.1/Brick#System_Status,Indicates properties of the activity of a system,
+https://brickschema.org/schema/1.1/Brick#TABS,See Thermally_Activated_Building_System,
 https://brickschema.org/schema/1.1/Brick#Temperature,,
 https://brickschema.org/schema/1.1/Brick#Temperature_Alarm,An alarm that indicates the off-normal conditions associated with temperature.,
 https://brickschema.org/schema/1.1/Brick#Temperature_Deadband_Setpoint,Sets the size of a deadband of temperature,
@@ -793,6 +799,7 @@ https://brickschema.org/schema/1.1/Brick#Terminal_Unit,A device that regulates t
 https://brickschema.org/schema/1.1/Brick#Thermal_Energy,"Thermal Energy} is the portion of the thermodynamic or internal energy of a system that is responsible for the temperature of the system. From a macroscopic thermodynamic description, the thermal energy of a system is given by its constant volume specific heat capacity C(T), a temperature coefficient also called thermal capacity, at any given absolute temperature (T): (U_{thermal = C(T) \cdot T).",
 https://brickschema.org/schema/1.1/Brick#Thermal_Power,`,
 https://brickschema.org/schema/1.1/Brick#Thermal_Power_Sensor,,
+https://brickschema.org/schema/1.1/Brick#Thermally_Activated_Building_System,Radiant panel heating and cooling system where the energy heat source or sink is embedded in the building structure such as in slabs and walls.,See also Low temperature heating and high temperature cooling REHVA guidebook
 https://brickschema.org/schema/1.1/Brick#Thermostat,An automatic control device used to maintain temperature at a fixed or adjustable setpoint.,
 https://brickschema.org/schema/1.1/Brick#Time,,
 https://brickschema.org/schema/1.1/Brick#Time_Parameter,,
