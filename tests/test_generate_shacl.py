@@ -1,13 +1,13 @@
 import sys
-from rdflib import Graph
+import brickschema
 from bricksrc.namespaces import A, OWL, RDFS, SKOS, BRICK, SH, BSH, bind_prefixes
 from .util import make_readable
 
 sys.path.append("..")
 from bricksrc.properties import properties  # noqa: E402
 
-g = Graph()
-g.parse("shacl/BrickShape.ttl", format="turtle")
+g = brickschema.Graph()
+g.load_file("shacl/BrickShape.ttl")
 bind_prefixes(g)
 
 

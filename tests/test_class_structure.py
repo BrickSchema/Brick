@@ -1,5 +1,4 @@
 import sys
-import rdflib
 import brickschema
 from rdflib import RDF, OWL, RDFS, Namespace, BNode
 
@@ -9,13 +8,9 @@ from bricksrc.namespaces import BRICK, TAG, SOSA, VCARD, SKOS, UNIT, QUDT  # noq
 
 BLDG = Namespace("https://brickschema.org/schema/ExampleBuilding#")
 
-g = rdflib.Graph()
+g = brickschema.Graph()
 g.parse("Brick.ttl", format="turtle")
-
-g = brickschema.inference.TagInferenceSession(
-    approximate=False, load_brick=False
-).expand(g)
-g = brickschema.inference.OWLRLInferenceSession(load_brick=False).expand(g)
+g.expand("tag+owlrl")
 
 g.bind("rdf", RDF)
 g.bind("owl", OWL)

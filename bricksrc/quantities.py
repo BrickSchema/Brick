@@ -1,5 +1,4 @@
 from brickschema.graph import Graph
-from brickschema.inference import BrickInferenceSession
 from rdflib import Literal, URIRef
 from .namespaces import SKOS, OWL, RDFS, BRICK, QUDTQK, QUDTDV, QUDT, UNIT
 
@@ -7,10 +6,9 @@ from .namespaces import SKOS, OWL, RDFS, BRICK, QUDTQK, QUDTDV, QUDT, UNIT
 g = Graph()
 g.load_file("support/VOCAB_QUDT-QUANTITY-KINDS-ALL-v2.1.ttl")
 g.load_file("support/VOCAB_QUDT-UNITS-ALL-v2.1.ttl")
-g.g.bind("qudt", QUDT)
-g.g.bind("qudtqk", QUDTQK)
-sess = BrickInferenceSession()
-g = sess.expand(g)
+g.bind("qudt", QUDT)
+g.bind("qudtqk", QUDTQK)
+g.expand(profile="brick")
 
 
 def get_units(brick_quantity):

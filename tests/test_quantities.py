@@ -10,9 +10,9 @@ from bricksrc.namespaces import BRICK, TAG  # noqa: E402
 
 BLDG = Namespace("https://brickschema.org/schema/ExampleBuilding#")
 
-g = rdflib.Graph()
-g.parse("Brick.ttl", format="turtle")
-g = brickschema.inference.OWLRLInferenceSession(load_brick=False).expand(g)
+g = brickschema.Graph()
+g.load_file("Brick.ttl")
+g.expand(profile="owlrl")
 
 res = g.query(
     """SELECT ?m ?class WHERE {
@@ -38,7 +38,7 @@ for c, measurables in measurable_mapping.items():
     for m in measurables:
         g.add((inst, BRICK.measures, m))
 
-g = brickschema.inference.OWLRLInferenceSession(load_brick=False).expand(g)
+g.expand(profile="owlrl")
 
 g.bind("rdf", RDF)
 g.bind("owl", OWL)
