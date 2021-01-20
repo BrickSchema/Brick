@@ -7,7 +7,7 @@ from rdflib.collection import Collection
 
 from bricksrc.ontology import define_ontology
 
-from bricksrc.namespaces import BRICK, RDF, OWL, RDFS, TAG, SOSA, SKOS, QUDT, SH
+from bricksrc.namespaces import BRICK, RDF, OWL, RDFS, TAG, SOSA, SKOS, QUDT, SH, BSH
 from bricksrc.namespaces import bind_prefixes
 
 from bricksrc.setpoint import setpoint_definitions
@@ -40,6 +40,7 @@ bind_prefixes(G)
 A = RDF.type
 
 tag_lookup = defaultdict(set)
+intersection_classes = {}
 has_tag_restriction_class = {}
 shacl_tag_property_shapes = {}
 has_exactly_n_tags_shapes = {}
@@ -103,8 +104,12 @@ def add_tags(klass, definition):
             (tag, RDFS.label, Literal(tag.split("#")[-1]))
         )  # make sure the tag is declared as such
 
+    all_restrictions = []
+    equivalent_class = BNode()
+    list_name = BNode()
+
     # add SHACL shape
-    sc = URIRef(str(klass) + "_TagShape")
+    sc = BSH[klass.split("#")[-1] + "_TagShape"]
     G.add((sc, A, SH.NodeShape))
     # G.add((sc, SH.targetSubjectsOf, BRICK.hasTag))
     rule = BNode(str(klass) + "TagInferenceRule")
@@ -124,6 +129,7 @@ def add_tags(klass, definition):
             G.add((restriction, OWL.onProperty, BRICK.hasTag))
             G.add((restriction, OWL.hasValue, item))
             has_tag_restriction_class[item] = restriction
+        all_restrictions.append(has_tag_restriction_class[item])
 
         if item in shacl_tag_property_shapes:
             G.add((rule, SH.condition, shacl_tag_property_shapes[item]))
@@ -152,6 +158,17 @@ def add_tags(klass, definition):
         has_exactly_n_tags_shapes[len(definition)] = cond
     G.add((rule, SH.condition, has_exactly_n_tags_shapes[len(definition)]))
     G.add((sc, SH.targetClass, has_tag_restriction_class[definition[-1]]))
+
+    # if we've already mapped this class, don't map it again
+    if klass in intersection_classes:
+        return
+    if len(all_restrictions) == 1:
+        G.add((klass, RDFS.subClassOf, all_restrictions[0]))
+    if len(all_restrictions) > 1:
+        G.add((klass, RDFS.subClassOf, equivalent_class))
+        G.add((equivalent_class, OWL.intersectionOf, list_name))
+        Collection(G, list_name, all_restrictions)
+    intersection_classes[klass] = tuple(sorted(definition))
 
 
 def define_concept_hierarchy(definitions, typeclasses, broader=None, related=None):
