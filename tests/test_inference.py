@@ -60,7 +60,7 @@ g.add((BLDG.co2s1, A, BRICK.CO2_Level_Sensor))
 g.add((BLDG.standalone, A, BRICK.Temperature_Sensor))
 
 # Apply reasoner
-g.expand(profile="tag+owlrl")
+g.expand(profile="shacl+owlrl")
 
 g.bind("rdf", RDF)
 g.bind("owl", OWL)
