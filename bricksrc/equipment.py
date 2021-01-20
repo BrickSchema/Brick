@@ -346,6 +346,7 @@ hvac_subclasses = {
                 "tags": [TAG.Equipment, TAG.Fan, TAG.Supply],
                 OWL.equivalentClass: BRICK["Discharge_Fan"],
             },
+            "Ceiling_Fan": {"tags": [TAG.Equipment, TAG.Fan, TAG.Ceiling]},
         },
     },
     "Economizer": {"tags": [TAG.Equipment, TAG.Economizer]},
