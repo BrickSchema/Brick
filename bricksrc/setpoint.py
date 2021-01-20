@@ -1230,6 +1230,15 @@ setpoint_definitions = {
                                     TAG.Setpoint,
                                 ],
                             },
+                            "Return_Air_Temperature_Setpoint": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Return,
+                                    TAG.Air,
+                                    TAG.Temperature,
+                                    TAG.Setpoint,
+                                ],
+                            },
                             "Room_Air_Temperature_Setpoint": {
                                 "tags": [
                                     TAG.Point,
@@ -1247,6 +1256,30 @@ setpoint_definitions = {
                                     TAG.Temperature,
                                     TAG.Setpoint,
                                 ],
+                                "subclasses": {
+                                    "Zone_Air_Cooling_Temperature_Setpoint": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Zone,
+                                            TAG.Air,
+                                            TAG.Temperature,
+                                            TAG.Setpoint,
+                                            TAG.Cooling,
+                                        ],
+                                        "parents": [BRICK.Cooling_Temperature_Setpoint],
+                                    },
+                                    "Zone_Air_Heating_Temperature_Setpoint": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Zone,
+                                            TAG.Air,
+                                            TAG.Temperature,
+                                            TAG.Setpoint,
+                                            TAG.Heating,
+                                        ],
+                                        "parents": [BRICK.Heating_Temperature_Setpoint],
+                                    },
+                                },
                             },
                             "Outside_Air_Temperature_Setpoint": {
                                 "subclasses": {
