@@ -42,6 +42,7 @@ A = RDF.type
 tag_lookup = defaultdict(set)
 intersection_classes = {}
 shacl_tag_property_shapes = {}
+has_exactly_n_tags_shapes = {}
 
 
 def add_restriction(klass, definition):
@@ -124,15 +125,19 @@ def add_tags(klass, definition):
         G.add((prop, SH.qualifiedValueShape, tagshape))
         G.add((tagshape, SH.hasValue, item))
         G.add((prop, SH.qualifiedMinCount, Literal(1)))
+        G.add((prop, SH.qualifiedMaxCount, Literal(1)))
         shacl_tag_property_shapes[item] = cond
-    # tag count condition
-    cond = BNode()
-    prop = BNode()
-    G.add((rule, SH.condition, cond))
-    G.add((cond, SH.property, prop))
-    G.add((prop, SH.path, BRICK.hasTag))
-    G.add((prop, SH.minCount, Literal(len(definition))))
-    G.add((prop, SH.maxCount, Literal(len(definition))))
+    num_tags = len(definition)
+    if len(definition) not in has_exactly_n_tags_shapes:
+        # tag count condition
+        cond = BNode(f"has_exactly_{num_tags}_tags_condition")
+        prop = BNode(f"has_exactly_{num_tags}_tags")
+        G.add((cond, SH.property, prop))
+        G.add((prop, SH.path, BRICK.hasTag))
+        G.add((prop, SH.minCount, Literal(len(definition))))
+        G.add((prop, SH.maxCount, Literal(len(definition))))
+        has_exactly_n_tags_shapes[len(definition)] = cond
+    G.add((rule, SH.condition, has_exactly_n_tags_shapes[len(definition)]))
 
 
 def define_concept_hierarchy(definitions, typeclasses, broader=None, related=None):
