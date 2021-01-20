@@ -797,6 +797,7 @@ https://brickschema.org/schema/1.1/Brick#Temporary_Occupancy_Status,"For systems
 https://brickschema.org/schema/1.1/Brick#Terminal_Unit,A device that regulates the volumetric flow rate and/or the temperature of the controlled medium.,
 https://brickschema.org/schema/1.1/Brick#Thermal_Energy,"Thermal Energy} is the portion of the thermodynamic or internal energy of a system that is responsible for the temperature of the system. From a macroscopic thermodynamic description, the thermal energy of a system is given by its constant volume specific heat capacity C(T), a temperature coefficient also called thermal capacity, at any given absolute temperature (T): (U_{thermal = C(T) \cdot T).",
 https://brickschema.org/schema/1.1/Brick#Thermal_Power,`,
+https://brickschema.org/schema/1.1/Brick#Thermal_Power_Meter,A standalone thermal power meter,
 https://brickschema.org/schema/1.1/Brick#Thermal_Power_Sensor,,
 https://brickschema.org/schema/1.1/Brick#Thermostat,An automatic control device used to maintain temperature at a fixed or adjustable setpoint.,
 https://brickschema.org/schema/1.1/Brick#Time,,

@@ -56,6 +56,9 @@ equipment_subclasses = {
                     }
                 },
             },
+            "Thermal_Power_Meter": {
+                "tags": [TAG.Meter, TAG.Equipment, TAG.Thermal, TAG.Power],
+            },
             "Water_Meter": {
                 "tags": [TAG.Meter, TAG.Equipment, TAG.Water],
                 "subclasses": {
