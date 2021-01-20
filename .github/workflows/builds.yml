@@ -31,6 +31,7 @@ jobs:
       # generate new Brick ontology (in case this hasn't been run)
       run: |
         python generate_brick.py
+        cat Brick.ttl
     - name: Regenerate SHACL shapes
       run: |
         cd shacl
