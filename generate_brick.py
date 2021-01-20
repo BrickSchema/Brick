@@ -40,7 +40,7 @@ bind_prefixes(G)
 A = RDF.type
 
 tag_lookup = defaultdict(set)
-intersection_classes = {}
+has_tag_restriction_class = {}
 shacl_tag_property_shapes = {}
 has_exactly_n_tags_shapes = {}
 
@@ -98,11 +98,15 @@ def add_tags(klass, definition):
         return
     for tag in definition:
         G.add((klass, BRICK.hasAssociatedTag, tag))
+        G.add((tag, A, BRICK.Tag))  # make sure the tag is declared as such
+        G.add(
+            (tag, RDFS.label, Literal(tag.split("#")[-1]))
+        )  # make sure the tag is declared as such
 
     # add SHACL shape
     sc = URIRef(str(klass) + "_TagShape")
     G.add((sc, A, SH.NodeShape))
-    G.add((sc, SH.targetSubjectsOf, BRICK.hasTag))
+    # G.add((sc, SH.targetSubjectsOf, BRICK.hasTag))
     rule = BNode(str(klass) + "TagInferenceRule")
     G.add((sc, SH.rule, rule))
 
@@ -113,16 +117,25 @@ def add_tags(klass, definition):
     G.add((rule, SH.object, klass))
     # conditions
     for item in definition:
+
+        if item not in has_tag_restriction_class:
+            restriction = BNode(f"has_{item.split('#')[-1]}")
+            G.add((restriction, A, OWL.Restriction))
+            G.add((restriction, OWL.onProperty, BRICK.hasTag))
+            G.add((restriction, OWL.hasValue, item))
+            has_tag_restriction_class[item] = restriction
+
         if item in shacl_tag_property_shapes:
             G.add((rule, SH.condition, shacl_tag_property_shapes[item]))
             continue
         cond = BNode(f"has_{item.split('#')[-1]}_condition")
-        prop = BNode(f"has_{item.split('#')[-1]}")
+        prop = BNode(f"has_{item.split('#')[-1]}_tag")
         tagshape = BNode()
         G.add((rule, SH.condition, cond))
         G.add((cond, SH.property, prop))
         G.add((prop, SH.path, BRICK.hasTag))
         G.add((prop, SH.qualifiedValueShape, tagshape))
+        # G.add((tagshape, SH["class"], has_tag_restriction_class[item]))
         G.add((tagshape, SH.hasValue, item))
         G.add((prop, SH.qualifiedMinCount, Literal(1)))
         G.add((prop, SH.qualifiedMaxCount, Literal(1)))
@@ -138,6 +151,7 @@ def add_tags(klass, definition):
         G.add((prop, SH.maxCount, Literal(len(definition))))
         has_exactly_n_tags_shapes[len(definition)] = cond
     G.add((rule, SH.condition, has_exactly_n_tags_shapes[len(definition)]))
+    G.add((sc, SH.targetClass, has_tag_restriction_class[definition[-1]]))
 
 
 def define_concept_hierarchy(definitions, typeclasses, broader=None, related=None):
