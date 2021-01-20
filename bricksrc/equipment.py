@@ -24,7 +24,8 @@ equipment_subclasses = {
             "Bus_Riser": {"tags": [TAG.Riser, TAG.Equipment]},
             "Transformer": {"tags": [TAG.Transformer, TAG.Equipment]},
             "Motor_Control_Center": {
-                "tags": [TAG.Motor, TAG.Equipment, TAG.Control, TAG.Center]
+                # TODO: add TAG.Equipment back
+                "tags": [TAG.Motor, TAG.Control, TAG.Center]
             },
             "Breaker_Panel": {"tags": [TAG.Breaker, TAG.Equipment]},
         },
