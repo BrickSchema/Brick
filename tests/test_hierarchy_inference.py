@@ -3,7 +3,7 @@ from collections import defaultdict
 import time
 import brickschema
 from tqdm import tqdm
-from rdflib import URIRef, Graph
+from rdflib import URIRef
 from .util import make_readable
 import sys
 
@@ -36,8 +36,8 @@ prefix owl: <http://www.w3.org/2002/07/owl#>
 
 def test_hierarchyinference():
     # Load the schema
-    g = Graph()
-    g.parse("Brick.ttl", format="turtle")
+    g = brickschema.Graph()
+    g.load_file("Brick.ttl")
 
     # Get all the Classes with their restrictions.
     qstr = (
