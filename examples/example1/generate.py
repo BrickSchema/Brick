@@ -56,7 +56,7 @@ simply allows us to refer to classes and relationships that are defined in the
 Brick schema.
 
 """
-BRICK = Namespace("https://brickschema.org/schema/1.1.0/Brick#")
+BRICK = Namespace("https://brickschema.org/schema/1.1/Brick#")
 g.bind("brick", BRICK)
 
 

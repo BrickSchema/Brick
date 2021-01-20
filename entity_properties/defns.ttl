@@ -71,6 +71,19 @@ prop:hasUBID a prop:IdentityProperty ;
     ] ;
 .
 
+# TODO: finish this definition up
+prop:hasBuildingSyncPremisesIdentifier a prop:IdentityProperty ;
+    skos:definition "The PremisesIdentifier for this building as it appears in a BuildingSync model" ;
+    rdfs:seeAlso <https://buildingsync.net/schema/v2.1.0/documentation/#Link83> ;
+    rdfs:range qudt:Quantity ;
+    sh:property [
+        a   sh:PropertyShape ;
+        sh:path brick:value ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+    ] ;
+.
+
 
 ################################
 ### Physical Properties
