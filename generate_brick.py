@@ -7,7 +7,7 @@ from rdflib.collection import Collection
 
 from bricksrc.ontology import define_ontology
 
-from bricksrc.namespaces import BRICK, RDF, OWL, RDFS, TAG, SOSA, SKOS, QUDT, QUDTQK
+from bricksrc.namespaces import BRICK, RDF, OWL, RDFS, TAG, SOSA, SKOS, QUDT, SH
 from bricksrc.namespaces import bind_prefixes
 
 from bricksrc.setpoint import setpoint_definitions
@@ -41,6 +41,7 @@ A = RDF.type
 
 tag_lookup = defaultdict(set)
 intersection_classes = {}
+shacl_tag_property_shapes = {}
 
 
 def add_restriction(klass, definition):
@@ -75,13 +76,18 @@ def add_restriction(klass, definition):
 def add_tags(klass, definition):
     """
     Adds the definition of tags to the given class. This method adds two
-    group of triples. The first group models the class as a subclass
-    of entities that have all of the given tags (the 'OWL.intersectionOf'
-    the OWL.Restriction classes modeled as entities that have a given tag).
+    groups of triples.
 
-    The second group of triples uses the BRICK.hasAssociatedTag property
+    The first group of triples uses the BRICK.hasAssociatedTag property
     to associate the tags with this class. While this is duplicate information,
     it is much easier to query for.
+
+    The second group of triples uses SHACL-AF rules to generate the appropriate
+    Brick class from a set of tags. Strict equality of the tag set is required:
+    if two classes which are *not* related by a subclass relationship exist, but
+    one class's tags are a strict subset of the other, then under this regime
+    the subsumed class will *not* be inferred for instances of the class with more
+    tags.
 
     Args:
         klass: the URI of the Brick class to be modeled
@@ -89,38 +95,44 @@ def add_tags(klass, definition):
     """
     if len(definition) == 0:
         return
-    all_restrictions = []
-    equivalent_class = BNode()
-    list_name = BNode()
-
     for tag in definition:
         G.add((klass, BRICK.hasAssociatedTag, tag))
 
-    for idnum, item in enumerate(definition):
-        restriction = BNode(f"has_{item.split('#')[-1]}")
-        all_restrictions.append(restriction)
-        G.add((restriction, A, OWL.Restriction))
-        G.add((restriction, OWL.onProperty, BRICK.hasTag))
-        G.add((restriction, OWL.hasValue, item))
-        G.add((item, A, BRICK.Tag))  # make sure the tag is declared as such
-        G.add(
-            (item, RDFS.label, Literal(item.split("#")[-1]))
-        )  # make sure the tag is declared as such
+    # add SHACL shape
+    sc = URIRef(str(klass) + "_TagShape")
+    G.add((sc, A, SH.NodeShape))
+    G.add((sc, SH.targetSubjectsOf, BRICK.hasTag))
+    rule = BNode(str(klass) + "TagInferenceRule")
+    G.add((sc, SH.rule, rule))
 
-    # tag index
-    tagset = tuple(sorted([item.split("#")[-1] for item in definition]))
-    tag_lookup[tagset].add(klass)
-
-    # if we've already mapped this class, don't map it again
-    if klass in intersection_classes:
-        return
-    if len(all_restrictions) == 1:
-        G.add((klass, RDFS.subClassOf, all_restrictions[0]))
-    if len(all_restrictions) > 1:
-        G.add((klass, RDFS.subClassOf, equivalent_class))
-        G.add((equivalent_class, OWL.intersectionOf, list_name))
-        Collection(G, list_name, all_restrictions)
-    intersection_classes[klass] = tuple(sorted(definition))
+    # define rule
+    G.add((rule, A, SH.TripleRule))
+    G.add((rule, SH.subject, SH.this))
+    G.add((rule, SH.predicate, RDF.type))
+    G.add((rule, SH.object, klass))
+    # conditions
+    for item in definition:
+        if item in shacl_tag_property_shapes:
+            G.add((rule, SH.condition, shacl_tag_property_shapes[item]))
+            continue
+        cond = BNode(f"has_{item.split('#')[-1]}_condition")
+        prop = BNode(f"has_{item.split('#')[-1]}")
+        tagshape = BNode()
+        G.add((rule, SH.condition, cond))
+        G.add((cond, SH.property, prop))
+        G.add((prop, SH.path, BRICK.hasTag))
+        G.add((prop, SH.qualifiedValueShape, tagshape))
+        G.add((tagshape, SH.hasValue, item))
+        G.add((prop, SH.qualifiedMinCount, Literal(1)))
+        shacl_tag_property_shapes[item] = cond
+    # tag count condition
+    cond = BNode()
+    prop = BNode()
+    G.add((rule, SH.condition, cond))
+    G.add((cond, SH.property, prop))
+    G.add((prop, SH.path, BRICK.hasTag))
+    G.add((prop, SH.minCount, Literal(len(definition))))
+    G.add((prop, SH.maxCount, Literal(len(definition))))
 
 
 def define_concept_hierarchy(definitions, typeclasses, broader=None, related=None):
