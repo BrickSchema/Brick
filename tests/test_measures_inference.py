@@ -45,8 +45,8 @@ def test_measurable_hierarchy():
 
 
 def test_measures_infers():
-    g = rdflib.Graph()
-    g.parse("Brick.ttl", format="turtle")
+    g = brickschema.Graph()
+    g.load_file("Brick.ttl")
 
     qstr = """select ?class ?o where {
       ?class rdfs:subClassOf+ brick:Class.
@@ -66,7 +66,7 @@ def test_measures_infers():
 
     # Infer classes of the entities.
     # Apply reasoner
-    g = brickschema.inference.OWLRLInferenceSession(load_brick=False).expand(g)
+    g.expand(profile="owlrl")
 
     qstr = """select ?instance ?class where {
         ?instance a ?class.
