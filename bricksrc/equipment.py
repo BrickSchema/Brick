@@ -436,6 +436,9 @@ valve_subclasses = {
             "Chilled_Water_Valve": {
                 "tags": [TAG.Chilled, TAG.Valve, TAG.Water, TAG.Equipment],
             },
+            "Condenser_Water_Valve": {
+                "tags": [TAG.Condenser, TAG.Valve, TAG.Water, TAG.Equipment],
+            },
             "Hot_Water_Valve": {
                 "tags": [TAG.Hot, TAG.Valve, TAG.Water, TAG.Equipment],
                 "parents": [BRICK.Heating_Valve],
