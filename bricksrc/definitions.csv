@@ -137,6 +137,7 @@ https://brickschema.org/schema/1.1/Brick#Cooling_Temperature_Setpoint,Sets tempe
 https://brickschema.org/schema/1.1/Brick#Cooling_Tower,"A cooling tower is a heat rejection device that rejects waste heat to the atmosphere through the cooling of a water stream to a lower temperature. Cooling towers may either use the evaporation of water to remove process heat and cool the working fluid to near the wet-bulb air temperature or, in the case of closed circuit dry cooling towers, rely solely on air to cool the working fluid to near the dry-bulb air temperature.",https://en.wikipedia.org/wiki/Cooling_tower
 https://brickschema.org/schema/1.1/Brick#Cooling_Tower_Fan,A fan that pulls air through a cooling tower and across the louvers where the water falls to aid in heat exchange by the process of evaporation,https://highperformancehvac.com/cooling-tower-fan/
 https://brickschema.org/schema/1.1/Brick#Cooling_Valve,A valve that controls air temperature by modulating the amount of cold water flowing through a cooling coil,
+https://brickschema.org/schema/1.1/Brick#Core_Temperature_Sensor,Measures the internal temperature of the radiant layer at the heat source or sink level of the radiant heating and cooling HVAC system.,
 https://brickschema.org/schema/1.1/Brick#CRAC,,
 https://brickschema.org/schema/1.1/Brick#Current,,
 https://brickschema.org/schema/1.1/Brick#Current_Angle,Angle of current phasor,
@@ -260,6 +261,7 @@ https://brickschema.org/schema/1.1/Brick#Electrical_Power_Sensor,Measures the am
 https://brickschema.org/schema/1.1/Brick#Electrical_System,Devices that serve or are part of the electrical subsystem in the building,
 https://brickschema.org/schema/1.1/Brick#Elevator,"A device that provides vertical transportation between floors, levels or decks of a building, vessel or other structure",https://en.wikipedia.org/wiki/Elevator
 https://brickschema.org/schema/1.1/Brick#Embedded_Surface_System,Radiant panel heating and cooling system where the energy heat source or sink is embedded in a radiant layer which is thermally insulated from the building structure.,See also Low temperature heating and high temperature cooling REHVA guidebook
+https://brickschema.org/schema/1.1/Brick#Embedded_Temperature_Sensor,Measures the internal temperature of the radiant layer of the radiant heating and cooling HVAC system.,
 https://brickschema.org/schema/1.1/Brick#Emergency_Alarm,Alarms that indicate off-normal conditions associated with emergency systems,
 https://brickschema.org/schema/1.1/Brick#Emergency_Generator_Alarm,An alarm that indicates off-normal conditions associated with an emergency generator,
 https://brickschema.org/schema/1.1/Brick#Emergency_Generator_Status,Indicates if an emergency generator is active,
@@ -439,6 +441,7 @@ https://brickschema.org/schema/1.1/Brick#Ice,Water in its solid form,
 https://brickschema.org/schema/1.1/Brick#Ice_Tank_Leaving_Water_Temperature_Sensor,Measures the temperature of water leaving an ice tank,
 https://brickschema.org/schema/1.1/Brick#Illuminance,,
 https://brickschema.org/schema/1.1/Brick#Illuminance_Sensor,"Measures the total luminous flux incident on a surface, per unit area",
+https://brickschema.org/schema/1.1/Brick#Inside_Face_Surface_Temperature_Sensor,Measures the inside surface (relative to the space) of the radiant panel of the radiant heating and cooling HVAC system.,
 https://brickschema.org/schema/1.1/Brick#Intake_Air_Filter,Filters air intake,
 https://brickschema.org/schema/1.1/Brick#Intake_Air_Temperature_Sensor,Measures air at the interface between the building and the outside,
 https://brickschema.org/schema/1.1/Brick#Integral_Gain_Parameter,,
@@ -592,6 +595,7 @@ https://brickschema.org/schema/1.1/Brick#Outside_Air_Temperature_Low_Reset_Setpo
 https://brickschema.org/schema/1.1/Brick#Outside_Air_Temperature_Sensor,Measures the temperature of outside air,
 https://brickschema.org/schema/1.1/Brick#Outside_Air_Temperature_Setpoint,Sets temperature of outside air,
 https://brickschema.org/schema/1.1/Brick#Outside_Damper,A damper that modulates the flow of outside air,
+https://brickschema.org/schema/1.1/Brick#Outside_Face_Surface_Temperature_Sensor,Measures the outside surface (relative to the space) of the radiant panel of a radiant heating and cooling HVAC system.,
 https://brickschema.org/schema/1.1/Brick#Outside_Illuminance_Sensor,"Measures the total luminous flux incident on an outside, per unit area",
 https://brickschema.org/schema/1.1/Brick#Overload_Alarm,An alarm that can indicate when a full-load current is exceeded.,
 https://brickschema.org/schema/1.1/Brick#Overridden_Off_Status,"Indicates if a control loop, relay or equipment has been turned off when it would otherwise be scheduled to be on",
@@ -644,6 +648,7 @@ https://brickschema.org/schema/1.1/Brick#Quantity,,
 https://brickschema.org/schema/1.1/Brick#Radiance,,
 https://brickschema.org/schema/1.1/Brick#Radiant_Ceiling_Panel,Radiant panel heating and cooling system that are usually made from metal and suspended under the ceiling or insulated from the building structure.,See also Low temperature heating and high temperature cooling REHVA guidebook
 https://brickschema.org/schema/1.1/Brick#Radiant_Panel,A temperature-controlled surface that provides fifty percent (50%) or more of the design heat transfer by thermal radiation.,"See also ASHRAE HVAC Systems & Equipment, Ch 6: Radiant Heating & Cooling"
+https://brickschema.org/schema/1.1/Brick#Radiant_Panel_Temperature_Sensor,Measures the temperature of the radiant panel of the radiant heating and cooling HVAC system.,
 https://brickschema.org/schema/1.1/Brick#Radiant_Temperature,the uniform temperature of an imaginary enclosure in which the radiant heat transfer from the human body is equal to the radiant heat transfer in the actual non-uniform enclosure. (https://en.wikipedia.org/wiki/Mean_radiant_temperature),
 https://brickschema.org/schema/1.1/Brick#Radiator,Heat exchangers designed to transfer thermal energy from one medium to another,
 https://brickschema.org/schema/1.1/Brick#Rain_Duration_Sensor,Measures the duration of precipitation within some time frame,
