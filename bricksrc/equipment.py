@@ -395,11 +395,11 @@ hvac_subclasses = {
     "Air_Handler_Unit": {
         # here for historical purposes
         "tags": [TAG.Equipment, TAG.Air, TAG.Handler, TAG.Unit],
-        OWL.equivalentClass: BRICK["AHU"],
+        OWL.equivalentClass: [BRICK["AHU"], BRICK["Air_Handling_Unit"]],
     },
     "Air_Handling_Unit": {
         "tags": [TAG.Equipment, TAG.Air, TAG.Handling, TAG.Unit],
-        OWL.equivalentClass: BRICK["AHU"],
+        OWL.equivalentClass: [BRICK["AHU"], BRICK["Air_Handler_Unit"]],
     },
     "AHU": {
         "tags": [TAG.Equipment, TAG.AHU],
