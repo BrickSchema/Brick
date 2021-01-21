@@ -1383,9 +1383,31 @@ setpoint_definitions = {
                     },
                     "Cooling_Temperature_Setpoint": {
                         "tags": [TAG.Point, TAG.Temperature, TAG.Setpoint, TAG.Cool],
+                        "subclasses": {
+                            "Unoccupied_Cooling_Temperature_Setpoint": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Unoccupied,
+                                    TAG.Cooling,
+                                    TAG.Temperature,
+                                    TAG.Setpoint,
+                                ],
+                            },
+                        },
                     },
                     "Heating_Temperature_Setpoint": {
                         "tags": [TAG.Point, TAG.Temperature, TAG.Setpoint, TAG.Heat],
+                        "subclasses": {
+                            "Unoccupied_Heating_Temperature_Setpoint": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Unoccupied,
+                                    TAG.Heating,
+                                    TAG.Temperature,
+                                    TAG.Setpoint,
+                                ],
+                            },
+                        },
                     },
                     "Schedule_Temperature_Setpoint": {
                         "tags": [
@@ -1394,6 +1416,55 @@ setpoint_definitions = {
                             TAG.Setpoint,
                             TAG.Schedule,
                         ],
+                    },
+                    "Radiant_Panel_Temperature_Setpoint": {
+                        "tags": [
+                            TAG.Point,
+                            TAG.Radiant,
+                            TAG.Panel,
+                            TAG.Temperature,
+                            TAG.Setpoint,
+                        ],
+                        "subclasses": {
+                            "Inside_Face_Surface_Temperature_Setpoint": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Inside,
+                                    TAG.Face,
+                                    TAG.Surface,
+                                    TAG.Temperature,
+                                    TAG.Setpoint,
+                                ],
+                            },
+                            "Outside_Face_Surface_Temperature_Setpoint": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Outside,
+                                    TAG.Face,
+                                    TAG.Surface,
+                                    TAG.Temperature,
+                                    TAG.Setpoint,
+                                ],
+                            },
+                            "Embedded_Temperature_Setpoint": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Embedded,
+                                    TAG.Temperature,
+                                    TAG.Setpoint,
+                                ],
+                                "subclasses": {
+                                    "Core_Temperature_Setpoint": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Core,
+                                            TAG.Temperature,
+                                            TAG.Setpoint,
+                                        ],
+                                    },
+                                },
+                            },
+                        },
                     },
                     "Water_Temperature_Setpoint": {
                         "subclasses": {
