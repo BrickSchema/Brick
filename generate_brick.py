@@ -121,31 +121,30 @@ def add_tags(klass, definition):
     G.add((rule, SH.predicate, RDF.type))
     G.add((rule, SH.object, klass))
     # conditions
-    for item in definition:
+    for tag in definition:
 
-        if item not in has_tag_restriction_class:
-            restriction = BNode(f"has_{item.split('#')[-1]}")
+        if tag not in has_tag_restriction_class:
+            restriction = BNode(f"has_{tag.split('#')[-1]}")
             G.add((restriction, A, OWL.Restriction))
             G.add((restriction, OWL.onProperty, BRICK.hasTag))
-            G.add((restriction, OWL.hasValue, item))
-            has_tag_restriction_class[item] = restriction
-        all_restrictions.append(has_tag_restriction_class[item])
+            G.add((restriction, OWL.hasValue, tag))
+            has_tag_restriction_class[tag] = restriction
+        all_restrictions.append(has_tag_restriction_class[tag])
 
-        if item in shacl_tag_property_shapes:
-            G.add((rule, SH.condition, shacl_tag_property_shapes[item]))
-            continue
-        cond = BNode(f"has_{item.split('#')[-1]}_condition")
-        prop = BNode(f"has_{item.split('#')[-1]}_tag")
-        tagshape = BNode()
-        G.add((rule, SH.condition, cond))
-        G.add((cond, SH.property, prop))
-        G.add((prop, SH.path, BRICK.hasTag))
-        G.add((prop, SH.qualifiedValueShape, tagshape))
-        # G.add((tagshape, SH["class"], has_tag_restriction_class[item]))
-        G.add((tagshape, SH.hasValue, item))
-        G.add((prop, SH.qualifiedMinCount, Literal(1)))
-        G.add((prop, SH.qualifiedMaxCount, Literal(1)))
-        shacl_tag_property_shapes[item] = cond
+        if tag not in shacl_tag_property_shapes:
+            cond = BNode(f"has_{tag.split('#')[-1]}_condition")
+            prop = BNode(f"has_{tag.split('#')[-1]}_tag")
+            tagshape = BNode()
+            G.add((rule, SH.condition, cond))
+            G.add((cond, SH.property, prop))
+            G.add((prop, SH.path, BRICK.hasTag))
+            G.add((prop, SH.qualifiedValueShape, tagshape))
+            # G.add((tagshape, SH["class"], has_tag_restriction_class[tag]))
+            G.add((tagshape, SH.hasValue, tag))
+            G.add((prop, SH.qualifiedMinCount, Literal(1)))
+            G.add((prop, SH.qualifiedMaxCount, Literal(1)))
+            shacl_tag_property_shapes[tag] = cond
+        G.add((rule, SH.condition, shacl_tag_property_shapes[tag]))
     num_tags = len(definition)
     if len(definition) not in has_exactly_n_tags_shapes:
         # tag count condition
