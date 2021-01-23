@@ -1090,6 +1090,29 @@ parameter_definitions = {
                             },
                         },
                     },
+                    "CO2_Setpoint_Limit": {
+                        "tags": [TAG.Point, TAG.CO2, TAG.Limit, TAG.Setpoint],
+                        "subclasses": {
+                            "CO2_High_Setpoint_Limit": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.CO2,
+                                    TAG.High,
+                                    TAG.Limit,
+                                    TAG.Setpoint,
+                                ],
+                            },
+                            "CO2_Low_Setpoint_Limit": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.CO2,
+                                    TAG.Low,
+                                    TAG.Limit,
+                                    TAG.Setpoint,
+                                ],
+                            },
+                        },
+                    },
                     "Ventilation_Air_Flow_Ratio_Limit": {
                         "tags": [
                             TAG.Point,

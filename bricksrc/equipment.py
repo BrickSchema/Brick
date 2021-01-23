@@ -241,6 +241,7 @@ hvac_subclasses = {
                         ],
                         OWL.equivalentClass: BRICK["RCP"],
                     },
+                    "RCP": {"tags": [TAG.Equipment, TAG.RCP]},
                 },
             },
             "Radiator": {
@@ -290,6 +291,25 @@ hvac_subclasses = {
                     },
                 },
             },
+            "Underfloor_Air_Distribution": {
+                "tags": [
+                    TAG.Equipment,
+                    TAG.Underfloor,
+                    TAG.Air,
+                    TAG.Distribution,
+                ],
+                OWL.equivalentClass: BRICK["UFAD"],
+            },
+            "UFAD": {"tags": [TAG.Equipment, TAG.UFAD]},
+            "Displacement_Ventilation": {
+                "tags": [
+                    TAG.Equipment,
+                    TAG.Displacement,
+                    TAG.Ventilation,
+                ],
+                OWL.equivalentClass: BRICK["DV"],
+            },
+            "DV": {"tags": [TAG.Equipment, TAG.DV]},
         },
     },
     "Space_Heater": {"tags": [TAG.Equipment, TAG.Space, TAG.Heater]},
