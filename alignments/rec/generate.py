@@ -14,7 +14,7 @@ graph.parse(sys.argv[1], format=file_format)
 
 OWL = Namespace("http://www.w3.org/2002/07/owl#")
 RDF = Namespace("http://www.w3.org/1999/02/22-rdf-syntax-ns#")
-BRICK = Namespace("https://brickschema.org/schema/1.1/Brick#")
+BRICK = Namespace("https://brickschema.org/schema/1.2/Brick#")
 REC_DEVICE = Namespace("https://w3id.org/rec/device/")
 REC_CORE = Namespace("https://w3id.org/rec/core/")
 
@@ -50,4 +50,4 @@ for device_type, brick_class in mapping.items():
 
     graph.add((brick_class, OWL.equivalentClass, equivalent_class))
 
-graph.serialize("Brick-REC-alignment.ttl")
+graph.serialize("Brick-REC-alignment.ttl", format="ttl")
