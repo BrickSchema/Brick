@@ -117,10 +117,12 @@ def test_all_quantities_have_units():
 
     # test the definitions by making sure that some quantities have applicable
     # units
-    quantities_without_units = g.query(
-        "SELECT ?q WHERE { \
+    quantities_without_units = list(
+        g.query(
+            "SELECT ?q WHERE { \
              ?q rdf:type brick:Quantity .\
              FILTER NOT EXISTS {?q qudt:applicableUnit ?unit} }"
+        )
     )
     if len(quantities_without_units) > 0:
         warnings.warn(

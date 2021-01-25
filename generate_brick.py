@@ -146,14 +146,6 @@ def define_concept_hierarchy(definitions, typeclasses, broader=None, related=Non
         class_label = concept.split("#")[-1].replace("_", " ")
         G.add((concept, RDFS.label, Literal(class_label)))
 
-        # define mapping to tags if it exists
-        # "tags" property is a list of URIs naming Tags
-        taglist = defn.get("tags", [])
-        assert isinstance(taglist, list)
-        if len(taglist) == 0:
-            logging.warning(f"Property 'tags' not defined for {concept}")
-        add_tags(concept, taglist)
-
         # define mapping to substances + quantities if it exists
         # "substances" property is a list of (predicate, object) pairs
         substancedef = defn.get("substances", [])
