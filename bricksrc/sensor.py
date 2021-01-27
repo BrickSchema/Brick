@@ -1269,7 +1269,21 @@ sensor_definitions = {
                             [BRICK.measures, BRICK.Deionized_Water],
                             [BRICK.measures, BRICK.Level],
                         ],
-                    }
+                    },
+                    "Collection_Basin_Water_Level_Sensor": {
+                        "tags": [
+                            TAG.Collection,
+                            TAG.Basin,
+                            TAG.Water,
+                            TAG.Level,
+                            TAG.Sensor,
+                            TAG.Point,
+                        ],
+                        "substances": [
+                            [BRICK.measures, BRICK.Collection_Basin_Water],
+                            [BRICK.measures, BRICK.Level],
+                        ],
+                    },
                 },
             },
             "Usage_Sensor": {
@@ -1802,6 +1816,20 @@ sensor_definitions = {
                                         ],
                                     },
                                 },
+                            },
+                            "Collection_Basin_Water_Temperature_Sensor": {
+                                "substances": [
+                                    [BRICK.measures, BRICK.Temperature],
+                                    [BRICK.measures, BRICK.Collection_Basin_Water],
+                                ],
+                                "tags": [
+                                    TAG.Collection,
+                                    TAG.Basin,
+                                    TAG.Water,
+                                    TAG.Temperature,
+                                    TAG.Sensor,
+                                    TAG.Point,
+                                ],
                             },
                         },
                     },

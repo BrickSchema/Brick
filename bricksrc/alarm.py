@@ -252,6 +252,21 @@ alarm_definitions = {
                     "Water_Loss_Alarm": {
                         "tags": [TAG.Point, TAG.Loss, TAG.Water, TAG.Alarm],
                     },
+                    "Water_Level_Alarm": {
+                        "tags": [TAG.Water, TAG.Level, TAG.Alarm, TAG.Point],
+                        "subclasses": {
+                            "Collection_Basin_Water_Level_Alarm": {
+                                "tags": [
+                                    TAG.Collection,
+                                    TAG.Basin,
+                                    TAG.Water,
+                                    TAG.Level,
+                                    TAG.Alarm,
+                                    TAG.Point,
+                                ]
+                            }
+                        },
+                    },
                 },
             },
         },

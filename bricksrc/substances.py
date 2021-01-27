@@ -97,6 +97,15 @@ substances = {
                                     },
                                 },
                             },
+                            "Collection_Basin_Water": {
+                                "tags": [
+                                    TAG.Fluid,
+                                    TAG.Liquid,
+                                    TAG.Water,
+                                    TAG.Collection,
+                                    TAG.Basin,
+                                ]
+                            },
                             "Blowdown_Water": {
                                 "tags": [
                                     TAG.Fluid,
