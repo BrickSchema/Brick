@@ -479,7 +479,20 @@ valve_subclasses = {
         },
     },
     "Gas_Valve": {"tags": [TAG.Gas, TAG.Valve, TAG.Equipment]},
-    "Isolation_Valve": {"tags": [TAG.Isolation, TAG.Valve, TAG.Equipment]},
+    "Isolation_Valve": {
+        "tags": [TAG.Isolation, TAG.Valve, TAG.Equipment],
+        "subclasses": {
+            "Condenser_Water_Isolation_Valve": {
+                "tags": [
+                    TAG.Condenser,
+                    TAG.Water,
+                    TAG.Isolation,
+                    TAG.Valve,
+                    TAG.Equipment,
+                ]
+            }
+        },
+    },
     "Steam_Valve": {"tags": [TAG.Steam, TAG.Valve, TAG.Equipment]},
     "Bypass_Valve": {
         "tags": [TAG.Bypass, TAG.Valve, TAG.Equipment],
