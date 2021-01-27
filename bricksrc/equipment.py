@@ -466,6 +466,16 @@ valve_subclasses = {
                     },
                 },
             },
+            "Makeup_Water_Valve": {
+                "tags": [
+                    TAG.Fluid,
+                    TAG.Liquid,
+                    TAG.Water,
+                    TAG.Makeup,
+                    TAG.Valve,
+                    TAG.Equipment,
+                ]
+            },
         },
     },
     "Gas_Valve": {"tags": [TAG.Gas, TAG.Valve, TAG.Equipment]},
