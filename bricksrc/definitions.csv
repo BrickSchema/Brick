@@ -686,6 +686,8 @@ https://brickschema.org/schema/1.2/Brick#Return_Air_Temperature_High_Reset_Setpo
 https://brickschema.org/schema/1.2/Brick#Return_Air_Temperature_Low_Reset_Setpoint,,
 https://brickschema.org/schema/1.2/Brick#Return_Air_Temperature_Sensor,Measures the temperature of return air,
 https://brickschema.org/schema/1.2/Brick#Return_Air_Temperature_Setpoint,"The target temperature for return air, often used as an approximation of zone air temperature",
+https://brickschema.org/schema/1.2/Brick#Return_Condenser_Water,"In a condenser water loop, this is water being brought away from the condenser side of a heat-rejection device (e.g. chiller). It is the 'warm' side.",,
+https://brickschema.org/schema/1.2/Brick#Supply_Condenser_Water,"In a condenser water loop, this is water being brought to the condenser side of a heat-rejection device (e.g. chiller). It is the 'cold' side.",,
 https://brickschema.org/schema/1.2/Brick#Return_Damper,A damper that modulates the flow of return air,
 https://brickschema.org/schema/1.2/Brick#Return_Fan,Fan moving return air -- air that is circulated from the building back into the HVAC system,
 https://brickschema.org/schema/1.2/Brick#Return_Heating_Valve,A valve installed on the return side of a heat exchanger,
