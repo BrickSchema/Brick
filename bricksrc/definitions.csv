@@ -832,6 +832,7 @@ https://brickschema.org/schema/1.2/Brick#Unoccupied_Load_Shed_Command,,
 https://brickschema.org/schema/1.2/Brick#Usage_Sensor,"Measures the amount of some substance that is consumed or used, over some period of time",
 https://brickschema.org/schema/1.2/Brick#Valve,"A device that regulates, directs or controls the flow of a fluid by opening, closing or partially obstructing various passageways",https://en.wikipedia.org/wiki/Valve
 https://brickschema.org/schema/1.2/Brick#Valve_Command,Controls or reports the openness of a valve (typically as a proportion of its full range of motion),
+https://brickschema.org/schema/1.2/Brick#Valve_Position_Sensor,Measures the current position of a valve in terms of the percent of fully open,
 https://brickschema.org/schema/1.2/Brick#Variable_Air_Volume_Box,A device that regulates the volume and temperature of air delivered to a zone by opening or closing a damper,https://en.wikipedia.org/wiki/Variable_air_volume
 https://brickschema.org/schema/1.2/Brick#Variable_Air_Volume_Box_With_Reheat,A VAV box with a reheat coil mounted on the discharge end of the unit that can heat the air delivered to a zone,
 https://brickschema.org/schema/1.2/Brick#Variable_Frequency_Drive,"Electronic device that varies its output frequency to vary the rotating speed of a motor, given a fixed input frequency. Used with fans or pumps to vary the flow in the system as a function of a maintained pressure.",https://xp20.ashrae.org/terminology/index.php?term=vfd&submit=Search

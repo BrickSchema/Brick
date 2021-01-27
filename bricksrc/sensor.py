@@ -148,6 +148,9 @@ sensor_definitions = {
                     "Damper_Position_Sensor": {
                         "tags": [TAG.Point, TAG.Damper, TAG.Position, TAG.Sensor],
                     },
+                    "Valve_Position_Sensor": {
+                        "tags": [TAG.Point, TAG.Valve, TAG.Position, TAG.Sensor],
+                    },
                 },
             },
             "Demand_Sensor": {
