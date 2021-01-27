@@ -1805,6 +1805,37 @@ sensor_definitions = {
                             },
                         },
                     },
+                    "Air_Wet_Bulb_Temperature_Sensor": {
+                        "substances": [
+                            [BRICK.measures, BRICK.Temperature],
+                            [BRICK.measures, BRICK.Air],
+                        ],
+                        "tags": [
+                            TAG.Air,
+                            TAG.Wet,
+                            TAG.Bulb,
+                            TAG.Temperature,
+                            TAG.Sensor,
+                            TAG.Point,
+                        ],
+                        "subclasses": {
+                            "Outside_Air_Wet_Bulb_Temperature_Sensor": {
+                                "substances": [
+                                    [BRICK.measures, BRICK.Temperature],
+                                    [BRICK.measures, BRICK.Outside_Air],
+                                ],
+                                "tags": [
+                                    TAG.Outside,
+                                    TAG.Air,
+                                    TAG.Wet,
+                                    TAG.Bulb,
+                                    TAG.Temperature,
+                                    TAG.Sensor,
+                                    TAG.Point,
+                                ],
+                            }
+                        },
+                    },
                 },
             },
         },
