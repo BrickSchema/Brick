@@ -1936,7 +1936,7 @@ sensor_definitions = {
                     },
                     "Air_Wet_Bulb_Temperature_Sensor": {
                         "substances": [
-                            [BRICK.measures, BRICK.Temperature],
+                            [BRICK.measures, BRICK.Wet_Bulb_Temperature],
                             [BRICK.measures, BRICK.Air],
                         ],
                         "tags": [
@@ -1950,7 +1950,7 @@ sensor_definitions = {
                         "subclasses": {
                             "Outside_Air_Wet_Bulb_Temperature_Sensor": {
                                 "substances": [
-                                    [BRICK.measures, BRICK.Temperature],
+                                    [BRICK.measures, BRICK.Wet_Bulb_Temperature],
                                     [BRICK.measures, BRICK.Outside_Air],
                                 ],
                                 "tags": [
