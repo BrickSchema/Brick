@@ -1939,7 +1939,7 @@ sensor_definitions = {
                             [BRICK.measures, BRICK.Wet_Bulb_Temperature],
                             [BRICK.measures, BRICK.Air],
                         ],
-                        "parents": ["Air_Temperature_Sensor"],
+                        "parents": [BRICK.Air_Temperature_Sensor],
                         "tags": [
                             TAG.Air,
                             TAG.Wet,
@@ -1954,7 +1954,7 @@ sensor_definitions = {
                                     [BRICK.measures, BRICK.Wet_Bulb_Temperature],
                                     [BRICK.measures, BRICK.Outside_Air],
                                 ],
-                                "parents": ["Outside_Air_Temperature_Sensor"],
+                                "parents": [BRICK.Outside_Air_Temperature_Sensor],
                                 "tags": [
                                     TAG.Outside,
                                     TAG.Air,
