@@ -110,9 +110,9 @@ https://brickschema.org/schema/1.2/Brick#Cold_Box,"in a gas separation unit, the
 https://brickschema.org/schema/1.2/Brick#Coldest_Zone_Air_Temperature_Sensor,The zone temperature that is coldest; drives the supply temperature of hot air. A computed value rather than a physical sensor. Also referred to as a 'Lowest Zone Air Temperature Sensor',
 https://brickschema.org/schema/1.2/Brick#Collection_Basin_Water,"Water transiently collected and directed to the sump or pump suction line, typically integral with a cooling tower",https://www.towercomponentsinc.com/cooling-tower-basics-misc-terms-glossary
 https://brickschema.org/schema/1.2/Brick#Collection_Basin_Water_Heater,"Basin heaters prevent cold water basin freeze-up, e.g. in cooling towers, closed circuit fluid coolers, or evaporative condensers",https://www.coolingtowerworld.com/c-30-basin-heater.aspx
-https://brickschema.org/schema/1.2/Brick#Collection_Basin_Water_Level_Alarm,"An alarm that indicates a high or low level of water in the collection basin, e.g. within a Cooling_Tower"
-https://brickschema.org/schema/1.2/Brick#Collection_Basin_Water_Level_Sensor,"Measures the level of the water in the collection basin, e.g. within a Cooling_Tower"
-https://brickschema.org/schema/1.2/Brick#Collection_Basin_Water_Temperature_Sensor,"Measures the temperature of the water in the collection basin, e.g. within a Cooling_Tower"
+https://brickschema.org/schema/1.2/Brick#Collection_Basin_Water_Level_Alarm,"An alarm that indicates a high or low level of water in the collection basin, e.g. within a Cooling_Tower",
+https://brickschema.org/schema/1.2/Brick#Collection_Basin_Water_Level_Sensor,"Measures the level of the water in the collection basin, e.g. within a Cooling_Tower",
+https://brickschema.org/schema/1.2/Brick#Collection_Basin_Water_Temperature_Sensor,"Measures the temperature of the water in the collection basin, e.g. within a Cooling_Tower",
 https://brickschema.org/schema/1.2/Brick#Command,A Command is an output point that directly determines the behavior of equipment and/or affects relevant operational points.,
 https://brickschema.org/schema/1.2/Brick#Communication_Loss_Alarm,An alarm that indicates a loss of communication e.g. with a device or controller,
 https://brickschema.org/schema/1.2/Brick#Complex_Power,"Complex Power, under sinusoidal conditions, is the product of the phasor (U) representing the voltage between the terminals of a linear two-terminal element or two-terminal circuit and the complex conjugate of the phasor (I) representing the electric current in the element or circuit.",
@@ -687,10 +687,10 @@ https://brickschema.org/schema/1.2/Brick#Return_Air_Temperature_High_Reset_Setpo
 https://brickschema.org/schema/1.2/Brick#Return_Air_Temperature_Low_Reset_Setpoint,,
 https://brickschema.org/schema/1.2/Brick#Return_Air_Temperature_Sensor,Measures the temperature of return air,
 https://brickschema.org/schema/1.2/Brick#Return_Air_Temperature_Setpoint,"The target temperature for return air, often used as an approximation of zone air temperature",
-https://brickschema.org/schema/1.2/Brick#Return_Condenser_Water,"In a condenser water loop, this is water being brought away from the condenser side of a heat-rejection device (e.g. chiller). It is the 'warm' side.",,
+https://brickschema.org/schema/1.2/Brick#Return_Condenser_Water,"In a condenser water loop, this is water being brought away from the condenser side of a heat-rejection device (e.g. chiller). It is the 'warm' side.",
 https://brickschema.org/schema/1.2/Brick#Return_Condenser_Water_Flow_Sensor,Measures the flow of the return condenser water,
 https://brickschema.org/schema/1.2/Brick#Return_Condenser_Water_Temperature_Sensor,Measures the temperature of the return condenser water,
-https://brickschema.org/schema/1.2/Brick#Supply_Condenser_Water,"In a condenser water loop, this is water being brought to the condenser side of a heat-rejection device (e.g. chiller). It is the 'cold' side.",,
+https://brickschema.org/schema/1.2/Brick#Supply_Condenser_Water,"In a condenser water loop, this is water being brought to the condenser side of a heat-rejection device (e.g. chiller). It is the 'cold' side.",
 https://brickschema.org/schema/1.2/Brick#Supply_Condenser_Water_Flow_Sensor,Measures the flow of the supply condenser water,
 https://brickschema.org/schema/1.2/Brick#Supply_Condenser_Water_Temperature_Sensor,Measures the temperature of the supply condenser water,
 https://brickschema.org/schema/1.2/Brick#Supply_Condenser_Water_Temperature_Setpoint,The temperature setpoint for the supply condenser water,
