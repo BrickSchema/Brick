@@ -64,6 +64,7 @@ https://brickschema.org/schema/1.2/Brick#Bypass_Air,"air in a bypass duct, used 
 https://brickschema.org/schema/1.2/Brick#Bypass_Air_Flow_Sensor,Measures the rate of flow of bypass air,
 https://brickschema.org/schema/1.2/Brick#Bypass_Air_Humidity_Setpoint,Humidity setpoint for bypass air,
 https://brickschema.org/schema/1.2/Brick#Bypass_Command,,
+https://brickschema.org/schema/1.2/Brick#Bypass_Valve,A type of valve installed in a bypass pipeline,https://www.petropedia.com/definition/5050/bypass-valve
 https://brickschema.org/schema/1.2/Brick#Capacity,,
 https://brickschema.org/schema/1.2/Brick#Capacity_Sensor,,
 https://brickschema.org/schema/1.2/Brick#Ceiling_Fan,A fan installed on the ceiling of a room for the purpose of air circulation,
@@ -122,6 +123,7 @@ https://brickschema.org/schema/1.2/Brick#Condenser_Heat_Exchanger,A heat exchang
 https://brickschema.org/schema/1.2/Brick#Condenser_Water,Water used used to remove heat through condensation,
 https://brickschema.org/schema/1.2/Brick#Condenser_Water_Pump,A pump that is part of a condenser system; the pump circulates condenser water from the chiller back to the cooling tower,
 https://brickschema.org/schema/1.2/Brick#Condenser_Water_System,"A heat rejection system consisting of (typically) cooling towers, condenser water pumps, chillers and the piping connecting the components",https://www.linquip.com/blog/condenser-water-system-an-overview/
+https://brickschema.org/schema/1.2/Brick#Condenser_Water_Bypass_Valve,A valve installed in a bypass line of a condenser water loop,
 https://brickschema.org/schema/1.2/Brick#Condenser_Water_Valve,A valve that modulates the flow of condenser water,
 https://brickschema.org/schema/1.2/Brick#Conductivity,,
 https://brickschema.org/schema/1.2/Brick#Constant_Air_Volume_Box,A terminal unit for which supply air flow rate is constant and the supply air temperature is varied to meet thermal load,https://en.wikipedia.org/wiki/Constant_air_volume
