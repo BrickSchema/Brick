@@ -264,6 +264,20 @@ hvac_subclasses = {
         },
     },
     "Space_Heater": {"tags": [TAG.Equipment, TAG.Space, TAG.Heater]},
+    "Water_Heater": {
+        "tags": [TAG.Water, TAG.Heater, TAG.Equipment],
+        "subclasses": {
+            "Collection_Basin_Water_Heater": {
+                "tags": [
+                    TAG.Collection,
+                    TAG.Basin,
+                    TAG.Water,
+                    TAG.Heater,
+                    TAG.Equipment,
+                ],
+            }
+        },
+    },
     "Pump": {
         "tags": [TAG.Equipment, TAG.Pump],
         "subclasses": {

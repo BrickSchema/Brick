@@ -109,6 +109,7 @@ https://brickschema.org/schema/1.2/Brick#Coil,Cooling or heating element made of
 https://brickschema.org/schema/1.2/Brick#Cold_Box,"in a gas separation unit, the insulated section that contains the low-temperature heat exchangers and distillation columns.",
 https://brickschema.org/schema/1.2/Brick#Coldest_Zone_Air_Temperature_Sensor,The zone temperature that is coldest; drives the supply temperature of hot air. A computed value rather than a physical sensor. Also referred to as a 'Lowest Zone Air Temperature Sensor',
 https://brickschema.org/schema/1.2/Brick#Collection_Basin_Water,"Water transiently collected and directed to the sump or pump suction line, typically integral with a cooling tower",https://www.towercomponentsinc.com/cooling-tower-basics-misc-terms-glossary
+https://brickschema.org/schema/1.2/Brick#Collection_Basin_Water_Heater,"Basin heaters prevent cold water basin freeze-up, e.g. in cooling towers, closed circuit fluid coolers, or evaporative condensers",https://www.coolingtowerworld.com/c-30-basin-heater.aspx
 https://brickschema.org/schema/1.2/Brick#Collection_Basin_Water_Level_Alarm,"An alarm that indicates a high or low level of water in the collection basin, e.g. within a Cooling_Tower"
 https://brickschema.org/schema/1.2/Brick#Collection_Basin_Water_Level_Sensor,"Measures the level of the water in the collection basin, e.g. within a Cooling_Tower"
 https://brickschema.org/schema/1.2/Brick#Collection_Basin_Water_Temperature_Sensor,"Measures the temperature of the water in the collection basin, e.g. within a Cooling_Tower"
@@ -853,6 +854,7 @@ https://brickschema.org/schema/1.2/Brick#Water,"transparent, odorless, tasteless
 https://brickschema.org/schema/1.2/Brick#Water_Alarm,An alarm that indicates water leaks.,
 https://brickschema.org/schema/1.2/Brick#Water_Distribution,Utilize a water distribution source to represent how water is distributed across multiple destinations (pipes),
 https://brickschema.org/schema/1.2/Brick#Water_Flow_Sensor,Measures the rate of flow of water,
+https://brickschema.org/schema/1.2/Brick#Water_Heater,An apparatus for heating and usually storing hot water,https://www.merriam-webster.com/dictionary/waterheater
 https://brickschema.org/schema/1.2/Brick#Water_Level_Alarm,An alarm that indicates a high or low water level e.g. in a basin,
 https://brickschema.org/schema/1.2/Brick#Water_Level_Sensor,Measures the height/level of water in some container,
 https://brickschema.org/schema/1.2/Brick#Water_Loss_Alarm,An alarm that indicates a loss of water e.g. during transport,
