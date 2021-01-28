@@ -11,11 +11,37 @@ system_subclasses = {
         "tags": [TAG.Heat, TAG.Ventilation, TAG.Air, TAG.Conditioning, TAG.System],
         "subclasses": {
             "Steam_System": {"tags": [TAG.Steam, TAG.System]},
+            "Ventilation_Air_System": {
+                "tags": [TAG.Ventilation, TAG.Air, TAG.System],
+            },
             "Water_System": {
                 "tags": [TAG.Water, TAG.System],
                 "subclasses": {
                     "Chilled_Water_System": {
                         "tags": [TAG.Water, TAG.Chilled, TAG.System],
+                    },
+                    "Radiation_Water_System": {
+                        "tags": [TAG.Water, TAG.Radiation, TAG.System],
+                        "subclasses": {
+                            "Radiation_Hot_Water_System": {
+                                "tags": [
+                                    TAG.Water,
+                                    TAG.Radiation,
+                                    TAG.Hot,
+                                    TAG.System,
+                                ],
+                                "parents": [BRICK.Hot_Water_System],
+                            },
+                            "Radiation_Chilled_Water_System": {
+                                "tags": [
+                                    TAG.Water,
+                                    TAG.Radiation,
+                                    TAG.Chilled,
+                                    TAG.System,
+                                ],
+                                "parents": [BRICK.Chilled_Water_System],
+                            },
+                        },
                     },
                     "Hot_Water_System": {
                         "tags": [TAG.Water, TAG.Hot, TAG.System],
@@ -35,15 +61,6 @@ system_subclasses = {
                                     TAG.Water,
                                     TAG.System,
                                     TAG.Reheat,
-                                    TAG.System,
-                                ]
-                            },
-                            "Radiation_Hot_Water_System": {
-                                "tags": [
-                                    TAG.Hot,
-                                    TAG.Water,
-                                    TAG.System,
-                                    TAG.Radiation,
                                     TAG.System,
                                 ]
                             },
