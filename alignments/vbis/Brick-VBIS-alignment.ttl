@@ -83,12 +83,6 @@ vbisalign:BoilerShape a sh:NodeShape ;
             sh:pattern "^ME-Bo.*$" ] ;
     sh:targetClass brick:Boiler .
 
-vbisalign:Booster_FanShape a sh:NodeShape ;
-    sh:property [ a sh:PropertyShape ;
-            sh:path vbisalign:hasVBISTag ;
-            sh:pattern "^ME-Fa.*$" ] ;
-    sh:targetClass brick:Booster_Fan .
-
 vbisalign:Breaker_PanelShape a sh:NodeShape ;
     sh:property [ a sh:PropertyShape ;
             sh:path vbisalign:hasVBISTag ;
@@ -225,18 +219,6 @@ vbisalign:Chilled_Water_MeterShape a sh:NodeShape ;
                 sh:pattern "^BMC-Me-En.*$" ] ) ;
     sh:targetClass brick:Chilled_Water_Meter .
 
-vbisalign:Chilled_Water_PumpShape a sh:NodeShape ;
-    sh:property [ a sh:PropertyShape ;
-            sh:path vbisalign:hasVBISTag ;
-            sh:pattern "^ME-Pu.*$" ] ;
-    sh:targetClass brick:Chilled_Water_Pump .
-
-vbisalign:Chilled_Water_ValveShape a sh:NodeShape ;
-    sh:property [ a sh:PropertyShape ;
-            sh:path vbisalign:hasVBISTag ;
-            sh:pattern "^ME-Va.*$" ] ;
-    sh:targetClass brick:Chilled_Water_Valve .
-
 vbisalign:ChillerShape a sh:NodeShape ;
     sh:property [ a sh:PropertyShape ;
             sh:path vbisalign:hasVBISTag ;
@@ -267,35 +249,11 @@ vbisalign:CondenserShape a sh:NodeShape ;
             sh:pattern "^ME-ACC.*$" ] ;
     sh:targetClass brick:Condenser .
 
-vbisalign:Condenser_Heat_ExchangerShape a sh:NodeShape ;
-    sh:property [ a sh:PropertyShape ;
-            sh:path vbisalign:hasVBISTag ;
-            sh:pattern "^ME-HE.*$" ] ;
-    sh:targetClass brick:Condenser_Heat_Exchanger .
-
-vbisalign:Condenser_Water_PumpShape a sh:NodeShape ;
-    sh:property [ a sh:PropertyShape ;
-            sh:path vbisalign:hasVBISTag ;
-            sh:pattern "^ME-Pu.*$" ] ;
-    sh:targetClass brick:Condenser_Water_Pump .
-
-vbisalign:Cooling_CoilShape a sh:NodeShape ;
-    sh:property [ a sh:PropertyShape ;
-            sh:path vbisalign:hasVBISTag ;
-            sh:pattern "^ME-Co.*$" ] ;
-    sh:targetClass brick:Cooling_Coil .
-
 vbisalign:Cooling_Tower_FanShape a sh:NodeShape ;
     sh:property [ a sh:PropertyShape ;
             sh:path vbisalign:hasVBISTag ;
             sh:pattern "^ME-Fa-CT.*$" ] ;
     sh:targetClass brick:Cooling_Tower_Fan .
-
-vbisalign:Cooling_ValveShape a sh:NodeShape ;
-    sh:property [ a sh:PropertyShape ;
-            sh:path vbisalign:hasVBISTag ;
-            sh:pattern "^ME-Va.*$" ] ;
-    sh:targetClass brick:Cooling_Valve .
 
 vbisalign:DamperShape a sh:NodeShape ;
     sh:property [ a sh:PropertyShape ;
@@ -315,23 +273,11 @@ vbisalign:DimmerShape a sh:NodeShape ;
             sh:path vbisalign:hasVBISTag ] ;
     sh:targetClass brick:Dimmer .
 
-vbisalign:Discharge_FanShape a sh:NodeShape ;
-    sh:property [ a sh:PropertyShape ;
-            sh:path vbisalign:hasVBISTag ;
-            sh:pattern "^ME-Fa.*$" ] ;
-    sh:targetClass brick:Discharge_Fan .
-
 vbisalign:Disconnect_SwitchShape a sh:NodeShape ;
     sh:property [ a sh:PropertyShape ;
             sh:path vbisalign:hasVBISTag ;
             sh:pattern "^EP-SG.*$" ] ;
     sh:targetClass brick:Disconnect_Switch .
-
-vbisalign:Domestic_Hot_Water_ValveShape a sh:NodeShape ;
-    sh:property [ a sh:PropertyShape ;
-            sh:path vbisalign:hasVBISTag ;
-            sh:pattern "^ME-Va.*$" ] ;
-    sh:targetClass brick:Domestic_Hot_Water_Valve .
 
 vbisalign:Door_ControllerShape a sh:NodeShape ;
     sh:property [ a sh:PropertyShape ;
@@ -350,12 +296,6 @@ vbisalign:EconomizerShape a sh:NodeShape ;
             sh:path vbisalign:hasVBISTag ;
             sh:pattern "^ME-Da.*$" ] ;
     sh:targetClass brick:Economizer .
-
-vbisalign:Economizer_DamperShape a sh:NodeShape ;
-    sh:property [ a sh:PropertyShape ;
-            sh:path vbisalign:hasVBISTag ;
-            sh:pattern "^ME-Da.*$" ] ;
-    sh:targetClass brick:Economizer_Damper .
 
 vbisalign:Electrical_EquipmentShape a sh:NodeShape ;
     sh:property [ a sh:PropertyShape ;
@@ -420,24 +360,6 @@ vbisalign:Energy_StorageShape a sh:NodeShape ;
             sh:path vbisalign:hasVBISTag ;
             sh:pattern "^EP-BS.*$" ] ;
     sh:targetClass brick:Energy_Storage .
-
-vbisalign:Evaporative_Heat_ExchngerShape a sh:NodeShape ;
-    sh:property [ a sh:PropertyShape ;
-            sh:path vbisalign:hasVBISTag ;
-            sh:pattern "^ME-HE.*$" ] ;
-    sh:targetClass brick:Evaporative_Heat_Exchnger .
-
-vbisalign:Exhaust_DamperShape a sh:NodeShape ;
-    sh:property [ a sh:PropertyShape ;
-            sh:path vbisalign:hasVBISTag ;
-            sh:pattern "^ME-Da.*$" ] ;
-    sh:targetClass brick:Exhaust_Damper .
-
-vbisalign:Exhaust_FanShape a sh:NodeShape ;
-    sh:property [ a sh:PropertyShape ;
-            sh:path vbisalign:hasVBISTag ;
-            sh:pattern "^ME-Fa.*$" ] ;
-    sh:targetClass brick:Exhaust_Fan .
 
 vbisalign:Eye_Wash_StationShape a sh:NodeShape ;
     sh:or ( [ a sh:PropertyShape ;
@@ -533,12 +455,6 @@ vbisalign:Gas_MeterShape a sh:NodeShape ;
                 sh:pattern "^BMC-FM.*$" ] ) ;
     sh:targetClass brick:Gas_Meter .
 
-vbisalign:Gas_ValveShape a sh:NodeShape ;
-    sh:property [ a sh:PropertyShape ;
-            sh:path vbisalign:hasVBISTag ;
-            sh:pattern "^ME-Va.*$" ] ;
-    sh:targetClass brick:Gas_Valve .
-
 vbisalign:HVACShape a sh:NodeShape ;
     sh:property [ a sh:PropertyShape ;
             sh:path vbisalign:hasVBISTag ;
@@ -585,18 +501,6 @@ vbisalign:Heat_Wheel_VFDShape a sh:NodeShape ;
             sh:pattern "^ME-EMS-VSD.*$" ] ;
     sh:targetClass brick:Heat_Wheel_VFD .
 
-vbisalign:Heating_CoilShape a sh:NodeShape ;
-    sh:property [ a sh:PropertyShape ;
-            sh:path vbisalign:hasVBISTag ;
-            sh:pattern "^ME-Co.*$" ] ;
-    sh:targetClass brick:Heating_Coil .
-
-vbisalign:Heating_ValveShape a sh:NodeShape ;
-    sh:property [ a sh:PropertyShape ;
-            sh:path vbisalign:hasVBISTag ;
-            sh:pattern "^ME-Va.*$" ] ;
-    sh:targetClass brick:Heating_Valve .
-
 vbisalign:Hot_Water_MeterShape a sh:NodeShape ;
     sh:or ( [ a sh:PropertyShape ;
                 sh:path vbisalign:hasVBISTag ;
@@ -608,12 +512,6 @@ vbisalign:Hot_Water_MeterShape a sh:NodeShape ;
                 sh:path vbisalign:hasVBISTag ;
                 sh:pattern "^BMC-Me-En.*$" ] ) ;
     sh:targetClass brick:Hot_Water_Meter .
-
-vbisalign:Hot_Water_PumpShape a sh:NodeShape ;
-    sh:property [ a sh:PropertyShape ;
-            sh:path vbisalign:hasVBISTag ;
-            sh:pattern "^ME-Pu.*$" ] ;
-    sh:targetClass brick:Hot_Water_Pump .
 
 vbisalign:Intercom_EquipmentShape a sh:NodeShape ;
     sh:property [ a sh:PropertyShape ;
@@ -680,12 +578,6 @@ vbisalign:InverterShape a sh:NodeShape ;
             sh:path vbisalign:hasVBISTag ;
             sh:pattern "^EP-SPS-In.*$" ] ;
     sh:targetClass brick:Inverter .
-
-vbisalign:Isolation_ValveShape a sh:NodeShape ;
-    sh:property [ a sh:PropertyShape ;
-            sh:path vbisalign:hasVBISTag ;
-            sh:pattern "^ME-Va.*$" ] ;
-    sh:targetClass brick:Isolation_Valve .
 
 vbisalign:JetShape a sh:NodeShape ;
     sh:property [ a sh:PropertyShape ;
@@ -767,12 +659,6 @@ vbisalign:Network_Video_RecorderShape a sh:NodeShape ;
             sh:path vbisalign:hasVBISTag ] ;
     sh:targetClass brick:Network_Video_Recorder .
 
-vbisalign:Outside_DamperShape a sh:NodeShape ;
-    sh:property [ a sh:PropertyShape ;
-            sh:path vbisalign:hasVBISTag ;
-            sh:pattern "^ME-Da.*$" ] ;
-    sh:targetClass brick:Outside_Damper .
-
 vbisalign:Packaged_Air_CooledShape a sh:NodeShape ;
     sh:property [ a sh:PropertyShape ;
             sh:path vbisalign:hasVBISTag ;
@@ -784,18 +670,6 @@ vbisalign:PlugStripShape a sh:NodeShape ;
             sh:in ( "EP-GPO-SP-Mu" "EP-GPO-SPUSB-Mu" ) ;
             sh:path vbisalign:hasVBISTag ] ;
     sh:targetClass brick:PlugStrip .
-
-vbisalign:Preheat_Hot_Water_ValveShape a sh:NodeShape ;
-    sh:property [ a sh:PropertyShape ;
-            sh:path vbisalign:hasVBISTag ;
-            sh:pattern "^ME-Va.*$" ] ;
-    sh:targetClass brick:Preheat_Hot_Water_Valve .
-
-vbisalign:Prehet_Hot_Water_ValveShape a sh:NodeShape ;
-    sh:property [ a sh:PropertyShape ;
-            sh:path vbisalign:hasVBISTag ;
-            sh:pattern "^ME-Va.*$" ] ;
-    sh:targetClass brick:Prehet_Hot_Water_Valve .
 
 vbisalign:PumpShape a sh:NodeShape ;
     sh:property [ a sh:PropertyShape ;
@@ -820,30 +694,6 @@ vbisalign:ReciprocatingShape a sh:NodeShape ;
             sh:path vbisalign:hasVBISTag ;
             sh:pattern "^ME-Chr.*-Re$" ] ;
     sh:targetClass brick:Reciprocating .
-
-vbisalign:Reheat_ValveShape a sh:NodeShape ;
-    sh:property [ a sh:PropertyShape ;
-            sh:path vbisalign:hasVBISTag ;
-            sh:pattern "^ME-Va.*$" ] ;
-    sh:targetClass brick:Reheat_Valve .
-
-vbisalign:Return_DamperShape a sh:NodeShape ;
-    sh:property [ a sh:PropertyShape ;
-            sh:path vbisalign:hasVBISTag ;
-            sh:pattern "^ME-Da.*$" ] ;
-    sh:targetClass brick:Return_Damper .
-
-vbisalign:Return_FanShape a sh:NodeShape ;
-    sh:property [ a sh:PropertyShape ;
-            sh:path vbisalign:hasVBISTag ;
-            sh:pattern "^ME-Fa.*$" ] ;
-    sh:targetClass brick:Return_Fan .
-
-vbisalign:Return_Heating_ValveShape a sh:NodeShape ;
-    sh:property [ a sh:PropertyShape ;
-            sh:path vbisalign:hasVBISTag ;
-            sh:pattern "^ME-Va.*$" ] ;
-    sh:targetClass brick:Return_Heating_Valve .
 
 vbisalign:Rooftop_UnitShape a sh:NodeShape ;
     sh:property [ a sh:PropertyShape ;
@@ -917,29 +767,11 @@ vbisalign:Standby_CRACShape a sh:NodeShape ;
             sh:pattern "^ME-PAC.*$" ] ;
     sh:targetClass brick:Standby_CRAC .
 
-vbisalign:Standby_FanShape a sh:NodeShape ;
-    sh:property [ a sh:PropertyShape ;
-            sh:path vbisalign:hasVBISTag ;
-            sh:pattern "^ME-Fa.*$" ] ;
-    sh:targetClass brick:Standby_Fan .
-
 vbisalign:Steam_DistributionShape a sh:NodeShape ;
     sh:property [ a sh:PropertyShape ;
             sh:path vbisalign:hasVBISTag ;
             sh:pattern "^ME-Bo-St.*$" ] ;
     sh:targetClass brick:Steam_Distribution .
-
-vbisalign:Steam_ValveShape a sh:NodeShape ;
-    sh:property [ a sh:PropertyShape ;
-            sh:path vbisalign:hasVBISTag ;
-            sh:pattern "^ME-Va.*$" ] ;
-    sh:targetClass brick:Steam_Valve .
-
-vbisalign:Supply_FanShape a sh:NodeShape ;
-    sh:property [ a sh:PropertyShape ;
-            sh:path vbisalign:hasVBISTag ;
-            sh:pattern "^ME-Fa.*$" ] ;
-    sh:targetClass brick:Supply_Fan .
 
 vbisalign:Surveillance_CameraShape a sh:NodeShape ;
     sh:property [ a sh:PropertyShape ;
@@ -1048,24 +880,6 @@ vbisalign:Water_MeterShape a sh:NodeShape ;
                 sh:path vbisalign:hasVBISTag ;
                 sh:pattern "^BMC-FM.*$" ] ) ;
     sh:targetClass brick:Water_Meter .
-
-vbisalign:Water_PumpShape a sh:NodeShape ;
-    sh:or ( [ a sh:PropertyShape ;
-                sh:path vbisalign:hasVBISTag ;
-                sh:pattern "^ME-Pu.*$" ] [ a sh:PropertyShape ;
-                sh:path vbisalign:hasVBISTag ;
-                sh:pattern "^HY-Pu.*$" ] [ a sh:PropertyShape ;
-                sh:path vbisalign:hasVBISTag ;
-                sh:pattern "^FS-Pu.*$" ] [ a sh:PropertyShape ;
-                sh:path vbisalign:hasVBISTag ;
-                sh:pattern "^LS-Pu.*$" ] ) ;
-    sh:targetClass brick:Water_Pump .
-
-vbisalign:Water_ValveShape a sh:NodeShape ;
-    sh:property [ a sh:PropertyShape ;
-            sh:path vbisalign:hasVBISTag ;
-            sh:pattern "^ME-Va.*$" ] ;
-    sh:targetClass brick:Water_Valve .
 
 vbisalign:Weather_StationShape a sh:NodeShape ;
     sh:property [ a sh:PropertyShape ;

@@ -59,7 +59,7 @@ def get_vbis_tags(d):
 
 # use a set to eliminate duplicate rows in the CSV file
 finished_brick_classes = set()
-with open("vbis-brick-v4.csv") as f:
+with open("vbis-brick-v5.csv") as f:
     r = csv.reader(f)
     header = next(r)
     for row in r:
