@@ -447,6 +447,14 @@ hvac_subclasses = {
         "tags": [TAG.Equipment, TAG.Air, TAG.Handling, TAG.Unit],
         OWL.equivalentClass: BRICK["AHU"],
     },
+    "Makeup_Air_Unit": {
+        "tags": [TAG.Equipment, TAG.Makeup, TAG.Air, TAG.Unit],
+        OWL.equivalentClass: BRICK["MAU"],
+    },
+    "Dedicated_Outdoor_Air_System": {
+        "tags": [TAG.Equipment, TAG.Dedicated, TAG.Outdoor, TAG.Air, TAG.System],
+        OWL.equivalentClass: BRICK["DOAS"],
+    },
     "AHU": {
         "tags": [TAG.Equipment, TAG.AHU],
         "subclasses": {
@@ -459,6 +467,8 @@ hvac_subclasses = {
                 OWL.equivalentClass: BRICK["Rooftop_Unit"],
             },
             "PAU": {"tags": [TAG.Equipment, TAG.PAU]},
+            "MAU": {"tags": [TAG.Equipment, TAG.MAU]},
+            "DOAS": {"tags": [TAG.Equipment, TAG.DOAS]},
         },
     },
 }
