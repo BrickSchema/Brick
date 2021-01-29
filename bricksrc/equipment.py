@@ -23,7 +23,10 @@ equipment_subclasses = {
             "Switchgear": {"tags": [TAG.Switchgear, TAG.Equipment]},
             "Bus_Riser": {"tags": [TAG.Riser, TAG.Equipment]},
             "Transformer": {"tags": [TAG.Transformer, TAG.Equipment]},
-            "Motor_Control_Center": {"tags": [TAG.Motor, TAG.Equipment]},
+            "Motor_Control_Center": {
+                # TODO: add TAG.Motor back
+                "tags": [TAG.Equipment, TAG.Control, TAG.Center]
+            },
             "Breaker_Panel": {"tags": [TAG.Breaker, TAG.Equipment]},
         },
     },
@@ -53,6 +56,9 @@ equipment_subclasses = {
                         "parents": [BRICK.Building_Meter],
                     }
                 },
+            },
+            "Thermal_Power_Meter": {
+                "tags": [TAG.Meter, TAG.Equipment, TAG.Thermal, TAG.Power],
             },
             "Water_Meter": {
                 "tags": [TAG.Meter, TAG.Equipment, TAG.Water],
@@ -344,6 +350,8 @@ hvac_subclasses = {
                 "tags": [TAG.Equipment, TAG.Fan, TAG.Supply],
                 OWL.equivalentClass: BRICK["Discharge_Fan"],
             },
+            "Ceiling_Fan": {"tags": [TAG.Equipment, TAG.Fan, TAG.Ceiling]},
+            "Fresh_Air_Fan": {"tags": [TAG.Equipment, TAG.Fan, TAG.Fresh, TAG.Air]},
         },
     },
     "Economizer": {"tags": [TAG.Equipment, TAG.Economizer]},
@@ -354,6 +362,7 @@ hvac_subclasses = {
             "Exhaust_Damper": {"tags": [TAG.Equipment, TAG.Damper, TAG.Exhaust]},
             "Outside_Damper": {"tags": [TAG.Equipment, TAG.Damper, TAG.Outside]},
             "Return_Damper": {"tags": [TAG.Equipment, TAG.Damper, TAG.Return]},
+            "Mixed_Damper": {"tags": [TAG.Equipment, TAG.Damper, TAG.Mixed]},
         },
     },
     "Condenser": {"tags": [TAG.Equipment, TAG.Condenser]},
@@ -386,11 +395,11 @@ hvac_subclasses = {
     "Air_Handler_Unit": {
         # here for historical purposes
         "tags": [TAG.Equipment, TAG.Air, TAG.Handler, TAG.Unit],
-        OWL.equivalentClass: BRICK["AHU"],
+        OWL.equivalentClass: [BRICK["AHU"], BRICK["Air_Handling_Unit"]],
     },
     "Air_Handling_Unit": {
         "tags": [TAG.Equipment, TAG.Air, TAG.Handling, TAG.Unit],
-        OWL.equivalentClass: BRICK["AHU"],
+        OWL.equivalentClass: [BRICK["AHU"], BRICK["Air_Handler_Unit"]],
     },
     "AHU": {
         "tags": [TAG.Equipment, TAG.AHU],
@@ -427,6 +436,9 @@ valve_subclasses = {
         "subclasses": {
             "Chilled_Water_Valve": {
                 "tags": [TAG.Chilled, TAG.Valve, TAG.Water, TAG.Equipment],
+            },
+            "Condenser_Water_Valve": {
+                "tags": [TAG.Condenser, TAG.Valve, TAG.Water, TAG.Equipment],
             },
             "Hot_Water_Valve": {
                 "tags": [TAG.Hot, TAG.Valve, TAG.Water, TAG.Equipment],

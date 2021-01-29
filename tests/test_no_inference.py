@@ -10,8 +10,8 @@ from bricksrc.namespaces import BRICK, TAG, SKOS, A  # noqa: E402
 
 BLDG = Namespace("https://brickschema.org/schema/ExampleBuilding#")
 
-g = rdflib.Graph()
-g.parse("Brick.ttl", format="turtle")
+g = brickschema.Graph()
+g.load_file("Brick.ttl")
 g.bind("rdf", RDF)
 g.bind("owl", OWL)
 g.bind("rdfs", RDFS)
@@ -55,7 +55,7 @@ g.add((BLDG.Zone1, BRICK.hasPart, BLDG.Room2))
 g.add((BLDG.TS1, BRICK.hasLocation, BLDG.Room1))
 
 # lets us use both relationships
-g = brickschema.inference.InverseEdgeInferenceSession(load_brick=False).expand(g)
+g.expand(profile="owlrl")
 
 
 def test_query_equipment():

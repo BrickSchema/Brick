@@ -736,7 +736,7 @@ sensor_definitions = {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Occupancy],
                 "substances": [[BRICK.measures, BRICK.Occupancy]],
                 "subclasses": {
-                    "PIR_Sensor": {"tags": [TAG.Point, TAG.Pir, TAG.Sensor]}
+                    "PIR_Sensor": {"tags": [TAG.Point, TAG.PIR, TAG.Sensor]}
                 },
             },
             "Piezoelectric_Sensor": {
@@ -762,7 +762,7 @@ sensor_definitions = {
                             "CO_Differential_Sensor": {
                                 "tags": [
                                     TAG.Point,
-                                    TAG.CO2,
+                                    TAG.CO,
                                     TAG.Differential,
                                     TAG.Sensor,
                                 ],
@@ -842,7 +842,13 @@ sensor_definitions = {
                         },
                     },
                     "PM10_Sensor": {
-                        "tags": [TAG.Point, TAG.Sensor, TAG.Particulate, TAG.Matter],
+                        "tags": [
+                            TAG.Point,
+                            TAG.Sensor,
+                            TAG.Particulate,
+                            TAG.Matter,
+                            TAG.PM10,
+                        ],
                         "substances": [
                             [BRICK.measures, BRICK.Air],
                             [BRICK.measures, BRICK.PM10_Concentration],
@@ -855,12 +861,19 @@ sensor_definitions = {
                                     TAG.Sensor,
                                     TAG.Particulate,
                                     TAG.Matter,
+                                    TAG.PM10,
                                 ],
                             }
                         },
                     },
                     "PM25_Sensor": {
-                        "tags": [TAG.Point, TAG.Sensor, TAG.Particulate, TAG.Matter],
+                        "tags": [
+                            TAG.Point,
+                            TAG.Sensor,
+                            TAG.Particulate,
+                            TAG.Matter,
+                            TAG.PM25,
+                        ],
                         "substances": [
                             [BRICK.measures, BRICK.Air],
                             [BRICK.measures, BRICK.PM25_Concentration],
@@ -873,6 +886,7 @@ sensor_definitions = {
                                     TAG.Sensor,
                                     TAG.Particulate,
                                     TAG.Matter,
+                                    TAG.PM25,
                                 ],
                             }
                         },

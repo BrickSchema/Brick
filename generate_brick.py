@@ -159,14 +159,6 @@ def define_concept_hierarchy(definitions, typeclasses, broader=None, related=Non
         class_label = concept.split("#")[-1].replace("_", " ")
         G.add((concept, RDFS.label, Literal(class_label)))
 
-        # define mapping to tags if it exists
-        # "tags" property is a list of URIs naming Tags
-        taglist = defn.get("tags", [])
-        assert isinstance(taglist, list)
-        if len(taglist) == 0:
-            logging.warning(f"Property 'tags' not defined for {concept}")
-        add_tags(concept, taglist)
-
         # define mapping to substances + quantities if it exists
         # "substances" property is a list of (predicate, object) pairs
         substancedef = defn.get("substances", [])
@@ -490,19 +482,6 @@ for r in res:
     for unit, symb in get_units(r[1]):
         G.add((r[0], QUDT.applicableUnit, unit))
         G.add((unit, QUDT.symbol, symb))
-
-logging.info("Finishing Tag definitions")
-# declares that all tags are pairwise different; i.e. no two tags refer
-# to the same tag
-different_tag_list = []
-tags = G.query("""SELECT ?tag WHERE { ?tag a brick:Tag }""")
-for tag in tags:
-    different_tag_list.append(TAG[tag])
-    G.add((TAG[tag], A, BRICK.Tag))
-different_tag = BNode("tags_are_different")
-G.add((BRICK.Tag, A, OWL.AllDifferent))
-G.add((BRICK.Tag, OWL.distinctMembers, different_tag))
-Collection(G, different_tag, different_tag_list)
 
 logging.info("Adding class definitions")
 add_definitions()

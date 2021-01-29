@@ -1,8 +1,8 @@
-@prefix brick: <https://brickschema.org/schema/1.1/Brick#> .
+@prefix brick: <https://brickschema.org/schema/1.2/Brick#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
-@prefix vbisalign: <https://brickschema.org/schema/1.1/Brick/alignments/vbis#> .
+@prefix vbisalign: <https://brickschema.org/schema/1.2/Brick/alignments/vbis#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 vbisalign:AEDShape a sh:NodeShape ;
