@@ -263,7 +263,6 @@ def define_classes(definitions, parent, pun_classes=False):
 
 
 def define_entity_properties(definitions, superprop=None):
-    G.add((PROP.EntityProperty, RDFS.subClassOf, OWL.ObjectProperty))
     # TODO: instantiate as an prop.EntityProperty
     for entprop, defn in definitions.items():
         G.add((entprop, A, PROP.EntityProperty))
@@ -279,8 +278,15 @@ def define_entity_properties(definitions, superprop=None):
 
 
 def define_shape_properties(definitions):
+    # TODO: add requirement for prop:value
     for shape_name, defn in definitions.items():
         G.add((shape_name, A, SH.NodeShape))
+
+        v = BNode()
+        G.add((shape_name, SH.property, v))
+        G.add((v, A, SH.PropertyShape))
+        G.add((v, SH.path, PROP.value))
+        G.add((v, SH.minCount, Literal(1)))
         # prop:value PropertyShape
         if "values" in defn:
             ps = BNode()
@@ -477,6 +483,8 @@ G.add((BRICK.Substance, RDFS.subClassOf, BRICK.Measurable))
 G.add((BRICK.Substance, A, OWL.Class))
 
 # entity property definitions
+G.add((PROP.EntityProperty, RDFS.subClassOf, OWL.ObjectProperty))
+G.add((PROP.EntityProperty, A, OWL.Class))
 define_shape_properties(shape_properties)
 define_entity_properties(entity_properties)
 
