@@ -107,6 +107,7 @@ prop:hasNetArea    rdfs:subPropertyOf  prop:hasArea ;
 .
 
 prop:AreaShape a sh:NodeShape ;
+    # TODO: sh:property path for prop:value
     rdfs:range qudt:Quantity ;
     sh:property [
         sh:path brick:hasUnit ;
@@ -313,6 +314,7 @@ prop:PhaseCountShape    a sh:NodeShape ;
     sh:property [
         a   sh:PropertyShape ;
         sh:path brick:value ;
+        # TODO: enumerate(1,2,3, Total)
         sh:datatype xsd:nonNegativeInteger ;
         sh:minCount 1 ;
     ] .

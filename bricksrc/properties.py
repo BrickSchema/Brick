@@ -1,9 +1,10 @@
-from .namespaces import A, OWL, RDFS, BRICK, VCARD, UNIT
+from .namespaces import A, OWL, RDFS, BRICK, VCARD, UNIT, PROP, QUDT
 
 """
 Defining properties
 """
 properties = {
+    PROP.value: {RDFS.subPropertyOf: QUDT.value},
     "isLocationOf": {
         A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         OWL.inverseOf: BRICK["hasLocation"],

@@ -7,7 +7,19 @@ from rdflib.collection import Collection
 
 from bricksrc.ontology import define_ontology
 
-from bricksrc.namespaces import BRICK, RDF, OWL, RDFS, TAG, SOSA, SKOS, QUDT, QUDTQK
+from bricksrc.namespaces import (
+    BRICK,
+    RDF,
+    OWL,
+    RDFS,
+    TAG,
+    SOSA,
+    SKOS,
+    QUDT,
+    QUDTQK,
+    SH,
+    PROP,
+)
 from bricksrc.namespaces import bind_prefixes
 
 from bricksrc.setpoint import setpoint_definitions
@@ -28,6 +40,7 @@ from bricksrc.equipment import (
 from bricksrc.substances import substances
 from bricksrc.quantities import quantity_definitions, get_units
 from bricksrc.properties import properties
+from bricksrc.entity_properties import shape_properties
 
 logging.basicConfig(
     format="%(asctime)s,%(msecs)d %(levelname)-8s [%(filename)s:%(lineno)d] %(message)s",
@@ -257,6 +270,25 @@ def define_classes(definitions, parent, pun_classes=False):
                 G.add((classname, propname, propval))
 
 
+def define_entity_properties():
+    pass
+
+
+def define_shape_properties(definitions):
+    for shape_name, defn in definitions.items():
+        G.add((shape_name, A, SH.NodeShape))
+        # prop:value PropertyShape
+        if "values" in defn:
+            ps = BNode()
+            enumeration = BNode()
+            G.add((shape_name, SH.property, ps))
+            G.add((ps, A, SH.PropertyShape))
+            G.add((ps, SH.path, PROP.value))
+            G.add((ps, SH["in"], enumeration))
+            G.add((ps, SH.minCount, 1))
+            Collection(G, enumeration, defn["values"])
+
+
 def define_properties(definitions, superprop=None):
     """
     Define BRICK properties
@@ -265,20 +297,22 @@ def define_properties(definitions, superprop=None):
         return
 
     for prop, propdefn in definitions.items():
-        G.add((BRICK[prop], A, OWL.ObjectProperty))
+        if isinstance(prop, str):
+            prop = BRICK[prop]
+        G.add((prop, A, OWL.ObjectProperty))
         if superprop is not None:
-            G.add((BRICK[prop], RDFS.subPropertyOf, superprop))
+            G.add((prop, RDFS.subPropertyOf, superprop))
 
         # define property types
         prop_types = propdefn.get(A, [])
         assert isinstance(prop_types, list)
         for prop_type in prop_types:
-            G.add((BRICK[prop], A, prop_type))
+            G.add((prop, A, prop_type))
 
         # define any subproperties
         subproperties_def = propdefn.get("subproperties", {})
         assert isinstance(subproperties_def, dict)
-        define_properties(subproperties_def, BRICK[prop])
+        define_properties(subproperties_def, prop)
 
         # define other properties of the Brick property
         for propname, propval in propdefn.items():
@@ -291,7 +325,7 @@ def define_properties(definitions, superprop=None):
 
             for propname in other_properties:
                 propval = propdefn[propname]
-                G.add((BRICK[prop], propname, propval))
+                G.add((prop, propname, propval))
 
 
 def add_definitions():
@@ -428,6 +462,8 @@ G.add((BRICK.Quantity, RDFS.subClassOf, SKOS.Concept))
 G.add((BRICK.Substance, RDFS.subClassOf, SOSA.FeatureOfInterest))
 G.add((BRICK.Substance, RDFS.subClassOf, BRICK.Measurable))
 G.add((BRICK.Substance, A, OWL.Class))
+
+define_shape_properties(shape_properties)
 
 # We make the punning explicit here. Any subclass of brick:Substance
 # is itself a substance or quantity. There is one canonical instance of
