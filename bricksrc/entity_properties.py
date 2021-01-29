@@ -58,6 +58,18 @@ entity_properties = {
         SKOS.definition: Literal("The current flow type of the entity"),
         RDFS.range: PROP.CurrentFlowTypeShape,
     },
+    # equipment operation properties
+    PROP.hasStage: {
+        SKOS.definition: Literal("The associated operational stage"),
+        RDFS.range: PROP.StageShape,
+    },
+    PROP.hasStageCount: {
+        SKOS.definition: Literal(
+            "The number of operational stages supported by this eqiupment"
+        ),
+        RDFS.domain: BRICK.Equipment,
+        RDFS.range: PROP.StageShape,
+    },
 }
 
 shape_properties = {
@@ -68,4 +80,5 @@ shape_properties = {
     PROP.PhasesShape: {"values": ["A", "B", "C", "AB", "BC", "AC", "ABC"]},
     PROP.PhaseCountShape: {"values": ["1", "2", "3", "Total"]},
     PROP.CurrentFlowTypeShape: {"values": ["AC", "DC"]},
+    PROP.StageShape: {"values": [1, 2, 3, 4]},
 }
