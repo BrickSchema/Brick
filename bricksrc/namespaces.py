@@ -5,7 +5,7 @@ BRICK = Namespace(f"https://brickschema.org/schema/{BRICK_VERSION}/Brick#")
 TAG = Namespace(f"https://brickschema.org/schema/{BRICK_VERSION}/BrickTag#")
 BSH = Namespace(f"https://brickschema.org/schema/{BRICK_VERSION}/BrickShape#")
 PROP = Namespace(
-    "https://brickschema.org/schema/{BRICK_VERSION}/BrickEntityProperties#"
+    f"https://brickschema.org/schema/{BRICK_VERSION}/BrickEntityProperties#"
 )
 SH = Namespace("http://www.w3.org/ns/shacl#")
 OWL = Namespace("http://www.w3.org/2002/07/owl#")

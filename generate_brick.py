@@ -40,7 +40,7 @@ from bricksrc.equipment import (
 from bricksrc.substances import substances
 from bricksrc.quantities import quantity_definitions, get_units
 from bricksrc.properties import properties
-from bricksrc.entity_properties import shape_properties
+from bricksrc.entity_properties import shape_properties, entity_properties
 
 logging.basicConfig(
     format="%(asctime)s,%(msecs)d %(levelname)-8s [%(filename)s:%(lineno)d] %(message)s",
@@ -262,8 +262,20 @@ def define_classes(definitions, parent, pun_classes=False):
                 G.add((classname, propname, propval))
 
 
-def define_entity_properties():
-    pass
+def define_entity_properties(definitions, superprop=None):
+    G.add((PROP.EntityProperty, RDFS.subClassOf, OWL.ObjectProperty))
+    # TODO: instantiate as an prop.EntityProperty
+    for entprop, defn in definitions.items():
+        G.add((entprop, A, PROP.EntityProperty))
+        if "subproperties" in defn:
+            subproperties = defn.pop("subproperties")
+            define_entity_properties(subproperties, entprop)
+        for prop, values in defn.items():
+            if isinstance(values, list):
+                for pv in values:
+                    G.add((entprop, prop, pv))
+            else:
+                G.add((entprop, prop, values))
 
 
 def define_shape_properties(definitions):
@@ -277,8 +289,17 @@ def define_shape_properties(definitions):
             G.add((ps, A, SH.PropertyShape))
             G.add((ps, SH.path, PROP.value))
             G.add((ps, SH["in"], enumeration))
-            G.add((ps, SH.minCount, 1))
-            Collection(G, enumeration, defn["values"])
+            G.add((ps, SH.minCount, Literal(1)))
+            Collection(G, enumeration, map(Literal, defn["values"]))
+        if "units" in defn:
+            ps = BNode()
+            enumeration = BNode()
+            G.add((shape_name, SH.property, ps))
+            G.add((ps, A, SH.PropertyShape))
+            G.add((ps, SH.path, BRICK.hasUnit))
+            G.add((ps, SH["in"], enumeration))
+            G.add((ps, SH.minCount, Literal(1)))
+            Collection(G, enumeration, defn["units"])
 
 
 def define_properties(definitions, superprop=None):
@@ -455,7 +476,9 @@ G.add((BRICK.Substance, RDFS.subClassOf, SOSA.FeatureOfInterest))
 G.add((BRICK.Substance, RDFS.subClassOf, BRICK.Measurable))
 G.add((BRICK.Substance, A, OWL.Class))
 
+# entity property definitions
 define_shape_properties(shape_properties)
+define_entity_properties(entity_properties)
 
 # We make the punning explicit here. Any subclass of brick:Substance
 # is itself a substance or quantity. There is one canonical instance of
