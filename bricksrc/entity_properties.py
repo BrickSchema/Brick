@@ -16,9 +16,6 @@ from rdflib import Namespace, Literal
 # - mincount / maxcaount?
 
 
-# TODO:
-# prop:EntityProperty  rdfs:subClassOf owl:ObjectProperty .
-
 entity_properties = {
     PROP.hasArea: {
         SKOS.definition: Literal("Entity has 2-dimensional area"),
@@ -69,6 +66,6 @@ shape_properties = {
     PROP.PowerComplexityShape: {"values": ["real", "reactive", "apparent"]},
     PROP.PowerFlowShape: {"values": ["import", "export", "net", "absolute"]},
     PROP.PhasesShape: {"values": ["A", "B", "C", "AB", "BC", "AC", "ABC"]},
-    PROP.PhaseCountShape: {"values": [1, 2, 3, "Total"]},
+    PROP.PhaseCountShape: {"values": ["1", "2", "3", "Total"]},
     PROP.CurrentFlowTypeShape: {"values": ["AC", "DC"]},
 }
