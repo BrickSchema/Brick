@@ -1417,6 +1417,36 @@ sensor_definitions = {
                                     TAG.Temperature,
                                     TAG.Sensor,
                                 ],
+                                "substances": [
+                                    [BRICK.measures, BRICK.Temperature],
+                                    [BRICK.measures, BRICK.Underfloor_Air],
+                                ],
+                            },
+                            "Entering_Air_Temperature_Sensor": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Entering,
+                                    TAG.Air,
+                                    TAG.Temperature,
+                                    TAG.Sensor,
+                                ],
+                                "substances": [
+                                    [BRICK.measures, BRICK.Temperature],
+                                    [BRICK.measures, BRICK.Entering_Air],
+                                ],
+                            },
+                            "Leaving_Air_Temperature_Sensor": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Leaving,
+                                    TAG.Air,
+                                    TAG.Temperature,
+                                    TAG.Sensor,
+                                ],
+                                "substances": [
+                                    [BRICK.measures, BRICK.Temperature],
+                                    [BRICK.measures, BRICK.Leaving_Air],
+                                ],
                             },
                             "Zone_Air_Temperature_Sensor": {
                                 "tags": [

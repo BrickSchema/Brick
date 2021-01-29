@@ -1248,6 +1248,24 @@ setpoint_definitions = {
                                     TAG.Setpoint,
                                 ],
                             },
+                            "Entering_Air_Temperature_Setpoint": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Entering,
+                                    TAG.Air,
+                                    TAG.Temperature,
+                                    TAG.Setpoint,
+                                ],
+                            },
+                            "Leaving_Air_Temperature_Setpoint": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Leaving,
+                                    TAG.Air,
+                                    TAG.Temperature,
+                                    TAG.Setpoint,
+                                ],
+                            },
                             "Outside_Air_Temperature_Setpoint": {
                                 "subclasses": {
                                     "Low_Outside_Air_Temperature_Enable_Setpoint": {
