@@ -56,6 +56,15 @@ tag_lookup = defaultdict(set)
 intersection_classes = {}
 
 
+def add_properties(item, propdefs):
+    for propname, propval in propdefs.items():
+        if isinstance(propval, list):
+            for pv in propdefs:
+                G.add((item, propname, pv))
+        elif not isinstance(propval, dict):
+            G.add((item, propname, propval))
+
+
 def add_restriction(klass, definition):
     """
     Defines OWL.Restrictions linked to Brick classes
@@ -278,15 +287,10 @@ def define_entity_properties(definitions, superprop=None):
 
 
 def define_shape_properties(definitions):
-    # TODO: add requirement for prop:value
     for shape_name, defn in definitions.items():
         G.add((shape_name, A, SH.NodeShape))
 
         v = BNode()
-        G.add((shape_name, SH.property, v))
-        G.add((v, A, SH.PropertyShape))
-        G.add((v, SH.path, PROP.value))
-        G.add((v, SH.minCount, Literal(1)))
         # prop:value PropertyShape
         if "values" in defn:
             ps = BNode()
@@ -296,7 +300,7 @@ def define_shape_properties(definitions):
             G.add((ps, SH.path, PROP.value))
             G.add((ps, SH["in"], enumeration))
             G.add((ps, SH.minCount, Literal(1)))
-            Collection(G, enumeration, map(Literal, defn["values"]))
+            Collection(G, enumeration, map(Literal, defn.pop("values")))
         if "units" in defn:
             ps = BNode()
             enumeration = BNode()
@@ -305,7 +309,28 @@ def define_shape_properties(definitions):
             G.add((ps, SH.path, BRICK.hasUnit))
             G.add((ps, SH["in"], enumeration))
             G.add((ps, SH.minCount, Literal(1)))
-            Collection(G, enumeration, defn["units"])
+            Collection(G, enumeration, defn.pop("units"))
+        if "properties" in defn:
+            for prop_name, prop_defn in defn.pop("properties").items():
+                ps = BNode()
+                G.add((shape_name, SH.property, ps))
+                G.add((ps, A, SH.PropertyShape))
+                G.add((ps, SH.path, prop_name))
+                G.add((ps, SH.minCount, Literal(1)))
+                if "datatype" in prop_defn:
+                    G.add((ps, SH.datatype, prop_defn.pop("datatype")))
+                elif "values" in prop_defn:
+                    enumeration = BNode()
+                    G.add((ps, SH["in"], enumeration))
+                    G.add((ps, SH.minCount, Literal(1)))
+                    Collection(G, enumeration, map(Literal, prop_defn.pop("values")))
+                add_properties(ps, prop_defn)
+        elif "datatype" in defn:
+            G.add((shape_name, SH.property, v))
+            G.add((v, A, SH.PropertyShape))
+            G.add((v, SH.path, PROP.value))
+            G.add((v, SH.datatype, defn.pop("datatype")))
+            G.add((v, SH.minCount, Literal(1)))
 
 
 def define_properties(definitions, superprop=None):
