@@ -1,8 +1,10 @@
 from .namespaces import BRICK, TAG, OWL, RDFS, SKOS, UNIT, PROP, XSD
 from rdflib import Namespace, Literal
 
-# TODO: aggregation
-
+# these are the "relationship"/predicates/OWL properties that
+# relate a Brick entity to a structured value.
+# These are all instances of Brick.EntityProperty, which is
+# a subclass of OWL.ObjectProperty
 entity_properties = {
     PROP.hasArea: {
         SKOS.definition: Literal("Entity has 2-dimensional area"),
@@ -71,6 +73,7 @@ entity_properties = {
     },
 }
 
+# These are the shapes that govern what values of Entity Properties should look like
 shape_properties = {
     PROP.AreaShape: {"units": [UNIT.FT2, UNIT.M2], "datatype": XSD.float},
     PROP.VolumeShape: {"units": [UNIT.FT3, UNIT.M3], "datatype": XSD.float},

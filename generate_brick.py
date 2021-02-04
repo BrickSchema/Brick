@@ -272,7 +272,11 @@ def define_classes(definitions, parent, pun_classes=False):
 
 
 def define_entity_properties(definitions, superprop=None):
-    # TODO: instantiate as an prop.EntityProperty
+    """
+    Defines the EntityProperty relationships and their subproperties.
+    Like most other generation methods in this file, it can add additional
+    properties to the EntityProperty instances (like SKOS.definition)
+    """
     for entprop, defn in definitions.items():
         G.add((entprop, A, PROP.EntityProperty))
         if "subproperties" in defn:
@@ -287,6 +291,21 @@ def define_entity_properties(definitions, superprop=None):
 
 
 def define_shape_properties(definitions):
+    """
+    Defines the NodeShapes that govern what the values of
+    EntityProperty relationships should look like. The important
+    keys are:
+    - values: defines the set of possible values of this property as an enumeration
+    - units: verifies that the units of the value are one of the given enumeration.
+    - datatype: specifies the expected kind of data type of prop:value
+    - properties: defines other epected properties of the Shape. These properties can have
+                'datatype' or 'values', in addition to other standard properties like
+                SKOS.definition
+
+    Some other usage notes:
+    - 'units' and 'datatype' should be used together
+    - 'values' should not be used with units or datatype
+    """
     for shape_name, defn in definitions.items():
         G.add((shape_name, A, SH.NodeShape))
 
@@ -508,6 +527,8 @@ G.add((BRICK.Substance, RDFS.subClassOf, BRICK.Measurable))
 G.add((BRICK.Substance, A, OWL.Class))
 
 # entity property definitions
+G.add((PROP.value, A, OWL.DatatypeProperty))
+G.add((PROP.value, SKOS.definition, Literal("The basic value of an entity property")))
 G.add((PROP.EntityProperty, RDFS.subClassOf, OWL.ObjectProperty))
 G.add((PROP.EntityProperty, A, OWL.Class))
 define_shape_properties(shape_properties)
