@@ -363,6 +363,7 @@ https://brickschema.org/schema/1.2/Brick#hasOutputSubstance,The subject produces
 https://brickschema.org/schema/1.2/Brick#hasPart,The subject is composed in part of the entity given by the object,
 https://brickschema.org/schema/1.2/Brick#hasPoint,The subject has a digital/analog input/output point given by the object,
 https://brickschema.org/schema/1.2/Brick#hasTag,The subject has the given tag,
+https://brickschema.org/schema/1.2/Brick#hasTimeseriesId,The unique identifier (primary key) for this TimeseriesReference in some database,
 https://brickschema.org/schema/1.2/Brick#hasUnit,The QUDT unit associated with this Point,
 https://brickschema.org/schema/1.2/Brick#Heat_Exchanger,A heat exchanger is a piece of equipment built for efficient heat transfer from one medium to another. The media may be separated by a solid wall to prevent mixing or they may be in direct contact,BEDES
 https://brickschema.org/schema/1.2/Brick#Heat_Exchanger_Supply_Water_Temperature_Sensor,Measures the temperature of water supplied by a heat exchanger,
@@ -737,6 +738,7 @@ https://brickschema.org/schema/1.2/Brick#Steam_Radiator,Radiator that uses steam
 https://brickschema.org/schema/1.2/Brick#Steam_System,"The equipment, devices and conduits that handle the production and distribution of steam in a building",
 https://brickschema.org/schema/1.2/Brick#Steam_Usage_Sensor,"Measures the amount of steam that is consumed or used, over some period of time",
 https://brickschema.org/schema/1.2/Brick#Step_Parameter,,
+https://brickschema.org/schema/1.2/Brick#storedAt,A reference to where the data for this TimeseriesReference is stored,
 https://brickschema.org/schema/1.2/Brick#Substance,,
 https://brickschema.org/schema/1.2/Brick#Supply_Air,"(1) air delivered by mechanical or natural ventilation to a space, composed of any combination of outdoor air, recirculated air, or transfer air. (2) air entering a space from an air-conditioning, heating, or ventilating apparatus for the purpose of comfort conditioning. Supply air is generally filtered, fan forced, and either heated, cooled, humidified, or dehumidified as necessary to maintain specified conditions. Only the quantity of outdoor air within the supply airflow may be used as replacement air.",
 https://brickschema.org/schema/1.2/Brick#Supply_Air_Duct_Pressure_Status,Indicates if air pressure in supply duct is within expected bounds,
@@ -803,6 +805,7 @@ https://brickschema.org/schema/1.2/Brick#Thermostat,An automatic control device 
 https://brickschema.org/schema/1.2/Brick#Time,,
 https://brickschema.org/schema/1.2/Brick#Time_Parameter,,
 https://brickschema.org/schema/1.2/Brick#Time_Setpoint,,
+https://brickschema.org/schema/1.2/Brick#timeseries,"Relates a Brick point to the TimeseriesReference that indicates where and how the data for this point is stored",
 https://brickschema.org/schema/1.2/Brick#Today_Peak_Energy_Sensor,Measures the peak amount of energy consumed so far today,
 https://brickschema.org/schema/1.2/Brick#Today_Steam_Usage_Sensor,Measures the amount of steam that is consumed or used so far today,
 https://brickschema.org/schema/1.2/Brick#Tolerance_Parameter,difference between upper and lower limits of size for a given nominal dimension or value.,
