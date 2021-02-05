@@ -85,7 +85,7 @@ entity_properties = {
         ),
         RDFS.domain: BRICK.Building,
         RDFS.range: PROP.YearBuiltShape,
-        RDFS.seeAlso: "https://project-haystack.org/tag/yearBuilt",
+        RDFS.seeAlso: Literal("https://project-haystack.org/tag/yearBuilt"),
     },
     # special stuff
     PROP.aggregate: {
