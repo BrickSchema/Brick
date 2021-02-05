@@ -9,7 +9,7 @@ from bricksrc.namespaces import BRICK, TAG, A, SKOS  # noqa: E402
 BLDG = Namespace("https://brickschema.org/schema/ExampleBuilding#")
 
 g = brickschema.Graph()
-g.parse("Brick.ttl", format="turtle")
+g.parse("Brick+extensions.ttl", format="turtle")
 
 # Instances
 g.add((BLDG.Coil_1, A, BRICK.Heating_Coil))

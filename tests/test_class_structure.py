@@ -23,7 +23,8 @@ g.bind("bldg", BLDG)
 def test_subclasses():
     subclasses1 = g.query(
         "SELECT ?parent ?child WHERE {\
-                                ?child rdfs:subClassOf ?parent\
+                                ?child rdfs:subClassOf ?parent . \
+                                FILTER NOT EXISTS {?parent a sh:NodeShape} \
                           }"
     )
     subclasses2 = g.query(
@@ -58,6 +59,7 @@ def test_subclasses():
             RDFS.Class,
             RDF.Property,
             OWL.Class,
+            OWL.ObjectProperty,
             VCARD.Address,
             SKOS.Concept,
             UNIT.Unit,
