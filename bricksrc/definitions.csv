@@ -609,7 +609,7 @@ https://brickschema.org/schema/1.2/Brick#Outside_Air_Temperature_High_Reset_Setp
 https://brickschema.org/schema/1.2/Brick#Outside_Air_Temperature_Low_Reset_Setpoint,,
 https://brickschema.org/schema/1.2/Brick#Outside_Air_Temperature_Sensor,Measures the temperature of outside air,
 https://brickschema.org/schema/1.2/Brick#Outside_Air_Temperature_Setpoint,Sets temperature of outside air,
-https://brickschema.org/schema/1.2/Brick#Outside_Air_Wet_Bulb_Temperature,The wet-bulb temperature of outside air,
+https://brickschema.org/schema/1.2/Brick#Outside_Air_Wet_Bulb_Temperature_Sensor,A sensor measuring the wet-bulb temperature of outside air,
 https://brickschema.org/schema/1.2/Brick#Outside_Damper,A damper that modulates the flow of outside air,
 https://brickschema.org/schema/1.2/Brick#Outside_Illuminance_Sensor,"Measures the total luminous flux incident on an outside, per unit area",
 https://brickschema.org/schema/1.2/Brick#Overload_Alarm,An alarm that can indicate when a full-load current is exceeded.,
