@@ -39,7 +39,8 @@ G = Graph()
 bind_prefixes(G)
 A = RDF.type
 
-tag_lookup = defaultdict(set)
+shaclGraph = Graph()
+bind_prefixes(shaclGraph)
 intersection_classes = {}
 has_tag_restriction_class = {}
 shacl_tag_property_shapes = {}
@@ -110,16 +111,16 @@ def add_tags(klass, definition):
 
     # add SHACL shape
     sc = BSH[klass.split("#")[-1] + "_TagShape"]
-    G.add((sc, A, SH.NodeShape))
+    shaclGraph.add((sc, A, SH.NodeShape))
     # G.add((sc, SH.targetSubjectsOf, BRICK.hasTag))
     rule = BNode(str(klass) + "TagInferenceRule")
-    G.add((sc, SH.rule, rule))
+    shaclGraph.add((sc, SH.rule, rule))
 
     # define rule
-    G.add((rule, A, SH.TripleRule))
-    G.add((rule, SH.subject, SH.this))
-    G.add((rule, SH.predicate, RDF.type))
-    G.add((rule, SH.object, klass))
+    shaclGraph.add((rule, A, SH.TripleRule))
+    shaclGraph.add((rule, SH.subject, SH.this))
+    shaclGraph.add((rule, SH.predicate, RDF.type))
+    shaclGraph.add((rule, SH.object, klass))
     # conditions
     for tag in definition:
 
@@ -135,28 +136,28 @@ def add_tags(klass, definition):
             cond = BNode(f"has_{tag.split('#')[-1]}_condition")
             prop = BNode(f"has_{tag.split('#')[-1]}_tag")
             tagshape = BNode()
-            G.add((rule, SH.condition, cond))
-            G.add((cond, SH.property, prop))
-            G.add((prop, SH.path, BRICK.hasTag))
-            G.add((prop, SH.qualifiedValueShape, tagshape))
+            shaclGraph.add((rule, SH.condition, cond))
+            shaclGraph.add((cond, SH.property, prop))
+            shaclGraph.add((prop, SH.path, BRICK.hasTag))
+            shaclGraph.add((prop, SH.qualifiedValueShape, tagshape))
             # G.add((tagshape, SH["class"], has_tag_restriction_class[tag]))
-            G.add((tagshape, SH.hasValue, tag))
-            G.add((prop, SH.qualifiedMinCount, Literal(1)))
-            G.add((prop, SH.qualifiedMaxCount, Literal(1)))
+            shaclGraph.add((tagshape, SH.hasValue, tag))
+            shaclGraph.add((prop, SH.qualifiedMinCount, Literal(1)))
+            shaclGraph.add((prop, SH.qualifiedMaxCount, Literal(1)))
             shacl_tag_property_shapes[tag] = cond
-        G.add((rule, SH.condition, shacl_tag_property_shapes[tag]))
+        shaclGraph.add((rule, SH.condition, shacl_tag_property_shapes[tag]))
     num_tags = len(definition)
     if len(definition) not in has_exactly_n_tags_shapes:
         # tag count condition
         cond = BNode(f"has_exactly_{num_tags}_tags_condition")
         prop = BNode(f"has_exactly_{num_tags}_tags")
-        G.add((cond, SH.property, prop))
-        G.add((prop, SH.path, BRICK.hasTag))
-        G.add((prop, SH.minCount, Literal(len(definition))))
-        G.add((prop, SH.maxCount, Literal(len(definition))))
+        shaclGraph.add((cond, SH.property, prop))
+        shaclGraph.add((prop, SH.path, BRICK.hasTag))
+        shaclGraph.add((prop, SH.minCount, Literal(len(definition))))
+        shaclGraph.add((prop, SH.maxCount, Literal(len(definition))))
         has_exactly_n_tags_shapes[len(definition)] = cond
-    G.add((rule, SH.condition, has_exactly_n_tags_shapes[len(definition)]))
-    G.add((sc, SH.targetClass, has_tag_restriction_class[definition[-1]]))
+    shaclGraph.add((rule, SH.condition, has_exactly_n_tags_shapes[len(definition)]))
+    shaclGraph.add((sc, SH.targetClass, has_tag_restriction_class[definition[-1]]))
 
     # if we've already mapped this class, don't map it again
     if klass in intersection_classes:
@@ -506,7 +507,13 @@ logging.info("Adding class definitions")
 add_definitions()
 
 logging.info(f"Brick ontology compilation finished! Generated {len(G)} triples")
-# serialize to output
+
+# serialize extensions to output
+with open("extensions/brick_extension_shacl_tag_inference.ttl", "wb") as fp:
+    fp.write(shaclGraph.serialize(format="turtle").rstrip())
+    fp.write(b"\n")
+
+# serialize Brick to output
 with open("Brick.ttl", "wb") as fp:
     fp.write(G.serialize(format="turtle").rstrip())
     fp.write(b"\n")
