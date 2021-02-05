@@ -508,12 +508,22 @@ add_definitions()
 
 logging.info(f"Brick ontology compilation finished! Generated {len(G)} triples")
 
+extension_graphs = {"shacl_tag_inference": shaclGraph}
+
 # serialize extensions to output
-with open("extensions/brick_extension_shacl_tag_inference.ttl", "wb") as fp:
-    fp.write(shaclGraph.serialize(format="turtle").rstrip())
-    fp.write(b"\n")
+for name, graph in extension_graphs.items():
+    with open(f"extensions/brick_extension_{name}.ttl", "wb") as fp:
+        fp.write(graph.serialize(format="turtle").rstrip())
+        fp.write(b"\n")
 
 # serialize Brick to output
 with open("Brick.ttl", "wb") as fp:
+    fp.write(G.serialize(format="turtle").rstrip())
+    fp.write(b"\n")
+
+# serialize Brick + extensions
+for graph in extension_graphs.values():
+    G += graph
+with open("Brick+extensions.ttl", "wb") as fp:
     fp.write(G.serialize(format="turtle").rstrip())
     fp.write(b"\n")
