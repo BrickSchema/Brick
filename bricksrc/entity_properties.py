@@ -77,6 +77,7 @@ entity_properties = {
         ),
         RDFS.domain: BRICK.Chiller,
         RDFS.range: PROP.CoolingCapacityShape,
+        RDFS.seeAlso: Literal("https://project-haystack.org/tag/coolingCapacity"),
     },
     PROP.hasYearBuilt: {
         SKOS.definition: Literal(
@@ -84,6 +85,7 @@ entity_properties = {
         ),
         RDFS.domain: BRICK.Building,
         RDFS.range: PROP.YearBuiltShape,
+        RDFS.seeAlso: Literal("https://project-haystack.org/tag/yearBuilt"),
     },
     # special stuff
     PROP.aggregate: {
@@ -196,7 +198,10 @@ shape_properties = {
     PROP.StageShape: {"values": [1, 2, 3, 4]},
     PROP.BuildingPrimaryFunctionShape: {"values": building_primary_function_values},
     PROP.YearBuiltShape: {"datatype": XSD.integer},
-    PROP.CoolingCapacityShape: {"datatype": XSD.float},
+    PROP.CoolingCapacityShape: {
+        "datatype": XSD.float,
+        "units": [UNIT.TON_FG, UNIT["BTU_IT-PER-HR"], UNIT["BTU_TH-PER-HR"], UNIT.W],
+    },
     PROP.AggregationShape: {
         "properties": {
             PROP.aggregationFunction: {
