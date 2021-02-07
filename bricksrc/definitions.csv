@@ -363,7 +363,7 @@ https://brickschema.org/schema/1.2/Brick#hasOutputSubstance,The subject produces
 https://brickschema.org/schema/1.2/Brick#hasPart,The subject is composed in part of the entity given by the object,
 https://brickschema.org/schema/1.2/Brick#hasPoint,The subject has a digital/analog input/output point given by the object,
 https://brickschema.org/schema/1.2/Brick#hasTag,The subject has the given tag,
-https://brickschema.org/schema/1.2/Brick#hasUnit,The QUDT unit associated with this Point,
+https://brickschema.org/schema/1.2/Brick#hasUnit,The QUDT unit associated with this Brick entity (usually a Brick Point instance or Entity Property),
 https://brickschema.org/schema/1.2/Brick#Heat_Exchanger,A heat exchanger is a piece of equipment built for efficient heat transfer from one medium to another. The media may be separated by a solid wall to prevent mixing or they may be in direct contact,BEDES
 https://brickschema.org/schema/1.2/Brick#Heat_Exchanger_Supply_Water_Temperature_Sensor,Measures the temperature of water supplied by a heat exchanger,
 https://brickschema.org/schema/1.2/Brick#Heat_Exchanger_System_Enable_Status,Indicates if the heat exchanger system has been enabled,
