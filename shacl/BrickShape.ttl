@@ -1,5 +1,5 @@
-@prefix brick: <https://brickschema.org/schema/1.2/Brick#> .
-@prefix bsh: <https://brickschema.org/schema/1.2/BrickShape#> .
+@prefix brick: <https://brickschema.org/schema/Brick#> .
+@prefix bsh: <https://brickschema.org/schema/BrickShape#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix unit: <http://qudt.org/vocab/unit/> .
