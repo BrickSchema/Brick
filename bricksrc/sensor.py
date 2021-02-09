@@ -822,6 +822,44 @@ sensor_definitions = {
                             },
                         },
                     },
+                    "Formaldehyde_Sensor": {
+                        "tags": [
+                            TAG.Point,
+                            TAG.Sensor,
+                            TAG.Particulate,
+                            TAG.Matter,
+                            TAG.Formaldehyde,
+                        ],
+                        "substances": [
+                            [BRICK.measures, BRICK.Air],
+                            [BRICK.measures, BRICK.Formaldehyde_Concentration],
+                        ],
+                    },
+                    "PM1_Sensor": {
+                        "tags": [
+                            TAG.Point,
+                            TAG.Sensor,
+                            TAG.Particulate,
+                            TAG.Matter,
+                            TAG.PM1,
+                        ],
+                        "substances": [
+                            [BRICK.measures, BRICK.Air],
+                            [BRICK.measures, BRICK.PM1_Concentration],
+                        ],
+                        "subclasses": {
+                            "PM1_Level_Sensor": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Level,
+                                    TAG.Sensor,
+                                    TAG.Particulate,
+                                    TAG.Matter,
+                                    TAG.PM1,
+                                ],
+                            }
+                        },
+                    },
                     "PM10_Sensor": {
                         "tags": [
                             TAG.Point,
@@ -847,7 +885,7 @@ sensor_definitions = {
                             }
                         },
                     },
-                    "PM25_Sensor": {
+                    "PM2.5_Sensor": {
                         "tags": [
                             TAG.Point,
                             TAG.Sensor,
@@ -857,10 +895,10 @@ sensor_definitions = {
                         ],
                         "substances": [
                             [BRICK.measures, BRICK.Air],
-                            [BRICK.measures, BRICK.PM25_Concentration],
+                            [BRICK.measures, BRICK["PM2.5_Concentration"]],
                         ],
                         "subclasses": {
-                            "PM25_Level_Sensor": {
+                            "PM2.5_Level_Sensor": {
                                 "tags": [
                                     TAG.Point,
                                     TAG.Level,

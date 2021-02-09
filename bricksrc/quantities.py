@@ -49,6 +49,14 @@ quantity_definitions = {
                 RDFS.label: Literal("CO2Concentration"),
                 SKOS.broader: QUDTQK.Dimensionless,
             },
+            "Formaldehyde_Concentration": {
+                QUDT.applicableUnit: [UNIT.PPM],
+                QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M0H0T0D1"],
+                SKOS.definition: Literal("The concentration of formaldehyde in air"),
+                RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
+                RDFS.label: Literal("FormaldehydeConcentration"),
+                SKOS.broader: QUDTQK.Dimensionless,
+            },
             "PM10_Concentration": {
                 QUDT.applicableUnit: [UNIT.PPM],
                 QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M0H0T0D1"],
@@ -59,14 +67,24 @@ quantity_definitions = {
                 RDFS.label: Literal("PM10Concentration"),
                 SKOS.broader: QUDTQK.Dimensionless,
             },
-            "PM25_Concentration": {
+            "PM2.5_Concentration": {
                 QUDT.applicableUnit: [UNIT.PPM],
                 QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M0H0T0D1"],
                 SKOS.definition: Literal(
-                    "The concentration of particulates with diameter of 25 microns or less in air"
+                    "The concentration of particulates with diameter of 2.5 microns or less in air"
                 ),
                 RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
-                RDFS.label: Literal("PM25Concentration"),
+                RDFS.label: Literal("PM2.5Concentration"),
+                SKOS.broader: QUDTQK.Dimensionless,
+            },
+            "PM1_Concentration": {
+                QUDT.applicableUnit: [UNIT.PPM],
+                QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M0H0T0D1"],
+                SKOS.definition: Literal(
+                    "The concentration of particulates with diameter of 1 microns or less in air"
+                ),
+                RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
+                RDFS.label: Literal("PM1Concentration"),
                 SKOS.broader: QUDTQK.Dimensionless,
             },
             "TVOC_Concentration": {
