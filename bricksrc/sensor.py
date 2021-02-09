@@ -267,25 +267,6 @@ sensor_definitions = {
             "Energy_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Energy],
                 "substances": [[BRICK.measures, BRICK.Energy]],
-                "subclasses": {
-                    "Active_Energy_Sensor": {
-                        "tags": [TAG.Point, TAG.Sensor, TAG.Energy, TAG.Active],
-                        "substances": [[BRICK.measures, BRICK.Active_Energy]],
-                    },
-                    "Apparent_Energy_Sensor": {
-                        "tags": [TAG.Point, TAG.Sensor, TAG.Energy, TAG.Apparent],
-                        "substances": [[BRICK.measures, BRICK.Apparent_Energy]],
-                    },
-                    "Today_Peak_Energy_Sensor": {
-                        "tags": [
-                            TAG.Point,
-                            TAG.Sensor,
-                            TAG.Energy,
-                            TAG.Today,
-                            TAG.Peak,
-                        ],
-                    },
-                },
             },
             "Enthalpy_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Enthalpy],
