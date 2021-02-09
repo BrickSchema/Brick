@@ -814,6 +814,7 @@ https://brickschema.org/schema/1.2/Brick#Torque_Sensor,"Measures torque, the ten
 https://brickschema.org/schema/1.2/Brick#Touchpanel,A switch used to operate all or part of a lighting installation that uses a touch-based mechanism (typically resistive or capacitive) rather than a mechanical actuator,
 https://brickschema.org/schema/1.2/Brick#Trace_Heat_Sensor,Measures the surface temperature of pipelines carrying temperature-sensitive products; typically used to avoid frosting/freezing,
 https://brickschema.org/schema/1.2/Brick#Transformer,"A Transformer is usually fed by a high-voltage source and then steps down the voltage to a lower-voltage feed for low-voltage application (such as lights). Transformers also can step up voltage, but this generally does not apply to in building distribution.",
+https://brickschema.org/schema/1.2/Brick#TVOC_Level_Sensor,"A sensor measuring the level of all VOCs in air",
 https://brickschema.org/schema/1.2/Brick#Underfloor_Air_Temperature_Sensor,Measures the temperature of underfloor air,
 https://brickschema.org/schema/1.2/Brick#Unit_Failure_Alarm,An alarm that indicates the failure of an equipment or device,
 https://brickschema.org/schema/1.2/Brick#Unoccupied_Air_Temperature_Cooling_Setpoint,Sets temperature of air when unoccupied for cooling,

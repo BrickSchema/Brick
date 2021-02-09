@@ -891,7 +891,7 @@ sensor_definitions = {
                             TAG.Sensor,
                             TAG.Particulate,
                             TAG.Matter,
-                            TAG.PM25,
+                            TAG["PM2.5"],
                         ],
                         "substances": [
                             [BRICK.measures, BRICK.Air],
@@ -905,7 +905,32 @@ sensor_definitions = {
                                     TAG.Sensor,
                                     TAG.Particulate,
                                     TAG.Matter,
-                                    TAG.PM25,
+                                    TAG["PM2.5"],
+                                ],
+                            }
+                        },
+                    },
+                    "TVOC_Sensor": {
+                        "tags": [
+                            TAG.Point,
+                            TAG.Sensor,
+                            TAG.Particulate,
+                            TAG.Matter,
+                            TAG.TVOC,
+                        ],
+                        "substances": [
+                            [BRICK.measures, BRICK.Air],
+                            [BRICK.measures, BRICK["TVOC_Concentration"]],
+                        ],
+                        "subclasses": {
+                            "TVOC_Level_Sensor": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Level,
+                                    TAG.Sensor,
+                                    TAG.Particulate,
+                                    TAG.Matter,
+                                    TAG.TVOC,
                                 ],
                             }
                         },
