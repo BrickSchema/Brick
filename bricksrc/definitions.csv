@@ -819,6 +819,8 @@ https://brickschema.org/schema/1.1/Brick#Supply_Water_Temperature_Integral_Time_
 https://brickschema.org/schema/1.1/Brick#Supply_Water_Temperature_Proportional_Band_Parameter,,
 https://brickschema.org/schema/1.1/Brick#Supply_Water_Temperature_Setpoint,Sets temperature of supply water,
 https://brickschema.org/schema/1.1/Brick#Switch,A switch used to operate all or part of a lighting installation,
+https://brickschema.org/schema/1.1/Brick#Switch_Over_Valve,A valve used to switch between the flow of heating and cooling water or fluid of a heat exchanger device.,
+https://brickschema.org/schema/1.1/Brick#Switch_Over_Valve_Command,Controls or reports the openness of a switch over valve.,
 https://brickschema.org/schema/1.1/Brick#Switchgear,"A main disconnect or service disconnect feeds power to a switchgear, which then distributes power to the rest of the building through smaller amperage-rated disconnects.",
 https://brickschema.org/schema/1.1/Brick#System_Enable_Command,Enables operation of a system,
 https://brickschema.org/schema/1.1/Brick#System_Shutdown_Status,Indicates if a system has been shutdown,

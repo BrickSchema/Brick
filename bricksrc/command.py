@@ -33,6 +33,15 @@ command_definitions = {
                         "tags": [TAG.Point, TAG.Reversing, TAG.Valve, TAG.Command],
                         "parents": [BRICK.Direction_Command],
                     },
+                    "Switch_Over_Valve_Command": {
+                        "tags": [
+                            TAG.Point,
+                            TAG.Switch,
+                            TAG.Over,
+                            TAG.Valve,
+                            TAG.Command,
+                        ],
+                    },
                 },
             },
             "Reset_Command": {
