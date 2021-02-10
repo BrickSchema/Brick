@@ -263,7 +263,7 @@ quantity_definitions = {
                 SKOS.broader: BRICK.Dimensionless,
             },
             "Alternating_Current_Frequency": {
-                QUDT.applicableUnit: [QUDT.GigaHZ, QUDT.MegaHZ, QUDT.KiloHZ, QUDT.HZ],
+                QUDT.applicableUnit: [UNIT.GigaHZ, UNIT.MegaHZ, UNIT.KiloHZ, UNIT.HZ],
                 SKOS.definition: Literal(
                     "The frequency of the oscillations of alternating current"
                 ),
