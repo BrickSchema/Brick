@@ -1,7 +1,7 @@
 from rdflib import Literal, BNode, URIRef
 from rdflib.collection import Collection
 
-from .namespaces import DCTERMS, SDO, RDFS, RDF, OWL
+from .namespaces import DCTERMS, SDO, RDFS, RDF, OWL, BRICK, TAG, BSH
 from .version import BRICK_VERSION, BRICK_FULL_VERSION
 
 # defines metadata about the Brick ontology
@@ -21,8 +21,10 @@ ontology = {
 
 
 def define_ontology(G):
-    brick_ontology = URIRef(f"https://brickschema.org/schema/{BRICK_VERSION}/Brick")
+    brick_iri_version = URIRef(f"https://brickschema.org/schema/{BRICK_VERSION}/Brick")
+    brick_ontology = URIRef(BRICK)
     G.add((brick_ontology, RDF.type, OWL.Ontology))
+    G.add((brick_ontology, RDFS.isDefinedBy, brick_iri_version))
 
     creators = []
     creator_list = BNode()
