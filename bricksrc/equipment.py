@@ -451,14 +451,32 @@ hvac_subclasses = {
                             TAG.Heat_Pump,
                         ],
                         "subclasses": {
-                            "Air_Cooled_Chiller": {
+                            "Reversible_Water_To_Air_Heat_Pump": {
                                 "tags": [
                                     TAG.Equipment,
-                                    TAG.Air,
-                                    TAG.Cooled,
-                                    TAG.Chiller,
+                                    TAG.Reversible,
+                                    TAG.Water_Air,
+                                    TAG.Heat_Pump,
                                 ],
-                                "parents": [BRICK.Chiller],
+                            },
+                            "Nonreversible_Water_To_Air_Heat_Pump": {
+                                "tags": [
+                                    TAG.Equipment,
+                                    TAG.Nonreversible,
+                                    TAG.Water_Air,
+                                    TAG.Heat_Pump,
+                                ],
+                                "subclasses": {
+                                    "Air_Cooled_Chiller": {
+                                        "tags": [
+                                            TAG.Equipment,
+                                            TAG.Air,
+                                            TAG.Cooled,
+                                            TAG.Chiller,
+                                        ],
+                                        "parents": [BRICK.Chiller],
+                                    },
+                                },
                             },
                         },
                     },
