@@ -1321,68 +1321,10 @@ sensor_definitions = {
                 "subclasses": {
                     "Steam_Usage_Sensor": {
                         "tags": [TAG.Point, TAG.Sensor, TAG.Usage, TAG.Steam],
-                        "subclasses": {
-                            "Today_Steam_Usage_Sensor": {
-                                "tags": [
-                                    TAG.Point,
-                                    TAG.Today,
-                                    TAG.Sensor,
-                                    TAG.Usage,
-                                    TAG.Steam,
-                                ],
-                            },
-                            "Monthly_Steam_Usage_Sensor": {
-                                "tags": [
-                                    TAG.Point,
-                                    TAG.Monthly,
-                                    TAG.Sensor,
-                                    TAG.Usage,
-                                    TAG.Steam,
-                                ],
-                            },
-                            "Yearly_Steam_Usage_Sensor": {
-                                "tags": [
-                                    TAG.Point,
-                                    TAG.Yearly,
-                                    TAG.Sensor,
-                                    TAG.Usage,
-                                    TAG.Steam,
-                                ],
-                            },
-                        },
                     },
                     "Energy_Usage_Sensor": {
                         "parents": [BRICK.Energy_Sensor],
                         "tags": [TAG.Point, TAG.Sensor, TAG.Energy, TAG.Usage],
-                        "subclasses": {
-                            "Yearly_Energy_Usage_Sensor": {
-                                "tags": [
-                                    TAG.Point,
-                                    TAG.Sensor,
-                                    TAG.Energy,
-                                    TAG.Usage,
-                                    TAG.Yearly,
-                                ],
-                            },
-                            "Monthly_Energy_Usage_Sensor": {
-                                "tags": [
-                                    TAG.Point,
-                                    TAG.Sensor,
-                                    TAG.Energy,
-                                    TAG.Usage,
-                                    TAG.Monthly,
-                                ],
-                            },
-                            "Daily_Energy_Usage_Sensor": {
-                                "tags": [
-                                    TAG.Point,
-                                    TAG.Sensor,
-                                    TAG.Energy,
-                                    TAG.Usage,
-                                    TAG.Daily,
-                                ],
-                            },
-                        },
                     },
                     "Water_Usage_Sensor": {
                         "tags": [TAG.Point, TAG.Sensor, TAG.Usage, TAG.Water],
