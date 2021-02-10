@@ -672,6 +672,9 @@ setpoint_definitions = {
                                     TAG.Air,
                                     TAG.Supply,
                                 ],
+                                OWL.equivalentClass: BRICK[
+                                    "Discharge_Air_Humidity_Setpoint"
+                                ],
                             },
                         },
                     },
