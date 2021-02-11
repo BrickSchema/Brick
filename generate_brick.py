@@ -163,7 +163,9 @@ def add_tags(klass, definition):
             shaclGraph.add((prop, SH.path, BRICK.hasTag))
             shaclGraph.add((prop, SH.qualifiedValueShape, tagshape))
             shaclGraph.add((tagshape, SH.hasValue, tag))
-            shaclGraph.add((prop, SH.qualifiedMinCount, Literal(1)))
+            shaclGraph.add(
+                (prop, SH.qualifiedMinCount, Literal(1, datatype=XSD.integer))
+            )
             # probably don't need the Max count here; addition of duplicate tags should be idempotent
             # shaclGraph.add((prop, SH.qualifiedMaxCount, Literal(1)))
             shacl_tag_property_shapes[tag] = cond
