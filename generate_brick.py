@@ -179,7 +179,14 @@ def add_tags(klass, definition):
         shaclGraph.add((prop, SH.maxCount, Literal(len(definition))))
         has_exactly_n_tags_shapes[len(definition)] = cond
     shaclGraph.add((rule, SH.condition, has_exactly_n_tags_shapes[len(definition)]))
-    shaclGraph.add((sc, SH.targetClass, has_tag_restriction_class[definition[-1]]))
+
+    # ensure that the rule applies to at least one of the base tags that should be on
+    # most Brick classes
+    # base_tags = [TAG.Equipment, TAG.Point, TAG.Location, TAG.System, TAG.Solid, TAG.Fluid]
+    # target_class_tag = [t for t in base_tags if t in definition]
+    # assert len(target_class_tag) > 0, klass
+    # shaclGraph.add((sc, SH.targetClass, has_tag_restriction_class[target_class_tag[0]]))
+    shaclGraph.add((sc, SH.targetSubjectsOf, BRICK.hasTag))
 
     # if we've already mapped this class, don't map it again
     if klass in intersection_classes:
@@ -618,6 +625,8 @@ extension_graphs = {"shacl_tag_inference": shaclGraph}
 # serialize extensions to output
 for name, graph in extension_graphs.items():
     with open(f"extensions/brick_extension_{name}.ttl", "wb") as fp:
+        # need to write this manually; turtle serializer doesn't always add
+        fp.write(b"@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n")
         fp.write(graph.serialize(format="turtle").rstrip())
         fp.write(b"\n")
 
