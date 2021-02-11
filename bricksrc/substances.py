@@ -150,6 +150,14 @@ substances = {
                                     TAG.Domestic,
                                 ],
                             },
+                            "Potable_Water": {
+                                "tags": [
+                                    TAG.Fluid,
+                                    TAG.Liquid,
+                                    TAG.Water,
+                                    TAG.Potable,
+                                ],
+                            },
                             "Discharge_Water": {
                                 "tags": [
                                     TAG.Fluid,

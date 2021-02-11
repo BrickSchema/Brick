@@ -7,7 +7,18 @@ from rdflib.collection import Collection
 
 from bricksrc.ontology import define_ontology
 
-from bricksrc.namespaces import BRICK, RDF, OWL, RDFS, TAG, SOSA, SKOS, QUDT, QUDTQK
+from bricksrc.namespaces import (
+    BRICK,
+    RDF,
+    OWL,
+    RDFS,
+    TAG,
+    SOSA,
+    SKOS,
+    QUDT,
+    QUDTQK,
+    SH,
+)
 from bricksrc.namespaces import bind_prefixes
 
 from bricksrc.setpoint import setpoint_definitions
@@ -28,6 +39,7 @@ from bricksrc.equipment import (
 from bricksrc.substances import substances
 from bricksrc.quantities import quantity_definitions, get_units
 from bricksrc.properties import properties
+from bricksrc.entity_properties import shape_properties, entity_properties
 
 logging.basicConfig(
     format="%(asctime)s,%(msecs)d %(levelname)-8s [%(filename)s:%(lineno)d] %(message)s",
@@ -41,6 +53,15 @@ A = RDF.type
 
 tag_lookup = defaultdict(set)
 intersection_classes = {}
+
+
+def add_properties(item, propdefs):
+    for propname, propval in propdefs.items():
+        if isinstance(propval, list):
+            for pv in propdefs:
+                G.add((item, propname, pv))
+        elif not isinstance(propval, dict):
+            G.add((item, propname, propval))
 
 
 def add_restriction(klass, definition):
@@ -249,6 +270,87 @@ def define_classes(definitions, parent, pun_classes=False):
                 G.add((classname, propname, propval))
 
 
+def define_entity_properties(definitions, superprop=None):
+    """
+    Defines the EntityProperty relationships and their subproperties.
+    Like most other generation methods in this file, it can add additional
+    properties to the EntityProperty instances (like SKOS.definition)
+    """
+    for entprop, defn in definitions.items():
+        G.add((entprop, A, BRICK.EntityProperty))
+        if "subproperties" in defn:
+            subproperties = defn.pop("subproperties")
+            define_entity_properties(subproperties, entprop)
+        for prop, values in defn.items():
+            if isinstance(values, list):
+                for pv in values:
+                    G.add((entprop, prop, pv))
+            else:
+                G.add((entprop, prop, values))
+
+
+def define_shape_properties(definitions):
+    """
+    Defines the NodeShapes that govern what the values of
+    EntityProperty relationships should look like. The important
+    keys are:
+    - values: defines the set of possible values of this property as an enumeration
+    - units: verifies that the units of the value are one of the given enumeration.
+    - datatype: specifies the expected kind of data type of prop:value
+    - properties: defines other epected properties of the Shape. These properties can have
+                'datatype' or 'values', in addition to other standard properties like
+                SKOS.definition
+
+    Some other usage notes:
+    - 'units' and 'datatype' should be used together
+    - 'values' should not be used with units or datatype
+    """
+    for shape_name, defn in definitions.items():
+        G.add((shape_name, A, SH.NodeShape))
+
+        v = BNode()
+        # prop:value PropertyShape
+        if "values" in defn:
+            ps = BNode()
+            enumeration = BNode()
+            G.add((shape_name, SH.property, ps))
+            G.add((ps, A, SH.PropertyShape))
+            G.add((ps, SH.path, BRICK.value))
+            G.add((ps, SH["in"], enumeration))
+            G.add((ps, SH.minCount, Literal(1)))
+            Collection(G, enumeration, map(Literal, defn.pop("values")))
+        if "units" in defn:
+            ps = BNode()
+            enumeration = BNode()
+            G.add((shape_name, SH.property, ps))
+            G.add((ps, A, SH.PropertyShape))
+            G.add((ps, SH.path, BRICK.hasUnit))
+            G.add((ps, SH["in"], enumeration))
+            G.add((ps, SH.minCount, Literal(1)))
+            Collection(G, enumeration, defn.pop("units"))
+        if "properties" in defn:
+            for prop_name, prop_defn in defn.pop("properties").items():
+                ps = BNode()
+                G.add((shape_name, SH.property, ps))
+                G.add((ps, A, SH.PropertyShape))
+                G.add((ps, SH.path, prop_name))
+                G.add((ps, SH.minCount, Literal(1)))
+                if "datatype" in prop_defn:
+                    G.add((ps, SH.datatype, prop_defn.pop("datatype")))
+                elif "values" in prop_defn:
+                    enumeration = BNode()
+                    G.add((ps, SH["in"], enumeration))
+                    G.add((ps, SH.minCount, Literal(1)))
+                    Collection(G, enumeration, map(Literal, prop_defn.pop("values")))
+                add_properties(ps, prop_defn)
+        elif "datatype" in defn:
+            G.add((shape_name, SH.property, v))
+            G.add((v, A, SH.PropertyShape))
+            G.add((v, SH.path, BRICK.value))
+            G.add((v, SH.datatype, defn.pop("datatype")))
+            G.add((v, SH.minCount, Literal(1)))
+
+
 def define_properties(definitions, superprop=None):
     """
     Define BRICK properties
@@ -257,20 +359,22 @@ def define_properties(definitions, superprop=None):
         return
 
     for prop, propdefn in definitions.items():
-        G.add((BRICK[prop], A, OWL.ObjectProperty))
+        if isinstance(prop, str):
+            prop = BRICK[prop]
+        G.add((prop, A, OWL.ObjectProperty))
         if superprop is not None:
-            G.add((BRICK[prop], RDFS.subPropertyOf, superprop))
+            G.add((prop, RDFS.subPropertyOf, superprop))
 
         # define property types
         prop_types = propdefn.get(A, [])
         assert isinstance(prop_types, list)
         for prop_type in prop_types:
-            G.add((BRICK[prop], A, prop_type))
+            G.add((prop, A, prop_type))
 
         # define any subproperties
         subproperties_def = propdefn.get("subproperties", {})
         assert isinstance(subproperties_def, dict)
-        define_properties(subproperties_def, BRICK[prop])
+        define_properties(subproperties_def, prop)
 
         # define other properties of the Brick property
         for propname, propval in propdefn.items():
@@ -283,7 +387,7 @@ def define_properties(definitions, superprop=None):
 
             for propname in other_properties:
                 propval = propdefn[propname]
-                G.add((BRICK[prop], propname, propval))
+                G.add((prop, propname, propval))
 
 
 def add_definitions():
@@ -420,6 +524,14 @@ G.add((BRICK.Quantity, RDFS.subClassOf, SKOS.Concept))
 G.add((BRICK.Substance, RDFS.subClassOf, SOSA.FeatureOfInterest))
 G.add((BRICK.Substance, RDFS.subClassOf, BRICK.Measurable))
 G.add((BRICK.Substance, A, OWL.Class))
+
+# entity property definitions
+G.add((BRICK.value, A, OWL.DatatypeProperty))
+G.add((BRICK.value, SKOS.definition, Literal("The basic value of an entity property")))
+G.add((BRICK.EntityProperty, RDFS.subClassOf, OWL.ObjectProperty))
+G.add((BRICK.EntityProperty, A, OWL.Class))
+define_shape_properties(shape_properties)
+define_entity_properties(entity_properties)
 
 # We make the punning explicit here. Any subclass of brick:Substance
 # is itself a substance or quantity. There is one canonical instance of

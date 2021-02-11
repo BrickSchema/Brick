@@ -1,5 +1,5 @@
-@prefix brick: <https://brickschema.org/schema/1.2/Brick#> .
-@prefix bsh: <https://brickschema.org/schema/1.2/BrickShape#> .
+@prefix brick: <https://brickschema.org/schema/Brick#> .
+@prefix bsh: <https://brickschema.org/schema/BrickShape#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix unit: <http://qudt.org/vocab/unit/> .
@@ -56,11 +56,6 @@ bsh:hasTagRangeShape a sh:NodeShape ;
             sh:message "Property hasTag has object with incorrect type" ;
             sh:path brick:hasTag ] ;
     sh:targetSubjectsOf brick:hasTag .
-
-bsh:hasUnitDomainShape a sh:NodeShape ;
-    sh:class brick:Point ;
-    sh:message "Property hasUnit has subject with incorrect type" ;
-    sh:targetSubjectsOf brick:hasUnit .
 
 bsh:hasUnitRangeShape a sh:NodeShape ;
     sh:property [ sh:class unit:Unit ;
