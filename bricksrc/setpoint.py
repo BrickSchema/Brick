@@ -1729,6 +1729,16 @@ setpoint_definitions = {
                                             TAG.Chilled,
                                         ],
                                     },
+                                    "Supply_Condenser_Water_Temperature_Setpoint": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Supply,
+                                            TAG.Water,
+                                            TAG.Temperature,
+                                            TAG.Setpoint,
+                                            TAG.Condenser,
+                                        ],
+                                    },
                                 },
                             },
                             "Entering_Water_Temperature_Setpoint": {
