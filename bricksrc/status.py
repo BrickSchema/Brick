@@ -345,6 +345,34 @@ status_definitions = {
             },
             "Off_Status": {"tags": [TAG.Point, TAG.Off, TAG.Status]},
             "On_Status": {"tags": [TAG.Point, TAG.On, TAG.Status]},
+            "Open_Close_Status": {
+                "tags": [
+                    TAG.Point,
+                    TAG.Open,
+                    TAG.Close,
+                    TAG.Status,
+                ],
+                "subclasses": {
+                    "Valve_Open_Close_Status": {
+                        "tags": [
+                            TAG.Point,
+                            TAG.Valve,
+                            TAG.Open,
+                            TAG.Close,
+                            TAG.Status,
+                        ],
+                    },
+                    "Damper_Open_Close_Status": {
+                        "tags": [
+                            TAG.Point,
+                            TAG.Damper,
+                            TAG.Open,
+                            TAG.Close,
+                            TAG.Status,
+                        ],
+                    },
+                },
+            },
             "Overridden_Status": {
                 "subclasses": {
                     "Overridden_Off_Status": {

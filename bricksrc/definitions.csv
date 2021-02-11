@@ -157,6 +157,7 @@ https://brickschema.org/schema/1.1/Brick#Cycle_Alarm,An alarm that indicates off
 https://brickschema.org/schema/1.1/Brick#Daily_Energy_Usage_Sensor,Measures the total amount of energy used over the current day,
 https://brickschema.org/schema/1.1/Brick#Damper,Element inserted into an air-distribution system or element of an air-distribution system permitting modification of the air resistance of the system and consequently changing the airflow rate or shutting off the airflow.,
 https://brickschema.org/schema/1.1/Brick#Damper_Command,Controls properties of dampers,
+https://brickschema.org/schema/1.1/Brick#Damper_Open_Close_Status,Inidcates the open/close status of a damper.,
 https://brickschema.org/schema/1.1/Brick#Damper_Position_Command,Controls the position (the degree of openness) of a damper,
 https://brickschema.org/schema/1.1/Brick#Damper_Position_Sensor,Measures the current position of a damper in terms of the percent of fully open,
 https://brickschema.org/schema/1.1/Brick#Damper_Position_Setpoint,Sets the position of damper,
@@ -601,6 +602,7 @@ https://brickschema.org/schema/1.1/Brick#On_Off_Command,"An On/Off Command contr
 https://brickschema.org/schema/1.1/Brick#On_Off_Status,"Indicates the on/off status of a control loop, relay or equipment",
 https://brickschema.org/schema/1.1/Brick#On_Status,"Indicates if a control loop, relay or equipment is on",
 https://brickschema.org/schema/1.1/Brick#On_Timer_Sensor,"Measures the duration for which a device was in an active or ""on"" state",
+https://brickschema.org/schema/1.1/Brick#Open_Close_Status,Indicates the open/close status of a device such as a damper or valve.,
 https://brickschema.org/schema/1.1/Brick#Open_Heating_Valve_Outside_Air_Temperature_Setpoint,,
 https://brickschema.org/schema/1.1/Brick#Operating_Mode_Status,"Indicates the current operating mode of a system, device or control loop",
 https://brickschema.org/schema/1.1/Brick#Operative_Temperature,The uniform temperature of an imaginary black enclosure in which an occupant would exchange the same amount of heat by radiation plus convection as in the actual nonuniform environment (https://en.wikipedia.org/wiki/Operative_temperature),
@@ -871,6 +873,7 @@ https://brickschema.org/schema/1.1/Brick#Unoccupied_Load_Shed_Command,,
 https://brickschema.org/schema/1.1/Brick#Usage_Sensor,"Measures the amount of some substance that is consumed or used, over some period of time",
 https://brickschema.org/schema/1.1/Brick#Valve,"A device that regulates, directs or controls the flow of a fluid by opening, closing or partially obstructing various passageways",https://en.wikipedia.org/wiki/Valve
 https://brickschema.org/schema/1.1/Brick#Valve_Command,Controls or reports the openness of a valve (typically as a proportion of its full range of motion),
+https://brickschema.org/schema/1.1/Brick#Valve_Open_Close_Status,Indicates the open/close status of a valve.,
 https://brickschema.org/schema/1.1/Brick#Variable_Air_Volume_Box,A device that regulates the volume and temperature of air delivered to a zone by opening or closing a damper,https://en.wikipedia.org/wiki/Variable_air_volume
 https://brickschema.org/schema/1.1/Brick#Variable_Air_Volume_Box_With_Reheat,A VAV box with a reheat coil mounted on the discharge end of the unit that can heat the air delivered to a zone,
 https://brickschema.org/schema/1.1/Brick#Variable_Frequency_Drive,"Electronic device that varies its output frequency to vary the rotating speed of a motor, given a fixed input frequency. Used with fans or pumps to vary the flow in the system as a function of a maintained pressure.",https://xp20.ashrae.org/terminology/index.php?term=vfd&submit=Search
