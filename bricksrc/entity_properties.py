@@ -63,14 +63,6 @@ entity_properties = {
         RDFS.domain: BRICK.Equipment,
         RDFS.range: BRICK.StageShape,
     },
-    BRICK.hasBuildingPrimaryFunction: {
-        SKOS.definition: Literal(
-            "Enumerated string applied to a site record to indicate the building's primary function. The list of primary functions is derived from the US Energy Star program (adopted from Project Haystack)"
-        ),
-        RDFS.seeAlso: Literal("https://project-haystack.org/tag/primaryFunction"),
-        RDFS.domain: BRICK.Building,
-        RDFS.range: BRICK.BuildingPrimaryFunctionShape,
-    },
     BRICK.hasCoolingCapacity: {
         SKOS.definition: Literal(
             "Measurement of a chiller ability to remove heat (adopted from Project Haystack)"
@@ -79,6 +71,15 @@ entity_properties = {
         RDFS.range: BRICK.CoolingCapacityShape,
         RDFS.seeAlso: Literal("https://project-haystack.org/tag/coolingCapacity"),
     },
+    # building properties
+    BRICK.hasBuildingPrimaryFunction: {
+        SKOS.definition: Literal(
+            "Enumerated string applied to a site record to indicate the building's primary function. The list of primary functions is derived from the US Energy Star program (adopted from Project Haystack)"
+        ),
+        RDFS.seeAlso: Literal("https://project-haystack.org/tag/primaryFunction"),
+        RDFS.domain: BRICK.Building,
+        RDFS.range: BRICK.BuildingPrimaryFunctionShape,
+    },
     BRICK.hasYearBuilt: {
         SKOS.definition: Literal(
             "Four digit year that a building was first built. (adopted from Project Haystack)"
@@ -86,6 +87,27 @@ entity_properties = {
         RDFS.domain: BRICK.Building,
         RDFS.range: BRICK.YearBuiltShape,
         RDFS.seeAlso: Literal("https://project-haystack.org/tag/yearBuilt"),
+    },
+    BRICK.hasThermalTransmittence: {
+        SKOS.definition: Literal(
+            "The area-weighted average heat transfer coefficient (commonly referred to as a U-value)"
+        ),
+        RDFS.range: BRICK.ThermalTransmittenceShape,
+        RDFS.seeAlso: Literal(
+            "https://www.iso.org/obp/ui/#iso:std:iso:13789:ed-3:v1:en"
+        ),
+        "subproperties": {
+            BRICK.hasBuildingThermalTransmittence: {
+                RDFS.domain: BRICK.Building,
+                RDFS.range: BRICK.ThermalTransmittenceShape,
+                SKOS.definition: Literal(
+                    "The area-weighted average heat transfer coefficient (commonly referred to as a U-value) for a building envelope"
+                ),
+                RDFS.seeAlso: Literal(
+                    "https://www.iso.org/obp/ui/#iso:std:iso:13789:ed-3:v1:en"
+                ),
+            },
+        },
     },
     # special stuff
     BRICK.aggregate: {
@@ -198,6 +220,10 @@ shape_properties = {
     BRICK.StageShape: {"values": [1, 2, 3, 4]},
     BRICK.BuildingPrimaryFunctionShape: {"values": building_primary_function_values},
     BRICK.YearBuiltShape: {"datatype": XSD.integer},
+    BRICK.ThermalTransmittenceShape: {
+        "datatype": XSD.float,
+        "units": [UNIT.BTU_IT, UNIT["W-PER-M2-K"]],
+    },
     BRICK.CoolingCapacityShape: {
         "datatype": XSD.float,
         "units": [UNIT.TON_FG, UNIT["BTU_IT-PER-HR"], UNIT["BTU_TH-PER-HR"], UNIT.W],
