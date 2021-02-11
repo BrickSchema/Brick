@@ -28,7 +28,6 @@ from bricksrc.equipment import (
 from bricksrc.substances import substances
 from bricksrc.quantities import quantity_definitions, get_units
 from bricksrc.properties import properties
-from bricksrc.loop import loop_subclasses
 
 logging.basicConfig(
     format="%(asctime)s,%(msecs)d %(levelname)-8s [%(filename)s:%(lineno)d] %(message)s",
@@ -377,7 +376,6 @@ roots = {
         ),
         "tags": [TAG.System],
     },
-    "Loop": {"tags": [TAG.Loop]},
 }
 define_classes(roots, BRICK.Class)
 
@@ -409,7 +407,6 @@ define_classes(hvac_subclasses, BRICK.HVAC)
 define_classes(valve_subclasses, BRICK.Valve)
 define_classes(security_subclasses, BRICK.Security_Equipment)
 define_classes(safety_subclasses, BRICK.Safety_Equipment)
-define_classes(loop_subclasses, BRICK.Loop)
 
 logging.info("Defining Measurable hierarchy")
 # define measurable hierarchy
