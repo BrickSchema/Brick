@@ -172,6 +172,20 @@ equipment_subclasses = {
     "Security_Equipment": {"tags": [TAG.Security, TAG.Equipment]},
     "Safety_Equipment": {"tags": [TAG.Safety, TAG.Equipment]},
     "Camera": {"tags": [TAG.Camera, TAG.Equipment]},
+    "Water_Heater": {
+        "tags": [TAG.Water, TAG.Heater, TAG.Equipment],
+        "subclasses": {
+            "Collection_Basin_Water_Heater": {
+                "tags": [
+                    TAG.Collection,
+                    TAG.Basin,
+                    TAG.Water,
+                    TAG.Heater,
+                    TAG.Equipment,
+                ],
+            }
+        },
+    },
 }
 
 """
@@ -264,20 +278,6 @@ hvac_subclasses = {
         },
     },
     "Space_Heater": {"tags": [TAG.Equipment, TAG.Space, TAG.Heater]},
-    "Water_Heater": {
-        "tags": [TAG.Water, TAG.Heater, TAG.Equipment],
-        "subclasses": {
-            "Collection_Basin_Water_Heater": {
-                "tags": [
-                    TAG.Collection,
-                    TAG.Basin,
-                    TAG.Water,
-                    TAG.Heater,
-                    TAG.Equipment,
-                ],
-            }
-        },
-    },
     "Pump": {
         "tags": [TAG.Equipment, TAG.Pump],
         "subclasses": {
@@ -405,7 +405,7 @@ hvac_subclasses = {
         },
     },
     "Humidifier": {"tags": [TAG.Equipment, TAG.Humidifier]},
-    "Boiler": {"tags": [TAG.Equipment, TAG.Boiler]},
+    "Boiler": {"tags": [TAG.Equipment, TAG.Boiler], "parents": [BRICK.Water_Heater]},
     "Air_Handler_Unit": {
         # here for historical purposes
         "tags": [TAG.Equipment, TAG.Air, TAG.Handler, TAG.Unit],
