@@ -9,6 +9,7 @@ from bricksrc.ontology import define_ontology
 
 from bricksrc.namespaces import (
     BRICK,
+    BSH,
     RDF,
     OWL,
     RDFS,
@@ -52,8 +53,12 @@ G = Graph()
 bind_prefixes(G)
 A = RDF.type
 
-tag_lookup = defaultdict(set)
+shaclGraph = Graph()
+bind_prefixes(shaclGraph)
 intersection_classes = {}
+has_tag_restriction_class = {}
+shacl_tag_property_shapes = {}
+has_exactly_n_tags_shapes = {}
 
 
 def add_properties(item, propdefs):
@@ -97,13 +102,18 @@ def add_restriction(klass, definition):
 def add_tags(klass, definition):
     """
     Adds the definition of tags to the given class. This method adds two
-    group of triples. The first group models the class as a subclass
-    of entities that have all of the given tags (the 'OWL.intersectionOf'
-    the OWL.Restriction classes modeled as entities that have a given tag).
+    groups of triples.
 
-    The second group of triples uses the BRICK.hasAssociatedTag property
+    The first group of triples uses the BRICK.hasAssociatedTag property
     to associate the tags with this class. While this is duplicate information,
     it is much easier to query for.
+
+    The second group of triples uses SHACL-AF rules to generate the appropriate
+    Brick class from a set of tags. Strict equality of the tag set is required:
+    if two classes which are *not* related by a subclass relationship exist, but
+    one class's tags are a strict subset of the other, then under this regime
+    the subsumed class will *not* be inferred for instances of the class with more
+    tags.
 
     Args:
         klass: the URI of the Brick class to be modeled
@@ -111,27 +121,75 @@ def add_tags(klass, definition):
     """
     if len(definition) == 0:
         return
+    for tag in definition:
+        G.add((klass, BRICK.hasAssociatedTag, tag))
+        G.add((tag, A, BRICK.Tag))  # make sure the tag is declared as such
+        G.add(
+            (tag, RDFS.label, Literal(tag.split("#")[-1]))
+        )  # make sure the tag is declared as such
+
     all_restrictions = []
     equivalent_class = BNode()
     list_name = BNode()
 
+    # add SHACL shape
+    sc = BSH[klass.split("#")[-1] + "_TagShape"]
+    shaclGraph.add((sc, A, SH.NodeShape))
+    # G.add((sc, SH.targetSubjectsOf, BRICK.hasTag))
+    rule = BNode(str(klass) + "TagInferenceRule")
+    shaclGraph.add((sc, SH.rule, rule))
+
+    # define rule
+    shaclGraph.add((rule, A, SH.TripleRule))
+    shaclGraph.add((rule, SH.subject, SH.this))
+    shaclGraph.add((rule, SH.predicate, RDF.type))
+    shaclGraph.add((rule, SH.object, klass))
+    # conditions
     for tag in definition:
-        G.add((klass, BRICK.hasAssociatedTag, tag))
 
-    for idnum, item in enumerate(definition):
-        restriction = BNode(f"has_{item.split('#')[-1]}")
-        all_restrictions.append(restriction)
-        G.add((restriction, A, OWL.Restriction))
-        G.add((restriction, OWL.onProperty, BRICK.hasTag))
-        G.add((restriction, OWL.hasValue, item))
-        G.add((item, A, BRICK.Tag))  # make sure the tag is declared as such
-        G.add(
-            (item, RDFS.label, Literal(item.split("#")[-1]))
-        )  # make sure the tag is declared as such
+        if tag not in has_tag_restriction_class:
+            restriction = BNode(f"has_{tag.split('#')[-1]}")
+            G.add((restriction, A, OWL.Restriction))
+            G.add((restriction, OWL.onProperty, BRICK.hasTag))
+            G.add((restriction, OWL.hasValue, tag))
+            has_tag_restriction_class[tag] = restriction
+        all_restrictions.append(has_tag_restriction_class[tag])
 
-    # tag index
-    tagset = tuple(sorted([item.split("#")[-1] for item in definition]))
-    tag_lookup[tagset].add(klass)
+        if tag not in shacl_tag_property_shapes:
+            cond = BNode(f"has_{tag.split('#')[-1]}_condition")
+            prop = BNode(f"has_{tag.split('#')[-1]}_tag")
+            tagshape = BNode()
+            shaclGraph.add((rule, SH.condition, cond))
+            shaclGraph.add((cond, SH.property, prop))
+            shaclGraph.add((prop, SH.path, BRICK.hasTag))
+            shaclGraph.add((prop, SH.qualifiedValueShape, tagshape))
+            shaclGraph.add((tagshape, SH.hasValue, tag))
+            shaclGraph.add(
+                (prop, SH.qualifiedMinCount, Literal(1, datatype=XSD.integer))
+            )
+            # probably don't need the Max count here; addition of duplicate tags should be idempotent
+            # shaclGraph.add((prop, SH.qualifiedMaxCount, Literal(1)))
+            shacl_tag_property_shapes[tag] = cond
+        shaclGraph.add((rule, SH.condition, shacl_tag_property_shapes[tag]))
+    num_tags = len(definition)
+    if len(definition) not in has_exactly_n_tags_shapes:
+        # tag count condition
+        cond = BNode(f"has_exactly_{num_tags}_tags_condition")
+        prop = BNode(f"has_exactly_{num_tags}_tags")
+        shaclGraph.add((cond, SH.property, prop))
+        shaclGraph.add((prop, SH.path, BRICK.hasTag))
+        shaclGraph.add((prop, SH.minCount, Literal(len(definition))))
+        shaclGraph.add((prop, SH.maxCount, Literal(len(definition))))
+        has_exactly_n_tags_shapes[len(definition)] = cond
+    shaclGraph.add((rule, SH.condition, has_exactly_n_tags_shapes[len(definition)]))
+
+    # ensure that the rule applies to at least one of the base tags that should be on
+    # most Brick classes
+    # base_tags = [TAG.Equipment, TAG.Point, TAG.Location, TAG.System, TAG.Solid, TAG.Fluid]
+    # target_class_tag = [t for t in base_tags if t in definition]
+    # assert len(target_class_tag) > 0, klass
+    # shaclGraph.add((sc, SH.targetClass, has_tag_restriction_class[target_class_tag[0]]))
+    shaclGraph.add((sc, SH.targetSubjectsOf, BRICK.hasTag))
 
     # if we've already mapped this class, don't map it again
     if klass in intersection_classes:
@@ -567,7 +625,25 @@ logging.info("Adding class definitions")
 add_definitions()
 
 logging.info(f"Brick ontology compilation finished! Generated {len(G)} triples")
-# serialize to output
+
+extension_graphs = {"shacl_tag_inference": shaclGraph}
+
+# serialize extensions to output
+for name, graph in extension_graphs.items():
+    with open(f"extensions/brick_extension_{name}.ttl", "wb") as fp:
+        # need to write this manually; turtle serializer doesn't always add
+        fp.write(b"@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n")
+        fp.write(graph.serialize(format="turtle").rstrip())
+        fp.write(b"\n")
+
+# serialize Brick to output
 with open("Brick.ttl", "wb") as fp:
+    fp.write(G.serialize(format="turtle").rstrip())
+    fp.write(b"\n")
+
+# serialize Brick + extensions
+for graph in extension_graphs.values():
+    G += graph
+with open("Brick+extensions.ttl", "wb") as fp:
     fp.write(G.serialize(format="turtle").rstrip())
     fp.write(b"\n")

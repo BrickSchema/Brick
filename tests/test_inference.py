@@ -9,7 +9,7 @@ from bricksrc.namespaces import BRICK, TAG, A, SKOS  # noqa: E402
 BLDG = Namespace("https://brickschema.org/schema/ExampleBuilding#")
 
 g = brickschema.Graph()
-g.parse("Brick.ttl", format="turtle")
+g.parse("Brick+extensions.ttl", format="turtle")
 
 # Instances
 g.add((BLDG.Coil_1, A, BRICK.Heating_Coil))
@@ -60,7 +60,7 @@ g.add((BLDG.co2s1, A, BRICK.CO2_Level_Sensor))
 g.add((BLDG.standalone, A, BRICK.Temperature_Sensor))
 
 # Apply reasoner
-g.expand(profile="tag+owlrl")
+g.expand(profile="owlrl+shacl+owlrl")
 
 g.bind("rdf", RDF)
 g.bind("owl", OWL)

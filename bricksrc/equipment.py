@@ -4,8 +4,8 @@ from .namespaces import TAG, OWL, BRICK
 Set up subclasses of the equipment superclass
 """
 equipment_subclasses = {
-    "HVAC": {"tags": [TAG.HVAC]},
-    "Weather_Station": {"tags": [TAG.Weather, TAG.Station]},
+    "HVAC": {"tags": [TAG.HVAC, TAG.Equipment]},
+    "Weather_Station": {"tags": [TAG.Weather, TAG.Station, TAG.Equipment]},
     "Electrical_Equipment": {
         "tags": [TAG.Electrical, TAG.Equipment],
         "subclasses": {
@@ -209,7 +209,7 @@ hvac_subclasses = {
                 "tags": [TAG.Equipment, TAG.Fan, TAG.Coil, TAG.Unit],
                 OWL.equivalentClass: BRICK["FCU"],
             },
-            "FCU": {"tags": [TAG.FCU]},
+            "FCU": {"tags": [TAG.FCU, TAG.Equipment]},
             "Variable_Air_Volume_Box": {
                 "tags": [TAG.Equipment, TAG.Variable, TAG.Volume, TAG.Box],
                 OWL.equivalentClass: BRICK["VAV"],

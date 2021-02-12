@@ -55,7 +55,9 @@ substances = {
                     "Oil": {
                         "tags": [TAG.Fluid, TAG.Liquid, TAG.Oil],
                         "subclasses": {
-                            "Fuel_Oil": {"tags": [TAG.Liquid, TAG.Oil, TAG.Fuel]}
+                            "Fuel_Oil": {
+                                "tags": [TAG.Fluid, TAG.Liquid, TAG.Oil, TAG.Fuel]
+                            }
                         },
                     },
                     "Water": {
