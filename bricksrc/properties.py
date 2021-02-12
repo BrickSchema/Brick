@@ -1,4 +1,4 @@
-from .namespaces import A, OWL, RDFS, BRICK, VCARD, UNIT, QUDT
+from .namespaces import A, OWL, RDFS, BRICK, VCARD, UNIT, PROP, QUDT, XSD
 
 """
 Defining properties
@@ -109,5 +109,20 @@ properties = {
     "hasUnit": {
         A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         RDFS.range: UNIT.Unit,
+    },
+    "timeseries": {
+        A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+        RDFS.domain: BRICK.Point,
+        RDFS.range: BRICK.TimeseriesReference,
+    },
+    "hasTimeseriesId": {
+        A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+        RDFS.domain: BRICK.TimeseriesReference,
+        RDFS.range: XSD.string,
+    },
+    "storedAt": {
+        A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+        RDFS.domain: BRICK.TimeseriesReference,
+        # RDFS.range: XSD.string,
     },
 }
