@@ -1686,6 +1686,40 @@ setpoint_definitions = {
                                     },
                                 },
                             },
+                            "Return_Water_Temperature_Setpoint": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Return,
+                                    TAG.Water,
+                                    TAG.Temperature,
+                                    TAG.Setpoint,
+                                ],
+                                "subclasses": {
+                                    "Differential_Supply_Return_Water_Temperature_Setpoint": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Differential,
+                                            TAG.Supply,
+                                            TAG.Return,
+                                            TAG.Water,
+                                            TAG.Temperature,
+                                            TAG.Setpoint,
+                                        ],
+                                        "parents": [
+                                            BRICK.Differential_Water_Temperature_Setpoint
+                                        ],
+                                    },
+                                },
+                            },
+                            "Differential_Water_Temperature_Setpoint": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Differential,
+                                    TAG.Water,
+                                    TAG.Temperature,
+                                    TAG.Setpoint,
+                                ],
+                            },
                             "Entering_Water_Temperature_Setpoint": {
                                 "tags": [
                                     TAG.Point,
@@ -1711,7 +1745,7 @@ setpoint_definitions = {
                                     TAG.Water,
                                     TAG.Temperature,
                                     TAG.Setpoint,
-                                ]
+                                ],
                             },
                             "Max_Water_Temperature_Setpoint": {
                                 "tags": [
@@ -1720,7 +1754,7 @@ setpoint_definitions = {
                                     TAG.Water,
                                     TAG.Temperature,
                                     TAG.Setpoint,
-                                ]
+                                ],
                             },
                         },
                         "tags": [TAG.Point, TAG.Water, TAG.Temperature, TAG.Setpoint],

@@ -1988,8 +1988,20 @@ sensor_definitions = {
                                             TAG.Temperature,
                                             TAG.Sensor,
                                         ],
+                                        "parents": [
+                                            BRICK.Differential_Water_Temperature_Sensor
+                                        ],
                                     },
                                 },
+                            },
+                            "Differential_Water_Temperature_Sensor": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Differential,
+                                    TAG.Water,
+                                    TAG.Temperature,
+                                    TAG.Sensor,
+                                ],
                             },
                         },
                     },
