@@ -1,4 +1,5 @@
 from rdflib import RDF, RDFS, OWL, Namespace
+import pytest
 import brickschema
 from .util import make_readable
 import sys
@@ -9,7 +10,7 @@ from bricksrc.namespaces import BRICK, TAG, A, SKOS  # noqa: E402
 BLDG = Namespace("https://brickschema.org/schema/ExampleBuilding#")
 
 g = brickschema.Graph()
-g.parse("Brick+extensions.ttl", format="turtle")
+g.parse("Brick.ttl", format="turtle")
 
 # Instances
 g.add((BLDG.Coil_1, A, BRICK.Heating_Coil))
@@ -59,22 +60,23 @@ g.add((BLDG.co2s1, A, BRICK.CO2_Level_Sensor))
 
 g.add((BLDG.standalone, A, BRICK.Temperature_Sensor))
 
-# Apply reasoner
-g.expand(profile="owlrl+shacl+owlrl")
 
-g.bind("rdf", RDF)
-g.bind("owl", OWL)
-g.bind("rdfs", RDFS)
-g.bind("skos", SKOS)
-g.bind("brick", BRICK)
-g.bind("tag", TAG)
-g.bind("bldg", BLDG)
+@pytest.mark.slow
+def test_tag_inference():
 
-s = g.serialize("output.ttl", format="ttl")
-print("expanded:", len(g))
+    # Apply reasoner
+    g.expand(profile="owlrl+shacl+owlrl")
 
+    g.bind("rdf", RDF)
+    g.bind("owl", OWL)
+    g.bind("rdfs", RDFS)
+    g.bind("skos", SKOS)
+    g.bind("brick", BRICK)
+    g.bind("tag", TAG)
+    g.bind("bldg", BLDG)
 
-def test_tag1():
+    print("expanded:", len(g))
+
     res1 = make_readable(
         g.query(
             "SELECT DISTINCT ?co2tag WHERE {\
@@ -86,9 +88,7 @@ def test_tag1():
     res1 = [x[0] for x in res1]
     assert set(res1) == {"CO2", "Level", "Sensor", "Point", "Particulate", "Matter"}
 
-
-def test_sensors_measure_co2():
-    # which sensors measure CO2?
+    # test_sensors_measure_co2
     res2 = make_readable(
         g.query(
             "SELECT DISTINCT ?sensor WHERE {\
@@ -98,9 +98,7 @@ def test_sensors_measure_co2():
     )
     assert len(res2) == 1
 
-
-def test_sensors_measure_air():
-    # measure air? use abbreviated form too
+    # test_sensors_measure_air
     res3 = make_readable(
         g.query(
             "SELECT DISTINCT ?sensor WHERE {\
@@ -110,8 +108,7 @@ def test_sensors_measure_air():
     )
     assert len(res3) == 5
 
-
-def test_sensors_measure_air_temp():
+    # test_sensors_measure_air_temp
     # sensors that measure air temperature
     res4 = make_readable(
         g.query(
@@ -123,8 +120,6 @@ def test_sensors_measure_air_temp():
     )
     assert len(res4) == 2
 
-
-def test_air_flow_sensor():
     # air flow sensors
     res = make_readable(
         g.query(
@@ -135,8 +130,6 @@ def test_air_flow_sensor():
     )
     assert len(res) == 2
 
-
-def test_air_flow_sp():
     # air flow setpoints
     res = make_readable(
         g.query(
@@ -147,8 +140,6 @@ def test_air_flow_sp():
     )
     assert len(res) == 1
 
-
-def test_sp():
     # setpoints
     res = make_readable(
         g.query(
@@ -159,8 +150,6 @@ def test_sp():
     )
     assert len(res) == 1
 
-
-def test_max_air_flow_sp():
     # air flow setpoints
     res = make_readable(
         g.query(
@@ -171,8 +160,6 @@ def test_max_air_flow_sp():
     )
     assert len(res) == 1
 
-
-def test_air_flow_sensor2():
     # air flow sensors
     res = make_readable(
         g.query(
