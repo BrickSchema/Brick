@@ -76,6 +76,21 @@ system_subclasses = {
                             },
                         },
                     },
+                    "Geothermal_Water_System": {
+                        "tags": [
+                            TAG.Geothermal,
+                            TAG.Water,
+                            TAG.System,
+                        ],
+                    },
+                    "Ground_Source_Water_System": {
+                        "tags": [
+                            TAG.Ground,
+                            TAG.Source,
+                            TAG.Water,
+                            TAG.System,
+                        ],
+                    },
                 },
             },
         },
