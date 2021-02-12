@@ -69,11 +69,6 @@ bsh:hasTimeseriesIdRangeShape a sh:NodeShape ;
             sh:path brick:hasTimeseriesId ] ;
     sh:targetSubjectsOf brick:hasTimeseriesId .
 
-bsh:hasUnitDomainShape a sh:NodeShape ;
-    sh:class brick:Point ;
-    sh:message "Property hasUnit has subject with incorrect type" ;
-    sh:targetSubjectsOf brick:hasUnit .
-
 bsh:hasUnitRangeShape a sh:NodeShape ;
     sh:property [ sh:class unit:Unit ;
             sh:message "Property hasUnit has object with incorrect type" ;
