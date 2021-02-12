@@ -38,6 +38,14 @@ status_definitions = {
                 },
                 "tags": [TAG.Point, TAG.Enable, TAG.Status],
             },
+            "Lockout_Status": {
+                "tags": [
+                    TAG.Point,
+                    TAG.Lockout,
+                    TAG.Status,
+                ],
+                "parents": [BRICK.System_Status],
+            },
             "Even_Month_Status": {
                 "tags": [TAG.Point, TAG.Even, TAG.Month, TAG.Status],
             },
