@@ -1,4 +1,4 @@
-from .namespaces import A, OWL, RDFS, BRICK, VCARD, UNIT, PROP, QUDT, XSD
+from .namespaces import A, OWL, RDFS, BRICK, VCARD, UNIT, QUDT, XSD
 
 """
 Defining properties
