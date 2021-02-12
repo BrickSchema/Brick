@@ -88,6 +88,14 @@ entity_properties = {
         RDFS.range: BRICK.YearBuiltShape,
         RDFS.seeAlso: Literal("https://project-haystack.org/tag/yearBuilt"),
     },
+    BRICK.hasFloorNumber: {
+        SKOS.definition: Literal(
+            "Unitless integer indicating the floor's distance from ground level. The ground floor is always defined as zero. Additional floors above ground are numbered 1, 2, 3, etc. Subterranean floors are numbered -1, -2, -3, etc"
+        ),
+        RDFS.domain: BRICK.Floor,
+        RDFS.range: BRICK.FloorNumberShape,
+        RDFS.seeAlso: Literal("https://project-haystack.dev/doc/lib-phIoT/floorNum"),
+    },
     BRICK.hasThermalTransmittence: {
         SKOS.definition: Literal(
             "The area-weighted average heat transfer coefficient (commonly referred to as a U-value)"
@@ -220,6 +228,7 @@ shape_properties = {
     BRICK.StageShape: {"values": [1, 2, 3, 4]},
     BRICK.BuildingPrimaryFunctionShape: {"values": building_primary_function_values},
     BRICK.YearBuiltShape: {"datatype": XSD.integer},
+    BRICK.FloorNumberShape: {"datatype": XSD.integer},
     BRICK.ThermalTransmittenceShape: {
         "datatype": XSD.float,
         "units": [UNIT.BTU_IT, UNIT["W-PER-M2-K"]],
