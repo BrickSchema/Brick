@@ -91,6 +91,14 @@ system_subclasses = {
                             TAG.System,
                         ],
                     },
+                    "Thermal_Energy_Storage_System": {
+                        "tags": [
+                            TAG.Thermal,
+                            TAG.Energy,
+                            TAG.Storage,
+                            TAG.System,
+                        ],
+                    },
                 },
             },
         },

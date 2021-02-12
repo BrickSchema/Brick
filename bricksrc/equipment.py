@@ -596,6 +596,26 @@ hvac_subclasses = {
             },
         },
     },
+    "Thermal_Energy_Storage_Unit": {
+        "tags": [
+            TAG.Equipment,
+            TAG.Thermal,
+            TAG.Energy,
+            TAG.Storage,
+            TAG.Unit,
+        ],
+        "subclasses": {
+            "Thermal_Energy_Storage_Tank": {
+                "tags": [
+                    TAG.Equipment,
+                    TAG.Thermal,
+                    TAG.Energy,
+                    TAG.Storage,
+                    TAG.Tank,
+                ],
+            },
+        },
+    },
     "Chiller": {
         "tags": [TAG.Equipment, TAG.Chiller],
         "subclasses": {
