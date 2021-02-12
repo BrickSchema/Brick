@@ -18,7 +18,6 @@ from bricksrc.namespaces import (
     QUDT,
     QUDTQK,
     SH,
-    PROP,
 )
 from bricksrc.namespaces import bind_prefixes
 
@@ -279,7 +278,7 @@ def define_entity_properties(definitions, superprop=None):
     properties to the EntityProperty instances (like SKOS.definition)
     """
     for entprop, defn in definitions.items():
-        G.add((entprop, A, PROP.EntityProperty))
+        G.add((entprop, A, BRICK.EntityProperty))
         if "subproperties" in defn:
             subproperties = defn.pop("subproperties")
             define_entity_properties(subproperties, entprop)
@@ -317,7 +316,7 @@ def define_shape_properties(definitions):
             enumeration = BNode()
             G.add((shape_name, SH.property, ps))
             G.add((ps, A, SH.PropertyShape))
-            G.add((ps, SH.path, PROP.value))
+            G.add((ps, SH.path, BRICK.value))
             G.add((ps, SH["in"], enumeration))
             G.add((ps, SH.minCount, Literal(1)))
             Collection(G, enumeration, map(Literal, defn.pop("values")))
@@ -348,7 +347,7 @@ def define_shape_properties(definitions):
         elif "datatype" in defn:
             G.add((shape_name, SH.property, v))
             G.add((v, A, SH.PropertyShape))
-            G.add((v, SH.path, PROP.value))
+            G.add((v, SH.path, BRICK.value))
             G.add((v, SH.datatype, defn.pop("datatype")))
             G.add((v, SH.minCount, Literal(1)))
 
@@ -528,10 +527,10 @@ G.add((BRICK.Substance, RDFS.subClassOf, BRICK.Measurable))
 G.add((BRICK.Substance, A, OWL.Class))
 
 # entity property definitions
-G.add((PROP.value, A, OWL.DatatypeProperty))
-G.add((PROP.value, SKOS.definition, Literal("The basic value of an entity property")))
-G.add((PROP.EntityProperty, RDFS.subClassOf, OWL.ObjectProperty))
-G.add((PROP.EntityProperty, A, OWL.Class))
+G.add((BRICK.value, A, OWL.DatatypeProperty))
+G.add((BRICK.value, SKOS.definition, Literal("The basic value of an entity property")))
+G.add((BRICK.EntityProperty, RDFS.subClassOf, OWL.ObjectProperty))
+G.add((BRICK.EntityProperty, A, OWL.Class))
 define_shape_properties(shape_properties)
 define_entity_properties(entity_properties)
 

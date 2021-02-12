@@ -14,7 +14,7 @@ graph.parse(sys.argv[1], format=file_format)
 
 OWL = Namespace("http://www.w3.org/2002/07/owl#")
 RDF = Namespace("http://www.w3.org/1999/02/22-rdf-syntax-ns#")
-BRICK = Namespace("https://brickschema.org/schema/1.2/Brick#")
+BRICK = Namespace("https://brickschema.org/schema/Brick#")
 REC_DEVICE = Namespace("https://w3id.org/rec/device/")
 REC_CORE = Namespace("https://w3id.org/rec/core/")
 

@@ -1,12 +1,9 @@
 from rdflib import Namespace
 from .version import BRICK_VERSION
 
-BRICK = Namespace(f"https://brickschema.org/schema/{BRICK_VERSION}/Brick#")
-TAG = Namespace(f"https://brickschema.org/schema/{BRICK_VERSION}/BrickTag#")
-BSH = Namespace(f"https://brickschema.org/schema/{BRICK_VERSION}/BrickShape#")
-PROP = Namespace(
-    f"https://brickschema.org/schema/{BRICK_VERSION}/BrickEntityProperties#"
-)
+BRICK = Namespace("https://brickschema.org/schema/Brick#")
+TAG = Namespace("https://brickschema.org/schema/BrickTag#")
+BSH = Namespace("https://brickschema.org/schema/BrickShape#")
 SH = Namespace("http://www.w3.org/ns/shacl#")
 XSD = Namespace("http://www.w3.org/2001/XMLSchema#")
 OWL = Namespace("http://www.w3.org/2002/07/owl#")
@@ -38,7 +35,6 @@ def bind_prefixes(g):
     g.bind("sh", SH)
     g.bind("brick", BRICK)
     g.bind("tag", TAG)
-    g.bind("prop", PROP)
     g.bind("vcard", VCARD)
     g.bind("bsh", BSH)
     g.bind("qudtqk", QUDTQK)

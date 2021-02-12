@@ -172,6 +172,20 @@ equipment_subclasses = {
     "Security_Equipment": {"tags": [TAG.Security, TAG.Equipment]},
     "Safety_Equipment": {"tags": [TAG.Safety, TAG.Equipment]},
     "Camera": {"tags": [TAG.Camera, TAG.Equipment]},
+    "Water_Heater": {
+        "tags": [TAG.Water, TAG.Heater, TAG.Equipment],
+        "subclasses": {
+            "Collection_Basin_Water_Heater": {
+                "tags": [
+                    TAG.Collection,
+                    TAG.Basin,
+                    TAG.Water,
+                    TAG.Heater,
+                    TAG.Equipment,
+                ],
+            }
+        },
+    },
 }
 
 """
@@ -391,7 +405,7 @@ hvac_subclasses = {
         },
     },
     "Humidifier": {"tags": [TAG.Equipment, TAG.Humidifier]},
-    "Boiler": {"tags": [TAG.Equipment, TAG.Boiler]},
+    "Boiler": {"tags": [TAG.Equipment, TAG.Boiler], "parents": [BRICK.Water_Heater]},
     "Air_Handler_Unit": {
         # here for historical purposes
         "tags": [TAG.Equipment, TAG.Air, TAG.Handler, TAG.Unit],
@@ -466,13 +480,50 @@ valve_subclasses = {
                     },
                 },
             },
+            "Makeup_Water_Valve": {
+                "tags": [
+                    TAG.Fluid,
+                    TAG.Liquid,
+                    TAG.Water,
+                    TAG.Makeup,
+                    TAG.Valve,
+                    TAG.Equipment,
+                ]
+            },
         },
     },
     "Gas_Valve": {"tags": [TAG.Gas, TAG.Valve, TAG.Equipment]},
-    "Isolation_Valve": {"tags": [TAG.Isolation, TAG.Valve, TAG.Equipment]},
+    "Isolation_Valve": {
+        "tags": [TAG.Isolation, TAG.Valve, TAG.Equipment],
+        "subclasses": {
+            "Condenser_Water_Isolation_Valve": {
+                "tags": [
+                    TAG.Condenser,
+                    TAG.Water,
+                    TAG.Isolation,
+                    TAG.Valve,
+                    TAG.Equipment,
+                ]
+            }
+        },
+    },
     "Steam_Valve": {"tags": [TAG.Steam, TAG.Valve, TAG.Equipment]},
-    "Differential_Pressure_Bypass_Valve": {
-        "tags": [TAG.Differential, TAG.Pressure, TAG.Bypass, TAG.Valve, TAG.Equipment],
+    "Bypass_Valve": {
+        "tags": [TAG.Bypass, TAG.Valve, TAG.Equipment],
+        "subclasses": {
+            "Differential_Pressure_Bypass_Valve": {
+                "tags": [
+                    TAG.Differential,
+                    TAG.Pressure,
+                    TAG.Bypass,
+                    TAG.Valve,
+                    TAG.Equipment,
+                ],
+            },
+            "Condenser_Water_Bypass_Valve": {
+                "tags": [TAG.Condenser, TAG.Water, TAG.Bypass, TAG.Valve, TAG.Equipment]
+            },
+        },
     },
 }
 
