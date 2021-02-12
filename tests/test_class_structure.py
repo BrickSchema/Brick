@@ -73,7 +73,7 @@ def test_subclasses():
             SKOS.Concept,
             UNIT.Unit,
             QUDT.QuantityKind,
-            XSD.String,
+            XSD.string,
         ]
     )
 
