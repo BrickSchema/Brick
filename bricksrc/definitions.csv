@@ -95,6 +95,8 @@ https://brickschema.org/schema/Brick#Chilled_Water_System_Enable_Command,Enables
 https://brickschema.org/schema/Brick#Chilled_Water_Temperature_Sensor,Measures the temperature of chilled water,
 https://brickschema.org/schema/Brick#Chilled_Water_Valve,A valve that modulates the flow of chilled water,
 https://brickschema.org/schema/Brick#Chiller,Refrigerating machine used to transfer heat between fluids. Chillers are either direct expansion with a compressor or absorption type.,
+https://brickschema.org/schema/Brick#Circuit,"An electrical circuit is a path in which electrons from a voltage or current source flow.",https://simple.wikipedia.org/wiki/Electrical_circuit
+https://brickschema.org/schema/Brick#Circuit_Breaker,"A circuit breaker is a device designed to shut off an electrical circuit when too much current is flowing",https://simple.wikipedia.org/wiki/Circuit_breaker
 https://brickschema.org/schema/Brick#Cloudage,The fraction of the sky obscured by clouds when observed from a particular location,
 https://brickschema.org/schema/Brick#CO,Carbon Monoxide in the vapor phase,
 https://brickschema.org/schema/Brick#CO_Level_Sensor,Measures the concentration of CO,

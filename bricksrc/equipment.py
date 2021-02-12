@@ -28,6 +28,8 @@ equipment_subclasses = {
                 "tags": [TAG.Equipment, TAG.Control, TAG.Center]
             },
             "Breaker_Panel": {"tags": [TAG.Breaker, TAG.Equipment]},
+            "Circuit": {"tags": [TAG.Circuit, TAG.Equipment]},
+            "Circuit_Breaker": {"tags": [TAG.Circuit, TAG.Breaker, TAG.Equipment]},
         },
     },
     "Gas_Distribution": {"tags": [TAG.Gas, TAG.Distribution, TAG.Equipment]},
