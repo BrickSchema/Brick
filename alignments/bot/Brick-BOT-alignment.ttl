@@ -1,9 +1,9 @@
 # Copyright 2017-2021 W3C Linked Building Data Community Group.
-# 
-# This work is licensed under a Creative Commons Attribution License. 
+#
+# This work is licensed under a Creative Commons Attribution License.
 # This copyright applies to the Vocabulary Specification and
 # accompanying documentation in RDF. Regarding underlying technology,
-# the Vocabulary uses W3C's RDF technology, an open Web standard that can be freely 
+# the Vocabulary uses W3C's RDF technology, an open Web standard that can be freely
 # used by anyone.
 
 @prefix : <https://w3id.org/bot/BRICKAlignment#> .
@@ -11,13 +11,13 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix dcterms: <http://purl.org/dc/terms/> .  
+@prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix voaf: <http://purl.org/vocommons/voaf#> .
 @prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 @prefix schema: <https://schema.org/> .
 @prefix bot: <https://w3id.org/bot#> .
-@prefix brick: <https://brickschema.org/schema/1.1/Brick#> .
+@prefix brick: <https://brickschema.org/schema/Brick#> .
 @base <https://w3id.org/bot/BRICKAlignment> .
 
 <https://w3id.org/bot/BRICKAlignment> rdf:type owl:Ontology , voaf:Vocabulary ;
@@ -35,7 +35,7 @@
   dcterms:creator <https://github.com/jbkoh> ;
 	rdfs:seeAlso <https://doi.org/10.13140/RG.2.2.21802.52169> ;
 	owl:imports 	<https://w3id.org/bot-0.3.2> ,
-					<https://brickschema.org/schema/1.1/Brick> .
+					<https://brickschema.org/schema/Brick> .
 
 dcterms:title a owl:AnnotationProperty .
 dcterms:description a owl:AnnotationProperty .
@@ -49,11 +49,11 @@ vann:preferredNamespaceUri a owl:AnnotationProperty .
 vcard:fn a owl:AnnotationProperty .
 schema:name a owl:AnnotationProperty .
 
-<https://orcid.org/0000-0002-2033-859X> a vcard:Individual , schema:Person; 
+<https://orcid.org/0000-0002-2033-859X> a vcard:Individual , schema:Person;
 	vcard:fn    "Georg Ferdinand Schneider" ;
 	schema:name "Georg Ferdinand Schneider" .
 
-<https://github.com/jbkoh> a vcard:Individual , schema:Person; 
+<https://github.com/jbkoh> a vcard:Individual , schema:Person;
 	vcard:fn    "Jason Koh" ;
 	schema:name "Jason Koh" .
 
@@ -69,14 +69,12 @@ bot:hasSubElement rdfs:subPropertyOf brick:hasPart . # Usage of brick:hasPart wi
 #    Classes
 #################################################################
 
-brick:Location rdfs:subClassOf bot:Zone. 
+brick:Location rdfs:subClassOf bot:Zone.
 bot:Site rdfs:subClassOf brick:Site . # Maybe equivalent as of other subclassings.
 
 bot:Storey owl:equivalentClass brick:Floor. # Brick equate both Storey and Floor.
 
 brick:Building owl:equivalentClass bot:Building.
-brick:Space rdfs:subClassOf bot:Space. 
+brick:Space rdfs:subClassOf bot:Space.
 
 brick:Equipment rdfs:subClassOf bot:Element . # In BOT, anything other than bot:Zone is bot:Element
-
-
