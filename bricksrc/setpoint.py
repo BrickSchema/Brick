@@ -843,26 +843,43 @@ setpoint_definitions = {
             "Pressure_Setpoint": {
                 "subclasses": {
                     "Differential_Pressure_Setpoint": {
+                        "tags": [
+                            TAG.Point,
+                            TAG.Differential,
+                            TAG.Pressure,
+                            TAG.Setpoint,
+                        ],
                         "subclasses": {
-                            "Chilled_Water_Differential_Pressure_Setpoint": {
+                            "Water_Differential_Pressure_Setpoint": {
                                 "tags": [
                                     TAG.Point,
-                                    TAG.Chilled,
                                     TAG.Water,
                                     TAG.Differential,
                                     TAG.Pressure,
                                     TAG.Setpoint,
                                 ],
-                            },
-                            "Hot_Water_Differential_Pressure_Setpoint": {
-                                "tags": [
-                                    TAG.Point,
-                                    TAG.Hot,
-                                    TAG.Water,
-                                    TAG.Differential,
-                                    TAG.Pressure,
-                                    TAG.Setpoint,
-                                ],
+                                "subclasses": {
+                                    "Chilled_Water_Differential_Pressure_Setpoint": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Chilled,
+                                            TAG.Water,
+                                            TAG.Differential,
+                                            TAG.Pressure,
+                                            TAG.Setpoint,
+                                        ],
+                                    },
+                                    "Hot_Water_Differential_Pressure_Setpoint": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Hot,
+                                            TAG.Water,
+                                            TAG.Differential,
+                                            TAG.Pressure,
+                                            TAG.Setpoint,
+                                        ],
+                                    },
+                                },
                             },
                             "Load_Shed_Differential_Pressure_Setpoint": {
                                 "parents": [BRICK.Load_Shed_Setpoint],
@@ -893,12 +910,6 @@ setpoint_definitions = {
                                 ],
                             },
                         },
-                        "tags": [
-                            TAG.Point,
-                            TAG.Differential,
-                            TAG.Pressure,
-                            TAG.Setpoint,
-                        ],
                     },
                     "Static_Pressure_Setpoint": {
                         "subclasses": {
