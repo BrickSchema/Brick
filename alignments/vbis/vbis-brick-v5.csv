@@ -52,21 +52,11 @@
 ,"Computer Room Air Conditioning",,,,"ME-PAC*",,,,,,,
 ,"Condenser",,,,"ME-ACC*",,,,,,,
 ,"Damper",,,,"ME-Da*",,,,,,,
-,,"Economizer Damper",,,"ME-Da*",,,,,,,"As VBIS is structured by types of dampers as opposed to use of dampers the same VBIS pattern applies to all dampers."
-,,"Exhaust Damper",,,"ME-Da*",,,,,,,
-,,"Outside Damper",,,"ME-Da*",,,,,,,
-,,"Return Damper",,,"ME-Da*",,,,,,,
 ,,"Fire Damper",,,"ME-Da-FD*",1,"Damper",,,,,
 ,,"Smoke Damper",,,"ME-Da-MFSD*",1,"Damper",,,,,
 ,"Economizer",,,,"ME-Da*",,,,,,,"VBIS classification identifies the equipment type, rather than use hence Economiser configuration would still be a Damper code as Economizer is a combination of outside and return dampers."
 ,"Fan",,,,"ME-Fa*",,,,,,,
 ,,"Cooling Tower Fan",,,"ME-Fa-CT*",,,,,,,
-,,"Discharge Fan",,,"ME-Fa*",,,,,,,
-,,"Exhaust Fan",,,"ME-Fa*",,,,,,,
-,,"Return Fan",,,"ME-Fa*",,,,,,,
-,,"Standby Fan",,,"ME-Fa*",,,,,,,
-,,"Supply Fan",,,"ME-Fa*",,,,,,,
-,,,"Booster Fan",,"ME-Fa*",,,,,,,
 ,,"Jet",,,"ME-Fa-Je",1,"Fan",,,,,
 ,,"Carpark Jet ",,,"ME-Fa-CJ",1,"Fan",,,,,
 ,,"Smoke Extraction",,,"ME-Fa-SE",1,"Fan",,,,,
@@ -76,16 +66,8 @@
 ,"HX",,,,"ME-HE*",,,,"SP-HE*",,,"Note: VBIS also has Heat Exchangers specific to Spas and Pools discipline [SP-HE*]"
 ,"Heat Exchanger",,,,"ME-HE*",,,,"SP-HE*",,,"Note: VBIS also has Heat Exchangers specific to Spas and Pools discipline [SP-HE*]"
 ,,"Coil",,,"ME-Co*",,,,,,,"VBIS has Coils structured as its own product"
-,,,"Cooling Coil",,"ME-Co*",,,,,,,
-,,,"Heating Coil",,"ME-Co*",,,,,,,
-,,"Condenser Heat Exchanger",,,"ME-HE*",,,,,,,
-,,"Evaporative Heat Exchnger",,,"ME-HE*",,,,,,,
 ,,"Heat Wheel",,,"ME-HE-ATA-AW",,,,,,,
 ,"Pump",,,,"ME-Pu*",,,,,,,
-,,"Water Pump",,,"ME-Pu*",,,,"HY-Pu*","FS-Pu*","LS-Pu*","Note: VBIS also has pumps in Hydraulics [HY-Pu*], Fire [FS-Pu*] and Landscape [LS-Pu*]"
-,,,"Chilled Water Pump",,"ME-Pu*",,,,,,,
-,,,"Condenser Water Pump",,"ME-Pu*",,,,,,,
-,,,"Hot Water Pump",,"ME-Pu*",,,,,,,
 ,"Space Heater",,,,"FFE-He*",,,,,,,
 ,"Terminal Unit",,,,"ME-ATU*",,,,,,,
 ,,"FCU",,,"ME-FCU*",,,,,,,
@@ -102,19 +84,6 @@
 ,"VFD",,,,"ME-EMS-VSD*",,,,,,,
 ,,"Heat Wheel VFD",,,"ME-EMS-VSD*",,,,,,,"VFD associated with a specific use, in VBIS as VFDs are classfied by types it can have the same selection of VFD products be applicable."
 ,"Valve",,,,"ME-Va*",,,,,,,
-,,"Cooling Valve",,,"ME-Va*",,,,,,,
-,,"Gas Valve",,,"ME-Va*",,,,,,,
-,,"Heating Valve",,,"ME-Va*",,,,,,,
-,,,"Domestic Hot Water Valve",,"ME-Va*",,,,,,,
-,,,"Prehet Hot Water Valve",,"ME-Va*",,,,,,,
-,,,"Reheat Valve",,"ME-Va*",,,,,,,
-,,,"Return Heating Valve",,"ME-Va*",,,,,,,
-,,,"Isolation Valve",,"ME-Va*",,,,,,,
-,,,"Steam Valve",,"ME-Va*",,,,,,,
-,,,"Water Valve",,"ME-Va*",,,,,,,
-,,,,"Chilled Water Valve","ME-Va*",,,,,,,
-,,,,"Domestic Hot Water Valve","ME-Va*",,,,,,,
-,,,,"Preheat Hot Water Valve","ME-Va*",,,,,,,
 ,"Variable Frequency Drive",,,,"ME-EMS-VSD*",,,,,,,
 "Lighting Equipment",,,,,"EL-*",,,,,,,"This is an entire discipline in VBIS"
 ,"Interface",,,,"EL-Li-Con*",,,,,,,
