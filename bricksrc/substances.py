@@ -52,6 +52,7 @@ substances = {
                 "subclasses": {
                     "Gasoline": {"tags": [TAG.Fluid, TAG.Liquid, TAG.Gasoline]},
                     "Liquid_CO2": {"tags": [TAG.Fluid, TAG.Liquid, TAG.CO2]},
+                    "Glycol": {"tags": [TAG.Fluid, TAG.Liquid, TAG.Glycol]},
                     "Oil": {
                         "tags": [TAG.Fluid, TAG.Liquid, TAG.Oil],
                         "subclasses": {
