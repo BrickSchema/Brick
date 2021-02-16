@@ -254,6 +254,77 @@ sensor_definitions = {
                     },
                 },
             },
+            "Wetbulb_Sensor": {
+                "tags": [TAG.Point, TAG.Sensor, TAG.Wetbulb],
+                "substances": [[BRICK.measures, BRICK.Wetbulb]],
+                "subclasses": {
+                    "Outside_Air_Wetbulb_Sensor": {
+                        "tags": [
+                            TAG.Point,
+                            TAG.Sensor,
+                            TAG.Wetbulb,
+                            TAG.Air,
+                            TAG.Outside,
+                        ],
+                        "substances": [
+                            [BRICK.measures, BRICK.Wetbulb],
+                            [BRICK.measures, BRICK.Outside_Air],
+                        ],
+                    },
+                    "Return_Air_Wetbulb_Sensor": {
+                        "tags": [
+                            TAG.Point,
+                            TAG.Sensor,
+                            TAG.Wetbulb,
+                            TAG.Air,
+                            TAG.Return,
+                        ],
+                        "substances": [
+                            [BRICK.measures, BRICK.Wetbulb],
+                            [BRICK.measures, BRICK.Return_Air],
+                        ],
+                    },
+                    "Exhaust_Air_Wetbulb_Sensor": {
+                        "tags": [
+                            TAG.Point,
+                            TAG.Sensor,
+                            TAG.Wetbulb,
+                            TAG.Air,
+                            TAG.Exhaust,
+                        ],
+                        "substances": [
+                            [BRICK.measures, BRICK.Wetbulb],
+                            [BRICK.measures, BRICK.Exhaust_Air],
+                        ],
+                    },
+                    "Discharge_Air_Wetbulb_Sensor": {
+                        "tags": [
+                            TAG.Point,
+                            TAG.Sensor,
+                            TAG.Wetbulb,
+                            TAG.Air,
+                            TAG.Discharge,
+                        ],
+                        "substances": [
+                            [BRICK.measures, BRICK.Wetbulb],
+                            [BRICK.measures, BRICK.Discharge_Air],
+                        ],
+                    },
+                    "Zone_Air_Wetbulb_Sensor": {
+                        "tags": [
+                            TAG.Point,
+                            TAG.Sensor,
+                            TAG.Wetbulb,
+                            TAG.Air,
+                            TAG.Zone,
+                        ],
+                        "substances": [
+                            [BRICK.measures, BRICK.Wetbulb],
+                            [BRICK.measures, BRICK.Zone_Air],
+                        ],
+                    },
+                },
+            },
             "Direction_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Direction],
                 "substances": [[BRICK.measures, BRICK.Direction]],
