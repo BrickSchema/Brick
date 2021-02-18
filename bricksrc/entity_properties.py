@@ -6,64 +6,64 @@ from rdflib import Namespace, Literal
 # These are all instances of Brick.EntityProperty, which is
 # a subclass of OWL.ObjectProperty
 entity_properties = {
-    BRICK.hasArea: {
+    BRICK.area: {
         SKOS.definition: Literal("Entity has 2-dimensional area"),
         RDFS.domain: BRICK.Location,
         RDFS.range: BRICK.AreaShape,
         "subproperties": {
-            BRICK.hasGrossArea: {
+            BRICK.grossArea: {
                 SKOS.definition: Literal("Entity has gross 2-dimensional area"),
                 RDFS.domain: BRICK.Location,
                 RDFS.range: BRICK.AreaShape,
             },
-            BRICK.hasNetArea: {
+            BRICK.netArea: {
                 SKOS.definition: Literal("Entity has net 2-dimensional area"),
                 RDFS.domain: BRICK.Location,
                 RDFS.range: BRICK.AreaShape,
             },
         },
     },
-    BRICK.hasVolume: {
+    BRICK.volume: {
         SKOS.definition: Literal("Entity has 3-dimensional volume"),
         RDFS.domain: BRICK.Location,
         RDFS.range: BRICK.VolumeShape,
     },
     # electrical properties
-    BRICK.hasComplexity: {
+    BRICK.powerComplexity: {
         SKOS.definition: Literal("Entity has this power complexity"),
         RDFS.range: BRICK.PowerComplexityShape,
     },
-    BRICK.hasPowerFlow: {
+    BRICK.powerFlow: {
         SKOS.definition: Literal(
             "Entity has this power flow relative to the building'"
         ),
         RDFS.range: BRICK.PowerFlowShape,
     },
-    BRICK.hasPhases: {
+    BRICK.electricalPhases: {
         SKOS.definition: Literal("Entity has these electrical AC phases"),
         RDFS.range: BRICK.PhasesShape,
     },
-    BRICK.hasPhaseCount: {
+    BRICK.electricalPhaseCount: {
         SKOS.definition: Literal("Entity has these phases"),
         RDFS.range: BRICK.PhaseCountShape,
     },
-    BRICK.hasCurrentFlowType: {
+    BRICK.currentFlowType: {
         SKOS.definition: Literal("The current flow type of the entity"),
         RDFS.range: BRICK.CurrentFlowTypeShape,
     },
     # equipment operation properties
-    BRICK.hasStage: {
+    BRICK.operationalStage: {
         SKOS.definition: Literal("The associated operational stage"),
         RDFS.range: BRICK.StageShape,
     },
-    BRICK.hasStageCount: {
+    BRICK.operationalStageCount: {
         SKOS.definition: Literal(
             "The number of operational stages supported by this eqiupment"
         ),
         RDFS.domain: BRICK.Equipment,
         RDFS.range: BRICK.StageShape,
     },
-    BRICK.hasCoolingCapacity: {
+    BRICK.coolingCapacity: {
         SKOS.definition: Literal(
             "Measurement of a chiller ability to remove heat (adopted from Project Haystack)"
         ),
@@ -72,7 +72,7 @@ entity_properties = {
         RDFS.seeAlso: Literal("https://project-haystack.org/tag/coolingCapacity"),
     },
     # building properties
-    BRICK.hasBuildingPrimaryFunction: {
+    BRICK.buildingPrimaryFunction: {
         SKOS.definition: Literal(
             "Enumerated string applied to a site record to indicate the building's primary function. The list of primary functions is derived from the US Energy Star program (adopted from Project Haystack)"
         ),
@@ -80,7 +80,7 @@ entity_properties = {
         RDFS.domain: BRICK.Building,
         RDFS.range: BRICK.BuildingPrimaryFunctionShape,
     },
-    BRICK.hasYearBuilt: {
+    BRICK.yearBuilt: {
         SKOS.definition: Literal(
             "Four digit year that a building was first built. (adopted from Project Haystack)"
         ),
@@ -88,7 +88,7 @@ entity_properties = {
         RDFS.range: BRICK.YearBuiltShape,
         RDFS.seeAlso: Literal("https://project-haystack.org/tag/yearBuilt"),
     },
-    BRICK.hasThermalTransmittence: {
+    BRICK.thermalTransmittence: {
         SKOS.definition: Literal(
             "The area-weighted average heat transfer coefficient (commonly referred to as a U-value)"
         ),
@@ -97,7 +97,7 @@ entity_properties = {
             "https://www.iso.org/obp/ui/#iso:std:iso:13789:ed-3:v1:en"
         ),
         "subproperties": {
-            BRICK.hasBuildingThermalTransmittence: {
+            BRICK.buildingThermalTransmittence: {
                 RDFS.domain: BRICK.Building,
                 RDFS.range: BRICK.ThermalTransmittenceShape,
                 SKOS.definition: Literal(
