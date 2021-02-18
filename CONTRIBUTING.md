@@ -193,10 +193,15 @@ To set up the development environment
     . brickvenv/bin/activate
     pip install -r requirements.txt
     ```
-4. Make the desired changes **to the Python files**. Do not edit the `Brick.ttl` or `Brick_expanded.ttl` files directly.
+4. Make the desired changes **to the Python files**. Do not edit the `Brick.ttl` or `Brick+extensions.ttl` files directly.
 5. Compile the `Brick.ttl` and `Brick_expanded.ttl` files by executing the `generate_brick.py` script using Python
     ```bash
     python generate_brick.py
+    ```
+    It may be the case that additional work is needed to generate the Brick file. If your system supports it, it is
+    recommended to use the Makefile to build Brick:
+    ```bash
+    make
     ```
 6. Commit your changes and push to your fork
 7. Submit the pull request
