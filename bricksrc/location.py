@@ -262,6 +262,12 @@ location_subclasses = {
                             },
                         },
                     },
+                    "Library": {
+                        "tags": [
+                            TAG.Library,
+                            TAG.Location,
+                        ],
+                    },
                     "Mechanical_Room": {
                         "tags": [
                             TAG.Mechanical,
