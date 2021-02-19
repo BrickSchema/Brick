@@ -151,7 +151,7 @@ Entries should be placed into the file alphabetically to facilitate maintenance.
 For example, here is the row providing the textual definition of a `brick:Thermostat`:
 
 ```
-https://brickschema.org/schema/1.1/Brick#Thermostat,An automatic control device used to maintain temperature at a fixed or adjustable setpoint.,
+https://brickschema.org/schema/Brick#Thermostat,An automatic control device used to maintain temperature at a fixed or adjustable setpoint.,
 ```
 
 ### Managing Tags

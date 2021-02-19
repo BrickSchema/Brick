@@ -32,7 +32,7 @@ provides an API and a command line tool for validating a building ontology.  In 
 ## Brick SHACL shapes
 
 Those are the rules focusing on certain type of triples in the building graph and enforcing restrictions.  The
-examples below declare shapes in the `bsh` ("brickshape" ) namespace (`https://brickschema.org/schema/1.1/BrickShape#`) for clarity.
+examples below declare shapes in the `bsh` ("brickshape" ) namespace (`https://brickschema.org/schema/BrickShape#`) for clarity.
 
 ### Property Constraints
 
