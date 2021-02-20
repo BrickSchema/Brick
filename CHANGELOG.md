@@ -1,6 +1,210 @@
 # Changelog
 -----------
 
+## Brick v1.2.0
+---------------
+
+Brick v1.2.0 marks just over 7 months of work from a growing community of contributors. Moving forward, Brick will be targeting a 6 month cycle for "minor" releases (e.g. `Brick v1.x.y`). The Brick development roadmap can be found at http://roadmap.brickschema.org/ . The Brick community is always looking for more volunteers to provide feedback and contribute features to Brick.
+
+Brick v1.2.0 brings a number of new features
+
+- **Namespace change** (hopefully for the last time): to facilitate future development of Brick, Brick is changing its namespace to *no longer contain a version number*. Brick can still be downloaded on a per-version basis in the future, but to aid in the adoption of future (backwards-compatible) versions of Brick, it was decided that the best course of action was to remove the need to increment version numbers. This way, only a new copy of the Brick graph needs to be loaded in order to upgrade
+    - Old namespace (v1.1.x): `https://brickschema.org/schema/1.1/Brick#`
+    - **New namespace (v1.2.x and onward)**: `https://brickschema.org/schema/Brick#`
+- **Entity Properties**: entity properties are a new Brick feature (described in-depth [here](https://docs.brickschema.org/metadata/entity-properties.html)) that allow models to attach static properties to Brick entities. The initial release of entity properties include floor area (net and gross), electrical metering properties, and aggregations. Documentation for entity properties on the Brick website is coming soon
+- **Timeseries Storage**: the 1.2.0 release also includes some preliminary timeseries storage properties. See [here](https://docs.brickschema.org/metadata/timeseries-storage.html) for documentation; please file an issue or post on the mailing list to discuss any emergent modeling needs for timeseries
+- **Alignments**: Brick 1.2.0 also includes [alignments](https://github.com/BrickSchema/Brick/tree/master/alignments) with several external ontologies and metadata representations
+    - [BOT](https://w3c-lbd-cg.github.io/bot/): an ontology for building topologies and locations
+    - [VBIS](https://vbis.com.au/): an emerging standard for asset management tagging
+    - [REC](https://www.realestatecore.io/): an emerging ontology for real estate management
+- **Additional classes**:
+    - Locations: A large number of standard room use types have been added to Brick
+    - Chiller Plants (more coming): A number of Chiller-related points and equipment have been added to Brick. Future discussions on chillers should be directed to https://github.com/BrickSchema/Brick/issues/197
+
+
+**Added 149 classes, removed 12 classes** (listed below). The removed classes are either typos, or have been better reflected through application of the Entity Properties feature.
+
+### Contributors
+
+A big thanks to all contributors! The contributors for Brick v1.2.0 are, in descending order of number of commits,:
+
+- @gtfierro
+- @KiithNabaal
+- @shreyasnagare
+- @epaulson
+- @corymosiman12
+- @jbkoh
+- @GeorgFerdinandSchneider
+
+### Added Classes
+
+```
+Ablutions_Room
+Air_Wet_Bulb_Temperature_Sensor
+Auditorium
+Battery_Room
+Bench_Space
+Break_Room
+Breakroom
+Broadcast_Room
+Bypass_Valve
+Cafeteria
+Ceiling_Fan
+Collection_Basin_Water
+Collection_Basin_Water_Heater
+Collection_Basin_Water_Level_Alarm
+Collection_Basin_Water_Level_Sensor
+Collection_Basin_Water_Temperature_Sensor
+Common_Space
+Concession
+Condenser_Water_Bypass_Valve
+Condenser_Water_Isolation_Valve
+Condenser_Water_System
+Condenser_Water_Temperature_Sensor
+Condenser_Water_Valve
+Conference_Room
+Control_Room
+Copy_Room
+Cubicle
+Detention_Room
+Distribution_Frame
+Effective_Discharge_Air_Temperature_Setpoint
+Effective_Return_Air_Temperature_Setpoint
+Effective_Room_Air_Temperature_Setpoint
+Effective_Supply_Air_Temperature_Setpoint
+Effective_Zone_Air_Temperature_Setpoint
+Electrical_Room
+Elevator_Shaft
+Elevator_Space
+Employee_Entrance_Lobby
+Enclosed_Office
+Energy_Zone
+Entrance
+Equipment_Room
+Exercise_Room
+Field_Of_Play
+First_Aid_Room
+Food_Service_Room
+Formaldehyde_Sensor
+Fresh_Air_Fan
+Gatehouse
+Generator_Room
+Glycol
+HVAC_Equipment
+HVAC_System
+Hallway
+Hazardous_Materials_Storage
+Hospitality_Box
+IDF
+Information_Area
+Janitor_Room
+Library
+Loading_Dock
+Lobby
+Lounge
+MDF
+Mail_Room
+Majlis
+Makeup_Water_Valve
+Massage_Room
+Mechanical_Room
+Media_Hot_Desk
+Media_Production_Room
+Media_Room
+Medical_Room
+Mixed_Damper
+Occupied_Air_Temperature_Setpoint
+Occupied_Discharge_Air_Temperature_Setpoint
+Occupied_Return_Air_Temperature_Setpoint
+Occupied_Room_Air_Temperature_Setpoint
+Occupied_Supply_Air_Temperature_Setpoint
+Occupied_Zone_Air_Temperature_Setpoint
+Office
+Office_Kitchen
+Open_Office
+Outdoor_Area
+Outside_Air_Wet_Bulb_Temperature_Sensor
+PM1_Level_Sensor
+PM1_Sensor
+PM2.5_Level_Sensor
+PM2.5_Sensor
+Parking_Level
+Parking_Space
+Parking_Structure
+Plumbing_Room
+Potable_Water
+Prayer_Room
+Private_Office
+Pump_Room
+Reception
+Region
+Rest_Room
+Restroom
+Retail_Room
+Return_Air_Temperature_Setpoint
+Return_Condenser_Water
+Return_Condenser_Water_Flow_Sensor
+Return_Condenser_Water_Temperature_Sensor
+Return_Water_Flow_Sensor
+Riser
+Security_Service_Room
+Service_Room
+Shared_Office
+Shower
+Sports_Service_Room
+Stage_Enable_Command
+Staircase
+Storage_Room
+Studio
+Supply_Condenser_Water
+Supply_Condenser_Water_Flow_Sensor
+Supply_Condenser_Water_Temperature_Sensor
+Supply_Condenser_Water_Temperature_Setpoint
+Switch_Room
+TETRA_Room
+TVOC_Level_Sensor
+TVOC_Sensor
+Team_Room
+Telecom_Room
+Thermal_Power_Meter
+Ticketing_Booth
+Transformer_Room
+Tunnel
+Unoccupied_Discharge_Air_Temperature_Setpoint
+Unoccupied_Return_Air_Temperature_Setpoint
+Unoccupied_Room_Air_Temperature_Setpoint
+Unoccupied_Supply_Air_Temperature_Setpoint
+Unoccupied_Zone_Air_Temperature_Setpoint
+Valve_Position_Sensor
+Vertical_Space
+Visitor_Lobby
+Wardrobe
+Waste_Storage
+Water_Heater
+Water_Level_Alarm
+Water_Tank
+Workshop
+Zone_Air_Cooling_Temperature_Setpoint
+Zone_Air_Heating_Temperature_Setpoint
+```
+
+### Removed Classes
+
+```
+Active_Energy_Sensor
+Apparent_Energy_Sensor
+Daily_Energy_Usage_Sensor
+HVAC
+Monthly_Energy_Usage_Sensor
+Monthly_Steam_Usage_Sensor
+PM25_Level_Sensor
+PM25_Sensor
+Today_Peak_Energy_Sensor
+Today_Steam_Usage_Sensor
+Yearly_Energy_Usage_Sensor
+Yearly_Steam_Usage_Sensor
+```
+
 ## Brick v1.1.0
 -------------
 
