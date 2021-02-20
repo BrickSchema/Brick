@@ -5,9 +5,9 @@ from rdflib import RDF, RDFS, XSD, OWL
 from rdflib.collection import Collection
 
 graph = Graph()
-BRICK = Namespace("https://brickschema.org/schema/1.1/Brick#")
+BRICK = Namespace("https://brickschema.org/schema/Brick#")
 SH = Namespace("http://www.w3.org/ns/shacl#")
-VBIS = Namespace("https://brickschema.org/schema/1.1/Brick/alignments/vbis#")
+VBIS = Namespace("https://brickschema.org/schema/Brick/alignments/vbis#")
 graph.bind("brick", BRICK)
 graph.bind("sh", SH)
 graph.bind("vbisalign", VBIS)

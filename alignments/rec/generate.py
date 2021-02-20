@@ -2,19 +2,12 @@ import sys
 from rdflib import Graph, Namespace, BNode
 from rdflib.collection import Collection
 
-if len(sys.argv) < 2:
-    print("Usage: python generate.py <input file>")
-    sys.exit(1)
-
 graph = Graph()
-file_format = sys.argv[1].split(".")[-1]
-if file_format == "rdf":
-    file_format = "xml"
-graph.parse(sys.argv[1], format=file_format)
+graph.parse("Brick-REC-nodevice.ttl", format="turtle")
 
 OWL = Namespace("http://www.w3.org/2002/07/owl#")
 RDF = Namespace("http://www.w3.org/1999/02/22-rdf-syntax-ns#")
-BRICK = Namespace("https://brickschema.org/schema/1.1/Brick#")
+BRICK = Namespace("https://brickschema.org/schema/Brick#")
 REC_DEVICE = Namespace("https://w3id.org/rec/device/")
 REC_CORE = Namespace("https://w3id.org/rec/core/")
 
@@ -50,4 +43,4 @@ for device_type, brick_class in mapping.items():
 
     graph.add((brick_class, OWL.equivalentClass, equivalent_class))
 
-graph.serialize("Brick-REC-alignment.ttl")
+graph.serialize("Brick-REC-alignment.ttl", format="ttl")

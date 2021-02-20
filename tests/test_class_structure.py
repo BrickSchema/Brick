@@ -3,14 +3,23 @@ import brickschema
 from rdflib import RDF, OWL, RDFS, Namespace, BNode
 
 sys.path.append("..")
-from bricksrc.namespaces import BRICK, TAG, SOSA, VCARD, SKOS, UNIT, QUDT  # noqa: E402
+from bricksrc.namespaces import (  # noqa: E402
+    BRICK,
+    TAG,
+    SOSA,
+    VCARD,
+    SKOS,
+    UNIT,
+    QUDT,
+    XSD,
+)
 
 
 BLDG = Namespace("https://brickschema.org/schema/ExampleBuilding#")
 
 g = brickschema.Graph()
 g.parse("Brick.ttl", format="turtle")
-g.expand("tag+owlrl")
+g.expand("shacl+owlrl")
 
 g.bind("rdf", RDF)
 g.bind("owl", OWL)
@@ -23,7 +32,8 @@ g.bind("bldg", BLDG)
 def test_subclasses():
     subclasses1 = g.query(
         "SELECT ?parent ?child WHERE {\
-                                ?child rdfs:subClassOf ?parent\
+                                ?child rdfs:subClassOf ?parent . \
+                                FILTER NOT EXISTS {?parent a sh:NodeShape} \
                           }"
     )
     subclasses2 = g.query(
@@ -58,10 +68,12 @@ def test_subclasses():
             RDFS.Class,
             RDF.Property,
             OWL.Class,
+            OWL.ObjectProperty,
             VCARD.Address,
             SKOS.Concept,
             UNIT.Unit,
             QUDT.QuantityKind,
+            XSD.string,
         ]
     )
 

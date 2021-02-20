@@ -1,13 +1,9 @@
-@prefix : <https://w3id.org/rec/alignments/BrickSchema#> .
-@prefix brick: <https://brickschema.org/schema/1.1/Brick#> .
+@prefix brick: <https://brickschema.org/schema/Brick#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix rec-building: <https://w3id.org/rec/building/> .
 @prefix rec-core: <https://w3id.org/rec/core/> .
 @prefix rec-device: <https://w3id.org/rec/device/> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 brick:Air_Handler_Unit owl:equivalentClass [ owl:intersectionOf ( rec-core:Device [ a owl:Class,
                             owl:Restriction ;

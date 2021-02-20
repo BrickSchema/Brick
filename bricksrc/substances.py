@@ -52,10 +52,13 @@ substances = {
                 "subclasses": {
                     "Gasoline": {"tags": [TAG.Fluid, TAG.Liquid, TAG.Gasoline]},
                     "Liquid_CO2": {"tags": [TAG.Fluid, TAG.Liquid, TAG.CO2]},
+                    "Glycol": {"tags": [TAG.Fluid, TAG.Liquid, TAG.Glycol]},
                     "Oil": {
                         "tags": [TAG.Fluid, TAG.Liquid, TAG.Oil],
                         "subclasses": {
-                            "Fuel_Oil": {"tags": [TAG.Liquid, TAG.Oil, TAG.Fuel]}
+                            "Fuel_Oil": {
+                                "tags": [TAG.Fluid, TAG.Liquid, TAG.Oil, TAG.Fuel]
+                            }
                         },
                     },
                     "Water": {
@@ -97,6 +100,15 @@ substances = {
                                     },
                                 },
                             },
+                            "Collection_Basin_Water": {
+                                "tags": [
+                                    TAG.Fluid,
+                                    TAG.Liquid,
+                                    TAG.Water,
+                                    TAG.Collection,
+                                    TAG.Basin,
+                                ]
+                            },
                             "Blowdown_Water": {
                                 "tags": [
                                     TAG.Fluid,
@@ -112,6 +124,26 @@ substances = {
                                     TAG.Water,
                                     TAG.Condenser,
                                 ],
+                                "subclasses": {
+                                    "Supply_Condenser_Water": {
+                                        "tags": [
+                                            TAG.Fluid,
+                                            TAG.Liquid,
+                                            TAG.Water,
+                                            TAG.Condenser,
+                                            TAG.Supply,
+                                        ],
+                                    },
+                                    "Return_Condenser_Water": {
+                                        "tags": [
+                                            TAG.Fluid,
+                                            TAG.Liquid,
+                                            TAG.Water,
+                                            TAG.Condenser,
+                                            TAG.Return,
+                                        ],
+                                    },
+                                },
                             },
                             "Domestic_Water": {
                                 "tags": [
@@ -119,6 +151,14 @@ substances = {
                                     TAG.Liquid,
                                     TAG.Water,
                                     TAG.Domestic,
+                                ],
+                            },
+                            "Potable_Water": {
+                                "tags": [
+                                    TAG.Fluid,
+                                    TAG.Liquid,
+                                    TAG.Water,
+                                    TAG.Potable,
                                 ],
                             },
                             "Discharge_Water": {

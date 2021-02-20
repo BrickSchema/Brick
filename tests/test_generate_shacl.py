@@ -14,7 +14,7 @@ bind_prefixes(g)
 def test_domainProperties():
     for (name, props) in properties.items():
         if RDFS.domain in props:
-            q = f"""SELECT $shape WHERE {{
+            q = f"""SELECT ?shape WHERE {{
             ?shape a sh:NodeShape .
             ?shape sh:targetSubjectsOf brick:{name} .
             ?shape sh:class <{props[RDFS.domain]}> . }}
@@ -27,7 +27,7 @@ def test_domainProperties():
 def test_rangeProperties():
     for (name, props) in properties.items():
         if RDFS.range in props:
-            q = f"""SELECT $shape WHERE {{
+            q = f"""SELECT ?shape WHERE {{
             ?shape a sh:NodeShape .
             ?shape sh:property [
             sh:class <{props[RDFS.range]}> ;
