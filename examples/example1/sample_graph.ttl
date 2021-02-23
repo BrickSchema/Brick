@@ -1,5 +1,5 @@
 @prefix bldg: <http://example.com/mybuilding#> .
-@prefix brick: <https://brickschema.org/schema/1.1.0/Brick#> .
+@prefix brick: <https://brickschema.org/schema/Brick#> .
 
 bldg:AHU1A a brick:Air_Handler_Unit ;
     brick:feeds bldg:VAV2-4,

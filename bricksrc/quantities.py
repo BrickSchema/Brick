@@ -1,5 +1,4 @@
 from brickschema.graph import Graph
-from brickschema.inference import BrickInferenceSession
 from rdflib import Literal, URIRef
 from .namespaces import SKOS, OWL, RDFS, BRICK, QUDTQK, QUDTDV, QUDT, UNIT
 
@@ -7,10 +6,9 @@ from .namespaces import SKOS, OWL, RDFS, BRICK, QUDTQK, QUDTDV, QUDT, UNIT
 g = Graph()
 g.load_file("support/VOCAB_QUDT-QUANTITY-KINDS-ALL-v2.1.ttl")
 g.load_file("support/VOCAB_QUDT-UNITS-ALL-v2.1.ttl")
-g.g.bind("qudt", QUDT)
-g.g.bind("qudtqk", QUDTQK)
-sess = BrickInferenceSession()
-g = sess.expand(g)
+g.bind("qudt", QUDT)
+g.bind("qudtqk", QUDTQK)
+g.expand(profile="brick")
 
 
 def get_units(brick_quantity):
@@ -51,6 +49,14 @@ quantity_definitions = {
                 RDFS.label: Literal("CO2Concentration"),
                 SKOS.broader: QUDTQK.Dimensionless,
             },
+            "Formaldehyde_Concentration": {
+                QUDT.applicableUnit: [UNIT.PPM],
+                QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M0H0T0D1"],
+                SKOS.definition: Literal("The concentration of formaldehyde in air"),
+                RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
+                RDFS.label: Literal("FormaldehydeConcentration"),
+                SKOS.broader: QUDTQK.Dimensionless,
+            },
             "PM10_Concentration": {
                 QUDT.applicableUnit: [UNIT.PPM],
                 QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M0H0T0D1"],
@@ -61,14 +67,24 @@ quantity_definitions = {
                 RDFS.label: Literal("PM10Concentration"),
                 SKOS.broader: QUDTQK.Dimensionless,
             },
-            "PM25_Concentration": {
+            "PM2.5_Concentration": {
                 QUDT.applicableUnit: [UNIT.PPM],
                 QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M0H0T0D1"],
                 SKOS.definition: Literal(
-                    "The concentration of particulates with diameter of 25 microns or less in air"
+                    "The concentration of particulates with diameter of 2.5 microns or less in air"
                 ),
                 RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
-                RDFS.label: Literal("PM25Concentration"),
+                RDFS.label: Literal("PM2.5Concentration"),
+                SKOS.broader: QUDTQK.Dimensionless,
+            },
+            "PM1_Concentration": {
+                QUDT.applicableUnit: [UNIT.PPM],
+                QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M0H0T0D1"],
+                SKOS.definition: Literal(
+                    "The concentration of particulates with diameter of 1 microns or less in air"
+                ),
+                RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
+                RDFS.label: Literal("PM1Concentration"),
                 SKOS.broader: QUDTQK.Dimensionless,
             },
             "TVOC_Concentration": {
@@ -247,7 +263,7 @@ quantity_definitions = {
                 SKOS.broader: BRICK.Dimensionless,
             },
             "Alternating_Current_Frequency": {
-                QUDT.applicableUnit: [QUDT.GigaHZ, QUDT.MegaHZ, QUDT.KiloHZ, QUDT.HZ],
+                QUDT.applicableUnit: [UNIT.GigaHZ, UNIT.MegaHZ, UNIT.KiloHZ, UNIT.HZ],
                 SKOS.definition: Literal(
                     "The frequency of the oscillations of alternating current"
                 ),

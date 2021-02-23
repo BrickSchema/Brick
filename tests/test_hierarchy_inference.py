@@ -3,7 +3,7 @@ from collections import defaultdict
 import time
 import brickschema
 from tqdm import tqdm
-from rdflib import URIRef, Graph
+from rdflib import URIRef
 from .util import make_readable
 import sys
 
@@ -36,8 +36,8 @@ prefix owl: <http://www.w3.org/2002/07/owl#>
 
 def test_hierarchyinference():
     # Load the schema
-    g = Graph()
-    g.parse("Brick.ttl", format="turtle")
+    g = brickschema.Graph()
+    g.load_file("Brick.ttl")
 
     # Get all the Classes with their restrictions.
     qstr = (
@@ -62,10 +62,8 @@ def test_hierarchyinference():
     # Infer classes of the entities.
     # Apply reasoner
     g.serialize("test.ttl", format="ttl")
-    g = brickschema.inference.TagInferenceSession(
-        approximate=False, load_brick=False, rebuild_tag_lookup=True
-    ).expand(g)
-    g = brickschema.inference.OWLRLInferenceSession(load_brick=False).expand(g)
+    g.rebuild_tag_lookup()
+    g.expand(profile="owlrl+shacl+owlrl")
     g.serialize(inference_file, format="turtle")  # Store the inferred graph.
 
     # Find all instances and their parents from the inferred graph.

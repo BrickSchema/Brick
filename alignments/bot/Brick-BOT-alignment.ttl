@@ -1,0 +1,80 @@
+# Copyright 2017-2021 W3C Linked Building Data Community Group.
+#
+# This work is licensed under a Creative Commons Attribution License.
+# This copyright applies to the Vocabulary Specification and
+# accompanying documentation in RDF. Regarding underlying technology,
+# the Vocabulary uses W3C's RDF technology, an open Web standard that can be freely
+# used by anyone.
+
+@prefix : <https://w3id.org/bot/BRICKAlignment#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix schema: <https://schema.org/> .
+@prefix bot: <https://w3id.org/bot#> .
+@prefix brick: <https://brickschema.org/schema/Brick#> .
+@base <https://w3id.org/bot/BRICKAlignment> .
+
+<https://w3id.org/bot/BRICKAlignment> rdf:type owl:Ontology , voaf:Vocabulary ;
+	dcterms:title "BRICK to BOT alignment."@en ;
+	dcterms:description """This ontology defines correspondences with the BRICK ontology. Alignment holds for BOT v0.3.2 and BRICK v.1.1.1"""@en ;
+	dcterms:issued "2017-09-12"^^xsd:date ;
+	dcterms:modified "2021-01-29"^^xsd:date ;
+	dcterms:license <http://creativecommons.org/licenses/by/3.0/> ;
+    owl:versionInfo "v2.0.0" ;
+    owl:versionIRI <https://w3id.org/bot/BRICKAlignment/2.0.0> ;
+    owl:priorVersion <https://w3id.org/bot/BRICKAlignment/1.0.0> ;
+		dcterms:creator <https://orcid.org/0000-0002-2033-859X> ;
+	dcterms:creator "Georg Ferdinand Schneider" ;
+  dcterms:creator "Jason Koh" ;
+  dcterms:creator <https://github.com/jbkoh> ;
+	rdfs:seeAlso <https://doi.org/10.13140/RG.2.2.21802.52169> ;
+	owl:imports 	<https://w3id.org/bot-0.3.2> ,
+					<https://brickschema.org/schema/Brick> .
+
+dcterms:title a owl:AnnotationProperty .
+dcterms:description a owl:AnnotationProperty .
+dcterms:issued a owl:AnnotationProperty .
+dcterms:modified a owl:AnnotationProperty .
+dcterms:creator a owl:AnnotationProperty .
+dcterms:contributor a owl:AnnotationProperty .
+dcterms:license a owl:AnnotationProperty .
+vann:preferredNamespacePrefix a owl:AnnotationProperty .
+vann:preferredNamespaceUri a owl:AnnotationProperty .
+vcard:fn a owl:AnnotationProperty .
+schema:name a owl:AnnotationProperty .
+
+<https://orcid.org/0000-0002-2033-859X> a vcard:Individual , schema:Person;
+	vcard:fn    "Georg Ferdinand Schneider" ;
+	schema:name "Georg Ferdinand Schneider" .
+
+<https://github.com/jbkoh> a vcard:Individual , schema:Person;
+	vcard:fn    "Jason Koh" ;
+	schema:name "Jason Koh" .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+bot:containsZone rdfs:subPropertyOf brick:hasPart . # Usage of brick:hasPart with brick:Location
+brick:isLocationOf rdfs:subPropertyOf bot:containsElement . # bot:containsElement does not have domain/ range, hence, a brick:Point will not be classified as bot:Element. This would be wrong
+bot:hasSubElement rdfs:subPropertyOf brick:hasPart . # Usage of brick:hasPart with brick:Equipment
+
+#################################################################
+#    Classes
+#################################################################
+
+brick:Location rdfs:subClassOf bot:Zone.
+bot:Site rdfs:subClassOf brick:Site . # Maybe equivalent as of other subclassings.
+
+bot:Storey owl:equivalentClass brick:Floor. # Brick equate both Storey and Floor.
+
+brick:Building owl:equivalentClass bot:Building.
+brick:Space rdfs:subClassOf bot:Space.
+
+brick:Equipment rdfs:subClassOf bot:Element . # In BOT, anything other than bot:Zone is bot:Element

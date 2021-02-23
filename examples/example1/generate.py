@@ -38,7 +38,7 @@ things don't conflict with names in other Brick models (more on that later).
 
 Namespaces are URLs; they do not have to actually point to a real web resource,
 but it is of course helpful if they point to some documentation (try going to
-https://brickschema.org/schema/1.1.0/Brick#Air_Handler_Unit as an example).
+https://brickschema.org/schema/Brick#Air_Handler_Unit as an example).
 
 We will choose an arbitrary URL for our namespace and refer to it by the
 nickname "bldg" for convenience. "bldg" is also called a "prefix".
@@ -56,7 +56,7 @@ simply allows us to refer to classes and relationships that are defined in the
 Brick schema.
 
 """
-BRICK = Namespace("https://brickschema.org/schema/1.1.0/Brick#")
+BRICK = Namespace("https://brickschema.org/schema/Brick#")
 g.bind("brick", BRICK)
 
 

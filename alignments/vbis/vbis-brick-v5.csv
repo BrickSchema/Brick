@@ -1,0 +1,122 @@
+"Brick Class 1","Brick Class 2","Brick Class 3","Brick Class 4","Brick Class 5","VBIS Tag","New To Brick?","Suggested Parent Class",,"Other VBIS Asset Types #1","Other VBIS Asset Types #2","Other VBIS Asset Types #3","Comment"
+"Terminal_Unit",,,,,"ME-ATU",,,,,,,
+"VAV",,,,,"ME-ATU-VAV",,,,,,,
+,,,,,"AC*",,,,,,,
+,,,,,,,,,,,,
+"Camera",,,,,"SE-CCTV-Ca*",,,,,,,
+,"Surveillance Camera",,,,"SE-CCTV-Ca*",,,,,,,
+"Electrical Equipment",,,,,"EP-*",,,,,,,
+,"Breaker Panel",,,,"EP-SB*",,,,,,,
+,"Bus Riser",,,,"EP-BD*",,,,,,,
+,"Disconnect Switch",,,,"EP-SG*",,,,,,,
+,"Energy Storage",,,,"EP-BS*",,,,,,,
+,,"Battery",,,"EP-BS-Ba*",,,,,,,
+,"Inverter",,,,"EP-SPS-In",,,,,,,
+,"Motor Control Center",,,,"EP-SB*",,,,,,,
+,"PlugStrip",,,,"EP-GPO-SP-Mu",,,,"EP-GPO-SPUSB-Mu",,,"A portable plug strip is typically a small appliance which is currently not classifed within VBIS as it should not be used in an commercial or industrial environment. Permanent multi plug power outlets would be classfied as a General Purpose Outlet which is the VBIS tag provided for mapping"
+,"Switchgear",,,,"EP-SG*",,,,,,,
+,"Transformer",,,,"EP-Tr*",,,,"*PSE-Tr*",,,"EP-Tr codes are typically used for Main Electrical Transformers while PSE-Tr is smaller transformer appliances used to power specific equipment (i.e. BMC-PSE-Tr is a transformer for Building Control Systems while Se-PSE-Tr would be transformers used to supply security equipment."
+"Elevator",,,,,"VT-Li*",,,,,,,
+"Fire Safety Equipment",,,,,"FD-*",,,,"FS*","FR*",,"Also see FS* and FR* (Fire Supression & Fire Resistance)"
+,"Fire Control Panel",,,,"FD-FDCIE*",,,,,,,
+,"Smoke Detector",,,,"FD-FD-Sm*",,"Fire Safety Equipment",,,,,
+"Furniture",,,,,"FFE-*",,,,,,,"This is an entire discipline in VBIS"
+"Gas Distribution",,,,,"GRE-*",,,,,,,"This discipline table has not been released yet but the discipline acronym has been reserved."
+"Cooling Tower",,,,,"ME-CT*"
+"HVAC",,,,,"ME-*",,,,,,,
+,"AHU",,,,"ME-AHU*",,,,,,,
+,,"RTU",,,"ME-ACU*",,,,,,,"Within VBIS, a rooftop unit would is a packaged unit, typcially standalone, which would be a different product to an AHU which is typically a built up unit within a plantroom"
+,,"Rooftop Unit",,,"ME-ACU*",,,,,,,"Within VBIS, a rooftop unit would is a packaged unit, typcially standalone, which would be a different product to an AHU which is typically a built up unit within a plantroom"
+,"Air Handler Unit",,,,"ME-AHU*",,,,,,,"Within VBIS, a rooftop unit would is a packaged unit, typcially standalone, which would be a different product to an AHU which is typically a built up unit within a plantroom"
+,"Boiler",,,,"ME-Bo*",,,,,,,
+,"CRAC",,,,"ME-PAC*",,,,,,,
+,,"Standby CRAC",,,"ME-PAC*",,,,,,,"From a product perspective, a standby CRAC would still be the same equipment type as a normal CRAC. Operationally, they would be treated as an N+1 or equivalent and cycled through for use. "
+,"Chiller",,,,"ME-Chr*",,,,,,,
+,,"Absorption Chiller",,,"ME-Chr-Ab*",,,,,,,
+,,"Centrifugal Chiller",,,"ME-Chr-*-Ce",,,,,,,
+,"Compressor",,,,"ME-ACPR*",,,,,,,
+,"Computer Room Air Conditioning",,,,"ME-PAC*",,,,,,,
+,"Condenser",,,,"ME-ACC*",,,,,,,
+,"Damper",,,,"ME-Da*",,,,,,,
+,"Economizer",,,,"ME-Da*",,,,,,,"VBIS classification identifies the equipment type, rather than use hence Economiser configuration would still be a Damper code as Economizer is a combination of outside and return dampers."
+,"Fan",,,,"ME-Fa*",,,,,,,
+,,"Cooling Tower Fan",,,"ME-Fa-CT*",,,,,,,
+,"Filter",,,,"ME-AFP*",,,,,,,
+,"Fume Hood",,,,"ME-FEE*",,,,,,,
+,"HX",,,,"ME-HE*",,,,"SP-HE*",,,"Note: VBIS also has Heat Exchangers specific to Spas and Pools discipline [SP-HE*]"
+,"Heat Exchanger",,,,"ME-HE*",,,,"SP-HE*",,,"Note: VBIS also has Heat Exchangers specific to Spas and Pools discipline [SP-HE*]"
+,,"Coil",,,"ME-Co*",,,,,,,"VBIS has Coils structured as its own product"
+,,"Heat Wheel",,,"ME-HE-ATA-AW",,,,,,,
+,"Pump",,,,"ME-Pu*",,,,,,,
+,"Space Heater",,,,"FFE-He*",,,,,,,
+,"Terminal Unit",,,,"ME-ATU*",,,,,,,
+,,"FCU",,,"ME-FCU*",,,,,,,
+,,"Fan Coil Unit",,,"ME-FCU*",,,,,,,
+,,"VAV",,,"ME-ATU-VAV*",,,,,,,
+,,"Variable Air Volume Box",,,"ME-ATU-VAV*",,,,,,,
+,,,"RVAV",,"ME-ATU-VAV-SDHC",,,,"ME-ATU-VAV-SDEH",,,"ME-ATU-VAV-SDHC is Heating Coil and ME-ATU-VAV-SDEH is electric heating"
+,,,"Variable Air Volume Box with Reheat",,"ME-ATU-VAV-SDHC",,,,"ME-ATU-VAV-SDEH",,,"ME-ATU-VAV-SDHC is Heating Coil and ME-ATU-VAV-SDEH is electric heating"
+,"Thermostat",,,,"BMC-TST*",,,,,,,
+,"VFD",,,,"ME-EMS-VSD*",,,,,,,
+,,"Heat Wheel VFD",,,"ME-EMS-VSD*",,,,,,,"VFD associated with a specific use, in VBIS as VFDs are classfied by types it can have the same selection of VFD products be applicable."
+,"Valve",,,,"ME-Va*",,,,,,,
+,"Variable Frequency Drive",,,,"ME-EMS-VSD*",,,,,,,
+"Lighting Equipment",,,,,"EL-*",,,,,,,"This is an entire discipline in VBIS"
+,"Interface",,,,"EL-Li-Con*",,,,,,,
+,,"Switch",,,"EL-Li-Con-LSwP",,,,"EL-Li-Con-FOSw",,,
+,,,"Dimmer",,"EL-Li-Con-DM",,,,"EL-Li-Con-DP","EL-Li-Con-NACCD",,"Dimmers can be either Dimming Panel [EL-Li-CON-DP], Dimming Module  [EL-Li-CON-DM] or Neon and Cold Cathode Dimmer  [EL-Li-CON-NACCD]"
+,"Lighting",,,,"EL-*",,,,,,,
+,,"Luminaire",,,"EL-Lu*",,,,"EL-LEDL*",,,"Luminares are broken up between standard and LED luminaries"
+,,,"Luminaire Driver",,"EL-LEDL*",,,,,,,"Luminare drivers are typcially for LEDs, which is a product category by itself."
+"Louver",,,,,"ST-AL*",,,,,,,"Mapped is Stuctural Architectural Louvre"
+"Meter",,,,,"EP-Me*",,,,"HY-Me*","BMC-Me*","BMC-FM*","This is Electrical Metering. Also see HY-Me* for Hydraulics Metering. For Controls metering and interfaces to metering, VBIS defines BMC-Me* for Building Management and Controls Metering  and BMC-FM* for Building Management and Controls Flow Metering"
+,"Building Meter",,,,"EP-Me*",,,,"HY-Me*","BMC-Me*","BMC-FM*","This is Electrical Metering. Also see HY-Me* for Hydraulics Metering. For Controls metering and interfaces to metering, VBIS defines BMC-Me* for Building Management and Controls Metering  and BMC-FM* for Building Management and Controls Flow Metering"
+,,"Building Chilled Water Meter",,,"HY-Me-Au",,,,"BMC-Me-Wa*","	BMC-FM*","BMC-Me-En*","This is Hydraulics Metering. For Controls metering and interfaces to metering, VBIS defines BMC-Me-Wa* for Building Management and Controls Metering, BMC-FM* for Building Management and Controls Flow Metering and BMC-Me-En* for Energy Metering (for water systems)"
+,,"Building Electrical Meter",,,"EP-Me-Au",,,,"BMC-Me-El*",,,"This is Electrical Metering. For Controls metering and interfaces to metering, VBIS defines BMC-Me-El* for Building Management and Controls Metering."
+,,"Building Gas Meter",,,"HY-GS-Me",,,,"BMC-Me-Ga*","	BMC-FM*",,"This is Hydraulics (Gas) Metering. For Controls metering and interfaces to metering, VBIS defines BMC-Me-Ga* for Building Management and Controls Metering, BMC-FM* for Building Management and Controls Flow Metering"
+,,"Building Hot Water Meter",,,"HY-Me-Au",,,,"BMC-Me-Wa*","	BMC-FM*","BMC-Me-En*","This is Hydraulics Metering. For Controls metering and interfaces to metering, VBIS defines BMC-Me-Wa* for Building Management and Controls Metering, BMC-FM* for Building Management and Controls Flow Metering and BMC-Me-En* for Energy Metering (for water systems)"
+,,"Building Water Meter",,,"HY-Me-Au",,,,"BMC-Me-Wa*","	BMC-FM*",,"This is Hydraulics Metering. For Controls metering and interfaces to metering, VBIS defines BMC-Me-Wa* for Building Management and Controls Metering, BMC-FM* for Building Management and Controls Flow Metering."
+,"Electrical Meter",,,,"EP-Me-Au",,,,"BMC-Me-El*",,,"This is Electrical Metering. For Controls metering and interfaces to metering, VBIS defines BMC-Me-El* for Building Management and Controls Metering."
+,,"Building Electrical Meter",,,"EP-Me-Au",,,,"BMC-Me-El*",,,"This is Electrical Metering. For Controls metering and interfaces to metering, VBIS defines BMC-Me-El* for Building Management and Controls Metering."
+,"Gas Meter",,,,"HY-GS-Me",,,,"BMC-Me-Ga*","	BMC-FM*",,"This is Hydraulics (Gas) Metering. For Controls metering and interfaces to metering, VBIS defines BMC-Me-Ga* for Building Management and Controls Metering, BMC-FM* for Building Management and Controls Flow Metering"
+,,"Building Gas Meter",,,"HY-GS-Me",,,,"BMC-Me-Ga*","	BMC-FM*",,"This is Hydraulics (Gas) Metering. For Controls metering and interfaces to metering, VBIS defines BMC-Me-Ga* for Building Management and Controls Metering, BMC-FM* for Building Management and Controls Flow Metering"
+,"Water Meter",,,,"HY-Me-Au",,,,"BMC-Me-Wa*","	BMC-FM*",,"This is Hydraulics Metering. For Controls metering and interfaces to metering, VBIS defines BMC-Me-Wa* for Building Management and Controls Metering, BMC-FM* for Building Management and Controls Flow Metering."
+,,"Building Water Meter",,,"HY-Me-Au",,,,"BMC-Me-Wa*","	BMC-FM*",,"This is Hydraulics Metering. For Controls metering and interfaces to metering, VBIS defines BMC-Me-Wa* for Building Management and Controls Metering, BMC-FM* for Building Management and Controls Flow Metering."
+,,"Chilled Water Meter",,,"HY-Me-Au",,,,"BMC-Me-Wa*","	BMC-FM*","BMC-Me-En*","This is Hydraulics Metering. For Controls metering and interfaces to metering, VBIS defines BMC-Me-Wa* for Building Management and Controls Metering, BMC-FM* for Building Management and Controls Flow Metering and BMC-Me-En* for Energy Metering (for water systems)"
+,,,"Building Chilled Water Meter",,"HY-Me-Au",,,,"BMC-Me-Wa*","	BMC-FM*","BMC-Me-En*","This is Hydraulics Metering. For Controls metering and interfaces to metering, VBIS defines BMC-Me-Wa* for Building Management and Controls Metering, BMC-FM* for Building Management and Controls Flow Metering and BMC-Me-En* for Energy Metering (for water systems)"
+,,"Hot Water Meter",,,"HY-Me-Au",,,,"BMC-Me-Wa*","	BMC-FM*","BMC-Me-En*","This is Hydraulics Metering. For Controls metering and interfaces to metering, VBIS defines BMC-Me-Wa* for Building Management and Controls Metering, BMC-FM* for Building Management and Controls Flow Metering and BMC-Me-En* for Energy Metering (for water systems)"
+,,,"Building Hot Water Meter",,"HY-Me-Au",,,,"BMC-Me-Wa*","	BMC-FM*","BMC-Me-En*","This is Hydraulics Metering. For Controls metering and interfaces to metering, VBIS defines BMC-Me-Wa* for Building Management and Controls Metering, BMC-FM* for Building Management and Controls Flow Metering and BMC-Me-En* for Energy Metering (for water systems)"
+"Safety Equipment",,,,,"SA*",,,,,,,"This is an entire discipline in VBIS"
+,"AED",,,,"FFE-Sa-De",,,,,,,
+,"Automated External Defibrillator",,,,"FFE-Sa-De",,,,,,,
+,"Emergency Wash Station",,,,"HY-Sa-EEWS*",,,,"FFE-Sa-EEWS*","HY-Sa-ES*",,
+,,"Drench Hose",,,"HY-Sa*",,,,,,,"Drench Hose is not currently in VBIS however should this be added at a later date, it will be a subtype of Hydraulic-Safety as a drench hose will be a permanent safety system"
+,,"Eye Wash Station",,,"HY-Sa-EEWS*",,,,"FFE-Sa-EEWS*",,,"Hy-Sa-EEWS is for fixed eye wash stations while FFE-Sa-EEWS is for portable/non permanent eye wash stations"
+,,"Safety Shower",,,"HY-Sa-ES*",,,,,,,
+,"First Aid Kit",,,,"FFE-Sa-FAK",,,,,,,
+"Security Equipment",,,,,"SE*",,,,,,,"This is an entire discipline in VBIS"
+,"Access Control Equipment",,,,"SE-ACon*",,,,,,,
+,,"Access Reader",,,"SE-ACon-CR*",,,,,,,
+,"Intercom Equipment",,,,"SE-In*",,,,,,,
+,,"Emergency Phone",,,"SE-In-HP*",,,,,,,
+,,"Video Intercom",,,"SE-In-CS-AV",,,,,,,
+,"Intrusion Detection Equipment",,,,"SE-ID*",,,,,,,
+,"Video Surveillance Equipment",,,,"SE-CCTV*",,,,,,,
+,,"NVR",,,"SE-CCTV-Re-NVR",,,,,,,
+,,"Network Video Recorder",,,"SE-CCTV-Re-NVR",,,,,,,
+,,"Surveillance Camera",,,"SE-CCTV-Ca*",,,,,,,
+"Solar Panel",,,,,"EP-SPS-Pa*",,,,,,,
+"Steam Distribution",,,,,"ME-Bo-St",,,,,,,"Mechanical - Boiler - Steam"
+,,,,,"ME-CL-St",,,,,,,"Mechanical - Calorifier - Steam"
+,,,,,"ME-CHR-Ab-St",,,,,,,"Mechanical - Chiller - Absorption - Steam"
+,,,,,"ME-CHR-ADS-St",,,,,,,"Mechanical - Chiller - Adsorption - Steam"
+,,,,,"ME-HE-STF",,,,,,,"Mechanical - Heat Exchanger - Steam to Fluid"
+,,,,,"ME-HE-STF-Pl",,,,,,,"Mechanical - Heat Exchanger - Steam to Fluid - Plate"
+,,,,,"E-HE-STF-SAT",,,,,,,"Mechanical - Heat Exchanger - Steam to Fluid - Tube and Shell"
+,,,,,"ME-Hu-St",,,,,,,"Mechanical - Humidifier - Steam"
+,,,,,"ME-SCT",,,,,,,"Mechanical - Steam Condensate Trap"
+,,,,,"MG-St",,,,,,,"Medical Gases - Steam"
+,,,,,"MG-St-Va",,,,,,,"Medical Gases - Steam - Valves"
+,,,,,"MG-St-SG",,,,,,,"Medical Gases - Steam - Sight Glass"
+"Water Distribution",,,,,"HY*",,,,,,,"This is an entire discipline in VBIS"
+"Weather Station",,,,,"BMC-WS*",,,,,,,

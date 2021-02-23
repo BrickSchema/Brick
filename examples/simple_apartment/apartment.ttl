@@ -1,5 +1,5 @@
 @prefix apt: <apartment#> .
-@prefix brick: <https://brickschema.org/schema/1.1/Brick#> .
+@prefix brick: <https://brickschema.org/schema/Brick#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
 apt:bedroom a brick:Room ;
