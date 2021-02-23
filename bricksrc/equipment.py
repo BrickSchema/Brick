@@ -598,11 +598,12 @@ hvac_subclasses = {
                             TAG.Heat_Pump,
                         ],
                     },
-                    "Vertical_Ground_Heat_Pump": {
+                    "Vertical_Ground_Source_Heat_Pump": {
                         "tags": [
                             TAG.Equipment,
                             TAG.Vertical,
                             TAG.Ground,
+                            TAG.Source,
                             TAG.Heat_Pump,
                         ],
                     },

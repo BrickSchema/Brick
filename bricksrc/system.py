@@ -98,6 +98,7 @@ system_subclasses = {
                             TAG.Thermal,
                             TAG.Energy,
                             TAG.Storage,
+                            TAG.Water,
                             TAG.System,
                         ],
                     },
