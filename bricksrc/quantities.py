@@ -19,8 +19,10 @@ def get_units(qudt_quantity):
     return g.query(
         f"""SELECT ?unit ?symbol WHERE {{
                     <{qudt_quantity}> qudt:applicableUnit ?unit .
-                    ?unit qudt:symbol ?symbol .
-                    FILTER(isLiteral(?symbol))
+                    OPTIONAL {{
+                        ?unit qudt:symbol ?symbol .
+                        FILTER(isLiteral(?symbol))
+                    }}
                     }}"""
     )
 

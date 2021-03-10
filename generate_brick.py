@@ -619,7 +619,8 @@ res = G.query(
 for r in res:
     for unit, symb in get_units(r[1]):
         G.add((r[0], QUDT.applicableUnit, unit))
-        G.add((unit, QUDT.symbol, symb))
+        if symb is not None:
+            G.add((unit, QUDT.symbol, symb))
 
 logging.info("Adding class definitions")
 add_definitions()
