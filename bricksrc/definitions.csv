@@ -966,6 +966,7 @@ https://brickschema.org/schema/Brick#hasLocation,Subject is physically located i
 https://brickschema.org/schema/Brick#hasOutputSubstance,The subject produces or exports the given substance from its internal process,
 https://brickschema.org/schema/Brick#hasPart,The subject is composed in part of the entity given by the object,
 https://brickschema.org/schema/Brick#hasPoint,The subject has a digital/analog input/output point given by the object,
+https://brickschema.org/schema/Brick#hasQUDTReference,Points to the relevant QUDT definition,
 https://brickschema.org/schema/Brick#hasTag,The subject has the given tag,
 https://brickschema.org/schema/Brick#hasTimeseriesId,The unique identifier (primary key) for this TimeseriesReference in some database,
 https://brickschema.org/schema/Brick#hasUnit,The QUDT unit associated with this Brick entity (usually a Brick Point instance or Entity Property),

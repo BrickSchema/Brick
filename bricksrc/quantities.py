@@ -11,14 +11,14 @@ g.bind("qudtqk", QUDTQK)
 g.expand(profile="brick")
 
 
-def get_units(brick_quantity):
+def get_units(qudt_quantity):
     """
     Fetches the QUDT unit and symbol (as a Literal) from the QUDT ontology so
     in order to avoid having to pull the full QUDT ontology into Brick
     """
     res = g.query(
         f"""SELECT ?unit ?symbol WHERE {{
-                    <{brick_quantity}> qudt:applicableUnit ?unit .
+                    <{qudt_quantity}> qudt:applicableUnit ?unit .
                     ?unit qudt:symbol ?symbol .
                     FILTER(isLiteral(?symbol))
                     }}"""
@@ -99,17 +99,17 @@ quantity_definitions = {
             },
         },
     },
-    "Angle": {OWL.sameAs: QUDTQK["Angle"]},
-    "Conductivity": {OWL.sameAs: QUDTQK["Conductivity"]},
-    "Capacity": {OWL.sameAs: QUDTQK["Capacity"]},
+    "Angle": {BRICK.hasQUDTReference: QUDTQK["Angle"]},
+    "Conductivity": {BRICK.hasQUDTReference: QUDTQK["Conductivity"]},
+    "Capacity": {BRICK.hasQUDTReference: QUDTQK["Capacity"]},
     "Enthalpy": {
         SKOS.definition: Literal(
             "(also known as heat content), thermodynamic quantity equal to the sum of the internal energy of a system plus the product of the pressure volume work done on the system. H = E + pv, where H = enthalpy or total heat content, E = internal energy of the system, p = pressure, and v = volume. (Compare to [[specific enthalpy]].)"
         ),
-        OWL.sameAs: QUDTQK["Enthalpy"],
+        BRICK.hasQUDTReference: QUDTQK["Enthalpy"],
     },
     "Mass": {
-        OWL.sameAs: QUDTQK["Mass"],
+        BRICK.hasQUDTReference: QUDTQK["Mass"],
         SKOS.narrower: {
             "GrainsOfMoisture": {
                 QUDT.applicableUnit: UNIT.GRAIN,
@@ -167,20 +167,26 @@ quantity_definitions = {
         },
     },
     "Power": {
-        OWL.sameAs: QUDTQK["Power"],
+        BRICK.hasQUDTReference: QUDTQK["Power"],
         SKOS.narrower: {
             "Electric_Power": {
-                OWL.sameAs: QUDTQK["ElectricPower"],
+                BRICK.hasQUDTReference: QUDTQK["ElectricPower"],
                 SKOS.narrower: {
-                    "Apparent_Power": {OWL.sameAs: QUDTQK["ApparentPower"]},
+                    "Apparent_Power": {BRICK.hasQUDTReference: QUDTQK["ApparentPower"]},
                     "Active_Power": {
-                        OWL.sameAs: [QUDTQK["ActivePower"], BRICK["Real_Power"]],
+                        BRICK.hasQUDTReference: [
+                            QUDTQK["ActivePower"],
+                            BRICK["Real_Power"],
+                        ],
                     },
                     "Real_Power": {
-                        OWL.sameAs: [QUDTQK["ActivePower"], BRICK["Active_Power"]],
+                        BRICK.hasQUDTReference: [
+                            QUDTQK["ActivePower"],
+                            BRICK["Active_Power"],
+                        ],
                     },
-                    "Reactive_Power": {OWL.sameAs: QUDTQK["ReactivePower"]},
-                    "Complex_Power": {OWL.sameAs: QUDTQK["ComplexPower"]},
+                    "Reactive_Power": {BRICK.hasQUDTReference: QUDTQK["ReactivePower"]},
+                    "Complex_Power": {BRICK.hasQUDTReference: QUDTQK["ComplexPower"]},
                 },
             },
             "Peak_Power": {
@@ -219,7 +225,7 @@ quantity_definitions = {
         SKOS.broader: QUDTQK.Dimensionless,
     },
     "Electric_Current": {
-        OWL.sameAs: QUDTQK["ElectricCurrent"],
+        BRICK.hasQUDTReference: QUDTQK["ElectricCurrent"],
         SKOS.related: {
             "Current_Angle": {
                 SKOS.definition: Literal(
@@ -275,7 +281,7 @@ quantity_definitions = {
         },
     },
     "Voltage": {
-        OWL.sameAs: QUDTQK["Voltage"],
+        BRICK.hasQUDTReference: QUDTQK["Voltage"],
         SKOS.related: {
             "Voltage_Angle": {
                 SKOS.definition: Literal(
@@ -310,7 +316,7 @@ quantity_definitions = {
             },
         },
     },
-    "Dewpoint": {OWL.sameAs: QUDTQK["DewPointTemperature"]},
+    "Dewpoint": {BRICK.hasQUDTReference: QUDTQK["DewPointTemperature"]},
     "Direction": {
         SKOS.narrower: {
             "Wind_Direction": {
@@ -368,11 +374,11 @@ quantity_definitions = {
                     },
                 },
             },
-            "Thermal_Energy": {OWL.sameAs: QUDTQK["ThermalEnergy"]},
+            "Thermal_Energy": {BRICK.hasQUDTReference: QUDTQK["ThermalEnergy"]},
         },
     },
     "Flow": {
-        OWL.sameAs: QUDTQK["VolumeFlowRate"],
+        BRICK.hasQUDTReference: QUDTQK["VolumeFlowRate"],
         SKOS.narrower: {
             "Flow_Loss": {
                 QUDT.applicableUnit: [UNIT["M3-PER-SEC"]],
@@ -387,16 +393,16 @@ quantity_definitions = {
         },
     },
     "Frequency": {
-        OWL.sameAs: QUDTQK["Frequency"],
+        BRICK.hasQUDTReference: QUDTQK["Frequency"],
         SKOS.narrower: {"Alternating_Current_Frequency": {}},
     },
     "Humidity": {
         SKOS.narrower: {
-            "Relative_Humidity": {OWL.sameAs: QUDTQK["RelativeHumidity"]},
-            "Absolute_Humidity": {OWL.sameAs: QUDTQK["AbsoluteHumidity"]},
+            "Relative_Humidity": {BRICK.hasQUDTReference: QUDTQK["RelativeHumidity"]},
+            "Absolute_Humidity": {BRICK.hasQUDTReference: QUDTQK["AbsoluteHumidity"]},
         }
     },
-    "Illuminance": {OWL.sameAs: QUDTQK["Illuminance"]},
+    "Illuminance": {BRICK.hasQUDTReference: QUDTQK["Illuminance"]},
     "Irradiance": {
         QUDT.applicableUnit: [
             UNIT["W-PER-M2"],
@@ -470,10 +476,10 @@ quantity_definitions = {
         },
     },
     "Luminance": {
-        OWL.sameAs: QUDTQK["Luminance"],
+        BRICK.hasQUDTReference: QUDTQK["Luminance"],
         SKOS.narrower: {
-            "Luminous_Flux": {OWL.sameAs: QUDTQK["LuminousFlux"]},
-            "Luminous_Intensity": {OWL.sameAs: QUDTQK["LuminousIntensity"]},
+            "Luminous_Flux": {BRICK.hasQUDTReference: QUDTQK["LuminousFlux"]},
+            "Luminous_Intensity": {BRICK.hasQUDTReference: QUDTQK["LuminousIntensity"]},
         },
     },
     "Occupancy": {
@@ -505,20 +511,25 @@ quantity_definitions = {
         SKOS.broader: QUDTQK.Dimensionless,
         QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M0H0T0D1"],
     },
-    "Power_Factor": {OWL.sameAs: QUDTQK["PowerFactor"]},
+    "Power_Factor": {BRICK.hasQUDTReference: QUDTQK["PowerFactor"]},
     "Pressure": {
-        OWL.sameAs: QUDTQK["Pressure"],
+        BRICK.hasQUDTReference: QUDTQK["Pressure"],
         SKOS.narrower: {
-            "Atmospheric_Pressure": {OWL.sameAs: QUDTQK["AtmosphericPressure"]},
+            "Atmospheric_Pressure": {
+                BRICK.hasQUDTReference: QUDTQK["AtmosphericPressure"]
+            },
             "Dynamic_Pressure": {},
-            "Static_Pressure": {OWL.sameAs: QUDTQK["StaticPressure"]},
+            "Static_Pressure": {BRICK.hasQUDTReference: QUDTQK["StaticPressure"]},
             "Velocity_Pressure": {
-                OWL.sameAs: [QUDTQK["DynamicPressure"], BRICK["Dynamic_Pressure"]],
+                BRICK.hasQUDTReference: [
+                    QUDTQK["DynamicPressure"],
+                    BRICK["Dynamic_Pressure"],
+                ],
             },
         },
     },
     "Radiance": {
-        OWL.sameAs: QUDTQK["Radiance"],
+        BRICK.hasQUDTReference: QUDTQK["Radiance"],
         SKOS.narrower: {
             "Solar_Radiance": {
                 QUDT.applicableUnit: [UNIT["W-PER-M2-SR"]],
@@ -533,7 +544,7 @@ quantity_definitions = {
     },
     "Speed": {
         # TODO: fan speed is not meter/sec
-        OWL.sameAs: QUDTQK["Speed"],
+        BRICK.hasQUDTReference: QUDTQK["Speed"],
         SKOS.narrower: {
             "Wind_Speed": {
                 QUDT.applicableUnit: [
@@ -557,7 +568,7 @@ quantity_definitions = {
         },
     },
     "Temperature": {
-        OWL.sameAs: QUDTQK["ThermodynamicTemperature"],
+        BRICK.hasQUDTReference: QUDTQK["ThermodynamicTemperature"],
         SKOS.narrower: {
             "Operative_Temperature": {
                 QUDT.applicableUnit: [UNIT["DEG_F"], UNIT["DEG_C"], UNIT["K"]],
@@ -602,11 +613,11 @@ quantity_definitions = {
         },
     },
     "Time": {
-        OWL.sameAs: QUDTQK["Time"],
+        BRICK.hasQUDTReference: QUDTQK["Time"],
         # TODO: what are these?
         SKOS.narrower: {"Acceleration_Time": {}, "Deceleration_Time": {}},
     },
-    "Torque": {OWL.sameAs: QUDTQK["Torque"]},
+    "Torque": {BRICK.hasQUDTReference: QUDTQK["Torque"]},
     # TODO: https://ci.mines-stetienne.fr/seas/WeatherOntology-0.9#AirTemperature ?
     "Weather_Condition": {},
 }

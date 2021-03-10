@@ -613,7 +613,7 @@ define_concept_hierarchy(quantity_definitions, [BRICK.Quantity, QUDT.QuantityKin
 res = G.query(
     """SELECT ?quantity ?qudtquant WHERE {
                 ?quantity rdf:type brick:Quantity .
-                ?quantity owl:sameAs ?qudtquant
+                ?quantity brick:hasQUDTReference ?qudtquant
                 }"""
 )
 for r in res:
