@@ -212,7 +212,7 @@ quantity_definitions = {
     },
     "Cloudage": {
         # TODO: define Okta?
-        QUDT.applicableUnit: [UNIT.Okta],
+        # QUDT.applicableUnit: [UNIT.Okta],
         SKOS.definition: Literal(
             "The fraction of the sky obscured by clouds when observed from a particular location"
         ),
@@ -404,7 +404,7 @@ quantity_definitions = {
             UNIT["W-PER-M2"],
             UNIT["W-PER-IN2"],
             UNIT["W-PER-FT2"],
-            UNIT["W-PER-CeniM2"],
+            UNIT["W-PER-CentiM2"],
         ],
         SKOS.definition: Literal(
             "The power per unit area of electromagnetic radiation incident on a surface"
@@ -418,7 +418,7 @@ quantity_definitions = {
                     UNIT["W-PER-M2"],
                     UNIT["W-PER-IN2"],
                     UNIT["W-PER-FT2"],
-                    UNIT["W-PER-CeniM2"],
+                    UNIT["W-PER-CentiM2"],
                 ],
                 SKOS.definition: Literal(
                     "The power per unit area of solar electromagnetic radiation incident on a surface"
@@ -481,7 +481,7 @@ quantity_definitions = {
     "Occupancy": {
         SKOS.narrower: {
             "Occupancy_Count": {
-                QUDT.applicableUnit: [UNIT["People"]],
+                # QUDT.applicableUnit: [UNIT["People"]],
                 SKOS.definition: Literal("Number of people in an area"),
                 RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
                 RDFS.label: Literal("Occupancy_Count"),
@@ -551,7 +551,7 @@ quantity_definitions = {
                     UNIT["M-PER-SEC"],
                     UNIT["KiloM-PER-SEC"],
                     UNIT["FT-PER-SEC"],
-                    UNIT["MI-PER-SEC"],
+                    # UNIT["MI-PER-SEC"],
                 ],
                 SKOS.definition: Literal(
                     "Measured speed of wind, caused by air moving from high to low pressure",
