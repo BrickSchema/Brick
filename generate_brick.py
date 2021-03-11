@@ -236,14 +236,10 @@ def define_concept_hierarchy(definitions, typeclasses, broader=None, related=Non
         # this is a nested dictionary
         narrower_defs = defn.get(SKOS.narrower, {})
         if narrower_defs is not None and isinstance(narrower_defs, dict):
-            define_concept_hierarchy(
-                narrower_defs, [BRICK.Quantity, QUDT.QuantityKind], broader=concept
-            )
+            define_concept_hierarchy(narrower_defs, [BRICK.Quantity], broader=concept)
         related_defs = defn.get(SKOS.related, {})
         if related_defs is not None and isinstance(related_defs, dict):
-            define_concept_hierarchy(
-                related_defs, [BRICK.Quantity, QUDT.QuantityKind], related=concept
-            )
+            define_concept_hierarchy(related_defs, [BRICK.Quantity], related=concept)
 
         # handle 'parents' subconcepts (links outside of tree-based hierarchy)
         parents = defn.get("parents", [])
@@ -607,7 +603,7 @@ define_timeseries_model(G)
 define_classes(substances, BRICK.Substance, pun_classes=True)
 
 # this defines the SKOS-based concept hierarchy for BRICK Quantities
-define_concept_hierarchy(quantity_definitions, [BRICK.Quantity, QUDT.QuantityKind])
+define_concept_hierarchy(quantity_definitions, [BRICK.Quantity])
 
 # for all Quantities, copy part of the QUDT unit definitions over
 res = G.query(
