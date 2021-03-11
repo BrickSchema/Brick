@@ -174,16 +174,12 @@ quantity_definitions = {
                 SKOS.narrower: {
                     "Apparent_Power": {BRICK.hasQUDTReference: QUDTQK["ApparentPower"]},
                     "Active_Power": {
-                        BRICK.hasQUDTReference: [
-                            QUDTQK["ActivePower"],
-                            BRICK["Real_Power"],
-                        ],
+                        OWL.sameAs: BRICK["Real_Power"],
+                        BRICK.hasQUDTReference: QUDTQK["ActivePower"],
                     },
                     "Real_Power": {
-                        BRICK.hasQUDTReference: [
-                            QUDTQK["ActivePower"],
-                            BRICK["Active_Power"],
-                        ],
+                        OWL.sameAs: BRICK["Active_Power"],
+                        BRICK.hasQUDTReference: QUDTQK["ActivePower"],
                     },
                     "Reactive_Power": {BRICK.hasQUDTReference: QUDTQK["ReactivePower"]},
                     "Complex_Power": {BRICK.hasQUDTReference: QUDTQK["ComplexPower"]},
@@ -256,7 +252,7 @@ quantity_definitions = {
                 QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M0H0T0D1"],
                 RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
                 RDFS.label: Literal("CurrentImbalance"),
-                SKOS.broader: BRICK.Dimensionless,
+                SKOS.broader: QUDTQK.Dimensionless,
             },
             "Current_Total_Harmonic_Distortion": {
                 SKOS.definition: Literal(
@@ -266,7 +262,7 @@ quantity_definitions = {
                 QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M0H0T0D1"],
                 RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
                 RDFS.label: Literal("CurrentTotalHarmonicDistortion"),
-                SKOS.broader: BRICK.Dimensionless,
+                SKOS.broader: QUDTQK.Dimensionless,
             },
             "Alternating_Current_Frequency": {
                 QUDT.applicableUnit: [UNIT.GigaHZ, UNIT.MegaHZ, UNIT.KiloHZ, UNIT.HZ],
@@ -312,7 +308,7 @@ quantity_definitions = {
                 QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M0H0T0D1"],
                 RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
                 RDFS.label: Literal("VoltageImbalance"),
-                SKOS.broader: BRICK.Dimensionless,
+                SKOS.broader: QUDTQK.Dimensionless,
             },
         },
     },
