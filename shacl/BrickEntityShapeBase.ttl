@@ -1,0 +1,66 @@
+@prefix brick: <https://brickschema.org/schema/Brick#> .
+@prefix bsh: <https://brickschema.org/schema/BrickShape#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+
+bsh:LocationShape a sh:NodeShape ;
+    sh:targetClass brick:Location ;
+    sh:property [
+        sh:path brick:hasPart;
+        sh:class brick:Location
+    ];
+    sh:property [
+        sh:path brick:isPartOf;
+        sh:class brick:Location
+    ];
+    sh:property [
+        sh:path brick:isFedBy;
+        sh:class brick:Equipment
+    ];
+    sh:property [
+        sh:path brick:hasPoint;
+        sh:class brick:Point
+    ];
+    .
+
+bsh:EquipmentShape a sh:NodeShape ;
+    sh:targetClass brick:Equipment ;
+    sh:property [
+        sh:path brick:hasPart;
+        sh:class brick:Equipment
+    ];
+    sh:property [
+        sh:path brick:isPartOf;
+        sh:class brick:Equipment
+    ];
+    sh:property [
+        sh:path brick:hasLocation;
+        sh:class brick:Location
+    ];
+    sh:property [
+        sh:path brick:feeds;
+        sh:or (
+            [ sh:class brick:Equipment ]
+            [ sh:class brick:Location ]
+        ) ;
+    ];
+    sh:property [
+        sh:path brick:hasPoint;
+        sh:class brick:Point
+    ];
+    .
+
+bsh:PointShape a sh:NodeShape;
+    sh:targetClass brick:Point;
+    sh:property [
+        sh:path brick:isPointOf;
+        sh:or [
+            [ sh:class brick:Location ]
+            [ sh:class brick:Equipment ]
+        ]
+    ];
+    .
