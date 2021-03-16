@@ -22,9 +22,8 @@ ontology = {
 
 def define_ontology(G):
     brick_iri_version = URIRef(f"https://brickschema.org/schema/{BRICK_VERSION}/Brick")
-    brick_ontology = URIRef(BRICK)
-    G.add((brick_ontology, RDF.type, OWL.Ontology))
-    G.add((brick_ontology, RDFS.isDefinedBy, brick_iri_version))
+    G.add((brick_iri_version, RDF.type, OWL.Ontology))
+    G.add((brick_iri_version, RDFS.isDefinedBy, brick_iri_version))
 
     creators = []
     creator_list = BNode()
@@ -36,7 +35,7 @@ def define_ontology(G):
         for k, v in creator.items():
             G.add((creator1, k, v))
     Collection(G, creator_list, creators)
-    G.add((brick_ontology, DCTERMS.creator, creator_list))
+    G.add((brick_iri_version, DCTERMS.creator, creator_list))
 
     for k, v in ontology.items():
-        G.add((brick_ontology, k, v))
+        G.add((brick_iri_version, k, v))

@@ -20,7 +20,7 @@ sensor_definitions = {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Air, TAG.Grains],
                 "substances": [
                     [BRICK.measures, BRICK.Air],
-                    [BRICK.measures, BRICK.Grains],
+                    [BRICK.measures, BRICK.GrainsOfMoisture],
                 ],
                 "subclasses": {
                     "Outside_Air_Grains_Sensor": {
@@ -33,7 +33,7 @@ sensor_definitions = {
                         ],
                         "substances": [
                             [BRICK.measures, BRICK.Outside_Air],
-                            [BRICK.measures, BRICK.Grains],
+                            [BRICK.measures, BRICK.GrainsOfMoisture],
                         ],
                     },
                     "Return_Air_Grains_Sensor": {
@@ -46,7 +46,7 @@ sensor_definitions = {
                         ],
                         "substances": [
                             [BRICK.measures, BRICK.Return_Air],
-                            [BRICK.measures, BRICK.Grains],
+                            [BRICK.measures, BRICK.GrainsOfMoisture],
                         ],
                     },
                 },

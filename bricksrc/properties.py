@@ -5,6 +5,7 @@ Defining properties
 """
 properties = {
     "value": {RDFS.subPropertyOf: QUDT.value},
+    "hasQUDTReference": {A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty]},
     "isLocationOf": {
         A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         OWL.inverseOf: BRICK["hasLocation"],
