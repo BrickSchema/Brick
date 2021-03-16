@@ -644,6 +644,6 @@ with open("Brick.ttl", "wb") as fp:
 # serialize Brick + extensions
 for graph in extension_graphs.values():
     G += graph
-with open("Brick+extensions.ttl", "wb") as fp:
+with open("Brick-with-extensions.ttl", "wb") as fp:
     fp.write(G.serialize(format="turtle").rstrip())
     fp.write(b"\n")

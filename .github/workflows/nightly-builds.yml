@@ -32,6 +32,6 @@ jobs:
             This is an automatically generated release
           files: >
             Brick.ttl
-            Brick+extensions.ttl
+            Brick-with-extensions.ttl
           gzip: false
           allow_override: true
