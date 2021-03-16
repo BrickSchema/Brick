@@ -22,7 +22,6 @@ ontology = {
 
 def define_ontology(G):
     brick_iri_version = URIRef(f"https://brickschema.org/schema/{BRICK_VERSION}/Brick")
-    # brick_ontology = URIRef(BRICK)
     G.add((brick_iri_version, RDF.type, OWL.Ontology))
     G.add((brick_iri_version, RDFS.isDefinedBy, brick_iri_version))
 
