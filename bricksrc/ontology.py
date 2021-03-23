@@ -38,18 +38,23 @@ def define_ontology(G):
     G.add((brick_iri_version, RDF.type, OWL.Ontology))
     G.add((brick_iri_version, RDFS.isDefinedBy, brick_iri_version))
 
+    # add creators from ontology markup above
     creators = []
     creator_list = BNode()
-
     for creator in ontology.pop(DCTERMS.creator):
         creator1 = BNode()
         creators.append(creator1)
         for k, v in creator.items():
             G.add((creator1, k, v))
+
+    # add publisher info
+    publisher = BNode()
+    G.add((brick_iri_version, DCTERMS.publisher, publisher))
     for k, v in ontology.pop(DCTERMS.publisher).items():
-        G.add((brick_iri_version, k, v))
+        G.add((publisher, k, v))
     Collection(G, creator_list, creators)
     G.add((brick_iri_version, DCTERMS.creator, creator_list))
 
+    # add other simple attributes
     for k, v in ontology.items():
         G.add((brick_iri_version, k, v))
