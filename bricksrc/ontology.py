@@ -20,7 +20,7 @@ ontology = {
         },
     ],
     DCTERMS.license: URIRef("https://github.com/BrickSchema/brick/blob/master/LICENSE"),
-    DCTERMS.issued: Literal("2016-11"),
+    DCTERMS.issued: Literal("2016-11-16"),
     DCTERMS.modified: Literal(datetime.now().strftime("%Y-%m-%d")),
     DCTERMS.publisher: {
         RDF.type: SDO.Consortium,
