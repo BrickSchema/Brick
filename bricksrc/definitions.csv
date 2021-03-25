@@ -27,6 +27,7 @@ https://brickschema.org/schema/Brick#Air_Temperature_Setpoint,Sets temperature o
 https://brickschema.org/schema/Brick#Air_Temperature_Step_Parameter,,
 https://brickschema.org/schema/Brick#Alarm,Alarm points are signals (either audible or visual) that alert an operator to an off-normal condition which requires some form of corrective action,https://xp20.ashrae.org/terminology/index.php?term=alarm
 https://brickschema.org/schema/Brick#Alarm_Delay_Parameter,A parameter determining how long to delay an alarm after sufficient conditions have been met,
+https://brickschema.org/schema/Brick#Alarm_Threshold,A parameter describing the threshold value at which an alarm fires,
 https://brickschema.org/schema/Brick#Alternating_Current_Frequency,The frequency of the oscillations of alternating current,
 https://brickschema.org/schema/Brick#Angle,"The inclination to each other of two intersecting lines, measured by the arc of a circle intercepted between the two lines forming the angle, the center of the circle being the point of intersection.  An acute angle is less than (90^\circ), a right angle (90^\circ); an obtuse angle, more than (90^\circ) but less than (180^\circ); a straight angle, (180^\circ); a reflex angle, more than (180^\circ) but less than (360^\circ); a perigon, (360^\circ). Any angle not a multiple of (90^\circ) is an oblique angle. If the sum of two angles is (90^\circ), they are complementary angles; if (180^\circ), supplementary angles; if (360^\circ), explementary angles.",
 https://brickschema.org/schema/Brick#Angle_Sensor,Measues the planar angle of some phenomenon,
@@ -756,6 +757,7 @@ https://brickschema.org/schema/Brick#Sensor,A Sensor is an input point that repr
 https://brickschema.org/schema/Brick#Server_Room,,
 https://brickschema.org/schema/Brick#Service_Room,"A class of spaces related to the operations of building subsystems, e.g. HVAC, electrical, IT, plumbing, etc",
 https://brickschema.org/schema/Brick#Setpoint,A Setpoint is an input value at which the desired property is set,https://xp20.ashrae.org/terminology/index.php?term=setpoint
+https://brickschema.org/schema/Brick#Setpoint_Limit,A setpoint limit is the highest or lowest value that can be assigned to a setpoint,
 https://brickschema.org/schema/Brick#Shading_System,Devices that can control daylighting through various means,
 https://brickschema.org/schema/Brick#Shared_Office,An office used by multiple people,
 https://brickschema.org/schema/Brick#Short_Cycle_Alarm,An alarm that indicates a short cycle occurred. A short cycle occurs when a cooling cycle is prevented from completing its full cycle,
