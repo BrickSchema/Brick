@@ -123,7 +123,21 @@ equipment_subclasses = {
     },
     "Water_Distribution": {"tags": [TAG.Water, TAG.Distribution, TAG.Equipment]},
     "Steam_Distribution": {"tags": [TAG.Steam, TAG.Distribution, TAG.Equipment]},
-    "Solar_Panel": {"tags": [TAG.Solar, TAG.Equipment]},
+    "Solar_Panel": {
+        "tags": [TAG.Solar, TAG.Equipment],
+        "subclasses": {
+            "Solar_PV_Panel": {
+                "tags": [TAG.Solar, TAG.Equipment, TAG.PV],
+                "subclasses": {
+                    "Solar_PVT_Panel": {
+                        "tags": [TAG.Solar, TAG.Equipment, TAG.Thermal, TAG.PV],
+                        "parents": [BRICK.Solar_Thermal_Panel],
+                    },
+                },
+            },
+            "Solar_Thermal_Panel": {"tags": [TAG.Solar, TAG.Equipment, TAG.Thermal]},
+        },
+    },
     "Louver": {"tags": [TAG.Shade, TAG.Equipment, TAG.Louver]},
     "Lighting_Equipment": {
         "tags": [TAG.Lighting, TAG.Equipment],
