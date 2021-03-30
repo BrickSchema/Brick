@@ -80,6 +80,7 @@ parameter_definitions = {
                     },
                 },
             },
+            "Humidity_Parameter": {"tags": [TAG.Point, TAG.Humidity, TAG.Parameter]},
             "Temperature_Parameter": {
                 "tags": [TAG.Point, TAG.Temperature, TAG.Parameter],
                 "subclasses": {

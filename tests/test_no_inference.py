@@ -1,5 +1,4 @@
 # Set of tests to demonstrate use of Brick *without* the use of a reasoner
-import rdflib
 import brickschema
 from rdflib import RDF, RDFS, OWL, Namespace
 from .util import make_readable
@@ -39,7 +38,7 @@ g.add((BLDG.co2s1, A, BRICK.CO2_Level_Sensor))
 
 g.add((BLDG.AFSP1, A, BRICK.Air_Flow_Setpoint))
 
-g.add((BLDG.MAFS1, A, BRICK.Max_Air_Flow_Setpoint_Limit))
+g.add((BLDG.MAFS1, A, BRICK.High_Setpoint_Limit))
 
 # establishing some relationships
 g.add((BLDG.CH1, BRICK.feeds, BLDG.AHU1))
