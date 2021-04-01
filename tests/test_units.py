@@ -13,7 +13,7 @@ BLDG = Namespace("https://brickschema.org/schema/ExampleBuilding#")
 
 def test_quantity_has_one_quantitykind():
     """
-    In the current implementation, using owl:sameAs to align Quantity
+    In the current implementation, using brick:hasQUDTReference to align Quantity
     with QUDT QuantityKinds, we need to make sure that  a Brick Quantity
     does not end up with more than 1 QuantityKind
     """
@@ -24,7 +24,7 @@ def test_quantity_has_one_quantitykind():
     quantity_qk = g.query(
         "SELECT ?quantity ?kind WHERE {\
             ?quantity   a   brick:Quantity .\
-            ?quantity   owl:sameAs ?kind }"
+            ?quantity   brick:hasQUDTReference ?kind }"
     )
     assert len(quantity_qk) > 0
     seen = defaultdict(list)
@@ -46,7 +46,7 @@ def test_instances_measure_correct_units():
 
     Recall that the Brick unit model is such:
 
-    Brick class ---measures---> Brick quantity -- sameAs --> QuantityKind
+    Brick class ---measures---> Brick quantity -- hasQUDTReference --> QuantityKind
         |                                                           |
         |                            +-----applicableUnit-----------+
         |                            |
@@ -117,10 +117,12 @@ def test_all_quantities_have_units():
 
     # test the definitions by making sure that some quantities have applicable
     # units
-    quantities_without_units = g.query(
-        "SELECT ?q WHERE { \
+    quantities_without_units = list(
+        g.query(
+            "SELECT ?q WHERE { \
              ?q rdf:type brick:Quantity .\
              FILTER NOT EXISTS {?q qudt:applicableUnit ?unit} }"
+        )
     )
     if len(quantities_without_units) > 0:
         warnings.warn(

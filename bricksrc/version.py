@@ -3,7 +3,7 @@ BRICK_MAJOR_VERSION = 1
 
 # Minor version: increment for substantial additions to the ontology that
 # are backwards compatible
-BRICK_MINOR_VERSION = 1
+BRICK_MINOR_VERSION = 2
 
 # Patch version: increment for minor additions/changes to the ontology that
 # are largely backwards compatible (bug-fixes exempted)

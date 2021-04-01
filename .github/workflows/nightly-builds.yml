@@ -23,14 +23,12 @@ jobs:
           python generate_brick.py
           cd shacl && python generate_shacl.py
 
-      - uses: meeDamian/github-release@2.0
+      - uses: marvinpinto/action-automatic-releases@latest
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          name: Nightly Build ${{ steps.date.outputs.date }}
-          tag: nightly
-          body: >
-            This is an automatically generated release
-          files: >
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          prerelease: true
+          automatic_release_tag: nightly
+          title: Nightly Build ${{ steps.date.outputs.date }}
+          files: |
             Brick.ttl
-          gzip: false
-          allow_override: true
+            Brick+extensions.ttl

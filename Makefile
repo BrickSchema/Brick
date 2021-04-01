@@ -1,6 +1,7 @@
 .PHONY: format
 
 Brick.ttl: bricksrc/*.py bricksrc/definitions.csv generate_brick.py
+	mkdir -p extensions
 	python generate_brick.py
 	cd shacl && python generate_shacl.py
 
@@ -15,7 +16,7 @@ format:
 	black tools/
 
 test: Brick.ttl shacl/BrickShape.ttl
-	pytest -s -vvvv tests
+	pytest -s -vvvv -m 'not slow' tests
 	cd tests/integration && bash run_integration_tests.sh
 
 quantity-test: Brick.ttl

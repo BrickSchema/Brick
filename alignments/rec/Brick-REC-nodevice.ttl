@@ -1,0 +1,47 @@
+@prefix brick: <https://brickschema.org/schema/Brick#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rec-building: <https://w3id.org/rec/building/> .
+@prefix rec-core: <https://w3id.org/rec/core/> .
+@prefix rec-device: <https://w3id.org/rec/device/> .
+
+brick:Building a owl:Class ;
+    owl:equivalentClass rec-core:Building .
+
+brick:Fan a owl:Class ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( rec-core:Device [ a owl:Restriction ;
+                        owl:hasValue rec-device:Fan ;
+                        owl:onProperty rec-device:hasDeviceFunctionType ] ) ] .
+
+brick:Floor a owl:Class ;
+    owl:equivalentClass rec-building:StoreyLevel .
+
+brick:Room a owl:Class ;
+    owl:equivalentClass rec-core:Room .
+
+brick:Sensor a owl:Class ;
+    owl:equivalentClass rec-device:Sensor .
+
+brick:Status a owl:Class ;
+    owl:equivalentClass rec-device:Observation .
+
+<https://w3id.org/rec/alignments/BrickSchema> a owl:Ontology .
+
+rec-device:DeviceFunctionType a owl:Class .
+
+rec-building:StoreyLevel a owl:Class .
+
+rec-core:Building a owl:Class .
+
+rec-core:Device a owl:Class .
+
+rec-core:Room a owl:Class .
+
+rec-device:Fan a owl:NamedIndividual .
+
+rec-device:Observation a owl:Class .
+
+rec-device:Sensor a owl:Class .
+
+rec-device:hasDeviceFunctionType a owl:ObjectProperty .

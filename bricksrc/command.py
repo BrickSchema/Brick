@@ -141,6 +141,9 @@ command_definitions = {
                             TAG.Temperature,
                         ],
                     },
+                    "Stage_Enable_Command": {
+                        "tags": [TAG.Stage, TAG.Enable, TAG.Command, TAG.Point]
+                    },
                 },
             },
             "Disable_Command": {
