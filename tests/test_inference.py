@@ -87,7 +87,7 @@ def test_tag_inference():
     )
     assert len(res1) == 6
     res1 = [x[0] for x in res1]
-    assert set(res1) == {"CO2", "Level", "Sensor", "Point", "Particulate", "Matter"}
+    assert set(res1) == {"CO2", "Level", "Sensor", "Point", "Air", "Quality"}
 
     # test_sensors_measure_co2
     res2 = make_readable(
