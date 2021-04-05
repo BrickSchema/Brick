@@ -34,68 +34,107 @@ quantity_definitions = {
     "Air_Quality": {
         SKOS.narrower: {
             "CO_Concentration": {
-                QUDT.applicableUnit: [UNIT.PPM],
+                QUDT.applicableUnit: [UNIT.PPM, UNIT.PPB],
                 QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M0H0T0D1"],
-                SKOS.definition: Literal("The concentration of CO in air"),
+                SKOS.definition: Literal(
+                    "The concentration of carbon monoxide in a medium"
+                ),
                 RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
                 RDFS.label: Literal("COConcentration"),
-                SKOS.broader: QUDTQK.Dimensionless,
+                SKOS.broader: QUDTQK.DimensionlessRatio,
             },
             "CO2_Concentration": {
-                QUDT.applicableUnit: [UNIT.PPM],
+                QUDT.applicableUnit: [UNIT.PPM, UNIT.PPB],
                 QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M0H0T0D1"],
-                SKOS.definition: Literal("The concentration of CO2 in air"),
+                SKOS.definition: Literal(
+                    "The concentration of carbon dioxide in a medium"
+                ),
                 RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
                 RDFS.label: Literal("CO2Concentration"),
-                SKOS.broader: QUDTQK.Dimensionless,
+                SKOS.broader: QUDTQK.DimensionlessRatio,
             },
             "Formaldehyde_Concentration": {
-                QUDT.applicableUnit: [UNIT.PPM],
+                QUDT.applicableUnit: [UNIT.PPM, UNIT.PPB],
                 QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M0H0T0D1"],
-                SKOS.definition: Literal("The concentration of formaldehyde in air"),
+                SKOS.definition: Literal(
+                    "The concentration of formaldehyde in a medium"
+                ),
                 RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
                 RDFS.label: Literal("FormaldehydeConcentration"),
-                SKOS.broader: QUDTQK.Dimensionless,
+                SKOS.broader: QUDTQK.DimensionlessRatio,
+            },
+            "Ozone_Concentration": {
+                QUDT.applicableUnit: [UNIT.PPM, UNIT.PPB],
+                QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M0H0T0D1"],
+                SKOS.definition: Literal("The concentration of ozone in a medium"),
+                RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
+                RDFS.label: Literal("OzoneConcentration"),
+                SKOS.broader: QUDTQK.DimensionlessRatio,
+            },
+            "Methane_Concentration": {
+                QUDT.applicableUnit: [UNIT.PPM, UNIT.PPB],
+                QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M0H0T0D1"],
+                SKOS.definition: Literal("The concentration of methane in a medium"),
+                RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
+                RDFS.label: Literal("MethaneConcentration"),
+                SKOS.broader: QUDTQK.DimensionlessRatio,
+            },
+            "NO2_Concentration": {
+                QUDT.applicableUnit: [UNIT.PPM, UNIT.PPB],
+                QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M0H0T0D1"],
+                SKOS.definition: Literal(
+                    "The concentration of nitrogen dioxide in a medium"
+                ),
+                RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
+                RDFS.label: Literal("PM10Concentration"),
             },
             "PM10_Concentration": {
-                QUDT.applicableUnit: [UNIT.PPM],
-                QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M0H0T0D1"],
+                QUDT.applicableUnit: [UNIT.PPM, UNIT.PPB, UNIT["MicroGM-PER-M3"]],
                 SKOS.definition: Literal(
                     "The concentration of particulates with diameter of 10 microns or less in air"
                 ),
                 RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
                 RDFS.label: Literal("PM10Concentration"),
-                SKOS.broader: QUDTQK.Dimensionless,
             },
             "PM2.5_Concentration": {
-                QUDT.applicableUnit: [UNIT.PPM],
-                QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M0H0T0D1"],
+                QUDT.applicableUnit: [UNIT.PPM, UNIT.PPB, UNIT["MicroGM-PER-M3"]],
                 SKOS.definition: Literal(
                     "The concentration of particulates with diameter of 2.5 microns or less in air"
                 ),
                 RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
                 RDFS.label: Literal("PM2.5Concentration"),
-                SKOS.broader: QUDTQK.Dimensionless,
             },
             "PM1_Concentration": {
-                QUDT.applicableUnit: [UNIT.PPM],
-                QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M0H0T0D1"],
+                QUDT.applicableUnit: [UNIT.PPM, UNIT.PPB, UNIT["MicroGM-PER-M3"]],
                 SKOS.definition: Literal(
                     "The concentration of particulates with diameter of 1 microns or less in air"
                 ),
                 RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
                 RDFS.label: Literal("PM1Concentration"),
-                SKOS.broader: QUDTQK.Dimensionless,
+            },
+            "Radioactivity_Concentration": {
+                SKOS.narrower: {
+                    "Radon_Concentration": {
+                        QUDT.applicableUnit: [UNIT["BQ-PER-M3"]],
+                        QUDT.hasDimensionVector: QUDTDV["A0E0L-3I0M0H0T-1D0"],
+                        SKOS.definition: Literal(
+                            "The concentration of radioactivity due to Radon in a medium"
+                        ),
+                        RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
+                        RDFS.label: Literal("RadonConcentration"),
+                        SKOS.broader: QUDTQK.ActivityConcentration,
+                    },
+                },
             },
             "TVOC_Concentration": {
-                QUDT.applicableUnit: [UNIT.PPM],
+                QUDT.applicableUnit: [UNIT.PPM, UNIT.PPB, UNIT["MicroGM-PER-M3"]],
                 QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M0H0T0D1"],
                 SKOS.definition: Literal(
                     "The concentration of total volatile organic compounds in air"
                 ),
                 RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
                 RDFS.label: Literal("TVOCConcentration"),
-                SKOS.broader: QUDTQK.Dimensionless,
+                SKOS.broader: QUDTQK.DimensionlessRatio,
             },
         },
     },

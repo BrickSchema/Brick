@@ -16,6 +16,266 @@ sensor_definitions = {
                     },
                 },
             },
+            "Air_Quality_Sensor": {
+                "tags": [TAG.Point, TAG.Sensor, TAG.Air, TAG.Quality],
+                "subclasses": {
+                    "CO_Sensor": {
+                        "tags": [TAG.Point, TAG.Sensor, TAG.CO],
+                        "substances": [
+                            [BRICK.measures, BRICK.Air],
+                            [BRICK.measures, BRICK.CO],
+                        ],
+                        "subclasses": {
+                            "CO_Level_Sensor": {
+                                "tags": [TAG.Point, TAG.CO, TAG.Level, TAG.Sensor],
+                            },
+                            "CO_Differential_Sensor": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.CO,
+                                    TAG.Differential,
+                                    TAG.Sensor,
+                                ],
+                            },
+                            "Outside_Air_CO_Sensor": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Outside,
+                                    TAG.Air,
+                                    TAG.CO,
+                                    TAG.Sensor,
+                                ],
+                                "substances": [
+                                    [BRICK.measures, BRICK.Outside_Air],
+                                    [BRICK.measures, BRICK.CO],
+                                ],
+                            },
+                            "Return_Air_CO_Sensor": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Return,
+                                    TAG.Air,
+                                    TAG.CO,
+                                    TAG.Sensor,
+                                ],
+                                "substances": [
+                                    [BRICK.measures, BRICK.Return_Air],
+                                    [BRICK.measures, BRICK.CO],
+                                ],
+                            },
+                        },
+                    },
+                    "CO2_Sensor": {
+                        "tags": [TAG.Point, TAG.Sensor, TAG.CO2],
+                        "substances": [
+                            [BRICK.measures, BRICK.Air],
+                            [BRICK.measures, BRICK.CO2],
+                        ],
+                        "subclasses": {
+                            "CO2_Differential_Sensor": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.CO2,
+                                    TAG.Differential,
+                                    TAG.Sensor,
+                                ],
+                            },
+                            "CO2_Level_Sensor": {
+                                "tags": [TAG.Point, TAG.CO2, TAG.Level, TAG.Sensor],
+                            },
+                            "Outside_Air_CO2_Sensor": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Outside,
+                                    TAG.Air,
+                                    TAG.CO2,
+                                    TAG.Sensor,
+                                ],
+                                "substances": [
+                                    [BRICK.measures, BRICK.Outside_Air],
+                                    [BRICK.measures, BRICK.CO2],
+                                ],
+                            },
+                            "Return_Air_CO2_Sensor": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Return,
+                                    TAG.Air,
+                                    TAG.CO2,
+                                    TAG.Sensor,
+                                ],
+                                "substances": [
+                                    [BRICK.measures, BRICK.Return_Air],
+                                    [BRICK.measures, BRICK.CO2],
+                                ],
+                            },
+                        },
+                    },
+                    "NO2_Level_Sensor": {
+                        "tags": [TAG.Point, TAG.Sensor, TAG.Level, TAG.NO2],
+                        "substances": [
+                            [BRICK.measures, BRICK.Air],
+                            [BRICK.measures, BRICK.NO2],
+                        ],
+                    },
+                    "Formaldehyde_Level_Sensor": {
+                        "tags": [TAG.Point, TAG.Sensor, TAG.Level, TAG.Formaldehyde],
+                        "substances": [
+                            [BRICK.measures, BRICK.Air],
+                            [BRICK.measures, BRICK.Formaldehyde_Concentration],
+                        ],
+                    },
+                    "Ozone_Level_Sensor": {
+                        "tags": [TAG.Point, TAG.Sensor, TAG.Level, TAG.Ozone],
+                        "substances": [
+                            [BRICK.measures, BRICK.Air],
+                            [BRICK.measures, BRICK.Ozone_Concentration],
+                        ],
+                    },
+                    "Methane_Level_Sensor": {
+                        "tags": [TAG.Point, TAG.Sensor, TAG.Level, TAG.Methane],
+                        "substances": [
+                            [BRICK.measures, BRICK.Air],
+                            [BRICK.measures, BRICK.Methane_Concentration],
+                        ],
+                    },
+                    "Radioactivity_Concentration_Sensor": {
+                        "tags": [
+                            TAG.Point,
+                            TAG.Sensor,
+                            TAG.Radioactivity,
+                            TAG.Concentration,
+                        ],
+                        "substances": [
+                            [BRICK.measures, BRICK.Air],
+                            [BRICK.measures, BRICK.Radioactivity_Concentration],
+                        ],
+                        "subclasses": {
+                            "Radon_Concentration_Sensor": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Sensor,
+                                    TAG.Radon,
+                                    TAG.Concentration,
+                                ],
+                                "substances": [
+                                    [BRICK.measures, BRICK.Air],
+                                    [BRICK.measures, BRICK.Radon_Concentration],
+                                ],
+                            },
+                        },
+                    },
+                    "Particulate_Matter_Sensor": {
+                        "tags": [TAG.Point, TAG.Sensor, TAG.Particulate, TAG.Matter],
+                        "substances": [
+                            [BRICK.measures, BRICK.Air],
+                            [BRICK.measures, BRICK.Air_Quality],
+                        ],
+                        "subclasses": {
+                            "PM1_Sensor": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Sensor,
+                                    TAG.Particulate,
+                                    TAG.Matter,
+                                    TAG.PM1,
+                                ],
+                                "substances": [
+                                    [BRICK.measures, BRICK.Air],
+                                    [BRICK.measures, BRICK.PM1_Concentration],
+                                ],
+                                "subclasses": {
+                                    "PM1_Level_Sensor": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Level,
+                                            TAG.Sensor,
+                                            TAG.Particulate,
+                                            TAG.Matter,
+                                            TAG.PM1,
+                                        ],
+                                    }
+                                },
+                            },
+                            "PM10_Sensor": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Sensor,
+                                    TAG.Particulate,
+                                    TAG.Matter,
+                                    TAG.PM10,
+                                ],
+                                "substances": [
+                                    [BRICK.measures, BRICK.Air],
+                                    [BRICK.measures, BRICK.PM10_Concentration],
+                                ],
+                                "subclasses": {
+                                    "PM10_Level_Sensor": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Level,
+                                            TAG.Sensor,
+                                            TAG.Particulate,
+                                            TAG.Matter,
+                                            TAG.PM10,
+                                        ],
+                                    }
+                                },
+                            },
+                            "PM2.5_Sensor": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Sensor,
+                                    TAG.Particulate,
+                                    TAG.Matter,
+                                    TAG["PM2.5"],
+                                ],
+                                "substances": [
+                                    [BRICK.measures, BRICK.Air],
+                                    [BRICK.measures, BRICK["PM2.5_Concentration"]],
+                                ],
+                                "subclasses": {
+                                    "PM2.5_Level_Sensor": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Level,
+                                            TAG.Sensor,
+                                            TAG.Particulate,
+                                            TAG.Matter,
+                                            TAG["PM2.5"],
+                                        ],
+                                    }
+                                },
+                            },
+                            "TVOC_Sensor": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Sensor,
+                                    TAG.Particulate,
+                                    TAG.Matter,
+                                    TAG.TVOC,
+                                ],
+                                "substances": [
+                                    [BRICK.measures, BRICK.Air],
+                                    [BRICK.measures, BRICK["TVOC_Concentration"]],
+                                ],
+                                "subclasses": {
+                                    "TVOC_Level_Sensor": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Level,
+                                            TAG.Sensor,
+                                            TAG.Particulate,
+                                            TAG.Matter,
+                                            TAG.TVOC,
+                                        ],
+                                    }
+                                },
+                            },
+                        },
+                    },
+                },
+            },
             "Air_Grains_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Air, TAG.Grains],
                 "substances": [
@@ -774,220 +1034,6 @@ sensor_definitions = {
             },
             "Piezoelectric_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Piezoelectric],
-            },
-            "Particulate_Matter_Sensor": {
-                "tags": [TAG.Point, TAG.Sensor, TAG.Particulate, TAG.Matter],
-                "substances": [
-                    [BRICK.measures, BRICK.Air],
-                    [BRICK.measures, BRICK.Air_Quality],
-                ],
-                "subclasses": {
-                    "CO_Sensor": {
-                        "tags": [TAG.Point, TAG.Sensor, TAG.CO],
-                        "substances": [
-                            [BRICK.measures, BRICK.Air],
-                            [BRICK.measures, BRICK.CO],
-                        ],
-                        "subclasses": {
-                            "CO_Level_Sensor": {
-                                "tags": [TAG.Point, TAG.CO, TAG.Level, TAG.Sensor],
-                            },
-                            "CO_Differential_Sensor": {
-                                "tags": [
-                                    TAG.Point,
-                                    TAG.CO,
-                                    TAG.Differential,
-                                    TAG.Sensor,
-                                ],
-                            },
-                            "Outside_Air_CO_Sensor": {
-                                "tags": [
-                                    TAG.Point,
-                                    TAG.Outside,
-                                    TAG.Air,
-                                    TAG.CO,
-                                    TAG.Sensor,
-                                ],
-                                "substances": [
-                                    [BRICK.measures, BRICK.Outside_Air],
-                                    [BRICK.measures, BRICK.CO],
-                                ],
-                            },
-                            "Return_Air_CO_Sensor": {
-                                "tags": [
-                                    TAG.Point,
-                                    TAG.Return,
-                                    TAG.Air,
-                                    TAG.CO,
-                                    TAG.Sensor,
-                                ],
-                                "substances": [
-                                    [BRICK.measures, BRICK.Return_Air],
-                                    [BRICK.measures, BRICK.CO],
-                                ],
-                            },
-                        },
-                    },
-                    "CO2_Sensor": {
-                        "tags": [TAG.Point, TAG.Sensor, TAG.CO2],
-                        "substances": [
-                            [BRICK.measures, BRICK.Air],
-                            [BRICK.measures, BRICK.CO2],
-                        ],
-                        "subclasses": {
-                            "CO2_Differential_Sensor": {
-                                "tags": [
-                                    TAG.Point,
-                                    TAG.CO2,
-                                    TAG.Differential,
-                                    TAG.Sensor,
-                                ],
-                            },
-                            "CO2_Level_Sensor": {
-                                "tags": [TAG.Point, TAG.CO2, TAG.Level, TAG.Sensor],
-                            },
-                            "Outside_Air_CO2_Sensor": {
-                                "tags": [
-                                    TAG.Point,
-                                    TAG.Outside,
-                                    TAG.Air,
-                                    TAG.CO2,
-                                    TAG.Sensor,
-                                ],
-                                "substances": [
-                                    [BRICK.measures, BRICK.Outside_Air],
-                                    [BRICK.measures, BRICK.CO2],
-                                ],
-                            },
-                            "Return_Air_CO2_Sensor": {
-                                "tags": [
-                                    TAG.Point,
-                                    TAG.Return,
-                                    TAG.Air,
-                                    TAG.CO2,
-                                    TAG.Sensor,
-                                ],
-                                "substances": [
-                                    [BRICK.measures, BRICK.Return_Air],
-                                    [BRICK.measures, BRICK.CO2],
-                                ],
-                            },
-                        },
-                    },
-                    "Formaldehyde_Sensor": {
-                        "tags": [
-                            TAG.Point,
-                            TAG.Sensor,
-                            TAG.Particulate,
-                            TAG.Matter,
-                            TAG.Formaldehyde,
-                        ],
-                        "substances": [
-                            [BRICK.measures, BRICK.Air],
-                            [BRICK.measures, BRICK.Formaldehyde_Concentration],
-                        ],
-                    },
-                    "PM1_Sensor": {
-                        "tags": [
-                            TAG.Point,
-                            TAG.Sensor,
-                            TAG.Particulate,
-                            TAG.Matter,
-                            TAG.PM1,
-                        ],
-                        "substances": [
-                            [BRICK.measures, BRICK.Air],
-                            [BRICK.measures, BRICK.PM1_Concentration],
-                        ],
-                        "subclasses": {
-                            "PM1_Level_Sensor": {
-                                "tags": [
-                                    TAG.Point,
-                                    TAG.Level,
-                                    TAG.Sensor,
-                                    TAG.Particulate,
-                                    TAG.Matter,
-                                    TAG.PM1,
-                                ],
-                            }
-                        },
-                    },
-                    "PM10_Sensor": {
-                        "tags": [
-                            TAG.Point,
-                            TAG.Sensor,
-                            TAG.Particulate,
-                            TAG.Matter,
-                            TAG.PM10,
-                        ],
-                        "substances": [
-                            [BRICK.measures, BRICK.Air],
-                            [BRICK.measures, BRICK.PM10_Concentration],
-                        ],
-                        "subclasses": {
-                            "PM10_Level_Sensor": {
-                                "tags": [
-                                    TAG.Point,
-                                    TAG.Level,
-                                    TAG.Sensor,
-                                    TAG.Particulate,
-                                    TAG.Matter,
-                                    TAG.PM10,
-                                ],
-                            }
-                        },
-                    },
-                    "PM2.5_Sensor": {
-                        "tags": [
-                            TAG.Point,
-                            TAG.Sensor,
-                            TAG.Particulate,
-                            TAG.Matter,
-                            TAG["PM2.5"],
-                        ],
-                        "substances": [
-                            [BRICK.measures, BRICK.Air],
-                            [BRICK.measures, BRICK["PM2.5_Concentration"]],
-                        ],
-                        "subclasses": {
-                            "PM2.5_Level_Sensor": {
-                                "tags": [
-                                    TAG.Point,
-                                    TAG.Level,
-                                    TAG.Sensor,
-                                    TAG.Particulate,
-                                    TAG.Matter,
-                                    TAG["PM2.5"],
-                                ],
-                            }
-                        },
-                    },
-                    "TVOC_Sensor": {
-                        "tags": [
-                            TAG.Point,
-                            TAG.Sensor,
-                            TAG.Particulate,
-                            TAG.Matter,
-                            TAG.TVOC,
-                        ],
-                        "substances": [
-                            [BRICK.measures, BRICK.Air],
-                            [BRICK.measures, BRICK["TVOC_Concentration"]],
-                        ],
-                        "subclasses": {
-                            "TVOC_Level_Sensor": {
-                                "tags": [
-                                    TAG.Point,
-                                    TAG.Level,
-                                    TAG.Sensor,
-                                    TAG.Particulate,
-                                    TAG.Matter,
-                                    TAG.TVOC,
-                                ],
-                            }
-                        },
-                    },
-                },
             },
             "Pressure_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Pressure],
