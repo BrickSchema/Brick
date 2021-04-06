@@ -410,6 +410,24 @@ hvac_subclasses = {
                             TAG.Air,
                             TAG.Heat_Pump,
                         ],
+                        "subclasses": {
+                            "Reversible_Air_To_Air_Heat_Pump": {
+                                "tags": [
+                                    TAG.Equipment,
+                                    TAG.Reversible,
+                                    TAG.Air,
+                                    TAG.Heat_Pump,
+                                ],
+                            },
+                            "Nonreversible_Air_To_Air_Heat_Pump": {
+                                "tags": [
+                                    TAG.Equipment,
+                                    TAG.Nonrevesible,
+                                    TAG.Air,
+                                    TAG.Heat_Pump,
+                                ],
+                            },
+                        },
                     },
                     "Air_To_Water_Heat_Pump": {
                         "tags": [
