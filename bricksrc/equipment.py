@@ -1,4 +1,3 @@
-from typing import Reversible
 from .namespaces import TAG, OWL, BRICK
 
 """
@@ -408,14 +407,15 @@ hvac_subclasses = {
                     "Air_To_Air_Heat_Pump": {
                         "tags": [
                             TAG.Equipment,
-                            TAG.Air_Air,
+                            TAG.Air,
                             TAG.Heat_Pump,
                         ],
                     },
                     "Air_To_Water_Heat_Pump": {
                         "tags": [
                             TAG.Equipment,
-                            TAG.Air_Water,
+                            TAG.Air,
+                            TAG.Water,
                             TAG.Heat_Pump,
                         ],
                         "subclasses": {
@@ -423,7 +423,8 @@ hvac_subclasses = {
                                 "tags": [
                                     TAG.Equipment,
                                     TAG.Reversible,
-                                    TAG.Air_Water,
+                                    TAG.Air,
+                                    TAG.Water,
                                     TAG.Heat_Pump,
                                 ],
                             },
@@ -431,7 +432,8 @@ hvac_subclasses = {
                                 "tags": [
                                     TAG.Equipment,
                                     TAG.Nonreversible,
-                                    TAG.Air_Water,
+                                    TAG.Air,
+                                    TAG.Water,
                                     TAG.Heat_Pump,
                                 ],
                             },
@@ -450,7 +452,7 @@ hvac_subclasses = {
                     "Water_To_Water_Heat_Pump": {
                         "tags": [
                             TAG.Equipment,
-                            TAG.Water_Water,
+                            TAG.Water,
                             TAG.Heat_Pump,
                         ],
                         "subclasses": {
@@ -468,7 +470,8 @@ hvac_subclasses = {
                     "Water_To_Air_Heat_Pump": {
                         "tags": [
                             TAG.Equipment,
-                            TAG.Water_Air,
+                            TAG.Water,
+                            TAG.Air,
                             TAG.Heat_Pump,
                         ],
                         "subclasses": {
@@ -476,7 +479,8 @@ hvac_subclasses = {
                                 "tags": [
                                     TAG.Equipment,
                                     TAG.Reversible,
-                                    TAG.Water_Air,
+                                    TAG.Water,
+                                    TAG.Air,
                                     TAG.Heat_Pump,
                                 ],
                             },
@@ -484,7 +488,8 @@ hvac_subclasses = {
                                 "tags": [
                                     TAG.Equipment,
                                     TAG.Nonreversible,
-                                    TAG.Water_Air,
+                                    TAG.Water,
+                                    TAG.Air,
                                     TAG.Heat_Pump,
                                 ],
                                 "subclasses": {
@@ -514,7 +519,8 @@ hvac_subclasses = {
                     "Ground_To_Air_Heat_Pump": {
                         "tags": [
                             TAG.Equipment,
-                            TAG.Ground_Air,
+                            TAG.Ground,
+                            TAG.Air,
                             TAG.Heat_Pump,
                         ],
                         "subclasses": {
@@ -522,7 +528,8 @@ hvac_subclasses = {
                                 "tags": [
                                     TAG.Equipment,
                                     TAG.Reversible,
-                                    TAG.Ground_Air,
+                                    TAG.Ground,
+                                    TAG.Air,
                                     TAG.Heat_Pump,
                                 ],
                             },
@@ -530,7 +537,8 @@ hvac_subclasses = {
                                 "tags": [
                                     TAG.Equipment,
                                     TAG.Nonreversible,
-                                    TAG.Ground_Air,
+                                    TAG.Ground,
+                                    TAG.Air,
                                     TAG.Heat_Pump,
                                 ],
                             },
@@ -539,7 +547,8 @@ hvac_subclasses = {
                     "Ground_To_Water_Heat_Pump": {
                         "tags": [
                             TAG.Equipment,
-                            TAG.Ground_Water,
+                            TAG.Ground,
+                            TAG.Water,
                             TAG.Heat_Pump,
                         ],
                     },
