@@ -457,6 +457,46 @@ hvac_subclasses = {
                             },
                         },
                     },
+                    "Air_to_Refrigerant_Heat_Pump": {
+                        "tags": [
+                            TAG.Equipment,
+                            TAG.Air,
+                            TAG.Refrigerant,
+                            TAG.Heat_Pump,
+                        ],
+                        "subclasses": {
+                            "Reversible_Air_To_Refrigerant_Heat_Pump": {
+                                "tags": [
+                                    TAG.Equipment,
+                                    TAG.Reversible,
+                                    TAG.Air,
+                                    TAG.Refrigerant,
+                                    TAG.Heat_Pump,
+                                ],
+                                "subclasses": {
+                                    "Heat_Recovery_Air_To_Refrigerant_Heat_Pump": {
+                                        "tags": [
+                                            TAG.Equipment,
+                                            TAG.Heat,
+                                            TAG.Recovery,
+                                            TAG.Air,
+                                            TAG.Refrigerant,
+                                            TAG.Heat_Pump,
+                                        ],
+                                    },
+                                },
+                            },
+                            "Nonreversible_Air_To_Refrigerant_Heat_Pump": {
+                                "tags": [
+                                    TAG.Equipment,
+                                    TAG.Nonreversible,
+                                    TAG.Air,
+                                    TAG.Refrigerant,
+                                    TAG.Heat_Pump,
+                                ],
+                            },
+                        },
+                    },
                 },
             },
             "Water_Source_Heat_Pump": {

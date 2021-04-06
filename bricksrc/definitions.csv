@@ -29,6 +29,7 @@ https://brickschema.org/schema/Brick#Air_Temperature_Sensor,Measures the tempera
 https://brickschema.org/schema/Brick#Air_Temperature_Setpoint,Sets temperature of air,
 https://brickschema.org/schema/Brick#Air_Temperature_Step_Parameter,,
 https://brickschema.org/schema/Brick#Air_To_Air_Heat_Pump,A heat pump that extracts thermal energy from a volume of air and transfers it to another volume of air.,
+https://brickschema.org/schema/Brick#Air_to_Refrigerant_Heat_Pump,A heat pump that extracts thermal energy from a volume of air and transfers it to a refrigerant to distribute throughout a building.,
 https://brickschema.org/schema/Brick#Air_To_Water_Heat_Pump,A heat pump that extracts thermal energy from a volume of air and transfers it to a water volume or circuit.,
 https://brickschema.org/schema/Brick#Alarm,Alarm points are signals (either audible or visual) that alert an operator to an off-normal condition which requires some form of corrective action,https://xp20.ashrae.org/terminology/index.php?term=alarm
 https://brickschema.org/schema/Brick#Alarm_Delay_Parameter,A parameter determining how long to delay an alarm after sufficient conditions have been met,
@@ -430,6 +431,7 @@ https://brickschema.org/schema/Brick#Heat_Exchanger,A heat exchanger is a piece 
 https://brickschema.org/schema/Brick#Heat_Exchanger_Supply_Water_Temperature_Sensor,Measures the temperature of water supplied by a heat exchanger,
 https://brickschema.org/schema/Brick#Heat_Exchanger_System_Enable_Status,Indicates if the heat exchanger system has been enabled,
 https://brickschema.org/schema/Brick#Heat_Pump,A device that transfers thermal energy in the opposite direction of spontaneous heat transfer by absorbing heat from a cold reservoir and releasing it into a warmer one.,https://en.wikipedia.org/wiki/Heat_pump
+https://brickschema.org/schema/Brick#Heat_Recovery_Air_to_Refrigerant_Heat_Pump,A reversible heat pump that extracts thermal energy from a volume of air and transfers it to a refrigerant and has zone units that can independently operate in heating or cooling mode.,
 https://brickschema.org/schema/Brick#Heat_Sensor,Measures heat,
 https://brickschema.org/schema/Brick#Heat_Wheel,A rotary heat exchanger positioned within the supply and exhaust air streams of an air handling system in order to recover heat energy,https://en.wikipedia.org/wiki/Thermal_wheel
 https://brickschema.org/schema/Brick#Heat_Wheel_VFD,A VFD that drives a heat wheel,
@@ -633,6 +635,7 @@ https://brickschema.org/schema/Brick#No_Water_Alarm,,
 https://brickschema.org/schema/Brick#NO2_Level_Sensor,Measures the concentration of NO2 in air,
 https://brickschema.org/schema/Brick#Occupancy,,
 https://brickschema.org/schema/Brick#Nonreversible_Air_To_Air_Heat_Pump,A nonreversible heat pump that extracts thermal energy from a volume of air and to another volume of air. The thermal dynamic cycle is fixed to one direction.,
+https://brickschema.org/schema/Brick#Nonreversible_Air_to_Refrigerant_Heat_Pump,A nonreversible heat pump that extracts thermal energy from a volume of air and transfers it to a refrigerant. The thermal dynamic cycle is fixed to one direction.,
 https://brickschema.org/schema/Brick#Nonreversible_Air_To_Water_Heat_Pump,A nonreversible air source heat pump that extracts thermal energy from a volume of air and transfers it to a water volume or circuit. The flow of the refrigerant is fixed in one direction.,
 https://brickschema.org/schema/Brick#Nonreversible_Ground_To_Air_Heat_Pump,A nonreversible ground source heat pump that extracts thermal energy from the ground or groundwater and transfers it to a volume of air. The flow of the refrigerant is fixed in one direction.,
 https://brickschema.org/schema/Brick#Occupancy_Command,"Controls whether or not a device or controller is operating in ""Occupied"" mode",
@@ -809,6 +812,7 @@ https://brickschema.org/schema/Brick#Return_Water,,
 https://brickschema.org/schema/Brick#Return_Water_Temperature_Sensor,Measures the temperature of return water,
 https://brickschema.org/schema/Brick#Return_Water_Temperature_Sensor,Measures the temperature of return water,
 https://brickschema.org/schema/Brick#Reversible_Air_To_Air_Heat_Pump,"A reversible heat pump, e.g. can operate in heating or cooling mode, that extracts thermal energy from a volume of air and another volume of air.",
+https://brickschema.org/schema/Brick#Reversible_Air_to_Refrigerant_Heat_Pump,"A reversible heat pump, e.g. can operate in heating or cooling mode, that extracts thermal energy from a volume of air and transfers it to a refrigerant.",
 https://brickschema.org/schema/Brick#Reversible_Air_To_Water_Heat_Pump,"A reversible heat pump, e.g. can operate in heating or cooling mode, that depending on the mode extracts thermal energy from a volume of air and transfers it to a water volume or circuit and vice versa.",
 https://brickschema.org/schema/Brick#Reversible_Ground_To_Air_Heat_Pump,"A reversible heat pump, e.g. can operate in heating or cooling mode, that depending on the mode extracts thermal energy from the ground or groundwater and transfers it to a volume of air or vice versa.",
 https://brickschema.org/schema/Brick#Reversing_Valve,A type of valve usually found in heat pumps to change the direction of refrigerant flow in order to change the device from heating to cooling and vice versa.,https://en.wikipedia.org/wiki/Reversing_valve
