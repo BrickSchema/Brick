@@ -457,7 +457,7 @@ hvac_subclasses = {
                             },
                         },
                     },
-                    "Air_to_Refrigerant_Heat_Pump": {
+                    "Air_To_Refrigerant_Heat_Pump": {
                         "tags": [
                             TAG.Equipment,
                             TAG.Air,
