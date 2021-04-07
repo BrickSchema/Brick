@@ -51,13 +51,13 @@ g.add((BLDG["room_1"], A, BRICK["Office_Kitchen"]))
 # can add information about the sq area of the room and the floor
 # this nifty syntax requires brickschema>=0.3.2a1
 room_area = [
-    (BRICK.area, Literal(40)),
+    (BRICK.value, Literal(40)),
     (BRICK.hasUnit, UNIT["M3"]),
 ]
 g.add((BLDG["room_1"], BRICK.area, room_area))
 
 floor_area = [
-    (BRICK.area, Literal(1000)),
+    (BRICK.value, Literal(1000)),
     (BRICK.hasUnit, UNIT["M3"]),
 ]
 g.add((BLDG["floor_1"], BRICK.area, floor_area))
