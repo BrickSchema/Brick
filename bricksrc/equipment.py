@@ -394,21 +394,27 @@ hvac_subclasses = {
     "Compressor": {"tags": [TAG.Equipment, TAG.Compressor]},
     "Cooling_Tower": {"tags": [TAG.Equipment, TAG.Cooling, TAG.Tower]},
     "Heat_Pump": {
-        "tags": [TAG.Equipment, TAG.Heat_Pump],
+        "tags": [
+            TAG.Equipment,
+            TAG.Heat,
+            TAG.Pump,
+        ],
         "subclasses": {
             "Air_Source_Heat_Pump": {
                 "tags": [
                     TAG.Equipment,
                     TAG.Air,
                     TAG.Source,
-                    TAG.Heat_Pump,
+                    TAG.Heat,
+                    TAG.Pump,
                 ],
                 "subclasses": {
                     "Air_To_Air_Heat_Pump": {
                         "tags": [
                             TAG.Equipment,
                             TAG.Air,
-                            TAG.Heat_Pump,
+                            TAG.Heat,
+                            TAG.Pump,
                         ],
                         "subclasses": {
                             "Reversible_Air_To_Air_Heat_Pump": {
@@ -416,7 +422,8 @@ hvac_subclasses = {
                                     TAG.Equipment,
                                     TAG.Reversible,
                                     TAG.Air,
-                                    TAG.Heat_Pump,
+                                    TAG.Heat,
+                                    TAG.Pump,
                                 ],
                             },
                             "Nonreversible_Air_To_Air_Heat_Pump": {
@@ -424,7 +431,8 @@ hvac_subclasses = {
                                     TAG.Equipment,
                                     TAG.Nonrevesible,
                                     TAG.Air,
-                                    TAG.Heat_Pump,
+                                    TAG.Heat,
+                                    TAG.Pump,
                                 ],
                             },
                         },
@@ -434,7 +442,8 @@ hvac_subclasses = {
                             TAG.Equipment,
                             TAG.Air,
                             TAG.Water,
-                            TAG.Heat_Pump,
+                            TAG.Heat,
+                            TAG.Pump,
                         ],
                         "subclasses": {
                             "Reversible_Air_To_Water_Heat_Pump": {
@@ -443,7 +452,8 @@ hvac_subclasses = {
                                     TAG.Reversible,
                                     TAG.Air,
                                     TAG.Water,
-                                    TAG.Heat_Pump,
+                                    TAG.Heat,
+                                    TAG.Pump,
                                 ],
                             },
                             "Nonreversible_Air_To_Water_Heat_Pump": {
@@ -452,7 +462,8 @@ hvac_subclasses = {
                                     TAG.Nonreversible,
                                     TAG.Air,
                                     TAG.Water,
-                                    TAG.Heat_Pump,
+                                    TAG.Heat,
+                                    TAG.Pump,
                                 ],
                             },
                         },
@@ -462,7 +473,8 @@ hvac_subclasses = {
                             TAG.Equipment,
                             TAG.Air,
                             TAG.Refrigerant,
-                            TAG.Heat_Pump,
+                            TAG.Heat,
+                            TAG.Pump,
                         ],
                         "subclasses": {
                             "Reversible_Air_To_Refrigerant_Heat_Pump": {
@@ -471,7 +483,8 @@ hvac_subclasses = {
                                     TAG.Reversible,
                                     TAG.Air,
                                     TAG.Refrigerant,
-                                    TAG.Heat_Pump,
+                                    TAG.Heat,
+                                    TAG.Pump,
                                 ],
                                 "subclasses": {
                                     "Heat_Recovery_Air_To_Refrigerant_Heat_Pump": {
@@ -481,7 +494,8 @@ hvac_subclasses = {
                                             TAG.Recovery,
                                             TAG.Air,
                                             TAG.Refrigerant,
-                                            TAG.Heat_Pump,
+                                            TAG.Heat,
+                                            TAG.Pump,
                                         ],
                                     },
                                 },
@@ -492,7 +506,8 @@ hvac_subclasses = {
                                     TAG.Nonreversible,
                                     TAG.Air,
                                     TAG.Refrigerant,
-                                    TAG.Heat_Pump,
+                                    TAG.Heat,
+                                    TAG.Pump,
                                 ],
                             },
                         },
@@ -504,14 +519,16 @@ hvac_subclasses = {
                     TAG.Equipment,
                     TAG.Water,
                     TAG.Source,
-                    TAG.Heat_Pump,
+                    TAG.Heat,
+                    TAG.Pump,
                 ],
                 "subclasses": {
                     "Water_To_Water_Heat_Pump": {
                         "tags": [
                             TAG.Equipment,
                             TAG.Water,
-                            TAG.Heat_Pump,
+                            TAG.Heat,
+                            TAG.Pump,
                         ],
                         "subclasses": {
                             "Water_Cooled_Chiller": {
@@ -530,7 +547,8 @@ hvac_subclasses = {
                             TAG.Equipment,
                             TAG.Water,
                             TAG.Air,
-                            TAG.Heat_Pump,
+                            TAG.Heat,
+                            TAG.Pump,
                         ],
                         "subclasses": {
                             "Reversible_Water_To_Air_Heat_Pump": {
@@ -539,7 +557,8 @@ hvac_subclasses = {
                                     TAG.Reversible,
                                     TAG.Water,
                                     TAG.Air,
-                                    TAG.Heat_Pump,
+                                    TAG.Heat,
+                                    TAG.Pump,
                                 ],
                             },
                             "Nonreversible_Water_To_Air_Heat_Pump": {
@@ -548,7 +567,8 @@ hvac_subclasses = {
                                     TAG.Nonreversible,
                                     TAG.Water,
                                     TAG.Air,
-                                    TAG.Heat_Pump,
+                                    TAG.Heat,
+                                    TAG.Pump,
                                 ],
                                 "subclasses": {
                                     "Air_Cooled_Chiller": {
@@ -571,7 +591,8 @@ hvac_subclasses = {
                     TAG.Equipment,
                     TAG.Ground,
                     TAG.Source,
-                    TAG.Heat_Pump,
+                    TAG.Heat,
+                    TAG.Pump,
                 ],
                 "subclasses": {
                     "Ground_To_Air_Heat_Pump": {
@@ -579,7 +600,8 @@ hvac_subclasses = {
                             TAG.Equipment,
                             TAG.Ground,
                             TAG.Air,
-                            TAG.Heat_Pump,
+                            TAG.Heat,
+                            TAG.Pump,
                         ],
                         "subclasses": {
                             "Reversible_Ground_To_Air_Heat_Pump": {
@@ -588,7 +610,8 @@ hvac_subclasses = {
                                     TAG.Reversible,
                                     TAG.Ground,
                                     TAG.Air,
-                                    TAG.Heat_Pump,
+                                    TAG.Heat,
+                                    TAG.Pump,
                                 ],
                             },
                             "Nonreversible_Ground_To_Air_Heat_Pump": {
@@ -597,7 +620,8 @@ hvac_subclasses = {
                                     TAG.Nonreversible,
                                     TAG.Ground,
                                     TAG.Air,
-                                    TAG.Heat_Pump,
+                                    TAG.Heat,
+                                    TAG.Pump,
                                 ],
                             },
                         },
@@ -607,7 +631,8 @@ hvac_subclasses = {
                             TAG.Equipment,
                             TAG.Ground,
                             TAG.Water,
-                            TAG.Heat_Pump,
+                            TAG.Heat,
+                            TAG.Pump,
                         ],
                     },
                     "Vertical_Ground_Heat_Pump": {
@@ -615,7 +640,8 @@ hvac_subclasses = {
                             TAG.Equipment,
                             TAG.Vertical,
                             TAG.Ground,
-                            TAG.Heat_Pump,
+                            TAG.Heat,
+                            TAG.Pump,
                         ],
                     },
                     "Horizontal_Ground_Source_Heat_Pump": {
@@ -624,7 +650,8 @@ hvac_subclasses = {
                             TAG.Horizontal,
                             TAG.Ground,
                             TAG.Source,
-                            TAG.Heat_Pump,
+                            TAG.Heat,
+                            TAG.Pump,
                         ],
                     },
                 },
