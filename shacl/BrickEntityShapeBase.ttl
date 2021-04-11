@@ -58,9 +58,9 @@ bsh:PointShape a sh:NodeShape;
     sh:targetClass brick:Point;
     sh:property [
         sh:path brick:isPointOf;
-        sh:or [
+        sh:or (
             [ sh:class brick:Location ]
             [ sh:class brick:Equipment ]
-        ]
+        )
     ];
     .
