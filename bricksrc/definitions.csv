@@ -409,6 +409,7 @@ https://brickschema.org/schema/Brick#Gasoline,Petroleum derived liquid used as a
 https://brickschema.org/schema/Brick#Gatehouse,The standalone building used to manage the entrance to a campus or building grounds,
 https://brickschema.org/schema/Brick#Generator_Room,"A room for electrical equipment, specifically electrical generators.",
 https://brickschema.org/schema/Brick#Grains,,
+https://brickschema.org/schema/Brick#Ground,"Earth, ground or the medium that constitutes being earth-coupled",
 https://brickschema.org/schema/Brick#Ground_Source_Heat_Pump,A heat pump that extracts thermal energy from the ground or groundwater and transfers it to another medium such as water or air.,
 https://brickschema.org/schema/Brick#Ground_To_Air_Heat_Pump,A heat pump that extracts thermal energy from the ground or groundwater and transfers it to a volume of air.,
 https://brickschema.org/schema/Brick#Ground_To_Water_Heat_Pump,A heat pump that extracts thermal energy from the ground or groundwater and transfers it to a volume or circuit of water.,

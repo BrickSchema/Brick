@@ -109,6 +109,31 @@ entity_properties = {
             },
         },
     },
+    # heat pump properties
+    BRICK.loadSideResource: {
+        SKOS.definition: Literal(
+            "The resource that is the target of some thermodynamic process, e.g. the air that is heated or cooled"
+        ),
+        RDFS.range: BRICK.ThermodynamicResourceShape,
+    },
+    BRICK.sourceSideResource: {
+        SKOS.definition: Literal(
+            "The resource that is the other side of some thermodynamic process -- i.e. not the load. For example, the chilled water that cools the air"
+        ),
+        RDFS.range: BRICK.ThermodynamicResourceShape,
+    },
+    BRICK.heatFlow: {
+        SKOS.definition: Literal(
+            "The direction of heat flow from the source-side to the load-side"
+        ),
+        RDFS.range: BRICK.HeatFlowShape,
+    },
+    BRICK.reversibleHeatFlow: {
+        SKOS.definition: Literal(
+            "Whether or not the heat flow operation is reversible"
+        ),
+        RDFS.range: BRICK.TrueFalseShape,
+    },
     # special stuff
     BRICK.aggregate: {
         SKOS.definition: Literal(
@@ -241,4 +266,16 @@ shape_properties = {
             },
         }
     },
+    BRICK.ThermodynamicResourceShape: {
+        "values": [
+            BRICK.Air,
+            BRICK.Water,
+            BRICK.Refrigerant,
+            BRICK.Freon,
+            BRICK.Puron,
+            BRICK.Ground,
+        ],
+    },
+    BRICK.HeatFlowShape: {"values": ["heat", "cool"]},
+    BRICK.TrueFalseShape: {"values": ["true", "false"]},
 }

@@ -44,6 +44,13 @@ substances = {
                     "CO2": {"tags": [TAG.Fluid, TAG.Gas, TAG.CO2]},
                     "CO": {"tags": [TAG.Fluid, TAG.Gas, TAG.CO]},
                     "Steam": {"tags": [TAG.Fluid, TAG.Gas, TAG.Steam]},
+                    "Refrigerant": {
+                        "tags": [TAG.Fluid, TAG.Gas, TAG.Refrigerant],
+                        "subclasses": {
+                            "Freon": {"tags": [TAG.Fluid, TAG.Gas, TAG.Freon]},
+                            "Puron": {"tags": [TAG.Fluid, TAG.Gas, TAG.Puron]},
+                        },
+                    },
                     "Natural_Gas": {"tags": [TAG.Fluid, TAG.Gas, TAG.Natural]},
                 },
             },
@@ -242,4 +249,5 @@ substances = {
             "Hail": {"tags": [TAG.Solid, TAG.Hail]},
         },
     },
+    "Ground": {"tags": [TAG.Ground]},
 }
