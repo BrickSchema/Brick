@@ -1,4 +1,5 @@
 @prefix brick: <https://brickschema.org/schema/Brick#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix bsh: <https://brickschema.org/schema/BrickShape#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
@@ -9,6 +10,14 @@
 
 bsh:LocationShape a sh:NodeShape ;
     sh:targetClass brick:Location ;
+    sh:not [
+        sh:or (
+            [sh:class brick:Point;]
+            [sh:class brick:Equipment;]
+            [sh:class brick:Substance;]
+            [sh:class brick:Quantity;]
+		)
+	];
     sh:property [
         sh:path brick:hasPart;
         sh:class brick:Location
@@ -29,6 +38,14 @@ bsh:LocationShape a sh:NodeShape ;
 
 bsh:EquipmentShape a sh:NodeShape ;
     sh:targetClass brick:Equipment ;
+    sh:not [
+        sh:or (
+            [sh:class brick:Location;]
+            [sh:class brick:Point;]
+            [sh:class brick:Substance;]
+            [sh:class brick:Quantity;]
+		)
+	];
     sh:property [
         sh:path brick:hasPart;
         sh:class brick:Equipment
@@ -56,6 +73,14 @@ bsh:EquipmentShape a sh:NodeShape ;
 
 bsh:PointShape a sh:NodeShape;
     sh:targetClass brick:Point;
+    sh:not [
+        sh:or (
+            [sh:class brick:Location;]
+            [sh:class brick:Equipment;]
+            [sh:class brick:Substance;]
+            [sh:class brick:Quantity;]
+		)
+	];
     sh:property [
         sh:path brick:isPointOf;
         sh:or (
@@ -64,3 +89,11 @@ bsh:PointShape a sh:NodeShape;
         )
     ];
     .
+
+bsh:hasLocationShape a sh:Nodeshape;
+    sh:targetSubjectsOf brick:hasLocation;
+    sh:not [
+        sh:class brick:Point;
+    ];
+    .
+
