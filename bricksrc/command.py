@@ -28,6 +28,12 @@ command_definitions = {
             "Valve_Command": {
                 # TODO: position?
                 "tags": [TAG.Point, TAG.Valve, TAG.Command],
+                "subclasses": {
+                    "Reversing_Valve_Command": {
+                        "tags": [TAG.Point, TAG.Reversing, TAG.Valve, TAG.Command],
+                        "parents": [BRICK.Direction_Command],
+                    },
+                },
             },
             "Reset_Command": {
                 "tags": [TAG.Point, TAG.Reset, TAG.Command],

@@ -393,6 +393,271 @@ hvac_subclasses = {
     },
     "Compressor": {"tags": [TAG.Equipment, TAG.Compressor]},
     "Cooling_Tower": {"tags": [TAG.Equipment, TAG.Cooling, TAG.Tower]},
+    "Heat_Pump": {
+        "tags": [
+            TAG.Equipment,
+            TAG.Heat,
+            TAG.Pump,
+        ],
+        "subclasses": {
+            "Air_Source_Heat_Pump": {
+                "tags": [
+                    TAG.Equipment,
+                    TAG.Air,
+                    TAG.Source,
+                    TAG.Heat,
+                    TAG.Pump,
+                ],
+                "subclasses": {
+                    "Air_To_Air_Heat_Pump": {
+                        "tags": [
+                            TAG.Equipment,
+                            TAG.Air,
+                            TAG.Heat,
+                            TAG.Pump,
+                        ],
+                        "subclasses": {
+                            "Reversible_Air_To_Air_Heat_Pump": {
+                                "tags": [
+                                    TAG.Equipment,
+                                    TAG.Reversible,
+                                    TAG.Air,
+                                    TAG.Heat,
+                                    TAG.Pump,
+                                ],
+                            },
+                            "Nonreversible_Air_To_Air_Heat_Pump": {
+                                "tags": [
+                                    TAG.Equipment,
+                                    TAG.Nonrevesible,
+                                    TAG.Air,
+                                    TAG.Heat,
+                                    TAG.Pump,
+                                ],
+                            },
+                        },
+                    },
+                    "Air_To_Water_Heat_Pump": {
+                        "tags": [
+                            TAG.Equipment,
+                            TAG.Air,
+                            TAG.Water,
+                            TAG.Heat,
+                            TAG.Pump,
+                        ],
+                        "subclasses": {
+                            "Reversible_Air_To_Water_Heat_Pump": {
+                                "tags": [
+                                    TAG.Equipment,
+                                    TAG.Reversible,
+                                    TAG.Air,
+                                    TAG.Water,
+                                    TAG.Heat,
+                                    TAG.Pump,
+                                ],
+                            },
+                            "Nonreversible_Air_To_Water_Heat_Pump": {
+                                "tags": [
+                                    TAG.Equipment,
+                                    TAG.Nonreversible,
+                                    TAG.Air,
+                                    TAG.Water,
+                                    TAG.Heat,
+                                    TAG.Pump,
+                                ],
+                            },
+                        },
+                    },
+                    "Air_To_Refrigerant_Heat_Pump": {
+                        "tags": [
+                            TAG.Equipment,
+                            TAG.Air,
+                            TAG.Refrigerant,
+                            TAG.Heat,
+                            TAG.Pump,
+                        ],
+                        "subclasses": {
+                            "Reversible_Air_To_Refrigerant_Heat_Pump": {
+                                "tags": [
+                                    TAG.Equipment,
+                                    TAG.Reversible,
+                                    TAG.Air,
+                                    TAG.Refrigerant,
+                                    TAG.Heat,
+                                    TAG.Pump,
+                                ],
+                                "subclasses": {
+                                    "Heat_Recovery_Air_To_Refrigerant_Heat_Pump": {
+                                        "tags": [
+                                            TAG.Equipment,
+                                            TAG.Heat,
+                                            TAG.Recovery,
+                                            TAG.Air,
+                                            TAG.Refrigerant,
+                                            TAG.Heat,
+                                            TAG.Pump,
+                                        ],
+                                    },
+                                },
+                            },
+                            "Nonreversible_Air_To_Refrigerant_Heat_Pump": {
+                                "tags": [
+                                    TAG.Equipment,
+                                    TAG.Nonreversible,
+                                    TAG.Air,
+                                    TAG.Refrigerant,
+                                    TAG.Heat,
+                                    TAG.Pump,
+                                ],
+                            },
+                        },
+                    },
+                },
+            },
+            "Water_Source_Heat_Pump": {
+                "tags": [
+                    TAG.Equipment,
+                    TAG.Water,
+                    TAG.Source,
+                    TAG.Heat,
+                    TAG.Pump,
+                ],
+                "subclasses": {
+                    "Water_To_Water_Heat_Pump": {
+                        "tags": [
+                            TAG.Equipment,
+                            TAG.Water,
+                            TAG.Heat,
+                            TAG.Pump,
+                        ],
+                        "subclasses": {
+                            "Water_Cooled_Chiller": {
+                                "tags": [
+                                    TAG.Equipment,
+                                    TAG.Water,
+                                    TAG.Cooled,
+                                    TAG.Chiller,
+                                ],
+                                "parents": [BRICK.Chiller],
+                            },
+                        },
+                    },
+                    "Water_To_Air_Heat_Pump": {
+                        "tags": [
+                            TAG.Equipment,
+                            TAG.Water,
+                            TAG.Air,
+                            TAG.Heat,
+                            TAG.Pump,
+                        ],
+                        "subclasses": {
+                            "Reversible_Water_To_Air_Heat_Pump": {
+                                "tags": [
+                                    TAG.Equipment,
+                                    TAG.Reversible,
+                                    TAG.Water,
+                                    TAG.Air,
+                                    TAG.Heat,
+                                    TAG.Pump,
+                                ],
+                            },
+                            "Nonreversible_Water_To_Air_Heat_Pump": {
+                                "tags": [
+                                    TAG.Equipment,
+                                    TAG.Nonreversible,
+                                    TAG.Water,
+                                    TAG.Air,
+                                    TAG.Heat,
+                                    TAG.Pump,
+                                ],
+                                "subclasses": {
+                                    "Air_Cooled_Chiller": {
+                                        "tags": [
+                                            TAG.Equipment,
+                                            TAG.Air,
+                                            TAG.Cooled,
+                                            TAG.Chiller,
+                                        ],
+                                        "parents": [BRICK.Chiller],
+                                    },
+                                },
+                            },
+                        },
+                    },
+                },
+            },
+            "Ground_Source_Heat_Pump": {
+                "tags": [
+                    TAG.Equipment,
+                    TAG.Ground,
+                    TAG.Source,
+                    TAG.Heat,
+                    TAG.Pump,
+                ],
+                "subclasses": {
+                    "Ground_To_Air_Heat_Pump": {
+                        "tags": [
+                            TAG.Equipment,
+                            TAG.Ground,
+                            TAG.Air,
+                            TAG.Heat,
+                            TAG.Pump,
+                        ],
+                        "subclasses": {
+                            "Reversible_Ground_To_Air_Heat_Pump": {
+                                "tags": [
+                                    TAG.Equipment,
+                                    TAG.Reversible,
+                                    TAG.Ground,
+                                    TAG.Air,
+                                    TAG.Heat,
+                                    TAG.Pump,
+                                ],
+                            },
+                            "Nonreversible_Ground_To_Air_Heat_Pump": {
+                                "tags": [
+                                    TAG.Equipment,
+                                    TAG.Nonreversible,
+                                    TAG.Ground,
+                                    TAG.Air,
+                                    TAG.Heat,
+                                    TAG.Pump,
+                                ],
+                            },
+                        },
+                    },
+                    "Ground_To_Water_Heat_Pump": {
+                        "tags": [
+                            TAG.Equipment,
+                            TAG.Ground,
+                            TAG.Water,
+                            TAG.Heat,
+                            TAG.Pump,
+                        ],
+                    },
+                    "Vertical_Ground_Heat_Pump": {
+                        "tags": [
+                            TAG.Equipment,
+                            TAG.Vertical,
+                            TAG.Ground,
+                            TAG.Heat,
+                            TAG.Pump,
+                        ],
+                    },
+                    "Horizontal_Ground_Source_Heat_Pump": {
+                        "tags": [
+                            TAG.Equipment,
+                            TAG.Horizontal,
+                            TAG.Ground,
+                            TAG.Source,
+                            TAG.Heat,
+                            TAG.Pump,
+                        ],
+                    },
+                },
+            },
+        },
+    },
     "Chiller": {
         "tags": [TAG.Equipment, TAG.Chiller],
         "subclasses": {
@@ -403,6 +668,7 @@ hvac_subclasses = {
                 "tags": [TAG.Equipment, TAG.Chiller, TAG.Centrifugal],
             },
         },
+        "parents": [BRICK.Heat_Pump],
     },
     "Humidifier": {"tags": [TAG.Equipment, TAG.Humidifier]},
     "Boiler": {"tags": [TAG.Equipment, TAG.Boiler], "parents": [BRICK.Water_Heater]},
@@ -493,6 +759,7 @@ valve_subclasses = {
         },
     },
     "Gas_Valve": {"tags": [TAG.Gas, TAG.Valve, TAG.Equipment]},
+    "Reversing_Valve": {"tags": [TAG.Reversing, TAG.Valve, TAG.Equipment]},
     "Isolation_Valve": {
         "tags": [TAG.Isolation, TAG.Valve, TAG.Equipment],
         "subclasses": {
