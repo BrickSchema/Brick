@@ -1,0 +1,20 @@
+@prefix brick: <https://brickschema.org/schema/Brick#> .
+@prefix : <urn:bldg#> .
+
+:hp1  a  brick:Equipment ;
+    brick:sourceSideResource [
+        brick:value brick:Air
+    ] ;
+.
+
+:hp2  a  brick:Equipment ;
+    brick:sourceSideResource [
+        brick:value brick:Air
+    ] ;
+    brick:loadSideResource [
+        brick:value brick:Air
+    ] ;
+.
+
+:hp3    a   brick:Air_Source_Heat_Pump .
+:hp4    a   brick:Air_To_Air_Heat_Pump .

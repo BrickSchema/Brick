@@ -1,0 +1,142 @@
+@prefix brick: <https://brickschema.org/schema/Brick#> .
+@prefix bsh: <https://brickschema.org/schema/BrickShape#> .
+@prefix dcterms: <http://purl.org/dc/terms#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sdo: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sosa: <http://www.w3.org/ns/sosa#> .
+@prefix tag: <https://brickschema.org/schema/BrickTag#> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix : <urn:bldg#> .
+
+bsh:Derive_Air_Source_Heat_Pump    a   owl:Class ;
+    sh:rule [
+        a sh:TripleRule ;
+        sh:condition [
+            sh:property [ sh:path ( brick:sourceSideResource brick:value ) ; sh:hasValue  brick:Air ] ;
+        ]  ;
+        sh:object   brick:Air_Source_Heat_Pump ;
+        sh:predicate    rdf:type ;
+        sh:subject  sh:this  ;
+    ] ;
+    sh:targetSubjectsOf brick:sourceSideResource ;
+.
+
+bsh:Derive_Air_To_Air_Heat_Pump    a   owl:Class ;
+    sh:rule [
+        a sh:TripleRule ;
+        sh:condition [
+            sh:property [ sh:path ( brick:loadSideResource brick:value ) ; sh:hasValue  brick:Air ] ;
+        ], bsh:Derive_Air_Source_Heat_Pump ;
+        sh:object   brick:Air_To_Air_Heat_Pump ;
+        sh:predicate    rdf:type ;
+        sh:subject  sh:this  ;
+    ] ;
+    sh:targetSubjectsOf brick:sourceSideResource ;
+.
+
+bsh:Derive_Water_Source_Heat_Pump    a   owl:Class ;
+    sh:rule [
+        a sh:TripleRule ;
+        sh:condition [
+            sh:property [ sh:path ( brick:sourceSideResource brick:value ) ; sh:hasValue  brick:Water ] ;
+        ]  ;
+        sh:object   brick:Water_Source_Heat_Pump ;
+        sh:predicate    rdf:type ;
+        sh:subject  sh:this  ;
+    ] ;
+    sh:targetSubjectsOf brick:sourceSideResource ;
+.
+
+bsh:Derive_Water_To_Air_Heat_Pump    a   owl:Class ;
+    sh:rule [
+        a sh:TripleRule ;
+        sh:condition [
+            sh:property [ sh:path ( brick:loadSideResource brick:value ) ; sh:hasValue  brick:Air ] ;
+        ], bsh:Derive_Water_Source_Heat_Pump ;
+        sh:object   brick:Water_To_Air_Heat_Pump ;
+        sh:predicate    rdf:type ;
+        sh:subject  sh:this  ;
+    ] ;
+    sh:targetSubjectsOf brick:sourceSideResource ;
+.
+
+bsh:Describe_Air_Source_Heat_Pump   a   owl:Class ;
+    sh:rule [
+        a   sh:SPARQLRule ;
+        sh:prefixes brick: ;
+        sh:construct """
+        CONSTRUCT {
+            $this   brick:sourceSideResource [ brick:value brick:Air ]
+        } WHERE {}
+        """ ;
+    ] ;
+    sh:targetClass  brick:Air_Source_Heat_Pump ;
+.
+
+bsh:Describe_Air_To_Air_Heat_Pump   a   owl:Class ;
+    sh:rule [
+        a   sh:SPARQLRule ;
+        sh:prefixes brick: ;
+        sh:construct """
+        CONSTRUCT {
+            $this   brick:sourceSideResource [ brick:value brick:Air ] .
+            $this   brick:loadSideResource [ brick:value brick:Air ]
+        } WHERE {}
+        """ ;
+    ] ;
+    sh:targetClass  brick:Air_To_Air_Heat_Pump ;
+.
+
+bsh:Describe_Water_Source_Heat_Pump   a   owl:Class ;
+    sh:rule [
+        a   sh:SPARQLRule ;
+        sh:prefixes brick: ;
+        sh:construct """
+        CONSTRUCT {
+            $this   brick:sourceSideResource [ brick:value brick:Water ]
+        } WHERE {}
+        """ ;
+    ] ;
+    sh:targetClass  brick:Air_Source_Heat_Pump ;
+.
+
+bsh:Describe_Water_To_Air_Heat_Pump   a   owl:Class ;
+    sh:rule [
+        a   sh:SPARQLRule ;
+        sh:prefixes brick: ;
+        sh:construct """
+        CONSTRUCT {
+            $this   brick:sourceSideResource [ brick:value brick:Water ] .
+            $this   brick:loadSideResource [ brick:value brick:Air ]
+        } WHERE {}
+        """ ;
+    ] ;
+    sh:targetClass  brick:Water_To_Air_Heat_Pump ;
+.
+
+
+:hp1  a  brick:Equipment ;
+    brick:sourceSideResource [
+        brick:value brick:Air
+    ] ;
+.
+
+:hp2  a  brick:Equipment ;
+    brick:sourceSideResource [
+        brick:value brick:Air
+    ] ;
+    brick:loadSideResource [
+        brick:value brick:Air
+    ] ;
+.
+
+:hp3    a   brick:Air_Source_Heat_Pump .
+:hp4    a   brick:Air_To_Air_Heat_Pump .
