@@ -92,6 +92,7 @@ def add_restriction(klass, definition):
         restriction = BNode()
         elements.append(restriction)
         G.add((restriction, A, OWL.Restriction))
+        G.add((restriction, A, OWL.Class))
         G.add((restriction, OWL.onProperty, item[0]))
         G.add((restriction, OWL.hasValue, item[1]))
     G.add((klass, OWL.equivalentClass, equivalent_class))
@@ -150,6 +151,7 @@ def add_tags(klass, definition):
         if tag not in has_tag_restriction_class:
             restriction = BNode(f"has_{tag.split('#')[-1]}")
             G.add((restriction, A, OWL.Restriction))
+            G.add((restriction, A, OWL.Class))
             G.add((restriction, OWL.onProperty, BRICK.hasTag))
             G.add((restriction, OWL.hasValue, tag))
             has_tag_restriction_class[tag] = restriction
