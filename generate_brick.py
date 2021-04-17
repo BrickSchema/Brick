@@ -333,6 +333,8 @@ def define_entity_properties(definitions, superprop=None):
     """
     for entprop, defn in definitions.items():
         G.add((entprop, A, BRICK.EntityProperty))
+        if superprop is not None:
+            G.add((entprop, RDFS.subPropertyOf, superprop))
         if "subproperties" in defn:
             subproperties = defn.pop("subproperties")
             define_entity_properties(subproperties, entprop)
