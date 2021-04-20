@@ -92,11 +92,11 @@ def add_restriction(klass, definition):
         restriction = BNode()
         elements.append(restriction)
         G.add((restriction, A, OWL.Restriction))
-        G.add((restriction, A, OWL.Class))
         G.add((restriction, OWL.onProperty, item[0]))
         G.add((restriction, OWL.hasValue, item[1]))
     G.add((klass, OWL.equivalentClass, equivalent_class))
     G.add((equivalent_class, OWL.intersectionOf, list_name))
+    G.add((equivalent_class, A, OWL.Class))
     Collection(G, list_name, elements)
 
 
@@ -151,7 +151,6 @@ def add_tags(klass, definition):
         if tag not in has_tag_restriction_class:
             restriction = BNode(f"has_{tag.split('#')[-1]}")
             G.add((restriction, A, OWL.Restriction))
-            G.add((restriction, A, OWL.Class))
             G.add((restriction, OWL.onProperty, BRICK.hasTag))
             G.add((restriction, OWL.hasValue, tag))
             has_tag_restriction_class[tag] = restriction
@@ -201,6 +200,7 @@ def add_tags(klass, definition):
     if len(all_restrictions) > 1:
         G.add((klass, RDFS.subClassOf, equivalent_class))
         G.add((equivalent_class, OWL.intersectionOf, list_name))
+        G.add((equivalent_class, A, OWL.Class))
         Collection(G, list_name, all_restrictions)
     intersection_classes[klass] = tuple(sorted(definition))
 
