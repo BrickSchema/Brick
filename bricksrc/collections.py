@@ -118,4 +118,5 @@ collection_classes = {
     "Portfolio": {"tags": [TAG.Collection, TAG.Portfolio]},
     "System": {"tags": [TAG.Collection, TAG.System], "subclasses": system_subclasses},
     "Loop": {"tags": [TAG.Collection, TAG.Loop], "subclasses": loop_subclasses},
+    "Photovoltaic_Array": {"tags": [TAG.Collection, TAG.Photovoltaic, TAG.Array]},
 }
