@@ -1,11 +1,36 @@
-from rdflib import Literal
-from .namespaces import BRICK, TAG, OWL, RDFS
+from .namespaces import TAG, OWL, BRICK
 
 system_subclasses = {
     "Domestic_Hot_Water_System": {
         "tags": [TAG.Domestic, TAG.Water, TAG.Hot, TAG.System]
     },
-    "Electrical_System": {"tags": [TAG.Electrical, TAG.System]},
+    "Electrical_System": {
+        "tags": [TAG.Electrical, TAG.System],
+        "subclasses": {
+            "Energy_System": {
+                "tags": [TAG.Energy, TAG.System],
+                "subclasses": {
+                    "Energy_Generation_System": {
+                        "tags": [TAG.Energy, TAG.Generation, TAG.System],
+                        "subclasses": {"PV_Generation_System": {}},
+                    },
+                    "Energy_Storage_System": {
+                        "tags": [TAG.Energy, TAG.Storage, TAG.System],
+                        "subclasses": {
+                            "Battery_Energy_Storage_System": {
+                                "tags": [
+                                    TAG.Battery,
+                                    TAG.Energy,
+                                    TAG.Storage,
+                                    TAG.System,
+                                ],
+                            },
+                        },
+                    },
+                },
+            }
+        },
+    },
     "Gas_System": {"tags": [TAG.Gas, TAG.System]},
     "HVAC_System": {"tags": [TAG.HVAC, TAG.System]},
     "Heating_Ventilation_Air_Conditioning_System": {
@@ -82,4 +107,17 @@ system_subclasses = {
         },
     },
     "Shading_System": {"tags": [TAG.Shade, TAG.System]},
+}
+
+loop_subclasses = (
+    {
+        "Hot_Water_Loop": {"tags": [TAG.Hot, TAG.Water, TAG.Loop]},
+        "Chilled_Water_Loop": {"tags": [TAG.Chilled, TAG.Water, TAG.Loop]},
+    },
+)
+
+collection_classes = {
+    "Portfolio": {"tags": [TAG.Collection, TAG.Portfolio]},
+    "System": {"tags": [TAG.Collection, TAG.System], "subclasses": system_subclasses},
+    "Loop": {"tags": [TAG.Collection, TAG.Loop], "subclasses": loop_subclasses},
 }
