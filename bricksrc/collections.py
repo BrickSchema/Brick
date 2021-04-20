@@ -109,12 +109,10 @@ system_subclasses = {
     "Shading_System": {"tags": [TAG.Shade, TAG.System]},
 }
 
-loop_subclasses = (
-    {
-        "Hot_Water_Loop": {"tags": [TAG.Hot, TAG.Water, TAG.Loop]},
-        "Chilled_Water_Loop": {"tags": [TAG.Chilled, TAG.Water, TAG.Loop]},
-    },
-)
+loop_subclasses = {
+    "Hot_Water_Loop": {"tags": [TAG.Hot, TAG.Water, TAG.Loop]},
+    "Chilled_Water_Loop": {"tags": [TAG.Chilled, TAG.Water, TAG.Loop]},
+}
 
 collection_classes = {
     "Portfolio": {"tags": [TAG.Collection, TAG.Portfolio]},
