@@ -18,6 +18,7 @@ https://brickschema.org/schema/Brick#Air_Flow_Sensor,Measures the rate of flow o
 https://brickschema.org/schema/Brick#Air_Flow_Setpoint,Sets air flow,
 https://brickschema.org/schema/Brick#Air_Grains_Sensor,Measures the mass of water vapor in air,
 https://brickschema.org/schema/Brick#Air_Handler_Unit,"Assembly consisting of sections containing a fan or fans and other necessary equipment to perform one or more of the following functions: circulating, filtration, heating, cooling, heat recovery, humidifying, dehumidifying, and mixing of air. Is usually connected to an air-distribution system.",
+https://brickschema.org/schema/Brick#Air_Loop,"The set of connected equipment serving one path of air",
 https://brickschema.org/schema/Brick#Air_Quality,,
 https://brickschema.org/schema/Brick#Air_Quality_Sensor,A sensor which provides a measure of air quality,
 https://brickschema.org/schema/Brick#Air_Static_Pressure_Step_Parameter,,

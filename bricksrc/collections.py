@@ -110,6 +110,7 @@ system_subclasses = {
 }
 
 loop_subclasses = {
+    "Air_Loop": {"tags": [TAG.Air, TAG.Loop]},
     "Hot_Water_Loop": {"tags": [TAG.Hot, TAG.Water, TAG.Loop]},
     "Chilled_Water_Loop": {"tags": [TAG.Chilled, TAG.Water, TAG.Loop]},
 }
