@@ -1,4 +1,4 @@
-from .namespaces import BRICK, TAG, OWL, RDFS, SKOS, UNIT, XSD
+from .namespaces import BRICK, TAG, OWL, RDFS, SKOS, UNIT, XSD, SDO
 from rdflib import Namespace, Literal
 
 # these are the "relationship"/predicates/OWL properties that
@@ -43,7 +43,9 @@ entity_properties = {
         RDFS.range: BRICK.TiltShape,
     },
     BRICK.coordinates: {
-        SKOS.definition: Literal("The location of an entity in latitude/longitude"),
+        SKOS.definition: Literal(
+            "The location of an entity in latitude/longitude (WGS 84)"
+        ),
         RDFS.range: BRICK.CoordinateShape,
     },
     # electrical properties
@@ -239,8 +241,8 @@ shape_properties = {
     BRICK.BuildingPrimaryFunctionShape: {"values": building_primary_function_values},
     BRICK.CoordinateShape: {
         "properties": {
-            BRICK.latitude: {"datatype": XSD.float},
-            BRICK.longitude: {"datatype": XSD.float},
+            BRICK.latitude: {"datatype": XSD.float, RDFS.subPropertyOf: SDO.latitude},
+            BRICK.longitude: {"datatype": XSD.float, RDFS.subPropertyOf: SDO.longitude},
         },
     },
     BRICK.TiltShape: {"units": [UNIT.DEG], "datatype": XSD.float},
