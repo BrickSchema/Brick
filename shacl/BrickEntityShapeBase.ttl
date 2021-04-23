@@ -16,23 +16,28 @@ bsh:LocationShape a sh:NodeShape ;
             [sh:class brick:Equipment;]
             [sh:class brick:Substance;]
             [sh:class brick:Quantity;]
-		)
+		);
+        sh:message "Location is an exclusive top class."
 	];
     sh:property [
         sh:path brick:hasPart;
-        sh:class brick:Location
+        sh:class brick:Location;
+        sh:message "A Location's parts should be always Locations."
     ];
     sh:property [
         sh:path brick:isPartOf;
-        sh:class brick:Location
+        sh:class brick:Location;
+        sh:message "A Location's parts should be always Locations."
     ];
     sh:property [
         sh:path brick:isFedBy;
-        sh:class brick:Equipment
+        sh:class brick:Equipment;
+        sh:message "Locations can be fed only by other Equipment."
     ];
     sh:property [
         sh:path brick:hasPoint;
-        sh:class brick:Point
+        sh:class brick:Point;
+        sh:message "A Location may have associated Points"
     ];
     .
 
@@ -44,19 +49,23 @@ bsh:EquipmentShape a sh:NodeShape ;
             [sh:class brick:Point;]
             [sh:class brick:Substance;]
             [sh:class brick:Quantity;]
-		)
+		);
+        sh:message "Equipment is an exclusive top class."
 	];
     sh:property [
         sh:path brick:hasPart;
-        sh:class brick:Equipment
+        sh:class brick:Equipment;
+        sh:message "A piece of Equipment's parts should be always other Equipment."
     ];
     sh:property [
         sh:path brick:isPartOf;
-        sh:class brick:Equipment
+        sh:class brick:Equipment;
+        sh:message "A piece of Equipment's parts should be always other Equipment."
     ];
     sh:property [
         sh:path brick:hasLocation;
-        sh:class brick:Location
+        sh:class brick:Location;
+        sh:message "A piece of Equipment can be located only at a Location"
     ];
     sh:property [
         sh:path brick:feeds;
@@ -64,10 +73,12 @@ bsh:EquipmentShape a sh:NodeShape ;
             [ sh:class brick:Equipment ]
             [ sh:class brick:Location ]
         ) ;
+        sh:message "A piece of Equipment can be located at a Location"
     ];
     sh:property [
         sh:path brick:hasPoint;
-        sh:class brick:Point
+        sh:class brick:Point;
+        sh:message "A piece of Equipment may have associated Points"
     ];
     .
 
@@ -79,14 +90,16 @@ bsh:PointShape a sh:NodeShape;
             [sh:class brick:Equipment;]
             [sh:class brick:Substance;]
             [sh:class brick:Quantity;]
-		)
+		);
+        sh:message "Point is an exclusive top class."
 	];
     sh:property [
         sh:path brick:isPointOf;
         sh:or (
             [ sh:class brick:Location ]
             [ sh:class brick:Equipment ]
-        )
+        );
+        sh:message "A Point can be associated with Locations or Equipment."
     ];
     .
 
@@ -95,5 +108,6 @@ bsh:hasLocationShape a sh:Nodeshape;
     sh:not [
         sh:class brick:Point;
     ];
+    sh:message "Points are a virtual concept and always belonging to a physical device, represented by Equipment. Thus, it cannot have a Location alone."
     .
 
