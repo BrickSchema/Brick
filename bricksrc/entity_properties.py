@@ -8,25 +8,43 @@ from rdflib import Namespace, Literal
 entity_properties = {
     BRICK.area: {
         SKOS.definition: Literal("Entity has 2-dimensional area"),
-        RDFS.domain: BRICK.Location,
         RDFS.range: BRICK.AreaShape,
         "subproperties": {
             BRICK.grossArea: {
                 SKOS.definition: Literal("Entity has gross 2-dimensional area"),
-                RDFS.domain: BRICK.Location,
                 RDFS.range: BRICK.AreaShape,
             },
             BRICK.netArea: {
                 SKOS.definition: Literal("Entity has net 2-dimensional area"),
-                RDFS.domain: BRICK.Location,
+                RDFS.range: BRICK.AreaShape,
+            },
+            BRICK.panelArea: {
+                SKOS.definition: Literal("Surface area of a panel, such as a PV panel"),
+                # TODO: needs to go on equipment; do we remove "domain" from the above?
                 RDFS.range: BRICK.AreaShape,
             },
         },
     },
     BRICK.volume: {
         SKOS.definition: Literal("Entity has 3-dimensional volume"),
-        RDFS.domain: BRICK.Location,
         RDFS.range: BRICK.VolumeShape,
+    },
+    BRICK.orientation: {
+        SKOS.definition: Literal(
+            "The direction an entity is facing, relative to some reference point (usually a 'compass' direction)"
+        ),
+        # TODO: for points + equipment? or just equipment?
+        RDFS.range: BRICK.OrientationShape,
+    },
+    BRICK.tilt: {
+        SKOS.definition: Literal(
+            "The direction an entity is facing in degrees above the horizon"
+        ),
+        RDFS.range: BRICK.TiltShape,
+    },
+    BRICK.coordinates: {
+        SKOS.definition: Literal("The location of an entity in latitude/longitude"),
+        RDFS.range: BRICK.CoordinateShape,
     },
     # electrical properties
     BRICK.powerComplexity: {
@@ -219,6 +237,20 @@ shape_properties = {
     BRICK.CurrentFlowTypeShape: {"values": ["AC", "DC"]},
     BRICK.StageShape: {"values": [1, 2, 3, 4]},
     BRICK.BuildingPrimaryFunctionShape: {"values": building_primary_function_values},
+    BRICK.CoordinateShape: {
+        "properties": {
+            BRICK.latitude: {"datatype": XSD.float},
+            BRICK.longitude: {"datatype": XSD.float},
+        },
+    },
+    BRICK.TiltShape: {"units": [UNIT.DEG], "datatype": XSD.float},
+    BRICK.OrientationShape: {
+        "units": [UNIT.DEG],
+        "datatype": XSD.float,
+        "properties": {
+            BRICK.orientationRelativeTo: {"values": ["North", "South", "East", "West"]}
+        },
+    },
     BRICK.YearBuiltShape: {"datatype": XSD.integer},
     BRICK.ThermalTransmittenceShape: {
         "datatype": XSD.float,
