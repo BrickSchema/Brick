@@ -1,0 +1,52 @@
+@prefix bldg: <urn:example#> .
+@prefix brick: <https://brickschema.org/schema/Brick#> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+bldg:panel11 a brick:PV_Panel ;
+    brick:isPartOf bldg:array1 ;
+    brick:panelArea [ brick:hasUnit unit:M2 ;
+            brick:value 5 ] .
+
+bldg:panel12 a brick:PV_Panel ;
+    brick:isPartOf bldg:array1 ;
+    brick:panelArea [ brick:hasUnit unit:M2 ;
+            brick:value 5 ] .
+
+bldg:panel13 a brick:PV_Panel ;
+    brick:isPartOf bldg:array1 ;
+    brick:panelArea [ brick:hasUnit unit:M2 ;
+            brick:value 5 ] .
+
+bldg:panel21 a brick:PV_Panel ;
+    brick:isPartOf bldg:array2 ;
+    brick:panelArea [ brick:hasUnit unit:M2 ;
+            brick:value 5 ] .
+
+bldg:panel22 a brick:PV_Panel ;
+    brick:isPartOf bldg:array2 ;
+    brick:panelArea [ brick:hasUnit unit:M2 ;
+            brick:value 5 ] .
+
+bldg:panel23 a brick:PV_Panel ;
+    brick:isPartOf bldg:array2 ;
+    brick:panelArea [ brick:hasUnit unit:M2 ;
+            brick:value 5 ] .
+
+bldg:pv_generation_system a brick:PV_Generation_System ;
+    brick:hasPart bldg:array1,
+        bldg:array2 .
+
+bldg:array1 a brick:Photovoltaic_Array ;
+    brick:orientation [ brick:hasUnit unit:DEG ;
+            brick:orientationRelativeTo "South" ;
+            brick:value 0 ] ;
+    brick:tilt [ brick:hasUnit unit:DEG ;
+            brick:value 20 ] .
+
+bldg:array2 a brick:Photovoltaic_Array ;
+    brick:orientation [ brick:hasUnit unit:DEG ;
+            brick:orientationRelativeTo "South" ;
+            brick:value 2 ] ;
+    brick:tilt [ brick:hasUnit unit:DEG ;
+            brick:value 23 ] .
