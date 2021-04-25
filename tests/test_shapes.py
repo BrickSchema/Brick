@@ -1,10 +1,8 @@
 import sys
-from pdb import set_trace as bp
-import rdflib
 from bricksrc.namespaces import A, OWL, RDFS, SKOS, BRICK, SH, BSH, bind_prefixes
-import pyshacl
+import brickschema
 
-schema_g = rdflib.Graph().parse('shacl/BrickShape.ttl', format='turtle')
+schema_g = brickschema.Graph().load_file('shacl/BrickShape.ttl')
 bind_prefixes(schema_g)
 
 prefixes = """
@@ -20,30 +18,24 @@ base_data = prefixes + """
 
 def test_no_relations():
     data = base_data
-    data_g = rdflib.Graph().parse(data=data, format='turtle')
-    conforms, _, _ = pyshacl.validate(
-        data_g, shacl_graph=schema_g,
-    )
+    data_g = brickschema.Graph().parse(data=data, format='turtle')
+    conforms, r1, r2 = data_g.validate([schema_g])
     assert conforms
 
 def test_equip():
     valid_data = base_data + """
 :equip brick:hasLocation :loc.
 """
-    valid_g = rdflib.Graph().parse(data=valid_data, format='turtle')
-    conforms, _, _ = pyshacl.validate(
-        valid_g, shacl_graph=schema_g
-    )
+    valid_g = brickschema.Graph().parse(data=valid_data, format='turtle')
+    conforms, _, _ = valid_g.validate([schema_g])
     assert conforms
 
     invalid_data = base_data + """
 :equip brick:hasLocation :point.
 
 """
-    invalid_g = rdflib.Graph().parse(data=invalid_data, format='turtle')
-    conforms, _, _= pyshacl.validate(
-        invalid_g, shacl_graph=schema_g
-    )
+    invalid_g = brickschema.Graph().parse(data=invalid_data, format='turtle')
+    conforms, _, _= invalid_g.validate([schema_g])
     assert not conforms
 
 
@@ -51,10 +43,8 @@ def test_type():
     invalid_data = base_data + """
 :loc a brick:Point.
 """
-    invalid_g = rdflib.Graph().parse(data=invalid_data, format='turtle')
-    conforms, _, _= pyshacl.validate(
-        invalid_g, shacl_graph=schema_g,
-    )
+    invalid_g = brickschema.Graph().parse(data=invalid_data, format='turtle')
+    conforms, _, _= invalid_g.validate([schema_g])
     assert not conforms
 
 
@@ -62,10 +52,8 @@ def test_point():
     invalid_data = base_data + """
 :point brick:hasLocation :loc.
 """
-    invalid_g = rdflib.Graph().parse(data=invalid_data, format='turtle')
-    conforms, _, _= pyshacl.validate(
-        invalid_g, shacl_graph=schema_g
-    )
+    invalid_g = brickschema.Graph().parse(data=invalid_data, format='turtle')
+    conforms, _, _= invalid_g.validate([schema_g])
     assert not conforms
 
 
