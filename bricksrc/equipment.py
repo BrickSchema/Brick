@@ -123,21 +123,28 @@ equipment_subclasses = {
     },
     "Water_Distribution": {"tags": [TAG.Water, TAG.Distribution, TAG.Equipment]},
     "Steam_Distribution": {"tags": [TAG.Steam, TAG.Distribution, TAG.Equipment]},
-    "Solar_Panel": {
-        "tags": [TAG.Solar, TAG.Equipment],
+    "PV_Array": {
+        "tags": [TAG.Solar, TAG.PV, TAG.Equipment, TAG.Array],
+    },
+    "PV_Panel": {
+        "tags": [TAG.Solar, TAG.PV, TAG.Equipment, TAG.Panel],
         "subclasses": {
-            "Solar_PV_Panel": {
-                "tags": [TAG.Solar, TAG.Equipment, TAG.PV],
-                "subclasses": {
-                    "Solar_PVT_Panel": {
-                        "tags": [TAG.Solar, TAG.Equipment, TAG.Thermal, TAG.PV],
-                        "parents": [BRICK.Solar_Thermal_Panel],
-                    },
-                },
+            "PVT_Panel": {
+                "tags": [
+                    TAG.Solar,
+                    TAG.Equipment,
+                    TAG.Thermal,
+                    TAG.PV,
+                    TAG.Panel,
+                    TAG.Collector,
+                ],
+                "parents": [BRICK.Solar_Thermal_Collector],
             },
-            "Solar_Thermal_Panel": {"tags": [TAG.Solar, TAG.Equipment, TAG.Thermal]},
         },
     },
+    "Solar_Thermal_Collector": {
+        "tags": [TAG.Solar, TAG.Equipment, TAG.Thermal, TAG.Collector]
+    },  # NOTE: Though Panel is a type of Collector.
     "Louver": {"tags": [TAG.Shade, TAG.Equipment, TAG.Louver]},
     "Lighting_Equipment": {
         "tags": [TAG.Lighting, TAG.Equipment],
