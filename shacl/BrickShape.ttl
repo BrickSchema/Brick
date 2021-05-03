@@ -1,10 +1,43 @@
 @prefix brick: <https://brickschema.org/schema/Brick#> .
 @prefix bsh: <https://brickschema.org/schema/BrickShape#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix unit: <http://qudt.org/vocab/unit/> .
 @prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+bsh:EquipmentShape a sh:NodeShape ;
+    sh:not [ sh:or ( [ sh:class brick:Location ] [ sh:class brick:Point ] [ sh:class brick:Substance ] [ sh:class brick:Quantity ] ) ] ;
+    sh:property [ sh:class brick:Equipment ;
+            sh:path brick:hasPart ],
+        [ sh:class brick:Equipment ;
+            sh:path brick:isPartOf ],
+        [ sh:class brick:Location ;
+            sh:path brick:hasLocation ],
+        [ sh:or ( [ sh:class brick:Equipment ] [ sh:class brick:Location ] ) ;
+            sh:path brick:feeds ],
+        [ sh:class brick:Point ;
+            sh:path brick:hasPoint ] ;
+    sh:targetClass brick:Equipment .
+
+bsh:LocationShape a sh:NodeShape ;
+    sh:not [ sh:or ( [ sh:class brick:Point ] [ sh:class brick:Equipment ] [ sh:class brick:Substance ] [ sh:class brick:Quantity ] ) ] ;
+    sh:property [ sh:class brick:Location ;
+            sh:path brick:hasPart ],
+        [ sh:class brick:Location ;
+            sh:path brick:isPartOf ],
+        [ sh:class brick:Equipment ;
+            sh:path brick:isFedBy ],
+        [ sh:class brick:Point ;
+            sh:path brick:hasPoint ] ;
+    sh:targetClass brick:Location .
+
+bsh:PointShape a sh:NodeShape ;
+    sh:not [ sh:or ( [ sh:class brick:Location ] [ sh:class brick:Equipment ] [ sh:class brick:Substance ] [ sh:class brick:Quantity ] ) ] ;
+    sh:property [ sh:or ( [ sh:class brick:Location ] [ sh:class brick:Equipment ] ) ;
+            sh:path brick:isPointOf ] ;
+    sh:targetClass brick:Point .
 
 bsh:hasAddressDomainShape a sh:NodeShape ;
     sh:class brick:Building ;
@@ -38,6 +71,10 @@ bsh:hasLocationRangeShape a sh:NodeShape ;
     sh:property [ sh:class brick:Location ;
             sh:message "Property hasLocation has object with incorrect type" ;
             sh:path brick:hasLocation ] ;
+    sh:targetSubjectsOf brick:hasLocation .
+
+bsh:hasLocationShape a sh:Nodeshape ;
+    sh:not [ sh:class brick:Point ] ;
     sh:targetSubjectsOf brick:hasLocation .
 
 bsh:hasOutputSubstanceRangeShape a sh:NodeShape ;

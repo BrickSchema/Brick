@@ -775,7 +775,9 @@ https://brickschema.org/schema/Brick#Site,A geographic region containing 0 or mo
 https://brickschema.org/schema/Brick#Smoke_Alarm,An alarm that indicates the off-normal conditions associated with smoke.,
 https://brickschema.org/schema/Brick#Solar_Azimuth_Angle_Sensor,Measures the azimuth angle of the sun,
 https://brickschema.org/schema/Brick#Solar_Irradiance,The power per unit area of solar electromagnetic radiation incident on a surface,
-https://brickschema.org/schema/Brick#Solar_Panel,A colloquial term for a photovoltaic module. A Solar panel is an assembly of photovoltaic cells mounted in a framework for installation that use sunlight as a source of energy to generate direct current electricity.,https://en.wikipedia.org/wiki/Solar_panel
+https://brickschema.org/schema/Brick#PV_Panel,An integrated assembly of interconnected photovoltaic cells designed to deliver a selected level of working voltage and current at its output terminals packaged for protection against environment degradation and suited for incorporation in photovoltaic power systems.,https://encyclopedia2.thefreedictionary.com/pv+module
+https://brickschema.org/schema/Brick#Solar_Thermal_Collector,A type of solar panels that converts solar radiation into thermal energy.,
+https://brickschema.org/schema/Brick#PVT_Panel,A type of solar panels that convert solar radiation into usable thermal and electrical energy,
 https://brickschema.org/schema/Brick#Solar_Radiance,The amount of light that passes through or is emitted from the sun and falls within a given solid angle in a specified direction,
 https://brickschema.org/schema/Brick#Solar_Radiance_Sensor,The amount of light that passes through or is emitted from the sun and falls within a given solid angle in a specified direction,
 https://brickschema.org/schema/Brick#Solar_Zenith_Angle_Sensor,Measures the zenith angle of the sun,

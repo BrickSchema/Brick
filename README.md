@@ -13,6 +13,7 @@ The official Brick website, [http://brickschema.org/](http://brickschema.org/), 
 
 This repository tracks the main schema development of Brick.
 
+
 ## Discussion
 
 Discussion takes place primarily on the Brick User Form: [https://groups.google.com/forum/#!forum/brickschema](https://groups.google.com/forum/#!forum/brickschema)
@@ -32,6 +33,14 @@ The `examples/` directory contains executable code samples with extensive docume
 - `example1`: getting familiar with RDFlib, namespaces, Brick models and when and when not to import the Brick ontology definition
 - `simple_apartment`: uses Python to programmatically build a Brick model of a small apartment
 - `g36`: contains Brick implementations of several figures from ASHRAE Guideline 36
+
+## Versioning
+
+Brick uses a semantic versioning scheme for its version numbers: `major.minor.patch`. The [releases page](https://github.com/BrickSchema/Brick/releases) contains links to each published Brick release for easy download.
+
+We target a minor version release (e.g. `1.1`, `1.2`, `1.3`) roughly every 6 months. Minor releases will contain largely backwards-compatible extensions and new features to the ontology. Due to the significance of these changes, minor releases will be developed in their own branch; PRs for those releases will be merged into the minor version branch, and then ultimately merged into the main branch when the minor release is published.
+
+Patch releases (e.g. `1.2.1`, `1.2.2`) contain smaller, incremental, backwards-compatible changes to the ontology. Commits and PRs for the next patch release will be merged directly into `master`. Every evening, a `nightly` build is produced containing the latest commits. **There may be bugs or errors in the nightly release**, however these bugs will be removed by the time a patch release is published.
 
 ## How To Contribute
 
