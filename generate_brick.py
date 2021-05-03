@@ -17,6 +17,7 @@ from bricksrc.namespaces import (
     SOSA,
     SKOS,
     QUDT,
+    VCARD,
     QUDTQK,
     SH,
 )
@@ -545,6 +546,9 @@ define_classes(roots, BRICK.Class)
 logging.info("Defining properties")
 # define BRICK properties
 define_properties(properties)
+# add types to some external properties
+G.add((VCARD.hasAddress, A, OWL.ObjectProperty))
+G.add((VCARD.Address, A, OWL.Class))
 
 logging.info("Defining Point subclasses")
 # define Point subclasses
@@ -576,11 +580,17 @@ logging.info("Defining Measurable hierarchy")
 G.add((BRICK.Measurable, RDFS.subClassOf, BRICK.Class))
 # set up Quantity definition
 G.add((BRICK.Quantity, RDFS.subClassOf, SOSA.ObservableProperty))
+G.add(
+    (SOSA.ObservableProperty, A, OWL.Class)
+)  # needs the type declaration to satisfy some checkers
 G.add((BRICK.Quantity, RDFS.subClassOf, BRICK.Measurable))
 G.add((BRICK.Quantity, A, OWL.Class))
 G.add((BRICK.Quantity, RDFS.subClassOf, SKOS.Concept))
 # set up Substance definition
 G.add((BRICK.Substance, RDFS.subClassOf, SOSA.FeatureOfInterest))
+G.add(
+    (SOSA.FeatureOfInterest, A, OWL.Class)
+)  # needs the type declaration to satisfy some checkers
 G.add((BRICK.Substance, RDFS.subClassOf, BRICK.Measurable))
 G.add((BRICK.Substance, A, OWL.Class))
 
