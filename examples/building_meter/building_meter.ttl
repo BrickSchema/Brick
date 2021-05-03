@@ -23,6 +23,6 @@ bldg:mysite a brick:Site ;
     brick:hasPart bldg:mybldg .
 
 bldg:mybldg a brick:Building ;
-    brick:hasPart bldg:meter .
+    brick:isLocationOf bldg:meter .
 
 bldg:meter a brick:Building_Electrical_Meter .
