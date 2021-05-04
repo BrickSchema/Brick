@@ -115,7 +115,7 @@ https://brickschema.org/schema/Brick#Chilled_Water_Temperature_Sensor,Measures t
 https://brickschema.org/schema/Brick#Chilled_Water_Valve,A valve that modulates the flow of chilled water,
 https://brickschema.org/schema/Brick#Chiller,Refrigerating machine used to transfer heat between fluids. Chillers are either direct expansion with a compressor or absorption type.,
 https://brickschema.org/schema/Brick#Cloudage,The fraction of the sky obscured by clouds when observed from a particular location,
-https://brickschema.org/schema/Brick#Coil,Cooling or heating element made of pipe or tube that may or may not be finned and formed into helical or serpentine shape,ASHRAE
+https://brickschema.org/schema/Brick#Coil,Cooling or heating element made of pipe or tube that may or may not be finned and formed into helical or serpentine shape,
 https://brickschema.org/schema/Brick#Cold_Box,"in a gas separation unit, the insulated section that contains the low-temperature heat exchangers and distillation columns.",
 https://brickschema.org/schema/Brick#Coldest_Zone_Air_Temperature_Sensor,The zone temperature that is coldest; drives the supply temperature of hot air. A computed value rather than a physical sensor. Also referred to as a 'Lowest Zone Air Temperature Sensor',
 https://brickschema.org/schema/Brick#Collection_Basin_Water,"Water transiently collected and directed to the sump or pump suction line, typically integral with a cooling tower",https://www.towercomponentsinc.com/cooling-tower-basics-misc-terms-glossary
