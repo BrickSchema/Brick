@@ -116,8 +116,22 @@ loop_subclasses = {
 }
 
 collection_classes = {
-    "Portfolio": {"tags": [TAG.Collection, TAG.Portfolio]},
-    "System": {"tags": [TAG.Collection, TAG.System], "subclasses": system_subclasses},
-    "Loop": {"tags": [TAG.Collection, TAG.Loop], "subclasses": loop_subclasses},
-    "Photovoltaic_Array": {"tags": [TAG.Collection, TAG.Photovoltaic, TAG.Array]},
+    "Portfolio": {
+        "tags": [TAG.Collection, TAG.Portfolio],
+        "constraints": {BRICK.hasPart: [BRICK.Site]},
+    },
+    "System": {
+        "tags": [TAG.Collection, TAG.System],
+        "subclasses": system_subclasses,
+        "constraints": {BRICK.hasPart: [BRICK.Equipment, BRICK.Point]},
+    },
+    "Loop": {
+        "tags": [TAG.Collection, TAG.Loop],
+        "subclasses": loop_subclasses,
+        "constraints": {BRICK.hasPart: [BRICK.Equipment, BRICK.Point]},
+    },
+    "Photovoltaic_Array": {
+        "tags": [TAG.Collection, TAG.Photovoltaic, TAG.Array],
+        "constraints": {BRICK.hasPart: [BRICK.PV_Panel]},
+    },
 }

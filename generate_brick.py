@@ -313,9 +313,20 @@ def define_classes(definitions, parent, pun_classes=False):
         for _parent in parents:
             G.add((classname, RDFS.subClassOf, _parent))
 
+        # add SHACL constraints to the class
+        constraints = defn.get("constraints", {})
+        assert isinstance(constraints, dict)
+        define_constraints(constraints, classname)
+
         # all other key-value pairs in the definition are
         # property-object pairs
-        expected_properties = ["parents", "tags", "substances", "subclasses"]
+        expected_properties = [
+            "parents",
+            "tags",
+            "substances",
+            "subclasses",
+            "constraints",
+        ]
         other_properties = [
             prop for prop in defn.keys() if prop not in expected_properties
         ]
@@ -326,6 +337,33 @@ def define_classes(definitions, parent, pun_classes=False):
                     G.add((classname, propname, pv))
             else:
                 G.add((classname, propname, propval))
+
+
+def define_constraints(constraints, classname):
+    """
+    Makes 'classname' a SHACL NodeShape and Class (implicitly targeting all
+    instances of the class) and defines some PropertyShapes based on 'constraints'
+    that apply to the nodeshape.
+    """
+    for property_name, property_values in constraints.items():
+        pnode = BNode()
+        onode = BNode()
+        G.add((classname, A, SH.NodeShape))
+        G.add((classname, SH.property, pnode))
+        G.add((pnode, SH["path"], property_name))
+
+        if isinstance(property_values, URIRef):
+            G.add((pnode, SH["class"], property_values))
+        elif isinstance(property_values, list):
+            G.add((pnode, SH["or"], onode))
+            possible_values = []
+            for pv in property_values:
+                pvnode = BNode()
+                G.add((pvnode, SH["class"], pv))
+                possible_values.append(pvnode)
+            Collection(G, onode, possible_values)
+        else:
+            raise Exception("Do not know how to handle constraints for %s" % classname)
 
 
 def define_entity_properties(definitions, superprop=None):
