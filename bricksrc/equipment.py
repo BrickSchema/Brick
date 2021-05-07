@@ -282,6 +282,7 @@ hvac_subclasses = {
                         ],
                         OWL.equivalentClass: BRICK["RCP"],
                     },
+                    "RCP": {"tags": [TAG.Equipment, TAG.RCP]},
                 },
             },
             "Radiator": {
