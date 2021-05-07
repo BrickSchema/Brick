@@ -249,6 +249,41 @@ hvac_subclasses = {
                 },
             },
             "VAV": {"tags": [TAG.Equipment, TAG.VAV]},
+            "Radiant_Panel": {
+                "tags": [TAG.Equipment, TAG.Radiant, TAG.Panel],
+                "subclasses": {
+                    "Thermally_Activated_Building_System": {
+                        "tags": [
+                            TAG.Equipment,
+                            TAG.Thermally,
+                            TAG.Activated,
+                            TAG.Building,
+                            TAG.System,
+                        ],
+                        OWL.equivalentClass: BRICK["TABS"],
+                    },
+                    "TABS": {"tags": [TAG.Equipment, TAG.TABS]},
+                    "Embedded_Surface_System": {
+                        "tags": [
+                            TAG.Equipment,
+                            TAG.Embedded,
+                            TAG.Surface,
+                            TAG.System,
+                        ],
+                        OWL.equivalentClass: BRICK["ESS"],
+                    },
+                    "ESS": {"tags": [TAG.Equipment, TAG.ESS]},
+                    "Radiant_Ceiling_Panel": {
+                        "tags": [
+                            TAG.Equipment,
+                            TAG.Radiant,
+                            TAG.Ceiling,
+                            TAG.Panel,
+                        ],
+                        OWL.equivalentClass: BRICK["RCP"],
+                    },
+                },
+            },
             "Radiator": {
                 "tags": [TAG.Equipment, TAG.Radiator],
                 "subclasses": {
