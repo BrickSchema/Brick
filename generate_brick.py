@@ -1,4 +1,5 @@
 import csv
+import glob
 import logging
 from collections import defaultdict
 from rdflib import Graph, Literal, BNode, URIRef
@@ -668,7 +669,12 @@ for r in res:
 logging.info("Adding class definitions")
 add_definitions()
 
+# add all TTL files in bricksrc
+for ttlfile in glob.glob("bricksrc/*.ttl"):
+    G.parse(ttlfile, format="turtle")
+
 logging.info(f"Brick ontology compilation finished! Generated {len(G)} triples")
+
 
 extension_graphs = {"shacl_tag_inference": shaclGraph}
 

@@ -123,7 +123,7 @@ collection_classes = {
     "System": {
         "tags": [TAG.Collection, TAG.System],
         "subclasses": system_subclasses,
-        "constraints": {BRICK.hasPart: [BRICK.Equipment, BRICK.Point]},
+        "constraints": {BRICK.hasPart: [BRICK.Equipment, BRICK.Point, BRICK.Loop]},
     },
     "Loop": {
         "tags": [TAG.Collection, TAG.Loop],

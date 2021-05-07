@@ -1,0 +1,35 @@
+@prefix brick: <https://brickschema.org/schema/Brick#> .
+@prefix bsh: <https://brickschema.org/schema/BrickShape#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+bsh:CollectionCompositionRulePoints   a   sh:NodeShape ;
+    sh:description "Adds points to collections if they are points of entities that are part of that collection" ;
+    sh:targetSubjectsOf brick:isPointOf ;
+    sh:rule [
+        a   sh:SPARQLRule ;
+        sh:prefixes brick: ;
+        sh:construct """
+            CONSTRUCT {
+                $this   brick:isPartOf ?collection .
+            } WHERE {
+                $this   brick:isPointOf/brick:isPartOf+ ?collection .
+                ?collection a   brick:Collection .
+            }
+        """ ;
+    ] .
+
+bsh:CollectionCompositionRuleParts   a   sh:NodeShape ;
+    sh:description "Adds entities to collections if they are part of of entities that are part of that collection" ;
+    sh:targetSubjectsOf brick:isPartOf ;
+    sh:rule [
+        a   sh:SPARQLRule ;
+        sh:prefixes brick: ;
+        sh:construct """
+            CONSTRUCT {
+                $this   brick:isPartOf ?collection .
+            } WHERE {
+                $this   brick:isPartOf+ ?collection .
+                ?collection a   brick:Collection .
+            }
+        """ ;
+    ] .
