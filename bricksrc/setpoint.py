@@ -1653,6 +1653,55 @@ setpoint_definitions = {
                             TAG.Schedule,
                         ],
                     },
+                    "Radiant_Panel_Temperature_Setpoint": {
+                        "tags": [
+                            TAG.Point,
+                            TAG.Radiant,
+                            TAG.Panel,
+                            TAG.Temperature,
+                            TAG.Setpoint,
+                        ],
+                        "subclasses": {
+                            "Inside_Face_Surface_Temperature_Setpoint": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Inside,
+                                    TAG.Face,
+                                    TAG.Surface,
+                                    TAG.Temperature,
+                                    TAG.Setpoint,
+                                ],
+                            },
+                            "Outside_Face_Surface_Temperature_Setpoint": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Outside,
+                                    TAG.Face,
+                                    TAG.Surface,
+                                    TAG.Temperature,
+                                    TAG.Setpoint,
+                                ],
+                            },
+                            "Embedded_Temperature_Setpoint": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Embedded,
+                                    TAG.Temperature,
+                                    TAG.Setpoint,
+                                ],
+                                "subclasses": {
+                                    "Core_Temperature_Setpoint": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Core,
+                                            TAG.Temperature,
+                                            TAG.Setpoint,
+                                        ],
+                                    },
+                                },
+                            },
+                        },
+                    },
                     "Water_Temperature_Setpoint": {
                         "subclasses": {
                             "Domestic_Hot_Water_Temperature_Setpoint": {
