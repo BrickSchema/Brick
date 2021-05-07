@@ -289,7 +289,7 @@ https://brickschema.org/schema/Brick#Electrical_System,Devices that serve or are
 https://brickschema.org/schema/Brick#Elevator,"A device that provides vertical transportation between floors, levels or decks of a building, vessel or other structure",https://en.wikipedia.org/wiki/Elevator
 https://brickschema.org/schema/Brick#Elevator_Shaft,The vertical space in which an elevator ascends and descends,
 https://brickschema.org/schema/Brick#Elevator_Space,The vertical space in whcih an elevator ascends and descends,
-https://brickschema.org/schema/Brick#Embedded_Surface_System,Radiant panel heating and cooling system where the energy heat source or sink is embedded in a radiant layer which is thermally insulated from the building structure.,See also Low temperature heating and high temperature cooling REHVA guidebook
+https://brickschema.org/schema/Brick#Embedded_Surface_System,Radiant panel heating and cooling system where the energy heat source or sink is embedded in a radiant layer which is thermally insulated from the building structure.,https://www.rehva.eu/eshop/detail/no07-low-temperature-heating-and-high-temperature-cooling
 https://brickschema.org/schema/Brick#Emergency_Alarm,Alarms that indicate off-normal conditions associated with emergency systems,
 https://brickschema.org/schema/Brick#Emergency_Generator_Alarm,An alarm that indicates off-normal conditions associated with an emergency generator,
 https://brickschema.org/schema/Brick#Emergency_Generator_Status,Indicates if an emergency generator is active,
@@ -706,8 +706,8 @@ https://brickschema.org/schema/Brick#Quantity,,
 https://brickschema.org/schema/Brick#RTU,see Rooftop_Unit,
 https://brickschema.org/schema/Brick#RVAV,See Variable_Air_Volume_Box_With_Reheat,
 https://brickschema.org/schema/Brick#Radiance,,
-https://brickschema.org/schema/Brick#Radiant_Ceiling_Panel,Radiant panel heating and cooling system that are usually made from metal and suspended under the ceiling or insulated from the building structure.,See also Low temperature heating and high temperature cooling REHVA guidebook
-https://brickschema.org/schema/Brick#Radiant_Panel,A temperature-controlled surface that provides fifty percent (50%) or more of the design heat transfer by thermal radiation.,"See also ASHRAE HVAC Systems & Equipment, Ch 6: Radiant Heating & Cooling"
+https://brickschema.org/schema/Brick#Radiant_Ceiling_Panel,Radiant panel heating and cooling system that are usually made from metal and suspended under the ceiling or insulated from the building structure.,https://www.rehva.eu/eshop/detail/no07-low-temperature-heating-and-high-temperature-cooling
+https://brickschema.org/schema/Brick#Radiant_Panel,A temperature-controlled surface that provides fifty percent (50%) or more of the design heat transfer by thermal radiation.,https://en.wikipedia.org/wiki/Radiant_heating_and_cooling
 https://brickschema.org/schema/Brick#Radiant_Temperature,the uniform temperature of an imaginary enclosure in which the radiant heat transfer from the human body is equal to the radiant heat transfer in the actual non-uniform enclosure. (https://en.wikipedia.org/wiki/Mean_radiant_temperature),
 https://brickschema.org/schema/Brick#Radiator,Heat exchangers designed to transfer thermal energy from one medium to another,
 https://brickschema.org/schema/Brick#Rain_Duration_Sensor,Measures the duration of precipitation within some time frame,
@@ -894,7 +894,7 @@ https://brickschema.org/schema/Brick#Thermal_Energy,"Thermal Energy} is the port
 https://brickschema.org/schema/Brick#Thermal_Power,`,
 https://brickschema.org/schema/Brick#Thermal_Power_Meter,A standalone thermal power meter,
 https://brickschema.org/schema/Brick#Thermal_Power_Sensor,,
-https://brickschema.org/schema/Brick#Thermally_Activated_Building_System,Radiant panel heating and cooling system where the energy heat source or sink is embedded in the building structure such as in slabs and walls.,See also Low temperature heating and high temperature cooling REHVA guidebook
+https://brickschema.org/schema/Brick#Thermally_Activated_Building_System,Radiant panel heating and cooling system where the energy heat source or sink is embedded in the building structure such as in slabs and walls.,https://www.rehva.eu/eshop/detail/no07-low-temperature-heating-and-high-temperature-cooling
 https://brickschema.org/schema/Brick#Thermostat,An automatic control device used to maintain temperature at a fixed or adjustable setpoint.,
 https://brickschema.org/schema/Brick#Ticketing_Booth,A room or space used to sell or distribute tickets to events at a venue,
 https://brickschema.org/schema/Brick#Time,,
