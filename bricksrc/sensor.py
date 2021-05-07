@@ -1666,6 +1666,63 @@ sensor_definitions = {
                             },
                         },
                     },
+                    "Radiant_Panel_Temperature_Sensor": {
+                        "tags": [
+                            TAG.Point,
+                            TAG.Sensor,
+                            TAG.Temperature,
+                            TAG.Radiant,
+                            TAG.Panel,
+                        ],
+                        "substances": [
+                            [BRICK.measures, BRICK.Temperature],
+                            [BRICK.measures, BRICK.Radiant_Panel],
+                        ],
+                        "subclasses": {
+                            "Inside_Face_Surface_Temperature_Sensor": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Inside,
+                                    TAG.Face,
+                                    TAG.Surface,
+                                    TAG.Temperature,
+                                    TAG.Sensor,
+                                ],
+                            },
+                            "Outside_Face_Surface_Temperature_Sensor": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Outside,
+                                    TAG.Face,
+                                    TAG.Surface,
+                                    TAG.Temperature,
+                                    TAG.Sensor,
+                                ],
+                            },
+                            "Embedded_Temperature_Sensor": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Embedded,
+                                    TAG.Temperature,
+                                    TAG.Sensor,
+                                ],
+                                "substances": [
+                                    [BRICK.measures, BRICK.Temperature],
+                                    [BRICK.measures, BRICK.Internal_Material],
+                                ],
+                                "subclasses": {
+                                    "Core_Temperature_Sensor": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Core,
+                                            TAG.Temperature,
+                                            TAG.Sensor,
+                                        ],
+                                    },
+                                },
+                            },
+                        },
+                    },
                     "Water_Temperature_Sensor": {
                         "tags": [TAG.Point, TAG.Sensor, TAG.Temperature, TAG.Water],
                         "substances": [
