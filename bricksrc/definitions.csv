@@ -115,7 +115,7 @@ https://brickschema.org/schema/Brick#Chilled_Water_Temperature_Sensor,Measures t
 https://brickschema.org/schema/Brick#Chilled_Water_Valve,A valve that modulates the flow of chilled water,
 https://brickschema.org/schema/Brick#Chiller,Refrigerating machine used to transfer heat between fluids. Chillers are either direct expansion with a compressor or absorption type.,
 https://brickschema.org/schema/Brick#Cloudage,The fraction of the sky obscured by clouds when observed from a particular location,
-https://brickschema.org/schema/Brick#Coil,Cooling or heating element made of pipe or tube that may or may not be finned and formed into helical or serpentine shape,ASHRAE
+https://brickschema.org/schema/Brick#Coil,Cooling or heating element made of pipe or tube that may or may not be finned and formed into helical or serpentine shape (ASHRAE),
 https://brickschema.org/schema/Brick#Cold_Box,"in a gas separation unit, the insulated section that contains the low-temperature heat exchangers and distillation columns.",
 https://brickschema.org/schema/Brick#Coldest_Zone_Air_Temperature_Sensor,The zone temperature that is coldest; drives the supply temperature of hot air. A computed value rather than a physical sensor. Also referred to as a 'Lowest Zone Air Temperature Sensor',
 https://brickschema.org/schema/Brick#Collection_Basin_Water,"Water transiently collected and directed to the sump or pump suction line, typically integral with a cooling tower",https://www.towercomponentsinc.com/cooling-tower-basics-misc-terms-glossary
@@ -398,7 +398,7 @@ https://brickschema.org/schema/Brick#Hail,pellets of frozen rain which fall in s
 https://brickschema.org/schema/Brick#Hail_Sensor,Measures hail in terms of its size and damage potential,
 https://brickschema.org/schema/Brick#Hallway,"A common space, used to connect other parts of a building",
 https://brickschema.org/schema/Brick#Hazardous_Materials_Storage,A storage space set aside (usually with restricted access) for the storage of materials that can be hazardous to living beings or the environment,
-https://brickschema.org/schema/Brick#Heat_Exchanger,A heat exchanger is a piece of equipment built for efficient heat transfer from one medium to another. The media may be separated by a solid wall to prevent mixing or they may be in direct contact,BEDES
+https://brickschema.org/schema/Brick#Heat_Exchanger,A heat exchanger is a piece of equipment built for efficient heat transfer from one medium to another. The media may be separated by a solid wall to prevent mixing or they may be in direct contact (BEDES),
 https://brickschema.org/schema/Brick#Heat_Exchanger_Supply_Water_Temperature_Sensor,Measures the temperature of water supplied by a heat exchanger,
 https://brickschema.org/schema/Brick#Heat_Exchanger_System_Enable_Status,Indicates if the heat exchanger system has been enabled,
 https://brickschema.org/schema/Brick#Heat_Sensor,Measures heat,
