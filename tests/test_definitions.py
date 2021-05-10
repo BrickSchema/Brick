@@ -101,7 +101,6 @@ def test_valid_definition_encoding():
         """SELECT ?term ?definition ?seealso WHERE { ?term skos:definition ?definition . OPTIONAL { ?term rdfs:seeAlso ?seealso } }"""
     )
     for (term, defn, seealso) in definitions:
-        assert isinstance(term, rdflib.URIRef), "Term %s should be a URI" % term
         assert isinstance(defn, rdflib.Literal), (
             "Definition %s should be a Literal" % defn
         )
