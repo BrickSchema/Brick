@@ -398,7 +398,7 @@ https://brickschema.org/schema/Brick#Hail,pellets of frozen rain which fall in s
 https://brickschema.org/schema/Brick#Hail_Sensor,Measures hail in terms of its size and damage potential,
 https://brickschema.org/schema/Brick#Hallway,"A common space, used to connect other parts of a building",
 https://brickschema.org/schema/Brick#Hazardous_Materials_Storage,A storage space set aside (usually with restricted access) for the storage of materials that can be hazardous to living beings or the environment,
-https://brickschema.org/schema/Brick#Heat_Exchanger,A heat exchanger is a piece of equipment built for efficient heat transfer from one medium to another. The media may be separated by a solid wall to prevent mixing or they may be in direct contact,BEDES
+https://brickschema.org/schema/Brick#Heat_Exchanger,A heat exchanger is a piece of equipment built for efficient heat transfer from one medium to another. The media may be separated by a solid wall to prevent mixing or they may be in direct contact (BEDES),
 https://brickschema.org/schema/Brick#Heat_Exchanger_Supply_Water_Temperature_Sensor,Measures the temperature of water supplied by a heat exchanger,
 https://brickschema.org/schema/Brick#Heat_Exchanger_System_Enable_Status,Indicates if the heat exchanger system has been enabled,
 https://brickschema.org/schema/Brick#Heat_Sensor,Measures heat,
