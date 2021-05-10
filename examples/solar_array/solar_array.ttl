@@ -38,15 +38,17 @@ bldg:pv_generation_system a brick:PV_Generation_System ;
         bldg:array2 .
 
 bldg:array1 a brick:Photovoltaic_Array ;
-    brick:orientation [ brick:hasUnit unit:DEG ;
-            brick:orientationRelativeTo "South" ;
-            brick:value 0 ] ;
+    brick:azimuth [ brick:hasUnit unit:DEG ;
+            brick:rotationalDirection "clockwise" ;
+            brick:referenceDirection "North" ;
+            brick:value 200 ] ;
     brick:tilt [ brick:hasUnit unit:DEG ;
             brick:value 20 ] .
 
 bldg:array2 a brick:Photovoltaic_Array ;
-    brick:orientation [ brick:hasUnit unit:DEG ;
-            brick:orientationRelativeTo "South" ;
-            brick:value 2 ] ;
+    brick:azimuth [ brick:hasUnit unit:DEG ;
+            brick:rotationalDirection "clockwise" ;
+            brick:referenceDirection "North" ;
+            brick:value 180 ] ;
     brick:tilt [ brick:hasUnit unit:DEG ;
             brick:value 23 ] .

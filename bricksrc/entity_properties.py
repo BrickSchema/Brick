@@ -248,6 +248,7 @@ shape_properties = {
         "datatype": XSD.float,
         "rotationalDirection": {"values": ["clockwise", "counterclockwise"]},
         "referenceDirection": {"values": ["North", "South", "East", "West"]},
+        "range": {"minInclusive": 0, "maxInclusive": 360},
     },
     BRICK.YearBuiltShape: {"datatype": XSD.integer},
     BRICK.ThermalTransmittenceShape: {
