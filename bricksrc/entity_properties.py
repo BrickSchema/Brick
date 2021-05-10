@@ -29,12 +29,11 @@ entity_properties = {
         SKOS.definition: Literal("Entity has 3-dimensional volume"),
         RDFS.range: BRICK.VolumeShape,
     },
-    BRICK.orientation: {
+    BRICK.azimuth: {
         SKOS.definition: Literal(
-            "The direction an entity is facing, relative to some reference point (usually a 'compass' direction)"
+            "(Horizontal) angle between a projected vector and a reference vector (typically a compass bearing). The projected vector usually indicates the direction of a face or plane."
         ),
-        # TODO: for points + equipment? or just equipment?
-        RDFS.range: BRICK.OrientationShape,
+        RDFS.range: BRICK.AzimuthShape,
     },
     BRICK.tilt: {
         SKOS.definition: Literal(
@@ -244,12 +243,11 @@ shape_properties = {
         },
     },
     BRICK.TiltShape: {"units": [UNIT.DEG], "datatype": XSD.float},
-    BRICK.OrientationShape: {
+    BRICK.AzimuthShape: {
         "units": [UNIT.DEG],
         "datatype": XSD.float,
-        "properties": {
-            BRICK.orientationRelativeTo: {"values": ["North", "South", "East", "West"]}
-        },
+        "rotationalDirection": {"values": ["clockwise", "counterclockwise"]},
+        "referenceDirection": {"values": ["North", "South", "East", "West"]},
     },
     BRICK.YearBuiltShape: {"datatype": XSD.integer},
     BRICK.ThermalTransmittenceShape: {
