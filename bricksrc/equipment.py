@@ -296,6 +296,42 @@ hvac_subclasses = {
                     },
                 },
             },
+            "Air_Diffuser": {
+                "tags": [
+                    TAG.Equipment,
+                    TAG.Air,
+                    TAG.Diffuser,
+                ],
+                "subclasses": {
+                    "Jet_Nozzle_Air_Diffuser": {
+                        "tags": [
+                            TAG.Equipment,
+                            TAG.Jet,
+                            TAG.Nozzle,
+                            TAG.Air,
+                            TAG.Diffuser,
+                        ]
+                    },
+                    "Laminar_Flow_Air_Diffuser": {
+                        "tags": [
+                            TAG.Equipment,
+                            TAG.Laminar,
+                            TAG.Flow,
+                            TAG.Air,
+                            TAG.Diffuser,
+                        ]
+                    },
+                    "Displacement_Flow_Air_Diffuser": {
+                        "tags": [
+                            TAG.Equipment,
+                            TAG.Displacement,
+                            TAG.Flow,
+                            TAG.Air,
+                            TAG.Diffuser,
+                        ]
+                    },
+                },
+            },
         },
     },
     "Space_Heater": {"tags": [TAG.Equipment, TAG.Space, TAG.Heater]},
@@ -448,6 +484,31 @@ hvac_subclasses = {
                 OWL.equivalentClass: BRICK["Rooftop_Unit"],
             },
             "PAU": {"tags": [TAG.Equipment, TAG.PAU]},
+        },
+    },
+    "Air_Plenum": {
+        "tags": [
+            TAG.Equipment,
+            TAG.Air,
+            TAG.Plenum,
+        ],
+        "subclasses": {
+            "Return_Air_Plenum": {
+                "tags": [TAG.Equipment, TAG.Return, TAG.Air, TAG.Plenum]
+            },
+            "Supply_Air_Plenum": {
+                "tags": [TAG.Equipment, TAG.Supply, TAG.Air, TAG.Plenum],
+                "subclasses": {
+                    "Underfloor_Air_Plenum": {
+                        "tags": [
+                            TAG.Equipment,
+                            TAG.Underfloor,
+                            TAG.Air,
+                            TAG.Plenum,
+                        ]
+                    },
+                },
+            },
         },
     },
 }
