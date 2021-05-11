@@ -1044,7 +1044,7 @@ sensor_definitions = {
                         "subclasses": {
                             "Air_Differential_Pressure_Sensor": {
                                 "substances": [
-                                    [BRICK.measures, BRICK.Pressure],
+                                    [BRICK.measures, BRICK.Differential_Pressure],
                                     [BRICK.measures, BRICK.Air],
                                 ],
                                 "tags": [
@@ -1057,7 +1057,10 @@ sensor_definitions = {
                                 "subclasses": {
                                     "Exhaust_Air_Differential_Pressure_Sensor": {
                                         "substances": [
-                                            [BRICK.measures, BRICK.Pressure],
+                                            [
+                                                BRICK.measures,
+                                                BRICK.Differential_Pressure,
+                                            ],
                                             [BRICK.measures, BRICK.Exhaust_Air],
                                         ],
                                         "tags": [
@@ -1071,7 +1074,10 @@ sensor_definitions = {
                                     },
                                     "Return_Air_Differential_Pressure_Sensor": {
                                         "substances": [
-                                            [BRICK.measures, BRICK.Pressure],
+                                            [
+                                                BRICK.measures,
+                                                BRICK.Differential_Pressure,
+                                            ],
                                             [BRICK.measures, BRICK.Return_Air],
                                         ],
                                         "tags": [
@@ -1085,7 +1091,10 @@ sensor_definitions = {
                                     },
                                     "Supply_Air_Differential_Pressure_Sensor": {
                                         "substances": [
-                                            [BRICK.measures, BRICK.Pressure],
+                                            [
+                                                BRICK.measures,
+                                                BRICK.Differential_Pressure,
+                                            ],
                                             [BRICK.measures, BRICK.Supply_Air],
                                         ],
                                         "tags": [
@@ -1109,7 +1118,7 @@ sensor_definitions = {
                                     TAG.Chilled,
                                 ],
                                 "substances": [
-                                    [BRICK.measures, BRICK.Pressure],
+                                    [BRICK.measures, BRICK.Differential_Pressure],
                                     [BRICK.measures, BRICK.Chilled_Water],
                                 ],
                             },
@@ -1132,7 +1141,7 @@ sensor_definitions = {
                                     TAG.Hot,
                                 ],
                                 "substances": [
-                                    [BRICK.measures, BRICK.Pressure],
+                                    [BRICK.measures, BRICK.Differential_Pressure],
                                     [BRICK.measures, BRICK.Hot_Water],
                                 ],
                                 "subclasses": {
