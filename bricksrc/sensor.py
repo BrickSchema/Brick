@@ -1055,6 +1055,20 @@ sensor_definitions = {
                                     TAG.Differential,
                                 ],
                                 "subclasses": {
+                                    "Exhaust_Air_Differential_Pressure_Sensor": {
+                                        "substances": [
+                                            [BRICK.measures, BRICK.Pressure],
+                                            [BRICK.measures, BRICK.Exhaust_Air],
+                                        ],
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Exhaust,
+                                            TAG.Air,
+                                            TAG.Sensor,
+                                            TAG.Pressure,
+                                            TAG.Differential,
+                                        ],
+                                    },
                                     "Return_Air_Differential_Pressure_Sensor": {
                                         "substances": [
                                             [BRICK.measures, BRICK.Pressure],
@@ -1063,6 +1077,20 @@ sensor_definitions = {
                                         "tags": [
                                             TAG.Point,
                                             TAG.Return,
+                                            TAG.Air,
+                                            TAG.Sensor,
+                                            TAG.Pressure,
+                                            TAG.Differential,
+                                        ],
+                                    },
+                                    "Supply_Air_Differential_Pressure_Sensor": {
+                                        "substances": [
+                                            [BRICK.measures, BRICK.Pressure],
+                                            [BRICK.measures, BRICK.Supply_Air],
+                                        ],
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Supply,
                                             TAG.Air,
                                             TAG.Sensor,
                                             TAG.Pressure,
