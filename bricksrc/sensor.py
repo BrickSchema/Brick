@@ -1210,6 +1210,16 @@ sensor_definitions = {
                                     },
                                 },
                             },
+                            "Underfloor_Air_Plenum_Static_Pressure_Sensor": {
+                                "tags": [
+                                    TAG.Underfloor,
+                                    TAG.Air,
+                                    TAG.Plenum,
+                                    TAG.Static,
+                                    TAG.Pressure,
+                                    TAG.Sensor,
+                                ]
+                            },
                         },
                     },
                     "Velocity_Pressure_Sensor": {

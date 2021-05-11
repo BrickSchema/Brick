@@ -909,6 +909,8 @@ https://brickschema.org/schema/Brick#Transformer,"A Transformer is usually fed b
 https://brickschema.org/schema/Brick#Transformer_Room,An electrical room where electricity enters and is transformed to different voltages and currents by the equipment contained in the room,
 https://brickschema.org/schema/Brick#Tunnel,An enclosed space that connects buildings. Often underground,
 https://brickschema.org/schema/Brick#Underfloor_Air_Plenum,An open space between a structural concrete slab and the underside of a raised access floor system that connects to an air handling unit to receive conditioned and/or ventilating air before delivery to the room(s),
+https://brickschema.org/schema/Brick#Underfloor_Air_Plenum_Static_Pressure_Sensor,Measures the outward push of air against the plenum surfaces and used to measure the resistance when air moves through the plenum,
+https://brickschema.org/schema/Brick#Underfloor_Air_Plenum_Static_Pressure_Setpoint,Sets the underfloor air plenum static pressure,
 https://brickschema.org/schema/Brick#Underfloor_Air_Temperature_Sensor,Measures the temperature of underfloor air,
 https://brickschema.org/schema/Brick#Unit_Failure_Alarm,An alarm that indicates the failure of an equipment or device,
 https://brickschema.org/schema/Brick#Unoccupied_Air_Temperature_Cooling_Setpoint,Sets temperature of air when unoccupied for cooling,
