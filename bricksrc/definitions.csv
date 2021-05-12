@@ -174,6 +174,7 @@ https://brickschema.org/schema/Brick#Cycle_Alarm,An alarm that indicates off-nor
 https://brickschema.org/schema/Brick#DC_Bus_Voltage_Sensor,Measures the voltage across a DC bus,
 https://brickschema.org/schema/Brick#Damper,Element inserted into an air-distribution system or element of an air-distribution system permitting modification of the air resistance of the system and consequently changing the airflow rate or shutting off the airflow.,
 https://brickschema.org/schema/Brick#Damper_Command,Controls properties of dampers,
+https://brickschema.org/schema/Brick#Damper_Open_Close_Status,Indicates the open/close status of a damper,
 https://brickschema.org/schema/Brick#Damper_Position_Command,Controls the position (the degree of openness) of a damper,
 https://brickschema.org/schema/Brick#Damper_Position_Sensor,Measures the current position of a damper in terms of the percent of fully open,
 https://brickschema.org/schema/Brick#Damper_Position_Setpoint,Sets the position of damper,
@@ -613,6 +614,7 @@ https://brickschema.org/schema/Brick#On_Off_Command,"An On/Off Command controls 
 https://brickschema.org/schema/Brick#On_Off_Status,"Indicates the on/off status of a control loop, relay or equipment",
 https://brickschema.org/schema/Brick#On_Status,"Indicates if a control loop, relay or equipment is on",
 https://brickschema.org/schema/Brick#On_Timer_Sensor,"Measures the duration for which a device was in an active or ""on"" state",
+https://brickschema.org/schema/Brick#Open_Close_Status,Indicates the open/close status of a device such as a damper or valve,
 https://brickschema.org/schema/Brick#Open_Heating_Valve_Outside_Air_Temperature_Setpoint,,
 https://brickschema.org/schema/Brick#Open_Office,An open space used for work or study by mulitple people. Usuaully subdivided into cubicles or desks,
 https://brickschema.org/schema/Brick#Operating_Mode_Status,"Indicates the current operating mode of a system, device or control loop",
@@ -914,6 +916,7 @@ https://brickschema.org/schema/Brick#VFD,"Electronic device that varies its outp
 https://brickschema.org/schema/Brick#VFD_Enable_Command,Enables operation of a variable frequency drive,
 https://brickschema.org/schema/Brick#Valve,"A device that regulates, directs or controls the flow of a fluid by opening, closing or partially obstructing various passageways",https://en.wikipedia.org/wiki/Valve
 https://brickschema.org/schema/Brick#Valve_Command,Controls or reports the openness of a valve (typically as a proportion of its full range of motion),
+https://brickschema.org/schema/Brick#Valve_Open_Close_Status,Indicates the open/close status of a valve,
 https://brickschema.org/schema/Brick#Valve_Position_Sensor,Measures the current position of a valve in terms of the percent of fully open,
 https://brickschema.org/schema/Brick#Variable_Air_Volume_Box,A device that regulates the volume and temperature of air delivered to a zone by opening or closing a damper,https://en.wikipedia.org/wiki/Variable_air_volume
 https://brickschema.org/schema/Brick#Variable_Air_Volume_Box_With_Reheat,A VAV box with a reheat coil mounted on the discharge end of the unit that can heat the air delivered to a zone,
