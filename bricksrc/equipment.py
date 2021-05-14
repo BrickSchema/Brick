@@ -456,7 +456,7 @@ hvac_subclasses = {
                     "Noncondensing_Natural_Gas_Boiler": {
                         "tags": [
                             TAG.Equipment,
-                            TAG.noncondensing,
+                            TAG.Noncondensing,
                             TAG.Natural,
                             TAG.Gas,
                             TAG.Boiler,
