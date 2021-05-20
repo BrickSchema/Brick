@@ -1708,7 +1708,6 @@ sensor_definitions = {
                                 ],
                                 "substances": [
                                     [BRICK.measures, BRICK.Temperature],
-                                    [BRICK.measures, BRICK.Internal_Material],
                                 ],
                                 "subclasses": {
                                     "Core_Temperature_Sensor": {
