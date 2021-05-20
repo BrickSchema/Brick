@@ -426,7 +426,47 @@ hvac_subclasses = {
         },
     },
     "Humidifier": {"tags": [TAG.Equipment, TAG.Humidifier]},
-    "Boiler": {"tags": [TAG.Equipment, TAG.Boiler], "parents": [BRICK.Water_Heater]},
+    "Boiler": {
+        "tags": [TAG.Equipment, TAG.Boiler],
+        "subclasses": {
+            "Electric_Boiler": {
+                "tags": [
+                    TAG.Equipment,
+                    TAG.Electric,
+                    TAG.Boiler,
+                ],
+            },
+            "Natural_Gas_Boiler": {
+                "tags": [
+                    TAG.Equipment,
+                    TAG.Natural,
+                    TAG.Gas,
+                    TAG.Boiler,
+                ],
+                "subclasses": {
+                    "Condensing_Natural_Gas_Boiler": {
+                        "tags": [
+                            TAG.Equipment,
+                            TAG.Condensing,
+                            TAG.Natural,
+                            TAG.Gas,
+                            TAG.Boiler,
+                        ],
+                    },
+                    "Noncondensing_Natural_Gas_Boiler": {
+                        "tags": [
+                            TAG.Equipment,
+                            TAG.Noncondensing,
+                            TAG.Natural,
+                            TAG.Gas,
+                            TAG.Boiler,
+                        ],
+                    },
+                },
+            },
+        },
+        "parents": [BRICK.Water_Heater],
+    },
     "Air_Handler_Unit": {
         # here for historical purposes
         "tags": [TAG.Equipment, TAG.Air, TAG.Handler, TAG.Unit],
