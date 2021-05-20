@@ -68,6 +68,14 @@ entity_properties = {
         SKOS.definition: Literal("The current flow type of the entity"),
         RDFS.range: BRICK.CurrentFlowTypeShape,
     },
+    BRICK.ratedPowerOutput: {
+        SKOS.definition: Literal("The rated power output of the entity"),
+        RDFS.range: BRICK.PowerOutputShape,
+    },
+    BRICK.measuredPowerOutput: {
+        SKOS.definition: Literal("The measured power output of the entity"),
+        RDFS.range: BRICK.PowerOutputShape,
+    },
     # equipment operation properties
     BRICK.operationalStage: {
         SKOS.definition: Literal("The associated operational stage"),
@@ -254,6 +262,10 @@ shape_properties = {
     BRICK.ThermalTransmittenceShape: {
         "datatype": XSD.float,
         "units": [UNIT.BTU_IT, UNIT["W-PER-M2-K"]],
+    },
+    BRICK.PowerOutputShape: {
+        "datatype": XSD.float,
+        "units": [UNIT.KiloW, UNIT.W, UNIT.MegaW],
     },
     BRICK.CoolingCapacityShape: {
         "datatype": XSD.float,

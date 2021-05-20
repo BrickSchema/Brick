@@ -5,31 +5,43 @@
 
 site:panel11 a brick:PV_Panel ;
     brick:isPartOf site:array1 ;
+    brick:ratedPowerOutput: [ brick:hasUnit unit:W ;
+            brick:value 250 ];
     brick:panelArea [ brick:hasUnit unit:M2 ;
             brick:value 5 ] .
 
 site:panel12 a brick:PV_Panel ;
     brick:isPartOf site:array1 ;
+    brick:ratedPowerOutput: [ brick:hasUnit unit:W ;
+            brick:value 250 ];
     brick:panelArea [ brick:hasUnit unit:M2 ;
             brick:value 5 ] .
 
 site:panel13 a brick:PV_Panel ;
     brick:isPartOf site:array1 ;
+    brick:ratedPowerOutput: [ brick:hasUnit unit:W ;
+            brick:value 250 ];
     brick:panelArea [ brick:hasUnit unit:M2 ;
             brick:value 5 ] .
 
 site:panel21 a brick:PV_Panel ;
     brick:isPartOf site:array2 ;
+    brick:ratedPowerOutput: [ brick:hasUnit unit:W ;
+            brick:value 250 ];
     brick:panelArea [ brick:hasUnit unit:M2 ;
             brick:value 5 ] .
 
 site:panel22 a brick:PV_Panel ;
     brick:isPartOf site:array2 ;
+    brick:ratedPowerOutput: [ brick:hasUnit unit:W ;
+            brick:value 250 ];
     brick:panelArea [ brick:hasUnit unit:M2 ;
             brick:value 5 ] .
 
 site:panel23 a brick:PV_Panel ;
     brick:isPartOf site:array2 ;
+    brick:ratedPowerOutput: [ brick:hasUnit unit:W ;
+            brick:value 250 ];
     brick:panelArea [ brick:hasUnit unit:M2 ;
             brick:value 5 ] .
 
