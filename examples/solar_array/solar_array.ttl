@@ -5,42 +5,102 @@
 
 site:panel11 a brick:PV_Panel ;
     brick:isPartOf site:array1 ;
-    brick:ratedPowerOutput: [ brick:hasUnit unit:W ;
+    brick:coordinates [
+        brick:latitude 37.8719 ;
+        brick:longitude -122.2585 ;
+    ] ;
+    brick:ratedModuleConversionEfficiency [
+        brick:hasUnit unit:PERCENT ;
+        brick:value 26 ;
+    ] ;
+    brick:measuredPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 240 ] ;
+    brick:ratedPowerOutput [ brick:hasUnit unit:W ;
             brick:value 250 ];
     brick:panelArea [ brick:hasUnit unit:M2 ;
             brick:value 5 ] .
 
 site:panel12 a brick:PV_Panel ;
     brick:isPartOf site:array1 ;
-    brick:ratedPowerOutput: [ brick:hasUnit unit:W ;
+    brick:coordinates [
+        brick:latitude 37.8719 ;
+        brick:longitude -122.2585 ;
+    ] ;
+    brick:ratedModuleConversionEfficiency [
+        brick:hasUnit unit:PERCENT ;
+        brick:value 26 ;
+    ] ;
+    brick:measuredPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 240 ] ;
+    brick:ratedPowerOutput [ brick:hasUnit unit:W ;
             brick:value 250 ];
     brick:panelArea [ brick:hasUnit unit:M2 ;
             brick:value 5 ] .
 
 site:panel13 a brick:PV_Panel ;
     brick:isPartOf site:array1 ;
-    brick:ratedPowerOutput: [ brick:hasUnit unit:W ;
+    brick:coordinates [
+        brick:latitude 37.8719 ;
+        brick:longitude -122.2585 ;
+    ] ;
+    brick:ratedModuleConversionEfficiency [
+        brick:hasUnit unit:PERCENT ;
+        brick:value 26 ;
+    ] ;
+    brick:measuredPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 240 ] ;
+    brick:ratedPowerOutput [ brick:hasUnit unit:W ;
             brick:value 250 ];
     brick:panelArea [ brick:hasUnit unit:M2 ;
             brick:value 5 ] .
 
 site:panel21 a brick:PV_Panel ;
     brick:isPartOf site:array2 ;
-    brick:ratedPowerOutput: [ brick:hasUnit unit:W ;
+    brick:coordinates [
+        brick:latitude 37.8719 ;
+        brick:longitude -122.2585 ;
+    ] ;
+    brick:ratedModuleConversionEfficiency [
+        brick:hasUnit unit:PERCENT ;
+        brick:value 26 ;
+    ] ;
+    brick:measuredPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 240 ] ;
+    brick:ratedPowerOutput [ brick:hasUnit unit:W ;
             brick:value 250 ];
     brick:panelArea [ brick:hasUnit unit:M2 ;
             brick:value 5 ] .
 
 site:panel22 a brick:PV_Panel ;
     brick:isPartOf site:array2 ;
-    brick:ratedPowerOutput: [ brick:hasUnit unit:W ;
+    brick:coordinates [
+        brick:latitude 37.8719 ;
+        brick:longitude -122.2585 ;
+    ] ;
+    brick:ratedModuleConversionEfficiency [
+        brick:hasUnit unit:PERCENT ;
+        brick:value 26 ;
+    ] ;
+    brick:measuredPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 240 ] ;
+    brick:ratedPowerOutput [ brick:hasUnit unit:W ;
             brick:value 250 ];
     brick:panelArea [ brick:hasUnit unit:M2 ;
             brick:value 5 ] .
 
 site:panel23 a brick:PV_Panel ;
     brick:isPartOf site:array2 ;
-    brick:ratedPowerOutput: [ brick:hasUnit unit:W ;
+    brick:coordinates [
+        brick:latitude 37.8719 ;
+        brick:longitude -122.2585 ;
+    ] ;
+    brick:ratedModuleConversionEfficiency [
+        brick:hasUnit unit:PERCENT ;
+        brick:value 26 ;
+    ] ;
+    brick:measuredPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 240 ] ;
+    brick:ratedPowerOutput [ brick:hasUnit unit:W ;
             brick:value 250 ];
     brick:panelArea [ brick:hasUnit unit:M2 ;
             brick:value 5 ] .
