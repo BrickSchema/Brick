@@ -69,12 +69,18 @@ entity_properties = {
         RDFS.range: BRICK.CurrentFlowTypeShape,
     },
     BRICK.ratedPowerOutput: {
-        SKOS.definition: Literal("The rated power output of the entity"),
+        SKOS.definition: Literal("The maximum rated power output of the entity"),
         RDFS.range: BRICK.PowerOutputShape,
     },
     BRICK.measuredPowerOutput: {
-        SKOS.definition: Literal("The measured power output of the entity"),
+        SKOS.definition: Literal("The maximum measured power output of the entity"),
         RDFS.range: BRICK.PowerOutputShape,
+    },
+    BRICK.moduleEfficiency: {
+        SKOS.definition: Literal(
+            "The percentage of sunlight that is converted into usable power, as measured using Standard Test Conditions (STC): 1000 W/sqm irradiance, 25 degC panel temperature, no wind"
+        ),
+        RDFS.range: BRICK.ModuleEfficiencyShape,
     },
     # equipment operation properties
     BRICK.operationalStage: {
@@ -266,6 +272,11 @@ shape_properties = {
     BRICK.PowerOutputShape: {
         "datatype": XSD.float,
         "units": [UNIT.KiloW, UNIT.W, UNIT.MegaW],
+    },
+    BRICK.ModuleEfficiencyShape: {
+        "datatype": XSD.float,
+        "units": [UNIT.PERCENT],
+        "range": {"minInclusive": 0, "maxInclusive": 100},
     },
     BRICK.CoolingCapacityShape: {
         "datatype": XSD.float,
