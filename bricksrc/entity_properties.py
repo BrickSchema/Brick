@@ -71,11 +71,11 @@ entity_properties = {
         RDFS.range: BRICK.CurrentFlowTypeShape,
     },
     BRICK.ratedPowerOutput: {
-        SKOS.definition: Literal("The maximum rated power output of the entity"),
+        SKOS.definition: Literal("The nominal rated power output of the entity"),
         RDFS.range: BRICK.PowerOutputShape,
     },
     BRICK.measuredPowerOutput: {
-        SKOS.definition: Literal("The maximum measured power output of the entity"),
+        SKOS.definition: Literal("The nominal measured power output of the entity"),
         RDFS.range: BRICK.PowerOutputShape,
     },
     BRICK.conversionEfficiency: {
