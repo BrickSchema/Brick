@@ -20,7 +20,6 @@ entity_properties = {
             },
             BRICK.panelArea: {
                 SKOS.definition: Literal("Surface area of a panel, such as a PV panel"),
-                # TODO: needs to go on equipment; do we remove "domain" from the above?
                 RDFS.range: BRICK.AreaShape,
             },
         },
