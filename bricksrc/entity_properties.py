@@ -1,5 +1,8 @@
-from .namespaces import BRICK, TAG, OWL, RDFS, SKOS, UNIT, XSD
-from rdflib import Namespace, Literal
+"""
+Entity property definitions
+"""
+from rdflib import Literal
+from .namespaces import BRICK, RDFS, SKOS, UNIT, XSD
 
 # these are the "relationship"/predicates/OWL properties that
 # relate a Brick entity to a structured value.
