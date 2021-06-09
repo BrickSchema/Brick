@@ -289,7 +289,7 @@ https://brickschema.org/schema/Brick#Electrical_System,Devices that serve or are
 https://brickschema.org/schema/Brick#Elevator,"A device that provides vertical transportation between floors, levels or decks of a building, vessel or other structure",https://en.wikipedia.org/wiki/Elevator
 https://brickschema.org/schema/Brick#Elevator_Shaft,The vertical space in which an elevator ascends and descends,
 https://brickschema.org/schema/Brick#Elevator_Space,The vertical space in whcih an elevator ascends and descends,
-https://brickschema.org/schema/Brick#Embedded_Surface_System,Radiant panel heating and cooling system where the energy heat source or sink is embedded in a radiant layer which is thermally insulated from the building structure.,https://www.rehva.eu/eshop/detail/no07-low-temperature-heating-and-high-temperature-cooling
+https://brickschema.org/schema/Brick#Embedded_Surface_System_Panel,Radiant panel heating and cooling system where the energy heat source or sink is embedded in a radiant layer which is thermally insulated from the building structure.,https://www.rehva.eu/eshop/detail/no07-low-temperature-heating-and-high-temperature-cooling
 https://brickschema.org/schema/Brick#Emergency_Alarm,Alarms that indicate off-normal conditions associated with emergency systems,
 https://brickschema.org/schema/Brick#Emergency_Generator_Alarm,An alarm that indicates off-normal conditions associated with an emergency generator,
 https://brickschema.org/schema/Brick#Emergency_Generator_Status,Indicates if an emergency generator is active,
@@ -319,7 +319,7 @@ https://brickschema.org/schema/Brick#Entrance,The location and space of a buildi
 https://brickschema.org/schema/Brick#Environment_Box,"(also known as climatic chamber), enclosed space designed to create a particular environment.",
 https://brickschema.org/schema/Brick#Equipment,"devices that serve all or part of the building and may include electric power, lighting, transportation, or service water heating, including, but not limited to, furnaces, boilers, air conditioners, heat pumps, chillers, water heaters, lamps, luminaires, ballasts, elevators, escalators, or other devices or installations.",
 https://brickschema.org/schema/Brick#Equipment_Room,A telecommunications room where equipment that serves the building is stored,
-https://brickschema.org/schema/Brick#ESS,See Embedded_Surface_System,
+https://brickschema.org/schema/Brick#ESS_Panel,See Embedded_Surface_System_Panel,
 https://brickschema.org/schema/Brick#Evaporative_Heat_Exchanger,,
 https://brickschema.org/schema/Brick#Even_Month_Status,,
 https://brickschema.org/schema/Brick#Exercise_Room,An indoor room used for exercise and physical activities,
@@ -715,7 +715,7 @@ https://brickschema.org/schema/Brick#Rain_Sensor,Measures the amount of precipit
 https://brickschema.org/schema/Brick#Radioactivity_Concentration_Sensor,Measures the concentration of radioactivity,
 https://brickschema.org/schema/Brick#Radon_Concentration_Sensor,Measures the concentration of radioactivity due to radon,
 https://brickschema.org/schema/Brick#Rated_Speed_Setpoint,Sets rated speed,
-https://brickschema.org/schema/Brick#RCP,See Radiant_Ceiling_Panel,
+https://brickschema.org/schema/Brick#RC_Panel,See Radiant_Ceiling_Panel,
 https://brickschema.org/schema/Brick#Reactive_Power,"Reactive Power}, for a linear two-terminal element or two-terminal circuit, under sinusoidal conditions, is the quantity equal to the product of the apparent power (S) and the sine of the displacement angle (\psi). The absolute value of the reactive power is equal to the non-active power. The ISO (and SI) unit for reactive power is the voltampere. The special name var and symbol \textit{var are given in IEC 60027 1.",
 https://brickschema.org/schema/Brick#Reactive_Power_Sensor,"Measures the portion of power that, averaged over a complete cycle of the AC waveform, is due to stored energy which returns to the source in each cycle",
 https://brickschema.org/schema/Brick#Real_Power,"(Active Power) is, under periodic conditions, the mean value, taken over one period (T), of the instantaneous power (p). In complex notation, (P = Re \; S), where (S) is (complex power)"".",
@@ -872,7 +872,7 @@ https://brickschema.org/schema/Brick#Switchgear,"A main disconnect or service di
 https://brickschema.org/schema/Brick#System_Enable_Command,Enables operation of a system,
 https://brickschema.org/schema/Brick#System_Shutdown_Status,Indicates if a system has been shutdown,
 https://brickschema.org/schema/Brick#System_Status,Indicates properties of the activity of a system,
-https://brickschema.org/schema/Brick#TABS,See Thermally_Activated_Building_System,
+https://brickschema.org/schema/Brick#TABS_Panel,See Thermally_Activated_Building_System_Panel,
 https://brickschema.org/schema/Brick#TETRA_Room,"A room used for local two-way radio networks, e.g. the portable radios carried by facilities staff",
 https://brickschema.org/schema/Brick#TVOC_Level_Sensor,A sensor measuring the level of all VOCs in air,
 https://brickschema.org/schema/Brick#Team_Room,An office used by multiple team members for specific work tasks. Distinct from Conference Room,
@@ -894,7 +894,7 @@ https://brickschema.org/schema/Brick#Thermal_Energy,"Thermal Energy} is the port
 https://brickschema.org/schema/Brick#Thermal_Power,`,
 https://brickschema.org/schema/Brick#Thermal_Power_Meter,A standalone thermal power meter,
 https://brickschema.org/schema/Brick#Thermal_Power_Sensor,,
-https://brickschema.org/schema/Brick#Thermally_Activated_Building_System,Radiant panel heating and cooling system where the energy heat source or sink is embedded in the building structure such as in slabs and walls.,https://www.rehva.eu/eshop/detail/no07-low-temperature-heating-and-high-temperature-cooling
+https://brickschema.org/schema/Brick#Thermally_Activated_Building_System_Panel,Radiant panel heating and cooling system where the energy heat source or sink is embedded in the building structure such as in slabs and walls.,https://www.rehva.eu/eshop/detail/no07-low-temperature-heating-and-high-temperature-cooling
 https://brickschema.org/schema/Brick#Thermostat,An automatic control device used to maintain temperature at a fixed or adjustable setpoint.,
 https://brickschema.org/schema/Brick#Ticketing_Booth,A room or space used to sell or distribute tickets to events at a venue,
 https://brickschema.org/schema/Brick#Time,,

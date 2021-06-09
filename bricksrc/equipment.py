@@ -252,27 +252,29 @@ hvac_subclasses = {
             "Radiant_Panel": {
                 "tags": [TAG.Equipment, TAG.Radiant, TAG.Panel],
                 "subclasses": {
-                    "Thermally_Activated_Building_System": {
+                    "Thermally_Activated_Building_System_Panel": {
                         "tags": [
                             TAG.Equipment,
                             TAG.Thermally,
                             TAG.Activated,
                             TAG.Building,
                             TAG.System,
+                            TAG.Panel,
                         ],
-                        OWL.equivalentClass: BRICK["TABS"],
+                        OWL.equivalentClass: BRICK["TABS_Panel"],
                     },
-                    "TABS": {"tags": [TAG.Equipment, TAG.TABS]},
-                    "Embedded_Surface_System": {
+                    "TABS_Panel": {"tags": [TAG.Equipment, TAG.TABS, TAG.Panel]},
+                    "Embedded_Surface_System_Panel": {
                         "tags": [
                             TAG.Equipment,
                             TAG.Embedded,
                             TAG.Surface,
                             TAG.System,
+                            TAG.Panel,
                         ],
-                        OWL.equivalentClass: BRICK["ESS"],
+                        OWL.equivalentClass: BRICK["ESS_Panel"],
                     },
-                    "ESS": {"tags": [TAG.Equipment, TAG.ESS]},
+                    "ESS_Panel": {"tags": [TAG.Equipment, TAG.ESS, TAG.Panel]},
                     "Radiant_Ceiling_Panel": {
                         "tags": [
                             TAG.Equipment,
@@ -280,9 +282,9 @@ hvac_subclasses = {
                             TAG.Ceiling,
                             TAG.Panel,
                         ],
-                        OWL.equivalentClass: BRICK["RCP"],
+                        OWL.equivalentClass: BRICK["RC_Panel"],
                     },
-                    "RCP": {"tags": [TAG.Equipment, TAG.RCP]},
+                    "RC_Panel": {"tags": [TAG.Equipment, TAG.RC, TAG.Panel]},
                 },
             },
             "Radiator": {
