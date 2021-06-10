@@ -10,6 +10,6 @@ pyshacl>=0.12.0
 docker>=4.3.0
 brickschema>=0.4.0
 black==21.5b2
-pre-commit>=4.0.1
+pre-commit>=2.13.0
 flake8==3.9.2
 semver>=2.10.1
