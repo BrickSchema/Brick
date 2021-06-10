@@ -647,6 +647,9 @@ for name, graph in extension_graphs.items():
         fp.write(graph.serialize(format="turtle").rstrip())
         fp.write(b"\n")
 
+# add SHACL shapes to graph
+G.parse("shacl/BrickShapes.ttl", format="ttl")
+
 # serialize Brick to output
 with open("Brick.ttl", "wb") as fp:
     fp.write(G.serialize(format="turtle").rstrip())
