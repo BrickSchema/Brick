@@ -275,6 +275,11 @@ shape_properties = {
         },
     },
     BRICK.TiltShape: {"units": [UNIT.DEG], "datatype": XSD.float},
+    BRICK.TemperatureShape: {"units": [UNIT.DEG_C, UNIT.DEG_F], "datatype": XSD.float},
+    BRICK.TemperatureCoefficientPerDegreeCelsiusShape: {
+        "units": [UNIT.PERCENT],
+        "datatype": XSD.float,
+    },
     BRICK.AzimuthShape: {
         "units": [UNIT.DEG],
         "datatype": XSD.float,
@@ -290,6 +295,14 @@ shape_properties = {
     BRICK.PowerOutputShape: {
         "datatype": XSD.float,
         "units": [UNIT.KiloW, UNIT.W, UNIT.MegaW],
+        "properties": {
+            BRICK.temperatureCoefficientofPmax: {
+                SKOS.definition: Literal(
+                    "The % change in power output for every degree celsius that the entity is hotter than 25 degrees celsius"
+                ),
+                RDFS.range: BRICK.TemperatureCoefficientPerDegreeCelsiusShape,
+            },
+        },
     },
     BRICK.EfficiencyShape: {
         "datatype": XSD.float,
@@ -303,7 +316,10 @@ shape_properties = {
     BRICK.AggregationShape: {
         "properties": {
             BRICK.aggregationFunction: {
-                "values": ["max", "min", "count", "mean", "sum", "median", "mode"]
+                SKOS.definition: Literal(
+                    "The aggregation function applied to data in the interval which produces the value"
+                ),
+                "values": ["max", "min", "count", "mean", "sum", "median", "mode"],
             },
             BRICK.aggregationInterval: {
                 SKOS.definition: Literal(
