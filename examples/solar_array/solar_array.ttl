@@ -11,6 +11,7 @@ site:panel11 a brick:PV_Panel ;
     ] ;
     brick:ratedModuleConversionEfficiency [
         brick:hasUnit unit:PERCENT ;
+        brick:ambientTemperatureOfMeasurement [ brick:value 25 ; brick:hasUnit unit:DEG_C ] ;
         brick:value 26 ;
     ] ;
     brick:measuredPowerOutput [ brick:hasUnit unit:W ;
@@ -28,6 +29,7 @@ site:panel12 a brick:PV_Panel ;
     ] ;
     brick:ratedModuleConversionEfficiency [
         brick:hasUnit unit:PERCENT ;
+        brick:ambientTemperatureOfMeasurement [ brick:value 25 ; brick:hasUnit unit:DEG_C ] ;
         brick:value 26 ;
     ] ;
     brick:measuredPowerOutput [ brick:hasUnit unit:W ;
@@ -45,6 +47,7 @@ site:panel13 a brick:PV_Panel ;
     ] ;
     brick:ratedModuleConversionEfficiency [
         brick:hasUnit unit:PERCENT ;
+        brick:ambientTemperatureOfMeasurement [ brick:value 25 ; brick:hasUnit unit:DEG_C ] ;
         brick:value 26 ;
     ] ;
     brick:measuredPowerOutput [ brick:hasUnit unit:W ;
@@ -62,6 +65,7 @@ site:panel21 a brick:PV_Panel ;
     ] ;
     brick:ratedModuleConversionEfficiency [
         brick:hasUnit unit:PERCENT ;
+        brick:ambientTemperatureOfMeasurement [ brick:value 25 ; brick:hasUnit unit:DEG_C ] ;
         brick:value 26 ;
     ] ;
     brick:measuredPowerOutput [ brick:hasUnit unit:W ;
@@ -79,6 +83,7 @@ site:panel22 a brick:PV_Panel ;
     ] ;
     brick:ratedModuleConversionEfficiency [
         brick:hasUnit unit:PERCENT ;
+        brick:ambientTemperatureOfMeasurement [ brick:value 25 ; brick:hasUnit unit:DEG_C ] ;
         brick:value 26 ;
     ] ;
     brick:measuredPowerOutput [ brick:hasUnit unit:W ;
@@ -96,6 +101,7 @@ site:panel23 a brick:PV_Panel ;
     ] ;
     brick:ratedModuleConversionEfficiency [
         brick:hasUnit unit:PERCENT ;
+        brick:ambientTemperatureOfMeasurement [ brick:value 25 ; brick:hasUnit unit:DEG_C ] ;
         brick:value 26 ;
     ] ;
     brick:measuredPowerOutput [ brick:hasUnit unit:W ;
