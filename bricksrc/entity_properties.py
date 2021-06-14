@@ -78,6 +78,12 @@ entity_properties = {
         SKOS.definition: Literal("The nominal measured power output of the entity"),
         RDFS.range: BRICK.PowerOutputShape,
     },
+    BRICK.temperatureCoefficientofPmax: {
+        SKOS.definition: Literal(
+            "The % change in power output for every degree celsius that the entity is hotter than 25 degrees celsius"
+        ),
+        RDFS.range: BRICK.TemperatureCoefficientPerDegreeCelsiusShape,
+    },
     BRICK.conversionEfficiency: {
         SKOS.definition: Literal(
             "The percent efficiency of the conversion process (usually to power or energy) carried out by the entity"
@@ -296,11 +302,11 @@ shape_properties = {
         "datatype": XSD.float,
         "units": [UNIT.KiloW, UNIT.W, UNIT.MegaW],
         "properties": {
-            BRICK.temperatureCoefficientofPmax: {
+            BRICK.ambientTemperatureOfMeasurement: {
                 SKOS.definition: Literal(
-                    "The % change in power output for every degree celsius that the entity is hotter than 25 degrees celsius"
+                    "The ambient temperature at which the power output was measured"
                 ),
-                RDFS.range: BRICK.TemperatureCoefficientPerDegreeCelsiusShape,
+                RDFS.range: BRICK.TemperatureShape,
             },
         },
     },
