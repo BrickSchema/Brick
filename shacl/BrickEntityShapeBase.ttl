@@ -10,15 +10,12 @@
 
 bsh:LocationShape a sh:NodeShape ;
     sh:targetClass brick:Location ;
-    sh:not [
-        sh:or (
-            [sh:class brick:Point;]
-            [sh:class brick:Equipment;]
-            [sh:class brick:Substance;]
-            [sh:class brick:Quantity;]
-		);
-        sh:message "Location is an exclusive top class."
-	];
+    sh:and (
+        [sh:not [ sh:class brick:Point ] ; sh:message "Location is an exclusive top class." ]
+        [sh:not [ sh:class brick:Equipment ] ; sh:message "Location is an exclusive top class." ]
+        [sh:not [ sh:class brick:Substance ] ; sh:message "Location is an exclusive top class." ]
+        [sh:not [ sh:class brick:Quantity ] ; sh:message "Location is an exclusive top class." ]
+    );
     sh:property [
         sh:path brick:hasPart;
         sh:class brick:Location;
@@ -43,15 +40,13 @@ bsh:LocationShape a sh:NodeShape ;
 
 bsh:EquipmentShape a sh:NodeShape ;
     sh:targetClass brick:Equipment ;
-    sh:not [
-        sh:or (
-            [sh:class brick:Location;]
-            [sh:class brick:Point;]
-            [sh:class brick:Substance;]
-            [sh:class brick:Quantity;]
-		);
-        sh:message "Equipment is an exclusive top class."
-	];
+    sh:message "Equipment is an exclusive top class." ;
+    sh:and (
+        [sh:not [ sh:class brick:Point ] ; sh:message "Equipment is an exclusive top class." ]
+        [sh:not [ sh:class brick:Location ] ; sh:message "Equipment is an exclusive top class." ]
+        [sh:not [ sh:class brick:Substance ] ; sh:message "Equipment is an exclusive top class." ]
+        [sh:not [ sh:class brick:Quantity ] ; sh:message "Equipment is an exclusive top class." ]
+    );
     sh:property [
         sh:path brick:hasPart;
         sh:class brick:Equipment;
@@ -84,15 +79,13 @@ bsh:EquipmentShape a sh:NodeShape ;
 
 bsh:PointShape a sh:NodeShape;
     sh:targetClass brick:Point;
-    sh:not [
-        sh:or (
-            [sh:class brick:Location;]
-            [sh:class brick:Equipment;]
-            [sh:class brick:Substance;]
-            [sh:class brick:Quantity;]
-		);
-        sh:message "Point is an exclusive top class."
-	];
+    sh:and (
+        [sh:not [ sh:class brick:Equipment ] ; sh:message "Point is an exclusive top class." ]
+        [sh:not [ sh:class brick:Location ] ; sh:message "Point is an exclusive top class." ]
+        [sh:not [ sh:class brick:Substance ] ; sh:message "Point is an exclusive top class." ]
+        [sh:not [ sh:class brick:Quantity ] ; sh:message "Point is an exclusive top class." ]
+    );
+    sh:message "Point is an exclusive top class." ;
     sh:property [
         sh:path brick:isPointOf;
         sh:or (
@@ -110,4 +103,3 @@ bsh:hasLocationShape a sh:Nodeshape;
     ];
     sh:message "Points are a virtual concept and always belonging to a physical device, represented by Equipment. Thus, it cannot have a Location alone."
     .
-
