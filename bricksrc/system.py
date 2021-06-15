@@ -32,6 +32,21 @@ system_subclasses = {
                 },
             },
             "Steam_System": {"tags": [TAG.Steam, TAG.System]},
+            "Air_System": {
+                "tags": [
+                    TAG.Air,
+                    TAG.System,
+                ],
+                "subclasses": {
+                    "Ventilation_Air_System": {
+                        "tags": [
+                            TAG.Ventilation,
+                            TAG.Air,
+                            TAG.System,
+                        ],
+                    },
+                },
+            },
             "Water_System": {
                 "tags": [TAG.Water, TAG.System],
                 "subclasses": {
