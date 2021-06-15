@@ -644,6 +644,7 @@ https://brickschema.org/schema/Brick#On_Off_Command,"An On/Off Command controls 
 https://brickschema.org/schema/Brick#On_Off_Status,"Indicates the on/off status of a control loop, relay or equipment",
 https://brickschema.org/schema/Brick#On_Status,"Indicates if a control loop, relay or equipment is on",
 https://brickschema.org/schema/Brick#On_Timer_Sensor,"Measures the duration for which a device was in an active or ""on"" state",
+https://brickschema.org/schema/Brick#Open_Close_Status,Indicates the open/close status of a device such as a damper or valve,
 https://brickschema.org/schema/Brick#Open_Heating_Valve_Outside_Air_Temperature_Setpoint,,
 https://brickschema.org/schema/Brick#Open_Office,An open space used for work or study by mulitple people. Usuaully subdivided into cubicles or desks,
 https://brickschema.org/schema/Brick#Operating_Mode_Status,"Indicates the current operating mode of a system, device or control loop",
