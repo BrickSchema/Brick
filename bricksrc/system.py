@@ -22,13 +22,6 @@ system_subclasses = {
                             TAG.System,
                         ]
                     },
-                    "Exhaust_Air_System": {
-                        "tags": [
-                            TAG.Exhaust,
-                            TAG.Air,
-                            TAG.System,
-                        ]
-                    },
                 },
             },
             "Steam_System": {"tags": [TAG.Steam, TAG.System]},
