@@ -353,7 +353,6 @@ https://brickschema.org/schema/Brick#Exhaust_Air_Stack_Flow_Setpoint,Sets exhaus
 https://brickschema.org/schema/Brick#Exhaust_Air_Static_Pressure_Proportional_Band_Parameter,,
 https://brickschema.org/schema/Brick#Exhaust_Air_Static_Pressure_Sensor,The static pressure of air within exhaust regions of an HVAC system,
 https://brickschema.org/schema/Brick#Exhaust_Air_Static_Pressure_Setpoint,Sets static pressure of exhaust air,
-https://brickschema.org/schema/Brick#Exhaust_Air_System,"The equipment, devices, and conduits that handle the exhaust of air from the building",,
 https://brickschema.org/schema/Brick#Exhaust_Air_Temperature_Sensor,Measures the temperature of exhaust air,
 https://brickschema.org/schema/Brick#Exhaust_Air_Velocity_Pressure_Sensor,,
 https://brickschema.org/schema/Brick#Exhaust_Damper,A damper that modulates the flow of exhaust air,
