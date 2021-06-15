@@ -426,7 +426,47 @@ hvac_subclasses = {
         },
     },
     "Humidifier": {"tags": [TAG.Equipment, TAG.Humidifier]},
-    "Boiler": {"tags": [TAG.Equipment, TAG.Boiler], "parents": [BRICK.Water_Heater]},
+    "Boiler": {
+        "tags": [TAG.Equipment, TAG.Boiler],
+        "subclasses": {
+            "Electric_Boiler": {
+                "tags": [
+                    TAG.Equipment,
+                    TAG.Electric,
+                    TAG.Boiler,
+                ],
+            },
+            "Natural_Gas_Boiler": {
+                "tags": [
+                    TAG.Equipment,
+                    TAG.Natural,
+                    TAG.Gas,
+                    TAG.Boiler,
+                ],
+                "subclasses": {
+                    "Condensing_Natural_Gas_Boiler": {
+                        "tags": [
+                            TAG.Equipment,
+                            TAG.Condensing,
+                            TAG.Natural,
+                            TAG.Gas,
+                            TAG.Boiler,
+                        ],
+                    },
+                    "Noncondensing_Natural_Gas_Boiler": {
+                        "tags": [
+                            TAG.Equipment,
+                            TAG.Noncondensing,
+                            TAG.Natural,
+                            TAG.Gas,
+                            TAG.Boiler,
+                        ],
+                    },
+                },
+            },
+        },
+        "parents": [BRICK.Water_Heater],
+    },
     "Air_Handler_Unit": {
         # here for historical purposes
         "tags": [TAG.Equipment, TAG.Air, TAG.Handler, TAG.Unit],
@@ -439,6 +479,28 @@ hvac_subclasses = {
     "AHU": {
         "tags": [TAG.Equipment, TAG.AHU],
         "subclasses": {
+            "Dedicated_Outdoor_Air_System_Unit": {
+                "tags": [
+                    TAG.Equipment,
+                    TAG.Dedicated,
+                    TAG.Outdoor,
+                    TAG.Air,
+                    TAG.System,
+                ],
+                OWL.equivalentClass: BRICK["DOAS"],
+            },
+            "DOAS": {
+                "tags": [TAG.Equipment, TAG.DOAS],
+                OWL.equivalentClass: BRICK["Dedicated_Outdoor_Air_System_Unit"],
+            },
+            "Makeup_Air_Unit": {
+                "tags": [TAG.Equipment, TAG.Makeup, TAG.Air, TAG.Unit],
+                OWL.equivalentClass: BRICK["MAU"],
+            },
+            "MAU": {
+                "tags": [TAG.Equipment, TAG.MAU],
+                OWL.equivalentClass: BRICK["Makeup_Air_Unit"],
+            },
             "Rooftop_Unit": {
                 OWL.equivalentClass: BRICK["RTU"],
                 "tags": [TAG.Equipment, TAG.Rooftop, TAG.AHU],
