@@ -235,26 +235,6 @@ status_definitions = {
             },
             "Open_Close_Status": {
                 "tags": [TAG.Point, TAG.Open, TAG.Close, TAG.Status],
-                "subclasses": {
-                    "Damper_Open_Close_Status": {
-                        "tags": [
-                            TAG.Point,
-                            TAG.Damper,
-                            TAG.Open,
-                            TAG.Close,
-                            TAG.Status,
-                        ],
-                    },
-                    "Valve_Open_Close_Status": {
-                        "tags": [
-                            TAG.Point,
-                            TAG.Valve,
-                            TAG.Open,
-                            TAG.Close,
-                            TAG.Status,
-                        ],
-                    },
-                },
             },
             "Occupancy_Status": {
                 "subclasses": {
