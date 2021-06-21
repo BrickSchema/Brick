@@ -8,7 +8,40 @@ The VBIS search tags are encoded as string literals and are related to Brick cla
 
 ## Example 1: Adding VBIS Tags to a Brick Model
 
+Consider a Brick model with two entities
 
+```ttl
+@prefix : <urn:example#> .
+@prefix brick: <https://brickschema.org/schema/Brick#> .
+@prefix vbis: <https://brickschema.org/schema/Brick/alignments/vbis#> .
+
+:chiller1   a   brick:Absorption_Chiller ;
+    vbis:hasTag vbis:ME-Chr-Ab-DF .
+
+:chiller2   a   brick:Absorption_Chiller .
+```
+
+One of these doesn't have a VBIS tag! We can add VBIS tags automatically using the following code:
+
+```python
+import brickschema
+
+g = brickschema.Graph(load_brick_nightly=True)
+g.load_file("example.ttl")
+g.load_file("Brick-VBIS-alignment.ttl")
+g.expand("shacl")
+g.serialize("output.ttl")
+```
+
+The `output.ttl` file will now contain the following triples:
+
+```ttl
+:chiller1 a brick:Absorption_Chiller ;
+    vbis:hasTag vbis:ME-Chr-Ab-DF .
+
+:chiller3 a brick:Absorption_Chiller ;
+    vbis:hasTag vbis:ME-Chr-Ab .
+```
 
 ## Example 2: Validating VBIS Tags in a Brick model
 
