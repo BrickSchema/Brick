@@ -5,7 +5,7 @@ from collections import defaultdict
 from rdflib.collection import Collection
 from rdflib import Namespace, Literal, BNode
 import brickschema
-from brickschema.namespaces import BRICK, SH, A, RDFS, SKOS
+from brickschema.namespaces import BRICK, SH, A, RDFS, SKOS, RDF
 
 logging.basicConfig(format="%(levelname)s:%(message)s", level=logging.DEBUG)
 
@@ -30,8 +30,35 @@ def get_subclasses(brickclass):
     return [row[0] for row in res]
 
 
-def generate_rule(brickclass, default_tag):
-    rule = f"GenerateVBISFor{brickclass}"
+def generate_vbis_to_brick_rule(brickclass, vbis_tag_list):
+    rule = f"Generate{brickclass}FromVBIS"
+    g.add((VBIS[rule], A, SH.NodeShape))
+    g.add((VBIS[rule], SH.targetSubjectsOf, VBIS.hasTag))
+    g.add(
+        (
+            VBIS[rule],
+            SH.rule,
+            [
+                (A, SH.TripleRule),
+                (SH.subject, SH.this),
+                (SH.predicate, RDF.type),
+                (SH.object, BRICK[brickclass]),
+                (
+                    SH.condition,
+                    [
+                        (
+                            SH.property,
+                            [(SH["path"], VBIS.hasTag), (SH["in"], vbis_tag_list)],
+                        )
+                    ],
+                ),
+            ],
+        )
+    )
+
+
+def generate_brick_to_vbis_rule(brickclass, default_tag):
+    rule = f"GenerateVBISFrom{brickclass}"
     g.add((VBIS[rule], A, SH.NodeShape))
     g.add((VBIS[rule], SH.targetClass, BRICK[brickclass]))
     g.add(
@@ -114,11 +141,13 @@ for brickclass, vbistags in mapping.items():
         if not accounted_for and tag not in defaults:
             defaults.append(tag)
     if len(defaults) == 1:
-        generate_rule(brickclass, defaults[0])
+        generate_brick_to_vbis_rule(brickclass, defaults[0])
 
     taglist = BNode()
     vbistags = [VBIS[tag] for tag in set(vbistags)]
     Collection(g, taglist, vbistags)
+
+    generate_vbis_to_brick_rule(brickclass, taglist)
 
     g.add((VBIS[shape], A, SH.NodeShape))
     g.add((VBIS[shape], SH.targetClass, BRICK[brickclass]))
