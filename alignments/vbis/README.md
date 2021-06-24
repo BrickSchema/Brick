@@ -43,7 +43,39 @@ The `output.ttl` file will now contain the following triples:
     vbis:hasTag vbis:ME-Chr-Ab .
 ```
 
-## Example 2: Validating VBIS Tags in a Brick model
+## Example 2: Inferring Brick Classes from VBIS Tags
+
+Consider an RDF graph where entities are labeled with VBIS tags:
+
+```ttl
+@prefix : <urn:example#> .
+@prefix brick: <https://brickschema.org/schema/Brick#> .
+@prefix vbis: <https://brickschema.org/schema/Brick/alignments/vbis#> .
+
+:chiller1  vbis:hasTag vbis:ME-Chr-Ab-DF .
+```
+
+Now you can use the following Python code to infer the Brick classes for this entity
+
+```python
+import brickschema
+
+g = brickschema.Graph(load_brick_nightly=True)
+g.load_file("example.ttl")
+g.load_file("Brick-VBIS-alignment.ttl")
+g.expand("shacl")
+g.serialize("output.ttl")
+```
+
+The output will be the followin
+
+```ttl
+:chiller1 a brick:Absorption_Chiller,
+    brick:Chiller,
+    vbis:hasTag vbis:ME-Chr-Ab-DF .
+```
+
+## Example 3: Validating VBIS Tags in a Brick model
 
 Consider a Brick model with two entities, each with a VBIS tag
 
