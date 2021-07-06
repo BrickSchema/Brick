@@ -37,6 +37,18 @@ system_subclasses = {
         OWL.equivalentClass: BRICK["HVAC_System"],
         "tags": [TAG.Heat, TAG.Ventilation, TAG.Air, TAG.Conditioning, TAG.System],
         "subclasses": {
+            "Air_System": {
+                "tags": [TAG.Air, TAG.System],
+                "subclasses": {
+                    "Ventilation_Air_System": {
+                        "tags": [
+                            TAG.Ventilation,
+                            TAG.Air,
+                            TAG.System,
+                        ]
+                    },
+                },
+            },
             "Steam_System": {"tags": [TAG.Steam, TAG.System]},
             "Water_System": {
                 "tags": [TAG.Water, TAG.System],

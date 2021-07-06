@@ -448,6 +448,16 @@ def define_shape_properties(definitions):
             G.add((v, SH.path, BRICK.value))
             G.add((v, SH.datatype, defn.pop("datatype")))
             G.add((v, SH.minCount, Literal(1)))
+            if "range" in defn:
+                for prop_name, prop_value in defn.pop("range").items():
+                    if prop_name not in [
+                        "minExclusive",
+                        "minInclusive",
+                        "maxExclusive",
+                        "maxInclusive",
+                    ]:
+                        raise Exception(f"brick:value property {prop_name} not valid")
+                    G.add((v, SH[prop_name], Literal(prop_value)))
 
 
 def define_properties(definitions, superprop=None):
@@ -685,6 +695,9 @@ for name, graph in extension_graphs.items():
         fp.write(b"@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n")
         fp.write(graph.serialize(format="turtle").rstrip())
         fp.write(b"\n")
+
+# add SHACL shapes to graph
+G.parse("shacl/BrickShape.ttl", format="ttl")
 
 # serialize Brick to output
 with open("Brick.ttl", "wb") as fp:

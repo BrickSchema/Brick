@@ -72,6 +72,9 @@ substances = {
                                     TAG.Water,
                                 ],
                             },
+                            "Bypass_Water": {
+                                "tags": [TAG.Fluid, TAG.Liquid, TAG.Water, TAG.Bypass],
+                            },
                             "Chilled_Water": {
                                 "tags": [TAG.Fluid, TAG.Liquid, TAG.Water, TAG.Chilled],
                                 "subclasses": {
