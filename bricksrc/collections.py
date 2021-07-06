@@ -111,8 +111,14 @@ system_subclasses = {
 
 loop_subclasses = {
     "Air_Loop": {"tags": [TAG.Air, TAG.Loop]},
-    "Hot_Water_Loop": {"tags": [TAG.Hot, TAG.Water, TAG.Loop]},
-    "Chilled_Water_Loop": {"tags": [TAG.Chilled, TAG.Water, TAG.Loop]},
+    "Water_Loop": {
+        "tags": [TAG.Water, TAG.Loop],
+        "subclasses": {
+            "Hot_Water_Loop": {"tags": [TAG.Hot, TAG.Water, TAG.Loop]},
+            "Chilled_Water_Loop": {"tags": [TAG.Chilled, TAG.Water, TAG.Loop]},
+            "Domestic_Water_Loop": {"tags": [TAG.Domestic, TAG.Water, TAG.Loop]},
+        },
+    },
 }
 
 collection_classes = {
