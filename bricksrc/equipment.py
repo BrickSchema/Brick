@@ -123,9 +123,6 @@ equipment_subclasses = {
     },
     "Water_Distribution": {"tags": [TAG.Water, TAG.Distribution, TAG.Equipment]},
     "Steam_Distribution": {"tags": [TAG.Steam, TAG.Distribution, TAG.Equipment]},
-    "PV_Array": {
-        "tags": [TAG.Solar, TAG.PV, TAG.Equipment, TAG.Array],
-    },
     "PV_Panel": {
         "tags": [TAG.Solar, TAG.PV, TAG.Equipment, TAG.Panel],
         "subclasses": {

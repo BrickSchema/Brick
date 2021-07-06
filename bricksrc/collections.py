@@ -151,5 +151,11 @@ collection_classes = {
     "Photovoltaic_Array": {
         "tags": [TAG.Collection, TAG.Photovoltaic, TAG.Array],
         "constraints": {BRICK.hasPart: [BRICK.PV_Panel]},
+        OWL.equivalentClass: BRICK["PV_Array"],
+    },
+    "PV_Array": {
+        "tags": [TAG.Collection, TAG.PV, TAG.Array],
+        "constraints": {BRICK.hasPart: [BRICK.PV_Panel]},
+        OWL.equivalentClass: BRICK["Photovoltaic_Array"],
     },
 }
