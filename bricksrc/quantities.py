@@ -554,7 +554,15 @@ quantity_definitions = {
                 BRICK.hasQUDTReference: QUDTQK["AtmosphericPressure"]
             },
             "Dynamic_Pressure": {},
-            "Static_Pressure": {BRICK.hasQUDTReference: QUDTQK["StaticPressure"]},
+            "Static_Pressure": {
+                BRICK.hasQUDTReference: QUDTQK["StaticPressure"],
+                SKOS.narrower: {
+                    "Differential_Static_Pressure": {
+                        BRICK.hasQUDTReference: QUDTQK["StaticPressure"],
+                        QUDT.isDeltaQuantity: Literal(True),
+                    },
+                },
+            },
             "Velocity_Pressure": {
                 BRICK.hasQUDTReference: [
                     QUDTQK["DynamicPressure"],
