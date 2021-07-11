@@ -1110,6 +1110,19 @@ sensor_definitions = {
                     }
                 },
             },
+            "Imbalance_Sensor": {
+                "tags": [TAG.Point, TAG.Sensor, TAG.Imbalance],
+                "subclasses": {
+                    "Current_Imbalance_Sensor": {
+                        "tags": [TAG.Point, TAG.Sensor, TAG.Imbalance, TAG.Current],
+                        "substances": [[BRICK.measures, BRICK.Current_Imbalance]],
+                    },
+                    "Voltage_Imbalance_Sensor": {
+                        "tags": [TAG.Point, TAG.Sensor, TAG.Imbalance, TAG.Voltage],
+                        "substances": [[BRICK.measures, BRICK.Voltage_Imbalance]],
+                    },
+                },
+            },
             "Luminance_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Luminance],
                 "substances": [[BRICK.measures, BRICK.Luminance]],
