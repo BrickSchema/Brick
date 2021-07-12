@@ -180,7 +180,14 @@ equipment_subclasses = {
             },
         },
     },
-    "Furniture": {"tags": [TAG.Equipment, TAG.Furniture]},
+    "Furniture": {
+        "tags": [TAG.Equipment, TAG.Furniture],
+        "subclasses": {
+            "Stage_Riser": {
+                "tags": [TAG.Equipment, TAG.Furniture, TAG.Stage, TAG.Riser],
+            },
+        },
+    },
     "Fire_Safety_Equipment": {
         "tags": [TAG.Equipment, TAG.Fire, TAG.Safety, TAG.Equipment],
         "subclasses": {
