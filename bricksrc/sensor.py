@@ -30,7 +30,7 @@ sensor_definitions = {
                                 "tags": [TAG.Point, TAG.CO, TAG.Level, TAG.Sensor],
                             },
                             "CO_Differential_Sensor": {
-                                "measures": [
+                                "substances": [
                                     [BRICK.measures, BRICK.Air],
                                     [
                                         BRICK.measures,
