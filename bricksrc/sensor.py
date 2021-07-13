@@ -23,13 +23,20 @@ sensor_definitions = {
                         "tags": [TAG.Point, TAG.Sensor, TAG.CO],
                         "substances": [
                             [BRICK.measures, BRICK.Air],
-                            [BRICK.measures, BRICK.CO],
+                            [BRICK.measures, BRICK.CO_Concentration],
                         ],
                         "subclasses": {
                             "CO_Level_Sensor": {
                                 "tags": [TAG.Point, TAG.CO, TAG.Level, TAG.Sensor],
                             },
                             "CO_Differential_Sensor": {
+                                "measures": [
+                                    [BRICK.measures, BRICK.Air],
+                                    [
+                                        BRICK.measures,
+                                        BRICK.Differential_CO_Concentration,
+                                    ],
+                                ],
                                 "tags": [
                                     TAG.Point,
                                     TAG.CO,
@@ -47,7 +54,7 @@ sensor_definitions = {
                                 ],
                                 "substances": [
                                     [BRICK.measures, BRICK.Outside_Air],
-                                    [BRICK.measures, BRICK.CO],
+                                    [BRICK.measures, BRICK.CO_Concentration],
                                 ],
                             },
                             "Return_Air_CO_Sensor": {
@@ -69,10 +76,17 @@ sensor_definitions = {
                         "tags": [TAG.Point, TAG.Sensor, TAG.CO2],
                         "substances": [
                             [BRICK.measures, BRICK.Air],
-                            [BRICK.measures, BRICK.CO2],
+                            [BRICK.measures, BRICK.CO2_Concentration],
                         ],
                         "subclasses": {
                             "CO2_Differential_Sensor": {
+                                "substances": [
+                                    [BRICK.measures, BRICK.Air],
+                                    [
+                                        BRICK.measures,
+                                        BRICK.Differential_CO2_Concentration,
+                                    ],
+                                ],
                                 "tags": [
                                     TAG.Point,
                                     TAG.CO2,
@@ -115,7 +129,7 @@ sensor_definitions = {
                         "tags": [TAG.Point, TAG.Sensor, TAG.Level, TAG.NO2],
                         "substances": [
                             [BRICK.measures, BRICK.Air],
-                            [BRICK.measures, BRICK.NO2],
+                            [BRICK.measures, BRICK.NO2_Concentration],
                         ],
                     },
                     "Formaldehyde_Level_Sensor": {
@@ -1136,10 +1150,16 @@ sensor_definitions = {
                 "subclasses": {
                     "Differential_Pressure_Sensor": {
                         "tags": [TAG.Point, TAG.Sensor, TAG.Pressure, TAG.Differential],
+                        "substances": [
+                            [BRICK.measures, BRICK.Differential_Static_Pressure]
+                        ],
                         "subclasses": {
                             "Air_Differential_Pressure_Sensor": {
                                 "substances": [
-                                    [BRICK.measures, BRICK.Pressure],
+                                    [
+                                        BRICK.measures,
+                                        BRICK.Differential_Static_Pressure,
+                                    ],
                                     [BRICK.measures, BRICK.Air],
                                 ],
                                 "tags": [
@@ -1152,7 +1172,10 @@ sensor_definitions = {
                                 "subclasses": {
                                     "Return_Air_Differential_Pressure_Sensor": {
                                         "substances": [
-                                            [BRICK.measures, BRICK.Pressure],
+                                            [
+                                                BRICK.measures,
+                                                BRICK.Differential_Static_Pressure,
+                                            ],
                                             [BRICK.measures, BRICK.Return_Air],
                                         ],
                                         "tags": [
@@ -1844,6 +1867,13 @@ sensor_definitions = {
                                 ],
                                 "subclasses": {
                                     "Chilled_Water_Differential_Temperature_Sensor": {
+                                        "substances": [
+                                            [
+                                                BRICK.measures,
+                                                BRICK.Differential_Temperature,
+                                            ],
+                                            [BRICK.measures, BRICK.Chilled_Water],
+                                        ],
                                         "tags": [
                                             TAG.Point,
                                             TAG.Chilled,
@@ -1985,6 +2015,12 @@ sensor_definitions = {
                                         ],
                                     },
                                     "Differential_Supply_Return_Water_Temperature_Sensor": {
+                                        "substances": [
+                                            [
+                                                BRICK.measures,
+                                                BRICK.Differential_Temperature,
+                                            ]
+                                        ],
                                         "tags": [
                                             TAG.Point,
                                             TAG.Differential,
