@@ -1,0 +1,152 @@
+@prefix site: <urn:example#> .
+@prefix brick: <https://brickschema.org/schema/Brick#> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+site:panel11 a brick:PV_Panel ;
+    brick:isPartOf site:array1 ;
+    brick:coordinates [
+        brick:latitude 37.8719 ;
+        brick:longitude -122.2585 ;
+    ] ;
+    brick:ratedModuleConversionEfficiency [
+        brick:hasUnit unit:PERCENT ;
+        brick:ambientTemperatureOfMeasurement [ brick:value 25 ; brick:hasUnit unit:DEG_C ] ;
+        brick:value 26 ;
+    ] ;
+    brick:measuredPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 240 ] ;
+    brick:ratedPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 250 ];
+    brick:panelArea [ brick:hasUnit unit:M2 ;
+            brick:value 5 ] .
+
+site:panel12 a brick:PV_Panel ;
+    brick:isPartOf site:array1 ;
+    brick:coordinates [
+        brick:latitude 37.8719 ;
+        brick:longitude -122.2585 ;
+    ] ;
+    brick:ratedModuleConversionEfficiency [
+        brick:hasUnit unit:PERCENT ;
+        brick:ambientTemperatureOfMeasurement [ brick:value 25 ; brick:hasUnit unit:DEG_C ] ;
+        brick:value 26 ;
+    ] ;
+    brick:measuredPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 240 ] ;
+    brick:ratedPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 250 ];
+    brick:panelArea [ brick:hasUnit unit:M2 ;
+            brick:value 5 ] .
+
+site:panel13 a brick:PV_Panel ;
+    brick:isPartOf site:array1 ;
+    brick:coordinates [
+        brick:latitude 37.8719 ;
+        brick:longitude -122.2585 ;
+    ] ;
+    brick:ratedModuleConversionEfficiency [
+        brick:hasUnit unit:PERCENT ;
+        brick:ambientTemperatureOfMeasurement [ brick:value 25 ; brick:hasUnit unit:DEG_C ] ;
+        brick:value 26 ;
+    ] ;
+    brick:measuredPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 240 ] ;
+    brick:ratedPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 250 ];
+    brick:panelArea [ brick:hasUnit unit:M2 ;
+            brick:value 5 ] .
+
+site:panel21 a brick:PV_Panel ;
+    brick:isPartOf site:array2 ;
+    brick:coordinates [
+        brick:latitude 37.8719 ;
+        brick:longitude -122.2585 ;
+    ] ;
+    brick:ratedModuleConversionEfficiency [
+        brick:hasUnit unit:PERCENT ;
+        brick:ambientTemperatureOfMeasurement [ brick:value 25 ; brick:hasUnit unit:DEG_C ] ;
+        brick:value 26 ;
+    ] ;
+    brick:measuredPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 240 ] ;
+    brick:ratedPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 250 ];
+    brick:panelArea [ brick:hasUnit unit:M2 ;
+            brick:value 5 ] .
+
+site:panel22 a brick:PV_Panel ;
+    brick:isPartOf site:array2 ;
+    brick:coordinates [
+        brick:latitude 37.8719 ;
+        brick:longitude -122.2585 ;
+    ] ;
+    brick:ratedModuleConversionEfficiency [
+        brick:hasUnit unit:PERCENT ;
+        brick:ambientTemperatureOfMeasurement [ brick:value 25 ; brick:hasUnit unit:DEG_C ] ;
+        brick:value 26 ;
+    ] ;
+    brick:measuredPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 240 ] ;
+    brick:ratedPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 250 ];
+    brick:panelArea [ brick:hasUnit unit:M2 ;
+            brick:value 5 ] .
+
+site:panel23 a brick:PV_Panel ;
+    brick:isPartOf site:array2 ;
+    brick:coordinates [
+        brick:latitude 37.8719 ;
+        brick:longitude -122.2585 ;
+    ] ;
+    brick:ratedModuleConversionEfficiency [
+        brick:hasUnit unit:PERCENT ;
+        brick:ambientTemperatureOfMeasurement [ brick:value 25 ; brick:hasUnit unit:DEG_C ] ;
+        brick:value 26 ;
+    ] ;
+    brick:measuredPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 240 ] ;
+    brick:ratedPowerOutput [ brick:hasUnit unit:W ;
+            brick:value 250 ];
+    brick:panelArea [ brick:hasUnit unit:M2 ;
+            brick:value 5 ] .
+
+site:pv_generation_system a brick:PV_Generation_System ;
+    brick:hasPart site:array1, site:array2 ;
+    brick:feeds site:pv_meter .
+
+site:pv_meter   a   brick:Electrical_Meter ;
+    brick:hasPoint  site:pv_power, site:pv_energy,
+                    site:pv_daily_peak_power .
+
+site:pv_power   a   brick:Electrical_Power_Sensor ;
+    brick:powerFlow [ brick:value "export" ] ;
+    brick:hasUnit   unit:KiloW .
+
+site:pv_energy   a   brick:Energy_Sensor ;
+    brick:powerFlow [ brick:value "export" ] ;
+    brick:hasUnit   unit:KiloW-HR .
+
+site:pv_daily_peak_power   a   brick:Power_Sensor ;
+    brick:hasUnit   unit:KiloW ;
+    brick:powerFlow [ brick:value "export" ] ;
+    brick:aggregate [
+        brick:aggregationFunction    "max" ;
+        brick:aggregationInterval    "RP1D" ;
+    ] .
+
+site:array1 a brick:Photovoltaic_Array ;
+    brick:azimuth [ brick:hasUnit unit:DEG ;
+            brick:rotationalDirection "clockwise" ;
+            brick:referenceDirection "North" ;
+            brick:value 200 ] ;
+    brick:tilt [ brick:hasUnit unit:DEG ;
+            brick:value 20 ] .
+
+site:array2 a brick:Photovoltaic_Array ;
+    brick:azimuth [ brick:hasUnit unit:DEG ;
+            brick:rotationalDirection "clockwise" ;
+            brick:referenceDirection "North" ;
+            brick:value 180 ] ;
+    brick:tilt [ brick:hasUnit unit:DEG ;
+            brick:value 23 ] .

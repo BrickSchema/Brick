@@ -263,8 +263,26 @@ alarm_definitions = {
                                     TAG.Level,
                                     TAG.Alarm,
                                     TAG.Point,
-                                ]
-                            }
+                                ],
+                            },
+                            "Max_Water_Level_Alarm": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Max,
+                                    TAG.Water,
+                                    TAG.Level,
+                                    TAG.Alarm,
+                                ],
+                            },
+                            "Min_Water_Level_Alarm": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Min,
+                                    TAG.Water,
+                                    TAG.Level,
+                                    TAG.Alarm,
+                                ],
+                            },
                         },
                     },
                 },
