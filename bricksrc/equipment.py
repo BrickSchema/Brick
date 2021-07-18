@@ -432,6 +432,10 @@ hvac_subclasses = {
             },
             "Ceiling_Fan": {"tags": [TAG.Equipment, TAG.Fan, TAG.Ceiling]},
             "Fresh_Air_Fan": {"tags": [TAG.Equipment, TAG.Fan, TAG.Fresh, TAG.Air]},
+            "Outside_Fan": {
+                "tags": [TAG.Equipment, TAG.Fan, TAG.Outside],
+                OWL.equivalentClass: BRICK["Fresh_Air_Fan"],
+            },
         },
     },
     "Economizer": {"tags": [TAG.Equipment, TAG.Economizer]},
