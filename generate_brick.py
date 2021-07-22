@@ -637,10 +637,12 @@ res = G.query(
                 }"""
 )
 for r in res:
-    for unit, symb in get_units(r[1]):
+    for unit, symb, label in get_units(r[1]):
         G.add((r[0], QUDT.applicableUnit, unit))
         if symb is not None:
             G.add((unit, QUDT.symbol, symb))
+        if label is not None:
+            G.add((unit, RDFS.label, label))
 
 logging.info("Adding class definitions")
 add_definitions()
