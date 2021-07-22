@@ -17,6 +17,7 @@ from bricksrc.namespaces import (
     SOSA,
     SKOS,
     QUDT,
+    UNIT,
     VCARD,
     QUDTQK,
     SH,
@@ -639,6 +640,7 @@ res = G.query(
 for r in res:
     for unit, symb, label in get_units(r[1]):
         G.add((r[0], QUDT.applicableUnit, unit))
+        G.add((unit, A, UNIT.Unit))
         if symb is not None:
             G.add((unit, QUDT.symbol, symb))
         if label is not None:
