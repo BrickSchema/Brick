@@ -367,6 +367,7 @@ def define_shape_properties(definitions):
     """
     for shape_name, defn in definitions.items():
         G.add((shape_name, A, SH.NodeShape))
+        G.add((shape_name, A, OWL.Class))
 
         v = BNode()
         # prop:value PropertyShape
