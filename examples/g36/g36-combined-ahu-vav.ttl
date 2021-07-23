@@ -96,4 +96,4 @@ ex:zone1    a   brick:HVAC_Zone ;
 
 ex:room1    a   brick:Room .
 ex:room2    a   brick:Room ;
-    brick:isLocationOf ex:zts1, ex:co2s1 .
+    brick:hasPoint ex:zts1, ex:co2s1 .
