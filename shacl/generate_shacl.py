@@ -76,6 +76,6 @@ for name, defn in property_definitions.items():
     addPropertyShapes(name, defn)
 
 # serialize to output
-with open("BrickShape.ttl", "w") as fp:
+with open("BrickShape.ttl", "wb") as fp:
     fp.write(G.serialize(format="turtle").rstrip())
-    fp.write("\n")
+    fp.write(b"\n")
