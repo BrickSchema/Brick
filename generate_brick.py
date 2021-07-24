@@ -17,6 +17,7 @@ from bricksrc.namespaces import (
     SOSA,
     SKOS,
     QUDT,
+    UNIT,
     VCARD,
     QUDTQK,
     SH,
@@ -637,10 +638,13 @@ res = G.query(
                 }"""
 )
 for r in res:
-    for unit, symb in get_units(r[1]):
+    for unit, symb, label in get_units(r[1]):
         G.add((r[0], QUDT.applicableUnit, unit))
+        G.add((unit, A, UNIT.Unit))
         if symb is not None:
             G.add((unit, QUDT.symbol, symb))
+        if label is not None:
+            G.add((unit, RDFS.label, label))
 
 logging.info("Adding class definitions")
 add_definitions()
@@ -658,7 +662,7 @@ for name, graph in extension_graphs.items():
         fp.write(b"\n")
 
 # add SHACL shapes to graph
-G.parse("shacl/BrickShape.ttl", format="ttl")
+G.parse("shacl/BrickEntityShapeBase.ttl", format="ttl")
 
 # serialize Brick to output
 with open("Brick.ttl", "wb") as fp:
