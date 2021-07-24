@@ -971,6 +971,16 @@ setpoint_definitions = {
                                     TAG.Setpoint,
                                 ],
                             },
+                            "Underfloor_Air_Plenum_Static_Pressure_Setpoint": {
+                                "tags": [
+                                    TAG.Underfloor,
+                                    TAG.Air,
+                                    TAG.Plenum,
+                                    TAG.Static,
+                                    TAG.Pressure,
+                                    TAG.Setpoint,
+                                ]
+                            },
                         },
                         "tags": [TAG.Point, TAG.Static, TAG.Pressure, TAG.Setpoint],
                     },
