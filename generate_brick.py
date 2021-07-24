@@ -393,7 +393,9 @@ def define_shape_properties(definitions):
                 )
             elif isinstance(vals[0], float):
                 Collection(
-                    G, enumeration, map(lambda x: Literal(x, datatype=XSD.float), vals)
+                    G,
+                    enumeration,
+                    map(lambda x: Literal(x, datatype=XSD.decimal), vals),
                 )
             else:
                 Collection(G, enumeration, map(Literal, vals))
