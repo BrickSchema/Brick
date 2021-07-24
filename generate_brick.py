@@ -379,7 +379,23 @@ def define_shape_properties(definitions):
             G.add((ps, SH.path, BRICK.value))
             G.add((ps, SH["in"], enumeration))
             G.add((ps, SH.minCount, Literal(1)))
-            Collection(G, enumeration, map(Literal, defn.pop("values")))
+            vals = defn.pop("values")
+            if isinstance(vals[0], str):
+                Collection(
+                    G, enumeration, map(lambda x: Literal(x, datatype=XSD.string), vals)
+                )
+            elif isinstance(vals[0], int):
+                Collection(
+                    G,
+                    enumeration,
+                    map(lambda x: Literal(x, datatype=XSD.integer), vals),
+                )
+            elif isinstance(vals[0], float):
+                Collection(
+                    G, enumeration, map(lambda x: Literal(x, datatype=XSD.float), vals)
+                )
+            else:
+                Collection(G, enumeration, map(Literal, vals))
         if "units" in defn:
             ps = BNode()
             enumeration = BNode()
