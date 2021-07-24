@@ -2,7 +2,7 @@
 Entity property definitions
 """
 from rdflib import Literal
-from .namespaces import BRICK, RDFS, SKOS, UNIT, XSD
+from .namespaces import BRICK, RDFS, SKOS, UNIT, XSD, SH
 
 # these are the "relationship"/predicates/OWL properties that
 # relate a Brick entity to a structured value.
@@ -306,7 +306,7 @@ shape_properties = {
                 SKOS.definition: Literal(
                     "The ambient temperature at which the power output was measured"
                 ),
-                RDFS.range: BRICK.TemperatureShape,
+                SH["class"]: BRICK.TemperatureShape,
             },
         },
     },
