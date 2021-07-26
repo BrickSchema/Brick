@@ -265,8 +265,8 @@ building_primary_function_values = [
 
 # These are the shapes that govern what values of Entity Properties should look like
 shape_properties = {
-    BRICK.AreaShape: {"units": [UNIT.FT2, UNIT.M2], "datatype": XSD.float},
-    BRICK.VolumeShape: {"units": [UNIT.FT3, UNIT.M3], "datatype": XSD.float},
+    BRICK.AreaShape: {"units": [UNIT.FT2, UNIT.M2], "datatype": XSD.double},
+    BRICK.VolumeShape: {"units": [UNIT.FT3, UNIT.M3], "datatype": XSD.double},
     BRICK.PowerComplexityShape: {"values": ["real", "reactive", "apparent"]},
     BRICK.PowerFlowShape: {"values": ["import", "export", "net", "absolute"]},
     BRICK.PhasesShape: {"values": ["A", "B", "C", "AB", "BC", "AC", "ABC"]},
@@ -276,30 +276,30 @@ shape_properties = {
     BRICK.BuildingPrimaryFunctionShape: {"values": building_primary_function_values},
     BRICK.CoordinateShape: {
         "properties": {
-            BRICK.latitude: {"datatype": XSD.float},
-            BRICK.longitude: {"datatype": XSD.float},
+            BRICK.latitude: {"datatype": XSD.double},
+            BRICK.longitude: {"datatype": XSD.double},
         },
     },
-    BRICK.TiltShape: {"units": [UNIT.DEG], "datatype": XSD.float},
-    BRICK.TemperatureShape: {"units": [UNIT.DEG_C, UNIT.DEG_F], "datatype": XSD.float},
+    BRICK.TiltShape: {"units": [UNIT.DEG], "datatype": XSD.double},
+    BRICK.TemperatureShape: {"units": [UNIT.DEG_C, UNIT.DEG_F], "datatype": XSD.double},
     BRICK.TemperatureCoefficientPerDegreeCelsiusShape: {
         "units": [UNIT.PERCENT],
-        "datatype": XSD.float,
+        "datatype": XSD.double,
     },
     BRICK.AzimuthShape: {
         "units": [UNIT.DEG],
-        "datatype": XSD.float,
+        "datatype": XSD.double,
         "rotationalDirection": {"values": ["clockwise", "counterclockwise"]},
         "referenceDirection": {"values": ["North", "South", "East", "West"]},
         "range": {"minInclusive": 0, "maxInclusive": 360},
     },
     BRICK.YearBuiltShape: {"datatype": XSD.integer},
     BRICK.ThermalTransmittenceShape: {
-        "datatype": XSD.float,
+        "datatype": XSD.double,
         "units": [UNIT.BTU_IT, UNIT["W-PER-M2-K"]],
     },
     BRICK.PowerOutputShape: {
-        "datatype": XSD.float,
+        "datatype": XSD.double,
         "units": [UNIT.KiloW, UNIT.W, UNIT.MegaW],
         "properties": {
             BRICK.ambientTemperatureOfMeasurement: {
@@ -311,12 +311,12 @@ shape_properties = {
         },
     },
     BRICK.EfficiencyShape: {
-        "datatype": XSD.float,
+        "datatype": XSD.decimal,
         "units": [UNIT.PERCENT],
         "range": {"minInclusive": 0},
     },
     BRICK.CoolingCapacityShape: {
-        "datatype": XSD.float,
+        "datatype": XSD.double,
         "units": [UNIT.TON_FG, UNIT["BTU_IT-PER-HR"], UNIT["BTU_TH-PER-HR"], UNIT.W],
     },
     BRICK.AggregationShape: {

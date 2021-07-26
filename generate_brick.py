@@ -674,23 +674,23 @@ extension_graphs = {"shacl_tag_inference": shaclGraph}
 
 # serialize extensions to output
 for name, graph in extension_graphs.items():
-    with open(f"extensions/brick_extension_{name}.ttl", "wb") as fp:
+    with open(f"extensions/brick_extension_{name}.ttl", "w") as fp:
         # need to write this manually; turtle serializer doesn't always add
-        fp.write(b"@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n")
+        fp.write("@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n")
         fp.write(graph.serialize(format="turtle").rstrip())
-        fp.write(b"\n")
+        fp.write("\n")
 
 # add SHACL shapes to graph
 G.parse("shacl/BrickEntityShapeBase.ttl", format="ttl")
 
 # serialize Brick to output
-with open("Brick.ttl", "wb") as fp:
+with open("Brick.ttl", "w") as fp:
     fp.write(G.serialize(format="turtle").rstrip())
-    fp.write(b"\n")
+    fp.write("\n")
 
 # serialize Brick + extensions
 for graph in extension_graphs.values():
     G += graph
-with open("Brick+extensions.ttl", "wb") as fp:
+with open("Brick+extensions.ttl", "w") as fp:
     fp.write(G.serialize(format="turtle").rstrip())
-    fp.write(b"\n")
+    fp.write("\n")
