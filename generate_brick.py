@@ -414,7 +414,11 @@ def define_shape_properties(definitions):
                 G.add((shape_name, SH.property, ps))
                 G.add((ps, A, SH.PropertyShape))
                 G.add((ps, SH.path, prop_name))
-                G.add((ps, SH.minCount, Literal(1)))
+                if "optional" in prop_defn:
+                    if not prop_defn.pop("optional"):
+                        G.add((ps, SH.minCount, Literal(1)))
+                else:
+                    G.add((ps, SH.minCount, Literal(1)))
                 if "datatype" in prop_defn:
                     G.add((ps, SH.datatype, prop_defn.pop("datatype")))
                 elif "values" in prop_defn:

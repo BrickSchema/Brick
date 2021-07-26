@@ -104,16 +104,16 @@ site:pv_meter   a   brick:Electrical_Meter ;
                     site:pv_daily_peak_power .
 
 site:pv_power   a   brick:Electrical_Power_Sensor ;
-    brick:powerFlow [ brick:value "export" ] ;
+    brick:powerFlow [ brick:value "export"^^xsd:string ] ;
     brick:hasUnit   unit:KiloW .
 
 site:pv_energy   a   brick:Energy_Sensor ;
-    brick:powerFlow [ brick:value "export" ] ;
+    brick:powerFlow [ brick:value "export"^^xsd:string ] ;
     brick:hasUnit   unit:KiloW-HR .
 
 site:pv_daily_peak_power   a   brick:Power_Sensor ;
     brick:hasUnit   unit:KiloW ;
-    brick:powerFlow [ brick:value "export" ] ;
+    brick:powerFlow [ brick:value "export"^^xsd:string ] ;
     brick:aggregate [
         brick:aggregationFunction    "max" ;
         brick:aggregationInterval    "RP1D" ;
@@ -123,14 +123,14 @@ site:array1 a brick:PV_Array ;
     brick:azimuth [ brick:hasUnit unit:DEG ;
             brick:rotationalDirection "clockwise" ;
             brick:referenceDirection "North" ;
-            brick:value 200 ] ;
+            brick:value "200"^^xsd:double ] ;
     brick:tilt [ brick:hasUnit unit:DEG ;
-            brick:value 20 ] .
+            brick:value "20"^^xsd:double ] .
 
 site:array2 a brick:PV_Array ;
     brick:azimuth [ brick:hasUnit unit:DEG ;
             brick:rotationalDirection "clockwise" ;
             brick:referenceDirection "North" ;
-            brick:value 180 ] ;
+            brick:value "180"^^xsd:double ] ;
     brick:tilt [ brick:hasUnit unit:DEG ;
-            brick:value 23 ] .
+            brick:value "23"^^xsd:double ] .

@@ -303,6 +303,7 @@ shape_properties = {
         "units": [UNIT.KiloW, UNIT.W, UNIT.MegaW],
         "properties": {
             BRICK.ambientTemperatureOfMeasurement: {
+                "optional": True,
                 SKOS.definition: Literal(
                     "The ambient temperature at which the power output was measured"
                 ),
