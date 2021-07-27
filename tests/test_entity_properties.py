@@ -14,7 +14,7 @@ def test_entity_property_validation():
         (
             EX["bldg"],
             BRICK.buildingPrimaryFunction,
-            [(BRICK.value, Literal("Aquarium", datatype=XSD["string"]))],
+            [(BRICK.value, Literal("Aquarium", datatype=XSD.string))],
         )
     )
 
@@ -31,10 +31,10 @@ def test_entity_property_validation():
         (
             EX["bldg"],
             BRICK.buildingPrimaryFunction,
-            [(BRICK.value, Literal("AquariumFail", datatype=XSD["string"]))],
+            [(BRICK.value, Literal("AquariumFail", datatype=XSD.string))],
         )
     )
 
-    g.expand("brick")
+    g.expand("brick", backend="owlrl")
     valid, _, report = g.validate()
     assert not valid, "'AquariumFail' should have thrown a validation error"
