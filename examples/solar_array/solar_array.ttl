@@ -135,7 +135,7 @@ site:pv_daily_peak_power   a   brick:Power_Sensor ;
         brick:aggregationInterval    "RP1D" ;
     ] .
 
-site:array1 a brick:Photovoltaic_Array ;
+site:array1 a brick:PV_Array ;
     brick:azimuth [ brick:hasUnit unit:DEG ;
             brick:rotationalDirection "clockwise" ;
             brick:referenceDirection "North" ;
@@ -143,7 +143,7 @@ site:array1 a brick:Photovoltaic_Array ;
     brick:tilt [ brick:hasUnit unit:DEG ;
             brick:value 20 ] .
 
-site:array2 a brick:Photovoltaic_Array ;
+site:array2 a brick:PV_Array ;
     brick:azimuth [ brick:hasUnit unit:DEG ;
             brick:rotationalDirection "clockwise" ;
             brick:referenceDirection "North" ;

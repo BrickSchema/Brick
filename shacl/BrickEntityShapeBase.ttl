@@ -52,24 +52,35 @@ bsh:EquipmentShape a sh:NodeShape ;
         sh:class brick:Equipment;
         sh:message "A piece of Equipment's parts should be always other Equipment."
     ];
-    sh:property [
-        sh:path brick:isPartOf;
-        sh:class brick:Equipment;
-        sh:message "A piece of Equipment's parts should be always other Equipment."
-    ];
+    sh:or (
+        sh:property [
+            sh:path brick:isPartOf;
+            sh:class brick:System;
+            sh:message "Equipment can be part of a System or other Equipment"
+        ]
+        sh:property [
+            sh:path brick:isPartOf;
+            sh:class brick:Equipment;
+            sh:message "Equipment can be part of a System or other Equipment"
+        ]
+    ) ;
     sh:property [
         sh:path brick:hasLocation;
         sh:class brick:Location;
         sh:message "A piece of Equipment can be located only at a Location"
     ];
-    sh:property [
-        sh:path brick:feeds;
-        sh:or (
-            [ sh:class brick:Equipment ]
-            [ sh:class brick:Location ]
-        ) ;
-        sh:message "A piece of Equipment can be located at a Location"
-    ];
+    sh:or (
+        sh:property [
+            sh:path brick:feeds;
+            sh:class brick:Equipment ;
+            sh:message "A piece of Equipment can feed a Equipment" ;
+        ]
+        sh:property [
+            sh:path brick:feeds;
+            sh:class brick:Location ;
+            sh:message "A piece of Equipment can feed a Location" ;
+        ]
+    ) ;
     sh:property [
         sh:path brick:hasPoint;
         sh:class brick:Point;
@@ -86,14 +97,18 @@ bsh:PointShape a sh:NodeShape;
         [sh:not [ sh:class brick:Quantity ] ; sh:message "Point is an exclusive top class." ]
     );
     sh:message "Point is an exclusive top class." ;
-    sh:property [
-        sh:path brick:isPointOf;
-        sh:or (
-            [ sh:class brick:Location ]
-            [ sh:class brick:Equipment ]
-        );
-        sh:message "A Point can be associated with Locations or Equipment."
-    ];
+    sh:or (
+        sh:property [
+            sh:path brick:isPointOf;
+            sh:class brick:Location ;
+            sh:message "A point can be associated with Locations or Equipment" ;
+        ]
+        sh:property [
+            sh:path brick:isPointOf;
+            sh:class brick:Equipment ;
+            sh:message "A point can be associated with Locations or Equipment" ;
+        ]
+    ) ;
     .
 
 bsh:hasLocationShape a sh:Nodeshape;

@@ -17,11 +17,14 @@ def get_units(qudt_quantity):
     in order to avoid having to pull the full QUDT ontology into Brick
     """
     return g.query(
-        f"""SELECT ?unit ?symbol WHERE {{
+        f"""SELECT ?unit ?symbol ?label WHERE {{
                     <{qudt_quantity}> qudt:applicableUnit ?unit .
                     OPTIONAL {{
                         ?unit qudt:symbol ?symbol .
                         FILTER(isLiteral(?symbol))
+                    }} .
+                    OPTIONAL {{
+                        ?unit rdfs:label ?label .
                     }}
                     }}"""
     )
