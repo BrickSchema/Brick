@@ -52,13 +52,13 @@ g.add((BLDG["room_1"], A, BRICK["Office_Kitchen"]))
 # this nifty syntax requires brickschema>=0.3.2a1
 room_area = [
     (BRICK.value, Literal(40, datatype=XSD.double)),
-    (BRICK.hasUnit, UNIT["M3"]),
+    (BRICK.hasUnit, UNIT["M2"]),
 ]
 g.add((BLDG["room_1"], BRICK.area, room_area))
 
 floor_area = [
     (BRICK.value, Literal(1000, datatype=XSD.double)),
-    (BRICK.hasUnit, UNIT["M3"]),
+    (BRICK.hasUnit, UNIT["M2"]),
 ]
 g.add((BLDG["floor_1"], BRICK.area, floor_area))
 
