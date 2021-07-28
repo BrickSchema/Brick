@@ -148,6 +148,7 @@ collection_classes = {
                 BRICK.Loop,
                 BRICK.System,
                 BRICK.Location,
+                BRICK.PV_Array,
             ]
         },
     },
