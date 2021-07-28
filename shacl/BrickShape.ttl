@@ -14,16 +14,16 @@ bsh:EquipmentShape a sh:NodeShape ;
                 sh:not [ sh:class brick:Substance ] ] [ sh:message "Equipment is an exclusive top class." ;
                 sh:not [ sh:class brick:Quantity ] ] ) ;
     sh:message "Equipment is an exclusive top class." ;
-    sh:or ( sh:property [ sh:class brick:Equipment ;
-                sh:message "A piece of Equipment can feed a Equipment" ;
-                sh:path brick:feeds ] sh:property [ sh:class brick:Location ;
-                sh:message "A piece of Equipment can feed a Location" ;
-                sh:path brick:feeds ] ),
-        ( sh:property [ sh:class brick:System ;
+    sh:or ( sh:property [ sh:class brick:System ;
                 sh:message "Equipment can be part of a System or other Equipment" ;
                 sh:path brick:isPartOf ] sh:property [ sh:class brick:Equipment ;
                 sh:message "Equipment can be part of a System or other Equipment" ;
-                sh:path brick:isPartOf ] ) ;
+                sh:path brick:isPartOf ] ),
+        ( sh:property [ sh:class brick:Equipment ;
+                sh:message "A piece of Equipment can feed a Equipment" ;
+                sh:path brick:feeds ] sh:property [ sh:class brick:Location ;
+                sh:message "A piece of Equipment can feed a Location" ;
+                sh:path brick:feeds ] ) ;
     sh:property [ sh:class brick:Equipment ;
             sh:message "A piece of Equipment's parts should be always other Equipment." ;
             sh:path brick:hasPart ],

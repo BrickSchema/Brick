@@ -63,7 +63,7 @@ def test_hierarchyinference():
     # Apply reasoner
     g.serialize("test.ttl", format="ttl")
     g.rebuild_tag_lookup()
-    g.expand(profile="owlrl+shacl+owlrl")
+    g.expand(profile="brick")
     g.serialize(inference_file, format="turtle")  # Store the inferred graph.
 
     # Find all instances and their parents from the inferred graph.
