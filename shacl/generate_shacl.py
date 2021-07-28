@@ -15,7 +15,8 @@ rangeShapeDict = {}
 subpropertyDict = {}
 
 # Add base Entity shapes
-G.parse('BrickEntityShapeBase.ttl', format='turtle')
+G.parse("BrickEntityShapeBase.ttl", format="turtle")
+
 
 # Make shape for expectedDomain property
 def addDomainShape(propertyName, expectedType):
@@ -75,6 +76,6 @@ for name, defn in property_definitions.items():
     addPropertyShapes(name, defn)
 
 # serialize to output
-with open("BrickShape.ttl", "wb") as fp:
+with open("BrickShape.ttl", "w") as fp:
     fp.write(G.serialize(format="turtle").rstrip())
-    fp.write(b"\n")
+    fp.write("\n")

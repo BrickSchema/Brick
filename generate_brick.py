@@ -368,6 +368,7 @@ def define_shape_properties(definitions):
     """
     for shape_name, defn in definitions.items():
         G.add((shape_name, A, SH.NodeShape))
+        G.add((shape_name, A, OWL.Class))
 
         v = BNode()
         # prop:value PropertyShape
@@ -379,7 +380,25 @@ def define_shape_properties(definitions):
             G.add((ps, SH.path, BRICK.value))
             G.add((ps, SH["in"], enumeration))
             G.add((ps, SH.minCount, Literal(1)))
-            Collection(G, enumeration, map(Literal, defn.pop("values")))
+            vals = defn.pop("values")
+            if isinstance(vals[0], str):
+                Collection(
+                    G, enumeration, map(lambda x: Literal(x, datatype=XSD.string), vals)
+                )
+            elif isinstance(vals[0], int):
+                Collection(
+                    G,
+                    enumeration,
+                    map(lambda x: Literal(x, datatype=XSD.integer), vals),
+                )
+            elif isinstance(vals[0], float):
+                Collection(
+                    G,
+                    enumeration,
+                    map(lambda x: Literal(x, datatype=XSD.decimal), vals),
+                )
+            else:
+                Collection(G, enumeration, map(Literal, vals))
         if "units" in defn:
             ps = BNode()
             enumeration = BNode()
@@ -395,7 +414,11 @@ def define_shape_properties(definitions):
                 G.add((shape_name, SH.property, ps))
                 G.add((ps, A, SH.PropertyShape))
                 G.add((ps, SH.path, prop_name))
-                G.add((ps, SH.minCount, Literal(1)))
+                if "optional" in prop_defn:
+                    if not prop_defn.pop("optional"):
+                        G.add((ps, SH.minCount, Literal(1)))
+                else:
+                    G.add((ps, SH.minCount, Literal(1)))
                 if "datatype" in prop_defn:
                     G.add((ps, SH.datatype, prop_defn.pop("datatype")))
                 elif "values" in prop_defn:
@@ -655,23 +678,23 @@ extension_graphs = {"shacl_tag_inference": shaclGraph}
 
 # serialize extensions to output
 for name, graph in extension_graphs.items():
-    with open(f"extensions/brick_extension_{name}.ttl", "wb") as fp:
+    with open(f"extensions/brick_extension_{name}.ttl", "w") as fp:
         # need to write this manually; turtle serializer doesn't always add
-        fp.write(b"@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n")
+        fp.write("@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n")
         fp.write(graph.serialize(format="turtle").rstrip())
-        fp.write(b"\n")
+        fp.write("\n")
 
 # add SHACL shapes to graph
 G.parse("shacl/BrickEntityShapeBase.ttl", format="ttl")
 
 # serialize Brick to output
-with open("Brick.ttl", "wb") as fp:
+with open("Brick.ttl", "w") as fp:
     fp.write(G.serialize(format="turtle").rstrip())
-    fp.write(b"\n")
+    fp.write("\n")
 
 # serialize Brick + extensions
 for graph in extension_graphs.values():
     G += graph
-with open("Brick+extensions.ttl", "wb") as fp:
+with open("Brick+extensions.ttl", "w") as fp:
     fp.write(G.serialize(format="turtle").rstrip())
-    fp.write(b"\n")
+    fp.write("\n")
