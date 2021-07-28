@@ -158,7 +158,6 @@ https://brickschema.org/schema/Brick#Thermostat,An automatic control device used
 
 Tags provide an alternative way of instantiating classes; Brick can infer classifications from the set of tags applied to an entity with the `brick.hasTag` relationship.
 Each subclass's tags should contain *at least* the tags of its parent class; currently, the set of tags for a class must be explicitly annotated.
-Tags can also be explicitly defined in `bricksrc/tags.py`.
 
 ### Defining Brick Relationships
 
