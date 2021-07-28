@@ -1212,7 +1212,10 @@ sensor_definitions = {
                                     TAG.Chilled,
                                 ],
                                 "substances": [
-                                    [BRICK.measures, BRICK.Pressure],
+                                    [
+                                        BRICK.measures,
+                                        BRICK.Differential_Static_Pressure,
+                                    ],
                                     [BRICK.measures, BRICK.Chilled_Water],
                                 ],
                             },
@@ -1235,7 +1238,10 @@ sensor_definitions = {
                                     TAG.Hot,
                                 ],
                                 "substances": [
-                                    [BRICK.measures, BRICK.Pressure],
+                                    [
+                                        BRICK.measures,
+                                        BRICK.Differential_Static_Pressure,
+                                    ],
                                     [BRICK.measures, BRICK.Hot_Water],
                                 ],
                                 "subclasses": {
