@@ -141,12 +141,20 @@ collection_classes = {
     "System": {
         "tags": [TAG.Collection, TAG.System],
         "subclasses": system_subclasses,
-        "constraints": {BRICK.hasPart: [BRICK.Equipment, BRICK.Point, BRICK.Loop]},
+        "constraints": {
+            BRICK.hasPart: [
+                BRICK.Equipment,
+                BRICK.Point,
+                BRICK.Loop,
+                BRICK.System,
+                BRICK.Location,
+            ]
+        },
     },
     "Loop": {
         "tags": [TAG.Collection, TAG.Loop],
         "subclasses": loop_subclasses,
-        "constraints": {BRICK.hasPart: [BRICK.Equipment, BRICK.Point]},
+        "constraints": {BRICK.hasPart: [BRICK.Equipment, BRICK.Point, BRICK.Location]},
     },
     "Photovoltaic_Array": {
         "tags": [TAG.Collection, TAG.Photovoltaic, TAG.Array],
