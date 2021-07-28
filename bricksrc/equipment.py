@@ -377,6 +377,18 @@ hvac_subclasses = {
                     },
                 },
             },
+            "Chilled_Beam": {
+                "tags": [TAG.Equipment, TAG.Chilled, TAG.Beam],
+                "subclasses": {
+                    "Active_Chilled_Beam": {
+                        "tags": [TAG.Equipment, TAG.Active, TAG.Chilled, TAG.Beam]
+                    },
+                    "Passive_Chilled_Beam": {
+                        "tags": [TAG.Equipment, TAG.Passive, TAG.Chilled, TAG.Beam]
+                    },
+                },
+            },
+            "Induction_Unit": {"tags": [TAG.Equipment, TAG.Induction, TAG.Unit]},
         },
     },
     "Space_Heater": {"tags": [TAG.Equipment, TAG.Space, TAG.Heater]},
