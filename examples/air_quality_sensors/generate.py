@@ -1,5 +1,5 @@
 import brickschema
-from brickschema.namespaces import A, OWL, BRICK, UNIT
+from brickschema.namespaces import A, OWL, BRICK, UNIT, XSD
 from rdflib import Namespace, Literal
 
 # our entities will live in this namespace
@@ -51,14 +51,14 @@ g.add((BLDG["room_1"], A, BRICK["Office_Kitchen"]))
 # can add information about the sq area of the room and the floor
 # this nifty syntax requires brickschema>=0.3.2a1
 room_area = [
-    (BRICK.value, Literal(40)),
-    (BRICK.hasUnit, UNIT["M3"]),
+    (BRICK.value, Literal(40, datatype=XSD.double)),
+    (BRICK.hasUnit, UNIT["M2"]),
 ]
 g.add((BLDG["room_1"], BRICK.area, room_area))
 
 floor_area = [
-    (BRICK.value, Literal(1000)),
-    (BRICK.hasUnit, UNIT["M3"]),
+    (BRICK.value, Literal(1000, datatype=XSD.double)),
+    (BRICK.hasUnit, UNIT["M2"]),
 ]
 g.add((BLDG["floor_1"], BRICK.area, floor_area))
 
@@ -92,7 +92,6 @@ for (sensor, brick_type, units, location) in sensors:
     g.add((sensor, A, brick_type))
     g.add((sensor, BRICK.hasUnit, units))
     g.add((sensor, BRICK.isPointOf, location))
-    g.add((sensor, BRICK.hasLocation, location))
 
 # save the file
 g.serialize("air_quality_sensor_example.ttl", format="ttl")
