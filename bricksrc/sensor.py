@@ -2048,7 +2048,15 @@ sensor_definitions = {
                                             [
                                                 BRICK.measures,
                                                 BRICK.Differential_Temperature,
-                                            ]
+                                            ],
+                                            [
+                                                BRICK.measures,
+                                                BRICK.Supply_Water,
+                                            ],
+                                            [
+                                                BRICK.measures,
+                                                BRICK.Return_Water,
+                                            ],
                                         ],
                                         "tags": [
                                             TAG.Point,
