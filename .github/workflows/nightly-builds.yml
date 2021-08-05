@@ -17,12 +17,15 @@ jobs:
         with:
           python-version: 3.8.5
           architecture: x64
+      - name: Set up AllegroGraph (Docker)
+        run: |
+          docker version
+          docker pull franzinc/agraph:v7.1.0
       - name: install deps
         run: |
           pip install -r requirements.txt
+          cd shacl && python generate_shacl.py && cd ..
           python generate_brick.py
-          cd shacl && python generate_shacl.py
-
       - uses: marvinpinto/action-automatic-releases@latest
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}

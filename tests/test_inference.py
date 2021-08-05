@@ -93,7 +93,7 @@ def test_tag_inference():
     res2 = make_readable(
         g.query(
             "SELECT DISTINCT ?sensor WHERE {\
-                                    ?sensor brick:measures brick:CO2\
+                                    ?sensor brick:measures brick:CO2_Concentration\
                                   }"
         )
     )

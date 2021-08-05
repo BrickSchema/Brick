@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-18.04
     strategy:
       matrix:
-        python-version: [3.6.12, 3.7.9, 3.8.5, 3.9.0]
+        python-version: [3.7.9, 3.8.5, 3.9.0]
     steps:
     - uses: actions/checkout@v2
     - name: Set up Python ${{ matrix.python-version }}
@@ -22,7 +22,7 @@ jobs:
     - name: Set up AllegroGraph (Docker)
       run: |
         docker version
-        docker pull franzinc/agraph:v7.0.0
+        docker pull franzinc/agraph:v7.1.0
     - name: Install Dependencies
       run: |
         pip install -r requirements.txt

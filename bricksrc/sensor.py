@@ -23,13 +23,20 @@ sensor_definitions = {
                         "tags": [TAG.Point, TAG.Sensor, TAG.CO],
                         "substances": [
                             [BRICK.measures, BRICK.Air],
-                            [BRICK.measures, BRICK.CO],
+                            [BRICK.measures, BRICK.CO_Concentration],
                         ],
                         "subclasses": {
                             "CO_Level_Sensor": {
                                 "tags": [TAG.Point, TAG.CO, TAG.Level, TAG.Sensor],
                             },
                             "CO_Differential_Sensor": {
+                                "substances": [
+                                    [BRICK.measures, BRICK.Air],
+                                    [
+                                        BRICK.measures,
+                                        BRICK.Differential_CO_Concentration,
+                                    ],
+                                ],
                                 "tags": [
                                     TAG.Point,
                                     TAG.CO,
@@ -47,7 +54,7 @@ sensor_definitions = {
                                 ],
                                 "substances": [
                                     [BRICK.measures, BRICK.Outside_Air],
-                                    [BRICK.measures, BRICK.CO],
+                                    [BRICK.measures, BRICK.CO_Concentration],
                                 ],
                             },
                             "Return_Air_CO_Sensor": {
@@ -69,10 +76,17 @@ sensor_definitions = {
                         "tags": [TAG.Point, TAG.Sensor, TAG.CO2],
                         "substances": [
                             [BRICK.measures, BRICK.Air],
-                            [BRICK.measures, BRICK.CO2],
+                            [BRICK.measures, BRICK.CO2_Concentration],
                         ],
                         "subclasses": {
                             "CO2_Differential_Sensor": {
+                                "substances": [
+                                    [BRICK.measures, BRICK.Air],
+                                    [
+                                        BRICK.measures,
+                                        BRICK.Differential_CO2_Concentration,
+                                    ],
+                                ],
                                 "tags": [
                                     TAG.Point,
                                     TAG.CO2,
@@ -115,7 +129,7 @@ sensor_definitions = {
                         "tags": [TAG.Point, TAG.Sensor, TAG.Level, TAG.NO2],
                         "substances": [
                             [BRICK.measures, BRICK.Air],
-                            [BRICK.measures, BRICK.NO2],
+                            [BRICK.measures, BRICK.NO2_Concentration],
                         ],
                     },
                     "Formaldehyde_Level_Sensor": {
@@ -721,6 +735,45 @@ sensor_definitions = {
                             [BRICK.measures, BRICK.Water],
                         ],
                         "subclasses": {
+                            "Entering_Water_Flow_Sensor": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Entering,
+                                    TAG.Water,
+                                    TAG.Flow,
+                                    TAG.Sensor,
+                                ],
+                                "substances": [
+                                    [BRICK.measures, BRICK.Flow],
+                                    [BRICK.measures, BRICK.Entering_Water],
+                                ],
+                            },
+                            "Leaving_Water_Flow_Sensor": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Leaving,
+                                    TAG.Water,
+                                    TAG.Flow,
+                                    TAG.Sensor,
+                                ],
+                                "substances": [
+                                    [BRICK.measures, BRICK.Flow],
+                                    [BRICK.measures, BRICK.Leaving_Water],
+                                ],
+                            },
+                            "Bypass_Water_Flow_Sensor": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Bypass,
+                                    TAG.Water,
+                                    TAG.Flow,
+                                    TAG.Sensor,
+                                ],
+                                "substances": [
+                                    [BRICK.measures, BRICK.Flow],
+                                    [BRICK.measures, BRICK.Bypass_Water],
+                                ],
+                            },
                             "Hot_Water_Flow_Sensor": {
                                 "tags": [
                                     TAG.Point,
@@ -728,6 +781,23 @@ sensor_definitions = {
                                     TAG.Flow,
                                     TAG.Water,
                                     TAG.Hot,
+                                ],
+                                "substances": [
+                                    [BRICK.measures, BRICK.Flow],
+                                    [BRICK.measures, BRICK.Hot_Water],
+                                ],
+                            },
+                            "Chilled_Water_Flow_Sensor": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Chilled,
+                                    TAG.Water,
+                                    TAG.Flow,
+                                    TAG.Sensor,
+                                ],
+                                "substances": [
+                                    [BRICK.measures, BRICK.Flow],
+                                    [BRICK.measures, BRICK.Chilled_Water],
                                 ],
                             },
                             "Supply_Water_Flow_Sensor": {
@@ -765,6 +835,28 @@ sensor_definitions = {
                                                 BRICK.Supply_Chilled_Water,
                                             ],
                                         ],
+                                        "parents": [BRICK.Chilled_Water_Flow_Sensor],
+                                    },
+                                    "Hot_Water_Supply_Flow_Sensor": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Hot,
+                                            TAG.Water,
+                                            TAG.Supply,
+                                            TAG.Flow,
+                                            TAG.Sensor,
+                                        ],
+                                        OWL.equivalentClass: BRICK[
+                                            "Hot_Water_Discharge_Flow_Sensor"
+                                        ],
+                                        "substances": [
+                                            [BRICK.measures, BRICK.Flow],
+                                            [
+                                                BRICK.measures,
+                                                BRICK.Supply_Hot_Water,
+                                            ],
+                                        ],
+                                        "parents": [BRICK.Hot_Water_Flow_Sensor],
                                     },
                                     "Supply_Condenser_Water_Flow_Sensor": {
                                         "substances": [
@@ -814,7 +906,24 @@ sensor_definitions = {
                                                 BRICK.Discharge_Chilled_Water,
                                             ],
                                         ],
-                                    }
+                                    },
+                                    "Hot_Water_Discharge_Flow_Sensor": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Hot,
+                                            TAG.Water,
+                                            TAG.Discharge,
+                                            TAG.Flow,
+                                            TAG.Sensor,
+                                        ],
+                                        "substances": [
+                                            [BRICK.measures, BRICK.Flow],
+                                            [
+                                                BRICK.measures,
+                                                BRICK.Discharge_Hot_Water,
+                                            ],
+                                        ],
+                                    },
                                 },
                             },
                             "Return_Water_Flow_Sensor": {
@@ -1015,6 +1124,19 @@ sensor_definitions = {
                     }
                 },
             },
+            "Imbalance_Sensor": {
+                "tags": [TAG.Point, TAG.Sensor, TAG.Imbalance],
+                "subclasses": {
+                    "Current_Imbalance_Sensor": {
+                        "tags": [TAG.Point, TAG.Sensor, TAG.Imbalance, TAG.Current],
+                        "substances": [[BRICK.measures, BRICK.Current_Imbalance]],
+                    },
+                    "Voltage_Imbalance_Sensor": {
+                        "tags": [TAG.Point, TAG.Sensor, TAG.Imbalance, TAG.Voltage],
+                        "substances": [[BRICK.measures, BRICK.Voltage_Imbalance]],
+                    },
+                },
+            },
             "Luminance_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Luminance],
                 "substances": [[BRICK.measures, BRICK.Luminance]],
@@ -1041,10 +1163,16 @@ sensor_definitions = {
                 "subclasses": {
                     "Differential_Pressure_Sensor": {
                         "tags": [TAG.Point, TAG.Sensor, TAG.Pressure, TAG.Differential],
+                        "substances": [
+                            [BRICK.measures, BRICK.Differential_Static_Pressure]
+                        ],
                         "subclasses": {
                             "Air_Differential_Pressure_Sensor": {
                                 "substances": [
-                                    [BRICK.measures, BRICK.Differential_Pressure],
+                                    [
+                                        BRICK.measures,
+                                        BRICK.Differential_Static_Pressure,
+                                    ],
                                     [BRICK.measures, BRICK.Air],
                                 ],
                                 "tags": [
@@ -1059,7 +1187,7 @@ sensor_definitions = {
                                         "substances": [
                                             [
                                                 BRICK.measures,
-                                                BRICK.Differential_Pressure,
+                                                BRICK.Differential_Static_Pressure,
                                             ],
                                             [BRICK.measures, BRICK.Return_Air],
                                         ],
@@ -1084,7 +1212,10 @@ sensor_definitions = {
                                     TAG.Chilled,
                                 ],
                                 "substances": [
-                                    [BRICK.measures, BRICK.Differential_Pressure],
+                                    [
+                                        BRICK.measures,
+                                        BRICK.Differential_Static_Pressure,
+                                    ],
                                     [BRICK.measures, BRICK.Chilled_Water],
                                 ],
                             },
@@ -1107,7 +1238,10 @@ sensor_definitions = {
                                     TAG.Hot,
                                 ],
                                 "substances": [
-                                    [BRICK.measures, BRICK.Differential_Pressure],
+                                    [
+                                        BRICK.measures,
+                                        BRICK.Differential_Static_Pressure,
+                                    ],
                                     [BRICK.measures, BRICK.Hot_Water],
                                 ],
                                 "subclasses": {
@@ -1212,6 +1346,16 @@ sensor_definitions = {
                                         ],
                                     },
                                 },
+                            },
+                            "Underfloor_Air_Plenum_Static_Pressure_Sensor": {
+                                "tags": [
+                                    TAG.Underfloor,
+                                    TAG.Air,
+                                    TAG.Plenum,
+                                    TAG.Static,
+                                    TAG.Pressure,
+                                    TAG.Sensor,
+                                ]
                             },
                         },
                     },
@@ -1778,6 +1922,13 @@ sensor_definitions = {
                                 ],
                                 "subclasses": {
                                     "Chilled_Water_Differential_Temperature_Sensor": {
+                                        "substances": [
+                                            [
+                                                BRICK.measures,
+                                                BRICK.Differential_Temperature,
+                                            ],
+                                            [BRICK.measures, BRICK.Chilled_Water],
+                                        ],
                                         "tags": [
                                             TAG.Point,
                                             TAG.Chilled,
@@ -1922,6 +2073,20 @@ sensor_definitions = {
                                         ],
                                     },
                                     "Differential_Supply_Return_Water_Temperature_Sensor": {
+                                        "substances": [
+                                            [
+                                                BRICK.measures,
+                                                BRICK.Differential_Temperature,
+                                            ],
+                                            [
+                                                BRICK.measures,
+                                                BRICK.Supply_Water,
+                                            ],
+                                            [
+                                                BRICK.measures,
+                                                BRICK.Return_Water,
+                                            ],
+                                        ],
                                         "tags": [
                                             TAG.Point,
                                             TAG.Differential,

@@ -9,7 +9,7 @@ bldg:building_energy_sensor a brick:Energy_Sensor ;
 
 bldg:building_peak_demand a brick:Peak_Power_Demand_Sensor ;
     brick:aggregate [ brick:aggregationFunction "max" ;
-            brick:aggregationWindow "RP1D" ] ;
+            brick:aggregationInterval "RP1D" ] ;
     brick:hasUnit unit:KiloW ;
     brick:isPointOf bldg:meter ;
     brick:timeseries [ brick:hasTimeseriesId "bcf9a85d-696c-446a-a2ac-97207ecfbc56" ] .
