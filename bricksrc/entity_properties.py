@@ -1,5 +1,8 @@
-from .namespaces import BRICK, TAG, OWL, RDFS, SKOS, UNIT, XSD
-from rdflib import Namespace, Literal
+"""
+Entity property definitions
+"""
+from rdflib import Literal
+from .namespaces import BRICK, RDFS, SKOS, UNIT, XSD, SH
 
 # these are the "relationship"/predicates/OWL properties that
 # relate a Brick entity to a structured value.
@@ -8,25 +11,41 @@ from rdflib import Namespace, Literal
 entity_properties = {
     BRICK.area: {
         SKOS.definition: Literal("Entity has 2-dimensional area"),
-        RDFS.domain: BRICK.Location,
         RDFS.range: BRICK.AreaShape,
         "subproperties": {
             BRICK.grossArea: {
                 SKOS.definition: Literal("Entity has gross 2-dimensional area"),
-                RDFS.domain: BRICK.Location,
                 RDFS.range: BRICK.AreaShape,
             },
             BRICK.netArea: {
                 SKOS.definition: Literal("Entity has net 2-dimensional area"),
-                RDFS.domain: BRICK.Location,
+                RDFS.range: BRICK.AreaShape,
+            },
+            BRICK.panelArea: {
+                SKOS.definition: Literal("Surface area of a panel, such as a PV panel"),
                 RDFS.range: BRICK.AreaShape,
             },
         },
     },
     BRICK.volume: {
         SKOS.definition: Literal("Entity has 3-dimensional volume"),
-        RDFS.domain: BRICK.Location,
         RDFS.range: BRICK.VolumeShape,
+    },
+    BRICK.azimuth: {
+        SKOS.definition: Literal(
+            "(Horizontal) angle between a projected vector and a reference vector (typically a compass bearing). The projected vector usually indicates the direction of a face or plane."
+        ),
+        RDFS.range: BRICK.AzimuthShape,
+    },
+    BRICK.tilt: {
+        SKOS.definition: Literal(
+            "The direction an entity is facing in degrees above the horizon"
+        ),
+        RDFS.range: BRICK.TiltShape,
+    },
+    BRICK.coordinates: {
+        SKOS.definition: Literal("The location of an entity in latitude/longitude"),
+        RDFS.range: BRICK.CoordinateShape,
     },
     # electrical properties
     BRICK.powerComplexity: {
@@ -50,6 +69,42 @@ entity_properties = {
     BRICK.currentFlowType: {
         SKOS.definition: Literal("The current flow type of the entity"),
         RDFS.range: BRICK.CurrentFlowTypeShape,
+    },
+    BRICK.ratedPowerOutput: {
+        SKOS.definition: Literal("The nominal rated power output of the entity"),
+        RDFS.range: BRICK.PowerOutputShape,
+    },
+    BRICK.measuredPowerOutput: {
+        SKOS.definition: Literal("The nominal measured power output of the entity"),
+        RDFS.range: BRICK.PowerOutputShape,
+    },
+    BRICK.temperatureCoefficientofPmax: {
+        SKOS.definition: Literal(
+            "The % change in power output for every degree celsius that the entity is hotter than 25 degrees celsius"
+        ),
+        RDFS.range: BRICK.TemperatureCoefficientPerDegreeCelsiusShape,
+    },
+    BRICK.conversionEfficiency: {
+        SKOS.definition: Literal(
+            "The percent efficiency of the conversion process (usually to power or energy) carried out by the entity"
+        ),
+        RDFS.range: BRICK.EfficiencyShape,
+        "subproperties": {
+            BRICK.ratedModuleConversionEfficiency: {
+                SKOS.definition: Literal(
+                    "The *rated* percentage of sunlight that is converted into usable power, as measured using Standard Test Conditions (STC): 1000 W/sqm irradiance, 25 degC panel temperature, no wind"
+                ),
+                RDFS.domain: BRICK.PV_Panel,
+                RDFS.range: BRICK.EfficiencyShape,
+            },
+            BRICK.measuredModuleConversionEfficiency: {
+                SKOS.definition: Literal(
+                    "The measured percentage of sunlight that is converted into usable power"
+                ),
+                RDFS.domain: BRICK.PV_Panel,
+                RDFS.range: BRICK.EfficiencyShape,
+            },
+        },
     },
     # equipment operation properties
     BRICK.operationalStage: {
@@ -210,8 +265,8 @@ building_primary_function_values = [
 
 # These are the shapes that govern what values of Entity Properties should look like
 shape_properties = {
-    BRICK.AreaShape: {"units": [UNIT.FT2, UNIT.M2], "datatype": XSD.float},
-    BRICK.VolumeShape: {"units": [UNIT.FT3, UNIT.M3], "datatype": XSD.float},
+    BRICK.AreaShape: {"units": [UNIT.FT2, UNIT.M2], "datatype": XSD.double},
+    BRICK.VolumeShape: {"units": [UNIT.FT3, UNIT.M3], "datatype": XSD.double},
     BRICK.PowerComplexityShape: {"values": ["real", "reactive", "apparent"]},
     BRICK.PowerFlowShape: {"values": ["import", "export", "net", "absolute"]},
     BRICK.PhasesShape: {"values": ["A", "B", "C", "AB", "BC", "AC", "ABC"]},
@@ -219,19 +274,59 @@ shape_properties = {
     BRICK.CurrentFlowTypeShape: {"values": ["AC", "DC"]},
     BRICK.StageShape: {"values": [1, 2, 3, 4]},
     BRICK.BuildingPrimaryFunctionShape: {"values": building_primary_function_values},
+    BRICK.CoordinateShape: {
+        "properties": {
+            BRICK.latitude: {"datatype": XSD.double},
+            BRICK.longitude: {"datatype": XSD.double},
+        },
+    },
+    BRICK.TiltShape: {"units": [UNIT.DEG], "datatype": XSD.double},
+    BRICK.TemperatureShape: {"units": [UNIT.DEG_C, UNIT.DEG_F], "datatype": XSD.double},
+    BRICK.TemperatureCoefficientPerDegreeCelsiusShape: {
+        "units": [UNIT.PERCENT],
+        "datatype": XSD.double,
+    },
+    BRICK.AzimuthShape: {
+        "units": [UNIT.DEG],
+        "datatype": XSD.double,
+        "rotationalDirection": {"values": ["clockwise", "counterclockwise"]},
+        "referenceDirection": {"values": ["North", "South", "East", "West"]},
+        "range": {"minInclusive": 0, "maxInclusive": 360},
+    },
     BRICK.YearBuiltShape: {"datatype": XSD.integer},
     BRICK.ThermalTransmittenceShape: {
-        "datatype": XSD.float,
+        "datatype": XSD.double,
         "units": [UNIT.BTU_IT, UNIT["W-PER-M2-K"]],
     },
+    BRICK.PowerOutputShape: {
+        "datatype": XSD.double,
+        "units": [UNIT.KiloW, UNIT.W, UNIT.MegaW],
+        "properties": {
+            BRICK.ambientTemperatureOfMeasurement: {
+                "optional": True,
+                SKOS.definition: Literal(
+                    "The ambient temperature at which the power output was measured"
+                ),
+                SH["class"]: BRICK.TemperatureShape,
+            },
+        },
+    },
+    BRICK.EfficiencyShape: {
+        "datatype": XSD.decimal,
+        "units": [UNIT.PERCENT],
+        "range": {"minInclusive": 0},
+    },
     BRICK.CoolingCapacityShape: {
-        "datatype": XSD.float,
+        "datatype": XSD.double,
         "units": [UNIT.TON_FG, UNIT["BTU_IT-PER-HR"], UNIT["BTU_TH-PER-HR"], UNIT.W],
     },
     BRICK.AggregationShape: {
         "properties": {
             BRICK.aggregationFunction: {
-                "values": ["max", "min", "count", "mean", "sum", "median", "mode"]
+                SKOS.definition: Literal(
+                    "The aggregation function applied to data in the interval which produces the value"
+                ),
+                "values": ["max", "min", "count", "mean", "sum", "median", "mode"],
             },
             BRICK.aggregationInterval: {
                 SKOS.definition: Literal(

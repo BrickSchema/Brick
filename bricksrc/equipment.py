@@ -123,9 +123,6 @@ equipment_subclasses = {
     },
     "Water_Distribution": {"tags": [TAG.Water, TAG.Distribution, TAG.Equipment]},
     "Steam_Distribution": {"tags": [TAG.Steam, TAG.Distribution, TAG.Equipment]},
-    "PV_Array": {
-        "tags": [TAG.Solar, TAG.PV, TAG.Equipment, TAG.Array],
-    },
     "PV_Panel": {
         "tags": [TAG.Solar, TAG.PV, TAG.Equipment, TAG.Panel],
         "subclasses": {
@@ -180,7 +177,14 @@ equipment_subclasses = {
             },
         },
     },
-    "Furniture": {"tags": [TAG.Equipment, TAG.Furniture]},
+    "Furniture": {
+        "tags": [TAG.Equipment, TAG.Furniture],
+        "subclasses": {
+            "Stage_Riser": {
+                "tags": [TAG.Equipment, TAG.Furniture, TAG.Stage, TAG.Riser],
+            },
+        },
+    },
     "Fire_Safety_Equipment": {
         "tags": [TAG.Equipment, TAG.Fire, TAG.Safety, TAG.Equipment],
         "subclasses": {
@@ -249,6 +253,44 @@ hvac_subclasses = {
                 },
             },
             "VAV": {"tags": [TAG.Equipment, TAG.VAV]},
+            "Radiant_Panel": {
+                "tags": [TAG.Equipment, TAG.Radiant, TAG.Panel],
+                "subclasses": {
+                    "Thermally_Activated_Building_System_Panel": {
+                        "tags": [
+                            TAG.Equipment,
+                            TAG.Thermally,
+                            TAG.Activated,
+                            TAG.Building,
+                            TAG.System,
+                            TAG.Panel,
+                        ],
+                        OWL.equivalentClass: BRICK["TABS_Panel"],
+                    },
+                    "TABS_Panel": {"tags": [TAG.Equipment, TAG.TABS, TAG.Panel]},
+                    "Embedded_Surface_System_Panel": {
+                        "tags": [
+                            TAG.Equipment,
+                            TAG.Embedded,
+                            TAG.Surface,
+                            TAG.System,
+                            TAG.Panel,
+                        ],
+                        OWL.equivalentClass: BRICK["ESS_Panel"],
+                    },
+                    "ESS_Panel": {"tags": [TAG.Equipment, TAG.ESS, TAG.Panel]},
+                    "Radiant_Ceiling_Panel": {
+                        "tags": [
+                            TAG.Equipment,
+                            TAG.Radiant,
+                            TAG.Ceiling,
+                            TAG.Panel,
+                        ],
+                        OWL.equivalentClass: BRICK["RC_Panel"],
+                    },
+                    "RC_Panel": {"tags": [TAG.Equipment, TAG.RC, TAG.Panel]},
+                },
+            },
             "Radiator": {
                 "tags": [TAG.Equipment, TAG.Radiator],
                 "subclasses": {
@@ -293,6 +335,42 @@ hvac_subclasses = {
                                 "parents": [BRICK.Hot_Water_Radiator],
                             },
                         },
+                    },
+                },
+            },
+            "Air_Diffuser": {
+                "tags": [
+                    TAG.Equipment,
+                    TAG.Air,
+                    TAG.Diffuser,
+                ],
+                "subclasses": {
+                    "Jet_Nozzle_Air_Diffuser": {
+                        "tags": [
+                            TAG.Equipment,
+                            TAG.Jet,
+                            TAG.Nozzle,
+                            TAG.Air,
+                            TAG.Diffuser,
+                        ]
+                    },
+                    "Laminar_Flow_Air_Diffuser": {
+                        "tags": [
+                            TAG.Equipment,
+                            TAG.Laminar,
+                            TAG.Flow,
+                            TAG.Air,
+                            TAG.Diffuser,
+                        ]
+                    },
+                    "Displacement_Flow_Air_Diffuser": {
+                        "tags": [
+                            TAG.Equipment,
+                            TAG.Displacement,
+                            TAG.Flow,
+                            TAG.Air,
+                            TAG.Diffuser,
+                        ]
                     },
                 },
             },
@@ -426,7 +504,47 @@ hvac_subclasses = {
         },
     },
     "Humidifier": {"tags": [TAG.Equipment, TAG.Humidifier]},
-    "Boiler": {"tags": [TAG.Equipment, TAG.Boiler], "parents": [BRICK.Water_Heater]},
+    "Boiler": {
+        "tags": [TAG.Equipment, TAG.Boiler],
+        "subclasses": {
+            "Electric_Boiler": {
+                "tags": [
+                    TAG.Equipment,
+                    TAG.Electric,
+                    TAG.Boiler,
+                ],
+            },
+            "Natural_Gas_Boiler": {
+                "tags": [
+                    TAG.Equipment,
+                    TAG.Natural,
+                    TAG.Gas,
+                    TAG.Boiler,
+                ],
+                "subclasses": {
+                    "Condensing_Natural_Gas_Boiler": {
+                        "tags": [
+                            TAG.Equipment,
+                            TAG.Condensing,
+                            TAG.Natural,
+                            TAG.Gas,
+                            TAG.Boiler,
+                        ],
+                    },
+                    "Noncondensing_Natural_Gas_Boiler": {
+                        "tags": [
+                            TAG.Equipment,
+                            TAG.Noncondensing,
+                            TAG.Natural,
+                            TAG.Gas,
+                            TAG.Boiler,
+                        ],
+                    },
+                },
+            },
+        },
+        "parents": [BRICK.Water_Heater],
+    },
     "Air_Handler_Unit": {
         # here for historical purposes
         "tags": [TAG.Equipment, TAG.Air, TAG.Handler, TAG.Unit],
@@ -439,6 +557,28 @@ hvac_subclasses = {
     "AHU": {
         "tags": [TAG.Equipment, TAG.AHU],
         "subclasses": {
+            "Dedicated_Outdoor_Air_System_Unit": {
+                "tags": [
+                    TAG.Equipment,
+                    TAG.Dedicated,
+                    TAG.Outdoor,
+                    TAG.Air,
+                    TAG.System,
+                ],
+                OWL.equivalentClass: BRICK["DOAS"],
+            },
+            "DOAS": {
+                "tags": [TAG.Equipment, TAG.DOAS],
+                OWL.equivalentClass: BRICK["Dedicated_Outdoor_Air_System_Unit"],
+            },
+            "Makeup_Air_Unit": {
+                "tags": [TAG.Equipment, TAG.Makeup, TAG.Air, TAG.Unit],
+                OWL.equivalentClass: BRICK["MAU"],
+            },
+            "MAU": {
+                "tags": [TAG.Equipment, TAG.MAU],
+                OWL.equivalentClass: BRICK["Makeup_Air_Unit"],
+            },
             "Rooftop_Unit": {
                 OWL.equivalentClass: BRICK["RTU"],
                 "tags": [TAG.Equipment, TAG.Rooftop, TAG.AHU],
@@ -448,6 +588,31 @@ hvac_subclasses = {
                 OWL.equivalentClass: BRICK["Rooftop_Unit"],
             },
             "PAU": {"tags": [TAG.Equipment, TAG.PAU]},
+        },
+    },
+    "Air_Plenum": {
+        "tags": [
+            TAG.Equipment,
+            TAG.Air,
+            TAG.Plenum,
+        ],
+        "subclasses": {
+            "Return_Air_Plenum": {
+                "tags": [TAG.Equipment, TAG.Return, TAG.Air, TAG.Plenum]
+            },
+            "Supply_Air_Plenum": {
+                "tags": [TAG.Equipment, TAG.Supply, TAG.Air, TAG.Plenum],
+                "subclasses": {
+                    "Underfloor_Air_Plenum": {
+                        "tags": [
+                            TAG.Equipment,
+                            TAG.Underfloor,
+                            TAG.Air,
+                            TAG.Plenum,
+                        ]
+                    },
+                },
+            },
         },
     },
 }
