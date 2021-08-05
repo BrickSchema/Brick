@@ -4,6 +4,7 @@ import sys
 import rdflib
 import brickschema
 from warnings import warn
+from collections import Counter
 from rdflib import RDF, RDFS, Namespace, BNode
 
 sys.path.append("..")
@@ -109,3 +110,10 @@ def test_valid_definition_encoding():
             or isinstance(seealso, rdflib.URIRef)
             or isinstance(seealso, rdflib.Literal)
         ), ("SeeAlso %s should be a URI or Literal or None" % seealso)
+
+
+def test_rdfs_labels():
+    labels = g.subjects(predicate=RDFS.label)
+    c = Counter(labels)
+    for entity, count in c.items():
+        assert count == 1, f"Entity {entity} has {count} labels, which is more than 1"
