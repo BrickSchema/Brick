@@ -1854,6 +1854,19 @@ sensor_definitions = {
                             [BRICK.measures, BRICK.Water],
                         ],
                         "subclasses": {
+                            "Water_Differential_Temperature_Sensor": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Water,
+                                    TAG.Differential,
+                                    TAG.Temperature,
+                                    TAG.Sensor,
+                                ],
+                                "substances": [
+                                    [BRICK.measures, BRICK.Differential_Temperature],
+                                    [BRICK.measures, BRICK.Water],
+                                ],
+                            },
                             "Heat_Exchanger_Supply_Water_Temperature_Sensor": {
                                 "tags": [
                                     TAG.Point,
@@ -1879,6 +1892,19 @@ sensor_definitions = {
                                     [BRICK.measures, BRICK.Supply_Hot_Water],
                                 ],
                                 "subclasses": {
+                                    "Hot_Water_Differential_Temperature_Sensor": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Hot,
+                                            TAG.Water,
+                                            TAG.Differential,
+                                            TAG.Temperature,
+                                            TAG.Sensor,
+                                        ],
+                                        "parents": [
+                                            BRICK.Water_Differential_Temperature_Sensor
+                                        ],
+                                    },
                                     "Domestic_Hot_Water_Supply_Temperature_Sensor": {
                                         "tags": [
                                             TAG.Point,
@@ -1944,6 +1970,9 @@ sensor_definitions = {
                                             TAG.Differential,
                                             TAG.Temperature,
                                             TAG.Sensor,
+                                        ],
+                                        "parents": [
+                                            BRICK.Water_Differential_Temperature_Sensor
                                         ],
                                     },
                                     "Chilled_Water_Supply_Temperature_Sensor": {
@@ -2099,6 +2128,9 @@ sensor_definitions = {
                                             TAG.Return,
                                             TAG.Temperature,
                                             TAG.Sensor,
+                                        ],
+                                        "parents": [
+                                            BRICK.Water_Differential_Temperature_Sensor
                                         ],
                                     },
                                 },
