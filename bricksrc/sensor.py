@@ -1164,14 +1164,14 @@ sensor_definitions = {
                     "Differential_Pressure_Sensor": {
                         "tags": [TAG.Point, TAG.Sensor, TAG.Pressure, TAG.Differential],
                         "substances": [
-                            [BRICK.measures, BRICK.Differential_Static_Pressure]
+                            [BRICK.measures, BRICK.Differential_Pressure]
                         ],
                         "subclasses": {
                             "Air_Differential_Pressure_Sensor": {
                                 "substances": [
                                     [
                                         BRICK.measures,
-                                        BRICK.Differential_Static_Pressure,
+                                        BRICK.Differential_Pressure,
                                     ],
                                     [BRICK.measures, BRICK.Air],
                                 ],
@@ -1187,7 +1187,7 @@ sensor_definitions = {
                                         "substances": [
                                             [
                                                 BRICK.measures,
-                                                BRICK.Differential_Static_Pressure,
+                                                BRICK.Differential_Pressure,
                                             ],
                                             [BRICK.measures, BRICK.Return_Air],
                                         ],
@@ -1214,7 +1214,7 @@ sensor_definitions = {
                                 "substances": [
                                     [
                                         BRICK.measures,
-                                        BRICK.Differential_Static_Pressure,
+                                        BRICK.Differential_Pressure,
                                     ],
                                     [BRICK.measures, BRICK.Chilled_Water],
                                 ],
@@ -1240,7 +1240,7 @@ sensor_definitions = {
                                 "substances": [
                                     [
                                         BRICK.measures,
-                                        BRICK.Differential_Static_Pressure,
+                                        BRICK.Differential_Pressure,
                                     ],
                                     [BRICK.measures, BRICK.Hot_Water],
                                 ],
