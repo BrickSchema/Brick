@@ -636,12 +636,10 @@ quantity_definitions = {
         },
     },
     "Temperature": {
-        # we use CelsiusTemperature for now because it includes DEG_C as well as
-        # the ThermodynamicTemperature units
-        BRICK.hasQUDTReference: QUDTQK["CelsiusTemperature"],
+        BRICK.hasQUDTReference: QUDTQK["Temperature"],
         SKOS.narrower: {
             "Differential_Temperature": {
-                BRICK.hasQUDTReference: QUDTQK["CelsiusTemperature"],
+                BRICK.hasQUDTReference: QUDTQK["Temperature"],
                 QUDT.isDeltaQuantity: Literal(True),
             },
             "Operative_Temperature": {
@@ -652,7 +650,7 @@ quantity_definitions = {
                 QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M0H1T0D0"],
                 RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
                 RDFS.label: Literal("Operative_Temperature"),
-                SKOS.broader: QUDTQK.CelsiusTemperature,
+                SKOS.broader: QUDTQK.Temperature,
             },
             "Radiant_Temperature": {
                 QUDT.applicableUnit: [UNIT["DEG_F"], UNIT["DEG_C"], UNIT["K"]],
@@ -662,7 +660,7 @@ quantity_definitions = {
                 QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M0H1T0D0"],
                 RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
                 RDFS.label: Literal("Radiant_Temperature"),
-                SKOS.broader: QUDTQK.CelsiusTemperature,
+                SKOS.broader: QUDTQK.Temperature,
             },
             "Dry_Bulb_Temperature": {
                 QUDT.applicableUnit: [UNIT["DEG_F"], UNIT["DEG_C"], UNIT["K"]],
@@ -672,7 +670,7 @@ quantity_definitions = {
                 QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M0H1T0D0"],
                 RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
                 RDFS.label: Literal("Dry_Bulb_Temperature"),
-                SKOS.broader: QUDTQK.CelsiusTemperature,
+                SKOS.broader: QUDTQK.Temperature,
                 SKOS.narrower: {
                     "Differential_Dry_Bulb_Temperature": {
                         BRICK.hasQUDTReference: QUDTQK["Dry_Bulb_Temperature"],
@@ -688,7 +686,7 @@ quantity_definitions = {
                 QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M0H1T0D0"],
                 RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
                 RDFS.label: Literal("Wet_Bulb_Temperature"),
-                SKOS.broader: QUDTQK.CelsiusTemperature,
+                SKOS.broader: QUDTQK.Temperature,
             },
         },
     },
