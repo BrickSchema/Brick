@@ -2,7 +2,8 @@
 Entity property definitions
 """
 from rdflib import Literal
-from .namespaces import BRICK, RDFS, SKOS, UNIT, XSD, SH
+from .namespaces import BRICK, RDFS, SKOS, UNIT, XSD, SH, QUDT
+
 
 # these are the "relationship"/predicates/OWL properties that
 # relate a Brick entity to a structured value.
@@ -280,14 +281,14 @@ shape_properties = {
             BRICK.longitude: {"datatype": XSD.double},
         },
     },
-    BRICK.TiltShape: {"units": [UNIT.DEG], "datatype": XSD.double},
-    BRICK.TemperatureShape: {"units": [UNIT.DEG_C, UNIT.DEG_F], "datatype": XSD.double},
+    BRICK.TiltShape: {"unitsFromQuantity": BRICK.Angle, "datatype": XSD.double},
+    BRICK.TemperatureShape: {"unitsFromQuantity": BRICK.Temperature, "datatype": XSD.double},
     BRICK.TemperatureCoefficientPerDegreeCelsiusShape: {
         "units": [UNIT.PERCENT],
         "datatype": XSD.double,
     },
     BRICK.AzimuthShape: {
-        "units": [UNIT.DEG],
+        "unitsFromQuantity": BRICK.AzimuthShape,
         "datatype": XSD.double,
         "rotationalDirection": {"values": ["clockwise", "counterclockwise"]},
         "referenceDirection": {"values": ["North", "South", "East", "West"]},
@@ -300,7 +301,7 @@ shape_properties = {
     },
     BRICK.PowerOutputShape: {
         "datatype": XSD.double,
-        "units": [UNIT.KiloW, UNIT.W, UNIT.MegaW],
+        "unitsFromQuantity": BRICK.Power,
         "properties": {
             BRICK.ambientTemperatureOfMeasurement: {
                 "optional": True,
