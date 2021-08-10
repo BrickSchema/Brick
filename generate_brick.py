@@ -470,7 +470,11 @@ def define_shape_properties(definitions):
             G.add((shape_name, SH.property, v))
             G.add((v, A, SH.PropertyShape))
             G.add((v, SH.path, BRICK.value))
-            G.add((v, SH.datatype, defn.pop("datatype")))
+            dtype = defn.pop("datatype")
+            if dtype == BSH.NumericValue:
+                G.add((v, SH["or"], BSH.NumericValue))
+            else:
+                G.add((v, SH.datatype, dtype))
             G.add((v, SH.minCount, Literal(1)))
             if "range" in defn:
                 for prop_name, prop_value in defn.pop("range").items():
