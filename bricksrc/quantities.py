@@ -18,7 +18,7 @@ def get_units(qudt_quantity):
     """
     return g.query(
         f"""SELECT ?unit ?symbol ?label WHERE {{
-                    <{qudt_quantity}> skos:narrower*/qudt:applicableUnit ?unit .
+                    <{qudt_quantity}> qudt:applicableUnit ?unit .
                     OPTIONAL {{
                         ?unit qudt:symbol ?symbol .
                         FILTER(isLiteral(?symbol))
