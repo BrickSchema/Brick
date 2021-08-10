@@ -17,7 +17,7 @@ def get_root(version):
         root_template = "https://brickschema.org/schema/{0}/Brick#Class"
     else:
         root_template = "https://brickschema.org/schema/{0}/BrickFrame#TagSet"
-    return root_template.format(get_short_version(version))
+    return root_template.format(version)
 
 
 def get_short_version(version):
@@ -55,8 +55,8 @@ new_ver = args.newbrick[0]
 new_ttl = args.newbrick[1]
 
 brick_ns_template = "https://brickschema.org/schema/{0}/Brick#"
-OLD_BRICK = Namespace(brick_ns_template.format(get_short_version(old_ver)))
-NEW_BRICK = Namespace(brick_ns_template.format(get_short_version(new_ver)))
+OLD_BRICK = Namespace(brick_ns_template.format(old_ver))
+NEW_BRICK = Namespace(brick_ns_template.format(new_ver))
 OLD_ROOT = get_root(old_ver)
 NEW_ROOT = get_root(new_ver)
 
@@ -83,6 +83,7 @@ def get_tag_sets(root):
         klass = row[0].split("#")[-1]
         tag_set = klass.split("_")  # Tags inside the class name.
         tag_sets[klass] = set(tag_set)
+    print(root, len(tag_sets))
     return tag_sets
 
 

@@ -143,18 +143,18 @@ entity_properties = {
         RDFS.range: BRICK.YearBuiltShape,
         RDFS.seeAlso: Literal("https://project-haystack.org/tag/yearBuilt"),
     },
-    BRICK.thermalTransmittence: {
+    BRICK.thermalTransmittance: {
         SKOS.definition: Literal(
             "The area-weighted average heat transfer coefficient (commonly referred to as a U-value)"
         ),
-        RDFS.range: BRICK.ThermalTransmittenceShape,
+        RDFS.range: BRICK.ThermalTransmittanceShape,
         RDFS.seeAlso: Literal(
             "https://www.iso.org/obp/ui/#iso:std:iso:13789:ed-3:v1:en"
         ),
         "subproperties": {
-            BRICK.buildingThermalTransmittence: {
+            BRICK.buildingThermalTransmittance: {
                 RDFS.domain: BRICK.Building,
-                RDFS.range: BRICK.ThermalTransmittenceShape,
+                RDFS.range: BRICK.ThermalTransmittanceShape,
                 SKOS.definition: Literal(
                     "The area-weighted average heat transfer coefficient (commonly referred to as a U-value) for a building envelope"
                 ),

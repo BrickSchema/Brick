@@ -229,7 +229,8 @@ def define_concept_hierarchy(definitions, typeclasses, broader=None, related=Non
             G.add((concept, SKOS.related, related))
         # add label
         class_label = concept.split("#")[-1].replace("_", " ")
-        G.add((concept, RDFS.label, Literal(class_label)))
+        if not G.objects(concept, RDFS.label):
+            G.add((concept, RDFS.label, Literal(class_label)))
 
         # define mapping to substances + quantities if it exists
         # "substances" property is a list of (predicate, object) pairs
@@ -285,7 +286,9 @@ def define_classes(definitions, parent, pun_classes=False):
         G.add((classname, RDFS.subClassOf, parent))
         # add label
         class_label = classname.split("#")[-1].replace("_", " ")
-        G.add((classname, RDFS.label, Literal(class_label)))
+
+        if not G.objects(classname, RDFS.label):
+            G.add((classname, RDFS.label, Literal(class_label)))
         if pun_classes:
             G.add((classname, A, classname))
 
@@ -704,7 +707,7 @@ for r in res:
         G.add((unit, A, UNIT.Unit))
         if symb is not None:
             G.add((unit, QUDT.symbol, symb))
-        if label is not None:
+        if label is not None and not G.objects(unit, RDFS.label):
             G.add((unit, RDFS.label, label))
 
 logging.info("Adding class definitions")

@@ -1164,14 +1164,14 @@ sensor_definitions = {
                     "Differential_Pressure_Sensor": {
                         "tags": [TAG.Point, TAG.Sensor, TAG.Pressure, TAG.Differential],
                         "substances": [
-                            [BRICK.measures, BRICK.Differential_Static_Pressure]
+                            [BRICK.measures, BRICK.Differential_Pressure]
                         ],
                         "subclasses": {
                             "Air_Differential_Pressure_Sensor": {
                                 "substances": [
                                     [
                                         BRICK.measures,
-                                        BRICK.Differential_Static_Pressure,
+                                        BRICK.Differential_Pressure,
                                     ],
                                     [BRICK.measures, BRICK.Air],
                                 ],
@@ -1183,17 +1183,51 @@ sensor_definitions = {
                                     TAG.Differential,
                                 ],
                                 "subclasses": {
+                                    "Exhaust_Air_Differential_Pressure_Sensor": {
+                                        "substances": [
+                                            [
+                                                BRICK.measures,
+                                                BRICK.Differential_Pressure,
+                                            ],
+                                            [BRICK.measures, BRICK.Exhaust_Air],
+                                        ],
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Exhaust,
+                                            TAG.Air,
+                                            TAG.Sensor,
+                                            TAG.Pressure,
+                                            TAG.Differential,
+                                        ],
+                                    },
                                     "Return_Air_Differential_Pressure_Sensor": {
                                         "substances": [
                                             [
                                                 BRICK.measures,
-                                                BRICK.Differential_Static_Pressure,
+                                                BRICK.Differential_Pressure,
                                             ],
                                             [BRICK.measures, BRICK.Return_Air],
                                         ],
                                         "tags": [
                                             TAG.Point,
                                             TAG.Return,
+                                            TAG.Air,
+                                            TAG.Sensor,
+                                            TAG.Pressure,
+                                            TAG.Differential,
+                                        ],
+                                    },
+                                    "Supply_Air_Differential_Pressure_Sensor": {
+                                        "substances": [
+                                            [
+                                                BRICK.measures,
+                                                BRICK.Differential_Pressure,
+                                            ],
+                                            [BRICK.measures, BRICK.Supply_Air],
+                                        ],
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Supply,
                                             TAG.Air,
                                             TAG.Sensor,
                                             TAG.Pressure,
@@ -1214,7 +1248,7 @@ sensor_definitions = {
                                 "substances": [
                                     [
                                         BRICK.measures,
-                                        BRICK.Differential_Static_Pressure,
+                                        BRICK.Differential_Pressure,
                                     ],
                                     [BRICK.measures, BRICK.Chilled_Water],
                                 ],
@@ -1240,7 +1274,7 @@ sensor_definitions = {
                                 "substances": [
                                     [
                                         BRICK.measures,
-                                        BRICK.Differential_Static_Pressure,
+                                        BRICK.Differential_Pressure,
                                     ],
                                     [BRICK.measures, BRICK.Hot_Water],
                                 ],
@@ -1820,6 +1854,19 @@ sensor_definitions = {
                             [BRICK.measures, BRICK.Water],
                         ],
                         "subclasses": {
+                            "Water_Differential_Temperature_Sensor": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Water,
+                                    TAG.Differential,
+                                    TAG.Temperature,
+                                    TAG.Sensor,
+                                ],
+                                "substances": [
+                                    [BRICK.measures, BRICK.Differential_Temperature],
+                                    [BRICK.measures, BRICK.Water],
+                                ],
+                            },
                             "Heat_Exchanger_Supply_Water_Temperature_Sensor": {
                                 "tags": [
                                     TAG.Point,
@@ -1845,6 +1892,19 @@ sensor_definitions = {
                                     [BRICK.measures, BRICK.Supply_Hot_Water],
                                 ],
                                 "subclasses": {
+                                    "Hot_Water_Differential_Temperature_Sensor": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Hot,
+                                            TAG.Water,
+                                            TAG.Differential,
+                                            TAG.Temperature,
+                                            TAG.Sensor,
+                                        ],
+                                        "parents": [
+                                            BRICK.Water_Differential_Temperature_Sensor
+                                        ],
+                                    },
                                     "Domestic_Hot_Water_Supply_Temperature_Sensor": {
                                         "tags": [
                                             TAG.Point,
@@ -1910,6 +1970,9 @@ sensor_definitions = {
                                             TAG.Differential,
                                             TAG.Temperature,
                                             TAG.Sensor,
+                                        ],
+                                        "parents": [
+                                            BRICK.Water_Differential_Temperature_Sensor
                                         ],
                                     },
                                     "Chilled_Water_Supply_Temperature_Sensor": {
@@ -2065,6 +2128,9 @@ sensor_definitions = {
                                             TAG.Return,
                                             TAG.Temperature,
                                             TAG.Sensor,
+                                        ],
+                                        "parents": [
+                                            BRICK.Water_Differential_Temperature_Sensor
                                         ],
                                     },
                                 },
