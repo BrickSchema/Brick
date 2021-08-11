@@ -1,6 +1,6 @@
 .PHONY: format
 
-Brick.ttl: bricksrc/*.py bricksrc/definitions.csv generate_brick.py
+Brick.ttl: bricksrc/*.py bricksrc/*.ttl bricksrc/definitions.csv generate_brick.py
 	mkdir -p extensions
 	python generate_brick.py
 	cd shacl && python generate_shacl.py
