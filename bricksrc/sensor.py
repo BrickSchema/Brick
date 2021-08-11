@@ -1853,10 +1853,9 @@ sensor_definitions = {
                             TAG.Radiant,
                             TAG.Panel,
                         ],
-                        "substances": [
-                            [BRICK.measures, BRICK.Temperature],
-                            [BRICK.measures, BRICK.Radiant_Panel],
-                        ],
+                        "constraints": {
+                            BRICK.isPointOf: [BRICK.Radiant_Panel],
+                        },
                         "subclasses": {
                             "Inside_Face_Surface_Temperature_Sensor": {
                                 "tags": [
@@ -1884,9 +1883,6 @@ sensor_definitions = {
                                     TAG.Embedded,
                                     TAG.Temperature,
                                     TAG.Sensor,
-                                ],
-                                "substances": [
-                                    [BRICK.measures, BRICK.Temperature],
                                 ],
                                 "subclasses": {
                                     "Core_Temperature_Sensor": {
