@@ -8,6 +8,9 @@ Brick.ttl: bricksrc/*.py bricksrc/*.ttl bricksrc/definitions.csv generate_brick.
 shacl/BrickShape.ttl: bricksrc/*.py generate_brick.py shacl/generate_shacl.py
 	cd shacl && python generate_shacl.py
 
+clean:
+	rm Brick.ttl Brick+extensions.ttl
+
 format:
 	black generate_brick.py
 	black shacl/
