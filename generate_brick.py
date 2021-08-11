@@ -392,6 +392,32 @@ def define_entity_properties(definitions, superprop=None):
                 G.add((entprop, prop, values))
 
 
+def define_shape_property_property(shape_name, definitions):
+    for prop_name, prop_defn in definitions.items():
+        ps = BNode()
+        G.add((shape_name, SH.property, ps))
+        G.add((ps, A, SH.PropertyShape))
+        G.add((ps, SH.path, prop_name))
+        if "optional" in prop_defn:
+            if not prop_defn.pop("optional"):
+                G.add((ps, SH.minCount, Literal(1)))
+        else:
+            G.add((ps, SH.minCount, Literal(1)))
+
+        if "datatype" in prop_defn:
+            dtype = prop_defn.pop("datatype")
+            if dtype == BSH.NumericValue:
+                G.add((ps, SH["or"], BSH.NumericValue))
+            else:
+                G.add((ps, SH.datatype, dtype))
+        elif "values" in prop_defn:
+            enumeration = BNode()
+            G.add((ps, SH["in"], enumeration))
+            G.add((ps, SH.minCount, Literal(1)))
+            Collection(G, enumeration, map(Literal, prop_defn.pop("values")))
+        add_properties(ps, prop_defn)
+
+
 def define_shape_properties(definitions):
     """
     Defines the NodeShapes that govern what the values of
@@ -451,24 +477,8 @@ def define_shape_properties(definitions):
             G.add((ps, SH.minCount, Literal(1)))
             Collection(G, enumeration, defn.pop("units"))
         if "properties" in defn:
-            for prop_name, prop_defn in defn.pop("properties").items():
-                ps = BNode()
-                G.add((shape_name, SH.property, ps))
-                G.add((ps, A, SH.PropertyShape))
-                G.add((ps, SH.path, prop_name))
-                if "optional" in prop_defn:
-                    if not prop_defn.pop("optional"):
-                        G.add((ps, SH.minCount, Literal(1)))
-                else:
-                    G.add((ps, SH.minCount, Literal(1)))
-                if "datatype" in prop_defn:
-                    G.add((ps, SH.datatype, prop_defn.pop("datatype")))
-                elif "values" in prop_defn:
-                    enumeration = BNode()
-                    G.add((ps, SH["in"], enumeration))
-                    G.add((ps, SH.minCount, Literal(1)))
-                    Collection(G, enumeration, map(Literal, prop_defn.pop("values")))
-                add_properties(ps, prop_defn)
+            prop_defns = defn.pop("properties")
+            define_shape_property_property(shape_name, prop_defns)
         elif "datatype" in defn:
             G.add((shape_name, SH.property, v))
             G.add((v, A, SH.PropertyShape))
