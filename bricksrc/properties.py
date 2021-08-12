@@ -26,14 +26,6 @@ properties = {
         A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         RDFS.range: BRICK.Substance,
     },
-    "controls": {
-        A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
-        OWL.inverseOf: BRICK["isControlledBy"],
-    },
-    "isControlledBy": {
-        A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
-        OWL.inverseOf: BRICK["controls"],
-    },
     "feeds": {
         A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         OWL.inverseOf: BRICK["isFedBy"],

@@ -87,6 +87,7 @@ location_subclasses = {
                         "subclasses": {
                             "Majlis": {
                                 "tags": [
+                                    TAG.Majlis,
                                     TAG.Lounge,
                                     TAG.Common,
                                     TAG.Space,
@@ -219,7 +220,7 @@ location_subclasses = {
                         "tags": [TAG.Massage, TAG.Room, TAG.Space, TAG.Location]
                     },
                     "Media_Room": {
-                        "tags": [TAG.Massage, TAG.Room, TAG.Space, TAG.Location],
+                        "tags": [TAG.Media, TAG.Room, TAG.Space, TAG.Location],
                         "subclasses": {
                             "Broadcast_Room": {
                                 "tags": [
