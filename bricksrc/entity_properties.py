@@ -2,7 +2,7 @@
 Entity property definitions
 """
 from rdflib import Literal
-from .namespaces import BRICK, RDFS, SKOS, UNIT, XSD, SH, BSH
+from .namespaces import BRICK, RDFS, SKOS, UNIT, XSD, SH, BSH, QUDT
 
 # these are the "relationship"/predicates/OWL properties that
 # relate a Brick entity to a structured value.
@@ -280,14 +280,14 @@ shape_properties = {
             BRICK.longitude: {"datatype": BSH.NumericValue},
         },
     },
-    BRICK.TiltShape: {"units": [UNIT.DEG], "datatype": BSH.NumericValue},
-    BRICK.TemperatureShape: {"units": [UNIT.DEG_C, UNIT.DEG_F], "datatype": BSH.NumericValue},
+    BRICK.TiltShape: {"unitsFromQuantity": BRICK.Angle, "datatype": BSH.NumericValue},
+    BRICK.TemperatureShape: {"unitsFromQuantity": BRICK.Temperature, "datatype": BSH.NumericValue},
     BRICK.TemperatureCoefficientPerDegreeCelsiusShape: {
         "units": [UNIT.PERCENT],
         "datatype": BSH.NumericValue,
     },
     BRICK.AzimuthShape: {
-        "units": [UNIT.DEG],
+        "unitsFromQuantity": BRICK.AzimuthShape,
         "datatype": BSH.NumericValue,
         "rotationalDirection": {"values": ["clockwise", "counterclockwise"]},
         "referenceDirection": {"values": ["North", "South", "East", "West"]},
@@ -300,7 +300,7 @@ shape_properties = {
     },
     BRICK.PowerOutputShape: {
         "datatype": BSH.NumericValue,
-        "units": [UNIT.KiloW, UNIT.W, UNIT.MegaW],
+        "unitsFromQuantity": BRICK.Power,
         "properties": {
             BRICK.ambientTemperatureOfMeasurement: {
                 "optional": True,
