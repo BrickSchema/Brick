@@ -281,13 +281,16 @@ shape_properties = {
         },
     },
     BRICK.TiltShape: {"unitsFromQuantity": BRICK.Angle, "datatype": BSH.NumericValue},
-    BRICK.TemperatureShape: {"unitsFromQuantity": BRICK.Temperature, "datatype": BSH.NumericValue},
+    BRICK.TemperatureShape: {
+        "unitsFromQuantity": BRICK.Temperature,
+        "datatype": BSH.NumericValue,
+    },
     BRICK.TemperatureCoefficientPerDegreeCelsiusShape: {
         "units": [UNIT.PERCENT],
         "datatype": BSH.NumericValue,
     },
     BRICK.AzimuthShape: {
-        "unitsFromQuantity": BRICK.AzimuthShape,
+        "unitsFromQuantity": BRICK.Angle,
         "datatype": BSH.NumericValue,
         "rotationalDirection": {"values": ["clockwise", "counterclockwise"]},
         "referenceDirection": {"values": ["North", "South", "East", "West"]},
