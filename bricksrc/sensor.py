@@ -1163,9 +1163,7 @@ sensor_definitions = {
                 "subclasses": {
                     "Differential_Pressure_Sensor": {
                         "tags": [TAG.Point, TAG.Sensor, TAG.Pressure, TAG.Differential],
-                        "substances": [
-                            [BRICK.measures, BRICK.Differential_Pressure]
-                        ],
+                        "substances": [[BRICK.measures, BRICK.Differential_Pressure]],
                         "subclasses": {
                             "Air_Differential_Pressure_Sensor": {
                                 "substances": [
@@ -1840,6 +1838,58 @@ sensor_definitions = {
                                             TAG.Air,
                                             TAG.Temperature,
                                             TAG.Intake,
+                                            TAG.Sensor,
+                                        ],
+                                    },
+                                },
+                            },
+                        },
+                    },
+                    "Radiant_Panel_Temperature_Sensor": {
+                        "tags": [
+                            TAG.Point,
+                            TAG.Sensor,
+                            TAG.Temperature,
+                            TAG.Radiant,
+                            TAG.Panel,
+                        ],
+                        "constraints": {
+                            BRICK.isPointOf: [BRICK.Radiant_Panel],
+                        },
+                        "subclasses": {
+                            "Inside_Face_Surface_Temperature_Sensor": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Inside,
+                                    TAG.Face,
+                                    TAG.Surface,
+                                    TAG.Temperature,
+                                    TAG.Sensor,
+                                ],
+                            },
+                            "Outside_Face_Surface_Temperature_Sensor": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Outside,
+                                    TAG.Face,
+                                    TAG.Surface,
+                                    TAG.Temperature,
+                                    TAG.Sensor,
+                                ],
+                            },
+                            "Embedded_Temperature_Sensor": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Embedded,
+                                    TAG.Temperature,
+                                    TAG.Sensor,
+                                ],
+                                "subclasses": {
+                                    "Core_Temperature_Sensor": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Core,
+                                            TAG.Temperature,
                                             TAG.Sensor,
                                         ],
                                     },
