@@ -12,23 +12,11 @@ Create a new branch to centralize the final changes for the release; something l
 
 When the branch is finished and the release is ready, merge it into the `master` branch on GitHub.
 
-## Update `brickschema`
-
-Checkout the [brickschema repository](https://github.com/BrickSchema/py-brickschema). Edit `tools/update_auxiliary.sh` to identify the internal folder where the copy of Brick should go. Usually this will just involve changing the version number at the end.
-
-Then, run `update_auxiliary.sh` from the root directory of the repository:
-
-```bash
-$ ./tools/update_auxiliary.sh
-```
-
-Update the version number of the package (`poetry version <new version>`), build and publish.
-
 ## Release Notes
 
 Now the release notes can be prepared.
 
-Use the output of the `tools/compare_versions` tool to generate a list of what has changed since the last release of Brick. This *can* be a URL, and in fact this is the easist way of comparing the current build with the previous build: specifically, what classes/concepts are added or removed. This should be one of the last items done. Take a look at the bottom of https://github.com/BrickSchema/Brick/releases/tag/v1.2.0 as an example for what this should look like in the release.
+Use the output of the `tools/compare_versions` tool to generate a list of what has changed since the last release of Brick. This *can* be a URL, and in fact this is the easist way of comparing the current build with the previous build: specifically, what classes/concepts are added or removed. Take a look at the bottom of https://github.com/BrickSchema/Brick/releases/tag/v1.2.0 as an example for what this should look like in the release.
 
 Due to a limitation of the `compare_versions` tool, it is currently necessary to download all Brick.ttl files that will be compared and to manually adjust the namespaces so that they are versioned, e.g. `https://brickschema.org/schema/Brick#` becomes `https://brickschema.org/schema/1.2.1/Brick#`.
 
@@ -55,4 +43,19 @@ git shortlog v1.2.0..HEAD -n -s
 
 Include the added/removed classes at the bottom of the release notes. Be sure to tag the release following the usual naming schema `vMAJOR.MINOR.PATCH`.
 
+## Update `brickschema`
+
+Checkout the [brickschema repository](https://github.com/BrickSchema/py-brickschema). Edit `tools/update_auxiliary.sh` to identify the internal folder where the copy of Brick should go. Usually this will just involve changing the version number at the end.
+
+Then, run `update_auxiliary.sh` from the root directory of the repository:
+
+```bash
+$ ./tools/update_auxiliary.sh
+```
+
+Update the version number of the package (`poetry version <new version>`), build and publish.
+
+
 ## Update Website
+
+Instructions coming soon...
