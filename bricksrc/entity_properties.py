@@ -2,7 +2,7 @@
 Entity property definitions
 """
 from rdflib import Literal
-from .namespaces import BRICK, RDFS, SKOS, UNIT, XSD, SH
+from .namespaces import BRICK, RDFS, SKOS, UNIT, XSD, SH, BSH, QUDT
 
 # these are the "relationship"/predicates/OWL properties that
 # relate a Brick entity to a structured value.
@@ -143,18 +143,18 @@ entity_properties = {
         RDFS.range: BRICK.YearBuiltShape,
         RDFS.seeAlso: Literal("https://project-haystack.org/tag/yearBuilt"),
     },
-    BRICK.thermalTransmittence: {
+    BRICK.thermalTransmittance: {
         SKOS.definition: Literal(
             "The area-weighted average heat transfer coefficient (commonly referred to as a U-value)"
         ),
-        RDFS.range: BRICK.ThermalTransmittenceShape,
+        RDFS.range: BRICK.ThermalTransmittanceShape,
         RDFS.seeAlso: Literal(
             "https://www.iso.org/obp/ui/#iso:std:iso:13789:ed-3:v1:en"
         ),
         "subproperties": {
-            BRICK.buildingThermalTransmittence: {
+            BRICK.buildingThermalTransmittance: {
                 RDFS.domain: BRICK.Building,
-                RDFS.range: BRICK.ThermalTransmittenceShape,
+                RDFS.range: BRICK.ThermalTransmittanceShape,
                 SKOS.definition: Literal(
                     "The area-weighted average heat transfer coefficient (commonly referred to as a U-value) for a building envelope"
                 ),
@@ -265,8 +265,8 @@ building_primary_function_values = [
 
 # These are the shapes that govern what values of Entity Properties should look like
 shape_properties = {
-    BRICK.AreaShape: {"units": [UNIT.FT2, UNIT.M2], "datatype": XSD.double},
-    BRICK.VolumeShape: {"units": [UNIT.FT3, UNIT.M3], "datatype": XSD.double},
+    BRICK.AreaShape: {"units": [UNIT.FT2, UNIT.M2], "datatype": BSH.NumericValue},
+    BRICK.VolumeShape: {"units": [UNIT.FT3, UNIT.M3], "datatype": BSH.NumericValue},
     BRICK.PowerComplexityShape: {"values": ["real", "reactive", "apparent"]},
     BRICK.PowerFlowShape: {"values": ["import", "export", "net", "absolute"]},
     BRICK.PhasesShape: {"values": ["A", "B", "C", "AB", "BC", "AC", "ABC"]},
@@ -276,31 +276,34 @@ shape_properties = {
     BRICK.BuildingPrimaryFunctionShape: {"values": building_primary_function_values},
     BRICK.CoordinateShape: {
         "properties": {
-            BRICK.latitude: {"datatype": XSD.double},
-            BRICK.longitude: {"datatype": XSD.double},
+            BRICK.latitude: {"datatype": BSH.NumericValue},
+            BRICK.longitude: {"datatype": BSH.NumericValue},
         },
     },
-    BRICK.TiltShape: {"units": [UNIT.DEG], "datatype": XSD.double},
-    BRICK.TemperatureShape: {"units": [UNIT.DEG_C, UNIT.DEG_F], "datatype": XSD.double},
+    BRICK.TiltShape: {"unitsFromQuantity": BRICK.Angle, "datatype": BSH.NumericValue},
+    BRICK.TemperatureShape: {
+        "unitsFromQuantity": BRICK.Temperature,
+        "datatype": BSH.NumericValue,
+    },
     BRICK.TemperatureCoefficientPerDegreeCelsiusShape: {
         "units": [UNIT.PERCENT],
-        "datatype": XSD.double,
+        "datatype": BSH.NumericValue,
     },
     BRICK.AzimuthShape: {
-        "units": [UNIT.DEG],
-        "datatype": XSD.double,
+        "unitsFromQuantity": BRICK.Angle,
+        "datatype": BSH.NumericValue,
         "rotationalDirection": {"values": ["clockwise", "counterclockwise"]},
         "referenceDirection": {"values": ["North", "South", "East", "West"]},
         "range": {"minInclusive": 0, "maxInclusive": 360},
     },
-    BRICK.YearBuiltShape: {"datatype": XSD.integer},
-    BRICK.ThermalTransmittenceShape: {
-        "datatype": XSD.double,
+    BRICK.YearBuiltShape: {"datatype": XSD.nonNegativeInteger},
+    BRICK.ThermalTransmittanceShape: {
+        "datatype": BSH.NumericValue,
         "units": [UNIT.BTU_IT, UNIT["W-PER-M2-K"]],
     },
     BRICK.PowerOutputShape: {
-        "datatype": XSD.double,
-        "units": [UNIT.KiloW, UNIT.W, UNIT.MegaW],
+        "datatype": BSH.NumericValue,
+        "unitsFromQuantity": BRICK.Power,
         "properties": {
             BRICK.ambientTemperatureOfMeasurement: {
                 "optional": True,
@@ -312,12 +315,12 @@ shape_properties = {
         },
     },
     BRICK.EfficiencyShape: {
-        "datatype": XSD.decimal,
+        "datatype": BSH.NumericValue,
         "units": [UNIT.PERCENT],
         "range": {"minInclusive": 0},
     },
     BRICK.CoolingCapacityShape: {
-        "datatype": XSD.double,
+        "datatype": BSH.NumericValue,
         "units": [UNIT.TON_FG, UNIT["BTU_IT-PER-HR"], UNIT["BTU_TH-PER-HR"], UNIT.W],
     },
     BRICK.AggregationShape: {

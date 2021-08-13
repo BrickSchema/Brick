@@ -579,6 +579,19 @@ quantity_definitions = {
                 BRICK.hasQUDTReference: QUDTQK["AtmosphericPressure"]
             },
             "Dynamic_Pressure": {},
+            "Differential_Pressure": {
+                QUDT.isDeltaQuantity: Literal(True),
+                SKOS.narrower: {
+                    "Differential_Static_Pressure": {
+                        BRICK.hasQUDTReference: QUDTQK["StaticPressure"],
+                        QUDT.isDeltaQuantity: Literal(True),
+                    },
+                    "Differential_Dynamic_Pressure": {
+                        BRICK.hasQUDTReference: QUDTQK["DynamicPressure"],
+                        QUDT.isDeltaQuantity: Literal(True),
+                    },
+                },
+            },
             "Static_Pressure": {
                 BRICK.hasQUDTReference: QUDTQK["StaticPressure"],
                 SKOS.narrower: {
@@ -593,6 +606,12 @@ quantity_definitions = {
                     QUDTQK["DynamicPressure"],
                     BRICK["Dynamic_Pressure"],
                 ],
+                SKOS.narrower: {
+                    "Differential_Dynamic_Pressure": {
+                        BRICK.hasQUDTReference: QUDTQK["DynamicPressure"],
+                        QUDT.isDeltaQuantity: Literal(True),
+                    },
+                }
             },
         },
     },
@@ -636,10 +655,10 @@ quantity_definitions = {
         },
     },
     "Temperature": {
-        BRICK.hasQUDTReference: QUDTQK["ThermodynamicTemperature"],
+        BRICK.hasQUDTReference: QUDTQK["Temperature"],
         SKOS.narrower: {
             "Differential_Temperature": {
-                BRICK.hasQUDTReference: QUDTQK["ThermodynamicTemperature"],
+                BRICK.hasQUDTReference: QUDTQK["Temperature"],
                 QUDT.isDeltaQuantity: Literal(True),
             },
             "Operative_Temperature": {
@@ -650,7 +669,7 @@ quantity_definitions = {
                 QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M0H1T0D0"],
                 RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
                 RDFS.label: Literal("Operative_Temperature"),
-                SKOS.broader: QUDTQK.ThermodynamicTemperature,
+                SKOS.broader: QUDTQK.Temperature,
             },
             "Radiant_Temperature": {
                 QUDT.applicableUnit: [UNIT["DEG_F"], UNIT["DEG_C"], UNIT["K"]],
@@ -660,7 +679,7 @@ quantity_definitions = {
                 QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M0H1T0D0"],
                 RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
                 RDFS.label: Literal("Radiant_Temperature"),
-                SKOS.broader: QUDTQK.ThermodynamicTemperature,
+                SKOS.broader: QUDTQK.Temperature,
             },
             "Dry_Bulb_Temperature": {
                 QUDT.applicableUnit: [UNIT["DEG_F"], UNIT["DEG_C"], UNIT["K"]],
@@ -670,7 +689,7 @@ quantity_definitions = {
                 QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M0H1T0D0"],
                 RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
                 RDFS.label: Literal("Dry_Bulb_Temperature"),
-                SKOS.broader: QUDTQK.ThermodynamicTemperature,
+                SKOS.broader: QUDTQK.Temperature,
                 SKOS.narrower: {
                     "Differential_Dry_Bulb_Temperature": {
                         BRICK.hasQUDTReference: QUDTQK["Dry_Bulb_Temperature"],
@@ -686,7 +705,7 @@ quantity_definitions = {
                 QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M0H1T0D0"],
                 RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
                 RDFS.label: Literal("Wet_Bulb_Temperature"),
-                SKOS.broader: QUDTQK.ThermodynamicTemperature,
+                SKOS.broader: QUDTQK.Temperature,
             },
         },
     },

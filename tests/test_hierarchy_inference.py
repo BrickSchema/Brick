@@ -28,11 +28,6 @@ inference_file = "tests/test_hierarchy_inference.ttl"
 
 entity_postfix = "_0"
 
-q_prefix = f"""
-prefix brick: <https://brickschema.org/schema/{BRICK_VERSION}/Brick#>
-prefix owl: <http://www.w3.org/2002/07/owl#>
-"""
-
 
 def test_hierarchyinference():
     # Load the schema
@@ -40,15 +35,12 @@ def test_hierarchyinference():
     g.load_file("Brick.ttl")
 
     # Get all the Classes with their restrictions.
-    qstr = (
-        q_prefix
-        + """
+    qstr = """
     select ?class ?tag where {
       ?class rdfs:subClassOf+ brick:Class.
       ?class brick:hasAssociatedTag ?tag
     }
     """
-    )
     start_time = time.time()
     for row in tqdm(g.query(qstr)):
         klass = row[0]
@@ -62,20 +54,17 @@ def test_hierarchyinference():
     # Infer classes of the entities.
     # Apply reasoner
     g.serialize("test.ttl", format="ttl")
-    g.rebuild_tag_lookup()
+    g.load_file("extensions/brick_extension_shacl_tag_inference.ttl")
     g.expand(profile="brick")
     g.serialize(inference_file, format="turtle")  # Store the inferred graph.
 
     # Find all instances and their parents from the inferred graph.
-    qstr = (
-        q_prefix
-        + """
+    qstr = """
     select ?instance ?class where {
         ?instance a ?class.
         ?class rdfs:subClassOf* brick:Class.
     }
     """
-    )
     inferred_klasses = defaultdict(set)
     for row in tqdm(g.query(qstr)):
         entity = row[0]
@@ -86,8 +75,7 @@ def test_hierarchyinference():
     # get equivalent classes
     equivalent_classes = defaultdict(set)
     res = g.query(
-        q_prefix
-        + """\nSELECT ?c1 ?c2 WHERE {
+        """SELECT ?c1 ?c2 WHERE {
         ?c1 owl:equivalentClass ?c2
     }"""
     )
@@ -108,16 +96,12 @@ def test_hierarchyinference():
         )  # This is based on how the entity name is defined above.
 
         # Find the original classes through the hierarchy from the original graph.
-        qstr = (
-            q_prefix
-            + """
+        qstr = """
         select ?parent where {{
             <{0}> rdfs:subClassOf* ?parent.
             ?parent rdfs:subClassOf* brick:Class.
-        }}
-        """.format(
-                true_class
-            )
+        }}""".format(
+            true_class
         )
         res = g.query(qstr)
         true_parents = [row[0] for row in res]

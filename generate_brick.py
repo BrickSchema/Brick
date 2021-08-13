@@ -73,6 +73,13 @@ def add_properties(item, propdefs):
             G.add((item, propname, propval))
 
 
+def units_for_quantity(quantity):
+    """
+    Given a Brick Quantity (the full URI), returns the list of applicable units
+    """
+    return list(G.objects(subject=quantity, predicate=QUDT.applicableUnit))
+
+
 def add_restriction(klass, definition):
     """
     Defines OWL.Restrictions linked to Brick classes
@@ -229,7 +236,8 @@ def define_concept_hierarchy(definitions, typeclasses, broader=None, related=Non
             G.add((concept, SKOS.related, related))
         # add label
         class_label = concept.split("#")[-1].replace("_", " ")
-        G.add((concept, RDFS.label, Literal(class_label)))
+        if not G.objects(concept, RDFS.label):
+            G.add((concept, RDFS.label, Literal(class_label)))
 
         # define mapping to substances + quantities if it exists
         # "substances" property is a list of (predicate, object) pairs
@@ -285,7 +293,9 @@ def define_classes(definitions, parent, pun_classes=False):
         G.add((classname, RDFS.subClassOf, parent))
         # add label
         class_label = classname.split("#")[-1].replace("_", " ")
-        G.add((classname, RDFS.label, Literal(class_label)))
+
+        if not G.objects(classname, RDFS.label):
+            G.add((classname, RDFS.label, Literal(class_label)))
         if pun_classes:
             G.add((classname, A, classname))
 
@@ -389,6 +399,32 @@ def define_entity_properties(definitions, superprop=None):
                 G.add((entprop, prop, values))
 
 
+def define_shape_property_property(shape_name, definitions):
+    for prop_name, prop_defn in definitions.items():
+        ps = BNode()
+        G.add((shape_name, SH.property, ps))
+        G.add((ps, A, SH.PropertyShape))
+        G.add((ps, SH.path, prop_name))
+        if "optional" in prop_defn:
+            if not prop_defn.pop("optional"):
+                G.add((ps, SH.minCount, Literal(1)))
+        else:
+            G.add((ps, SH.minCount, Literal(1)))
+
+        if "datatype" in prop_defn:
+            dtype = prop_defn.pop("datatype")
+            if dtype == BSH.NumericValue:
+                G.add((ps, SH["or"], BSH.NumericValue))
+            else:
+                G.add((ps, SH.datatype, dtype))
+        elif "values" in prop_defn:
+            enumeration = BNode()
+            G.add((ps, SH["in"], enumeration))
+            G.add((ps, SH.minCount, Literal(1)))
+            Collection(G, enumeration, map(Literal, prop_defn.pop("values")))
+        add_properties(ps, prop_defn)
+
+
 def define_shape_properties(definitions):
     """
     Defines the NodeShapes that govern what the values of
@@ -396,6 +432,8 @@ def define_shape_properties(definitions):
     keys are:
     - values: defines the set of possible values of this property as an enumeration
     - units: verifies that the units of the value are one of the given enumeration.
+    - unitsFromQuantity: verifies that the units of the value are compatible with the units
+                for the given Brick quantity
     - datatype: specifies the expected kind of data type of prop:value
     - properties: defines other epected properties of the Shape. These properties can have
                 'datatype' or 'values', in addition to other standard properties like
@@ -447,30 +485,27 @@ def define_shape_properties(definitions):
             G.add((ps, SH["in"], enumeration))
             G.add((ps, SH.minCount, Literal(1)))
             Collection(G, enumeration, defn.pop("units"))
+        if "unitsFromQuantity" in defn:
+            ps = BNode()
+            enumeration = BNode()
+            G.add((shape_name, SH.property, ps))
+            G.add((ps, A, SH.PropertyShape))
+            G.add((ps, SH.path, BRICK.hasUnit))
+            G.add((ps, SH["in"], enumeration))
+            G.add((ps, SH.minCount, Literal(1)))
+            Collection(G, enumeration, units_for_quantity(defn.pop("unitsFromQuantity")))
         if "properties" in defn:
-            for prop_name, prop_defn in defn.pop("properties").items():
-                ps = BNode()
-                G.add((shape_name, SH.property, ps))
-                G.add((ps, A, SH.PropertyShape))
-                G.add((ps, SH.path, prop_name))
-                if "optional" in prop_defn:
-                    if not prop_defn.pop("optional"):
-                        G.add((ps, SH.minCount, Literal(1)))
-                else:
-                    G.add((ps, SH.minCount, Literal(1)))
-                if "datatype" in prop_defn:
-                    G.add((ps, SH.datatype, prop_defn.pop("datatype")))
-                elif "values" in prop_defn:
-                    enumeration = BNode()
-                    G.add((ps, SH["in"], enumeration))
-                    G.add((ps, SH.minCount, Literal(1)))
-                    Collection(G, enumeration, map(Literal, prop_defn.pop("values")))
-                add_properties(ps, prop_defn)
+            prop_defns = defn.pop("properties")
+            define_shape_property_property(shape_name, prop_defns)
         elif "datatype" in defn:
             G.add((shape_name, SH.property, v))
             G.add((v, A, SH.PropertyShape))
             G.add((v, SH.path, BRICK.value))
-            G.add((v, SH.datatype, defn.pop("datatype")))
+            dtype = defn.pop("datatype")
+            if dtype == BSH.NumericValue:
+                G.add((v, SH["or"], BSH.NumericValue))
+            else:
+                G.add((v, SH.datatype, dtype))
             G.add((v, SH.minCount, Literal(1)))
             if "range" in defn:
                 for prop_name, prop_value in defn.pop("range").items():
@@ -662,14 +697,6 @@ G.add(
 G.add((BRICK.Substance, RDFS.subClassOf, BRICK.Measurable))
 G.add((BRICK.Substance, A, OWL.Class))
 
-# entity property definitions
-G.add((BRICK.value, A, OWL.DatatypeProperty))
-G.add((BRICK.value, SKOS.definition, Literal("The basic value of an entity property")))
-G.add((BRICK.EntityProperty, RDFS.subClassOf, OWL.ObjectProperty))
-G.add((BRICK.EntityProperty, A, OWL.Class))
-define_shape_properties(shape_properties)
-define_entity_properties(entity_properties)
-
 # define timeseries model
 define_timeseries_model(G)
 
@@ -700,8 +727,17 @@ for r in res:
         G.add((unit, A, UNIT.Unit))
         if symb is not None:
             G.add((unit, QUDT.symbol, symb))
-        if label is not None:
+        if label is not None and not G.objects(unit, RDFS.label):
             G.add((unit, RDFS.label, label))
+
+
+# entity property definitions (must happen after units are defined)
+G.add((BRICK.value, A, OWL.DatatypeProperty))
+G.add((BRICK.value, SKOS.definition, Literal("The basic value of an entity property")))
+G.add((BRICK.EntityProperty, RDFS.subClassOf, OWL.ObjectProperty))
+G.add((BRICK.EntityProperty, A, OWL.Class))
+define_shape_properties(shape_properties)
+define_entity_properties(entity_properties)
 
 logging.info("Adding class definitions")
 add_definitions()
