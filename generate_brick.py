@@ -139,10 +139,6 @@ def add_tags(klass, definition):
             (tag, RDFS.label, Literal(tag.split("#")[-1]))
         )  # make sure the tag is declared as such
 
-    all_restrictions = []
-    equivalent_class = BNode()
-    list_name = BNode()
-
     # add SHACL shape
     sc = BSH[klass.split("#")[-1] + "_TagShape"]
     shaclGraph.add((sc, A, SH.NodeShape))
@@ -157,14 +153,6 @@ def add_tags(klass, definition):
     shaclGraph.add((rule, SH.object, klass))
     # conditions
     for tag in definition:
-
-        if tag not in has_tag_restriction_class:
-            restriction = BNode(f"has_{tag.split('#')[-1]}")
-            G.add((restriction, A, OWL.Restriction))
-            G.add((restriction, OWL.onProperty, BRICK.hasTag))
-            G.add((restriction, OWL.hasValue, tag))
-            has_tag_restriction_class[tag] = restriction
-        all_restrictions.append(has_tag_restriction_class[tag])
 
         if tag not in shacl_tag_property_shapes:
             cond = BNode(f"has_{tag.split('#')[-1]}_condition")
@@ -201,18 +189,6 @@ def add_tags(klass, definition):
     # assert len(target_class_tag) > 0, klass
     # shaclGraph.add((sc, SH.targetClass, has_tag_restriction_class[target_class_tag[0]]))
     shaclGraph.add((sc, SH.targetSubjectsOf, BRICK.hasTag))
-
-    # if we've already mapped this class, don't map it again
-    if klass in intersection_classes:
-        return
-    if len(all_restrictions) == 1:
-        G.add((klass, RDFS.subClassOf, all_restrictions[0]))
-    if len(all_restrictions) > 1:
-        G.add((klass, RDFS.subClassOf, equivalent_class))
-        G.add((equivalent_class, OWL.intersectionOf, list_name))
-        G.add((equivalent_class, A, OWL.Class))
-        Collection(G, list_name, all_restrictions)
-    intersection_classes[klass] = tuple(sorted(definition))
 
 
 def define_concept_hierarchy(definitions, typeclasses, broader=None, related=None):
@@ -493,7 +469,9 @@ def define_shape_properties(definitions):
             G.add((ps, SH.path, BRICK.hasUnit))
             G.add((ps, SH["in"], enumeration))
             G.add((ps, SH.minCount, Literal(1)))
-            Collection(G, enumeration, units_for_quantity(defn.pop("unitsFromQuantity")))
+            Collection(
+                G, enumeration, units_for_quantity(defn.pop("unitsFromQuantity"))
+            )
         if "properties" in defn:
             prop_defns = defn.pop("properties")
             define_shape_property_property(shape_name, prop_defns)
