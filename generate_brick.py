@@ -79,6 +79,8 @@ def units_for_quantity(quantity):
     """
     return list(G.objects(subject=quantity, predicate=QUDT.applicableUnit))
 
+def has_label(concept):
+    return len(list(G.objects(concept, RDFS.label))) > 0
 
 def add_restriction(klass, definition):
     """
@@ -236,7 +238,7 @@ def define_concept_hierarchy(definitions, typeclasses, broader=None, related=Non
             G.add((concept, SKOS.related, related))
         # add label
         class_label = concept.split("#")[-1].replace("_", " ")
-        if not G.objects(concept, RDFS.label):
+        if not has_label(concept):
             G.add((concept, RDFS.label, Literal(class_label)))
 
         # define mapping to substances + quantities if it exists
@@ -294,7 +296,7 @@ def define_classes(definitions, parent, pun_classes=False):
         # add label
         class_label = classname.split("#")[-1].replace("_", " ")
 
-        if not G.objects(classname, RDFS.label):
+        if not has_label(classname):
             G.add((classname, RDFS.label, Literal(class_label)))
         if pun_classes:
             G.add((classname, A, classname))
@@ -727,7 +729,7 @@ for r in res:
         G.add((unit, A, UNIT.Unit))
         if symb is not None:
             G.add((unit, QUDT.symbol, symb))
-        if label is not None and not G.objects(unit, RDFS.label):
+        if label is not None and not has_label(unit):
             G.add((unit, RDFS.label, label))
 
 
