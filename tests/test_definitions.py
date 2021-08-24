@@ -117,3 +117,12 @@ def test_rdfs_labels():
     c = Counter(labels)
     for entity, count in c.items():
         assert count == 1, f"Entity {entity} has {count} labels, which is more than 1"
+
+    res = g.query(
+        """ SELECT ?class ?label WHERE {
+        ?class rdfs:subClassOf+ brick:Class .
+        OPTIONAL { ?class rdfs:label ?label }
+    }"""
+    )
+    for row in res:
+        assert row[1] is not None, "Class %s has no label" % row[0]
