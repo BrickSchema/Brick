@@ -80,6 +80,10 @@ def units_for_quantity(quantity):
     return list(G.objects(subject=quantity, predicate=QUDT.applicableUnit))
 
 
+def has_label(concept):
+    return len(list(G.objects(subject=concept, predicate=RDFS.label))) > 0
+
+
 def add_restriction(klass, definition):
     """
     Defines OWL.Restrictions linked to Brick classes
@@ -235,9 +239,9 @@ def define_concept_hierarchy(definitions, typeclasses, broader=None, related=Non
         if related is not None:
             G.add((concept, SKOS.related, related))
         # add label
-        class_label = concept.split("#")[-1].replace("_", " ")
-        if not G.objects(concept, RDFS.label):
-            G.add((concept, RDFS.label, Literal(class_label)))
+        label = defn.get(RDFS.label, concept.split("#")[-1].replace("_", " "))
+        if not has_label(concept):
+            G.add((concept, RDFS.label, Literal(label)))
 
         # define mapping to substances + quantities if it exists
         # "substances" property is a list of (predicate, object) pairs
@@ -294,7 +298,7 @@ def define_classes(definitions, parent, pun_classes=False):
         # add label
         class_label = classname.split("#")[-1].replace("_", " ")
 
-        if not G.objects(classname, RDFS.label):
+        if not has_label(classname):
             G.add((classname, RDFS.label, Literal(class_label)))
         if pun_classes:
             G.add((classname, A, classname))
@@ -493,7 +497,9 @@ def define_shape_properties(definitions):
             G.add((ps, SH.path, BRICK.hasUnit))
             G.add((ps, SH["in"], enumeration))
             G.add((ps, SH.minCount, Literal(1)))
-            Collection(G, enumeration, units_for_quantity(defn.pop("unitsFromQuantity")))
+            Collection(
+                G, enumeration, units_for_quantity(defn.pop("unitsFromQuantity"))
+            )
         if "properties" in defn:
             prop_defns = defn.pop("properties")
             define_shape_property_property(shape_name, prop_defns)
@@ -688,6 +694,7 @@ G.add(
 )  # needs the type declaration to satisfy some checkers
 G.add((BRICK.Quantity, RDFS.subClassOf, BRICK.Measurable))
 G.add((BRICK.Quantity, A, OWL.Class))
+G.add((BRICK.Quantity, RDFS.label, Literal("Quantity")))
 G.add((BRICK.Quantity, RDFS.subClassOf, SKOS.Concept))
 # set up Substance definition
 G.add((BRICK.Substance, RDFS.subClassOf, SOSA.FeatureOfInterest))
@@ -696,6 +703,7 @@ G.add(
 )  # needs the type declaration to satisfy some checkers
 G.add((BRICK.Substance, RDFS.subClassOf, BRICK.Measurable))
 G.add((BRICK.Substance, A, OWL.Class))
+G.add((BRICK.Substance, RDFS.label, Literal("Substance")))
 
 # define timeseries model
 define_timeseries_model(G)
@@ -727,7 +735,7 @@ for r in res:
         G.add((unit, A, UNIT.Unit))
         if symb is not None:
             G.add((unit, QUDT.symbol, symb))
-        if label is not None and not G.objects(unit, RDFS.label):
+        if label is not None and not has_label(unit):
             G.add((unit, RDFS.label, label))
 
 
