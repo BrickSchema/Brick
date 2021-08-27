@@ -153,23 +153,6 @@ bsh:SystemShape a sh:NodeShape;
     );
     .
 
-bsh:SystemShape a sh:NodeShape;
-    sh:targetClass brick:System;
-    sh:and (
-        [sh:not [ sh:class brick:Equipment ] ; sh:message "System is an exclusive top class." ]
-        [sh:not [ sh:class brick:Location ] ; sh:message "System is an exclusive top class." ]
-        [sh:not [ sh:class brick:Substance ] ; sh:message "System is an exclusive top class." ]
-        [sh:not [ sh:class brick:Quantity ] ; sh:message "System is an exclusive top class." ]
-        [sh:not [ sh:class brick:Point ] ; sh:message "System is an exclusive top class." ]
-    );
-    sh:message "System is an exclusive top class." ;
-    sh:property [
-        sh:path brick:hasPart;
-        sh:class brick:Equipment;
-        sh:message "A System can be associated with Equipments."
-    ];
-    .
-
 bsh:hasLocationShape a sh:Nodeshape;
     sh:targetSubjectsOf brick:hasLocation;
     sh:not [
