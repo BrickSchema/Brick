@@ -133,22 +133,22 @@ bsh:CollectionShape a sh:NodeShape;
         sh:property [
             sh:path brick:hasPart;
             sh:class brick:Equipment;
-            sh:message "A Collection can be associated with Equipments, Locations, Points, and other Systems."
+            sh:message "A Collection can be associated with Equipments, Locations, Points, and other Collections."
         ]
         sh:property [
             sh:path brick:hasPart;
             sh:class brick:Location;
-            sh:message "A Collection can be associated with Equipments, Locations, Points, and other Systems."
+            sh:message "A Collection can be associated with Equipments, Locations, Points, and other Collections."
         ]
         sh:property [
             sh:path brick:hasPart;
             sh:class brick:Point;
-            sh:message "A Collection can be associated with Equipments, Locations, Points, and other Systems."
+            sh:message "A Collection can be associated with Equipments, Locations, Points, and other Collections."
         ]
         sh:property [
             sh:path brick:hasPart;
-            sh:class brick:System;
-            sh:message "A Collection can be associated with Equipments, Locations, Points, and other Systems."
+            sh:class brick:Collection;
+            sh:message "A Collection can be associated with Equipments, Locations, Points, and other Collections."
         ]
     );
     .
