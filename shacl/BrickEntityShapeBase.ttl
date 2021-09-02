@@ -120,7 +120,7 @@ bsh:PointShape a sh:NodeShape;
     .
 
 bsh:SystemShape a sh:NodeShape;
-    sh:targetClass brick:System;
+    sh:targetClass brick:Collection;
     sh:and (
         [sh:not [ sh:class brick:Equipment ] ; sh:message "System is an exclusive top class." ]
         [sh:not [ sh:class brick:Location ] ; sh:message "System is an exclusive top class." ]
