@@ -374,6 +374,18 @@ hvac_subclasses = {
                     },
                 },
             },
+            "Chilled_Beam": {
+                "tags": [TAG.Equipment, TAG.Chilled, TAG.Beam],
+                "subclasses": {
+                    "Active_Chilled_Beam": {
+                        "tags": [TAG.Equipment, TAG.Active, TAG.Chilled, TAG.Beam]
+                    },
+                    "Passive_Chilled_Beam": {
+                        "tags": [TAG.Equipment, TAG.Passive, TAG.Chilled, TAG.Beam]
+                    },
+                },
+            },
+            "Induction_Unit": {"tags": [TAG.Equipment, TAG.Induction, TAG.Unit]},
         },
     },
     "Space_Heater": {"tags": [TAG.Equipment, TAG.Space, TAG.Heater]},
@@ -465,6 +477,7 @@ hvac_subclasses = {
             },
             "Ceiling_Fan": {"tags": [TAG.Equipment, TAG.Fan, TAG.Ceiling]},
             "Fresh_Air_Fan": {"tags": [TAG.Equipment, TAG.Fan, TAG.Fresh, TAG.Air]},
+            "Relief_Fan": {"tags": [TAG.Equipment, TAG.Fan, TAG.Relief]},
         },
     },
     "Economizer": {"tags": [TAG.Equipment, TAG.Economizer]},
@@ -476,6 +489,7 @@ hvac_subclasses = {
             "Outside_Damper": {"tags": [TAG.Equipment, TAG.Damper, TAG.Outside]},
             "Return_Damper": {"tags": [TAG.Equipment, TAG.Damper, TAG.Return]},
             "Mixed_Damper": {"tags": [TAG.Equipment, TAG.Damper, TAG.Mixed]},
+            "Relief_Damper": {"tags": [TAG.Equipment, TAG.Damper, TAG.Relief]},
         },
     },
     "Condenser": {"tags": [TAG.Equipment, TAG.Condenser]},
