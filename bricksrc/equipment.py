@@ -426,7 +426,22 @@ hvac_subclasses = {
                         "tags": [TAG.Equipment, TAG.Coil, TAG.Cool],
                         "subclasses": {
                             "Chilled_Water_Coil": {
-                                "tags": [TAG.Equipment, TAG.Coil, TAG.Cool, TAG.Water]
+                                "tags": [
+                                    TAG.Chilled,
+                                    TAG.Equipment,
+                                    TAG.Coil,
+                                    TAG.Cool,
+                                    TAG.Water,
+                                ]
+                            },
+                            "Direct_Expansion_Cooling_Coil": {
+                                "tags": [
+                                    TAG.Equipment,
+                                    TAG.Coil,
+                                    TAG.Cool,
+                                    TAG.Direct,
+                                    TAG.Expansion,
+                                ]
                             },
                         },
                     },
@@ -434,7 +449,22 @@ hvac_subclasses = {
                         "tags": [TAG.Equipment, TAG.Coil, TAG.Heat],
                         "subclasses": {
                             "Hot_Water_Coil": {
-                                "tags": [TAG.Equipment, TAG.Coil, TAG.Hot, TAG.Water]
+                                "tags": [
+                                    TAG.Equipment,
+                                    TAG.Coil,
+                                    TAG.Hot,
+                                    TAG.Water,
+                                    TAG.Heat,
+                                ]
+                            },
+                            "Direct_Expansion_Heating_Coil": {
+                                "tags": [
+                                    TAG.Equipment,
+                                    TAG.Coil,
+                                    TAG.Heat,
+                                    TAG.Direct,
+                                    TAG.Expansion,
+                                ]
                             },
                         },
                     },
