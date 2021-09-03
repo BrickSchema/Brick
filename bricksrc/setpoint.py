@@ -2055,6 +2055,16 @@ setpoint_definitions = {
                                             TAG.Condenser,
                                         ],
                                     },
+                                    "Return_Condenser_Water_Temperature_Setpoint": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Return,
+                                            TAG.Water,
+                                            TAG.Temperature,
+                                            TAG.Setpoint,
+                                            TAG.Condenser,
+                                        ],
+                                    },
                                 },
                             },
                             "Entering_Water_Temperature_Setpoint": {
