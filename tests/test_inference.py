@@ -66,7 +66,7 @@ def test_tag_inference():
 
     # Apply reasoner
     g.load_file("extensions/brick_extension_shacl_tag_inference.ttl")
-    g.expand(profile="owlrl+shacl+owlrl")
+    g.expand(profile="brick")
 
     g.bind("rdf", RDF)
     g.bind("owl", OWL)
