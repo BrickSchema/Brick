@@ -22,7 +22,7 @@ QUDTDV = Namespace("http://qudt.org/vocab/dimensionvector/")
 UNIT = Namespace("http://qudt.org/vocab/unit/")
 
 # TODO: fix these namespaces
-BACNET = Namespace("https://data.ashrae.org/bacnet#")
+BACNET = Namespace("http://data.ashrae.org/bacnet/2020#")
 
 A = RDF.type
 

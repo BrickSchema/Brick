@@ -362,17 +362,17 @@ digital_representation_props = {
 digital_representation_shapes = {
     BRICK.BACnetReference: {
         "properties": {
-            BACNET.objectID: {
+            BACNET["object-identifier"]: {
                 "datatype": XSD.string,
             },
-            BACNET.deviceID: {
-                "datatype": XSD.string,
+            BACNET["objectOf"]: {
+                SH["class"]: BACNET.BACnetDevice,
             },
-            BACNET.objectName: {
+            BACNET["object-name"]: {
                 "datatype": XSD.string,
                 "optional": True,
             },
-            BACNET.objectDescription: {
+            BACNET["description"]: {
                 "datatype": XSD.string,
                 "optional": True,
             },
