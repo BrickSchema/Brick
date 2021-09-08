@@ -21,6 +21,9 @@ QUDTQK = Namespace("http://qudt.org/vocab/quantitykind/")
 QUDTDV = Namespace("http://qudt.org/vocab/dimensionvector/")
 UNIT = Namespace("http://qudt.org/vocab/unit/")
 
+# TODO: fix these namespaces
+BACNET = Namespace("https://data.ashrae.org/bacnet#")
+
 A = RDF.type
 
 

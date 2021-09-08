@@ -44,7 +44,6 @@ from bricksrc.substances import substances
 from bricksrc.quantities import quantity_definitions, get_units
 from bricksrc.properties import properties
 from bricksrc.entity_properties import shape_properties, entity_properties
-from bricksrc.timeseries import define_timeseries_model
 
 logging.basicConfig(
     format="%(asctime)s,%(msecs)d %(levelname)-8s [%(filename)s:%(lineno)d] %(message)s",
@@ -704,9 +703,6 @@ G.add(
 G.add((BRICK.Substance, RDFS.subClassOf, BRICK.Measurable))
 G.add((BRICK.Substance, A, OWL.Class))
 G.add((BRICK.Substance, RDFS.label, Literal("Substance")))
-
-# define timeseries model
-define_timeseries_model(G)
 
 # We make the punning explicit here. Any subclass of brick:Substance
 # is itself a substance or quantity. There is one canonical instance of

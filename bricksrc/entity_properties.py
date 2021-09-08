@@ -2,7 +2,7 @@
 Entity property definitions
 """
 from rdflib import Literal
-from .namespaces import BRICK, RDFS, SKOS, UNIT, XSD, SH, BSH, QUDT
+from .namespaces import BRICK, RDFS, SKOS, UNIT, XSD, SH, BSH, BACNET
 
 # these are the "relationship"/predicates/OWL properties that
 # relate a Brick entity to a structured value.
@@ -340,3 +340,66 @@ shape_properties = {
         }
     },
 }
+
+digital_representation_props = {
+    BRICK.representation: {
+        SKOS.definition: Literal("A digital representation of the entity"),
+        RDFS.domain: BRICK.Point,
+    },
+    BRICK.BACnetRepresentation: {
+        RDFS.subPropertyOf: BRICK.representation,
+        SKOS.definition: Literal("BACnet metadata"),
+        RDFS.domain: BRICK.Point,
+        RDFS.range: BRICK.BACnetReference,
+    },
+    BRICK.timeseries: {
+        RDFS.subPropertyOf: BRICK.representation,
+        RDFS.domain: BRICK.Point,
+        RDFS.range: BRICK.TimeseriesReference,
+    },
+}
+
+digital_representation_shapes = {
+    BRICK.BACnetReference: {
+        "properties": {
+            BACNET.objectID: {
+                "datatype": XSD.string,
+            },
+            BACNET.deviceID: {
+                "datatype": XSD.string,
+            },
+            BACNET.objectName: {
+                "datatype": XSD.string,
+                "optional": True,
+            },
+            BACNET.objectDescription: {
+                "datatype": XSD.string,
+                "optional": True,
+            },
+        },
+    },
+    BRICK.TimeseriesReference: {
+        SKOS.definition: Literal(
+            "Metadata describing where and how the data for a Brick Point is stored"
+        ),
+        "properties": {
+            BRICK.hasTimeseriesId: {
+                "datatype": XSD.string,
+                SKOS.definition: Literal(
+                    "The identifier for the timeseries data corresponding to this point"
+                ),
+            },
+            BRICK.storedAt: {
+                "optional": True,
+                "datatype": XSD.string,
+                SKOS.definition: Literal(
+                    "Refers to a database storing the timeseries data for the related point. Properties on this class are *to be determined*; feel free to add arbitrary properties onto Database instances for your particular deployment"
+                ),
+            },
+        },
+    },
+}
+
+# merge the dictionaries
+entity_properties.update(digital_representation_props)
+shape_properties.update(digital_representation_shapes)
