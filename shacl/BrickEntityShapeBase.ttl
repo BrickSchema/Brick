@@ -15,6 +15,7 @@ bsh:LocationShape a sh:NodeShape ;
         [sh:not [ sh:class brick:Equipment ] ; sh:message "Location is an exclusive top class." ]
         [sh:not [ sh:class brick:Substance ] ; sh:message "Location is an exclusive top class." ]
         [sh:not [ sh:class brick:Quantity ] ; sh:message "Location is an exclusive top class." ]
+        [sh:not [ sh:class brick:Collection ] ; sh:message "Location is an exclusive top class." ]
     );
     sh:property [
         sh:path brick:hasPart;
@@ -46,6 +47,7 @@ bsh:EquipmentShape a sh:NodeShape ;
         [sh:not [ sh:class brick:Location ] ; sh:message "Equipment is an exclusive top class." ]
         [sh:not [ sh:class brick:Substance ] ; sh:message "Equipment is an exclusive top class." ]
         [sh:not [ sh:class brick:Quantity ] ; sh:message "Equipment is an exclusive top class." ]
+        [sh:not [ sh:class brick:Collection ] ; sh:message "Equipment is an exclusive top class." ]
     );
     sh:property [
         sh:path brick:hasPart;
@@ -56,12 +58,17 @@ bsh:EquipmentShape a sh:NodeShape ;
         sh:property [
             sh:path brick:isPartOf;
             sh:class brick:System;
-            sh:message "Equipment can be part of a System or other Equipment"
+            sh:message "Equipment can be part of a Collection, System or other Equipment"
         ]
         sh:property [
             sh:path brick:isPartOf;
             sh:class brick:Equipment;
-            sh:message "Equipment can be part of a System or other Equipment"
+            sh:message "Equipment can be part of a Collection, System or other Equipment"
+        ]
+        sh:property [
+            sh:path brick:isPartOf;
+            sh:class brick:Collection;
+            sh:message "Equipment can be part of a Collection, System or other Equipment"
         ]
     ) ;
     sh:property [
@@ -95,6 +102,7 @@ bsh:PointShape a sh:NodeShape;
         [sh:not [ sh:class brick:Location ] ; sh:message "Point is an exclusive top class." ]
         [sh:not [ sh:class brick:Substance ] ; sh:message "Point is an exclusive top class." ]
         [sh:not [ sh:class brick:Quantity ] ; sh:message "Point is an exclusive top class." ]
+        [sh:not [ sh:class brick:Collection ] ; sh:message "Point is an exclusive top class." ]
     );
     sh:message "Point is an exclusive top class." ;
     sh:or (
@@ -109,6 +117,40 @@ bsh:PointShape a sh:NodeShape;
             sh:message "A point can be associated with Locations or Equipment" ;
         ]
     ) ;
+    .
+
+bsh:CollectionShape a sh:NodeShape;
+    sh:targetClass brick:Collection;
+    sh:and (
+        [sh:not [ sh:class brick:Equipment ] ; sh:message "Collection is an exclusive top class." ]
+        [sh:not [ sh:class brick:Location ] ; sh:message "Collection is an exclusive top class." ]
+        [sh:not [ sh:class brick:Substance ] ; sh:message "Collection is an exclusive top class." ]
+        [sh:not [ sh:class brick:Quantity ] ; sh:message "Collection is an exclusive top class." ]
+        [sh:not [ sh:class brick:Point ] ; sh:message "Collection is an exclusive top class." ]
+    );
+    sh:message "Collection is an exclusive top class." ;
+    sh:or (
+        sh:property [
+            sh:path brick:hasPart;
+            sh:class brick:Equipment;
+            sh:message "A Collection can be associated with Equipments, Locations, Points, and other Collections."
+        ]
+        sh:property [
+            sh:path brick:hasPart;
+            sh:class brick:Location;
+            sh:message "A Collection can be associated with Equipments, Locations, Points, and other Collections."
+        ]
+        sh:property [
+            sh:path brick:hasPart;
+            sh:class brick:Point;
+            sh:message "A Collection can be associated with Equipments, Locations, Points, and other Collections."
+        ]
+        sh:property [
+            sh:path brick:hasPart;
+            sh:class brick:Collection;
+            sh:message "A Collection can be associated with Equipments, Locations, Points, and other Collections."
+        ]
+    );
     .
 
 bsh:hasLocationShape a sh:Nodeshape;
