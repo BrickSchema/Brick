@@ -66,7 +66,18 @@ def test_tag_inference():
 
     # Apply reasoner
     g.load_file("extensions/brick_extension_shacl_tag_inference.ttl")
-    g.expand(profile="owlrl+shacl+owlrl+shacl")
+    s = time.time()
+    g.expand(profile="shacl")
+    print("SHACL took", time.time() - s)
+    s = time.time()
+    g.expand(profile="owlrl")
+    print("OWLRL took", time.time() - s)
+    s = time.time()
+    g.expand(profile="shacl")
+    print("SHACL2 took", time.time() - s)
+    s = time.time()
+    g.expand(profile="owlrl")
+    print("OWLRL took", time.time() - s)
 
     g.bind("rdf", RDF)
     g.bind("owl", OWL)
