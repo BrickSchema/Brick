@@ -186,7 +186,7 @@ equipment_subclasses = {
         },
     },
     "Fire_Safety_Equipment": {
-        "tags": [TAG.Equipment, TAG.Fire, TAG.Safety, TAG.Equipment],
+        "tags": [TAG.Equipment, TAG.Fire, TAG.Safety],
         "subclasses": {
             "Fire_Control_Panel": {
                 "tags": [TAG.Equipment, TAG.Fire, TAG.Safety, TAG.Panel],

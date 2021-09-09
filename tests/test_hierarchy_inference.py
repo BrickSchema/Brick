@@ -96,11 +96,16 @@ def test_hierarchyinference():
         )  # This is based on how the entity name is defined above.
 
         # Find the original classes through the hierarchy from the original graph.
-        qstr = """
-        select ?parent where {{
-            <{0}> rdfs:subClassOf* ?parent.
-            ?parent rdfs:subClassOf* brick:Class.
-        }}""".format(
+        qstr = """select ?parent where {{
+            {{
+                <{0}> owl:equivalentClass*/rdfs:subClassOf*/owl:equivalentClass*/rdfs:subClassOf* ?parent .
+            }} UNION {{
+                ?other owl:equivalentClass* <{0}> .
+                ?other rdfs:subClassOf*/owl:equivalentClass*/rdfs:subClassOf* ?parent .
+            }}
+            ?parent rdfs:subClassOf* brick:Class
+        }}
+        """.format(
             true_class
         )
         res = g.query(qstr)
