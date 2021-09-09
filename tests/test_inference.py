@@ -1,4 +1,5 @@
 from rdflib import RDF, RDFS, OWL, Namespace
+import time
 import pytest
 import brickschema
 from .util import make_readable
