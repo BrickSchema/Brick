@@ -1,5 +1,4 @@
 from rdflib import RDF, RDFS, OWL, Namespace
-import time
 import pytest
 import brickschema
 from .util import make_readable
@@ -67,18 +66,7 @@ def test_tag_inference():
 
     # Apply reasoner
     g.load_file("extensions/brick_extension_shacl_tag_inference.ttl")
-    s = time.time()
-    g.expand(profile="shacl")
-    print("SHACL took", time.time() - s)
-    s = time.time()
-    g.expand(profile="owlrl")
-    print("OWLRL took", time.time() - s)
-    s = time.time()
-    g.expand(profile="shacl")
-    print("SHACL2 took", time.time() - s)
-    s = time.time()
-    g.expand(profile="owlrl")
-    print("OWLRL took", time.time() - s)
+    g.expand(profile="shacl+owlrl+shacl+owlrl")
 
     g.bind("rdf", RDF)
     g.bind("owl", OWL)
