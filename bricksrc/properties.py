@@ -1,3 +1,4 @@
+from rdflib import Literal
 from .namespaces import A, OWL, RDFS, BRICK, VCARD, UNIT, QUDT, XSD, SDO
 
 """
@@ -67,6 +68,7 @@ properties = {
         OWL.inverseOf: BRICK["isMeasuredBy"],
         RDFS.domain: BRICK.Point,
         RDFS.range: BRICK.Measurable,
+        RDFS.label: Literal("Measures"),
     },
     "isMeasuredBy": {
         A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
@@ -78,6 +80,7 @@ properties = {
         OWL.inverseOf: BRICK["isRegulatedBy"],
         RDFS.domain: BRICK.Equipment,
         RDFS.range: BRICK.Substance,
+        RDFS.label: Literal("Regulates"),
     },
     "isRegulatedBy": {
         A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
@@ -100,6 +103,7 @@ properties = {
         RDFS.subPropertyOf: VCARD.hasAddress,
         RDFS.domain: BRICK.Building,
         RDFS.range: VCARD.Address,
+        RDFS.label: Literal("Has address"),
     },
     "hasUnit": {
         A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
@@ -109,6 +113,7 @@ properties = {
         A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         RDFS.domain: BRICK.Point,
         RDFS.range: BRICK.TimeseriesReference,
+        RDFS.label: Literal("Timeseries"),
     },
     "hasTimeseriesId": {
         A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],

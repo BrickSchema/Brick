@@ -117,6 +117,7 @@ entity_properties = {
         ),
         RDFS.domain: BRICK.Equipment,
         RDFS.range: BRICK.StageShape,
+        RDFS.label: Literal("Operational stage count"),
     },
     BRICK.coolingCapacity: {
         SKOS.definition: Literal(
@@ -134,6 +135,7 @@ entity_properties = {
         RDFS.seeAlso: Literal("https://project-haystack.org/tag/primaryFunction"),
         RDFS.domain: BRICK.Building,
         RDFS.range: BRICK.BuildingPrimaryFunctionShape,
+        RDFS.label: Literal("Building primary function"),
     },
     BRICK.yearBuilt: {
         SKOS.definition: Literal(
@@ -142,6 +144,7 @@ entity_properties = {
         RDFS.domain: BRICK.Building,
         RDFS.range: BRICK.YearBuiltShape,
         RDFS.seeAlso: Literal("https://project-haystack.org/tag/yearBuilt"),
+        RDFS.label: Literal("Year built"),
     },
     BRICK.thermalTransmittance: {
         SKOS.definition: Literal(
@@ -161,6 +164,7 @@ entity_properties = {
                 RDFS.seeAlso: Literal(
                     "https://www.iso.org/obp/ui/#iso:std:iso:13789:ed-3:v1:en"
                 ),
+                RDFS.label: Literal("Building thermal transmittance"),
             },
         },
     },
@@ -171,6 +175,7 @@ entity_properties = {
         ),
         RDFS.domain: BRICK.Point,
         RDFS.range: BRICK.AggregationShape,
+        RDFS.label: Literal("Aggregate"),
     },
 }
 
