@@ -965,7 +965,7 @@ sensor_definitions = {
                                             [BRICK.measures, BRICK.Flow],
                                             [
                                                 BRICK.measures,
-                                                BRICK.Supply_Chilled_Water,
+                                                BRICK.Return_Chilled_Water,
                                             ],
                                         ],
                                         "parents": [BRICK.Chilled_Water_Flow_Sensor],
