@@ -12,12 +12,15 @@ bsh:EquipmentShape a sh:NodeShape ;
                 sh:not [ sh:class brick:Point ] ] [ sh:message "Equipment is an exclusive top class." ;
                 sh:not [ sh:class brick:Location ] ] [ sh:message "Equipment is an exclusive top class." ;
                 sh:not [ sh:class brick:Substance ] ] [ sh:message "Equipment is an exclusive top class." ;
-                sh:not [ sh:class brick:Quantity ] ] ) ;
+                sh:not [ sh:class brick:Quantity ] ] [ sh:message "Equipment is an exclusive top class." ;
+                sh:not [ sh:class brick:Collection ] ] ) ;
     sh:message "Equipment is an exclusive top class." ;
     sh:or ( sh:property [ sh:class brick:System ;
-                sh:message "Equipment can be part of a System or other Equipment" ;
+                sh:message "Equipment can be part of a Collection, System or other Equipment" ;
                 sh:path brick:isPartOf ] sh:property [ sh:class brick:Equipment ;
-                sh:message "Equipment can be part of a System or other Equipment" ;
+                sh:message "Equipment can be part of a Collection, System or other Equipment" ;
+                sh:path brick:isPartOf ] sh:property [ sh:class brick:Collection ;
+                sh:message "Equipment can be part of a Collection, System or other Equipment" ;
                 sh:path brick:isPartOf ] ),
         ( sh:property [ sh:class brick:Equipment ;
                 sh:message "A piece of Equipment can feed a Equipment" ;
@@ -40,7 +43,8 @@ bsh:LocationShape a sh:NodeShape ;
                 sh:not [ sh:class brick:Point ] ] [ sh:message "Location is an exclusive top class." ;
                 sh:not [ sh:class brick:Equipment ] ] [ sh:message "Location is an exclusive top class." ;
                 sh:not [ sh:class brick:Substance ] ] [ sh:message "Location is an exclusive top class." ;
-                sh:not [ sh:class brick:Quantity ] ] ) ;
+                sh:not [ sh:class brick:Quantity ] ] [ sh:message "Location is an exclusive top class." ;
+                sh:not [ sh:class brick:Collection ] ] ) ;
     sh:property [ sh:class brick:Location ;
             sh:message "A Location's parts should be always Locations." ;
             sh:path brick:hasPart ],
@@ -60,7 +64,8 @@ bsh:PointShape a sh:NodeShape ;
                 sh:not [ sh:class brick:Equipment ] ] [ sh:message "Point is an exclusive top class." ;
                 sh:not [ sh:class brick:Location ] ] [ sh:message "Point is an exclusive top class." ;
                 sh:not [ sh:class brick:Substance ] ] [ sh:message "Point is an exclusive top class." ;
-                sh:not [ sh:class brick:Quantity ] ] ) ;
+                sh:not [ sh:class brick:Quantity ] ] [ sh:message "Point is an exclusive top class." ;
+                sh:not [ sh:class brick:Collection ] ] ) ;
     sh:message "Point is an exclusive top class." ;
     sh:or ( sh:property [ sh:class brick:Location ;
                 sh:message "A point can be associated with Locations or Equipment" ;
@@ -68,6 +73,25 @@ bsh:PointShape a sh:NodeShape ;
                 sh:message "A point can be associated with Locations or Equipment" ;
                 sh:path brick:isPointOf ] ) ;
     sh:targetClass brick:Point .
+
+bsh:SystemShape a sh:NodeShape ;
+    sh:and ( [ sh:message "System is an exclusive top class." ;
+                sh:not [ sh:class brick:Equipment ] ] [ sh:message "System is an exclusive top class." ;
+                sh:not [ sh:class brick:Location ] ] [ sh:message "System is an exclusive top class." ;
+                sh:not [ sh:class brick:Substance ] ] [ sh:message "System is an exclusive top class." ;
+                sh:not [ sh:class brick:Quantity ] ] [ sh:message "System is an exclusive top class." ;
+                sh:not [ sh:class brick:Point ] ] ) ;
+    sh:message "System is an exclusive top class." ;
+    sh:or ( sh:property [ sh:class brick:Equipment ;
+                sh:message "A System can be associated with Equipments, Locations, Points, and other Systems." ;
+                sh:path brick:hasPart ] sh:property [ sh:class brick:Location ;
+                sh:message "A System can be associated with Equipments, Locations, Points, and other Systems." ;
+                sh:path brick:hasPart ] sh:property [ sh:class brick:Point ;
+                sh:message "A System can be associated with Equipments, Locations, Points, and other Systems." ;
+                sh:path brick:hasPart ] sh:property [ sh:class brick:System ;
+                sh:message "A System can be associated with Equipments, Locations, Points, and other Systems." ;
+                sh:path brick:hasPart ] ) ;
+    sh:targetClass brick:System .
 
 bsh:hasAddressDomainShape a sh:NodeShape ;
     sh:class brick:Building ;
