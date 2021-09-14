@@ -983,7 +983,7 @@ sensor_definitions = {
                                             [BRICK.measures, BRICK.Flow],
                                             [
                                                 BRICK.measures,
-                                                BRICK.Supply_Hot_Water,
+                                                BRICK.Return_Hot_Water,
                                             ],
                                         ],
                                         "parents": [BRICK.Hot_Water_Flow_Sensor],
