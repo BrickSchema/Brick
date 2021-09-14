@@ -123,7 +123,6 @@ properties = {
         RDFS.domain: BRICK.Building,
         RDFS.range: VCARD.Address,
         RDFS.label: Literal("Has address"),
-        RDFS.label: Literal("Has address"),
     },
     "hasUnit": {
         A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
