@@ -1,3 +1,4 @@
+import pytest
 import json
 from collections import defaultdict
 import time
@@ -29,6 +30,7 @@ inference_file = "tests/test_hierarchy_inference.ttl"
 entity_postfix = "_0"
 
 
+@pytest.mark.slow
 def test_hierarchyinference():
     # Load the schema
     g = brickschema.Graph()
