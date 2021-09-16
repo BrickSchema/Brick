@@ -72,19 +72,19 @@ entity_properties = {
     },
     BRICK.ratedPowerOutput: {
         SKOS.definition: Literal("The nominal rated power output of the entity"),
-        RDFS.range: BRICK.PowerOutputShape,
+        RDFS.range: BRICK.RatedPowerShape,
     },
     BRICK.measuredPowerOutput: {
         SKOS.definition: Literal("The nominal measured power output of the entity"),
-        RDFS.range: BRICK.PowerOutputShape,
+        RDFS.range: BRICK.MeasuredPowerShape,
     },
     BRICK.ratedPowerInput: {
         SKOS.definition: Literal("The nominal rated power input of the entity"),
-        RDFS.range: BRICK.PowerInputShape,
+        RDFS.range: BRICK.RatedPowerShape,
     },
     BRICK.measuredPowerInput: {
         SKOS.definition: Literal("The nominal measured power input of the entity"),
-        RDFS.range: BRICK.PowerInputShape,
+        RDFS.range: BRICK.MeasuredPowerShape,
     },
     BRICK.ratedVoltageInput: {
         SKOS.definition: Literal("The nominal rated voltage input of the entity"),
@@ -317,20 +317,11 @@ shape_properties = {
         "datatype": BSH.NumericValue,
         "units": [UNIT.BTU_IT, UNIT["W-PER-M2-K"]],
     },
-    BRICK.PowerOutputShape: {
+    BRICK.RatedPowerShape: {
         "datatype": BSH.NumericValue,
         "unitsFromQuantity": BRICK.Power,
-        "properties": {
-            BRICK.ambientTemperatureOfMeasurement: {
-                "optional": True,
-                SKOS.definition: Literal(
-                    "The ambient temperature at which the power output was measured"
-                ),
-                SH["class"]: BRICK.TemperatureShape,
-            },
-        },
     },
-    BRICK.PowerInputShape: {
+    BRICK.MeasuredPowerShape: {
         "datatype": BSH.NumericValue,
         "unitsFromQuantity": BRICK.Power,
         "properties": {
