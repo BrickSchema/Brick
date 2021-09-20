@@ -1,6 +1,7 @@
 import csv
 import glob
 import logging
+import deterministic_uuids
 from collections import defaultdict
 from rdflib import Graph, Literal, BNode, URIRef
 from rdflib.namespace import XSD
