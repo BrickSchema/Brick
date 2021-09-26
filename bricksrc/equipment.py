@@ -14,7 +14,7 @@ equipment_subclasses = {
             },
             "Louver": {"tags": [TAG.Shade, TAG.Equipment, TAG.Louver]},
             "Automatic_Tint_Window": {
-                "tags": [TAG.Automatic, TAG.Tint, TAG.Window]
+                "tags": [TAG.Shade, TAG.Equipment, TAG.Automatic, TAG.Tint, TAG.Window]
             }
         }
     },
