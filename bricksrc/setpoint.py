@@ -10,6 +10,7 @@ setpoint_definitions = {
         "subclasses": {
             "Enthalpy_Setpoint": {"tags": [TAG.Point, TAG.Setpoint, TAG.Enthalpy]},
             "Dew_Point_Setpoint": {"tags": [TAG.Point, TAG.Dewpoint, TAG.Setpoint]},
+            "Illuminance_Level_Setpoint": {"tags": [TAG.Point, TAG.Setpoint, TAG.Illuminance, TAG.Level]},
             "Demand_Setpoint": {
                 "tags": [TAG.Point, TAG.Demand, TAG.Setpoint],
                 "subclasses": {

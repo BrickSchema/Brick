@@ -6,6 +6,18 @@ Set up subclasses of the equipment superclass
 equipment_subclasses = {
     "HVAC_Equipment": {"tags": [TAG.HVAC, TAG.Equipment]},
     "Weather_Station": {"tags": [TAG.Weather, TAG.Station, TAG.Equipment]},
+    "Shading_Equipment": {
+        "tags": [TAG.Shade, TAG.Equipment],
+        "subclasses": {
+            "Shade": {
+                "tags": [TAG.Shade, TAG.Equipment, TAG.TODO] #TODO: This should be discussed.
+            },
+            "Louver": {"tags": [TAG.Shade, TAG.Equipment, TAG.Louver]},
+            "Automatic_Tint_Window": {
+                "tags": [TAG.Automatic, TAG.Tint, TAG.Window]
+            }
+        }
+    },
     "Electrical_Equipment": {
         "tags": [TAG.Electrical, TAG.Equipment],
         "subclasses": {
@@ -142,7 +154,6 @@ equipment_subclasses = {
     "Solar_Thermal_Collector": {
         "tags": [TAG.Solar, TAG.Equipment, TAG.Thermal, TAG.Collector]
     },  # NOTE: Though Panel is a type of Collector.
-    "Louver": {"tags": [TAG.Shade, TAG.Equipment, TAG.Louver]},
     "Lighting_Equipment": {
         "tags": [TAG.Lighting, TAG.Equipment],
         "subclasses": {
