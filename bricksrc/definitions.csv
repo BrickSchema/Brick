@@ -984,6 +984,7 @@ https://brickschema.org/schema/Brick#Thermal_Power_Meter,A standalone thermal po
 https://brickschema.org/schema/Brick#Thermal_Power_Sensor,,
 https://brickschema.org/schema/Brick#Thermally_Activated_Building_System_Panel,Radiant panel heating and cooling system where the energy heat source or sink is embedded in the building structure such as in slabs and walls.,https://www.rehva.eu/eshop/detail/no07-low-temperature-heating-and-high-temperature-cooling
 https://brickschema.org/schema/Brick#Thermostat,An automatic control device used to maintain temperature at a fixed or adjustable setpoint.,
+https://brickschema.org/schema/Brick#Thermostatic_Mixing_Valve,"A valve that blends hot water with cold water to ensure constant, safe shower and bath outlet temperatures, preventing scalding.",https://en.wikipedia.org/wiki/Thermostatic_mixing_valve
 https://brickschema.org/schema/Brick#Ticketing_Booth,A room or space used to sell or distribute tickets to events at a venue,
 https://brickschema.org/schema/Brick#Time,,
 https://brickschema.org/schema/Brick#Time_Parameter,,
