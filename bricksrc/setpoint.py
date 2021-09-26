@@ -719,6 +719,12 @@ setpoint_definitions = {
             "Humidity_Setpoint": {
                 "tags": [TAG.Point, TAG.Humidity, TAG.Setpoint],
                 "subclasses": {
+                    "Unoccupied_Humidity_Setpoint": {
+                        "tags": [TAG.Point, TAG.Humidity, TAG.Setpoint, TAG.Unoccupied],
+                    },
+                    "Occupied_Humidity_Setpoint": {
+                        "tags": [TAG.Point, TAG.Humidity, TAG.Setpoint, TAG.Occupied],
+                    },
                     "Air_Humidity_Setpoint": {
                         "tags": [TAG.Point, TAG.Humidity, TAG.Setpoint, TAG.Air],
                         "subclasses": {
@@ -1651,7 +1657,7 @@ setpoint_definitions = {
                                             TAG.Air,
                                             TAG.Temperature,
                                             TAG.Setpoint,
-                                            TAG.Cooling,
+                                            TAG.Cool,
                                         ],
                                         "parents": [BRICK.Cooling_Temperature_Setpoint],
                                     },
@@ -1847,9 +1853,19 @@ setpoint_definitions = {
                     },
                     "Cooling_Temperature_Setpoint": {
                         "tags": [TAG.Point, TAG.Temperature, TAG.Setpoint, TAG.Cool],
+                        "subclasses": {
+                            "Occupied_Cooling_Temperature_Sepoint": {
+                                "tags": [TAG.Point, TAG.Temperature, TAG.Setpoint, TAG.Cool, TAG.Occupied],
+                            }
+                        }
                     },
                     "Heating_Temperature_Setpoint": {
                         "tags": [TAG.Point, TAG.Temperature, TAG.Setpoint, TAG.Heat],
+                        "subclasses": {
+                            "Occupied_Heating_Temperature_Sepoint": {
+                                "tags": [TAG.Point, TAG.Temperature, TAG.Setpoint, TAG.Heat, TAG.Occupied],
+                            }
+                        }
                     },
                     "Schedule_Temperature_Setpoint": {
                         "tags": [

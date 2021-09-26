@@ -6,7 +6,7 @@ Defining properties
 """
 properties = {
     "value": {RDFS.subPropertyOf: QUDT.value, RDFS.label: Literal("Value")},
-    "latitutde": {RDFS.subPropertyOf: SDO.latitude, RDFS.label: Literal("Latitude")},
+    "latitude": {RDFS.subPropertyOf: SDO.latitude, RDFS.label: Literal("Latitude")},
     "longitude": {RDFS.subPropertyOf: SDO.longitude, RDFS.label: Literal("Longitude")},
     "hasQUDTReference": {
         A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
