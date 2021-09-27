@@ -72,27 +72,91 @@ entity_properties = {
     },
     BRICK.ratedPowerOutput: {
         SKOS.definition: Literal("The nominal rated power output of the entity"),
-        RDFS.range: BRICK.RatedPowerShape,
+        RDFS.range: BRICK.PowerShape,
     },
     BRICK.measuredPowerOutput: {
         SKOS.definition: Literal("The nominal measured power output of the entity"),
-        RDFS.range: BRICK.MeasuredPowerShape,
+        RDFS.range: BRICK.PowerShape,
     },
     BRICK.ratedPowerInput: {
         SKOS.definition: Literal("The nominal rated power input of the entity"),
-        RDFS.range: BRICK.RatedPowerShape,
+        RDFS.range: BRICK.PowerShape,
     },
     BRICK.measuredPowerInput: {
         SKOS.definition: Literal("The nominal measured power input of the entity"),
-        RDFS.range: BRICK.MeasuredPowerShape,
+        RDFS.range: BRICK.PowerShape,
     },
     BRICK.ratedVoltageInput: {
         SKOS.definition: Literal("The nominal rated voltage input of the entity"),
         RDFS.range: BRICK.VoltageShape,
+        "subproperties": {
+            BRICK.ratedMaximumVoltageInput: {
+                SKOS.definition: Literal(
+                    "The maximum voltage that can be input to the entity"
+                ),
+                RDFS.range: BRICK.VoltageShape,
+            },
+            BRICK.ratedMinimumVoltageInput: {
+                SKOS.definition: Literal(
+                    "The minimum voltage that can be input to the entity"
+                ),
+                RDFS.range: BRICK.VoltageShape,
+            },
+        },
     },
-    BRICK.ratedMaximumCurrentInput: {
-        SKOS.definition: Literal("The maximum current that can be input to the entity"),
+    BRICK.ratedVoltageOutput: {
+        SKOS.definition: Literal("The nominal rated voltage output of the entity"),
+        RDFS.range: BRICK.VoltageShape,
+        "subproperties": {
+            BRICK.ratedMaximumVoltageOutput: {
+                SKOS.definition: Literal(
+                    "The maximum voltage that can be output by the entity"
+                ),
+                RDFS.range: BRICK.VoltageShape,
+            },
+            BRICK.ratedMinimumVoltageOutput: {
+                SKOS.definition: Literal(
+                    "The minimum voltage that can be output by the entity"
+                ),
+                RDFS.range: BRICK.VoltageShape,
+            },
+        },
+    },
+    BRICK.ratedCurrentInput: {
+        SKOS.definition: Literal("The nominal rated current input of the entity"),
         RDFS.range: BRICK.CurrentShape,
+        "subproperties": {
+            BRICK.ratedMaximumCurrentInput: {
+                SKOS.definition: Literal(
+                    "The maximum current that can be input to the entity"
+                ),
+                RDFS.range: BRICK.CurrentShape,
+            },
+            BRICK.ratedMinimumCurrentInput: {
+                SKOS.definition: Literal(
+                    "The minimum current that can be input to the entity"
+                ),
+                RDFS.range: BRICK.CurrentShape,
+            },
+        },
+    },
+    BRICK.ratedCurrentOutput: {
+        SKOS.definition: Literal("The nominal rated current output of the entity"),
+        RDFS.range: BRICK.CurrentShape,
+        "subproperties": {
+            BRICK.ratedMaximumCurrentOutput: {
+                SKOS.definition: Literal(
+                    "The maximum current that can be output by the entity"
+                ),
+                RDFS.range: BRICK.CurrentShape,
+            },
+            BRICK.ratedMinimumCurrentOutput: {
+                SKOS.definition: Literal(
+                    "The minimum current that can be output by the entity"
+                ),
+                RDFS.range: BRICK.CurrentShape,
+            },
+        },
     },
     BRICK.temperatureCoefficientofPmax: {
         SKOS.definition: Literal(
@@ -317,11 +381,7 @@ shape_properties = {
         "datatype": BSH.NumericValue,
         "units": [UNIT.BTU_IT, UNIT["W-PER-M2-K"]],
     },
-    BRICK.RatedPowerShape: {
-        "datatype": BSH.NumericValue,
-        "unitsFromQuantity": BRICK.Power,
-    },
-    BRICK.MeasuredPowerShape: {
+    BRICK.PowerShape: {
         "datatype": BSH.NumericValue,
         "unitsFromQuantity": BRICK.Power,
         "properties": {
@@ -332,15 +392,57 @@ shape_properties = {
                 ),
                 SH["class"]: BRICK.TemperatureShape,
             },
+            BRICK.ratedVoltageInput: {
+                "optional": True,
+            },
+            BRICK.ratedVoltageOutput: {
+                "optional": True,
+            },
+            BRICK.ratedCurrentInput: {
+                "optional": True,
+            },
+            BRICK.ratedCurrentOutput: {
+                "optional": True,
+            },
         },
     },
     BRICK.VoltageShape: {
         "datatype": BSH.NumericValue,
         "unitsFromQuantity": BRICK.Voltage,
+        "properties": {
+            BRICK.ambientTemperatureOfMeasurement: {
+                "optional": True,
+                SKOS.definition: Literal(
+                    "The ambient temperature at which the power input was measured"
+                ),
+                SH["class"]: BRICK.TemperatureShape,
+            },
+            BRICK.ratedCurrentInput: {
+                "optional": True,
+            },
+            BRICK.ratedCurrentOutput: {
+                "optional": True,
+            },
+        },
     },
     BRICK.CurrentShape: {
         "datatype": BSH.NumericValue,
         "unitsFromQuantity": BRICK.Current,
+        "properties": {
+            BRICK.ambientTemperatureOfMeasurement: {
+                "optional": True,
+                SKOS.definition: Literal(
+                    "The ambient temperature at which the power input was measured"
+                ),
+                SH["class"]: BRICK.TemperatureShape,
+            },
+            BRICK.ratedVoltageInput: {
+                "optional": True,
+            },
+            BRICK.ratedVoltageOutput: {
+                "optional": True,
+            },
+        },
     },
     BRICK.EfficiencyShape: {
         "datatype": BSH.NumericValue,
