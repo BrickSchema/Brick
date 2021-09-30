@@ -215,7 +215,7 @@ https://brickschema.org/schema/Brick#Demand_Setpoint,Sets the rate required for 
 https://brickschema.org/schema/Brick#Derivative_Gain_Parameter,,
 https://brickschema.org/schema/Brick#Derivative_Time_Parameter,,
 https://brickschema.org/schema/Brick#Detention_Room,A space for the temporary involuntary confinement of people,
-https://brickschema.org/schema/Brick#Dew_Point_Setpoint,Sets dew point,
+https://brickschema.org/schema/Brick#Dewpoint_Setpoint,Sets dew point,
 https://brickschema.org/schema/Brick#Dewpoint,,
 https://brickschema.org/schema/Brick#Dewpoint_Sensor,Senses the dewpoint temperature . Dew point is the temperature to which air must be cooled to become saturated with water vapor,https://en.wikipedia.org/wiki/Dew_point
 https://brickschema.org/schema/Brick#Differential_Air_Temperature_Setpoint,Sets temperature of diffrential air,
