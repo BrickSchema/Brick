@@ -39,6 +39,7 @@ https://brickschema.org/schema/Brick#Angle,"The inclination to each other of two
 https://brickschema.org/schema/Brick#Angle_Sensor,Measues the planar angle of some phenomenon,
 https://brickschema.org/schema/Brick#Apparent_Power,"Apparent Power is the product of the rms voltage (U) between the terminals of a two-terminal element or two-terminal circuit and the rms electric current I in the element or circuit. Under sinusoidal conditions, the apparent power is the modulus of the complex power.",
 https://brickschema.org/schema/Brick#Atmospheric_Pressure,"The pressure exerted by the weight of the air above it at any point on the earth's surface. At sea level the atmosphere will support a column of mercury about (760 mm) high. This decreases with increasing altitude. The standard value for the atmospheric pressure at sea level in SI units is (101,325 pascals).",
+https://brickschema.org/schema/Brick#Atrium,"a large open-air or skylight covered space surrounded by a building.",https://en.wikipedia.org/wiki/Atrium_(architecture)
 https://brickschema.org/schema/Brick#Auditorium,A space for performances or larger gatherings,
 https://brickschema.org/schema/Brick#Automatic_Mode_Command,"Controls whether or not a device or controller is operating in ""Automatic"" mode",
 https://brickschema.org/schema/Brick#Availability_Status,"Indicates if a piece of equipment, system, or functionality is available for operation",
@@ -443,6 +444,7 @@ https://brickschema.org/schema/Brick#Heat_Exchanger,A heat exchanger is a piece 
 https://brickschema.org/schema/Brick#Heat_Exchanger_Supply_Water_Temperature_Sensor,Measures the temperature of water supplied by a heat exchanger,
 https://brickschema.org/schema/Brick#Heat_Exchanger_System_Enable_Status,Indicates if the heat exchanger system has been enabled,
 https://brickschema.org/schema/Brick#Heat_Sensor,Measures heat,
+https://brickschema.org/schema/Brick#Heat_Sink_Temperature_Sensor,Measure temperature of the heat sink on a device such as a VFD.,
 https://brickschema.org/schema/Brick#Heat_Wheel,A rotary heat exchanger positioned within the supply and exhaust air streams of an air handling system in order to recover heat energy,https://en.wikipedia.org/wiki/Thermal_wheel
 https://brickschema.org/schema/Brick#Heat_Wheel_VFD,A VFD that drives a heat wheel,
 https://brickschema.org/schema/Brick#Heating_Coil,"A heating element typically made of pipe, tube or wire that emits heat. Typically filled with hot water, or, in the case of wire, uses electricity.",
