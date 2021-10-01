@@ -17,11 +17,14 @@ def get_units(qudt_quantity):
     in order to avoid having to pull the full QUDT ontology into Brick
     """
     return g.query(
-        f"""SELECT ?unit ?symbol WHERE {{
+        f"""SELECT ?unit ?symbol ?label WHERE {{
                     <{qudt_quantity}> qudt:applicableUnit ?unit .
                     OPTIONAL {{
                         ?unit qudt:symbol ?symbol .
                         FILTER(isLiteral(?symbol))
+                    }} .
+                    OPTIONAL {{
+                        ?unit rdfs:label ?label .
                     }}
                     }}"""
     )
@@ -42,6 +45,17 @@ quantity_definitions = {
                 RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
                 RDFS.label: Literal("COConcentration"),
                 SKOS.broader: QUDTQK.DimensionlessRatio,
+                SKOS.narrower: {
+                    "Differential_CO_Concentration": {
+                        QUDT.isDeltaQuantity: Literal(True),
+                        QUDT.applicableUnit: [UNIT.PPM, UNIT.PPB],
+                        SKOS.definition: Literal(
+                            "The difference in carbon monoxide concentration between two areas"
+                        ),
+                        RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
+                        RDFS.label: Literal("ΔCOConcentration"),
+                    },
+                },
             },
             "CO2_Concentration": {
                 QUDT.applicableUnit: [UNIT.PPM, UNIT.PPB],
@@ -52,6 +66,17 @@ quantity_definitions = {
                 RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
                 RDFS.label: Literal("CO2Concentration"),
                 SKOS.broader: QUDTQK.DimensionlessRatio,
+                SKOS.narrower: {
+                    "Differential_CO2_Concentration": {
+                        QUDT.isDeltaQuantity: Literal(True),
+                        QUDT.applicableUnit: [UNIT.PPM, UNIT.PPB],
+                        SKOS.definition: Literal(
+                            "The difference in carbon dioxide concentration between two areas"
+                        ),
+                        RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
+                        RDFS.label: Literal("ΔCO2Concentration"),
+                    },
+                },
             },
             "Formaldehyde_Concentration": {
                 QUDT.applicableUnit: [UNIT.PPM, UNIT.PPB],
@@ -554,12 +579,39 @@ quantity_definitions = {
                 BRICK.hasQUDTReference: QUDTQK["AtmosphericPressure"]
             },
             "Dynamic_Pressure": {},
-            "Static_Pressure": {BRICK.hasQUDTReference: QUDTQK["StaticPressure"]},
+            "Differential_Pressure": {
+                QUDT.isDeltaQuantity: Literal(True),
+                SKOS.narrower: {
+                    "Differential_Static_Pressure": {
+                        BRICK.hasQUDTReference: QUDTQK["StaticPressure"],
+                        QUDT.isDeltaQuantity: Literal(True),
+                    },
+                    "Differential_Dynamic_Pressure": {
+                        BRICK.hasQUDTReference: QUDTQK["DynamicPressure"],
+                        QUDT.isDeltaQuantity: Literal(True),
+                    },
+                },
+            },
+            "Static_Pressure": {
+                BRICK.hasQUDTReference: QUDTQK["StaticPressure"],
+                SKOS.narrower: {
+                    "Differential_Static_Pressure": {
+                        BRICK.hasQUDTReference: QUDTQK["StaticPressure"],
+                        QUDT.isDeltaQuantity: Literal(True),
+                    },
+                },
+            },
             "Velocity_Pressure": {
                 BRICK.hasQUDTReference: [
                     QUDTQK["DynamicPressure"],
                     BRICK["Dynamic_Pressure"],
                 ],
+                SKOS.narrower: {
+                    "Differential_Dynamic_Pressure": {
+                        BRICK.hasQUDTReference: QUDTQK["DynamicPressure"],
+                        QUDT.isDeltaQuantity: Literal(True),
+                    },
+                }
             },
         },
     },
@@ -603,8 +655,12 @@ quantity_definitions = {
         },
     },
     "Temperature": {
-        BRICK.hasQUDTReference: QUDTQK["ThermodynamicTemperature"],
+        BRICK.hasQUDTReference: QUDTQK["Temperature"],
         SKOS.narrower: {
+            "Differential_Temperature": {
+                BRICK.hasQUDTReference: QUDTQK["Temperature"],
+                QUDT.isDeltaQuantity: Literal(True),
+            },
             "Operative_Temperature": {
                 QUDT.applicableUnit: [UNIT["DEG_F"], UNIT["DEG_C"], UNIT["K"]],
                 SKOS.definition: Literal(
@@ -613,7 +669,7 @@ quantity_definitions = {
                 QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M0H1T0D0"],
                 RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
                 RDFS.label: Literal("Operative_Temperature"),
-                SKOS.broader: QUDTQK.ThermodynamicTemperature,
+                SKOS.broader: QUDTQK.Temperature,
             },
             "Radiant_Temperature": {
                 QUDT.applicableUnit: [UNIT["DEG_F"], UNIT["DEG_C"], UNIT["K"]],
@@ -623,7 +679,7 @@ quantity_definitions = {
                 QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M0H1T0D0"],
                 RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
                 RDFS.label: Literal("Radiant_Temperature"),
-                SKOS.broader: QUDTQK.ThermodynamicTemperature,
+                SKOS.broader: QUDTQK.Temperature,
             },
             "Dry_Bulb_Temperature": {
                 QUDT.applicableUnit: [UNIT["DEG_F"], UNIT["DEG_C"], UNIT["K"]],
@@ -633,7 +689,13 @@ quantity_definitions = {
                 QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M0H1T0D0"],
                 RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
                 RDFS.label: Literal("Dry_Bulb_Temperature"),
-                SKOS.broader: QUDTQK.ThermodynamicTemperature,
+                SKOS.broader: QUDTQK.Temperature,
+                SKOS.narrower: {
+                    "Differential_Dry_Bulb_Temperature": {
+                        BRICK.hasQUDTReference: QUDTQK["Dry_Bulb_Temperature"],
+                        QUDT.isDeltaQuantity: Literal(True),
+                    },
+                },
             },
             "Wet_Bulb_Temperature": {
                 QUDT.applicableUnit: [UNIT["DEG_F"], UNIT["DEG_C"], UNIT["K"]],
@@ -643,7 +705,7 @@ quantity_definitions = {
                 QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M0H1T0D0"],
                 RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
                 RDFS.label: Literal("Wet_Bulb_Temperature"),
-                SKOS.broader: QUDTQK.ThermodynamicTemperature,
+                SKOS.broader: QUDTQK.Temperature,
             },
         },
     },

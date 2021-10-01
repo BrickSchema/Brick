@@ -1,11 +1,36 @@
-from rdflib import Literal
-from .namespaces import BRICK, TAG, OWL, RDFS
+from .namespaces import TAG, OWL, BRICK
 
 system_subclasses = {
     "Domestic_Hot_Water_System": {
         "tags": [TAG.Domestic, TAG.Water, TAG.Hot, TAG.System]
     },
-    "Electrical_System": {"tags": [TAG.Electrical, TAG.System]},
+    "Electrical_System": {
+        "tags": [TAG.Electrical, TAG.System],
+        "subclasses": {
+            "Energy_System": {
+                "tags": [TAG.Energy, TAG.System],
+                "subclasses": {
+                    "Energy_Generation_System": {
+                        "tags": [TAG.Energy, TAG.Generation, TAG.System],
+                        "subclasses": {"PV_Generation_System": {}},
+                    },
+                    "Energy_Storage_System": {
+                        "tags": [TAG.Energy, TAG.Storage, TAG.System],
+                        "subclasses": {
+                            "Battery_Energy_Storage_System": {
+                                "tags": [
+                                    TAG.Battery,
+                                    TAG.Energy,
+                                    TAG.Storage,
+                                    TAG.System,
+                                ],
+                            },
+                        },
+                    },
+                },
+            }
+        },
+    },
     "Gas_System": {"tags": [TAG.Gas, TAG.System]},
     "HVAC_System": {"tags": [TAG.HVAC, TAG.System]},
     "Heating_Ventilation_Air_Conditioning_System": {
@@ -94,4 +119,52 @@ system_subclasses = {
         },
     },
     "Shading_System": {"tags": [TAG.Shade, TAG.System]},
+}
+
+loop_subclasses = {
+    "Air_Loop": {"tags": [TAG.Air, TAG.Loop]},
+    "Water_Loop": {
+        "tags": [TAG.Water, TAG.Loop],
+        "subclasses": {
+            "Hot_Water_Loop": {"tags": [TAG.Hot, TAG.Water, TAG.Loop]},
+            "Chilled_Water_Loop": {"tags": [TAG.Chilled, TAG.Water, TAG.Loop]},
+            "Domestic_Water_Loop": {"tags": [TAG.Domestic, TAG.Water, TAG.Loop]},
+        },
+    },
+}
+
+collection_classes = {
+    "Portfolio": {
+        "tags": [TAG.Collection, TAG.Portfolio],
+        "constraints": {BRICK.hasPart: [BRICK.Site]},
+    },
+    "System": {
+        "tags": [TAG.Collection, TAG.System],
+        "subclasses": system_subclasses,
+        "constraints": {
+            BRICK.hasPart: [
+                BRICK.Equipment,
+                BRICK.Point,
+                BRICK.Loop,
+                BRICK.System,
+                BRICK.Location,
+                BRICK.PV_Array,
+            ]
+        },
+    },
+    "Loop": {
+        "tags": [TAG.Collection, TAG.Loop],
+        "subclasses": loop_subclasses,
+        "constraints": {BRICK.hasPart: [BRICK.Equipment, BRICK.Point, BRICK.Location]},
+    },
+    "Photovoltaic_Array": {
+        "tags": [TAG.Collection, TAG.Photovoltaic, TAG.Array],
+        "constraints": {BRICK.hasPart: [BRICK.PV_Panel]},
+        OWL.equivalentClass: BRICK["PV_Array"],
+    },
+    "PV_Array": {
+        "tags": [TAG.Collection, TAG.PV, TAG.Array],
+        "constraints": {BRICK.hasPart: [BRICK.PV_Panel]},
+        OWL.equivalentClass: BRICK["Photovoltaic_Array"],
+    },
 }

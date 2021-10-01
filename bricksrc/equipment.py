@@ -123,9 +123,6 @@ equipment_subclasses = {
     },
     "Water_Distribution": {"tags": [TAG.Water, TAG.Distribution, TAG.Equipment]},
     "Steam_Distribution": {"tags": [TAG.Steam, TAG.Distribution, TAG.Equipment]},
-    "PV_Array": {
-        "tags": [TAG.Solar, TAG.PV, TAG.Equipment, TAG.Array],
-    },
     "PV_Panel": {
         "tags": [TAG.Solar, TAG.PV, TAG.Equipment, TAG.Panel],
         "subclasses": {
@@ -189,7 +186,7 @@ equipment_subclasses = {
         },
     },
     "Fire_Safety_Equipment": {
-        "tags": [TAG.Equipment, TAG.Fire, TAG.Safety, TAG.Equipment],
+        "tags": [TAG.Equipment, TAG.Fire, TAG.Safety],
         "subclasses": {
             "Fire_Control_Panel": {
                 "tags": [TAG.Equipment, TAG.Fire, TAG.Safety, TAG.Panel],
@@ -220,8 +217,9 @@ equipment_subclasses = {
 Define classes of HVAC equipment
 """
 hvac_subclasses = {
-    "Valve": {
-        "tags": [TAG.Valve, TAG.Equipment]
+    "HVAC_Valve": {
+        "tags": [TAG.HVAC, TAG.Valve, TAG.Equipment],
+        "parents": [BRICK.Valve],
         # subclasses defined in 'valve_subclasses'
     },
     "Thermostat": {"tags": [TAG.Equipment, TAG.Thermostat]},
@@ -341,6 +339,54 @@ hvac_subclasses = {
                     },
                 },
             },
+            "Air_Diffuser": {
+                "tags": [
+                    TAG.Equipment,
+                    TAG.Air,
+                    TAG.Diffuser,
+                ],
+                "subclasses": {
+                    "Jet_Nozzle_Air_Diffuser": {
+                        "tags": [
+                            TAG.Equipment,
+                            TAG.Jet,
+                            TAG.Nozzle,
+                            TAG.Air,
+                            TAG.Diffuser,
+                        ]
+                    },
+                    "Laminar_Flow_Air_Diffuser": {
+                        "tags": [
+                            TAG.Equipment,
+                            TAG.Laminar,
+                            TAG.Flow,
+                            TAG.Air,
+                            TAG.Diffuser,
+                        ]
+                    },
+                    "Displacement_Flow_Air_Diffuser": {
+                        "tags": [
+                            TAG.Equipment,
+                            TAG.Displacement,
+                            TAG.Flow,
+                            TAG.Air,
+                            TAG.Diffuser,
+                        ]
+                    },
+                },
+            },
+            "Chilled_Beam": {
+                "tags": [TAG.Equipment, TAG.Chilled, TAG.Beam],
+                "subclasses": {
+                    "Active_Chilled_Beam": {
+                        "tags": [TAG.Equipment, TAG.Active, TAG.Chilled, TAG.Beam]
+                    },
+                    "Passive_Chilled_Beam": {
+                        "tags": [TAG.Equipment, TAG.Passive, TAG.Chilled, TAG.Beam]
+                    },
+                },
+            },
+            "Induction_Unit": {"tags": [TAG.Equipment, TAG.Induction, TAG.Unit]},
         },
     },
     "Space_Heater": {"tags": [TAG.Equipment, TAG.Space, TAG.Heater]},
@@ -381,7 +427,22 @@ hvac_subclasses = {
                         "tags": [TAG.Equipment, TAG.Coil, TAG.Cool],
                         "subclasses": {
                             "Chilled_Water_Coil": {
-                                "tags": [TAG.Equipment, TAG.Coil, TAG.Cool, TAG.Water]
+                                "tags": [
+                                    TAG.Chilled,
+                                    TAG.Equipment,
+                                    TAG.Coil,
+                                    TAG.Cool,
+                                    TAG.Water,
+                                ]
+                            },
+                            "Direct_Expansion_Cooling_Coil": {
+                                "tags": [
+                                    TAG.Equipment,
+                                    TAG.Coil,
+                                    TAG.Cool,
+                                    TAG.Direct,
+                                    TAG.Expansion,
+                                ]
                             },
                         },
                     },
@@ -389,7 +450,22 @@ hvac_subclasses = {
                         "tags": [TAG.Equipment, TAG.Coil, TAG.Heat],
                         "subclasses": {
                             "Hot_Water_Coil": {
-                                "tags": [TAG.Equipment, TAG.Coil, TAG.Hot, TAG.Water]
+                                "tags": [
+                                    TAG.Equipment,
+                                    TAG.Coil,
+                                    TAG.Hot,
+                                    TAG.Water,
+                                    TAG.Heat,
+                                ]
+                            },
+                            "Direct_Expansion_Heating_Coil": {
+                                "tags": [
+                                    TAG.Equipment,
+                                    TAG.Coil,
+                                    TAG.Heat,
+                                    TAG.Direct,
+                                    TAG.Expansion,
+                                ]
                             },
                         },
                     },
@@ -432,6 +508,7 @@ hvac_subclasses = {
             },
             "Ceiling_Fan": {"tags": [TAG.Equipment, TAG.Fan, TAG.Ceiling]},
             "Fresh_Air_Fan": {"tags": [TAG.Equipment, TAG.Fan, TAG.Fresh, TAG.Air]},
+            "Relief_Fan": {"tags": [TAG.Equipment, TAG.Fan, TAG.Relief]},
         },
     },
     "Economizer": {"tags": [TAG.Equipment, TAG.Economizer]},
@@ -443,6 +520,7 @@ hvac_subclasses = {
             "Outside_Damper": {"tags": [TAG.Equipment, TAG.Damper, TAG.Outside]},
             "Return_Damper": {"tags": [TAG.Equipment, TAG.Damper, TAG.Return]},
             "Mixed_Damper": {"tags": [TAG.Equipment, TAG.Damper, TAG.Mixed]},
+            "Relief_Damper": {"tags": [TAG.Equipment, TAG.Damper, TAG.Relief]},
         },
     },
     "Condenser": {"tags": [TAG.Equipment, TAG.Condenser]},
@@ -557,12 +635,99 @@ hvac_subclasses = {
             "PAU": {"tags": [TAG.Equipment, TAG.PAU]},
         },
     },
+    "Air_Plenum": {
+        "tags": [
+            TAG.Equipment,
+            TAG.Air,
+            TAG.Plenum,
+        ],
+        "subclasses": {
+            "Return_Air_Plenum": {
+                "tags": [TAG.Equipment, TAG.Return, TAG.Air, TAG.Plenum]
+            },
+            "Supply_Air_Plenum": {
+                "tags": [TAG.Equipment, TAG.Supply, TAG.Air, TAG.Plenum],
+                "subclasses": {
+                    "Underfloor_Air_Plenum": {
+                        "tags": [
+                            TAG.Equipment,
+                            TAG.Underfloor,
+                            TAG.Air,
+                            TAG.Plenum,
+                        ]
+                    },
+                },
+            },
+        },
+    },
+}
+
+valve_subclasses = {
+    "Valve": {
+        "tags": [TAG.Valve, TAG.Equipment],
+        "subclasses": {
+            "Water_Valve": {
+                "tags": [TAG.Valve, TAG.Water, TAG.Equipment],
+                "subclasses": {
+                    "Thermostatic_Mixing_Valve": {
+                        "tags": [TAG.Mixed, TAG.Valve, TAG.Water, TAG.Thermal, TAG.Equipment],
+                    },
+                    "Chilled_Water_Valve": {
+                        "tags": [TAG.Chilled, TAG.Valve, TAG.Water, TAG.Equipment],
+                        "parents": [BRICK.HVAC_Valve],
+                    },
+                    "Condenser_Water_Valve": {
+                        "tags": [TAG.Condenser, TAG.Valve, TAG.Water, TAG.Equipment],
+                        "parents": [BRICK.HVAC_Valve],
+                    },
+                    "Hot_Water_Valve": {
+                        "tags": [TAG.Hot, TAG.Valve, TAG.Water, TAG.Equipment],
+                        "parents": [BRICK.Heating_Valve],
+                        "subclasses": {
+                            "Domestic_Hot_Water_Valve": {
+                                "tags": [
+                                    TAG.Domestic,
+                                    TAG.Water,
+                                    TAG.Hot,
+                                    TAG.Valve,
+                                    TAG.Heat,
+                                    TAG.Equipment,
+                                ]
+                            },
+                            "Preheat_Hot_Water_Valve": {
+                                "tags": [
+                                    TAG.Preheat,
+                                    TAG.Water,
+                                    TAG.Hot,
+                                    TAG.Valve,
+                                    TAG.Heat,
+                                    TAG.Equipment,
+                                ]
+                            },
+                        },
+                    },
+                    "Makeup_Water_Valve": {
+                        "tags": [
+                            TAG.Fluid,
+                            TAG.Liquid,
+                            TAG.Water,
+                            TAG.Makeup,
+                            TAG.Valve,
+                            TAG.Equipment,
+                        ],
+                        "parents": [BRICK.HVAC_Valve],
+                    },
+                },
+            },
+            "Gas_Valve": {"tags": [TAG.Gas, TAG.Valve, TAG.Equipment]},
+        }
+    }
 }
 
 """
-Valve subclasses
+HVAC-specific Valve subclasses
 """
-valve_subclasses = {
+hvac_valve_subclasses = {
     "Heating_Valve": {
         "tags": [TAG.Valve, TAG.Heat, TAG.Equipment],
         "subclasses": {
@@ -573,54 +738,6 @@ valve_subclasses = {
         },
     },
     "Cooling_Valve": {"tags": [TAG.Valve, TAG.Cool, TAG.Equipment]},
-    "Water_Valve": {
-        "tags": [TAG.Valve, TAG.Water, TAG.Equipment],
-        "subclasses": {
-            "Chilled_Water_Valve": {
-                "tags": [TAG.Chilled, TAG.Valve, TAG.Water, TAG.Equipment],
-            },
-            "Condenser_Water_Valve": {
-                "tags": [TAG.Condenser, TAG.Valve, TAG.Water, TAG.Equipment],
-            },
-            "Hot_Water_Valve": {
-                "tags": [TAG.Hot, TAG.Valve, TAG.Water, TAG.Equipment],
-                "parents": [BRICK.Heating_Valve],
-                "subclasses": {
-                    "Domestic_Hot_Water_Valve": {
-                        "tags": [
-                            TAG.Domestic,
-                            TAG.Water,
-                            TAG.Hot,
-                            TAG.Valve,
-                            TAG.Heat,
-                            TAG.Equipment,
-                        ]
-                    },
-                    "Preheat_Hot_Water_Valve": {
-                        "tags": [
-                            TAG.Preheat,
-                            TAG.Water,
-                            TAG.Hot,
-                            TAG.Valve,
-                            TAG.Heat,
-                            TAG.Equipment,
-                        ]
-                    },
-                },
-            },
-            "Makeup_Water_Valve": {
-                "tags": [
-                    TAG.Fluid,
-                    TAG.Liquid,
-                    TAG.Water,
-                    TAG.Makeup,
-                    TAG.Valve,
-                    TAG.Equipment,
-                ]
-            },
-        },
-    },
-    "Gas_Valve": {"tags": [TAG.Gas, TAG.Valve, TAG.Equipment]},
     "Isolation_Valve": {
         "tags": [TAG.Isolation, TAG.Valve, TAG.Equipment],
         "subclasses": {

@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-18.04
     strategy:
       matrix:
-        python-version: [3.6.12, 3.7.9, 3.8.5, 3.9.0]
+        python-version: [3.7.9, 3.8.5, 3.9.0]
     steps:
     - uses: actions/checkout@v2
     - name: Set up Python ${{ matrix.python-version }}
@@ -40,7 +40,7 @@ jobs:
     - name: Run the tests
       # -s flag: do not capture output (avoids killing test after 10 min)
       run: |
-        pytest -s -vvvv
+        pytest -s -vvvv --durations=0 -n auto tests
     - name: Do integration tests
       run: |
         cd tests/integration
