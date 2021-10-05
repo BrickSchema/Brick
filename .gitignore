@@ -184,3 +184,6 @@ com_crashlytics_export_strings.xml
 crashlytics.properties
 crashlytics-build.properties
 fabric.properties
+Brick+extensions.ttl
+Brick.ttl
+extensions/brick_extension_shacl_tag_inference.ttl

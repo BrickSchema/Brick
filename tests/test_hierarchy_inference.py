@@ -55,7 +55,6 @@ def test_hierarchyinference():
 
     # Infer classes of the entities.
     # Apply reasoner
-    g.serialize("test.ttl", format="ttl")
     g.load_file("extensions/brick_extension_shacl_tag_inference.ttl")
     g.expand(profile="brick")
     g.serialize(inference_file, format="turtle")  # Store the inferred graph.

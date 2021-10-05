@@ -1686,6 +1686,9 @@ sensor_definitions = {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Temperature],
                 "substances": [[BRICK.measures, BRICK.Temperature]],
                 "subclasses": {
+                    "Heat_Sink_Temperature_Sensor": {
+                        "tags": [TAG.Point, TAG.Sensor, TAG.Temperature, TAG.Heat_Sink]
+                    },
                     "Air_Temperature_Sensor": {
                         "tags": [TAG.Point, TAG.Sensor, TAG.Temperature, TAG.Air],
                         "substances": [
