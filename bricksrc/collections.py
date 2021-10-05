@@ -57,6 +57,7 @@ system_subclasses = {
                         BRICK.Terminal_Unit,
                         BRICK.Reversing_Valve,
                         BRICK.Compressor,
+                        BRICK.Condenser,
                     ],
                 },
             },
