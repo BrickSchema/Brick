@@ -104,6 +104,7 @@ https://brickschema.org/schema/Brick#CRAC,,
 https://brickschema.org/schema/Brick#Cafeteria,A space to serve food and beverages,
 https://brickschema.org/schema/Brick#Capacity,,
 https://brickschema.org/schema/Brick#Capacity_Sensor,,
+https://brickschema.org/schema/Brick#Cassette,A terminal unit used in a ductless HVAC configuration which blows conditioned air into a space,
 https://brickschema.org/schema/Brick#Ceiling_Fan,A fan installed on the ceiling of a room for the purpose of air circulation,
 https://brickschema.org/schema/Brick#Centrifugal_Chiller,A chiller that uses the vapor compression cycle to chill water. It throws off the heat collected from the chilled water plus the heat from the compressor to a water loop,https://bellomyims.com/your-definitive-guide-to-centrifugal-chillers/
 https://brickschema.org/schema/Brick#Change_Filter_Alarm,An alarm that indicates that a filter must be changed,
@@ -173,6 +174,7 @@ https://brickschema.org/schema/Brick#Conference_Room,A space dedicated in which 
 https://brickschema.org/schema/Brick#Constant_Air_Volume_Box,A terminal unit for which supply air flow rate is constant and the supply air temperature is varied to meet thermal load,https://en.wikipedia.org/wiki/Constant_air_volume
 https://brickschema.org/schema/Brick#Contact_Sensor,"Senses or detects contact, such as for determining if a door is closed.",
 https://brickschema.org/schema/Brick#Control_Room,A space from which operations are managed,
+https://brickschema.org/schema/Brick#Convector,A terminal unit which circulates warm air by convection,
 https://brickschema.org/schema/Brick#controls,,
 https://brickschema.org/schema/Brick#Cooling_Coil,"A cooling element made of pipe or tube that removes heat from equipment, machines or airflows. Typically filled with either refrigerant or cold water.",
 https://brickschema.org/schema/Brick#Cooling_Command,Controls the amount of cooling to be delivered (typically as a proportion of total cooling output),
