@@ -42,6 +42,7 @@ status_definitions = {
                 "tags": [TAG.Point, TAG.Even, TAG.Month, TAG.Status],
             },
             "Fan_Status": {"tags": [TAG.Point, TAG.Fan, TAG.Status]},
+            "Valve_Status": {"tags": [TAG.Point, TAG.Valve, TAG.Status]},
             "Fault_Status": {
                 "subclasses": {
                     "Humidifier_Fault_Status": {

@@ -536,7 +536,19 @@ hvac_subclasses = {
         },
     },
     "Compressor": {"tags": [TAG.Equipment, TAG.Compressor]},
-    "Cooling_Tower": {"tags": [TAG.Equipment, TAG.Cooling, TAG.Tower]},
+    "Cooling_Tower": {"tags": [TAG.Equipment, TAG.Cool, TAG.Tower]},
+    "Chiller": {
+        "tags": [TAG.Equipment, TAG.Chiller],
+        "subclasses": {
+            "Absorption_Chiller": {
+                "tags": [TAG.Equipment, TAG.Chiller, TAG.Absorption],
+            },
+            "Centrifugal_Chiller": {
+                "tags": [TAG.Equipment, TAG.Chiller, TAG.Centrifugal],
+            },
+        },
+        "parents": [BRICK.Heat_Pump],
+    },
     "Heat_Pump": {
         "tags": [
             TAG.Equipment,
@@ -801,18 +813,6 @@ hvac_subclasses = {
                 },
             },
         },
-    },
-    "Chiller": {
-        "tags": [TAG.Equipment, TAG.Chiller],
-        "subclasses": {
-            "Absorption_Chiller": {
-                "tags": [TAG.Equipment, TAG.Chiller, TAG.Absorption],
-            },
-            "Centrifugal_Chiller": {
-                "tags": [TAG.Equipment, TAG.Chiller, TAG.Centrifugal],
-            },
-        },
-        "parents": [BRICK.Heat_Pump],
     },
     "Humidifier": {"tags": [TAG.Equipment, TAG.Humidifier]},
     "Boiler": {
