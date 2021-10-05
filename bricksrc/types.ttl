@@ -1,0 +1,16 @@
+@prefix bsh: <https://brickschema.org/schema/BrickShape#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+
+bsh:NumericValue a rdf:List ;
+    rdf:first [
+        sh:datatype xsd:float
+    ] ;
+    rdf:rest (
+        [ sh:datatype xsd:decimal ]
+        [ sh:datatype xsd:integer ]
+        [ sh:datatype xsd:double ]
+    )
+.

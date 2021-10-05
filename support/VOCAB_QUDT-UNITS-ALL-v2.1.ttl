@@ -24,7 +24,7 @@
   a owl:Ontology ;
   vaem:hasGraphMetadata vaem:GMD_QUDT-UNITS-ALL ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
-  rdfs:label "QUDT Units of Measure for All Units Release 2.1" ;
+  rdfs:label "QUDT Units of Measure for All Units Release 2.1.12" ;
   owl:imports <http://qudt.org/2.1/schema/qudt> ;
   owl:imports <http://qudt.org/2.1/vocab/prefix> ;
   owl:imports <http://qudt.org/2.1/vocab/quantitykind> ;
@@ -73,7 +73,7 @@ Note that SI supports only the use of symbols and deprecates the use of any abbr
 unit:A-HR
   a qudt:DerivedUnit ;
   a qudt:Unit ;
-  dcterms:description "\\(\\textbf{Ampere hour} is a practical unit of electric charge equal to the charge flowing in one hour through a conductor passing one ampere. An ampere-hour or amp-hour (symbol \\(Ah,\\,AHr,\\, A \\cdot h, A h\\)) is a unit of electric charge, with sub-units milliampere-hour (\\(mAh\\)) and milliampere second (\\(mAs\\)). One ampere-hour is equal to 3600 coulombs (ampere-seconds), the electric charge transferred by a steady current of one ampere for one hour. The ampere-hour is frequently used in measurements of electrochemical systems such as electroplating and electrical batteries. The commonly seen milliampere-hour (\\(mAh\\) or \\(mA \\cdot h\\)) is one-thousandth of an ampere-hour (\\(3.6 \\,coulombs\\))."^^qudt:LatexString ;
+  dcterms:description "\\(\\textbf{Ampere hour}\\) is a practical unit of electric charge equal to the charge flowing in one hour through a conductor passing one ampere. An ampere-hour or amp-hour (symbol \\(Ah,\\,AHr,\\, A \\cdot h, A h\\)) is a unit of electric charge, with sub-units milliampere-hour (\\(mAh\\)) and milliampere second (\\(mAs\\)). One ampere-hour is equal to 3600 coulombs (ampere-seconds), the electric charge transferred by a steady current of one ampere for one hour. The ampere-hour is frequently used in measurements of electrochemical systems such as electroplating and electrical batteries. The commonly seen milliampere-hour (\\(mAh\\) or \\(mA \\cdot h\\)) is one-thousandth of an ampere-hour (\\(3.6 \\,coulombs\\))."^^qudt:LatexString ;
   qudt:conversionMultiplier 3600.0 ;
   qudt:hasDimensionVector qkdv:A0E1L0I0M0H0T1D0 ;
   qudt:hasQuantityKind quantitykind:ElectricCharge ;
@@ -124,7 +124,7 @@ unit:A-PER-CentiM
   qudt:conversionMultiplier 100.0 ;
   qudt:hasDimensionVector qkdv:A0E1L-1I0M0H0T0D0 ;
   qudt:hasQuantityKind quantitykind:LinearElectricCurrentDensity ;
-  qudt:hasQuantityKind quantitykind:MagneticFieldStrength ;
+  qudt:hasQuantityKind quantitykind:MagneticFieldStrength_H ;
   qudt:iec61360Code "0112/2///62720#UAB073" ;
   qudt:plainTextDescription "SI base unit ampere divided by the 0.01-fold of the SI base unit metre" ;
   qudt:ucumCode "A.cm-1"^^qudt:UCUMcs ;
@@ -186,7 +186,7 @@ unit:A-PER-M
   qudt:hasDimensionVector qkdv:A0E1L-1I0M0H0T0D0 ;
   qudt:hasQuantityKind quantitykind:Coercivity ;
   qudt:hasQuantityKind quantitykind:LinearElectricCurrentDensity ;
-  qudt:hasQuantityKind quantitykind:MagneticFieldStrength ;
+  qudt:hasQuantityKind quantitykind:MagneticFieldStrength_H ;
   qudt:iec61360Code "0112/2///62720#UAA104" ;
   qudt:ucumCode "A.m-1"^^qudt:UCUMcs ;
   qudt:ucumCode "A/m"^^qudt:UCUMcs ;
@@ -234,7 +234,7 @@ unit:A-PER-MilliM
   qudt:conversionMultiplier 1000.0 ;
   qudt:hasDimensionVector qkdv:A0E1L-1I0M0H0T0D0 ;
   qudt:hasQuantityKind quantitykind:LinearElectricCurrentDensity ;
-  qudt:hasQuantityKind quantitykind:MagneticFieldStrength ;
+  qudt:hasQuantityKind quantitykind:MagneticFieldStrength_H ;
   qudt:iec61360Code "0112/2///62720#UAB072" ;
   qudt:plainTextDescription "SI base unit ampere divided by the 0.001-fold of the SI base unit metre" ;
   qudt:ucumCode "A.mm-1"^^qudt:UCUMcs ;
@@ -261,7 +261,7 @@ unit:A-PER-MilliM2
 unit:A-PER-RAD
   a qudt:DerivedUnit ;
   a qudt:Unit ;
-  dcterms:description "\\(\\textit{Ampere per Radian} is a derived unit for measuring the amount of current per unit measure of angle, expressed in ampere per radian.\\)"^^qudt:LatexString ;
+  dcterms:description "\\(\\textit{Ampere per Radian}\\) is a derived unit for measuring the amount of current per unit measure of angle, expressed in ampere per radian."^^qudt:LatexString ;
   qudt:conversionMultiplier 1.0 ;
   qudt:definedUnitOfSystem sou:SI ;
   qudt:derivedCoherentUnitOfSystem sou:SI ;
@@ -350,7 +350,7 @@ unit:AMD
 .
 unit:AMU
   a qudt:Unit ;
-  dcterms:description "The \\textit{Unified Atomic Mass Unit} (symbol: \\(\\mu\\)) or \\textit{dalton} (symbol: Da) is a unit that is used for indicating mass on an atomic or molecular scale. It is defined as one twelfth of the rest mass of an unbound atom of carbon-12 in its nuclear and electronic ground state, and has a value of \\(1.660538782(83) \\times 10^{-27} kg\\).  One \\(Da\\) is approximately equal to the mass of one proton or one neutron. The CIPM have categorised it as a \\textit{\"non-SI unit whose values in SI units must be obtained experimentally\"}."^^qudt:LatexString ;
+  dcterms:description "The \\(\\textit{Unified Atomic Mass Unit}\\) (symbol: \\(\\mu\\)) or \\(\\textit{dalton}\\) (symbol: Da) is a unit that is used for indicating mass on an atomic or molecular scale. It is defined as one twelfth of the rest mass of an unbound atom of carbon-12 in its nuclear and electronic ground state, and has a value of \\(1.660538782(83) \\times 10^{-27} kg\\).  One \\(Da\\) is approximately equal to the mass of one proton or one neutron. The CIPM have categorised it as a \\(\\textit{\"non-SI unit whose values in SI units must be obtained experimentally\"}\\)."^^qudt:LatexString ;
   qudt:conversionMultiplier 0.00000000000000000000000000166053878283 ;
   qudt:exactMatch unit:Da ;
   qudt:exactMatch unit:U ;
@@ -444,7 +444,7 @@ unit:ARS
 unit:AT
   a qudt:DerivedUnit ;
   a qudt:Unit ;
-  dcterms:description "\\(The \\textit{ampere-turn} was the MKS unit of magnetomotive force (MMF), represented by a direct current of one ampere flowing in a single-turn loop in a vacuum. \"Turns\" refers to the winding number of an electrical conductor comprising an inductor. The ampere-turn was replaced by the SI unit, ampere.\\)"^^qudt:LatexString ;
+  dcterms:description "The \\(\\textit{ampere-turn}\\) was the MKS unit of magnetomotive force (MMF), represented by a direct current of one ampere flowing in a single-turn loop in a vacuum. \"Turns\" refers to the winding number of an electrical conductor comprising an inductor. The ampere-turn was replaced by the SI unit, \\(ampere\\)."^^qudt:LatexString ;
   qudt:conversionMultiplier 1.0 ;
   qudt:definedUnitOfSystem sou:SI ;
   qudt:derivedCoherentUnitOfSystem sou:SI ;
@@ -457,11 +457,11 @@ unit:AT
 unit:AT-PER-IN
   a qudt:DerivedUnit ;
   a qudt:Unit ;
-  dcterms:description "The 'ampere-turn-per-inch' is a measure of magnetic field intensity and is eual to 12.5664 Oersted."^^rdf:HTML ;
+  dcterms:description "The \\(\\textit{Ampere Turn per Inch}\\) is a measure of magnetic field intensity and is eual to 12.5664 Oersted."^^rdf:HTML ;
   qudt:conversionMultiplier 39.3700787 ;
   qudt:expression "\\(At/in\\)"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E1L-1I0M0H0T0D0 ;
-  qudt:hasQuantityKind quantitykind:MagneticFieldStrength ;
+  qudt:hasQuantityKind quantitykind:MagneticFieldStrength_H ;
   qudt:unitOfSystem sou:USCS ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
   rdfs:label "Ampere Turn per Inch"@en ;
@@ -469,13 +469,13 @@ unit:AT-PER-IN
 unit:AT-PER-M
   a qudt:DerivedUnit ;
   a qudt:Unit ;
-  dcterms:description "The SI unit of magnetic field strength. One ampere per meter is equal to \\(\\pi/250\\) oersteds (12.566 371 millioersteds) in CGS units. The ampere per meter is also the SI unit of \"magnetization\" in the sense of magnetic dipole moment per unit volume; in this context \\(1 A/m = 0.001 emu per cubic centimeter\\)."^^qudt:LatexString ;
+  dcterms:description "The  \\(\\textit{Ampere Turn per Metre}\\) is the SI unit of magnetic field strength. One ampere per meter is equal to \\(\\pi/250\\) oersteds (12.566 371 millioersteds) in CGS units. The ampere per meter is also the SI unit of \"magnetization\" in the sense of magnetic dipole moment per unit volume; in this context \\(1 A/m = 0.001 emu per cubic centimeter\\)."^^qudt:LatexString ;
   qudt:conversionMultiplier 1.0 ;
   qudt:definedUnitOfSystem sou:SI ;
   qudt:derivedCoherentUnitOfSystem sou:SI ;
   qudt:expression "\\(At/m\\)"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E1L-1I0M0H0T0D0 ;
-  qudt:hasQuantityKind quantitykind:MagneticFieldStrength ;
+  qudt:hasQuantityKind quantitykind:MagneticFieldStrength_H ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
   rdfs:label "Ampere Turn per Meter"@en-us ;
   rdfs:label "Ampere Turn per Metre"@en ;
@@ -811,7 +811,7 @@ unit:BARAD
 .
 unit:BARN
   a qudt:Unit ;
-  dcterms:description "A barn (symbol b) is a unit of area. Originally used in nuclear physics for expressing the cross sectional area of nuclei and nuclear reactions, today it is used in all fields of high energy physics to express the cross sections of any scattering process, and is best understood as a measure of the probability of interaction between small particles. A barn is defined as \\(10^{28} m^2 (100 fm^2)\\) and is approximately the cross sectional area of a uranium nucleus. The barn is also the unit of area used in nuclear quadrupole resonance and nuclear magnetic resonance to quantify the interaction of a nucleus with an electric field gradient. While the barn is not an SI unit, it is accepted for use with the SI due to its continued use in particle physics."^^qudt:LatexString ;
+  dcterms:description "A barn (symbol b) is a unit of area. Originally used in nuclear physics for expressing the cross sectional area of nuclei and nuclear reactions, today it is used in all fields of high energy physics to express the cross sections of any scattering process, and is best understood as a measure of the probability of interaction between small particles. A barn is defined as \\(10^{28} m^2 (100 fm^2)\\) and is approximately the cross sectional area of a uranium nucleus. The barn is also the unit of area used in nuclear quadrupole resonance and nuclear magnetic resonance to quantify the interaction of a nucleus with an electric field gradient. While the barn is not an SI unit, it is accepted for use with the SI due to its continued use in particle physics."^^qudt:LatexString ;
   qudt:conversionMultiplier 0.018 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Barn"^^xsd:anyURI ;
   qudt:hasDimensionVector qkdv:A0E0L2I0M0H0T0D0 ;
@@ -831,7 +831,7 @@ unit:BARYE
   dcterms:description "<p>The barye, or sometimes barad, barrie, bary, baryd, baryed, or barie, is the centimetre-gram-second (CGS) unit of pressure. It is equal to 1 dyne per square centimetre.</p>"^^rdf:HTML ;
   qudt:conversionMultiplier 0.1 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Barye"^^xsd:anyURI ;
-  qudt:derivedCoherentUnitOfSystem sou:CGS-MECHANICS ;
+  qudt:derivedCoherentUnitOfSystem sou:CGS ;
   qudt:hasDimensionVector qkdv:A0E0L-1I0M1H0T-2D0 ;
   qudt:hasQuantityKind quantitykind:ForcePerArea ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Barye?oldid=478631158"^^xsd:anyURI ;
@@ -1126,7 +1126,7 @@ unit:BQ-PER-KiloGM
   dcterms:description "The only unit in the category of Specific radioactivity. It is also known as becquerels per kilogram, becquerel/kilogram. This unit is commonly used in the SI unit system. Becquerel Per Kilogram (Bq/kg) has a dimension of \\(M{-1}T{-1}\\) where \\(M\\) is mass, and \\(T\\) is time. It essentially the same as the corresponding standard SI unit \\(/kg/s\\)."^^qudt:LatexString ;
   qudt:conversionMultiplier 1.0 ;
   qudt:expression "\\(Bq/kg\\)"^^qudt:LatexString ;
-  qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T-1D0 ;
+  qudt:hasDimensionVector qkdv:A0E0L0I0M-1H0T-1D0 ;
   qudt:hasQuantityKind quantitykind:MassicActivity ;
   qudt:hasQuantityKind quantitykind:SpecificActivity ;
   qudt:iec61360Code "0112/2///62720#UAA112" ;
@@ -1235,7 +1235,7 @@ unit:BTU_IT
 unit:BTU_IT-FT
   a qudt:DerivedUnit ;
   a qudt:Unit ;
-  dcterms:description "\\{textitBTU Foot} is an Imperial unit for \\{textit{Thermal Energy Length} expressed as \\(Btu-ft\\)."^^qudt:LatexString ;
+  dcterms:description "\\({\\bf BTU_{IT} \\, Foot}\\) is an Imperial unit for \\(\\textit{Thermal Energy Length}\\) expressed as \\(Btu-ft\\)."^^qudt:LatexString ;
   qudt:conversionMultiplier 321.581024 ;
   qudt:definedUnitOfSystem sou:IMPERIAL ;
   qudt:definedUnitOfSystem sou:USCS ;
@@ -1270,7 +1270,7 @@ unit:BTU_IT-FT-PER-FT2-HR-DEG_F
 unit:BTU_IT-IN
   a qudt:DerivedUnit ;
   a qudt:Unit ;
-  dcterms:description "\\(\\textbf{BTU Inch} is an Imperial unit for 'Thermal Energy Length' expressed as \\(Btu-in\\)."^^qudt:LatexString ;
+  dcterms:description "\\({\\bf BTU \\, Inch}\\) is an Imperial unit for 'Thermal Energy Length' expressed as \\(Btu-in\\)."^^qudt:LatexString ;
   qudt:conversionMultiplier 26.7984187 ;
   qudt:definedUnitOfSystem sou:IMPERIAL ;
   qudt:definedUnitOfSystem sou:USCS ;
@@ -1306,7 +1306,7 @@ unit:BTU_IT-IN-PER-FT2-HR-DEG_F
 unit:BTU_IT-IN-PER-FT2-SEC-DEG_F
   a qudt:DerivedUnit ;
   a qudt:Unit ;
-  dcterms:description "\\(BTU_{IT} Inch per Square Foot Second Degree Fahrenheit\\) is an Imperial unit for 'Thermal Conductivity' expressed as \\(Btu_{it}-in/(ft^{2}-s-degF)\\)."^^qudt:LatexString ;
+  dcterms:description "\\(BTU_{IT}\\), Inch per Square Foot Second Degree Fahrenheit, is an Imperial unit for 'Thermal Conductivity' expressed as \\(Btu_{it}-in/(ft^{2}-s-degF)\\)."^^qudt:LatexString ;
   qudt:conversionMultiplier 519.220399911 ;
   qudt:expression "\\(Btu(it)-in-per-s-ft2-degF\\)"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L1I0M1H-1T-3D0 ;
@@ -1370,7 +1370,7 @@ unit:BTU_IT-PER-DEG_F
 unit:BTU_IT-PER-DEG_R
   a qudt:DerivedUnit ;
   a qudt:Unit ;
-  dcterms:description "\\(\\textbf{BTU per Degree Rankine} is an Imperial unit for 'Heat Capacity' expressed as \\(Btu/degR\\)."^^qudt:LatexString ;
+  dcterms:description "\\({\\bf BTU \\, per \\, Degree \\, Rankine}\\) is an Imperial unit for 'Heat Capacity' expressed as \\(Btu/degR\\)."^^qudt:LatexString ;
   qudt:conversionMultiplier 1899.100535 ;
   qudt:expression "\\(btu-per-degR\\)"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L2I0M1H-1T-2D0 ;
@@ -1400,7 +1400,7 @@ unit:BTU_IT-PER-FT2
 unit:BTU_IT-PER-FT2-HR-DEG_F
   a qudt:DerivedUnit ;
   a qudt:Unit ;
-  dcterms:description "\\(\\textbf{BTU per Square Foot Hour Degree Fahrenheit} is an Imperial unit for 'Coefficient Of Heat Transfer' expressed as \\(Btu/(hr-ft^{2}-degF)\\)."^^qudt:LatexString ;
+  dcterms:description "\\({\\bf BTU \\, per \\, Square \\, Foot \\, Hour \\, Degree \\, Fahrenheit}\\) is an Imperial unit for 'Coefficient Of Heat Transfer' expressed as \\(Btu/(hr-ft^{2}-degF)\\)."^^qudt:LatexString ;
   qudt:definedUnitOfSystem sou:IMPERIAL ;
   qudt:definedUnitOfSystem sou:USCS ;
   qudt:expression "\\(Btu/(hr-ft^{2}-degF)\\)"^^qudt:LatexString ;
@@ -1415,7 +1415,7 @@ unit:BTU_IT-PER-FT2-HR-DEG_F
 unit:BTU_IT-PER-FT2-SEC-DEG_F
   a qudt:DerivedUnit ;
   a qudt:Unit ;
-  dcterms:description "\\(\\textbf{BTU per Square Foot Second Degree Fahrenheit} is an Imperial unit for 'Coefficient Of Heat Transfer' expressed as \\(Btu/(ft^{2}-s-degF)\\)."^^qudt:LatexString ;
+  dcterms:description "\\({\\bf BTU \\, per \\, Square \\, Foot \\, Second \\, Degree \\, Fahrenheit}\\) is an Imperial unit for 'Coefficient Of Heat Transfer' expressed as \\(Btu/(ft^{2}-s-degF)\\)."^^qudt:LatexString ;
   qudt:definedUnitOfSystem sou:IMPERIAL ;
   qudt:definedUnitOfSystem sou:USCS ;
   qudt:expression "\\(Btu/(ft^{2}-s-degF)\\)"^^qudt:LatexString ;
@@ -1525,7 +1525,7 @@ unit:BTU_IT-PER-LB-DEG_F
 unit:BTU_IT-PER-LB-DEG_R
   a qudt:DerivedUnit ;
   a qudt:Unit ;
-  dcterms:description "\\(\\textbf{BTU per Pound Degree Rankine} is a unit for 'Specific Heat Capacity' expressed as \\(Btu/(lb-degR)\\)."^^qudt:LatexString ;
+  dcterms:description "\\({\\bf BTU \\, per \\, Pound \\, Degree \\, Rankine}\\) is a unit for 'Specific Heat Capacity' expressed as \\(Btu/(lb-degR)\\)."^^qudt:LatexString ;
   qudt:definedUnitOfSystem sou:USCS ;
   qudt:expression "\\(Btu/(lb-degR)\\)"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L2I0M0H-1T-2D0 ;
@@ -1538,7 +1538,7 @@ unit:BTU_IT-PER-LB-DEG_R
 unit:BTU_IT-PER-LB-MOL
   a qudt:DerivedUnit ;
   a qudt:Unit ;
-  dcterms:description "\\(\\textbf{BTU per Pound Mole} is an Imperial unit for \\textit{'Energy And Work Per Mass Amount Of Substance'} expressed as \\(Btu/(lb-mol)\\)."^^qudt:LatexString ;
+  dcterms:description "\\({\\bf BTU \\, per \\, Pound \\,Mole}\\) is an Imperial unit for 'Energy And Work Per Mass Amount Of Substance' expressed as \\(Btu/(lb-mol)\\)."^^qudt:LatexString ;
   qudt:expression "\\(Btu/(lb-mol)\\)"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L2I0M0H0T-2D0 ;
   qudt:hasQuantityKind quantitykind:EnergyPerMassAmountOfSubstance ;
@@ -1603,7 +1603,7 @@ unit:BTU_IT-PER-MIN
 unit:BTU_IT-PER-MOL-DEG_F
   a qudt:DerivedUnit ;
   a qudt:Unit ;
-  dcterms:description "\\(\\textbf{BTU per Pound Mole Degree Fahrenheit} is an Imperial unit for \\textit{'Molar Heat Capacity'} expressed as \\(Btu/(lb-mol-degF)\\)."^^qudt:LatexString ;
+  dcterms:description "\\({\\bf BTU \\, per \\, Pound \\, Mole \\, Degree \\, Fahrenheit}\\) is an Imperial unit for 'Molar Heat Capacity' expressed as \\(Btu/(lb-mol-degF)\\)."^^qudt:LatexString ;
   qudt:definedUnitOfSystem sou:IMPERIAL ;
   qudt:expression "\\(Btu/(lb-mol-degF)\\)"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A-1E0L2I0M1H-1T-2D0 ;
@@ -1617,7 +1617,7 @@ unit:BTU_IT-PER-MOL-DEG_F
 unit:BTU_IT-PER-SEC
   a qudt:DerivedUnit ;
   a qudt:Unit ;
-  dcterms:description "\\(\\textbf{BTU per Second} is an Imperial unit for 'Heat Flow Rate' expressed as \\(Btu/s\\)."^^qudt:LatexString ;
+  dcterms:description "\\({\\bf BTU \\, per \\, Second}\\) is an Imperial unit for 'Heat Flow Rate' expressed as \\(Btu/s\\)."^^qudt:LatexString ;
   qudt:conversionMultiplier 1055.05585262 ;
   qudt:definedUnitOfSystem sou:IMPERIAL ;
   qudt:definedUnitOfSystem sou:USCS ;
@@ -1688,7 +1688,7 @@ unit:BTU_MEAN
 .
 unit:BTU_TH
   a qudt:Unit ;
-  dcterms:description "British Thermal Unit (thermochemical definition} (\\(BTU_{th}\\)) is a traditional unit of energy equal to about \\(1.0543502645 kilojoule\\). It is approximately the amount of energy needed to heat 1 pound (0.454 kg) of water from \\(39 \\,^{\\circ}{\\rm F}\\) (\\(39 \\,^{\\circ}{\\rm C}\\)) to \\(40 \\,^{\\circ}{\\rm F}\\) (\\(4.4 \\,^{\\circ}{\\rm C\"\\)). The unit is most often used in the power, steam generation, heating and air conditioning industries. In scientific contexts the BTU has largely been replaced by the SI unit of energy, the \\(joule\\)."^^qudt:LatexString ;
+  dcterms:description "(\\{\\bf (BTU_{th}}\\), British Thermal Unit (thermochemical definition), is a traditional unit of energy equal to about \\(1.0543502645 kilojoule\\). It is approximately the amount of energy needed to heat 1 pound (0.454 kg) of water from \\(39 \\,^{\\circ}{\\rm F}\\) (\\(39 \\,^{\\circ}{\\rm C}\\)) to \\(40 \\,^{\\circ}{\\rm F}\\) (\\(4.4 \\,^{\\circ}{\\rm C}\\)). The unit is most often used in the power, steam generation, heating and air conditioning industries. In scientific contexts the BTU has largely been replaced by the SI unit of energy, the \\(joule\\)."^^qudt:LatexString ;
   qudt:conversionMultiplier 1054.3502645 ;
   qudt:hasDimensionVector qkdv:A0E0L2I0M1H0T-2D0 ;
   qudt:hasQuantityKind quantitykind:Energy ;
@@ -1706,7 +1706,7 @@ unit:BTU_TH
 unit:BTU_TH-FT-PER-FT2-HR-DEG_F
   a qudt:DerivedUnit ;
   a qudt:Unit ;
-  dcterms:description "\\(BTU_{TH}\\) Foot per Square Foot Hour Degree Fahrenheit is an Imperial unit for 'Thermal Conductivity' expressed as \\(Btu_{th} \\cdot ft/(hr \\cdot ft^2 \\cdot degF)\\)."^^qudt:LatexString ;
+  dcterms:description "\\({ \\bf BTU_{TH} \\, Foot \\,  per \\, Square \\, Foot \\, Hour \\, Degree \\, Fahrenheit}\\) is an Imperial unit for 'Thermal Conductivity' expressed as \\(Btu_{th} \\cdot ft/(hr \\cdot ft^2 \\cdot degF)\\)."^^qudt:LatexString ;
   qudt:conversionMultiplier 1.729577206 ;
   qudt:definedUnitOfSystem sou:IMPERIAL ;
   qudt:definedUnitOfSystem sou:USCS ;
@@ -1737,7 +1737,7 @@ unit:BTU_TH-FT-PER-HR-FT2-DEG_F
 unit:BTU_TH-IN-PER-FT2-HR-DEG_F
   a qudt:DerivedUnit ;
   a qudt:Unit ;
-  dcterms:description "\\(\\textbf{\\(BTU_{th}\\) Inch per Square Foot Hour Degree Fahrenheit is an Imperial unit for 'Thermal Conductivity' expressed as \\(Btu-in/(hr-ft^{2}-degF)\\). A thermochemical British thermal unit inch per second per square foot per degree Fahrenheit is a unit of thermal conductivity in the US Customary Units and British Imperial Units. \\(1 Btu_{th} \\cdot in/(hr \\cdot ft^{2}  \\cdot degF)\\) shows that one thermochemical BTU of heat per one hour moves through one square foot of material, which is one foot thick due to a temperature difference of one degree Fahrenheit."^^qudt:LatexString ;
+  dcterms:description "\\({\\bf BTU_{th}}\\), Inch per Square Foot Hour Degree Fahrenheit, is an Imperial unit for 'Thermal Conductivity' expressed as \\(Btu-in/(hr-ft^{2}-degF)\\). A thermochemical British thermal unit inch per second per square foot per degree Fahrenheit is a unit of thermal conductivity in the US Customary Units and British Imperial Units. \\(1 Btu_{th} \\cdot in/(hr \\cdot ft^{2}  \\cdot degF)\\) shows that one thermochemical BTU of heat per one hour moves through one square foot of material, which is one foot thick due to a temperature difference of one degree Fahrenheit."^^qudt:LatexString ;
   qudt:conversionMultiplier 0.144131434 ;
   qudt:definedUnitOfSystem sou:IMPERIAL ;
   qudt:definedUnitOfSystem sou:USCS ;
@@ -1805,7 +1805,7 @@ unit:BTU_TH-PER-HR
 .
 unit:BTU_TH-PER-LB
   a qudt:Unit ;
-  dcterms:description "\\(British Thermal Unit (therm.) Per Pound Mass (Btu (TH)/lbm) is a unit in the category of Thermal heat capacity. It is also known as Btu per pound, Btu/pound, Btu/lb. This unit is commonly used in the UK unit system. British Thermal Unit (therm.) Per Pound Mass (Btu (therm.)/lbm) has a dimension of L2T-2 where L is length, and T is time. It can be converted to the corresponding standard SI unit J/kg by multiplying its value by a factor of 2324.443861.\\)"^^qudt:LatexString ;
+  dcterms:description "\\({\\bf Btu_{th} / lbm}\\), British Thermal Unit (therm.) Per Pound Mass, is a unit in the category of Thermal heat capacity. It is also known as Btu per pound, Btu/pound, Btu/lb. This unit is commonly used in the UK unit system. British Thermal Unit (therm.) Per Pound Mass (Btu (therm.)/lbm) has a dimension of \\(L^2T^{-2}\\) where \\(L\\) is length, and \\(T\\) is time. It can be converted to the corresponding standard SI unit J/kg by multiplying its value by a factor of 2324.443861."^^qudt:LatexString ;
   qudt:conversionMultiplier 2324.443861 ;
   qudt:expression "\\(btu_th-per-lb\\)"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L2I0M0H0T-2D0 ;
@@ -2225,7 +2225,7 @@ unit:C-PER-CentiM3
 unit:C-PER-KiloGM
   a qudt:DerivedUnit ;
   a qudt:Unit ;
-  dcterms:description "\\(\\textbf{Coulomb Per Kilogram (C/kg)} is the unit in the category of Exposure. It is also known as coulombs per kilogram, coulomb/kilogram. This unit is commonly used in the SI unit system. Coulomb Per Kilogram (C/kg) has a dimension of \\(M^{-1}TI\\) where \\(M\\) is mass, \\(T\\) is time, and \\(I\\) is electric current. This unit is the standard SI unit in this category."^^qudt:LatexString ;
+  dcterms:description "\\(\\textbf{Coulomb Per Kilogram (C/kg)}\\) is the unit in the category of Exposure. It is also known as coulombs per kilogram, coulomb/kilogram. This unit is commonly used in the SI unit system. Coulomb Per Kilogram (C/kg) has a dimension of \\(M^{-1}TI\\) where \\(M\\) is mass, \\(T\\) is time, and \\(I\\) is electric current. This unit is the standard SI unit in this category."^^qudt:LatexString ;
   qudt:conversionMultiplier 1.0 ;
   qudt:definedUnitOfSystem sou:SI ;
   qudt:derivedCoherentUnitOfSystem sou:SI ;
@@ -2426,7 +2426,7 @@ unit:CAL_15_DEG_C
 .
 unit:CAL_IT
   a qudt:Unit ;
-  dcterms:description "\\( International Table calorie. \\)"^^qudt:LatexString ;
+  dcterms:description "International Table calorie."^^qudt:LatexString ;
   qudt:conversionMultiplier 4.1868 ;
   qudt:hasDimensionVector qkdv:A0E0L2I0M1H0T-2D0 ;
   qudt:hasQuantityKind quantitykind:Energy ;
@@ -2437,31 +2437,21 @@ unit:CAL_IT
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
   rdfs:label "International Table calorie"@en ;
 .
-unit:CAL_IT-PER-G
-  a qudt:Unit ;
-  dcterms:description "\\(Calories produced per gram of substance.\\)"^^qudt:LatexString ;
-  qudt:conversionMultiplier 4186.8 ;
-  qudt:expression "\\(cal_it-per-g\\)"^^qudt:LatexString ;
-  qudt:hasDimensionVector qkdv:A0E0L2I0M0H0T-2D0 ;
-  qudt:hasQuantityKind quantitykind:SpecificEnergy ;
-  qudt:informativeReference "http://physics.nist.gov/Pubs/SP811/appenB9.html"^^xsd:anyURI ;
-  qudt:informativeReference "http://www.efunda.com/glossary/units/units--thermal_heat_capacity--british_thermal_unit_therm_per_pound_mass.cfm"^^xsd:anyURI ;
-  qudt:ucumCode "cal_IT.g-1"^^qudt:UCUMcs ;
-  qudt:ucumCode "cal_IT/g"^^qudt:UCUMcs ;
-  qudt:unitOfSystem sou:IMPERIAL ;
-  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
-  rdfs:label "calorieIT per gram (calIT/g)"@en ;
-.
 unit:CAL_IT-PER-GM
   a qudt:Unit ;
+  dcterms:description "Calories produced per gram of substance." ;
   qudt:conversionMultiplier 4186.8 ;
+  qudt:expression "\\(cal_{it}-per-gm\\)"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L2I0M0H0T-2D0 ;
   qudt:hasQuantityKind quantitykind:SpecificEnergy ;
   qudt:iec61360Code "0112/2///62720#UAB176" ;
+  qudt:informativeReference "http://physics.nist.gov/Pubs/SP811/appenB9.html"^^xsd:anyURI ;
+  qudt:informativeReference "http://www.efunda.com/glossary/units/units--thermal_heat_capacity--british_thermal_unit_therm_per_pound_mass.cfm"^^xsd:anyURI ;
   qudt:plainTextDescription "unit calorie according to the international steam table divided by the 0.001-fold of the SI base unit kilogram" ;
   qudt:ucumCode "cal_IT.g-1"^^qudt:UCUMcs ;
   qudt:ucumCode "cal_IT/g"^^qudt:UCUMcs ;
   qudt:uneceCommonCode "D75" ;
+  qudt:unitOfSystem sou:IMPERIAL ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
   rdfs:label "Calorie (international Table) Per Gram"@en ;
 .
@@ -2533,7 +2523,7 @@ unit:CAL_MEAN
 .
 unit:CAL_TH
   a qudt:Unit ;
-  dcterms:description "The energy needed to increase the temperature of a given mass of water by \\(1 ^\\circ C\\( at atmospheric pressure depends on the starting temperature and is difficult to measure precisely. Accordingly, there have been several definitions of the calorie. The two perhaps most popular definitions used in older literature are the \\(15 ^\\circ C\\) calorie and the thermochemical calorie."^^qudt:LatexString ;
+  dcterms:description "The energy needed to increase the temperature of a given mass of water by \\(1 ^\\circ C\\) at atmospheric pressure depends on the starting temperature and is difficult to measure precisely. Accordingly, there have been several definitions of the calorie. The two perhaps most popular definitions used in older literature are the \\(15 ^\\circ C\\) calorie and the thermochemical calorie."^^qudt:LatexString ;
   qudt:conversionMultiplier 4.184 ;
   qudt:hasDimensionVector qkdv:A0E0L2I0M1H0T-2D0 ;
   qudt:hasQuantityKind quantitykind:Energy ;
@@ -2581,20 +2571,25 @@ unit:CAL_TH-PER-G
   qudt:ucumCode "cal_th/g"^^qudt:UCUMcs ;
   qudt:unitOfSystem sou:IMPERIAL ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
-  rdfs:label "calorieTH per gram (calTH/g)"@en ;
+  rdfs:label "calorie (thermochemical) per gram (calTH/g)"@en ;
   owl:deprecated true ;
   skos:changeNote "2020-10-30 - incorrect local-name - G is for Gravity, GM is for gram - the correct named individual was already present, so this one deprecated. " ;
 .
 unit:CAL_TH-PER-GM
   a qudt:Unit ;
+  dcterms:description "Thermochemical Calorie. Calories produced per gram of substance." ;
   qudt:conversionMultiplier 4184.0 ;
+  qudt:expression "\\(cal\\)"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L2I0M0H0T-2D0 ;
   qudt:hasQuantityKind quantitykind:SpecificEnergy ;
   qudt:iec61360Code "0112/2///62720#UAB153" ;
+  qudt:informativeReference "http://physics.nist.gov/Pubs/SP811/appenB9.html"^^xsd:anyURI ;
+  qudt:informativeReference "http://www.efunda.com/glossary/units/units--thermal_heat_capacity--british_thermal_unit_therm_per_pound_mass.cfm"^^xsd:anyURI ;
   qudt:plainTextDescription "unit thermochemical calorie divided by the 0.001-fold of the SI base unit kilogram" ;
   qudt:ucumCode "cal_th.g-1"^^qudt:UCUMcs ;
   qudt:ucumCode "cal_th/g"^^qudt:UCUMcs ;
   qudt:uneceCommonCode "B36" ;
+  qudt:unitOfSystem sou:IMPERIAL ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
   rdfs:label "Calorie (thermochemical) Per Gram"@en ;
 .
@@ -2604,7 +2599,7 @@ unit:CAL_TH-PER-GM-DEG_C
   qudt:hasDimensionVector qkdv:A0E0L2I0M0H-1T-2D0 ;
   qudt:hasQuantityKind quantitykind:SpecificHeatCapacity ;
   qudt:iec61360Code "0112/2///62720#UAA366" ;
-  qudt:plainTextDescription "unit calorieth divided by the product of the unit gram and degree Celsius" ;
+  qudt:plainTextDescription "unit calorie (thermochemical) divided by the product of the unit gram and degree Celsius" ;
   qudt:ucumCode "cal_th.g-1.Cel-1"^^qudt:UCUMcs ;
   qudt:ucumCode "cal_th/(g.Cel)"^^qudt:UCUMcs ;
   qudt:uneceCommonCode "J79" ;
@@ -2617,7 +2612,7 @@ unit:CAL_TH-PER-GM-K
   qudt:hasDimensionVector qkdv:A0E0L2I0M0H-1T-2D0 ;
   qudt:hasQuantityKind quantitykind:SpecificHeatCapacity ;
   qudt:iec61360Code "0112/2///62720#UAA367" ;
-  qudt:plainTextDescription "unit calorieth divided by the product of the SI derived unit gram and the SI base unit Kelvin" ;
+  qudt:plainTextDescription "unit calorie (thermochemical) divided by the product of the SI derived unit gram and the SI base unit Kelvin" ;
   qudt:ucumCode "cal_th.g-1.K-1"^^qudt:UCUMcs ;
   qudt:ucumCode "cal_th/(g.K)"^^qudt:UCUMcs ;
   qudt:uneceCommonCode "D37" ;
@@ -2792,7 +2787,7 @@ unit:CH
 .
 unit:CLO
   a qudt:Unit ;
-  dcterms:description "\\(A C.G.S System unit for \\textit{Thermal Insulance} expressed as \"clo\".\\)"^^qudt:LatexString ;
+  dcterms:description "A C.G.S System unit for \\(\\textit{Thermal Insulance}\\) expressed as \"clo\"."^^qudt:LatexString ;
   qudt:conversionMultiplier 0.155 ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M-1H1T3D0 ;
   qudt:hasQuantityKind quantitykind:ThermalInsulance ;
@@ -2916,7 +2911,7 @@ unit:C_Ab-PER-CentiM2
   a qudt:Unit ;
   dcterms:description """Abcoulomb Per Square Centimeter is a unit in the category of Electric charge surface density. It is also known as abcoulombs per square centimeter, abcoulomb per square centimetre, abcoulombs per square centimetre, abcoulomb/square centimeter,abcoulomb/square centimetre. This unit is commonly used in the cgs unit system.
 Abcoulomb Per Square Centimeter (abcoulomb/cm2) has a dimension of \\(L_2TI\\).  where L is length, T is time, and I is electric current. It can be converted to the corresponding standard SI unit \\(C/m^2\\) by multiplying its value by a factor of 100,000."""^^qudt:LatexString ;
-  qudt:conversionMultiplier 0.001 ;
+  qudt:conversionMultiplier "100000"^^xsd:decimal ;
   qudt:derivedUnitOfSystem sou:CGS-EMU ;
   qudt:expression "\\(abc-per-cm2\\)"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E1L-2I0M0H0T1D0 ;
@@ -2931,17 +2926,16 @@ Abcoulomb Per Square Centimeter (abcoulomb/cm2) has a dimension of \\(L_2TI\\). 
 .
 unit:C_Stat
   a qudt:Unit ;
-  dcterms:description """The statcoulomb (\\(statC\\)) or franklin (\\(Fr\\)) or electrostatic unit of charge (\\(esu\\)) is the physical unit for electrical charge used in the centimetre-gram-second system of units (cgs) and Gaussian units. It is a derived unit given by \\(1 statC = 1 g cm s = 1 erg cm\\). The SI system of units uses the coulomb (C) instead. The conversion between C and statC is different in different contexts.
-The number 2997924580 is 10 times the value of the speed of light expressed in meters/second, and the conversions are exact except where indicated. The coulomb is an extremely large charge rarely encountered in electrostatics, while the statcoulomb is closer to everyday charges."""^^qudt:LatexString ;
+  dcterms:description "The statcoulomb (\\(statC\\)) or franklin (\\(Fr\\)) or electrostatic unit of charge (\\(esu\\)) is the physical unit for electrical charge used in the centimetre-gram-second system of units (cgs) and Gaussian units. It is a derived unit given by \\(1\\ statC = 1\\ g\\ cm\\ s = 1\\ erg\\ cm\\). The SI system of units uses the coulomb (C) instead. The conversion between C and statC is different in different contexts. The number 2997924580 is 10 times the value of the speed of light expressed in meters/second, and the conversions are exact except where indicated. The coulomb is an extremely large charge rarely encountered in electrostatics, while the statcoulomb is closer to everyday charges."^^qudt:LatexString ;
   qudt:conversionMultiplier 0.00000000033356409519815204957557671447492 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Statcoulomb"^^xsd:anyURI ;
   qudt:derivedUnitOfSystem sou:CGS-ESU ;
   qudt:hasDimensionVector qkdv:A0E1L0I0M0H0T1D0 ;
   qudt:hasQuantityKind quantitykind:ElectricCharge ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Statcoulomb?oldid=492664360"^^xsd:anyURI ;
-  qudt:latexDefinition "1 C \\leftrightarrow 2997924580 statC \\approx 3.00 \\times 10 statC,\\1 \\hspace{0.3pc} statC \\leftrightarrow \\hspace{0.3pc} \\approx 3.34 \\times 10 C"^^qudt:LatexString ;
-  qudt:latexDefinition "1 C \\leftrightarrow 4 \\pi \\times 2997924580 statC \\approx 3.77 \\times 10 statC,\\1 \\hspace{0.3pc} statC \\leftrightarrow \\hspace{0.2pc} \\approx 2.6 \\times 10 C"^^qudt:LatexString ;
-  qudt:latexDefinition "1 C/m \\leftrightarrow 4 \\pi \\times 2997924580 \\times 10 statC/cm \\approx 3.77 \\times 10 statC/cm,\\1 \\hspace{0.3pc} statC/cm \\leftrightarrow \\hspace{0.3pc} \\approx 2.65 \\times 10 C/m"^^qudt:LatexString ;
+  qudt:latexDefinition "\\(1 C \\leftrightarrow 2997924580 statC \\approx 3.00 \\times 10^9 statC,\\ 1 \\hspace{0.3pc} statC \\leftrightarrow \\hspace{0.3pc} \\approx 3.34 \\times 10^{-10} C\\) for electric charge."^^qudt:LatexString ;
+  qudt:latexDefinition "\\(1 C \\leftrightarrow 4 \\pi \\times 2997924580 statC \\approx 3.77 \\times 10^{10} statC,\\ 1 \\hspace{0.3pc} statC \\leftrightarrow \\hspace{0.2pc} \\approx 2.6 \\times 10^{-11} C\\) for electric flux \\(\\Phi_D\\)"^^qudt:LatexString ;
+  qudt:latexDefinition "\\(1 C/m \\leftrightarrow 4 \\pi \\times 2997924580 \\times 10^{-4} statC/cm \\approx 3.77 \\times 10^6 statC/cm,\\ 1 \\hspace{0.3pc} statC/cm \\leftrightarrow \\hspace{0.3pc} \\approx 2.65 \\times 10^{-7} C/m\\) for electric displacement field \\(D\\)."^^qudt:LatexString ;
   qudt:omUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/statcoulomb> ;
   qudt:symbol "statC" ;
   qudt:unitOfSystem sou:CGS ;
@@ -2951,7 +2945,7 @@ The number 2997924580 is 10 times the value of the speed of light expressed in m
 .
 unit:C_Stat-PER-CentiM2
   a qudt:Unit ;
-  dcterms:description "\\(\\textbf{Statcoulomb per Square Centimeter} is a unit of measure for electric flux density and electric polarization. One Statcoulomb per Square Centimeter is \\(2.15\\times 10^9 \\, coulomb\\,per\\,square\\,inch\\)."^^qudt:LatexString ;
+  dcterms:description "\\(\\textbf{Statcoulomb per Square Centimeter}\\) is a unit of measure for electric flux density and electric polarization. One Statcoulomb per Square Centimeter is \\(2.15\\times 10^9 \\, coulomb\\,per\\,square\\,inch\\)."^^qudt:LatexString ;
   qudt:conversionMultiplier 0.00000333564 ;
   qudt:derivedUnitOfSystem sou:CGS-ESU ;
   qudt:expression "\\(statc-per-cm2\\)"^^qudt:LatexString ;
@@ -3167,7 +3161,7 @@ unit:CentiM-PER-SEC2
 unit:CentiM-SEC-DEG_C
   a qudt:DerivedUnit ;
   a qudt:Unit ;
-  dcterms:description "\\(\\textbf{Centimeter Second Degree Celsius} is a C.G.S System unit for 'Length Temperature Time' expressed as \\(cm-s-degC\\)."^^qudt:LatexString ;
+  dcterms:description "\\(\\textbf{Centimeter Second Degree Celsius}\\) is a C.G.S System unit for 'Length Temperature Time' expressed as \\(cm-s-degC\\)."^^qudt:LatexString ;
   qudt:expression "\\(cm-s-degC\\)"^^qudt:LatexString ;
   qudt:hasQuantityKind quantitykind:LengthTemperatureTime ;
   qudt:ucumCode "cm.s.Cel-1"^^qudt:UCUMcs ;
@@ -3375,7 +3369,7 @@ unit:CentiMOL-PER-KiloGM
 .
 unit:CentiM_H2O
   a qudt:Unit ;
-  dcterms:description "\\(\\textbf{Centimeter of Water} is a C.G.S System unit for  'Force Per Area' expressed as \\(cmH2O\\)."^^qudt:LatexString ;
+  dcterms:description "\\(\\textbf{Centimeter of Water}\\) is a C.G.S System unit for  'Force Per Area' expressed as \\(cm_{H2O}\\)."^^qudt:LatexString ;
   qudt:conversionMultiplier 98.0665 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Centimetre_of_water"^^xsd:anyURI ;
   qudt:hasDimensionVector qkdv:A0E0L-1I0M1H0T-2D0 ;
@@ -3421,7 +3415,7 @@ unit:CentiN-M
 .
 unit:CentiPOISE
   a qudt:Unit ;
-  dcterms:description "\\(\\textbf{Centipoise} is a C.G.S System unit for  'Dynamic Viscosity' expressed as \\(cP\\)."^^qudt:LatexString ;
+  dcterms:description "\\(\\textbf{Centipoise}\\) is a C.G.S System unit for  'Dynamic Viscosity' expressed as \\(cP\\)."^^qudt:LatexString ;
   qudt:conversionMultiplier 0.01 ;
   qudt:hasDimensionVector qkdv:A0E0L-1I0M1H0T-1D0 ;
   qudt:hasQuantityKind quantitykind:DynamicViscosity ;
@@ -3448,7 +3442,7 @@ unit:CentiPOISE-PER-BAR
 .
 unit:CentiST
   a qudt:Unit ;
-  dcterms:description "\\(\\textbf{Centistokes} is a C.G.S System unit for  'Kinematic Viscosity' expressed as \\(cSt\\)."^^qudt:LatexString ;
+  dcterms:description "\\(\\textbf{Centistokes}\\) is a C.G.S System unit for  'Kinematic Viscosity' expressed as \\(cSt\\)."^^qudt:LatexString ;
   qudt:conversionMultiplier 0.01 ;
   qudt:hasDimensionVector qkdv:A0E0L2I0M0H0T-1D0 ;
   qudt:hasQuantityKind quantitykind:KinematicViscosity ;
@@ -3475,7 +3469,7 @@ unit:ChileanPeso
 .
 unit:Ci
   a qudt:Unit ;
-  dcterms:description "The curie (symbol Ci) is a non-SI unit of radioactivity, named after Marie and Pierre Curie. It is defined as \\(1Ci = 3.7 \\times 10 decays per second\\). Its continued use is discouraged. One Curie is roughly the activity of 1 gram of the radium isotope Ra, a substance studied by the Curies. The SI derived unit of radioactivity is the becquerel (Bq), which equates to one decay per second. Therefore: \\(1Ci = 3.7 \\times 10 Bq= 37 GBq\\) and \\(1Bq \\equiv 2.703 \\times 10Ci \\)."^^qudt:LatexString ;
+  dcterms:description "The curie (symbol Ci) is a non-SI unit of radioactivity, named after Marie and Pierre Curie. It is defined as \\(1Ci = 3.7 \\times 10^{10} decays\\ per\\ second\\). Its continued use is discouraged. One Curie is roughly the activity of 1 gram of the radium isotope Ra, a substance studied by the Curies. The SI derived unit of radioactivity is the becquerel (Bq), which equates to one decay per second. Therefore: \\(1Ci = 3.7 \\times 10^{10} Bq= 37 GBq\\) and \\(1Bq \\equiv 2.703 \\times 10^{-11}Ci \\)."^^qudt:LatexString ;
   qudt:conversionMultiplier 37000000000.0 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Curie"^^xsd:anyURI ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T-1D0 ;
@@ -4278,7 +4272,7 @@ unit:DYN
   dcterms:description "In physics, the dyne is a unit of force specified in the centimetre-gram-second (CGS) system of units. One dyne is equal to In physics, the dyne is a unit of force specified in the centimetre-gram-second (CGS) system of units. One dyne is equal to \\SI{10}{\\micro\\newton}. Equivalently, the dyne is defined as 'the force required to accelerate a mass of one gram at a rate of one centimetre per square second'. The dyne per centimetre is the unit traditionally used to measure surface tension."^^qudt:LatexString ;
   qudt:conversionMultiplier 0.00001 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Dyne"^^xsd:anyURI ;
-  qudt:derivedCoherentUnitOfSystem sou:CGS-MECHANICS ;
+  qudt:derivedCoherentUnitOfSystem sou:CGS ;
   qudt:derivedUnitOfSystem sou:CGS ;
   qudt:derivedUnitOfSystem sou:CGS-GAUSS ;
   qudt:hasDimensionVector qkdv:A0E0L1I0M1H0T-2D0 ;
@@ -4803,6 +4797,7 @@ unit:DeciS-PER-M
 .
 unit:DeciTONNE
   a qudt:Unit ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
   rdfs:label "DeciTonne"@en ;
   owl:sameAs unit:DeciTON_Metric ;
 .
@@ -4902,7 +4897,7 @@ unit:ERG
   dcterms:description "An erg is the unit of energy and mechanical work in the centimetre-gram-second (CGS) system of units, symbol 'erg'. Its name is derived from the Greek ergon, meaning 'work'. An erg is the amount of work done by a force of one dyne exerted for a distance of one centimeter. In the CGS base units, it is equal to one gram centimeter-squared per second-squared (\\(g \\cdot cm^2/s^2\\)). It is thus equal to \\(10^{-7}\\) joules or 100 nanojoules in SI units. \\(1 erg = 10^{-7} J = 100 nJ\\),  \\(1 erg = 624.15 GeV = 6.2415 \\times 10^{11} eV\\), \\(1 erg = 1 dyne\\cdot cm = 1 g \\cdot cm^2/s^2\\)."^^qudt:LatexString ;
   qudt:conversionMultiplier 0.0000001 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Erg"^^xsd:anyURI ;
-  qudt:derivedCoherentUnitOfSystem sou:CGS-MECHANICS ;
+  qudt:derivedCoherentUnitOfSystem sou:CGS ;
   qudt:derivedUnitOfSystem sou:CGS ;
   qudt:derivedUnitOfSystem sou:CGS-GAUSS ;
   qudt:hasDimensionVector qkdv:A0E0L2I0M1H0T-2D0 ;
@@ -5070,6 +5065,17 @@ unit:EV
   qudt:ucumCode "eV"^^qudt:UCUMcs ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
   rdfs:label "Electron Volt"@en ;
+.
+unit:EV-PER-ANGSTROM
+  a qudt:Unit ;
+  qudt:conversionMultiplier 0.000000001602176 ;
+  qudt:hasQuantityKind quantitykind:TotalLinearStoppingPower ;
+  qudt:latexSymbol "\\(ev/\\AA\\)"^^qudt:LatexString ;
+  qudt:plainTextDescription "unit electronvolt divided by the unit angstrom" ;
+  qudt:ucumCode "eV.Ao-1"^^qudt:UCUMcs ;
+  qudt:ucumCode "eV/Ao"^^qudt:UCUMcs ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
+  rdfs:label "Electronvolt Per Angstrom"@en ;
 .
 unit:EV-PER-K
   a qudt:Unit ;
@@ -6208,9 +6214,9 @@ unit:G
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
   rdfs:label "Gravity"@en ;
 .
-unit:GAL
+unit:GALILEO
   a qudt:Unit ;
-  dcterms:description "The \\(\\textit{Gal}\\), sometimes called \\(galileo\\), is the unit of acceleration of free fall used extensively in the science of gravimetry. The gal is defined as \\(1 \\textit{centimeter per square second}\\) (\\(1 cm/s^2\\)). The \\(milliGal\\) (\\(mGal\\)) and \\(microGal\\) refer respectively to one thousandth and one millionth of a Gal."^^qudt:LatexString ;
+  dcterms:description "The \\(\\textit{Galileo}\\) is the unit of acceleration of free fall used extensively in the science of gravimetry. The Galileo is defined as \\(1 \\textit{centimeter per square second}\\) (\\(1 cm/s^2\\)). Unfortunately, the Galileo is often denoted with the symbol Gal, not to be confused with the Gallon that also uses the same symbol."^^qudt:LatexString ;
   qudt:conversionMultiplier 0.01 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Gal"^^xsd:anyURI ;
   qudt:derivedUnitOfSystem sou:CGS ;
@@ -7317,7 +7323,8 @@ unit:H-PER-M
   qudt:ucumCode "H.m-1"^^qudt:UCUMcs ;
   qudt:uneceCommonCode "A98" ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
-  rdfs:label "Henry per Metre"@us ;
+  rdfs:label "Henry per Meter"@en-us ;
+  rdfs:label "Henry per Metre"@en ;
 .
 unit:H-PER-OHM
   a qudt:Unit ;
@@ -8237,7 +8244,6 @@ unit:J-PER-K
   qudt:hasDimensionVector qkdv:A0E0L2I0M1H-1T-2D0 ;
   qudt:hasQuantityKind quantitykind:Entropy ;
   qudt:hasQuantityKind quantitykind:HeatCapacity ;
-  qudt:hasQuantityKind quantitykind:PlanckFunction ;
   qudt:iec61360Code "0112/2///62720#UAA173" ;
   qudt:ucumCode "J.K-1"^^qudt:UCUMcs ;
   qudt:uneceCommonCode "JE" ;
@@ -8881,7 +8887,7 @@ unit:KiloA-PER-M
   qudt:conversionMultiplier 1000.0 ;
   qudt:hasDimensionVector qkdv:A0E1L-1I0M0H0T0D0 ;
   qudt:hasQuantityKind quantitykind:LinearElectricCurrentDensity ;
-  qudt:hasQuantityKind quantitykind:MagneticFieldStrength ;
+  qudt:hasQuantityKind quantitykind:MagneticFieldStrength_H ;
   qudt:iec61360Code "0112/2///62720#UAA558" ;
   qudt:plainTextDescription "1 000-fold of the SI base unit ampere divided by the SI base unit metre" ;
   qudt:ucumCode "kA.m-1"^^qudt:UCUMcs ;
@@ -9576,6 +9582,20 @@ unit:KiloGM-PER-M-SEC
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
   rdfs:label "Kilograms per metre per second"@en ;
 .
+unit:KiloGM-PER-M-SEC2
+  a qudt:DerivedUnit ;
+  a qudt:Unit ;
+  dcterms:description "The SI unit of pressure. The pascal is the standard pressure unit in the MKS metric system, equal to one newton per square meter or one \"kilogram per meter per second per second.\" The unit is named for Blaise Pascal (1623-1662), French philosopher and mathematician, who was the first person to use a barometer to measure differences in altitude."^^rdf:HTML ;
+  qudt:conversionMultiplier 1.0 ;
+  qudt:dbpediaMatch "http://dbpedia.org/resource/Pascal"^^xsd:anyURI ;
+  qudt:hasDimensionVector qkdv:A0E0L-1I0M1H0T-2D0 ;
+  qudt:hasQuantityKind quantitykind:ForcePerArea ;
+  qudt:siUnitsExpression "kg/m/s^2" ;
+  qudt:ucumCode "kg.m-1.s-2"^^qudt:UCUMcs ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
+  rdfs:label "Kilograms per metre per square second"@en ;
+  owl:sameAs unit:PA ;
+.
 unit:KiloGM-PER-M2
   a qudt:DerivedUnit ;
   a qudt:Unit ;
@@ -10243,6 +10263,7 @@ unit:KiloPA-PER-BAR
   qudt:plainTextDescription "1 000-fold of the SI derived unit pascal divided by the unit bar" ;
   qudt:ucumCode "kPa.bar-1"^^qudt:UCUMcs ;
   qudt:uneceCommonCode "F03" ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
   rdfs:label "Kilopascal Per Bar"@en ;
 .
 unit:KiloPA-PER-K
@@ -10351,6 +10372,7 @@ unit:KiloSEC
 .
 unit:KiloTONNE
   a qudt:Unit ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
   rdfs:label "KiloTonne"@en ;
   owl:sameAs unit:KiloTON_Metric ;
 .
@@ -10693,7 +10715,7 @@ unit:LA
   dcterms:description "The lambert (symbol \\(L\\), \\(la\\) or \\(Lb\\)) is a non-SI unit of luminance. A related unit of luminance, the foot-lambert, is used in the lighting, cinema and flight simulation industries. The SI unit is the candela per square metre (\\(cd/m^2\\))."^^qudt:LatexString ;
   qudt:conversionMultiplier 3183.09886 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Lambert"^^xsd:anyURI ;
-  qudt:derivedCoherentUnitOfSystem sou:CGS-MECHANICS ;
+  qudt:derivedCoherentUnitOfSystem sou:CGS ;
   qudt:hasDimensionVector qkdv:A0E0L-2I1M0H0T0D0 ;
   qudt:hasQuantityKind quantitykind:Luminance ;
   qudt:iec61360Code "0112/2///62720#UAB259" ;
@@ -10809,7 +10831,6 @@ unit:LB-PER-DAY
   a qudt:Unit ;
   qudt:conversionMultiplier 0.000005249912 ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M1H0T-1D0 ;
-  qudt:hasQuantityKind quantitykind:MagneticField ;
   qudt:hasQuantityKind quantitykind:MassFlowRate ;
   qudt:iec61360Code "0112/2///62720#UAA673" ;
   qudt:plainTextDescription "unit of the mass avoirdupois pound according to the avoirdupois system of units divided by the unit for time day" ;
@@ -13991,6 +14012,7 @@ unit:MicroMOL-PER-KiloGM
   qudt:hasDimensionVector qkdv:A1E0L0I0M-1H0T0D0 ;
   qudt:hasQuantityKind quantitykind:AmountOfSubstancePerUnitMass ;
   qudt:ucumCode "umol.kg-1"^^qudt:UCUMcs ;
+  qudt:ucumCode "umol/kg"^^qudt:UCUMcs ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
   rdfs:label "Micromoles per kilogram"@en ;
 .
@@ -14001,6 +14023,7 @@ unit:MicroMOL-PER-L
   qudt:hasDimensionVector qkdv:A1E0L-3I0M0H0T0D0 ;
   qudt:hasQuantityKind quantitykind:AmountOfSubstancePerUnitVolume ;
   qudt:ucumCode "umol.L-1"^^qudt:UCUMcs ;
+  qudt:ucumCode "umol/L"^^qudt:UCUMcs ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
   rdfs:label "Micromoles per litre"@en ;
 .
@@ -14010,8 +14033,19 @@ unit:MicroMOL-PER-L-HR
   qudt:conversionMultiplier 0.000000277777777777778 ;
   qudt:hasDimensionVector qkdv:A1E0L-3I0M0H0T-1D0 ;
   qudt:ucumCode "umol.L-1.h-1"^^qudt:UCUMcs ;
+  qudt:ucumCode "umol/L/h"^^qudt:UCUMcs ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
   rdfs:label "Micromoles per litre per hour"@en ;
+.
+unit:MicroMOL-PER-M2
+  a qudt:Unit ;
+  dcterms:description "One part per 10**6 (million) of the SI unit of quantity of matter (the mole) per SI unit area."@en ;
+  qudt:conversionMultiplier 0.000001 ;
+  qudt:hasDimensionVector qkdv:A1E0L-2I0M0H0T0D0 ;
+  qudt:ucumCode "umol.m-2"^^qudt:UCUMcs ;
+  qudt:ucumCode "umol/m2"^^qudt:UCUMcs ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
+  rdfs:label "Micromoles per square metre"@en ;
 .
 unit:MicroMOL-PER-M2-DAY
   a qudt:Unit ;
@@ -14019,6 +14053,7 @@ unit:MicroMOL-PER-M2-DAY
   qudt:conversionMultiplier 0.0000000000115740740740741 ;
   qudt:hasDimensionVector qkdv:A1E0L-2I0M0H0T-1D0 ;
   qudt:ucumCode "umol.m-2.d-1"^^qudt:UCUMcs ;
+  qudt:ucumCode "umol/m2/d"^^qudt:UCUMcs ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
   rdfs:label "Micromoles per square metre per day"@en ;
 .
@@ -14028,6 +14063,7 @@ unit:MicroMOL-PER-M2-HR
   qudt:conversionMultiplier 0.000000000277777777777778 ;
   qudt:hasDimensionVector qkdv:A1E0L-2I0M0H0T-1D0 ;
   qudt:ucumCode "umol.m-2.h-1"^^qudt:UCUMcs ;
+  qudt:ucumCode "umol/m2/h"^^qudt:UCUMcs ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
   rdfs:label "Micromoles per square metre per hour"@en ;
 .
@@ -14037,6 +14073,7 @@ unit:MicroMOL-PER-M2-SEC
   qudt:conversionMultiplier 0.000001 ;
   qudt:hasDimensionVector qkdv:A1E0L-2I0M0H0T-1D0 ;
   qudt:ucumCode "umol.m-2.s-1"^^qudt:UCUMcs ;
+  qudt:ucumCode "umol/m2/s"^^qudt:UCUMcs ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
   rdfs:label "Micromoles per square metre per second"@en ;
 .
@@ -14048,6 +14085,7 @@ unit:MicroMOL-PER-MOL
   qudt:qkdvDenominator qkdv:A1E0L0I0M0H0T0D0 ;
   qudt:qkdvNumerator qkdv:A1E0L0I0M0H0T0D0 ;
   qudt:ucumCode "umol.mol-1"^^qudt:UCUMcs ;
+  qudt:ucumCode "umol/mol"^^qudt:UCUMcs ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
   rdfs:label "Micromoles per mole"@en ;
 .
@@ -14057,6 +14095,7 @@ unit:MicroMOL-PER-MicroMOL-DAY
   qudt:conversionMultiplier 0.0000115740740740741 ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T-1D0 ;
   qudt:ucumCode "umol.umol-1.d-1"^^qudt:UCUMcs ;
+  qudt:ucumCode "umol/umol/d"^^qudt:UCUMcs ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
   rdfs:label "Micromole per micromole of biomass per day"@en ;
 .
@@ -14344,7 +14383,7 @@ unit:MilliA-PER-IN
   qudt:conversionMultiplier 0.03937008 ;
   qudt:hasDimensionVector qkdv:A0E1L-1I0M0H0T0D0 ;
   qudt:hasQuantityKind quantitykind:LinearElectricCurrentDensity ;
-  qudt:hasQuantityKind quantitykind:MagneticFieldStrength ;
+  qudt:hasQuantityKind quantitykind:MagneticFieldStrength_H ;
   qudt:iec61360Code "0112/2///62720#UAA778" ;
   qudt:plainTextDescription "0.001-fold of the SI base unit ampere divided by the unit inch according to the Anglo-American and the Imperial system of units" ;
   qudt:ucumCode "mA.[in_i]-1"^^qudt:UCUMcs ;
@@ -14357,7 +14396,7 @@ unit:MilliA-PER-MilliM
   qudt:conversionMultiplier 1.0 ;
   qudt:hasDimensionVector qkdv:A0E1L-1I0M0H0T0D0 ;
   qudt:hasQuantityKind quantitykind:LinearElectricCurrentDensity ;
-  qudt:hasQuantityKind quantitykind:MagneticFieldStrength ;
+  qudt:hasQuantityKind quantitykind:MagneticFieldStrength_H ;
   qudt:iec61360Code "0112/2///62720#UAA781" ;
   qudt:plainTextDescription "0.001-fold of the SI base unit ampere  divided by the 0.001-fold of the SI base unit metre" ;
   qudt:ucumCode "mA.mm-1"^^qudt:UCUMcs ;
@@ -14663,7 +14702,7 @@ unit:MilliGM-PER-DeciL
   qudt:conversionMultiplier 0.01 ;
   qudt:expression "\\(mg/L\\)"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L-3I0M1H0T0D0 ;
-  qudt:hasQuantityKind quantitykind:BloodGlucoseLevel ;
+  qudt:hasQuantityKind quantitykind:BloodGlucoseLevel_Mass ;
   qudt:hasQuantityKind quantitykind:Density ;
   qudt:ucumCode "mg.dL-1"^^qudt:UCUMcs ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
@@ -15317,6 +15356,16 @@ unit:MilliMOL-PER-M2-DAY
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
   rdfs:label "Millimoles per square metre per day"@en ;
 .
+unit:MilliMOL-PER-M2-SEC
+  a qudt:Unit ;
+  dcterms:description "This term is based on the number of photons in a certain waveband incident per unit time (s) on a unit area (m2) divided by the Avogadro constant (6.022 x 1023 mol-1). It is used commonly to describe PAR in the 400-700 nm waveband. Definition Source: Thimijan, Richard W., and Royal D. Heins. 1982. Photometric, Radiometric, and Quantum Light Units of Measure: A Review of Procedures for Interconversion. HortScience 18:818-822."@en ;
+  qudt:conversionMultiplier 0.001 ;
+  qudt:hasDimensionVector qkdv:A1E0L-2I0M0H0T-1D0 ;
+  qudt:ucumCode "mmol.m-2.s-1"^^qudt:UCUMcs ;
+  qudt:ucumCode "mmol/m2/s1"^^qudt:UCUMcs ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
+  rdfs:label "Millimoles per square metre per second"@en ;
+.
 unit:MilliMOL-PER-M3
   a qudt:Unit ;
   dcterms:description "Unavailable."@en ;
@@ -15557,7 +15606,7 @@ unit:MilliS-PER-M
   a qudt:Unit ;
   dcterms:description "Unavailable"@en ;
   qudt:conversionMultiplier 0.001 ;
-  qudt:hasDimensionVector qkdv:A0E2L-4I0M-1H0T3D0 ;
+  qudt:hasDimensionVector qkdv:A0E2L-3I0M-1H0T3D0 ;
   qudt:hasQuantityKind quantitykind:Conductivity ;
   qudt:ucumCode "mS.m-1"^^qudt:UCUMcs ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
@@ -16516,6 +16565,19 @@ unit:NanoM
   rdfs:label "Nanometer"@en-us ;
   rdfs:label "Nanometre"@en ;
 .
+unit:NanoM2
+  a qudt:Unit ;
+  qudt:conversionMultiplier 0.000000000000000001 ;
+  qudt:expression "\\(sqnm\\)"^^qudt:LatexString ;
+  qudt:hasDimensionVector qkdv:A0E0L2I0M0H0T0D0 ;
+  qudt:hasQuantityKind quantitykind:Area ;
+  qudt:hasQuantityKind quantitykind:NuclearQuadrupoleMoment ;
+  qudt:plainTextDescription "A unit of area equal to that of a square, of sides 1nm" ;
+  qudt:ucumCode "nm2"^^qudt:UCUMcs ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
+  rdfs:label "Square Nanometer"@en-us ;
+  rdfs:label "Square Nanometre"@en ;
+.
 unit:NanoMOL-PER-CentiM3-HR
   a qudt:Unit ;
   dcterms:description "Unavailable"@en ;
@@ -16811,7 +16873,7 @@ unit:OERSTED
   qudt:conversionMultiplier 79.5774715 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Oersted"^^xsd:anyURI ;
   qudt:hasDimensionVector qkdv:A0E1L-1I0M0H0T0D0 ;
-  qudt:hasQuantityKind quantitykind:MagneticFieldStrength ;
+  qudt:hasQuantityKind quantitykind:MagneticFieldStrength_H ;
   qudt:iec61360Code "0112/2///62720#UAB134" ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Oersted?oldid=491396460"^^xsd:anyURI ;
   qudt:omUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/oersted> ;
@@ -18272,7 +18334,6 @@ unit:PERMEABILITY_REL
   qudt:dbpediaMatch "http://dbpedia.org/resource/Relative_permeability"^^xsd:anyURI ;
   qudt:derivedUnitOfSystem sou:CGS-EMU ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
-  qudt:hasQuantityKind quantitykind:ElectromagneticPermeability ;
   qudt:hasQuantityKind quantitykind:PermeabilityRatio ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Relative_permeability"^^xsd:anyURI ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
@@ -18575,7 +18636,7 @@ unit:POISE
   dcterms:description "The poise is the unit of dynamic viscosity in the centimetre gram second system of units. It is named after Jean Louis Marie Poiseuille."^^rdf:HTML ;
   qudt:conversionMultiplier 0.1 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Poise"^^xsd:anyURI ;
-  qudt:derivedCoherentUnitOfSystem sou:CGS-MECHANICS ;
+  qudt:derivedCoherentUnitOfSystem sou:CGS ;
   qudt:derivedUnitOfSystem sou:CGS ;
   qudt:derivedUnitOfSystem sou:CGS-GAUSS ;
   qudt:hasDimensionVector qkdv:A0E0L-1I0M1H0T-1D0 ;
@@ -18751,6 +18812,7 @@ unit:PSU
   dcterms:description "Practical salinity scale 1978 (PSS-78) is used for ionic content of seawater determined by electrical conductivity. Salinities measured using PSS-78 do not have units, but are approximately scaled to parts-per-thousand for the valid range. The suffix psu or PSU (denoting practical salinity unit) is sometimes added to PSS-78 measurement values. The addition of PSU as a unit after the value is \"formally incorrect and strongly discouraged\"." ;
   dcterms:source <https://unesdoc.unesco.org/ark:/48223/pf0000047932> ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
   rdfs:label "Practical salinity unit" ;
   rdfs:seeAlso unit:PPTH ;
   rdfs:seeAlso <https://en.wikipedia.org/wiki/Salinity#PSU> ;
@@ -18910,7 +18972,7 @@ unit:Phot
   dcterms:description "A phot (ph) is a photometric unit of illuminance, or luminous flux through an area. It is not an SI unit, but rather is associated with the older centimetre gram second system of units.  Metric dimensions: \\(illuminance = luminous intensity \\times solid angle / length\\)."^^qudt:LatexString ;
   qudt:conversionMultiplier 10000.0 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Phot"^^xsd:anyURI ;
-  qudt:derivedCoherentUnitOfSystem sou:CGS-MECHANICS ;
+  qudt:derivedCoherentUnitOfSystem sou:CGS ;
   qudt:hasDimensionVector qkdv:A0E0L-2I1M0H0T0D0 ;
   qudt:hasQuantityKind quantitykind:LuminousFluxPerArea ;
   qudt:iec61360Code "0112/2///62720#UAB255" ;
@@ -20919,6 +20981,7 @@ unit:TONNE-PER-HA
   qudt:plainTextDescription "A measure of density equivalent to 1000kg per hectare or one Megagram per hectare, typically used to express a volume of biomass or crop yield." ;
   qudt:symbol "t/ha" ;
   qudt:ucumCode "t.har-1"^^qudt:UCUMcs ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
   rdfs:label "tonne per hectare"@en ;
   owl:sameAs unit:TON_Metric-PER-HA ;
 .
@@ -21073,6 +21136,7 @@ unit:TON_Metric-PER-HA
   qudt:plainTextDescription "A measure of density equivalent to 1000kg per hectare or one Megagram per hectare, typically used to express a volume of biomass or crop yield." ;
   qudt:symbol "t/ha" ;
   qudt:ucumCode "t.har-1"^^qudt:UCUMcs ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
   rdfs:label "metric tonne per hectare"@en ;
   owl:sameAs unit:TONNE-PER-HA ;
 .
@@ -21307,7 +21371,6 @@ unit:T_Ab
   qudt:derivedUnitOfSystem sou:CGS-EMU ;
   qudt:hasDimensionVector qkdv:A0E-1L0I0M1H0T-2D0 ;
   qudt:hasQuantityKind quantitykind:MagneticField ;
-  qudt:hasQuantityKind quantitykind:MagneticFieldStrength ;
   qudt:hasQuantityKind quantitykind:MagneticFluxDensity ;
   qudt:informativeReference "http://www.diracdelta.co.uk/science/source/g/a/gauss/source.html"^^xsd:anyURI ;
   qudt:symbol "abT" ;
@@ -22078,7 +22141,7 @@ unit:VietnameseDong
 unit:W
   a qudt:DerivedUnit ;
   a qudt:Unit ;
-  dcterms:description "\\(The SI unit of power. Power is the rate at which work is done, or (equivalently) the rate at which energy is expended. One watt is equal to a power rate of one joule of work per second of time. This unit is used both in mechanics and in electricity, so it links the mechanical and electrical units to one another. In mechanical terms, one watt equals about 0.001 341 02 horsepower (hp) or 0.737 562 foot-pound per second (lbf/s). In electrical terms, one watt is the power produced by a current of one ampere flowing through an electric potential of one volt. The name of the unit honors James Watt (1736-1819), the British engineer whose improvements to the steam engine are often credited with igniting the Industrial Revolution.\\)"^^qudt:LatexString ;
+  dcterms:description "The SI unit of power. Power is the rate at which work is done, or (equivalently) the rate at which energy is expended. One watt is equal to a power rate of one joule of work per second of time. This unit is used both in mechanics and in electricity, so it links the mechanical and electrical units to one another. In mechanical terms, one watt equals about 0.001 341 02 horsepower (hp) or 0.737 562 foot-pound per second (lbf/s). In electrical terms, one watt is the power produced by a current of one ampere flowing through an electric potential of one volt. The name of the unit honors James Watt (1736-1819), the British engineer whose improvements to the steam engine are often credited with igniting the Industrial Revolution." ;
   qudt:allowedUnitOfSystem sou:PLANCK ;
   qudt:conversionMultiplier 1.0 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Watt"^^xsd:anyURI ;
@@ -22343,7 +22406,7 @@ unit:W-PER-M2-PA
 unit:W-PER-M2-SR
   a qudt:DerivedUnit ;
   a qudt:Unit ;
-  dcterms:description "\\(\\textbf{Watt per steradian per square metrer } is the SI unit of radiance (\\(W·sr^{-1}·m^{-2}\\)), while that of spectral radiance in frequency is the watt per steradian per square metre per hertz (\\(W·sr^{-1}·m^{-2}·Hz^{-1}\\)) and that of spectral radiance in wavelength is the watt per steradian per square metre, per metre (\\(W·sr^{-1}·m^{-3}\\)), commonly the watt per steradian per square metre per nanometre (\\(W·sr^{-1}·m^{-2}·nm^{-1}\\)). It has a dimension of \\(ML^{-4}T^{-3}\\) where \\(M\\) is mass, \\(L\\) is length, and \\(T\\) is time. This unit is the standard SI unit in this category."^^qudt:LatexString ;
+  dcterms:description "\\(\\textbf{Watt per steradian per square metre}\\) is the SI unit of radiance (\\(W·sr^{-1}·m^{-2}\\)), while that of spectral radiance in frequency is the watt per steradian per square metre per hertz (\\(W·sr^{-1}·m^{-2}·Hz^{-1}\\)) and that of spectral radiance in wavelength is the watt per steradian per square metre, per metre (\\(W·sr^{-1}·m^{-3}\\)), commonly the watt per steradian per square metre per nanometre (\\(W·sr^{-1}·m^{-2}·nm^{-1}\\)). It has a dimension of \\(ML^{-4}T^{-3}\\) where \\(M\\) is mass, \\(L\\) is length, and \\(T\\) is time. This unit is the standard SI unit in this category."^^qudt:LatexString ;
   qudt:conversionMultiplier 1.0 ;
   qudt:definedUnitOfSystem sou:SI ;
   qudt:derivedCoherentUnitOfSystem sou:SI ;
@@ -22375,7 +22438,7 @@ unit:W-PER-M3
 unit:W-PER-SR
   a qudt:DerivedUnit ;
   a qudt:Unit ;
-  dcterms:description "\\(\\textbf{Watt Per Steradian (W/sr)} is the unit in the category of Radiant intensity. It is also known as watts per steradian. This unit is commonly used in the SI unit system. Watt Per Steradian (W/sr) has a dimension of \\(M\\cdot L^{-2}\\cdot T^{-3}\\) where \\(M\\) is mass, \\(L\\) is length, and \\(T\\) is time. This unit is the standard SI unit in this category."^^qudt:LatexString ;
+  dcterms:description "\\(\\textbf{Watt Per Steradian (W/sr)}\\) is the unit in the category of Radiant intensity. It is also known as watts per steradian. This unit is commonly used in the SI unit system. Watt Per Steradian (W/sr) has a dimension of \\(M\\cdot L^{-2}\\cdot T^{-3}\\) where \\(M\\) is mass, \\(L\\) is length, and \\(T\\) is time. This unit is the standard SI unit in this category."^^qudt:LatexString ;
   qudt:conversionMultiplier 1.0 ;
   qudt:definedUnitOfSystem sou:SI ;
   qudt:derivedCoherentUnitOfSystem sou:SI ;
@@ -22630,7 +22693,7 @@ unit:YD3-PER-DEG_F
 unit:YD3-PER-HR
   a qudt:Unit ;
   qudt:conversionMultiplier 0.00021237634944 ;
-  qudt:hasDimensionVector qkdv:A0E0L1I0M0H0T-1D0 ;
+  qudt:hasDimensionVector qkdv:A0E0L3I0M0H0T-1D0 ;
   qudt:hasQuantityKind quantitykind:VolumeFlowRate ;
   qudt:iec61360Code "0112/2///62720#UAB038" ;
   qudt:plainTextDescription "power of the unit yard according to the Anglo-American and the Imperial system of units with the exponent 3 divided by the unit for the time hour" ;
@@ -22663,7 +22726,7 @@ unit:YD3-PER-MIN
 unit:YD3-PER-SEC
   a qudt:Unit ;
   qudt:conversionMultiplier 0.764554857984 ;
-  qudt:hasDimensionVector qkdv:A0E0L1I0M0H0T-1D0 ;
+  qudt:hasDimensionVector qkdv:A0E0L3I0M0H0T-1D0 ;
   qudt:hasQuantityKind quantitykind:VolumeFlowRate ;
   qudt:iec61360Code "0112/2///62720#UAB041" ;
   qudt:plainTextDescription "power of the unit and the Anglo-American and Imperial system of units with the exponent 3 divided by the SI base unit second" ;
@@ -22890,7 +22953,7 @@ vaem:GMD_QUDT-UNITS-ALL
   dcterms:contributor "Steve Ray" ;
   dcterms:created "2019-07-30"^^xsd:date ;
   dcterms:creator "Steve Ray" ;
-  dcterms:modified "2021-02-25T11:56:36.688-08:00"^^xsd:dateTime ;
+  dcterms:modified "2021-07-20T15:47:38.670-07:00"^^xsd:dateTime ;
   dcterms:rights """
   This product includes all or a portion of the UCUM table, UCUM codes, and UCUM definitions or is derived from it, subject to a license from Regenstrief Institute, Inc. and The UCUM Organization. Your use of the UCUM table, UCUM codes, UCUM definitions also is subject to this license, a copy of which is available at ​http://unitsofmeasure.org. The current complete UCUM table, UCUM Specification are available for download at ​http://unitsofmeasure.org. The UCUM table and UCUM codes are copyright © 1995-2009, Regenstrief Institute, Inc. and the Unified Codes for Units of Measures (UCUM) Organization. All rights reserved.
 
@@ -22898,21 +22961,21 @@ THE UCUM TABLE (IN ALL FORMATS), UCUM DEFINITIONS, AND SPECIFICATION ARE PROVIDE
   """ ;
   dcterms:rights "The QUDT Ontologies are issued under a Creative Commons Attribution 4.0 International License (CC BY 4.0), available at https://creativecommons.org/licenses/by/4.0/. Attribution should be made to QUDT.org" ;
   dcterms:subject "Units-All" ;
-  dcterms:title "ALL UNITS Version 2.1.9 Graph Metadata" ;
+  dcterms:title "ALL UNITS Version 2.1.12 Graph Metadata" ;
   vaem:description "Standard units of measure for all units." ;
   vaem:graphName "qudt" ;
-  vaem:graphTitle "All Units Ontology Version 2.1.9" ;
+  vaem:graphTitle "All Units Ontology Version 2.1.12" ;
   vaem:hasGraphRole vaem:VocabularyGraph ;
   vaem:hasOwner <http://www.linkedmodel.org/schema/vaem#QUDT.org> ;
   vaem:hasSteward <http://www.linkedmodel.org/schema/vaem#QUDT.org> ;
   vaem:intent "To provide a vocabulary of all units." ;
   vaem:isMetadataFor <http://qudt.org/2.1/vocab/unit> ;
-  vaem:latestPublishedVersion "http://www.qudt.org/doc/2021/02/DOC_VOCAB-UNITS-ALL-v2.1.html"^^xsd:anyURI ;
+  vaem:latestPublishedVersion "http://www.qudt.org/doc/2021/07/DOC_VOCAB-UNITS-ALL-v2.1.html"^^xsd:anyURI ;
   vaem:logo "http://www.linkedmodel.org/lib/lm/images/logos/qudt_logo-300x110.png"^^xsd:anyURI ;
   vaem:namespace "http://qudt.org/vocab/unit/" ;
   vaem:namespacePrefix "unit" ;
   vaem:owner "QUDT.org" ;
-  vaem:previousPublishedVersion "http://www.qudt.org/doc/2021/01/DOC_VOCAB-UNITS-ALL-v2.1.html"^^xsd:anyURI ;
+  vaem:previousPublishedVersion "http://www.qudt.org/doc/2021/06/DOC_VOCAB-UNITS-ALL-v2.1.html"^^xsd:anyURI ;
   vaem:revision "2.1" ;
   vaem:turtleFileURL "http://qudt.org/2.1/vocab/unit"^^xsd:anyURI ;
   vaem:usesNonImportedResource dcterms:abstract ;
@@ -22921,5 +22984,5 @@ THE UCUM TABLE (IN ALL FORMATS), UCUM DEFINITIONS, AND SPECIFICATION ARE PROVIDE
   vaem:usesNonImportedResource dcterms:modified ;
   vaem:usesNonImportedResource dcterms:title ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
-  rdfs:label "All Units Ontology Version 2.1.9" ;
+  rdfs:label "All Units Ontology Version 2.1.12" ;
 .

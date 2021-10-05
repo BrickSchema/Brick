@@ -157,10 +157,10 @@ If we want to make use of the Brick schema definition, we need to "import" it.
 You need a file called "Brick.ttl" on your computer (this can be obtained from
 https://brickschema.org/resources/ or at https://github.com/BrickSchema/Brick/releases)
 
-Assuming Brick.ttl is in the current directory, you can load it with the following.
+Assuming Brick.ttl is in the root directory of this repo, you can load it with the following.
 """
 
-g.parse("Brick.ttl", format="ttl")
+g.parse("../../Brick.ttl", format="ttl")
 
 """
 Now our query should execute and return one result (BLDG.VAV2-4.ZN-T)
