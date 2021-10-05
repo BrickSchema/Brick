@@ -1849,7 +1849,7 @@ setpoint_definitions = {
                     "Cooling_Temperature_Setpoint": {
                         "tags": [TAG.Point, TAG.Temperature, TAG.Setpoint, TAG.Cool],
                         "subclasses": {
-                            "Occupied_Cooling_Temperature_Sepoint": {
+                            "Occupied_Cooling_Temperature_Setpoint": {
                                 "tags": [TAG.Point, TAG.Temperature, TAG.Setpoint, TAG.Cool, TAG.Occupied],
                             }
                         }
@@ -1857,7 +1857,7 @@ setpoint_definitions = {
                     "Heating_Temperature_Setpoint": {
                         "tags": [TAG.Point, TAG.Temperature, TAG.Setpoint, TAG.Heat],
                         "subclasses": {
-                            "Occupied_Heating_Temperature_Sepoint": {
+                            "Occupied_Heating_Temperature_Setpoint": {
                                 "tags": [TAG.Point, TAG.Temperature, TAG.Setpoint, TAG.Heat, TAG.Occupied],
                             }
                         }
