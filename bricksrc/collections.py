@@ -49,6 +49,17 @@ system_subclasses = {
                     },
                 },
             },
+            "Mini_Split_System": {
+                "tags": [TAG.Mini, TAG.Split, TAG.System],
+                "constraints": {
+                    BRICK.hasPart: [
+                        BRICK.Heat_Pump,
+                        BRICK.Terminal_Unit,
+                        BRICK.Reversing_Valve,
+                        BRICK.Compressor,
+                    ],
+                },
+            },
             "Steam_System": {"tags": [TAG.Steam, TAG.System]},
             "Water_System": {
                 "tags": [TAG.Water, TAG.System],

@@ -6,6 +6,9 @@ Set up subclasses of the equipment superclass
 equipment_subclasses = {
     "HVAC_Equipment": {"tags": [TAG.HVAC, TAG.Equipment]},
     "Weather_Station": {"tags": [TAG.Weather, TAG.Station, TAG.Equipment]},
+    "Compressor": {
+        "tags": [TAG.Equipment, TAG.Compressor],
+    },
     "Electrical_Equipment": {
         "tags": [TAG.Electrical, TAG.Equipment],
         "subclasses": {
