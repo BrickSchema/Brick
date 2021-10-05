@@ -18,6 +18,11 @@ alarm_definitions = {
                             },
                             "Low_Air_Flow_Alarm": {
                                 "tags": [TAG.Point, TAG.Air, TAG.Alarm, TAG.Flow, TAG.Low],
+                                "subclasses": {
+                                    "Low_Discharge_Air_Flow_Alarm": {
+                                        "tags": [TAG.Point, TAG.Air, TAG.Alarm, TAG.Flow, TAG.Low, TAG.Discharge],
+                                    }
+                                }
                             }
                         }
                     }
