@@ -708,6 +708,7 @@ https://brickschema.org/schema/Brick#Nonreversible_Air_To_Air_Heat_Pump,A nonrev
 https://brickschema.org/schema/Brick#Nonreversible_Air_To_Refrigerant_Heat_Pump,A nonreversible heat pump that extracts thermal energy from a volume of air and transfers it to a refrigerant. The thermal dynamic cycle is fixed to one direction.,
 https://brickschema.org/schema/Brick#Nonreversible_Air_To_Water_Heat_Pump,A nonreversible air source heat pump that extracts thermal energy from a volume of air and transfers it to a water volume or circuit. The flow of the refrigerant is fixed in one direction.,
 https://brickschema.org/schema/Brick#Nonreversible_Ground_To_Air_Heat_Pump,A nonreversible ground source heat pump that extracts thermal energy from the ground or groundwater and transfers it to a volume of air. The flow of the refrigerant is fixed in one direction.,
+https://brickschema.org/schema/Brick#Nonreversible_Heat_Pump,A nonreversible heat pump that heats another substance. The flow of the refrigerant is fixed in one direction to heat the substance.,
 https://brickschema.org/schema/Brick#Occupancy_Command,"Controls whether or not a device or controller is operating in ""Occupied"" mode",
 https://brickschema.org/schema/Brick#Occupancy_Count,Number of people in an area,
 https://brickschema.org/schema/Brick#Occupancy_Percentage,Percent of total occupancy of space that is occupied,
@@ -904,6 +905,7 @@ https://brickschema.org/schema/Brick#Reversible_Air_To_Air_Heat_Pump,"A reversib
 https://brickschema.org/schema/Brick#Reversible_Air_To_Refrigerant_Heat_Pump,"A reversible heat pump, e.g. can operate in heating or cooling mode, that extracts thermal energy from a volume of air and transfers it to a refrigerant.",
 https://brickschema.org/schema/Brick#Reversible_Air_To_Water_Heat_Pump,"A reversible heat pump, e.g. can operate in heating or cooling mode, that depending on the mode extracts thermal energy from a volume of air and transfers it to a water volume or circuit and vice versa.",
 https://brickschema.org/schema/Brick#Reversible_Ground_To_Air_Heat_Pump,"A reversible heat pump, e.g. can operate in heating or cooling mode, that depending on the mode extracts thermal energy from the ground or groundwater and transfers it to a volume of air or vice versa.",
+https://brickschema.org/schema/Brick#Reversible_Heat_Pump,"A reversible heat pump, e.g. can operate in heating or cooling mode",
 https://brickschema.org/schema/Brick#Reversing_Valve,A type of valve usually found in heat pumps to change the direction of refrigerant flow in order to change the device from heating to cooling and vice versa.,https://en.wikipedia.org/wiki/Reversing_valve
 https://brickschema.org/schema/Brick#Reversing_Valve_Command,Controls the direction of refrigerant flow in order to switch it to heating or cooling mode.,
 https://brickschema.org/schema/Brick#Return_Water_Temperature_Setpoint,Sets the temperature of return water,
