@@ -633,7 +633,7 @@ define_ontology(G)
 
 # Declare root classes
 
-G.add((BRICK.Class, A, OWL.Class))
+G.add((BRICK.Entity, A, OWL.Class))
 G.add((BRICK.Tag, A, OWL.Class))
 
 roots = {
@@ -643,7 +643,7 @@ roots = {
     "Measurable": {},
     "Collection": {"tags": [TAG.Collection]},
 }
-define_classes(roots, BRICK.Class)
+define_classes(roots, BRICK.Entity)
 
 logging.info("Defining properties")
 # define BRICK properties
@@ -680,7 +680,7 @@ define_classes(safety_subclasses, BRICK.Safety_Equipment)
 
 logging.info("Defining Measurable hierarchy")
 # define measurable hierarchy
-G.add((BRICK.Measurable, RDFS.subClassOf, BRICK.Class))
+G.add((BRICK.Measurable, RDFS.subClassOf, BRICK.Entity))
 # set up Quantity definition
 G.add((BRICK.Quantity, RDFS.subClassOf, SOSA.ObservableProperty))
 G.add(

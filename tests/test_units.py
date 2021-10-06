@@ -20,7 +20,7 @@ def test_quantity_has_one_quantitykind():
     g = brickschema.graph.Graph()
     g.load_file("Brick.ttl")
     g.bind("qudt", QUDT)
-    g.expand(profile="owlrl")
+    g.expand(profile="shacl")
     quantity_qk = g.query(
         "SELECT ?quantity ?kind WHERE {\
             ?quantity   a   brick:Quantity .\
@@ -62,7 +62,7 @@ def test_instances_measure_correct_units():
     g = brickschema.graph.Graph()
     g.load_file("Brick.ttl")
     g.bind("qudt", QUDT)
-    g.expand(profile="owlrl")
+    g.expand(profile="shacl")
 
     # test the definitions by making sure that some quantities have applicable
     # units
@@ -80,7 +80,7 @@ def test_instances_measure_correct_units():
         triples.append((BLDG[instance_name], A, brickclass))
         triples.append((BLDG[instance_name], BRICK.hasUnit, unit))
     g.add(*triples)
-    g.expand(profile="owlrl")
+    g.expand(profile="shacl")
 
     instances = g.query(
         "SELECT ?inst ?quantity ?unit WHERE {\
@@ -97,7 +97,7 @@ def test_quantity_units():
     g = brickschema.graph.Graph()
     g.load_file("Brick.ttl")
     g.bind("qudt", QUDT)
-    g.expand(profile="owlrl")
+    g.expand(profile="shacl")
 
     # test the definitions by making sure that some quantities have applicable
     # units
@@ -113,7 +113,7 @@ def test_all_quantities_have_units():
     g = brickschema.graph.Graph()
     g.load_file("Brick.ttl")
     g.bind("qudt", QUDT)
-    g.expand(profile="owlrl")
+    g.expand(profile="shacl")
 
     # test the definitions by making sure that some quantities have applicable
     # units
