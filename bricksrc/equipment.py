@@ -528,6 +528,14 @@ hvac_subclasses = {
         "tags": [TAG.Equipment, TAG.Computer, TAG.Room, TAG.Air, TAG.Conditioning],
         OWL.equivalentClass: BRICK["CRAC"],
     },
+    "CRAH": {
+        "tags": [TAG.Equipment, TAG.CRAH],
+        OWL.equivalentClass: BRICK["Computer_Room_Air_Handler"],
+    },
+    "Computer_Room_Air_Handler": {
+        "tags": [TAG.Equipment, TAG.Computer, TAG.Room, TAG.Air, TAG.Handler],
+        OWL.equivalentClass: BRICK["CRAH"],
+    },
     "CRAC": {
         "tags": [TAG.Equipment, TAG.CRAC],
         OWL.equivalentClass: BRICK["Computer_Room_Air_Conditioning"],
