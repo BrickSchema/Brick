@@ -1,0 +1,61 @@
+@prefix brick: <https://brickschema.org/schema/Brick#> .
+@prefix bsh: <https://brickschema.org/schema/BrickShape#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+bsh:InferInverseProperties
+  a sh:NodeShape ;
+  sh:rule [
+      a sh:SPARQLRule ;
+      sh:construct """
+CONSTRUCT {
+?o ?invP $this .
+}
+WHERE {
+  $this ?p ?o .
+  ?p owl:inverseOf ?invP .
+}
+			""" ;
+      sh:prefixes owl: ;
+    ] ;
+
+  sh:targetClass brick:Sensor ;
+.
+
+bsh:InferSymmetricProperties
+  a sh:NodeShape ;
+  sh:rule [
+      a sh:SPARQLRule ;
+      sh:construct """
+CONSTRUCT {
+?o ?prop $this .
+}
+WHERE {
+  $this ?prop ?o .
+  ?prop a owl:SymmetricProperty .
+}
+			""" ;
+        sh:prefixes owl: ;
+        sh:prefixes rdf: ;
+    ] ;
+  sh:targetClass brick:Entity ;
+.
+
+bsh:TagInferenceRule
+    a  sh:NodeShape ;
+    sh:rule [
+        a sh:SPARQLRule ;
+        sh:construct """
+CONSTRUCT {
+$this brick:hasTag ?tag .
+} WHERE {
+    $this rdf:type/rdfs:subClassOf* ?class .
+    ?class brick:hasAssociatedTag ?tag .
+}""" ;
+    sh:prefixes rdf: ;
+    sh:prefixes brick: ;
+    ] ;
+    sh:targetClass brick:Entity ;
+.
