@@ -100,19 +100,57 @@ def add_restriction(klass, definition):
     """
     if len(definition) == 0:
         return
-    elements = []
-    equivalent_class = BNode()
-    list_name = BNode()
-    for idnum, item in enumerate(definition):
-        restriction = BNode()
-        elements.append(restriction)
-        G.add((restriction, A, OWL.Restriction))
-        G.add((restriction, OWL.onProperty, item[0]))
-        G.add((restriction, OWL.hasValue, item[1]))
-    G.add((klass, OWL.equivalentClass, equivalent_class))
-    G.add((equivalent_class, OWL.intersectionOf, list_name))
-    G.add((equivalent_class, A, OWL.Class))
-    Collection(G, list_name, elements)
+
+    sc = BSH[klass.split("#")[-1] + "_PropertyShape"]
+    G.add((sc, A, SH.NodeShape))
+    rule = BNode(str(klass) + "PropertyInferenceRule")
+    G.add((sc, SH.rule, rule))
+
+    # define rule
+    G.add((rule, A, SH.TripleRule))
+    G.add((rule, SH.subject, SH.this))
+    G.add((rule, SH.predicate, RDF.type))
+    G.add((rule, SH.object, klass))
+
+    G.add((klass, A, SH.NodeShape))
+
+    for (property_name, property_value) in definition:
+        pname = property_name.split("#")[-1]
+        pval = property_value.split("#")[-1]
+        cond = BNode(f"has_{pname}_{pval}_condition")
+        prop = BNode(f"has_{pname}_{pval}_prop")
+        qvs = BNode()
+        G.add((rule, SH.condition, cond))
+        G.add((rule, SH.targetSubjectsOf, property_name))
+        G.add((cond, SH.property, prop))
+        G.add((prop, SH.path, property_name))
+        G.add((prop, SH.qualifiedValueShape, qvs))
+        G.add((qvs, SH.hasValue, property_value))
+        G.add((prop, SH.qualifiedMinCount, Literal(1, datatype=XSD.integer)))
+
+        # add rule inheriting properties to the klass
+        classrule = BNode(f"add_{pname}{pval}_to_{klass.split('#')[-1]}")
+        G.add((klass, SH.rule, classrule))
+        G.add((classrule, A, SH.TripleRule))
+        G.add((classrule, SH.subject, SH.this))
+        G.add((classrule, SH.predicate, property_name))
+        G.add((classrule, SH.object, property_value))
+    # TODO: add rules for inheriting property annotations to the class
+    # TODO: do the same for tags
+
+    # elements = []
+    # equivalent_class = BNode()
+    # list_name = BNode()
+    # for idnum, item in enumerate(definition):
+    #    restriction = BNode()
+    #    elements.append(restriction)
+    #    G.add((restriction, A, OWL.Restriction))
+    #    G.add((restriction, OWL.onProperty, item[0]))
+    #    G.add((restriction, OWL.hasValue, item[1]))
+    # G.add((klass, OWL.equivalentClass, equivalent_class))
+    # G.add((equivalent_class, OWL.intersectionOf, list_name))
+    # G.add((equivalent_class, A, OWL.Class))
+    # Collection(G, list_name, elements)
 
 
 def add_tags(klass, definition):
@@ -159,6 +197,13 @@ def add_tags(klass, definition):
     # conditions
     for tag in definition:
 
+        classrule = BNode(f"add_{tag.split('#')[-1]}_to_{klass.split('#')[-1]}")
+        G.add((klass, A, SH.NodeShape))
+        G.add((klass, SH.rule, classrule))
+        G.add((classrule, A, SH.TripleRule))
+        G.add((classrule, SH.subject, SH.this))
+        G.add((classrule, SH.predicate, BRICK.hasTag))
+        G.add((classrule, SH.object, tag))
         if tag not in shacl_tag_property_shapes:
             cond = BNode(f"has_{tag.split('#')[-1]}_condition")
             prop = BNode(f"has_{tag.split('#')[-1]}_tag")
@@ -171,6 +216,7 @@ def add_tags(klass, definition):
             shaclGraph.add(
                 (prop, SH.qualifiedMinCount, Literal(1, datatype=XSD.integer))
             )
+
             # probably don't need the Max count here; addition of duplicate tags should be idempotent
             # shaclGraph.add((prop, SH.qualifiedMaxCount, Literal(1)))
             shacl_tag_property_shapes[tag] = cond
@@ -388,6 +434,20 @@ def define_entity_properties(definitions, superprop=None):
         if "subproperties" in defn:
             subproperties = defn.pop("subproperties")
             define_entity_properties(subproperties, entprop)
+
+        range_shape = defn.pop(RDFS.range)
+        range_prop_shape = BNode(f"prop_range_{entprop.split('#')[-1]}")
+        node_shape = BSH[f"Enforce{entprop.split('#')[-1]}Object"]
+
+        G.add((node_shape, A, SH.NodeShape))
+        G.add((node_shape, SH.targetObjectsOf, entprop))
+        G.add((node_shape, SH.property, range_prop_shape))
+        G.add((range_prop_shape, SH["class"], range_shape))
+        if RDFS.domain in defn:
+            domain_shape = defn.pop(RDFS.domain)
+            G.add((node_shape, A, SH.NodeShape))
+            G.add((node_shape, SH["class"], domain_shape))
+
         for prop, values in defn.items():
             if isinstance(values, list):
                 for pv in values:
