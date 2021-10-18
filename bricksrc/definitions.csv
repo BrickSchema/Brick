@@ -66,7 +66,6 @@ https://brickschema.org/schema/Brick#Breaker_Panel,Breaker Panel distributes pow
 https://brickschema.org/schema/Brick#Breakroom,A space for people to relax while not working,
 https://brickschema.org/schema/Brick#Broadcast_Room,A space to organize and manage a broadcast. Separate from studio,
 https://brickschema.org/schema/Brick#Building,"An independent unit of the built environment with a characteristic spatial structure, intended to serve at least one function or user activity [ISO 12006-2:2013]",
-https://brickschema.org/schema/Brick#Building,"a structure wholly or partially enclosed within exterior walls, or within exterior and party walls, and a roof, affording shelter to persons, animals, or property.",
 https://brickschema.org/schema/Brick#Building_Air,air contained within a building,
 https://brickschema.org/schema/Brick#Building_Air_Humidity_Setpoint,Setpoint for humidity in a building,
 https://brickschema.org/schema/Brick#Building_Air_Static_Pressure_Sensor,The static pressure of air within a building,
