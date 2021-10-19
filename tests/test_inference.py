@@ -144,7 +144,7 @@ def test_tag_inference():
     res = make_readable(
         g.query(
             "SELECT DISTINCT ?sp WHERE {\
-                                    ?sp rdf:type brick:Setpoint\
+                    ?sp rdf:type/rdfs:subClassOf* brick:Setpoint\
                                  }"
         )
     )

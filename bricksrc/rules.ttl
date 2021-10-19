@@ -79,3 +79,31 @@ CONSTRUCT {
     ] ;
     sh:targetSubjectsOf rdfs:range ;
 .
+
+# bsh:TagInferenceRule
+#     a sh:NodeShape ;
+#     sh:rule [
+#         a sh:SPARQLRule ;
+#         sh:construct """
+# CONSTRUCT {
+#     ?ent a ?class .
+# } WHERE {
+#     {
+#         SELECT (count(?enttag) as ?entcount)
+#         WHERE {
+#             ?ent brick:hasTag ?enttag ;
+#             ?class brick:hasAssociatedTag ?enttag ;
+#         }
+#     }
+#     {
+#         SELECT (count(?tag) AS ?tagcount)
+#         WHERE {
+#             ?class brick:hasAssociatedTag ?tag
+#         }
+#     }
+# }""" ;
+#     sh:prefixes brick: ;
+#     sh:prefixes sh: ;
+#     ] ;
+#     sh:targetSubjectsOf brick:hasTag ;
+# .
