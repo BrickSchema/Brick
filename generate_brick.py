@@ -435,19 +435,6 @@ def define_entity_properties(definitions, superprop=None):
             subproperties = defn.pop("subproperties")
             define_entity_properties(subproperties, entprop)
 
-        range_shape = defn.pop(RDFS.range)
-        range_prop_shape = BNode(f"prop_range_{entprop.split('#')[-1]}")
-        node_shape = BSH[f"Enforce{entprop.split('#')[-1]}Object"]
-
-        G.add((node_shape, A, SH.NodeShape))
-        G.add((node_shape, SH.targetObjectsOf, entprop))
-        G.add((node_shape, SH.property, range_prop_shape))
-        G.add((range_prop_shape, SH["class"], range_shape))
-        if RDFS.domain in defn:
-            domain_shape = defn.pop(RDFS.domain)
-            G.add((node_shape, A, SH.NodeShape))
-            G.add((node_shape, SH["class"], domain_shape))
-
         for prop, values in defn.items():
             if isinstance(values, list):
                 for pv in values:

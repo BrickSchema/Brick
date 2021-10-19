@@ -61,21 +61,21 @@ $this brick:hasTag ?tag .
     sh:targetClass brick:Entity ;
 .
 
-#bsh:RDFSRangeRule
-#    a   sh:NodeShape ;
-#    sh:rule [
-#        a sh:SPARQLRule ;
-#        sh:construct """
-#CONSTRUCT {
-#    ?val a ?shape .
-#} WHERE {
-#    $this rdfs:range ?shape .
-#    ?shape a sh:NodeShape .
-#    ?ent $this ?val .
-#}""" ;
-#    sh:prefixes rdfs: ;
-#    sh:prefixes rdf: ;
-#    sh:prefixes sh: ;
-#    ] ;
-#    sh:targetSubjectsOf rdfs:range ;
-#.
+bsh:RDFSRangeRule
+    a   sh:NodeShape ;
+    sh:rule [
+        a sh:SPARQLRule ;
+        sh:construct """
+CONSTRUCT {
+    ?val a ?shape .
+} WHERE {
+    $this rdfs:range ?shape .
+    ?shape a sh:NodeShape .
+    ?ent $this ?val .
+}""" ;
+    sh:prefixes rdfs: ;
+    sh:prefixes rdf: ;
+    sh:prefixes sh: ;
+    ] ;
+    sh:targetSubjectsOf rdfs:range ;
+.
