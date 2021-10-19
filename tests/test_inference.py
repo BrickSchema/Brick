@@ -66,7 +66,7 @@ def test_tag_inference():
 
     # Apply reasoner
     g.load_file("extensions/brick_extension_shacl_tag_inference.ttl")
-    g.expand(profile="shacl")
+    g.expand(profile="shacl+shacl")
 
     g.bind("rdf", RDF)
     g.bind("owl", OWL)
@@ -114,7 +114,7 @@ def test_tag_inference():
         g.query(
             "SELECT DISTINCT ?sensor WHERE {\
                                     ?sensor brick:measures brick:Air .\
-                                    ?sensor rdf:type brick:Temperature_Sensor\
+                                    ?sensor rdf:type/rdfs:subClassOf* brick:Temperature_Sensor\
                                   }"
         )
     )
