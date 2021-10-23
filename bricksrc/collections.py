@@ -50,6 +50,71 @@ system_subclasses = {
                 },
             },
             "Steam_System": {"tags": [TAG.Steam, TAG.System]},
+            "Refrigerant_System": {
+                "tags": [TAG.Fluorocarbon_Refrigerant, TAG.Hydrocarbon_Refrigerant, TAG.System],
+                "subclasses": {
+                    "Single_Split_System": {
+                        "tags": [
+                            TAG.Fluorocarbon_Refrigerant, 
+                            TAG.Hydrocarbon_Refrigerant, 
+                            TAG.Heat, 
+                            TAG.Cool, 
+                            TAG.System, 
+                            TAG.Indoor_Unit, 
+                            TAG.Outdoor_Unit
+                        ],
+                    },
+                    "Multi_Split_System": {
+                        "tags": [
+                            TAG.Fluorocarbon_Refrigerant, 
+                            TAG.Hydrocarbon_Refrigerant, 
+                            TAG.Heat, 
+                            TAG.Cool, 
+                            TAG.System, 
+                            TAG.Indoor_Unit, 
+                            TAG.Outdoor_Unit, 
+                            TAG.Mode_Switch_Box
+                        ],
+                    },
+                    "VRF_System": {
+                        "tags": [
+                            TAG.Fluorocarbon_Refrigerant, 
+                            TAG.Hydrocarbon_Refrigerant,
+                            TAG.Heat, 
+                            TAG.Cool, 
+                            TAG.System,
+                            TAG.Indoor_Unit, 
+                            TAG.Outdoor_Unit, 
+                            TAG.Mode_Switch_Box],
+                        "subclasses":{
+                            "VRF_Heat_Pump_System": {
+                                "tags": [
+                                    TAG.Fluorocarbon_Refrigerant, 
+                                    TAG.Hydrocarbon_Refrigerant, 
+                                    TAG.Heat, 
+                                    TAG.Cool, 
+                                    TAG.System, 
+                                    TAG.Indoor_Unit, 
+                                    TAG.Outdoor_Unit, 
+                                    TAG.Mode_Switch_Box
+                                ],
+                            },
+                            "VRF_Heat_Recovery_System": {
+                                "tags": [
+                                    TAG.Fluorocarbon_Refrigerant, 
+                                    TAG.Hydrocarbon_Refrigerant, 
+                                    TAG.Heat, 
+                                    TAG.Cool, 
+                                    TAG.System, 
+                                    TAG.Indoor_Unit, 
+                                    TAG.Outdoor_Unit, 
+                                    TAG.Mode_Switch_Box
+                                ],
+                            },
+                        },
+                    },
+                },
+            },
             "Water_System": {
                 "tags": [TAG.Water, TAG.System],
                 "subclasses": {
@@ -63,7 +128,7 @@ system_subclasses = {
                                 "tags": [
                                     TAG.Hot,
                                     TAG.Water,
-                                    TAG.System,
+                                               
                                     TAG.Preheat,
                                     TAG.System,
                                 ]
@@ -72,7 +137,7 @@ system_subclasses = {
                                 "tags": [
                                     TAG.Hot,
                                     TAG.Water,
-                                    TAG.System,
+                                               
                                     TAG.Reheat,
                                     TAG.System,
                                 ]
@@ -81,7 +146,7 @@ system_subclasses = {
                                 "tags": [
                                     TAG.Hot,
                                     TAG.Water,
-                                    TAG.System,
+                                               
                                     TAG.Radiation,
                                     TAG.System,
                                 ]
@@ -90,7 +155,7 @@ system_subclasses = {
                                 "tags": [
                                     TAG.Hot,
                                     TAG.Water,
-                                    TAG.System,
+                                               
                                     TAG.Heat,
                                     TAG.Recovery,
                                     TAG.System,

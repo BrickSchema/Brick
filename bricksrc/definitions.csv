@@ -22,7 +22,7 @@ https://brickschema.org/schema/Brick#Air_Flow_Sensor,Measures the rate of flow o
 https://brickschema.org/schema/Brick#Air_Flow_Setpoint,Sets air flow,
 https://brickschema.org/schema/Brick#Air_Grains_Sensor,Measures the mass of water vapor in air,
 https://brickschema.org/schema/Brick#Air_Handler_Unit,"Assembly consisting of sections containing a fan or fans and other necessary equipment to perform one or more of the following functions: circulating, filtration, heating, cooling, heat recovery, humidifying, dehumidifying, and mixing of air. Is usually connected to an air-distribution system.",
-https://brickschema.org/schema/Brick#Air_Loop,"The set of connected equipment serving one path of air",
+https://brickschema.org/schema/Brick#Air_Loop,The set of connected equipment serving one path of air,
 https://brickschema.org/schema/Brick#Air_Plenum,A component of the HVAC the receives air from the air handling unit or room to distribute or exhaust to or from the building,
 https://brickschema.org/schema/Brick#Air_Quality,,
 https://brickschema.org/schema/Brick#Air_Quality_Sensor,A sensor which provides a measure of air quality,
@@ -193,7 +193,7 @@ https://brickschema.org/schema/Brick#Cubicle,"A smaller space set aside for an i
 https://brickschema.org/schema/Brick#Current,,
 https://brickschema.org/schema/Brick#Current_Angle,Angle of current phasor,
 https://brickschema.org/schema/Brick#Current_Imbalance,The percent deviation from average current,
-https://brickschema.org/schema/Brick#Current_Imbalance_Sensor,"A sensor which measures the current difference (imbalance) between phases of an electrical system",
+https://brickschema.org/schema/Brick#Current_Imbalance_Sensor,A sensor which measures the current difference (imbalance) between phases of an electrical system,
 https://brickschema.org/schema/Brick#Current_Output_Sensor,Senses the amperes of electrical current produced as output by a device,
 https://brickschema.org/schema/Brick#Current_Sensor,Senses the amperes of electrical current passing through the sensor,
 https://brickschema.org/schema/Brick#Current_Total_Harmonic_Distortion,Measurement of harmonic distortion present in a signal defined as the sum of the powers of all harmonic components to the power of the fundamental frequency. (https://en.wikipedia.org/wiki/Total_harmonic_distortion),
@@ -343,8 +343,8 @@ https://brickschema.org/schema/Brick#Energy,,
 https://brickschema.org/schema/Brick#Energy_Sensor,Measures energy consumption,
 https://brickschema.org/schema/Brick#Energy_Storage,Devices or equipment that store energy in its various forms,
 https://brickschema.org/schema/Brick#Energy_System,"A collection of devices that generates, stores or transports electricity",
-https://brickschema.org/schema/Brick#Energy_Generation_System,"A collection of devices that generates electricity",
-https://brickschema.org/schema/Brick#Energy_Storage_System,"A collection of devices that stores electricity",
+https://brickschema.org/schema/Brick#Energy_Generation_System,A collection of devices that generates electricity,
+https://brickschema.org/schema/Brick#Energy_Storage_System,A collection of devices that stores electricity,
 https://brickschema.org/schema/Brick#Energy_Usage_Sensor,Measures the total amount of energy used over some period of time,
 https://brickschema.org/schema/Brick#Energy_Zone,A space or group of spaces that are managed or monitored as one unit for energy purposes,
 https://brickschema.org/schema/Brick#Entering_Water,Water that is entering a piece of equipment or system,
@@ -415,7 +415,7 @@ https://brickschema.org/schema/Brick#Fluid,"substance, as a liquid or gas, that 
 https://brickschema.org/schema/Brick#Food_Service_Room,"A space used in the production, storage, serving, or cleanup of food and beverages",
 https://brickschema.org/schema/Brick#Formaldehyde_Level_Sensor,Measures the concentration of formaldehyde in air,
 https://brickschema.org/schema/Brick#Freeze_Status,Indicates if a substance contained within a vessel has frozen,
-https://brickschema.org/schema/Brick#Freezer,"cold chamber usually kept at a temperature of 22°F to 31°F (–5°C to –1°C), with high-volume air circulation.",
+https://brickschema.org/schema/Brick#Freezer,"cold chamber usually kept at a temperature of 22\xb0F to 31\xb0F (-5\xb0C to -1\xb0C), with high-volume air circulation.",
 https://brickschema.org/schema/Brick#Frequency,"Frequency is the number of occurrences of a repeating event per unit time. The repetition of the events may be periodic (that is. the length of time between event repetitions is fixed) or aperiodic (i.e. the length of time between event repetitions varies). Therefore, we distinguish between periodic and aperiodic frequencies. In the SI system, periodic frequency is measured in hertz (Hz) or multiples of hertz, while aperiodic frequency is measured in becquerel (Bq).  In spectroscopy, ( u) is mostly used. Light passing through different media keeps its frequency, but not its wavelength or wavenumber.",
 https://brickschema.org/schema/Brick#Frequency_Command,Controls the frequency of a device's operation (e.g. rotational frequency),
 https://brickschema.org/schema/Brick#Frequency_Sensor,"Measures the frequency of a phenomenon or aspect of a phenomenon, e.g. the frequency of a fan turning",
@@ -531,7 +531,7 @@ https://brickschema.org/schema/Brick#Ice,Water in its solid form,
 https://brickschema.org/schema/Brick#Ice_Tank_Leaving_Water_Temperature_Sensor,Measures the temperature of water leaving an ice tank,
 https://brickschema.org/schema/Brick#Illuminance,,
 https://brickschema.org/schema/Brick#Illuminance_Sensor,"Measures the total luminous flux incident on a surface, per unit area",
-https://brickschema.org/schema/Brick#Imbalance_Sensor,"A sensor which measures difference (imbalance) between phases of an electrical system",
+https://brickschema.org/schema/Brick#Imbalance_Sensor,A sensor which measures difference (imbalance) between phases of an electrical system,
 https://brickschema.org/schema/Brick#Induction_Unit,A device with an primary air connection and integrated coil and condensate pan that performs sensible and latent cooling of a space. Essentially an Active Chilled Beam with a built in condensate pan.,
 https://brickschema.org/schema/Brick#Information_Area,An information booth or kiosk where visitors would look for information,
 https://brickschema.org/schema/Brick#Inside_Face_Surface_Temperature_Sensor,Measures the inside surface (relative to the space) of the radiant panel of the radiant heating and cooling HVAC system.,
@@ -744,7 +744,7 @@ https://brickschema.org/schema/Brick#PM1_Sensor,Detects matter of size 1 micron,
 https://brickschema.org/schema/Brick#PM2.5_Level_Sensor,Detects level of particulates of size 2.5 microns,
 https://brickschema.org/schema/Brick#PM2.5_Sensor,Detects matter of size 2.5 microns,
 https://brickschema.org/schema/Brick#PV_Current_Output_Sensor,See Photovoltaic_Current_Output_Sensor,
-https://brickschema.org/schema/Brick#PV_Generation_System,"A collection of photovoltaic devices that generates energy",
+https://brickschema.org/schema/Brick#PV_Generation_System,A collection of photovoltaic devices that generates energy,
 https://brickschema.org/schema/Brick#Parameter,Parameter points are configuration settings used to guide the operation of equipment and control systems; for example they may provide bounds on valid setpoint values,
 https://brickschema.org/schema/Brick#Parking_Level,A floor of a parking structure,
 https://brickschema.org/schema/Brick#Parking_Space,An area large enough to park an individual vehicle,
@@ -877,7 +877,7 @@ https://brickschema.org/schema/Brick#Site,A geographic region containing 0 or mo
 https://brickschema.org/schema/Brick#Smoke_Alarm,An alarm that indicates the off-normal conditions associated with smoke.,
 https://brickschema.org/schema/Brick#Solar_Azimuth_Angle_Sensor,Measures the azimuth angle of the sun,
 https://brickschema.org/schema/Brick#Solar_Irradiance,The power per unit area of solar electromagnetic radiation incident on a surface,
-https://brickschema.org/schema/Brick#Stage_Riser,"A low platform in a space or on a stage",
+https://brickschema.org/schema/Brick#Stage_Riser,A low platform in a space or on a stage,
 https://brickschema.org/schema/Brick#PV_Panel,An integrated assembly of interconnected photovoltaic cells designed to deliver a selected level of working voltage and current at its output terminals packaged for protection against environment degradation and suited for incorporation in photovoltaic power systems.,https://encyclopedia2.thefreedictionary.com/pv+module
 https://brickschema.org/schema/Brick#Solar_Thermal_Collector,A type of solar panels that converts solar radiation into thermal energy.,
 https://brickschema.org/schema/Brick#PVT_Panel,A type of solar panels that convert solar radiation into usable thermal and electrical energy,
@@ -972,7 +972,7 @@ https://brickschema.org/schema/Brick#Supply_Water_Temperature_Setpoint,Sets temp
 https://brickschema.org/schema/Brick#Switch,A switch used to operate all or part of a lighting installation,
 https://brickschema.org/schema/Brick#Switch_Room,A telecommuncations room housing network switches,
 https://brickschema.org/schema/Brick#Switchgear,"A main disconnect or service disconnect feeds power to a switchgear, which then distributes power to the rest of the building through smaller amperage-rated disconnects.",
-https://brickschema.org/schema/Brick#System,"A System is a combination of equipment and auxiliary devices (e.g., controls, accessories, interconnecting means, and termi­nal elements) by which energy is transformed so it performs a specific function such as HVAC, service water heating, or lighting. (ASHRAE Dictionary).",
+https://brickschema.org/schema/Brick#System,"A System is a combination of equipment and auxiliary devices (e.g., controls, accessories, interconnecting means, and termi??nal elements) by which energy is transformed so it performs a specific function such as HVAC, service water heating, or lighting. (ASHRAE Dictionary).",
 https://brickschema.org/schema/Brick#System_Enable_Command,Enables operation of a system,
 https://brickschema.org/schema/Brick#System_Shutdown_Status,Indicates if a system has been shutdown,
 https://brickschema.org/schema/Brick#System_Status,Indicates properties of the activity of a system,
@@ -1006,7 +1006,7 @@ https://brickschema.org/schema/Brick#Time,,
 https://brickschema.org/schema/Brick#Time_Parameter,,
 https://brickschema.org/schema/Brick#Time_Setpoint,,
 https://brickschema.org/schema/Brick#Tolerance_Parameter,difference between upper and lower limits of size for a given nominal dimension or value.,
-https://brickschema.org/schema/Brick#Torque,"In physics, a torque (τ) is a vector that measures the tendency of a force to rotate an object about some axis. The magnitude of a torque is defined as force times its lever arm. Just as a force is a push or a pull, a torque can be thought of as a twist. The SI unit for torque is newton meters ((N m)). In U.S. customary units, it is measured in foot pounds (ft lbf) (also known as ""pounds feet""). Mathematically, the torque on a particle (which has the position r in some reference frame) can be defined as the cross product: (τ = r x F) where, r is the particle's position vector relative to the fulcrum  F is the force acting on the particles,  or, more generally, torque can be defined as the rate of change of angular momentum: (τ = dL/dt) where, L is the angular momentum vector  t stands for time.",
+https://brickschema.org/schema/Brick#Torque,"In physics, a torque (??) is a vector that measures the tendency of a force to rotate an object about some axis. The magnitude of a torque is defined as force times its lever arm. Just as a force is a push or a pull, a torque can be thought of as a twist. The SI unit for torque is newton meters ((N m)). In U.S. customary units, it is measured in foot pounds (ft lbf) (also known as ""pounds feet""). Mathematically, the torque on a particle (which has the position r in some reference frame) can be defined as the cross product: (?? = r x F) where, r is the particle's position vector relative to the fulcrum  F is the force acting on the particles,  or, more generally, torque can be defined as the rate of change of angular momentum: (?? = dL/dt) where, L is the angular momentum vector  t stands for time.",
 https://brickschema.org/schema/Brick#Torque_Sensor,"Measures torque, the tendency of a force to rotate an object about some axis",
 https://brickschema.org/schema/Brick#Touchpanel,A switch used to operate all or part of a lighting installation that uses a touch-based mechanism (typically resistive or capacitive) rather than a mechanical actuator,
 https://brickschema.org/schema/Brick#Trace_Heat_Sensor,Measures the surface temperature of pipelines carrying temperature-sensitive products; typically used to avoid frosting/freezing,
@@ -1036,7 +1036,7 @@ https://brickschema.org/schema/Brick#Valve_Status,The current status of the valv
 https://brickschema.org/schema/Brick#Variable_Air_Volume_Box,A device that regulates the volume and temperature of air delivered to a zone by opening or closing a damper,https://en.wikipedia.org/wiki/Variable_air_volume
 https://brickschema.org/schema/Brick#Variable_Air_Volume_Box_With_Reheat,A VAV box with a reheat coil mounted on the discharge end of the unit that can heat the air delivered to a zone,
 https://brickschema.org/schema/Brick#Variable_Frequency_Drive,"Electronic device that varies its output frequency to vary the rotating speed of a motor, given a fixed input frequency. Used with fans or pumps to vary the flow in the system as a function of a maintained pressure.",https://xp20.ashrae.org/terminology/index.php?term=vfd&submit=Search
-https://brickschema.org/schema/Brick#Velocity_Pressure,"Dynamic Pressure (indicated with q, or Q, and sometimes called velocity pressure) is the quantity defined by: (q = 1/2 * ρ v^{2}), where (using SI units),  (q) is dynamic pressure in (pascals), (ρ) is fluid density in (kg/m^{3}) (for example, density of air) and (v ) is fluid velocity in (m/s).",
+https://brickschema.org/schema/Brick#Velocity_Pressure,"Dynamic Pressure (indicated with q, or Q, and sometimes called velocity pressure) is the quantity defined by: (q = 1/2 * ?? v^{2}), where (using SI units),  (q) is dynamic pressure in (pascals), (??) is fluid density in (kg/m^{3}) (for example, density of air) and (v ) is fluid velocity in (m/s).",
 https://brickschema.org/schema/Brick#Velocity_Pressure_Sensor,Measures the difference between total pressure and static pressure,
 https://brickschema.org/schema/Brick#Velocity_Pressure_Setpoint,Sets static veloicty pressure,
 https://brickschema.org/schema/Brick#Ventilation_Air_System,"The equipment, distribution systems and terminals that introduce or exhaust, either collectively or individually, the air used for the ventilation system of the building",
@@ -1048,13 +1048,13 @@ https://brickschema.org/schema/Brick#Voltage,"Voltage, also referred to as Elect
 https://brickschema.org/schema/Brick#Voltage_Angle,Angle of voltage phasor,
 https://brickschema.org/schema/Brick#Voltage_Alarm,An alarm that indicates the voltage is not in a normal state.,
 https://brickschema.org/schema/Brick#Voltage_Imbalance,The percent deviation from average voltage,
-https://brickschema.org/schema/Brick#Voltage_Imbalance_Sensor,"A sensor which measures the voltage difference (imbalance) between phases of an electrical system",
+https://brickschema.org/schema/Brick#Voltage_Imbalance_Sensor,A sensor which measures the voltage difference (imbalance) between phases of an electrical system,
 https://brickschema.org/schema/Brick#Voltage_Sensor,Measures the voltage of an electrical device or object,
 https://brickschema.org/schema/Brick#Wardrobe,"Storage for clothing, costumes, or uniforms",
 https://brickschema.org/schema/Brick#Warm_Cool_Adjust_Sensor,"User provided adjustment of zone temperature, typically in the range of +/- 5 degrees",
 https://brickschema.org/schema/Brick#Warmest_Zone_Air_Temperature_Sensor,The zone temperature that is warmest; drives the supply temperature of cold air. A computed value rather than a physical sensor. Also referred to as a 'Highest Zone Air Temperature Sensor',
 https://brickschema.org/schema/Brick#Waste_Storage,A room used for storing waste such as trash or recycling,
-https://brickschema.org/schema/Brick#Water,"transparent, odorless, tasteless liquid; a compound of hydrogen and oxygen (H2O), containing 11.188% hydrogen and 88.812% oxygen by mass; freezing at 32°F (0°C); boiling near 212°F (100°C).",
+https://brickschema.org/schema/Brick#Water,"transparent, odorless, tasteless liquid; a compound of hydrogen and oxygen (H2O), containing 11.188% hydrogen and 88.812% oxygen by mass; freezing at 32??F (0??C); boiling near 212??F (100??C).",
 https://brickschema.org/schema/Brick#Water_Alarm,"Alarm that indicates an undesirable event with a pipe, container, or equipment carrying water e.g. water leak",
 https://brickschema.org/schema/Brick#Water_Differential_Pressure_Setpoint,Sets the target water differential pressure between an upstream and downstream point in a water pipe or conduit,
 https://brickschema.org/schema/Brick#Water_Differential_Temperature_Sensor,Measures the difference in water temperature between an upstream and downstream point in a pipe or conduit,
@@ -1083,7 +1083,7 @@ https://brickschema.org/schema/Brick#Wind_Direction,Direction of wind relative t
 https://brickschema.org/schema/Brick#Wind_Direction_Sensor,Measures the direction of wind in degrees relative to North,
 https://brickschema.org/schema/Brick#Wind_Speed,"Measured speed of wind, caused by air moving from high to low pressure",
 https://brickschema.org/schema/Brick#Wind_Speed_Sensor,"Measured speed of wind, caused by air moving from high to low pressure",
-https://brickschema.org/schema/Brick#Wing,"A wing is part of a building – or any feature of a building – that is subordinate to the main, central structure.",
+https://brickschema.org/schema/Brick#Wing,"A wing is part of a building - or any feature of a building - that is subordinate to the main, central structure.",
 https://brickschema.org/schema/Brick#Workshop,A space used to house equipment that can be used to repair or fabricate things,
 https://brickschema.org/schema/Brick#Zone,"(1) a separately controlled heated or cooled space. (2) one occupied space or several occupied spaces with similar occupancy category, occupant density, zone air distribution effectiveness, and zone primary airflow per unit area. (3) space or group of spaces within a building for which the heating, cooling, or lighting requirements are sufficiently similar that desired conditions can be maintained throughout by a single controlling device.",
 https://brickschema.org/schema/Brick#Zone_Air,"air inside a defined zone (e.g., corridors).",
@@ -1121,3 +1121,40 @@ https://brickschema.org/schema/Brick#measures,The subject measures a quantity or
 https://brickschema.org/schema/Brick#regulates,The subject contributes to or performs the regulation of the substance given by the object,
 https://brickschema.org/schema/Brick#storedAt,A reference to where the data for this TimeseriesReference is stored,
 https://brickschema.org/schema/Brick#timeseries,Relates a Brick point to the TimeseriesReference that indicates where and how the data for this point is stored,
+https://brickschema.org/schema/Brick#Hydrocarbon_Refrigerant,"Hydrocarbon Refrigerants are natural, nontoxic refrigerants that have no ozone depleting properties and absolutely minimal global warming potential. The most efficient and environmentally safe refrigerants in the world are the five natural refrigerants which are Air, Water, Carbon Dioxide, Ammonia and Hydrocarbons.",https://www.engas.com.au/about/about-hydrocarbon-refrigerants/
+https://brickschema.org/schema/Brick#Fluorocarbon_Refrigerant,"Although they can be found in nature, the gases used are industrial gases, just like HFCs & HFOs, and are produced in refineries or other industrial facilities.",
+https://brickschema.org/schema/Brick#CFC,"Chlorofluorocarbons (CFCs): when derived from methane and ethane these compounds have the formulae CClmF4−m and C2ClmF6−m, where m is nonzero. More than 98% of the CFCs used in MDIs have already been phased out, and will disappear completely in 2016, a significant milestone following 30 years of concerted global action to protect the ozone layer.",
+https://brickschema.org/schema/Brick#HCFC,"Hydro-chlorofluorocarbons (HCFCs): when derived from methane and ethane these compounds have the formula CClmFnH4−m−n and C2ClxFyH6−x−y, where m, n, x, and y are nonzero. New production and import of most HCFCs were phased out as of 2020. The most common HCFC in use today is HCFC-22 or R-22, a refrigerant still used in existing air conditioners and refrigeration equipment. ",
+https://brickschema.org/schema/Brick#HFC,"Hydrofluorocarbons (HFCs): when derived from methane, ethane, propane, and butane, these compounds have the respective formulae CFmH4−m, C2FmH6−m, C3FmH8−m, and C4FmH10−m, where m is nonzero. An HFC phase-down under the Montreal Protocol was agreed in Kigali, Rwanda, in October 2016. Developed countries will phase-down their production and imports of HFCs by 85% between 2019 and 2036. Developing countries will also phase-down their HFC production and imports.",
+https://brickschema.org/schema/Brick#HFO,"Hydrofluoroolefins (HFOs) are unsaturated organic compounds composed of hydrogen, fluorine and carbon.",https://en.wikipedia.org/wiki/Hydrofluoroolefin
+https://brickschema.org/schema/Brick#R410A,"R-410A, sold under the trademarked names AZ-20, EcoFluor R410, Forane 410A, Genetron R410A, Puron, and Suva 410A, is a zeotropic but near-azeotropic mixture of difluoromethane (CH2F2, called R-32) and pentafluoroethane (CHF2CF3, called R-125) that is used as a refrigerant in air conditioning applications",https://en.wikipedia.org/wiki/R-410A
+https://brickschema.org/schema/Brick#R134a,"1,1,1,2-Tetrafluoroethane (also known as norflurane (INN), R-134a, Freon 134a, Forane 134a, Genetron 134a, Green Gas, Florasol 134a, Suva 134a, or HFC-134a) is a hydrofluorocarbon (HFC) and haloalkane refrigerant with thermodynamic properties similar to R-12 (dichlorodifluoromethane) but with insignificant ozone depletion potential and a lower 100-year global warming potential (1,430, compared to R-12's GWP of 10,900).[2] It has the formula CF3CH2F and a boiling point of −26.3 °C (−15.34 °F) at atmospheric pressure.","https://en.wikipedia.org/wiki/1,1,1,2-Tetrafluoroethane"
+https://brickschema.org/schema/Brick#R1234yf,"2,3,3,3-Tetrafluoropropene, HFO-1234yf, is a hydrofluoroolefin (HFO) with the formula CH2=CFCF3. It is also designated R-1234yf as the first of a new class of refrigerants: it is marketed under the name Opteon YF by Chemours and as Solstice YF by Honeywell.","https://en.wikipedia.org/wiki/2,3,3,3-Tetrafluoropropene"
+https://brickschema.org/schema/Brick#Liquid_Hydrocarbon_Refrigerant,,
+https://brickschema.org/schema/Brick#Liquid_Hydrofluoric_Refrigerant,,
+https://brickschema.org/schema/Brick#Liquid_CFC,,
+https://brickschema.org/schema/Brick#Liquid_HCFC,,
+https://brickschema.org/schema/Brick#Liquid_HFC,,
+https://brickschema.org/schema/Brick#Liquid_HFO,,
+https://brickschema.org/schema/Brick#Liquid_R410A,,
+https://brickschema.org/schema/Brick#Liquid_R134a,,
+https://brickschema.org/schema/Brick#Liquid_R1234yf,,
+https://brickschema.org/schema/Brick#Refrigerant_System,"Refrigerant systems operate on the direct expansion (DX) principle meaning that heat is transferred to or from the space directly by circulating refrigerant to evaporators located near or within the conditioned space.",https://www.seedengr.com/Variable%20Refrigerant%20Flow%20Systems.pdf
+https://brickschema.org/schema/Brick#Single_Split_System,"Split type air conditioning systems are one-to-one systems consisting of one evaporator (fan coil) unit connected to an external condensing unit. Both the indoor and outdoor units are connected through copper tubing and electrical cabling.",https://www.seedengr.com/Variable%20Refrigerant%20Flow%20Systems.pdf
+https://brickschema.org/schema/Brick#Multi_Split_System,"A multi-type air conditioning system operates on the same principles as a split type air-conditioning system with multiple indoor units connected to one external outdoor unit.",https://www.seedengr.com/Variable%20Refrigerant%20Flow%20Systems.pdf
+https://brickschema.org/schema/Brick#VRF_System,"VRF systems connect the outdoor section to several the indoor sections. VRF systems continually adjust the flow of refrigerant to each indoor evaporator. The control is achieved by continually varying the flow of refrigerant through a pulse modulating valve (PMV) whose opening is determined by the microprocessor receiving information from the thermistor sensors in each indoor unit. The indoor units are linked by a control wire to the outdoor unit which responds to the demand from the indoor units by varying its compressor speed to match the total cooling and/or heating requirements.",https://www.seedengr.com/Variable%20Refrigerant%20Flow%20Systems.pdf
+https://brickschema.org/schema/Brick#VRF_Heat_Pump_System,"VRF heat pump systems permit heating or cooling in all of the indoor units but NOT simultaneous heating and cooling. When the indoor units are in the cooling mode, they act as evaporators; when they are in the heating mode, they act as condensers. These are also known as two-pipe systems.",https://www.seedengr.com/Variable%20Refrigerant%20Flow%20Systems.pdf
+https://brickschema.org/schema/Brick#VRF_Heat_Recovery_System,"Variable refrigerant flow systems with heat recovery (VRF-HR) capability can operate simultaneously in heating and/or cooling mode, enabling heat to be used rather than rejected as it would be in traditional heat pump systems.",https://www.seedengr.com/Variable%20Refrigerant%20Flow%20Systems.pdf
+https://brickschema.org/schema/Brick#Indoor_Unit,Indoor boxes with heat exchangers,
+https://brickschema.org/schema/Brick#Outdoor_Unit,Outdoor boxes with heat exchangers and compressors,
+https://brickschema.org/schema/Brick#Mode_Switch_Box,"MS boxes with a built-in solenoid valves switch the modes of operation of indoor units, allowing different groups of units connected to the MS box to work simultaneously in different modes: cooling or heating, with precisely selected performance.",https://midea.mt/index.php/product/mode-switch-box/
+https://brickschema.org/schema/Brick#hasConnection,"The subject is linked with the object in the context of some sequential process; some media is between them.",
+https://brickschema.org/schema/Brick#Four_Way_Valve,"The four-way valve or four-way cock is a fluid control valve whose body has four ports equally spaced round the valve chamber and the plug has two passages to connect adjacent ports.",https://en.wikipedia.org/wiki/Four-way_valve
+https://brickschema.org/schema/Brick#Check_Valve,"A check valve, non-return valve, reflux valve, retention valve, foot valve, or one-way valve is a valve that normally allows fluid (liquid or gas) to flow through it in only one direction.",https://en.wikipedia.org/wiki/Check_valve
+https://brickschema.org/schema/Brick#Electronic_Expansion_Valve,"The electronic expansion valve (EEV) operates with a much more sophisticated design. EEVs control the flow of refrigerant entering a direct expansion evaporator. They do this in response to signals sent to them by an electronic controller.",https://www.achrnews.com/articles/95056-electronic-expansion-valves-the-basics
+https://brickschema.org/schema/Brick#Solenoid_Valve,"A solenoid valve is an electromechanically operated valve. Solenoid valves differ in the characteristics of the electric current they use, the strength of the magnetic field they generate, the mechanism they use to regulate the fluid, and the type and characteristics of fluid they control. The mechanism varies from linear action, plunger-type actuators to pivoted-armature actuators and rocker actuators. The valve can use a two-port design to regulate a flow or use a three or more port design to switch flows between ports. Multiple solenoid valves can be placed together on a manifold.",https://en.wikipedia.org/wiki/Solenoid_valve
+https://brickschema.org/schema/Brick#Header,"The refrigerant pipe-work uses a number of separation tubes and/or headers, a header has more than 2 branches.",https://www.seedengr.com/Variable%20Refrigerant%20Flow%20Systems.pdf
+https://brickschema.org/schema/Brick#Separation_Tube,"The refrigerant pipe-work uses a number of separation tubes and/or headers, a separation tube has 2 branches.",https://www.seedengr.com/Variable%20Refrigerant%20Flow%20Systems.pdf
+https://brickschema.org/schema/Brick#Capillary_Tube,"Capillary tube is one of the most commonly used throttling devices in the refrigeration and the air conditioning systems. The capillary tube is a copper tube of very small internal diameter. It is of very long length and it is coiled to several turns so that it would occupy less space. The internal diameter of the capillary tube used for the refrigeration and air conditioning applications varies from 0.5 to 2.28 mm (0.020 to 0.09 inches). Capillary tube used as the throttling device in the domestic refrigerators, deep freezers, water coolers and air conditioners.",https://www.brighthubengineering.com/hvac/58420-capillary-tube-for-refrigeration-and-air-conditioning-systems/
+https://brickschema.org/schema/Brick#Drier,"A drier as its name imply is used to remove the moisture from the refrigerant.",https://www.airconditioning-systems.com/filterdriers.html
+https://brickschema.org/schema/Brick#Accumulator,"A suction accumulator is used to prevent liquid refrigerant floodback to the compressor. The accumulator protects the system components. It is located on the low-pressure side of the circuit between the evaporator outlet and the compressor suction port.",https://hvacrschool.com/whast-is-a-suction-accumulator/

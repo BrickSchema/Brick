@@ -40,6 +40,10 @@ properties = {
         "subproperties": {"feedsAir": {}},
         RDFS.label: Literal("Feeds"),
     },
+    "hasConnection": {
+        A: [OWL.SymmetricProperty, OWL.ReflexiveProperty],
+        RDFS.label: Literal("hasConnection"),
+    },
     "isFedBy": {
         A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         OWL.inverseOf: BRICK["feeds"],
