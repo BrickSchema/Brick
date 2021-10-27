@@ -353,6 +353,7 @@ digital_representation_props = {
         RDFS.range: BRICK.BACnetReference,
     },
     BRICK.timeseries: {
+        SKOS.definition: Literal("Metadata for accessing related timeseries data"),
         RDFS.subPropertyOf: BRICK.representation,
         RDFS.domain: BRICK.Point,
         RDFS.range: BRICK.TimeseriesReference,
@@ -361,18 +362,30 @@ digital_representation_props = {
 
 digital_representation_shapes = {
     BRICK.BACnetReference: {
+        RDFS.subClassOf: BACNET.Object,
         "properties": {
             BACNET["object-identifier"]: {
                 "datatype": XSD.string,
+                SH["pattern"]: Literal("^[A-Za-z0-9-]+:[0-9]+$"),
             },
             BACNET["objectOf"]: {
                 SH["class"]: BACNET.BACnetDevice,
+                SH["minCount"]: Literal(1),
             },
             BACNET["object-name"]: {
+                "datatype": XSD.string,
+                SH["minLength"]: Literal(1),
+                "optional": True,
+            },
+            BACNET["object-type"]: {
                 "datatype": XSD.string,
                 "optional": True,
             },
             BACNET["description"]: {
+                "datatype": XSD.string,
+                "optional": True,
+            },
+            BRICK["read-property"]: {
                 "datatype": XSD.string,
                 "optional": True,
             },
