@@ -66,7 +66,7 @@ def test_measures_infers():
 
     # Infer classes of the entities.
     # Apply reasoner
-    g.expand(profile="brick")
+    g.expand(profile="shacl")
 
     qstr = """select ?instance ?class where {
         ?instance a ?class.

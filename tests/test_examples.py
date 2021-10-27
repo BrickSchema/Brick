@@ -9,7 +9,7 @@ def test_example_file_with_reasoning(filename):
     g = brickschema.Graph()
     g.load_file("Brick.ttl")
     g.load_file(filename)
-    g.expand("brick", backend="owlrl")
+    g.expand("shacl")
 
     valid, _, report = g.validate()
     assert valid, report

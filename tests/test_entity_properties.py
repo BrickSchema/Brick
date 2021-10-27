@@ -18,7 +18,7 @@ def test_entity_property_validation():
         )
     )
 
-    g.expand("brick")
+    g.expand("shacl")
     valid, _, report = g.validate()
     assert valid, report
 
@@ -35,6 +35,6 @@ def test_entity_property_validation():
         )
     )
 
-    g.expand("brick", backend="owlrl")
+    g.expand("shacl")
     valid, _, report = g.validate()
     assert not valid, "'AquariumFail' should have thrown a validation error"

@@ -55,7 +55,7 @@ g.add((BLDG.Zone1, BRICK.hasPart, BLDG.Room2))
 g.add((BLDG.TS1, BRICK.hasLocation, BLDG.Room1))
 
 # lets us use both relationships
-g.expand(profile="owlrl")
+g.expand(profile="shacl")
 
 
 def test_query_equipment():
