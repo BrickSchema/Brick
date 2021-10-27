@@ -414,6 +414,7 @@ sensor_definitions = {
             },
             "Position_Sensor": {
                 "substances": [[BRICK.measures, BRICK.Position]],
+                BRICK.seeAlso: [BRICK.Position_Command, BRICK.Position_Setpoint],
                 "tags": [TAG.Point, TAG.Position, TAG.Sensor],
                 "subclasses": {
                     "Sash_Position_Sensor": {

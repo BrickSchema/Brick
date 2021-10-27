@@ -8,6 +8,10 @@ properties = {
     "value": {RDFS.subPropertyOf: QUDT.value, RDFS.label: Literal("Value")},
     "latitude": {RDFS.subPropertyOf: SDO.latitude, RDFS.label: Literal("Latitude")},
     "longitude": {RDFS.subPropertyOf: SDO.longitude, RDFS.label: Literal("Longitude")},
+    "seeAlso": {
+        RDFS.label: Literal("possibleSubstitution"),
+        A: [OWL.SymmetricProperty, OWL.IrreflexiveProperty],
+    },
     "hasQUDTReference": {
         A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         RDFS.label: Literal("Has QUDT reference"),
