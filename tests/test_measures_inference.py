@@ -129,6 +129,7 @@ def test_measures_infers():
             fp,
             indent=2,
         )
+        fp.write("\n")
 
     assert not over_inferences, "There are {0} classes that are over-inferred".format(
         len(over_inferences)
