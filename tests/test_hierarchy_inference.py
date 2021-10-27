@@ -1,3 +1,4 @@
+import pytest
 import json
 from collections import defaultdict
 import time
@@ -29,6 +30,7 @@ inference_file = "tests/test_hierarchy_inference.ttl"
 entity_postfix = "_0"
 
 
+@pytest.mark.slow
 def test_hierarchyinference():
     # Load the schema
     g = brickschema.Graph()
@@ -53,7 +55,6 @@ def test_hierarchyinference():
 
     # Infer classes of the entities.
     # Apply reasoner
-    g.serialize("test.ttl", format="ttl")
     g.load_file("extensions/brick_extension_shacl_tag_inference.ttl")
     g.expand(profile="brick")
     g.serialize(inference_file, format="turtle")  # Store the inferred graph.
@@ -96,11 +97,16 @@ def test_hierarchyinference():
         )  # This is based on how the entity name is defined above.
 
         # Find the original classes through the hierarchy from the original graph.
-        qstr = """
-        select ?parent where {{
-            <{0}> rdfs:subClassOf* ?parent.
-            ?parent rdfs:subClassOf* brick:Class.
-        }}""".format(
+        qstr = """select ?parent where {{
+            {{
+                <{0}> owl:equivalentClass*/rdfs:subClassOf*/owl:equivalentClass*/rdfs:subClassOf* ?parent .
+            }} UNION {{
+                ?other owl:equivalentClass* <{0}> .
+                ?other rdfs:subClassOf*/owl:equivalentClass*/rdfs:subClassOf* ?parent .
+            }}
+            ?parent rdfs:subClassOf* brick:Class
+        }}
+        """.format(
             true_class
         )
         res = g.query(qstr)

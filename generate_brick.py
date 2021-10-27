@@ -36,6 +36,7 @@ from bricksrc.location import location_subclasses
 from bricksrc.equipment import (
     equipment_subclasses,
     hvac_subclasses,
+    hvac_valve_subclasses,
     valve_subclasses,
     security_subclasses,
     safety_subclasses,
@@ -188,22 +189,29 @@ def add_tags(klass, definition):
     num_tags = len(definition)
     if len(definition) not in has_exactly_n_tags_shapes:
         # tag count condition
-        cond = BNode(f"has_exactly_{num_tags}_tags_condition")
+        cond = BSH[f"has_exactly_{num_tags}_tags_condition"]
         prop = BNode(f"has_exactly_{num_tags}_tags")
+        shaclGraph.add((cond, A, OWL.Class))
+        shaclGraph.add((cond, A, SH.NodeShape))
         shaclGraph.add((cond, SH.property, prop))
         shaclGraph.add((prop, SH.path, BRICK.hasTag))
         shaclGraph.add((prop, SH.minCount, Literal(len(definition))))
         shaclGraph.add((prop, SH.maxCount, Literal(len(definition))))
         has_exactly_n_tags_shapes[len(definition)] = cond
-    shaclGraph.add((rule, SH.condition, has_exactly_n_tags_shapes[len(definition)]))
 
-    # ensure that the rule applies to at least one of the base tags that should be on
-    # most Brick classes
-    # base_tags = [TAG.Equipment, TAG.Point, TAG.Location, TAG.System, TAG.Solid, TAG.Fluid]
-    # target_class_tag = [t for t in base_tags if t in definition]
-    # assert len(target_class_tag) > 0, klass
-    # shaclGraph.add((sc, SH.targetClass, has_tag_restriction_class[target_class_tag[0]]))
-    shaclGraph.add((sc, SH.targetSubjectsOf, BRICK.hasTag))
+        # generate inference rule
+        rule = BSH[f"has_exactly_{num_tags}_tags_rule"]
+        body = BNode(f"has_{num_tags}_tags_body")
+        shaclGraph.add((rule, A, SH.NodeShape))
+        shaclGraph.add((rule, SH.targetSubjectsOf, BRICK.hasTag))
+        shaclGraph.add((rule, SH.rule, body))
+        shaclGraph.add((body, A, SH.TripleRule))
+        shaclGraph.add((body, SH.subject, SH.this))
+        shaclGraph.add((body, SH.predicate, RDF.type))
+        shaclGraph.add((body, SH.object, cond))
+        shaclGraph.add((body, SH.condition, cond))
+
+    shaclGraph.add((sc, SH.targetClass, has_exactly_n_tags_shapes[len(definition)]))
 
     # if we've already mapped this class, don't map it again
     if klass in intersection_classes:
@@ -679,7 +687,8 @@ define_classes(location_subclasses, BRICK.Location)
 define_classes(equipment_subclasses, BRICK.Equipment)
 define_classes(collection_classes, BRICK.Collection)
 define_classes(hvac_subclasses, BRICK.HVAC_Equipment)
-define_classes(valve_subclasses, BRICK.Valve)
+define_classes(hvac_valve_subclasses, BRICK.HVAC_Equipment)
+define_classes(valve_subclasses, BRICK.Equipment)
 define_classes(security_subclasses, BRICK.Security_Equipment)
 define_classes(safety_subclasses, BRICK.Safety_Equipment)
 

@@ -16,3 +16,8 @@ def pytest_generate_tests(metafunc):
         example_files = glob.glob("examples/*/*.ttl")
         # example_files = set(example_files_1 + example_files_2)
         metafunc.parametrize("filename", example_files)
+
+def pytest_configure(config):
+    config.addinivalue_line(
+            "markers", "slow: mark tests as slow (deselect w/ '-m \"not slow\"')"
+            )

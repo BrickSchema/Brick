@@ -40,7 +40,7 @@ jobs:
     - name: Run the tests
       # -s flag: do not capture output (avoids killing test after 10 min)
       run: |
-        pytest -s -vvvv
+        pytest -s -vvvv --durations=0 -n auto tests
     - name: Do integration tests
       run: |
         cd tests/integration

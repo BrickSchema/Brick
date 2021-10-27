@@ -66,7 +66,7 @@ def test_measures_infers():
 
     # Infer classes of the entities.
     # Apply reasoner
-    g.expand(profile="owlrl")
+    g.expand(profile="brick")
 
     qstr = """select ?instance ?class where {
         ?instance a ?class.
@@ -94,8 +94,13 @@ def test_measures_infers():
 
         # Find the original classes through the hierarchy from the original graph.
         qstr = """select ?parent where {{
-            <{0}> rdfs:subClassOf* ?parent.
-            ?parent rdfs:subClassOf* brick:Class.
+            {{
+                <{0}> owl:equivalentClass*/rdfs:subClassOf*/owl:equivalentClass*/rdfs:subClassOf* ?parent .
+            }} UNION {{
+                ?other owl:equivalentClass* <{0}> .
+                ?other rdfs:subClassOf*/owl:equivalentClass*/rdfs:subClassOf* ?parent .
+            }}
+            ?parent rdfs:subClassOf* brick:Class
         }}
         """.format(
             true_class
@@ -124,6 +129,7 @@ def test_measures_infers():
             fp,
             indent=2,
         )
+        fp.write("\n")
 
     assert not over_inferences, "There are {0} classes that are over-inferred".format(
         len(over_inferences)

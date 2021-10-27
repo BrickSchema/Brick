@@ -52,6 +52,9 @@ location_subclasses = {
                     "Auditorium": {
                         "tags": [TAG.Auditorium, TAG.Common, TAG.Space, TAG.Location]
                     },
+                    "Atrium": {
+                        "tags": [TAG.Atrium, TAG.Common, TAG.Space, TAG.Location]
+                    },
                     "Cafeteria": {
                         "tags": [TAG.Cafeteria, TAG.Common, TAG.Space, TAG.Location]
                     },
