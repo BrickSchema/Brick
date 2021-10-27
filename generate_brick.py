@@ -413,6 +413,7 @@ def define_entity_properties(definitions, superprop=None):
 def define_shape_property_property(shape_name, definitions):
     for prop_name, prop_defn in definitions.items():
         ps = BNode()
+        G.add((prop_name, A, OWL.ObjectProperty))
         G.add((shape_name, SH.property, ps))
         G.add((ps, A, SH.PropertyShape))
         G.add((ps, SH.path, prop_name))

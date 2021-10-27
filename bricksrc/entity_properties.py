@@ -393,7 +393,8 @@ digital_representation_shapes = {
         "properties": {
             BACNET["object-identifier"]: {
                 "datatype": XSD.string,
-                SH["pattern"]: Literal("^[A-Za-z0-9-]+:[0-9]+$"),
+                # TODO: is this correct?
+                # SH["pattern"]: Literal("^[A-Za-z0-9-]+:[0-9]+$"),
             },
             BACNET["objectOf"]: {
                 SH["class"]: BACNET.BACnetDevice,
