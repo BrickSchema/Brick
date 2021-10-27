@@ -413,10 +413,16 @@ def define_entity_properties(definitions, superprop=None):
 def define_shape_property_property(shape_name, definitions):
     for prop_name, prop_defn in definitions.items():
         ps = BNode()
-        G.add((prop_name, A, OWL.ObjectProperty))
         G.add((shape_name, SH.property, ps))
         G.add((ps, A, SH.PropertyShape))
         G.add((ps, SH.path, prop_name))
+        if "import_from" in prop_defn:
+            fname = prop_defn.pop("import_from")
+            tmpG = Graph()
+            tmpG.parse(fname)
+            res = tmpG.query(f"SELECT ?p ?o WHERE {{ <{prop_name}> ?p ?o }}")
+            for p, o in res:
+                G.add((prop_name, p, o))
         if "optional" in prop_defn:
             if not prop_defn.pop("optional"):
                 G.add((ps, SH.minCount, Literal(1)))
@@ -425,6 +431,7 @@ def define_shape_property_property(shape_name, definitions):
 
         if "datatype" in prop_defn:
             dtype = prop_defn.pop("datatype")
+            G.add((prop_name, A, OWL.DatatypeProperty))
             if dtype == BSH.NumericValue:
                 G.add((ps, SH["or"], BSH.NumericValue))
             else:
@@ -434,6 +441,9 @@ def define_shape_property_property(shape_name, definitions):
             G.add((ps, SH["in"], enumeration))
             G.add((ps, SH.minCount, Literal(1)))
             Collection(G, enumeration, map(Literal, prop_defn.pop("values")))
+            G.add((prop_name, A, OWL.ObjectProperty))
+        else:
+            G.add((prop_name, A, OWL.ObjectProperty))
         add_properties(ps, prop_defn)
 
 

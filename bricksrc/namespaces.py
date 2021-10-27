@@ -44,3 +44,4 @@ def bind_prefixes(g):
     g.bind("qudt", QUDT)
     g.bind("unit", UNIT)
     g.bind("xsd", XSD)
+    g.bind("bacnet", BACNET)
