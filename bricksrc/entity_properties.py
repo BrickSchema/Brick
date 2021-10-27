@@ -388,6 +388,7 @@ digital_representation_shapes = {
             BRICK["read-property"]: {
                 "datatype": XSD.string,
                 "optional": True,
+                SH["defaultValue"]: "present-value",
             },
         },
     },
