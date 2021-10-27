@@ -12,6 +12,10 @@ properties = {
         A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         RDFS.label: Literal("Has QUDT reference"),
     },
+    "connectsTo": {
+        A: [OWL.SymmetricProperty],
+        RDFS.label: Literal("connects to"),
+    },
     "isLocationOf": {
         A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         OWL.inverseOf: BRICK["hasLocation"],
@@ -36,12 +40,14 @@ properties = {
     },
     "feeds": {
         A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+        RDFS.subPropertyOf: BRICK.connectsTo,
         OWL.inverseOf: BRICK["isFedBy"],
         "subproperties": {"feedsAir": {}},
         RDFS.label: Literal("Feeds"),
     },
     "isFedBy": {
         A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+        RDFS.subPropertyOf: BRICK.connectsTo,
         OWL.inverseOf: BRICK["feeds"],
         RDFS.label: Literal("Is fed by"),
     },
