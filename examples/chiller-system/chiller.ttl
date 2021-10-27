@@ -1,0 +1,43 @@
+@prefix : <urn:chiller#> .
+@prefix brick: <https://brickschema.org/schema/Brick#> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:cws a brick:Chilled_Water_System ;
+    brick:hasPart :cooling-tower, :chiller,
+                  :condenser, :evaporator,
+                  :condenser-water-pump, :chilled-water-pump ;
+.
+
+:cooling-tower a brick:Cooling_Tower ;
+    brick:feeds :condenser-water-pump ;
+    brick:hasPoint :cdws, :cdwr ;
+.
+
+# TODO: change these names?
+:cdwr a brick:Return_Condenser_Water_Temperature_Sensor ;
+    brick:hasUnit unit:DEG_C .
+:cdws a brick:Supply_Condenser_Water_Temperature_Sensor ;
+    brick:hasUnit unit:DEG_C .
+
+:chiller a brick:Chiller ;
+    brick:hasPart :condenser, :evaporator ;
+    brick:isFedBy :condenser-water-pump, :chilled-water-pump ;
+    brick:hasPoint :chwr, :chws ;
+.
+
+:chwr a brick:Chilled_Water_Return_Temperature_Sensor ;
+    brick:hasUnit unit:DEG_C .
+:chws a brick:Chilled_Water_Supply_Temperature_Sensor ;
+    brick:hasUnit unit:DEG_C .
+
+:condenser a brick:Condenser ;
+    brick:isFedBy :condenser-water-pump ;
+    brick:feeds :cooling-tower ;
+.
+
+:evaporator a brick:Condenser ;
+    brick:isFedBy :chilled-water-pump .
+
+:condenser-water-pump a brick:Condenser_Water_Pump .
+:chilled-water-pump a brick:Chilled_Water_Pump .
