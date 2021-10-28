@@ -22,7 +22,6 @@
 
 :chiller a brick:Chiller ;
     brick:hasPart :condenser, :evaporator ;
-    brick:isFedBy :condenser-water-pump, :chilled-water-pump ;
     brick:hasPoint :chwr, :chws ;
 .
 
@@ -32,12 +31,12 @@
     brick:hasUnit unit:DEG_C .
 
 :condenser a brick:Condenser ;
-    brick:isFedBy :condenser-water-pump ;
     brick:feeds :cooling-tower ;
 .
 
-:evaporator a brick:Condenser ;
-    brick:isFedBy :chilled-water-pump .
+:evaporator a brick:Condenser .
 
-:condenser-water-pump a brick:Condenser_Water_Pump .
-:chilled-water-pump a brick:Chilled_Water_Pump .
+:condenser-water-pump a brick:Condenser_Water_Pump ;
+    brick:feeds :chiller, :condenser .
+:chilled-water-pump a brick:Chilled_Water_Pump ;
+    brick:feeds :chiller, :evaporator.
