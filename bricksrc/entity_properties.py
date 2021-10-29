@@ -423,6 +423,13 @@ digital_representation_shapes = {
                 "optional": True,
                 SH["defaultValue"]: Literal("present-value"),
             },
+            BRICK["BACnetURI"]: {
+                "datatype": XSD.string,
+                "optional": True,
+                SKOS.definition: Literal(
+                    "Clause Q.8 BACnet URI scheme: bacnet:// <device> / <object> [ / <property> [ / <index> ]]"
+                ),
+            },
         },
     },
     BRICK.TimeseriesReference: {

@@ -20,3 +20,15 @@ bldg:ts1 a brick:Zone_Air_Temperature_Sensor ;
         brick:storedAt "postgres://1.2.3.4:5432/mydata" ;
     ] ;
 .
+
+bldg:ts2 a brick:Zone_Air_Temperature_Sensor ;
+    brick:hasUnit unit:DEG_C ;
+    brick:BACnetRepresentation [
+        brick:BACnetURI "bacnet://123/analog-value,5/present-value" ;
+        bacnet:objectOf bldg:sample-device ;
+    ] ;
+    brick:timeseries [
+        brick:hasTimeseriesId "4245c136-f95c-4ef5-a0d9-a7d04f1d97f9" ;
+        brick:storedAt "postgres://1.2.3.4:5432/mydata" ;
+    ] ;
+.
