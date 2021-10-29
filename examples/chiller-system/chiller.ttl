@@ -37,7 +37,7 @@
     brick:feeds :cooling-tower ;
 .
 
-:evaporator a brick:Evaporator .
+:evaporator a brick:Evaporative_Heat_Exchanger .
 
 :condenser-water-pump a brick:Condenser_Water_Pump ;
     brick:feeds :chiller, :condenser .
