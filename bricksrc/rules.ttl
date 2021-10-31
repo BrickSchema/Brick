@@ -1,0 +1,109 @@
+@prefix brick: <https://brickschema.org/schema/Brick#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix bsh: <https://brickschema.org/schema/BrickShape#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+bsh:InferInverseProperties
+  a sh:NodeShape ;
+  sh:rule [
+      a sh:SPARQLRule ;
+      sh:construct """
+CONSTRUCT {
+?o ?invP $this .
+}
+WHERE {
+  $this ?p ?o .
+  ?p owl:inverseOf ?invP .
+}
+			""" ;
+      sh:prefixes owl: ;
+    ] ;
+
+  sh:targetClass brick:Entity ;
+.
+
+bsh:InferSymmetricProperties
+  a sh:NodeShape ;
+  sh:rule [
+      a sh:SPARQLRule ;
+      sh:construct """
+CONSTRUCT {
+?o ?prop $this .
+}
+WHERE {
+  $this ?prop ?o .
+  ?prop a owl:SymmetricProperty .
+}
+			""" ;
+        sh:prefixes owl: ;
+        sh:prefixes rdf: ;
+    ] ;
+  sh:targetClass brick:Entity ;
+.
+
+bsh:TagInferenceRule
+    a  sh:NodeShape ;
+    sh:rule [
+        a sh:SPARQLRule ;
+        sh:construct """
+CONSTRUCT {
+$this brick:hasTag ?tag .
+} WHERE {
+    $this rdf:type/rdfs:subClassOf* ?class .
+    ?class brick:hasAssociatedTag ?tag .
+}""" ;
+    sh:prefixes rdf: ;
+    sh:prefixes brick: ;
+    ] ;
+    sh:targetClass brick:Entity ;
+.
+
+bsh:RDFSRangeRule
+    a   sh:NodeShape ;
+    sh:rule [
+        a sh:SPARQLRule ;
+        sh:construct """
+CONSTRUCT {
+    ?val a ?shape .
+} WHERE {
+    $this rdfs:range ?shape .
+    ?shape a sh:NodeShape .
+    ?ent $this ?val .
+}""" ;
+    sh:prefixes rdfs: ;
+    sh:prefixes rdf: ;
+    sh:prefixes sh: ;
+    ] ;
+    sh:targetSubjectsOf rdfs:range ;
+.
+
+# bsh:TagInferenceRule
+#     a sh:NodeShape ;
+#     sh:rule [
+#         a sh:SPARQLRule ;
+#         sh:construct """
+# CONSTRUCT {
+#     ?ent a ?class .
+# } WHERE {
+#     {
+#         SELECT (count(?enttag) as ?entcount)
+#         WHERE {
+#             ?ent brick:hasTag ?enttag ;
+#             ?class brick:hasAssociatedTag ?enttag ;
+#         }
+#     }
+#     {
+#         SELECT (count(?tag) AS ?tagcount)
+#         WHERE {
+#             ?class brick:hasAssociatedTag ?tag
+#         }
+#     }
+# }""" ;
+#     sh:prefixes brick: ;
+#     sh:prefixes sh: ;
+#     ] ;
+#     sh:targetSubjectsOf brick:hasTag ;
+# .

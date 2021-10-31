@@ -66,7 +66,7 @@ def test_tag_inference():
 
     # Apply reasoner
     g.load_file("extensions/brick_extension_shacl_tag_inference.ttl")
-    g.expand(profile="shacl+owlrl+shacl+owlrl")
+    g.expand(profile="shacl+shacl")
 
     g.bind("rdf", RDF)
     g.bind("owl", OWL)
@@ -85,7 +85,6 @@ def test_tag_inference():
                                   }"
         )
     )
-    assert len(res1) == 6
     res1 = [x[0] for x in res1]
     assert set(res1) == {"CO2", "Level", "Sensor", "Point", "Air", "Quality"}
 
@@ -115,7 +114,7 @@ def test_tag_inference():
         g.query(
             "SELECT DISTINCT ?sensor WHERE {\
                                     ?sensor brick:measures brick:Air .\
-                                    ?sensor rdf:type brick:Temperature_Sensor\
+                                    ?sensor rdf:type/rdfs:subClassOf* brick:Temperature_Sensor\
                                   }"
         )
     )
@@ -145,7 +144,7 @@ def test_tag_inference():
     res = make_readable(
         g.query(
             "SELECT DISTINCT ?sp WHERE {\
-                                    ?sp rdf:type brick:Setpoint\
+                    ?sp rdf:type/rdfs:subClassOf* brick:Setpoint\
                                  }"
         )
     )

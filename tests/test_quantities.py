@@ -12,7 +12,7 @@ BLDG = Namespace("https://brickschema.org/schema/ExampleBuilding#")
 
 g = brickschema.Graph()
 g.load_file("Brick.ttl")
-g.expand(profile="owlrl")
+g.expand(profile="shacl")
 
 res = g.query(
     """SELECT ?m ?class WHERE {
@@ -38,7 +38,7 @@ for c, measurables in measurable_mapping.items():
     for m in measurables:
         g.add((inst, BRICK.measures, m))
 
-g.expand(profile="owlrl")
+g.expand(profile="shacl")
 
 g.bind("rdf", RDF)
 g.bind("owl", OWL)

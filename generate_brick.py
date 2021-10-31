@@ -99,19 +99,57 @@ def add_restriction(klass, definition):
     """
     if len(definition) == 0:
         return
-    elements = []
-    equivalent_class = BNode()
-    list_name = BNode()
-    for idnum, item in enumerate(definition):
-        restriction = BNode()
-        elements.append(restriction)
-        G.add((restriction, A, OWL.Restriction))
-        G.add((restriction, OWL.onProperty, item[0]))
-        G.add((restriction, OWL.hasValue, item[1]))
-    G.add((klass, OWL.equivalentClass, equivalent_class))
-    G.add((equivalent_class, OWL.intersectionOf, list_name))
-    G.add((equivalent_class, A, OWL.Class))
-    Collection(G, list_name, elements)
+
+    sc = BSH[klass.split("#")[-1] + "_PropertyShape"]
+    G.add((sc, A, SH.NodeShape))
+    rule = BNode(str(klass) + "PropertyInferenceRule")
+    G.add((sc, SH.rule, rule))
+
+    # define rule
+    G.add((rule, A, SH.TripleRule))
+    G.add((rule, SH.subject, SH.this))
+    G.add((rule, SH.predicate, RDF.type))
+    G.add((rule, SH.object, klass))
+
+    G.add((klass, A, SH.NodeShape))
+
+    for (property_name, property_value) in definition:
+        pname = property_name.split("#")[-1]
+        pval = property_value.split("#")[-1]
+        cond = BNode(f"has_{pname}_{pval}_condition")
+        prop = BNode(f"has_{pname}_{pval}_prop")
+        qvs = BNode()
+        G.add((rule, SH.condition, cond))
+        G.add((rule, SH.targetSubjectsOf, property_name))
+        G.add((cond, SH.property, prop))
+        G.add((prop, SH.path, property_name))
+        G.add((prop, SH.qualifiedValueShape, qvs))
+        G.add((qvs, SH.hasValue, property_value))
+        G.add((prop, SH.qualifiedMinCount, Literal(1, datatype=XSD.integer)))
+
+        # add rule inheriting properties to the klass
+        classrule = BNode(f"add_{pname}{pval}_to_{klass.split('#')[-1]}")
+        G.add((klass, SH.rule, classrule))
+        G.add((classrule, A, SH.TripleRule))
+        G.add((classrule, SH.subject, SH.this))
+        G.add((classrule, SH.predicate, property_name))
+        G.add((classrule, SH.object, property_value))
+    # TODO: add rules for inheriting property annotations to the class
+    # TODO: do the same for tags
+
+    # elements = []
+    # equivalent_class = BNode()
+    # list_name = BNode()
+    # for idnum, item in enumerate(definition):
+    #    restriction = BNode()
+    #    elements.append(restriction)
+    #    G.add((restriction, A, OWL.Restriction))
+    #    G.add((restriction, OWL.onProperty, item[0]))
+    #    G.add((restriction, OWL.hasValue, item[1]))
+    # G.add((klass, OWL.equivalentClass, equivalent_class))
+    # G.add((equivalent_class, OWL.intersectionOf, list_name))
+    # G.add((equivalent_class, A, OWL.Class))
+    # Collection(G, list_name, elements)
 
 
 def add_tags(klass, definition):
@@ -143,10 +181,6 @@ def add_tags(klass, definition):
             (tag, RDFS.label, Literal(tag.split("#")[-1]))
         )  # make sure the tag is declared as such
 
-    all_restrictions = []
-    equivalent_class = BNode()
-    list_name = BNode()
-
     # add SHACL shape
     sc = BSH[klass.split("#")[-1] + "_TagShape"]
     shaclGraph.add((sc, A, SH.NodeShape))
@@ -162,14 +196,13 @@ def add_tags(klass, definition):
     # conditions
     for tag in definition:
 
-        if tag not in has_tag_restriction_class:
-            restriction = BNode(f"has_{tag.split('#')[-1]}")
-            G.add((restriction, A, OWL.Restriction))
-            G.add((restriction, OWL.onProperty, BRICK.hasTag))
-            G.add((restriction, OWL.hasValue, tag))
-            has_tag_restriction_class[tag] = restriction
-        all_restrictions.append(has_tag_restriction_class[tag])
-
+        classrule = BNode(f"add_{tag.split('#')[-1]}_to_{klass.split('#')[-1]}")
+        G.add((klass, A, SH.NodeShape))
+        G.add((klass, SH.rule, classrule))
+        G.add((classrule, A, SH.TripleRule))
+        G.add((classrule, SH.subject, SH.this))
+        G.add((classrule, SH.predicate, BRICK.hasTag))
+        G.add((classrule, SH.object, tag))
         if tag not in shacl_tag_property_shapes:
             cond = BNode(f"has_{tag.split('#')[-1]}_condition")
             prop = BNode(f"has_{tag.split('#')[-1]}_tag")
@@ -182,6 +215,7 @@ def add_tags(klass, definition):
             shaclGraph.add(
                 (prop, SH.qualifiedMinCount, Literal(1, datatype=XSD.integer))
             )
+
             # probably don't need the Max count here; addition of duplicate tags should be idempotent
             # shaclGraph.add((prop, SH.qualifiedMaxCount, Literal(1)))
             shacl_tag_property_shapes[tag] = cond
@@ -210,20 +244,17 @@ def add_tags(klass, definition):
         shaclGraph.add((body, SH.predicate, RDF.type))
         shaclGraph.add((body, SH.object, cond))
         shaclGraph.add((body, SH.condition, cond))
+    # shaclGraph.add((rule, SH.condition, has_exactly_n_tags_shapes[len(definition)]))
 
     shaclGraph.add((sc, SH.targetClass, has_exactly_n_tags_shapes[len(definition)]))
 
-    # if we've already mapped this class, don't map it again
-    if klass in intersection_classes:
-        return
-    if len(all_restrictions) == 1:
-        G.add((klass, RDFS.subClassOf, all_restrictions[0]))
-    if len(all_restrictions) > 1:
-        G.add((klass, RDFS.subClassOf, equivalent_class))
-        G.add((equivalent_class, OWL.intersectionOf, list_name))
-        G.add((equivalent_class, A, OWL.Class))
-        Collection(G, list_name, all_restrictions)
-    intersection_classes[klass] = tuple(sorted(definition))
+    # ensure that the rule applies to at least one of the base tags that should be on
+    # most Brick classes
+    # base_tags = [TAG.Equipment, TAG.Point, TAG.Location, TAG.System, TAG.Solid, TAG.Fluid]
+    # target_class_tag = [t for t in base_tags if t in definition]
+    # assert len(target_class_tag) > 0, klass
+    # shaclGraph.add((sc, SH.targetClass, has_tag_restriction_class[target_class_tag[0]]))
+    # shaclGraph.add((sc, SH.targetSubjectsOf, BRICK.hasTag))
 
 
 def define_concept_hierarchy(definitions, typeclasses, broader=None, related=None):
@@ -402,6 +433,7 @@ def define_entity_properties(definitions, superprop=None):
         if "subproperties" in defn:
             subproperties = defn.pop("subproperties")
             define_entity_properties(subproperties, entprop)
+
         for prop, values in defn.items():
             if isinstance(values, list):
                 for pv in values:
@@ -675,7 +707,7 @@ define_ontology(G)
 
 # Declare root classes
 
-G.add((BRICK.Class, A, OWL.Class))
+G.add((BRICK.Entity, A, OWL.Class))
 G.add((BRICK.Tag, A, OWL.Class))
 
 roots = {
@@ -685,7 +717,7 @@ roots = {
     "Measurable": {},
     "Collection": {"tags": [TAG.Collection]},
 }
-define_classes(roots, BRICK.Class)
+define_classes(roots, BRICK.Entity)
 
 logging.info("Defining properties")
 # define BRICK properties
@@ -722,7 +754,7 @@ define_classes(safety_subclasses, BRICK.Safety_Equipment)
 
 logging.info("Defining Measurable hierarchy")
 # define measurable hierarchy
-G.add((BRICK.Measurable, RDFS.subClassOf, BRICK.Class))
+G.add((BRICK.Measurable, RDFS.subClassOf, BRICK.Entity))
 # set up Quantity definition
 G.add((BRICK.Quantity, RDFS.subClassOf, SOSA.ObservableProperty))
 G.add(
