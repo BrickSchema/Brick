@@ -383,10 +383,10 @@ def define_constraints(constraints, classname):
             for pv in property_values:
                 pvnode = BNode()
                 G.add((pvnode, SH["class"], pv))
-            possible_values.append(pvnode)
-        Collection(G, onode, possible_values)
-    else:
-        raise Exception("Do not know how to handle constraints for %s" % classname)
+                possible_values.append(pvnode)
+            Collection(G, onode, possible_values)
+        else:
+            raise Exception("Do not know how to handle constraints for %s" % classname)
 
 
 def define_entity_properties(definitions, superprop=None):
