@@ -57,8 +57,9 @@ def test_entity_property_type_inference():
     )
 
     g.expand("shacl")
+    g.serialize("/tmp/test.ttl", format="ttl")
 
     res = g.query(
-        "SELECT ?ref WHERE { ?point brick:reference ?ref . ?ref a brick:BACnetReference }"
+        "SELECT ?ref WHERE { ?point brick:representation ?ref . ?ref a brick:BACnetReference }"
     )
     assert len(res) == 1
