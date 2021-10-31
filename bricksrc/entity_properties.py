@@ -391,44 +391,50 @@ digital_representation_shapes = {
     BRICK.BACnetReference: {
         RDFS.subClassOf: BACNET.Object,
         "properties": {
-            BACNET["object-identifier"]: {
-                "import_from": "support/bacnet.ttl",
-                "datatype": XSD.string,
-                # TODO: is this correct?
-                # SH["pattern"]: Literal("^[A-Za-z0-9-]+:[0-9]+$"),
-            },
+            "or": [
+                {
+                    BACNET["object-identifier"]: {
+                        "import_from": "support/bacnet.ttl",
+                        "datatype": XSD.string,
+                        # TODO: is this correct?
+                        # SH["pattern"]: Literal("^[A-Za-z0-9-]+:[0-9]+$"),
+                    },
+                    BACNET["object-name"]: {
+                        "import_from": "support/bacnet.ttl",
+                        "datatype": XSD.string,
+                        SH["minLength"]: Literal(1),
+                        "optional": True,
+                    },
+                    BACNET["object-type"]: {
+                        "import_from": "support/bacnet.ttl",
+                        "datatype": XSD.string,
+                        "optional": True,
+                    },
+                    BACNET["description"]: {
+                        "import_from": "support/bacnet.ttl",
+                        "datatype": XSD.string,
+                        "optional": True,
+                    },
+                    BRICK["read-property"]: {
+                        "datatype": XSD.string,
+                        "optional": True,
+                        SH["defaultValue"]: Literal("present-value"),
+                    },
+                },
+                {
+                    BRICK["BACnetURI"]: {
+                        "datatype": XSD.string,
+                        "optional": True,
+                        SKOS.definition: Literal(
+                            "Clause Q.8 BACnet URI scheme: bacnet:// <device> / <object> [ / <property> [ / <index> ]]"
+                        ),
+                    },
+                },
+            ],
             BACNET["objectOf"]: {
                 "import_from": "support/bacnet.ttl",
                 SH["class"]: BACNET.BACnetDevice,
                 SH["minCount"]: Literal(1),
-            },
-            BACNET["object-name"]: {
-                "import_from": "support/bacnet.ttl",
-                "datatype": XSD.string,
-                SH["minLength"]: Literal(1),
-                "optional": True,
-            },
-            BACNET["object-type"]: {
-                "import_from": "support/bacnet.ttl",
-                "datatype": XSD.string,
-                "optional": True,
-            },
-            BACNET["description"]: {
-                "import_from": "support/bacnet.ttl",
-                "datatype": XSD.string,
-                "optional": True,
-            },
-            BRICK["read-property"]: {
-                "datatype": XSD.string,
-                "optional": True,
-                SH["defaultValue"]: Literal("present-value"),
-            },
-            BRICK["BACnetURI"]: {
-                "datatype": XSD.string,
-                "optional": True,
-                SKOS.definition: Literal(
-                    "Clause Q.8 BACnet URI scheme: bacnet:// <device> / <object> [ / <property> [ / <index> ]]"
-                ),
             },
         },
     },

@@ -383,10 +383,10 @@ def define_constraints(constraints, classname):
             for pv in property_values:
                 pvnode = BNode()
                 G.add((pvnode, SH["class"], pv))
-                possible_values.append(pvnode)
-            Collection(G, onode, possible_values)
-        else:
-            raise Exception("Do not know how to handle constraints for %s" % classname)
+            possible_values.append(pvnode)
+        Collection(G, onode, possible_values)
+    else:
+        raise Exception("Do not know how to handle constraints for %s" % classname)
 
 
 def define_entity_properties(definitions, superprop=None):
@@ -411,6 +411,10 @@ def define_entity_properties(definitions, superprop=None):
 
 
 def define_shape_property_property(shape_name, definitions):
+    if "or" in definitions:
+        for or_node_defn in definitions.pop("or"):
+            or_node_shape = BNode()
+            define_shape_property_property(or_node_shape, or_node_defn)
     for prop_name, prop_defn in definitions.items():
         ps = BNode()
         G.add((shape_name, SH.property, ps))
