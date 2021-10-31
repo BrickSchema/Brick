@@ -1,5 +1,5 @@
 from rdflib import Namespace, Literal, XSD
-from brickschema.namespaces import BRICK, A, BACNET
+from brickschema.namespaces import BRICK, A
 import brickschema
 
 
@@ -43,6 +43,7 @@ def test_entity_property_validation():
 def test_entity_property_type_inference():
     g = brickschema.Graph()
     EX = Namespace("urn:ex#")
+    BACNET = Namespace("http://data.ashrae.org/bacnet/2020#")
     g.load_file("Brick.ttl")
     g.add(
         (
