@@ -412,9 +412,14 @@ def define_entity_properties(definitions, superprop=None):
 
 def define_shape_property_property(shape_name, definitions):
     if "or" in definitions:
+        or_list = []
         for or_node_defn in definitions.pop("or"):
             or_node_shape = BNode()
+            or_list.append(or_node_shape)
             define_shape_property_property(or_node_shape, or_node_defn)
+        or_list_name = BNode()
+        G.add((shape_name, SH["or"], or_list_name))
+        Collection(G, or_list_name, or_list)
     for prop_name, prop_defn in definitions.items():
         ps = BNode()
         G.add((shape_name, SH.property, ps))
