@@ -411,6 +411,14 @@ def define_entity_properties(definitions, superprop=None):
 
 
 def define_shape_property_property(shape_name, definitions):
+
+    shape_detection_rule = BNode(f"_rule_for_{shape_name.split('#')[-1]}")
+    G.add((shape_detection_rule, A, SH.TripleRule))
+    G.add((shape_detection_rule, SH.subject, SH.this))
+    G.add((shape_detection_rule, SH.predicate, RDF.type))
+    G.add((shape_detection_rule, SH.object, shape_name))
+    G.add((shape_detection_rule, SH.condition, shape_name))
+
     if "or" in definitions:
         or_list = []
         for or_node_defn in definitions.pop("or"):
