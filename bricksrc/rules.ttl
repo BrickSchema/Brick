@@ -22,7 +22,7 @@ WHERE {
       sh:prefixes owl: ;
     ] ;
 
-  sh:targetClass brick:Sensor ;
+  sh:targetClass brick:Entity ;
 .
 
 bsh:InferSymmetricProperties
