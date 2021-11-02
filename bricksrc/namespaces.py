@@ -21,6 +21,9 @@ QUDTQK = Namespace("http://qudt.org/vocab/quantitykind/")
 QUDTDV = Namespace("http://qudt.org/vocab/dimensionvector/")
 UNIT = Namespace("http://qudt.org/vocab/unit/")
 
+# TODO: fix these namespaces
+BACNET = Namespace("http://data.ashrae.org/bacnet/2020#")
+
 A = RDF.type
 
 
@@ -41,3 +44,4 @@ def bind_prefixes(g):
     g.bind("qudt", QUDT)
     g.bind("unit", UNIT)
     g.bind("xsd", XSD)
+    g.bind("bacnet", BACNET)

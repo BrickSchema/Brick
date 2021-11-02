@@ -129,22 +129,4 @@ properties = {
         RDFS.range: UNIT.Unit,
         RDFS.label: Literal("Has unit"),
     },
-    "timeseries": {
-        A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
-        RDFS.domain: BRICK.Point,
-        RDFS.range: BRICK.TimeseriesReference,
-        RDFS.label: Literal("Timeseries"),
-    },
-    "hasTimeseriesId": {
-        A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
-        RDFS.domain: BRICK.TimeseriesReference,
-        RDFS.range: XSD.string,
-        RDFS.label: Literal("Has timeseries ID"),
-    },
-    "storedAt": {
-        A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
-        RDFS.domain: BRICK.TimeseriesReference,
-        # RDFS.range: XSD.string,
-        RDFS.label: Literal("Stored at"),
-    },
 }
