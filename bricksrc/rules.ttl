@@ -80,6 +80,22 @@ CONSTRUCT {
     sh:targetSubjectsOf rdfs:range ;
 .
 
+bsh:RDFSSubPropertyOfRule
+    a   sh:NodeShape ;
+    sh:rule [
+        a sh:SPARQLRule ;
+        sh:construct """
+CONSTRUCT {
+    ?s ?super ?o .
+} WHERE {
+    $this rdfs:subPropertyOf ?super .
+    ?s $this ?o .
+}""" ;
+    sh:prefixes rdfs: ;
+    ] ;
+    sh:targetSubjectsOf rdfs:subPropertyOf ;
+.
+
 # bsh:TagInferenceRule
 #     a sh:NodeShape ;
 #     sh:rule [
