@@ -2,7 +2,7 @@
 Entity property definitions
 """
 from rdflib import Literal
-from .namespaces import BRICK, RDFS, SKOS, UNIT, XSD, SH, BSH, QUDT
+from .namespaces import BRICK, RDFS, SKOS, UNIT, XSD, SH, BSH, QUDT, BACNET
 
 # these are the "relationship"/predicates/OWL properties that
 # relate a Brick entity to a structured value.
@@ -495,3 +495,99 @@ shape_properties = {
         }
     },
 }
+
+digital_representation_props = {
+    BRICK.externalRepresentation: {
+        SKOS.definition: Literal("A digital representation of the entity"),
+        RDFS.domain: BRICK.Point,
+    },
+    BRICK.BACnetRepresentation: {
+        RDFS.subPropertyOf: BRICK.externalRepresentation,
+        SKOS.definition: Literal("BACnet metadata"),
+        RDFS.domain: BRICK.Point,
+        RDFS.range: BRICK.BACnetReference,
+    },
+    BRICK.timeseries: {
+        SKOS.definition: Literal("Metadata for accessing related timeseries data"),
+        RDFS.subPropertyOf: BRICK.externalRepresentation,
+        RDFS.domain: BRICK.Point,
+        RDFS.range: BRICK.TimeseriesReference,
+    },
+}
+
+digital_representation_shapes = {
+    BRICK.BACnetReference: {
+        RDFS.subClassOf: BACNET.Object,
+        "properties": {
+            "or": [
+                {
+                    BACNET["object-identifier"]: {
+                        "import_from": "support/bacnet.ttl",
+                        "datatype": XSD.string,
+                        # TODO: is this correct?
+                        # SH["pattern"]: Literal("^[A-Za-z0-9-]+:[0-9]+$"),
+                    },
+                    BACNET["object-name"]: {
+                        "import_from": "support/bacnet.ttl",
+                        "datatype": XSD.string,
+                        SH["minLength"]: Literal(1),
+                        "optional": True,
+                    },
+                    BACNET["object-type"]: {
+                        "import_from": "support/bacnet.ttl",
+                        "datatype": XSD.string,
+                        "optional": True,
+                    },
+                    BACNET["description"]: {
+                        "import_from": "support/bacnet.ttl",
+                        "datatype": XSD.string,
+                        "optional": True,
+                    },
+                    BRICK["read-property"]: {
+                        "datatype": XSD.string,
+                        "optional": True,
+                        SH["defaultValue"]: Literal("present-value"),
+                    },
+                },
+                {
+                    BRICK["BACnetURI"]: {
+                        "datatype": XSD.string,
+                        "optional": True,
+                        SKOS.definition: Literal(
+                            "Clause Q.8 BACnet URI scheme: bacnet:// <device> / <object> [ / <property> [ / <index> ]]"
+                        ),
+                    },
+                },
+            ],
+            BACNET["objectOf"]: {
+                "import_from": "support/bacnet.ttl",
+                SH["class"]: BACNET.BACnetDevice,
+                SH["minCount"]: Literal(1),
+            },
+        },
+    },
+    BRICK.TimeseriesReference: {
+        SKOS.definition: Literal(
+            "Metadata describing where and how the data for a Brick Point is stored"
+        ),
+        "properties": {
+            BRICK.hasTimeseriesId: {
+                "datatype": XSD.string,
+                SKOS.definition: Literal(
+                    "The identifier for the timeseries data corresponding to this point"
+                ),
+            },
+            BRICK.storedAt: {
+                "optional": True,
+                "datatype": XSD.string,
+                SKOS.definition: Literal(
+                    "Refers to a database storing the timeseries data for the related point. Properties on this class are *to be determined*; feel free to add arbitrary properties onto Database instances for your particular deployment"
+                ),
+            },
+        },
+    },
+}
+
+# merge the dictionaries
+entity_properties.update(digital_representation_props)
+shape_properties.update(digital_representation_shapes)
