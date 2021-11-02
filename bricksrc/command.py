@@ -1,5 +1,5 @@
 from rdflib import Literal
-from .namespaces import TAG, BRICK
+from .namespaces import TAG, BRICK, QUDT
 
 command_definitions = {
     "Command": {
@@ -13,14 +13,24 @@ command_definitions = {
                 "tags": [TAG.Point, TAG.Damper, TAG.Command],
                 "subclasses": {
                     "Damper_Position_Command": {
+                        QUDT.hasQuantityKind: BRICK.Position,
                         "tags": [TAG.Point, TAG.Damper, TAG.Position, TAG.Command],
                         "parents": [BRICK.Position_Command],
                     },
                 },
             },
-            "Humidify_Command": {"tags": [TAG.Point, TAG.Humidify, TAG.Command]},
-            "Position_Command": {"tags": [TAG.Point, TAG.Position, TAG.Command]},
-            "Direction_Command": {"tags": [TAG.Point, TAG.Direction, TAG.Command]},
+            "Humidify_Command": {
+                "tags": [TAG.Point, TAG.Humidify, TAG.Command],
+                QUDT.hasQuantityKind: BRICK.Humidity,
+            },
+            "Position_Command": {
+                "tags": [TAG.Point, TAG.Position, TAG.Command],
+                QUDT.hasQuantityKind: BRICK.Position,
+            },
+            "Direction_Command": {
+                "tags": [TAG.Point, TAG.Direction, TAG.Command],
+                QUDT.hasQuantityKind: BRICK.Direction,
+            },
             "Pump_Command": {
                 # TODO: position?
                 "tags": [TAG.Point, TAG.Pump, TAG.Command],
@@ -39,6 +49,7 @@ command_definitions = {
                         "tags": [TAG.Point, TAG.Filter, TAG.Reset, TAG.Command],
                     },
                     "Speed_Reset_Command": {
+                        QUDT.hasQuantityKind: BRICK.Speed,
                         "tags": [TAG.Point, TAG.Speed, TAG.Reset, TAG.Command],
                     },
                 },
@@ -260,6 +271,7 @@ command_definitions = {
             },
             "Frequency_Command": {
                 "tags": [TAG.Point, TAG.Fequency, TAG.Command],
+                QUDT.hasQuantityKind: BRICK.Frequency,
                 "subclasses": {
                     "Max_Frequency_Command": {
                         "tags": [TAG.Point, TAG.Max, TAG.Fequency, TAG.Command],
