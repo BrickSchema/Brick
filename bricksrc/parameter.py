@@ -900,6 +900,46 @@ parameter_definitions = {
                         ],
                         "parents": [BRICK.Temperature_Parameter],
                         "subclasses": {
+                            "Supply_Air_Temperature_Setpoint_Limit": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Supply,
+                                    TAG.Air,
+                                    TAG.Temperature,
+                                    TAG.Limit,
+                                    TAG.Setpoint,
+                                ],
+                                "subclasses": {
+                                    "Max_Supply_Air_Temperature_Setpoint_Limit": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Max,
+                                            TAG.Supply,
+                                            TAG.Air,
+                                            TAG.Temperature,
+                                            TAG.Limit,
+                                            TAG.Setpoint,
+                                        ],
+                                        "parents": [
+                                            BRICK.Max_Temperature_Setpoint_Limit
+                                        ],
+                                    },
+                                    "Min_Supply_Air_Temperature_Setpoint_Limit": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Min,
+                                            TAG.Supply,
+                                            TAG.Air,
+                                            TAG.Temperature,
+                                            TAG.Limit,
+                                            TAG.Setpoint,
+                                        ],
+                                        "parents": [
+                                            BRICK.Min_Temperature_Setpoint_Limit
+                                        ],
+                                    },
+                                },
+                            },
                             "Discharge_Air_Temperature_Setpoint_Limit": {
                                 "tags": [
                                     TAG.Point,
