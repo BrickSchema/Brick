@@ -367,12 +367,15 @@ sensor_definitions = {
                 "tags": [TAG.Point, TAG.Position, TAG.Sensor],
                 "subclasses": {
                     "Sash_Position_Sensor": {
+                        BRICK.hasQuantity: BRICK.Position,
                         "tags": [TAG.Point, TAG.Sash, TAG.Position, TAG.Sensor],
                     },
                     "Damper_Position_Sensor": {
+                        BRICK.hasQuantity: BRICK.Position,
                         "tags": [TAG.Point, TAG.Damper, TAG.Position, TAG.Sensor],
                     },
                     "Valve_Position_Sensor": {
+                        BRICK.hasQuantity: BRICK.Position,
                         "tags": [TAG.Point, TAG.Valve, TAG.Position, TAG.Sensor],
                     },
                 },
