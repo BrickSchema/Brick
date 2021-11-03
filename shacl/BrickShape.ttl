@@ -203,17 +203,6 @@ bsh:isTagOfDomainShape a sh:NodeShape ;
     sh:message "Property isTagOf has subject with incorrect type" ;
     sh:targetSubjectsOf brick:isTagOf .
 
-bsh:measuresDomainShape a sh:NodeShape ;
-    sh:class brick:Point ;
-    sh:message "Property measures has subject with incorrect type" ;
-    sh:targetSubjectsOf brick:measures .
-
-bsh:measuresRangeShape a sh:NodeShape ;
-    sh:property [ sh:class brick:Measurable ;
-            sh:message "Property measures has object with incorrect type" ;
-            sh:path brick:measures ] ;
-    sh:targetSubjectsOf brick:measures .
-
 bsh:regulatesDomainShape a sh:NodeShape ;
     sh:class brick:Equipment ;
     sh:message "Property regulates has subject with incorrect type" ;

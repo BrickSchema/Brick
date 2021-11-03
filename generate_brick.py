@@ -84,74 +84,6 @@ def has_label(concept):
     return len(list(G.objects(subject=concept, predicate=RDFS.label))) > 0
 
 
-def add_restriction(klass, definition):
-    """
-    Defines OWL.Restrictions linked to Brick classes
-    through OWL.equivalentClass.
-
-    This populates the property-object pairs (OWL.onProperty, 'property'),
-    (OWL.hasValue, 'value'). The intersection of these properties is made to be
-    equivalent to the given class.
-
-    Args:
-        klass: the URI of the Brick class to be modeled
-        definition: a list of (property, value) pairs
-    """
-    if len(definition) == 0:
-        return
-
-    sc = BSH[klass.split("#")[-1] + "_PropertyShape"]
-    G.add((sc, A, SH.NodeShape))
-    rule = BNode(str(klass) + "PropertyInferenceRule")
-    G.add((sc, SH.rule, rule))
-
-    # define rule
-    G.add((rule, A, SH.TripleRule))
-    G.add((rule, SH.subject, SH.this))
-    G.add((rule, SH.predicate, RDF.type))
-    G.add((rule, SH.object, klass))
-
-    G.add((klass, A, SH.NodeShape))
-
-    for (property_name, property_value) in definition:
-        pname = property_name.split("#")[-1]
-        pval = property_value.split("#")[-1]
-        cond = BNode(f"has_{pname}_{pval}_condition")
-        prop = BNode(f"has_{pname}_{pval}_prop")
-        qvs = BNode()
-        G.add((rule, SH.condition, cond))
-        G.add((rule, SH.targetSubjectsOf, property_name))
-        G.add((cond, SH.property, prop))
-        G.add((prop, SH.path, property_name))
-        G.add((prop, SH.qualifiedValueShape, qvs))
-        G.add((qvs, SH.hasValue, property_value))
-        G.add((prop, SH.qualifiedMinCount, Literal(1, datatype=XSD.integer)))
-
-        # add rule inheriting properties to the klass
-        classrule = BNode(f"add_{pname}{pval}_to_{klass.split('#')[-1]}")
-        G.add((klass, SH.rule, classrule))
-        G.add((classrule, A, SH.TripleRule))
-        G.add((classrule, SH.subject, SH.this))
-        G.add((classrule, SH.predicate, property_name))
-        G.add((classrule, SH.object, property_value))
-    # TODO: add rules for inheriting property annotations to the class
-    # TODO: do the same for tags
-
-    # elements = []
-    # equivalent_class = BNode()
-    # list_name = BNode()
-    # for idnum, item in enumerate(definition):
-    #    restriction = BNode()
-    #    elements.append(restriction)
-    #    G.add((restriction, A, OWL.Restriction))
-    #    G.add((restriction, OWL.onProperty, item[0]))
-    #    G.add((restriction, OWL.hasValue, item[1]))
-    # G.add((klass, OWL.equivalentClass, equivalent_class))
-    # G.add((equivalent_class, OWL.intersectionOf, list_name))
-    # G.add((equivalent_class, A, OWL.Class))
-    # Collection(G, list_name, elements)
-
-
 def add_tags(klass, definition):
     """
     Adds the definition of tags to the given class. This method adds two
@@ -281,12 +213,6 @@ def define_concept_hierarchy(definitions, typeclasses, broader=None, related=Non
         if not has_label(concept):
             G.add((concept, RDFS.label, Literal(label)))
 
-        # define mapping to substances + quantities if it exists
-        # "substances" property is a list of (predicate, object) pairs
-        substancedef = defn.get("substances", [])
-        assert isinstance(substancedef, list)
-        add_restriction(concept, substancedef)
-
         # define concept hierarchy
         # this is a nested dictionary
         narrower_defs = defn.get(SKOS.narrower, {})
@@ -348,12 +274,6 @@ def define_classes(definitions, parent, pun_classes=False):
         if len(taglist) == 0:
             logging.warning(f"Property 'tags' not defined for {classname}")
         add_tags(classname, taglist)
-
-        # define mapping to substances + quantities if it exists
-        # "substances" property is a list of (predicate, object) pairs
-        substancedef = defn.get("substances", [])
-        assert isinstance(substancedef, list)
-        add_restriction(classname, substancedef)
 
         # define class structure
         # this is a nested dictionary

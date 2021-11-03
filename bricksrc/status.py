@@ -5,7 +5,7 @@ status_definitions = {
         "tags": [TAG.Point, TAG.Status],
         "subclasses": {
             "Direction_Status": {
-                QUDT.hasQuantityKind: BRICK.Direction,
+                BRICK.hasQuantity: BRICK.Direction,
                 "subclasses": {
                     "Motor_Direction_Status": {
                         "tags": [TAG.Point, TAG.Motor, TAG.Direction, TAG.Status],

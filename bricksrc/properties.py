@@ -87,13 +87,6 @@ properties = {
         RDFS.domain: BRICK.Tag,
         RDFS.label: Literal("Is tag of"),
     },
-    "measures": {
-        A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
-        OWL.inverseOf: BRICK["isMeasuredBy"],
-        RDFS.domain: BRICK.Point,
-        RDFS.range: BRICK.Measurable,
-        RDFS.label: Literal("Measures"),
-    },
     "isMeasuredBy": {
         A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         RDFS.domain: BRICK.Measurable,

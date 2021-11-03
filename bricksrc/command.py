@@ -13,7 +13,7 @@ command_definitions = {
                 "tags": [TAG.Point, TAG.Damper, TAG.Command],
                 "subclasses": {
                     "Damper_Position_Command": {
-                        QUDT.hasQuantityKind: BRICK.Position,
+                        BRICK.hasQuantity: BRICK.Position,
                         "tags": [TAG.Point, TAG.Damper, TAG.Position, TAG.Command],
                         "parents": [BRICK.Position_Command],
                     },
@@ -21,15 +21,15 @@ command_definitions = {
             },
             "Humidify_Command": {
                 "tags": [TAG.Point, TAG.Humidify, TAG.Command],
-                QUDT.hasQuantityKind: BRICK.Humidity,
+                BRICK.hasQuantity: BRICK.Humidity,
             },
             "Position_Command": {
                 "tags": [TAG.Point, TAG.Position, TAG.Command],
-                QUDT.hasQuantityKind: BRICK.Position,
+                BRICK.hasQuantity: BRICK.Position,
             },
             "Direction_Command": {
                 "tags": [TAG.Point, TAG.Direction, TAG.Command],
-                QUDT.hasQuantityKind: BRICK.Direction,
+                BRICK.hasQuantity: BRICK.Direction,
             },
             "Pump_Command": {
                 # TODO: position?
@@ -49,7 +49,7 @@ command_definitions = {
                         "tags": [TAG.Point, TAG.Filter, TAG.Reset, TAG.Command],
                     },
                     "Speed_Reset_Command": {
-                        QUDT.hasQuantityKind: BRICK.Speed,
+                        BRICK.hasQuantity: BRICK.Speed,
                         "tags": [TAG.Point, TAG.Speed, TAG.Reset, TAG.Command],
                     },
                 },
@@ -271,7 +271,7 @@ command_definitions = {
             },
             "Frequency_Command": {
                 "tags": [TAG.Point, TAG.Fequency, TAG.Command],
-                QUDT.hasQuantityKind: BRICK.Frequency,
+                BRICK.hasQuantity: BRICK.Frequency,
                 "subclasses": {
                     "Max_Frequency_Command": {
                         "tags": [TAG.Point, TAG.Max, TAG.Fequency, TAG.Command],

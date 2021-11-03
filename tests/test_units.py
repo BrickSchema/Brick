@@ -46,14 +46,14 @@ def test_instances_measure_correct_units():
 
     Recall that the Brick unit model is such:
 
-    Brick class ---measures---> Brick quantity -- hasQUDTReference --> QuantityKind
+    Brick class --- hasQuantity ---> Brick quantity -- hasQUDTReference --> QuantityKind
         |                                                           |
         |                            +-----applicableUnit-----------+
         |                            |
         v                            v
      Instance --- hasUnit --->   QUDT unit
 
-    We create an instance of each Brick class which 'measures' a quantity
+    We create an instance of each Brick class which 'hasQuantity ' a quantity
     and associate that instance with one of the applicable units as defined
     by QUDT. We then verify that all of those units are associated with the
     correct quantity
@@ -69,7 +69,7 @@ def test_instances_measure_correct_units():
     classes_with_quantities = g.query(
         "SELECT ?class ?quantity ?unit WHERE { \
              ?class a   brick:Class .\
-             ?class brick:measures ?quantity .\
+             ?class brick:hasQuantity ?quantity .\
              ?quantity qudt:applicableUnit ?unit }"
     )
     triples = []
@@ -85,7 +85,7 @@ def test_instances_measure_correct_units():
     instances = g.query(
         "SELECT ?inst ?quantity ?unit WHERE {\
              ?inst   rdf:type        brick:Sensor .\
-             ?inst   rdf:type/brick:measures  ?quantity .\
+             ?inst   rdf:type/brick:hasQuantity  ?quantity .\
              ?quantity    a   brick:Quantity .\
              ?inst   brick:hasUnit   ?unit .}"
     )
