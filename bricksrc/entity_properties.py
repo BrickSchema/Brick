@@ -501,7 +501,7 @@ shape_properties = {
     },
     BRICK.DeprecationShape: {
         "properties": {
-            BRICK.deprecationInVersion: {
+            BRICK.deprecatedInVersion: {
                 SKOS.definition: Literal(
                     "The version in which the entity was deprecated"
                 ),

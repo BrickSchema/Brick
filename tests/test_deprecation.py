@@ -16,7 +16,7 @@ def test_deprecation():
         data="""
     @prefix brick: <https://brickschema.org/schema/Brick#> .
     brick:Fresh_Air_Fan brick:deprecation [
-        brick:deprecationInVersion "1.3.0" ;
+        brick:deprecatedInVersion "1.3.0" ;
         brick:deprecationMitigation "Replace with brick:Outside_Fan" ;
     ] .""",
         format="turtle",
