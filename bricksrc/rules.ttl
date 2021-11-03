@@ -96,6 +96,28 @@ CONSTRUCT {
     sh:targetSubjectsOf rdfs:subPropertyOf ;
 .
 
+bsh:DeprecationRule
+    a   sh:NodeShape ;
+    sh:property [
+        sh:path brick:deprecation ;
+        sh:maxCount 0 ;
+        sh:severity sh:Warning ;
+        sh:message "This concept is deprecated" ;
+    ] ;
+    sh:rule [
+        a sh:SPARQLRule ;
+        sh:construct """
+        CONSTRUCT { $this owl:deprecated true }
+        WHERE { $this brick:deprecation ?dep }
+        """ ;
+        sh:prefixes owl: ;
+        sh:prefixes brick: ;
+    ] ;
+    sh:targetSubjectsOf brick:deprecation ;
+.
+
+
+
 # bsh:TagInferenceRule
 #     a sh:NodeShape ;
 #     sh:rule [
