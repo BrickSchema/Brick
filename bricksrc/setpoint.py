@@ -169,6 +169,7 @@ setpoint_definitions = {
                         BRICK.hasQuantity: BRICK.Temperature,
                         "subclasses": {
                             "Occupied_Cooling_Temperature_Deadband_Setpoint": {
+                                BRICK.hasQuantity: BRICK.Temperature,
                                 "tags": [
                                     TAG.Point,
                                     TAG.Occupied,
@@ -180,6 +181,7 @@ setpoint_definitions = {
                                 "parents": [BRICK.Cooling_Temperature_Setpoint],
                             },
                             "Occupied_Heating_Temperature_Deadband_Setpoint": {
+                                BRICK.hasQuantity: BRICK.Temperature,
                                 "tags": [
                                     TAG.Point,
                                     TAG.Occupied,
@@ -191,8 +193,12 @@ setpoint_definitions = {
                                 "parents": [BRICK.Heating_Temperature_Setpoint],
                             },
                             "Discharge_Air_Temperature_Deadband_Setpoint": {
+                                BRICK.hasQuantity: BRICK.Temperature,
+                                BRICK.hasSubstance: BRICK.Discharge_Air,
                                 "subclasses": {
                                     "Heating_Discharge_Air_Temperature_Deadband_Setpoint": {
+                                        BRICK.hasQuantity: BRICK.Temperature,
+                                        BRICK.hasSubstance: BRICK.Discharge_Air,
                                         "tags": [
                                             TAG.Point,
                                             TAG.Heat,
@@ -207,6 +213,8 @@ setpoint_definitions = {
                                         ],
                                     },
                                     "Cooling_Discharge_Air_Temperature_Deadband_Setpoint": {
+                                        BRICK.hasQuantity: BRICK.Temperature,
+                                        BRICK.hasSubstance: BRICK.Discharge_Air,
                                         "tags": [
                                             TAG.Point,
                                             TAG.Cool,

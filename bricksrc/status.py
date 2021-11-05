@@ -4,6 +4,9 @@ status_definitions = {
     "Status": {
         "tags": [TAG.Point, TAG.Status],
         "subclasses": {
+            "Damper_Position_Status": {
+                BRICK.hasQuantity: BRICK.Position,
+            },
             "Direction_Status": {
                 BRICK.hasQuantity: BRICK.Direction,
                 "subclasses": {
