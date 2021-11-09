@@ -46,6 +46,7 @@ from bricksrc.quantities import quantity_definitions, get_units
 from bricksrc.properties import properties
 from bricksrc.entity_properties import shape_properties, entity_properties
 from bricksrc.timeseries import define_timeseries_model
+from bricksrc.blanknode import BlankNode
 
 logging.basicConfig(
     format="%(asctime)s,%(msecs)d %(levelname)-8s [%(filename)s:%(lineno)d] %(message)s",
@@ -101,10 +102,10 @@ def add_restriction(klass, definition):
     if len(definition) == 0:
         return
     elements = []
-    equivalent_class = BNode()
-    list_name = BNode()
+    equivalent_class = BlankNode.new()
+    list_name = BlankNode.new()
     for idnum, item in enumerate(definition):
-        restriction = BNode()
+        restriction = BlankNode.new()
         elements.append(restriction)
         G.add((restriction, A, OWL.Restriction))
         G.add((restriction, OWL.onProperty, item[0]))
@@ -145,8 +146,8 @@ def add_tags(klass, definition):
         )  # make sure the tag is declared as such
 
     all_restrictions = []
-    equivalent_class = BNode()
-    list_name = BNode()
+    equivalent_class = BlankNode.new()
+    list_name = BlankNode.new()
 
     # add SHACL shape
     sc = BSH[klass.split("#")[-1] + "_TagShape"]
@@ -174,7 +175,7 @@ def add_tags(klass, definition):
         if tag not in shacl_tag_property_shapes:
             cond = BNode(f"has_{tag.split('#')[-1]}_condition")
             prop = BNode(f"has_{tag.split('#')[-1]}_tag")
-            tagshape = BNode()
+            tagshape = BlankNode.new()
             shaclGraph.add((rule, SH.condition, cond))
             shaclGraph.add((cond, SH.property, prop))
             shaclGraph.add((prop, SH.path, BRICK.hasTag))
@@ -370,8 +371,8 @@ def define_constraints(constraints, classname):
     that apply to the nodeshape.
     """
     for property_name, property_values in constraints.items():
-        pnode = BNode()
-        onode = BNode()
+        pnode = BlankNode.new()
+        onode = BlankNode.new()
         G.add((classname, A, SH.NodeShape))
         G.add((classname, SH.property, pnode))
         G.add((pnode, SH["path"], property_name))
@@ -382,7 +383,7 @@ def define_constraints(constraints, classname):
             G.add((pnode, SH["or"], onode))
             possible_values = []
             for pv in property_values:
-                pvnode = BNode()
+                pvnode = BlankNode.new()
                 G.add((pvnode, SH["class"], pv))
                 possible_values.append(pvnode)
             Collection(G, onode, possible_values)
@@ -413,7 +414,7 @@ def define_entity_properties(definitions, superprop=None):
 
 def define_shape_property_property(shape_name, definitions):
     for prop_name, prop_defn in definitions.items():
-        ps = BNode()
+        ps = BlankNode.new()
         G.add((shape_name, SH.property, ps))
         G.add((ps, A, SH.PropertyShape))
         G.add((ps, SH.path, prop_name))
@@ -430,7 +431,7 @@ def define_shape_property_property(shape_name, definitions):
             else:
                 G.add((ps, SH.datatype, dtype))
         elif "values" in prop_defn:
-            enumeration = BNode()
+            enumeration = BlankNode.new()
             G.add((ps, SH["in"], enumeration))
             G.add((ps, SH.minCount, Literal(1)))
             Collection(G, enumeration, map(Literal, prop_defn.pop("values")))
@@ -459,11 +460,11 @@ def define_shape_properties(definitions):
         G.add((shape_name, A, SH.NodeShape))
         G.add((shape_name, A, OWL.Class))
 
-        v = BNode()
+        v = BlankNode.new()
         # prop:value PropertyShape
         if "values" in defn:
-            ps = BNode()
-            enumeration = BNode()
+            ps = BlankNode.new()
+            enumeration = BlankNode.new()
             G.add((shape_name, SH.property, ps))
             G.add((ps, A, SH.PropertyShape))
             G.add((ps, SH.path, BRICK.value))
@@ -489,8 +490,8 @@ def define_shape_properties(definitions):
             else:
                 Collection(G, enumeration, map(Literal, vals))
         if "units" in defn:
-            ps = BNode()
-            enumeration = BNode()
+            ps = BlankNode.new()
+            enumeration = BlankNode.new()
             G.add((shape_name, SH.property, ps))
             G.add((ps, A, SH.PropertyShape))
             G.add((ps, SH.path, BRICK.hasUnit))
@@ -498,8 +499,8 @@ def define_shape_properties(definitions):
             G.add((ps, SH.minCount, Literal(1)))
             Collection(G, enumeration, defn.pop("units"))
         if "unitsFromQuantity" in defn:
-            ps = BNode()
-            enumeration = BNode()
+            ps = BlankNode.new()
+            enumeration = BlankNode.new()
             G.add((shape_name, SH.property, ps))
             G.add((ps, A, SH.PropertyShape))
             G.add((ps, SH.path, BRICK.hasUnit))

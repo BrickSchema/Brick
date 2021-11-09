@@ -2,6 +2,8 @@ from datetime import datetime
 from rdflib import Literal, BNode, URIRef
 from rdflib.collection import Collection
 
+from bricksrc.blanknode import BlankNode
+
 from .namespaces import DCTERMS, SDO, RDFS, RDF, OWL, BRICK, TAG, BSH
 from .version import BRICK_VERSION, BRICK_FULL_VERSION
 
@@ -40,15 +42,15 @@ def define_ontology(G):
 
     # add creators from ontology markup above
     creators = []
-    creator_list = BNode()
+    creator_list = BlankNode.new()
     for creator in ontology.pop(DCTERMS.creator):
-        creator1 = BNode()
+        creator1 = BlankNode.new()
         creators.append(creator1)
         for k, v in creator.items():
             G.add((creator1, k, v))
 
     # add publisher info
-    publisher = BNode()
+    publisher = BlankNode.new()
     G.add((brick_iri_version, DCTERMS.publisher, publisher))
     for k, v in ontology.pop(DCTERMS.publisher).items():
         G.add((publisher, k, v))

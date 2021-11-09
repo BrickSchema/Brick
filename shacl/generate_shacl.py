@@ -1,5 +1,6 @@
 from rdflib import Graph, Literal, BNode
 import sys
+from bricksrc.blanknode import BlankNode
 
 sys.path.append("..")
 from bricksrc.namespaces import RDF, RDFS, BRICK, BSH, SH, SKOS  # noqa: E402
@@ -37,7 +38,7 @@ def addDomainShape(propertyName, expectedType):
 # Make shape for expectedRange property
 def addRangeShape(propertyName, expectedType):
     rangeShapeDict[propertyName] = expectedType
-    sh_prop = BNode()
+    sh_prop = BlankNode.new()
     shapename = f"{propertyName}RangeShape"
     G.add((BSH[shapename], SH["property"], sh_prop))
     G.add((BSH[shapename], A, SH.NodeShape))
