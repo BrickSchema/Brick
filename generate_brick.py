@@ -602,7 +602,6 @@ def define_properties(definitions, superprop=None):
     for prop, propdefn in definitions.items():
         if isinstance(prop, str):
             prop = BRICK[prop]
-        G.add((prop, A, OWL.ObjectProperty))
         if superprop is not None:
             G.add((prop, RDFS.subPropertyOf, superprop))
 
