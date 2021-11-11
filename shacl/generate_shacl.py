@@ -1,8 +1,6 @@
 from rdflib import Graph, Literal, BNode
 import sys
 from bricksrc.blanknode import BlankNode
-
-sys.path.append("..")
 from bricksrc.namespaces import RDF, RDFS, BRICK, BSH, SH, SKOS  # noqa: E402
 from bricksrc.namespaces import bind_prefixes  # noqa: E402
 from bricksrc.properties import properties as property_definitions  # noqa: E402
