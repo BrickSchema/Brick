@@ -508,6 +508,7 @@ hvac_subclasses = {
             },
             "Ceiling_Fan": {"tags": [TAG.Equipment, TAG.Fan, TAG.Ceiling]},
             "Fresh_Air_Fan": {"tags": [TAG.Equipment, TAG.Fan, TAG.Fresh, TAG.Air]},
+            "Outside_Fan": {"tags": [TAG.Equipment, TAG.Fan, TAG.Outside]},
             "Relief_Fan": {"tags": [TAG.Equipment, TAG.Fan, TAG.Relief]},
         },
     },
@@ -678,7 +679,13 @@ valve_subclasses = {
                 "tags": [TAG.Valve, TAG.Water, TAG.Equipment],
                 "subclasses": {
                     "Thermostatic_Mixing_Valve": {
-                        "tags": [TAG.Mixed, TAG.Valve, TAG.Water, TAG.Thermal, TAG.Equipment],
+                        "tags": [
+                            TAG.Mixed,
+                            TAG.Valve,
+                            TAG.Water,
+                            TAG.Thermal,
+                            TAG.Equipment,
+                        ],
                     },
                     "Chilled_Water_Valve": {
                         "tags": [TAG.Chilled, TAG.Valve, TAG.Water, TAG.Equipment],
@@ -728,7 +735,7 @@ valve_subclasses = {
                 },
             },
             "Gas_Valve": {"tags": [TAG.Gas, TAG.Valve, TAG.Equipment]},
-        }
+        },
     }
 }
 

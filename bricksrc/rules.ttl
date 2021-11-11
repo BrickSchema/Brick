@@ -116,6 +116,18 @@ bsh:DeprecationRule
     sh:targetSubjectsOf brick:deprecation ;
 .
 
+bsh:DeprecationRuleForInstances
+    a   sh:NodeShape ;
+    sh:targetClass brick:Entity ;
+    sh:severity sh:Warning ;
+    sh:sparql [
+      a sh:SPARQLConstraint ;
+      sh:message "Entity has type which is deprecated" ;
+      sh:prefixes brick:, rdf: ;
+      sh:select """SELECT $this WHERE { $this rdf:type/owl:deprecated true }""" ;
+    ] ;
+.
+
 
 
 # bsh:TagInferenceRule

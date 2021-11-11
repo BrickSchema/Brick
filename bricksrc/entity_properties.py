@@ -507,11 +507,18 @@ shape_properties = {
                 ),
                 "datatype": XSD.string,
             },
-            BRICK.deprecationMitigation: {
+            BRICK.deprecationMitigationMessage: {
                 SKOS.definition: Literal(
                     "A message describing how to mitigate or address the deprecation"
                 ),
                 "datatype": XSD.string,
+            },
+            BRICK.deprecationMigitationRule: {
+                SKOS.definition: Literal(
+                    "A SHACL rule which will mitigate the deprecation"
+                ),
+                SH["class"]: SH.NodeShape,
+                "optional": True,
             },
         },
     },
