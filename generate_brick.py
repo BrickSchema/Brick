@@ -65,6 +65,16 @@ shacl_tag_property_shapes = {}
 has_exactly_n_tags_shapes = {}
 
 
+def bn(item):
+    """
+    Returns a shortened string version of the rdflib Node for use
+    in generating new BNodes
+    """
+    if isinstance(item, URIRef):
+        return item.split("#")[-1]
+    return item
+
+
 def add_properties(item, propdefs):
     for propname, propval in propdefs.items():
         if isinstance(propval, list):
@@ -101,9 +111,9 @@ def add_restriction(klass, definition):
     if len(definition) == 0:
         return
     elements = []
-    bnid = f"restriction_{klass}"
+    bnid = f"restriction_{bn(klass)}"
     equivalent_class = BNode(f"{bnid}_ec")
-    list_name = BNode("f{bnid}_ln")
+    list_name = BNode(f"{bnid}_ln")
     for idnum, item in enumerate(definition):
         restriction = BNode(f"{bnid}_def_{idnum}")
         elements.append(restriction)
@@ -146,7 +156,7 @@ def add_tags(klass, definition):
         )  # make sure the tag is declared as such
 
     all_restrictions = []
-    bnid = f"tags_{klass}"
+    bnid = f"tags_{bn(klass)}"
     equivalent_class = BNode(f"{bnid}_ec")
     list_name = BNode(f"{bnid}_ln")
 
@@ -174,9 +184,9 @@ def add_tags(klass, definition):
         all_restrictions.append(has_tag_restriction_class[tag])
 
         if tag not in shacl_tag_property_shapes:
-            cond = BNode(f"has_{tag.split('#')[-1]}_condition")
-            prop = BNode(f"has_{tag.split('#')[-1]}_tag")
-            tagshape = BNode(f"{bnid}_{tag}")
+            cond = BNode(f"has_{bn(tag)}_condition")
+            prop = BNode(f"has_{bn(tag)}_tag")
+            tagshape = BNode(f"{bnid}_{bn(tag)}")
             shaclGraph.add((rule, SH.condition, cond))
             shaclGraph.add((cond, SH.property, prop))
             shaclGraph.add((prop, SH.path, BRICK.hasTag))
@@ -371,10 +381,10 @@ def define_constraints(constraints, classname):
     instances of the class) and defines some PropertyShapes based on 'constraints'
     that apply to the nodeshape.
     """
-    bnid = f"constraints_{classname}"  # noqa: F841
+    bnid = f"constraints_{bn(classname)}"  # noqa: F841
     for property_name, property_values in constraints.items():
-        pnode = BNode("f{bnid}_p_{property_name}")
-        onode = BNode("f{bnid}_o_{property_name}")
+        pnode = BNode(f"{bnid}_p_{bn(property_name)}")
+        onode = BNode(f"{bnid}_o_{bn(property_name)}")
         G.add((classname, A, SH.NodeShape))
         G.add((classname, SH.property, pnode))
         G.add((pnode, SH["path"], property_name))
@@ -385,7 +395,7 @@ def define_constraints(constraints, classname):
             G.add((pnode, SH["or"], onode))
             possible_values = []
             for pv in property_values:
-                pvnode = BNode("f{bnid}_pv_{pv}")
+                pvnode = BNode(f"{bnid}_pv_{bn(pv)}")
                 G.add((pvnode, SH["class"], pv))
                 possible_values.append(pvnode)
             Collection(G, onode, possible_values)
@@ -416,7 +426,7 @@ def define_entity_properties(definitions, superprop=None):
 
 def define_shape_property_property(shape_name, definitions):
     for prop_name, prop_defn in definitions.items():
-        ps = BNode(f"shape_property_property_{prop_name}_{prop_defn}")
+        ps = BNode(f"shape_property_property_{bn(prop_name)}")
         G.add((shape_name, SH.property, ps))
         G.add((ps, A, SH.PropertyShape))
         G.add((ps, SH.path, prop_name))
@@ -433,7 +443,7 @@ def define_shape_property_property(shape_name, definitions):
             else:
                 G.add((ps, SH.datatype, dtype))
         elif "values" in prop_defn:
-            enumeration = BNode(f"shape_property_property_{prop_name}_{prop_defn}_enum")
+            enumeration = BNode(f"shape_property_property_{bn(prop_name)}_enum")
             G.add((ps, SH["in"], enumeration))
             G.add((ps, SH.minCount, Literal(1)))
             Collection(G, enumeration, map(Literal, prop_defn.pop("values")))

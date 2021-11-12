@@ -37,7 +37,9 @@ def addDomainShape(propertyName, expectedType):
 # Make shape for expectedRange property
 def addRangeShape(propertyName, expectedType):
     rangeShapeDict[propertyName] = expectedType
-    sh_prop = BNode(f"RangeShape_{propertyName}_{expectedType}")
+    sh_prop = BNode(
+        f"RangeShape_{propertyName.split('#')[-1]}_{expectedType.split('#')[-1]}"
+    )
     shapename = f"{propertyName}RangeShape"
     G.add((BSH[shapename], SH["property"], sh_prop))
     G.add((BSH[shapename], A, SH.NodeShape))
