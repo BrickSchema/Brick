@@ -164,7 +164,7 @@ def add_tags(klass, definition):
     sc = BSH[klass.split("#")[-1] + "_TagShape"]
     shaclGraph.add((sc, A, SH.NodeShape))
     # G.add((sc, SH.targetSubjectsOf, BRICK.hasTag))
-    rule = BNode(str(klass) + "TagInferenceRule")
+    rule = BNode(f"TagInferenceRule_{bn(klass)}")
     shaclGraph.add((sc, SH.rule, rule))
 
     # define rule
@@ -176,7 +176,7 @@ def add_tags(klass, definition):
     for tag in definition:
 
         if tag not in has_tag_restriction_class:
-            restriction = BNode(f"has_{tag.split('#')[-1]}")
+            restriction = BNode(f"has_{bn(tag)}")
             G.add((restriction, A, OWL.Restriction))
             G.add((restriction, OWL.onProperty, BRICK.hasTag))
             G.add((restriction, OWL.hasValue, tag))
