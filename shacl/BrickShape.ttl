@@ -137,6 +137,17 @@ bsh:hasOutputSubstanceRangeShape a sh:NodeShape ;
             sh:path brick:hasOutputSubstance ] ;
     sh:targetSubjectsOf brick:hasOutputSubstance .
 
+bsh:hasParameterDomainShape a sh:NodeShape ;
+    sh:class brick:Point ;
+    sh:message "Property hasParameter has subject with incorrect type" ;
+    sh:targetSubjectsOf brick:hasParameter .
+
+bsh:hasParameterRangeShape a sh:NodeShape ;
+    sh:property [ sh:class brick:Parameter ;
+            sh:message "Property hasParameter has object with incorrect type" ;
+            sh:path brick:hasParameter ] ;
+    sh:targetSubjectsOf brick:hasParameter .
+
 bsh:hasPointRangeShape a sh:NodeShape ;
     sh:property [ sh:class brick:Point ;
             sh:message "Property hasPoint has object with incorrect type" ;

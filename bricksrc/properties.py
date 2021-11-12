@@ -141,4 +141,10 @@ properties = {
         RDFS.range: UNIT.Unit,
         RDFS.label: Literal("Has unit"),
     },
+    "hasParameter": {
+        A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+        RDFS.domain: BRICK.Point,
+        RDFS.range: BRICK.Parameter,
+        RDFS.label: Literal("Point has a parameter"),
+    },
 }
