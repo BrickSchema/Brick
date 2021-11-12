@@ -113,7 +113,7 @@ def add_restriction(klass, definition):
     elements = []
     bnid = f"restriction_{bn(klass)}"
     equivalent_class = BNode(f"{bnid}_ec")
-    list_name = BNode(f"{bn(bnid)}_ln")
+    list_name = BNode(f"{bnid}_ln")
     for idnum, item in enumerate(definition):
         restriction = BNode(f"{bnid}_def_{idnum}")
         elements.append(restriction)
