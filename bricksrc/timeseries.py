@@ -39,14 +39,14 @@ def define_timeseries_model(G):
         )
     )
 
-    idprop = BNode()
+    idprop = BNode("timeseries_id")
     G.add((idprop, A, SH.PropertyShape))
     G.add((idprop, SH.path, BRICK.hasTimeseriesId))
     G.add((idprop, SH.minCount, Literal(1)))
     G.add((idprop, SH.maxCount, Literal(1)))
     G.add((idprop, SH.datatype, XSD.string))
 
-    storedprop = BNode()
+    storedprop = BNode("timeseries_storedprop")
     G.add((storedprop, A, SH.PropertyShape))
     G.add((storedprop, SH.path, BRICK.storedAt))
     G.add((storedprop, SH["class"], BRICK.Database))
