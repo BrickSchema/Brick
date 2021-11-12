@@ -79,6 +79,9 @@ status_definitions = {
                         ],
                     },
                     "Hot_Water_Supply_Temperature_Load_Shed_Status": {
+                        OWL.equivalentClass: BRICK[
+                            "Hot_Water_Discharge_Temperature_Load_Shed_Status"
+                        ],
                         "tags": [
                             TAG.Point,
                             TAG.Hot,
@@ -216,6 +219,9 @@ status_definitions = {
                 "subclasses": {
                     "Occupied_Mode_Status": {
                         "tags": [TAG.Point, TAG.Occupied, TAG.Mode, TAG.Status],
+                    },
+                    "Unoccupied_Mode_Status": {
+                        "tags": [TAG.Point, TAG.Unoccupied, TAG.Mode, TAG.Status],
                     },
                     "Operating_Mode_Status": {
                         "subclasses": {

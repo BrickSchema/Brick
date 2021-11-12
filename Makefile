@@ -2,8 +2,8 @@
 
 Brick.ttl: bricksrc/*.py bricksrc/*.ttl bricksrc/definitions.csv generate_brick.py
 	mkdir -p extensions
-	python generate_brick.py
-	cd shacl && python generate_shacl.py
+	python3.10 generate_brick.py
+	cd shacl && python3.10 generate_shacl.py
 
 shacl/BrickShape.ttl: bricksrc/*.py generate_brick.py shacl/generate_shacl.py
 	cd shacl && python generate_shacl.py

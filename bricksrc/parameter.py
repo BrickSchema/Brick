@@ -48,6 +48,15 @@ parameter_definitions = {
                             TAG.Setpoint,
                         ],
                     },
+                    "Min_Load_Setpoint": {
+                        "tags": [
+                            TAG.Point,
+                            TAG.Min,
+                            TAG.Load,
+                            TAG.Parameter,
+                            TAG.Setpoint,
+                        ],
+                    },
                 },
             },
             "Temperature_Parameter": {
@@ -433,6 +442,9 @@ parameter_definitions = {
                                                 ],
                                             },
                                             "Supply_Water_Differential_Pressure_Integral_Time_Parameter": {
+                                                OWL.equivalentClass: BRICK[
+                                                    "Discharge_Water_Differential_Pressure_Integral_Time_Parameter"
+                                                ],
                                                 "tags": [
                                                     TAG.Point,
                                                     TAG.Supply,
@@ -616,6 +628,9 @@ parameter_definitions = {
                                         ],
                                     },
                                     "Supply_Water_Differential_Pressure_Proportional_Band_Parameter": {
+                                        OWL.equivalentClass: BRICK[
+                                            "Discharge_Water_Differential_Pressure_Proportional_Band_Parameter"
+                                        ],
                                         "tags": [
                                             TAG.Point,
                                             TAG.Supply,
@@ -804,6 +819,9 @@ parameter_definitions = {
                                 ],
                             },
                             "Supply_Water_Temperature_Proportional_Band_Parameter": {
+                                OWL.equivalentClass: BRICK[
+                                    "Discharge_Water_Temperature_Proportional_Band_Parameter"
+                                ],
                                 "parents": [BRICK.Temperature_Parameter],
                                 "tags": [
                                     TAG.Point,
@@ -1128,6 +1146,17 @@ parameter_definitions = {
                                 ],
                                 "parents": [BRICK.Min_Limit],
                             },
+                            "Max_Fresh_Air_Setpoint_Limit": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Max,
+                                    TAG.Fresh,
+                                    TAG.Air,
+                                    TAG.Limit,
+                                    TAG.Setpoint,
+                                ],
+                                "parents": [BRICK.Max_Limit],
+                            },
                         },
                     },
                     "Ventilation_Air_Flow_Ratio_Limit": {
@@ -1315,6 +1344,18 @@ parameter_definitions = {
                                     TAG.Setpoint,
                                 ],
                                 "subclasses": {
+                                    "Max_Outside_Air_Flow_Setpoint_Limit": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Max,
+                                            TAG.Outside,
+                                            TAG.Air,
+                                            TAG.Flow,
+                                            TAG.Limit,
+                                            TAG.Parameter,
+                                            TAG.Setpoint,
+                                        ],
+                                    },
                                     "Max_Cooling_Supply_Air_Flow_Setpoint_Limit": {
                                         OWL.equivalentClass: BRICK[
                                             "Max_Cooling_Discharge_Air_Flow_Setpoint_Limit"
