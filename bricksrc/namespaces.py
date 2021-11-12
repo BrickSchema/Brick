@@ -12,7 +12,7 @@ RDFS = Namespace("http://www.w3.org/2000/01/rdf-schema#")
 SKOS = Namespace("http://www.w3.org/2004/02/skos/core#")
 DCTERMS = Namespace("http://purl.org/dc/terms#")
 SDO = Namespace("http://schema.org/")
-SOSA = Namespace("http://www.w3.org/ns/sosa#")
+SOSA = Namespace("http://www.w3.org/ns/sosa/")
 VCARD = Namespace("http://www.w3.org/2006/vcard/ns#")
 
 # QUDT namespaces
@@ -20,6 +20,9 @@ QUDT = Namespace("http://qudt.org/schema/qudt/")
 QUDTQK = Namespace("http://qudt.org/vocab/quantitykind/")
 QUDTDV = Namespace("http://qudt.org/vocab/dimensionvector/")
 UNIT = Namespace("http://qudt.org/vocab/unit/")
+
+# TODO: fix these namespaces
+BACNET = Namespace("http://data.ashrae.org/bacnet/2020#")
 
 A = RDF.type
 
@@ -41,3 +44,4 @@ def bind_prefixes(g):
     g.bind("qudt", QUDT)
     g.bind("unit", UNIT)
     g.bind("xsd", XSD)
+    g.bind("bacnet", BACNET)

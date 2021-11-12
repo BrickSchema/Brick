@@ -138,6 +138,12 @@ command_definitions = {
                     "Stage_Enable_Command": {
                         "tags": [TAG.Stage, TAG.Enable, TAG.Command, TAG.Point]
                     },
+                    "Heating_Enable_Command": {
+                        "tags": [TAG.Heating, TAG.Enable, TAG.Command, TAG.Point]
+                    },
+                    "Cooling_Enable_Command": {
+                        "tags": [TAG.Cooling, TAG.Enable, TAG.Command, TAG.Point]
+                    },
                 },
             },
             "Disable_Command": {

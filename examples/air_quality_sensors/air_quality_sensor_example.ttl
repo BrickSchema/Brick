@@ -1,0 +1,40 @@
+@prefix bldg: <urn:example#> .
+@prefix brick: <https://brickschema.org/schema/Brick#> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+bldg:air_temp_sensor a brick:Air_Temperature_Sensor ;
+    brick:hasUnit unit:DEG_C ;
+    brick:isPointOf bldg:room_1 .
+
+bldg:co2_sensor a brick:CO2_Level_Sensor ;
+    brick:hasUnit unit:PPM ;
+    brick:isPointOf bldg:room_1 .
+
+bldg:co_sensor a brick:CO_Level_Sensor ;
+    brick:hasUnit unit:PPM ;
+    brick:isPointOf bldg:room_1 .
+
+bldg:deployment_site a brick:Site ;
+    brick:hasPart bldg:building_1 .
+
+bldg:methane_sensor a brick:Methane_Level_Sensor ;
+    brick:hasUnit unit:PPM ;
+    brick:isPointOf bldg:room_1 .
+
+bldg:pm2.5_sensor a brick:PM2.5_Sensor ;
+    brick:hasUnit unit:MicroGM-PER-M3 ;
+    brick:isPointOf bldg:room_1 .
+
+bldg:building_1 a brick:Building ;
+    brick:hasPart bldg:floor_1 .
+
+bldg:floor_1 a brick:Floor ;
+    brick:area [ brick:hasUnit unit:M2 ;
+            brick:value 1e+03 ] ;
+    brick:hasPart bldg:room_1 .
+
+bldg:room_1 a brick:Office_Kitchen,
+        brick:Room ;
+    brick:area [ brick:hasUnit unit:M2 ;
+            brick:value 4e+01 ] .

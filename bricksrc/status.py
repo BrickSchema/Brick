@@ -42,6 +42,7 @@ status_definitions = {
                 "tags": [TAG.Point, TAG.Even, TAG.Month, TAG.Status],
             },
             "Fan_Status": {"tags": [TAG.Point, TAG.Fan, TAG.Status]},
+            "Valve_Status": {"tags": [TAG.Point, TAG.Valve, TAG.Status]},
             "Fault_Status": {
                 "subclasses": {
                     "Humidifier_Fault_Status": {
@@ -202,6 +203,12 @@ status_definitions = {
                 },
                 "tags": [TAG.Point, TAG.Load, TAG.Shed, TAG.Status],
             },
+            "Lockout_Status": {
+                "tags": [TAG.Point, TAG.Lockout, TAG.Status],
+            },
+            "Availability_Status": {
+                "tags": [TAG.Point, TAG.Availability, TAG.Status],
+            },
             "Manual_Auto_Status": {
                 "tags": [TAG.Point, TAG.Manual, TAG.Auto, TAG.Status],
             },
@@ -226,6 +233,9 @@ status_definitions = {
                     },
                 },
                 "tags": [TAG.Point, TAG.Mode, TAG.Status],
+            },
+            "Open_Close_Status": {
+                "tags": [TAG.Point, TAG.Open, TAG.Close, TAG.Status],
             },
             "Occupancy_Status": {
                 "subclasses": {
