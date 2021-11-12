@@ -67,8 +67,8 @@ def test_instances_measure_correct_units():
     # test the definitions by making sure that some quantities have applicable
     # units
     classes_with_quantities = g.query(
-        "SELECT ?class ?quantity ?unit WHERE { \
-             ?class a   brick:Class .\
+        "SELECT distinct ?class ?quantity ?unit WHERE { \
+             ?class rdfs:subClassOf* brick:Point .\
              ?class brick:hasQuantity ?quantity .\
              ?quantity qudt:applicableUnit ?unit }"
     )
@@ -76,20 +76,20 @@ def test_instances_measure_correct_units():
     for brickclass, quantity, unit in classes_with_quantities:
         class_name = re.split("/|#", brickclass)[-1]
         unit_name = re.split("/|#", unit)[-1]
-        instance_name = f"Instance_of_{class_name}_{unit_name}"
-        triples.append((BLDG[instance_name], A, brickclass))
-        triples.append((BLDG[instance_name], BRICK.hasUnit, unit))
+        instance = BLDG[f"Instance_of_{class_name}_{unit_name}"]
+        triples.append((instance, A, brickclass))
+        triples.append((instance, BRICK.hasUnit, unit))
     g.add(*triples)
     g.expand(profile="shacl")
+    g.expand(profile="rdfs")
 
     instances = g.query(
-        "SELECT ?inst ?quantity ?unit WHERE {\
-             ?inst   rdf:type        brick:Sensor .\
+        "SELECT distinct ?inst WHERE {\
+             ?inst   rdf:type        brick:Point .\
              ?inst   rdf:type/brick:hasQuantity  ?quantity .\
              ?quantity    a   brick:Quantity .\
              ?inst   brick:hasUnit   ?unit .}"
     )
-
     assert len(instances) == len(classes_with_quantities)
 
 
