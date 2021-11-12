@@ -103,7 +103,7 @@ def add_restriction(klass, definition):
     elements = []
     bnid = f"restriction_{klass}"
     equivalent_class = BNode(f"{bnid}_ec")
-    list_name = BNode("f{bnid}_ln")
+    list_name = BNode(f"{bnid}_ln")
     for idnum, item in enumerate(definition):
         restriction = BNode(f"{bnid}_def_{idnum}")
         elements.append(restriction)
@@ -371,10 +371,10 @@ def define_constraints(constraints, classname):
     instances of the class) and defines some PropertyShapes based on 'constraints'
     that apply to the nodeshape.
     """
-    bnid = f"constraints_{classname}"  # noqa: F841
+    bnid = f"constraints_{classname}"
     for property_name, property_values in constraints.items():
-        pnode = BNode("f{bnid}_p_{property_name}")
-        onode = BNode("f{bnid}_o_{property_name}")
+        pnode = BNode(f"{bnid}_p_{property_name}")
+        onode = BNode(f"{bnid}_o_{property_name}")
         G.add((classname, A, SH.NodeShape))
         G.add((classname, SH.property, pnode))
         G.add((pnode, SH["path"], property_name))
@@ -385,7 +385,7 @@ def define_constraints(constraints, classname):
             G.add((pnode, SH["or"], onode))
             possible_values = []
             for pv in property_values:
-                pvnode = BNode("f{bnid}_pv_{pv}")
+                pvnode = BNode(f"{bnid}_pv_{pv}")
                 G.add((pvnode, SH["class"], pv))
                 possible_values.append(pvnode)
             Collection(G, onode, possible_values)
