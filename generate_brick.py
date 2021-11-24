@@ -780,13 +780,13 @@ for name, graph in extension_graphs.items():
 G.parse("shacl/BrickEntityShapeBase.ttl", format="ttl")
 
 # serialize Brick to output
-with open("Brick.ttl", "w") as fp:
+with open("Brick.ttl", "w", encoding='utf-8') as fp:
     fp.write(G.serialize(format="turtle").rstrip())
     fp.write("\n")
 
 # serialize Brick + extensions
 for graph in extension_graphs.values():
     G += graph
-with open("Brick+extensions.ttl", "w") as fp:
+with open("Brick+extensions.ttl", "w", encoding='utf-8') as fp:
     fp.write(G.serialize(format="turtle").rstrip())
     fp.write("\n")
