@@ -45,15 +45,6 @@ g.add((BLDG.AFSP1, BRICK.hasTag, TAG.Air))
 g.add((BLDG.AFSP1, BRICK.hasTag, TAG.Flow))
 g.add((BLDG.AFSP1, BRICK.hasTag, TAG.Setpoint))
 
-# add air flow setpoint limit
-g.add((BLDG.MAFS1, BRICK.hasTag, TAG.Point))
-g.add((BLDG.MAFS1, BRICK.hasTag, TAG.Max))
-g.add((BLDG.MAFS1, BRICK.hasTag, TAG.Air))
-g.add((BLDG.MAFS1, BRICK.hasTag, TAG.Flow))
-g.add((BLDG.MAFS1, BRICK.hasTag, TAG.Setpoint))
-g.add((BLDG.MAFS1, BRICK.hasTag, TAG.Limit))
-g.add((BLDG.MAFS1, BRICK.hasTag, TAG.Parameter))
-
 g.add((BLDG.AFS2, A, BRICK.Air_Flow_Sensor))
 
 g.add((BLDG.co2s1, A, BRICK.CO2_Level_Sensor))
@@ -145,16 +136,6 @@ def test_tag_inference():
         g.query(
             "SELECT DISTINCT ?sp WHERE {\
                     ?sp rdf:type/rdfs:subClassOf* brick:Setpoint\
-                                 }"
-        )
-    )
-    assert len(res) == 1
-
-    # air flow setpoints
-    res = make_readable(
-        g.query(
-            "SELECT DISTINCT ?sp WHERE {\
-                                    ?sp rdf:type brick:Max_Air_Flow_Setpoint_Limit\
                                  }"
         )
     )
