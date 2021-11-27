@@ -73,6 +73,24 @@ def add_properties(item, propdefs):
             G.add((item, propname, propval))
 
 
+def get_units_brick_qudt(quantity):
+    brick_units = G.query(
+        f"""SELECT ?unit ?symbol ?label WHERE {{
+        ?subquant skos:broader+ <{quantity}> .
+        ?subquant a brick:Quantity .
+        ?subquant qudt:applicableUnit ?unit .
+        OPTIONAL {{
+            ?unit qudt:symbol ?symbol .
+            FILTER(isLiteral(?symbol))
+        }} .
+        OPTIONAL {{
+            ?unit rdfs:label ?label .
+        }}
+    }}"""
+    )
+    return set(get_units(quantity)).union(set(brick_units))
+
+
 def units_for_quantity(quantity):
     """
     Given a Brick Quantity (the full URI), returns the list of applicable units
@@ -715,7 +733,7 @@ res = G.query(
                 }"""
 )
 for r in res:
-    for unit, symb, label in get_units(r[1]):
+    for unit, symb, label in get_units_brick_qudt(r[1]):
         G.add((r[0], QUDT.applicableUnit, unit))
         G.add((unit, A, UNIT.Unit))
         if symb is not None:
