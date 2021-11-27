@@ -2,7 +2,7 @@
 Entity property definitions
 """
 from rdflib import Literal
-from .namespaces import BRICK, RDFS, SKOS, UNIT, XSD, SH, BSH, BACNET
+from .namespaces import BRICK, RDFS, SKOS, UNIT, XSD, SH, BSH, BACNET, IFC
 
 # these are the "relationship"/predicates/OWL properties that
 # relate a Brick entity to a structured value.
@@ -507,6 +507,12 @@ digital_representation_props = {
         RDFS.domain: BRICK.Point,
         RDFS.range: BRICK.BACnetReference,
     },
+    BRICK.IFCRepresentation: {
+        RDFS.subPropertyOf: BRICK.externalRepresentation,
+        SKOS.definition: Literal("IFC metadata"),
+        RDFS.domain: BRICK.Entity,
+        RDFS.range: BRICK.IFCReference,
+    },
     BRICK.timeseries: {
         SKOS.definition: Literal("Metadata for accessing related timeseries data"),
         RDFS.subPropertyOf: BRICK.externalRepresentation,
@@ -516,6 +522,28 @@ digital_representation_props = {
 }
 
 digital_representation_shapes = {
+    BRICK.IFCReference: {
+        "properties": {
+            IFC["projectID"]: {
+                SKOS.definition: Literal("The IFC project ID"),
+                "datatype": XSD.string,
+            },
+            IFC["globalID"]: {
+                SKOS.definition: Literal("The IFC entity global ID"),
+                "datatype": XSD.string,
+            },
+            IFC["name"]: {
+                SKOS.definition: Literal("Name of the entity"),
+                "datatype": XSD.string,
+                "optional": True,
+            },
+            IFC["fileLocation"]: {
+                SKOS.definition: Literal("Location of the IFC file"),
+                "datatype": XSD.string,
+                "optional": True,
+            },
+        },
+    },
     BRICK.BACnetReference: {
         RDFS.subClassOf: BACNET.Object,
         "properties": {
