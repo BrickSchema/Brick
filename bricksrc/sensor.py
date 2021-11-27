@@ -1393,7 +1393,7 @@ sensor_definitions = {
                     },
                     "Wind_Speed_Sensor": {
                         "tags": [TAG.Point, TAG.Sensor, TAG.Speed, TAG.Wind],
-                        BRICK.hasQuantity: BRICK.Wind_Speed,
+                        BRICK.hasQuantity: BRICK.Linear_Speed,
                     },
                 },
             },

@@ -129,6 +129,7 @@ def test_all_quantities_have_units():
             f"The following quantities do not have associated units: {quantities_without_units}"
         )
 
+
 def test_points_hierarchy_units():
     g = brickschema.graph.Graph()
     g.load_file("Brick.ttl")
@@ -144,14 +145,12 @@ SELECT ?class (GROUP_CONCAT(?class_unit) as ?class_units) ?parent (GROUP_CONCAT(
 } GROUP BY ?class ?parent
     """
 
-    res = g.query(qstr)
     unfound_units = defaultdict(dict)
     for row in g.query(qstr):
-        curr_units = set([unit.split('/')[-1] for unit in row[1].split()])
-        parent_units = set([unit.split('/')[-1] for unit in row[3].split()])
+        curr_units = set([unit.split("/")[-1] for unit in row[1].split()])
+        parent_units = set([unit.split("/")[-1] for unit in row[3].split()])
         if not curr_units.issubset(parent_units):
-            klass = row[0].split('#')[-1]
-            parent = row[2].split('#')[-1]
+            klass = row[0].split("#")[-1]
+            parent = row[2].split("#")[-1]
             unfound_units[parent][klass] = curr_units - parent_units
     assert not dict(unfound_units)
-
