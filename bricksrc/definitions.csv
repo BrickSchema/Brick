@@ -1081,7 +1081,6 @@ https://brickschema.org/schema/Brick#Weather_Station,A dedicated weather measure
 https://brickschema.org/schema/Brick#Wet_Bulb_Temperature,"The temperature read by a thermometer covered in water-soaked cloth (wet-bulb thermometer) over which air is passed. A wet-bulb thermometer indicates a temperature close to the true (thermodynamic) wet-bulb temperature. The wet-bulb temperature is the lowest temperature that can be reached under current ambient conditions by the evaporation of water only.  DBT is the temperature that is usually thought of as air temperature, and it is the true thermodynamic temperature. It indicates the amount of heat in the air and is directly proportional to the mean kinetic energy of the air molecule. (https://en.wikipedia.org/wiki/Wet-bulb_temperature)",
 https://brickschema.org/schema/Brick#Wind_Direction,Direction of wind relative to North,
 https://brickschema.org/schema/Brick#Wind_Direction_Sensor,Measures the direction of wind in degrees relative to North,
-https://brickschema.org/schema/Brick#Wind_Speed,"Measured speed of wind, caused by air moving from high to low pressure",
 https://brickschema.org/schema/Brick#Wind_Speed_Sensor,"Measured speed of wind, caused by air moving from high to low pressure",
 https://brickschema.org/schema/Brick#Wing,"A wing is part of a building – or any feature of a building – that is subordinate to the main, central structure.",
 https://brickschema.org/schema/Brick#Workshop,A space used to house equipment that can be used to repair or fabricate things,
