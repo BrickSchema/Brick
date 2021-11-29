@@ -5,6 +5,15 @@ from .namespaces import A, OWL, RDFS, BRICK, VCARD, UNIT, QUDT, SDO, RDF
 Defining properties
 """
 properties = {
+    "hasSubstance": {
+        A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+        RDFS.label: Literal("Has QUDT reference"),
+    },
+    "hasQuantity": {
+        A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+        RDFS.label: Literal("Has QUDT reference"),
+        RDFS.subPropertyOf: QUDT.hasQuantityKind,
+    },
     "value": {
         RDFS.subPropertyOf: QUDT.value,
         RDFS.label: Literal("Value"),
@@ -89,19 +98,6 @@ properties = {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         RDFS.domain: BRICK.Tag,
         RDFS.label: Literal("Is tag of"),
-    },
-    "measures": {
-        A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
-        OWL.inverseOf: BRICK["isMeasuredBy"],
-        RDFS.domain: BRICK.Point,
-        RDFS.range: BRICK.Measurable,
-        RDFS.label: Literal("Measures"),
-    },
-    "isMeasuredBy": {
-        A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
-        RDFS.domain: BRICK.Measurable,
-        RDFS.range: BRICK.Point,
-        RDFS.label: Literal("Is measured by"),
     },
     "regulates": {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
