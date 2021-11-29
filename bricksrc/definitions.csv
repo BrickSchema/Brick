@@ -313,10 +313,10 @@ https://brickschema.org/schema/Brick#Electric_Boiler,"A closed, pressure vessel 
 https://brickschema.org/schema/Brick#Electric_Current,,
 https://brickschema.org/schema/Brick#Electric_Energy,,
 https://brickschema.org/schema/Brick#Electric_Power,"Electric Power is the rate at which electrical energy is transferred by an electric circuit. In the simple case of direct current circuits, electric power can be calculated as the product of the potential difference in the circuit (V) and the amount of current flowing in the circuit (I): (P = VI), where (P) is the power, (V) is the potential difference, and (I) is the current. However, in general electric power is calculated by taking the integral of the vector cross-product of the electrical and magnetic fields over a specified area.",
+https://brickschema.org/schema/Brick#Electric_Power_Sensor,Measures the amount of instantaneous electric power consumed,
 https://brickschema.org/schema/Brick#Electric_Radiator,Electric heating device,
 https://brickschema.org/schema/Brick#Electric_Voltage,,
 https://brickschema.org/schema/Brick#Electrical_Meter,A meter that measures the usage or consumption of electricity,
-https://brickschema.org/schema/Brick#Electrical_Power_Sensor,Measures the amount of instantaneous electric power consumed,
 https://brickschema.org/schema/Brick#Electrical_Room,A class of service rooms that house electrical equipment for a building,
 https://brickschema.org/schema/Brick#Electrical_System,Devices that serve or are part of the electrical subsystem in the building,
 https://brickschema.org/schema/Brick#Elevator,"A device that provides vertical transportation between floors, levels or decks of a building, vessel or other structure",https://en.wikipedia.org/wiki/Elevator
