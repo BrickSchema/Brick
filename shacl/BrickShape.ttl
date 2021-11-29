@@ -171,17 +171,6 @@ bsh:isLocationOfDomainShape a sh:NodeShape ;
     sh:message "Property isLocationOf has subject with incorrect type" ;
     sh:targetSubjectsOf brick:isLocationOf .
 
-bsh:isMeasuredByDomainShape a sh:NodeShape ;
-    sh:class brick:Measurable ;
-    sh:message "Property isMeasuredBy has subject with incorrect type" ;
-    sh:targetSubjectsOf brick:isMeasuredBy .
-
-bsh:isMeasuredByRangeShape a sh:NodeShape ;
-    sh:property [ sh:class brick:Point ;
-            sh:message "Property isMeasuredBy has object with incorrect type" ;
-            sh:path brick:isMeasuredBy ] ;
-    sh:targetSubjectsOf brick:isMeasuredBy .
-
 bsh:isPointOfDomainShape a sh:NodeShape ;
     sh:class brick:Point ;
     sh:message "Property isPointOf has subject with incorrect type" ;

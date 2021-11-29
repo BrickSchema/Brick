@@ -1111,7 +1111,6 @@ https://brickschema.org/schema/Brick#hasUnit,The QUDT unit associated with this 
 https://brickschema.org/schema/Brick#isAssociatedWith,The tag is associated with the given class,
 https://brickschema.org/schema/Brick#isFedBy,,
 https://brickschema.org/schema/Brick#isLocationOf,Subject is the physical location encapsulating the object,
-https://brickschema.org/schema/Brick#isMeasuredBy,,
 https://brickschema.org/schema/Brick#isPartOf,,
 https://brickschema.org/schema/Brick#isPointOf,The subject is a source of telemetry related to the object. In some systems the source of telemetry may be represented as a digital/analog input/output point,
 https://brickschema.org/schema/Brick#isRegulatedBy,,
