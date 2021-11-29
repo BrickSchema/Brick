@@ -4,7 +4,7 @@
 
 bldg:space a brick:Space ;
     brick:IFCRepresentation [
-        ifc:projectID "abc"
+        ifc:projectID "abc" ;
         ifc:globalID "123" ;
         ifc:name "Example Space" ;
         ifc:fileLocation "file://./building.ifc" ;
