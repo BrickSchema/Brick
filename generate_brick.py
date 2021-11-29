@@ -73,11 +73,10 @@ def add_properties(item, propdefs):
             G.add((item, propname, propval))
 
 
-def get_units_brick_qudt(quantity):
+def get_units_brick(brick_quantity):
     brick_units = G.query(
         f"""SELECT ?unit ?symbol ?label WHERE {{
-        ?subquant skos:broader+ <{quantity}> .
-        ?subquant a brick:Quantity .
+        ?subquant skos:broader+ <{brick_quantity}> .
         ?subquant qudt:applicableUnit ?unit .
         OPTIONAL {{
             ?unit qudt:symbol ?symbol .
@@ -88,7 +87,7 @@ def get_units_brick_qudt(quantity):
         }}
     }}"""
     )
-    return set(get_units(quantity)).union(set(brick_units))
+    return set(brick_units)
 
 
 def units_for_quantity(quantity):
@@ -731,8 +730,17 @@ res = G.query(
                 ?quantity brick:hasQUDTReference ?qudtquant
                 }"""
 )
+
 for r in res:
-    for unit, symb, label in get_units_brick_qudt(r[1]):
+    brick_quant, qudt_quant = r
+    for unit, symb, label in get_units(qudt_quant):
+        G.add((r[0], QUDT.applicableUnit, unit))
+        G.add((unit, A, UNIT.Unit))
+        if symb is not None:
+            G.add((unit, QUDT.symbol, symb))
+        if label is not None and not has_label(unit):
+            G.add((unit, RDFS.label, label))
+    for unit, symb, label in get_units_brick(brick_quant):
         G.add((r[0], QUDT.applicableUnit, unit))
         G.add((unit, A, UNIT.Unit))
         if symb is not None:
