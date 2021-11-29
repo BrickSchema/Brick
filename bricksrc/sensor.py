@@ -1312,8 +1312,9 @@ sensor_definitions = {
                             }
                         },
                     },
-                    "Electrical_Power_Sensor": {
-                        "tags": [TAG.Point, TAG.Sensor, TAG.Power, TAG.Electrical],
+                    "Electric_Power_Sensor": {
+                        "tags": [TAG.Point, TAG.Sensor, TAG.Power, TAG.Electric],
+                        BRICK.hasQuantity: BRICK.Electric_Power,
                         "subclasses": {
                             "Reactive_Power_Sensor": {
                                 "tags": [
@@ -1321,7 +1322,7 @@ sensor_definitions = {
                                     TAG.Sensor,
                                     TAG.Power,
                                     TAG.Reactive,
-                                    TAG.Electrical,
+                                    TAG.Electric,
                                 ],
                                 BRICK.hasQuantity: BRICK.Reactive_Power,
                             },
@@ -1331,7 +1332,7 @@ sensor_definitions = {
                                     TAG.Sensor,
                                     TAG.Power,
                                     TAG.Real,
-                                    TAG.Electrical,
+                                    TAG.Electric,
                                 ],
                                 BRICK.hasQuantity: BRICK.Active_Power,
                             },
@@ -1342,7 +1343,7 @@ sensor_definitions = {
                                     TAG.Power,
                                     TAG.Demand,
                                     TAG.Sensor,
-                                    TAG.Electrical,
+                                    TAG.Electric,
                                 ],
                                 BRICK.hasQuantity: BRICK.Peak_Power,
                                 "parents": [BRICK.Demand_Sensor],
