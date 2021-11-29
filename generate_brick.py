@@ -20,7 +20,6 @@ from bricksrc.namespaces import (
     QUDT,
     UNIT,
     VCARD,
-    QUDTQK,
     SH,
 )
 from bricksrc.namespaces import bind_prefixes
@@ -731,22 +730,25 @@ res = G.query(
                 }"""
 )
 
+# this requires two passes to associate the applicable units with
+# each of the quantities. The first pass associates Brick quantities
+# with QUDT units via the "hasQUDTReference" property; the second pass
+# traverses the SKOS broader/narrower hierarchy to inherit associated units
+# "up" into the broader concepts.
 for r in res:
     brick_quant, qudt_quant = r
     for unit, symb, label in get_units(qudt_quant):
-        G.add((r[0], QUDT.applicableUnit, unit))
+        G.add((brick_quant, QUDT.applicableUnit, unit))
         G.add((unit, A, UNIT.Unit))
         if symb is not None:
             G.add((unit, QUDT.symbol, symb))
         if label is not None and not has_label(unit):
             G.add((unit, RDFS.label, label))
+for r in res:
+    brick_quant, qudt_quant = r
+    # the symbols, units, and labels are already defined in the previous pass
     for unit, symb, label in get_units_brick(brick_quant):
-        G.add((r[0], QUDT.applicableUnit, unit))
-        G.add((unit, A, UNIT.Unit))
-        if symb is not None:
-            G.add((unit, QUDT.symbol, symb))
-        if label is not None and not has_label(unit):
-            G.add((unit, RDFS.label, label))
+        G.add((brick_quant, QUDT.applicableUnit, unit))
 
 
 # entity property definitions (must happen after units are defined)
