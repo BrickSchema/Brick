@@ -529,16 +529,20 @@ digital_representation_shapes = {
                 "datatype": XSD.string,
             },
             IFC["globalID"]: {
-                SKOS.definition: Literal("The IFC entity global ID"),
+                SKOS.definition: Literal(
+                    "The global ID of the entity in the IFC project"
+                ),
                 "datatype": XSD.string,
             },
             IFC["name"]: {
-                SKOS.definition: Literal("Name of the entity"),
+                SKOS.definition: Literal("Name of the entity in IFC"),
                 "datatype": XSD.string,
                 "optional": True,
             },
             IFC["fileLocation"]: {
-                SKOS.definition: Literal("Location of the IFC file"),
+                SKOS.definition: Literal(
+                    "Location of the IFC file defining the project"
+                ),
                 "datatype": XSD.string,
                 "optional": True,
             },
