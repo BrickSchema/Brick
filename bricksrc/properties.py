@@ -13,6 +13,7 @@ properties = {
         A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         RDFS.label: Literal("Has QUDT reference"),
         RDFS.subPropertyOf: QUDT.hasQuantityKind,
+    },
     "value": {
         RDFS.subPropertyOf: QUDT.value,
         RDFS.label: Literal("Value"),
