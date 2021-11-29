@@ -3,8 +3,10 @@
 @prefix ifc: <https://standards.buildingsmart.org/IFC/> .
 
 bldg:space a brick:Space ;
-    ifc:projectID "abc"
-    ifc:globalID "123" ;
-    ifc:name "Example Space" ;
-    ifc:fileLocation "file://./building.ifc" ;
+    brick:IFCRepresentation [
+        ifc:projectID "abc"
+        ifc:globalID "123" ;
+        ifc:name "Example Space" ;
+        ifc:fileLocation "file://./building.ifc" ;
+    ] ;
 .
