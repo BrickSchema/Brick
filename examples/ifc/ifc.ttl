@@ -1,6 +1,6 @@
 @prefix bldg: <urn:example#> .
 @prefix brick: <https://brickschema.org/schema/Brick#> .
-@prefix ifc: <https://standards.buildingsmart.org/IFC/> .
+@prefix ifc: <https://brickschema.org/extension/ifc#> .
 
 bldg:space a brick:Space ;
     brick:IFCRepresentation [
