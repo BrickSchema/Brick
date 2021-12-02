@@ -8,15 +8,15 @@ bldg:ifc_project a brickifc:Project ;
 .
 
 bldg:space a brick:Space ;
-    brick:IFCReference [
-        brickifc:projectReference bldg:ifc_project ;
+    brick:hasIFCReference [
+        brickifc:hasProjectReference bldg:ifc_project ;
         brickifc:globalID "123" ;
         brickifc:name "Example Space" ;
     ] .
 
 bldg:space2 a brick:Space ;
-    brick:IFCReference [
-        brickifc:projectReference bldg:ifc_project ;
+    brick:hasIFCReference [
+        brickifc:hasProjectReference bldg:ifc_project ;
         brickifc:globalID "124" ;
         brickifc:name "Example Space" ;
     ] .
