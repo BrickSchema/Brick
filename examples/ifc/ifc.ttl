@@ -2,11 +2,6 @@
 @prefix brick: <https://brickschema.org/schema/Brick#> .
 @prefix brickifc: <https://brickschema.org/extension/ifc#> .
 
-# TODO:
-# - add example file for adding IFC reference to Brick entities
-# - add has CSV Reference?
-
-
 bldg:ifc_project a brickifc:Project ;
     brickifc:projectID "abc" ;
     brickifc:fileLocation "file://./building.ifc" ;

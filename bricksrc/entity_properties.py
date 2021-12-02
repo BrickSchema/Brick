@@ -497,32 +497,49 @@ shape_properties = {
 }
 
 digital_representation_props = {
-    BRICK.externalRepresentation: {
-        SKOS.definition: Literal("A digital representation of the entity"),
+    BRICK.externalReference: {
+        SKOS.definition: Literal("A digital reference of the entity"),
         RDFS.domain: BRICK.Point,
     },
-    BRICK.BACnetRepresentation: {
-        RDFS.subPropertyOf: BRICK.externalRepresentation,
+    BRICK.BACnetReference: {
+        RDFS.subPropertyOf: BRICK.externalReference,
         SKOS.definition: Literal("BACnet metadata"),
         RDFS.domain: BRICK.Point,
-        RDFS.range: BRICK.BACnetReference,
+        RDFS.range: BRICK.BACnetReferenceShape,
     },
     BRICK.IFCReference: {
-        RDFS.subPropertyOf: BRICK.externalRepresentation,
+        RDFS.subPropertyOf: BRICK.externalReference,
         SKOS.definition: Literal("IFC metadata"),
         RDFS.domain: BRICK.Entity,
-        RDFS.range: BRICK.IFCReferenceDefinition,
+        RDFS.range: BRICK.IFCReferenceShape,
     },
     BRICK.timeseries: {
         SKOS.definition: Literal("Metadata for accessing related timeseries data"),
-        RDFS.subPropertyOf: BRICK.externalRepresentation,
+        RDFS.subPropertyOf: BRICK.externalReference,
         RDFS.domain: BRICK.Point,
-        RDFS.range: BRICK.TimeseriesReference,
+        RDFS.range: BRICK.TimeseriesReferenceShape,
+    },
+    BRICK.CSVReference: {
+        RDFS.subPropertyOf: BRICK.timeseries,
+        SKOS.definition: Literal("Metadata for accessing CSV data"),
+        RDFS.domain: BRICK.Point,
+        RDFS.range: BRICK.CSVReferenceShape,
     },
 }
 
 digital_representation_shapes = {
-    BRICK.IFCReferenceDefinition: {
+    BRICK.CSVReferenceShape: {
+        "properties": {
+            RDFS.subClassOf: BRICK.TimeseriesReferenceShape,
+            BRICK["fileLocation"]: {
+                SKOS.definition: Literal(
+                    "Location of the CSV file defining the project"
+                ),
+                "datatype": XSD.string,
+            },
+        },
+    },
+    BRICK.IFCReferenceShape: {
         "properties": {
             IFC["projectReference"]: {
                 SKOS.definition: Literal(
@@ -558,7 +575,7 @@ digital_representation_shapes = {
             },
         },
     },
-    BRICK.BACnetReference: {
+    BRICK.BACnetReferenceShape: {
         RDFS.subClassOf: BACNET.Object,
         "properties": {
             "or": [
@@ -608,7 +625,7 @@ digital_representation_shapes = {
             },
         },
     },
-    BRICK.TimeseriesReference: {
+    BRICK.TimeseriesReferenceShape: {
         SKOS.definition: Literal(
             "Metadata describing where and how the data for a Brick Point is stored"
         ),
