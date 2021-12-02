@@ -48,7 +48,7 @@ def test_entity_property_type_inference():
     g.add(
         (
             EX["point"],
-            BRICK.hasBACnetRepresentation,
+            BRICK.hasBACnetReference,
             [
                 (BACNET.objectOf, [(A, BACNET.Device)]),
                 (BRICK.BACnetURI, Literal("bacnet://123/analog-input,3/present-value")),
