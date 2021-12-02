@@ -507,11 +507,11 @@ digital_representation_props = {
         RDFS.domain: BRICK.Point,
         RDFS.range: BRICK.BACnetReference,
     },
-    BRICK.IFCRepresentation: {
+    BRICK.IFCReference: {
         RDFS.subPropertyOf: BRICK.externalRepresentation,
         SKOS.definition: Literal("IFC metadata"),
         RDFS.domain: BRICK.Entity,
-        RDFS.range: BRICK.IFCReference,
+        RDFS.range: BRICK.IFCReferenceDefinition,
     },
     BRICK.timeseries: {
         SKOS.definition: Literal("Metadata for accessing related timeseries data"),
@@ -522,11 +522,13 @@ digital_representation_props = {
 }
 
 digital_representation_shapes = {
-    BRICK.IFCReference: {
+    BRICK.IFCReferenceDefinition: {
         "properties": {
-            IFC["projectID"]: {
-                SKOS.definition: Literal("The IFC project ID"),
-                "datatype": XSD.string,
+            IFC["projectReference"]: {
+                SKOS.definition: Literal(
+                    "Reference to an IFC Project object, containing the project ID"
+                ),
+                SH["class"]: IFC.Project,
             },
             IFC["globalID"]: {
                 SKOS.definition: Literal(
@@ -538,6 +540,14 @@ digital_representation_shapes = {
                 SKOS.definition: Literal("Name of the entity in IFC"),
                 "datatype": XSD.string,
                 "optional": True,
+            },
+        },
+    },
+    IFC.Project: {
+        "properties": {
+            IFC["projectID"]: {
+                SKOS.definition: Literal("The ID of the project"),
+                "datatype": XSD.string,
             },
             IFC["fileLocation"]: {
                 SKOS.definition: Literal(
