@@ -1,0 +1,21 @@
+@prefix bldg: <urn:example#> .
+@prefix brick: <https://brickschema.org/schema/Brick#> .
+@prefix brickifc: <https://brickschema.org/extension/ifc#> .
+
+bldg:space a brick:Space ;
+    brick:IFCReference [ brickifc:globalID "123" ;
+            brickifc:name "Example Space" ;
+            brickifc:projectReference bldg:ifc_project ] .
+
+bldg:space2 a brick:Space ;
+    brick:IFCReference [ brickifc:globalID "124" ;
+            brickifc:name "Example Space" ;
+            brickifc:projectReference bldg:ifc_project ] .
+
+bldg:space3 a brick:Space ;
+    brickifc:IFCReference [ brickifc:globalID "abc123" ;
+            brickifc:projectReference bldg:ifc_project ] .
+
+bldg:ifc_project a brickifc:Project ;
+    brickifc:fileLocation "file://./building.ifc" ;
+    brickifc:projectID "abc" .
