@@ -48,7 +48,7 @@ def test_entity_property_type_inference():
     g.add(
         (
             EX["point"],
-            BRICK.BACnetRepresentation,
+            BRICK.hasBACnetRepresentation,
             [
                 (BACNET.objectOf, [(A, BACNET.Device)]),
                 (BRICK.BACnetURI, Literal("bacnet://123/analog-input,3/present-value")),
@@ -60,6 +60,6 @@ def test_entity_property_type_inference():
     g.serialize("/tmp/test.ttl", format="ttl")
 
     res = g.query(
-        "SELECT ?ref WHERE { ?point brick:externalRepresentation ?ref . ?ref a brick:BACnetReference }"
+        "SELECT ?ref WHERE { ?point brick:hasExternalRepresentation ?ref . ?ref a brick:BACnetReference }"
     )
     assert len(res) == 1
