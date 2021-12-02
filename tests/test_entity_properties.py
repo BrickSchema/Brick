@@ -60,6 +60,6 @@ def test_entity_property_type_inference():
     g.serialize("/tmp/test.ttl", format="ttl")
 
     res = g.query(
-        "SELECT ?ref WHERE { ?point brick:hasExternalRepresentation ?ref . ?ref a brick:BACnetReference }"
+        "SELECT ?ref WHERE { ?point brick:hasExternalReference ?ref . ?ref a brick:BACnetReference }"
     )
     assert len(res) == 1
