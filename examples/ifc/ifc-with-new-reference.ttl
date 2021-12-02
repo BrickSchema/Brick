@@ -5,12 +5,12 @@
 bldg:space a brick:Space ;
     brick:IFCReference [ brickifc:globalID "123" ;
             brickifc:name "Example Space" ;
-            brickifc:project bldg:ifc_project ] .
+            brickifc:projectReference bldg:ifc_project ] .
 
 bldg:space2 a brick:Space ;
     brick:IFCReference [ brickifc:globalID "124" ;
             brickifc:name "Example Space" ;
-            brickifc:project bldg:ifc_project ] .
+            brickifc:projectReference bldg:ifc_project ] .
 
 bldg:space3 a brick:Space ;
     brickifc:IFCReference [ brickifc:globalID "abc123" ;
