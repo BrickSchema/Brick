@@ -1,10 +1,14 @@
-from .namespaces import TAG, BRICK, OWL
+from .namespaces import TAG, BRICK, OWL, QUDT
 
 status_definitions = {
     "Status": {
         "tags": [TAG.Point, TAG.Status],
         "subclasses": {
+            "Damper_Position_Status": {
+                BRICK.hasQuantity: BRICK.Position,
+            },
             "Direction_Status": {
+                BRICK.hasQuantity: BRICK.Direction,
                 "subclasses": {
                     "Motor_Direction_Status": {
                         "tags": [TAG.Point, TAG.Motor, TAG.Direction, TAG.Status],
@@ -369,6 +373,7 @@ status_definitions = {
                 "tags": [TAG.Point, TAG.Overridden, TAG.Status],
             },
             "Pressure_Status": {
+                QUDT.hasQuality: BRICK.Pressure,
                 "subclasses": {
                     "Discharge_Air_Duct_Pressure_Status": {
                         "tags": [

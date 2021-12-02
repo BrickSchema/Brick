@@ -611,7 +611,7 @@ quantity_definitions = {
                         BRICK.hasQUDTReference: QUDTQK["DynamicPressure"],
                         QUDT.isDeltaQuantity: Literal(True),
                     },
-                }
+                },
             },
         },
     },
@@ -630,10 +630,9 @@ quantity_definitions = {
         },
     },
     "Speed": {
-        # TODO: fan speed is not meter/sec
         BRICK.hasQUDTReference: QUDTQK["Speed"],
         SKOS.narrower: {
-            "Wind_Speed": {
+            "Linear_Speed": {
                 QUDT.applicableUnit: [
                     UNIT["M-PER-HR"],
                     UNIT["KiloM-PER-HR"],
@@ -642,16 +641,33 @@ quantity_definitions = {
                     UNIT["M-PER-SEC"],
                     UNIT["KiloM-PER-SEC"],
                     UNIT["FT-PER-SEC"],
-                    # UNIT["MI-PER-SEC"],
+                    UNIT["MI-PER-SEC"],
                 ],
                 SKOS.definition: Literal(
-                    "Measured speed of wind, caused by air moving from high to low pressure",
+                    "Speed in one dimension (linear)",
                 ),
                 QUDT.hasDimensionVector: QUDTDV["A0E0L1I0M0H0T-1D0"],
                 RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
-                RDFS.label: Literal("Wind_Speed"),
+                RDFS.label: Literal("Linear_Speed"),
                 SKOS.broader: QUDTQK.Speed,
-            }
+            },
+            "Rotational_Speed": {
+                QUDT.applicableUnit: [
+                    UNIT["RAD-PER-HR"],
+                    UNIT["RAD-PER-SEC"],
+                    UNIT["RAD-PER-MIN"],
+                    UNIT["DEG-PER-HR"],
+                    UNIT["DEG-PER-MIN"],
+                    UNIT["DEG-PER-SEC"],
+                ],
+                SKOS.definition: Literal(
+                    "Rotational speed",
+                ),
+                QUDT.hasDimensionVector: QUDTDV["A0E0L1I0M0H0T-1D0"],
+                RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
+                RDFS.label: Literal("Rotational_Speed"),
+                SKOS.broader: [QUDTQK.Speed, QUDTQK.Frequency],
+            },
         },
     },
     "Temperature": {
