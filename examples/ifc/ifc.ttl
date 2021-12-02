@@ -1,12 +1,30 @@
 @prefix bldg: <urn:example#> .
 @prefix brick: <https://brickschema.org/schema/Brick#> .
-@prefix ifc: <https://brickschema.org/extension/ifc#> .
+@prefix brickifc: <https://brickschema.org/extension/ifc#> .
+
+# TODO:
+# - add example file for adding IFC reference to Brick entities
+# - add has CSV Reference?
+
+
+bldg:ifc_project a brickifc:Project ;
+    brickifc:projectID "abc" ;
+    brickifc:fileLocation "file://./building.ifc" ;
+.
 
 bldg:space a brick:Space ;
-    brick:IFCRepresentation [
-        ifc:projectID "abc" ;
-        ifc:globalID "123" ;
-        ifc:name "Example Space" ;
-        ifc:fileLocation "file://./building.ifc" ;
-    ] ;
-.
+    brick:IFCReference [
+        brickifc:projectReference bldg:ifc_project ;
+        brickifc:globalID "123" ;
+        brickifc:name "Example Space" ;
+    ] .
+
+bldg:space2 a brick:Space ;
+    brick:IFCReference [
+        brickifc:projectReference bldg:ifc_project ;
+        brickifc:globalID "124" ;
+        brickifc:name "Example Space" ;
+    ] .
+
+# link.py in this folder programatically adds the IFC reference to this entity
+bldg:space3 a brick:Space .
