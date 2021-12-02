@@ -19,9 +19,9 @@ link = {
 g.add(
     (
         link["brick"],
-        BRICKIFC.IFCReference,
+        BRICKIFC.hasIFCReference,
         [
-            (BRICKIFC.projectReference, project),
+            (BRICKIFC.hasProjectReference, project),
             (BRICKIFC.globalID, Literal(link["ifc"])),
         ],
     )

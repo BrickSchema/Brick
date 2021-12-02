@@ -540,7 +540,7 @@ digital_representation_shapes = {
     },
     BRICK.IFCReference: {
         "properties": {
-            IFC["projectReference"]: {
+            IFC["hasProjectReference"]: {
                 SKOS.definition: Literal(
                     "Reference to an IFC Project object, containing the project ID"
                 ),
