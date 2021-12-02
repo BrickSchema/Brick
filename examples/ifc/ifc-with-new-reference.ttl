@@ -16,6 +16,7 @@ bldg:space3 a brick:Space ;
     brickifc:hasIFCReference [ brickifc:globalID "abc123" ;
             brickifc:hasProjectReference bldg:ifc_project ] .
 
+
 bldg:ifc_project a brickifc:Project ;
     brickifc:fileLocation "file://./building.ifc" ;
     brickifc:projectID "abc" .
