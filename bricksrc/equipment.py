@@ -654,6 +654,7 @@ hvac_subclasses = {
                 "tags": [TAG.Equipment, TAG.Return, TAG.Air, TAG.Plenum]
             },
             "Supply_Air_Plenum": {
+                OWL.equivalentClass: BRICK["Discharge_Air_Plenum"],
                 "tags": [TAG.Equipment, TAG.Supply, TAG.Air, TAG.Plenum],
                 "subclasses": {
                     "Underfloor_Air_Plenum": {
@@ -665,6 +666,9 @@ hvac_subclasses = {
                         ]
                     },
                 },
+            },
+            "Discharge_Air_Plenum": {
+                "tags": [TAG.Equipment, TAG.Discharge, TAG.Air, TAG.Plenum],
             },
         },
     },
@@ -678,7 +682,13 @@ valve_subclasses = {
                 "tags": [TAG.Valve, TAG.Water, TAG.Equipment],
                 "subclasses": {
                     "Thermostatic_Mixing_Valve": {
-                        "tags": [TAG.Mixed, TAG.Valve, TAG.Water, TAG.Thermal, TAG.Equipment],
+                        "tags": [
+                            TAG.Mixed,
+                            TAG.Valve,
+                            TAG.Water,
+                            TAG.Thermal,
+                            TAG.Equipment,
+                        ],
                     },
                     "Chilled_Water_Valve": {
                         "tags": [TAG.Chilled, TAG.Valve, TAG.Water, TAG.Equipment],
@@ -728,7 +738,7 @@ valve_subclasses = {
                 },
             },
             "Gas_Valve": {"tags": [TAG.Gas, TAG.Valve, TAG.Equipment]},
-        }
+        },
     }
 }
 

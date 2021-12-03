@@ -77,6 +77,22 @@ status_definitions = {
                             TAG.Shed,
                             TAG.Status,
                         ],
+                        "subclasses": {
+                            "Medium_Temperature_Hot_Water_Discharge_Temperature_Load_Shed_Status": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Medium,
+                                    TAG.Temperature,
+                                    TAG.Hot,
+                                    TAG.Water,
+                                    TAG.Discharge,
+                                    TAG.Temperature,
+                                    TAG.Load,
+                                    TAG.Shed,
+                                    TAG.Status,
+                                ],
+                            },
+                        },
                     },
                     "Hot_Water_Supply_Temperature_Load_Shed_Status": {
                         OWL.equivalentClass: BRICK[
@@ -94,6 +110,9 @@ status_definitions = {
                         ],
                         "subclasses": {
                             "Medium_Temperature_Hot_Water_Supply_Temperature_Load_Shed_Status": {
+                                OWL.equivalentClass: BRICK[
+                                    "Medium_Temperature_Hot_Water_Discharge_Temperature_Load_Shed_Status"
+                                ],
                                 "tags": [
                                     TAG.Point,
                                     TAG.Medium,

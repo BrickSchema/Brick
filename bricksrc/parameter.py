@@ -156,6 +156,9 @@ parameter_definitions = {
                                 ],
                                 "subclasses": {
                                     "Supply_Air_Integral_Gain_Parameter": {
+                                        OWL.equivalentClass: BRICK[
+                                            "Discharge_Air_Integral_Gain_Parameter"
+                                        ],
                                         "tags": [
                                             TAG.Point,
                                             TAG.Supply,
@@ -165,7 +168,18 @@ parameter_definitions = {
                                             TAG.Parameter,
                                             TAG.PID,
                                         ],
-                                    }
+                                    },
+                                    "Discharge_Air_Integral_Gain_Parameter": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Discharge,
+                                            TAG.Air,
+                                            TAG.Integral,
+                                            TAG.Gain,
+                                            TAG.Parameter,
+                                            TAG.PID,
+                                        ],
+                                    },
                                 },
                             },
                             "Proportional_Gain_Parameter": {
@@ -178,6 +192,9 @@ parameter_definitions = {
                                 ],
                                 "subclasses": {
                                     "Supply_Air_Proportional_Gain_Parameter": {
+                                        OWL.equivalentClass: BRICK[
+                                            "Discharge_Air_Proportional_Gain_Parameter"
+                                        ],
                                         "tags": [
                                             TAG.Point,
                                             TAG.Parameter,
@@ -185,6 +202,17 @@ parameter_definitions = {
                                             TAG.Gain,
                                             TAG.Proportional,
                                             TAG.Supply,
+                                            TAG.Air,
+                                        ],
+                                    },
+                                    "Discharge_Air_Proportional_Gain_Parameter": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Parameter,
+                                            TAG.PID,
+                                            TAG.Gain,
+                                            TAG.Proportional,
+                                            TAG.Discharge,
                                             TAG.Air,
                                         ],
                                     },
@@ -238,6 +266,20 @@ parameter_definitions = {
                                             TAG.Parameter,
                                         ],
                                         "subclasses": {
+                                            "Supply_Air_Static_Pressure_Step_Parameter": {
+                                                OWL.equivalentClass: BRICK[
+                                                    "Discharge_Air_Static_Pressure_Step_Parameter"
+                                                ],
+                                                "tags": [
+                                                    TAG.Point,
+                                                    TAG.Supply,
+                                                    TAG.Air,
+                                                    TAG.Static,
+                                                    TAG.Pressure,
+                                                    TAG.Step,
+                                                    TAG.Parameter,
+                                                ],
+                                            },
                                             "Discharge_Air_Static_Pressure_Step_Parameter": {
                                                 "tags": [
                                                     TAG.Point,
@@ -528,24 +570,27 @@ parameter_definitions = {
                                             },
                                         },
                                     },
-                                    "Supply_Water_Differential_Pressure_Integral_Time_Parameter": {
+                                    "Supply_Water_Temperature_Integral_Time_Parameter": {
+                                        OWL.equivalentClass: BRICK[
+                                            "Discharge_Water_Temperature_Integral_Time_Parameter"
+                                        ],
+                                        "parents": [BRICK.Temperature_Parameter],
                                         "tags": [
                                             TAG.Point,
                                             TAG.Supply,
                                             TAG.Water,
-                                            TAG.Differential,
-                                            TAG.Pressure,
+                                            TAG.Temperature,
                                             TAG.Integral,
                                             TAG.Time,
                                             TAG.Parameter,
                                             TAG.PID,
                                         ],
                                     },
-                                    "Supply_Water_Temperature_Integral_Time_Parameter": {
+                                    "Discharge_Water_Temperature_Integral_Time_Parameter": {
                                         "parents": [BRICK.Temperature_Parameter],
                                         "tags": [
                                             TAG.Point,
-                                            TAG.Supply,
+                                            TAG.Discharge,
                                             TAG.Water,
                                             TAG.Temperature,
                                             TAG.Integral,
@@ -570,8 +615,6 @@ parameter_definitions = {
                     "Proportional_Band_Parameter": {
                         "tags": [
                             TAG.Point,
-                            TAG.Parameter,
-                            TAG.PID,
                             TAG.Proportional,
                             TAG.Band,
                             TAG.Parameter,
@@ -919,6 +962,9 @@ parameter_definitions = {
                         "parents": [BRICK.Temperature_Parameter],
                         "subclasses": {
                             "Supply_Air_Temperature_Setpoint_Limit": {
+                                OWL.equivalentClass: BRICK[
+                                    "Discharge_Air_Temperature_Setpoint_Limit"
+                                ],
                                 "tags": [
                                     TAG.Point,
                                     TAG.Supply,
@@ -929,6 +975,9 @@ parameter_definitions = {
                                 ],
                                 "subclasses": {
                                     "Max_Supply_Air_Temperature_Setpoint_Limit": {
+                                        OWL.equivalentClass: BRICK[
+                                            "Max_Discharge_Air_Temperature_Setpoint_Limit"
+                                        ],
                                         "tags": [
                                             TAG.Point,
                                             TAG.Max,
@@ -943,6 +992,9 @@ parameter_definitions = {
                                         ],
                                     },
                                     "Min_Supply_Air_Temperature_Setpoint_Limit": {
+                                        OWL.equivalentClass: BRICK[
+                                            "Min_Discharge_Air_Temperature_Setpoint_Limit"
+                                        ],
                                         "tags": [
                                             TAG.Point,
                                             TAG.Min,
