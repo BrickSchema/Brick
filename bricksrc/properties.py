@@ -129,7 +129,7 @@ properties = {
         OWL.inverseOf: BRICK.isMeterOf,
         RDFS.range: BRICK.Meter,
         RDFS.label: Literal(
-            "Indicates the meter measuring the consumption of some substance by the subject entity"
+            "Indicates the meter measuring the consumption/production of some substance by the subject entity"
         ),
     },
     "isMeterOf": {
@@ -137,7 +137,7 @@ properties = {
         OWL.inverseOf: BRICK.hasMeter,
         RDFS.domain: BRICK.Meter,
         RDFS.label: Literal(
-            "Indicates the entity whose consumption of substance is measured by this meter"
+            "Indicates the entity whose consumption/production of some substance is measured by this meter"
         ),
     },
     "hasSubMeter": {
