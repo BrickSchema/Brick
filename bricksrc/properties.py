@@ -99,19 +99,6 @@ properties = {
         RDFS.domain: BRICK.Tag,
         RDFS.label: Literal("Is tag of"),
     },
-    "regulates": {
-        A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
-        OWL.inverseOf: BRICK["isRegulatedBy"],
-        RDFS.domain: BRICK.Equipment,
-        RDFS.range: BRICK.Substance,
-        RDFS.label: Literal("Regulates"),
-    },
-    "isRegulatedBy": {
-        A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
-        RDFS.domain: BRICK.Substance,
-        RDFS.range: BRICK.Equipment,
-        RDFS.label: Literal("Is regulated by"),
-    },
     "hasAssociatedTag": {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         OWL.inverseOf: BRICK["isAssociatedWith"],
@@ -136,5 +123,35 @@ properties = {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         RDFS.range: UNIT.Unit,
         RDFS.label: Literal("Has unit"),
+    },
+    "hasMeter": {
+        A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+        OWL.inverseOf: BRICK.isMeterOf,
+        RDFS.range: BRICK.Meter,
+        RDFS.label: Literal(
+            "Indicates the meter measuring the consumption of some substance by the subject entity"
+        ),
+    },
+    "isMeterOf": {
+        A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+        OWL.inverseOf: BRICK.hasMeter,
+        RDFS.domain: BRICK.Meter,
+        RDFS.label: Literal(
+            "Indicates the entity whose consumption of substance is measured by this meter"
+        ),
+    },
+    "hasSubMeter": {
+        A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+        OWL.inverseOf: BRICK.isSubMeterOf,
+        RDFS.range: BRICK.Meter,
+        RDFS.domain: BRICK.Meter,
+        RDFS.label: Literal("Indicates a submeter of this meter"),
+    },
+    "isSubMeterOf": {
+        A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+        OWL.inverseOf: BRICK.hasSubMeter,
+        RDFS.range: BRICK.Meter,
+        RDFS.domain: BRICK.Meter,
+        RDFS.label: Literal("Indicates the parent for which this meter is a submeter"),
     },
 }
