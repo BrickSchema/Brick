@@ -44,7 +44,7 @@ g.add((BLDG["building_peak_demand"], BRICK.isPointOf, BLDG["main-meter"]))
 g.add((BLDG["building_peak_demand"], BRICK.hasUnit, UNIT["KiloW"]))
 other_props = [
     (BRICK.aggregationFunction, Literal("max")),
-    (BRICK.aggregationWindow, Literal("RP1D")),
+    (BRICK.aggregationInterval, Literal("RP1D")),
 ]
 g.add((BLDG["building_peak_demand"], BRICK.aggregate, other_props))
 timeseries_props = [
