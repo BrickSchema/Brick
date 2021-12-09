@@ -2,8 +2,8 @@
 
 Brick.ttl: bricksrc/*.py bricksrc/*.ttl bricksrc/definitions.csv generate_brick.py
 	mkdir -p extensions
-	python3.10 generate_brick.py
-	cd shacl && python3.10 generate_shacl.py
+	python generate_brick.py
+	cd shacl && python generate_shacl.py
 
 shacl/BrickShape.ttl: bricksrc/*.py generate_brick.py shacl/generate_shacl.py
 	cd shacl && python generate_shacl.py
@@ -34,3 +34,6 @@ hierarchy-test: Brick.ttl
 
 measures-test: Brick.ttl
 	pytest -s -vvvv tests/test_measures_inference.py
+
+matches-test: Brick.ttl
+	pytest -s -vvvv tests/test_matching_classes.py

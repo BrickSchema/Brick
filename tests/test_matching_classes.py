@@ -5,6 +5,7 @@ from rdflib import Graph, URIRef
 import json
 import brickschema
 import sys
+from collections import defaultdict
 
 sys.path.append("..")
 
@@ -13,7 +14,8 @@ from bricksrc.namespaces import BRICK  # noqa: E402
 
 
 def getDict(g, q):
-    dict = {}
+
+    d = defaultdict(list)
 
     res = g.query(q)
 
@@ -21,12 +23,9 @@ def getDict(g, q):
         c1 = row.c.toPython().replace("https://brickschema.org/schema/Brick#", "")
         if row.p:
             c2 = row.p.toPython().replace("https://brickschema.org/schema/Brick#", "")
-            if c1 in dict:
-                dict[c1].append(c2)
-            else:
-                dict[c1] = [c2]
+            d[c1].append(c2)
 
-    return dict
+    return d
 
 
 def matchMinMax(d):
