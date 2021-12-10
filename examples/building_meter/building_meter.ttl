@@ -14,7 +14,7 @@ bldg:building_peak_demand a brick:Peak_Power_Demand_Sensor ;
     brick:isPointOf bldg:main-meter ;
     brick:timeseries [ brick:hasTimeseriesId "bcf9a85d-696c-446a-a2ac-97207ecfbc56" ] .
 
-bldg:building_power_sensor a brick:Electrical_Power_Sensor ;
+bldg:building_power_sensor a brick:Electric_Power_Sensor ;
     brick:hasUnit unit:KiloW ;
     brick:isPointOf bldg:main-meter ;
     brick:timeseries [ brick:hasTimeseriesId "fd64fbc8-0742-4e1e-8f88-e2cd8a3d78af" ] .
@@ -22,17 +22,17 @@ bldg:building_power_sensor a brick:Electrical_Power_Sensor ;
 bldg:mysite a brick:Site ;
     brick:hasPart bldg:mybldg .
 
-bldg:submeter-submeter-floor1-power a brick:Electrical_Power_Sensor ;
+bldg:submeter-submeter-floor1-power a brick:Electric_Power_Sensor ;
     brick:hasUnit unit:KiloW ;
     brick:isPointOf bldg:submeter-floor1 ;
     brick:timeseries [ brick:hasTimeseriesId "647654d4-56ee-11ec-bf02-3dcb0419df3b" ] .
 
-bldg:submeter-submeter-floor2-power a brick:Electrical_Power_Sensor ;
+bldg:submeter-submeter-floor2-power a brick:Electric_Power_Sensor ;
     brick:hasUnit unit:KiloW ;
     brick:isPointOf bldg:submeter-floor2 ;
     brick:timeseries [ brick:hasTimeseriesId "7a5e3870-56ee-11ec-bf02-3dcb0419df3b" ] .
 
-bldg:submeter-submeter-floor3-power a brick:Electrical_Power_Sensor ;
+bldg:submeter-submeter-floor3-power a brick:Electric_Power_Sensor ;
     brick:hasUnit unit:KiloW ;
     brick:isPointOf bldg:submeter-floor3 ;
     brick:timeseries [ brick:hasTimeseriesId "82332722-56ee-11ec-bf02-3dcb0419df3b" ] .

@@ -169,3 +169,18 @@ def test_tag_inference():
         )
     )
     assert len(res) == 2
+
+
+def test_owl_inverse():
+    g = brickschema.Graph()
+    g.parse("Brick.ttl", format="turtle")
+    g.add((BLDG.vav1, BRICK.hasPoint, BLDG.AFS2))
+    g.add((BLDG.vav1, A, BRICK.VAV))
+    g.add((BLDG.AFS2, A, BRICK.Air_Flow_Sensor))
+    g.expand("shacl")
+
+    res = make_readable(g.query("SELECT ?hasPoint WHERE { ?x brick:hasPoint ?y }"))
+    assert len(res) == 1
+
+    res = make_readable(g.query("SELECT ?hasPoint WHERE { ?x brick:isPointOf ?y }"))
+    assert len(res) == 1

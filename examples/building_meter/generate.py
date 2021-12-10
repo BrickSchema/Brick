@@ -30,7 +30,7 @@ timeseries_props = [
 g.add((BLDG["building_energy_sensor"], BRICK.timeseries, timeseries_props))
 
 # power sensor
-g.add((BLDG["building_power_sensor"], A, BRICK.Electrical_Power_Sensor))
+g.add((BLDG["building_power_sensor"], A, BRICK.Electric_Power_Sensor))
 g.add((BLDG["building_power_sensor"], BRICK.isPointOf, BLDG["main-meter"]))
 g.add((BLDG["building_power_sensor"], BRICK.hasUnit, UNIT["KiloW"]))
 timeseries_props = [
@@ -78,9 +78,7 @@ for submeter in submeters:
     g.add((BLDG[submeter["floor"]], BRICK.isPartOf, BLDG["mybldg"]))
 
     # each of them has a power sensor w/ a provided UUID
-    g.add(
-        (BLDG[f"submeter-{submeter['name']}-power"], A, BRICK.Electrical_Power_Sensor)
-    )
+    g.add((BLDG[f"submeter-{submeter['name']}-power"], A, BRICK.Electric_Power_Sensor))
     g.add(
         (
             BLDG[f"submeter-{submeter['name']}-power"],
