@@ -179,8 +179,8 @@ def test_owl_inverse():
     g.add((BLDG.AFS2, A, BRICK.Air_Flow_Sensor))
     g.expand("shacl")
 
-    res = make_readable(g.query("SELECT ?hasPoint WHERE { ?x brick:hasPoint ?y }"))
+    res = make_readable(g.query("SELECT ?x ?y WHERE { ?x brick:hasPoint ?y }"))
     assert len(res) == 1
 
-    res = make_readable(g.query("SELECT ?hasPoint WHERE { ?x brick:isPointOf ?y }"))
+    res = make_readable(g.query("SELECT ?x ?y WHERE { ?x brick:isPointOf ?y }"))
     assert len(res) == 1
