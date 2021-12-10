@@ -59,6 +59,6 @@ bldg:submeter-floor3 a brick:Electrical_Meter ;
     brick:isSubMeterOf bldg:main-meter .
 
 bldg:mybldg a brick:Building ;
-    brick:hasMeter bldg:meter .
+    brick:hasMeter bldg:main-meter .
 
 bldg:main-meter a brick:Building_Electrical_Meter .
