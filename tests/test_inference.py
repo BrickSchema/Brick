@@ -24,10 +24,7 @@ g.add((BLDG.VAV1, A, BRICK.VAV))
 g.add((BLDG.AHU1, BRICK.feedsAir, BLDG.VAV1))
 g.add((BLDG.CH1, A, BRICK.Chiller))
 
-# This gets inferred as an air temperature sensor
-g.add((BLDG.TS1, A, BRICK.Temperature_Sensor))
-g.add((BLDG.TS1, BRICK.measures, BRICK.Air))
-g.add((BLDG.TS2, A, BRICK.Air_Temperature_Sensor))
+g.add((BLDG.TS1, A, BRICK.Air_Temperature_Sensor))
 
 # add air flow sensor
 g.add((BLDG.AFS1, BRICK.hasTag, TAG.Point))
@@ -66,7 +63,7 @@ def test_tag_inference():
 
     # Apply reasoner
     g.load_file("extensions/brick_extension_shacl_tag_inference.ttl")
-    g.expand(profile="shacl+owlrl+shacl+owlrl")
+    g.expand(profile="shacl+shacl+shacl")
 
     g.bind("rdf", RDF)
     g.bind("owl", OWL)
@@ -85,7 +82,6 @@ def test_tag_inference():
                                   }"
         )
     )
-    assert len(res1) == 6
     res1 = [x[0] for x in res1]
     assert set(res1) == {"CO2", "Level", "Sensor", "Point", "Air", "Quality"}
 
@@ -93,7 +89,7 @@ def test_tag_inference():
     res2 = make_readable(
         g.query(
             "SELECT DISTINCT ?sensor WHERE {\
-                                    ?sensor brick:measures brick:CO2_Concentration\
+                    ?sensor rdf:type/brick:hasQuantity brick:CO2_Concentration\
                                   }"
         )
     )
@@ -103,7 +99,7 @@ def test_tag_inference():
     res3 = make_readable(
         g.query(
             "SELECT DISTINCT ?sensor WHERE {\
-                                    ?sensor brick:measures brick:Air\
+                    ?sensor rdf:type/brick:hasSubstance brick:Air\
                                   }"
         )
     )
@@ -114,12 +110,13 @@ def test_tag_inference():
     res4 = make_readable(
         g.query(
             "SELECT DISTINCT ?sensor WHERE {\
-                                    ?sensor brick:measures brick:Air .\
-                                    ?sensor rdf:type brick:Temperature_Sensor\
-                                  }"
+                ?sensor rdf:type ?type .\
+                ?type brick:hasSubstance brick:Air .\
+                ?type rdfs:subClassOf* brick:Temperature_Sensor\
+          }"
         )
     )
-    assert len(res4) == 2
+    assert len(res4) == 1
 
     # air flow sensors
     res = make_readable(
@@ -145,7 +142,7 @@ def test_tag_inference():
     res = make_readable(
         g.query(
             "SELECT DISTINCT ?sp WHERE {\
-                                    ?sp rdf:type brick:Setpoint\
+                    ?sp rdf:type/rdfs:subClassOf* brick:Setpoint\
                                  }"
         )
     )

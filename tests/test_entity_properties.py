@@ -18,7 +18,7 @@ def test_entity_property_validation():
         )
     )
 
-    g.expand("brick")
+    g.expand("shacl")
     valid, _, report = g.validate()
     assert valid, report
 
@@ -35,6 +35,31 @@ def test_entity_property_validation():
         )
     )
 
-    g.expand("brick", backend="owlrl")
+    g.expand("shacl")
     valid, _, report = g.validate()
     assert not valid, "'AquariumFail' should have thrown a validation error"
+
+
+def test_entity_property_type_inference():
+    g = brickschema.Graph()
+    EX = Namespace("urn:ex#")
+    BACNET = Namespace("http://data.ashrae.org/bacnet/2020#")
+    g.load_file("Brick.ttl")
+    g.add(
+        (
+            EX["point"],
+            BRICK.hasBACnetReference,
+            [
+                (BACNET.objectOf, [(A, BACNET.Device)]),
+                (BRICK.BACnetURI, Literal("bacnet://123/analog-input,3/present-value")),
+            ],
+        )
+    )
+
+    g.expand("shacl")
+    g.serialize("/tmp/test.ttl", format="ttl")
+
+    res = g.query(
+        "SELECT ?ref WHERE { ?point brick:hasExternalReference ?ref . ?ref a brick:BACnetReference }"
+    )
+    assert len(res) == 1
