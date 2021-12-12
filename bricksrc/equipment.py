@@ -10,7 +10,7 @@ equipment_subclasses = {
         "tags": [TAG.Shade, TAG.Equipment],
         "subclasses": {
             "Shade": {
-                "tags": [TAG.Shade, TAG.Equipment, TAG.TODO] #TODO: This should be discussed.
+                "tags": [TAG.Shade, TAG.Equipment]
             },
             "Louver": {"tags": [TAG.Shade, TAG.Equipment, TAG.Louver]},
             "Automatic_Tint_Window": {
