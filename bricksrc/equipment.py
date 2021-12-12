@@ -192,7 +192,7 @@ equipment_subclasses = {
                 "tags": [TAG.Equipment, TAG.Fire, TAG.Safety, TAG.Panel, TAG.Control],
             },
             "Fire_Alarm_Panel": {
-                "tags": [TAG.Equipment, TAG.Fire, TAG.Safety, TAG.Panel, TAG.Control, TAG.Alarm],
+                "tags": [TAG.Equipment, TAG.Fire, TAG.Safety, TAG.Panel, TAG.Alarm],
             },
             "Fire_Alarm": {
                 "tags": [TAG.Equipment, TAG.Fire, TAG.Safety, TAG.Alarm],
