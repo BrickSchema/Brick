@@ -8,6 +8,7 @@ setpoint_definitions = {
         ),
         "tags": [TAG.Point, TAG.Setpoint],
         "subclasses": {
+            "Illuminance_Setpoint": {"tags": [TAG.Point, TAG.Setpoint, TAG.Illuminance]},
             "Enthalpy_Setpoint": {
                 BRICK.hasQuantity: BRICK.Enthalpy,
                 "tags": [TAG.Point, TAG.Setpoint, TAG.Enthalpy],
