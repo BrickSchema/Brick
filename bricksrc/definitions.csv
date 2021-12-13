@@ -35,6 +35,7 @@ https://brickschema.org/schema/Brick#Air_Temperature_Setpoint,Sets temperature o
 https://brickschema.org/schema/Brick#Air_Temperature_Step_Parameter,,
 https://brickschema.org/schema/Brick#Alarm,Alarm points are signals (either audible or visual) that alert an operator to an off-normal condition which requires some form of corrective action,https://xp20.ashrae.org/terminology/index.php?term=alarm
 https://brickschema.org/schema/Brick#Alarm_Delay_Parameter,A parameter determining how long to delay an alarm after sufficient conditions have been met,
+https://brickschema.org/schema/Brick#Alarm_Sensitivity_Parameter,A parameter indicates the sensitivity to activate an alarm.,
 https://brickschema.org/schema/Brick#Alternating_Current_Frequency,The frequency of the oscillations of alternating current,
 https://brickschema.org/schema/Brick#Angle,"The inclination to each other of two intersecting lines, measured by the arc of a circle intercepted between the two lines forming the angle, the center of the circle being the point of intersection.  An acute angle is less than (90^\circ), a right angle (90^\circ); an obtuse angle, more than (90^\circ) but less than (180^\circ); a straight angle, (180^\circ); a reflex angle, more than (180^\circ) but less than (360^\circ); a perigon, (360^\circ). Any angle not a multiple of (90^\circ) is an oblique angle. If the sum of two angles is (90^\circ), they are complementary angles; if (180^\circ), supplementary angles; if (360^\circ), explementary angles.",
 https://brickschema.org/schema/Brick#Angle_Sensor,Measues the planar angle of some phenomenon,
@@ -401,6 +402,9 @@ https://brickschema.org/schema/Brick#Filter_Differential_Pressure_Sensor,Measure
 https://brickschema.org/schema/Brick#Filter_Reset_Command,,
 https://brickschema.org/schema/Brick#Filter_Status,Indicates if a filter needs to be replaced,
 https://brickschema.org/schema/Brick#Final_Filter,"The last, high-efficiency filter installed in a sequence to remove the finest particulates from the substance being filtered",
+https://brickschema.org/schema/Brick#Fire_Alarm_Control_Panel,Fire alarm panel is the controlling component of a fire alarm system.,https://en.wikipedia.org/wiki/Fire_alarm_control_panel
+https://brickschema.org/schema/Brick#Fire_Alarm_Pull_Station,An active fire protection device (usually wall-mounted) that when activated initiates an alarm on a fire alarm system. In its simplest form the user activates the alarm by pulling the handle down.,https://en.wikipedia.org/wiki/Manual_fire_alarm_activation#Fire_alarm_pull_station
+https://brickschema.org/schema/Brick#Fire_Alarm_Manual_Call_Point,Manual alarm call points are designed for the purpose of raising an alarm manually once verification of a fire or emergency condition exists. by operating the push button or break glass the alarm signal can be raised.,http://www.coopermedc.com/products/manual-alarm-call-points
 https://brickschema.org/schema/Brick#Fire_Control_Panel,A panel-mounted device that provides status and control of a fire safety system,
 https://brickschema.org/schema/Brick#Fire_Safety_System,"A system containing devices and equipment that monitor, detect and suppress fire hazards",https://assetinsights.net/Glossary/G_Fire_Safety_System.html
 https://brickschema.org/schema/Brick#Fire_Sensor,Measures the presence of fire,
@@ -613,6 +617,7 @@ https://brickschema.org/schema/Brick#Makeup_Air_Unit,A device designed to condit
 https://brickschema.org/schema/Brick#Makeup_Water,"Water used used to makeup water loss through leaks, evaporation, or blowdown",
 https://brickschema.org/schema/Brick#Makeup_Water_Valve,"A valve regulating the flow of makeup water into a water holding tank, e.g. a cooling tower, hot water tank",
 https://brickschema.org/schema/Brick#Manual_Auto_Status,Indicates if a system is under manual or automatic operation,
+https://brickschema.org/schema/Brick#Manual_Fire_Alarm_Activation_Equipment,A device for manually activating fire alarm,https://en.wikipedia.org/wiki/Manual_fire_alarm_activation
 https://brickschema.org/schema/Brick#Massage_Room,"Usually adjunct to an athletic facility, a private/semi-private space where massages are performed",
 https://brickschema.org/schema/Brick#MAU,See Makeup_Air_Unit,
 https://brickschema.org/schema/Brick#Max_Air_Temperature_Setpoint,Setpoint for maximum air temperature,
