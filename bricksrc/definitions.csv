@@ -398,7 +398,7 @@ https://brickschema.org/schema/Brick#Filter_Differential_Pressure_Sensor,Measure
 https://brickschema.org/schema/Brick#Filter_Reset_Command,,
 https://brickschema.org/schema/Brick#Filter_Status,Indicates if a filter needs to be replaced,
 https://brickschema.org/schema/Brick#Final_Filter,"The last, high-efficiency filter installed in a sequence to remove the finest particulates from the substance being filtered",
-https://brickschema.org/schema/Brick#Fire_Alarm_Panel,Fire alarm panel is the controlling component of a fire alarm system.,https://en.wikipedia.org/wiki/Fire_alarm_control_panel
+https://brickschema.org/schema/Brick#Fire_Alarm_Control_Panel,Fire alarm panel is the controlling component of a fire alarm system.,https://en.wikipedia.org/wiki/Fire_alarm_control_panel
 https://brickschema.org/schema/Brick#Fire_Alarm_Pull_Station,An active fire protection device (usually wall-mounted) that when activated initiates an alarm on a fire alarm system. In its simplest form the user activates the alarm by pulling the handle down.,https://en.wikipedia.org/wiki/Manual_fire_alarm_activation#Fire_alarm_pull_station
 https://brickschema.org/schema/Brick#Fire_Alarm_Manual_Call_Point,Manual alarm call points are designed for the purpose of raising an alarm manually once verification of a fire or emergency condition exists. by operating the push button or break glass the alarm signal can be raised.,http://www.coopermedc.com/products/manual-alarm-call-points
 https://brickschema.org/schema/Brick#Fire_Control_Panel,A panel-mounted device that provides status and control of a fire safety system,
