@@ -200,7 +200,30 @@ equipment_subclasses = {
         "tags": [TAG.Equipment, TAG.Fire, TAG.Safety],
         "subclasses": {
             "Fire_Control_Panel": {
-                "tags": [TAG.Equipment, TAG.Fire, TAG.Safety, TAG.Panel],
+                "tags": [TAG.Equipment, TAG.Fire, TAG.Safety, TAG.Panel, TAG.Control],
+            },
+            "Fire_Alarm_Control_Panel": {
+                "tags": [TAG.Equipment, TAG.Fire, TAG.Safety, TAG.Panel, TAG.Control, TAG.Alarm],
+            },
+            "Fire_Alarm": {
+                "tags": [TAG.Equipment, TAG.Fire, TAG.Safety, TAG.Alarm],
+            },
+            "Manual_Fire_Alarm_Activation_Equipment": {
+                "tags": [TAG.Equipment, TAG.Fire, TAG.Safety, TAG.Alarm, TAG.Activation, TAG.Manual],
+                "subclasses": {
+                    "Fire_Alarm_Pull_Station": {
+                        "tags": [TAG.Equipment, TAG.Fire, TAG.Safety, TAG.Pull, TAG.Station, TAG.Alarm, TAG.Manual],
+                    },
+                    "Fire_Alarm_Manual_Call_Point": {
+                        "tags": [TAG.Equipment, TAG.Fire, TAG.Safety, TAG.Call, TAG.Station, TAG.Alarm, TAG.Manual],
+                    },
+                }
+            },
+            "Heat_Detector": {
+                "tags": [TAG.Equipment, TAG.Fire, TAG.Safety, TAG.Heat, TAG.Detector],
+            },
+            "Smoke_Detector": {
+                "tags": [TAG.Equipment, TAG.Fire, TAG.Safety, TAG.Smoke, TAG.Detector],
             },
         },
     },
