@@ -17,15 +17,15 @@ bsh:InferInverseProperties
       sh:construct """
 CONSTRUCT {
 ?o ?invP $this .
+$this ?p ?o .
 }
 WHERE {
-  $this ?p ?o .
+  { $this ?p ?o } UNION { ?o ?invP $this } .
   ?p owl:inverseOf ?invP .
 }
 			""" ;
       sh:prefixes owl: ;
     ] ;
-
   sh:targetClass brick:Entity ;
 .
 
@@ -36,9 +36,10 @@ bsh:InferSymmetricProperties
       sh:construct """
 CONSTRUCT {
 ?o ?prop $this .
+$this ?prop ?o .
 }
 WHERE {
-  $this ?prop ?o .
+  { $this ?prop ?o } UNION { ?o ?prop $this } .
   ?prop a owl:SymmetricProperty .
 }
 			""" ;
