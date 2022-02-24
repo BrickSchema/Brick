@@ -1,13 +1,10 @@
-isodate==0.6.0
 owlrl>=6.0
-pyparsing==2.3.1
 rdflib>=6.1
-six==1.12.0
 pytest>=6.2
 tqdm>=4.46.1
 pyshacl>=0.18
 docker>=4.3.0
-brickschema[all]>=0.6.0a3
+brickschema[all]>=0.6.0a5
 black==22.1.0
 pre-commit>=2.13.0
 flake8==3.9.2
