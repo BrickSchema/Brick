@@ -1,5 +1,5 @@
 isodate==0.6.0
-owlrl>=5.2.1
+owlrl>=6.0
 pyparsing==2.3.1
 rdflib>=6.1
 six==1.12.0
