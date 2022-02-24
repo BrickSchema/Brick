@@ -381,13 +381,13 @@ shape_properties = {
     BSH.BuildingPrimaryFunctionShape: {"values": building_primary_function_values},
     BSH.CoordinateShape: {
         "properties": {
-            BSH.latitude: {"datatype": BSH.NumericValue},
-            BSH.longitude: {"datatype": BSH.NumericValue},
+            BRICK.latitude: {"datatype": BSH.NumericValue},
+            BRICK.longitude: {"datatype": BSH.NumericValue},
         },
     },
     BSH.TiltShape: {"unitsFromQuantity": BRICK.Angle, "datatype": BSH.NumericValue},
     BSH.TemperatureShape: {
-        "unitsFromQuantity": BSH.Temperature,
+        "unitsFromQuantity": BRICK.Temperature,
         "datatype": BSH.NumericValue,
     },
     BSH.TemperatureCoefficientPerDegreeCelsiusShape: {
@@ -395,7 +395,7 @@ shape_properties = {
         "datatype": BSH.NumericValue,
     },
     BSH.AzimuthShape: {
-        "unitsFromQuantity": BSH.Angle,
+        "unitsFromQuantity": BRICK.Angle,
         "datatype": BSH.NumericValue,
         "rotationalDirection": {"values": ["clockwise", "counterclockwise"]},
         "referenceDirection": {"values": ["North", "South", "East", "West"]},
@@ -408,63 +408,63 @@ shape_properties = {
     },
     BSH.PowerShape: {
         "datatype": BSH.NumericValue,
-        "unitsFromQuantity": BSH.Power,
+        "unitsFromQuantity": BRICK.Power,
         "properties": {
-            BSH.ambientTemperatureOfMeasurement: {
+            BRICK.ambientTemperatureOfMeasurement: {
                 "optional": True,
                 SKOS.definition: Literal(
                     "The ambient temperature at which the power input was measured"
                 ),
                 SH["class"]: BSH.TemperatureShape,
             },
-            BSH.ratedVoltageInput: {
+            BRICK.ratedVoltageInput: {
                 "optional": True,
             },
-            BSH.ratedVoltageOutput: {
+            BRICK.ratedVoltageOutput: {
                 "optional": True,
             },
-            BSH.ratedCurrentInput: {
+            BRICK.ratedCurrentInput: {
                 "optional": True,
             },
-            BSH.ratedCurrentOutput: {
+            BRICK.ratedCurrentOutput: {
                 "optional": True,
             },
         },
     },
     BSH.VoltageShape: {
         "datatype": BSH.NumericValue,
-        "unitsFromQuantity": BSH.Voltage,
+        "unitsFromQuantity": BRICK.Voltage,
         "properties": {
-            BSH.ambientTemperatureOfMeasurement: {
+            BRICK.ambientTemperatureOfMeasurement: {
                 "optional": True,
                 SKOS.definition: Literal(
                     "The ambient temperature at which the power input was measured"
                 ),
                 SH["class"]: BSH.TemperatureShape,
             },
-            BSH.ratedCurrentInput: {
+            BRICK.ratedCurrentInput: {
                 "optional": True,
             },
-            BSH.ratedCurrentOutput: {
+            BRICK.ratedCurrentOutput: {
                 "optional": True,
             },
         },
     },
     BSH.CurrentShape: {
         "datatype": BSH.NumericValue,
-        "unitsFromQuantity": BSH.Current,
+        "unitsFromQuantity": BRICK.Current,
         "properties": {
-            BSH.ambientTemperatureOfMeasurement: {
+            BRICK.ambientTemperatureOfMeasurement: {
                 "optional": True,
                 SKOS.definition: Literal(
                     "The ambient temperature at which the power input was measured"
                 ),
                 SH["class"]: BSH.TemperatureShape,
             },
-            BSH.ratedVoltageInput: {
+            BRICK.ratedVoltageInput: {
                 "optional": True,
             },
-            BSH.ratedVoltageOutput: {
+            BRICK.ratedVoltageOutput: {
                 "optional": True,
             },
         },
@@ -480,13 +480,13 @@ shape_properties = {
     },
     BSH.AggregationShape: {
         "properties": {
-            BSH.aggregationFunction: {
+            BRICK.aggregationFunction: {
                 SKOS.definition: Literal(
                     "The aggregation function applied to data in the interval which produces the value"
                 ),
                 "values": ["max", "min", "count", "mean", "sum", "median", "mode"],
             },
-            BSH.aggregationInterval: {
+            BRICK.aggregationInterval: {
                 SKOS.definition: Literal(
                     "Interval expressed in an ISO 8601 Duration string, e.g. RP1D"
                 ),
