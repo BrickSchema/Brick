@@ -14,6 +14,8 @@ location_subclasses = {
         "constraints": {
             BRICK.hasPart: [
                 BRICK.Floor,
+                BRICK.Room,
+                BRICK.Space,
                 BRICK.Zone,
                 BRICK.Wing,
             ],
@@ -33,6 +35,7 @@ location_subclasses = {
             BRICK.hasPart: [
                 BRICK.Room,
                 BRICK.Space,
+                BRICK.Zone,
             ],
         },
     },
