@@ -11,6 +11,15 @@ location_subclasses = {
                 "tags": [TAG.Location, TAG.Parking, TAG.Structure, TAG.Building]
             },
         },
+        "constraints": {
+            BRICK.hasPart: [
+                BRICK.Floor,
+                BRICK.Room,
+                BRICK.Space,
+                BRICK.Zone,
+                BRICK.Wing,
+            ],
+        },
     },
     "Floor": {
         "tags": [TAG.Floor, TAG.Location],
@@ -22,6 +31,13 @@ location_subclasses = {
             },
         },
         OWL.equivalentClass: BRICK["Storey"],
+        "constraints": {
+            BRICK.hasPart: [
+                BRICK.Room,
+                BRICK.Space,
+                BRICK.Zone,
+            ],
+        },
     },
     "Storey": {
         "tags": [TAG.Storey, TAG.Location],
@@ -41,7 +57,18 @@ location_subclasses = {
     },
     "Outside": {"tags": [TAG.Outside, TAG.Location]},
     "Region": {"tags": [TAG.Location, TAG.Region]},
-    "Site": {"tags": [TAG.Site, TAG.Location]},
+    "Site": {
+        "tags": [TAG.Site, TAG.Location],
+        "constraints": {
+            BRICK.hasPart: [
+                BRICK.Building,
+                BRICK.Region,
+                BRICK.Site,
+                BRICK.Space,
+                BRICK.Room,
+            ],
+        },
+    },
     "Wing": {"tags": [TAG.Wing, TAG.Location]},
     "Space": {
         "tags": [TAG.Space, TAG.Location],
@@ -602,6 +629,12 @@ location_subclasses = {
             "HVAC_Zone": {"tags": [TAG.HVAC, TAG.Zone, TAG.Location]},
             "Lighting_Zone": {"tags": [TAG.Lighting, TAG.Zone, TAG.Location]},
             "Fire_Zone": {"tags": [TAG.Fire, TAG.Zone, TAG.Location]},
+        },
+        "constraints": {
+            BRICK.hasPart: [
+                BRICK.Room,
+                BRICK.Space,
+            ],
         },
     },
 }
