@@ -1102,7 +1102,7 @@ https://brickschema.org/schema/Brick#Zone_Air_Dewpoint_Sensor,Measures dewpoint 
 https://brickschema.org/schema/Brick#Zone_Air_Heating_Temperature_Setpoint,The lower (heating) setpoint for zone air temperature,
 https://brickschema.org/schema/Brick#Zone_Air_Humidity_Sensor,Measures the relative humidity of zone air,
 https://brickschema.org/schema/Brick#Zone_Air_Humidity_Setpoint,Humidity setpoint for zone air,
-https://brickschema.org/schema/Brick#Zone_Air_Temperature_Sensor,Measures the temperature of air in a zone,
+https://brickschema.org/schema/Brick#Zone_Air_Temperature_Sensor,A physical or virtual sensor which represents the temperature of an HVAC Zone,
 https://brickschema.org/schema/Brick#Zone_Air_Temperature_Setpoint,Sets temperature of zone air,
 https://brickschema.org/schema/Brick#Zone_Standby_Load_Shed_Command,,
 https://brickschema.org/schema/Brick#Zone_Unoccupied_Load_Shed_Command,,
