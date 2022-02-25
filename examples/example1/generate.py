@@ -80,7 +80,7 @@ We can also add relationships between entities in our Brick model. The
 BRICK.feeds relationship indicates a sequence between two pieces of equipment
 """
 
-g.add((BLDG.AHU1A, BRICK.feeds, BLDG.VAV2_3))
+g.add((BLDG.AHU1A, BRICK.feeds, BLDG["VAV2-3"]))
 
 """
 Let's add a few more entities so the graph is more interesting. We will
