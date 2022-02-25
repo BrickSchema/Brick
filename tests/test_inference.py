@@ -169,3 +169,18 @@ def test_tag_inference():
         )
     )
     assert len(res) == 2
+
+
+def test_shacl_owl_equivalentclass():
+    g = brickschema.Graph()
+    g.load_file("Brick.ttl")
+    g.add((BLDG.VAV1, A, BRICK.VAV))
+    g.add((BLDG.VAV2, A, BRICK.Variable_Air_Volume_Box))
+    g.serialize("/tmp/x.ttl", format="turtle")
+    g.expand("shacl")
+    g.serialize("/tmp/y.ttl", format="turtle")
+    res = g.query("SELECT ?vav WHERE { ?vav rdf:type brick:VAV }")
+    assert len(list(res)) == 2, "VAV should be equivalent to Variable_Air_Volume_Box"
+
+    res = g.query("SELECT ?vav WHERE { ?vav rdf:type brick:Variable_Air_Volume_Box }")
+    assert len(list(res)) == 2, "VAV should be equivalent to Variable_Air_Volume_Box"

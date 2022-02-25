@@ -101,7 +101,7 @@ CONSTRUCT {
     sh:targetSubjectsOf rdfs:subPropertyOf ;
 .
 
-bsh:OWLEquivalentClassRule
+bsh:OWLEquivalentClassRule1
     a   sh:NodeShape ;
     sh:rule [
         a sh:SPARQLRule ;
@@ -110,11 +110,29 @@ CONSTRUCT {
     ?s a ?t2 .
 } WHERE {
     ?s a $this .
-    { $this owl:equivalentClass ?t2 }
-    UNION
     { ?t2 owl:equivalentClass $this }
+    UNION
+    { $this owl:equivalentClass ?t2 }
 }""" ;
     sh:prefixes owl: ;
     ] ;
     sh:targetSubjectsOf owl:equivalentClass ;
+.
+
+bsh:OWLEquivalentClassRule2
+    a   sh:NodeShape ;
+    sh:rule [
+        a sh:SPARQLRule ;
+        sh:construct """
+CONSTRUCT {
+    ?s a ?t2 .
+} WHERE {
+    ?s a $this .
+    { ?t2 owl:equivalentClass $this }
+    UNION
+    { $this owl:equivalentClass ?t2 }
+}""" ;
+    sh:prefixes owl: ;
+    ] ;
+    sh:targetObjectsOf owl:equivalentClass ;
 .
