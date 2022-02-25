@@ -453,6 +453,7 @@ def define_shape_properties(definitions):
     for shape_name, defn in definitions.items():
         G.add((shape_name, A, SH.NodeShape))
         G.add((shape_name, A, OWL.Class))
+        G.add((shape_name, RDFS.subClassOf, BSH.ValueShape))
 
         v = BNode()
         # prop:value PropertyShape
@@ -756,6 +757,7 @@ G.add((BRICK.value, A, OWL.DatatypeProperty))
 G.add((BRICK.value, SKOS.definition, Literal("The basic value of an entity property")))
 G.add((BRICK.EntityProperty, RDFS.subClassOf, OWL.ObjectProperty))
 G.add((BRICK.EntityProperty, A, OWL.Class))
+G.add((BSH.ValueShape, A, OWL.Class))
 define_shape_properties(shape_properties)
 define_entity_properties(entity_properties)
 
