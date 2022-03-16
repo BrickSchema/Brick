@@ -330,13 +330,13 @@ sensor_definitions = {
                 "subclasses": {
                     "Ammonia_Sensor": {
                         "tags": [
-                            TAG.Outside,
+                            
                             TAG.Air,
                             TAG.Sensor,
                         ],
                     },
                 },
-                "tags": [TAG.Outside, TAG.Air, TAG.Sensor],
+                "tags": [ TAG.Air, TAG.Sensor],
             },
             "Angle_Sensor": {
                 "substances": [[BRICK.measures, BRICK.Angle]],
