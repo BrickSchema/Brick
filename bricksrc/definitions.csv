@@ -124,7 +124,6 @@ https://brickschema.org/schema/Brick#Chilled_Water_Flow_Setpoint,Sets the target
 https://brickschema.org/schema/Brick#Chilled_Water_Loop,A collection of equipment that transport and regulate chilled water among each other,
 https://brickschema.org/schema/Brick#Chilled_Water_Meter,A meter that measures the usage or consumption of chilled water,
 https://brickschema.org/schema/Brick#Chilled_Water_Pump,A pump that performs work on chilled water; typically part of a chilled water system,
-https://brickschema.org/schema/Brick#Chilled_Water_Pump_Differential_Pressure_Deadband_Setpoint,Sets the size of a deadband of differential pressure of chilled water in a chilled water pump,
 https://brickschema.org/schema/Brick#Chilled_Water_Return_Flow_Sensor,Measures the rate of flow of chilled return water,
 https://brickschema.org/schema/Brick#Chilled_Water_Return_Temperature_Sensor,Measures the temperature of chilled water that is returned to a cooling tower,
 https://brickschema.org/schema/Brick#Chilled_Water_Static_Pressure_Setpoint,Sets static pressure of chilled water,
@@ -876,6 +875,8 @@ https://brickschema.org/schema/Brick#Sensor,A Sensor is an input point that repr
 https://brickschema.org/schema/Brick#Server_Room,,
 https://brickschema.org/schema/Brick#Service_Room,"A class of spaces related to the operations of building subsystems, e.g. HVAC, electrical, IT, plumbing, etc",
 https://brickschema.org/schema/Brick#Setpoint,A Setpoint is an input value at which the desired property is set,https://xp20.ashrae.org/terminology/index.php?term=setpoint
+https://brickschema.org/schema/Brick#Differential_Setpoint,A type of Setpoints that is related to the difference between two measurements,https://xp20.ashrae.org/terminology/index.php?term=setpoint
+https://brickschema.org/schema/Brick#Differential_Temperature_Setpoint,A type of Setpoints that is related to the difference between two temperature measurements,https://xp20.ashrae.org/terminology/index.php?term=setpoint
 https://brickschema.org/schema/Brick#Shade,A screen on a window.,
 https://brickschema.org/schema/Brick#Shade_Array,An array of Shade commonly attached to a single controller.,
 https://brickschema.org/schema/Brick#Shading_System,Devices that can control daylighting through various means,
