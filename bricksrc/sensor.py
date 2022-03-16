@@ -325,6 +325,19 @@ sensor_definitions = {
                     },
                 },
             },
+            "NH3_Sensor": {
+                "substances": [[BRICK.measures, BRICK.Air]],
+                "subclasses": {
+                    "Ammonia_Sensor": {
+                        "tags": [
+                            TAG.Outside,
+                            TAG.Air,
+                            TAG.Sensor,
+                        ],
+                    },
+                },
+                "tags": [TAG.Outside, TAG.Air, TAG.Sensor],
+            },
             "Angle_Sensor": {
                 "substances": [[BRICK.measures, BRICK.Angle]],
                 "subclasses": {
