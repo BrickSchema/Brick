@@ -5,6 +5,7 @@ command_definitions = {
     "Command": {
         "tags": [TAG.Point, TAG.Command],
         "subclasses": {
+            "Tint_Command": {"tags": [TAG.Tint, TAG.Command, TAG.Point]},
             "Cooling_Command": {"tags": [TAG.Point, TAG.Cool, TAG.Command]},
             "Heating_Command": {"tags": [TAG.Point, TAG.Heat, TAG.Command]},
             "Luminance_Command": {"tags": [TAG.Point, TAG.Luminance, TAG.Command]},
@@ -253,6 +254,27 @@ command_definitions = {
                             },
                         },
                     },
+                    "Occupied_Load_Shed_Command": {
+                        "tags": [
+                            TAG.Point,
+                            TAG.Occupied,
+                            TAG.Load,
+                            TAG.Shed,
+                            TAG.Command,
+                        ],
+                        "subclasses": {
+                            "Zone_Occupied_Load_Shed_Command": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Zone,
+                                    TAG.Occupied,
+                                    TAG.Load,
+                                    TAG.Shed,
+                                    TAG.Command,
+                                ],
+                            },
+                        },
+                    },
                 },
             },
             "Mode_Command": {
@@ -275,6 +297,9 @@ command_definitions = {
                 "subclasses": {
                     "Max_Frequency_Command": {
                         "tags": [TAG.Point, TAG.Max, TAG.Fequency, TAG.Command],
+                    },
+                    "Min_Frequency_Command": {
+                        "tags": [TAG.Point, TAG.Min, TAG.Fequency, TAG.Command],
                     },
                 },
             },
