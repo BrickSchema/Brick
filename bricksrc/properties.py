@@ -128,6 +128,8 @@ properties = {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         OWL.inverseOf: BRICK.isMeteredBy,
         RDFS.domain: BRICK.Meter,
+        # this is a special property that implements the 'range' as a SHACL shape
+        "range": [BRICK.Equipment, BRICK.Location, BRICK.Collection],
         RDFS.label: Literal(
             "Indicates the entity whose consumption/production of some substance is measured by this meter"
         ),
@@ -135,6 +137,8 @@ properties = {
     "isMeteredBy": {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         OWL.inverseOf: BRICK.meters,
+        # this is a special property that implements the 'domain' as a SHACL shape
+        "domain": [BRICK.Equipment, BRICK.Location, BRICK.Collection],
         RDFS.range: BRICK.Meter,
         RDFS.label: Literal(
             "Indicates the meter measuring the consumption/production of some substance by the subject entity"

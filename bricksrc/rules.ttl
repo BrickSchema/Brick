@@ -138,11 +138,17 @@ CONSTRUCT {
 .
 
 bsh:MeterRelationshipRule a sh:NodeShape ;
-    sh:targetSubjectsOf brick:meters ;
+    sh:targetClass brick:Meter ;
     sh:property [
         sh:path brick:meters ;
-        sh:class brick:Meter ;
-        sh:maxCount 0 ;
+        sh:qualifiedValueShape [ sh:class brick:Meter ] ;
+        sh:qualifiedMaxCount 0 ;
+        sh:message "Relationship between meters is hasSubMeter/isSubMeterOf, not meters/isMeteredBy" ;
+    ] ;
+    sh:property [
+        sh:path brick:isMeteredBy ;
+        sh:qualifiedValueShape [ sh:class  brick:Meter ] ;
+        sh:qualifiedMaxCount 0 ;
         sh:message "Relationship between meters is hasSubMeter/isSubMeterOf, not meters/isMeteredBy" ;
     ] ;
 .
