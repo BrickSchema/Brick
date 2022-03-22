@@ -5,7 +5,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 bldg:sample-device a bacnet:BACnetDevice ;
-    # TODO: need rest of address from bacnet-shacl
+    bacnet:device-instance 123 ;
     bacnet:hasPort [ a bacnet:Port ] .
 
 bldg:ts1 a brick:Zone_Air_Temperature_Sensor ;

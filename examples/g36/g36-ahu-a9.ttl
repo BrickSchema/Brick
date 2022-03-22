@@ -13,6 +13,7 @@ ex:ahu1 a   brick:AHU ;
     brick:hasPoint  ex:radps1, ex:oats1, ex:oafs1, ex:mats1, ex:fdps1 ,
                     ex:safs_ahu1, ex:sats_ahu1, ex:duct_sp1, ex:rats1, ex:rafs1 ;
     brick:feeds     ex:vav1 .
+ex:vav1 a brick:VAV .
 
 ex:radps1 a  brick:Return_Air_Differential_Pressure_Sensor .
 ex:oats1    a   brick:Outside_Air_Temperature_Sensor .

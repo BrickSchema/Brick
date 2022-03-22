@@ -171,17 +171,6 @@ bsh:isLocationOfDomainShape a sh:NodeShape ;
     sh:message "Property isLocationOf has subject with incorrect type" ;
     sh:targetSubjectsOf brick:isLocationOf .
 
-bsh:isMeasuredByDomainShape a sh:NodeShape ;
-    sh:class brick:Measurable ;
-    sh:message "Property isMeasuredBy has subject with incorrect type" ;
-    sh:targetSubjectsOf brick:isMeasuredBy .
-
-bsh:isMeasuredByRangeShape a sh:NodeShape ;
-    sh:property [ sh:class brick:Point ;
-            sh:message "Property isMeasuredBy has object with incorrect type" ;
-            sh:path brick:isMeasuredBy ] ;
-    sh:targetSubjectsOf brick:isMeasuredBy .
-
 bsh:isPointOfDomainShape a sh:NodeShape ;
     sh:class brick:Point ;
     sh:message "Property isPointOf has subject with incorrect type" ;
@@ -202,17 +191,6 @@ bsh:isTagOfDomainShape a sh:NodeShape ;
     sh:class brick:Tag ;
     sh:message "Property isTagOf has subject with incorrect type" ;
     sh:targetSubjectsOf brick:isTagOf .
-
-bsh:measuresDomainShape a sh:NodeShape ;
-    sh:class brick:Point ;
-    sh:message "Property measures has subject with incorrect type" ;
-    sh:targetSubjectsOf brick:measures .
-
-bsh:measuresRangeShape a sh:NodeShape ;
-    sh:property [ sh:class brick:Measurable ;
-            sh:message "Property measures has object with incorrect type" ;
-            sh:path brick:measures ] ;
-    sh:targetSubjectsOf brick:measures .
 
 bsh:regulatesDomainShape a sh:NodeShape ;
     sh:class brick:Equipment ;

@@ -13,6 +13,9 @@ parameter_definitions = {
                     },
                 },
             },
+            "Alarm_Sensitivity_Parameter": {
+                "tags": [TAG.Point, TAG.Alarm, TAG.Sensitivity, TAG.Parameter],
+            },
             "Humidity_Parameter": {
                 "tags": [TAG.Point, TAG.Humidity, TAG.Parameter],
                 "subclasses": {

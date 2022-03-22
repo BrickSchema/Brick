@@ -3,7 +3,7 @@
 
 bldg:AHU1A a brick:Air_Handler_Unit ;
     brick:feeds bldg:VAV2-4,
-        bldg:VAV2_3 .
+        bldg:VAV2-3 .
 
 bldg:VAV2-3 a brick:Variable_Air_Volume_Box ;
     brick:feeds bldg:VAV2-3Zone .
