@@ -17,13 +17,13 @@ bldg:floor3 a brick:Floor ;
     brick:isPartOf bldg:mybldg .
 
 bldg:submeter-floor1 a brick:Electrical_Meter ;
-    brick:isMeterOf bldg:floor1 .
+    brick:meters bldg:floor1 .
 
 bldg:submeter-floor2 a brick:Electrical_Meter ;
-    brick:isMeterOf bldg:floor2 .
+    brick:meters bldg:floor2 .
 
 bldg:submeter-floor3 a brick:Electrical_Meter ;
-    brick:isMeterOf bldg:floor3 .
+    brick:meters bldg:floor3 .
 
 bldg:submeter-floor1-power a brick:Electric_Power_Sensor ;
     brick:hasUnit unit:KiloW ;

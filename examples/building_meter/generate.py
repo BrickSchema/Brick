@@ -16,7 +16,7 @@ g.add((BLDG["mysite"], BRICK.hasPart, BLDG["mybldg"]))
 
 # add a full building meter to the building
 g.add((BLDG["main-meter"], A, BRICK.Building_Electrical_Meter))
-g.add((BLDG["mybldg"], BRICK.hasMeter, BLDG["meter"]))
+g.add((BLDG["mybldg"], BRICK.isMeteredBy, BLDG["meter"]))
 
 # add sensors to the building meter
 

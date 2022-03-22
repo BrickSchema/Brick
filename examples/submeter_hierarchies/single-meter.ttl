@@ -6,7 +6,7 @@ bldg:mysite a brick:Site ;
     brick:hasPart bldg:mybldg .
 
 bldg:mybldg a brick:Building ;
-    brick:hasMeter bldg:main-meter .
+    brick:isMeteredBy bldg:main-meter .
 
 bldg:main-meter a brick:Building_Electrical_Meter .
 

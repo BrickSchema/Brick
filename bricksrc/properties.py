@@ -124,20 +124,20 @@ properties = {
         RDFS.range: UNIT.Unit,
         RDFS.label: Literal("Has unit"),
     },
-    "hasMeter": {
+    "meters": {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
-        OWL.inverseOf: BRICK.isMeterOf,
-        RDFS.range: BRICK.Meter,
-        RDFS.label: Literal(
-            "Indicates the meter measuring the consumption/production of some substance by the subject entity"
-        ),
-    },
-    "isMeterOf": {
-        A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
-        OWL.inverseOf: BRICK.hasMeter,
+        OWL.inverseOf: BRICK.isMeteredBy,
         RDFS.domain: BRICK.Meter,
         RDFS.label: Literal(
             "Indicates the entity whose consumption/production of some substance is measured by this meter"
+        ),
+    },
+    "isMeteredBy": {
+        A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+        OWL.inverseOf: BRICK.meters,
+        RDFS.range: BRICK.Meter,
+        RDFS.label: Literal(
+            "Indicates the meter measuring the consumption/production of some substance by the subject entity"
         ),
     },
     "hasSubMeter": {
