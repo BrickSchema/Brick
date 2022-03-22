@@ -4,7 +4,13 @@ from .namespaces import TAG, OWL, BRICK
 Set up subclasses of the equipment superclass
 """
 equipment_subclasses = {
-    "HVAC_Equipment": {"tags": [TAG.HVAC, TAG.Equipment]},
+    "HVAC_Equipment": {
+        "tags": [TAG.HVAC, TAG.Equipment],
+        "constraints": {
+            BRICK.hasPart: [BRICK.HVAC_Equipment, BRICK.Valve],
+            BRICK.feeds: [BRICK.HVAC_Equipment, BRICK.Valve, BRICK.Location],
+        },
+    },
     "Weather_Station": {"tags": [TAG.Weather, TAG.Station, TAG.Equipment]},
     "Shading_Equipment": {
         "tags": [TAG.Shade, TAG.Equipment],
@@ -154,6 +160,10 @@ equipment_subclasses = {
     },  # NOTE: Though Panel is a type of Collector.
     "Lighting_Equipment": {
         "tags": [TAG.Lighting, TAG.Equipment],
+        "constraints": {
+            BRICK.hasPart: [BRICK.Lighting_Equipment, BRICK.Electrical_Equipment],
+            BRICK.feeds: [BRICK.Lighting_Equipment, BRICK.Location],
+        },
         "subclasses": {
             "Lighting": {
                 "subclasses": {
