@@ -136,3 +136,13 @@ CONSTRUCT {
     ] ;
     sh:targetObjectsOf owl:equivalentClass ;
 .
+
+bsh:MeterRelationshipRule a sh:NodeShape ;
+    sh:targetSubjectsOf brick:meters ;
+    sh:property [
+        sh:path brick:meters ;
+        sh:class brick:Meter ;
+        sh:maxCount 0 ;
+        sh:message "Relationship between meters is hasSubMeter/isSubMeterOf, not meters/isMeteredBy" ;
+    ] ;
+.
