@@ -34,3 +34,6 @@ hierarchy-test: Brick.ttl
 
 measures-test: Brick.ttl
 	pytest -s -vvvv tests/test_measures_inference.py
+
+matches-test: Brick.ttl
+	pytest -s -vvvv tests/test_matching_classes.py

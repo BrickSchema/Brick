@@ -9,14 +9,12 @@ equipment_subclasses = {
     "Shading_Equipment": {
         "tags": [TAG.Shade, TAG.Equipment],
         "subclasses": {
-            "Shade": {
-                "tags": [TAG.Shade, TAG.Equipment]
-            },
+            "Shade": {"tags": [TAG.Shade, TAG.Equipment]},
             "Louver": {"tags": [TAG.Shade, TAG.Equipment, TAG.Louver]},
             "Automatic_Tint_Window": {
                 "tags": [TAG.Shade, TAG.Equipment, TAG.Automatic, TAG.Tint, TAG.Window]
-            }
-        }
+            },
+        },
     },
     "Electrical_Equipment": {
         "tags": [TAG.Electrical, TAG.Equipment],
@@ -203,21 +201,51 @@ equipment_subclasses = {
                 "tags": [TAG.Equipment, TAG.Fire, TAG.Safety, TAG.Panel, TAG.Control],
             },
             "Fire_Alarm_Control_Panel": {
-                "tags": [TAG.Equipment, TAG.Fire, TAG.Safety, TAG.Panel, TAG.Control, TAG.Alarm],
+                "tags": [
+                    TAG.Equipment,
+                    TAG.Fire,
+                    TAG.Safety,
+                    TAG.Panel,
+                    TAG.Control,
+                    TAG.Alarm,
+                ],
             },
             "Fire_Alarm": {
                 "tags": [TAG.Equipment, TAG.Fire, TAG.Safety, TAG.Alarm],
             },
             "Manual_Fire_Alarm_Activation_Equipment": {
-                "tags": [TAG.Equipment, TAG.Fire, TAG.Safety, TAG.Alarm, TAG.Activation, TAG.Manual],
+                "tags": [
+                    TAG.Equipment,
+                    TAG.Fire,
+                    TAG.Safety,
+                    TAG.Alarm,
+                    TAG.Activation,
+                    TAG.Manual,
+                ],
                 "subclasses": {
                     "Fire_Alarm_Pull_Station": {
-                        "tags": [TAG.Equipment, TAG.Fire, TAG.Safety, TAG.Pull, TAG.Station, TAG.Alarm, TAG.Manual],
+                        "tags": [
+                            TAG.Equipment,
+                            TAG.Fire,
+                            TAG.Safety,
+                            TAG.Pull,
+                            TAG.Station,
+                            TAG.Alarm,
+                            TAG.Manual,
+                        ],
                     },
                     "Fire_Alarm_Manual_Call_Point": {
-                        "tags": [TAG.Equipment, TAG.Fire, TAG.Safety, TAG.Call, TAG.Station, TAG.Alarm, TAG.Manual],
+                        "tags": [
+                            TAG.Equipment,
+                            TAG.Fire,
+                            TAG.Safety,
+                            TAG.Call,
+                            TAG.Station,
+                            TAG.Alarm,
+                            TAG.Manual,
+                        ],
                     },
-                }
+                },
             },
             "Heat_Detector": {
                 "tags": [TAG.Equipment, TAG.Fire, TAG.Safety, TAG.Heat, TAG.Detector],
@@ -688,6 +716,7 @@ hvac_subclasses = {
                 "tags": [TAG.Equipment, TAG.Return, TAG.Air, TAG.Plenum]
             },
             "Supply_Air_Plenum": {
+                OWL.equivalentClass: BRICK["Discharge_Air_Plenum"],
                 "tags": [TAG.Equipment, TAG.Supply, TAG.Air, TAG.Plenum],
                 "subclasses": {
                     "Underfloor_Air_Plenum": {
@@ -699,6 +728,9 @@ hvac_subclasses = {
                         ]
                     },
                 },
+            },
+            "Discharge_Air_Plenum": {
+                "tags": [TAG.Equipment, TAG.Discharge, TAG.Air, TAG.Plenum],
             },
         },
     },
@@ -712,7 +744,13 @@ valve_subclasses = {
                 "tags": [TAG.Valve, TAG.Water, TAG.Equipment],
                 "subclasses": {
                     "Thermostatic_Mixing_Valve": {
-                        "tags": [TAG.Mixed, TAG.Valve, TAG.Water, TAG.Thermal, TAG.Equipment],
+                        "tags": [
+                            TAG.Mixed,
+                            TAG.Valve,
+                            TAG.Water,
+                            TAG.Thermal,
+                            TAG.Equipment,
+                        ],
                     },
                     "Chilled_Water_Valve": {
                         "tags": [TAG.Chilled, TAG.Valve, TAG.Water, TAG.Equipment],
@@ -762,7 +800,7 @@ valve_subclasses = {
                 },
             },
             "Gas_Valve": {"tags": [TAG.Gas, TAG.Valve, TAG.Equipment]},
-        }
+        },
     }
 }
 
