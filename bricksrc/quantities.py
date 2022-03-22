@@ -36,6 +36,17 @@ Each is a qudt:QuantityKind
 quantity_definitions = {
     "Air_Quality": {
         SKOS.narrower: {
+            "Ammonia_Concentration": {
+                QUDT.applicableUnit: [UNIT.PPM, UNIT.PPB],
+                QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M0H0T0D1"],
+                SKOS.definition: Literal(
+                    "The concentration of Ammonia in a medium"
+                ),
+                RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
+                RDFS.label: Literal("AmmoniaConcentration"),
+                SKOS.broader: QUDTQK.DimensionlessRatio,
+
+            },
             "CO_Concentration": {
                 QUDT.applicableUnit: [UNIT.PPM, UNIT.PPB],
                 QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M0H0T0D1"],

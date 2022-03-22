@@ -19,6 +19,13 @@ sensor_definitions = {
             "Air_Quality_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Air, TAG.Quality],
                 "subclasses": {
+                    "Ammonia_Sensor": {
+                        "tags": [TAG.Point, TAG.Ammonia, TAG.Sensor],
+                        "substances": [
+                            [BRICK.measures, BRICK.Air],
+                            [BRICK.measures, BRICK.Ammonia_Concentration],
+                        ],
+                    },
                     "CO_Sensor": {
                         "tags": [TAG.Point, TAG.Sensor, TAG.CO],
                         "substances": [
@@ -325,6 +332,7 @@ sensor_definitions = {
                     },
                 },
             },
+            
             "Angle_Sensor": {
                 "substances": [[BRICK.measures, BRICK.Angle]],
                 "subclasses": {
