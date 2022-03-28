@@ -47,15 +47,15 @@ bldg:floor3 a brick:Floor ;
     brick:isPartOf bldg:mybldg .
 
 bldg:submeter-floor1 a brick:Electrical_Meter ;
-    brick:isMeterOf bldg:floor1 ;
+    brick:meters bldg:floor1 ;
     brick:isSubMeterOf bldg:main-meter .
 
 bldg:submeter-floor2 a brick:Electrical_Meter ;
-    brick:isMeterOf bldg:floor2 ;
+    brick:meters bldg:floor2 ;
     brick:isSubMeterOf bldg:main-meter .
 
 bldg:submeter-floor3 a brick:Electrical_Meter ;
-    brick:isMeterOf bldg:floor3 ;
+    brick:meters bldg:floor3 ;
     brick:isSubMeterOf bldg:main-meter .
 
 bldg:mybldg a brick:Building ;

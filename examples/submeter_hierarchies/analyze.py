@@ -42,7 +42,7 @@ Gets the building meter and its peak (max) power sensor
 """
 building_meter_query = """SELECT DISTINCT * WHERE {
     ?meter rdf:type/rdfs:subClassOf* brick:Meter .
-    ?meter brick:isMeterOf/rdf:type/rdfs:subClassOf* brick:Building .
+    ?meter brick:meters/rdf:type/rdfs:subClassOf* brick:Building .
     ?meter brick:hasPoint ?point .
     ?point rdf:type brick:Electric_Power_Sensor ;
            brick:aggregate [ brick:aggregationFunction "max" ] ;

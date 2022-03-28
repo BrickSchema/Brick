@@ -72,7 +72,7 @@ submeters = [
 ]
 for submeter in submeters:
     g.add((BLDG[submeter["name"]], A, BRICK.Electrical_Meter))
-    g.add((BLDG[submeter["name"]], BRICK.isMeterOf, BLDG[submeter["floor"]]))
+    g.add((BLDG[submeter["name"]], BRICK.meters, BLDG[submeter["floor"]]))
     g.add((BLDG[submeter["name"]], BRICK.isSubMeterOf, BLDG["main-meter"]))
     g.add((BLDG[submeter["floor"]], A, BRICK.Floor))
     g.add((BLDG[submeter["floor"]], BRICK.isPartOf, BLDG["mybldg"]))
