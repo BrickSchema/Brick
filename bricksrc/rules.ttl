@@ -152,3 +152,22 @@ bsh:MeterRelationshipRule a sh:NodeShape ;
         sh:message "Relationship between meters is hasSubMeter/isSubMeterOf, not meters/isMeteredBy" ;
     ] ;
 .
+
+bsh:BuildingMeterRule a sh:NodeShape ;
+    sh:targetClass brick:Meter ;
+    sh:rule [
+        a sh:SPARQLRule ;
+        sh:construct """
+        CONSTRUCT {
+            $this rdf:type ?newtype .
+        }
+        WHERE {
+            $this brick:meters ?bldg .
+            ?bldg rdf:type/rdfs:subClassOf* brick:Building .
+            $this rdf:type ?type .
+            BIND(IRI(CONCAT("https://brickschema.org/schema/Brick#Building_", strafter(str(?type), "https://brickschema.org/schema/Brick#"))) as ?newtype) .
+            FILTER (strEnds(str(?type), "_Meter"))
+        }
+        """ ;
+    ] ;
+.

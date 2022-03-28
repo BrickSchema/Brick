@@ -199,3 +199,13 @@ def test_shacl_owl_equivalentclass():
 
     res = g.query("SELECT ?vav WHERE { ?vav rdf:type brick:Variable_Air_Volume_Box }")
     assert len(list(res)) == 2, "VAV should be equivalent to Variable_Air_Volume_Box"
+
+
+def test_meter_inference():
+    g = brickschema.Graph()
+    g.load_file("Brick.ttl")
+    g.add((BLDG.abcdef, A, BRICK.Electrical_Meter))
+    g.add((BLDG.abcdef, BRICK.meters, BLDG.bldg))
+    g.add((BLDG.bldg, A, BRICK.Building))
+    g.expand("shacl")
+    assert (BLDG.abcdef, A, BRICK.Building_Electrical_Meter) in g
