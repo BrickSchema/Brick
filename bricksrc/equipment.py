@@ -222,6 +222,8 @@ hvac_subclasses = {
         "parents": [BRICK.Valve],
         # subclasses defined in 'valve_subclasses'
     },
+    "Hot_Deck": {"tags": [TAG.Equipment, TAG.Hot, TAG.Deck]},
+    "Cold_Deck": {"tags": [TAG.Equipment, TAG.Cold, TAG.Deck]},
     "Thermostat": {"tags": [TAG.Equipment, TAG.Thermostat]},
     "Terminal_Unit": {
         "tags": [TAG.Equipment, TAG.Terminal, TAG.Unit],
@@ -607,33 +609,6 @@ hvac_subclasses = {
         "tags": [TAG.Equipment, TAG.Air, TAG.Handling, TAG.Unit],
         OWL.equivalentClass: [BRICK["AHU"], BRICK["Air_Handler_Unit"]],
     },
-    "Dual_Duct_System": {
-        "tags": [TAG.Equipment, TAG.Air, TAG.System],
-        "subclasses": {
-            "Dual_Duct_Air_Handling_Unit": {
-                "tags": [
-                    TAG.Equipment,
-                    TAG.Air,
-                    TAG.System,
-                    TAG.Handling,
-                    TAG.Dual_Duct
-                ],
-                OWL.equivalentClass: BRICK["DDAHU"]
-            },
-            "DDAHU": {
-                "tags": [TAG.Equipment, TAG.DDAHU],
-                OWL.equivalentClass: BRICK["Dual_Duct_Air_Handling_Unit"]
-            },
-            "Hot_Deck": {
-                "tags": [TAG.Equipment, TAG.Hot_Deck]
-            },
-            "Cold_Deck": {
-                "tags": [TAG.Equipment, TAG.Cold_Deck]
-            },
-            "Dual_Duct_Supply": {
-                "tags": [TAG.Equipment, TAG.Cold_Deck]
-            }
-    },
     "AHU": {
         "tags": [TAG.Equipment, TAG.AHU],
         "subclasses": {
@@ -666,6 +641,14 @@ hvac_subclasses = {
             "RTU": {
                 "tags": [TAG.Equipment, TAG.RTU],
                 OWL.equivalentClass: BRICK["Rooftop_Unit"],
+            },
+            "Dual_Duct_Air Handling Unit": {
+                "tags": [TAG.Equipment, TAG.AHU, TAG.Dual],
+                OWL.equivalentClass: BRICK["DDAHU"]
+            },
+            "DDAHU": {
+                "tags": [TAG.Equipment, TAG.DDAHU],
+                OWL.equivalentClass: BRICK["Dual_Duct_Air_Handling_Unit"]
             },
             "PAU": {"tags": [TAG.Equipment, TAG.PAU]},
         },
