@@ -19,7 +19,6 @@ SHACL shapes for Brick should validate the following:
 - idioms, semantic checks:
   - these may be optional; users can "opt-in" to check for certain idioms
   - equipment along a chain of `brick:feeds` should all operate on the same substance
-  - proper relationships exist between equipment: e.g. thermostat should have `controls` relationship to RTU
 
 ## Use SHACL to validate Brick ontology
 

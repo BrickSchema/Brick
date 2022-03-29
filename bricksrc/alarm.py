@@ -7,8 +7,24 @@ alarm_definitions = {
             "Air_Alarm": {
                 "tags": [TAG.Point, TAG.Air, TAG.Alarm],
                 "subclasses": {
-                    "Air_Flow_Loss_Alarm": {
-                        "tags": [TAG.Point, TAG.Air, TAG.Alarm, TAG.Flow, TAG.Loss],
+                    "Air_Flow_Alarm": {
+                        "tags": [TAG.Point, TAG.Air, TAG.Alarm, TAG.Flow],
+                        "subclasses": {
+                            "Air_Flow_Loss_Alarm": {
+                                "tags": [TAG.Point, TAG.Air, TAG.Alarm, TAG.Flow, TAG.Loss],
+                            },
+                            "High_Air_Flow_Alarm": {
+                                "tags": [TAG.Point, TAG.Air, TAG.Alarm, TAG.Flow, TAG.High],
+                            },
+                            "Low_Air_Flow_Alarm": {
+                                "tags": [TAG.Point, TAG.Air, TAG.Alarm, TAG.Flow, TAG.Low],
+                                "subclasses": {
+                                    "Low_Discharge_Air_Flow_Alarm": {
+                                        "tags": [TAG.Point, TAG.Air, TAG.Alarm, TAG.Flow, TAG.Low, TAG.Discharge],
+                                    }
+                                }
+                            }
+                        }
                     }
                 },
             },
@@ -19,6 +35,17 @@ alarm_definitions = {
                         "tags": [TAG.Point, TAG.High, TAG.CO2, TAG.Alarm],
                     },
                 },
+            },
+            "Voltage_Alarm": {
+                "tags": [TAG.Point, TAG.Voltage, TAG.Alarm],
+                "subclasses": {
+                    "Low_Voltage_Alarm": {
+                        "tags": [TAG.Point, TAG.Low, TAG.Voltage, TAG.Alarm],
+                    },
+                },
+            },
+            "Valve_Position_Alarm": {
+                "tags": [TAG.Point, TAG.Valve, TAG.Position, TAG.Alarm],
             },
             "Change_Filter_Alarm": {
                 "tags": [TAG.Point, TAG.Change, TAG.Filter, TAG.Alarm],
@@ -47,6 +74,9 @@ alarm_definitions = {
                 "subclasses": {
                     "Unit_Failure_Alarm": {
                         "tags": [TAG.Point, TAG.Unit, TAG.Failure, TAG.Alarm],
+                    },
+                    "Sensor_Failure_Alarm": {
+                        "tags": [TAG.Point, TAG.Sensor, TAG.Failure, TAG.Alarm],
                     },
                 },
             },
@@ -167,6 +197,17 @@ alarm_definitions = {
                                             TAG.Alarm,
                                         ],
                                         "parents": [BRICK.High_Temperature_Alarm],
+                                    },
+                                    "Low_Discharge_Air_Temperature_Alarm": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Low,
+                                            TAG.Discharge,
+                                            TAG.Air,
+                                            TAG.Temperature,
+                                            TAG.Alarm,
+                                        ],
+                                        "parents": [BRICK.Low_Temperature_Alarm],
                                     },
                                 },
                             },

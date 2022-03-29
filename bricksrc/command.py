@@ -1,10 +1,11 @@
 from rdflib import Literal
-from .namespaces import TAG, BRICK
+from .namespaces import TAG, BRICK, QUDT
 
 command_definitions = {
     "Command": {
         "tags": [TAG.Point, TAG.Command],
         "subclasses": {
+            "Tint_Command": {"tags": [TAG.Tint, TAG.Command, TAG.Point]},
             "Cooling_Command": {"tags": [TAG.Point, TAG.Cool, TAG.Command]},
             "Heating_Command": {"tags": [TAG.Point, TAG.Heat, TAG.Command]},
             "Luminance_Command": {"tags": [TAG.Point, TAG.Luminance, TAG.Command]},
@@ -13,14 +14,24 @@ command_definitions = {
                 "tags": [TAG.Point, TAG.Damper, TAG.Command],
                 "subclasses": {
                     "Damper_Position_Command": {
+                        BRICK.hasQuantity: BRICK.Position,
                         "tags": [TAG.Point, TAG.Damper, TAG.Position, TAG.Command],
                         "parents": [BRICK.Position_Command],
                     },
                 },
             },
-            "Humidify_Command": {"tags": [TAG.Point, TAG.Humidify, TAG.Command]},
-            "Position_Command": {"tags": [TAG.Point, TAG.Position, TAG.Command]},
-            "Direction_Command": {"tags": [TAG.Point, TAG.Direction, TAG.Command]},
+            "Humidify_Command": {
+                "tags": [TAG.Point, TAG.Humidify, TAG.Command],
+                BRICK.hasQuantity: BRICK.Humidity,
+            },
+            "Position_Command": {
+                "tags": [TAG.Point, TAG.Position, TAG.Command],
+                BRICK.hasQuantity: BRICK.Position,
+            },
+            "Direction_Command": {
+                "tags": [TAG.Point, TAG.Direction, TAG.Command],
+                BRICK.hasQuantity: BRICK.Direction,
+            },
             "Pump_Command": {
                 # TODO: position?
                 "tags": [TAG.Point, TAG.Pump, TAG.Command],
@@ -39,6 +50,7 @@ command_definitions = {
                         "tags": [TAG.Point, TAG.Filter, TAG.Reset, TAG.Command],
                     },
                     "Speed_Reset_Command": {
+                        BRICK.hasQuantity: BRICK.Speed,
                         "tags": [TAG.Point, TAG.Speed, TAG.Reset, TAG.Command],
                     },
                 },
@@ -137,6 +149,12 @@ command_definitions = {
                     },
                     "Stage_Enable_Command": {
                         "tags": [TAG.Stage, TAG.Enable, TAG.Command, TAG.Point]
+                    },
+                    "Heating_Enable_Command": {
+                        "tags": [TAG.Heating, TAG.Enable, TAG.Command, TAG.Point]
+                    },
+                    "Cooling_Enable_Command": {
+                        "tags": [TAG.Cooling, TAG.Enable, TAG.Command, TAG.Point]
                     },
                 },
             },
@@ -254,6 +272,7 @@ command_definitions = {
             },
             "Frequency_Command": {
                 "tags": [TAG.Point, TAG.Fequency, TAG.Command],
+                BRICK.hasQuantity: BRICK.Frequency,
                 "subclasses": {
                     "Max_Frequency_Command": {
                         "tags": [TAG.Point, TAG.Max, TAG.Fequency, TAG.Command],

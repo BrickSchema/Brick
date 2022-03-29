@@ -11,6 +11,15 @@ location_subclasses = {
                 "tags": [TAG.Location, TAG.Parking, TAG.Structure, TAG.Building]
             },
         },
+        "constraints": {
+            BRICK.hasPart: [
+                BRICK.Floor,
+                BRICK.Room,
+                BRICK.Space,
+                BRICK.Zone,
+                BRICK.Wing,
+            ],
+        },
     },
     "Floor": {
         "tags": [TAG.Floor, TAG.Location],
@@ -22,6 +31,13 @@ location_subclasses = {
             },
         },
         OWL.equivalentClass: BRICK["Storey"],
+        "constraints": {
+            BRICK.hasPart: [
+                BRICK.Room,
+                BRICK.Space,
+                BRICK.Zone,
+            ],
+        },
     },
     "Storey": {
         "tags": [TAG.Storey, TAG.Location],
@@ -41,7 +57,18 @@ location_subclasses = {
     },
     "Outside": {"tags": [TAG.Outside, TAG.Location]},
     "Region": {"tags": [TAG.Location, TAG.Region]},
-    "Site": {"tags": [TAG.Site, TAG.Location]},
+    "Site": {
+        "tags": [TAG.Site, TAG.Location],
+        "constraints": {
+            BRICK.hasPart: [
+                BRICK.Building,
+                BRICK.Region,
+                BRICK.Site,
+                BRICK.Space,
+                BRICK.Room,
+            ],
+        },
+    },
     "Wing": {"tags": [TAG.Wing, TAG.Location]},
     "Space": {
         "tags": [TAG.Space, TAG.Location],
@@ -51,6 +78,9 @@ location_subclasses = {
                 "subclasses": {
                     "Auditorium": {
                         "tags": [TAG.Auditorium, TAG.Common, TAG.Space, TAG.Location]
+                    },
+                    "Atrium": {
+                        "tags": [TAG.Atrium, TAG.Common, TAG.Space, TAG.Location]
                     },
                     "Cafeteria": {
                         "tags": [TAG.Cafeteria, TAG.Common, TAG.Space, TAG.Location]
@@ -87,6 +117,7 @@ location_subclasses = {
                         "subclasses": {
                             "Majlis": {
                                 "tags": [
+                                    TAG.Majlis,
                                     TAG.Lounge,
                                     TAG.Common,
                                     TAG.Space,
@@ -219,7 +250,7 @@ location_subclasses = {
                         "tags": [TAG.Massage, TAG.Room, TAG.Space, TAG.Location]
                     },
                     "Media_Room": {
-                        "tags": [TAG.Massage, TAG.Room, TAG.Space, TAG.Location],
+                        "tags": [TAG.Media, TAG.Room, TAG.Space, TAG.Location],
                         "subclasses": {
                             "Broadcast_Room": {
                                 "tags": [
@@ -598,6 +629,12 @@ location_subclasses = {
             "HVAC_Zone": {"tags": [TAG.HVAC, TAG.Zone, TAG.Location]},
             "Lighting_Zone": {"tags": [TAG.Lighting, TAG.Zone, TAG.Location]},
             "Fire_Zone": {"tags": [TAG.Fire, TAG.Zone, TAG.Location]},
+        },
+        "constraints": {
+            BRICK.hasPart: [
+                BRICK.Room,
+                BRICK.Space,
+            ],
         },
     },
 }

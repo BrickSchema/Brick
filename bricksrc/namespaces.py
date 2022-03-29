@@ -1,5 +1,4 @@
 from rdflib import Namespace
-from .version import BRICK_VERSION
 
 BRICK = Namespace("https://brickschema.org/schema/Brick#")
 TAG = Namespace("https://brickschema.org/schema/BrickTag#")
@@ -21,6 +20,10 @@ QUDTQK = Namespace("http://qudt.org/vocab/quantitykind/")
 QUDTDV = Namespace("http://qudt.org/vocab/dimensionvector/")
 UNIT = Namespace("http://qudt.org/vocab/unit/")
 
+# TODO: fix these namespaces
+BACNET = Namespace("http://data.ashrae.org/bacnet/2020#")
+IFC = Namespace("https://brickschema.org/extension/ifc#")
+
 A = RDF.type
 
 
@@ -41,3 +44,5 @@ def bind_prefixes(g):
     g.bind("qudt", QUDT)
     g.bind("unit", UNIT)
     g.bind("xsd", XSD)
+    g.bind("bacnet", BACNET)
+    g.bind("ifc", IFC)

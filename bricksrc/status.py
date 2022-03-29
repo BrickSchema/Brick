@@ -1,10 +1,15 @@
-from .namespaces import TAG, BRICK, OWL
+from .namespaces import TAG, BRICK, OWL, QUDT
 
 status_definitions = {
     "Status": {
         "tags": [TAG.Point, TAG.Status],
         "subclasses": {
+            "Tint_Status": {"tags": [TAG.Tint, TAG.Status, TAG.Point]},
+            "Damper_Position_Status": {
+                BRICK.hasQuantity: BRICK.Position,
+            },
             "Direction_Status": {
+                BRICK.hasQuantity: BRICK.Direction,
                 "subclasses": {
                     "Motor_Direction_Status": {
                         "tags": [TAG.Point, TAG.Motor, TAG.Direction, TAG.Status],
@@ -42,6 +47,7 @@ status_definitions = {
                 "tags": [TAG.Point, TAG.Even, TAG.Month, TAG.Status],
             },
             "Fan_Status": {"tags": [TAG.Point, TAG.Fan, TAG.Status]},
+            "Valve_Status": {"tags": [TAG.Point, TAG.Valve, TAG.Status]},
             "Fault_Status": {
                 "subclasses": {
                     "Humidifier_Fault_Status": {
@@ -368,6 +374,7 @@ status_definitions = {
                 "tags": [TAG.Point, TAG.Overridden, TAG.Status],
             },
             "Pressure_Status": {
+                QUDT.hasQuality: BRICK.Pressure,
                 "subclasses": {
                     "Discharge_Air_Duct_Pressure_Status": {
                         "tags": [
