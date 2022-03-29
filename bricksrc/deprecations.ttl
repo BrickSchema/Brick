@@ -16,7 +16,7 @@
 @prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-brick:Fresh_Air_Fan
+brick:Fresh_Air_Fan brick:deprecation [
     brick:deprecatedInVersion "1.3.0" ;
     brick:deprecationMitigationMessage "Fresh Air Fan is deprecated in favor of Outside Fan because the latter is a more accurate representation" ;
     brick:deprecationMigitationRule [
@@ -33,4 +33,4 @@ brick:Fresh_Air_Fan
         ] ;
         sh:targetClass brick:Fresh_Air_Fan ;
     ] ;
-.
+] .
