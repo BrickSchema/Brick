@@ -9,6 +9,11 @@ from .namespaces import BRICK, RDFS, SKOS, UNIT, XSD, SH, BSH, BACNET, IFC
 # These are all instances of Brick.EntityProperty, which is
 # a subclass of OWL.ObjectProperty
 entity_properties = {
+    BRICK.deprecation: {
+        SKOS.definition: Literal("Marks a concept as deprecated"),
+        RDFS.range: BRICK.DeprecationShape,
+        RDFS.label: Literal("Deprecation Notice"),
+    },
     BRICK.area: {
         SKOS.definition: Literal("Entity has 2-dimensional area"),
         RDFS.range: BSH.AreaShape,
@@ -493,6 +498,29 @@ shape_properties = {
                 "datatype": XSD.string,
             },
         }
+    },
+    BRICK.DeprecationShape: {
+        "properties": {
+            BRICK.deprecatedInVersion: {
+                SKOS.definition: Literal(
+                    "The version in which the entity was deprecated"
+                ),
+                "datatype": XSD.string,
+            },
+            BRICK.deprecationMitigationMessage: {
+                SKOS.definition: Literal(
+                    "A message describing how to mitigate or address the deprecation"
+                ),
+                "datatype": XSD.string,
+            },
+            BRICK.deprecationMigitationRule: {
+                SKOS.definition: Literal(
+                    "A SHACL rule which will mitigate the deprecation"
+                ),
+                SH["class"]: SH.NodeShape,
+                "optional": True,
+            },
+        },
     },
 }
 
