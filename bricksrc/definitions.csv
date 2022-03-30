@@ -884,7 +884,7 @@ https://brickschema.org/schema/Brick#Shading_System,Devices that can control day
 https://brickschema.org/schema/Brick#Shared_Office,An office used by multiple people,
 https://brickschema.org/schema/Brick#Short_Cycle_Alarm,An alarm that indicates a short cycle occurred. A short cycle occurs when a cooling cycle is prevented from completing its full cycle,
 https://brickschema.org/schema/Brick#Shower,"A space containing showers, usually adjacent to an athletic or execise area",
-https://brickschema.org/schema/Brick#Site,A geographic region containing 0 or more buildings. Typically used as the encapsulating location for a collection of Brick entities through the hasSite/isSiteOf relationships,
+https://brickschema.org/schema/Brick#Site,A geographic region containing 0 or more buildings. Typically used as the encapsulating location for a collection of Brick entities through the hasPart/isPartOf relationships,
 https://brickschema.org/schema/Brick#Smoke_Alarm,An alarm that indicates the off-normal conditions associated with smoke.,
 https://brickschema.org/schema/Brick#Solar_Azimuth_Angle_Sensor,Measures the azimuth angle of the sun,
 https://brickschema.org/schema/Brick#Solar_Irradiance,The power per unit area of solar electromagnetic radiation incident on a surface,
