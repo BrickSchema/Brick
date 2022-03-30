@@ -295,6 +295,8 @@ hvac_subclasses = {
         "parents": [BRICK.Valve],
         # subclasses defined in 'valve_subclasses'
     },
+    "Hot_Deck": {"tags": [TAG.Equipment, TAG.Hot, TAG.Deck]},
+    "Cold_Deck": {"tags": [TAG.Equipment, TAG.Cold, TAG.Deck]},
     "Thermostat": {"tags": [TAG.Equipment, TAG.Thermostat]},
     "Terminal_Unit": {
         "tags": [TAG.Equipment, TAG.Terminal, TAG.Unit],
@@ -713,6 +715,14 @@ hvac_subclasses = {
             "RTU": {
                 "tags": [TAG.Equipment, TAG.RTU],
                 OWL.equivalentClass: BRICK["Rooftop_Unit"],
+            },
+            "Dual_Duct_Air_Handling_Unit": {
+                "tags": [TAG.Equipment, TAG.AHU, TAG.Dual],
+                OWL.equivalentClass: BRICK["DDAHU"]
+            },
+            "DDAHU": {
+                "tags": [TAG.Equipment, TAG.DDAHU],
+                OWL.equivalentClass: BRICK["Dual_Duct_Air_Handling_Unit"]
             },
             "PAU": {"tags": [TAG.Equipment, TAG.PAU]},
         },

@@ -160,3 +160,25 @@ bsh:hasLocationShape a sh:Nodeshape;
     ];
     sh:message "Points are a virtual concept and always belonging to a physical device, represented by Equipment. Thus, it cannot have a Location alone."
     .
+
+bsh:hasHotColdDeck
+    a sh:NodeShape ;
+    sh:targetClass brick:DDAHU ;
+    sh:property [
+        sh:path brick:hasPart ;
+        sh:qualifiedValueShape [ sh:class brick:Hot_Deck ] ;
+        sh:qualifiedValueShapesDisjoint true;
+        sh:qualifiedMinCount 1 ;
+        sh:qualifiedMaxCount 1 ;
+        sh:message "DDAHU must have a brick:Hot_Deck" ;
+    ] ;
+    sh:property [
+        sh:path brick:hasPart ;
+        sh:qualifiedValueShape [ sh:class brick:Cold_Deck ] ;
+        sh:qualifiedValueShapesDisjoint true;
+        sh:qualifiedMinCount 1 ;
+        sh:qualifiedMaxCount 1 ;
+        sh:message "DDAHU must have a brick:Cold_Deck" ;
+    ] ;
+    .
+
