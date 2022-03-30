@@ -768,8 +768,10 @@ add_definitions()
 for ttlfile in glob.glob("bricksrc/*.ttl"):
     G.parse(ttlfile, format="turtle")
 
-logging.info(f"Brick ontology compilation finished! Generated {len(G)} triples")
+# add ref-schema definitions
+G.parse("support/ref-schema.ttl", format="turtle")
 
+logging.info(f"Brick ontology compilation finished! Generated {len(G)} triples")
 
 extension_graphs = {"shacl_tag_inference": shaclGraph}
 
