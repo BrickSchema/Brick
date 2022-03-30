@@ -124,7 +124,6 @@ https://brickschema.org/schema/Brick#Chilled_Water_Flow_Setpoint,Sets the target
 https://brickschema.org/schema/Brick#Chilled_Water_Loop,A collection of equipment that transport and regulate chilled water among each other,
 https://brickschema.org/schema/Brick#Chilled_Water_Meter,A meter that measures the usage or consumption of chilled water,
 https://brickschema.org/schema/Brick#Chilled_Water_Pump,A pump that performs work on chilled water; typically part of a chilled water system,
-https://brickschema.org/schema/Brick#Chilled_Water_Pump_Differential_Pressure_Deadband_Setpoint,Sets the size of a deadband of differential pressure of chilled water in a chilled water pump,
 https://brickschema.org/schema/Brick#Chilled_Water_Return_Flow_Sensor,Measures the rate of flow of chilled return water,
 https://brickschema.org/schema/Brick#Chilled_Water_Return_Temperature_Sensor,Measures the temperature of chilled water that is returned to a cooling tower,
 https://brickschema.org/schema/Brick#Chilled_Water_Static_Pressure_Setpoint,Sets static pressure of chilled water,
@@ -732,6 +731,7 @@ https://brickschema.org/schema/Brick#Outside_Air_Wet_Bulb_Temperature_Sensor,A s
 https://brickschema.org/schema/Brick#Outside_Damper,A damper that modulates the flow of outside air,
 https://brickschema.org/schema/Brick#Outside_Face_Surface_Temperature_Sensor,Measures the outside surface (relative to the space) of the radiant panel of a radiant heating and cooling HVAC system.,
 https://brickschema.org/schema/Brick#Outside_Face_Surface_Temperature_Setpoint,Sets temperature for the outside face surface temperature of the radiant panel.,
+https://brickschema.org/schema/Brick#Outside_Fan,Fan moving outside air; air that is supplied into the building from the outdoors,
 https://brickschema.org/schema/Brick#Outside_Illuminance_Sensor,"Measures the total luminous flux incident on an outside, per unit area",
 https://brickschema.org/schema/Brick#Overload_Alarm,An alarm that can indicate when a full-load current is exceeded.,
 https://brickschema.org/schema/Brick#Overridden_Off_Status,"Indicates if a control loop, relay or equipment has been turned off when it would otherwise be scheduled to be on",
@@ -876,6 +876,8 @@ https://brickschema.org/schema/Brick#Sensor,A Sensor is an input point that repr
 https://brickschema.org/schema/Brick#Server_Room,,
 https://brickschema.org/schema/Brick#Service_Room,"A class of spaces related to the operations of building subsystems, e.g. HVAC, electrical, IT, plumbing, etc",
 https://brickschema.org/schema/Brick#Setpoint,A Setpoint is an input value at which the desired property is set,https://xp20.ashrae.org/terminology/index.php?term=setpoint
+https://brickschema.org/schema/Brick#Differential_Setpoint,A type of Setpoints that is related to the difference between two measurements,https://xp20.ashrae.org/terminology/index.php?term=setpoint
+https://brickschema.org/schema/Brick#Differential_Temperature_Setpoint,A type of Setpoints that is related to the difference between two temperature measurements,https://xp20.ashrae.org/terminology/index.php?term=setpoint
 https://brickschema.org/schema/Brick#Shade,A screen on a window.,
 https://brickschema.org/schema/Brick#Shade_Array,An array of Shade commonly attached to a single controller.,
 https://brickschema.org/schema/Brick#Shading_System,Devices that can control daylighting through various means,
@@ -1102,7 +1104,7 @@ https://brickschema.org/schema/Brick#Zone_Air_Dewpoint_Sensor,Measures dewpoint 
 https://brickschema.org/schema/Brick#Zone_Air_Heating_Temperature_Setpoint,The lower (heating) setpoint for zone air temperature,
 https://brickschema.org/schema/Brick#Zone_Air_Humidity_Sensor,Measures the relative humidity of zone air,
 https://brickschema.org/schema/Brick#Zone_Air_Humidity_Setpoint,Humidity setpoint for zone air,
-https://brickschema.org/schema/Brick#Zone_Air_Temperature_Sensor,Measures the temperature of air in a zone,
+https://brickschema.org/schema/Brick#Zone_Air_Temperature_Sensor,A physical or virtual sensor which represents the temperature of an HVAC Zone,
 https://brickschema.org/schema/Brick#Zone_Air_Temperature_Setpoint,Sets temperature of zone air,
 https://brickschema.org/schema/Brick#Zone_Standby_Load_Shed_Command,,
 https://brickschema.org/schema/Brick#Zone_Unoccupied_Load_Shed_Command,,
