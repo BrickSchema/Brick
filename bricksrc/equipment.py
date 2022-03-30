@@ -642,7 +642,7 @@ hvac_subclasses = {
                 "tags": [TAG.Equipment, TAG.RTU],
                 OWL.equivalentClass: BRICK["Rooftop_Unit"],
             },
-            "Dual_Duct_Air Handling Unit": {
+            "Dual_Duct_Air_Handling_Unit": {
                 "tags": [TAG.Equipment, TAG.AHU, TAG.Dual],
                 OWL.equivalentClass: BRICK["DDAHU"]
             },
