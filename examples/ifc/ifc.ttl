@@ -1,24 +1,24 @@
 @prefix bldg: <urn:example#> .
 @prefix brick: <https://brickschema.org/schema/Brick#> .
-@prefix brickifc: <https://brickschema.org/extension/ifc#> .
+@prefix ref: <https://brickschema.org/schema/Brick/ref#> .
 
-bldg:ifc_project a brickifc:Project ;
-    brickifc:projectID "abc" ;
-    brickifc:fileLocation "file://./building.ifc" ;
+bldg:ifc_project a ref:ifcProject ;
+    ref:ifcProjectID "abc" ;
+    ref:fileLocation "file://./building.ifc" ;
 .
 
 bldg:space a brick:Space ;
-    brick:hasIFCReference [
-        brickifc:hasProjectReference bldg:ifc_project ;
-        brickifc:globalID "123" ;
-        brickifc:name "Example Space" ;
+    ref:hasExternalReference [
+        ref:hasIfcProjectReference bldg:ifc_project ;
+        ref:ifcGlobalID "123" ;
+        ref:ifcName "Example Space" ;
     ] .
 
 bldg:space2 a brick:Space ;
-    brick:hasIFCReference [
-        brickifc:hasProjectReference bldg:ifc_project ;
-        brickifc:globalID "124" ;
-        brickifc:name "Example Space" ;
+    ref:hasExternalReference [
+        ref:hasIfcProjectReference bldg:ifc_project ;
+        ref:ifcGlobalID "124" ;
+        ref:ifcName "Example Space" ;
     ] .
 
 # link.py in this folder programatically adds the IFC reference to this entity
