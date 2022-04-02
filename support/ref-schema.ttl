@@ -1,16 +1,22 @@
 @prefix bacnet: <http://data.ashrae.org/bacnet/2020#> .
-@prefix core: <https://brickschema.org/schema/Brick/ref/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix ref: <https://brickschema.org/schema/Brick/ref#> .
+@prefix sdo: <http://schema.org/> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://brickschema.org/schema/Brick/ref> a owl:Ontology .
+<https://brickschema.org/schema/Brick/ref> a owl:Ontology ;
+    dcterms:creator ( [ a sdo:Person ;
+                sdo:email "gtfierro@mines.edu" ;
+                sdo:name "Gabe Fierro" ] ) ;
+    dcterms:title "Ref Schema" .
 
 ref:BACnetReferenceShape a sh:NodeShape ;
+    skos:definition "Infers a BACnetReference instance from the object of an hasExternalReference." ;
     sh:rule [ a sh:TripleRule ;
             sh:condition ref:BACnetReference ;
             sh:object ref:BACnetReference ;
@@ -19,6 +25,7 @@ ref:BACnetReferenceShape a sh:NodeShape ;
     sh:targetObjectsOf ref:hasExternalReference .
 
 ref:IFCReferenceShape a sh:NodeShape ;
+    skos:definition "Infers a IFCReference instance from the object of an hasExternalReference." ;
     sh:rule [ a sh:TripleRule ;
             sh:condition ref:IFCReference ;
             sh:object ref:IFCReference ;
@@ -27,6 +34,7 @@ ref:IFCReferenceShape a sh:NodeShape ;
     sh:targetObjectsOf ref:hasExternalReference .
 
 ref:TimeseriesReferenceShape a sh:NodeShape ;
+    skos:definition "Infers a TimeseriesReference instance from the object of an hasExternalReference." ;
     sh:rule [ a sh:TripleRule ;
             sh:condition ref:TimeseriesReference ;
             sh:object ref:TimeseriesReference ;
@@ -34,23 +42,22 @@ ref:TimeseriesReferenceShape a sh:NodeShape ;
             sh:subject sh:this ] ;
     sh:targetObjectsOf ref:hasExternalReference .
 
-ref:bacnet-read-property a owl:DatatypeProperty .
+ref:bacnet-read-property a owl:DatatypeProperty ;
+    rdfs:label "bacnet-read-property" ;
+    rdfs:comment "The property of the BACnet object to read to get the current value of this entity." .
 
 ref:hasTimeseriesReference a owl:ObjectProperty ;
+    rdfs:label "hasTimeseriesReference" ;
     rdfs:subPropertyOf ref:hasExternalReference ;
-    skos:definition "Metadata for accessing related timeseries data",
-        "Relates a Brick point to the TimeseriesReference that indicates where and how the data for this point is stored"@en ;
+    skos:definition "Metadata for accessing related timeseries data: Relates a Brick point to the TimeseriesReference that indicates where and how the data for this point is stored"@en ;
     sh:class ref:TimeseriesReference .
-
-core:ExternalReferenceShape a sh:NodeShape ;
-    sh:class ref:ExternalReference ;
-    sh:targetObjectsOf ref:hasExternalReference .
 
 bacnet:description a bacnet:StandardProperty,
         owl:DatatypeProperty ;
     bacnet:propertyEnum bacnet:PropertyIdentifier-description ;
     bacnet:propertyName "description" ;
-    bacnet:propertyRef bacnet:Description .
+    bacnet:propertyRef bacnet:Description ;
+    skos:definition "The content of the description field of the BACnet object." .
 
 bacnet:object-identifier a bacnet:StandardProperty,
         rdf:Property,
@@ -60,7 +67,8 @@ bacnet:object-identifier a bacnet:StandardProperty,
     bacnet:propertyName "object-identifier" ;
     bacnet:propertyOf bacnet:Object ;
     bacnet:propertyRef bacnet:Object_Identifier ;
-    rdfs:subPropertyOf bacnet:ReadableProperty .
+    rdfs:subPropertyOf bacnet:ReadableProperty ;
+    skos:definition "The BACnet object identifier" .
 
 bacnet:object-name a bacnet:StandardProperty,
         owl:DatatypeProperty ;
@@ -68,7 +76,8 @@ bacnet:object-name a bacnet:StandardProperty,
     bacnet:propertyName "object-name" ;
     bacnet:propertyOf bacnet:Object ;
     bacnet:propertyRef bacnet:Object_Name ;
-    rdfs:subPropertyOf bacnet:ReadableProperty .
+    rdfs:subPropertyOf bacnet:ReadableProperty ;
+    skos:definition "The content of the name field of the BACnet object." .
 
 bacnet:object-type a bacnet:StandardProperty,
         rdf:Property,
@@ -78,31 +87,46 @@ bacnet:object-type a bacnet:StandardProperty,
     bacnet:propertyName "object-type" ;
     bacnet:propertyOf bacnet:Object ;
     bacnet:propertyRef bacnet:Object_Type ;
-    rdfs:subPropertyOf bacnet:ReadableProperty .
+    rdfs:subPropertyOf bacnet:ReadableProperty ;
+    skos:definition "The type of the BACnet object" .
 
-bacnet:objectOf a owl:ObjectProperty .
+bacnet:objectOf a owl:ObjectProperty ;
+    rdfs:label "objectOf" ;
+    rdfs:comment "The 'parent' BACnet device that hosts this BACnet object." ;
+    rdfs:range bacnet:BACnetDevice .
 
-ref:BACnetURI a owl:DatatypeProperty .
+ref:BACnetURI a owl:DatatypeProperty ;
+    rdfs:label "BACnetURI" ;
+    rdfs:comment "Clause Q.8 BACnet URI scheme: bacnet:// <device> / <object> [ / <property> [ / <index> ]]" .
 
-ref:hasIfcProjectReference a owl:ObjectProperty .
+ref:hasIfcProjectReference a owl:ObjectProperty ;
+    rdfs:label "hasIfcProjectReference" ;
+    skos:definition "A reference to the IFC Project that defines this entity" .
 
 ref:hasTimeseriesId a owl:DatatypeProperty ;
+    rdfs:label "hasTimeseriesId" ;
     rdfs:range xsd:string ;
     skos:definition "The unique identifier (primary key) for this TimeseriesReference in some database"@en .
 
 ref:ifcGlobalID a owl:DatatypeProperty ;
-    rdfs:range xsd:string .
+    rdfs:label "ifcGlobalID" ;
+    rdfs:range xsd:string ;
+    skos:definition "The IFC Global ID of the entity" .
 
 ref:ifcName a owl:DatatypeProperty ;
-    rdfs:range xsd:string .
+    rdfs:label "ifcName" ;
+    rdfs:range xsd:string ;
+    skos:definition "The name of the IFC entity" .
 
 ref:storedAt a owl:DatatypeProperty ;
+    rdfs:label "storedAt" ;
     rdfs:range xsd:anyURI ;
     skos:definition "A reference to where the data for this TimeseriesReference is stored"@en .
 
 ref:BACnetReference a owl:Class,
         sh:NodeShape ;
     rdfs:subClassOf ref:ExternalReference ;
+    skos:definition "A reference to the BACnet object represented by this entity." ;
     sh:or ( [ sh:property [ a sh:PropertyShape ;
                         sh:datatype xsd:string ;
                         sh:defaultValue "present-value" ;
@@ -132,6 +156,7 @@ ref:BACnetReference a owl:Class,
 ref:IFCReference a owl:Class,
         sh:NodeShape ;
     rdfs:subClassOf ref:ExternalReference ;
+    skos:definition "A reference to an entity in an IFC project which may contain additional metadata about this entity." ;
     sh:property [ a sh:PropertyShape ;
             skos:definition "Name of the entity in IFC" ;
             sh:datatype xsd:string ;
@@ -147,9 +172,15 @@ ref:IFCReference a owl:Class,
             sh:minCount 1 ;
             sh:path ref:hasIfcProjectReference ] .
 
+ref:ExternalReference a owl:Class,
+        sh:NodeShape ;
+    rdfs:label "External reference" ;
+    skos:definition "The parent class of all external reference types" .
+
 ref:TimeseriesReference a owl:Class,
         sh:NodeShape ;
     rdfs:subClassOf ref:ExternalReference ;
+    skos:definition "A reference to a stream of timeseries data in a database. Contains the data for this entity" ;
     sh:property [ a sh:PropertyShape ;
             skos:definition "The identifier for the timeseries data corresponding to this point" ;
             sh:datatype xsd:string ;
@@ -160,11 +191,6 @@ ref:TimeseriesReference a owl:Class,
             sh:datatype xsd:string ;
             sh:path ref:storedAt ] .
 
-ref:ExternalReference a owl:Class,
-        sh:NodeShape ;
-    rdfs:label "External reference" ;
-    skos:definition "" .
-
 ref:hasExternalReference a owl:ObjectProperty ;
     rdfs:label "hasExternalReference" ;
-    skos:definition "" .
+    skos:definition "Points to the external reference for this entity, which contains additional metadata/data not included in this graph." .
