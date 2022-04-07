@@ -16,7 +16,7 @@ bldg:sensor1 a brick:Air_Temperature_Sensor ;
         bacnet:object-name "BLDG-Z410-ZATS" ;
         bacnet:objectOf bldg:sample-device ;
     ] ;
-    brick:currentValue [
+    brick:lastKnownValue [
         brick:value "72.0"^^xsd:float ;
         brick:timestamp "2020-01-01T00:00:00Z"^^xsd:dateTime ;
     ] ;

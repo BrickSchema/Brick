@@ -14,11 +14,11 @@ entity_properties = {
         RDFS.range: BRICK.DeprecationShape,
         RDFS.label: Literal("Deprecation Notice"),
     },
-    BRICK.currentValue: {
-        SKOS.definition: Literal("The current value of the Point entity"),
+    BRICK.lastKnownValue: {
+        SKOS.definition: Literal("The last known value of the Point entity"),
         RDFS.domain: BRICK.Point,
-        RDFS.range: BSH.CurrentValueShape,
-        RDFS.label: Literal("Current Value"),
+        RDFS.range: BSH.LastKnownValueShape,
+        RDFS.label: Literal("Last known value"),
     },
     BRICK.area: {
         SKOS.definition: Literal("Entity has 2-dimensional area"),
@@ -382,7 +382,7 @@ building_primary_function_values = [
 # These are the shapes that govern what values of Entity Properties should look like
 shape_properties = {
     BSH.AreaShape: {"units": [UNIT.FT2, UNIT.M2], "datatype": BSH.NumericValue},
-    BSH.CurrentValueShape: {
+    BSH.LastKnownValueShape: {
         "datatype": BSH.NumericValue,
         "properties": {
             BRICK.timestamp: {"datatype": XSD.dateTime},
