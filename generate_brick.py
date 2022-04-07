@@ -564,7 +564,11 @@ def define_properties(definitions, superprop=None):
 
             for propname in other_properties:
                 propval = propdefn[propname]
-                G.add((prop, propname, propval))
+                if isinstance(propval, list):
+                    for val in propval:
+                        G.add((prop, propname, val))
+                else:
+                    G.add((prop, propname, propval))
 
 
 def add_definitions():
