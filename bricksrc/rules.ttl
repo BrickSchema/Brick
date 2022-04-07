@@ -215,7 +215,7 @@ CONSTRUCT {
 .
 
 bsh:OneLastKnownValuePerEntity a sh:NodeShape ;
-    sh:targetSubjectsOf brick:hasLastKnownValue ;
+    sh:targetSubjectsOf brick:lastKnownValue ;
     sh:property [
         sh:path brick:lastKnownValue ;
         sh:message "Only one last known value per entity is allowed" ;
