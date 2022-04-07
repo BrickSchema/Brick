@@ -63,3 +63,39 @@ def test_entity_property_type_inference():
         "SELECT ?ref WHERE { ?point brick:hasExternalReference ?ref . ?ref a brick:BACnetReference }"
     )
     assert len(res) == 1
+
+
+def test_last_known_value():
+    g = brickschema.Graph()
+    EX = Namespace("urn:ex#")
+    g.load_file("Brick.ttl")
+    g.add(
+        (
+            EX["point"],
+            BRICK.lastKnownValue,
+            [
+                (BRICK.value, Literal("1.0", datatype=XSD.float)),
+                (
+                    BRICK.timestamp,
+                    Literal("2020-01-01T00:00:00", datatype=XSD.dateTime),
+                ),
+            ],
+        )
+    )
+    valid, _, report = g.validate()
+    assert valid, report
+    g.add(
+        (
+            EX["point"],
+            BRICK.lastKnownValue,
+            [
+                (BRICK.value, Literal("2.0", datatype=XSD.float)),
+                (
+                    BRICK.timestamp,
+                    Literal("2020-01-02T00:00:00", datatype=XSD.dateTime),
+                ),
+            ],
+        )
+    )
+    valid, _, report = g.validate()
+    assert not valid, report

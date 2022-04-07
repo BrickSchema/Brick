@@ -213,3 +213,12 @@ CONSTRUCT {
     ] ;
     sh:targetObjectsOf owl:equivalentClass ;
 .
+
+bsh:OneLastKnownValuePerEntity a sh:NodeShape ;
+    sh:targetSubjectsOf brick:hasLastKnownValue ;
+    sh:property [
+        sh:path brick:lastKnownValue ;
+        sh:message "Only one last known value per entity is allowed" ;
+        sh:maxCount 1 ;
+    ] ;
+.
