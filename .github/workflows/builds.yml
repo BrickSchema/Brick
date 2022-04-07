@@ -5,7 +5,7 @@ on:
     branches:
         - master
         - v1.*
-  pull_request
+  pull_request:
 jobs:
   build:
     runs-on: ubuntu-18.04
