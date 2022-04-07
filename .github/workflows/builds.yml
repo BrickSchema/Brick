@@ -37,7 +37,7 @@ jobs:
         python generate_shacl.py
         cd ..
     - name: upload ttls
-      if: {{ matrix.python-version }} == "3.7.9"
+      if: "${{ matrix.python-version }}" == "3.7.9"
       uses: actions/upload-artifact@v3
       with:
         name: ontology
