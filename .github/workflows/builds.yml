@@ -41,7 +41,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: ontology
-        path: |
+        path:
           Brick.ttl
     - name: Run the tests
       # -s flag: do not capture output (avoids killing test after 10 min)
