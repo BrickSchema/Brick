@@ -50,6 +50,9 @@ equipment_subclasses = {
     "Meter": {
         "tags": [TAG.Meter, TAG.Equipment],
         "subclasses": {
+            "Virtual_Meter": {
+                "tags": [TAG.Virtual, TAG.Meter, TAG.Equipment],
+            },
             "Electrical_Meter": {
                 "tags": [TAG.Electrical, TAG.Meter, TAG.Equipment],
                 "subclasses": {

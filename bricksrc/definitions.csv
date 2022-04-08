@@ -1055,6 +1055,7 @@ https://brickschema.org/schema/Brick#Ventilation_Air_System,"The equipment, dist
 https://brickschema.org/schema/Brick#Vent_Operating_Mode_Status,Indicates the current operating mode of a vent,
 https://brickschema.org/schema/Brick#Ventilation_Air_System,"The equipment, devices, and conduits that handle the introduction and distribution of ventilation air in the building",
 https://brickschema.org/schema/Brick#Vertical_Space,A class of spaces used to connect multiple floors or levels..,
+https://brickschema.org/schema/Brick#Virtual_Meter,A logical meter which includes or aggregates information from a variety of sources such as other submeters or equipment.,
 https://brickschema.org/schema/Brick#Visitor_Lobby,A lobby for visitors to the building. Sometimes used to distinguish from an employee entrance looby,
 https://brickschema.org/schema/Brick#Voltage,"Voltage, also referred to as Electric Tension, is the difference between electrical potentials of two points. For an electric field within a medium, (U_{ab} = - \int_{r_a}^{r_b} E . {dr}), where (E) is electric field strength. For an irrotational electric field, the voltage is independent of the path between the two points (a) and (b).",
 https://brickschema.org/schema/Brick#Voltage_Angle,Angle of voltage phasor,
