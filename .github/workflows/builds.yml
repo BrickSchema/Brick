@@ -43,7 +43,6 @@ jobs:
         name: ontology
         path: |
           Brick.ttl
-          shacl/BrickShape.ttl
     - name: Run the tests
       # -s flag: do not capture output (avoids killing test after 10 min)
       run: |
