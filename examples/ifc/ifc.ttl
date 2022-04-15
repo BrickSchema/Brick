@@ -4,7 +4,7 @@
 
 bldg:ifc_project a ref:ifcProject ;
     ref:ifcProjectID "abc" ;
-    ref:fileLocation "file://./building.ifc" ;
+    ref:ifcFileLocation "file://./building.ifc" ;
 .
 
 bldg:space a brick:Space ;

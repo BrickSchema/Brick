@@ -108,6 +108,10 @@ ref:hasTimeseriesId a owl:DatatypeProperty ;
     rdfs:range xsd:string ;
     skos:definition "The unique identifier (primary key) for this TimeseriesReference in some database"@en .
 
+ref:ifcFileLocation a owl:DatatypeProperty ;
+    rdfs:label "The location of the IFC file defining a project" ;
+    rdfs:range xsd:string .
+
 ref:ifcGlobalID a owl:DatatypeProperty ;
     rdfs:label "ifcGlobalID" ;
     rdfs:range xsd:string ;
@@ -117,6 +121,23 @@ ref:ifcName a owl:DatatypeProperty ;
     rdfs:label "ifcName" ;
     rdfs:range xsd:string ;
     skos:definition "The name of the IFC entity" .
+
+ref:ifcProject a owl:Class,
+        sh:NodeShape ;
+    rdfs:label "IfcProject" ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ref:ifcFileLocation ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ref:ifcProjectID ] .
+
+ref:ifcProjectID a owl:DatatypeProperty ;
+    rdfs:label "ifcProjectID" ;
+    rdfs:range xsd:string ;
+    skos:definition "The IFC ID of the containing project" .
 
 ref:storedAt a owl:DatatypeProperty ;
     rdfs:label "storedAt" ;
