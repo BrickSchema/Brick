@@ -149,8 +149,8 @@ ref:BACnetReference a owl:Class,
     rdfs:subClassOf ref:ExternalReference ;
     skos:definition "A reference to the BACnet object represented by this entity." ;
     sh:or ( [ sh:property [ a sh:PropertyShape ;
-                        sh:datatype xsd:string ;
-                        sh:defaultValue "present-value" ;
+                        sh:datatype bacnet:Property ;
+                        sh:defaultValue bacnet:Present_Value ;
                         sh:path ref:read-property ],
                     [ a sh:PropertyShape ;
                         sh:datatype xsd:string ;
@@ -158,6 +158,11 @@ ref:BACnetReference a owl:Class,
                     [ a sh:PropertyShape ;
                         sh:datatype xsd:string ;
                         sh:path bacnet:description ],
+                    [ a sh:PropertyShape ;
+                        sh:class bacnet:EngineeringUnitsEnumerationValue ;
+                        sh:maxCount 1 ;
+                        sh:minCount 0 ;
+                        sh:path bacnet:units ],
                     [ a sh:PropertyShape ;
                         sh:datatype xsd:string ;
                         sh:minLength 1 ;

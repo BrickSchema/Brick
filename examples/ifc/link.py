@@ -1,15 +1,14 @@
 import brickschema
-from brickschema.namespaces import Namespace, BRICK
+from brickschema.namespaces import Namespace, BRICK, REF, A
 from rdflib import Literal
 
 BLDG = Namespace("urn:example#")
-BRICKIFC = Namespace("https://brickschema.org/extension/ifc#")
 
 g = brickschema.Graph()
 g.load_file("ifc.ttl")  # our example file
 
 # get project
-project = list(g.query("SELECT ?proj WHERE { ?proj a brickifc:Project }"))[0][0]
+project = list(g.query("SELECT ?proj WHERE { ?proj a ref:ifcProject }"))[0][0]
 
 link = {
     "brick": BLDG["space3"],
@@ -19,10 +18,11 @@ link = {
 g.add(
     (
         link["brick"],
-        BRICKIFC.hasIFCReference,
+        REF.hasExternalReference,
         [
-            (BRICKIFC.hasProjectReference, project),
-            (BRICKIFC.globalID, Literal(link["ifc"])),
+            (A, REF.IFCReference),
+            (REF.hasIfcProjectReference, project),
+            (REF.globalID, Literal(link["ifc"])),
         ],
     )
 )

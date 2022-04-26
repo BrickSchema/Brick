@@ -9,6 +9,7 @@ bldg:ifc_project a ref:ifcProject ;
 
 bldg:space a brick:Space ;
     ref:hasExternalReference [
+        a ref:IFCReference ; # can be inferred
         ref:hasIfcProjectReference bldg:ifc_project ;
         ref:ifcGlobalID "123" ;
         ref:ifcName "Example Space" ;
@@ -16,6 +17,7 @@ bldg:space a brick:Space ;
 
 bldg:space2 a brick:Space ;
     ref:hasExternalReference [
+        a ref:IFCReference ; # can be inferred
         ref:hasIfcProjectReference bldg:ifc_project ;
         ref:ifcGlobalID "124" ;
         ref:ifcName "Example Space" ;
