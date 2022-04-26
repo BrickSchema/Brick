@@ -22,7 +22,7 @@ g.add(
         [
             (A, REF.IFCReference),
             (REF.hasIfcProjectReference, project),
-            (REF.globalID, Literal(link["ifc"])),
+            (REF.ifcGlobalID, Literal(link["ifc"])),
         ],
     )
 )

@@ -16,8 +16,8 @@ bldg:space2 a brick:Space ;
 
 bldg:space3 a brick:Space ;
     ref:hasExternalReference [ a ref:IFCReference ;
-            ref:globalID "abc123" ;
-            ref:hasIfcProjectReference bldg:ifc_project ] .
+            ref:hasIfcProjectReference bldg:ifc_project ;
+            ref:ifcGlobalID "abc123" ] .
 
 bldg:ifc_project a ref:ifcProject ;
     ref:ifcFileLocation "file://./building.ifc" ;
