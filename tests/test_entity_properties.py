@@ -1,5 +1,5 @@
-from rdflib import Namespace, Literal, XSD
-from brickschema.namespaces import BRICK, A
+from rdflib import Namespace, Literal
+from brickschema.namespaces import BRICK, A, XSD
 import brickschema
 
 
@@ -43,24 +43,27 @@ def test_entity_property_validation():
 def test_entity_property_type_inference():
     g = brickschema.Graph()
     EX = Namespace("urn:ex#")
+    REF = Namespace("https://brickschema.org/schema/Brick/ref#")
     BACNET = Namespace("http://data.ashrae.org/bacnet/2020#")
     g.load_file("Brick.ttl")
     g.add(
         (
             EX["point"],
-            BRICK.hasBACnetReference,
+            REF.hasExternalReference,
             [
-                (BACNET.objectOf, [(A, BACNET.Device)]),
-                (BRICK.BACnetURI, Literal("bacnet://123/analog-input,3/present-value")),
+                (BACNET.objectOf, [(A, BACNET.BACnetDevice)]),
+                (REF.BACnetURI, Literal("bacnet://123/analog-input,3/present-value")),
             ],
         )
     )
 
+    valid, _, report = g.validate()
+    assert valid, report
     g.expand("shacl")
     g.serialize("/tmp/test.ttl", format="ttl")
 
     res = g.query(
-        "SELECT ?ref WHERE { ?point brick:hasExternalReference ?ref . ?ref a brick:BACnetReference }"
+        "SELECT ?ref WHERE { ?point ref:hasExternalReference ?ref . ?ref a ref:BACnetReference }"
     )
     assert len(res) == 1
 

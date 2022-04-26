@@ -1123,7 +1123,6 @@ https://brickschema.org/schema/Brick#hasPart,The subject is composed in part of 
 https://brickschema.org/schema/Brick#hasPoint,The subject has a source of telemetry identified by the object. In some systems the source of telemetry may be represented as a digital/analog input/output point,
 https://brickschema.org/schema/Brick#hasQUDTReference,Points to the relevant QUDT definition,
 https://brickschema.org/schema/Brick#hasTag,The subject has the given tag,
-https://brickschema.org/schema/Brick#hasTimeseriesId,The unique identifier (primary key) for this TimeseriesReference in some database,
 https://brickschema.org/schema/Brick#hasUnit,The QUDT unit associated with this Brick entity (usually a Brick Point instance or Entity Property),
 https://brickschema.org/schema/Brick#isAssociatedWith,The tag is associated with the given class,
 https://brickschema.org/schema/Brick#isFedBy,,
@@ -1133,5 +1132,3 @@ https://brickschema.org/schema/Brick#isPointOf,The subject is a source of teleme
 https://brickschema.org/schema/Brick#isRegulatedBy,,
 https://brickschema.org/schema/Brick#isTagOf,,
 https://brickschema.org/schema/Brick#regulates,The subject contributes to or performs the regulation of the substance given by the object,
-https://brickschema.org/schema/Brick#storedAt,A reference to where the data for this TimeseriesReference is stored,
-https://brickschema.org/schema/Brick#timeseries,Relates a Brick point to the TimeseriesReference that indicates where and how the data for this point is stored,
