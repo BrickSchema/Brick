@@ -13,6 +13,7 @@ DCTERMS = Namespace("http://purl.org/dc/terms#")
 SDO = Namespace("http://schema.org/")
 SOSA = Namespace("http://www.w3.org/ns/sosa/")
 VCARD = Namespace("http://www.w3.org/2006/vcard/ns#")
+S223 = Namespace("http://data.ashrae.org/standard223#")
 
 # QUDT namespaces
 QUDT = Namespace("http://qudt.org/schema/qudt/")
@@ -46,3 +47,4 @@ def bind_prefixes(g):
     g.bind("xsd", XSD)
     g.bind("bacnet", BACNET)
     g.bind("ifc", IFC)
+    g.bind("s223", S223)

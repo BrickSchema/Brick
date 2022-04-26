@@ -1,0 +1,23 @@
+@prefix bldg: <urn:example#> .
+@prefix brick: <https://brickschema.org/schema/Brick#> .
+@prefix ref: <https://brickschema.org/schema/Brick/ref#> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix bacnet: <http://data.ashrae.org/bacnet/2020#> .
+
+bldg:sample-device a bacnet:BACnetDevice ;
+    bacnet:device-instance 123 ;
+    bacnet:hasPort [ a bacnet:Port ] .
+
+bldg:sensor1 a brick:Air_Temperature_Sensor ;
+    brick:hasUnit unit:DEG_F ;
+    ref:hasExternalReference [
+        bacnet:object-identifier "analog-value,1" ;
+        bacnet:object-name "BLDG-Z410-ZATS" ;
+        bacnet:objectOf bldg:sample-device ;
+    ] ;
+    brick:lastKnownValue [
+        brick:value "72.0"^^xsd:float ;
+        brick:timestamp "2020-01-01T00:00:00Z"^^xsd:dateTime ;
+    ] ;
+.
