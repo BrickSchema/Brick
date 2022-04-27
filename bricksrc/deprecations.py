@@ -86,6 +86,11 @@ deprecations = {
         "mitigation_message": "Swapped supply/return for entering/leaving with water-related poitns",
         "replace_with": BRICK.Leaving_Condenser_Water,
     },
+    BRICK.Supply_Condenser_Water_Flow_Sensor: {
+        "version": "1.3.0",
+        "mitigation_message": "Swapped supply/return for entering/leaving with water-related poitns",
+        "replace_with": BRICK.Entering_Condenser_Water_Flow_Sensor,
+    },
     BRICK.Heat_Exchanger_Supply_Water_Temperature_Sensor: {
         "version": "1.3.0",
         "mitigation_message": "Swapped supply/return for entering/leaving with water-related poitns",
@@ -95,6 +100,16 @@ deprecations = {
         "version": "1.3.0",
         "mitigation_message": "Swapped supply/return for entering/leaving with water-related poitns",
         # "replace_with": BRICK.Leaving_Condenser_Water,
+    },
+    BRICK.Hot_Water_Supply_Flow_Sensor: {
+        "version": "1.3.0",
+        "mitigation_message": "Swapped supply/return for entering/leaving with water-related poitns",
+        "replace_with": BRICK.Hot_Water_Entering_Flow_Sensor,
+    },
+    BRICK.Hot_Water_Discharge_Flow_Sensor: {
+        "version": "1.3.0",
+        "mitigation_message": "Swapped supply/return for entering/leaving with water-related poitns",
+        "replace_with": BRICK.Hot_Water_Entering_Flow_Sensor,
     },
     BRICK.Hot_Water_Supply_Temperature_Sensor: {
         "version": "1.3.0",
@@ -120,5 +135,25 @@ deprecations = {
         "version": "1.3.0",
         "mitigation_message": "Swapped supply/return for entering/leaving with water-related poitns",
         "replace_with": BRICK.Medium_Temperature_Hot_Water_Entering_Temperature_Sensor,
+    },
+    BRICK.Return_Water_Flow_Sensor: {
+        "version": "1.3.0",
+        "mitigation_message": "Swapped supply/return for entering/leaving with water-related poitns",
+        "replace_with": BRICK.Leaving_Water_Flow_Sensor,
+    },
+    BRICK.Chilled_Water_Return_Flow_Sensor: {
+        "version": "1.3.0",
+        "mitigation_message": "Swapped supply/return for entering/leaving with water-related poitns",
+        "replace_with": BRICK.Chilled_Water_Leaving_Flow_Sensor,
+    },
+    BRICK.Hot_Water_Return_Flow_Sensor: {
+        "version": "1.3.0",
+        "mitigation_message": "Swapped supply/return for entering/leaving with water-related poitns",
+        "replace_with": BRICK.Hot_Water_Leaving_Flow_Sensor,
+    },
+    BRICK.Return_Condenser_Water_Flow_Sensor: {
+        "version": "1.3.0",
+        "mitigation_message": "Swapped supply/return for entering/leaving with water-related poitns",
+        "replace_with": BRICK.Leaving_Condenser_Water_Flow_Sensor,
     },
 }
