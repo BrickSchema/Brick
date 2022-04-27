@@ -78,28 +78,15 @@ substances = {
                             "Chilled_Water": {
                                 "tags": [TAG.Fluid, TAG.Liquid, TAG.Water, TAG.Chilled],
                                 "subclasses": {
-                                    "Discharge_Chilled_Water": {
+                                    "Entering_Chilled_Water": {
                                         "tags": [
                                             TAG.Fluid,
                                             TAG.Liquid,
                                             TAG.Water,
                                             TAG.Chilled,
-                                            TAG.Discharge,
+                                            TAG.Entering,
                                         ],
-                                        "parents": [BRICK.Discharge_Water],
-                                    },
-                                    "Supply_Chilled_Water": {
-                                        OWL.equivalentClass: BRICK[
-                                            "Discharge_Chilled_Water"
-                                        ],
-                                        "tags": [
-                                            TAG.Fluid,
-                                            TAG.Liquid,
-                                            TAG.Water,
-                                            TAG.Chilled,
-                                            TAG.Supply,
-                                        ],
-                                        "parents": [BRICK.Supply_Water],
+                                        "parents": [BRICK.Entering_Water],
                                     },
                                 },
                             },
@@ -128,34 +115,22 @@ substances = {
                                     TAG.Condenser,
                                 ],
                                 "subclasses": {
-                                    "Supply_Condenser_Water": {
-                                        OWL.equivalentClass: BRICK[
-                                            "Discharge_Condenser_Water"
-                                        ],
+                                    "Entering_Condenser_Water": {
                                         "tags": [
                                             TAG.Fluid,
                                             TAG.Liquid,
                                             TAG.Water,
                                             TAG.Condenser,
-                                            TAG.Supply,
+                                            TAG.Entering,
                                         ],
                                     },
-                                    "Discharge_Condenser_Water": {
+                                    "Leaving_Condenser_Water": {
                                         "tags": [
                                             TAG.Fluid,
                                             TAG.Liquid,
                                             TAG.Water,
                                             TAG.Condenser,
-                                            TAG.Discharge,
-                                        ],
-                                    },
-                                    "Return_Condenser_Water": {
-                                        "tags": [
-                                            TAG.Fluid,
-                                            TAG.Liquid,
-                                            TAG.Water,
-                                            TAG.Condenser,
-                                            TAG.Return,
+                                            TAG.Leaving,
                                         ],
                                     },
                                 },
@@ -176,13 +151,8 @@ substances = {
                                     TAG.Potable,
                                 ],
                             },
-                            "Discharge_Water": {
-                                "tags": [
-                                    TAG.Fluid,
-                                    TAG.Liquid,
-                                    TAG.Water,
-                                    TAG.Discharge,
-                                ],
+                            "Leaving_Water": {
+                                "tags": [TAG.Fluid, TAG.Liquid, TAG.Water, TAG.Leaving],
                             },
                             "Entering_Water": {
                                 "tags": [
@@ -192,51 +162,28 @@ substances = {
                                     TAG.Entering,
                                 ],
                             },
-                            "Leaving_Water": {
-                                "tags": [TAG.Fluid, TAG.Liquid, TAG.Water, TAG.Leaving],
-                            },
-                            "Return_Water": {
-                                "tags": [TAG.Fluid, TAG.Liquid, TAG.Water, TAG.Return],
-                            },
-                            "Supply_Water": {
-                                "tags": [TAG.Fluid, TAG.Liquid, TAG.Water, TAG.Supply],
-                                OWL.equivalentClass: BRICK["Discharge_Water"],
-                            },
                             "Hot_Water": {
                                 "tags": [TAG.Fluid, TAG.Liquid, TAG.Water, TAG.Hot],
                                 "subclasses": {
-                                    "Supply_Hot_Water": {
+                                    "Entering_Hot_Water": {
                                         "tags": [
                                             TAG.Fluid,
                                             TAG.Liquid,
                                             TAG.Water,
                                             TAG.Hot,
-                                            TAG.Supply,
+                                            TAG.Entering,
                                         ],
-                                        "parents": [BRICK.Supply_Water],
-                                        OWL.equivalentClass: BRICK[
-                                            "Discharge_Hot_Water"
-                                        ],
+                                        "parents": [BRICK.Entering_Water],
                                     },
-                                    "Discharge_Hot_Water": {
+                                    "Leaving_Hot_Water": {
                                         "tags": [
                                             TAG.Fluid,
                                             TAG.Liquid,
                                             TAG.Water,
                                             TAG.Hot,
-                                            TAG.Discharge,
+                                            TAG.Leaving,
                                         ],
-                                        "parents": [BRICK.Discharge_Water],
-                                    },
-                                    "Return_Hot_Water": {
-                                        "tags": [
-                                            TAG.Fluid,
-                                            TAG.Liquid,
-                                            TAG.Water,
-                                            TAG.Hot,
-                                            TAG.Return,
-                                        ],
-                                        "parents": [BRICK.Return_Water],
+                                        "parents": [BRICK.Leaving_Water],
                                     },
                                 },
                             },
