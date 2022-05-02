@@ -5,6 +5,7 @@
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix unit: <http://qudt.org/vocab/unit/> .
 @prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 bsh:CollectionShape a sh:NodeShape ;
     sh:and ( [ sh:message "Collection is an exclusive top class." ;
@@ -113,6 +114,21 @@ bsh:hasAssociatedTagRangeShape a sh:NodeShape ;
             sh:message "Property hasAssociatedTag has object with incorrect type" ;
             sh:path brick:hasAssociatedTag ] ;
     sh:targetSubjectsOf brick:hasAssociatedTag .
+
+bsh:hasHotColdDeck a sh:NodeShape ;
+    sh:property [ sh:message "DDAHU must have a brick:Hot_Deck" ;
+            sh:path brick:hasPart ;
+            sh:qualifiedMaxCount 1 ;
+            sh:qualifiedMinCount 1 ;
+            sh:qualifiedValueShape [ sh:class brick:Hot_Deck ] ;
+            sh:qualifiedValueShapesDisjoint true ],
+        [ sh:message "DDAHU must have a brick:Cold_Deck" ;
+            sh:path brick:hasPart ;
+            sh:qualifiedMaxCount 1 ;
+            sh:qualifiedMinCount 1 ;
+            sh:qualifiedValueShape [ sh:class brick:Cold_Deck ] ;
+            sh:qualifiedValueShapesDisjoint true ] ;
+    sh:targetClass brick:DDAHU .
 
 bsh:hasInputSubstanceRangeShape a sh:NodeShape ;
     sh:property [ sh:class brick:Substance ;
