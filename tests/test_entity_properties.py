@@ -1,5 +1,5 @@
 from rdflib import Namespace, Literal
-from brickschema.namespaces import BRICK, A, XSD
+from brickschema.namespaces import BRICK, A, REF, XSD
 import brickschema
 
 
@@ -100,5 +100,45 @@ def test_last_known_value():
             ],
         )
     )
+    valid, _, report = g.validate()
+    assert not valid, report
+
+
+def test_external_reference_rules():
+    g = brickschema.Graph()
+    EX = Namespace("urn:ex#")
+    g.load_file("Brick.ttl")
+    g.add((EX["p1"], A, BRICK.Point))
+    g.add(
+        (
+            EX["p1"],
+            REF.hasExternalReference,
+            [
+                (REF.hasTimeseriesId, Literal("abc")),
+            ],
+        )
+    )
+
+    g.expand("shacl")
+    valid, _, report = g.validate()
+    assert valid, report
+
+    res = g.query(
+        "SELECT ?ref WHERE { ?point ref:hasExternalReference ?ref . ?ref a ref:TimeseriesReference }"
+    )
+    assert len(res) == 1
+
+    g.add((EX["e1"], A, BRICK.Equipment))
+    g.add(
+        (
+            EX["e1"],
+            REF.hasExternalReference,
+            [
+                (REF.hasTimeseriesId, Literal("def")),
+            ],
+        )
+    )
+
+    g.expand("shacl")
     valid, _, report = g.validate()
     assert not valid, report
