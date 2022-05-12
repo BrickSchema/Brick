@@ -1130,5 +1130,3 @@ https://brickschema.org/schema/Brick#isLocationOf,Subject is the physical locati
 https://brickschema.org/schema/Brick#isPartOf,,
 https://brickschema.org/schema/Brick#isPointOf,The subject is a source of telemetry related to the object. In some systems the source of telemetry may be represented as a digital/analog input/output point,
 https://brickschema.org/schema/Brick#isTagOf,,
-https://brickschema.org/schema/Brick#storedAt,A reference to where the data for this TimeseriesReference is stored,
-https://brickschema.org/schema/Brick#timeseries,Relates a Brick point to the TimeseriesReference that indicates where and how the data for this point is stored,
