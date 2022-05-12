@@ -171,3 +171,18 @@ bsh:BuildingMeterRule a sh:NodeShape ;
         """ ;
     ] ;
 .
+
+bsh:VirtualMeterRule a sh:NodeShape ;
+    sh:targetClass brick:Meter ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "Only meters can have the isVirtualMeter property be true" ;
+        sh:prefixes brick:, rdf: ;
+        sh:select """
+            SELECT $this WHERE {
+                $this rdf:type/rdfs:subClassOf* brick:Entity .
+                $this brick:isVirtualMeter/brick:value true .
+                FILTER NOT EXISTS { $this rdf:type/rdfs:subClassOf* brick:Meter }
+            }
+        """ ;
+    ] .

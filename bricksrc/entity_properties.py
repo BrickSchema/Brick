@@ -277,6 +277,14 @@ entity_properties = {
         RDFS.range: BSH.AggregationShape,
         RDFS.label: Literal("Aggregate"),
     },
+    BRICK.isVirtualMeter: {
+        SKOS.Definition: Literal(
+            "True if the associated meter is 'virtual', i.e. a logical meter which includes or aggregates information from a variety of sources such as other submeters or equipment."
+        ),
+        RDFS.domain: BRICK.Meter,
+        RDFS.range: BSH.VirtualMeterShape,
+        RDFS.label: Literal("is virtual meter"),
+    },
 }
 
 building_primary_function_values = [
@@ -477,6 +485,9 @@ shape_properties = {
     BSH.CoolingCapacityShape: {
         "datatype": BSH.NumericValue,
         "units": [UNIT.TON_FG, UNIT["BTU_IT-PER-HR"], UNIT["BTU_TH-PER-HR"], UNIT.W],
+    },
+    BSH.VirtualMeterShape: {
+        "datatype": XSD.boolean,
     },
     BSH.AggregationShape: {
         "properties": {

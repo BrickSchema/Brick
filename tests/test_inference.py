@@ -1,4 +1,4 @@
-from rdflib import RDF, RDFS, OWL, Namespace
+from rdflib import RDF, RDFS, OWL, Namespace, Literal
 import pytest
 import brickschema
 from .util import make_readable
@@ -209,3 +209,26 @@ def test_meter_inference():
     g.add((BLDG.bldg, A, BRICK.Building))
     g.expand("shacl")
     assert (BLDG.abcdef, A, BRICK.Building_Electrical_Meter) in g
+
+
+def test_virtual_meter():
+    g = brickschema.Graph()
+    g.load_file("Brick.ttl")
+    g.add((BLDG.abcdef, A, BRICK.Electrical_Meter))
+    g.add((BLDG.abcdef, BRICK.isVirtualMeter, [(BRICK.value, Literal(True))]))
+    valid, _, report = g.validate()
+    assert valid, report
+
+    g = brickschema.Graph()
+    g.load_file("Brick.ttl")
+    g.add((BLDG.abcdef, A, BRICK.Building))
+    g.add((BLDG.abcdef, BRICK.isVirtualMeter, [(BRICK.value, Literal(True))]))
+    valid, _, report = g.validate()
+    assert not valid, "Virtual meter should not be allowed on a building"
+
+    g = brickschema.Graph()
+    g.load_file("Brick.ttl")
+    g.add((BLDG.abcdef, A, BRICK.Building))
+    g.add((BLDG.abcdef, BRICK.isVirtualMeter, [(BRICK.value, Literal(False))]))
+    valid, _, report = g.validate()
+    assert valid, report

@@ -11,7 +11,8 @@ bldg:floor1 a brick:Floor ;
     brick:isPartOf bldg:mybldg .
 
 # not a physical meter, but aggregates power for all devices on the floor
-bldg:submeter-floor1 a brick:Electrical_Meter, brick:Virtual_Meter ;
+bldg:submeter-floor1 a brick:Electrical_Meter ;
+    brick:isVirtualMeter [ brick:value true ];
     brick:meters bldg:floor1 .
 
 bldg:submeter-floor1-power a brick:Electric_Power_Sensor ;
