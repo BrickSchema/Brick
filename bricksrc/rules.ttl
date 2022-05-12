@@ -1,4 +1,5 @@
 @prefix brick: <https://brickschema.org/schema/Brick#> .
+@prefix ref: <https://brickschema.org/schema/Brick/ref#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix bsh: <https://brickschema.org/schema/BrickShape#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -262,3 +263,29 @@ bsh:VirtualMeterRule a sh:NodeShape ;
             }
         """ ;
     ] .
+
+bsh:OneLastKnownValuePerEntity a sh:NodeShape ;
+    sh:targetSubjectsOf brick:lastKnownValue ;
+    sh:property [
+        sh:path brick:lastKnownValue ;
+        sh:message "Only one last known value per entity is allowed" ;
+        sh:maxCount 1 ;
+    ] ;
+.
+
+bsh:TimeseriesReferenceOnPointsConstraint a sh:NodeShape ;
+    sh:targetSubjectsOf ref:hasExternalReference ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "Only Brick Points can have external timeseries references" ;
+        sh:prefixes ref:, rdf:, rdfs: ;
+        sh:select """
+            SELECT $this
+            WHERE {
+                $this ref:hasExternalReference ?ref .
+                ?ref rdf:type ref:TimeseriesReference .
+                FILTER NOT EXISTS { $this rdf:type/rdfs:subClassOf* brick:Point }
+            }
+        """ ;
+    ] ;
+.

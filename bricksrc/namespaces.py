@@ -3,6 +3,7 @@ from rdflib import Namespace
 BRICK = Namespace("https://brickschema.org/schema/Brick#")
 TAG = Namespace("https://brickschema.org/schema/BrickTag#")
 BSH = Namespace("https://brickschema.org/schema/BrickShape#")
+REF = Namespace("https://brickschema.org/schema/Brick/ref#")
 SH = Namespace("http://www.w3.org/ns/shacl#")
 XSD = Namespace("http://www.w3.org/2001/XMLSchema#")
 OWL = Namespace("http://www.w3.org/2002/07/owl#")
@@ -13,6 +14,7 @@ DCTERMS = Namespace("http://purl.org/dc/terms#")
 SDO = Namespace("http://schema.org/")
 SOSA = Namespace("http://www.w3.org/ns/sosa/")
 VCARD = Namespace("http://www.w3.org/2006/vcard/ns#")
+S223 = Namespace("http://data.ashrae.org/standard223#")
 
 # QUDT namespaces
 QUDT = Namespace("http://qudt.org/schema/qudt/")
@@ -37,6 +39,7 @@ def bind_prefixes(g):
     g.bind("sosa", SOSA)
     g.bind("sh", SH)
     g.bind("brick", BRICK)
+    g.bind("ref", REF)
     g.bind("tag", TAG)
     g.bind("vcard", VCARD)
     g.bind("bsh", BSH)
@@ -46,3 +49,4 @@ def bind_prefixes(g):
     g.bind("xsd", XSD)
     g.bind("bacnet", BACNET)
     g.bind("ifc", IFC)
+    g.bind("s223", S223)

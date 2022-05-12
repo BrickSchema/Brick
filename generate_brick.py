@@ -455,6 +455,15 @@ def define_shape_properties(definitions):
         G.add((shape_name, A, OWL.Class))
         G.add((shape_name, RDFS.subClassOf, BSH.ValueShape))
 
+        needs_value_properties = ["values", "units", "unitsFromQuantity", "datatype"]
+        if any(k in defn for k in needs_value_properties):
+            ps = BNode()
+            G.add((shape_name, SH.property, ps))
+            G.add((ps, A, SH.PropertyShape))
+            G.add((ps, SH.path, BRICK.value))
+            G.add((ps, SH.minCount, Literal(1)))
+            G.add((ps, SH.maxCount, Literal(1)))
+
         v = BNode()
         # prop:value PropertyShape
         if "values" in defn:
@@ -602,7 +611,11 @@ def define_properties(definitions, superprop=None):
 
             for propname in other_properties:
                 propval = propdefn[propname]
-                G.add((prop, propname, propval))
+                if isinstance(propval, list):
+                    for val in propval:
+                        G.add((prop, propname, val))
+                else:
+                    G.add((prop, propname, propval))
 
 
 def add_definitions():
@@ -806,8 +819,10 @@ add_definitions()
 for ttlfile in glob.glob("bricksrc/*.ttl"):
     G.parse(ttlfile, format="turtle")
 
-logging.info(f"Brick ontology compilation finished! Generated {len(G)} triples")
+# add ref-schema definitions
+G.parse("support/ref-schema.ttl", format="turtle")
 
+logging.info(f"Brick ontology compilation finished! Generated {len(G)} triples")
 
 extension_graphs = {"shacl_tag_inference": shaclGraph}
 

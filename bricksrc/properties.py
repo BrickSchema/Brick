@@ -1,5 +1,5 @@
 from rdflib import Literal
-from .namespaces import A, OWL, RDFS, BRICK, VCARD, UNIT, QUDT, SDO, RDF
+from .namespaces import A, OWL, RDFS, BRICK, VCARD, UNIT, QUDT, SDO, RDF, S223
 
 """
 Defining properties
@@ -15,7 +15,7 @@ properties = {
         RDFS.subPropertyOf: QUDT.hasQuantityKind,
     },
     "value": {
-        RDFS.subPropertyOf: QUDT.value,
+        RDFS.subPropertyOf: [QUDT.value, S223.hasSimpleValue],
         RDFS.label: Literal("Value"),
         A: [RDF.Property],
     },
@@ -28,6 +28,11 @@ properties = {
         RDFS.subPropertyOf: SDO.longitude,
         RDFS.label: Literal("Longitude"),
         A: [OWL.ObjectProperty],
+    },
+    "timestamp": {
+        RDFS.subPropertyOf: S223.hasTimestamp,
+        RDFS.label: Literal("Timestamp"),
+        A: [RDF.Property],
     },
     "hasQUDTReference": {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
