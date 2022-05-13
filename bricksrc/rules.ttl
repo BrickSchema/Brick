@@ -19,7 +19,6 @@ CONSTRUCT {
 ?o ?invP $this .
 }
 WHERE {
-  $this ?p ?o .
   { $this ?p ?o } UNION { ?o ?invP $this } .
   ?p owl:inverseOf ?invP .
 }
@@ -38,7 +37,6 @@ CONSTRUCT {
 ?o ?prop $this .
 }
 WHERE {
-  $this ?prop ?o .
   { $this ?prop ?o } UNION { ?o ?prop $this } .
   ?prop a owl:SymmetricProperty .
 }
