@@ -73,6 +73,17 @@ bsh:hasPointRangeShape a sh:NodeShape ;
             sh:path brick:hasPoint ] ;
     sh:targetSubjectsOf brick:hasPoint .
 
+bsh:hasSubMeterDomainShape a sh:NodeShape ;
+    sh:class brick:Meter ;
+    sh:message "Property hasSubMeter has subject with incorrect type" ;
+    sh:targetSubjectsOf brick:hasSubMeter .
+
+bsh:hasSubMeterRangeShape a sh:NodeShape ;
+    sh:property [ sh:class brick:Meter ;
+            sh:message "Property hasSubMeter has object with incorrect type" ;
+            sh:path brick:hasSubMeter ] ;
+    sh:targetSubjectsOf brick:hasSubMeter .
+
 bsh:hasTagRangeShape a sh:NodeShape ;
     sh:property [ sh:class brick:Tag ;
             sh:message "Property hasTag has object with incorrect type" ;
@@ -101,27 +112,34 @@ bsh:isLocationOfDomainShape a sh:NodeShape ;
     sh:message "Property isLocationOf has subject with incorrect type" ;
     sh:targetSubjectsOf brick:isLocationOf .
 
+bsh:isMeteredByRangeShape a sh:NodeShape ;
+    sh:property [ sh:class brick:Meter ;
+            sh:message "Property isMeteredBy has object with incorrect type" ;
+            sh:path brick:isMeteredBy ] ;
+    sh:targetSubjectsOf brick:isMeteredBy .
+
 bsh:isPointOfDomainShape a sh:NodeShape ;
     sh:class brick:Point ;
     sh:message "Property isPointOf has subject with incorrect type" ;
     sh:targetSubjectsOf brick:isPointOf .
 
-bsh:isRegulatedByDomainShape a sh:NodeShape ;
-    sh:class brick:Substance ;
-    sh:message "Property isRegulatedBy has subject with incorrect type" ;
-    sh:targetSubjectsOf brick:isRegulatedBy .
+bsh:isSubMeterOfDomainShape a sh:NodeShape ;
+    sh:class brick:Meter ;
+    sh:message "Property isSubMeterOf has subject with incorrect type" ;
+    sh:targetSubjectsOf brick:isSubMeterOf .
 
-bsh:isRegulatedByRangeShape a sh:NodeShape ;
-    sh:property [ sh:class brick:Equipment ;
-            sh:message "Property isRegulatedBy has object with incorrect type" ;
-            sh:path brick:isRegulatedBy ] ;
-    sh:targetSubjectsOf brick:isRegulatedBy .
+bsh:isSubMeterOfRangeShape a sh:NodeShape ;
+    sh:property [ sh:class brick:Meter ;
+            sh:message "Property isSubMeterOf has object with incorrect type" ;
+            sh:path brick:isSubMeterOf ] ;
+    sh:targetSubjectsOf brick:isSubMeterOf .
 
 bsh:isTagOfDomainShape a sh:NodeShape ;
     sh:class brick:Tag ;
     sh:message "Property isTagOf has subject with incorrect type" ;
     sh:targetSubjectsOf brick:isTagOf .
 
+<<<<<<< HEAD
 bsh:regulatesDomainShape a sh:NodeShape ;
     sh:class brick:Equipment ;
     sh:message "Property regulates has subject with incorrect type" ;
@@ -232,3 +250,9 @@ brick:Location a sh:NodeShape ;
         [ sh:class brick:Point ;
             sh:message "A Location may have associated Points" ;
             sh:path brick:hasPoint ] .
+=======
+bsh:metersDomainShape a sh:NodeShape ;
+    sh:class brick:Meter ;
+    sh:message "Property meters has subject with incorrect type" ;
+    sh:targetSubjectsOf brick:meters .
+>>>>>>> 8a4fe7fa5736e91cd869c2239506fc8fb527e231

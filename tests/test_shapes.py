@@ -72,3 +72,77 @@ def test_point():
     invalid_g = brickschema.Graph().parse(data=invalid_data, format="turtle")
     conforms, _, _ = invalid_g.validate([schema_g])
     assert not conforms
+
+
+def test_meter_shapes():
+    invalid_data = (
+        base_data
+        + """
+:meter a brick:Meter .
+:equip a brick:AHU ;
+    brick:meters :meter .
+"""
+    )
+    invalid_g = brickschema.Graph().parse(data=invalid_data, format="turtle")
+    conforms, _, _ = invalid_g.validate([schema_g])
+    assert not conforms
+
+    invalid_data = (
+        base_data
+        + """
+:meter a brick:Meter .
+:loc a brick:Space ;
+    brick:meters :meter .
+"""
+    )
+    invalid_g = brickschema.Graph().parse(data=invalid_data, format="turtle")
+    conforms, _, _ = invalid_g.validate([schema_g])
+    assert not conforms
+
+    valid_data = (
+        base_data
+        + """
+:meter a brick:Meter .
+:equip a brick:AHU ;
+    brick:isMeteredBy :meter .
+"""
+    )
+    valid_g = brickschema.Graph().parse(data=valid_data, format="turtle")
+    conforms, _, _ = valid_g.validate([schema_g])
+    assert conforms
+
+    invalid_data = (
+        base_data
+        + """
+:meter a brick:Meter ;
+    brick:isMeteredBy :equip .
+:equip a brick:AHU .
+"""
+    )
+    invalid_g = brickschema.Graph().parse(data=invalid_data, format="turtle")
+    conforms, _, _ = invalid_g.validate([schema_g])
+    assert not conforms
+
+    invalid_data = (
+        base_data
+        + """
+:meter a brick:Meter ;
+    brick:isMeteredBy :loc .
+:loc a brick:Space .
+"""
+    )
+    invalid_g = brickschema.Graph().parse(data=invalid_data, format="turtle")
+    conforms, _, _ = invalid_g.validate([schema_g])
+    assert not conforms
+
+    valid_data = (
+        base_data
+        + """
+:meter a brick:Meter ;
+    brick:meters :equip .
+:equip a brick:AHU .
+"""
+    )
+    valid_g = brickschema.Graph().parse(data=valid_data, format="turtle")
+    conforms, _, _ = valid_g.validate([schema_g])
+    assert conforms
