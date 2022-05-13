@@ -72,19 +72,17 @@ def test_instances_measure_correct_units():
              ?class brick:hasQuantity ?quantity .\
              ?quantity qudt:applicableUnit ?unit }"
     )
-    triples = []
-    for brickclass, quantity, unit in classes_with_quantities:
+    for brickclass, _, unit in classes_with_quantities:
         class_name = re.split("/|#", brickclass)[-1]
         unit_name = re.split("/|#", unit)[-1]
         instance = BLDG[f"Instance_of_{class_name}_{unit_name}"]
-        triples.append((instance, A, brickclass))
-        triples.append((instance, BRICK.hasUnit, unit))
-    g.add(*triples)
+        g.add((instance, A, brickclass))
+        g.add((instance, BRICK.hasUnit, unit))
     g.expand(profile="shacl")
 
     instances = g.query(
         "SELECT distinct ?inst WHERE {\
-             ?inst   rdf:type        brick:Point .\
+                ?inst   rdf:type/rdfs:subClassOf* brick:Point .\
              ?inst   rdf:type/brick:hasQuantity  ?quantity .\
              ?quantity    a   brick:Quantity .\
              ?inst   brick:hasUnit   ?unit .}"
