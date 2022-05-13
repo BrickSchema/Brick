@@ -149,6 +149,26 @@ brick:Collection a sh:NodeShape;
     );
     .
 
+brick:Location a sh:NodeShape ;
+    sh:and ( [ sh:message "Location is an exclusive top class." ;
+                sh:not [ sh:class brick:Point ] ] [ sh:message "Location is an exclusive top class." ;
+                sh:not [ sh:class brick:Equipment ] ] [ sh:message "Location is an exclusive top class." ;
+                sh:not [ sh:class brick:Substance ] ] [ sh:message "Location is an exclusive top class." ;
+                sh:not [ sh:class brick:Quantity ] ] [ sh:message "Location is an exclusive top class." ;
+                sh:not [ sh:class brick:Collection ] ] ) ;
+    sh:property [ sh:class brick:Location ;
+            sh:message "A Location's parts should be always Locations." ;
+            sh:path brick:hasPart ],
+        [ sh:class brick:Location ;
+            sh:message "A Location's parts should be always Locations." ;
+            sh:path brick:isPartOf ],
+        [ sh:class brick:Equipment ;
+            sh:message "Locations can be fed only by other Equipment." ;
+            sh:path brick:isFedBy ],
+        [ sh:class brick:Point ;
+            sh:message "A Location may have associated Points" ;
+            sh:path brick:hasPoint ] .
+
 bsh:hasLocationShape a sh:Nodeshape;
     sh:targetSubjectsOf brick:hasLocation;
     sh:not [
@@ -176,4 +196,4 @@ bsh:hasHotColdDeck
         sh:qualifiedMaxCount 1 ;
         sh:message "DDAHU must have a brick:Cold_Deck" ;
     ] ;
-    .
+.
