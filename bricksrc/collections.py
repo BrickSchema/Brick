@@ -130,7 +130,12 @@ system_subclasses = {
             },
         },
     },
-    "Shading_System": {"tags": [TAG.Shade, TAG.System]},
+    "Shading_System": {
+        "tags": [TAG.Shade, TAG.System],
+        "subclasses": {
+            "Shade_Array": {"tags": [TAG.Shade, TAG.Array, TAG.System]},
+        },
+    },
 }
 
 loop_subclasses = {

@@ -115,6 +115,21 @@ bsh:hasAssociatedTagRangeShape a sh:NodeShape ;
             sh:path brick:hasAssociatedTag ] ;
     sh:targetSubjectsOf brick:hasAssociatedTag .
 
+bsh:hasHotColdDeck a sh:NodeShape ;
+    sh:property [ sh:message "DDAHU must have a brick:Hot_Deck" ;
+            sh:path brick:hasPart ;
+            sh:qualifiedMaxCount 1 ;
+            sh:qualifiedMinCount 1 ;
+            sh:qualifiedValueShape [ sh:class brick:Hot_Deck ] ;
+            sh:qualifiedValueShapesDisjoint true ],
+        [ sh:message "DDAHU must have a brick:Cold_Deck" ;
+            sh:path brick:hasPart ;
+            sh:qualifiedMaxCount 1 ;
+            sh:qualifiedMinCount 1 ;
+            sh:qualifiedValueShape [ sh:class brick:Cold_Deck ] ;
+            sh:qualifiedValueShapesDisjoint true ] ;
+    sh:targetClass brick:DDAHU .
+
 bsh:hasInputSubstanceRangeShape a sh:NodeShape ;
     sh:property [ sh:class brick:Substance ;
             sh:message "Property hasInputSubstance has object with incorrect type" ;
@@ -150,17 +165,6 @@ bsh:hasTagRangeShape a sh:NodeShape ;
             sh:path brick:hasTag ] ;
     sh:targetSubjectsOf brick:hasTag .
 
-bsh:hasTimeseriesIdDomainShape a sh:NodeShape ;
-    sh:class brick:TimeseriesReference ;
-    sh:message "Property hasTimeseriesId has subject with incorrect type" ;
-    sh:targetSubjectsOf brick:hasTimeseriesId .
-
-bsh:hasTimeseriesIdRangeShape a sh:NodeShape ;
-    sh:property [ sh:class xsd:string ;
-            sh:message "Property hasTimeseriesId has object with incorrect type" ;
-            sh:path brick:hasTimeseriesId ] ;
-    sh:targetSubjectsOf brick:hasTimeseriesId .
-
 bsh:hasUnitRangeShape a sh:NodeShape ;
     sh:property [ sh:class unit:Unit ;
             sh:message "Property hasUnit has object with incorrect type" ;
@@ -183,17 +187,6 @@ bsh:isLocationOfDomainShape a sh:NodeShape ;
     sh:message "Property isLocationOf has subject with incorrect type" ;
     sh:targetSubjectsOf brick:isLocationOf .
 
-bsh:isMeasuredByDomainShape a sh:NodeShape ;
-    sh:class brick:Measurable ;
-    sh:message "Property isMeasuredBy has subject with incorrect type" ;
-    sh:targetSubjectsOf brick:isMeasuredBy .
-
-bsh:isMeasuredByRangeShape a sh:NodeShape ;
-    sh:property [ sh:class brick:Point ;
-            sh:message "Property isMeasuredBy has object with incorrect type" ;
-            sh:path brick:isMeasuredBy ] ;
-    sh:targetSubjectsOf brick:isMeasuredBy .
-
 bsh:isPointOfDomainShape a sh:NodeShape ;
     sh:class brick:Point ;
     sh:message "Property isPointOf has subject with incorrect type" ;
@@ -215,17 +208,6 @@ bsh:isTagOfDomainShape a sh:NodeShape ;
     sh:message "Property isTagOf has subject with incorrect type" ;
     sh:targetSubjectsOf brick:isTagOf .
 
-bsh:measuresDomainShape a sh:NodeShape ;
-    sh:class brick:Point ;
-    sh:message "Property measures has subject with incorrect type" ;
-    sh:targetSubjectsOf brick:measures .
-
-bsh:measuresRangeShape a sh:NodeShape ;
-    sh:property [ sh:class brick:Measurable ;
-            sh:message "Property measures has object with incorrect type" ;
-            sh:path brick:measures ] ;
-    sh:targetSubjectsOf brick:measures .
-
 bsh:regulatesDomainShape a sh:NodeShape ;
     sh:class brick:Equipment ;
     sh:message "Property regulates has subject with incorrect type" ;
@@ -236,19 +218,3 @@ bsh:regulatesRangeShape a sh:NodeShape ;
             sh:message "Property regulates has object with incorrect type" ;
             sh:path brick:regulates ] ;
     sh:targetSubjectsOf brick:regulates .
-
-bsh:storedAtDomainShape a sh:NodeShape ;
-    sh:class brick:TimeseriesReference ;
-    sh:message "Property storedAt has subject with incorrect type" ;
-    sh:targetSubjectsOf brick:storedAt .
-
-bsh:timeseriesDomainShape a sh:NodeShape ;
-    sh:class brick:Point ;
-    sh:message "Property timeseries has subject with incorrect type" ;
-    sh:targetSubjectsOf brick:timeseries .
-
-bsh:timeseriesRangeShape a sh:NodeShape ;
-    sh:property [ sh:class brick:TimeseriesReference ;
-            sh:message "Property timeseries has object with incorrect type" ;
-            sh:path brick:timeseries ] ;
-    sh:targetSubjectsOf brick:timeseries .

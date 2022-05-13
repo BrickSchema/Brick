@@ -5,6 +5,10 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+# include this to inform reasoning
+skos:narrower owl:inverseOf skos:broader .
 
 bsh:InferInverseProperties
   a sh:NodeShape ;
@@ -16,12 +20,12 @@ CONSTRUCT {
 }
 WHERE {
   $this ?p ?o .
+  { $this ?p ?o } UNION { ?o ?invP $this } .
   ?p owl:inverseOf ?invP .
 }
 			""" ;
       sh:prefixes owl: ;
     ] ;
-
   sh:targetClass brick:Entity ;
 .
 
@@ -35,6 +39,7 @@ CONSTRUCT {
 }
 WHERE {
   $this ?prop ?o .
+  { $this ?prop ?o } UNION { ?o ?prop $this } .
   ?prop a owl:SymmetricProperty .
 }
 			""" ;
@@ -80,6 +85,71 @@ CONSTRUCT {
     sh:targetSubjectsOf rdfs:range ;
 .
 
+bsh:RDFSSubPropertyOfRule
+    a   sh:NodeShape ;
+    sh:rule [
+        a sh:SPARQLRule ;
+        sh:construct """
+CONSTRUCT {
+    ?s ?super ?o .
+} WHERE {
+    $this rdfs:subPropertyOf ?super .
+    ?s $this ?o .
+}""" ;
+    sh:prefixes rdfs: ;
+    ] ;
+    sh:targetSubjectsOf rdfs:subPropertyOf ;
+.
+
+bsh:DeprecationRule
+    a   sh:NodeShape ;
+    sh:property [
+        sh:path brick:deprecation ;
+        sh:maxCount 0 ;
+        sh:severity sh:Warning ;
+        sh:message "This concept is deprecated" ;
+    ] ;
+    sh:rule [
+        a sh:SPARQLRule ;
+        sh:construct """
+        CONSTRUCT { $this owl:deprecated true }
+        WHERE { $this brick:deprecation ?dep }
+        """ ;
+        sh:prefixes owl: ;
+        sh:prefixes brick: ;
+    ] ;
+    sh:property [
+        sh:path brick:deprecatedInVersion ;
+        sh:datatype xsd:string ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path brick:deprecationMitigationMessage ;
+        sh:datatype xsd:string ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path brick:deprecationMitigationRule ;
+        sh:class sh:NodeShape ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:targetSubjectsOf brick:deprecation ;
+.
+
+bsh:DeprecationRuleForInstances
+    a   sh:NodeShape ;
+    sh:targetClass brick:Entity ;
+    sh:severity sh:Warning ;
+    sh:sparql [
+      a sh:SPARQLConstraint ;
+      sh:message "Entity has type which is deprecated" ;
+      sh:prefixes brick:, rdf: ;
+      sh:select """SELECT $this WHERE { $this rdf:type/owl:deprecated true }""" ;
+    ] ;
+.
+
+
+
 # bsh:TagInferenceRule
 #     a sh:NodeShape ;
 #     sh:rule [
@@ -107,3 +177,39 @@ CONSTRUCT {
 #     ] ;
 #     sh:targetSubjectsOf brick:hasTag ;
 # .
+
+bsh:OWLEquivalentClassRule1
+    a   sh:NodeShape ;
+    sh:rule [
+        a sh:SPARQLRule ;
+        sh:construct """
+CONSTRUCT {
+    ?s a ?t2 .
+} WHERE {
+    ?s a $this .
+    { ?t2 owl:equivalentClass $this }
+    UNION
+    { $this owl:equivalentClass ?t2 }
+}""" ;
+    sh:prefixes owl: ;
+    ] ;
+    sh:targetSubjectsOf owl:equivalentClass ;
+.
+
+bsh:OWLEquivalentClassRule2
+    a   sh:NodeShape ;
+    sh:rule [
+        a sh:SPARQLRule ;
+        sh:construct """
+CONSTRUCT {
+    ?s a ?t2 .
+} WHERE {
+    ?s a $this .
+    { ?t2 owl:equivalentClass $this }
+    UNION
+    { $this owl:equivalentClass ?t2 }
+}""" ;
+    sh:prefixes owl: ;
+    ] ;
+    sh:targetObjectsOf owl:equivalentClass ;
+.
