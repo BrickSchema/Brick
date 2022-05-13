@@ -2,7 +2,7 @@ import sys
 from bricksrc.namespaces import A, OWL, RDFS, SKOS, BRICK, SH, BSH, bind_prefixes
 import brickschema
 
-schema_g = brickschema.Graph().load_file("shacl/BrickShape.ttl")
+schema_g = brickschema.Graph().load_file("Brick.ttl")
 bind_prefixes(schema_g)
 
 prefixes = """
