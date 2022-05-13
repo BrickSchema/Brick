@@ -562,6 +562,44 @@ def define_properties(definitions, superprop=None):
         assert isinstance(subproperties_def, dict)
         define_properties(subproperties_def, prop)
 
+        # define range/domain using SHACL shapes
+        if "range" in propdefn:
+            defn = propdefn.pop("range")
+            range_shape = BSH[f"range_shape_{prop.split('#')[-1]}"]
+            G.add((range_shape, A, SH.NodeShape))
+            G.add((range_shape, SH.targetSubjectsOf, prop))
+            constraint = BNode()
+            G.add((range_shape, SH.property, constraint))
+            G.add((constraint, SH.path, prop))
+            G.add((constraint, SH.minCount, Literal(1)))
+            if isinstance(defn, (tuple, list)):
+                enumeration = BNode()
+                G.add((constraint, SH["or"], enumeration))
+                constraints = []
+                for cls in defn:
+                    constraint = BNode()
+                    G.add((constraint, SH["class"], cls))
+                    constraints.append(constraint)
+                Collection(G, enumeration, constraints)
+            else:
+                G.add((constraint, SH["class"], defn))
+        if "domain" in propdefn:
+            defn = propdefn.pop("domain")
+            domain_shape = BSH[f"domain_shape_{prop.split('#')[-1]}"]
+            G.add((domain_shape, A, SH.NodeShape))
+            G.add((domain_shape, SH.targetSubjectsOf, prop))
+            if isinstance(defn, (tuple, list)):
+                enumeration = BNode()
+                G.add((domain_shape, SH["or"], enumeration))
+                constraints = []
+                for cls in defn:
+                    constraint = BNode()
+                    G.add((constraint, SH["class"], cls))
+                    constraints.append(constraint)
+                Collection(G, enumeration, constraints)
+            else:
+                G.add((domain_shape, SH["class"], defn))
+
         # define other properties of the Brick property
         for propname, propval in propdefn.items():
             # all other key-value pairs in the definition are

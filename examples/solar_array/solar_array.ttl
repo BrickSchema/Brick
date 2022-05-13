@@ -103,7 +103,7 @@ site:pv_meter   a   brick:Electrical_Meter ;
     brick:hasPoint  site:pv_power, site:pv_energy,
                     site:pv_daily_peak_power .
 
-site:pv_power   a   brick:Electrical_Power_Sensor ;
+site:pv_power   a   brick:Electric_Power_Sensor ;
     brick:powerFlow [ brick:value "export"^^xsd:string ] ;
     brick:hasUnit   unit:KiloW .
 
