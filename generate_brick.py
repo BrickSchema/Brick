@@ -469,6 +469,15 @@ def define_shape_properties(definitions):
         G.add((shape_name, A, OWL.Class))
         G.add((shape_name, RDFS.subClassOf, BSH.ValueShape))
 
+        needs_value_properties = ["values", "units", "unitsFromQuantity", "datatype"]
+        if any(k in defn for k in needs_value_properties):
+            ps = BNode()
+            G.add((shape_name, SH.property, ps))
+            G.add((ps, A, SH.PropertyShape))
+            G.add((ps, SH.path, BRICK.value))
+            G.add((ps, SH.minCount, Literal(1)))
+            G.add((ps, SH.maxCount, Literal(1)))
+
         v = BNode()
         # prop:value PropertyShape
         if "values" in defn:
@@ -567,6 +576,44 @@ def define_properties(definitions, superprop=None):
         assert isinstance(subproperties_def, dict)
         define_properties(subproperties_def, prop)
 
+        # define range/domain using SHACL shapes
+        if "range" in propdefn:
+            defn = propdefn.pop("range")
+            range_shape = BSH[f"range_shape_{prop.split('#')[-1]}"]
+            G.add((range_shape, A, SH.NodeShape))
+            G.add((range_shape, SH.targetSubjectsOf, prop))
+            constraint = BNode()
+            G.add((range_shape, SH.property, constraint))
+            G.add((constraint, SH.path, prop))
+            G.add((constraint, SH.minCount, Literal(1)))
+            if isinstance(defn, (tuple, list)):
+                enumeration = BNode()
+                G.add((constraint, SH["or"], enumeration))
+                constraints = []
+                for cls in defn:
+                    constraint = BNode()
+                    G.add((constraint, SH["class"], cls))
+                    constraints.append(constraint)
+                Collection(G, enumeration, constraints)
+            else:
+                G.add((constraint, SH["class"], defn))
+        if "domain" in propdefn:
+            defn = propdefn.pop("domain")
+            domain_shape = BSH[f"domain_shape_{prop.split('#')[-1]}"]
+            G.add((domain_shape, A, SH.NodeShape))
+            G.add((domain_shape, SH.targetSubjectsOf, prop))
+            if isinstance(defn, (tuple, list)):
+                enumeration = BNode()
+                G.add((domain_shape, SH["or"], enumeration))
+                constraints = []
+                for cls in defn:
+                    constraint = BNode()
+                    G.add((constraint, SH["class"], cls))
+                    constraints.append(constraint)
+                Collection(G, enumeration, constraints)
+            else:
+                G.add((domain_shape, SH["class"], defn))
+
         # define other properties of the Brick property
         for propname, propval in propdefn.items():
             # all other key-value pairs in the definition are
@@ -578,7 +625,11 @@ def define_properties(definitions, superprop=None):
 
             for propname in other_properties:
                 propval = propdefn[propname]
-                G.add((prop, propname, propval))
+                if isinstance(propval, list):
+                    for val in propval:
+                        G.add((prop, propname, val))
+                else:
+                    G.add((prop, propname, propval))
 
 
 def add_definitions():
@@ -782,8 +833,10 @@ add_definitions()
 for ttlfile in glob.glob("bricksrc/*.ttl"):
     G.parse(ttlfile, format="turtle")
 
-logging.info(f"Brick ontology compilation finished! Generated {len(G)} triples")
+# add ref-schema definitions
+G.parse("support/ref-schema.ttl", format="turtle")
 
+logging.info(f"Brick ontology compilation finished! Generated {len(G)} triples")
 
 extension_graphs = {"shacl_tag_inference": shaclGraph}
 

@@ -1,4 +1,4 @@
-from rdflib import RDF, RDFS, OWL, Namespace
+from rdflib import RDF, RDFS, OWL, Namespace, Literal
 import pytest
 import brickschema
 from .util import make_readable
@@ -171,6 +171,21 @@ def test_tag_inference():
     assert len(res) == 2
 
 
+def test_owl_inverse():
+    g = brickschema.Graph()
+    g.parse("Brick.ttl", format="turtle")
+    g.add((BLDG.vav1, BRICK.hasPoint, BLDG.AFS2))
+    g.add((BLDG.vav1, A, BRICK.VAV))
+    g.add((BLDG.AFS2, A, BRICK.Air_Flow_Sensor))
+    g.expand("shacl")
+
+    res = make_readable(g.query("SELECT ?x ?y WHERE { ?x brick:hasPoint ?y }"))
+    assert len(res) == 1
+
+    res = make_readable(g.query("SELECT ?x ?y WHERE { ?x brick:isPointOf ?y }"))
+    assert len(res) == 1
+
+
 def test_shacl_owl_equivalentclass():
     g = brickschema.Graph()
     g.load_file("Brick.ttl")
@@ -184,3 +199,36 @@ def test_shacl_owl_equivalentclass():
 
     res = g.query("SELECT ?vav WHERE { ?vav rdf:type brick:Variable_Air_Volume_Box }")
     assert len(list(res)) == 2, "VAV should be equivalent to Variable_Air_Volume_Box"
+
+
+def test_meter_inference():
+    g = brickschema.Graph()
+    g.load_file("Brick.ttl")
+    g.add((BLDG.abcdef, A, BRICK.Electrical_Meter))
+    g.add((BLDG.abcdef, BRICK.meters, BLDG.bldg))
+    g.add((BLDG.bldg, A, BRICK.Building))
+    g.expand("shacl")
+    assert (BLDG.abcdef, A, BRICK.Building_Electrical_Meter) in g
+
+
+def test_virtual_meter():
+    g = brickschema.Graph()
+    g.load_file("Brick.ttl")
+    g.add((BLDG.abcdef, A, BRICK.Electrical_Meter))
+    g.add((BLDG.abcdef, BRICK.isVirtualMeter, [(BRICK.value, Literal(True))]))
+    valid, _, report = g.validate()
+    assert valid, report
+
+    g = brickschema.Graph()
+    g.load_file("Brick.ttl")
+    g.add((BLDG.abcdef, A, BRICK.Building))
+    g.add((BLDG.abcdef, BRICK.isVirtualMeter, [(BRICK.value, Literal(True))]))
+    valid, _, report = g.validate()
+    assert not valid, "Virtual meter should not be allowed on a building"
+
+    g = brickschema.Graph()
+    g.load_file("Brick.ttl")
+    g.add((BLDG.abcdef, A, BRICK.Building))
+    g.add((BLDG.abcdef, BRICK.isVirtualMeter, [(BRICK.value, Literal(False))]))
+    valid, _, report = g.validate()
+    assert valid, report

@@ -1,0 +1,58 @@
+@prefix bldg: <urn:example#> .
+@prefix brick: <https://brickschema.org/schema/Brick#> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+
+bldg:mysite a brick:Site ;
+    brick:hasPart bldg:mybldg .
+
+bldg:mybldg a brick:Building ;
+    brick:isMeteredBy bldg:main-meter .
+
+bldg:main-meter a brick:Building_Electrical_Meter ;
+    brick:hasSubMeter bldg:submeter-floor1, bldg:submeter-floor2, bldg:submeter-floor3 .
+
+bldg:building_peak_demand a brick:Electric_Power_Sensor ;
+    brick:aggregate [ brick:aggregationFunction "max" ;
+            brick:aggregationInterval "RP1D" ] ;
+    brick:hasUnit unit:KiloW ;
+    brick:isPointOf bldg:main-meter ;
+    brick:timeseries [ brick:hasTimeseriesId "bcf9a85d-696c-446a-a2ac-97207ecfbc56" ] .
+
+bldg:floor1 a brick:Floor ;
+    brick:isPartOf bldg:mybldg .
+
+bldg:floor2 a brick:Floor ;
+    brick:isPartOf bldg:mybldg .
+
+bldg:floor3 a brick:Floor ;
+    brick:isPartOf bldg:mybldg .
+
+bldg:submeter-floor1 a brick:Electrical_Meter ;
+    brick:meters bldg:floor1 .
+
+bldg:submeter-floor2 a brick:Electrical_Meter ;
+    brick:meters bldg:floor2 .
+
+bldg:submeter-floor3 a brick:Electrical_Meter ;
+    brick:meters bldg:floor3 .
+
+bldg:submeter-floor1-peak-power a brick:Electric_Power_Sensor ;
+    brick:hasUnit unit:KiloW ;
+    brick:isPointOf bldg:submeter-floor1 ;
+    brick:aggregate [ brick:aggregationFunction "max" ;
+            brick:aggregationInterval "RP1D" ] ;
+    brick:timeseries [ brick:hasTimeseriesId "647654d4-56ee-11ec-bf02-3dcb0419df3b" ] .
+
+bldg:submeter-floor2-peak-power a brick:Electric_Power_Sensor ;
+    brick:hasUnit unit:KiloW ;
+    brick:isPointOf bldg:submeter-floor2 ;
+    brick:aggregate [ brick:aggregationFunction "max" ;
+            brick:aggregationInterval "RP1D" ] ;
+    brick:timeseries [ brick:hasTimeseriesId "7a5e3870-56ee-11ec-bf02-3dcb0419df3b" ] .
+
+bldg:submeter-floor3-peak-power a brick:Electric_Power_Sensor ;
+    brick:hasUnit unit:KiloW ;
+    brick:isPointOf bldg:submeter-floor3 ;
+    brick:aggregate [ brick:aggregationFunction "max" ;
+            brick:aggregationInterval "RP1D" ] ;
+    brick:timeseries [ brick:hasTimeseriesId "82332722-56ee-11ec-bf02-3dcb0419df3b" ] .
