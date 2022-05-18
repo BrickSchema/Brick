@@ -255,6 +255,7 @@ substances = {
             "Ice": {"tags": [TAG.Solid, TAG.Ice]},
             "Frost": {"tags": [TAG.Solid, TAG.Frost]},
             "Hail": {"tags": [TAG.Solid, TAG.Hail]},
+            "Ground": {"tags": [TAG.Solid, TAG.Ground]},
         },
     },
 }

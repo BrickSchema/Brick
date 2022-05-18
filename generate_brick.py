@@ -308,6 +308,19 @@ def define_classes(definitions, parent, pun_classes=False):
         assert isinstance(constraints, dict)
         define_constraints(constraints, classname)
 
+        # inherited properties
+        properties = defn.get("entity_properties", {})
+        assert isinstance(properties, dict)
+        for propname, propval in properties.items():
+            rule = BNode(f"{classname}_{propname}_rule")
+            G.add((classname, SH.rule, rule))
+            G.add((rule, A, SH.SPARQLRule))
+            construct = f"CONSTRUCT {{\n\t$this {propname.n3()} [\n"
+            for (k, v) in propval:
+                construct += f"\t{k.n3()} {v.n3()} ;\n"
+            construct += "\t] \n} WHERE {}"
+            G.add((rule, SH.construct, Literal(construct)))
+
         # all other key-value pairs in the definition are
         # property-object pairs
         expected_properties = [
@@ -316,6 +329,7 @@ def define_classes(definitions, parent, pun_classes=False):
             "substances",
             "subclasses",
             "constraints",
+            "entity_properties",
         ]
         other_properties = [
             prop for prop in defn.keys() if prop not in expected_properties

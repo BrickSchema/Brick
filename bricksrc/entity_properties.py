@@ -273,6 +273,14 @@ entity_properties = {
             },
         },
     },
+    BRICK.heatPumpSource: {
+        SKOS.definition: Literal(
+            "The source of heat (during heating) or the heat sink (during cooling) for a building"
+        ),
+        RDFS.domain: BRICK.Heat_Pump,
+        RDFS.range: BSH.HeatPumpSourceShape,
+        RDFS.label: Literal("Heat pump source"),
+    },
     # special stuff
     BRICK.aggregate: {
         SKOS.definition: Literal(
@@ -384,6 +392,7 @@ shape_properties = {
     BSH.CurrentFlowTypeShape: {"values": ["AC", "DC"]},
     BSH.StageShape: {"values": [1, 2, 3, 4]},
     BSH.BuildingPrimaryFunctionShape: {"values": building_primary_function_values},
+    BSH.HeatPumpSourceShape: {"values": [BRICK.Water, BRICK.Air, BRICK.Ground]},
     BSH.CoordinateShape: {
         "properties": {
             BRICK.latitude: {"datatype": BSH.NumericValue},

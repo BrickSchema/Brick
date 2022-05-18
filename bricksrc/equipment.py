@@ -1,5 +1,5 @@
 from rdflib import Literal
-from .namespaces import TAG, OWL, BRICK
+from .namespaces import TAG, OWL, BRICK, BSH, A
 
 """
 Set up subclasses of the equipment superclass
@@ -656,6 +656,12 @@ hvac_subclasses = {
                     TAG.Heat,
                     TAG.Pump,
                 ],
+                "entity_properties": {
+                    BRICK.heatPumpSource: {
+                        (A, BSH.HeatPumpSourceShape),
+                        (BRICK.value, BRICK.Air),
+                    },
+                },
                 "subclasses": {
                     "Air_To_Air_Heat_Pump": {
                         "tags": [
@@ -792,6 +798,12 @@ hvac_subclasses = {
                     TAG.Heat,
                     TAG.Pump,
                 ],
+                "entity_properties": {
+                    BRICK.heatPumpSource: {
+                        (A, BSH.HeatPumpSourceShape),
+                        (BRICK.value, BRICK.Water),
+                    },
+                },
                 "subclasses": {
                     "Water_To_Water_Heat_Pump": {
                         "tags": [
@@ -866,6 +878,12 @@ hvac_subclasses = {
                     TAG.Heat,
                     TAG.Pump,
                 ],
+                "entity_properties": {
+                    BRICK.heatPumpSource: {
+                        (A, BSH.HeatPumpSourceShape),
+                        (BRICK.value, BRICK.Ground),
+                    },
+                },
                 "subclasses": {
                     "Ground_To_Air_Heat_Pump": {
                         "tags": [
