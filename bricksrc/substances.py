@@ -43,6 +43,84 @@ substances = {
                     },
                     "CO2": {"tags": [TAG.Fluid, TAG.Gas, TAG.CO2]},
                     "CO": {"tags": [TAG.Fluid, TAG.Gas, TAG.CO]},
+                    "Hydrocarbon_Refrigerant": {
+                        "tags": [TAG.Fluid, TAG.Gas, TAG.Hydrocarbon, TAG.Refrigerant]
+                    },
+                    "Fluorocarbon_Refrigerant": {
+                        "tags": [TAG.Fluid, TAG.Gas, TAG.Fluorocarbon, TAG.Refrigerant],
+                        "subclasses": {
+                            "CFC": {
+                                "tags": [
+                                    TAG.Fluid,
+                                    TAG.Gas,
+                                    TAG.Fluorocarbon,
+                                    TAG.Refrigerant,
+                                    TAG.CFC,
+                                ]
+                            },
+                            "HCFC": {
+                                "tags": [
+                                    TAG.Fluid,
+                                    TAG.Gas,
+                                    TAG.Fluorocarbon,
+                                    TAG.Refrigerant,
+                                    TAG.HCFC,
+                                ]
+                            },
+                            "HFC": {
+                                "tags": [
+                                    TAG.Fluid,
+                                    TAG.Gas,
+                                    TAG.Fluorocarbon,
+                                    TAG.Refrigerant,
+                                    TAG.HFC,
+                                ],
+                                "subclasses": {
+                                    "R410A": {
+                                        "tags": [
+                                            TAG.Fluid,
+                                            TAG.Gas,
+                                            TAG.Fluorocarbon,
+                                            TAG.Refrigerant,
+                                            TAG.HFC,
+                                            TAG.R410A,
+                                        ],
+                                    },
+                                    "R134a": {
+                                        "tags": [
+                                            TAG.Fluid,
+                                            TAG.Gas,
+                                            TAG.Fluorocarbon,
+                                            TAG.Refrigerant,
+                                            TAG.HFC,
+                                            TAG.R134a,
+                                        ],
+                                    },
+                                },
+                            },
+                            "HFO": {
+                                "tags": [
+                                    TAG.Fluid,
+                                    TAG.Gas,
+                                    TAG.Fluorocarbon,
+                                    TAG.Refrigerant,
+                                    TAG.HFO,
+                                ],
+                                "subclasses": {
+                                    "R1234yf": {
+                                        "tags": [
+                                            TAG.Fluid,
+                                            TAG.Gas,
+                                            TAG.Fluorocarbon,
+                                            TAG.Refrigerant,
+                                            TAG.HFO,
+                                            TAG.R1234yf,
+                                        ],
+                                    },
+                                },
+                            },
+                        },
+                    },
                     "Steam": {"tags": [TAG.Fluid, TAG.Gas, TAG.Steam]},
                     "Natural_Gas": {"tags": [TAG.Fluid, TAG.Gas, TAG.Natural]},
                 },
