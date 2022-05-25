@@ -21,6 +21,7 @@ from bricksrc.namespaces import (
     UNIT,
     VCARD,
     SH,
+    REF,
 )
 from bricksrc.namespaces import bind_prefixes
 
@@ -821,6 +822,9 @@ for ttlfile in glob.glob("bricksrc/*.ttl"):
 
 # add ref-schema definitions
 G.parse("support/ref-schema.ttl", format="turtle")
+ref_schema_uri = URIRef(REF.strip("#"))
+for triple in G.cbd(ref_schema_uri):
+    G.remove(triple)
 
 logging.info(f"Brick ontology compilation finished! Generated {len(G)} triples")
 
