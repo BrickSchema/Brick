@@ -629,18 +629,6 @@ hvac_subclasses = {
     },
     "Compressor": {"tags": [TAG.Equipment, TAG.Compressor]},
     "Cooling_Tower": {"tags": [TAG.Equipment, TAG.Cool, TAG.Tower]},
-    "Chiller": {
-        "tags": [TAG.Equipment, TAG.Chiller],
-        "subclasses": {
-            "Absorption_Chiller": {
-                "tags": [TAG.Equipment, TAG.Chiller, TAG.Absorption],
-            },
-            "Centrifugal_Chiller": {
-                "tags": [TAG.Equipment, TAG.Chiller, TAG.Centrifugal],
-            },
-        },
-        "parents": [BRICK.Heat_Pump],
-    },
     "Heat_Pump": {
         "tags": [
             TAG.Equipment,
@@ -663,6 +651,10 @@ hvac_subclasses = {
                     },
                 },
                 "subclasses": {
+                    "Air_Conditioning_Unit": {
+                        "tags": [TAG.Equipment, TAG.Air, TAG.Conditioning, TAG.Unit],
+                        "parents": [BRICK.Nonreversible_Heat_Pump],
+                    },
                     "Air_To_Air_Heat_Pump": {
                         "tags": [
                             TAG.Equipment,
@@ -805,6 +797,19 @@ hvac_subclasses = {
                     },
                 },
                 "subclasses": {
+                    # all chillers are non-reversible water-to-X heat pumps
+                    "Chiller": {
+                        "tags": [TAG.Equipment, TAG.Chiller],
+                        "subclasses": {
+                            "Absorption_Chiller": {
+                                "tags": [TAG.Equipment, TAG.Chiller, TAG.Absorption],
+                            },
+                            "Centrifugal_Chiller": {
+                                "tags": [TAG.Equipment, TAG.Chiller, TAG.Centrifugal],
+                            },
+                        },
+                        "parents": [BRICK.Heat_Pump, BRICK.Nonreversible_Heat_Pump],
+                    },
                     "Water_To_Water_Heat_Pump": {
                         "tags": [
                             TAG.Equipment,
