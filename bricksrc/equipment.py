@@ -808,7 +808,7 @@ hvac_subclasses = {
                                 "tags": [TAG.Equipment, TAG.Chiller, TAG.Centrifugal],
                             },
                         },
-                        "parents": [BRICK.Heat_Pump, BRICK.Nonreversible_Heat_Pump],
+                        "parents": [BRICK.Nonreversible_Heat_Pump],
                     },
                     "Water_To_Water_Heat_Pump": {
                         "tags": [
