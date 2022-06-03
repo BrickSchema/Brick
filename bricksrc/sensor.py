@@ -547,6 +547,10 @@ sensor_definitions = {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Flow],
                 BRICK.hasQuantity: BRICK.Flow,
                 "subclasses": {
+                    "Natural_Gas_Flow_Sensor": {
+                        "tags": [TAG.Point, TAG.Sensor, TAG.Flow, TAG.Natural, TAG.Gas],
+                        BRICK.hasSubstance: BRICK.Natrual_Gas
+                    },
                     "Air_Flow_Sensor": {
                         "tags": [TAG.Point, TAG.Sensor, TAG.Flow, TAG.Air],
                         BRICK.hasQuantity: BRICK.Flow,

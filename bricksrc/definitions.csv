@@ -439,6 +439,7 @@ https://brickschema.org/schema/Brick#Gas,"state of matter in which substances ex
 https://brickschema.org/schema/Brick#Gas_Distribution,Utilize a gas distribution source to represent how gas is distributed across multiple destinations,
 https://brickschema.org/schema/Brick#Gas_Meter,A meter that measures the usage or consumption of gas,
 https://brickschema.org/schema/Brick#Gas_Sensor,Measures gas concentration (other than CO2),
+https://brickschema.org/schema/Brick#Natural_Gas_Flow_Sensor,Measures the flow rate of natural gas,
 https://brickschema.org/schema/Brick#Gasoline,Petroleum derived liquid used as a fuel source,
 https://brickschema.org/schema/Brick#Gatehouse,The standalone building used to manage the entrance to a campus or building grounds,
 https://brickschema.org/schema/Brick#Generation_Sensor,A sensor measuring how much something has been generated.,
