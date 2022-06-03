@@ -106,15 +106,6 @@ command_definitions = {
                             },
                         },
                     },
-                    "Exhaust_Fan_Enable_Command": {
-                        "tags": [
-                            TAG.Point,
-                            TAG.Enable,
-                            TAG.Command,
-                            TAG.Fan,
-                            TAG.Exhaust,
-                        ],
-                    },
                     "Run_Enable_Command": {
                         "tags": [TAG.Point, TAG.Enable, TAG.Command, TAG.Run],
                     },
@@ -168,15 +159,6 @@ command_definitions = {
             "Disable_Command": {
                 "tags": [TAG.Point, TAG.Disable, TAG.Command],
                 "subclasses": {
-                    "Exhaust_Fan_Disable_Command": {
-                        "tags": [
-                            TAG.Point,
-                            TAG.Disable,
-                            TAG.Command,
-                            TAG.Fan,
-                            TAG.Exhaust,
-                        ],
-                    },
                     "Disable_Differential_Enthalpy_Command": {
                         "tags": [
                             TAG.Point,
