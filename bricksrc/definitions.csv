@@ -1043,6 +1043,7 @@ https://brickschema.org/schema/Brick#VFD,"Electronic device that varies its outp
 https://brickschema.org/schema/Brick#VFD_Enable_Command,Enables operation of a variable frequency drive,
 https://brickschema.org/schema/Brick#Valve,"A device that regulates, directs or controls the flow of a fluid by opening, closing or partially obstructing various passageways",https://en.wikipedia.org/wiki/Valve
 https://brickschema.org/schema/Brick#Valve_Command,Controls or reports the openness of a valve (typically as a proportion of its full range of motion),
+https://brickschema.org/schema/Brick#Valve_Position_Command,Controls the position (the degree of openness) of a valve,
 https://brickschema.org/schema/Brick#Valve_Position_Alarm,An alarm that indicates that the valve position is not in a normal state.,
 https://brickschema.org/schema/Brick#Valve_Position_Sensor,Measures the current position of a valve in terms of the percent of fully open,
 https://brickschema.org/schema/Brick#Valve_Status,The current status of the valve.,

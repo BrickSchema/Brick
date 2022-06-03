@@ -39,6 +39,13 @@ command_definitions = {
             "Valve_Command": {
                 # TODO: position?
                 "tags": [TAG.Point, TAG.Valve, TAG.Command],
+                "subclasses": {
+                    "Valve_Position_Command": {
+                        BRICK.hasQuantity: BRICK.Position,
+                        "tags": [TAG.Point, TAG.Valve, TAG.Position, TAG.Command],
+                        "parents": [BRICK.Position_Command],
+                    },
+                }
             },
             "Reset_Command": {
                 "tags": [TAG.Point, TAG.Reset, TAG.Command],
