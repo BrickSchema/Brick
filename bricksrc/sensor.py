@@ -1511,6 +1511,14 @@ sensor_definitions = {
                     },
                 },
             },
+            "Generation_Sensor": {
+                "tags": [TAG.Point, TAG.Sensor, TAG.Generation],
+                "subclasses": {
+                    "Energy_Generation_Sensor": {
+                        "tags": [TAG.Point, TAG.Sensor, TAG.Generation, TAG.Energy]
+                    }
+                }
+            },
             "Usage_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Usage],
                 "subclasses": {
