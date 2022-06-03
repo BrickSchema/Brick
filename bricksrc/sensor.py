@@ -690,6 +690,17 @@ sensor_definitions = {
                         BRICK.hasQuantity: BRICK.Flow,
                         BRICK.hasSubstance: BRICK.Water,
                         "subclasses": {
+                            "Condenser_Water_Flow_Sensor": {
+                                BRICK.hasQuantity: BRICK.Flow,
+                                BRICK.hasSubstance: BRICK.Condenser_Water,
+                                "tags": [
+                                    TAG.Condenser,
+                                    TAG.Water,
+                                    TAG.Flow,
+                                    TAG.Sensor,
+                                    TAG.Point,
+                                ],
+                            },
                             "Entering_Water_Flow_Sensor": {
                                 "tags": [
                                     TAG.Point,
@@ -797,6 +808,7 @@ sensor_definitions = {
                                         OWL.equivalentClass: BRICK[
                                             "Discharge_Condenser_Water_Flow_Sensor"
                                         ],
+                                        "parents": [BRICK.Condenser_Water_Flow_Sensor],
                                         "tags": [
                                             TAG.Point,
                                             TAG.Sensor,
@@ -851,6 +863,7 @@ sensor_definitions = {
                                                 BRICK.Discharge_Condenser_Water,
                                             ],
                                         ],
+                                        "parents": [BRICK.Condenser_Water_Flow_Sensor],
                                         "tags": [
                                             TAG.Point,
                                             TAG.Sensor,
@@ -902,6 +915,7 @@ sensor_definitions = {
                                     "Return_Condenser_Water_Flow_Sensor": {
                                         BRICK.hasQuantity: BRICK.Flow,
                                         BRICK.hasSubstance: BRICK.Return_Condenser_Water,
+                                        "parents": [BRICK.Condenser_Water_Flow_Sensor],
                                         "tags": [
                                             TAG.Point,
                                             TAG.Sensor,

@@ -61,6 +61,7 @@ https://brickschema.org/schema/Brick#Battery_Voltage_Sensor,Measures the capacit
 https://brickschema.org/schema/Brick#Bench_Space,"For areas of play in a stadium, the area for partcipants and referees by the side of the field",
 https://brickschema.org/schema/Brick#Blowdown_Water,Water expelled from a system to remove mineral build up,
 https://brickschema.org/schema/Brick#Boiler,"A closed, pressure vessel that uses fuel or electricity for heating water or other fluids to supply steam or hot water for heating, humidification, or other applications.",
+https://brickschema.org/schema/Brick#Boiler_Command,A command to control a boiler,
 https://brickschema.org/schema/Brick#Booster_Fan,Fan activated to increase airflow beyond what is provided by the default configuration,
 https://brickschema.org/schema/Brick#Box_Mode_Command,,
 https://brickschema.org/schema/Brick#Break_Room,A space for people to relax while not working,
@@ -159,6 +160,7 @@ https://brickschema.org/schema/Brick#Condenser,A heat exchanger in which the pri
 https://brickschema.org/schema/Brick#Condenser_Heat_Exchanger,A heat exchanger in which the primary heat transfer vapor changes its state to a liquid phase.,
 https://brickschema.org/schema/Brick#Condenser_Water,Water used used to remove heat through condensation,
 https://brickschema.org/schema/Brick#Condenser_Water_Bypass_Valve,A valve installed in a bypass line of a condenser water loop,
+https://brickschema.org/schema/Brick#Condenser_Water_Flow_Sensor,Measures the flow of the condenser water,
 https://brickschema.org/schema/Brick#Condenser_Water_Isolation_Valve,An isolation valve installed in the condenser water loop,
 https://brickschema.org/schema/Brick#Condenser_Water_Pump,A pump that is part of a condenser system; the pump circulates condenser water from the chiller back to the cooling tower,
 https://brickschema.org/schema/Brick#Condenser_Water_System,"A heat rejection system consisting of (typically) cooling towers, condenser water pumps, chillers and the piping connecting the components",https://www.linquip.com/blog/condenser-water-system-an-overview/

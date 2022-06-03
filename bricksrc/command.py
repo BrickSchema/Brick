@@ -5,6 +5,7 @@ command_definitions = {
     "Command": {
         "tags": [TAG.Point, TAG.Command],
         "subclasses": {
+            "Boiler_Command": {"tags": [TAG.Boiler, TAG.Command, TAG.Point]},
             "Tint_Command": {"tags": [TAG.Tint, TAG.Command, TAG.Point]},
             "Cooling_Command": {"tags": [TAG.Point, TAG.Cool, TAG.Command]},
             "Heating_Command": {"tags": [TAG.Point, TAG.Heat, TAG.Command]},
