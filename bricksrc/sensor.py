@@ -1357,6 +1357,10 @@ sensor_definitions = {
                     },
                 },
             },
+            "Power_Factor_Sensor": {
+                "tags": [TAG.Point, TAG.Sensor, TAG.Power, TAG.Factor],
+                BRICK.hasQuantity: BRICK.Power_Factor,
+            },
             "Power_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Power],
                 BRICK.hasQuantity: BRICK.Power,
