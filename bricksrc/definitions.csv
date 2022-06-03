@@ -1133,3 +1133,4 @@ https://brickschema.org/schema/Brick#isLocationOf,Subject is the physical locati
 https://brickschema.org/schema/Brick#isPartOf,,
 https://brickschema.org/schema/Brick#isPointOf,The subject is a source of telemetry related to the object. In some systems the source of telemetry may be represented as a digital/analog input/output point,
 https://brickschema.org/schema/Brick#isTagOf,,
+https://brickschema.org/schema/Brick#Refrigerant,A refrigerant is a working fluid used in the refrigeration cycle of air conditioning systems and heat pumps where in most cases they undergo a repeated phase transition from a liquid to a gas and back again.,https://en.wikipedia.org/wiki/Refrigerant

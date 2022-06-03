@@ -1459,6 +1459,10 @@ sensor_definitions = {
                     },
                 },
             },
+            "Refrigerant_Level_Sensor": {
+                BRICK.hasQuantity: BRICK.Level,
+                BRICK.hasSubstance: BRICK.Refrigerant,
+            },
             "Solar_Radiance_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Radiance, TAG.Solar],
                 BRICK.hasQuantity: BRICK.Solar_Radiance,
