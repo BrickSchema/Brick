@@ -828,6 +828,7 @@ https://brickschema.org/schema/Brick#Reactive_Power,"Reactive Power}, for a line
 https://brickschema.org/schema/Brick#Reactive_Power_Sensor,"Measures the portion of power that, averaged over a complete cycle of the AC waveform, is due to stored energy which returns to the source in each cycle",
 https://brickschema.org/schema/Brick#Real_Power,"(Active Power) is, under periodic conditions, the mean value, taken over one period (T), of the instantaneous power (p). In complex notation, (P = Re \; S), where (S) is (complex power)"".",
 https://brickschema.org/schema/Brick#Reception,"A space, usually in a lobby, where visitors to a building or space can go to after arriving at a building and inform building staff that they have arrived",
+https://brickschema.org/schema/Brick#Refrigerant,A refrigerant is a working fluid used in the refrigeration cycle of air conditioning systems and heat pumps where in most cases they undergo a repeated phase transition from a liquid to a gas and back again.,https://en.wikipedia.org/wiki/Refrigerant
 https://brickschema.org/schema/Brick#Region,"A unit of geographic space, usually contigious or somehow related to a geopolitical feature",
 https://brickschema.org/schema/Brick#Reheat_Valve,A valve that controls air temperature by modulating the amount of hot water flowing through a reheat coil,
 https://brickschema.org/schema/Brick#Relative_Humidity,Relative Humidity} is the ratio of the partial pressure of water vapor in an air-water mixture to the saturated vapor pressure of water at a prescribed temperature. The relative humidity of air depends not only on temperature but also on the pressure of the system of interest. Relative Humidity is also referred to as \text{Relative Partial Pressure. Relative partial pressure is often referred to as (RH) and expressed in percent.,
@@ -1133,4 +1134,3 @@ https://brickschema.org/schema/Brick#isLocationOf,Subject is the physical locati
 https://brickschema.org/schema/Brick#isPartOf,,
 https://brickschema.org/schema/Brick#isPointOf,The subject is a source of telemetry related to the object. In some systems the source of telemetry may be represented as a digital/analog input/output point,
 https://brickschema.org/schema/Brick#isTagOf,,
-https://brickschema.org/schema/Brick#Refrigerant,A refrigerant is a working fluid used in the refrigeration cycle of air conditioning systems and heat pumps where in most cases they undergo a repeated phase transition from a liquid to a gas and back again.,https://en.wikipedia.org/wiki/Refrigerant
