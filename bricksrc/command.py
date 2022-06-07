@@ -115,7 +115,7 @@ command_definitions = {
                             TAG.Fan,
                             TAG.Exhaust,
                         ],
-                    },
+                    }, # deprecated
                     "Run_Enable_Command": {
                         "tags": [TAG.Point, TAG.Enable, TAG.Command, TAG.Run],
                     },
@@ -177,7 +177,7 @@ command_definitions = {
                             TAG.Fan,
                             TAG.Exhaust,
                         ],
-                    },
+                    }, # deprecated
                     "Disable_Differential_Enthalpy_Command": {
                         "tags": [
                             TAG.Point,
