@@ -39,7 +39,7 @@ brick:Fresh_Air_Fan brick:deprecation [
 
 brick:Exhaust_Fan_Disable_Command brick:deprecation [
     brick:deprecatedInVersion "1.3.0" ;
-    brick:deprecationMitigationMessage "Exhaust_Fan_Disable_Command is deprecated as a point name should not include more specific equipment names than top level equipment names",
+    brick:deprecationMitigationMessage "Exhaust_Fan_Disable_Command is deprecated as a point name should not include more specific equipment names than top level equipment names";
     brick:deprecationMigitationRule [
         a sh:NodeShape ;
         sh:rule [
@@ -58,7 +58,7 @@ brick:Exhaust_Fan_Disable_Command brick:deprecation [
 
 brick:Exhaust_Fan_Enable_Command brick:deprecation [
     brick:deprecatedInVersion "1.3.0" ;
-    brick:deprecationMitigationMessage "Exhaust_Fan_Enable_Command is deprecated as a point name should not include more specific equipment names than top level equipment names",
+    brick:deprecationMitigationMessage "Exhaust_Fan_Enable_Command is deprecated as a point name should not include more specific equipment names than top level equipment names";
     brick:deprecationMigitationRule [
         a sh:NodeShape ;
         sh:rule [
