@@ -26,6 +26,7 @@ sensor_definitions = {
                             [BRICK.measures, BRICK.Ammonia_Concentration],
                         ],
                     },
+                    
                     "CO_Sensor": {
                         "tags": [TAG.Point, TAG.Sensor, TAG.CO],
                         "substances": [
