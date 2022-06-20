@@ -399,6 +399,8 @@ https://brickschema.org/schema/Brick#FCU,See Fan_Coil_Unit,
 https://brickschema.org/schema/Brick#Failure_Alarm,"Alarms that indicate the failure of devices, equipment, systems and control loops",
 https://brickschema.org/schema/Brick#Fan,"Any device with two or more blades or vanes attached to a rotating shaft used to produce an airflow for the purpose of comfort, ventilation, exhaust, heating, cooling, or any other gaseous transport.",
 https://brickschema.org/schema/Brick#Fan_Coil_Unit,Terminal device consisting of a heating and/or cooling heat exchanger or 'coil' and fan that is used to control the temperature in the space where it is installed,https://en.wikipedia.org/wiki/Fan_coil_unit
+https://brickschema.org/schema/Brick#Fan_Command,Controls properties of fans,
+https://brickschema.org/schema/Brick#Fan_Speed_Command,Controls the speed of fans,
 https://brickschema.org/schema/Brick#Fan_Status,Indicates properties of fans,
 https://brickschema.org/schema/Brick#Fan_VFD,Variable-frequency drive for fans,
 https://brickschema.org/schema/Brick#Fault_Reset_Command,Clears a fault status,
