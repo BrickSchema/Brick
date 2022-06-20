@@ -308,6 +308,7 @@ https://brickschema.org/schema/Brick#Domestic_Hot_Water_Valve,A valve regulating
 https://brickschema.org/schema/Brick#Domestic_Water,A collection of equipment that transport and regulate domestic water among each other,
 https://brickschema.org/schema/Brick#Drive_Ready_Status,"Indicates if a hard drive or other storage device is ready to be used, e.g. in the context of RAID",
 https://brickschema.org/schema/Brick#Dry_Bulb_Temperature,"The temperature of air measured by a thermometer freely exposed to the air, but shielded from radiation and moisture. (https://en.wikipedia.org/wiki/Dry-bulb_temperature)",
+https://brickschema.org/schema/Brick#Dry_Cooler,A cooling device that uses air to achieve process temperature regulation.,
 https://brickschema.org/schema/Brick#Dual_Duct_Air_Handling_Unit,An air handling unit that contains hot and cold decks to supply heating and cooling to a building,
 https://brickschema.org/schema/Brick#Duration_Sensor,Measures the duration of a phenomenon or event,
 https://brickschema.org/schema/Brick#ESS_Panel,See Embedded_Surface_System_Panel,
