@@ -83,6 +83,10 @@ setpoint_definitions = {
             "Deadband_Setpoint": {
                 "tags": [TAG.Point, TAG.Deadband, TAG.Setpoint],
                 "subclasses": {
+                    "Humidity_Deadband_Setpoint": {
+                        BRICK.hasQuantity: BRICK.Humidity,
+                        "tags": [TAG.Point, TAG.Deadband, TAG.Setpoint, TAG.Humidity],
+                    },
                     "Temperature_Deadband_Setpoint": {
                         BRICK.hasQuantity: BRICK.Temperature,
                         "subclasses": {

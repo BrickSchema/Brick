@@ -537,6 +537,7 @@ https://brickschema.org/schema/Brick#Humidifier_Fault_Status,Indicates the prese
 https://brickschema.org/schema/Brick#Humidify_Command,,
 https://brickschema.org/schema/Brick#Humidity,,
 https://brickschema.org/schema/Brick#Humidity_Alarm,An alarm that indicates the off-normal conditions associated with the concentration of water vapor in the air.,
+https://brickschema.org/schema/Brick#Humidity_Deadband_Setpoint,Sets the size of a deadband of humidity,
 https://brickschema.org/schema/Brick#Humidity_Parameter,Parameters relevant to humidity-related systems and points,
 https://brickschema.org/schema/Brick#Humidity_Sensor,Measures the concentration of water vapor in air,https://en.wikipedia.org/wiki/Humidity
 https://brickschema.org/schema/Brick#Humidity_Setpoint,Sets humidity,
