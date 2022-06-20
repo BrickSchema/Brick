@@ -8,6 +8,9 @@ setpoint_definitions = {
         ),
         "tags": [TAG.Point, TAG.Setpoint],
         "subclasses": {
+            "Current_Ratio_Setpoint": {
+                "tags": [TAG.Point, TAG.Setpoint, TAG.Current, TAG.Electric, TAG.Ratio]
+            },
             "Illuminance_Setpoint": {
                 "tags": [TAG.Point, TAG.Setpoint, TAG.Illuminance]
             },
@@ -2383,7 +2386,7 @@ setpoint_definitions = {
                     },
                 },
             },
-            "Differential_Setpoint":{
+            "Differential_Setpoint": {
                 "tags": [TAG.Point, TAG.Differential, TAG.Setpoint],
                 "subclasses": {
                     "Differential_Temperature_Setpoint": {
@@ -2399,7 +2402,7 @@ setpoint_definitions = {
                                     TAG.Setpoint,
                                 ],
                             },
-                            "Differential_Air_Temperature_Setpoint": { #TODO: The name of this should be aligned with Water_Differential_Temperature_Setpoint.
+                            "Differential_Air_Temperature_Setpoint": {  # TODO: The name of this should be aligned with Water_Differential_Temperature_Setpoint.
                                 BRICK.hasQuantity: BRICK.Differential_Temperature,
                                 BRICK.hasSubstance: BRICK.Air,
                                 "tags": [
@@ -2700,8 +2703,8 @@ setpoint_definitions = {
                             },
                         },
                     },
-                }
-            }
+                },
+            },
         },
     }
 }
