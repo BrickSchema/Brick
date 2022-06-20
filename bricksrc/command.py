@@ -14,6 +14,7 @@ command_definitions = {
                     }
                 },
             },
+            "Light_Command": {"tags": [TAG.Point, TAG.Light, TAG.Command]},
             "Cooling_Command": {"tags": [TAG.Point, TAG.Cool, TAG.Command]},
             "Heating_Command": {"tags": [TAG.Point, TAG.Heat, TAG.Command]},
             "Luminance_Command": {"tags": [TAG.Point, TAG.Luminance, TAG.Command]},
