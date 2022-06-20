@@ -241,6 +241,12 @@ status_definitions = {
             },
             "Mode_Status": {
                 "subclasses": {
+                    "Heating_Mode_Status": {
+                        "tags": [TAG.Point, TAG.Heat, TAG.Mode, TAG.Status],
+                    },
+                    "Cooling_Mode_Status": {
+                        "tags": [TAG.Point, TAG.Cool, TAG.Mode, TAG.Status],
+                    },
                     "Occupied_Mode_Status": {
                         "tags": [TAG.Point, TAG.Occupied, TAG.Mode, TAG.Status],
                     },
