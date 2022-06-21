@@ -1065,6 +1065,8 @@ https://brickschema.org/schema/Brick#Unoccupied_Air_Temperature_Cooling_Setpoint
 https://brickschema.org/schema/Brick#Unoccupied_Air_Temperature_Heating_Setpoint,Sets temperature of air when unoccupied for heating,
 https://brickschema.org/schema/Brick#Unoccupied_Air_Temperature_Setpoint,Sets temperature of air when unoccupied,
 https://brickschema.org/schema/Brick#Unoccupied_Cooling_Discharge_Air_Flow_Setpoint,Sets discharge air flow for cooling when unoccupied,
+https://brickschema.org/schema/Brick#Unoccupied_Cooling_Mode_Status,"Indicates whether a system, device or control loop is in an unoccupied cooling mode",
+https://brickschema.org/schema/Brick#Unoccupied_Heating_Mode_Status,"Indicates whether a system, device or control loop is in an unoccupied heating mode",
 https://brickschema.org/schema/Brick#Unoccupied_Humidity_Setpoint,Target humidity level when the location is unoccupied.,
 https://brickschema.org/schema/Brick#Unoccupied_Load_Shed_Command,,
 https://brickschema.org/schema/Brick#Usage_Sensor,"Measures the amount of some substance that is consumed or used, over some period of time",

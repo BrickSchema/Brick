@@ -252,9 +252,33 @@ status_definitions = {
                 "subclasses": {
                     "Heating_Mode_Status": {
                         "tags": [TAG.Point, TAG.Heat, TAG.Mode, TAG.Status],
+                        "subclasses": {
+                            "Unoccupied_Heating_Mode_Status": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Heat,
+                                    TAG.Mode,
+                                    TAG.Status,
+                                    TAG.Unoccupied,
+                                ],
+                                "parents": [BRICK.Unoccupied_Mode_Status],
+                            }
+                        },
                     },
                     "Cooling_Mode_Status": {
                         "tags": [TAG.Point, TAG.Cool, TAG.Mode, TAG.Status],
+                        "subclasses": {
+                            "Unoccupied_Cooling_Mode_Status": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Cool,
+                                    TAG.Mode,
+                                    TAG.Status,
+                                    TAG.Unoccupied,
+                                ],
+                                "parents": [BRICK.Unoccupied_Mode_Status],
+                            }
+                        },
                     },
                     "Occupied_Mode_Status": {
                         "tags": [TAG.Point, TAG.Occupied, TAG.Mode, TAG.Status],
