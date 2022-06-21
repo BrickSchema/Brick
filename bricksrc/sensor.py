@@ -1581,6 +1581,15 @@ sensor_definitions = {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Temperature],
                 BRICK.hasQuantity: BRICK.Temperature,
                 "subclasses": {
+                    "Soil_Temperature_Sensor": {
+                        BRICK.hasSubstance: BRICK.Soil,
+                        "tags": [
+                            TAG.Point,
+                            TAG.Sensor,
+                            TAG.Temperature,
+                            TAG.Soil,
+                        ],
+                    },
                     "Natural_Gas_Temperature_Sensor": {
                         BRICK.hasSubstance: BRICK.Natural_Gas,
                         "tags": [
