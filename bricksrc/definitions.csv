@@ -433,6 +433,7 @@ https://brickschema.org/schema/Brick#Freezer,"cold chamber usually kept at a tem
 https://brickschema.org/schema/Brick#Frequency,"Frequency is the number of occurrences of a repeating event per unit time. The repetition of the events may be periodic (that is. the length of time between event repetitions is fixed) or aperiodic (i.e. the length of time between event repetitions varies). Therefore, we distinguish between periodic and aperiodic frequencies. In the SI system, periodic frequency is measured in hertz (Hz) or multiples of hertz, while aperiodic frequency is measured in becquerel (Bq).  In spectroscopy, ( u) is mostly used. Light passing through different media keeps its frequency, but not its wavelength or wavenumber.",
 https://brickschema.org/schema/Brick#Frequency_Command,Controls the frequency of a device's operation (e.g. rotational frequency),
 https://brickschema.org/schema/Brick#Frequency_Sensor,"Measures the frequency of a phenomenon or aspect of a phenomenon, e.g. the frequency of a fan turning",
+https://brickschema.org/schema/Brick#Frequency_Setpoint,Sets frequency,
 https://brickschema.org/schema/Brick#Fresh_Air_Fan,Fan moving fresh air -- air that is supplied into the building from the outdoors,
 https://brickschema.org/schema/Brick#Frost,"frost formed on the cold surface (tubes, plates) of a cooling coil.",
 https://brickschema.org/schema/Brick#Frost_Sensor,Senses the presence of frost or conditions that may cause frost,
