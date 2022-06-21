@@ -411,7 +411,18 @@ quantity_definitions = {
     "Energy": {
         SKOS.narrower: {
             "Electric_Energy": {
-                QUDT.applicableUnit: [UNIT.J],
+                QUDT.applicableUnit: [
+                    UNIT.J,
+                    UNIT["W-HR"],
+                    UNIT["KiloW-HR"],
+                    UNIT["MegaW-HR"],
+                    UNIT["V-A_Reactive-HR"],
+                    UNIT["KiloV-A_Reactive-HR"],
+                    UNIT["MegaV-A_Reactive-HR"],
+                    UNIT["KiloV-A-HR"],
+                    UNIT["V-A-HR"],
+                    UNIT["MegaV-A-HR"],
+                ],
                 QUDT.hasDimensionVector: QUDTDV["A0E0L2I0M1H0T-2D0"],
                 SKOS.definition: Literal(
                     "A form of energy resulting from the flow of electrical charge"
@@ -445,7 +456,11 @@ quantity_definitions = {
                         RDFS.label: Literal("Reactive_Energy"),
                     },
                     "Apparent_Energy": {
-                        QUDT.applicableUnit: [UNIT["KiloV-A-HR"]],
+                        QUDT.applicableUnit: [
+                            UNIT["KiloV-A-HR"],
+                            UNIT["V-A-HR"],
+                            UNIT["MegaV-A-HR"],
+                        ],
                         SKOS.definition: Literal(
                             "The integral of the apparent power over a time interval"
                         ),
