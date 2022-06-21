@@ -250,6 +250,16 @@ status_definitions = {
             },
             "Mode_Status": {
                 "subclasses": {
+                    "Zone_Air_Conditioning_Mode_Status": {
+                        "tags": [
+                            TAG.Point,
+                            TAG.Air,
+                            TAG.Zone,
+                            TAG.Conditioning,
+                            TAG.Mode,
+                            TAG.Status,
+                        ],
+                    },
                     "Heating_Mode_Status": {
                         "tags": [TAG.Point, TAG.Heat, TAG.Mode, TAG.Status],
                         "subclasses": {

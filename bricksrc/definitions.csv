@@ -1131,6 +1131,7 @@ https://brickschema.org/schema/Brick#Wing,"A wing is part of a building – or a
 https://brickschema.org/schema/Brick#Workshop,A space used to house equipment that can be used to repair or fabricate things,
 https://brickschema.org/schema/Brick#Zone,"(1) a separately controlled heated or cooled space. (2) one occupied space or several occupied spaces with similar occupancy category, occupant density, zone air distribution effectiveness, and zone primary airflow per unit area. (3) space or group of spaces within a building for which the heating, cooling, or lighting requirements are sufficiently similar that desired conditions can be maintained throughout by a single controlling device.",
 https://brickschema.org/schema/Brick#Zone_Air,"air inside a defined zone (e.g., corridors).",
+https://brickschema.org/schema/Brick#Zone_Air_Conditioning_Mode_Status,Indicates the mode of AC for a zone,
 https://brickschema.org/schema/Brick#Zone_Air_Cooling_Temperature_Setpoint,The upper (cooling) setpoint for zone air temperature,
 https://brickschema.org/schema/Brick#Zone_Air_Dewpoint_Sensor,Measures dewpoint of zone air,
 https://brickschema.org/schema/Brick#Zone_Air_Heating_Temperature_Setpoint,The lower (heating) setpoint for zone air temperature,
