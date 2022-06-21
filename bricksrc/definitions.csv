@@ -1052,6 +1052,7 @@ https://brickschema.org/schema/Brick#Torque,"In physics, a torque (τ) is a vect
 https://brickschema.org/schema/Brick#Torque_Sensor,"Measures torque, the tendency of a force to rotate an object about some axis",
 https://brickschema.org/schema/Brick#Touchpanel,A switch used to operate all or part of a lighting installation that uses a touch-based mechanism (typically resistive or capacitive) rather than a mechanical actuator,
 https://brickschema.org/schema/Brick#Trace_Heat_Sensor,Measures the surface temperature of pipelines carrying temperature-sensitive products; typically used to avoid frosting/freezing,
+https://brickschema.org/schema/Brick#Transfer_Fan,A fan that transfers air from a space to another space.,
 https://brickschema.org/schema/Brick#Transformer,"A Transformer is usually fed by a high-voltage source and then steps down the voltage to a lower-voltage feed for low-voltage application (such as lights). Transformers also can step up voltage, but this generally does not apply to in building distribution.",
 https://brickschema.org/schema/Brick#Transformer_Room,An electrical room where electricity enters and is transformed to different voltages and currents by the equipment contained in the room,
 https://brickschema.org/schema/Brick#Tunnel,An enclosed space that connects buildings. Often underground,

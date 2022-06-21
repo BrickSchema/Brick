@@ -571,6 +571,9 @@ hvac_subclasses = {
     "Fan": {
         "tags": [TAG.Equipment, TAG.Fan],
         "subclasses": {
+            "Transfer_Fan": {
+                "tags": [TAG.Equipment, TAG.Fan, TAG.Transfer],
+            },
             "Cooling_Tower_Fan": {
                 "tags": [TAG.Cool, TAG.Tower, TAG.Equipment, TAG.Fan],
             },
