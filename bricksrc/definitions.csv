@@ -1007,6 +1007,7 @@ https://brickschema.org/schema/Brick#Supply_Water_Temperature_Proportional_Band_
 https://brickschema.org/schema/Brick#Supply_Water_Temperature_Setpoint,Sets temperature of supply water,
 https://brickschema.org/schema/Brick#Switch,A switch used to operate all or part of a lighting installation,
 https://brickschema.org/schema/Brick#Switch_Room,A telecommuncations room housing network switches,
+https://brickschema.org/schema/Brick#Switch_Status,Status of a switch,
 https://brickschema.org/schema/Brick#Switchgear,"A main disconnect or service disconnect feeds power to a switchgear, which then distributes power to the rest of the building through smaller amperage-rated disconnects.",
 https://brickschema.org/schema/Brick#System,"A System is a combination of equipment and auxiliary devices (e.g., controls, accessories, interconnecting means, and termi­nal elements) by which energy is transformed so it performs a specific function such as HVAC, service water heating, or lighting. (ASHRAE Dictionary).",
 https://brickschema.org/schema/Brick#System_Enable_Command,Enables operation of a system,

@@ -10,6 +10,9 @@ status_definitions = {
             "Themostat_Status": {
                 "tags": [TAG.Point, TAG.Status, TAG.Thermostat],
             },
+            "Switch_Status": {
+                "tags": [TAG.Point, TAG.Status, TAG.Switch],
+            },
             "Tint_Status": {"tags": [TAG.Tint, TAG.Status, TAG.Point]},
             "Damper_Position_Status": {
                 BRICK.hasQuantity: BRICK.Position,
