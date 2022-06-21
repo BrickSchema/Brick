@@ -13,6 +13,7 @@ setpoint_definitions = {
             },
             "Frequency_Setpoint": {
                 "tags": [TAG.Point, TAG.Setpoint, TAG.Frequency],
+                BRICK.hasQuantity: BRICK.Frequency,
             },
             "Illuminance_Setpoint": {
                 "tags": [TAG.Point, TAG.Setpoint, TAG.Illuminance]
