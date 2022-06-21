@@ -921,6 +921,8 @@ https://brickschema.org/schema/Brick#Solid,"one of the three states or phases of
 https://brickschema.org/schema/Brick#Space,"A part of the physical world or a virtual world whose 3D spatial extent is bounded actually or theoretically, and provides for certain functions within the zone it is contained in.",
 https://brickschema.org/schema/Brick#Space_Heater,"A heater used to warm the air in an enclosed area, such as a room or office",
 https://brickschema.org/schema/Brick#Speed,,
+https://brickschema.org/schema/Brick#Speed_Command,A command to set speed to a certain degree.,
+https://brickschema.org/schema/Brick#Speed_Mode_Status,Status indicating the speed mode,
 https://brickschema.org/schema/Brick#Speed_Reset_Command,,
 https://brickschema.org/schema/Brick#Speed_Sensor,Measures the magnitude of velocity of some form of movement,
 https://brickschema.org/schema/Brick#Speed_Setpoint,Sets speed,
