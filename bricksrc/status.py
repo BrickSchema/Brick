@@ -7,7 +7,7 @@ status_definitions = {
             "Pump_Status": {
                 "tags": [TAG.Point, TAG.Status, TAG.Pump],
             },
-            "Themostat_Status": {
+            "Thermostat_Status": {
                 "tags": [TAG.Point, TAG.Status, TAG.Thermostat],
             },
             "Switch_Status": {
@@ -534,7 +534,15 @@ status_definitions = {
                     },
                 },
             },
-            "Speed_Status": {"tags": [TAG.Point, TAG.Speed, TAG.Status]},
+            "Speed_Status": {
+                "tags": [TAG.Point, TAG.Speed, TAG.Status],
+                "subclasses": {
+                    "Speed_Mode_Status": {
+                        "tags": [TAG.Point, TAG.Speed, TAG.Status, TAG.Mode],
+                        "parents": [BRICK.Mode_Status],
+                    }
+                },
+            },
         },
     }
 }
