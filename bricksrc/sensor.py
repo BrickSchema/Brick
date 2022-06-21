@@ -1092,6 +1092,10 @@ sensor_definitions = {
                     "PIR_Sensor": {"tags": [TAG.Point, TAG.PIR, TAG.Sensor]}
                 },
             },
+            "Occupancy_Count_Sensor": {
+                "tags": [TAG.Point, TAG.Sensor, TAG.Occupancy, TAG.Count],
+                BRICK.hasQuantity: BRICK.Occupancy_Count,
+            },
             "Piezoelectric_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Piezoelectric],
             },
