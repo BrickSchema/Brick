@@ -432,6 +432,18 @@ quantity_definitions = {
                         RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
                         RDFS.label: Literal("Active_Energy"),
                     },
+                    "Reactive_Energy": {
+                        QUDT.applicableUnit: [
+                            UNIT["V-A_Reactive-HR"],
+                            UNIT["KiloV-A_Reactive-HR"],
+                            UNIT["MegaV-A_Reactive-HR"],
+                        ],
+                        SKOS.definition: Literal(
+                            "The integral of the reactive power over a time interval"
+                        ),
+                        RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
+                        RDFS.label: Literal("Reactive_Energy"),
+                    },
                     "Apparent_Energy": {
                         QUDT.applicableUnit: [UNIT["KiloV-A-HR"]],
                         SKOS.definition: Literal(

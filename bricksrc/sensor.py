@@ -515,6 +515,24 @@ sensor_definitions = {
             "Energy_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Energy],
                 BRICK.hasQuantity: BRICK.Energy,
+                "subclasses": {
+                    "Electric_Energy_Sensor": {
+                        "tags": [TAG.Point, TAG.Sensor, TAG.Energy, TAG.Electric],
+                        BRICK.hasQuantity: BRICK.Electric_Energy,
+                        "subclasses": {
+                            "Reactive_Energy_Sensor": {
+                                BRICK.hasQuantity: BRICK.Reactive_Energy,
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Sensor,
+                                    TAG.Energy,
+                                    TAG.Electric,
+                                    TAG.Reactive,
+                                ],
+                            }
+                        },
+                    }
+                },
             },
             "Enthalpy_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Enthalpy],
