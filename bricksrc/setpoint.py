@@ -11,6 +11,9 @@ setpoint_definitions = {
             "Current_Ratio_Setpoint": {
                 "tags": [TAG.Point, TAG.Setpoint, TAG.Current, TAG.Electric, TAG.Ratio]
             },
+            "Voltage_Ratio_Setpoint": {
+                "tags": [TAG.Point, TAG.Setpoint, TAG.Voltage, TAG.Electric, TAG.Ratio]
+            },
             "Frequency_Setpoint": {
                 "tags": [TAG.Point, TAG.Setpoint, TAG.Frequency],
                 BRICK.hasQuantity: BRICK.Frequency,
