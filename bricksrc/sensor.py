@@ -18,6 +18,10 @@ sensor_definitions = {
                     "Warm_Cool_Adjust_Sensor": {
                         "tags": [TAG.Point, TAG.Sensor, TAG.Adjust, TAG.Warm, TAG.Cool],
                     },
+                    "Temperature_Adjust_Sensor": {
+                        BRICK.hasQuantity: BRICK.Differential_Temperature,
+                        "tags": [TAG.Point, TAG.Sensor, TAG.Adjust, TAG.Temperature],
+                    },
                 },
             },
             "Natural_Gas_Flow_Sensor": {

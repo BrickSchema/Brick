@@ -1018,6 +1018,7 @@ https://brickschema.org/schema/Brick#TVOC_Level_Sensor,A sensor measuring the le
 https://brickschema.org/schema/Brick#Team_Room,An office used by multiple team members for specific work tasks. Distinct from Conference Room,
 https://brickschema.org/schema/Brick#Telecom_Room,A class of spaces used to support telecommuncations and IT equipment,
 https://brickschema.org/schema/Brick#Temperature,,
+https://brickschema.org/schema/Brick#Temperature_Adjust_Sensor,Measures user-provided adjustment of temperature,
 https://brickschema.org/schema/Brick#Temperature_Alarm,An alarm that indicates the off-normal conditions associated with temperature.,
 https://brickschema.org/schema/Brick#Temperature_Deadband_Setpoint,Sets the size of a deadband of temperature,
 https://brickschema.org/schema/Brick#Temperature_Differential_Reset_Setpoint,,
