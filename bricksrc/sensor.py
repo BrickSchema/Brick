@@ -8,6 +8,10 @@ sensor_definitions = {
         ),
         "tags": [TAG.Point, TAG.Sensor],
         "subclasses": {
+            "Power_Factor_Sensor": {
+                BRICK.hasQuantity: BRICK.Power_Factor,
+                "tags": [TAG.Power, TAG.Factor, TAG.Sensor, TAG.Point],
+            },
             "Adjust_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Adjust],
                 "subclasses": {
