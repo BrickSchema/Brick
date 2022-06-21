@@ -270,6 +270,7 @@ equipment_subclasses = {
     "Security_Equipment": {"tags": [TAG.Security, TAG.Equipment]},
     "Safety_Equipment": {"tags": [TAG.Safety, TAG.Equipment]},
     "Camera": {"tags": [TAG.Camera, TAG.Equipment]},
+    "Relay": {"tags": [TAG.Relay, TAG.Equipment]},
     "Water_Heater": {
         "tags": [TAG.Water, TAG.Heater, TAG.Equipment],
         "subclasses": {

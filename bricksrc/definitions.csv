@@ -845,6 +845,8 @@ https://brickschema.org/schema/Brick#Region,"A unit of geographic space, usually
 https://brickschema.org/schema/Brick#Reheat_Valve,A valve that controls air temperature by modulating the amount of hot water flowing through a reheat coil,
 https://brickschema.org/schema/Brick#Relative_Humidity,Relative Humidity} is the ratio of the partial pressure of water vapor in an air-water mixture to the saturated vapor pressure of water at a prescribed temperature. The relative humidity of air depends not only on temperature but also on the pressure of the system of interest. Relative Humidity is also referred to as \text{Relative Partial Pressure. Relative partial pressure is often referred to as (RH) and expressed in percent.,
 https://brickschema.org/schema/Brick#Relative_Humidity_Sensor,Measures the present state of absolute humidity relative to a maximum humidity given the same temperature,
+https://brickschema.org/schema/Brick#Relay,an electrically operated switch,https://en.wikipedia.org/wiki/Relay
+https://brickschema.org/schema/Brick#Relay_Command,Commands to switch the relay,
 https://brickschema.org/schema/Brick#Relief_Damper,"A damper that is a component of a Relief Air System, ensuring building doesn't become over-pressurised",
 https://brickschema.org/schema/Brick#Relief_Fan,"A fan that is a component of a Relief Air System, ensuring building doesn't become over-pressurised",
 https://brickschema.org/schema/Brick#Remotely_On_Off_Status,,
