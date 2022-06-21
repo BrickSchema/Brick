@@ -1020,6 +1020,7 @@ https://brickschema.org/schema/Brick#Telecom_Room,A class of spaces used to supp
 https://brickschema.org/schema/Brick#Temperature,,
 https://brickschema.org/schema/Brick#Temperature_Adjust_Sensor,Measures user-provided adjustment of temperature,
 https://brickschema.org/schema/Brick#Temperature_Alarm,An alarm that indicates the off-normal conditions associated with temperature.,
+https://brickschema.org/schema/Brick#Temperature_Alarm_Sensitivity_Parameter,A parameter indicates the sensitivity to activate a temperature alarm.,
 https://brickschema.org/schema/Brick#Temperature_Deadband_Setpoint,Sets the size of a deadband of temperature,
 https://brickschema.org/schema/Brick#Temperature_Differential_Reset_Setpoint,,
 https://brickschema.org/schema/Brick#Temperature_High_Reset_Setpoint,,
@@ -1037,6 +1038,7 @@ https://brickschema.org/schema/Brick#Thermal_Power_Meter,A standalone thermal po
 https://brickschema.org/schema/Brick#Thermal_Power_Sensor,,
 https://brickschema.org/schema/Brick#Thermally_Activated_Building_System_Panel,Radiant panel heating and cooling system where the energy heat source or sink is embedded in the building structure such as in slabs and walls.,https://www.rehva.eu/eshop/detail/no07-low-temperature-heating-and-high-temperature-cooling
 https://brickschema.org/schema/Brick#Thermostat,An automatic control device used to maintain temperature at a fixed or adjustable setpoint.,
+https://brickschema.org/schema/Brick#Thermostat_Status,Status of a thermostat,
 https://brickschema.org/schema/Brick#Thermostatic_Mixing_Valve,"A valve that blends hot water with cold water to ensure constant, safe shower and bath outlet temperatures, preventing scalding.",https://en.wikipedia.org/wiki/Thermostatic_mixing_valve
 https://brickschema.org/schema/Brick#Ticketing_Booth,A room or space used to sell or distribute tickets to events at a venue,
 https://brickschema.org/schema/Brick#Time,,

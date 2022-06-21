@@ -7,6 +7,9 @@ status_definitions = {
             "Pump_Status": {
                 "tags": [TAG.Point, TAG.Status, TAG.Pump],
             },
+            "Themostat_Status": {
+                "tags": [TAG.Point, TAG.Status, TAG.Thermostat],
+            },
             "Tint_Status": {"tags": [TAG.Tint, TAG.Status, TAG.Point]},
             "Damper_Position_Status": {
                 BRICK.hasQuantity: BRICK.Position,
