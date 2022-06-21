@@ -765,6 +765,16 @@ valve_subclasses = {
     "Valve": {
         "tags": [TAG.Valve, TAG.Equipment],
         "subclasses": {
+            "Natural_Gas_Seismic_Shutoff_Valve": {
+                "tags": [
+                    TAG.Equipment,
+                    TAG.Valve,
+                    TAG.Natural,
+                    TAG.Gas,
+                    TAG.Seismic,
+                    TAG.Shutoff,
+                ],
+            },
             "Water_Valve": {
                 "tags": [TAG.Valve, TAG.Water, TAG.Equipment],
                 "subclasses": {
