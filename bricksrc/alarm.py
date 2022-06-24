@@ -4,6 +4,9 @@ alarm_definitions = {
     "Alarm": {
         "tags": [TAG.Point, TAG.Alarm],
         "subclasses": {
+            "Low_Battery_Alarm": {
+                "tags": [TAG.Point, TAG.Alarm, TAG.Low, TAG.Battery],
+            },
             "Air_Alarm": {
                 "tags": [TAG.Point, TAG.Air, TAG.Alarm],
                 "subclasses": {
