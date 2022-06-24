@@ -1,22 +1,24 @@
 @prefix bldg: <urn:example#> .
 @prefix brick: <https://brickschema.org/schema/Brick#> .
-@prefix brickifc: <https://brickschema.org/extension/ifc#> .
+@prefix ref: <https://brickschema.org/schema/Brick/ref#> .
 
 bldg:space a brick:Space ;
-    brick:hasIFCReference [ brickifc:globalID "123" ;
-            brickifc:hasProjectReference bldg:ifc_project ;
-            brickifc:name "Example Space" ] .
+    ref:hasExternalReference [ a ref:IFCReference ;
+            ref:hasIfcProjectReference bldg:ifc_project ;
+            ref:ifcGlobalID "123" ;
+            ref:ifcName "Example Space" ] .
 
 bldg:space2 a brick:Space ;
-    brick:hasIFCReference [ brickifc:globalID "124" ;
-            brickifc:hasProjectReference bldg:ifc_project ;
-            brickifc:name "Example Space" ] .
+    ref:hasExternalReference [ a ref:IFCReference ;
+            ref:hasIfcProjectReference bldg:ifc_project ;
+            ref:ifcGlobalID "124" ;
+            ref:ifcName "Example Space" ] .
 
 bldg:space3 a brick:Space ;
-    brickifc:hasIFCReference [ brickifc:globalID "abc123" ;
-            brickifc:hasProjectReference bldg:ifc_project ] .
+    ref:hasExternalReference [ a ref:IFCReference ;
+            ref:hasIfcProjectReference bldg:ifc_project ;
+            ref:ifcGlobalID "abc123" ] .
 
-
-bldg:ifc_project a brickifc:Project ;
-    brickifc:fileLocation "file://./building.ifc" ;
-    brickifc:projectID "abc" .
+bldg:ifc_project a ref:ifcProject ;
+    ref:ifcFileLocation "file://./building.ifc" ;
+    ref:ifcProjectID "abc" .

@@ -6,8 +6,20 @@ command_definitions = {
         "tags": [TAG.Point, TAG.Command],
         "subclasses": {
             "Tint_Command": {"tags": [TAG.Tint, TAG.Command, TAG.Point]},
+            "Fan_Command": {
+                "tags": [TAG.Fan, TAG.Command, TAG.Point],
+                "subclasses": {
+                    "Fan_Speed_Command": {
+                        "tags": [TAG.Fan, TAG.Command, TAG.Point, TAG.Speed],
+                    }
+                },
+            },
+            "Relay_Command": {"tags": [TAG.Point, TAG.Relay, TAG.Command]},
+            "Light_Command": {"tags": [TAG.Point, TAG.Light, TAG.Command]},
+            "Speed_Command": {"tags": [TAG.Point, TAG.Speed, TAG.Command]},
             "Cooling_Command": {"tags": [TAG.Point, TAG.Cool, TAG.Command]},
             "Heating_Command": {"tags": [TAG.Point, TAG.Heat, TAG.Command]},
+            "Preheat_Command": {"tags": [TAG.Point, TAG.Preheat, TAG.Command]},
             "Luminance_Command": {"tags": [TAG.Point, TAG.Luminance, TAG.Command]},
             "Bypass_Command": {"tags": [TAG.Point, TAG.Bypass, TAG.Command]},
             "Damper_Command": {

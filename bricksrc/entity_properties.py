@@ -2,7 +2,7 @@
 Entity property definitions
 """
 from rdflib import Literal
-from .namespaces import BRICK, RDFS, SKOS, UNIT, XSD, SH, BSH, BACNET, IFC
+from .namespaces import BRICK, RDFS, SKOS, UNIT, XSD, SH, BSH, REF
 
 # these are the "relationship"/predicates/OWL properties that
 # relate a Brick entity to a structured value.
@@ -13,6 +13,12 @@ entity_properties = {
         SKOS.definition: Literal("Marks a concept as deprecated"),
         RDFS.range: BRICK.DeprecationShape,
         RDFS.label: Literal("Deprecation Notice"),
+    },
+    BRICK.lastKnownValue: {
+        SKOS.definition: Literal("The last known value of the Point entity"),
+        RDFS.domain: BRICK.Point,
+        RDFS.range: BSH.LastKnownValueShape,
+        RDFS.label: Literal("Last known value"),
     },
     BRICK.area: {
         SKOS.definition: Literal("Entity has 2-dimensional area"),
@@ -282,6 +288,14 @@ entity_properties = {
         RDFS.range: BSH.AggregationShape,
         RDFS.label: Literal("Aggregate"),
     },
+    BRICK.isVirtualMeter: {
+        SKOS.Definition: Literal(
+            "True if the associated meter is 'virtual', i.e. a logical meter which includes or aggregates information from a variety of sources such as other submeters or equipment."
+        ),
+        RDFS.domain: BRICK.Meter,
+        RDFS.range: BSH.VirtualMeterShape,
+        RDFS.label: Literal("is virtual meter"),
+    },
 }
 
 building_primary_function_values = [
@@ -376,6 +390,12 @@ building_primary_function_values = [
 # These are the shapes that govern what values of Entity Properties should look like
 shape_properties = {
     BSH.AreaShape: {"units": [UNIT.FT2, UNIT.M2], "datatype": BSH.NumericValue},
+    BSH.LastKnownValueShape: {
+        "datatype": RDFS.Resource,
+        "properties": {
+            BRICK.timestamp: {"datatype": XSD.dateTime},
+        },
+    },
     BSH.VolumeShape: {"units": [UNIT.FT3, UNIT.M3], "datatype": BSH.NumericValue},
     BSH.PowerComplexityShape: {"values": ["real", "reactive", "apparent"]},
     BSH.PowerFlowShape: {"values": ["import", "export", "net", "absolute"]},
@@ -483,6 +503,9 @@ shape_properties = {
         "datatype": BSH.NumericValue,
         "units": [UNIT.TON_FG, UNIT["BTU_IT-PER-HR"], UNIT["BTU_TH-PER-HR"], UNIT.W],
     },
+    BSH.VirtualMeterShape: {
+        "datatype": XSD.boolean,
+    },
     BSH.AggregationShape: {
         "properties": {
             BRICK.aggregationFunction: {
@@ -523,157 +546,3 @@ shape_properties = {
         },
     },
 }
-
-digital_representation_props = {
-    BRICK.hasExternalReference: {
-        SKOS.definition: Literal("A digital reference of the entity"),
-        RDFS.domain: BRICK.Point,
-    },
-    BRICK.hasBACnetReference: {
-        RDFS.subPropertyOf: BRICK.hasExternalReference,
-        SKOS.definition: Literal("BACnet metadata"),
-        RDFS.domain: BRICK.Point,
-        RDFS.range: BRICK.BACnetReference,
-    },
-    BRICK.hasIFCReference: {
-        RDFS.subPropertyOf: BRICK.hasExternalReference,
-        SKOS.definition: Literal("IFC metadata"),
-        RDFS.domain: BRICK.Entity,
-        RDFS.range: BRICK.IFCReference,
-    },
-    BRICK.timeseries: {
-        SKOS.definition: Literal("Metadata for accessing related timeseries data"),
-        RDFS.subPropertyOf: BRICK.hasExternalReference,
-        RDFS.domain: BRICK.Point,
-        RDFS.range: BRICK.TimeseriesReference,
-    },
-    BRICK.hasCSVReference: {
-        RDFS.subPropertyOf: BRICK.timeseries,
-        SKOS.definition: Literal("Metadata for accessing CSV data"),
-        RDFS.domain: BRICK.Point,
-        RDFS.range: BRICK.CSVReference,
-    },
-}
-
-digital_representation_shapes = {
-    BRICK.CSVReference: {
-        "properties": {
-            BRICK["fileLocation"]: {
-                SKOS.definition: Literal(
-                    "Location of the CSV file defining the project"
-                ),
-                "datatype": XSD.string,
-            },
-        },
-    },
-    BRICK.IFCReference: {
-        "properties": {
-            IFC["hasProjectReference"]: {
-                SKOS.definition: Literal(
-                    "Reference to an IFC Project object, containing the project ID"
-                ),
-                SH["class"]: IFC.Project,
-            },
-            IFC["globalID"]: {
-                SKOS.definition: Literal(
-                    "The global ID of the entity in the IFC project"
-                ),
-                "datatype": XSD.string,
-            },
-            IFC["name"]: {
-                SKOS.definition: Literal("Name of the entity in IFC"),
-                "datatype": XSD.string,
-                "optional": True,
-            },
-        },
-    },
-    IFC.Project: {
-        "properties": {
-            IFC["projectID"]: {
-                SKOS.definition: Literal("The ID of the project"),
-                "datatype": XSD.string,
-            },
-            IFC["fileLocation"]: {
-                SKOS.definition: Literal(
-                    "Location of the IFC file defining the project"
-                ),
-                "datatype": XSD.string,
-                "optional": True,
-            },
-        },
-    },
-    BRICK.BACnetReference: {
-        RDFS.subClassOf: BACNET.Object,
-        "properties": {
-            "or": [
-                {
-                    BACNET["object-identifier"]: {
-                        "import_from": "support/bacnet.ttl",
-                        "datatype": XSD.string,
-                        # TODO: is this correct?
-                        # SH["pattern"]: Literal("^[A-Za-z0-9-]+:[0-9]+$"),
-                    },
-                    BACNET["object-name"]: {
-                        "import_from": "support/bacnet.ttl",
-                        "datatype": XSD.string,
-                        SH["minLength"]: Literal(1),
-                        "optional": True,
-                    },
-                    BACNET["object-type"]: {
-                        "import_from": "support/bacnet.ttl",
-                        "datatype": XSD.string,
-                        "optional": True,
-                    },
-                    BACNET["description"]: {
-                        "import_from": "support/bacnet.ttl",
-                        "datatype": XSD.string,
-                        "optional": True,
-                    },
-                    BRICK["read-property"]: {
-                        "datatype": XSD.string,
-                        "optional": True,
-                        SH["defaultValue"]: Literal("present-value"),
-                    },
-                },
-                {
-                    BRICK["BACnetURI"]: {
-                        "datatype": XSD.string,
-                        "optional": True,
-                        SKOS.definition: Literal(
-                            "Clause Q.8 BACnet URI scheme: bacnet:// <device> / <object> [ / <property> [ / <index> ]]"
-                        ),
-                    },
-                },
-            ],
-            BACNET["objectOf"]: {
-                "import_from": "support/bacnet.ttl",
-                SH["class"]: BACNET.BACnetDevice,
-                SH["minCount"]: Literal(1),
-            },
-        },
-    },
-    BRICK.TimeseriesReference: {
-        SKOS.definition: Literal(
-            "Metadata describing where and how the data for a Brick Point is stored"
-        ),
-        "properties": {
-            BRICK.hasTimeseriesId: {
-                "datatype": XSD.string,
-                SKOS.definition: Literal(
-                    "The identifier for the timeseries data corresponding to this point"
-                ),
-            },
-            BRICK.storedAt: {
-                "optional": True,
-                "datatype": XSD.string,
-                SKOS.definition: Literal(
-                    "Refers to a database storing the timeseries data for the related point. Properties on this class are *to be determined*; feel free to add arbitrary properties onto Database instances for your particular deployment"
-                ),
-            },
-        },
-    },
-}
-
-# merge the dictionaries
-entity_properties.update(digital_representation_props)
-shape_properties.update(digital_representation_shapes)
