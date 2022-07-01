@@ -5,6 +5,9 @@ substances = {
     "Fluid": {
         "tags": [TAG.Fluid],
         "subclasses": {
+            "Refrigerant": {
+                "tags": [TAG.Fluid, TAG.Refrigerant],
+            },
             "Gas": {
                 "tags": [TAG.Fluid, TAG.Gas],
                 "subclasses": {

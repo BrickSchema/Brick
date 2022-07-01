@@ -628,6 +628,7 @@ hvac_subclasses = {
     },
     "Compressor": {"tags": [TAG.Equipment, TAG.Compressor]},
     "Cooling_Tower": {"tags": [TAG.Equipment, TAG.Cool, TAG.Tower]},
+    "Dry_Cooler": {"tags": [TAG.Equipment, TAG.Cool, TAG.Dry]},
     "Chiller": {
         "tags": [TAG.Equipment, TAG.Chiller],
         "subclasses": {

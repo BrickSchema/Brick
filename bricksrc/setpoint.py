@@ -688,6 +688,17 @@ setpoint_definitions = {
                             TAG.Setpoint,
                         ],
                         "subclasses": {
+                            "Condenser_Water_Flow_Setpoint": {
+                                BRICK.hasSubstance: BRICK.Condenser_Water,
+                                BRICK.hasQuantity: BRICK.Flow,
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Condenser,
+                                    TAG.Water,
+                                    TAG.Flow,
+                                    TAG.Setpoint,
+                                ],
+                            },
                             "Supply_Water_Flow_Setpoint": {
                                 BRICK.hasSubstance: BRICK.Supply_Water,
                                 BRICK.hasQuantity: BRICK.Flow,
