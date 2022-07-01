@@ -8,6 +8,16 @@ setpoint_definitions = {
         ),
         "tags": [TAG.Point, TAG.Setpoint],
         "subclasses": {
+            "Current_Ratio_Setpoint": {
+                "tags": [TAG.Point, TAG.Setpoint, TAG.Current, TAG.Electric, TAG.Ratio]
+            },
+            "Voltage_Ratio_Setpoint": {
+                "tags": [TAG.Point, TAG.Setpoint, TAG.Voltage, TAG.Electric, TAG.Ratio]
+            },
+            "Frequency_Setpoint": {
+                "tags": [TAG.Point, TAG.Setpoint, TAG.Frequency],
+                BRICK.hasQuantity: BRICK.Frequency,
+            },
             "Illuminance_Setpoint": {
                 "tags": [TAG.Point, TAG.Setpoint, TAG.Illuminance]
             },
@@ -80,6 +90,10 @@ setpoint_definitions = {
             "Deadband_Setpoint": {
                 "tags": [TAG.Point, TAG.Deadband, TAG.Setpoint],
                 "subclasses": {
+                    "Humidity_Deadband_Setpoint": {
+                        BRICK.hasQuantity: BRICK.Humidity,
+                        "tags": [TAG.Point, TAG.Deadband, TAG.Setpoint, TAG.Humidity],
+                    },
                     "Temperature_Deadband_Setpoint": {
                         BRICK.hasQuantity: BRICK.Temperature,
                         "subclasses": {
@@ -2394,7 +2408,7 @@ setpoint_definitions = {
                     },
                 },
             },
-            "Differential_Setpoint":{
+            "Differential_Setpoint": {
                 "tags": [TAG.Point, TAG.Differential, TAG.Setpoint],
                 "subclasses": {
                     "Differential_Temperature_Setpoint": {
@@ -2410,7 +2424,7 @@ setpoint_definitions = {
                                     TAG.Setpoint,
                                 ],
                             },
-                            "Differential_Air_Temperature_Setpoint": { #TODO: The name of this should be aligned with Water_Differential_Temperature_Setpoint.
+                            "Differential_Air_Temperature_Setpoint": {  # TODO: The name of this should be aligned with Water_Differential_Temperature_Setpoint.
                                 BRICK.hasQuantity: BRICK.Differential_Temperature,
                                 BRICK.hasSubstance: BRICK.Air,
                                 "tags": [
@@ -2711,8 +2725,8 @@ setpoint_definitions = {
                             },
                         },
                     },
-                }
-            }
+                },
+            },
         },
     }
 }

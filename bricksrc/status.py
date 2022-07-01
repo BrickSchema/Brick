@@ -4,6 +4,15 @@ status_definitions = {
     "Status": {
         "tags": [TAG.Point, TAG.Status],
         "subclasses": {
+            "Pump_Status": {
+                "tags": [TAG.Point, TAG.Status, TAG.Pump],
+            },
+            "Thermostat_Status": {
+                "tags": [TAG.Point, TAG.Status, TAG.Thermostat],
+            },
+            "Switch_Status": {
+                "tags": [TAG.Point, TAG.Status, TAG.Switch],
+            },
             "Tint_Status": {"tags": [TAG.Tint, TAG.Status, TAG.Point]},
             "Damper_Position_Status": {
                 BRICK.hasQuantity: BRICK.Position,
@@ -241,11 +250,45 @@ status_definitions = {
             },
             "Mode_Status": {
                 "subclasses": {
+                    "Zone_Air_Conditioning_Mode_Status": {
+                        "tags": [
+                            TAG.Point,
+                            TAG.Air,
+                            TAG.Zone,
+                            TAG.Conditioning,
+                            TAG.Mode,
+                            TAG.Status,
+                        ],
+                    },
                     "Heating_Mode_Status": {
                         "tags": [TAG.Point, TAG.Heat, TAG.Mode, TAG.Status],
+                        "subclasses": {
+                            "Unoccupied_Heating_Mode_Status": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Heat,
+                                    TAG.Mode,
+                                    TAG.Status,
+                                    TAG.Unoccupied,
+                                ],
+                                "parents": [BRICK.Unoccupied_Mode_Status],
+                            }
+                        },
                     },
                     "Cooling_Mode_Status": {
                         "tags": [TAG.Point, TAG.Cool, TAG.Mode, TAG.Status],
+                        "subclasses": {
+                            "Unoccupied_Cooling_Mode_Status": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Cool,
+                                    TAG.Mode,
+                                    TAG.Status,
+                                    TAG.Unoccupied,
+                                ],
+                                "parents": [BRICK.Unoccupied_Mode_Status],
+                            }
+                        },
                     },
                     "Occupied_Mode_Status": {
                         "tags": [TAG.Point, TAG.Occupied, TAG.Mode, TAG.Status],
@@ -491,7 +534,15 @@ status_definitions = {
                     },
                 },
             },
-            "Speed_Status": {"tags": [TAG.Point, TAG.Speed, TAG.Status]},
+            "Speed_Status": {
+                "tags": [TAG.Point, TAG.Speed, TAG.Status],
+                "subclasses": {
+                    "Speed_Mode_Status": {
+                        "tags": [TAG.Point, TAG.Speed, TAG.Status, TAG.Mode],
+                        "parents": [BRICK.Mode_Status],
+                    }
+                },
+            },
         },
     }
 }

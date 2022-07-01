@@ -15,6 +15,26 @@ parameter_definitions = {
             },
             "Alarm_Sensitivity_Parameter": {
                 "tags": [TAG.Point, TAG.Alarm, TAG.Sensitivity, TAG.Parameter],
+                "subclasses": {
+                    "Temperature_Alarm_Sensitivity_Parameter": {
+                        "tags": [
+                            TAG.Point,
+                            TAG.Alarm,
+                            TAG.Sensitivity,
+                            TAG.Parameter,
+                            TAG.Temperature,
+                        ]
+                    },
+                    "CO2_Alarm_Sensitivity_Parameter": {
+                        "tags": [
+                            TAG.Point,
+                            TAG.Alarm,
+                            TAG.Sensitivity,
+                            TAG.Parameter,
+                            TAG.CO2,
+                        ]
+                    },
+                },
             },
             "Humidity_Parameter": {
                 "tags": [TAG.Point, TAG.Humidity, TAG.Parameter],
