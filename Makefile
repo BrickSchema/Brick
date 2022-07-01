@@ -20,8 +20,7 @@ format:
 	black tools/
 
 test: Brick.ttl shacl/BrickShape.ttl
-	#pytest -s -vvvv -m 'not slow' --durations=0 -n auto tests
-	pytest -s -vvvv  --durations=0 -n auto tests
+	pytest -s -vvvv  -n auto tests
 	cd tests/integration && bash run_integration_tests.sh
 
 quantity-test: Brick.ttl

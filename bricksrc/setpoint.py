@@ -1198,7 +1198,7 @@ setpoint_definitions = {
                                     TAG.Setpoint,
                                 ],
                                 "subclasses": {
-                                    "Medium_Temperature_Hot_Water_Discharge_Temperature_High_Reset_Setpoint": {
+                                    "Medium_Temperature_Hot_Water_Supply_Temperature_High_Reset_Setpoint": {
                                         "tags": [
                                             TAG.Point,
                                             TAG.Medium,
