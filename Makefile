@@ -1,7 +1,8 @@
 .PHONY: format
 
-Brick.ttl: bricksrc/*.py bricksrc/*.ttl bricksrc/definitions.csv generate_brick.py
+Brick.ttl: bricksrc/*.py bricksrc/*.ttl bricksrc/definitions.csv generate_brick.py shacl/* support/*.ttl
 	mkdir -p extensions
+	python tools/sort_definitions.py bricksrc/definitions.csv
 	python generate_brick.py
 	cd shacl && python generate_shacl.py
 
@@ -34,3 +35,6 @@ hierarchy-test: Brick.ttl
 
 measures-test: Brick.ttl
 	pytest -s -vvvv tests/test_measures_inference.py
+
+matches-test: Brick.ttl
+	pytest -s -vvvv tests/test_matching_classes.py

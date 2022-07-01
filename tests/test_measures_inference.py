@@ -66,7 +66,7 @@ def test_measures_infers():
 
     # Infer classes of the entities.
     # Apply reasoner
-    g.expand(profile="brick")
+    g.expand(profile="shacl")
 
     qstr = """select ?instance ?class where {
         ?instance a ?class.
@@ -129,6 +129,7 @@ def test_measures_infers():
             fp,
             indent=2,
         )
+        fp.write("\n")
 
     assert not over_inferences, "There are {0} classes that are over-inferred".format(
         len(over_inferences)

@@ -19,7 +19,7 @@ BLDG = Namespace("https://brickschema.org/schema/ExampleBuilding#")
 
 g = brickschema.Graph()
 g.parse("Brick.ttl", format="turtle")
-g.expand("shacl+owlrl")
+g.expand("shacl")
 
 g.bind("rdf", RDF)
 g.bind("owl", OWL)

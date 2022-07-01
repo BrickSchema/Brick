@@ -5,6 +5,9 @@ substances = {
     "Fluid": {
         "tags": [TAG.Fluid],
         "subclasses": {
+            "Refrigerant": {
+                "tags": [TAG.Fluid, TAG.Refrigerant],
+            },
             "Gas": {
                 "tags": [TAG.Fluid, TAG.Gas],
                 "subclasses": {
@@ -129,12 +132,24 @@ substances = {
                                 ],
                                 "subclasses": {
                                     "Supply_Condenser_Water": {
+                                        OWL.equivalentClass: BRICK[
+                                            "Discharge_Condenser_Water"
+                                        ],
                                         "tags": [
                                             TAG.Fluid,
                                             TAG.Liquid,
                                             TAG.Water,
                                             TAG.Condenser,
                                             TAG.Supply,
+                                        ],
+                                    },
+                                    "Discharge_Condenser_Water": {
+                                        "tags": [
+                                            TAG.Fluid,
+                                            TAG.Liquid,
+                                            TAG.Water,
+                                            TAG.Condenser,
+                                            TAG.Discharge,
                                         ],
                                     },
                                     "Return_Condenser_Water": {

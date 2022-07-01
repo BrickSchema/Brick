@@ -1,4 +1,4 @@
-from rdflib import Graph, Literal, BNode
+from rdflib import Graph, Literal, BNode, URIRef
 import sys
 
 sys.path.append("..")
@@ -16,6 +16,16 @@ subpropertyDict = {}
 
 # Add base Entity shapes
 G.parse("BrickEntityShapeBase.ttl", format="turtle")
+
+
+def bn(item):
+    """
+    Returns a shortened string version of the rdflib Node for use
+    in generating new BNodes
+    """
+    if isinstance(item, URIRef):
+        return item.split("#")[-1]
+    return item
 
 
 # Make shape for expectedDomain property
@@ -37,7 +47,7 @@ def addDomainShape(propertyName, expectedType):
 # Make shape for expectedRange property
 def addRangeShape(propertyName, expectedType):
     rangeShapeDict[propertyName] = expectedType
-    sh_prop = BNode()
+    sh_prop = BNode(f"RangeShape_{bn(propertyName)}")
     shapename = f"{propertyName}RangeShape"
     G.add((BSH[shapename], SH["property"], sh_prop))
     G.add((BSH[shapename], A, SH.NodeShape))
