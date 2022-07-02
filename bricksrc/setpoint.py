@@ -1187,6 +1187,9 @@ setpoint_definitions = {
                             "Hot_Water_Supply_Temperature_High_Reset_Setpoint": {
                                 BRICK.hasSubstance: BRICK.Supply_Hot_Water,
                                 BRICK.hasQuantity: BRICK.Temperature,
+                                OWL.equivalentClass: BRICK[
+                                    "Hot_Water_Discharge_Temperature_High_Reset_Setpoint"
+                                ],
                                 "tags": [
                                     TAG.Point,
                                     TAG.Hot,
@@ -1198,7 +1201,10 @@ setpoint_definitions = {
                                     TAG.Setpoint,
                                 ],
                                 "subclasses": {
-                                    "Medium_Temperature_Hot_Water_Discharge_Temperature_High_Reset_Setpoint": {
+                                    "Medium_Temperature_Hot_Water_Supply_Temperature_High_Reset_Setpoint": {
+                                        OWL.equivalentClass: BRICK[
+                                            "Medium_Temperature_Hot_Water_Discharge_Temperature_High_Reset_Setpoint"
+                                        ],
                                         "tags": [
                                             TAG.Point,
                                             TAG.Medium,
@@ -2549,6 +2555,21 @@ setpoint_definitions = {
                                         "tags": [
                                             TAG.Point,
                                             TAG.Supply,
+                                            TAG.Air,
+                                            TAG.Setpoint,
+                                            TAG.Pressure,
+                                            TAG.Differential,
+                                        ],
+                                    },
+                                    "Discharge_Air_Differential_Pressure_Setpoint": {
+                                        BRICK.hasSubstance: BRICK.Supply_Air,
+                                        BRICK.hasQuantity: BRICK.Differential_Pressure,
+                                        OWL.equivalentClass: BRICK[
+                                            "Supply_Air_Differential_Pressure_Setpoint"
+                                        ],
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Discharge,
                                             TAG.Air,
                                             TAG.Setpoint,
                                             TAG.Pressure,
