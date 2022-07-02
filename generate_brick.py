@@ -816,7 +816,6 @@ G.add((BRICK.value, SKOS.definition, Literal("The basic value of an entity prope
 G.add((BRICK.EntityProperty, RDFS.subClassOf, OWL.ObjectProperty))
 G.add((BRICK.EntityProperty, A, OWL.Class))
 G.add((BSH.ValueShape, A, OWL.Class))
-define_shape_properties(shape_properties)
 define_shape_properties(get_shapes(G))
 define_entity_properties(entity_properties)
 
