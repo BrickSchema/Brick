@@ -391,7 +391,6 @@ building_primary_function_values = [
 shape_properties = {
     BSH.AreaShape: {"units": [UNIT.FT2, UNIT.M2], "datatype": BSH.NumericValue},
     BSH.LastKnownValueShape: {
-        "datatype": RDFS.Resource,
         "properties": {
             BRICK.timestamp: {"datatype": XSD.dateTime},
         },
