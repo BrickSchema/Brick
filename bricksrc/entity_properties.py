@@ -391,7 +391,6 @@ building_primary_function_values = [
 shape_properties = {
     BSH.AreaShape: {"units": [UNIT.FT2, UNIT.M2], "datatype": BSH.NumericValue},
     BSH.LastKnownValueShape: {
-        "datatype": RDFS.Resource,
         "properties": {
             BRICK.timestamp: {"datatype": XSD.dateTime},
         },
@@ -546,3 +545,22 @@ shape_properties = {
         },
     },
 }
+
+
+def get_shapes(G):
+    shape_properties.update(generate_quantity_shapes(G))
+    return shape_properties
+
+
+def generate_quantity_shapes(G):
+    quantities = G.query(
+        "SELECT ?q WHERE { ?q a brick:Quantity . FILTER NOT EXISTS { ?q skos:broader ?x }}"
+    )
+    d = {}
+    for (quantity,) in quantities:
+        shape = BRICK[f"{quantity.split('#')[-1]}Shape"]
+        d[shape] = {
+            "unitsFromQuantity": quantity,
+            "datatype": BSH.NumericValue,
+        }
+    return d

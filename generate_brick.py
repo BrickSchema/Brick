@@ -44,7 +44,7 @@ from bricksrc.equipment import (
 from bricksrc.substances import substances
 from bricksrc.quantities import quantity_definitions, get_units
 from bricksrc.properties import properties
-from bricksrc.entity_properties import shape_properties, entity_properties
+from bricksrc.entity_properties import shape_properties, entity_properties, get_shapes
 
 logging.basicConfig(
     format="%(asctime)s,%(msecs)d %(levelname)-8s [%(filename)s:%(lineno)d] %(message)s",
@@ -816,7 +816,7 @@ G.add((BRICK.value, SKOS.definition, Literal("The basic value of an entity prope
 G.add((BRICK.EntityProperty, RDFS.subClassOf, OWL.ObjectProperty))
 G.add((BRICK.EntityProperty, A, OWL.Class))
 G.add((BSH.ValueShape, A, OWL.Class))
-define_shape_properties(shape_properties)
+define_shape_properties(get_shapes(G))
 define_entity_properties(entity_properties)
 
 logging.info("Adding class definitions")
