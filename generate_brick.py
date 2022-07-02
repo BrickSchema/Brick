@@ -695,7 +695,12 @@ define_ontology(G)
 
 # Declare root classes
 
-G.add((BRICK.Entity, A, OWL.Class))
+# we keep the definition of brick:Class, which was the root
+# class of Brick prior to v1.3.0, in order to maintain backwards
+# compatibility with older Brick models. Both brick:Class and
+# brick:Entity are root classes
+G.add((BRICK.Class, A, OWL.Class))  # < Brick v1.3.0
+G.add((BRICK.Entity, A, OWL.Class))  # >= Brick v1.3.0
 G.add((BRICK.Tag, A, OWL.Class))
 
 roots = {
@@ -705,7 +710,8 @@ roots = {
     "Measurable": {},
     "Collection": {"tags": [TAG.Collection]},
 }
-define_classes(roots, BRICK.Entity)
+define_classes(roots, BRICK.Class)  # <= Brick v1.3.0
+define_classes(roots, BRICK.Entity)  # >= Brick v1.3.0
 
 logging.info("Defining properties")
 # define BRICK properties
