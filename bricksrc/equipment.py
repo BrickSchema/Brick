@@ -16,7 +16,7 @@ equipment_subclasses = {
     "Shading_Equipment": {
         "tags": [TAG.Shade, TAG.Equipment],
         "subclasses": {
-            "Shade": {"tags": [TAG.Shade, TAG.Equipment]},
+            "Blind": {"tags": [TAG.Shade, TAG.Blind, TAG.Equipment]},
             "Louver": {"tags": [TAG.Shade, TAG.Equipment, TAG.Louver]},
             "Automatic_Tint_Window": {
                 "tags": [TAG.Shade, TAG.Equipment, TAG.Automatic, TAG.Tint, TAG.Window]
@@ -291,7 +291,7 @@ equipment_subclasses = {
 Define classes of HVAC equipment
 """
 hvac_subclasses = {
-    "Dry_Cooler": {"tags": [TAG.Equipment, TAG.HVAC, TAG.Dry, TAG.Cooler]},
+    "Dry_Cooler": {"tags": [TAG.Equipment, TAG.HVAC, TAG.Dry, TAG.Cool]},
     "HVAC_Valve": {
         "tags": [TAG.HVAC, TAG.Valve, TAG.Equipment],
         "parents": [BRICK.Valve],
@@ -628,7 +628,6 @@ hvac_subclasses = {
     },
     "Compressor": {"tags": [TAG.Equipment, TAG.Compressor]},
     "Cooling_Tower": {"tags": [TAG.Equipment, TAG.Cool, TAG.Tower]},
-    "Dry_Cooler": {"tags": [TAG.Equipment, TAG.Cool, TAG.Dry]},
     "Chiller": {
         "tags": [TAG.Equipment, TAG.Chiller],
         "subclasses": {

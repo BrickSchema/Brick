@@ -59,6 +59,8 @@ https://brickschema.org/schema/Brick#Battery_Energy_Storage_System,"A collection
 https://brickschema.org/schema/Brick#Battery_Room,A room used to hold batteries for backup power,
 https://brickschema.org/schema/Brick#Battery_Voltage_Sensor,Measures the capacity of a battery,
 https://brickschema.org/schema/Brick#Bench_Space,"For areas of play in a stadium, the area for partcipants and referees by the side of the field",
+https://brickschema.org/schema/Brick#Blind,A window covering.,https://en.wikipedia.org/wiki/Window_blind
+https://brickschema.org/schema/Brick#Blind_Group,An group of Blinds commonly attached to a single controller.,
 https://brickschema.org/schema/Brick#Blowdown_Water,Water expelled from a system to remove mineral build up,
 https://brickschema.org/schema/Brick#Boiler,"A closed, pressure vessel that uses fuel or electricity for heating water or other fluids to supply steam or hot water for heating, humidification, or other applications.",
 https://brickschema.org/schema/Brick#Boiler_Command,A command to control a boiler,
@@ -907,8 +909,6 @@ https://brickschema.org/schema/Brick#Sensor,A Sensor is an input point that repr
 https://brickschema.org/schema/Brick#Server_Room,,
 https://brickschema.org/schema/Brick#Service_Room,"A class of spaces related to the operations of building subsystems, e.g. HVAC, electrical, IT, plumbing, etc",
 https://brickschema.org/schema/Brick#Setpoint,A Setpoint is an input value at which the desired property is set,https://xp20.ashrae.org/terminology/index.php?term=setpoint
-https://brickschema.org/schema/Brick#Shade,A screen on a window.,
-https://brickschema.org/schema/Brick#Shade_Array,An array of Shade commonly attached to a single controller.,
 https://brickschema.org/schema/Brick#Shading_System,Devices that can control daylighting through various means,
 https://brickschema.org/schema/Brick#Shared_Office,An office used by multiple people,
 https://brickschema.org/schema/Brick#Short_Cycle_Alarm,An alarm that indicates a short cycle occurred. A short cycle occurs when a cooling cycle is prevented from completing its full cycle,

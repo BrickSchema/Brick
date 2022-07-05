@@ -121,10 +121,8 @@ system_subclasses = {
     "Shading_System": {
         "tags": [TAG.Shade, TAG.System],
         "subclasses": {
-            "Shade_Array": {
-                "tags": [TAG.Shade, TAG.Array, TAG.System]
-            },
-        }
+            "Blind_Group": {"tags": [TAG.Shade, TAG.System, TAG.Blind, TAG.Group]},
+        },
     },
 }
 
