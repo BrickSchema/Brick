@@ -1,12 +1,21 @@
 from rdflib import Literal
-from .namespaces import A, OWL, RDFS, BRICK, VCARD, UNIT, QUDT, SDO, RDF
+from .namespaces import A, OWL, RDFS, BRICK, VCARD, UNIT, QUDT, SDO, RDF, S223
 
 """
 Defining properties
 """
 properties = {
+    "hasSubstance": {
+        A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+        RDFS.label: Literal("Has QUDT reference"),
+    },
+    "hasQuantity": {
+        A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+        RDFS.label: Literal("Has QUDT reference"),
+        RDFS.subPropertyOf: QUDT.hasQuantityKind,
+    },
     "value": {
-        RDFS.subPropertyOf: QUDT.value,
+        RDFS.subPropertyOf: [QUDT.value, S223.hasSimpleValue],
         RDFS.label: Literal("Value"),
         A: [RDF.Property],
     },
@@ -19,6 +28,11 @@ properties = {
         RDFS.subPropertyOf: SDO.longitude,
         RDFS.label: Literal("Longitude"),
         A: [OWL.ObjectProperty],
+    },
+    "timestamp": {
+        RDFS.subPropertyOf: S223.hasTimestamp,
+        RDFS.label: Literal("Timestamp"),
+        A: [RDF.Property],
     },
     "hasQUDTReference": {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
@@ -90,32 +104,6 @@ properties = {
         RDFS.domain: BRICK.Tag,
         RDFS.label: Literal("Is tag of"),
     },
-    "measures": {
-        A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
-        OWL.inverseOf: BRICK["isMeasuredBy"],
-        RDFS.domain: BRICK.Point,
-        RDFS.range: BRICK.Measurable,
-        RDFS.label: Literal("Measures"),
-    },
-    "isMeasuredBy": {
-        A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
-        RDFS.domain: BRICK.Measurable,
-        RDFS.range: BRICK.Point,
-        RDFS.label: Literal("Is measured by"),
-    },
-    "regulates": {
-        A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
-        OWL.inverseOf: BRICK["isRegulatedBy"],
-        RDFS.domain: BRICK.Equipment,
-        RDFS.range: BRICK.Substance,
-        RDFS.label: Literal("Regulates"),
-    },
-    "isRegulatedBy": {
-        A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
-        RDFS.domain: BRICK.Substance,
-        RDFS.range: BRICK.Equipment,
-        RDFS.label: Literal("Is regulated by"),
-    },
     "hasAssociatedTag": {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         OWL.inverseOf: BRICK["isAssociatedWith"],
@@ -146,5 +134,35 @@ properties = {
         RDFS.domain: BRICK.Point,
         RDFS.range: BRICK.Parameter,
         RDFS.label: Literal("Point has a parameter"),
+    },
+    "meters": {
+        A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+        OWL.inverseOf: BRICK.isMeteredBy,
+        RDFS.domain: BRICK.Meter,
+        # this is a special property that implements the 'range' as a SHACL shape
+        "range": [BRICK.Equipment, BRICK.Location, BRICK.Collection],
+        RDFS.label: Literal("meters"),
+    },
+    "isMeteredBy": {
+        A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+        OWL.inverseOf: BRICK.meters,
+        # this is a special property that implements the 'domain' as a SHACL shape
+        "domain": [BRICK.Equipment, BRICK.Location, BRICK.Collection],
+        RDFS.range: BRICK.Meter,
+        RDFS.label: Literal("is metered by"),
+    },
+    "hasSubMeter": {
+        A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+        OWL.inverseOf: BRICK.isSubMeterOf,
+        RDFS.range: BRICK.Meter,
+        RDFS.domain: BRICK.Meter,
+        RDFS.label: Literal("has sub-meter"),
+    },
+    "isSubMeterOf": {
+        A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+        OWL.inverseOf: BRICK.hasSubMeter,
+        RDFS.range: BRICK.Meter,
+        RDFS.domain: BRICK.Meter,
+        RDFS.label: Literal("is sub-meter of"),
     },
 }

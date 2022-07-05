@@ -1,7 +1,8 @@
 .PHONY: format
 
-Brick.ttl: bricksrc/*.py bricksrc/*.ttl bricksrc/definitions.csv generate_brick.py
+Brick.ttl: bricksrc/*.py bricksrc/*.ttl bricksrc/definitions.csv generate_brick.py shacl/* support/*.ttl
 	mkdir -p extensions
+	python tools/sort_definitions.py bricksrc/definitions.csv
 	python generate_brick.py
 	cd shacl && python generate_shacl.py
 
@@ -19,8 +20,7 @@ format:
 	black tools/
 
 test: Brick.ttl shacl/BrickShape.ttl
-	#pytest -s -vvvv -m 'not slow' --durations=0 -n auto tests
-	pytest -s -vvvv  --durations=0 -n auto tests
+	pytest -s -vvvv  -n auto tests
 	cd tests/integration && bash run_integration_tests.sh
 
 quantity-test: Brick.ttl
@@ -34,3 +34,6 @@ hierarchy-test: Brick.ttl
 
 measures-test: Brick.ttl
 	pytest -s -vvvv tests/test_measures_inference.py
+
+matches-test: Brick.ttl
+	pytest -s -vvvv tests/test_matching_classes.py

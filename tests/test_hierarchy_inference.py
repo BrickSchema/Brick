@@ -30,7 +30,7 @@ inference_file = "tests/test_hierarchy_inference.ttl"
 entity_postfix = "_0"
 
 
-@pytest.mark.slow
+@pytest.mark.skip("We are not materializing parent classes at this time")
 def test_hierarchyinference():
     # Load the schema
     g = brickschema.Graph()

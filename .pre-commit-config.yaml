@@ -1,16 +1,23 @@
 repos:
--   repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.0.1
-    hooks:
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: v4.2.0
+  hooks:
     - id: check-yaml
     - id: end-of-file-fixer
     - id: trailing-whitespace
--   repo: https://github.com/psf/black
-    rev: 21.5b2
-    hooks:
-    -   id: black
--   repo: https://gitlab.com/pycqa/flake8
-    rev: 3.9.2
-    hooks:
+- repo: https://github.com/psf/black
+  rev: 22.3.0
+  hooks:
+    - id: black
+- repo: https://gitlab.com/pycqa/flake8
+  rev: 3.9.2
+  hooks:
     - id: flake8
       args: ['--config=.flake8']
+- repo: local
+  hooks:
+    - id: sort-defs
+      name: sort-definition
+      language: python
+      entry: python tools/sort_definitions.py
+      files: bricksrc/definitions.csv

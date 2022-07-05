@@ -20,8 +20,8 @@ from bricksrc.namespaces import (
     QUDT,
     UNIT,
     VCARD,
-    QUDTQK,
     SH,
+    REF,
 )
 from bricksrc.namespaces import bind_prefixes
 
@@ -73,6 +73,23 @@ def add_properties(item, propdefs):
             G.add((item, propname, propval))
 
 
+def get_units_brick(brick_quantity):
+    brick_units = G.query(
+        f"""SELECT ?unit ?symbol ?label WHERE {{
+        ?subquant skos:broader+ <{brick_quantity}> .
+        ?subquant qudt:applicableUnit ?unit .
+        OPTIONAL {{
+            ?unit qudt:symbol ?symbol .
+            FILTER(isLiteral(?symbol))
+        }} .
+        OPTIONAL {{
+            ?unit rdfs:label ?label .
+        }}
+    }}"""
+    )
+    return set(brick_units)
+
+
 def units_for_quantity(quantity):
     """
     Given a Brick Quantity (the full URI), returns the list of applicable units
@@ -82,74 +99,6 @@ def units_for_quantity(quantity):
 
 def has_label(concept):
     return len(list(G.objects(subject=concept, predicate=RDFS.label))) > 0
-
-
-def add_restriction(klass, definition):
-    """
-    Defines OWL.Restrictions linked to Brick classes
-    through OWL.equivalentClass.
-
-    This populates the property-object pairs (OWL.onProperty, 'property'),
-    (OWL.hasValue, 'value'). The intersection of these properties is made to be
-    equivalent to the given class.
-
-    Args:
-        klass: the URI of the Brick class to be modeled
-        definition: a list of (property, value) pairs
-    """
-    if len(definition) == 0:
-        return
-
-    sc = BSH[klass.split("#")[-1] + "_PropertyShape"]
-    G.add((sc, A, SH.NodeShape))
-    rule = BNode(str(klass) + "PropertyInferenceRule")
-    G.add((sc, SH.rule, rule))
-
-    # define rule
-    G.add((rule, A, SH.TripleRule))
-    G.add((rule, SH.subject, SH.this))
-    G.add((rule, SH.predicate, RDF.type))
-    G.add((rule, SH.object, klass))
-
-    G.add((klass, A, SH.NodeShape))
-
-    for (property_name, property_value) in definition:
-        pname = property_name.split("#")[-1]
-        pval = property_value.split("#")[-1]
-        cond = BNode(f"has_{pname}_{pval}_condition")
-        prop = BNode(f"has_{pname}_{pval}_prop")
-        qvs = BNode()
-        G.add((rule, SH.condition, cond))
-        G.add((rule, SH.targetSubjectsOf, property_name))
-        G.add((cond, SH.property, prop))
-        G.add((prop, SH.path, property_name))
-        G.add((prop, SH.qualifiedValueShape, qvs))
-        G.add((qvs, SH.hasValue, property_value))
-        G.add((prop, SH.qualifiedMinCount, Literal(1, datatype=XSD.integer)))
-
-        # add rule inheriting properties to the klass
-        classrule = BNode(f"add_{pname}{pval}_to_{klass.split('#')[-1]}")
-        G.add((klass, SH.rule, classrule))
-        G.add((classrule, A, SH.TripleRule))
-        G.add((classrule, SH.subject, SH.this))
-        G.add((classrule, SH.predicate, property_name))
-        G.add((classrule, SH.object, property_value))
-    # TODO: add rules for inheriting property annotations to the class
-    # TODO: do the same for tags
-
-    # elements = []
-    # equivalent_class = BNode()
-    # list_name = BNode()
-    # for idnum, item in enumerate(definition):
-    #    restriction = BNode()
-    #    elements.append(restriction)
-    #    G.add((restriction, A, OWL.Restriction))
-    #    G.add((restriction, OWL.onProperty, item[0]))
-    #    G.add((restriction, OWL.hasValue, item[1]))
-    # G.add((klass, OWL.equivalentClass, equivalent_class))
-    # G.add((equivalent_class, OWL.intersectionOf, list_name))
-    # G.add((equivalent_class, A, OWL.Class))
-    # Collection(G, list_name, elements)
 
 
 def add_tags(klass, definition):
@@ -281,12 +230,6 @@ def define_concept_hierarchy(definitions, typeclasses, broader=None, related=Non
         if not has_label(concept):
             G.add((concept, RDFS.label, Literal(label)))
 
-        # define mapping to substances + quantities if it exists
-        # "substances" property is a list of (predicate, object) pairs
-        substancedef = defn.get("substances", [])
-        assert isinstance(substancedef, list)
-        add_restriction(concept, substancedef)
-
         # define concept hierarchy
         # this is a nested dictionary
         narrower_defs = defn.get(SKOS.narrower, {})
@@ -348,12 +291,6 @@ def define_classes(definitions, parent, pun_classes=False):
         if len(taglist) == 0:
             logging.warning(f"Property 'tags' not defined for {classname}")
         add_tags(classname, taglist)
-
-        # define mapping to substances + quantities if it exists
-        # "substances" property is a list of (predicate, object) pairs
-        substancedef = defn.get("substances", [])
-        assert isinstance(substancedef, list)
-        add_restriction(classname, substancedef)
 
         # define class structure
         # this is a nested dictionary
@@ -517,6 +454,16 @@ def define_shape_properties(definitions):
     for shape_name, defn in definitions.items():
         G.add((shape_name, A, SH.NodeShape))
         G.add((shape_name, A, OWL.Class))
+        G.add((shape_name, RDFS.subClassOf, BSH.ValueShape))
+
+        needs_value_properties = ["values", "units", "unitsFromQuantity", "datatype"]
+        if any(k in defn for k in needs_value_properties):
+            ps = BNode()
+            G.add((shape_name, SH.property, ps))
+            G.add((ps, A, SH.PropertyShape))
+            G.add((ps, SH.path, BRICK.value))
+            G.add((ps, SH.minCount, Literal(1)))
+            G.add((ps, SH.maxCount, Literal(1)))
 
         v = BNode()
         # prop:value PropertyShape
@@ -616,6 +563,44 @@ def define_properties(definitions, superprop=None):
         assert isinstance(subproperties_def, dict)
         define_properties(subproperties_def, prop)
 
+        # define range/domain using SHACL shapes
+        if "range" in propdefn:
+            defn = propdefn.pop("range")
+            range_shape = BSH[f"range_shape_{prop.split('#')[-1]}"]
+            G.add((range_shape, A, SH.NodeShape))
+            G.add((range_shape, SH.targetSubjectsOf, prop))
+            constraint = BNode()
+            G.add((range_shape, SH.property, constraint))
+            G.add((constraint, SH.path, prop))
+            G.add((constraint, SH.minCount, Literal(1)))
+            if isinstance(defn, (tuple, list)):
+                enumeration = BNode()
+                G.add((constraint, SH["or"], enumeration))
+                constraints = []
+                for cls in defn:
+                    constraint = BNode()
+                    G.add((constraint, SH["class"], cls))
+                    constraints.append(constraint)
+                Collection(G, enumeration, constraints)
+            else:
+                G.add((constraint, SH["class"], defn))
+        if "domain" in propdefn:
+            defn = propdefn.pop("domain")
+            domain_shape = BSH[f"domain_shape_{prop.split('#')[-1]}"]
+            G.add((domain_shape, A, SH.NodeShape))
+            G.add((domain_shape, SH.targetSubjectsOf, prop))
+            if isinstance(defn, (tuple, list)):
+                enumeration = BNode()
+                G.add((domain_shape, SH["or"], enumeration))
+                constraints = []
+                for cls in defn:
+                    constraint = BNode()
+                    G.add((constraint, SH["class"], cls))
+                    constraints.append(constraint)
+                Collection(G, enumeration, constraints)
+            else:
+                G.add((domain_shape, SH["class"], defn))
+
         # define other properties of the Brick property
         for propname, propval in propdefn.items():
             # all other key-value pairs in the definition are
@@ -627,7 +612,11 @@ def define_properties(definitions, superprop=None):
 
             for propname in other_properties:
                 propval = propdefn[propname]
-                G.add((prop, propname, propval))
+                if isinstance(propval, list):
+                    for val in propval:
+                        G.add((prop, propname, val))
+                else:
+                    G.add((prop, propname, propval))
 
 
 def add_definitions():
@@ -706,7 +695,12 @@ define_ontology(G)
 
 # Declare root classes
 
-G.add((BRICK.Entity, A, OWL.Class))
+# we keep the definition of brick:Class, which was the root
+# class of Brick prior to v1.3.0, in order to maintain backwards
+# compatibility with older Brick models. Both brick:Class and
+# brick:Entity are root classes
+G.add((BRICK.Class, A, OWL.Class))  # < Brick v1.3.0
+G.add((BRICK.Entity, A, OWL.Class))  # >= Brick v1.3.0
 G.add((BRICK.Tag, A, OWL.Class))
 
 roots = {
@@ -716,7 +710,8 @@ roots = {
     "Measurable": {},
     "Collection": {"tags": [TAG.Collection]},
 }
-define_classes(roots, BRICK.Entity)
+define_classes(roots, BRICK.Class)  # <= Brick v1.3.0
+define_classes(roots, BRICK.Entity)  # >= Brick v1.3.0
 
 logging.info("Defining properties")
 # define BRICK properties
@@ -793,14 +788,26 @@ res = G.query(
                 ?quantity brick:hasQUDTReference ?qudtquant
                 }"""
 )
+
+# this requires two passes to associate the applicable units with
+# each of the quantities. The first pass associates Brick quantities
+# with QUDT units via the "hasQUDTReference" property; the second pass
+# traverses the SKOS broader/narrower hierarchy to inherit associated units
+# "up" into the broader concepts.
 for r in res:
-    for unit, symb, label in get_units(r[1]):
-        G.add((r[0], QUDT.applicableUnit, unit))
+    brick_quant, qudt_quant = r
+    for unit, symb, label in get_units(qudt_quant):
+        G.add((brick_quant, QUDT.applicableUnit, unit))
         G.add((unit, A, UNIT.Unit))
         if symb is not None:
             G.add((unit, QUDT.symbol, symb))
         if label is not None and not has_label(unit):
             G.add((unit, RDFS.label, label))
+for r in res:
+    brick_quant, qudt_quant = r
+    # the symbols, units, and labels are already defined in the previous pass
+    for unit, symb, label in get_units_brick(brick_quant):
+        G.add((brick_quant, QUDT.applicableUnit, unit))
 
 
 # entity property definitions (must happen after units are defined)
@@ -808,6 +815,7 @@ G.add((BRICK.value, A, OWL.DatatypeProperty))
 G.add((BRICK.value, SKOS.definition, Literal("The basic value of an entity property")))
 G.add((BRICK.EntityProperty, RDFS.subClassOf, OWL.ObjectProperty))
 G.add((BRICK.EntityProperty, A, OWL.Class))
+G.add((BSH.ValueShape, A, OWL.Class))
 define_shape_properties(shape_properties)
 define_entity_properties(entity_properties)
 
@@ -818,8 +826,13 @@ add_definitions()
 for ttlfile in glob.glob("bricksrc/*.ttl"):
     G.parse(ttlfile, format="turtle")
 
-logging.info(f"Brick ontology compilation finished! Generated {len(G)} triples")
+# add ref-schema definitions
+G.parse("support/ref-schema.ttl", format="turtle")
+ref_schema_uri = URIRef(REF.strip("#"))
+for triple in G.cbd(ref_schema_uri):
+    G.remove(triple)
 
+logging.info(f"Brick ontology compilation finished! Generated {len(G)} triples")
 
 extension_graphs = {"shacl_tag_inference": shaclGraph}
 
