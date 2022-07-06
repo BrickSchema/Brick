@@ -16,8 +16,7 @@ equipment_subclasses = {
     "Shading_Equipment": {
         "tags": [TAG.Shade, TAG.Equipment],
         "subclasses": {
-            "Shade": {"tags": [TAG.Shade, TAG.Equipment]},
-            "Louver": {"tags": [TAG.Shade, TAG.Equipment, TAG.Louver]},
+            "Blind": {"tags": [TAG.Shade, TAG.Blind, TAG.Equipment]},
             "Automatic_Tint_Window": {
                 "tags": [TAG.Shade, TAG.Equipment, TAG.Automatic, TAG.Tint, TAG.Window]
             },
@@ -628,7 +627,6 @@ hvac_subclasses = {
     },
     "Compressor": {"tags": [TAG.Equipment, TAG.Compressor]},
     "Cooling_Tower": {"tags": [TAG.Equipment, TAG.Cool, TAG.Tower]},
-    "Dry_Cooler": {"tags": [TAG.Equipment, TAG.Cool, TAG.Dry]},
     "Chiller": {
         "tags": [TAG.Equipment, TAG.Chiller],
         "subclasses": {
