@@ -290,7 +290,7 @@ equipment_subclasses = {
 Define classes of HVAC equipment
 """
 hvac_subclasses = {
-    "Dry_Cooler": {"tags": [TAG.Equipment, TAG.HVAC, TAG.Dry, TAG.Cool]},
+    "Dry_Cooler": {"tags": [TAG.Equipment, TAG.HVAC, TAG.Dry, TAG.Cooler]},
     "HVAC_Valve": {
         "tags": [TAG.HVAC, TAG.Valve, TAG.Equipment],
         "parents": [BRICK.Valve],
