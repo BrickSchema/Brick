@@ -393,6 +393,7 @@ shape_properties = {
     BSH.LastKnownValueShape: {
         "properties": {
             BRICK.timestamp: {"datatype": XSD.dateTime},
+            BRICK.value: {SH.minCount: Literal(1), SH.maxCount: Literal(1)},
         },
     },
     BSH.VolumeShape: {"units": [UNIT.FT3, UNIT.M3], "datatype": BSH.NumericValue},
