@@ -1,4 +1,5 @@
 @prefix brick: <https://brickschema.org/schema/Brick#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
 @prefix ref: <https://brickschema.org/schema/Brick/ref#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix bsh: <https://brickschema.org/schema/BrickShape#> .
@@ -288,4 +289,14 @@ bsh:TimeseriesReferenceOnPointsConstraint a sh:NodeShape ;
             }
         """ ;
     ] ;
+.
+
+bsh:hasQuantity a sh:NodeShape ;
+    sh:targetObjectsOf brick:hasQuantity ;
+    sh:class qudt:QuantityKind ;
+.
+
+bsh:hasSubstance a sh:NodeShape ;
+    sh:targetObjectsOf brick:hasSubstance ;
+    sh:class brick:Substance ;
 .

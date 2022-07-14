@@ -1,7 +1,9 @@
+import sys
 import csv
 import glob
 import logging
 from collections import defaultdict
+import pyshacl
 from rdflib import Graph, Literal, BNode, URIRef
 from rdflib.namespace import XSD
 from rdflib.collection import Collection
@@ -94,7 +96,9 @@ def units_for_quantity(quantity):
     """
     Given a Brick Quantity (the full URI), returns the list of applicable units
     """
-    return list(G.objects(subject=quantity, predicate=QUDT.applicableUnit))
+    brick_units = set(G.objects(subject=quantity, predicate=QUDT.applicableUnit))
+    qudt_units = set(get_units(quantity))
+    return list(brick_units.union(qudt_units))
 
 
 def has_label(concept):
@@ -511,9 +515,9 @@ def define_shape_properties(definitions):
             G.add((ps, SH.path, BRICK.hasUnit))
             G.add((ps, SH["in"], enumeration))
             G.add((ps, SH.minCount, Literal(1)))
-            Collection(
-                G, enumeration, units_for_quantity(defn.pop("unitsFromQuantity"))
-            )
+            units = units_for_quantity(defn.pop("unitsFromQuantity"))
+            assert len(units) > 0, f"Quantity shape {shape_name} has no units"
+            Collection(G, enumeration, units)
         if "properties" in defn:
             prop_defns = defn.pop("properties")
             define_shape_property_property(shape_name, prop_defns)
@@ -751,6 +755,7 @@ logging.info("Defining Measurable hierarchy")
 G.add((BRICK.Measurable, RDFS.subClassOf, BRICK.Entity))
 # set up Quantity definition
 G.add((BRICK.Quantity, RDFS.subClassOf, SOSA.ObservableProperty))
+G.add((BRICK.Quantity, RDFS.subClassOf, QUDT.QuantityKind))
 G.add(
     (SOSA.ObservableProperty, A, OWL.Class)
 )  # needs the type declaration to satisfy some checkers
@@ -846,6 +851,13 @@ for name, graph in extension_graphs.items():
 
 # add SHACL shapes to graph
 G.parse("shacl/BrickEntityShapeBase.ttl", format="ttl")
+
+# validate Brick
+valid, _, report = pyshacl.validate(data_graph=G, advanced=True, allow_warnings=True)
+if not valid:
+    print(report)
+    sys.exit(1)
+
 
 # serialize Brick to output
 with open("Brick.ttl", "w") as fp:

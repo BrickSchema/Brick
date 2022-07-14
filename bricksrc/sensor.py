@@ -8,10 +8,6 @@ sensor_definitions = {
         ),
         "tags": [TAG.Point, TAG.Sensor],
         "subclasses": {
-            "Power_Factor_Sensor": {
-                BRICK.hasQuantity: BRICK.Power_Factor,
-                "tags": [TAG.Power, TAG.Factor, TAG.Sensor, TAG.Point],
-            },
             "Adjust_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Adjust],
                 "subclasses": {
@@ -125,8 +121,8 @@ sensor_definitions = {
                     },
                     "NO2_Level_Sensor": {
                         "tags": [TAG.Point, TAG.Sensor, TAG.Level, TAG.NO2],
-                        BRICK.hasQuantity: BRICK.Air,
-                        BRICK.hasSubstance: BRICK.NO2_Concentration,
+                        BRICK.hasQuantity: BRICK.NO2_Concentration,
+                        BRICK.hasSubstance: BRICK.Air,
                     },
                     "Formaldehyde_Level_Sensor": {
                         "tags": [TAG.Point, TAG.Sensor, TAG.Level, TAG.Formaldehyde],
@@ -346,7 +342,7 @@ sensor_definitions = {
             },
             "Current_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Current],
-                BRICK.hasQuantity: BRICK.Current,
+                BRICK.hasQuantity: BRICK.Electric_Current,
                 "subclasses": {
                     "Load_Current_Sensor": {
                         "tags": [TAG.Point, TAG.Load, TAG.Current, TAG.Sensor],
@@ -580,7 +576,7 @@ sensor_definitions = {
                 "subclasses": {
                     "Natural_Gas_Flow_Sensor": {
                         "tags": [TAG.Point, TAG.Sensor, TAG.Flow, TAG.Natural, TAG.Gas],
-                        BRICK.hasSubstance: BRICK.Natrual_Gas
+                        BRICK.hasSubstance: BRICK.Natural_Gas,
                     },
                     "Air_Flow_Sensor": {
                         "tags": [TAG.Point, TAG.Sensor, TAG.Flow, TAG.Air],
@@ -974,13 +970,13 @@ sensor_definitions = {
             "Frost_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Frost],
                 "parents": [BRICK.Temperature_Sensor],
-                BRICK.hasQuantity: BRICK.Frost,
-                BRICK.hasSubstance: BRICK.Temperature,
+                BRICK.hasQuantity: BRICK.Temperature,
+                BRICK.hasSubstance: BRICK.Frost,
             },
             "Gas_Sensor": {"tags": [TAG.Point, TAG.Sensor, TAG.Gas]},
             "Hail_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Hail],
-                BRICK.hasQuantity: BRICK.Hail,
+                BRICK.hasSubstance: BRICK.Hail,
             },
             "Heat_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Heat],
@@ -1578,7 +1574,7 @@ sensor_definitions = {
                     "Energy_Generation_Sensor": {
                         "tags": [TAG.Point, TAG.Sensor, TAG.Generation, TAG.Energy]
                     }
-                }
+                },
             },
             "Usage_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Usage],
@@ -2080,8 +2076,8 @@ sensor_definitions = {
                                 BRICK.hasSubstance: BRICK.Chilled_Water,
                                 "subclasses": {
                                     "Chilled_Water_Differential_Temperature_Sensor": {
-                                        BRICK.hasSubstance: BRICK.Differential_Temperature,
-                                        BRICK.hasQuantity: BRICK.Chilled_Water,
+                                        BRICK.hasQuantity: BRICK.Differential_Temperature,
+                                        BRICK.hasSubstance: BRICK.Chilled_Water,
                                         "tags": [
                                             TAG.Point,
                                             TAG.Chilled,
