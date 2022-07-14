@@ -148,37 +148,37 @@ entity_properties = {
     },
     BRICK.ratedCurrentInput: {
         SKOS.definition: Literal("The nominal rated current input of the entity"),
-        RDFS.range: BSH.CurrentShape,
+        RDFS.range: BSH.ElectricCurrentShape,
         "subproperties": {
             BRICK.ratedMaximumCurrentInput: {
                 SKOS.definition: Literal(
                     "The maximum current that can be input to the entity"
                 ),
-                RDFS.range: BSH.CurrentShape,
+                RDFS.range: BSH.ElectricCurrentShape,
             },
             BRICK.ratedMinimumCurrentInput: {
                 SKOS.definition: Literal(
                     "The minimum current that can be input to the entity"
                 ),
-                RDFS.range: BSH.CurrentShape,
+                RDFS.range: BSH.ElectricCurrentShape,
             },
         },
     },
     BRICK.ratedCurrentOutput: {
         SKOS.definition: Literal("The nominal rated current output of the entity"),
-        RDFS.range: BSH.CurrentShape,
+        RDFS.range: BSH.ElectricCurrentShape,
         "subproperties": {
             BRICK.ratedMaximumCurrentOutput: {
                 SKOS.definition: Literal(
                     "The maximum current that can be output by the entity"
                 ),
-                RDFS.range: BSH.CurrentShape,
+                RDFS.range: BSH.ElectricCurrentShape,
             },
             BRICK.ratedMinimumCurrentOutput: {
                 SKOS.definition: Literal(
                     "The minimum current that can be output by the entity"
                 ),
-                RDFS.range: BSH.CurrentShape,
+                RDFS.range: BSH.ElectricCurrentShape,
             },
         },
     },
@@ -474,9 +474,9 @@ shape_properties = {
             },
         },
     },
-    BSH.CurrentShape: {
+    BSH.ElectricCurrentShape: {
         "datatype": BSH.NumericValue,
-        "unitsFromQuantity": BRICK.Current,
+        "unitsFromQuantity": BRICK.Electric_Current,
         "properties": {
             BRICK.ambientTemperatureOfMeasurement: {
                 "optional": True,
@@ -554,7 +554,7 @@ def get_shapes(G):
 
 def generate_quantity_shapes(G):
     quantities = G.query(
-        "SELECT ?q WHERE { ?q a brick:Quantity . FILTER NOT EXISTS { ?q skos:broader ?x }}"
+        "SELECT ?q WHERE { ?q a brick:Quantity . ?q qudt:applicableUnit ?unit }"
     )
     d = {}
     for (quantity,) in quantities:

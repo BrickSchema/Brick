@@ -1642,7 +1642,7 @@ setpoint_definitions = {
                             },
                             "Room_Air_Temperature_Setpoint": {
                                 BRICK.hasQuantity: BRICK.Temperature,
-                                BRICK.hasSubstance: BRICK.Room_Air,
+                                BRICK.hasSubstance: BRICK.Air,
                                 "tags": [
                                     TAG.Point,
                                     TAG.Room,
@@ -2394,7 +2394,7 @@ setpoint_definitions = {
                 },
             },
             "CO2_Setpoint": {
-                BRICK.hasQuantity: BRICK.CO2,
+                BRICK.hasQuantity: BRICK.CO2_Concentration,
                 "subclasses": {
                     "Return_Air_CO2_Setpoint": {
                         "tags": [TAG.Point, TAG.Return, TAG.Air, TAG.CO2, TAG.Setpoint],
