@@ -16,8 +16,7 @@ equipment_subclasses = {
     "Shading_Equipment": {
         "tags": [TAG.Shade, TAG.Equipment],
         "subclasses": {
-            "Shade": {"tags": [TAG.Shade, TAG.Equipment]},
-            "Louver": {"tags": [TAG.Shade, TAG.Equipment, TAG.Louver]},
+            "Blind": {"tags": [TAG.Shade, TAG.Blind, TAG.Equipment]},
             "Automatic_Tint_Window": {
                 "tags": [TAG.Shade, TAG.Equipment, TAG.Automatic, TAG.Tint, TAG.Window]
             },
@@ -270,6 +269,7 @@ equipment_subclasses = {
     "Security_Equipment": {"tags": [TAG.Security, TAG.Equipment]},
     "Safety_Equipment": {"tags": [TAG.Safety, TAG.Equipment]},
     "Camera": {"tags": [TAG.Camera, TAG.Equipment]},
+    "Relay": {"tags": [TAG.Relay, TAG.Equipment]},
     "Water_Heater": {
         "tags": [TAG.Water, TAG.Heater, TAG.Equipment],
         "subclasses": {
@@ -290,6 +290,7 @@ equipment_subclasses = {
 Define classes of HVAC equipment
 """
 hvac_subclasses = {
+    "Dry_Cooler": {"tags": [TAG.Equipment, TAG.HVAC, TAG.Dry, TAG.Cooler]},
     "HVAC_Valve": {
         "tags": [TAG.HVAC, TAG.Valve, TAG.Equipment],
         "parents": [BRICK.Valve],
@@ -575,6 +576,9 @@ hvac_subclasses = {
     "Fan": {
         "tags": [TAG.Equipment, TAG.Fan],
         "subclasses": {
+            "Transfer_Fan": {
+                "tags": [TAG.Equipment, TAG.Fan, TAG.Transfer],
+            },
             "Cooling_Tower_Fan": {
                 "tags": [TAG.Cool, TAG.Tower, TAG.Equipment, TAG.Fan],
             },
@@ -1085,6 +1089,16 @@ valve_subclasses = {
     "Valve": {
         "tags": [TAG.Valve, TAG.Equipment],
         "subclasses": {
+            "Natural_Gas_Seismic_Shutoff_Valve": {
+                "tags": [
+                    TAG.Equipment,
+                    TAG.Valve,
+                    TAG.Natural,
+                    TAG.Gas,
+                    TAG.Seismic,
+                    TAG.Shutoff,
+                ],
+            },
             "Water_Valve": {
                 "tags": [TAG.Valve, TAG.Water, TAG.Equipment],
                 "subclasses": {

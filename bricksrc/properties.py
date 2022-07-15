@@ -141,9 +141,7 @@ properties = {
         RDFS.domain: BRICK.Meter,
         # this is a special property that implements the 'range' as a SHACL shape
         "range": [BRICK.Equipment, BRICK.Location, BRICK.Collection],
-        RDFS.label: Literal(
-            "Indicates the entity whose consumption/production of some substance is measured by this meter"
-        ),
+        RDFS.label: Literal("meters"),
     },
     "isMeteredBy": {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
@@ -151,22 +149,20 @@ properties = {
         # this is a special property that implements the 'domain' as a SHACL shape
         "domain": [BRICK.Equipment, BRICK.Location, BRICK.Collection],
         RDFS.range: BRICK.Meter,
-        RDFS.label: Literal(
-            "Indicates the meter measuring the consumption/production of some substance by the subject entity"
-        ),
+        RDFS.label: Literal("is metered by"),
     },
     "hasSubMeter": {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         OWL.inverseOf: BRICK.isSubMeterOf,
         RDFS.range: BRICK.Meter,
         RDFS.domain: BRICK.Meter,
-        RDFS.label: Literal("Indicates a submeter of this meter"),
+        RDFS.label: Literal("has sub-meter"),
     },
     "isSubMeterOf": {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         OWL.inverseOf: BRICK.hasSubMeter,
         RDFS.range: BRICK.Meter,
         RDFS.domain: BRICK.Meter,
-        RDFS.label: Literal("Indicates the parent for which this meter is a submeter"),
+        RDFS.label: Literal("is sub-meter of"),
     },
 }

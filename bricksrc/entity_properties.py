@@ -148,37 +148,37 @@ entity_properties = {
     },
     BRICK.ratedCurrentInput: {
         SKOS.definition: Literal("The nominal rated current input of the entity"),
-        RDFS.range: BSH.CurrentShape,
+        RDFS.range: BSH.ElectricCurrentShape,
         "subproperties": {
             BRICK.ratedMaximumCurrentInput: {
                 SKOS.definition: Literal(
                     "The maximum current that can be input to the entity"
                 ),
-                RDFS.range: BSH.CurrentShape,
+                RDFS.range: BSH.ElectricCurrentShape,
             },
             BRICK.ratedMinimumCurrentInput: {
                 SKOS.definition: Literal(
                     "The minimum current that can be input to the entity"
                 ),
-                RDFS.range: BSH.CurrentShape,
+                RDFS.range: BSH.ElectricCurrentShape,
             },
         },
     },
     BRICK.ratedCurrentOutput: {
         SKOS.definition: Literal("The nominal rated current output of the entity"),
-        RDFS.range: BSH.CurrentShape,
+        RDFS.range: BSH.ElectricCurrentShape,
         "subproperties": {
             BRICK.ratedMaximumCurrentOutput: {
                 SKOS.definition: Literal(
                     "The maximum current that can be output by the entity"
                 ),
-                RDFS.range: BSH.CurrentShape,
+                RDFS.range: BSH.ElectricCurrentShape,
             },
             BRICK.ratedMinimumCurrentOutput: {
                 SKOS.definition: Literal(
                     "The minimum current that can be output by the entity"
                 ),
-                RDFS.range: BSH.CurrentShape,
+                RDFS.range: BSH.ElectricCurrentShape,
             },
         },
     },
@@ -399,9 +399,9 @@ building_primary_function_values = [
 shape_properties = {
     BSH.AreaShape: {"units": [UNIT.FT2, UNIT.M2], "datatype": BSH.NumericValue},
     BSH.LastKnownValueShape: {
-        "datatype": RDFS.Resource,
         "properties": {
             BRICK.timestamp: {"datatype": XSD.dateTime},
+            BRICK.value: {SH.minCount: Literal(1), SH.maxCount: Literal(1)},
         },
     },
     BSH.VolumeShape: {"units": [UNIT.FT3, UNIT.M3], "datatype": BSH.NumericValue},
@@ -484,9 +484,9 @@ shape_properties = {
             },
         },
     },
-    BSH.CurrentShape: {
+    BSH.ElectricCurrentShape: {
         "datatype": BSH.NumericValue,
-        "unitsFromQuantity": BRICK.Current,
+        "unitsFromQuantity": BRICK.Electric_Current,
         "properties": {
             BRICK.ambientTemperatureOfMeasurement: {
                 "optional": True,
@@ -555,3 +555,22 @@ shape_properties = {
         },
     },
 }
+
+
+def get_shapes(G):
+    shape_properties.update(generate_quantity_shapes(G))
+    return shape_properties
+
+
+def generate_quantity_shapes(G):
+    quantities = G.query(
+        "SELECT ?q WHERE { ?q a brick:Quantity . ?q qudt:applicableUnit ?unit }"
+    )
+    d = {}
+    for (quantity,) in quantities:
+        shape = BRICK[f"{quantity.split('#')[-1]}Shape"]
+        d[shape] = {
+            "unitsFromQuantity": quantity,
+            "datatype": BSH.NumericValue,
+        }
+    return d

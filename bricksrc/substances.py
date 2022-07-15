@@ -5,6 +5,9 @@ substances = {
     "Fluid": {
         "tags": [TAG.Fluid],
         "subclasses": {
+            "Refrigerant": {
+                "tags": [TAG.Fluid, TAG.Refrigerant],
+            },
             "Gas": {
                 "tags": [TAG.Fluid, TAG.Gas],
                 "subclasses": {
@@ -165,6 +168,16 @@ substances = {
                                             TAG.Discharge,
                                         ],
                                         "parents": [BRICK.Discharge_Water],
+                                    },
+                                    "Return_Chilled_Water": {
+                                        "tags": [
+                                            TAG.Fluid,
+                                            TAG.Liquid,
+                                            TAG.Water,
+                                            TAG.Chilled,
+                                            TAG.Return,
+                                        ],
+                                        "parents": [BRICK.Return_Water],
                                     },
                                     "Supply_Chilled_Water": {
                                         OWL.equivalentClass: BRICK[
@@ -334,6 +347,7 @@ substances = {
             "Frost": {"tags": [TAG.Solid, TAG.Frost]},
             "Hail": {"tags": [TAG.Solid, TAG.Hail]},
             "Ground": {"tags": [TAG.Solid, TAG.Ground]},
+            "Soil": {"tags": [TAG.Solid, TAG.Soil]},
         },
     },
 }
