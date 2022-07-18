@@ -5,6 +5,9 @@ substances = {
     "Fluid": {
         "tags": [TAG.Fluid],
         "subclasses": {
+            "Refrigerant": {
+                "tags": [TAG.Fluid, TAG.Refrigerant],
+            },
             "Gas": {
                 "tags": [TAG.Fluid, TAG.Gas],
                 "subclasses": {
@@ -87,6 +90,29 @@ substances = {
                                             TAG.Entering,
                                         ],
                                         "parents": [BRICK.Entering_Water],
+                                    },
+                                    "Return_Chilled_Water": {
+                                        "tags": [
+                                            TAG.Fluid,
+                                            TAG.Liquid,
+                                            TAG.Water,
+                                            TAG.Chilled,
+                                            TAG.Return,
+                                        ],
+                                        "parents": [BRICK.Return_Water],
+                                    },
+                                    "Supply_Chilled_Water": {
+                                        OWL.equivalentClass: BRICK[
+                                            "Discharge_Chilled_Water"
+                                        ],
+                                        "tags": [
+                                            TAG.Fluid,
+                                            TAG.Liquid,
+                                            TAG.Water,
+                                            TAG.Chilled,
+                                            TAG.Supply,
+                                        ],
+                                        "parents": [BRICK.Supply_Water],
                                     },
                                 },
                             },
@@ -202,6 +228,7 @@ substances = {
             "Ice": {"tags": [TAG.Solid, TAG.Ice]},
             "Frost": {"tags": [TAG.Solid, TAG.Frost]},
             "Hail": {"tags": [TAG.Solid, TAG.Hail]},
+            "Soil": {"tags": [TAG.Solid, TAG.Soil]},
         },
     },
 }

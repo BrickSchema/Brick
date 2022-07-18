@@ -192,22 +192,19 @@ alarm_definitions = {
                         "tags": [TAG.Point, TAG.Water, TAG.Temperature, TAG.Alarm],
                         "parents": [BRICK.Water_Alarm],
                         "subclasses": {
-                            "Discharge_Water_Temperature_Alarm": {
+                            "Entering_Water_Temperature_Alarm": {
                                 "tags": [
                                     TAG.Point,
-                                    TAG.Discharge,
+                                    TAG.Entering,
                                     TAG.Water,
                                     TAG.Temperature,
                                     TAG.Alarm,
                                 ],
                             },
-                            "Supply_Water_Temperature_Alarm": {
-                                OWL.equivalentClass: BRICK[
-                                    "Discharge_Water_Temperature_Alarm"
-                                ],
+                            "Leaving_Water_Temperature_Alarm": {
                                 "tags": [
                                     TAG.Point,
-                                    TAG.Supply,
+                                    TAG.Leaving,
                                     TAG.Water,
                                     TAG.Temperature,
                                     TAG.Alarm,

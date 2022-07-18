@@ -34,3 +34,43 @@ brick:Fresh_Air_Fan brick:deprecation [
         sh:targetClass brick:Fresh_Air_Fan ;
     ] ;
 ] .
+
+
+
+brick:Exhaust_Fan_Disable_Command brick:deprecation [
+    brick:deprecatedInVersion "1.3.0" ;
+    brick:deprecationMitigationMessage "Exhaust_Fan_Disable_Command is deprecated as a point name should not include more specific equipment names than top level equipment names";
+    brick:deprecationMigitationRule [
+        a sh:NodeShape ;
+        sh:rule [
+            a sh:SPARQLRule ;
+            sh:construct """
+            CONSTRUCT {
+              $this rdf:type brick:Disable_Command .
+            } WHERE {
+              $this rdf:type brick:Exhaust_Fan_Disable_Command .
+            }""" ;
+            sh:prefixes rdf:, brick: ;
+        ] ;
+        sh:targetClass brick:Exhaust_Fan_Disable_Command ;
+    ] ;
+] .
+
+brick:Exhaust_Fan_Enable_Command brick:deprecation [
+    brick:deprecatedInVersion "1.3.0" ;
+    brick:deprecationMitigationMessage "Exhaust_Fan_Enable_Command is deprecated as a point name should not include more specific equipment names than top level equipment names";
+    brick:deprecationMigitationRule [
+        a sh:NodeShape ;
+        sh:rule [
+            a sh:SPARQLRule ;
+            sh:construct """
+            CONSTRUCT {
+              $this rdf:type brick:Disable_Command .
+            } WHERE {
+              $this rdf:type brick:Exhaust_Fan_Enable_Command .
+            }""" ;
+            sh:prefixes rdf:, brick: ;
+        ] ;
+        sh:targetClass brick:Exhaust_Fan_Enable_Command ;
+    ] ;
+] .

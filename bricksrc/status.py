@@ -263,6 +263,16 @@ status_definitions = {
                     "Heating_Mode_Status": {
                         "tags": [TAG.Point, TAG.Heat, TAG.Mode, TAG.Status],
                         "subclasses": {
+                            "Occupied_Heating_Mode_Status": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Heat,
+                                    TAG.Mode,
+                                    TAG.Status,
+                                    TAG.Occupied,
+                                ],
+                                "parents": [BRICK.Occupied_Mode_Status],
+                            },
                             "Unoccupied_Heating_Mode_Status": {
                                 "tags": [
                                     TAG.Point,
@@ -272,12 +282,22 @@ status_definitions = {
                                     TAG.Unoccupied,
                                 ],
                                 "parents": [BRICK.Unoccupied_Mode_Status],
-                            }
+                            },
                         },
                     },
                     "Cooling_Mode_Status": {
                         "tags": [TAG.Point, TAG.Cool, TAG.Mode, TAG.Status],
                         "subclasses": {
+                            "Occupied_Cooling_Mode_Status": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Cool,
+                                    TAG.Mode,
+                                    TAG.Status,
+                                    TAG.Occupied,
+                                ],
+                                "parents": [BRICK.Occupied_Mode_Status],
+                            },
                             "Unoccupied_Cooling_Mode_Status": {
                                 "tags": [
                                     TAG.Point,
@@ -287,7 +307,7 @@ status_definitions = {
                                     TAG.Unoccupied,
                                 ],
                                 "parents": [BRICK.Unoccupied_Mode_Status],
-                            }
+                            },
                         },
                     },
                     "Occupied_Mode_Status": {

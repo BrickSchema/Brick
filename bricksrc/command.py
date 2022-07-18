@@ -5,6 +5,7 @@ command_definitions = {
     "Command": {
         "tags": [TAG.Point, TAG.Command],
         "subclasses": {
+            "Boiler_Command": {"tags": [TAG.Boiler, TAG.Command, TAG.Point]},
             "Tint_Command": {"tags": [TAG.Tint, TAG.Command, TAG.Point]},
             "Fan_Command": {
                 "tags": [TAG.Fan, TAG.Command, TAG.Point],
@@ -51,6 +52,13 @@ command_definitions = {
             "Valve_Command": {
                 # TODO: position?
                 "tags": [TAG.Point, TAG.Valve, TAG.Command],
+                "subclasses": {
+                    "Valve_Position_Command": {
+                        BRICK.hasQuantity: BRICK.Position,
+                        "tags": [TAG.Point, TAG.Valve, TAG.Position, TAG.Command],
+                        "parents": [BRICK.Position_Command],
+                    },
+                }
             },
             "Reset_Command": {
                 "tags": [TAG.Point, TAG.Reset, TAG.Command],
@@ -119,7 +127,7 @@ command_definitions = {
                             TAG.Fan,
                             TAG.Exhaust,
                         ],
-                    },
+                    }, # deprecated
                     "Run_Enable_Command": {
                         "tags": [TAG.Point, TAG.Enable, TAG.Command, TAG.Run],
                     },
@@ -181,7 +189,7 @@ command_definitions = {
                             TAG.Fan,
                             TAG.Exhaust,
                         ],
-                    },
+                    }, # deprecated
                     "Disable_Differential_Enthalpy_Command": {
                         "tags": [
                             TAG.Point,

@@ -1,4 +1,5 @@
 @prefix brick: <https://brickschema.org/schema/Brick#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
 @prefix ref: <https://brickschema.org/schema/Brick/ref#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix bsh: <https://brickschema.org/schema/BrickShape#> .
@@ -105,7 +106,7 @@ CONSTRUCT {
 bsh:DeprecationRule
     a   sh:NodeShape ;
     sh:property [
-        sh:path brick:deprecation ;
+        sh:path (rdf:type brick:deprecation) ;
         sh:maxCount 0 ;
         sh:severity sh:Warning ;
         sh:message "This concept is deprecated" ;
@@ -288,4 +289,14 @@ bsh:TimeseriesReferenceOnPointsConstraint a sh:NodeShape ;
             }
         """ ;
     ] ;
+.
+
+bsh:hasQuantity a sh:NodeShape ;
+    sh:targetObjectsOf brick:hasQuantity ;
+    sh:class qudt:QuantityKind ;
+.
+
+bsh:hasSubstance a sh:NodeShape ;
+    sh:targetObjectsOf brick:hasSubstance ;
+    sh:class brick:Substance ;
 .
