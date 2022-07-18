@@ -101,19 +101,6 @@ substances = {
                                         ],
                                         "parents": [BRICK.Return_Water],
                                     },
-                                    "Supply_Chilled_Water": {
-                                        OWL.equivalentClass: BRICK[
-                                            "Discharge_Chilled_Water"
-                                        ],
-                                        "tags": [
-                                            TAG.Fluid,
-                                            TAG.Liquid,
-                                            TAG.Water,
-                                            TAG.Chilled,
-                                            TAG.Supply,
-                                        ],
-                                        "parents": [BRICK.Supply_Water],
-                                    },
                                 },
                             },
                             "Collection_Basin_Water": {
