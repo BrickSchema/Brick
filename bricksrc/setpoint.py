@@ -2139,49 +2139,6 @@ setpoint_definitions = {
                                     TAG.Setpoint,
                                 ],
                             },
-                            "Return_Water_Temperature_Setpoint": {
-                                BRICK.hasQuantity: BRICK.Temperature,
-                                BRICK.hasSubstance: BRICK.Return_Water,
-                                "tags": [
-                                    TAG.Point,
-                                    TAG.Return,
-                                    TAG.Water,
-                                    TAG.Temperature,
-                                    TAG.Setpoint,
-                                ],
-                                "subclasses": {
-                                    "Return_Hot_Water_Temperature_Setpoint": {
-                                        BRICK.hasQuantity: BRICK.Temperature,
-                                        BRICK.hasSubstance: BRICK.Return_Hot_Water,
-                                        "tags": [
-                                            TAG.Point,
-                                            TAG.Hot,
-                                            TAG.Water,
-                                            TAG.Temperature,
-                                            TAG.Setpoint,
-                                            TAG.Return,
-                                        ],
-                                        "parents": [
-                                            BRICK.Hot_Water_Temperature_Setpoint
-                                        ],
-                                    },
-                                    "Return_Chilled_Water_Temperature_Setpoint": {
-                                        BRICK.hasQuantity: BRICK.Temperature,
-                                        BRICK.hasSubstance: BRICK.Return_Chilled_Water,
-                                        "tags": [
-                                            TAG.Point,
-                                            TAG.Return,
-                                            TAG.Chilled,
-                                            TAG.Water,
-                                            TAG.Temperature,
-                                            TAG.Setpoint,
-                                        ],
-                                        "parents": [
-                                            BRICK.Chilled_Water_Temperature_Setpoint
-                                        ],
-                                    },
-                                },
-                            },
                             "Leaving_Water_Temperature_Setpoint": {
                                 BRICK.hasQuantity: BRICK.Temperature,
                                 BRICK.hasSubstance: BRICK.Leaving_Water,

@@ -91,15 +91,15 @@ substances = {
                                         ],
                                         "parents": [BRICK.Entering_Water],
                                     },
-                                    "Return_Chilled_Water": {
+                                    "Leaving_Chilled_Water": {
                                         "tags": [
                                             TAG.Fluid,
                                             TAG.Liquid,
                                             TAG.Water,
                                             TAG.Chilled,
-                                            TAG.Return,
+                                            TAG.Leaving,
                                         ],
-                                        "parents": [BRICK.Return_Water],
+                                        "parents": [BRICK.Leaving_Water],
                                     },
                                 },
                             },
