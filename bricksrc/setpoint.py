@@ -707,31 +707,25 @@ setpoint_definitions = {
                                     TAG.Setpoint,
                                 ],
                                 "subclasses": {
-                                    "Chilled_Water_Supply_Flow_Setpoint": {
+                                    "Leaving_Chilled_Water_Flow_Setpoint": {
                                         "tags": [
                                             TAG.Point,
                                             TAG.Chilled,
                                             TAG.Water,
-                                            TAG.Supply,
+                                            TAG.Leaving,
                                             TAG.Flow,
                                             TAG.Setpoint,
                                         ],
-                                        OWL.equivalentClass: BRICK[
-                                            "Chilled_Water_Discharge_Flow_Setpoint"
-                                        ],
                                         "parents": [BRICK.Chilled_Water_Flow_Setpoint],
                                     },
-                                    "Hot_Water_Supply_Flow_Setpoint": {
+                                    "Leaving_Hot_Water_Flow_Setpoint": {
                                         "tags": [
                                             TAG.Point,
                                             TAG.Hot,
                                             TAG.Water,
-                                            TAG.Supply,
+                                            TAG.Leaving,
                                             TAG.Flow,
                                             TAG.Setpoint,
-                                        ],
-                                        OWL.equivalentClass: BRICK[
-                                            "Hot_Water_Discharge_Flow_Setpoint"
                                         ],
                                         "parents": [BRICK.Hot_Water_Flow_Setpoint],
                                     },
@@ -926,31 +920,28 @@ setpoint_definitions = {
                     "Load_Shed_Setpoint": {
                         "tags": [TAG.Point, TAG.Shed, TAG.Load, TAG.Setpoint],
                         "subclasses": {
-                            "Medium_Temperature_Hot_Water_Supply_Temperature_Load_Shed_Setpoint": {
-                                OWL.equivalentClass: BRICK[
-                                    "Medium_Temperature_Hot_Water_Discharge_Temperature_Load_Shed_Setpoint"
-                                ],
+                            "Leaving_Medium_Temperature_Hot_Water_Temperature_Load_Shed_Setpoint": {
                                 "tags": [
                                     TAG.Point,
                                     TAG.Medium,
                                     TAG.Temperature,
                                     TAG.Hot,
                                     TAG.Water,
-                                    TAG.Supply,
+                                    TAG.Leaving,
                                     TAG.Pressure,
                                     TAG.Shed,
                                     TAG.Load,
                                     TAG.Setpoint,
                                 ],
                             },
-                            "Medium_Temperature_Hot_Water_Discharge_Temperature_Load_Shed_Setpoint": {
+                            "Entering_Medium_Temperature_Hot_Water_Temperature_Load_Shed_Setpoint": {
                                 "tags": [
                                     TAG.Point,
                                     TAG.Medium,
                                     TAG.Temperature,
                                     TAG.Hot,
                                     TAG.Water,
-                                    TAG.Supply,
+                                    TAG.Entering,
                                     TAG.Pressure,
                                     TAG.Shed,
                                     TAG.Load,
@@ -1156,34 +1147,28 @@ setpoint_definitions = {
                             TAG.Setpoint,
                         ],
                         "subclasses": {
-                            "Hot_Water_Supply_Temperature_High_Reset_Setpoint": {
-                                BRICK.hasSubstance: BRICK.Supply_Hot_Water,
+                            "Leaving_Hot_Water_Temperature_High_Reset_Setpoint": {
+                                BRICK.hasSubstance: BRICK.Leaving_Hot_Water,
                                 BRICK.hasQuantity: BRICK.Temperature,
-                                OWL.equivalentClass: BRICK[
-                                    "Hot_Water_Discharge_Temperature_High_Reset_Setpoint"
-                                ],
                                 "tags": [
                                     TAG.Point,
                                     TAG.Hot,
                                     TAG.Water,
-                                    TAG.Supply,
+                                    TAG.Leaving,
                                     TAG.Temperature,
                                     TAG.High,
                                     TAG.Reset,
                                     TAG.Setpoint,
                                 ],
                                 "subclasses": {
-                                    "Medium_Temperature_Hot_Water_Supply_Temperature_High_Reset_Setpoint": {
-                                        OWL.equivalentClass: BRICK[
-                                            "Medium_Temperature_Hot_Water_Discharge_Temperature_High_Reset_Setpoint"
-                                        ],
+                                    "Leaving_Medium_Temperature_Hot_Water_Temperature_High_Reset_Setpoint": {
                                         "tags": [
                                             TAG.Point,
                                             TAG.Medium,
                                             TAG.Temperature,
                                             TAG.Hot,
                                             TAG.Water,
-                                            TAG.Supply,
+                                            TAG.Leaving,
                                             TAG.Temperature,
                                             TAG.High,
                                             TAG.Reset,
@@ -1192,26 +1177,26 @@ setpoint_definitions = {
                                     },
                                 },
                             },
-                            "Hot_Water_Discharge_Temperature_High_Reset_Setpoint": {
+                            "Entering_Hot_Water_Temperature_High_Reset_Setpoint": {
                                 "tags": [
                                     TAG.Point,
                                     TAG.Hot,
                                     TAG.Water,
-                                    TAG.Supply,
+                                    TAG.Entering,
                                     TAG.Temperature,
                                     TAG.High,
                                     TAG.Reset,
                                     TAG.Setpoint,
                                 ],
                                 "subclasses": {
-                                    "Medium_Temperature_Hot_Water_Discharge_Temperature_High_Reset_Setpoint": {
+                                    "Entering_Medium_Temperature_Hot_Water_Temperature_High_Reset_Setpoint": {
                                         "tags": [
                                             TAG.Point,
                                             TAG.Medium,
                                             TAG.Temperature,
                                             TAG.Hot,
                                             TAG.Water,
-                                            TAG.Discharge,
+                                            TAG.Entering,
                                             TAG.Temperature,
                                             TAG.High,
                                             TAG.Reset,
@@ -1290,34 +1275,28 @@ setpoint_definitions = {
                                     TAG.Setpoint,
                                 ],
                             },
-                            "Hot_Water_Supply_Temperature_Low_Reset_Setpoint": {
-                                BRICK.hasSubstance: BRICK.Supply_Hot_Water,
+                            "Leaving_Hot_Water_Temperature_Low_Reset_Setpoint": {
+                                BRICK.hasSubstance: BRICK.Leaving_Hot_Water,
                                 BRICK.hasQuantity: BRICK.Temperature,
-                                OWL.equivalentClass: BRICK[
-                                    "Hot_Water_Discharge_Temperature_Low_Reset_Setpoint"
-                                ],
                                 "tags": [
                                     TAG.Point,
                                     TAG.Hot,
                                     TAG.Water,
-                                    TAG.Supply,
+                                    TAG.Leaving,
                                     TAG.Temperature,
                                     TAG.Low,
                                     TAG.Reset,
                                     TAG.Setpoint,
                                 ],
                                 "subclasses": {
-                                    "Medium_Temperature_Hot_Water_Supply_Temperature_Low_Reset_Setpoint": {
-                                        OWL.equivalentClass: BRICK[
-                                            "Medium_Temperature_Hot_Water_Discharge_Temperature_Low_Reset_Setpoint"
-                                        ],
+                                    "Leaving_Medium_Temperature_Hot_Water_Temperature_Low_Reset_Setpoint": {
                                         "tags": [
                                             TAG.Point,
                                             TAG.Medium,
                                             TAG.Temperature,
                                             TAG.Hot,
                                             TAG.Water,
-                                            TAG.Supply,
+                                            TAG.Leaving,
                                             TAG.Temperature,
                                             TAG.Low,
                                             TAG.Reset,
@@ -1326,26 +1305,26 @@ setpoint_definitions = {
                                     },
                                 },
                             },
-                            "Hot_Water_Discharge_Temperature_Low_Reset_Setpoint": {
+                            "Entering_Hot_Water_Temperature_Low_Reset_Setpoint": {
                                 "tags": [
                                     TAG.Point,
                                     TAG.Hot,
                                     TAG.Water,
-                                    TAG.Discharge,
+                                    TAG.Entering,
                                     TAG.Temperature,
                                     TAG.Low,
                                     TAG.Reset,
                                     TAG.Setpoint,
                                 ],
                                 "subclasses": {
-                                    "Medium_Temperature_Hot_Water_Discharge_Temperature_Low_Reset_Setpoint": {
+                                    "Entering_Medium_Temperature_Hot_Water_Temperature_Low_Reset_Setpoint": {
                                         "tags": [
                                             TAG.Point,
                                             TAG.Medium,
                                             TAG.Temperature,
                                             TAG.Hot,
                                             TAG.Water,
-                                            TAG.Discharge,
+                                            TAG.Entering,
                                             TAG.Temperature,
                                             TAG.Low,
                                             TAG.Reset,
