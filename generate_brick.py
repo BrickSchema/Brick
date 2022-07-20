@@ -47,6 +47,7 @@ from bricksrc.substances import substances
 from bricksrc.quantities import quantity_definitions, get_units
 from bricksrc.properties import properties
 from bricksrc.entity_properties import shape_properties, entity_properties, get_shapes
+from bricksrc.deprecations import deprecations
 
 logging.basicConfig(
     format="%(asctime)s,%(msecs)d %(levelname)-8s [%(filename)s:%(lineno)d] %(message)s",
@@ -693,6 +694,43 @@ def add_definitions():
             logging.warning(f"WARNING: {setpoint} does not exist in Brick for {param}.")
 
 
+def handle_deprecations():
+    for deprecated_term, md in deprecations.items():
+        deprecation = BNode()
+        shape = BNode()
+        rule = BNode()
+        G.add((deprecated_term, A, OWL.Class))
+        G.add((deprecated_term, BRICK.deprecation, deprecation))
+        G.add((deprecation, BRICK.deprecatedInVersion, Literal(md["version"])))
+        G.add(
+            (
+                deprecation,
+                BRICK.deprecationMitigationMessage,
+                Literal(md["mitigation_message"]),
+            )
+        )
+        if "replace_with" in md:
+            G.add((deprecation, BRICK.deprecationMigitationRule, shape))
+            G.add((shape, A, SH.NodeShape))
+            G.add((shape, SH.targetClass, deprecated_term))
+            G.add((shape, SH.rule, rule))
+            G.add((rule, A, SH.SPARQLRule))
+            G.add(
+                (
+                    rule,
+                    SH.construct,
+                    Literal(
+                        "CONSTRUCT {"
+                        f"$this rdf:type {md['replace_with'].n3()} ."
+                        "} WHERE {"
+                        f"$this rdf:type {deprecated_term.n3()} . }}"
+                    ),
+                )
+            )
+            G.add((rule, SH.prefixes, URIRef(RDF)))
+            G.add((rule, SH.prefixes, URIRef(BRICK)))
+
+
 logging.info("Beginning BRICK Ontology compilation")
 # handle ontology definition
 define_ontology(G)
@@ -823,6 +861,8 @@ G.add((BRICK.EntityProperty, A, OWL.Class))
 G.add((BSH.ValueShape, A, OWL.Class))
 define_shape_properties(get_shapes(G))
 define_entity_properties(entity_properties)
+
+handle_deprecations()
 
 logging.info("Adding class definitions")
 add_definitions()
