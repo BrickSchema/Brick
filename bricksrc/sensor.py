@@ -1986,7 +1986,7 @@ sensor_definitions = {
                                             ],
                                         ],
                                     },
-                                    "Differential_Leaving_Entering_Water_Temperature_Sensor": {
+                                    "Differential_Entering_Leaving_Water_Temperature_Sensor": {
                                         "tags": [
                                             TAG.Point,
                                             TAG.Sensor,
