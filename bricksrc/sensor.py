@@ -1807,57 +1807,6 @@ sensor_definitions = {
                                 BRICK.hasQuantity: BRICK.Differential_Temperature,
                                 BRICK.hasSubstance: BRICK.Water,
                             },
-                            "Hot_Water_Entering_Temperature_Sensor": {
-                                "tags": [
-                                    TAG.Point,
-                                    TAG.Sensor,
-                                    TAG.Temperature,
-                                    TAG.Water,
-                                    TAG.Hot,
-                                    TAG.Entering,
-                                ],
-                                "substances": [
-                                    [BRICK.measures, BRICK.Temperature],
-                                    [BRICK.measures, BRICK.Entering_Hot_Water],
-                                ],
-                                "subclasses": {
-                                    "Domestic_Hot_Water_Entering_Temperature_Sensor": {
-                                        "tags": [
-                                            TAG.Point,
-                                            TAG.Domestic,
-                                            TAG.Hot,
-                                            TAG.Water,
-                                            TAG.Entering,
-                                            TAG.Temperature,
-                                            TAG.Sensor,
-                                        ],
-                                    },
-                                    "High_Temperature_Hot_Water_Entering_Temperature_Sensor": {
-                                        "tags": [
-                                            TAG.Point,
-                                            TAG.High,
-                                            TAG.Temperature,
-                                            TAG.Hot,
-                                            TAG.Water,
-                                            TAG.Entering,
-                                            TAG.Temperature,
-                                            TAG.Sensor,
-                                        ],
-                                    },
-                                    "Medium_Temperature_Hot_Water_Entering_Temperature_Sensor": {
-                                        "tags": [
-                                            TAG.Point,
-                                            TAG.Medium,
-                                            TAG.Temperature,
-                                            TAG.Hot,
-                                            TAG.Water,
-                                            TAG.Entering,
-                                            TAG.Temperature,
-                                            TAG.Sensor,
-                                        ],
-                                    },
-                                },
-                            },
                             "Entering_Hot_Water_Temperature_Sensor": {
                                 "tags": [
                                     TAG.Point,
@@ -2037,6 +1986,23 @@ sensor_definitions = {
                                             ],
                                         ],
                                     },
+                                    "Differential_Leaving_Entering_Water_Temperature_Sensor": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Sensor,
+                                            TAG.Temperature,
+                                            TAG.Water,
+                                            TAG.Chilled,
+                                            TAG.Leaving,
+                                            TAG.Entering,
+                                            TAG.Differential,
+                                        ],
+                                        BRICK.hasSubstance: [
+                                            BRICK.Leaving_Chilled_Water,
+                                            BRICK.Entering_Chilled_Water,
+                                        ],
+                                        BRICK.hasQuantity: BRICK.Temperature,
+                                    },
                                 },
                             },
                             "Entering_Water_Temperature_Sensor": {
@@ -2062,6 +2028,17 @@ sensor_definitions = {
                                 BRICK.hasSubstance: BRICK.Leaving_Water,
                                 "subclasses": {
                                     "Ice_Tank_Leaving_Water_Temperature_Sensor": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Ice,
+                                            TAG.Tank,
+                                            TAG.Leaving,
+                                            TAG.Water,
+                                            TAG.Temperature,
+                                            TAG.Sensor,
+                                        ],
+                                    },
+                                    "Heat_Exchanger_Leaving_Water_Temperature_Sensor": {
                                         "tags": [
                                             TAG.Point,
                                             TAG.Ice,
