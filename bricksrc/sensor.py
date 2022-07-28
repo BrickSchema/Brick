@@ -739,7 +739,7 @@ sensor_definitions = {
                                 BRICK.hasQuantity: BRICK.Flow,
                                 BRICK.hasSubstance: BRICK.Entering_Water,
                                 "subclasses": {
-                                    "Chilled_Water_Entering_Flow_Sensor": {
+                                    "Entering_Chilled_Water_Flow_Sensor": {
                                         "tags": [
                                             TAG.Point,
                                             TAG.Sensor,
@@ -752,7 +752,7 @@ sensor_definitions = {
                                         BRICK.hasSubstance: BRICK.Entering_Chilled_Water,
                                         "parents": [BRICK.Chilled_Water_Flow_Sensor],
                                     },
-                                    "Hot_Water_Entering_Flow_Sensor": {
+                                    "Entering_Hot_Water_Flow_Sensor": {
                                         "tags": [
                                             TAG.Point,
                                             TAG.Hot,
@@ -823,7 +823,7 @@ sensor_definitions = {
                                     TAG.Leaving,
                                 ],
                                 "subclasses": {
-                                    "Chilled_Water_Leaving_Flow_Sensor": {
+                                    "Leaving_Chilled_Water_Flow_Sensor": {
                                         "tags": [
                                             TAG.Point,
                                             TAG.Sensor,
@@ -836,7 +836,7 @@ sensor_definitions = {
                                         BRICK.hasSubstance: BRICK.Leaving_Chilled_Water,
                                         "parents": [BRICK.Chilled_Water_Flow_Sensor],
                                     },
-                                    "Hot_Water_Leaving_Flow_Sensor": {
+                                    "Leaving_Hot_Water_Flow_Sensor": {
                                         "tags": [
                                             TAG.Point,
                                             TAG.Sensor,

@@ -2139,6 +2139,16 @@ setpoint_definitions = {
                                     TAG.Setpoint,
                                 ],
                                 "subclasses": {
+                                    "Leaving_Condenser_Water_Temperature_Setpoint": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Leaving,
+                                            TAG.Water,
+                                            TAG.Temperature,
+                                            TAG.Setpoint,
+                                            TAG.Condenser,
+                                        ],
+                                    },
                                     "Leaving_Hot_Water_Temperature_Setpoint": {
                                         "tags": [
                                             TAG.Point,
