@@ -80,26 +80,26 @@ status_definitions = {
             "Hold_Status": {"tags": [TAG.Point, TAG.Hold, TAG.Status]},
             "Load_Shed_Status": {
                 "subclasses": {
-                    "Hot_Water_Discharge_Temperature_Load_Shed_Status": {
+                    "Entering_Hot_Water_Temperature_Load_Shed_Status": {
                         "tags": [
                             TAG.Point,
                             TAG.Hot,
                             TAG.Water,
-                            TAG.Discharge,
+                            TAG.Entering,
                             TAG.Temperature,
                             TAG.Load,
                             TAG.Shed,
                             TAG.Status,
                         ],
                         "subclasses": {
-                            "Medium_Temperature_Hot_Water_Discharge_Temperature_Load_Shed_Status": {
+                            "Entering_Medium_Temperature_Hot_Water_Temperature_Load_Shed_Status": {
                                 "tags": [
                                     TAG.Point,
                                     TAG.Medium,
                                     TAG.Temperature,
                                     TAG.Hot,
                                     TAG.Water,
-                                    TAG.Discharge,
+                                    TAG.Entering,
                                     TAG.Temperature,
                                     TAG.Load,
                                     TAG.Shed,
@@ -108,32 +108,26 @@ status_definitions = {
                             },
                         },
                     },
-                    "Hot_Water_Supply_Temperature_Load_Shed_Status": {
-                        OWL.equivalentClass: BRICK[
-                            "Hot_Water_Discharge_Temperature_Load_Shed_Status"
-                        ],
+                    "Leaving_Hot_Water_Temperature_Load_Shed_Status": {
                         "tags": [
                             TAG.Point,
                             TAG.Hot,
                             TAG.Water,
-                            TAG.Supply,
+                            TAG.Leaving,
                             TAG.Temperature,
                             TAG.Load,
                             TAG.Shed,
                             TAG.Status,
                         ],
                         "subclasses": {
-                            "Medium_Temperature_Hot_Water_Supply_Temperature_Load_Shed_Status": {
-                                OWL.equivalentClass: BRICK[
-                                    "Medium_Temperature_Hot_Water_Discharge_Temperature_Load_Shed_Status"
-                                ],
+                            "Leaving_Medium_Temperature_Hot_Water_Temperature_Load_Shed_Status": {
                                 "tags": [
                                     TAG.Point,
                                     TAG.Medium,
                                     TAG.Temperature,
                                     TAG.Hot,
                                     TAG.Water,
-                                    TAG.Supply,
+                                    TAG.Leaving,
                                     TAG.Temperature,
                                     TAG.Load,
                                     TAG.Shed,

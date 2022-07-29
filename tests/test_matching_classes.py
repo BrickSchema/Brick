@@ -190,6 +190,8 @@ def test_matching_classes():
            ?c rdfs:subClassOf* brick:Class .
            ?c rdfs:subClassOf ?p .
            ?p rdfs:subClassOf* brick:Class .
+           FILTER NOT EXISTS { ?c owl:deprecated true } .
+           FILTER NOT EXISTS { ?p owl:deprecated true } .
        }
        """,
     )
@@ -205,9 +207,10 @@ def test_matching_classes():
        SELECT DISTINCT ?c ?p
        WHERE {
            ?c rdfs:subClassOf* brick:Class .
+           FILTER NOT EXISTS { ?c owl:deprecated true } .
            OPTIONAL {
            ?c owl:equivalentClass ?p .
-           }
+           } .
        }
        """,
     )

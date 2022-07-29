@@ -238,32 +238,31 @@ setpoint_definitions = {
                                 ],
                                 "parents": [BRICK.Air_Temperature_Setpoint],
                             },
-                            "Supply_Water_Temperature_Deadband_Setpoint": {
-                                BRICK.hasSubstance: BRICK.Supply_Water,
+                            "Entering_Water_Temperature_Deadband_Setpoint": {
+                                BRICK.hasSubstance: BRICK.Entering_Water,
                                 BRICK.hasQuantity: BRICK.Temperature,
-                                OWL.equivalentClass: BRICK[
-                                    "Discharge_Water_Temperature_Deadband_Setpoint"
-                                ],
                                 "tags": [
                                     TAG.Point,
-                                    TAG.Supply,
+                                    TAG.Entering,
                                     TAG.Water,
                                     TAG.Temperature,
                                     TAG.Deadband,
                                     TAG.Setpoint,
                                 ],
-                                "parents": [BRICK.Supply_Water_Temperature_Setpoint],
+                                "parents": [BRICK.Entering_Water_Temperature_Setpoint],
                             },
-                            "Discharge_Water_Temperature_Deadband_Setpoint": {
+                            "Leaving_Water_Temperature_Deadband_Setpoint": {
+                                BRICK.hasSubstance: BRICK.Leaving_Water,
+                                BRICK.hasQuantity: BRICK.Temperature,
                                 "tags": [
                                     TAG.Point,
-                                    TAG.Discharge,
+                                    TAG.Leaving,
                                     TAG.Water,
                                     TAG.Temperature,
                                     TAG.Deadband,
                                     TAG.Setpoint,
                                 ],
-                                "parents": [BRICK.Supply_Water_Temperature_Setpoint],
+                                "parents": [BRICK.Leaving_Water_Temperature_Setpoint],
                             },
                         },
                         "tags": [
@@ -699,87 +698,8 @@ setpoint_definitions = {
                                     TAG.Setpoint,
                                 ],
                             },
-                            "Supply_Water_Flow_Setpoint": {
-                                BRICK.hasSubstance: BRICK.Supply_Water,
-                                BRICK.hasQuantity: BRICK.Flow,
-                                "tags": [
-                                    TAG.Point,
-                                    TAG.Supply,
-                                    TAG.Water,
-                                    TAG.Flow,
-                                    TAG.Setpoint,
-                                ],
-                                OWL.equivalentClass: BRICK[
-                                    "Discharge_Water_Flow_Setpoint"
-                                ],
-                                "subclasses": {
-                                    "Chilled_Water_Supply_Flow_Setpoint": {
-                                        "tags": [
-                                            TAG.Point,
-                                            TAG.Chilled,
-                                            TAG.Water,
-                                            TAG.Supply,
-                                            TAG.Flow,
-                                            TAG.Setpoint,
-                                        ],
-                                        OWL.equivalentClass: BRICK[
-                                            "Chilled_Water_Discharge_Flow_Setpoint"
-                                        ],
-                                        "parents": [BRICK.Chilled_Water_Flow_Setpoint],
-                                    },
-                                    "Hot_Water_Supply_Flow_Setpoint": {
-                                        "tags": [
-                                            TAG.Point,
-                                            TAG.Hot,
-                                            TAG.Water,
-                                            TAG.Supply,
-                                            TAG.Flow,
-                                            TAG.Setpoint,
-                                        ],
-                                        OWL.equivalentClass: BRICK[
-                                            "Hot_Water_Discharge_Flow_Setpoint"
-                                        ],
-                                        "parents": [BRICK.Hot_Water_Flow_Setpoint],
-                                    },
-                                },
-                            },
-                            "Discharge_Water_Flow_Setpoint": {
-                                BRICK.hasSubstance: BRICK.Discharge_Water,
-                                BRICK.hasQuantity: BRICK.Flow,
-                                "tags": [
-                                    TAG.Point,
-                                    TAG.Discharge,
-                                    TAG.Water,
-                                    TAG.Flow,
-                                    TAG.Setpoint,
-                                ],
-                                "subclasses": {
-                                    "Chilled_Water_Discharge_Flow_Setpoint": {
-                                        "tags": [
-                                            TAG.Point,
-                                            TAG.Chilled,
-                                            TAG.Water,
-                                            TAG.Discharge,
-                                            TAG.Flow,
-                                            TAG.Setpoint,
-                                        ],
-                                        "parents": [BRICK.Chilled_Water_Flow_Setpoint],
-                                    },
-                                    "Hot_Water_Discharge_Flow_Setpoint": {
-                                        "tags": [
-                                            TAG.Point,
-                                            TAG.Hot,
-                                            TAG.Water,
-                                            TAG.Discharge,
-                                            TAG.Flow,
-                                            TAG.Setpoint,
-                                        ],
-                                        "parents": [BRICK.Hot_Water_Flow_Setpoint],
-                                    },
-                                },
-                            },
                             "Entering_Water_Flow_Setpoint": {
-                                BRICK.hasSubstance: BRICK.Water,
+                                BRICK.hasSubstance: BRICK.Entering_Water,
                                 BRICK.hasQuantity: BRICK.Flow,
                                 "tags": [
                                     TAG.Point,
@@ -788,6 +708,34 @@ setpoint_definitions = {
                                     TAG.Flow,
                                     TAG.Setpoint,
                                 ],
+                                "subclasses": {
+                                    "Entering_Chilled_Water_Flow_Setpoint": {
+                                        BRICK.hasSubstance: BRICK.Entering_Chilled_Water,
+                                        BRICK.hasQuantity: BRICK.Flow,
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Chilled,
+                                            TAG.Water,
+                                            TAG.Entering,
+                                            TAG.Flow,
+                                            TAG.Setpoint,
+                                        ],
+                                        "parents": [BRICK.Chilled_Water_Flow_Setpoint],
+                                    },
+                                    "Entering_Hot_Water_Flow_Setpoint": {
+                                        BRICK.hasSubstance: BRICK.Entering_Hot_Water,
+                                        BRICK.hasQuantity: BRICK.Flow,
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Hot,
+                                            TAG.Water,
+                                            TAG.Entering,
+                                            TAG.Flow,
+                                            TAG.Setpoint,
+                                        ],
+                                        "parents": [BRICK.Hot_Water_Flow_Setpoint],
+                                    },
+                                },
                             },
                             "Leaving_Water_Flow_Setpoint": {
                                 BRICK.hasSubstance: BRICK.Leaving_Water,
@@ -799,6 +747,34 @@ setpoint_definitions = {
                                     TAG.Flow,
                                     TAG.Setpoint,
                                 ],
+                                "subclasses": {
+                                    "Leaving_Chilled_Water_Flow_Setpoint": {
+                                        BRICK.hasSubstance: BRICK.Leaving_Chilled_Water,
+                                        BRICK.hasQuantity: BRICK.Flow,
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Chilled,
+                                            TAG.Water,
+                                            TAG.Leaving,
+                                            TAG.Flow,
+                                            TAG.Setpoint,
+                                        ],
+                                        "parents": [BRICK.Chilled_Water_Flow_Setpoint],
+                                    },
+                                    "Leaving_Hot_Water_Flow_Setpoint": {
+                                        BRICK.hasSubstance: BRICK.Leaving_Hot_Water,
+                                        BRICK.hasQuantity: BRICK.Flow,
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Hot,
+                                            TAG.Water,
+                                            TAG.Leaving,
+                                            TAG.Flow,
+                                            TAG.Setpoint,
+                                        ],
+                                        "parents": [BRICK.Hot_Water_Flow_Setpoint],
+                                    },
+                                },
                             },
                             "Hot_Water_Flow_Setpoint": {
                                 BRICK.hasSubstance: BRICK.Hot_Water,
@@ -954,31 +930,28 @@ setpoint_definitions = {
                     "Load_Shed_Setpoint": {
                         "tags": [TAG.Point, TAG.Shed, TAG.Load, TAG.Setpoint],
                         "subclasses": {
-                            "Medium_Temperature_Hot_Water_Supply_Temperature_Load_Shed_Setpoint": {
-                                OWL.equivalentClass: BRICK[
-                                    "Medium_Temperature_Hot_Water_Discharge_Temperature_Load_Shed_Setpoint"
-                                ],
+                            "Leaving_Medium_Temperature_Hot_Water_Temperature_Load_Shed_Setpoint": {
                                 "tags": [
                                     TAG.Point,
                                     TAG.Medium,
                                     TAG.Temperature,
                                     TAG.Hot,
                                     TAG.Water,
-                                    TAG.Supply,
+                                    TAG.Leaving,
                                     TAG.Pressure,
                                     TAG.Shed,
                                     TAG.Load,
                                     TAG.Setpoint,
                                 ],
                             },
-                            "Medium_Temperature_Hot_Water_Discharge_Temperature_Load_Shed_Setpoint": {
+                            "Entering_Medium_Temperature_Hot_Water_Temperature_Load_Shed_Setpoint": {
                                 "tags": [
                                     TAG.Point,
                                     TAG.Medium,
                                     TAG.Temperature,
                                     TAG.Hot,
                                     TAG.Water,
-                                    TAG.Supply,
+                                    TAG.Entering,
                                     TAG.Pressure,
                                     TAG.Shed,
                                     TAG.Load,
@@ -1184,34 +1157,28 @@ setpoint_definitions = {
                             TAG.Setpoint,
                         ],
                         "subclasses": {
-                            "Hot_Water_Supply_Temperature_High_Reset_Setpoint": {
-                                BRICK.hasSubstance: BRICK.Supply_Hot_Water,
+                            "Leaving_Hot_Water_Temperature_High_Reset_Setpoint": {
+                                BRICK.hasSubstance: BRICK.Leaving_Hot_Water,
                                 BRICK.hasQuantity: BRICK.Temperature,
-                                OWL.equivalentClass: BRICK[
-                                    "Hot_Water_Discharge_Temperature_High_Reset_Setpoint"
-                                ],
                                 "tags": [
                                     TAG.Point,
                                     TAG.Hot,
                                     TAG.Water,
-                                    TAG.Supply,
+                                    TAG.Leaving,
                                     TAG.Temperature,
                                     TAG.High,
                                     TAG.Reset,
                                     TAG.Setpoint,
                                 ],
                                 "subclasses": {
-                                    "Medium_Temperature_Hot_Water_Supply_Temperature_High_Reset_Setpoint": {
-                                        OWL.equivalentClass: BRICK[
-                                            "Medium_Temperature_Hot_Water_Discharge_Temperature_High_Reset_Setpoint"
-                                        ],
+                                    "Leaving_Medium_Temperature_Hot_Water_Temperature_High_Reset_Setpoint": {
                                         "tags": [
                                             TAG.Point,
                                             TAG.Medium,
                                             TAG.Temperature,
                                             TAG.Hot,
                                             TAG.Water,
-                                            TAG.Supply,
+                                            TAG.Leaving,
                                             TAG.Temperature,
                                             TAG.High,
                                             TAG.Reset,
@@ -1220,26 +1187,26 @@ setpoint_definitions = {
                                     },
                                 },
                             },
-                            "Hot_Water_Discharge_Temperature_High_Reset_Setpoint": {
+                            "Entering_Hot_Water_Temperature_High_Reset_Setpoint": {
                                 "tags": [
                                     TAG.Point,
                                     TAG.Hot,
                                     TAG.Water,
-                                    TAG.Supply,
+                                    TAG.Entering,
                                     TAG.Temperature,
                                     TAG.High,
                                     TAG.Reset,
                                     TAG.Setpoint,
                                 ],
                                 "subclasses": {
-                                    "Medium_Temperature_Hot_Water_Discharge_Temperature_High_Reset_Setpoint": {
+                                    "Entering_Medium_Temperature_Hot_Water_Temperature_High_Reset_Setpoint": {
                                         "tags": [
                                             TAG.Point,
                                             TAG.Medium,
                                             TAG.Temperature,
                                             TAG.Hot,
                                             TAG.Water,
-                                            TAG.Discharge,
+                                            TAG.Entering,
                                             TAG.Temperature,
                                             TAG.High,
                                             TAG.Reset,
@@ -1318,34 +1285,28 @@ setpoint_definitions = {
                                     TAG.Setpoint,
                                 ],
                             },
-                            "Hot_Water_Supply_Temperature_Low_Reset_Setpoint": {
-                                BRICK.hasSubstance: BRICK.Supply_Hot_Water,
+                            "Leaving_Hot_Water_Temperature_Low_Reset_Setpoint": {
+                                BRICK.hasSubstance: BRICK.Leaving_Hot_Water,
                                 BRICK.hasQuantity: BRICK.Temperature,
-                                OWL.equivalentClass: BRICK[
-                                    "Hot_Water_Discharge_Temperature_Low_Reset_Setpoint"
-                                ],
                                 "tags": [
                                     TAG.Point,
                                     TAG.Hot,
                                     TAG.Water,
-                                    TAG.Supply,
+                                    TAG.Leaving,
                                     TAG.Temperature,
                                     TAG.Low,
                                     TAG.Reset,
                                     TAG.Setpoint,
                                 ],
                                 "subclasses": {
-                                    "Medium_Temperature_Hot_Water_Supply_Temperature_Low_Reset_Setpoint": {
-                                        OWL.equivalentClass: BRICK[
-                                            "Medium_Temperature_Hot_Water_Discharge_Temperature_Low_Reset_Setpoint"
-                                        ],
+                                    "Leaving_Medium_Temperature_Hot_Water_Temperature_Low_Reset_Setpoint": {
                                         "tags": [
                                             TAG.Point,
                                             TAG.Medium,
                                             TAG.Temperature,
                                             TAG.Hot,
                                             TAG.Water,
-                                            TAG.Supply,
+                                            TAG.Leaving,
                                             TAG.Temperature,
                                             TAG.Low,
                                             TAG.Reset,
@@ -1354,26 +1315,26 @@ setpoint_definitions = {
                                     },
                                 },
                             },
-                            "Hot_Water_Discharge_Temperature_Low_Reset_Setpoint": {
+                            "Entering_Hot_Water_Temperature_Low_Reset_Setpoint": {
                                 "tags": [
                                     TAG.Point,
                                     TAG.Hot,
                                     TAG.Water,
-                                    TAG.Discharge,
+                                    TAG.Entering,
                                     TAG.Temperature,
                                     TAG.Low,
                                     TAG.Reset,
                                     TAG.Setpoint,
                                 ],
                                 "subclasses": {
-                                    "Medium_Temperature_Hot_Water_Discharge_Temperature_Low_Reset_Setpoint": {
+                                    "Entering_Medium_Temperature_Hot_Water_Temperature_Low_Reset_Setpoint": {
                                         "tags": [
                                             TAG.Point,
                                             TAG.Medium,
                                             TAG.Temperature,
                                             TAG.Hot,
                                             TAG.Water,
-                                            TAG.Discharge,
+                                            TAG.Entering,
                                             TAG.Temperature,
                                             TAG.Low,
                                             TAG.Reset,
@@ -2115,35 +2076,32 @@ setpoint_definitions = {
                                 ],
                                 "parents": [BRICK.Hot_Water_Temperature_Setpoint],
                                 "subclasses": {
-                                    "Domestic_Hot_Water_Supply_Temperature_Setpoint": {
-                                        OWL.equivalentClass: BRICK[
-                                            "Domestic_Hot_Water_Discharge_Temperature_Setpoint"
-                                        ],
+                                    "Entering_Domestic_Hot_Water_Temperature_Setpoint": {
                                         "tags": [
                                             TAG.Point,
                                             TAG.Domestic,
                                             TAG.Hot,
-                                            TAG.Supply,
+                                            TAG.Entering,
                                             TAG.Water,
                                             TAG.Temperature,
                                             TAG.Setpoint,
                                         ],
                                         "parents": [
-                                            BRICK.Supply_Water_Temperature_Setpoint
+                                            BRICK.Entering_Water_Temperature_Setpoint
                                         ],
                                     },
-                                    "Domestic_Hot_Water_Discharge_Temperature_Setpoint": {
+                                    "Leaving_Domestic_Hot_Water_Temperature_Setpoint": {
                                         "tags": [
                                             TAG.Point,
                                             TAG.Domestic,
                                             TAG.Hot,
-                                            TAG.Discharge,
+                                            TAG.Leaving,
                                             TAG.Water,
                                             TAG.Temperature,
                                             TAG.Setpoint,
                                         ],
                                         "parents": [
-                                            BRICK.Discharge_Water_Temperature_Setpoint
+                                            BRICK.Leaving_Water_Temperature_Setpoint
                                         ],
                                     },
                                 },
@@ -2170,64 +2128,31 @@ setpoint_definitions = {
                                     TAG.Setpoint,
                                 ],
                             },
-                            "Return_Water_Temperature_Setpoint": {
+                            "Leaving_Water_Temperature_Setpoint": {
                                 BRICK.hasQuantity: BRICK.Temperature,
-                                BRICK.hasSubstance: BRICK.Return_Water,
+                                BRICK.hasSubstance: BRICK.Leaving_Water,
                                 "tags": [
                                     TAG.Point,
-                                    TAG.Return,
+                                    TAG.Leaving,
                                     TAG.Water,
                                     TAG.Temperature,
                                     TAG.Setpoint,
                                 ],
                                 "subclasses": {
-                                    "Return_Hot_Water_Temperature_Setpoint": {
-                                        BRICK.hasQuantity: BRICK.Temperature,
-                                        BRICK.hasSubstance: BRICK.Return_Hot_Water,
+                                    "Leaving_Condenser_Water_Temperature_Setpoint": {
                                         "tags": [
                                             TAG.Point,
-                                            TAG.Hot,
+                                            TAG.Leaving,
                                             TAG.Water,
                                             TAG.Temperature,
                                             TAG.Setpoint,
-                                            TAG.Return,
-                                        ],
-                                        "parents": [
-                                            BRICK.Hot_Water_Temperature_Setpoint
+                                            TAG.Condenser,
                                         ],
                                     },
-                                    "Return_Chilled_Water_Temperature_Setpoint": {
-                                        BRICK.hasQuantity: BRICK.Temperature,
-                                        BRICK.hasSubstance: BRICK.Return_Chilled_Water,
+                                    "Leaving_Hot_Water_Temperature_Setpoint": {
                                         "tags": [
                                             TAG.Point,
-                                            TAG.Return,
-                                            TAG.Chilled,
-                                            TAG.Water,
-                                            TAG.Temperature,
-                                            TAG.Setpoint,
-                                        ],
-                                        "parents": [
-                                            BRICK.Chilled_Water_Temperature_Setpoint
-                                        ],
-                                    },
-                                },
-                            },
-                            "Discharge_Water_Temperature_Setpoint": {
-                                BRICK.hasQuantity: BRICK.Temperature,
-                                BRICK.hasSubstance: BRICK.Discharge_Water,
-                                "tags": [
-                                    TAG.Point,
-                                    TAG.Discharge,
-                                    TAG.Water,
-                                    TAG.Temperature,
-                                    TAG.Setpoint,
-                                ],
-                                "subclasses": {
-                                    "Discharge_Hot_Water_Temperature_Setpoint": {
-                                        "tags": [
-                                            TAG.Point,
-                                            TAG.Discharge,
+                                            TAG.Leaving,
                                             TAG.Water,
                                             TAG.Temperature,
                                             TAG.Setpoint,
@@ -2237,10 +2162,10 @@ setpoint_definitions = {
                                             BRICK.Hot_Water_Temperature_Setpoint
                                         ],
                                     },
-                                    "Discharge_Chilled_Water_Temperature_Setpoint": {
+                                    "Leaving_Chilled_Water_Temperature_Setpoint": {
                                         "tags": [
                                             TAG.Point,
-                                            TAG.Discharge,
+                                            TAG.Leaving,
                                             TAG.Water,
                                             TAG.Temperature,
                                             TAG.Setpoint,
@@ -2250,96 +2175,16 @@ setpoint_definitions = {
                                             BRICK.Chilled_Water_Temperature_Setpoint
                                         ],
                                     },
-                                    "Discharge_Condenser_Water_Temperature_Setpoint": {
+                                    "Entering_Condenser_Water_Temperature_Setpoint": {
+                                        BRICK.hasQuantity: BRICK.Temperature,
+                                        BRICK.hasSubstance: BRICK.Entering_Condenser_Water,
                                         "tags": [
                                             TAG.Point,
-                                            TAG.Discharge,
+                                            TAG.Entering,
                                             TAG.Water,
                                             TAG.Temperature,
                                             TAG.Setpoint,
                                             TAG.Condenser,
-                                        ],
-                                    },
-                                },
-                            },
-                            "Supply_Water_Temperature_Setpoint": {
-                                BRICK.hasQuantity: BRICK.Temperature,
-                                BRICK.hasSubstance: BRICK.Supply_Water,
-                                OWL.equivalentClass: BRICK[
-                                    "Discharge_Water_Temperature_Setpoint"
-                                ],
-                                "tags": [
-                                    TAG.Point,
-                                    TAG.Supply,
-                                    TAG.Water,
-                                    TAG.Temperature,
-                                    TAG.Setpoint,
-                                ],
-                                "subclasses": {
-                                    "Supply_Hot_Water_Temperature_Setpoint": {
-                                        BRICK.hasQuantity: BRICK.Temperature,
-                                        BRICK.hasSubstance: BRICK.Supply_Hot_Water,
-                                        OWL.equivalentClass: BRICK[
-                                            "Discharge_Hot_Water_Temperature_Setpoint"
-                                        ],
-                                        "tags": [
-                                            TAG.Point,
-                                            TAG.Supply,
-                                            TAG.Water,
-                                            TAG.Temperature,
-                                            TAG.Setpoint,
-                                            TAG.Hot,
-                                        ],
-                                        "parents": [
-                                            BRICK.Hot_Water_Temperature_Setpoint
-                                        ],
-                                    },
-                                    "Supply_Chilled_Water_Temperature_Setpoint": {
-                                        BRICK.hasQuantity: BRICK.Temperature,
-                                        BRICK.hasSubstance: BRICK.Supply_Chilled_Water,
-                                        OWL.equivalentClass: BRICK[
-                                            "Discharge_Chilled_Water_Temperature_Setpoint"
-                                        ],
-                                        "tags": [
-                                            TAG.Point,
-                                            TAG.Supply,
-                                            TAG.Water,
-                                            TAG.Temperature,
-                                            TAG.Setpoint,
-                                            TAG.Chilled,
-                                        ],
-                                        "parents": [
-                                            BRICK.Chilled_Water_Temperature_Setpoint
-                                        ],
-                                    },
-                                    "Supply_Condenser_Water_Temperature_Setpoint": {
-                                        BRICK.hasQuantity: BRICK.Temperature,
-                                        BRICK.hasSubstance: BRICK.Supply_Condenser_Water,
-                                        OWL.equivalentClass: BRICK[
-                                            "Discharge_Condenser_Water_Temperature_Setpoint"
-                                        ],
-                                        "tags": [
-                                            TAG.Point,
-                                            TAG.Supply,
-                                            TAG.Water,
-                                            TAG.Temperature,
-                                            TAG.Setpoint,
-                                            TAG.Condenser,
-                                        ],
-                                    },
-                                    "Return_Condenser_Water_Temperature_Setpoint": {
-                                        BRICK.hasQuantity: BRICK.Temperature,
-                                        BRICK.hasSubstance: BRICK.Return_Condenser_Water,
-                                        "tags": [
-                                            TAG.Point,
-                                            TAG.Return,
-                                            TAG.Water,
-                                            TAG.Temperature,
-                                            TAG.Setpoint,
-                                            TAG.Condenser,
-                                        ],
-                                        "parents": [
-                                            BRICK.Discharge_Water_Temperature_Setpoint
                                         ],
                                     },
                                 },
@@ -2354,17 +2199,38 @@ setpoint_definitions = {
                                     TAG.Temperature,
                                     TAG.Setpoint,
                                 ],
-                            },
-                            "Leaving_Water_Temperature_Setpoint": {
-                                BRICK.hasQuantity: BRICK.Temperature,
-                                BRICK.hasSubstance: BRICK.Leaving_Water,
-                                "tags": [
-                                    TAG.Point,
-                                    TAG.Leaving,
-                                    TAG.Setpoint,
-                                    TAG.Temperature,
-                                    TAG.Water,
-                                ],
+                                "subclasses": {
+                                    "Entering_Hot_Water_Temperature_Setpoint": {
+                                        BRICK.hasQuantity: BRICK.Temperature,
+                                        BRICK.hasSubstance: BRICK.Entering_Hot_Water,
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Entering,
+                                            TAG.Water,
+                                            TAG.Temperature,
+                                            TAG.Setpoint,
+                                            TAG.Hot,
+                                        ],
+                                        "parents": [
+                                            BRICK.Hot_Water_Temperature_Setpoint
+                                        ],
+                                    },
+                                    "Entering_Chilled_Water_Temperature_Setpoint": {
+                                        BRICK.hasQuantity: BRICK.Temperature,
+                                        BRICK.hasSubstance: BRICK.Entering_Chilled_Water,
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Entering,
+                                            TAG.Water,
+                                            TAG.Temperature,
+                                            TAG.Setpoint,
+                                            TAG.Chilled,
+                                        ],
+                                        "parents": [
+                                            BRICK.Chilled_Water_Temperature_Setpoint
+                                        ],
+                                    },
+                                },
                             },
                             "Min_Water_Temperature_Setpoint": {
                                 BRICK.hasQuantity: BRICK.Temperature,
@@ -2715,12 +2581,12 @@ setpoint_definitions = {
                                     TAG.Setpoint,
                                 ],
                             },
-                            "Discharge_Water_Differential_Pressure_Deadband_Setpoint": {
-                                BRICK.hasSubstance: BRICK.Discharge_Water,
+                            "Leaving_Water_Differential_Pressure_Deadband_Setpoint": {
+                                BRICK.hasSubstance: BRICK.Leaving_Water,
                                 BRICK.hasQuantity: BRICK.Differential_Pressure,
                                 "tags": [
                                     TAG.Point,
-                                    TAG.Discharge,
+                                    TAG.Leaving,
                                     TAG.Water,
                                     TAG.Differential,
                                     TAG.Pressure,
@@ -2728,15 +2594,12 @@ setpoint_definitions = {
                                     TAG.Setpoint,
                                 ],
                             },
-                            "Supply_Water_Differential_Pressure_Deadband_Setpoint": {
-                                BRICK.hasSubstance: BRICK.Supply_Water,
+                            "Entering_Water_Differential_Pressure_Deadband_Setpoint": {
+                                BRICK.hasSubstance: BRICK.Entering_Water,
                                 BRICK.hasQuantity: BRICK.Differential_Pressure,
-                                OWL.equivalentClass: BRICK[
-                                    "Discharge_Water_Differential_Pressure_Deadband_Setpoint"
-                                ],
                                 "tags": [
                                     TAG.Point,
-                                    TAG.Supply,
+                                    TAG.Entering,
                                     TAG.Water,
                                     TAG.Differential,
                                     TAG.Pressure,

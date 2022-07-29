@@ -493,10 +493,10 @@ parameter_definitions = {
                                                     TAG.PID,
                                                 ],
                                             },
-                                            "Discharge_Water_Differential_Pressure_Integral_Time_Parameter": {
+                                            "Leaving_Water_Differential_Pressure_Integral_Time_Parameter": {
                                                 "tags": [
                                                     TAG.Point,
-                                                    TAG.Discharge,
+                                                    TAG.Leaving,
                                                     TAG.Water,
                                                     TAG.Differential,
                                                     TAG.Pressure,
@@ -506,13 +506,10 @@ parameter_definitions = {
                                                     TAG.PID,
                                                 ],
                                             },
-                                            "Supply_Water_Differential_Pressure_Integral_Time_Parameter": {
-                                                OWL.equivalentClass: BRICK[
-                                                    "Discharge_Water_Differential_Pressure_Integral_Time_Parameter"
-                                                ],
+                                            "Entering_Water_Differential_Pressure_Integral_Time_Parameter": {
                                                 "tags": [
                                                     TAG.Point,
-                                                    TAG.Supply,
+                                                    TAG.Entering,
                                                     TAG.Water,
                                                     TAG.Differential,
                                                     TAG.Pressure,
@@ -593,14 +590,11 @@ parameter_definitions = {
                                             },
                                         },
                                     },
-                                    "Supply_Water_Temperature_Integral_Time_Parameter": {
-                                        OWL.equivalentClass: BRICK[
-                                            "Discharge_Water_Temperature_Integral_Time_Parameter"
-                                        ],
+                                    "Entering_Water_Temperature_Integral_Time_Parameter": {
                                         "parents": [BRICK.Temperature_Parameter],
                                         "tags": [
                                             TAG.Point,
-                                            TAG.Supply,
+                                            TAG.Entering,
                                             TAG.Water,
                                             TAG.Temperature,
                                             TAG.Integral,
@@ -609,11 +603,11 @@ parameter_definitions = {
                                             TAG.PID,
                                         ],
                                     },
-                                    "Discharge_Water_Temperature_Integral_Time_Parameter": {
+                                    "Leaving_Water_Temperature_Integral_Time_Parameter": {
                                         "parents": [BRICK.Temperature_Parameter],
                                         "tags": [
                                             TAG.Point,
-                                            TAG.Discharge,
+                                            TAG.Leaving,
                                             TAG.Water,
                                             TAG.Temperature,
                                             TAG.Integral,
@@ -680,10 +674,10 @@ parameter_definitions = {
                                             TAG.PID,
                                         ],
                                     },
-                                    "Discharge_Water_Differential_Pressure_Proportional_Band_Parameter": {
+                                    "Leaving_Water_Differential_Pressure_Proportional_Band_Parameter": {
                                         "tags": [
                                             TAG.Point,
-                                            TAG.Discharge,
+                                            TAG.Leaving,
                                             TAG.Water,
                                             TAG.Differential,
                                             TAG.Pressure,
@@ -693,13 +687,10 @@ parameter_definitions = {
                                             TAG.PID,
                                         ],
                                     },
-                                    "Supply_Water_Differential_Pressure_Proportional_Band_Parameter": {
-                                        OWL.equivalentClass: BRICK[
-                                            "Discharge_Water_Differential_Pressure_Proportional_Band_Parameter"
-                                        ],
+                                    "Entering_Water_Differential_Pressure_Proportional_Band_Parameter": {
                                         "tags": [
                                             TAG.Point,
-                                            TAG.Supply,
+                                            TAG.Entering,
                                             TAG.Water,
                                             TAG.Differential,
                                             TAG.Pressure,
@@ -884,14 +875,11 @@ parameter_definitions = {
                                     TAG.PID,
                                 ],
                             },
-                            "Supply_Water_Temperature_Proportional_Band_Parameter": {
-                                OWL.equivalentClass: BRICK[
-                                    "Discharge_Water_Temperature_Proportional_Band_Parameter"
-                                ],
+                            "Entering_Water_Temperature_Proportional_Band_Parameter": {
                                 "parents": [BRICK.Temperature_Parameter],
                                 "tags": [
                                     TAG.Point,
-                                    TAG.Supply,
+                                    TAG.Entering,
                                     TAG.Water,
                                     TAG.Temperature,
                                     TAG.Proportional,
@@ -900,11 +888,11 @@ parameter_definitions = {
                                     TAG.PID,
                                 ],
                             },
-                            "Discharge_Water_Temperature_Proportional_Band_Parameter": {
+                            "Leaving_Water_Temperature_Proportional_Band_Parameter": {
                                 "parents": [BRICK.Temperature_Parameter],
                                 "tags": [
                                     TAG.Point,
-                                    TAG.Discharge,
+                                    TAG.Leaving,
                                     TAG.Water,
                                     TAG.Temperature,
                                     TAG.Proportional,

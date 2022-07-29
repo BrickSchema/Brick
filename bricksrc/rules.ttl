@@ -106,7 +106,7 @@ CONSTRUCT {
 bsh:DeprecationRule
     a   sh:NodeShape ;
     sh:property [
-        sh:path brick:deprecation ;
+        sh:path (rdf:type brick:deprecation) ;
         sh:maxCount 0 ;
         sh:severity sh:Warning ;
         sh:message "This concept is deprecated" ;

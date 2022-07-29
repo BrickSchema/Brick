@@ -738,17 +738,46 @@ sensor_definitions = {
                                 ],
                                 BRICK.hasQuantity: BRICK.Flow,
                                 BRICK.hasSubstance: BRICK.Entering_Water,
-                            },
-                            "Leaving_Water_Flow_Sensor": {
-                                "tags": [
-                                    TAG.Point,
-                                    TAG.Leaving,
-                                    TAG.Water,
-                                    TAG.Flow,
-                                    TAG.Sensor,
-                                ],
-                                BRICK.hasQuantity: BRICK.Flow,
-                                BRICK.hasSubstance: BRICK.Leaving_Water,
+                                "subclasses": {
+                                    "Entering_Chilled_Water_Flow_Sensor": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Sensor,
+                                            TAG.Flow,
+                                            TAG.Water,
+                                            TAG.Entering,
+                                            TAG.Chilled,
+                                        ],
+                                        BRICK.hasQuantity: BRICK.Flow,
+                                        BRICK.hasSubstance: BRICK.Entering_Chilled_Water,
+                                        "parents": [BRICK.Chilled_Water_Flow_Sensor],
+                                    },
+                                    "Entering_Hot_Water_Flow_Sensor": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Hot,
+                                            TAG.Water,
+                                            TAG.Entering,
+                                            TAG.Flow,
+                                            TAG.Sensor,
+                                        ],
+                                        BRICK.hasQuantity: BRICK.Flow,
+                                        BRICK.hasSubstance: BRICK.Entering_Hot_Water,
+                                        "parents": [BRICK.Hot_Water_Flow_Sensor],
+                                    },
+                                    "Entering_Condenser_Water_Flow_Sensor": {
+                                        BRICK.hasQuantity: BRICK.Flow,
+                                        BRICK.hasSubstance: BRICK.Entering_Condenser_Water,
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Sensor,
+                                            TAG.Flow,
+                                            TAG.Water,
+                                            TAG.Entering,
+                                            TAG.Condenser,
+                                        ],
+                                    },
+                                },
                             },
                             "Bypass_Water_Flow_Sensor": {
                                 "tags": [
@@ -783,172 +812,53 @@ sensor_definitions = {
                                 BRICK.hasQuantity: BRICK.Flow,
                                 BRICK.hasSubstance: BRICK.Chilled_Water,
                             },
-                            "Supply_Water_Flow_Sensor": {
+                            "Leaving_Water_Flow_Sensor": {
+                                BRICK.hasQuantity: BRICK.Flow,
+                                BRICK.hasSubstance: BRICK.Leaving_Water,
                                 "tags": [
                                     TAG.Point,
                                     TAG.Sensor,
                                     TAG.Flow,
                                     TAG.Water,
-                                    TAG.Supply,
-                                ],
-                                BRICK.hasQuantity: BRICK.Flow,
-                                BRICK.hasSubstance: BRICK.Supply_Water,
-                                OWL.equivalentClass: BRICK[
-                                    "Discharge_Water_Flow_Sensor"
+                                    TAG.Leaving,
                                 ],
                                 "subclasses": {
-                                    "Chilled_Water_Supply_Flow_Sensor": {
-                                        OWL.equivalentClass: BRICK[
-                                            "Chilled_Water_Discharge_Flow_Sensor"
-                                        ],
+                                    "Leaving_Chilled_Water_Flow_Sensor": {
                                         "tags": [
                                             TAG.Point,
                                             TAG.Sensor,
                                             TAG.Flow,
                                             TAG.Water,
-                                            TAG.Supply,
+                                            TAG.Leaving,
                                             TAG.Chilled,
                                         ],
                                         BRICK.hasQuantity: BRICK.Flow,
-                                        BRICK.hasSubstance: BRICK.Supply_Chilled_Water,
+                                        BRICK.hasSubstance: BRICK.Leaving_Chilled_Water,
                                         "parents": [BRICK.Chilled_Water_Flow_Sensor],
                                     },
-                                    "Hot_Water_Supply_Flow_Sensor": {
+                                    "Leaving_Hot_Water_Flow_Sensor": {
                                         "tags": [
                                             TAG.Point,
-                                            TAG.Hot,
-                                            TAG.Water,
-                                            TAG.Supply,
-                                            TAG.Flow,
                                             TAG.Sensor,
-                                        ],
-                                        OWL.equivalentClass: BRICK[
-                                            "Hot_Water_Discharge_Flow_Sensor"
+                                            TAG.Flow,
+                                            TAG.Water,
+                                            TAG.Leaving,
+                                            TAG.Hot,
                                         ],
                                         BRICK.hasQuantity: BRICK.Flow,
-                                        BRICK.hasSubstance: BRICK.Supply_Hot_Water,
+                                        BRICK.hasSubstance: BRICK.Leaving_Hot_Water,
                                         "parents": [BRICK.Hot_Water_Flow_Sensor],
                                     },
-                                    "Supply_Condenser_Water_Flow_Sensor": {
+                                    "Leaving_Condenser_Water_Flow_Sensor": {
                                         BRICK.hasQuantity: BRICK.Flow,
-                                        BRICK.hasSubstance: BRICK.Supply_Condenser_Water,
-                                        OWL.equivalentClass: BRICK[
-                                            "Discharge_Condenser_Water_Flow_Sensor"
-                                        ],
+                                        BRICK.hasSubstance: BRICK.Leaving_Condenser_Water,
                                         "parents": [BRICK.Condenser_Water_Flow_Sensor],
                                         "tags": [
                                             TAG.Point,
                                             TAG.Sensor,
                                             TAG.Flow,
                                             TAG.Water,
-                                            TAG.Supply,
-                                            TAG.Condenser,
-                                        ],
-                                    },
-                                },
-                            },
-                            "Discharge_Water_Flow_Sensor": {
-                                "tags": [
-                                    TAG.Point,
-                                    TAG.Sensor,
-                                    TAG.Flow,
-                                    TAG.Water,
-                                    TAG.Discharge,
-                                ],
-                                BRICK.hasQuantity: BRICK.Flow,
-                                BRICK.hasSubstance: BRICK.Discharge_Water,
-                                "subclasses": {
-                                    "Chilled_Water_Discharge_Flow_Sensor": {
-                                        "tags": [
-                                            TAG.Point,
-                                            TAG.Sensor,
-                                            TAG.Flow,
-                                            TAG.Water,
-                                            TAG.Discharge,
-                                            TAG.Chilled,
-                                        ],
-                                        BRICK.hasQuantity: BRICK.Flow,
-                                        BRICK.hasSubstance: BRICK.Discharge_Chilled_Water,
-                                    },
-                                    "Hot_Water_Discharge_Flow_Sensor": {
-                                        "tags": [
-                                            TAG.Point,
-                                            TAG.Hot,
-                                            TAG.Water,
-                                            TAG.Discharge,
-                                            TAG.Flow,
-                                            TAG.Sensor,
-                                        ],
-                                        BRICK.hasQuantity: BRICK.Flow,
-                                        BRICK.hasSubstance: BRICK.Discharge_Hot_Water,
-                                    },
-                                    "Discharge_Condenser_Water_Flow_Sensor": {
-                                        "substances": [
-                                            [BRICK.measures, BRICK.Flow],
-                                            [
-                                                BRICK.measures,
-                                                BRICK.Discharge_Condenser_Water,
-                                            ],
-                                        ],
-                                        "parents": [BRICK.Condenser_Water_Flow_Sensor],
-                                        "tags": [
-                                            TAG.Point,
-                                            TAG.Sensor,
-                                            TAG.Flow,
-                                            TAG.Water,
-                                            TAG.Discharge,
-                                            TAG.Condenser,
-                                        ],
-                                    },
-                                },
-                            },
-                            "Return_Water_Flow_Sensor": {
-                                BRICK.hasQuantity: BRICK.Flow,
-                                BRICK.hasSubstance: BRICK.Return_Water,
-                                "tags": [
-                                    TAG.Point,
-                                    TAG.Sensor,
-                                    TAG.Flow,
-                                    TAG.Water,
-                                    TAG.Return,
-                                ],
-                                "subclasses": {
-                                    "Chilled_Water_Return_Flow_Sensor": {
-                                        "tags": [
-                                            TAG.Point,
-                                            TAG.Sensor,
-                                            TAG.Flow,
-                                            TAG.Water,
-                                            TAG.Return,
-                                            TAG.Chilled,
-                                        ],
-                                        BRICK.hasQuantity: BRICK.Flow,
-                                        BRICK.hasSubstance: BRICK.Return_Chilled_Water,
-                                        "parents": [BRICK.Chilled_Water_Flow_Sensor],
-                                    },
-                                    "Hot_Water_Return_Flow_Sensor": {
-                                        "tags": [
-                                            TAG.Point,
-                                            TAG.Sensor,
-                                            TAG.Flow,
-                                            TAG.Water,
-                                            TAG.Return,
-                                            TAG.Hot,
-                                        ],
-                                        BRICK.hasQuantity: BRICK.Flow,
-                                        BRICK.hasSubstance: BRICK.Return_Hot_Water,
-                                        "parents": [BRICK.Hot_Water_Flow_Sensor],
-                                    },
-                                    "Return_Condenser_Water_Flow_Sensor": {
-                                        BRICK.hasQuantity: BRICK.Flow,
-                                        BRICK.hasSubstance: BRICK.Return_Condenser_Water,
-                                        "parents": [BRICK.Condenser_Water_Flow_Sensor],
-                                        "tags": [
-                                            TAG.Point,
-                                            TAG.Sensor,
-                                            TAG.Flow,
-                                            TAG.Water,
-                                            TAG.Return,
+                                            TAG.Leaving,
                                             TAG.Condenser,
                                         ],
                                     },
@@ -1897,112 +1807,27 @@ sensor_definitions = {
                                 BRICK.hasQuantity: BRICK.Differential_Temperature,
                                 BRICK.hasSubstance: BRICK.Water,
                             },
-                            "Supply_Water_Temperature_Sensor": {
-                                OWL.equivalentClass: BRICK[
-                                    "Discharge_Water_Temperature_Sensor"
-                                ],
+                            "Domestic_Hot_Water_Temperature_Sensor": {
                                 "tags": [
                                     TAG.Point,
-                                    TAG.Sensor,
-                                    TAG.Temperature,
-                                    TAG.Water,
-                                    TAG.Supply,
-                                ],
-                                "substances": [
-                                    [BRICK.measures, BRICK.Temperature],
-                                    [BRICK.measures, BRICK.Supply_Water],
-                                ],
-                            },
-                            "Heat_Exchanger_Discharge_Water_Temperature_Sensor": {
-                                "tags": [
-                                    TAG.Point,
-                                    TAG.Heat,
-                                    TAG.Exchanger,
-                                    TAG.Discharge,
+                                    TAG.Domestic,
+                                    TAG.Hot,
                                     TAG.Water,
                                     TAG.Temperature,
                                     TAG.Sensor,
                                 ],
                             },
-                            "Heat_Exchanger_Supply_Water_Temperature_Sensor": {
-                                OWL.equivalentClass: BRICK[
-                                    "Heat_Exchanger_Discharge_Water_Temperature_Sensor"
-                                ],
-                                "tags": [
-                                    TAG.Point,
-                                    TAG.Heat,
-                                    TAG.Exchanger,
-                                    TAG.Supply,
-                                    TAG.Water,
-                                    TAG.Temperature,
-                                    TAG.Sensor,
-                                ],
-                            },
-                            "Hot_Water_Discharge_Temperature_Sensor": {
+                            "Entering_Hot_Water_Temperature_Sensor": {
                                 "tags": [
                                     TAG.Point,
                                     TAG.Sensor,
                                     TAG.Temperature,
                                     TAG.Water,
                                     TAG.Hot,
-                                    TAG.Discharge,
-                                ],
-                                "substances": [
-                                    [BRICK.measures, BRICK.Temperature],
-                                    [BRICK.measures, BRICK.Discharge_Hot_Water],
-                                ],
-                                "subclasses": {
-                                    "Domestic_Hot_Water_Discharge_Temperature_Sensor": {
-                                        "tags": [
-                                            TAG.Point,
-                                            TAG.Domestic,
-                                            TAG.Hot,
-                                            TAG.Water,
-                                            TAG.Discharge,
-                                            TAG.Temperature,
-                                            TAG.Sensor,
-                                        ],
-                                    },
-                                    "High_Temperature_Hot_Water_Discharge_Temperature_Sensor": {
-                                        "tags": [
-                                            TAG.Point,
-                                            TAG.High,
-                                            TAG.Temperature,
-                                            TAG.Hot,
-                                            TAG.Water,
-                                            TAG.Discharge,
-                                            TAG.Temperature,
-                                            TAG.Sensor,
-                                        ],
-                                    },
-                                    "Medium_Temperature_Hot_Water_Discharge_Temperature_Sensor": {
-                                        "tags": [
-                                            TAG.Point,
-                                            TAG.Medium,
-                                            TAG.Temperature,
-                                            TAG.Hot,
-                                            TAG.Water,
-                                            TAG.Discharge,
-                                            TAG.Temperature,
-                                            TAG.Sensor,
-                                        ],
-                                    },
-                                },
-                            },
-                            "Hot_Water_Supply_Temperature_Sensor": {
-                                OWL.equivalentClass: BRICK[
-                                    "Hot_Water_Discharge_Temperature_Sensor"
-                                ],
-                                "tags": [
-                                    TAG.Point,
-                                    TAG.Sensor,
-                                    TAG.Temperature,
-                                    TAG.Water,
-                                    TAG.Hot,
-                                    TAG.Supply,
+                                    TAG.Entering,
                                 ],
                                 BRICK.hasQuantity: BRICK.Temperature,
-                                BRICK.hasSubstance: BRICK.Supply_Hot_Water,
+                                BRICK.hasSubstance: BRICK.Entering_Hot_Water,
                                 "subclasses": {
                                     "Hot_Water_Differential_Temperature_Sensor": {
                                         "tags": [
@@ -2015,49 +1840,107 @@ sensor_definitions = {
                                         ],
                                         "parents": [
                                             BRICK.Water_Differential_Temperature_Sensor,
-                                            BRICK.Hot_Water_Discharge_Temperature_Sensor,
                                         ],
                                     },
-                                    "Domestic_Hot_Water_Supply_Temperature_Sensor": {
-                                        OWL.equivalentClass: BRICK[
-                                            "Domestic_Hot_Water_Discharge_Temperature_Sensor"
-                                        ],
+                                    "Entering_Domestic_Hot_Water_Temperature_Sensor": {
                                         "tags": [
                                             TAG.Point,
                                             TAG.Domestic,
                                             TAG.Hot,
                                             TAG.Water,
-                                            TAG.Supply,
+                                            TAG.Entering,
                                             TAG.Temperature,
                                             TAG.Sensor,
                                         ],
-                                    },
-                                    "High_Temperature_Hot_Water_Supply_Temperature_Sensor": {
-                                        OWL.equivalentClass: BRICK[
-                                            "High_Temperature_Hot_Water_Discharge_Temperature_Sensor"
+                                        "parents": [
+                                            BRICK.Domestic_Hot_Water_Temperature_Sensor
                                         ],
+                                    },
+                                    "Entering_High_Temperature_Hot_Water_Temperature_Sensor": {
                                         "tags": [
                                             TAG.Point,
                                             TAG.High,
                                             TAG.Temperature,
                                             TAG.Hot,
                                             TAG.Water,
-                                            TAG.Supply,
+                                            TAG.Entering,
                                             TAG.Temperature,
                                             TAG.Sensor,
                                         ],
                                     },
-                                    "Medium_Temperature_Hot_Water_Supply_Temperature_Sensor": {
-                                        OWL.equivalentClass: BRICK[
-                                            "Medium_Temperature_Hot_Water_Discharge_Temperature_Sensor"
-                                        ],
+                                    "Entering_Medium_Temperature_Hot_Water_Temperature_Sensor": {
                                         "tags": [
                                             TAG.Point,
                                             TAG.Medium,
                                             TAG.Temperature,
                                             TAG.Hot,
                                             TAG.Water,
-                                            TAG.Supply,
+                                            TAG.Entering,
+                                            TAG.Temperature,
+                                            TAG.Sensor,
+                                        ],
+                                    },
+                                },
+                            },
+                            "Leaving_Hot_Water_Temperature_Sensor": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Sensor,
+                                    TAG.Temperature,
+                                    TAG.Water,
+                                    TAG.Hot,
+                                    TAG.Leaving,
+                                ],
+                                BRICK.hasQuantity: BRICK.Temperature,
+                                BRICK.hasSubstance: BRICK.Leaving_Hot_Water,
+                                "subclasses": {
+                                    "Hot_Water_Differential_Temperature_Sensor": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Hot,
+                                            TAG.Water,
+                                            TAG.Differential,
+                                            TAG.Temperature,
+                                            TAG.Sensor,
+                                        ],
+                                        "parents": [
+                                            BRICK.Water_Differential_Temperature_Sensor,
+                                        ],
+                                    },
+                                    "Leaving_Domestic_Hot_Water_Temperature_Sensor": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Domestic,
+                                            TAG.Hot,
+                                            TAG.Water,
+                                            TAG.Leaving,
+                                            TAG.Temperature,
+                                            TAG.Sensor,
+                                        ],
+                                        "parents": [
+                                            BRICK.Domestic_Hot_Water_Temperature_Sensor
+                                        ],
+                                    },
+                                    "Leaving_High_Temperature_Hot_Water_Temperature_Sensor": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.High,
+                                            TAG.Temperature,
+                                            TAG.Hot,
+                                            TAG.Water,
+                                            TAG.Leaving,
+                                            TAG.Temperature,
+                                            TAG.Sensor,
+                                        ],
+                                    },
+                                    "Leaving_Medium_Temperature_Hot_Water_Temperature_Sensor": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Medium,
+                                            TAG.Temperature,
+                                            TAG.Hot,
+                                            TAG.Water,
+                                            TAG.Leaving,
                                             TAG.Temperature,
                                             TAG.Sensor,
                                         ],
@@ -2090,50 +1973,53 @@ sensor_definitions = {
                                             BRICK.Water_Differential_Temperature_Sensor
                                         ],
                                     },
-                                    "Chilled_Water_Supply_Temperature_Sensor": {
-                                        OWL.equivalentClass: BRICK[
-                                            "Chilled_Water_Discharge_Temperature_Sensor"
-                                        ],
+                                    "Entering_Chilled_Water_Temperature_Sensor": {
                                         "tags": [
                                             TAG.Point,
                                             TAG.Sensor,
                                             TAG.Temperature,
                                             TAG.Water,
                                             TAG.Chilled,
-                                            TAG.Supply,
+                                            TAG.Entering,
                                         ],
                                         BRICK.hasQuantity: BRICK.Temperature,
-                                        BRICK.hasSubstance: BRICK.Supply_Chilled_Water,
+                                        BRICK.hasSubstance: BRICK.Entering_Chilled_Water,
                                     },
-                                    "Chilled_Water_Discharge_Temperature_Sensor": {
+                                    "Leaving_Chilled_Water_Temperature_Sensor": {
                                         "tags": [
                                             TAG.Point,
                                             TAG.Sensor,
                                             TAG.Temperature,
                                             TAG.Water,
                                             TAG.Chilled,
-                                            TAG.Discharge,
+                                            TAG.Leaving,
                                         ],
                                         "substances": [
                                             [BRICK.measures, BRICK.Temperature],
                                             [
                                                 BRICK.measures,
-                                                BRICK.Discharge_Chilled_Water,
+                                                BRICK.Leaving_Chilled_Water,
                                             ],
                                         ],
                                     },
+                                    "Differential_Entering_Leaving_Water_Temperature_Sensor": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Sensor,
+                                            TAG.Temperature,
+                                            TAG.Water,
+                                            TAG.Chilled,
+                                            TAG.Leaving,
+                                            TAG.Entering,
+                                            TAG.Differential,
+                                        ],
+                                        BRICK.hasSubstance: [
+                                            BRICK.Leaving_Chilled_Water,
+                                            BRICK.Entering_Chilled_Water,
+                                        ],
+                                        BRICK.hasQuantity: BRICK.Temperature,
+                                    },
                                 },
-                            },
-                            "Discharge_Water_Temperature_Sensor": {
-                                "tags": [
-                                    TAG.Point,
-                                    TAG.Sensor,
-                                    TAG.Temperature,
-                                    TAG.Water,
-                                    TAG.Discharge,
-                                ],
-                                BRICK.hasQuantity: BRICK.Temperature,
-                                BRICK.hasSubstance: BRICK.Discharge_Water,
                             },
                             "Entering_Water_Temperature_Sensor": {
                                 "tags": [
@@ -2168,114 +2054,15 @@ sensor_definitions = {
                                             TAG.Sensor,
                                         ],
                                     },
-                                },
-                            },
-                            "Return_Water_Temperature_Sensor": {
-                                "tags": [
-                                    TAG.Point,
-                                    TAG.Sensor,
-                                    TAG.Temperature,
-                                    TAG.Water,
-                                    TAG.Return,
-                                ],
-                                BRICK.hasQuantity: BRICK.Temperature,
-                                BRICK.hasSubstance: BRICK.Return_Water,
-                                "subclasses": {
-                                    "Hot_Water_Return_Temperature_Sensor": {
+                                    "Heat_Exchanger_Leaving_Water_Temperature_Sensor": {
                                         "tags": [
                                             TAG.Point,
-                                            TAG.Hot,
+                                            TAG.Ice,
+                                            TAG.Tank,
+                                            TAG.Leaving,
                                             TAG.Water,
-                                            TAG.Return,
                                             TAG.Temperature,
                                             TAG.Sensor,
-                                        ],
-                                        "subclasses": {
-                                            "Medium_Temperature_Hot_Water_Return_Temperature_Sensor": {
-                                                "tags": [
-                                                    TAG.Point,
-                                                    TAG.Medium,
-                                                    TAG.Hot,
-                                                    TAG.Water,
-                                                    TAG.Return,
-                                                    TAG.Temperature,
-                                                    TAG.Sensor,
-                                                ],
-                                            },
-                                            "High_Temperature_Hot_Water_Return_Temperature_Sensor": {
-                                                "tags": [
-                                                    TAG.Point,
-                                                    TAG.High,
-                                                    TAG.Hot,
-                                                    TAG.Water,
-                                                    TAG.Return,
-                                                    TAG.Temperature,
-                                                    TAG.Sensor,
-                                                ],
-                                            },
-                                        },
-                                    },
-                                    "Chilled_Water_Return_Temperature_Sensor": {
-                                        "tags": [
-                                            TAG.Point,
-                                            TAG.Chilled,
-                                            TAG.Water,
-                                            TAG.Return,
-                                            TAG.Temperature,
-                                            TAG.Sensor,
-                                        ],
-                                        "parents": [
-                                            BRICK.Chilled_Water_Temperature_Sensor
-                                        ],
-                                    },
-                                    "Differential_Supply_Return_Water_Temperature_Sensor": {
-                                        BRICK.hasSubstance: [
-                                            BRICK.Supply_Water,
-                                            BRICK.Return_Water,
-                                        ],
-                                        OWL.equivalentClass: BRICK[
-                                            "Differential_Discharge_Return_Water_Temperature_Sensor"
-                                        ],
-                                        BRICK.hasQuantity: BRICK.Differential_Temperature,
-                                        "tags": [
-                                            TAG.Point,
-                                            TAG.Differential,
-                                            TAG.Supply,
-                                            TAG.Return,
-                                            TAG.Temperature,
-                                            TAG.Sensor,
-                                        ],
-                                        "parents": [
-                                            BRICK.Water_Differential_Temperature_Sensor,
-                                            BRICK.Supply_Water_Temperature_Sensor,
-                                        ],
-                                    },
-                                    "Differential_Discharge_Return_Water_Temperature_Sensor": {
-                                        "substances": [
-                                            [
-                                                BRICK.measures,
-                                                BRICK.Differential_Temperature,
-                                            ],
-                                            [
-                                                BRICK.measures,
-                                                BRICK.Discharge_Water,
-                                            ],
-                                            [
-                                                BRICK.measures,
-                                                BRICK.Return_Water,
-                                            ],
-                                        ],
-                                        "tags": [
-                                            TAG.Point,
-                                            TAG.Differential,
-                                            TAG.Discharge,
-                                            TAG.Return,
-                                            TAG.Temperature,
-                                            TAG.Sensor,
-                                        ],
-                                        "parents": [
-                                            BRICK.Water_Differential_Temperature_Sensor,
-                                            BRICK.Discharge_Water_Temperature_Sensor,
                                         ],
                                     },
                                 },
@@ -2303,14 +2090,11 @@ sensor_definitions = {
                                     TAG.Point,
                                 ],
                                 "subclasses": {
-                                    "Supply_Condenser_Water_Temperature_Sensor": {
+                                    "Leaving_Condenser_Water_Temperature_Sensor": {
                                         BRICK.hasQuantity: BRICK.Temperature,
-                                        BRICK.hasSubstance: BRICK.Supply_Condenser_Water,
-                                        OWL.equivalentClass: BRICK[
-                                            "Discharge_Condenser_Water_Temperature_Sensor"
-                                        ],
+                                        BRICK.hasSubstance: BRICK.Leaving_Condenser_Water,
                                         "tags": [
-                                            TAG.Supply,
+                                            TAG.Leaving,
                                             TAG.Condenser,
                                             TAG.Water,
                                             TAG.Temperature,
@@ -2318,28 +2102,16 @@ sensor_definitions = {
                                             TAG.Point,
                                         ],
                                     },
-                                    "Discharge_Condenser_Water_Temperature_Sensor": {
+                                    "Entering_Condenser_Water_Temperature_Sensor": {
                                         "substances": [
                                             [BRICK.measures, BRICK.Temperature],
                                             [
                                                 BRICK.measures,
-                                                BRICK.Discharge_Condenser_Water,
+                                                BRICK.Entering_Condenser_Water,
                                             ],
                                         ],
                                         "tags": [
-                                            TAG.Discharge,
-                                            TAG.Condenser,
-                                            TAG.Water,
-                                            TAG.Temperature,
-                                            TAG.Sensor,
-                                            TAG.Point,
-                                        ],
-                                    },
-                                    "Return_Condenser_Water_Temperature_Sensor": {
-                                        BRICK.hasQuantity: BRICK.Temperature,
-                                        BRICK.hasSubstance: BRICK.Return_Condenser_Water,
-                                        "tags": [
-                                            TAG.Return,
+                                            TAG.Entering,
                                             TAG.Condenser,
                                             TAG.Water,
                                             TAG.Temperature,
