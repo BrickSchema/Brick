@@ -700,6 +700,9 @@ def handle_deprecations():
         shape = BNode()
         rule = BNode()
         G.add((deprecated_term, A, OWL.Class))
+        subclass = md.pop(RDFS.subClassOf)
+        if subclass is not None:
+            G.add((deprecated_term, RDFS.subClassOf, subclass))
         G.add((deprecated_term, BRICK.deprecation, deprecation))
         G.add((deprecation, BRICK.deprecatedInVersion, Literal(md["version"])))
         G.add(
