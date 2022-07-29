@@ -1807,6 +1807,16 @@ sensor_definitions = {
                                 BRICK.hasQuantity: BRICK.Differential_Temperature,
                                 BRICK.hasSubstance: BRICK.Water,
                             },
+                            "Domestic_Hot_Water_Temperature_Sensor": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Domestic,
+                                    TAG.Hot,
+                                    TAG.Water,
+                                    TAG.Temperature,
+                                    TAG.Sensor,
+                                ],
+                            },
                             "Entering_Hot_Water_Temperature_Sensor": {
                                 "tags": [
                                     TAG.Point,
@@ -1841,6 +1851,9 @@ sensor_definitions = {
                                             TAG.Entering,
                                             TAG.Temperature,
                                             TAG.Sensor,
+                                        ],
+                                        "parents": [
+                                            BRICK.Domestic_Hot_Water_Temperature_Sensor
                                         ],
                                     },
                                     "Entering_High_Temperature_Hot_Water_Temperature_Sensor": {
@@ -1903,6 +1916,9 @@ sensor_definitions = {
                                             TAG.Leaving,
                                             TAG.Temperature,
                                             TAG.Sensor,
+                                        ],
+                                        "parents": [
+                                            BRICK.Domestic_Hot_Water_Temperature_Sensor
                                         ],
                                     },
                                     "Leaving_High_Temperature_Hot_Water_Temperature_Sensor": {

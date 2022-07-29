@@ -700,6 +700,10 @@ def handle_deprecations():
         shape = BNode()
         rule = BNode()
         G.add((deprecated_term, A, OWL.Class))
+        label = deprecated_term.split("#")[-1].replace("_", " ")
+        G.add(
+            (deprecated_term, RDFS.label, Literal(label))
+        )  # make sure the tag is declared as such
         subclasses = md.pop(RDFS.subClassOf)
         if subclasses is not None:
             if not isinstance(subclasses, list):
