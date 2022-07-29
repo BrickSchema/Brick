@@ -207,7 +207,8 @@ def test_matching_classes():
            ?c rdfs:subClassOf* brick:Class .
            OPTIONAL {
            ?c owl:equivalentClass ?p .
-           }
+           } .
+           FILTER NOT EXISTS { ?c brick:deprecation ?dep }
        }
        """,
     )

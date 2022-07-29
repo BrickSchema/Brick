@@ -25,11 +25,23 @@ deprecations = {
         "replace_with": BRICK.Leaving_Water_Flow_Sensor,
         RDFS.subClassOf: BRICK.Water_Flow_Sensor,
     },
+    BRICK.Chilled_Water_Discharge_Flow_Sensor: {
+        "version": "1.3.0",
+        "mitigation_message": "Swapped supply/return for entering/leaving with water-related points",
+        "replace_with": BRICK.Chilled_Water_Leaving_Flow_Sensor,
+        RDFS.subClassOf: [
+            BRICK.Discharge_Water_Flow_Sensor,
+            BRICK.Chilled_Water_Flow_Sensor,
+        ],
+    },
     BRICK.Chilled_Water_Supply_Flow_Sensor: {
         "version": "1.3.0",
         "mitigation_message": "Swapped supply/return for entering/leaving with water-related points",
         "replace_with": BRICK.Chilled_Water_Leaving_Flow_Sensor,
-        RDFS.subClassOf: BRICK.Chilled_Water_Flow_Sensor,
+        RDFS.subClassOf: [
+            BRICK.Supply_Water_Flow_Sensor,
+            BRICK.Chilled_Water_Flow_Sensor,
+        ],
     },
     BRICK.Chilled_Water_Discharge_Flow_Sensor: {
         "version": "1.3.0",
