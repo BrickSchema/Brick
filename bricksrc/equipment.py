@@ -1,11 +1,27 @@
+from rdflib import Literal
 from .namespaces import TAG, OWL, BRICK
 
 """
 Set up subclasses of the equipment superclass
 """
 equipment_subclasses = {
-    "HVAC_Equipment": {"tags": [TAG.HVAC, TAG.Equipment]},
+    "HVAC_Equipment": {
+        "tags": [TAG.HVAC, TAG.Equipment],
+        "constraints": {
+            BRICK.hasPart: [BRICK.HVAC_Equipment, BRICK.Valve],
+            BRICK.feeds: [BRICK.HVAC_Equipment, BRICK.Valve, BRICK.Location],
+        },
+    },
     "Weather_Station": {"tags": [TAG.Weather, TAG.Station, TAG.Equipment]},
+    "Shading_Equipment": {
+        "tags": [TAG.Shade, TAG.Equipment],
+        "subclasses": {
+            "Blind": {"tags": [TAG.Shade, TAG.Blind, TAG.Equipment]},
+            "Automatic_Tint_Window": {
+                "tags": [TAG.Shade, TAG.Equipment, TAG.Automatic, TAG.Tint, TAG.Window]
+            },
+        },
+    },
     "Electrical_Equipment": {
         "tags": [TAG.Electrical, TAG.Equipment],
         "subclasses": {
@@ -142,9 +158,12 @@ equipment_subclasses = {
     "Solar_Thermal_Collector": {
         "tags": [TAG.Solar, TAG.Equipment, TAG.Thermal, TAG.Collector]
     },  # NOTE: Though Panel is a type of Collector.
-    "Louver": {"tags": [TAG.Shade, TAG.Equipment, TAG.Louver]},
     "Lighting_Equipment": {
         "tags": [TAG.Lighting, TAG.Equipment],
+        "constraints": {
+            BRICK.hasPart: [BRICK.Lighting_Equipment, BRICK.Electrical_Equipment],
+            BRICK.feeds: [BRICK.Lighting_Equipment, BRICK.Location],
+        },
         "subclasses": {
             "Lighting": {
                 "subclasses": {
@@ -189,7 +208,60 @@ equipment_subclasses = {
         "tags": [TAG.Equipment, TAG.Fire, TAG.Safety],
         "subclasses": {
             "Fire_Control_Panel": {
-                "tags": [TAG.Equipment, TAG.Fire, TAG.Safety, TAG.Panel],
+                "tags": [TAG.Equipment, TAG.Fire, TAG.Safety, TAG.Panel, TAG.Control],
+            },
+            "Fire_Alarm_Control_Panel": {
+                "tags": [
+                    TAG.Equipment,
+                    TAG.Fire,
+                    TAG.Safety,
+                    TAG.Panel,
+                    TAG.Control,
+                    TAG.Alarm,
+                ],
+            },
+            "Fire_Alarm": {
+                "tags": [TAG.Equipment, TAG.Fire, TAG.Safety, TAG.Alarm],
+            },
+            "Manual_Fire_Alarm_Activation_Equipment": {
+                "tags": [
+                    TAG.Equipment,
+                    TAG.Fire,
+                    TAG.Safety,
+                    TAG.Alarm,
+                    TAG.Activation,
+                    TAG.Manual,
+                ],
+                "subclasses": {
+                    "Fire_Alarm_Pull_Station": {
+                        "tags": [
+                            TAG.Equipment,
+                            TAG.Fire,
+                            TAG.Safety,
+                            TAG.Pull,
+                            TAG.Station,
+                            TAG.Alarm,
+                            TAG.Manual,
+                        ],
+                    },
+                    "Fire_Alarm_Manual_Call_Point": {
+                        "tags": [
+                            TAG.Equipment,
+                            TAG.Fire,
+                            TAG.Safety,
+                            TAG.Call,
+                            TAG.Station,
+                            TAG.Alarm,
+                            TAG.Manual,
+                        ],
+                    },
+                },
+            },
+            "Heat_Detector": {
+                "tags": [TAG.Equipment, TAG.Fire, TAG.Safety, TAG.Heat, TAG.Detector],
+            },
+            "Smoke_Detector": {
+                "tags": [TAG.Equipment, TAG.Fire, TAG.Safety, TAG.Smoke, TAG.Detector],
             },
         },
     },
@@ -197,6 +269,7 @@ equipment_subclasses = {
     "Security_Equipment": {"tags": [TAG.Security, TAG.Equipment]},
     "Safety_Equipment": {"tags": [TAG.Safety, TAG.Equipment]},
     "Camera": {"tags": [TAG.Camera, TAG.Equipment]},
+    "Relay": {"tags": [TAG.Relay, TAG.Equipment]},
     "Water_Heater": {
         "tags": [TAG.Water, TAG.Heater, TAG.Equipment],
         "subclasses": {
@@ -217,11 +290,14 @@ equipment_subclasses = {
 Define classes of HVAC equipment
 """
 hvac_subclasses = {
+    "Dry_Cooler": {"tags": [TAG.Equipment, TAG.HVAC, TAG.Dry, TAG.Cooler]},
     "HVAC_Valve": {
         "tags": [TAG.HVAC, TAG.Valve, TAG.Equipment],
         "parents": [BRICK.Valve],
         # subclasses defined in 'valve_subclasses'
     },
+    "Hot_Deck": {"tags": [TAG.Equipment, TAG.Hot, TAG.Deck]},
+    "Cold_Deck": {"tags": [TAG.Equipment, TAG.Cold, TAG.Deck]},
     "Thermostat": {"tags": [TAG.Equipment, TAG.Thermostat]},
     "Terminal_Unit": {
         "tags": [TAG.Equipment, TAG.Terminal, TAG.Unit],
@@ -494,6 +570,9 @@ hvac_subclasses = {
     "Fan": {
         "tags": [TAG.Equipment, TAG.Fan],
         "subclasses": {
+            "Transfer_Fan": {
+                "tags": [TAG.Equipment, TAG.Fan, TAG.Transfer],
+            },
             "Cooling_Tower_Fan": {
                 "tags": [TAG.Cool, TAG.Tower, TAG.Equipment, TAG.Fan],
             },
@@ -507,7 +586,10 @@ hvac_subclasses = {
                 OWL.equivalentClass: BRICK["Discharge_Fan"],
             },
             "Ceiling_Fan": {"tags": [TAG.Equipment, TAG.Fan, TAG.Ceiling]},
-            "Fresh_Air_Fan": {"tags": [TAG.Equipment, TAG.Fan, TAG.Fresh, TAG.Air]},
+            "Fresh_Air_Fan": {
+                "tags": [TAG.Equipment, TAG.Fan, TAG.Fresh, TAG.Air]
+            },  # deprecated
+            "Outside_Fan": {"tags": [TAG.Equipment, TAG.Fan, TAG.Outside]},
             "Relief_Fan": {"tags": [TAG.Equipment, TAG.Fan, TAG.Relief]},
         },
     },
@@ -640,6 +722,14 @@ hvac_subclasses = {
                 "tags": [TAG.Equipment, TAG.RTU],
                 OWL.equivalentClass: BRICK["Rooftop_Unit"],
             },
+            "Dual_Duct_Air_Handling_Unit": {
+                "tags": [TAG.Equipment, TAG.AHU, TAG.Dual],
+                OWL.equivalentClass: BRICK["DDAHU"],
+            },
+            "DDAHU": {
+                "tags": [TAG.Equipment, TAG.DDAHU],
+                OWL.equivalentClass: BRICK["Dual_Duct_Air_Handling_Unit"],
+            },
             "PAU": {"tags": [TAG.Equipment, TAG.PAU]},
         },
     },
@@ -678,6 +768,16 @@ valve_subclasses = {
     "Valve": {
         "tags": [TAG.Valve, TAG.Equipment],
         "subclasses": {
+            "Natural_Gas_Seismic_Shutoff_Valve": {
+                "tags": [
+                    TAG.Equipment,
+                    TAG.Valve,
+                    TAG.Natural,
+                    TAG.Gas,
+                    TAG.Seismic,
+                    TAG.Shutoff,
+                ],
+            },
             "Water_Valve": {
                 "tags": [TAG.Valve, TAG.Water, TAG.Equipment],
                 "subclasses": {

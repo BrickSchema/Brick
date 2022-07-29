@@ -30,7 +30,7 @@ inference_file = "tests/test_hierarchy_inference.ttl"
 entity_postfix = "_0"
 
 
-@pytest.mark.slow
+@pytest.mark.skip("We are not materializing parent classes at this time")
 def test_hierarchyinference():
     # Load the schema
     g = brickschema.Graph()
@@ -56,7 +56,7 @@ def test_hierarchyinference():
     # Infer classes of the entities.
     # Apply reasoner
     g.load_file("extensions/brick_extension_shacl_tag_inference.ttl")
-    g.expand(profile="brick")
+    g.expand(profile="shacl")
     g.serialize(inference_file, format="turtle")  # Store the inferred graph.
 
     # Find all instances and their parents from the inferred graph.

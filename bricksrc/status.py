@@ -1,10 +1,24 @@
-from .namespaces import TAG, BRICK, OWL
+from .namespaces import TAG, BRICK, OWL, QUDT
 
 status_definitions = {
     "Status": {
         "tags": [TAG.Point, TAG.Status],
         "subclasses": {
+            "Pump_Status": {
+                "tags": [TAG.Point, TAG.Status, TAG.Pump],
+            },
+            "Thermostat_Status": {
+                "tags": [TAG.Point, TAG.Status, TAG.Thermostat],
+            },
+            "Switch_Status": {
+                "tags": [TAG.Point, TAG.Status, TAG.Switch],
+            },
+            "Tint_Status": {"tags": [TAG.Tint, TAG.Status, TAG.Point]},
+            "Damper_Position_Status": {
+                BRICK.hasQuantity: BRICK.Position,
+            },
             "Direction_Status": {
+                BRICK.hasQuantity: BRICK.Direction,
                 "subclasses": {
                     "Motor_Direction_Status": {
                         "tags": [TAG.Point, TAG.Motor, TAG.Direction, TAG.Status],
@@ -66,26 +80,26 @@ status_definitions = {
             "Hold_Status": {"tags": [TAG.Point, TAG.Hold, TAG.Status]},
             "Load_Shed_Status": {
                 "subclasses": {
-                    "Hot_Water_Discharge_Temperature_Load_Shed_Status": {
+                    "Entering_Hot_Water_Temperature_Load_Shed_Status": {
                         "tags": [
                             TAG.Point,
                             TAG.Hot,
                             TAG.Water,
-                            TAG.Discharge,
+                            TAG.Entering,
                             TAG.Temperature,
                             TAG.Load,
                             TAG.Shed,
                             TAG.Status,
                         ],
                         "subclasses": {
-                            "Medium_Temperature_Hot_Water_Discharge_Temperature_Load_Shed_Status": {
+                            "Entering_Medium_Temperature_Hot_Water_Temperature_Load_Shed_Status": {
                                 "tags": [
                                     TAG.Point,
                                     TAG.Medium,
                                     TAG.Temperature,
                                     TAG.Hot,
                                     TAG.Water,
-                                    TAG.Discharge,
+                                    TAG.Entering,
                                     TAG.Temperature,
                                     TAG.Load,
                                     TAG.Shed,
@@ -94,32 +108,26 @@ status_definitions = {
                             },
                         },
                     },
-                    "Hot_Water_Supply_Temperature_Load_Shed_Status": {
-                        OWL.equivalentClass: BRICK[
-                            "Hot_Water_Discharge_Temperature_Load_Shed_Status"
-                        ],
+                    "Leaving_Hot_Water_Temperature_Load_Shed_Status": {
                         "tags": [
                             TAG.Point,
                             TAG.Hot,
                             TAG.Water,
-                            TAG.Supply,
+                            TAG.Leaving,
                             TAG.Temperature,
                             TAG.Load,
                             TAG.Shed,
                             TAG.Status,
                         ],
                         "subclasses": {
-                            "Medium_Temperature_Hot_Water_Supply_Temperature_Load_Shed_Status": {
-                                OWL.equivalentClass: BRICK[
-                                    "Medium_Temperature_Hot_Water_Discharge_Temperature_Load_Shed_Status"
-                                ],
+                            "Leaving_Medium_Temperature_Hot_Water_Temperature_Load_Shed_Status": {
                                 "tags": [
                                     TAG.Point,
                                     TAG.Medium,
                                     TAG.Temperature,
                                     TAG.Hot,
                                     TAG.Water,
-                                    TAG.Supply,
+                                    TAG.Leaving,
                                     TAG.Temperature,
                                     TAG.Load,
                                     TAG.Shed,
@@ -236,6 +244,66 @@ status_definitions = {
             },
             "Mode_Status": {
                 "subclasses": {
+                    "Zone_Air_Conditioning_Mode_Status": {
+                        "tags": [
+                            TAG.Point,
+                            TAG.Air,
+                            TAG.Zone,
+                            TAG.Conditioning,
+                            TAG.Mode,
+                            TAG.Status,
+                        ],
+                    },
+                    "Heating_Mode_Status": {
+                        "tags": [TAG.Point, TAG.Heat, TAG.Mode, TAG.Status],
+                        "subclasses": {
+                            "Occupied_Heating_Mode_Status": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Heat,
+                                    TAG.Mode,
+                                    TAG.Status,
+                                    TAG.Occupied,
+                                ],
+                                "parents": [BRICK.Occupied_Mode_Status],
+                            },
+                            "Unoccupied_Heating_Mode_Status": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Heat,
+                                    TAG.Mode,
+                                    TAG.Status,
+                                    TAG.Unoccupied,
+                                ],
+                                "parents": [BRICK.Unoccupied_Mode_Status],
+                            },
+                        },
+                    },
+                    "Cooling_Mode_Status": {
+                        "tags": [TAG.Point, TAG.Cool, TAG.Mode, TAG.Status],
+                        "subclasses": {
+                            "Occupied_Cooling_Mode_Status": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Cool,
+                                    TAG.Mode,
+                                    TAG.Status,
+                                    TAG.Occupied,
+                                ],
+                                "parents": [BRICK.Occupied_Mode_Status],
+                            },
+                            "Unoccupied_Cooling_Mode_Status": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Cool,
+                                    TAG.Mode,
+                                    TAG.Status,
+                                    TAG.Unoccupied,
+                                ],
+                                "parents": [BRICK.Unoccupied_Mode_Status],
+                            },
+                        },
+                    },
                     "Occupied_Mode_Status": {
                         "tags": [TAG.Point, TAG.Occupied, TAG.Mode, TAG.Status],
                     },
@@ -394,6 +462,7 @@ status_definitions = {
                 "tags": [TAG.Point, TAG.Overridden, TAG.Status],
             },
             "Pressure_Status": {
+                QUDT.hasQuality: BRICK.Pressure,
                 "subclasses": {
                     "Discharge_Air_Duct_Pressure_Status": {
                         "tags": [
@@ -479,7 +548,15 @@ status_definitions = {
                     },
                 },
             },
-            "Speed_Status": {"tags": [TAG.Point, TAG.Speed, TAG.Status]},
+            "Speed_Status": {
+                "tags": [TAG.Point, TAG.Speed, TAG.Status],
+                "subclasses": {
+                    "Speed_Mode_Status": {
+                        "tags": [TAG.Point, TAG.Speed, TAG.Status, TAG.Mode],
+                        "parents": [BRICK.Mode_Status],
+                    }
+                },
+            },
         },
     }
 }

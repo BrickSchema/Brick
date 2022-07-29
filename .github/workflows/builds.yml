@@ -6,9 +6,6 @@ on:
         - master
         - v1.*
   pull_request:
-    branches:
-        - master
-        - v1.*
 jobs:
   build:
     runs-on: ubuntu-18.04
@@ -39,6 +36,13 @@ jobs:
         cd shacl
         python generate_shacl.py
         cd ..
+    - name: upload ttls
+      if: ${{ matrix.python-version }} == "3.7.9"
+      uses: actions/upload-artifact@v3
+      with:
+        name: Brick-ontology
+        path: |
+          Brick.ttl
     - name: Run the tests
       # -s flag: do not capture output (avoids killing test after 10 min)
       run: |

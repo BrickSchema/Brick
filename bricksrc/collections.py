@@ -118,7 +118,12 @@ system_subclasses = {
             },
         },
     },
-    "Shading_System": {"tags": [TAG.Shade, TAG.System]},
+    "Shading_System": {
+        "tags": [TAG.Shade, TAG.System],
+        "subclasses": {
+            "Blind_Group": {"tags": [TAG.Shade, TAG.System, TAG.Blind, TAG.Group]},
+        },
+    },
 }
 
 loop_subclasses = {
