@@ -700,6 +700,7 @@ def handle_deprecations():
         shape = BNode()
         rule = BNode()
         G.add((deprecated_term, A, OWL.Class))
+        G.add((deprecated_term, OWL.deprecated, Literal(True)))
         label = deprecated_term.split("#")[-1].replace("_", " ")
         G.add(
             (deprecated_term, RDFS.label, Literal(label))
