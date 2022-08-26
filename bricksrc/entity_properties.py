@@ -289,7 +289,7 @@ entity_properties = {
         RDFS.label: Literal("Aggregate"),
     },
     BRICK.isVirtualMeter: {
-        SKOS.Definition: Literal(
+        SKOS.definition: Literal(
             "True if the associated meter is 'virtual', i.e. a logical meter which includes or aggregates information from a variety of sources such as other submeters or equipment."
         ),
         RDFS.domain: BRICK.Meter,
