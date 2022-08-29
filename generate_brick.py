@@ -540,7 +540,7 @@ def define_shape_properties(definitions):
                         "maxInclusive",
                     ]:
                         raise Exception(f"brick:value property {prop_name} not valid")
-                    G.add((v, SH[prop_name], Literal(prop_value)))
+                    G.add((brick_value_shape, SH[prop_name], Literal(prop_value)))
 
 
 def define_properties(definitions, superprop=None):
