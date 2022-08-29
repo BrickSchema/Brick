@@ -67,16 +67,16 @@ entity_properties = {
         RDFS.label: Literal("Coordinates"),
     },
     # electrical properties
-    BRICK.powerComplexity: {
-        SKOS.definition: Literal("Entity has this power complexity"),
-        RDFS.range: BSH.PowerComplexityShape,
-        RDFS.label: Literal("Power complexity"),
+    BRICK.electricalComplexity: {
+        SKOS.definition: Literal("Entity has this electrical complexity"),
+        RDFS.range: BSH.ElectricalComplexityShape,
+        RDFS.label: Literal("Electrical complexity"),
     },
     BRICK.powerFlow: {
         SKOS.definition: Literal(
-            "Entity has this power flow relative to the building'"
+            "Entity has this electrical flow relative to the building'"
         ),
-        RDFS.range: BSH.PowerFlowShape,
+        RDFS.range: BSH.ElectricalFlowShape,
         RDFS.label: Literal("Power flow"),
     },
     BRICK.electricalPhases: {
@@ -397,8 +397,8 @@ shape_properties = {
         },
     },
     BSH.VolumeShape: {"units": [UNIT.FT3, UNIT.M3], "datatype": BSH.NumericValue},
-    BSH.PowerComplexityShape: {"values": ["real", "reactive", "apparent"]},
-    BSH.PowerFlowShape: {"values": ["import", "export", "net", "absolute"]},
+    BSH.ElectricalComplexityShape: {"values": ["real", "reactive", "apparent"]},
+    BSH.ElectricalFlowShape: {"values": ["import", "export", "net", "absolute"]},
     BSH.PhasesShape: {"values": ["A", "B", "C", "AB", "BC", "AC", "ABC"]},
     BSH.PhaseCountShape: {"values": ["1", "2", "3", "Total"]},
     BSH.CurrentFlowTypeShape: {"values": ["AC", "DC"]},
