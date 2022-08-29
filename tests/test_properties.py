@@ -10,6 +10,5 @@ def test_relationship_identification():
     g = brickschema.Graph()
     g.load_file("Brick.ttl")
 
-    props = g.subjects(RDFS.subPropertyOf, BRICK.Relationship)
-    props = [x[0] for x in props]
+    props = list(g.subjects(RDFS.subPropertyOf, BRICK.Relationship))
     assert len(props) == len(properties)

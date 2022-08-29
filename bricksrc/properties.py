@@ -63,7 +63,6 @@ properties = {
     "feeds": {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         OWL.inverseOf: BRICK["isFedBy"],
-        "subproperties": {"feedsAir": {}},
         RDFS.label: Literal("Feeds"),
     },
     "isFedBy": {
