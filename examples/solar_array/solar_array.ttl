@@ -7,9 +7,9 @@
 site:panel_efficiency  a brick:EfficiencyShape ;
     brick:hasUnit unit:PERCENT ;
     brick:ambientTemperatureOfMeasurement [
-        brick:value "25"^^xsd::double ;
+        brick:value "25"^^xsd:double ;
         brick:hasUnit unit:DEG_C ] ;
-    brick:value 26.0 .
+    brick:value "26.0"^^xsd:double .
 
 site:panel11 a brick:PV_Panel ;
     brick:isPartOf site:array1 ;
