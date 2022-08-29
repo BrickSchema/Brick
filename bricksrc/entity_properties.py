@@ -72,7 +72,7 @@ entity_properties = {
         RDFS.range: BSH.ElectricalComplexityShape,
         RDFS.label: Literal("Electrical complexity"),
     },
-    BRICK.powerFlow: {
+    BRICK.electricalFlow: {
         SKOS.definition: Literal(
             "Entity has this electrical flow relative to the building'"
         ),
