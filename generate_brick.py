@@ -557,6 +557,8 @@ def define_properties(definitions, superprop=None):
         if superprop is not None:
             G.add((prop, RDFS.subPropertyOf, superprop))
 
+        G.add((prop, RDFS.subPropertyOf, BRICK.Relationship))
+
         # define property types
         prop_types = propdefn.get(A, [])
         assert isinstance(prop_types, list)
@@ -768,6 +770,17 @@ define_classes(roots, BRICK.Entity)  # >= Brick v1.3.0
 
 logging.info("Defining properties")
 # define BRICK properties
+G.add((BRICK.Relationship, A, OWL.ObjectProperty))
+G.add((BRICK.Relationship, RDFS.label, Literal("Relationship")))
+G.add(
+    (
+        BRICK.Relationship,
+        SKOS.definition,
+        Literal(
+            "Super-property of all Brick relationships between entities (Equipment, Location, Point)"
+        ),
+    )
+)
 define_properties(properties)
 # add types to some external properties
 G.add((VCARD.hasAddress, A, OWL.ObjectProperty))
