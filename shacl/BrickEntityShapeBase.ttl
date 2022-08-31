@@ -150,7 +150,7 @@ brick:Collection a sh:NodeShape;
     );
     .
 
-bsh:hasLocationShape a sh:Nodeshape;
+bsh:hasLocationShape a sh:NodeShape;
     sh:targetSubjectsOf brick:hasLocation;
     sh:not [
         sh:class brick:Point;
