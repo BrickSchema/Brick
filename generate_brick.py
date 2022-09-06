@@ -530,7 +530,7 @@ def define_shape_properties(definitions):
                 G.add((brick_value_shape, SH["or"], BSH.NumericValue))
             else:
                 G.add((brick_value_shape, SH.datatype, dtype))
-            G.add((v, SH.minCount, Literal(1)))
+            G.add((brick_value_shape, SH.minCount, Literal(1)))
             if "range" in defn:
                 for prop_name, prop_value in defn.pop("range").items():
                     if prop_name not in [
