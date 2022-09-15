@@ -71,7 +71,7 @@ def test_subclasses():
             OWL.ObjectProperty,
             VCARD.Address,
             SKOS.Concept,
-            UNIT.Unit,
+            QUDT.Unit,
             QUDT.QuantityKind,
             XSD.string,
         ]
