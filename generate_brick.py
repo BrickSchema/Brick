@@ -851,7 +851,7 @@ for r in res:
     brick_quant, qudt_quant = r
     for unit, symb, label in get_units(qudt_quant):
         G.add((brick_quant, QUDT.applicableUnit, unit))
-        G.add((unit, A, UNIT.Unit))
+        G.add((unit, A, QUDT.Unit))
         if symb is not None:
             G.add((unit, QUDT.symbol, symb))
         if label is not None and not has_label(unit):
