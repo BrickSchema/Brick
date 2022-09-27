@@ -300,3 +300,20 @@ bsh:hasSubstance a sh:NodeShape ;
     sh:targetObjectsOf brick:hasSubstance ;
     sh:class brick:Substance ;
 .
+
+bsh:PropagateUnitslastKnownValue a sh:NodeShape ;
+    sh:targetSubjectsOf brick:lastKnownValue ;
+    sh:rule [
+        a sh:SPARQLRule ;
+        sh:construct """
+        CONSTRUCT {
+            ?val brick:hasUnit ?unit .
+        }
+        WHERE {
+            $this brick:hasUnit ?unit .
+            $this brick:lastKnownValue ?val .
+            FILTER NOT EXISTS { ?val brick:hasUnit ?unit }
+        }
+        """ ;
+    ] ;
+.

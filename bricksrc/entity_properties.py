@@ -563,7 +563,6 @@ def generate_quantity_shapes(G):
     )
     d = {}
     for (quantity, datatype) in quantities:
-        print(quantity, datatype)
         quantity_name = quantity.split("#")[-1]
         shape = BSH[f"{quantity_name}Shape"]
         d[shape] = {
