@@ -1,6 +1,6 @@
 from brickschema.graph import Graph
 from rdflib import Literal, URIRef
-from .namespaces import SKOS, OWL, RDFS, BRICK, QUDTQK, QUDTDV, QUDT, UNIT
+from .namespaces import SKOS, OWL, RDFS, BRICK, QUDTQK, QUDTDV, QUDT, UNIT, XSD
 
 
 g = Graph()
@@ -35,6 +35,7 @@ Each is a qudt:QuantityKind
 """
 quantity_definitions = {
     "Air_Quality": {
+        "preferredDatatype": XSD.float,
         SKOS.narrower: {
             "Ammonia_Concentration": {
                 QUDT.applicableUnit: [UNIT.PPM, UNIT.PPB],
@@ -706,6 +707,7 @@ quantity_definitions = {
         },
     },
     "Temperature": {
+        "preferredDatatype": XSD.float,
         BRICK.hasQUDTReference: QUDTQK["Temperature"],
         SKOS.narrower: {
             "Differential_Temperature": {
