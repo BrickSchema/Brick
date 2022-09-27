@@ -506,6 +506,7 @@ def define_shape_properties(definitions):
             G.add((v, SH.path, BRICK.hasUnit))
             G.add((v, SH["in"], enumeration))
             G.add((v, SH.minCount, Literal(1)))
+            G.add((v, SH.maxCount, Literal(1)))
             Collection(G, enumeration, defn.pop("units"))
         if "unitsFromQuantity" in defn:
             v = BNode()
@@ -515,6 +516,7 @@ def define_shape_properties(definitions):
             G.add((v, SH.path, BRICK.hasUnit))
             G.add((v, SH["in"], enumeration))
             G.add((v, SH.minCount, Literal(1)))
+            G.add((v, SH.maxCount, Literal(1)))
             units = units_for_quantity(defn.pop("unitsFromQuantity"))
             assert len(units) > 0, f"Quantity shape {shape_name} has no units"
             Collection(G, enumeration, units)
