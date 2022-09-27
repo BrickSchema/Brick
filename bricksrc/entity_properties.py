@@ -559,7 +559,7 @@ def generate_quantity_shapes(G):
     )
     d = {}
     for (quantity,) in quantities:
-        shape = BRICK[f"{quantity.split('#')[-1]}Shape"]
+        shape = BSH[f"{quantity.split('#')[-1]}Shape"]
         d[shape] = {
             "unitsFromQuantity": quantity,
             "datatype": BSH.NumericValue,
