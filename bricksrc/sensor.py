@@ -1255,6 +1255,7 @@ sensor_definitions = {
                             },
                             "Underfloor_Air_Plenum_Static_Pressure_Sensor": {
                                 "tags": [
+                                    TAG.Point,
                                     TAG.Underfloor,
                                     TAG.Air,
                                     TAG.Plenum,
@@ -1403,6 +1404,7 @@ sensor_definitions = {
             "Refrigerant_Level_Sensor": {
                 BRICK.hasQuantity: BRICK.Level,
                 BRICK.hasSubstance: BRICK.Refrigerant,
+                "tags": [TAG.Point, TAG.Sensor, TAG.Refrigerant, TAG.Level],
             },
             "Solar_Radiance_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Radiance, TAG.Solar],
