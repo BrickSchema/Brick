@@ -312,14 +312,14 @@ command_definitions = {
                 },
             },
             "Frequency_Command": {
-                "tags": [TAG.Point, TAG.Fequency, TAG.Command],
+                "tags": [TAG.Point, TAG.Frequency, TAG.Command],
                 BRICK.hasQuantity: BRICK.Frequency,
                 "subclasses": {
                     "Max_Frequency_Command": {
-                        "tags": [TAG.Point, TAG.Max, TAG.Fequency, TAG.Command],
+                        "tags": [TAG.Point, TAG.Max, TAG.Frequency, TAG.Command],
                     },
                     "Min_Frequency_Command": {
-                        "tags": [TAG.Point, TAG.Min, TAG.Fequency, TAG.Command],
+                        "tags": [TAG.Point, TAG.Min, TAG.Frequency, TAG.Command],
                     },
                 },
             },

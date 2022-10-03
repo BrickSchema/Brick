@@ -1050,6 +1050,7 @@ setpoint_definitions = {
                             },
                             "Underfloor_Air_Plenum_Static_Pressure_Setpoint": {
                                 "tags": [
+                                    TAG.Point,
                                     TAG.Underfloor,
                                     TAG.Air,
                                     TAG.Plenum,
@@ -2284,6 +2285,7 @@ setpoint_definitions = {
                 "tags": [TAG.Point, TAG.Differential, TAG.Setpoint],
                 "subclasses": {
                     "Differential_Temperature_Setpoint": {
+                        "tags": [TAG.Point, TAG.Differential, TAG.Temperature, TAG.Setpoint],
                         "subclasses": {
                             "Water_Differential_Temperature_Setpoint": {
                                 BRICK.hasQuantity: BRICK.Differential_Temperature,
