@@ -10,7 +10,7 @@ ontology = {
     DCTERMS.creator: [
         {
             RDF.type: SDO.Person,
-            SDO.email: Literal("gtfierro@cs.berkeley.edu"),
+            SDO.email: Literal("gtfierro@mines.edu"),
             SDO.name: Literal("Gabe Fierro"),
         },
         {
