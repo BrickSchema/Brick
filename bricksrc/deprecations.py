@@ -1,6 +1,12 @@
 from .namespaces import BRICK, RDFS
 
 deprecations = {
+    BRICK.Occupancy_Command: {
+        "version": "1.3.0",
+        "mitigation_message": "Deprecate it by a more explicit name",
+        "replace_with": BRICK.Occupied_Mode_Command,
+        RDFS.subClassOf: BRICK.Command,
+    },
     BRICK.Supply_Water_Temperature_Sensor: {
         "version": "1.3.0",
         "mitigation_message": "Swapped supply/return for entering/leaving with water-related points",

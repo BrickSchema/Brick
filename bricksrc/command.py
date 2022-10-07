@@ -305,7 +305,9 @@ command_definitions = {
                     },
                 },
             },
-            "Occupancy_Command": {"tags": [TAG.Point, TAG.Occupancy, TAG.Command]},
+            "Occupied_Mode_Command": {
+                "tags": [TAG.Point, TAG.Occupied, TAG.Mode, TAG.Command],
+            },
             "On_Off_Command": {
                 "tags": [TAG.Point, TAG.On, TAG.Off, TAG.Command],
                 "subclasses": {
