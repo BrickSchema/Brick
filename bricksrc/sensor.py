@@ -1045,9 +1045,6 @@ sensor_definitions = {
             "Occupancy_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Occupancy],
                 BRICK.hasQuantity: BRICK.Occupancy,
-                "subclasses": {
-                    "PIR_Sensor": {"tags": [TAG.Point, TAG.PIR, TAG.Sensor]}
-                },
             },
             "Occupancy_Count_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Occupancy, TAG.Count],
@@ -1370,7 +1367,7 @@ sensor_definitions = {
                     },
                 },
             },
-            "Rain_Sensor": {
+            "Rain_Level_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Rain],
                 # TODO: substances
                 BRICK.hasQuantity: BRICK.Precipitation,
