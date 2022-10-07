@@ -291,6 +291,9 @@ command_definitions = {
                     "Box_Mode_Command": {
                         "tags": [TAG.Point, TAG.Box, TAG.Mode, TAG.Command],
                     },
+                    "Occupied_Mode_Command": {
+                        "tags": [TAG.Point, TAG.Occupied, TAG.Mode, TAG.Command],
+                    },
                 },
             },
             "Frequency_Command": {
@@ -304,9 +307,6 @@ command_definitions = {
                         "tags": [TAG.Point, TAG.Min, TAG.Frequency, TAG.Command],
                     },
                 },
-            },
-            "Occupied_Mode_Command": {
-                "tags": [TAG.Point, TAG.Occupied, TAG.Mode, TAG.Command],
             },
             "On_Off_Command": {
                 "tags": [TAG.Point, TAG.On, TAG.Off, TAG.Command],
