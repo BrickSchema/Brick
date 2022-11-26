@@ -52,7 +52,7 @@ Tests go in the `tests/` directory and should be implemented using [pytest](http
 [`tests/test_inference.py`](https://github.com/BrickSchema/Brick/blob/master/tests/test_inference.py) is a good example.
 
 Run tests by executing `pytest` or `make test` in the top-level directory of this repository.
-* Before running `pytest` the Brick.ttl file needs to be created using either `make` or `py generate_brick.py`. 
+* Before running `pytest` the Brick.ttl file needs to be created using either `make` or `python generate_brick.py`. 
 
 ## Python Framework
 
