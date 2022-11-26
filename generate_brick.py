@@ -462,24 +462,23 @@ def define_shape_properties(definitions):
         G.add((shape_name, RDFS.subClassOf, BSH.ValueShape))
 
         needs_value_properties = ["values", "units", "unitsFromQuantity", "datatype"]
+        brick_value_shape = BNode()
         if any(k in defn for k in needs_value_properties):
-            ps = BNode()
-            G.add((shape_name, SH.property, ps))
-            G.add((ps, A, SH.PropertyShape))
-            G.add((ps, SH.path, BRICK.value))
-            G.add((ps, SH.minCount, Literal(1)))
-            G.add((ps, SH.maxCount, Literal(1)))
+            G.add((shape_name, SH.property, brick_value_shape))
+            G.add((brick_value_shape, A, SH.PropertyShape))
+            G.add((brick_value_shape, SH.path, BRICK.value))
+            G.add((brick_value_shape, SH.minCount, Literal(1)))
+            G.add((brick_value_shape, SH.maxCount, Literal(1)))
 
         v = BNode()
         # prop:value PropertyShape
         if "values" in defn:
-            ps = BNode()
             enumeration = BNode()
-            G.add((shape_name, SH.property, ps))
-            G.add((ps, A, SH.PropertyShape))
-            G.add((ps, SH.path, BRICK.value))
-            G.add((ps, SH["in"], enumeration))
-            G.add((ps, SH.minCount, Literal(1)))
+            G.add((shape_name, SH.property, brick_value_shape))
+            G.add((brick_value_shape, A, SH.PropertyShape))
+            G.add((brick_value_shape, SH.path, BRICK.value))
+            G.add((brick_value_shape, SH["in"], enumeration))
+            G.add((brick_value_shape, SH.minCount, Literal(1)))
             vals = defn.pop("values")
             if isinstance(vals[0], str):
                 Collection(
@@ -500,22 +499,24 @@ def define_shape_properties(definitions):
             else:
                 Collection(G, enumeration, map(Literal, vals))
         if "units" in defn:
-            ps = BNode()
+            v = BNode()
             enumeration = BNode()
-            G.add((shape_name, SH.property, ps))
-            G.add((ps, A, SH.PropertyShape))
-            G.add((ps, SH.path, BRICK.hasUnit))
-            G.add((ps, SH["in"], enumeration))
-            G.add((ps, SH.minCount, Literal(1)))
+            G.add((shape_name, SH.property, v))
+            G.add((v, A, SH.PropertyShape))
+            G.add((v, SH.path, BRICK.hasUnit))
+            G.add((v, SH["in"], enumeration))
+            G.add((v, SH.minCount, Literal(1)))
+            G.add((v, SH.maxCount, Literal(1)))
             Collection(G, enumeration, defn.pop("units"))
         if "unitsFromQuantity" in defn:
-            ps = BNode()
+            v = BNode()
             enumeration = BNode()
-            G.add((shape_name, SH.property, ps))
-            G.add((ps, A, SH.PropertyShape))
-            G.add((ps, SH.path, BRICK.hasUnit))
-            G.add((ps, SH["in"], enumeration))
-            G.add((ps, SH.minCount, Literal(1)))
+            G.add((shape_name, SH.property, v))
+            G.add((v, A, SH.PropertyShape))
+            G.add((v, SH.path, BRICK.hasUnit))
+            G.add((v, SH["in"], enumeration))
+            G.add((v, SH.minCount, Literal(1)))
+            G.add((v, SH.maxCount, Literal(1)))
             units = units_for_quantity(defn.pop("unitsFromQuantity"))
             assert len(units) > 0, f"Quantity shape {shape_name} has no units"
             Collection(G, enumeration, units)
@@ -523,15 +524,15 @@ def define_shape_properties(definitions):
             prop_defns = defn.pop("properties")
             define_shape_property_property(shape_name, prop_defns)
         elif "datatype" in defn:
-            G.add((shape_name, SH.property, v))
-            G.add((v, A, SH.PropertyShape))
-            G.add((v, SH.path, BRICK.value))
+            G.add((shape_name, SH.property, brick_value_shape))
+            G.add((brick_value_shape, A, SH.PropertyShape))
+            G.add((brick_value_shape, SH.path, BRICK.value))
             dtype = defn.pop("datatype")
             if dtype == BSH.NumericValue:
-                G.add((v, SH["or"], BSH.NumericValue))
+                G.add((brick_value_shape, SH["or"], BSH.NumericValue))
             else:
-                G.add((v, SH.datatype, dtype))
-            G.add((v, SH.minCount, Literal(1)))
+                G.add((brick_value_shape, SH.datatype, dtype))
+            G.add((brick_value_shape, SH.minCount, Literal(1)))
             if "range" in defn:
                 for prop_name, prop_value in defn.pop("range").items():
                     if prop_name not in [
@@ -541,7 +542,7 @@ def define_shape_properties(definitions):
                         "maxInclusive",
                     ]:
                         raise Exception(f"brick:value property {prop_name} not valid")
-                    G.add((v, SH[prop_name], Literal(prop_value)))
+                    G.add((brick_value_shape, SH[prop_name], Literal(prop_value)))
 
 
 def define_properties(definitions, superprop=None):
@@ -852,7 +853,7 @@ for r in res:
     brick_quant, qudt_quant = r
     for unit, symb, label in get_units(qudt_quant):
         G.add((brick_quant, QUDT.applicableUnit, unit))
-        G.add((unit, A, UNIT.Unit))
+        G.add((unit, A, QUDT.Unit))
         if symb is not None:
             G.add((unit, QUDT.symbol, symb))
         if label is not None and not has_label(unit):

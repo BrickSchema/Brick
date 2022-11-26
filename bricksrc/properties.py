@@ -126,7 +126,7 @@ properties = {
     },
     "hasUnit": {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
-        RDFS.range: UNIT.Unit,
+        RDFS.range: QUDT.Unit,
         RDFS.label: Literal("Has unit"),
     },
     "meters": {

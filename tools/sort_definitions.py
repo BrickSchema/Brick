@@ -5,7 +5,7 @@ if len(sys.argv) < 2:
     print("Usage: python sort_definitions.py <input_file>")
     sys.exit(1)
 
-with open(sys.argv[1], "r") as f:
+with open(sys.argv[1], "r", encoding="utf-8") as f:
     reader = csv.reader(f)
     data = list(reader)
     # remove duplicates
@@ -20,6 +20,6 @@ with open(sys.argv[1], "r") as f:
     # sort by term
     terms = sorted(terms, key=lambda tup: tup[0])
 
-with open(sys.argv[1], "w") as f:
+with open(sys.argv[1], "w", encoding="utf-8") as f:
     writer = csv.writer(f)
     writer.writerows(terms)
