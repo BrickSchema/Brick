@@ -44,7 +44,7 @@ from bricksrc.equipment import (
     safety_subclasses,
 )
 from bricksrc.substances import substances
-from bricksrc.quantities import quantity_definitions, get_units
+from bricksrc.quantities import quantity_definitions, get_units, all_units
 from bricksrc.properties import properties
 from bricksrc.entity_properties import shape_properties, entity_properties, get_shapes
 from bricksrc.deprecations import deprecations
@@ -851,18 +851,20 @@ res = G.query(
 # "up" into the broader concepts.
 for r in res:
     brick_quant, qudt_quant = r
-    for unit, symb, label in get_units(qudt_quant):
+    for (unit,) in get_units(qudt_quant):
         G.add((brick_quant, QUDT.applicableUnit, unit))
-        G.add((unit, A, QUDT.Unit))
-        if symb is not None:
-            G.add((unit, QUDT.symbol, symb))
-        if label is not None and not has_label(unit):
-            G.add((unit, RDFS.label, label))
 for r in res:
     brick_quant, qudt_quant = r
     # the symbols, units, and labels are already defined in the previous pass
     for unit, symb, label in get_units_brick(brick_quant):
         G.add((brick_quant, QUDT.applicableUnit, unit))
+# all QUDT units
+for (unit, symb, label) in all_units():
+    G.add((unit, A, QUDT.Unit))
+    if symb is not None:
+        G.add((unit, QUDT.symbol, symb))
+    if label is not None and not has_label(unit):
+        G.add((unit, RDFS.label, label))
 
 
 # entity property definitions (must happen after units are defined)
