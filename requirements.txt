@@ -10,3 +10,4 @@ pre-commit>=2.13.0
 flake8==3.9.2
 semver>=2.10.1
 pytest-xdist[psutil]
+html5lib
