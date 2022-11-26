@@ -39,7 +39,7 @@ timeseries_props = [
 g.add((BLDG["building_power_sensor"], BRICK.timeseries, timeseries_props))
 
 # peak demand sensor
-g.add((BLDG["building_peak_demand"], A, BRICK.Peak_Power_Demand_Sensor))
+g.add((BLDG["building_peak_demand"], A, BRICK.Peak_Demand_Sensor))
 g.add((BLDG["building_peak_demand"], BRICK.isPointOf, BLDG["main-meter"]))
 g.add((BLDG["building_peak_demand"], BRICK.hasUnit, UNIT["KiloW"]))
 other_props = [
