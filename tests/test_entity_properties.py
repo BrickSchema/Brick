@@ -1,6 +1,7 @@
 from rdflib import Namespace, Literal
 from brickschema.namespaces import BRICK, A, REF, XSD
 import brickschema
+import os
 
 
 def test_entity_property_validation():
@@ -60,13 +61,13 @@ def test_entity_property_type_inference():
     valid, _, report = g.validate()
     assert valid, report
     g.expand("shacl")
-    g.serialize("/tmp/test.ttl", format="ttl")
+    g.serialize("test.ttl", format="ttl")
 
     res = g.query(
         "SELECT ?ref WHERE { ?point ref:hasExternalReference ?ref . ?ref a ref:BACnetReference }"
     )
     assert len(res) == 1
-
+    os.remove("test.ttl")
 
 def test_last_known_value():
     g = brickschema.Graph()
