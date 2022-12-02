@@ -45,7 +45,7 @@ from bricksrc.equipment import (
 )
 from bricksrc.substances import substances
 from bricksrc.quantities import quantity_definitions, get_units
-from bricksrc.properties import properties
+from bricksrc.relationships import relationships
 from bricksrc.entity_properties import shape_properties, entity_properties, get_shapes
 from bricksrc.deprecations import deprecations
 
@@ -67,7 +67,7 @@ shacl_tag_property_shapes = {}
 has_exactly_n_tags_shapes = {}
 
 
-def add_properties(item, propdefs):
+def add_relationships(item, propdefs):
     for propname, propval in propdefs.items():
         if isinstance(propval, list):
             for pv in propdefs:
@@ -435,7 +435,7 @@ def define_shape_property_property(shape_name, definitions):
             G.add((prop_name, A, OWL.ObjectProperty))
         else:
             G.add((prop_name, A, OWL.ObjectProperty))
-        add_properties(ps, prop_defn)
+        add_relationships(ps, prop_defn)
 
 
 def define_shape_properties(definitions):
@@ -544,9 +544,9 @@ def define_shape_properties(definitions):
                     G.add((v, SH[prop_name], Literal(prop_value)))
 
 
-def define_properties(definitions, superprop=None):
+def define_relationships(definitions, superprop=None):
     """
-    Define BRICK properties
+    Define BRICK relationships
     """
     if len(definitions) == 0:
         return
@@ -568,7 +568,7 @@ def define_properties(definitions, superprop=None):
         # define any subproperties
         subproperties_def = propdefn.get("subproperties", {})
         assert isinstance(subproperties_def, dict)
-        define_properties(subproperties_def, prop)
+        define_relationships(subproperties_def, prop)
 
         # define range/domain using SHACL shapes
         if "range" in propdefn:
@@ -781,7 +781,7 @@ G.add(
         ),
     )
 )
-define_properties(properties)
+define_relationships(relationships)
 # add types to some external properties
 G.add((VCARD.hasAddress, A, OWL.ObjectProperty))
 G.add((VCARD.Address, A, OWL.Class))
