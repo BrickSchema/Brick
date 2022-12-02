@@ -16,13 +16,13 @@ This repository tracks the main schema development of Brick.
 
 ## Discussion
 
-Discussion takes place primarily on the Brick User Form: [https://groups.google.com/forum/#!forum/brickschema](https://groups.google.com/forum/#!forum/brickschema)
+Discussion takes place primarily on the Brick User Forum: [https://groups.google.com/forum/#!forum/brickschema](https://groups.google.com/forum/#!forum/brickschema)
 
 ## Questions and Issues
 
 If you have an issue with Brick's coverage, utility or usability, or any other Brick-related question:
 
-1. First check the [Brick user form](https://groups.google.com/forum/#!forum/brickschema) and the [Brick issue tracker](https://github.com/BuildSysUniformMetadata/Brick/issues)
+1. First check the [Brick user forum](https://groups.google.com/forum/#!forum/brickschema) and the [Brick issue tracker](https://github.com/BuildSysUniformMetadata/Brick/issues)
    to check if anyone has asked your question already.
 2. If you find a previously submitted issue that closely mirrors your own, feel free to jump in on the conversation. Otherwise, please file a new issue or submit a new thread on the forum.
 
@@ -51,7 +51,8 @@ See [CONTRIBUTING.md](https://github.com/BrickSchema/Brick/blob/master/CONTRIBUT
 Tests go in the `tests/` directory and should be implemented using [pytest](https://pytest.readthedocs.io/en/latest/getting-started.html#getstarted).
 [`tests/test_inference.py`](https://github.com/BrickSchema/Brick/blob/master/tests/test_inference.py) is a good example.
 
-Run tests by executing `pytest` in the top-level directory of this repository.
+Run tests by executing `pytest` or `make test` in the top-level directory of this repository.
+* Before running `pytest` the Brick.ttl file needs to be created using either `make` or `python generate_brick.py`. 
 
 ## Python Framework
 

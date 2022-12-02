@@ -15,7 +15,9 @@ status_definitions = {
             },
             "Tint_Status": {"tags": [TAG.Tint, TAG.Status, TAG.Point]},
             "Damper_Position_Status": {
+                "tags": [TAG.Point, TAG.Damper, TAG.Position, TAG.Status],
                 BRICK.hasQuantity: BRICK.Position,
+                "tags": [TAG.Damper, TAG.Position, TAG.Status, TAG.Point],
             },
             "Direction_Status": {
                 BRICK.hasQuantity: BRICK.Direction,

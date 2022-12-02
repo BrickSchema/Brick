@@ -58,7 +58,7 @@ command_definitions = {
                         "tags": [TAG.Point, TAG.Valve, TAG.Position, TAG.Command],
                         "parents": [BRICK.Position_Command],
                     },
-                }
+                },
             },
             "Reset_Command": {
                 "tags": [TAG.Point, TAG.Reset, TAG.Command],
@@ -119,15 +119,6 @@ command_definitions = {
                             },
                         },
                     },
-                    "Exhaust_Fan_Enable_Command": {
-                        "tags": [
-                            TAG.Point,
-                            TAG.Enable,
-                            TAG.Command,
-                            TAG.Fan,
-                            TAG.Exhaust,
-                        ],
-                    }, # deprecated
                     "Run_Enable_Command": {
                         "tags": [TAG.Point, TAG.Enable, TAG.Command, TAG.Run],
                     },
@@ -181,15 +172,6 @@ command_definitions = {
             "Disable_Command": {
                 "tags": [TAG.Point, TAG.Disable, TAG.Command],
                 "subclasses": {
-                    "Exhaust_Fan_Disable_Command": {
-                        "tags": [
-                            TAG.Point,
-                            TAG.Disable,
-                            TAG.Command,
-                            TAG.Fan,
-                            TAG.Exhaust,
-                        ],
-                    }, # deprecated
                     "Disable_Differential_Enthalpy_Command": {
                         "tags": [
                             TAG.Point,
@@ -312,14 +294,14 @@ command_definitions = {
                 },
             },
             "Frequency_Command": {
-                "tags": [TAG.Point, TAG.Fequency, TAG.Command],
+                "tags": [TAG.Point, TAG.Frequency, TAG.Command],
                 BRICK.hasQuantity: BRICK.Frequency,
                 "subclasses": {
                     "Max_Frequency_Command": {
-                        "tags": [TAG.Point, TAG.Max, TAG.Fequency, TAG.Command],
+                        "tags": [TAG.Point, TAG.Max, TAG.Frequency, TAG.Command],
                     },
                     "Min_Frequency_Command": {
-                        "tags": [TAG.Point, TAG.Min, TAG.Fequency, TAG.Command],
+                        "tags": [TAG.Point, TAG.Min, TAG.Frequency, TAG.Command],
                     },
                 },
             },

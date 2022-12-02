@@ -204,7 +204,8 @@ To set up the development environment
     . brickvenv/bin/activate
     pip install -r requirements.txt
     ```
-    You do not need to install the `docker` dependency if your system does not support it. Use of docker enables use of Allegrograph, which can speed up some of the Brick compilation processes.
+    * You do not need to install the `docker` dependency if your system does not support it. Use of docker enables use of Allegrograph, which can speed up some of the Brick compilation processes.
+    * If C++ compiler is not installed you may get an error installing the Levenshtein-search.  It is not strickly necessary to build and test brick.  You can safely ignore this error.
 4. Make the desired changes **to the Python files**. Do not edit the `Brick.ttl` or `Brick+extensions.ttl` files directly.
 5. Compile the `Brick.ttl` and `Brick_expanded.ttl` files by executing the `generate_brick.py` script using Python
     ```bash
