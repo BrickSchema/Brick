@@ -572,13 +572,13 @@ def define_properties(definitions, superprop=None):
         # define range/domain using SHACL shapes
         if "range" in propdefn:
             defn = propdefn.pop("range")
-            range_shape = BSH[f"shape_{prop.split('#')[-1]}"]
+            range_shape = BSH[f"range_shape_{prop.split('#')[-1]}"]
             G.add((range_shape, A, SH.NodeShape))
             G.add((range_shape, SH.targetSubjectsOf, prop))
             constraint = BNode()
             G.add((range_shape, SH.property, constraint))
             G.add((constraint, SH.path, prop))
-            G.add((constraint, SH.minCount, Literal(0)))
+            G.add((constraint, SH.minCount, Literal(1)))
             if isinstance(defn, (tuple, list)):
                 enumeration = BNode()
                 G.add((constraint, SH["or"], enumeration))
@@ -592,7 +592,7 @@ def define_properties(definitions, superprop=None):
                 G.add((constraint, SH["class"], defn))
         if "domain" in propdefn:
             defn = propdefn.pop("domain")
-            domain_shape = BSH[f"shape_{prop.split('#')[-1]}"]
+            domain_shape = BSH[f"domain_shape_{prop.split('#')[-1]}"]
             G.add((domain_shape, A, SH.NodeShape))
             G.add((domain_shape, SH.targetSubjectsOf, prop))
             if isinstance(defn, (tuple, list)):
