@@ -578,7 +578,7 @@ def define_properties(definitions, superprop=None):
             constraint = BNode()
             G.add((range_shape, SH.property, constraint))
             G.add((constraint, SH.path, prop))
-            G.add((constraint, SH.minCount, Literal(1)))
+            G.add((constraint, SH.minCount, Literal(0)))
             if isinstance(defn, (tuple, list)):
                 enumeration = BNode()
                 G.add((constraint, SH["or"], enumeration))
