@@ -32,6 +32,11 @@ ontology = {
     RDFS.seeAlso: URIRef("https://brickschema.org"),
 }
 
+imports = [
+    "http://qudt.org/2.1/schema/qudt",
+    "https://w3id.org/rec",
+]
+
 
 def define_ontology(G):
     brick_iri_version = URIRef(f"https://brickschema.org/schema/{BRICK_VERSION}/Brick")
@@ -58,3 +63,7 @@ def define_ontology(G):
     # add other simple attributes
     for k, v in ontology.items():
         G.add((brick_iri_version, k, v))
+
+    # add imports
+    for imp in imports:
+        G.add((brick_iri_version, OWL.imports, Literal(imp)))

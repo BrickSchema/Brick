@@ -1,6 +1,7 @@
 import sys
 import csv
 import glob
+import ontoenv
 import logging
 from collections import defaultdict
 import pyshacl
@@ -921,6 +922,12 @@ with open("Brick.ttl", "w", encoding="utf-8") as fp:
 # serialize Brick + extensions
 for graph in extension_graphs.values():
     G += graph
+
+# import other ontologies
+env = ontoenv.OntoEnv(initialize=True)
+env.refresh()
+env.import_dependencies(G)
+
 with open("Brick+extensions.ttl", "w", encoding="utf-8") as fp:
     fp.write(G.serialize(format="turtle").rstrip())
     fp.write("\n")
