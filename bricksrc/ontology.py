@@ -2,7 +2,7 @@ from datetime import datetime
 from rdflib import Literal, BNode, URIRef
 from rdflib.collection import Collection
 
-from .namespaces import DCTERMS, SDO, RDFS, RDF, OWL, BRICK, TAG, BSH, SH
+from .namespaces import DCTERMS, SDO, RDFS, RDF, OWL, BRICK, TAG, BSH, SH, XSD
 from .version import BRICK_VERSION, BRICK_FULL_VERSION
 
 # defines metadata about the Brick ontology
@@ -34,16 +34,20 @@ ontology = {
 
 shacl_namespace_declarations = [
     {
-        SH.namespace: Literal(str(RDF)),
+        SH.namespace: Literal(str(RDF), datatype=XSD.anyURI),
         SH.prefix: Literal("rdf"),
     },
     {
-        SH.namespace: Literal(str(RDFS)),
+        SH.namespace: Literal(str(RDFS), datatype=XSD.anyURI),
         SH.prefix: Literal("rdfs"),
     },
     {
-        SH.namespace: Literal(str(BRICK)),
+        SH.namespace: Literal(str(BRICK), datatype=XSD.anyURI),
         SH.prefix: Literal("brick"),
+    },
+    {
+        SH.namespace: Literal(str(OWL), datatype=XSD.anyURI),
+        SH.prefix: Literal("owl"),
     },
 ]
 
