@@ -26,7 +26,7 @@ WHERE {
   ?p owl:inverseOf ?invP .
 }
 			""" ;
-      sh:prefixes owl: ;
+      sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
     ] ;
   sh:targetClass brick:Entity ;
 .
@@ -45,8 +45,7 @@ WHERE {
   ?prop a owl:SymmetricProperty .
 }
 			""" ;
-        sh:prefixes owl: ;
-        sh:prefixes rdf: ;
+      sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
     ] ;
   sh:targetClass brick:Entity ;
 .
@@ -62,8 +61,7 @@ $this brick:hasTag ?tag .
     $this rdf:type/rdfs:subClassOf* ?class .
     ?class brick:hasAssociatedTag ?tag .
 }""" ;
-    sh:prefixes rdf: ;
-    sh:prefixes brick: ;
+      sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
     ] ;
     sh:targetClass brick:Entity ;
 .
@@ -80,9 +78,7 @@ CONSTRUCT {
     ?shape a sh:NodeShape .
     ?ent $this ?val .
 }""" ;
-    sh:prefixes rdfs: ;
-    sh:prefixes rdf: ;
-    sh:prefixes sh: ;
+      sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
     ] ;
     sh:targetSubjectsOf rdfs:range ;
 .
@@ -98,7 +94,7 @@ CONSTRUCT {
     $this rdfs:subPropertyOf ?super .
     ?s $this ?o .
 }""" ;
-    sh:prefixes rdfs: ;
+      sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
     ] ;
     sh:targetSubjectsOf rdfs:subPropertyOf ;
 .
@@ -117,8 +113,7 @@ bsh:DeprecationRule
         CONSTRUCT { $this owl:deprecated true }
         WHERE { $this brick:deprecation ?dep }
         """ ;
-        sh:prefixes owl: ;
-        sh:prefixes brick: ;
+      sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
     ] ;
     sh:property [
         sh:path brick:deprecatedInVersion ;
@@ -145,7 +140,7 @@ bsh:DeprecationRuleForInstances
     sh:sparql [
       a sh:SPARQLConstraint ;
       sh:message "Entity has type which is deprecated" ;
-      sh:prefixes brick:, rdf: ;
+      sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
       sh:select """SELECT $this WHERE { $this rdf:type/owl:deprecated true }""" ;
     ] ;
 .
@@ -193,7 +188,7 @@ CONSTRUCT {
     UNION
     { $this owl:equivalentClass ?t2 }
 }""" ;
-    sh:prefixes owl: ;
+      sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
     ] ;
     sh:targetSubjectsOf owl:equivalentClass ;
 .
@@ -211,7 +206,7 @@ CONSTRUCT {
     UNION
     { $this owl:equivalentClass ?t2 }
 }""" ;
-    sh:prefixes owl: ;
+      sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
     ] ;
     sh:targetObjectsOf owl:equivalentClass ;
 .
@@ -256,7 +251,7 @@ bsh:VirtualMeterRule a sh:NodeShape ;
     sh:sparql [
         a sh:SPARQLConstraint ;
         sh:message "Only meters can have the isVirtualMeter property be true" ;
-        sh:prefixes brick:, rdf:, rdfs: ;
+      sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
         sh:select """
             SELECT $this WHERE {
                 $this brick:isVirtualMeter/brick:value true .
@@ -279,7 +274,7 @@ bsh:TimeseriesReferenceOnPointsConstraint a sh:NodeShape ;
     sh:sparql [
         a sh:SPARQLConstraint ;
         sh:message "Only Brick Points can have external timeseries references" ;
-        sh:prefixes ref:, rdf:, rdfs: ;
+      sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
         sh:select """
             SELECT $this
             WHERE {
