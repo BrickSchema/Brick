@@ -49,6 +49,10 @@ shacl_namespace_declarations = [
         SH.namespace: Literal(str(OWL), datatype=XSD.anyURI),
         SH.prefix: Literal("owl"),
     },
+    {
+        SH.namespace: Literal(str(SH), datatype=XSD.anyURI),
+        SH.prefix: Literal("sh"),
+    },
 ]
 
 
