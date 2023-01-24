@@ -5,25 +5,10 @@ from .namespaces import TAG, OWL, BRICK
 Set up subclasses of the equipment superclass
 """
 equipment_subclasses = {
-    "Sensor_Equipment": {
-        "tags": [TAG.Sensor, TAG.Equipment],
-        "subclasses": {
-            "Daylight_Sensor_Equipment": {
-                "tags": [TAG.Daylight, TAG.Sensor, TAG.Equipment],
-            },
-            "IAQ_Sensor_Equipment": {
-                "tags": [TAG.Air, TAG.Quality, TAG.Indoor, TAG.Sensor, TAG.Equipment],
-            },
-            "Leak_Detector": {
-                "tags": [TAG.Leak, TAG.Detector, TAG.Indoor, TAG.Sensor, TAG.Equipment],
-            },
-            "People_Count_Sensor_Equipment": {
-                "tags": [TAG.People, TAG.Count, TAG.Sensor, TAG.Equipment],
-            },
-            "Vibration_Sensor_Equipment": {
-                "tags": [TAG.Vibration, TAG.Sensor, TAG.Equipment, TAG.Daylight],
-            },
-        },
+    "ICT_Device": {
+        "Sensor_Device": {
+            "tags": [TAG.Sensor, TAG.Equipment],
+        }
     },
     "HVAC_Equipment": {
         "tags": [TAG.HVAC, TAG.Equipment],
