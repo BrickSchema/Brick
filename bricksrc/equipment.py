@@ -6,9 +6,12 @@ Set up subclasses of the equipment superclass
 """
 equipment_subclasses = {
     "ICT_Device": {
-        "Sensor_Device": {
-            "tags": [TAG.Sensor, TAG.Equipment],
-        }
+        "tags": [TAG.ICT, TAG.Equipment],
+        "subclasses": {
+            "Sensor_Device": {
+                "tags": [TAG.Sensor, TAG.Equipment, TAG.ICT],
+            }
+        },
     },
     "HVAC_Equipment": {
         "tags": [TAG.HVAC, TAG.Equipment],
