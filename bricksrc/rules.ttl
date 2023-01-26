@@ -91,7 +91,7 @@ bsh:RDFSSubPropertyOfRuleForEntityProperties
 CONSTRUCT {
     ?s ?super ?o .
 } WHERE {
-    $this rdfs:subPropertyOf ?super .
+    $this rdfs:subPropertyOf+ ?super .
     ?super a brick:EntityProperty .
     $this a brick:EntityProperty .
     ?s $this ?o .
