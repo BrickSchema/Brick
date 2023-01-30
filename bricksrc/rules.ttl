@@ -83,7 +83,7 @@ CONSTRUCT {
     sh:targetSubjectsOf rdfs:range ;
 .
 
-bsh:RDFSSubPropertyOfRule
+bsh:RDFSSubPropertyOfRuleForEntityProperties
     a   sh:NodeShape ;
     sh:rule [
         a sh:SPARQLRule ;
@@ -91,7 +91,9 @@ bsh:RDFSSubPropertyOfRule
 CONSTRUCT {
     ?s ?super ?o .
 } WHERE {
-    $this rdfs:subPropertyOf ?super .
+    $this rdfs:subPropertyOf+ ?super .
+    ?super a brick:EntityProperty .
+    $this a brick:EntityProperty .
     ?s $this ?o .
 }""" ;
       sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
