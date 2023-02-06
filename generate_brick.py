@@ -706,12 +706,21 @@ def handle_deprecations():
         G.add(
             (deprecated_term, RDFS.label, Literal(label))
         )  # make sure the tag is declared as such
-        subclasses = md.pop(RDFS.subClassOf)
-        if subclasses is not None:
-            if not isinstance(subclasses, list):
-                subclasses = [subclasses]
-            for subclass in subclasses:
-                G.add((deprecated_term, RDFS.subClassOf, subclass))
+        # handle subclasses or skos
+        if RDFS.subClassOf in md:
+            subclasses = md.pop(RDFS.subClassOf)
+            if subclasses is not None:
+                if not isinstance(subclasses, list):
+                    subclasses = [subclasses]
+                for subclass in subclasses:
+                    G.add((deprecated_term, RDFS.subClassOf, subclass))
+        elif SKOS.narrower in md:
+            subconcepts = md.pop(SKOS.narrower)
+            if subconcepts is not None:
+                if not isinstance(subconcepts, list):
+                    subconcepts = [subconcepts]
+                for subclass in subconcepts:
+                    G.add((deprecated_term, SKOS.narrower, subclass))
         G.add((deprecated_term, BRICK.deprecation, deprecation))
         G.add((deprecation, BRICK.deprecatedInVersion, Literal(md["version"])))
         G.add(
