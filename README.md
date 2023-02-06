@@ -52,7 +52,7 @@ Tests go in the `tests/` directory and should be implemented using [pytest](http
 [`tests/test_inference.py`](https://github.com/BrickSchema/Brick/blob/master/tests/test_inference.py) is a good example.
 
 Run tests by executing `pytest` or `make test` in the top-level directory of this repository.
-* Before running `pytest` the Brick.ttl file needs to be created using either `make` or `python generate_brick.py`. 
+* Before running `pytest` the Brick.ttl file needs to be created using either `make` or `python generate_brick.py`.
 
 ## Python Framework
 
@@ -66,9 +66,9 @@ For now, the code is the documentation. Look at `bricksrc/equipment.py`, `bricks
 ### Version Comparison
 
 We can track the different classes between versions. The below scripts produces comparison files.
-- `python tools/compare_versions/compare_versions.py --oldbrick 1.0.3 https://github.com/BrickSchema/Brick/releases/download/v1.0.3/Brick.ttl --newbrick 1.1.0 ./Brick.ttl`
+- `python tools/compare_versions/compare_versions.py --oldbrick 1.0.3 https://brickschema.org/schema/1.0.3/Brick.ttl --newbrick 1.1.0 ./Brick.ttl`
 
-It will produce three files inside `history/{current_version}`.
+It will produce three files inside `history/{old_version}-{new_version}`.
 - `added_classes.txt`: A list of new classes introduced in the current version compared to the previous version.
 - `removed_classes.txt`: A list of old classes removed in the current version compared to the previous version.
 - `possible_mapping.json`: A map of candidate classes that can replace removed classes. Keys are removed classes and the values are candidate correspondants in the new vesion.
