@@ -1,19 +1,19 @@
-from .namespaces import TAG, BRICK, OWL
+from .namespaces import TAG, BRICK, OWL, SKOS
 
 # Defining substances
 substances = {
     "Fluid": {
         "tags": [TAG.Fluid],
-        "subclasses": {
+        SKOS.narrower: {
             "Refrigerant": {
                 "tags": [TAG.Fluid, TAG.Refrigerant],
             },
             "Gas": {
                 "tags": [TAG.Fluid, TAG.Gas],
-                "subclasses": {
+                SKOS.narrower: {
                     "Air": {
                         "tags": [TAG.Fluid, TAG.Gas, TAG.Air],
-                        "subclasses": {
+                        SKOS.narrower: {
                             "Bypass_Air": {
                                 "tags": [TAG.Fluid, TAG.Gas, TAG.Air, TAG.Bypass],
                             },
@@ -52,13 +52,13 @@ substances = {
             },
             "Liquid": {
                 "tags": [TAG.Fluid, TAG.Liquid],
-                "subclasses": {
+                SKOS.narrower: {
                     "Gasoline": {"tags": [TAG.Fluid, TAG.Liquid, TAG.Gasoline]},
                     "Liquid_CO2": {"tags": [TAG.Fluid, TAG.Liquid, TAG.CO2]},
                     "Glycol": {"tags": [TAG.Fluid, TAG.Liquid, TAG.Glycol]},
                     "Oil": {
                         "tags": [TAG.Fluid, TAG.Liquid, TAG.Oil],
-                        "subclasses": {
+                        SKOS.narrower: {
                             "Fuel_Oil": {
                                 "tags": [TAG.Fluid, TAG.Liquid, TAG.Oil, TAG.Fuel]
                             }
@@ -66,7 +66,7 @@ substances = {
                     },
                     "Water": {
                         "tags": [TAG.Fluid, TAG.Liquid, TAG.Water],
-                        "subclasses": {
+                        SKOS.narrower: {
                             "Deionized_Water": {
                                 "tags": [
                                     TAG.Fluid,
@@ -80,7 +80,7 @@ substances = {
                             },
                             "Chilled_Water": {
                                 "tags": [TAG.Fluid, TAG.Liquid, TAG.Water, TAG.Chilled],
-                                "subclasses": {
+                                SKOS.narrower: {
                                     "Entering_Chilled_Water": {
                                         "tags": [
                                             TAG.Fluid,
@@ -127,7 +127,7 @@ substances = {
                                     TAG.Water,
                                     TAG.Condenser,
                                 ],
-                                "subclasses": {
+                                SKOS.narrower: {
                                     "Entering_Condenser_Water": {
                                         "tags": [
                                             TAG.Fluid,
@@ -177,7 +177,7 @@ substances = {
                             },
                             "Hot_Water": {
                                 "tags": [TAG.Fluid, TAG.Liquid, TAG.Water, TAG.Hot],
-                                "subclasses": {
+                                SKOS.narrower: {
                                     "Entering_Hot_Water": {
                                         "tags": [
                                             TAG.Fluid,
@@ -211,7 +211,7 @@ substances = {
     },
     "Solid": {
         "tags": [TAG.Solid],
-        "subclasses": {
+        SKOS.narrower: {
             "Ice": {"tags": [TAG.Solid, TAG.Ice]},
             "Frost": {"tags": [TAG.Solid, TAG.Frost]},
             "Hail": {"tags": [TAG.Solid, TAG.Hail]},

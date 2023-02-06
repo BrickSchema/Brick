@@ -239,10 +239,10 @@ def define_concept_hierarchy(definitions, typeclasses, broader=None, related=Non
         # this is a nested dictionary
         narrower_defs = defn.get(SKOS.narrower, {})
         if narrower_defs is not None and isinstance(narrower_defs, dict):
-            define_concept_hierarchy(narrower_defs, [BRICK.Quantity], broader=concept)
+            define_concept_hierarchy(narrower_defs, typeclasses, broader=concept)
         related_defs = defn.get(SKOS.related, {})
         if related_defs is not None and isinstance(related_defs, dict):
-            define_concept_hierarchy(related_defs, [BRICK.Quantity], related=concept)
+            define_concept_hierarchy(related_defs, typeclasses, related=concept)
 
         # handle 'parents' subconcepts (links outside of tree-based hierarchy)
         parents = defn.get("parents", [])
@@ -301,7 +301,7 @@ def define_classes(definitions, parent, pun_classes=False):
         # this is a nested dictionary
         subclassdef = defn.get("subclasses", {})
         assert isinstance(subclassdef, dict)
-        define_classes(subclassdef, classname, pun_classes=pun_classes)
+        define_classes(subclassdef, classname)
 
         # handle 'parents' subclasses (links outside of tree-based hierarchy)
         parents = defn.get("parents", [])
@@ -739,7 +739,13 @@ def handle_deprecations():
                     ),
                 )
             )
-            G.add((rule, SH.prefixes, URIRef(f"https://brickschema.org/schema/{BRICK_VERSION}/Brick")))
+            G.add(
+                (
+                    rule,
+                    SH.prefixes,
+                    URIRef(f"https://brickschema.org/schema/{BRICK_VERSION}/Brick"),
+                )
+            )
 
 
 logging.info("Beginning BRICK Ontology compilation")
@@ -830,7 +836,7 @@ G.add((BRICK.Substance, RDFS.label, Literal("Substance")))
 #                               brick:Temperature .
 #
 # This makes Substance metaclasses.
-define_classes(substances, BRICK.Substance, pun_classes=True)
+define_concept_hierarchy(substances, [BRICK.Substance])
 
 # this defines the SKOS-based concept hierarchy for BRICK Quantities
 define_concept_hierarchy(quantity_definitions, [BRICK.Quantity])

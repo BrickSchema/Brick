@@ -12,9 +12,11 @@ system_subclasses = {
                 "subclasses": {
                     "Energy_Generation_System": {
                         "tags": [TAG.Energy, TAG.Generation, TAG.System],
-                        "subclasses": {"PV_Generation_System": {
-                            "tags": [TAG.Photovoltaic, TAG.Generation, TAG.System],
-                        }},
+                        "subclasses": {
+                            "PV_Generation_System": {
+                                "tags": [TAG.Photovoltaic, TAG.Generation, TAG.System],
+                            }
+                        },
                     },
                     "Energy_Storage_System": {
                         "tags": [TAG.Energy, TAG.Storage, TAG.System],
