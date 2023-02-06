@@ -908,6 +908,17 @@ sensor_definitions = {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Humidity],
                 BRICK.hasQuantity: BRICK.Humidity,
                 "subclasses": {
+                    "Absolute_Humidity_Sensor": {
+                        "tags": [
+                            TAG.Point,
+                            TAG.Sensor,
+                            TAG.Humidity,
+                            TAG.Air,
+                            TAG.Absolute,
+                        ],
+                        BRICK.hasQuantity: BRICK.Absolute_Humidity,
+                        BRICK.hasSubstance: BRICK.Air,
+                    },
                     "Relative_Humidity_Sensor": {
                         "tags": [
                             TAG.Point,

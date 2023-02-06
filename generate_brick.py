@@ -9,7 +9,7 @@ from rdflib import Graph, Literal, BNode, URIRef
 from rdflib.namespace import XSD
 from rdflib.collection import Collection
 
-from bricksrc.ontology import define_ontology
+from bricksrc.ontology import define_ontology, BRICK_VERSION
 
 from bricksrc.namespaces import (
     BRICK,
@@ -740,8 +740,13 @@ def handle_deprecations():
                     ),
                 )
             )
-            G.add((rule, SH.prefixes, URIRef(RDF)))
-            G.add((rule, SH.prefixes, URIRef(BRICK)))
+            G.add(
+                (
+                    rule,
+                    SH.prefixes,
+                    URIRef(f"https://brickschema.org/schema/{BRICK_VERSION}/Brick"),
+                )
+            )
 
 
 logging.info("Beginning BRICK Ontology compilation")
