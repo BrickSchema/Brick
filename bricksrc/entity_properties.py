@@ -1,8 +1,9 @@
 """
 Entity property definitions
 """
+from typing_extensions import dataclass_transform
 from rdflib import Literal
-from .namespaces import BRICK, RDFS, SKOS, UNIT, XSD, SH, BSH, REF
+from .namespaces import BRICK, RDFS, SKOS, UNIT, XSD, SH, BSH, A
 
 # these are the "relationship"/predicates/OWL properties that
 # relate a Brick entity to a structured value.
@@ -555,13 +556,32 @@ def get_shapes(G):
 
 def generate_quantity_shapes(G):
     quantities = G.query(
-        "SELECT ?q WHERE { ?q a brick:Quantity . ?q qudt:applicableUnit ?unit }"
+        """SELECT ?q ?datatype WHERE {
+                ?q a brick:Quantity .
+                ?q qudt:applicableUnit ?unit .
+                OPTIONAL { ?q skos:broader*/bsh:preferredDatatype ?datatype } }"""
     )
     d = {}
-    for (quantity,) in quantities:
-        shape = BSH[f"{quantity.split('#')[-1]}Shape"]
+    for (quantity, datatype) in quantities:
+        quantity_name = quantity.split("#")[-1]
+        shape = BSH[f"{quantity_name}Shape"]
         d[shape] = {
             "unitsFromQuantity": quantity,
-            "datatype": BSH.NumericValue,
+            "datatype": BSH.NumericValue if datatype is None else datatype,
         }
     return d
+
+
+def generate_last_known_value_shapes(G):
+    generated = {}
+    for quantity in G.subjects(A, BRICK.Quantity):
+        quantity_name = quantity.split("#")[-1]
+        generated[BSH[f"LastKnown{quantity_name}ValueShape"]] = {
+            "properties": {
+                BRICK.timestamp: {"datatype": XSD.dateTime},
+            },
+            RDFS.subClassOf: BSH.LastKnownValueShape,
+            SH.node: BSH[f"{quantity_name}Shape"],
+        }
+    G.remove((None, BSH.preferredDatatype, None))
+    return generated

@@ -46,7 +46,12 @@ from bricksrc.equipment import (
 from bricksrc.substances import substances
 from bricksrc.quantities import quantity_definitions, get_units, all_units
 from bricksrc.properties import properties
-from bricksrc.entity_properties import shape_properties, entity_properties, get_shapes
+from bricksrc.entity_properties import (
+    shape_properties,
+    entity_properties,
+    get_shapes,
+    generate_last_known_value_shapes,
+)
 from bricksrc.deprecations import deprecations
 
 logging.basicConfig(
@@ -235,6 +240,12 @@ def define_concept_hierarchy(definitions, typeclasses, broader=None, related=Non
         if not has_label(concept):
             G.add((concept, RDFS.label, Literal(label)))
 
+        # setup an annotation for the quantity-flavored lastknownvalue shapes.
+        # The BSH.preferredDatatype will be removed in a later stage of Brick compilation
+        if "preferredDatatype" in defn:
+            preferredDatatype = defn.pop("preferredDatatype")
+            G.add((concept, BSH.preferredDatatype, preferredDatatype))
+
         # define concept hierarchy
         # this is a nested dictionary
         narrower_defs = defn.get(SKOS.narrower, {})
@@ -288,6 +299,15 @@ def define_classes(definitions, parent, pun_classes=False):
             G.add((classname, RDFS.label, Literal(class_label)))
         if pun_classes:
             G.add((classname, A, classname))
+
+        if BRICK.hasQuantity in defn:
+            quantity = defn[BRICK.hasQuantity].split("#")[-1]
+            lkv_shape = BSH[f"LastKnown{quantity}ValueShape"]
+            lkv_prop_shape = BNode()
+            G.add((classname, SH.property, lkv_prop_shape))
+            G.add((lkv_prop_shape, SH.path, BRICK.lastKnownValue))
+            G.add((lkv_prop_shape, SH.node, lkv_shape))
+            G.add((lkv_prop_shape, SH.maxCount, Literal(1)))
 
         # define mapping to tags if it exists
         # "tags" property is a list of URIs naming Tags
@@ -469,6 +489,10 @@ def define_shape_properties(definitions):
             G.add((brick_value_shape, SH.path, BRICK.value))
             G.add((brick_value_shape, SH.minCount, Literal(1)))
             G.add((brick_value_shape, SH.maxCount, Literal(1)))
+
+        # handle RDF annotations on the shape
+        other_props = {k: v for k, v in defn.items() if isinstance(k, URIRef)}
+        add_properties(shape_name, other_props)
 
         v = BNode()
         # prop:value PropertyShape
@@ -874,6 +898,7 @@ G.add((BRICK.EntityProperty, A, OWL.Class))
 G.add((BSH.ValueShape, A, OWL.Class))
 define_shape_properties(get_shapes(G))
 define_entity_properties(entity_properties)
+define_shape_properties(generate_last_known_value_shapes(G))
 
 handle_deprecations()
 
