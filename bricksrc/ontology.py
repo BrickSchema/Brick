@@ -32,10 +32,11 @@ ontology = {
     RDFS.seeAlso: URIRef("https://brickschema.org"),
 }
 
+# TODO: URL for RealEstateCore?
 ontology_imports = {
     "qudt": "http://qudt.org/2.1/schema/qudt",
-    # "https://w3id.org/rec",
     "shacl": "http://www.w3.org/ns/shacl",
+    "bacnet": "http://data.ashrae.org/bacnet/2020",
 }
 
 shacl_namespace_declarations = [
