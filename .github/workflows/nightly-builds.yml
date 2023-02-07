@@ -35,3 +35,4 @@ jobs:
           files: |
             Brick.ttl
             Brick+extensions.ttl
+            imports

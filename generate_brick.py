@@ -1,3 +1,6 @@
+import os
+from pathlib import Path
+import shutil
 import sys
 import csv
 import glob
@@ -9,7 +12,7 @@ from rdflib import Graph, Literal, BNode, URIRef
 from rdflib.namespace import XSD
 from rdflib.collection import Collection
 
-from bricksrc.ontology import define_ontology, BRICK_VERSION
+from bricksrc.ontology import define_ontology, BRICK_VERSION, ontology_imports
 
 from bricksrc.namespaces import (
     BRICK,
@@ -150,7 +153,6 @@ def add_tags(klass, definition):
     shaclGraph.add((rule, SH.object, klass))
     # conditions
     for tag in definition:
-
         classrule = BNode(f"add_{tag.split('#')[-1]}_to_{klass.split('#')[-1]}")
         G.add((klass, A, SH.NodeShape))
         G.add((klass, SH.rule, classrule))
@@ -386,7 +388,6 @@ def define_entity_properties(definitions, superprop=None):
 
 
 def define_shape_property_property(shape_name, definitions):
-
     # shape_detection_rule = BNode(f"_rule_for_{shape_name.split('#')[-1]}")
     # G.add((shape_detection_rule, A, SH.TripleRule))
     # G.add((shape_detection_rule, SH.subject, SH.this))
@@ -865,7 +866,7 @@ for r in res:
     for unit, symb, label in get_units_brick(brick_quant):
         G.add((brick_quant, QUDT.applicableUnit, unit))
 # all QUDT units
-for (unit, symb, label) in all_units():
+for unit, symb, label in all_units():
     G.add((unit, A, QUDT.Unit))
     if symb is not None:
         G.add((unit, QUDT.symbol, symb))
@@ -928,10 +929,18 @@ with open("Brick.ttl", "w", encoding="utf-8") as fp:
 for graph in extension_graphs.values():
     G += graph
 
-# import other ontologies
+# fetch other ontologies
+if os.path.exists("Brick+extensions.ttl"):
+    os.remove("Brick+extensions.ttl")  # remove extensions file before computing imports
+shutil.rmtree(
+    "imports", ignore_errors=True
+)  # create *new* directory for storing imports
+os.makedirs("imports", exist_ok=True)
 env = ontoenv.OntoEnv(initialize=True)
 env.refresh()
-env.import_dependencies(G)
+for name, uri in ontology_imports.items():
+    depg, loc = env.resolve_uri(str(uri))
+    depg.serialize(Path("imports") / f"{name}.ttl", format="ttl")
 
 with open("Brick+extensions.ttl", "w", encoding="utf-8") as fp:
     fp.write(G.serialize(format="turtle").rstrip())

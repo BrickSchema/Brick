@@ -2,7 +2,7 @@ from datetime import datetime
 from rdflib import Literal, BNode, URIRef
 from rdflib.collection import Collection
 
-from .namespaces import DCTERMS, SDO, RDFS, RDF, OWL, BRICK, TAG, BSH, SH, XSD
+from .namespaces import DCTERMS, SDO, RDFS, RDF, OWL, BRICK, SH, XSD
 from .version import BRICK_VERSION, BRICK_FULL_VERSION
 
 # defines metadata about the Brick ontology
@@ -32,10 +32,11 @@ ontology = {
     RDFS.seeAlso: URIRef("https://brickschema.org"),
 }
 
-imports = [
-    "http://qudt.org/2.1/schema/qudt",
-    "https://w3id.org/rec",
-]
+ontology_imports = {
+    "qudt": "http://qudt.org/2.1/schema/qudt",
+    # "https://w3id.org/rec",
+    "shacl": "http://www.w3.org/ns/shacl",
+}
 
 shacl_namespace_declarations = [
     {
@@ -88,7 +89,7 @@ def define_ontology(G):
         G.add((brick_iri_version, k, v))
 
     # add imports
-    for imp in imports:
+    for imp in ontology_imports.values():
         G.add((brick_iri_version, OWL.imports, Literal(imp)))
 
     # add SHACL namespace/prefix declarations for SHACL rules
