@@ -932,9 +932,7 @@ for graph in extension_graphs.values():
 # fetch other ontologies
 if os.path.exists("Brick+extensions.ttl"):
     os.remove("Brick+extensions.ttl")  # remove extensions file before computing imports
-shutil.rmtree(
-    "imports", ignore_errors=True
-)  # create *new* directory for storing imports
+# create new directory for storing imports
 os.makedirs("imports", exist_ok=True)
 env = ontoenv.OntoEnv(initialize=True)
 env.refresh()
