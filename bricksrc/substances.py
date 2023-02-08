@@ -36,7 +36,6 @@ substances = {
                                 "tags": [TAG.Fluid, TAG.Gas, TAG.Air, TAG.Exhaust],
                             },
                             "Supply_Air": {
-                                OWL.equivalentClass: BRICK["Discharge_Air"],
                                 "tags": [TAG.Fluid, TAG.Gas, TAG.Air, TAG.Supply],
                             },
                             "Discharge_Air": {
