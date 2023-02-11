@@ -1,6 +1,7 @@
 Term,Definition,See Also
 https://brickschema.org/schema/Brick#AHU,"Assembly consisting of sections containing a fan or fans and other necessary equipment to perform one or more of the following functions: circulating, filtration, heating, cooling, heat recovery, humidifying, dehumidifying, and mixing of air. Is usually connected to an air-distribution system.",
 https://brickschema.org/schema/Brick#Ablutions_Room,A room for performing cleansing rituals before prayer,
+https://brickschema.org/schema/Brick#Absolute_Humidity_Sensor,Measures the present state of absolute humidity,
 https://brickschema.org/schema/Brick#Absorption_Chiller,"A chiller that utilizes a thermal or/and chemical process to produce the refrigeration effect necessary to provide chilled water. There is no mechanical compression of the refrigerant taking place within the machine, as occurs within more traditional vapor compression type chillers.",
 https://brickschema.org/schema/Brick#Acceleration_Time,,
 https://brickschema.org/schema/Brick#Acceleration_Time_Setpoint,,

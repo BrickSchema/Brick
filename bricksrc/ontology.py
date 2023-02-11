@@ -2,7 +2,7 @@ from datetime import datetime
 from rdflib import Literal, BNode, URIRef
 from rdflib.collection import Collection
 
-from .namespaces import DCTERMS, SDO, RDFS, RDF, OWL, BRICK, TAG, BSH
+from .namespaces import DCTERMS, SDO, RDFS, RDF, OWL, BRICK, TAG, BSH, SH, XSD
 from .version import BRICK_VERSION, BRICK_FULL_VERSION
 
 # defines metadata about the Brick ontology
@@ -32,6 +32,29 @@ ontology = {
     RDFS.seeAlso: URIRef("https://brickschema.org"),
 }
 
+shacl_namespace_declarations = [
+    {
+        SH.namespace: Literal(str(RDF), datatype=XSD.anyURI),
+        SH.prefix: Literal("rdf"),
+    },
+    {
+        SH.namespace: Literal(str(RDFS), datatype=XSD.anyURI),
+        SH.prefix: Literal("rdfs"),
+    },
+    {
+        SH.namespace: Literal(str(BRICK), datatype=XSD.anyURI),
+        SH.prefix: Literal("brick"),
+    },
+    {
+        SH.namespace: Literal(str(OWL), datatype=XSD.anyURI),
+        SH.prefix: Literal("owl"),
+    },
+    {
+        SH.namespace: Literal(str(SH), datatype=XSD.anyURI),
+        SH.prefix: Literal("sh"),
+    },
+]
+
 
 def define_ontology(G):
     brick_iri_version = URIRef(f"https://brickschema.org/schema/{BRICK_VERSION}/Brick")
@@ -58,3 +81,10 @@ def define_ontology(G):
     # add other simple attributes
     for k, v in ontology.items():
         G.add((brick_iri_version, k, v))
+
+    # add SHACL namespace/prefix declarations for SHACL rules
+    for declaration in shacl_namespace_declarations:
+        decl = BNode()
+        G.add((brick_iri_version, SH.declare, decl))
+        for k, v in declaration.items():
+            G.add((decl, k, v))
