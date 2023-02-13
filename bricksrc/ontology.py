@@ -91,7 +91,7 @@ def define_ontology(G):
 
     # add imports
     for imp in ontology_imports.values():
-        G.add((brick_iri_version, OWL.imports, Literal(imp)))
+        G.add((brick_iri_version, OWL.imports, URIRef(imp)))
 
     # add SHACL namespace/prefix declarations for SHACL rules
     for declaration in shacl_namespace_declarations:
