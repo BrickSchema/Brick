@@ -44,8 +44,8 @@ from bricksrc.equipment import (
     safety_subclasses,
 )
 from bricksrc.substances import substances
+from bricksrc.relationships import relationships
 from bricksrc.quantities import quantity_definitions, get_units, all_units
-from bricksrc.properties import properties
 from bricksrc.entity_properties import shape_properties, entity_properties, get_shapes
 from bricksrc.deprecations import deprecations
 
@@ -67,7 +67,7 @@ shacl_tag_property_shapes = {}
 has_exactly_n_tags_shapes = {}
 
 
-def add_properties(item, propdefs):
+def add_relationships(item, propdefs):
     for propname, propval in propdefs.items():
         if isinstance(propval, list):
             for pv in propdefs:
@@ -239,10 +239,10 @@ def define_concept_hierarchy(definitions, typeclasses, broader=None, related=Non
         # this is a nested dictionary
         narrower_defs = defn.get(SKOS.narrower, {})
         if narrower_defs is not None and isinstance(narrower_defs, dict):
-            define_concept_hierarchy(narrower_defs, [BRICK.Quantity], broader=concept)
+            define_concept_hierarchy(narrower_defs, typeclasses, broader=concept)
         related_defs = defn.get(SKOS.related, {})
         if related_defs is not None and isinstance(related_defs, dict):
-            define_concept_hierarchy(related_defs, [BRICK.Quantity], related=concept)
+            define_concept_hierarchy(related_defs, typeclasses, related=concept)
 
         # handle 'parents' subconcepts (links outside of tree-based hierarchy)
         parents = defn.get("parents", [])
@@ -301,7 +301,7 @@ def define_classes(definitions, parent, pun_classes=False):
         # this is a nested dictionary
         subclassdef = defn.get("subclasses", {})
         assert isinstance(subclassdef, dict)
-        define_classes(subclassdef, classname, pun_classes=pun_classes)
+        define_classes(subclassdef, classname)
 
         # handle 'parents' subclasses (links outside of tree-based hierarchy)
         parents = defn.get("parents", [])
@@ -435,7 +435,7 @@ def define_shape_property_property(shape_name, definitions):
             G.add((prop_name, A, OWL.ObjectProperty))
         else:
             G.add((prop_name, A, OWL.ObjectProperty))
-        add_properties(ps, prop_defn)
+        add_relationships(ps, prop_defn)
 
 
 def define_shape_properties(definitions):
@@ -545,9 +545,9 @@ def define_shape_properties(definitions):
                     G.add((brick_value_shape, SH[prop_name], Literal(prop_value)))
 
 
-def define_properties(definitions, superprop=None):
+def define_relationships(definitions, superprop=None):
     """
-    Define BRICK properties
+    Define BRICK relationships
     """
     if len(definitions) == 0:
         return
@@ -558,6 +558,8 @@ def define_properties(definitions, superprop=None):
         if superprop is not None:
             G.add((prop, RDFS.subPropertyOf, superprop))
 
+        G.add((prop, RDFS.subPropertyOf, BRICK.Relationship))
+
         # define property types
         prop_types = propdefn.get(A, [])
         assert isinstance(prop_types, list)
@@ -567,7 +569,7 @@ def define_properties(definitions, superprop=None):
         # define any subproperties
         subproperties_def = propdefn.get("subproperties", {})
         assert isinstance(subproperties_def, dict)
-        define_properties(subproperties_def, prop)
+        define_relationships(subproperties_def, prop)
 
         # define range/domain using SHACL shapes
         if "range" in propdefn:
@@ -706,12 +708,21 @@ def handle_deprecations():
         G.add(
             (deprecated_term, RDFS.label, Literal(label))
         )  # make sure the tag is declared as such
-        subclasses = md.pop(RDFS.subClassOf)
-        if subclasses is not None:
-            if not isinstance(subclasses, list):
-                subclasses = [subclasses]
-            for subclass in subclasses:
-                G.add((deprecated_term, RDFS.subClassOf, subclass))
+        # handle subclasses or skos
+        if RDFS.subClassOf in md:
+            subclasses = md.pop(RDFS.subClassOf)
+            if subclasses is not None:
+                if not isinstance(subclasses, list):
+                    subclasses = [subclasses]
+                for subclass in subclasses:
+                    G.add((deprecated_term, RDFS.subClassOf, subclass))
+        elif SKOS.narrower in md:
+            subconcepts = md.pop(SKOS.narrower)
+            if subconcepts is not None:
+                if not isinstance(subconcepts, list):
+                    subconcepts = [subconcepts]
+                for subclass in subconcepts:
+                    G.add((deprecated_term, SKOS.narrower, subclass))
         G.add((deprecated_term, BRICK.deprecation, deprecation))
         G.add((deprecation, BRICK.deprecatedInVersion, Literal(md["version"])))
         G.add(
@@ -739,7 +750,13 @@ def handle_deprecations():
                     ),
                 )
             )
-            G.add((rule, SH.prefixes, URIRef(f"https://brickschema.org/schema/{BRICK_VERSION}/Brick")))
+            G.add(
+                (
+                    rule,
+                    SH.prefixes,
+                    URIRef(f"https://brickschema.org/schema/{BRICK_VERSION}/Brick"),
+                )
+            )
 
 
 logging.info("Beginning BRICK Ontology compilation")
@@ -768,7 +785,18 @@ define_classes(roots, BRICK.Entity)  # >= Brick v1.3.0
 
 logging.info("Defining properties")
 # define BRICK properties
-define_properties(properties)
+G.add((BRICK.Relationship, A, OWL.ObjectProperty))
+G.add((BRICK.Relationship, RDFS.label, Literal("Relationship")))
+G.add(
+    (
+        BRICK.Relationship,
+        SKOS.definition,
+        Literal(
+            "Super-property of all Brick relationships between entities (Equipment, Location, Point)"
+        ),
+    )
+)
+define_relationships(relationships)
 # add types to some external properties
 G.add((VCARD.hasAddress, A, OWL.ObjectProperty))
 G.add((VCARD.Address, A, OWL.Class))
@@ -830,7 +858,7 @@ G.add((BRICK.Substance, RDFS.label, Literal("Substance")))
 #                               brick:Temperature .
 #
 # This makes Substance metaclasses.
-define_classes(substances, BRICK.Substance, pun_classes=True)
+define_concept_hierarchy(substances, [BRICK.Substance])
 
 # this defines the SKOS-based concept hierarchy for BRICK Quantities
 define_concept_hierarchy(quantity_definitions, [BRICK.Quantity])
