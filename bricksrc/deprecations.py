@@ -1,4 +1,4 @@
-from .namespaces import BRICK, RDFS
+from .namespaces import BRICK, RDFS, SKOS
 
 deprecations = {
     BRICK.Supply_Water_Temperature_Sensor: {
@@ -56,67 +56,67 @@ deprecations = {
         "version": "1.3.0",
         "mitigation_message": "Swapped supply/return for entering/leaving with water-related points",
         "replace_with": BRICK.Leaving_Water,
-        RDFS.subClassOf: BRICK.Water,
+        SKOS.narrower: BRICK.Water,
     },
     BRICK.Supply_Chilled_Water: {
         "version": "1.3.0",
         "mitigation_message": "Swapped supply/return for entering/leaving with water-related points",
         "replace_with": BRICK.Leaving_Chilled_Water,
-        RDFS.subClassOf: BRICK.Chilled_Water,
+        SKOS.narrower: BRICK.Chilled_Water,
     },
     BRICK.Discharge_Water: {
         "version": "1.3.0",
         "mitigation_message": "Swapped supply/return for entering/leaving with water-related points",
         "replace_with": BRICK.Leaving_Water,
-        RDFS.subClassOf: BRICK.Water,
+        SKOS.narrower: BRICK.Water,
     },
     BRICK.Discharge_Chilled_Water: {
         "version": "1.3.0",
         "mitigation_message": "Swapped supply/return for entering/leaving with water-related points",
         "replace_with": BRICK.Leaving_Chilled_Water,
-        RDFS.subClassOf: BRICK.Chilled_Water,
+        SKOS.narrower: BRICK.Chilled_Water,
     },
     BRICK.Supply_Hot_Water: {
         "version": "1.3.0",
         "mitigation_message": "Swapped supply/return for entering/leaving with water-related points",
         "replace_with": BRICK.Leaving_Hot_Water,
-        RDFS.subClassOf: BRICK.Hot_Water,
+        SKOS.narrower: BRICK.Hot_Water,
     },
     BRICK.Discharge_Hot_Water: {
         "version": "1.3.0",
         "mitigation_message": "Swapped supply/return for entering/leaving with water-related points",
         "replace_with": BRICK.Leaving_Hot_Water,
-        RDFS.subClassOf: BRICK.Hot_Water,
+        SKOS.narrower: BRICK.Hot_Water,
     },
     BRICK.Return_Water: {
         "version": "1.3.0",
         "mitigation_message": "Swapped supply/return for entering/leaving with water-related points",
         "replace_with": BRICK.Entering_Water,
-        RDFS.subClassOf: BRICK.Water,
+        SKOS.narrower: BRICK.Water,
     },
     BRICK.Return_Hot_Water: {
         "version": "1.3.0",
         "mitigation_message": "Swapped supply/return for entering/leaving with water-related points",
         "replace_with": BRICK.Entering_Hot_Water,
-        RDFS.subClassOf: BRICK.Hot_Water,
+        SKOS.narrower: BRICK.Hot_Water,
     },
     BRICK.Supply_Condenser_Water: {
         "version": "1.3.0",
         "mitigation_message": "Swapped supply/return for entering/leaving with water-related points",
         "replace_with": BRICK.Leaving_Condenser_Water,
-        RDFS.subClassOf: BRICK.Condenser_Water,
+        SKOS.narrower: BRICK.Condenser_Water,
     },
     BRICK.Discharge_Condenser_Water: {
         "version": "1.3.0",
         "mitigation_message": "Swapped supply/return for entering/leaving with water-related points",
         "replace_with": BRICK.Leaving_Condenser_Water,
-        RDFS.subClassOf: BRICK.Condenser_Water,
+        SKOS.narrower: BRICK.Condenser_Water,
     },
     BRICK.Return_Condenser_Water: {
         "version": "1.3.0",
         "mitigation_message": "Swapped supply/return for entering/leaving with water-related points",
         "replace_with": BRICK.Entering_Condenser_Water,
-        RDFS.subClassOf: BRICK.Condenser_Water,
+        SKOS.narrower: BRICK.Condenser_Water,
     },
     BRICK.Heat_Exchanger_Supply_Water_Temperature_Sensor: {
         "version": "1.3.0",
@@ -424,7 +424,7 @@ deprecations = {
         "mitigation_message": "Swapped supply/return for entering/leaving with water-related points",
         "replace_with": BRICK.Leaving_Condenser_Water,
         "version": "1.3.0",
-        RDFS.subClassOf: BRICK.Condenser_Water,
+        SKOS.narrower: BRICK.Condenser_Water,
     },
     BRICK.Supply_Condenser_Water_Flow_Sensor: {
         "mitigation_message": "Swapped supply/return for entering/leaving with water-related points",

@@ -69,6 +69,7 @@ def test_entity_property_type_inference():
     assert len(res) == 1
     os.remove("test.ttl")
 
+
 def test_last_known_value():
     g = brickschema.Graph()
     EX = Namespace("urn:ex#")

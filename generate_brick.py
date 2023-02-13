@@ -239,10 +239,10 @@ def define_concept_hierarchy(definitions, typeclasses, broader=None, related=Non
         # this is a nested dictionary
         narrower_defs = defn.get(SKOS.narrower, {})
         if narrower_defs is not None and isinstance(narrower_defs, dict):
-            define_concept_hierarchy(narrower_defs, [BRICK.Quantity], broader=concept)
+            define_concept_hierarchy(narrower_defs, typeclasses, broader=concept)
         related_defs = defn.get(SKOS.related, {})
         if related_defs is not None and isinstance(related_defs, dict):
-            define_concept_hierarchy(related_defs, [BRICK.Quantity], related=concept)
+            define_concept_hierarchy(related_defs, typeclasses, related=concept)
 
         # handle 'parents' subconcepts (links outside of tree-based hierarchy)
         parents = defn.get("parents", [])
@@ -301,7 +301,7 @@ def define_classes(definitions, parent, pun_classes=False):
         # this is a nested dictionary
         subclassdef = defn.get("subclasses", {})
         assert isinstance(subclassdef, dict)
-        define_classes(subclassdef, classname, pun_classes=pun_classes)
+        define_classes(subclassdef, classname)
 
         # handle 'parents' subclasses (links outside of tree-based hierarchy)
         parents = defn.get("parents", [])
@@ -708,12 +708,21 @@ def handle_deprecations():
         G.add(
             (deprecated_term, RDFS.label, Literal(label))
         )  # make sure the tag is declared as such
-        subclasses = md.pop(RDFS.subClassOf)
-        if subclasses is not None:
-            if not isinstance(subclasses, list):
-                subclasses = [subclasses]
-            for subclass in subclasses:
-                G.add((deprecated_term, RDFS.subClassOf, subclass))
+        # handle subclasses or skos
+        if RDFS.subClassOf in md:
+            subclasses = md.pop(RDFS.subClassOf)
+            if subclasses is not None:
+                if not isinstance(subclasses, list):
+                    subclasses = [subclasses]
+                for subclass in subclasses:
+                    G.add((deprecated_term, RDFS.subClassOf, subclass))
+        elif SKOS.narrower in md:
+            subconcepts = md.pop(SKOS.narrower)
+            if subconcepts is not None:
+                if not isinstance(subconcepts, list):
+                    subconcepts = [subconcepts]
+                for subclass in subconcepts:
+                    G.add((deprecated_term, SKOS.narrower, subclass))
         G.add((deprecated_term, BRICK.deprecation, deprecation))
         G.add((deprecation, BRICK.deprecatedInVersion, Literal(md["version"])))
         G.add(
@@ -741,7 +750,13 @@ def handle_deprecations():
                     ),
                 )
             )
-            G.add((rule, SH.prefixes, URIRef(f"https://brickschema.org/schema/{BRICK_VERSION}/Brick")))
+            G.add(
+                (
+                    rule,
+                    SH.prefixes,
+                    URIRef(f"https://brickschema.org/schema/{BRICK_VERSION}/Brick"),
+                )
+            )
 
 
 logging.info("Beginning BRICK Ontology compilation")
@@ -843,7 +858,7 @@ G.add((BRICK.Substance, RDFS.label, Literal("Substance")))
 #                               brick:Temperature .
 #
 # This makes Substance metaclasses.
-define_classes(substances, BRICK.Substance, pun_classes=True)
+define_concept_hierarchy(substances, [BRICK.Substance])
 
 # this defines the SKOS-based concept hierarchy for BRICK Quantities
 define_concept_hierarchy(quantity_definitions, [BRICK.Quantity])
