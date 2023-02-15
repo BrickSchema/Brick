@@ -34,7 +34,7 @@ ontology = {
 
 # TODO: URL for RealEstateCore?
 ontology_imports = {
-    "qudt": "http://qudt.org/2.1/schema/qudt",
+    "qudt": "http://qudt.org/2.1/schema/shacl/qudt",
     "shacl": "http://www.w3.org/ns/shacl",
     "bacnet": "http://data.ashrae.org/bacnet/2020",
 }
