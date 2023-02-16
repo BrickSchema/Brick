@@ -539,7 +539,7 @@ https://brickschema.org/schema/Brick#Humidity_Parameter,Parameters relevant to h
 https://brickschema.org/schema/Brick#Humidity_Sensor,Measures the concentration of water vapor in air,https://en.wikipedia.org/wiki/Humidity
 https://brickschema.org/schema/Brick#Humidity_Setpoint,Sets humidity,
 https://brickschema.org/schema/Brick#Humidity_Tolerance_Parameter,A parameter determining the difference between upper and lower limits of humidity.,
-https://brickschema.org/schema/Brick#ICT_Device,Information and Communications Technology (ICT) devices operate with a processor to process data or logic and create digital signals.,
+https://brickschema.org/schema/Brick#ICT_Equipment,Information and Communications Technology (ICT) equipment operates with a processor to process data or logic and create digital signals.,
 https://brickschema.org/schema/Brick#IDF,"An room for an intermediate distribution frame, where cables carrying signals from the main distrubtion frame terminate and then feed out to endpoints",
 https://brickschema.org/schema/Brick#Ice,Water in its solid form,
 https://brickschema.org/schema/Brick#Ice_Tank_Leaving_Water_Temperature_Sensor,Measures the temperature of water leaving an ice tank,
@@ -909,7 +909,7 @@ https://brickschema.org/schema/Brick#Sash_Position_Sensor,Measures the current p
 https://brickschema.org/schema/Brick#Schedule_Temperature_Setpoint,The current setpoint as indicated by the schedule,
 https://brickschema.org/schema/Brick#Security_Service_Room,A class of spaces used by the security staff of a facility,
 https://brickschema.org/schema/Brick#Sensor,A Sensor is an input point that represents the value of a device or instrument designed to detect and measure a variable (ASHRAE Dictionary).,
-https://brickschema.org/schema/Brick#Sensor_Device,A device for sensing some physical properties,
+https://brickschema.org/schema/Brick#Sensor_Equipment,A piece of equipment for sensing some physical properties,
 https://brickschema.org/schema/Brick#Server_Room,,
 https://brickschema.org/schema/Brick#Service_Room,"A class of spaces related to the operations of building subsystems, e.g. HVAC, electrical, IT, plumbing, etc",
 https://brickschema.org/schema/Brick#Setpoint,A Setpoint is an input value at which the desired property is set,https://xp20.ashrae.org/terminology/index.php?term=setpoint

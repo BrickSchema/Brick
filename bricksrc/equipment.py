@@ -5,10 +5,10 @@ from .namespaces import TAG, OWL, BRICK
 Set up subclasses of the equipment superclass
 """
 equipment_subclasses = {
-    "ICT_Device": {
+    "ICT_Equipment": {
         "tags": [TAG.ICT, TAG.Equipment],
         "subclasses": {
-            "Sensor_Device": {
+            "Sensor_Equipment": {
                 "tags": [TAG.Sensor, TAG.Equipment, TAG.ICT],
             }
         },
