@@ -42,6 +42,7 @@ https://brickschema.org/schema/Brick#Angle_Sensor,Measues the planar angle of so
 https://brickschema.org/schema/Brick#Apparent_Power,"Apparent Power is the product of the rms voltage (U) between the terminals of a two-terminal element or two-terminal circuit and the rms electric current I in the element or circuit. Under sinusoidal conditions, the apparent power is the modulus of the complex power.",
 https://brickschema.org/schema/Brick#Atmospheric_Pressure,"The pressure exerted by the weight of the air above it at any point on the earth's surface. At sea level the atmosphere will support a column of mercury about (760 mm) high. This decreases with increasing altitude. The standard value for the atmospheric pressure at sea level in SI units is (101,325 pascals).",
 https://brickschema.org/schema/Brick#Atrium,a large open-air or skylight covered space surrounded by a building.,https://en.wikipedia.org/wiki/Atrium_(architecture)
+https://brickschema.org/schema/Brick#Audio_Visual_Equipment,Equipment related to sound and visual components such as speakers and displays.,
 https://brickschema.org/schema/Brick#Auditorium,A space for performances or larger gatherings,
 https://brickschema.org/schema/Brick#Automatic_Mode_Command,"Controls whether or not a device or controller is operating in ""Automatic"" mode",
 https://brickschema.org/schema/Brick#Automatic_Tint_Window,A window with tint control.,

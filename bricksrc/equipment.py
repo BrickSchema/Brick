@@ -10,7 +10,10 @@ equipment_subclasses = {
         "subclasses": {
             "Sensor_Equipment": {
                 "tags": [TAG.Sensor, TAG.Equipment, TAG.ICT],
-            }
+            },
+            "Audio_Visual_Equipment": {
+                "tags": [TAG.Equipment, TAG.ICT, TAG.Audio, TAG.Visual]
+            },
         },
     },
     "HVAC_Equipment": {
