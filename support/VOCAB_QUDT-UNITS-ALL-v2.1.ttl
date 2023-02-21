@@ -2591,7 +2591,7 @@ unit:C3-M-PER-J2
   qudt:derivedCoherentUnitOfSystem sou:SI ;
   qudt:expression "\\(C^{3} m^{3} J^{-2}\\)"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E3L-1I0M-2H0T7D0 ;
-  qudt:hasQuantityKind quantitykind:CubicElectricDipoleMomentPerSquareEnergy ;
+  qudt:hasQuantityKind quantitykind:ElectricDipoleMoment_CubicPerEnergy_Squared ;
   qudt:symbol "C³⋅m³/J²" ;
   qudt:ucumCode "C3.m.J-2"^^qudt:UCUMcs ;
   qudt:ucumCode "C3.m/J2"^^qudt:UCUMcs ;
@@ -2606,7 +2606,7 @@ unit:C4-M4-PER-J3
   qudt:derivedCoherentUnitOfSystem sou:SI ;
   qudt:expression "\\(C^4m^4/J^3\\)"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E4L-2I0M-3H0T10D0 ;
-  qudt:hasQuantityKind quantitykind:QuarticElectricDipoleMomentPerCubicEnergy ;
+  qudt:hasQuantityKind quantitykind:ElectricDipoleMoment_QuarticPerEnergy_Cubic ;
   qudt:symbol "C⁴m⁴/J³" ;
   qudt:ucumCode "C4.m4.J-3"^^qudt:UCUMcs ;
   qudt:ucumCode "C4.m4/J3"^^qudt:UCUMcs ;
@@ -2788,7 +2788,7 @@ unit:CAL_TH-PER-CentiM-SEC-DEG_C
 unit:CAL_TH-PER-G
   a qudt:Unit ;
   dcterms:description "\\(Thermochemical Calorie. Calories produced per gram of substance.\\)"^^qudt:LatexString ;
-  dcterms:isReplacedBy "unit:CAL_TH-PER-GM" ;
+  dcterms:isReplacedBy unit:CAL_TH-PER-GM ;
   qudt:conversionMultiplier 4184.0 ;
   qudt:definedUnitOfSystem sou:USCS ;
   qudt:expression "\\(cal\\)"^^qudt:LatexString ;
@@ -4582,12 +4582,12 @@ unit:DEG_F-PER-SEC
 .
 unit:DEG_F-PER-SEC2
   a qudt:Unit ;
-  dcterms:description "\\(\\textit{Degree Fahrenheit per Square Second}\\) is a C.G.S System unit for expressinh the acceleration of a temperature expressed as \\(degF / s^2\\)."^^qudt:LatexString ;
+  dcterms:description "\\(\\textit{Degree Fahrenheit per Square Second}\\) is a C.G.S System unit for expressing the acceleration of a temperature expressed as \\(degF / s^2\\)."^^qudt:LatexString ;
   qudt:definedUnitOfSystem sou:IMPERIAL ;
   qudt:definedUnitOfSystem sou:USCS ;
   qudt:expression "\\(degF / s^2\\)"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H1T-2D0 ;
-  qudt:hasQuantityKind quantitykind:TemperaturePerTime ;
+  qudt:hasQuantityKind quantitykind:TemperaturePerTime_Squared ;
   qudt:plainTextDescription "'Degree Fahrenheit per Square Second' is a unit for expressing the acceleration of a temperature expressed as 'degF /s2'." ;
   qudt:symbol "°F/s²" ;
   qudt:ucumCode "[degF].s-2"^^qudt:UCUMcs ;
@@ -9395,7 +9395,7 @@ unit:J-PER-T2
   qudt:derivedCoherentUnitOfSystem sou:SI ;
   qudt:expression "\\(J T^{-2}\\)"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E2L2I0M-1H0T2D0 ;
-  qudt:hasQuantityKind quantitykind:EnergyPerSquareMagneticFluxDensity ;
+  qudt:hasQuantityKind quantitykind:EnergyPerMagneticFluxDensity_Squared ;
   qudt:informativeReference "http://www.eng.fsu.edu/~dommelen/quantum/style_a/elecmagfld.html"^^xsd:anyURI ;
   qudt:symbol "J/T²" ;
   qudt:ucumCode "J.T-2"^^qudt:UCUMcs ;
@@ -13787,6 +13787,22 @@ unit:MI-PER-MIN
   qudt:unitOfSystem sou:IMPERIAL ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
   rdfs:label "Mile per Minute"@en ;
+.
+unit:MI-PER-SEC
+  a qudt:Unit ;
+  dcterms:description "Miles per second is an imperial unit of speed expressing the number of statute miles covered in one second."^^rdf:HTML ;
+  qudt:conversionMultiplier 1609.344 ;
+  qudt:definedUnitOfSystem sou:IMPERIAL ;
+  qudt:definedUnitOfSystem sou:USCS ;
+  qudt:expression "\\(mi/sec\\)"^^qudt:LatexString ;
+  qudt:hasDimensionVector qkdv:A0E0L1I0M0H0T-1D0 ;
+  qudt:hasQuantityKind quantitykind:Velocity ;
+  qudt:symbol "mi/sec" ;
+  qudt:ucumCode "[mi_i].sec-1"^^qudt:UCUMcs ;
+  qudt:ucumCode "[mi_i]/sec"^^qudt:UCUMcs ;
+  qudt:unitOfSystem sou:IMPERIAL ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
+  rdfs:label "Mile per Second"@en ;
 .
 unit:MI2
   a qudt:DerivedUnit ;
@@ -20001,7 +20017,7 @@ unit:PER-GigaEV2
   qudt:conversionMultiplier 38956440500000000000.0 ;
   qudt:expression "\\(/GeV^2\\)"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L-4I0M-2H0T4D0 ;
-  qudt:hasQuantityKind quantitykind:InverseSquareEnergy ;
+  qudt:hasQuantityKind quantitykind:InverseEnergy_Squared ;
   qudt:symbol "/GeV²" ;
   qudt:ucumCode "GeV-2"^^qudt:UCUMcs ;
   qudt:unitOfSystem sou:CGS ;
@@ -20494,7 +20510,7 @@ unit:PER-PlanckMass2
   qudt:conversionMultiplier 2111089000000000.0 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Planck_mass"^^xsd:anyURI ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M-2H0T0D0 ;
-  qudt:hasQuantityKind quantitykind:InverseSquareMass ;
+  qudt:hasQuantityKind quantitykind:InverseMass_Squared ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Planck_mass?oldid=493648632"^^xsd:anyURI ;
   qudt:informativeReference "https://en.wikipedia.org/wiki/Planck_units"^^xsd:anyURI ;
   qudt:latexDefinition "\\(m_P = \\sqrt{\\frac{ \\hbar c^3}{G}} \\approx 1.2209 \\times 10^{19} GeV/c^2 = 2.17651(13) \\times 10^{-8}\\), where \\(c\\) is the speed of light in a vacuum, \\(\\hbar\\) is the reduced Planck's constant, and \\(G\\) is the gravitational constant. The two digits enclosed by parentheses are the estimated standard error associated with the reported numerical value."^^qudt:LatexString ;
@@ -22902,7 +22918,7 @@ unit:SEC2
   qudt:derivedCoherentUnitOfSystem sou:SI ;
   qudt:expression "\\(s^2\\)"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T2D0 ;
-  qudt:hasQuantityKind quantitykind:TimeSquared ;
+  qudt:hasQuantityKind quantitykind:Time_Squared ;
   qudt:symbol "s²" ;
   qudt:ucumCode "s2"^^qudt:UCUMcs ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;

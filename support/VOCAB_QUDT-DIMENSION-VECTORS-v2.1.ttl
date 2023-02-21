@@ -1634,6 +1634,23 @@ qkdv:A0E0L0I0M0H1T-1D0
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/dimensionvector> ;
   rdfs:label "A0E0L0I0M0H1T-1D0" ;
 .
+qkdv:A0E0L0I0M0H1T-2D0
+  a qudt:QuantityKindDimensionVector_ISO ;
+  a qudt:QuantityKindDimensionVector_Imperial ;
+  a qudt:QuantityKindDimensionVector_SI ;
+  qudt:dimensionExponentForAmountOfSubstance 0 ;
+  qudt:dimensionExponentForElectricCurrent 0 ;
+  qudt:dimensionExponentForLength 0 ;
+  qudt:dimensionExponentForLuminousIntensity 0 ;
+  qudt:dimensionExponentForMass 0 ;
+  qudt:dimensionExponentForThermodynamicTemperature 1 ;
+  qudt:dimensionExponentForTime -2 ;
+  qudt:dimensionlessExponent 0 ;
+  qudt:hasReferenceQuantityKind quantitykind:TemperaturePerTime_Squared ;
+  qudt:latexDefinition "\\(T^-2 Θ\\)"^^qudt:LatexString ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/dimensionvector> ;
+  rdfs:label "A0E0L0I0M0H1T-2D0" ;
+.
 qkdv:A0E0L0I0M0H1T0D0
   a qudt:QuantityKindDimensionVector_ISO ;
   a qudt:QuantityKindDimensionVector_Imperial ;
