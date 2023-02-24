@@ -5,6 +5,17 @@ from .namespaces import TAG, OWL, BRICK
 Set up subclasses of the equipment superclass
 """
 equipment_subclasses = {
+    "ICT_Equipment": {
+        "tags": [TAG.ICT, TAG.Equipment],
+        "subclasses": {
+            "Sensor_Equipment": {
+                "tags": [TAG.Sensor, TAG.Equipment, TAG.ICT],
+            },
+            "Audio_Visual_Equipment": {
+                "tags": [TAG.Equipment, TAG.ICT, TAG.Audio, TAG.Visual]
+            },
+        },
+    },
     "HVAC_Equipment": {
         "tags": [TAG.HVAC, TAG.Equipment],
         "constraints": {
