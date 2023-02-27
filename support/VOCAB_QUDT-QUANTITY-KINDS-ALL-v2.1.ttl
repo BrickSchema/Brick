@@ -3034,6 +3034,15 @@ quantitykind:CorrelatedColorTemperature
   rdfs:seeAlso quantitykind:Duv ;
   skos:broader quantitykind:ThermodynamicTemperature ;
 .
+quantitykind:Count
+  a qudt:QuantityKind ;
+  qudt:applicableUnit unit:UNITLESS ;
+  qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
+  qudt:plainTextDescription "\"Count\" is the value of a count of items." ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
+  rdfs:label "Count"@en ;
+  skos:broader quantitykind:Dimensionless ;
+.
 quantitykind:CouplingFactor
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:UNITLESS ;
@@ -3101,10 +3110,12 @@ quantitykind:CrossSectionalArea
 .
 quantitykind:CubicElectricDipoleMomentPerSquareEnergy
   a qudt:QuantityKind ;
+  dcterms:isReplacedBy quantitykind:ElectricDipoleMoment_CubicPerEnergy_Squared ;
   qudt:applicableUnit unit:C3-M-PER-J2 ;
   qudt:hasDimensionVector qkdv:A0E3L-1I0M-2H0T7D0 ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Cubic Electric Dipole Moment per Square Energy"@en ;
+  owl:deprecated true ;
 .
 quantitykind:CubicExpansionCoefficient
   a qudt:QuantityKind ;
@@ -4892,6 +4903,20 @@ quantitykind:ElectricDipoleMoment
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Electric Dipole Moment"@en ;
 .
+quantitykind:ElectricDipoleMoment_CubicPerEnergy_Squared
+  a qudt:QuantityKind ;
+  qudt:applicableUnit unit:C3-M-PER-J2 ;
+  qudt:hasDimensionVector qkdv:A0E3L-1I0M-2H0T7D0 ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
+  rdfs:label "Cubic Electric Dipole Moment per Square Energy"@en ;
+.
+quantitykind:ElectricDipoleMoment_QuarticPerEnergy_Cubic
+  a qudt:QuantityKind ;
+  qudt:applicableUnit unit:C4-M4-PER-J3 ;
+  qudt:hasDimensionVector qkdv:A0E4L-2I0M-3H0T10D0 ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
+  rdfs:label "Quartic Electric Dipole Moment per Cubic Energy"@en ;
+.
 quantitykind:ElectricDisplacement
   a qudt:QuantityKind ;
   dcterms:description "In a dielectric material the presence of an electric field E causes the bound charges in the material (atomic nuclei and their electrons) to slightly separate, inducing a local electric dipole moment. The Electric Displacement Field, \\(D\\), is a vector field that accounts for the effects of free charges within such dielectric materials. This describes also the charge density on an extended surface that could be causing the field."^^qudt:LatexString ;
@@ -5977,6 +6002,14 @@ quantitykind:EnergyPerElectricCharge
   owl:sameAs quantitykind:ElectricPotentialDifference ;
   owl:sameAs quantitykind:Voltage ;
 .
+quantitykind:EnergyPerMagneticFluxDensity_Squared
+  a qudt:QuantityKind ;
+  qudt:applicableUnit unit:J-PER-T2 ;
+  qudt:hasDimensionVector qkdv:A0E2L2I0M-1H0T2D0 ;
+  qudt:plainTextDescription "\"Energy Per Square Magnetic Flux Density\" is a measure of energy for a unit of magnetic flux density." ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
+  rdfs:label "Energy Per Square Magnetic Flux Density"@en ;
+.
 quantitykind:EnergyPerMassAmountOfSubstance
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:BTU_IT-PER-LB-MOL ;
@@ -5986,11 +6019,13 @@ quantitykind:EnergyPerMassAmountOfSubstance
 .
 quantitykind:EnergyPerSquareMagneticFluxDensity
   a qudt:QuantityKind ;
+  dcterms:isReplacedBy quantitykind:EnergyPerMagneticFluxDensity_Squared ;
   qudt:applicableUnit unit:J-PER-T2 ;
   qudt:hasDimensionVector qkdv:A0E2L2I0M-1H0T2D0 ;
   qudt:plainTextDescription "\"Energy Per Square Magnetic Flux Density\" is a measure of energy for a unit of magnetic flux density." ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Energy Per Square Magnetic Flux Density"@en ;
+  owl:deprecated true ;
 .
 quantitykind:EnergyPerTemperature
   a qudt:QuantityKind ;
@@ -5998,6 +6033,12 @@ quantitykind:EnergyPerTemperature
   qudt:hasDimensionVector qkdv:A0E0L2I0M1H-1T-2D0 ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Energy per temperature"@en ;
+.
+quantitykind:Energy_Squared
+  a qudt:QuantityKind ;
+  qudt:hasDimensionVector qkdv:A0E0L4I0M2H0T-4D0 ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
+  rdfs:label "Square Energy"@en ;
 .
 quantitykind:Enthalpy
   a qudt:QuantityKind ;
@@ -8569,6 +8610,13 @@ quantitykind:InverseEnergy
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Inverse Energy"@en ;
 .
+quantitykind:InverseEnergy_Squared
+  a qudt:QuantityKind ;
+  qudt:applicableUnit unit:PER-GigaEV2 ;
+  qudt:hasDimensionVector qkdv:A0E0L-4I0M-2H0T4D0 ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
+  rdfs:label "Inverse Square Energy"@en ;
+.
 quantitykind:InverseLength
   a qudt:QuantityKind ;
   dcterms:description "Reciprocal length or inverse length is a measurement used in several branches of science and mathematics. As the reciprocal of length, common units used for this measurement include the reciprocal metre or inverse metre (\\(m^{-1}\\)), the reciprocal centimetre or inverse centimetre (\\(cm^{-1}\\)), and, in optics, the dioptre."^^qudt:LatexString ;
@@ -8603,6 +8651,13 @@ quantitykind:InverseMagneticFlux
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Inverse Magnetic Flux"@en ;
 .
+quantitykind:InverseMass_Squared
+  a qudt:QuantityKind ;
+  qudt:applicableUnit unit:PER-PlanckMass2 ;
+  qudt:hasDimensionVector qkdv:A0E0L0I0M-2H0T0D0 ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
+  rdfs:label "Inverse Square Mass"@en ;
+.
 quantitykind:InversePermittivity
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:M-PER-FARAD ;
@@ -8624,23 +8679,29 @@ quantitykind:InversePressure
 .
 quantitykind:InverseSquareEnergy
   a qudt:QuantityKind ;
+  dcterms:isReplacedBy quantitykind:InverseEnergy_Squared ;
   qudt:applicableUnit unit:PER-GigaEV2 ;
   qudt:hasDimensionVector qkdv:A0E0L-4I0M-2H0T4D0 ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Inverse Square Energy"@en ;
+  owl:deprecated true ;
 .
 quantitykind:InverseSquareMass
   a qudt:QuantityKind ;
+  dcterms:isReplacedBy quantitykind:InverseMass_Squared ;
   qudt:applicableUnit unit:PER-PlanckMass2 ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M-2H0T0D0 ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Inverse Square Mass"@en ;
+  owl:deprecated true ;
 .
 quantitykind:InverseSquareTime
   a qudt:QuantityKind ;
+  dcterms:isReplacedBy quantitykind:InverseTime_Squared ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T-2D0 ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Inverse Square Time"@en ;
+  owl:deprecated true ;
 .
 quantitykind:InverseTemperature
   a qudt:QuantityKind ;
@@ -8662,6 +8723,12 @@ quantitykind:InverseTimeTemperature
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H-1T-1D0 ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Inverse Time Temperature"@en ;
+.
+quantitykind:InverseTime_Squared
+  a qudt:QuantityKind ;
+  qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T-2D0 ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
+  rdfs:label "Inverse Square Time"@en ;
 .
 quantitykind:InverseVolume
   a qudt:QuantityKind ;
@@ -12619,6 +12686,14 @@ quantitykind:NonActivePower
   rdfs:seeAlso quantitykind:ActivePower ;
   rdfs:seeAlso quantitykind:ApparentPower ;
 .
+quantitykind:NonNegativeLength
+  a qudt:QuantityKind ;
+  qudt:hasDimensionVector qkdv:A0E0L1I0M0H0T0D0 ;
+  qudt:plainTextDescription "\"NonNegativeLength\" is a measure of length greater than or equal to zero." ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
+  rdfs:label "Positive Length"@en ;
+  skos:broader quantitykind:Length ;
+.
 quantitykind:NormalStress
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:ATM ;
@@ -14093,6 +14168,23 @@ quantitykind:PositiveDimensionlessRatio
   rdfs:label "Positive Dimensionless Ratio"@en ;
   skos:broader quantitykind:DimensionlessRatio ;
 .
+quantitykind:PositiveLength
+  a qudt:QuantityKind ;
+  qudt:hasDimensionVector qkdv:A0E0L1I0M0H0T0D0 ;
+  qudt:plainTextDescription "\"PositiveLength\" is a measure of length strictly greater than zero." ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
+  rdfs:label "Positive Length"@en ;
+  skos:broader quantitykind:NonNegativeLength ;
+.
+quantitykind:PositivePlaneAngle
+  a qudt:QuantityKind ;
+  qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
+  qudt:informativeReference "http://www.thefreedictionary.com/plane+angle"^^xsd:anyURI ;
+  qudt:plainTextDescription "A \"PositivePlaneAngle\" is a plane angle strictly greater than zero." ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
+  rdfs:label "Positive Plane Angle"@en ;
+  skos:broader quantitykind:PlaneAngle ;
+.
 quantitykind:PotentialEnergy
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:AttoJ ;
@@ -14606,10 +14698,12 @@ quantitykind:QuantumNumber
 .
 quantitykind:QuarticElectricDipoleMomentPerCubicEnergy
   a qudt:QuantityKind ;
+  dcterms:isReplacedBy quantitykind:ElectricDipoleMoment_QuarticPerEnergy_Cubic ;
   qudt:applicableUnit unit:C4-M4-PER-J3 ;
   qudt:hasDimensionVector qkdv:A0E4L-2I0M-3H0T10D0 ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Quartic Electric Dipole Moment per Cubic Energy"@en ;
+  owl:deprecated true ;
 .
 quantitykind:RESERVE-MASS
   a qudt:QuantityKind ;
@@ -17380,9 +17474,11 @@ quantitykind:SpinQuantumNumber
 .
 quantitykind:SquareEnergy
   a qudt:QuantityKind ;
+  dcterms:isReplacedBy quantitykind:Energy_Squared ;
   qudt:hasDimensionVector qkdv:A0E0L4I0M2H0T-4D0 ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Square Energy"@en ;
+  owl:deprecated true ;
 .
 quantitykind:StagePropellantMass
   a qudt:QuantityKind ;
@@ -18161,6 +18257,12 @@ quantitykind:TemperaturePerTime
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Temperature per Time"@en ;
 .
+quantitykind:TemperaturePerTime_Squared
+  a qudt:QuantityKind ;
+  qudt:hasDimensionVector qkdv:A0E0L0I0M0H1T-2D0 ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
+  rdfs:label "Temperature per Time Squared"@en ;
+.
 quantitykind:TemperatureRateOfChange
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:DEG_C-PER-HR ;
@@ -18826,11 +18928,13 @@ quantitykind:TimePercentage
 .
 quantitykind:TimeSquared
   a qudt:QuantityKind ;
+  dcterms:isReplacedBy quantitykind:Time_Squared ;
   qudt:applicableUnit unit:SEC2 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Time_Squared"^^xsd:anyURI ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T2D0 ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Time Squared"@en ;
+  owl:deprecated true ;
 .
 quantitykind:TimeTemperature
   a qudt:QuantityKind ;
@@ -18841,6 +18945,14 @@ quantitykind:TimeTemperature
   qudt:isoNormativeReference "http://www.iso.org/iso/catalogue_detail?csnumber=31890"^^xsd:anyURI ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Time Temperature"@en ;
+.
+quantitykind:Time_Squared
+  a qudt:QuantityKind ;
+  qudt:applicableUnit unit:SEC2 ;
+  qudt:dbpediaMatch "http://dbpedia.org/resource/Time_Squared"^^xsd:anyURI ;
+  qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T2D0 ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
+  rdfs:label "Time Squared"@en ;
 .
 quantitykind:Torque
   a qudt:QuantityKind ;
@@ -20367,38 +20479,4 @@ vaem:GMD_QUDT-QUANTITY-KINDS-ALL
   vaem:withAttributionTo <http://voag.linkedmodel.org/voag/QUDT-Attribution> ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "QUDT Quantity Kinds Vocabulary Version 2.1.24" ;
-.
-quantitykind:Count
-  a qudt:QuantityKind ;
-  qudt:plainTextDescription "\"Count\" is the value of a count of items." ;
-  qudt:applicableUnit unit:UNITLESS ;
-  qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
-  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
-  rdfs:label "Count"@en ;
-  skos:broader quantitykind:Dimensionless ;
-.
-quantitykind:PositiveLength
-  a qudt:QuantityKind ;
-  qudt:hasDimensionVector qkdv:A0E0L1I0M0H0T0D0 ;
-  qudt:plainTextDescription "\"PositiveLength\" is a measure of length strictly greater than zero." ;
-  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
-  rdfs:label "Positive Length"@en ;
-  skos:broader quantitykind:NonNegativeLength ;
-.
-quantitykind:NonNegativeLength
-  a qudt:QuantityKind ;
-  qudt:hasDimensionVector qkdv:A0E0L1I0M0H0T0D0 ;
-  qudt:plainTextDescription "\"NonNegativeLength\" is a measure of length greater than or equal to zero." ;
-  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
-  rdfs:label "Positive Length"@en ;
-  skos:broader quantitykind:Length ;
-.
-quantitykind:PositivePlaneAngle
-  a qudt:QuantityKind ;
-  qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
-  qudt:informativeReference "http://www.thefreedictionary.com/plane+angle"^^xsd:anyURI ;
-  qudt:plainTextDescription "A \"PositivePlaneAngle\" is a plane angle strictly greater than zero." ;
-  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
-  rdfs:label "Positive Plane Angle"@en ;
-  skos:broader quantitykind:PlaneAngle ;
 .
