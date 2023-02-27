@@ -34,7 +34,12 @@ ontology = {
 
 # TODO: URL for RealEstateCore?
 ontology_imports = {
-    "qudt": "http://qudt.org/2.1/schema/qudt",
+    "qudtschema": "http://qudt.org/2.1/schema/shacl/qudt",
+    "qudtfacade": "http://qudt.org/2.1/schema/facade/qudt",
+    "qudtsou": "http://qudt.org/2.1/vocab/sou",
+    "unit": "http://qudt.org/2.1/vocab/unit",
+    "quantitykind": "http://qudt.org/2.1/vocab/quantitykind",
+    "dimensionvector": "http://qudt.org/2.1/vocab/dimensionvector",
     "shacl": "http://www.w3.org/ns/shacl",
     "bacnet": "http://data.ashrae.org/bacnet/2020",
 }
@@ -91,7 +96,7 @@ def define_ontology(G):
 
     # add imports
     for imp in ontology_imports.values():
-        G.add((brick_iri_version, OWL.imports, Literal(imp)))
+        G.add((brick_iri_version, OWL.imports, URIRef(imp)))
 
     # add SHACL namespace/prefix declarations for SHACL rules
     for declaration in shacl_namespace_declarations:
