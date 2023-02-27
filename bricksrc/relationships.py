@@ -2,9 +2,9 @@ from rdflib import Literal
 from .namespaces import A, OWL, RDFS, BRICK, VCARD, UNIT, QUDT, SDO, RDF, S223
 
 """
-Defining properties
+Defining Brick relationships
 """
-properties = {
+relationships = {
     "hasSubstance": {
         A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         RDFS.label: Literal("Has QUDT reference"),
@@ -63,7 +63,6 @@ properties = {
     "feeds": {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         OWL.inverseOf: BRICK["isFedBy"],
-        "subproperties": {"feedsAir": {}},
         RDFS.label: Literal("Feeds"),
     },
     "isFedBy": {

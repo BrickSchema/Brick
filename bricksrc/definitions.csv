@@ -1132,7 +1132,6 @@ https://brickschema.org/schema/Brick#Zone_Air_Temperature_Setpoint,Sets temperat
 https://brickschema.org/schema/Brick#Zone_Standby_Load_Shed_Command,,
 https://brickschema.org/schema/Brick#Zone_Unoccupied_Load_Shed_Command,,
 https://brickschema.org/schema/Brick#feeds,The subject is upstream of the object in the context of some sequential process; some media is passed between them,
-https://brickschema.org/schema/Brick#feedsAir,Passes air,
 https://brickschema.org/schema/Brick#hasAddress,To specify the address of a building.,
 https://brickschema.org/schema/Brick#hasAssociatedTag,The class is associated with the given tag,
 https://brickschema.org/schema/Brick#hasInputSubstance,The subject receives the given substance as an input to its internal process,

@@ -4,7 +4,7 @@ import sys
 sys.path.append("..")
 from bricksrc.namespaces import RDF, RDFS, BRICK, BSH, SH, SKOS  # noqa: E402
 from bricksrc.namespaces import bind_prefixes  # noqa: E402
-from bricksrc.properties import properties as property_definitions  # noqa: E402
+from bricksrc.relationships import relationships as relship_definitions  # noqa: E402
 
 G = Graph()
 bind_prefixes(G)
@@ -82,7 +82,7 @@ def addPropertyShapes(propertyName, defn):
                 addPropertyShapes(subprop, desc)
 
 
-for name, defn in property_definitions.items():
+for name, defn in relship_definitions.items():
     addPropertyShapes(name, defn)
 
 # serialize to output
