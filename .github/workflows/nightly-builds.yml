@@ -15,7 +15,7 @@ jobs:
 
       - uses: actions/setup-python@v3
         with:
-          python-version: 3.8.13
+          python-version: '3.8'
           architecture: x64
       - name: Set up AllegroGraph (Docker)
         run: |
@@ -35,3 +35,4 @@ jobs:
           files: |
             Brick.ttl
             Brick+extensions.ttl
+            imports

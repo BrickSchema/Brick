@@ -10,7 +10,15 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
 # include this to inform reasoning
-skos:narrower owl:inverseOf skos:broader .
+skos:broader rdf:type rdf:Property ;
+  rdfs:label "has broader"@en ;
+  owl:inverseOf skos:narrower ;
+.
+
+skos:narrower rdf:type rdf:Property ;
+  rdfs:label "has narrower"@en ;
+  owl:inverseOf skos:broader ;
+.
 
 bsh:InferInverseProperties1
   a sh:NodeShape ;

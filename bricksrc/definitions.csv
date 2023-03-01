@@ -43,6 +43,7 @@ https://brickschema.org/schema/Brick#Angle_Sensor,Measues the planar angle of so
 https://brickschema.org/schema/Brick#Apparent_Power,"Apparent Power is the product of the rms voltage (U) between the terminals of a two-terminal element or two-terminal circuit and the rms electric current I in the element or circuit. Under sinusoidal conditions, the apparent power is the modulus of the complex power.",
 https://brickschema.org/schema/Brick#Atmospheric_Pressure,"The pressure exerted by the weight of the air above it at any point on the earth's surface. At sea level the atmosphere will support a column of mercury about (760 mm) high. This decreases with increasing altitude. The standard value for the atmospheric pressure at sea level in SI units is (101,325 pascals).",
 https://brickschema.org/schema/Brick#Atrium,a large open-air or skylight covered space surrounded by a building.,https://en.wikipedia.org/wiki/Atrium_(architecture)
+https://brickschema.org/schema/Brick#Audio_Visual_Equipment,Equipment related to sound and visual components such as speakers and displays.,
 https://brickschema.org/schema/Brick#Auditorium,A space for performances or larger gatherings,
 https://brickschema.org/schema/Brick#Automatic_Mode_Command,"Controls whether or not a device or controller is operating in ""Automatic"" mode",
 https://brickschema.org/schema/Brick#Automatic_Tint_Window,A window with tint control.,
@@ -540,6 +541,7 @@ https://brickschema.org/schema/Brick#Humidity_Parameter,Parameters relevant to h
 https://brickschema.org/schema/Brick#Humidity_Sensor,Measures the concentration of water vapor in air,https://en.wikipedia.org/wiki/Humidity
 https://brickschema.org/schema/Brick#Humidity_Setpoint,Sets humidity,
 https://brickschema.org/schema/Brick#Humidity_Tolerance_Parameter,A parameter determining the difference between upper and lower limits of humidity.,
+https://brickschema.org/schema/Brick#ICT_Equipment,Information and Communications Technology (ICT) equipment operates with a processor to process data or logic and create digital signals.,
 https://brickschema.org/schema/Brick#IDF,"An room for an intermediate distribution frame, where cables carrying signals from the main distrubtion frame terminate and then feed out to endpoints",
 https://brickschema.org/schema/Brick#Ice,Water in its solid form,
 https://brickschema.org/schema/Brick#Ice_Tank_Leaving_Water_Temperature_Sensor,Measures the temperature of water leaving an ice tank,
@@ -909,6 +911,7 @@ https://brickschema.org/schema/Brick#Sash_Position_Sensor,Measures the current p
 https://brickschema.org/schema/Brick#Schedule_Temperature_Setpoint,The current setpoint as indicated by the schedule,
 https://brickschema.org/schema/Brick#Security_Service_Room,A class of spaces used by the security staff of a facility,
 https://brickschema.org/schema/Brick#Sensor,A Sensor is an input point that represents the value of a device or instrument designed to detect and measure a variable (ASHRAE Dictionary).,
+https://brickschema.org/schema/Brick#Sensor_Equipment,A piece of equipment for sensing some physical properties,
 https://brickschema.org/schema/Brick#Server_Room,,
 https://brickschema.org/schema/Brick#Service_Room,"A class of spaces related to the operations of building subsystems, e.g. HVAC, electrical, IT, plumbing, etc",
 https://brickschema.org/schema/Brick#Setpoint,A Setpoint is an input value at which the desired property is set,https://xp20.ashrae.org/terminology/index.php?term=setpoint

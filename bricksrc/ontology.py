@@ -2,7 +2,7 @@ from datetime import datetime
 from rdflib import Literal, BNode, URIRef
 from rdflib.collection import Collection
 
-from .namespaces import DCTERMS, SDO, RDFS, RDF, OWL, BRICK, TAG, BSH, SH, XSD
+from .namespaces import DCTERMS, SDO, RDFS, RDF, OWL, BRICK, SH, XSD
 from .version import BRICK_VERSION, BRICK_FULL_VERSION
 
 # defines metadata about the Brick ontology
@@ -30,6 +30,18 @@ ontology = {
     OWL.versionInfo: Literal(BRICK_FULL_VERSION),
     RDFS.label: Literal("Brick"),
     RDFS.seeAlso: URIRef("https://brickschema.org"),
+}
+
+# TODO: URL for RealEstateCore?
+ontology_imports = {
+    "qudtschema": "http://qudt.org/2.1/schema/shacl/qudt",
+    "qudtfacade": "http://qudt.org/2.1/schema/facade/qudt",
+    "qudtsou": "http://qudt.org/2.1/vocab/sou",
+    "unit": "http://qudt.org/2.1/vocab/unit",
+    "quantitykind": "http://qudt.org/2.1/vocab/quantitykind",
+    "dimensionvector": "http://qudt.org/2.1/vocab/dimensionvector",
+    "shacl": "http://www.w3.org/ns/shacl",
+    "bacnet": "http://data.ashrae.org/bacnet/2020",
 }
 
 shacl_namespace_declarations = [
@@ -81,6 +93,10 @@ def define_ontology(G):
     # add other simple attributes
     for k, v in ontology.items():
         G.add((brick_iri_version, k, v))
+
+    # add imports
+    for imp in ontology_imports.values():
+        G.add((brick_iri_version, OWL.imports, URIRef(imp)))
 
     # add SHACL namespace/prefix declarations for SHACL rules
     for declaration in shacl_namespace_declarations:
