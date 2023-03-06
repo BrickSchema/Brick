@@ -888,12 +888,12 @@ for r in res:
     for unit, symb, label in get_units_brick(brick_quant):
         G.add((brick_quant, QUDT.applicableUnit, unit))
 # all QUDT units
-for unit, symb, label in all_units():
-    G.add((unit, A, QUDT.Unit))
-    if symb is not None:
-        G.add((unit, QUDT.symbol, symb))
-    if label is not None and not has_label(unit):
-        G.add((unit, RDFS.label, label))
+# for unit, symb, label in all_units():
+#    G.add((unit, A, QUDT.Unit))
+#    if symb is not None:
+#        G.add((unit, QUDT.symbol, symb))
+#    if label is not None and not has_label(unit):
+#        G.add((unit, RDFS.label, label))
 
 
 # entity property definitions (must happen after units are defined)
