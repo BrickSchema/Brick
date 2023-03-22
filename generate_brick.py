@@ -793,7 +793,7 @@ def handle_deprecations():
                 Literal(md["mitigation_message"]),
             )
         )
-        G.add((deprecated_term, BRICK.isReplacedBy, Literal(md["replace_with"].n3())))
+        G.add((deprecated_term, BRICK.isReplacedBy, md["replace_with"]))
 
 
 logging.info("Beginning BRICK Ontology compilation")
