@@ -230,9 +230,11 @@ def define_concept_hierarchy(definitions, typeclasses, broader=None, related=Non
         # mark broader concept if one exists
         if broader is not None:
             G.add((concept, SKOS.broader, broader))
+            G.add((broader, SKOS.narrower, concept))
         # mark related concept if one exists
         if related is not None:
             G.add((concept, SKOS.related, related))
+            G.add((related, SKOS.related, concept))
         # add label
         label = defn.get(RDFS.label, concept.split("#")[-1].replace("_", " "))
         if not has_label(concept):
