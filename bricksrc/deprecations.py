@@ -1,6 +1,21 @@
 from .namespaces import BRICK, RDFS, SKOS
 
 deprecations = {
+    BRICK.Fresh_Air_Fan: {
+        "version": "1.3.0",
+        "mitigation_message": "Fresh Air Fan is deprecated in favor of Outside Fan because the latter is a more accurate representation",
+        "replace_with": BRICK.Outside_Fan,
+    },
+    BRICK.Exhaust_Fan_Disable_Command: {
+        "version": "1.3.0",
+        "mitigation_message": "Exhaust_Fan_Disable_Command is deprecated as a point name should not include more specific equipment names than top level equipment names",
+        "replace_with": BRICK.Disable_Command,
+    },
+    BRICK.Exhaust_Fan_Enable_Command: {
+        "version": "1.3.0",
+        "mitigation_message": "Exhaust_Fan_Enable_Command is deprecated as a point name should not include more specific equipment names than top level equipment names",
+        "replace_with": BRICK.Enable_Command,
+    },
     BRICK.Supply_Water_Temperature_Sensor: {
         "version": "1.3.0",
         "mitigation_message": "Swapped supply/return for entering/leaving with water-related points",
