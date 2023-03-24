@@ -26,10 +26,10 @@ bsh:InferInverseProperties1
       a sh:SPARQLRule ;
       sh:construct """
             CONSTRUCT {
-?o ?invP $this .
+$this ?invP ?o .
 }
 WHERE {
-$this ?p ?o .
+?o ?p $this .
 ?p owl:inverseOf ?invP .
 }
 			""" ;
@@ -44,11 +44,11 @@ bsh:InferInverseProperties2
       a sh:SPARQLRule ;
       sh:construct """
             CONSTRUCT {
-?o ?p $this .
+$this ?invP ?o .
 }
 WHERE {
-$this ?invP ?o .
-?p owl:inverseOf ?invP .
+?o ?p $this .
+?invP owl:inverseOf ?p .
 }
 			""" ;
       sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
