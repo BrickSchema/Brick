@@ -43,7 +43,7 @@ deprecations = {
     BRICK.Chilled_Water_Discharge_Flow_Sensor: {
         "version": "1.3.0",
         "mitigation_message": "Swapped supply/return for entering/leaving with water-related points",
-        "replace_with": BRICK.Chilled_Water_Leaving_Flow_Sensor,
+        "replace_with": BRICK.Leaving_Chilled_Water_Flow_Sensor,
         RDFS.subClassOf: [
             BRICK.Discharge_Water_Flow_Sensor,
             BRICK.Chilled_Water_Flow_Sensor,
@@ -52,7 +52,7 @@ deprecations = {
     BRICK.Chilled_Water_Supply_Flow_Sensor: {
         "version": "1.3.0",
         "mitigation_message": "Swapped supply/return for entering/leaving with water-related points",
-        "replace_with": BRICK.Chilled_Water_Leaving_Flow_Sensor,
+        "replace_with": BRICK.Leaving_Chilled_Water_Flow_Sensor,
         RDFS.subClassOf: [
             BRICK.Supply_Water_Flow_Sensor,
             BRICK.Chilled_Water_Flow_Sensor,
@@ -61,7 +61,7 @@ deprecations = {
     BRICK.Chilled_Water_Discharge_Flow_Sensor: {
         "version": "1.3.0",
         "mitigation_message": "Swapped supply/return for entering/leaving with water-related points",
-        "replace_with": BRICK.Chilled_Water_Leaving_Flow_Sensor,
+        "replace_with": BRICK.Leaving_Chilled_Water_Flow_Sensor,
         RDFS.subClassOf: [
             BRICK.Discharge_Water_Flow_Sensor,
             BRICK.Chilled_Water_Flow_Sensor,
@@ -203,7 +203,7 @@ deprecations = {
     BRICK.Chilled_Water_Return_Flow_Sensor: {
         "version": "1.3.0",
         "mitigation_message": "Swapped supply/return for entering/leaving with water-related points",
-        "replace_with": BRICK.Chilled_Water_Entering_Flow_Sensor,
+        "replace_with": BRICK.Entering_Chilled_Water_Flow_Sensor,
         RDFS.subClassOf: [
             BRICK.Chilled_Water_Flow_Sensor,
             BRICK.Return_Water_Flow_Sensor,
@@ -226,7 +226,7 @@ deprecations = {
     },
     BRICK.Chilled_Water_Discharge_Flow_Setpoint: {
         "mitigation_message": "Swapped supply/return for entering/leaving with water-related points",
-        "replace_with": BRICK.Chilled_Water_Leaving_Flow_Setpoint,
+        "replace_with": BRICK.Leaving_Chilled_Water__Flow_Setpoint,
         "version": "1.3.0",
         RDFS.subClassOf: [
             BRICK.Chilled_Water_Flow_Setpoint,
@@ -244,7 +244,7 @@ deprecations = {
     },
     BRICK.Chilled_Water_Supply_Flow_Setpoint: {
         "mitigation_message": "Swapped supply/return for entering/leaving with water-related points",
-        "replace_with": BRICK.Chilled_Water_Leaving_Flow_Setpoint,
+        "replace_with": BRICK.Leaving_Chilled_Water_Flow_Setpoint,
         "version": "1.3.0",
         RDFS.subClassOf: [
             BRICK.Chilled_Water_Flow_Setpoint,
@@ -271,13 +271,13 @@ deprecations = {
     },
     BRICK.Differential_Supply_Return_Water_Temperature_Sensor: {
         "mitigation_message": "Swapped supply/return for entering/leaving with water-related points",
-        "replace_with": BRICK.Differential_Leaving_Return_Water_Temperature_Sensor,
+        "replace_with": BRICK.Differential_Entering_Leaving_Water_Temperature_Sensor,
         "version": "1.3.0",
         RDFS.subClassOf: BRICK.Water_Differential_Temperature_Sensor,
     },
     BRICK.Differential_Discharge_Return_Water_Temperature_Sensor: {
         "mitigation_message": "Swapped supply/return for entering/leaving with water-related points",
-        "replace_with": BRICK.Differential_Leaving_Return_Water_Temperature_Sensor,
+        "replace_with": BRICK.Differential_Entering_Leaving_Water_Temperature_Sensor,
         "version": "1.3.0",
         RDFS.subClassOf: BRICK.Water_Differential_Temperature_Sensor,
     },
