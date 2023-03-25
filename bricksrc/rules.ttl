@@ -160,18 +160,36 @@ bsh:DeprecationRule
     sh:targetSubjectsOf brick:deprecation ;
 .
 
-bsh:DeprecationRuleForInstances
-    a   sh:NodeShape ;
-    sh:targetClass brick:Entity ;
-    sh:severity sh:Warning ;
-    sh:sparql [
-      a sh:SPARQLConstraint ;
-      sh:message "Entity has type which is deprecated" ;
+bsh:DeprecationInferenceForInstancesRule
+    a  sh:NodeShape ;
+sh:rule [ a sh:SPARQLRule ;
+sh:message "Deprecated class is temporarily augmented by the new class" ;
+sh:construct """CONSTRUCT {
+$this a ?newClass .
+}
+WHERE {
+$this a ?class .
+?class owl:deprecated true .
+?class brick:isReplacedBy ?newClass .
+FILTER NOT EXISTS {$this a ?newClass}
+}""" ;
       sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
-      sh:select """SELECT $this WHERE { $this rdf:type/owl:deprecated true }""" ;
     ] ;
+    sh:targetClass brick:Entity ;
 .
 
+bsh:DeprecationRuleForInstances a sh:NodeShape ;
+sh:severity sh:Warning ;
+sh:sparql [ a sh:SPARQLConstraint ;
+sh:message "{$this} has type {?class} which was deprecated in version {?depver}. For now, it has been updated to also be of type {?newClass}." ;
+sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
+sh:select """SELECT $this ?class ?newClass ?depver WHERE {
+$this a ?class .
+?class owl:deprecated true .
+?class brick:deprecatedInVersion ?depver .
+?class brick:isReplacedBy ?newClass .
+}""" ] ;
+sh:targetClass brick:Entity .
 
 
 # bsh:TagInferenceRule
