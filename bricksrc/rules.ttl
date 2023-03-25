@@ -306,6 +306,47 @@ bsh:VirtualMeterRule a sh:NodeShape ;
         """ ;
     ] .
 
+# infer the hasSubstance relationship for meter instances
+bsh:MeterInferSubstance a sh:NodeShape ;
+    sh:targetClass brick:Meter ;
+    sh:rule [
+        a sh:SPARQLRule ;
+        sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
+        sh:construct """
+        CONSTRUCT {
+            $this brick:hasSubstance ?substance .
+        } WHERE {
+            $this rdf:type ?meter .
+            ?meter rdfs:subClassOf* brick:Meter .
+            ?meter brick:hasSubstance ?substance .
+        }
+        """ ;
+    ] ;
+.
+
+# infer the meter subclass from the hasSubstance relationship.
+# don't do this for building meters
+bsh:MeterInferSubclass a sh:NodeShape ;
+    sh:targetClass brick:Meter ;
+    sh:rule [
+        a sh:SPARQLRule ;
+        sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
+        sh:construct """
+        CONSTRUCT {
+            $this rdf:type ?metertype .
+        } WHERE {
+            $this rdf:type/rdfs:subClassOf* brick:Meter .
+            $this brick:hasSubstance ?substance .
+            ?meter brick:hasSubstance ?substance .
+            FILTER NOT EXISTS {
+                $this rdf:type/rdfs:subClassOf* brick:Building_Meter .
+                ?meter rdfs:subClassOf+ brick:Building_Meter .
+            }
+        }
+        """ ;
+    ] ;
+.
+
 bsh:OneLastKnownValuePerEntity a sh:NodeShape ;
     sh:targetSubjectsOf brick:lastKnownValue ;
     sh:property [

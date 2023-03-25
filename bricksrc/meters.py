@@ -74,5 +74,8 @@ meter_subclasses = {
             },
         },
     },
-    "Building_Meter": {"tags": [TAG.Meter, TAG.Equipment, TAG.Building]},
+    "Building_Meter": {
+        "tags": [TAG.Meter, TAG.Equipment, TAG.Building],
+        "constraints": {BRICK.meters: [BRICK.Building]},
+    },
 }
