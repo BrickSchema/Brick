@@ -701,7 +701,7 @@ def add_definitions():
             logging.warning(f"WARNING: {setpoint} does not exist in Brick for {param}.")
 
 
-def handle_deprecations():
+""" def handle_deprecations():
     for deprecated_term, md in deprecations.items():
         deprecation = BNode()
         shape = BNode()
@@ -748,7 +748,7 @@ def handle_deprecations():
                     SH.construct,
                     Literal(
                         "CONSTRUCT {"
-                        f"$this rdf:type {md['replace_with'].n3()} ."
+                        f"$this rdf:type {md[''].n3()} ."
                         "} WHERE {"
                         f"$this rdf:type {deprecated_term.n3()} . }}"
                     ),
@@ -761,6 +761,41 @@ def handle_deprecations():
                     URIRef(f"https://brickschema.org/schema/{BRICK_VERSION}/Brick"),
                 )
             )
+ """
+
+
+def handle_deprecations():
+    for deprecated_term, md in deprecations.items():
+        G.add((deprecated_term, A, OWL.Class))
+        G.add((deprecated_term, OWL.deprecated, Literal(True)))
+        label = deprecated_term.split("#")[-1].replace("_", " ")
+        G.add(
+            (deprecated_term, RDFS.label, Literal(label))
+        )  # make sure the tag is declared as such
+        # handle subclasses or skos
+        if RDFS.subClassOf in md:
+            subclasses = md.pop(RDFS.subClassOf)
+            if subclasses is not None:
+                if not isinstance(subclasses, list):
+                    subclasses = [subclasses]
+                for subclass in subclasses:
+                    G.add((deprecated_term, RDFS.subClassOf, subclass))
+        elif SKOS.narrower in md:
+            subconcepts = md.pop(SKOS.narrower)
+            if subconcepts is not None:
+                if not isinstance(subconcepts, list):
+                    subconcepts = [subconcepts]
+                for subclass in subconcepts:
+                    G.add((deprecated_term, SKOS.narrower, subclass))
+        G.add((deprecated_term, BRICK.deprecatedInVersion, Literal(md["version"])))
+        G.add(
+            (
+                deprecated_term,
+                BRICK.deprecationMitigationMessage,
+                Literal(md["mitigation_message"]),
+            )
+        )
+        G.add((deprecated_term, BRICK.isReplacedBy, md["replace_with"]))
 
 
 logging.info("Beginning BRICK Ontology compilation")
