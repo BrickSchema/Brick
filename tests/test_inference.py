@@ -2,7 +2,8 @@ from rdflib import RDF, RDFS, OWL, Namespace, Literal
 import pytest
 import brickschema
 from .util import make_readable
-import os, sys
+import os
+import sys
 
 sys.path.append("..")
 from bricksrc.namespaces import BRICK, TAG, A, SKOS  # noqa: E402
@@ -60,7 +61,6 @@ g.add((BLDG.standalone, A, BRICK.Temperature_Sensor))
 
 @pytest.mark.slow
 def test_tag_inference():
-
     # Apply reasoner
     g.load_file("extensions/brick_extension_shacl_tag_inference.ttl")
     g.expand(profile="shacl+shacl+shacl")
@@ -234,3 +234,19 @@ def test_virtual_meter():
     g.add((BLDG.abcdef, BRICK.isVirtualMeter, [(BRICK.value, Literal(False))]))
     valid, _, report = g.validate()
     assert valid, report
+
+
+def test_meter_substance_inference():
+    g = brickschema.Graph()
+    g.load_file("Brick.ttl")
+    g.add((BLDG.water_meter, A, BRICK.Water_Meter))
+    g.expand("shacl")  # run shacl inference
+    assert (BLDG.water_meter, BRICK.hasSubstance, BRICK.Water) in g
+
+    g = brickschema.Graph()
+    g.load_file("Brick.ttl")
+    g.add((BLDG.water_meter, A, BRICK.Meter))
+    g.add((BLDG.water_meter, BRICK.hasSubstance, BRICK.Water))
+    g.expand("shacl")  # run shacl inference
+    assert (BLDG.water_meter, A, BRICK.Water_Meter) in g
+    assert (BLDG.water_meter, A, BRICK.Building_Water_Meter) not in g
