@@ -242,6 +242,14 @@ def test_meter_substance_inference():
     g.add((BLDG.water_meter, A, BRICK.Water_Meter))
     g.expand("shacl")  # run shacl inference
     assert (BLDG.water_meter, BRICK.hasSubstance, BRICK.Water) in g
+    assert (BLDG.water_meter, BRICK.hasSubstance, BRICK.Chilled_Water) not in g
+
+    g = brickschema.Graph()
+    g.load_file("Brick.ttl")
+    g.add((BLDG.water_meter, A, BRICK.Building_Water_Meter))
+    g.expand("shacl")  # run shacl inference
+    assert (BLDG.water_meter, BRICK.hasSubstance, BRICK.Water) in g
+    assert (BLDG.water_meter, BRICK.hasSubstance, BRICK.Chilled_Water) not in g
 
     g = brickschema.Graph()
     g.load_file("Brick.ttl")
@@ -250,3 +258,11 @@ def test_meter_substance_inference():
     g.expand("shacl")  # run shacl inference
     assert (BLDG.water_meter, A, BRICK.Water_Meter) in g
     assert (BLDG.water_meter, A, BRICK.Building_Water_Meter) not in g
+
+    g = brickschema.Graph()
+    g.load_file("Brick.ttl")
+    g.add((BLDG.water_meter, A, BRICK.Building_Meter))
+    g.add((BLDG.water_meter, BRICK.hasSubstance, BRICK.Water))
+    g.expand("shacl")  # run shacl inference
+    assert (BLDG.water_meter, A, BRICK.Water_Meter) not in g
+    assert (BLDG.water_meter, A, BRICK.Building_Water_Meter) in g
