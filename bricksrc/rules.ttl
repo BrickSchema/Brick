@@ -337,10 +337,10 @@ bsh:MeterInferSubclass a sh:NodeShape ;
         } WHERE {
             $this rdf:type/rdfs:subClassOf* brick:Meter .
             $this brick:hasSubstance ?substance .
-            ?meter brick:hasSubstance ?substance .
+            ?metertype brick:hasSubstance ?substance .
             FILTER NOT EXISTS {
                 $this rdf:type/rdfs:subClassOf* brick:Building_Meter .
-                ?meter rdfs:subClassOf+ brick:Building_Meter .
+                ?metertype rdfs:subClassOf+ brick:Building_Meter .
             }
         }
         """ ;
