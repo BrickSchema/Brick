@@ -89,6 +89,19 @@ sensor_definitions = {
                                 BRICK.hasQuantity: BRICK.CO2_Concentration,
                                 BRICK.hasSubstance: BRICK.Air,
                                 "tags": [TAG.Point, TAG.CO2, TAG.Level, TAG.Sensor],
+                                "subclasses": {
+                                    "Zone_CO2_Level_Sensor": {
+                                        BRICK.hasQuantity: BRICK.CO2_Concentration,
+                                        BRICK.hasSubstance: BRICK.Air,
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.CO2,
+                                            TAG.Level,
+                                            TAG.Sensor,
+                                            TAG.Zone,
+                                        ],
+                                    },
+                                },
                             },
                             "Outside_Air_CO2_Sensor": {
                                 "tags": [
@@ -1400,7 +1413,6 @@ sensor_definitions = {
                 },
             },
             "Refrigerant_Level_Sensor": {
-                "tags": [TAG.Point, TAG.Refrigerant, TAG.Level, TAG.Sensor],
                 BRICK.hasQuantity: BRICK.Level,
                 BRICK.hasSubstance: BRICK.Refrigerant,
                 "tags": [TAG.Point, TAG.Sensor, TAG.Refrigerant, TAG.Level],

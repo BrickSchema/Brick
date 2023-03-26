@@ -1132,6 +1132,7 @@ https://brickschema.org/schema/Brick#Zone_Air_Humidity_Sensor,Measures the relat
 https://brickschema.org/schema/Brick#Zone_Air_Humidity_Setpoint,Humidity setpoint for zone air,
 https://brickschema.org/schema/Brick#Zone_Air_Temperature_Sensor,A physical or virtual sensor which represents the temperature of an HVAC Zone,
 https://brickschema.org/schema/Brick#Zone_Air_Temperature_Setpoint,Sets temperature of zone air,
+https://brickschema.org/schema/Brick#Zone_CO2_Level_Sensor,A physical or virtual sensor which represents the CO2 level of an HVAC Zone,
 https://brickschema.org/schema/Brick#Zone_Standby_Load_Shed_Command,,
 https://brickschema.org/schema/Brick#Zone_Unoccupied_Load_Shed_Command,,
 https://brickschema.org/schema/Brick#feeds,The subject is upstream of the object in the context of some sequential process; some media is passed between them,

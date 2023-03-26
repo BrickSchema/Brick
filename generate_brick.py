@@ -687,7 +687,8 @@ def add_definitions():
             setpoint = setpoint + "_Setpoint"
             logging.info(f"Inferred setpoint: {setpoint}")
         limit_def = limit_def_template.format(direction=direction, setpoint=setpoint)
-        G.add((param, SKOS.definition, Literal(limit_def, lang="en")))
+        if param != BRICK.Limit:  # definition already exists for Limit
+            G.add((param, SKOS.definition, Literal(limit_def, lang="en")))
         class_exists = G.query(
             f"""select ?class where {{
             BIND(brick:{setpoint} as ?class)
