@@ -902,12 +902,26 @@ define_concept_hierarchy(substances, [BRICK.Substance])
 # this defines the SKOS-based concept hierarchy for BRICK Quantities
 define_concept_hierarchy(quantity_definitions, [BRICK.Quantity])
 
-# add any missing skos:narrower implied by skos:broader
-for broader, narrower in G.subject_objects(SKOS.narrower):
-    G.add((narrower, SKOS.broader, broader))
-# add any missing skos:broader implied by skos:narrower
-for narrower, broader in G.subject_objects(SKOS.broader):
-    G.add((broader, SKOS.narrower, narrower))
+# add any missing skos:narrower implied by skos:broader where the subject
+# is defined by the Brick ontology
+G.query(
+    """CONSTRUCT {
+    ?narrower skos:broader ?broader .
+} WHERE {
+    ?broader skos:narrower ?narrower .
+    ?narrower rdf:type/rdfs:subClassOf* brick:Entity
+}"""
+)
+# add any missing skos:broader implied by skos:narrower where the subject
+# is defined by the Brick ontology
+G.query(
+    """CONSTRUCT {
+    ?broader skos:narrower ?narrower .
+} WHERE {
+    ?narrower skos:broader ?broader .
+    ?broader rdf:type/rdfs:subClassOf* brick:Entity
+}"""
+)
 
 # for all Quantities, copy part of the QUDT unit definitions over
 res = G.query(
