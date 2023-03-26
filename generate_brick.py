@@ -372,12 +372,30 @@ def define_entity_properties(definitions, superprop=None):
     properties to the EntityProperty instances (like SKOS.definition)
     """
     for entprop, defn in definitions.items():
+        assert (
+            "property_of" in defn
+        ), f"{entprop} missing a 'property_of' annotation so Brick doesn't know where this property can be used"
+        assert (
+            SH.node in defn
+        ), f"{entprop} missing a SH.node annotation so Brick doesn't know what the values of this property can be"
         G.add((entprop, A, BRICK.EntityProperty))
         if superprop is not None:
             G.add((entprop, RDFS.subPropertyOf, superprop))
         if "subproperties" in defn:
             subproperties = defn.pop("subproperties")
             define_entity_properties(subproperties, entprop)
+
+        # add the entity property as a sh:property on all of the
+        # other Nodeshapes indicated by "property_of"
+        shapes = defn.pop("property_of")
+        sh_node = defn.pop(SH.node)
+        if not isinstance(shapes, list):
+            shapes = [shapes]
+        for shape in shapes:
+            bnode = BNode()
+            G.add((shape, SH.property, bnode))
+            G.add((bnode, SH.path, entprop))
+            G.add((bnode, SH.node, sh_node))
 
         for prop, values in defn.items():
             if isinstance(values, list):
