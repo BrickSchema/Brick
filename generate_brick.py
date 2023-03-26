@@ -378,6 +378,7 @@ def define_entity_properties(definitions, superprop=None):
         assert (
             SH.node in defn
         ), f"{entprop} missing a SH.node annotation so Brick doesn't know what the values of this property can be"
+        assert RDFS.label in defn, f"{entprop} missing a RDFS.label annotation"
         G.add((entprop, A, BRICK.EntityProperty))
         if superprop is not None:
             G.add((entprop, RDFS.subPropertyOf, superprop))
@@ -385,17 +386,20 @@ def define_entity_properties(definitions, superprop=None):
             subproperties = defn.pop("subproperties")
             define_entity_properties(subproperties, entprop)
 
+        sh_node = defn.pop(SH.node)
+        pshape = BSH[f"has{entprop.split('#')[-1]}Shape"]
+        G.add((pshape, A, SH.PropertyShape))
+        G.add((pshape, SH.path, entprop))
+        G.add((pshape, SH.node, sh_node))
+        G.add((pshape, RDFS.label, Literal(f"has {defn.get(RDFS.label)} property")))
+
         # add the entity property as a sh:property on all of the
         # other Nodeshapes indicated by "property_of"
         shapes = defn.pop("property_of")
-        sh_node = defn.pop(SH.node)
         if not isinstance(shapes, list):
             shapes = [shapes]
         for shape in shapes:
-            bnode = BNode()
-            G.add((shape, SH.property, bnode))
-            G.add((bnode, SH.path, entprop))
-            G.add((bnode, SH.node, sh_node))
+            G.add((shape, SH.property, pshape))
 
         for prop, values in defn.items():
             if isinstance(values, list):

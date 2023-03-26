@@ -110,30 +110,36 @@ entity_properties = {
     },
     BRICK.ratedPowerOutput: {
         SKOS.definition: Literal("The nominal rated power output of the entity"),
+        RDFS.label: Literal("Rated power output"),
         SH.node: BSH.PowerShape,
         "property_of": BRICK.Equipment,
     },
     BRICK.measuredPowerOutput: {
         SKOS.definition: Literal("The nominal measured power output of the entity"),
+        RDFS.label: Literal("Measured power output"),
         SH.node: BSH.PowerShape,
         "property_of": BRICK.Equipment,
     },
     BRICK.ratedPowerInput: {
         SKOS.definition: Literal("The nominal rated power input of the entity"),
+        RDFS.label: Literal("Rated power input"),
         SH.node: BSH.PowerShape,
         "property_of": BRICK.Equipment,
     },
     BRICK.measuredPowerInput: {
         SKOS.definition: Literal("The nominal measured power input of the entity"),
+        RDFS.label: Literal("Measured power input"),
         SH.node: BSH.PowerShape,
         "property_of": BRICK.Equipment,
     },
     BRICK.ratedVoltageInput: {
         SKOS.definition: Literal("The nominal rated voltage input of the entity"),
         SH.node: BSH.VoltageShape,
+        RDFS.label: Literal("Measured voltage input"),
         "property_of": BRICK.Equipment,
         "subproperties": {
             BRICK.ratedMaximumVoltageInput: {
+                RDFS.label: Literal("Rated maximum voltage input"),
                 SKOS.definition: Literal(
                     "The maximum voltage that can be input to the entity"
                 ),
@@ -141,6 +147,7 @@ entity_properties = {
                 "property_of": BRICK.Equipment,
             },
             BRICK.ratedMinimumVoltageInput: {
+                RDFS.label: Literal("Rated minimum voltage input"),
                 SKOS.definition: Literal(
                     "The minimum voltage that can be input to the entity"
                 ),
@@ -153,8 +160,10 @@ entity_properties = {
         SKOS.definition: Literal("The nominal rated voltage output of the entity"),
         SH.node: BSH.VoltageShape,
         "property_of": BRICK.Equipment,
+        RDFS.label: Literal("Rated voltage output"),
         "subproperties": {
             BRICK.ratedMaximumVoltageOutput: {
+                RDFS.label: Literal("Rated maximum voltage output"),
                 SKOS.definition: Literal(
                     "The maximum voltage that can be output by the entity"
                 ),
@@ -162,6 +171,7 @@ entity_properties = {
                 "property_of": BRICK.Equipment,
             },
             BRICK.ratedMinimumVoltageOutput: {
+                RDFS.label: Literal("Rated minimum voltage output"),
                 SKOS.definition: Literal(
                     "The minimum voltage that can be output by the entity"
                 ),
@@ -173,9 +183,11 @@ entity_properties = {
     BRICK.ratedCurrentInput: {
         SKOS.definition: Literal("The nominal rated current input of the entity"),
         SH.node: BSH.ElectricCurrentShape,
+        RDFS.label: Literal("Rated current input"),
         "property_of": BRICK.Equipment,
         "subproperties": {
             BRICK.ratedMaximumCurrentInput: {
+                RDFS.label: Literal("Rated maximum current input"),
                 SKOS.definition: Literal(
                     "The maximum current that can be input to the entity"
                 ),
@@ -183,6 +195,7 @@ entity_properties = {
                 "property_of": BRICK.Equipment,
             },
             BRICK.ratedMinimumCurrentInput: {
+                RDFS.label: Literal("Rated minimum current input"),
                 SKOS.definition: Literal(
                     "The minimum current that can be input to the entity"
                 ),
@@ -194,9 +207,11 @@ entity_properties = {
     BRICK.ratedCurrentOutput: {
         SKOS.definition: Literal("The nominal rated current output of the entity"),
         SH.node: BSH.ElectricCurrentShape,
+        RDFS.label: Literal("Rated current output"),
         "property_of": BRICK.Equipment,
         "subproperties": {
             BRICK.ratedMaximumCurrentOutput: {
+                RDFS.label: Literal("Rated maximum current output"),
                 SKOS.definition: Literal(
                     "The maximum current that can be output by the entity"
                 ),
@@ -204,6 +219,7 @@ entity_properties = {
                 "property_of": BRICK.Equipment,
             },
             BRICK.ratedMinimumCurrentOutput: {
+                RDFS.label: Literal("Rated minimum current output"),
                 SKOS.definition: Literal(
                     "The minimum current that can be output by the entity"
                 ),
