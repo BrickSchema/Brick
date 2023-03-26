@@ -306,6 +306,68 @@ bsh:VirtualMeterRule a sh:NodeShape ;
         """ ;
     ] .
 
+# infer the hasSubstance relationship for meter instances
+bsh:MeterInferSubstance a sh:NodeShape ;
+    sh:targetClass brick:Meter ;
+    sh:rule [
+        a sh:SPARQLRule ;
+        sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
+        sh:construct """
+        CONSTRUCT {
+            $this brick:hasSubstance ?substance .
+        } WHERE {
+            $this rdf:type ?meter .
+            ?meter rdfs:subClassOf* brick:Meter .
+            ?meter brick:hasSubstance ?substance .
+        }
+        """ ;
+    ] ;
+.
+
+# infer the meter subclass from the hasSubstance relationship
+# don't do this for building meters -- handled below
+bsh:MeterInferSubclassNonBuildingMeter a sh:NodeShape ;
+    sh:targetClass brick:Meter ;
+    sh:rule [
+        a sh:SPARQLRule ;
+        sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
+        sh:construct """
+        CONSTRUCT {
+            $this rdf:type ?metertype .
+        } WHERE {
+            $this rdf:type/rdfs:subClassOf* brick:Meter .
+            $this brick:hasSubstance ?substance .
+            ?metertype brick:hasSubstance ?substance .
+            FILTER NOT EXISTS {
+                $this rdf:type/rdf:subClassOf* brick:Building_Meter
+            }
+            MINUS {
+                ?metertype rdfs:subClassOf* brick:Building_Meter .
+            }
+        }
+        """ ;
+    ] ;
+.
+
+# infer the *building* meter subclass from the hasSubstance relationship
+bsh:MeterInferSubclassBuildingMeter a sh:NodeShape ;
+    sh:targetClass brick:Building_Meter ;
+    sh:rule [
+        a sh:SPARQLRule ;
+        sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
+        sh:construct """
+        CONSTRUCT {
+            $this rdf:type ?metertype .
+        } WHERE {
+            $this rdf:type/rdfs:subClassOf* brick:Building_Meter .
+            $this brick:hasSubstance ?substance .
+            ?metertype brick:hasSubstance ?substance .
+            ?metertype rdfs:subClassOf+ brick:Building_Meter .
+        }
+        """ ;
+    ] ;
+.
+
 bsh:OneLastKnownValuePerEntity a sh:NodeShape ;
     sh:targetSubjectsOf brick:lastKnownValue ;
     sh:property [
