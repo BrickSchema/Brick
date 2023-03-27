@@ -71,7 +71,7 @@ dcterms:title
   a owl:Ontology ;
   vaem:hasGraphMetadata vaem:GMD_SHACLQUDT-SCHEMA ;
   rdfs:isDefinedBy <http://qudt.org/2.1/schema/shacl/qudt> ;
-  rdfs:label "QUDT SHACL Schema - Version 2.1.24" ;
+  rdfs:label "QUDT SHACL Schema - Version 2.1.25" ;
   owl:imports <http://www.linkedmodel.org/schema/dtype> ;
   owl:imports <http://www.linkedmodel.org/schema/vaem> ;
   owl:imports <http://www.w3.org/2004/02/skos/core> ;
@@ -362,6 +362,7 @@ qudt:Concept
   sh:property qudt:Concept-hasRule ;
   sh:property qudt:Concept-id ;
   sh:property qudt:Concept-plainTextDescription ;
+  sh:property qudt:Concept-isReplacedBy ;
 .
 qudt:Concept-abbreviation
   a sh:PropertyShape ;
@@ -407,9 +408,9 @@ qudt:Concept-plainTextDescription
   sh:datatype xsd:string ;
   sh:maxCount 1 ;
 .
-qudt:Concept-supercededBy
+qudt:Concept-isReplacedBy
   a sh:PropertyShape ;
-  sh:path qudt:supercededBy ;
+  sh:path dcterms:isReplacedBy ;
   rdfs:isDefinedBy <http://qudt.org/2.1/schema/shacl/qudt> ;
   sh:maxCount 1 ;
 .
@@ -1231,7 +1232,7 @@ qudt:Quantity
   qudt:dbpediaMatch "http://dbpedia.org/resource/Quantity"^^xsd:anyURI ;
   rdfs:comment """<p class=\"lm-para\">A <b>quantity</b> is the measurement of an observable property of a particular object, event, or physical system. A quantity is always associated with the context of measurement (i.e. the thing measured, the measured value, the accuracy of measurement, etc.) whereas the underlying <b>quantity kind</b> is independent of any particular measurement. Thus, length is a quantity kind while the height of a rocket is a specific quantity of length; its magnitude that may be expressed in meters, feet, inches, etc. Examples of physical quantities include physical constants, such as the speed of light in a vacuum, Planck's constant, the electric permittivity of free space, and the fine structure constant. </p>
 
-<p class=\"lm-para\">In other words, quantities are quantifiable aspects of the world, such as the duration of a movie, the distance between two points, velocity of a car, the pressure of the atmosphere, and a person's weight; and units are used to describe their numerical measure. 
+<p class=\"lm-para\">In other words, quantities are quantifiable aspects of the world, such as the duration of a movie, the distance between two points, velocity of a car, the pressure of the atmosphere, and a person's weight; and units are used to describe their numerical measure.
 
 <p class=\"lm-para\">Many <b>quantity kinds</b> are related to each other by various physical laws, and as a result, the associated units of some quantity kinds can be expressed as products (or ratios) of powers of other quantity kinds (e.g., momentum is mass times velocity and velocity is defined as distance divided by time). In this way, some quantities can be calculated from other measured quantities using their associations to the quantity kinds in these expressions. These quantity kind relationships are also discussed in dimensional analysis. Those that cannot be so expressed can be regarded as \"fundamental\" in this sense.</p>
 <p class=\"lm-para\">A quantity is distinguished from a \"quantity kind\" in that the former carries a value and the latter is a type specifier.</p>"""^^rdf:HTML ;
@@ -2043,7 +2044,7 @@ qudt:Unit
   rdfs:label "Unit" ;
   rdfs:subClassOf qudt:Concept ;
   rdfs:subClassOf qudt:Verifiable ;
-  sh:property qudt:Unit-allowedUnitOfSystem ;
+  sh:property qudt:Unit-applicableSystem ;
   sh:property qudt:Unit-conversionMultiplier ;
   sh:property qudt:Unit-conversionOffset ;
   sh:property qudt:Unit-expression ;
@@ -2057,16 +2058,15 @@ qudt:Unit
   sh:property qudt:Unit-qkdvDenominator ;
   sh:property qudt:Unit-qkdvNumerator ;
   sh:property qudt:Unit-siUnitsExpression ;
-  sh:property qudt:Unit-supercededBy ;
   sh:property qudt:Unit-symbol ;
   sh:property qudt:Unit-ucumCode ;
   sh:property qudt:Unit-udunitsCode ;
   sh:property qudt:Unit-uneceCommonCode ;
   sh:property qudt:Unit-unitOfSystem ;
 .
-qudt:Unit-allowedUnitOfSystem
+qudt:Unit-applicableSystem
   a sh:PropertyShape ;
-  sh:path qudt:allowedUnitOfSystem ;
+  sh:path qudt:applicableSystem ;
   rdfs:isDefinedBy <http://qudt.org/2.1/schema/shacl/qudt> ;
   sh:class qudt:SystemOfUnits ;
 .
@@ -2204,7 +2204,7 @@ qudt:Unit-uneceCommonCode
 .
 qudt:Unit-unitOfSystem
   a sh:PropertyShape ;
-  sh:path qudt:unitOfSystem ;
+  sh:path qudt:isUnitOfSystem ;
   rdfs:isDefinedBy <http://qudt.org/2.1/schema/shacl/qudt> ;
   sh:class qudt:SystemOfUnits ;
 .
@@ -2301,9 +2301,17 @@ qudt:allowedPattern
 qudt:allowedUnitOfSystem
   a rdf:Property ;
   dcterms:description "This property relates a unit of measure with a unit system that does not define the unit, but allows its use within the system. An allowed unit must be convertible to some dimensionally eqiuvalent unit that is defined by the system."^^rdf:HTML ;
+  dcterms:isReplacedBy qudt:applicableSystem ;
+  owl:deprecated true ;
   rdfs:isDefinedBy <http://qudt.org/2.1/schema/shacl/qudt> ;
   rdfs:label "allowed unit of system" ;
-  rdfs:subPropertyOf qudt:unitOfSystem ;
+  rdfs:subPropertyOf qudt:isUnitOfSystem ;
+.
+qudt:applicableSystem
+  a rdf:Property ;
+  dcterms:description "This property relates a unit of measure with a unit system that may or may not define the unit, but within which the unit is compatible."^^rdf:HTML ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/schema/qudt> ;
+  rdfs:label "applicable system" ;
 .
 qudt:ansiSQLName
   a rdf:Property ;
@@ -2502,7 +2510,7 @@ qudt:definedUnitOfSystem
   dcterms:description "This property relates a unit of measure with the unit system that defines the unit."^^rdf:HTML ;
   rdfs:isDefinedBy <http://qudt.org/2.1/schema/shacl/qudt> ;
   rdfs:label "defined unit of system" ;
-  rdfs:subPropertyOf qudt:unitOfSystem ;
+  rdfs:subPropertyOf qudt:isUnitOfSystem ;
 .
 qudt:denominatorDimensionVector
   a rdf:Property ;
@@ -2535,7 +2543,7 @@ qudt:derivedUnitOfSystem
   dcterms:description "This property relates a unit of measure to the system of units in which it is defined as a derived unit. That is, the derived unit is defined as a product of the base units for the system raised to some rational power."^^rdf:HTML ;
   rdfs:isDefinedBy <http://qudt.org/2.1/schema/shacl/qudt> ;
   rdfs:label "is derived unit of system" ;
-  rdfs:subPropertyOf qudt:unitOfSystem ;
+  rdfs:subPropertyOf qudt:isUnitOfSystem ;
 .
 qudt:dimensionExponent
   a rdf:Property ;
@@ -2898,6 +2906,12 @@ qudt:isQuantityKindOf
   rdfs:isDefinedBy <http://qudt.org/2.1/schema/shacl/qudt> ;
   rdfs:label "is quantity kind of" ;
 .
+qudt:isUnitOfSystem
+  a rdf:Property ;
+  dcterms:description "This property relates a unit of measure with a system of units that either a) defines the unit or b) allows the unit to be used within the system."^^rdf:HTML ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/schema/shacl/qudt> ;
+  rdfs:label "is unit of system" ;
+.
 qudt:isoNormativeReference
   a rdf:Property ;
   dcterms:description "Provides a way to reference the ISO unit definition."^^rdf:HTML ;
@@ -3194,12 +3208,6 @@ qudt:standardUncertainty
   rdfs:isDefinedBy <http://qudt.org/2.1/schema/shacl/qudt> ;
   rdfs:label "standard uncertainty" ;
 .
-qudt:supercededBy
-  a rdf:Property ;
-  dcterms:description "This property is used to refer to the most current definition of an entity, when needed."^^rdf:HTML ;
-  rdfs:isDefinedBy <http://qudt.org/2.1/schema/shacl/qudt> ;
-  rdfs:label "superceded by" ;
-.
 qudt:symbol
   a rdf:Property ;
   dcterms:description "The symbol is a glyph that is used to represent some concept, typically a unit or a quantity, in a compact form. For example, the symbol for an Ohm is \\(ohm\\). This contrasts with 'unit:abbreviation', which gives a short alphanumeric abbreviation for the unit, 'ohm' for Ohm."^^qudt:LatexString ;
@@ -3274,12 +3282,6 @@ qudt:unitFor
   rdfs:isDefinedBy <http://qudt.org/2.1/schema/shacl/qudt> ;
   rdfs:label "unit for" ;
 .
-qudt:unitOfSystem
-  a rdf:Property ;
-  dcterms:description "This property relates a unit of measure with a system of units that either a) defines the unit or b) allows the unit to be used within the system."^^rdf:HTML ;
-  rdfs:isDefinedBy <http://qudt.org/2.1/schema/shacl/qudt> ;
-  rdfs:label "is unit of system" ;
-.
 qudt:upperBound
   a rdf:Property ;
   rdfs:isDefinedBy <http://qudt.org/2.1/schema/shacl/qudt> ;
@@ -3345,7 +3347,7 @@ vaem:GMD_SHACLQUDT-SCHEMA
 <p class=\"lm-para\">Except for unit prefixes, all units are specified in separate vocabularies. Descriptions are provided in both HTML and LaTeX formats. A quantity is a measure of an observable phenomenon, that, when associated with something, becomes a property of that thing; a particular object, event, or physical system. </p>
 
 <p class=\"lm-para\">A quantity has meaning in the context of a measurement (i.e. the thing measured, the measured value, the accuracy of measurement, etc.) whereas the underlying quantity kind is independent of any particular measurement. Thus, length is a quantity kind while the height of a rocket is a specific quantity of length; its magnitude that may be expressed in meters, feet, inches, etc.  Or, as stated at Wikipedia, in the language of measurement, quantities are quantifiable aspects of the world, such as time, distance, velocity, mass, momentum, energy, and weight, and units are used to describe their measure. Many of these quantities are related to each other by various physical laws, and as a result the units of some of the quantities can be expressed as products (or ratios) of powers of other units (e.g., momentum is mass times velocity and velocity is measured in distance divided by time).</p>"""^^rdf:HTML ;
-  dcterms:modified "2023-01-13T15:44:11.599-05:00"^^xsd:dateTime ;
+  dcterms:modified "2023-03-15T09:50:25.789-04:00"^^xsd:dateTime ;
   dcterms:rights """
   This product includes all or a portion of the UCUM table, UCUM codes, and UCUM definitions or is derived from it, subject to a license from Regenstrief Institute, Inc. and The UCUM Organization. Your use of the UCUM table, UCUM codes, UCUM definitions also is subject to this license, a copy of which is available at ​http://unitsofmeasure.org. The current complete UCUM table, UCUM Specification are available for download at ​http://unitsofmeasure.org. The UCUM table and UCUM codes are copyright © 1995-2009, Regenstrief Institute, Inc. and the Unified Codes for Units of Measures (UCUM) Organization. All rights reserved.
 
@@ -3353,25 +3355,25 @@ THE UCUM TABLE (IN ALL FORMATS), UCUM DEFINITIONS, AND SPECIFICATION ARE PROVIDE
   """ ;
   dcterms:rights "The QUDT Ontologies are issued under a Creative Commons Attribution 4.0 International License (CC BY 4.0), available at https://creativecommons.org/licenses/by/4.0/. Attribution should be made to QUDT.org" ;
   dcterms:subject "QUDT" ;
-  dcterms:title "QUDT SHACL Schema - Version 2.1.24" ;
+  dcterms:title "QUDT SHACL Schema - Version 2.1.25" ;
   qudt:informativeReference "http://unitsofmeasure.org/trac"^^xsd:anyURI ;
   qudt:informativeReference "http://www.bipm.org/en/publications/si-brochure"^^xsd:anyURI ;
   qudt:informativeReference "http://www.bipm.org/utils/common/documents/jcgm/JCGM_200_2008.pdf"^^xsd:anyURI ;
   qudt:informativeReference "https://books.google.com/books?id=pIlCAAAAIAAJ&dq=dimensional+analysis&hl=en"^^xsd:anyURI ;
   qudt:informativeReference "https://www.nist.gov/physical-measurement-laboratory/special-publication-811"^^xsd:anyURI ;
   vaem:graphName "qudt" ;
-  vaem:graphTitle "Quantities, Units, Dimensions and Types (QUDT) SHACL Schema - Version 2.1.24" ;
+  vaem:graphTitle "Quantities, Units, Dimensions and Types (QUDT) SHACL Schema - Version 2.1.25" ;
   vaem:hasGraphRole vaem:SHACLSchemaGraph ;
   vaem:hasOwner vaem:QUDT ;
   vaem:hasSteward vaem:QUDT ;
   vaem:intent "Specifies the schema for quantities, units and dimensions. Types are defined in other schemas." ;
   vaem:isMetadataFor <http://qudt.org/2.1/schema/shacl/qudt> ;
-  vaem:latestPublishedVersion "https://qudt.org/doc/2023/01/DOC_SCHEMA-SHACL-QUDT-v2.1.html"^^xsd:anyURI ;
+  vaem:latestPublishedVersion "https://qudt.org/doc/2023/03/DOC_SCHEMA-SHACL-QUDT-v2.1.html"^^xsd:anyURI ;
   vaem:logo "https://qudt.org/linkedmodels.org/assets/lib/lm/images/logos/qudt_logo-300x110.png"^^xsd:anyURI ;
   vaem:namespace "http://qudt.org/schema/qudt/" ;
   vaem:namespacePrefix "qudt" ;
   vaem:owner "qudt.org" ;
-  vaem:previousPublishedVersion "https://qudt.org/doc/2022/12/DOC_SCHEMA-SHACL-QUDT-v2.1.html"^^xsd:anyURI ;
+  vaem:previousPublishedVersion "https://qudt.org/doc/2023/01/DOC_SCHEMA-SHACL-QUDT-v2.1.html"^^xsd:anyURI ;
   vaem:revision "2.1" ;
   vaem:turtleFileURL "http://qudt.org/2.1/schema/shacl/qudt"^^xsd:anyURI ;
   vaem:usesNonImportedResource dcterms:abstract ;
@@ -3386,7 +3388,7 @@ THE UCUM TABLE (IN ALL FORMATS), UCUM DEFINITIONS, AND SPECIFICATION ARE PROVIDE
   vaem:usesNonImportedResource voag:QUDT-Attribution ;
   vaem:withAttributionTo voag:QUDT-Attribution ;
   rdfs:isDefinedBy <http://qudt.org/2.1/schema/shacl/qudt> ;
-  rdfs:label "QUDT SHACL Schema - Version 2.1.24" ;
+  rdfs:label "QUDT SHACL Schema - Version 2.1.25" ;
   owl:versionIRI <http://qudt.org/2.1/schema/shacl/qudt> ;
 .
 vaem:QUDT
