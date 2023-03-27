@@ -11,15 +11,13 @@ from bricksrc.namespaces import A, BRICK, TAG, QUDT  # noqa: E402
 BLDG = Namespace("https://brickschema.org/schema/ExampleBuilding#")
 
 
-def test_quantity_has_one_quantitykind():
+def test_quantity_has_one_quantitykind(brick_with_imports):
     """
     In the current implementation, using brick:hasQUDTReference to align Quantity
     with QUDT QuantityKinds, we need to make sure that  a Brick Quantity
     does not end up with more than 1 QuantityKind
     """
-    g = brickschema.graph.Graph()
-    g.load_file("Brick.ttl")
-    g.bind("qudt", QUDT)
+    g = brick_with_imports
     g.expand(profile="shacl")
     quantity_qk = g.query(
         "SELECT ?quantity ?kind WHERE {\
@@ -39,7 +37,7 @@ def test_quantity_has_one_quantitykind():
         ), f"Quantity {quant} has more than one associated QuantityKind! {kindlist}"
 
 
-def test_instances_measure_correct_units():
+def test_instances_measure_correct_units(brick_with_imports):
     """
     Tests that the units associated with instances are properly linked
     through the QuantityKinds
@@ -59,10 +57,7 @@ def test_instances_measure_correct_units():
     correct quantity
     """
 
-    g = brickschema.graph.Graph()
-    g.load_file("Brick.ttl")
-    g.bind("qudt", QUDT)
-    g.expand(profile="shacl")
+    g = brick_with_imports
 
     # test the definitions by making sure that some quantities have applicable
     # units
@@ -84,8 +79,8 @@ def test_instances_measure_correct_units():
 
     instances = g.query(
         "SELECT distinct ?inst WHERE {\
-             ?inst   rdf:type        brick:Point .\
-             ?inst   rdf:type/rdfs:subClassOf*/brick:hasQuantity  ?quantity .\
+             ?inst   rdf:type/rdfs:subClassOf* ?klass .\
+             ?klass brick:hasQuantity  ?quantity .\
              ?quantity    a   brick:Quantity .\
              ?inst   brick:hasUnit   ?unit .}"
     )
@@ -108,10 +103,8 @@ def test_quantity_units():
     assert len(quantities_with_units) > 0
 
 
-def test_all_quantities_have_units():
-    g = brickschema.graph.Graph()
-    g.load_file("Brick.ttl")
-    g.bind("qudt", QUDT)
+def test_all_quantities_have_units(brick_with_imports):
+    g = brick_with_imports
     g.expand(profile="shacl")
 
     # test the definitions by making sure that some quantities have applicable

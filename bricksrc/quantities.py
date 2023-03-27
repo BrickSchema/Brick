@@ -746,7 +746,6 @@ quantity_definitions = {
                 SKOS.broader: QUDTQK.Temperature,
                 SKOS.narrower: {
                     "Differential_Dry_Bulb_Temperature": {
-                        BRICK.hasQUDTReference: QUDTQK["Dry_Bulb_Temperature"],
                         QUDT.isDeltaQuantity: Literal(True),
                     },
                 },
@@ -765,6 +764,7 @@ quantity_definitions = {
     },
     "Time": {
         BRICK.hasQUDTReference: QUDTQK["Time"],
+        QUDT.applicableUnit: [UNIT["SEC"], UNIT["MIN"], UNIT["HR"], UNIT["DAY"]],
         # TODO: what are these?
         SKOS.narrower: {"Acceleration_Time": {}, "Deceleration_Time": {}},
     },

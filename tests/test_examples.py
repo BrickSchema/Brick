@@ -4,9 +4,8 @@ Tests all example files. See tests/conftest.py for the fixture that generates ea
 import brickschema
 
 
-def test_example_file_with_reasoning(filename):
-    g = brickschema.Graph()
-    g.load_file("Brick.ttl")
+def test_example_file_with_reasoning(brick_with_imports, filename):
+    g = brick_with_imports
     g.load_file(filename)
     g.expand("shacl")
 
