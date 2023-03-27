@@ -1,5 +1,6 @@
 from rdflib import Literal
 from .namespaces import TAG, OWL, BRICK
+from .meters import meter_subclasses
 
 """
 Set up subclasses of the equipment superclass
@@ -60,74 +61,7 @@ equipment_subclasses = {
     "Gas_Distribution": {"tags": [TAG.Gas, TAG.Distribution, TAG.Equipment]},
     "Meter": {
         "tags": [TAG.Meter, TAG.Equipment],
-        "subclasses": {
-            "Electrical_Meter": {
-                "tags": [TAG.Electrical, TAG.Meter, TAG.Equipment],
-                "subclasses": {
-                    "Building_Electrical_Meter": {
-                        "tags": [
-                            TAG.Building,
-                            TAG.Electrical,
-                            TAG.Meter,
-                            TAG.Equipment,
-                        ],
-                        "parents": [BRICK.Building_Meter],
-                    }
-                },
-            },
-            "Gas_Meter": {
-                "tags": [TAG.Meter, TAG.Equipment, TAG.Gas],
-                "subclasses": {
-                    "Building_Gas_Meter": {
-                        "tags": [TAG.Building, TAG.Gas, TAG.Meter, TAG.Equipment],
-                        "parents": [BRICK.Building_Meter],
-                    }
-                },
-            },
-            "Thermal_Power_Meter": {
-                "tags": [TAG.Meter, TAG.Equipment, TAG.Thermal, TAG.Power],
-            },
-            "Water_Meter": {
-                "tags": [TAG.Meter, TAG.Equipment, TAG.Water],
-                "subclasses": {
-                    "Building_Water_Meter": {
-                        "tags": [TAG.Building, TAG.Water, TAG.Meter, TAG.Equipment],
-                        "parents": [BRICK.Building_Meter],
-                    },
-                    "Chilled_Water_Meter": {
-                        "tags": [TAG.Meter, TAG.Equipment, TAG.Water, TAG.Chilled],
-                        "subclasses": {
-                            "Building_Chilled_Water_Meter": {
-                                "tags": [
-                                    TAG.Building,
-                                    TAG.Chilled,
-                                    TAG.Water,
-                                    TAG.Meter,
-                                    TAG.Equipment,
-                                ],
-                                "parents": [BRICK.Building_Meter],
-                            },
-                        },
-                    },
-                    "Hot_Water_Meter": {
-                        "tags": [TAG.Meter, TAG.Equipment, TAG.Water, TAG.Hot],
-                        "subclasses": {
-                            "Building_Hot_Water_Meter": {
-                                "tags": [
-                                    TAG.Building,
-                                    TAG.Hot,
-                                    TAG.Water,
-                                    TAG.Meter,
-                                    TAG.Equipment,
-                                ],
-                                "parents": [BRICK.Building_Meter],
-                            },
-                        },
-                    },
-                },
-            },
-            "Building_Meter": {"tags": [TAG.Meter, TAG.Equipment, TAG.Building]},
-        },
+        "subclasses": meter_subclasses,
     },
     "Motor": {
         "tags": [TAG.Equipment, TAG.Motor],

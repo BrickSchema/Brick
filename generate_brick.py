@@ -230,9 +230,11 @@ def define_concept_hierarchy(definitions, typeclasses, broader=None, related=Non
         # mark broader concept if one exists
         if broader is not None:
             G.add((concept, SKOS.broader, broader))
+            G.add((broader, SKOS.narrower, concept))
         # mark related concept if one exists
         if related is not None:
             G.add((concept, SKOS.related, related))
+            G.add((related, SKOS.related, concept))
         # add label
         label = defn.get(RDFS.label, concept.split("#")[-1].replace("_", " "))
         if not has_label(concept):
@@ -687,7 +689,8 @@ def add_definitions():
             setpoint = setpoint + "_Setpoint"
             logging.info(f"Inferred setpoint: {setpoint}")
         limit_def = limit_def_template.format(direction=direction, setpoint=setpoint)
-        G.add((param, SKOS.definition, Literal(limit_def, lang="en")))
+        if param != BRICK.Limit:  # definition already exists for Limit
+            G.add((param, SKOS.definition, Literal(limit_def, lang="en")))
         class_exists = G.query(
             f"""select ?class where {{
             BIND(brick:{setpoint} as ?class)
@@ -699,7 +702,7 @@ def add_definitions():
             logging.warning(f"WARNING: {setpoint} does not exist in Brick for {param}.")
 
 
-def handle_deprecations():
+""" def handle_deprecations():
     for deprecated_term, md in deprecations.items():
         deprecation = BNode()
         shape = BNode()
@@ -746,7 +749,7 @@ def handle_deprecations():
                     SH.construct,
                     Literal(
                         "CONSTRUCT {"
-                        f"$this rdf:type {md['replace_with'].n3()} ."
+                        f"$this rdf:type {md[''].n3()} ."
                         "} WHERE {"
                         f"$this rdf:type {deprecated_term.n3()} . }}"
                     ),
@@ -759,6 +762,41 @@ def handle_deprecations():
                     URIRef(f"https://brickschema.org/schema/{BRICK_VERSION}/Brick"),
                 )
             )
+ """
+
+
+def handle_deprecations():
+    for deprecated_term, md in deprecations.items():
+        G.add((deprecated_term, A, OWL.Class))
+        G.add((deprecated_term, OWL.deprecated, Literal(True)))
+        label = deprecated_term.split("#")[-1].replace("_", " ")
+        G.add(
+            (deprecated_term, RDFS.label, Literal(label))
+        )  # make sure the tag is declared as such
+        # handle subclasses or skos
+        if RDFS.subClassOf in md:
+            subclasses = md.pop(RDFS.subClassOf)
+            if subclasses is not None:
+                if not isinstance(subclasses, list):
+                    subclasses = [subclasses]
+                for subclass in subclasses:
+                    G.add((deprecated_term, RDFS.subClassOf, subclass))
+        elif SKOS.narrower in md:
+            subconcepts = md.pop(SKOS.narrower)
+            if subconcepts is not None:
+                if not isinstance(subconcepts, list):
+                    subconcepts = [subconcepts]
+                for subclass in subconcepts:
+                    G.add((deprecated_term, SKOS.narrower, subclass))
+        G.add((deprecated_term, BRICK.deprecatedInVersion, Literal(md["version"])))
+        G.add(
+            (
+                deprecated_term,
+                BRICK.deprecationMitigationMessage,
+                Literal(md["mitigation_message"]),
+            )
+        )
+        G.add((deprecated_term, BRICK.isReplacedBy, md["replace_with"]))
 
 
 logging.info("Beginning BRICK Ontology compilation")
@@ -864,6 +902,27 @@ define_concept_hierarchy(substances, [BRICK.Substance])
 
 # this defines the SKOS-based concept hierarchy for BRICK Quantities
 define_concept_hierarchy(quantity_definitions, [BRICK.Quantity])
+
+# add any missing skos:narrower implied by skos:broader where the subject
+# is defined by the Brick ontology
+G.query(
+    """CONSTRUCT {
+    ?narrower skos:broader ?broader .
+} WHERE {
+    ?broader skos:narrower ?narrower .
+    ?narrower rdf:type/rdfs:subClassOf* brick:Entity
+}"""
+)
+# add any missing skos:broader implied by skos:narrower where the subject
+# is defined by the Brick ontology
+G.query(
+    """CONSTRUCT {
+    ?broader skos:narrower ?narrower .
+} WHERE {
+    ?narrower skos:broader ?broader .
+    ?broader rdf:type/rdfs:subClassOf* brick:Entity
+}"""
+)
 
 # for all Quantities, copy part of the QUDT unit definitions over
 res = G.query(
