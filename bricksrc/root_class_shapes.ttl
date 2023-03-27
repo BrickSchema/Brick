@@ -122,14 +122,6 @@ brick:Collection a sh:NodeShape;
     ];
     .
 
-bsh:hasLocationShape a sh:NodeShape;
-    sh:targetSubjectsOf brick:hasLocation;
-    sh:not [
-        sh:class brick:Point;
-    ];
-    sh:message "Points are a virtual concept and always belonging to a physical device, represented by Equipment. Thus, it cannot have a Location alone."
-    .
-
 bsh:hasHotColdDeck
     a sh:NodeShape ;
     sh:targetClass brick:DDAHU ;
