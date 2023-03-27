@@ -4,8 +4,8 @@ import brickschema
 import os
 
 
-def test_entity_property_validation():
-    g = brickschema.Graph()
+def test_entity_property_validation(brick_with_imports):
+    g = brick_with_imports
     EX = Namespace("urn:ex#")
     g.load_file("Brick.ttl")
 
@@ -41,8 +41,8 @@ def test_entity_property_validation():
     assert not valid, "'AquariumFail' should have thrown a validation error"
 
 
-def test_entity_property_type_inference():
-    g = brickschema.Graph()
+def test_entity_property_type_inference(brick_with_imports):
+    g = brick_with_imports
     EX = Namespace("urn:ex#")
     REF = Namespace("https://brickschema.org/schema/Brick/ref#")
     BACNET = Namespace("http://data.ashrae.org/bacnet/2020#")
@@ -70,8 +70,8 @@ def test_entity_property_type_inference():
     os.remove("test.ttl")
 
 
-def test_last_known_value():
-    g = brickschema.Graph()
+def test_last_known_value(brick_with_imports):
+    g = brick_with_imports
     EX = Namespace("urn:ex#")
     g.load_file("Brick.ttl")
     g.add(
@@ -106,8 +106,8 @@ def test_last_known_value():
     assert not valid, report
 
 
-def test_external_reference_rules():
-    g = brickschema.Graph()
+def test_external_reference_rules(brick_with_imports):
+    g = brick_with_imports
     EX = Namespace("urn:ex#")
     g.load_file("Brick.ttl")
     g.add((EX["p1"], A, BRICK.Point))
