@@ -14332,6 +14332,9 @@ bacnet:StatusFlags a rdfs:Class,
     bacnet:memberClass bacnet:StatusFlagsNamedBits ;
     rdfs:subClassOf bacnet:Bitstring .
 
+bacnet:Bitstring a rdfs:Class .
+bacnet:NamedBits a rdfs:Class .
+
 bacnet:StatusFlagsNamedBits a rdfs:Class ;
     rdfs:subClassOf bacnet:NamedBits .
 

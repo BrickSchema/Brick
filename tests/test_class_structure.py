@@ -38,14 +38,19 @@ def test_subclasses(brick_with_imports):
                             ?parent a owl:Class\
                           }"
     )
-    # filter out subclass of self (reflexive)
-    subclasses1 = list(filter(lambda x: x[0] != x[1], subclasses1))
-    subclasses2 = list(filter(lambda x: x[0] != x[1], subclasses2))
-    # filter out BNodes
-    subclasses1 = list(filter(lambda x: not isinstance(x[0], BNode), subclasses1))
-    subclasses2 = list(filter(lambda x: not isinstance(x[0], BNode), subclasses2))
-    subclasses1 = list(filter(lambda x: not isinstance(x[1], BNode), subclasses1))
-    subclasses2 = list(filter(lambda x: not isinstance(x[1], BNode), subclasses2))
+
+    def _cond(x) -> bool:
+        return (
+            x[0] != x[1]
+            and not isinstance(x[0], BNode)
+            and not isinstance(x[1], BNode)
+            and x[0].startswith(BRICK)
+            and x[1].startswith(BRICK)
+        )
+
+    # filter out subclass of self (reflexive), BNodes, non-brick classes
+    subclasses1 = list(filter(lambda x: _cond(x), subclasses1))
+    subclasses2 = list(filter(lambda x: _cond(x), subclasses2))
     # get parents
     sc1 = [x[0] for x in subclasses1]
     sc2 = [x[0] for x in subclasses2]
