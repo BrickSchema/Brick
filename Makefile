@@ -1,25 +1,20 @@
 .PHONY: format
 
-Brick.ttl: bricksrc/*.py bricksrc/*.ttl bricksrc/definitions.csv generate_brick.py shacl/* support/*.ttl
+Brick.ttl: bricksrc/*.py bricksrc/*.ttl bricksrc/definitions.csv generate_brick.py support/*.ttl
 	mkdir -p extensions
 	python tools/sort_definitions.py bricksrc/definitions.csv
 	python generate_brick.py
-	cd shacl && python generate_shacl.py
-
-shacl/BrickShape.ttl: bricksrc/*.py generate_brick.py shacl/generate_shacl.py
-	cd shacl && python generate_shacl.py
 
 clean:
 	rm Brick.ttl Brick+extensions.ttl
 
 format:
 	black generate_brick.py
-	black shacl/
 	black bricksrc/
 	black tests/
 	black tools/
 
-test: Brick.ttl shacl/BrickShape.ttl
+test: Brick.ttl
 	pytest -s -vvvv  -n auto tests
 	cd tests/integration && bash run_integration_tests.sh
 

@@ -461,6 +461,7 @@ def define_shape_properties(definitions):
     for shape_name, defn in definitions.items():
         G.add((shape_name, A, SH.NodeShape))
         G.add((shape_name, A, OWL.Class))
+        G.add((shape_name, A, BRICK.EntityPropertyValue))
         G.add((shape_name, RDFS.subClassOf, BSH.ValueShape))
 
         needs_value_properties = ["values", "units", "unitsFromQuantity", "datatype"]
@@ -573,43 +574,30 @@ def define_relationships(definitions, superprop=None):
         assert isinstance(subproperties_def, dict)
         define_relationships(subproperties_def, prop)
 
-        # define range/domain using SHACL shapes
-        if "range" in propdefn:
-            defn = propdefn.pop("range")
-            range_shape = BSH[f"shape_{prop.split('#')[-1]}"]
-            G.add((range_shape, A, SH.NodeShape))
-            G.add((range_shape, SH.targetSubjectsOf, prop))
-            constraint = BNode()
-            G.add((range_shape, SH.property, constraint))
-            G.add((constraint, SH.path, prop))
-            G.add((constraint, SH.minCount, Literal(0)))
-            if isinstance(defn, (tuple, list)):
+        if {"domain", "range"}.issubset(propdefn.keys()):
+            # generate a SHACL Property Shape for this relationship
+            propshape = BSH[f"{prop.split('#')[-1]}Shape"]
+            G.add((propshape, A, SH.PropertyShape))
+            G.add((propshape, SH.path, prop))
+            range_defn = propdefn.pop("range")
+            if isinstance(range_defn, (tuple, list)):
                 enumeration = BNode()
-                G.add((constraint, SH["or"], enumeration))
+                G.add((propshape, SH["or"], enumeration))
                 constraints = []
-                for cls in defn:
+                for cls in range_defn:
                     constraint = BNode()
                     G.add((constraint, SH["class"], cls))
                     constraints.append(constraint)
                 Collection(G, enumeration, constraints)
             else:
-                G.add((constraint, SH["class"], defn))
-        if "domain" in propdefn:
-            defn = propdefn.pop("domain")
-            domain_shape = BSH[f"shape_{prop.split('#')[-1]}"]
-            G.add((domain_shape, A, SH.NodeShape))
-            G.add((domain_shape, SH.targetSubjectsOf, prop))
-            if isinstance(defn, (tuple, list)):
-                enumeration = BNode()
-                G.add((domain_shape, SH["or"], enumeration))
-                constraints = []
-                for cls in defn:
-                    constraint = BNode()
-                    G.add((constraint, SH["class"], cls))
-                    constraints.append(constraint)
-                Collection(G, enumeration, constraints)
-            else:
-                G.add((domain_shape, SH["class"], defn))
+                G.add((propshape, SH["class"], range_defn))
+
+            # associate the PropertyShape with all possible subject classes
+            domains = propdefn.pop("domain")
+            if not isinstance(domains, list):
+                domains = [domains]
+            for domain in domains:
+                G.add((domain, SH.property, propshape))
 
         # define other properties of the Brick property
         for propname, propval in propdefn.items():
@@ -936,6 +924,7 @@ G.add((BRICK.value, A, OWL.DatatypeProperty))
 G.add((BRICK.value, SKOS.definition, Literal("The basic value of an entity property")))
 G.add((BRICK.EntityProperty, RDFS.subClassOf, OWL.ObjectProperty))
 G.add((BRICK.EntityProperty, A, OWL.Class))
+G.add((BRICK.EntityPropertyValue, A, OWL.Class))
 G.add((BSH.ValueShape, A, OWL.Class))
 define_shape_properties(get_shapes(G))
 define_entity_properties(entity_properties)
@@ -968,14 +957,7 @@ for name, graph in extension_graphs.items():
         fp.write("\n")
 
 # add SHACL shapes to graph
-G.parse("shacl/BrickEntityShapeBase.ttl", format="ttl")
-
-# validate Brick
-valid, _, report = pyshacl.validate(data_graph=G, advanced=True, allow_warnings=True)
-if not valid:
-    print(report)
-    sys.exit(1)
-
+# G.parse("shacl/BrickEntityShapeBase.ttl", format="ttl")
 
 # serialize Brick to output
 with open("Brick.ttl", "w", encoding="utf-8") as fp:
@@ -989,6 +971,11 @@ for graph in extension_graphs.values():
 # fetch other ontologies
 if os.path.exists("Brick+extensions.ttl"):
     os.remove("Brick+extensions.ttl")  # remove extensions file before computing imports
+
+with open("Brick+extensions.ttl", "w", encoding="utf-8") as fp:
+    fp.write(G.serialize(format="turtle").rstrip())
+    fp.write("\n")
+
 # create new directory for storing imports
 os.makedirs("imports", exist_ok=True)
 env = ontoenv.OntoEnv(initialize=True)
@@ -996,7 +983,10 @@ env.refresh()
 for name, uri in ontology_imports.items():
     depg, loc = env.resolve_uri(str(uri))
     depg.serialize(Path("imports") / f"{name}.ttl", format="ttl")
+    G += depg  # add the imported graph to Brick so we can do validation
 
-with open("Brick+extensions.ttl", "w", encoding="utf-8") as fp:
-    fp.write(G.serialize(format="turtle").rstrip())
-    fp.write("\n")
+# validate Brick
+valid, _, report = pyshacl.validate(data_graph=G, advanced=True, allow_warnings=True)
+if not valid:
+    print(report)
+    sys.exit(1)

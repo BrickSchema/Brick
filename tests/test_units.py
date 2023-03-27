@@ -81,12 +81,11 @@ def test_instances_measure_correct_units():
         triples.append((instance, BRICK.hasUnit, unit))
     g.add(*triples)
     g.expand(profile="shacl")
-    g.expand(profile="rdfs")
 
     instances = g.query(
         "SELECT distinct ?inst WHERE {\
              ?inst   rdf:type        brick:Point .\
-             ?inst   rdf:type/brick:hasQuantity  ?quantity .\
+             ?inst   rdf:type/rdfs:subClassOf*/brick:hasQuantity  ?quantity .\
              ?quantity    a   brick:Quantity .\
              ?inst   brick:hasUnit   ?unit .}"
     )
