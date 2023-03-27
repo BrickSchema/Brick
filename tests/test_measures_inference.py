@@ -27,15 +27,14 @@ def _get_subclasses(hierarchy):
             yield tup
 
 
-def test_measurable_hierarchy():
+def test_measurable_hierarchy(brick_with_imports):
     """
     Checks to make sure the hierarchy is preserved when the
     ontology is serialized. All subclass relationships explicitly
     included in the substances + quantities hierarchies should
     be in the ontology
     """
-    g = rdflib.Graph()
-    g.parse("Brick.ttl", format="turtle")
+    g = brick_with_imports
 
     # check substance classes
     for klass, subklass in _get_subclasses(substances):
@@ -44,9 +43,8 @@ def test_measurable_hierarchy():
         assert (BRICK[klass],) in res
 
 
-def test_measures_infers():
-    g = brickschema.Graph()
-    g.load_file("Brick.ttl")
+def test_measures_infers(brick_with_imports):
+    g = brick_with_imports
 
     qstr = """select ?class ?o where {
       ?class rdfs:subClassOf+ brick:Class.

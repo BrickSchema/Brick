@@ -9,7 +9,6 @@ def test_deprecation(brick_with_imports):
     """
     g = brick_with_imports
     EX = Namespace("urn:ex#")
-    g.load_file("Brick.ttl")
     g.bind("ex", EX)
     g.parse(
         data="""

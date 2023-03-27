@@ -8,7 +8,7 @@ import glob
 import sys
 
 sys.path.append("..")
-from bricksrc.namespaces import QUDT  # noqa: E402
+from bricksrc.namespaces import QUDT, RDF, RDFS, BRICK  # noqa: E402
 
 
 def pytest_generate_tests(metafunc):
@@ -36,5 +36,8 @@ def brick_with_imports():
     g = brickschema.graph.Graph()
     g.load_file("Brick.ttl")
     g.bind("qudt", QUDT)
+    g.bind("rdf", RDF)
+    g.bind("rdfs", RDFS)
+    g.bind("brick", BRICK)
     env.import_dependencies(g)
     return g
