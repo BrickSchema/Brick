@@ -3,6 +3,9 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+<http://data.ashrae.org/bacnet/2020> a owl:Ontology.
 
 bacnet:AbortReason a rdfs:Class ;
     bacnet:comment "Enumerated values 0-63 are reserved for prototype by ASHRAE. Enumerated values 64-255 may be used by others subject to the procedures and constraints described in Clause 23."@en ;
