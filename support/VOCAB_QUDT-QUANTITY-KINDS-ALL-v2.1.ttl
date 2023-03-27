@@ -23,7 +23,7 @@
   a owl:Ontology ;
   vaem:hasGraphMetadata vaem:GMD_QUDT-QUANTITY-KINDS-ALL ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
-  rdfs:label "QUDT VOCAB Quantity Kinds  Release 2.1.24" ;
+  rdfs:label "QUDT VOCAB Quantity Kinds  Release 2.1.25" ;
   owl:imports <http://qudt.org/2.1/schema/facade/qudt> ;
   owl:imports <http://qudt.org/2.1/vocab/dimensionvector> ;
   owl:versionIRI <http://qudt.org/2.1/vocab/quantitykind> ;
@@ -1536,6 +1536,7 @@ quantitykind:AverageSpecificImpulse
 quantitykind:AverageVacuumThrust
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:DYN ;
+  qudt:applicableUnit unit:GM_F ;
   qudt:applicableUnit unit:KIP_F ;
   qudt:applicableUnit unit:KiloGM_F ;
   qudt:applicableUnit unit:KiloN ;
@@ -1918,6 +1919,7 @@ quantitykind:BurnRate
   qudt:applicableUnit unit:M-PER-YR ;
   qudt:applicableUnit unit:MI-PER-HR ;
   qudt:applicableUnit unit:MI-PER-MIN ;
+  qudt:applicableUnit unit:MI-PER-SEC ;
   qudt:applicableUnit unit:MI_N-PER-HR ;
   qudt:applicableUnit unit:MI_N-PER-MIN ;
   qudt:applicableUnit unit:MilliM-PER-DAY ;
@@ -2011,7 +2013,7 @@ quantitykind:CENTER-OF-GRAVITY_X
   qudt:applicableUnit unit:ROD ;
   qudt:applicableUnit unit:YD ;
   qudt:hasDimensionVector qkdv:A0E0L1I0M0H0T0D0 ;
-  qudt:supercededBy quantitykind:CenterOfGravity_X ;
+  dcterms:isReplacedBy quantitykind:CenterOfGravity_X ;
   qudt:symbol "cg" ;
   qudt:url "http://www.grc.nasa.gov/WWW/k-12/airplane/cg.html"^^xsd:anyURI ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
@@ -2057,7 +2059,7 @@ quantitykind:CENTER-OF-GRAVITY_Y
   qudt:applicableUnit unit:ROD ;
   qudt:applicableUnit unit:YD ;
   qudt:hasDimensionVector qkdv:A0E0L1I0M0H0T0D0 ;
-  qudt:supercededBy quantitykind:CenterOfGravity_Y ;
+  dcterms:isReplacedBy quantitykind:CenterOfGravity_Y ;
   qudt:symbol "cg" ;
   qudt:url "http://www.grc.nasa.gov/WWW/k-12/airplane/cg.html"^^xsd:anyURI ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
@@ -2103,7 +2105,7 @@ quantitykind:CENTER-OF-GRAVITY_Z
   qudt:applicableUnit unit:ROD ;
   qudt:applicableUnit unit:YD ;
   qudt:hasDimensionVector qkdv:A0E0L1I0M0H0T0D0 ;
-  qudt:supercededBy quantitykind:CenterOfGravity_Z ;
+  dcterms:isReplacedBy quantitykind:CenterOfGravity_Z ;
   qudt:symbol "cg" ;
   qudt:url "http://www.grc.nasa.gov/WWW/k-12/airplane/cg.html"^^xsd:anyURI ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
@@ -3111,7 +3113,6 @@ quantitykind:CrossSectionalArea
 quantitykind:CubicElectricDipoleMomentPerSquareEnergy
   a qudt:QuantityKind ;
   dcterms:isReplacedBy quantitykind:ElectricDipoleMoment_CubicPerEnergy_Squared ;
-  qudt:applicableUnit unit:C3-M-PER-J2 ;
   qudt:hasDimensionVector qkdv:A0E3L-1I0M-2H0T7D0 ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Cubic Electric Dipole Moment per Square Energy"@en ;
@@ -3431,6 +3432,7 @@ quantitykind:DELTA-V
   qudt:applicableUnit unit:M-PER-YR ;
   qudt:applicableUnit unit:MI-PER-HR ;
   qudt:applicableUnit unit:MI-PER-MIN ;
+  qudt:applicableUnit unit:MI-PER-SEC ;
   qudt:applicableUnit unit:MI_N-PER-HR ;
   qudt:applicableUnit unit:MI_N-PER-MIN ;
   qudt:applicableUnit unit:MilliM-PER-DAY ;
@@ -4353,6 +4355,7 @@ quantitykind:Duv
 quantitykind:DynamicFriction
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:DYN ;
+  qudt:applicableUnit unit:GM_F ;
   qudt:applicableUnit unit:KIP_F ;
   qudt:applicableUnit unit:KiloGM_F ;
   qudt:applicableUnit unit:KiloN ;
@@ -4500,6 +4503,7 @@ quantitykind:EarthClosestApproachVehicleVelocity
   qudt:applicableUnit unit:M-PER-YR ;
   qudt:applicableUnit unit:MI-PER-HR ;
   qudt:applicableUnit unit:MI-PER-MIN ;
+  qudt:applicableUnit unit:MI-PER-SEC ;
   qudt:applicableUnit unit:MI_N-PER-HR ;
   qudt:applicableUnit unit:MI_N-PER-MIN ;
   qudt:applicableUnit unit:MilliM-PER-DAY ;
@@ -4751,6 +4755,7 @@ quantitykind:ElectricChargePerArea
 quantitykind:ElectricChargePerMass
   a qudt:QuantityKind ;
   dcterms:description "\"Electric Charge Per Mass\" is the charge associated with a specific mass of a substance. In the SI and ISO systems this is \\(1 kg\\)."^^qudt:LatexString ;
+  qudt:applicableUnit unit:A-M2-PER-J-SEC ;
   qudt:applicableUnit unit:C-PER-KiloGM ;
   qudt:applicableUnit unit:HZ-PER-T ;
   qudt:applicableUnit unit:KiloR ;
@@ -5523,6 +5528,7 @@ quantitykind:EllipticalOrbitApogeeVelocity
   qudt:applicableUnit unit:M-PER-YR ;
   qudt:applicableUnit unit:MI-PER-HR ;
   qudt:applicableUnit unit:MI-PER-MIN ;
+  qudt:applicableUnit unit:MI-PER-SEC ;
   qudt:applicableUnit unit:MI_N-PER-HR ;
   qudt:applicableUnit unit:MI_N-PER-MIN ;
   qudt:applicableUnit unit:MilliM-PER-DAY ;
@@ -5558,6 +5564,7 @@ quantitykind:EllipticalOrbitPerigeeVelocity
   qudt:applicableUnit unit:M-PER-YR ;
   qudt:applicableUnit unit:MI-PER-HR ;
   qudt:applicableUnit unit:MI-PER-MIN ;
+  qudt:applicableUnit unit:MI-PER-SEC ;
   qudt:applicableUnit unit:MI_N-PER-HR ;
   qudt:applicableUnit unit:MI_N-PER-MIN ;
   qudt:applicableUnit unit:MilliM-PER-DAY ;
@@ -6020,7 +6027,6 @@ quantitykind:EnergyPerMassAmountOfSubstance
 quantitykind:EnergyPerSquareMagneticFluxDensity
   a qudt:QuantityKind ;
   dcterms:isReplacedBy quantitykind:EnergyPerMagneticFluxDensity_Squared ;
-  qudt:applicableUnit unit:J-PER-T2 ;
   qudt:hasDimensionVector qkdv:A0E2L2I0M-1H0T2D0 ;
   qudt:plainTextDescription "\"Energy Per Square Magnetic Flux Density\" is a measure of energy for a unit of magnetic flux density." ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
@@ -6445,6 +6451,7 @@ quantitykind:ExpansionRatio
 .
 quantitykind:Exposure
   a qudt:QuantityKind ;
+  qudt:applicableUnit unit:A-M2-PER-J-SEC ;
   qudt:applicableUnit unit:C-PER-KiloGM ;
   qudt:applicableUnit unit:HZ-PER-T ;
   qudt:applicableUnit unit:KiloR ;
@@ -6874,6 +6881,7 @@ quantitykind:Force
   a qudt:QuantityKind ;
   dcterms:description "\"Force\" is an influence that causes mass to accelerate. It may be experienced as a lift, a push, or a pull. Force is defined by Newton's Second Law as \\(F = m \\times a \\), where \\(F\\) is force, \\(m\\) is mass and \\(a\\) is acceleration. Net force is mathematically equal to the time rate of change of the momentum of the body on which it acts. Since momentum is a vector quantity (has both a magnitude and direction), force also is a vector quantity."^^qudt:LatexString ;
   qudt:applicableUnit unit:DYN ;
+  qudt:applicableUnit unit:GM_F ;
   qudt:applicableUnit unit:KIP_F ;
   qudt:applicableUnit unit:KiloGM_F ;
   qudt:applicableUnit unit:KiloN ;
@@ -6902,6 +6910,7 @@ quantitykind:Force
 quantitykind:ForceMagnitude
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:DYN ;
+  qudt:applicableUnit unit:GM_F ;
   qudt:applicableUnit unit:KIP_F ;
   qudt:applicableUnit unit:KiloGM_F ;
   qudt:applicableUnit unit:KiloN ;
@@ -7073,6 +7082,7 @@ Alternatively,
 quantitykind:Friction
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:DYN ;
+  qudt:applicableUnit unit:GM_F ;
   qudt:applicableUnit unit:KIP_F ;
   qudt:applicableUnit unit:KiloGM_F ;
   qudt:applicableUnit unit:KiloN ;
@@ -7469,6 +7479,7 @@ quantitykind:GrandCanonicalPartitionFunction
 quantitykind:GravitationalAttraction
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:DYN ;
+  qudt:applicableUnit unit:GM_F ;
   qudt:applicableUnit unit:KIP_F ;
   qudt:applicableUnit unit:KiloGM_F ;
   qudt:applicableUnit unit:KiloN ;
@@ -7554,7 +7565,6 @@ quantitykind:GustatoryThreshold
 quantitykind:GyromagneticRatio
   a qudt:QuantityKind ;
   dcterms:description "\"Gyromagnetic Ratio}, also sometimes known as the magnetogyric ratio in other disciplines, of a particle or system is the ratio of its magnetic dipole moment to its angular momentum, and it is often denoted by the symbol, \\(\\gamma\\). Its SI units are radian per second per tesla (\\(rad s^{-1} \\cdot T^{1}\\)) or, equivalently, coulomb per kilogram (\\(C \\cdot kg^{-1\"\\))."^^qudt:LatexString ;
-  qudt:applicableUnit unit:A-M2-PER-J-SEC ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Gyromagnetic_ratio"^^xsd:anyURI ;
   qudt:hasDimensionVector qkdv:A0E1L2I0M0H0T0D0 ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Gyromagnetic_ratio"^^xsd:anyURI ;
@@ -8047,6 +8057,7 @@ quantitykind:HorizontalVelocity
   qudt:applicableUnit unit:M-PER-YR ;
   qudt:applicableUnit unit:MI-PER-HR ;
   qudt:applicableUnit unit:MI-PER-MIN ;
+  qudt:applicableUnit unit:MI-PER-SEC ;
   qudt:applicableUnit unit:MI_N-PER-HR ;
   qudt:applicableUnit unit:MI_N-PER-MIN ;
   qudt:applicableUnit unit:MilliM-PER-DAY ;
@@ -8201,6 +8212,7 @@ quantitykind:Impedance
 quantitykind:Incidence
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:CASES-PER-1000I-YR ;
+  qudt:applicableUnit unit:CASES-PER-KiloINDIV-YR ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T-1D0 ;
   qudt:informativeReference "https://en.wikipedia.org/wiki/Incidence_(epidemiology)"^^xsd:anyURI ;
   qudt:plainTextDescription "In epidemiology, incidence is a measure of the probability of occurrence of a given medical condition in a population within a specified period of time." ;
@@ -8213,6 +8225,7 @@ quantitykind:Incidence
 quantitykind:IncidenceProportion
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:CASES-PER-1000I-YR ;
+  qudt:applicableUnit unit:CASES-PER-KiloINDIV-YR ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T-1D0 ;
   qudt:informativeReference "https://en.wikipedia.org/wiki/Cumulative_incidence"^^xsd:anyURI ;
   qudt:informativeReference "https://en.wikipedia.org/wiki/Incidence_(epidemiology)"^^xsd:anyURI ;
@@ -8227,6 +8240,7 @@ quantitykind:IncidenceProportion
 quantitykind:IncidenceRate
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:CASES-PER-1000I-YR ;
+  qudt:applicableUnit unit:CASES-PER-KiloINDIV-YR ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T-1D0 ;
   qudt:informativeReference "https://en.wikipedia.org/wiki/Incidence_(epidemiology)"^^xsd:anyURI ;
   qudt:plainTextDescription "The incidence rate is a measure of the frequency with which a disease or other incident occurs over a specified time period. It is also known as the incidence density rate or person-time incidence rate, when the denominator is the combined person-time of the population at risk (the sum of the time duration of exposure across all persons exposed)" ;
@@ -8433,6 +8447,7 @@ quantitykind:InitialVelocity
   qudt:applicableUnit unit:M-PER-YR ;
   qudt:applicableUnit unit:MI-PER-HR ;
   qudt:applicableUnit unit:MI-PER-MIN ;
+  qudt:applicableUnit unit:MI-PER-SEC ;
   qudt:applicableUnit unit:MI_N-PER-HR ;
   qudt:applicableUnit unit:MI_N-PER-MIN ;
   qudt:applicableUnit unit:MilliM-PER-DAY ;
@@ -8680,7 +8695,6 @@ quantitykind:InversePressure
 quantitykind:InverseSquareEnergy
   a qudt:QuantityKind ;
   dcterms:isReplacedBy quantitykind:InverseEnergy_Squared ;
-  qudt:applicableUnit unit:PER-GigaEV2 ;
   qudt:hasDimensionVector qkdv:A0E0L-4I0M-2H0T4D0 ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Inverse Square Energy"@en ;
@@ -8689,7 +8703,6 @@ quantitykind:InverseSquareEnergy
 quantitykind:InverseSquareMass
   a qudt:QuantityKind ;
   dcterms:isReplacedBy quantitykind:InverseMass_Squared ;
-  qudt:applicableUnit unit:PER-PlanckMass2 ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M-2H0T0D0 ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Inverse Square Mass"@en ;
@@ -9351,12 +9364,35 @@ quantitykind:LengthPerUnitElectricCurrent
 .
 quantitykind:LengthPercentage
   a qudt:QuantityKind ;
+  dcterms:isReplacedBy quantitykind:LengthRatio ;
   qudt:applicableUnit unit:PERCENT ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:qkdvDenominator qkdv:A0E0L1I0M0H0T0D0 ;
   qudt:qkdvNumerator qkdv:A0E0L1I0M0H0T0D0 ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Length Percentage"@en ;
+  owl:deprecated true ;
+  skos:broader quantitykind:DimensionlessRatio ;
+.
+quantitykind:LengthRatio
+  a qudt:QuantityKind ;
+  qudt:applicableUnit unit:DeciB_M ;
+  qudt:applicableUnit unit:FRACTION ;
+  qudt:applicableUnit unit:GR ;
+  qudt:applicableUnit unit:NUM ;
+  qudt:applicableUnit unit:PERCENT ;
+  qudt:applicableUnit unit:PERMITTIVITY_REL ;
+  qudt:applicableUnit unit:PPB ;
+  qudt:applicableUnit unit:PPM ;
+  qudt:applicableUnit unit:PPTH ;
+  qudt:applicableUnit unit:PPTM ;
+  qudt:applicableUnit unit:PPTR ;
+  qudt:applicableUnit unit:UNITLESS ;
+  qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
+  qudt:qkdvDenominator qkdv:A0E0L1I0M0H0T0D0 ;
+  qudt:qkdvNumerator qkdv:A0E0L1I0M0H0T0D0 ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
+  rdfs:label "Length Ratio"@en ;
   skos:broader quantitykind:DimensionlessRatio ;
 .
 quantitykind:LengthTemperature
@@ -9421,6 +9457,7 @@ quantitykind:LiftCoefficient
 quantitykind:LiftForce
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:DYN ;
+  qudt:applicableUnit unit:GM_F ;
   qudt:applicableUnit unit:KIP_F ;
   qudt:applicableUnit unit:KiloGM_F ;
   qudt:applicableUnit unit:KiloN ;
@@ -9991,6 +10028,29 @@ quantitykind:LuminousFluxPerArea
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Luminous Flux per Area"@en ;
 .
+quantitykind:LuminousFluxRatio
+  a qudt:QuantityKind ;
+  qudt:applicableUnit unit:DeciB_M ;
+  qudt:applicableUnit unit:FRACTION ;
+  qudt:applicableUnit unit:GR ;
+  qudt:applicableUnit unit:NUM ;
+  qudt:applicableUnit unit:PERCENT ;
+  qudt:applicableUnit unit:PERMITTIVITY_REL ;
+  qudt:applicableUnit unit:PPB ;
+  qudt:applicableUnit unit:PPM ;
+  qudt:applicableUnit unit:PPTH ;
+  qudt:applicableUnit unit:PPTM ;
+  qudt:applicableUnit unit:PPTR ;
+  qudt:applicableUnit unit:UNITLESS ;
+  qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
+  qudt:informativeReference "http://en.wikipedia.org/wiki/Luminous_flux"^^xsd:anyURI ;
+  qudt:plainTextDescription "Luminous Flux Ratio (or Relative Luminous Flux or Relative Luminous Power) is the measure of the perceived power of light. It differs from radiant flux, the measure of the total power of light emitted, in that luminous flux is adjusted to reflect the varying sensitivity of the human eye to different wavelengths of light. It is expressed as a percentage or fraction of full power." ;
+  qudt:qkdvDenominator qkdv:A0E0L2I0M1H0T-3D0 ;
+  qudt:qkdvNumerator qkdv:A0E0L2I0M1H0T-3D0 ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
+  rdfs:label "Luminous Flux Ratio"@en ;
+  skos:broader quantitykind:DimensionlessRatio ;
+.
 quantitykind:LuminousIntensity
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:CD ;
@@ -10310,10 +10370,6 @@ quantitykind:MagneticAreaMoment
 quantitykind:MagneticDipoleMoment
   a qudt:QuantityKind ;
   dcterms:description "\"Magnetic Dipole Moment\" is the magnetic moment of a system is a measure of the magnitude and the direction of its magnetism. Magnetic moment usually refers to its Magnetic Dipole Moment, and quantifies the contribution of the system's internal magnetism to the external dipolar magnetic field produced by the system (that is, the component of the external magnetic field that is inversely proportional to the cube of the distance to the observer). The Magnetic Dipole Moment is a vector-valued quantity. For a particle or nucleus, vector quantity causing an increment \\(\\Delta W = -\\mu \\cdot B\\) to its energy \\(W\\) in an external magnetic field with magnetic flux density \\(B\\)."^^qudt:LatexString ;
-  qudt:applicableUnit unit:A-M2 ;
-  qudt:applicableUnit unit:A-M2-PER-J-SEC ;
-  qudt:applicableUnit unit:EV-PER-T ;
-  qudt:applicableUnit unit:J-PER-T ;
   qudt:applicableUnit unit:N-M2-PER-A ;
   qudt:applicableUnit unit:WB-M ;
   qudt:hasDimensionVector qkdv:A0E-1L3I0M1H0T-2D0 ;
@@ -10418,6 +10474,9 @@ quantitykind:MagneticFluxPerUnitLength
 .
 quantitykind:MagneticMoment
   a qudt:QuantityKind ;
+  qudt:applicableUnit unit:A-M2 ;
+  qudt:applicableUnit unit:EV-PER-T ;
+  qudt:applicableUnit unit:J-PER-T ;
   qudt:exactMatch quantitykind:MagneticAreaMoment ;
   qudt:hasDimensionVector qkdv:A0E1L2I0M0H0T0D0 ;
   qudt:informativeReference "http://www.electropedia.org/iev/iev.nsf/display?openform&ievref=121-11-49"^^xsd:anyURI ;
@@ -11297,6 +11356,7 @@ quantitykind:MassieuFunction
 quantitykind:MaxExpectedOperatingThrust
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:DYN ;
+  qudt:applicableUnit unit:GM_F ;
   qudt:applicableUnit unit:KIP_F ;
   qudt:applicableUnit unit:KiloGM_F ;
   qudt:applicableUnit unit:KiloN ;
@@ -11321,6 +11381,7 @@ quantitykind:MaxExpectedOperatingThrust
 quantitykind:MaxOperatingThrust
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:DYN ;
+  qudt:applicableUnit unit:GM_F ;
   qudt:applicableUnit unit:KIP_F ;
   qudt:applicableUnit unit:KiloGM_F ;
   qudt:applicableUnit unit:KiloN ;
@@ -11345,6 +11406,7 @@ quantitykind:MaxOperatingThrust
 quantitykind:MaxSeaLevelThrust
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:DYN ;
+  qudt:applicableUnit unit:GM_F ;
   qudt:applicableUnit unit:KIP_F ;
   qudt:applicableUnit unit:KiloGM_F ;
   qudt:applicableUnit unit:KiloN ;
@@ -12433,6 +12495,7 @@ quantitykind:MomentumPerAngle
 quantitykind:MorbidityRate
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:CASES-PER-1000I-YR ;
+  qudt:applicableUnit unit:CASES-PER-KiloINDIV-YR ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T-1D0 ;
   qudt:plainTextDescription "Morbidity rate is a measure of the incidence of a disease in a particular population, scaled to the size of that population, per unit of time." ;
   qudt:qkdvDenominator qkdv:A0E0L0I0M0H0T1D0 ;
@@ -12445,6 +12508,8 @@ quantitykind:MortalityRate
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:DEATHS-PER-1000000I-YR ;
   qudt:applicableUnit unit:DEATHS-PER-1000I-YR ;
+  qudt:applicableUnit unit:DEATHS-PER-KiloINDIV-YR ;
+  qudt:applicableUnit unit:DEATHS-PER-MegaINDIV-YR ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T-1D0 ;
   qudt:informativeReference "https://en.wikipedia.org/wiki/Mortality_rate"^^xsd:anyURI ;
   qudt:plainTextDescription "Mortality rate, or death rate, is a measure of the number of deaths (in general, or due to a specific cause) in a particular population, scaled to the size of that population, per unit of time." ;
@@ -12688,6 +12753,42 @@ quantitykind:NonActivePower
 .
 quantitykind:NonNegativeLength
   a qudt:QuantityKind ;
+  qudt:applicableUnit unit:ANGSTROM ;
+  qudt:applicableUnit unit:AU ;
+  qudt:applicableUnit unit:BTU_IT-PER-LB_F ;
+  qudt:applicableUnit unit:CH ;
+  qudt:applicableUnit unit:CentiM ;
+  qudt:applicableUnit unit:DecaM ;
+  qudt:applicableUnit unit:DeciM ;
+  qudt:applicableUnit unit:FATH ;
+  qudt:applicableUnit unit:FM ;
+  qudt:applicableUnit unit:FT ;
+  qudt:applicableUnit unit:FT_US ;
+  qudt:applicableUnit unit:FUR ;
+  qudt:applicableUnit unit:FUR_Long ;
+  qudt:applicableUnit unit:FemtoM ;
+  qudt:applicableUnit unit:GAUGE_FR ;
+  qudt:applicableUnit unit:HectoM ;
+  qudt:applicableUnit unit:IN ;
+  qudt:applicableUnit unit:KiloM ;
+  qudt:applicableUnit unit:LY ;
+  qudt:applicableUnit unit:M ;
+  qudt:applicableUnit unit:MI ;
+  qudt:applicableUnit unit:MI_N ;
+  qudt:applicableUnit unit:MI_US ;
+  qudt:applicableUnit unit:MicroIN ;
+  qudt:applicableUnit unit:MicroM ;
+  qudt:applicableUnit unit:MilLength ;
+  qudt:applicableUnit unit:MilliIN ;
+  qudt:applicableUnit unit:MilliM ;
+  qudt:applicableUnit unit:NanoM ;
+  qudt:applicableUnit unit:PARSEC ;
+  qudt:applicableUnit unit:PCA ;
+  qudt:applicableUnit unit:PT ;
+  qudt:applicableUnit unit:PicoM ;
+  qudt:applicableUnit unit:PlanckLength ;
+  qudt:applicableUnit unit:ROD ;
+  qudt:applicableUnit unit:YD ;
   qudt:hasDimensionVector qkdv:A0E0L1I0M0H0T0D0 ;
   qudt:plainTextDescription "\"NonNegativeLength\" is a measure of length greater than or equal to zero." ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
@@ -12909,6 +13010,7 @@ quantitykind:NozzleThroatPressure
 quantitykind:NozzleWallsThrustReaction
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:DYN ;
+  qudt:applicableUnit unit:GM_F ;
   qudt:applicableUnit unit:KIP_F ;
   qudt:applicableUnit unit:KiloGM_F ;
   qudt:applicableUnit unit:KiloN ;
@@ -13661,22 +13763,24 @@ quantitykind:PayloadMass
 .
 quantitykind:PayloadRatio
   a qudt:QuantityKind ;
-  qudt:applicableUnit unit:DECADE ;
-  qudt:applicableUnit unit:Flight ;
-  qudt:applicableUnit unit:GigaBasePair ;
-  qudt:applicableUnit unit:NP ;
+  qudt:applicableUnit unit:DeciB_M ;
+  qudt:applicableUnit unit:FRACTION ;
+  qudt:applicableUnit unit:GR ;
   qudt:applicableUnit unit:NUM ;
-  qudt:applicableUnit unit:OCT ;
-  qudt:applicableUnit unit:RPK ;
-  qudt:applicableUnit unit:SUSCEPTIBILITY_ELEC ;
-  qudt:applicableUnit unit:SUSCEPTIBILITY_MAG ;
+  qudt:applicableUnit unit:PERCENT ;
+  qudt:applicableUnit unit:PERMITTIVITY_REL ;
+  qudt:applicableUnit unit:PPB ;
+  qudt:applicableUnit unit:PPM ;
+  qudt:applicableUnit unit:PPTH ;
+  qudt:applicableUnit unit:PPTM ;
+  qudt:applicableUnit unit:PPTR ;
   qudt:applicableUnit unit:UNITLESS ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:plainTextDescription "The payload ratio is defined as the mass of the payload divided by the empty mass of the structure. Because of the extra cost involved in staging rockets, given the choice, it's often more economic to use few stages with a small payload ratio rather than more stages each with a high payload ratio." ;
   qudt:symbol "L" ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Payload Ratio"@en ;
-  skos:broader quantitykind:Dimensionless ;
+  skos:broader quantitykind:DimensionlessRatio ;
 .
 quantitykind:PeltierCoefficient
   a qudt:QuantityKind ;
@@ -14170,6 +14274,42 @@ quantitykind:PositiveDimensionlessRatio
 .
 quantitykind:PositiveLength
   a qudt:QuantityKind ;
+  qudt:applicableUnit unit:ANGSTROM ;
+  qudt:applicableUnit unit:AU ;
+  qudt:applicableUnit unit:BTU_IT-PER-LB_F ;
+  qudt:applicableUnit unit:CH ;
+  qudt:applicableUnit unit:CentiM ;
+  qudt:applicableUnit unit:DecaM ;
+  qudt:applicableUnit unit:DeciM ;
+  qudt:applicableUnit unit:FATH ;
+  qudt:applicableUnit unit:FM ;
+  qudt:applicableUnit unit:FT ;
+  qudt:applicableUnit unit:FT_US ;
+  qudt:applicableUnit unit:FUR ;
+  qudt:applicableUnit unit:FUR_Long ;
+  qudt:applicableUnit unit:FemtoM ;
+  qudt:applicableUnit unit:GAUGE_FR ;
+  qudt:applicableUnit unit:HectoM ;
+  qudt:applicableUnit unit:IN ;
+  qudt:applicableUnit unit:KiloM ;
+  qudt:applicableUnit unit:LY ;
+  qudt:applicableUnit unit:M ;
+  qudt:applicableUnit unit:MI ;
+  qudt:applicableUnit unit:MI_N ;
+  qudt:applicableUnit unit:MI_US ;
+  qudt:applicableUnit unit:MicroIN ;
+  qudt:applicableUnit unit:MicroM ;
+  qudt:applicableUnit unit:MilLength ;
+  qudt:applicableUnit unit:MilliIN ;
+  qudt:applicableUnit unit:MilliM ;
+  qudt:applicableUnit unit:NanoM ;
+  qudt:applicableUnit unit:PARSEC ;
+  qudt:applicableUnit unit:PCA ;
+  qudt:applicableUnit unit:PT ;
+  qudt:applicableUnit unit:PicoM ;
+  qudt:applicableUnit unit:PlanckLength ;
+  qudt:applicableUnit unit:ROD ;
+  qudt:applicableUnit unit:YD ;
   qudt:hasDimensionVector qkdv:A0E0L1I0M0H0T0D0 ;
   qudt:plainTextDescription "\"PositiveLength\" is a measure of length strictly greater than zero." ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
@@ -14178,6 +14318,18 @@ quantitykind:PositiveLength
 .
 quantitykind:PositivePlaneAngle
   a qudt:QuantityKind ;
+  qudt:applicableUnit unit:ARCMIN ;
+  qudt:applicableUnit unit:ARCSEC ;
+  qudt:applicableUnit unit:DEG ;
+  qudt:applicableUnit unit:GON ;
+  qudt:applicableUnit unit:GRAD ;
+  qudt:applicableUnit unit:MIL ;
+  qudt:applicableUnit unit:MIN_Angle ;
+  qudt:applicableUnit unit:MicroRAD ;
+  qudt:applicableUnit unit:MilliARCSEC ;
+  qudt:applicableUnit unit:MilliRAD ;
+  qudt:applicableUnit unit:RAD ;
+  qudt:applicableUnit unit:REV ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:informativeReference "http://www.thefreedictionary.com/plane+angle"^^xsd:anyURI ;
   qudt:plainTextDescription "A \"PositivePlaneAngle\" is a plane angle strictly greater than zero." ;
@@ -14513,12 +14665,14 @@ quantitykind:PressureLossPerLength
 .
 quantitykind:PressurePercentage
   a qudt:QuantityKind ;
+  dcterms:isReplacedBy quantitykind:PressureRatio ;
   qudt:applicableUnit unit:PERCENT ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:qkdvDenominator qkdv:A0E0L-1I0M1H0T-2D0 ;
   qudt:qkdvNumerator qkdv:A0E0L-1I0M1H0T-2D0 ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Pressure Percentage"@en ;
+  owl:deprecated true ;
   skos:broader quantitykind:DimensionlessRatio ;
 .
 quantitykind:PressureRatio
@@ -14699,7 +14853,6 @@ quantitykind:QuantumNumber
 quantitykind:QuarticElectricDipoleMomentPerCubicEnergy
   a qudt:QuantityKind ;
   dcterms:isReplacedBy quantitykind:ElectricDipoleMoment_QuarticPerEnergy_Cubic ;
-  qudt:applicableUnit unit:C4-M4-PER-J3 ;
   qudt:hasDimensionVector qkdv:A0E4L-2I0M-3H0T10D0 ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Quartic Electric Dipole Moment per Cubic Energy"@en ;
@@ -15464,6 +15617,7 @@ quantitykind:RelativeHumidity
 .
 quantitykind:RelativeLuminousFlux
   a qudt:QuantityKind ;
+  dcterms:isReplacedBy quantitykind:LuminousFluxRatio ;
   qudt:applicableUnit unit:PERCENT ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Luminous_flux"^^xsd:anyURI ;
@@ -15472,6 +15626,7 @@ quantitykind:RelativeLuminousFlux
   qudt:qkdvNumerator qkdv:A0E0L2I0M1H0T-3D0 ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Relative Luminous Flux"@en ;
+  owl:deprecated true ;
   skos:broader quantitykind:DimensionlessRatio ;
 .
 quantitykind:RelativeMassConcentrationOfVapour
@@ -15690,12 +15845,35 @@ quantitykind:Resistance
 .
 quantitykind:ResistancePercentage
   a qudt:QuantityKind ;
+  dcterms:isReplacedBy quantitykind:ResistanceRatio ;
   qudt:applicableUnit unit:PERCENT ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:qkdvDenominator qkdv:A0E-2L2I0M1H0T-3D0 ;
   qudt:qkdvNumerator qkdv:A0E-2L2I0M1H0T-3D0 ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Resistance Percentage"@en ;
+  owl:deprecated true ;
+  skos:broader quantitykind:DimensionlessRatio ;
+.
+quantitykind:ResistanceRatio
+  a qudt:QuantityKind ;
+  qudt:applicableUnit unit:DeciB_M ;
+  qudt:applicableUnit unit:FRACTION ;
+  qudt:applicableUnit unit:GR ;
+  qudt:applicableUnit unit:NUM ;
+  qudt:applicableUnit unit:PERCENT ;
+  qudt:applicableUnit unit:PERMITTIVITY_REL ;
+  qudt:applicableUnit unit:PPB ;
+  qudt:applicableUnit unit:PPM ;
+  qudt:applicableUnit unit:PPTH ;
+  qudt:applicableUnit unit:PPTM ;
+  qudt:applicableUnit unit:PPTR ;
+  qudt:applicableUnit unit:UNITLESS ;
+  qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
+  qudt:qkdvDenominator qkdv:A0E-2L2I0M1H0T-3D0 ;
+  qudt:qkdvNumerator qkdv:A0E-2L2I0M1H0T-3D0 ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
+  rdfs:label "Resistance Ratio"@en ;
   skos:broader quantitykind:DimensionlessRatio ;
 .
 quantitykind:Resistivity
@@ -15999,6 +16177,7 @@ quantitykind:RichardsonConstant
 quantitykind:RocketAtmosphericTransverseForce
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:DYN ;
+  qudt:applicableUnit unit:GM_F ;
   qudt:applicableUnit unit:KIP_F ;
   qudt:applicableUnit unit:KiloGM_F ;
   qudt:applicableUnit unit:KiloN ;
@@ -17145,21 +17324,23 @@ quantitykind:SpecificHeatVolume
 quantitykind:SpecificHeatsRatio
   a qudt:QuantityKind ;
   dcterms:description "The ratio of specific heats, for the exhaust gases adiabatic gas constant, is the relative amount of compression/expansion energy that goes into temperature \\(T\\) versus pressure \\(P\\) can be characterized by the heat capacity ratio: \\(\\gamma\\frac{C_P}{C_V}\\), where \\(C_P\\) is the specific heat (also called heat capacity) at constant pressure, while \\(C_V\\) is the specific heat at constant volume. "^^qudt:LatexString ;
-  qudt:applicableUnit unit:DECADE ;
-  qudt:applicableUnit unit:Flight ;
-  qudt:applicableUnit unit:GigaBasePair ;
-  qudt:applicableUnit unit:NP ;
+  qudt:applicableUnit unit:DeciB_M ;
+  qudt:applicableUnit unit:FRACTION ;
+  qudt:applicableUnit unit:GR ;
   qudt:applicableUnit unit:NUM ;
-  qudt:applicableUnit unit:OCT ;
-  qudt:applicableUnit unit:RPK ;
-  qudt:applicableUnit unit:SUSCEPTIBILITY_ELEC ;
-  qudt:applicableUnit unit:SUSCEPTIBILITY_MAG ;
+  qudt:applicableUnit unit:PERCENT ;
+  qudt:applicableUnit unit:PERMITTIVITY_REL ;
+  qudt:applicableUnit unit:PPB ;
+  qudt:applicableUnit unit:PPM ;
+  qudt:applicableUnit unit:PPTH ;
+  qudt:applicableUnit unit:PPTM ;
+  qudt:applicableUnit unit:PPTR ;
   qudt:applicableUnit unit:UNITLESS ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:latexSymbol "\\(\\gamma\\)"^^qudt:LatexString ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Specific Heats Ratio"@en ;
-  skos:broader quantitykind:Dimensionless ;
+  skos:broader quantitykind:DimensionlessRatio ;
 .
 quantitykind:SpecificHelmholtzEnergy
   a qudt:QuantityKind ;
@@ -17209,6 +17390,7 @@ quantitykind:SpecificImpulseByMass
   qudt:applicableUnit unit:M-PER-YR ;
   qudt:applicableUnit unit:MI-PER-HR ;
   qudt:applicableUnit unit:MI-PER-MIN ;
+  qudt:applicableUnit unit:MI-PER-SEC ;
   qudt:applicableUnit unit:MI_N-PER-HR ;
   qudt:applicableUnit unit:MI_N-PER-MIN ;
   qudt:applicableUnit unit:MilliM-PER-DAY ;
@@ -17626,6 +17808,7 @@ quantitykind:StandardGravitationalParameter
 quantitykind:StaticFriction
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:DYN ;
+  qudt:applicableUnit unit:GM_F ;
   qudt:applicableUnit unit:KIP_F ;
   qudt:applicableUnit unit:KiloGM_F ;
   qudt:applicableUnit unit:KiloN ;
@@ -18246,7 +18429,6 @@ quantitykind:TemperaturePerTime
   qudt:applicableUnit unit:DEG_F-PER-HR ;
   qudt:applicableUnit unit:DEG_F-PER-MIN ;
   qudt:applicableUnit unit:DEG_F-PER-SEC ;
-  qudt:applicableUnit unit:DEG_F-PER-SEC2 ;
   qudt:applicableUnit unit:DEG_R-PER-HR ;
   qudt:applicableUnit unit:DEG_R-PER-MIN ;
   qudt:applicableUnit unit:DEG_R-PER-SEC ;
@@ -18259,6 +18441,7 @@ quantitykind:TemperaturePerTime
 .
 quantitykind:TemperaturePerTime_Squared
   a qudt:QuantityKind ;
+  qudt:applicableUnit unit:DEG_F-PER-SEC2 ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H1T-2D0 ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Temperature per Time Squared"@en ;
@@ -18272,7 +18455,6 @@ quantitykind:TemperatureRateOfChange
   qudt:applicableUnit unit:DEG_F-PER-HR ;
   qudt:applicableUnit unit:DEG_F-PER-MIN ;
   qudt:applicableUnit unit:DEG_F-PER-SEC ;
-  qudt:applicableUnit unit:DEG_F-PER-SEC2 ;
   qudt:applicableUnit unit:DEG_R-PER-HR ;
   qudt:applicableUnit unit:DEG_R-PER-MIN ;
   qudt:applicableUnit unit:DEG_R-PER-SEC ;
@@ -18311,6 +18493,7 @@ quantitykind:TemporalSummationFunction
 quantitykind:Tension
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:DYN ;
+  qudt:applicableUnit unit:GM_F ;
   qudt:applicableUnit unit:KIP_F ;
   qudt:applicableUnit unit:KiloGM_F ;
   qudt:applicableUnit unit:KiloN ;
@@ -18778,6 +18961,7 @@ The pushing or pulling force developed by an aircraft engine or a rocket engine.
 The force exerted in any direction by a fluid jet or by a powered screw, as, the thrust of an antitorque rotor.
 Specifically, in rocketry, \\( F\\,= m\\cdot v\\) where m is propellant mass flow and v is exhaust velocity relative to the vehicle. Also called momentum thrust."""^^qudt:LatexString ;
   qudt:applicableUnit unit:DYN ;
+  qudt:applicableUnit unit:GM_F ;
   qudt:applicableUnit unit:KIP_F ;
   qudt:applicableUnit unit:KiloGM_F ;
   qudt:applicableUnit unit:KiloN ;
@@ -18821,22 +19005,24 @@ quantitykind:ThrustToMassRatio
 .
 quantitykind:ThrustToWeightRatio
   a qudt:QuantityKind ;
-  qudt:applicableUnit unit:DECADE ;
-  qudt:applicableUnit unit:Flight ;
-  qudt:applicableUnit unit:GigaBasePair ;
-  qudt:applicableUnit unit:NP ;
+  qudt:applicableUnit unit:DeciB_M ;
+  qudt:applicableUnit unit:FRACTION ;
+  qudt:applicableUnit unit:GR ;
   qudt:applicableUnit unit:NUM ;
-  qudt:applicableUnit unit:OCT ;
-  qudt:applicableUnit unit:RPK ;
-  qudt:applicableUnit unit:SUSCEPTIBILITY_ELEC ;
-  qudt:applicableUnit unit:SUSCEPTIBILITY_MAG ;
+  qudt:applicableUnit unit:PERCENT ;
+  qudt:applicableUnit unit:PERMITTIVITY_REL ;
+  qudt:applicableUnit unit:PPB ;
+  qudt:applicableUnit unit:PPM ;
+  qudt:applicableUnit unit:PPTH ;
+  qudt:applicableUnit unit:PPTM ;
+  qudt:applicableUnit unit:PPTR ;
   qudt:applicableUnit unit:UNITLESS ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:latexSymbol "\\(\\psi\\)"^^qudt:LatexString ;
   qudt:plainTextDescription "Thrust-to-weight ratio is a ratio of thrust to weight of a rocket, jet engine, propeller engine, or a vehicle propelled by such an engine. It is a dimensionless quantity and is an indicator of the performance of the engine or vehicle." ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Thrust To Weight Ratio"@en ;
-  skos:broader quantitykind:Dimensionless ;
+  skos:broader quantitykind:DimensionlessRatio ;
 .
 quantitykind:ThrusterPowerToThrustEfficiency
   a qudt:QuantityKind ;
@@ -18918,18 +19104,40 @@ quantitykind:TimeAveragedSoundIntensity
 .
 quantitykind:TimePercentage
   a qudt:QuantityKind ;
+  dcterms:isReplacedBy quantitykind:TimeRatio ;
   qudt:applicableUnit unit:PERCENT ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:qkdvDenominator qkdv:A0E0L0I0M0H0T1D0 ;
   qudt:qkdvNumerator qkdv:A0E0L0I0M0H0T1D0 ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Time Percentage"@en ;
+  owl:deprecated true ;
+  skos:broader quantitykind:DimensionlessRatio ;
+.
+quantitykind:TimeRatio
+  a qudt:QuantityKind ;
+  qudt:applicableUnit unit:DeciB_M ;
+  qudt:applicableUnit unit:FRACTION ;
+  qudt:applicableUnit unit:GR ;
+  qudt:applicableUnit unit:NUM ;
+  qudt:applicableUnit unit:PERCENT ;
+  qudt:applicableUnit unit:PERMITTIVITY_REL ;
+  qudt:applicableUnit unit:PPB ;
+  qudt:applicableUnit unit:PPM ;
+  qudt:applicableUnit unit:PPTH ;
+  qudt:applicableUnit unit:PPTM ;
+  qudt:applicableUnit unit:PPTR ;
+  qudt:applicableUnit unit:UNITLESS ;
+  qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
+  qudt:qkdvDenominator qkdv:A0E0L0I0M0H0T1D0 ;
+  qudt:qkdvNumerator qkdv:A0E0L0I0M0H0T1D0 ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
+  rdfs:label "Time Ratio"@en ;
   skos:broader quantitykind:DimensionlessRatio ;
 .
 quantitykind:TimeSquared
   a qudt:QuantityKind ;
   dcterms:isReplacedBy quantitykind:Time_Squared ;
-  qudt:applicableUnit unit:SEC2 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Time_Squared"^^xsd:anyURI ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T2D0 ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
@@ -19256,6 +19464,7 @@ quantitykind:TrueExhaustVelocity
   qudt:applicableUnit unit:M-PER-YR ;
   qudt:applicableUnit unit:MI-PER-HR ;
   qudt:applicableUnit unit:MI-PER-MIN ;
+  qudt:applicableUnit unit:MI-PER-SEC ;
   qudt:applicableUnit unit:MI_N-PER-HR ;
   qudt:applicableUnit unit:MI_N-PER-MIN ;
   qudt:applicableUnit unit:MilliM-PER-DAY ;
@@ -19311,6 +19520,7 @@ quantitykind:UpperCriticalMagneticFluxDensity
 quantitykind:VacuumThrust
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:DYN ;
+  qudt:applicableUnit unit:GM_F ;
   qudt:applicableUnit unit:KIP_F ;
   qudt:applicableUnit unit:KiloGM_F ;
   qudt:applicableUnit unit:KiloN ;
@@ -19424,6 +19634,7 @@ quantitykind:VehicleVelocity
   qudt:applicableUnit unit:M-PER-YR ;
   qudt:applicableUnit unit:MI-PER-HR ;
   qudt:applicableUnit unit:MI-PER-MIN ;
+  qudt:applicableUnit unit:MI-PER-SEC ;
   qudt:applicableUnit unit:MI_N-PER-HR ;
   qudt:applicableUnit unit:MI_N-PER-MIN ;
   qudt:applicableUnit unit:MilliM-PER-DAY ;
@@ -19458,6 +19669,7 @@ quantitykind:Velocity
   qudt:applicableUnit unit:M-PER-YR ;
   qudt:applicableUnit unit:MI-PER-HR ;
   qudt:applicableUnit unit:MI-PER-MIN ;
+  qudt:applicableUnit unit:MI-PER-SEC ;
   qudt:applicableUnit unit:MI_N-PER-HR ;
   qudt:applicableUnit unit:MI_N-PER-MIN ;
   qudt:applicableUnit unit:MilliM-PER-DAY ;
@@ -19505,6 +19717,7 @@ quantitykind:VerticalVelocity
   qudt:applicableUnit unit:M-PER-YR ;
   qudt:applicableUnit unit:MI-PER-HR ;
   qudt:applicableUnit unit:MI-PER-MIN ;
+  qudt:applicableUnit unit:MI-PER-SEC ;
   qudt:applicableUnit unit:MI_N-PER-HR ;
   qudt:applicableUnit unit:MI_N-PER-MIN ;
   qudt:applicableUnit unit:MilliM-PER-DAY ;
@@ -19633,12 +19846,14 @@ For an irrotational electric field, the voltage is independent of the path betwe
 .
 quantitykind:VoltagePercentage
   a qudt:QuantityKind ;
+  dcterms:isReplacedBy quantitykind:VoltageRatio ;
   qudt:applicableUnit unit:PERCENT ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:qkdvDenominator qkdv:A0E-1L2I0M1H0T-3D0 ;
   qudt:qkdvNumerator qkdv:A0E-1L2I0M1H0T-3D0 ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Voltage Percentage"@en ;
+  owl:deprecated true ;
   skos:broader quantitykind:DimensionlessRatio ;
 .
 quantitykind:VoltagePhasor
@@ -19650,6 +19865,27 @@ quantitykind:VoltagePhasor
   qudt:plainTextDescription "\"Voltage Phasor\" is a representation of voltage as a sinusoidal integral quantity using a complex quantity whose argument is equal to the initial phase and whose modulus is equal to the root-mean-square value. A phasor is a constant complex number, usually expressed in exponential form, representing the complex amplitude (magnitude and phase) of a sinusoidal function of time. Phasors are used by electrical engineers to simplify computations involving sinusoids, where they can often reduce a differential equation problem to an algebraic one." ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Voltage Phasor"@en ;
+.
+quantitykind:VoltageRatio
+  a qudt:QuantityKind ;
+  qudt:applicableUnit unit:DeciB_M ;
+  qudt:applicableUnit unit:FRACTION ;
+  qudt:applicableUnit unit:GR ;
+  qudt:applicableUnit unit:NUM ;
+  qudt:applicableUnit unit:PERCENT ;
+  qudt:applicableUnit unit:PERMITTIVITY_REL ;
+  qudt:applicableUnit unit:PPB ;
+  qudt:applicableUnit unit:PPM ;
+  qudt:applicableUnit unit:PPTH ;
+  qudt:applicableUnit unit:PPTM ;
+  qudt:applicableUnit unit:PPTR ;
+  qudt:applicableUnit unit:UNITLESS ;
+  qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
+  qudt:qkdvDenominator qkdv:A0E-1L2I0M1H0T-3D0 ;
+  qudt:qkdvNumerator qkdv:A0E-1L2I0M1H0T-3D0 ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
+  rdfs:label "Voltage Ratio"@en ;
+  skos:broader quantitykind:DimensionlessRatio ;
 .
 quantitykind:Volume
   a qudt:QuantityKind ;
@@ -20217,6 +20453,7 @@ quantitykind:WebTimeAveragePressure
 quantitykind:WebTimeAverageThrust
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:DYN ;
+  qudt:applicableUnit unit:GM_F ;
   qudt:applicableUnit unit:KIP_F ;
   qudt:applicableUnit unit:KiloGM_F ;
   qudt:applicableUnit unit:KiloN ;
@@ -20241,6 +20478,7 @@ quantitykind:WebTimeAverageThrust
 quantitykind:Weight
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:DYN ;
+  qudt:applicableUnit unit:GM_F ;
   qudt:applicableUnit unit:KIP_F ;
   qudt:applicableUnit unit:KiloGM_F ;
   qudt:applicableUnit unit:KiloN ;
@@ -20437,22 +20675,23 @@ vaem:GMD_QUDT-QUANTITY-KINDS-ALL
   dcterms:creator "Ralph Hodgson" ;
   dcterms:creator "Steve Ray" ;
   dcterms:description "Provides the set of all quantity kinds."^^rdf:HTML ;
-  dcterms:modified "2023-01-13T16:46:48.534-05:00"^^xsd:dateTime ;
+  dcterms:modified "2023-03-14T17:14:45.490-04:00"^^xsd:dateTime ;
   dcterms:rights "The QUDT Ontologies are issued under a Creative Commons Attribution 4.0 International License (CC BY 4.0), available at https://creativecommons.org/licenses/by/4.0/. Attribution should be made to QUDT.org" ;
   dcterms:subject "QUANTITY-KINDS-ALL" ;
+  dcterms:title "QUDT Quantity Kinds Version 2.1 Vocabulary" ;
   vaem:applicableDiscipline "All disciplines" ;
   vaem:applicableDomain "Science, Medicine and Engineering" ;
   vaem:dateCreated "2019-08-01T21:26:38"^^xsd:dateTime ;
-  vaem:graphTitle "QUDT Quantity Kinds Version 2.1.24" ;
+  vaem:graphTitle "QUDT Quantity Kinds Version 2.1.25" ;
   vaem:hasGraphRole vaem:VocabularyGraph ;
-  vaem:intent "TBD" ;
+  vaem:intent "Provides a vocabulary of all quantity kinds." ;
   vaem:isMetadataFor <http://qudt.org/2.1/vocab/quantitykind> ;
-  vaem:latestPublishedVersion "https://qudt.org/doc/2023/01/DOC_VOCAB-QUANTITY-KINDS-ALL-v2.1.html"^^xsd:anyURI ;
+  vaem:latestPublishedVersion "https://qudt.org/doc/2023/03/DOC_VOCAB-QUANTITY-KINDS-ALL-v2.1.html"^^xsd:anyURI ;
   vaem:logo "https://qudt.org/linkedmodels.org/assets/lib/lm/images/logos/qudt_logo-300x110.png" ;
   vaem:namespace "http://qudt.org/vocab/quantitykind/" ;
   vaem:namespacePrefix "quantitykind" ;
   vaem:owner "qudt.org" ;
-  vaem:previousPublishedVersion "https://qudt.org/doc/2022/11/DOC_VOCAB-QUANTITY-KINDS-ALL-v2.1.html"^^xsd:anyURI ;
+  vaem:previousPublishedVersion "https://qudt.org/doc/2023/01/DOC_VOCAB-QUANTITY-KINDS-ALL-v2.1.html"^^xsd:anyURI ;
   vaem:revision "2.1" ;
   vaem:specificity 1 ;
   vaem:turtleFileURL "http://qudt.org/2.1/vocab/quantitykind" ;
@@ -20478,5 +20717,5 @@ vaem:GMD_QUDT-QUANTITY-KINDS-ALL
   vaem:withAttributionTo voag:QUDT-Attribution ;
   vaem:withAttributionTo <http://voag.linkedmodel.org/voag/QUDT-Attribution> ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
-  rdfs:label "QUDT Quantity Kinds Vocabulary Version 2.1.24" ;
+  rdfs:label "QUDT Quantity Kinds Vocabulary Version 2.1.25" ;
 .
