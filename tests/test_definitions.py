@@ -110,8 +110,15 @@ def test_valid_definition_encoding(brick_with_imports):
 
 def test_rdfs_labels(brick_with_imports):
     g = brick_with_imports
-    labels = g.subjects(predicate=RDFS.label)
-    c = Counter(labels)
+    labels = g.subject_objects(predicate=RDFS.label)
+    # double check that rdfs:label on Brick entity only has one value for 'en'
+    c = Counter(
+        [
+            s
+            for s, l in labels
+            if (l.language is None or l.language == "en") and s.startswith(BRICK)
+        ]
+    )
     for entity, count in c.items():
         assert count == 1, f"Entity {entity} has {count} labels, which is more than 1"
 
