@@ -1,7 +1,6 @@
 """
 Tests all example files. See tests/conftest.py for the fixture that generates each of the individual test cases
 """
-import brickschema
 
 
 def test_example_file_with_reasoning(brick_with_imports, filename):

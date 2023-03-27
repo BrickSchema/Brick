@@ -1,5 +1,3 @@
-import sys
-from bricksrc.namespaces import A, OWL, RDFS, SKOS, BRICK, SH, BSH, bind_prefixes
 import brickschema
 
 prefixes = """
@@ -20,7 +18,7 @@ base_data = (
 def test_no_relations(brick_with_imports):
     data = base_data
     data_g = brickschema.Graph().parse(data=data, format="turtle")
-    conforms, r1, r2 = data_g.validate([brick_with_imports])
+    conforms, _, _ = data_g.validate([brick_with_imports])
     assert conforms
 
 

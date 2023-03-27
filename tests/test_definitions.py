@@ -1,14 +1,11 @@
-import csv
 import json
 import sys
 import rdflib
-import brickschema
 from warnings import warn
 from collections import Counter
-from rdflib import RDF, RDFS, Namespace, BNode
 
 sys.path.append("..")
-from bricksrc.namespaces import BRICK, SKOS  # noqa: E402
+from bricksrc.namespaces import BRICK, RDFS  # noqa: E402
 
 
 def test_class_definitions(brick_with_imports):

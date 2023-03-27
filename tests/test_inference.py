@@ -234,30 +234,33 @@ def test_virtual_meter3(brick_with_imports):
     assert valid, report
 
 
-def test_meter_substance_inference(brick_with_imports):
+def test_meter_inference_infer_substance(brick_with_imports):
     g = brick_with_imports
     g.add((BLDG.water_meter, A, BRICK.Water_Meter))
     g.expand("shacl")  # run shacl inference
     assert (BLDG.water_meter, BRICK.hasSubstance, BRICK.Water) in g
     assert (BLDG.water_meter, BRICK.hasSubstance, BRICK.Chilled_Water) not in g
 
-    g = brickschema.Graph()
-    g.load_file("Brick.ttl")
+
+def test_meter_inference_infer_substance_building(brick_with_imports):
+    g = brick_with_imports
     g.add((BLDG.water_meter, A, BRICK.Building_Water_Meter))
     g.expand("shacl")  # run shacl inference
     assert (BLDG.water_meter, BRICK.hasSubstance, BRICK.Water) in g
     assert (BLDG.water_meter, BRICK.hasSubstance, BRICK.Chilled_Water) not in g
 
-    g = brickschema.Graph()
-    g.load_file("Brick.ttl")
+
+def test_meter_inference_infer_meter(brick_with_imports):
+    g = brick_with_imports
     g.add((BLDG.water_meter, A, BRICK.Meter))
     g.add((BLDG.water_meter, BRICK.hasSubstance, BRICK.Water))
     g.expand("shacl")  # run shacl inference
     assert (BLDG.water_meter, A, BRICK.Water_Meter) in g
     assert (BLDG.water_meter, A, BRICK.Building_Water_Meter) not in g
 
-    g = brickschema.Graph()
-    g.load_file("Brick.ttl")
+
+def test_meter_inference_infer_meter_building(brick_with_imports):
+    g = brick_with_imports
     g.add((BLDG.water_meter, A, BRICK.Building_Meter))
     g.add((BLDG.water_meter, BRICK.hasSubstance, BRICK.Water))
     g.expand("shacl")  # run shacl inference

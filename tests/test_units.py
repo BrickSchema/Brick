@@ -6,7 +6,7 @@ import warnings
 import sys
 
 sys.path.append("..")
-from bricksrc.namespaces import A, BRICK, TAG, QUDT  # noqa: E402
+from bricksrc.namespaces import A, BRICK, QUDT  # noqa: E402
 
 BLDG = Namespace("https://brickschema.org/schema/ExampleBuilding#")
 
@@ -68,7 +68,7 @@ def test_instances_measure_correct_units(brick_with_imports):
              ?quantity qudt:applicableUnit ?unit }"
     )
     triples = []
-    for brickclass, quantity, unit in classes_with_quantities:
+    for brickclass, _, unit in classes_with_quantities:
         class_name = re.split("/|#", brickclass)[-1]
         unit_name = re.split("/|#", unit)[-1]
         instance = BLDG[f"Instance_of_{class_name}_{unit_name}"]

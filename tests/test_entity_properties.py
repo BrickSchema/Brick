@@ -1,16 +1,8 @@
 from rdflib import Namespace, Literal
 from brickschema.namespaces import BRICK, A, REF, XSD
-import brickschema
 import os
 
 EX = Namespace("urn:ex#")
-
-
-def _copy_graph(g):
-    newg = brickschema.Graph()
-    for triple in g:
-        newg.add(triple)
-    return newg
 
 
 def test_entity_property_validation(brick_with_imports):
@@ -44,7 +36,7 @@ def test_entity_property_validation_failure(brick_with_imports):
     )
 
     g.expand("shacl")
-    valid, _, report = g.validate()
+    valid, _, _ = g.validate()
     assert not valid, "'AquariumFail' should have thrown a validation error"
 
 

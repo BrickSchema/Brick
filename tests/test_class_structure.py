@@ -1,5 +1,4 @@
 import sys
-import brickschema
 from rdflib import RDF, OWL, RDFS, Namespace, BNode
 
 sys.path.append("..")
@@ -9,17 +8,15 @@ from bricksrc.namespaces import (  # noqa: E402
     SOSA,
     VCARD,
     SKOS,
-    UNIT,
     QUDT,
     XSD,
 )
 
 
-def test_subclasses():
+def test_subclasses(brick_with_imports):
     BLDG = Namespace("https://brickschema.org/schema/ExampleBuilding#")
 
-    g = brickschema.Graph()
-    g.parse("Brick.ttl", format="turtle")
+    g = brick_with_imports
     g.expand("shacl")
 
     g.bind("rdf", RDF)

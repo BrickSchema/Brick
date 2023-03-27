@@ -1,6 +1,4 @@
-from rdflib import Namespace, Literal, XSD
-from brickschema.namespaces import BRICK, A
-import brickschema
+from rdflib import Namespace
 
 
 def test_deprecation(brick_with_imports):
