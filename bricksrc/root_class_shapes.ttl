@@ -9,14 +9,16 @@
 
 
 brick:Location a sh:NodeShape ;
-    sh:message "Location is an exclusive top class." ;
-    sh:and (
-        [sh:not [ sh:class brick:Point ] ; sh:message "Location is an exclusive top class." ]
-        [sh:not [ sh:class brick:Equipment ] ; sh:message "Location is an exclusive top class." ]
-        [sh:not [ sh:class brick:Substance ] ; sh:message "Location is an exclusive top class." ]
-        [sh:not [ sh:class brick:Quantity ] ; sh:message "Location is an exclusive top class." ]
-        [sh:not [ sh:class brick:Collection ] ; sh:message "Location is an exclusive top class." ]
-    );
+    sh:node [
+        sh:message "Location is an exclusive top class." ;
+        sh:and (
+            [sh:not [ sh:class brick:Point ] ; sh:message "Location is an exclusive top class." ]
+            [sh:not [ sh:class brick:Equipment ] ; sh:message "Location is an exclusive top class." ]
+            [sh:not [ sh:class brick:Substance ] ; sh:message "Location is an exclusive top class." ]
+            [sh:not [ sh:class brick:Quantity ] ; sh:message "Location is an exclusive top class." ]
+            [sh:not [ sh:class brick:Collection ] ; sh:message "Location is an exclusive top class." ]
+        );
+    ] ;
     sh:property [
         sh:path brick:hasPart;
         sh:class brick:Location;
@@ -40,14 +42,16 @@ brick:Location a sh:NodeShape ;
     .
 
 brick:Equipment a sh:NodeShape ;
-    sh:message "Equipment is an exclusive top class." ;
-    sh:and (
-        [sh:not [ sh:class brick:Point ] ; sh:message "Equipment is an exclusive top class." ]
-        [sh:not [ sh:class brick:Location ] ; sh:message "Equipment is an exclusive top class." ]
-        [sh:not [ sh:class brick:Substance ] ; sh:message "Equipment is an exclusive top class." ]
-        [sh:not [ sh:class brick:Quantity ] ; sh:message "Equipment is an exclusive top class." ]
-        [sh:not [ sh:class brick:Collection ] ; sh:message "Equipment is an exclusive top class." ]
-    );
+    sh:node [
+        sh:message "Equipment is an exclusive top class." ;
+        sh:and (
+            [sh:not [ sh:class brick:Point ] ; sh:message "Equipment is an exclusive top class." ]
+            [sh:not [ sh:class brick:Location ] ; sh:message "Equipment is an exclusive top class." ]
+            [sh:not [ sh:class brick:Substance ] ; sh:message "Equipment is an exclusive top class." ]
+            [sh:not [ sh:class brick:Quantity ] ; sh:message "Equipment is an exclusive top class." ]
+            [sh:not [ sh:class brick:Collection ] ; sh:message "Equipment is an exclusive top class." ]
+        );
+    ] ;
     sh:property [
         sh:path brick:hasPart;
         sh:class brick:Equipment;
@@ -83,14 +87,21 @@ brick:Equipment a sh:NodeShape ;
     .
 
 brick:Point a sh:NodeShape;
-    sh:and (
-        [sh:not [ sh:class brick:Equipment ] ; sh:message "Point is an exclusive top class." ]
-        [sh:not [ sh:class brick:Location ] ; sh:message "Point is an exclusive top class." ]
-        [sh:not [ sh:class brick:Substance ] ; sh:message "Point is an exclusive top class." ]
-        [sh:not [ sh:class brick:Quantity ] ; sh:message "Point is an exclusive top class." ]
-        [sh:not [ sh:class brick:Collection ] ; sh:message "Point is an exclusive top class." ]
-    );
-    sh:message "Point is an exclusive top class." ;
+    sh:node [
+        sh:and (
+            [sh:not [ sh:class brick:Equipment ] ; sh:message "Point is an exclusive top class." ]
+            [sh:not [ sh:class brick:Location ] ; sh:message "Point is an exclusive top class." ]
+            [sh:not [ sh:class brick:Substance ] ; sh:message "Point is an exclusive top class." ]
+            [sh:not [ sh:class brick:Quantity ] ; sh:message "Point is an exclusive top class." ]
+            [sh:not [ sh:class brick:Collection ] ; sh:message "Point is an exclusive top class." ]
+        );
+        sh:message "Point is an exclusive top class." ;
+    ] ;
+    sh:property [
+        sh:path brick:hasLocation ;
+        sh:maxCount 0 ;
+        sh:message "Points cannot have locations; use 'isPointOf' instead" ;
+    ] ;
     sh:property [
         sh:path brick:isPointOf;
         sh:or (
@@ -102,14 +113,16 @@ brick:Point a sh:NodeShape;
     .
 
 brick:Collection a sh:NodeShape;
-    sh:and (
-        [sh:not [ sh:class brick:Equipment ] ; sh:message "Collection is an exclusive top class." ]
-        [sh:not [ sh:class brick:Location ] ; sh:message "Collection is an exclusive top class." ]
-        [sh:not [ sh:class brick:Substance ] ; sh:message "Collection is an exclusive top class." ]
-        [sh:not [ sh:class brick:Quantity ] ; sh:message "Collection is an exclusive top class." ]
-        [sh:not [ sh:class brick:Point ] ; sh:message "Collection is an exclusive top class." ]
-    );
-    sh:message "Collection is an exclusive top class." ;
+    sh:node [
+        sh:and (
+            [sh:not [ sh:class brick:Equipment ] ; sh:message "Collection is an exclusive top class." ]
+            [sh:not [ sh:class brick:Location ] ; sh:message "Collection is an exclusive top class." ]
+            [sh:not [ sh:class brick:Substance ] ; sh:message "Collection is an exclusive top class." ]
+            [sh:not [ sh:class brick:Quantity ] ; sh:message "Collection is an exclusive top class." ]
+            [sh:not [ sh:class brick:Point ] ; sh:message "Collection is an exclusive top class." ]
+        );
+        sh:message "Collection is an exclusive top class." ;
+    ] ;
     sh:property [
         sh:path brick:hasPart;
         sh:or (
