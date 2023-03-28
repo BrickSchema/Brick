@@ -25,6 +25,7 @@ from bricksrc.namespaces import (
     SKOS,
     QUDT,
     UNIT,
+    CURRENCY,
     VCARD,
     SH,
     REF,

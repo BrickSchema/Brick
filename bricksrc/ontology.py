@@ -38,6 +38,7 @@ ontology_imports = {
     "qudtfacade": "http://qudt.org/2.1/schema/facade/qudt",
     "qudtsou": "http://qudt.org/2.1/vocab/sou",
     "unit": "http://qudt.org/2.1/vocab/unit",
+    "currency": "http://qudt.org/2.1/vocab/currency",
     "quantitykind": "http://qudt.org/2.1/vocab/quantitykind",
     "dimensionvector": "http://qudt.org/2.1/vocab/dimensionvector",
     "shacl": "http://www.w3.org/ns/shacl",
