@@ -19,7 +19,7 @@
 <http://qudt.org/2.1/vocab/sou>
   a owl:Ontology ;
   vaem:hasGraphMetadata vaem:GMD_QUDT-SOU ;
-  rdfs:label "QUDT Vocabulary - Systems of Units - v2.1.24" ;
+  rdfs:label "QUDT Vocabulary - Systems of Units - v2.1.25" ;
   owl:imports <http://qudt.org/2.1/schema/facade/qudt> ;
   owl:versionInfo "Created with TopBraid Composer" ;
 .
@@ -153,6 +153,12 @@ sou:SI
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/sou> ;
   rdfs:label "International System of Units"@en ;
 .
+sou:UNSTATED
+  a qudt:SystemOfUnits ;
+  dcterms:description "This placeholder system of units is for all units that do not fit will into any other system of units as modeled here."^^rdf:HTML ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/sou> ;
+  rdfs:label "Unstated System Of Units"@en ;
+.
 sou:SOU_ASU
   a qudt:SystemOfUnits ;
   rdfs:label "Astronomical System of Units (deprecated URI)" ;
@@ -222,29 +228,29 @@ vaem:GMD_QUDT-SOU
   dcterms:contributor "Steve Ray" ;
   dcterms:created "2016-07-04"^^xsd:date ;
   dcterms:creator "Ralph Hodgson" ;
-  dcterms:description "QUDT Systems of Units Vocabulary Version 2.1.24" ;
-  dcterms:modified "2023-01-13T17:12:40.983-05:00"^^xsd:dateTime ;
+  dcterms:description "QUDT Systems of Units Vocabulary Version 2.1.25" ;
+  dcterms:modified "2023-03-14T17:51:43.338-04:00"^^xsd:dateTime ;
   dcterms:rights "The QUDT Ontologies are issued under a Creative Commons Attribution 4.0 International License (CC BY 4.0), available at https://creativecommons.org/licenses/by/4.0/. Attribution should be made to QUDT.org" ;
   dcterms:subject "Systems of Units" ;
-  dcterms:title "QUDT Systems of Units Ontology Version 2.1.24" ;
-  vaem:graphTitle "Systems of Units Ontology Version 2.1.24" ;
+  dcterms:title "QUDT Systems of Units Version 2.1 Vocabulary" ;
+  vaem:graphTitle "QUDT Systems of Units Version 2.1.25" ;
   vaem:hasGraphRole vaem:VocabularyGraph ;
   vaem:hasOwner vaem:QUDT ;
   vaem:hasSteward vaem:QUDT ;
   vaem:intent "The intent of this graph is the specification of all Systems of Units" ;
   vaem:isMetadataFor <http://qudt.org/2.1/vocab/sou> ;
-  vaem:latestPublishedVersion "https://qudt.org/doc/2023/01/DOC_VOCAB-SYSTEMS-OF-UNITS-v2.1.html"^^xsd:anyURI ;
+  vaem:latestPublishedVersion "https://qudt.org/doc/2023/03/DOC_VOCAB-SYSTEMS-OF-UNITS-v2.1.html"^^xsd:anyURI ;
   vaem:logo "https://qudt.org/linkedmodels.org/assets/lib/lm/images/logos/qudt_logo-300x110.png"^^xsd:anyURI ;
   vaem:name "sou" ;
   vaem:namespace "http://qudt.org/vocab/sou/" ;
   vaem:namespacePrefix "sou" ;
   vaem:owner "qudt.org" ;
-  vaem:previousPublishedVersion "https://qudt.org/doc/2022/12/DOC_VOCAB-SYSTEMS-OF-UNITS-v2.1.html"^^xsd:anyURI ;
+  vaem:previousPublishedVersion "https://qudt.org/doc/2023/01/DOC_VOCAB-SYSTEMS-OF-UNITS-v2.1.html"^^xsd:anyURI ;
   vaem:revision "2.1" ;
   vaem:turtleFileURL "http://qudt.org/2.1/vocab/sou"^^xsd:anyURI ;
   vaem:usesNonImportedResource prov:wasInfluencedBy ;
   vaem:usesNonImportedResource prov:wasInformedBy ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/sou> ;
-  rdfs:label "QUDT Systems of Units Ontology Version 2.1.24" ;
+  rdfs:label "QUDT Systems of Units Ontology Version 2.1.25" ;
   owl:versionIRI <http://qudt.org/2.1/vocab/sou> ;
 .

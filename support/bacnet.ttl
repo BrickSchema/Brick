@@ -16227,8 +16227,7 @@ bacnet:AuditLevel-none a bacnet:AuditLevelEnumerationValue ;
     bacnet:value "0"^^xsd:nonNegativeInteger .
 
 bacnet:AuditLogQueryParameters a sh:NodeShape ;
-    rdfs:subClassOf bacnet:Choice ;
-    sh:xone () .
+    rdfs:subClassOf bacnet:Choice .
 
 bacnet:AuditLogRecordResult a sh:NodeShape ;
     rdfs:subClassOf bacnet:Sequence ;
@@ -22571,8 +22570,7 @@ bacnet:AtomicWriteFileRequestAccessMethodStreamAccess a sh:NodeShape ;
             sh:path bacnet:file-start-position ] .
 
 bacnet:AuditLogRecordLogDatum a sh:NodeShape ;
-    rdfs:subClassOf bacnet:Choice ;
-    sh:xone () .
+    rdfs:subClassOf bacnet:Choice .
 
 bacnet:AuthenticationFactorFormat a sh:NodeShape ;
     rdfs:subClassOf bacnet:Sequence ;
