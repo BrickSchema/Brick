@@ -25,6 +25,7 @@ from bricksrc.namespaces import (
     SKOS,
     QUDT,
     UNIT,
+    CURRENCY,
     VCARD,
     SH,
     REF,
@@ -230,9 +231,11 @@ def define_concept_hierarchy(definitions, typeclasses, broader=None, related=Non
         # mark broader concept if one exists
         if broader is not None:
             G.add((concept, SKOS.broader, broader))
+            G.add((broader, SKOS.narrower, concept))
         # mark related concept if one exists
         if related is not None:
             G.add((concept, SKOS.related, related))
+            G.add((related, SKOS.related, concept))
         # add label
         label = defn.get(RDFS.label, concept.split("#")[-1].replace("_", " "))
         if not has_label(concept):
@@ -675,7 +678,8 @@ def add_definitions():
             setpoint = setpoint + "_Setpoint"
             logging.info(f"Inferred setpoint: {setpoint}")
         limit_def = limit_def_template.format(direction=direction, setpoint=setpoint)
-        G.add((param, SKOS.definition, Literal(limit_def, lang="en")))
+        if param != BRICK.Limit:  # definition already exists for Limit
+            G.add((param, SKOS.definition, Literal(limit_def, lang="en")))
         class_exists = G.query(
             f"""select ?class where {{
             BIND(brick:{setpoint} as ?class)
@@ -888,6 +892,27 @@ define_concept_hierarchy(substances, [BRICK.Substance])
 # this defines the SKOS-based concept hierarchy for BRICK Quantities
 define_concept_hierarchy(quantity_definitions, [BRICK.Quantity])
 
+# add any missing skos:narrower implied by skos:broader where the subject
+# is defined by the Brick ontology
+G.query(
+    """CONSTRUCT {
+    ?narrower skos:broader ?broader .
+} WHERE {
+    ?broader skos:narrower ?narrower .
+    ?narrower rdf:type/rdfs:subClassOf* brick:Entity
+}"""
+)
+# add any missing skos:broader implied by skos:narrower where the subject
+# is defined by the Brick ontology
+G.query(
+    """CONSTRUCT {
+    ?broader skos:narrower ?narrower .
+} WHERE {
+    ?narrower skos:broader ?broader .
+    ?broader rdf:type/rdfs:subClassOf* brick:Entity
+}"""
+)
+
 # for all Quantities, copy part of the QUDT unit definitions over
 res = G.query(
     """SELECT ?quantity ?qudtquant WHERE {
@@ -911,12 +936,12 @@ for r in res:
     for unit, symb, label in get_units_brick(brick_quant):
         G.add((brick_quant, QUDT.applicableUnit, unit))
 # all QUDT units
-for unit, symb, label in all_units():
-    G.add((unit, A, QUDT.Unit))
-    if symb is not None:
-        G.add((unit, QUDT.symbol, symb))
-    if label is not None and not has_label(unit):
-        G.add((unit, RDFS.label, label))
+# for unit, symb, label in all_units():
+#    G.add((unit, A, QUDT.Unit))
+#    if symb is not None:
+#        G.add((unit, QUDT.symbol, symb))
+#    if label is not None and not has_label(unit):
+#        G.add((unit, RDFS.label, label))
 
 
 # entity property definitions (must happen after units are defined)

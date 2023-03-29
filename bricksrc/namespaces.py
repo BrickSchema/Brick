@@ -21,6 +21,7 @@ QUDT = Namespace("http://qudt.org/schema/qudt/")
 QUDTQK = Namespace("http://qudt.org/vocab/quantitykind/")
 QUDTDV = Namespace("http://qudt.org/vocab/dimensionvector/")
 UNIT = Namespace("http://qudt.org/vocab/unit/")
+CURRENCY = Namespace("http://qudt.org/vocab/currency/")
 
 # TODO: fix these namespaces
 BACNET = Namespace("http://data.ashrae.org/bacnet/2020#")
