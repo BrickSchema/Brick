@@ -492,18 +492,6 @@ shape_properties = {
                 ),
                 SH["class"]: BSH.TemperatureShape,
             },
-            BRICK.ratedVoltageInput: {
-                "optional": True,
-            },
-            BRICK.ratedVoltageOutput: {
-                "optional": True,
-            },
-            BRICK.ratedCurrentInput: {
-                "optional": True,
-            },
-            BRICK.ratedCurrentOutput: {
-                "optional": True,
-            },
         },
     },
     BSH.VoltageShape: {
@@ -517,12 +505,6 @@ shape_properties = {
                 ),
                 SH["class"]: BSH.TemperatureShape,
             },
-            BRICK.ratedCurrentInput: {
-                "optional": True,
-            },
-            BRICK.ratedCurrentOutput: {
-                "optional": True,
-            },
         },
     },
     BSH.ElectricCurrentShape: {
@@ -535,12 +517,6 @@ shape_properties = {
                     "The ambient temperature at which the power input was measured"
                 ),
                 SH["class"]: BSH.TemperatureShape,
-            },
-            BRICK.ratedVoltageInput: {
-                "optional": True,
-            },
-            BRICK.ratedVoltageOutput: {
-                "optional": True,
             },
         },
     },
@@ -609,7 +585,7 @@ def generate_quantity_shapes(G):
     )
     d = {}
     for (quantity,) in quantities:
-        shape = BSH[f"{quantity.split('#')[-1]}Shape"]
+        shape = BSH[f"Quantity{quantity.split('#')[-1]}Shape"]
         d[shape] = {
             "unitsFromQuantity": quantity,
             "datatype": BSH.NumericValue,

@@ -427,6 +427,25 @@ def define_shape_property_property(shape_name, definitions):
         G.add((shape_name, SH["or"], or_list_name))
         Collection(G, or_list_name, or_list)
     for prop_name, prop_defn in definitions.items():
+        # check if there is already a property shape for this.
+        # Only do this is if (a) the property is optional for this shape, and
+        # (b) there are no further requirements; the existing property shapes
+        # don't have any min/max counts or additional requirements
+        if prop_defn.get("optional", False) and len(prop_defn.keys()) == 1:
+            prop_exists = list(
+                G.query(
+                    f"""SELECT ?x {{ ?p sh:property ?p .
+                        ?p sh:path {prop_name.n3()} .
+                        FILTER NOT EXISTS {{ ?p sh:minCount ?mc }}
+                        FILTER NOT EXISTS {{ ?p sh:maxCount ?mc }}
+                    }}"""
+                )
+            )
+            if len(prop_exists) > 0:
+                G.add((shape_name, SH.property, BSH.ADDED))
+                G.add((shape_name, SH.property, prop_exists[0][0]))
+                continue  # continue to next property
+
         ps = BNode()
         G.add((shape_name, SH.property, ps))
         G.add((ps, A, SH.PropertyShape))
@@ -954,13 +973,14 @@ for unit, symb, label in all_units():
 
 
 # entity property definitions (must happen after units are defined)
-G.add((BRICK.value, A, OWL.DatatypeProperty))
 G.add((BRICK.value, SKOS.definition, Literal("The basic value of an entity property")))
 G.add((BRICK.EntityProperty, RDFS.subClassOf, OWL.ObjectProperty))
 G.add((BRICK.EntityProperty, A, OWL.Class))
 G.add((BSH.ValueShape, A, OWL.Class))
-define_shape_properties(get_shapes(G))
 define_entity_properties(entity_properties)
+define_shape_properties(get_shapes(G))
+
+G.remove((BRICK.value, A, OWL.ObjectProperty))
 
 handle_deprecations()
 
