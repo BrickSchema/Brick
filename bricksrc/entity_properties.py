@@ -1,6 +1,7 @@
 """
 Entity property definitions
 """
+from collections import defaultdict
 from rdflib import Literal
 from .namespaces import BRICK, RDFS, SKOS, UNIT, XSD, SH, BSH, REF
 
@@ -111,30 +112,30 @@ entity_properties = {
     BRICK.ratedPowerOutput: {
         SKOS.definition: Literal("The nominal rated power output of the entity"),
         RDFS.label: Literal("Rated power output"),
-        SH.node: BSH.PowerShape,
+        SH.node: BSH.PowerQuantityShape,
         "property_of": BRICK.Equipment,
     },
     BRICK.measuredPowerOutput: {
         SKOS.definition: Literal("The nominal measured power output of the entity"),
         RDFS.label: Literal("Measured power output"),
-        SH.node: BSH.PowerShape,
+        SH.node: BSH.PowerQuantityShape,
         "property_of": BRICK.Equipment,
     },
     BRICK.ratedPowerInput: {
         SKOS.definition: Literal("The nominal rated power input of the entity"),
         RDFS.label: Literal("Rated power input"),
-        SH.node: BSH.PowerShape,
+        SH.node: BSH.PowerQuantityShape,
         "property_of": BRICK.Equipment,
     },
     BRICK.measuredPowerInput: {
         SKOS.definition: Literal("The nominal measured power input of the entity"),
         RDFS.label: Literal("Measured power input"),
-        SH.node: BSH.PowerShape,
+        SH.node: BSH.PowerQuantityShape,
         "property_of": BRICK.Equipment,
     },
     BRICK.ratedVoltageInput: {
         SKOS.definition: Literal("The nominal rated voltage input of the entity"),
-        SH.node: BSH.VoltageShape,
+        SH.node: BSH.VoltageQuantityShape,
         RDFS.label: Literal("Measured voltage input"),
         "property_of": BRICK.Equipment,
         "subproperties": {
@@ -143,7 +144,7 @@ entity_properties = {
                 SKOS.definition: Literal(
                     "The maximum voltage that can be input to the entity"
                 ),
-                SH.node: BSH.VoltageShape,
+                SH.node: BSH.VoltageQuantityShape,
                 "property_of": BRICK.Equipment,
             },
             BRICK.ratedMinimumVoltageInput: {
@@ -152,13 +153,13 @@ entity_properties = {
                     "The minimum voltage that can be input to the entity"
                 ),
                 "property_of": BRICK.Equipment,
-                SH.node: BSH.VoltageShape,
+                SH.node: BSH.VoltageQuantityShape,
             },
         },
     },
     BRICK.ratedVoltageOutput: {
         SKOS.definition: Literal("The nominal rated voltage output of the entity"),
-        SH.node: BSH.VoltageShape,
+        SH.node: BSH.VoltageQuantityShape,
         "property_of": BRICK.Equipment,
         RDFS.label: Literal("Rated voltage output"),
         "subproperties": {
@@ -167,7 +168,7 @@ entity_properties = {
                 SKOS.definition: Literal(
                     "The maximum voltage that can be output by the entity"
                 ),
-                SH.node: BSH.VoltageShape,
+                SH.node: BSH.VoltageQuantityShape,
                 "property_of": BRICK.Equipment,
             },
             BRICK.ratedMinimumVoltageOutput: {
@@ -175,14 +176,14 @@ entity_properties = {
                 SKOS.definition: Literal(
                     "The minimum voltage that can be output by the entity"
                 ),
-                SH.node: BSH.VoltageShape,
+                SH.node: BSH.VoltageQuantityShape,
                 "property_of": BRICK.Equipment,
             },
         },
     },
     BRICK.ratedCurrentInput: {
         SKOS.definition: Literal("The nominal rated current input of the entity"),
-        SH.node: BSH.ElectricCurrentShape,
+        SH.node: BSH.Electric_CurrentQuantityShape,
         RDFS.label: Literal("Rated current input"),
         "property_of": BRICK.Equipment,
         "subproperties": {
@@ -191,7 +192,7 @@ entity_properties = {
                 SKOS.definition: Literal(
                     "The maximum current that can be input to the entity"
                 ),
-                SH.node: BSH.ElectricCurrentShape,
+                SH.node: BSH.Electric_CurrentQuantityShape,
                 "property_of": BRICK.Equipment,
             },
             BRICK.ratedMinimumCurrentInput: {
@@ -199,14 +200,14 @@ entity_properties = {
                 SKOS.definition: Literal(
                     "The minimum current that can be input to the entity"
                 ),
-                SH.node: BSH.ElectricCurrentShape,
+                SH.node: BSH.Electric_CurrentQuantityShape,
                 "property_of": BRICK.Equipment,
             },
         },
     },
     BRICK.ratedCurrentOutput: {
         SKOS.definition: Literal("The nominal rated current output of the entity"),
-        SH.node: BSH.ElectricCurrentShape,
+        SH.node: BSH.Electric_CurrentQuantityShape,
         RDFS.label: Literal("Rated current output"),
         "property_of": BRICK.Equipment,
         "subproperties": {
@@ -215,7 +216,7 @@ entity_properties = {
                 SKOS.definition: Literal(
                     "The maximum current that can be output by the entity"
                 ),
-                SH.node: BSH.ElectricCurrentShape,
+                SH.node: BSH.Electric_CurrentQuantityShape,
                 "property_of": BRICK.Equipment,
             },
             BRICK.ratedMinimumCurrentOutput: {
@@ -223,7 +224,7 @@ entity_properties = {
                 SKOS.definition: Literal(
                     "The minimum current that can be output by the entity"
                 ),
-                SH.node: BSH.ElectricCurrentShape,
+                SH.node: BSH.Electric_CurrentQuantityShape,
                 "property_of": BRICK.Equipment,
             },
         },
@@ -481,45 +482,6 @@ shape_properties = {
         "datatype": BSH.NumericValue,
         "units": [UNIT.BTU_IT, UNIT["W-PER-M2-K"]],
     },
-    BSH.PowerShape: {
-        "datatype": BSH.NumericValue,
-        "unitsFromQuantity": BRICK.Power,
-        "properties": {
-            BRICK.ambientTemperatureOfMeasurement: {
-                "optional": True,
-                SKOS.definition: Literal(
-                    "The ambient temperature at which the power input was measured"
-                ),
-                SH["class"]: BSH.TemperatureShape,
-            },
-        },
-    },
-    BSH.VoltageShape: {
-        "datatype": BSH.NumericValue,
-        "unitsFromQuantity": BRICK.Voltage,
-        "properties": {
-            BRICK.ambientTemperatureOfMeasurement: {
-                "optional": True,
-                SKOS.definition: Literal(
-                    "The ambient temperature at which the power input was measured"
-                ),
-                SH["class"]: BSH.TemperatureShape,
-            },
-        },
-    },
-    BSH.ElectricCurrentShape: {
-        "datatype": BSH.NumericValue,
-        "unitsFromQuantity": BRICK.Electric_Current,
-        "properties": {
-            BRICK.ambientTemperatureOfMeasurement: {
-                "optional": True,
-                SKOS.definition: Literal(
-                    "The ambient temperature at which the power input was measured"
-                ),
-                SH["class"]: BSH.TemperatureShape,
-            },
-        },
-    },
     BSH.EfficiencyShape: {
         "datatype": BSH.NumericValue,
         "units": [UNIT.PERCENT],
@@ -579,15 +541,53 @@ def get_shapes(G):
     return shape_properties
 
 
+# this generates shapes of the form BSH.<quantity name>QuantityShape
 def generate_quantity_shapes(G):
     quantities = G.query(
         "SELECT ?q WHERE { ?q a brick:Quantity . ?q qudt:applicableUnit ?unit }"
     )
-    d = {}
+    d = defaultdict(dict)
+    # some additional properties for some quantities
+    d[BSH.PowerQuantityShape] = {
+        "properties": {
+            BRICK.ambientTemperatureOfMeasurement: {
+                "optional": True,
+                SKOS.definition: Literal(
+                    "The ambient temperature at which the power input was measured"
+                ),
+                SH["class"]: BSH.TemperatureShape,
+            },
+        },
+    }
+    d[BSH.VoltageQuantityShape] = {
+        "properties": {
+            BRICK.ambientTemperatureOfMeasurement: {
+                "optional": True,
+                SKOS.definition: Literal(
+                    "The ambient temperature at which the voltage was measured"
+                ),
+                SH["class"]: BSH.TemperatureShape,
+            },
+        },
+    }
+    d[BSH.Electric_CurrentQuantityShape] = {
+        "properties": {
+            BRICK.ambientTemperatureOfMeasurement: {
+                "optional": True,
+                SKOS.definition: Literal(
+                    "The ambient temperature at which the current input was measured"
+                ),
+                SH["class"]: BSH.TemperatureShape,
+            },
+        },
+    }
+
     for (quantity,) in quantities:
-        shape = BSH[f"Quantity{quantity.split('#')[-1]}Shape"]
-        d[shape] = {
-            "unitsFromQuantity": quantity,
-            "datatype": BSH.NumericValue,
-        }
+        shape = BSH[f"{quantity.split('#')[-1]}QuantityShape"]
+        d[shape].update(
+            {
+                "unitsFromQuantity": quantity,
+                "datatype": BSH.NumericValue,
+            }
+        )
     return d
