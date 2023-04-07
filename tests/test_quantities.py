@@ -1,4 +1,3 @@
-import rdflib
 from rdflib import RDF, OWL, RDFS, Namespace, BNode
 import brickschema
 from .util import make_readable

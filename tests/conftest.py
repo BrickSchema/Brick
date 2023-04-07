@@ -2,7 +2,13 @@
 Generates tests automatically
 """
 import pytest
+import ontoenv
+import brickschema
 import glob
+import sys
+
+sys.path.append("..")
+from bricksrc.namespaces import QUDT, RDF, RDFS, BRICK  # noqa: E402
 
 
 def pytest_generate_tests(metafunc):
@@ -22,3 +28,16 @@ def pytest_configure(config):
     config.addinivalue_line(
         "markers", "slow: mark tests as slow (deselect w/ '-m \"not slow\"')"
     )
+
+
+@pytest.fixture()
+def brick_with_imports():
+    env = ontoenv.OntoEnv()
+    g = brickschema.graph.Graph()
+    g.load_file("Brick.ttl")
+    g.bind("qudt", QUDT)
+    g.bind("rdf", RDF)
+    g.bind("rdfs", RDFS)
+    g.bind("brick", BRICK)
+    env.import_dependencies(g)
+    return g

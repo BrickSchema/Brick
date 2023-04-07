@@ -1,9 +1,4 @@
-import sys
-from bricksrc.namespaces import A, OWL, RDFS, SKOS, BRICK, SH, BSH, bind_prefixes
 import brickschema
-
-schema_g = brickschema.Graph().load_file("Brick.ttl")
-bind_prefixes(schema_g)
 
 prefixes = """
 @prefix brick: <https://brickschema.org/schema/Brick#> .
@@ -20,14 +15,14 @@ base_data = (
 )
 
 
-def test_no_relations():
+def test_no_relations(brick_with_imports):
     data = base_data
     data_g = brickschema.Graph().parse(data=data, format="turtle")
-    conforms, r1, r2 = data_g.validate([schema_g])
+    conforms, _, _ = data_g.validate([brick_with_imports])
     assert conforms
 
 
-def test_equip():
+def test_equip(brick_with_imports):
     valid_data = (
         base_data
         + """
@@ -35,7 +30,7 @@ def test_equip():
 """
     )
     valid_g = brickschema.Graph().parse(data=valid_data, format="turtle")
-    conforms, _, _ = valid_g.validate([schema_g])
+    conforms, _, _ = valid_g.validate([brick_with_imports])
     assert conforms
 
     invalid_data = (
@@ -46,11 +41,11 @@ def test_equip():
 """
     )
     invalid_g = brickschema.Graph().parse(data=invalid_data, format="turtle")
-    conforms, _, _ = invalid_g.validate([schema_g])
+    conforms, _, _ = invalid_g.validate([brick_with_imports])
     assert not conforms
 
 
-def test_type():
+def test_type(brick_with_imports):
     invalid_data = (
         base_data
         + """
@@ -58,11 +53,11 @@ def test_type():
 """
     )
     invalid_g = brickschema.Graph().parse(data=invalid_data, format="turtle")
-    conforms, _, _ = invalid_g.validate([schema_g])
+    conforms, _, _ = invalid_g.validate([brick_with_imports])
     assert not conforms
 
 
-def test_point():
+def test_point(brick_with_imports):
     invalid_data = (
         base_data
         + """
@@ -70,11 +65,11 @@ def test_point():
 """
     )
     invalid_g = brickschema.Graph().parse(data=invalid_data, format="turtle")
-    conforms, _, _ = invalid_g.validate([schema_g])
+    conforms, _, _ = invalid_g.validate([brick_with_imports])
     assert not conforms
 
 
-def test_meter_shapes():
+def test_meter_shapes(brick_with_imports):
     invalid_data = (
         base_data
         + """
@@ -84,7 +79,7 @@ def test_meter_shapes():
 """
     )
     invalid_g = brickschema.Graph().parse(data=invalid_data, format="turtle")
-    conforms, _, _ = invalid_g.validate([schema_g])
+    conforms, _, _ = invalid_g.validate([brick_with_imports])
     assert not conforms
 
     invalid_data = (
@@ -96,7 +91,7 @@ def test_meter_shapes():
 """
     )
     invalid_g = brickschema.Graph().parse(data=invalid_data, format="turtle")
-    conforms, _, _ = invalid_g.validate([schema_g])
+    conforms, _, _ = invalid_g.validate([brick_with_imports])
     assert not conforms
 
     valid_data = (
@@ -108,7 +103,7 @@ def test_meter_shapes():
 """
     )
     valid_g = brickschema.Graph().parse(data=valid_data, format="turtle")
-    conforms, _, _ = valid_g.validate([schema_g])
+    conforms, _, _ = valid_g.validate([brick_with_imports])
     assert conforms
 
     invalid_data = (
@@ -120,7 +115,7 @@ def test_meter_shapes():
 """
     )
     invalid_g = brickschema.Graph().parse(data=invalid_data, format="turtle")
-    conforms, _, _ = invalid_g.validate([schema_g])
+    conforms, _, _ = invalid_g.validate([brick_with_imports])
     assert not conforms
 
     invalid_data = (
@@ -132,7 +127,7 @@ def test_meter_shapes():
 """
     )
     invalid_g = brickschema.Graph().parse(data=invalid_data, format="turtle")
-    conforms, _, _ = invalid_g.validate([schema_g])
+    conforms, _, _ = invalid_g.validate([brick_with_imports])
     assert not conforms
 
     valid_data = (
@@ -144,5 +139,5 @@ def test_meter_shapes():
 """
     )
     valid_g = brickschema.Graph().parse(data=valid_data, format="turtle")
-    conforms, _, _ = valid_g.validate([schema_g])
+    conforms, _, _ = valid_g.validate([brick_with_imports])
     assert conforms

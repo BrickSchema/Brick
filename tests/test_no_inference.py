@@ -1,5 +1,4 @@
 # Set of tests to demonstrate use of Brick *without* the use of a reasoner
-import rdflib
 import brickschema
 from rdflib import RDF, RDFS, OWL, Namespace
 from .util import make_readable

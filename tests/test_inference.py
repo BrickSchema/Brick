@@ -171,9 +171,8 @@ def test_tag_inference():
     assert len(res) == 2
 
 
-def test_owl_inverse():
-    g = brickschema.Graph()
-    g.parse("Brick.ttl", format="turtle")
+def test_owl_inverse(brick_with_imports):
+    g = brick_with_imports
     g.add((BLDG.vav1, BRICK.hasPoint, BLDG.AFS2))
     g.add((BLDG.vav1, A, BRICK.VAV))
     g.add((BLDG.AFS2, A, BRICK.Air_Flow_Sensor))
@@ -186,9 +185,8 @@ def test_owl_inverse():
     assert len(res) == 1
 
 
-def test_shacl_owl_equivalentclass():
-    g = brickschema.Graph()
-    g.load_file("Brick.ttl")
+def test_shacl_owl_equivalentclass(brick_with_imports):
+    g = brick_with_imports
     g.add((BLDG.VAV1, A, BRICK.VAV))
     g.add((BLDG.VAV2, A, BRICK.Variable_Air_Volume_Box))
     g.serialize("x.ttl", format="turtle")
@@ -203,9 +201,8 @@ def test_shacl_owl_equivalentclass():
     os.remove("y.ttl")
 
 
-def test_meter_inference():
-    g = brickschema.Graph()
-    g.load_file("Brick.ttl")
+def test_meter_inference(brick_with_imports):
+    g = brick_with_imports
     g.add((BLDG.abcdef, A, BRICK.Electrical_Meter))
     g.add((BLDG.abcdef, BRICK.meters, BLDG.bldg))
     g.add((BLDG.bldg, A, BRICK.Building))
@@ -213,54 +210,57 @@ def test_meter_inference():
     assert (BLDG.abcdef, A, BRICK.Building_Electrical_Meter) in g
 
 
-def test_virtual_meter():
-    g = brickschema.Graph()
-    g.load_file("Brick.ttl")
+def test_virtual_meter1(brick_with_imports):
+    g = brick_with_imports
     g.add((BLDG.abcdef, A, BRICK.Electrical_Meter))
     g.add((BLDG.abcdef, BRICK.isVirtualMeter, [(BRICK.value, Literal(True))]))
     valid, _, report = g.validate()
     assert valid, report
 
-    g = brickschema.Graph()
-    g.load_file("Brick.ttl")
+
+def test_virtual_meter2(brick_with_imports):
+    g = brick_with_imports
     g.add((BLDG.abcdef, A, BRICK.Building))
     g.add((BLDG.abcdef, BRICK.isVirtualMeter, [(BRICK.value, Literal(True))]))
     valid, _, report = g.validate()
-    assert not valid, "Virtual meter should not be allowed on a building"
+    assert not valid, f"Virtual meter should not be allowed on a building ({report})"
 
-    g = brickschema.Graph()
-    g.load_file("Brick.ttl")
+
+def test_virtual_meter3(brick_with_imports):
+    g = brick_with_imports
     g.add((BLDG.abcdef, A, BRICK.Building))
     g.add((BLDG.abcdef, BRICK.isVirtualMeter, [(BRICK.value, Literal(False))]))
     valid, _, report = g.validate()
     assert valid, report
 
 
-def test_meter_substance_inference():
-    g = brickschema.Graph()
-    g.load_file("Brick.ttl")
+def test_meter_inference_infer_substance(brick_with_imports):
+    g = brick_with_imports
     g.add((BLDG.water_meter, A, BRICK.Water_Meter))
     g.expand("shacl")  # run shacl inference
     assert (BLDG.water_meter, BRICK.hasSubstance, BRICK.Water) in g
     assert (BLDG.water_meter, BRICK.hasSubstance, BRICK.Chilled_Water) not in g
 
-    g = brickschema.Graph()
-    g.load_file("Brick.ttl")
+
+def test_meter_inference_infer_substance_building(brick_with_imports):
+    g = brick_with_imports
     g.add((BLDG.water_meter, A, BRICK.Building_Water_Meter))
     g.expand("shacl")  # run shacl inference
     assert (BLDG.water_meter, BRICK.hasSubstance, BRICK.Water) in g
     assert (BLDG.water_meter, BRICK.hasSubstance, BRICK.Chilled_Water) not in g
 
-    g = brickschema.Graph()
-    g.load_file("Brick.ttl")
+
+def test_meter_inference_infer_meter(brick_with_imports):
+    g = brick_with_imports
     g.add((BLDG.water_meter, A, BRICK.Meter))
     g.add((BLDG.water_meter, BRICK.hasSubstance, BRICK.Water))
     g.expand("shacl")  # run shacl inference
     assert (BLDG.water_meter, A, BRICK.Water_Meter) in g
     assert (BLDG.water_meter, A, BRICK.Building_Water_Meter) not in g
 
-    g = brickschema.Graph()
-    g.load_file("Brick.ttl")
+
+def test_meter_inference_infer_meter_building(brick_with_imports):
+    g = brick_with_imports
     g.add((BLDG.water_meter, A, BRICK.Building_Meter))
     g.add((BLDG.water_meter, BRICK.hasSubstance, BRICK.Water))
     g.expand("shacl")  # run shacl inference

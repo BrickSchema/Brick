@@ -1,20 +1,8 @@
-import pytest
-import rdflib
-from rdflib.namespace import OWL, RDF, RDFS
 from rdflib import Graph, URIRef
-import json
-import brickschema
-import sys
 from collections import defaultdict
-
-sys.path.append("..")
-
-from bricksrc.version import BRICK_VERSION  # noqa: E402
-from bricksrc.namespaces import BRICK  # noqa: E402
 
 
 def getDict(g, q):
-
     d = defaultdict(list)
 
     res = g.query(q)
@@ -176,10 +164,8 @@ def matchSupplyDischarge(d, e):
 
 
 # maincode
-def test_matching_classes():
-    g = Graph()
-
-    g.parse("Brick.ttl", format="turtle")
+def test_matching_classes(brick_with_imports):
+    g = brick_with_imports
     # DeductiveClosure(OWLRL_Semantics).expand(g)
 
     d = getDict(

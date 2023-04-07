@@ -1,18 +1,16 @@
 import os
 from pathlib import Path
-import shutil
 import sys
 import csv
 import glob
 import ontoenv
 import logging
-from collections import defaultdict
 import pyshacl
 from rdflib import Graph, Literal, BNode, URIRef
 from rdflib.namespace import XSD
 from rdflib.collection import Collection
 
-from bricksrc.ontology import define_ontology, BRICK_VERSION, ontology_imports
+from bricksrc.ontology import define_ontology, ontology_imports
 
 from bricksrc.namespaces import (
     BRICK,
@@ -24,7 +22,6 @@ from bricksrc.namespaces import (
     SOSA,
     SKOS,
     QUDT,
-    UNIT,
     VCARD,
     SH,
     REF,
@@ -49,8 +46,8 @@ from bricksrc.equipment import (
 )
 from bricksrc.substances import substances
 from bricksrc.relationships import relationships
-from bricksrc.quantities import quantity_definitions, get_units, all_units
-from bricksrc.entity_properties import shape_properties, entity_properties, get_shapes
+from bricksrc.quantities import quantity_definitions, get_units
+from bricksrc.entity_properties import entity_properties, get_shapes
 from bricksrc.deprecations import deprecations
 
 logging.basicConfig(
@@ -74,7 +71,7 @@ has_exactly_n_tags_shapes = {}
 def add_relationships(item, propdefs):
     for propname, propval in propdefs.items():
         if isinstance(propval, list):
-            for pv in propdefs:
+            for pv in propval:
                 G.add((item, propname, pv))
         elif not isinstance(propval, dict):
             G.add((item, propname, propval))
@@ -230,9 +227,11 @@ def define_concept_hierarchy(definitions, typeclasses, broader=None, related=Non
         # mark broader concept if one exists
         if broader is not None:
             G.add((concept, SKOS.broader, broader))
+            G.add((broader, SKOS.narrower, concept))
         # mark related concept if one exists
         if related is not None:
             G.add((concept, SKOS.related, related))
+            G.add((related, SKOS.related, concept))
         # add label
         label = defn.get(RDFS.label, concept.split("#")[-1].replace("_", " "))
         if not has_label(concept):
@@ -259,13 +258,7 @@ def define_concept_hierarchy(definitions, typeclasses, broader=None, related=Non
         other_properties = [
             prop for prop in defn.keys() if prop not in expected_properties
         ]
-        for propname in other_properties:
-            propval = defn[propname]
-            if isinstance(propval, list):
-                for pv in propval:
-                    G.add((concept, propname, pv))
-            elif not isinstance(propval, dict):
-                G.add((concept, propname, propval))
+        add_relationships(concept, {k: defn[k] for k in other_properties})
 
 
 def define_classes(definitions, parent, pun_classes=False):
@@ -372,12 +365,34 @@ def define_entity_properties(definitions, superprop=None):
     properties to the EntityProperty instances (like SKOS.definition)
     """
     for entprop, defn in definitions.items():
+        assert (
+            "property_of" in defn
+        ), f"{entprop} missing a 'property_of' annotation so Brick doesn't know where this property can be used"
+        assert (
+            SH.node in defn
+        ), f"{entprop} missing a SH.node annotation so Brick doesn't know what the values of this property can be"
+        assert RDFS.label in defn, f"{entprop} missing a RDFS.label annotation"
         G.add((entprop, A, BRICK.EntityProperty))
         if superprop is not None:
             G.add((entprop, RDFS.subPropertyOf, superprop))
         if "subproperties" in defn:
             subproperties = defn.pop("subproperties")
             define_entity_properties(subproperties, entprop)
+
+        sh_node = defn.pop(SH.node)
+        pshape = BSH[f"has{entprop.split('#')[-1]}Shape"]
+        G.add((pshape, A, SH.PropertyShape))
+        G.add((pshape, SH.path, entprop))
+        G.add((pshape, SH.node, sh_node))
+        G.add((pshape, RDFS.label, Literal(f"has {defn.get(RDFS.label)} property")))
+
+        # add the entity property as a sh:property on all of the
+        # other Nodeshapes indicated by "property_of"
+        shapes = defn.pop("property_of")
+        if not isinstance(shapes, list):
+            shapes = [shapes]
+        for shape in shapes:
+            G.add((shape, SH.property, pshape))
 
         for prop, values in defn.items():
             if isinstance(values, list):
@@ -405,6 +420,24 @@ def define_shape_property_property(shape_name, definitions):
         G.add((shape_name, SH["or"], or_list_name))
         Collection(G, or_list_name, or_list)
     for prop_name, prop_defn in definitions.items():
+        # check if there is already a property shape for this.
+        # Only do this is if (a) the property is optional for this shape, and
+        # (b) there are no further requirements; the existing property shapes
+        # don't have any min/max counts or additional requirements
+        if prop_defn.get("optional", False) and len(prop_defn.keys()) == 1:
+            prop_exists = list(
+                G.query(
+                    f"""SELECT ?x {{ ?p sh:property ?p .
+                        ?p sh:path {prop_name.n3()} .
+                        FILTER NOT EXISTS {{ ?p sh:minCount ?mc }}
+                        FILTER NOT EXISTS {{ ?p sh:maxCount ?mc }}
+                    }}"""
+                )
+            )
+            if len(prop_exists) > 0:
+                G.add((shape_name, SH.property, prop_exists[0][0]))
+                continue  # continue to next property
+
         ps = BNode()
         G.add((shape_name, SH.property, ps))
         G.add((ps, A, SH.PropertyShape))
@@ -461,6 +494,7 @@ def define_shape_properties(definitions):
     for shape_name, defn in definitions.items():
         G.add((shape_name, A, SH.NodeShape))
         G.add((shape_name, A, OWL.Class))
+        G.add((shape_name, A, BRICK.EntityPropertyValue))
         G.add((shape_name, RDFS.subClassOf, BSH.ValueShape))
 
         needs_value_properties = ["values", "units", "unitsFromQuantity", "datatype"]
@@ -573,60 +607,45 @@ def define_relationships(definitions, superprop=None):
         assert isinstance(subproperties_def, dict)
         define_relationships(subproperties_def, prop)
 
-        # define range/domain using SHACL shapes
-        if "range" in propdefn:
-            defn = propdefn.pop("range")
-            range_shape = BSH[f"shape_{prop.split('#')[-1]}"]
-            G.add((range_shape, A, SH.NodeShape))
-            G.add((range_shape, SH.targetSubjectsOf, prop))
-            constraint = BNode()
-            G.add((range_shape, SH.property, constraint))
-            G.add((constraint, SH.path, prop))
-            G.add((constraint, SH.minCount, Literal(0)))
-            if isinstance(defn, (tuple, list)):
+        # generate a SHACL Property Shape for this relationship
+        propshape = BSH[f"{prop.split('#')[-1]}Shape"]
+        G.add((propshape, A, SH.PropertyShape))
+        G.add((propshape, SH.path, prop))
+        if "range" in propdefn.keys():
+            range_defn = propdefn.pop("range")
+            if isinstance(range_defn, (tuple, list)):
                 enumeration = BNode()
-                G.add((constraint, SH["or"], enumeration))
+                G.add((propshape, SH["or"], enumeration))
                 constraints = []
-                for cls in defn:
+                for cls in range_defn:
                     constraint = BNode()
                     G.add((constraint, SH["class"], cls))
                     constraints.append(constraint)
                 Collection(G, enumeration, constraints)
+            elif range_defn is not None:
+                G.add((propshape, SH["class"], range_defn))
+
+        if "datatype" in propdefn.keys():
+            dtype_defn = propdefn.pop("datatype")
+            if dtype_defn == BSH.NumericValue:
+                G.add((propshape, SH["or"], BSH.NumericValue))
             else:
-                G.add((constraint, SH["class"], defn))
-        if "domain" in propdefn:
-            defn = propdefn.pop("domain")
-            domain_shape = BSH[f"shape_{prop.split('#')[-1]}"]
-            G.add((domain_shape, A, SH.NodeShape))
-            G.add((domain_shape, SH.targetSubjectsOf, prop))
-            if isinstance(defn, (tuple, list)):
-                enumeration = BNode()
-                G.add((domain_shape, SH["or"], enumeration))
-                constraints = []
-                for cls in defn:
-                    constraint = BNode()
-                    G.add((constraint, SH["class"], cls))
-                    constraints.append(constraint)
-                Collection(G, enumeration, constraints)
-            else:
-                G.add((domain_shape, SH["class"], defn))
+                G.add((propshape, SH.datatype, dtype_defn))
+
+        if "domain" in propdefn.keys():
+            # associate the PropertyShape with all possible subject classes
+            domains = propdefn.pop("domain")
+            if not isinstance(domains, list):
+                domains = [domains]
+            for domain in domains:
+                G.add((domain, SH.property, propshape))
 
         # define other properties of the Brick property
-        for propname, propval in propdefn.items():
-            # all other key-value pairs in the definition are
-            # property-object pairs
-            expected_properties = ["subproperties", A]
-            other_properties = [
-                prop for prop in propdefn.keys() if prop not in expected_properties
-            ]
-
-            for propname in other_properties:
-                propval = propdefn[propname]
-                if isinstance(propval, list):
-                    for val in propval:
-                        G.add((prop, propname, val))
-                else:
-                    G.add((prop, propname, propval))
+        expected_properties = ["subproperties", A]
+        other_properties = [
+            prop for prop in propdefn.keys() if prop not in expected_properties
+        ]
+        add_relationships(prop, {k: propdefn[k] for k in other_properties})
 
 
 def add_definitions():
@@ -687,7 +706,8 @@ def add_definitions():
             setpoint = setpoint + "_Setpoint"
             logging.info(f"Inferred setpoint: {setpoint}")
         limit_def = limit_def_template.format(direction=direction, setpoint=setpoint)
-        G.add((param, SKOS.definition, Literal(limit_def, lang="en")))
+        if param != BRICK.Limit:  # definition already exists for Limit
+            G.add((param, SKOS.definition, Literal(limit_def, lang="en")))
         class_exists = G.query(
             f"""select ?class where {{
             BIND(brick:{setpoint} as ?class)
@@ -900,6 +920,27 @@ define_concept_hierarchy(substances, [BRICK.Substance])
 # this defines the SKOS-based concept hierarchy for BRICK Quantities
 define_concept_hierarchy(quantity_definitions, [BRICK.Quantity])
 
+# add any missing skos:narrower implied by skos:broader where the subject
+# is defined by the Brick ontology
+G.query(
+    """CONSTRUCT {
+    ?narrower skos:broader ?broader .
+} WHERE {
+    ?broader skos:narrower ?narrower .
+    ?narrower rdf:type/rdfs:subClassOf* brick:Entity
+}"""
+)
+# add any missing skos:broader implied by skos:narrower where the subject
+# is defined by the Brick ontology
+G.query(
+    """CONSTRUCT {
+    ?broader skos:narrower ?narrower .
+} WHERE {
+    ?narrower skos:broader ?broader .
+    ?broader rdf:type/rdfs:subClassOf* brick:Entity
+}"""
+)
+
 # for all Quantities, copy part of the QUDT unit definitions over
 res = G.query(
     """SELECT ?quantity ?qudtquant WHERE {
@@ -923,22 +964,24 @@ for r in res:
     for unit, symb, label in get_units_brick(brick_quant):
         G.add((brick_quant, QUDT.applicableUnit, unit))
 # all QUDT units
-for unit, symb, label in all_units():
-    G.add((unit, A, QUDT.Unit))
-    if symb is not None:
-        G.add((unit, QUDT.symbol, symb))
-    if label is not None and not has_label(unit):
-        G.add((unit, RDFS.label, label))
+# for unit, symb, label in all_units():
+#    G.add((unit, A, QUDT.Unit))
+#    if symb is not None:
+#        G.add((unit, QUDT.symbol, symb))
+#    if label is not None and not has_label(unit):
+#        G.add((unit, RDFS.label, label))
 
 
 # entity property definitions (must happen after units are defined)
-G.add((BRICK.value, A, OWL.DatatypeProperty))
 G.add((BRICK.value, SKOS.definition, Literal("The basic value of an entity property")))
 G.add((BRICK.EntityProperty, RDFS.subClassOf, OWL.ObjectProperty))
 G.add((BRICK.EntityProperty, A, OWL.Class))
+G.add((BRICK.EntityPropertyValue, A, OWL.Class))
 G.add((BSH.ValueShape, A, OWL.Class))
-define_shape_properties(get_shapes(G))
 define_entity_properties(entity_properties)
+define_shape_properties(get_shapes(G))
+
+G.remove((BRICK.value, A, OWL.ObjectProperty))
 
 handle_deprecations()
 
@@ -968,14 +1011,7 @@ for name, graph in extension_graphs.items():
         fp.write("\n")
 
 # add SHACL shapes to graph
-G.parse("shacl/BrickEntityShapeBase.ttl", format="ttl")
-
-# validate Brick
-valid, _, report = pyshacl.validate(data_graph=G, advanced=True, allow_warnings=True)
-if not valid:
-    print(report)
-    sys.exit(1)
-
+# G.parse("shacl/BrickEntityShapeBase.ttl", format="ttl")
 
 # serialize Brick to output
 with open("Brick.ttl", "w", encoding="utf-8") as fp:
@@ -989,6 +1025,11 @@ for graph in extension_graphs.values():
 # fetch other ontologies
 if os.path.exists("Brick+extensions.ttl"):
     os.remove("Brick+extensions.ttl")  # remove extensions file before computing imports
+
+with open("Brick+extensions.ttl", "w", encoding="utf-8") as fp:
+    fp.write(G.serialize(format="turtle").rstrip())
+    fp.write("\n")
+
 # create new directory for storing imports
 os.makedirs("imports", exist_ok=True)
 env = ontoenv.OntoEnv(initialize=True)
@@ -996,7 +1037,10 @@ env.refresh()
 for name, uri in ontology_imports.items():
     depg, loc = env.resolve_uri(str(uri))
     depg.serialize(Path("imports") / f"{name}.ttl", format="ttl")
+    G += depg  # add the imported graph to Brick so we can do validation
 
-with open("Brick+extensions.ttl", "w", encoding="utf-8") as fp:
-    fp.write(G.serialize(format="turtle").rstrip())
-    fp.write("\n")
+# validate Brick
+valid, _, report = pyshacl.validate(data_graph=G, advanced=True, allow_warnings=True)
+if not valid:
+    print(report)
+    sys.exit(1)

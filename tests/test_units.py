@@ -6,20 +6,18 @@ import warnings
 import sys
 
 sys.path.append("..")
-from bricksrc.namespaces import A, BRICK, TAG, QUDT  # noqa: E402
+from bricksrc.namespaces import A, BRICK, QUDT  # noqa: E402
 
 BLDG = Namespace("https://brickschema.org/schema/ExampleBuilding#")
 
 
-def test_quantity_has_one_quantitykind():
+def test_quantity_has_one_quantitykind(brick_with_imports):
     """
     In the current implementation, using brick:hasQUDTReference to align Quantity
     with QUDT QuantityKinds, we need to make sure that  a Brick Quantity
     does not end up with more than 1 QuantityKind
     """
-    g = brickschema.graph.Graph()
-    g.load_file("Brick.ttl")
-    g.bind("qudt", QUDT)
+    g = brick_with_imports
     g.expand(profile="shacl")
     quantity_qk = g.query(
         "SELECT ?quantity ?kind WHERE {\
@@ -39,7 +37,7 @@ def test_quantity_has_one_quantitykind():
         ), f"Quantity {quant} has more than one associated QuantityKind! {kindlist}"
 
 
-def test_instances_measure_correct_units():
+def test_instances_measure_correct_units(brick_with_imports):
     """
     Tests that the units associated with instances are properly linked
     through the QuantityKinds
@@ -59,10 +57,7 @@ def test_instances_measure_correct_units():
     correct quantity
     """
 
-    g = brickschema.graph.Graph()
-    g.load_file("Brick.ttl")
-    g.bind("qudt", QUDT)
-    g.expand(profile="shacl")
+    g = brick_with_imports
 
     # test the definitions by making sure that some quantities have applicable
     # units
@@ -73,7 +68,7 @@ def test_instances_measure_correct_units():
              ?quantity qudt:applicableUnit ?unit }"
     )
     triples = []
-    for brickclass, quantity, unit in classes_with_quantities:
+    for brickclass, _, unit in classes_with_quantities:
         class_name = re.split("/|#", brickclass)[-1]
         unit_name = re.split("/|#", unit)[-1]
         instance = BLDG[f"Instance_of_{class_name}_{unit_name}"]
@@ -81,21 +76,19 @@ def test_instances_measure_correct_units():
         triples.append((instance, BRICK.hasUnit, unit))
     g.add(*triples)
     g.expand(profile="shacl")
-    g.expand(profile="rdfs")
 
     instances = g.query(
         "SELECT distinct ?inst WHERE {\
-             ?inst   rdf:type        brick:Point .\
-             ?inst   rdf:type/brick:hasQuantity  ?quantity .\
+             ?inst   rdf:type/rdfs:subClassOf* ?klass .\
+             ?klass brick:hasQuantity  ?quantity .\
              ?quantity    a   brick:Quantity .\
              ?inst   brick:hasUnit   ?unit .}"
     )
     assert len(instances) == len(classes_with_quantities)
 
 
-def test_quantity_units():
-    g = brickschema.graph.Graph()
-    g.load_file("Brick.ttl")
+def test_quantity_units(brick_with_imports):
+    g = brick_with_imports
     g.bind("qudt", QUDT)
     g.expand(profile="shacl")
 
@@ -109,10 +102,8 @@ def test_quantity_units():
     assert len(quantities_with_units) > 0
 
 
-def test_all_quantities_have_units():
-    g = brickschema.graph.Graph()
-    g.load_file("Brick.ttl")
-    g.bind("qudt", QUDT)
+def test_all_quantities_have_units(brick_with_imports):
+    g = brick_with_imports
     g.expand(profile="shacl")
 
     # test the definitions by making sure that some quantities have applicable
@@ -130,9 +121,8 @@ def test_all_quantities_have_units():
         )
 
 
-def test_points_hierarchy_units():
-    g = brickschema.graph.Graph()
-    g.load_file("Brick.ttl")
+def test_points_hierarchy_units(brick_with_imports):
+    g = brick_with_imports
     qstr = """
 SELECT ?class (GROUP_CONCAT(?class_unit) as ?class_units) ?parent (GROUP_CONCAT(?parent_unit) AS ?parent_units) WHERE {
   ?class brick:hasQuantity ?class_quantity.

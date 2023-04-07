@@ -1,25 +1,15 @@
-import csv
 import json
 import sys
 import rdflib
-import brickschema
 from warnings import warn
 from collections import Counter
-from rdflib import RDF, RDFS, Namespace, BNode
 
 sys.path.append("..")
-from bricksrc.namespaces import BRICK, SKOS  # noqa: E402
+from bricksrc.namespaces import BRICK, RDFS  # noqa: E402
 
 
-g = rdflib.Graph()
-g.parse("Brick.ttl", format="turtle")
-
-g.bind("rdf", RDF)
-g.bind("rdfs", RDFS)
-g.bind("brick", BRICK)
-
-
-def test_class_definitions():
+def test_class_definitions(brick_with_imports):
+    g = brick_with_imports
     classes_without_definitions = g.query(
         """SELECT DISTINCT ?brick_class WHERE {
                               ?brick_class (rdfs:subClassOf|a)+ brick:Class .
@@ -46,7 +36,8 @@ def test_class_definitions():
         )
 
 
-def test_relationship_definitions():
+def test_relationship_definitions(brick_with_imports):
+    g = brick_with_imports
     relationships_without_definitions = g.query(
         """SELECT DISTINCT ?brick_relationship WHERE {
                               ?brick_relationship (rdfs:subPropertyOf|a)+ ?some_property .
@@ -74,7 +65,8 @@ def test_relationship_definitions():
         )
 
 
-def test_obsolete_definitions():
+def test_obsolete_definitions(brick_with_imports):
+    g = brick_with_imports
     definitions_without_terms = g.query(
         """SELECT DISTINCT ?term WHERE {
                               ?term skos:definition|rdfs:seeAlso ?definition .
@@ -97,11 +89,12 @@ def test_obsolete_definitions():
     ), f"{len(definitions_without_terms)} definitions found for deprecated term(s). For more information, see ./tests/obsolete_definitions.json"
 
 
-def test_valid_definition_encoding():
+def test_valid_definition_encoding(brick_with_imports):
+    g = brick_with_imports
     definitions = g.query(
         """SELECT ?term ?definition ?seealso WHERE { ?term skos:definition ?definition . OPTIONAL { ?term rdfs:seeAlso ?seealso } }"""
     )
-    for (term, defn, seealso) in definitions:
+    for term, defn, seealso in definitions:
         assert isinstance(defn, rdflib.Literal), (
             "Definition %s should be a Literal" % defn
         )
@@ -112,9 +105,17 @@ def test_valid_definition_encoding():
         ), ("SeeAlso %s should be a URI or Literal or None" % seealso)
 
 
-def test_rdfs_labels():
-    labels = g.subjects(predicate=RDFS.label)
-    c = Counter(labels)
+def test_rdfs_labels(brick_with_imports):
+    g = brick_with_imports
+    labels = g.subject_objects(predicate=RDFS.label)
+    # double check that rdfs:label on Brick entity only has one value for 'en'
+    c = Counter(
+        [
+            s
+            for s, l in labels
+            if (l.language is None or l.language == "en") and s.startswith(BRICK)
+        ]
+    )
     for entity, count in c.items():
         assert count == 1, f"Entity {entity} has {count} labels, which is more than 1"
 
