@@ -87,9 +87,8 @@ def test_instances_measure_correct_units(brick_with_imports):
     assert len(instances) == len(classes_with_quantities)
 
 
-def test_quantity_units():
-    g = brickschema.graph.Graph()
-    g.load_file("Brick.ttl")
+def test_quantity_units(brick_with_imports):
+    g = brick_with_imports
     g.bind("qudt", QUDT)
     g.expand(profile="shacl")
 
@@ -122,9 +121,8 @@ def test_all_quantities_have_units(brick_with_imports):
         )
 
 
-def test_points_hierarchy_units():
-    g = brickschema.graph.Graph()
-    g.load_file("Brick.ttl")
+def test_points_hierarchy_units(brick_with_imports):
+    g = brick_with_imports
     qstr = """
 SELECT ?class (GROUP_CONCAT(?class_unit) as ?class_units) ?parent (GROUP_CONCAT(?parent_unit) AS ?parent_units) WHERE {
   ?class brick:hasQuantity ?class_quantity.
