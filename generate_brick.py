@@ -640,6 +640,7 @@ def define_relationships(definitions, superprop=None):
             for domain in domains:
                 G.add((domain, SH.property, propshape))
 
+        # define other properties of the Brick property
         expected_properties = ["subproperties", A]
         other_properties = [
             prop for prop in propdefn.keys() if prop not in expected_properties
