@@ -618,7 +618,7 @@ def define_relationships(definitions, superprop=None):
         assert isinstance(subproperties_def, dict)
         define_relationships(subproperties_def, prop)
 
-        if {"domain", "range"}.issubset(propdefn.keys()):
+        if "range" in propdefn.keys():
             # generate a SHACL Property Shape for this relationship
             propshape = BSH[f"{prop.split('#')[-1]}Shape"]
             G.add((propshape, A, SH.PropertyShape))
@@ -636,6 +636,7 @@ def define_relationships(definitions, superprop=None):
             else:
                 G.add((propshape, SH["class"], range_defn))
 
+        if "domain" in propdefn.keys():
             # associate the PropertyShape with all possible subject classes
             domains = propdefn.pop("domain")
             if not isinstance(domains, list):

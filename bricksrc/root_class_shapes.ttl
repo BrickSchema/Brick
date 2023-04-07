@@ -34,11 +34,6 @@ brick:Location a sh:NodeShape ;
         sh:class brick:Equipment;
         sh:message "Locations can be fed only by other Equipment."
     ];
-    sh:property [
-        sh:path brick:hasPoint;
-        sh:class brick:Point;
-        sh:message "A Location may have associated Points"
-    ];
     .
 
 brick:Equipment a sh:NodeShape ;
@@ -79,11 +74,6 @@ brick:Equipment a sh:NodeShape ;
         );
         sh:message "A piece of Equipment can feed a Equipment or Location."
     ];
-    sh:property [
-        sh:path brick:hasPoint;
-        sh:class brick:Point;
-        sh:message "A piece of Equipment may have associated Points"
-    ];
     .
 
 brick:Point a sh:NodeShape;
@@ -102,14 +92,6 @@ brick:Point a sh:NodeShape;
         sh:maxCount 0 ;
         sh:message "Points cannot have locations; use 'isPointOf' instead" ;
     ] ;
-    sh:property [
-        sh:path brick:isPointOf;
-        sh:or (
-            [ sh:class brick:Location ]
-            [ sh:class brick:Equipment ]
-        );
-        sh:message "A point can be associated with Locations or Equipment."
-    ];
     .
 
 brick:Collection a sh:NodeShape;

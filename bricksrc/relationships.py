@@ -28,8 +28,8 @@ relationships = {
         RDFS.subPropertyOf: [QUDT.value, S223.hasSimpleValue],
         RDFS.label: Literal("Value"),
         A: [RDF.Property],
-        "range": RDF.Resource,
-        "domain": RDF.Resource,
+        "range": RDFS.Resource,
+        "domain": RDFS.Resource,
     },
     "latitude": {
         RDFS.subPropertyOf: SDO.latitude,
@@ -97,14 +97,14 @@ relationships = {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         OWL.inverseOf: BRICK["isPointOf"],
         "range": BRICK.Point,
-        "domain": BRICK.Entity,
+        "domain": [BRICK.Equipment, BRICK.Location],
         RDFS.label: Literal("Has point"),
     },
     "isPointOf": {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         OWL.inverseOf: BRICK["hasPoint"],
         "domain": BRICK.Point,
-        "range": BRICK.Entity,
+        "range": [BRICK.Equipment, BRICK.Location],
         RDFS.label: Literal("Is point of"),
     },
     "hasPart": {
