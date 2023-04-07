@@ -262,7 +262,7 @@ def define_concept_hierarchy(definitions, typeclasses, broader=None, related=Non
         other_properties = [
             prop for prop in defn.keys() if prop not in expected_properties
         ]
-        add_relationships(concept, other_properties)
+        add_relationships(concept, {k: defn[k] for k in other_properties})
 
 
 def define_classes(definitions, parent, pun_classes=False):
@@ -645,15 +645,11 @@ def define_relationships(definitions, superprop=None):
                 G.add((domain, SH.property, propshape))
 
         # define other properties of the Brick property
-        for propname, propval in propdefn.items():
-            # all other key-value pairs in the definition are
-            # property-object pairs
-            expected_properties = ["subproperties", A]
-            other_properties = [
-                prop for prop in propdefn.keys() if prop not in expected_properties
-            ]
-
-            add_relationships(prop, other_properties)
+        expected_properties = ["subproperties", A]
+        other_properties = [
+            prop for prop in propdefn.keys() if prop not in expected_properties
+        ]
+        add_relationships(prop, {k: propdefn[k] for k in other_properties})
 
 
 def add_definitions():
