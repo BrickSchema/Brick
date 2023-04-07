@@ -1,18 +1,16 @@
 import os
 from pathlib import Path
-import shutil
 import sys
 import csv
 import glob
 import ontoenv
 import logging
-from collections import defaultdict
 import pyshacl
 from rdflib import Graph, Literal, BNode, URIRef
 from rdflib.namespace import XSD
 from rdflib.collection import Collection
 
-from bricksrc.ontology import define_ontology, BRICK_VERSION, ontology_imports
+from bricksrc.ontology import define_ontology, ontology_imports
 
 from bricksrc.namespaces import (
     BRICK,
@@ -24,8 +22,6 @@ from bricksrc.namespaces import (
     SOSA,
     SKOS,
     QUDT,
-    UNIT,
-    CURRENCY,
     VCARD,
     SH,
     REF,
@@ -50,8 +46,8 @@ from bricksrc.equipment import (
 )
 from bricksrc.substances import substances
 from bricksrc.relationships import relationships
-from bricksrc.quantities import quantity_definitions, get_units, all_units
-from bricksrc.entity_properties import shape_properties, entity_properties, get_shapes
+from bricksrc.quantities import quantity_definitions, get_units
+from bricksrc.entity_properties import entity_properties, get_shapes
 from bricksrc.deprecations import deprecations
 
 logging.basicConfig(
@@ -75,7 +71,7 @@ has_exactly_n_tags_shapes = {}
 def add_relationships(item, propdefs):
     for propname, propval in propdefs.items():
         if isinstance(propval, list):
-            for pv in propdefs:
+            for pv in propval:
                 G.add((item, propname, pv))
         elif not isinstance(propval, dict):
             G.add((item, propname, propval))
@@ -262,7 +258,7 @@ def define_concept_hierarchy(definitions, typeclasses, broader=None, related=Non
         other_properties = [
             prop for prop in defn.keys() if prop not in expected_properties
         ]
-        add_relationships(concept, other_properties)
+        add_relationships(concept, {k: defn[k] for k in other_properties})
 
 
 def define_classes(definitions, parent, pun_classes=False):
@@ -644,16 +640,11 @@ def define_relationships(definitions, superprop=None):
             for domain in domains:
                 G.add((domain, SH.property, propshape))
 
-        # define other properties of the Brick property
-        for propname, propval in propdefn.items():
-            # all other key-value pairs in the definition are
-            # property-object pairs
-            expected_properties = ["subproperties", A]
-            other_properties = [
-                prop for prop in propdefn.keys() if prop not in expected_properties
-            ]
-
-            add_relationships(prop, other_properties)
+        expected_properties = ["subproperties", A]
+        other_properties = [
+            prop for prop in propdefn.keys() if prop not in expected_properties
+        ]
+        add_relationships(prop, {k: propdefn[k] for k in other_properties})
 
 
 def add_definitions():
