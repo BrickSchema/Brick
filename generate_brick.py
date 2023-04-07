@@ -262,13 +262,7 @@ def define_concept_hierarchy(definitions, typeclasses, broader=None, related=Non
         other_properties = [
             prop for prop in defn.keys() if prop not in expected_properties
         ]
-        for propname in other_properties:
-            propval = defn[propname]
-            if isinstance(propval, list):
-                for pv in propval:
-                    G.add((concept, propname, pv))
-            elif not isinstance(propval, dict):
-                G.add((concept, propname, propval))
+        add_relationships(concept, other_properties)
 
 
 def define_classes(definitions, parent, pun_classes=False):
@@ -445,7 +439,6 @@ def define_shape_property_property(shape_name, definitions):
                 )
             )
             if len(prop_exists) > 0:
-                G.add((shape_name, SH.property, BSH.ADDED))
                 G.add((shape_name, SH.property, prop_exists[0][0]))
                 continue  # continue to next property
 
@@ -618,11 +611,11 @@ def define_relationships(definitions, superprop=None):
         assert isinstance(subproperties_def, dict)
         define_relationships(subproperties_def, prop)
 
+        # generate a SHACL Property Shape for this relationship
+        propshape = BSH[f"{prop.split('#')[-1]}Shape"]
+        G.add((propshape, A, SH.PropertyShape))
+        G.add((propshape, SH.path, prop))
         if "range" in propdefn.keys():
-            # generate a SHACL Property Shape for this relationship
-            propshape = BSH[f"{prop.split('#')[-1]}Shape"]
-            G.add((propshape, A, SH.PropertyShape))
-            G.add((propshape, SH.path, prop))
             range_defn = propdefn.pop("range")
             if isinstance(range_defn, (tuple, list)):
                 enumeration = BNode()
@@ -633,8 +626,15 @@ def define_relationships(definitions, superprop=None):
                     G.add((constraint, SH["class"], cls))
                     constraints.append(constraint)
                 Collection(G, enumeration, constraints)
-            else:
+            elif range_defn is not None:
                 G.add((propshape, SH["class"], range_defn))
+
+        if "datatype" in propdefn.keys():
+            dtype_defn = propdefn.pop("datatype")
+            if dtype_defn == BSH.NumericValue:
+                G.add((propshape, SH["or"], BSH.NumericValue))
+            else:
+                G.add((propshape, SH.datatype, dtype_defn))
 
         if "domain" in propdefn.keys():
             # associate the PropertyShape with all possible subject classes
@@ -653,13 +653,7 @@ def define_relationships(definitions, superprop=None):
                 prop for prop in propdefn.keys() if prop not in expected_properties
             ]
 
-            for propname in other_properties:
-                propval = propdefn[propname]
-                if isinstance(propval, list):
-                    for val in propval:
-                        G.add((prop, propname, val))
-                else:
-                    G.add((prop, propname, propval))
+            add_relationships(prop, other_properties)
 
 
 def add_definitions():

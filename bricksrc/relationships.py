@@ -36,20 +36,20 @@ relationships = {
         RDFS.label: Literal("Latitude"),
         A: [OWL.ObjectProperty],
         "domain": BRICK.Entity,
-        "range": BSH.NumericValue,
+        "datatype": BSH.NumericValue,
     },
     "longitude": {
         RDFS.subPropertyOf: SDO.longitude,
         RDFS.label: Literal("Longitude"),
         A: [OWL.ObjectProperty],
         "domain": BRICK.Entity,
-        "range": BSH.NumericValue,
+        "datatype": BSH.NumericValue,
     },
     "timestamp": {
         RDFS.label: Literal("Timestamp"),
         A: [RDF.Property],
         "domain": BRICK.Entity,
-        "range": XSD.dateTime,
+        "datatype": XSD.dateTime,
     },
     "hasQUDTReference": {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
