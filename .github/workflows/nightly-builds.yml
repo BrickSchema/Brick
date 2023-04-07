@@ -24,7 +24,6 @@ jobs:
       - name: install deps
         run: |
           pip install -r requirements.txt
-          cd shacl && python generate_shacl.py && cd ..
           python generate_brick.py
       - uses: marvinpinto/action-automatic-releases@latest
         with:

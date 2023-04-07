@@ -1,15 +1,12 @@
-from rdflib import Namespace, Literal, XSD
-from brickschema.namespaces import BRICK, A
-import brickschema
+from rdflib import Namespace
 
 
-def test_deprecation():
+def test_deprecation(brick_with_imports):
     """
     Test deprecation of old Brick elements
     """
-    g = brickschema.Graph()
+    g = brick_with_imports
     EX = Namespace("urn:ex#")
-    g.load_file("Brick.ttl")
     g.bind("ex", EX)
     g.parse(
         data="""
