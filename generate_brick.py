@@ -375,12 +375,34 @@ def define_entity_properties(definitions, superprop=None):
     properties to the EntityProperty instances (like SKOS.definition)
     """
     for entprop, defn in definitions.items():
+        assert (
+            "property_of" in defn
+        ), f"{entprop} missing a 'property_of' annotation so Brick doesn't know where this property can be used"
+        assert (
+            SH.node in defn
+        ), f"{entprop} missing a SH.node annotation so Brick doesn't know what the values of this property can be"
+        assert RDFS.label in defn, f"{entprop} missing a RDFS.label annotation"
         G.add((entprop, A, BRICK.EntityProperty))
         if superprop is not None:
             G.add((entprop, RDFS.subPropertyOf, superprop))
         if "subproperties" in defn:
             subproperties = defn.pop("subproperties")
             define_entity_properties(subproperties, entprop)
+
+        sh_node = defn.pop(SH.node)
+        pshape = BSH[f"has{entprop.split('#')[-1]}Shape"]
+        G.add((pshape, A, SH.PropertyShape))
+        G.add((pshape, SH.path, entprop))
+        G.add((pshape, SH.node, sh_node))
+        G.add((pshape, RDFS.label, Literal(f"has {defn.get(RDFS.label)} property")))
+
+        # add the entity property as a sh:property on all of the
+        # other Nodeshapes indicated by "property_of"
+        shapes = defn.pop("property_of")
+        if not isinstance(shapes, list):
+            shapes = [shapes]
+        for shape in shapes:
+            G.add((shape, SH.property, pshape))
 
         for prop, values in defn.items():
             if isinstance(values, list):
@@ -408,6 +430,25 @@ def define_shape_property_property(shape_name, definitions):
         G.add((shape_name, SH["or"], or_list_name))
         Collection(G, or_list_name, or_list)
     for prop_name, prop_defn in definitions.items():
+        # check if there is already a property shape for this.
+        # Only do this is if (a) the property is optional for this shape, and
+        # (b) there are no further requirements; the existing property shapes
+        # don't have any min/max counts or additional requirements
+        if prop_defn.get("optional", False) and len(prop_defn.keys()) == 1:
+            prop_exists = list(
+                G.query(
+                    f"""SELECT ?x {{ ?p sh:property ?p .
+                        ?p sh:path {prop_name.n3()} .
+                        FILTER NOT EXISTS {{ ?p sh:minCount ?mc }}
+                        FILTER NOT EXISTS {{ ?p sh:maxCount ?mc }}
+                    }}"""
+                )
+            )
+            if len(prop_exists) > 0:
+                G.add((shape_name, SH.property, BSH.ADDED))
+                G.add((shape_name, SH.property, prop_exists[0][0]))
+                continue  # continue to next property
+
         ps = BNode()
         G.add((shape_name, SH.property, ps))
         G.add((ps, A, SH.PropertyShape))
@@ -957,13 +998,14 @@ for r in res:
 
 
 # entity property definitions (must happen after units are defined)
-G.add((BRICK.value, A, OWL.DatatypeProperty))
 G.add((BRICK.value, SKOS.definition, Literal("The basic value of an entity property")))
 G.add((BRICK.EntityProperty, RDFS.subClassOf, OWL.ObjectProperty))
 G.add((BRICK.EntityProperty, A, OWL.Class))
 G.add((BSH.ValueShape, A, OWL.Class))
-define_shape_properties(get_shapes(G))
 define_entity_properties(entity_properties)
+define_shape_properties(get_shapes(G))
+
+G.remove((BRICK.value, A, OWL.ObjectProperty))
 
 handle_deprecations()
 
