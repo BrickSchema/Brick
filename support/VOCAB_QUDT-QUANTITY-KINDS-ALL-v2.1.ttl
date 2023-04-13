@@ -23,7 +23,7 @@
   a owl:Ontology ;
   vaem:hasGraphMetadata vaem:GMD_QUDT-QUANTITY-KINDS-ALL ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
-  rdfs:label "QUDT VOCAB Quantity Kinds  Release 2.1.25" ;
+  rdfs:label "QUDT VOCAB Quantity Kinds  Release 2.1.26" ;
   owl:imports <http://qudt.org/2.1/schema/facade/qudt> ;
   owl:imports <http://qudt.org/2.1/vocab/dimensionvector> ;
   owl:versionIRI <http://qudt.org/2.1/vocab/quantitykind> ;
@@ -78,6 +78,7 @@ quantitykind:AbsorbedDose
   qudt:applicableUnit unit:GRAY ;
   qudt:applicableUnit unit:MicroGRAY ;
   qudt:applicableUnit unit:MilliGRAY ;
+  qudt:applicableUnit unit:MilliRAD_R ;
   qudt:applicableUnit unit:RAD_R ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Absorbed_dose"^^xsd:anyURI ;
   qudt:hasDimensionVector qkdv:A0E0L2I0M0H0T-2D0 ;
@@ -373,7 +374,9 @@ quantitykind:Activity
   qudt:applicableUnit unit:MegaBQ ;
   qudt:applicableUnit unit:MicroBQ ;
   qudt:applicableUnit unit:MicroCi ;
+  qudt:applicableUnit unit:MilliBQ ;
   qudt:applicableUnit unit:MilliCi ;
+  qudt:applicableUnit unit:NanoBQ ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Radioactive_decay"^^xsd:anyURI ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T-1D0 ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Mass_number"^^xsd:anyURI ;
@@ -435,9 +438,13 @@ quantitykind:Adaptation
 quantitykind:Admittance
   a qudt:QuantityKind ;
   dcterms:description "\"Admittance\" is a measure of how easily a circuit or device will allow a current to flow. It is defined as the inverse of the impedance (\\(Z\\)). "^^qudt:LatexString ;
+  qudt:applicableUnit unit:DeciS ;
   qudt:applicableUnit unit:KiloS ;
+  qudt:applicableUnit unit:MegaS ;
   qudt:applicableUnit unit:MicroS ;
   qudt:applicableUnit unit:MilliS ;
+  qudt:applicableUnit unit:NanoS ;
+  qudt:applicableUnit unit:PicoS ;
   qudt:applicableUnit unit:S ;
   qudt:hasDimensionVector qkdv:A0E2L-2I0M-1H0T3D0 ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Admittance"^^xsd:anyURI ;
@@ -559,7 +566,6 @@ The SI unit of pressure is the pascal (Pa), which is a very small unit relative 
   qudt:applicableUnit unit:BAR ;
   qudt:applicableUnit unit:BARAD ;
   qudt:applicableUnit unit:BARYE ;
-  qudt:applicableUnit unit:CM_H2O ;
   qudt:applicableUnit unit:CentiBAR ;
   qudt:applicableUnit unit:CentiM_H2O ;
   qudt:applicableUnit unit:CentiM_HG ;
@@ -603,6 +609,7 @@ The SI unit of pressure is the pascal (Pa), which is a very small unit relative 
   qudt:applicableUnit unit:PA ;
   qudt:applicableUnit unit:PDL-PER-FT2 ;
   qudt:applicableUnit unit:PSI ;
+  qudt:applicableUnit unit:PicoPA ;
   qudt:applicableUnit unit:PlanckPressure ;
   qudt:applicableUnit unit:TORR ;
   qudt:hasDimensionVector qkdv:A0E0L-1I0M1H0T-2D0 ;
@@ -614,11 +621,15 @@ The SI unit of pressure is the pascal (Pa), which is a very small unit relative 
 quantitykind:AmountOfSubstance
   a qudt:QuantityKind ;
   dcterms:description "\"Amount of Substance\" is a standards-defined quantity that measures the size of an ensemble of elementary entities, such as atoms, molecules, electrons, and other particles. It is sometimes referred to as chemical amount. The International System of Units (SI) defines the amount of substance to be proportional to the number of elementary entities present. The SI unit for amount of substance is \\(mole\\). It has the unit symbol \\(mol\\). The mole is defined as the amount of substance that contains an equal number of elementary entities as there are atoms in 0.012kg of the isotope carbon-12. This number is called Avogadro's number and has the value \\(6.02214179(30) \\times 10^{23}\\). The only other unit of amount of substance in current use is the \\(pound-mole\\) with the symbol \\(lb-mol\\), which is sometimes used in chemical engineering in the United States. One \\(pound-mole\\) is exactly \\(453.59237 mol\\)."^^qudt:LatexString ;
+  qudt:applicableUnit unit:CentiMOL ;
+  qudt:applicableUnit unit:FemtoMOL ;
   qudt:applicableUnit unit:IU ;
   qudt:applicableUnit unit:KiloMOL ;
   qudt:applicableUnit unit:MOL ;
   qudt:applicableUnit unit:MicroMOL ;
   qudt:applicableUnit unit:MilliMOL ;
+  qudt:applicableUnit unit:NanoMOL ;
+  qudt:applicableUnit unit:PicoMOL ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Amount_of_substance"^^xsd:anyURI ;
   qudt:hasDimensionVector qkdv:A1E0L0I0M0H0T0D0 ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Amount_of_substance"^^xsd:anyURI ;
@@ -1148,7 +1159,6 @@ quantitykind:AtmosphericPressure
   qudt:applicableUnit unit:BAR ;
   qudt:applicableUnit unit:BARAD ;
   qudt:applicableUnit unit:BARYE ;
-  qudt:applicableUnit unit:CM_H2O ;
   qudt:applicableUnit unit:CentiBAR ;
   qudt:applicableUnit unit:CentiM_H2O ;
   qudt:applicableUnit unit:CentiM_HG ;
@@ -1192,6 +1202,7 @@ quantitykind:AtmosphericPressure
   qudt:applicableUnit unit:PA ;
   qudt:applicableUnit unit:PDL-PER-FT2 ;
   qudt:applicableUnit unit:PSI ;
+  qudt:applicableUnit unit:PicoPA ;
   qudt:applicableUnit unit:PlanckPressure ;
   qudt:applicableUnit unit:TORR ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Atmospheric_pressure"^^xsd:anyURI ;
@@ -1299,12 +1310,14 @@ quantitykind:AtomicMass
   qudt:applicableUnit unit:DeciTONNE ;
   qudt:applicableUnit unit:DeciTON_Metric ;
   qudt:applicableUnit unit:EarthMass ;
+  qudt:applicableUnit unit:FemtoGM ;
   qudt:applicableUnit unit:GM ;
   qudt:applicableUnit unit:GRAIN ;
   qudt:applicableUnit unit:HectoGM ;
   qudt:applicableUnit unit:Hundredweight_UK ;
   qudt:applicableUnit unit:Hundredweight_US ;
   qudt:applicableUnit unit:KiloGM ;
+  qudt:applicableUnit unit:KiloTONNE ;
   qudt:applicableUnit unit:KiloTON_Metric ;
   qudt:applicableUnit unit:LB ;
   qudt:applicableUnit unit:LB_T ;
@@ -1463,7 +1476,6 @@ quantitykind:AverageHeadEndPressure
   qudt:applicableUnit unit:BAR ;
   qudt:applicableUnit unit:BARAD ;
   qudt:applicableUnit unit:BARYE ;
-  qudt:applicableUnit unit:CM_H2O ;
   qudt:applicableUnit unit:CentiBAR ;
   qudt:applicableUnit unit:CentiM_H2O ;
   qudt:applicableUnit unit:CentiM_HG ;
@@ -1507,6 +1519,7 @@ quantitykind:AverageHeadEndPressure
   qudt:applicableUnit unit:PA ;
   qudt:applicableUnit unit:PDL-PER-FT2 ;
   qudt:applicableUnit unit:PSI ;
+  qudt:applicableUnit unit:PicoPA ;
   qudt:applicableUnit unit:PlanckPressure ;
   qudt:applicableUnit unit:TORR ;
   qudt:hasDimensionVector qkdv:A0E0L-1I0M1H0T-2D0 ;
@@ -1535,10 +1548,13 @@ quantitykind:AverageSpecificImpulse
 .
 quantitykind:AverageVacuumThrust
   a qudt:QuantityKind ;
+  qudt:applicableUnit unit:CentiN ;
   qudt:applicableUnit unit:DYN ;
+  qudt:applicableUnit unit:DeciN ;
   qudt:applicableUnit unit:GM_F ;
   qudt:applicableUnit unit:KIP_F ;
   qudt:applicableUnit unit:KiloGM_F ;
+  qudt:applicableUnit unit:KiloLB_F ;
   qudt:applicableUnit unit:KiloN ;
   qudt:applicableUnit unit:KiloP ;
   qudt:applicableUnit unit:KiloPOND ;
@@ -1826,6 +1842,7 @@ quantitykind:BucklingFactor
   qudt:applicableUnit unit:DECADE ;
   qudt:applicableUnit unit:Flight ;
   qudt:applicableUnit unit:GigaBasePair ;
+  qudt:applicableUnit unit:HeartBeat ;
   qudt:applicableUnit unit:NP ;
   qudt:applicableUnit unit:NUM ;
   qudt:applicableUnit unit:OCT ;
@@ -1842,6 +1859,7 @@ quantitykind:BucklingFactor
 quantitykind:BulkModulus
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:PA ;
+  qudt:applicableUnit unit:PicoPA ;
   qudt:hasDimensionVector qkdv:A0E0L-1I0M1H0T-2D0 ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Bulk_modulus"^^xsd:anyURI ;
   qudt:isoNormativeReference "http://www.iso.org/iso/catalogue_detail?csnumber=31889"^^xsd:anyURI ;
@@ -1942,6 +1960,7 @@ quantitykind:BurnTime
   qudt:applicableUnit unit:HR ;
   qudt:applicableUnit unit:HR_Sidereal ;
   qudt:applicableUnit unit:KiloSEC ;
+  qudt:applicableUnit unit:KiloYR ;
   qudt:applicableUnit unit:MIN ;
   qudt:applicableUnit unit:MIN_Sidereal ;
   qudt:applicableUnit unit:MO ;
@@ -1976,6 +1995,7 @@ quantitykind:BurnTime
 .
 quantitykind:CENTER-OF-GRAVITY_X
   a qudt:QuantityKind ;
+  dcterms:isReplacedBy quantitykind:CenterOfGravity_X ;
   qudt:applicableUnit unit:ANGSTROM ;
   qudt:applicableUnit unit:AU ;
   qudt:applicableUnit unit:BTU_IT-PER-LB_F ;
@@ -2013,7 +2033,6 @@ quantitykind:CENTER-OF-GRAVITY_X
   qudt:applicableUnit unit:ROD ;
   qudt:applicableUnit unit:YD ;
   qudt:hasDimensionVector qkdv:A0E0L1I0M0H0T0D0 ;
-  dcterms:isReplacedBy quantitykind:CenterOfGravity_X ;
   qudt:symbol "cg" ;
   qudt:url "http://www.grc.nasa.gov/WWW/k-12/airplane/cg.html"^^xsd:anyURI ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
@@ -2022,6 +2041,7 @@ quantitykind:CENTER-OF-GRAVITY_X
 .
 quantitykind:CENTER-OF-GRAVITY_Y
   a qudt:QuantityKind ;
+  dcterms:isReplacedBy quantitykind:CenterOfGravity_Y ;
   qudt:applicableUnit unit:ANGSTROM ;
   qudt:applicableUnit unit:AU ;
   qudt:applicableUnit unit:BTU_IT-PER-LB_F ;
@@ -2059,7 +2079,6 @@ quantitykind:CENTER-OF-GRAVITY_Y
   qudt:applicableUnit unit:ROD ;
   qudt:applicableUnit unit:YD ;
   qudt:hasDimensionVector qkdv:A0E0L1I0M0H0T0D0 ;
-  dcterms:isReplacedBy quantitykind:CenterOfGravity_Y ;
   qudt:symbol "cg" ;
   qudt:url "http://www.grc.nasa.gov/WWW/k-12/airplane/cg.html"^^xsd:anyURI ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
@@ -2068,6 +2087,7 @@ quantitykind:CENTER-OF-GRAVITY_Y
 .
 quantitykind:CENTER-OF-GRAVITY_Z
   a qudt:QuantityKind ;
+  dcterms:isReplacedBy quantitykind:CenterOfGravity_Z ;
   qudt:applicableUnit unit:ANGSTROM ;
   qudt:applicableUnit unit:AU ;
   qudt:applicableUnit unit:BTU_IT-PER-LB_F ;
@@ -2105,7 +2125,6 @@ quantitykind:CENTER-OF-GRAVITY_Z
   qudt:applicableUnit unit:ROD ;
   qudt:applicableUnit unit:YD ;
   qudt:hasDimensionVector qkdv:A0E0L1I0M0H0T0D0 ;
-  dcterms:isReplacedBy quantitykind:CenterOfGravity_Z ;
   qudt:symbol "cg" ;
   qudt:url "http://www.grc.nasa.gov/WWW/k-12/airplane/cg.html"^^xsd:anyURI ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
@@ -2174,12 +2193,14 @@ quantitykind:CONTRACT-END-ITEM-SPECIFICATION-MASS
   qudt:applicableUnit unit:DeciTONNE ;
   qudt:applicableUnit unit:DeciTON_Metric ;
   qudt:applicableUnit unit:EarthMass ;
+  qudt:applicableUnit unit:FemtoGM ;
   qudt:applicableUnit unit:GM ;
   qudt:applicableUnit unit:GRAIN ;
   qudt:applicableUnit unit:HectoGM ;
   qudt:applicableUnit unit:Hundredweight_UK ;
   qudt:applicableUnit unit:Hundredweight_US ;
   qudt:applicableUnit unit:KiloGM ;
+  qudt:applicableUnit unit:KiloTONNE ;
   qudt:applicableUnit unit:KiloTON_Metric ;
   qudt:applicableUnit unit:LB ;
   qudt:applicableUnit unit:LB_T ;
@@ -2227,12 +2248,14 @@ quantitykind:CONTROL-MASS
   qudt:applicableUnit unit:DeciTONNE ;
   qudt:applicableUnit unit:DeciTON_Metric ;
   qudt:applicableUnit unit:EarthMass ;
+  qudt:applicableUnit unit:FemtoGM ;
   qudt:applicableUnit unit:GM ;
   qudt:applicableUnit unit:GRAIN ;
   qudt:applicableUnit unit:HectoGM ;
   qudt:applicableUnit unit:Hundredweight_UK ;
   qudt:applicableUnit unit:Hundredweight_US ;
   qudt:applicableUnit unit:KiloGM ;
+  qudt:applicableUnit unit:KiloTONNE ;
   qudt:applicableUnit unit:KiloTON_Metric ;
   qudt:applicableUnit unit:LB ;
   qudt:applicableUnit unit:LB_T ;
@@ -2315,6 +2338,7 @@ quantitykind:CarrierLifetime
   qudt:applicableUnit unit:HR ;
   qudt:applicableUnit unit:HR_Sidereal ;
   qudt:applicableUnit unit:KiloSEC ;
+  qudt:applicableUnit unit:KiloYR ;
   qudt:applicableUnit unit:MIN ;
   qudt:applicableUnit unit:MIN_Sidereal ;
   qudt:applicableUnit unit:MO ;
@@ -2950,9 +2974,13 @@ quantitykind:Concentration
 quantitykind:Conductance
   a qudt:QuantityKind ;
   dcterms:description "\\(\\textit{Conductance}\\), for a resistive two-terminal element or two-terminal circuit with terminals A and B, quotient of the electric current i in the element or circuit by the voltage \\(u_{AB}\\) between the terminals: \\(G = \\frac{1}{R}\\), where the electric current is taken as positive if its direction is from A to B and negative in the opposite case. The conductance of an element or circuit is the inverse of its resistance."^^qudt:LatexString ;
+  qudt:applicableUnit unit:DeciS ;
   qudt:applicableUnit unit:KiloS ;
+  qudt:applicableUnit unit:MegaS ;
   qudt:applicableUnit unit:MicroS ;
   qudt:applicableUnit unit:MilliS ;
+  qudt:applicableUnit unit:NanoS ;
+  qudt:applicableUnit unit:PicoS ;
   qudt:applicableUnit unit:S ;
   qudt:hasDimensionVector qkdv:A0E2L-2I0M-1H0T3D0 ;
   qudt:informativeReference "http://www.electropedia.org/iev/iev.nsf/display?openform&ievref=131-12-06"^^xsd:anyURI ;
@@ -3113,10 +3141,10 @@ quantitykind:CrossSectionalArea
 quantitykind:CubicElectricDipoleMomentPerSquareEnergy
   a qudt:QuantityKind ;
   dcterms:isReplacedBy quantitykind:ElectricDipoleMoment_CubicPerEnergy_Squared ;
+  qudt:deprecated true ;
   qudt:hasDimensionVector qkdv:A0E3L-1I0M-2H0T7D0 ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Cubic Electric Dipole Moment per Square Energy"@en ;
-  owl:deprecated true ;
 .
 quantitykind:CubicExpansionCoefficient
   a qudt:QuantityKind ;
@@ -3146,200 +3174,9 @@ quantitykind:CurieTemperature
   skos:closeMatch quantitykind:NeelTemperature ;
   skos:closeMatch quantitykind:SuperconductionTransitionTemperature ;
 .
-quantitykind:Currency
-  a qudt:QuantityKind ;
-  qudt:applicableUnit unit:AFN ;
-  qudt:applicableUnit unit:AMD ;
-  qudt:applicableUnit unit:ARS ;
-  qudt:applicableUnit unit:AUD ;
-  qudt:applicableUnit unit:AWG ;
-  qudt:applicableUnit unit:AZN ;
-  qudt:applicableUnit unit:BBD ;
-  qudt:applicableUnit unit:BDT ;
-  qudt:applicableUnit unit:BHD ;
-  qudt:applicableUnit unit:BSD ;
-  qudt:applicableUnit unit:BYR ;
-  qudt:applicableUnit unit:BelizeDollar ;
-  qudt:applicableUnit unit:BermudaDollar ;
-  qudt:applicableUnit unit:BolivianMvdol ;
-  qudt:applicableUnit unit:Boliviano ;
-  qudt:applicableUnit unit:BrazilianReal ;
-  qudt:applicableUnit unit:BruneiDollar ;
-  qudt:applicableUnit unit:BulgarianLev ;
-  qudt:applicableUnit unit:BurundianFranc ;
-  qudt:applicableUnit unit:CAD ;
-  qudt:applicableUnit unit:CapeVerdeEscudo ;
-  qudt:applicableUnit unit:CaymanIslandsDollar ;
-  qudt:applicableUnit unit:Cedi ;
-  qudt:applicableUnit unit:ChileanPeso ;
-  qudt:applicableUnit unit:ColombianPeso ;
-  qudt:applicableUnit unit:ComoroFranc ;
-  qudt:applicableUnit unit:ConvertibleMark ;
-  qudt:applicableUnit unit:CordobaOro ;
-  qudt:applicableUnit unit:CostaRicanColon ;
-  qudt:applicableUnit unit:CroatianKuna ;
-  qudt:applicableUnit unit:CubanPeso ;
-  qudt:applicableUnit unit:CyprusPound ;
-  qudt:applicableUnit unit:CzechKoruna ;
-  qudt:applicableUnit unit:DZD ;
-  qudt:applicableUnit unit:Dalasi ;
-  qudt:applicableUnit unit:DanishKrone ;
-  qudt:applicableUnit unit:Denar ;
-  qudt:applicableUnit unit:DjiboutiFranc ;
-  qudt:applicableUnit unit:Dobra ;
-  qudt:applicableUnit unit:DominicanPeso ;
-  qudt:applicableUnit unit:EastCaribbeanDollar ;
-  qudt:applicableUnit unit:EgyptianPound ;
-  qudt:applicableUnit unit:EthiopianBirr ;
-  qudt:applicableUnit unit:Euro ;
-  qudt:applicableUnit unit:EuropeanCompositeUnit ;
-  qudt:applicableUnit unit:EuropeanMonetaryUnit ;
-  qudt:applicableUnit unit:EuropeanUnitOfAccount17 ;
-  qudt:applicableUnit unit:EuropeanUnitOfAccount9 ;
-  qudt:applicableUnit unit:FalklandIslandsPound ;
-  qudt:applicableUnit unit:FijiDollar ;
-  qudt:applicableUnit unit:Forint ;
-  qudt:applicableUnit unit:FrancCongolais ;
-  qudt:applicableUnit unit:GibraltarPound ;
-  qudt:applicableUnit unit:Gold-OunceTroy ;
-  qudt:applicableUnit unit:GoldFranc ;
-  qudt:applicableUnit unit:Guarani ;
-  qudt:applicableUnit unit:GuineaFranc ;
-  qudt:applicableUnit unit:GuyanaDollar ;
-  qudt:applicableUnit unit:HaitiGourde ;
-  qudt:applicableUnit unit:HeartBeat ;
-  qudt:applicableUnit unit:HongKongDollar ;
-  qudt:applicableUnit unit:Hryvnia ;
-  qudt:applicableUnit unit:IcelandKrona ;
-  qudt:applicableUnit unit:IndianRupee ;
-  qudt:applicableUnit unit:IranianRial ;
-  qudt:applicableUnit unit:IraqiDinar ;
-  qudt:applicableUnit unit:JamaicanDollar ;
-  qudt:applicableUnit unit:JapaneseYen ;
-  qudt:applicableUnit unit:JordanianDinar ;
-  qudt:applicableUnit unit:KenyanShilling ;
-  qudt:applicableUnit unit:Kina ;
-  qudt:applicableUnit unit:Kroon ;
-  qudt:applicableUnit unit:KuwaitiDinar ;
-  qudt:applicableUnit unit:Kwanza ;
-  qudt:applicableUnit unit:Kyat ;
-  qudt:applicableUnit unit:LaoKip ;
-  qudt:applicableUnit unit:Lari ;
-  qudt:applicableUnit unit:LatvianLats ;
-  qudt:applicableUnit unit:LebanesePound ;
-  qudt:applicableUnit unit:Lek ;
-  qudt:applicableUnit unit:Lempira ;
-  qudt:applicableUnit unit:Leone ;
-  qudt:applicableUnit unit:LiberianDollar ;
-  qudt:applicableUnit unit:LibyanDinar ;
-  qudt:applicableUnit unit:Lilangeni ;
-  qudt:applicableUnit unit:LithuanianLitas ;
-  qudt:applicableUnit unit:Loti ;
-  qudt:applicableUnit unit:MalagasyAriary ;
-  qudt:applicableUnit unit:MalawiKwacha ;
-  qudt:applicableUnit unit:MalaysianRinggit ;
-  qudt:applicableUnit unit:MalteseLira ;
-  qudt:applicableUnit unit:Manat ;
-  qudt:applicableUnit unit:MauritiusRupee ;
-  qudt:applicableUnit unit:Metical ;
-  qudt:applicableUnit unit:MexicanPeso ;
-  qudt:applicableUnit unit:MexicanUnidadDeInversion ;
-  qudt:applicableUnit unit:MillionUSD ;
-  qudt:applicableUnit unit:MoldovanLeu ;
-  qudt:applicableUnit unit:MoroccanDirham ;
-  qudt:applicableUnit unit:Naira ;
-  qudt:applicableUnit unit:Nakfa ;
-  qudt:applicableUnit unit:NamibianDollar ;
-  qudt:applicableUnit unit:NepaleseRupee ;
-  qudt:applicableUnit unit:NetherlandsAntillianGuilder ;
-  qudt:applicableUnit unit:NewIsraeliShekel ;
-  qudt:applicableUnit unit:NewTaiwanDollar ;
-  qudt:applicableUnit unit:NewTurkishLira ;
-  qudt:applicableUnit unit:NewZealandDollar ;
-  qudt:applicableUnit unit:Ngultrum ;
-  qudt:applicableUnit unit:NorthKoreanWon ;
-  qudt:applicableUnit unit:NorwegianKrone ;
-  qudt:applicableUnit unit:NuevoSol ;
-  qudt:applicableUnit unit:OmaniRial ;
-  qudt:applicableUnit unit:Ouguiya ;
-  qudt:applicableUnit unit:PAB ;
-  qudt:applicableUnit unit:Paanga ;
-  qudt:applicableUnit unit:PakistanRupee ;
-  qudt:applicableUnit unit:Palladium-OunceTroy ;
-  qudt:applicableUnit unit:Pataca ;
-  qudt:applicableUnit unit:PhilippinePeso ;
-  qudt:applicableUnit unit:Platinum-OunceTroy ;
-  qudt:applicableUnit unit:PoundSterling ;
-  qudt:applicableUnit unit:Pula ;
-  qudt:applicableUnit unit:QatariRial ;
-  qudt:applicableUnit unit:Quetzal ;
-  qudt:applicableUnit unit:Riel ;
-  qudt:applicableUnit unit:RomanianNeLeu ;
-  qudt:applicableUnit unit:Rufiyaa ;
-  qudt:applicableUnit unit:Rupiah ;
-  qudt:applicableUnit unit:RussianRuble ;
-  qudt:applicableUnit unit:RwandaFranc ;
-  qudt:applicableUnit unit:SaintHelenaPound ;
-  qudt:applicableUnit unit:SamoanTala ;
-  qudt:applicableUnit unit:SaudiRiyal ;
-  qudt:applicableUnit unit:SerbianDinar ;
-  qudt:applicableUnit unit:SeychellesRupee ;
-  qudt:applicableUnit unit:Silver-OunceTroy ;
-  qudt:applicableUnit unit:SingaporeDollar ;
-  qudt:applicableUnit unit:SlovakKoruna ;
-  qudt:applicableUnit unit:SolomonIslandsDollar ;
-  qudt:applicableUnit unit:Som ;
-  qudt:applicableUnit unit:SomaliShilling ;
-  qudt:applicableUnit unit:Somoni ;
-  qudt:applicableUnit unit:SouthAfricanRand ;
-  qudt:applicableUnit unit:SouthKoreanWon ;
-  qudt:applicableUnit unit:SpecialDrawingRights ;
-  qudt:applicableUnit unit:SriLankaRupee ;
-  qudt:applicableUnit unit:SudanesePound ;
-  qudt:applicableUnit unit:SurinamDollar ;
-  qudt:applicableUnit unit:SwedishKrona ;
-  qudt:applicableUnit unit:SwissFranc ;
-  qudt:applicableUnit unit:SyrianPound ;
-  qudt:applicableUnit unit:THB ;
-  qudt:applicableUnit unit:TanzanianShilling ;
-  qudt:applicableUnit unit:Tenge ;
-  qudt:applicableUnit unit:TrinidadAndTobagoDollar ;
-  qudt:applicableUnit unit:Tugrik ;
-  qudt:applicableUnit unit:TunisianDinar ;
-  qudt:applicableUnit unit:UAEDirham ;
-  qudt:applicableUnit unit:UICFranc ;
-  qudt:applicableUnit unit:USDollar ;
-  qudt:applicableUnit unit:USDollar_NextDay ;
-  qudt:applicableUnit unit:USDollar_SameDay ;
-  qudt:applicableUnit unit:UgandaShilling ;
-  qudt:applicableUnit unit:UnidadDeValorReal ;
-  qudt:applicableUnit unit:UnidadesDeFormento ;
-  qudt:applicableUnit unit:UruguayPeso ;
-  qudt:applicableUnit unit:UzbekistanSom ;
-  qudt:applicableUnit unit:Vatu ;
-  qudt:applicableUnit unit:VenezuelanBolvar ;
-  qudt:applicableUnit unit:VietnameseDong ;
-  qudt:applicableUnit unit:WIREuro ;
-  qudt:applicableUnit unit:WIRFranc ;
-  qudt:applicableUnit unit:XAF ;
-  qudt:applicableUnit unit:XOF ;
-  qudt:applicableUnit unit:XPF ;
-  qudt:applicableUnit unit:YemeniRial ;
-  qudt:applicableUnit unit:YuanRenminbi ;
-  qudt:applicableUnit unit:ZambianKwacha ;
-  qudt:applicableUnit unit:ZimbabweDollar ;
-  qudt:applicableUnit unit:Zloty ;
-  qudt:dbpediaMatch "http://dbpedia.org/resource/Currency"^^xsd:anyURI ;
-  qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
-  qudt:informativeReference "http://en.wikipedia.org/wiki/Currency"^^xsd:anyURI ;
-  qudt:plainTextDescription "In economics, currency is a generally accepted medium of exchange. These are usually the coins and banknotes of a particular government, which comprise the physical aspects of a nation's money supply. The other part of a nation's money supply consists of bank deposits (sometimes called deposit money), ownership of which can be transferred by means of cheques, debit cards, or other forms of money transfer. Deposit money and currency are money in the sense that both are acceptable as a means of payment." ;
-  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
-  rdfs:label "Currency"@en ;
-  skos:broader quantitykind:Asset ;
-.
 quantitykind:CurrencyPerFlight
   a qudt:QuantityKind ;
-  qudt:applicableUnit unit:MDOLLAR-PER-FLIGHT ;
+  qudt:applicableUnit unit:MegaDOLLAR_US-PER-FLIGHT ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:qkdvDenominator qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:qkdvNumerator qkdv:A0E0L0I0M0H0T0D1 ;
@@ -3463,12 +3300,14 @@ quantitykind:DRY-MASS
   qudt:applicableUnit unit:DeciTONNE ;
   qudt:applicableUnit unit:DeciTON_Metric ;
   qudt:applicableUnit unit:EarthMass ;
+  qudt:applicableUnit unit:FemtoGM ;
   qudt:applicableUnit unit:GM ;
   qudt:applicableUnit unit:GRAIN ;
   qudt:applicableUnit unit:HectoGM ;
   qudt:applicableUnit unit:Hundredweight_UK ;
   qudt:applicableUnit unit:Hundredweight_US ;
   qudt:applicableUnit unit:KiloGM ;
+  qudt:applicableUnit unit:KiloTONNE ;
   qudt:applicableUnit unit:KiloTON_Metric ;
   qudt:applicableUnit unit:LB ;
   qudt:applicableUnit unit:LB_T ;
@@ -3783,7 +3622,6 @@ quantitykind:DiastolicBloodPressure
   qudt:applicableUnit unit:BAR ;
   qudt:applicableUnit unit:BARAD ;
   qudt:applicableUnit unit:BARYE ;
-  qudt:applicableUnit unit:CM_H2O ;
   qudt:applicableUnit unit:CentiBAR ;
   qudt:applicableUnit unit:CentiM_H2O ;
   qudt:applicableUnit unit:CentiM_HG ;
@@ -3827,6 +3665,7 @@ quantitykind:DiastolicBloodPressure
   qudt:applicableUnit unit:PA ;
   qudt:applicableUnit unit:PDL-PER-FT2 ;
   qudt:applicableUnit unit:PSI ;
+  qudt:applicableUnit unit:PicoPA ;
   qudt:applicableUnit unit:PlanckPressure ;
   qudt:applicableUnit unit:TORR ;
   qudt:hasDimensionVector qkdv:A0E0L-1I0M1H0T-2D0 ;
@@ -3980,6 +3819,7 @@ quantitykind:Dimensionless
   qudt:applicableUnit unit:DECADE ;
   qudt:applicableUnit unit:Flight ;
   qudt:applicableUnit unit:GigaBasePair ;
+  qudt:applicableUnit unit:HeartBeat ;
   qudt:applicableUnit unit:NP ;
   qudt:applicableUnit unit:NUM ;
   qudt:applicableUnit unit:OCT ;
@@ -4354,10 +4194,13 @@ quantitykind:Duv
 .
 quantitykind:DynamicFriction
   a qudt:QuantityKind ;
+  qudt:applicableUnit unit:CentiN ;
   qudt:applicableUnit unit:DYN ;
+  qudt:applicableUnit unit:DeciN ;
   qudt:applicableUnit unit:GM_F ;
   qudt:applicableUnit unit:KIP_F ;
   qudt:applicableUnit unit:KiloGM_F ;
+  qudt:applicableUnit unit:KiloLB_F ;
   qudt:applicableUnit unit:KiloN ;
   qudt:applicableUnit unit:KiloP ;
   qudt:applicableUnit unit:KiloPOND ;
@@ -4405,7 +4248,6 @@ quantitykind:DynamicPressure
   qudt:applicableUnit unit:BAR ;
   qudt:applicableUnit unit:BARAD ;
   qudt:applicableUnit unit:BARYE ;
-  qudt:applicableUnit unit:CM_H2O ;
   qudt:applicableUnit unit:CentiBAR ;
   qudt:applicableUnit unit:CentiM_H2O ;
   qudt:applicableUnit unit:CentiM_HG ;
@@ -4449,6 +4291,7 @@ quantitykind:DynamicPressure
   qudt:applicableUnit unit:PA ;
   qudt:applicableUnit unit:PDL-PER-FT2 ;
   qudt:applicableUnit unit:PSI ;
+  qudt:applicableUnit unit:PicoPA ;
   qudt:applicableUnit unit:PlanckPressure ;
   qudt:applicableUnit unit:TORR ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Dynamic_pressure"^^xsd:anyURI ;
@@ -4548,12 +4391,14 @@ quantitykind:EffectiveMass
   qudt:applicableUnit unit:DeciTONNE ;
   qudt:applicableUnit unit:DeciTON_Metric ;
   qudt:applicableUnit unit:EarthMass ;
+  qudt:applicableUnit unit:FemtoGM ;
   qudt:applicableUnit unit:GM ;
   qudt:applicableUnit unit:GRAIN ;
   qudt:applicableUnit unit:HectoGM ;
   qudt:applicableUnit unit:Hundredweight_UK ;
   qudt:applicableUnit unit:Hundredweight_US ;
   qudt:applicableUnit unit:KiloGM ;
+  qudt:applicableUnit unit:KiloTONNE ;
   qudt:applicableUnit unit:KiloTON_Metric ;
   qudt:applicableUnit unit:LB ;
   qudt:applicableUnit unit:LB_T ;
@@ -5140,6 +4985,7 @@ quantitykind:ElectricPower
   qudt:applicableUnit unit:KiloCAL-PER-MIN ;
   qudt:applicableUnit unit:KiloCAL-PER-SEC ;
   qudt:applicableUnit unit:KiloW ;
+  qudt:applicableUnit unit:MegaBTU_IT-PER-HR ;
   qudt:applicableUnit unit:MegaJ-PER-SEC ;
   qudt:applicableUnit unit:MegaPA-L-PER-SEC ;
   qudt:applicableUnit unit:MegaPA-M3-PER-SEC ;
@@ -5156,6 +5002,7 @@ quantitykind:ElectricPower
   qudt:applicableUnit unit:PSI-YD3-PER-SEC ;
   qudt:applicableUnit unit:PicoW ;
   qudt:applicableUnit unit:PlanckPower ;
+  qudt:applicableUnit unit:THM_US-PER-HR ;
   qudt:applicableUnit unit:TON_FG ;
   qudt:applicableUnit unit:TeraW ;
   qudt:applicableUnit unit:W ;
@@ -5181,12 +5028,14 @@ quantitykind:ElectricPropulsionPropellantMass
   qudt:applicableUnit unit:DeciTONNE ;
   qudt:applicableUnit unit:DeciTON_Metric ;
   qudt:applicableUnit unit:EarthMass ;
+  qudt:applicableUnit unit:FemtoGM ;
   qudt:applicableUnit unit:GM ;
   qudt:applicableUnit unit:GRAIN ;
   qudt:applicableUnit unit:HectoGM ;
   qudt:applicableUnit unit:Hundredweight_UK ;
   qudt:applicableUnit unit:Hundredweight_US ;
   qudt:applicableUnit unit:KiloGM ;
+  qudt:applicableUnit unit:KiloTONNE ;
   qudt:applicableUnit unit:KiloTON_Metric ;
   qudt:applicableUnit unit:LB ;
   qudt:applicableUnit unit:LB_T ;
@@ -6027,11 +5876,11 @@ quantitykind:EnergyPerMassAmountOfSubstance
 quantitykind:EnergyPerSquareMagneticFluxDensity
   a qudt:QuantityKind ;
   dcterms:isReplacedBy quantitykind:EnergyPerMagneticFluxDensity_Squared ;
+  qudt:deprecated true ;
   qudt:hasDimensionVector qkdv:A0E2L2I0M-1H0T2D0 ;
   qudt:plainTextDescription "\"Energy Per Square Magnetic Flux Density\" is a measure of energy for a unit of magnetic flux density." ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Energy Per Square Magnetic Flux Density"@en ;
-  owl:deprecated true ;
 .
 quantitykind:EnergyPerTemperature
   a qudt:QuantityKind ;
@@ -6316,6 +6165,7 @@ quantitykind:ExhaustStreamPower
   qudt:applicableUnit unit:KiloCAL-PER-MIN ;
   qudt:applicableUnit unit:KiloCAL-PER-SEC ;
   qudt:applicableUnit unit:KiloW ;
+  qudt:applicableUnit unit:MegaBTU_IT-PER-HR ;
   qudt:applicableUnit unit:MegaJ-PER-SEC ;
   qudt:applicableUnit unit:MegaPA-L-PER-SEC ;
   qudt:applicableUnit unit:MegaPA-M3-PER-SEC ;
@@ -6332,6 +6182,7 @@ quantitykind:ExhaustStreamPower
   qudt:applicableUnit unit:PSI-YD3-PER-SEC ;
   qudt:applicableUnit unit:PicoW ;
   qudt:applicableUnit unit:PlanckPower ;
+  qudt:applicableUnit unit:THM_US-PER-HR ;
   qudt:applicableUnit unit:TON_FG ;
   qudt:applicableUnit unit:TeraW ;
   qudt:applicableUnit unit:W ;
@@ -6374,7 +6225,6 @@ quantitykind:ExitPlanePressure
   qudt:applicableUnit unit:BAR ;
   qudt:applicableUnit unit:BARAD ;
   qudt:applicableUnit unit:BARYE ;
-  qudt:applicableUnit unit:CM_H2O ;
   qudt:applicableUnit unit:CentiBAR ;
   qudt:applicableUnit unit:CentiM_H2O ;
   qudt:applicableUnit unit:CentiM_HG ;
@@ -6418,6 +6268,7 @@ quantitykind:ExitPlanePressure
   qudt:applicableUnit unit:PA ;
   qudt:applicableUnit unit:PDL-PER-FT2 ;
   qudt:applicableUnit unit:PSI ;
+  qudt:applicableUnit unit:PicoPA ;
   qudt:applicableUnit unit:PlanckPressure ;
   qudt:applicableUnit unit:TORR ;
   qudt:hasDimensionVector qkdv:A0E0L-1I0M1H0T-2D0 ;
@@ -6486,7 +6337,11 @@ quantitykind:ExposureRate
 .
 quantitykind:ExtentOfReaction
   a qudt:QuantityKind ;
+  qudt:applicableUnit unit:CentiMOL ;
+  qudt:applicableUnit unit:FemtoMOL ;
   qudt:applicableUnit unit:MOL ;
+  qudt:applicableUnit unit:NanoMOL ;
+  qudt:applicableUnit unit:PicoMOL ;
   qudt:hasDimensionVector qkdv:A1E0L0I0M0H0T0D0 ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Extent_of_reaction"^^xsd:anyURI ;
   qudt:isoNormativeReference "http://www.iso.org/iso/catalogue_detail?csnumber=31894"^^xsd:anyURI ;
@@ -6511,12 +6366,14 @@ quantitykind:FLIGHT-PERFORMANCE-RESERVE-PROPELLANT-MASS
   qudt:applicableUnit unit:DeciTONNE ;
   qudt:applicableUnit unit:DeciTON_Metric ;
   qudt:applicableUnit unit:EarthMass ;
+  qudt:applicableUnit unit:FemtoGM ;
   qudt:applicableUnit unit:GM ;
   qudt:applicableUnit unit:GRAIN ;
   qudt:applicableUnit unit:HectoGM ;
   qudt:applicableUnit unit:Hundredweight_UK ;
   qudt:applicableUnit unit:Hundredweight_US ;
   qudt:applicableUnit unit:KiloGM ;
+  qudt:applicableUnit unit:KiloTONNE ;
   qudt:applicableUnit unit:KiloTON_Metric ;
   qudt:applicableUnit unit:LB ;
   qudt:applicableUnit unit:LB_T ;
@@ -6554,6 +6411,7 @@ quantitykind:FUEL-BIAS
   qudt:applicableUnit unit:DECADE ;
   qudt:applicableUnit unit:Flight ;
   qudt:applicableUnit unit:GigaBasePair ;
+  qudt:applicableUnit unit:HeartBeat ;
   qudt:applicableUnit unit:NP ;
   qudt:applicableUnit unit:NUM ;
   qudt:applicableUnit unit:OCT ;
@@ -6671,12 +6529,14 @@ quantitykind:FinalOrCurrentVehicleMass
   qudt:applicableUnit unit:DeciTONNE ;
   qudt:applicableUnit unit:DeciTON_Metric ;
   qudt:applicableUnit unit:EarthMass ;
+  qudt:applicableUnit unit:FemtoGM ;
   qudt:applicableUnit unit:GM ;
   qudt:applicableUnit unit:GRAIN ;
   qudt:applicableUnit unit:HectoGM ;
   qudt:applicableUnit unit:Hundredweight_UK ;
   qudt:applicableUnit unit:Hundredweight_US ;
   qudt:applicableUnit unit:KiloGM ;
+  qudt:applicableUnit unit:KiloTONNE ;
   qudt:applicableUnit unit:KiloTON_Metric ;
   qudt:applicableUnit unit:LB ;
   qudt:applicableUnit unit:LB_T ;
@@ -6801,6 +6661,7 @@ quantitykind:FissionFuelUtilizationFactor
   qudt:applicableUnit unit:DECADE ;
   qudt:applicableUnit unit:Flight ;
   qudt:applicableUnit unit:GigaBasePair ;
+  qudt:applicableUnit unit:HeartBeat ;
   qudt:applicableUnit unit:NP ;
   qudt:applicableUnit unit:NUM ;
   qudt:applicableUnit unit:OCT ;
@@ -6818,6 +6679,7 @@ quantitykind:FissionMultiplicationFactor
   qudt:applicableUnit unit:DECADE ;
   qudt:applicableUnit unit:Flight ;
   qudt:applicableUnit unit:GigaBasePair ;
+  qudt:applicableUnit unit:HeartBeat ;
   qudt:applicableUnit unit:NP ;
   qudt:applicableUnit unit:NUM ;
   qudt:applicableUnit unit:OCT ;
@@ -6880,10 +6742,13 @@ quantitykind:Flux
 quantitykind:Force
   a qudt:QuantityKind ;
   dcterms:description "\"Force\" is an influence that causes mass to accelerate. It may be experienced as a lift, a push, or a pull. Force is defined by Newton's Second Law as \\(F = m \\times a \\), where \\(F\\) is force, \\(m\\) is mass and \\(a\\) is acceleration. Net force is mathematically equal to the time rate of change of the momentum of the body on which it acts. Since momentum is a vector quantity (has both a magnitude and direction), force also is a vector quantity."^^qudt:LatexString ;
+  qudt:applicableUnit unit:CentiN ;
   qudt:applicableUnit unit:DYN ;
+  qudt:applicableUnit unit:DeciN ;
   qudt:applicableUnit unit:GM_F ;
   qudt:applicableUnit unit:KIP_F ;
   qudt:applicableUnit unit:KiloGM_F ;
+  qudt:applicableUnit unit:KiloLB_F ;
   qudt:applicableUnit unit:KiloN ;
   qudt:applicableUnit unit:KiloP ;
   qudt:applicableUnit unit:KiloPOND ;
@@ -6909,10 +6774,13 @@ quantitykind:Force
 .
 quantitykind:ForceMagnitude
   a qudt:QuantityKind ;
+  qudt:applicableUnit unit:CentiN ;
   qudt:applicableUnit unit:DYN ;
+  qudt:applicableUnit unit:DeciN ;
   qudt:applicableUnit unit:GM_F ;
   qudt:applicableUnit unit:KIP_F ;
   qudt:applicableUnit unit:KiloGM_F ;
+  qudt:applicableUnit unit:KiloLB_F ;
   qudt:applicableUnit unit:KiloN ;
   qudt:applicableUnit unit:KiloP ;
   qudt:applicableUnit unit:KiloPOND ;
@@ -6948,7 +6816,6 @@ quantitykind:ForcePerArea
   qudt:applicableUnit unit:BAR ;
   qudt:applicableUnit unit:BARAD ;
   qudt:applicableUnit unit:BARYE ;
-  qudt:applicableUnit unit:CM_H2O ;
   qudt:applicableUnit unit:CentiBAR ;
   qudt:applicableUnit unit:CentiM_H2O ;
   qudt:applicableUnit unit:CentiM_HG ;
@@ -6992,6 +6859,7 @@ quantitykind:ForcePerArea
   qudt:applicableUnit unit:PA ;
   qudt:applicableUnit unit:PDL-PER-FT2 ;
   qudt:applicableUnit unit:PSI ;
+  qudt:applicableUnit unit:PicoPA ;
   qudt:applicableUnit unit:PlanckPressure ;
   qudt:applicableUnit unit:TORR ;
   qudt:hasDimensionVector qkdv:A0E0L-1I0M1H0T-2D0 ;
@@ -7081,10 +6949,13 @@ Alternatively,
 .
 quantitykind:Friction
   a qudt:QuantityKind ;
+  qudt:applicableUnit unit:CentiN ;
   qudt:applicableUnit unit:DYN ;
+  qudt:applicableUnit unit:DeciN ;
   qudt:applicableUnit unit:GM_F ;
   qudt:applicableUnit unit:KIP_F ;
   qudt:applicableUnit unit:KiloGM_F ;
+  qudt:applicableUnit unit:KiloLB_F ;
   qudt:applicableUnit unit:KiloN ;
   qudt:applicableUnit unit:KiloP ;
   qudt:applicableUnit unit:KiloPOND ;
@@ -7126,6 +6997,7 @@ quantitykind:FrictionCoefficient
 quantitykind:Fugacity
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:PA ;
+  qudt:applicableUnit unit:PicoPA ;
   qudt:hasDimensionVector qkdv:A0E0L-1I0M1H0T-2D0 ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Fugacity"^^xsd:anyURI ;
   qudt:isoNormativeReference "http://www.iso.org/iso/catalogue_detail?csnumber=31894"^^xsd:anyURI ;
@@ -7225,12 +7097,14 @@ quantitykind:GROSS-LIFT-OFF-WEIGHT
   qudt:applicableUnit unit:DeciTONNE ;
   qudt:applicableUnit unit:DeciTON_Metric ;
   qudt:applicableUnit unit:EarthMass ;
+  qudt:applicableUnit unit:FemtoGM ;
   qudt:applicableUnit unit:GM ;
   qudt:applicableUnit unit:GRAIN ;
   qudt:applicableUnit unit:HectoGM ;
   qudt:applicableUnit unit:Hundredweight_UK ;
   qudt:applicableUnit unit:Hundredweight_US ;
   qudt:applicableUnit unit:KiloGM ;
+  qudt:applicableUnit unit:KiloTONNE ;
   qudt:applicableUnit unit:KiloTON_Metric ;
   qudt:applicableUnit unit:LB ;
   qudt:applicableUnit unit:LB_T ;
@@ -7478,10 +7352,13 @@ quantitykind:GrandCanonicalPartitionFunction
 .
 quantitykind:GravitationalAttraction
   a qudt:QuantityKind ;
+  qudt:applicableUnit unit:CentiN ;
   qudt:applicableUnit unit:DYN ;
+  qudt:applicableUnit unit:DeciN ;
   qudt:applicableUnit unit:GM_F ;
   qudt:applicableUnit unit:KIP_F ;
   qudt:applicableUnit unit:KiloGM_F ;
+  qudt:applicableUnit unit:KiloLB_F ;
   qudt:applicableUnit unit:KiloN ;
   qudt:applicableUnit unit:KiloP ;
   qudt:applicableUnit unit:KiloPOND ;
@@ -7662,7 +7539,6 @@ quantitykind:HeadEndPressure
   qudt:applicableUnit unit:BAR ;
   qudt:applicableUnit unit:BARAD ;
   qudt:applicableUnit unit:BARYE ;
-  qudt:applicableUnit unit:CM_H2O ;
   qudt:applicableUnit unit:CentiBAR ;
   qudt:applicableUnit unit:CentiM_H2O ;
   qudt:applicableUnit unit:CentiM_HG ;
@@ -7706,6 +7582,7 @@ quantitykind:HeadEndPressure
   qudt:applicableUnit unit:PA ;
   qudt:applicableUnit unit:PDL-PER-FT2 ;
   qudt:applicableUnit unit:PSI ;
+  qudt:applicableUnit unit:PicoPA ;
   qudt:applicableUnit unit:PlanckPressure ;
   qudt:applicableUnit unit:TORR ;
   qudt:hasDimensionVector qkdv:A0E0L-1I0M1H0T-2D0 ;
@@ -7814,6 +7691,8 @@ quantitykind:HeatFlowRate
   qudt:applicableUnit unit:KiloCAL_TH-PER-HR ;
   qudt:applicableUnit unit:KiloCAL_TH-PER-MIN ;
   qudt:applicableUnit unit:KiloCAL_TH-PER-SEC ;
+  qudt:applicableUnit unit:MegaBTU_IT-PER-HR ;
+  qudt:applicableUnit unit:THM_US-PER-HR ;
   qudt:applicableUnit unit:TON_FG ;
   qudt:expression "\\(heat-flow-rate\\)"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L2I0M1H0T-3D0 ;
@@ -7875,7 +7754,6 @@ quantitykind:HeatingValue
   qudt:applicableUnit unit:BTU_IT-PER-LB ;
   qudt:applicableUnit unit:BTU_TH-PER-LB ;
   qudt:applicableUnit unit:CAL_IT-PER-GM ;
-  qudt:applicableUnit unit:CAL_TH-PER-G ;
   qudt:applicableUnit unit:CAL_TH-PER-GM ;
   qudt:applicableUnit unit:ERG-PER-G ;
   qudt:applicableUnit unit:ERG-PER-GM ;
@@ -8100,12 +7978,14 @@ quantitykind:INERT-MASS
   qudt:applicableUnit unit:DeciTONNE ;
   qudt:applicableUnit unit:DeciTON_Metric ;
   qudt:applicableUnit unit:EarthMass ;
+  qudt:applicableUnit unit:FemtoGM ;
   qudt:applicableUnit unit:GM ;
   qudt:applicableUnit unit:GRAIN ;
   qudt:applicableUnit unit:HectoGM ;
   qudt:applicableUnit unit:Hundredweight_UK ;
   qudt:applicableUnit unit:Hundredweight_US ;
   qudt:applicableUnit unit:KiloGM ;
+  qudt:applicableUnit unit:KiloTONNE ;
   qudt:applicableUnit unit:KiloTON_Metric ;
   qudt:applicableUnit unit:LB ;
   qudt:applicableUnit unit:LB_T ;
@@ -8147,6 +8027,7 @@ quantitykind:IgnitionIntervalTime
   qudt:applicableUnit unit:HR ;
   qudt:applicableUnit unit:HR_Sidereal ;
   qudt:applicableUnit unit:KiloSEC ;
+  qudt:applicableUnit unit:KiloYR ;
   qudt:applicableUnit unit:MIN ;
   qudt:applicableUnit unit:MIN_Sidereal ;
   qudt:applicableUnit unit:MO ;
@@ -8211,7 +8092,6 @@ quantitykind:Impedance
 .
 quantitykind:Incidence
   a qudt:QuantityKind ;
-  qudt:applicableUnit unit:CASES-PER-1000I-YR ;
   qudt:applicableUnit unit:CASES-PER-KiloINDIV-YR ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T-1D0 ;
   qudt:informativeReference "https://en.wikipedia.org/wiki/Incidence_(epidemiology)"^^xsd:anyURI ;
@@ -8224,7 +8104,6 @@ quantitykind:Incidence
 .
 quantitykind:IncidenceProportion
   a qudt:QuantityKind ;
-  qudt:applicableUnit unit:CASES-PER-1000I-YR ;
   qudt:applicableUnit unit:CASES-PER-KiloINDIV-YR ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T-1D0 ;
   qudt:informativeReference "https://en.wikipedia.org/wiki/Cumulative_incidence"^^xsd:anyURI ;
@@ -8239,7 +8118,6 @@ quantitykind:IncidenceProportion
 .
 quantitykind:IncidenceRate
   a qudt:QuantityKind ;
-  qudt:applicableUnit unit:CASES-PER-1000I-YR ;
   qudt:applicableUnit unit:CASES-PER-KiloINDIV-YR ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T-1D0 ;
   qudt:informativeReference "https://en.wikipedia.org/wiki/Incidence_(epidemiology)"^^xsd:anyURI ;
@@ -8389,12 +8267,14 @@ quantitykind:InitialVehicleMass
   qudt:applicableUnit unit:DeciTONNE ;
   qudt:applicableUnit unit:DeciTON_Metric ;
   qudt:applicableUnit unit:EarthMass ;
+  qudt:applicableUnit unit:FemtoGM ;
   qudt:applicableUnit unit:GM ;
   qudt:applicableUnit unit:GRAIN ;
   qudt:applicableUnit unit:HectoGM ;
   qudt:applicableUnit unit:Hundredweight_UK ;
   qudt:applicableUnit unit:Hundredweight_US ;
   qudt:applicableUnit unit:KiloGM ;
+  qudt:applicableUnit unit:KiloTONNE ;
   qudt:applicableUnit unit:KiloTON_Metric ;
   qudt:applicableUnit unit:LB ;
   qudt:applicableUnit unit:LB_T ;
@@ -8485,6 +8365,7 @@ quantitykind:InstantaneousPower
   qudt:applicableUnit unit:KiloCAL-PER-MIN ;
   qudt:applicableUnit unit:KiloCAL-PER-SEC ;
   qudt:applicableUnit unit:KiloW ;
+  qudt:applicableUnit unit:MegaBTU_IT-PER-HR ;
   qudt:applicableUnit unit:MegaJ-PER-SEC ;
   qudt:applicableUnit unit:MegaPA-L-PER-SEC ;
   qudt:applicableUnit unit:MegaPA-M3-PER-SEC ;
@@ -8501,6 +8382,7 @@ quantitykind:InstantaneousPower
   qudt:applicableUnit unit:PSI-YD3-PER-SEC ;
   qudt:applicableUnit unit:PicoW ;
   qudt:applicableUnit unit:PlanckPower ;
+  qudt:applicableUnit unit:THM_US-PER-HR ;
   qudt:applicableUnit unit:TON_FG ;
   qudt:applicableUnit unit:TeraW ;
   qudt:applicableUnit unit:W ;
@@ -8695,26 +8577,26 @@ quantitykind:InversePressure
 quantitykind:InverseSquareEnergy
   a qudt:QuantityKind ;
   dcterms:isReplacedBy quantitykind:InverseEnergy_Squared ;
+  qudt:deprecated true ;
   qudt:hasDimensionVector qkdv:A0E0L-4I0M-2H0T4D0 ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Inverse Square Energy"@en ;
-  owl:deprecated true ;
 .
 quantitykind:InverseSquareMass
   a qudt:QuantityKind ;
   dcterms:isReplacedBy quantitykind:InverseMass_Squared ;
+  qudt:deprecated true ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M-2H0T0D0 ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Inverse Square Mass"@en ;
-  owl:deprecated true ;
 .
 quantitykind:InverseSquareTime
   a qudt:QuantityKind ;
   dcterms:isReplacedBy quantitykind:InverseTime_Squared ;
+  qudt:deprecated true ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T-2D0 ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Inverse Square Time"@en ;
-  owl:deprecated true ;
 .
 quantitykind:InverseTemperature
   a qudt:QuantityKind ;
@@ -9366,12 +9248,12 @@ quantitykind:LengthPercentage
   a qudt:QuantityKind ;
   dcterms:isReplacedBy quantitykind:LengthRatio ;
   qudt:applicableUnit unit:PERCENT ;
+  qudt:deprecated true ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:qkdvDenominator qkdv:A0E0L1I0M0H0T0D0 ;
   qudt:qkdvNumerator qkdv:A0E0L1I0M0H0T0D0 ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Length Percentage"@en ;
-  owl:deprecated true ;
   skos:broader quantitykind:DimensionlessRatio ;
 .
 quantitykind:LengthRatio
@@ -9440,6 +9322,7 @@ quantitykind:LiftCoefficient
   qudt:applicableUnit unit:DECADE ;
   qudt:applicableUnit unit:Flight ;
   qudt:applicableUnit unit:GigaBasePair ;
+  qudt:applicableUnit unit:HeartBeat ;
   qudt:applicableUnit unit:NP ;
   qudt:applicableUnit unit:NUM ;
   qudt:applicableUnit unit:OCT ;
@@ -9456,10 +9339,13 @@ quantitykind:LiftCoefficient
 .
 quantitykind:LiftForce
   a qudt:QuantityKind ;
+  qudt:applicableUnit unit:CentiN ;
   qudt:applicableUnit unit:DYN ;
+  qudt:applicableUnit unit:DeciN ;
   qudt:applicableUnit unit:GM_F ;
   qudt:applicableUnit unit:KIP_F ;
   qudt:applicableUnit unit:KiloGM_F ;
+  qudt:applicableUnit unit:KiloLB_F ;
   qudt:applicableUnit unit:KiloN ;
   qudt:applicableUnit unit:KiloP ;
   qudt:applicableUnit unit:KiloPOND ;
@@ -9749,6 +9635,7 @@ quantitykind:LinkedFlux
   a qudt:QuantityKind ;
   dcterms:description "\"Linked Flux\" is defined as the path integral of the magnetic vector potential. This is the line integral of a magnetic vector potential \\(A\\) along a curve \\(C\\). The line vector element \\(dr\\) is the differential of position vector \\(r\\)."^^qudt:LatexString ;
   qudt:applicableUnit unit:KiloLB_F-FT-PER-A ;
+  qudt:applicableUnit unit:KiloWB ;
   qudt:applicableUnit unit:MX ;
   qudt:applicableUnit unit:MilliWB ;
   qudt:applicableUnit unit:N-M-PER-A ;
@@ -10086,12 +9973,14 @@ quantitykind:MASS-DELIVERED
   qudt:applicableUnit unit:DeciTONNE ;
   qudt:applicableUnit unit:DeciTON_Metric ;
   qudt:applicableUnit unit:EarthMass ;
+  qudt:applicableUnit unit:FemtoGM ;
   qudt:applicableUnit unit:GM ;
   qudt:applicableUnit unit:GRAIN ;
   qudt:applicableUnit unit:HectoGM ;
   qudt:applicableUnit unit:Hundredweight_UK ;
   qudt:applicableUnit unit:Hundredweight_US ;
   qudt:applicableUnit unit:KiloGM ;
+  qudt:applicableUnit unit:KiloTONNE ;
   qudt:applicableUnit unit:KiloTON_Metric ;
   qudt:applicableUnit unit:LB ;
   qudt:applicableUnit unit:LB_T ;
@@ -10138,12 +10027,14 @@ quantitykind:MASS-GROWTH-ALLOWANCE
   qudt:applicableUnit unit:DeciTONNE ;
   qudt:applicableUnit unit:DeciTON_Metric ;
   qudt:applicableUnit unit:EarthMass ;
+  qudt:applicableUnit unit:FemtoGM ;
   qudt:applicableUnit unit:GM ;
   qudt:applicableUnit unit:GRAIN ;
   qudt:applicableUnit unit:HectoGM ;
   qudt:applicableUnit unit:Hundredweight_UK ;
   qudt:applicableUnit unit:Hundredweight_US ;
   qudt:applicableUnit unit:KiloGM ;
+  qudt:applicableUnit unit:KiloTONNE ;
   qudt:applicableUnit unit:KiloTON_Metric ;
   qudt:applicableUnit unit:LB ;
   qudt:applicableUnit unit:LB_T ;
@@ -10191,12 +10082,14 @@ quantitykind:MASS-MARGIN
   qudt:applicableUnit unit:DeciTONNE ;
   qudt:applicableUnit unit:DeciTON_Metric ;
   qudt:applicableUnit unit:EarthMass ;
+  qudt:applicableUnit unit:FemtoGM ;
   qudt:applicableUnit unit:GM ;
   qudt:applicableUnit unit:GRAIN ;
   qudt:applicableUnit unit:HectoGM ;
   qudt:applicableUnit unit:Hundredweight_UK ;
   qudt:applicableUnit unit:Hundredweight_US ;
   qudt:applicableUnit unit:KiloGM ;
+  qudt:applicableUnit unit:KiloTONNE ;
   qudt:applicableUnit unit:KiloTON_Metric ;
   qudt:applicableUnit unit:LB ;
   qudt:applicableUnit unit:LB_T ;
@@ -10423,6 +10316,7 @@ quantitykind:MagneticFieldStrength_H
 quantitykind:MagneticFlux
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:KiloLB_F-FT-PER-A ;
+  qudt:applicableUnit unit:KiloWB ;
   qudt:applicableUnit unit:MX ;
   qudt:applicableUnit unit:MilliWB ;
   qudt:applicableUnit unit:N-M-PER-A ;
@@ -10634,12 +10528,14 @@ quantitykind:Mass
   qudt:applicableUnit unit:DeciTONNE ;
   qudt:applicableUnit unit:DeciTON_Metric ;
   qudt:applicableUnit unit:EarthMass ;
+  qudt:applicableUnit unit:FemtoGM ;
   qudt:applicableUnit unit:GM ;
   qudt:applicableUnit unit:GRAIN ;
   qudt:applicableUnit unit:HectoGM ;
   qudt:applicableUnit unit:Hundredweight_UK ;
   qudt:applicableUnit unit:Hundredweight_US ;
   qudt:applicableUnit unit:KiloGM ;
+  qudt:applicableUnit unit:KiloTONNE ;
   qudt:applicableUnit unit:KiloTON_Metric ;
   qudt:applicableUnit unit:LB ;
   qudt:applicableUnit unit:LB_T ;
@@ -10766,12 +10662,14 @@ quantitykind:MassDefect
   qudt:applicableUnit unit:DeciTONNE ;
   qudt:applicableUnit unit:DeciTON_Metric ;
   qudt:applicableUnit unit:EarthMass ;
+  qudt:applicableUnit unit:FemtoGM ;
   qudt:applicableUnit unit:GM ;
   qudt:applicableUnit unit:GRAIN ;
   qudt:applicableUnit unit:HectoGM ;
   qudt:applicableUnit unit:Hundredweight_UK ;
   qudt:applicableUnit unit:Hundredweight_US ;
   qudt:applicableUnit unit:KiloGM ;
+  qudt:applicableUnit unit:KiloTONNE ;
   qudt:applicableUnit unit:KiloTON_Metric ;
   qudt:applicableUnit unit:LB ;
   qudt:applicableUnit unit:LB_T ;
@@ -10887,12 +10785,14 @@ quantitykind:MassExcess
   qudt:applicableUnit unit:DeciTONNE ;
   qudt:applicableUnit unit:DeciTON_Metric ;
   qudt:applicableUnit unit:EarthMass ;
+  qudt:applicableUnit unit:FemtoGM ;
   qudt:applicableUnit unit:GM ;
   qudt:applicableUnit unit:GRAIN ;
   qudt:applicableUnit unit:HectoGM ;
   qudt:applicableUnit unit:Hundredweight_UK ;
   qudt:applicableUnit unit:Hundredweight_US ;
   qudt:applicableUnit unit:KiloGM ;
+  qudt:applicableUnit unit:KiloTONNE ;
   qudt:applicableUnit unit:KiloTON_Metric ;
   qudt:applicableUnit unit:LB ;
   qudt:applicableUnit unit:LB_T ;
@@ -11043,12 +10943,14 @@ quantitykind:MassOfElectricalPowerSupply
   qudt:applicableUnit unit:DeciTONNE ;
   qudt:applicableUnit unit:DeciTON_Metric ;
   qudt:applicableUnit unit:EarthMass ;
+  qudt:applicableUnit unit:FemtoGM ;
   qudt:applicableUnit unit:GM ;
   qudt:applicableUnit unit:GRAIN ;
   qudt:applicableUnit unit:HectoGM ;
   qudt:applicableUnit unit:Hundredweight_UK ;
   qudt:applicableUnit unit:Hundredweight_US ;
   qudt:applicableUnit unit:KiloGM ;
+  qudt:applicableUnit unit:KiloTONNE ;
   qudt:applicableUnit unit:KiloTON_Metric ;
   qudt:applicableUnit unit:LB ;
   qudt:applicableUnit unit:LB_T ;
@@ -11095,12 +10997,14 @@ quantitykind:MassOfSolidBooster
   qudt:applicableUnit unit:DeciTONNE ;
   qudt:applicableUnit unit:DeciTON_Metric ;
   qudt:applicableUnit unit:EarthMass ;
+  qudt:applicableUnit unit:FemtoGM ;
   qudt:applicableUnit unit:GM ;
   qudt:applicableUnit unit:GRAIN ;
   qudt:applicableUnit unit:HectoGM ;
   qudt:applicableUnit unit:Hundredweight_UK ;
   qudt:applicableUnit unit:Hundredweight_US ;
   qudt:applicableUnit unit:KiloGM ;
+  qudt:applicableUnit unit:KiloTONNE ;
   qudt:applicableUnit unit:KiloTON_Metric ;
   qudt:applicableUnit unit:LB ;
   qudt:applicableUnit unit:LB_T ;
@@ -11147,12 +11051,14 @@ quantitykind:MassOfTheEarth
   qudt:applicableUnit unit:DeciTONNE ;
   qudt:applicableUnit unit:DeciTON_Metric ;
   qudt:applicableUnit unit:EarthMass ;
+  qudt:applicableUnit unit:FemtoGM ;
   qudt:applicableUnit unit:GM ;
   qudt:applicableUnit unit:GRAIN ;
   qudt:applicableUnit unit:HectoGM ;
   qudt:applicableUnit unit:Hundredweight_UK ;
   qudt:applicableUnit unit:Hundredweight_US ;
   qudt:applicableUnit unit:KiloGM ;
+  qudt:applicableUnit unit:KiloTONNE ;
   qudt:applicableUnit unit:KiloTON_Metric ;
   qudt:applicableUnit unit:LB ;
   qudt:applicableUnit unit:LB_T ;
@@ -11221,6 +11127,7 @@ quantitykind:MassPerAreaTime
   qudt:applicableUnit unit:GM_Nitrogen-PER-M2-DAY ;
   qudt:applicableUnit unit:KiloGM-PER-M2-SEC ;
   qudt:applicableUnit unit:KiloGM-PER-SEC-M2 ;
+  qudt:applicableUnit unit:MicroGM-PER-M2-DAY ;
   qudt:applicableUnit unit:MilliGM-PER-M2-DAY ;
   qudt:applicableUnit unit:MilliGM-PER-M2-HR ;
   qudt:applicableUnit unit:MilliGM-PER-M2-SEC ;
@@ -11355,10 +11262,13 @@ quantitykind:MassieuFunction
 .
 quantitykind:MaxExpectedOperatingThrust
   a qudt:QuantityKind ;
+  qudt:applicableUnit unit:CentiN ;
   qudt:applicableUnit unit:DYN ;
+  qudt:applicableUnit unit:DeciN ;
   qudt:applicableUnit unit:GM_F ;
   qudt:applicableUnit unit:KIP_F ;
   qudt:applicableUnit unit:KiloGM_F ;
+  qudt:applicableUnit unit:KiloLB_F ;
   qudt:applicableUnit unit:KiloN ;
   qudt:applicableUnit unit:KiloP ;
   qudt:applicableUnit unit:KiloPOND ;
@@ -11380,10 +11290,13 @@ quantitykind:MaxExpectedOperatingThrust
 .
 quantitykind:MaxOperatingThrust
   a qudt:QuantityKind ;
+  qudt:applicableUnit unit:CentiN ;
   qudt:applicableUnit unit:DYN ;
+  qudt:applicableUnit unit:DeciN ;
   qudt:applicableUnit unit:GM_F ;
   qudt:applicableUnit unit:KIP_F ;
   qudt:applicableUnit unit:KiloGM_F ;
+  qudt:applicableUnit unit:KiloLB_F ;
   qudt:applicableUnit unit:KiloN ;
   qudt:applicableUnit unit:KiloP ;
   qudt:applicableUnit unit:KiloPOND ;
@@ -11405,10 +11318,13 @@ quantitykind:MaxOperatingThrust
 .
 quantitykind:MaxSeaLevelThrust
   a qudt:QuantityKind ;
+  qudt:applicableUnit unit:CentiN ;
   qudt:applicableUnit unit:DYN ;
+  qudt:applicableUnit unit:DeciN ;
   qudt:applicableUnit unit:GM_F ;
   qudt:applicableUnit unit:KIP_F ;
   qudt:applicableUnit unit:KiloGM_F ;
+  qudt:applicableUnit unit:KiloLB_F ;
   qudt:applicableUnit unit:KiloN ;
   qudt:applicableUnit unit:KiloP ;
   qudt:applicableUnit unit:KiloPOND ;
@@ -11490,7 +11406,6 @@ quantitykind:MaximumExpectedOperatingPressure
   qudt:applicableUnit unit:BAR ;
   qudt:applicableUnit unit:BARAD ;
   qudt:applicableUnit unit:BARYE ;
-  qudt:applicableUnit unit:CM_H2O ;
   qudt:applicableUnit unit:CentiBAR ;
   qudt:applicableUnit unit:CentiM_H2O ;
   qudt:applicableUnit unit:CentiM_HG ;
@@ -11534,6 +11449,7 @@ quantitykind:MaximumExpectedOperatingPressure
   qudt:applicableUnit unit:PA ;
   qudt:applicableUnit unit:PDL-PER-FT2 ;
   qudt:applicableUnit unit:PSI ;
+  qudt:applicableUnit unit:PicoPA ;
   qudt:applicableUnit unit:PlanckPressure ;
   qudt:applicableUnit unit:TORR ;
   qudt:hasDimensionVector qkdv:A0E0L-1I0M1H0T-2D0 ;
@@ -11550,7 +11466,6 @@ quantitykind:MaximumOperatingPressure
   qudt:applicableUnit unit:BAR ;
   qudt:applicableUnit unit:BARAD ;
   qudt:applicableUnit unit:BARYE ;
-  qudt:applicableUnit unit:CM_H2O ;
   qudt:applicableUnit unit:CentiBAR ;
   qudt:applicableUnit unit:CentiM_H2O ;
   qudt:applicableUnit unit:CentiM_HG ;
@@ -11594,6 +11509,7 @@ quantitykind:MaximumOperatingPressure
   qudt:applicableUnit unit:PA ;
   qudt:applicableUnit unit:PDL-PER-FT2 ;
   qudt:applicableUnit unit:PSI ;
+  qudt:applicableUnit unit:PicoPA ;
   qudt:applicableUnit unit:PlanckPressure ;
   qudt:applicableUnit unit:TORR ;
   qudt:hasDimensionVector qkdv:A0E0L-1I0M1H0T-2D0 ;
@@ -11718,6 +11634,7 @@ quantitykind:MeanLifetime
   qudt:applicableUnit unit:HR ;
   qudt:applicableUnit unit:HR_Sidereal ;
   qudt:applicableUnit unit:KiloSEC ;
+  qudt:applicableUnit unit:KiloYR ;
   qudt:applicableUnit unit:MIN ;
   qudt:applicableUnit unit:MIN_Sidereal ;
   qudt:applicableUnit unit:MO ;
@@ -12046,6 +11963,7 @@ quantitykind:ModulusOfAdmittance
 quantitykind:ModulusOfElasticity
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:PA ;
+  qudt:applicableUnit unit:PicoPA ;
   qudt:hasDimensionVector qkdv:A0E0L-1I0M1H0T-2D0 ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Elastic_modulus"^^xsd:anyURI ;
   qudt:isoNormativeReference "http://www.iso.org/iso/catalogue_detail?csnumber=31889"^^xsd:anyURI ;
@@ -12494,7 +12412,6 @@ quantitykind:MomentumPerAngle
 .
 quantitykind:MorbidityRate
   a qudt:QuantityKind ;
-  qudt:applicableUnit unit:CASES-PER-1000I-YR ;
   qudt:applicableUnit unit:CASES-PER-KiloINDIV-YR ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T-1D0 ;
   qudt:plainTextDescription "Morbidity rate is a measure of the incidence of a disease in a particular population, scaled to the size of that population, per unit of time." ;
@@ -12506,8 +12423,6 @@ quantitykind:MorbidityRate
 .
 quantitykind:MortalityRate
   a qudt:QuantityKind ;
-  qudt:applicableUnit unit:DEATHS-PER-1000000I-YR ;
-  qudt:applicableUnit unit:DEATHS-PER-1000I-YR ;
   qudt:applicableUnit unit:DEATHS-PER-KiloINDIV-YR ;
   qudt:applicableUnit unit:DEATHS-PER-MegaINDIV-YR ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T-1D0 ;
@@ -12565,12 +12480,14 @@ quantitykind:NOMINAL-ASCENT-PROPELLANT-MASS
   qudt:applicableUnit unit:DeciTONNE ;
   qudt:applicableUnit unit:DeciTON_Metric ;
   qudt:applicableUnit unit:EarthMass ;
+  qudt:applicableUnit unit:FemtoGM ;
   qudt:applicableUnit unit:GM ;
   qudt:applicableUnit unit:GRAIN ;
   qudt:applicableUnit unit:HectoGM ;
   qudt:applicableUnit unit:Hundredweight_UK ;
   qudt:applicableUnit unit:Hundredweight_US ;
   qudt:applicableUnit unit:KiloGM ;
+  qudt:applicableUnit unit:KiloTONNE ;
   qudt:applicableUnit unit:KiloTON_Metric ;
   qudt:applicableUnit unit:LB ;
   qudt:applicableUnit unit:LB_T ;
@@ -12802,7 +12719,6 @@ quantitykind:NormalStress
   qudt:applicableUnit unit:BAR ;
   qudt:applicableUnit unit:BARAD ;
   qudt:applicableUnit unit:BARYE ;
-  qudt:applicableUnit unit:CM_H2O ;
   qudt:applicableUnit unit:CentiBAR ;
   qudt:applicableUnit unit:CentiM_H2O ;
   qudt:applicableUnit unit:CentiM_HG ;
@@ -12846,6 +12762,7 @@ quantitykind:NormalStress
   qudt:applicableUnit unit:PA ;
   qudt:applicableUnit unit:PDL-PER-FT2 ;
   qudt:applicableUnit unit:PSI ;
+  qudt:applicableUnit unit:PicoPA ;
   qudt:applicableUnit unit:PlanckPressure ;
   qudt:applicableUnit unit:TORR ;
   qudt:hasDimensionVector qkdv:A0E0L-1I0M1H0T-2D0 ;
@@ -12955,7 +12872,6 @@ quantitykind:NozzleThroatPressure
   qudt:applicableUnit unit:BAR ;
   qudt:applicableUnit unit:BARAD ;
   qudt:applicableUnit unit:BARYE ;
-  qudt:applicableUnit unit:CM_H2O ;
   qudt:applicableUnit unit:CentiBAR ;
   qudt:applicableUnit unit:CentiM_H2O ;
   qudt:applicableUnit unit:CentiM_HG ;
@@ -12999,6 +12915,7 @@ quantitykind:NozzleThroatPressure
   qudt:applicableUnit unit:PA ;
   qudt:applicableUnit unit:PDL-PER-FT2 ;
   qudt:applicableUnit unit:PSI ;
+  qudt:applicableUnit unit:PicoPA ;
   qudt:applicableUnit unit:PlanckPressure ;
   qudt:applicableUnit unit:TORR ;
   qudt:hasDimensionVector qkdv:A0E0L-1I0M1H0T-2D0 ;
@@ -13009,10 +12926,13 @@ quantitykind:NozzleThroatPressure
 .
 quantitykind:NozzleWallsThrustReaction
   a qudt:QuantityKind ;
+  qudt:applicableUnit unit:CentiN ;
   qudt:applicableUnit unit:DYN ;
+  qudt:applicableUnit unit:DeciN ;
   qudt:applicableUnit unit:GM_F ;
   qudt:applicableUnit unit:KIP_F ;
   qudt:applicableUnit unit:KiloGM_F ;
+  qudt:applicableUnit unit:KiloLB_F ;
   qudt:applicableUnit unit:KiloN ;
   qudt:applicableUnit unit:KiloP ;
   qudt:applicableUnit unit:KiloPOND ;
@@ -13256,7 +13176,6 @@ quantitykind:OsmoticPressure
   qudt:applicableUnit unit:BAR ;
   qudt:applicableUnit unit:BARAD ;
   qudt:applicableUnit unit:BARYE ;
-  qudt:applicableUnit unit:CM_H2O ;
   qudt:applicableUnit unit:CentiBAR ;
   qudt:applicableUnit unit:CentiM_H2O ;
   qudt:applicableUnit unit:CentiM_HG ;
@@ -13300,6 +13219,7 @@ quantitykind:OsmoticPressure
   qudt:applicableUnit unit:PA ;
   qudt:applicableUnit unit:PDL-PER-FT2 ;
   qudt:applicableUnit unit:PSI ;
+  qudt:applicableUnit unit:PicoPA ;
   qudt:applicableUnit unit:PlanckPressure ;
   qudt:applicableUnit unit:TORR ;
   qudt:hasDimensionVector qkdv:A0E0L-1I0M1H0T-2D0 ;
@@ -13382,12 +13302,14 @@ quantitykind:PREDICTED-MASS
   qudt:applicableUnit unit:DeciTONNE ;
   qudt:applicableUnit unit:DeciTON_Metric ;
   qudt:applicableUnit unit:EarthMass ;
+  qudt:applicableUnit unit:FemtoGM ;
   qudt:applicableUnit unit:GM ;
   qudt:applicableUnit unit:GRAIN ;
   qudt:applicableUnit unit:HectoGM ;
   qudt:applicableUnit unit:Hundredweight_UK ;
   qudt:applicableUnit unit:Hundredweight_US ;
   qudt:applicableUnit unit:KiloGM ;
+  qudt:applicableUnit unit:KiloTONNE ;
   qudt:applicableUnit unit:KiloTON_Metric ;
   qudt:applicableUnit unit:LB ;
   qudt:applicableUnit unit:LB_T ;
@@ -13470,7 +13392,6 @@ quantitykind:PartialPressure
   qudt:applicableUnit unit:BAR ;
   qudt:applicableUnit unit:BARAD ;
   qudt:applicableUnit unit:BARYE ;
-  qudt:applicableUnit unit:CM_H2O ;
   qudt:applicableUnit unit:CentiBAR ;
   qudt:applicableUnit unit:CentiM_H2O ;
   qudt:applicableUnit unit:CentiM_HG ;
@@ -13514,6 +13435,7 @@ quantitykind:PartialPressure
   qudt:applicableUnit unit:PA ;
   qudt:applicableUnit unit:PDL-PER-FT2 ;
   qudt:applicableUnit unit:PSI ;
+  qudt:applicableUnit unit:PicoPA ;
   qudt:applicableUnit unit:PlanckPressure ;
   qudt:applicableUnit unit:TORR ;
   qudt:hasDimensionVector qkdv:A0E0L-1I0M1H0T-2D0 ;
@@ -13723,12 +13645,14 @@ quantitykind:PayloadMass
   qudt:applicableUnit unit:DeciTONNE ;
   qudt:applicableUnit unit:DeciTON_Metric ;
   qudt:applicableUnit unit:EarthMass ;
+  qudt:applicableUnit unit:FemtoGM ;
   qudt:applicableUnit unit:GM ;
   qudt:applicableUnit unit:GRAIN ;
   qudt:applicableUnit unit:HectoGM ;
   qudt:applicableUnit unit:Hundredweight_UK ;
   qudt:applicableUnit unit:Hundredweight_US ;
   qudt:applicableUnit unit:KiloGM ;
+  qudt:applicableUnit unit:KiloTONNE ;
   qudt:applicableUnit unit:KiloTON_Metric ;
   qudt:applicableUnit unit:LB ;
   qudt:applicableUnit unit:LB_T ;
@@ -14032,7 +13956,6 @@ quantitykind:PlanarForce
   qudt:applicableUnit unit:BAR ;
   qudt:applicableUnit unit:BARAD ;
   qudt:applicableUnit unit:BARYE ;
-  qudt:applicableUnit unit:CM_H2O ;
   qudt:applicableUnit unit:CentiBAR ;
   qudt:applicableUnit unit:CentiM_H2O ;
   qudt:applicableUnit unit:CentiM_HG ;
@@ -14076,6 +13999,7 @@ quantitykind:PlanarForce
   qudt:applicableUnit unit:PA ;
   qudt:applicableUnit unit:PDL-PER-FT2 ;
   qudt:applicableUnit unit:PSI ;
+  qudt:applicableUnit unit:PicoPA ;
   qudt:applicableUnit unit:PlanckPressure ;
   qudt:applicableUnit unit:TORR ;
   qudt:hasDimensionVector qkdv:A0E0L-1I0M1H0T-2D0 ;
@@ -14421,6 +14345,7 @@ quantitykind:Power
   qudt:applicableUnit unit:KiloCAL-PER-MIN ;
   qudt:applicableUnit unit:KiloCAL-PER-SEC ;
   qudt:applicableUnit unit:KiloW ;
+  qudt:applicableUnit unit:MegaBTU_IT-PER-HR ;
   qudt:applicableUnit unit:MegaJ-PER-SEC ;
   qudt:applicableUnit unit:MegaPA-L-PER-SEC ;
   qudt:applicableUnit unit:MegaPA-M3-PER-SEC ;
@@ -14437,6 +14362,7 @@ quantitykind:Power
   qudt:applicableUnit unit:PSI-YD3-PER-SEC ;
   qudt:applicableUnit unit:PicoW ;
   qudt:applicableUnit unit:PlanckPower ;
+  qudt:applicableUnit unit:THM_US-PER-HR ;
   qudt:applicableUnit unit:TON_FG ;
   qudt:applicableUnit unit:TeraW ;
   qudt:applicableUnit unit:W ;
@@ -14547,7 +14473,6 @@ quantitykind:Pressure
   qudt:applicableUnit unit:BAR ;
   qudt:applicableUnit unit:BARAD ;
   qudt:applicableUnit unit:BARYE ;
-  qudt:applicableUnit unit:CM_H2O ;
   qudt:applicableUnit unit:CentiBAR ;
   qudt:applicableUnit unit:CentiM_H2O ;
   qudt:applicableUnit unit:CentiM_HG ;
@@ -14591,6 +14516,7 @@ quantitykind:Pressure
   qudt:applicableUnit unit:PA ;
   qudt:applicableUnit unit:PDL-PER-FT2 ;
   qudt:applicableUnit unit:PSI ;
+  qudt:applicableUnit unit:PicoPA ;
   qudt:applicableUnit unit:PlanckPressure ;
   qudt:applicableUnit unit:TORR ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Pressure"^^xsd:anyURI ;
@@ -14608,6 +14534,7 @@ quantitykind:PressureBurningRateConstant
   qudt:applicableUnit unit:DECADE ;
   qudt:applicableUnit unit:Flight ;
   qudt:applicableUnit unit:GigaBasePair ;
+  qudt:applicableUnit unit:HeartBeat ;
   qudt:applicableUnit unit:NP ;
   qudt:applicableUnit unit:NUM ;
   qudt:applicableUnit unit:OCT ;
@@ -14626,6 +14553,7 @@ quantitykind:PressureBurningRateIndex
   qudt:applicableUnit unit:DECADE ;
   qudt:applicableUnit unit:Flight ;
   qudt:applicableUnit unit:GigaBasePair ;
+  qudt:applicableUnit unit:HeartBeat ;
   qudt:applicableUnit unit:NP ;
   qudt:applicableUnit unit:NUM ;
   qudt:applicableUnit unit:OCT ;
@@ -14667,12 +14595,12 @@ quantitykind:PressurePercentage
   a qudt:QuantityKind ;
   dcterms:isReplacedBy quantitykind:PressureRatio ;
   qudt:applicableUnit unit:PERCENT ;
+  qudt:deprecated true ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:qkdvDenominator qkdv:A0E0L-1I0M1H0T-2D0 ;
   qudt:qkdvNumerator qkdv:A0E0L-1I0M1H0T-2D0 ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Pressure Percentage"@en ;
-  owl:deprecated true ;
   skos:broader quantitykind:DimensionlessRatio ;
 .
 quantitykind:PressureRatio
@@ -14758,12 +14686,14 @@ quantitykind:PropellantMass
   qudt:applicableUnit unit:DeciTONNE ;
   qudt:applicableUnit unit:DeciTON_Metric ;
   qudt:applicableUnit unit:EarthMass ;
+  qudt:applicableUnit unit:FemtoGM ;
   qudt:applicableUnit unit:GM ;
   qudt:applicableUnit unit:GRAIN ;
   qudt:applicableUnit unit:HectoGM ;
   qudt:applicableUnit unit:Hundredweight_UK ;
   qudt:applicableUnit unit:Hundredweight_US ;
   qudt:applicableUnit unit:KiloGM ;
+  qudt:applicableUnit unit:KiloTONNE ;
   qudt:applicableUnit unit:KiloTON_Metric ;
   qudt:applicableUnit unit:LB ;
   qudt:applicableUnit unit:LB_T ;
@@ -14853,10 +14783,10 @@ quantitykind:QuantumNumber
 quantitykind:QuarticElectricDipoleMomentPerCubicEnergy
   a qudt:QuantityKind ;
   dcterms:isReplacedBy quantitykind:ElectricDipoleMoment_QuarticPerEnergy_Cubic ;
+  qudt:deprecated true ;
   qudt:hasDimensionVector qkdv:A0E4L-2I0M-3H0T10D0 ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Quartic Electric Dipole Moment per Cubic Energy"@en ;
-  owl:deprecated true ;
 .
 quantitykind:RESERVE-MASS
   a qudt:QuantityKind ;
@@ -14873,12 +14803,14 @@ quantitykind:RESERVE-MASS
   qudt:applicableUnit unit:DeciTONNE ;
   qudt:applicableUnit unit:DeciTON_Metric ;
   qudt:applicableUnit unit:EarthMass ;
+  qudt:applicableUnit unit:FemtoGM ;
   qudt:applicableUnit unit:GM ;
   qudt:applicableUnit unit:GRAIN ;
   qudt:applicableUnit unit:HectoGM ;
   qudt:applicableUnit unit:Hundredweight_UK ;
   qudt:applicableUnit unit:Hundredweight_US ;
   qudt:applicableUnit unit:KiloGM ;
+  qudt:applicableUnit unit:KiloTONNE ;
   qudt:applicableUnit unit:KiloTON_Metric ;
   qudt:applicableUnit unit:LB ;
   qudt:applicableUnit unit:LB_T ;
@@ -15187,6 +15119,7 @@ quantitykind:RadiantFlux
   qudt:applicableUnit unit:KiloCAL-PER-MIN ;
   qudt:applicableUnit unit:KiloCAL-PER-SEC ;
   qudt:applicableUnit unit:KiloW ;
+  qudt:applicableUnit unit:MegaBTU_IT-PER-HR ;
   qudt:applicableUnit unit:MegaJ-PER-SEC ;
   qudt:applicableUnit unit:MegaPA-L-PER-SEC ;
   qudt:applicableUnit unit:MegaPA-M3-PER-SEC ;
@@ -15203,6 +15136,7 @@ quantitykind:RadiantFlux
   qudt:applicableUnit unit:PSI-YD3-PER-SEC ;
   qudt:applicableUnit unit:PicoW ;
   qudt:applicableUnit unit:PlanckPower ;
+  qudt:applicableUnit unit:THM_US-PER-HR ;
   qudt:applicableUnit unit:TON_FG ;
   qudt:applicableUnit unit:TeraW ;
   qudt:applicableUnit unit:W ;
@@ -15244,6 +15178,8 @@ quantitykind:RadiativeHeatTransfer
   qudt:applicableUnit unit:KiloCAL_TH-PER-HR ;
   qudt:applicableUnit unit:KiloCAL_TH-PER-MIN ;
   qudt:applicableUnit unit:KiloCAL_TH-PER-SEC ;
+  qudt:applicableUnit unit:MegaBTU_IT-PER-HR ;
+  qudt:applicableUnit unit:THM_US-PER-HR ;
   qudt:applicableUnit unit:TON_FG ;
   qudt:hasDimensionVector qkdv:A0E0L2I0M1H0T-3D0 ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Heat_transfer#Radiation"^^xsd:anyURI ;
@@ -15481,6 +15417,7 @@ quantitykind:ReactorTimeConstant
   qudt:applicableUnit unit:HR ;
   qudt:applicableUnit unit:HR_Sidereal ;
   qudt:applicableUnit unit:KiloSEC ;
+  qudt:applicableUnit unit:KiloYR ;
   qudt:applicableUnit unit:MIN ;
   qudt:applicableUnit unit:MIN_Sidereal ;
   qudt:applicableUnit unit:MO ;
@@ -15619,6 +15556,7 @@ quantitykind:RelativeLuminousFlux
   a qudt:QuantityKind ;
   dcterms:isReplacedBy quantitykind:LuminousFluxRatio ;
   qudt:applicableUnit unit:PERCENT ;
+  qudt:deprecated true ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Luminous_flux"^^xsd:anyURI ;
   qudt:plainTextDescription "Relative Luminous Flux or Relative Luminous Power is the measure of the perceived power of light. It differs from radiant flux, the measure of the total power of light emitted, in that luminous flux is adjusted to reflect the varying sensitivity of the human eye to different wavelengths of light. It is expressed as a percentage or fraction of full power." ;
@@ -15626,7 +15564,6 @@ quantitykind:RelativeLuminousFlux
   qudt:qkdvNumerator qkdv:A0E0L2I0M1H0T-3D0 ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Relative Luminous Flux"@en ;
-  owl:deprecated true ;
   skos:broader quantitykind:DimensionlessRatio ;
 .
 quantitykind:RelativeMassConcentrationOfVapour
@@ -15759,6 +15696,7 @@ quantitykind:RelaxationTIme
   qudt:applicableUnit unit:HR ;
   qudt:applicableUnit unit:HR_Sidereal ;
   qudt:applicableUnit unit:KiloSEC ;
+  qudt:applicableUnit unit:KiloYR ;
   qudt:applicableUnit unit:MIN ;
   qudt:applicableUnit unit:MIN_Sidereal ;
   qudt:applicableUnit unit:MO ;
@@ -15847,12 +15785,12 @@ quantitykind:ResistancePercentage
   a qudt:QuantityKind ;
   dcterms:isReplacedBy quantitykind:ResistanceRatio ;
   qudt:applicableUnit unit:PERCENT ;
+  qudt:deprecated true ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:qkdvDenominator qkdv:A0E-2L2I0M1H0T-3D0 ;
   qudt:qkdvNumerator qkdv:A0E-2L2I0M1H0T-3D0 ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Resistance Percentage"@en ;
-  owl:deprecated true ;
   skos:broader quantitykind:DimensionlessRatio ;
 .
 quantitykind:ResistanceRatio
@@ -15962,6 +15900,7 @@ quantitykind:ResonanceEscapeProbabilityForFission
   qudt:applicableUnit unit:DECADE ;
   qudt:applicableUnit unit:Flight ;
   qudt:applicableUnit unit:GigaBasePair ;
+  qudt:applicableUnit unit:HeartBeat ;
   qudt:applicableUnit unit:NP ;
   qudt:applicableUnit unit:NUM ;
   qudt:applicableUnit unit:OCT ;
@@ -16061,12 +16000,14 @@ quantitykind:RestMass
   qudt:applicableUnit unit:DeciTONNE ;
   qudt:applicableUnit unit:DeciTON_Metric ;
   qudt:applicableUnit unit:EarthMass ;
+  qudt:applicableUnit unit:FemtoGM ;
   qudt:applicableUnit unit:GM ;
   qudt:applicableUnit unit:GRAIN ;
   qudt:applicableUnit unit:HectoGM ;
   qudt:applicableUnit unit:Hundredweight_UK ;
   qudt:applicableUnit unit:Hundredweight_US ;
   qudt:applicableUnit unit:KiloGM ;
+  qudt:applicableUnit unit:KiloTONNE ;
   qudt:applicableUnit unit:KiloTON_Metric ;
   qudt:applicableUnit unit:LB ;
   qudt:applicableUnit unit:LB_T ;
@@ -16112,6 +16053,7 @@ quantitykind:ReverberationTime
   qudt:applicableUnit unit:HR ;
   qudt:applicableUnit unit:HR_Sidereal ;
   qudt:applicableUnit unit:KiloSEC ;
+  qudt:applicableUnit unit:KiloYR ;
   qudt:applicableUnit unit:MIN ;
   qudt:applicableUnit unit:MIN_Sidereal ;
   qudt:applicableUnit unit:MO ;
@@ -16176,10 +16118,13 @@ quantitykind:RichardsonConstant
 .
 quantitykind:RocketAtmosphericTransverseForce
   a qudt:QuantityKind ;
+  qudt:applicableUnit unit:CentiN ;
   qudt:applicableUnit unit:DYN ;
+  qudt:applicableUnit unit:DeciN ;
   qudt:applicableUnit unit:GM_F ;
   qudt:applicableUnit unit:KIP_F ;
   qudt:applicableUnit unit:KiloGM_F ;
+  qudt:applicableUnit unit:KiloLB_F ;
   qudt:applicableUnit unit:KiloN ;
   qudt:applicableUnit unit:KiloP ;
   qudt:applicableUnit unit:KiloPOND ;
@@ -16374,6 +16319,7 @@ quantitykind:ShearModulus
   a qudt:QuantityKind ;
   dcterms:description "The Shear Modulus or modulus of rigidity, denoted by \\(G\\), or sometimes \\(S\\) or \\(\\mu\\), is defined as the ratio of shear stress to the shear strain."^^qudt:LatexString ;
   qudt:applicableUnit unit:PA ;
+  qudt:applicableUnit unit:PicoPA ;
   qudt:hasDimensionVector qkdv:A0E0L-1I0M1H0T-2D0 ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Shear_modulus"^^xsd:anyURI ;
   qudt:isoNormativeReference "http://www.iso.org/iso/catalogue_detail?csnumber=31889"^^xsd:anyURI ;
@@ -16413,7 +16359,6 @@ quantitykind:ShearStress
   qudt:applicableUnit unit:BAR ;
   qudt:applicableUnit unit:BARAD ;
   qudt:applicableUnit unit:BARYE ;
-  qudt:applicableUnit unit:CM_H2O ;
   qudt:applicableUnit unit:CentiBAR ;
   qudt:applicableUnit unit:CentiM_H2O ;
   qudt:applicableUnit unit:CentiM_HG ;
@@ -16457,6 +16402,7 @@ quantitykind:ShearStress
   qudt:applicableUnit unit:PA ;
   qudt:applicableUnit unit:PDL-PER-FT2 ;
   qudt:applicableUnit unit:PSI ;
+  qudt:applicableUnit unit:PicoPA ;
   qudt:applicableUnit unit:PlanckPressure ;
   qudt:applicableUnit unit:TORR ;
   qudt:hasDimensionVector qkdv:A0E0L-1I0M1H0T-2D0 ;
@@ -16878,6 +16824,7 @@ quantitykind:SoundPower
   qudt:applicableUnit unit:KiloCAL-PER-MIN ;
   qudt:applicableUnit unit:KiloCAL-PER-SEC ;
   qudt:applicableUnit unit:KiloW ;
+  qudt:applicableUnit unit:MegaBTU_IT-PER-HR ;
   qudt:applicableUnit unit:MegaJ-PER-SEC ;
   qudt:applicableUnit unit:MegaPA-L-PER-SEC ;
   qudt:applicableUnit unit:MegaPA-M3-PER-SEC ;
@@ -16894,6 +16841,7 @@ quantitykind:SoundPower
   qudt:applicableUnit unit:PSI-YD3-PER-SEC ;
   qudt:applicableUnit unit:PicoW ;
   qudt:applicableUnit unit:PlanckPower ;
+  qudt:applicableUnit unit:THM_US-PER-HR ;
   qudt:applicableUnit unit:TON_FG ;
   qudt:applicableUnit unit:TeraW ;
   qudt:applicableUnit unit:W ;
@@ -16927,7 +16875,6 @@ quantitykind:SoundPressure
   qudt:applicableUnit unit:BAR ;
   qudt:applicableUnit unit:BARAD ;
   qudt:applicableUnit unit:BARYE ;
-  qudt:applicableUnit unit:CM_H2O ;
   qudt:applicableUnit unit:CentiBAR ;
   qudt:applicableUnit unit:CentiM_H2O ;
   qudt:applicableUnit unit:CentiM_HG ;
@@ -16971,6 +16918,7 @@ quantitykind:SoundPressure
   qudt:applicableUnit unit:PA ;
   qudt:applicableUnit unit:PDL-PER-FT2 ;
   qudt:applicableUnit unit:PSI ;
+  qudt:applicableUnit unit:PicoPA ;
   qudt:applicableUnit unit:PlanckPressure ;
   qudt:applicableUnit unit:TORR ;
   qudt:hasDimensionVector qkdv:A0E0L-1I0M1H0T-2D0 ;
@@ -17133,7 +17081,6 @@ quantitykind:SpecificEnergy
   qudt:applicableUnit unit:BTU_IT-PER-LB ;
   qudt:applicableUnit unit:BTU_TH-PER-LB ;
   qudt:applicableUnit unit:CAL_IT-PER-GM ;
-  qudt:applicableUnit unit:CAL_TH-PER-G ;
   qudt:applicableUnit unit:CAL_TH-PER-GM ;
   qudt:applicableUnit unit:ERG-PER-G ;
   qudt:applicableUnit unit:ERG-PER-GM ;
@@ -17167,7 +17114,6 @@ quantitykind:SpecificEnergyImparted
   qudt:applicableUnit unit:BTU_IT-PER-LB ;
   qudt:applicableUnit unit:BTU_TH-PER-LB ;
   qudt:applicableUnit unit:CAL_IT-PER-GM ;
-  qudt:applicableUnit unit:CAL_TH-PER-G ;
   qudt:applicableUnit unit:CAL_TH-PER-GM ;
   qudt:applicableUnit unit:ERG-PER-G ;
   qudt:applicableUnit unit:ERG-PER-GM ;
@@ -17413,6 +17359,7 @@ quantitykind:SpecificImpulseByWeight
   qudt:applicableUnit unit:HR ;
   qudt:applicableUnit unit:HR_Sidereal ;
   qudt:applicableUnit unit:KiloSEC ;
+  qudt:applicableUnit unit:KiloYR ;
   qudt:applicableUnit unit:MIN ;
   qudt:applicableUnit unit:MIN_Sidereal ;
   qudt:applicableUnit unit:MO ;
@@ -17657,10 +17604,10 @@ quantitykind:SpinQuantumNumber
 quantitykind:SquareEnergy
   a qudt:QuantityKind ;
   dcterms:isReplacedBy quantitykind:Energy_Squared ;
+  qudt:deprecated true ;
   qudt:hasDimensionVector qkdv:A0E0L4I0M2H0T-4D0 ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Square Energy"@en ;
-  owl:deprecated true ;
 .
 quantitykind:StagePropellantMass
   a qudt:QuantityKind ;
@@ -17677,12 +17624,14 @@ quantitykind:StagePropellantMass
   qudt:applicableUnit unit:DeciTONNE ;
   qudt:applicableUnit unit:DeciTON_Metric ;
   qudt:applicableUnit unit:EarthMass ;
+  qudt:applicableUnit unit:FemtoGM ;
   qudt:applicableUnit unit:GM ;
   qudt:applicableUnit unit:GRAIN ;
   qudt:applicableUnit unit:HectoGM ;
   qudt:applicableUnit unit:Hundredweight_UK ;
   qudt:applicableUnit unit:Hundredweight_US ;
   qudt:applicableUnit unit:KiloGM ;
+  qudt:applicableUnit unit:KiloTONNE ;
   qudt:applicableUnit unit:KiloTON_Metric ;
   qudt:applicableUnit unit:LB ;
   qudt:applicableUnit unit:LB_T ;
@@ -17729,12 +17678,14 @@ quantitykind:StageStructuralMass
   qudt:applicableUnit unit:DeciTONNE ;
   qudt:applicableUnit unit:DeciTON_Metric ;
   qudt:applicableUnit unit:EarthMass ;
+  qudt:applicableUnit unit:FemtoGM ;
   qudt:applicableUnit unit:GM ;
   qudt:applicableUnit unit:GRAIN ;
   qudt:applicableUnit unit:HectoGM ;
   qudt:applicableUnit unit:Hundredweight_UK ;
   qudt:applicableUnit unit:Hundredweight_US ;
   qudt:applicableUnit unit:KiloGM ;
+  qudt:applicableUnit unit:KiloTONNE ;
   qudt:applicableUnit unit:KiloTON_Metric ;
   qudt:applicableUnit unit:LB ;
   qudt:applicableUnit unit:LB_T ;
@@ -17807,10 +17758,13 @@ quantitykind:StandardGravitationalParameter
 .
 quantitykind:StaticFriction
   a qudt:QuantityKind ;
+  qudt:applicableUnit unit:CentiN ;
   qudt:applicableUnit unit:DYN ;
+  qudt:applicableUnit unit:DeciN ;
   qudt:applicableUnit unit:GM_F ;
   qudt:applicableUnit unit:KIP_F ;
   qudt:applicableUnit unit:KiloGM_F ;
+  qudt:applicableUnit unit:KiloLB_F ;
   qudt:applicableUnit unit:KiloN ;
   qudt:applicableUnit unit:KiloP ;
   qudt:applicableUnit unit:KiloPOND ;
@@ -17859,7 +17813,6 @@ quantitykind:StaticPressure
   qudt:applicableUnit unit:BAR ;
   qudt:applicableUnit unit:BARAD ;
   qudt:applicableUnit unit:BARYE ;
-  qudt:applicableUnit unit:CM_H2O ;
   qudt:applicableUnit unit:CentiBAR ;
   qudt:applicableUnit unit:CentiM_H2O ;
   qudt:applicableUnit unit:CentiM_HG ;
@@ -17903,6 +17856,7 @@ quantitykind:StaticPressure
   qudt:applicableUnit unit:PA ;
   qudt:applicableUnit unit:PDL-PER-FT2 ;
   qudt:applicableUnit unit:PSI ;
+  qudt:applicableUnit unit:PicoPA ;
   qudt:applicableUnit unit:PlanckPressure ;
   qudt:applicableUnit unit:TORR ;
   qudt:hasDimensionVector qkdv:A0E0L-1I0M1H0T-2D0 ;
@@ -18017,7 +17971,6 @@ quantitykind:Stress
   qudt:applicableUnit unit:BAR ;
   qudt:applicableUnit unit:BARAD ;
   qudt:applicableUnit unit:BARYE ;
-  qudt:applicableUnit unit:CM_H2O ;
   qudt:applicableUnit unit:CentiBAR ;
   qudt:applicableUnit unit:CentiM_H2O ;
   qudt:applicableUnit unit:CentiM_HG ;
@@ -18061,6 +18014,7 @@ quantitykind:Stress
   qudt:applicableUnit unit:PA ;
   qudt:applicableUnit unit:PDL-PER-FT2 ;
   qudt:applicableUnit unit:PSI ;
+  qudt:applicableUnit unit:PicoPA ;
   qudt:applicableUnit unit:PlanckPressure ;
   qudt:applicableUnit unit:TORR ;
   qudt:hasDimensionVector qkdv:A0E0L-1I0M1H0T-2D0 ;
@@ -18091,6 +18045,7 @@ quantitykind:StructuralEfficiency
   qudt:applicableUnit unit:DECADE ;
   qudt:applicableUnit unit:Flight ;
   qudt:applicableUnit unit:GigaBasePair ;
+  qudt:applicableUnit unit:HeartBeat ;
   qudt:applicableUnit unit:NP ;
   qudt:applicableUnit unit:NUM ;
   qudt:applicableUnit unit:OCT ;
@@ -18275,7 +18230,6 @@ quantitykind:SystolicBloodPressure
   qudt:applicableUnit unit:BAR ;
   qudt:applicableUnit unit:BARAD ;
   qudt:applicableUnit unit:BARYE ;
-  qudt:applicableUnit unit:CM_H2O ;
   qudt:applicableUnit unit:CentiBAR ;
   qudt:applicableUnit unit:CentiM_H2O ;
   qudt:applicableUnit unit:CentiM_HG ;
@@ -18319,6 +18273,7 @@ quantitykind:SystolicBloodPressure
   qudt:applicableUnit unit:PA ;
   qudt:applicableUnit unit:PDL-PER-FT2 ;
   qudt:applicableUnit unit:PSI ;
+  qudt:applicableUnit unit:PicoPA ;
   qudt:applicableUnit unit:PlanckPressure ;
   qudt:applicableUnit unit:TORR ;
   qudt:hasDimensionVector qkdv:A0E0L-1I0M1H0T-2D0 ;
@@ -18344,12 +18299,14 @@ quantitykind:TARGET-BOGIE-MASS
   qudt:applicableUnit unit:DeciTONNE ;
   qudt:applicableUnit unit:DeciTON_Metric ;
   qudt:applicableUnit unit:EarthMass ;
+  qudt:applicableUnit unit:FemtoGM ;
   qudt:applicableUnit unit:GM ;
   qudt:applicableUnit unit:GRAIN ;
   qudt:applicableUnit unit:HectoGM ;
   qudt:applicableUnit unit:Hundredweight_UK ;
   qudt:applicableUnit unit:Hundredweight_US ;
   qudt:applicableUnit unit:KiloGM ;
+  qudt:applicableUnit unit:KiloTONNE ;
   qudt:applicableUnit unit:KiloTON_Metric ;
   qudt:applicableUnit unit:LB ;
   qudt:applicableUnit unit:LB_T ;
@@ -18492,10 +18449,13 @@ quantitykind:TemporalSummationFunction
 .
 quantitykind:Tension
   a qudt:QuantityKind ;
+  qudt:applicableUnit unit:CentiN ;
   qudt:applicableUnit unit:DYN ;
+  qudt:applicableUnit unit:DeciN ;
   qudt:applicableUnit unit:GM_F ;
   qudt:applicableUnit unit:KIP_F ;
   qudt:applicableUnit unit:KiloGM_F ;
+  qudt:applicableUnit unit:KiloLB_F ;
   qudt:applicableUnit unit:KiloN ;
   qudt:applicableUnit unit:KiloP ;
   qudt:applicableUnit unit:KiloPOND ;
@@ -18775,6 +18735,7 @@ quantitykind:ThermalUtilizationFactorForFission
   qudt:applicableUnit unit:DECADE ;
   qudt:applicableUnit unit:Flight ;
   qudt:applicableUnit unit:GigaBasePair ;
+  qudt:applicableUnit unit:HeartBeat ;
   qudt:applicableUnit unit:NP ;
   qudt:applicableUnit unit:NUM ;
   qudt:applicableUnit unit:OCT ;
@@ -18960,10 +18921,13 @@ quantitykind:Thrust
 The pushing or pulling force developed by an aircraft engine or a rocket engine.
 The force exerted in any direction by a fluid jet or by a powered screw, as, the thrust of an antitorque rotor.
 Specifically, in rocketry, \\( F\\,= m\\cdot v\\) where m is propellant mass flow and v is exhaust velocity relative to the vehicle. Also called momentum thrust."""^^qudt:LatexString ;
+  qudt:applicableUnit unit:CentiN ;
   qudt:applicableUnit unit:DYN ;
+  qudt:applicableUnit unit:DeciN ;
   qudt:applicableUnit unit:GM_F ;
   qudt:applicableUnit unit:KIP_F ;
   qudt:applicableUnit unit:KiloGM_F ;
+  qudt:applicableUnit unit:KiloLB_F ;
   qudt:applicableUnit unit:KiloN ;
   qudt:applicableUnit unit:KiloP ;
   qudt:applicableUnit unit:KiloPOND ;
@@ -19041,6 +19005,7 @@ quantitykind:Time
   qudt:applicableUnit unit:HR ;
   qudt:applicableUnit unit:HR_Sidereal ;
   qudt:applicableUnit unit:KiloSEC ;
+  qudt:applicableUnit unit:KiloYR ;
   qudt:applicableUnit unit:MIN ;
   qudt:applicableUnit unit:MIN_Sidereal ;
   qudt:applicableUnit unit:MO ;
@@ -19106,12 +19071,12 @@ quantitykind:TimePercentage
   a qudt:QuantityKind ;
   dcterms:isReplacedBy quantitykind:TimeRatio ;
   qudt:applicableUnit unit:PERCENT ;
+  qudt:deprecated true ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:qkdvDenominator qkdv:A0E0L0I0M0H0T1D0 ;
   qudt:qkdvNumerator qkdv:A0E0L0I0M0H0T1D0 ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Time Percentage"@en ;
-  owl:deprecated true ;
   skos:broader quantitykind:DimensionlessRatio ;
 .
 quantitykind:TimeRatio
@@ -19139,10 +19104,10 @@ quantitykind:TimeSquared
   a qudt:QuantityKind ;
   dcterms:isReplacedBy quantitykind:Time_Squared ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Time_Squared"^^xsd:anyURI ;
+  qudt:deprecated true ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T2D0 ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Time Squared"@en ;
-  owl:deprecated true ;
 .
 quantitykind:TimeTemperature
   a qudt:QuantityKind ;
@@ -19358,7 +19323,6 @@ quantitykind:TotalPressure
   qudt:applicableUnit unit:BAR ;
   qudt:applicableUnit unit:BARAD ;
   qudt:applicableUnit unit:BARYE ;
-  qudt:applicableUnit unit:CM_H2O ;
   qudt:applicableUnit unit:CentiBAR ;
   qudt:applicableUnit unit:CentiM_H2O ;
   qudt:applicableUnit unit:CentiM_HG ;
@@ -19402,6 +19366,7 @@ quantitykind:TotalPressure
   qudt:applicableUnit unit:PA ;
   qudt:applicableUnit unit:PDL-PER-FT2 ;
   qudt:applicableUnit unit:PSI ;
+  qudt:applicableUnit unit:PicoPA ;
   qudt:applicableUnit unit:PlanckPressure ;
   qudt:applicableUnit unit:TORR ;
   qudt:hasDimensionVector qkdv:A0E0L-1I0M1H0T-2D0 ;
@@ -19519,10 +19484,13 @@ quantitykind:UpperCriticalMagneticFluxDensity
 .
 quantitykind:VacuumThrust
   a qudt:QuantityKind ;
+  qudt:applicableUnit unit:CentiN ;
   qudt:applicableUnit unit:DYN ;
+  qudt:applicableUnit unit:DeciN ;
   qudt:applicableUnit unit:GM_F ;
   qudt:applicableUnit unit:KIP_F ;
   qudt:applicableUnit unit:KiloGM_F ;
+  qudt:applicableUnit unit:KiloLB_F ;
   qudt:applicableUnit unit:KiloN ;
   qudt:applicableUnit unit:KiloP ;
   qudt:applicableUnit unit:KiloPOND ;
@@ -19561,7 +19529,6 @@ quantitykind:VaporPressure
   qudt:applicableUnit unit:BAR ;
   qudt:applicableUnit unit:BARAD ;
   qudt:applicableUnit unit:BARYE ;
-  qudt:applicableUnit unit:CM_H2O ;
   qudt:applicableUnit unit:CentiBAR ;
   qudt:applicableUnit unit:CentiM_H2O ;
   qudt:applicableUnit unit:CentiM_HG ;
@@ -19605,6 +19572,7 @@ quantitykind:VaporPressure
   qudt:applicableUnit unit:PA ;
   qudt:applicableUnit unit:PDL-PER-FT2 ;
   qudt:applicableUnit unit:PSI ;
+  qudt:applicableUnit unit:PicoPA ;
   qudt:applicableUnit unit:PlanckPressure ;
   qudt:applicableUnit unit:TORR ;
   qudt:hasDimensionVector qkdv:A0E0L-1I0M1H0T-2D0 ;
@@ -19848,12 +19816,12 @@ quantitykind:VoltagePercentage
   a qudt:QuantityKind ;
   dcterms:isReplacedBy quantitykind:VoltageRatio ;
   qudt:applicableUnit unit:PERCENT ;
+  qudt:deprecated true ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:qkdvDenominator qkdv:A0E-1L2I0M1H0T-3D0 ;
   qudt:qkdvNumerator qkdv:A0E-1L2I0M1H0T-3D0 ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Voltage Percentage"@en ;
-  owl:deprecated true ;
   skos:broader quantitykind:DimensionlessRatio ;
 .
 quantitykind:VoltagePhasor
@@ -20250,6 +20218,7 @@ quantitykind:WaterHorsepower
   qudt:applicableUnit unit:KiloCAL-PER-MIN ;
   qudt:applicableUnit unit:KiloCAL-PER-SEC ;
   qudt:applicableUnit unit:KiloW ;
+  qudt:applicableUnit unit:MegaBTU_IT-PER-HR ;
   qudt:applicableUnit unit:MegaJ-PER-SEC ;
   qudt:applicableUnit unit:MegaPA-L-PER-SEC ;
   qudt:applicableUnit unit:MegaPA-M3-PER-SEC ;
@@ -20266,6 +20235,7 @@ quantitykind:WaterHorsepower
   qudt:applicableUnit unit:PSI-YD3-PER-SEC ;
   qudt:applicableUnit unit:PicoW ;
   qudt:applicableUnit unit:PlanckPower ;
+  qudt:applicableUnit unit:THM_US-PER-HR ;
   qudt:applicableUnit unit:TON_FG ;
   qudt:applicableUnit unit:TeraW ;
   qudt:applicableUnit unit:W ;
@@ -20360,6 +20330,7 @@ quantitykind:WebTime
   qudt:applicableUnit unit:HR ;
   qudt:applicableUnit unit:HR_Sidereal ;
   qudt:applicableUnit unit:KiloSEC ;
+  qudt:applicableUnit unit:KiloYR ;
   qudt:applicableUnit unit:MIN ;
   qudt:applicableUnit unit:MIN_Sidereal ;
   qudt:applicableUnit unit:MO ;
@@ -20399,7 +20370,6 @@ quantitykind:WebTimeAveragePressure
   qudt:applicableUnit unit:BAR ;
   qudt:applicableUnit unit:BARAD ;
   qudt:applicableUnit unit:BARYE ;
-  qudt:applicableUnit unit:CM_H2O ;
   qudt:applicableUnit unit:CentiBAR ;
   qudt:applicableUnit unit:CentiM_H2O ;
   qudt:applicableUnit unit:CentiM_HG ;
@@ -20443,6 +20413,7 @@ quantitykind:WebTimeAveragePressure
   qudt:applicableUnit unit:PA ;
   qudt:applicableUnit unit:PDL-PER-FT2 ;
   qudt:applicableUnit unit:PSI ;
+  qudt:applicableUnit unit:PicoPA ;
   qudt:applicableUnit unit:PlanckPressure ;
   qudt:applicableUnit unit:TORR ;
   qudt:hasDimensionVector qkdv:A0E0L-1I0M1H0T-2D0 ;
@@ -20452,10 +20423,13 @@ quantitykind:WebTimeAveragePressure
 .
 quantitykind:WebTimeAverageThrust
   a qudt:QuantityKind ;
+  qudt:applicableUnit unit:CentiN ;
   qudt:applicableUnit unit:DYN ;
+  qudt:applicableUnit unit:DeciN ;
   qudt:applicableUnit unit:GM_F ;
   qudt:applicableUnit unit:KIP_F ;
   qudt:applicableUnit unit:KiloGM_F ;
+  qudt:applicableUnit unit:KiloLB_F ;
   qudt:applicableUnit unit:KiloN ;
   qudt:applicableUnit unit:KiloP ;
   qudt:applicableUnit unit:KiloPOND ;
@@ -20477,10 +20451,13 @@ quantitykind:WebTimeAverageThrust
 .
 quantitykind:Weight
   a qudt:QuantityKind ;
+  qudt:applicableUnit unit:CentiN ;
   qudt:applicableUnit unit:DYN ;
+  qudt:applicableUnit unit:DeciN ;
   qudt:applicableUnit unit:GM_F ;
   qudt:applicableUnit unit:KIP_F ;
   qudt:applicableUnit unit:KiloGM_F ;
+  qudt:applicableUnit unit:KiloLB_F ;
   qudt:applicableUnit unit:KiloN ;
   qudt:applicableUnit unit:KiloP ;
   qudt:applicableUnit unit:KiloPOND ;
@@ -20675,23 +20652,23 @@ vaem:GMD_QUDT-QUANTITY-KINDS-ALL
   dcterms:creator "Ralph Hodgson" ;
   dcterms:creator "Steve Ray" ;
   dcterms:description "Provides the set of all quantity kinds."^^rdf:HTML ;
-  dcterms:modified "2023-03-14T17:14:45.490-04:00"^^xsd:dateTime ;
+  dcterms:modified "2023-04-12T16:08:34.746-04:00"^^xsd:dateTime ;
   dcterms:rights "The QUDT Ontologies are issued under a Creative Commons Attribution 4.0 International License (CC BY 4.0), available at https://creativecommons.org/licenses/by/4.0/. Attribution should be made to QUDT.org" ;
   dcterms:subject "QUANTITY-KINDS-ALL" ;
   dcterms:title "QUDT Quantity Kinds Version 2.1 Vocabulary" ;
   vaem:applicableDiscipline "All disciplines" ;
   vaem:applicableDomain "Science, Medicine and Engineering" ;
   vaem:dateCreated "2019-08-01T21:26:38"^^xsd:dateTime ;
-  vaem:graphTitle "QUDT Quantity Kinds Version 2.1.25" ;
+  vaem:graphTitle "QUDT Quantity Kinds Version 2.1.26" ;
   vaem:hasGraphRole vaem:VocabularyGraph ;
   vaem:intent "Provides a vocabulary of all quantity kinds." ;
   vaem:isMetadataFor <http://qudt.org/2.1/vocab/quantitykind> ;
-  vaem:latestPublishedVersion "https://qudt.org/doc/2023/03/DOC_VOCAB-QUANTITY-KINDS-ALL-v2.1.html"^^xsd:anyURI ;
+  vaem:latestPublishedVersion "https://qudt.org/doc/2023/04/DOC_VOCAB-QUANTITY-KINDS-ALL-v2.1.html"^^xsd:anyURI ;
   vaem:logo "https://qudt.org/linkedmodels.org/assets/lib/lm/images/logos/qudt_logo-300x110.png" ;
   vaem:namespace "http://qudt.org/vocab/quantitykind/" ;
   vaem:namespacePrefix "quantitykind" ;
   vaem:owner "qudt.org" ;
-  vaem:previousPublishedVersion "https://qudt.org/doc/2023/01/DOC_VOCAB-QUANTITY-KINDS-ALL-v2.1.html"^^xsd:anyURI ;
+  vaem:previousPublishedVersion "https://qudt.org/doc/2023/03/DOC_VOCAB-QUANTITY-KINDS-ALL-v2.1.html"^^xsd:anyURI ;
   vaem:revision "2.1" ;
   vaem:specificity 1 ;
   vaem:turtleFileURL "http://qudt.org/2.1/vocab/quantitykind" ;
@@ -20717,5 +20694,5 @@ vaem:GMD_QUDT-QUANTITY-KINDS-ALL
   vaem:withAttributionTo voag:QUDT-Attribution ;
   vaem:withAttributionTo <http://voag.linkedmodel.org/voag/QUDT-Attribution> ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
-  rdfs:label "QUDT Quantity Kinds Vocabulary Version 2.1.25" ;
+  rdfs:label "QUDT Quantity Kinds Vocabulary Version 2.1.26" ;
 .

@@ -18,6 +18,7 @@ S223 = Namespace("http://data.ashrae.org/standard223#")
 
 # QUDT namespaces
 QUDT = Namespace("http://qudt.org/schema/qudt/")
+QUDTOVERLAY = Namespace("http://qudt.org/2.1/schema/shacl/overlay/qudt/")
 QUDTQK = Namespace("http://qudt.org/vocab/quantitykind/")
 QUDTDV = Namespace("http://qudt.org/vocab/dimensionvector/")
 UNIT = Namespace("http://qudt.org/vocab/unit/")

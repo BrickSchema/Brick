@@ -19,7 +19,7 @@
 <http://qudt.org/2.1/vocab/sou>
   a owl:Ontology ;
   vaem:hasGraphMetadata vaem:GMD_QUDT-SOU ;
-  rdfs:label "QUDT Vocabulary - Systems of Units - v2.1.25" ;
+  rdfs:label "QUDT Vocabulary - Systems of Units - v2.1.26" ;
   owl:imports <http://qudt.org/2.1/schema/facade/qudt> ;
   owl:versionInfo "Created with TopBraid Composer" ;
 .
@@ -153,65 +153,65 @@ sou:SI
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/sou> ;
   rdfs:label "International System of Units"@en ;
 .
+sou:SOU_ASU
+  a qudt:SystemOfUnits ;
+  qudt:deprecated true ;
+  rdfs:label "Astronomical System of Units (deprecated URI)" ;
+  rdfs:seeAlso sou:ASU ;
+.
+sou:SOU_CGS
+  a qudt:SystemOfUnits ;
+  qudt:deprecated true ;
+  rdfs:label "CGS System of Units (deprecated URI)" ;
+  rdfs:seeAlso sou:CGS ;
+.
+sou:SOU_CGS-EMU
+  a qudt:SystemOfUnits ;
+  qudt:deprecated true ;
+  rdfs:label "CGS-EMU System of Units (deprecated URI)" ;
+  rdfs:seeAlso sou:CGS-EMU ;
+.
+sou:SOU_CGS-ESU
+  a qudt:SystemOfUnits ;
+  qudt:deprecated true ;
+  rdfs:label "CGS-ESU System of Units (deprecated URI)" ;
+  rdfs:seeAlso sou:CGS-ESU ;
+.
+sou:SOU_CGS-GAUSS
+  a qudt:SystemOfUnits ;
+  qudt:deprecated true ;
+  rdfs:label "CGS-Gauss System of Units (deprecated URI)" ;
+  rdfs:seeAlso sou:CGS-GAUSS ;
+.
+sou:SOU_IMPERIAL
+  a qudt:SystemOfUnits ;
+  qudt:deprecated true ;
+  rdfs:label "Imperial System of Units (deprecated URI)" ;
+  rdfs:seeAlso sou:IMPERIAL ;
+.
+sou:SOU_PLANCK
+  a qudt:SystemOfUnits ;
+  qudt:deprecated true ;
+  rdfs:label "Planck System of Units (deprecated URI)" ;
+  rdfs:seeAlso sou:PLANCK ;
+.
+sou:SOU_SI
+  a qudt:SystemOfUnits ;
+  qudt:deprecated true ;
+  rdfs:label "SI System of Units (deprecated URI)" ;
+  rdfs:seeAlso sou:SI ;
+.
+sou:SOU_USCS
+  a qudt:SystemOfUnits ;
+  qudt:deprecated true ;
+  rdfs:label "US Customary System of Units (deprecated URI)" ;
+  rdfs:seeAlso sou:USCS ;
+.
 sou:UNSTATED
   a qudt:SystemOfUnits ;
   dcterms:description "This placeholder system of units is for all units that do not fit will into any other system of units as modeled here."^^rdf:HTML ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/sou> ;
   rdfs:label "Unstated System Of Units"@en ;
-.
-sou:SOU_ASU
-  a qudt:SystemOfUnits ;
-  rdfs:label "Astronomical System of Units (deprecated URI)" ;
-  rdfs:seeAlso sou:ASU ;
-  owl:deprecated true ;
-.
-sou:SOU_CGS
-  a qudt:SystemOfUnits ;
-  rdfs:label "CGS System of Units (deprecated URI)" ;
-  rdfs:seeAlso sou:CGS ;
-  owl:deprecated true ;
-.
-sou:SOU_CGS-EMU
-  a qudt:SystemOfUnits ;
-  rdfs:label "CGS-EMU System of Units (deprecated URI)" ;
-  rdfs:seeAlso sou:CGS-EMU ;
-  owl:deprecated true ;
-.
-sou:SOU_CGS-ESU
-  a qudt:SystemOfUnits ;
-  rdfs:label "CGS-ESU System of Units (deprecated URI)" ;
-  rdfs:seeAlso sou:CGS-ESU ;
-  owl:deprecated true ;
-.
-sou:SOU_CGS-GAUSS
-  a qudt:SystemOfUnits ;
-  rdfs:label "CGS-Gauss System of Units (deprecated URI)" ;
-  rdfs:seeAlso sou:CGS-GAUSS ;
-  owl:deprecated true ;
-.
-sou:SOU_IMPERIAL
-  a qudt:SystemOfUnits ;
-  rdfs:label "Imperial System of Units (deprecated URI)" ;
-  rdfs:seeAlso sou:IMPERIAL ;
-  owl:deprecated true ;
-.
-sou:SOU_PLANCK
-  a qudt:SystemOfUnits ;
-  rdfs:label "Planck System of Units (deprecated URI)" ;
-  rdfs:seeAlso sou:PLANCK ;
-  owl:deprecated true ;
-.
-sou:SOU_SI
-  a qudt:SystemOfUnits ;
-  rdfs:label "SI System of Units (deprecated URI)" ;
-  rdfs:seeAlso sou:SI ;
-  owl:deprecated true ;
-.
-sou:SOU_USCS
-  a qudt:SystemOfUnits ;
-  rdfs:label "US Customary System of Units (deprecated URI)" ;
-  rdfs:seeAlso sou:USCS ;
-  owl:deprecated true ;
 .
 sou:USCS
   a qudt:SystemOfUnits ;
@@ -228,29 +228,29 @@ vaem:GMD_QUDT-SOU
   dcterms:contributor "Steve Ray" ;
   dcterms:created "2016-07-04"^^xsd:date ;
   dcterms:creator "Ralph Hodgson" ;
-  dcterms:description "QUDT Systems of Units Vocabulary Version 2.1.25" ;
-  dcterms:modified "2023-03-14T17:51:43.338-04:00"^^xsd:dateTime ;
+  dcterms:description "QUDT Systems of Units Vocabulary Version 2.1.26" ;
+  dcterms:modified "2023-04-12T16:35:47.167-04:00"^^xsd:dateTime ;
   dcterms:rights "The QUDT Ontologies are issued under a Creative Commons Attribution 4.0 International License (CC BY 4.0), available at https://creativecommons.org/licenses/by/4.0/. Attribution should be made to QUDT.org" ;
   dcterms:subject "Systems of Units" ;
   dcterms:title "QUDT Systems of Units Version 2.1 Vocabulary" ;
-  vaem:graphTitle "QUDT Systems of Units Version 2.1.25" ;
+  vaem:graphTitle "QUDT Systems of Units Version 2.1.26" ;
   vaem:hasGraphRole vaem:VocabularyGraph ;
   vaem:hasOwner vaem:QUDT ;
   vaem:hasSteward vaem:QUDT ;
   vaem:intent "The intent of this graph is the specification of all Systems of Units" ;
   vaem:isMetadataFor <http://qudt.org/2.1/vocab/sou> ;
-  vaem:latestPublishedVersion "https://qudt.org/doc/2023/03/DOC_VOCAB-SYSTEMS-OF-UNITS-v2.1.html"^^xsd:anyURI ;
+  vaem:latestPublishedVersion "https://qudt.org/doc/2023/04/DOC_VOCAB-SYSTEMS-OF-UNITS-v2.1.html"^^xsd:anyURI ;
   vaem:logo "https://qudt.org/linkedmodels.org/assets/lib/lm/images/logos/qudt_logo-300x110.png"^^xsd:anyURI ;
   vaem:name "sou" ;
   vaem:namespace "http://qudt.org/vocab/sou/" ;
   vaem:namespacePrefix "sou" ;
   vaem:owner "qudt.org" ;
-  vaem:previousPublishedVersion "https://qudt.org/doc/2023/01/DOC_VOCAB-SYSTEMS-OF-UNITS-v2.1.html"^^xsd:anyURI ;
+  vaem:previousPublishedVersion "https://qudt.org/doc/2023/03/DOC_VOCAB-SYSTEMS-OF-UNITS-v2.1.html"^^xsd:anyURI ;
   vaem:revision "2.1" ;
   vaem:turtleFileURL "http://qudt.org/2.1/vocab/sou"^^xsd:anyURI ;
   vaem:usesNonImportedResource prov:wasInfluencedBy ;
   vaem:usesNonImportedResource prov:wasInformedBy ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/sou> ;
-  rdfs:label "QUDT Systems of Units Ontology Version 2.1.25" ;
+  rdfs:label "QUDT Systems of Units Ontology Version 2.1.26" ;
   owl:versionIRI <http://qudt.org/2.1/vocab/sou> ;
 .
