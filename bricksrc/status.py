@@ -464,7 +464,7 @@ status_definitions = {
                 "tags": [TAG.Point, TAG.Overridden, TAG.Status],
             },
             "Pressure_Status": {
-                QUDT.hasQuality: BRICK.Pressure,
+                QUDT.hasQuantity: BRICK.Pressure,
                 "subclasses": {
                     "Discharge_Air_Duct_Pressure_Status": {
                         "tags": [
