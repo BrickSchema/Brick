@@ -25,7 +25,7 @@
   a owl:Ontology ;
   vaem:hasGraphMetadata vaem:GMD_QUDT-UNITS-ALL ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
-  rdfs:label "QUDT Units of Measure for All Units Release 2.1.25" ;
+  rdfs:label "QUDT Units of Measure for All Units Release 2.1.26" ;
   owl:imports <http://qudt.org/2.1/schema/facade/qudt> ;
   owl:imports <http://qudt.org/2.1/vocab/prefix> ;
   owl:imports <http://qudt.org/2.1/vocab/quantitykind> ;
@@ -2812,6 +2812,7 @@ unit:CAL_TH-PER-G
   qudt:applicableSystem sou:USCS ;
   qudt:conversionMultiplier 4184.0 ;
   qudt:definedUnitOfSystem sou:USCS ;
+  qudt:deprecated true ;
   qudt:expression "\\(cal\\)"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L2I0M0H0T-2D0 ;
   qudt:hasQuantityKind quantitykind:SpecificEnergy ;
@@ -2822,7 +2823,6 @@ unit:CAL_TH-PER-G
   qudt:ucumCode "cal_th/g"^^qudt:UCUMcs ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
   rdfs:label "calorie (thermochemical) per gram (calTH/g)"@en ;
-  owl:deprecated true ;
   skos:changeNote "2020-10-30 - incorrect local-name - G is for Gravity, GM is for gram - the correct named individual was already present, so this one deprecated. " ;
 .
 unit:CAL_TH-PER-GM
@@ -2973,6 +2973,7 @@ unit:CASES-PER-1000I-YR
   dcterms:description "The typical expression of morbidity rate, expressed as cases per 1000 individuals, per year."^^rdf:HTML ;
   dcterms:isReplacedBy unit:CASES-PER-KiloINDIV-YR ;
   qudt:conversionMultiplier 0.001 ;
+  qudt:deprecated true ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T-1D0 ;
   qudt:hasQuantityKind quantitykind:Incidence ;
   qudt:informativeReference "https://en.wikipedia.org/wiki/Incidence_(epidemiology)"^^xsd:anyURI ;
@@ -2980,7 +2981,6 @@ unit:CASES-PER-1000I-YR
   qudt:symbol "Cases/1000 individuals/year" ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
   rdfs:label "Cases per 1000 individuals per year"@en ;
-  owl:deprecated true ;
 .
 unit:CASES-PER-KiloINDIV-YR
   a qudt:Unit ;
@@ -3121,6 +3121,7 @@ unit:CM_H2O
   dcterms:isReplacedBy unit:CentiM_H2O ;
   qudt:applicableSystem sou:CGS ;
   qudt:conversionMultiplier 98.0665 ;
+  qudt:deprecated true ;
   qudt:hasDimensionVector qkdv:A0E0L-1I0M1H0T-2D0 ;
   qudt:hasQuantityKind quantitykind:ForcePerArea ;
   qudt:hasQuantityKind quantitykind:VaporPressure ;
@@ -3128,7 +3129,6 @@ unit:CM_H2O
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
   rdfs:label "Centimeter of Water"@en-us ;
   rdfs:label "Centimetre of Water"@en ;
-  owl:deprecated true ;
 .
 unit:CORD
   a qudt:Unit ;
@@ -3823,8 +3823,6 @@ unit:CentiM_H2O
   qudt:udunitsCode "cm_H2O" ;
   qudt:uneceCommonCode "H78" ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
-  rdfs:label "Centimeter of Water"@en-us ;
-  rdfs:label "Centimetre of Water"@en ;
   rdfs:label "Conventional Centimeter Of Water"@en-us ;
   rdfs:label "Conventional Centimetre Of Water"@en ;
 .
@@ -3989,6 +3987,7 @@ unit:DEATHS-PER-1000000I-YR
   dcterms:description "The expression of mortality rate, expressed as deaths per 1,000,000 individuals, per year."^^rdf:HTML ;
   dcterms:isReplacedBy unit:DEATHS-PER-MegaINDIV-YR ;
   qudt:conversionMultiplier 0.000001 ;
+  qudt:deprecated true ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T-1D0 ;
   qudt:hasQuantityKind quantitykind:MortalityRate ;
   qudt:informativeReference "https://en.wikipedia.org/wiki/Mortality_rate"^^xsd:anyURI ;
@@ -3996,13 +3995,13 @@ unit:DEATHS-PER-1000000I-YR
   qudt:symbol "deaths/million individuals/yr" ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
   rdfs:label "Deaths per Million individuals per year"@en ;
-  owl:deprecated true ;
 .
 unit:DEATHS-PER-1000I-YR
   a qudt:Unit ;
   dcterms:description "The typical expression of mortality rate, expressed as deaths per 1000 individuals, per year."^^rdf:HTML ;
   dcterms:isReplacedBy unit:DEATHS-PER-KiloINDIV-YR ;
   qudt:conversionMultiplier 0.001 ;
+  qudt:deprecated true ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T-1D0 ;
   qudt:hasQuantityKind quantitykind:MortalityRate ;
   qudt:informativeReference "https://en.wikipedia.org/wiki/Mortality_rate"^^xsd:anyURI ;
@@ -4010,7 +4009,6 @@ unit:DEATHS-PER-1000I-YR
   qudt:symbol "deaths/1000 individuals/yr" ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
   rdfs:label "Deaths per 1000 individuals per year"@en ;
-  owl:deprecated true ;
 .
 unit:DEATHS-PER-KiloINDIV-YR
   a qudt:Unit ;
@@ -8779,7 +8777,7 @@ unit:HeartBeat
   qudt:applicableSystem sou:PLANCK ;
   qudt:applicableSystem sou:SI ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
-  qudt:hasQuantityKind quantitykind:Currency ;
+  qudt:hasQuantityKind quantitykind:Dimensionless ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
   rdfs:label "Heart Beat"@en ;
 .
@@ -14420,25 +14418,7 @@ unit:MDOLLAR-PER-FLIGHT
   qudt:applicableSystem sou:IMPERIAL ;
   qudt:applicableSystem sou:PLANCK ;
   qudt:applicableSystem sou:SI ;
-  qudt:expression "\\(\\(M\\$/Flight\\)\\)"^^qudt:LatexString ;
-  qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
-  qudt:hasQuantityKind quantitykind:CurrencyPerFlight ;
-  qudt:symbol "$M/flight" ;
-  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
-  rdfs:label "Million US Dollars per Flight"@en ;
-  owl:deprecated true ;
-.
-unit:MegaDOLLAR_US-PER-FLIGHT
-  a qudt:DerivedUnit ;
-  a qudt:Unit ;
-  qudt:applicableSystem sou:ASU ;
-  qudt:applicableSystem sou:CGS ;
-  qudt:applicableSystem sou:CGS-EMU ;
-  qudt:applicableSystem sou:CGS-ESU ;
-  qudt:applicableSystem sou:CGS-GAUSS ;
-  qudt:applicableSystem sou:IMPERIAL ;
-  qudt:applicableSystem sou:PLANCK ;
-  qudt:applicableSystem sou:SI ;
+  qudt:deprecated true ;
   qudt:expression "\\(\\(M\\$/Flight\\)\\)"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:CurrencyPerFlight ;
@@ -15335,6 +15315,24 @@ unit:MegaC-PER-M3
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
   rdfs:label "Megacoulomb Per Cubic Meter"@en-us ;
   rdfs:label "Megacoulomb Per Cubic Metre"@en ;
+.
+unit:MegaDOLLAR_US-PER-FLIGHT
+  a qudt:DerivedUnit ;
+  a qudt:Unit ;
+  qudt:applicableSystem sou:ASU ;
+  qudt:applicableSystem sou:CGS ;
+  qudt:applicableSystem sou:CGS-EMU ;
+  qudt:applicableSystem sou:CGS-ESU ;
+  qudt:applicableSystem sou:CGS-GAUSS ;
+  qudt:applicableSystem sou:IMPERIAL ;
+  qudt:applicableSystem sou:PLANCK ;
+  qudt:applicableSystem sou:SI ;
+  qudt:expression "\\(\\(M\\$/Flight\\)\\)"^^qudt:LatexString ;
+  qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
+  qudt:hasQuantityKind quantitykind:CurrencyPerFlight ;
+  qudt:symbol "$M/flight" ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
+  rdfs:label "Million US Dollars per Flight"@en ;
 .
 unit:MegaEV
   a qudt:DerivedUnit ;
@@ -25338,6 +25336,23 @@ unit:THM_US
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
   rdfs:label "Therm US"@en ;
 .
+unit:THM_US-PER-HR
+  a qudt:DerivedUnit ;
+  a qudt:Unit ;
+  dcterms:description "\\(\\textbf{Therm} (symbol \\(thm\\)) is a non-SI unit of heat energy. It was defined in the United States in 1968 as the energy equivalent of burning 100 cubic feet of natural gas at standard temperature and pressure. Industrial processes in the U.S. use therm/hr unit most often in the power, steam generation, heating, and air conditioning industries."^^qudt:LatexString ;
+  qudt:applicableSystem sou:USCS ;
+  qudt:conversionMultiplier 29300.1111 ;
+  qudt:expression "\\(thm/hr\\)"^^qudt:LatexString ;
+  qudt:hasDimensionVector qkdv:A0E0L2I0M1H0T-3D0 ;
+  qudt:hasQuantityKind quantitykind:HeatFlowRate ;
+  qudt:hasQuantityKind quantitykind:Power ;
+  qudt:informativeReference "http://www.convertunits.com/info/therm%2B%5BU.S.%5D"^^xsd:anyURI ;
+  qudt:symbol "thm{US}/hr" ;
+  qudt:ucumCode "[thm{US}].h-1"^^qudt:UCUMcs ;
+  qudt:ucumCode "[thm{US}]/h"^^qudt:UCUMcs ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
+  rdfs:label "Therm US per Hour"@en ;
+.
 unit:TOE
   a qudt:Unit ;
   dcterms:description "<p>The tonne of oil equivalent (toe) is a unit of energy: the amount of energy released by burning one tonne of crude oil, approximately 42 GJ (as different crude oils have different calorific values, the exact value of the toe is defined by convention; unfortunately there are several slightly different definitions as discussed below). The toe is sometimes used for large amounts of energy, as it can be more intuitive to visualise, say, the energy released by burning 1000 tonnes of oil than 42,000 billion joules (the SI unit of energy). Multiples of the toe are used, in particular the megatoe (Mtoe, one million toe) and the gigatoe (Gtoe, one billion toe).</p>"^^rdf:HTML ;
@@ -27514,7 +27529,7 @@ vaem:GMD_QUDT-UNITS-ALL
   dcterms:contributor "Steve Ray" ;
   dcterms:created "2019-07-30"^^xsd:date ;
   dcterms:creator "Steve Ray" ;
-  dcterms:modified "2023-03-14T16:39:15.027-04:00"^^xsd:dateTime ;
+  dcterms:modified "2023-04-12T15:32:07.606-04:00"^^xsd:dateTime ;
   dcterms:rights """
   This product includes all or a portion of the UCUM table, UCUM codes, and UCUM definitions or is derived from it, subject to a license from Regenstrief Institute, Inc. and The UCUM Organization. Your use of the UCUM table, UCUM codes, UCUM definitions also is subject to this license, a copy of which is available at ​http://unitsofmeasure.org. The current complete UCUM table, UCUM Specification are available for download at ​http://unitsofmeasure.org. The UCUM table and UCUM codes are copyright © 1995-2009, Regenstrief Institute, Inc. and the Unified Codes for Units of Measures (UCUM) Organization. All rights reserved.
 
@@ -27525,18 +27540,18 @@ THE UCUM TABLE (IN ALL FORMATS), UCUM DEFINITIONS, AND SPECIFICATION ARE PROVIDE
   dcterms:title "QUDT Units Version 2.1 Vocabulary" ;
   vaem:description "Standard units of measure for all units." ;
   vaem:graphName "qudt" ;
-  vaem:graphTitle "QUDT Units Version 2.1.25" ;
+  vaem:graphTitle "QUDT Units Version 2.1.26" ;
   vaem:hasGraphRole vaem:VocabularyGraph ;
   vaem:hasOwner <http://www.linkedmodel.org/schema/vaem#QUDT.org> ;
   vaem:hasSteward <http://www.linkedmodel.org/schema/vaem#QUDT.org> ;
   vaem:intent "To provide a vocabulary of all units." ;
   vaem:isMetadataFor <http://qudt.org/2.1/vocab/unit> ;
-  vaem:latestPublishedVersion "https://qudt.org/doc/2023/03/DOC_VOCAB-UNITS-ALL-v2.1.html"^^xsd:anyURI ;
+  vaem:latestPublishedVersion "https://qudt.org/doc/2023/04/DOC_VOCAB-UNITS-ALL-v2.1.html"^^xsd:anyURI ;
   vaem:logo "https://qudt.org/linkedmodels.org/assets/lib/lm/images/logos/qudt_logo-300x110.png"^^xsd:anyURI ;
   vaem:namespace "http://qudt.org/vocab/unit/" ;
   vaem:namespacePrefix "unit" ;
   vaem:owner "QUDT.org" ;
-  vaem:previousPublishedVersion "https://qudt.org/doc/2023/01/DOC_VOCAB-UNITS-ALL-v2.1.html"^^xsd:anyURI ;
+  vaem:previousPublishedVersion "https://qudt.org/doc/2023/03/DOC_VOCAB-UNITS-ALL-v2.1.html"^^xsd:anyURI ;
   vaem:revision "2.1" ;
   vaem:turtleFileURL "http://qudt.org/2.1/vocab/unit"^^xsd:anyURI ;
   vaem:usesNonImportedResource dcterms:abstract ;
@@ -27545,5 +27560,5 @@ THE UCUM TABLE (IN ALL FORMATS), UCUM DEFINITIONS, AND SPECIFICATION ARE PROVIDE
   vaem:usesNonImportedResource dcterms:modified ;
   vaem:usesNonImportedResource dcterms:title ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
-  rdfs:label "All Units Ontology Version 2.1.25" ;
+  rdfs:label "All Units Ontology Version 2.1.26" ;
 .

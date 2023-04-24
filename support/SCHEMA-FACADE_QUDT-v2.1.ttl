@@ -15,5 +15,5 @@
   owl:imports <http://qudt.org/2.1/schema/extensions/functions> ;
   owl:versionInfo "Created with TopBraid Composer" ;
   rdfs:comment "Facade graph for single place to redirect QUDT schema imports. Note that currently, the functions import uses SPIN and OWL.";
-  rdfs:label "QUDT SCHEMA Facade graph - v2.1.25" ;
+  rdfs:label "QUDT SCHEMA Facade graph - v2.1.26" ;
 .

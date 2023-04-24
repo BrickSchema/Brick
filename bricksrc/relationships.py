@@ -25,7 +25,7 @@ relationships = {
         "domain": BRICK.Point,
     },
     "value": {
-        RDFS.subPropertyOf: [QUDT.value, S223.hasSimpleValue],
+        RDFS.subPropertyOf: [QUDT.value, S223.hasValue],
         RDFS.label: Literal("Value"),
         A: [RDF.Property],
         "range": RDFS.Resource,
