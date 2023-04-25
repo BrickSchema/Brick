@@ -25,6 +25,11 @@ jobs:
         run: |
           pip install -r requirements.txt
           python generate_brick.py
+          python handle_extensions.py
+      - name: zip imports and extensions
+        run: |
+          zip -r imports.zip imports
+          zip -r extensions.zip extensions
       - uses: marvinpinto/action-automatic-releases@latest
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
@@ -34,4 +39,5 @@ jobs:
           files: |
             Brick.ttl
             Brick+extensions.ttl
-            imports
+            imports.zip
+            extensions.zip

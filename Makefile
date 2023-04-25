@@ -4,12 +4,14 @@ Brick.ttl: bricksrc/*.py bricksrc/*.ttl bricksrc/definitions.csv generate_brick.
 	mkdir -p extensions
 	python tools/sort_definitions.py bricksrc/definitions.csv
 	python generate_brick.py
+	python handle_extensions.py
 
 clean:
 	rm Brick.ttl Brick+extensions.ttl
 
 format:
 	black generate_brick.py
+	black handle_extensions.py
 	black bricksrc/
 	black tests/
 	black tools/
