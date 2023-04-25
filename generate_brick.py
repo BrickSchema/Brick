@@ -1010,25 +1010,14 @@ for name, graph in extension_graphs.items():
         fp.write(graph.serialize(format="turtle").rstrip())
         fp.write("\n")
 
-# add SHACL shapes to graph
-# G.parse("shacl/BrickEntityShapeBase.ttl", format="ttl")
-
 # serialize Brick to output
 with open("Brick.ttl", "w", encoding="utf-8") as fp:
     fp.write(G.serialize(format="turtle").rstrip())
     fp.write("\n")
 
-# serialize Brick + extensions
-for graph in extension_graphs.values():
-    G += graph
-
-# fetch other ontologies
+# remove extensions file before computing imports
 if os.path.exists("Brick+extensions.ttl"):
-    os.remove("Brick+extensions.ttl")  # remove extensions file before computing imports
-
-with open("Brick+extensions.ttl", "w", encoding="utf-8") as fp:
-    fp.write(G.serialize(format="turtle").rstrip())
-    fp.write("\n")
+    os.remove("Brick+extensions.ttl")
 
 # create new directory for storing imports
 os.makedirs("imports", exist_ok=True)
