@@ -1,0 +1,144 @@
+# baseURI: https://w3id.org/rec/recimports
+# imports: https://w3id.org/rec
+
+@prefix : <https://w3id.org/rec/recimports#> .
+@prefix geojson: <https://geojson.org/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+qudt:hasQuantityKind
+  rdf:type owl:ObjectProperty ;
+.
+<http://qudt.org/vocab/quantitykind/AbsoluteHumidity>
+  rdf:type rdfs:Resource ;
+.
+<http://qudt.org/vocab/quantitykind/Acceleration>
+  rdf:type rdfs:Resource ;
+  rdfs:label "Acceleration" ;
+.
+<http://qudt.org/vocab/quantitykind/Angle>
+  rdf:type rdfs:Resource ;
+.
+<http://qudt.org/vocab/quantitykind/AngularAcceleration>
+  rdf:type rdfs:Resource ;
+  rdfs:label "Angular acceleration" ;
+.
+<http://qudt.org/vocab/quantitykind/AngularVelocity>
+  rdf:type rdfs:Resource ;
+  rdfs:label "Angular velocity" ;
+.
+<http://qudt.org/vocab/quantitykind/Area>
+  rdf:type rdfs:Resource ;
+  rdfs:label "Area" ;
+.
+<http://qudt.org/vocab/quantitykind/Capacitance>
+  rdf:type rdfs:Resource ;
+  rdfs:label "Capacitance" ;
+.
+<http://qudt.org/vocab/quantitykind/DataRate>
+  rdf:type rdfs:Resource ;
+.
+<http://qudt.org/vocab/quantitykind/Density>
+  rdf:type rdfs:Resource ;
+.
+<http://qudt.org/vocab/quantitykind/Distance>
+  rdf:type rdfs:Resource ;
+.
+<http://qudt.org/vocab/quantitykind/ElectricCharge>
+  rdf:type rdfs:Resource ;
+.
+<http://qudt.org/vocab/quantitykind/ElectricCurrent>
+  rdf:type rdfs:Resource ;
+  rdfs:label "Electric current" ;
+.
+<http://qudt.org/vocab/quantitykind/Energy>
+  rdf:type rdfs:Resource ;
+.
+<http://qudt.org/vocab/quantitykind/Force>
+  rdf:type rdfs:Resource ;
+.
+<http://qudt.org/vocab/quantitykind/Frequency>
+  rdf:type rdfs:Resource ;
+.
+<http://qudt.org/vocab/quantitykind/Illuminance>
+  rdf:type rdfs:Resource ;
+.
+<http://qudt.org/vocab/quantitykind/Inductance>
+  rdf:type rdfs:Resource ;
+.
+<http://qudt.org/vocab/quantitykind/InformationEntropy>
+  rdf:type rdfs:Resource ;
+.
+<http://qudt.org/vocab/quantitykind/Length>
+  rdf:type rdfs:Resource ;
+.
+<http://qudt.org/vocab/quantitykind/Luminance>
+  rdf:type rdfs:Resource ;
+.
+<http://qudt.org/vocab/quantitykind/LuminousFlux>
+  rdf:type rdfs:Resource ;
+.
+<http://qudt.org/vocab/quantitykind/LuminousIntensity>
+  rdf:type rdfs:Resource ;
+.
+<http://qudt.org/vocab/quantitykind/MagneticFlux>
+  rdf:type rdfs:Resource ;
+.
+<http://qudt.org/vocab/quantitykind/Mass>
+  rdf:type rdfs:Resource ;
+.
+<http://qudt.org/vocab/quantitykind/MassFlowRate>
+  rdf:type rdfs:Resource ;
+.
+<http://qudt.org/vocab/quantitykind/Power>
+  rdf:type rdfs:Resource ;
+.
+<http://qudt.org/vocab/quantitykind/Pressure>
+  rdf:type rdfs:Resource ;
+.
+<http://qudt.org/vocab/quantitykind/RelativeHumidity>
+  rdf:type rdfs:Resource ;
+.
+<http://qudt.org/vocab/quantitykind/Resistance>
+  rdf:type rdfs:Resource ;
+.
+<http://qudt.org/vocab/quantitykind/SoundPressure>
+  rdf:type rdfs:Resource ;
+.
+<http://qudt.org/vocab/quantitykind/Temperature>
+  rdf:type rdfs:Resource ;
+.
+<http://qudt.org/vocab/quantitykind/Thrust>
+  rdf:type rdfs:Resource ;
+.
+<http://qudt.org/vocab/quantitykind/Time>
+  rdf:type rdfs:Resource ;
+.
+<http://qudt.org/vocab/quantitykind/Torque>
+  rdf:type rdfs:Resource ;
+.
+<http://qudt.org/vocab/quantitykind/Velocity>
+  rdf:type rdfs:Resource ;
+.
+<http://qudt.org/vocab/quantitykind/Voltage>
+  rdf:type rdfs:Resource ;
+.
+<http://qudt.org/vocab/quantitykind/Volume>
+  rdf:type rdfs:Resource ;
+.
+<http://qudt.org/vocab/quantitykind/VolumeFlowRate>
+  rdf:type rdfs:Resource ;
+.
+geojson:Polygon
+  rdf:type rdfs:Datatype ;
+  rdfs:comment "A GeoJSON Polygon coordinate listing representing the geometrical representation of the space. Coordinates may be expressed in two or three dimensions. Ex: [[30.0, 10.0, 0.0], [40.0, 40.0, 2.0], [20.0, 40.0, 2.0], [10.0, 20.0, 2.0], [30.0, 10.0, 0.0]]." ;
+  rdfs:label "Polygon" ;
+  owl:onDatatype xsd:string ;
+.
+<https://w3id.org/rec/recimports>
+  rdf:type owl:Ontology ;
+  owl:imports <https://w3id.org/rec> ;
+.
