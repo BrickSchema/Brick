@@ -12,6 +12,68 @@
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
+s223:AbstractSensor
+  sh:rule [
+      a sh:TripleRule ;
+      sh:object brick:Sensor ;
+      sh:predicate rdf:type ;
+      sh:subject sh:this ;
+    ] ;
+  sh:rule [
+      a sh:TripleRule ;
+      sh:object brick:Sensor ;
+      sh:predicate rdf:type ;
+      sh:subject sh:this ;
+    ] ;
+.
+s223:ActuatableProperty
+  sh:rule [
+      a sh:TripleRule ;
+      sh:object brick:Command ;
+      sh:predicate rdf:type ;
+      sh:subject sh:this ;
+    ] ;
+.
+s223:Battery
+  sh:rule [
+      a sh:TripleRule ;
+      sh:object brick:Battery ;
+      sh:predicate rdf:type ;
+      sh:subject sh:this ;
+    ] ;
+.
+s223:Boiler
+  sh:rule [
+      a sh:TripleRule ;
+      sh:object brick:Boiler ;
+      sh:predicate rdf:type ;
+      sh:subject sh:this ;
+    ] ;
+.
+s223:Chiller
+  sh:rule [
+      a sh:TripleRule ;
+      sh:object brick:Chiller ;
+      sh:predicate rdf:type ;
+      sh:subject sh:this ;
+    ] ;
+.
+s223:Coil
+  sh:rule [
+      a sh:TripleRule ;
+      sh:object brick:Coil ;
+      sh:predicate rdf:type ;
+      sh:subject sh:this ;
+    ] ;
+.
+s223:Compressor
+  sh:rule [
+      a sh:TripleRule ;
+      sh:object brick:Compressor ;
+      sh:predicate rdf:type ;
+      sh:subject sh:this ;
+    ] ;
+.
 s223:Damper
   sh:rule [
       a sh:TripleRule ;
@@ -60,10 +122,98 @@ s223:Fan
       sh:subject sh:this ;
     ] ;
 .
+s223:Filter
+  sh:rule [
+      a sh:TripleRule ;
+      sh:object brick:Filter ;
+      sh:predicate rdf:type ;
+      sh:subject sh:this ;
+    ] ;
+.
+s223:Humidifier
+  sh:rule [
+      a sh:TripleRule ;
+      sh:object brick:Humidifier ;
+      sh:predicate rdf:type ;
+      sh:subject sh:this ;
+    ] ;
+.
+s223:Inverter
+  sh:rule [
+      a sh:TripleRule ;
+      sh:object brick:Inverter ;
+      sh:predicate rdf:type ;
+      sh:subject sh:this ;
+    ] ;
+.
 s223:Luminaire
   sh:rule [
       a sh:TripleRule ;
       sh:object brick:Luminaire ;
+      sh:predicate rdf:type ;
+      sh:subject sh:this ;
+    ] ;
+.
+s223:PhysicalSpace
+  sh:rule [
+      a sh:TripleRule ;
+      sh:object brick:Location ;
+      sh:predicate rdf:type ;
+      sh:subject sh:this ;
+    ] ;
+.
+s223:Pump
+  sh:rule [
+      a sh:TripleRule ;
+      sh:object brick:Pump ;
+      sh:predicate rdf:type ;
+      sh:subject sh:this ;
+    ] ;
+.
+s223:QuantifiableProperty
+  sh:rule [
+      a sh:TripleRule ;
+      sh:object brick:Parameter ;
+      sh:predicate rdf:type ;
+      sh:subject sh:this ;
+    ] ;
+.
+s223:Radiator
+  sh:rule [
+      a sh:TripleRule ;
+      sh:object brick:Radiator ;
+      sh:predicate rdf:type ;
+      sh:subject sh:this ;
+    ] ;
+.
+s223:Setpoint
+  sh:rule [
+      a sh:TripleRule ;
+      sh:object brick:Setpoint ;
+      sh:predicate rdf:type ;
+      sh:subject sh:this ;
+    ] ;
+.
+s223:System
+  sh:rule [
+      a sh:TripleRule ;
+      sh:object brick:Collection ;
+      sh:predicate rdf:type ;
+      sh:subject sh:this ;
+    ] ;
+.
+s223:Thermostat
+  sh:rule [
+      a sh:TripleRule ;
+      sh:object brick:Thermostat ;
+      sh:predicate rdf:type ;
+      sh:subject sh:this ;
+    ] ;
+.
+s223:VFD
+  sh:rule [
+      a sh:TripleRule ;
+      sh:object brick:VFD ;
       sh:predicate rdf:type ;
       sh:subject sh:this ;
     ] ;
