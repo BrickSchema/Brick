@@ -2,9 +2,7 @@
 # imports: http://data.ashrae.org/standard223/1.0/model/all
 # imports: http://www.w3.org/ns/shacl#
 # imports: https://brickschema.org/schema/1.3/Brick
-# prefix: brick_extension_interpret_223
 
-@prefix brick_extension_interpret_223: <https://brickschema.org/extension/brick_extension_interpret_223#> .
 @prefix brick: <https://brickschema.org/schema/Brick#> .
 @prefix dash: <http://datashapes.org/dash#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -14,22 +12,74 @@
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
+s223:Damper
+  sh:rule [
+      a sh:TripleRule ;
+      sh:object brick:Damper ;
+      sh:predicate rdf:type ;
+      sh:subject sh:this ;
+    ] ;
+.
+s223:DomainSpace
+  sh:rule [
+      a sh:TripleRule ;
+      sh:condition [
+          sh:path s223:hasDomain ;
+          sh:hasValue s223:Domain-Fire ;
+        ] ;
+      sh:object brick:Fire_Zone ;
+      sh:predicate rdf:type ;
+      sh:subject sh:this ;
+    ] ;
+  sh:rule [
+      a sh:TripleRule ;
+      sh:condition [
+          sh:path s223:hasDomain ;
+          sh:hasValue s223:Domain-HVAC ;
+        ] ;
+      sh:object brick:HVAC_Zone ;
+      sh:predicate rdf:type ;
+      sh:subject sh:this ;
+    ] ;
+  sh:rule [
+      a sh:TripleRule ;
+      sh:condition [
+          sh:path s223:hasDomain ;
+          sh:hasValue s223:Domain-Lighting ;
+        ] ;
+      sh:object brick:Lighting_Zone ;
+      sh:predicate rdf:type ;
+      sh:subject sh:this ;
+    ] ;
+.
+s223:Fan
+  sh:rule [
+      a sh:TripleRule ;
+      sh:object brick:Fan ;
+      sh:predicate rdf:type ;
+      sh:subject sh:this ;
+    ] ;
+.
+s223:Luminaire
+  sh:rule [
+      a sh:TripleRule ;
+      sh:object brick:Luminaire ;
+      sh:predicate rdf:type ;
+      sh:subject sh:this ;
+    ] ;
+.
+s223:Valve
+  sh:rule [
+      a sh:TripleRule ;
+      sh:object brick:Valve ;
+      sh:predicate rdf:type ;
+      sh:subject sh:this ;
+    ] ;
+.
 <https://brickschema.org/extension/brick_extension_interpret_223>
   a owl:Ontology ;
   owl:imports <http://data.ashrae.org/standard223/1.0/model/all> ;
   owl:imports sh: ;
   owl:imports <https://brickschema.org/schema/1.3/Brick> ;
   owl:versionInfo "Created with TopBraid Composer" ;
-.
-s223:DomainSpace
-    sh:rule [
-        a sh:TripleRule ;
-        sh:condition [
-            sh:path s223:hasDomain ;
-            sh:hasValue s223:Domain-HVAC ;
-        ] ;
-		sh:subject sh:this ;
-		sh:predicate rdf:type ;
-		sh:object brick:HVAC_Zone ;
-    ] ;
 .
