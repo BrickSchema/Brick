@@ -22,12 +22,6 @@ s223:AbstractSensor
       sh:predicate rdf:type ;
       sh:subject sh:this ;
     ] ;
-  sh:rule [
-      a sh:TripleRule ;
-      sh:object brick:Sensor ;
-      sh:predicate rdf:type ;
-      sh:subject sh:this ;
-    ] ;
 .
 s223:ActuatableProperty
   sh:rule [
