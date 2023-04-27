@@ -1,0 +1,28 @@
+# baseURI: https://brickschema.org/extension/mappings_223
+# prefix: mappings_223
+
+@prefix brick: <https://brickschema.org/schema/Brick#> .
+@prefix mappings_223: <https://brickschema.org/extension/mappings_223#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix s223: <http://data.ashrae.org/standard223#> .
+@prefix s223tobrick: <https://brickschema.org/extension/brick_extension_interpret_223#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+s223:Medium-Air
+  s223tobrick:translatesTo brick:Air ;
+.
+s223:Water-ChilledWater
+  s223tobrick:translatesTo brick:Chilled_Water ;
+.
+s223:Water-HotWater
+  s223tobrick:translatesTo brick:Hot_Water ;
+.
+s223tobrick:translatesTo
+  a rdf:Property ;
+.
+<https://brickschema.org/extension/mappings_223>
+  a owl:Ontology ;
+  owl:versionInfo "Created with TopBraid Composer" ;
+.

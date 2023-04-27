@@ -1,6 +1,7 @@
 # baseURI: https://brickschema.org/extension/brick_extension_interpret_223
 # imports: http://data.ashrae.org/standard223/1.0/model/all
 # imports: http://www.w3.org/ns/shacl#
+# imports: https://brickschema.org/extension/mappings_223
 # imports: https://brickschema.org/schema/1.3/Brick
 # prefix: s223tobrick
 
@@ -173,9 +174,6 @@ s223:Luminaire
       sh:subject sh:this ;
     ] ;
 .
-s223:Medium-Air
-  s223tobrick:translatesTo brick:Air ;
-.
 s223:PhysicalSpace
   sh:rule [
       a sh:TripleRule ;
@@ -248,16 +246,11 @@ s223:Valve
       sh:subject sh:this ;
     ] ;
 .
-s223:Water-ChilledWater
-  s223tobrick:translatesTo brick:Chilled_Water ;
-.
-s223:Water-HotWater
-  s223tobrick:translatesTo brick:Hot_Water ;
-.
 <https://brickschema.org/extension/brick_extension_interpret_223>
   a owl:Ontology ;
   owl:imports <http://data.ashrae.org/standard223/1.0/model/all> ;
   owl:imports sh: ;
+  owl:imports <https://brickschema.org/extension/mappings_223> ;
   owl:imports <https://brickschema.org/schema/1.3/Brick> ;
   owl:versionInfo "Created with TopBraid Composer" ;
   sh:declare [
@@ -280,7 +273,4 @@ s223:Water-HotWater
       sh:namespace "https://brickschema.org/schema/Brick#"^^xsd:anyURI ;
       sh:prefix "brick" ;
     ] ;
-.
-s223tobrick:translatesTo
-  a rdf:Property ;
 .
