@@ -10,8 +10,74 @@
 @prefix s223tobrick: <https://brickschema.org/extension/brick_extension_interpret_223#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
+s223:AbstractSensor
+  s223tobrick:translatesTo brick:Sensor ;
+.
+s223:ActuatableProperty
+  s223tobrick:translatesTo brick:Command ;
+.
+s223:Battery
+  s223tobrick:translatesTo brick:Battery ;
+.
+s223:Boiler
+  s223tobrick:translatesTo brick:Boiler ;
+.
+s223:Chiller
+  s223tobrick:translatesTo brick:Chiller ;
+.
+s223:Coil
+  s223tobrick:translatesTo brick:Coil ;
+.
+s223:Compressor
+  s223tobrick:translatesTo brick:Compressor ;
+.
+s223:Damper
+  s223tobrick:translatesTo brick:Damper ;
+.
+s223:Fan
+  s223tobrick:translatesTo brick:Fan ;
+.
+s223:Filter
+  s223tobrick:translatesTo brick:Filter ;
+.
+s223:Humidifier
+  s223tobrick:translatesTo brick:Humidifier ;
+.
+s223:Inverter
+  s223tobrick:translatesTo brick:Inverter ;
+.
+s223:Luminaire
+  s223tobrick:translatesTo brick:Luminaire ;
+.
 s223:Medium-Air
   s223tobrick:translatesTo brick:Air ;
+.
+s223:PhysicalSpace
+  s223tobrick:translatesTo brick:Location ;
+.
+s223:Pump
+  s223tobrick:translatesTo brick:Pump ;
+.
+s223:QuantifiableProperty
+  s223tobrick:translatesTo brick:Parameter ;
+.
+s223:Radiator
+  s223tobrick:translatesTo brick:Radiator ;
+.
+s223:Setpoint
+  s223tobrick:translatesTo brick:Setpoint ;
+.
+s223:System
+  s223tobrick:translatesTo brick:Collection ;
+.
+s223:Thermostat
+  s223tobrick:translatesTo brick:Thermostat ;
+.
+s223:VFD
+  s223tobrick:translatesTo brick:VFD ;
+.
+s223:Valve
+  s223tobrick:translatesTo brick:Valve ;
 .
 s223:Water-ChilledWater
   s223tobrick:translatesTo brick:Chilled_Water ;
