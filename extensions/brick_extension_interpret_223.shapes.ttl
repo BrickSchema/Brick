@@ -31,6 +31,14 @@ s223:Concept
       sh:subject sh:this ;
     ] ;
 .
+s223:Connectable
+  sh:rule [
+      a sh:TripleRule ;
+      sh:object [sh:path s223:connectedTo] ;
+      sh:predicate brick:feeds ;
+      sh:subject sh:this ;
+    ] ;
+.
 s223:DomainSpace
   sh:rule [
       a sh:TripleRule ;
