@@ -47,6 +47,7 @@ ontology_imports = {
     "ref": "https://brickschema.org/schema/Brick/ref",
     "rec": "https://w3id.org/rec",
     "recimports": "https://w3id.org/rec/recimports",
+    "brickpatches": "https://w3id.org/rec/brickpatches",
 }
 
 shacl_namespace_declarations = [

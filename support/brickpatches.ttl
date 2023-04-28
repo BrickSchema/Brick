@@ -1,0 +1,1313 @@
+# baseURI: https://w3id.org/rec/brickpatches
+# imports: https://brickschema.org/schema/1.3/Brick
+# imports: https://w3id.org/rec
+
+@prefix : <https://w3id.org/rec/brickpatches#> .
+@prefix brick: <https://brickschema.org/schema/Brick#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rec: <https://w3id.org/rec#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+brick:Ablutions_Room
+  owl:deprecated "true"^^xsd:boolean ;
+  brick:deprecation [
+    brick:deprecatedInVersion "1.3.1" ;
+    brick:deprecationMitigationMessage "Brick location classes are being phased out in favor of RealEstateCore classes. There is not yet a replacement in REC for Ablutions_Room" ;
+  ]
+.
+brick:Absolute_Humidity_Sensor
+  rdf:type owl:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Absolute Humidity Sensor" ;
+  rdfs:subClassOf brick:Humidity_Sensor ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path brick:lastKnownValue ;
+      sh:class rec:AbsoluteHumidityObservation ;
+      sh:maxCount 1 ;
+      sh:name "last known value" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+.
+brick:Adjust_Sensor
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path brick:lastKnownValue ;
+      sh:class rec:DoubleValueObservation ;
+      sh:maxCount 1 ;
+      sh:name "last known value" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+.
+brick:Air_Grains_Sensor
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path brick:lastKnownValue ;
+      sh:class rec:DoubleValueObservation ;
+      sh:maxCount 1 ;
+      sh:name "last known value" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+.
+brick:Air_Quality_Sensor
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path brick:lastKnownValue ;
+      sh:class rec:DoubleValueObservation ;
+      sh:maxCount 1 ;
+      sh:name "last known value" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+.
+brick:Alarm
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path brick:lastKnownValue ;
+      sh:class rec:ExceptionEvent ;
+      sh:maxCount 1 ;
+      sh:name "last known value" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+.
+brick:Angle_Sensor
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path brick:lastKnownValue ;
+      sh:class rec:AngleObservation ;
+      sh:maxCount 1 ;
+      sh:name "last known value" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+.
+brick:Atrium
+  owl:deprecated "true"^^xsd:boolean ;
+    brick:deprecation [
+    brick:deprecatedInVersion "1.3.1" ;
+    brick:deprecationMitigationMessage "Brick location classes are being phased out in favor of RealEstateCore classes. For a replacement, consider rec:Atrium" ;
+  ]
+.
+brick:Auditorium
+  owl:deprecated "true"^^xsd:boolean ;
+  brick:deprecation [
+    brick:deprecatedInVersion "1.3.1" ;
+    brick:deprecationMitigationMessage "Brick location classes are being phased out in favor of RealEstateCore classes. For a replacement, consider rec:Auditorium" ;
+  ]
+.
+brick:Basement
+  owl:deprecated "true"^^xsd:boolean ;
+  brick:deprecation [
+    brick:deprecatedInVersion "1.3.1" ;
+    brick:deprecationMitigationMessage "Brick location classes are being phased out in favor of RealEstateCore classes. For a replacement, consider rec:BasementLevel" ;
+  ]
+.
+brick:Battery_Room
+  owl:deprecated "true"^^xsd:boolean ;
+  brick:deprecation [
+    brick:deprecatedInVersion "1.3.1" ;
+    brick:deprecationMitigationMessage "Brick location classes are being phased out in favor of RealEstateCore classes. For a replacement, consider rec:ElectricityRoom" ;
+  ]
+.
+brick:Bench_Space
+  owl:deprecated "true"^^xsd:boolean ;
+  brick:deprecation [
+    brick:deprecatedInVersion "1.3.1" ;
+    brick:deprecationMitigationMessage "Brick location classes are being phased out in favor of RealEstateCore classes. For a replacement, consider creating a rec:Zone that is part of a rec:Stadium" ;
+  ]
+.
+brick:Break_Room
+  owl:deprecated "true"^^xsd:boolean ;
+  brick:deprecation [
+    brick:deprecatedInVersion "1.3.1" ;
+    brick:deprecationMitigationMessage "Brick location classes are being phased out in favor of RealEstateCore classes. For a replacement, consider rec:BasementLevel" ;
+  ]
+.
+brick:Breakroom
+  owl:deprecated "true"^^xsd:boolean ;
+  brick:deprecation [
+    brick:deprecatedInVersion "1.3.1" ;
+    brick:deprecationMitigationMessage "Brick location classes are being phased out in favor of RealEstateCore classes. For a replacement, consider rec:StaffRoom" ;
+  ]
+.
+brick:Broadcast_Room
+  owl:deprecated "true"^^xsd:boolean ;
+  brick:deprecation [
+    brick:deprecatedInVersion "1.3.1" ;
+    brick:deprecationMitigationMessage "Brick location classes are being phased out in favor of RealEstateCore classes. For a replacement, consider rec:RecordingRoom" ;
+  ]
+.
+brick:Building
+  owl:deprecated "true"^^xsd:boolean ;
+  brick:deprecation [
+    brick:deprecatedInVersion "1.3.1" ;
+    brick:deprecationMitigationMessage "Brick location classes are being phased out in favor of RealEstateCore classes. For a replacement, consider rec:Building" ;
+  ]
+.
+brick:Cafeteria
+  owl:deprecated "true"^^xsd:boolean ;
+  brick:deprecation [
+    brick:deprecatedInVersion "1.3.1" ;
+    brick:deprecationMitigationMessage "Brick location classes are being phased out in favor of RealEstateCore classes. For a replacement, consider rec:CafeteriaRoom" ;
+  ]
+.
+brick:Capacity_Sensor
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path brick:lastKnownValue ;
+      sh:class rec:DoubleValueObservation ;
+      sh:maxCount 1 ;
+      sh:name "last known value" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+.
+brick:Cold_Box
+  owl:deprecated "true"^^xsd:boolean ;
+  brick:deprecation [
+    brick:deprecatedInVersion "1.3.1" ;
+    brick:deprecationMitigationMessage "Brick location classes are being phased out in favor of RealEstateCore classes. For a replacement, consider rec:Laboratory" ;
+  ]
+.
+brick:Collection
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Command
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path brick:lastKnownValue ;
+      sh:class rec:ActuationEvent ;
+      sh:maxCount 1 ;
+      sh:name "last known value" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+.
+brick:Common_Space
+  owl:deprecated "true"^^xsd:boolean ;
+  brick:deprecation [
+    brick:deprecatedInVersion "1.3.1" ;
+    brick:deprecationMitigationMessage "Brick location classes are being phased out in favor of RealEstateCore classes. For a replacement, consider rec:Space" ;
+  ]
+.
+brick:Concession
+  owl:deprecated "true"^^xsd:boolean ;
+  brick:deprecation [
+    brick:deprecatedInVersion "1.3.1" ;
+    brick:deprecationMitigationMessage "Brick location classes are being phased out in favor of RealEstateCore classes. For a replacement, consider rec:FoodHandlingRoom" ;
+  ]
+.
+brick:Conductivity_Sensor
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path brick:lastKnownValue ;
+      sh:class rec:DoubleValueObservation ;
+      sh:maxCount 1 ;
+      sh:name "last known value" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+.
+brick:Conference_Room
+  owl:deprecated "true"^^xsd:boolean ;
+    brick:deprecation [
+    brick:deprecatedInVersion "1.3.1" ;
+    brick:deprecationMitigationMessage "Brick location classes are being phased out in favor of RealEstateCore classes. For a replacement, consider rec:ConferenceRoom" ;
+  ]
+.
+brick:Contact_Sensor
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path brick:lastKnownValue ;
+      sh:class rec:BooleanValueObservation ;
+      sh:maxCount 1 ;
+      sh:name "last known value" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+.
+brick:Control_Room
+  owl:deprecated "true"^^xsd:boolean ;
+  brick:deprecation [
+    brick:deprecatedInVersion "1.3.1" ;
+    brick:deprecationMitigationMessage "Brick location classes are being phased out in favor of RealEstateCore classes. For a replacement, consider rec:SecurityRoom" ;
+  ]
+.
+brick:Copy_Room
+  owl:deprecated "true"^^xsd:boolean ;
+    brick:deprecation [
+    brick:deprecatedInVersion "1.3.1" ;
+    brick:deprecationMitigationMessage "Brick location classes are being phased out in favor of RealEstateCore classes. For a replacement, consider rec:CopyingRoom" ;
+  ]
+.
+brick:Cubicle
+  owl:deprecated "true"^^xsd:boolean ;
+  brick:deprecation [
+    brick:deprecatedInVersion "1.3.1" ;
+    brick:deprecationMitigationMessage "Brick location classes are being phased out in favor of RealEstateCore classes. For a replacement, consider rec:Workspace perhaps with a rec:Desk" ;
+  ]
+.
+brick:Current_Sensor
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path brick:lastKnownValue ;
+      sh:class rec:ElectricCurrentObservation ;
+      sh:maxCount 1 ;
+      sh:name "last known value" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+.
+brick:Demand_Sensor
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path brick:lastKnownValue ;
+      sh:class rec:PowerObservation ;
+      sh:maxCount 1 ;
+      sh:name "last known value" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+.
+brick:Detention_Room
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Dewpoint_Sensor
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path brick:lastKnownValue ;
+      sh:class rec:TemperatureObservation ;
+      sh:maxCount 1 ;
+      sh:name "last known value" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+.
+brick:Differential_Temperature_Setpoint
+  rdf:type sh:NodeShape ;
+.
+brick:Direction_Sensor
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path brick:lastKnownValue ;
+      sh:class rec:AngleObservation ;
+      sh:maxCount 1 ;
+      sh:name "last known value" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+.
+brick:Distribution_Frame
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Duration_Sensor
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path brick:lastKnownValue ;
+      sh:class rec:TimeSpanObservation ;
+      sh:maxCount 1 ;
+      sh:name "last known value" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+.
+brick:Electrical_Room
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Elevator_Shaft
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Elevator_Space
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Employee_Entrance_Lobby
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Enclosed_Office
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Energy_Sensor
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path brick:lastKnownValue ;
+      sh:class rec:EnergyObservation ;
+      sh:maxCount 1 ;
+      sh:name "last known value" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+.
+brick:Energy_Zone
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Enthalpy_Sensor
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path brick:lastKnownValue ;
+      sh:class rec:DoubleValueObservation ;
+      sh:maxCount 1 ;
+      sh:name "last known value" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+.
+brick:Entrance
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Environment_Box
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Equipment
+  rdfs:subClassOf rec:Asset ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:feeds ;
+      sh:name "feeds" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:isFedBy ;
+      sh:name "is fed by" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+.
+brick:Equipment_Room
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Exercise_Room
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Field_Of_Play
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Fire_Sensor
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path brick:lastKnownValue ;
+      sh:class rec:BooleanValueObservation ;
+      sh:maxCount 1 ;
+      sh:name "last known value" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+.
+brick:Fire_Zone
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:First_Aid_Room
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Floor
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Flow_Sensor
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path brick:lastKnownValue ;
+      sh:class rec:VolumeFlowRateObservation ;
+      sh:maxCount 1 ;
+      sh:name "last known value" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+.
+brick:Food_Service_Room
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Freezer
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Frequency_Sensor
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path brick:lastKnownValue ;
+      sh:class rec:FrequencyObservation ;
+      sh:maxCount 1 ;
+      sh:name "last known value" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+.
+brick:Frost_Sensor
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path brick:lastKnownValue ;
+      sh:class rec:BooleanValueObservation ;
+      sh:maxCount 1 ;
+      sh:name "last known value" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+.
+brick:Furniture
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Gas_Sensor
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path brick:lastKnownValue ;
+      sh:class rec:DoubleValueObservation ;
+      sh:maxCount 1 ;
+      sh:name "last known value" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+.
+brick:Gatehouse
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Generation_Sensor
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path brick:lastKnownValue ;
+      sh:class rec:DoubleValueObservation ;
+      sh:maxCount 1 ;
+      sh:name "last known value" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+.
+brick:Generator_Room
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:HVAC_Zone
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Hail_Sensor
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path brick:lastKnownValue ;
+      sh:class rec:DoubleValueObservation ;
+      sh:maxCount 1 ;
+      sh:name "last known value" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+.
+brick:Hallway
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Hazardous_Materials_Storage
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Heat_Sensor
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path brick:lastKnownValue ;
+      sh:class rec:DoubleValueObservation ;
+      sh:maxCount 1 ;
+      sh:name "last known value" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+.
+brick:Hospitality_Box
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Hot_Box
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:IDF
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Illuminance_Sensor
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path brick:lastKnownValue ;
+      sh:class rec:IlluminanceObservation ;
+      sh:maxCount 1 ;
+      sh:name "last known value" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+.
+brick:Imbalance_Sensor
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path brick:lastKnownValue ;
+      sh:class rec:DoubleValueObservation ;
+      sh:maxCount 1 ;
+      sh:name "last known value" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+.
+brick:Information_Area
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Janitor_Room
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Laboratory
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Library
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Lighting
+  rdf:type sh:NodeShape ;
+.
+brick:Lighting_Zone
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Loading_Dock
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Lobby
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Location
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Loop
+  rdfs:subClassOf rec:Collection ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:includes ;
+      sh:class brick:Equipment ;
+      sh:minCount 1 ;
+      sh:name "includes" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+.
+brick:Lounge
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Luminance_Sensor
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path brick:lastKnownValue ;
+      sh:class rec:LuminanceObservation ;
+      sh:maxCount 1 ;
+      sh:name "last known value" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+.
+brick:MDF
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Mail_Room
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Majlis
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Massage_Room
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Mechanical_Room
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Media_Hot_Desk
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Media_Production_Room
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Media_Room
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Medical_Room
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Motion_Sensor
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path brick:lastKnownValue ;
+      sh:class rec:BooleanValueObservation ;
+      sh:maxCount 1 ;
+      sh:name "last known value" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+.
+brick:Occupancy_Count_Sensor
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path brick:lastKnownValue ;
+      sh:class rec:IntegerValueObservation ;
+      sh:maxCount 1 ;
+      sh:name "last known value" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+.
+brick:Occupancy_Sensor
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path brick:lastKnownValue ;
+      sh:class rec:BooleanValueObservation ;
+      sh:maxCount 1 ;
+      sh:name "last known value" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+.
+brick:Office
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Office_Kitchen
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Open_Office
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Outdoor_Area
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Outside
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:PV_Array
+  rdfs:subClassOf rec:Collection ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:includes ;
+      sh:class brick:PV_Panel ;
+      sh:minCount 1 ;
+      sh:name "includes" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+.
+brick:Parameter
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path brick:lastKnownValue ;
+      sh:class <https://brickschema.org/schema/BrickShape#LastKnownDoubleShape> ;
+      sh:maxCount 1 ;
+      sh:name "last known value" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+.
+brick:Parking_Level
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Parking_Space
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Parking_Structure
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Photovoltaic_Array
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Piezoelectric_Sensor
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path brick:lastKnownValue ;
+      sh:class rec:DoubleValueObservation ;
+      sh:maxCount 1 ;
+      sh:name "last known value" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+.
+brick:Plumbing_Room
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Point
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path brick:hasQuantity ;
+      sh:class brick:Quantity ;
+      sh:name "has quantity" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path brick:hasSubstance ;
+      sh:class brick:Substance ;
+      sh:name "has substance" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:isPointOf ;
+      sh:name "is point of" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+.
+brick:Portfolio
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Position_Sensor
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path brick:lastKnownValue ;
+      sh:class rec:DoubleValueObservation ;
+      sh:maxCount 1 ;
+      sh:name "last known value" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+.
+brick:Power_Factor_Sensor
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path brick:lastKnownValue ;
+      sh:class rec:DoubleValueObservation ;
+      sh:maxCount 1 ;
+      sh:name "last known value" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+.
+brick:Power_Sensor
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path brick:lastKnownValue ;
+      sh:class rec:PowerObservation ;
+      sh:maxCount 1 ;
+      sh:name "last known value" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+.
+brick:Prayer_Room
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Pressure_Sensor
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path brick:lastKnownValue ;
+      sh:class rec:DoubleValueObservation ;
+      sh:maxCount 1 ;
+      sh:name "last known value" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+.
+brick:Private_Office
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Pump_Room
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Rain_Level_Sensor
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path brick:lastKnownValue ;
+      sh:class rec:LengthObservation ;
+      sh:maxCount 1 ;
+      sh:name "last known value" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+.
+brick:Rain_Sensor
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path brick:lastKnownValue ;
+      sh:class <https://brickschema.org/schema/BrickShape#LastKnownDoubleShape> ;
+      sh:maxCount 1 ;
+      sh:name "last known value" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+.
+brick:Reception
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Refrigerant_Level_Sensor
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path brick:lastKnownValue ;
+      sh:class rec:DoubleValueObservation ;
+      sh:maxCount 1 ;
+      sh:name "last known value" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+.
+brick:Region
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Relative_Humidity_Sensor
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path brick:lastKnownValue ;
+      sh:class rec:RelativeHumidityObservation ;
+      sh:maxCount 1 ;
+      sh:name "last known value" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+.
+brick:Rest_Room
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Restroom
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Retail_Room
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Riser
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Rooftop
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Room
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Security_Service_Room
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Server_Room
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Service_Room
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Setpoint
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path brick:lastKnownValue ;
+      sh:class <https://brickschema.org/schema/BrickShape#LastKnownDoubleShape> ;
+      sh:maxCount 1 ;
+      sh:name "last known value" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+.
+brick:Shared_Office
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Shower
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Site
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Solar_Radiance_Sensor
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path brick:lastKnownValue ;
+      sh:class rec:DoubleValueObservation ;
+      sh:maxCount 1 ;
+      sh:name "last known value" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+.
+brick:Space
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Speed_Sensor
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path brick:lastKnownValue ;
+      sh:class rec:VelocityObservation ;
+      sh:maxCount 1 ;
+      sh:name "last known value" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+.
+brick:Sports_Service_Room
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Stage_Riser
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Staircase
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Status
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path brick:lastKnownValue ;
+      sh:class <https://brickschema.org/schema/BrickShape#LastKnownValueShape> ;
+      sh:maxCount 1 ;
+      sh:name "last known value" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+.
+brick:Storage_Room
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Storey
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Studio
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Switch_Room
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:System
+  rdfs:subClassOf rec:Collection ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:includes ;
+      sh:class brick:Equipment ;
+      sh:minCount 1 ;
+      sh:name "includes" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+.
+brick:TETRA_Room
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Team_Room
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Telecom_Room
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Temperature_Sensor
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path brick:lastKnownValue ;
+      sh:class rec:TemperatureObservation ;
+      sh:maxCount 1 ;
+      sh:name "last known value" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+.
+brick:Ticketing_Booth
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Torque_Sensor
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path brick:lastKnownValue ;
+      sh:class rec:TorqueObservation ;
+      sh:maxCount 1 ;
+      sh:name "last known value" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+.
+brick:Transformer_Room
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Tunnel
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Usage_Sensor
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path brick:lastKnownValue ;
+      sh:class rec:DoubleValueObservation ;
+      sh:maxCount 1 ;
+      sh:name "last known value" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+.
+brick:Vertical_Space
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Visitor_Lobby
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Voltage_Sensor
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path brick:lastKnownValue ;
+      sh:class rec:VoltageObservation ;
+      sh:maxCount 1 ;
+      sh:name "last known value" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+.
+brick:Wardrobe
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Waste_Storage
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Water_Level_Sensor
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path brick:lastKnownValue ;
+      sh:class rec:LengthObservation ;
+      sh:maxCount 1 ;
+      sh:name "last known value" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+.
+brick:Water_Tank
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Wing
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Workshop
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:Zone
+  owl:deprecated "true"^^xsd:boolean ;
+.
+brick:feeds
+  owl:deprecated "true"^^xsd:boolean ;
+  owl:equivalentProperty rec:feeds ;
+.
+brick:hasLocation
+  owl:equivalentProperty rec:locatedIn ;
+.
+brick:hasPart
+  owl:deprecated "true"^^xsd:boolean ;
+  owl:equivalentProperty rec:hasPart ;
+.
+brick:hasPoint
+  owl:equivalentProperty rec:hasPoint ;
+.
+brick:isFedBy
+  owl:deprecated "true"^^xsd:boolean ;
+  owl:equivalentProperty rec:isFedBy ;
+.
+brick:isPartOf
+  owl:equivalentProperty rec:isPartOf ;
+.
+brick:isPointOf
+  owl:deprecated "true"^^xsd:boolean ;
+  owl:equivalentProperty rec:isPointOf ;
+.
+<https://brickschema.org/schema/BrickShape#LastKnownBooleanShape>
+  rdf:type owl:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:subClassOf <https://brickschema.org/schema/BrickShape#LastKnownValueShape> ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path brick:timestamp ;
+      sh:datatype xsd:dateTime ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:name "timestamp" ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path brick:value ;
+      sh:datatype xsd:boolean ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:name "value" ;
+    ] ;
+.
+<https://brickschema.org/schema/BrickShape#LastKnownDoubleShape>
+  rdf:type owl:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:subClassOf <https://brickschema.org/schema/BrickShape#LastKnownValueShape> ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path brick:timestamp ;
+      sh:datatype xsd:dateTime ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:name "timestamp" ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path brick:value ;
+      sh:datatype xsd:double ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:name "value" ;
+    ] ;
+.
+<https://brickschema.org/schema/BrickShape#LastKnownDurationShape>
+  rdf:type owl:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:subClassOf <https://brickschema.org/schema/BrickShape#LastKnownValueShape> ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path brick:timestamp ;
+      sh:datatype xsd:dateTime ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:name "timestamp" ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path brick:value ;
+      sh:datatype xsd:duration ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:name "value" ;
+    ] ;
+.
+<https://brickschema.org/schema/BrickShape#LastKnownIntegerShape>
+  rdf:type owl:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:subClassOf <https://brickschema.org/schema/BrickShape#LastKnownValueShape> ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path brick:timestamp ;
+      sh:datatype xsd:dateTime ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:name "timestamp" ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path brick:value ;
+      sh:datatype xsd:integer ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:name "value" ;
+    ] ;
+.
+<https://brickschema.org/schema/BrickShape#ValueShape>
+  rdf:type sh:NodeShape ;
+.
+rec:AbsoluteHumidityObservation
+  rdf:type <dtmi:dtdl:class:Component> ;
+.
+rec:AccelerationObservation
+  rdf:type <dtmi:dtdl:class:Component> ;
+.
+rec:ActuationEvent
+  rdf:type <dtmi:dtdl:class:Component> ;
+.
+rec:AngleObservation
+  rdf:type <dtmi:dtdl:class:Component> ;
+.
+rec:AngularAccelerationObservation
+  rdf:type <dtmi:dtdl:class:Component> ;
+.
+rec:AngularVelocityObservation
+  rdf:type <dtmi:dtdl:class:Component> ;
+.
+rec:AreaObservation
+  rdf:type <dtmi:dtdl:class:Component> ;
+.
+rec:Asset
+  rdf:type sh:NodeShape ;
+.
+rec:AssetCollection
+  rdf:type sh:NodeShape ;
+.
+rec:BooleanValueObservation
+  rdf:type <dtmi:dtdl:class:Component> ;
+.
+rec:CapacitanceObservation
+  rdf:type <dtmi:dtdl:class:Component> ;
+.
+rec:Collection
+  rdf:type sh:NodeShape ;
+.
+rec:DataRateObservation
+  rdf:type <dtmi:dtdl:class:Component> ;
+.
+rec:DataSizeObservation
+  rdf:type <dtmi:dtdl:class:Component> ;
+.
+rec:DensityObservation
+  rdf:type <dtmi:dtdl:class:Component> ;
+.
+rec:DistanceObservation
+  rdf:type <dtmi:dtdl:class:Component> ;
+.
+rec:DoubleValueObservation
+  rdf:type <dtmi:dtdl:class:Component> ;
+.
+rec:ElectricChargeObservation
+  rdf:type <dtmi:dtdl:class:Component> ;
+.
+rec:ElectricCurrentObservation
+  rdf:type <dtmi:dtdl:class:Component> ;
+.
+rec:EnergyObservation
+  rdf:type <dtmi:dtdl:class:Component> ;
+.
+rec:EquipmentCollection
+  rdf:type sh:NodeShape ;
+.
+rec:ExceptionEvent
+  rdf:type <dtmi:dtdl:class:Component> ;
+.
+rec:ForceObservation
+  rdf:type <dtmi:dtdl:class:Component> ;
+.
+rec:FrequencyObservation
+  rdf:type <dtmi:dtdl:class:Component> ;
+.
+rec:IlluminanceObservation
+  rdf:type <dtmi:dtdl:class:Component> ;
+.
+rec:InductanceObservation
+  rdf:type <dtmi:dtdl:class:Component> ;
+.
+rec:IntegerValueObservation
+  rdf:type <dtmi:dtdl:class:Component> ;
+.
+rec:LengthObservation
+  rdf:type <dtmi:dtdl:class:Component> ;
+.
+rec:LuminanceObservation
+  rdf:type <dtmi:dtdl:class:Component> ;
+.
+rec:LuminousFluxObservation
+  rdf:type <dtmi:dtdl:class:Component> ;
+.
+rec:LuminousIntensityObservation
+  rdf:type <dtmi:dtdl:class:Component> ;
+.
+rec:MagneticFluxObservation
+  rdf:type <dtmi:dtdl:class:Component> ;
+.
+rec:MassFlowRateObservation
+  rdf:type <dtmi:dtdl:class:Component> ;
+.
+rec:MassObservation
+  rdf:type <dtmi:dtdl:class:Component> ;
+.
+rec:PowerObservation
+  rdf:type <dtmi:dtdl:class:Component> ;
+.
+rec:PressureObservation
+  rdf:type <dtmi:dtdl:class:Component> ;
+.
+rec:RelativeHumidityObservation
+  rdf:type <dtmi:dtdl:class:Component> ;
+.
+rec:ResistanceObservation
+  rdf:type <dtmi:dtdl:class:Component> ;
+.
+rec:SoundPressureObservation
+  rdf:type <dtmi:dtdl:class:Component> ;
+.
+rec:TemperatureObservation
+  rdf:type <dtmi:dtdl:class:Component> ;
+.
+rec:ThrustObservation
+  rdf:type <dtmi:dtdl:class:Component> ;
+.
+rec:TimeSpanObservation
+  rdf:type <dtmi:dtdl:class:Component> ;
+.
+rec:TorqueObservation
+  rdf:type <dtmi:dtdl:class:Component> ;
+.
+rec:VelocityObservation
+  rdf:type <dtmi:dtdl:class:Component> ;
+.
+rec:VoltageObservation
+  rdf:type <dtmi:dtdl:class:Component> ;
+.
+rec:VolumeFlowRateObservation
+  rdf:type <dtmi:dtdl:class:Component> ;
+.
+rec:VolumeObservation
+  rdf:type <dtmi:dtdl:class:Component> ;
+.
+rec:substance
+  rdf:type owl:AnnotationProperty ;
+  rdfs:domain rec:feeds ;
+  rdfs:domain rec:isFedBy ;
+  rdfs:label "substance" ;
+  rdfs:range [
+      rdf:type rdfs:Datatype ;
+      owl:oneOf (
+          "ACElec"
+          "Air"
+          "BlowdownWater"
+          "ChilledWater"
+          "ColdDomesticWater"
+          "Condensate"
+          "CondenserWater"
+          "DCElec"
+          "Diesel"
+          "DriveElec"
+          "Ethernet"
+          "ExhaustAir"
+          "Freight"
+          "FuelOil"
+          "Gasoline"
+          "GreaseExhaustAir"
+          "HotDomesticWater"
+          "HotWater"
+          "IrrigationWater"
+          "Light"
+          "MakeupWater"
+          "NaturalGas"
+          "NonPotableDomesticWater"
+          "OutsideAir"
+          "People"
+          "Propane"
+          "RecircHotDomesticWater"
+          "Refrig"
+          "ReturnAir"
+          "SprinklerWater"
+          "Steam"
+          "StormDrainage"
+          "SupplyAir"
+          "TransferAir"
+          "WasteVentDrainage"
+          "Water"
+        ) ;
+    ] ;
+.
+<https://w3id.org/rec/brickpatches>
+  rdf:type owl:Ontology ;
+  owl:imports <https://brickschema.org/schema/1.3/Brick> ;
+  owl:imports <https://w3id.org/rec> ;
+  owl:versionInfo "Created with TopBraid Composer" ;
+.
