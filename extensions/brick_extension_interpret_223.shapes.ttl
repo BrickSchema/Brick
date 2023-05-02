@@ -83,6 +83,28 @@ s223:DomainSpace
       sh:subject sh:this ;
     ] ;
 .
+s223:TemperatureSensor
+  sh:rule [
+      a sh:TripleRule ;
+      sh:condition [
+          sh:path (s223:observes s223:ofMedium) ;
+          sh:hasValue s223:Water-ChilledWater ;
+        ] ;
+      sh:object brick:Chilled_Water_Temperature_Sensor ;
+      sh:predicate rdf:type ;
+      sh:subject sh:this ;
+    ] ;
+  sh:rule [
+      a sh:TripleRule ;
+      sh:condition [
+          sh:path (s223:observes s223:ofMedium) ;
+          sh:hasValue s223:Water-HotWater ;
+        ] ;
+      sh:object brick:Domestic_Hot_Water_Temperature_Sensor ;
+      sh:predicate rdf:type ;
+      sh:subject sh:this ;
+    ] ;
+.
 s223:EnumerationKind-Medium
   sh:rule [
       a sh:TripleRule ;
