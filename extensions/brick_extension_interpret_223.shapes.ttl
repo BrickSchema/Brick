@@ -34,6 +34,18 @@ s223:Concept
 s223:Connectable
   sh:rule [
       a sh:TripleRule ;
+      sh:condition [
+          sh:path s223:connectedTo ;
+      sh:hasValue [sh:or (
+          [
+            sh:class brick:Equipment ;
+          ]
+          [
+            sh:class brick:Location ;
+          ]
+        ) ;
+        ] ;
+      ] ;
       sh:object [sh:path s223:connectedTo] ;
       sh:predicate brick:feeds ;
       sh:subject sh:this ;
