@@ -112,7 +112,7 @@ s223:EnumerationKind-Medium
       sh:prefix "s223" ;
     ] ;
   sh:declare [
-      sh:namespace "http://data.ashrae.org/standard223/1.0/translation/brick"^^xsd:anyURI ;
+      sh:namespace "https://brickschema.org/extension/brick_extension_interpret_223#"^^xsd:anyURI ;
       sh:prefix "s223tobrick" ;
     ] ;
   sh:declare [
