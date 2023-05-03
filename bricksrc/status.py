@@ -466,23 +466,12 @@ status_definitions = {
             "Pressure_Status": {
                 QUDT.hasQuantity: BRICK.Pressure,
                 "subclasses": {
-                    "Discharge_Air_Duct_Pressure_Status": {
-                        "tags": [
-                            TAG.Point,
-                            TAG.Discharge,
-                            TAG.Air,
-                            TAG.Duct,
-                            TAG.Pressure,
-                            TAG.Status,
-                        ],
-                    },
                     "Supply_Air_Duct_Pressure_Status": {
-                        OWL.equivalentClass: BRICK[
-                            "Discharge_Air_Duct_Pressure_Status"
-                        ],
+                        "aliases": [BRICK["Discharge_Air_Duct_Pressure_Status"]],
                         "tags": [
                             TAG.Point,
                             TAG.Supply,
+                            TAG.Discharge,
                             TAG.Air,
                             TAG.Duct,
                             TAG.Pressure,

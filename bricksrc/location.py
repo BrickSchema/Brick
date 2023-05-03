@@ -22,7 +22,7 @@ location_subclasses = {
         },
     },
     "Floor": {
-        "tags": [TAG.Floor, TAG.Location],
+        "tags": [TAG.Floor, TAG.Storey, TAG.Location],
         "subclasses": {
             "Basement": {"tags": [TAG.Basement, TAG.Location, TAG.Floor]},
             "Rooftop": {"tags": [TAG.Rooftop, TAG.Location, TAG.Floor]},
@@ -30,7 +30,7 @@ location_subclasses = {
                 "tags": [TAG.Parking, TAG.Level, TAG.Location, TAG.Floor]
             },
         },
-        OWL.equivalentClass: BRICK["Storey"],
+        "aliases": [BRICK["Storey"]],
         "constraints": {
             BRICK.hasPart: [
                 BRICK.Room,
@@ -38,10 +38,6 @@ location_subclasses = {
                 BRICK.Zone,
             ],
         },
-    },
-    "Storey": {
-        "tags": [TAG.Storey, TAG.Location],
-        OWL.equivalentClass: BRICK["Floor"],
     },
     "Outdoor_Area": {
         "tags": [TAG.Location, TAG.Outdoor, TAG.Area],
@@ -139,12 +135,8 @@ location_subclasses = {
                         "tags": [TAG.Ablutions, TAG.Room, TAG.Space, TAG.Location]
                     },
                     "Breakroom": {
-                        "tags": [TAG.Breakroom, TAG.Room, TAG.Space, TAG.Location],
-                        OWL.equivalentClass: BRICK["Break_Room"],
-                    },
-                    "Break_Room": {
-                        "tags": [TAG.Break, TAG.Room, TAG.Space, TAG.Location],
-                        OWL.equivalentClass: BRICK["Breakroom"],
+                        "tags": [TAG.Breakroom, TAG.Break, TAG.Room, TAG.Space, TAG.Location],
+                        "aliases": [BRICK["Break_Room"]],
                     },
                     "Conference_Room": {
                         "tags": [TAG.Conference, TAG.Room, TAG.Space, TAG.Location]
@@ -376,12 +368,8 @@ location_subclasses = {
                         "tags": [TAG.Reception, TAG.Room, TAG.Space, TAG.Location]
                     },
                     "Restroom": {
-                        "tags": [TAG.Restroom, TAG.Room, TAG.Space, TAG.Location],
-                        OWL.equivalentClass: BRICK["Rest_Room"],
-                    },
-                    "Rest_Room": {
-                        "tags": [TAG.Rest, TAG.Room, TAG.Space, TAG.Location],
-                        OWL.equivalentClass: BRICK["Restroom"],
+                        "tags": [TAG.Restroom, TAG.Rest, TAG.Room, TAG.Space, TAG.Location],
+                        "aliases": [BRICK["Rest_Room"]],
                     },
                     "Retail_Room": {
                         "tags": [TAG.Retail, TAG.Room, TAG.Space, TAG.Location]
@@ -597,10 +585,6 @@ location_subclasses = {
             "Vertical_Space": {
                 "tags": [TAG.Vertical, TAG.Space, TAG.Location],
                 "subclasses": {
-                    "Elevator_Space": {
-                        "tags": [TAG.Elevator, TAG.Vertical, TAG.Space, TAG.Location],
-                        OWL.equivalentClass: BRICK["Elevator_Shaft"],
-                    },
                     "Elevator_Shaft": {
                         "tags": [
                             TAG.Elevator,
@@ -609,7 +593,7 @@ location_subclasses = {
                             TAG.Space,
                             TAG.Location,
                         ],
-                        OWL.equivalentClass: BRICK["Elevator_Space"],
+                        "aliases": [BRICK["Elevator_Space"]],
                     },
                     "Riser": {
                         "tags": [TAG.Riser, TAG.Vertical, TAG.Space, TAG.Location]

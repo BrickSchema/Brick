@@ -310,6 +310,18 @@ def define_classes(definitions, parent, pun_classes=False):
         assert isinstance(constraints, dict)
         define_constraints(constraints, classname)
 
+        aliases = defn.get("aliases", [])
+        assert isinstance(aliases, list)
+        for alias in aliases:
+            G.add((classname, OWL.equivalentClass, alias))
+      
+            G.add((alias, A, OWL.Class))
+            G.add((alias, OWL.equivalentClass, classname))
+            G.add((alias, BRICK.aliasOf, classname))
+      
+            if not has_label(alias):
+                G.add((alias, RDFS.label, Literal(alias.split("#")[-1].replace("_", " "))))
+
         # all other key-value pairs in the definition are
         # property-object pairs
         expected_properties = [
@@ -318,6 +330,7 @@ def define_classes(definitions, parent, pun_classes=False):
             "substances",
             "subclasses",
             "constraints",
+            "aliases",
         ]
         other_properties = [
             prop for prop in defn.keys() if prop not in expected_properties
