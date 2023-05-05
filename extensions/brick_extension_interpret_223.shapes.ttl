@@ -104,143 +104,69 @@ s223:EnumerationKind-Medium
     ] ;
 .
 s223:TemperatureSensor
-  sh:rule [
-      a sh:TripleRule ;
-      sh:condition [
-          sh:path (
-              s223:hasMeasurementLocation
-              rdf:type
-            ) ;
-          sh:hasValue s223:InletConnectionPoint ;
-        ] ;
-      sh:condition [
-          sh:path (
-              s223:hasMeasurementLocation
-              s223:isConnectionPointOf
-              rdf:type
-              [
-                sh:zeroOrMorePath rdfs:subClassOf ;
-              ]
-            ) ;
-          sh:hasValue s223:HeatingCoil ;
-        ] ;
-      sh:condition [
-          sh:path (
-              s223:observes
-              s223:ofMedium
-            ) ;
-          sh:hasValue s223:Water-HotWater ;
-        ] ;
-      sh:object brick:Entering_Hot_Water_Temperature_Sensor ;
-      sh:predicate rdf:type ;
-      sh:subject sh:this ;
+    sh:rule [
+      a sh:SPARQLRule ;
+      sh:construct """
+CONSTRUCT {$this rdf:type brick:Entering_Chilled_Water_Temperature_Sensor .}
+WHERE {
+$this s223:observes/s223:ofMedium s223:Water-ChilledWater .
+$this s223:hasMeasurementLocation/rdf:type s223:InletConnectionPoint .
+$this s223:hasMeasurementLocation/s223:isConnectionPointOf/rdf:type ?class .
+{
+?class rdfs:subClassOf* s223:CoolingCoil .
+}
+UNION
+{
+?class rdfs:subClassOf* s223:Chiller .
+}
+}
+""" ;
+      sh:prefixes <https://brickschema.org/extension/brick_extension_interpret_223> ;
     ] ;
-  sh:rule [
-      a sh:TripleRule ;
-      sh:condition [
-          sh:path (
-              s223:hasMeasurementLocation
-              rdf:type
-            ) ;
-          sh:hasValue s223:InletConnectionPoint ;
-        ] ;
-      sh:condition [
-          sh:path (
-              s223:hasMeasurementLocation
-              s223:isConnectionPointOf
-              rdf:type
-              [
-                sh:zeroOrMorePath rdfs:subClassOf ;
-              ]
-            ) ;
-          sh:or (
-              [
-                sh:hasValue s223:Chiller ;
-              ]
-              [
-                sh:hasValue s223:CoolingCoil ;
-              ]
-            ) ;
-        ] ;
-      sh:condition [
-          sh:path (
-              s223:observes
-              s223:ofMedium
-            ) ;
-          sh:hasValue s223:Water-ChilledWater ;
-        ] ;
-      sh:object brick:Entering_Chilled_Water_Temperature_Sensor ;
-      sh:predicate rdf:type ;
-      sh:subject sh:this ;
+    sh:rule [
+      a sh:SPARQLRule ;
+      sh:construct """
+CONSTRUCT {$this rdf:type brick:Leaving_Chilled_Water_Temperature_Sensor .}
+WHERE {
+$this s223:observes/s223:ofMedium s223:Water-ChilledWater .
+$this s223:hasMeasurementLocation/rdf:type s223:OutletConnectionPoint .
+$this s223:hasMeasurementLocation/s223:isConnectionPointOf/rdf:type ?class .
+{
+?class rdfs:subClassOf* s223:CoolingCoil .
+}
+UNION
+{
+?class rdfs:subClassOf* s223:Chiller .
+}
+}
+""" ;
+      sh:prefixes <https://brickschema.org/extension/brick_extension_interpret_223> ;
     ] ;
-  sh:rule [
-      a sh:TripleRule ;
-      sh:condition [
-          sh:path (
-              s223:hasMeasurementLocation
-              rdf:type
-            ) ;
-          sh:hasValue s223:OutletConnectionPoint ;
-        ] ;
-      sh:condition [
-          sh:path (
-              s223:hasMeasurementLocation
-              s223:isConnectionPointOf
-              rdf:type
-              [
-                sh:zeroOrMorePath rdfs:subClassOf ;
-              ]
-            ) ;
-          sh:hasValue s223:HeatingCoil ;
-        ] ;
-      sh:condition [
-          sh:path (
-              s223:observes
-              s223:ofMedium
-            ) ;
-          sh:hasValue s223:Water-HotWater ;
-        ] ;
-      sh:object brick:Leaving_Hot_Water_Temperature_Sensor ;
-      sh:predicate rdf:type ;
-      sh:subject sh:this ;
+    sh:rule [
+      a sh:SPARQLRule ;
+      sh:construct """
+CONSTRUCT {$this rdf:type brick:Entering_Hot_Water_Temperature_Sensor .}
+WHERE {
+$this s223:observes/s223:ofMedium s223:Water-HotWater .
+$this s223:hasMeasurementLocation/rdf:type s223:InletConnectionPoint .
+$this s223:hasMeasurementLocation/s223:isConnectionPointOf/rdf:type ?class .
+?class rdfs:subClassOf* s223:HeatingCoil .
+}
+""" ;
+      sh:prefixes <https://brickschema.org/extension/brick_extension_interpret_223> ;
     ] ;
-  sh:rule [
-      a sh:TripleRule ;
-      sh:condition [
-          sh:path (
-              s223:hasMeasurementLocation
-              rdf:type
-            ) ;
-          sh:hasValue s223:OutletConnectionPoint ;
-        ] ;
-      sh:condition [
-          sh:path (
-              s223:hasMeasurementLocation
-              s223:isConnectionPointOf
-              rdf:type
-              [
-                sh:zeroOrMorePath rdfs:subClassOf ;
-              ]
-            ) ;
-          sh:or (
-              [
-                sh:hasValue s223:Chiller ;
-              ]
-              [
-                sh:hasValue s223:CoolingCoil ;
-              ]
-            ) ;
-        ] ;
-      sh:condition [
-          sh:path (
-              s223:observes
-              s223:ofMedium
-            ) ;
-          sh:hasValue s223:Water-ChilledWater ;
-        ] ;
-      sh:object brick:Leaving_Chilled_Water_Temperature_Sensor ;
-      sh:predicate rdf:type ;
-      sh:subject sh:this ;
+    sh:rule [
+      a sh:SPARQLRule ;
+      sh:construct """
+CONSTRUCT {$this rdf:type brick:Leaving_Hot_Water_Temperature_Sensor .}
+WHERE {
+$this s223:observes/s223:ofMedium s223:Water-HotWater .
+$this s223:hasMeasurementLocation/rdf:type s223:OutletConnectionPoint .
+$this s223:hasMeasurementLocation/s223:isConnectionPointOf/rdf:type ?class .
+?class rdfs:subClassOf* s223:HeatingCoil .
+}
+""" ;
+      sh:prefixes <https://brickschema.org/extension/brick_extension_interpret_223> ;
     ] ;
   sh:rule [
       a sh:TripleRule ;
