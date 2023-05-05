@@ -104,7 +104,7 @@ s223:EnumerationKind-Medium
     ] ;
 .
 s223:TemperatureSensor
-    sh:rule [
+  sh:rule [
       a sh:SPARQLRule ;
       sh:construct """
 CONSTRUCT {$this rdf:type brick:Entering_Chilled_Water_Temperature_Sensor .}
@@ -123,7 +123,20 @@ UNION
 """ ;
       sh:prefixes <https://brickschema.org/extension/brick_extension_interpret_223> ;
     ] ;
-    sh:rule [
+  sh:rule [
+      a sh:SPARQLRule ;
+      sh:construct """
+CONSTRUCT {$this rdf:type brick:Entering_Hot_Water_Temperature_Sensor .}
+WHERE {
+$this s223:observes/s223:ofMedium s223:Water-HotWater .
+$this s223:hasMeasurementLocation/rdf:type s223:InletConnectionPoint .
+$this s223:hasMeasurementLocation/s223:isConnectionPointOf/rdf:type ?class .
+?class rdfs:subClassOf* s223:HeatingCoil .
+}
+""" ;
+      sh:prefixes <https://brickschema.org/extension/brick_extension_interpret_223> ;
+    ] ;
+  sh:rule [
       a sh:SPARQLRule ;
       sh:construct """
 CONSTRUCT {$this rdf:type brick:Leaving_Chilled_Water_Temperature_Sensor .}
@@ -142,20 +155,7 @@ UNION
 """ ;
       sh:prefixes <https://brickschema.org/extension/brick_extension_interpret_223> ;
     ] ;
-    sh:rule [
-      a sh:SPARQLRule ;
-      sh:construct """
-CONSTRUCT {$this rdf:type brick:Entering_Hot_Water_Temperature_Sensor .}
-WHERE {
-$this s223:observes/s223:ofMedium s223:Water-HotWater .
-$this s223:hasMeasurementLocation/rdf:type s223:InletConnectionPoint .
-$this s223:hasMeasurementLocation/s223:isConnectionPointOf/rdf:type ?class .
-?class rdfs:subClassOf* s223:HeatingCoil .
-}
-""" ;
-      sh:prefixes <https://brickschema.org/extension/brick_extension_interpret_223> ;
-    ] ;
-    sh:rule [
+  sh:rule [
       a sh:SPARQLRule ;
       sh:construct """
 CONSTRUCT {$this rdf:type brick:Leaving_Hot_Water_Temperature_Sensor .}
