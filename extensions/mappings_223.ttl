@@ -55,6 +55,12 @@ s223:Luminaire
 s223:Medium-Air
   s223tobrick:translatesTo brick:Air ;
 .
+s223:Medium-NaturalGas
+  s223tobrick:translatesTo brick:Natural_Gas ;
+.
+s223:Medium-Refrigerant
+  s223tobrick:translatesTo brick:Refrigerant ;
+.
 s223:PhysicalSpace
   s223tobrick:translatesTo brick:Location ;
 .
@@ -85,8 +91,14 @@ s223:Valve
 s223:Water-ChilledWater
   s223tobrick:translatesTo brick:Chilled_Water ;
 .
+s223:Water-GlycolSolution
+  s223tobrick:translatesTo brick:Glycol ;
+.
 s223:Water-HotWater
   s223tobrick:translatesTo brick:Hot_Water ;
+.
+s223:Water-Steam
+  s223tobrick:translatesTo brick:Steam ;
 .
 s223tobrick:translatesTo
   a rdf:Property ;

@@ -8,6 +8,9 @@
 @prefix brick: <https://brickschema.org/schema/Brick#> .
 @prefix dash: <http://datashapes.org/dash#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix quantitykind: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix s223: <http://data.ashrae.org/standard223#> .
@@ -101,6 +104,44 @@ s223:EnumerationKind-Medium
               s223:isConnectionPointOf
             ) ;
         ] ;
+    ] ;
+.
+s223:Setpoint
+  sh:rule [
+      a sh:TripleRule ;
+      sh:condition [
+        sh:or (
+          [
+          sh:path qudt:hasQuantityKind ;
+          sh:hasValue quantitykind:Temperature ;
+          ]
+          [
+            sh:path (qudt:unit qudt:hasQuantityKind) ;
+            sh:hasValue quantitykind:Temperature ;
+          ]
+        ) ;
+        ] ;
+      sh:object brick:Temperature_Setpoint ;
+      sh:predicate rdf:type ;
+      sh:subject sh:this ;
+    ] ;
+  sh:rule [
+      a sh:TripleRule ;
+      sh:condition [
+        sh:or (
+          [
+          sh:path qudt:hasQuantityKind ;
+          sh:hasValue quantitykind:VolumeFlowRate ;
+          ]
+          [
+            sh:path (qudt:unit qudt:hasQuantityKind) ;
+            sh:hasValue quantitykind:VolumeFlowRate ;
+          ]
+        ) ;
+        ] ;
+      sh:object brick:Flow_Setpoint ;
+      sh:predicate rdf:type ;
+      sh:subject sh:this ;
     ] ;
 .
 s223:TemperatureSensor
