@@ -10,14 +10,14 @@
 @prefix s223tobrick: <https://brickschema.org/extension/brick_extension_interpret_223#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-s223:AirHandlingUnit
-  s223tobrick:translatesTo brick:AHU ;
-.
 s223:AbstractSensor
   s223tobrick:translatesTo brick:Sensor ;
 .
 s223:ActuatableProperty
   s223tobrick:translatesTo brick:Command ;
+.
+s223:AirHandlingUnit
+  s223tobrick:translatesTo brick:AHU ;
 .
 s223:Battery
   s223tobrick:translatesTo brick:Battery ;

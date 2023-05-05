@@ -10,12 +10,12 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix quantitykind: <http://qudt.org/vocab/quantitykind/> .
 @prefix qudt: <http://qudt.org/schema/qudt/> .
-@prefix unit: <http://qudt.org/vocab/unit/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix s223: <http://data.ashrae.org/standard223#> .
 @prefix s223tobrick: <https://brickschema.org/extension/brick_extension_interpret_223#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 s223:Concept
@@ -110,16 +110,19 @@ s223:Setpoint
   sh:rule [
       a sh:TripleRule ;
       sh:condition [
-        sh:or (
-          [
-          sh:path qudt:hasQuantityKind ;
-          sh:hasValue quantitykind:Temperature ;
-          ]
-          [
-            sh:path (qudt:unit qudt:hasQuantityKind) ;
-            sh:hasValue quantitykind:Temperature ;
-          ]
-        ) ;
+          sh:or (
+              [
+                sh:path qudt:hasQuantityKind ;
+                sh:hasValue quantitykind:Temperature ;
+              ]
+              [
+                sh:path (
+                    qudt:unit
+                    qudt:hasQuantityKind
+                  ) ;
+                sh:hasValue quantitykind:Temperature ;
+              ]
+            ) ;
         ] ;
       sh:object brick:Temperature_Setpoint ;
       sh:predicate rdf:type ;
@@ -128,16 +131,19 @@ s223:Setpoint
   sh:rule [
       a sh:TripleRule ;
       sh:condition [
-        sh:or (
-          [
-          sh:path qudt:hasQuantityKind ;
-          sh:hasValue quantitykind:VolumeFlowRate ;
-          ]
-          [
-            sh:path (qudt:unit qudt:hasQuantityKind) ;
-            sh:hasValue quantitykind:VolumeFlowRate ;
-          ]
-        ) ;
+          sh:or (
+              [
+                sh:path qudt:hasQuantityKind ;
+                sh:hasValue quantitykind:VolumeFlowRate ;
+              ]
+              [
+                sh:path (
+                    qudt:unit
+                    qudt:hasQuantityKind
+                  ) ;
+                sh:hasValue quantitykind:VolumeFlowRate ;
+              ]
+            ) ;
         ] ;
       sh:object brick:Flow_Setpoint ;
       sh:predicate rdf:type ;
