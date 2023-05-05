@@ -1678,7 +1678,34 @@ setpoint_definitions = {
                                             TAG.Air,
                                             TAG.Temperature,
                                             TAG.Setpoint,
-                                            TAG.Effective,
+                                        ],
+                                        "parents": [
+                                            BRICK.Effective_Air_Temperature_Setpoint
+                                        ],
+                                    },
+                                    "Occupied_Common_Zone_Air_Temperature_Setpoint": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Occupied,
+                                            # TAG.Common,
+                                            TAG.Zone,
+                                            TAG.Air,
+                                            TAG.Temperature,
+                                            TAG.Setpoint,
+                                        ],
+                                        "parents": [
+                                            BRICK.Effective_Air_Temperature_Setpoint
+                                        ],
+                                    },
+                                    "Unoccupied_Common_Zone_Air_Temperature_Setpoint": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Unoccupied,
+                                            # TAG.Common,
+                                            TAG.Zone,
+                                            TAG.Air,
+                                            TAG.Temperature,
+                                            TAG.Setpoint,
                                         ],
                                         "parents": [
                                             BRICK.Effective_Air_Temperature_Setpoint
