@@ -1,6 +1,41 @@
 from .namespaces import BRICK, RDFS, SKOS, A
 
 deprecations = {
+        BRICK.Zone_Air_Temperature_Setpoint: {
+        "version": "1.3.0",
+        "mitigation_message": "The class 'Zone_Air_Temperature_Setpoint' is deprecated in favor of more explicit class names to provide a clearer representation for common, cooling, and heating zone air temperature setpoints",
+        RDFS.subClassOf: BRICK.Air_Temperature_Setpoint,
+    },
+    BRICK.Effective_Zone_Air_Temperature_Setpoint: {
+        "version": "1.3.0",
+        "mitigation_message": "The class 'Effective_Zone_Air_Temperature_Setpoint' is deprecated and replaced to better represent its function as a common setpoint",
+        "replace_with": BRICK.Effective_Common_Zone_Air_Temperature_Setpoint,
+        RDFS.subClassOf: BRICK.Zone_Air_Temperature_Setpoint,
+    },
+    BRICK.Occupied_Zone_Air_Temperaure_Setpoint: {
+        "version": "1.3.0",
+        "mitigation_message": "'Occupied_Zone_Air_Temperature_Setpoint' is deprecated in favor of further specifying that it is a common setpoint",
+        "replace_with": BRICK.Occupied_Common_Zone_Air_Temperature_Setpoint,
+        RDFS.subClassOf: BRICK.Zone_Air_Temperature_Setpoint,
+    },
+    BRICK.Unoccupied_Zone_Air_Temperature_Setpoint: {
+        "version": "1.3.0",
+        "mitigation_message": "'Unoccupied_Zone_Air_Temperature_Setpoint' is deprecated in favor of further specifying that it is a common setpoint",
+        "replace_with": BRICK.Unoccupied_Common_Zone_Air_Temperature_Setpoint,
+        RDFS.subClassOf: BRICK.Zone_Air_Temperature_Setpoint,
+    },
+    BRICK.Zone_Air_Cooling_Temperature_Setpoint: {
+        "version": "1.3.0",
+        "mitigation_message": "'Zone_Air_Cooling_Temperature_Setpoint' is deprecated to support new naming convention",
+        "replace_with": BRICK.Cooling_Zone_Air_Temperature_Setpoint,
+        RDFS.subClassOf: BRICK.Zone_Air_Temperature_Setpoint,
+    },
+    BRICK.Zone_Air_Heating_Temperature_Setpoint: {
+        "version": "1.3.0",
+        "mitigation_message": "'Zone_Air_Heating_Temperature_Setpoint' is deprecated to support new naming convention",
+        "replace_with": BRICK.Heating_Zone_Air_Temperature_Setpoint,
+        RDFS.subClassOf: BRICK.Zone_Air_Temperature_Setpoint,
+    },
     BRICK.Fresh_Air_Fan: {
         "version": "1.3.0",
         "mitigation_message": "Fresh Air Fan is deprecated in favor of Outside Fan because the latter is a more accurate representation",
