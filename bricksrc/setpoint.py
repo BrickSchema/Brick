@@ -1694,7 +1694,7 @@ setpoint_definitions = {
                                             TAG.Setpoint,
                                         ],
                                         "parents": [
-                                            BRICK.Effective_Air_Temperature_Setpoint
+                                            BRICK.Occupied_Air_Temperature_Setpoint
                                         ],
                                     },
                                     "Unoccupied_Common_Zone_Air_Temperature_Setpoint": {
@@ -1708,7 +1708,7 @@ setpoint_definitions = {
                                             TAG.Setpoint,
                                         ],
                                         "parents": [
-                                            BRICK.Effective_Air_Temperature_Setpoint
+                                            BRICK.Unoccupied_Air_Temperature_Setpoint
                                         ],
                                     },
                                 },
