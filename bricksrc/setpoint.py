@@ -1662,7 +1662,7 @@ setpoint_definitions = {
                                 BRICK.hasSubstance: BRICK.Zone_Air,
                                 "tags": [
                                     TAG.Point,
-                                    # TAG.Common,
+                                    TAG.Common,
                                     TAG.Zone,
                                     TAG.Air,
                                     TAG.Temperature,
@@ -1673,7 +1673,7 @@ setpoint_definitions = {
                                         "tags": [
                                             TAG.Point,
                                             TAG.Effective,
-                                            # TAG.Common,
+                                            TAG.Common,
                                             TAG.Zone,
                                             TAG.Air,
                                             TAG.Temperature,
@@ -1687,7 +1687,7 @@ setpoint_definitions = {
                                         "tags": [
                                             TAG.Point,
                                             TAG.Occupied,
-                                            # TAG.Common,
+                                            TAG.Common,
                                             TAG.Zone,
                                             TAG.Air,
                                             TAG.Temperature,
@@ -1701,7 +1701,7 @@ setpoint_definitions = {
                                         "tags": [
                                             TAG.Point,
                                             TAG.Unoccupied,
-                                            # TAG.Common,
+                                            TAG.Common,
                                             TAG.Zone,
                                             TAG.Air,
                                             TAG.Temperature,
@@ -1712,6 +1712,17 @@ setpoint_definitions = {
                                         ],
                                     },
                                 },
+                                    "Standby_Common_Zone_Air_Temperature_Setpoint": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Standby,
+                                            TAG.Common,
+                                            TAG.Zone,
+                                            TAG.Air,
+                                            TAG.Temperature,
+                                            TAG.Setpoint,
+                                        ],
+                                    },
                             },
                             "Cooling_Zone_Air_Temperature_Setpoint": {
                                 BRICK.hasQuantity: BRICK.Temperature,
@@ -1765,6 +1776,17 @@ setpoint_definitions = {
                                         ],
                                         "parents": [
                                             BRICK.Unoccupied_Air_Temperature_Setpoint
+                                        ],
+                                    },
+                                    "Standby_Cooling_Zone_Air_Temperature_Setpoint": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Standby,
+                                            TAG.Cool,
+                                            TAG.Zone,
+                                            TAG.Air,
+                                            TAG.Temperature,
+                                            TAG.Setpoint,
                                         ],
                                     },
                                 },
@@ -1821,6 +1843,17 @@ setpoint_definitions = {
                                         ],
                                         "parents": [
                                             BRICK.Unoccupied_Air_Temperature_Setpoint
+                                        ],
+                                    },
+                                    "Standby_Heating_Zone_Air_Temperature_Setpoint": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Standby,
+                                            TAG.Heat,
+                                            TAG.Zone,
+                                            TAG.Air,
+                                            TAG.Temperature,
+                                            TAG.Setpoint,
                                         ],
                                     },
                                 },
