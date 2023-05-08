@@ -9,19 +9,19 @@ deprecations = {
     BRICK.Effective_Zone_Air_Temperature_Setpoint: {
         "version": "1.3.0",
         "mitigation_message": "The class 'Effective_Zone_Air_Temperature_Setpoint' is deprecated and replaced to better represent its function as a common setpoint",
-        "replace_with": BRICK.Effective_Common_Zone_Air_Temperature_Setpoint,
+        "replace_with": BRICK.Effective_Target_Zone_Air_Temperature_Setpoint,
         RDFS.subClassOf: BRICK.Zone_Air_Temperature_Setpoint,
     },
     BRICK.Occupied_Zone_Air_Temperaure_Setpoint: {
         "version": "1.3.0",
         "mitigation_message": "'Occupied_Zone_Air_Temperature_Setpoint' is deprecated in favor of further specifying that it is a common setpoint",
-        "replace_with": BRICK.Occupied_Common_Zone_Air_Temperature_Setpoint,
+        "replace_with": BRICK.Occupied_Target_Zone_Air_Temperature_Setpoint,
         RDFS.subClassOf: BRICK.Zone_Air_Temperature_Setpoint,
     },
     BRICK.Unoccupied_Zone_Air_Temperature_Setpoint: {
         "version": "1.3.0",
         "mitigation_message": "'Unoccupied_Zone_Air_Temperature_Setpoint' is deprecated in favor of further specifying that it is a common setpoint",
-        "replace_with": BRICK.Unoccupied_Common_Zone_Air_Temperature_Setpoint,
+        "replace_with": BRICK.Unoccupied_Target_Zone_Air_Temperature_Setpoint,
         RDFS.subClassOf: BRICK.Zone_Air_Temperature_Setpoint,
     },
     BRICK.Zone_Air_Cooling_Temperature_Setpoint: {

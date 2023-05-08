@@ -1657,23 +1657,23 @@ setpoint_definitions = {
                                     },
                                 },
                             },
-                            "Common_Zone_Air_Temperature_Setpoint": {
+                            "Target_Zone_Air_Temperature_Setpoint": {
                                 BRICK.hasQuantity: BRICK.Temperature,
                                 BRICK.hasSubstance: BRICK.Zone_Air,
                                 "tags": [
                                     TAG.Point,
-                                    TAG.Common,
+                                    TAG.Target,
                                     TAG.Zone,
                                     TAG.Air,
                                     TAG.Temperature,
                                     TAG.Setpoint,
                                 ],
                                 "subclasses": {
-                                    "Effective_Common_Zone_Air_Temperature_Setpoint": {
+                                    "Effective_Target_Zone_Air_Temperature_Setpoint": {
                                         "tags": [
                                             TAG.Point,
                                             TAG.Effective,
-                                            TAG.Common,
+                                            TAG.Target,
                                             TAG.Zone,
                                             TAG.Air,
                                             TAG.Temperature,
@@ -1683,11 +1683,11 @@ setpoint_definitions = {
                                             BRICK.Effective_Air_Temperature_Setpoint
                                         ],
                                     },
-                                    "Occupied_Common_Zone_Air_Temperature_Setpoint": {
+                                    "Occupied_Target_Zone_Air_Temperature_Setpoint": {
                                         "tags": [
                                             TAG.Point,
                                             TAG.Occupied,
-                                            TAG.Common,
+                                            TAG.Target,
                                             TAG.Zone,
                                             TAG.Air,
                                             TAG.Temperature,
@@ -1697,11 +1697,11 @@ setpoint_definitions = {
                                             BRICK.Occupied_Air_Temperature_Setpoint
                                         ],
                                     },
-                                    "Unoccupied_Common_Zone_Air_Temperature_Setpoint": {
+                                    "Unoccupied_Target_Zone_Air_Temperature_Setpoint": {
                                         "tags": [
                                             TAG.Point,
                                             TAG.Unoccupied,
-                                            TAG.Common,
+                                            TAG.Target,
                                             TAG.Zone,
                                             TAG.Air,
                                             TAG.Temperature,
@@ -1712,11 +1712,11 @@ setpoint_definitions = {
                                         ],
                                     },
                                 },
-                                    "Standby_Common_Zone_Air_Temperature_Setpoint": {
+                                    "Standby_Target_Zone_Air_Temperature_Setpoint": {
                                         "tags": [
                                             TAG.Point,
                                             TAG.Standby,
-                                            TAG.Common,
+                                            TAG.Target,
                                             TAG.Zone,
                                             TAG.Air,
                                             TAG.Temperature,
