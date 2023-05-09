@@ -1476,30 +1476,6 @@ setpoint_definitions = {
                                     TAG.Temperature,
                                     TAG.Setpoint,
                                 ],
-                                "subclasses": {
-                                    "Effective_Air_Temperature_Cooling_Setpoint": {
-                                        "tags": [
-                                            TAG.Point,
-                                            TAG.Effective,
-                                            TAG.Air,
-                                            TAG.Cool,
-                                            TAG.Temperature,
-                                            TAG.Setpoint,
-                                        ],
-                                        "parents": [BRICK.Cooling_Temperature_Setpoint],
-                                    },
-                                    "Effective_Air_Temperature_Heating_Setpoint": {
-                                        "tags": [
-                                            TAG.Point,
-                                            TAG.Effective,
-                                            TAG.Air,
-                                            TAG.Heat,
-                                            TAG.Temperature,
-                                            TAG.Setpoint,
-                                        ],
-                                        "parents": [BRICK.Heating_Temperature_Setpoint],
-                                    },
-                                },
                             },
                             "Mixed_Air_Temperature_Setpoint": {
                                 BRICK.hasQuantity: BRICK.Temperature,
@@ -1711,7 +1687,6 @@ setpoint_definitions = {
                                             BRICK.Unoccupied_Air_Temperature_Setpoint
                                         ],
                                     },
-                                },
                                     "Standby_Target_Zone_Air_Temperature_Setpoint": {
                                         "tags": [
                                             TAG.Point,
@@ -1723,6 +1698,7 @@ setpoint_definitions = {
                                             TAG.Setpoint,
                                         ],
                                     },
+                                },
                             },
                             "Cooling_Zone_Air_Temperature_Setpoint": {
                                 BRICK.hasQuantity: BRICK.Temperature,
