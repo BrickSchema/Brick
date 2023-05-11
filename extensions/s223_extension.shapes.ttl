@@ -27,12 +27,3 @@
   owl:imports <https://brickschema.org/schema/1.3/Brick> ;
   owl:versionInfo "Created with TopBraid Composer" ;
 .
-brick:Equipment
-  sh:property bsh:hasConnectionPointShape ;
-.
-bsh:hasConnectionPointShape
-  a sh:PropertyShape ;
-  sh:path s223:hasConnectionPoint ;
-  rdfs:label "has connection point shape" ;
-  sh:class s223:ConnectionPoint ;
-.
