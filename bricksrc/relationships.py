@@ -104,7 +104,14 @@ relationships = {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         OWL.inverseOf: BRICK["hasPoint"],
         "domain": BRICK.Point,
-        "range": [BRICK.Equipment, BRICK.Location],
+        "range": [
+            BRICK.Equipment,
+            BRICK.Location,
+            S223.ConnectionPoint,
+            S223.Connection,
+            S223.Connectable,
+            S223.Segment,
+        ],
         RDFS.label: Literal("Is point of"),
     },
     "hasPart": {
