@@ -524,7 +524,7 @@ shape_properties = {
                 ),
                 "datatype": XSD.string,
             },
-            BRICK.deprecationMigitationRule: {
+            BRICK.deprecationMitigationRule: {
                 SKOS.definition: Literal(
                     "A SHACL rule which will mitigate the deprecation"
                 ),
