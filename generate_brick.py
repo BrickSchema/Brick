@@ -25,6 +25,7 @@ from bricksrc.namespaces import (
     VCARD,
     SH,
     REF,
+    S223,
 )
 from bricksrc.namespaces import bind_prefixes
 
@@ -872,6 +873,9 @@ pointclasses = ["Alarm", "Status", "Command", "Setpoint", "Sensor", "Parameter"]
 for pc in pointclasses:
     for o in filter(lambda x: x != pc, pointclasses):
         G.add((BRICK[pc], OWL.disjointWith, BRICK[o]))
+
+# Make Equipment a subclass of s223.Equipment
+G.add((BRICK.Equipment, RDFS.subClassOf, S223.Equipment))
 
 logging.info("Defining Equipment, System and Location subclasses")
 # define other root class structures

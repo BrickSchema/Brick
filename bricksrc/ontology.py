@@ -44,6 +44,7 @@ ontology_imports = {
     "dimensionvector": "http://qudt.org/2.1/vocab/dimensionvector",
     "shacl": "http://www.w3.org/ns/shacl#",
     "bacnet": "http://data.ashrae.org/bacnet/2020",
+    "s223": "http://data.ashrae.org/standard223/1.0/model/core",
 }
 
 shacl_namespace_declarations = [

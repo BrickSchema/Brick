@@ -3,7 +3,7 @@ Entity property definitions
 """
 from collections import defaultdict
 from rdflib import Literal
-from .namespaces import BRICK, RDFS, SKOS, UNIT, XSD, SH, BSH, REF
+from .namespaces import BRICK, RDFS, SKOS, UNIT, XSD, SH, BSH, REF, S223
 
 # these are the "relationship"/predicates/OWL properties that
 # relate a Brick entity to a structured value.
