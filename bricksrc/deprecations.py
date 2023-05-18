@@ -240,7 +240,7 @@ deprecations = {
     },
     BRICK.Chilled_Water_Discharge_Flow_Setpoint: {
         "mitigation_message": "Swapped supply/return for entering/leaving with water-related points",
-        "replace_with": BRICK.Leaving_Chilled_Water__Flow_Setpoint,
+        "replace_with": BRICK.Leaving_Chilled_Water_Flow_Setpoint,
         "version": "1.3.0",
         RDFS.subClassOf: [
             BRICK.Chilled_Water_Flow_Setpoint,

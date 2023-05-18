@@ -151,7 +151,7 @@ ref:BACnetReference a owl:Class,
     sh:or ( [ sh:property [ a sh:PropertyShape ;
                         sh:datatype bacnet:Property ;
                         sh:defaultValue bacnet:Present_Value ;
-                        sh:path ref:read-property ],
+                        sh:path ref:bacnet-read-property ],
                     [ a sh:PropertyShape ;
                         sh:datatype xsd:string ;
                         sh:path bacnet:object-type ],
