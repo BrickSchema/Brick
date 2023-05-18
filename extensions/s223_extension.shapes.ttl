@@ -27,3 +27,37 @@
   owl:imports <https://brickschema.org/schema/1.3/Brick> ;
   owl:versionInfo "Created with TopBraid Composer" ;
 .
+brick:Equipment
+  sh:rule [
+      a sh:TripleRule ;
+      rdfs:comment "Infer the cnx relationship from hasConnectionPoint" ;
+      sh:name "InferredEquipmentToConnectionPointCnxProperty" ;
+      sh:object [
+          sh:path s223:hasConnectionPoint ;
+        ] ;
+      sh:predicate s223:cnx ;
+      sh:subject sh:this ;
+    ] ;
+  sh:rule [
+      a sh:TripleRule ;
+      rdfs:comment "Infer the cnx relationship from isConnectionPointOf" ;
+      sh:name "InferredEquipmentToConnectionPointCnxPropertyFromInverse" ;
+      sh:object [
+          sh:path [
+              sh:inversePath s223:isConnectionPointOf ;
+            ] ;
+        ] ;
+      sh:predicate s223:cnx ;
+      sh:subject sh:this ;
+    ] ;
+  sh:rule [
+      a sh:TripleRule ;
+      rdfs:comment "Infer the hasConnectionPoint relationship using cnx" ;
+      sh:name "InferredEquipmentToConnectionPointProperty" ;
+      sh:object [
+          sh:path s223:cnx ;
+        ] ;
+      sh:predicate s223:hasConnectionPoint ;
+      sh:subject sh:this ;
+    ] ;
+.

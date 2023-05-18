@@ -67,6 +67,12 @@ shacl_namespace_declarations = [
         SH.namespace: Literal(str(SH), datatype=XSD.anyURI),
         SH.prefix: Literal("sh"),
     },
+    {
+        SH.namespace: Literal(
+            "http://data.ashrae.org/standard223#", datatype=XSD.anyURI
+        ),
+        SH.prefix: Literal("s223"),
+    },
 ]
 
 

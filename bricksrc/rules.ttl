@@ -67,7 +67,7 @@ $this ?prop ?o .
 }
 WHERE {
   { $this ?prop ?o } UNION { ?o ?prop $this } .
-  ?prop a owl:SymmetricProperty .
+  {?prop a owl:SymmetricProperty} UNION {?prop a s223:SymmetricProperty} .
 }
 			""" ;
       sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
