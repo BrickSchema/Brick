@@ -5,6 +5,7 @@
 @prefix bsh: <https://brickschema.org/schema/BrickShape#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix s223: <http://data.ashrae.org/standard223#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
@@ -48,12 +49,13 @@ $this ?invP ?o .
 }
 WHERE {
 ?o ?p $this .
-?invP owl:inverseOf ?p .
+{?invP owl:inverseOf ?p} UNION {?invP s223:inverseOf ?p} .
 }
 			""" ;
       sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
     ] ;
   sh:targetClass brick:Entity ;
+  sh:targetClass s223:Concept ;
 .
 
 bsh:InferSymmetricProperties
