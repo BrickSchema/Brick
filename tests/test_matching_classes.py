@@ -166,6 +166,7 @@ def matchSupplyDischarge(d, e):
 # maincode
 def test_matching_classes(brick_with_imports):
     g = brick_with_imports
+    g.expand("shacl")
     # DeductiveClosure(OWLRL_Semantics).expand(g)
 
     d = getDict(
