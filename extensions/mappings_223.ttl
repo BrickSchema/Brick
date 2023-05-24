@@ -1,0 +1,109 @@
+# baseURI: https://brickschema.org/extension/mappings_223
+# prefix: mappings_223
+
+@prefix brick: <https://brickschema.org/schema/Brick#> .
+@prefix mappings_223: <https://brickschema.org/extension/mappings_223#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix s223: <http://data.ashrae.org/standard223#> .
+@prefix s223tobrick: <https://brickschema.org/extension/brick_extension_interpret_223#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+s223:AbstractSensor
+  s223tobrick:translatesTo brick:Sensor ;
+.
+s223:ActuatableProperty
+  s223tobrick:translatesTo brick:Command ;
+.
+s223:AirHandlingUnit
+  s223tobrick:translatesTo brick:AHU ;
+.
+s223:Battery
+  s223tobrick:translatesTo brick:Battery ;
+.
+s223:Boiler
+  s223tobrick:translatesTo brick:Boiler ;
+.
+s223:Chiller
+  s223tobrick:translatesTo brick:Chiller ;
+.
+s223:Coil
+  s223tobrick:translatesTo brick:Coil ;
+.
+s223:Compressor
+  s223tobrick:translatesTo brick:Compressor ;
+.
+s223:Damper
+  s223tobrick:translatesTo brick:Damper ;
+.
+s223:Fan
+  s223tobrick:translatesTo brick:Fan ;
+.
+s223:Filter
+  s223tobrick:translatesTo brick:Filter ;
+.
+s223:Humidifier
+  s223tobrick:translatesTo brick:Humidifier ;
+.
+s223:Inverter
+  s223tobrick:translatesTo brick:Inverter ;
+.
+s223:Luminaire
+  s223tobrick:translatesTo brick:Luminaire ;
+.
+s223:Medium-Air
+  s223tobrick:translatesTo brick:Air ;
+.
+s223:Medium-NaturalGas
+  s223tobrick:translatesTo brick:Natural_Gas ;
+.
+s223:Medium-Refrigerant
+  s223tobrick:translatesTo brick:Refrigerant ;
+.
+s223:PhysicalSpace
+  s223tobrick:translatesTo brick:Location ;
+.
+s223:Pump
+  s223tobrick:translatesTo brick:Pump ;
+.
+s223:QuantifiableProperty
+  s223tobrick:translatesTo brick:Parameter ;
+.
+s223:Radiator
+  s223tobrick:translatesTo brick:Radiator ;
+.
+s223:Setpoint
+  s223tobrick:translatesTo brick:Setpoint ;
+.
+s223:System
+  s223tobrick:translatesTo brick:Collection ;
+.
+s223:Thermostat
+  s223tobrick:translatesTo brick:Thermostat ;
+.
+s223:VFD
+  s223tobrick:translatesTo brick:VFD ;
+.
+s223:Valve
+  s223tobrick:translatesTo brick:Valve ;
+.
+s223:Water-ChilledWater
+  s223tobrick:translatesTo brick:Chilled_Water ;
+.
+s223:Water-GlycolSolution
+  s223tobrick:translatesTo brick:Glycol ;
+.
+s223:Water-HotWater
+  s223tobrick:translatesTo brick:Hot_Water ;
+.
+s223:Water-Steam
+  s223tobrick:translatesTo brick:Steam ;
+.
+s223tobrick:translatesTo
+  a rdf:Property ;
+.
+<https://brickschema.org/extension/mappings_223>
+  a owl:Ontology ;
+  owl:versionInfo "Created with TopBraid Composer" ;
+.

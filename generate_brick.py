@@ -768,7 +768,7 @@ def add_definitions():
             )
         )
         if "replace_with" in md:
-            G.add((deprecation, BRICK.deprecationMigitationRule, shape))
+            G.add((deprecation, BRICK.deprecationMitigationRule, shape))
             G.add((shape, A, SH.NodeShape))
             G.add((shape, SH.targetClass, deprecated_term))
             G.add((shape, SH.rule, rule))
