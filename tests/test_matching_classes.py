@@ -173,7 +173,7 @@ def test_matching_classes(brick_with_imports):
         """
        SELECT DISTINCT ?c ?p
        WHERE {
-           ?c brick:aliasOf?/rdfs:subClassOf/brick:aliasOf? ?p .
+           ?c (rdfs:subClassOf | owl:equivalentClass)+ ?p .
            FILTER NOT EXISTS { ?c owl:deprecated true } .
            FILTER NOT EXISTS { ?p owl:deprecated true } .
        }
@@ -190,7 +190,7 @@ def test_matching_classes(brick_with_imports):
         """
        SELECT DISTINCT ?c ?p
        WHERE {
-           ?c brick:aliasOf?/rdfs:subClassOf*/brick:aliasOf? brick:Class .
+           ?c (rdfs:subClassOf | owl:equivalentClass)* brick:Class .
            ?c owl:equivalentClass ?p .
            FILTER NOT EXISTS { ?c owl:deprecated true } .
        }

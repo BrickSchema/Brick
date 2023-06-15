@@ -36,10 +36,9 @@ system_subclasses = {
         },
     },
     "Gas_System": {"tags": [TAG.Gas, TAG.System]},
-    "HVAC_System": {"tags": [TAG.HVAC, TAG.System]},
     "Heating_Ventilation_Air_Conditioning_System": {
-        OWL.equivalentClass: BRICK["HVAC_System"],
-        "tags": [TAG.Heat, TAG.Ventilation, TAG.Air, TAG.Conditioning, TAG.System],
+        "tags": [TAG.Heat, TAG.Ventilation, TAG.Air, TAG.Conditioning, TAG.HVAC, TAG.System],
+        "aliases": [BRICK["HVAC_System"]],
         "subclasses": {
             "Air_System": {
                 "tags": [TAG.Air, TAG.System],
@@ -167,13 +166,8 @@ collection_classes = {
         "constraints": {BRICK.hasPart: [BRICK.Equipment, BRICK.Point, BRICK.Location]},
     },
     "Photovoltaic_Array": {
-        "tags": [TAG.Collection, TAG.Photovoltaic, TAG.Array],
+        "tags": [TAG.Collection, TAG.Photovoltaic, TAG.PV, TAG.Array],
+        "aliases": [BRICK["PV_Array"]],
         "constraints": {BRICK.hasPart: [BRICK.PV_Panel]},
-        OWL.equivalentClass: BRICK["PV_Array"],
-    },
-    "PV_Array": {
-        "tags": [TAG.Collection, TAG.PV, TAG.Array],
-        "constraints": {BRICK.hasPart: [BRICK.PV_Panel]},
-        OWL.equivalentClass: BRICK["Photovoltaic_Array"],
     },
 }
