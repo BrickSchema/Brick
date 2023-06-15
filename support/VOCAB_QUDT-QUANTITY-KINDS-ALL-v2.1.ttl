@@ -23,7 +23,7 @@
   a owl:Ontology ;
   vaem:hasGraphMetadata vaem:GMD_QUDT-QUANTITY-KINDS-ALL ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
-  rdfs:label "QUDT VOCAB Quantity Kinds  Release 2.1.26" ;
+  rdfs:label "QUDT Quantity Kind Vocabulary Version 2.1.27" ;
   owl:imports <http://qudt.org/2.1/schema/facade/qudt> ;
   owl:imports <http://qudt.org/2.1/vocab/dimensionvector> ;
   owl:versionIRI <http://qudt.org/2.1/vocab/quantitykind> ;
@@ -242,7 +242,7 @@ quantitykind:Acidity
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:informativeReference "https://en.wikipedia.org/wiki/Acid"^^xsd:anyURI ;
   qudt:informativeReference "https://en.wikipedia.org/wiki/PH"^^xsd:anyURI ;
-  qudt:plaintextDescription "Chemicals or substances having a pH less than 7 are said to be acidic; lower pH means higher acidity." ;
+  qudt:plainTextDescription "Chemicals or substances having a pH less than 7 are said to be acidic; lower pH means higher acidity." ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Acidity"@en ;
   skos:broader quantitykind:PH ;
@@ -1145,6 +1145,7 @@ quantitykind:Asset
 quantitykind:AtmosphericHydroxylationRate
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:CentiM3-PER-MOL-SEC ;
+  qudt:applicableUnit unit:M3-PER-MOL-SEC ;
   qudt:hasDimensionVector qkdv:A-1E0L3I0M0H0T-1D0 ;
   qudt:plainTextDescription "A second order reaction rate constant that is a specific second order reaction rate constant that governs the kinetics of an atmospheric, gas-phase reaction between hydroxyl radicals and an organic chemical." ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
@@ -1580,7 +1581,7 @@ quantitykind:Basicity
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:informativeReference "https://en.wikipedia.org/wiki/Base_(chemistry)"^^xsd:anyURI ;
   qudt:informativeReference "https://en.wikipedia.org/wiki/PH"^^xsd:anyURI ;
-  qudt:plaintextDescription "Chemicals or substances having a pH higher than 7 are said to be basic; higher pH means higher basicity." ;
+  qudt:plainTextDescription "Chemicals or substances having a pH higher than 7 are said to be basic; higher pH means higher basicity." ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Acidity"@en ;
   skos:broader quantitykind:PH ;
@@ -1921,6 +1922,7 @@ quantitykind:BurnRate
   qudt:applicableUnit unit:CentiM-PER-HR ;
   qudt:applicableUnit unit:CentiM-PER-KiloYR ;
   qudt:applicableUnit unit:CentiM-PER-SEC ;
+  qudt:applicableUnit unit:CentiM-PER-YR ;
   qudt:applicableUnit unit:FT-PER-DAY ;
   qudt:applicableUnit unit:FT-PER-HR ;
   qudt:applicableUnit unit:FT-PER-MIN ;
@@ -2457,6 +2459,7 @@ quantitykind:CartesianCoordinates
 quantitykind:CartesianVolume
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:AC-FT ;
+  qudt:applicableUnit unit:ANGSTROM3 ;
   qudt:applicableUnit unit:BBL ;
   qudt:applicableUnit unit:BBL_UK_PET ;
   qudt:applicableUnit unit:BBL_US ;
@@ -3142,7 +3145,7 @@ quantitykind:CubicElectricDipoleMomentPerSquareEnergy
   a qudt:QuantityKind ;
   dcterms:isReplacedBy quantitykind:ElectricDipoleMoment_CubicPerEnergy_Squared ;
   qudt:deprecated true ;
-  qudt:hasDimensionVector qkdv:A0E3L-1I0M-2H0T7D0 ;
+  qudt:hasDimensionVector qkdv:A0E3L-3I0M-2H0T7D0 ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Cubic Electric Dipole Moment per Square Energy"@en ;
 .
@@ -3253,6 +3256,7 @@ quantitykind:DELTA-V
   qudt:applicableUnit unit:CentiM-PER-HR ;
   qudt:applicableUnit unit:CentiM-PER-KiloYR ;
   qudt:applicableUnit unit:CentiM-PER-SEC ;
+  qudt:applicableUnit unit:CentiM-PER-YR ;
   qudt:applicableUnit unit:FT-PER-DAY ;
   qudt:applicableUnit unit:FT-PER-HR ;
   qudt:applicableUnit unit:FT-PER-MIN ;
@@ -4330,6 +4334,7 @@ quantitykind:EarthClosestApproachVehicleVelocity
   qudt:applicableUnit unit:CentiM-PER-HR ;
   qudt:applicableUnit unit:CentiM-PER-KiloYR ;
   qudt:applicableUnit unit:CentiM-PER-SEC ;
+  qudt:applicableUnit unit:CentiM-PER-YR ;
   qudt:applicableUnit unit:FT-PER-DAY ;
   qudt:applicableUnit unit:FT-PER-HR ;
   qudt:applicableUnit unit:FT-PER-MIN ;
@@ -4721,7 +4726,7 @@ quantitykind:ElectricCurrentPerUnitTemperature
   qudt:applicableUnit unit:A-PER-DEG_C ;
   qudt:hasDimensionVector qkdv:A0E1L0I0M0H-1T0D0 ;
   qudt:plainTextDescription "\"Electric Current per Unit Temperature\" is used to express how a current is subject to temperature. Originally used in Wien's Law to describe phenomena related to filaments. One use today is to express how a current generator derates with temperature." ;
-  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind/all> ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Electric Current per Unit Temperature"@en ;
 .
 quantitykind:ElectricCurrentPhasor
@@ -4756,7 +4761,7 @@ quantitykind:ElectricDipoleMoment
 quantitykind:ElectricDipoleMoment_CubicPerEnergy_Squared
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:C3-M-PER-J2 ;
-  qudt:hasDimensionVector qkdv:A0E3L-1I0M-2H0T7D0 ;
+  qudt:hasDimensionVector qkdv:A0E3L-3I0M-2H0T7D0 ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Cubic Electric Dipole Moment per Square Energy"@en ;
 .
@@ -5361,6 +5366,7 @@ quantitykind:EllipticalOrbitApogeeVelocity
   qudt:applicableUnit unit:CentiM-PER-HR ;
   qudt:applicableUnit unit:CentiM-PER-KiloYR ;
   qudt:applicableUnit unit:CentiM-PER-SEC ;
+  qudt:applicableUnit unit:CentiM-PER-YR ;
   qudt:applicableUnit unit:FT-PER-DAY ;
   qudt:applicableUnit unit:FT-PER-HR ;
   qudt:applicableUnit unit:FT-PER-MIN ;
@@ -5397,6 +5403,7 @@ quantitykind:EllipticalOrbitPerigeeVelocity
   qudt:applicableUnit unit:CentiM-PER-HR ;
   qudt:applicableUnit unit:CentiM-PER-KiloYR ;
   qudt:applicableUnit unit:CentiM-PER-SEC ;
+  qudt:applicableUnit unit:CentiM-PER-YR ;
   qudt:applicableUnit unit:FT-PER-DAY ;
   qudt:applicableUnit unit:FT-PER-HR ;
   qudt:applicableUnit unit:FT-PER-MIN ;
@@ -6571,6 +6578,7 @@ quantitykind:FinalOrCurrentVehicleMass
 quantitykind:FirstMomentOfArea
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:AC-FT ;
+  qudt:applicableUnit unit:ANGSTROM3 ;
   qudt:applicableUnit unit:BBL ;
   qudt:applicableUnit unit:BBL_UK_PET ;
   qudt:applicableUnit unit:BBL_US ;
@@ -7623,6 +7631,7 @@ quantitykind:Heat
   qudt:applicableUnit unit:MegaJ ;
   qudt:applicableUnit unit:THM_EEC ;
   qudt:applicableUnit unit:THM_US ;
+  qudt:applicableUnit unit:TON_FG-HR ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Heat"^^xsd:anyURI ;
   qudt:hasDimensionVector qkdv:A0E0L2I0M1H0T-2D0 ;
   qudt:normativeReference "http://www.iso.org/iso/catalogue_detail?csnumber=31890"^^xsd:anyURI ;
@@ -7768,7 +7777,7 @@ quantitykind:HeatingValue
   qudt:hasDimensionVector qkdv:A0E0L2I0M0H0T-2D0 ;
   qudt:informativeReference "https://en.wikipedia.org/wiki/Heat_of_combustion"^^xsd:anyURI ;
   qudt:informativeReference "https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC1/HTML/link/ifcheatingvaluemeasure.htm"^^xsd:anyURI ;
-  qudt:plaintextDescription "The heating value (or energy value or calorific value) of a substance, usually a fuel or food (see food energy), is the amount of heat released during the combustion of a specified amount of it. " ;
+  qudt:plainTextDescription "The heating value (or energy value or calorific value) of a substance, usually a fuel or food (see food energy), is the amount of heat released during the combustion of a specified amount of it. " ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Calorific Value"@en ;
   rdfs:label "Energy Value"@en ;
@@ -7919,6 +7928,7 @@ quantitykind:HorizontalVelocity
   qudt:applicableUnit unit:CentiM-PER-HR ;
   qudt:applicableUnit unit:CentiM-PER-KiloYR ;
   qudt:applicableUnit unit:CentiM-PER-SEC ;
+  qudt:applicableUnit unit:CentiM-PER-YR ;
   qudt:applicableUnit unit:FT-PER-DAY ;
   qudt:applicableUnit unit:FT-PER-HR ;
   qudt:applicableUnit unit:FT-PER-MIN ;
@@ -8311,6 +8321,7 @@ quantitykind:InitialVelocity
   qudt:applicableUnit unit:CentiM-PER-HR ;
   qudt:applicableUnit unit:CentiM-PER-KiloYR ;
   qudt:applicableUnit unit:CentiM-PER-SEC ;
+  qudt:applicableUnit unit:CentiM-PER-YR ;
   qudt:applicableUnit unit:FT-PER-DAY ;
   qudt:applicableUnit unit:FT-PER-HR ;
   qudt:applicableUnit unit:FT-PER-MIN ;
@@ -8509,7 +8520,9 @@ quantitykind:InverseEnergy
 .
 quantitykind:InverseEnergy_Squared
   a qudt:QuantityKind ;
+  qudt:applicableUnit unit:PER-EV2 ;
   qudt:applicableUnit unit:PER-GigaEV2 ;
+  qudt:applicableUnit unit:PER-J2 ;
   qudt:hasDimensionVector qkdv:A0E0L-4I0M-2H0T4D0 ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Inverse Square Energy"@en ;
@@ -8550,6 +8563,7 @@ quantitykind:InverseMagneticFlux
 .
 quantitykind:InverseMass_Squared
   a qudt:QuantityKind ;
+  qudt:applicableUnit unit:PER-KiloGM2 ;
   qudt:applicableUnit unit:PER-PlanckMass2 ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M-2H0T0D0 ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
@@ -9954,7 +9968,7 @@ quantitykind:LuminousIntensityDistribution
   qudt:applicableUnit unit:CD-PER-LM ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:informativeReference "https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC1/HTML/link/ifcluminousintensitydistributionmeasure.htm"^^xsd:anyURI ;
-  qudt:plaintextDescription "\"Luminous Intensity Distribution\" is a measure of the luminous intensity of a light source that changes according to the direction of the ray. It is normally based on some standardized distribution light distribution curves. Usually measured in Candela/Lumen (cd/lm) or (cd/klm)." ;
+  qudt:plainTextDescription "\"Luminous Intensity Distribution\" is a measure of the luminous intensity of a light source that changes according to the direction of the ray. It is normally based on some standardized distribution light distribution curves. Usually measured in Candela/Lumen (cd/lm) or (cd/klm)." ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Ion Concentration"@en ;
 .
@@ -11102,6 +11116,7 @@ quantitykind:MassPerArea
   qudt:applicableUnit unit:KiloGM-PER-M2 ;
   qudt:applicableUnit unit:LB-PER-FT2 ;
   qudt:applicableUnit unit:LB-PER-IN2 ;
+  qudt:applicableUnit unit:MegaGM-PER-HA ;
   qudt:applicableUnit unit:MicroG-PER-CentiM2 ;
   qudt:applicableUnit unit:MilliGM-PER-CentiM2 ;
   qudt:applicableUnit unit:MilliGM-PER-HA ;
@@ -11994,7 +12009,7 @@ quantitykind:ModulusOfLinearSubgradeReaction
   qudt:applicableUnit unit:N-PER-M2 ;
   qudt:hasDimensionVector qkdv:A0E0L-1I0M1H0T-2D0 ;
   qudt:informativeReference "https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC1/HTML/link/ifcmodulusoflinearsubgradereactionmeasure.htm"^^xsd:anyURI ;
-  qudt:plaintextDescription "Modulus of Linear Subgrade Reaction is a measure for modulus of linear subgrade reaction, which expresses the elastic bedding of a linear structural element per length, such as for a beam. It is typically measured in N/m^2" ;
+  qudt:plainTextDescription "Modulus of Linear Subgrade Reaction is a measure for modulus of linear subgrade reaction, which expresses the elastic bedding of a linear structural element per length, such as for a beam. It is typically measured in N/m^2" ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Modulus of Linear Subgrade Reaction"@en ;
   skos:broader quantitykind:ForcePerArea ;
@@ -12004,7 +12019,7 @@ quantitykind:ModulusOfRotationalSubgradeReaction
   qudt:applicableUnit unit:N-M-PER-M-RAD ;
   qudt:hasDimensionVector qkdv:A0E0L1I0M1H0T-2D0 ;
   qudt:informativeReference "https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC1/HTML/link/ifcmodulusofrotationalsubgradereactionmeasure.htm"^^xsd:anyURI ;
-  qudt:plaintextDescription "Modulus of Rotational Subgrade Reaction is a measure for modulus of rotational subgrade reaction, which expresses the rotational elastic bedding of a linear structural element per length, such as for a beam. It is typically measured in Nm/(m*rad)." ;
+  qudt:plainTextDescription "Modulus of Rotational Subgrade Reaction is a measure for modulus of rotational subgrade reaction, which expresses the rotational elastic bedding of a linear structural element per length, such as for a beam. It is typically measured in Nm/(m*rad)." ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Modulus of Rotational Subgrade Reaction"@en ;
   skos:broader quantitykind:ForcePerAngle ;
@@ -12014,7 +12029,7 @@ quantitykind:ModulusOfSubgradeReaction
   qudt:applicableUnit unit:N-PER-M3 ;
   qudt:hasDimensionVector qkdv:A0E0L-2I0M1H0T-2D0 ;
   qudt:informativeReference "https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC1/HTML/link/ifcmodulusofsubgradereactionmeasure.htm"^^xsd:anyURI ;
-  qudt:plaintextDescription "Modulus of Subgrade Reaction is a geotechnical measure describing interaction between foundation structures and the soil. May also be known as bedding measure. Usually measured in N/m3." ;
+  qudt:plainTextDescription "Modulus of Subgrade Reaction is a geotechnical measure describing interaction between foundation structures and the soil. May also be known as bedding measure. Usually measured in N/m3." ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Modulus of Subgrade Reaction"@en ;
 .
@@ -12176,7 +12191,7 @@ quantitykind:MolarAttenuationCoefficient
 quantitykind:MolarConductivity
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:S-M2-PER-MOL ;
-  qudt:hasDimensionVector qkdv:A0E2L-3I0M-1H0T3D0 ;
+  qudt:hasDimensionVector qkdv:A-1E2L0I0M-1H0T3D0 ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Molar_conductivity"^^xsd:anyURI ;
   qudt:informativeReference "http://encyclopedia2.thefreedictionary.com/molar+conductivity"^^xsd:anyURI ;
   qudt:latexDefinition "\\(\\Gamma_m = \\frac{x}{c_B}\\), where \\(x\\) is the electrolytic conductivity and \\(c_B\\) is the amount-of-substance concentration."^^qudt:LatexString ;
@@ -12184,7 +12199,6 @@ quantitykind:MolarConductivity
   qudt:plainTextDescription "\"Molar Conductivity\" is the conductivity of an electrolyte solution divided by the molar concentration of the electrolyte, and so measures the efficiency with which a given electrolyte conducts electricity in solution." ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Molar Conductivity"@en ;
-  skos:broader quantitykind:Conductivity ;
 .
 quantitykind:MolarEnergy
   a qudt:QuantityKind ;
@@ -13283,7 +13297,7 @@ quantitykind:PH
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:informativeReference "https://en.wikipedia.org/wiki/Acid"^^xsd:anyURI ;
   qudt:informativeReference "https://en.wikipedia.org/wiki/PH"^^xsd:anyURI ;
-  qudt:plaintextDescription "Chemicals or substances having a pH less than 7 are said to be acidic; more than 7 means basic." ;
+  qudt:plainTextDescription "Chemicals or substances having a pH less than 7 are said to be acidic; more than 7 means basic." ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "PH"@en ;
 .
@@ -14090,9 +14104,8 @@ quantitykind:PolarMomentOfInertia
 quantitykind:Polarizability
   a qudt:QuantityKind ;
   dcterms:description "\"Polarizability\" is the relative tendency of a charge distribution, like the electron cloud of an atom or molecule, to be distorted from its normal shape by an external electric field, which may be caused by the presence of a nearby ion or dipole. The electronic polarizability \\(\\alpha\\) is defined as the ratio of the induced dipole moment of an atom to the electric field that produces this dipole moment. Polarizability is often a scalar valued quantity, however in the general case it is tensor-valued."^^qudt:LatexString ;
-  qudt:applicableUnit unit:ANGSTROM3 ;
   qudt:applicableUnit unit:C-M2-PER-V ;
-  qudt:applicableUnit unit:C2-M-PER-J ;
+  qudt:applicableUnit unit:C2-M2-PER-J ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Polarizability"^^xsd:anyURI ;
   qudt:hasDimensionVector qkdv:A0E2L0I0M-1H0T4D0 ;
   qudt:latexSymbol "\\(\\alpha\\)"^^qudt:LatexString ;
@@ -14587,7 +14600,7 @@ quantitykind:PressureLossPerLength
   qudt:applicableUnit unit:KiloGM-PER-M2-SEC2 ;
   qudt:hasDimensionVector qkdv:A0E0L-2I0M1H0T-2D0 ;
   qudt:informativeReference "https://en.wikipedia.org/wiki/Friction_loss"^^xsd:anyURI ;
-  qudt:plaintextDescription "\"Pressure Loss per Length\" refers to the power lost in overcoming the friction between two moving surfaces. Also referred to as \"Friction Loss\"." ;
+  qudt:plainTextDescription "\"Pressure Loss per Length\" refers to the power lost in overcoming the friction between two moving surfaces. Also referred to as \"Friction Loss\"." ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Pressure Loss per Length"@en ;
 .
@@ -16150,7 +16163,7 @@ quantitykind:RotationalMass
   qudt:exactMatch quantitykind:MomentOfInertia ;
   qudt:hasDimensionVector qkdv:A0E0L2I0M1H0T0D0 ;
   qudt:informativeReference "https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC2/HTML/link/ifcrotationalmassmeasure.htm"^^xsd:anyURI ;
-  qudt:plaintextDescription "\"Rotational Mass\" denotes the inertia of a body with respect to angular acceleration. It is usually measured in kg*m^2." ;
+  qudt:plainTextDescription "\"Rotational Mass\" denotes the inertia of a body with respect to angular acceleration. It is usually measured in kg*m^2." ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Rotational Mass"@en ;
 .
@@ -16209,6 +16222,7 @@ quantitykind:SecondMomentOfArea
 quantitykind:SecondOrderReactionRateConstant
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:CentiM3-PER-MOL-SEC ;
+  qudt:applicableUnit unit:M3-PER-MOL-SEC ;
   qudt:hasDimensionVector qkdv:A-1E0L3I0M0H0T-1D0 ;
   qudt:plainTextDescription "A quantity kind that is a proportionality constant that quantifies the relationship between the molar concentrations of the reactants and the rate of a second order chemical reaction." ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
@@ -16252,7 +16266,7 @@ quantitykind:SectionAreaIntegral
   qudt:applicableUnit unit:M5 ;
   qudt:hasDimensionVector qkdv:A0E0L5I0M0H0T0D0 ;
   qudt:informativeReference "https://standards.buildingsmart.org/IFC/RELEASE/IFC4/ADD1/HTML/link/ifcsectionalareaintegralmeasure.htm"^^xsd:anyURI ;
-  qudt:plaintextDescription "The sectional area integral measure is typically used in torsional analysis. It is usually measured in M⁵." ;
+  qudt:plainTextDescription "The sectional area integral measure is typically used in torsional analysis. It is usually measured in M⁵." ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Section Area Integral"@en ;
 .
@@ -16559,6 +16573,7 @@ quantitykind:Slowing-DownLength
 quantitykind:SoilAdsorptionCoefficient
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:L-PER-KiloGM ;
+  qudt:applicableUnit unit:M3-PER-KiloGM ;
   qudt:hasDimensionVector qkdv:A0E0L3I0M-1H0T0D0 ;
   qudt:plainTextDescription "A specific volume that is the ratio of the amount of substance adsorbed per unit weight of organic carbon in the soil or sediment to the concentration of the chemical in aqueous solution at equilibrium." ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
@@ -17075,6 +17090,22 @@ quantitykind:SpecificActivity
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Specific Activity"@en ;
 .
+quantitykind:SpecificElectricCharge
+  a qudt:QuantityKind ;
+  qudt:applicableUnit unit:MilliA-HR-PER-GM ;
+  qudt:hasDimensionVector qkdv:A0E1L0I0M-1H0T1D0 ;
+  qudt:plainTextDescription "Electric charge (often capacity in the context of electrochemical cells) relativ to the mass (often only active components). capacity " ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
+  rdfs:label "Specific Electric Charge" ;
+.
+quantitykind:SpecificElectricCurrent
+  a qudt:QuantityKind ;
+  dcterms:description "\"Specific Electric Current\" is a measure to specify the applied current relative to a corresponding mass. This measure is often used for standardization within electrochemistry."^^qudt:LatexString ;
+  qudt:applicableUnit unit:A-PER-GM ;
+  qudt:hasDimensionVector qkdv:A0E1L0I0M-1H0T0D0 ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
+  rdfs:label "Specific Electrical Current" ;
+.
 quantitykind:SpecificEnergy
   a qudt:QuantityKind ;
   dcterms:description "\\(\\textbf{Specific Energy}\\) is defined as the energy per unit mass. Common metric units are \\(J/kg\\). It is an intensive property. Contrast this with energy, which is an extensive property. There are two main types of specific energy: potential energy and specific kinetic energy. Others are the \\(\\textbf{gray}\\) and \\(\\textbf{sievert}\\), which are measures for the absorption of radiation. The concept of specific energy applies to a particular or theoretical way of extracting useful energy from the material considered that is usually implied by context. These intensive properties are each symbolized by using the lower case letter of the symbol for the corresponding extensive property, which is symbolized by a capital letter. For example, the extensive thermodynamic property enthalpy is symbolized by \\(H\\); specific enthalpy is symbolized by \\(h\\)."^^qudt:LatexString ;
@@ -17320,6 +17351,7 @@ quantitykind:SpecificImpulseByMass
   qudt:applicableUnit unit:CentiM-PER-HR ;
   qudt:applicableUnit unit:CentiM-PER-KiloYR ;
   qudt:applicableUnit unit:CentiM-PER-SEC ;
+  qudt:applicableUnit unit:CentiM-PER-YR ;
   qudt:applicableUnit unit:FT-PER-DAY ;
   qudt:applicableUnit unit:FT-PER-HR ;
   qudt:applicableUnit unit:FT-PER-MIN ;
@@ -18025,6 +18057,18 @@ quantitykind:Stress
   rdfs:label "Stress"@en ;
   skos:broader quantitykind:ForcePerArea ;
 .
+quantitykind:StressIntensityFactor
+  a qudt:QuantityKind ;
+  qudt:applicableUnit unit:MegaPA-M0pt5 ;
+  qudt:applicableUnit unit:PA-M0pt5 ;
+  qudt:hasDimensionVector qkdv:A0E0L-0pt5I0M1H0T-2D0 ;
+  qudt:informativeReference "https://en.wikipedia.org/wiki/Stress_intensity_factor"^^xsd:anyURI ;
+  qudt:latexSymbol "\\(\\K\\)"^^qudt:LatexString ;
+  qudt:plainTextDescription "In fracture mechanics, the stress intensity factor (K) is used to predict the stress state (\"stress intensity\") near the tip of a crack or notch caused by a remote load or residual stresses. It is a theoretical construct usually applied to a homogeneous, linear elastic material and is useful for providing a failure criterion for brittle materials, and is a critical technique in the discipline of damage tolerance. The concept can also be applied to materials that exhibit small-scale yielding at a crack tip." ;
+  qudt:symbol "K" ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
+  rdfs:label "Stress Intensity Factor"@en ;
+.
 quantitykind:StressOpticCoefficient
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:NanoM-PER-CentiM-PSI ;
@@ -18366,7 +18410,7 @@ quantitykind:TemperatureGradient
   qudt:applicableUnit unit:K-PER-M ;
   qudt:hasDimensionVector qkdv:A0E0L-1I0M0H1T0D0 ;
   qudt:informativeReference "https://standards.buildingsmart.org/IFC/RELEASE/IFC4/ADD1/HTML/link/ifctemperaturegradientmeasure.htm"^^xsd:anyURI ;
-  qudt:plaintextDescription "The temperature gradient measures the difference of a temperature per length, as for instance used in an external wall or its layers. It is usually measured in K/m." ;
+  qudt:plainTextDescription "The temperature gradient measures the difference of a temperature per length, as for instance used in an external wall or its layers. It is usually measured in K/m." ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Temperature Gradient"@en ;
 .
@@ -18399,6 +18443,7 @@ quantitykind:TemperaturePerTime
 quantitykind:TemperaturePerTime_Squared
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:DEG_F-PER-SEC2 ;
+  qudt:applicableUnit unit:K-PER-SEC2 ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H1T-2D0 ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Temperature per Time Squared"@en ;
@@ -18420,7 +18465,7 @@ quantitykind:TemperatureRateOfChange
   qudt:applicableUnit unit:K-PER-SEC ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H1T-1D0 ;
   qudt:informativeReference "https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC2/HTML/link/ifctemperaturerateofchangemeasure.htm"^^xsd:anyURI ;
-  qudt:plaintextDescription "The \"Temperature Rate of Change\" measures the difference of a temperature per time (positive: rise, negative: fall), as for instance used with heat sensors. It is for example measured in K/s." ;
+  qudt:plainTextDescription "The \"Temperature Rate of Change\" measures the difference of a temperature per time (positive: rise, negative: fall), as for instance used with heat sensors. It is for example measured in K/s." ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Temperature Rate of Change"@en ;
   skos:broader quantitykind:TemperaturePerTime ;
@@ -18486,7 +18531,7 @@ quantitykind:ThermalAdmittance
   qudt:applicableUnit unit:W-PER-M2-K ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M1H-1T-3D0 ;
   qudt:informativeReference "https://en.wikipedia.org/wiki/Thermal_conductivity"^^xsd:anyURI ;
-  qudt:plaintextDescription "The heat transfer coefficient is also known as thermal admittance in the sense that the material may be seen as admitting heat to flow." ;
+  qudt:plainTextDescription "The heat transfer coefficient is also known as thermal admittance in the sense that the material may be seen as admitting heat to flow." ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Thermal Admittance"@en ;
   skos:broader quantitykind:CoefficientOfHeatTransfer ;
@@ -18634,6 +18679,7 @@ quantitykind:ThermalEnergy
   qudt:applicableUnit unit:MegaJ ;
   qudt:applicableUnit unit:THM_EEC ;
   qudt:applicableUnit unit:THM_US ;
+  qudt:applicableUnit unit:TON_FG-HR ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Thermal_energy"^^xsd:anyURI ;
   qudt:hasDimensionVector qkdv:A0E0L2I0M1H0T-2D0 ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Thermal_energy"^^xsd:anyURI ;
@@ -18654,7 +18700,7 @@ quantitykind:ThermalExpansionCoefficient
   qudt:applicableUnit unit:PER-K ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H-1T0D0 ;
   qudt:informativeReference "https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC2/HTML/link/ifcthermalexpansioncoefficientmeasure.htm"^^xsd:anyURI ;
-  qudt:plaintextDescription "The \"Thermal Expansion Coefficient\" is a measure of the thermal expansion coefficient of a material, which expresses its elongation (as a ratio) per temperature difference. It is usually measured in 1/K. A positive elongation per (positive) rise of temperature is expressed by a positive value." ;
+  qudt:plainTextDescription "The \"Thermal Expansion Coefficient\" is a measure of the thermal expansion coefficient of a material, which expresses its elongation (as a ratio) per temperature difference. It is usually measured in 1/K. A positive elongation per (positive) rise of temperature is expressed by a positive value." ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Thermal Expansion Coefficient"@en ;
   skos:broader quantitykind:ExpansionRatio ;
@@ -18714,7 +18760,7 @@ quantitykind:ThermalTransmittance
   qudt:applicableUnit unit:W-PER-M2-K ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M1H-1T-3D0 ;
   qudt:informativeReference "https://en.wikipedia.org/wiki/Thermal_transmittance"^^xsd:anyURI ;
-  qudt:plaintextDescription "Thermal transmittance is the rate of transfer of heat through matter. The thermal transmittance of a material (such as insulation or concrete) or an assembly (such as a wall or window) is expressed as a U-value. The concept of thermal transmittance is closely related to that of thermal resistance. The thermal resistance of a structure is the reciprocal of its thermal transmittance." ;
+  qudt:plainTextDescription "Thermal transmittance is the rate of transfer of heat through matter. The thermal transmittance of a material (such as insulation or concrete) or an assembly (such as a wall or window) is expressed as a U-value. The concept of thermal transmittance is closely related to that of thermal resistance. The thermal resistance of a structure is the reciprocal of its thermal transmittance." ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Thermal Transmittance"@en ;
   skos:broader quantitykind:CoefficientOfHeatTransfer ;
@@ -19413,6 +19459,7 @@ quantitykind:TrueExhaustVelocity
   qudt:applicableUnit unit:CentiM-PER-HR ;
   qudt:applicableUnit unit:CentiM-PER-KiloYR ;
   qudt:applicableUnit unit:CentiM-PER-SEC ;
+  qudt:applicableUnit unit:CentiM-PER-YR ;
   qudt:applicableUnit unit:FT-PER-DAY ;
   qudt:applicableUnit unit:FT-PER-HR ;
   qudt:applicableUnit unit:FT-PER-MIN ;
@@ -19518,7 +19565,7 @@ quantitykind:VaporPermeability
   qudt:applicableUnit unit:PERM_US ;
   qudt:hasDimensionVector qkdv:A0E0L-1I0M0H0T1D0 ;
   qudt:informativeReference "https://www.designingbuildings.co.uk/wiki/Vapour_Permeability"^^xsd:anyURI ;
-  qudt:plaintextDescription "Vapour permeability, or \"Breathability\" in a building refers to the ease with which water vapour passes through building elements. Building elements where vapour permeability is poorly designed can result in condensation, leading to unhealthy living environments and degradation of fabric." ;
+  qudt:plainTextDescription "Vapour permeability, or \"Breathability\" in a building refers to the ease with which water vapour passes through building elements. Building elements where vapour permeability is poorly designed can result in condensation, leading to unhealthy living environments and degradation of fabric." ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Vapor Permeability"@en ;
 .
@@ -19586,6 +19633,7 @@ quantitykind:VehicleVelocity
   qudt:applicableUnit unit:CentiM-PER-HR ;
   qudt:applicableUnit unit:CentiM-PER-KiloYR ;
   qudt:applicableUnit unit:CentiM-PER-SEC ;
+  qudt:applicableUnit unit:CentiM-PER-YR ;
   qudt:applicableUnit unit:FT-PER-DAY ;
   qudt:applicableUnit unit:FT-PER-HR ;
   qudt:applicableUnit unit:FT-PER-MIN ;
@@ -19621,6 +19669,7 @@ quantitykind:Velocity
   qudt:applicableUnit unit:CentiM-PER-HR ;
   qudt:applicableUnit unit:CentiM-PER-KiloYR ;
   qudt:applicableUnit unit:CentiM-PER-SEC ;
+  qudt:applicableUnit unit:CentiM-PER-YR ;
   qudt:applicableUnit unit:FT-PER-DAY ;
   qudt:applicableUnit unit:FT-PER-HR ;
   qudt:applicableUnit unit:FT-PER-MIN ;
@@ -19669,6 +19718,7 @@ quantitykind:VerticalVelocity
   qudt:applicableUnit unit:CentiM-PER-HR ;
   qudt:applicableUnit unit:CentiM-PER-KiloYR ;
   qudt:applicableUnit unit:CentiM-PER-SEC ;
+  qudt:applicableUnit unit:CentiM-PER-YR ;
   qudt:applicableUnit unit:FT-PER-DAY ;
   qudt:applicableUnit unit:FT-PER-HR ;
   qudt:applicableUnit unit:FT-PER-MIN ;
@@ -19858,6 +19908,7 @@ quantitykind:VoltageRatio
 quantitykind:Volume
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:AC-FT ;
+  qudt:applicableUnit unit:ANGSTROM3 ;
   qudt:applicableUnit unit:BBL ;
   qudt:applicableUnit unit:BBL_UK_PET ;
   qudt:applicableUnit unit:BBL_US ;
@@ -20040,6 +20091,7 @@ quantitykind:VolumeFraction
 quantitykind:VolumePerArea
   a qudt:QuantityKind ;
   qudt:applicableUnit unit:M3-PER-HA ;
+  qudt:applicableUnit unit:M3-PER-M2 ;
   qudt:hasDimensionVector qkdv:A0E0L1I0M0H0T0D0 ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Volume per Unit Area"@en ;
@@ -20181,7 +20233,7 @@ quantitykind:WarpingConstant
   qudt:applicableUnit unit:M6 ;
   qudt:hasDimensionVector qkdv:A0E0L6I0M0H0T0D0 ;
   qudt:informativeReference "https://standards.buildingsmart.org/IFC/RELEASE/IFC4/ADD1/HTML/link/ifcwarpingconstantmeasure.htm"^^xsd:anyURI ;
-  qudt:plaintextDescription "The \"Warping Constant\" is a measure for the warping constant or warping resistance of a cross section under torsional loading. It is usually measured in m⁶." ;
+  qudt:plainTextDescription "The \"Warping Constant\" is a measure for the warping constant or warping resistance of a cross section under torsional loading. It is usually measured in m⁶." ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Warping Constant"@en ;
 .
@@ -20191,7 +20243,7 @@ quantitykind:WarpingMoment
   qudt:applicableUnit unit:N-M2 ;
   qudt:hasDimensionVector qkdv:A0E0L3I0M1H0T-2D0 ;
   qudt:informativeReference "https://standards.buildingsmart.org/IFC/RELEASE/IFC4/ADD1/HTML/link/ifcwarpingmomentmeasure.htm"^^xsd:anyURI ;
-  qudt:plaintextDescription "The warping moment measure is a measure for the warping moment, which occurs in warping torsional analysis. It is usually measured in kNm²." ;
+  qudt:plainTextDescription "The warping moment measure is a measure for the warping moment, which occurs in warping torsional analysis. It is usually measured in kNm²." ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
   rdfs:label "Warping Moment"@en ;
 .
@@ -20652,23 +20704,23 @@ vaem:GMD_QUDT-QUANTITY-KINDS-ALL
   dcterms:creator "Ralph Hodgson" ;
   dcterms:creator "Steve Ray" ;
   dcterms:description "Provides the set of all quantity kinds."^^rdf:HTML ;
-  dcterms:modified "2023-04-12T16:08:34.746-04:00"^^xsd:dateTime ;
+  dcterms:modified "2023-05-10T20:22:17.052-04:00"^^xsd:dateTime ;
   dcterms:rights "The QUDT Ontologies are issued under a Creative Commons Attribution 4.0 International License (CC BY 4.0), available at https://creativecommons.org/licenses/by/4.0/. Attribution should be made to QUDT.org" ;
   dcterms:subject "QUANTITY-KINDS-ALL" ;
   dcterms:title "QUDT Quantity Kinds Version 2.1 Vocabulary" ;
   vaem:applicableDiscipline "All disciplines" ;
   vaem:applicableDomain "Science, Medicine and Engineering" ;
   vaem:dateCreated "2019-08-01T21:26:38"^^xsd:dateTime ;
-  vaem:graphTitle "QUDT Quantity Kinds Version 2.1.26" ;
+  vaem:graphTitle "QUDT Quantity Kinds Version 2.1.27" ;
   vaem:hasGraphRole vaem:VocabularyGraph ;
   vaem:intent "Provides a vocabulary of all quantity kinds." ;
   vaem:isMetadataFor <http://qudt.org/2.1/vocab/quantitykind> ;
-  vaem:latestPublishedVersion "https://qudt.org/doc/2023/04/DOC_VOCAB-QUANTITY-KINDS-ALL-v2.1.html"^^xsd:anyURI ;
+  vaem:latestPublishedVersion "https://qudt.org/doc/2023/05/DOC_VOCAB-QUANTITY-KINDS-ALL-v2.1.html"^^xsd:anyURI ;
   vaem:logo "https://qudt.org/linkedmodels.org/assets/lib/lm/images/logos/qudt_logo-300x110.png" ;
   vaem:namespace "http://qudt.org/vocab/quantitykind/" ;
   vaem:namespacePrefix "quantitykind" ;
   vaem:owner "qudt.org" ;
-  vaem:previousPublishedVersion "https://qudt.org/doc/2023/03/DOC_VOCAB-QUANTITY-KINDS-ALL-v2.1.html"^^xsd:anyURI ;
+  vaem:previousPublishedVersion "https://qudt.org/doc/2023/04/DOC_VOCAB-QUANTITY-KINDS-ALL-v2.1.html"^^xsd:anyURI ;
   vaem:revision "2.1" ;
   vaem:specificity 1 ;
   vaem:turtleFileURL "http://qudt.org/2.1/vocab/quantitykind" ;
@@ -20694,5 +20746,5 @@ vaem:GMD_QUDT-QUANTITY-KINDS-ALL
   vaem:withAttributionTo voag:QUDT-Attribution ;
   vaem:withAttributionTo <http://voag.linkedmodel.org/voag/QUDT-Attribution> ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/quantitykind> ;
-  rdfs:label "QUDT Quantity Kinds Vocabulary Version 2.1.26" ;
+  rdfs:label "QUDT Quantity Kind Vocabulary Metadata Version 2.1.27" ;
 .

@@ -22,7 +22,7 @@
 <http://qudt.org/2.1/schema/shacl/overlay/qudt>
   a owl:Ontology ;
   rdfs:comment "Supplements the generated SHACL Schema with constructs not expressible in the QUDT OWL Ontology" ;
-  rdfs:label "QUDT SHACL Schema Supplement- Version 2.1.26" ;
+  rdfs:label "QUDT SHACL Schema Supplement Version 2.1.27" ;
   owl:imports <http://qudt.org/2.1/schema/shacl/qudt> ;
   owl:imports sh: ;
   sh:declare [
@@ -54,6 +54,11 @@
       a sh:PrefixDeclaration ;
       sh:namespace "http://www.w3.org/2004/02/skos/core#"^^xsd:anyURI ;
       sh:prefix "skos" ;
+    ] ;
+  sh:declare [
+      a sh:PrefixDeclaration ;
+      sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+      sh:prefix "rdf" ;
     ] ;
 .
 qudt:AbstractQuantityKind-qudt_latexSymbol
@@ -184,18 +189,42 @@ qudt:DeprecationConstraint
   a sh:NodeShape ;
   rdfs:isDefinedBy <http://qudt.org/2.1/schema/shacl/overlay/qudt> ;
   rdfs:label "Warning about use of a deprecated QUDT resource" ;
-  sh:severity sh:Warning ;
+  sh:severity sh:Info ;
   sh:sparql [
       a sh:SPARQLConstraint ;
       rdfs:comment "Warns if a deprecated QUDT resource is used" ;
-      sh:message "Resource, '{?s}' refers to '{$this}' which has been deprecated. Please refer to '{?newq}' instead." ;
+      sh:message "Resource, '{?s}' refers to '{?oldqstr}' which has been deprecated. Please refer to '{?newqstr}' instead." ;
       sh:prefixes <http://qudt.org/2.1/schema/shacl/overlay/qudt> ;
-      sh:select """SELECT ?s $this ?newq
+      sh:select """SELECT ?s $this ?oldqstr ?newqstr
 WHERE {
 $this qudt:deprecated true .
 ?s ?p $this .
 FILTER (!STRSTARTS(STR(?s),'http://qudt.org')) .
 $this dcterms:isReplacedBy ?newq .
+BIND (STR(?newq) AS ?newqstr)
+BIND (STR($this) AS ?oldqstr)
+}""" ;
+    ] ;
+  sh:targetClass qudt:Concept ;
+.
+qudt:DeprecatedPropertyConstraint
+  a sh:NodeShape ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/schema/shacl/overlay/qudt> ;
+  rdfs:label "Warning about use of a deprecated QUDT property" ;
+  sh:severity sh:Info ;
+  sh:sparql [
+      a sh:SPARQLConstraint ;
+      rdfs:comment "Warns if a deprecated QUDT property is used" ;
+      sh:message "Resource, '{$this}' uses the property '{?oldpstr}' which will be deprecated. Please use '{?newpstr}' instead." ;
+      sh:prefixes <http://qudt.org/2.1/schema/shacl/overlay/qudt> ;
+      sh:select """SELECT $this ?p ?oldpstr ?newpstr
+WHERE {
+?p qudt:deprecated true .
+?p a rdf:Property .
+$this ?p ?o .
+?p dcterms:isReplacedBy ?newp .
+BIND (STR(?newp) AS ?newpstr)
+BIND (STR(?p) AS ?oldpstr)
 }""" ;
     ] ;
   sh:targetClass qudt:Concept ;

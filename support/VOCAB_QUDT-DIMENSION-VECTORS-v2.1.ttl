@@ -20,6 +20,7 @@
   a owl:Ontology ;
   vaem:hasGraphMetadata vaem:GMD_QUDT-DIMENSION-VECTORS ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/dimensionvector> ;
+  rdfs:label "QUDT VOCAB Dimension Vectors Release 2.1.27" ;
   owl:imports <http://qudt.org/2.1/schema/facade/qudt> ;
   owl:versionIRI <http://qudt.org/2.1/vocab/dimensionvector> ;
 .
@@ -223,6 +224,22 @@ qkdv:A-1E1L0I0M0H0T1D0
   qudt:latexDefinition "\\(T I N^-1\\)"^^qudt:LatexString ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/dimensionvector> ;
   rdfs:label "A-1E1L0I0M0H0T1D0" ;
+.
+qkdv:A-1E2L0I0M-1H0T3D0
+  a qudt:QuantityKindDimensionVector_CGS ;
+  a qudt:QuantityKindDimensionVector_ISO ;
+  a qudt:QuantityKindDimensionVector_Imperial ;
+  a qudt:QuantityKindDimensionVector_SI ;
+  qudt:dimensionExponentForAmountOfSubstance -1 ;
+  qudt:dimensionExponentForElectricCurrent 2 ;
+  qudt:dimensionExponentForLength 0 ;
+  qudt:dimensionExponentForLuminousIntensity 0 ;
+  qudt:dimensionExponentForMass -1 ;
+  qudt:dimensionExponentForThermodynamicTemperature 0 ;
+  qudt:dimensionExponentForTime 3 ;
+  qudt:dimensionlessExponent 0 ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/dimensionvector> ;
+  rdfs:label "A-1E2L0I0M-1H0T3D0" ;
 .
 qkdv:A0E-1L0I0M1H0T-1D0
   a qudt:QuantityKindDimensionVector_ISO ;
@@ -570,6 +587,25 @@ qkdv:A0E-2L4I0M2H-2T-6D0
   qudt:latexDefinition "\\(L^-0.5 M^0.5 T^-2\\)"^^qudt:LatexString ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/dimensionvector> ;
   rdfs:label "A0E0L-0.5I0M0.5TE0TM-2D0" ;
+.
+qkdv:A0E0L-0pt5I0M1H0T-2D0
+  a qudt:QuantityKindDimensionVector ;
+  a qudt:QuantityKindDimensionVector_CGS ;
+  a qudt:QuantityKindDimensionVector_ISO ;
+  a qudt:QuantityKindDimensionVector_Imperial ;
+  a qudt:QuantityKindDimensionVector_SI ;
+  qudt:dimensionExponentForAmountOfSubstance 0 ;
+  qudt:dimensionExponentForElectricCurrent 0 ;
+  qudt:dimensionExponentForLength -0.5 ;
+  qudt:dimensionExponentForLuminousIntensity 0 ;
+  qudt:dimensionExponentForMass 1 ;
+  qudt:dimensionExponentForThermodynamicTemperature 0 ;
+  qudt:dimensionExponentForTime -2 ;
+  qudt:dimensionlessExponent 0 ;
+  qudt:hasReferenceQuantityKind quantitykind:StressIntensityFactor ;
+  qudt:latexDefinition "\\(L^-0.5 M T^-2\\)"^^qudt:LatexString ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/dimensionvector> ;
+  rdfs:label "A0E0L-0pt5I0M1H0T-2D0" ;
 .
 <http://qudt.org/vocab/dimensionvector/A0E0L-1.5I0M0.5TE0TM-1D0>
   a qudt:QuantityKindDimensionVector_CGS ;
@@ -3105,6 +3141,7 @@ qkdv:A0E1L-3I0M0H0T1D0
   rdfs:label "A0E1L-3I0M0H0T1D0" ;
 .
 qkdv:A0E1L0I0M-1H0T0D0
+  a qudt:ISO-DimensionVector ;
   a qudt:QuantityKindDimensionVector_ISO ;
   a qudt:QuantityKindDimensionVector_Imperial ;
   a qudt:QuantityKindDimensionVector_SI ;
@@ -3117,6 +3154,10 @@ qkdv:A0E1L0I0M-1H0T0D0
   qudt:dimensionExponentForTime 0 ;
   qudt:dimensionlessExponent 0 ;
   qudt:hasReferenceQuantityKind quantitykind:ExposureRate ;
+  qudt:hasReferenceQuantityKind quantitykind:SpecificElectricCurrent ;
+  qudt:isDimensionInSystem qudt:SOQ_ISQ ;
+  qudt:latexDefinition "\\(I M^{-1}\\)"^^qudt:LatexString ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/dimension> ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/dimensionvector> ;
   rdfs:label "A0E1L0I0M-1H0T0D0" ;
 .
@@ -3133,7 +3174,9 @@ qkdv:A0E1L0I0M-1H0T1D0
   qudt:dimensionExponentForTime 1 ;
   qudt:dimensionlessExponent 0 ;
   qudt:hasReferenceQuantityKind quantitykind:ElectricChargePerMass ;
-  qudt:latexDefinition "\\(M^-1 T I\\)"^^qudt:LatexString ;
+  qudt:hasReferenceQuantityKind quantitykind:SpecificElectricCharge ;
+  qudt:isDimensionInSystem qudt:SOQ_ISQ ;
+  qudt:latexDefinition "\\(I T M^{-1}\\)"^^qudt:LatexString ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/dimensionvector> ;
   rdfs:label "A0E1L0I0M-1H0T1D0" ;
 .
@@ -3303,6 +3346,22 @@ qkdv:A0E1L2I0M0H0T1D0
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/dimensionvector> ;
   rdfs:label "A0E1L2I0M0H0T1D0" ;
 .
+qkdv:A0E2L-1I0M-1H0T4D0
+  a qudt:QuantityKindDimensionVector_CGS ;
+  a qudt:QuantityKindDimensionVector_ISO ;
+  a qudt:QuantityKindDimensionVector_Imperial ;
+  a qudt:QuantityKindDimensionVector_SI ;
+  qudt:dimensionExponentForAmountOfSubstance 0 ;
+  qudt:dimensionExponentForElectricCurrent 2 ;
+  qudt:dimensionExponentForLength -1 ;
+  qudt:dimensionExponentForLuminousIntensity 0 ;
+  qudt:dimensionExponentForMass -1 ;
+  qudt:dimensionExponentForThermodynamicTemperature 0 ;
+  qudt:dimensionExponentForTime 4 ;
+  qudt:dimensionlessExponent 0 ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/dimensionvector> ;
+  rdfs:label "A0E2L-1I0M-1H0T4D0" ;
+.
 qkdv:A0E2L-2I0M-1H0T2D0
   a qudt:QuantityKindDimensionVector_ISO ;
   a qudt:QuantityKindDimensionVector_Imperial ;
@@ -3412,7 +3471,6 @@ qkdv:A0E2L0I0M-1H0T4D0
   qudt:dimensionExponentForThermodynamicTemperature 0 ;
   qudt:dimensionExponentForTime 4 ;
   qudt:dimensionlessExponent 0 ;
-  qudt:hasReferenceQuantityKind quantitykind:Polarizability ;
   qudt:latexDefinition "\\(M^-1 T^4 I^2\\)"^^qudt:LatexString ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/dimensionvector> ;
   rdfs:label "A0E2L0I0M-1H0T4D0" ;
@@ -3467,6 +3525,22 @@ qkdv:A0E3L-1I0M-2H0T7D0
   qudt:latexDefinition "\\(L^-1 M^-2 T^7 I^3\\)"^^qudt:LatexString ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/dimensionvector> ;
   rdfs:label "A0E3L-1I0M-2H0T7D0" ;
+.
+qkdv:A0E3L-3I0M-2H0T7D0
+  a qudt:QuantityKindDimensionVector_CGS ;
+  a qudt:QuantityKindDimensionVector_ISO ;
+  a qudt:QuantityKindDimensionVector_Imperial ;
+  a qudt:QuantityKindDimensionVector_SI ;
+  qudt:dimensionExponentForAmountOfSubstance 0 ;
+  qudt:dimensionExponentForElectricCurrent 3 ;
+  qudt:dimensionExponentForLength -3 ;
+  qudt:dimensionExponentForLuminousIntensity 0 ;
+  qudt:dimensionExponentForMass -2 ;
+  qudt:dimensionExponentForThermodynamicTemperature 0 ;
+  qudt:dimensionExponentForTime 7 ;
+  qudt:dimensionlessExponent 0 ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/dimensionvector> ;
+  rdfs:label "A0E3L-3I0M-2H0T7D0" ;
 .
 qkdv:A0E4L-2I0M-3H0T10D0
   a qudt:QuantityKindDimensionVector_ISO ;
@@ -3710,7 +3784,7 @@ vaem:GMD_QUDT-DIMENSION-VECTORS
   dcterms:created "2019-08-01T16:25:54.850+00:00"^^xsd:dateTime ;
   dcterms:creator "Steve Ray" ;
   dcterms:description "Provides the set of all dimension vectors"^^rdf:HTML ;
-  dcterms:modified "2023-04-12T16:18:01.779-04:00"^^xsd:dateTime ;
+  dcterms:modified "2023-05-10T20:31:33.287-04:00"^^xsd:dateTime ;
   dcterms:rights "The QUDT Ontologies are issued under a Creative Commons Attribution 4.0 International License (CC BY 4.0), available at https://creativecommons.org/licenses/by/4.0/. Attribution should be made to QUDT.org" ;
   dcterms:subject "QUANTITY-KIND-DIMENSION-VECTORS" ;
   dcterms:title "QUDT Dimension Vectors Version 2.1 Vocabulary" ;
@@ -3718,16 +3792,16 @@ vaem:GMD_QUDT-DIMENSION-VECTORS
   vaem:applicableDomain "Science, Medicine and Engineering" ;
   vaem:dateCreated "2019-08-01T21:26:38"^^xsd:dateTime ;
   vaem:description "QUDT Dimension Vectors is a vocabulary that extends QUDT Quantity Kinds with properties that support dimensional analysis. There is one dimension vector for each of the system's base quantity kinds. The vector's magnitude determines the exponent of the base dimension for the referenced quantity kind"^^rdf:HTML ;
-  vaem:graphTitle "QUDT Dimension Vectors Version 2.1.26" ;
+  vaem:graphTitle "QUDT Dimension Vectors Version 2.1.27" ;
   vaem:hasGraphRole vaem:VocabularyGraph ;
   vaem:intent "TBD" ;
   vaem:isMetadataFor <http://qudt.org/2.1/vocab/dimensionvector> ;
-  vaem:latestPublishedVersion "https://qudt.org/doc/2023/04/DOC_VOCAB-QUANTITY-KIND-DIMENSION-VECTORS-v2.1.html"^^xsd:anyURI ;
+  vaem:latestPublishedVersion "https://qudt.org/doc/2023/05/DOC_VOCAB-QUANTITY-KIND-DIMENSION-VECTORS-v2.1.html"^^xsd:anyURI ;
   vaem:logo "https://qudt.org/linkedmodels.org/assets/lib/lm/images/logos/qudt_logo-300x110.png" ;
   vaem:namespace "http://qudt.org/vocab/dimensionvector/" ;
   vaem:namespacePrefix "qkdv" ;
   vaem:owner "qudt.org" ;
-  vaem:previousPublishedVersion "https://qudt.org/doc/2023/03/DOC_VOCAB-QUANTITY-KIND-DIMENSION-VECTORS-v2.1.html"^^xsd:anyURI ;
+  vaem:previousPublishedVersion "https://qudt.org/doc/2023/04/DOC_VOCAB-QUANTITY-KIND-DIMENSION-VECTORS-v2.1.html"^^xsd:anyURI ;
   vaem:revision "2.1" ;
   vaem:specificity 1 ;
   vaem:turtleFileURL "http://qudt.org/2.1/vocab/dimensionvector" ;
@@ -3750,5 +3824,5 @@ vaem:GMD_QUDT-DIMENSION-VECTORS
   vaem:usesNonImportedResource skos:exactMatch ;
   vaem:withAttributionTo voag:QUDT-Attribution ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/dimensionvector> ;
-  rdfs:label "QUDT Dimension Vector Vocabulary Version 2.1.26" ;
+  rdfs:label "QUDT Dimension Vector Vocabulary Metadata Version 2.1.27" ;
 .
