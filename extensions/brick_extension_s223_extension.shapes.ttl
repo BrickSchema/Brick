@@ -30,3 +30,15 @@
 brick:Equipment
   rdfs:subClassOf s223:Equipment ;
 .
+bsh:isPointOfShape
+sh:deactivated true ;
+.
+bsh:isPointOfShapeExt
+  a sh:PropertyShape ;
+    sh:targetClass brick:Point ;
+    sh:path brick:isPointOf ;
+    sh:or ( [ sh:class brick:Equipment ] [ sh:class brick:Location ] [ sh:class s223:ConnectionPoint ] [ sh:class s223:Connection ] [ sh:class s223:Connectable ] [ sh:class s223:Segment ] ) ;
+.
+brick:value
+  rdfs:subPropertyOf s223:value ;
+.
