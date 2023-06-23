@@ -37,7 +37,6 @@ WHERE {
       sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
     ] ;
   sh:targetClass brick:Entity ;
-  sh:targetClass s223:Concept ;
 .
 
 bsh:InferSymmetricProperties
