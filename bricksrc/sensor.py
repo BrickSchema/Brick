@@ -1422,6 +1422,17 @@ sensor_definitions = {
                     "Energy_Usage_Sensor": {
                         "parents": [BRICK.Energy_Sensor],
                         "tags": [TAG.Point, TAG.Sensor, TAG.Energy, TAG.Usage],
+                        "subclasses": {
+                            "Electrical_Energy_Usage_Sensor": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Electric,
+                                    TAG.Energy,
+                                    TAG.Usage,
+                                    TAG.Sensor,
+                                ]
+                            }
+                        }
                     },
                     "Water_Usage_Sensor": {
                         "tags": [TAG.Point, TAG.Sensor, TAG.Usage, TAG.Water],
