@@ -1488,41 +1488,6 @@ setpoint_definitions = {
                                     TAG.Setpoint,
                                 ],
                             },
-                            "Occupied_Air_Temperature_Setpoint": {
-                                BRICK.hasQuantity: BRICK.Temperature,
-                                BRICK.hasSubstance: BRICK.Air,
-                                "tags": [
-                                    TAG.Point,
-                                    TAG.Occupied,
-                                    TAG.Air,
-                                    TAG.Temperature,
-                                    TAG.Setpoint,
-                                ],
-                                "subclasses": {
-                                    "Occupied_Air_Temperature_Cooling_Setpoint": {
-                                        "tags": [
-                                            TAG.Point,
-                                            TAG.Occupied,
-                                            TAG.Cool,
-                                            TAG.Air,
-                                            TAG.Temperature,
-                                            TAG.Setpoint,
-                                        ],
-                                        "parents": [BRICK.Cooling_Temperature_Setpoint],
-                                    },
-                                    "Occupied_Air_Temperature_Heating_Setpoint": {
-                                        "tags": [
-                                            TAG.Point,
-                                            TAG.Occupied,
-                                            TAG.Heat,
-                                            TAG.Air,
-                                            TAG.Temperature,
-                                            TAG.Setpoint,
-                                        ],
-                                        "parents": [BRICK.Heating_Temperature_Setpoint],
-                                    },
-                                },
-                            },
                             "Return_Air_Temperature_Setpoint": {
                                 BRICK.hasQuantity: BRICK.Temperature,
                                 BRICK.hasSubstance: BRICK.Return_Air,
@@ -1906,39 +1871,6 @@ setpoint_definitions = {
                                     TAG.Temperature,
                                     TAG.Setpoint,
                                 ],
-                            },
-                            "Unoccupied_Air_Temperature_Setpoint": {
-                                "tags": [
-                                    TAG.Point,
-                                    TAG.Unoccupied,
-                                    TAG.Air,
-                                    TAG.Temperature,
-                                    TAG.Setpoint,
-                                ],
-                                "subclasses": {
-                                    "Unoccupied_Air_Temperature_Cooling_Setpoint": {
-                                        "tags": [
-                                            TAG.Point,
-                                            TAG.Unoccupied,
-                                            TAG.Cool,
-                                            TAG.Air,
-                                            TAG.Temperature,
-                                            TAG.Setpoint,
-                                        ],
-                                        "parents": [BRICK.Cooling_Temperature_Setpoint],
-                                    },
-                                    "Unoccupied_Air_Temperature_Heating_Setpoint": {
-                                        "tags": [
-                                            TAG.Point,
-                                            TAG.Unoccupied,
-                                            TAG.Heat,
-                                            TAG.Air,
-                                            TAG.Temperature,
-                                            TAG.Setpoint,
-                                        ],
-                                        "parents": [BRICK.Heating_Temperature_Setpoint],
-                                    },
-                                },
                             },
                             "Supply_Air_Temperature_Setpoint": {
                                 BRICK.hasQuantity: BRICK.Temperature,
