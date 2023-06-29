@@ -40,20 +40,8 @@ alarm_definitions = {
                                     TAG.Low,
                                 ],
                                 "subclasses": {
-                                    "Low_Discharge_Air_Flow_Alarm": {
-                                        "tags": [
-                                            TAG.Point,
-                                            TAG.Air,
-                                            TAG.Alarm,
-                                            TAG.Flow,
-                                            TAG.Low,
-                                            TAG.Discharge,
-                                        ],
-                                    },
                                     "Low_Supply_Air_Flow_Alarm": {
-                                        OWL.equivalentClass: BRICK[
-                                            "Low_Discharge_Air_Flow_Alarm"
-                                        ],
+                                        "aliases": [BRICK["Low_Discharge_Air_Flow_Alarm"]],
                                         "tags": [
                                             TAG.Point,
                                             TAG.Air,
@@ -61,6 +49,7 @@ alarm_definitions = {
                                             TAG.Flow,
                                             TAG.Low,
                                             TAG.Supply,
+                                            TAG.Discharge,
                                         ],
                                     },
                                 },
@@ -216,59 +205,24 @@ alarm_definitions = {
                         "tags": [TAG.Point, TAG.Air, TAG.Temperature, TAG.Alarm],
                         "parents": [BRICK.Air_Alarm],
                         "subclasses": {
-                            "Discharge_Air_Temperature_Alarm": {
+                            "Supply_Air_Temperature_Alarm": {
+                                "aliases": [BRICK["Discharge_Air_Temperature_Alarm"]],
                                 "tags": [
                                     TAG.Point,
+                                    TAG.Supply,
                                     TAG.Discharge,
                                     TAG.Air,
                                     TAG.Temperature,
                                     TAG.Alarm,
                                 ],
                                 "subclasses": {
-                                    "High_Discharge_Air_Temperature_Alarm": {
-                                        "tags": [
-                                            TAG.Point,
-                                            TAG.High,
-                                            TAG.Discharge,
-                                            TAG.Air,
-                                            TAG.Temperature,
-                                            TAG.Alarm,
-                                        ],
-                                        "parents": [BRICK.High_Temperature_Alarm],
-                                    },
-                                    "Low_Discharge_Air_Temperature_Alarm": {
-                                        "tags": [
-                                            TAG.Point,
-                                            TAG.Low,
-                                            TAG.Discharge,
-                                            TAG.Air,
-                                            TAG.Temperature,
-                                            TAG.Alarm,
-                                        ],
-                                        "parents": [BRICK.Low_Temperature_Alarm],
-                                    },
-                                },
-                            },
-                            "Supply_Air_Temperature_Alarm": {
-                                OWL.equivalentClass: BRICK[
-                                    "Discharge_Air_Temperature_Alarm"
-                                ],
-                                "tags": [
-                                    TAG.Point,
-                                    TAG.Supply,
-                                    TAG.Air,
-                                    TAG.Temperature,
-                                    TAG.Alarm,
-                                ],
-                                "subclasses": {
                                     "High_Supply_Air_Temperature_Alarm": {
-                                        OWL.equivalentClass: BRICK[
-                                            "High_Discharge_Air_Temperature_Alarm"
-                                        ],
+                                        "aliases": [BRICK["High_Discharge_Air_Temperature_Alarm"]],
                                         "tags": [
                                             TAG.Point,
                                             TAG.High,
                                             TAG.Supply,
+                                            TAG.Discharge,
                                             TAG.Air,
                                             TAG.Temperature,
                                             TAG.Alarm,
@@ -276,13 +230,12 @@ alarm_definitions = {
                                         "parents": [BRICK.High_Temperature_Alarm],
                                     },
                                     "Low_Supply_Air_Temperature_Alarm": {
-                                        OWL.equivalentClass: BRICK[
-                                            "Low_Discharge_Air_Temperature_Alarm"
-                                        ],
+                                        "aliases": [BRICK["Low_Discharge_Air_Temperature_Alarm"]],
                                         "tags": [
                                             TAG.Point,
                                             TAG.Low,
                                             TAG.Supply,
+                                            TAG.Discharge,
                                             TAG.Air,
                                             TAG.Temperature,
                                             TAG.Alarm,
@@ -335,22 +288,10 @@ alarm_definitions = {
                         "tags": [TAG.Point, TAG.Smoke, TAG.Detection, TAG.Alarm],
                         "subclasses": {
                             "Supply_Air_Smoke_Detection_Alarm": {
-                                OWL.equivalentClass: BRICK[
-                                    "Discharge_Air_Smoke_Detection_Alarm"
-                                ],
+                                "aliases": [BRICK["Discharge_Air_Smoke_Detection_Alarm"]],
                                 "tags": [
                                     TAG.Point,
                                     TAG.Supply,
-                                    TAG.Air,
-                                    TAG.Smoke,
-                                    TAG.Detection,
-                                    TAG.Alarm,
-                                ],
-                                "parents": [BRICK.Air_Alarm],
-                            },
-                            "Discharge_Air_Smoke_Detection_Alarm": {
-                                "tags": [
-                                    TAG.Point,
                                     TAG.Discharge,
                                     TAG.Air,
                                     TAG.Smoke,

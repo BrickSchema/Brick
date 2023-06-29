@@ -1,0 +1,63 @@
+# baseURI: https://brickschema.org/extension/s223extension
+# imports: http://data.ashrae.org/standard223/1.0/model/all
+# imports: http://www.w3.org/ns/shacl#
+# imports: https://brickschema.org/extension/brick_extension_interpret_223
+# imports: https://brickschema.org/schema/1.3/Brick
+# prefix: s223ext
+
+@prefix brick: <https://brickschema.org/schema/Brick#> .
+@prefix bsh: <https://brickschema.org/schema/BrickShape#> .
+@prefix dash: <http://datashapes.org/dash#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix quantitykind: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix s223: <http://data.ashrae.org/standard223#> .
+@prefix s223ext: <https://brickschema.org/extension/s223extension#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://brickschema.org/extension/s223extension>
+  a owl:Ontology ;
+  owl:imports <http://data.ashrae.org/standard223/1.0/model/all> ;
+  owl:imports sh: ;
+  owl:imports <https://brickschema.org/extension/brick_extension_interpret_223> ;
+  owl:imports <https://brickschema.org/schema/1.3/Brick> ;
+  owl:versionInfo "Created with TopBraid Composer" ;
+.
+brick:Equipment
+  sh:rule [
+      a sh:TripleRule ;
+      rdfs:comment "Infer the cnx relationship from hasConnectionPoint" ;
+      sh:name "InferredEquipmentToConnectionPointCnxProperty" ;
+      sh:object [
+          sh:path s223:hasConnectionPoint ;
+        ] ;
+      sh:predicate s223:cnx ;
+      sh:subject sh:this ;
+    ] ;
+  sh:rule [
+      a sh:TripleRule ;
+      rdfs:comment "Infer the cnx relationship from isConnectionPointOf" ;
+      sh:name "InferredEquipmentToConnectionPointCnxPropertyFromInverse" ;
+      sh:object [
+          sh:path [
+              sh:inversePath s223:isConnectionPointOf ;
+            ] ;
+        ] ;
+      sh:predicate s223:cnx ;
+      sh:subject sh:this ;
+    ] ;
+  sh:rule [
+      a sh:TripleRule ;
+      rdfs:comment "Infer the hasConnectionPoint relationship using cnx" ;
+      sh:name "InferredEquipmentToConnectionPointProperty" ;
+      sh:object [
+          sh:path s223:cnx ;
+        ] ;
+      sh:predicate s223:hasConnectionPoint ;
+      sh:subject sh:this ;
+    ] ;
+.
