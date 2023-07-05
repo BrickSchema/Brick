@@ -1,4 +1,5 @@
 import os
+import importlib
 from pathlib import Path
 import sys
 import csv
@@ -272,7 +273,7 @@ def define_classes(definitions, parent, pun_classes=False):
     If pun_classes is True, then create punned instances of the classes
     """
     for classname, defn in definitions.items():
-        classname = BRICK[classname]
+        classname = BRICK[classname] if not isinstance(classname, URIRef) else classname
         # class is a owl:Class
         G.add((classname, A, OWL.Class))
         # subclass of parent
@@ -377,13 +378,14 @@ def define_entity_properties(definitions, superprop=None):
     Like most other generation methods in this file, it can add additional
     properties to the EntityProperty instances (like SKOS.definition)
     """
+    _allowed_annotations = {SH.node, SH.datatype, SH.hasValue, SH["class"]}
     for entprop, defn in definitions.items():
         assert (
             "property_of" in defn
         ), f"{entprop} missing a 'property_of' annotation so Brick doesn't know where this property can be used"
         assert (
-            SH.node in defn
-        ), f"{entprop} missing a SH.node annotation so Brick doesn't know what the values of this property can be"
+            _allowed_annotations.intersection(defn.keys())
+        ), f"{entprop} missing at least one of {_allowed_annotations} so Brick doesn't know what the values of this property can be"
         assert RDFS.label in defn, f"{entprop} missing a RDFS.label annotation"
         G.add((entprop, A, BRICK.EntityProperty))
         if superprop is not None:
@@ -392,11 +394,15 @@ def define_entity_properties(definitions, superprop=None):
             subproperties = defn.pop("subproperties")
             define_entity_properties(subproperties, entprop)
 
-        sh_node = defn.pop(SH.node)
         pshape = BSH[f"has{entprop.split('#')[-1]}Shape"]
         G.add((pshape, A, SH.PropertyShape))
         G.add((pshape, SH.path, entprop))
-        G.add((pshape, SH.node, sh_node))
+        # add the SH annotations above
+        for annotation in _allowed_annotations:
+            val = defn.get(annotation)
+            if val is not None:
+                val = defn.pop(annotation)
+                G.add((pshape, annotation, val))
         G.add((pshape, RDFS.label, Literal(f"has {defn.get(RDFS.label)} property")))
 
         # add the entity property as a sh:property on all of the
@@ -1010,6 +1016,16 @@ G.parse("support/ref-schema.ttl", format="turtle")
 ref_schema_uri = URIRef(REF.strip("#"))
 for triple in G.cbd(ref_schema_uri):
     G.remove(triple)
+
+
+# adding in any entity properties or classes defined
+for filename in sys.argv[1:]:
+    print(f"Reading in entity properties and/or class definitions from {filename}")
+    mod = importlib.import_module(filename)
+    if hasattr(mod, 'entity_properties'):
+        define_entity_properties(mod.entity_properties)
+    if hasattr(mod, 'classes') and hasattr(mod, 'class_parent'):
+        define_classes(mod.classes, mod.class_parent)
 
 logging.info(f"Brick ontology compilation finished! Generated {len(G)} triples")
 
