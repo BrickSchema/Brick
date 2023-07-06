@@ -1,7 +1,9 @@
 import rdflib
 from bricksrc.namespaces import BRICK, SKOS, SH, XSD, RDFS
 
+
 DEMO = rdflib.Namespace("urn:demo_extension#")
+extensioninfo = {"filename": "demo.ttl", "namespace": DEMO}
 
 class_parent = BRICK.Equipment
 classes = {
