@@ -314,11 +314,11 @@ def define_classes(definitions, parent, pun_classes=False):
         assert isinstance(aliases, list)
         for alias in aliases:
             G.add((classname, OWL.equivalentClass, alias))
-      
+
             G.add((alias, A, OWL.Class))
             G.add((alias, OWL.equivalentClass, classname))
             G.add((alias, BRICK.aliasOf, classname))
-      
+
             if not has_label(alias):
                 G.add((alias, RDFS.label, Literal(alias.split("#")[-1].replace("_", " "))))
 
@@ -797,14 +797,20 @@ def add_definitions():
 
 def handle_deprecations():
     for deprecated_term, md in deprecations.items():
-        G.add((deprecated_term, A, OWL.Class))
+        term_type = md.get(A)
+        if term_type:
+            G.add((deprecated_term, A, term_type))
+
         G.add((deprecated_term, OWL.deprecated, Literal(True)))
         label = deprecated_term.split("#")[-1].replace("_", " ")
         G.add(
             (deprecated_term, RDFS.label, Literal(label))
         )  # make sure the tag is declared as such
-        # handle subclasses or skos
+
+        # handle subclasses or skos. Only add it as an owl:Class if
+        # the use of rdfs:subClassOf exists, implying this is a Class
         if RDFS.subClassOf in md:
+            G.add((deprecated_term, A, OWL.Class))
             subclasses = md.pop(RDFS.subClassOf)
             if subclasses is not None:
                 if not isinstance(subclasses, list):
@@ -818,6 +824,13 @@ def handle_deprecations():
                     subconcepts = [subconcepts]
                 for subclass in subconcepts:
                     G.add((deprecated_term, SKOS.narrower, subclass))
+        elif SKOS.broader in md:
+            subconcepts = md.pop(SKOS.broader)
+            if subconcepts is not None:
+                if not isinstance(subconcepts, list):
+                    subconcepts = [subconcepts]
+                for subclass in subconcepts:
+                    G.add((deprecated_term, SKOS.broader, subclass))
         G.add((deprecated_term, BRICK.deprecatedInVersion, Literal(md["version"])))
         G.add(
             (
