@@ -1,0 +1,51 @@
+@prefix brick: <https://brickschema.org/schema/Brick#> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix : <urn:evse#> .
+
+:parking_lot a brick:Parking_Structure ;
+    brick:isLocationOf :hub .
+
+:hub a brick:Electric_Vehicle_Charging_Hub ;
+    brick:hasPart :station1, :station2 .
+
+:station1 a brick:Electric_Vehicle_Charging_Station ;
+    brick:electricVehicleChargerType [ brick:value "Level 1" ] ;
+    brick:hasPart :port1-1, :port1-2 ;
+.
+
+:port1-1 a brick:Electric_Vehicle_Charging_Port ;
+    brick:electricVehicleConnectorType [ brick:value "Level 1 (SAE J1772)" ] ;
+    brick:currentFlowType [ brick:value "AC" ] ;
+    brick:electricalPhaseCount [ brick:value "1" ] ;
+    brick:hasPoint :port1-1-voltage ;
+.
+:port1-1-voltage a brick:Battery_Voltage_Sensor ;
+    brick:hasUnit unit:PERCENT ;
+.
+
+:port1-2 a brick:Electric_Vehicle_Charging_Port ;
+    brick:electricVehicleConnectorType [ brick:value "Level 1 (SAE J1772)" ] ;
+    brick:currentFlowType [ brick:value "AC" ] ;
+    brick:electricalPhaseCount [ brick:value "1" ] ;
+    brick:hasPoint :port1-2-voltage ;
+.
+:port1-2-voltage a brick:Battery_Voltage_Sensor ;
+    brick:hasUnit unit:PERCENT ;
+.
+
+:station2 a brick:Electric_Vehicle_Charging_Station ;
+    brick:electricVehicleChargerType [ brick:value "Level 2" ] ;
+    brick:hasPart :port2-1 ;
+.
+
+:port2-1 a brick:Electric_Vehicle_Charging_Port ;
+    brick:electricVehicleConnectorType [ brick:value "Level 2 (IEC 62196)" ] ;
+    brick:currentFlowType [ brick:value "AC" ] ;
+    brick:electricalPhaseCount [ brick:value "3" ] ;
+    brick:hasPoint :port2-1-voltage ;
+.
+
+:port2-1-voltage a brick:Battery_Voltage_Sensor ;
+    brick:hasUnit unit:PERCENT ;
+.
