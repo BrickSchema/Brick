@@ -2,10 +2,14 @@ import rdflib
 from datetime import datetime
 from bricksrc.namespaces import BRICK, SKOS, SH, XSD, RDFS, DCTERMS, RDF, SDO, OWL
 
+# define the namespace to hold all of our terms, classes, properties, etc
 DEMO = rdflib.Namespace("urn:demo_extension#")
 
+# this is the ontology metadata dictionary. It MUST be named 'ontology_definition'
 ontology_definition = {
+    # required 'namespace' key for ontology declaration
     "namespace": DEMO,
+    # optional list of creators (individuals)
     DCTERMS.creator: [
         {
             RDF.type: SDO.Person,
@@ -13,60 +17,54 @@ ontology_definition = {
             SDO.name: rdflib.Literal("Gabe Fierro"),
         },
     ],
-    DCTERMS.issued: rdflib.Literal("2016-11-16"),
+    # first date of release of extension/ontology
+    DCTERMS.issued: rdflib.Literal("2023-07-13"),
+    # keep this to ensure the 'modified' date matches when this was last ran
     DCTERMS.modified: rdflib.Literal(datetime.now().strftime("%Y-%m-%d")),
-    DCTERMS.publisher: {
-        RDF.type: SDO.Individual,
-        SDO.legalName: rdflib.Literal("Gabe Fierro"),
-        SDO.sameAs: rdflib.URIRef("https://gtf.fyi"),
-    },
+    # a version number for the ontology
     OWL.versionInfo: rdflib.Literal("0.0.1"),
+    # a human-readable label for the extension/ontology
     RDFS.label: rdflib.Literal("Demo Extension"),
+    # metadata on the publisher of the extension/ontology
     DCTERMS.publisher: {
+        # see schema.org for other types, e.g. Consortium or Person
         RDF.type: SDO.Organization,
         SDO.legalName: rdflib.Literal("Not a real org"),
         SDO.sameAs: rdflib.Literal("http://my fake organization website.org"),
     },
+    # key-value pairs of prefix to URI of ontology being imported. This will
+    # add owl:imports statements to the generated extension
     "imports": {
         "shacl": "http://www.w3.org/ns/shacl#",
     },
-    "decls": [
-        {
-            SH.namespace: rdflib.Literal(str(RDF), datatype=XSD.anyURI),
-            SH.prefix: rdflib.Literal("rdf"),
-        },
-        {
-            SH.namespace: rdflib.Literal(str(RDFS), datatype=XSD.anyURI),
-            SH.prefix: rdflib.Literal("rdfs"),
-        },
-        {
-            SH.namespace: rdflib.Literal(str(BRICK), datatype=XSD.anyURI),
-            SH.prefix: rdflib.Literal("brick"),
-        },
-        {
-            SH.namespace: rdflib.Literal(str(OWL), datatype=XSD.anyURI),
-            SH.prefix: rdflib.Literal("owl"),
-        },
-        {
-            SH.namespace: rdflib.Literal(str(SH), datatype=XSD.anyURI),
-            SH.prefix: rdflib.Literal("sh"),
-        },
-        {
-            SH.namespace: rdflib.Literal(str(DEMO), datatype=XSD.anyURI),
-            SH.prefix: rdflib.Literal("demo"),
-        },
-    ],
+    # namespace declarations for any SHACL rules
+    "decls": {
+        "rdf": RDF,
+        "rdfs": RDFS,
+        "brick": BRICK,
+        "owl": OWL,
+        "sh": SH,
+        "demo": DEMO,
+    }
 }
 
-class_parent = BRICK.Equipment
+# optional
+# the *first* level of this dictionary should have Brick (or otherwise existing)
+# classes as keys, and class definition dictionaries as values. Anything further
+# nested can follow the normal class dictionary construction.
+# This dictionary MUST be named 'classes'
 classes = {
-    DEMO["Sensor_Platform"]: {},
-    DEMO["PurpleAir_Weather_Station"]: {
-        "parents": [BRICK.Weather_Station],
+    BRICK.Equipment: {
+        DEMO["Sensor_Platform"]: {},
+        DEMO["PurpleAir_Weather_Station"]: {
+            "parents": [BRICK.Weather_Station],
+        },
     },
 }
 
 
+# optional
+# this dictionary MUST be named 'entity_properties'
 entity_properties = {
     DEMO.manufacturer: {
         SKOS.definition: rdflib.Literal("the manufacturer"),
@@ -75,13 +73,15 @@ entity_properties = {
         "property_of": BRICK.Equipment,
     },
     DEMO.version: {
-        SKOS.definition: rdflib.Literal("a MAJOR.MINOR.PATCH versiion number"),
+        SKOS.definition: rdflib.Literal("a MAJOR.MINOR.PATCH version number"),
         SH.node: DEMO.VersionShape,
         RDFS.label: rdflib.Literal("version"),
         "property_of": BRICK.Equipment,
     },
 }
 
+# optional
+# this dictionary MUST be named 'property_value_shapes'
 property_value_shapes = {
     DEMO.VersionShape: {
         "properties": {

@@ -956,8 +956,9 @@ for filename in sys.argv[1:]:
     mod = importlib.import_module(filename)
     if hasattr(mod, 'entity_properties'):
         define_entity_properties(mod.entity_properties, graph=extension_graph)
-    if hasattr(mod, 'classes') and hasattr(mod, 'class_parent'):
-        define_classes(mod.classes, mod.class_parent, graph=extension_graph)
+    if hasattr(mod, 'classes'):
+        for parent, tree in mod.classes.items():
+            define_classes(tree, parent, graph=extension_graph)
     if hasattr(mod, 'property_value_shapes'):
         define_shape_properties(mod.property_value_shapes, graph=extension_graph)
     if hasattr(mod, 'ontology_definition'):

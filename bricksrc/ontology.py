@@ -156,9 +156,9 @@ def define_extension(graph, defn):
         graph.add((graph_name, k, v))
 
     # add SHACL namespace/prefix declarations for SHACL rules
-    for declaration in defn.pop("decls", []):
+    for pfx, ns in defn.pop("decls", {}).items():
         decl = BNode()
         graph.add((graph_name, SH.declare, decl))
-        graph.bind(str(declaration[SH.prefix]), URIRef(declaration[SH.namespace]))
-        for k, v in declaration.items():
-            graph.add((decl, k, v))
+        graph.bind(pfx, ns)
+        graph.add((decl, SH.prefix, Literal(pfx)))
+        graph.add((decl, SH.namespace, Literal(str(ns), datatype=XSD.anyURI)))
