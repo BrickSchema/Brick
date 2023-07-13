@@ -347,6 +347,18 @@ entity_properties = {
         SH.node: BSH.VirtualMeterShape,
         RDFS.label: Literal("is virtual meter"),
     },
+    BRICK.electricVehicleChargerType: {
+        SKOS.definition: Literal("Which type of EVSE charger this is, e.g. Level 1 (up to up to 2.5kW of AC power on 1 phase 120V input), Level 2 (direct AC power but can use higher voltage and up to 3 phases), or Level 3 (direct DC power)"),
+        "property_of": BRICK.Electric_Vehicle_Charging_Station,
+        RDFS.label: Literal("has electric vehicle charger type"),
+        SH.node: BSH.ElectricVehicleChargingTypeShape,
+    },
+    BRICK.electricVehicleConnectorType: {
+        SKOS.definition: Literal("Identifies which kind of connector the port has. This property helps identify the physical connection required between the vehicle and the charging equipment."),
+        "property_of": BRICK.Electric_Vehicle_Charging_Port,
+        RDFS.label: Literal("has electric vehicle connector type"),
+        SH.node: BSH.ElectricVehicleConnectorTypeShape,
+    },
 }
 
 building_primary_function_values = [
@@ -532,6 +544,12 @@ shape_properties = {
                 "optional": True,
             },
         },
+    },
+    BRICK.ElectricVehicleChargingTypeShape: {
+        "values": ["Level 1", "Level 2", "Level 3"]
+    },
+    BRICK.ElectricVehicleConnectorTypeShape: {
+        "values": ["Type 1 (SAE J1772)", "Type 2 (IEC 62196)", "CHAdeMO", "CCS (Combined Charging System)", "Tesla Supercharger"]
     },
 }
 
