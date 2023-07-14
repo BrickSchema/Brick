@@ -1431,6 +1431,15 @@ sensor_definitions = {
                                     TAG.Usage,
                                     TAG.Sensor,
                                 ]
+                            },
+                            "Thermal_Energy_Usage_Sensor": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Thermal,
+                                    TAG.Energy,
+                                    TAG.Usage,
+                                    TAG.Sensor,
+                                ]
                             }
                         }
                     },
