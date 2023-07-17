@@ -1,6 +1,9 @@
 from .namespaces import TAG, OWL, BRICK
 
 system_subclasses = {
+    "Automatic_Tint_Window_Array": {
+        "tags": [TAG.System, TAG.Tint, TAG.Array, TAG.Shade]
+    },
     "Domestic_Hot_Water_System": {
         "tags": [TAG.Domestic, TAG.Water, TAG.Hot, TAG.System]
     },
