@@ -1,0 +1,937 @@
+# baseURI: http://data.ashrae.org/standard223/1.0/vocab/electricity
+# imports: http://data.ashrae.org/standard223/1.0/model/all
+
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix s223: <http://data.ashrae.org/standard223#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+s223:AC-1.73kVLN-1Ph-60Hz a s223:Electricity-AC ;
+    rdfs:label "AC-1.73kVLN-1Ph-60Hz" ;
+    s223:hasFrequency s223:Frequency-60Hz ;
+    s223:hasNumberOfElectricalPhases s223:NumberOfElectricalPhases-SinglePhase ;
+    s223:hasVoltage s223:LineNeutralVoltage-1.73kV .
+
+s223:AC-1.91kVLN-1Ph-60Hz a s223:Electricity-AC ;
+    rdfs:label "AC-1.91kVLN-1Ph-60Hz" ;
+    s223:hasFrequency s223:Frequency-60Hz ;
+    s223:hasNumberOfElectricalPhases s223:NumberOfElectricalPhases-SinglePhase ;
+    s223:hasVoltage s223:LineNeutralVoltage-1.91kV .
+
+s223:AC-10.0kVLL-1Ph-60Hz a s223:Electricity-AC ;
+    rdfs:label "AC-10.0kVLL-1Ph-60Hz" ;
+    s223:hasFrequency s223:Frequency-60Hz ;
+    s223:hasNumberOfElectricalPhases s223:NumberOfElectricalPhases-SinglePhase ;
+    s223:hasVoltage s223:LineLineVoltage-10.0kV .
+
+s223:AC-10.0kVLL-3Ph-60Hz a s223:Electricity-AC ;
+    rdfs:label "AC-10.0kVLL-3Ph-60Hz" ;
+    s223:hasFrequency s223:Frequency-60Hz ;
+    s223:hasNumberOfElectricalPhases s223:NumberOfElectricalPhases-ThreePhase ;
+    s223:hasVoltage s223:LineLineVoltage-10.0kV .
+
+s223:AC-10.0kVLL-5.77kVLN-1Ph-60Hz a s223:Electricity-AC ;
+    rdfs:label "AC-10.0kVLL-5.77kVLN-1Ph-60Hz" ;
+    s223:hasFrequency s223:Frequency-60Hz ;
+    s223:hasNumberOfElectricalPhases s223:NumberOfElectricalPhases-SinglePhase ;
+    s223:hasVoltage s223:LineLineVoltage-10.0kV,
+        s223:LineNeutralVoltage-5.77kV .
+
+s223:AC-10.0kVLL-5.77kVLN-3Ph-60Hz a s223:Electricity-AC ;
+    rdfs:label "AC-10.0kVLL-5.77kVLN-3Ph-60Hz" ;
+    s223:hasFrequency s223:Frequency-60Hz ;
+    s223:hasNumberOfElectricalPhases s223:NumberOfElectricalPhases-ThreePhase ;
+    s223:hasVoltage s223:LineLineVoltage-10.0kV,
+        s223:LineNeutralVoltage-5.77kV .
+
+s223:AC-110.0VLN-1Ph-50Hz a s223:Electricity-AC ;
+    rdfs:label "AC-110.0VLN-1Ph-50Hz" ;
+    s223:hasFrequency s223:Frequency-50Hz ;
+    s223:hasNumberOfElectricalPhases s223:NumberOfElectricalPhases-SinglePhase ;
+    s223:hasVoltage s223:LineNeutralVoltage-110.0V .
+
+s223:AC-120.0VLN-1Ph-60Hz a s223:Electricity-AC ;
+    rdfs:label "AC-120.0VLN-1Ph-60Hz" ;
+    s223:hasFrequency s223:Frequency-60Hz ;
+    s223:hasNumberOfElectricalPhases s223:NumberOfElectricalPhases-SinglePhase ;
+    s223:hasVoltage s223:LineNeutralVoltage-120.0V .
+
+s223:AC-127.0VLN-1Ph-50Hz a s223:Electricity-AC ;
+    rdfs:label "AC-127.0VLN-1Ph-50Hz" ;
+    s223:hasFrequency s223:Frequency-50Hz ;
+    s223:hasNumberOfElectricalPhases s223:NumberOfElectricalPhases-SinglePhase ;
+    s223:hasVoltage s223:LineNeutralVoltage-127.0V .
+
+s223:AC-139.0VLN-1Ph-50Hz a s223:Electricity-AC ;
+    rdfs:label "AC-139.0VLN-1Ph-50Hz" ;
+    s223:hasFrequency s223:Frequency-50Hz ;
+    s223:hasNumberOfElectricalPhases s223:NumberOfElectricalPhases-SinglePhase ;
+    s223:hasVoltage s223:LineNeutralVoltage-139.0V .
+
+s223:AC-190.0VLL-110.0VLN-1Ph-50Hz a s223:Electricity-AC ;
+    rdfs:label "AC-190.0VLL-110.0VLN-1Ph-50Hz" ;
+    s223:hasFrequency s223:Frequency-50Hz ;
+    s223:hasNumberOfElectricalPhases s223:NumberOfElectricalPhases-SinglePhase ;
+    s223:hasVoltage s223:LineLineVoltage-190.0V,
+        s223:LineNeutralVoltage-110.0V .
+
+s223:AC-190.0VLL-110.0VLN-3Ph-50Hz a s223:Electricity-AC ;
+    rdfs:label "AC-190.0VLL-110.0VLN-3Ph-50Hz" ;
+    s223:hasFrequency s223:Frequency-50Hz ;
+    s223:hasNumberOfElectricalPhases s223:NumberOfElectricalPhases-ThreePhase ;
+    s223:hasVoltage s223:LineLineVoltage-190.0V,
+        s223:LineNeutralVoltage-110.0V .
+
+s223:AC-190.0VLL-1Ph-50Hz a s223:Electricity-AC ;
+    rdfs:label "AC-190.0VLL-1Ph-50Hz" ;
+    s223:hasFrequency s223:Frequency-50Hz ;
+    s223:hasNumberOfElectricalPhases s223:NumberOfElectricalPhases-SinglePhase ;
+    s223:hasVoltage s223:LineLineVoltage-190.0V .
+
+s223:AC-190.0VLL-3Ph-50Hz a s223:Electricity-AC ;
+    rdfs:label "AC-190.0VLL-3Ph-50Hz" ;
+    s223:hasFrequency s223:Frequency-50Hz ;
+    s223:hasNumberOfElectricalPhases s223:NumberOfElectricalPhases-ThreePhase ;
+    s223:hasVoltage s223:LineLineVoltage-190.0V .
+
+s223:AC-2.4kVLN-1Ph-60Hz a s223:Electricity-AC ;
+    rdfs:label "AC-2.4kVLN-1Ph-60Hz" ;
+    s223:hasFrequency s223:Frequency-60Hz ;
+    s223:hasNumberOfElectricalPhases s223:NumberOfElectricalPhases-SinglePhase ;
+    s223:hasVoltage s223:LineNeutralVoltage-2.4kV .
+
+s223:AC-208.0VLL-120.0VLN-1Ph-60Hz a s223:Electricity-AC ;
+    rdfs:label "AC-208.0VLL-120.0VLN-1Ph-60Hz" ;
+    s223:hasFrequency s223:Frequency-60Hz ;
+    s223:hasNumberOfElectricalPhases s223:NumberOfElectricalPhases-SinglePhase ;
+    s223:hasVoltage s223:LineLineVoltage-208.0V,
+        s223:LineNeutralVoltage-120.0V .
+
+s223:AC-208.0VLL-120.0VLN-3Ph-60Hz a s223:Electricity-AC ;
+    rdfs:label "AC-208.0VLL-120.0VLN-3Ph-60Hz" ;
+    s223:hasFrequency s223:Frequency-60Hz ;
+    s223:hasNumberOfElectricalPhases s223:NumberOfElectricalPhases-ThreePhase ;
+    s223:hasVoltage s223:LineLineVoltage-208.0V,
+        s223:LineNeutralVoltage-120.0V .
+
+s223:AC-208.0VLL-1Ph-60Hz a s223:Electricity-AC ;
+    rdfs:label "AC-208.0VLL-1Ph-60Hz" ;
+    s223:hasFrequency s223:Frequency-60Hz ;
+    s223:hasNumberOfElectricalPhases s223:NumberOfElectricalPhases-SinglePhase ;
+    s223:hasVoltage s223:LineLineVoltage-208.0V .
+
+s223:AC-208.0VLL-3Ph-60Hz a s223:Electricity-AC ;
+    rdfs:label "AC-208.0VLL-3Ph-60Hz" ;
+    s223:hasFrequency s223:Frequency-60Hz ;
+    s223:hasNumberOfElectricalPhases s223:NumberOfElectricalPhases-ThreePhase ;
+    s223:hasVoltage s223:LineLineVoltage-208.0V .
+
+s223:AC-219.0VLN-1Ph-60Hz a s223:Electricity-AC ;
+    rdfs:label "AC-219.0VLN-1Ph-60Hz" ;
+    s223:hasFrequency s223:Frequency-60Hz ;
+    s223:hasNumberOfElectricalPhases s223:NumberOfElectricalPhases-SinglePhase ;
+    s223:hasVoltage s223:LineNeutralVoltage-219.0V .
+
+s223:AC-220.0VLL-127.0VLN-1Ph-50Hz a s223:Electricity-AC ;
+    rdfs:label "AC-220.0VLL-127.0VLN-1Ph-50Hz" ;
+    s223:hasFrequency s223:Frequency-50Hz ;
+    s223:hasNumberOfElectricalPhases s223:NumberOfElectricalPhases-SinglePhase ;
+    s223:hasVoltage s223:LineLineVoltage-220.0V,
+        s223:LineNeutralVoltage-127.0V .
+
+s223:AC-220.0VLL-127.0VLN-3Ph-50Hz a s223:Electricity-AC ;
+    rdfs:label "AC-220.0VLL-127.0VLN-3Ph-50Hz" ;
+    s223:hasFrequency s223:Frequency-50Hz ;
+    s223:hasNumberOfElectricalPhases s223:NumberOfElectricalPhases-ThreePhase ;
+    s223:hasVoltage s223:LineLineVoltage-220.0V,
+        s223:LineNeutralVoltage-127.0V .
+
+s223:AC-220.0VLL-1Ph-50Hz a s223:Electricity-AC ;
+    rdfs:label "AC-220.0VLL-1Ph-50Hz" ;
+    s223:hasFrequency s223:Frequency-50Hz ;
+    s223:hasNumberOfElectricalPhases s223:NumberOfElectricalPhases-SinglePhase ;
+    s223:hasVoltage s223:LineLineVoltage-220.0V .
+
+s223:AC-220.0VLL-3Ph-50Hz a s223:Electricity-AC ;
+    rdfs:label "AC-220.0VLL-3Ph-50Hz" ;
+    s223:hasFrequency s223:Frequency-50Hz ;
+    s223:hasNumberOfElectricalPhases s223:NumberOfElectricalPhases-ThreePhase ;
+    s223:hasVoltage s223:LineLineVoltage-220.0V .
+
+s223:AC-231.0VLN-1Ph-50Hz a s223:Electricity-AC ;
+    rdfs:label "AC-231.0VLN-1Ph-50Hz" ;
+    s223:hasFrequency s223:Frequency-50Hz ;
+    s223:hasNumberOfElectricalPhases s223:NumberOfElectricalPhases-SinglePhase ;
+    s223:hasVoltage s223:LineNeutralVoltage-231.0V .
+
+s223:AC-240.0VLL-120.0VLN-1Ph-60Hz a s223:Electricity-AC ;
+    rdfs:label "AC-240.0VLL-120.0VLN-1Ph-60Hz" ;
+    s223:hasFrequency s223:Frequency-60Hz ;
+    s223:hasNumberOfElectricalPhases s223:NumberOfElectricalPhases-SinglePhase ;
+    s223:hasVoltage s223:LineLineVoltage-240.0V,
+        s223:LineNeutralVoltage-120.0V .
+
+s223:AC-240.0VLL-139.0VLN-1Ph-50Hz a s223:Electricity-AC ;
+    rdfs:label "AC-240.0VLL-139.0VLN-1Ph-50Hz" ;
+    s223:hasFrequency s223:Frequency-50Hz ;
+    s223:hasNumberOfElectricalPhases s223:NumberOfElectricalPhases-SinglePhase ;
+    s223:hasVoltage s223:LineLineVoltage-240.0V,
+        s223:LineNeutralVoltage-139.0V .
+
+s223:AC-240.0VLL-139.0VLN-3Ph-50Hz a s223:Electricity-AC ;
+    rdfs:label "AC-240.0VLL-139.0VLN-3Ph-50Hz" ;
+    s223:hasFrequency s223:Frequency-50Hz ;
+    s223:hasNumberOfElectricalPhases s223:NumberOfElectricalPhases-ThreePhase ;
+    s223:hasVoltage s223:LineLineVoltage-240.0V,
+        s223:LineNeutralVoltage-139.0V .
+
+s223:AC-240.0VLL-1Ph-50Hz a s223:Electricity-AC ;
+    rdfs:label "AC-240.0VLL-1Ph-50Hz" ;
+    s223:hasFrequency s223:Frequency-50Hz ;
+    s223:hasNumberOfElectricalPhases s223:NumberOfElectricalPhases-SinglePhase ;
+    s223:hasVoltage s223:LineLineVoltage-240.0V .
+
+s223:AC-240.0VLL-1Ph-60Hz a s223:Electricity-AC ;
+    rdfs:label "AC-240.0VLL-1Ph-60Hz" ;
+    s223:hasFrequency s223:Frequency-60Hz ;
+    s223:hasNumberOfElectricalPhases s223:NumberOfElectricalPhases-SinglePhase ;
+    s223:hasVoltage s223:LineLineVoltage-240.0V .
+
+s223:AC-240.0VLL-208.0VLN-120.0VLN-1Ph-60Hz a s223:Electricity-AC ;
+    rdfs:label "AC-240.0VLL-208.0VLN-120.0VLN-1Ph-60Hz" ;
+    s223:hasFrequency s223:Frequency-60Hz ;
+    s223:hasNumberOfElectricalPhases s223:NumberOfElectricalPhases-SinglePhase ;
+    s223:hasVoltage s223:LineLineVoltage-240.0V,
+        s223:LineNeutralVoltage-120.0V,
+        s223:LineNeutralVoltage-208.0V .
+
+s223:AC-240.0VLL-208.0VLN-120.0VLN-3Ph-60Hz a s223:Electricity-AC ;
+    rdfs:label "AC-240.0VLL-208.0VLN-120.0VLN-3Ph-60Hz" ;
+    s223:hasFrequency s223:Frequency-60Hz ;
+    s223:hasNumberOfElectricalPhases s223:NumberOfElectricalPhases-ThreePhase ;
+    s223:hasVoltage s223:LineLineVoltage-240.0V,
+        s223:LineNeutralVoltage-120.0V,
+        s223:LineNeutralVoltage-208.0V .
+
+s223:AC-240.0VLL-3Ph-50Hz a s223:Electricity-AC ;
+    rdfs:label "AC-240.0VLL-3Ph-50Hz" ;
+    s223:hasFrequency s223:Frequency-50Hz ;
+    s223:hasNumberOfElectricalPhases s223:NumberOfElectricalPhases-ThreePhase ;
+    s223:hasVoltage s223:LineLineVoltage-240.0V .
+
+s223:AC-240.0VLL-3Ph-60Hz a s223:Electricity-AC ;
+    rdfs:label "AC-240.0VLL-3Ph-60Hz" ;
+    s223:hasFrequency s223:Frequency-60Hz ;
+    s223:hasNumberOfElectricalPhases s223:NumberOfElectricalPhases-ThreePhase ;
+    s223:hasVoltage s223:LineLineVoltage-240.0V .
+
+s223:AC-240.0VLN-1Ph-50Hz a s223:Electricity-AC ;
+    rdfs:label "AC-240.0VLN-1Ph-50Hz" ;
+    s223:hasFrequency s223:Frequency-50Hz ;
+    s223:hasNumberOfElectricalPhases s223:NumberOfElectricalPhases-SinglePhase ;
+    s223:hasVoltage s223:LineNeutralVoltage-240.0V .
+
+s223:AC-277.0VLN-1Ph-60Hz a s223:Electricity-AC ;
+    rdfs:label "AC-277.0VLN-1Ph-60Hz" ;
+    s223:hasFrequency s223:Frequency-60Hz ;
+    s223:hasNumberOfElectricalPhases s223:NumberOfElectricalPhases-SinglePhase ;
+    s223:hasVoltage s223:LineNeutralVoltage-277.0V .
+
+s223:AC-3.0kVLL-1.73kVLN-1Ph-60Hz a s223:Electricity-AC ;
+    rdfs:label "AC-3.0kVLL-1.73kVLN-1Ph-60Hz" ;
+    s223:hasFrequency s223:Frequency-60Hz ;
+    s223:hasNumberOfElectricalPhases s223:NumberOfElectricalPhases-SinglePhase ;
+    s223:hasVoltage s223:LineLineVoltage-3.0kV,
+        s223:LineNeutralVoltage-1.73kV .
+
+s223:AC-3.0kVLL-1.73kVLN-3Ph-60Hz a s223:Electricity-AC ;
+    rdfs:label "AC-3.0kVLL-1.73kVLN-3Ph-60Hz" ;
+    s223:hasFrequency s223:Frequency-60Hz ;
+    s223:hasNumberOfElectricalPhases s223:NumberOfElectricalPhases-ThreePhase ;
+    s223:hasVoltage s223:LineLineVoltage-3.0kV,
+        s223:LineNeutralVoltage-1.73kV .
+
+s223:AC-3.0kVLL-1Ph-60Hz a s223:Electricity-AC ;
+    rdfs:label "AC-3.0kVLL-1Ph-60Hz" ;
+    s223:hasFrequency s223:Frequency-60Hz ;
+    s223:hasNumberOfElectricalPhases s223:NumberOfElectricalPhases-SinglePhase ;
+    s223:hasVoltage s223:LineLineVoltage-3.0kV .
+
+s223:AC-3.0kVLL-3Ph-60Hz a s223:Electricity-AC ;
+    rdfs:label "AC-3.0kVLL-3Ph-60Hz" ;
+    s223:hasFrequency s223:Frequency-60Hz ;
+    s223:hasNumberOfElectricalPhases s223:NumberOfElectricalPhases-ThreePhase ;
+    s223:hasVoltage s223:LineLineVoltage-3.0kV .
+
+s223:AC-3.3kVLL-1.91kVLN-1Ph-60Hz a s223:Electricity-AC ;
+    rdfs:label "AC-3.3kVLL-1.91kVLN-1Ph-60Hz" ;
+    s223:hasFrequency s223:Frequency-60Hz ;
+    s223:hasNumberOfElectricalPhases s223:NumberOfElectricalPhases-SinglePhase ;
+    s223:hasVoltage s223:LineLineVoltage-3.3kV,
+        s223:LineNeutralVoltage-1.91kV .
+
+s223:AC-3.3kVLL-1.91kVLN-3Ph-60Hz a s223:Electricity-AC ;
+    rdfs:label "AC-3.3kVLL-1.91kVLN-3Ph-60Hz" ;
+    s223:hasFrequency s223:Frequency-60Hz ;
+    s223:hasNumberOfElectricalPhases s223:NumberOfElectricalPhases-ThreePhase ;
+    s223:hasVoltage s223:LineLineVoltage-3.3kV,
+        s223:LineNeutralVoltage-1.91kV .
+
+s223:AC-3.3kVLL-1Ph-60Hz a s223:Electricity-AC ;
+    rdfs:label "AC-3.3kVLL-1Ph-60Hz" ;
+    s223:hasFrequency s223:Frequency-60Hz ;
+    s223:hasNumberOfElectricalPhases s223:NumberOfElectricalPhases-SinglePhase ;
+    s223:hasVoltage s223:LineLineVoltage-3.3kV .
+
+s223:AC-3.3kVLL-3Ph-60Hz a s223:Electricity-AC ;
+    rdfs:label "AC-3.3kVLL-3Ph-60Hz" ;
+    s223:hasFrequency s223:Frequency-60Hz ;
+    s223:hasNumberOfElectricalPhases s223:NumberOfElectricalPhases-ThreePhase ;
+    s223:hasVoltage s223:LineLineVoltage-3.3kV .
+
+s223:AC-3.46kVLN-1Ph-60Hz a s223:Electricity-AC ;
+    rdfs:label "AC-3.46kVLN-1Ph-60Hz" ;
+    s223:hasFrequency s223:Frequency-60Hz ;
+    s223:hasNumberOfElectricalPhases s223:NumberOfElectricalPhases-SinglePhase ;
+    s223:hasVoltage s223:LineNeutralVoltage-3.46kV .
+
+s223:AC-3.81kVLN-1Ph-60Hz a s223:Electricity-AC ;
+    rdfs:label "AC-3.81kVLN-1Ph-60Hz" ;
+    s223:hasFrequency s223:Frequency-60Hz ;
+    s223:hasNumberOfElectricalPhases s223:NumberOfElectricalPhases-SinglePhase ;
+    s223:hasVoltage s223:LineNeutralVoltage-3.81kV .
+
+s223:AC-347.0VLN-1Ph-60Hz a s223:Electricity-AC ;
+    rdfs:label "AC-347.0VLN-1Ph-60Hz" ;
+    s223:hasFrequency s223:Frequency-60Hz ;
+    s223:hasNumberOfElectricalPhases s223:NumberOfElectricalPhases-SinglePhase ;
+    s223:hasVoltage s223:LineNeutralVoltage-347.0V .
+
+s223:AC-380.0VLL-1Ph-60Hz a s223:Electricity-AC ;
+    rdfs:label "AC-380.0VLL-1Ph-60Hz" ;
+    s223:hasFrequency s223:Frequency-60Hz ;
+    s223:hasNumberOfElectricalPhases s223:NumberOfElectricalPhases-SinglePhase ;
+    s223:hasVoltage s223:LineLineVoltage-380.0V .
+
+s223:AC-380.0VLL-219.0VLN-1Ph-60Hz a s223:Electricity-AC ;
+    rdfs:label "AC-380.0VLL-219.0VLN-1Ph-60Hz" ;
+    s223:hasFrequency s223:Frequency-60Hz ;
+    s223:hasNumberOfElectricalPhases s223:NumberOfElectricalPhases-SinglePhase ;
+    s223:hasVoltage s223:LineLineVoltage-380.0V,
+        s223:LineNeutralVoltage-219.0V .
+
+s223:AC-380.0VLL-219.0VLN-3Ph-60Hz a s223:Electricity-AC ;
+    rdfs:label "AC-380.0VLL-219.0VLN-3Ph-60Hz" ;
+    s223:hasFrequency s223:Frequency-60Hz ;
+    s223:hasNumberOfElectricalPhases s223:NumberOfElectricalPhases-ThreePhase ;
+    s223:hasVoltage s223:LineLineVoltage-380.0V,
+        s223:LineNeutralVoltage-219.0V .
+
+s223:AC-380.0VLL-3Ph-60Hz a s223:Electricity-AC ;
+    rdfs:label "AC-380.0VLL-3Ph-60Hz" ;
+    s223:hasFrequency s223:Frequency-60Hz ;
+    s223:hasNumberOfElectricalPhases s223:NumberOfElectricalPhases-ThreePhase ;
+    s223:hasVoltage s223:LineLineVoltage-380.0V .
+
+s223:AC-4.16kVLL-1Ph-60Hz a s223:Electricity-AC ;
+    rdfs:label "AC-4.16kVLL-1Ph-60Hz" ;
+    s223:hasFrequency s223:Frequency-60Hz ;
+    s223:hasNumberOfElectricalPhases s223:NumberOfElectricalPhases-SinglePhase ;
+    s223:hasVoltage s223:LineLineVoltage-4.16kV .
+
+s223:AC-4.16kVLL-2.4kVLN-1Ph-60Hz a s223:Electricity-AC ;
+    rdfs:label "AC-4.16kVLL-2.4kVLN-1Ph-60Hz" ;
+    s223:hasFrequency s223:Frequency-60Hz ;
+    s223:hasNumberOfElectricalPhases s223:NumberOfElectricalPhases-SinglePhase ;
+    s223:hasVoltage s223:LineLineVoltage-4.16kV,
+        s223:LineNeutralVoltage-2.4kV .
+
+s223:AC-4.16kVLL-2.4kVLN-3Ph-60Hz a s223:Electricity-AC ;
+    rdfs:label "AC-4.16kVLL-2.4kVLN-3Ph-60Hz" ;
+    s223:hasFrequency s223:Frequency-60Hz ;
+    s223:hasNumberOfElectricalPhases s223:NumberOfElectricalPhases-ThreePhase ;
+    s223:hasVoltage s223:LineLineVoltage-4.16kV,
+        s223:LineNeutralVoltage-2.4kV .
+
+s223:AC-4.16kVLL-3Ph-60Hz a s223:Electricity-AC ;
+    rdfs:label "AC-4.16kVLL-3Ph-60Hz" ;
+    s223:hasFrequency s223:Frequency-60Hz ;
+    s223:hasNumberOfElectricalPhases s223:NumberOfElectricalPhases-ThreePhase ;
+    s223:hasVoltage s223:LineLineVoltage-4.16kV .
+
+s223:AC-400.0VLL-1Ph-50Hz a s223:Electricity-AC ;
+    rdfs:label "AC-400.0VLL-1Ph-50Hz" ;
+    s223:hasFrequency s223:Frequency-50Hz ;
+    s223:hasNumberOfElectricalPhases s223:NumberOfElectricalPhases-SinglePhase ;
+    s223:hasVoltage s223:LineLineVoltage-400.0V .
+
+s223:AC-400.0VLL-231.0VLN-1Ph-50Hz a s223:Electricity-AC ;
+    rdfs:label "AC-400.0VLL-231.0VLN-1Ph-50Hz" ;
+    s223:hasFrequency s223:Frequency-50Hz ;
+    s223:hasNumberOfElectricalPhases s223:NumberOfElectricalPhases-SinglePhase ;
+    s223:hasVoltage s223:LineLineVoltage-400.0V,
+        s223:LineNeutralVoltage-231.0V .
+
+s223:AC-400.0VLL-231.0VLN-3Ph-50Hz a s223:Electricity-AC ;
+    rdfs:label "AC-400.0VLL-231.0VLN-3Ph-50Hz" ;
+    s223:hasFrequency s223:Frequency-50Hz ;
+    s223:hasNumberOfElectricalPhases s223:NumberOfElectricalPhases-ThreePhase ;
+    s223:hasVoltage s223:LineLineVoltage-400.0V,
+        s223:LineNeutralVoltage-231.0V .
+
+s223:AC-400.0VLL-3Ph-50Hz a s223:Electricity-AC ;
+    rdfs:label "AC-400.0VLL-3Ph-50Hz" ;
+    s223:hasFrequency s223:Frequency-50Hz ;
+    s223:hasNumberOfElectricalPhases s223:NumberOfElectricalPhases-ThreePhase ;
+    s223:hasVoltage s223:LineLineVoltage-400.0V .
+
+s223:AC-415.0VLL-1Ph-50Hz a s223:Electricity-AC ;
+    rdfs:label "AC-415.0VLL-1Ph-50Hz" ;
+    s223:hasFrequency s223:Frequency-50Hz ;
+    s223:hasNumberOfElectricalPhases s223:NumberOfElectricalPhases-SinglePhase ;
+    s223:hasVoltage s223:LineLineVoltage-415.0V .
+
+s223:AC-415.0VLL-240.0VLN-1Ph-50Hz a s223:Electricity-AC ;
+    rdfs:label "AC-415.0VLL-240.0VLN-1Ph-50Hz" ;
+    s223:hasFrequency s223:Frequency-50Hz ;
+    s223:hasNumberOfElectricalPhases s223:NumberOfElectricalPhases-SinglePhase ;
+    s223:hasVoltage s223:LineLineVoltage-415.0V,
+        s223:LineNeutralVoltage-240.0V .
+
+s223:AC-415.0VLL-240.0VLN-3Ph-50Hz a s223:Electricity-AC ;
+    rdfs:label "AC-415.0VLL-240.0VLN-3Ph-50Hz" ;
+    s223:hasFrequency s223:Frequency-50Hz ;
+    s223:hasNumberOfElectricalPhases s223:NumberOfElectricalPhases-ThreePhase ;
+    s223:hasVoltage s223:LineLineVoltage-415.0V,
+        s223:LineNeutralVoltage-240.0V .
+
+s223:AC-415.0VLL-3Ph-50Hz a s223:Electricity-AC ;
+    rdfs:label "AC-415.0VLL-3Ph-50Hz" ;
+    s223:hasFrequency s223:Frequency-50Hz ;
+    s223:hasNumberOfElectricalPhases s223:NumberOfElectricalPhases-ThreePhase ;
+    s223:hasVoltage s223:LineLineVoltage-415.0V .
+
+s223:AC-480.0VLL-1Ph-60Hz a s223:Electricity-AC ;
+    rdfs:label "AC-480.0VLL-1Ph-60Hz" ;
+    s223:hasFrequency s223:Frequency-60Hz ;
+    s223:hasNumberOfElectricalPhases s223:NumberOfElectricalPhases-SinglePhase ;
+    s223:hasVoltage s223:LineLineVoltage-480.0V .
+
+s223:AC-480.0VLL-277.0VLN-1Ph-60Hz a s223:Electricity-AC ;
+    rdfs:label "AC-480.0VLL-277.0VLN-1Ph-60Hz" ;
+    s223:hasFrequency s223:Frequency-60Hz ;
+    s223:hasNumberOfElectricalPhases s223:NumberOfElectricalPhases-SinglePhase ;
+    s223:hasVoltage s223:LineLineVoltage-480.0V,
+        s223:LineNeutralVoltage-277.0V .
+
+s223:AC-480.0VLL-277.0VLN-3Ph-60Hz a s223:Electricity-AC ;
+    rdfs:label "AC-480.0VLL-277.0VLN-3Ph-60Hz" ;
+    s223:hasFrequency s223:Frequency-60Hz ;
+    s223:hasNumberOfElectricalPhases s223:NumberOfElectricalPhases-ThreePhase ;
+    s223:hasVoltage s223:LineLineVoltage-480.0V,
+        s223:LineNeutralVoltage-277.0V .
+
+s223:AC-480.0VLL-3Ph-60Hz a s223:Electricity-AC ;
+    rdfs:label "AC-480.0VLL-3Ph-60Hz" ;
+    s223:hasFrequency s223:Frequency-60Hz ;
+    s223:hasNumberOfElectricalPhases s223:NumberOfElectricalPhases-ThreePhase ;
+    s223:hasVoltage s223:LineLineVoltage-480.0V .
+
+s223:AC-5.77kVLN-1Ph-60Hz a s223:Electricity-AC ;
+    rdfs:label "AC-5.77kVLN-1Ph-60Hz" ;
+    s223:hasFrequency s223:Frequency-60Hz ;
+    s223:hasNumberOfElectricalPhases s223:NumberOfElectricalPhases-SinglePhase ;
+    s223:hasVoltage s223:LineNeutralVoltage-5.77kV .
+
+s223:AC-6.0kVLL-1Ph-60Hz a s223:Electricity-AC ;
+    rdfs:label "AC-6.0kVLL-1Ph-60Hz" ;
+    s223:hasFrequency s223:Frequency-60Hz ;
+    s223:hasNumberOfElectricalPhases s223:NumberOfElectricalPhases-SinglePhase ;
+    s223:hasVoltage s223:LineLineVoltage-6.0kV .
+
+s223:AC-6.0kVLL-3.46kVLN-1Ph-60Hz a s223:Electricity-AC ;
+    rdfs:label "AC-6.0kVLL-3.46kVLN-1Ph-60Hz" ;
+    s223:hasFrequency s223:Frequency-60Hz ;
+    s223:hasNumberOfElectricalPhases s223:NumberOfElectricalPhases-SinglePhase ;
+    s223:hasVoltage s223:LineLineVoltage-6.0kV,
+        s223:LineNeutralVoltage-3.46kV .
+
+s223:AC-6.0kVLL-3.46kVLN-3Ph-60Hz a s223:Electricity-AC ;
+    rdfs:label "AC-6.0kVLL-3.46kVLN-3Ph-60Hz" ;
+    s223:hasFrequency s223:Frequency-60Hz ;
+    s223:hasNumberOfElectricalPhases s223:NumberOfElectricalPhases-ThreePhase ;
+    s223:hasVoltage s223:LineLineVoltage-6.0kV,
+        s223:LineNeutralVoltage-3.46kV .
+
+s223:AC-6.0kVLL-3Ph-60Hz a s223:Electricity-AC ;
+    rdfs:label "AC-6.0kVLL-3Ph-60Hz" ;
+    s223:hasFrequency s223:Frequency-60Hz ;
+    s223:hasNumberOfElectricalPhases s223:NumberOfElectricalPhases-ThreePhase ;
+    s223:hasVoltage s223:LineLineVoltage-6.0kV .
+
+s223:AC-6.6kVLL-1Ph-60Hz a s223:Electricity-AC ;
+    rdfs:label "AC-6.6kVLL-1Ph-60Hz" ;
+    s223:hasFrequency s223:Frequency-60Hz ;
+    s223:hasNumberOfElectricalPhases s223:NumberOfElectricalPhases-SinglePhase ;
+    s223:hasVoltage s223:LineLineVoltage-6.6kV .
+
+s223:AC-6.6kVLL-3.81kVLN-1Ph-60Hz a s223:Electricity-AC ;
+    rdfs:label "AC-6.6kVLL-3.81kVLN-1Ph-60Hz" ;
+    s223:hasFrequency s223:Frequency-60Hz ;
+    s223:hasNumberOfElectricalPhases s223:NumberOfElectricalPhases-SinglePhase ;
+    s223:hasVoltage s223:LineLineVoltage-6.6kV,
+        s223:LineNeutralVoltage-3.81kV .
+
+s223:AC-6.6kVLL-3.81kVLN-3Ph-60Hz a s223:Electricity-AC ;
+    rdfs:label "AC-6.6kVLL-3.81kVLN-3Ph-60Hz" ;
+    s223:hasFrequency s223:Frequency-60Hz ;
+    s223:hasNumberOfElectricalPhases s223:NumberOfElectricalPhases-ThreePhase ;
+    s223:hasVoltage s223:LineLineVoltage-6.6kV,
+        s223:LineNeutralVoltage-3.81kV .
+
+s223:AC-6.6kVLL-3Ph-60Hz a s223:Electricity-AC ;
+    rdfs:label "AC-6.6kVLL-3Ph-60Hz" ;
+    s223:hasFrequency s223:Frequency-60Hz ;
+    s223:hasNumberOfElectricalPhases s223:NumberOfElectricalPhases-ThreePhase ;
+    s223:hasVoltage s223:LineLineVoltage-6.6kV .
+
+s223:AC-600.0VLL-1Ph-60Hz a s223:Electricity-AC ;
+    rdfs:label "AC-600.0VLL-1Ph-60Hz" ;
+    s223:hasFrequency s223:Frequency-60Hz ;
+    s223:hasNumberOfElectricalPhases s223:NumberOfElectricalPhases-SinglePhase ;
+    s223:hasVoltage s223:LineLineVoltage-600.0V .
+
+s223:AC-600.0VLL-347.0VLN-1Ph-60Hz a s223:Electricity-AC ;
+    rdfs:label "AC-600.0VLL-347.0VLN-1Ph-60Hz" ;
+    s223:hasFrequency s223:Frequency-60Hz ;
+    s223:hasNumberOfElectricalPhases s223:NumberOfElectricalPhases-SinglePhase ;
+    s223:hasVoltage s223:LineLineVoltage-600.0V,
+        s223:LineNeutralVoltage-347.0V .
+
+s223:AC-600.0VLL-347.0VLN-3Ph-60Hz a s223:Electricity-AC ;
+    rdfs:label "AC-600.0VLL-347.0VLN-3Ph-60Hz" ;
+    s223:hasFrequency s223:Frequency-60Hz ;
+    s223:hasNumberOfElectricalPhases s223:NumberOfElectricalPhases-ThreePhase ;
+    s223:hasVoltage s223:LineLineVoltage-600.0V,
+        s223:LineNeutralVoltage-347.0V .
+
+s223:AC-600.0VLL-3Ph-60Hz a s223:Electricity-AC ;
+    rdfs:label "AC-600.0VLL-3Ph-60Hz" ;
+    s223:hasFrequency s223:Frequency-60Hz ;
+    s223:hasNumberOfElectricalPhases s223:NumberOfElectricalPhases-ThreePhase ;
+    s223:hasVoltage s223:LineLineVoltage-600.0V .
+
+s223:DC-12V a s223:Electricity-DC ;
+    rdfs:label "DC 12V" ;
+    s223:hasVoltage s223:Voltage-12V .
+
+s223:DC-24V a s223:Electricity-DC ;
+    rdfs:label "DC 24V" ;
+    s223:hasVoltage s223:Voltage-24V .
+
+s223:DC-380V a s223:Electricity-DC ;
+    rdfs:label "DC 380V" ;
+    s223:hasVoltage s223:Voltage-380V .
+
+s223:DC-48V a s223:Electricity-DC ;
+    rdfs:label "DC 48V" ;
+    s223:hasVoltage s223:Voltage-48V .
+
+s223:DC-5V a s223:Electricity-DC ;
+    rdfs:label "DC 5V" ;
+    s223:hasVoltage s223:Voltage-5V .
+
+s223:DC-6V a s223:Electricity-DC ;
+    rdfs:label "DC 6V" ;
+    s223:hasVoltage s223:Voltage-6V .
+
+
+<http://data.ashrae.org/standard223/1.0/vocab/electricity> a owl:Ontology ;
+    owl:imports <http://data.ashrae.org/standard223/1.0/model/all> .
+
+s223:Voltage-1.73kV a s223:Dimensioned-Voltage,
+        s223:QuantifiableProperty ;
+    rdfs:label "1.73kV Voltage" ;
+    s223:hasValue 1.73 ;
+    qudt:hasQuantityKind qudtqk:Voltage ;
+    qudt:hasUnit unit:KiloV .
+
+s223:Voltage-1.91kV a s223:Dimensioned-Voltage,
+        s223:QuantifiableProperty ;
+    rdfs:label "1.91kV Voltage" ;
+    s223:hasValue 1.91 ;
+    qudt:hasQuantityKind qudtqk:Voltage ;
+    qudt:hasUnit unit:KiloV .
+
+s223:Voltage-10.0kV a s223:Dimensioned-Voltage,
+        s223:QuantifiableProperty ;
+    rdfs:label "10.0kV Voltage" ;
+    s223:hasValue 10.0 ;
+    qudt:hasQuantityKind qudtqk:Voltage ;
+    qudt:hasUnit unit:KiloV .
+
+s223:Voltage-110.0V a s223:Dimensioned-Voltage,
+        s223:QuantifiableProperty ;
+    rdfs:label "110.0V Voltage" ;
+    s223:hasValue 110.0 ;
+    qudt:hasQuantityKind qudtqk:Voltage ;
+    qudt:hasUnit unit:V .
+
+s223:Voltage-120.0V a s223:Dimensioned-Voltage,
+        s223:QuantifiableProperty ;
+    rdfs:label "120.0V Voltage" ;
+    s223:hasValue 120.0 ;
+    qudt:hasQuantityKind qudtqk:Voltage ;
+    qudt:hasUnit unit:V .
+
+s223:Voltage-127.0V a s223:Dimensioned-Voltage,
+        s223:QuantifiableProperty ;
+    rdfs:label "127.0V Voltage" ;
+    s223:hasValue 127.0 ;
+    qudt:hasQuantityKind qudtqk:Voltage ;
+    qudt:hasUnit unit:V .
+
+s223:Voltage-139.0V a s223:Dimensioned-Voltage,
+        s223:QuantifiableProperty ;
+    rdfs:label "139.0V Voltage" ;
+    s223:hasValue 139.0 ;
+    qudt:hasQuantityKind qudtqk:Voltage ;
+    qudt:hasUnit unit:V .
+
+s223:Voltage-190.0V a s223:Dimensioned-Voltage,
+        s223:QuantifiableProperty ;
+    rdfs:label "190.0V Voltage" ;
+    s223:hasValue 190.0 ;
+    qudt:hasQuantityKind qudtqk:Voltage ;
+    qudt:hasUnit unit:V .
+
+s223:Voltage-2.4kV a s223:Dimensioned-Voltage,
+        s223:QuantifiableProperty ;
+    rdfs:label "2.4kV Voltage" ;
+    s223:hasValue 2.4 ;
+    qudt:hasQuantityKind qudtqk:Voltage ;
+    qudt:hasUnit unit:KiloV .
+
+s223:Voltage-219.0V a s223:Dimensioned-Voltage,
+        s223:QuantifiableProperty ;
+    rdfs:label "219.0V Voltage" ;
+    s223:hasValue 219.0 ;
+    qudt:hasQuantityKind qudtqk:Voltage ;
+    qudt:hasUnit unit:V .
+
+s223:Voltage-220.0V a s223:Dimensioned-Voltage,
+        s223:QuantifiableProperty ;
+    rdfs:label "220.0V Voltage" ;
+    s223:hasValue 220.0 ;
+    qudt:hasQuantityKind qudtqk:Voltage ;
+    qudt:hasUnit unit:V .
+
+s223:Voltage-231.0V a s223:Dimensioned-Voltage,
+        s223:QuantifiableProperty ;
+    rdfs:label "231.0V Voltage" ;
+    s223:hasValue 231.0 ;
+    qudt:hasQuantityKind qudtqk:Voltage ;
+    qudt:hasUnit unit:V .
+
+s223:Voltage-277.0V a s223:Dimensioned-Voltage,
+        s223:QuantifiableProperty ;
+    rdfs:label "277.0V Voltage" ;
+    s223:hasValue 277.0 ;
+    qudt:hasQuantityKind qudtqk:Voltage ;
+    qudt:hasUnit unit:V .
+
+s223:Voltage-3.0kV a s223:Dimensioned-Voltage,
+        s223:QuantifiableProperty ;
+    rdfs:label "3.0kV Voltage" ;
+    s223:hasValue 3.0 ;
+    qudt:hasQuantityKind qudtqk:Voltage ;
+    qudt:hasUnit unit:KiloV .
+
+s223:Voltage-3.3kV a s223:Dimensioned-Voltage,
+        s223:QuantifiableProperty ;
+    rdfs:label "3.3kV Voltage" ;
+    s223:hasValue 3.3 ;
+    qudt:hasQuantityKind qudtqk:Voltage ;
+    qudt:hasUnit unit:KiloV .
+
+s223:Voltage-3.46kV a s223:Dimensioned-Voltage,
+        s223:QuantifiableProperty ;
+    rdfs:label "3.46kV Voltage" ;
+    s223:hasValue 3.46 ;
+    qudt:hasQuantityKind qudtqk:Voltage ;
+    qudt:hasUnit unit:KiloV .
+
+s223:Voltage-3.81kV a s223:Dimensioned-Voltage,
+        s223:QuantifiableProperty ;
+    rdfs:label "3.81kV Voltage" ;
+    s223:hasValue 3.81 ;
+    qudt:hasQuantityKind qudtqk:Voltage ;
+    qudt:hasUnit unit:KiloV .
+
+s223:Voltage-347.0V a s223:Dimensioned-Voltage,
+        s223:QuantifiableProperty ;
+    rdfs:label "347.0V Voltage" ;
+    s223:hasValue 347.0 ;
+    qudt:hasQuantityKind qudtqk:Voltage ;
+    qudt:hasUnit unit:V .
+
+s223:Voltage-380.0V a s223:Dimensioned-Voltage,
+        s223:QuantifiableProperty ;
+    rdfs:label "380.0V Voltage" ;
+    s223:hasValue 380.0 ;
+    qudt:hasQuantityKind qudtqk:Voltage ;
+    qudt:hasUnit unit:V .
+
+s223:Voltage-4.16kV a s223:Dimensioned-Voltage,
+        s223:QuantifiableProperty ;
+    rdfs:label "4.16kV Voltage" ;
+    s223:hasValue 4.16 ;
+    qudt:hasQuantityKind qudtqk:Voltage ;
+    qudt:hasUnit unit:KiloV .
+
+s223:Voltage-400.0V a s223:Dimensioned-Voltage,
+        s223:QuantifiableProperty ;
+    rdfs:label "400.0V Voltage" ;
+    s223:hasValue 400.0 ;
+    qudt:hasQuantityKind qudtqk:Voltage ;
+    qudt:hasUnit unit:V .
+
+s223:Voltage-415.0V a s223:Dimensioned-Voltage,
+        s223:QuantifiableProperty ;
+    rdfs:label "415.0V Voltage" ;
+    s223:hasValue 415.0 ;
+    qudt:hasQuantityKind qudtqk:Voltage ;
+    qudt:hasUnit unit:V .
+
+s223:Voltage-480.0V a s223:Dimensioned-Voltage,
+        s223:QuantifiableProperty ;
+    rdfs:label "480.0V Voltage" ;
+    s223:hasValue 480.0 ;
+    qudt:hasQuantityKind qudtqk:Voltage ;
+    qudt:hasUnit unit:V .
+
+s223:Voltage-5.77kV a s223:Dimensioned-Voltage,
+        s223:QuantifiableProperty ;
+    rdfs:label "5.77kV Voltage" ;
+    s223:hasValue 5.77 ;
+    qudt:hasQuantityKind qudtqk:Voltage ;
+    qudt:hasUnit unit:KiloV .
+
+s223:Voltage-6.0kV a s223:Dimensioned-Voltage,
+        s223:QuantifiableProperty ;
+    rdfs:label "6.0kV Voltage" ;
+    s223:hasValue 6.0 ;
+    qudt:hasQuantityKind qudtqk:Voltage ;
+    qudt:hasUnit unit:KiloV .
+
+s223:Voltage-6.6kV a s223:Dimensioned-Voltage,
+        s223:QuantifiableProperty ;
+    rdfs:label "6.6kV Voltage" ;
+    s223:hasValue 6.6 ;
+    qudt:hasQuantityKind qudtqk:Voltage ;
+    qudt:hasUnit unit:KiloV .
+
+s223:Voltage-600.0V a s223:Dimensioned-Voltage,
+        s223:QuantifiableProperty ;
+    rdfs:label "600.0V Voltage" ;
+    s223:hasValue 600.0 ;
+    qudt:hasQuantityKind qudtqk:Voltage ;
+    qudt:hasUnit unit:V .
+
+s223:LineNeutralVoltage-208.0V a s223:Dimensioned-LineNeutralVoltage ;
+    rdfs:label "208.0V Line-Neutral Voltage" ;
+    s223:hasVoltage s223:Voltage-208.0V .
+
+s223:Voltage-208.0V a s223:Dimensioned-Voltage,
+        s223:QuantifiableProperty ;
+    rdfs:label "208.0V Voltage" ;
+    s223:hasValue 208.0 ;
+    qudt:hasQuantityKind qudtqk:Voltage ;
+    qudt:hasUnit unit:V .
+
+s223:Voltage-240.0V a s223:Dimensioned-Voltage,
+        s223:QuantifiableProperty ;
+    rdfs:label "240.0V Voltage" ;
+    s223:hasValue 240.0 ;
+    qudt:hasQuantityKind qudtqk:Voltage ;
+    qudt:hasUnit unit:V .
+
+s223:Dimensioned-Frequency a s223:Class,
+        s223:Dimensioned-Frequency,
+        sh:NodeShape ;
+    rdfs:label "Dimensioned Frequency" ;
+    rdfs:subClassOf s223:Context-Dimensioned .
+
+s223:Dimensionless-NumberOfElectricalPhases a s223:Class,
+        s223:Dimensionless-NumberOfElectricalPhases,
+        sh:NodeShape ;
+    rdfs:label "Dimensionless Number of Electrical Phases" ;
+    rdfs:subClassOf s223:Context-Dimensionless .
+
+s223:LineNeutralVoltage-1.73kV a s223:Dimensioned-LineNeutralVoltage ;
+    rdfs:label "1.73kV Line-Neutral Voltage" ;
+    s223:hasVoltage s223:Voltage-1.73kV .
+
+s223:LineNeutralVoltage-1.91kV a s223:Dimensioned-LineNeutralVoltage ;
+    rdfs:label "1.91kV Line-Neutral Voltage" ;
+    s223:hasVoltage s223:Voltage-1.91kV .
+
+s223:LineNeutralVoltage-110.0V a s223:Dimensioned-LineNeutralVoltage ;
+    rdfs:label "110.0V Line-Neutral Voltage" ;
+    s223:hasVoltage s223:Voltage-110.0V .
+
+s223:LineNeutralVoltage-127.0V a s223:Dimensioned-LineNeutralVoltage ;
+    rdfs:label "127.0V Line-Neutral Voltage" ;
+    s223:hasVoltage s223:Voltage-127.0V .
+
+s223:LineNeutralVoltage-139.0V a s223:Dimensioned-LineNeutralVoltage ;
+    rdfs:label "139.0V Line-Neutral Voltage" ;
+    s223:hasVoltage s223:Voltage-139.0V .
+
+s223:LineNeutralVoltage-2.4kV a s223:Dimensioned-LineNeutralVoltage ;
+    rdfs:label "2.4kV Line-Neutral Voltage" ;
+    s223:hasVoltage s223:Voltage-2.4kV .
+
+s223:LineNeutralVoltage-219.0V a s223:Dimensioned-LineNeutralVoltage ;
+    rdfs:label "219.0V Line-Neutral Voltage" ;
+    s223:hasVoltage s223:Voltage-219.0V .
+
+s223:LineNeutralVoltage-231.0V a s223:Dimensioned-LineNeutralVoltage ;
+    rdfs:label "231.0V Line-Neutral Voltage" ;
+    s223:hasVoltage s223:Voltage-231.0V .
+
+s223:LineNeutralVoltage-240.0V a s223:Dimensioned-LineNeutralVoltage ;
+    rdfs:label "240.0V Line-Neutral Voltage" ;
+    s223:hasVoltage s223:Voltage-240.0V .
+
+s223:LineNeutralVoltage-277.0V a s223:Dimensioned-LineNeutralVoltage ;
+    rdfs:label "277.0V Line-Neutral Voltage" ;
+    s223:hasVoltage s223:Voltage-277.0V .
+
+s223:LineNeutralVoltage-3.46kV a s223:Dimensioned-LineNeutralVoltage ;
+    rdfs:label "3.46kV Line-Neutral Voltage" ;
+    s223:hasVoltage s223:Voltage-3.46kV .
+
+s223:LineNeutralVoltage-3.81kV a s223:Dimensioned-LineNeutralVoltage ;
+    rdfs:label "3.81kV Line-Neutral Voltage" ;
+    s223:hasVoltage s223:Voltage-3.81kV .
+
+s223:LineNeutralVoltage-347.0V a s223:Dimensioned-LineNeutralVoltage ;
+    rdfs:label "347.0V Line-Neutral Voltage" ;
+    s223:hasVoltage s223:Voltage-347.0V .
+
+s223:LineNeutralVoltage-5.77kV a s223:Dimensioned-LineNeutralVoltage ;
+    rdfs:label "5.77kV Line-Neutral Voltage" ;
+    s223:hasVoltage s223:Voltage-5.77kV .
+
+s223:LineLineVoltage-10.0kV a s223:Dimensioned-LineLineVoltage ;
+    rdfs:label "10.0kV Line-Line Voltage" ;
+    s223:hasVoltage s223:Voltage-10.0kV .
+
+s223:LineLineVoltage-190.0V a s223:Dimensioned-LineLineVoltage ;
+    rdfs:label "190.0V Line-Line Voltage" ;
+    s223:hasVoltage s223:Voltage-190.0V .
+
+s223:LineLineVoltage-208.0V a s223:Dimensioned-LineLineVoltage ;
+    rdfs:label "208.0V Line-Line Voltage" ;
+    s223:hasVoltage s223:Voltage-208.0V .
+
+s223:LineLineVoltage-220.0V a s223:Dimensioned-LineLineVoltage ;
+    rdfs:label "220.0V Line-Line Voltage" ;
+    s223:hasVoltage s223:Voltage-220.0V .
+
+s223:LineLineVoltage-3.0kV a s223:Dimensioned-LineLineVoltage ;
+    rdfs:label "3.0kV Line-Line Voltage" ;
+    s223:hasVoltage s223:Voltage-3.0kV .
+
+s223:LineLineVoltage-3.3kV a s223:Dimensioned-LineLineVoltage ;
+    rdfs:label "3.3kV Line-Line Voltage" ;
+    s223:hasVoltage s223:Voltage-3.3kV .
+
+s223:LineLineVoltage-380.0V a s223:Dimensioned-LineLineVoltage ;
+    rdfs:label "380.0V Line-Line Voltage" ;
+    s223:hasVoltage s223:Voltage-380.0V .
+
+s223:LineLineVoltage-4.16kV a s223:Dimensioned-LineLineVoltage ;
+    rdfs:label "4.16kV Line-Line Voltage" ;
+    s223:hasVoltage s223:Voltage-4.16kV .
+
+s223:LineLineVoltage-400.0V a s223:Dimensioned-LineLineVoltage ;
+    rdfs:label "400.0V Line-Line Voltage" ;
+    s223:hasVoltage s223:Voltage-400.0V .
+
+s223:LineLineVoltage-415.0V a s223:Dimensioned-LineLineVoltage ;
+    rdfs:label "415.0V Line-Line Voltage" ;
+    s223:hasVoltage s223:Voltage-415.0V .
+
+s223:LineLineVoltage-480.0V a s223:Dimensioned-LineLineVoltage ;
+    rdfs:label "480.0V Line-Line Voltage" ;
+    s223:hasVoltage s223:Voltage-480.0V .
+
+s223:LineLineVoltage-6.0kV a s223:Dimensioned-LineLineVoltage ;
+    rdfs:label "6.0kV Line-Line Voltage" ;
+    s223:hasVoltage s223:Voltage-6.0kV .
+
+s223:LineLineVoltage-6.6kV a s223:Dimensioned-LineLineVoltage ;
+    rdfs:label "6.6kV Line-Line Voltage" ;
+    s223:hasVoltage s223:Voltage-6.6kV .
+
+s223:LineLineVoltage-600.0V a s223:Dimensioned-LineLineVoltage ;
+    rdfs:label "600.0V Line-Line Voltage" ;
+    s223:hasVoltage s223:Voltage-600.0V .
+
+s223:LineNeutralVoltage-120.0V a s223:Dimensioned-LineNeutralVoltage ;
+    rdfs:label "120.0V Line-Neutral Voltage" ;
+    s223:hasVoltage s223:Voltage-120.0V .
+
+s223:LineLineVoltage-240.0V a s223:Dimensioned-LineLineVoltage ;
+    rdfs:label "240.0V Line-Line Voltage" ;
+    s223:hasVoltage s223:Voltage-240.0V .
+
+s223:Dimensioned-LineLineVoltage a s223:Class,
+        s223:Dimensioned-LineLineVoltage,
+        sh:NodeShape ;
+    rdfs:label "Dimensioned Line-Line Voltage" ;
+    rdfs:subClassOf s223:Context-Dimensioned .
+
+s223:Dimensioned-LineNeutralVoltage a s223:Class,
+        s223:Dimensioned-LineNeutralVoltage,
+        sh:NodeShape ;
+    rdfs:label "Dimensioned Line-Neutral Voltage" ;
+    rdfs:subClassOf s223:Context-Dimensioned .
+
+s223:Frequency-50Hz a s223:Dimensioned-Frequency,
+        s223:QuantifiableProperty ;
+    rdfs:label "50 Hertz" ;
+    s223:hasValue 50.0 ;
+    qudt:hasQuantityKind qudtqk:Frequency ;
+    qudt:hasUnit unit:HZ .
+
+s223:Dimensioned-Voltage a s223:Class,
+        s223:Dimensioned-Voltage,
+        sh:NodeShape ;
+    rdfs:label "Dimensioned Voltage" ;
+    rdfs:subClassOf s223:Context-Dimensioned .
+
+s223:NumberOfElectricalPhases-ThreePhase a s223:Dimensionless-NumberOfElectricalPhases ;
+    rdfs:label "Three Phase AC Electricity" .
+
+s223:NumberOfElectricalPhases-SinglePhase a s223:Dimensionless-NumberOfElectricalPhases ;
+    rdfs:label "Single Phase AC Electricity" .
+
+s223:Frequency-60Hz a s223:Dimensioned-Frequency,
+        s223:QuantifiableProperty ;
+    rdfs:label "60 Hertz" ;
+    s223:hasValue 60.0 ;
+    qudt:hasQuantityKind qudtqk:Frequency ;
+    qudt:hasUnit unit:HZ .
+
+s223:Electricity-AC a s223:Class,
+        s223:Electricity-AC,
+        sh:NodeShape ;
+    rdfs:label "Electricity AC" ;
+    rdfs:subClassOf s223:Medium-Electricity .
