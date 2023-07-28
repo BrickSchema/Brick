@@ -2,9 +2,9 @@ owlrl>=6.0
 rdflib>=6.1
 pytest>=6.2
 tqdm>=4.46.1
-pyshacl>=0.19
+pyshacl>=0.23
 docker>=4.3.0
-brickschema[all]>=0.6.1a6
+brickschema[all]>=0.7.2a2
 black==22.1.0
 pre-commit>=2.13.0
 flake8==3.9.2
