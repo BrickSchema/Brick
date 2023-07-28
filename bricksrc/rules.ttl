@@ -387,3 +387,21 @@ bsh:hasSubstance a sh:NodeShape ;
     sh:targetObjectsOf brick:hasSubstance ;
     sh:class brick:Substance ;
 .
+
+
+# add unidirectional charging to all EVsE chargers as a default value
+bsh:AddDefaultEVSEChargerDirection a sh:NodeShape ;
+    sh:targetClass brick:Electric_Vehicle_Charging_Station ;
+    sh:rule [
+        a sh:SPARQLRule ;
+        sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
+        sh:construct """
+        CONSTRUCT {
+            $this brick:electricVehicleChargerDirectionality [ brick:value "unidirectional" ]
+        } WHERE {
+            $this rdf:type brick:Electric_Vehicle_Charging_Station .
+            FILTER NOT EXISTS {$this brick:electricVehicleChargerDirectionality ?direction}
+        }
+        """ ;
+    ] ;
+.

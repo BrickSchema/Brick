@@ -10,6 +10,7 @@
     brick:hasPart :station1, :station2 .
 
 :station1 a brick:Electric_Vehicle_Charging_Station ;
+    brick:electricVehicleChargerDirectionality [ brick:value "bidirectional" ] ;
     brick:electricVehicleChargerType [ brick:value "Level 1" ] ;
     brick:hasPart :port1-1, :port1-2 ;
 .
