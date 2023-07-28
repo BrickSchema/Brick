@@ -17,6 +17,12 @@ for pfx in brick_graph.objects(predicate=rdflib.SH.declare):
     brick_graph.remove((None, rdflib.SH.declare, pfx))
     brick_graph.add((BRICK, rdflib.SH.declare, pfx))
 
+# reassign where rules find their prefixees
+for rule, pfxs in brick_graph.subject_objects(predicate=rdflib.SH.prefixes):
+    brick_graph.remove((rule, rdflib.SH.prefixes, pfxs))
+    brick_graph.add((rule, rdflib.SH.prefixes, BRICK))
+
+# remove ontology declarations
 for ontology in brick_graph.subjects(predicate=rdflib.RDF.type, object=rdflib.OWL.Ontology):
     if ontology != BRICK:
         brick_graph.remove((ontology, rdflib.RDF.type, rdflib.OWL.Ontology))
