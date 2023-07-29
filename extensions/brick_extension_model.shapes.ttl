@@ -104,6 +104,21 @@ FILTER (!bound (?otherClass)) .
 .
 s223:Connectable
   sh:property [
+      sh:path s223:cnx ;
+      rdfs:comment "A Connectable should only have a s223:cnx relation with a ConnectionPoint" ;
+      sh:sparql [
+          a sh:SPARQLConstraint ;
+          rdfs:comment "A Connectable should only have a s223:cnx relation with a ConnectionPoint" ;
+          sh:message "{$this} cannot have a s223:cnx relation to {?something}, because {?something} is not a ConnectionPoint." ;
+          sh:prefixes <http://data.ashrae.org/standard223/1.0/validation/model> ;
+          sh:select """SELECT $this ?something
+WHERE {
+$this s223:cnx ?something .
+FILTER NOT EXISTS {?something a/rdfs:subClassOf* s223:ConnectionPoint} .
+}""" ;
+        ] ;
+    ] ;
+  sh:property [
       sh:path s223:mapsTo ;
       rdfs:comment "If a CP mapsTo another CP, the respective Equipment should have a contains relation." ;
       sh:sparql [
@@ -123,6 +138,21 @@ FILTER NOT EXISTS {$this s223:cnx+ ?otherC}
     ] ;
 .
 s223:Connection
+  sh:property [
+      sh:path s223:cnx ;
+      rdfs:comment "A Connection should only have a s223:cnx relation with a ConnectionPoint" ;
+      sh:sparql [
+          a sh:SPARQLConstraint ;
+          rdfs:comment "A Connection should only have a s223:cnx relation with a ConnectionPoint" ;
+          sh:message "{$this} cannot have a s223:cnx relation to {?something}, because {?something} is not a ConnectionPoint." ;
+          sh:prefixes <http://data.ashrae.org/standard223/1.0/validation/model> ;
+          sh:select """SELECT $this ?something
+WHERE {
+$this s223:cnx ?something .
+FILTER NOT EXISTS {?something a/rdfs:subClassOf* s223:ConnectionPoint} .
+}""" ;
+        ] ;
+    ] ;
   sh:property [
       sh:path s223:hasMedium ;
       sh:name "Test for compatible declared Medium" ;
@@ -190,6 +220,43 @@ FILTER NOT EXISTS {?otherEquipment s223:contains ?equipment}
         ] ;
     ] ;
 .
+s223:ControllerRoleShape
+  a sh:NodeShape ;
+  rdfs:comment "Equipment that executes a FunctionBlock must have a s223:hasRole relation to s223:Role-Controller." ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path s223:hasRole ;
+      sh:hasValue s223:Role-Controller ;
+      sh:message "Equipment that executes a FunctionBlock must have a s223:hasRole relation to s223:Role-Controller." ;
+      sh:minCount 1 ;
+    ] ;
+  sh:targetSubjectsOf s223:executes ;
+.
+s223:CoolingCoil
+  sh:rule [
+      a sh:TripleRule ;
+      rdfs:comment "Cooling coils will always have the role Role-Cooling" ;
+      sh:object s223:Role-Cooling ;
+      sh:predicate s223:hasRole ;
+      sh:subject sh:this ;
+    ] ;
+.
+s223:CorrelatedColorTemperatureSensor
+  sh:property [
+      sh:path s223:observes ;
+      rdfs:comment "A CorrelatedColorTemperatureSensor will always observe a Property that has a QuantityKind of ThermodynamicTemperature." ;
+      sh:qualifiedMinCount 1 ;
+      sh:qualifiedValueShape [
+          sh:class s223:Property ;
+          sh:node [
+              sh:property [
+                  sh:path qudt:hasQuantityKind ;
+                  sh:hasValue qudtqk:ThermodynamicTemperature ;
+                ] ;
+            ] ;
+        ] ;
+    ] ;
+.
 s223:DifferentialSensor
   sh:property [
       sh:path s223:hasObservationLocationHigh ;
@@ -219,6 +286,22 @@ s223:DomainSpace
       sh:message "This DomainSpace must eventually be enclosed by a PhysicalSpace." ;
       sh:minCount 1 ;
       sh:severity sh:Info ;
+    ] ;
+.
+s223:DuvSensor
+  sh:property [
+      sh:path s223:observes ;
+      rdfs:comment "A DuvSensor will always observe a Property that has a QuantityKind of Duv." ;
+      sh:qualifiedMinCount 1 ;
+      sh:qualifiedValueShape [
+          sh:class s223:Property ;
+          sh:node [
+              sh:property [
+                  sh:path qudt:hasQuantityKind ;
+                  sh:hasValue qudtqk:Duv ;
+                ] ;
+            ] ;
+        ] ;
     ] ;
 .
 s223:EnumerableProperty
@@ -310,6 +393,73 @@ UNION
         ] ;
     ] ;
 .
+s223:HeatExchanger
+  sh:property [
+      sh:path s223:hasConnectionPoint ;
+      rdfs:comment "Heat Exchangers should have the same number of non-electrical inlet and outlet connection points." ;
+      sh:sparql [
+          a sh:SPARQLConstraint ;
+          sh:message "Number of inlets {?incount} are not equivalent with number of outlets {?outcount}." ;
+          sh:prefixes <http://data.ashrae.org/standard223/1.0/validation/model> ;
+          sh:select """
+SELECT DISTINCT $this ?incount ?outcount
+WHERE {
+{
+SELECT $this (COUNT (?cpin) AS ?incount)
+WHERE {
+?cpin a/rdfs:subClassOf* s223:InletConnectionPoint .
+$this s223:hasConnectionPoint ?cpin .
+?cpin s223:hasMedium ?inmedium .
+FILTER NOT EXISTS {
+    ?inmedium a/rdfs:subClassOf* s223:Medium-Electricity .
+  }
+}
+GROUP BY $this
+}
+{
+SELECT $this (COUNT (?cpout) AS ?outcount)
+WHERE {
+?cpout a/rdfs:subClassOf* s223:OutletConnectionPoint .
+$this s223:hasConnectionPoint ?cpout .
+?cpout s223:hasMedium ?outmedium .
+FILTER NOT EXISTS {
+    ?outmedium a/rdfs:subClassOf* s223:Medium-Electricity .
+  }
+}
+GROUP BY $this
+}
+FILTER (?incount != ?outcount)
+}
+""" ;
+          sh:severity sh:Warning ;
+        ] ;
+    ] ;
+.
+s223:HeatingCoil
+  sh:rule [
+      a sh:TripleRule ;
+      rdfs:comment "Heating coils will always have the role Role-Heating" ;
+      sh:object s223:Role-Heating ;
+      sh:predicate s223:hasRole ;
+      sh:subject sh:this ;
+    ] ;
+.
+s223:IlluminanceSensor
+  sh:property [
+      sh:path s223:observes ;
+      rdfs:comment "A IlluminanceSensor will always observe a Property that has a QuantityKind of Illuminance." ;
+      sh:qualifiedMinCount 1 ;
+      sh:qualifiedValueShape [
+          sh:class s223:Property ;
+          sh:node [
+              sh:property [
+                  sh:path qudt:hasQuantityKind ;
+                  sh:hasValue qudtqk:Illuminance ;
+                ] ;
+            ] ;
+        ] ;
+    ] ;
+.
 s223:InletConnectionPoint
   sh:property [
       sh:path s223:mapsTo ;
@@ -329,6 +479,56 @@ $this s223:mapsTo ?otherCP .
 ?destinationDevice s223:contains ?equipment .
 }
 """ ;
+        ] ;
+    ] ;
+.
+s223:OccupantCounter
+  sh:property [
+      sh:path s223:observes ;
+      rdfs:comment "A OccupantCounter will always observe a QuantifiableObservableProperty that has a QuantityKind of Population and a Unit of unit:NUM." ;
+      sh:class s223:QuantifiableObservableProperty ;
+      sh:minCount 1 ;
+      sh:node [
+          sh:property [
+              sh:path qudt:hasQuantityKind ;
+              sh:hasValue qudtqk:Population ;
+              sh:maxCount 1 ;
+            ] ;
+          sh:property [
+              sh:path qudt:hasUnit ;
+              sh:hasValue unit:NUM ;
+              sh:maxCount 1 ;
+            ] ;
+        ] ;
+    ] ;
+.
+s223:OccupantMotionSensor
+  sh:property [
+      sh:path s223:observes ;
+      rdfs:comment "A OccupantMotionSensor will always observe an EnumeratedObservableProperty that has an EnumerationKind of Occupancy-Motion." ;
+      sh:class s223:EnumeratedObservableProperty ;
+      sh:minCount 1 ;
+      sh:node [
+          sh:property [
+              sh:path s223:hasEnumerationKind ;
+              sh:class s223:Occupancy-Motion ;
+              sh:maxCount 1 ;
+            ] ;
+        ] ;
+    ] ;
+.
+s223:OccupantPresenceSensor
+  sh:property [
+      sh:path s223:observes ;
+      rdfs:comment "A OccupantPresenceSensor will always observe an EnumeratedObservableProperty that has an EnumerationKind of Occupancy-Presence." ;
+      sh:class s223:EnumeratedObservableProperty ;
+      sh:minCount 1 ;
+      sh:node [
+          sh:property [
+              sh:path s223:hasEnumerationKind ;
+              sh:class s223:Occupancy-Presence ;
+              sh:maxCount 1 ;
+            ] ;
         ] ;
     ] ;
 .
@@ -465,7 +665,7 @@ FILTER (?pdv = ?sdv) .
       a sh:SPARQLConstraint ;
       rdfs:comment "Checks for consistent dimension vectors for a QuantityKind and the Unit" ;
       sh:message "Inconsistent dimensionalities among the Property's Unit and Property's Quantity Kind" ;
-      sh:prefixes <http://data.ashrae.org/standard223/1.0/validation/data> ;
+      sh:prefixes <http://data.ashrae.org/standard223/1.0/validation/model> ;
       sh:select """
 SELECT $this ?count
 WHERE {
@@ -485,6 +685,22 @@ WHERE {
 FILTER (?count > 1) .
 }
 """ ;
+    ] ;
+.
+s223:TemperatureSensor
+  sh:property [
+      sh:path s223:observes ;
+      rdfs:comment "A TemperatureSensor will always observe a Property that has a QuantityKind of Temperature." ;
+      sh:qualifiedMinCount 1 ;
+      sh:qualifiedValueShape [
+          sh:class s223:Property ;
+          sh:node [
+              sh:property [
+                  sh:path qudt:hasQuantityKind ;
+                  sh:hasValue qudtqk:Temperature ;
+                ] ;
+            ] ;
+        ] ;
     ] ;
 .
 <http://data.ashrae.org/standard223/1.0/validation/model>

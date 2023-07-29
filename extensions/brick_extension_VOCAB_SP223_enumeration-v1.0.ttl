@@ -906,6 +906,10 @@ s223:Role-Condenser
   a s223:EnumerationKind-Role ;
   rdfs:label "Role-Condenser" ;
 .
+s223:Role-Controller
+  a s223:EnumerationKind-Role ;
+  rdfs:label "Role-Controller" ;
+.
 s223:Role-Cooling
   a s223:EnumerationKind-Role ;
   rdfs:label "Role-Cooling" ;
@@ -961,6 +965,10 @@ s223:Role-Secondary
 s223:Role-Supply
   a s223:EnumerationKind-Role ;
   rdfs:label "Role-Supply" ;
+.
+s223:Role-Expansion
+  a s223:EnumerationKind-Role ;
+  rdfs:label "Role-Expansion" ;
 .
 s223:RunStatus-Off
   a s223:EnumerationKind-RunStatus ;
