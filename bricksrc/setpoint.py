@@ -1488,6 +1488,17 @@ setpoint_definitions = {
                                     TAG.Setpoint,
                                 ],
                             },
+                            "Occupied_Air_Temperature_Setpoint": {
+                                BRICK.hasQuantity: BRICK.Temperature,
+                                BRICK.hasSubstance: BRICK.Air,
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Occupied,
+                                    TAG.Air,
+                                    TAG.Temperature,
+                                    TAG.Setpoint,
+                                ],
+                            },
                             "Return_Air_Temperature_Setpoint": {
                                 BRICK.hasQuantity: BRICK.Temperature,
                                 BRICK.hasSubstance: BRICK.Return_Air,
@@ -1867,6 +1878,15 @@ setpoint_definitions = {
                                 "tags": [
                                     TAG.Point,
                                     TAG.Outside,
+                                    TAG.Air,
+                                    TAG.Temperature,
+                                    TAG.Setpoint,
+                                ],
+                            },
+                            "Unoccupied_Air_Temperature_Setpoint": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Unoccupied,
                                     TAG.Air,
                                     TAG.Temperature,
                                     TAG.Setpoint,
