@@ -13,13 +13,13 @@ relationships = {
     },
     "hasSubstance": {
         A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
-        RDFS.label: Literal("Has QUDT reference"),
+        RDFS.label: Literal("Has Substance"),
         "range": BRICK.Substance,
         "domain": [BRICK.Point, BRICK.Meter],
     },
     "hasQuantity": {
         A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
-        RDFS.label: Literal("Has QUDT reference"),
+        RDFS.label: Literal("Has Quantity"),
         RDFS.subPropertyOf: QUDT.hasQuantityKind,
         "range": BRICK.Quantity,
         "domain": BRICK.Point,
