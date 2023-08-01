@@ -60,6 +60,12 @@ s223:Connectable
       sh:subject sh:this ;
     ] ;
 .
+s223:ConnectionPoint
+sh:property [
+  rdfs:comment "Make s223:ConnectionPoint able to use brick:hasPoint." ;
+    sh:path brick:hasPoint  ;
+  ]
+.
 s223:DomainSpace
   sh:rule [
       a sh:TripleRule ;
