@@ -315,11 +315,9 @@ def define_classes(definitions, parent, pun_classes=False, graph=G):
         assert isinstance(aliases, list)
         for alias in aliases:
             graph.add((classname, OWL.equivalentClass, alias))
-
             graph.add((alias, A, OWL.Class))
             graph.add((alias, OWL.equivalentClass, classname))
             graph.add((alias, BRICK.aliasOf, classname))
-
             if not has_label(alias, graph=graph):
                 graph.add((alias, RDFS.label, Literal(alias.split("#")[-1].replace("_", " "))))
 
