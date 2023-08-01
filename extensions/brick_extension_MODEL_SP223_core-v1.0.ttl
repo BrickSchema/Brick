@@ -147,13 +147,21 @@ A Connection may contain branches or intersections. These are modeled using Segm
   rdfs:label "Connection" ;
   rdfs:subClassOf s223:Concept ;
   sh:property [
+      sh:path s223:cnx ;
+      sh:minCount 2 ;
+      sh:message "A Connection must have two or more cnx relations to ConnectionPoints" ;
+      rdfs:comment "A Connection must have two or more cnx relations to ConnectionPoints" ;
+      sh:class s223:ConnectionPoint ;
+      sh:severity sh:Info ;
+    ] ;
+  sh:property [
       sh:path s223:connectsAt ;
-      rdfs:comment "A Connection can be associated with any number of ConnectionPoints using the relation connectsAt" ;
+      rdfs:comment "A Connection can be associated with any number of ConnectionPoints using the relation connectsAt." ;
       sh:class s223:ConnectionPoint ;
     ] ;
   sh:property [
       sh:path s223:connectsFrom ;
-      rdfs:comment "A Connection can be associated with any number of Connectables using the relation connectsFrom" ;
+      rdfs:comment "A Connection can be associated with any number of Connectables using the relation connectsFrom." ;
       sh:class s223:Connectable ;
       sh:name "ConnectionToUpstreamConnectableShape" ;
     ] ;
@@ -165,7 +173,7 @@ A Connection may contain branches or intersections. These are modeled using Segm
     ] ;
   sh:property [
       sh:path s223:hasMedium ;
-      rdfs:comment "A Connection must be associated with one EnumerationKind-Medium using the relation hasMedium" ;
+      rdfs:comment "A Connection must be associated with one EnumerationKind-Medium using the relation hasMedium." ;
       sh:class s223:EnumerationKind-Medium ;
       sh:maxCount 1 ;
       sh:minCount 1 ;
@@ -173,11 +181,13 @@ A Connection may contain branches or intersections. These are modeled using Segm
     ] ;
   sh:property [
       sh:path s223:hasPhase ;
+      rdfs:comment "A Connection can be associated with an EnumerationKind-Phase using the relation hasPhase." ;
       sh:class s223:EnumerationKind-Phase ;
+      sh:maxCount 1 ;
     ] ;
   sh:property [
       sh:path s223:hasRole ;
-      rdfs:comment "A Connection can be associated with an EnumerationKind-Role using the relation hasRole" ;
+      rdfs:comment "A Connection can be associated with an EnumerationKind-Role using the relation hasRole." ;
       sh:class s223:EnumerationKind-Role ;
     ] ;
 .
@@ -200,18 +210,36 @@ ConnectionPoints are represented graphically in this standard by a triangle with
   rdfs:label "ConnectionPoint" ;
   rdfs:subClassOf s223:Concept ;
   sh:property [
+      sh:path s223:cnx ;
+      sh:message "A ConnectionPoint can be associated with at most one Connectable using the cnx relation." ;
+      sh:qualifiedMaxCount 1 ;
+      sh:qualifiedValueShape [
+          sh:class s223:Connectable ;
+        ] ;
+      sh:qualifiedValueShapesDisjoint true ;
+    ] ;
+  sh:property [
+      sh:path s223:cnx ;
+      sh:message "A ConnectionPoint can be associated with at most one Connection using the cnx relation" ;
+      sh:qualifiedMaxCount 1 ;
+      sh:qualifiedValueShape [
+          sh:class s223:Connection ;
+        ] ;
+      sh:qualifiedValueShapesDisjoint true ;
+    ] ;
+  sh:property [
       sh:path s223:connectsThrough ;
-      rdfs:comment "A ConnectionPoint should be associated with one Connection using the relation connectsThrough" ;
+      rdfs:comment "A ConnectionPoint must be associated with exactly one Connection using the relation connectsThrough" ;
       sh:class s223:Connection ;
       sh:maxCount 1 ;
-      sh:message "This ConnectionPoint should eventually be associated with exactly one Connection." ;
+      sh:message "This ConnectionPoint must be associated with exactly one Connection." ;
       sh:minCount 1 ;
       sh:name "ConnectionPointToConnectionShape" ;
       sh:severity sh:Info ;
     ] ;
   sh:property [
       sh:path s223:hasMedium ;
-      rdfs:comment "A ConnectionPoint must be associated with one EnumerationKind-Medium using the relation hasMedium" ;
+      rdfs:comment "A ConnectionPoint must be associated with exactly one EnumerationKind-Medium using the relation hasMedium" ;
       sh:class s223:EnumerationKind-Medium ;
       sh:maxCount 1 ;
       sh:minCount 1 ;
@@ -219,9 +247,10 @@ ConnectionPoints are represented graphically in this standard by a triangle with
     ] ;
   sh:property [
       sh:path s223:isConnectionPointOf ;
-      rdfs:comment "A ConnectionPoint can be associated with at most one Connectable using the relation isConnectionPointOf" ;
+      rdfs:comment "A ConnectionPoint must be associated with exactly one Connectable using the relation isConnectionPointOf" ;
       sh:class s223:Connectable ;
       sh:maxCount 1 ;
+      sh:minCount 1 ;
       sh:name "ConnectionPointToEquipmentShape" ;
     ] ;
   sh:property [
@@ -234,6 +263,11 @@ ConnectionPoints are represented graphically in this standard by a triangle with
       rdfs:comment "A ConnectionPoint can be associated with at most one other ConnectionPoint using the relation mapsTo" ;
       sh:class s223:ConnectionPoint ;
       sh:maxCount 1 ;
+    ] ;
+    sh:property [
+      sh:path s223:hasRole ;
+      rdfs:comment "If the relation hasRole is present it must associate the ConnectionPoint with an EnumerationKind-Role." ;
+      sh:class s223:EnumerationKind-Role ;
     ] ;
 .
 s223:DomainSpace
@@ -314,7 +348,7 @@ s223:InletConnectionPoint
   rdfs:subClassOf s223:ConnectionPoint ;
   sh:property [
       sh:path s223:mapsTo ;
-      rdfs:comment "An InletConnectionPoint can ne associated with one other InletConnectionPoint using the relation mapsTo" ;
+      rdfs:comment "An InletConnectionPoint can be associated with one other InletConnectionPoint using the relation mapsTo" ;
       sh:class s223:InletConnectionPoint ;
     ] ;
 .
@@ -326,7 +360,7 @@ s223:Junction
   rdfs:subClassOf s223:Concept ;
   sh:property [
       sh:path s223:lnx ;
-      rdfs:comment "A Junction should be associated with at least two Segments using the relation lnx" ;
+      rdfs:comment "A Junction must be associated with at least two Segments using the relation lnx." ;
       sh:class s223:Segment ;
       sh:message "Junction is missing one or more Segments" ;
       sh:minCount 2 ;
@@ -482,7 +516,7 @@ s223:Segment
   rdfs:subClassOf s223:Concept ;
   sh:property [
       sh:path s223:lnx ;
-      rdfs:comment "A Segment must be associated with two Junctions or ConnectionPoints using the relation lnx" ;
+      rdfs:comment "A Segment must be associated with either two Junctions or one ConnectionPoint and one Junction using the relation lnx" ;
       sh:maxCount 2 ;
       sh:message "Segment is missing one or both endpoints (Junction or ConnectionPoint)" ;
       sh:minCount 2 ;
@@ -505,7 +539,7 @@ s223:Setpoint
   a s223:Class ;
   a sh:NodeShape ;
   rdfs:label "Setpoint" ;
-  rdfs:subClassOf s223:Property ;
+  rdfs:subClassOf s223:QuantifiableProperty ;
   rdfs:subClassOf qudt:Quantity ;
   sh:property [
       sh:path s223:hasDeadband ;
@@ -541,7 +575,8 @@ s223:System
       a sh:PropertyShape ;
       sh:path s223:hasMember ;
       rdfs:comment "A System can be associated with zero or any number of other instances of Equipment or System using the relation hasMember" ;
-      sh:minCount 0 ;
+      sh:minCount 2 ;
+      sh:severity sh:Warning ;
       sh:or (
           [
             sh:class s223:Equipment ;
@@ -565,15 +600,9 @@ s223:Zone
   rdfs:subClassOf s223:Concept ;
   sh:property [
       sh:path s223:contains ;
-      rdfs:comment "A Zone can be associated with any number of other DomainSpaces or Zones using the relation contains" ;
-      sh:or (
-          [
-            sh:class s223:DomainSpace ;
-          ]
-          [
-            sh:class s223:Zone ;
-          ]
-        ) ;
+      sh:minCount 1 ;
+      rdfs:comment "A Zone must be associated with at least one DomainSpace using the relation contains" ;
+      sh:class s223:DomainSpace ;
     ] ;
   sh:property [
       sh:path s223:hasDomain ;
@@ -765,7 +794,7 @@ s223:hasProperty
 .
 s223:hasRole
   a rdf:Property ;
-  rdfs:comment "The relation hasRole is used to indicate the role of an Equipment, Connection, or System within a building (e.g., a heating coil will be associated with Role-Heating). Possible values are defined in EnumerationKind-Role (see `s223:EnumerationKind-Role`)." ;
+  rdfs:comment "The relation hasRole is used to indicate the role of an Equipment, Connection, ConnectionPoint, or System within a building (e.g., a heating coil will be associated with Role-Heating). Possible values are defined in EnumerationKind-Role (see `s223:EnumerationKind-Role`)." ;
   rdfs:label "hasRole" ;
 .
 s223:hasSetpoint

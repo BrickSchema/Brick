@@ -152,7 +152,7 @@ $this s223:hasConnectionPoint ?cp .
     ] ;
   sh:rule [
       a sh:TripleRule ;
-      rdfs:comment "Infer the hasConnectionPoint relationship using cnx" ;
+      rdfs:comment "Infer the hasConnectionPoint relationship from cnx" ;
       sh:name "InferredEquipmentToConnectionPointProperty" ;
       sh:object [
           sh:path s223:cnx ;
@@ -223,10 +223,19 @@ $this s223:connectsAt ?cp .
       sh:subject sh:this ;
     ] ;
 .
+s223:Controller
+  sh:rule [
+    rdfs:comment "Infer the hasRole s223:Role-Controller relationship for every instance of Controller" ;
+    a sh:TripleRule ;
+    sh:object s223:Role-Controller ;
+    sh:predicate s223:hasRole ;
+    sh:subject sh:this ;
+  ] ;
+.
 s223:Equipment
   sh:rule [
       a sh:SPARQLRule ;
-      rdfs:comment "Infer a higher-level cnx and Medium from the mapsTo relation" ;
+      rdfs:comment "For equipment containing another piece of equipment, use the mapsTo relation to infer a cnx and Medium from the contained equipment." ;
       sh:construct """
 CONSTRUCT {?parentCp s223:cnx ?connection .
     ?parentCp s223:hasMedium ?medium .
@@ -240,12 +249,28 @@ WHERE {
 """ ;
       sh:prefixes <http://data.ashrae.org/standard223/1.0/inference/model-rules> ;
     ] ;
+sh:rule [
+      a sh:SPARQLRule ;
+      rdfs:comment "For equipment contained within another piece of equipment use the mapsTo relation to infer  a cnx and Medium from the containing equipment." ;
+      sh:construct """
+CONSTRUCT {?childCp s223:cnx ?connection .
+    ?childCp s223:hasMedium ?medium .
+}
+WHERE {
+  $this s223:hasConnectionPoint ?cp .
+  ?childCp s223:mapsTo ?cp .
+  ?cp s223:connectsThrough ?connection .
+  ?cp s223:hasMedium ?medium .
+}
+""" ;
+      sh:prefixes <http://data.ashrae.org/standard223/1.0/inference/model-rules> ;
+    ] ;
 .
 s223:HasDomainLookingUpRule
   a sh:NodeShape ;
   sh:rule [
       a sh:TripleRule ;
-      rdfs:comment "Traverse up the contains hierarchy to determine the domain" ;
+      rdfs:comment "Infer a hasDomain relationship by traversing the contains hierarchy up to determine the domain." ;
       sh:object [
           sh:path (
               [
@@ -266,7 +291,7 @@ s223:HumiditySensor
   a sh:NodeShape ;
   sh:rule [
       a sh:SPARQLRule ;
-      rdfs:comment "A HumiditySensor will always observe a Property that has a QuantityKind of RelativeHumidity." ;
+      rdfs:comment "A HumiditySensor must always observe a Property that has a QuantityKind of RelativeHumidity." ;
       sh:construct """
 CONSTRUCT {?prop qudt:hasQuantityKind qudtqk:RelativeHumidity .}
 WHERE {
@@ -322,7 +347,7 @@ $this qudt:hasUnit/qudt:hasQuantityKind ?uniqueqk .
 s223:Sensor
   sh:rule [
       a sh:SPARQLRule ;
-      rdfs:comment "Infer the hasObservationLocation relationship for a Sensor from the Property that it is observing, only if the location is unambiguous." ;
+      rdfs:comment "Infer the hasObservationLocation relationship for a Sensor from the Property that it is observing, only if that property is associated with a single entity." ;
       sh:construct """
 CONSTRUCT {$this s223:hasObservationLocation ?something .}
 WHERE {
@@ -347,7 +372,7 @@ UNION
 }
 """ ;
       sh:name "InferredMeasurementLocation" ;
-      sh:prefixes <http://data.ashrae.org/standard223/1.0/inference/data-rules> ;
+      sh:prefixes <http://data.ashrae.org/standard223/1.0/inference/model-rules> ;
     ] ;
 .
 s223:Setpoint
@@ -368,7 +393,7 @@ $this ^s223:hasSetpoint ?property .
 s223:Zone
   sh:rule [
       a sh:TripleRule ;
-      rdfs:comment "Traverse down the contains hierarchy to determine the domain" ;
+      rdfs:comment "Infer a hasDomain relations by traversing the contains hierarchy down to determine the domain." ;
       sh:object [
           sh:path (
               [

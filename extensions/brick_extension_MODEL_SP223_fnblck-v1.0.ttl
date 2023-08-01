@@ -105,15 +105,15 @@ s223:FunctionBlock
 s223:FunctionInput
   a s223:Class ;
   a sh:NodeShape ;
-  rdfs:comment "A Function Input is an input to a Function Block. It can be related to a property by s223:uses." ;
+  rdfs:comment "A Function Input is an input to a Function Block. It can be related to a property by the relation uses." ;
   rdfs:label "Input" ;
   rdfs:subClassOf s223:Concept ;
   sh:property [
       sh:path s223:uses ;
-      rdfs:comment "An instance of Input must be associated with one Property instance using the relation 'uses'." ;
+      rdfs:comment "An Instance of Function Input must be associated with exactly one Property instance using the relation uses." ;
       sh:class s223:Property ;
       sh:maxCount 1 ;
-      sh:message "This Function Input must be associated with exactly one property by s223:uses predicate." ;
+      sh:message "This Function Input must be associated with exactly one property using the relation uses." ;
       sh:minCount 1 ;
     ] ;
   sh:property [
@@ -122,7 +122,7 @@ s223:FunctionInput
         ] ;
       sh:class s223:FunctionBlock ;
       sh:maxCount 1 ;
-      sh:message "This Input must be associated with exactly one FunctionBlock." ;
+      sh:message "The FunctionInput must be associated with exactly one FunctionBlock." ;
       sh:minCount 1 ;
     ] ;
 .
