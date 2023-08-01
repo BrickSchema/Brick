@@ -33,6 +33,9 @@ s223:Concept
       sh:predicate rdf:type ;
       sh:subject sh:this ;
     ] ;
+  sh:property [
+    sh:path s223tobrick:translatesTo ;
+  ]
 .
 s223:Connectable
   sh:rule [
