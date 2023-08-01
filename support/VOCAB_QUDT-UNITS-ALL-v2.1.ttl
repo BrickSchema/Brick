@@ -25,7 +25,7 @@
   a owl:Ontology ;
   vaem:hasGraphMetadata vaem:GMD_QUDT-UNITS-ALL ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
-  rdfs:label "QUDT Units of Measure for All Units Release 2.1.26" ;
+  rdfs:label "QUDT VOCAB Units of Measure Release 2.1.27" ;
   owl:imports <http://qudt.org/2.1/schema/facade/qudt> ;
   owl:imports <http://qudt.org/2.1/vocab/prefix> ;
   owl:imports <http://qudt.org/2.1/vocab/quantitykind> ;
@@ -177,6 +177,18 @@ unit:A-PER-DEG_C
   qudt:ucumCode "A/Cel"^^qudt:UCUMcs ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
   rdfs:label "Ampere per Degree Celsius"@en ;
+.
+unit:A-PER-GM
+  a qudt:DerivedUnit ;
+  a qudt:Unit ;
+  dcterms:description "\\(\\textbf{Ampere per gram}\\) is a practical unit to describe an (applied) current relative to the involved amount of material. This unit is often found in electrochemistry to standardize test conditions and compare various scales of investigated materials."^^qudt:LatexString ;
+  qudt:conversionMultiplier 1000.0 ;
+  qudt:conversionOffset 0.0 ;
+  qudt:hasDimensionVector qkdv:A0E1L0I0M-1H0T0D0 ;
+  qudt:hasQuantityKind quantitykind:SpecificElectricCurrent ;
+  qudt:symbol "A⋅/g" ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
+  rdfs:label "Ampere per Gram"@en ;
 .
 unit:A-PER-J
   a qudt:Unit ;
@@ -414,8 +426,8 @@ unit:ANGSTROM3
   dcterms:description "A unit that is a non-SI unit, specifically a CGS unit,  of polarizability known informally as polarizability volume.  The SI defined units for polarizability are C*m^2/V and can be converted to \\(Angstr\\ddot{o}m\\)^3 by multiplying the SI value by 4 times pi times the vacuum permittivity and then converting the resulting m^3 to \\(Angstr\\ddot{o}m\\)^3 through the SI base 10 conversion (multiplying by 10^-30)."^^qudt:LatexString ;
   qudt:applicableSystem sou:CGS-GAUSS ;
   qudt:conversionMultiplier 0.0000000000000000000000000000000000000001 ;
-  qudt:hasDimensionVector qkdv:A0E2L0I0M-1H0T4D0 ;
-  qudt:hasQuantityKind quantitykind:Polarizability ;
+  qudt:hasDimensionVector qkdv:A0E0L3I0M0H0T0D0 ;
+  qudt:hasQuantityKind quantitykind:Volume ;
   qudt:symbol "Å³" ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
   rdfs:label "Cubic Angstrom"@en ;
@@ -547,6 +559,7 @@ unit:ATM-M3-PER-MOL
   qudt:conversionMultiplier 101325.0 ;
   qudt:hasDimensionVector qkdv:A-1E0L2I0M1H0T-2D0 ;
   qudt:hasQuantityKind quantitykind:HenrysLawVolatilityConstant ;
+  qudt:symbol "atm⋅m³/mol" ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
   rdfs:label "Atmosphere Cubic Meter per Mole"@en ;
   rdfs:label "Atmosphere Cubic Meter per Mole"@en-us ;
@@ -2563,9 +2576,9 @@ unit:C-PER-MilliM3
   rdfs:label "Coulomb Per Cubic Millimeter"@en-us ;
   rdfs:label "Coulomb Per Cubic Millimetre"@en ;
 .
-unit:C2-M-PER-J
+unit:C2-M2-PER-J
   a qudt:Unit ;
-  dcterms:description "\"Square Coulomb Meter per Joule\" is a unit for  'Polarizability' expressed as \\(C^{2} m^{2} J^{-1}\\)."^^qudt:LatexString ;
+  dcterms:description "\"Square Coulomb Square Meter per Joule\" is a unit for  'Polarizability' expressed as \\(C^{2} m^{2} J^{-1}\\)."^^qudt:LatexString ;
   qudt:applicableSystem sou:CGS ;
   qudt:applicableSystem sou:CGS-EMU ;
   qudt:applicableSystem sou:CGS-GAUSS ;
@@ -2576,11 +2589,11 @@ unit:C2-M-PER-J
   qudt:hasDimensionVector qkdv:A0E2L0I0M-1H0T4D0 ;
   qudt:hasQuantityKind quantitykind:Polarizability ;
   qudt:symbol "C²⋅m²/J" ;
-  qudt:ucumCode "C2.m.J-1"^^qudt:UCUMcs ;
-  qudt:ucumCode "C2.m/J"^^qudt:UCUMcs ;
+  qudt:ucumCode "C2.m2.J-1"^^qudt:UCUMcs ;
+  qudt:ucumCode "C2.m2/J"^^qudt:UCUMcs ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
-  rdfs:label "Square Coulomb Meter per Joule"@en-us ;
-  rdfs:label "Square Coulomb Metre per Joule"@en ;
+  rdfs:label "Square Coulomb Square Meter per Joule"@en-us ;
+  rdfs:label "Square Coulomb Square Metre per Joule"@en ;
 .
 unit:C3-M-PER-J2
   a qudt:Unit ;
@@ -2591,10 +2604,10 @@ unit:C3-M-PER-J2
   qudt:applicableSystem sou:SI ;
   qudt:conversionMultiplier 1.0 ;
   qudt:derivedCoherentUnitOfSystem sou:SI ;
-  qudt:expression "\\(C^{3} m^{3} J^{-2}\\)"^^qudt:LatexString ;
-  qudt:hasDimensionVector qkdv:A0E3L-1I0M-2H0T7D0 ;
+  qudt:expression "\\(C^{3} m J^{-2}\\)"^^qudt:LatexString ;
+  qudt:hasDimensionVector qkdv:A0E3L-3I0M-2H0T7D0 ;
   qudt:hasQuantityKind quantitykind:ElectricDipoleMoment_CubicPerEnergy_Squared ;
-  qudt:symbol "C³⋅m³/J²" ;
+  qudt:symbol "C³⋅m/J²" ;
   qudt:ucumCode "C3.m.J-2"^^qudt:UCUMcs ;
   qudt:ucumCode "C3.m/J2"^^qudt:UCUMcs ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
@@ -3036,6 +3049,7 @@ unit:CD-PER-LM
   qudt:conversionMultiplier 1.0 ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:LuminousIntensityDistribution ;
+  qudt:symbol "cd/lm" ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
   rdfs:label "Candela per Lumen" ;
 .
@@ -3495,6 +3509,20 @@ unit:CentiM-PER-SEC2
   rdfs:label "Centimeter per Square Second"@en-us ;
   rdfs:label "Centimetre per Square Second"@en ;
 .
+unit:CentiM-PER-YR
+  a qudt:Unit ;
+  qudt:applicableSystem sou:CGS ;
+  qudt:applicableSystem sou:CGS-EMU ;
+  qudt:applicableSystem sou:CGS-GAUSS ;
+  qudt:applicableSystem sou:SI ;
+  qudt:conversionMultiplier 0.000000000316880878140289 ;
+  qudt:hasDimensionVector qkdv:A0E0L1I0M0H0T-1D0 ;
+  qudt:hasQuantityKind quantitykind:Velocity ;
+  qudt:symbol "cm/yr" ;
+  qudt:ucumCode "cm.a-1"^^qudt:UCUMcs ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
+  rdfs:label "Centimetres per year"@en ;
+.
 unit:CentiM-SEC-DEG_C
   a qudt:DerivedUnit ;
   a qudt:Unit ;
@@ -3753,10 +3781,11 @@ unit:CentiM3-PER-MOL-SEC
   a qudt:Unit ;
   dcterms:description "A unit that is the 0.000001-fold of the power of the SI base unit metre with the exponent 3 divided by the SI base unit mol multiplied by the SI base unit second."^^qudt:LatexString ;
   qudt:applicableSystem sou:SI ;
-  qudt:conversionMultiplier 1.0 ;
+  qudt:conversionMultiplier 0.000001 ;
   qudt:hasDimensionVector qkdv:A-1E0L3I0M0H0T-1D0 ;
   qudt:hasQuantityKind quantitykind:AtmosphericHydroxylationRate ;
   qudt:hasQuantityKind quantitykind:SecondOrderReactionRateConstant ;
+  qudt:symbol "cm³/(mol⋅s)" ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
   rdfs:label "Cubic Centimeter per Mole Second"@en ;
   rdfs:label "Cubic Centimeter per Mole Second"@en-us ;
@@ -3787,6 +3816,7 @@ unit:CentiMOL
   qudt:hasDimensionVector qkdv:A1E0L0I0M0H0T0D0 ;
   qudt:hasQuantityKind quantitykind:AmountOfSubstance ;
   qudt:hasQuantityKind quantitykind:ExtentOfReaction ;
+  qudt:symbol "cmol" ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
   rdfs:label "CentiMole"@en ;
 .
@@ -3852,6 +3882,7 @@ unit:CentiN
   qudt:conversionMultiplier 0.01 ;
   qudt:hasDimensionVector qkdv:A0E0L1I0M1H0T-2D0 ;
   qudt:hasQuantityKind quantitykind:Force ;
+  qudt:symbol "cN" ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
   rdfs:label "CentiNewton"@en ;
 .
@@ -4639,6 +4670,7 @@ unit:DEG_F-PER-SEC2
   dcterms:description "\\(\\textit{Degree Fahrenheit per Square Second}\\) is a C.G.S System unit for expressing the acceleration of a temperature expressed as \\(degF / s^2\\)."^^qudt:LatexString ;
   qudt:applicableSystem sou:IMPERIAL ;
   qudt:applicableSystem sou:USCS ;
+  qudt:conversionMultiplier 0.5555555555555556 ;
   qudt:definedUnitOfSystem sou:IMPERIAL ;
   qudt:definedUnitOfSystem sou:USCS ;
   qudt:expression "\\(degF / s^2\\)"^^qudt:LatexString ;
@@ -5415,6 +5447,7 @@ unit:DeciN
   qudt:conversionMultiplier 0.1 ;
   qudt:hasDimensionVector qkdv:A0E0L1I0M1H0T-2D0 ;
   qudt:hasQuantityKind quantitykind:Force ;
+  qudt:symbol "dN" ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
   rdfs:label "DeciNewton"@en ;
 .
@@ -5446,6 +5479,7 @@ unit:DeciS
   qudt:hasDimensionVector qkdv:A0E2L-2I0M-1H0T3D0 ;
   qudt:hasQuantityKind quantitykind:Admittance ;
   qudt:hasQuantityKind quantitykind:Conductance ;
+  qudt:symbol "dS" ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
   rdfs:label "DeciSiemens"@en ;
 .
@@ -6867,6 +6901,7 @@ unit:FemtoGM
   qudt:conversionMultiplier 0.000000000000000001 ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M1H0T0D0 ;
   qudt:hasQuantityKind quantitykind:Mass ;
+  qudt:symbol "fg" ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
   rdfs:label "FemtoGram"@en ;
 .
@@ -6965,6 +7000,7 @@ unit:FemtoMOL
   qudt:hasDimensionVector qkdv:A1E0L0I0M0H0T0D0 ;
   qudt:hasQuantityKind quantitykind:AmountOfSubstance ;
   qudt:hasQuantityKind quantitykind:ExtentOfReaction ;
+  qudt:symbol "fmol" ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
   rdfs:label "FemtoMole"@en ;
 .
@@ -7966,6 +8002,22 @@ unit:GRAIN-PER-GAL_US
   qudt:uneceCommonCode "K41" ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
   rdfs:label "Grain Per Gallon (US)"@en ;
+.
+unit:GRAIN-PER-M3
+  a qudt:Unit ;
+  qudt:applicableSystem sou:CGS ;
+  qudt:applicableSystem sou:CGS-EMU ;
+  qudt:applicableSystem sou:CGS-GAUSS ;
+  qudt:applicableSystem sou:SI ;
+  qudt:conversionMultiplier 0.00006479891 ;
+  qudt:hasDimensionVector qkdv:A0E0L-3I0M1H0T0D0 ;
+  qudt:hasQuantityKind quantitykind:MassDensity ;
+  qudt:plainTextDescription "Grains per cubic metre of volume" ;
+  qudt:symbol "Grain/m³" ;
+  qudt:ucumCode "[gr]/m3"^^qudt:UCUMcs ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
+  rdfs:label "Grains per Cubic Metre"@en ;
+  rdfs:label "Grains per Cubic Meter"@en-us ;
 .
 unit:GRAY
   a qudt:DerivedUnit ;
@@ -9937,6 +9989,21 @@ unit:K-PER-SEC
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
   rdfs:label "Kelvin per Second"@en ;
 .
+unit:K-PER-SEC2
+  a qudt:Unit ;
+  dcterms:description "\\(\\textbf{Kelvin per Square Second} is a unit for 'Temperature Per Time Squared' expressed as \\(K / s^2\\)."^^qudt:LatexString ;
+  qudt:applicableSystem sou:SI ;
+  qudt:conversionMultiplier 1.0 ;
+  qudt:derivedCoherentUnitOfSystem sou:SI ;
+  qudt:expression "\\(K / s\\)"^^qudt:LatexString ;
+  qudt:hasDimensionVector qkdv:A0E0L0I0M0H1T-2D0 ;
+  qudt:hasQuantityKind quantitykind:TemperaturePerTime_Squared ;
+  qudt:symbol "K/s²" ;
+  qudt:ucumCode "K.s-2"^^qudt:UCUMcs ;
+  qudt:ucumCode "K/s^2"^^qudt:UCUMcs ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
+  rdfs:label "Kelvin per Square Second"@en ;
+.
 unit:K-PER-T
   a qudt:Unit ;
   dcterms:description "\\(\\textbf{Kelvin per Tesla} is a unit for 'Temperature Per Magnetic Flux Density' expressed as \\(K T^{-1}\\)."^^qudt:LatexString ;
@@ -11222,6 +11289,7 @@ unit:KiloGM-PER-M2-SEC2
   qudt:conversionMultiplier 1.0 ;
   qudt:hasDimensionVector qkdv:A0E0L-2I0M1H0T-2D0 ;
   qudt:hasQuantityKind quantitykind:PressureLossPerLength ;
+  qudt:symbol "kg/(m²⋅s²)" ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
   rdfs:label "Kilogram per Square Meter Square Second"@en-us ;
   rdfs:label "Kilogram per Square Metre Square Second"@en ;
@@ -11679,8 +11747,10 @@ unit:KiloLB_F
   a qudt:Unit ;
   qudt:applicableSystem sou:IMPERIAL ;
   qudt:applicableSystem sou:USCS ;
+  qudt:conversionMultiplier 4448.222 ;
   qudt:hasDimensionVector qkdv:A0E0L1I0M1H0T-2D0 ;
   qudt:hasQuantityKind quantitykind:Force ;
+  qudt:symbol "klbf" ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
   rdfs:label "KiloPound Force"@en ;
 .
@@ -11977,6 +12047,7 @@ unit:KiloN-M2
   qudt:conversionMultiplier 1000.0 ;
   qudt:hasDimensionVector qkdv:A0E0L3I0M1H0T-2D0 ;
   qudt:hasQuantityKind quantitykind:WarpingMoment ;
+  qudt:symbol "kN⋅m²" ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
   rdfs:label "Kilo Newton Square Meter"@en-us ;
   rdfs:label "Kilo Newton Square Metre"@en ;
@@ -12393,6 +12464,7 @@ unit:KiloWB
   qudt:conversionMultiplier 1000.0 ;
   qudt:hasDimensionVector qkdv:A0E-1L2I0M1H0T-2D0 ;
   qudt:hasQuantityKind quantitykind:MagneticFlux ;
+  qudt:symbol "kWb" ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
   rdfs:label "KiloWeber"@en ;
 .
@@ -12424,6 +12496,7 @@ unit:KiloYR
   qudt:conversionMultiplier 1000.0 ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T1D0 ;
   qudt:hasQuantityKind quantitykind:Time ;
+  qudt:symbol "1000 yr" ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
   rdfs:label "KiloYear"@en ;
 .
@@ -14190,6 +14263,7 @@ unit:M3-PER-KiloGM
   qudt:derivedCoherentUnitOfSystem sou:SI ;
   qudt:expression "\\(m^{3}/kg\\)"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L3I0M-1H0T0D0 ;
+  qudt:hasQuantityKind quantitykind:SoilAdsorptionCoefficient ;
   qudt:hasQuantityKind quantitykind:SpecificVolume ;
   qudt:iec61360Code "0112/2///62720#UAA766" ;
   qudt:symbol "m³/kg" ;
@@ -14219,6 +14293,23 @@ unit:M3-PER-KiloGM-SEC2
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
   rdfs:label "Cubic Meter per Kilogram Square Second"@en-us ;
   rdfs:label "Cubic Metre per Kilogram Square Second"@en ;
+.
+unit:M3-PER-M2
+  a qudt:Unit ;
+  qudt:applicableSystem sou:CGS ;
+  qudt:applicableSystem sou:CGS-EMU ;
+  qudt:applicableSystem sou:CGS-GAUSS ;
+  qudt:applicableSystem sou:SI ;
+  qudt:conversionMultiplier 1.0 ;
+  qudt:hasDimensionVector qkdv:A0E0L1I0M0H0T0D0 ;
+  qudt:hasQuantityKind quantitykind:VolumePerArea ;
+  qudt:plainTextDescription "power of the SI base unit metre with the exponent 3 divided by the power of the SI base unit metre with the exponent 2" ;
+  qudt:symbol "m³/m²" ;
+  qudt:ucumCode "m3.m-2"^^qudt:UCUMcs ;
+  qudt:uneceCommonCode "H60" ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
+  rdfs:label "Cubic Meter Per Square Meter"@en-us ;
+  rdfs:label "Cubic Metre Per Square Metre"@en ;
 .
 unit:M3-PER-M3
   a qudt:Unit ;
@@ -14274,6 +14365,20 @@ unit:M3-PER-MOL
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
   rdfs:label "Cubic Meter per Mole"@en-us ;
   rdfs:label "Cubic Metre per Mole"@en ;
+.
+unit:M3-PER-MOL-SEC
+  a qudt:DerivedUnit ;
+  a qudt:Unit ;
+  dcterms:description "A unit that is the SI base unit metre with the exponent 3 divided by the SI base unit mol multiplied by the SI base unit second."^^qudt:LatexString ;
+  qudt:applicableSystem sou:SI ;
+  qudt:conversionMultiplier 1.0 ;
+  qudt:hasDimensionVector qkdv:A-1E0L3I0M0H0T-1D0 ;
+  qudt:hasQuantityKind quantitykind:AtmosphericHydroxylationRate ;
+  qudt:hasQuantityKind quantitykind:SecondOrderReactionRateConstant ;
+  qudt:symbol "m³/(mol⋅s)" ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
+  rdfs:label "Cubic Centimeter per Mole Second"@en ;
+  rdfs:label "Cubic Centimeter per Mole Second"@en-us ;
 .
 unit:M3-PER-SEC
   a qudt:DerivedUnit ;
@@ -14433,6 +14538,7 @@ unit:MESH
   qudt:hasDimensionVector qkdv:A0E0L-1I0M0H0T0D0 ;
   qudt:hasQuantityKind quantitykind:InverseLength ;
   qudt:informativeReference "https://en.wikipedia.org/wiki/Mesh_(scale)"^^xsd:anyURI ;
+  qudt:symbol "mesh" ;
   qudt:ucumCode "[mesh_i]"^^qudt:UCUMcs ;
   qudt:uneceCommonCode "57" ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
@@ -14775,6 +14881,7 @@ unit:MOHM
   qudt:informativeReference "http://www.oxfordreference.com/view/10.1093/acref/9780198605225.001.0001/acref-9780198605225-e-914"^^xsd:anyURI ;
   qudt:latexDefinition "\\(1\\:{mohm_{cgs}} = 1\\:\\frac {cm} {dyn.s}\\: (=\\:1\\:\\frac s g \\:in\\:base\\:c.g.s.\\:terms)\\)"^^qudt:LatexString ;
   qudt:latexDefinition "\\(1\\:{mohm_{mks}} = 10^{3}\\:\\frac m {N.s}\\:(=\\:10^{3}\\:   \\frac s {kg}\\:in\\:base\\:m.k.s.\\:terms)\\)"^^qudt:LatexString ;
+  qudt:symbol "mohm" ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
   rdfs:label "Mohm"@en ;
 .
@@ -15219,6 +15326,8 @@ unit:MegaBQ
 unit:MegaBTU_IT-PER-HR
   a qudt:DerivedUnit ;
   a qudt:Unit ;
+  qudt:applicableSystem sou:IMPERIAL ;
+  qudt:applicableSystem sou:USCS ;
   qudt:conversionMultiplier 293071.07 ;
   qudt:definedUnitOfSystem sou:IMPERIAL ;
   qudt:definedUnitOfSystem sou:USCS ;
@@ -15226,8 +15335,6 @@ unit:MegaBTU_IT-PER-HR
   qudt:hasDimensionVector qkdv:A0E0L2I0M1H0T-3D0 ;
   qudt:hasQuantityKind quantitykind:HeatFlowRate ;
   qudt:hasQuantityKind quantitykind:Power ;
-  qudt:isUnitOfSystem sou:IMPERIAL ;
-  qudt:isUnitOfSystem sou:USCS ;
   qudt:symbol "MBtu{IT}/hr" ;
   qudt:ucumCode "M[Btu_IT].h-1"^^qudt:UCUMcs ;
   qudt:ucumCode "M[Btu_IT]/h"^^qudt:UCUMcs ;
@@ -15414,6 +15521,24 @@ unit:MegaGM
   qudt:uneceCommonCode "2U" ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
   rdfs:label "Megagram"@en ;
+.
+unit:MegaGM-PER-HA
+  a qudt:Unit ;
+  qudt:applicableSystem sou:CGS ;
+  qudt:applicableSystem sou:CGS-EMU ;
+  qudt:applicableSystem sou:CGS-GAUSS ;
+  qudt:applicableSystem sou:SI ;
+  qudt:conversionMultiplier 0.1 ;
+  qudt:exactMatch unit:TONNE-PER-HA ;
+  qudt:exactMatch unit:TON_Metric-PER-HA ;
+  qudt:hasDimensionVector qkdv:A0E0L-2I0M1H0T0D0 ;
+  qudt:hasQuantityKind quantitykind:MassPerArea ;
+  qudt:plainTextDescription "1 000-fold of the SI base unit kilogram divided by the 10,0000-fold of the power of the SI base unit metre with the exponent 2" ;
+  qudt:symbol "Mg/ha" ;
+  qudt:ucumCode "Mg.har-1"^^qudt:UCUMcs ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
+  rdfs:label "Megagram Per Hectare"@en ;
+  rdfs:label "Megagram Per Hectare"@en-us ;
 .
 unit:MegaGM-PER-M3
   a qudt:Unit ;
@@ -15725,6 +15850,21 @@ unit:MegaPA-L-PER-SEC
   rdfs:label "Megapascal Liter Per Second"@en-us ;
   rdfs:label "Megapascal Litre Per Second"@en ;
 .
+unit:MegaPA-M0pt5
+  a qudt:Unit ;
+  qudt:applicableSystem sou:CGS ;
+  qudt:applicableSystem sou:CGS-EMU ;
+  qudt:applicableSystem sou:CGS-GAUSS ;
+  qudt:applicableSystem sou:SI ;
+  qudt:conversionMultiplier 1000000.0 ;
+  qudt:hasDimensionVector qkdv:A0E0L-0pt5I0M1H0T-2D0 ;
+  qudt:hasQuantityKind quantitykind:StressIntensityFactor ;
+  qudt:plainTextDescription "1,000,000-fold of the derived unit Pascal Square Root Meter" ;
+  qudt:prefix prefix:Mega ;
+  qudt:symbol "MPa√m" ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
+  rdfs:label "Megapascal Square Root Meter"@en ;
+.
 unit:MegaPA-M3-PER-SEC
   a qudt:Unit ;
   qudt:applicableSystem sou:CGS ;
@@ -15781,6 +15921,7 @@ unit:MegaS
   qudt:hasDimensionVector qkdv:A0E2L-2I0M-1H0T3D0 ;
   qudt:hasQuantityKind quantitykind:Admittance ;
   qudt:hasQuantityKind quantitykind:Conductance ;
+  qudt:symbol "MS" ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
   rdfs:label "MegaSiemens"@en ;
 .
@@ -16741,6 +16882,7 @@ unit:MicroMOL-PER-GM-SEC
   qudt:applicableSystem sou:SI ;
   qudt:conversionMultiplier 0.0001 ;
   qudt:hasDimensionVector qkdv:A1E0L0I0M-1H0T-1D0 ;
+  qudt:symbol "μmol/(g⋅s)" ;
   qudt:ucumCode "umol.g-1.s-1"^^qudt:UCUMcs ;
   qudt:ucumCode "umol/g/s"^^qudt:UCUMcs ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
@@ -17240,6 +17382,18 @@ unit:MilliA-HR
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
   rdfs:label "Milliampere Hour"@en ;
 .
+unit:MilliA-HR-PER-GM
+  a qudt:DerivedUnit ;
+  a qudt:Unit ;
+  dcterms:description "\\(\\textbf{Milliampere hour per gram}\\) is a practical unit of electric charge relative to the mass of the (active) parts. 1mAh/g describes the capability of a material to store charge equivalent to 1h charge with 1mA per gram. The unit is often used in electrochemistry to describe the properties of active components like electrodes."^^qudt:LatexString ;
+  qudt:conversionMultiplier 3600.0 ;
+  qudt:conversionOffset 0.0 ;
+  qudt:hasDimensionVector qkdv:A0E1L0I0M-1H0T1D0 ;
+  qudt:hasQuantityKind quantitykind:SpecificElectricCharge ;
+  qudt:symbol "mA⋅h/g" ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
+  rdfs:label "Milliampere Hour per Gram"@en ;
+.
 unit:MilliA-PER-IN
   a qudt:Unit ;
   qudt:conversionMultiplier 0.03937008 ;
@@ -17375,6 +17529,7 @@ unit:MilliBQ
   qudt:conversionMultiplier 0.001 ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T-1D0 ;
   qudt:hasQuantityKind quantitykind:Activity ;
+  qudt:symbol "mBq" ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
   rdfs:label "MilliBecquerel"@en ;
 .
@@ -17706,6 +17861,7 @@ unit:MilliGM-PER-HA
   qudt:hasQuantityKind quantitykind:MassPerArea ;
   qudt:iec61360Code "0112/2///62720#UAA818" ;
   qudt:plainTextDescription "0.000001-fold of the SI base unit kilogram divided by the 10,0000-fold of the power of the SI base unit metre with the exponent 2" ;
+  qudt:symbol "mg/ha" ;
   qudt:ucumCode "mg.har-1"^^qudt:UCUMcs ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
   rdfs:label "Milligram Per Hectare"@en ;
@@ -17932,6 +18088,7 @@ unit:MilliGM-PER-MilliL
   qudt:hasQuantityKind quantitykind:MassConcentration ;
   qudt:hasQuantityKind quantitykind:MassDensity ;
   qudt:plainTextDescription "0.000001-fold of the SI base unit kilogram divided by the unit millilitre" ;
+  qudt:symbol "mg/mL" ;
   qudt:ucumCode "mg.mL-1"^^qudt:UCUMcs ;
   qudt:ucumCode "mg/mL"^^qudt:UCUMcs ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
@@ -18846,8 +19003,10 @@ unit:MilliRAD
 unit:MilliRAD_R
   a qudt:Unit ;
   qudt:applicableSystem sou:CGS ;
+  qudt:conversionMultiplier 0.00001 ;
   qudt:hasDimensionVector qkdv:A0E0L2I0M0H0T-2D0 ;
   qudt:hasQuantityKind quantitykind:AbsorbedDose ;
+  qudt:symbol "mrad" ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
   rdfs:label "MilliRad"@en ;
 .
@@ -19281,6 +19440,7 @@ unit:N-M-PER-M-RAD
   qudt:exactMatch unit:N-PER-RAD ;
   qudt:hasDimensionVector qkdv:A0E0L1I0M1H0T-2D0 ;
   qudt:hasQuantityKind quantitykind:ModulusOfRotationalSubgradeReaction ;
+  qudt:symbol "N⋅m/(m⋅rad)" ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
   rdfs:label "Newton Metre per Metre per Radians" ;
   owl:sameAs unit:N-PER-RAD ;
@@ -19390,6 +19550,7 @@ unit:N-M2
   qudt:conversionMultiplier 1.0 ;
   qudt:hasDimensionVector qkdv:A0E0L3I0M1H0T-2D0 ;
   qudt:hasQuantityKind quantitykind:WarpingMoment ;
+  qudt:symbol "N⋅m²" ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
   rdfs:label "Newton Square Meter"@en-us ;
   rdfs:label "Newton Square Metre"@en ;
@@ -20009,6 +20170,7 @@ unit:NanoBQ
   qudt:conversionMultiplier 0.000000001 ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T-1D0 ;
   qudt:hasQuantityKind quantitykind:Activity ;
+  qudt:symbol "nBq" ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
   rdfs:label "NanoBecquerel"@en ;
 .
@@ -20343,6 +20505,7 @@ unit:NanoMOL
   qudt:hasDimensionVector qkdv:A1E0L0I0M0H0T0D0 ;
   qudt:hasQuantityKind quantitykind:AmountOfSubstance ;
   qudt:hasQuantityKind quantitykind:ExtentOfReaction ;
+  qudt:symbol "nmol" ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
   rdfs:label "NanoMole"@en ;
 .
@@ -20361,6 +20524,7 @@ unit:NanoMOL-PER-GM-SEC
   qudt:applicableSystem sou:SI ;
   qudt:conversionMultiplier 0.000001 ;
   qudt:hasDimensionVector qkdv:A1E0L0I0M-1H0T-1D0 ;
+  qudt:symbol "nmol/(g⋅s)" ;
   qudt:ucumCode "nmol.g-1.s-1"^^qudt:UCUMcs ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
   rdfs:label "Nanomoles per gram per second"@en ;
@@ -20383,6 +20547,7 @@ unit:NanoMOL-PER-L
   qudt:conversionMultiplier 0.000001 ;
   qudt:hasDimensionVector qkdv:A1E0L-3I0M0H0T0D0 ;
   qudt:hasQuantityKind quantitykind:AmountOfSubstancePerUnitVolume ;
+  qudt:symbol "nmol/L" ;
   qudt:ucumCode "nmol.L-1"^^qudt:UCUMcs ;
   qudt:ucumCode "nmol/L"^^qudt:UCUMcs ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
@@ -20462,6 +20627,7 @@ unit:NanoS
   qudt:hasDimensionVector qkdv:A0E2L-2I0M-1H0T3D0 ;
   qudt:hasQuantityKind quantitykind:Admittance ;
   qudt:hasQuantityKind quantitykind:Conductance ;
+  qudt:symbol "nS" ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
   rdfs:label "NanoSiemens"@en ;
 .
@@ -21200,6 +21366,20 @@ unit:PA-M-PER-SEC2
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
   rdfs:label "Pascal metres per square second"@en ;
 .
+unit:PA-M0pt5
+  a qudt:Unit ;
+  qudt:applicableSystem sou:CGS ;
+  qudt:applicableSystem sou:CGS-EMU ;
+  qudt:applicableSystem sou:CGS-GAUSS ;
+  qudt:applicableSystem sou:SI ;
+  qudt:conversionMultiplier 1.0 ;
+  qudt:hasDimensionVector qkdv:A0E0L-0pt5I0M1H0T-2D0 ;
+  qudt:hasQuantityKind quantitykind:StressIntensityFactor ;
+  qudt:plainTextDescription "A metric unit for stress intensity factor and fracture toughness." ;
+  qudt:symbol "Pa√m" ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
+  rdfs:label "Pascal Square Root Meter"@en ;
+.
 unit:PA-M3-PER-SEC
   a qudt:Unit ;
   qudt:applicableSystem sou:CGS ;
@@ -21581,6 +21761,22 @@ unit:PER-DAY
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
   rdfs:label "Reciprocal Day"@en ;
 .
+unit:PER-EV2
+  a qudt:Unit ;
+  dcterms:description "Per Square Electron Volt is a denominator unit with dimensions \\(/eV^2\\)."^^qudt:LatexString ;
+  qudt:applicableSystem sou:CGS ;
+  qudt:applicableSystem sou:CGS-EMU ;
+  qudt:applicableSystem sou:CGS-GAUSS ;
+  qudt:applicableSystem sou:SI ;
+  qudt:conversionMultiplier 38956440500000000000000000000000000000.0 ;
+  qudt:expression "\\(/eV^2\\)"^^qudt:LatexString ;
+  qudt:hasDimensionVector qkdv:A0E0L-4I0M-2H0T4D0 ;
+  qudt:hasQuantityKind quantitykind:InverseEnergy_Squared ;
+  qudt:symbol "/eV²" ;
+  qudt:ucumCode "eV-2"^^qudt:UCUMcs ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
+  rdfs:label "Reciprocal Square Electron Volt"@en ;
+.
 unit:PER-FT3
   a qudt:Unit ;
   qudt:applicableSystem sou:IMPERIAL ;
@@ -21692,6 +21888,22 @@ unit:PER-J-M3
   rdfs:label "Reciprocal Joule Cubic Meter"@en-us ;
   rdfs:label "Reciprocal Joule Cubic Metre"@en ;
 .
+unit:PER-J2
+  a qudt:Unit ;
+  dcterms:description "Per Square Joule is a denominator unit with dimensions \\(/eV^2\\)."^^qudt:LatexString ;
+  qudt:applicableSystem sou:CGS ;
+  qudt:applicableSystem sou:CGS-EMU ;
+  qudt:applicableSystem sou:CGS-GAUSS ;
+  qudt:applicableSystem sou:SI ;
+  qudt:conversionMultiplier 1.0 ;
+  qudt:expression "\\(/J^2\\)"^^qudt:LatexString ;
+  qudt:hasDimensionVector qkdv:A0E0L-4I0M-2H0T4D0 ;
+  qudt:hasQuantityKind quantitykind:InverseEnergy_Squared ;
+  qudt:symbol "/J²" ;
+  qudt:ucumCode "J-2"^^qudt:UCUMcs ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
+  rdfs:label "Reciprocal Square Joule"@en ;
+.
 unit:PER-K
   a qudt:Unit ;
   dcterms:description "Per Kelvin Unit is a denominator unit with dimensions \\(/k\\)."^^qudt:LatexString ;
@@ -21708,6 +21920,19 @@ unit:PER-K
   qudt:uneceCommonCode "C91" ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
   rdfs:label "Reciprocal Kelvin"@en ;
+.
+unit:PER-KiloGM2
+  a qudt:Unit ;
+  dcterms:description "Per Square Kilogram is a denominator unit with dimensions \\(/kg^2\\)."^^qudt:LatexString ;
+  qudt:applicableSystem sou:SI ;
+  qudt:conversionMultiplier 1.0 ;
+  qudt:expression "\\(/kg^2\\)"^^qudt:LatexString ;
+  qudt:hasDimensionVector qkdv:A0E0L0I0M-2H0T0D0 ;
+  qudt:hasQuantityKind quantitykind:InverseMass_Squared ;
+  qudt:symbol "/kg²" ;
+  qudt:ucumCode "kg-2"^^qudt:UCUMcs ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
+  rdfs:label "Reciprocal Square Kilogram"@en ;
 .
 unit:PER-KiloM
   a qudt:Unit ;
@@ -22592,8 +22817,9 @@ unit:PERM_Metric
   qudt:hasDimensionVector qkdv:A0E0L-1I0M0H0T1D0 ;
   qudt:hasQuantityKind quantitykind:VaporPermeability ;
   qudt:informativeReference "https://en.wikipedia.org/wiki/Perm_(unit)"^^xsd:anyURI ;
+  qudt:symbol "perm{Metric}" ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
-  rdfs:label "U.S. Perm"@en ;
+  rdfs:label "Metric Perm"@en ;
 .
 unit:PERM_US
   a qudt:Unit ;
@@ -22603,6 +22829,7 @@ unit:PERM_US
   qudt:hasDimensionVector qkdv:A0E0L-1I0M0H0T1D0 ;
   qudt:hasQuantityKind quantitykind:VaporPermeability ;
   qudt:informativeReference "https://en.wikipedia.org/wiki/Perm_(unit)"^^xsd:anyURI ;
+  qudt:symbol "perm{US}" ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
   rdfs:label "U.S. Perm"@en ;
 .
@@ -23102,10 +23329,10 @@ unit:PPTM-PER-K
   a qudt:Unit ;
   dcterms:description "Unit for expansion ratios expressed as parts per ten million per Kelvin."^^qudt:LatexString ;
   qudt:conversionMultiplier 0.0000001 ;
-  qudt:expression "\\(PPM/K\\)"^^qudt:LatexString ;
+  qudt:expression "\\(PPTM/K\\)"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H-1T0D0 ;
   qudt:hasQuantityKind quantitykind:ExpansionRatio ;
-  qudt:symbol "PPM/K" ;
+  qudt:symbol "PPTM/K" ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
   rdfs:label "Parts Per Ten Million per Kelvin"@en ;
 .
@@ -23603,6 +23830,7 @@ unit:PicoMOL
   qudt:hasDimensionVector qkdv:A1E0L0I0M0H0T0D0 ;
   qudt:hasQuantityKind quantitykind:AmountOfSubstance ;
   qudt:hasQuantityKind quantitykind:ExtentOfReaction ;
+  qudt:symbol "pmol" ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
   rdfs:label "PicoMole"@en ;
 .
@@ -23707,6 +23935,7 @@ unit:PicoPA
   qudt:hasQuantityKind quantitykind:ModulusOfElasticity ;
   qudt:hasQuantityKind quantitykind:ShearModulus ;
   qudt:hasQuantityKind quantitykind:VaporPressure ;
+  qudt:symbol "pPa" ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
   rdfs:label "PicoPascal"@en ;
 .
@@ -23739,6 +23968,7 @@ unit:PicoS
   qudt:hasDimensionVector qkdv:A0E2L-2I0M-1H0T3D0 ;
   qudt:hasQuantityKind quantitykind:Admittance ;
   qudt:hasQuantityKind quantitykind:Conductance ;
+  qudt:symbol "pS" ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
   rdfs:label "PicoSiemens"@en ;
 .
@@ -24658,7 +24888,7 @@ unit:S-M2-PER-MOL
   qudt:applicableSystem sou:SI ;
   qudt:conversionMultiplier 1.0 ;
   qudt:expression "\\(s-m2-per-mol\\)"^^qudt:LatexString ;
-  qudt:hasDimensionVector qkdv:A0E2L-3I0M-1H0T3D0 ;
+  qudt:hasDimensionVector qkdv:A-1E2L0I0M-1H0T3D0 ;
   qudt:hasQuantityKind quantitykind:MolarConductivity ;
   qudt:iec61360Code "0112/2///62720#UAA280" ;
   qudt:symbol "S⋅m²/mol" ;
@@ -25530,7 +25760,6 @@ unit:TON_Assay
 unit:TON_FG
   a qudt:Unit ;
   dcterms:description "12000 btu per hour</p>"^^rdf:HTML ;
-  qudt:applicableSystem sou:CGS ;
   qudt:applicableSystem sou:USCS ;
   qudt:conversionMultiplier 3516.853 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Ton_of_refrigeration"^^xsd:anyURI ;
@@ -25544,6 +25773,19 @@ unit:TON_FG
   qudt:symbol "t/fg" ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
   rdfs:label "Ton of Refrigeration"@en ;
+.
+unit:TON_FG-HR
+  a qudt:Unit ;
+  dcterms:description "12000 btu</p>"^^rdf:HTML ;
+  qudt:applicableSystem sou:USCS ;
+  qudt:conversionMultiplier 12660670.2 ;
+  qudt:dbpediaMatch "http://dbpedia.org/resource/Ton_of_refrigeration"^^xsd:anyURI ;
+  qudt:definedUnitOfSystem sou:USCS ;
+  qudt:hasDimensionVector qkdv:A0E0L2I0M1H0T-2D0 ;
+  qudt:hasQuantityKind quantitykind:ThermalEnergy ;
+  qudt:informativeReference "http://en.wikipedia.org/wiki/Ton_of_refrigeration?oldid=494342824"^^xsd:anyURI ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
+  rdfs:label "Ton of Refrigeration Hour"@en ;
 .
 unit:TON_F_US
   a qudt:Unit ;
@@ -27529,7 +27771,7 @@ vaem:GMD_QUDT-UNITS-ALL
   dcterms:contributor "Steve Ray" ;
   dcterms:created "2019-07-30"^^xsd:date ;
   dcterms:creator "Steve Ray" ;
-  dcterms:modified "2023-04-12T15:32:07.606-04:00"^^xsd:dateTime ;
+  dcterms:modified "2023-05-10T19:47:52.047-04:00"^^xsd:dateTime ;
   dcterms:rights """
   This product includes all or a portion of the UCUM table, UCUM codes, and UCUM definitions or is derived from it, subject to a license from Regenstrief Institute, Inc. and The UCUM Organization. Your use of the UCUM table, UCUM codes, UCUM definitions also is subject to this license, a copy of which is available at ​http://unitsofmeasure.org. The current complete UCUM table, UCUM Specification are available for download at ​http://unitsofmeasure.org. The UCUM table and UCUM codes are copyright © 1995-2009, Regenstrief Institute, Inc. and the Unified Codes for Units of Measures (UCUM) Organization. All rights reserved.
 
@@ -27540,18 +27782,18 @@ THE UCUM TABLE (IN ALL FORMATS), UCUM DEFINITIONS, AND SPECIFICATION ARE PROVIDE
   dcterms:title "QUDT Units Version 2.1 Vocabulary" ;
   vaem:description "Standard units of measure for all units." ;
   vaem:graphName "qudt" ;
-  vaem:graphTitle "QUDT Units Version 2.1.26" ;
+  vaem:graphTitle "QUDT Units Version 2.1.27" ;
   vaem:hasGraphRole vaem:VocabularyGraph ;
   vaem:hasOwner <http://www.linkedmodel.org/schema/vaem#QUDT.org> ;
   vaem:hasSteward <http://www.linkedmodel.org/schema/vaem#QUDT.org> ;
   vaem:intent "To provide a vocabulary of all units." ;
   vaem:isMetadataFor <http://qudt.org/2.1/vocab/unit> ;
-  vaem:latestPublishedVersion "https://qudt.org/doc/2023/04/DOC_VOCAB-UNITS-ALL-v2.1.html"^^xsd:anyURI ;
+  vaem:latestPublishedVersion "https://qudt.org/doc/2023/05/DOC_VOCAB-UNITS-ALL-v2.1.html"^^xsd:anyURI ;
   vaem:logo "https://qudt.org/linkedmodels.org/assets/lib/lm/images/logos/qudt_logo-300x110.png"^^xsd:anyURI ;
   vaem:namespace "http://qudt.org/vocab/unit/" ;
   vaem:namespacePrefix "unit" ;
   vaem:owner "QUDT.org" ;
-  vaem:previousPublishedVersion "https://qudt.org/doc/2023/03/DOC_VOCAB-UNITS-ALL-v2.1.html"^^xsd:anyURI ;
+  vaem:previousPublishedVersion "https://qudt.org/doc/2023/04/DOC_VOCAB-UNITS-ALL-v2.1.html"^^xsd:anyURI ;
   vaem:revision "2.1" ;
   vaem:turtleFileURL "http://qudt.org/2.1/vocab/unit"^^xsd:anyURI ;
   vaem:usesNonImportedResource dcterms:abstract ;
@@ -27560,5 +27802,5 @@ THE UCUM TABLE (IN ALL FORMATS), UCUM DEFINITIONS, AND SPECIFICATION ARE PROVIDE
   vaem:usesNonImportedResource dcterms:modified ;
   vaem:usesNonImportedResource dcterms:title ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
-  rdfs:label "All Units Ontology Version 2.1.26" ;
+  rdfs:label "QUDT Unit of Measure Vocabulary Metadata Version 2.1.27" ;
 .

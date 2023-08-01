@@ -4,6 +4,7 @@
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prefix: <http://qudt.org/vocab/prefix/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix quantitykind: <http://qudt.org/vocab/quantitykind/> .
 @prefix qudt: <http://qudt.org/schema/qudt/> .
@@ -19,7 +20,7 @@
 <http://qudt.org/2.1/vocab/sou>
   a owl:Ontology ;
   vaem:hasGraphMetadata vaem:GMD_QUDT-SOU ;
-  rdfs:label "QUDT Vocabulary - Systems of Units - v2.1.26" ;
+  rdfs:label "QUDT VOCAB Systems of Units Release 2.1.27" ;
   owl:imports <http://qudt.org/2.1/schema/facade/qudt> ;
   owl:versionInfo "Created with TopBraid Composer" ;
 .
@@ -130,26 +131,26 @@ sou:SI
   qudt:informativeReference "http://www.oxfordreference.com/view/10.1093/acref/9780199233991.001.0001/acref-9780199233991-appendix-0003"^^xsd:anyURI ;
   qudt:informativeReference "http://www.oxfordreference.com/view/10.1093/acref/9780199233991.001.0001/acref-9780199233991-e-2791"^^xsd:anyURI ;
   qudt:informativeReference "https://www.govinfo.gov/content/pkg/GOVPUB-C13-f10c2ff9e7af2091314396a2d53213e4/pdf/GOVPUB-C13-f10c2ff9e7af2091314396a2d53213e4.pdf"^^xsd:anyURI ;
-  qudt:prefix <http://qudt.org/2.1/vocab/prefix/Atto> ;
-  qudt:prefix <http://qudt.org/2.1/vocab/prefix/Centi> ;
-  qudt:prefix <http://qudt.org/2.1/vocab/prefix/Deca> ;
-  qudt:prefix <http://qudt.org/2.1/vocab/prefix/Deci> ;
-  qudt:prefix <http://qudt.org/2.1/vocab/prefix/Exa> ;
-  qudt:prefix <http://qudt.org/2.1/vocab/prefix/Femto> ;
-  qudt:prefix <http://qudt.org/2.1/vocab/prefix/Giga> ;
-  qudt:prefix <http://qudt.org/2.1/vocab/prefix/Hecto> ;
-  qudt:prefix <http://qudt.org/2.1/vocab/prefix/Kilo> ;
-  qudt:prefix <http://qudt.org/2.1/vocab/prefix/Mega> ;
-  qudt:prefix <http://qudt.org/2.1/vocab/prefix/Micro> ;
-  qudt:prefix <http://qudt.org/2.1/vocab/prefix/Milli> ;
-  qudt:prefix <http://qudt.org/2.1/vocab/prefix/Nano> ;
-  qudt:prefix <http://qudt.org/2.1/vocab/prefix/Peta> ;
-  qudt:prefix <http://qudt.org/2.1/vocab/prefix/Pico> ;
-  qudt:prefix <http://qudt.org/2.1/vocab/prefix/Tera> ;
-  qudt:prefix <http://qudt.org/2.1/vocab/prefix/Yocto> ;
-  qudt:prefix <http://qudt.org/2.1/vocab/prefix/Yotta> ;
-  qudt:prefix <http://qudt.org/2.1/vocab/prefix/Zepto> ;
-  qudt:prefix <http://qudt.org/2.1/vocab/prefix/Zetta> ;
+  qudt:prefix prefix:Atto ;
+  qudt:prefix prefix:Centi ;
+  qudt:prefix prefix:Deca ;
+  qudt:prefix prefix:Deci ;
+  qudt:prefix prefix:Exa ;
+  qudt:prefix prefix:Femto ;
+  qudt:prefix prefix:Giga ;
+  qudt:prefix prefix:Hecto ;
+  qudt:prefix prefix:Kilo ;
+  qudt:prefix prefix:Mega ;
+  qudt:prefix prefix:Micro ;
+  qudt:prefix prefix:Milli ;
+  qudt:prefix prefix:Nano ;
+  qudt:prefix prefix:Peta ;
+  qudt:prefix prefix:Pico ;
+  qudt:prefix prefix:Tera ;
+  qudt:prefix prefix:Yocto ;
+  qudt:prefix prefix:Yotta ;
+  qudt:prefix prefix:Zepto ;
+  qudt:prefix prefix:Zetta ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/sou> ;
   rdfs:label "International System of Units"@en ;
 .
@@ -228,29 +229,29 @@ vaem:GMD_QUDT-SOU
   dcterms:contributor "Steve Ray" ;
   dcterms:created "2016-07-04"^^xsd:date ;
   dcterms:creator "Ralph Hodgson" ;
-  dcterms:description "QUDT Systems of Units Vocabulary Version 2.1.26" ;
-  dcterms:modified "2023-04-12T16:35:47.167-04:00"^^xsd:dateTime ;
+  dcterms:description "QUDT Systems of Units Vocabulary Version 2.1.27" ;
+  dcterms:modified "2023-05-10T20:49:14.216-04:00"^^xsd:dateTime ;
   dcterms:rights "The QUDT Ontologies are issued under a Creative Commons Attribution 4.0 International License (CC BY 4.0), available at https://creativecommons.org/licenses/by/4.0/. Attribution should be made to QUDT.org" ;
   dcterms:subject "Systems of Units" ;
   dcterms:title "QUDT Systems of Units Version 2.1 Vocabulary" ;
-  vaem:graphTitle "QUDT Systems of Units Version 2.1.26" ;
+  vaem:graphTitle "QUDT Systems of Units Version 2.1.27" ;
   vaem:hasGraphRole vaem:VocabularyGraph ;
   vaem:hasOwner vaem:QUDT ;
   vaem:hasSteward vaem:QUDT ;
   vaem:intent "The intent of this graph is the specification of all Systems of Units" ;
   vaem:isMetadataFor <http://qudt.org/2.1/vocab/sou> ;
-  vaem:latestPublishedVersion "https://qudt.org/doc/2023/04/DOC_VOCAB-SYSTEMS-OF-UNITS-v2.1.html"^^xsd:anyURI ;
+  vaem:latestPublishedVersion "https://qudt.org/doc/2023/05/DOC_VOCAB-SYSTEMS-OF-UNITS-v2.1.html"^^xsd:anyURI ;
   vaem:logo "https://qudt.org/linkedmodels.org/assets/lib/lm/images/logos/qudt_logo-300x110.png"^^xsd:anyURI ;
   vaem:name "sou" ;
   vaem:namespace "http://qudt.org/vocab/sou/" ;
   vaem:namespacePrefix "sou" ;
   vaem:owner "qudt.org" ;
-  vaem:previousPublishedVersion "https://qudt.org/doc/2023/03/DOC_VOCAB-SYSTEMS-OF-UNITS-v2.1.html"^^xsd:anyURI ;
+  vaem:previousPublishedVersion "https://qudt.org/doc/2023/04/DOC_VOCAB-SYSTEMS-OF-UNITS-v2.1.html"^^xsd:anyURI ;
   vaem:revision "2.1" ;
   vaem:turtleFileURL "http://qudt.org/2.1/vocab/sou"^^xsd:anyURI ;
   vaem:usesNonImportedResource prov:wasInfluencedBy ;
   vaem:usesNonImportedResource prov:wasInformedBy ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/sou> ;
-  rdfs:label "QUDT Systems of Units Ontology Version 2.1.26" ;
+  rdfs:label "QUDT System of Units Vocabulary Metadata Version v2.1.27" ;
   owl:versionIRI <http://qudt.org/2.1/vocab/sou> ;
 .

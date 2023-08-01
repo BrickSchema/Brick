@@ -1,0 +1,55 @@
+# baseURI: http://data.ashrae.org/standard223/1.0/inference/owl-subset
+# imports: http://data.ashrae.org/standard223/1.0/model/all
+
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix s223: <http://data.ashrae.org/standard223#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+s223:InversePropertyShape
+  a sh:NodeShape ;
+  sh:rule [
+      a sh:SPARQLRule ;
+      rdfs:comment "Declare the inverse triples for relations that have defined inverse relations" ;
+      sh:construct """
+CONSTRUCT {
+?o ?invP $this .
+}
+WHERE {
+  $this ?p ?o .
+  ?p s223:inverseOf ?invP .
+}
+			""" ;
+      sh:prefixes <http://data.ashrae.org/standard223/1.0/inference/owl-subset> ;
+    ] ;
+  sh:targetClass s223:Concept ;
+.
+s223:SymmetricPropertyShape
+  a sh:NodeShape ;
+  sh:rule [
+      a sh:SPARQLRule ;
+      rdfs:comment "Declare the inverse triples for symmetric relations" ;
+      sh:construct """
+CONSTRUCT {
+?o ?p $this .
+}
+WHERE {
+  $this ?p ?o .
+  ?p a s223:SymmetricProperty .
+}
+			""" ;
+      sh:prefixes <http://data.ashrae.org/standard223/1.0/inference/owl-subset> ;
+    ] ;
+  sh:targetClass s223:Concept ;
+.
+<http://data.ashrae.org/standard223/1.0/inference/owl-subset>
+  a owl:Ontology ;
+  owl:imports <http://data.ashrae.org/standard223/1.0/model/all> ;
+  owl:versionInfo "Created with TopBraid Composer" ;
+  sh:declare [
+      sh:namespace "http://data.ashrae.org/standard223#"^^xsd:anyURI ;
+      sh:prefix "s223" ;
+    ] ;
+.
