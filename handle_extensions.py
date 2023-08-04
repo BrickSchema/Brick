@@ -23,9 +23,13 @@ for rule, pfxs in brick_graph.subject_objects(predicate=rdflib.SH.prefixes):
     brick_graph.add((rule, rdflib.SH.prefixes, BRICK))
 
 # remove ontology declarations
-for ontology in brick_graph.subjects(predicate=rdflib.RDF.type, object=rdflib.OWL.Ontology):
+for ontology in brick_graph.subjects(
+    predicate=rdflib.RDF.type, object=rdflib.OWL.Ontology
+):
     if ontology != BRICK:
         brick_graph.remove((ontology, rdflib.RDF.type, rdflib.OWL.Ontology))
+        brick_graph.remove((ontology, rdflib.OWL.imports, None))
+        brick_graph.remove((ontology, rdflib.OWL.versionInfo, None))
 
 # serialize Brick with all extensions added
 with open("Brick+extensions.ttl", "w", encoding="utf-8") as fp:
