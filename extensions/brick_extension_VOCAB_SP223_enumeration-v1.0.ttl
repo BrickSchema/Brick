@@ -121,36 +121,6 @@ s223:DayOfWeek-Weekend
   rdfs:label "Weekend" ;
   rdfs:subClassOf s223:Attribute-DayOfWeek ;
 .
-s223:Dimensioned-ABLineLineVoltage
-  a s223:Dimensioned-LineLineVoltage ;
-  rdfs:comment "The value of the associated Property identifies the A-B Line-to-line voltage of the medium" ;
-  rdfs:label "Dimensioned-ABLineLineVoltage" ;
-.
-s223:Dimensioned-ANLineNeutralVoltage
-  a s223:Dimensioned-LineNeutralVoltage ;
-  rdfs:comment "The value of the associated Property identifies the A-N Line-to-neutral voltage of the medium" ;
-  rdfs:label "Dimensioned-ANLineNeutralVoltage" ;
-.
-s223:Dimensioned-BCLineLineVoltage
-  a s223:Dimensioned-LineLineVoltage ;
-  rdfs:comment "The value of the associated Property identifies the B-C Line-to-line voltage of the medium" ;
-  rdfs:label "Dimensioned-BCLineLineVoltage" ;
-.
-s223:Dimensioned-BNLineNeutralVoltage
-  a s223:Dimensioned-LineNeutralVoltage ;
-  rdfs:comment "The value of the associated Property identifies the B-N Line-to-neutral voltage of the medium" ;
-  rdfs:label "Dimensioned-BNLineNeutralVoltage" ;
-.
-s223:Dimensioned-CALineLineVoltage
-  a s223:Dimensioned-LineLineVoltage ;
-  rdfs:comment "The value of the associated Property identifies the C-A Line-to-line voltage of the medium" ;
-  rdfs:label "Dimensioned-CALineLineVoltage" ;
-.
-s223:Dimensioned-CNLineNeutralVoltage
-  a s223:Dimensioned-LineNeutralVoltage ;
-  rdfs:comment "The value of the associated Property identifies the C-N Line-to-neutral voltage of the medium" ;
-  rdfs:label "Dimensioned-CNLineNeutralVoltage" ;
-.
 s223:Dimensioned-Delta
   a s223:Context-Dimensioned ;
   rdfs:comment "Used to signify the associated Property has a delta (difference) value." ;
@@ -165,16 +135,6 @@ s223:Dimensioned-Latent
   a s223:Context-Dimensioned ;
   rdfs:comment "The latent value of something characterized by this Property." ;
   rdfs:label "Dimensioned-Latent" ;
-.
-s223:Dimensioned-LineLineVoltage
-  a s223:Context-Dimensioned ;
-  rdfs:comment "The value of the associated Property identifies the Line-to-line voltage of the medium" ;
-  rdfs:label "Dimensioned-Line Line Voltage" ;
-.
-s223:Dimensioned-LineNeutralVoltage
-  a s223:Context-Dimensioned ;
-  rdfs:comment "The value of the associated Property identifies the Line-to-neutral voltage of the medium" ;
-  rdfs:label "Dimensioned-Line Neutral Voltage" ;
 .
 s223:Dimensioned-Loss
   a s223:Context-Dimensioned ;
@@ -404,7 +364,14 @@ s223:EnumerationKind
   a s223:Class ;
   a s223:EnumerationKind ;
   a sh:NodeShape ;
-  rdfs:comment "This is the encapsulating class for all EnumerationKinds. EnumerationKinds define the (closed) set of permissible values for a given purpose. For example, the DayOfWeek EnumerationKind enumerates the days of the week and allows no other values." ;
+  rdfs:comment """This is the encapsulating class for all EnumerationKinds.
+  EnumerationKinds define the (closed) set of permissible values for a given purpose.
+  For example, the DayOfWeek EnumerationKind enumerates the days of the week and allows no other values.
+
+EnumeratinKinds are arranged in a tree hierarchy.
+As you navigate down the tree each branch or leaf value is a more specific instance of the EnumerationKind.
+Certain validation constraints exist in the standard that evaluate compatibility of EnumerationKinds.
+Two values are deemed compatible if they are the same or if one is a direct ancestor (or descendant) of the other.""" ;
   rdfs:label "Enumeration kind" ;
   rdfs:subClassOf s223:Concept ;
 .
@@ -612,130 +579,6 @@ s223:Light-Ultraviolet
 s223:Light-Visible
   a s223:EM-Light ;
   rdfs:label "Light-Visible" ;
-.
-<http://data.ashrae.org/standard223#LineLineVoltage-10.0kV>
-  a s223:Dimensioned-LineLineVoltage ;
-  rdfs:label "10.0kV Line-Line Voltage" ;
-.
-s223:LineLineVoltage-190V
-  a s223:Dimensioned-LineLineVoltage ;
-  rdfs:label "190V Line-Line Voltage" ;
-.
-s223:LineLineVoltage-208V
-  a s223:Dimensioned-LineLineVoltage ;
-  rdfs:label "208V Line-Line Voltage" ;
-.
-s223:LineLineVoltage-220V
-  a s223:Dimensioned-LineLineVoltage ;
-  rdfs:label "220V Line-Line Voltage" ;
-.
-s223:LineLineVoltage-240V
-  a s223:Dimensioned-LineLineVoltage ;
-  rdfs:label "240V Line-Line Voltage" ;
-.
-<http://data.ashrae.org/standard223#LineLineVoltage-3.0kV>
-  a s223:Dimensioned-LineLineVoltage ;
-  rdfs:label "3.0kV Line-Line Voltage" ;
-.
-<http://data.ashrae.org/standard223#LineLineVoltage-3.3kV>
-  a s223:Dimensioned-LineLineVoltage ;
-  rdfs:label "3.3kV Line-Line Voltage" ;
-.
-s223:LineLineVoltage-380V
-  a s223:Dimensioned-LineLineVoltage ;
-  rdfs:label "380V Line-Line Voltage" ;
-.
-<http://data.ashrae.org/standard223#LineLineVoltage-4.16kV>
-  a s223:Dimensioned-LineLineVoltage ;
-  rdfs:label "4.16kV Line-Line Voltage" ;
-.
-s223:LineLineVoltage-400V
-  a s223:Dimensioned-LineLineVoltage ;
-  rdfs:label "400V Line-Line Voltage" ;
-.
-s223:LineLineVoltage-415V
-  a s223:Dimensioned-LineLineVoltage ;
-  rdfs:label "415V Line-Line Voltage" ;
-.
-s223:LineLineVoltage-480V
-  a s223:Dimensioned-LineLineVoltage ;
-  rdfs:label "480V Line-Line Voltage" ;
-.
-<http://data.ashrae.org/standard223#LineLineVoltage-6.0kV>
-  a s223:Dimensioned-LineLineVoltage ;
-  rdfs:label "6.0kV Line-Line Voltage" ;
-.
-<http://data.ashrae.org/standard223#LineLineVoltage-6.6kV>
-  a s223:Dimensioned-LineLineVoltage ;
-  rdfs:label "6.6kV Line-Line Voltage" ;
-.
-s223:LineLineVoltage-600V
-  a s223:Dimensioned-LineLineVoltage ;
-  rdfs:label "600V Line-Line Voltage" ;
-.
-<http://data.ashrae.org/standard223#LineNeutralVoltage-10.0kV>
-  a s223:Dimensioned-LineNeutralVoltage ;
-  rdfs:label "10.0kV Line-Neutral Voltage" ;
-.
-s223:LineNeutralVoltage-120V
-  a s223:Dimensioned-LineNeutralVoltage ;
-  rdfs:label "120V Line-Neutral Voltage" ;
-.
-s223:LineNeutralVoltage-190V
-  a s223:Dimensioned-LineNeutralVoltage ;
-  rdfs:label "190V Line-Neutral Voltage" ;
-.
-s223:LineNeutralVoltage-208V
-  a s223:Dimensioned-LineNeutralVoltage ;
-  rdfs:label "208V Line-Neutral Voltage" ;
-.
-s223:LineNeutralVoltage-220V
-  a s223:Dimensioned-LineNeutralVoltage ;
-  rdfs:label "220V Line-Neutral Voltage" ;
-.
-s223:LineNeutralVoltage-240V
-  a s223:Dimensioned-LineNeutralVoltage ;
-  rdfs:label "240V Line-Neutral Voltage" ;
-.
-<http://data.ashrae.org/standard223#LineNeutralVoltage-3.0kV>
-  a s223:Dimensioned-LineNeutralVoltage ;
-  rdfs:label "3.0kV Line-Neutral Voltage" ;
-.
-<http://data.ashrae.org/standard223#LineNeutralVoltage-3.3kV>
-  a s223:Dimensioned-LineNeutralVoltage ;
-  rdfs:label "3.3kV Line-Neutral Voltage" ;
-.
-s223:LineNeutralVoltage-380V
-  a s223:Dimensioned-LineNeutralVoltage ;
-  rdfs:label "380V Line-Neutral Voltage" ;
-.
-<http://data.ashrae.org/standard223#LineNeutralVoltage-4.16kV>
-  a s223:Dimensioned-LineNeutralVoltage ;
-  rdfs:label "4.16kV Line-Neutral Voltage" ;
-.
-s223:LineNeutralVoltage-400V
-  a s223:Dimensioned-LineNeutralVoltage ;
-  rdfs:label "400V Line-Neutral Voltage" ;
-.
-s223:LineNeutralVoltage-415V
-  a s223:Dimensioned-LineNeutralVoltage ;
-  rdfs:label "415V Line-Neutral Voltage" ;
-.
-s223:LineNeutralVoltage-480V
-  a s223:Dimensioned-LineNeutralVoltage ;
-  rdfs:label "480V Line-Neutral Voltage" ;
-.
-<http://data.ashrae.org/standard223#LineNeutralVoltage-6.0kV>
-  a s223:Dimensioned-LineNeutralVoltage ;
-  rdfs:label "6.0kV Line-Neutral Voltage" ;
-.
-<http://data.ashrae.org/standard223#LineNeutralVoltage-6.6kV>
-  a s223:Dimensioned-LineNeutralVoltage ;
-  rdfs:label "6.6kV Line-Neutral Voltage" ;
-.
-s223:LineNeutralVoltage-600V
-  a s223:Dimensioned-LineNeutralVoltage ;
-  rdfs:label "600V Line-Neutral Voltage" ;
 .
 s223:Liquid-SubCooled
   a s223:Phase-Liquid ;
