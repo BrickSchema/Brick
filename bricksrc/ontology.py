@@ -42,7 +42,6 @@ ontology_imports = {
     "currency": "http://qudt.org/2.1/vocab/currency",
     "quantitykind": "http://qudt.org/2.1/vocab/quantitykind",
     "dimensionvector": "http://qudt.org/2.1/vocab/dimensionvector",
-    "shacl": "http://www.w3.org/ns/shacl#",
     "bacnet": "http://data.ashrae.org/bacnet/2020",
 }
 
