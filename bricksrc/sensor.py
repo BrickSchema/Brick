@@ -1322,9 +1322,9 @@ sensor_definitions = {
                 BRICK.hasSubstance: BRICK.Refrigerant,
                 "tags": [TAG.Point, TAG.Sensor, TAG.Refrigerant, TAG.Level],
             },
-            "Solar_Radiance_Sensor": {
-                "tags": [TAG.Point, TAG.Sensor, TAG.Radiance, TAG.Solar],
-                BRICK.hasQuantity: BRICK.Solar_Radiance,
+            "Solar_Irradiance_Sensor": {
+                "tags": [TAG.Point, TAG.Sensor, TAG.Irradiance, TAG.Solar],
+                BRICK.hasQuantity: BRICK.Solar_Irradiance,
             },
             "Speed_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Speed],

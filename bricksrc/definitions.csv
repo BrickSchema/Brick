@@ -934,7 +934,7 @@ https://brickschema.org/schema/Brick#Soil_Temperature_Sensor,Measures the temper
 https://brickschema.org/schema/Brick#Solar_Azimuth_Angle_Sensor,Measures the azimuth angle of the sun,
 https://brickschema.org/schema/Brick#Solar_Irradiance,The power per unit area of solar electromagnetic radiation incident on a surface,
 https://brickschema.org/schema/Brick#Solar_Radiance,The amount of light that passes through or is emitted from the sun and falls within a given solid angle in a specified direction,
-https://brickschema.org/schema/Brick#Solar_Radiance_Sensor,The amount of light that passes through or is emitted from the sun and falls within a given solid angle in a specified direction,
+https://brickschema.org/schema/Brick#Solar_Irradiance_Sensor,Measures solar irradiance levels for photovoltaic systems,
 https://brickschema.org/schema/Brick#Solar_Thermal_Collector,A type of solar panels that converts solar radiation into thermal energy.,
 https://brickschema.org/schema/Brick#Solar_Zenith_Angle_Sensor,Measures the zenith angle of the sun,
 https://brickschema.org/schema/Brick#Solid,"one of the three states or phases of matter characterized by stability of dimensions, relative incompressibility, and molecular motion held to limited oscillation.",
