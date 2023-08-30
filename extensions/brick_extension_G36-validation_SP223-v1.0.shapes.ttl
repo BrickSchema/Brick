@@ -1,8 +1,8 @@
-# baseURI: http://data.ashrae.org/standard223/1.0/extension/g36-rules
+# baseURI: http://data.ashrae.org/standard223/1.0/extensions/g36-validation
 # imports: http://data.ashrae.org/standard223/1.0/model/all
 # prefix: g36
 
-@prefix g36: <http://data.ashrae.org/standard223/1.0/extension/g36#> .
+@prefix g36: <http://data.ashrae.org/standard223/1.0/extensions/g36#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -10,15 +10,10 @@
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<http://data.ashrae.org/standard223/1.0/extension/g36-rules>
+<http://data.ashrae.org/standard223/1.0/extensions/g36-validation>
   a owl:Ontology ;
   owl:imports <http://data.ashrae.org/standard223/1.0/model/all> ;
   owl:versionInfo "Created with TopBraid Composer" ;
-.
-g36:FPU_4-3
-  a sh:NodeShape ;
-  sh:targetClass g36:FanPoweredUnit ;
-
 .
 g36:VAV_4-2
   a sh:NodeShape ;

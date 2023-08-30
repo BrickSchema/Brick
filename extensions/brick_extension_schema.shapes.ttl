@@ -20,6 +20,7 @@ s223:RequiredCommentsShape
           sh:select """
 SELECT $this
 WHERE {
+FILTER NOT EXISTS {$this rdfs:subClassOf* rdf:Property} .
 FILTER NOT EXISTS {$this rdfs:subClassOf* s223:Concept} .
 }
 """ ;
@@ -107,15 +108,13 @@ FILTER NOT EXISTS {?rule rdfs:comment ?comment} .
       sh:sparql [
           a sh:SPARQLConstraint ;
           rdfs:comment "Ensure that every SPARQLRule must have an rdfs:comment." ;
-          sh:message "The SPARQLRule starting with {?firstline} for Class {$this} must have an rdfs:comment." ;
+          sh:message "Every SPARQLRule for Class {$this} must have an rdfs:comment." ;
           sh:prefixes <http://data.ashrae.org/standard223/1.0/validation/schema> ;
           sh:select """
-SELECT $this ?firstline
+SELECT $this
 WHERE {
 $this sh:rule ?rule .
 ?rule a sh:SPARQLRule .
-?rule sh:construct ?sparql .
-BIND (SUBSTR (?sparql, 0, 45) AS ?firstline) .
 FILTER NOT EXISTS {?rule rdfs:comment ?comment} .
 }
 """ ;
@@ -137,9 +136,9 @@ sh:targetClass s223:Class ;
 .
 rdf:Property
   a sh:NodeShape ;
-  sh:property [
+ sh:property [
       sh:path rdfs:label ;
-      rdfs:comment "This Property must have aa label" ;
+      rdfs:comment "This Property must have a label" ;
       sh:sparql [
           a sh:SPARQLConstraint ;
           sh:message "{$this} must have an rdfs:label" ;
@@ -150,6 +149,23 @@ WHERE {
 BIND(REPLACE(STR($this), \"^(.*)(/|#)([^#/]*)$\", \"$1\") AS ?prop) .
 FILTER (?prop = \"http://data.ashrae.org/standard223\") .
 FILTER (NOT EXISTS {$this rdfs:label ?something}) .
+}
+""" ;
+        ] ;
+    ] ;
+ sh:property [
+      sh:path rdfs:comment ;
+      rdfs:comment "This Property must have a comment" ;
+      sh:sparql [
+          a sh:SPARQLConstraint ;
+          sh:message "{$this} must have an rdfs:comment" ;
+          sh:prefixes <http://data.ashrae.org/standard223/1.0/validation/schema> ;
+          sh:select """
+SELECT $this
+WHERE {
+BIND(REPLACE(STR($this), \"^(.*)(/|#)([^#/]*)$\", \"$1\") AS ?prop) .
+FILTER (?prop = \"http://data.ashrae.org/standard223\") .
+FILTER (NOT EXISTS {$this rdfs:comment ?something}) .
 }
 """ ;
         ] ;
