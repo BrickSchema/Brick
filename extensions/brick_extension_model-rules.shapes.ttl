@@ -366,8 +366,6 @@ FILTER (?count = 1) .
 UNION
 {?something a/rdfs:subClassOf* s223:Connection}
 UNION
-{?something a/rdfs:subClassOf* s223:Segment}
-UNION
 {?something a/rdfs:subClassOf* s223:ConnectionPoint}
 }
 """ ;

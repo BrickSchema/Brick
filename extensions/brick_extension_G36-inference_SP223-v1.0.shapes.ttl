@@ -1,0 +1,161 @@
+@prefix g36: <http://data.ashrae.org/standard223/1.0/extensions/g36#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix s223: <http://data.ashrae.org/standard223#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+g36:ChilledWaterCoilAnnotation a sh:NodeShape ;
+    sh:rule [ a sh:TripleRule ;
+            sh:condition g36:ChilledWaterCoil ;
+            sh:object g36:ChilledWaterCoil ;
+            sh:predicate rdf:type ;
+            sh:subject sh:this ] ;
+    sh:targetClass s223:CoolingCoil .
+
+g36:ChilledWaterValveAnnotation a sh:NodeShape ;
+    sh:rule [ a sh:TripleRule ;
+            sh:condition g36:ChilledWaterValve ;
+            sh:object g36:ChilledWaterValve ;
+            sh:predicate rdf:type ;
+            sh:subject sh:this ] ;
+    sh:targetClass s223:Valve .
+
+g36:DamperAnnotation a sh:NodeShape ;
+    sh:rule [ a sh:TripleRule ;
+            sh:condition g36:Damper ;
+            sh:object g36:Damper ;
+            sh:predicate rdf:type ;
+            sh:subject sh:this ] ;
+    sh:targetClass s223:Damper .
+
+g36:DualDuctTerminalWithDischargeSensorAnnotation a sh:NodeShape ;
+    sh:rule [ a sh:TripleRule ;
+            sh:condition g36:DualDuctTerminalWithDischargeSensor ;
+            sh:object g36:DualDuctTerminalWithDischargeSensor ;
+            sh:predicate rdf:type ;
+            sh:subject sh:this ] ;
+    sh:targetClass s223:DualDuctTerminal .
+
+g36:DualDuctTerminalWithInletSensorsAnnotation a sh:NodeShape ;
+    sh:rule [ a sh:TripleRule ;
+            sh:condition g36:DualDuctTerminalWithInletSensors ;
+            sh:object g36:DualDuctTerminalWithInletSensors ;
+            sh:predicate rdf:type ;
+            sh:subject sh:this ] ;
+    sh:targetClass s223:DualDuctTerminal .
+
+g36:DualFanDualDuctAirHandlingUnitAnnotation a sh:NodeShape ;
+    sh:rule [ a sh:TripleRule ;
+            sh:condition g36:DualFanDualDuctAirHandlingUnit ;
+            sh:object g36:DualFanDualDuctAirHandlingUnit ;
+            sh:predicate rdf:type ;
+            sh:subject sh:this ] ;
+    sh:targetClass s223:AirHandlingUnit .
+
+g36:ElectricHeatingCoilAnnotation a sh:NodeShape ;
+    sh:rule [ a sh:TripleRule ;
+            sh:condition g36:ElectricHeatingCoil ;
+            sh:object g36:ElectricHeatingCoil ;
+            sh:predicate rdf:type ;
+            sh:subject sh:this ] ;
+    sh:targetClass s223:ResistanceHeater .
+
+g36:FanAnnotation a sh:NodeShape ;
+    sh:rule [ a sh:TripleRule ;
+            sh:condition g36:Fan ;
+            sh:object g36:Fan ;
+            sh:predicate rdf:type ;
+            sh:subject sh:this ] ;
+    sh:targetClass s223:Fan .
+
+g36:FanPoweredTerminalAnnotation a sh:NodeShape ;
+    sh:rule [ a sh:TripleRule ;
+            sh:condition g36:FanPoweredTerminal ;
+            sh:object g36:FanPoweredTerminal ;
+            sh:predicate rdf:type ;
+            sh:subject sh:this ] ;
+    sh:targetClass s223:FanPoweredTerminal .
+
+g36:FanWithVFDAnnotation a sh:NodeShape ;
+    sh:rule [ a sh:TripleRule ;
+            sh:condition g36:FanWithVFD ;
+            sh:object g36:FanWithVFD ;
+            sh:predicate rdf:type ;
+            sh:subject sh:this ] ;
+    sh:targetClass s223:Fan .
+
+g36:FilterAnnotation a sh:NodeShape ;
+    sh:rule [ a sh:TripleRule ;
+            sh:condition g36:Filter ;
+            sh:object g36:Filter ;
+            sh:predicate rdf:type ;
+            sh:subject sh:this ] ;
+    sh:targetClass s223:AirFilter .
+
+g36:HotWaterCoilAnnotation a sh:NodeShape ;
+    sh:rule [ a sh:TripleRule ;
+            sh:condition g36:HotWaterCoil ;
+            sh:object g36:HotWaterCoil ;
+            sh:predicate rdf:type ;
+            sh:subject sh:this ] ;
+    sh:targetClass s223:HeatingCoil .
+
+g36:HotWaterValveAnnotation a sh:NodeShape ;
+    sh:rule [ a sh:TripleRule ;
+            sh:condition g36:HotWaterValve ;
+            sh:object g36:HotWaterValve ;
+            sh:predicate rdf:type ;
+            sh:subject sh:this ] ;
+    sh:targetClass s223:Valve .
+
+g36:MultiZoneVAVAirHandlingUnitAnnotation a sh:NodeShape ;
+    sh:rule [ a sh:TripleRule ;
+            sh:condition g36:MultiZoneVAVAirHandlingUnit ;
+            sh:object g36:MultiZoneVAVAirHandlingUnit ;
+            sh:predicate rdf:type ;
+            sh:subject sh:this ] ;
+    sh:targetClass s223:AirHandlingUnit .
+
+g36:SingleZoneVAVAirHandlingUnitAnnotation a sh:NodeShape ;
+    sh:rule [ a sh:TripleRule ;
+            sh:condition g36:SingleZoneVAVAirHandlingUnit ;
+            sh:object g36:SingleZoneVAVAirHandlingUnit ;
+            sh:predicate rdf:type ;
+            sh:subject sh:this ] ;
+    sh:targetClass s223:AirHandlingUnit .
+
+g36:TwoPositionDamperAnnotation a sh:NodeShape ;
+    sh:rule [ a sh:TripleRule ;
+            sh:condition g36:TwoPositionDamper ;
+            sh:object g36:TwoPositionDamper ;
+            sh:predicate rdf:type ;
+            sh:subject sh:this ] ;
+    sh:targetClass s223:Damper .
+
+g36:VAVAnnotation a sh:NodeShape ;
+    sh:rule [ a sh:TripleRule ;
+            sh:condition g36:VAV ;
+            sh:object g36:VAV ;
+            sh:predicate rdf:type ;
+            sh:subject sh:this ] ;
+    sh:targetClass s223:SingleDuctTerminal .
+
+g36:ZoneAnnotation a sh:NodeShape ;
+    sh:rule [ a sh:TripleRule ;
+            sh:condition g36:Zone ;
+            sh:object g36:Zone ;
+            sh:predicate rdf:type ;
+            sh:subject sh:this ] ;
+    sh:targetClass s223:Zone .
+
+g36:ZoneGroupAnnotation a sh:NodeShape ;
+    sh:rule [ a sh:TripleRule ;
+            sh:condition g36:ZoneGroup ;
+            sh:object g36:ZoneGroup ;
+            sh:predicate rdf:type ;
+            sh:subject sh:this ] ;
+    sh:targetClass s223:Zone .
+
+<http://data.ashrae.org/standard223/1.0/extensions/g36-inference> a owl:Ontology ;
+    owl:imports <http://data.ashrae.org/standard223/1.0/extensions/settings>,
+        <http://data.ashrae.org/standard223/1.0/model/all> .
