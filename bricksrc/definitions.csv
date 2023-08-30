@@ -831,7 +831,7 @@ https://brickschema.org/schema/Brick#Pre-Cooling_Air_Unit,"A type of AHU, use to
 https://brickschema.org/schema/Brick#Pre_Filter,A filter installed in front of a more efficient filter to extend the life of the more expensive higher efficiency filter,
 https://brickschema.org/schema/Brick#Pre_Filter_Status,Indicates if a prefilter needs to be replaced,
 https://brickschema.org/schema/Brick#Precipitation,"Amount of atmospheric water vapor fallen including rain, sleet, snow, and hail (https://project-haystack.dev/doc/lib-phScience/precipitation)",
-https://brickschema.org/schema/Brick#Preheat_Command,A command to activate preheating,
+https://brickschema.org/schema/Brick#Preheat_Command,"A command to activate preheating. Typically used to preheat cool air coming from a mixing box or economizer",
 https://brickschema.org/schema/Brick#Preheat_Demand_Setpoint,Sets the rate required for preheat,
 https://brickschema.org/schema/Brick#Preheat_Discharge_Air_Temperature_Sensor,Measures the temperature of discharge air before heating is applied,
 https://brickschema.org/schema/Brick#Preheat_Hot_Water_Valve,,
@@ -873,6 +873,7 @@ https://brickschema.org/schema/Brick#Real_Power,"(Active Power) is, under period
 https://brickschema.org/schema/Brick#Reception,"A space, usually in a lobby, where visitors to a building or space can go to after arriving at a building and inform building staff that they have arrived",
 https://brickschema.org/schema/Brick#Refrigerant,A refrigerant is a working fluid used in the refrigeration cycle of air conditioning systems and heat pumps where in most cases they undergo a repeated phase transition from a liquid to a gas and back again.,https://en.wikipedia.org/wiki/Refrigerant
 https://brickschema.org/schema/Brick#Region,"A unit of geographic space, usually contigious or somehow related to a geopolitical feature",
+https://brickschema.org/schema/Brick#Reheat_Command,"A command to activate reheating, which is used for either heating or for dehumidification purposes",
 https://brickschema.org/schema/Brick#Reheat_Valve,A valve that controls air temperature by modulating the amount of hot water flowing through a reheat coil,
 https://brickschema.org/schema/Brick#Relative_Humidity,Relative Humidity} is the ratio of the partial pressure of water vapor in an air-water mixture to the saturated vapor pressure of water at a prescribed temperature. The relative humidity of air depends not only on temperature but also on the pressure of the system of interest. Relative Humidity is also referred to as \text{Relative Partial Pressure. Relative partial pressure is often referred to as (RH) and expressed in percent.,
 https://brickschema.org/schema/Brick#Relative_Humidity_Sensor,Measures the present state of absolute humidity relative to a maximum humidity given the same temperature,
