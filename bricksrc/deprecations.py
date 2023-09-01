@@ -1,6 +1,11 @@
 from .namespaces import BRICK, RDFS, SKOS, A
 
 deprecations = {
+    BRICK.Water_Tank: {
+        "version": "1.3.0",
+        "mitigation_message": "'Water_Tank' is deprecated as a space. 'Water_Storage_Tank' serves as it's replacement and is being moved to the equipment class.",
+        "replace_with": BRICK.Water_Storage_Tank,
+    },
     BRICK.Solar_Radiance_Sensor: {
         "version": "1.3.0",
         "mitigation_message": "The class 'Solar_Radiance_Sensor' is deprecated in favor of 'Solar_Irradiance_Sensor'. The new name better reflects the standard unit of measurement, watts per square meter (W/m²), and aligns with the terminology commonly used in solar applications.",
