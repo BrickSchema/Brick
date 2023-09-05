@@ -11,7 +11,8 @@ from rdflib import Graph, Literal, BNode, URIRef
 from rdflib.namespace import XSD
 from rdflib.collection import Collection
 
-from bricksrc.ontology import define_ontology, ontology_imports, define_extension
+from bricksrc.ontology import define_ontology, ontology_imports, define_extension, BRICK_IRI_VERSION
+
 
 from bricksrc.namespaces import (
     BRICK,
@@ -959,25 +960,24 @@ ref_schema_uri = URIRef(REF.strip("#"))
 for triple in G.cbd(ref_schema_uri):
     G.remove(triple)
 
-brick_uri =URIRef("https://brickschema.org/schema/Brick")
 # remove duplicate ontology definitions and
 # move prefixes onto Brick ontology definition
 for ontology, pfx in G.subject_objects(predicate=SH.declare):
-    if ontology == brick_uri:
+    if ontology == BRICK_IRI_VERSION:
         continue
     G.remove((None, SH.declare, pfx))
-    G.add((brick_uri, SH.declare, pfx))
+    G.add((BRICK_IRI_VERSION, SH.declare, pfx))
 
 # reassign where rules find their prefixees
 for rule, pfxs in G.subject_objects(predicate=SH.prefixes):
     G.remove((rule, SH.prefixes, pfxs))
-    G.add((rule, SH.prefixes, brick_uri))
+    G.add((rule, SH.prefixes, BRICK_IRI_VERSION))
 
 # remove ontology declarations
 for ontology in G.subjects(
     predicate=RDF.type, object=OWL.Ontology
 ):
-    if ontology != brick_uri:
+    if ontology != BRICK_IRI_VERSION:
         G.remove((ontology, RDF.type, OWL.Ontology))
         G.remove((ontology, OWL.imports, None))
         G.remove((ontology, OWL.versionInfo, None))
