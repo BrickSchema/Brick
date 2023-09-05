@@ -316,6 +316,7 @@ def define_classes(definitions, parent, pun_classes=False, graph=G):
         for alias in aliases:
             graph.add((classname, OWL.equivalentClass, alias))
             graph.add((alias, A, OWL.Class))
+            graph.add((alias, A, SH.NodeShape))
             graph.add((alias, OWL.equivalentClass, classname))
             graph.add((alias, BRICK.aliasOf, classname))
             if not has_label(alias, graph=graph):
