@@ -958,6 +958,29 @@ ref_schema_uri = URIRef(REF.strip("#"))
 for triple in G.cbd(ref_schema_uri):
     G.remove(triple)
 
+brick_uri =URIRef("https://brickschema.org/schema/Brick")
+# remove duplicate ontology definitions and
+# move prefixes onto Brick ontology definition
+for ontology, pfx in G.subject_objects(predicate=SH.declare):
+    if ontology == brick_uri:
+        continue
+    G.remove((None, SH.declare, pfx))
+    G.add((brick_uri, SH.declare, pfx))
+
+# reassign where rules find their prefixees
+for rule, pfxs in G.subject_objects(predicate=SH.prefixes):
+    G.remove((rule, SH.prefixes, pfxs))
+    G.add((rule, SH.prefixes, brick_uri))
+
+# remove ontology declarations
+for ontology in G.subjects(
+    predicate=RDF.type, object=OWL.Ontology
+):
+    if ontology != brick_uri:
+        G.remove((ontology, RDF.type, OWL.Ontology))
+        G.remove((ontology, OWL.imports, None))
+        G.remove((ontology, OWL.versionInfo, None))
+
 
 # adding in any entity properties or classes defined
 for filename in sys.argv[1:]:
