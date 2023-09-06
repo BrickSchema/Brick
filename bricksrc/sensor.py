@@ -1514,6 +1514,18 @@ sensor_definitions = {
                                             TAG.Temperature,
                                             TAG.Sensor,
                                         ],
+                                    },
+                                    "Reheat_Supply_Air_Temperature_Sensor": {
+                                        "aliases": [BRICK["Reheat_Discharge_Air_Temperature_Sensor"]],
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Reheat,
+                                            TAG.Supply,
+                                            TAG.Discharge,
+                                            TAG.Air,
+                                            TAG.Temperature,
+                                            TAG.Sensor,
+                                        ],
                                     }
                                 },
                             },
