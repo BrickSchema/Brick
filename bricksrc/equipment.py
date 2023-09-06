@@ -251,6 +251,17 @@ equipment_subclasses = {
                                 "tags": [TAG.Rain, TAG.Water, TAG.Storage, TAG.Equipment]
                             },
                         }
+                    },
+                    "Thermal_Energy_Storage_Tank": {
+                        "tags": [TAG.Thermal, TAG.Energy, TAG.Storage, TAG.Tank, TAG.Equipment],
+                        "subclasses": {
+                            "Chilled_Water_Thermal_Energy_Storage_Tank": {
+                                "tags": [TAG.Chilled, TAG.Water, TAG.Thermal, TAG.Energy, TAG.Storage, TAG.Tank, TAG.Equipment],
+                            },
+                            "Hot_Water_Thermal_Energy_Storage_Tank": {
+                                "tags": [TAG.Hot, TAG.Water, TAG.Thermal, TAG.Energy, TAG.Storage, TAG.Tank, TAG.Equipment],
+                            }
+                        }
                     }
                 }
             },
