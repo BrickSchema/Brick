@@ -728,16 +728,6 @@ valve_subclasses = {
                                     TAG.Equipment,
                                 ]
                             },
-                            "Reheat_Hot_Water_Valve": {
-                                "tags": [
-                                    TAG.Reheat,
-                                    TAG.Water,
-                                    TAG.Hot,
-                                    TAG.Valve,
-                                    TAG.Heat,
-                                    TAG.Equipment,
-                                ]
-                            },
                         },
                     },
                     "Makeup_Water_Valve": {
