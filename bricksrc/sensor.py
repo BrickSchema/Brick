@@ -1514,6 +1514,19 @@ sensor_definitions = {
                                             TAG.Temperature,
                                             TAG.Sensor,
                                         ],
+                                    },
+                                    "Cooling_Coil_Supply_Air_Temperature_Sensor": {
+                                        "aliases": [BRICK["Cooling_Coil_Discharge_Air_Temperature_Sensor"]],
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Cooling,
+                                            TAG.Coil,
+                                            TAG.Supply,
+                                            TAG.Discharge,
+                                            TAG.Air,
+                                            TAG.Temperature,
+                                            TAG.Sensor,
+                                        ],
                                     }
                                 },
                             },

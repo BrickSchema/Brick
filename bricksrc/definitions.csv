@@ -176,6 +176,7 @@ https://brickschema.org/schema/Brick#Cooling_Coil,"A cooling element made of pip
 https://brickschema.org/schema/Brick#Cooling_Command,Controls the amount of cooling to be delivered (typically as a proportion of total cooling output),
 https://brickschema.org/schema/Brick#Cooling_Demand_Sensor,Measures the amount of power consumed by a cooling process; typically found by multiplying the tonnage of a unit (e.g. RTU) by the efficiency rating in kW/ton,
 https://brickschema.org/schema/Brick#Cooling_Demand_Setpoint,Sets the rate required for cooling,
+https://brickschema.org/schema/Brick#Cooling_Coil_Supply_Air_Temperature_Sensor,"Measures the temperature of the supply air immediately after it has passed through the cooling coil in an HVAC system, typically used for dehumidification process.",
 https://brickschema.org/schema/Brick#Cooling_Discharge_Air_Flow_Setpoint,Sets discharge air flow for cooling,
 https://brickschema.org/schema/Brick#Cooling_Discharge_Air_Temperature_Deadband_Setpoint,Sets the size of a deadband of temperature of cooling discharge air,
 https://brickschema.org/schema/Brick#Cooling_Discharge_Air_Temperature_Integral_Time_Parameter,,
@@ -217,6 +218,7 @@ https://brickschema.org/schema/Brick#Deadband_Setpoint,Sets the size of a deadba
 https://brickschema.org/schema/Brick#Deceleration_Time,,
 https://brickschema.org/schema/Brick#Deceleration_Time_Setpoint,,
 https://brickschema.org/schema/Brick#Dedicated_Outdoor_Air_System_Unit,"A device that conditions and delivers 100% outdoor air to its assigned spaces. It decouples air-conditioning of the outdoor air, usually used to provide minimum outdoor air ventilation, from conditioning of the internal loads.",
+https://brickschema.org/schema/Brick#Dehumidification_Command,"Initiates the control sequence for dehumidification, which involves cooling and reheating the supply air.",
 https://brickschema.org/schema/Brick#Deionised_Water_Conductivity_Sensor,Measures the electrical conductance of deionised water,
 https://brickschema.org/schema/Brick#Deionised_Water_Level_Sensor,Measures the height/level of deionised water in some container,
 https://brickschema.org/schema/Brick#Deionized_Water,Water which has been purified by removing its ions (constituting the majority of non-particulate contaminants),
@@ -871,6 +873,7 @@ https://brickschema.org/schema/Brick#Real_Power,"(Active Power) is, under period
 https://brickschema.org/schema/Brick#Reception,"A space, usually in a lobby, where visitors to a building or space can go to after arriving at a building and inform building staff that they have arrived",
 https://brickschema.org/schema/Brick#Refrigerant,A refrigerant is a working fluid used in the refrigeration cycle of air conditioning systems and heat pumps where in most cases they undergo a repeated phase transition from a liquid to a gas and back again.,https://en.wikipedia.org/wiki/Refrigerant
 https://brickschema.org/schema/Brick#Region,"A unit of geographic space, usually contigious or somehow related to a geopolitical feature",
+https://brickschema.org/schema/Brick#Reheat_Command,A command to activate reheating,
 https://brickschema.org/schema/Brick#Reheat_Valve,A valve that controls air temperature by modulating the amount of hot water flowing through a reheat coil,
 https://brickschema.org/schema/Brick#Relative_Humidity,Relative Humidity} is the ratio of the partial pressure of water vapor in an air-water mixture to the saturated vapor pressure of water at a prescribed temperature. The relative humidity of air depends not only on temperature but also on the pressure of the system of interest. Relative Humidity is also referred to as \text{Relative Partial Pressure. Relative partial pressure is often referred to as (RH) and expressed in percent.,
 https://brickschema.org/schema/Brick#Relative_Humidity_Sensor,Measures the present state of absolute humidity relative to a maximum humidity given the same temperature,

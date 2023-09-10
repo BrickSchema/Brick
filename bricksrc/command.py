@@ -21,6 +21,7 @@ command_definitions = {
             "Cooling_Command": {"tags": [TAG.Point, TAG.Cool, TAG.Command]},
             "Heating_Command": {"tags": [TAG.Point, TAG.Heat, TAG.Command]},
             "Preheat_Command": {"tags": [TAG.Point, TAG.Preheat, TAG.Command]},
+            "Reheat_Command": {"tags": [TAG.Point, TAG.Reheat, TAG.Command]},
             "Luminance_Command": {"tags": [TAG.Point, TAG.Luminance, TAG.Command]},
             "Bypass_Command": {"tags": [TAG.Point, TAG.Bypass, TAG.Command]},
             "Damper_Command": {
@@ -35,6 +36,10 @@ command_definitions = {
             },
             "Humidify_Command": {
                 "tags": [TAG.Point, TAG.Humidify, TAG.Command],
+                BRICK.hasQuantity: BRICK.Humidity,
+            },
+            "Dehumidification_Command": {
+                "tags": [TAG.Point, TAG.Dehumidification, TAG.Command],
                 BRICK.hasQuantity: BRICK.Humidity,
             },
             "Position_Command": {
