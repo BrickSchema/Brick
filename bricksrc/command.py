@@ -17,6 +17,9 @@ command_definitions = {
             },
             "Relay_Command": {"tags": [TAG.Point, TAG.Relay, TAG.Command]},
             "Light_Command": {"tags": [TAG.Point, TAG.Light, TAG.Command]},
+           "Level_Command": {
+                "tags": [TAG.Level, TAG.Command, TAG.Point],
+            },
             "Speed_Command": {"tags": [TAG.Point, TAG.Speed, TAG.Command]},
             "Cooling_Command": {"tags": [TAG.Point, TAG.Cool, TAG.Command]},
             "Heating_Command": {"tags": [TAG.Point, TAG.Heat, TAG.Command]},
