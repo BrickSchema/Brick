@@ -18,7 +18,6 @@ format:
 
 test: Brick.ttl
 	pytest -s -vvvv  -n auto tests
-	cd tests/integration && bash run_integration_tests.sh
 
 quantity-test: Brick.ttl
 	pytest -s -vvvv tests/test_quantities.py
