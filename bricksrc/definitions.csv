@@ -606,6 +606,8 @@ https://brickschema.org/schema/Brick#Leaving_Water_Temperature_Proportional_Band
 https://brickschema.org/schema/Brick#Leaving_Water_Temperature_Sensor,Measures the temperature of water leaving a piece of equipment or system,
 https://brickschema.org/schema/Brick#Leaving_Water_Temperature_Setpoint,Sets temperature of leaving water,
 https://brickschema.org/schema/Brick#Level,,
+https://brickschema.org/schema/Brick#Level_Command,"Adjusts the operational state to a specific level within a predefined range.",
+https://brickschema.org/schema/Brick#Level_Status,"The current operational state of a specific level within a predefined range.",
 https://brickschema.org/schema/Brick#Library,"A place for the storage and/or consumption of physical media, e.g. books, periodicals, and DVDs/CDs",
 https://brickschema.org/schema/Brick#Light_Command,Controls the amount of the light provided by the device,
 https://brickschema.org/schema/Brick#Lighting,,
