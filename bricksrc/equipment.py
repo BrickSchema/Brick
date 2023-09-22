@@ -48,8 +48,8 @@ equipment_subclasses = {
             "Inverter": {
                 "tags": [TAG.Inverter, TAG.Equipment],
                 "subclasses": {
-                    "Solar_Inverter": {
-                        "tags": [TAG.Solar, TAG.Inverter, TAG.Equipment]
+                    "Photovoltaic_Inverter": {
+                        "tags": [TAG.Photovoltaic, TAG.Inverter, TAG.Equipment]
                     }
                 }
             },
