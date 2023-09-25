@@ -45,7 +45,14 @@ equipment_subclasses = {
                     },
                 },
             },
-            "Inverter": {"tags": [TAG.Inverter, TAG.Equipment]},
+            "Inverter": {
+                "tags": [TAG.Inverter, TAG.Equipment],
+                "subclasses": {
+                    "Photovoltaic_Inverter": {
+                        "tags": [TAG.Photovoltaic, TAG.Inverter, TAG.Equipment]
+                    }
+                }
+            },
             "PlugStrip": {"tags": [TAG.PlugStrip, TAG.Equipment]},
             "Disconnect_Switch": {"tags": [TAG.Disconnect, TAG.Switch, TAG.Equipment]},
             "Switchgear": {"tags": [TAG.Switchgear, TAG.Equipment]},
