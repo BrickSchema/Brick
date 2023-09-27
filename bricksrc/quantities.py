@@ -770,5 +770,11 @@ quantity_definitions = {
     },
     "Torque": {BRICK.hasQUDTReference: QUDTQK["Torque"]},
     # TODO: https://ci.mines-stetienne.fr/seas/WeatherOntology-0.9#AirTemperature ?
+    "Volume": {
+        BRICK.hasQUDTReference: QUDTQK["Volume"],
+        QUDT.applicableUnit: [UNIT["M3"], UNIT["FT3"], UNIT["IN3"], UNIT["YD3"]],
+        QUDT.hasDimensionVector: QUDTDV["A0E0L3I0M0H0T0D0"],
+        RDFS.label: Literal("Volume"),
+    },
     "Weather_Condition": {},
 }

@@ -1,0 +1,1014 @@
+# baseURI: http://data.ashrae.org/standard223/1.0/vocab/enumeration
+# imports: http://data.ashrae.org/standard223/1.0/model/all
+# imports: http://data.ashrae.org/standard223/1.0/vocab/electricity
+
+@prefix dtype: <http://www.linkedmodel.org/schema/dtype#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix quantitykind: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix s223: <http://data.ashrae.org/standard223#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+s223:Attribute-CatalogNumber
+  a s223:Context-Attribute ;
+  rdfs:comment "The value of the associated Property identifies the catalog number." ;
+  rdfs:label "Attribute-CatalogNumber" ;
+.
+s223:Attribute-DayOfWeek
+  a s223:Attribute-DayOfWeek ;
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "This class has enumerated instances of Monday, Tuesday, Wednesday, Thursday, Friday, Saturday and Sunday. The Weekend and Weekday EnumerationKinds define subsets of this EnumerationKind for Mon-Fri and Sat,Sun, respectively" ;
+  rdfs:label "Day of Week" ;
+  rdfs:subClassOf s223:Context-Attribute ;
+.
+s223:Attribute-Effectiveness
+  a s223:Attribute-Effectiveness ;
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "This class enumerates the possible states of effectiveness";
+  rdfs:label "Attribute-Effectiveness" ;
+  rdfs:subClassOf s223:Context-Attribute ;
+.
+s223:Attribute-ElectricalPhaseIdentifier
+  a s223:Attribute-ElectricalPhaseIdentifier ;
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "The value of the associated Property identifies the electrical phase of the Connection." ;
+  rdfs:label "Attribute-Electrical phase identifier" ;
+  rdfs:subClassOf s223:Context-Attribute ;
+.
+s223:Attribute-Face
+  a s223:Context-Attribute ;
+  rdfs:comment "The value of the associated Property identifies a property related to a face, e.g. Coil Face Velocity." ;
+  rdfs:label "Attribute-Face" ;
+.
+s223:Attribute-Manufacturer
+  a s223:Context-Attribute ;
+  rdfs:comment "The value of the associated Property identifies the manufacturer." ;
+  rdfs:label "Attribute-Manufacturer" ;
+.
+s223:Attribute-Model
+  a s223:Context-Attribute ;
+  rdfs:comment "The value of the associated Property identifies the model." ;
+  rdfs:label "Attribute-Model" ;
+.
+s223:Attribute-SerialNumber
+  a s223:Context-Attribute ;
+  rdfs:comment "The value of the associated Property identifies the serial number." ;
+  rdfs:label "Attribute-SerialNumber" ;
+.
+s223:Attribute-Year
+  a s223:Context-Attribute ;
+  rdfs:comment "The value of the associated Property identifies the year of manufacture." ;
+  rdfs:label "Attribute-Year" ;
+.
+s223:Binary-False
+  a s223:EnumerationKind-Binary ;
+  rdfs:label "Binary False" ;
+.
+s223:Binary-True
+  a s223:EnumerationKind-Binary ;
+  rdfs:label "Binary True" ;
+.
+s223:Binary-Unknown
+  a s223:EnumerationKind-Binary ;
+  rdfs:label "Binary Unknown" ;
+.
+s223:Context-Attribute
+  a s223:Class ;
+  a s223:Context-Attribute ;
+  a sh:NodeShape ;
+  rdfs:comment "This class has enumerated instances to specify contexts used with the s223:hasAspect relation for a s223:Property with a non-numerical value." ;
+  rdfs:label "Context-Attribute" ;
+  rdfs:subClassOf s223:EnumerationKind-Context ;
+.
+s223:Context-Dimensioned
+  a s223:Class ;
+  a s223:Context-Dimensioned ;
+  a sh:NodeShape ;
+  rdfs:comment "This class has enumerated instances of contexts often used with the s223:hasAspect relation for a s223:Property with a numerical value, unit and quantitykind." ;
+  rdfs:label "Context-Dimensioned" ;
+  rdfs:subClassOf s223:EnumerationKind-Context ;
+.
+s223:Context-Dimensionless
+  a s223:Class ;
+  a s223:Context-Dimensionless ;
+  a sh:NodeShape ;
+  rdfs:comment "This class has enumerated instances of contexts often used with the s223:hasAspect relation for a s223:Property with a dimensionless numerical value." ;
+  rdfs:label "Context-Dimensionless" ;
+  rdfs:subClassOf s223:EnumerationKind-Context ;
+.
+s223:DayOfWeek-Weekday
+  a s223:Class ;
+  a s223:DayOfWeek-Weekday ;
+  a sh:NodeShape ;
+  rdfs:comment "This class defines the EnumerationKind values of Monday, Tuesday, Wednesday, Thursday, and Friday" ;
+  rdfs:label "Day of week-Weekday" ;
+  rdfs:label "Weekday" ;
+  rdfs:subClassOf s223:Attribute-DayOfWeek ;
+.
+s223:DayOfWeek-Weekend
+  a s223:Class ;
+  a s223:DayOfWeek-Weekend ;
+  a sh:NodeShape ;
+  rdfs:comment "This class defines the EnumerationKind values of Saturday and Sunday" ;
+  rdfs:label "Day of week-Weekend" ;
+  rdfs:label "Weekend" ;
+  rdfs:subClassOf s223:Attribute-DayOfWeek ;
+.
+s223:Dimensioned-Delta
+  a s223:Context-Dimensioned ;
+  rdfs:comment "Used to signify the associated Property has a delta (difference) value." ;
+  rdfs:label "Dimensioned-Delta" ;
+.
+s223:Dimensioned-DryBulb
+  a s223:Context-Dimensioned ;
+  rdfs:comment "The associated Property is a DryBulb temperature." ;
+  rdfs:label "Dimensioned-DryBulb" ;
+.
+s223:Dimensioned-Latent
+  a s223:Context-Dimensioned ;
+  rdfs:comment "The latent value of something characterized by this Property." ;
+  rdfs:label "Dimensioned-Latent" ;
+.
+s223:Dimensioned-Loss
+  a s223:Context-Dimensioned ;
+  rdfs:comment "The magnitude of loss of something characterized by this Property." ;
+  rdfs:label "Dimensioned-Loss" ;
+.
+s223:Dimensioned-Maximum
+  a s223:Context-Dimensioned ;
+  rdfs:comment "The maximum allowable level of something characterized by this Property." ;
+  rdfs:label "Dimensioned-Maximum" ;
+.
+s223:Dimensioned-Minimum
+  a s223:Context-Dimensioned ;
+  rdfs:comment "The minimum allowable level of something characterized by this Property." ;
+  rdfs:label "Dimensioned-Minimum" ;
+.
+s223:Dimensioned-Nominal
+  a s223:Context-Dimensioned ;
+  rdfs:comment "The nominal level of something characterized by this Property." ;
+  rdfs:label "Dimensioned-Nominal" ;
+.
+s223:Dimensioned-NominalFrequency
+  a s223:Context-Dimensioned ;
+  rdfs:comment "The value of the associated Property identifies the nominal frequency of the medium" ;
+  rdfs:label "Dimensioned-Nominal Frequency" ;
+.
+s223:Dimensioned-Rated
+  a s223:Context-Dimensioned ;
+  rdfs:comment "The rated value of something characterized by this Property." ;
+  rdfs:label "Dimensioned-Rated" ;
+.
+s223:Dimensioned-Sensible
+  a s223:Context-Dimensioned ;
+  rdfs:comment "The sensible value of something characterized by this Property." ;
+  rdfs:label "Dimensioned-Sensible" ;
+.
+s223:Dimensioned-StandardConditions
+  a s223:Context-Dimensioned ;
+  rdfs:comment "Indicates the Property applies under standard conditions (such as standard temperature and pressure)." ;
+  rdfs:label "Dimensioned-StandardConditions" ;
+.
+s223:Dimensioned-Standby
+  a s223:Context-Dimensioned ;
+  rdfs:comment "The standby value of something characterized by this Property." ;
+  rdfs:label "Dimensioned-Standby" ;
+.
+s223:Dimensioned-Startup
+  a s223:Context-Dimensioned ;
+  rdfs:comment "The startup value of something characterized by this Property." ;
+  rdfs:label "Dimensioned-Startup" ;
+.
+s223:Dimensioned-Threshold
+  a s223:Context-Dimensioned ;
+  rdfs:comment "The threshold value of something characterized by this Property." ;
+  rdfs:label "Dimensioned-Threshold" ;
+.
+s223:Dimensioned-Total
+  a s223:Context-Dimensioned ;
+  rdfs:comment "The total amount of something characterized by this Property." ;
+  rdfs:label "Dimensioned-Total" ;
+.
+s223:Dimensioned-Weight
+  a s223:Context-Dimensioned ;
+  rdfs:comment "The weight of something characterized by this Property." ;
+  rdfs:label "Dimensioned-Weight" ;
+.
+s223:Dimensioned-WetBulb
+  a s223:Context-Dimensioned ;
+  rdfs:comment "The associated Property is a WetBulb temperature." ;
+  rdfs:label "Dimensioned-WetBulb" ;
+.
+s223:Dimensionless-Efficiency
+  a s223:Context-Dimensionless ;
+  rdfs:comment "The efficiency of something characterized by a dimensionless value of this Property." ;
+  rdfs:label "Dimensionless-Efficiency" ;
+.
+s223:Dimensionless-PhaseAngle
+  a s223:Context-Dimensionless ;
+  rdfs:label "Dimensionless-Phase angle" ;
+.
+s223:Dimensionless-PowerFactor
+  a s223:Context-Dimensionless ;
+  rdfs:comment "The power factor of something characterized by a dimensionless value of this Property." ;
+  rdfs:label "Dimensionless-PowerFactor" ;
+.
+s223:Dimensionless-ServiceFactor
+  a s223:Context-Dimensionless ;
+  rdfs:comment "The service factor of something characterized by a dimensionless value of this Property." ;
+  rdfs:label "Dimensionless-ServiceFactor" ;
+.
+s223:Direction-Bidirectional
+  a s223:EnumerationKind-Direction ;
+  rdfs:comment "One of the  set of enumeration values for the hasDirection property used to characterize the direction of flow associated with an instance of a ConnectionPoint. The value Bidirectional indicates that the flow direction is not fixed in one direction. It depends on the status of some other part of the system, such as a valve position, that is expected to change during operation." ;
+  rdfs:label "Direction-Bidirectional" ;
+.
+s223:Direction-Inlet
+  a s223:EnumerationKind-Direction ;
+  rdfs:comment "One of the set of enumeration values for the hasDirection property used to characterize the direction of flow associated with an instance of a ConnectionPoint. The value Inlet indicates that the direction of flow is into the Equipment." ;
+  rdfs:label "Direction-Inlet"@en ;
+.
+s223:Direction-Outlet
+  a s223:EnumerationKind-Direction ;
+  rdfs:comment "One member of the enumerated valid values to characterize the hasDirection property. It is an instance of the Direction class." ;
+  rdfs:label "Direction-Outlet"@en ;
+  rdfs:label "Direction-Sortie"@fr ;
+.
+s223:Domain-ConveyanceSystems
+  a s223:EnumerationKind-Domain ;
+  rdfs:comment "The domain ConveyanceSystems represents equipment used to move people or things from one place in a building to another. Example equipment that might fall within a ConveyanceSystems domain include elevators, escalators, and conveyer belts." ;
+  rdfs:label "Domain-ConveyanceSystems" ;
+.
+s223:Domain-Electrical
+  a s223:EnumerationKind-Domain ;
+  rdfs:comment "The domain Electrical represents equipment used to provide electrical power within a building. Example equipment that might fall within an Electrical domain include breaker panels, switchgear, photovoltaic panels, and generators. " ;
+  rdfs:label "Domain-Electrical" ;
+.
+s223:Domain-Fire
+  a s223:EnumerationKind-Domain ;
+  rdfs:comment "The domain Fire represents equipment used to provide fire detection and protection within a building. Example equipment that might be fall within a Fire domain include smoke detectors, alarm annunciators, and emergency public address systems. " ;
+  rdfs:label "Domain-Fire" ;
+.
+s223:Domain-HVAC
+  a s223:EnumerationKind-Domain ;
+  rdfs:comment "The domain HVAC represents equipment used to provide space conditioning and ventilation within a building. Example equipment that might fall within an HVAC domain include fans, pumps, air-handling units, and variable air volume boxes. " ;
+  rdfs:label "Domain-HVAC" ;
+.
+s223:Domain-Lighting
+  a s223:EnumerationKind-Domain ;
+  rdfs:comment "The domain Lighting represents equipment used to provide illumination within or outside a building. Example equipment that might fall within a Lighting domain includes luminaires, daylight sensors, and movable sun shades." ;
+  rdfs:label "Domain-Lighting" ;
+.
+s223:Domain-Networking
+  a s223:EnumerationKind-Domain ;
+  rdfs:comment "The domain Networking represents equipment used to provide information technology communication for a building." ;
+  rdfs:label "Domain-Networking" ;
+.
+s223:Domain-Occupancy
+  a s223:EnumerationKind-Domain ;
+  rdfs:comment "The domain Occupancy represents equipment used to determine if people are present in a space or count the number of people in a space." ;
+  rdfs:label "Domain-Occupancy" ;
+.
+s223:Domain-PhysicalSecurity
+  a s223:EnumerationKind-Domain ;
+  rdfs:comment "The domain Security represents equipment that provides physical access control within or outside a building. Example equipment that might fall within a PhysicalSecurity domain include cameras, keycard sensors, and biometric scanners." ;
+  rdfs:label "Domain-PhysicalSecurity" ;
+.
+s223:Domain-Plumbing
+  a s223:EnumerationKind-Domain ;
+  rdfs:comment "The domain Plumbing represents equipment used to provide domestic water within or outside a building. Example equipment that might fall within a Plumbing domain includes water meters, domestic hot water tanks, and sinks." ;
+  rdfs:label "Domain-Plumbing" ;
+.
+s223:Domain-Refrigeration
+  a s223:EnumerationKind-Domain ;
+  rdfs:comment "The domain Refrigeration represents equipment used to provide cooling for a purpose other than space conditioning in a building." ;
+  rdfs:label "Domain-Refrigeration" ;
+.
+s223:EM-Light
+  a s223:Class ;
+  a s223:EM-Light ;
+  a sh:NodeShape ;
+  rdfs:comment "The EM-Light class has enumerated instances of what are considered visible or near-visible light." ;
+  rdfs:label "EM-Light" ;
+  rdfs:subClassOf s223:Medium-EM ;
+.
+s223:EM-Microwave
+  a s223:Medium-EM ;
+  rdfs:label "EM-Microwave" ;
+.
+s223:EM-RF
+  a s223:Medium-EM ;
+  rdfs:label "EM-RF" ;
+.
+s223:Effectiveness-Active
+  a s223:Attribute-Effectiveness ;
+  rdfs:label "Active" ;
+.
+s223:ElectricalPhaseIdentifier-A
+  a s223:Attribute-ElectricalPhaseIdentifier ;
+  rdfs:comment "The value of the associated Property identifies the electrical phase A of the Connection." ;
+  rdfs:label "Electrical Phase Identifier A" ;
+.
+s223:ElectricalPhaseIdentifier-AB
+  a s223:Attribute-ElectricalPhaseIdentifier ;
+  rdfs:comment "The value of the associated Property identifies the electrical phase AB of the Connection." ;
+  rdfs:label "Electrical Phase Identifier AB" ;
+.
+s223:ElectricalPhaseIdentifier-ABC
+  a s223:Attribute-ElectricalPhaseIdentifier ;
+  rdfs:comment "The value of the associated Property identifies the electrical phase ABC of the Connection." ;
+  rdfs:label "Electrical Phase Identifier ABC" ;
+.
+s223:ElectricalPhaseIdentifier-B
+  a s223:Attribute-ElectricalPhaseIdentifier ;
+  rdfs:comment "The value of the associated Property identifies the electrical phase B of the Connection." ;
+  rdfs:label "Electrical Phase Identifier B" ;
+.
+s223:ElectricalPhaseIdentifier-BC
+  a s223:Attribute-ElectricalPhaseIdentifier ;
+  rdfs:comment "The value of the associated Property identifies the electrical phase BC of the Connection." ;
+  rdfs:label "Electrical Phase Identifier BC" ;
+.
+s223:ElectricalPhaseIdentifier-C
+  a s223:Attribute-ElectricalPhaseIdentifier ;
+  rdfs:comment "The value of the associated Property identifies the electrical phase C of the Connection." ;
+  rdfs:label "Electrical Phase Identifier C" ;
+.
+s223:ElectricalPhaseIdentifier-CA
+  a s223:Attribute-ElectricalPhaseIdentifier ;
+  rdfs:comment "The value of the associated Property identifies the electrical phase CA of the Connection." ;
+  rdfs:label "Electrical Phase Identifier CA" ;
+.
+s223:Electricity-Earth
+  a s223:Medium-Electricity ;
+  rdfs:label "Electricity-Earth" ;
+.
+s223:Electricity-Neutral
+  a s223:Medium-Electricity ;
+  rdfs:label "Electricity-Neutral" ;
+.
+s223:Electricity-Signal
+  a s223:Class ;
+  a s223:Electricity-Signal ;
+  a sh:NodeShape ;
+  rdfs:comment "This class has enumerated instances of common communication protocols, mostly at the physical OSI layer." ;
+  rdfs:label "Electricity Signal" ;
+  rdfs:subClassOf s223:Medium-Electricity ;
+.
+s223:EnumerationKind
+  a s223:Class ;
+  a s223:EnumerationKind ;
+  a sh:NodeShape ;
+  rdfs:comment """This is the encapsulating class for all EnumerationKinds.
+  EnumerationKinds define the (closed) set of permissible values for a given purpose.
+  For example, the DayOfWeek EnumerationKind enumerates the days of the week and allows no other values.
+
+EnumeratinKinds are arranged in a tree hierarchy.
+As you navigate down the tree each branch or leaf value is a more specific instance of the EnumerationKind.
+Certain validation constraints exist in the standard that evaluate compatibility of EnumerationKinds.
+Two values are deemed compatible if they are the same or if one is a direct ancestor (or descendant) of the other.""" ;
+  rdfs:label "Enumeration kind" ;
+  rdfs:subClassOf s223:Concept ;
+.
+s223:EnumerationKind-Binary
+  a s223:Class ;
+  a s223:EnumerationKind-Binary ;
+  a sh:NodeShape ;
+  rdfs:comment "This class has enumerated instances of True, False and Unknown used to describe the possible values of a binary property" ;
+  rdfs:label "EnumerationKind Binary" ;
+  rdfs:subClassOf s223:EnumerationKind ;
+.
+s223:EnumerationKind-Context
+  a s223:Class ;
+  a s223:EnumerationKind-Context ;
+  a sh:NodeShape ;
+  rdfs:comment "This class has enumerated instances to specify contexts used with the s223:hasAspect relation for a s223:Property." ;
+  rdfs:label "EnumerationKind-Context" ;
+  rdfs:subClassOf s223:EnumerationKind ;
+.
+s223:EnumerationKind-Direction
+  a s223:Class ;
+  a s223:EnumerationKind-Direction ;
+  a sh:NodeShape ;
+  rdfs:comment "This class has enumerated instances of Bidirectional, Inlet and Outlet used to qualify ConnectionPoints." ;
+  rdfs:label "Direction" ;
+  rdfs:subClassOf s223:EnumerationKind ;
+.
+s223:EnumerationKind-Domain
+  a s223:Class ;
+  a s223:EnumerationKind-Domain ;
+  a sh:NodeShape ;
+  rdfs:comment "A Domain represents a categorization of building services or specialization used to characterize equipment or spaces in a building. Example domains include HVAC, Lighting, and Plumbing." ;
+  rdfs:label "EnumerationKind Domain" ;
+  rdfs:subClassOf s223:EnumerationKind ;
+.
+s223:EnumerationKind-HVACOperatingMode
+  a s223:Class ;
+  a s223:EnumerationKind-HVACOperatingMode ;
+  a sh:NodeShape ;
+  rdfs:comment "HVACOperatingMode has enumerated instances of the policy under which the HVAC system or equipment is operating." ;
+  rdfs:label "HVAC operating mode" ;
+  rdfs:subClassOf s223:EnumerationKind ;
+.
+s223:EnumerationKind-HVACOperatingStatus
+  a s223:Class ;
+  a s223:EnumerationKind-HVACOperatingStatus ;
+  a sh:NodeShape ;
+  rdfs:comment "HVACOperatingStatus has enumerated instances of the HVAC system/equipment operating status." ;
+  rdfs:label "HVAC operating status" ;
+  rdfs:subClassOf s223:EnumerationKind ;
+.
+s223:EnumerationKind-Medium
+  a s223:Class ;
+  a s223:EnumerationKind-Medium ;
+  a sh:NodeShape ;
+  rdfs:comment "This class has enumerated instances of a physical substance or anything that allows for the transfer of energy or information." ;
+  rdfs:label "Medium" ;
+  rdfs:subClassOf s223:EnumerationKind ;
+.
+s223:EnumerationKind-Occupancy
+  a s223:Class ;
+  a s223:EnumerationKind-Occupancy ;
+  a sh:NodeShape ;
+  rdfs:comment "This class has enumerated instances of occupancy status, i.e. the state of being used or occupied." ;
+  rdfs:label "Occupancy status" ;
+  rdfs:subClassOf s223:EnumerationKind ;
+.
+s223:EnumerationKind-OnOff
+  a s223:Class ;
+  a s223:EnumerationKind-OnOff ;
+  a sh:NodeShape ;
+  rdfs:comment "This class has enumerated instances of states of either on or off." ;
+  rdfs:label "OnOff enumeration" ;
+  rdfs:subClassOf s223:EnumerationKind ;
+.
+s223:EnumerationKind-Phase
+  a s223:Class ;
+  a s223:EnumerationKind-Phase ;
+  a sh:NodeShape ;
+  rdfs:comment "This class has enumerated instances of thermodynamic phase, i.e. states of matter." ;
+  rdfs:label "EnumerationKind-Phase" ;
+  rdfs:subClassOf s223:EnumerationKind ;
+.
+s223:EnumerationKind-PositionStatus
+  a s223:Class ;
+  a s223:EnumerationKind-PositionStatus ;
+  a sh:NodeShape ;
+  rdfs:comment "This class has enumerated instances of position status such as closed or open." ;
+  rdfs:label "Position status" ;
+  rdfs:subClassOf s223:EnumerationKind ;
+.
+s223:EnumerationKind-Role
+  a s223:Class ;
+  a s223:EnumerationKind-Role ;
+  a sh:NodeShape ;
+  rdfs:comment "This class has enumerated instances of roles played by entities, such as cooling, generator, relief, return." ;
+  rdfs:label "Role" ;
+  rdfs:subClassOf s223:EnumerationKind ;
+.
+s223:EnumerationKind-RunStatus
+  a s223:Class ;
+  a s223:EnumerationKind-RunStatus ;
+  a sh:NodeShape ;
+  rdfs:comment "This class is a more general form of EnumerationKind-OnOff, allowing for additional status values beyond on or off." ;
+  rdfs:label "Run status" ;
+  rdfs:subClassOf s223:EnumerationKind ;
+.
+s223:EnumerationKind-Substance
+  a s223:Class ;
+  a s223:EnumerationKind-Substance ;
+  a sh:NodeShape ;
+  rdfs:comment "This class has enumerated instances of the substances that are consumed, produced, transported, sensed, controlled or otherwise interacted with (e.g. water, air, etc.)." ;
+  rdfs:label "Substance" ;
+  rdfs:subClassOf s223:EnumerationKind ;
+.
+s223:EnumerationKind-ThreeSpeedSetting
+  a s223:Class ;
+  a s223:EnumerationKind-ThreeSpeedSetting ;
+  a sh:NodeShape ;
+  rdfs:comment "This class has enumerated instances of speed settings of High, Medium, Low (plus Off)." ;
+  rdfs:label "Three speed setting" ;
+  rdfs:subClassOf s223:EnumerationKind ;
+.
+s223:Gas-SuperHeated
+  a s223:Phase-Gas ;
+  rdfs:label "Gas-Super heated" ;
+.
+s223:GlycolSolution-15Percent
+  a s223:Water-GlycolSolution ;
+  s223:hasProperty [
+      a s223:QuantifiableProperty ;
+      s223:hasAspect s223:Medium-Glycol ;
+      s223:hasValue "15"^^xsd:decimal ;
+      qudt:hasQuantityKind qudtqk:VolumeFraction ;
+      qudt:hasUnit unit:PERCENT ;
+      rdfs:label "Glycol conc" ;
+    ] ;
+  s223:hasProperty [
+      a s223:QuantifiableProperty ;
+      s223:hasAspect s223:Medium-Water ;
+      s223:hasValue "85"^^xsd:decimal ;
+      qudt:hasQuantityKind qudtqk:VolumeFraction ;
+      qudt:hasUnit unit:PERCENT ;
+      rdfs:label "Water conc" ;
+    ] ;
+  rdfs:label "GlycolSolution-15Percent" ;
+.
+s223:GlycolSolution-30Percent
+  a s223:Water-GlycolSolution ;
+  s223:hasProperty [
+      a s223:QuantifiableProperty ;
+      s223:hasAspect s223:Medium-Glycol ;
+      s223:hasValue "30"^^xsd:decimal ;
+      qudt:hasQuantityKind qudtqk:VolumeFraction ;
+      qudt:hasUnit unit:PERCENT ;
+      rdfs:label "Glycol conc" ;
+    ] ;
+  s223:hasProperty [
+      a s223:QuantifiableProperty ;
+      s223:hasAspect s223:Medium-Water ;
+      s223:hasValue "70"^^xsd:decimal ;
+      qudt:hasQuantityKind qudtqk:VolumeFraction ;
+      qudt:hasUnit unit:PERCENT ;
+      rdfs:label "Water conc" ;
+    ] ;
+  rdfs:label "GlycolSolution-30Percent" ;
+.
+s223:HVACOperatingMode-Auto
+  a s223:EnumerationKind-HVACOperatingMode ;
+  rdfs:label "Auto" ;
+.
+s223:HVACOperatingMode-CoolOnly
+  a s223:EnumerationKind-HVACOperatingMode ;
+  rdfs:label "CoolOnly" ;
+.
+s223:HVACOperatingMode-FanOnly
+  a s223:EnumerationKind-HVACOperatingMode ;
+  rdfs:label "FanOnly" ;
+.
+s223:HVACOperatingMode-HeatOnly
+  a s223:EnumerationKind-HVACOperatingMode ;
+  rdfs:label "HeatOnly" ;
+.
+s223:HVACOperatingMode-Off
+  a s223:EnumerationKind-HVACOperatingMode ;
+  rdfs:label "Off" ;
+.
+s223:HVACOperatingStatus-Cooling
+  a s223:EnumerationKind-HVACOperatingStatus ;
+  rdfs:label "Cooling" ;
+.
+s223:HVACOperatingStatus-Dehumidifying
+  a s223:EnumerationKind-HVACOperatingStatus ;
+  rdfs:label "Dehumidifying" ;
+.
+s223:HVACOperatingStatus-Heating
+  a s223:EnumerationKind-HVACOperatingStatus ;
+  rdfs:label "Heating" ;
+.
+s223:HVACOperatingStatus-Off
+  a s223:EnumerationKind-HVACOperatingStatus ;
+  rdfs:label "Off" ;
+.
+s223:HVACOperatingStatus-Ventilating
+  a s223:EnumerationKind-HVACOperatingStatus ;
+  rdfs:label "Ventilating" ;
+.
+s223:Light-Infrared
+  a s223:EM-Light ;
+  rdfs:label "Light-Infrared" ;
+.
+s223:Light-Ultraviolet
+  a s223:EM-Light ;
+  rdfs:label "Light-Ultraviolet" ;
+.
+s223:Light-Visible
+  a s223:EM-Light ;
+  rdfs:label "Light-Visible" ;
+.
+s223:Liquid-SubCooled
+  a s223:Phase-Liquid ;
+  rdfs:label "Liquid-Sub cooled" ;
+.
+s223:Medium-Air
+  a s223:Class ;
+  a s223:Medium-Air ;
+  a sh:NodeShape ;
+  rdfs:comment "This class has enumerated instances of Air in various states." ;
+  rdfs:label "Medium-Air" ;
+  rdfs:subClassOf s223:EnumerationKind-Medium ;
+.
+s223:Medium-EM
+  a s223:Class ;
+  a s223:Medium-EM ;
+  a sh:NodeShape ;
+  rdfs:comment "This class has enumerated instances of electromagnetic energy at any frequency range." ;
+  rdfs:label "Electromagnetic Wave" ;
+  rdfs:subClassOf s223:EnumerationKind-Medium ;
+.
+s223:Medium-Electricity
+  a s223:Class ;
+  a s223:Medium-Electricity ;
+  a sh:NodeShape ;
+  rdfs:comment "This class has enumerated instances of all forms of electricity, including AC and DC." ;
+  rdfs:label "Electricity" ;
+  rdfs:subClassOf s223:EnumerationKind-Medium ;
+.
+s223:Medium-Glycol
+  a s223:EnumerationKind-Medium ;
+  rdfs:label "Medium-Glycol" ;
+.
+s223:Medium-NaturalGas
+  a s223:Class ;
+  a s223:Medium-NaturalGas ;
+  a sh:NodeShape ;
+  rdfs:comment "This class has enumerated instances of natural gas in various states." ;
+  rdfs:label "Medium-NaturalGas" ;
+  rdfs:subClassOf s223:EnumerationKind-Medium ;
+.
+s223:Medium-Refrigerant
+  a s223:Class ;
+  a s223:Medium-Refrigerant ;
+  a sh:NodeShape ;
+  rdfs:comment "This class has enumerated instances of commonly used refrigerants." ;
+  rdfs:label "Medium-Refrigerant" ;
+  rdfs:subClassOf s223:EnumerationKind-Medium ;
+.
+s223:Medium-Water
+  a s223:Class ;
+  a s223:Medium-Water ;
+  a sh:NodeShape ;
+  rdfs:comment "This class has enumerated instances of water and aqueous solutions in various states." ;
+  rdfs:label "Medium-Water" ;
+  rdfs:subClassOf s223:EnumerationKind-Medium ;
+.
+s223:Modulated-0-10V
+  a s223:Signal-Modulated ;
+  rdfs:label "Modulated 0-10V" ;
+.
+s223:Modulated-4-20mA
+  a s223:Signal-Modulated ;
+  rdfs:label "Modulated 4-20mA" ;
+.
+s223:Motion-False
+  a s223:Occupancy-Motion ;
+  rdfs:label "Motion-False" ;
+.
+s223:Motion-True
+  a s223:Occupancy-Motion ;
+  rdfs:label "Motion-True" ;
+.
+s223:Occupancy-Motion
+  a s223:Class ;
+  a s223:Occupancy-Motion ;
+  a sh:NodeShape ;
+  rdfs:comment "This class has enumerated instances indicating whether motion is detected or not." ;
+  rdfs:label "Occupancy Motion" ;
+  rdfs:subClassOf s223:EnumerationKind-Occupancy ;
+.
+s223:Occupancy-Occupied
+  a s223:EnumerationKind-Occupancy ;
+  rdfs:label "Occupied" ;
+.
+s223:Occupancy-Presence
+  a s223:Class ;
+  a s223:Occupancy-Presence ;
+  a sh:NodeShape ;
+  rdfs:comment "This class has enumerated instances indicating whether physical presence is detected or not." ;
+  rdfs:label "Occupancy Presence" ;
+  rdfs:subClassOf s223:EnumerationKind-Occupancy ;
+.
+s223:Occupancy-Unknown
+  a s223:EnumerationKind-Occupancy ;
+  rdfs:label "Unknown" ;
+.
+s223:Occupancy-Unoccupied
+  a s223:EnumerationKind-Occupancy ;
+  rdfs:label "Unoccupied" ;
+.
+s223:OnOff-Off
+  a s223:EnumerationKind-OnOff ;
+  rdfs:label "Off" ;
+.
+s223:OnOff-On
+  a s223:EnumerationKind-OnOff ;
+  rdfs:label "On" ;
+.
+s223:OnOff-Unknown
+  a s223:EnumerationKind-OnOff ;
+  rdfs:label "Unknown" ;
+.
+<http://data.ashrae.org/standard223#Particulate-PM1.0>
+  a s223:Substance-Particulate ;
+  rdfs:label "Particulate-PM1.0" ;
+.
+<http://data.ashrae.org/standard223#Particulate-PM10.0>
+  a s223:Substance-Particulate ;
+  rdfs:label "Particulate-PM10.0" ;
+.
+<http://data.ashrae.org/standard223#Particulate-PM2.5>
+  a s223:Substance-Particulate ;
+  rdfs:label "Particulate-PM2.5" ;
+.
+s223:Phase-Gas
+  a s223:Class ;
+  a s223:Phase-Gas ;
+  a sh:NodeShape ;
+  rdfs:comment "This class has enumerated instances of gas in various thermodynamic states." ;
+  rdfs:label "Phase-Gas" ;
+  rdfs:subClassOf s223:EnumerationKind-Phase ;
+.
+s223:Phase-Liquid
+  a s223:Class ;
+  a s223:Phase-Liquid ;
+  a sh:NodeShape ;
+  rdfs:comment "This class has enumerated instances of liquid in various thermodynamic states." ;
+  rdfs:label "Phase-Liquid" ;
+  rdfs:subClassOf s223:EnumerationKind-Phase ;
+.
+s223:Phase-Solid
+  a s223:EnumerationKind-Phase ;
+  rdfs:label "Phase-Solid" ;
+.
+s223:Phase-Vapor
+  a s223:EnumerationKind-Phase ;
+  rdfs:label "Phase-Vapor" ;
+.
+s223:PositionStatus-Closed
+  a s223:EnumerationKind-PositionStatus ;
+  rdfs:label "Closed" ;
+.
+s223:PositionStatus-Open
+  a s223:EnumerationKind-PositionStatus ;
+  rdfs:label "Open" ;
+.
+s223:PositionStatus-Unknown
+  a s223:EnumerationKind-PositionStatus ;
+  rdfs:label "Unknown" ;
+.
+s223:Presence-False
+  a s223:Occupancy-Presence ;
+  rdfs:label "Presence-False" ;
+.
+s223:Presence-True
+  a s223:Occupancy-Presence ;
+  rdfs:label "Presence-True" ;
+.
+s223:Refrigerant-R-22
+  a s223:Medium-Refrigerant ;
+  rdfs:label "Refrigerant-R-22" ;
+.
+s223:Refrigerant-R-410A
+  a s223:Medium-Refrigerant ;
+  rdfs:label "Refrigerant-R-410A" ;
+.
+s223:Role-Condenser
+  a s223:EnumerationKind-Role ;
+  rdfs:label "Role-Condenser" ;
+.
+s223:Role-Controller
+  a s223:EnumerationKind-Role ;
+  rdfs:label "Role-Controller" ;
+.
+s223:Role-Cooling
+  a s223:EnumerationKind-Role ;
+  rdfs:label "Role-Cooling" ;
+.
+s223:Role-Discharge
+  a s223:EnumerationKind-Role ;
+  rdfs:label "Role-Discharge" ;
+.
+s223:Role-Economizer
+  a s223:EnumerationKind-Role ;
+  rdfs:label "Role-Economizer" ;
+.
+s223:Role-Evaporator
+  a s223:EnumerationKind-Role ;
+  rdfs:label "Role-Evaporator" ;
+.
+s223:Role-Exhaust
+  a s223:EnumerationKind-Role ;
+  rdfs:label "Role-Exhaust" ;
+.
+s223:Role-Generator
+  a s223:EnumerationKind-Role ;
+  rdfs:label "Role-Generator" ;
+.
+s223:Role-HeatRecovery
+  a s223:EnumerationKind-Role ;
+  rdfs:label "Heat Recovery" ;
+.
+s223:Role-Heating
+  a s223:EnumerationKind-Role ;
+  rdfs:label "Role-Heating" ;
+.
+s223:Role-Load
+  a s223:EnumerationKind-Role ;
+  rdfs:label "Role-Load" ;
+.
+s223:Role-Primary
+  a s223:EnumerationKind-Role ;
+  rdfs:label "Role-Primary" ;
+.
+s223:Role-Recirculating
+  a s223:EnumerationKind-Role ;
+  rdfs:label "Role-Recirculating" ;
+.
+s223:Role-Return
+  a s223:EnumerationKind-Role ;
+  rdfs:label "Role-Return" ;
+.
+s223:Role-Relief
+  a s223:EnumerationKind-Role ;
+  rdfs:label "Role-Relief" ;
+.
+s223:Role-Secondary
+  a s223:EnumerationKind-Role ;
+  rdfs:label "Role-Secondary" ;
+.
+s223:Role-Supply
+  a s223:EnumerationKind-Role ;
+  rdfs:label "Role-Supply" ;
+.
+s223:Role-Expansion
+  a s223:EnumerationKind-Role ;
+  rdfs:label "Role-Expansion" ;
+.
+s223:RunStatus-Off
+  a s223:EnumerationKind-RunStatus ;
+  rdfs:label "Off" ;
+.
+s223:RunStatus-On
+  a s223:EnumerationKind-RunStatus ;
+  rdfs:label "On" ;
+.
+s223:RunStatus-Unknown
+  a s223:EnumerationKind-RunStatus ;
+  rdfs:label "Unknown" ;
+.
+s223:Signal-EIA485
+  a s223:Electricity-Signal ;
+  rdfs:label "Signal EIA485" ;
+.
+s223:Signal-Ethernet
+  a s223:Electricity-Signal ;
+  rdfs:label "Signal Ethernet" ;
+.
+s223:Signal-IEC14908
+  a s223:Electricity-Signal ;
+  rdfs:label "Signal IEC14908" ;
+.
+s223:Signal-Modulated
+  a s223:Class ;
+  a s223:Signal-Modulated ;
+  a sh:NodeShape ;
+  rdfs:comment "This class has enumerated instances of electric signals at various voltage ranges." ;
+  rdfs:label "Signal-Modulated" ;
+  rdfs:subClassOf s223:Electricity-Signal ;
+.
+s223:Signal-USB
+  a s223:Electricity-Signal ;
+  rdfs:label "Signal USB" ;
+.
+s223:Substance-CO
+  a s223:EnumerationKind-Substance ;
+  rdfs:label "Substance-CO" ;
+.
+s223:Substance-CO2
+  a s223:EnumerationKind-Substance ;
+  rdfs:label "Substance-CO2" ;
+.
+s223:Substance-Particulate
+  a s223:Class ;
+  a s223:Substance-Particulate ;
+  a sh:NodeShape ;
+  rdfs:comment "This class has enumerated instances of particulates in various size ranges." ;
+  rdfs:label "Particulate" ;
+  rdfs:subClassOf s223:EnumerationKind-Substance ;
+.
+s223:Substance-Soot
+  a s223:EnumerationKind-Substance ;
+  rdfs:label "Substance-Soot" ;
+.
+s223:ThreeSpeedSetting-High
+  a s223:EnumerationKind-ThreeSpeedSetting ;
+  rdfs:label "High" ;
+.
+s223:ThreeSpeedSetting-Low
+  a s223:EnumerationKind-ThreeSpeedSetting ;
+  rdfs:label "Low" ;
+.
+s223:ThreeSpeedSetting-Medium
+  a s223:EnumerationKind-ThreeSpeedSetting ;
+  rdfs:label "Medium" ;
+.
+s223:ThreeSpeedSetting-Off
+  a s223:EnumerationKind-ThreeSpeedSetting ;
+  rdfs:label "Off" ;
+.
+s223:Water-ChilledWater
+  a s223:Medium-Water ;
+  rdfs:label "Water-Chilled water" ;
+.
+s223:Water-GlycolSolution
+  a s223:Class ;
+  a s223:Water-GlycolSolution ;
+  a sh:NodeShape ;
+  rdfs:comment "This class has enumerated instances of water-glycol solutions in various concentrations." ;
+  s223:hasProperty [
+      a s223:QuantifiableProperty ;
+      s223:hasAspect s223:Medium-Glycol ;
+      qudt:hasQuantityKind qudtqk:VolumeFraction ;
+      qudt:hasUnit unit:PERCENT ;
+      rdfs:label "Unspecified" ;
+    ] ;
+  s223:hasProperty [
+      a s223:QuantifiableProperty ;
+      s223:hasAspect s223:Medium-Water ;
+      qudt:hasQuantityKind qudtqk:VolumeFraction ;
+      qudt:hasUnit unit:PERCENT ;
+      rdfs:label "Unspecified" ;
+    ] ;
+  rdfs:label "Water-GlycolSolution" ;
+  rdfs:subClassOf s223:Medium-Water ;
+  sh:property [
+      sh:path s223:hasProperty ;
+      rdfs:comment "The glycol percentage." ;
+      sh:qualifiedMinCount 1 ;
+      sh:qualifiedValueShape [
+          sh:class s223:QuantifiableProperty ;
+          sh:node [
+              sh:property [
+                  sh:path qudt:hasQuantityKind ;
+                  s223:hasAspect s223:Medium-Glycol ;
+                  sh:hasValue qudtqk:VolumeFraction ;
+                ] ;
+            ] ;
+        ] ;
+    ] ;
+  sh:property [
+      sh:path s223:hasProperty ;
+      rdfs:comment "The water percentage." ;
+      sh:qualifiedMinCount 1 ;
+      sh:qualifiedValueShape [
+          sh:class s223:QuantifiableProperty ;
+          sh:node [
+              sh:property [
+                  sh:path qudt:hasQuantityKind ;
+                  s223:hasAspect s223:Medium-Water ;
+                  sh:hasValue qudtqk:VolumeFraction ;
+                ] ;
+            ] ;
+        ] ;
+    ] ;
+.
+s223:Water-HotWater
+  a s223:Medium-Water ;
+  rdfs:label "Water-Hot water" ;
+.
+s223:Water-Steam
+  a s223:Medium-Water ;
+  rdfs:label "Steam" ;
+.
+s223:Weekday-Friday
+  a s223:DayOfWeek-Weekday ;
+  rdfs:label "Friday" ;
+.
+s223:Weekday-Monday
+  a s223:DayOfWeek-Weekday ;
+  rdfs:label "Monday" ;
+.
+s223:Weekday-Thursday
+  a s223:DayOfWeek-Weekday ;
+  rdfs:label "Thursday" ;
+.
+s223:Weekday-Tuesday
+  a s223:DayOfWeek-Weekday ;
+  rdfs:label "Tuesday" ;
+.
+s223:Weekday-Wednesday
+  a s223:DayOfWeek-Weekday ;
+  rdfs:label "Wednesday" ;
+.
+s223:Weekend-Saturday
+  a s223:DayOfWeek-Weekend ;
+  rdfs:label "Saturday" ;
+.
+s223:Weekend-Sunday
+  a s223:DayOfWeek-Weekend ;
+  rdfs:label "Sunday" ;
+.
+<http://data.ashrae.org/standard223/1.0/vocab/enumeration>
+  a owl:Ontology ;
+  owl:imports <http://data.ashrae.org/standard223/1.0/model/all> ;
+  owl:imports <http://data.ashrae.org/standard223/1.0/vocab/electricity> ;
+  owl:versionInfo "Created with TopBraid Composer" ;
+.

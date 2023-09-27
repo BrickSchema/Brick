@@ -64,7 +64,14 @@ equipment_subclasses = {
                     },
                 },
             },
-            "Inverter": {"tags": [TAG.Inverter, TAG.Equipment]},
+            "Inverter": {
+                "tags": [TAG.Inverter, TAG.Equipment],
+                "subclasses": {
+                    "Photovoltaic_Inverter": {
+                        "tags": [TAG.Photovoltaic, TAG.Inverter, TAG.Equipment]
+                    }
+                },
+            },
             "PlugStrip": {"tags": [TAG.PlugStrip, TAG.Equipment]},
             "Disconnect_Switch": {"tags": [TAG.Disconnect, TAG.Switch, TAG.Equipment]},
             "Switchgear": {"tags": [TAG.Switchgear, TAG.Equipment]},
@@ -86,7 +93,13 @@ equipment_subclasses = {
         "tags": [TAG.Equipment, TAG.Motor],
         "subclasses": {
             "Variable_Frequency_Drive": {
-                "tags": [TAG.Equipment, TAG.Variable, TAG.Frequency, TAG.Drive, TAG.VFD],
+                "tags": [
+                    TAG.Equipment,
+                    TAG.Variable,
+                    TAG.Frequency,
+                    TAG.Drive,
+                    TAG.VFD,
+                ],
                 "aliases": [BRICK["VFD"]],
                 "subclasses": {
                     "Heat_Wheel_VFD": {
@@ -560,7 +573,14 @@ hvac_subclasses = {
     },
     "Condenser": {"tags": [TAG.Equipment, TAG.Condenser]},
     "Computer_Room_Air_Conditioning": {
-        "tags": [TAG.Equipment, TAG.Computer, TAG.Room, TAG.Air, TAG.Conditioning, TAG.CRAC],
+        "tags": [
+            TAG.Equipment,
+            TAG.Computer,
+            TAG.Room,
+            TAG.Air,
+            TAG.Conditioning,
+            TAG.CRAC,
+        ],
         "aliases": [BRICK["CRAC"]],
         "subclasses": {
             "Standby_CRAC": {"tags": [TAG.Equipment, TAG.CRAC, TAG.Standby]},
@@ -628,8 +648,8 @@ hvac_subclasses = {
     "Air_Handling_Unit": {
         "tags": [TAG.Equipment, TAG.Air, TAG.Handling, TAG.Handler, TAG.Unit, TAG.AHU],
         "aliases": [
-            BRICK["AHU"], 
-            BRICK["Air_Handler_Unit"], # here for historical purposes
+            BRICK["AHU"],
+            BRICK["Air_Handler_Unit"],  # here for historical purposes
         ],
         "subclasses": {
             "Dedicated_Outdoor_Air_System_Unit": {
@@ -657,7 +677,7 @@ hvac_subclasses = {
             },
             "Pre-Cooling_Air_Unit": {
                 "tags": [TAG.Equipment, TAG.PAU],
-                "aliases": [BRICK["PAU"]]
+                "aliases": [BRICK["PAU"]],
             },
         },
     },

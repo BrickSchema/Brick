@@ -1,0 +1,1988 @@
+# baseURI: http://data.ashrae.org/standard223/1.0/model/device
+# imports: http://data.ashrae.org/standard223/1.0/model/all
+
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix s223: <http://data.ashrae.org/standard223#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix spin: <http://spinrdf.org/spin#> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+s223:AbstractSensor
+  a s223:Class ;
+  a sh:NodeShape ;
+  s223:abstract true ;
+  rdfs:comment "This is an abstract class that represents properties that are common to all sensor types." ;
+  rdfs:label "Abstract sensor" ;
+  rdfs:subClassOf s223:Equipment ;
+  sh:property [
+      sh:path s223:hasMeasurementResolution ;
+      rdfs:comment "If the relation hasMeasurementResolution is present it must associate the AbstractSensor with a QuantifiableProperty." ;
+      sh:class s223:QuantifiableProperty ;
+    ] ;
+  sh:property [
+      sh:path s223:observes ;
+      rdfs:comment "An AbstractSensor must be associated with exactly one ObservableProperty using the relation observes." ;
+      sh:class s223:ObservableProperty ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+    ] ;
+.
+s223:Actuator
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "A piece of equipment, either electrically, pneumatically, or hydraulically operated, that makes a change in the physical world, such as the position of a valve or damper." ;
+  rdfs:label "Actuator" ;
+  rdfs:subClassOf s223:Equipment ;
+  sh:property [
+      sh:path s223:actuates ;
+      rdfs:comment "If the relation actuates is present it must associate the Actuator with a Equipment." ;
+      sh:class s223:Equipment ;
+    ] ;
+  sh:property [
+      sh:path s223:commandedByProperty ;
+      rdfs:comment "An Actuator must be associated with at least one ActuatableProperty using the relation commandedByProperty." ;
+      sh:class s223:ActuatableProperty ;
+      sh:minCount 1 ;
+    ] ;
+.
+s223:AirFilter
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "A piece of equipment that removes particulates from gasses such as air." ;
+  rdfs:label "Air filter" ;
+  rdfs:subClassOf s223:Filter ;
+  sh:property [
+      sh:path s223:hasConnectionPoint ;
+      rdfs:comment "An AirFilter shall have at least one inlet using the medium Air." ;
+      sh:qualifiedMinCount 1 ;
+      sh:minCount 1 ;
+      sh:qualifiedValueShape [
+          sh:class s223:InletConnectionPoint ;
+          sh:node [
+              sh:property [
+                  sh:path s223:hasMedium ;
+                  sh:class s223:Medium-Air ;
+                ] ;
+            ] ;
+        ] ;
+    ] ;
+  sh:property [
+      sh:path s223:hasConnectionPoint ;
+      rdfs:comment "An AirFilter shall have at least one outlet using the medium Air." ;
+      sh:qualifiedMinCount 1 ;
+      sh:minCount 1 ;
+      sh:qualifiedValueShape [
+          sh:class s223:OutletConnectionPoint ;
+          sh:node [
+              sh:property [
+                  sh:path s223:hasMedium ;
+                  sh:class s223:Medium-Air ;
+                ] ;
+            ] ;
+        ] ;
+    ] ;
+.
+s223:AirHandlingUnit
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "An assembly consisting of sections containing a fan or fans and other necessary equipment to perform one or more of the following functions: circulating, filtration, heating, cooling, heat recovery, humidifying, dehumidifying, and mixing of air. It is usually connected to an air-distribution system." ;
+  rdfs:label "Air handling unit" ;
+  rdfs:subClassOf s223:Equipment ;
+  sh:property [
+      sh:path s223:hasConnectionPoint ;
+      rdfs:comment "An AirHandlingUnit shall have at least one inlet using the medium Air." ;
+      sh:minCount 1 ;
+      sh:qualifiedMinCount 1 ;
+      sh:qualifiedValueShape [
+          sh:class s223:InletConnectionPoint ;
+          sh:node [
+              sh:property [
+                  sh:path s223:hasMedium ;
+                  sh:class s223:Medium-Air ;
+                ] ;
+            ] ;
+        ] ;
+    ] ;
+  sh:property [
+      sh:path s223:hasConnectionPoint ;
+      rdfs:comment "An AirHandlingUnit shall have at least one outlet using the medium Air." ;
+      sh:qualifiedMinCount 1 ;
+      sh:minCount 1 ;
+      sh:qualifiedValueShape [
+          sh:class s223:OutletConnectionPoint ;
+          sh:node [
+              sh:property [
+                  sh:path s223:hasMedium ;
+                  sh:class s223:Medium-Air ;
+                ] ;
+            ] ;
+        ] ;
+    ] ;
+.
+s223:Battery
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "A container consisting of one or more cells, in which chemical energy is converted into electricity and used as a source of power." ;
+  rdfs:label "Battery" ;
+  rdfs:subClassOf s223:Equipment ;
+  sh:or (
+      [
+        sh:property [
+            sh:path s223:hasConnectionPoint ;
+            rdfs:comment "A Battery shall have at least one outlet or bidirectional ConnectionPoint using the medium Electricity." ;
+            sh:minCount 1 ;
+            sh:qualifiedMinCount 1 ;
+            sh:qualifiedValueShape [
+                sh:class s223:OutletConnectionPoint ;
+                sh:node [
+                    sh:property [
+                        sh:path s223:hasMedium ;
+                        sh:class s223:Medium-Electricity ;
+                      ] ;
+                  ] ;
+              ] ;
+          ] ;
+      ]
+      [
+        sh:property [
+            sh:path s223:hasConnectionPoint ;
+            rdfs:comment "A Battery shall have at least one outlet or bidirectional ConnectionPoint using the medium Electricity." ;
+            sh:minCount 1 ;
+            sh:qualifiedMinCount 1 ;
+            sh:qualifiedValueShape [
+                sh:class s223:BidirectionalConnectionPoint ;
+                sh:node [
+                    sh:property [
+                        sh:path s223:hasMedium ;
+                        sh:class s223:Medium-Electricity ;
+                      ] ;
+                  ] ;
+              ] ;
+          ] ;
+      ]
+    ) ;
+.
+s223:Boiler
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "A closed, pressure vessel that uses fuel or electricity for heating water or other fluids to supply steam or hot water for heating, humidification, or other applications." ;
+  rdfs:label "Boiler" ;
+  rdfs:subClassOf s223:Equipment ;
+  sh:property [
+      sh:path s223:hasConnectionPoint ;
+      rdfs:comment "A Boiler shall have at least one inlet using the medium Water." ;
+      sh:qualifiedMinCount 1 ;
+      sh:minCount 1 ;
+      sh:qualifiedValueShape [
+          sh:class s223:InletConnectionPoint ;
+          sh:node [
+              sh:property [
+                  sh:path s223:hasMedium ;
+                  sh:class s223:Medium-Water ;
+                ] ;
+            ] ;
+        ] ;
+    ] ;
+  sh:property [
+      sh:path s223:hasConnectionPoint ;
+      rdfs:comment "A Boiler shall have at least one outlet using the medium Water." ;
+      sh:qualifiedMinCount 1 ;
+      sh:minCount 1 ;
+      sh:qualifiedValueShape [
+          sh:class s223:OutletConnectionPoint ;
+          sh:node [
+              sh:property [
+                  sh:path s223:hasMedium ;
+                  sh:class s223:Medium-Water ;
+                ] ;
+            ] ;
+        ] ;
+    ] ;
+.
+s223:ChilledBeam
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "A structure with a colder surface temperature where air passes through, and air movement is induced in the room to achieve cooling. Cooling medium is generally water." ;
+  rdfs:label "Chilled beam" ;
+  rdfs:subClassOf s223:Equipment ;
+  sh:property [
+      sh:path s223:hasConnectionPoint ;
+      rdfs:comment "A ChilledBeam shall have at least one inlet using the medium Water." ;
+      sh:qualifiedMinCount 1 ;
+      sh:minCount 1 ;
+      sh:qualifiedValueShape [
+          sh:class s223:InletConnectionPoint ;
+          sh:node [
+              sh:property [
+                  sh:path s223:hasMedium ;
+                  sh:class s223:Medium-Water ;
+                ] ;
+            ] ;
+        ] ;
+    ] ;
+  sh:property [
+      sh:path s223:hasConnectionPoint ;
+      rdfs:comment "A ChilledBeam shall have at least one outlet using the medium Water." ;
+      sh:qualifiedMinCount 1 ;
+      sh:minCount 1 ;
+      sh:qualifiedValueShape [
+          sh:class s223:OutletConnectionPoint ;
+          sh:node [
+              sh:property [
+                  sh:path s223:hasMedium ;
+                  sh:class s223:Medium-Water ;
+                ] ;
+            ] ;
+        ] ;
+    ] ;
+  sh:property [
+      sh:path s223:hasRole ;
+      rdfs:comment "A ChilledBeam must be associated with the Role-Cooling using the relation hasRole" ;
+      sh:minCount 1 ;
+      sh:qualifiedMinCount 1 ;
+      sh:qualifiedValueShape [
+          sh:class s223:Role-Cooling ;
+        ] ;
+    ] ;
+.
+s223:Chiller
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "A refrigerating machine used to transfer heat from fluids." ;
+  rdfs:label "Chiller" ;
+  rdfs:subClassOf s223:Equipment ;
+  sh:property [
+      sh:path s223:hasConnectionPoint ;
+      rdfs:comment "A Chiller shall have at least one inlet using the medium Water." ;
+      sh:qualifiedMinCount 1 ;
+      sh:minCount 1 ;
+      sh:qualifiedValueShape [
+          sh:class s223:InletConnectionPoint ;
+          sh:node [
+              sh:property [
+                  sh:path s223:hasMedium ;
+                  sh:class s223:Medium-Water ;
+                ] ;
+            ] ;
+        ] ;
+    ] ;
+  sh:property [
+      sh:path s223:hasConnectionPoint ;
+      rdfs:comment "A Chiller shall have at least one outlet using the medium Water." ;
+      sh:qualifiedMinCount 1 ;
+      sh:minCount 1 ;
+      sh:qualifiedValueShape [
+          sh:class s223:OutletConnectionPoint ;
+          sh:node [
+              sh:property [
+                  sh:path s223:hasMedium ;
+                  sh:class s223:Medium-Water ;
+                ] ;
+            ] ;
+        ] ;
+    ] ;
+.
+s223:Coil
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "A cooling or heating element made of pipe or tube that may or may not be finned and formed into helical or serpentine shape." ;
+  rdfs:label "Coil" ;
+  rdfs:subClassOf s223:HeatExchanger ;
+  sh:property [
+      sh:path s223:hasConnectionPoint ;
+      rdfs:comment "A Coil shall have at least one inlet using the medium Air." ;
+      sh:qualifiedMinCount 1 ;
+      sh:minCount 1 ;
+      sh:qualifiedValueShape [
+          sh:class s223:InletConnectionPoint ;
+          sh:node [
+              sh:property [
+                  sh:path s223:hasMedium ;
+                  sh:class s223:Medium-Air ;
+                ] ;
+            ] ;
+        ] ;
+    ] ;
+  sh:property [
+      sh:path s223:hasConnectionPoint ;
+      rdfs:comment "A Coil shall have at least one outlet using the medium Air." ;
+      sh:qualifiedMinCount 1 ;
+      sh:minCount 1 ;
+      sh:qualifiedValueShape [
+          sh:class s223:OutletConnectionPoint ;
+          sh:node [
+              sh:property [
+                  sh:path s223:hasMedium ;
+                  sh:class s223:Medium-Air ;
+                ] ;
+            ] ;
+        ] ;
+    ] ;
+.
+s223:Compressor
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "A device for mechanically increasing the pressure of a gas." ;
+  rdfs:label "Compressor" ;
+  rdfs:subClassOf s223:Equipment ;
+  sh:property [
+      sh:path s223:hasConnectionPoint ;
+      rdfs:comment "A Compressor shall have at least one inlet." ;
+      sh:qualifiedMinCount 1 ;
+      sh:minCount 1 ;
+      sh:qualifiedValueShape [
+          sh:class s223:InletConnectionPoint ;
+        ] ;
+    ] ;
+  sh:property [
+      sh:path s223:hasConnectionPoint ;
+      rdfs:comment "A Compressor shall have at least one outlet." ;
+      sh:qualifiedMinCount 1 ;
+      sh:minCount 1 ;
+      sh:qualifiedValueShape [
+          sh:class s223:OutletConnectionPoint ;
+        ] ;
+    ] ;
+.
+s223:ConcentrationSensor
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "A ConcentrationSensor is a specialization of a Sensor that observes a QuantifiableObservableProperty that represents the concentration of a substance in a medium." ;
+  rdfs:label "Concentration sensor" ;
+  rdfs:subClassOf s223:Sensor ;
+.
+s223:Controller
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "A device for regulation of a system or component in normal operation, which exectues function blocks." ;
+  rdfs:label "Controller" ;
+  rdfs:subClassOf s223:Equipment ;
+  sh:property [
+      sh:path s223:executes ;
+      rdfs:comment "If the relation executes is present it must associate the Controller with a FunctionBlock." ;
+      sh:class s223:FunctionBlock ;
+    ] ;
+.
+s223:CoolingCoil
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "A coil that provides cooling." ;
+  rdfs:label "Cooling coil" ;
+  rdfs:subClassOf s223:Coil ;
+  sh:property [
+      sh:path s223:hasRole ;
+      rdfs:comment "A cooling coil must be related to the role 'Role-Cooling' using the relation 'hasRole'." ;
+      sh:hasValue s223:Role-Cooling ;
+      sh:minCount 1 ;
+    ] ;
+.
+s223:CoolingTower
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "A heat transfer device in which atmospheric air cools warm water, generally by direct contact via evaporation." ;
+  rdfs:label "Cooling tower" ;
+  rdfs:subClassOf s223:Equipment ;
+  sh:property [
+      sh:path s223:hasConnectionPoint ;
+      rdfs:comment "A CoolingTower shall have at least one inlet using the medium Water." ;
+      sh:qualifiedMinCount 1 ;
+      sh:minCount 1 ;
+      sh:qualifiedValueShape [
+          sh:class s223:InletConnectionPoint ;
+          sh:node [
+              sh:property [
+                  sh:path s223:hasMedium ;
+                  sh:class s223:Medium-Water ;
+                ] ;
+            ] ;
+        ] ;
+    ] ;
+  sh:property [
+      sh:path s223:hasConnectionPoint ;
+      rdfs:comment "A CoolingTower shall have at least one outlet using the medium Water." ;
+      sh:qualifiedMinCount 1 ;
+      sh:minCount 1 ;
+      sh:qualifiedValueShape [
+          sh:class s223:OutletConnectionPoint ;
+          sh:node [
+              sh:property [
+                  sh:path s223:hasMedium ;
+                  sh:class s223:Medium-Water ;
+                ] ;
+            ] ;
+        ] ;
+    ] ;
+.
+s223:CorrelatedColorTemperatureSensor
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "A subclass of LightSensor that observes the color of light." ;
+  rdfs:label "Correlated color temperature sensor" ;
+  rdfs:subClassOf s223:LightSensor ;
+.
+s223:Damper
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "An element inserted into an air-distribution system or element of an air-distribution system permitting modification of the air resistance of the system and consequently changing the airflow rate or shutting off the airflow." ;
+  rdfs:label "Damper" ;
+  rdfs:subClassOf s223:Equipment ;
+  sh:property [
+      sh:path s223:hasConnectionPoint ;
+      rdfs:comment "A Damper shall have at least one inlet using the medium Air." ;
+      rdfs:comment "Does this need to allow bidirectional connection points?" ;
+      sh:qualifiedMinCount 1 ;
+      sh:minCount 1 ;
+      sh:qualifiedValueShape [
+          sh:class s223:InletConnectionPoint ;
+          sh:node [
+              sh:property [
+                  sh:path s223:hasMedium ;
+                  sh:class s223:Medium-Air ;
+                ] ;
+            ] ;
+        ] ;
+    ] ;
+  sh:property [
+      sh:path s223:hasConnectionPoint ;
+      rdfs:comment "A Damper shall have at least one outlet using the medium Air." ;
+      sh:qualifiedMinCount 1 ;
+      sh:minCount 1 ;
+      sh:qualifiedValueShape [
+          sh:class s223:OutletConnectionPoint ;
+          sh:node [
+              sh:property [
+                  sh:path s223:hasMedium ;
+                  sh:class s223:Medium-Air ;
+                ] ;
+            ] ;
+        ] ;
+    ] ;
+.
+s223:DifferentialSensor
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "A sensor that measures the difference of a quantity between any two points in the system." ;
+  rdfs:label "Differential sensor" ;
+  rdfs:subClassOf s223:AbstractSensor ;
+  sh:property [
+      sh:path (
+          s223:observes
+          qudt:hasQuantityKind
+        ) ;
+      rdfs:comment "A Differential Sensor must be defined in terms of the QuantityKind that is being measured." ;
+      sh:class qudt:QuantityKind ;
+      sh:minCount 1 ;
+    ] ;
+  sh:xone (
+      [
+        sh:property [
+            sh:path s223:hasObservationLocationHigh ;
+            rdfs:comment "A DifferentialSensor must be associated with exactly 1 of Connectable, Connection, or ConnectionPoint using the relation hasObservationLocationHigh." ;
+            sh:class s223:Connectable ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+          ] ;
+      ]
+      [
+        sh:property [
+            sh:path s223:hasObservationLocationHigh ;
+            rdfs:comment "A DifferentialSensor must be associated with exactly 1 of Connectable, Connection, or ConnectionPoint using the relation hasObservationLocationHigh." ;
+            sh:class s223:Connection ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+          ] ;
+      ]
+      [
+        sh:property [
+            sh:path s223:hasObservationLocationHigh ;
+            rdfs:comment "A DifferentialSensor must be associated with exactly 1 of Connectable, Connection, or ConnectionPoint using the relation hasObservationLocationHigh." ;
+            sh:class s223:ConnectionPoint ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+          ] ;
+      ]
+    ) ;
+  sh:xone (
+      [
+        sh:property [
+            sh:path s223:hasObservationLocationLow ;
+            rdfs:comment "A DifferentialSensor must be associated with exactly 1 of Connectable, Connection, or ConnectionPoint using the relation hasObservationLocationLow." ;
+            sh:class s223:Connectable ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+          ] ;
+      ]
+      [
+        sh:property [
+            sh:path s223:hasObservationLocationLow ;
+            rdfs:comment "A DifferentialSensor must be associated with exactly 1 of Connectable, Connection, or ConnectionPoint using the relation hasObservationLocationLow." ;
+            sh:class s223:Connection ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+          ] ;
+      ]
+      [
+        sh:property [
+            sh:path s223:hasObservationLocationLow ;
+            rdfs:comment "A DifferentialSensor must be associated with exactly 1 of Connectable, Connection, or ConnectionPoint using the relation hasObservationLocationLow." ;
+            sh:class s223:ConnectionPoint ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+          ] ;
+      ]
+    ) ;
+.
+s223:Door
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "A hinged, sliding, or revolving barrier at the entrance to a building or room." ;
+  rdfs:label "Door" ;
+  rdfs:subClassOf s223:Equipment ;
+  sh:property [
+      sh:path s223:hasConnectionPoint ;
+      rdfs:comment "A Door shall have at least two bidirectional connection points using the medium Air." ;
+      sh:qualifiedMinCount 2 ;
+      sh:minCount 2 ;
+      sh:qualifiedValueShape [
+          sh:class s223:BidirectionalConnectionPoint ;
+          sh:node [
+              sh:property [
+                  sh:path s223:hasMedium ;
+                  sh:class s223:Medium-Air ;
+                ] ;
+            ] ;
+        ] ;
+    ] ;
+.
+s223:DualDuctTerminal
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "A dual duct air terminal mixes two independent sources of primary air." ;
+  rdfs:label "Dual duct air terminal." ;
+  rdfs:seeAlso s223:TerminalUnit ;
+  rdfs:subClassOf s223:TerminalUnit ;
+  sh:property [
+      sh:path s223:hasConnectionPoint ;
+      rdfs:comment "A DualDuctTerminal shall have at least two inlets using the medium Air." ;
+      sh:qualifiedMinCount 2 ;
+      sh:minCount 2 ;
+      sh:qualifiedValueShape [
+          sh:class s223:InletConnectionPoint ;
+          sh:node [
+              sh:property [
+                  sh:path s223:hasMedium ;
+                  sh:class s223:Medium-Air ;
+                ] ;
+            ] ;
+        ] ;
+    ] ;
+.
+s223:DuvSensor
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "A subclass of LightSensor that observes the deviation of the light spectrum from pure blackbody." ;
+  rdfs:label "Duv sensor" ;
+  rdfs:subClassOf s223:LightSensor ;
+.
+s223:ElectricBreaker
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "A piece of equipment designed to open the circuit automatically at a predetermined overcurrent without damage to itself (when properly applied within its rating)." ;
+  rdfs:label "Electric breaker" ;
+  rdfs:subClassOf s223:Equipment ;
+  sh:property [
+      sh:path s223:hasConnectionPoint ;
+      rdfs:comment "An ElectricBreaker shall have at least one outlet using the medium Electricity." ;
+      sh:qualifiedMinCount 1 ;
+      sh:minCount 1 ;
+      sh:qualifiedValueShape [
+          sh:class s223:OutletConnectionPoint ;
+          sh:node [
+              sh:property [
+                  sh:path s223:hasMedium ;
+                  sh:class s223:Medium-Electricity ;
+                ] ;
+            ] ;
+        ] ;
+    ] ;
+.
+s223:ElectricMeter
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "A device that measures the properties of electric energy." ;
+  rdfs:label "Electric meter" ;
+  rdfs:subClassOf s223:Equipment ;
+.
+s223:ElectricOutlet
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "A device to which a piece of electrical equipment can be connected in order to provide it with electricity" ;
+  rdfs:label "Electric outlet" ;
+  rdfs:subClassOf s223:Equipment ;
+  sh:property [
+      sh:path s223:hasConnectionPoint ;
+      rdfs:comment "An ElectricOutlet shall have at least one outlet using the medium Electricity." ;
+      sh:qualifiedMinCount 1 ;
+      sh:minCount 1 ;
+      sh:qualifiedValueShape [
+          sh:class s223:OutletConnectionPoint ;
+          sh:node [
+              sh:property [
+                  sh:path s223:hasMedium ;
+                  sh:class s223:Medium-Electricity ;
+                ] ;
+            ] ;
+        ] ;
+    ] ;
+  sh:property [
+      sh:path s223:hasConnectionPoint ;
+      rdfs:comment "An ElectricOutlet shall have exactly one inlet using the medium Electricity." ;
+      sh:minCount 1 ;
+      sh:qualifiedMaxCount 1 ;
+      sh:qualifiedMinCount 1 ;
+      sh:qualifiedValueShape [
+          sh:class s223:InletConnectionPoint ;
+          sh:node [
+              sh:property [
+                  sh:path s223:hasMedium ;
+                  sh:class s223:Medium-Electricity ;
+                ] ;
+            ] ;
+        ] ;
+    ] ;
+.
+s223:ElectricTransformer
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "A piece of electrical equipment used to convert alternative current (AC) electric power from one voltage to another voltage." ;
+  rdfs:label "Electric transformer" ;
+  rdfs:subClassOf s223:Equipment ;
+  sh:property [
+      sh:path s223:hasConnectionPoint ;
+      rdfs:comment "An ElectricTransformer shall have at least one inlet using the medium Electricity." ;
+      sh:qualifiedMinCount 1 ;
+      sh:minCount 1 ;
+      sh:qualifiedValueShape [
+          sh:class s223:InletConnectionPoint ;
+          sh:node [
+              sh:property [
+                  sh:path s223:hasMedium ;
+                  sh:class s223:Medium-Electricity ;
+                ] ;
+            ] ;
+        ] ;
+    ] ;
+  sh:property [
+      sh:path s223:hasConnectionPoint ;
+      rdfs:comment "An ElectricTransformer shall have at least one outlet using the medium Electricity." ;
+      sh:qualifiedMinCount 1 ;
+      sh:minCount 1 ;
+      sh:qualifiedValueShape [
+          sh:class s223:OutletConnectionPoint ;
+          sh:node [
+              sh:property [
+                  sh:path s223:hasMedium ;
+                  sh:class s223:Medium-Electricity ;
+                ] ;
+            ] ;
+        ] ;
+    ] ;
+.
+s223:Equipment
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "An Equipment is the modeling construct used to represent a mechanical device designed to accomplish a specific task that one might buy from a vendor. Examples of possible equipment include a pump, fan, heat exchanger, luminaire, temperature sensor, or flow meter." ;
+  rdfs:label "Equipment" ;
+  rdfs:subClassOf s223:Connectable ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path s223:contains ;
+      rdfs:comment "If the relation contains is present it must associate the Equipment with either Equipment or Junction." ;
+      sh:or (
+          [
+            sh:class s223:Equipment ;
+          ]
+          [
+            sh:class s223:Junction ;
+          ]
+        ) ;
+      sh:name "device contains shape" ;
+    ] ;
+  sh:property [
+      sh:path s223:commandedByProperty ;
+      rdfs:comment "If the relation commandedByProperty is present it must associate the Equipment with a ActuatableProperty." ;
+      sh:class s223:ActuatableProperty ;
+    ] ;
+  sh:property [
+      sh:path s223:executes ;
+      rdfs:comment "If the relation executes is present it must associate the Equipment with a FunctionBlock." ;
+      sh:class s223:FunctionBlock ;
+    ] ;
+  sh:property [
+      sh:path s223:hasPhysicalLocation ;
+      rdfs:comment "If the relation hasPhysicalLocation is present it must associate the Equipment with a PhysicalSpace." ;
+      sh:class s223:PhysicalSpace ;
+    ] ;
+  sh:property [
+      sh:path s223:hasRole ;
+      rdfs:comment "If the relation hasRole is present it must associate the Equipment with a EnumerationKind-Role." ;
+      sh:class s223:EnumerationKind-Role ;
+    ] ;
+.
+s223:EthernetSwitch
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "A device that connects wired devices such as computers, laptops, routers, servers, and printers to one another." ;
+  rdfs:label "Ethernet switch" ;
+  rdfs:subClassOf s223:Equipment ;
+  sh:property [
+      sh:path s223:hasConnectionPoint ;
+      rdfs:comment "An EthernetSwitch shall have at least one BidirectionalConnectionPoint using the medium Electricity." ;
+      sh:qualifiedMinCount 1 ;
+      sh:minCount 1 ;
+      sh:qualifiedValueShape [
+          sh:class s223:BidirectionalConnectionPoint ;
+          sh:node [
+              sh:property [
+                  sh:path s223:hasMedium ;
+                  sh:class s223:Medium-Electricity ;
+                ] ;
+            ] ;
+        ] ;
+    ] ;
+.
+s223:Fan
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "A machine used to create flow within a gas such as air. " ;
+  rdfs:label "Fan" ;
+  rdfs:subClassOf s223:Equipment ;
+  sh:property [
+      sh:path s223:hasConnectionPoint ;
+      rdfs:comment "A Fan shall have at least one inlet using the medium Air." ;
+      sh:qualifiedMinCount 1 ;
+      sh:minCount 1 ;
+      sh:qualifiedValueShape [
+          sh:class s223:InletConnectionPoint ;
+          sh:node [
+              sh:property [
+                  sh:path s223:hasMedium ;
+                  sh:class s223:Medium-Air ;
+                ] ;
+            ] ;
+        ] ;
+    ] ;
+  sh:property [
+      sh:path s223:hasConnectionPoint ;
+      rdfs:comment "A Fan shall have at least one outlet using the medium Air." ;
+      sh:qualifiedMinCount 1 ;
+      sh:minCount 1 ;
+      sh:qualifiedValueShape [
+          sh:class s223:OutletConnectionPoint ;
+          sh:node [
+              sh:property [
+                  sh:path s223:hasMedium ;
+                  sh:class s223:Medium-Air ;
+                ] ;
+            ] ;
+        ] ;
+    ] ;
+.
+s223:FanCoilUnit
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "A device consisting of a heat exchanger (coil) and a fan to regulate the temperature of one or more spaces." ;
+  rdfs:label "Fan coil unit" ;
+  rdfs:subClassOf s223:Equipment ;
+  sh:property [
+      sh:path s223:contains ;
+      rdfs:comment "A FanCoilUnit must be associated with at least 1 Coil using the relation contains." ;
+      sh:qualifiedMinCount 1 ;
+      sh:minCount 1 ;
+      sh:qualifiedValueShape [
+          sh:class s223:Coil ;
+        ] ;
+    ] ;
+  sh:property [
+      sh:path s223:contains ;
+      rdfs:comment "A FanCoilUnit must be associated with at least 1 Fan using the relation contains." ;
+      sh:qualifiedMinCount 1 ;
+      sh:minCount 1 ;
+      sh:qualifiedValueShape [
+          sh:class s223:Fan ;
+        ] ;
+    ] ;
+  sh:property [
+      sh:path s223:hasConnectionPoint ;
+      rdfs:comment "A FanCoilUnit shall have at least one inlet using the medium Air." ;
+      sh:qualifiedMinCount 1 ;
+      sh:minCount 1 ;
+      sh:qualifiedValueShape [
+          sh:class s223:InletConnectionPoint ;
+          sh:node [
+              sh:property [
+                  sh:path s223:hasMedium ;
+                  sh:class s223:Medium-Air ;
+                ] ;
+            ] ;
+        ] ;
+    ] ;
+  sh:property [
+      sh:path s223:hasConnectionPoint ;
+      rdfs:comment "A FanCoilUnit shall have at least one outlet using the medium Air." ;
+      sh:qualifiedMinCount 1 ;
+      sh:minCount 1 ;
+      sh:qualifiedValueShape [
+          sh:class s223:OutletConnectionPoint ;
+          sh:node [
+              sh:property [
+                  sh:path s223:hasMedium ;
+                  sh:class s223:Medium-Air ;
+                ] ;
+            ] ;
+        ] ;
+    ] ;
+  sh:property [
+      sh:path s223:hasRole ;
+      rdfs:comment "A FanCoilUnit must at least have the role Role-Heating or Role-Cooling." ;
+      sh:minCount 1 ;
+      sh:qualifiedMinCount 1 ;
+      sh:qualifiedValueShape [
+          sh:in (
+              s223:Role-Heating
+              s223:Role-Cooling
+            ) ;
+        ] ;
+    ] ;
+.
+s223:FanPoweredTerminal
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "An air terminal containing a fan. Airflow may pass through or be parallel to the fan. These units may also have supplemental heating or cooling." ;
+  rdfs:label "Fan Powered Air Terminal" ;
+  rdfs:subClassOf s223:TerminalUnit ;
+  sh:property [
+      sh:path s223:contains ;
+      rdfs:comment "A FanPoweredTerminal must be associated with at least 1 Fan by contains" ;
+      sh:minCount 1 ;
+      sh:qualifiedMinCount 1 ;
+      sh:qualifiedValueShape [
+          sh:class s223:Fan ;
+        ] ;
+    ] ;
+.
+s223:Filter
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "A device that removes contaminates from gases or liquids." ;
+  rdfs:label "Filter" ;
+  rdfs:subClassOf s223:Equipment ;
+  sh:property [
+      sh:path s223:hasConnectionPoint ;
+      rdfs:comment "A Filter shall have at least one inlet." ;
+      sh:qualifiedMinCount 1 ;
+      sh:minCount 1 ;
+      sh:qualifiedValueShape [
+          sh:class s223:InletConnectionPoint ;
+        ] ;
+    ] ;
+  sh:property [
+      sh:path s223:hasConnectionPoint ;
+      rdfs:comment "A Filter shall have at least one outlet." ;
+      sh:qualifiedMinCount 1 ;
+      sh:minCount 1 ;
+      sh:qualifiedValueShape [
+          sh:class s223:OutletConnectionPoint ;
+        ] ;
+    ] ;
+.
+s223:FlowSensor
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "A FlowSensor is a specialization of a Sensor that produces an ObservableProperty that is quantifiable and represents a flow measurement." ;
+  rdfs:label "Flow sensor" ;
+  rdfs:subClassOf s223:Sensor ;
+.
+s223:FumeHood
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "A fume-collection device mounted over a work space, table, or shelf and serving to conduct unwanted gases away from an area." ;
+  rdfs:label "Fume hood" ;
+  rdfs:subClassOf s223:Equipment ;
+  sh:property [
+      sh:path s223:hasConnectionPoint ;
+      rdfs:comment "A FumeHood shall have at least one inlet using the medium Air." ;
+      sh:qualifiedMinCount 1 ;
+      sh:minCount 1 ;
+      sh:qualifiedValueShape [
+          sh:class s223:InletConnectionPoint ;
+          sh:node [
+              sh:property [
+                  sh:path s223:hasMedium ;
+                  sh:class s223:Medium-Air ;
+                ] ;
+            ] ;
+        ] ;
+    ] ;
+  sh:property [
+      sh:path s223:hasConnectionPoint ;
+      rdfs:comment "A FumeHood shall have at least one outlet using the medium Air." ;
+      sh:qualifiedMinCount 1 ;
+      sh:minCount 1;
+      sh:qualifiedValueShape [
+          sh:class s223:OutletConnectionPoint ;
+          sh:node [
+              sh:property [
+                  sh:path s223:hasMedium ;
+                  sh:class s223:Medium-Air ;
+                ] ;
+            ] ;
+        ] ;
+    ] ;
+.
+s223:Furnace
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "An enclosed chamber or structure in which heat is produced, as by burning fuel or by converting electrical energy. " ;
+  rdfs:label "Furnace" ;
+  rdfs:subClassOf s223:Equipment ;
+  sh:property [
+      sh:path s223:hasConnectionPoint ;
+      rdfs:comment "A Furnace shall have at least one inlet using the medium Air." ;
+      sh:qualifiedMinCount 1 ;
+      sh:minCount 1;
+      sh:qualifiedValueShape [
+          sh:class s223:InletConnectionPoint ;
+          sh:node [
+              sh:property [
+                  sh:path s223:hasMedium ;
+                  sh:class s223:Medium-Air ;
+                ] ;
+            ] ;
+        ] ;
+    ] ;
+  sh:property [
+      sh:path s223:hasConnectionPoint ;
+      rdfs:comment "A Furnace shall have at least one outlet using the medium Air." ;
+      sh:qualifiedMinCount 1 ;
+      sh:minCount 1;
+      sh:qualifiedValueShape [
+          sh:class s223:OutletConnectionPoint ;
+          sh:node [
+              sh:property [
+                  sh:path s223:hasMedium ;
+                  sh:class s223:Medium-Air ;
+                ] ;
+            ] ;
+        ] ;
+    ] ;
+.
+s223:Generator
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "An energy transducer that transforms non-electric energy into electric energy." ;
+  rdfs:label "Generator" ;
+  rdfs:subClassOf s223:Equipment ;
+  sh:property [
+      sh:path s223:hasConnectionPoint ;
+      rdfs:comment "A Generator shall have at least one outlet using the medium Electricity." ;
+      sh:class s223:OutletConnectionPoint ;
+      sh:minCount 1 ;
+      sh:node [
+          sh:property [
+              sh:path s223:hasMedium ;
+              sh:class s223:Medium-Electricity ;
+            ] ;
+        ] ;
+    ] ;
+  sh:property [
+      rdfs:comment "A Generator must be associated with at least one ConnectionPoint using the relation hasConnectionPoint." ;
+      sh:path s223:hasConnectionPoint ;
+      sh:minCount 1 ;
+    ] ;
+.
+s223:HeatExchanger
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "A component intended to transfer heat from one medium to another while keeping the two media separate" ;
+  rdfs:label "Heat exchanger" ;
+  rdfs:subClassOf s223:Equipment ;
+  sh:property [
+      sh:path s223:hasConnectionPoint ;
+      rdfs:comment "A heat exchanger shall have at least 4 connection points." ;
+      sh:minCount 4 ;
+    ] ;
+  sh:property [
+      sh:path s223:hasRole ;
+      rdfs:comment "If the relation hasRole is present it must associate the HeatExchanger with a EnumerationKind-Role." ;
+      sh:class s223:EnumerationKind-Role ;
+    ] ;
+.
+s223:HeatPump
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "A device that can heat or cool by transferring thermal energy using a reversible refrigeration cycle." ;
+  rdfs:label "HeatPump" ;
+  rdfs:subClassOf s223:Equipment ;
+  sh:property [
+      sh:path s223:hasConnectionPoint ;
+      rdfs:comment "A HeatPump shall have at least one inlet using the medium Air." ;
+      sh:qualifiedMinCount 1 ;
+      sh:minCount 1;
+      sh:qualifiedValueShape [
+          sh:class s223:InletConnectionPoint ;
+          sh:node [
+              sh:property [
+                  sh:path s223:hasMedium ;
+                  sh:class s223:Medium-Air ;
+                ] ;
+            ] ;
+        ] ;
+    ] ;
+  sh:property [
+      sh:path s223:hasConnectionPoint ;
+      rdfs:comment "A HeatPump shall have at least one outlet using the medium Air." ;
+      sh:qualifiedMinCount 1 ;
+      sh:minCount 1;
+      sh:qualifiedValueShape [
+          sh:class s223:OutletConnectionPoint ;
+          sh:node [
+              sh:property [
+                  sh:path s223:hasMedium ;
+                  sh:class s223:Medium-Air ;
+                ] ;
+            ] ;
+        ] ;
+    ] ;
+.
+s223:HeatingCoil
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "A coil that provides heating." ;
+  rdfs:label "Heating coil" ;
+  rdfs:subClassOf s223:Coil ;
+  sh:property [
+      sh:path s223:hasRole ;
+      rdfs:comment "A heating coil must be related to the role 'Role-Heating' using the relation 'hasRole'." ;
+      sh:hasValue s223:Role-Heating ;
+      sh:minCount 1 ;
+    ] ;
+.
+s223:Humidifier
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "A piece of equipment to add moisture to a gas such as air." ;
+  rdfs:label "Humidifier" ;
+  rdfs:subClassOf s223:Equipment ;
+.
+s223:Humidistat
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "An automatic control device used to maintain humidity at a fixed or adjustable setpoint." ;
+  rdfs:label "Humidistat" ;
+  rdfs:subClassOf s223:Equipment ;
+.
+s223:HumiditySensor
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "A HumiditySensor is a specialization of a Sensor that observes a QuantifiableObservableProperty that represents a humidity measurement. " ;
+  rdfs:label "Humidity sensor" ;
+  rdfs:subClassOf s223:Sensor ;
+.
+s223:IlluminanceSensor
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "A subclass of LightSensor that observes the level of illuminance." ;
+  rdfs:label "Illuminance sensor" ;
+  rdfs:subClassOf s223:LightSensor ;
+.
+s223:Inverter
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "An electric energy converter that changes direct electric current to alternating current." ;
+  rdfs:label "Inverter" ;
+  rdfs:subClassOf s223:Equipment ;
+  sh:property [
+      sh:path s223:hasConnectionPoint ;
+      rdfs:comment "An Inverter shall have at least one inlet using the medium Electricity-DC." ;
+      sh:qualifiedMinCount 1 ;
+      sh:minCount 1;
+      sh:qualifiedValueShape [
+          sh:class s223:InletConnectionPoint ;
+          sh:node [
+              sh:property [
+                  sh:path s223:hasMedium ;
+                  sh:class s223:Electricity-DC ;
+                ] ;
+            ] ;
+        ] ;
+    ] ;
+  sh:property [
+      sh:path s223:hasConnectionPoint ;
+      rdfs:comment "An Inverter shall have at least one outlet using the medium Electricity-AC." ;
+      sh:qualifiedMinCount 1 ;
+      sh:minCount 1;
+      sh:qualifiedValueShape [
+          sh:class s223:OutletConnectionPoint ;
+          sh:node [
+              sh:property [
+                  sh:path s223:hasMedium ;
+                  sh:class s223:Electricity-AC ;
+                ] ;
+            ] ;
+        ] ;
+    ] ;
+.
+s223:LightSensor
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "A LightSensor is a specialization of a Sensor that observes a QuantifiableObservableProperty that represents a luminance measurement." ;
+  rdfs:label "Light sensor" ;
+  rdfs:subClassOf s223:Sensor ;
+.
+s223:Luminaire
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "A complete lighting unit consisting of a lamp or lamps together with the housing designed to distribute the light, position and protect the lamps, and connect the lamps to the power supply." ;
+  rdfs:label "Luminaire" ;
+  rdfs:subClassOf s223:Equipment ;
+  sh:property [
+      sh:path s223:hasConnectionPoint ;
+      rdfs:comment "A Luminaire shall have at least one inlet using the medium Electricity." ;
+      sh:qualifiedMinCount 1 ;
+      sh:minCount 1;
+      sh:qualifiedValueShape [
+          sh:class s223:InletConnectionPoint ;
+          sh:node [
+              sh:property [
+                  sh:path s223:hasMedium ;
+                  sh:class s223:Medium-Electricity ;
+                ] ;
+            ] ;
+        ] ;
+    ] ;
+  sh:property [
+      sh:path s223:hasConnectionPoint ;
+      rdfs:comment "A Luminaire shall have at least one outlet using the medium EM-Light." ;
+      sh:qualifiedMinCount 1 ;
+      sh:minCount 1;
+      sh:qualifiedValueShape [
+          sh:class s223:OutletConnectionPoint ;
+          sh:node [
+              sh:property [
+                  sh:path s223:hasMedium ;
+                  sh:class s223:EM-Light ;
+                ] ;
+            ] ;
+        ] ;
+    ] ;
+.
+s223:ManualDamper
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "A Damper that is operated manually." ;
+  rdfs:label "Manual damper" ;
+  rdfs:subClassOf s223:Damper ;
+.
+s223:ManualValve
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "A Valve that is operated manually." ;
+  rdfs:label "Manual Valve" ;
+  rdfs:subClassOf s223:Valve ;
+.
+s223:Motor
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "A machine in which power is applied to do work by the conversion of various forms of energy into mechanical force and motion." ;
+  rdfs:label "Motor" ;
+  rdfs:subClassOf s223:Equipment ;
+  sh:property [
+      sh:path s223:hasConnectionPoint ;
+      rdfs:comment "A Motor shall have at least one inlet using the medium Electricity." ;
+      sh:qualifiedMinCount 1 ;
+      sh:minCount 1;
+      sh:qualifiedValueShape [
+          sh:class s223:InletConnectionPoint ;
+          sh:node [
+              sh:property [
+                  sh:path s223:hasMedium ;
+                  sh:class s223:Medium-Electricity ;
+                ] ;
+            ] ;
+        ] ;
+    ] ;
+.
+s223:MotorizedDamper
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "A Damper that is operated by a motor." ;
+  rdfs:label "Motorized damper" ;
+  rdfs:subClassOf s223:Damper ;
+.
+s223:MotorizedThreeWayValve
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "A ThreeWayValve that is operated by a motor." ;
+  rdfs:label "Motorized three way valve" ;
+  rdfs:subClassOf s223:MotorizedValve ;
+.
+s223:MotorizedTwoWayValve
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "A TwoWayValve that is operated by a motor." ;
+  rdfs:label "Motorized two way valve" ;
+  rdfs:subClassOf s223:MotorizedValve ;
+.
+s223:MotorizedValve
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "A Valve that is operated by a motor." ;
+  rdfs:label "Motorized Valve" ;
+  rdfs:subClassOf s223:Valve ;
+.
+s223:OccupancySensor
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "An OccupancySensor is a subclass of a Sensor that observes a Property that represents measurement of occupancy in a space." ;
+  rdfs:label "Occupancy sensor" ;
+  rdfs:subClassOf s223:Sensor ;
+.
+s223:OccupantCounter
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "A subclass of OccupancySensor that counts the population within its sensing region." ;
+  rdfs:label "Occupant counter" ;
+  rdfs:subClassOf s223:OccupancySensor ;
+.
+s223:OccupantMotionSensor
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "A subclass of OccupancySensor that observes motion within its sensing region." ;
+  rdfs:label "Occupant motion sensor" ;
+  rdfs:subClassOf s223:OccupancySensor ;
+.
+s223:OccupantPresenceSensor
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "A subclass of OccupancySensor that observes presence within its sensing region." ;
+  rdfs:label "Occupant presence sensor" ;
+  rdfs:subClassOf s223:OccupancySensor ;
+.
+s223:ParticulateSensor
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "A ParticulateSensor is a specialization of a Sensor that observes a QuantifiableObservableProperty that represents a particulate concentration measurement." ;
+  rdfs:label "Particulate sensor" ;
+  rdfs:subClassOf s223:Sensor ;
+  sh:property [
+      sh:path s223:measuresSubstance ;
+      rdfs:comment "If the relation measuresSubstance is present it must associate the ParticulateSensor with a Substance-Particulate." ;
+      sh:class s223:Substance-Particulate ;
+    ] ;
+.
+s223:PhotovoltaicModule
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "A piece of equipment that converts sunlight into electricity." ;
+  rdfs:label "Photovoltaic module" ;
+  rdfs:subClassOf s223:Equipment ;
+  sh:property [
+      sh:path s223:hasConnectionPoint ;
+      rdfs:comment "An PhotovoltaicModule must have at least one inlet using the medium EM-Light." ;
+      sh:qualifiedMinCount 1 ;
+      sh:minCount 1;
+      sh:qualifiedValueShape [
+          sh:class s223:InletConnectionPoint ;
+          sh:node [
+              sh:property [
+                  sh:path s223:hasMedium ;
+                  sh:class s223:EM-Light ;
+                ] ;
+            ] ;
+        ] ;
+    ] ;
+  sh:property [
+      sh:path s223:hasConnectionPoint ;
+      rdfs:comment "An PhotovoltaicModule shall have at least one outlet using the medium Electricity." ;
+      sh:qualifiedMinCount 1 ;
+      sh:minCount 1;
+      sh:qualifiedValueShape [
+          sh:class s223:OutletConnectionPoint ;
+          sh:node [
+              sh:property [
+                  sh:path s223:hasMedium ;
+                  sh:class s223:Medium-Electricity ;
+                ] ;
+            ] ;
+        ] ;
+    ] ;
+.
+s223:PressureSensor
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "A PressureSensor is a specialization of a Sensor that observes a QuantifiableObservableProperty that represents a pressure measurement." ;
+  rdfs:label "Pressure sensor" ;
+  rdfs:subClassOf s223:Sensor ;
+.
+s223:Pump
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "A machine for imparting energy to a fluid, drawing a fluid into itself through an entrance port, and forcing the fluid out through an exhaust port." ;
+  rdfs:label "Pump" ;
+  rdfs:subClassOf s223:Equipment ;
+  sh:property [
+      sh:path s223:hasConnectionPoint ;
+      rdfs:comment "A Pump shall have at least one inlet using the medium Water, Oil or Refrigerant." ;
+      sh:qualifiedMinCount 1 ;
+      sh:minCount 1;
+      sh:qualifiedValueShape [
+          sh:class s223:InletConnectionPoint ;
+          sh:node [
+              sh:or (
+                  [
+                    sh:property [
+                        sh:path s223:hasMedium ;
+                        sh:class s223:Medium-Water ;
+                      ] ;
+                  ]
+                  [
+                    sh:property [
+                        sh:path s223:hasMedium ;
+                        sh:class s223:Medium-Refrigerant ;
+                      ] ;
+                  ]
+                  [
+                    sh:property [
+                        sh:path s223:hasMedium ;
+                        sh:class s223:Medium-Oil ;
+                      ] ;
+                  ]
+                ) ;
+            ] ;
+        ] ;
+    ] ;
+  sh:property [
+      sh:path s223:hasConnectionPoint ;
+      rdfs:comment "A Pump shall have at least one outlet using the medium Water, Oil or Refrigerant." ;
+      sh:qualifiedMinCount 1 ;
+      sh:minCount 1;
+      sh:qualifiedValueShape [
+          sh:class s223:OutletConnectionPoint ;
+          sh:node [
+              sh:or (
+                  [
+                    sh:property [
+                        sh:path s223:hasMedium ;
+                        sh:class s223:Medium-Water ;
+                      ] ;
+                  ]
+                  [
+                    sh:property [
+                        sh:path s223:hasMedium ;
+                        sh:class s223:Medium-Refrigerant ;
+                      ] ;
+                  ]
+                  [
+                    sh:property [
+                        sh:path s223:hasMedium ;
+                        sh:class s223:Medium-Oil ;
+                      ] ;
+                  ]
+                ) ;
+            ] ;
+        ] ;
+    ] ;
+.
+s223:RadiantPanel
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "A heating or cooling surface that delivers 50% or more of its heat transfer by radiation." ;
+  rdfs:label "Radiant panel" ;
+  rdfs:subClassOf s223:Equipment ;
+  sh:or (
+      [
+        sh:property [
+            sh:path s223:hasConnectionPoint ;
+            rdfs:comment "A radiant panel shall have at least one inlet using the medium Electricity, NaturalGas, or Water." ;
+            sh:minCount 1 ;
+            sh:qualifiedMinCount 1 ;
+            sh:qualifiedValueShape [
+                sh:class s223:InletConnectionPoint ;
+                sh:node [
+                    sh:property [
+                        sh:path s223:hasMedium ;
+                        sh:class s223:Medium-Electricity ;
+                      ] ;
+                  ] ;
+              ] ;
+          ] ;
+      ]
+      [
+        sh:property [
+            sh:path s223:hasConnectionPoint ;
+            rdfs:comment "A radiant panel shall have at least one inlet using the medium Electricity, NaturalGas, or Water." ;
+            sh:minCount 1 ;
+            sh:qualifiedMinCount 1 ;
+            sh:qualifiedValueShape [
+                sh:class s223:InletConnectionPoint ;
+                sh:node [
+                    sh:property [
+                        sh:path s223:hasMedium ;
+                        sh:class s223:Medium-NaturalGas ;
+                      ] ;
+                  ] ;
+              ] ;
+          ] ;
+      ]
+      [
+        sh:property [
+            sh:path s223:hasConnectionPoint ;
+            rdfs:comment "A radiant panel shall have at least one inlet using the medium Electricity, NaturalGas, or Water." ;
+            sh:minCount 1 ;
+            sh:qualifiedMinCount 1 ;
+            sh:qualifiedValueShape [
+                sh:class s223:InletConnectionPoint ;
+                sh:node [
+                    sh:property [
+                        sh:path s223:hasMedium ;
+                        sh:class s223:Medium-Water ;
+                      ] ;
+                  ] ;
+              ] ;
+          ] ;
+        sh:property [
+            sh:path s223:hasConnectionPoint ;
+            rdfs:comment "A radiant panel shall have at least one outlet using the medium Water." ;
+            sh:qualifiedMinCount 1 ;
+            sh:minCount 1 ;
+            sh:qualifiedValueShape [
+                sh:class s223:OutletConnectionPoint ;
+                sh:node [
+                    sh:property [
+                        sh:path s223:hasMedium ;
+                        sh:class s223:Medium-Water ;
+                      ] ;
+                  ] ;
+              ] ;
+          ] ;
+      ]
+    ) ;
+  sh:property [
+      sh:path s223:hasRole ;
+      rdfs:comment "A radiant panel must hasRole Role-Heating." ;
+      sh:minCount 1 ;
+      sh:qualifiedMinCount 1 ;
+      sh:qualifiedValueShape [
+          sh:class s223:Role-Heating ;
+        ] ;
+    ] ;
+.
+s223:Radiator
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "A radiator provides heating to a room using electricity, steam or water (e.g., electric baseboard heaters)." ;
+  rdfs:label "Radiator" ;
+  rdfs:subClassOf s223:Equipment ;
+  sh:or (
+      [
+        sh:property [
+            sh:path s223:hasConnectionPoint ;
+            rdfs:comment "A Radiator shall have at least one inlet using the medium Electricity or Water." ;
+            sh:minCount 1 ;
+            sh:qualifiedMinCount 1 ;
+            sh:qualifiedValueShape [
+                sh:class s223:InletConnectionPoint ;
+                sh:node [
+                    sh:property [
+                        sh:path s223:hasMedium ;
+                        sh:class s223:Medium-Electricity ;
+                      ] ;
+                  ] ;
+              ] ;
+          ] ;
+      ]
+      [
+        sh:property [
+            sh:path s223:hasConnectionPoint ;
+            rdfs:comment "A Radiator shall have at least one inlet using the medium Electricity or Water." ;
+            sh:minCount 1 ;
+            sh:qualifiedMinCount 1 ;
+            sh:qualifiedValueShape [
+                sh:class s223:InletConnectionPoint ;
+                sh:node [
+                    sh:property [
+                        sh:path s223:hasMedium ;
+                        sh:class s223:Medium-Water ;
+                      ] ;
+                  ] ;
+              ] ;
+          ] ;
+        sh:property [
+            sh:path s223:hasConnectionPoint ;
+            rdfs:comment "A Radiator shall have at least one outlet using the medium Water." ;
+            sh:minCount 1 ;
+            sh:qualifiedMinCount 1 ;
+            sh:qualifiedValueShape [
+                sh:class s223:OutletConnectionPoint ;
+                sh:node [
+                    sh:property [
+                        sh:path s223:hasMedium ;
+                        sh:class s223:Medium-Water ;
+                      ] ;
+                  ] ;
+              ] ;
+          ] ;
+      ]
+    ) ;
+  sh:property [
+      sh:path s223:hasRole ;
+      rdfs:comment "Radiators must have the role Role-Heating." ;
+      sh:minCount 1 ;
+      sh:qualifiedMinCount 1 ;
+      sh:qualifiedValueShape [
+          sh:class s223:Role-Heating ;
+        ] ;
+    ] ;
+.
+s223:ResistanceHeater
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "Resistance heaters provide electrical resistance heating, for example an electric heating coil within a Fan Coil Unit." ;
+  rdfs:label "Electrical resistance heater" ;
+  rdfs:subClassOf s223:Equipment ;
+  sh:property [
+      sh:path s223:hasConnectionPoint ;
+      rdfs:comment "A ResistanceHeater shall have at least one inlet using the medium Electricity." ;
+      sh:minCount 1 ;
+      sh:qualifiedMinCount 1 ;
+      sh:qualifiedValueShape [
+          sh:class s223:InletConnectionPoint ;
+          sh:node [
+              sh:property [
+                  sh:path s223:hasMedium ;
+                  sh:class s223:Medium-Electricity ;
+                ] ;
+            ] ;
+        ] ;
+    ] ;
+  sh:property [
+      sh:path s223:hasRole ;
+      rdfs:comment "ResistanceHeaters must have the role Role-Heating." ;
+      sh:minCount 1 ;
+      sh:qualifiedMinCount 1 ;
+      sh:qualifiedValueShape [
+          sh:class s223:Role-Heating ;
+        ] ;
+    ] ;
+.
+s223:Sensor
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "A Sensor observes an ObservableProperty (see `s223:ObservableProperty`) which may be quantifiable (see `s223:QuantifiableObservableProperty`), such as a temperature, flowrate, or concentration, or Enumerable (see `s223:EnumeratedObservableProperty)`, such as an alarm state or occupancy state." ;
+  rdfs:label "Sensor" ;
+  rdfs:subClassOf s223:AbstractSensor ;
+  sh:xone (
+      [
+        sh:property [
+            sh:path s223:hasObservationLocation ;
+            rdfs:comment "A Sensor must be associated with exactly 1 of Connectable, Connection, or ConnectionPoint using the relation hasObservationLocation." ;
+            sh:class s223:Connectable ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+          ] ;
+      ]
+      [
+        sh:property [
+            sh:path s223:hasObservationLocation ;
+            rdfs:comment "A Sensor must be associated with exactly 1 of Connectable, Connection, or ConnectionPoint using the relation hasObservationLocation." ;
+            sh:class s223:Connection ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+          ] ;
+      ]
+      [
+        sh:property [
+            sh:path s223:hasObservationLocation ;
+            rdfs:comment "A Sensor must be associated with exactly 1 of Connectable, Connection, or ConnectionPoint using the relation hasObservationLocation." ;
+            sh:class s223:ConnectionPoint ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+          ] ;
+      ]
+    ) ;
+  sh:xone (
+      [
+        sh:property [
+            sh:path s223:observes ;
+            rdfs:comment "A Sensor must be associated with exactly 1 of QuantifiableObservableProperty or EnumeratedObservableProperty using the relation observes." ;
+            sh:class s223:QuantifiableObservableProperty ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+          ] ;
+      ]
+      [
+        sh:property [
+            sh:path s223:observes ;
+            rdfs:comment "A Sensor must be associated with exactly 1 of QuantifiableObservableProperty or EnumeratedObservableProperty using the relation observes." ;
+            sh:class s223:EnumeratedObservableProperty ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+          ] ;
+      ]
+    ) ;
+.
+s223:SingleDuctTerminal
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "An air-terminal unit assembly having one ducted air inlet and a damper for regulating the airflow rate." ;
+  rdfs:label "Single Duct Terminal." ;
+  rdfs:subClassOf s223:TerminalUnit ;
+  sh:property [
+      sh:path s223:contains ;
+      rdfs:comment "A SingleDuctTerminal must be associated with at least 1 Damper by contains." ;
+      sh:minCount 1 ;
+      sh:qualifiedMinCount 1 ;
+      sh:qualifiedValueShape [
+          sh:class s223:Damper ;
+        ] ;
+    ] ;
+.
+s223:SolarThermalCollector
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "A device that converts sunlight into thermal energy." ;
+  rdfs:label "Solar thermal collector" ;
+  rdfs:subClassOf s223:Equipment ;
+  sh:property [
+      sh:path s223:hasConnectionPoint ;
+      rdfs:comment "A SolarThermalCollector shall have at least one inlet using the medium EM-Light." ;
+      sh:qualifiedMinCount 1 ;
+      sh:minCount 1;
+      sh:qualifiedValueShape [
+          sh:class s223:InletConnectionPoint ;
+          sh:node [
+              sh:property [
+                  sh:path s223:hasMedium ;
+                  sh:class s223:EM-Light ;
+                ] ;
+            ] ;
+        ] ;
+    ] ;
+  sh:property [
+      sh:path s223:hasConnectionPoint ;
+      rdfs:comment "A SolarThermalCollector shall have at least one outlet using the medium Water." ;
+      sh:qualifiedMinCount 1 ;
+      sh:minCount 1 ;
+      sh:qualifiedValueShape [
+          sh:class s223:OutletConnectionPoint ;
+          sh:node [
+              sh:property [
+                  sh:path s223:hasMedium ;
+                  sh:class s223:Medium-Water ;
+                ] ;
+            ] ;
+        ] ;
+    ] ;
+.
+s223:TemperatureSensor
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "A TemperatureSensor is a specialization of a Sensor that observes a QuantifiableObservableProperty that represents a temperature measurement." ;
+  rdfs:label "Temp sensor" ;
+  rdfs:subClassOf s223:Sensor ;
+.
+s223:TerminalUnit
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "An air terminal that modulates the volume of air delivered to a space." ;
+  rdfs:label "Terminal Unit" ;
+  rdfs:subClassOf s223:Equipment ;
+  sh:property [
+      sh:path s223:hasConnectionPoint ;
+      rdfs:comment "A TerminalUnit shall have at least one inlet ConnectionPoint using the medium Air." ;
+      sh:qualifiedMinCount 1 ;
+      sh:minCount 1 ;
+      sh:qualifiedValueShape [
+          sh:class s223:InletConnectionPoint ;
+          sh:node [
+              sh:property [
+                  sh:path s223:hasMedium ;
+                  sh:class s223:Medium-Air ;
+                ] ;
+            ] ;
+        ] ;
+    ] ;
+  sh:property [
+      sh:path s223:hasConnectionPoint ;
+      rdfs:comment "A TerminalUnit shall have at least one outlet ConnectionPoint using the medium Air." ;
+      sh:minCount 1 ;
+      sh:qualifiedMinCount 1 ;
+      sh:qualifiedValueShape [
+          sh:class s223:OutletConnectionPoint ;
+          sh:node [
+              sh:property [
+                  sh:path s223:hasMedium ;
+                  sh:class s223:Medium-Air ;
+                ] ;
+            ] ;
+        ] ;
+    ] ;
+.
+s223:Thermostat
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "An automatic control device used to maintain temperature at a fixed or adjustable setpoint." ;
+  rdfs:label "Thermostat" ;
+  rdfs:subClassOf s223:Equipment ;
+.
+s223:ThreeWayValve
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "A Valve that can divert a fluid in one of three directions." ;
+  rdfs:label "Three way valve" ;
+  rdfs:subClassOf s223:Valve ;
+  sh:property [
+      sh:path s223:hasConnectionPoint ;
+      rdfs:comment "A ThreeWayValve must have at least three ConnectionPoints using the relation hasConnectionPoint." ;
+      sh:minCount 3 ;
+    ] ;
+.
+s223:Turbine
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "An energy transducer that converts mechanical energy into electric energy." ;
+  rdfs:label "Turbine" ;
+  rdfs:subClassOf s223:Equipment ;
+  sh:property [
+      sh:path s223:hasConnectionPoint ;
+      rdfs:comment "A Turbine shall have at least one outlet using the medium Electricity." ;
+      sh:class s223:OutletConnectionPoint ;
+      sh:minCount 1 ;
+      sh:node [
+          sh:property [
+              sh:path s223:hasMedium ;
+              sh:class s223:Medium-Electricity ;
+            ] ;
+        ] ;
+    ] ;
+  sh:property [
+      sh:path s223:hasConnectionPoint ;
+      rdfs:comment "A Turbine must be associated with at least one ConnectionPoint using the relation hasConnectionPoint." ;
+      sh:minCount 1 ;
+    ] ;
+.
+s223:TwoWayValve
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "A Valve that can divert a fluid in one of two directions." ;
+  rdfs:label "Two way valve" ;
+  rdfs:subClassOf s223:Valve ;
+  sh:property [
+      sh:path s223:hasConnectionPoint ;
+      rdfs:comment "A TwoWayValve shall have at least one inlet." ;
+      sh:qualifiedMinCount 1 ;
+      sh:minCount 1 ;
+      sh:qualifiedValueShape [
+          sh:class s223:InletConnectionPoint ;
+        ] ;
+    ] ;
+  sh:property [
+      sh:path s223:hasConnectionPoint ;
+      rdfs:comment "A TwoWayValve shall have at least one outlet." ;
+      sh:qualifiedMinCount 1 ;
+      sh:minCount 1 ;
+      sh:qualifiedValueShape [
+          sh:class s223:OutletConnectionPoint ;
+        ] ;
+    ] ;
+.
+s223:Valve
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "A device to regulate or stop the flow of fluid in a pipe or a duct by throttling." ;
+  rdfs:label "Valve" ;
+  rdfs:subClassOf s223:Equipment ;
+  sh:or (
+      [
+        sh:property [
+            sh:path s223:hasConnectionPoint ;
+            rdfs:comment "A Valve shall have at least one inlet and one outlet or two bidirectional connection points." ;
+            sh:qualifiedMinCount 1 ;
+            sh:minCount 1 ;
+            sh:qualifiedValueShape [
+                sh:class s223:InletConnectionPoint ;
+              ] ;
+            sh:qualifiedValueShapesDisjoint true ;
+          ] ;
+        sh:property [
+            sh:path s223:hasConnectionPoint ;
+            rdfs:comment "A Valve shall have at least one inlet and one outlet or two bidirectional connection points." ;
+            sh:qualifiedMinCount 1 ;
+            sh:minCount 1 ;
+            sh:qualifiedValueShape [
+                sh:class s223:OutletConnectionPoint ;
+              ] ;
+            sh:qualifiedValueShapesDisjoint true ;
+          ] ;
+      ]
+      [
+        sh:property [
+            sh:path s223:hasConnectionPoint ;
+            rdfs:comment "A Valve shall have at least one inlet and one outlet or two bidirectional connection points." ;
+            sh:qualifiedMinCount 2 ;
+            sh:minCount 2 ;
+            sh:qualifiedValueShape [
+                sh:class s223:BidirectionalConnectionPoint ;
+              ] ;
+            sh:qualifiedValueShapesDisjoint true ;
+          ] ;
+      ]
+    ) ;
+.
+s223:VariableFrequencyDrive
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "An electronic device that varies its output frequency to vary the rotating speed of a motor, given a fixed input frequency. Used with fans or pumps to vary the flow in the system as a function of a maintained pressure." ;
+  rdfs:label "VariableFrequencyDrive" ;
+  rdfs:subClassOf s223:Equipment ;
+  sh:property [
+      sh:path s223:connectedTo ;
+      rdfs:comment "If the relation connectedTo is present it must associate the VariableFrequencyDrive with a Equipment." ;
+      sh:class s223:Equipment ;
+    ] ;
+  sh:property [
+      sh:path s223:hasConnectionPoint ;
+      rdfs:comment "A VariableFrequencyDrive shall have at least one outlet using the medium Electricity." ;
+      sh:minCount 1 ;
+      sh:qualifiedMinCount 1 ;
+      sh:qualifiedValueShape [
+          sh:class s223:OutletConnectionPoint ;
+          sh:node [
+              sh:property [
+                  sh:path s223:hasMedium ;
+                  sh:class s223:Medium-Electricity ;
+                ] ;
+            ] ;
+        ] ;
+    ] ;
+  sh:property [
+      sh:path s223:hasConnectionPoint ;
+      rdfs:comment "A VariableFrequencyDrive shall have at least one inlet using the medium Electricity." ;
+      sh:qualifiedMinCount 1 ;
+      sh:severity sh:Warning ;
+      sh:minCount 1 ;
+      sh:qualifiedValueShape [
+          sh:class s223:InletConnectionPoint ;
+          sh:node [
+              sh:property [
+                  sh:path s223:hasMedium ;
+                  sh:class s223:Medium-Electricity ;
+                ] ;
+            ] ;
+        ] ;
+    ] ;
+.
+s223:WaterFilter
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "A device that removes particulates from water." ;
+  rdfs:label "Water filter" ;
+  rdfs:subClassOf s223:Filter ;
+  sh:property [
+      sh:path s223:hasConnectionPoint ;
+      rdfs:comment "A WaterFilter shall have at least one inlet using the medium Water." ;
+      sh:qualifiedMinCount 1 ;
+      sh:minCount 1 ;
+      sh:qualifiedValueShape [
+          sh:class s223:InletConnectionPoint ;
+          sh:node [
+              sh:property [
+                  sh:path s223:hasMedium ;
+                  sh:class s223:Medium-Water ;
+                ] ;
+            ] ;
+        ] ;
+    ] ;
+  sh:property [
+      sh:path s223:hasConnectionPoint ;
+      rdfs:comment "A WaterFilter shall have at least one outlet using the medium Water." ;
+      sh:qualifiedMinCount 1 ;
+      sh:minCount 1 ;
+      sh:qualifiedValueShape [
+          sh:class s223:OutletConnectionPoint ;
+          sh:node [
+              sh:property [
+                  sh:path s223:hasMedium ;
+                  sh:class s223:Medium-Water ;
+                ] ;
+            ] ;
+        ] ;
+    ] ;
+.
+s223:Window
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "A daylight opening on a vertical or nearly vertical area of a room envelope" ;
+  rdfs:label "Window" ;
+  rdfs:subClassOf s223:Equipment ;
+  sh:property [
+      sh:path s223:hasConnectionPoint ;
+      rdfs:comment "A Window shall have at least one inlet using the medium Light." ;
+      sh:qualifiedMinCount 1 ;
+      sh:minCount 1 ;
+      sh:qualifiedValueShape [
+          sh:class s223:InletConnectionPoint ;
+          sh:node [
+              sh:property [
+                  sh:path s223:hasMedium ;
+                  sh:class s223:EM-Light ;
+                ] ;
+            ] ;
+        ] ;
+    ] ;
+  sh:property [
+      sh:path s223:hasConnectionPoint ;
+      rdfs:comment "A Window shall have at least one outlet using the medium Light." ;
+      sh:qualifiedMinCount 1 ;
+      sh:minCount 1 ;
+      sh:qualifiedValueShape [
+          sh:class s223:OutletConnectionPoint ;
+          sh:node [
+              sh:property [
+                  sh:path s223:hasMedium ;
+                  sh:class s223:EM-Light ;
+                ] ;
+            ] ;
+        ] ;
+    ] ;
+.
+s223:WindowShade
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "A window covering that can be moved to block out or allow in light. " ;
+  rdfs:label "Window shade" ;
+  rdfs:subClassOf s223:Equipment ;
+.
+<http://data.ashrae.org/standard223/1.0/model/device>
+  a owl:Ontology ;
+  owl:imports <http://data.ashrae.org/standard223/1.0/model/all> ;
+  owl:versionInfo "Created with TopBraid Composer" ;
+  sh:declare [
+      sh:namespace "http://qudt.org/schema/qudt/"^^xsd:anyURI ;
+      sh:prefix "qudt" ;
+    ] ;
+  sh:declare [
+      sh:namespace "http://qudt.org/vocab/quantitykind/"^^xsd:anyURI ;
+      sh:prefix "quantitykind" ;
+    ] ;
+.
+[
+  sh:minCount 1 ;
+].

@@ -1,5 +1,5 @@
 from rdflib import Literal
-from .namespaces import A, OWL, RDFS, BRICK, VCARD, UNIT, QUDT, SDO, RDF, S223, BSH, XSD
+from .namespaces import A, OWL, RDFS, BRICK, VCARD, UNIT, QUDT, SDO, RDF, BSH, XSD
 
 """
 Defining Brick relationships
@@ -13,19 +13,19 @@ relationships = {
     },
     "hasSubstance": {
         A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
-        RDFS.label: Literal("Has QUDT reference"),
+        RDFS.label: Literal("Has Substance"),
         "range": BRICK.Substance,
         "domain": [BRICK.Point, BRICK.Meter],
     },
     "hasQuantity": {
         A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
-        RDFS.label: Literal("Has QUDT reference"),
+        RDFS.label: Literal("Has Quantity"),
         RDFS.subPropertyOf: QUDT.hasQuantityKind,
         "range": BRICK.Quantity,
         "domain": BRICK.Point,
     },
     "value": {
-        RDFS.subPropertyOf: [QUDT.value, S223.hasValue],
+        RDFS.subPropertyOf: QUDT.value,
         RDFS.label: Literal("Value"),
         A: [RDF.Property],
         "range": RDFS.Resource,
@@ -107,10 +107,6 @@ relationships = {
         "range": [
             BRICK.Equipment,
             BRICK.Location,
-            S223.ConnectionPoint,
-            S223.Connection,
-            S223.Connectable,
-            S223.Segment,
         ],
         RDFS.label: Literal("Is point of"),
     },
