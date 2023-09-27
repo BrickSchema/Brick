@@ -414,4 +414,24 @@ bsh:AddDefaultEVSEChargerDirection a sh:NodeShape ;
     ] ;
 .
 
-# inherit
+# inherit the directionality of the EVSE charger to the ports
+bsh:InheritEVSEChargerDirection a sh:NodeShape ;
+    sh:targetClass brick:Electric_Vehicle_Charging_Port ;
+    sh:rule [
+        a sh:SPARQLRule ;
+        sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
+        sh:construct """
+        CONSTRUCT {
+            $this brick:electricVehicleChargerDirectionality ?direction
+        } WHERE {
+            $this rdf:type brick:Electric_Vehicle_Charging_Port .
+            $this brick:isPartOf ?charger .
+            ?charger a brick:Electric_Vehicle_Charging_Station .
+            ?charger brick:electricVehicleChargerDirectionality ?direction .
+            FILTER NOT EXISTS {
+                $this brick:electricVehicleChargerDirectionality ?other_direction .
+            }
+        }
+        """ ;
+    ] ;
+.
