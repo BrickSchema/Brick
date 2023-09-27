@@ -462,7 +462,6 @@ rec:Asset
       rdf:type sh:PropertyShape ;
       sh:path rec:locatedIn ;
       sh:class rec:Space ;
-      sh:minCount 1 ;
       sh:name "located in" ;
       sh:nodeKind sh:IRI ;
     ] ;
