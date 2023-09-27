@@ -1,4 +1,4 @@
-from .namespaces import TAG, BRICK, RDFS, OWL, QUDT
+from .namespaces import TAG, BRICK, RDFS, OWL, QUDT, QUDTQK
 from rdflib import Literal
 
 setpoint_definitions = {
@@ -22,7 +22,7 @@ setpoint_definitions = {
                 "tags": [TAG.Point, TAG.Setpoint, TAG.Illuminance]
             },
             "Enthalpy_Setpoint": {
-                BRICK.hasQuantity: BRICK.Enthalpy,
+                BRICK.hasQuantity: QUDTQK.Enthalpy,
                 "tags": [TAG.Point, TAG.Setpoint, TAG.Enthalpy],
             },
             "Dewpoint_Setpoint": {
