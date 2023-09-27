@@ -173,4 +173,9 @@ collection_classes = {
         "aliases": [BRICK["PV_Array"]],
         "constraints": {BRICK.hasPart: [BRICK.PV_Panel]},
     },
+    "Electric_Vehicle_Charging_Hub": {
+        "tags": [TAG.Collection, TAG.Electric, TAG.Vehicle, TAG.Charging, TAG.Hub],
+        "aliases": [BRICK["EV_Charging_Hub"]],
+        "constraints": {BRICK.hasPart: [BRICK.Electric_Vehicle_Charger]},
+    },
 }
