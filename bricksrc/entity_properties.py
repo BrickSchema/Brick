@@ -348,19 +348,28 @@ entity_properties = {
         RDFS.label: Literal("is virtual meter"),
     },
     BRICK.electricVehicleChargerType: {
-        SKOS.definition: Literal("Which type of EVSE charger this is, e.g. Level 1 (up to up to 2.5kW of AC power on 1 phase 120V input), Level 2 (direct AC power but can use higher voltage and up to 3 phases), or Level 3 (direct DC power)"),
+        SKOS.definition: Literal(
+            "Which type of EVSE charger this is, e.g. Level 1 (up to up to 2.5kW of AC power on 1 phase 120V input), Level 2 (direct AC power but can use higher voltage and up to 3 phases), or Level 3 (direct DC power)"
+        ),
         "property_of": BRICK.Electric_Vehicle_Charging_Station,
         RDFS.label: Literal("has electric vehicle charger type"),
         SH.node: BSH.ElectricVehicleChargingTypeShape,
     },
     BRICK.electricVehicleChargerDirectionality: {
-        SKOS.definition: Literal("Indicates if the EVSE charger supports bidirectional charging or just unidirectional charging of the EV battery"),
-        "property_of": BRICK.Electric_Vehicle_Charging_Station,
+        SKOS.definition: Literal(
+            "Indicates if the EVSE charger supports bidirectional charging or just unidirectional charging of the EV battery"
+        ),
+        "property_of": [
+            BRICK.Electric_Vehicle_Charging_Station,
+            BRICK.Electric_Vehicle_Charging_Port,
+        ],
         RDFS.label: Literal("has electric vehicle charger directionality"),
         SH.node: BSH.ElectricVehicleChargingDirectionalityShape,
     },
     BRICK.electricVehicleConnectorType: {
-        SKOS.definition: Literal("Identifies which kind of connector the port has. This property helps identify the physical connection required between the vehicle and the charging equipment."),
+        SKOS.definition: Literal(
+            "Identifies which kind of connector the port has. This property helps identify the physical connection required between the vehicle and the charging equipment."
+        ),
         "property_of": BRICK.Electric_Vehicle_Charging_Port,
         RDFS.label: Literal("has electric vehicle connector type"),
         SH.node: BSH.ElectricVehicleConnectorTypeShape,
@@ -558,7 +567,17 @@ shape_properties = {
         "values": ["unidirectional", "bidirectional"]
     },
     BRICK.ElectricVehicleConnectorTypeShape: {
-        "values": ["Type 1 (CSS)", "Type 2 (CSS)", "GB/T", "Type 1 (SAE J1772)", "Type 2 (IEC 62196)", "CHAdeMO", "CCS (Combined Charging System)", "Tesla Supercharger", "Wireless"]
+        "values": [
+            "Type 1 (CSS)",
+            "Type 2 (CSS)",
+            "GB/T",
+            "Type 1 (SAE J1772)",
+            "Type 2 (IEC 62196)",
+            "CHAdeMO",
+            "CCS (Combined Charging System)",
+            "Tesla Supercharger",
+            "Wireless",
+        ]
     },
 }
 

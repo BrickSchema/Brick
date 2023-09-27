@@ -389,6 +389,8 @@ bsh:hasSubstance a sh:NodeShape ;
 
 
 # add unidirectional charging to all EVsE chargers as a default value
+# UNLESS there is already a brick:electricVehicleChargerDirectionality attribute
+# on ports associated with the charger
 bsh:AddDefaultEVSEChargerDirection a sh:NodeShape ;
     sh:targetClass brick:Electric_Vehicle_Charging_Station ;
     sh:rule [
@@ -399,8 +401,17 @@ bsh:AddDefaultEVSEChargerDirection a sh:NodeShape ;
             $this brick:electricVehicleChargerDirectionality [ brick:value "unidirectional" ]
         } WHERE {
             $this rdf:type brick:Electric_Vehicle_Charging_Station .
-            FILTER NOT EXISTS {$this brick:electricVehicleChargerDirectionality ?direction}
+            FILTER NOT EXISTS {
+                $this brick:electricVehicleChargerDirectionality ?direction .
+            }
+            FILTER NOT EXISTS {
+                $this brick:hasPart ?port .
+                ?port a brick:Electric_Vehicle_Charging_Port .
+                ?port brick:electricVehicleChargerDirectionality ?other_direction .
+            }
         }
         """ ;
     ] ;
 .
+
+# inherit
