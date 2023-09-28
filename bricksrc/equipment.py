@@ -607,6 +607,11 @@ hvac_subclasses = {
             "Return_Damper": {"tags": [TAG.Equipment, TAG.Damper, TAG.Return]},
             "Mixed_Damper": {"tags": [TAG.Equipment, TAG.Damper, TAG.Mixed]},
             "Relief_Damper": {"tags": [TAG.Equipment, TAG.Damper, TAG.Relief]},
+            "Zone_Damper": {
+                "tags": [TAG.Equipment, TAG.Damper, TAG.Zone, TAG.Terminal, TAG.Unit],
+                "parents": [BRICK["Terminal_Unit"]]
+            },
+            "Bypass_Damper": {"tags": [TAG.Equipment, TAG.Damper, TAG.Bypass]},
         },
     },
     "Condenser": {"tags": [TAG.Equipment, TAG.Condenser]},
