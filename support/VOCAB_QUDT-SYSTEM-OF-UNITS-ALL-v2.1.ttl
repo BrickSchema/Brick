@@ -20,7 +20,7 @@
 <http://qudt.org/2.1/vocab/sou>
   a owl:Ontology ;
   vaem:hasGraphMetadata vaem:GMD_QUDT-SOU ;
-  rdfs:label "QUDT VOCAB Systems of Units Release 2.1.30" ;
+  rdfs:label "QUDT VOCAB Systems of Units Release 2.1.32" ;
   owl:imports <http://qudt.org/2.1/schema/facade/qudt> ;
   owl:versionInfo "Created with TopBraid Composer" ;
 .
@@ -135,6 +135,7 @@ sou:SI
   qudt:prefix prefix:Centi ;
   qudt:prefix prefix:Deca ;
   qudt:prefix prefix:Deci ;
+  qudt:prefix prefix:Deka ;
   qudt:prefix prefix:Exa ;
   qudt:prefix prefix:Femto ;
   qudt:prefix prefix:Giga ;
@@ -146,6 +147,10 @@ sou:SI
   qudt:prefix prefix:Nano ;
   qudt:prefix prefix:Peta ;
   qudt:prefix prefix:Pico ;
+  qudt:prefix prefix:Quecto ;
+  qudt:prefix prefix:Quetta ;
+  qudt:prefix prefix:Ronna ;
+  qudt:prefix prefix:Ronto ;
   qudt:prefix prefix:Tera ;
   qudt:prefix prefix:Yocto ;
   qudt:prefix prefix:Yotta ;
@@ -229,29 +234,29 @@ vaem:GMD_QUDT-SOU
   dcterms:contributor "Steve Ray" ;
   dcterms:created "2016-07-04"^^xsd:date ;
   dcterms:creator "Ralph Hodgson" ;
-  dcterms:description "QUDT Systems of Units Vocabulary Version 2.1.30"^^rdf:HTML ;
-  dcterms:modified "2023-08-28T13:12:50.805-04:00"^^xsd:dateTime ;
+  dcterms:description "QUDT Systems of Units Vocabulary Version 2.1.32"^^rdf:HTML ;
+  dcterms:modified "2023-10-19T12:30:31.152-04:00"^^xsd:dateTime ;
   dcterms:rights "The QUDT Ontologies are issued under a Creative Commons Attribution 4.0 International License (CC BY 4.0), available at https://creativecommons.org/licenses/by/4.0/. Attribution should be made to QUDT.org" ;
   dcterms:subject "Systems of Units" ;
   dcterms:title "QUDT Systems of Units Version 2.1 Vocabulary" ;
-  vaem:graphTitle "QUDT Systems of Units Version 2.1.30" ;
+  vaem:graphTitle "QUDT Systems of Units Version 2.1.32" ;
   vaem:hasGraphRole vaem:VocabularyGraph ;
   vaem:hasOwner vaem:QUDT ;
   vaem:hasSteward vaem:QUDT ;
   vaem:intent "The intent of this graph is the specification of all Systems of Units" ;
   vaem:isMetadataFor <http://qudt.org/2.1/vocab/sou> ;
-  vaem:latestPublishedVersion "https://qudt.org/doc/2023/08/DOC_VOCAB-SYSTEMS-OF-UNITS-v2.1.html"^^xsd:anyURI ;
+  vaem:latestPublishedVersion "https://qudt.org/doc/2023/10/DOC_VOCAB-SYSTEMS-OF-UNITS-v2.1.html"^^xsd:anyURI ;
   vaem:logo "https://qudt.org/linkedmodels.org/assets/lib/lm/images/logos/qudt_logo-300x110.png"^^xsd:anyURI ;
   vaem:name "sou" ;
-  vaem:namespace "http://qudt.org/vocab/sou/" ;
+  vaem:namespace "http://qudt.org/vocab/sou/"^^xsd:anyURI ;
   vaem:namespacePrefix "sou" ;
   vaem:owner "qudt.org" ;
-  vaem:previousPublishedVersion "https://qudt.org/doc/2023/07/DOC_VOCAB-SYSTEMS-OF-UNITS-v2.1.html"^^xsd:anyURI ;
+  vaem:previousPublishedVersion "https://qudt.org/doc/2023/09/DOC_VOCAB-SYSTEMS-OF-UNITS-v2.1.html"^^xsd:anyURI ;
   vaem:revision "2.1" ;
   vaem:turtleFileURL "http://qudt.org/2.1/vocab/sou"^^xsd:anyURI ;
   vaem:usesNonImportedResource prov:wasInfluencedBy ;
   vaem:usesNonImportedResource prov:wasInformedBy ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/sou> ;
-  rdfs:label "QUDT System of Units Vocabulary Metadata Version v2.1.30" ;
+  rdfs:label "QUDT System of Units Vocabulary Metadata Version v2.1.32" ;
   owl:versionIRI <http://qudt.org/2.1/vocab/sou> ;
 .
