@@ -1,5 +1,6 @@
 # baseURI: http://qudt.org/2.1/vocab/sou
 # imports: http://qudt.org/2.1/schema/facade/qudt
+# imports: http://qudt.org/2.1/vocab/prefix
 
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
@@ -22,6 +23,7 @@
   vaem:hasGraphMetadata vaem:GMD_QUDT-SOU ;
   rdfs:label "QUDT VOCAB Systems of Units Release 2.1.32" ;
   owl:imports <http://qudt.org/2.1/schema/facade/qudt> ;
+  owl:imports <http://qudt.org/2.1/vocab/prefix> ;
   owl:versionInfo "Created with TopBraid Composer" ;
 .
 sou:ASU
