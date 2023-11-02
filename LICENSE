@@ -1,4 +1,4 @@
-Copyright (c) 2016, Brick Development Team
+Copyright (c) 2016-2023, Brick Consortium, Inc.
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
@@ -28,12 +28,3 @@ DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
 THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-
-About the Copyright Holders
-===========================
-Brick Development Team was initiated to produce a unified metadata
-schema for resources in buildings in early 2016. The team consists
-of members from IBM; Carnegie Mellon University; University of
-California, Berkeley; University of California, Los Angeles;
-University of California, San Diego; University of Virginia and
-University of Southern Denmark.
