@@ -302,6 +302,7 @@ equipment_subclasses = {
 Define classes of HVAC equipment
 """
 hvac_subclasses = {
+    "Branch_Selector": {"tags": [TAG.Equipment, TAG.HVAC, TAG.Branch, TAG.Selector]},
     "Dry_Cooler": {"tags": [TAG.Equipment, TAG.HVAC, TAG.Dry, TAG.Cooler]},
     "HVAC_Valve": {
         "tags": [TAG.HVAC, TAG.Valve, TAG.Equipment],
@@ -321,6 +322,12 @@ hvac_subclasses = {
             "Fan_Coil_Unit": {
                 "tags": [TAG.Equipment, TAG.Fan, TAG.Coil, TAG.Unit, TAG.FCU],
                 "aliases": [BRICK["FCU"]],
+                "subclasses": {
+                    "Cassette_Fan_Coil_Unit": {"tags": [TAG.Equipment, TAG.Fan, TAG.Coil, TAG.Unit, TAG.FCU, TAG.Cassette, TAG.Ceiling]},
+                    "Duct_Fan_Coil_Unit": {"tags": [TAG.Equipment, TAG.Fan, TAG.Coil, TAG.Unit, TAG.FCU, TAG.Duct]},
+                    "Floor_Fan_Coil_Unit": {"tags": [TAG.Equipment, TAG.Fan, TAG.Coil, TAG.Unit, TAG.FCU, TAG.Floor]},
+                    "Wall_Fan_Coil_Unit": {"tags": [TAG.Equipment, TAG.Fan, TAG.Coil, TAG.Unit, TAG.FCU, TAG.Wall, TAG.Mounted]},
+                }
             },
             "Variable_Air_Volume_Box": {
                 "tags": [TAG.Equipment, TAG.Variable, TAG.Volume, TAG.Box, TAG.VAV],
@@ -558,6 +565,42 @@ hvac_subclasses = {
             },
         },
     },
+    "Heat_Pump": {
+        "tags": [
+            TAG.Equipment,
+            TAG.Heat,
+            TAG.Pump,
+        ],
+        "subclasses": {
+            "Air_Source_Heat_Pump": {
+                "tags": [
+                    TAG.Equipment,
+                    TAG.Air,
+                    TAG.Source,
+                    TAG.Heat,
+                    TAG.Pump,
+                ],
+            },
+            "Water_Source_Heat_Pump": {
+                "tags": [
+                    TAG.Equipment,
+                    TAG.Water,
+                    TAG.Source,
+                    TAG.Heat,
+                    TAG.Pump,
+                ],
+            },
+            "Ground_Source_Heat_Pump": {
+                "tags": [
+                    TAG.Equipment,
+                    TAG.Ground,
+                    TAG.Source,
+                    TAG.Heat,
+                    TAG.Pump,
+                ],
+            }
+        }
+    },
     "Fume_Hood": {"tags": [TAG.Equipment, TAG.Fume, TAG.Hood]},
     "Filter": {
         "tags": [TAG.Equipment, TAG.Filter],
@@ -609,7 +652,14 @@ hvac_subclasses = {
             "Relief_Damper": {"tags": [TAG.Equipment, TAG.Damper, TAG.Relief]},
         },
     },
-    "Condensing_Unit": {"tags": [TAG.Equipment, TAG.Condenser, TAG.Condensing, TAG.Unit]},
+    "Condensing_Unit": {
+        "tags": [TAG.Equipment, TAG.Condenser, TAG.Condensing, TAG.Unit],
+        "subclasses": {
+            "Cooling_Only_Condensing_Unit": {"tags": [TAG.Equipment, TAG.Condenser, TAG.Condensing, TAG.Unit, TAG.Cooling]},
+            "Heat_Pump_Condensing_Unit": {"tags": [TAG.Equipment, TAG.Condenser, TAG.Condensing, TAG.Unit, TAG.Cooling, TAG.Heating]},
+            "Heat_Recovery_Condensing_Unit": {"tags": [TAG.Equipment, TAG.Condenser, TAG.Condensing, TAG.Unit, TAG.Cooling, TAG.Heating, TAG.Recovery]},
+        }
+    },
     "Computer_Room_Air_Conditioning": {
         "tags": [TAG.Equipment, TAG.Computer, TAG.Room, TAG.Air, TAG.Conditioning, TAG.CRAC],
         "aliases": [BRICK["CRAC"]],
@@ -631,6 +681,22 @@ hvac_subclasses = {
             },
             "Centrifugal_Chiller": {
                 "tags": [TAG.Equipment, TAG.Chiller, TAG.Centrifugal],
+            },
+            "Water_Cooled_Chiller": {
+                "tags": [
+                    TAG.Equipment,
+                    TAG.Water,
+                    TAG.Cooled,
+                    TAG.Chiller,
+                ],
+            },
+            "Air_Cooled_Chiller": {
+                "tags": [
+                    TAG.Equipment,
+                    TAG.Water,
+                    TAG.Cooled,
+                    TAG.Chiller,
+                ],
             },
         },
     },
@@ -814,6 +880,12 @@ valve_subclasses = {
                 },
             },
             "Gas_Valve": {"tags": [TAG.Gas, TAG.Valve, TAG.Equipment]},
+            "Refrigerant_Valve": {
+                "tags": [TAG.Refrigerant, TAG.Valve, TAG.Gas, TAG.Liquid],
+                "subclasses": {
+                    "Reversing_Valve": {"tags": [TAG.Refrigerant, TAG.Valve, TAG.Gas, TAG.Liquid, TAG.Reversing]}
+                }
+            }
         },
     }
 }
