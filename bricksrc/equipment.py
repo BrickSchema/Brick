@@ -609,7 +609,7 @@ hvac_subclasses = {
             "Relief_Damper": {"tags": [TAG.Equipment, TAG.Damper, TAG.Relief]},
         },
     },
-    "Condenser": {"tags": [TAG.Equipment, TAG.Condenser]},
+    "Condensing_Unit": {"tags": [TAG.Equipment, TAG.Condenser, TAG.Condensing, TAG.Unit]},
     "Computer_Room_Air_Conditioning": {
         "tags": [TAG.Equipment, TAG.Computer, TAG.Room, TAG.Air, TAG.Conditioning, TAG.CRAC],
         "aliases": [BRICK["CRAC"]],
