@@ -79,7 +79,7 @@ entity_properties = {
     # electrical properties
     BRICK.electricalComplexPower: {
         SKOS.definition: Literal("Associated electrical complexity with the entity"),
-        RDFS.range: BSH.ElectricalComplexPowerShape,
+        SH.node: BSH.ElectricalComplexPowerShape,
         RDFS.label: Literal("electrical complex power type"),
         "property_of": [BRICK.Equipment, BRICK.Point],
     },
@@ -87,7 +87,7 @@ entity_properties = {
         SKOS.definition: Literal(
             "Entity has this electrical flow relative to the building'"
         ),
-        RDFS.range: BSH.ElectricalFlowShape,
+        SH.node: BSH.ElectricalFlowShape,
         RDFS.label: Literal("Electrical flow direction"),
         "property_of": [BRICK.Equipment, BRICK.Point],
     },
