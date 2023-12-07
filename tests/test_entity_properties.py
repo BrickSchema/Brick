@@ -1,12 +1,12 @@
 from rdflib import Namespace, Literal
 from brickschema.namespaces import BRICK, A, REF, XSD
-import brickschema
+import os
+
+EX = Namespace("urn:ex#")
 
 
-def test_entity_property_validation():
-    g = brickschema.Graph()
-    EX = Namespace("urn:ex#")
-    g.load_file("Brick.ttl")
+def test_entity_property_validation(brick_with_imports):
+    g = brick_with_imports
 
     # test success
     g.add((EX["bldg"], A, BRICK.Building))
@@ -22,10 +22,10 @@ def test_entity_property_validation():
     valid, _, report = g.validate()
     assert valid, report
 
-    # test failure
-    g = brickschema.Graph()
-    g.load_file("Brick.ttl")
 
+def test_entity_property_validation_failure(brick_with_imports):
+    # test failure
+    g = brick_with_imports
     g.add((EX["bldg"], A, BRICK.Building))
     g.add(
         (
@@ -36,16 +36,14 @@ def test_entity_property_validation():
     )
 
     g.expand("shacl")
-    valid, _, report = g.validate()
+    valid, _, _ = g.validate()
     assert not valid, "'AquariumFail' should have thrown a validation error"
 
 
-def test_entity_property_type_inference():
-    g = brickschema.Graph()
-    EX = Namespace("urn:ex#")
+def test_entity_property_type_inference(brick_with_imports):
+    g = brick_with_imports
     REF = Namespace("https://brickschema.org/schema/Brick/ref#")
     BACNET = Namespace("http://data.ashrae.org/bacnet/2020#")
-    g.load_file("Brick.ttl")
     g.add(
         (
             EX["point"],
@@ -60,18 +58,18 @@ def test_entity_property_type_inference():
     valid, _, report = g.validate()
     assert valid, report
     g.expand("shacl")
-    g.serialize("/tmp/test.ttl", format="ttl")
+    g.serialize("test.ttl", format="ttl")
 
     res = g.query(
         "SELECT ?ref WHERE { ?point ref:hasExternalReference ?ref . ?ref a ref:BACnetReference }"
     )
     assert len(res) == 1
+    os.remove("test.ttl")
 
 
-def test_last_known_value():
-    g = brickschema.Graph()
+def test_last_known_value(brick_with_imports):
+    g = brick_with_imports
     EX = Namespace("urn:ex#")
-    g.load_file("Brick.ttl")
     g.add(
         (
             EX["point"],
@@ -104,10 +102,8 @@ def test_last_known_value():
     assert not valid, report
 
 
-def test_external_reference_rules():
-    g = brickschema.Graph()
-    EX = Namespace("urn:ex#")
-    g.load_file("Brick.ttl")
+def test_external_reference_rules(brick_with_imports):
+    g = brick_with_imports
     g.add((EX["p1"], A, BRICK.Point))
     g.add(
         (

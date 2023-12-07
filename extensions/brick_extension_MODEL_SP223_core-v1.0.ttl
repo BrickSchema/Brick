@@ -1,0 +1,916 @@
+# baseURI: http://data.ashrae.org/standard223/1.0/model/core
+# imports: http://data.ashrae.org/standard223/1.0/model/all
+
+@prefix afn: <http://jena.hpl.hp.com/ARQ/function#> .
+@prefix all: <http://data.ashrae.org/standard223/model/all#> .
+@prefix arg: <http://spinrdf.org/arg#> .
+@prefix bacnet: <http://data.ashrae.org/bacnet/2020#> .
+@prefix constant: <http://qudt.org/vocab/constant/> .
+@prefix creativecommons: <http://creativecommons.org/ns#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix domain: <http://data.ashrae.org/standard223/1.0/vocab/domain#> .
+@prefix dtype: <http://www.linkedmodel.org/schema/dtype#> .
+@prefix fn: <http://www.w3.org/2005/xpath-functions#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix functions: <http://qudt.org/2.1/schema/extensions/functions#> .
+@prefix graphql: <http://datashapes.org/graphql#> .
+@prefix imports: <http://qudt.org/2.1/schema/extensions/imports#> .
+@prefix mc: <http://www.linkedmodel.org/owl/schema/core#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prefix: <http://qudt.org/2.1/vocab/prefix/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix qkdv: <http://qudt.org/vocab/dimensionvector/> .
+@prefix quantitykind: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudt.type: <http://qudt.org/vocab/type/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ref: <https://brickschema.org/schema/Brick/ref#> .
+@prefix role: <http://data.ashrae.org/standard223/1.0/vocab/role#> .
+@prefix s223: <http://data.ashrae.org/standard223#> .
+@prefix schema: <http://schema.org/> .
+@prefix sdo: <http://schema.org#> .
+@prefix settings: <http://data.ashrae.org/standard223/extensions/settings#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix shacl: <http://data.ashrae.org/standard223/1.0/extension/function/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sou: <http://qudt.org/vocab/sou/> .
+@prefix sp: <http://spinrdf.org/sp#> .
+@prefix spif: <http://spinrdf.org/spif#> .
+@prefix spin: <http://spinrdf.org/spin#> .
+@prefix spl: <http://spinrdf.org/spl#> .
+@prefix swa: <http://topbraid.org/swa#> .
+@prefix tag: <https://brickschema.org/schema/BrickTag#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix tosh: <http://topbraid.org/tosh#> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix vaem: <http://www.linkedmodel.org/schema/vaem#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix voag: <http://voag.linkedmodel.org/schema/voag#> .
+@prefix vs223: <http://data.ashrae.org/standard223/validation/schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+bacnet:device-identifier
+  a rdf:Property ;
+  rdfs:comment "The Object_Identifier property of the device object within the BACnet device.  See ASHRAE 135-2020 Clause 12.11.1." ;
+  rdfs:label "Device Identifier" ;
+.
+bacnet:device-name
+  a rdf:Property ;
+  rdfs:comment "The name of the BACnet device being referenced, more formally the Object_Name property of the device object within the BACnet device.  See ASHRAE 135-2020 Clause 12.11.2." ;
+  rdfs:label "Device Name" ;
+.
+bacnet:object-identifier
+  a rdf:Property ;
+  rdfs:comment "The Object_Identifier property of the object being referenced.  For example, for the object identifier of an Analog Value Object, see ASHRAE 135-2020 Clause 12.4.1." ;
+  rdfs:label "Object Identifier" ;
+.
+bacnet:object-name
+  a rdf:Property ;
+  rdfs:comment "The Object_Name property of the object being referenced.  For example, for the object name of an Analog Value Object, see ASHRAE 135-2020 Clause 12.4.2." ;
+  rdfs:label "Object Name" ;
+.
+bacnet:priority-for-writing
+  a rdf:Property ;
+  rdfs:comment """This parameter shall be an integer in the range 1..16, which indicates the priority assigned to the WriteProperty service. If an attempt
+is made to write to a commandable property without specifying the bacnet:priority-for-writing, a default priority of 16 (the lowest priority) shall
+be assumed. If an attempt is made to write to a property that is not commandable with a specified priority, the priority shall be
+ignored.  See ASHRAE 135-2020 Clause 15.9.1.1.5.""" ;
+  rdfs:label "Priority for Writing" ;
+.
+bacnet:property-array-index
+  a rdf:Property ;
+  rdfs:comment """If the property identified is of datatype array, this optional property of type Unsigned shall indicate the array index of
+the element of the property referenced by the ReadProperty service or the Read Access Specification of the ReadPropertyMultiple service. If the bacnet:property-array-index is omitted, this shall mean that the entire
+array shall be referenced.  See ASHRAE 135-2020 Clause 15.5.1.1.3 and Clause 15.7.1.1.1.""" ;
+  rdfs:label "Property Array Index" ;
+.
+bacnet:property-identifier
+  a rdf:Property ;
+  rdfs:comment "The Object_Identifier property of the object being referenced.  For example, for the object identifier of an Analog Value Object, see ASHRAE 135-2020 Clause 12.4.1." ;
+  rdfs:label "Property Identifier" ;
+.
+s223:ActuatableProperty
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "This class describes non-numeric properties of which real-time value can be modified by a user or a machine outside of the model." ;
+  rdfs:label "Actuatable Property" ;
+  rdfs:subClassOf s223:Property ;
+.
+s223:BACnetExternalReference
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "BACnetExternalReference is a subclass of ExternalReference that contains BACnet protocol parameter values necessary to associate a property with a value." ;
+  rdfs:label "BACnetExternalReference" ;
+  rdfs:subClassOf s223:ExternalReference ;
+.
+s223:BidirectionalConnectionPoint
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "A BidirectionalConnectionPoint is a predefined subclass of ConnectionPoint. Using a BidirectionalConnectionPoint implies that the flow direction is not fixed in one direction. It depends on the status of some other part of the system, such as a valve position, that is expected to change during operation (see `s223:Direction-Bidirectional`) or to model energy transfer occurring without specific flow direction." ;
+  rdfs:label "Bidirectional Connection Point" ;
+  rdfs:subClassOf s223:ConnectionPoint ;
+.
+s223:Class
+  a rdfs:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "This is a modeling construct. All classes defined in the 223 standard are instances of s223:Class rather than owl:Class." ;
+  rdfs:label "Class" ;
+  rdfs:subClassOf rdfs:Class ;
+.
+s223:Concept
+  a s223:Class ;
+  a sh:NodeShape ;
+  s223:abstract true ;
+  rdfs:comment "All classes defined in the 223 standard are subclasses of s223:Concept." ;
+  rdfs:label "Concept" ;
+  rdfs:subClassOf rdfs:Resource ;
+  sh:property [
+      sh:path s223:hasProperty ;
+      rdfs:comment "If the relation hasProperty is present, it must associate the concept with a Property." ;
+    ] ;
+  sh:property [
+      sh:path rdfs:label ;
+      rdfs:comment "A Concept must be associated with at least one label using the relation label" ;
+      sh:minCount 1 ;
+    ] ;
+.
+s223:Connectable
+  a s223:Class ;
+  a sh:NodeShape ;
+  s223:abstract true ;
+  rdfs:comment "Connectable is an abstract class representing a thing (Equipment or DomainSpace) that can be connected via ConnectionPoints and Connections.![Graphical Representation of a Connectable](figures/Figure_5-2_Graphical_Depiciton_of_Connection_Points.svg) " ;
+  rdfs:label "Connectable" ;
+  rdfs:subClassOf s223:Concept ;
+  sh:property [
+      sh:path s223:connected ;
+      rdfs:comment "If the relation connected is present it must associate the Connectable with a Connectable." ;
+      sh:class s223:Connectable ;
+      sh:name "SymmetricConnectableToConnectableShape" ;
+    ] ;
+  sh:property [
+      sh:path s223:connectedFrom ;
+      rdfs:comment "If the relation connectedFrom is present it must associate the Connectable with a Connectable." ;
+      sh:class s223:Connectable ;
+    ] ;
+  sh:property [
+      sh:path s223:connectedThrough ;
+      rdfs:comment "If the relation connectedThrough is present it must associate the Connectable with a Connection." ;
+      sh:class s223:Connection ;
+      sh:name "EquipmentToConnectionShape" ;
+    ] ;
+  sh:property [
+      sh:path s223:connectedTo ;
+      rdfs:comment "If the relation connectedTo is present it must associate the Connectable with a Connectable." ;
+      sh:class s223:Connectable ;
+      sh:name "ConnectableToConnectableShape" ;
+    ] ;
+  sh:property [
+      sh:path s223:hasConnectionPoint ;
+      rdfs:comment "If the relation hasConnectionPoint is present it must associate the Connectable with a ConnectionPoint." ;
+      sh:class s223:ConnectionPoint ;
+      sh:name "EquipmentToConnectionPointShape" ;
+    ] ;
+  sh:property [
+      sh:path s223:cnx ;
+      rdfs:comment "If the relation cnx is present it must associate the Connectable with a ConnectionPoint." ;
+      sh:class s223:ConnectionPoint ;
+    ] ;
+.
+s223:Connection
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment """A Connection is the modeling construct used to represent a physical thing (e.g., pipe, duct, or wire) that is used to convey some Medium (e.g., water, air, or electricity) between two connectable things. All Connections have two or more ConnectionPoints bound to either Equipment (see `s223:Equipment`) or DomainSpace (see `s223:DomainSpace`). If the direction of flow is constrained, that constraint is indicated by using one or more InletConnectionPoints (see `s223:InletConnectionPoint`) to represent the inflow points and OutletConnectionPoints (see `s223:OutletConnectionPoint`) to represent the outflow points.
+
+A Connection may contain branches or intersections. These may be modeled using Junctions if it is necessary to identify a specific intersection. (see `s223:Junction`).
+""" ;
+  rdfs:label "Connection" ;
+  rdfs:subClassOf s223:Concept ;
+  sh:property [
+      sh:path s223:cnx ;
+      rdfs:comment "A Connection must have two or more cnx relations to ConnectionPoints" ;
+      sh:class s223:ConnectionPoint ;
+      sh:message "A Connection must have two or more cnx relations to ConnectionPoints" ;
+      sh:minCount 2 ;
+      sh:severity sh:Info ;
+    ] ;
+  sh:property [
+      sh:path s223:connectsAt ;
+      rdfs:comment "If the relation connectsAt is present it must associate the Connection with a ConnectionPoint." ;
+      sh:class s223:ConnectionPoint ;
+    ] ;
+  sh:property [
+      sh:path s223:connectsFrom ;
+      rdfs:comment "If the relation connectsFrom is present it must associate the Connection with a Connectable." ;
+      sh:class s223:Connectable ;
+      sh:name "ConnectionToUpstreamConnectableShape" ;
+    ] ;
+  sh:property [
+      sh:path s223:connectsTo ;
+      rdfs:comment "If the relation connectsTo is present it must associate the Connection with a Connectable." ;
+      sh:class s223:Connectable ;
+      sh:name "ConnectionToDownstreamConnectableShape" ;
+    ] ;
+  sh:property [
+      sh:path s223:hasMedium ;
+      rdfs:comment "A Connection must be associated with exactly one EnumerationKind-Medium using the relation hasMedium." ;
+      sh:class s223:EnumerationKind-Medium ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:name "Connection medium" ;
+    ] ;
+  sh:property [
+      sh:path s223:hasPhase ;
+      rdfs:comment "A Connection can be associated with an EnumerationKind-Phase using the relation hasPhase." ;
+      sh:class s223:EnumerationKind-Phase ;
+      sh:maxCount 1 ;
+    ] ;
+  sh:property [
+      sh:path s223:hasRole ;
+      rdfs:comment "If the relation hasRole is present it must associate the Connection with an EnumerationKind-Role." ;
+      sh:class s223:EnumerationKind-Role ;
+    ] ;
+.
+s223:ConnectionPoint
+  a s223:Class ;
+  a sh:NodeShape ;
+  s223:abstract true ;
+  rdfs:comment """
+A ConnectionPoint is an abstract modeling construct used to represent the fact that one connectable thing can be connected to another connectable thing using a Connection. It is the abstract representation of the flange, wire terminal, or other physical feature where a connection is made. Equipment and DomainSpaces can have one or more ConnectionPoints (see `s223:Connectable` and `s223:Connection`).
+
+A ConnectionPoint must constrained to relate to a specific medium such as air, water, or electricity which determines what other things can be connected to it. For example, constraining a ConnectionPoint to be for air means it cannot be used for an electrical connection.
+
+A ConnectionPoint belongs to exactly one connectable thing.
+
+ConnectionPoints are represented graphically in this standard by a triangle with the point indicating a direction of flow, or a diamond in the case of a bidirectional connection as shown in Figure 5-2.
+
+![Graphical Representation of a ConnectionPoint.](figures/Figure_5-2_Graphical_Depiciton_of_Connection_Points.svg)
+
+ """ ;
+  rdfs:label "ConnectionPoint" ;
+  rdfs:subClassOf s223:Concept ;
+  sh:property [
+      rdfs:comment "A ConnectionPoint must be associated with at most one Connectable using the cnx relation." ;
+      sh:path s223:cnx ;
+      sh:message "A ConnectionPoint must be associated with at most one Connectable using the cnx relation." ;
+      sh:qualifiedMaxCount 1 ;
+      sh:qualifiedValueShape [
+          sh:class s223:Connectable ;
+        ] ;
+      sh:qualifiedValueShapesDisjoint true ;
+    ] ;
+  sh:property [
+      rdfs:comment "A ConnectionPoint must be associated with at most one Connection using the cnx relation" ;
+      sh:path s223:cnx ;
+      sh:message "A ConnectionPoint must be associated with at most one Connection using the cnx relation" ;
+      sh:qualifiedMaxCount 1 ;
+      sh:qualifiedValueShape [
+          sh:class s223:Connection ;
+        ] ;
+      sh:qualifiedValueShapesDisjoint true ;
+    ] ;
+  sh:property [
+      sh:path s223:connectsThrough ;
+      rdfs:comment "A ConnectionPoint must be associated with exactly one Connection using the relation connectsThrough." ;
+      sh:class s223:Connection ;
+      sh:maxCount 1 ;
+      sh:message "This ConnectionPoint must be associated with exactly one Connection." ;
+      sh:minCount 1 ;
+      sh:name "ConnectionPointToConnectionShape" ;
+      sh:severity sh:Info ;
+    ] ;
+  sh:property [
+      sh:path s223:hasMedium ;
+      rdfs:comment "A ConnectionPoint must be associated with exactly one EnumerationKind-Medium using the relation hasMedium." ;
+      sh:class s223:EnumerationKind-Medium ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:name "ConnectionPoint medium" ;
+    ] ;
+  sh:property [
+      sh:path s223:hasRole ;
+      rdfs:comment "If the relation hasRole is present it must associate the ConnectionPoint with an EnumerationKind-Role." ;
+      sh:class s223:EnumerationKind-Role ;
+    ] ;
+  sh:property [
+      sh:path s223:isConnectionPointOf ;
+      rdfs:comment "A ConnectionPoint must be associated with exactly one Connectable using the relation isConnectionPointOf." ;
+      sh:class s223:Connectable ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:name "ConnectionPointToEquipmentShape" ;
+    ] ;
+  sh:property [
+      sh:path s223:mapsTo ;
+      rdfs:comment "A ConnectionPoint can be associated with at most one other ConnectionPoint using the relation mapsTo" ;
+      sh:class s223:ConnectionPoint ;
+      sh:maxCount 1 ;
+    ] ;
+.
+s223:DomainSpace
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "A DomainSpace is a member (or component) of a Zone and is associated with a Domain such as Lighting, HVAC, PhysicalSecurity, etc. Physical spaces enclose Domain spaces." ;
+  rdfs:label "Domain Space" ;
+  rdfs:subClassOf s223:Connectable ;
+  sh:property [
+      sh:path s223:hasDomain ;
+      rdfs:comment "A DomainSpace must be associated with exactly one EnumerationKind-Domain using the relation hasDomain." ;
+      sh:class s223:EnumerationKind-Domain ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+    ] ;
+.
+s223:Duct
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "A Duct is a subclass of Connection, that represents a conduit through which air is conveyed." ;
+  rdfs:label "Duct" ;
+  rdfs:subClassOf s223:Connection ;
+.
+s223:ElectricWire
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "An ElectricWire is a subclass of Connection, that represents one or more electrical conductors used to convey electricity." ;
+  rdfs:label "Electric wire" ;
+  rdfs:subClassOf s223:Connection ;
+  sh:property [
+      sh:path s223:hasMedium ;
+      rdfs:comment "An ElectricWire must be associated with exactly one Medium-Electricity using the relation hasMedium." ;
+      sh:class s223:Medium-Electricity ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+    ] ;
+.
+s223:EnumerableProperty
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "An EnumerableProperty is a property with an enumerated (fixed) set of possible values." ;
+  rdfs:label "Enumerable Property" ;
+  rdfs:subClassOf s223:Property ;
+  sh:property [
+      sh:path s223:hasEnumerationKind ;
+      rdfs:comment "An EnumerableProperty must be associated with exactly one EnumerationKind using the relation hasEnumerationKind." ;
+      sh:class s223:EnumerationKind ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+    ] ;
+.
+s223:EnumeratedActuatableProperty
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "An EnumeratedActuatableProperty is a property with an enumerated (fixed) set of possible values that can be changed (actuated)" ;
+  rdfs:label "Enumerated actuatable property" ;
+  rdfs:subClassOf s223:ActuatableProperty ;
+  rdfs:subClassOf s223:EnumerableProperty ;
+.
+s223:EnumeratedObservableProperty
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "An EnumeratedActuatableProperty is a property with an enumerated (fixed) set of possible values that can only be observed (not changed)" ;
+  rdfs:label "Enumerated observable property" ;
+  rdfs:subClassOf s223:EnumerableProperty ;
+  rdfs:subClassOf s223:ObservableProperty ;
+.
+s223:ExternalReference
+  a s223:Class ;
+  a sh:NodeShape ;
+  s223:abstract true ;
+  rdfs:comment "ExternalReference is an abstract class that represents a thing that contains API or protocol parameter values necessary to associate a property with a value." ;
+  rdfs:label "ExternalReference" ;
+  rdfs:subClassOf s223:Concept ;
+.
+s223:InletConnectionPoint
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "An InletConnectionPoint indicates that a substance must flow into the equipment or domain space at this connection point and cannot flow the other direction. An IntletConnectionPoint is a subclass of ConnectionPoint." ;
+  rdfs:label "Inlet Connection Point" ;
+  rdfs:subClassOf s223:ConnectionPoint ;
+  sh:property [
+      sh:path s223:mapsTo ;
+      rdfs:comment "If the relation mapsTo is present it must associate the InletConnectionPoint with an InletConnectionPoint." ;
+      sh:class s223:InletConnectionPoint ;
+    ] ;
+.
+s223:Junction
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "A Junction is used to join two or more Connections together. This might be where a duct splits or joins." ;
+  rdfs:label "Junction" ;
+  rdfs:subClassOf s223:Connectable ;
+.
+s223:ObservableProperty
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "This class describes non-numeric properties of which real-time value cannot be modified by a user or a machine outside of the model. Sensors reading are typically observable properties as their value naturally fluctuate, but is not meant to be modified by a user." ;
+  rdfs:label "Observable Property" ;
+  rdfs:subClassOf s223:Property ;
+.
+s223:OutletConnectionPoint
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "An OutletConnectionPoint indicates that a substance must flow out of the domain space at this connection point and cannot flow in the other direction. An OutletConnectionPoint is a predefined subclass of ConnectionPoint." ;
+  rdfs:label "Outlet Connection Point" ;
+  rdfs:subClassOf s223:ConnectionPoint ;
+  sh:property [
+      sh:path s223:mapsTo ;
+      rdfs:comment "If the relation mapsTo is present it must associate the OutletConnectionPoint with an OutletConnectionPoint." ;
+      sh:class s223:OutletConnectionPoint ;
+    ] ;
+.
+s223:PhysicalSpace
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "A PhysicalSpace is an architectural concept representing a room, a collection of rooms such as a floor, a part of a room, or any physical space that might not even be thought of as a room, such as a patio space or a roof." ;
+  rdfs:label "Physical Space" ;
+  rdfs:subClassOf s223:Concept ;
+  sh:property [
+      sh:path s223:contains ;
+      rdfs:comment "If the relation contains is present it must associate the PhysicalSpace with a PhysicalSpace." ;
+      sh:class s223:PhysicalSpace ;
+    ] ;
+  sh:property [
+      sh:path s223:encloses ;
+      rdfs:comment "If the relation encloses is present it must associate the PhysicalSpace with a DomainSpace." ;
+      sh:class s223:DomainSpace ;
+    ] ;
+.
+s223:Pipe
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "A Pipe is a subclass of Connection, that represents a hollow cylinder of metal or other material used to convey a Medium." ;
+  rdfs:label "Pipe" ;
+  rdfs:subClassOf s223:Connection ;
+.
+s223:Property
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment """An attribute, quality, or characteristic of a feature of interest.
+
+The Property class is the parent of all variations of a property, which are:
+ActuatableProperty - parent of subclass of properties that can be modified by user or machine outside of the model (typically command)
+ObservableProperty - parent of subclass of properties that can not be modified by user or machine outside of the model (typically measures)
+EnumerableProperty - parent of subclass of properties defined by EnumerationKind
+QuantifiableProperty - parent of subclass of properties defined by numerical values
+
+And their different associations :
+QuantifiableActuatableProperty
+QuantifiableObservableProperty
+EnumeratedObservableProperty
+EnumeratedActuatableProperty
+
+A QuantifiableProperty (or subClass thereof) must always be associated with a Unit and a QuantityKind, either explicitly from the Property, or through the associated Value. If the Unit is defined, the SHACL reasoner (if invoked) will figure out and assert the QuantityKind (the most general version).
+
+Enumerable properties must be associated with an EnumerationKind.
+""" ;
+  rdfs:label "Property" ;
+  rdfs:subClassOf s223:Concept ;
+  sh:property [
+      sh:path s223:hasAspect ;
+      rdfs:comment "If the relation hasAspect is present it must associate the Property with an EnumerationKind." ;
+      sh:class s223:EnumerationKind ;
+    ] ;
+  sh:property [
+      sh:path s223:hasExternalReference ;
+      rdfs:comment "If the relation hasExternalReference is present it must associate the Property with an ExternalReference." ;
+      sh:class s223:ExternalReference ;
+    ] ;
+  sh:property [
+      sh:path s223:hasValue ;
+      rdfs:comment "A Property can use at most one relation hasValue if it is required to provide a static value in the model. It is not meant for real-time value (see s223:hasExternalReference)" ;
+      sh:maxCount 1 ;
+    ] ;
+  sh:property [
+      sh:path s223:ofMedium ;
+      rdfs:comment "A Property can be associated with at most one EnumerationKind-Medium using the relation ofMedium" ;
+      sh:class s223:EnumerationKind-Medium ;
+      sh:maxCount 1 ;
+    ] ;
+  sh:property [
+      sh:path s223:ofSubstance ;
+      rdfs:comment "A Property can be associated with at most one EnumerationKind-Substance using the relation ofSubstance" ;
+      sh:class s223:EnumerationKind-Substance ;
+      sh:maxCount 1 ;
+    ] ;
+.
+s223:QuantifiableActuatableProperty
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "This class is for quantifiable properties of which numerical values are specified to be modifiable by a user or a machine outside of the model, like a setpoint." ;
+  rdfs:label "Quantifiable Actuatable Property" ;
+  rdfs:subClassOf s223:ActuatableProperty ;
+  rdfs:subClassOf s223:QuantifiableProperty ;
+.
+s223:QuantifiableObservableProperty
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "This class is for quantifiable properties of which numerical values cannot be modified by a user or a machine outside of the model, but only observed, like a temperature reading or a voltage measure." ;
+  rdfs:label "Quantifiable Observable Property" ;
+  rdfs:subClassOf s223:ObservableProperty ;
+  rdfs:subClassOf s223:QuantifiableProperty ;
+.
+s223:QuantifiableProperty
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "This class is for quantifiable values that describe an object (System, Equipment, etc.) that are typically static (hasValue). That is, they are neither measured nor specified in the course of operations." ;
+  rdfs:label "Quantifiable Property" ;
+  rdfs:subClassOf s223:Property ;
+  rdfs:subClassOf qudt:Quantity ;
+  sh:property [
+      sh:path s223:hasSetpoint ;
+      rdfs:comment "If the relation hasSetpoint is present it must associate the QuantifiableProperty with a Setpoint." ;
+      sh:class s223:Setpoint ;
+    ] ;
+  sh:property [
+      sh:path s223:hasValue ;
+      rdfs:comment "A QuantifiableProperty can be associated with a decimal value using the relation hasValue" ;
+      sh:datatype xsd:decimal ;
+    ] ;
+  sh:property [
+      sh:path qudt:hasQuantityKind ;
+      rdfs:comment "A QuantifiableProperty must be associated with at least one QuantityKind using the relation hasQuantityKind." ;
+      sh:class qudt:QuantityKind ;
+      sh:minCount 1 ;
+    ] ;
+  sh:property [
+      sh:path qudt:hasUnit ;
+      rdfs:comment "A QuantifiableProperty must be associated with at least one Unit using the relation hasUnit." ;
+      sh:class qudt:Unit ;
+      sh:minCount 1 ;
+      sh:severity sh:Info ;
+    ] ;
+.
+s223:Setpoint
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "A subclass of QuantifiableProperty that is the desired or target value for an essential system variable, such as temperature, pressure, flow rate, or humidity." ;
+  rdfs:label "Setpoint" ;
+  rdfs:subClassOf s223:QuantifiableProperty ;
+  rdfs:subClassOf qudt:Quantity ;
+  sh:property [
+      sh:path s223:hasDeadband ;
+      rdfs:comment "A Setpoint can be associated with a decimal value using the relation hasDeadband" ;
+      sh:datatype xsd:decimal ;
+    ] ;
+  sh:property [
+      sh:path s223:hasValue ;
+      rdfs:comment "A Setpoint can be assicated with a decimal value using the relation hasValue" ;
+      sh:datatype xsd:decimal ;
+    ] ;
+.
+s223:SymmetricProperty
+  a rdfs:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "A SymmetricProperty is modeling construct used to define symmetric behavior for certain properties in the standard such as cnx and connected." ;
+  rdfs:label "Symmetric property" ;
+  rdfs:subClassOf rdf:Property ;
+.
+s223:System
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "A System is a logical grouping (collection) of Equipment for some functional or system reason, such as a chilled water system, or HVAC system. A System does not participate in Connections." ;
+  rdfs:label "System" ;
+  rdfs:subClassOf s223:Concept ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path s223:hasMember ;
+      rdfs:comment "A System can be associated with zero or any number of other instances of Equipment or System using the relation hasMember" ;
+      sh:minCount 2 ;
+      sh:or (
+          [
+            sh:class s223:Equipment ;
+          ]
+          [
+            sh:class s223:System ;
+          ]
+        ) ;
+      sh:severity sh:Warning ;
+    ] ;
+  sh:property [
+      sh:path s223:hasRole ;
+      rdfs:comment "If the relation hasRole is present it must associate the System with an EnumerationKind-Role." ;
+      sh:class s223:EnumerationKind-Role ;
+    ] ;
+.
+s223:Zone
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "A Zone is a logical grouping (collection) of domain spaces for some functional or system reason, to identify a domain of control, such as a Lighting Zone, or a heating zone" ;
+  rdfs:label "Zone" ;
+  rdfs:subClassOf s223:Concept ;
+  sh:property [
+      sh:path s223:hasDomain ;
+      rdfs:comment "A Zone must be associated with exactly one EnumerationKind-Domain using the relation hasDomain." ;
+      sh:class s223:EnumerationKind-Domain ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+    ] ;
+  sh:property [
+      sh:path s223:hasDomainSpace ;
+      rdfs:comment "A Zone must be associated with at least one DomainSpace using the relation hasDomainSpace." ;
+      sh:class s223:DomainSpace ;
+      sh:minCount 1 ;
+    ] ;
+.
+s223:ZoneGroup
+  a s223:Class ;
+  a sh:NodeShape ;
+  rdfs:comment "A ZoneGroup is a logical grouping (collection) of Zones for some functional or system reason, to identify a domain of control, such as a Lighting Zone, or a heating zone." ;
+  rdfs:label "Zone group" ;
+  rdfs:subClassOf s223:Concept ;
+  sh:property [
+      sh:path s223:hasZone ;
+      rdfs:comment "A ZoneGroup must be associated with at least one Zone using the relation hasZone." ;
+      sh:class s223:Zone ;
+      sh:minCount 1 ;
+    ] ;
+.
+s223:abstract
+  a rdf:Property ;
+  rdfs:comment "If the relation abstract has a value of true, the associated class cannot be instantiated. " ;
+  rdfs:label "abstract" ;
+  rdfs:range xsd:boolean ;
+.
+s223:actuates
+  a rdf:Property ;
+  rdfs:comment "The relation actuates binds an Actuator to the Equipment that it actuates. The Equipment will have the ActuatableProperty that commands the actuator (see `s223:commandedByProperty`)." ;
+  rdfs:label "actuates" ;
+.
+s223:cnx
+  a s223:SymmetricProperty ;
+  rdfs:comment "The cnx relation is a symmetric property used to associate adjacent entities in a connection path (comprised of Equipment-ConnectionPoint-Connection-ConnectionPoint-Equipment sequences)." ;
+  rdfs:label "cnx" ;
+.
+s223:commandedByProperty
+  a rdf:Property ;
+  rdfs:comment "The relation commandedByProperty binds an Actuator to the ActuatableProperty that it responds to. This Property will be owned by the equipment that it actuates (see `s223:actuates`)." ;
+  rdfs:label "commanded by Property" ;
+.
+s223:connected
+  a s223:SymmetricProperty ;
+  a rdf:Property ;
+  rdfs:comment "The relation connected indicates that two connectable things are connected without regard to any directionality of a process flow.  " ;
+  rdfs:label "connected" ;
+.
+s223:connectedFrom
+  a rdf:Property ;
+  s223:inverseOf s223:connectedTo ;
+  rdfs:comment "The relation connectedFrom means that connectable things are connected with a specific flow direction. B is connectedFrom A, means a directionality beginning at A and ending at B.  The inverse direction is indicated by connectedTo (see `s223:connectedTo`)." ;
+  rdfs:domain s223:Equipment ;
+  rdfs:label "connected from" ;
+.
+s223:connectedThrough
+  a rdf:Property ;
+  rdfs:comment "The relation connectedThrough associates a Connectable with a Connection." ;
+  rdfs:label "connected through" ;
+.
+s223:connectedTo
+  a rdf:Property ;
+  s223:inverseOf s223:connectedFrom ;
+  rdfs:comment "The relation connectedTo indicates that connectable things are connected with a specific flow direction. A is connectedTo B, means a directionality beginning at A and ending at B.  The inverse direction is indicated by connectedFrom (see `s223:connectedFrom`)." ;
+  rdfs:domain s223:Equipment ;
+  rdfs:label "connected to" ;
+.
+s223:connectsAt
+  a rdf:Property ;
+  s223:inverseOf s223:connectsThrough ;
+  rdfs:comment "The connectsAt relation binds a Connection to a specific ConnectionPoint. See Figure x.y." ;
+  rdfs:label "connects at" ;
+.
+s223:connectsFrom
+  a rdf:Property ;
+  rdfs:comment "The relation connectsFrom binds a Connectable thing to a Connection with an implied directionality. B connectsFrom A indicates a flow from A to B." ;
+  rdfs:label "connects from" ;
+.
+s223:connectsThrough
+  a rdf:Property ;
+  s223:inverseOf s223:connectsAt ;
+  rdfs:comment "The relation connectedThrough binds a Connectable thing to a Connection without regard to the direction of flow. It is used to discover what connection links two connectable things." ;
+  rdfs:label "connects through" ;
+.
+s223:connectsTo
+  a rdf:Property ;
+  rdfs:comment "The connectsTo relation binds a specific ConnectionPoint to a Connection; See Figure x.y. The relation connectsTo binds a Connectable thing to a Connection with an implied directionality. A connectsTo B indicates a flow from A to B." ;
+  rdfs:label "connects to" ;
+.
+s223:contains
+  a rdf:Property ;
+  rdfs:comment "The relation contains associates a Zone, PhysicalSpace, or a piece of Equipment to a DomainSpace, PhysicalSpace, or Equipment respectively" ;
+  rdfs:label "contains" ;
+.
+s223:encloses
+  a rdf:Property ;
+  rdfs:comment "The relation encloses is used to indicate that a domain space (see: `s223:DomainSpace`) can be found inside a physical space (see `s223:PhysicalSpace`). " ;
+  rdfs:label "encloses" ;
+.
+s223:executes
+  a rdf:Property ;
+  rdfs:comment "The relation executes is used to specify that a controller (see `s223:Controller`) is responsible for the execution of a function block (see `s223:FunctionBlock`). " ;
+  rdfs:label "executes" ;
+.
+s223:hasAspect
+  a rdf:Property ;
+  rdfs:comment "hasAspect is used to establish the context of a Property. The value must be an instance of EnumerationKind. For example, if a Property has a Temperature value of 45.3, the hasAspect relation is used to state what that represents, such as a Temperature limit during working hours, etc. A Property can have any number of hasAspect relations, as needed to establish the context." ;
+  rdfs:label "has aspect" ;
+.
+s223:hasConnectionPoint
+  a rdf:Property ;
+  s223:inverseOf s223:isConnectionPointOf ;
+  rdfs:comment "The relation hasConnectionPoint is part of a pair of relations that bind a Connectable thing to a ConnectionPoint. It is the inverse of the relation isConnectionPointOf (see `s223:isConnectionPointOf`)." ;
+  rdfs:label "has connection point" ;
+.
+s223:hasConstant
+  a rdf:Property ;
+  rdfs:comment "The relation hasConstant is used to relate a constant (see `s223:Constant`) to a function block (see `s223:FunctionBlock`)." ;
+  rdfs:label "has constant" ;
+.
+s223:hasDeadband
+  a rdf:Property ;
+  rdfs:comment "The relation hasDeadband associates a Setpoint with the range within which a system or controller does not respond or initiate an action." ;
+  rdfs:label "has deadband" ;
+.
+s223:hasDomain
+  a rdf:Property ;
+  rdfs:comment "The relation hasDomain is used to indicate what domain a Zone or DomainSpace pertains to (e.g. HVAC, lighting, electrical, etc.). Possible values are defined in EnumerationKind-Domain (see `s223:EnumerationKind-Domain`)." ;
+  rdfs:label "has domain" ;
+.
+s223:hasDomainSpace
+  a rdf:Property ;
+  rdfs:comment "The relation hasDomainSpace is used to associate a Zone with the DomainSpace(s) that make up that Zone." ;
+  rdfs:label "has domain space" ;
+.
+s223:hasEnumerationKind
+  a rdf:Property ;
+  rdfs:comment "The relation hasEnumerationKind associates an EnumerableProperty with a class of enumeration values. This is used to, for example, identify what kind of substance is transported along a Connection or which day of the week a setpoint is active" ;
+  rdfs:label "has enumeration kind" ;
+.
+s223:hasExternalReference
+  a rdf:Property ;
+  rdfs:comment "The relation hasExternalReference is used to relate a Property to an external telemetry source." ;
+  rdfs:label "has external reference" ;
+.
+s223:hasFrequency
+  a rdf:Property ;
+  rdfs:comment "The relation hasFrequency is used to identify the frequency of an AC electricity enumeration kind. " ;
+  rdfs:label "has frequency" ;
+.
+s223:hasInput
+  a rdf:Property ;
+  rdfs:comment "The relation hasInput is used to relate a function input (see `s223:FunctionInput`) to a function block (see `s223:FunctionBlock`). " ;
+  rdfs:label "has function input" ;
+.
+s223:hasMeasurementResolution
+  a rdf:Property ;
+  rdfs:comment "The hasMeasurementResolution relation is used to link to a numerical property whose value indicates the smallest recognizable change in engineering units that the sensor can indicate. " ;
+  rdfs:label "has measurement resolution" ;
+.
+s223:hasMedium
+  a rdf:Property ;
+  rdfs:comment "The relation hasMedium is used to indicate what medium is flowing through the connection (e.g., air, water, electricity). The possible values are defined in EnumerationKind-Medium (see `s223:EnumerationKind-Medium`)." ;
+  rdfs:label "has Medium" ;
+.
+s223:hasMember
+  a rdf:Property ;
+  rdfs:comment "The relation hasMember associates a System with its component Equipment and/or subsystems." ;
+  rdfs:label "has member" ;
+.
+s223:hasNumberOfElectricalPhases
+  a rdf:Property ;
+  rdfs:comment "The relation hasNumberOfElectricalPhases is used to identify the number of electrical phases in an AC electricity enumeration kind. " ;
+  rdfs:label "has number of electrical phases" ;
+.
+s223:hasObservationLocation
+  a rdf:Property ;
+  rdfs:comment "The relation hasObservationLocation associates a sensor to the topological location where it is observing the property (see `s223:observes`). The observation location can be a ConnectionPoint, Connection, or a DomainSpace." ;
+  rdfs:label "has observation location" ;
+.
+s223:hasObservationLocationHigh
+  a rdf:Property ;
+  rdfs:comment "The relation hasObservationLocationHigh associates a differential sensor to one of the topological locations where a differential property is observed (see `s223:observes`)." ;
+  rdfs:label "has observation location high" ;
+  rdfs:subPropertyOf s223:hasObservationLocation ;
+.
+s223:hasObservationLocationLow
+  a rdf:Property ;
+  rdfs:comment "The relation hasObservationLocationLow associates a differential sensor to one of the topological locations where a differential property is observed (see `s223:observes`)." ;
+  rdfs:label "has observation location low" ;
+  rdfs:subPropertyOf s223:hasObservationLocation ;
+.
+s223:hasOutput
+  a rdf:Property ;
+  rdfs:comment "The relation hasOutput is used to relate a function output (see `s223:FunctionOutput`) to a function block (see `s223:FunctionBlock`). " ;
+  rdfs:label "has function output" ;
+.
+s223:hasParameter
+  a rdf:Property ;
+  rdfs:comment "A Parameter (`s223:Parameter`) is associated to a function block (`s223:FunctionBlock`) using the relation hasParameter. " ;
+  rdfs:label "has parameter" ;
+.
+s223:hasPhase
+  a rdf:Property ;
+  rdfs:comment "The relation hasPhase is used to indicate the intended phase of the Medium inside a Connection." ;
+  rdfs:label "has phase" ;
+.
+s223:hasPhysicalLocation
+  a rdf:Property ;
+  rdfs:comment "The relation hasPhysicalLocation is used to indicate the physical space (see `s223:PhysicalSpace`) where a piece of equipment (see `s223:Equipment`) is located." ;
+  rdfs:label "has Physical Location" ;
+.
+s223:hasProperty
+  a rdf:Property ;
+  rdfs:comment "The relation hasProperty associates any 223 Concept with a Property." ;
+  rdfs:label "has Property" ;
+.
+s223:hasRole
+  a rdf:Property ;
+  rdfs:comment "The relation hasRole is used to indicate the role of an Equipment, Connection, ConnectionPoint, or System within a building (e.g., a heating coil will be associated with Role-Heating). Possible values are defined in EnumerationKind-Role (see `s223:EnumerationKind-Role`)." ;
+  rdfs:label "hasRole" ;
+.
+s223:hasSetpoint
+  a rdf:Property ;
+  rdfs:comment "This relation binds a control setpoint to the quantifiable property indicating the desired value which the control process is trying to maintain." ;
+  rdfs:label "has setpoint" ;
+.
+s223:hasValue
+  a rdf:Property ;
+  rdfs:comment "hasValue is used to contain a fixed value that is part of a 223 model, rather than a computed, measured, or externally derived variable." ;
+  rdfs:label "hasValue" ;
+.
+s223:hasVoltage
+  a rdf:Property ;
+  rdfs:comment "The relation hasVoltage is used to identify the voltage of an electricity enumeration kind. " ;
+  rdfs:label "hasVoltage" ;
+.
+s223:hasZone
+  a rdf:Property ;
+  rdfs:comment "The relation hasZone is used to associate a ZoneGroup with the Zones that make up that ZoneGroup." ;
+  rdfs:label "has zone" ;
+.
+s223:inverseOf
+  a rdf:Property ;
+  rdfs:comment "The relation inverseOf is a modeling construct to associate relations that are inverses of one another, such as connectedTo and connectedFrom." ;
+  rdfs:label "inverse of" ;
+.
+s223:isConnectionPointOf
+  a rdf:Property ;
+  s223:inverseOf s223:hasConnectionPoint ;
+  rdfs:comment "The relation isConnectionPointOf is part of a pair of relations that bind a ConnectionPoint to a Connectable thing. It is the inverse of the relation hasConnectionPoint (see `s223:hasConnectionPoint`)." ;
+  rdfs:label "is connection point of" ;
+.
+s223:mapsTo
+  a rdf:Property ;
+  rdfs:comment "The relation mapsTo is used to associate a ConnectionPoint of an Equipment to a corresponding ConnectionPoint of the Equipment containing it. The associated ConnectionPoints must have the same direction (see `s223:EnumerationKind-Direction`)." ;
+  rdfs:label "mapsTo" ;
+.
+s223:measuresSubstance
+  a rdf:Property ;
+  rdfs:comment "The relation measuresSubstance is used to relate a sensor (see `s223:Sensor`) to a substance (see `s223:EnumerationKind-Substance`). Some sensors measure a specific property inside a medium and this substance can be defined by relating the sensor to it using the relation measuresSubstance (ex. Substance-CO2 in Medium-Air). " ;
+  rdfs:label "measures Substance" ;
+.
+s223:observes
+  a rdf:Property ;
+  rdfs:comment "The relation observes binds a sensor to one `s223:ObservableProperty` which is used by the sensor to generate a measurement value (ex. a temperature) or a simple observation of a stimulus causing a reaction (a current binary switch that closes a dry contact when a fan is powered on)." ;
+  rdfs:label "observes" ;
+.
+s223:ofMedium
+  a rdf:Property ;
+  rdfs:comment "The relation ofMedium is used to associate a Property with a specific Medium." ;
+  rdfs:label "of medium" ;
+.
+s223:ofSubstance
+  a rdf:Property ;
+  rdfs:comment "The relation ofSubstance is used to associate a Property with a specific Substance." ;
+  rdfs:label "of substance" ;
+.
+s223:produces
+  a rdf:Property ;
+  rdfs:comment "The relation produces is used to relate a function output (see `s223:FunctionOutput`) to a property (see `s223:Property`). This allows one to specify that the value of this property is produced by the function block output, allowing the users of the model to understand that the value of the property is the result of the algorithm defined by the function block. " ;
+  rdfs:label "produces" ;
+.
+s223:uses
+  a rdf:Property ;
+  rdfs:comment "The relation uses is used to relate a function block input (see `s223:FunctionInput`) to a property (see `s223:Property`). This allows one to specify that the value of this property is used by the function block. " ;
+  rdfs:label "uses" ;
+.
+<http://data.ashrae.org/standard223/1.0/model/core>
+  a owl:Ontology ;
+  owl:imports <http://data.ashrae.org/standard223/1.0/model/all> ;
+  owl:versionInfo "Created with TopBraid Composer" ;
+.
+qudt:hasQuantityKind
+  rdfs:comment "A reference to the QuantityKind of a QuantifiableProperty of interest, e.g. quantitykind:Temperature." ;
+.
+qudt:hasUnit
+  rdfs:comment "A reference to the unit of measure of a QuantifiableProperty of interest." ;
+.
+rdfs:comment
+  a rdf:Property ;
+  rdfs:comment "Description of constraints for s223." ;
+  rdfs:label "comment" ;
+  rdfs:subPropertyOf rdfs:comment ;
+.

@@ -15,7 +15,9 @@ status_definitions = {
             },
             "Tint_Status": {"tags": [TAG.Tint, TAG.Status, TAG.Point]},
             "Damper_Position_Status": {
+                "tags": [TAG.Point, TAG.Damper, TAG.Position, TAG.Status],
                 BRICK.hasQuantity: BRICK.Position,
+                "tags": [TAG.Damper, TAG.Position, TAG.Status, TAG.Point],
             },
             "Direction_Status": {
                 BRICK.hasQuantity: BRICK.Direction,
@@ -462,25 +464,14 @@ status_definitions = {
                 "tags": [TAG.Point, TAG.Overridden, TAG.Status],
             },
             "Pressure_Status": {
-                QUDT.hasQuality: BRICK.Pressure,
+                BRICK.hasQuantity: BRICK.Pressure,
                 "subclasses": {
-                    "Discharge_Air_Duct_Pressure_Status": {
-                        "tags": [
-                            TAG.Point,
-                            TAG.Discharge,
-                            TAG.Air,
-                            TAG.Duct,
-                            TAG.Pressure,
-                            TAG.Status,
-                        ],
-                    },
                     "Supply_Air_Duct_Pressure_Status": {
-                        OWL.equivalentClass: BRICK[
-                            "Discharge_Air_Duct_Pressure_Status"
-                        ],
+                        "aliases": [BRICK["Discharge_Air_Duct_Pressure_Status"]],
                         "tags": [
                             TAG.Point,
                             TAG.Supply,
+                            TAG.Discharge,
                             TAG.Air,
                             TAG.Duct,
                             TAG.Pressure,

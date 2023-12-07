@@ -5,28 +5,36 @@
 @prefix bsh: <https://brickschema.org/schema/BrickShape#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix s223: <http://data.ashrae.org/standard223#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
 # include this to inform reasoning
-skos:narrower owl:inverseOf skos:broader .
+skos:broader rdf:type rdf:Property ;
+  rdfs:label "has broader"@en ;
+  owl:inverseOf skos:narrower ;
+.
+
+skos:narrower rdf:type rdf:Property ;
+  rdfs:label "has narrower"@en ;
+  owl:inverseOf skos:broader ;
+.
 
 bsh:InferInverseProperties
   a sh:NodeShape ;
   sh:rule [
       a sh:SPARQLRule ;
       sh:construct """
-CONSTRUCT {
-?o ?invP $this .
-$this ?p ?o .
+            CONSTRUCT {
+$this ?invP ?o .
 }
 WHERE {
-  { $this ?p ?o } UNION { ?o ?invP $this } .
-  ?p owl:inverseOf ?invP .
+?o ?p $this .
+?invP owl:inverseOf ?p .
 }
 			""" ;
-      sh:prefixes owl: ;
+      sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
     ] ;
   sh:targetClass brick:Entity ;
 .
@@ -45,8 +53,7 @@ WHERE {
   ?prop a owl:SymmetricProperty .
 }
 			""" ;
-        sh:prefixes owl: ;
-        sh:prefixes rdf: ;
+      sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
     ] ;
   sh:targetClass brick:Entity ;
 .
@@ -62,8 +69,7 @@ $this brick:hasTag ?tag .
     $this rdf:type/rdfs:subClassOf* ?class .
     ?class brick:hasAssociatedTag ?tag .
 }""" ;
-    sh:prefixes rdf: ;
-    sh:prefixes brick: ;
+      sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
     ] ;
     sh:targetClass brick:Entity ;
 .
@@ -80,14 +86,12 @@ CONSTRUCT {
     ?shape a sh:NodeShape .
     ?ent $this ?val .
 }""" ;
-    sh:prefixes rdfs: ;
-    sh:prefixes rdf: ;
-    sh:prefixes sh: ;
+      sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
     ] ;
     sh:targetSubjectsOf rdfs:range ;
 .
 
-bsh:RDFSSubPropertyOfRule
+bsh:RDFSSubPropertyOfRuleForEntityProperties
     a   sh:NodeShape ;
     sh:rule [
         a sh:SPARQLRule ;
@@ -95,10 +99,12 @@ bsh:RDFSSubPropertyOfRule
 CONSTRUCT {
     ?s ?super ?o .
 } WHERE {
-    $this rdfs:subPropertyOf ?super .
+    $this rdfs:subPropertyOf+ ?super .
+    ?super a brick:EntityProperty .
+    $this a brick:EntityProperty .
     ?s $this ?o .
 }""" ;
-    sh:prefixes rdfs: ;
+      sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
     ] ;
     sh:targetSubjectsOf rdfs:subPropertyOf ;
 .
@@ -117,8 +123,7 @@ bsh:DeprecationRule
         CONSTRUCT { $this owl:deprecated true }
         WHERE { $this brick:deprecation ?dep }
         """ ;
-        sh:prefixes owl: ;
-        sh:prefixes brick: ;
+      sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
     ] ;
     sh:property [
         sh:path brick:deprecatedInVersion ;
@@ -138,18 +143,36 @@ bsh:DeprecationRule
     sh:targetSubjectsOf brick:deprecation ;
 .
 
-bsh:DeprecationRuleForInstances
-    a   sh:NodeShape ;
-    sh:targetClass brick:Entity ;
-    sh:severity sh:Warning ;
-    sh:sparql [
-      a sh:SPARQLConstraint ;
-      sh:message "Entity has type which is deprecated" ;
-      sh:prefixes brick:, rdf: ;
-      sh:select """SELECT $this WHERE { $this rdf:type/owl:deprecated true }""" ;
+bsh:DeprecationInferenceForInstancesRule
+    a  sh:NodeShape ;
+sh:rule [ a sh:SPARQLRule ;
+sh:message "Deprecated class is temporarily augmented by the new class" ;
+sh:construct """CONSTRUCT {
+$this a ?newClass .
+}
+WHERE {
+$this a ?class .
+?class owl:deprecated true .
+?class brick:isReplacedBy ?newClass .
+FILTER NOT EXISTS {$this a ?newClass}
+}""" ;
+      sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
     ] ;
+    sh:targetClass brick:Entity ;
 .
 
+bsh:DeprecationRuleForInstances a sh:NodeShape ;
+sh:severity sh:Warning ;
+sh:sparql [ a sh:SPARQLConstraint ;
+sh:message "{$this} has type {?class} which was deprecated in version {?depver}. For now, it has been updated to also be of type {?newClass}." ;
+sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
+sh:select """SELECT $this ?class ?newClass ?depver WHERE {
+$this a ?class .
+?class owl:deprecated true .
+?class brick:deprecatedInVersion ?depver .
+?class brick:isReplacedBy ?newClass .
+}""" ] ;
+sh:targetClass brick:Entity .
 
 
 # bsh:TagInferenceRule
@@ -193,7 +216,7 @@ CONSTRUCT {
     UNION
     { $this owl:equivalentClass ?t2 }
 }""" ;
-    sh:prefixes owl: ;
+      sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
     ] ;
     sh:targetSubjectsOf owl:equivalentClass ;
 .
@@ -211,7 +234,7 @@ CONSTRUCT {
     UNION
     { $this owl:equivalentClass ?t2 }
 }""" ;
-    sh:prefixes owl: ;
+      sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
     ] ;
     sh:targetObjectsOf owl:equivalentClass ;
 .
@@ -248,6 +271,7 @@ bsh:BuildingMeterRule a sh:NodeShape ;
             FILTER (strEnds(str(?type), "_Meter"))
         }
         """ ;
+        sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
     ] ;
 .
 
@@ -256,7 +280,7 @@ bsh:VirtualMeterRule a sh:NodeShape ;
     sh:sparql [
         a sh:SPARQLConstraint ;
         sh:message "Only meters can have the isVirtualMeter property be true" ;
-        sh:prefixes brick:, rdf:, rdfs: ;
+      sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
         sh:select """
             SELECT $this WHERE {
                 $this brick:isVirtualMeter/brick:value true .
@@ -264,6 +288,68 @@ bsh:VirtualMeterRule a sh:NodeShape ;
             }
         """ ;
     ] .
+
+# infer the hasSubstance relationship for meter instances
+bsh:MeterInferSubstance a sh:NodeShape ;
+    sh:targetClass brick:Meter ;
+    sh:rule [
+        a sh:SPARQLRule ;
+        sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
+        sh:construct """
+        CONSTRUCT {
+            $this brick:hasSubstance ?substance .
+        } WHERE {
+            $this rdf:type ?meter .
+            ?meter rdfs:subClassOf* brick:Meter .
+            ?meter brick:hasSubstance ?substance .
+        }
+        """ ;
+    ] ;
+.
+
+# infer the meter subclass from the hasSubstance relationship
+# don't do this for building meters -- handled below
+bsh:MeterInferSubclassNonBuildingMeter a sh:NodeShape ;
+    sh:targetClass brick:Meter ;
+    sh:rule [
+        a sh:SPARQLRule ;
+        sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
+        sh:construct """
+        CONSTRUCT {
+            $this rdf:type ?metertype .
+        } WHERE {
+            $this rdf:type/rdfs:subClassOf* brick:Meter .
+            $this brick:hasSubstance ?substance .
+            ?metertype brick:hasSubstance ?substance .
+            FILTER NOT EXISTS {
+                $this rdf:type/rdf:subClassOf* brick:Building_Meter
+            }
+            MINUS {
+                ?metertype rdfs:subClassOf* brick:Building_Meter .
+            }
+        }
+        """ ;
+    ] ;
+.
+
+# infer the *building* meter subclass from the hasSubstance relationship
+bsh:MeterInferSubclassBuildingMeter a sh:NodeShape ;
+    sh:targetClass brick:Building_Meter ;
+    sh:rule [
+        a sh:SPARQLRule ;
+        sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
+        sh:construct """
+        CONSTRUCT {
+            $this rdf:type ?metertype .
+        } WHERE {
+            $this rdf:type/rdfs:subClassOf* brick:Building_Meter .
+            $this brick:hasSubstance ?substance .
+            ?metertype brick:hasSubstance ?substance .
+            ?metertype rdfs:subClassOf+ brick:Building_Meter .
+        }
+        """ ;
+    ] ;
+.
 
 bsh:OneLastKnownValuePerEntity a sh:NodeShape ;
     sh:targetSubjectsOf brick:lastKnownValue ;
@@ -279,7 +365,7 @@ bsh:TimeseriesReferenceOnPointsConstraint a sh:NodeShape ;
     sh:sparql [
         a sh:SPARQLConstraint ;
         sh:message "Only Brick Points can have external timeseries references" ;
-        sh:prefixes ref:, rdf:, rdfs: ;
+      sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
         sh:select """
             SELECT $this
             WHERE {

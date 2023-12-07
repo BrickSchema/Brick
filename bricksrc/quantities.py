@@ -17,16 +17,19 @@ def get_units(qudt_quantity):
     in order to avoid having to pull the full QUDT ontology into Brick
     """
     return g.query(
-        f"""SELECT ?unit ?symbol ?label WHERE {{
+        f"""SELECT ?unit WHERE {{
                     <{qudt_quantity}> qudt:applicableUnit ?unit .
-                    OPTIONAL {{
-                        ?unit qudt:symbol ?symbol .
-                        FILTER(isLiteral(?symbol))
-                    }} .
-                    OPTIONAL {{
-                        ?unit rdfs:label ?label .
-                    }}
-                    }}"""
+                }}"""
+    )
+
+
+def all_units():
+    return g.query(
+        """SELECT ?unit ?symbol ?label WHERE {
+        ?unit a qudt:Unit .
+        OPTIONAL { ?unit qudt:symbol ?symbol } .
+        OPTIONAL { ?unit rdfs:label ?label} .
+    }"""
     )
 
 
@@ -743,7 +746,6 @@ quantity_definitions = {
                 SKOS.broader: QUDTQK.Temperature,
                 SKOS.narrower: {
                     "Differential_Dry_Bulb_Temperature": {
-                        BRICK.hasQUDTReference: QUDTQK["Dry_Bulb_Temperature"],
                         QUDT.isDeltaQuantity: Literal(True),
                     },
                 },
@@ -762,10 +764,17 @@ quantity_definitions = {
     },
     "Time": {
         BRICK.hasQUDTReference: QUDTQK["Time"],
+        QUDT.applicableUnit: [UNIT["SEC"], UNIT["MIN"], UNIT["HR"], UNIT["DAY"]],
         # TODO: what are these?
         SKOS.narrower: {"Acceleration_Time": {}, "Deceleration_Time": {}},
     },
     "Torque": {BRICK.hasQUDTReference: QUDTQK["Torque"]},
     # TODO: https://ci.mines-stetienne.fr/seas/WeatherOntology-0.9#AirTemperature ?
+    "Volume": {
+        BRICK.hasQUDTReference: QUDTQK["Volume"],
+        QUDT.applicableUnit: [UNIT["M3"], UNIT["FT3"], UNIT["IN3"], UNIT["YD3"]],
+        QUDT.hasDimensionVector: QUDTDV["A0E0L3I0M0H0T0D0"],
+        RDFS.label: Literal("Volume"),
+    },
     "Weather_Condition": {},
 }

@@ -1,0 +1,431 @@
+# baseURI: http://data.ashrae.org/standard223/1.0/inference/model-rules
+# imports: http://data.ashrae.org/standard223/1.0/model/all
+
+@prefix afn: <http://jena.hpl.hp.com/ARQ/function#> .
+@prefix all: <http://data.ashrae.org/standard223/model/all#> .
+@prefix arg: <http://spinrdf.org/arg#> .
+@prefix constant: <http://qudt.org/vocab/constant/> .
+@prefix creativecommons: <http://creativecommons.org/ns#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dtype: <http://www.linkedmodel.org/schema/dtype#> .
+@prefix fn: <http://www.w3.org/2005/xpath-functions#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix functions: <http://qudt.org/2.1/schema/extensions/functions#> .
+@prefix imports: <http://qudt.org/2.1/schema/extensions/imports#> .
+@prefix mc: <http://www.linkedmodel.org/owl/schema/core#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prefix: <http://qudt.org/2.1/vocab/prefix/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix qkdv: <http://qudt.org/vocab/dimensionvector/> .
+@prefix quantitykind: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudt.type: <http://qudt.org/vocab/type/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix role: <http://data.ashrae.org/standard223/1.0/vocab/role#> .
+@prefix s223: <http://data.ashrae.org/standard223#> .
+@prefix schema: <http://schema.org/> .
+@prefix sdo: <http://schema.org#> .
+@prefix settings: <http://data.ashrae.org/standard223/extensions/settings#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix sou: <http://qudt.org/vocab/sou/> .
+@prefix sp: <http://spinrdf.org/sp#> .
+@prefix spif: <http://spinrdf.org/spif#> .
+@prefix spin: <http://spinrdf.org/spin#> .
+@prefix spl: <http://spinrdf.org/spl#> .
+@prefix swa: <http://topbraid.org/swa#> .
+@prefix tag: <https://brickschema.org/schema/BrickTag#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix tosh: <http://topbraid.org/tosh#> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix vaem: <http://www.linkedmodel.org/schema/vaem#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix voag: <http://voag.linkedmodel.org/schema/voag#> .
+@prefix vs223: <http://data.ashrae.org/standard223/validation/schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+s223:Connectable
+  sh:rule [
+      a sh:SPARQLRule ;
+      rdfs:comment "Infer the connected relationship for BiDirectional connections" ;
+      sh:construct """
+CONSTRUCT {$this s223:connected ?d2 .}
+WHERE {
+$this s223:connectedThrough/^s223:connectedThrough ?d2 .
+FILTER ($this != ?d2) .
+FILTER NOT EXISTS {$this s223:contains* ?d2} .
+FILTER NOT EXISTS {?d2 s223:contains* $this} .
+}
+""" ;
+      sh:name "InferredEquipmentToDownstreamEquipmentProperty" ;
+      sh:prefixes <http://data.ashrae.org/standard223/1.0/inference/model-rules> ;
+    ] ;
+  sh:rule [
+      a sh:SPARQLRule ;
+      rdfs:comment "Infer the connectedFrom relationship" ;
+      sh:construct """
+CONSTRUCT {$this s223:connectedFrom ?equipment .}
+WHERE {
+$this s223:hasConnectionPoint ?cp .
+?cp a s223:InletConnectionPoint .
+?cp s223:connectsThrough/s223:connectsFrom ?equipment .
+}
+""" ;
+      sh:name "InferredEquipmentToUpstreamEquipmentProperty" ;
+      sh:prefixes <http://data.ashrae.org/standard223/1.0/inference/model-rules> ;
+    ] ;
+  sh:rule [
+      a sh:SPARQLRule ;
+      rdfs:comment "Infer the connectedTo relationship" ;
+      sh:construct """
+CONSTRUCT {$this s223:connectedTo ?equipment .}
+WHERE {
+$this s223:hasConnectionPoint ?cp .
+?cp a s223:OutletConnectionPoint .
+?cp s223:connectsThrough/s223:connectsTo ?equipment .
+}
+""" ;
+      sh:name "InferredEquipmentToDownstreamEquipmentProperty" ;
+      sh:prefixes <http://data.ashrae.org/standard223/1.0/inference/model-rules> ;
+    ] ;
+  sh:rule [
+      a sh:TripleRule ;
+      rdfs:comment "Infer the cnx relationship from hasConnectionPoint" ;
+      sh:name "InferredEquipmentToConnectionPointCnxProperty" ;
+      sh:object [
+          sh:path s223:hasConnectionPoint ;
+        ] ;
+      sh:predicate s223:cnx ;
+      sh:subject sh:this ;
+    ] ;
+  sh:rule [
+      a sh:TripleRule ;
+      rdfs:comment "Infer the cnx relationship from isConnectionPointOf" ;
+      sh:name "InferredEquipmentToConnectionPointCnxPropertyFromInverse" ;
+      sh:object [
+          sh:path [
+              sh:inversePath s223:isConnectionPointOf ;
+            ] ;
+        ] ;
+      sh:predicate s223:cnx ;
+      sh:subject sh:this ;
+    ] ;
+  sh:rule [
+      a sh:TripleRule ;
+      rdfs:comment "Infer the connected relationship using connectedFrom" ;
+      sh:name "InferredEquipmentToEquipmentPropertyfromconnectedFrom" ;
+      sh:object [
+          sh:path s223:connectedFrom ;
+        ] ;
+      sh:predicate s223:connected ;
+      sh:subject sh:this ;
+    ] ;
+  sh:rule [
+      a sh:TripleRule ;
+      rdfs:comment "Infer the connected relationship using connectedTo" ;
+      sh:name "InferredEquipmentToEquipmentPropertyfromconnectedTo" ;
+      sh:object [
+          sh:path s223:connectedTo ;
+        ] ;
+      sh:predicate s223:connected ;
+      sh:subject sh:this ;
+    ] ;
+  sh:rule [
+      a sh:TripleRule ;
+      rdfs:comment "Infer the connectedThrough relationship using hasConnectionPoint and connectsThrough" ;
+      sh:name "InferredEquipmentToConnectionProperty" ;
+      sh:object [
+          sh:path (
+              s223:hasConnectionPoint
+              s223:connectsThrough
+            ) ;
+        ] ;
+      sh:predicate s223:connectedThrough ;
+      sh:subject sh:this ;
+    ] ;
+  sh:rule [
+      a sh:TripleRule ;
+      rdfs:comment "Infer the hasConnectionPoint relationship from cnx" ;
+      sh:name "InferredEquipmentToConnectionPointProperty" ;
+      sh:object [
+          sh:path s223:cnx ;
+        ] ;
+      sh:predicate s223:hasConnectionPoint ;
+      sh:subject sh:this ;
+    ] ;
+.
+s223:Connection
+  sh:rule [
+      a sh:SPARQLRule ;
+      rdfs:comment "Infer the connectsFrom relationship" ;
+      sh:construct """
+CONSTRUCT {$this s223:connectsFrom ?equipment .}
+WHERE {
+$this s223:connectsAt ?cp .
+?cp a s223:OutletConnectionPoint .
+?cp s223:isConnectionPointOf ?equipment .
+}
+""" ;
+      sh:name "InferredConnectionToUpstreamEquipmentProperty" ;
+      sh:prefixes <http://data.ashrae.org/standard223/1.0/inference/model-rules> ;
+    ] ;
+  sh:rule [
+      a sh:SPARQLRule ;
+      rdfs:comment "Infer the connectsTo relationship" ;
+      sh:construct """
+CONSTRUCT {$this s223:connectsTo ?equipment .}
+WHERE {
+$this s223:connectsAt ?cp .
+?cp a s223:InletConnectionPoint .
+?cp s223:isConnectionPointOf ?equipment .
+}
+""" ;
+      sh:name "InferredConnectionToDownstreamEquipmentProperty" ;
+      sh:prefixes <http://data.ashrae.org/standard223/1.0/inference/model-rules> ;
+    ] ;
+  sh:rule [
+      a sh:TripleRule ;
+      rdfs:comment "Infer cnx relationship from connectsAt" ;
+      rdfs:comment "InferredConnectionToConnectionPointBaseProperty" ;
+      sh:object [
+          sh:path s223:connectsAt ;
+        ] ;
+      sh:predicate s223:cnx ;
+      sh:subject sh:this ;
+    ] ;
+  sh:rule [
+      a sh:TripleRule ;
+      rdfs:comment "Infer cnx relationship from connectsThrough" ;
+      rdfs:comment "InferredConnectionToConnectionPointBasePropertyFromInverse" ;
+      sh:object [
+          sh:path [
+              sh:inversePath s223:connectsThrough ;
+            ] ;
+        ] ;
+      sh:predicate s223:cnx ;
+      sh:subject sh:this ;
+    ] ;
+  sh:rule [
+      a sh:TripleRule ;
+      rdfs:comment "Infer the connectsAt relationship from cnx" ;
+      rdfs:comment "InferredConnectionToConnectionPointProperty" ;
+      sh:object [
+          sh:path s223:cnx ;
+        ] ;
+      sh:predicate s223:connectsAt ;
+      sh:subject sh:this ;
+    ] ;
+.
+s223:Controller
+  sh:rule [
+    rdfs:comment "Infer the hasRole s223:Role-Controller relationship for every instance of Controller" ;
+    a sh:TripleRule ;
+    sh:object s223:Role-Controller ;
+    sh:predicate s223:hasRole ;
+    sh:subject sh:this ;
+  ] ;
+.
+s223:Equipment
+  sh:rule [
+      a sh:SPARQLRule ;
+      rdfs:comment "For equipment containing another piece of equipment, use the mapsTo relation to infer a cnx and Medium from the contained equipment." ;
+      sh:construct """
+CONSTRUCT {?parentCp s223:cnx ?connection .
+    ?parentCp s223:hasMedium ?medium .
+}
+WHERE {
+  $this s223:hasConnectionPoint ?cp .
+  ?cp s223:mapsTo ?parentCp .
+  ?cp s223:connectsThrough ?connection .
+  ?cp s223:hasMedium ?medium .
+}
+""" ;
+      sh:prefixes <http://data.ashrae.org/standard223/1.0/inference/model-rules> ;
+    ] ;
+sh:rule [
+      a sh:SPARQLRule ;
+      rdfs:comment "For equipment contained within another piece of equipment use the mapsTo relation to infer  a cnx and Medium from the containing equipment." ;
+      sh:construct """
+CONSTRUCT {?childCp s223:cnx ?connection .
+    ?childCp s223:hasMedium ?medium .
+}
+WHERE {
+  $this s223:hasConnectionPoint ?cp .
+  ?childCp s223:mapsTo ?cp .
+  ?cp s223:connectsThrough ?connection .
+  ?cp s223:hasMedium ?medium .
+}
+""" ;
+      sh:prefixes <http://data.ashrae.org/standard223/1.0/inference/model-rules> ;
+    ] ;
+.
+s223:HasDomainLookingUpRule
+  a sh:NodeShape ;
+  sh:rule [
+      a sh:TripleRule ;
+      rdfs:comment "Infer a hasDomain relationship by traversing the contains hierarchy up to determine the domain." ;
+      sh:object [
+          sh:path (
+              [
+                sh:zeroOrMorePath [
+                    sh:inversePath s223:contains ;
+                  ] ;
+              ]
+              s223:hasDomain
+            ) ;
+        ] ;
+      sh:predicate s223:hasDomain ;
+      sh:subject sh:this ;
+    ] ;
+  sh:targetClass s223:DomainSpace ;
+  sh:targetClass s223:Zone ;
+.
+s223:HumiditySensor
+  a sh:NodeShape ;
+  sh:rule [
+      a sh:SPARQLRule ;
+      rdfs:comment "A HumiditySensor must always observe a Property that has a QuantityKind of RelativeHumidity." ;
+      sh:construct """
+CONSTRUCT {?prop qudt:hasQuantityKind qudtqk:RelativeHumidity .}
+WHERE {
+  $this s223:observes ?prop .
+}
+""" ;
+      sh:prefixes <http://data.ashrae.org/standard223/1.0/inference/model-rules> ;
+    ] ;
+.
+s223:MeasuredPropertyRule
+  a sh:NodeShape ;
+  rdfs:comment "Associate the object of hasObservationLocation directly with the observed Property." ;
+  sh:rule [
+      a sh:TripleRule ;
+      rdfs:comment "Associate the object of hasObservationLocation directly with the observed Property." ;
+      sh:object [
+          sh:path (
+              [
+                sh:inversePath s223:hasObservationLocation ;
+              ]
+              s223:observes
+            ) ;
+        ] ;
+      sh:predicate s223:hasProperty ;
+      sh:subject sh:this ;
+    ] ;
+  sh:targetClass s223:Concept ;
+.
+s223:QuantifiableProperty
+  sh:rule [
+      a sh:SPARQLRule ;
+      rdfs:comment "Infer the hasQuantityKind relationship if it is unambiguous" ;
+      sh:construct """
+CONSTRUCT {
+$this qudt:hasQuantityKind ?uniqueqk
+}
+WHERE {
+{
+SELECT $this (COUNT (DISTINCT (?qk)) AS ?count)
+WHERE {
+FILTER (NOT EXISTS {$this qudt:hasQuantityKind ?something}) .
+$this qudt:hasUnit/qudt:hasQuantityKind ?qk .
+}
+GROUP BY $this
+}
+FILTER (?count = 1)
+$this qudt:hasUnit/qudt:hasQuantityKind ?uniqueqk .
+}
+""" ;
+      sh:prefixes <http://data.ashrae.org/standard223/1.0/inference/model-rules> ;
+    ] ;
+.
+s223:Sensor
+  sh:rule [
+      a sh:SPARQLRule ;
+      rdfs:comment "Infer the hasObservationLocation relationship for a Sensor from the Property that it is observing, only if that property is associated with a single entity." ;
+      sh:construct """
+CONSTRUCT {$this s223:hasObservationLocation ?something .}
+WHERE {
+{
+SELECT ?prop (COUNT (DISTINCT ?measurementLocation) AS ?count) $this
+WHERE {
+FILTER (NOT EXISTS {$this s223:hasObservationLocation ?anything}) .
+$this s223:observes ?prop .
+?measurementLocation s223:hasProperty ?prop .
+}
+GROUP BY ?prop $this
+}
+FILTER (?count = 1) .
+?something s223:hasProperty ?prop .
+{?something a/rdfs:subClassOf* s223:Connectable}
+UNION
+{?something a/rdfs:subClassOf* s223:Connection}
+UNION
+{?something a/rdfs:subClassOf* s223:ConnectionPoint}
+}
+""" ;
+      sh:name "InferredMeasurementLocation" ;
+      sh:prefixes <http://data.ashrae.org/standard223/1.0/inference/model-rules> ;
+    ] ;
+.
+s223:Setpoint
+  sh:rule [
+      a sh:SPARQLRule ;
+      rdfs:comment "Infer the hasQuantityKind relationship for a Setpoint if it is unambiguous" ;
+      sh:construct """
+CONSTRUCT {$this qudt:hasQuantityKind ?qk .}
+WHERE {
+FILTER (NOT EXISTS {$this qudt:hasQuantityKind ?something}) .
+$this ^s223:hasSetpoint ?property .
+?property qudt:hasQuantityKind ?qk .
+}
+""" ;
+      sh:prefixes <http://data.ashrae.org/standard223/1.0/inference/model-rules> ;
+    ] ;
+.
+s223:Zone
+  sh:rule [
+      a sh:TripleRule ;
+      rdfs:comment "Infer a hasDomain relations by traversing the contains hierarchy down to determine the domain." ;
+      sh:object [
+          sh:path (
+              [
+                sh:zeroOrMorePath s223:contains ;
+              ]
+              s223:hasDomain
+            ) ;
+        ] ;
+      sh:predicate s223:hasDomain ;
+      sh:subject sh:this ;
+    ] ;
+.
+<http://data.ashrae.org/standard223/1.0/inference/model-rules>
+  a owl:Ontology ;
+  owl:imports <http://data.ashrae.org/standard223/1.0/model/all> ;
+  owl:versionInfo "Created with TopBraid Composer" ;
+  sh:declare [
+      sh:namespace "http://data.ashrae.org/standard223#"^^xsd:anyURI ;
+      sh:prefix "s223" ;
+    ] ;
+  sh:declare [
+      sh:namespace "http://data.ashrae.org/standard223/1.0/vocab/role#"^^xsd:anyURI ;
+      sh:prefix "role" ;
+    ] ;
+  sh:declare [
+      sh:namespace "http://qudt.org/vocab/quantitykind/"^^xsd:anyURI ;
+      sh:prefix "qudtqk" ;
+    ] ;
+  sh:declare [
+      sh:namespace "http://qudt.org/vocab/unit/"^^xsd:anyURI ;
+      sh:prefix "unit" ;
+    ] ;
+  sh:declare [
+      sh:namespace "http://www.w3.org/2000/01/rdf-schema#"^^xsd:anyURI ;
+      sh:prefix "rdfs" ;
+    ] ;
+.

@@ -1,0 +1,36 @@
+# baseURI: http://data.ashrae.org/standard223/1.0/model/all
+# imports: http://data.ashrae.org/standard223/1.0/extensions/settings
+# imports: http://data.ashrae.org/standard223/1.0/model/core
+# imports: http://data.ashrae.org/standard223/1.0/model/device
+# imports: http://data.ashrae.org/standard223/1.0/model/fnblck
+# imports: http://data.ashrae.org/standard223/1.0/vocab/enumeration
+# imports: http://qudt.org/2.1/vocab/constant
+# imports: http://qudt.org/2.1/vocab/currency
+# imports: http://qudt.org/2.1/vocab/unit
+# imports: http://www.w3.org/ns/shacl#
+# imports: https://brickschema.org/schema/1.3/Brick
+# imports: https://brickschema.org/schema/Brick/ref
+
+@prefix all: <http://data.ashrae.org/standard223/model/all#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix s223: <http://data.ashrae.org/standard223#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://data.ashrae.org/standard223/1.0/model/all>
+  a owl:Ontology ;
+  owl:imports <http://data.ashrae.org/standard223/1.0/extensions/settings> ;
+  owl:imports <http://data.ashrae.org/standard223/1.0/model/core> ;
+  owl:imports <http://data.ashrae.org/standard223/1.0/model/device> ;
+  owl:imports <http://data.ashrae.org/standard223/1.0/model/fnblck> ;
+  owl:imports <http://data.ashrae.org/standard223/1.0/vocab/enumeration> ;
+  owl:imports <http://qudt.org/2.1/vocab/constant> ;
+  owl:imports <http://qudt.org/2.1/vocab/currency> ;
+  owl:imports <http://qudt.org/2.1/vocab/unit> ;
+  owl:imports sh: ;
+  owl:imports <https://brickschema.org/schema/1.3/Brick> ;
+  owl:imports <https://brickschema.org/schema/Brick/ref> ;
+  owl:versionInfo "Created with TopBraid Composer" ;
+.

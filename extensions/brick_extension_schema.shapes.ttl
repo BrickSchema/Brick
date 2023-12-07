@@ -1,0 +1,173 @@
+# baseURI: http://data.ashrae.org/standard223/1.0/validation/schema
+# imports: http://data.ashrae.org/standard223/1.0/model/all
+
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix s223: <http://data.ashrae.org/standard223#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix vs223: <http://data.ashrae.org/standard223/validation/schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+s223:RequiredCommentsShape
+  a sh:NodeShape ;
+  sh:severity sh:Info ;
+      sh:sparql [
+          a sh:SPARQLConstraint ;
+          rdfs:comment "Ensure that any instance of s223:Class is also a rdfs:subClassOf* s223:Concept." ;
+          sh:message "Class {$this} must be within the rdfs:subClassOf hierarchy under s223:Concept." ;
+          sh:prefixes <http://data.ashrae.org/standard223/1.0/validation/model> ;
+          sh:select """
+SELECT $this
+WHERE {
+FILTER NOT EXISTS {$this rdfs:subClassOf* rdf:Property} .
+FILTER NOT EXISTS {$this rdfs:subClassOf* s223:Concept} .
+}
+""" ;
+        ] ;
+      sh:sparql [
+          a sh:SPARQLConstraint ;
+          rdfs:comment "Ensure that any instance of s223:Class is also an instance of sh:NodeShape." ;
+          sh:message "Class {$this} must be declared as an instance of sh:NodeShape." ;
+          sh:prefixes <http://data.ashrae.org/standard223/1.0/validation/model> ;
+          sh:select """
+SELECT $this
+WHERE {
+FILTER NOT EXISTS {$this a sh:NodeShape} .
+}
+""" ;
+        ] ;
+      sh:sparql [
+          a sh:SPARQLConstraint ;
+          rdfs:comment "Ensure that any instance of s223:Class must have an rdfs:comment." ;
+          sh:message "Class {$this} must have an rdfs:comment." ;
+          sh:prefixes <http://data.ashrae.org/standard223/1.0/validation/model> ;
+          sh:select """
+SELECT $this
+WHERE {
+FILTER NOT EXISTS {$this rdfs:comment ?comment} .
+}
+""" ;
+        ] ;
+      sh:sparql [
+          a sh:SPARQLConstraint ;
+          rdfs:comment "Ensure that any property shape must have an rdfs:comment." ;
+          sh:message "The SPARQLConstraint for path {?path} for Class {$this} must have an rdfs:comment." ;
+          sh:prefixes <http://data.ashrae.org/standard223/1.0/validation/model> ;
+          sh:select """
+SELECT $this ?path
+WHERE {
+$this sh:property ?propshape .
+?propshape sh:sparql ?sparqlconstraint .
+?propshape sh:path ?path .
+FILTER NOT EXISTS {?sparqlconstraint rdfs:comment ?comment} .
+}
+""" ;
+        ] ;
+      sh:sparql [
+          a sh:SPARQLConstraint ;
+          rdfs:comment "Ensure that any property shape must have an rdfs:comment." ;
+          sh:message "The property shape with path {?path} for Class {$this} must have an rdfs:comment." ;
+          sh:prefixes <http://data.ashrae.org/standard223/1.0/validation/model> ;
+          sh:select """
+SELECT $this ?path
+WHERE {
+$this sh:property ?propshape .
+?propshape sh:path ?path .
+FILTER NOT EXISTS {?propshape rdfs:comment ?comment} .
+}
+""" ;
+        ] ;
+      sh:sparql [
+          a sh:SPARQLConstraint ;
+          rdfs:comment "Every Class must have a label." ;
+          sh:message "{$this} must have an rdfs:label" ;
+          sh:prefixes <http://data.ashrae.org/standard223/1.0/validation/schema> ;
+          sh:select """
+SELECT $this
+WHERE {
+FILTER (NOT EXISTS {$this rdfs:label ?something}) .
+}
+""" ;
+        ] ;
+      sh:sparql [
+          a sh:SPARQLConstraint ;
+          rdfs:comment "Ensure that every TripleRule must have an rdfs:comment." ;
+          sh:message "The TripleRule inferring {?pred} for Class {$this} must have an rdfs:comment." ;
+          sh:prefixes <http://data.ashrae.org/standard223/1.0/validation/schema> ;
+          sh:select """
+SELECT $this ?pred
+WHERE {
+$this sh:rule ?rule .
+?rule a sh:TripleRule .
+?rule sh:predicate ?pred .
+FILTER NOT EXISTS {?rule rdfs:comment ?comment} .
+}
+""" ;
+        ] ;
+      sh:sparql [
+          a sh:SPARQLConstraint ;
+          rdfs:comment "Ensure that every SPARQLRule must have an rdfs:comment." ;
+          sh:message "Every SPARQLRule for Class {$this} must have an rdfs:comment." ;
+          sh:prefixes <http://data.ashrae.org/standard223/1.0/validation/schema> ;
+          sh:select """
+SELECT $this
+WHERE {
+$this sh:rule ?rule .
+?rule a sh:SPARQLRule .
+FILTER NOT EXISTS {?rule rdfs:comment ?comment} .
+}
+""" ;
+        ] ;
+sh:targetClass s223:Class ;
+.
+<http://data.ashrae.org/standard223/1.0/validation/schema>
+  a owl:Ontology ;
+  owl:imports <http://data.ashrae.org/standard223/1.0/model/all> ;
+  owl:versionInfo "Created with TopBraid Composer" ;
+  sh:declare [
+      sh:namespace "http://data.ashrae.org/standard223#"^^xsd:anyURI ;
+      sh:prefix "s223" ;
+    ] ;
+  sh:declare [
+      sh:namespace "http://www.w3.org/2000/01/rdf-schema#"^^xsd:anyURI ;
+      sh:prefix "rdfs" ;
+    ] ;
+.
+rdf:Property
+  a sh:NodeShape ;
+ sh:property [
+      sh:path rdfs:label ;
+      rdfs:comment "This Property must have a label" ;
+      sh:sparql [
+          a sh:SPARQLConstraint ;
+          sh:message "{$this} must have an rdfs:label" ;
+          sh:prefixes <http://data.ashrae.org/standard223/1.0/validation/schema> ;
+          sh:select """
+SELECT $this
+WHERE {
+BIND(REPLACE(STR($this), \"^(.*)(/|#)([^#/]*)$\", \"$1\") AS ?prop) .
+FILTER (?prop = \"http://data.ashrae.org/standard223\") .
+FILTER (NOT EXISTS {$this rdfs:label ?something}) .
+}
+""" ;
+        ] ;
+    ] ;
+ sh:property [
+      sh:path rdfs:comment ;
+      rdfs:comment "This Property must have a comment" ;
+      sh:sparql [
+          a sh:SPARQLConstraint ;
+          sh:message "{$this} must have an rdfs:comment" ;
+          sh:prefixes <http://data.ashrae.org/standard223/1.0/validation/schema> ;
+          sh:select """
+SELECT $this
+WHERE {
+BIND(REPLACE(STR($this), \"^(.*)(/|#)([^#/]*)$\", \"$1\") AS ?prop) .
+FILTER (?prop = \"http://data.ashrae.org/standard223\") .
+FILTER (NOT EXISTS {$this rdfs:comment ?something}) .
+}
+""" ;
+        ] ;
+    ] ;
+.

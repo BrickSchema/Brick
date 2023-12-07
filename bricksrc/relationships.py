@@ -1,69 +1,91 @@
 from rdflib import Literal
-from .namespaces import A, OWL, RDFS, BRICK, VCARD, UNIT, QUDT, SDO, RDF, S223
+from .namespaces import A, OWL, RDFS, BRICK, VCARD, UNIT, QUDT, SDO, RDF, BSH, XSD
 
 """
-Defining properties
+Defining Brick relationships
 """
-properties = {
+relationships = {
+    "isReplacedBy": {
+        A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+        RDFS.label: Literal("Is replaced by"),
+        "range": BRICK.Entity,
+        "domain": BRICK.Entity,
+    },
     "hasSubstance": {
         A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
-        RDFS.label: Literal("Has QUDT reference"),
+        RDFS.label: Literal("Has Substance"),
+        "range": BRICK.Substance,
+        "domain": [BRICK.Point, BRICK.Meter],
     },
     "hasQuantity": {
         A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
-        RDFS.label: Literal("Has QUDT reference"),
+        RDFS.label: Literal("Has Quantity"),
         RDFS.subPropertyOf: QUDT.hasQuantityKind,
+        "range": BRICK.Quantity,
+        "domain": BRICK.Point,
     },
     "value": {
-        RDFS.subPropertyOf: [QUDT.value, S223.hasSimpleValue],
+        RDFS.subPropertyOf: QUDT.value,
         RDFS.label: Literal("Value"),
         A: [RDF.Property],
+        "range": RDFS.Resource,
+        "domain": RDFS.Resource,
     },
     "latitude": {
         RDFS.subPropertyOf: SDO.latitude,
         RDFS.label: Literal("Latitude"),
         A: [OWL.ObjectProperty],
+        "domain": BRICK.Entity,
+        "datatype": BSH.NumericValue,
     },
     "longitude": {
         RDFS.subPropertyOf: SDO.longitude,
         RDFS.label: Literal("Longitude"),
         A: [OWL.ObjectProperty],
+        "domain": BRICK.Entity,
+        "datatype": BSH.NumericValue,
     },
     "timestamp": {
-        RDFS.subPropertyOf: S223.hasTimestamp,
         RDFS.label: Literal("Timestamp"),
         A: [RDF.Property],
+        "domain": BRICK.Entity,
+        "datatype": XSD.dateTime,
     },
     "hasQUDTReference": {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         RDFS.label: Literal("Has QUDT reference"),
+        "domain": BRICK.Quantity,
+        "range": QUDT.QuantityKind,
     },
     "isLocationOf": {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         OWL.inverseOf: BRICK["hasLocation"],
-        RDFS.domain: BRICK.Location,
+        "domain": BRICK.Location,
+        "range": BRICK.Entity,
         RDFS.label: Literal("Is location of"),
     },
     "hasLocation": {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         OWL.inverseOf: BRICK["isLocationOf"],
-        RDFS.range: BRICK.Location,
+        "domain": BRICK.Entity,
+        "range": BRICK.Location,
         RDFS.label: Literal("Has location"),
     },
     "hasInputSubstance": {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
-        RDFS.range: BRICK.Substance,
+        "range": BRICK.Substance,
+        "domain": BRICK.Equipment,
         RDFS.label: Literal("Has input substance"),
     },
     "hasOutputSubstance": {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
-        RDFS.range: BRICK.Substance,
+        "range": BRICK.Substance,
+        "domain": BRICK.Equipment,
         RDFS.label: Literal("Has output substance"),
     },
     "feeds": {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         OWL.inverseOf: BRICK["isFedBy"],
-        "subproperties": {"feedsAir": {}},
         RDFS.label: Literal("Feeds"),
     },
     "isFedBy": {
@@ -74,13 +96,18 @@ properties = {
     "hasPoint": {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         OWL.inverseOf: BRICK["isPointOf"],
-        RDFS.range: BRICK.Point,
+        "range": BRICK.Point,
+        "domain": [BRICK.Equipment, BRICK.Location],
         RDFS.label: Literal("Has point"),
     },
     "isPointOf": {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         OWL.inverseOf: BRICK["hasPoint"],
-        RDFS.domain: BRICK.Point,
+        "domain": BRICK.Point,
+        "range": [
+            BRICK.Equipment,
+            BRICK.Location,
+        ],
         RDFS.label: Literal("Is point of"),
     },
     "hasPart": {
@@ -96,43 +123,46 @@ properties = {
     "hasTag": {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         OWL.inverseOf: BRICK["isTagOf"],
-        RDFS.range: BRICK.Tag,
+        "range": BRICK.Tag,
+        "domain": OWL.Class,
         RDFS.label: Literal("Has tag"),
     },
     "isTagOf": {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
-        RDFS.domain: BRICK.Tag,
+        "domain": BRICK.Tag,
+        "range": OWL.Class,
         RDFS.label: Literal("Is tag of"),
     },
     "hasAssociatedTag": {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         OWL.inverseOf: BRICK["isAssociatedWith"],
-        RDFS.domain: OWL.Class,
-        RDFS.range: BRICK.Tag,
+        "domain": OWL.Class,
+        "range": BRICK.Tag,
         RDFS.label: Literal("Has associated tag"),
     },
     "isAssociatedWith": {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         OWL.inverseOf: BRICK["hasAssociatedTag"],
-        RDFS.domain: BRICK.Tag,
-        RDFS.range: OWL.Class,
+        "domain": BRICK.Tag,
+        "range": OWL.Class,
         RDFS.label: Literal("Is associated with"),
     },
     "hasAddress": {
         RDFS.subPropertyOf: VCARD.hasAddress,
-        RDFS.domain: BRICK.Building,
-        RDFS.range: VCARD.Address,
+        "domain": BRICK.Building,
+        "range": VCARD.Address,
         RDFS.label: Literal("Has address"),
     },
     "hasUnit": {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
-        RDFS.range: UNIT.Unit,
+        "range": QUDT.Unit,
+        "domain": BRICK.Point,
         RDFS.label: Literal("Has unit"),
     },
     "meters": {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         OWL.inverseOf: BRICK.isMeteredBy,
-        RDFS.domain: BRICK.Meter,
+        "domain": BRICK.Meter,
         # this is a special property that implements the 'range' as a SHACL shape
         "range": [BRICK.Equipment, BRICK.Location, BRICK.Collection],
         RDFS.label: Literal("meters"),
@@ -142,21 +172,21 @@ properties = {
         OWL.inverseOf: BRICK.meters,
         # this is a special property that implements the 'domain' as a SHACL shape
         "domain": [BRICK.Equipment, BRICK.Location, BRICK.Collection],
-        RDFS.range: BRICK.Meter,
+        "range": BRICK.Meter,
         RDFS.label: Literal("is metered by"),
     },
     "hasSubMeter": {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         OWL.inverseOf: BRICK.isSubMeterOf,
-        RDFS.range: BRICK.Meter,
-        RDFS.domain: BRICK.Meter,
+        "range": BRICK.Meter,
+        "domain": BRICK.Meter,
         RDFS.label: Literal("has sub-meter"),
     },
     "isSubMeterOf": {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         OWL.inverseOf: BRICK.hasSubMeter,
-        RDFS.range: BRICK.Meter,
-        RDFS.domain: BRICK.Meter,
+        "range": BRICK.Meter,
+        "domain": BRICK.Meter,
         RDFS.label: Literal("is sub-meter of"),
     },
 }

@@ -1,20 +1,8 @@
-import pytest
-import rdflib
-from rdflib.namespace import OWL, RDF, RDFS
 from rdflib import Graph, URIRef
-import json
-import brickschema
-import sys
 from collections import defaultdict
-
-sys.path.append("..")
-
-from bricksrc.version import BRICK_VERSION  # noqa: E402
-from bricksrc.namespaces import BRICK  # noqa: E402
 
 
 def getDict(g, q):
-
     d = defaultdict(list)
 
     res = g.query(q)
@@ -176,10 +164,8 @@ def matchSupplyDischarge(d, e):
 
 
 # maincode
-def test_matching_classes():
-    g = Graph()
-
-    g.parse("Brick.ttl", format="turtle")
+def test_matching_classes(brick_with_imports):
+    g = brick_with_imports
     # DeductiveClosure(OWLRL_Semantics).expand(g)
 
     d = getDict(
@@ -187,9 +173,7 @@ def test_matching_classes():
         """
        SELECT DISTINCT ?c ?p
        WHERE {
-           ?c rdfs:subClassOf* brick:Class .
-           ?c rdfs:subClassOf ?p .
-           ?p rdfs:subClassOf* brick:Class .
+           ?c (rdfs:subClassOf | owl:equivalentClass)+ ?p .
            FILTER NOT EXISTS { ?c owl:deprecated true } .
            FILTER NOT EXISTS { ?p owl:deprecated true } .
        }
@@ -206,11 +190,9 @@ def test_matching_classes():
         """
        SELECT DISTINCT ?c ?p
        WHERE {
-           ?c rdfs:subClassOf* brick:Class .
-           FILTER NOT EXISTS { ?c owl:deprecated true } .
-           OPTIONAL {
+           ?c (rdfs:subClassOf | owl:equivalentClass)* brick:Class .
            ?c owl:equivalentClass ?p .
-           } .
+           FILTER NOT EXISTS { ?c owl:deprecated true } .
        }
        """,
     )

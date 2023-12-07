@@ -1,6 +1,9 @@
 from .namespaces import TAG, OWL, BRICK
 
 system_subclasses = {
+    "Automatic_Tint_Window_Array": {
+        "tags": [TAG.System, TAG.Tint, TAG.Array, TAG.Shade]
+    },
     "Domestic_Hot_Water_System": {
         "tags": [TAG.Domestic, TAG.Water, TAG.Hot, TAG.System]
     },
@@ -12,7 +15,11 @@ system_subclasses = {
                 "subclasses": {
                     "Energy_Generation_System": {
                         "tags": [TAG.Energy, TAG.Generation, TAG.System],
-                        "subclasses": {"PV_Generation_System": {}},
+                        "subclasses": {
+                            "PV_Generation_System": {
+                                "tags": [TAG.Photovoltaic, TAG.Generation, TAG.System],
+                            }
+                        },
                     },
                     "Energy_Storage_System": {
                         "tags": [TAG.Energy, TAG.Storage, TAG.System],
@@ -32,10 +39,9 @@ system_subclasses = {
         },
     },
     "Gas_System": {"tags": [TAG.Gas, TAG.System]},
-    "HVAC_System": {"tags": [TAG.HVAC, TAG.System]},
     "Heating_Ventilation_Air_Conditioning_System": {
-        OWL.equivalentClass: BRICK["HVAC_System"],
-        "tags": [TAG.Heat, TAG.Ventilation, TAG.Air, TAG.Conditioning, TAG.System],
+        "tags": [TAG.Heat, TAG.Ventilation, TAG.Air, TAG.Conditioning, TAG.HVAC, TAG.System],
+        "aliases": [BRICK["HVAC_System"]],
         "subclasses": {
             "Air_System": {
                 "tags": [TAG.Air, TAG.System],
@@ -163,13 +169,8 @@ collection_classes = {
         "constraints": {BRICK.hasPart: [BRICK.Equipment, BRICK.Point, BRICK.Location]},
     },
     "Photovoltaic_Array": {
-        "tags": [TAG.Collection, TAG.Photovoltaic, TAG.Array],
+        "tags": [TAG.Collection, TAG.Photovoltaic, TAG.PV, TAG.Array],
+        "aliases": [BRICK["PV_Array"]],
         "constraints": {BRICK.hasPart: [BRICK.PV_Panel]},
-        OWL.equivalentClass: BRICK["PV_Array"],
-    },
-    "PV_Array": {
-        "tags": [TAG.Collection, TAG.PV, TAG.Array],
-        "constraints": {BRICK.hasPart: [BRICK.PV_Panel]},
-        OWL.equivalentClass: BRICK["Photovoltaic_Array"],
     },
 }

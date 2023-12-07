@@ -1,0 +1,281 @@
+# baseURI: https://brickschema.org/extension/brick_extension_interpret_223
+# imports: http://data.ashrae.org/standard223/1.0/model/all
+# imports: http://www.w3.org/ns/shacl#
+# imports: https://brickschema.org/extension/mappings_223
+# imports: https://brickschema.org/schema/1.3/Brick
+# prefix: s223tobrick
+
+@prefix brick: <https://brickschema.org/schema/Brick#> .
+@prefix dash: <http://datashapes.org/dash#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix quantitykind: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix s223: <http://data.ashrae.org/standard223#> .
+@prefix s223tobrick: <https://brickschema.org/extension/brick_extension_interpret_223#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+s223:Concept
+  sh:rule [
+      a sh:TripleRule ;
+      sh:object [
+          sh:path (
+              rdf:type
+              [
+                sh:zeroOrMorePath rdfs:subClassOf ;
+              ]
+              s223tobrick:translatesTo
+            ) ;
+        ] ;
+      sh:predicate rdf:type ;
+      sh:subject sh:this ;
+    ] ;
+  sh:property [
+    sh:path s223tobrick:translatesTo ;
+  ]
+.
+s223:Connectable
+  sh:rule [
+      a sh:TripleRule ;
+      sh:condition [
+          sh:path s223:connectedTo ;
+          sh:hasValue [
+              sh:or (
+                  [
+                    sh:class brick:Equipment ;
+                  ]
+                  [
+                    sh:class brick:Location ;
+                  ]
+                ) ;
+            ] ;
+        ] ;
+      sh:object [
+          sh:path s223:connectedTo ;
+        ] ;
+      sh:predicate brick:feeds ;
+      sh:subject sh:this ;
+    ] ;
+.
+s223:ConnectionPoint
+sh:property [
+  rdfs:comment "Make s223:ConnectionPoint able to use brick:hasPoint." ;
+    sh:path brick:hasPoint  ;
+  ]
+.
+s223:DomainSpace
+  sh:rule [
+      a sh:TripleRule ;
+      sh:condition [
+          sh:path s223:hasDomain ;
+          sh:hasValue s223:Domain-Fire ;
+        ] ;
+      sh:object brick:Fire_Zone ;
+      sh:predicate rdf:type ;
+      sh:subject sh:this ;
+    ] ;
+  sh:rule [
+      a sh:TripleRule ;
+      sh:condition [
+          sh:path s223:hasDomain ;
+          sh:hasValue s223:Domain-HVAC ;
+        ] ;
+      sh:object brick:HVAC_Zone ;
+      sh:predicate rdf:type ;
+      sh:subject sh:this ;
+    ] ;
+  sh:rule [
+      a sh:TripleRule ;
+      sh:condition [
+          sh:path s223:hasDomain ;
+          sh:hasValue s223:Domain-Lighting ;
+        ] ;
+      sh:object brick:Lighting_Zone ;
+      sh:predicate rdf:type ;
+      sh:subject sh:this ;
+    ] ;
+.
+s223:EnumerationKind-Medium
+  sh:rule [
+      a sh:TripleRule ;
+      sh:object [
+          sh:path s223tobrick:translatesTo ;
+        ] ;
+      sh:predicate brick:hasSubstance ;
+      sh:subject [
+          sh:path (
+              [
+                sh:inversePath s223:hasMedium ;
+              ]
+              s223:isConnectionPointOf
+            ) ;
+        ] ;
+    ] ;
+.
+s223:Setpoint
+  sh:rule [
+      a sh:TripleRule ;
+      sh:condition [
+          sh:or (
+              [
+                sh:path qudt:hasQuantityKind ;
+                sh:hasValue quantitykind:Temperature ;
+              ]
+              [
+                sh:path (
+                    qudt:unit
+                    qudt:hasQuantityKind
+                  ) ;
+                sh:hasValue quantitykind:Temperature ;
+              ]
+            ) ;
+        ] ;
+      sh:object brick:Temperature_Setpoint ;
+      sh:predicate rdf:type ;
+      sh:subject sh:this ;
+    ] ;
+  sh:rule [
+      a sh:TripleRule ;
+      sh:condition [
+          sh:or (
+              [
+                sh:path qudt:hasQuantityKind ;
+                sh:hasValue quantitykind:VolumeFlowRate ;
+              ]
+              [
+                sh:path (
+                    qudt:unit
+                    qudt:hasQuantityKind
+                  ) ;
+                sh:hasValue quantitykind:VolumeFlowRate ;
+              ]
+            ) ;
+        ] ;
+      sh:object brick:Flow_Setpoint ;
+      sh:predicate rdf:type ;
+      sh:subject sh:this ;
+    ] ;
+.
+s223:TemperatureSensor
+  sh:rule [
+      a sh:SPARQLRule ;
+      sh:construct """
+CONSTRUCT {$this rdf:type brick:Entering_Chilled_Water_Temperature_Sensor .}
+WHERE {
+$this s223:observes/s223:ofMedium s223:Water-ChilledWater .
+$this s223:hasMeasurementLocation/rdf:type s223:InletConnectionPoint .
+$this s223:hasMeasurementLocation/s223:isConnectionPointOf/rdf:type ?class .
+{
+?class rdfs:subClassOf* s223:CoolingCoil .
+}
+UNION
+{
+?class rdfs:subClassOf* s223:Chiller .
+}
+}
+""" ;
+      sh:prefixes <https://brickschema.org/extension/brick_extension_interpret_223> ;
+    ] ;
+  sh:rule [
+      a sh:SPARQLRule ;
+      sh:construct """
+CONSTRUCT {$this rdf:type brick:Entering_Hot_Water_Temperature_Sensor .}
+WHERE {
+$this s223:observes/s223:ofMedium s223:Water-HotWater .
+$this s223:hasMeasurementLocation/rdf:type s223:InletConnectionPoint .
+$this s223:hasMeasurementLocation/s223:isConnectionPointOf/rdf:type ?class .
+?class rdfs:subClassOf* s223:HeatingCoil .
+}
+""" ;
+      sh:prefixes <https://brickschema.org/extension/brick_extension_interpret_223> ;
+    ] ;
+  sh:rule [
+      a sh:SPARQLRule ;
+      sh:construct """
+CONSTRUCT {$this rdf:type brick:Leaving_Chilled_Water_Temperature_Sensor .}
+WHERE {
+$this s223:observes/s223:ofMedium s223:Water-ChilledWater .
+$this s223:hasMeasurementLocation/rdf:type s223:OutletConnectionPoint .
+$this s223:hasMeasurementLocation/s223:isConnectionPointOf/rdf:type ?class .
+{
+?class rdfs:subClassOf* s223:CoolingCoil .
+}
+UNION
+{
+?class rdfs:subClassOf* s223:Chiller .
+}
+}
+""" ;
+      sh:prefixes <https://brickschema.org/extension/brick_extension_interpret_223> ;
+    ] ;
+  sh:rule [
+      a sh:SPARQLRule ;
+      sh:construct """
+CONSTRUCT {$this rdf:type brick:Leaving_Hot_Water_Temperature_Sensor .}
+WHERE {
+$this s223:observes/s223:ofMedium s223:Water-HotWater .
+$this s223:hasMeasurementLocation/rdf:type s223:OutletConnectionPoint .
+$this s223:hasMeasurementLocation/s223:isConnectionPointOf/rdf:type ?class .
+?class rdfs:subClassOf* s223:HeatingCoil .
+}
+""" ;
+      sh:prefixes <https://brickschema.org/extension/brick_extension_interpret_223> ;
+    ] ;
+  sh:rule [
+      a sh:TripleRule ;
+      sh:condition [
+          sh:path (
+              s223:observes
+              s223:ofMedium
+            ) ;
+          sh:hasValue s223:Water-ChilledWater ;
+        ] ;
+      sh:object brick:Chilled_Water_Temperature_Sensor ;
+      sh:predicate rdf:type ;
+      sh:subject sh:this ;
+    ] ;
+  sh:rule [
+      a sh:TripleRule ;
+      sh:condition [
+          sh:path (
+              s223:observes
+              s223:ofMedium
+            ) ;
+          sh:hasValue s223:Water-HotWater ;
+        ] ;
+      sh:object brick:Domestic_Hot_Water_Temperature_Sensor ;
+      sh:predicate rdf:type ;
+      sh:subject sh:this ;
+    ] ;
+.
+<https://brickschema.org/extension/brick_extension_interpret_223>
+  a owl:Ontology ;
+  owl:imports <http://data.ashrae.org/standard223/1.0/model/all> ;
+  owl:imports sh: ;
+  owl:imports <https://brickschema.org/extension/mappings_223> ;
+  owl:imports <https://brickschema.org/schema/1.3/Brick> ;
+  owl:versionInfo "Created with TopBraid Composer" ;
+  sh:declare [
+      sh:namespace "http://data.ashrae.org/standard223#"^^xsd:anyURI ;
+      sh:prefix "s223" ;
+    ] ;
+  sh:declare [
+      sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+      sh:prefix "rdf" ;
+    ] ;
+  sh:declare [
+      sh:namespace "http://www.w3.org/2000/01/rdf-schema#"^^xsd:anyURI ;
+      sh:prefix "rdfs" ;
+    ] ;
+  sh:declare [
+      sh:namespace "https://brickschema.org/extension/brick_extension_interpret_223#"^^xsd:anyURI ;
+      sh:prefix "s223tobrick" ;
+    ] ;
+  sh:declare [
+      sh:namespace "https://brickschema.org/schema/Brick#"^^xsd:anyURI ;
+      sh:prefix "brick" ;
+    ] ;
+.
