@@ -18,8 +18,8 @@ def test_entity_property_validation(brick_with_imports):
         )
     )
 
-    g.expand("shacl")
-    valid, _, report = g.validate()
+    g.expand("shacl", backend="topquadrant")
+    valid, _, report = g.validate(engine='topquadrant')
     assert valid, report
 
 
@@ -35,8 +35,8 @@ def test_entity_property_validation_failure(brick_with_imports):
         )
     )
 
-    g.expand("shacl")
-    valid, _, _ = g.validate()
+    g.expand("shacl", backend="topquadrant")
+    valid, _, _ = g.validate(engine='topquadrant')
     assert not valid, "'AquariumFail' should have thrown a validation error"
 
 
@@ -55,9 +55,9 @@ def test_entity_property_type_inference(brick_with_imports):
         )
     )
 
-    valid, _, report = g.validate()
+    valid, _, report = g.validate(engine='topquadrant')
     assert valid, report
-    g.expand("shacl")
+    g.expand("shacl", backend="topquadrant")
     g.serialize("test.ttl", format="ttl")
 
     res = g.query(
@@ -83,7 +83,7 @@ def test_last_known_value(brick_with_imports):
             ],
         )
     )
-    valid, _, report = g.validate()
+    valid, _, report = g.validate(engine='topquadrant')
     assert valid, report
     g.add(
         (
@@ -98,7 +98,7 @@ def test_last_known_value(brick_with_imports):
             ],
         )
     )
-    valid, _, report = g.validate()
+    valid, _, report = g.validate(engine='topquadrant')
     assert not valid, report
 
 
@@ -115,8 +115,8 @@ def test_external_reference_rules(brick_with_imports):
         )
     )
 
-    g.expand("shacl")
-    valid, _, report = g.validate()
+    g.expand("shacl", backend="topquadrant")
+    valid, _, report = g.validate(engine='topquadrant')
     assert valid, report
 
     res = g.query(
@@ -135,6 +135,6 @@ def test_external_reference_rules(brick_with_imports):
         )
     )
 
-    g.expand("shacl")
-    valid, _, report = g.validate()
+    g.expand("shacl", backend="topquadrant")
+    valid, _, report = g.validate(engine='topquadrant')
     assert not valid, report

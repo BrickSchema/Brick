@@ -1,4 +1,5 @@
 import os
+import brickschema
 import importlib
 from pathlib import Path
 import sys
@@ -58,7 +59,7 @@ logging.basicConfig(
     level=logging.INFO,
 )
 
-G = Graph()
+G = brickschema.Graph()
 bind_prefixes(G)
 A = RDF.type
 
@@ -1037,7 +1038,7 @@ for name, uri in ontology_imports.items():
     G += depg  # add the imported graph to Brick so we can do validation
 
 # validate Brick
-valid, _, report = pyshacl.validate(data_graph=G, advanced=True, allow_warnings=True)
+valid, _, report = G.validate(engine="topquadrant")
 if not valid:
     print(report)
     sys.exit(1)

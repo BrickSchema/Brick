@@ -18,7 +18,7 @@ def test_quantity_has_one_quantitykind(brick_with_imports):
     does not end up with more than 1 QuantityKind
     """
     g = brick_with_imports
-    g.expand(profile="shacl")
+    g.expand(profile="shacl", backend="topquadrant")
     quantity_qk = g.query(
         "SELECT ?quantity ?kind WHERE {\
             ?quantity   a   brick:Quantity .\
@@ -75,7 +75,7 @@ def test_instances_measure_correct_units(brick_with_imports):
         triples.append((instance, A, brickclass))
         triples.append((instance, BRICK.hasUnit, unit))
     g.add(*triples)
-    g.expand(profile="shacl")
+    g.expand(profile="shacl", backend="topquadrant")
 
     instances = g.query(
         "SELECT distinct ?inst WHERE {\
@@ -90,7 +90,7 @@ def test_instances_measure_correct_units(brick_with_imports):
 def test_quantity_units(brick_with_imports):
     g = brick_with_imports
     g.bind("qudt", QUDT)
-    g.expand(profile="shacl")
+    g.expand(profile="shacl", backend="topquadrant")
 
     # test the definitions by making sure that some quantities have applicable
     # units
@@ -104,7 +104,7 @@ def test_quantity_units(brick_with_imports):
 
 def test_all_quantities_have_units(brick_with_imports):
     g = brick_with_imports
-    g.expand(profile="shacl")
+    g.expand(profile="shacl", backend="topquadrant")
 
     # test the definitions by making sure that some quantities have applicable
     # units

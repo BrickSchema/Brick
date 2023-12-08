@@ -12,5 +12,5 @@ def test_example_file_with_reasoning(brick_with_imports, filename):
     env.import_dependencies(g)
     g.expand("shacl")
 
-    valid, _, report = g.validate()
+    valid, _, report = g.validate(engine='topquadrant')
     assert valid, report

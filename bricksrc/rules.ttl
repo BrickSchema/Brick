@@ -269,6 +269,7 @@ bsh:BuildingMeterRule a sh:NodeShape ;
             $this rdf:type ?type .
             BIND(IRI(CONCAT("https://brickschema.org/schema/Brick#Building_", strafter(str(?type), "https://brickschema.org/schema/Brick#"))) as ?newtype) .
             FILTER (strEnds(str(?type), "_Meter"))
+            FILTER (!strStarts(str(?type), "https://brickschema.org/schema/Brick#Building_"))
         }
         """ ;
         sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
