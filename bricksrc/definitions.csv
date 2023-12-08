@@ -1029,6 +1029,7 @@ https://brickschema.org/schema/Brick#System_Status,Indicates properties of the a
 https://brickschema.org/schema/Brick#TABS_Panel,See Thermally_Activated_Building_System_Panel,
 https://brickschema.org/schema/Brick#TETRA_Room,"A room used for local two-way radio networks, e.g. the portable radios carried by facilities staff",
 https://brickschema.org/schema/Brick#TVOC_Level_Sensor,A sensor measuring the level of all VOCs in air,
+https://brickschema.org/schema/Brick#Tablet,"A flat, handheld mobile computer, usually with a touchscreen"
 https://brickschema.org/schema/Brick#Tank,A container designed to hold or store fluids for various applications within a system.,
 https://brickschema.org/schema/Brick#Team_Room,An office used by multiple team members for specific work tasks. Distinct from Conference Room,
 https://brickschema.org/schema/Brick#Telecom_Room,A class of spaces used to support telecommuncations and IT equipment,
