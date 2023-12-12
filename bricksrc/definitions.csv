@@ -7,11 +7,11 @@ https://brickschema.org/schema/Brick#Acceleration_Time,,
 https://brickschema.org/schema/Brick#Acceleration_Time_Setpoint,,
 https://brickschema.org/schema/Brick#Active_Chilled_Beam,A Chilled Beam with an integral primary air connection that induces air flow through the device.,
 https://brickschema.org/schema/Brick#Active_Power,"(Active Power) is, under periodic conditions, the mean value, taken over one period (T), of the instantaneous power (p). In complex notation, (P = Re \; S), where (S) is (complex power)"".",
-https://brickschema.org/schema/Brick#Active_Power_Sensor,"Measures the portion of power that, averaged over a complete cycle of the AC waveform, results in net transfer of energy in one direction","https://en.wikipedia.org/wiki/AC_power#Active,_reactive,_and_apparent_power"
+https://brickschema.org/schema/Brick#Active_Power_Sensor,"Measures the portion of power that, averaged over a complete cycle of the AC waveform, results in net transfer of energy in one direction","https://en.wikipedia.org/wiki/AC_power#Active,_reactive,_and_apparent_power",
 https://brickschema.org/schema/Brick#Adjust_Sensor,Measures user-provided adjustment of some value,
 https://brickschema.org/schema/Brick#Air,"the invisible gaseous substance surrounding the earth, a mixture mainly of oxygen and nitrogen.",
 https://brickschema.org/schema/Brick#Air_Alarm,,
-https://brickschema.org/schema/Brick#Air_Cooled_Chiller,"A chiller that uses air to cool the refrigerant, used in various commercial and industrial cooling applications"
+https://brickschema.org/schema/Brick#Air_Cooled_Chiller,"A chiller that uses air to cool the refrigerant, used in various commercial and industrial cooling applications",
 https://brickschema.org/schema/Brick#Air_Differential_Pressure_Sensor,Measures the difference in pressure between two regions of air,
 https://brickschema.org/schema/Brick#Air_Differential_Pressure_Setpoint,Sets the target air differential pressure between an upstream and downstream point in a air duct or conduit,
 https://brickschema.org/schema/Brick#Air_Diffuser,A device that is a component of the air distribution system that controls the delivery of conditioned and/or ventilating air into a room,
@@ -111,7 +111,7 @@ https://brickschema.org/schema/Brick#CRAH,"a computer room air handler (CRAH) us
 https://brickschema.org/schema/Brick#Cafeteria,A space to serve food and beverages,
 https://brickschema.org/schema/Brick#Capacity,,
 https://brickschema.org/schema/Brick#Capacity_Sensor,,
-https://brickschema.org/schema/Brick#Cassette_Fan_Coil_Unit,"A type of fan coil unit installed within the ceiling void, typically using a cassette for air delivery"
+https://brickschema.org/schema/Brick#Cassette_Fan_Coil_Unit,"A type of fan coil unit installed within the ceiling void, typically using a cassette for air delivery",
 https://brickschema.org/schema/Brick#Ceiling_Fan,A fan installed on the ceiling of a room for the purpose of air circulation,
 https://brickschema.org/schema/Brick#Centrifugal_Chiller,A chiller that uses the vapor compression cycle to chill water. It throws off the heat collected from the chilled water plus the heat from the compressor to a water loop,https://bellomyims.com/your-definitive-guide-to-centrifugal-chillers/
 https://brickschema.org/schema/Brick#Change_Filter_Alarm,An alarm that indicates that a filter must be changed,
@@ -444,7 +444,7 @@ https://brickschema.org/schema/Brick#Fire_Sprinkler_Water_Storage_Tank,A special
 https://brickschema.org/schema/Brick#Fire_Zone,combustion chamber in a furnace or boiler.,
 https://brickschema.org/schema/Brick#First_Aid_Room,A room for a person with minor injuries can be treated or temporarily treated until transferred to a more advanced medical facility,
 https://brickschema.org/schema/Brick#Floor,"A level, typically representing a horizontal aggregation of spaces that are vertically bound. (referring to IFC)",
-https://brickschema.org/schema/Brick#Floor_Fan_Coil_Unit,"A fan coil unit installed on the floor, typically against a wall, for providing heating and cooling in residential or small office spaces"
+https://brickschema.org/schema/Brick#Floor_Fan_Coil_Unit,"A fan coil unit installed on the floor, typically against a wall, for providing heating and cooling in residential or small office spaces",
 https://brickschema.org/schema/Brick#Flow,,
 https://brickschema.org/schema/Brick#Flow_Loss,,
 https://brickschema.org/schema/Brick#Flow_Sensor,Measures the rate of flow of some substance,
@@ -475,7 +475,7 @@ https://brickschema.org/schema/Brick#Generation_Sensor,A sensor measuring how mu
 https://brickschema.org/schema/Brick#Generator_Room,"A room for electrical equipment, specifically electrical generators.",
 https://brickschema.org/schema/Brick#Grains,,
 https://brickschema.org/schema/Brick#Grease_Interceptor,"A larger, more industrial version of a grease trap designed to handle higher volumes of wastewater and more efficiently separate grease and fats.",
-https://brickschema.org/schema/Brick#Ground_Source_Heat_Pump,"A geothermal heat pump using the earth as a heat source or sink, offering high efficiency in heating and cooling"
+https://brickschema.org/schema/Brick#Ground_Source_Heat_Pump,"A geothermal heat pump using the earth as a heat source or sink, offering high efficiency in heating and cooling",
 https://brickschema.org/schema/Brick#HVAC_Equipment,See Heating_Ventilation_Air_Conditioning_System,
 https://brickschema.org/schema/Brick#HVAC_System,See Heating_Ventilation_Air_Conditioning_System,
 https://brickschema.org/schema/Brick#HVAC_Zone,"a space or group of spaces, within a building with heating, cooling, and ventilating requirements, that are sufficiently similar so that desired conditions (e.g., temperature) can be maintained throughout using a single sensor (e.g., thermostat or temperature sensor).",
@@ -892,7 +892,7 @@ https://brickschema.org/schema/Brick#Reactive_Power_Sensor,"Measures the portion
 https://brickschema.org/schema/Brick#Real_Power,"(Active Power) is, under periodic conditions, the mean value, taken over one period (T), of the instantaneous power (p). In complex notation, (P = Re \; S), where (S) is (complex power)"".",
 https://brickschema.org/schema/Brick#Reception,"A space, usually in a lobby, where visitors to a building or space can go to after arriving at a building and inform building staff that they have arrived",
 https://brickschema.org/schema/Brick#Refrigerant,A refrigerant is a working fluid used in the refrigeration cycle of air conditioning systems and heat pumps where in most cases they undergo a repeated phase transition from a liquid to a gas and back again.,https://en.wikipedia.org/wiki/Refrigerant
-https://brickschema.org/schema/Brick#Refrigerant_Valve,"A valve controlling the flow or pressure of refrigerant in refrigeration or air conditioning systems, crucial for system efficiency"
+https://brickschema.org/schema/Brick#Refrigerant_Valve,"A valve controlling the flow or pressure of refrigerant in refrigeration or air conditioning systems, crucial for system efficiency",
 https://brickschema.org/schema/Brick#Region,"A unit of geographic space, usually contigious or somehow related to a geopolitical feature",
 https://brickschema.org/schema/Brick#Reheat_Command,"A command to activate reheating, which is used for either heating or for dehumidification purposes",
 https://brickschema.org/schema/Brick#Reheat_Valve,A valve that controls air temperature by modulating the amount of hot water flowing through a reheat coil,
@@ -1125,14 +1125,14 @@ https://brickschema.org/schema/Brick#Voltage_Imbalance,The percent deviation fro
 https://brickschema.org/schema/Brick#Voltage_Imbalance_Sensor,A sensor which measures the voltage difference (imbalance) between phases of an electrical system,
 https://brickschema.org/schema/Brick#Voltage_Ratio_Setpoint,Sets the ratio of voltage in a transformer,
 https://brickschema.org/schema/Brick#Voltage_Sensor,Measures the voltage of an electrical device or object,
-https://brickschema.org/schema/Brick#Wall_Fan_Coil_Unit,"A wall-mounted fan coil unit used for individual room heating and cooling, often found in hotels, apartments, and offices"
+https://brickschema.org/schema/Brick#Wall_Fan_Coil_Unit,"A wall-mounted fan coil unit used for individual room heating and cooling, often found in hotels, apartments, and offices",
 https://brickschema.org/schema/Brick#Wardrobe,"Storage for clothing, costumes, or uniforms",
 https://brickschema.org/schema/Brick#Warm_Cool_Adjust_Sensor,"User provided adjustment of zone temperature, typically in the range of +/- 5 degrees",
 https://brickschema.org/schema/Brick#Warmest_Zone_Air_Temperature_Sensor,The zone temperature that is warmest; drives the supply temperature of cold air. A computed value rather than a physical sensor. Also referred to as a 'Highest Zone Air Temperature Sensor',
 https://brickschema.org/schema/Brick#Waste_Storage,A room used for storing waste such as trash or recycling,
 https://brickschema.org/schema/Brick#Water,"transparent, odorless, tasteless liquid; a compound of hydrogen and oxygen (H2O), containing 11.188% hydrogen and 88.812% oxygen by mass; freezing at 32°F (0°C); boiling near 212°F (100°C).",
 https://brickschema.org/schema/Brick#Water_Alarm,"Alarm that indicates an undesirable event with a pipe, container, or equipment carrying water e.g. water leak",
-https://brickschema.org/schema/Brick#Water_Cooled_Chiller,"A chiller system using water in the heat exchange process, employed in industrial or commercial facilities for cooling"
+https://brickschema.org/schema/Brick#Water_Cooled_Chiller,"A chiller system using water in the heat exchange process, employed in industrial or commercial facilities for cooling",
 https://brickschema.org/schema/Brick#Water_Differential_Pressure_Setpoint,Sets the target water differential pressure between an upstream and downstream point in a water pipe or conduit,
 https://brickschema.org/schema/Brick#Water_Differential_Temperature_Sensor,Measures the difference in water temperature between an upstream and downstream point in a pipe or conduit,
 https://brickschema.org/schema/Brick#Water_Differential_Temperature_Setpoint,Sets the target differential temperature between the start and end of a heat transfer cycle in a water circuit,
@@ -1146,7 +1146,7 @@ https://brickschema.org/schema/Brick#Water_Loop,A collection of equipment that t
 https://brickschema.org/schema/Brick#Water_Loss_Alarm,An alarm that indicates a loss of water e.g. during transport,
 https://brickschema.org/schema/Brick#Water_Meter,A meter that measures the usage or consumption of water,
 https://brickschema.org/schema/Brick#Water_Pump,A pump that performs work on water,
-https://brickschema.org/schema/Brick#Water_Source_Heat_Pump,"A heat pump utilizing water for heat exchange, suitable for heating and cooling in large buildings"
+https://brickschema.org/schema/Brick#Water_Source_Heat_Pump,"A heat pump utilizing water for heat exchange, suitable for heating and cooling in large buildings",
 https://brickschema.org/schema/Brick#Water_Storage_Tank,A specialized type of tank intended for the storage of water for extended periods.,
 https://brickschema.org/schema/Brick#Water_System,"The equipment, devices and conduits that handle the production and distribution of water in a building",
 https://brickschema.org/schema/Brick#Water_Tank,A space used to hold water. This will likely be deprecated in future releases of Brick for the sake of clarity w.r.t. equipment classification of tanks,
