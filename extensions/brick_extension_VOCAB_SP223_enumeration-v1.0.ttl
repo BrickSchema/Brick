@@ -31,6 +31,7 @@ s223:Attribute-Effectiveness
   a s223:Attribute-Effectiveness ;
   a s223:Class ;
   a sh:NodeShape ;
+  rdfs:comment "This class enumerates the possible states of effectiveness";
   rdfs:label "Attribute-Effectiveness" ;
   rdfs:subClassOf s223:Context-Attribute ;
 .
@@ -121,36 +122,6 @@ s223:DayOfWeek-Weekend
   rdfs:label "Weekend" ;
   rdfs:subClassOf s223:Attribute-DayOfWeek ;
 .
-s223:Dimensioned-ABLineLineVoltage
-  a s223:Dimensioned-LineLineVoltage ;
-  rdfs:comment "The value of the associated Property identifies the A-B Line-to-line voltage of the medium" ;
-  rdfs:label "Dimensioned-ABLineLineVoltage" ;
-.
-s223:Dimensioned-ANLineNeutralVoltage
-  a s223:Dimensioned-LineNeutralVoltage ;
-  rdfs:comment "The value of the associated Property identifies the A-N Line-to-neutral voltage of the medium" ;
-  rdfs:label "Dimensioned-ANLineNeutralVoltage" ;
-.
-s223:Dimensioned-BCLineLineVoltage
-  a s223:Dimensioned-LineLineVoltage ;
-  rdfs:comment "The value of the associated Property identifies the B-C Line-to-line voltage of the medium" ;
-  rdfs:label "Dimensioned-BCLineLineVoltage" ;
-.
-s223:Dimensioned-BNLineNeutralVoltage
-  a s223:Dimensioned-LineNeutralVoltage ;
-  rdfs:comment "The value of the associated Property identifies the B-N Line-to-neutral voltage of the medium" ;
-  rdfs:label "Dimensioned-BNLineNeutralVoltage" ;
-.
-s223:Dimensioned-CALineLineVoltage
-  a s223:Dimensioned-LineLineVoltage ;
-  rdfs:comment "The value of the associated Property identifies the C-A Line-to-line voltage of the medium" ;
-  rdfs:label "Dimensioned-CALineLineVoltage" ;
-.
-s223:Dimensioned-CNLineNeutralVoltage
-  a s223:Dimensioned-LineNeutralVoltage ;
-  rdfs:comment "The value of the associated Property identifies the C-N Line-to-neutral voltage of the medium" ;
-  rdfs:label "Dimensioned-CNLineNeutralVoltage" ;
-.
 s223:Dimensioned-Delta
   a s223:Context-Dimensioned ;
   rdfs:comment "Used to signify the associated Property has a delta (difference) value." ;
@@ -165,16 +136,6 @@ s223:Dimensioned-Latent
   a s223:Context-Dimensioned ;
   rdfs:comment "The latent value of something characterized by this Property." ;
   rdfs:label "Dimensioned-Latent" ;
-.
-s223:Dimensioned-LineLineVoltage
-  a s223:Context-Dimensioned ;
-  rdfs:comment "The value of the associated Property identifies the Line-to-line voltage of the medium" ;
-  rdfs:label "Dimensioned-Line Line Voltage" ;
-.
-s223:Dimensioned-LineNeutralVoltage
-  a s223:Context-Dimensioned ;
-  rdfs:comment "The value of the associated Property identifies the Line-to-neutral voltage of the medium" ;
-  rdfs:label "Dimensioned-Line Neutral Voltage" ;
 .
 s223:Dimensioned-Loss
   a s223:Context-Dimensioned ;
@@ -335,6 +296,7 @@ s223:EM-Light
   a s223:Class ;
   a s223:EM-Light ;
   a sh:NodeShape ;
+  rdfs:comment "The EM-Light class has enumerated instances of what are considered visible or near-visible light." ;
   rdfs:label "EM-Light" ;
   rdfs:subClassOf s223:Medium-EM ;
 .
@@ -397,6 +359,7 @@ s223:Electricity-Signal
   a s223:Class ;
   a s223:Electricity-Signal ;
   a sh:NodeShape ;
+  rdfs:comment "This class has enumerated instances of common communication protocols, mostly at the physical OSI layer." ;
   rdfs:label "Electricity Signal" ;
   rdfs:subClassOf s223:Medium-Electricity ;
 .
@@ -404,7 +367,14 @@ s223:EnumerationKind
   a s223:Class ;
   a s223:EnumerationKind ;
   a sh:NodeShape ;
-  rdfs:comment "This is the encapsulating class for all EnumerationKinds. EnumerationKinds define the (closed) set of permissible values for a given purpose. For example, the DayOfWeek EnumerationKind enumerates the days of the week and allows no other values." ;
+  rdfs:comment """This is the encapsulating class for all EnumerationKinds.
+  EnumerationKinds define the (closed) set of permissible values for a given purpose.
+  For example, the DayOfWeek EnumerationKind enumerates the days of the week and allows no other values.
+
+EnumeratinKinds are arranged in a tree hierarchy.
+As you navigate down the tree each branch or leaf value is a more specific instance of the EnumerationKind.
+Certain validation constraints exist in the standard that evaluate compatibility of EnumerationKinds.
+Two values are deemed compatible if they are the same or if one is a direct ancestor (or descendant) of the other.""" ;
   rdfs:label "Enumeration kind" ;
   rdfs:subClassOf s223:Concept ;
 .
@@ -436,6 +406,7 @@ s223:EnumerationKind-Domain
   a s223:Class ;
   a s223:EnumerationKind-Domain ;
   a sh:NodeShape ;
+  rdfs:comment "A Domain represents a categorization of building services or specialization used to characterize equipment or spaces in a building. Example domains include HVAC, Lighting, and Plumbing." ;
   rdfs:label "EnumerationKind Domain" ;
   rdfs:subClassOf s223:EnumerationKind ;
 .
@@ -443,20 +414,23 @@ s223:EnumerationKind-HVACOperatingMode
   a s223:Class ;
   a s223:EnumerationKind-HVACOperatingMode ;
   a sh:NodeShape ;
-  rdfs:label "HVAC system/equipment operating mode. The policy under which the system is operating." ;
+  rdfs:comment "HVACOperatingMode has enumerated instances of the policy under which the HVAC system or equipment is operating." ;
+  rdfs:label "HVAC operating mode" ;
   rdfs:subClassOf s223:EnumerationKind ;
 .
 s223:EnumerationKind-HVACOperatingStatus
   a s223:Class ;
   a s223:EnumerationKind-HVACOperatingStatus ;
   a sh:NodeShape ;
-  rdfs:label "HVAC system/equipment operating status. What the system is currently doing." ;
+  rdfs:comment "HVACOperatingStatus has enumerated instances of the HVAC system/equipment operating status." ;
+  rdfs:label "HVAC operating status" ;
   rdfs:subClassOf s223:EnumerationKind ;
 .
 s223:EnumerationKind-Medium
   a s223:Class ;
   a s223:EnumerationKind-Medium ;
   a sh:NodeShape ;
+  rdfs:comment "This class has enumerated instances of a physical substance or anything that allows for the transfer of energy or information." ;
   rdfs:label "Medium" ;
   rdfs:subClassOf s223:EnumerationKind ;
 .
@@ -464,6 +438,7 @@ s223:EnumerationKind-Occupancy
   a s223:Class ;
   a s223:EnumerationKind-Occupancy ;
   a sh:NodeShape ;
+  rdfs:comment "This class has enumerated instances of occupancy status, i.e. the state of being used or occupied." ;
   rdfs:label "Occupancy status" ;
   rdfs:subClassOf s223:EnumerationKind ;
 .
@@ -471,6 +446,7 @@ s223:EnumerationKind-OnOff
   a s223:Class ;
   a s223:EnumerationKind-OnOff ;
   a sh:NodeShape ;
+  rdfs:comment "This class has enumerated instances of states of either on or off." ;
   rdfs:label "OnOff enumeration" ;
   rdfs:subClassOf s223:EnumerationKind ;
 .
@@ -478,6 +454,7 @@ s223:EnumerationKind-Phase
   a s223:Class ;
   a s223:EnumerationKind-Phase ;
   a sh:NodeShape ;
+  rdfs:comment "This class has enumerated instances of thermodynamic phase, i.e. states of matter." ;
   rdfs:label "EnumerationKind-Phase" ;
   rdfs:subClassOf s223:EnumerationKind ;
 .
@@ -485,6 +462,7 @@ s223:EnumerationKind-PositionStatus
   a s223:Class ;
   a s223:EnumerationKind-PositionStatus ;
   a sh:NodeShape ;
+  rdfs:comment "This class has enumerated instances of position status such as closed or open." ;
   rdfs:label "Position status" ;
   rdfs:subClassOf s223:EnumerationKind ;
 .
@@ -492,6 +470,7 @@ s223:EnumerationKind-Role
   a s223:Class ;
   a s223:EnumerationKind-Role ;
   a sh:NodeShape ;
+  rdfs:comment "This class has enumerated instances of roles played by entities, such as cooling, generator, relief, return." ;
   rdfs:label "Role" ;
   rdfs:subClassOf s223:EnumerationKind ;
 .
@@ -499,6 +478,7 @@ s223:EnumerationKind-RunStatus
   a s223:Class ;
   a s223:EnumerationKind-RunStatus ;
   a sh:NodeShape ;
+  rdfs:comment "This class is a more general form of EnumerationKind-OnOff, allowing for additional status values beyond on or off." ;
   rdfs:label "Run status" ;
   rdfs:subClassOf s223:EnumerationKind ;
 .
@@ -514,6 +494,7 @@ s223:EnumerationKind-ThreeSpeedSetting
   a s223:Class ;
   a s223:EnumerationKind-ThreeSpeedSetting ;
   a sh:NodeShape ;
+  rdfs:comment "This class has enumerated instances of speed settings of High, Medium, Low (plus Off)." ;
   rdfs:label "Three speed setting" ;
   rdfs:subClassOf s223:EnumerationKind ;
 .
@@ -613,130 +594,6 @@ s223:Light-Visible
   a s223:EM-Light ;
   rdfs:label "Light-Visible" ;
 .
-<http://data.ashrae.org/standard223#LineLineVoltage-10.0kV>
-  a s223:Dimensioned-LineLineVoltage ;
-  rdfs:label "10.0kV Line-Line Voltage" ;
-.
-s223:LineLineVoltage-190V
-  a s223:Dimensioned-LineLineVoltage ;
-  rdfs:label "190V Line-Line Voltage" ;
-.
-s223:LineLineVoltage-208V
-  a s223:Dimensioned-LineLineVoltage ;
-  rdfs:label "208V Line-Line Voltage" ;
-.
-s223:LineLineVoltage-220V
-  a s223:Dimensioned-LineLineVoltage ;
-  rdfs:label "220V Line-Line Voltage" ;
-.
-s223:LineLineVoltage-240V
-  a s223:Dimensioned-LineLineVoltage ;
-  rdfs:label "240V Line-Line Voltage" ;
-.
-<http://data.ashrae.org/standard223#LineLineVoltage-3.0kV>
-  a s223:Dimensioned-LineLineVoltage ;
-  rdfs:label "3.0kV Line-Line Voltage" ;
-.
-<http://data.ashrae.org/standard223#LineLineVoltage-3.3kV>
-  a s223:Dimensioned-LineLineVoltage ;
-  rdfs:label "3.3kV Line-Line Voltage" ;
-.
-s223:LineLineVoltage-380V
-  a s223:Dimensioned-LineLineVoltage ;
-  rdfs:label "380V Line-Line Voltage" ;
-.
-<http://data.ashrae.org/standard223#LineLineVoltage-4.16kV>
-  a s223:Dimensioned-LineLineVoltage ;
-  rdfs:label "4.16kV Line-Line Voltage" ;
-.
-s223:LineLineVoltage-400V
-  a s223:Dimensioned-LineLineVoltage ;
-  rdfs:label "400V Line-Line Voltage" ;
-.
-s223:LineLineVoltage-415V
-  a s223:Dimensioned-LineLineVoltage ;
-  rdfs:label "415V Line-Line Voltage" ;
-.
-s223:LineLineVoltage-480V
-  a s223:Dimensioned-LineLineVoltage ;
-  rdfs:label "480V Line-Line Voltage" ;
-.
-<http://data.ashrae.org/standard223#LineLineVoltage-6.0kV>
-  a s223:Dimensioned-LineLineVoltage ;
-  rdfs:label "6.0kV Line-Line Voltage" ;
-.
-<http://data.ashrae.org/standard223#LineLineVoltage-6.6kV>
-  a s223:Dimensioned-LineLineVoltage ;
-  rdfs:label "6.6kV Line-Line Voltage" ;
-.
-s223:LineLineVoltage-600V
-  a s223:Dimensioned-LineLineVoltage ;
-  rdfs:label "600V Line-Line Voltage" ;
-.
-<http://data.ashrae.org/standard223#LineNeutralVoltage-10.0kV>
-  a s223:Dimensioned-LineNeutralVoltage ;
-  rdfs:label "10.0kV Line-Neutral Voltage" ;
-.
-s223:LineNeutralVoltage-120V
-  a s223:Dimensioned-LineNeutralVoltage ;
-  rdfs:label "120V Line-Neutral Voltage" ;
-.
-s223:LineNeutralVoltage-190V
-  a s223:Dimensioned-LineNeutralVoltage ;
-  rdfs:label "190V Line-Neutral Voltage" ;
-.
-s223:LineNeutralVoltage-208V
-  a s223:Dimensioned-LineNeutralVoltage ;
-  rdfs:label "208V Line-Neutral Voltage" ;
-.
-s223:LineNeutralVoltage-220V
-  a s223:Dimensioned-LineNeutralVoltage ;
-  rdfs:label "220V Line-Neutral Voltage" ;
-.
-s223:LineNeutralVoltage-240V
-  a s223:Dimensioned-LineNeutralVoltage ;
-  rdfs:label "240V Line-Neutral Voltage" ;
-.
-<http://data.ashrae.org/standard223#LineNeutralVoltage-3.0kV>
-  a s223:Dimensioned-LineNeutralVoltage ;
-  rdfs:label "3.0kV Line-Neutral Voltage" ;
-.
-<http://data.ashrae.org/standard223#LineNeutralVoltage-3.3kV>
-  a s223:Dimensioned-LineNeutralVoltage ;
-  rdfs:label "3.3kV Line-Neutral Voltage" ;
-.
-s223:LineNeutralVoltage-380V
-  a s223:Dimensioned-LineNeutralVoltage ;
-  rdfs:label "380V Line-Neutral Voltage" ;
-.
-<http://data.ashrae.org/standard223#LineNeutralVoltage-4.16kV>
-  a s223:Dimensioned-LineNeutralVoltage ;
-  rdfs:label "4.16kV Line-Neutral Voltage" ;
-.
-s223:LineNeutralVoltage-400V
-  a s223:Dimensioned-LineNeutralVoltage ;
-  rdfs:label "400V Line-Neutral Voltage" ;
-.
-s223:LineNeutralVoltage-415V
-  a s223:Dimensioned-LineNeutralVoltage ;
-  rdfs:label "415V Line-Neutral Voltage" ;
-.
-s223:LineNeutralVoltage-480V
-  a s223:Dimensioned-LineNeutralVoltage ;
-  rdfs:label "480V Line-Neutral Voltage" ;
-.
-<http://data.ashrae.org/standard223#LineNeutralVoltage-6.0kV>
-  a s223:Dimensioned-LineNeutralVoltage ;
-  rdfs:label "6.0kV Line-Neutral Voltage" ;
-.
-<http://data.ashrae.org/standard223#LineNeutralVoltage-6.6kV>
-  a s223:Dimensioned-LineNeutralVoltage ;
-  rdfs:label "6.6kV Line-Neutral Voltage" ;
-.
-s223:LineNeutralVoltage-600V
-  a s223:Dimensioned-LineNeutralVoltage ;
-  rdfs:label "600V Line-Neutral Voltage" ;
-.
 s223:Liquid-SubCooled
   a s223:Phase-Liquid ;
   rdfs:label "Liquid-Sub cooled" ;
@@ -745,6 +602,7 @@ s223:Medium-Air
   a s223:Class ;
   a s223:Medium-Air ;
   a sh:NodeShape ;
+  rdfs:comment "This class has enumerated instances of Air in various states." ;
   rdfs:label "Medium-Air" ;
   rdfs:subClassOf s223:EnumerationKind-Medium ;
 .
@@ -752,6 +610,7 @@ s223:Medium-EM
   a s223:Class ;
   a s223:Medium-EM ;
   a sh:NodeShape ;
+  rdfs:comment "This class has enumerated instances of electromagnetic energy at any frequency range." ;
   rdfs:label "Electromagnetic Wave" ;
   rdfs:subClassOf s223:EnumerationKind-Medium ;
 .
@@ -759,6 +618,7 @@ s223:Medium-Electricity
   a s223:Class ;
   a s223:Medium-Electricity ;
   a sh:NodeShape ;
+  rdfs:comment "This class has enumerated instances of all forms of electricity, including AC and DC." ;
   rdfs:label "Electricity" ;
   rdfs:subClassOf s223:EnumerationKind-Medium ;
 .
@@ -769,6 +629,8 @@ s223:Medium-Glycol
 s223:Medium-NaturalGas
   a s223:Class ;
   a s223:Medium-NaturalGas ;
+  a sh:NodeShape ;
+  rdfs:comment "This class has enumerated instances of natural gas in various states." ;
   rdfs:label "Medium-NaturalGas" ;
   rdfs:subClassOf s223:EnumerationKind-Medium ;
 .
@@ -776,6 +638,7 @@ s223:Medium-Refrigerant
   a s223:Class ;
   a s223:Medium-Refrigerant ;
   a sh:NodeShape ;
+  rdfs:comment "This class has enumerated instances of commonly used refrigerants." ;
   rdfs:label "Medium-Refrigerant" ;
   rdfs:subClassOf s223:EnumerationKind-Medium ;
 .
@@ -783,6 +646,7 @@ s223:Medium-Water
   a s223:Class ;
   a s223:Medium-Water ;
   a sh:NodeShape ;
+  rdfs:comment "This class has enumerated instances of water and aqueous solutions in various states." ;
   rdfs:label "Medium-Water" ;
   rdfs:subClassOf s223:EnumerationKind-Medium ;
 .
@@ -806,6 +670,7 @@ s223:Occupancy-Motion
   a s223:Class ;
   a s223:Occupancy-Motion ;
   a sh:NodeShape ;
+  rdfs:comment "This class has enumerated instances indicating whether motion is detected or not." ;
   rdfs:label "Occupancy Motion" ;
   rdfs:subClassOf s223:EnumerationKind-Occupancy ;
 .
@@ -817,6 +682,7 @@ s223:Occupancy-Presence
   a s223:Class ;
   a s223:Occupancy-Presence ;
   a sh:NodeShape ;
+  rdfs:comment "This class has enumerated instances indicating whether physical presence is detected or not." ;
   rdfs:label "Occupancy Presence" ;
   rdfs:subClassOf s223:EnumerationKind-Occupancy ;
 .
@@ -856,6 +722,7 @@ s223:Phase-Gas
   a s223:Class ;
   a s223:Phase-Gas ;
   a sh:NodeShape ;
+  rdfs:comment "This class has enumerated instances of gas in various thermodynamic states." ;
   rdfs:label "Phase-Gas" ;
   rdfs:subClassOf s223:EnumerationKind-Phase ;
 .
@@ -863,6 +730,7 @@ s223:Phase-Liquid
   a s223:Class ;
   a s223:Phase-Liquid ;
   a sh:NodeShape ;
+  rdfs:comment "This class has enumerated instances of liquid in various thermodynamic states." ;
   rdfs:label "Phase-Liquid" ;
   rdfs:subClassOf s223:EnumerationKind-Phase ;
 .
@@ -958,6 +826,10 @@ s223:Role-Return
   a s223:EnumerationKind-Role ;
   rdfs:label "Role-Return" ;
 .
+s223:Role-Relief
+  a s223:EnumerationKind-Role ;
+  rdfs:label "Role-Relief" ;
+.
 s223:Role-Secondary
   a s223:EnumerationKind-Role ;
   rdfs:label "Role-Secondary" ;
@@ -998,6 +870,7 @@ s223:Signal-Modulated
   a s223:Class ;
   a s223:Signal-Modulated ;
   a sh:NodeShape ;
+  rdfs:comment "This class has enumerated instances of electric signals at various voltage ranges." ;
   rdfs:label "Signal-Modulated" ;
   rdfs:subClassOf s223:Electricity-Signal ;
 .
@@ -1017,6 +890,7 @@ s223:Substance-Particulate
   a s223:Class ;
   a s223:Substance-Particulate ;
   a sh:NodeShape ;
+  rdfs:comment "This class has enumerated instances of particulates in various size ranges." ;
   rdfs:label "Particulate" ;
   rdfs:subClassOf s223:EnumerationKind-Substance ;
 .
@@ -1048,6 +922,7 @@ s223:Water-GlycolSolution
   a s223:Class ;
   a s223:Water-GlycolSolution ;
   a sh:NodeShape ;
+  rdfs:comment "This class has enumerated instances of water-glycol solutions in various concentrations." ;
   s223:hasProperty [
       a s223:QuantifiableProperty ;
       s223:hasAspect s223:Medium-Glycol ;

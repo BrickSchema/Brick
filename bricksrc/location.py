@@ -134,9 +134,15 @@ location_subclasses = {
                     "Ablutions_Room": {
                         "tags": [TAG.Ablutions, TAG.Room, TAG.Space, TAG.Location]
                     },
-                    "Breakroom": {
-                        "tags": [TAG.Breakroom, TAG.Break, TAG.Room, TAG.Space, TAG.Location],
-                        "aliases": [BRICK["Break_Room"]],
+                    "Break_Room": {
+                        "tags": [
+                            TAG.Breakroom,
+                            TAG.Break,
+                            TAG.Room,
+                            TAG.Space,
+                            TAG.Location,
+                        ],
+                        "aliases": [BRICK["Breakroom"]],
                     },
                     "Conference_Room": {
                         "tags": [TAG.Conference, TAG.Room, TAG.Space, TAG.Location]
@@ -368,7 +374,13 @@ location_subclasses = {
                         "tags": [TAG.Reception, TAG.Room, TAG.Space, TAG.Location]
                     },
                     "Restroom": {
-                        "tags": [TAG.Restroom, TAG.Rest, TAG.Room, TAG.Space, TAG.Location],
+                        "tags": [
+                            TAG.Restroom,
+                            TAG.Rest,
+                            TAG.Room,
+                            TAG.Space,
+                            TAG.Location,
+                        ],
                         "aliases": [BRICK["Rest_Room"]],
                     },
                     "Retail_Room": {

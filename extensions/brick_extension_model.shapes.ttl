@@ -4,6 +4,7 @@
 @prefix afn: <http://jena.hpl.hp.com/ARQ/function#> .
 @prefix all: <http://data.ashrae.org/standard223/model/all#> .
 @prefix arg: <http://spinrdf.org/arg#> .
+@prefix bacnet: <http://data.ashrae.org/bacnet/2020#> .
 @prefix brick: <https://brickschema.org/schema/Brick#> .
 @prefix bsh: <https://brickschema.org/schema/BrickShape#> .
 @prefix constant: <http://qudt.org/vocab/constant/> .
@@ -59,6 +60,7 @@
 
 s223:AbstractSensor
   sh:property [
+      rdfs:comment "Ensure that the Substance identified by a sensor via the s223:measuresSubstance relation is compatible with the Substance identified by the Property being measured via the s223:ofSubstance relation." ;
       sh:path s223:measuresSubstance ;
       sh:name "Test for compatible declared Substances" ;
       sh:sparql [
@@ -80,6 +82,82 @@ FILTER (NOT EXISTS {?a a/rdfs:subClassOf* ?b}) .
 """ ;
         ] ;
     ] ;
+.
+s223:BACnetExternalReference
+    sh:property
+        [ a sh:PropertyShape ;
+            rdfs:comment "This comment intentionally left blank." ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 0 ;
+            sh:path bacnet:device-name ],
+        [ a sh:PropertyShape ;
+            rdfs:comment "This comment intentionally left blank." ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 0 ;
+            sh:path bacnet:device-identifier ;
+            sh:pattern "^[A-Za-z0-9-]+,[1-9][0-9]*$" ],
+        [ a sh:PropertyShape ;
+            rdfs:comment "This comment intentionally left blank." ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 0 ;
+            sh:path bacnet:object-name ],
+        [ a sh:PropertyShape ;
+            rdfs:comment "This comment intentionally left blank." ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 0 ;
+            sh:path bacnet:object-identifier ;
+            sh:pattern "^[A-Za-z0-9-]+,[1-9][0-9]*$" ],
+        [ a sh:PropertyShape ;
+            rdfs:comment "This comment intentionally left blank." ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 0 ;
+            sh:path bacnet:property-identifier ],
+        [ a sh:PropertyShape ;
+            rdfs:comment "This comment intentionally left blank." ;
+            sh:datatype xsd:nonNegativeInteger ;
+            sh:maxCount 1 ;
+            sh:minCount 0 ;
+            sh:path bacnet:property-array-index ],
+        [ a sh:PropertyShape ;
+            rdfs:comment "This comment intentionally left blank." ;
+            sh:datatype xsd:nonNegativeInteger ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path bacnet:priority-for-writing ]
+.
+s223:ClosedWorldShape
+  a sh:NodeShape ;
+  sh:severity sh:Info ;
+  sh:sparql [
+      a sh:SPARQLConstraint ;
+      rdfs:comment "Ensure that all instances of a class use only the properties defined for that class." ;
+      sh:message "Predicate {?p} is not defined for instance {$this}." ;
+      sh:prefixes <http://data.ashrae.org/standard223/1.0/validation/model> ;
+      sh:select """
+SELECT $this ?p ?o
+WHERE {
+$this a/rdfs:subClassOf* s223:Concept .
+$this ?p ?o .
+FILTER(STRSTARTS (str(?p), "http://data.ashrae.org/standard223") || STRSTARTS (str(?p), "http://qudt.org/schema/qudt"))
+FILTER NOT EXISTS {$this a sh:NodeShape}
+FILTER NOT EXISTS {$this a/rdfs:subClassOf* ?class .
+			?class sh:property/sh:path ?p .
+}
+FILTER NOT EXISTS {$this a/rdfs:subClassOf* ?class .
+?class sh:xone/rdf:rest*/rdf:first/sh:property/sh:path ?p .
+}
+FILTER NOT EXISTS {$this a/rdfs:subClassOf* ?class .
+?class sh:or/rdf:rest*/rdf:first/sh:property/sh:path ?p .
+}
+}
+""" ;
+    ] ;
+  sh:targetClass s223:Concept ;
 .
 s223:Concept
   sh:sparql [
@@ -105,7 +183,7 @@ FILTER (!bound (?otherClass)) .
 s223:Connectable
   sh:property [
       sh:path s223:cnx ;
-      rdfs:comment "A Connectable should only have a s223:cnx relation with a ConnectionPoint" ;
+      rdfs:comment "For a Connectable, cnx relation must associate the Connectable to a ConnectionPoint" ;
       sh:sparql [
           a sh:SPARQLConstraint ;
           rdfs:comment "A Connectable should only have a s223:cnx relation with a ConnectionPoint" ;
@@ -120,7 +198,7 @@ FILTER NOT EXISTS {?something a/rdfs:subClassOf* s223:ConnectionPoint} .
     ] ;
   sh:property [
       sh:path s223:mapsTo ;
-      rdfs:comment "If a CP mapsTo another CP, the respective Equipment should have a contains relation." ;
+      rdfs:comment "If one ConnectionPoint mapsTo another ConnectionPoint, the respective Equipment shall have a contains relation." ;
       sh:sparql [
           a sh:SPARQLConstraint ;
           rdfs:comment "If a Connectable is s223:connected (high-level), it must eventually have the underlying cnx relations." ;
@@ -140,10 +218,10 @@ FILTER NOT EXISTS {$this s223:cnx+ ?otherC}
 s223:Connection
   sh:property [
       sh:path s223:cnx ;
-      rdfs:comment "A Connection should only have a s223:cnx relation with a ConnectionPoint" ;
+      rdfs:comment "A Connection must only have a cnx relation with a ConnectionPoint" ;
       sh:sparql [
           a sh:SPARQLConstraint ;
-          rdfs:comment "A Connection should only have a s223:cnx relation with a ConnectionPoint" ;
+          rdfs:comment "A Connection must only have a cnx relation with a ConnectionPoint" ;
           sh:message "{$this} cannot have a s223:cnx relation to {?something}, because {?something} is not a ConnectionPoint." ;
           sh:prefixes <http://data.ashrae.org/standard223/1.0/validation/model> ;
           sh:select """SELECT $this ?something
@@ -154,6 +232,7 @@ FILTER NOT EXISTS {?something a/rdfs:subClassOf* s223:ConnectionPoint} .
         ] ;
     ] ;
   sh:property [
+      rdfs:comment "Ensure that the Medium identified by a ConnectionPoint via the s223:hasMedium relation is compatible with the Medium identified by the associated Connection." ;
       sh:path s223:hasMedium ;
       sh:name "Test for compatible declared Medium" ;
       sh:sparql [
@@ -178,6 +257,7 @@ FILTER (NOT EXISTS {?m1 a/rdfs:subClassOf* ?m2}) .
 .
 s223:ConnectionPoint
   sh:property [
+      rdfs:comment "Ensure that the Medium identified by a ConnectionPoint via the s223:hasMedium relation is compatible with the Medium identified by the entity identified by the mapsTo+ relation." ;
       sh:path s223:hasMedium ;
       sh:name "Test for compatible declared Medium" ;
       sh:sparql [
@@ -202,7 +282,7 @@ FILTER (NOT EXISTS {?a a/rdfs:subClassOf* ?b}) .
     ] ;
   sh:property [
       sh:path s223:mapsTo ;
-      s223:description "If a CP mapsTo another CP, the respective Equipment should have a contains relation." ;
+      rdfs:comment "If a CP mapsTo another CP, the respective Equipment should have a contains relation." ;
       sh:sparql [
           a sh:SPARQLConstraint ;
           rdfs:comment "If a CP mapsTo another CP, the respective Equipment should have a contains relation." ;
@@ -244,7 +324,7 @@ s223:CoolingCoil
 s223:CorrelatedColorTemperatureSensor
   sh:property [
       sh:path s223:observes ;
-      rdfs:comment "A CorrelatedColorTemperatureSensor will always observe a Property that has a QuantityKind of ThermodynamicTemperature." ;
+      rdfs:comment "A CorrelatedColorTemperatureSensor must always observe a Property that has a QuantityKind of ThermodynamicTemperature." ;
       sh:qualifiedMinCount 1 ;
       sh:qualifiedValueShape [
           sh:class s223:Property ;
@@ -260,7 +340,7 @@ s223:CorrelatedColorTemperatureSensor
 s223:DifferentialSensor
   sh:property [
       sh:path s223:hasObservationLocationHigh ;
-      rdfs:comment "Ensure that the values of hasObservationLocationHigh and hasObservationLocationLow are distinct." ;
+      rdfs:comment "A Differential Sensor must have different values for hasObservationLocationHigh and hasObservationLocationLow." ;
       sh:sparql [
           a sh:SPARQLConstraint ;
           rdfs:comment "Ensure that the values of hasObservationLocationHigh and hasObservationLocationLow are distinct." ;
@@ -282,8 +362,8 @@ s223:DomainSpace
       sh:path [
           sh:inversePath s223:encloses ;
         ] ;
-      rdfs:comment "This DomainSpace must eventually be enclosed by a PhysicalSpace." ;
-      sh:message "This DomainSpace must eventually be enclosed by a PhysicalSpace." ;
+      rdfs:comment "A DomainSpace must be enclosed by a PhysicalSpace." ;
+      sh:message "A DomainSpace must be enclosed by a PhysicalSpace." ;
       sh:minCount 1 ;
       sh:severity sh:Info ;
     ] ;
@@ -291,7 +371,7 @@ s223:DomainSpace
 s223:DuvSensor
   sh:property [
       sh:path s223:observes ;
-      rdfs:comment "A DuvSensor will always observe a Property that has a QuantityKind of Duv." ;
+      rdfs:comment "A DuvSensor must always observe a Property that has a QuantityKind of Duv." ;
       sh:qualifiedMinCount 1 ;
       sh:qualifiedValueShape [
           sh:class s223:Property ;
@@ -307,9 +387,10 @@ s223:DuvSensor
 s223:EnumerableProperty
   sh:property [
       sh:path s223:hasValue ;
-      rdfs:comment "Checks for valid enumeration value" ;
+      rdfs:comment "Checks for valid enumeration value consistent with the stated EnumerationKind." ;
       sh:sparql [
           a sh:SPARQLConstraint ;
+          rdfs:comment "Checks for valid enumeration value consistent with the stated EnumerationKind." ;
           sh:message "{$this} has an enumeration value of {?value} which is not a valid {?kind}." ;
           sh:prefixes <http://data.ashrae.org/standard223/1.0/validation/model> ;
           sh:select """
@@ -326,10 +407,10 @@ FILTER (NOT EXISTS {?value a/rdfs:subClassOf* ?kind}) .
 s223:Equipment
   sh:property [
       sh:path s223:connectedFrom ;
-      rdfs:comment "Make sure that a containing Equipment inherits the incoming connectedFrom relations of contained Equipment if they are not internal connections." ;
+      rdfs:comment "If a contained equipment has external connections, make sure that the containing equipment has the same external connections." ;
       sh:sparql [
           a sh:SPARQLConstraint ;
-          rdfs:comment "Make sure that a containing Equipment inherits the incoming connectedFrom relations of contained Equipment if they are not internal connections." ;
+          rdfs:comment "If a contained equipment has external connections, make sure that the containing equipment has the same external connections." ;
           sh:message "{?container} does not have a connectedFrom relation to {?otherDev} even though {?container} contains {$this} which does." ;
           sh:prefixes <http://data.ashrae.org/standard223/1.0/validation/model> ;
           sh:select """
@@ -399,6 +480,7 @@ s223:HeatExchanger
       rdfs:comment "Heat Exchangers should have the same number of non-electrical inlet and outlet connection points." ;
       sh:sparql [
           a sh:SPARQLConstraint ;
+          rdfs:comment "Heat Exchangers should have the same number of non-electrical inlet and outlet connection points." ;
           sh:message "Number of inlets {?incount} are not equivalent with number of outlets {?outcount}." ;
           sh:prefixes <http://data.ashrae.org/standard223/1.0/validation/model> ;
           sh:select """
@@ -447,7 +529,7 @@ s223:HeatingCoil
 s223:IlluminanceSensor
   sh:property [
       sh:path s223:observes ;
-      rdfs:comment "A IlluminanceSensor will always observe a Property that has a QuantityKind of Illuminance." ;
+      rdfs:comment "An IlluminanceSensor will always observe a Property that has a QuantityKind of Illuminance." ;
       sh:qualifiedMinCount 1 ;
       sh:qualifiedValueShape [
           sh:class s223:Property ;
@@ -462,21 +544,22 @@ s223:IlluminanceSensor
 .
 s223:InletConnectionPoint
   sh:property [
+      rdfs:comment "Ensure an InletConnectionPoint has a mapsTo relation to its containing Equipment if it has an external Connection" ;
       sh:path s223:mapsTo ;
-      rdfs:comment "Ensure an InletCP does not mapsTo a subordinate InletCP that is part of an internal Connection" ;
       sh:sparql [
           a sh:SPARQLConstraint ;
-          rdfs:comment "Ensure a CP does not mapsTo a subordinate CP that is part of an internal Connection" ;
-          sh:message "{$this} should not have a mapsTo {?otherCP} because {?otherCP} participates in an internal Connection from {?destinationDevice}." ;
+          rdfs:comment "Ensure an InletConnectionPoint has a mapsTo relation to its containing Equipment if it has an external Connection" ;
+          sh:message "{$this} must have a mapsTo an InletConnectionPoint of {?parentEquipment} because {$this} has an external Connection from {?sourceEquipment}." ;
           sh:prefixes <http://data.ashrae.org/standard223/1.0/validation/model> ;
           sh:select """
-SELECT $this ?otherCP ?destinationDevice
+SELECT $this ?parentEquipment ?sourceEquipment
 WHERE {
-$this s223:mapsTo ?otherCP .
 ?equipment s223:hasConnectionPoint $this .
-?otherEquipment s223:hasConnectionPoint ?otherCP .
-?otherCP s223:connectsThrough/s223:connectsFrom ?destinationDevice .
-?destinationDevice s223:contains ?equipment .
+?equipment a/rdfs:subClassOf* s223:Equipment .
+?parentEquipment s223:contains ?equipment .
+$this s223:connectsThrough/s223:connectsFrom ?sourceEquipment .
+FILTER NOT EXISTS {?parentEquipment s223:contains ?sourceEquipment} .
+FILTER NOT EXISTS {$this s223:mapsTo ?anything} .
 }
 """ ;
         ] ;
@@ -485,7 +568,7 @@ $this s223:mapsTo ?otherCP .
 s223:OccupantCounter
   sh:property [
       sh:path s223:observes ;
-      rdfs:comment "A OccupantCounter will always observe a QuantifiableObservableProperty that has a QuantityKind of Population and a Unit of unit:NUM." ;
+      rdfs:comment "An OccupantCounter must always observe a QuantifiableObservableProperty that has a QuantityKind of Population and a Unit of unit:NUM." ;
       sh:class s223:QuantifiableObservableProperty ;
       sh:minCount 1 ;
       sh:node [
@@ -505,7 +588,7 @@ s223:OccupantCounter
 s223:OccupantMotionSensor
   sh:property [
       sh:path s223:observes ;
-      rdfs:comment "A OccupantMotionSensor will always observe an EnumeratedObservableProperty that has an EnumerationKind of Occupancy-Motion." ;
+      rdfs:comment "An OccupantMotionSensor must always observe an EnumeratedObservableProperty that has an EnumerationKind of Occupancy-Motion." ;
       sh:class s223:EnumeratedObservableProperty ;
       sh:minCount 1 ;
       sh:node [
@@ -520,7 +603,7 @@ s223:OccupantMotionSensor
 s223:OccupantPresenceSensor
   sh:property [
       sh:path s223:observes ;
-      rdfs:comment "A OccupantPresenceSensor will always observe an EnumeratedObservableProperty that has an EnumerationKind of Occupancy-Presence." ;
+      rdfs:comment "An OccupantPresenceSensor will always observe an EnumeratedObservableProperty that has an EnumerationKind of Occupancy-Presence." ;
       sh:class s223:EnumeratedObservableProperty ;
       sh:minCount 1 ;
       sh:node [
@@ -534,21 +617,22 @@ s223:OccupantPresenceSensor
 .
 s223:OutletConnectionPoint
   sh:property [
+      rdfs:comment "Ensure an OutletConnectionPoint has a mapsTo relation to its containing Equipment if it has an external Connection" ;
       sh:path s223:mapsTo ;
-      rdfs:comment "Ensure an OutletCP does not mapsTo a subordinate OutletCP that is part of an internal Connection" ;
       sh:sparql [
           a sh:SPARQLConstraint ;
-          rdfs:comment "Ensure a CP does not mapsTo a subordinate CP that is part of an internal Connection" ;
-          sh:message "{$this} should not have a mapsTo {?otherCP} because {?otherCP} participates in an internal Connection to {?destinationDevice}." ;
+          rdfs:comment "Ensure an OutletConnectionPoint has a mapsTo relation to its containing Equipment if it has an external Connection" ;
+          sh:message "{$this} must have a mapsTo an OutletConnectionPoint of {?parentEquipment} because {$this} has an external Connection to {?destinationEquipment}." ;
           sh:prefixes <http://data.ashrae.org/standard223/1.0/validation/model> ;
           sh:select """
-SELECT $this ?otherCP ?destinationDevice
+SELECT $this ?parentEquipment ?destinationEquipment
 WHERE {
-$this s223:mapsTo ?otherCP .
 ?equipment s223:hasConnectionPoint $this .
-?otherEquipment s223:hasConnectionPoint ?otherCP .
-?otherCP s223:connectsThrough/s223:connectsTo ?destinationDevice .
-?destinationDevice s223:contains ?equipment .
+?equipment a/rdfs:subClassOf* s223:Equipment .
+?parentEquipment s223:contains ?equipment .
+$this s223:connectsThrough/s223:connectsTo ?destinationEquipment .
+FILTER NOT EXISTS {?parentEquipment s223:contains ?destinationEquipment} .
+FILTER NOT EXISTS {$this s223:mapsTo ?anything} .
 }
 """ ;
         ] ;
@@ -572,10 +656,11 @@ $this a/rdfs:subClassOf* s223:ObservableProperty .
 s223:Pump
   a sh:NodeShape ;
   sh:property [
-      sh:path qudt:hasConnectionPoint ;
+      sh:path s223:hasConnectionPoint ;
       rdfs:comment "The non-electrical ConnectionPoints of a Pump must have compatible Media." ;
       sh:sparql [
           a sh:SPARQLConstraint ;
+          rdfs:comment "The non-electrical ConnectionPoints of a Pump must have compatible Media." ;
           sh:message "{?cpa} and {?cpb} on the Pump {$this} have incompatible Media {$mediuma} and {$mediumb}." ;
           sh:prefixes <http://data.ashrae.org/standard223/1.0/validation/model> ;
           sh:select """
@@ -598,10 +683,11 @@ WHERE {
 .
 s223:QuantifiableProperty
   sh:property [
-      sh:path qudt:hasQuantityKind ;
       rdfs:comment "This QuantifiableProperty and the Setpoint associated with it have non-commensurate QuantityKinds" ;
+      sh:path qudt:hasQuantityKind ;
       sh:sparql [
           a sh:SPARQLConstraint ;
+          rdfs:comment "This QuantifiableProperty and the Setpoint associated with it have non-commensurate QuantityKinds" ;
           sh:message "{$this} uses QuantityKind {?pqk} with DimensionVector {?pdv}, while Setpoint {?setpoint} uses QuantityKind {?sqk} with DimensionVector {?sdv}. These are non-commensurate" ;
           sh:prefixes <http://data.ashrae.org/standard223/1.0/validation/model> ;
           sh:select """
@@ -619,10 +705,11 @@ FILTER (?pdv != ?sdv) .
         ] ;
     ] ;
   sh:property [
-      sh:path qudt:hasUnit ;
       rdfs:comment "This QuantifiableProperty and the associated Setpoint use non-commensurate Units" ;
+      sh:path qudt:hasUnit ;
       sh:sparql [
           a sh:SPARQLConstraint ;
+          rdfs:comment "This QuantifiableProperty and the associated Setpoint use non-commensurate Units" ;
           sh:message "{$this} uses Unit {?punit}, while Setpoint {?setpoint} uses Unit {?sunit}. These are non-commensurate." ;
           sh:prefixes <http://data.ashrae.org/standard223/1.0/validation/model> ;
           sh:select """
@@ -640,11 +727,12 @@ FILTER (?pdv != ?sdv) .
         ] ;
     ] ;
   sh:property [
-      sh:path qudt:hasUnit ;
       rdfs:comment "This QuantifiableProperty uses a different Unit than the Setpoint associated with it" ;
+      sh:path qudt:hasUnit ;
       sh:severity sh:Info ;
       sh:sparql [
           a sh:SPARQLConstraint ;
+          rdfs:comment "This QuantifiableProperty uses a different Unit than the Setpoint associated with it" ;
           sh:message "{$this} uses Unit {?punit}, while Setpoint {?setpoint} uses Unit {?sunit}. Be careful." ;
           sh:prefixes <http://data.ashrae.org/standard223/1.0/validation/model> ;
           sh:select """
@@ -690,7 +778,7 @@ FILTER (?count > 1) .
 s223:TemperatureSensor
   sh:property [
       sh:path s223:observes ;
-      rdfs:comment "A TemperatureSensor will always observe a Property that has a QuantityKind of Temperature." ;
+      rdfs:comment "A TemperatureSensor must always observe a Property that has a QuantityKind of Temperature." ;
       sh:qualifiedMinCount 1 ;
       sh:qualifiedValueShape [
           sh:class s223:Property ;
@@ -700,6 +788,29 @@ s223:TemperatureSensor
                   sh:hasValue qudtqk:Temperature ;
                 ] ;
             ] ;
+        ] ;
+    ] ;
+.
+s223:Zone
+  a sh:NodeShape ;
+  sh:property [
+      rdfs:comment "The associated Domain of a Zone and the Domain of the DomainSpaces it contains must be the same." ;
+      sh:path s223:hasDomain ;
+      sh:sparql [
+          a sh:SPARQLConstraint ;
+          rdfs:comment "The associated Domain of a Zone and the Domain of the DomainSpaces it contains must be the same." ;
+          sh:message "Zone {$this} has a Domain of {?domain}, but it contains a DomainSpace {?ds} which has a Domain of {?dsdomain}. These should be the same." ;
+          sh:prefixes <http://data.ashrae.org/standard223/1.0/validation/model> ;
+          sh:select """
+SELECT DISTINCT $this ?domain ?ds ?dsdomain
+WHERE {
+$this a s223:Zone .
+$this s223:hasDomain ?domain .
+$this s223:contains ?ds .
+?ds s223:hasDomain ?dsdomain .
+FILTER (?domain != ?dsdomain)
+}
+""" ;
         ] ;
     ] ;
 .

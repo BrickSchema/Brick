@@ -42,7 +42,6 @@ ontology_imports = {
     "currency": "http://qudt.org/2.1/vocab/currency",
     "quantitykind": "http://qudt.org/2.1/vocab/quantitykind",
     "dimensionvector": "http://qudt.org/2.1/vocab/dimensionvector",
-    "shacl": "http://www.w3.org/ns/shacl#",
     "bacnet": "http://data.ashrae.org/bacnet/2020",
     "ref": "https://brickschema.org/schema/Brick/ref",
     "rec": "https://w3id.org/rec",
@@ -83,11 +82,11 @@ shacl_namespace_declarations = [
     },
 ]
 
+BRICK_IRI_VERSION = URIRef(f"https://brickschema.org/schema/{BRICK_VERSION}/Brick")
 
 def define_ontology(G):
-    brick_iri_version = URIRef(f"https://brickschema.org/schema/{BRICK_VERSION}/Brick")
-    G.add((brick_iri_version, RDF.type, OWL.Ontology))
-    G.add((brick_iri_version, RDFS.isDefinedBy, brick_iri_version))
+    G.add((BRICK_IRI_VERSION, RDF.type, OWL.Ontology))
+    G.add((BRICK_IRI_VERSION, RDFS.isDefinedBy, BRICK_IRI_VERSION))
 
     # add creators from ontology markup above
     creators = []
@@ -100,24 +99,24 @@ def define_ontology(G):
 
     # add publisher info
     publisher = BNode("publisher")
-    G.add((brick_iri_version, DCTERMS.publisher, publisher))
+    G.add((BRICK_IRI_VERSION, DCTERMS.publisher, publisher))
     for k, v in ontology.pop(DCTERMS.publisher).items():
         G.add((publisher, k, v))
     Collection(G, creator_list, creators)
-    G.add((brick_iri_version, DCTERMS.creator, creator_list))
+    G.add((BRICK_IRI_VERSION, DCTERMS.creator, creator_list))
 
     # add other simple attributes
     for k, v in ontology.items():
-        G.add((brick_iri_version, k, v))
+        G.add((BRICK_IRI_VERSION, k, v))
 
     # add imports
     for imp in ontology_imports.values():
-        G.add((brick_iri_version, OWL.imports, URIRef(imp)))
+        G.add((BRICK_IRI_VERSION, OWL.imports, URIRef(imp)))
 
     # add SHACL namespace/prefix declarations for SHACL rules
     for declaration in shacl_namespace_declarations:
         decl = BNode()
-        G.add((brick_iri_version, SH.declare, decl))
+        G.add((BRICK_IRI_VERSION, SH.declare, decl))
         for k, v in declaration.items():
             G.add((decl, k, v))
 

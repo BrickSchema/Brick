@@ -63,7 +63,7 @@ s223:Constant
   rdfs:subClassOf s223:Parameter ;
   sh:property [
       sh:path s223:uses ;
-      rdfs:comment "An instance of Constant can be associated with any number of Property instances using the relation 'uses'." ;
+      rdfs:comment "If the relation uses is present it must associate the Constant with a Property." ;
       sh:class s223:Property ;
     ] ;
 .
@@ -93,36 +93,37 @@ s223:FunctionBlock
     ) ;
   sh:property [
       sh:path s223:hasConstant ;
-      rdfs:comment "An instance of Function block can be associated with any number of Constant instances using the relation 'has constant'." ;
+      rdfs:comment "If the relation hasConstant is present it must associate the FunctionBlock with a Constant." ;
       sh:class s223:Constant ;
     ] ;
   sh:property [
       sh:path s223:hasParameter ;
-      rdfs:comment "An instance of Function block can be associated with any number of Parameter instances using the relation 'has parameter'." ;
+      rdfs:comment "If the relation hasParameter is present it must associate the FunctionBlock with a Parameter." ;
       sh:class s223:Parameter ;
     ] ;
 .
 s223:FunctionInput
   a s223:Class ;
   a sh:NodeShape ;
-  rdfs:comment "A Function Input is an input to a Function Block. It can be related to a property by s223:uses." ;
+  rdfs:comment "A Function Input is an input to a Function Block. It can be related to a property by the relation uses." ;
   rdfs:label "Input" ;
   rdfs:subClassOf s223:Concept ;
   sh:property [
       sh:path s223:uses ;
-      rdfs:comment "An instance of Input must be associated with one Property instance using the relation 'uses'." ;
+      rdfs:comment "A FunctionInput must be associated with exactly one Property using the relation uses." ;
       sh:class s223:Property ;
       sh:maxCount 1 ;
-      sh:message "This Function Input must be associated with exactly one property by s223:uses predicate." ;
+      sh:message "This Function Input must be associated with exactly one property using the relation uses." ;
       sh:minCount 1 ;
     ] ;
   sh:property [
       sh:path [
           sh:inversePath s223:hasInput ;
         ] ;
+      rdfs:comment "A FunctionInput must be associated with exactly one FunctionBlock using the inverse relation hasInput." ;
       sh:class s223:FunctionBlock ;
       sh:maxCount 1 ;
-      sh:message "This Input must be associated with exactly one FunctionBlock." ;
+      sh:message "The FunctionInput must be associated with exactly one FunctionBlock." ;
       sh:minCount 1 ;
     ] ;
 .
@@ -134,7 +135,7 @@ s223:FunctionOutput
   rdfs:subClassOf s223:Concept ;
   sh:property [
       sh:path s223:produces ;
-      rdfs:comment "An instance of Output must be associated with any number of Property instances using the relation 'produces'." ;
+      rdfs:comment "A FunctionOutput must be associated with exactly one Property using the relation produces." ;
       sh:class s223:Property ;
       sh:maxCount 1 ;
       sh:minCount 1 ;
@@ -143,6 +144,7 @@ s223:FunctionOutput
       sh:path [
           sh:inversePath s223:hasOutput ;
         ] ;
+      rdfs:comment "A FunctionOutput must be associated with exactly one FunctionBlock using the inverse relation hasOutput." ;
       sh:class s223:FunctionBlock ;
       sh:maxCount 1 ;
       sh:message "This Output must be associated with exactly one FunctionBlock." ;
@@ -157,13 +159,14 @@ s223:Parameter
   rdfs:subClassOf s223:Concept ;
   sh:property [
       sh:path s223:uses ;
-      rdfs:comment "An instance of Parameter can be associated with any number of Property instances using the relation 'uses'." ;
+      rdfs:comment "If the relation uses is present it must associate the Parameter with a Property." ;
       sh:class s223:Property ;
     ] ;
   sh:property [
       sh:path [
           sh:inversePath s223:hasParameter ;
         ] ;
+      rdfs:comment "A Parameter must be associated with exactly one FunctionBlock using the inverse relation hasParameter." ;
       sh:class s223:FunctionBlock ;
       sh:maxCount 1 ;
       sh:message "This Parameter must be associated with exactly one FunctionBlock." ;
