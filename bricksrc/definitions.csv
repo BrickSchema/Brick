@@ -486,7 +486,9 @@ https://brickschema.org/schema/Brick#Hallway,"A common space, used to connect ot
 https://brickschema.org/schema/Brick#Hazardous_Materials_Storage,A storage space set aside (usually with restricted access) for the storage of materials that can be hazardous to living beings or the environment,
 https://brickschema.org/schema/Brick#Heat_Exchanger,A heat exchanger is a piece of equipment built for efficient heat transfer from one medium to another. The media may be separated by a solid wall to prevent mixing or they may be in direct contact (BEDES),
 https://brickschema.org/schema/Brick#Heat_Exchanger_System_Enable_Status,Indicates if the heat exchanger system has been enabled,
-https://brickschema.org/schema/Brick#Heat_Pump,"A device that transfers heat energy to or from a space, providing heating or cooling"
+https://brickschema.org/schema/Brick#Heat_Pump,"A device that transfers heat energy to or from a space, providing heating or cooling",
+https://brickschema.org/schema/Brick#Heat_Pump_Condensing_Unit,"An outdoor HVAC unit that functions in both heating and cooling modes. It includes a reversing valve along with a condenser coil and compressor, enabling the switch between cooling and heating by reversing refrigerant flow.",
+https://brickschema.org/schema/Brick#Heat_Recovery_Condensing_Unit, "An advanced outdoor HVAC unit equipped for both heating and cooling, with the added capability of heat recovery. It efficiently recycles heat from the cooling process for heating purposes, featuring components like a condenser coil, compressor, and heat recovery systems.",
 https://brickschema.org/schema/Brick#Heat_Sensor,Measures heat,
 https://brickschema.org/schema/Brick#Heat_Sink_Temperature_Sensor,Measure temperature of the heat sink on a device such as a VFD.,
 https://brickschema.org/schema/Brick#Heat_Wheel,A rotary heat exchanger positioned within the supply and exhaust air streams of an air handling system in order to recover heat energy,https://en.wikipedia.org/wiki/Thermal_wheel
