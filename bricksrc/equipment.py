@@ -1145,17 +1145,17 @@ valve_subclasses = {
             "Refrigerant_Valve": {
                 "tags": [TAG.Refrigerant, TAG.Valve, TAG.Gas, TAG.Liquid],
                 "subclasses": {
-                    "Reversing_Valve": {
-                        "tags": [
-                            TAG.Refrigerant,
-                            TAG.Valve,
-                            TAG.Gas,
-                            TAG.Liquid,
-                            TAG.Reversing,
-                        ]
-                    },
-                },
-            },
+                    "Reversing_Valve": {"tags": [TAG.Refrigerant, TAG.Valve, TAG.Gas, TAG.Liquid, TAG.Reversing]},
+                    "Expansion_Valve": {
+                        "tags": [TAG.Refrigerant, TAG.Gas, TAG.Liquid, TAG.Expansion, TAG.Valve],
+                        "subclasses": {
+                            "Thermal_Expansion_Valve": {"tags": [TAG.Refrigerant, TAG.Gas, TAG.Liquid, TAG.Expansion, TAG.Valve]},
+                            "Electric_Expansion_Valve": {"tags": [TAG.Refrigerant, TAG.Gas, TAG.Liquid, TAG.Expansion, TAG.Valve]},
+                            "Capillary_Tube": {"tags": [TAG.Refrigerant, TAG.Gas, TAG.Liquid, TAG.Expansion, TAG.Valve]},
+                        }
+                    }
+                }
+            }
         },
     }
 }
