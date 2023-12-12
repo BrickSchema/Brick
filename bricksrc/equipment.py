@@ -742,6 +742,14 @@ hvac_subclasses = {
         },
         "parents": [BRICK.Water_Heater],
     },
+    "Metering_Device": {
+        "tags": [TAG.Refrigerant, TAG.Gas, TAG.Liquid, TAG.Metering, TAG.Expansion, TAG.Valve],
+        "subclasses": {
+            "Thermal_Expansion_Valve": {"tags": [TAG.Refrigerant, TAG.Gas, TAG.Liquid, TAG.Expansion, TAG.Valve]},
+            "Electronic_Expansion_Valve": {"tags": [TAG.Refrigerant, TAG.Gas, TAG.Liquid, TAG.Expansion, TAG.Valve]},
+            "Capillary_Tube": {"tags": [TAG.Refrigerant, TAG.Gas, TAG.Liquid, TAG.Expansion, TAG.Valve]},
+        }
+    },
     "Air_Handling_Unit": {
         "tags": [TAG.Equipment, TAG.Air, TAG.Handling, TAG.Handler, TAG.Unit, TAG.AHU],
         "aliases": [
@@ -884,14 +892,6 @@ valve_subclasses = {
                 "tags": [TAG.Refrigerant, TAG.Valve, TAG.Gas, TAG.Liquid],
                 "subclasses": {
                     "Reversing_Valve": {"tags": [TAG.Refrigerant, TAG.Valve, TAG.Gas, TAG.Liquid, TAG.Reversing]},
-                    "Expansion_Valve": {
-                        "tags": [TAG.Refrigerant, TAG.Gas, TAG.Liquid, TAG.Expansion, TAG.Valve],
-                        "subclasses": {
-                            "Thermal_Expansion_Valve": {"tags": [TAG.Refrigerant, TAG.Gas, TAG.Liquid, TAG.Expansion, TAG.Valve]},
-                            "Electronic_Expansion_Valve": {"tags": [TAG.Refrigerant, TAG.Gas, TAG.Liquid, TAG.Expansion, TAG.Valve]},
-                            "Capillary_Tube": {"tags": [TAG.Refrigerant, TAG.Gas, TAG.Liquid, TAG.Expansion, TAG.Valve]},
-                        }
-                    }
                 }
             }
         },
