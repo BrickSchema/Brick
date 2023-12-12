@@ -56,6 +56,7 @@ system_subclasses = {
                 },
             },
             "VRF_System": {"tags": [TAG.Variable, TAG.Refrigerant, TAG.Flow, TAG.System]},
+            "Refrigeration_System": {"tags": [TAG.Refrigeration, TAG.System]},
             "Steam_System": {"tags": [TAG.Steam, TAG.System]},
             "Water_System": {
                 "tags": [TAG.Water, TAG.System],
