@@ -5,6 +5,10 @@ from .namespaces import A, OWL, RDFS, BRICK, VCARD, UNIT, QUDT, SDO, RDF, BSH, X
 Defining Brick relationships
 """
 relationships = {
+    "connectedTo": {
+        A: [OWL.ObjectProperty, OWL.SymmetricProperty, OWL.IrreflexivProperty],
+        RDFS.label: Literal("Connected To"),
+    },
     "isReplacedBy": {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         RDFS.label: Literal("Is replaced by"),
