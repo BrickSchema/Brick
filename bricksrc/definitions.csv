@@ -1197,3 +1197,8 @@ https://brickschema.org/schema/Brick#isPointOf,The subject is a source of teleme
 https://brickschema.org/schema/Brick#isSubMeterOf,Indicates the parent for which this meter is a submeter,
 https://brickschema.org/schema/Brick#isTagOf,,
 https://brickschema.org/schema/Brick#meters,Indicates the entity whose consumption/production of some substance is measured by this meter,
+"https://brickschema.org/schema/Brick#Metering_Device","Responsible for regulating refrigerant flow, which includes mechanisms like TXVs, EXVs, and capillary tubes"
+"https://brickschema.org/schema/Brick#Refrigeration_System","System designed to remove heat from a space or substance, typically using a refrigerant in a closed loop"
+"https://brickschema.org/schema/Brick#Thermal_Expansion_Valve","An type of metering device that automatically adjusts refrigerant flow based on temperature changes, using a sensing bulb"
+"https://brickschema.org/schema/Brick#Electronic_Expansion_Valve","A digitally controlled valve in HVAC systems that precisely regulates refrigerant flow."
+"https://brickschema.org/schema/Brick#Capillary_Tube","A fixed orifice device in refrigeration systems that controls refrigerant flow based on its diameter and length, without moving parts"
