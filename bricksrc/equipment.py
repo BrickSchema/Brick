@@ -19,6 +19,7 @@ equipment_subclasses = {
             },
             "Sensor_Equipment": {
                 "tags": [TAG.Sensor, TAG.Equipment, TAG.ICT],
+                "subclasses": {"Meter": {"tags": [TAG.Meter, TAG.Equipment]}},
             },
             "Audio_Visual_Equipment": {
                 "tags": [TAG.Equipment, TAG.ICT, TAG.Audio, TAG.Visual]
