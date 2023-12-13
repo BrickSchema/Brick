@@ -999,7 +999,7 @@ hvac_subclasses = {
                     TAG.Valve,
                 ]
             },
-            "Capillary_Tube": {
+            "Capillary_Tube_Metering_Device": {
                 "tags": [TAG.Refrigerant, TAG.Gas, TAG.Fixed, TAG.Liquid, TAG.Metering]
             },
         },
