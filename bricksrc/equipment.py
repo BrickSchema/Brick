@@ -408,7 +408,8 @@ hvac_subclasses = {
                             TAG.Unit,
                             TAG.FCU,
                             TAG.Duct,
-                        ]
+                        ],
+                        "aliases": [BRICK["Horizontal_Fan_Coil_Unit"]],
                     },
                     "Floor_Fan_Coil_Unit": {
                         "tags": [
