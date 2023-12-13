@@ -974,7 +974,7 @@ hvac_subclasses = {
         },
         "parents": [BRICK.Water_Heater],
     },
-    "Throttling_Device": {
+    "Refrigerant_Metering_Device": {
         "tags": [TAG.Fluid, TAG.Throttling, TAG.Device],
         "subclasses": {
             "Thermal_Expansion_Valve": {
