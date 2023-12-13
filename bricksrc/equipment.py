@@ -669,14 +669,14 @@ hvac_subclasses = {
             },
         },
     },
-    "Heat_Pump": {
+    "Packaged_Heat_Pump": {
         "tags": [
             TAG.Equipment,
             TAG.Heat,
             TAG.Pump,
         ],
         "subclasses": {
-            "Air_Source_Heat_Pump": {
+            "Packaged_Air_Source_Heat_Pump": {
                 "tags": [
                     TAG.Equipment,
                     TAG.Air,
@@ -685,19 +685,19 @@ hvac_subclasses = {
                     TAG.Pump,
                 ],
             },
-            "Water_Source_Heat_Pump": {
+            "Packaged_Ground_Source_Heat_Pump": {
                 "tags": [
                     TAG.Equipment,
-                    TAG.Water,
+                    TAG.Ground,
                     TAG.Source,
                     TAG.Heat,
                     TAG.Pump,
                 ],
             },
-            "Ground_Source_Heat_Pump": {
+            "Packaged_Water_Source_Heat_Pump": {
                 "tags": [
                     TAG.Equipment,
-                    TAG.Ground,
+                    TAG.Water,
                     TAG.Source,
                     TAG.Heat,
                     TAG.Pump,
@@ -766,7 +766,42 @@ hvac_subclasses = {
                     TAG.Condensing,
                     TAG.Unit,
                     TAG.Cooling,
-                ]
+                ],
+                "subclasses": {
+                    "Cooling_Only_Air_Source_Condensing_Unit": {
+                        "tags": [
+                            TAG.Equipment,
+                            TAG.Water,
+                            TAG.Source,
+                            TAG.Condenser,
+                            TAG.Condensing,
+                            TAG.Unit,
+                            TAG.Cooling,
+                        ],
+                    },
+                    "Cooling_Only_Ground_Source_Condensing_Unit": {
+                        "tags": [
+                            TAG.Equipment,
+                            TAG.Ground,
+                            TAG.Source,
+                            TAG.Condenser,
+                            TAG.Condensing,
+                            TAG.Unit,
+                            TAG.Cooling,
+                        ],
+                    },
+                    "Cooling_Only_Water_Source_Condensing_Unit": {
+                        "tags": [
+                            TAG.Equipment,
+                            TAG.Water,
+                            TAG.Source,
+                            TAG.Condenser,
+                            TAG.Condensing,
+                            TAG.Unit,
+                            TAG.Cooling,
+                        ],
+                    },
+                },
             },
             "Heat_Pump_Condensing_Unit": {
                 "tags": [
@@ -776,7 +811,36 @@ hvac_subclasses = {
                     TAG.Unit,
                     TAG.Cooling,
                     TAG.Heating,
-                ]
+                ],
+                "subclasses": {
+                    "Heat_Pump_Air_Source_Condensing_Unit": {
+                        "tags": [
+                            TAG.Equipment,
+                            TAG.Air,
+                            TAG.Source,
+                            TAG.Heat,
+                            TAG.Pump,
+                        ],
+                    },
+                    "Heat_Pump_Ground_Source_Condensing_Unit": {
+                        "tags": [
+                            TAG.Equipment,
+                            TAG.Ground,
+                            TAG.Source,
+                            TAG.Heat,
+                            TAG.Pump,
+                        ],
+                    },
+                    "Heat_Pump_Water_Source_Condensing_Unit": {
+                        "tags": [
+                            TAG.Equipment,
+                            TAG.Water,
+                            TAG.Source,
+                            TAG.Heat,
+                            TAG.Pump,
+                        ],
+                    },
+                },
             },
             "Heat_Recovery_Condensing_Unit": {
                 "tags": [
@@ -787,7 +851,35 @@ hvac_subclasses = {
                     TAG.Cooling,
                     TAG.Heating,
                     TAG.Recovery,
-                ]
+                ],
+                "subclasses": {
+                    "Heat_Recovery_Water_Source_Condensing_Unit": {
+                        "tags": [
+                            TAG.Equipment,
+                            TAG.Condenser,
+                            TAG.Condensing,
+                            TAG.Unit,
+                            TAG.Cooling,
+                            TAG.Heating,
+                            TAG.Recovery,
+                            TAG.Water,
+                            TAG.Source,
+                        ]
+                    },
+                    "Heat_Recovery_Air_Source_Condensing_Unit": {
+                        "tags": [
+                            TAG.Equipment,
+                            TAG.Condenser,
+                            TAG.Condensing,
+                            TAG.Unit,
+                            TAG.Cooling,
+                            TAG.Heating,
+                            TAG.Recovery,
+                            TAG.Water,
+                            TAG.Source,
+                        ]
+                    },
+                },
             },
         },
     },
