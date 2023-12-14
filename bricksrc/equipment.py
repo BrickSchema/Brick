@@ -947,18 +947,73 @@ valve_subclasses = {
                     TAG.Shutoff,
                 ],
             },
-            "Water_Valve": {
-                "tags": [TAG.Valve, TAG.Water, TAG.Equipment],
+            "Check_Valve": {
+                "tags": [TAG.Check, TAG.Valve],
+                "subclasses": {
+                    "Backflow_Preventer_Valve": {
+                        "tags": [TAG.Backflow, TAG.Preventer, TAG.Valve]
+                    }
+                },
+            },
+            "Pressure_Reducing_Valve": {
+                "tags": [TAG.Pressure, TAG.Reducing, TAG.Valve],
+                "subclasses": {
+                    "Water_Pressure_Reducing_Valve": {
+                        "tags": [TAG.Water, TAG.Pressure, TAG.Reducing, TAG.Valve],
+                        "parents": [BRICK["Water_Valve"]],
+                    },
+                    "Steam_Pressure_Reducing_Valve": {
+                        "tags": [TAG.Steam, TAG.Pressure, TAG.Reducing, TAG.Valve],
+                        "parents": [BRICK["Steam_Valve"]],
+                    },
+                },
+            },
+            "Pressure_Regulator_Valve": {
+                "tags": [TAG.Pressure, TAG.Regulator, TAG.Valve],
+                "subclasses": {
+                    "Gas_Pressure_Regulator_Valve": {
+                        "tags": [TAG.Gas, TAG.Pressure, TAG.Regulator, TAG.Valve],
+                        "parents": [BRICK["Gas_Valve"]],
+                    }
+                },
+            },
+            "Pressure_Relief_Valve": {
+                "tags": [TAG.Pressure, TAG.Relief, TAG.Valve],
+                "subclasses": {
+                    "Steam_Pressure_Relief_Valve": {
+                        "tags": [TAG.Steam, TAG.Pressure, TAG.Relief, TAG.Valve],
+                        "parents": [BRICK["Steam_Valve"]],
+                    },
+                    "Water_Pressure_Relief_Valve": {
+                        "tags": [TAG.Steam, TAG.Pressure, TAG.Relief, TAG.Valve],
+                        "parents": [BRICK["Water_Valve"]],
+                    },
+                },
+            },
+            "Mixing_Valve": {
+                "tags": [TAG.Mixing, TAG.Valve],
                 "subclasses": {
                     "Thermostatic_Mixing_Valve": {
                         "tags": [
                             TAG.Mixed,
                             TAG.Valve,
-                            TAG.Water,
                             TAG.Thermal,
                             TAG.Equipment,
                         ],
                     },
+                    "Electronic_Mixing_Valve": {
+                        "tags": [
+                            TAG.Mixed,
+                            TAG.Valve,
+                            TAG.Electronic,
+                            TAG.Equipment,
+                        ],
+                    },
+                },
+            },
+            "Water_Valve": {
+                "tags": [TAG.Valve, TAG.Water, TAG.Equipment],
+                "subclasses": {
                     "Chilled_Water_Valve": {
                         "tags": [TAG.Chilled, TAG.Valve, TAG.Water, TAG.Equipment],
                         "parents": [BRICK.HVAC_Valve],
@@ -1007,6 +1062,7 @@ valve_subclasses = {
                 },
             },
             "Gas_Valve": {"tags": [TAG.Gas, TAG.Valve, TAG.Equipment]},
+            "Steam_Valve": {"tags": [TAG.Steam, TAG.Valve, TAG.Equipment]},
         },
     }
 }
