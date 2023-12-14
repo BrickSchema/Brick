@@ -174,29 +174,15 @@ quantity_definitions = {
             },
         },
     },
-    "Angle": {BRICK.hasQUDTReference: QUDTQK["Angle"]},
-    "Conductivity": {BRICK.hasQUDTReference: QUDTQK["Conductivity"]},
-    "Capacity": {BRICK.hasQUDTReference: QUDTQK["Capacity"]},
-    "Enthalpy": {
+    "GrainsOfMoisture": {
+        QUDT.applicableUnit: UNIT.GRAIN,
+        QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M1H0T0D0"],
+        RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
+        RDFS.label: Literal("GrainsOfMoisture"),
         SKOS.definition: Literal(
-            "(also known as heat content), thermodynamic quantity equal to the sum of the internal energy of a system plus the product of the pressure volume work done on the system. H = E + pv, where H = enthalpy or total heat content, E = internal energy of the system, p = pressure, and v = volume. (Compare to [[specific enthalpy]].)"
+            "Mass of moisture per pround of air, measured in grains of water"
         ),
-        BRICK.hasQUDTReference: QUDTQK["Enthalpy"],
-    },
-    "Mass": {
-        BRICK.hasQUDTReference: QUDTQK["Mass"],
-        SKOS.narrower: {
-            "GrainsOfMoisture": {
-                QUDT.applicableUnit: UNIT.GRAIN,
-                QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M1H0T0D0"],
-                RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
-                RDFS.label: Literal("GrainsOfMoisture"),
-                SKOS.definition: Literal(
-                    "Mass of moisture per pround of air, measured in grains of water"
-                ),
-                SKOS.broader: QUDTQK.Mass,
-            }
-        },
+        SKOS.broader: QUDTQK.Mass,
     },
     "Phasor": {
         SKOS.related: {
@@ -244,22 +230,6 @@ quantity_definitions = {
     "Power": {
         BRICK.hasQUDTReference: QUDTQK["Power"],
         SKOS.narrower: {
-            "Electric_Power": {
-                BRICK.hasQUDTReference: QUDTQK["ElectricPower"],
-                SKOS.narrower: {
-                    "Apparent_Power": {BRICK.hasQUDTReference: QUDTQK["ApparentPower"]},
-                    "Active_Power": {
-                        OWL.sameAs: BRICK["Real_Power"],
-                        BRICK.hasQUDTReference: QUDTQK["ActivePower"],
-                    },
-                    "Real_Power": {
-                        OWL.sameAs: BRICK["Active_Power"],
-                        BRICK.hasQUDTReference: QUDTQK["ActivePower"],
-                    },
-                    "Reactive_Power": {BRICK.hasQUDTReference: QUDTQK["ReactivePower"]},
-                    "Complex_Power": {BRICK.hasQUDTReference: QUDTQK["ComplexPower"]},
-                },
-            },
             "Peak_Power": {
                 SKOS.broader: QUDTQK.Power,
                 QUDT.applicableUnit: [UNIT.KiloW, UNIT.MegaW, UNIT.MilliW, UNIT.W],
@@ -768,7 +738,6 @@ quantity_definitions = {
         # TODO: what are these?
         SKOS.narrower: {"Acceleration_Time": {}, "Deceleration_Time": {}},
     },
-    "Torque": {BRICK.hasQUDTReference: QUDTQK["Torque"]},
     # TODO: https://ci.mines-stetienne.fr/seas/WeatherOntology-0.9#AirTemperature ?
     "Volume": {
         BRICK.hasQUDTReference: QUDTQK["Volume"],

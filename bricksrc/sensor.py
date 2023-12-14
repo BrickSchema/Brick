@@ -1,5 +1,5 @@
 from rdflib import Literal
-from .namespaces import BRICK, TAG, OWL, RDFS, QUDT
+from .namespaces import BRICK, TAG, OWL, RDFS, QUDT, QUDTQK
 
 sensor_definitions = {
     "Sensor": {
@@ -300,7 +300,7 @@ sensor_definitions = {
                 },
             },
             "Angle_Sensor": {
-                BRICK.hasQuantity: BRICK.Angle,
+                BRICK.hasQuantity: QUDTQK.Angle,
                 "subclasses": {
                     "Solar_Azimuth_Angle_Sensor": {
                         "tags": [
@@ -325,7 +325,7 @@ sensor_definitions = {
             },
             "Capacity_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Capacity],
-                BRICK.hasQuantity: BRICK.Capacity,
+                BRICK.hasQuantity: QUDTQK.Capacity,
             },
             "Contact_Sensor": {"tags": [TAG.Point, TAG.Sensor, TAG.Contact]},
             "Conductivity_Sensor": {
@@ -333,7 +333,7 @@ sensor_definitions = {
                 # TODO: pull from
                 # https://technical.buildingsmart.org/standards/ifc/ifc-schema-specifications/
                 "tags": [TAG.Point, TAG.Sensor, TAG.Conductivity],
-                BRICK.hasQuantity: BRICK.Conductivity,
+                BRICK.hasQuantity: QUDTQK.Conductivity,
                 "subclasses": {
                     "Deionised_Water_Conductivity_Sensor": {
                         "tags": [
@@ -343,14 +343,14 @@ sensor_definitions = {
                             TAG.Water,
                             TAG.Deionised,
                         ],
-                        BRICK.hasQuantity: BRICK.Conductivity,
+                        BRICK.hasQuantity: QUDTQK.Conductivity,
                         BRICK.hasSubstance: BRICK.Deionized_Water,
                     }
                 },
             },
             "Current_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Current],
-                BRICK.hasQuantity: BRICK.Electric_Current,
+                BRICK.hasQuantity: QUDTQK.ElectricCurrent,
                 "subclasses": {
                     "Load_Current_Sensor": {
                         "tags": [TAG.Point, TAG.Load, TAG.Current, TAG.Sensor],
@@ -539,10 +539,10 @@ sensor_definitions = {
             },
             "Enthalpy_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Enthalpy],
-                BRICK.hasQuantity: BRICK.Enthalpy,
+                BRICK.hasQuantity: QUDTQK.Enthalpy,
                 "subclasses": {
                     "Air_Enthalpy_Sensor": {
-                        BRICK.hasQuantity: BRICK.Enthalpy,
+                        BRICK.hasQuantity: QUDTQK.Enthalpy,
                         BRICK.hasSubstance: BRICK.Air,
                         "subclasses": {
                             "Outside_Air_Enthalpy_Sensor": {
@@ -553,7 +553,7 @@ sensor_definitions = {
                                     TAG.Enthalpy,
                                     TAG.Sensor,
                                 ],
-                                BRICK.hasQuantity: BRICK.Enthalpy,
+                                BRICK.hasQuantity: QUDTQK.Enthalpy,
                                 BRICK.hasSubstance: BRICK.Outside_Air,
                             },
                             "Return_Air_Enthalpy_Sensor": {
@@ -564,7 +564,7 @@ sensor_definitions = {
                                     TAG.Enthalpy,
                                     TAG.Sensor,
                                 ],
-                                BRICK.hasQuantity: BRICK.Enthalpy,
+                                BRICK.hasQuantity: QUDTQK.Enthalpy,
                                 BRICK.hasSubstance: BRICK.Return_Air,
                             },
                         },
@@ -1273,7 +1273,7 @@ sensor_definitions = {
                     },
                     "Electric_Power_Sensor": {
                         "tags": [TAG.Point, TAG.Sensor, TAG.Power, TAG.Electric],
-                        BRICK.hasQuantity: BRICK.Electric_Power,
+                        BRICK.hasQuantity: QUDTQK.ElectricPower,
                         "subclasses": {
                             "Reactive_Power_Sensor": {
                                 "tags": [
@@ -1283,7 +1283,7 @@ sensor_definitions = {
                                     TAG.Reactive,
                                     TAG.Electric,
                                 ],
-                                BRICK.hasQuantity: BRICK.Reactive_Power,
+                                BRICK.hasQuantity: QUDTQK.ReactivePower,
                             },
                             "Active_Power_Sensor": {
                                 "tags": [
@@ -1293,7 +1293,7 @@ sensor_definitions = {
                                     TAG.Real,
                                     TAG.Electric,
                                 ],
-                                BRICK.hasQuantity: BRICK.Active_Power,
+                                BRICK.hasQuantity: QUDTQK.ActivePower,
                             },
                         },
                     },
@@ -1344,7 +1344,7 @@ sensor_definitions = {
             },
             "Torque_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Torque],
-                BRICK.hasQuantity: BRICK.Torque,
+                BRICK.hasQuantity: QUDTQK.Torque,
                 "subclasses": {
                     "Motor_Torque_Sensor": {
                         "tags": [TAG.Point, TAG.Motor, TAG.Torque, TAG.Sensor],
@@ -1353,7 +1353,7 @@ sensor_definitions = {
             },
             "Voltage_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Voltage],
-                BRICK.hasQuantity: BRICK.Voltage,
+                BRICK.hasQuantity: QUDTQK.Voltage,
                 "subclasses": {
                     "Battery_Voltage_Sensor": {
                         "tags": [TAG.Point, TAG.Sensor, TAG.Voltage, TAG.Battery],

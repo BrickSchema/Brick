@@ -21,7 +21,7 @@ relationships = {
         A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         RDFS.label: Literal("Has Quantity"),
         RDFS.subPropertyOf: QUDT.hasQuantityKind,
-        "range": BRICK.Quantity,
+        "range": [BRICK.Quantity, QUDT.QuantityKind],
         "domain": BRICK.Point,
     },
     "value": {
