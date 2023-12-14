@@ -8,7 +8,7 @@ g.load_file("support/VOCAB_QUDT-QUANTITY-KINDS-ALL-v2.1.ttl")
 g.load_file("support/VOCAB_QUDT-UNITS-ALL-v2.1.ttl")
 g.bind("qudt", QUDT)
 g.bind("qudtqk", QUDTQK)
-g.expand(profile="brick")
+g.expand(profile="shacl", backend="topquadrant")
 
 
 def get_units(qudt_quantity):
