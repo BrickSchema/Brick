@@ -55,6 +55,7 @@ https://brickschema.org/schema/Brick#Average_Exhaust_Air_Static_Pressure_Sensor,
 https://brickschema.org/schema/Brick#Average_Heating_Demand_Sensor,Measures the average power consumed by a heating process as the amount of power consumed over some interval,
 https://brickschema.org/schema/Brick#Average_Supply_Air_Flow_Sensor,The computed average flow of supply air over some interval,
 https://brickschema.org/schema/Brick#Average_Zone_Air_Temperature_Sensor,"The computed average temperature of air in a zone, over some period of time",
+https://brickschema.org/schema/Brick#Backflow_Preventor_Valve," ""Valve designed to prevent the reverse flow of fluid", typically water," thereby protecting potable water supplies from contamination or pollution."""
 https://brickschema.org/schema/Brick#Baseboard_Radiator,"Steam, hydronic, or electric heating device located at or near the floor.",
 https://brickschema.org/schema/Brick#Basement,The floor of a building which is partly or entirely below ground level.,
 https://brickschema.org/schema/Brick#Battery,A container that stores chemical energy that can be converted into electricity and used as a source of power,
@@ -111,6 +112,7 @@ https://brickschema.org/schema/Brick#Capacity_Sensor,,
 https://brickschema.org/schema/Brick#Ceiling_Fan,A fan installed on the ceiling of a room for the purpose of air circulation,
 https://brickschema.org/schema/Brick#Centrifugal_Chiller,A chiller that uses the vapor compression cycle to chill water. It throws off the heat collected from the chilled water plus the heat from the compressor to a water loop,https://bellomyims.com/your-definitive-guide-to-centrifugal-chillers/
 https://brickschema.org/schema/Brick#Change_Filter_Alarm,An alarm that indicates that a filter must be changed,
+https://brickschema.org/schema/Brick#Check_Valve," ""Valve that allows fluid to flow in only one direction"," preventing reverse flow."""
 https://brickschema.org/schema/Brick#Chilled_Beam,"A device with an integrated coil that performs sensible heating of a space via circulation of room air. Chilled Beams are not designed to perform latent cooling; see Induction Units. Despite their name, Chilled Beams may perform heating or cooling of a space depending on their configuration.",
 https://brickschema.org/schema/Brick#Chilled_Water,water used as a cooling medium (particularly in air-conditioning systems or in processes) at below ambient temperature.,
 https://brickschema.org/schema/Brick#Chilled_Water_Coil,"A cooling element made of pipe or tube that removes heat from equipment, machines or airflows that is filled with chilled water.",
@@ -324,6 +326,7 @@ https://brickschema.org/schema/Brick#Electrical_Energy_Usage_Sensor,A sensor tha
 https://brickschema.org/schema/Brick#Electrical_Meter,A meter that measures the usage or consumption of electricity,
 https://brickschema.org/schema/Brick#Electrical_Room,A class of service rooms that house electrical equipment for a building,
 https://brickschema.org/schema/Brick#Electrical_System,Devices that serve or are part of the electrical subsystem in the building,
+https://brickschema.org/schema/Brick#Electronic_Mixing_Valve," ""Electronically controlled valve for precise mixing of hot and cold fluid."""
 https://brickschema.org/schema/Brick#Elevator,"A device that provides vertical transportation between floors, levels or decks of a building, vessel or other structure",https://en.wikipedia.org/wiki/Elevator
 https://brickschema.org/schema/Brick#Elevator_Shaft,The vertical space in which an elevator ascends and descends,
 https://brickschema.org/schema/Brick#Elevator_Space,The vertical space in whcih an elevator ascends and descends,
@@ -462,6 +465,7 @@ https://brickschema.org/schema/Brick#Gain_Parameter,,
 https://brickschema.org/schema/Brick#Gas,"state of matter in which substances exist in the form of nonaggregated molecules and which, within acceptable limits of accuracy, satisfy the ideal gas laws; usually a highly superheated vapor. See [[state]].",
 https://brickschema.org/schema/Brick#Gas_Distribution,Utilize a gas distribution source to represent how gas is distributed across multiple destinations,
 https://brickschema.org/schema/Brick#Gas_Meter,A meter that measures the usage or consumption of gas,
+https://brickschema.org/schema/Brick#Gas_Pressure_Regulator_Valve," ""Valve designed to maintain controlled downstream gas pressure with varying upstream pressure."""
 https://brickschema.org/schema/Brick#Gas_Sensor,Measures gas concentration (other than CO2),
 https://brickschema.org/schema/Brick#Gasoline,Petroleum derived liquid used as a fuel source,
 https://brickschema.org/schema/Brick#Gatehouse,The standalone building used to manage the entrance to a campus or building grounds,
@@ -709,6 +713,7 @@ https://brickschema.org/schema/Brick#Mixed_Air_Humidity_Setpoint,Humidity setpoi
 https://brickschema.org/schema/Brick#Mixed_Air_Temperature_Sensor,Measures the temperature of mixed air,
 https://brickschema.org/schema/Brick#Mixed_Air_Temperature_Setpoint,Sets temperature of mixed air,
 https://brickschema.org/schema/Brick#Mixed_Damper,A damper that modulates the flow of the mixed outside and return air streams,
+https://brickschema.org/schema/Brick#Mixing_Valve," ""Valve used for mixing hot and cold fluid to a desired temperature."""
 https://brickschema.org/schema/Brick#Mode_Command,Controls the operating mode of a device or controller,
 https://brickschema.org/schema/Brick#Mode_Status,"Indicates which mode a system, device or control loop is currently in",
 https://brickschema.org/schema/Brick#Motion_Sensor,Detects the presence of motion in some area,
@@ -848,6 +853,9 @@ https://brickschema.org/schema/Brick#Preheat_Supply_Air_Temperature_Sensor,Measu
 https://brickschema.org/schema/Brick#Preheat_Valve_VFD,,
 https://brickschema.org/schema/Brick#Pressure,,
 https://brickschema.org/schema/Brick#Pressure_Alarm,An alarm that indicates the off-normal conditions associated with pressure.,
+https://brickschema.org/schema/Brick#Pressure_Reducing_Valve," ""Valve used to reduce a high supply pressure to a usable level; maintains uniform outlet pressure despite inlet pressure variation."""
+https://brickschema.org/schema/Brick#Pressure_Regulator_Valve," ""Device to maintain controlled downstream fluid pressure with varying upstream pressure."""
+https://brickschema.org/schema/Brick#Pressure_Relief_Valve," ""Pressure-actuated valve to automatically relieve excessive pressure; prevents explosive shattering of the housing."""
 https://brickschema.org/schema/Brick#Pressure_Sensor,Measure the amount of force acting on a unit area,
 https://brickschema.org/schema/Brick#Pressure_Setpoint,Sets pressure,
 https://brickschema.org/schema/Brick#Pressure_Status,Indicates if pressure is within expected bounds,
@@ -982,6 +990,8 @@ https://brickschema.org/schema/Brick#Status,"A Status is input point that report
 https://brickschema.org/schema/Brick#Steam,water in the vapor phase.,
 https://brickschema.org/schema/Brick#Steam_Baseboard_Radiator,Steam heating device located at or near the floor,
 https://brickschema.org/schema/Brick#Steam_Distribution,Utilize a steam distribution source to represent how steam is distributed across multiple destinations,
+https://brickschema.org/schema/Brick#Steam_Pressure_Reducing_Valve," ""Valve designed to reduce steam pressure from a high to a manageable level; maintains uniform steam outlet pressure."""
+https://brickschema.org/schema/Brick#Steam_Pressure_Relief_Valve," ""Valve designed to automatically relieve excessive steam pressure."""
 https://brickschema.org/schema/Brick#Steam_Radiator,Radiator that uses steam,
 https://brickschema.org/schema/Brick#Steam_System,"The equipment, devices and conduits that handle the production and distribution of steam in a building",
 https://brickschema.org/schema/Brick#Steam_Usage_Sensor,"Measures the amount of steam that is consumed or used, over some period of time",
@@ -1133,6 +1143,8 @@ https://brickschema.org/schema/Brick#Water_Level_Sensor,Measures the height/leve
 https://brickschema.org/schema/Brick#Water_Loop,A collection of equipment that transport and regulate water among each other,
 https://brickschema.org/schema/Brick#Water_Loss_Alarm,An alarm that indicates a loss of water e.g. during transport,
 https://brickschema.org/schema/Brick#Water_Meter,A meter that measures the usage or consumption of water,
+https://brickschema.org/schema/Brick#Water_Pressure_Reducing_Valve," ""Valve specifically designed to reduce high water pressure to a usable level; maintains uniform water outlet pressure."""
+https://brickschema.org/schema/Brick#Water_Pressure_Relief_Valve," ""Valve designed to automatically relieve excessive water pressure."""
 https://brickschema.org/schema/Brick#Water_Pump,A pump that performs work on water,
 https://brickschema.org/schema/Brick#Water_Storage_Tank,A specialized type of tank intended for the storage of water for extended periods.,
 https://brickschema.org/schema/Brick#Water_System,"The equipment, devices and conduits that handle the production and distribution of water in a building",
@@ -1183,4 +1195,4 @@ https://brickschema.org/schema/Brick#isPartOf,,
 https://brickschema.org/schema/Brick#isPointOf,The subject is a source of telemetry related to the object. In some systems the source of telemetry may be represented as a digital/analog input/output point,
 https://brickschema.org/schema/Brick#isSubMeterOf,Indicates the parent for which this meter is a submeter,
 https://brickschema.org/schema/Brick#isTagOf,,
-https://brickschema.org/schema/Brick#meters,Indicates the entity whose consumption/production of some substance is measured by this meter,
+https://brickschema.org/schema/Brick#meters," ""Indicates the entity whose consumption/production of some substance is measured by this meter."""
