@@ -108,6 +108,7 @@ https://brickschema.org/schema/Brick#CRAH,"a computer room air handler (CRAH) us
 https://brickschema.org/schema/Brick#Cafeteria,A space to serve food and beverages,
 https://brickschema.org/schema/Brick#Capacity,,
 https://brickschema.org/schema/Brick#Capacity_Sensor,,
+https://brickschema.org/schema/Brick#Ceiling_Damper,"Function only as a heat barrier to limit heat transfer, into the concealed space of a fire-resistance-rated floor-ceiling or roof-ceiling assembly where ducts or air transfer openings are made only through the ceiling membrane that is part of the fire-resistance rated assembly.",
 https://brickschema.org/schema/Brick#Ceiling_Fan,A fan installed on the ceiling of a room for the purpose of air circulation,
 https://brickschema.org/schema/Brick#Centrifugal_Chiller,A chiller that uses the vapor compression cycle to chill water. It throws off the heat collected from the chilled water plus the heat from the compressor to a water loop,https://bellomyims.com/your-definitive-guide-to-centrifugal-chillers/
 https://brickschema.org/schema/Brick#Change_Filter_Alarm,An alarm that indicates that a filter must be changed,

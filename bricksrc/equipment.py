@@ -727,18 +727,28 @@ hvac_subclasses = {
                     BRICK.Smoke_Damper,
                     BRICK.Fire_Safety_Equipment,
                 ],
-            },
-            "subclasses": {
-                "Corridor_Fire_Smoke_Damper": {
-                    "tags": [
-                        TAG.Equipment,
-                        TAG.Damper,
-                        TAG.Combination,
-                        TAG.Fire,
-                        TAG.Smoke,
-                        TAG.Corridor,
-                    ]
+                "subclasses": {
+                    "Corridor_Fire_Smoke_Damper": {
+                        "tags": [
+                            TAG.Equipment,
+                            TAG.Damper,
+                            TAG.Combination,
+                            TAG.Fire,
+                            TAG.Smoke,
+                            TAG.Corridor,
+                        ]
+                    },
                 },
+            },
+            "Ceiling_Damper": {
+                "tags": [
+                    TAG.Equipment,
+                    TAG.Damper,
+                    TAG.Heat,
+                    TAG.Barrier,
+                    TAG.Ceiling,
+                ],
+                "parents": [BRICK.Fire_Safety_Equipment],
             },
         },
     },
