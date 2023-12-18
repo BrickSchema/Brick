@@ -414,6 +414,7 @@ https://brickschema.org/schema/Brick#Exhaust_Air_Temperature_Sensor,Measures the
 https://brickschema.org/schema/Brick#Exhaust_Air_Velocity_Pressure_Sensor,,
 https://brickschema.org/schema/Brick#Exhaust_Damper,A damper that modulates the flow of exhaust air,
 https://brickschema.org/schema/Brick#Exhaust_Fan,Fan moving exhaust air -- air that must be removed from a space due to contaminants,
+https://brickschema.org/schema/Brick#Exit_Sign,"Exit signs are used to indicate the location of the nearest emergency exit in a building, particularly in situations where quick evacuation is necessary.",
 https://brickschema.org/schema/Brick#FCU,See Fan_Coil_Unit,
 https://brickschema.org/schema/Brick#Failure_Alarm,"Alarms that indicate the failure of devices, equipment, systems and control loops",
 https://brickschema.org/schema/Brick#Fan,"Any device with two or more blades or vanes attached to a rotating shaft used to produce an airflow for the purpose of comfort, ventilation, exhaust, heating, cooling, or any other gaseous transport.",
