@@ -947,6 +947,7 @@ https://brickschema.org/schema/Brick#Shower,"A space containing showers, usually
 https://brickschema.org/schema/Brick#Site,A geographic region containing 0 or more buildings. Typically used as the encapsulating location for a collection of Brick entities through the hasPart/isPartOf relationships,
 https://brickschema.org/schema/Brick#Smoke_Alarm,An alarm that indicates the off-normal conditions associated with smoke.,
 https://brickschema.org/schema/Brick#Smoke_Damper,Smoke dampers are used to restrict the movement of smoke where ducts and air transfer openings penetrate assemblies that are designed to restrict the movement of smoke.
+https://brickschema.org/schema/Brick#Smoke_Zone,"A smoke zone an area designed to contain smoke, delineated by smoke barrier walls, to facilitate safe and efficient evacuation,",
 https://brickschema.org/schema/Brick#Soil_Temperature_Sensor,Measures the temperature of soil,
 https://brickschema.org/schema/Brick#Solar_Azimuth_Angle_Sensor,Measures the azimuth angle of the sun,
 https://brickschema.org/schema/Brick#Solar_Irradiance,The power per unit area of solar electromagnetic radiation incident on a surface,
