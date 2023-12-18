@@ -114,6 +114,9 @@ system_subclasses = {
                     "Condenser_Water_System": {
                         "tags": [TAG.Condenser, TAG.Water, TAG.System]
                     },
+                    "Fire_Sprinkler_System": {
+                        "tags": [TAG.Fire, TAG.Sprinkler, TAG.Water, TAG.System]
+                    },
                 },
             },
         },
