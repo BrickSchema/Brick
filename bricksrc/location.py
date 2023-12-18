@@ -625,6 +625,7 @@ location_subclasses = {
             "HVAC_Zone": {"tags": [TAG.HVAC, TAG.Zone, TAG.Location]},
             "Lighting_Zone": {"tags": [TAG.Lighting, TAG.Zone, TAG.Location]},
             "Fire_Zone": {"tags": [TAG.Fire, TAG.Zone, TAG.Location]},
+            "Smoke_Zone": {"tags": [TAG.Smoke, TAG.Zone, TAG.Location]},
         },
         "constraints": {
             BRICK.hasPart: [
