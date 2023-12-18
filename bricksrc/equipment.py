@@ -244,6 +244,17 @@ equipment_subclasses = {
             },
             "Smoke_Detector": {
                 "tags": [TAG.Equipment, TAG.Fire, TAG.Safety, TAG.Smoke, TAG.Detector],
+                "subclasses": {
+                    "Duct_Smoke_Detector": {
+                        "tags": [
+                            TAG.Equipment,
+                            TAG.Fire,
+                            TAG.Safety,
+                            TAG.Smoke,
+                            TAG.Detector,
+                        ]
+                    }
+                },
             },
         },
     },
