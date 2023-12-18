@@ -205,6 +205,12 @@ equipment_subclasses = {
             "Fire_Alarm": {
                 "tags": [TAG.Equipment, TAG.Fire, TAG.Safety, TAG.Alarm],
             },
+            "Fire_Extinguisher": {
+                "tags": [TAG.Equipment, TAG.Fire, TAG.Safety, TAG.Extinguisher],
+            },
+            "Fire_Hydrant": {
+                "tags": [TAG.Equipment, TAG.Fire, TAG.Safety, TAG.Hydrant],
+            },
             "Fire_Sprinkler": {
                 "tags": [TAG.Equipment, TAG.Fire, TAG.Safety, TAG.Sprinkler]
             },
