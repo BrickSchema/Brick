@@ -438,6 +438,8 @@ https://brickschema.org/schema/Brick#Fire_Damper,"Fire dampers are designed to c
 https://brickschema.org/schema/Brick#Fire_Safety_System,"A system containing devices and equipment that monitor, detect and suppress fire hazards",https://assetinsights.net/Glossary/G_Fire_Safety_System.html
 https://brickschema.org/schema/Brick#Fire_Sensor,Measures the presence of fire,
 https://brickschema.org/schema/Brick#Fire_Smoke_Damper,Combination fire-smoke dampers are used to restrict both the spread of fire and movement of smoke where ducts and air transfer openings penetrate assemblies that are designed to restrict the passage of both fire and smoke.,
+https://brickschema.org/schema/Brick#Fire_Sprinkler,"A fire sprinkler or sprinkler head is the component of a fire sprinkler system that discharges water when the effects of a fire have been detected, such as when a predetermined temperature has been exceeded.",
+https://brickschema.org/schema/Brick#Fire_Sprinkler_System,"A fire sprinkler system is an active fire protection measure that includes a water supply system, which provides sufficient pressure and flowrate, and a water distribution piping system to which fire sprinklers are attached",
 https://brickschema.org/schema/Brick#Fire_Sprinkler_Thermal_Expansion_Tank,A specialized thermal expansion tank that is part of a building's fire suppression system.,
 https://brickschema.org/schema/Brick#Fire_Sprinkler_Water_Storage_Tank,A specialized tank intended to store water that can be quickly accessed for fire suppression.,
 https://brickschema.org/schema/Brick#Fire_Zone,combustion chamber in a furnace or boiler.,

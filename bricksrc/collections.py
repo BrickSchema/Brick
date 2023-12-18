@@ -40,7 +40,14 @@ system_subclasses = {
     },
     "Gas_System": {"tags": [TAG.Gas, TAG.System]},
     "Heating_Ventilation_Air_Conditioning_System": {
-        "tags": [TAG.Heat, TAG.Ventilation, TAG.Air, TAG.Conditioning, TAG.HVAC, TAG.System],
+        "tags": [
+            TAG.Heat,
+            TAG.Ventilation,
+            TAG.Air,
+            TAG.Conditioning,
+            TAG.HVAC,
+            TAG.System,
+        ],
         "aliases": [BRICK["HVAC_System"]],
         "subclasses": {
             "Air_System": {
@@ -106,6 +113,9 @@ system_subclasses = {
                     },
                     "Condenser_Water_System": {
                         "tags": [TAG.Condenser, TAG.Water, TAG.System]
+                    },
+                    "Fire_Sprinkler_System": {
+                        "tags": [TAG.Fire, TAG.Sprinkler, TAG.Water, TAG.System]
                     },
                 },
             },
