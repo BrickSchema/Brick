@@ -198,6 +198,7 @@ https://brickschema.org/schema/Brick#Cooling_Zone_Air_Temperature_Setpoint,The c
 https://brickschema.org/schema/Brick#Copy_Room,"A room set aside for common office equipment, including printers and copiers",
 https://brickschema.org/schema/Brick#Core_Temperature_Sensor,Measures the internal temperature of the radiant layer at the heat source or sink level of the radiant heating and cooling HVAC system.,
 https://brickschema.org/schema/Brick#Core_Temperature_Setpoint,"Sets temperature for the core, i.e. the temperature at the heat source or sink level, of the radiant panel.",
+https://brickschema.org/schema/Brick#Corridor_Fire_Smoke_Damper,Corridor dampers are combination fire-smoke dampers that have been specifically evaluated for mounting only in ceilings of fire-resistance-rated corridors.,
 https://brickschema.org/schema/Brick#Cubicle,"A smaller space set aside for an individual, but not with a door and without full-height walls",
 https://brickschema.org/schema/Brick#Current,,
 https://brickschema.org/schema/Brick#Current_Angle,Angle of current phasor,
@@ -432,8 +433,10 @@ https://brickschema.org/schema/Brick#Fire_Alarm_Control_Panel,Fire alarm panel i
 https://brickschema.org/schema/Brick#Fire_Alarm_Manual_Call_Point,Manual alarm call points are designed for the purpose of raising an alarm manually once verification of a fire or emergency condition exists. by operating the push button or break glass the alarm signal can be raised.,http://www.coopermedc.com/products/manual-alarm-call-points
 https://brickschema.org/schema/Brick#Fire_Alarm_Pull_Station,An active fire protection device (usually wall-mounted) that when activated initiates an alarm on a fire alarm system. In its simplest form the user activates the alarm by pulling the handle down.,https://en.wikipedia.org/wiki/Manual_fire_alarm_activation#Fire_alarm_pull_station
 https://brickschema.org/schema/Brick#Fire_Control_Panel,A panel-mounted device that provides status and control of a fire safety system,
+https://brickschema.org/schema/Brick#Fire_Damper,"Fire dampers are designed to close automatically when heat is detected, and are used to restrict the spread of fire where ducts and air transfer openings penetrate fire walls, fire barriers, fire partitions, horizontal assemblies and shaft enclosures.",
 https://brickschema.org/schema/Brick#Fire_Safety_System,"A system containing devices and equipment that monitor, detect and suppress fire hazards",https://assetinsights.net/Glossary/G_Fire_Safety_System.html
 https://brickschema.org/schema/Brick#Fire_Sensor,Measures the presence of fire,
+https://brickschema.org/schema/Brick#Fire_Smoke_Damper,Combination fire-smoke dampers are used to restrict both the spread of fire and movement of smoke where ducts and air transfer openings penetrate assemblies that are designed to restrict the passage of both fire and smoke.,
 https://brickschema.org/schema/Brick#Fire_Sprinkler_Thermal_Expansion_Tank,A specialized thermal expansion tank that is part of a building's fire suppression system.,
 https://brickschema.org/schema/Brick#Fire_Sprinkler_Water_Storage_Tank,A specialized tank intended to store water that can be quickly accessed for fire suppression.,
 https://brickschema.org/schema/Brick#Fire_Zone,combustion chamber in a furnace or boiler.,
@@ -942,6 +945,7 @@ https://brickschema.org/schema/Brick#Short_Cycle_Alarm,An alarm that indicates a
 https://brickschema.org/schema/Brick#Shower,"A space containing showers, usually adjacent to an athletic or execise area",
 https://brickschema.org/schema/Brick#Site,A geographic region containing 0 or more buildings. Typically used as the encapsulating location for a collection of Brick entities through the hasPart/isPartOf relationships,
 https://brickschema.org/schema/Brick#Smoke_Alarm,An alarm that indicates the off-normal conditions associated with smoke.,
+https://brickschema.org/schema/Brick#Smoke_Damper,Smoke dampers are used to restrict the movement of smoke where ducts and air transfer openings penetrate assemblies that are designed to restrict the movement of smoke.
 https://brickschema.org/schema/Brick#Soil_Temperature_Sensor,Measures the temperature of soil,
 https://brickschema.org/schema/Brick#Solar_Azimuth_Angle_Sensor,Measures the azimuth angle of the sun,
 https://brickschema.org/schema/Brick#Solar_Irradiance,The power per unit area of solar electromagnetic radiation incident on a surface,

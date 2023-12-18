@@ -681,6 +681,30 @@ hvac_subclasses = {
             "Return_Damper": {"tags": [TAG.Equipment, TAG.Damper, TAG.Return]},
             "Mixed_Damper": {"tags": [TAG.Equipment, TAG.Damper, TAG.Mixed]},
             "Relief_Damper": {"tags": [TAG.Equipment, TAG.Damper, TAG.Relief]},
+            "Smoke_Damper": {"tags": [TAG.Equipment, TAG.Damper, TAG.Smoke]},
+            "Fire_Damper": {"tags": [TAG.Equipment, TAG.Damper, TAG.Fire]},
+            "Fire_Smoke_Damper": {
+                "tags": [
+                    TAG.Equipment,
+                    TAG.Damper,
+                    TAG.Combination,
+                    TAG.Fire,
+                    TAG.Smoke,
+                ],
+                "parents": [BRICK.Fire_Damper, BRICK.Smoke_Damper],
+            },
+            "subclasses": {
+                "Corridor_Fire_Smoke_Damper": {
+                    "tags": [
+                        TAG.Equipment,
+                        TAG.Damper,
+                        TAG.Combination,
+                        TAG.Fire,
+                        TAG.Smoke,
+                        TAG.Corridor,
+                    ]
+                },
+            },
         },
     },
     "Condenser": {"tags": [TAG.Equipment, TAG.Condenser]},
