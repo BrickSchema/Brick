@@ -682,12 +682,15 @@ def add_definitions(graph=G):
     with open("./bricksrc/definitions.csv", encoding="utf-8") as dictionary_file:
         dictionary = csv.reader(dictionary_file)
 
-        # skip the header
-        next(dictionary)
+        header = next(dictionary)
 
         # add definitions, citations to the graph
         for definition in dictionary:
             term = URIRef(definition[0])
+            if len(definition) > len(header):
+                raise ValueError(
+                    f"The term '{term}' has more elements than expected. Please check the format."
+                )
             if len(definition[1]):
                 graph.add((term, SKOS.definition, Literal(definition[1], lang="en")))
             if len(definition) > 2 and definition[2]:
