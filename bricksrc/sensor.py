@@ -1209,6 +1209,12 @@ sensor_definitions = {
                         },
                     },
                     "Static_Pressure_Sensor": {
+                        "tags": [
+                            TAG.Point,
+                            TAG.Sensor,
+                            TAG.Pressure,
+                            TAG.Static,
+                        ],
                         "subclasses": {
                             "Air_Static_Pressure_Sensor": {
                                 "tags": [
@@ -1216,6 +1222,7 @@ sensor_definitions = {
                                     TAG.Sensor,
                                     TAG.Pressure,
                                     TAG.Static,
+                                    TAG.Air,
                                 ],
                                 "subclasses": {
                                     "Building_Air_Static_Pressure_Sensor": {
@@ -1300,7 +1307,7 @@ sensor_definitions = {
                                     },
                                 },
                             }
-                        }
+                        },
                     },
                     "Velocity_Pressure_Sensor": {
                         "subclasses": {
