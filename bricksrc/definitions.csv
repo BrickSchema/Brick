@@ -303,6 +303,7 @@ https://brickschema.org/schema/Brick#Displacement_Flow_Air_Diffuser,An air diffu
 https://brickschema.org/schema/Brick#Distribution_Frame,"A class of spaces where the cables carrying signals meet and connect, e.g. a wiring closet or a broadcast downlink room",
 https://brickschema.org/schema/Brick#Domestic_Hot_Water_Circulator_Pump,"Used to move domestic hot water in a closed circuit, ensuring continuous flow.",
 https://brickschema.org/schema/Brick#Domestic_Hot_Water_Differential_Pressure_Sensor," ""Measures the pressure difference in domestic hot water systems."""
+https://brickschema.org/schema/Brick#Domestic_Hot_Water_Differential_Pressure_Setpoint,Sets the target water differential pressure between an upstream and downstream point in a water pipe used to carry domestic hot water,
 https://brickschema.org/schema/Brick#Domestic_Hot_Water_System,"The equipment, devices and conduits that handle the production and distribution of domestic hot water in a building",
 https://brickschema.org/schema/Brick#Domestic_Hot_Water_System_Enable_Command,Enables operation of the domestic hot water system,
 https://brickschema.org/schema/Brick#Domestic_Hot_Water_Temperature_Setpoint,Sets temperature of domestic hot water,
@@ -312,6 +313,7 @@ https://brickschema.org/schema/Brick#Drive_Ready_Status,"Indicates if a hard dri
 https://brickschema.org/schema/Brick#Dry_Bulb_Temperature,"The temperature of air measured by a thermometer freely exposed to the air, but shielded from radiation and moisture. (https://en.wikipedia.org/wiki/Dry-bulb_temperature)",
 https://brickschema.org/schema/Brick#Dry_Cooler,"A dry cooler is a fluid cooler that uses air, a relatively dry, non-liquid fluid to accomplish process cooling. (https://submer.com/submer-academy/library/dry-cooler/)",
 https://brickschema.org/schema/Brick#Dual_Duct_Air_Handling_Unit,An air handling unit that contains hot and cold decks to supply heating and cooling to a building,
+https://brickschema.org/schema/Brick#Duct_Air_Static_Pressure_Setpoint,The target value for the static pressure within the HVAC duct system,,
 https://brickschema.org/schema/Brick#Duration_Sensor,Measures the duration of a phenomenon or event,
 https://brickschema.org/schema/Brick#ESS_Panel,See Embedded_Surface_System_Panel,
 https://brickschema.org/schema/Brick#Economizer,"Device that, on proper variable sensing, initiates control signals or actions to conserve energy. A control system that reduces the mechanical heating and cooling requirement.",

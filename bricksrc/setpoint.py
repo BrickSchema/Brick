@@ -146,6 +146,10 @@ setpoint_definitions = {
                                     BRICK.Supply_Air,
                                     BRICK.Discharge_Air,
                                 ],
+                                BRICK.hasSubstance: [
+                                    BRICK.Supply_Air,
+                                    BRICK.Discharge_Air,
+                                ],
                                 BRICK.hasQuantity: BRICK.Temperature,
                                 "aliases": [
                                     BRICK["Discharge_Air_Temperature_Deadband_Setpoint"]
@@ -175,6 +179,11 @@ setpoint_definitions = {
                                         ],
                                     },
                                     "Cooling_Supply_Air_Temperature_Deadband_Setpoint": {
+                                        "aliases": [
+                                            BRICK[
+                                                "Cooling_Discharge_Air_Temperature_Deadband_Setpoint"
+                                            ]
+                                        ],
                                         "aliases": [
                                             BRICK[
                                                 "Cooling_Discharge_Air_Temperature_Deadband_Setpoint"
@@ -289,6 +298,10 @@ setpoint_definitions = {
                                     BRICK.Supply_Air,
                                     BRICK.Discharge_Air,
                                 ],
+                                BRICK.hasSubstance: [
+                                    BRICK.Supply_Air,
+                                    BRICK.Discharge_Air,
+                                ],
                                 BRICK.hasQuantity: BRICK.Static_Pressure,
                                 "aliases": [
                                     BRICK[
@@ -395,8 +408,18 @@ setpoint_definitions = {
                                                 "Occupied_Discharge_Air_Flow_Setpoint"
                                             ]
                                         ],
+                                        "aliases": [
+                                            BRICK[
+                                                "Occupied_Discharge_Air_Flow_Setpoint"
+                                            ]
+                                        ],
                                         "subclasses": {
                                             "Occupied_Cooling_Supply_Air_Flow_Setpoint": {
+                                                "aliases": [
+                                                    BRICK[
+                                                        "Occupied_Cooling_Discharge_Air_Flow_Setpoint"
+                                                    ]
+                                                ],
                                                 "aliases": [
                                                     BRICK[
                                                         "Occupied_Cooling_Discharge_Air_Flow_Setpoint"
@@ -418,6 +441,11 @@ setpoint_definitions = {
                                                 ],
                                             },
                                             "Occupied_Heating_Supply_Air_Flow_Setpoint": {
+                                                "aliases": [
+                                                    BRICK[
+                                                        "Occupied_Heating_Discharge_Air_Flow_Setpoint"
+                                                    ]
+                                                ],
                                                 "aliases": [
                                                     BRICK[
                                                         "Occupied_Heating_Discharge_Air_Flow_Setpoint"
@@ -455,8 +483,18 @@ setpoint_definitions = {
                                                 "Unoccupied_Discharge_Air_Flow_Setpoint"
                                             ]
                                         ],
+                                        "aliases": [
+                                            BRICK[
+                                                "Unoccupied_Discharge_Air_Flow_Setpoint"
+                                            ]
+                                        ],
                                         "subclasses": {
                                             "Unoccupied_Cooling_Supply_Air_Flow_Setpoint": {
+                                                "aliases": [
+                                                    BRICK[
+                                                        "Unoccupied_Cooling_Discharge_Air_Flow_Setpoint"
+                                                    ]
+                                                ],
                                                 "aliases": [
                                                     BRICK[
                                                         "Unoccupied_Cooling_Discharge_Air_Flow_Setpoint"
@@ -478,6 +516,11 @@ setpoint_definitions = {
                                                 ],
                                             },
                                             "Unoccupied_Heating_Supply_Air_Flow_Setpoint": {
+                                                "aliases": [
+                                                    BRICK[
+                                                        "Unoccupied_Heating_Discharge_Air_Flow_Setpoint"
+                                                    ]
+                                                ],
                                                 "aliases": [
                                                     BRICK[
                                                         "Unoccupied_Heating_Discharge_Air_Flow_Setpoint"
@@ -513,6 +556,9 @@ setpoint_definitions = {
                                         "aliases": [
                                             BRICK["Cooling_Discharge_Air_Flow_Setpoint"]
                                         ],
+                                        "aliases": [
+                                            BRICK["Cooling_Discharge_Air_Flow_Setpoint"]
+                                        ],
                                         "tags": [
                                             TAG.Point,
                                             TAG.Cool,
@@ -524,6 +570,9 @@ setpoint_definitions = {
                                         ],
                                     },
                                     "Heating_Supply_Air_Flow_Setpoint": {
+                                        "aliases": [
+                                            BRICK["Heating_Discharge_Air_Flow_Setpoint"]
+                                        ],
                                         "aliases": [
                                             BRICK["Heating_Discharge_Air_Flow_Setpoint"]
                                         ],
@@ -835,10 +884,19 @@ setpoint_definitions = {
             "Pressure_Setpoint": {
                 BRICK.hasQuantity: BRICK.Pressure,
                 "subclasses": {
+                    "Air_Pressure_Setpoint": {
+                        "tags": [TAG.Setpoint, TAG.Pressure, TAG.Setpoint, TAG.Air],
+                        BRICK.hasQuantity: BRICK.Pressure,
+                    },
+                    "Water_Pressure_Setpoint": {
+                        "tags": [TAG.Setpoint, TAG.Pressure, TAG.Setpoint, TAG.Water],
+                        BRICK.hasQuantity: BRICK.Pressure,
+                    },
                     "Static_Pressure_Setpoint": {
                         BRICK.hasQuantity: BRICK.Static_Pressure,
                         "subclasses": {
                             "Building_Air_Static_Pressure_Setpoint": {
+                                "parents": [BRICK["Air_Pressure_Setpoint"]],
                                 BRICK.hasSubstance: BRICK.Building_Air,
                                 BRICK.hasQuantity: BRICK.Static_Pressure,
                                 "tags": [
@@ -857,6 +915,18 @@ setpoint_definitions = {
                                     TAG.Point,
                                     TAG.Chilled,
                                     TAG.Water,
+                                    TAG.Static,
+                                    TAG.Pressure,
+                                    TAG.Setpoint,
+                                ],
+                            },
+                            "Duct_Air_Static_Pressure_Setpoint": {
+                                BRICK.hasSubstance: BRICK.Air,
+                                BRICK.hasQuantity: BRICK.Static_Pressure,
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Duct,
+                                    TAG.Air,
                                     TAG.Static,
                                     TAG.Pressure,
                                     TAG.Setpoint,
@@ -891,7 +961,14 @@ setpoint_definitions = {
                                     BRICK.Supply_Air,
                                     BRICK.Discharge_Air,
                                 ],
+                                BRICK.hasSubstance: [
+                                    BRICK.Supply_Air,
+                                    BRICK.Discharge_Air,
+                                ],
                                 BRICK.hasQuantity: BRICK.Static_Pressure,
+                                "aliases": [
+                                    BRICK["Discharge_Air_Static_Pressure_Setpoint"]
+                                ],
                                 "aliases": [
                                     BRICK["Discharge_Air_Static_Pressure_Setpoint"]
                                 ],
@@ -947,6 +1024,9 @@ setpoint_definitions = {
                                 "aliases": [
                                     BRICK["Discharge_Air_Flow_High_Reset_Setpoint"]
                                 ],
+                                "aliases": [
+                                    BRICK["Discharge_Air_Flow_High_Reset_Setpoint"]
+                                ],
                                 "tags": [
                                     TAG.Point,
                                     TAG.Supply,
@@ -959,6 +1039,9 @@ setpoint_definitions = {
                                 ],
                             },
                             "Supply_Air_Flow_Low_Reset_Setpoint": {
+                                "aliases": [
+                                    BRICK["Discharge_Air_Flow_Low_Reset_Setpoint"]
+                                ],
                                 "aliases": [
                                     BRICK["Discharge_Air_Flow_Low_Reset_Setpoint"]
                                 ],
@@ -1623,6 +1706,13 @@ setpoint_definitions = {
                                 "aliases": [
                                     BRICK["Discharge_Air_Temperature_Setpoint"]
                                 ],
+                                BRICK.hasSubstance: [
+                                    BRICK.Supply_Air,
+                                    BRICK.Discharge_Air,
+                                ],
+                                "aliases": [
+                                    BRICK["Discharge_Air_Temperature_Setpoint"]
+                                ],
                                 "tags": [
                                     TAG.Point,
                                     TAG.Supply,
@@ -1633,6 +1723,11 @@ setpoint_definitions = {
                                 ],
                                 "subclasses": {
                                     "Effective_Supply_Air_Temperature_Setpoint": {
+                                        "aliases": [
+                                            BRICK[
+                                                "Effective_Discharge_Air_Temperature_Setpoint"
+                                            ]
+                                        ],
                                         "aliases": [
                                             BRICK[
                                                 "Effective_Discharge_Air_Temperature_Setpoint"
@@ -1658,6 +1753,11 @@ setpoint_definitions = {
                                                 "Occupied_Discharge_Air_Temperature_Setpoint"
                                             ]
                                         ],
+                                        "aliases": [
+                                            BRICK[
+                                                "Occupied_Discharge_Air_Temperature_Setpoint"
+                                            ]
+                                        ],
                                         "tags": [
                                             TAG.Point,
                                             TAG.Supply,
@@ -1673,6 +1773,11 @@ setpoint_definitions = {
                                         ],
                                     },
                                     "Unoccupied_Supply_Air_Temperature_Setpoint": {
+                                        "aliases": [
+                                            BRICK[
+                                                "Unoccupied_Discharge_Air_Temperature_Setpoint"
+                                            ]
+                                        ],
                                         "aliases": [
                                             BRICK[
                                                 "Unoccupied_Discharge_Air_Temperature_Setpoint"
@@ -1698,6 +1803,11 @@ setpoint_definitions = {
                                                 "Discharge_Air_Temperature_Heating_Setpoint"
                                             ]
                                         ],
+                                        "aliases": [
+                                            BRICK[
+                                                "Discharge_Air_Temperature_Heating_Setpoint"
+                                            ]
+                                        ],
                                         "parents": [BRICK.Heating_Temperature_Setpoint],
                                         "tags": [
                                             TAG.Point,
@@ -1710,6 +1820,11 @@ setpoint_definitions = {
                                         ],
                                     },
                                     "Supply_Air_Temperature_Cooling_Setpoint": {
+                                        "aliases": [
+                                            BRICK[
+                                                "Discharge_Air_Temperature_Cooling_Setpoint"
+                                            ]
+                                        ],
                                         "aliases": [
                                             BRICK[
                                                 "Discharge_Air_Temperature_Cooling_Setpoint"
@@ -2131,7 +2246,6 @@ setpoint_definitions = {
                                     BRICK.Supply_Air,
                                     BRICK.Discharge_Air,
                                 ],
-                                BRICK.hasQuantity: BRICK.Differential_Temperature,
                                 "aliases": [
                                     BRICK[
                                         "Discharge_Air_Temperature_Reset_Differential_Setpoint"
@@ -2156,6 +2270,11 @@ setpoint_definitions = {
                                                 "Discharge_Air_Temperature_High_Reset_Setpoint"
                                             ]
                                         ],
+                                        "aliases": [
+                                            BRICK[
+                                                "Discharge_Air_Temperature_High_Reset_Setpoint"
+                                            ]
+                                        ],
                                         "tags": [
                                             TAG.Point,
                                             TAG.Supply,
@@ -2170,10 +2289,18 @@ setpoint_definitions = {
                                         "parents": [
                                             BRICK["Temperature_High_Reset_Setpoint"]
                                         ],
+                                        "parents": [
+                                            BRICK["Temperature_High_Reset_Setpoint"]
+                                        ],
                                     },
                                     "Supply_Air_Temperature_Low_Reset_Setpoint": {
                                         BRICK.hasSubstance: BRICK.Supply_Air,
                                         BRICK.hasQuantity: BRICK.Temperature,
+                                        "aliases": [
+                                            BRICK[
+                                                "Discharge_Air_Temperature_Low_Reset_Setpoint"
+                                            ]
+                                        ],
                                         "aliases": [
                                             BRICK[
                                                 "Discharge_Air_Temperature_Low_Reset_Setpoint"
@@ -2189,6 +2316,9 @@ setpoint_definitions = {
                                             TAG.Reset,
                                             TAG.Setpoint,
                                             TAG.Low,
+                                        ],
+                                        "parents": [
+                                            BRICK["Temperature_Low_Reset_Setpoint"]
                                         ],
                                         "parents": [
                                             BRICK["Temperature_Low_Reset_Setpoint"]
@@ -2239,6 +2369,11 @@ setpoint_definitions = {
                                     "Supply_Air_Differential_Pressure_Setpoint": {
                                         BRICK.hasSubstance: BRICK.Supply_Air,
                                         BRICK.hasQuantity: BRICK.Differential_Pressure,
+                                        "aliases": [
+                                            BRICK[
+                                                "Discharge_Air_Differential_Pressure_Setpoint"
+                                            ]
+                                        ],
                                         "aliases": [
                                             BRICK[
                                                 "Discharge_Air_Differential_Pressure_Setpoint"
@@ -2296,6 +2431,18 @@ setpoint_definitions = {
                                                 "tags": [
                                                     TAG.Point,
                                                     TAG.Medium,
+                                                    TAG.Temperature,
+                                                    TAG.Hot,
+                                                    TAG.Water,
+                                                    TAG.Differential,
+                                                    TAG.Pressure,
+                                                    TAG.Setpoint,
+                                                ],
+                                            },
+                                            "Domestic_Hot_Water_Differential_Pressure_Setpoint": {
+                                                "tags": [
+                                                    TAG.Point,
+                                                    TAG.Domestic,
                                                     TAG.Temperature,
                                                     TAG.Hot,
                                                     TAG.Water,
