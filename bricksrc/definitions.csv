@@ -853,6 +853,7 @@ https://brickschema.org/schema/Brick#Pressure_Alarm,An alarm that indicates the 
 https://brickschema.org/schema/Brick#Pressure_Sensor,Measure the amount of force acting on a unit area,
 https://brickschema.org/schema/Brick#Pressure_Setpoint,Sets pressure,
 https://brickschema.org/schema/Brick#Pressure_Status,Indicates if pressure is within expected bounds,
+https://brickschema.org/schema/Brick#Pressurization_Fan,A pressurization fan is a device used to increase and maintain higher air pressure in a specified space compared to its surroundings.,
 https://brickschema.org/schema/Brick#Private_Office,"An office devoted to a single individual, with walls and door",
 https://brickschema.org/schema/Brick#Proportional_Band_Parameter,,
 https://brickschema.org/schema/Brick#Proportional_Gain_Parameter,,
