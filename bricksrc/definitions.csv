@@ -24,8 +24,10 @@ https://brickschema.org/schema/Brick#Air_Grains_Sensor,Measures the mass of wate
 https://brickschema.org/schema/Brick#Air_Handler_Unit,"Assembly consisting of sections containing a fan or fans and other necessary equipment to perform one or more of the following functions: circulating, filtration, heating, cooling, heat recovery, humidifying, dehumidifying, and mixing of air. Is usually connected to an air-distribution system.",
 https://brickschema.org/schema/Brick#Air_Loop,The set of connected equipment serving one path of air,
 https://brickschema.org/schema/Brick#Air_Plenum,A component of the HVAC the receives air from the air handling unit or room to distribute or exhaust to or from the building,
+https://brickschema.org/schema/Brick#Air_Pressure_Sensor," ""Measures the pressure of the surrounding air."""
 https://brickschema.org/schema/Brick#Air_Quality,,
 https://brickschema.org/schema/Brick#Air_Quality_Sensor,A sensor which provides a measure of air quality,
+https://brickschema.org/schema/Brick#Air_Static_Pressure_Sensor," ""Measures the pressure exerted by the air in a system"," not influenced by its motion."""
 https://brickschema.org/schema/Brick#Air_Static_Pressure_Step_Parameter,,
 https://brickschema.org/schema/Brick#Air_System,"The equipment, distribution systems and terminals that introduce or exhaust, either collectively or individually, the air into and from the building",
 https://brickschema.org/schema/Brick#Air_Temperature_Alarm,An alarm that indicates the off-normal conditions associated with the temperature of air.,
@@ -33,6 +35,7 @@ https://brickschema.org/schema/Brick#Air_Temperature_Integral_Time_Parameter,,
 https://brickschema.org/schema/Brick#Air_Temperature_Sensor,Measures the temperature of air,
 https://brickschema.org/schema/Brick#Air_Temperature_Setpoint,Sets temperature of air,
 https://brickschema.org/schema/Brick#Air_Temperature_Step_Parameter,,
+https://brickschema.org/schema/Brick#Air_Velocity_Pressure_Sensor," ""Measures the difference between total air pressure and static air pressure"""
 https://brickschema.org/schema/Brick#Alarm,Alarm points are signals (either audible or visual) that alert an operator to an off-normal condition which requires some form of corrective action,https://xp20.ashrae.org/terminology/index.php?term=alarm
 https://brickschema.org/schema/Brick#Alarm_Delay_Parameter,A parameter determining how long to delay an alarm after sufficient conditions have been met,
 https://brickschema.org/schema/Brick#Alarm_Sensitivity_Parameter,A parameter indicates the sensitivity to activate an alarm.,
@@ -299,6 +302,7 @@ https://brickschema.org/schema/Brick#Disconnect_Switch,Building power is most co
 https://brickschema.org/schema/Brick#Displacement_Flow_Air_Diffuser,An air diffuser that is designed for low discharge air speeds to minimize turbulence and induction of room air. This diffuser is used with displacement ventilation systems.,
 https://brickschema.org/schema/Brick#Distribution_Frame,"A class of spaces where the cables carrying signals meet and connect, e.g. a wiring closet or a broadcast downlink room",
 https://brickschema.org/schema/Brick#Domestic_Hot_Water_Circulator_Pump,"Used to move domestic hot water in a closed circuit, ensuring continuous flow.",
+https://brickschema.org/schema/Brick#Domestic_Hot_Water_Differential_Pressure_Sensor," ""Measures the pressure difference in domestic hot water systems."""
 https://brickschema.org/schema/Brick#Domestic_Hot_Water_System,"The equipment, devices and conduits that handle the production and distribution of domestic hot water in a building",
 https://brickschema.org/schema/Brick#Domestic_Hot_Water_System_Enable_Command,Enables operation of the domestic hot water system,
 https://brickschema.org/schema/Brick#Domestic_Hot_Water_Temperature_Setpoint,Sets temperature of domestic hot water,
@@ -380,6 +384,7 @@ https://brickschema.org/schema/Brick#Entering_Water_Differential_Pressure_Integr
 https://brickschema.org/schema/Brick#Entering_Water_Differential_Pressure_Proportional_Band_Parameter,,
 https://brickschema.org/schema/Brick#Entering_Water_Flow_Sensor,Measures the rate of flow of water entering a piece of equipment or system,
 https://brickschema.org/schema/Brick#Entering_Water_Flow_Setpoint,Sets the target flow rate of entering water,
+https://brickschema.org/schema/Brick#Entering_Water_Pressure_Sensor," ""Measures the water pressure at the entry point of a system."""
 https://brickschema.org/schema/Brick#Entering_Water_Temperature_Alarm,An alarm that indicates the off-normal conditions associated with temperature of the entering water.,
 https://brickschema.org/schema/Brick#Entering_Water_Temperature_Deadband_Setpoint,Sets the size of a deadband of temperature of entering water,
 https://brickschema.org/schema/Brick#Entering_Water_Temperature_Integral_Time_Parameter,,
@@ -429,9 +434,11 @@ https://brickschema.org/schema/Brick#Fault_Reset_Command,Clears a fault status,
 https://brickschema.org/schema/Brick#Fault_Status,"Indicates the presence of a fault in a device, system or control loop",
 https://brickschema.org/schema/Brick#Field_Of_Play,"The area of a stadium where athletic events occur, e.g. the soccer pitch",
 https://brickschema.org/schema/Brick#Filter,Device to remove gases from a mixture of gases or to remove solid material from a fluid,
+https://brickschema.org/schema/Brick#Filter_Air_Differential_Pressure_Sensor," ""Measures the difference in air pressure before and after an air filter."""
 https://brickschema.org/schema/Brick#Filter_Differential_Pressure_Sensor,Measures the difference in pressure on either side of a filter,
 https://brickschema.org/schema/Brick#Filter_Reset_Command,,
 https://brickschema.org/schema/Brick#Filter_Status,Indicates if a filter needs to be replaced,
+https://brickschema.org/schema/Brick#Filter_Water_Differential_Pressure_Sensor," ""Measures the difference in water pressure before and after a water filter."""
 https://brickschema.org/schema/Brick#Final_Filter,"The last, high-efficiency filter installed in a sequence to remove the finest particulates from the substance being filtered",
 https://brickschema.org/schema/Brick#Fire_Alarm_Control_Panel,Fire alarm panel is the controlling component of a fire alarm system.,https://en.wikipedia.org/wiki/Fire_alarm_control_panel
 https://brickschema.org/schema/Brick#Fire_Alarm_Manual_Call_Point,Manual alarm call points are designed for the purpose of raising an alarm manually once verification of a fire or emergency condition exists. by operating the push button or break glass the alarm signal can be raised.,http://www.coopermedc.com/products/manual-alarm-call-points
@@ -616,6 +623,7 @@ https://brickschema.org/schema/Brick#Leaving_Water_Differential_Pressure_Integra
 https://brickschema.org/schema/Brick#Leaving_Water_Differential_Pressure_Proportional_Band_Parameter,,
 https://brickschema.org/schema/Brick#Leaving_Water_Flow_Sensor,Measures the rate of flow of water that is leaving a piece of equipment or system,
 https://brickschema.org/schema/Brick#Leaving_Water_Flow_Setpoint,Sets the target flow rate of leaving water,
+https://brickschema.org/schema/Brick#Leaving_Water_Pressure_Sensor," ""Measures the water pressure at the exit point of a system."""
 https://brickschema.org/schema/Brick#Leaving_Water_Temperature_Alarm,An alarm that indicates the off-normal conditions associated with temperature of the leaving water.,
 https://brickschema.org/schema/Brick#Leaving_Water_Temperature_Deadband_Setpoint,Sets the size of a deadband of temperature of leaving water,
 https://brickschema.org/schema/Brick#Leaving_Water_Temperature_Integral_Time_Parameter,,
@@ -1122,6 +1130,7 @@ https://brickschema.org/schema/Brick#Warmest_Zone_Air_Temperature_Sensor,The zon
 https://brickschema.org/schema/Brick#Waste_Storage,A room used for storing waste such as trash or recycling,
 https://brickschema.org/schema/Brick#Water,"transparent, odorless, tasteless liquid; a compound of hydrogen and oxygen (H2O), containing 11.188% hydrogen and 88.812% oxygen by mass; freezing at 32°F (0°C); boiling near 212°F (100°C).",
 https://brickschema.org/schema/Brick#Water_Alarm,"Alarm that indicates an undesirable event with a pipe, container, or equipment carrying water e.g. water leak",
+https://brickschema.org/schema/Brick#Water_Differential_Pressure_Sensor," ""Measures the difference in water pressure between two points in a system."""
 https://brickschema.org/schema/Brick#Water_Differential_Pressure_Setpoint,Sets the target water differential pressure between an upstream and downstream point in a water pipe or conduit,
 https://brickschema.org/schema/Brick#Water_Differential_Temperature_Sensor,Measures the difference in water temperature between an upstream and downstream point in a pipe or conduit,
 https://brickschema.org/schema/Brick#Water_Differential_Temperature_Setpoint,Sets the target differential temperature between the start and end of a heat transfer cycle in a water circuit,
@@ -1134,6 +1143,7 @@ https://brickschema.org/schema/Brick#Water_Level_Sensor,Measures the height/leve
 https://brickschema.org/schema/Brick#Water_Loop,A collection of equipment that transport and regulate water among each other,
 https://brickschema.org/schema/Brick#Water_Loss_Alarm,An alarm that indicates a loss of water e.g. during transport,
 https://brickschema.org/schema/Brick#Water_Meter,A meter that measures the usage or consumption of water,
+https://brickschema.org/schema/Brick#Water_Pressure_Sensor," ""Measures the pressure exerted by water in a system."""
 https://brickschema.org/schema/Brick#Water_Pump,A pump that performs work on water,
 https://brickschema.org/schema/Brick#Water_Storage_Tank,A specialized type of tank intended for the storage of water for extended periods.,
 https://brickschema.org/schema/Brick#Water_System,"The equipment, devices and conduits that handle the production and distribution of water in a building",
