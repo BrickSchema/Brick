@@ -1098,20 +1098,65 @@ sensor_definitions = {
                                     },
                                 },
                             },
-                            "Chilled_Water_Differential_Pressure_Sensor": {
-                                "parents": [
-                                    BRICK["Water_Differential_Pressure_Sensor"]
-                                ],
+                            "Water_Differential_Pressure_Sensor": {
                                 "tags": [
                                     TAG.Point,
                                     TAG.Sensor,
                                     TAG.Pressure,
-                                    TAG.Differential,
                                     TAG.Water,
-                                    TAG.Chilled,
+                                    TAG.Differential,
                                 ],
-                                BRICK.hasQuantity: BRICK.Differential_Pressure,
-                                BRICK.hasSubstance: BRICK.Chilled_Water,
+                                "subclasses": {
+                                    "Chilled_Water_Differential_Pressure_Sensor": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Sensor,
+                                            TAG.Pressure,
+                                            TAG.Differential,
+                                            TAG.Water,
+                                            TAG.Chilled,
+                                        ],
+                                        BRICK.hasQuantity: BRICK.Differential_Pressure,
+                                        BRICK.hasSubstance: BRICK.Chilled_Water,
+                                    },
+                                    "Hot_Water_Differential_Pressure_Sensor": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Sensor,
+                                            TAG.Pressure,
+                                            TAG.Differential,
+                                            TAG.Water,
+                                            TAG.Hot,
+                                        ],
+                                        BRICK.hasQuantity: BRICK.Differential_Pressure,
+                                        BRICK.hasSubstance: BRICK.Hot_Water,
+                                        "subclasses": {
+                                            "Medium_Temperature_Hot_Water_Differential_Pressure_Sensor": {
+                                                "tags": [
+                                                    TAG.Point,
+                                                    TAG.Medium,
+                                                    TAG.Temperature,
+                                                    TAG.Sensor,
+                                                    TAG.Pressure,
+                                                    TAG.Differential,
+                                                    TAG.Water,
+                                                    TAG.Hot,
+                                                ],
+                                            },
+                                            "Domestic_Hot_Water_Differential_Pressure_Sensor": {
+                                                "tags": [
+                                                    TAG.Point,
+                                                    TAG.Sensor,
+                                                    TAG.Pressure,
+                                                    TAG.Water,
+                                                    TAG.Differential,
+                                                    TAG.Hot,
+                                                    TAG.Domestic,
+                                                ],
+                                            },
+                                        },
+                                    },
+                                },
                             },
                             "Filter_Differential_Pressure_Sensor": {
                                 "tags": [
@@ -1146,46 +1191,6 @@ sensor_definitions = {
                                             TAG.Differential,
                                             TAG.Filter,
                                             TAG.Air,
-                                        ],
-                                    },
-                                },
-                            },
-                            "Hot_Water_Differential_Pressure_Sensor": {
-                                "parents": [
-                                    BRICK["Water_Differential_Pressure_Sensor"]
-                                ],
-                                "tags": [
-                                    TAG.Point,
-                                    TAG.Sensor,
-                                    TAG.Pressure,
-                                    TAG.Differential,
-                                    TAG.Water,
-                                    TAG.Hot,
-                                ],
-                                BRICK.hasQuantity: BRICK.Differential_Pressure,
-                                BRICK.hasSubstance: BRICK.Hot_Water,
-                                "subclasses": {
-                                    "Medium_Temperature_Hot_Water_Differential_Pressure_Sensor": {
-                                        "tags": [
-                                            TAG.Point,
-                                            TAG.Medium,
-                                            TAG.Temperature,
-                                            TAG.Sensor,
-                                            TAG.Pressure,
-                                            TAG.Differential,
-                                            TAG.Water,
-                                            TAG.Hot,
-                                        ],
-                                    },
-                                    "Domestic_Hot_Water_Differential_Pressure_Sensor": {
-                                        "tags": [
-                                            TAG.Point,
-                                            TAG.Sensor,
-                                            TAG.Pressure,
-                                            TAG.Water,
-                                            TAG.Differential,
-                                            TAG.Hot,
-                                            TAG.Domestic,
                                         ],
                                     },
                                 },
@@ -1327,35 +1332,6 @@ sensor_definitions = {
                     },
                     "Water_Pressure_Sensor": {
                         "tags": [TAG.Point, TAG.Sensor, TAG.Pressure, TAG.Water],
-                        "subclasses": {
-                            "Entering_Water_Pressure_Sensor": {
-                                "tags": [
-                                    TAG.Point,
-                                    TAG.Sensor,
-                                    TAG.Pressure,
-                                    TAG.Water,
-                                    TAG.Entering,
-                                ],
-                            },
-                            "Leaving_Water_Pressure_Sensor": {
-                                "tags": [
-                                    TAG.Point,
-                                    TAG.Sensor,
-                                    TAG.Pressure,
-                                    TAG.Water,
-                                    TAG.Leaving,
-                                ],
-                            },
-                            "Water_Differential_Pressure_Sensor": {
-                                "tags": [
-                                    TAG.Point,
-                                    TAG.Sensor,
-                                    TAG.Pressure,
-                                    TAG.Water,
-                                    TAG.Differential,
-                                ],
-                            },
-                        },
                     },
                 },
             },
