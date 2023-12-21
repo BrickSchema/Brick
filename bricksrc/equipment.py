@@ -822,6 +822,9 @@ hvac_subclasses = {
             },
         },
     },
+    "Wall_Air_Conditioner": {
+        "tags": [TAG.Equipment, TAG.Wall, TAG.Air, TAG.Conditioner]
+    },
 }
 
 valve_subclasses = {
