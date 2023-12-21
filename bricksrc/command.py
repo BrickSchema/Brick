@@ -34,8 +34,15 @@ command_definitions = {
                     },
                 },
             },
+            "Dehumidify_Command": {
+                "tags": [TAG.Point, TAG.Dehumidify, TAG.Command],
+                BRICK.hasQuantity: BRICK.Humidity,
+                BRICK.hasSubstance: BRICK.Air,
+            },
             "Humidify_Command": {
                 "tags": [TAG.Point, TAG.Humidify, TAG.Command],
+                BRICK.hasQuantity: BRICK.Humidity,
+                BRICK.hasSubstance: BRICK.Air,
             },
             "Position_Command": {
                 "tags": [TAG.Point, TAG.Position, TAG.Command],
@@ -311,6 +318,9 @@ command_definitions = {
                 "subclasses": {
                     "Off_Command": {"tags": [TAG.Point, TAG.Off, TAG.Command]},
                     "On_Command": {"tags": [TAG.Point, TAG.On, TAG.Command]},
+                    "Open_Close_Command": {
+                        "tags": [TAG.Point, TAG.Open, TAG.Close, TAG.Command]
+                    },
                     "Lead_On_Off_Command": {
                         "tags": [TAG.Point, TAG.Lead, TAG.On, TAG.Off, TAG.Command],
                     },
