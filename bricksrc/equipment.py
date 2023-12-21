@@ -675,12 +675,15 @@ hvac_subclasses = {
     "Damper": {
         "tags": [TAG.Equipment, TAG.Damper],
         "subclasses": {
+            "Bypass_Damper": {"tags": [TAG.Equipment, TAG.Damper, TAG.Bypass]},
             "Economizer_Damper": {"tags": [TAG.Equipment, TAG.Damper, TAG.Economizer]},
             "Exhaust_Damper": {"tags": [TAG.Equipment, TAG.Damper, TAG.Exhaust]},
+            "Isolation_Damper": {"tags": [TAG.Equipment, TAG.Damper, TAG.Isolation]},
             "Outside_Damper": {"tags": [TAG.Equipment, TAG.Damper, TAG.Outside]},
             "Return_Damper": {"tags": [TAG.Equipment, TAG.Damper, TAG.Return]},
             "Mixed_Damper": {"tags": [TAG.Equipment, TAG.Damper, TAG.Mixed]},
             "Relief_Damper": {"tags": [TAG.Equipment, TAG.Damper, TAG.Relief]},
+            "Zone_Damper": {"tags": [TAG.Equipment, TAG.Damper, TAG.Zone]},
         },
     },
     "Condenser": {"tags": [TAG.Equipment, TAG.Condenser]},

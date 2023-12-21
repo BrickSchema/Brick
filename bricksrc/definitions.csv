@@ -89,6 +89,7 @@ https://brickschema.org/schema/Brick#Bypass_Air,"air in a bypass duct, used to r
 https://brickschema.org/schema/Brick#Bypass_Air_Flow_Sensor,Measures the rate of flow of bypass air,
 https://brickschema.org/schema/Brick#Bypass_Air_Humidity_Setpoint,Humidity setpoint for bypass air,
 https://brickschema.org/schema/Brick#Bypass_Command,,
+https://brickschema.org/schema/Brick#Bypass_Damper,"A bypass damper is a type of damper that is employed in forced-air bypass applications to reduce the buildup of static pressure, usually when certain zone dampers are closed.",
 https://brickschema.org/schema/Brick#Bypass_Valve,A type of valve installed in a bypass pipeline,https://www.petropedia.com/definition/5050/bypass-valve
 https://brickschema.org/schema/Brick#Bypass_Water,Water that circumvents a piece of equipment or system,
 https://brickschema.org/schema/Brick#Bypass_Water_Flow_Sensor,Measures the rate of flow of bypass water,
@@ -575,6 +576,7 @@ https://brickschema.org/schema/Brick#Integral_Time_Parameter,,
 https://brickschema.org/schema/Brick#Interface,A device that provides an occupant control over a lighting system,
 https://brickschema.org/schema/Brick#Inverter,A device that changes direct current into alternating current,
 https://brickschema.org/schema/Brick#Irradiance,The power per unit area of electromagnetic radiation incident on a surface,
+https://brickschema.org/schema/Brick#Isolation_Damper,A damper that isolates a section of ductwork or other air handling system.,
 https://brickschema.org/schema/Brick#Isolation_Valve,"A valve that stops the flow of a fluid, usually for maintenance or safety purposes",https://en.wikipedia.org/wiki/Isolation_valve
 https://brickschema.org/schema/Brick#Janitor_Room,A room set aside for the storage of cleaning equipment and supplies,
 https://brickschema.org/schema/Brick#Jet_Nozzle_Air_Diffuser,An air diffuser that is designed to produce high velocity discharge air stream to throw the air over a large distance or target the air stream to a localize area,
@@ -1161,6 +1163,7 @@ https://brickschema.org/schema/Brick#Zone_Air_Humidity_Setpoint,Humidity setpoin
 https://brickschema.org/schema/Brick#Zone_Air_Temperature_Sensor,A physical or virtual sensor which represents the temperature of an HVAC Zone,
 https://brickschema.org/schema/Brick#Zone_Air_Temperature_Setpoint,Sets temperature of zone air,
 https://brickschema.org/schema/Brick#Zone_CO2_Level_Sensor,A physical or virtual sensor which represents the CO2 level of an HVAC Zone,
+https://brickschema.org/schema/Brick#Zone_Damper,Dampers open and close to regulate zone temperatures in an HVAC system.,
 https://brickschema.org/schema/Brick#Zone_Standby_Load_Shed_Command,,
 https://brickschema.org/schema/Brick#Zone_Unoccupied_Load_Shed_Command,,
 https://brickschema.org/schema/Brick#feeds,The subject is upstream of the object in the context of some sequential process; some media is passed between them,
