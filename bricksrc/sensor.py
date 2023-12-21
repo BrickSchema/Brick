@@ -1198,88 +1198,97 @@ sensor_definitions = {
                         },
                     },
                     "Static_Pressure_Sensor": {
-                        "Air_Static_Pressure_Sensor": {
-                            "tags": [TAG.Point, TAG.Sensor, TAG.Pressure, TAG.Static],
-                            "subclasses": {
-                                "Building_Air_Static_Pressure_Sensor": {
-                                    BRICK.hasQuantity: BRICK.Static_Pressure,
-                                    BRICK.hasSubstance: BRICK.Building_Air,
-                                    "tags": [
-                                        TAG.Point,
-                                        TAG.Building,
-                                        TAG.Air,
-                                        TAG.Static,
-                                        TAG.Pressure,
-                                        TAG.Sensor,
-                                    ],
-                                },
-                                "Supply_Air_Static_Pressure_Sensor": {
-                                    "tags": [
-                                        TAG.Point,
-                                        TAG.Sensor,
-                                        TAG.Pressure,
-                                        TAG.Static,
-                                        TAG.Air,
-                                        TAG.Supply,
-                                        TAG.Discharge,
-                                    ],
-                                    "aliases": [
-                                        BRICK["Discharge_Air_Static_Pressure_Sensor"]
-                                    ],
-                                    BRICK.hasQuantity: BRICK.Static_Pressure,
-                                    BRICK.hasSubstance: [
-                                        BRICK.Supply_Air,
-                                        BRICK.Discharge_Air,
-                                    ],
-                                },
-                                "Exhaust_Air_Static_Pressure_Sensor": {
-                                    "tags": [
-                                        TAG.Point,
-                                        TAG.Sensor,
-                                        TAG.Pressure,
-                                        TAG.Static,
-                                        TAG.Air,
-                                        TAG.Exhaust,
-                                    ],
-                                    BRICK.hasQuantity: BRICK.Static_Pressure,
-                                    BRICK.hasSubstance: BRICK.Exhaust_Air,
-                                    "subclasses": {
-                                        "Average_Exhaust_Air_Static_Pressure_Sensor": {
-                                            "tags": [
-                                                TAG.Point,
-                                                TAG.Average,
-                                                TAG.Exhaust,
-                                                TAG.Air,
-                                                TAG.Static,
-                                                TAG.Pressure,
-                                                TAG.Sensor,
-                                            ],
-                                        },
-                                        "Lowest_Exhaust_Air_Static_Pressure_Sensor": {
-                                            "tags": [
-                                                TAG.Point,
-                                                TAG.Lowest,
-                                                TAG.Exhaust,
-                                                TAG.Air,
-                                                TAG.Static,
-                                                TAG.Pressure,
-                                                TAG.Sensor,
-                                            ],
+                        "subclasses": {
+                            "Air_Static_Pressure_Sensor": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Sensor,
+                                    TAG.Pressure,
+                                    TAG.Static,
+                                ],
+                                "subclasses": {
+                                    "Building_Air_Static_Pressure_Sensor": {
+                                        BRICK.hasQuantity: BRICK.Static_Pressure,
+                                        BRICK.hasSubstance: BRICK.Building_Air,
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Building,
+                                            TAG.Air,
+                                            TAG.Static,
+                                            TAG.Pressure,
+                                            TAG.Sensor,
+                                        ],
+                                    },
+                                    "Supply_Air_Static_Pressure_Sensor": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Sensor,
+                                            TAG.Pressure,
+                                            TAG.Static,
+                                            TAG.Air,
+                                            TAG.Supply,
+                                            TAG.Discharge,
+                                        ],
+                                        "aliases": [
+                                            BRICK[
+                                                "Discharge_Air_Static_Pressure_Sensor"
+                                            ]
+                                        ],
+                                        BRICK.hasQuantity: BRICK.Static_Pressure,
+                                        BRICK.hasSubstance: [
+                                            BRICK.Supply_Air,
+                                            BRICK.Discharge_Air,
+                                        ],
+                                    },
+                                    "Exhaust_Air_Static_Pressure_Sensor": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Sensor,
+                                            TAG.Pressure,
+                                            TAG.Static,
+                                            TAG.Air,
+                                            TAG.Exhaust,
+                                        ],
+                                        BRICK.hasQuantity: BRICK.Static_Pressure,
+                                        BRICK.hasSubstance: BRICK.Exhaust_Air,
+                                        "subclasses": {
+                                            "Average_Exhaust_Air_Static_Pressure_Sensor": {
+                                                "tags": [
+                                                    TAG.Point,
+                                                    TAG.Average,
+                                                    TAG.Exhaust,
+                                                    TAG.Air,
+                                                    TAG.Static,
+                                                    TAG.Pressure,
+                                                    TAG.Sensor,
+                                                ],
+                                            },
+                                            "Lowest_Exhaust_Air_Static_Pressure_Sensor": {
+                                                "tags": [
+                                                    TAG.Point,
+                                                    TAG.Lowest,
+                                                    TAG.Exhaust,
+                                                    TAG.Air,
+                                                    TAG.Static,
+                                                    TAG.Pressure,
+                                                    TAG.Sensor,
+                                                ],
+                                            },
                                         },
                                     },
+                                    "Underfloor_Air_Plenum_Static_Pressure_Sensor": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Underfloor,
+                                            TAG.Air,
+                                            TAG.Plenum,
+                                            TAG.Static,
+                                            TAG.Pressure,
+                                            TAG.Sensor,
+                                        ]
+                                    },
                                 },
-                                "Underfloor_Air_Plenum_Static_Pressure_Sensor": {
-                                    "tags": [
-                                        TAG.Point,
-                                        TAG.Underfloor,
-                                        TAG.Air,
-                                        TAG.Plenum,
-                                        TAG.Static,
-                                        TAG.Pressure,
-                                        TAG.Sensor,
-                                    ]
-                                },
-                            },
+                            }
                         }
                     },
                     "Velocity_Pressure_Sensor": {
