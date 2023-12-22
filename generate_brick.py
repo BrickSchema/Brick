@@ -96,7 +96,7 @@ def get_units_brick(brick_quantity):
         OPTIONAL {{
             ?unit rdfs:label ?label .
         }}
-    }}"""
+    }}"""  # noqa
     )
     return set(brick_units)
 
@@ -450,7 +450,7 @@ def define_shape_property_property(shape_name, definitions, graph=G):
                         ?p sh:path {prop_name.n3()} .
                         FILTER NOT EXISTS {{ ?p sh:minCount ?mc }}
                         FILTER NOT EXISTS {{ ?p sh:maxCount ?mc }}
-                    }}"""
+                    }}"""  # noqa
                 )
             )
             if len(prop_exists) > 0:
@@ -465,7 +465,7 @@ def define_shape_property_property(shape_name, definitions, graph=G):
             fname = prop_defn.pop("import_from")
             tmpG = Graph()
             tmpG.parse(fname)
-            res = tmpG.query(f"SELECT ?p ?o WHERE {{ <{prop_name}> ?p ?o }}")
+            res = tmpG.query(f"SELECT ?p ?o WHERE {{ <{prop_name}> ?p ?o }}")  # noqa
             for p, o in res:
                 graph.add((prop_name, p, o))
         if "optional" in prop_defn:
@@ -598,7 +598,9 @@ def define_shape_properties(definitions, graph=G):
                         "maxExclusive",
                         "maxInclusive",
                     ]:
-                        raise Exception(f"brick:value property {prop_name} not valid")
+                        raise Exception(
+                            f"brick:value property {prop_name} not valid"  # noqa
+                        )
                     graph.add((brick_value_shape, SH[prop_name], Literal(prop_value)))
 
 
@@ -680,16 +682,24 @@ def add_definitions(graph=G):
     with open("./bricksrc/definitions.csv", encoding="utf-8") as dictionary_file:
         dictionary = csv.reader(dictionary_file)
 
-        # skip the header
-        next(dictionary)
+        header = next(dictionary)
 
         # add definitions, citations to the graph
         for definition in dictionary:
             term = URIRef(definition[0])
+            if len(definition) > len(header):
+                raise ValueError(
+                    f"The term '{term}' has more elements than expected. Please check the format."
+                )
             if len(definition[1]):
                 graph.add((term, SKOS.definition, Literal(definition[1], lang="en")))
-            if len(definition[2]):
-                graph.add((term, RDFS.seeAlso, URIRef(definition[2])))
+            if len(definition) > 2 and definition[2]:
+                try:
+                    graph.add((term, RDFS.seeAlso, URIRef(definition[2])))
+                except Exception as e:
+                    print(
+                        f"Error processing 'seeAlso' for term '{term}': {e}. The definition provided is: '{definition}'."
+                    )
 
     qstr = """
     select ?param where {
@@ -734,10 +744,12 @@ def add_definitions(graph=G):
             BIND(brick:{setpoint} as ?class)
             ?class rdfs:subClassOf* brick:Class.
         }}
-        """
+        """  # noqa
         ).bindings
         if not class_exists:
-            logging.warning(f"WARNING: {setpoint} does not exist in Brick for {param}.")
+            logging.warning(
+                f"WARNING: {setpoint} does not exist in Brick for {param}."  # noqa
+            )
 
 
 def handle_deprecations():
