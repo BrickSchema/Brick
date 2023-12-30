@@ -36,13 +36,12 @@ ontology = {
 ontology_imports = {
     "qudtschema": "http://qudt.org/2.1/schema/shacl/qudt",
     "qudtoverlay": "http://qudt.org/2.1/schema/shacl/overlay/qudt",
-    "qudtfacade": "http://qudt.org/2.1/schema/facade/qudt",
-    "qudtsou": "http://qudt.org/2.1/vocab/sou",
     "unit": "http://qudt.org/2.1/vocab/unit",
-    "currency": "http://qudt.org/2.1/vocab/currency",
-    "quantitykind": "http://qudt.org/2.1/vocab/quantitykind",
-    "dimensionvector": "http://qudt.org/2.1/vocab/dimensionvector",
     "bacnet": "http://data.ashrae.org/bacnet/2020",
+    "quantitykind": "http://qudt.org/2.1/vocab/quantitykind",
+    "qudtsou": "http://qudt.org/2.1/vocab/sou",
+    "qudtdv": "http://qudt.org/2.1/vocab/dimensionvector",
+    "qudtprefix": "http://qudt.org/2.1/vocab/prefix",
 }
 
 shacl_namespace_declarations = [
@@ -79,6 +78,7 @@ shacl_namespace_declarations = [
 ]
 
 BRICK_IRI_VERSION = URIRef(f"https://brickschema.org/schema/{BRICK_VERSION}/Brick")
+
 
 def define_ontology(G):
     G.add((BRICK_IRI_VERSION, RDF.type, OWL.Ontology))
