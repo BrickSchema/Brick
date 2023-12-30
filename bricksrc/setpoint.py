@@ -699,15 +699,20 @@ setpoint_definitions = {
             },
             "Humidity_Setpoint": {
                 BRICK.hasQuantity: BRICK.Humidity,
+            "Humidity_Setpoint": {
+                BRICK.hasQuantity: QUDTQK.RelativeHumidity,
                 "tags": [TAG.Point, TAG.Humidity, TAG.Setpoint],
                 "subclasses": {
                     "Unoccupied_Humidity_Setpoint": {
+                        BRICK.hasQuantity: QUDTQK.RelativeHumidity,
                         "tags": [TAG.Point, TAG.Humidity, TAG.Setpoint, TAG.Unoccupied],
                     },
                     "Occupied_Humidity_Setpoint": {
+                        BRICK.hasQuantity: QUDTQK.RelativeHumidity,
                         "tags": [TAG.Point, TAG.Humidity, TAG.Setpoint, TAG.Occupied],
                     },
                     "Bypass_Air_Humidity_Setpoint": {
+                        BRICK.hasQuantity: QUDTQK.RelativeHumidity,
                         BRICK.hasSubstance: BRICK.Bypass_Air,
                         BRICK.hasQuantity: BRICK.Humidity,
                         "tags": [
@@ -719,6 +724,7 @@ setpoint_definitions = {
                         ],
                     },
                     "Outside_Air_Humidity_Setpoint": {
+                        BRICK.hasQuantity: QUDTQK.RelativeHumidity,
                         BRICK.hasSubstance: BRICK.Outside_Air,
                         BRICK.hasQuantity: BRICK.Humidity,
                         "tags": [
@@ -730,6 +736,7 @@ setpoint_definitions = {
                         ],
                     },
                     "Zone_Air_Humidity_Setpoint": {
+                        BRICK.hasQuantity: QUDTQK.RelativeHumidity,
                         BRICK.hasSubstance: BRICK.Zone_Air,
                         BRICK.hasQuantity: BRICK.Humidity,
                         "tags": [
@@ -741,6 +748,7 @@ setpoint_definitions = {
                         ],
                     },
                     "Building_Air_Humidity_Setpoint": {
+                        BRICK.hasQuantity: QUDTQK.RelativeHumidity,
                         BRICK.hasSubstance: BRICK.Building_Air,
                         BRICK.hasQuantity: BRICK.Humidity,
                         "tags": [
@@ -752,6 +760,7 @@ setpoint_definitions = {
                         ],
                     },
                     "Mixed_Air_Humidity_Setpoint": {
+                        BRICK.hasQuantity: QUDTQK.RelativeHumidity,
                         BRICK.hasSubstance: BRICK.Mixed_Air,
                         BRICK.hasQuantity: BRICK.Humidity,
                         "tags": [
@@ -763,6 +772,7 @@ setpoint_definitions = {
                         ],
                     },
                     "Return_Air_Humidity_Setpoint": {
+                        BRICK.hasQuantity: QUDTQK.RelativeHumidity,
                         BRICK.hasSubstance: BRICK.Return_Air,
                         BRICK.hasQuantity: BRICK.Humidity,
                         "tags": [
@@ -774,6 +784,7 @@ setpoint_definitions = {
                         ],
                     },
                     "Exhaust_Air_Humidity_Setpoint": {
+                        BRICK.hasQuantity: QUDTQK.RelativeHumidity,
                         BRICK.hasSubstance: BRICK.Exhaust_Air,
                         BRICK.hasQuantity: BRICK.Humidity,
                         "tags": [
@@ -785,6 +796,7 @@ setpoint_definitions = {
                         ],
                     },
                     "Supply_Air_Humidity_Setpoint": {
+                        BRICK.hasQuantity: QUDTQK.RelativeHumidity,
                         BRICK.hasSubstance: [BRICK.Supply_Air, BRICK.Discharge_Air],
                         BRICK.hasQuantity: BRICK.Humidity,
                         "aliases": [BRICK["Discharge_Air_Humidity_Setpoint"]],
