@@ -96,15 +96,19 @@ bsh:RDFSSubPropertyOfRuleForEntityProperties
     sh:rule [
         a sh:SPARQLRule ;
         sh:construct """
-CONSTRUCT {
-    ?s ?super ?o .
-} WHERE {
-    $this rdfs:subPropertyOf+ ?super .
-    ?super a brick:EntityProperty .
-    $this a brick:EntityProperty .
-    ?s $this ?o .
-}""" ;
-      sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
+            CONSTRUCT {
+                ?s ?super ?skolemized .
+                ?skolemized ?ep ?eo .
+            } WHERE {
+                $this rdfs:subPropertyOf+ ?super .
+                ?super a brick:EntityProperty .
+                $this a brick:EntityProperty .
+                ?s $this ?o .
+                BIND(IF(isBlank(?o), IRI(CONCAT("urn:skolem:", STRUUID())), ?o) AS ?skolemized)
+                ?o ?ep ?eo .
+            }
+        """ ;
+        sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
     ] ;
     sh:targetSubjectsOf rdfs:subPropertyOf ;
 .
