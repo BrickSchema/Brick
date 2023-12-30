@@ -316,15 +316,12 @@ setpoint_definitions = {
                 },
             },
             "Flow_Setpoint": {
-                BRICK.hasQuantity: BRICK.Flow,
-            "Flow_Setpoint": {
-                BRICK.hasQuantity: BRICK.VolumeFlowRate,
+                BRICK.hasQuantity: QUDTQK.VolumeFlowRate,
                 "tags": [TAG.Point, TAG.Flow, TAG.Setpoint],
                 "subclasses": {
                     "Air_Flow_Setpoint": {
-                        BRICK.hasQuantity: BRICK.VolumeFlowRate,
+                        BRICK.hasQuantity: QUDTQK.VolumeFlowRate,
                         BRICK.hasSubstance: BRICK.Air,
-                        BRICK.hasQuantity: BRICK.Flow,
                         "tags": [TAG.Point, TAG.Air, TAG.Flow, TAG.Setpoint],
                         "subclasses": {
                             "Air_Flow_Demand_Setpoint": {
@@ -338,12 +335,11 @@ setpoint_definitions = {
                                 ],
                             },
                             "Exhaust_Air_Flow_Setpoint": {
-                                BRICK.hasQuantity: BRICK.VolumeFlowRate,
+                                BRICK.hasQuantity: QUDTQK.VolumeFlowRate,
                                 BRICK.hasSubstance: BRICK.Exhaust_Air,
-                                BRICK.hasQuantity: BRICK.Flow,
                                 "subclasses": {
                                     "Exhaust_Air_Stack_Flow_Setpoint": {
-                                        BRICK.hasQuantity: BRICK.VolumeFlowRate,
+                                        BRICK.hasQuantity: QUDTQK.VolumeFlowRate,
                                         "tags": [
                                             TAG.Point,
                                             TAG.Exhaust,
@@ -363,9 +359,8 @@ setpoint_definitions = {
                                 ],
                             },
                             "Outside_Air_Flow_Setpoint": {
-                                BRICK.hasQuantity: BRICK.VolumeFlowRate,
+                                BRICK.hasQuantity: QUDTQK.VolumeFlowRate,
                                 BRICK.hasSubstance: BRICK.Outside_Air,
-                                BRICK.hasQuantity: BRICK.Flow,
                                 "tags": [
                                     TAG.Point,
                                     TAG.Outside,
@@ -375,12 +370,11 @@ setpoint_definitions = {
                                 ],
                             },
                             "Supply_Air_Flow_Setpoint": {
-                                BRICK.hasQuantity: BRICK.VolumeFlowRate,
+                                BRICK.hasQuantity: QUDTQK.VolumeFlowRate,
                                 BRICK.hasSubstance: [
                                     BRICK.Supply_Air,
                                     BRICK.Discharge_Air,
                                 ],
-                                BRICK.hasQuantity: BRICK.Flow,
                                 "aliases": [BRICK["Discharge_Air_Flow_Setpoint"]],
                                 "subclasses": {
                                     "Supply_Air_Flow_Demand_Setpoint": {
@@ -559,9 +553,8 @@ setpoint_definitions = {
                         },
                     },
                     "Water_Flow_Setpoint": {
-                        BRICK.hasQuantity: BRICK.VolumeFlowRate,
+                        BRICK.hasQuantity: QUDTQK.VolumeFlowRate,
                         BRICK.hasSubstance: BRICK.Water,
-                        BRICK.hasQuantity: BRICK.Flow,
                         "tags": [
                             TAG.Point,
                             TAG.Water,
@@ -570,9 +563,8 @@ setpoint_definitions = {
                         ],
                         "subclasses": {
                             "Condenser_Water_Flow_Setpoint": {
-                                BRICK.hasQuantity: BRICK.VolumeFlowRate,
+                                BRICK.hasQuantity: QUDTQK.VolumeFlowRate,
                                 BRICK.hasSubstance: BRICK.Condenser_Water,
-                                BRICK.hasQuantity: BRICK.Flow,
                                 "tags": [
                                     TAG.Point,
                                     TAG.Condenser,
