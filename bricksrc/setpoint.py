@@ -33,19 +33,15 @@ setpoint_definitions = {
                 "tags": [TAG.Point, TAG.Dewpoint, TAG.Setpoint],
             },
             "Demand_Setpoint": {
-                BRICK.hasQuantity: BRICK.Power,
-                "tags": [TAG.Point, TAG.Demand, TAG.Setpoint],
+                BRICK.hasQuantity: QUDTQK.Power,
                 "subclasses": {
                     "Cooling_Demand_Setpoint": {
-                        BRICK.hasQuantity: BRICK.Power,
                         "tags": [TAG.Point, TAG.Cool, TAG.Demand, TAG.Setpoint],
                     },
                     "Heating_Demand_Setpoint": {
-                        BRICK.hasQuantity: BRICK.Power,
                         "tags": [TAG.Point, TAG.Heat, TAG.Demand, TAG.Setpoint],
                     },
                     "Preheat_Demand_Setpoint": {
-                        BRICK.hasQuantity: BRICK.Power,
                         "tags": [TAG.Point, TAG.Preheat, TAG.Demand, TAG.Setpoint],
                     },
                     "Air_Flow_Demand_Setpoint": {
@@ -325,7 +321,6 @@ setpoint_definitions = {
                         "tags": [TAG.Point, TAG.Air, TAG.Flow, TAG.Setpoint],
                         "subclasses": {
                             "Air_Flow_Demand_Setpoint": {
-                                BRICK.hasQuantity: BRICK.Power,
                                 "tags": [
                                     TAG.Point,
                                     TAG.Air,
@@ -378,7 +373,6 @@ setpoint_definitions = {
                                 "aliases": [BRICK["Discharge_Air_Flow_Setpoint"]],
                                 "subclasses": {
                                     "Supply_Air_Flow_Demand_Setpoint": {
-                                        BRICK.hasQuantity: BRICK.Power,
                                         "aliases": [
                                             BRICK["Discharge_Air_Flow_Demand_Setpoint"]
                                         ],
