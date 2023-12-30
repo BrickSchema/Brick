@@ -1186,6 +1186,7 @@ setpoint_definitions = {
                 },
             },
             "Temperature_Setpoint": {
+                BRICK.hasQuantity: QUDTQK.Temperature,
                 "tags": [TAG.Point, TAG.Temperature, TAG.Setpoint],
                 "subclasses": {
                     "Air_Temperature_Setpoint": {
