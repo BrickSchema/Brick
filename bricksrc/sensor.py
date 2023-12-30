@@ -450,7 +450,7 @@ sensor_definitions = {
                             TAG.Air,
                             TAG.Outside,
                         ],
-                        BRICK.hasQuantity: BRICK.Dewpoint,
+                        BRICK.hasQuantity: QUDTQK.DewPointTemperature,
                         BRICK.hasSubstance: BRICK.Outside_Air,
                     },
                     "Return_Air_Dewpoint_Sensor": {
@@ -461,7 +461,7 @@ sensor_definitions = {
                             TAG.Air,
                             TAG.Return,
                         ],
-                        BRICK.hasQuantity: BRICK.Dewpoint,
+                        BRICK.hasQuantity: QUDTQK.DewPointTemperature,
                         BRICK.hasSubstance: BRICK.Return_Air,
                     },
                     "Exhaust_Air_Dewpoint_Sensor": {
@@ -472,7 +472,7 @@ sensor_definitions = {
                             TAG.Air,
                             TAG.Exhaust,
                         ],
-                        BRICK.hasQuantity: BRICK.Dewpoint,
+                        BRICK.hasQuantity: QUDTQK.DewPointTemperature,
                         BRICK.hasSubstance: BRICK.Exhaust_Air,
                     },
                     "Supply_Air_Dewpoint_Sensor": {
@@ -485,7 +485,7 @@ sensor_definitions = {
                             TAG.Supply,
                             TAG.Discharge,
                         ],
-                        BRICK.hasQuantity: BRICK.Dewpoint,
+                        BRICK.hasQuantity: QUDTQK.DewPointTemperature,
                         BRICK.hasSubstance: BRICK.Discharge_Air,
                     },
                     "Zone_Air_Dewpoint_Sensor": {
@@ -496,7 +496,7 @@ sensor_definitions = {
                             TAG.Air,
                             TAG.Zone,
                         ],
-                        BRICK.hasQuantity: BRICK.Dewpoint,
+                        BRICK.hasQuantity: QUDTQK.DewPointTemperature,
                         BRICK.hasSubstance: BRICK.Zone_Air,
                     },
                 },
