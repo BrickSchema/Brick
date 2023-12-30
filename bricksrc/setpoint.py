@@ -9,9 +9,11 @@ setpoint_definitions = {
         "tags": [TAG.Point, TAG.Setpoint],
         "subclasses": {
             "Current_Ratio_Setpoint": {
+                BRICK.hasQuantity: BRICK.Electric_Current,
                 "tags": [TAG.Point, TAG.Setpoint, TAG.Current, TAG.Electric, TAG.Ratio]
             },
             "Voltage_Ratio_Setpoint": {
+                BRICK.hasQuantity: BRICK.Voltage,
                 "tags": [TAG.Point, TAG.Setpoint, TAG.Voltage, TAG.Electric, TAG.Ratio]
             },
             "Frequency_Setpoint": {
@@ -19,6 +21,7 @@ setpoint_definitions = {
                 BRICK.hasQuantity: BRICK.Frequency,
             },
             "Illuminance_Setpoint": {
+                BRICK.hasQuantity: BRICK.Illuminance,
                 "tags": [TAG.Point, TAG.Setpoint, TAG.Illuminance]
             },
             "Enthalpy_Setpoint": {
@@ -30,15 +33,19 @@ setpoint_definitions = {
                 "tags": [TAG.Point, TAG.Dewpoint, TAG.Setpoint],
             },
             "Demand_Setpoint": {
+                BRICK.hasQuantity: BRICK.Power,
                 "tags": [TAG.Point, TAG.Demand, TAG.Setpoint],
                 "subclasses": {
                     "Cooling_Demand_Setpoint": {
+                        BRICK.hasQuantity: BRICK.Power,
                         "tags": [TAG.Point, TAG.Cool, TAG.Demand, TAG.Setpoint],
                     },
                     "Heating_Demand_Setpoint": {
+                        BRICK.hasQuantity: BRICK.Power,
                         "tags": [TAG.Point, TAG.Heat, TAG.Demand, TAG.Setpoint],
                     },
                     "Preheat_Demand_Setpoint": {
+                        BRICK.hasQuantity: BRICK.Power,
                         "tags": [TAG.Point, TAG.Preheat, TAG.Demand, TAG.Setpoint],
                     },
                     "Air_Flow_Demand_Setpoint": {
