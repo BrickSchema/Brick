@@ -12,7 +12,12 @@ from rdflib import Graph, Literal, BNode, URIRef
 from rdflib.namespace import XSD
 from rdflib.collection import Collection
 
-from bricksrc.ontology import define_ontology, ontology_imports, define_extension, BRICK_IRI_VERSION
+from bricksrc.ontology import (
+    define_ontology,
+    ontology_imports,
+    define_extension,
+    BRICK_IRI_VERSION,
+)
 
 
 from bricksrc.namespaces import (
@@ -322,7 +327,9 @@ def define_classes(definitions, parent, pun_classes=False, graph=G):
             graph.add((alias, OWL.equivalentClass, classname))
             graph.add((alias, BRICK.aliasOf, classname))
             if not has_label(alias, graph=graph):
-                graph.add((alias, RDFS.label, Literal(alias.split("#")[-1].replace("_", " "))))
+                graph.add(
+                    (alias, RDFS.label, Literal(alias.split("#")[-1].replace("_", " ")))
+                )
 
         # all other key-value pairs in the definition are
         # property-object pairs
@@ -384,8 +391,8 @@ def define_entity_properties(definitions, superprop=None, graph=G):
         assert (
             "property_of" in defn
         ), f"{entprop} missing a 'property_of' annotation so Brick doesn't know where this property can be used"
-        assert (
-            _allowed_annotations.intersection(defn.keys())
+        assert _allowed_annotations.intersection(
+            defn.keys()
         ), f"{entprop} missing at least one of {_allowed_annotations} so Brick doesn't know what the values of this property can be"
         assert RDFS.label in defn, f"{entprop} missing a RDFS.label annotation"
         graph.add((entprop, A, BRICK.EntityProperty))
@@ -531,7 +538,9 @@ def define_shape_properties(definitions, graph=G):
             vals = defn.pop("values")
             if isinstance(vals[0], str):
                 Collection(
-                    graph, enumeration, map(lambda x: Literal(x, datatype=XSD.string), vals)
+                    graph,
+                    enumeration,
+                    map(lambda x: Literal(x, datatype=XSD.string), vals),
                 )
             elif isinstance(vals[0], int):
                 Collection(
@@ -919,10 +928,8 @@ res = G.query(
 # "up" into the broader concepts.
 for r in res:
     brick_quant, qudt_quant = r
-    for (unit,) in get_units(qudt_quant):
+    for unit in get_units(qudt_quant):
         G.add((brick_quant, QUDT.applicableUnit, unit))
-for r in res:
-    brick_quant, qudt_quant = r
     # the symbols, units, and labels are already defined in the previous pass
     for unit, symb, label in get_units_brick(brick_quant):
         G.add((brick_quant, QUDT.applicableUnit, unit))
@@ -975,9 +982,7 @@ for rule, pfxs in G.subject_objects(predicate=SH.prefixes):
     G.add((rule, SH.prefixes, BRICK_IRI_VERSION))
 
 # remove ontology declarations
-for ontology in G.subjects(
-    predicate=RDF.type, object=OWL.Ontology
-):
+for ontology in G.subjects(predicate=RDF.type, object=OWL.Ontology):
     if ontology != BRICK_IRI_VERSION:
         G.remove((ontology, RDF.type, OWL.Ontology))
         G.remove((ontology, OWL.imports, None))
@@ -990,17 +995,17 @@ for filename in sys.argv[1:]:
     # TODO: add ontology definition
     print(f"Reading in entity properties and/or class definitions from {filename}")
     mod = importlib.import_module(filename)
-    if hasattr(mod, 'entity_properties'):
+    if hasattr(mod, "entity_properties"):
         define_entity_properties(mod.entity_properties, graph=extension_graph)
-    if hasattr(mod, 'classes'):
+    if hasattr(mod, "classes"):
         for parent, tree in mod.classes.items():
             define_classes(tree, parent, graph=extension_graph)
-    if hasattr(mod, 'property_value_shapes'):
+    if hasattr(mod, "property_value_shapes"):
         define_shape_properties(mod.property_value_shapes, graph=extension_graph)
-    if hasattr(mod, 'ontology_definition'):
+    if hasattr(mod, "ontology_definition"):
         define_extension(extension_graph, mod.ontology_definition)
 
-    parts = Path('/'.join(filename.split('.')))
+    parts = Path("/".join(filename.split(".")))
     dest = Path("extensions") / parts.with_suffix(".ttl")
     os.makedirs(dest.parent, exist_ok=True)
     print(f"Writing extension graph to {dest}")
@@ -1030,8 +1035,7 @@ if os.path.exists("Brick+extensions.ttl"):
 
 # create new directory for storing imports
 os.makedirs("imports", exist_ok=True)
-env = ontoenv.OntoEnv(initialize=True)
-env.refresh()
+env = ontoenv.OntoEnv()
 for name, uri in ontology_imports.items():
     depg, loc = env.resolve_uri(str(uri))
     depg.serialize(Path("imports") / f"{name}.ttl", format="ttl")
