@@ -439,9 +439,6 @@ sensor_definitions = {
                 },
             },
             "Dewpoint_Sensor": {
-                "tags": [TAG.Point, TAG.Sensor, TAG.Dewpoint],
-                BRICK.hasQuantity: BRICK.Dewpoint,
-            "Dewpoint_Sensor": {
                 BRICK.hasQuantity: QUDTQK.DewPointTemperature,
                 "tags": [TAG.Point, TAG.Sensor, TAG.Dewpoint],
                 "subclasses": {
@@ -454,7 +451,6 @@ sensor_definitions = {
                             TAG.Outside,
                         ],
                         BRICK.hasQuantity: QUDTQK.DewPointTemperature,
-                        BRICK.hasQuantity: QUDTQK.DewPointTemperature,
                         BRICK.hasSubstance: BRICK.Outside_Air,
                     },
                     "Return_Air_Dewpoint_Sensor": {
@@ -466,7 +462,6 @@ sensor_definitions = {
                             TAG.Return,
                         ],
                         BRICK.hasQuantity: QUDTQK.DewPointTemperature,
-                        BRICK.hasQuantity: QUDTQK.DewPointTemperature,
                         BRICK.hasSubstance: BRICK.Return_Air,
                     },
                     "Exhaust_Air_Dewpoint_Sensor": {
@@ -477,7 +472,6 @@ sensor_definitions = {
                             TAG.Air,
                             TAG.Exhaust,
                         ],
-                        BRICK.hasQuantity: QUDTQK.DewPointTemperature,
                         BRICK.hasQuantity: QUDTQK.DewPointTemperature,
                         BRICK.hasSubstance: BRICK.Exhaust_Air,
                     },
@@ -492,7 +486,6 @@ sensor_definitions = {
                             TAG.Discharge,
                         ],
                         BRICK.hasQuantity: QUDTQK.DewPointTemperature,
-                        BRICK.hasQuantity: QUDTQK.DewPointTemperature,
                         BRICK.hasSubstance: BRICK.Discharge_Air,
                     },
                     "Zone_Air_Dewpoint_Sensor": {
@@ -503,7 +496,6 @@ sensor_definitions = {
                             TAG.Air,
                             TAG.Zone,
                         ],
-                        BRICK.hasQuantity: QUDTQK.DewPointTemperature,
                         BRICK.hasQuantity: QUDTQK.DewPointTemperature,
                         BRICK.hasSubstance: BRICK.Zone_Air,
                     },
