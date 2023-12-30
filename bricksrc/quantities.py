@@ -332,7 +332,6 @@ quantity_definitions = {
             },
         },
     },
-    "Dewpoint": {BRICK.hasQUDTReference: QUDTQK["DewPointTemperature"]},
     "Direction": {
         SKOS.narrower: {
             "Wind_Direction": {

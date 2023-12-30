@@ -33,11 +33,11 @@ setpoint_definitions = {
                 "tags": [TAG.Point, TAG.Setpoint, TAG.Enthalpy],
             },
             "Dewpoint_Setpoint": {
-                BRICK.hasQuantity: BRICK.Dewpoint,
+                BRICK.hasQuantity: QUDTQK.DewPointTemperature,
                 "tags": [TAG.Point, TAG.Dewpoint, TAG.Setpoint],
             },
             "Dewpoint_Setpoint": {
-                BRICK.hasQuantity: BRICK.Dewpoint,
+                BRICK.hasQuantity: QUDTQK.DewPointTemperature,
                 "tags": [TAG.Point, TAG.Dewpoint, TAG.Setpoint],
             },
             "Demand_Setpoint": {
