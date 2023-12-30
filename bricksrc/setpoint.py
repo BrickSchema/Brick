@@ -326,6 +326,7 @@ setpoint_definitions = {
             },
             "Flow_Setpoint": {
                 BRICK.hasQuantity: QUDTQK.VolumeFlowRate,
+                BRICK.hasQuantity: QUDTQK.VolumeFlowRate,
                 "tags": [TAG.Point, TAG.Flow, TAG.Setpoint],
                 "subclasses": {
                     "Air_Flow_Setpoint": {
