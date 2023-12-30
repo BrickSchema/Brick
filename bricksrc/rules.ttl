@@ -378,6 +378,37 @@ bsh:TimeseriesReferenceOnPointsConstraint a sh:NodeShape ;
     ] ;
 .
 
+bsh:PointsHaveQuantityKinds a sh:NodeShape ;
+    # add more as needed
+    sh:target [
+        a sh:SPARQLTarget ;
+        sh:select """
+          SELECT ?class
+          WHERE {
+            ?class rdfs:subClassOf+ brick:Sensor .
+          }
+        """ ;
+        sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
+      ] ;
+    sh:target [
+        a sh:SPARQLTarget ;
+        sh:select """
+          SELECT ?class
+          WHERE {
+            ?class rdfs:subClassOf+ brick:Setpoint .
+          }
+        """ ;
+        sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
+      ] ;
+    sh:property [
+        sh:class qudt:QuantityKind ;
+        sh:path brick:hasQuantity ;
+        sh:minCount 1 ;
+        sh:message "Brick Points should have associated quantity kinds" ;
+    ] ;
+
+.
+
 bsh:hasQuantity a sh:NodeShape ;
     sh:targetObjectsOf brick:hasQuantity ;
     sh:class qudt:QuantityKind ;

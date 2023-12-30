@@ -56,15 +56,14 @@ def test_entity_property_type_inference(brick_with_imports):
     )
 
     valid, _, report = g.validate(engine="topquadrant")
+    g.serialize("test.ttl", format="ttl")
     assert valid, report
     g.expand("shacl", backend="topquadrant")
-    g.serialize("test.ttl", format="ttl")
 
     res = g.query(
         "SELECT ?ref WHERE { ?point ref:hasExternalReference ?ref . ?ref a ref:BACnetReference }"
     )
     assert len(res) == 1
-    os.remove("test.ttl")
 
 
 def test_last_known_value(brick_with_imports):

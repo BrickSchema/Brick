@@ -890,7 +890,7 @@ sensor_definitions = {
                             TAG.Air,
                             TAG.Absolute,
                         ],
-                        BRICK.hasQuantity: BRICK.Absolute_Humidity,
+                        BRICK.hasQuantity: QUDTQK.AbsoluteHumidity,
                         BRICK.hasSubstance: BRICK.Air,
                     },
                     "Relative_Humidity_Sensor": {
@@ -901,7 +901,7 @@ sensor_definitions = {
                             TAG.Air,
                             TAG.Relative,
                         ],
-                        BRICK.hasQuantity: BRICK.Relative_Humidity,
+                        BRICK.hasQuantity: QUDTQK.RelativeHumidity,
                         BRICK.hasSubstance: BRICK.Air,
                         "subclasses": {
                             "Exhaust_Air_Humidity_Sensor": {
@@ -913,7 +913,7 @@ sensor_definitions = {
                                     TAG.Air,
                                     TAG.Exhaust,
                                 ],
-                                BRICK.hasQuantity: BRICK.Relative_Humidity,
+                                BRICK.hasQuantity: QUDTQK.RelativeHumidity,
                                 BRICK.hasSubstance: BRICK.Exhaust_Air,
                             },
                             "Outside_Air_Humidity_Sensor": {
@@ -925,7 +925,7 @@ sensor_definitions = {
                                     TAG.Air,
                                     TAG.Outside,
                                 ],
-                                BRICK.hasQuantity: BRICK.Relative_Humidity,
+                                BRICK.hasQuantity: QUDTQK.RelativeHumidity,
                                 BRICK.hasSubstance: BRICK.Outside_Air,
                             },
                             "Return_Air_Humidity_Sensor": {
@@ -937,7 +937,7 @@ sensor_definitions = {
                                     TAG.Air,
                                     TAG.Return,
                                 ],
-                                BRICK.hasQuantity: BRICK.Relative_Humidity,
+                                BRICK.hasQuantity: QUDTQK.RelativeHumidity,
                                 BRICK.hasSubstance: BRICK.Return_Air,
                             },
                             "Supply_Air_Humidity_Sensor": {
@@ -951,7 +951,7 @@ sensor_definitions = {
                                     TAG.Discharge,
                                 ],
                                 "aliases": [BRICK["Discharge_Air_Humidity_Sensor"]],
-                                BRICK.hasQuantity: BRICK.Relative_Humidity,
+                                BRICK.hasQuantity: QUDTQK.RelativeHumidity,
                                 BRICK.hasSubstance: [
                                     BRICK.Supply_Air,
                                     BRICK.Discharge_Air,
@@ -966,7 +966,7 @@ sensor_definitions = {
                                     TAG.Air,
                                     TAG.Zone,
                                 ],
-                                BRICK.hasQuantity: BRICK.Relative_Humidity,
+                                BRICK.hasQuantity: QUDTQK.RelativeHumidity,
                                 BRICK.hasSubstance: BRICK.Zone_Air,
                             },
                             "Mixed_Air_Humidity_Sensor": {
@@ -978,7 +978,7 @@ sensor_definitions = {
                                     TAG.Air,
                                     TAG.Mixed,
                                 ],
-                                BRICK.hasQuantity: BRICK.Relative_Humidity,
+                                BRICK.hasQuantity: QUDTQK.RelativeHumidity,
                                 BRICK.hasSubstance: BRICK.Mixed_Air,
                             },
                         },

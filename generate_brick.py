@@ -276,23 +276,14 @@ def inherit_has_quantity(definitions, parent_quantity=None):
     """
     for classname, defn in definitions.items():
         # Inherit BRICK.hasQuantity from parent if not defined in the current class
-        if 'hasQuantity' not in defn and parent_quantity is not None:
-            defn['hasQuantity'] = parent_quantity
+        if "hasQuantity" not in defn and parent_quantity is not None:
+            defn["hasQuantity"] = parent_quantity
 
         # Recursively apply to subclasses
         subclassdef = defn.get("subclasses", {})
         assert isinstance(subclassdef, dict)
-        inherit_has_quantity(subclassdef, defn.get('hasQuantity', parent_quantity))
+        inherit_has_quantity(subclassdef, defn.get("hasQuantity", parent_quantity))
 
-inherit_has_quantity(equipment_subclasses)
-inherit_has_quantity(location_subclasses)
-inherit_has_quantity(point_subclasses)
-inherit_has_quantity(collection_classes)
-inherit_has_quantity(hvac_subclasses)
-inherit_has_quantity(hvac_valve_subclasses)
-inherit_has_quantity(valve_subclasses)
-inherit_has_quantity(security_subclasses)
-inherit_has_quantity(safety_subclasses)
 
 def define_classes(definitions, parent, pun_classes=False, graph=G):
     """
@@ -854,6 +845,14 @@ define_relationships(relationships)
 # add types to some external properties
 G.add((VCARD.hasAddress, A, OWL.ObjectProperty))
 G.add((VCARD.Address, A, OWL.Class))
+
+logging.info("Inheriting annotations down the subclass trees")
+inherit_has_quantity(setpoint_definitions)
+inherit_has_quantity(sensor_definitions)
+inherit_has_quantity(alarm_definitions)
+inherit_has_quantity(status_definitions)
+inherit_has_quantity(command_definitions)
+inherit_has_quantity(parameter_definitions)
 
 logging.info("Defining Point subclasses")
 # define Point subclasses
