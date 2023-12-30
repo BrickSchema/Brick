@@ -24,7 +24,7 @@ def test_deprecation(brick_with_imports):
     rows = list(g.query("SELECT ?fan WHERE { ?fan a brick:Outside_Fan }"))
     assert len(rows) == 1, "Outside fan should exist because of mitigation rule"
 
-    valid, repG, report = g.validate(engine='topquadrant')
+    valid, repG, report = g.validate(engine="topquadrant")
     assert valid, report
 
     res = repG.query(

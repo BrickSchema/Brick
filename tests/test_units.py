@@ -81,7 +81,6 @@ def test_instances_measure_correct_units(brick_with_imports):
         "SELECT distinct ?inst WHERE {\
              ?inst   rdf:type/rdfs:subClassOf* ?klass .\
              ?klass brick:hasQuantity  ?quantity .\
-             ?quantity    a   brick:Quantity .\
              ?inst   brick:hasUnit   ?unit .}"
     )
     assert len(instances) == len(classes_with_quantities)
@@ -121,26 +120,32 @@ def test_all_quantities_have_units(brick_with_imports):
         )
 
 
-def test_points_hierarchy_units(brick_with_imports):
-    g = brick_with_imports
-    qstr = """
-SELECT ?class (GROUP_CONCAT(?class_unit) as ?class_units) ?parent (GROUP_CONCAT(?parent_unit) AS ?parent_units) WHERE {
-  ?class brick:hasQuantity ?class_quantity.
-  ?class_quantity qudt:applicableUnit ?class_unit.
-
-  ?class rdfs:subClassOf ?parent.
-
-  ?parent brick:hasQuantity ?parent_quantity.
-  ?parent_quantity qudt:applicableUnit ?parent_unit.
-} GROUP BY ?class ?parent
-    """
-
-    unfound_units = defaultdict(dict)
-    for row in g.query(qstr):
-        curr_units = set([unit.split("/")[-1] for unit in row[1].split()])
-        parent_units = set([unit.split("/")[-1] for unit in row[3].split()])
-        if not curr_units.issubset(parent_units):
-            klass = row[0].split("#")[-1]
-            parent = row[2].split("#")[-1]
-            unfound_units[parent][klass] = curr_units - parent_units
-    assert not dict(unfound_units)
+# Deleting this test because it requires RDFS semantics, which we are no longer
+# using.
+# def test_points_hierarchy_units(brick_with_imports):
+#     g = brick_with_imports
+#     qstr = """
+# SELECT ?class (GROUP_CONCAT(?class_unit) as ?class_units) ?parent (GROUP_CONCAT(?parent_unit) AS ?parent_units) WHERE {
+#   ?class brick:hasQuantity ?class_quantity.
+#   ?class_quantity qudt:applicableUnit ?class_unit.
+#
+#   ?class rdfs:subClassOf ?parent.
+#
+#   ?parent brick:hasQuantity ?parent_quantity.
+#   ?parent_quantity qudt:applicableUnit ?parent_unit.
+# } GROUP BY ?class ?parent
+#     """
+#
+#     unfound_units = defaultdict(dict)
+#     for row in g.query(qstr):
+#         curr_units = set([unit.split("/")[-1] for unit in row[1].split()])
+#         parent_units = set([unit.split("/")[-1] for unit in row[3].split()])
+#         if not curr_units.issubset(parent_units):
+#             print('---'*30)
+#             print(f"{row[0]} with parent {row[2]}")
+#             print(f"{curr_units=}")
+#             print(f"{parent_units=}")
+#             klass = row[0].split("#")[-1]
+#             parent = row[2].split("#")[-1]
+#             unfound_units[parent][klass] = curr_units - parent_units
+#     assert not dict(unfound_units)
