@@ -420,30 +420,9 @@ quantity_definitions = {
             "Thermal_Energy": {BRICK.hasQUDTReference: QUDTQK["ThermalEnergy"]},
         },
     },
-    "Flow": {
-        BRICK.hasQUDTReference: QUDTQK["VolumeFlowRate"],
-        SKOS.narrower: {
-            "Flow_Loss": {
-                QUDT.applicableUnit: [UNIT["M3-PER-SEC"]],
-                QUDT.hasDimensionVector: QUDTDV["A0E0L3I0M0H0T-1D0"],
-                SKOS.definition: Literal(
-                    "The amount of flow rate that is lost during distribution"
-                ),
-                RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
-                RDFS.label: Literal("FlowLoss"),
-                SKOS.broader: BRICK.Flow,
-            },
-        },
-    },
     "Frequency": {
         BRICK.hasQUDTReference: QUDTQK["Frequency"],
         SKOS.narrower: {"Alternating_Current_Frequency": {}},
-    },
-    "Humidity": {
-        SKOS.narrower: {
-            "Relative_Humidity": {BRICK.hasQUDTReference: QUDTQK["RelativeHumidity"]},
-            "Absolute_Humidity": {BRICK.hasQUDTReference: QUDTQK["AbsoluteHumidity"]},
-        }
     },
     "Illuminance": {BRICK.hasQUDTReference: QUDTQK["Illuminance"]},
     "Irradiance": {
