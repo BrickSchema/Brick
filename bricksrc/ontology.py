@@ -42,6 +42,7 @@ ontology_imports = {
     "qudtsou": "http://qudt.org/2.1/vocab/sou",
     "qudtdv": "http://qudt.org/2.1/vocab/dimensionvector",
     "qudtprefix": "http://qudt.org/2.1/vocab/prefix",
+    "ref": "https://brickschema.org/schema/Brick/ref",
 }
 
 shacl_namespace_declarations = [
