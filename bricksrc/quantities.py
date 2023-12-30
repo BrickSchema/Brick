@@ -16,11 +16,14 @@ def get_units(qudt_quantity):
     Fetches the QUDT unit and symbol (as a Literal) from the QUDT ontology so
     in order to avoid having to pull the full QUDT ontology into Brick
     """
-    return g.query(
-        f"""SELECT ?unit WHERE {{
+    return [
+        x[0]
+        for x in g.query(
+            f"""SELECT ?unit WHERE {{
                     <{qudt_quantity}> qudt:applicableUnit ?unit .
                 }}"""
-    )
+        )
+    ]
 
 
 def all_units():
@@ -224,34 +227,6 @@ quantity_definitions = {
                 SKOS.definition: Literal("Magnitude component of a phasor"),
                 RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
                 RDFS.label: Literal("PhasorMagnitude"),
-            },
-        },
-    },
-    "Power": {
-        BRICK.hasQUDTReference: QUDTQK["Power"],
-        SKOS.narrower: {
-            "Peak_Power": {
-                SKOS.broader: QUDTQK.Power,
-                QUDT.applicableUnit: [UNIT.KiloW, UNIT.MegaW, UNIT.MilliW, UNIT.W],
-                QUDT.hasDimensionVector: QUDTDV["A0E0L2I0M1H0T-3D0"],
-                RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
-                RDFS.label: Literal("PeakPower"),
-                SKOS.definition: Literal(
-                    "Tracks the highest (peak) observed power in some interval"
-                ),
-            },
-            "Thermal_Power": {
-                QUDT.applicableUnit: [
-                    UNIT.MilliW,
-                    UNIT.W,
-                    UNIT.KiloW,
-                    UNIT.MegaW,
-                    UNIT.BTU_IT,
-                ],
-                QUDT.hasDimensionVector: QUDTDV["A0E0L2I0M1H0T-3D0"],
-                RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
-                RDFS.label: Literal("ThermalPower"),
-                SKOS.broader: QUDTQK.Power,
             },
         },
     },

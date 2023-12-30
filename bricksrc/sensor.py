@@ -406,7 +406,7 @@ sensor_definitions = {
                             TAG.Sensor,
                             TAG.Electric,
                         ],
-                        BRICK.hasQuantity: BRICK.Peak_Power,
+                        BRICK.hasQuantity: QUDTQK.Power,
                     },
                     "Cooling_Demand_Sensor": {
                         "tags": [TAG.Point, TAG.Sensor, TAG.Demand, TAG.Cool],
@@ -1255,7 +1255,7 @@ sensor_definitions = {
             },
             "Power_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Power],
-                BRICK.hasQuantity: BRICK.Power,
+                BRICK.hasQuantity: QUDTQK.Power,
                 "subclasses": {
                     "Thermal_Power_Sensor": {
                         "tags": [TAG.Point, TAG.Sensor, TAG.Power, TAG.Thermal],
@@ -1275,16 +1275,6 @@ sensor_definitions = {
                         "tags": [TAG.Point, TAG.Sensor, TAG.Power, TAG.Electric],
                         BRICK.hasQuantity: QUDTQK.ElectricPower,
                         "subclasses": {
-                            "Reactive_Power_Sensor": {
-                                "tags": [
-                                    TAG.Point,
-                                    TAG.Sensor,
-                                    TAG.Power,
-                                    TAG.Reactive,
-                                    TAG.Electric,
-                                ],
-                                BRICK.hasQuantity: QUDTQK.ReactivePower,
-                            },
                             "Active_Power_Sensor": {
                                 "tags": [
                                     TAG.Point,
@@ -1294,6 +1284,16 @@ sensor_definitions = {
                                     TAG.Electric,
                                 ],
                                 BRICK.hasQuantity: QUDTQK.ActivePower,
+                            },
+                            "Reactive_Power_Sensor": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Sensor,
+                                    TAG.Power,
+                                    TAG.Reactive,
+                                    TAG.Electric,
+                                ],
+                                BRICK.hasQuantity: QUDTQK.ReactivePower,
                             },
                         },
                     },
