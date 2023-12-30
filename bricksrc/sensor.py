@@ -485,10 +485,6 @@ sensor_definitions = {
                             TAG.Supply,
                             TAG.Discharge,
                         ],
-                        "substances": [
-                            [BRICK.measures, BRICK.Dewpoint],
-                            [BRICK.measures, BRICK.Supply_Air],
-                        ],
                         BRICK.hasQuantity: BRICK.Dewpoint,
                         BRICK.hasSubstance: BRICK.Discharge_Air,
                     },
@@ -1907,13 +1903,8 @@ sensor_definitions = {
                                             TAG.Chilled,
                                             TAG.Leaving,
                                         ],
-                                        "substances": [
-                                            [BRICK.measures, BRICK.Temperature],
-                                            [
-                                                BRICK.measures,
-                                                BRICK.Leaving_Chilled_Water,
-                                            ],
-                                        ],
+                                        BRICK.hasQuantity: BRICK.Temperature,
+                                        BRICK.hasSubstance: BRICK.Leaving_Chilled_Water,
                                     },
                                     "Differential_Entering_Leaving_Water_Temperature_Sensor": {
                                         "tags": [
@@ -2016,13 +2007,8 @@ sensor_definitions = {
                                         ],
                                     },
                                     "Entering_Condenser_Water_Temperature_Sensor": {
-                                        "substances": [
-                                            [BRICK.measures, BRICK.Temperature],
-                                            [
-                                                BRICK.measures,
-                                                BRICK.Entering_Condenser_Water,
-                                            ],
-                                        ],
+                                        BRICK.hasQuantity: BRICK.Temperature,
+                                        BRICK.hasSubstance: BRICK.Entering_Condenser_Water,
                                         "tags": [
                                             TAG.Entering,
                                             TAG.Condenser,
