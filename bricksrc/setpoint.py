@@ -317,14 +317,18 @@ setpoint_definitions = {
             },
             "Flow_Setpoint": {
                 BRICK.hasQuantity: BRICK.Flow,
+            "Flow_Setpoint": {
+                BRICK.hasQuantity: BRICK.VolumeFlowRate,
                 "tags": [TAG.Point, TAG.Flow, TAG.Setpoint],
                 "subclasses": {
                     "Air_Flow_Setpoint": {
+                        BRICK.hasQuantity: BRICK.VolumeFlowRate,
                         BRICK.hasSubstance: BRICK.Air,
                         BRICK.hasQuantity: BRICK.Flow,
                         "tags": [TAG.Point, TAG.Air, TAG.Flow, TAG.Setpoint],
                         "subclasses": {
                             "Air_Flow_Demand_Setpoint": {
+                                BRICK.hasQuantity: BRICK.Power,
                                 "tags": [
                                     TAG.Point,
                                     TAG.Air,
@@ -334,10 +338,12 @@ setpoint_definitions = {
                                 ],
                             },
                             "Exhaust_Air_Flow_Setpoint": {
+                                BRICK.hasQuantity: BRICK.VolumeFlowRate,
                                 BRICK.hasSubstance: BRICK.Exhaust_Air,
                                 BRICK.hasQuantity: BRICK.Flow,
                                 "subclasses": {
                                     "Exhaust_Air_Stack_Flow_Setpoint": {
+                                        BRICK.hasQuantity: BRICK.VolumeFlowRate,
                                         "tags": [
                                             TAG.Point,
                                             TAG.Exhaust,
@@ -357,6 +363,7 @@ setpoint_definitions = {
                                 ],
                             },
                             "Outside_Air_Flow_Setpoint": {
+                                BRICK.hasQuantity: BRICK.VolumeFlowRate,
                                 BRICK.hasSubstance: BRICK.Outside_Air,
                                 BRICK.hasQuantity: BRICK.Flow,
                                 "tags": [
@@ -368,6 +375,7 @@ setpoint_definitions = {
                                 ],
                             },
                             "Supply_Air_Flow_Setpoint": {
+                                BRICK.hasQuantity: BRICK.VolumeFlowRate,
                                 BRICK.hasSubstance: [
                                     BRICK.Supply_Air,
                                     BRICK.Discharge_Air,
@@ -376,6 +384,7 @@ setpoint_definitions = {
                                 "aliases": [BRICK["Discharge_Air_Flow_Setpoint"]],
                                 "subclasses": {
                                     "Supply_Air_Flow_Demand_Setpoint": {
+                                        BRICK.hasQuantity: BRICK.Power,
                                         "aliases": [
                                             BRICK["Discharge_Air_Flow_Demand_Setpoint"]
                                         ],
@@ -550,6 +559,7 @@ setpoint_definitions = {
                         },
                     },
                     "Water_Flow_Setpoint": {
+                        BRICK.hasQuantity: BRICK.VolumeFlowRate,
                         BRICK.hasSubstance: BRICK.Water,
                         BRICK.hasQuantity: BRICK.Flow,
                         "tags": [
@@ -560,6 +570,7 @@ setpoint_definitions = {
                         ],
                         "subclasses": {
                             "Condenser_Water_Flow_Setpoint": {
+                                BRICK.hasQuantity: BRICK.VolumeFlowRate,
                                 BRICK.hasSubstance: BRICK.Condenser_Water,
                                 BRICK.hasQuantity: BRICK.Flow,
                                 "tags": [
@@ -571,6 +582,7 @@ setpoint_definitions = {
                                 ],
                             },
                             "Entering_Water_Flow_Setpoint": {
+                                BRICK.hasQuantity: BRICK.VolumeFlowRate,
                                 BRICK.hasSubstance: BRICK.Entering_Water,
                                 BRICK.hasQuantity: BRICK.Flow,
                                 "tags": [
@@ -582,6 +594,7 @@ setpoint_definitions = {
                                 ],
                                 "subclasses": {
                                     "Entering_Chilled_Water_Flow_Setpoint": {
+                                        BRICK.hasQuantity: BRICK.VolumeFlowRate,
                                         BRICK.hasSubstance: BRICK.Entering_Chilled_Water,
                                         BRICK.hasQuantity: BRICK.Flow,
                                         "tags": [
@@ -595,6 +608,7 @@ setpoint_definitions = {
                                         "parents": [BRICK.Chilled_Water_Flow_Setpoint],
                                     },
                                     "Entering_Hot_Water_Flow_Setpoint": {
+                                        BRICK.hasQuantity: BRICK.VolumeFlowRate,
                                         BRICK.hasSubstance: BRICK.Entering_Hot_Water,
                                         BRICK.hasQuantity: BRICK.Flow,
                                         "tags": [
@@ -610,6 +624,7 @@ setpoint_definitions = {
                                 },
                             },
                             "Leaving_Water_Flow_Setpoint": {
+                                BRICK.hasQuantity: BRICK.VolumeFlowRate,
                                 BRICK.hasSubstance: BRICK.Leaving_Water,
                                 BRICK.hasQuantity: BRICK.Flow,
                                 "tags": [
@@ -621,6 +636,7 @@ setpoint_definitions = {
                                 ],
                                 "subclasses": {
                                     "Leaving_Chilled_Water_Flow_Setpoint": {
+                                        BRICK.hasQuantity: BRICK.VolumeFlowRate,
                                         BRICK.hasSubstance: BRICK.Leaving_Chilled_Water,
                                         BRICK.hasQuantity: BRICK.Flow,
                                         "tags": [
@@ -634,6 +650,7 @@ setpoint_definitions = {
                                         "parents": [BRICK.Chilled_Water_Flow_Setpoint],
                                     },
                                     "Leaving_Hot_Water_Flow_Setpoint": {
+                                        BRICK.hasQuantity: BRICK.VolumeFlowRate,
                                         BRICK.hasSubstance: BRICK.Leaving_Hot_Water,
                                         BRICK.hasQuantity: BRICK.Flow,
                                         "tags": [
@@ -649,6 +666,7 @@ setpoint_definitions = {
                                 },
                             },
                             "Hot_Water_Flow_Setpoint": {
+                                BRICK.hasQuantity: BRICK.VolumeFlowRate,
                                 BRICK.hasSubstance: BRICK.Hot_Water,
                                 BRICK.hasQuantity: BRICK.Flow,
                                 "tags": [
@@ -660,6 +678,7 @@ setpoint_definitions = {
                                 ],
                             },
                             "Chilled_Water_Flow_Setpoint": {
+                                BRICK.hasQuantity: BRICK.VolumeFlowRate,
                                 BRICK.hasSubstance: BRICK.Chilled_Water,
                                 BRICK.hasQuantity: BRICK.Flow,
                                 "tags": [
@@ -671,6 +690,7 @@ setpoint_definitions = {
                                 ],
                             },
                             "Bypass_Water_Flow_Setpoint": {
+                                BRICK.hasQuantity: BRICK.VolumeFlowRate,
                                 BRICK.hasSubstance: BRICK.Bypass_Water,
                                 BRICK.hasQuantity: BRICK.Flow,
                                 "tags": [
