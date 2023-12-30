@@ -269,6 +269,31 @@ def define_concept_hierarchy(definitions, typeclasses, broader=None, related=Non
         add_relationships(concept, {k: defn[k] for k in other_properties})
 
 
+def inherit_has_quantity(definitions, parent_quantity=None):
+    """
+    Recursively ensures that the BRICK.hasQuantity annotation is inherited down the
+    subclass tree unless a subclass already specifies a BRICK.hasQuantity.
+    """
+    for classname, defn in definitions.items():
+        # Inherit BRICK.hasQuantity from parent if not defined in the current class
+        if 'hasQuantity' not in defn and parent_quantity is not None:
+            defn['hasQuantity'] = parent_quantity
+
+        # Recursively apply to subclasses
+        subclassdef = defn.get("subclasses", {})
+        assert isinstance(subclassdef, dict)
+        inherit_has_quantity(subclassdef, defn.get('hasQuantity', parent_quantity))
+
+inherit_has_quantity(equipment_subclasses)
+inherit_has_quantity(location_subclasses)
+inherit_has_quantity(point_subclasses)
+inherit_has_quantity(collection_classes)
+inherit_has_quantity(hvac_subclasses)
+inherit_has_quantity(hvac_valve_subclasses)
+inherit_has_quantity(valve_subclasses)
+inherit_has_quantity(security_subclasses)
+inherit_has_quantity(safety_subclasses)
+
 def define_classes(definitions, parent, pun_classes=False, graph=G):
     """
     Generates triples for the hierarchy given by 'definitions', rooted
