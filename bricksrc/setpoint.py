@@ -695,18 +695,14 @@ setpoint_definitions = {
                 },
             },
             "Humidity_Setpoint": {
-                BRICK.hasQuantity: QUDTQK.RelativeHumidity,
-            "Humidity_Setpoint": {
                 BRICK.hasQuantity: BRICK.Humidity,
                 "tags": [TAG.Point, TAG.Humidity, TAG.Setpoint],
                 "subclasses": {
                     "Unoccupied_Humidity_Setpoint": {
-                        BRICK.hasQuantity: BRICK.Humidity,
                         BRICK.hasQuantity: QUDTQK.RelativeHumidity,
                         "tags": [TAG.Point, TAG.Humidity, TAG.Setpoint, TAG.Unoccupied],
                     },
                     "Occupied_Humidity_Setpoint": {
-                        BRICK.hasQuantity: BRICK.Humidity,
                         BRICK.hasQuantity: QUDTQK.RelativeHumidity,
                         "tags": [TAG.Point, TAG.Humidity, TAG.Setpoint, TAG.Occupied],
                     },
@@ -841,22 +837,17 @@ setpoint_definitions = {
                 "tags": [TAG.Point, TAG.Load, TAG.Setpoint],
             },
             "Luminance_Setpoint": {
-                BRICK.hasQuantity: BRICK.Luminance,
             "Luminance_Setpoint": {
-                BRICK.hasQuantity: BRICK.Luminance,
                 "tags": [TAG.Point, TAG.Luminance, TAG.Setpoint],
             },
             "Pressure_Setpoint": {
                 BRICK.hasQuantity: BRICK.Pressure,
-                BRICK.hasQuantity: BRICK.Pressure,
                 "subclasses": {
                     "Static_Pressure_Setpoint": {
-                        BRICK.hasQuantity: BRICK.Static_Pressure,
                         BRICK.hasQuantity: BRICK.Static_Pressure,
                         "subclasses": {
                             "Building_Air_Static_Pressure_Setpoint": {
                                 BRICK.hasSubstance: BRICK.Building_Air,
-                                BRICK.hasQuantity: BRICK.Static_Pressure,
                                 BRICK.hasQuantity: BRICK.Static_Pressure,
                                 "tags": [
                                     TAG.Point,
@@ -1197,13 +1188,10 @@ setpoint_definitions = {
                 },
             },
             "Temperature_Setpoint": {
-                BRICK.hasQuantity: BRICK.Temperature,
             "Temperature_Setpoint": {
-                BRICK.hasQuantity: BRICK.Temperature,
                 "tags": [TAG.Point, TAG.Temperature, TAG.Setpoint],
                 "subclasses": {
                     "Air_Temperature_Setpoint": {
-                        BRICK.hasQuantity: BRICK.Temperature,
                         BRICK.hasQuantity: BRICK.Temperature,
                         BRICK.hasSubstance: BRICK.Air,
                         "tags": [TAG.Point, TAG.Air, TAG.Temperature, TAG.Setpoint],
@@ -1211,7 +1199,6 @@ setpoint_definitions = {
                             "Effective_Air_Temperature_Setpoint": {
                                 BRICK.hasQuantity: BRICK.Temperature,
                                 BRICK.hasSubstance: BRICK.Air,
-                                BRICK.hasQuantity: BRICK.Temperature,
                                 "tags": [
                                     TAG.Point,
                                     TAG.Effective,
@@ -2076,7 +2063,6 @@ setpoint_definitions = {
             },
             "CO2_Setpoint": {
                 BRICK.hasQuantity: BRICK.CO2_Concentration,
-                BRICK.hasQuantity: BRICK.CO2_Concentration,
                 "subclasses": {
                     "Return_Air_CO2_Setpoint": {
                         BRICK.hasQuantity: BRICK.CO2_Concentration,
@@ -2086,7 +2072,6 @@ setpoint_definitions = {
                 "tags": [TAG.Point, TAG.CO2, TAG.Setpoint],
             },
             "Time_Setpoint": {
-                BRICK.hasQuantity: BRICK.Time,
                 BRICK.hasQuantity: BRICK.Time,
                 "tags": [TAG.Point, TAG.Time, TAG.Setpoint],
                 "subclasses": {
@@ -2101,7 +2086,6 @@ setpoint_definitions = {
                 },
             },
             "Differential_Setpoint": {
-                "tags": [TAG.Point, TAG.Differential, TAG.Setpoint],
                 "subclasses": {
                     "Differential_Temperature_Setpoint": {
                         BRICK.hasQuantity: BRICK.Differential_Temperature,
@@ -2125,8 +2109,6 @@ setpoint_definitions = {
                                 ],
                             },
                             "Differential_Air_Temperature_Setpoint": {  # TODO: The name of this should be aligned with Water_Differential_Temperature_Setpoint.
-                                BRICK.hasQuantity: BRICK.Differential_Temperature,
-                                BRICK.hasSubstance: BRICK.Air,
                             "Differential_Air_Temperature_Setpoint": {
                                 BRICK.hasQuantity: BRICK.Differential_Temperature,
                                 "tags": [
@@ -2144,7 +2126,6 @@ setpoint_definitions = {
                         "tags": [TAG.Point, TAG.Differential, TAG.Speed, TAG.Setpoint],
                     },
                     "Temperature_Differential_Reset_Setpoint": {
-                        BRICK.hasQuantity: BRICK.Differential_Temperature,
                         BRICK.hasQuantity: BRICK.Differential_Temperature,
                         "tags": [
                             TAG.Point,
@@ -2179,7 +2160,6 @@ setpoint_definitions = {
                                     "Supply_Air_Temperature_High_Reset_Setpoint": {
                                         BRICK.hasSubstance: BRICK.Supply_Air,
                                         BRICK.hasQuantity: BRICK.Temperature,
-                                        BRICK.hasQuantity: BRICK.Temperature,
                                         "aliases": [
                                             BRICK[
                                                 "Discharge_Air_Temperature_High_Reset_Setpoint"
@@ -2202,7 +2182,6 @@ setpoint_definitions = {
                                     },
                                     "Supply_Air_Temperature_Low_Reset_Setpoint": {
                                         BRICK.hasSubstance: BRICK.Supply_Air,
-                                        BRICK.hasQuantity: BRICK.Temperature,
                                         BRICK.hasQuantity: BRICK.Temperature,
                                         "aliases": [
                                             BRICK[
@@ -2230,11 +2209,9 @@ setpoint_definitions = {
                     },
                     "Differential_Pressure_Setpoint": {
                         BRICK.hasQuantity: BRICK.Differential_Pressure,
-                        BRICK.hasQuantity: BRICK.Differential_Pressure,
                         "subclasses": {
                             "Air_Differential_Pressure_Setpoint": {
                                 BRICK.hasSubstance: BRICK.Air,
-                                BRICK.hasQuantity: BRICK.Differential_Pressure,
                                 BRICK.hasQuantity: BRICK.Differential_Pressure,
                                 "tags": [
                                     TAG.Point,
@@ -2246,7 +2223,6 @@ setpoint_definitions = {
                                 "subclasses": {
                                     "Exhaust_Air_Differential_Pressure_Setpoint": {
                                         BRICK.hasSubstance: BRICK.Exhaust_Air,
-                                        BRICK.hasQuantity: BRICK.Differential_Pressure,
                                         BRICK.hasQuantity: BRICK.Differential_Pressure,
                                         "tags": [
                                             TAG.Point,
@@ -2272,7 +2248,6 @@ setpoint_definitions = {
                                     },
                                     "Supply_Air_Differential_Pressure_Setpoint": {
                                         BRICK.hasSubstance: BRICK.Supply_Air,
-                                        BRICK.hasQuantity: BRICK.Differential_Pressure,
                                         BRICK.hasQuantity: BRICK.Differential_Pressure,
                                         "aliases": [
                                             BRICK[
@@ -2305,7 +2280,6 @@ setpoint_definitions = {
                                 "subclasses": {
                                     "Chilled_Water_Differential_Pressure_Setpoint": {
                                         BRICK.hasSubstance: BRICK.Chilled_Water,
-                                        BRICK.hasQuantity: BRICK.Differential_Pressure,
                                         BRICK.hasQuantity: BRICK.Differential_Pressure,
                                         "tags": [
                                             TAG.Point,
@@ -2413,7 +2387,6 @@ setpoint_definitions = {
                             "Hot_Water_Differential_Pressure_Deadband_Setpoint": {
                                 BRICK.hasSubstance: BRICK.Hot_Water,
                                 BRICK.hasQuantity: BRICK.Differential_Pressure,
-                                BRICK.hasQuantity: BRICK.Differential_Pressure,
                                 "tags": [
                                     TAG.Point,
                                     TAG.Hot,
@@ -2454,7 +2427,6 @@ setpoint_definitions = {
                             },
                             "Entering_Water_Differential_Pressure_Deadband_Setpoint": {
                                 BRICK.hasSubstance: BRICK.Entering_Water,
-                                BRICK.hasQuantity: BRICK.Differential_Pressure,
                                 BRICK.hasQuantity: BRICK.Differential_Pressure,
                                 "tags": [
                                     TAG.Point,
