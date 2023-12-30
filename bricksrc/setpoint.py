@@ -41,6 +41,7 @@ setpoint_definitions = {
                 "tags": [TAG.Point, TAG.Dewpoint, TAG.Setpoint],
             },
             "Demand_Setpoint": {
+                "tags": [TAG.Point, TAG.Demand, TAG.Setpoint],
                 BRICK.hasQuantity: QUDTQK.Power,
                 "subclasses": {
                     "Cooling_Demand_Setpoint": {
