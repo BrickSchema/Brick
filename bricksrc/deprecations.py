@@ -1,6 +1,16 @@
 from .namespaces import BRICK, RDFS, SKOS, A
 
 deprecations = {
+    BRICK.Heat_Sensor: {
+        "version": "1.4.0",
+        "mitigation_message": "This class has a poor definition is supplanted by Temperature_Sensor",
+        "replace_with": BRICK.Temperature_Sensor,
+    },
+    BRICK.Trace_Heat_Sensor: {
+        "version": "1.4.0",
+        "mitigation_message": "Removed due to unclear definition",
+        "replace_with": BRICK.Sensor,
+    },
     BRICK.Solar_Radiance_Sensor: {
         "version": "1.3.0",
         "mitigation_message": "The class 'Solar_Radiance_Sensor' is deprecated in favor of 'Solar_Irradiance_Sensor'. The new name better reflects the standard unit of measurement, watts per square meter (W/m²), and aligns with the terminology commonly used in solar applications.",

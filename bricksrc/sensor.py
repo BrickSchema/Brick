@@ -9,9 +9,11 @@ sensor_definitions = {
         "tags": [TAG.Point, TAG.Sensor],
         "subclasses": {
             "Adjust_Sensor": {
+                BRICK.hasQuantity: QUDTQK.DimensionlessRatio,
                 "tags": [TAG.Point, TAG.Sensor, TAG.Adjust],
                 "subclasses": {
                     "Warm_Cool_Adjust_Sensor": {
+                        BRICK.hasQuantity: BRICK.Differential_Temperature,
                         "tags": [TAG.Point, TAG.Sensor, TAG.Adjust, TAG.Warm, TAG.Cool],
                     },
                     "Temperature_Adjust_Sensor": {
@@ -22,6 +24,7 @@ sensor_definitions = {
             },
             "Air_Quality_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Air, TAG.Quality],
+                BRICK.hasQuantity: QUDTQK.DimensionlessRatio,
                 "subclasses": {
                     "Ammonia_Sensor": {
                         "tags": [TAG.Point, TAG.Ammonia, TAG.Sensor],
@@ -327,7 +330,10 @@ sensor_definitions = {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Capacity],
                 BRICK.hasQuantity: QUDTQK.Capacity,
             },
-            "Contact_Sensor": {"tags": [TAG.Point, TAG.Sensor, TAG.Contact]},
+            "Contact_Sensor": {
+                "tags": [TAG.Point, TAG.Sensor, TAG.Contact],
+                BRICK.hasQuantity: QUDTQK.Dimensionless,
+            },
             "Conductivity_Sensor": {
                 # IFC ConductanceSensor
                 # TODO: pull from
@@ -396,6 +402,7 @@ sensor_definitions = {
             },
             "Demand_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Demand],
+                BRICK.hasQuantity: QUDTQK.Power,
                 "subclasses": {
                     "Peak_Demand_Sensor": {
                         "tags": [
@@ -568,7 +575,10 @@ sensor_definitions = {
                     }
                 },
             },
-            "Fire_Sensor": {"tags": [TAG.Point, TAG.Sensor, TAG.Fire]},
+            "Fire_Sensor": {
+                "tags": [TAG.Point, TAG.Sensor, TAG.Fire],
+                BRICK.hasQuantity: QUDTQK.Dimensionless,
+            },
             "Flow_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Flow],
                 BRICK.hasQuantity: QUDTQK.VolumeFlowRate,
@@ -865,21 +875,17 @@ sensor_definitions = {
                 BRICK.hasQuantity: BRICK.Temperature,
                 BRICK.hasSubstance: BRICK.Frost,
             },
-            "Gas_Sensor": {"tags": [TAG.Point, TAG.Sensor, TAG.Gas]},
+            "Gas_Sensor": {
+                "tags": [TAG.Point, TAG.Sensor, TAG.Gas],
+                BRICK.hasQuantity: QUDTQK.Dimensionless,
+            },
             "Hail_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Hail],
                 BRICK.hasSubstance: BRICK.Hail,
-            },
-            "Heat_Sensor": {
-                "tags": [TAG.Point, TAG.Sensor, TAG.Heat],
-                "subclasses": {
-                    "Trace_Heat_Sensor": {
-                        # TODO: substance
-                        "tags": [TAG.Point, TAG.Trace, TAG.Heat, TAG.Sensor],
-                    },
-                },
+                BRICK.hasQuantity: QUDTQK.Dimensionless,
             },
             "Humidity_Sensor": {
+                BRICK.hasQuantity: QUDTQK.PressureRatio,
                 "tags": [TAG.Point, TAG.Sensor, TAG.Humidity],
                 "subclasses": {
                     "Absolute_Humidity_Sensor": {
@@ -987,7 +993,7 @@ sensor_definitions = {
             },
             "Illuminance_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Illuminance],
-                BRICK.hasQuantity: BRICK.Illuminance,
+                BRICK.hasQuantity: QUDTQK.Illuminance,
                 "subclasses": {
                     "Outside_Illuminance_Sensor": {
                         "tags": [TAG.Point, TAG.Sensor, TAG.Illuminance, TAG.Outside],
@@ -996,6 +1002,7 @@ sensor_definitions = {
             },
             "Imbalance_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Imbalance],
+                BRICK.hasQuantity: QUDTQK.Dimensionless,
                 "subclasses": {
                     "Current_Imbalance_Sensor": {
                         "tags": [TAG.Point, TAG.Sensor, TAG.Imbalance, TAG.Current],
@@ -1009,10 +1016,11 @@ sensor_definitions = {
             },
             "Luminance_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Luminance],
-                BRICK.hasQuantity: BRICK.Luminance,
+                BRICK.hasQuantity: QUDTQK.Luminance,
             },
             "Motion_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Motion],
+                BRICK.hasQuantity: QUDTQK.Dimensionless,
                 "subclasses": {
                     "PIR_Sensor": {"tags": [TAG.Point, TAG.Sensor, TAG.PIR]}
                 },
@@ -1027,6 +1035,7 @@ sensor_definitions = {
             },
             "Piezoelectric_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Piezoelectric],
+                BRICK.hasQuantity: QUDTQK.Dimensionless,
             },
             "Pressure_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Pressure],
@@ -1320,6 +1329,7 @@ sensor_definitions = {
             "Duration_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Duration],
                 # TODO: substances
+                BRICK.hasQuantity: QUDTQK.Time,
                 "subclasses": {
                     "Rain_Duration_Sensor": {
                         "tags": [TAG.Point, TAG.Rain, TAG.Duration, TAG.Sensor],
@@ -1418,16 +1428,20 @@ sensor_definitions = {
             },
             "Generation_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Generation],
+                BRICK.hasQuantity: QUDTQK.Dimensionless,
                 "subclasses": {
                     "Energy_Generation_Sensor": {
-                        "tags": [TAG.Point, TAG.Sensor, TAG.Generation, TAG.Energy]
+                        "tags": [TAG.Point, TAG.Sensor, TAG.Generation, TAG.Energy],
+                        BRICK.hasQuantity: BRICK.Energy,
                     }
                 },
             },
             "Usage_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Usage],
+                BRICK.hasQuantity: QUDTQK.Dimensionless,
                 "subclasses": {
                     "Natural_Gas_Usage_Sensor": {
+                        BRICK.hasQuantity: QUDTQK.Volume,
                         "tags": [
                             TAG.Point,
                             TAG.Sensor,
@@ -1437,34 +1451,39 @@ sensor_definitions = {
                         ],
                     },
                     "Steam_Usage_Sensor": {
+                        BRICK.hasQuantity: QUDTQK.Volume,
                         "tags": [TAG.Point, TAG.Sensor, TAG.Usage, TAG.Steam],
                     },
                     "Energy_Usage_Sensor": {
                         "parents": [BRICK.Energy_Sensor],
+                        BRICK.hasQuantity: BRICK.Energy,
                         "tags": [TAG.Point, TAG.Sensor, TAG.Energy, TAG.Usage],
                         "subclasses": {
                             "Electrical_Energy_Usage_Sensor": {
+                                BRICK.Quantity: BRICK.Electric_Energy,
                                 "tags": [
                                     TAG.Point,
                                     TAG.Electric,
                                     TAG.Energy,
                                     TAG.Usage,
                                     TAG.Sensor,
-                                ]
+                                ],
                             },
                             "Thermal_Energy_Usage_Sensor": {
+                                BRICK.hasQuantity: BRICK.Thermal_Energy,
                                 "tags": [
                                     TAG.Point,
                                     TAG.Thermal,
                                     TAG.Energy,
                                     TAG.Usage,
                                     TAG.Sensor,
-                                ]
+                                ],
                             },
                         },
                     },
                     "Water_Usage_Sensor": {
                         "tags": [TAG.Point, TAG.Sensor, TAG.Usage, TAG.Water],
+                        BRICK.hasQuantity: QUDTQK.Volume,
                         "subclasses": {
                             "Hot_Water_Usage_Sensor": {
                                 "tags": [

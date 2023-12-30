@@ -276,13 +276,13 @@ def inherit_has_quantity(definitions, parent_quantity=None):
     """
     for classname, defn in definitions.items():
         # Inherit BRICK.hasQuantity from parent if not defined in the current class
-        if "hasQuantity" not in defn and parent_quantity is not None:
-            defn["hasQuantity"] = parent_quantity
+        if BRICK.hasQuantity not in defn and parent_quantity is not None:
+            defn[BRICK.hasQuantity] = parent_quantity
 
         # Recursively apply to subclasses
         subclassdef = defn.get("subclasses", {})
         assert isinstance(subclassdef, dict)
-        inherit_has_quantity(subclassdef, defn.get("hasQuantity", parent_quantity))
+        inherit_has_quantity(subclassdef, defn.get(BRICK.hasQuantity, parent_quantity))
 
 
 def define_classes(definitions, parent, pun_classes=False, graph=G):
@@ -808,6 +808,14 @@ logging.info("Beginning BRICK Ontology compilation")
 # handle ontology definition
 define_ontology(G)
 
+logging.info("Inheriting annotations down the subclass trees")
+inherit_has_quantity(setpoint_definitions)
+inherit_has_quantity(sensor_definitions)
+inherit_has_quantity(alarm_definitions)
+inherit_has_quantity(status_definitions)
+inherit_has_quantity(command_definitions)
+inherit_has_quantity(parameter_definitions)
+
 # Declare root classes
 
 # we keep the definition of brick:Class, which was the root
@@ -822,7 +830,7 @@ roots = {
     "Equipment": {"tags": [TAG.Equipment]},
     "Location": {"tags": [TAG.Location]},
     "Point": {"tags": [TAG.Point]},
-    "Measurable": {},
+    "Measurable": {"tags": [TAG.Measurable]},
     "Collection": {"tags": [TAG.Collection]},
 }
 define_classes(roots, BRICK.Class)  # <= Brick v1.3.0
@@ -846,13 +854,6 @@ define_relationships(relationships)
 G.add((VCARD.hasAddress, A, OWL.ObjectProperty))
 G.add((VCARD.Address, A, OWL.Class))
 
-logging.info("Inheriting annotations down the subclass trees")
-inherit_has_quantity(setpoint_definitions)
-inherit_has_quantity(sensor_definitions)
-inherit_has_quantity(alarm_definitions)
-inherit_has_quantity(status_definitions)
-inherit_has_quantity(command_definitions)
-inherit_has_quantity(parameter_definitions)
 
 logging.info("Defining Point subclasses")
 # define Point subclasses

@@ -10,31 +10,23 @@ setpoint_definitions = {
         "subclasses": {
             "Current_Ratio_Setpoint": {
                 BRICK.hasQuantity: BRICK.Electric_Current,
-                "tags": [TAG.Point, TAG.Setpoint, TAG.Current, TAG.Electric, TAG.Ratio]
+                "tags": [TAG.Point, TAG.Setpoint, TAG.Current, TAG.Electric, TAG.Ratio],
             },
             "Voltage_Ratio_Setpoint": {
                 BRICK.hasQuantity: BRICK.Voltage,
-                "tags": [TAG.Point, TAG.Setpoint, TAG.Voltage, TAG.Electric, TAG.Ratio]
-            },
-            "Voltage_Ratio_Setpoint": {
-                BRICK.hasQuantity: BRICK.Voltage,
-                "tags": [TAG.Point, TAG.Setpoint, TAG.Voltage, TAG.Electric, TAG.Ratio]
+                "tags": [TAG.Point, TAG.Setpoint, TAG.Voltage, TAG.Electric, TAG.Ratio],
             },
             "Frequency_Setpoint": {
                 "tags": [TAG.Point, TAG.Setpoint, TAG.Frequency],
                 BRICK.hasQuantity: BRICK.Frequency,
             },
             "Illuminance_Setpoint": {
-                BRICK.hasQuantity: BRICK.Illuminance,
-                "tags": [TAG.Point, TAG.Setpoint, TAG.Illuminance]
+                BRICK.hasQuantity: QUDTQK.Illuminance,
+                "tags": [TAG.Point, TAG.Setpoint, TAG.Illuminance],
             },
             "Enthalpy_Setpoint": {
                 BRICK.hasQuantity: QUDTQK.Enthalpy,
                 "tags": [TAG.Point, TAG.Setpoint, TAG.Enthalpy],
-            },
-            "Dewpoint_Setpoint": {
-                BRICK.hasQuantity: QUDTQK.DewPointTemperature,
-                "tags": [TAG.Point, TAG.Dewpoint, TAG.Setpoint],
             },
             "Dewpoint_Setpoint": {
                 BRICK.hasQuantity: QUDTQK.DewPointTemperature,
@@ -45,15 +37,12 @@ setpoint_definitions = {
                 BRICK.hasQuantity: QUDTQK.Power,
                 "subclasses": {
                     "Cooling_Demand_Setpoint": {
-                        BRICK.hasQuantity: BRICK.Cooling_Demand,
                         "tags": [TAG.Point, TAG.Cool, TAG.Demand, TAG.Setpoint],
                     },
                     "Heating_Demand_Setpoint": {
-                        BRICK.hasQuantity: BRICK.Heating_Demand,
                         "tags": [TAG.Point, TAG.Heat, TAG.Demand, TAG.Setpoint],
                     },
                     "Preheat_Demand_Setpoint": {
-                        BRICK.hasQuantity: BRICK.Preheat_Demand,
                         "tags": [TAG.Point, TAG.Preheat, TAG.Demand, TAG.Setpoint],
                     },
                     "Air_Flow_Demand_Setpoint": {
@@ -96,6 +85,7 @@ setpoint_definitions = {
             },
             "Deadband_Setpoint": {
                 "tags": [TAG.Point, TAG.Deadband, TAG.Setpoint],
+                BRICK.hasQuantity: QUDTQK.Dimensionless,
                 "subclasses": {
                     "Humidity_Deadband_Setpoint": {
                         BRICK.hasQuantity: BRICK.Humidity,
@@ -325,7 +315,6 @@ setpoint_definitions = {
                 },
             },
             "Flow_Setpoint": {
-                BRICK.hasQuantity: QUDTQK.VolumeFlowRate,
                 BRICK.hasQuantity: QUDTQK.VolumeFlowRate,
                 "tags": [TAG.Point, TAG.Flow, TAG.Setpoint],
                 "subclasses": {
@@ -698,6 +687,7 @@ setpoint_definitions = {
             },
             "Humidity_Setpoint": {
                 "tags": [TAG.Point, TAG.Humidity, TAG.Setpoint],
+                BRICK.hasQuantity: QUDTQK.PressureRatio,
                 "subclasses": {
                     "Unoccupied_Humidity_Setpoint": {
                         BRICK.hasQuantity: QUDTQK.RelativeHumidity,
@@ -800,6 +790,7 @@ setpoint_definitions = {
                 },
             },
             "Load_Setpoint": {
+                BRICK.hasQuantity: QUDTQK.Power,
                 "subclasses": {
                     "Load_Shed_Setpoint": {
                         "tags": [TAG.Point, TAG.Shed, TAG.Load, TAG.Setpoint],
@@ -839,6 +830,7 @@ setpoint_definitions = {
             },
             "Luminance_Setpoint": {
                 "tags": [TAG.Point, TAG.Luminance, TAG.Setpoint],
+                BRICK.hasQuantity: QUDTQK.Luminance,
             },
             "Pressure_Setpoint": {
                 BRICK.hasQuantity: BRICK.Pressure,
@@ -935,6 +927,7 @@ setpoint_definitions = {
             },
             "Reset_Setpoint": {
                 "tags": [TAG.Point, TAG.Reset, TAG.Setpoint],
+                BRICK.hasQuantity: QUDTQK.Dimensionless,
                 "subclasses": {
                     "Supply_Air_Flow_Reset_Setpoint": {
                         "aliases": [BRICK["Discharge_Air_Flow_Reset_Setpoint"]],
@@ -2085,6 +2078,7 @@ setpoint_definitions = {
                 },
             },
             "Differential_Setpoint": {
+                BRICK.hasQuantity: QUDTQK.Dimensionless,
                 "subclasses": {
                     "Differential_Temperature_Setpoint": {
                         BRICK.hasQuantity: BRICK.Differential_Temperature,
@@ -2433,6 +2427,6 @@ setpoint_definitions = {
                     },
                 },
             },
-        }
+        },
     }
 }

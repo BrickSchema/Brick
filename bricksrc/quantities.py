@@ -423,7 +423,6 @@ quantity_definitions = {
         BRICK.hasQUDTReference: QUDTQK["Frequency"],
         SKOS.narrower: {"Alternating_Current_Frequency": {}},
     },
-    "Illuminance": {BRICK.hasQUDTReference: QUDTQK["Illuminance"]},
     "Irradiance": {
         QUDT.applicableUnit: [
             UNIT["W-PER-M2"],
@@ -494,13 +493,6 @@ quantity_definitions = {
                 RDFS.label: Literal("Precipitation"),
                 SKOS.broader: QUDTQK.Length,
             },
-        },
-    },
-    "Luminance": {
-        BRICK.hasQUDTReference: QUDTQK["Luminance"],
-        SKOS.narrower: {
-            "Luminous_Flux": {BRICK.hasQUDTReference: QUDTQK["LuminousFlux"]},
-            "Luminous_Intensity": {BRICK.hasQUDTReference: QUDTQK["LuminousIntensity"]},
         },
     },
     "Occupancy": {
