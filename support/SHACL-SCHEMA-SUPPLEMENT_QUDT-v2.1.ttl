@@ -52,6 +52,9 @@
       sh:namespace "http://qudt.org/vocab/unit/"^^xsd:anyURI ;
       sh:prefix "unit" ;
     ] ;
+  # this is a temporary patch until this is fixed in upstream QUDT
+  sh:declare [ sh:namespace "http://www.w3.org/ns/shacl#"^^xsd:anyURI ;
+    sh:prefix "sh" ] ;
   sh:declare [
       a sh:PrefixDeclaration ;
       sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;

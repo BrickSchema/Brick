@@ -18808,7 +18808,7 @@ unit:MicroRAD
   qudt:applicableSystem sou:CGS-GAUSS ;
   qudt:applicableSystem sou:SI ;
   qudt:conversionMultiplier 1.0e-06 ;
-  qudt:guidance "<p>See NIST section <a href=\"http://physics.nist.gov/Pubs/SP811/sec07.html#7.10\">SP811 section7.10</a></p>"^^rdf:HTML ;
+  qudt:guidance ""^^rdf:HTML ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Angle ;
   qudt:hasQuantityKind quantitykind:PlaneAngle ;
@@ -20908,7 +20908,7 @@ unit:MilliRAD
   qudt:applicableSystem sou:CGS-GAUSS ;
   qudt:applicableSystem sou:SI ;
   qudt:conversionMultiplier 0.001 ;
-  qudt:guidance "<http://physics.nist.gov/Pubs/SP811/sec07.html#7.10>"^^rdf:HTML ;
+  qudt:guidance ""^^rdf:HTML ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Angle ;
   qudt:hasQuantityKind quantitykind:PlaneAngle ;
@@ -27020,7 +27020,7 @@ unit:RAD
   qudt:dbpediaMatch "http://dbpedia.org/resource/Radian"^^xsd:anyURI ;
   qudt:definedUnitOfSystem sou:SI ;
   qudt:exactMatch unit:MilliARCSEC ;
-  qudt:guidance "<p>See NIST section <a href=\"http://physics.nist.gov/Pubs/SP811/sec07.html#7.10\">SP811 section7.10</a></p>"^^rdf:HTML ;
+  qudt:guidance ""^^rdf:HTML ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Angle ;
   qudt:hasQuantityKind quantitykind:PlaneAngle ;
