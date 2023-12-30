@@ -927,7 +927,7 @@ res = G.query(
 # "up" into the broader concepts.
 for r in res:
     brick_quant, qudt_quant = r
-    for (unit,) in get_units(qudt_quant):
+    for unit in get_units(qudt_quant):
         G.add((brick_quant, QUDT.applicableUnit, unit))
 for r in res:
     brick_quant, qudt_quant = r
@@ -1041,13 +1041,24 @@ if os.path.exists("Brick+extensions.ttl"):
 os.makedirs("imports", exist_ok=True)
 env = ontoenv.OntoEnv(initialize=True)
 env.refresh()
-for name, uri in ontology_imports.items():
-    depg, loc = env.resolve_uri(str(uri))
-    depg.serialize(Path("imports") / f"{name}.ttl", format="ttl")
-    G += depg  # add the imported graph to Brick so we can do validation
+env.import_dependencies(G)
 
-# validate Brick
-valid, _, report = pyshacl.validate(data_graph=G, advanced=True, allow_warnings=True)
+G.serialize("/tmp/withimports.ttl")
+
+
+from brickschema import Graph as BGraph
+
+BG = BGraph()
+for t in G.triples((None, None, None)):
+    BG.add(t)
+
+valid, _, report = BG.validate(engine="topquadrant")
 if not valid:
     print(report)
     sys.exit(1)
+
+# validate Brick
+#valid, _, report = pyshacl.validate(data_graph=G, advanced=True, allow_warnings=True)
+#if not valid:
+#    print(report)
+#    sys.exit(1)

@@ -1,14 +1,17 @@
 from brickschema.graph import Graph
+from ontoenv import OntoEnv
 from rdflib import Literal, URIRef
 from .namespaces import SKOS, OWL, RDFS, BRICK, QUDTQK, QUDTDV, QUDT, UNIT
 
-
+env = OntoEnv()
 g = Graph()
 g.load_file("support/VOCAB_QUDT-QUANTITY-KINDS-ALL-v2.1.ttl")
 g.load_file("support/VOCAB_QUDT-UNITS-ALL-v2.1.ttl")
 g.bind("qudt", QUDT)
 g.bind("qudtqk", QUDTQK)
-g.expand(profile="brick")
+
+env.import_dependencies(g)
+g.expand("shacl", backend="topquadrant")
 
 
 def get_units(qudt_quantity):
@@ -16,11 +19,11 @@ def get_units(qudt_quantity):
     Fetches the QUDT unit and symbol (as a Literal) from the QUDT ontology so
     in order to avoid having to pull the full QUDT ontology into Brick
     """
-    return g.query(
+    return [x[0] for x in g.query(
         f"""SELECT ?unit WHERE {{
                     <{qudt_quantity}> qudt:applicableUnit ?unit .
                 }}"""
-    )
+    )]
 
 
 def all_units():

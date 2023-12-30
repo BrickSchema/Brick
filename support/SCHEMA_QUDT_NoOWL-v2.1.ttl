@@ -1628,7 +1628,7 @@ qudt:QuantityType-value
 qudt:QuantityValue
   a rdfs:Class ;
   a sh:NodeShape ;
-  rdfs:comment "A <i>Quantity Value</i> expresses the magnitude and kind of a quantity and is given by the product of a numerical value <code>n</code> and a unit of measure <code>U</code>. The number multiplying the unit is referred to as the numerical value of the quantity expressed in that unit. Refer to <a href=\"http://physics.nist.gov/Pubs/SP811/sec07.html\">NIST SP 811 section 7</a> for more on quantity values."^^rdf:HTML ;
+  rdfs:comment ""^^rdf:HTML ;
   rdfs:isDefinedBy <http://qudt.org/2.1/schema/shacl/qudt> ;
   rdfs:label "Quantity value" ;
   rdfs:subClassOf qudt:Concept ;
