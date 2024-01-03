@@ -63,7 +63,7 @@ g.add((BLDG.standalone, A, BRICK.Temperature_Sensor))
 def test_tag_inference():
     # Apply reasoner
     g.load_file("extensions/brick_extension_shacl_tag_inference.ttl")
-    g.expand(profile="shacl", backend="topquadrant")
+    g.expand(profile="shacl+shacl", backend="topquadrant")
 
     g.bind("rdf", RDF)
     g.bind("owl", OWL)
@@ -189,16 +189,12 @@ def test_shacl_owl_equivalentclass(brick_with_imports):
     g = brick_with_imports
     g.add((BLDG.VAV1, A, BRICK.VAV))
     g.add((BLDG.VAV2, A, BRICK.Variable_Air_Volume_Box))
-    g.serialize("x.ttl", format="turtle")
     g.expand("shacl", backend="topquadrant")
-    g.serialize("y.ttl", format="turtle")
     res = g.query("SELECT ?vav WHERE { ?vav rdf:type brick:VAV }")
     assert len(list(res)) == 2, "VAV should be equivalent to Variable_Air_Volume_Box"
 
     res = g.query("SELECT ?vav WHERE { ?vav rdf:type brick:Variable_Air_Volume_Box }")
     assert len(list(res)) == 2, "VAV should be equivalent to Variable_Air_Volume_Box"
-    os.remove("x.ttl")
-    os.remove("y.ttl")
 
 
 def test_meter_inference(brick_with_imports):

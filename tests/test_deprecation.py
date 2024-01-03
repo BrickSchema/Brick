@@ -32,7 +32,7 @@ def test_deprecation(brick_with_imports):
         ?res a sh:ValidationResult .
         ?res sh:focusNode ?node .
         ?res sh:resultSeverity sh:Warning .
-        ?res sh:value ex:fan .
+        ?res sh:value <urn:ex#fan> .
     }"""
     )
     assert len(list(res)) == 1, "Should have a warning for deprecation"
