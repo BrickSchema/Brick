@@ -680,10 +680,6 @@ sensor_definitions = {
                                     TAG.Discharge,
                                 ],
                                 BRICK.hasQuantity: QUDTQK.VolumeFlowRate,
-                                BRICK.hasSubstance: [
-                                    BRICK.Supply_Air,
-                                    BRICK.Discharge_Air,
-                                ],
                                 "aliases": [BRICK["Discharge_Air_Flow_Sensor"]],
                                 "subclasses": {
                                     "Average_Supply_Air_Flow_Sensor": {
@@ -958,10 +954,6 @@ sensor_definitions = {
                                 ],
                                 "aliases": [BRICK["Discharge_Air_Humidity_Sensor"]],
                                 BRICK.hasQuantity: QUDTQK.RelativeHumidity,
-                                BRICK.hasSubstance: [
-                                    BRICK.Supply_Air,
-                                    BRICK.Discharge_Air,
-                                ],
                             },
                             "Zone_Air_Humidity_Sensor": {
                                 "tags": [

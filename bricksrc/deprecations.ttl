@@ -1,0 +1,57 @@
+@prefix bacnet: <http://data.ashrae.org/bacnet/2020#> .
+@prefix brick: <https://brickschema.org/schema/Brick#> .
+@prefix bsh: <https://brickschema.org/schema/BrickShape#> .
+@prefix dcterms: <http://purl.org/dc/terms#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sdo: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix tag: <https://brickschema.org/schema/BrickTag#> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# deprecations.ttl is reserved for non-class deprecations, e.g. entity properties
+
+brick:powerComplexity brick:deprecation [
+    brick:deprecatedInVersion "1.3.1" ;
+    brick:deprecationMitigationMessage "powerComplexity is deprecated in favor of electricalComplexPower because the latter is more clear";
+    brick:deprecationMigitationRule [
+        a sh:NodeShape ;
+        sh:rule [
+            a sh:SPARQLRule ;
+            sh:construct """
+            CONSTRUCT {
+              $this brick:electricalComplexPower ?prop .
+            } WHERE {
+              $this brick:powerComplexity ?prop .
+            }""" ;
+            sh:prefixes brick: ;
+        ] ;
+        sh:targetSubjectsOf brick:powerComplexity ;
+    ] ;
+] .
+
+brick:powerFlow brick:deprecation [
+    brick:deprecatedInVersion "1.3.1" ;
+    brick:deprecationMitigationMessage "powerFlow is deprecated in favor of electricalFlow as the latter is more clear";
+    brick:deprecationMigitationRule [
+        a sh:NodeShape ;
+        sh:rule [
+            a sh:SPARQLRule ;
+            sh:construct """
+            CONSTRUCT {
+              $this brick:electricalFlow ?prop .
+            } WHERE {
+              $this brick:powerFlow ?prop .
+            }""" ;
+            sh:prefixes brick: ;
+        ] ;
+        sh:targetSubjectsOf brick:powerFlow ;
+    ] ;
+] .
