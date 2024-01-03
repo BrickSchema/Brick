@@ -5935,7 +5935,7 @@ unit:DeciTON_Metric
 .
 unit:Denier
   a qudt:Unit ;
-  dcterms:description "Denier or den is a unit of measure for the linear mass density of fibers. It is defined as the mass in grams per 9,000 meters. In the International System of Units the tex is used instead (see below). The denier is based on a natural standard: a single strand of silk is approximately one denier. A 9,000-meter strand of silk weighs about one gram. The term denier is from the French denier, a coin of small value (worth 1/12 of a sou). Applied to yarn, a denier was held to be equal in weight to 1/24 of an ounce. The term microdenier is used to describe filaments that weigh less than one gram per 9,000 meter length."^^rdf:HTML ;
+  dcterms:description ""^^rdf:HTML ;
   qudt:conversionMultiplier 1.1e-07 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Denier"^^xsd:anyURI ;
   qudt:hasDimensionVector qkdv:A0E0L-1I0M1H0T0D0 ;
@@ -10923,7 +10923,7 @@ unit:K-PER-T
 unit:K-PER-W
   a qudt:DerivedUnit ;
   a qudt:Unit ;
-  dcterms:description "Thermal resistance is a heat property and a measure of a temperature difference by which an object or material resists a heat flow (heat per time unit or thermal resistance). Thermal resistance is the reciprocal thermal conductance. Absolute thermal resistance is the temperature difference across a structure when a unit of heat energy flows through it in unit time. It is the reciprocal of thermal conductance. The SI units of thermal resistance are kelvins per watt or the equivalent degrees Celsius per watt (the two are the same since as intervals).</p>"^^rdf:HTML ;
+  dcterms:description ""^^rdf:HTML ;
   qudt:applicableSystem sou:SI ;
   qudt:conversionMultiplier 1.0 ;
   qudt:definedUnitOfSystem sou:SI ;
@@ -17544,8 +17544,7 @@ unit:MegaS-PER-M
 .
 unit:MegaTOE
   a qudt:Unit ;
-  dcterms:description """The tonne of oil equivalent (toe) is a unit of energy: the amount of energy released by burning one tonne of crude oil, approximately 42 GJ (as different crude oils have different calorific values, the exact value of the toe is defined by convention; unfortunately there are several slightly different definitions as discussed below). The toe is sometimes used for large amounts of energy, as it can be more intuitive to visualise, say, the energy released by burning 1000 tonnes of oil than 42,000 billion joules (the SI unit of energy).</p>
-<p>Multiples of the toe are used, in particular the megatoe (Mtoe, one million toe) and the gigatoe (Gtoe, one billion toe).</p>"""^^rdf:HTML ;
+  dcterms:description ""^^rdf:HTML ;
   qudt:applicableSystem sou:USCS ;
   qudt:conversionMultiplier 4.18680e16 ;
   qudt:hasDimensionVector qkdv:A0E0L2I0M1H0T-2D0 ;
@@ -28210,7 +28209,7 @@ unit:TBSP
 unit:TEX
   a qudt:DerivedUnit ;
   a qudt:Unit ;
-  dcterms:description "<p>\\textit{Tex</em> is a unit of measure for the linear mass density of fibers and is defined as the mass in grams per 1000 meters. Tex is more likely to be used in Canada and Continental Europe, while denier remains more common in the United States and United Kingdom. The unit code is 'tex'. The most commonly used unit is actually the decitex, abbreviated dtex, which is the mass in grams per 10,000 meters. When measuring objects that consist of multiple fibers the term 'filament tex' is sometimes used, referring to the mass in grams per 1000 meters of a single filament. Tex is used for measuring fiber size in many products, including cigarette filters, optical cable, yarn, and fabric.}"^^rdf:HTML ;
+  dcterms:description ""^^rdf:HTML ;
   qudt:conversionMultiplier 1.0e-06 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Tex"^^xsd:anyURI ;
   qudt:hasDimensionVector qkdv:A0E0L-1I0M1H0T0D0 ;
@@ -28269,7 +28268,7 @@ unit:THM_US-PER-HR
 .
 unit:TOE
   a qudt:Unit ;
-  dcterms:description "<p>The tonne of oil equivalent (toe) is a unit of energy: the amount of energy released by burning one tonne of crude oil, approximately 42 GJ (as different crude oils have different calorific values, the exact value of the toe is defined by convention; unfortunately there are several slightly different definitions as discussed below). The toe is sometimes used for large amounts of energy, as it can be more intuitive to visualise, say, the energy released by burning 1000 tonnes of oil than 42,000 billion joules (the SI unit of energy). Multiples of the toe are used, in particular the megatoe (Mtoe, one million toe) and the gigatoe (Gtoe, one billion toe).</p>"^^rdf:HTML ;
+  dcterms:description ""^^rdf:HTML ;
   qudt:applicableSystem sou:USCS ;
   qudt:conversionMultiplier 4.1868e10 ;
   qudt:definedUnitOfSystem sou:USCS ;
@@ -28446,7 +28445,7 @@ unit:TON_Assay
 .
 unit:TON_FG
   a qudt:Unit ;
-  dcterms:description "12000 btu per hour</p>"^^rdf:HTML ;
+  dcterms:description ""^^rdf:HTML ;
   qudt:applicableSystem sou:USCS ;
   qudt:conversionMultiplier 3516.853 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Ton_of_refrigeration"^^xsd:anyURI ;
@@ -28463,7 +28462,7 @@ unit:TON_FG
 .
 unit:TON_FG-HR
   a qudt:Unit ;
-  dcterms:description "12000 btu</p>"^^rdf:HTML ;
+  dcterms:description ""^^rdf:HTML ;
   qudt:applicableSystem sou:USCS ;
   qudt:conversionMultiplier 12660670.2 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Ton_of_refrigeration"^^xsd:anyURI ;
@@ -28491,8 +28490,7 @@ unit:TON_F_US
 .
 unit:TON_LONG
   a qudt:Unit ;
-  dcterms:description """Long ton (weight ton or imperial ton) is the name for the unit called the \"ton\" in the avoirdupois or Imperial system of measurements, as used in the United Kingdom and several other Commonwealth countries. One long ton is equal to 2,240 pounds (1,016 kg), 1.12 times as much as a short ton, or 35 cubic feet (0.9911 m3) of salt water with a density of 64 lb/ft3 (1.025 g/ml).</p>
-<p>It has some limited use in the United States, most commonly in measuring the displacement of ships, and was the unit prescribed for warships by the Washington Naval Treaty 1922-for example battleships were limited to a mass of 35,000 long tons (36,000 t; 39,000 short tons).</p>"""^^rdf:HTML ;
+  dcterms:description ""^^rdf:HTML ;
   qudt:applicableSystem sou:IMPERIAL ;
   qudt:conversionMultiplier 1016.0469088 ;
   qudt:definedUnitOfSystem sou:IMPERIAL ;
