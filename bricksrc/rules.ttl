@@ -387,9 +387,9 @@ bsh:PointsHaveQuantityKinds a sh:NodeShape ;
     sh:target [
         a sh:SPARQLTarget ;
         sh:select """
-          SELECT ?class
+          SELECT ?this
           WHERE {
-            ?class rdfs:subClassOf+ brick:Sensor .
+            ?this rdfs:subClassOf+ brick:Sensor .
             FILTER NOT EXISTS { ?class owl:deprecated true }
           }
         """ ;
@@ -398,9 +398,9 @@ bsh:PointsHaveQuantityKinds a sh:NodeShape ;
     sh:target [
         a sh:SPARQLTarget ;
         sh:select """
-          SELECT ?class
+          SELECT ?this
           WHERE {
-            ?class rdfs:subClassOf+ brick:Setpoint .
+            ?this rdfs:subClassOf+ brick:Setpoint .
             FILTER NOT EXISTS { ?class owl:deprecated true }
           }
         """ ;
