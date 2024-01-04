@@ -4,7 +4,7 @@ pytest>=7.3
 tqdm>=4.0
 pyshacl>=0.23
 docker>=6.0
-brickschema[all]>=0.7.4a6
+brickschema[all]>=0.7.4a7
 black==23.3.0
 pre-commit>=3.2
 flake8>=6.0
