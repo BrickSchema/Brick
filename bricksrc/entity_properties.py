@@ -3,7 +3,7 @@ Entity property definitions
 """
 from collections import defaultdict
 from rdflib import Literal
-from .namespaces import BRICK, RDFS, SKOS, UNIT, XSD, SH, BSH, REF
+from .namespaces import BRICK, RDFS, SKOS, UNIT, XSD, SH, BSH, REF, QUDTQK
 
 # these are the "relationship"/predicates/OWL properties that
 # relate a Brick entity to a structured value.
@@ -77,18 +77,18 @@ entity_properties = {
         "property_of": [BRICK.Equipment, BRICK.Location],
     },
     # electrical properties
-    BRICK.powerComplexity: {
-        SKOS.definition: Literal("Entity has this power complexity"),
-        SH.node: BSH.PowerComplexityShape,
-        RDFS.label: Literal("Power complexity"),
+    BRICK.electricalComplexPower: {
+        SKOS.definition: Literal("Associated electrical complexity with the entity"),
+        SH.node: BSH.ElectricalComplexPowerShape,
+        RDFS.label: Literal("electrical complex power type"),
         "property_of": [BRICK.Equipment, BRICK.Point],
     },
-    BRICK.powerFlow: {
+    BRICK.electricalFlow: {
         SKOS.definition: Literal(
-            "Entity has this power flow relative to the building'"
+            "Entity has this electrical flow relative to the building'"
         ),
-        SH.node: BSH.PowerFlowShape,
-        RDFS.label: Literal("Power flow"),
+        SH.node: BSH.ElectricalFlowShape,
+        RDFS.label: Literal("Electrical flow direction"),
         "property_of": [BRICK.Equipment, BRICK.Point],
     },
     BRICK.electricalPhases: {
@@ -475,8 +475,8 @@ shape_properties = {
         },
     },
     BSH.VolumeShape: {"units": [UNIT.FT3, UNIT.M3], "datatype": BSH.NumericValue},
-    BSH.PowerComplexityShape: {"values": ["real", "reactive", "apparent"]},
-    BSH.PowerFlowShape: {"values": ["import", "export", "net", "absolute"]},
+    BSH.ElectricalComplexPowerShape: {"values": ["real", "reactive", "apparent"]},
+    BSH.ElectricalFlowShape: {"values": ["import", "export", "net", "absolute"]},
     BSH.PhasesShape: {"values": ["A", "B", "C", "AB", "BC", "AC", "ABC"]},
     BSH.PhaseCountShape: {"values": ["1", "2", "3", "Total"]},
     BSH.CurrentFlowTypeShape: {"values": ["AC", "DC"]},
@@ -488,7 +488,7 @@ shape_properties = {
             BRICK.longitude: {"datatype": BSH.NumericValue},
         },
     },
-    BSH.TiltShape: {"unitsFromQuantity": BRICK.Angle, "datatype": BSH.NumericValue},
+    BSH.TiltShape: {"unitsFromQuantity": QUDTQK.Angle, "datatype": BSH.NumericValue},
     BSH.TemperatureShape: {
         "unitsFromQuantity": BRICK.Temperature,
         "datatype": BSH.NumericValue,
@@ -498,7 +498,7 @@ shape_properties = {
         "datatype": BSH.NumericValue,
     },
     BSH.AzimuthShape: {
-        "unitsFromQuantity": BRICK.Angle,
+        "unitsFromQuantity": QUDTQK.Angle,
         "datatype": BSH.NumericValue,
         "rotationalDirection": {"values": ["clockwise", "counterclockwise"]},
         "referenceDirection": {"values": ["North", "South", "East", "West"]},

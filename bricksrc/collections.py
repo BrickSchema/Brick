@@ -40,7 +40,14 @@ system_subclasses = {
     },
     "Gas_System": {"tags": [TAG.Gas, TAG.System]},
     "Heating_Ventilation_Air_Conditioning_System": {
-        "tags": [TAG.Heat, TAG.Ventilation, TAG.Air, TAG.Conditioning, TAG.HVAC, TAG.System],
+        "tags": [
+            TAG.Heat,
+            TAG.Ventilation,
+            TAG.Air,
+            TAG.Conditioning,
+            TAG.HVAC,
+            TAG.System,
+        ],
         "aliases": [BRICK["HVAC_System"]],
         "subclasses": {
             "Air_System": {

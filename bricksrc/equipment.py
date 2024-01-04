@@ -9,6 +9,14 @@ equipment_subclasses = {
     "ICT_Equipment": {
         "tags": [TAG.ICT, TAG.Equipment],
         "subclasses": {
+            "ICT_Hardware": {
+                "tags": [TAG.Equipment, TAG.ICT, TAG.Hardware],
+                "subclasses": {
+                    "Tablet": {
+                        "tags": [TAG.Equipment, TAG.ICT, TAG.Hardware, TAG.Tablet]
+                    },
+                },
+            },
             "Sensor_Equipment": {
                 "tags": [TAG.Sensor, TAG.Equipment, TAG.ICT],
             },
@@ -256,6 +264,129 @@ equipment_subclasses = {
                     TAG.Equipment,
                 ],
             }
+        },
+    },
+    "Tank": {
+        "tags": [TAG.Tank, TAG.Equipment],
+        "subclasses": {
+            "Storage_Tank": {
+                "tags": [TAG.Tank, TAG.Equipment, TAG.Storage],
+                "subclasses": {
+                    "Water_Storage_Tank": {
+                        "tags": [TAG.Water, TAG.Storage, TAG.Equipment],
+                        "subclasses": {
+                            "Chilled_Water_Storage_Tank": {
+                                "tags": [
+                                    TAG.Chilled,
+                                    TAG.Water,
+                                    TAG.Storage,
+                                    TAG.Equipment,
+                                ]
+                            },
+                            "Cold_Water_Storage_Tank": {
+                                "tags": [
+                                    TAG.Cold,
+                                    TAG.Water,
+                                    TAG.Storage,
+                                    TAG.Equipment,
+                                ]
+                            },
+                            "Hot_Water_Storage_Tank": {
+                                "tags": [TAG.Hot, TAG.Water, TAG.Storage, TAG.Equipment]
+                            },
+                            "Fire_Sprinkler_Water_Storage_Tank": {
+                                "tags": [
+                                    TAG.Fire,
+                                    TAG.Water,
+                                    TAG.Storage,
+                                    TAG.Equipment,
+                                ]
+                            },
+                            "Rain_Water_Storage_Tank": {
+                                "tags": [
+                                    TAG.Rain,
+                                    TAG.Water,
+                                    TAG.Storage,
+                                    TAG.Equipment,
+                                ]
+                            },
+                        },
+                    },
+                    "Thermal_Energy_Storage_Tank": {
+                        "tags": [
+                            TAG.Thermal,
+                            TAG.Energy,
+                            TAG.Storage,
+                            TAG.Tank,
+                            TAG.Equipment,
+                        ],
+                        "subclasses": {
+                            "Chilled_Water_Thermal_Energy_Storage_Tank": {
+                                "tags": [
+                                    TAG.Chilled,
+                                    TAG.Water,
+                                    TAG.Thermal,
+                                    TAG.Energy,
+                                    TAG.Storage,
+                                    TAG.Tank,
+                                    TAG.Equipment,
+                                ],
+                            },
+                            "Hot_Water_Thermal_Energy_Storage_Tank": {
+                                "tags": [
+                                    TAG.Hot,
+                                    TAG.Water,
+                                    TAG.Thermal,
+                                    TAG.Energy,
+                                    TAG.Storage,
+                                    TAG.Tank,
+                                    TAG.Equipment,
+                                ],
+                            },
+                        },
+                    },
+                },
+            },
+            "Thermal_Expansion_Tank": {
+                "tags": [TAG.Tank, TAG.Equipment],
+                "subclasses": {
+                    "Chilled_Water_Thermal_Expansion_Tank": {
+                        "tags": [
+                            TAG.Chilled,
+                            TAG.Thermal,
+                            TAG.Expansion,
+                            TAG.Tank,
+                            TAG.Equipment,
+                        ],
+                    },
+                    "Hot_Water_Thermal_Expansion_Tank": {
+                        "tags": [
+                            TAG.Hot,
+                            TAG.Thermal,
+                            TAG.Expansion,
+                            TAG.Tank,
+                            TAG.Equipment,
+                        ],
+                    },
+                    "Fire_Sprinkler_Thermal_Expansion_Tank": {
+                        "tags": [
+                            TAG.Fire,
+                            TAG.Thermal,
+                            TAG.Expansion,
+                            TAG.Tank,
+                            TAG.Equipment,
+                        ],
+                    },
+                },
+            },
+            "Separation_Tank": {
+                "tags": [TAG.Tank, TAG.Equipment],
+                "subclasses": {
+                    "Grease_Interceptor": {
+                        "tags": [TAG.Waste, TAG.Tank, TAG.Equipment],
+                    }
+                },
+            },
         },
     },
 }
