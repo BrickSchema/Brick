@@ -96,15 +96,19 @@ bsh:RDFSSubPropertyOfRuleForEntityProperties
     sh:rule [
         a sh:SPARQLRule ;
         sh:construct """
-CONSTRUCT {
-    ?s ?super ?o .
-} WHERE {
-    $this rdfs:subPropertyOf+ ?super .
-    ?super a brick:EntityProperty .
-    $this a brick:EntityProperty .
-    ?s $this ?o .
-}""" ;
-      sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
+            CONSTRUCT {
+                ?s ?super ?skolemized .
+                ?skolemized ?ep ?eo .
+            } WHERE {
+                $this rdfs:subPropertyOf+ ?super .
+                ?super a brick:EntityProperty .
+                $this a brick:EntityProperty .
+                ?s $this ?o .
+                BIND(IF(isBlank(?o), IRI(CONCAT("urn:skolem:", STRUUID())), ?o) AS ?skolemized)
+                ?o ?ep ?eo .
+            }
+        """ ;
+        sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
     ] ;
     sh:targetSubjectsOf rdfs:subPropertyOf ;
 .
@@ -269,6 +273,7 @@ bsh:BuildingMeterRule a sh:NodeShape ;
             $this rdf:type ?type .
             BIND(IRI(CONCAT("https://brickschema.org/schema/Brick#Building_", strafter(str(?type), "https://brickschema.org/schema/Brick#"))) as ?newtype) .
             FILTER (strEnds(str(?type), "_Meter"))
+            FILTER (!strStarts(str(?type), "https://brickschema.org/schema/Brick#Building_"))
         }
         """ ;
         sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
@@ -375,6 +380,39 @@ bsh:TimeseriesReferenceOnPointsConstraint a sh:NodeShape ;
             }
         """ ;
     ] ;
+.
+
+bsh:PointsHaveQuantityKinds a sh:NodeShape ;
+    # add more as needed
+    sh:target [
+        a sh:SPARQLTarget ;
+        sh:select """
+          SELECT ?this
+          WHERE {
+            ?this rdfs:subClassOf+ brick:Sensor .
+            FILTER NOT EXISTS { ?class owl:deprecated true }
+          }
+        """ ;
+        sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
+      ] ;
+    sh:target [
+        a sh:SPARQLTarget ;
+        sh:select """
+          SELECT ?this
+          WHERE {
+            ?this rdfs:subClassOf+ brick:Setpoint .
+            FILTER NOT EXISTS { ?class owl:deprecated true }
+          }
+        """ ;
+        sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
+      ] ;
+    sh:property [
+        sh:class qudt:QuantityKind ;
+        sh:path brick:hasQuantity ;
+        sh:minCount 1 ;
+        sh:message "Brick Points should have associated quantity kinds" ;
+    ] ;
+
 .
 
 bsh:hasQuantity a sh:NodeShape ;

@@ -1,4 +1,5 @@
 import os
+import brickschema
 import importlib
 from pathlib import Path
 import sys
@@ -63,7 +64,7 @@ logging.basicConfig(
     level=logging.INFO,
 )
 
-G = Graph()
+G = brickschema.Graph()
 bind_prefixes(G)
 A = RDF.type
 
@@ -266,6 +267,22 @@ def define_concept_hierarchy(definitions, typeclasses, broader=None, related=Non
             prop for prop in defn.keys() if prop not in expected_properties
         ]
         add_relationships(concept, {k: defn[k] for k in other_properties})
+
+
+def inherit_has_quantity(definitions, parent_quantity=None):
+    """
+    Recursively ensures that the BRICK.hasQuantity annotation is inherited down the
+    subclass tree unless a subclass already specifies a BRICK.hasQuantity.
+    """
+    for classname, defn in definitions.items():
+        # Inherit BRICK.hasQuantity from parent if not defined in the current class
+        if BRICK.hasQuantity not in defn and parent_quantity is not None:
+            defn[BRICK.hasQuantity] = parent_quantity
+
+        # Recursively apply to subclasses
+        subclassdef = defn.get("subclasses", {})
+        assert isinstance(subclassdef, dict)
+        inherit_has_quantity(subclassdef, defn.get(BRICK.hasQuantity, parent_quantity))
 
 
 def define_classes(definitions, parent, pun_classes=False, graph=G):
@@ -803,6 +820,14 @@ logging.info("Beginning BRICK Ontology compilation")
 # handle ontology definition
 define_ontology(G)
 
+logging.info("Inheriting annotations down the subclass trees")
+inherit_has_quantity(setpoint_definitions)
+inherit_has_quantity(sensor_definitions)
+inherit_has_quantity(alarm_definitions)
+inherit_has_quantity(status_definitions)
+inherit_has_quantity(command_definitions)
+inherit_has_quantity(parameter_definitions)
+
 # Declare root classes
 
 # we keep the definition of brick:Class, which was the root
@@ -817,7 +842,7 @@ roots = {
     "Equipment": {"tags": [TAG.Equipment]},
     "Location": {"tags": [TAG.Location]},
     "Point": {"tags": [TAG.Point]},
-    "Measurable": {},
+    "Measurable": {"tags": [TAG.Measurable]},
     "Collection": {"tags": [TAG.Collection]},
 }
 define_classes(roots, BRICK.Class)  # <= Brick v1.3.0
@@ -840,6 +865,7 @@ define_relationships(relationships)
 # add types to some external properties
 G.add((VCARD.hasAddress, A, OWL.ObjectProperty))
 G.add((VCARD.Address, A, OWL.Class))
+
 
 logging.info("Defining Point subclasses")
 # define Point subclasses
@@ -939,10 +965,8 @@ res = G.query(
 # "up" into the broader concepts.
 for r in res:
     brick_quant, qudt_quant = r
-    for (unit,) in get_units(qudt_quant):
+    for unit in get_units(qudt_quant):
         G.add((brick_quant, QUDT.applicableUnit, unit))
-for r in res:
-    brick_quant, qudt_quant = r
     # the symbols, units, and labels are already defined in the previous pass
     for unit, symb, label in get_units_brick(brick_quant):
         G.add((brick_quant, QUDT.applicableUnit, unit))
@@ -1052,14 +1076,13 @@ if os.path.exists("Brick+extensions.ttl"):
 # create new directory for storing imports
 os.makedirs("imports", exist_ok=True)
 env = ontoenv.OntoEnv(initialize=True)
-env.refresh()
 for name, uri in ontology_imports.items():
     depg, loc = env.resolve_uri(str(uri))
     depg.serialize(Path("imports") / f"{name}.ttl", format="ttl")
     G += depg  # add the imported graph to Brick so we can do validation
 
 # validate Brick
-valid, _, report = pyshacl.validate(data_graph=G, advanced=True, allow_warnings=True)
+valid, _, report = G.validate(engine="topquadrant")
 if not valid:
     print(report)
     sys.exit(1)

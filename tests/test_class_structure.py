@@ -17,7 +17,7 @@ def test_subclasses(brick_with_imports):
     BLDG = Namespace("https://brickschema.org/schema/ExampleBuilding#")
 
     g = brick_with_imports
-    g.expand("shacl")
+    g.expand("shacl", backend="topquadrant")
 
     g.bind("rdf", RDF)
     g.bind("owl", OWL)
