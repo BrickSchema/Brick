@@ -9,6 +9,14 @@ equipment_subclasses = {
     "ICT_Equipment": {
         "tags": [TAG.ICT, TAG.Equipment],
         "subclasses": {
+            "ICT_Hardware": {
+                "tags": [TAG.Equipment, TAG.ICT, TAG.Hardware],
+                "subclasses": {
+                    "Tablet": {
+                        "tags": [TAG.Equipment, TAG.ICT, TAG.Hardware, TAG.Tablet]
+                    },
+                },
+            },
             "Sensor_Equipment": {
                 "tags": [TAG.Sensor, TAG.Equipment, TAG.ICT],
             },
