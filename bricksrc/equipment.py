@@ -557,14 +557,98 @@ hvac_subclasses = {
                 "subclasses": {
                     "Chilled_Water_Pump": {
                         "tags": [TAG.Equipment, TAG.Pump, TAG.Chilled, TAG.Water],
+                        "subclasses": {
+                            "Chilled_Water_Circulator_Pump": {
+                                "tags": [
+                                    TAG.Equipment,
+                                    TAG.Pump,
+                                    TAG.Circulator,
+                                    TAG.Chilled,
+                                    TAG.Water,
+                                ],
+                                "parents": [BRICK.Circulator_Pump],
+                            },
+                            "Chilled_Water_Booster_Pump": {
+                                "tags": [
+                                    TAG.Equipment,
+                                    TAG.Pump,
+                                    TAG.Booster,
+                                    TAG.Chilled,
+                                    TAG.Water,
+                                ],
+                                "parents": [BRICK.Booster_Pump],
+                            },
+                        },
                     },
                     "Condenser_Water_Pump": {
                         "tags": [TAG.Equipment, TAG.Pump, TAG.Condenser, TAG.Water],
+                        "subclasses": {
+                            "Condenser_Water_Circulator_Pump": {
+                                "tags": [
+                                    TAG.Equipment,
+                                    TAG.Pump,
+                                    TAG.Circulator,
+                                    TAG.Condenser,
+                                    TAG.Water,
+                                ],
+                                "parents": [BRICK.Circulator_Pump],
+                            },
+                            "Condenser_Water_Booster_Pump": {
+                                "tags": [
+                                    TAG.Equipment,
+                                    TAG.Pump,
+                                    TAG.Booster,
+                                    TAG.Condenser,
+                                    TAG.Water,
+                                ],
+                                "parents": [BRICK.Booster_Pump],
+                            },
+                        },
                     },
                     "Hot_Water_Pump": {
                         "tags": [TAG.Equipment, TAG.Pump, TAG.Hot, TAG.Water],
+                        "subclasses": {
+                            "Hot_Water_Circulator_Pump": {
+                                "tags": [
+                                    TAG.Equipment,
+                                    TAG.Pump,
+                                    TAG.Circulator,
+                                    TAG.Hot,
+                                    TAG.Water,
+                                ],
+                                "parents": [BRICK.Circulator_Pump],
+                                "subclasses": {
+                                    "Domestic_Hot_Water_Circulator_Pump": {
+                                        "tags": [
+                                            TAG.Equipment,
+                                            TAG.Pump,
+                                            TAG.Circulator,
+                                            TAG.Hot,
+                                            TAG.Water,
+                                            TAG.Domestic,
+                                        ],
+                                    },
+                                },
+                            },
+                            "Hot_Water_Booster_Pump": {
+                                "tags": [
+                                    TAG.Equipment,
+                                    TAG.Pump,
+                                    TAG.Booster,
+                                    TAG.Hot,
+                                    TAG.Water,
+                                ],
+                                "parents": [BRICK.Booster_Pump],
+                            },
+                        },
                     },
                 },
+            },
+            "Circulator_Pump": {
+                "tags": [TAG.Equipment, TAG.Pump, TAG.Circulator],
+            },
+            "Booster_Pump": {
+                "tags": [TAG.Equipment, TAG.Pump, TAG.Booster],
             },
         },
     },
