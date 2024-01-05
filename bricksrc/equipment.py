@@ -669,18 +669,24 @@ hvac_subclasses = {
             "Ceiling_Fan": {"tags": [TAG.Equipment, TAG.Fan, TAG.Ceiling]},
             "Outside_Fan": {"tags": [TAG.Equipment, TAG.Fan, TAG.Outside]},
             "Relief_Fan": {"tags": [TAG.Equipment, TAG.Fan, TAG.Relief]},
+            "Pressurization_Fan": {
+                "tags": [TAG.Equipment, TAG.Fan, TAG.Pressurization],
+            },
         },
     },
     "Economizer": {"tags": [TAG.Equipment, TAG.Economizer]},
     "Damper": {
         "tags": [TAG.Equipment, TAG.Damper],
         "subclasses": {
+            "Bypass_Damper": {"tags": [TAG.Equipment, TAG.Damper, TAG.Bypass]},
             "Economizer_Damper": {"tags": [TAG.Equipment, TAG.Damper, TAG.Economizer]},
             "Exhaust_Damper": {"tags": [TAG.Equipment, TAG.Damper, TAG.Exhaust]},
+            "Isolation_Damper": {"tags": [TAG.Equipment, TAG.Damper, TAG.Isolation]},
             "Outside_Damper": {"tags": [TAG.Equipment, TAG.Damper, TAG.Outside]},
             "Return_Damper": {"tags": [TAG.Equipment, TAG.Damper, TAG.Return]},
             "Mixed_Damper": {"tags": [TAG.Equipment, TAG.Damper, TAG.Mixed]},
             "Relief_Damper": {"tags": [TAG.Equipment, TAG.Damper, TAG.Relief]},
+            "Zone_Damper": {"tags": [TAG.Equipment, TAG.Damper, TAG.Zone]},
         },
     },
     "Condenser": {"tags": [TAG.Equipment, TAG.Condenser]},
@@ -818,6 +824,9 @@ hvac_subclasses = {
                 },
             },
         },
+    },
+    "Wall_Air_Conditioner": {
+        "tags": [TAG.Equipment, TAG.Wall, TAG.Air, TAG.Conditioner]
     },
 }
 
