@@ -183,6 +183,6 @@ collection_classes = {
     "Electric_Vehicle_Charging_Hub": {
         "tags": [TAG.Collection, TAG.Electric, TAG.Vehicle, TAG.Charging, TAG.Hub],
         "aliases": [BRICK["EV_Charging_Hub"]],
-        "constraints": {BRICK.hasPart: [BRICK.Electric_Vehicle_Charger]},
+        "constraints": {BRICK.hasPart: [BRICK.Electric_Vehicle_Charging_Station]},
     },
 }

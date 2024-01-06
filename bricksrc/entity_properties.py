@@ -478,7 +478,7 @@ shape_properties = {
     BSH.ElectricalComplexPowerShape: {"values": ["real", "reactive", "apparent"]},
     BSH.ElectricalFlowShape: {"values": ["import", "export", "net", "absolute"]},
     BSH.PhasesShape: {"values": ["A", "B", "C", "AB", "BC", "AC", "ABC"]},
-    BSH.PhaseCountShape: {"values": ["1", "2", "3", "Total"]},
+    BSH.PhaseCountShape: {"values": [1, 2, 3, "Total"]},
     BSH.CurrentFlowTypeShape: {"values": ["AC", "DC"]},
     BSH.StageShape: {"values": [1, 2, 3, 4]},
     BSH.BuildingPrimaryFunctionShape: {"values": building_primary_function_values},
