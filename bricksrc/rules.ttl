@@ -39,6 +39,24 @@ WHERE {
   sh:targetClass brick:Entity ;
 .
 
+bsh:InferInverseProperties2
+  a sh:NodeShape ;
+  sh:rule [
+      a sh:SPARQLRule ;
+      sh:construct """
+            CONSTRUCT {
+$this ?p ?o .
+}
+WHERE {
+?o ?invP $this .
+?invP owl:inverseOf ?p .
+}
+			""" ;
+      sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
+    ] ;
+  sh:targetClass brick:Entity ;
+.
+
 bsh:InferSymmetricProperties
   a sh:NodeShape ;
   sh:rule [
