@@ -22,7 +22,7 @@ def test_evse_example_file_with_reasoning(brick_with_imports):
     g = brick_with_imports
     g.load_file("examples/evse/evse.ttl")
     env.import_dependencies(g)
-    g.expand("shacl")
+    g.expand("shacl", backend="topquadrant")
 
     # test that all Electric_Vehicle_Charging_Ports in the model
     # have a brick:electricVehicleChargerDirectionality property
