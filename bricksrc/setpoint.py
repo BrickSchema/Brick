@@ -835,10 +835,19 @@ setpoint_definitions = {
             "Pressure_Setpoint": {
                 BRICK.hasQuantity: BRICK.Pressure,
                 "subclasses": {
+                    "Air_Pressure_Setpoint": {
+                        "tags": [TAG.Setpoint, TAG.Pressure, TAG.Setpoint, TAG.Air],
+                        BRICK.hasQuantity: BRICK.Pressure,
+                    },
+                    "Water_Pressure_Setpoint": {
+                        "tags": [TAG.Setpoint, TAG.Pressure, TAG.Setpoint, TAG.Water],
+                        BRICK.hasQuantity: BRICK.Pressure,
+                    },
                     "Static_Pressure_Setpoint": {
                         BRICK.hasQuantity: BRICK.Static_Pressure,
                         "subclasses": {
                             "Building_Air_Static_Pressure_Setpoint": {
+                                "parents": [BRICK["Air_Pressure_Setpoint"]],
                                 BRICK.hasSubstance: BRICK.Building_Air,
                                 BRICK.hasQuantity: BRICK.Static_Pressure,
                                 "tags": [
@@ -857,6 +866,18 @@ setpoint_definitions = {
                                     TAG.Point,
                                     TAG.Chilled,
                                     TAG.Water,
+                                    TAG.Static,
+                                    TAG.Pressure,
+                                    TAG.Setpoint,
+                                ],
+                            },
+                            "Duct_Air_Static_Pressure_Setpoint": {
+                                BRICK.hasSubstance: BRICK.Air,
+                                BRICK.hasQuantity: BRICK.Static_Pressure,
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Duct,
+                                    TAG.Air,
                                     TAG.Static,
                                     TAG.Pressure,
                                     TAG.Setpoint,
@@ -2296,6 +2317,18 @@ setpoint_definitions = {
                                                 "tags": [
                                                     TAG.Point,
                                                     TAG.Medium,
+                                                    TAG.Temperature,
+                                                    TAG.Hot,
+                                                    TAG.Water,
+                                                    TAG.Differential,
+                                                    TAG.Pressure,
+                                                    TAG.Setpoint,
+                                                ],
+                                            },
+                                            "Domestic_Hot_Water_Differential_Pressure_Setpoint": {
+                                                "tags": [
+                                                    TAG.Point,
+                                                    TAG.Domestic,
                                                     TAG.Temperature,
                                                     TAG.Hot,
                                                     TAG.Water,
