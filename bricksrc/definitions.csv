@@ -111,7 +111,7 @@ https://brickschema.org/schema/Brick#Capacity_Sensor,,
 https://brickschema.org/schema/Brick#Ceiling_Fan,A fan installed on the ceiling of a room for the purpose of air circulation,
 https://brickschema.org/schema/Brick#Centrifugal_Chiller,A chiller that uses the vapor compression cycle to chill water. It throws off the heat collected from the chilled water plus the heat from the compressor to a water loop,https://bellomyims.com/your-definitive-guide-to-centrifugal-chillers/
 https://brickschema.org/schema/Brick#Change_Filter_Alarm,An alarm that indicates that a filter must be changed,
-https://brickschema.org/schema/Brick#Check_Valve,Valve that allows fluid to flow in only one direction, preventing reverse flow.
+https://brickschema.org/schema/Brick#Check_Valve,"Valve that allows fluid to flow in only one direction, preventing reverse flow."
 https://brickschema.org/schema/Brick#Chilled_Beam,"A device with an integrated coil that performs sensible heating of a space via circulation of room air. Chilled Beams are not designed to perform latent cooling; see Induction Units. Despite their name, Chilled Beams may perform heating or cooling of a space depending on their configuration.",
 https://brickschema.org/schema/Brick#Chilled_Water,water used as a cooling medium (particularly in air-conditioning systems or in processes) at below ambient temperature.,
 https://brickschema.org/schema/Brick#Chilled_Water_Booster_Pump,Used to increase the pressure and flow of chilled water in a system to ensure adequate supply where needed.,
