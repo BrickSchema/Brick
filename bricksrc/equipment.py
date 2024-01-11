@@ -576,14 +576,98 @@ hvac_subclasses = {
                 "subclasses": {
                     "Chilled_Water_Pump": {
                         "tags": [TAG.Equipment, TAG.Pump, TAG.Chilled, TAG.Water],
+                        "subclasses": {
+                            "Chilled_Water_Circulator_Pump": {
+                                "tags": [
+                                    TAG.Equipment,
+                                    TAG.Pump,
+                                    TAG.Circulator,
+                                    TAG.Chilled,
+                                    TAG.Water,
+                                ],
+                                "parents": [BRICK.Circulator_Pump],
+                            },
+                            "Chilled_Water_Booster_Pump": {
+                                "tags": [
+                                    TAG.Equipment,
+                                    TAG.Pump,
+                                    TAG.Booster,
+                                    TAG.Chilled,
+                                    TAG.Water,
+                                ],
+                                "parents": [BRICK.Booster_Pump],
+                            },
+                        },
                     },
                     "Condenser_Water_Pump": {
                         "tags": [TAG.Equipment, TAG.Pump, TAG.Condenser, TAG.Water],
+                        "subclasses": {
+                            "Condenser_Water_Circulator_Pump": {
+                                "tags": [
+                                    TAG.Equipment,
+                                    TAG.Pump,
+                                    TAG.Circulator,
+                                    TAG.Condenser,
+                                    TAG.Water,
+                                ],
+                                "parents": [BRICK.Circulator_Pump],
+                            },
+                            "Condenser_Water_Booster_Pump": {
+                                "tags": [
+                                    TAG.Equipment,
+                                    TAG.Pump,
+                                    TAG.Booster,
+                                    TAG.Condenser,
+                                    TAG.Water,
+                                ],
+                                "parents": [BRICK.Booster_Pump],
+                            },
+                        },
                     },
                     "Hot_Water_Pump": {
                         "tags": [TAG.Equipment, TAG.Pump, TAG.Hot, TAG.Water],
+                        "subclasses": {
+                            "Hot_Water_Circulator_Pump": {
+                                "tags": [
+                                    TAG.Equipment,
+                                    TAG.Pump,
+                                    TAG.Circulator,
+                                    TAG.Hot,
+                                    TAG.Water,
+                                ],
+                                "parents": [BRICK.Circulator_Pump],
+                                "subclasses": {
+                                    "Domestic_Hot_Water_Circulator_Pump": {
+                                        "tags": [
+                                            TAG.Equipment,
+                                            TAG.Pump,
+                                            TAG.Circulator,
+                                            TAG.Hot,
+                                            TAG.Water,
+                                            TAG.Domestic,
+                                        ],
+                                    },
+                                },
+                            },
+                            "Hot_Water_Booster_Pump": {
+                                "tags": [
+                                    TAG.Equipment,
+                                    TAG.Pump,
+                                    TAG.Booster,
+                                    TAG.Hot,
+                                    TAG.Water,
+                                ],
+                                "parents": [BRICK.Booster_Pump],
+                            },
+                        },
                     },
                 },
+            },
+            "Circulator_Pump": {
+                "tags": [TAG.Equipment, TAG.Pump, TAG.Circulator],
+            },
+            "Booster_Pump": {
+                "tags": [TAG.Equipment, TAG.Pump, TAG.Booster],
             },
         },
     },
@@ -688,18 +772,24 @@ hvac_subclasses = {
             "Ceiling_Fan": {"tags": [TAG.Equipment, TAG.Fan, TAG.Ceiling]},
             "Outside_Fan": {"tags": [TAG.Equipment, TAG.Fan, TAG.Outside]},
             "Relief_Fan": {"tags": [TAG.Equipment, TAG.Fan, TAG.Relief]},
+            "Pressurization_Fan": {
+                "tags": [TAG.Equipment, TAG.Fan, TAG.Pressurization],
+            },
         },
     },
     "Economizer": {"tags": [TAG.Equipment, TAG.Economizer]},
     "Damper": {
         "tags": [TAG.Equipment, TAG.Damper],
         "subclasses": {
+            "Bypass_Damper": {"tags": [TAG.Equipment, TAG.Damper, TAG.Bypass]},
             "Economizer_Damper": {"tags": [TAG.Equipment, TAG.Damper, TAG.Economizer]},
             "Exhaust_Damper": {"tags": [TAG.Equipment, TAG.Damper, TAG.Exhaust]},
+            "Isolation_Damper": {"tags": [TAG.Equipment, TAG.Damper, TAG.Isolation]},
             "Outside_Damper": {"tags": [TAG.Equipment, TAG.Damper, TAG.Outside]},
             "Return_Damper": {"tags": [TAG.Equipment, TAG.Damper, TAG.Return]},
             "Mixed_Damper": {"tags": [TAG.Equipment, TAG.Damper, TAG.Mixed]},
             "Relief_Damper": {"tags": [TAG.Equipment, TAG.Damper, TAG.Relief]},
+            "Zone_Damper": {"tags": [TAG.Equipment, TAG.Damper, TAG.Zone]},
         },
     },
     "Condenser": {"tags": [TAG.Equipment, TAG.Condenser]},
@@ -837,6 +927,9 @@ hvac_subclasses = {
                 },
             },
         },
+    },
+    "Wall_Air_Conditioner": {
+        "tags": [TAG.Equipment, TAG.Wall, TAG.Air, TAG.Conditioner]
     },
 }
 
