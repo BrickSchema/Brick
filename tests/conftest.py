@@ -32,8 +32,8 @@ def pytest_configure(config):
 
 @pytest.fixture()
 def brick_with_imports():
-    env = ontoenv.OntoEnv()
-    g = brickschema.graph.Graph()
+    env = ontoenv.OntoEnv(initialize=True)
+    g = brickschema.Graph()
     g.load_file("Brick.ttl")
     g.bind("qudt", QUDT)
     g.bind("rdf", RDF)

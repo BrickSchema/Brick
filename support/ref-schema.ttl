@@ -122,6 +122,8 @@ bacnet:objectOf a owl:ObjectProperty ;
     dcterms:title "Ref Schema" ;
     sh:declare [ sh:namespace "http://www.w3.org/2000/01/rdf-schema#"^^xsd:anyURI ;
             sh:prefix "rdfs" ],
+        [ sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+            sh:prefix "rdf" ],
         [ sh:namespace "https://brickschema.org/schema/Brick/ref#"^^xsd:anyURI ;
             sh:prefix "ref" ],
         [ sh:namespace "http://www.w3.org/ns/shacl#"^^xsd:anyURI ;
@@ -259,4 +261,3 @@ ref:hasExternalReference a owl:ObjectProperty ;
     rdfs:label "hasExternalReference" ;
     rdfs:subPropertyOf s223:hasExternalReference ;
     skos:definition "Points to the external reference for this entity, which contains additional metadata/data not included in this graph." .
-
