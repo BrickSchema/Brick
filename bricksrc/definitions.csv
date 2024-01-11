@@ -27,7 +27,7 @@ https://brickschema.org/schema/Brick#Air_Plenum,A component of the HVAC the rece
 https://brickschema.org/schema/Brick#Air_Pressure_Sensor,Measures the pressure of the surrounding air.
 https://brickschema.org/schema/Brick#Air_Quality,,
 https://brickschema.org/schema/Brick#Air_Quality_Sensor,A sensor which provides a measure of air quality,
-https://brickschema.org/schema/Brick#Air_Static_Pressure_Sensor,Measures the pressure exerted by the air in a system, not influenced by its motion.
+https://brickschema.org/schema/Brick#Air_Static_Pressure_Sensor,"Measures the pressure exerted by the air in a system, not influenced by its motion."
 https://brickschema.org/schema/Brick#Air_Static_Pressure_Step_Parameter,,
 https://brickschema.org/schema/Brick#Air_System,"The equipment, distribution systems and terminals that introduce or exhaust, either collectively or individually, the air into and from the building",
 https://brickschema.org/schema/Brick#Air_Temperature_Alarm,An alarm that indicates the off-normal conditions associated with the temperature of air.,
