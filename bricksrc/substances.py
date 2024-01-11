@@ -1,4 +1,4 @@
-from .namespaces import BRICK, OWL, SKOS
+from .namespaces import BRICK, OWL, SKOS, TAG
 
 # Defining substances
 substances = {
