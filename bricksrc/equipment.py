@@ -814,6 +814,50 @@ hvac_subclasses = {
             "Return_Damper": {"tags": [TAG.Equipment, TAG.Damper, TAG.Return]},
             "Mixed_Damper": {"tags": [TAG.Equipment, TAG.Damper, TAG.Mixed]},
             "Relief_Damper": {"tags": [TAG.Equipment, TAG.Damper, TAG.Relief]},
+            "Smoke_Damper": {
+                "tags": [TAG.Equipment, TAG.Damper, TAG.Smoke],
+                "parents": [BRICK.Fire_Safety_Equipment],
+            },
+            "Fire_Damper": {
+                "tags": [TAG.Equipment, TAG.Damper, TAG.Fire],
+                "parents": [BRICK.Fire_Safety_Equipment],
+            },
+            "Fire_Smoke_Damper": {
+                "tags": [
+                    TAG.Equipment,
+                    TAG.Damper,
+                    TAG.Combination,
+                    TAG.Fire,
+                    TAG.Smoke,
+                ],
+                "parents": [
+                    BRICK.Fire_Damper,
+                    BRICK.Smoke_Damper,
+                    BRICK.Fire_Safety_Equipment,
+                ],
+                "subclasses": {
+                    "Corridor_Fire_Smoke_Damper": {
+                        "tags": [
+                            TAG.Equipment,
+                            TAG.Damper,
+                            TAG.Combination,
+                            TAG.Fire,
+                            TAG.Smoke,
+                            TAG.Corridor,
+                        ]
+                    },
+                },
+            },
+            "Ceiling_Damper": {
+                "tags": [
+                    TAG.Equipment,
+                    TAG.Damper,
+                    TAG.Heat,
+                    TAG.Barrier,
+                    TAG.Ceiling,
+                ],
+                "parents": [BRICK.Fire_Safety_Equipment],
+            },
             "Zone_Damper": {"tags": [TAG.Equipment, TAG.Damper, TAG.Zone]},
             "Smoke_Damper": {
                 "tags": [TAG.Equipment, TAG.Damper, TAG.Smoke],
