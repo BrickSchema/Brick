@@ -45,7 +45,7 @@ ontology_definition = {
         "owl": OWL,
         "sh": SH,
         "demo": DEMO,
-    }
+    },
 }
 
 # optional

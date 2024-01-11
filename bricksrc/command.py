@@ -36,7 +36,6 @@ command_definitions = {
             },
             "Humidify_Command": {
                 "tags": [TAG.Point, TAG.Humidify, TAG.Command],
-                BRICK.hasQuantity: BRICK.Humidity,
             },
             "Position_Command": {
                 "tags": [TAG.Point, TAG.Position, TAG.Command],

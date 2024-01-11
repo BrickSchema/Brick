@@ -1,6 +1,16 @@
 from .namespaces import BRICK, RDFS, SKOS, A
 
 deprecations = {
+    BRICK.Heat_Sensor: {
+        "version": "1.4.0",
+        "mitigation_message": "This class has a poor definition is supplanted by Temperature_Sensor",
+        "replace_with": BRICK.Temperature_Sensor,
+    },
+    BRICK.Trace_Heat_Sensor: {
+        "version": "1.4.0",
+        "mitigation_message": "Removed due to unclear definition",
+        "replace_with": BRICK.Sensor,
+    },
     BRICK.Solar_Radiance_Sensor: {
         "version": "1.3.0",
         "mitigation_message": "The class 'Solar_Radiance_Sensor' is deprecated in favor of 'Solar_Irradiance_Sensor'. The new name better reflects the standard unit of measurement, watts per square meter (W/m²), and aligns with the terminology commonly used in solar applications.",
@@ -8,28 +18,28 @@ deprecations = {
         RDFS.subClassOf: BRICK.Sensor,
     },
     BRICK.Occupied_Air_Temperature_Cooling_Setpoint: {
-            "version": "1.3.0",
-            "mitigation_message": "'Occupied_Air_Temperature_Cooling_Setpoint' is deprecated in favor of further specifying that it is a zone air setpoint.",
-            "replace_with": BRICK.Occupied_Cooling_Zone_Air_Temperature_Setpoint,
-            RDFS.subClassOf: BRICK.Occupied_Air_Temperature_Setpoint,
+        "version": "1.3.0",
+        "mitigation_message": "'Occupied_Air_Temperature_Cooling_Setpoint' is deprecated in favor of further specifying that it is a zone air setpoint.",
+        "replace_with": BRICK.Occupied_Cooling_Zone_Air_Temperature_Setpoint,
+        RDFS.subClassOf: BRICK.Occupied_Air_Temperature_Setpoint,
     },
     BRICK.Occupied_Air_Temperature_Heating_Setpoint: {
-            "version": "1.3.0",
-            "mitigation_message": "'Occupied_Air_Temperature_Heating_Setpoint' is deprecated in favor of further specifying that it is a zone air setpoint.",
-            "replace_with": BRICK.Occupied_Heating_Zone_Air_Temperature_Setpoint,
-            RDFS.subClassOf: BRICK.Occupied_Air_Temperature_Setpoint,
+        "version": "1.3.0",
+        "mitigation_message": "'Occupied_Air_Temperature_Heating_Setpoint' is deprecated in favor of further specifying that it is a zone air setpoint.",
+        "replace_with": BRICK.Occupied_Heating_Zone_Air_Temperature_Setpoint,
+        RDFS.subClassOf: BRICK.Occupied_Air_Temperature_Setpoint,
     },
     BRICK.Unoccupied_Air_Temperature_Cooling_Setpoint: {
-            "version": "1.3.0",
-            "mitigation_message": "'Unoccupied_Air_Temperature_Cooling_Setpoint' is deprecated in favor of further specifying that it is a zone air setpoint.",
-            "replace_with": BRICK.Unoccupied_Cooling_Zone_Air_Temperature_Setpoint,
-            RDFS.subClassOf: BRICK.Unoccupied_Air_Temperature_Setpoint,
+        "version": "1.3.0",
+        "mitigation_message": "'Unoccupied_Air_Temperature_Cooling_Setpoint' is deprecated in favor of further specifying that it is a zone air setpoint.",
+        "replace_with": BRICK.Unoccupied_Cooling_Zone_Air_Temperature_Setpoint,
+        RDFS.subClassOf: BRICK.Unoccupied_Air_Temperature_Setpoint,
     },
     BRICK.Unoccupied_Air_Temperature_Heating_Setpoint: {
-            "version": "1.3.0",
-            "mitigation_message": "'Unoccupied_Air_Temperature_Heating_Setpoint' is deprecated in favor of further specifying that it is a zone air setpoint.",
-            "replace_with": BRICK.Unoccupied_Heating_Zone_Air_Temperature_Setpoint,
-            RDFS.subClassOf: BRICK.Unoccupied_Air_Temperature_Setpoint,
+        "version": "1.3.0",
+        "mitigation_message": "'Unoccupied_Air_Temperature_Heating_Setpoint' is deprecated in favor of further specifying that it is a zone air setpoint.",
+        "replace_with": BRICK.Unoccupied_Heating_Zone_Air_Temperature_Setpoint,
+        RDFS.subClassOf: BRICK.Unoccupied_Air_Temperature_Setpoint,
     },
     BRICK.Effective_Air_Temperature_Cooling_Setpoint: {
         "version": "1.3.0",

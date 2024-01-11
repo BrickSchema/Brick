@@ -3,7 +3,7 @@ Entity property definitions
 """
 from collections import defaultdict
 from rdflib import Literal
-from .namespaces import BRICK, RDFS, SKOS, UNIT, XSD, SH, BSH, REF
+from .namespaces import BRICK, RDFS, SKOS, UNIT, XSD, SH, BSH, REF, QUDTQK
 
 # these are the "relationship"/predicates/OWL properties that
 # relate a Brick entity to a structured value.
@@ -461,7 +461,7 @@ shape_properties = {
             BRICK.longitude: {"datatype": BSH.NumericValue},
         },
     },
-    BSH.TiltShape: {"unitsFromQuantity": BRICK.Angle, "datatype": BSH.NumericValue},
+    BSH.TiltShape: {"unitsFromQuantity": QUDTQK.Angle, "datatype": BSH.NumericValue},
     BSH.TemperatureShape: {
         "unitsFromQuantity": BRICK.Temperature,
         "datatype": BSH.NumericValue,
@@ -471,7 +471,7 @@ shape_properties = {
         "datatype": BSH.NumericValue,
     },
     BSH.AzimuthShape: {
-        "unitsFromQuantity": BRICK.Angle,
+        "unitsFromQuantity": QUDTQK.Angle,
         "datatype": BSH.NumericValue,
         "rotationalDirection": {"values": ["clockwise", "counterclockwise"]},
         "referenceDirection": {"values": ["North", "South", "East", "West"]},
