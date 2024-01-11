@@ -39,6 +39,24 @@ WHERE {
   sh:targetClass brick:Entity ;
 .
 
+bsh:InferInverseProperties2
+  a sh:NodeShape ;
+  sh:rule [
+      a sh:SPARQLRule ;
+      sh:construct """
+            CONSTRUCT {
+$this ?p ?o .
+}
+WHERE {
+?o ?invP $this .
+?invP owl:inverseOf ?p .
+}
+			""" ;
+      sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
+    ] ;
+  sh:targetClass brick:Entity ;
+.
+
 bsh:InferSymmetricProperties
   a sh:NodeShape ;
   sh:rule [
@@ -423,4 +441,53 @@ bsh:hasQuantity a sh:NodeShape ;
 bsh:hasSubstance a sh:NodeShape ;
     sh:targetObjectsOf brick:hasSubstance ;
     sh:class brick:Substance ;
+.
+
+
+# add unidirectional charging to all EVsE chargers as a default value
+# UNLESS there is already a brick:electricVehicleChargerDirectionality attribute
+# on ports associated with the charger
+bsh:AddDefaultEVSEChargerDirection a sh:NodeShape ;
+    sh:targetClass brick:Electric_Vehicle_Charging_Station ;
+    sh:rule [
+        a sh:SPARQLRule ;
+        sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
+        sh:construct """
+        CONSTRUCT {
+            $this brick:electricVehicleChargerDirectionality [ brick:value "unidirectional" ]
+        } WHERE {
+            $this rdf:type brick:Electric_Vehicle_Charging_Station .
+            FILTER NOT EXISTS {
+                $this brick:electricVehicleChargerDirectionality ?direction .
+            }
+            FILTER NOT EXISTS {
+                $this brick:hasPart ?port .
+                ?port a brick:Electric_Vehicle_Charging_Port .
+                ?port brick:electricVehicleChargerDirectionality ?other_direction .
+            }
+        }
+        """ ;
+    ] ;
+.
+
+# inherit the directionality of the EVSE charger to the ports
+bsh:InheritEVSEChargerDirection a sh:NodeShape ;
+    sh:targetClass brick:Electric_Vehicle_Charging_Port ;
+    sh:rule [
+        a sh:SPARQLRule ;
+        sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
+        sh:construct """
+        CONSTRUCT {
+            $this brick:electricVehicleChargerDirectionality ?direction
+        } WHERE {
+            $this rdf:type brick:Electric_Vehicle_Charging_Port .
+            $this brick:isPartOf ?charger .
+            ?charger a brick:Electric_Vehicle_Charging_Station .
+            ?charger brick:electricVehicleChargerDirectionality ?direction .
+            FILTER NOT EXISTS {
+                $this brick:electricVehicleChargerDirectionality ?other_direction .
+            }
+        }
+        """ ;
+    ] ;
 .
