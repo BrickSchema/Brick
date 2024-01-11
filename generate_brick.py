@@ -1,3 +1,4 @@
+import logging
 import os
 import brickschema
 import importlib
@@ -6,7 +7,6 @@ import sys
 import csv
 import glob
 import ontoenv
-import logging
 import pyshacl
 from rdflib import Graph, Literal, BNode, URIRef
 from rdflib.namespace import XSD
@@ -58,11 +58,15 @@ from bricksrc.quantities import quantity_definitions, get_units
 from bricksrc.entity_properties import entity_properties, get_shapes
 from bricksrc.deprecations import deprecations
 
+
 logging.basicConfig(
     format="%(asctime)s,%(msecs)d %(levelname)-8s [%(filename)s:%(lineno)d] %(message)s",
     datefmt="%Y-%m-%d:%H:%M:%S",
     level=logging.INFO,
 )
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
+
 
 G = brickschema.Graph()
 bind_prefixes(G)
@@ -552,19 +556,19 @@ def define_shape_properties(definitions, graph=G):
             graph.add((brick_value_shape, SH["in"], enumeration))
             graph.add((brick_value_shape, SH.minCount, Literal(1)))
             vals = defn.pop("values")
-            if isinstance(vals[0], str):
+            if all(map(lambda v: isinstance(v, str), vals)):
                 Collection(
                     graph,
                     enumeration,
                     map(lambda x: Literal(x, datatype=XSD.string), vals),
                 )
-            elif isinstance(vals[0], int):
+            if all(map(lambda v: isinstance(v, int), vals)):
                 Collection(
                     graph,
                     enumeration,
                     map(lambda x: Literal(x, datatype=XSD.integer), vals),
                 )
-            elif isinstance(vals[0], float):
+            if all(map(lambda v: isinstance(v, float), vals)):
                 Collection(
                     graph,
                     enumeration,
@@ -752,7 +756,7 @@ def add_definitions(graph=G):
             # Setpoint names are not explicit in class's names. Thus needs
             # to be explicily added for the definition text.
             setpoint = setpoint + "_Setpoint"
-            logging.info(f"Inferred setpoint: {setpoint}")
+            logger.info(f"Inferred setpoint: {setpoint}")
         limit_def = limit_def_template.format(direction=direction, setpoint=setpoint)
         if param != BRICK.Limit:  # definition already exists for Limit
             graph.add((param, SKOS.definition, Literal(limit_def, lang="en")))
@@ -816,11 +820,11 @@ def handle_deprecations():
         G.add((deprecated_term, BRICK.isReplacedBy, md["replace_with"]))
 
 
-logging.info("Beginning BRICK Ontology compilation")
+logger.info("Beginning BRICK Ontology compilation")
 # handle ontology definition
 define_ontology(G)
 
-logging.info("Inheriting annotations down the subclass trees")
+logger.info("Inheriting annotations down the subclass trees")
 inherit_has_quantity(setpoint_definitions)
 inherit_has_quantity(sensor_definitions)
 inherit_has_quantity(alarm_definitions)
@@ -848,7 +852,7 @@ roots = {
 define_classes(roots, BRICK.Class)  # <= Brick v1.3.0
 define_classes(roots, BRICK.Entity)  # >= Brick v1.3.0
 
-logging.info("Defining properties")
+logger.info("Defining properties")
 # define BRICK properties
 G.add((BRICK.Relationship, A, OWL.ObjectProperty))
 G.add((BRICK.Relationship, RDFS.label, Literal("Relationship")))
@@ -867,7 +871,7 @@ G.add((VCARD.hasAddress, A, OWL.ObjectProperty))
 G.add((VCARD.Address, A, OWL.Class))
 
 
-logging.info("Defining Point subclasses")
+logger.info("Defining Point subclasses")
 # define Point subclasses
 define_classes(setpoint_definitions, BRICK.Point)
 define_classes(sensor_definitions, BRICK.Point)
@@ -882,7 +886,7 @@ for pc in pointclasses:
     for o in filter(lambda x: x != pc, pointclasses):
         G.add((BRICK[pc], OWL.disjointWith, BRICK[o]))
 
-logging.info("Defining Equipment, System and Location subclasses")
+logger.info("Defining Equipment, System and Location subclasses")
 # define other root class structures
 define_classes(location_subclasses, BRICK.Location)
 define_classes(equipment_subclasses, BRICK.Equipment)
@@ -893,7 +897,7 @@ define_classes(valve_subclasses, BRICK.Equipment)
 define_classes(security_subclasses, BRICK.Security_Equipment)
 define_classes(safety_subclasses, BRICK.Safety_Equipment)
 
-logging.info("Defining Measurable hierarchy")
+logger.info("Defining Measurable hierarchy")
 # define measurable hierarchy
 G.add((BRICK.Measurable, RDFS.subClassOf, BRICK.Entity))
 # set up Quantity definition
@@ -958,6 +962,7 @@ res = G.query(
                 }"""
 )
 
+logger.info("Adding applicable units")
 # this requires two passes to associate the applicable units with
 # each of the quantities. The first pass associates Brick quantities
 # with QUDT units via the "hasQUDTReference" property; the second pass
@@ -979,6 +984,7 @@ for r in res:
 #        G.add((unit, RDFS.label, label))
 
 
+logger.info("Defining entity properties")
 # entity property definitions (must happen after units are defined)
 G.add((BRICK.value, SKOS.definition, Literal("The basic value of an entity property")))
 G.add((BRICK.EntityProperty, RDFS.subClassOf, OWL.ObjectProperty))
@@ -990,14 +996,16 @@ define_shape_properties(get_shapes(G))
 
 G.remove((BRICK.value, A, OWL.ObjectProperty))
 
+logger.info("Adding deprecations")
 # handle class deprecations
 handle_deprecations()
 # handle non-class deprecations
 G.parse("bricksrc/deprecations.ttl")
 
-logging.info("Adding class definitions")
+logger.info("Adding class definitions")
 add_definitions()
 
+logger.info("Adding other .ttl files")
 # add all TTL files in bricksrc
 for ttlfile in glob.glob("bricksrc/*.ttl"):
     G.parse(ttlfile, format="turtle")
@@ -1008,6 +1016,7 @@ ref_schema_uri = URIRef(REF.strip("#"))
 for triple in G.cbd(ref_schema_uri):
     G.remove(triple)
 
+logger.info("Cleaning up ontology prefixes")
 # remove duplicate ontology definitions and
 # move prefixes onto Brick ontology definition
 for ontology, pfx in G.subject_objects(predicate=SH.declare):
@@ -1052,7 +1061,7 @@ for filename in sys.argv[1:]:
     extension_graph.serialize(dest, format="ttl")
 
 
-logging.info(f"Brick ontology compilation finished! Generated {len(G)} triples")
+logger.info(f"Brick ontology compilation finished! Generated {len(G)} triples")
 
 extension_graphs = {"shacl_tag_inference": shaclGraph}
 
@@ -1064,6 +1073,10 @@ for name, graph in extension_graphs.items():
         fp.write(graph.serialize(format="turtle").rstrip())
         fp.write("\n")
 
+# add inferred information to Brick
+# logger.info("Adding inferred information to Brick")
+# G.expand('shacl', backend='topquadrant')
+
 # serialize Brick to output
 with open("Brick.ttl", "w", encoding="utf-8") as fp:
     fp.write(G.serialize(format="turtle").rstrip())
@@ -1072,6 +1085,7 @@ with open("Brick.ttl", "w", encoding="utf-8") as fp:
 # remove extensions file before computing imports
 if os.path.exists("Brick+extensions.ttl"):
     os.remove("Brick+extensions.ttl")
+
 
 # create new directory for storing imports
 os.makedirs("imports", exist_ok=True)
@@ -1088,7 +1102,7 @@ if not valid:
     sys.exit(1)
 
 # validate Brick
-#valid, _, report = pyshacl.validate(data_graph=G, advanced=True, allow_warnings=True)
-#if not valid:
+# valid, _, report = pyshacl.validate(data_graph=G, advanced=True, allow_warnings=True)
+# if not valid:
 #    print(report)
 #    sys.exit(1)

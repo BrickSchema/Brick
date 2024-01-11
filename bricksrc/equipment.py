@@ -45,6 +45,25 @@ equipment_subclasses = {
     "Electrical_Equipment": {
         "tags": [TAG.Electrical, TAG.Equipment],
         "subclasses": {
+            "Electric_Vehicle_Charging_Station": {
+                "tags": [
+                    TAG.Electric,
+                    TAG.Vehicle,
+                    TAG.Charging,
+                    TAG.Station,
+                    TAG.Equipment,
+                ],
+                "constraints": {BRICK.hasPart: [BRICK.Electric_Vehicle_Charging_Port]},
+            },
+            "Electric_Vehicle_Charging_Port": {
+                "tags": [
+                    TAG.Electric,
+                    TAG.Vehicle,
+                    TAG.Charging,
+                    TAG.Port,
+                    TAG.Equipment,
+                ],
+            },
             "Energy_Storage": {
                 "tags": [TAG.Energy, TAG.Storage, TAG.Equipment],
                 "subclasses": {
