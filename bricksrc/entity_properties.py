@@ -3,7 +3,7 @@ Entity property definitions
 """
 from collections import defaultdict
 from rdflib import Literal
-from .namespaces import BRICK, RDFS, SKOS, UNIT, XSD, SH, BSH, REF
+from .namespaces import BRICK, RDFS, SKOS, UNIT, XSD, SH, BSH, REF, QUDTQK
 
 # these are the "relationship"/predicates/OWL properties that
 # relate a Brick entity to a structured value.
@@ -347,6 +347,33 @@ entity_properties = {
         SH.node: BSH.VirtualMeterShape,
         RDFS.label: Literal("is virtual meter"),
     },
+    BRICK.electricVehicleChargerType: {
+        SKOS.definition: Literal(
+            "Which type of EVSE charger this is, e.g. Level 1 (up to up to 2.5kW of AC power on 1 phase 120V input), Level 2 (direct AC power but can use higher voltage and up to 3 phases), or Level 3 (direct DC power)"
+        ),
+        "property_of": BRICK.Electric_Vehicle_Charging_Station,
+        RDFS.label: Literal("has electric vehicle charger type"),
+        SH.node: BSH.ElectricVehicleChargingTypeShape,
+    },
+    BRICK.electricVehicleChargerDirectionality: {
+        SKOS.definition: Literal(
+            "Indicates if the EVSE charger supports bidirectional charging or just unidirectional charging of the EV battery"
+        ),
+        "property_of": [
+            BRICK.Electric_Vehicle_Charging_Station,
+            BRICK.Electric_Vehicle_Charging_Port,
+        ],
+        RDFS.label: Literal("has electric vehicle charger directionality"),
+        SH.node: BSH.ElectricVehicleChargingDirectionalityShape,
+    },
+    BRICK.electricVehicleConnectorType: {
+        SKOS.definition: Literal(
+            "Identifies which kind of connector the port has. This property helps identify the physical connection required between the vehicle and the charging equipment."
+        ),
+        "property_of": BRICK.Electric_Vehicle_Charging_Port,
+        RDFS.label: Literal("has electric vehicle connector type"),
+        SH.node: BSH.ElectricVehicleConnectorTypeShape,
+    },
 }
 
 building_primary_function_values = [
@@ -451,7 +478,7 @@ shape_properties = {
     BSH.ElectricalComplexPowerShape: {"values": ["real", "reactive", "apparent"]},
     BSH.ElectricalFlowShape: {"values": ["import", "export", "net", "absolute"]},
     BSH.PhasesShape: {"values": ["A", "B", "C", "AB", "BC", "AC", "ABC"]},
-    BSH.PhaseCountShape: {"values": ["1", "2", "3", "Total"]},
+    BSH.PhaseCountShape: {"values": [1, 2, 3, "Total"]},
     BSH.CurrentFlowTypeShape: {"values": ["AC", "DC"]},
     BSH.StageShape: {"values": [1, 2, 3, 4]},
     BSH.BuildingPrimaryFunctionShape: {"values": building_primary_function_values},
@@ -461,7 +488,7 @@ shape_properties = {
             BRICK.longitude: {"datatype": BSH.NumericValue},
         },
     },
-    BSH.TiltShape: {"unitsFromQuantity": BRICK.Angle, "datatype": BSH.NumericValue},
+    BSH.TiltShape: {"unitsFromQuantity": QUDTQK.Angle, "datatype": BSH.NumericValue},
     BSH.TemperatureShape: {
         "unitsFromQuantity": BRICK.Temperature,
         "datatype": BSH.NumericValue,
@@ -471,7 +498,7 @@ shape_properties = {
         "datatype": BSH.NumericValue,
     },
     BSH.AzimuthShape: {
-        "unitsFromQuantity": BRICK.Angle,
+        "unitsFromQuantity": QUDTQK.Angle,
         "datatype": BSH.NumericValue,
         "rotationalDirection": {"values": ["clockwise", "counterclockwise"]},
         "referenceDirection": {"values": ["North", "South", "East", "West"]},
@@ -532,6 +559,25 @@ shape_properties = {
                 "optional": True,
             },
         },
+    },
+    BRICK.ElectricVehicleChargingTypeShape: {
+        "values": ["Level 1", "Level 2", "Level 3"]
+    },
+    BRICK.ElectricVehicleChargingDirectionalityShape: {
+        "values": ["unidirectional", "bidirectional"]
+    },
+    BRICK.ElectricVehicleConnectorTypeShape: {
+        "values": [
+            "Type 1 (CSS)",
+            "Type 2 (CSS)",
+            "GB/T",
+            "Type 1 (SAE J1772)",
+            "Type 2 (IEC 62196)",
+            "CHAdeMO",
+            "CCS (Combined Charging System)",
+            "Tesla Supercharger",
+            "Wireless",
+        ]
     },
 }
 
