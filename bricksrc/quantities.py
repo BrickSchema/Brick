@@ -43,7 +43,7 @@ def all_units():
 Each is a qudt:QuantityKind
 """
 quantity_definitions = {
-    "Correlated_Color_Temperature": {  # NOTE: Should we duplicate this outside QUDT?
+    "CorrelatedColorTemperature": {  # NOTE: Should we duplicate this outside QUDT?
         QUDT.applicableUnit: [UNIT.K],
         QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M0H1T0D0"],
         SKOS.definition: Literal(
