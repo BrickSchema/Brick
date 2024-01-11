@@ -10,8 +10,7 @@ def test_example_file_with_reasoning(brick_with_imports, filename):
     g = brick_with_imports
     g.load_file(filename)
     env.import_dependencies(g)
-    # g.expand("shacl", backend="topquadrant")
-    # g.serialize("/tmp/res.ttl")
+    g.expand("shacl", backend="topquadrant")
 
     valid, _, report = g.validate(engine="topquadrant")
     assert valid, report
@@ -33,5 +32,5 @@ def test_evse_example_file_with_reasoning(brick_with_imports):
             ?evcp brick:electricVehicleChargerDirectionality ?dir .
         }
     }"""
-    res = g.query(q)
+    res = list(g.query(q))
     assert len(res) == 0, "All EVCPs must have a directionality property"

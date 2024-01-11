@@ -1073,6 +1073,10 @@ for name, graph in extension_graphs.items():
         fp.write(graph.serialize(format="turtle").rstrip())
         fp.write("\n")
 
+# add inferred information to Brick
+# logger.info("Adding inferred information to Brick")
+# G.expand('shacl', backend='topquadrant')
+
 # serialize Brick to output
 with open("Brick.ttl", "w", encoding="utf-8") as fp:
     fp.write(G.serialize(format="turtle").rstrip())
