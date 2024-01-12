@@ -6,7 +6,7 @@ https://brickschema.org/schema/Brick#Absorption_Chiller,"A chiller that utilizes
 https://brickschema.org/schema/Brick#Acceleration_Time,,
 https://brickschema.org/schema/Brick#Acceleration_Time_Setpoint,,
 https://brickschema.org/schema/Brick#Active_Chilled_Beam,A Chilled Beam with an integral primary air connection that induces air flow through the device.,
-https://brickschema.org/schema/Brick#Active_Power,"(Active Power) is, under periodic conditions, the mean value, taken over one period (T), of the instantaneous power (p). In complex notation, (P = Re \; S), where (S) is (complex power)"".",
+https://brickschema.org/schema/Brick#Active_Power,"(Active Power) is, under periodic conditions, the mean value, taken over one period (T), of the instantaneous power (p). In complex notation, (P = Re \; S), where (S) is (complex power).",
 https://brickschema.org/schema/Brick#Active_Power_Sensor,"Measures the portion of power that, averaged over a complete cycle of the AC waveform, results in net transfer of energy in one direction","https://en.wikipedia.org/wiki/AC_power#Active,_reactive,_and_apparent_power"
 https://brickschema.org/schema/Brick#Adjust_Sensor,Measures user-provided adjustment of some value,
 https://brickschema.org/schema/Brick#Air,"the invisible gaseous substance surrounding the earth, a mixture mainly of oxygen and nitrogen.",
@@ -496,7 +496,7 @@ https://brickschema.org/schema/Brick#Heat_Exchanger,A heat exchanger is a piece 
 https://brickschema.org/schema/Brick#Heat_Exchanger_System_Enable_Status,Indicates if the heat exchanger system has been enabled,
 https://brickschema.org/schema/Brick#Heat_Pump,"A device that transfers heat energy to or from a space, providing heating or cooling",
 https://brickschema.org/schema/Brick#Heat_Pump_Condensing_Unit,"An outdoor HVAC unit that functions in both heating and cooling modes. It includes a reversing valve along with a condenser coil and compressor, enabling the switch between cooling and heating by reversing refrigerant flow.",
-https://brickschema.org/schema/Brick#Heat_Recovery_Condensing_Unit," ""An advanced outdoor HVAC unit equipped for both heating and cooling", with the added capability of heat recovery. It efficiently recycles heat from the cooling process for heating purposes, featuring components like a condenser coil, compressor," and heat recovery systems.""",
+https://brickschema.org/schema/Brick#Heat_Recovery_Condensing_Unit,An advanced outdoor HVAC unit equipped for both heating and cooling, with the added capability of heat recovery. It efficiently recycles heat from the cooling process for heating purposes, featuring components like a condenser coil, compressor, and heat recovery systems.,
 https://brickschema.org/schema/Brick#Heat_Sensor,Measures heat,
 https://brickschema.org/schema/Brick#Heat_Sink_Temperature_Sensor,Measure temperature of the heat sink on a device such as a VFD.,
 https://brickschema.org/schema/Brick#Heat_Wheel,A rotary heat exchanger positioned within the supply and exhaust air streams of an air handling system in order to recover heat energy,https://en.wikipedia.org/wiki/Thermal_wheel
