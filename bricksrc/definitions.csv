@@ -6,7 +6,6 @@ https://brickschema.org/schema/Brick#Absorption_Chiller,"A chiller that utilizes
 https://brickschema.org/schema/Brick#Acceleration_Time,,
 https://brickschema.org/schema/Brick#Acceleration_Time_Setpoint,,
 https://brickschema.org/schema/Brick#Active_Chilled_Beam,A Chilled Beam with an integral primary air connection that induces air flow through the device.,
-https://brickschema.org/schema/Brick#Active_Power,"(Active Power) is, under periodic conditions, the mean value, taken over one period (T), of the instantaneous power (p). In complex notation, (P = Re \; S), where (S) is (complex power).",
 https://brickschema.org/schema/Brick#Active_Power_Sensor,"Measures the portion of power that, averaged over a complete cycle of the AC waveform, results in net transfer of energy in one direction","https://en.wikipedia.org/wiki/AC_power#Active,_reactive,_and_apparent_power"
 https://brickschema.org/schema/Brick#Adjust_Sensor,Measures user-provided adjustment of some value,
 https://brickschema.org/schema/Brick#Air,"the invisible gaseous substance surrounding the earth, a mixture mainly of oxygen and nitrogen.",
@@ -28,7 +27,6 @@ https://brickschema.org/schema/Brick#Air_Loop,The set of connected equipment ser
 https://brickschema.org/schema/Brick#Air_Plenum,A component of the HVAC the receives air from the air handling unit or room to distribute or exhaust to or from the building,
 https://brickschema.org/schema/Brick#Air_Quality,,
 https://brickschema.org/schema/Brick#Air_Quality_Sensor,A sensor which provides a measure of air quality,
-https://brickschema.org/schema/Brick#Air_Source_Heat_Pump,A type of heat pump that uses air as a heat source or sink for heating and cooling purposes
 https://brickschema.org/schema/Brick#Air_Static_Pressure_Step_Parameter,,
 https://brickschema.org/schema/Brick#Air_System,"The equipment, distribution systems and terminals that introduce or exhaust, either collectively or individually, the air into and from the building",
 https://brickschema.org/schema/Brick#Air_Temperature_Alarm,An alarm that indicates the off-normal conditions associated with the temperature of air.,
@@ -111,7 +109,7 @@ https://brickschema.org/schema/Brick#CRAH,"a computer room air handler (CRAH) us
 https://brickschema.org/schema/Brick#Cafeteria,A space to serve food and beverages,
 https://brickschema.org/schema/Brick#Capacity,,
 https://brickschema.org/schema/Brick#Capacity_Sensor,,
-https://brickschema.org/schema/Brick#Capillary_Tube,"A fixed orifice device in refrigeration systems that controls refrigerant flow based on its diameter and length, without moving parts"
+https://brickschema.org/schema/Brick#Capillary_Tube_Metering_Device,"A fixed orifice device in refrigeration systems that controls refrigerant flow based on its diameter and length, without moving parts"
 https://brickschema.org/schema/Brick#Cassette_Fan_Coil_Unit,"A type of fan coil unit installed within the ceiling void, typically using a cassette for air delivery",
 https://brickschema.org/schema/Brick#Ceiling_Fan,A fan installed on the ceiling of a room for the purpose of air circulation,
 https://brickschema.org/schema/Brick#Centrifugal_Chiller,A chiller that uses the vapor compression cycle to chill water. It throws off the heat collected from the chilled water plus the heat from the compressor to a water loop,https://bellomyims.com/your-definitive-guide-to-centrifugal-chillers/
@@ -483,7 +481,6 @@ https://brickschema.org/schema/Brick#Generation_Sensor,A sensor measuring how mu
 https://brickschema.org/schema/Brick#Generator_Room,"A room for electrical equipment, specifically electrical generators.",
 https://brickschema.org/schema/Brick#Grains,,
 https://brickschema.org/schema/Brick#Grease_Interceptor,"A larger, more industrial version of a grease trap designed to handle higher volumes of wastewater and more efficiently separate grease and fats.",
-https://brickschema.org/schema/Brick#Ground_Source_Heat_Pump,"A geothermal heat pump using the earth as a heat source or sink, offering high efficiency in heating and cooling",
 https://brickschema.org/schema/Brick#HVAC_Equipment,See Heating_Ventilation_Air_Conditioning_System,
 https://brickschema.org/schema/Brick#HVAC_System,See Heating_Ventilation_Air_Conditioning_System,
 https://brickschema.org/schema/Brick#HVAC_Zone,"a space or group of spaces, within a building with heating, cooling, and ventilating requirements, that are sufficiently similar so that desired conditions (e.g., temperature) can be maintained throughout using a single sensor (e.g., thermostat or temperature sensor).",
@@ -494,10 +491,8 @@ https://brickschema.org/schema/Brick#Hallway,"A common space, used to connect ot
 https://brickschema.org/schema/Brick#Hazardous_Materials_Storage,A storage space set aside (usually with restricted access) for the storage of materials that can be hazardous to living beings or the environment,
 https://brickschema.org/schema/Brick#Heat_Exchanger,A heat exchanger is a piece of equipment built for efficient heat transfer from one medium to another. The media may be separated by a solid wall to prevent mixing or they may be in direct contact (BEDES),
 https://brickschema.org/schema/Brick#Heat_Exchanger_System_Enable_Status,Indicates if the heat exchanger system has been enabled,
-https://brickschema.org/schema/Brick#Heat_Pump,"A device that transfers heat energy to or from a space, providing heating or cooling",
 https://brickschema.org/schema/Brick#Heat_Pump_Condensing_Unit,"An outdoor HVAC unit that functions in both heating and cooling modes. It includes a reversing valve along with a condenser coil and compressor, enabling the switch between cooling and heating by reversing refrigerant flow.",
 https://brickschema.org/schema/Brick#Heat_Recovery_Condensing_Unit,"An advanced outdoor HVAC unit equipped for both heating and cooling, with the added capability of heat recovery. It efficiently recycles heat from the cooling process for heating purposes, featuring components like a condenser coil, compressor, and heat recovery systems.",
-https://brickschema.org/schema/Brick#Heat_Sensor,Measures heat,
 https://brickschema.org/schema/Brick#Heat_Sink_Temperature_Sensor,Measure temperature of the heat sink on a device such as a VFD.,
 https://brickschema.org/schema/Brick#Heat_Wheel,A rotary heat exchanger positioned within the supply and exhaust air streams of an air handling system in order to recover heat energy,https://en.wikipedia.org/wiki/Thermal_wheel
 https://brickschema.org/schema/Brick#Heat_Wheel_VFD,A VFD that drives a heat wheel,
@@ -718,7 +713,6 @@ https://brickschema.org/schema/Brick#Medium_Temperature_Hot_Water_Supply_Tempera
 https://brickschema.org/schema/Brick#Medium_Temperature_Hot_Water_Supply_Temperature_Load_Shed_Status,,
 https://brickschema.org/schema/Brick#Medium_Temperature_Hot_Water_Supply_Temperature_Low_Reset_Setpoint,,
 https://brickschema.org/schema/Brick#Meter,A device that measure usage or consumption of some media --- typically a form energy or power.,
-https://brickschema.org/schema/Brick#Metering_Device,"Responsible for regulating refrigerant flow, which includes mechanisms like TXVs, EXVs, and capillary tubes"
 https://brickschema.org/schema/Brick#Methane_Level_Sensor,Measures the concentration of methane in air,
 https://brickschema.org/schema/Brick#Min_Air_Temperature_Setpoint,Setpoint for minimum air temperature,
 https://brickschema.org/schema/Brick#Min_Water_Level_Alarm,Alarm indicating that the minimum water level was reached,
@@ -831,6 +825,9 @@ https://brickschema.org/schema/Brick#PVT_Panel,A type of solar panels that conve
 https://brickschema.org/schema/Brick#PV_Current_Output_Sensor,See Photovoltaic_Current_Output_Sensor,
 https://brickschema.org/schema/Brick#PV_Generation_System,A collection of photovoltaic devices that generates energy,
 https://brickschema.org/schema/Brick#PV_Panel,An integrated assembly of interconnected photovoltaic cells designed to deliver a selected level of working voltage and current at its output terminals packaged for protection against environment degradation and suited for incorporation in photovoltaic power systems.,https://encyclopedia2.thefreedictionary.com/pv+module
+https://brickschema.org/schema/Brick#Packaged_Air_Source_Heat_Pump,A self-contained unit that uses air as a heat source or sink for heating and cooling purposes.
+https://brickschema.org/schema/Brick#Packaged_Heat_Pump,"A self-contained unit designed to transfer heat energy to or from a designated space, capable of offering both heating and cooling functions",
+https://brickschema.org/schema/Brick#Packaged_Water_Source_Heat_Pump,A self-contained unit that uses water as a heat source or sink for heating and cooling purposes.,
 https://brickschema.org/schema/Brick#Parameter,Parameter points are configuration settings used to guide the operation of equipment and control systems; for example they may provide bounds on valid setpoint values,
 https://brickschema.org/schema/Brick#Parking_Level,A floor of a parking structure,
 https://brickschema.org/schema/Brick#Parking_Space,An area large enough to park an individual vehicle,
@@ -901,6 +898,7 @@ https://brickschema.org/schema/Brick#Reactive_Energy_Sensor,Measures the integra
 https://brickschema.org/schema/Brick#Reactive_Power_Sensor,"Measures the portion of power that, averaged over a complete cycle of the AC waveform, is due to stored energy which returns to the source in each cycle",
 https://brickschema.org/schema/Brick#Reception,"A space, usually in a lobby, where visitors to a building or space can go to after arriving at a building and inform building staff that they have arrived",
 https://brickschema.org/schema/Brick#Refrigerant,A refrigerant is a working fluid used in the refrigeration cycle of air conditioning systems and heat pumps where in most cases they undergo a repeated phase transition from a liquid to a gas and back again.,https://en.wikipedia.org/wiki/Refrigerant
+https://brickschema.org/schema/Brick#Refrigerant_Metering_Device,"Responsible for regulating refrigerant flow, which includes mechanisms like TXVs, EXVs, and capillary tubes"
 https://brickschema.org/schema/Brick#Refrigerant_Valve,"A valve controlling the flow or pressure of refrigerant in refrigeration or air conditioning systems, crucial for system efficiency",
 https://brickschema.org/schema/Brick#Refrigeration_System,"System designed to remove heat from a space or substance, typically using a refrigerant in a closed loop"
 https://brickschema.org/schema/Brick#Region,"A unit of geographic space, usually contigious or somehow related to a geopolitical feature",
@@ -1155,7 +1153,6 @@ https://brickschema.org/schema/Brick#Water_Loop,A collection of equipment that t
 https://brickschema.org/schema/Brick#Water_Loss_Alarm,An alarm that indicates a loss of water e.g. during transport,
 https://brickschema.org/schema/Brick#Water_Meter,A meter that measures the usage or consumption of water,
 https://brickschema.org/schema/Brick#Water_Pump,A pump that performs work on water,
-https://brickschema.org/schema/Brick#Water_Source_Heat_Pump,"A heat pump utilizing water for heat exchange, suitable for heating and cooling in large buildings",
 https://brickschema.org/schema/Brick#Water_Storage_Tank,A specialized type of tank intended for the storage of water for extended periods.,
 https://brickschema.org/schema/Brick#Water_System,"The equipment, devices and conduits that handle the production and distribution of water in a building",
 https://brickschema.org/schema/Brick#Water_Tank,A space used to hold water. This will likely be deprecated in future releases of Brick for the sake of clarity w.r.t. equipment classification of tanks,
