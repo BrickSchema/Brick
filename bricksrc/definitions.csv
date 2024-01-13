@@ -52,7 +52,7 @@ https://brickschema.org/schema/Brick#Average_Exhaust_Air_Static_Pressure_Sensor,
 https://brickschema.org/schema/Brick#Average_Heating_Demand_Sensor,Measures the average power consumed by a heating process as the amount of power consumed over some interval,
 https://brickschema.org/schema/Brick#Average_Supply_Air_Flow_Sensor,The computed average flow of supply air over some interval,
 https://brickschema.org/schema/Brick#Average_Zone_Air_Temperature_Sensor,"The computed average temperature of air in a zone, over some period of time",
-https://brickschema.org/schema/Brick#Backflow_Preventor_Valve,"Valve designed to prevent the reverse flow of fluid, typically water, thereby protecting potable water supplies from contamination or pollution."
+https://brickschema.org/schema/Brick#Backflow_Preventer_Valve,"Valve designed to prevent the reverse flow of fluid, typically water, thereby protecting potable water supplies from contamination or pollution."
 https://brickschema.org/schema/Brick#Baseboard_Radiator,"Steam, hydronic, or electric heating device located at or near the floor.",
 https://brickschema.org/schema/Brick#Basement,The floor of a building which is partly or entirely below ground level.,
 https://brickschema.org/schema/Brick#Battery,A container that stores chemical energy that can be converted into electricity and used as a source of power,
