@@ -1348,6 +1348,26 @@ sensor_definitions = {
                     },
                     "Water_Pressure_Sensor": {
                         "tags": [TAG.Point, TAG.Sensor, TAG.Pressure, TAG.Water],
+                        "subclasses": {
+                            "Entering_Water_Pressure_Sensor": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Sensor,
+                                    TAG.Pressure,
+                                    TAG.Water,
+                                    TAG.Entering,
+                                ],
+                            },
+                            "Leaving_Water_Pressure_Sensor": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Sensor,
+                                    TAG.Pressure,
+                                    TAG.Water,
+                                    TAG.Leaving,
+                                ]
+                            },
+                        },
                     },
                 },
             },
