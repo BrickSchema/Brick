@@ -80,7 +80,7 @@ shacl_namespace_declarations = [
         SH.prefix: Literal("ref"),
     },
     {
-        SH.namespace: Literal(str(REC), datatype=XSD.anyURI),
+        SH.namespace: Literal("https://w3id.org/rec#", datatype=XSD.anyURI),
         SH.prefix: Literal("rec"),
     },
 ]
