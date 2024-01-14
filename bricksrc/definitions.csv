@@ -302,7 +302,7 @@ https://brickschema.org/schema/Brick#Disconnect_Switch,Building power is most co
 https://brickschema.org/schema/Brick#Displacement_Flow_Air_Diffuser,An air diffuser that is designed for low discharge air speeds to minimize turbulence and induction of room air. This diffuser is used with displacement ventilation systems.,
 https://brickschema.org/schema/Brick#Distribution_Frame,"A class of spaces where the cables carrying signals meet and connect, e.g. a wiring closet or a broadcast downlink room",
 https://brickschema.org/schema/Brick#Domestic_Hot_Water_Circulator_Pump,"Used to move domestic hot water in a closed circuit, ensuring continuous flow.",
-https://brickschema.org/schema/Brick#Domestic_Hot_Water_Differential_Pressure_Sensor,"Measures the pressure difference in domestic hot water systems."
+https://brickschema.org/schema/Brick#Domestic_Hot_Water_Differential_Pressure_Sensor,Measures the pressure difference in domestic hot water systems.
 https://brickschema.org/schema/Brick#Domestic_Hot_Water_Differential_Pressure_Setpoint,Sets the target water differential pressure between an upstream and downstream point in a water pipe used to carry domestic hot water,
 https://brickschema.org/schema/Brick#Domestic_Hot_Water_System,"The equipment, devices and conduits that handle the production and distribution of domestic hot water in a building",
 https://brickschema.org/schema/Brick#Domestic_Hot_Water_System_Enable_Command,Enables operation of the domestic hot water system,
