@@ -546,7 +546,7 @@ quantity_definitions = {
                 },
             },
             "Gauge_Pressure": {
-                QUDT.applicableUnit: [UNIT["IN_H20"], UNIT["LB_F-PER-IN2"], UNIT["MilliM_H2O"], UNIT["BAR"]],
+                QUDT.applicableUnit: [UNIT["IN_H2O"], UNIT["LB_F-PER-IN2"], UNIT["MilliM_H2O"], UNIT["BAR"]],
                 SKOS.definition: Literal("Pressure relative to atmospheric pressure"),
                 RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
                 RDFS.label: Literal("Gauge_Pressure"),
