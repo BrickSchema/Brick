@@ -1,6 +1,11 @@
 from .namespaces import BRICK, RDFS, SKOS, A
 
 deprecations = {
+    BRICK.Condenser: {
+        "version": "1.3.0",
+        "mitigation_message": "'Condenser' and 'Condensing Unit' are interchangable terms. Renaming class to 'Condensing_Unit' to further aligns with ASHRAE's terminology.",
+        "replace_with": BRICK.Condensing_Unit,
+    },
     BRICK.Heat_Sensor: {
         "version": "1.4.0",
         "mitigation_message": "This class has a poor definition is supplanted by Temperature_Sensor",
