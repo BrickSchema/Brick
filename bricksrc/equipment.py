@@ -205,6 +205,15 @@ equipment_subclasses = {
             "Fire_Alarm": {
                 "tags": [TAG.Equipment, TAG.Fire, TAG.Safety, TAG.Alarm],
             },
+            "Fire_Extinguisher": {
+                "tags": [TAG.Equipment, TAG.Fire, TAG.Safety, TAG.Extinguisher],
+            },
+            "Fire_Hydrant": {
+                "tags": [TAG.Equipment, TAG.Fire, TAG.Safety, TAG.Hydrant],
+            },
+            "Fire_Sprinkler": {
+                "tags": [TAG.Equipment, TAG.Fire, TAG.Safety, TAG.Sprinkler]
+            },
             "Manual_Fire_Alarm_Activation_Equipment": {
                 "tags": [
                     TAG.Equipment,
@@ -244,12 +253,28 @@ equipment_subclasses = {
             },
             "Smoke_Detector": {
                 "tags": [TAG.Equipment, TAG.Fire, TAG.Safety, TAG.Smoke, TAG.Detector],
+                "subclasses": {
+                    "Duct_Smoke_Detector": {
+                        "tags": [
+                            TAG.Equipment,
+                            TAG.Fire,
+                            TAG.Safety,
+                            TAG.Smoke,
+                            TAG.Detector,
+                        ]
+                    }
+                },
             },
         },
     },
     "Elevator": {"tags": [TAG.Elevator, TAG.Equipment]},
     "Security_Equipment": {"tags": [TAG.Security, TAG.Equipment]},
-    "Safety_Equipment": {"tags": [TAG.Safety, TAG.Equipment]},
+    "Safety_Equipment": {
+        "tags": [TAG.Safety, TAG.Equipment],
+        "subclasses": {
+            "Exit_Sign": {"tags": [TAG.Safety, TAG.Equipment, TAG.Exit, TAG.Sign]}
+        },
+    },
     "Camera": {"tags": [TAG.Camera, TAG.Equipment]},
     "Relay": {"tags": [TAG.Relay, TAG.Equipment]},
     "Water_Heater": {
@@ -789,7 +814,95 @@ hvac_subclasses = {
             "Return_Damper": {"tags": [TAG.Equipment, TAG.Damper, TAG.Return]},
             "Mixed_Damper": {"tags": [TAG.Equipment, TAG.Damper, TAG.Mixed]},
             "Relief_Damper": {"tags": [TAG.Equipment, TAG.Damper, TAG.Relief]},
+            "Smoke_Damper": {
+                "tags": [TAG.Equipment, TAG.Damper, TAG.Smoke],
+                "parents": [BRICK.Fire_Safety_Equipment],
+            },
+            "Fire_Damper": {
+                "tags": [TAG.Equipment, TAG.Damper, TAG.Fire],
+                "parents": [BRICK.Fire_Safety_Equipment],
+            },
+            "Fire_Smoke_Damper": {
+                "tags": [
+                    TAG.Equipment,
+                    TAG.Damper,
+                    TAG.Combination,
+                    TAG.Fire,
+                    TAG.Smoke,
+                ],
+                "parents": [
+                    BRICK.Fire_Damper,
+                    BRICK.Smoke_Damper,
+                    BRICK.Fire_Safety_Equipment,
+                ],
+                "subclasses": {
+                    "Corridor_Fire_Smoke_Damper": {
+                        "tags": [
+                            TAG.Equipment,
+                            TAG.Damper,
+                            TAG.Combination,
+                            TAG.Fire,
+                            TAG.Smoke,
+                            TAG.Corridor,
+                        ]
+                    },
+                },
+            },
+            "Ceiling_Damper": {
+                "tags": [
+                    TAG.Equipment,
+                    TAG.Damper,
+                    TAG.Heat,
+                    TAG.Barrier,
+                    TAG.Ceiling,
+                ],
+                "parents": [BRICK.Fire_Safety_Equipment],
+            },
             "Zone_Damper": {"tags": [TAG.Equipment, TAG.Damper, TAG.Zone]},
+            "Smoke_Damper": {
+                "tags": [TAG.Equipment, TAG.Damper, TAG.Smoke],
+                "parents": [BRICK.Fire_Safety_Equipment],
+            },
+            "Fire_Damper": {
+                "tags": [TAG.Equipment, TAG.Damper, TAG.Fire],
+                "parents": [BRICK.Fire_Safety_Equipment],
+            },
+            "Fire_Smoke_Damper": {
+                "tags": [
+                    TAG.Equipment,
+                    TAG.Damper,
+                    TAG.Combination,
+                    TAG.Fire,
+                    TAG.Smoke,
+                ],
+                "parents": [
+                    BRICK.Fire_Damper,
+                    BRICK.Smoke_Damper,
+                    BRICK.Fire_Safety_Equipment,
+                ],
+                "subclasses": {
+                    "Corridor_Fire_Smoke_Damper": {
+                        "tags": [
+                            TAG.Equipment,
+                            TAG.Damper,
+                            TAG.Combination,
+                            TAG.Fire,
+                            TAG.Smoke,
+                            TAG.Corridor,
+                        ]
+                    },
+                },
+            },
+            "Ceiling_Damper": {
+                "tags": [
+                    TAG.Equipment,
+                    TAG.Damper,
+                    TAG.Heat,
+                    TAG.Barrier,
+                    TAG.Ceiling,
+                ],
+                "parents": [BRICK.Fire_Safety_Equipment],
+            },
         },
     },
     "Condenser": {"tags": [TAG.Equipment, TAG.Condenser]},
