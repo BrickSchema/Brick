@@ -342,8 +342,8 @@ https://brickschema.org/schema/Brick#Electrical_Energy_Usage_Sensor,A sensor tha
 https://brickschema.org/schema/Brick#Electrical_Meter,A meter that measures the usage or consumption of electricity,
 https://brickschema.org/schema/Brick#Electrical_Room,A class of service rooms that house electrical equipment for a building,
 https://brickschema.org/schema/Brick#Electrical_System,Devices that serve or are part of the electrical subsystem in the building,
-https://brickschema.org/schema/Brick#Electronic_Mixing_Valve,Electronically controlled valve for precise mixing of hot and cold fluid.
 https://brickschema.org/schema/Brick#Electronic_Expansion_Valve,A digitally controlled valve in HVAC systems that precisely regulates refrigerant flow.
+https://brickschema.org/schema/Brick#Electronic_Mixing_Valve,Electronically controlled valve for precise mixing of hot and cold fluid.
 https://brickschema.org/schema/Brick#Elevator,"A device that provides vertical transportation between floors, levels or decks of a building, vessel or other structure",https://en.wikipedia.org/wiki/Elevator
 https://brickschema.org/schema/Brick#Elevator_Shaft,The vertical space in which an elevator ascends and descends,
 https://brickschema.org/schema/Brick#Elevator_Space,The vertical space in whcih an elevator ascends and descends,
@@ -1158,8 +1158,8 @@ https://brickschema.org/schema/Brick#Warmest_Zone_Air_Temperature_Sensor,The zon
 https://brickschema.org/schema/Brick#Waste_Storage,A room used for storing waste such as trash or recycling,
 https://brickschema.org/schema/Brick#Water,"transparent, odorless, tasteless liquid; a compound of hydrogen and oxygen (H2O), containing 11.188% hydrogen and 88.812% oxygen by mass; freezing at 32°F (0°C); boiling near 212°F (100°C).",
 https://brickschema.org/schema/Brick#Water_Alarm,"Alarm that indicates an undesirable event with a pipe, container, or equipment carrying water e.g. water leak",
-https://brickschema.org/schema/Brick#Water_Differential_Pressure_Sensor,Measures the difference in water pressure between two points in a system.
 https://brickschema.org/schema/Brick#Water_Cooled_Chiller,"A chiller system using water in the heat exchange process, employed in industrial or commercial facilities for cooling",
+https://brickschema.org/schema/Brick#Water_Differential_Pressure_Sensor,Measures the difference in water pressure between two points in a system.
 https://brickschema.org/schema/Brick#Water_Differential_Pressure_Setpoint,Sets the target water differential pressure between an upstream and downstream point in a water pipe or conduit,
 https://brickschema.org/schema/Brick#Water_Differential_Temperature_Sensor,Measures the difference in water temperature between an upstream and downstream point in a pipe or conduit,
 https://brickschema.org/schema/Brick#Water_Differential_Temperature_Setpoint,Sets the target differential temperature between the start and end of a heat transfer cycle in a water circuit,
@@ -1172,9 +1172,9 @@ https://brickschema.org/schema/Brick#Water_Level_Sensor,Measures the height/leve
 https://brickschema.org/schema/Brick#Water_Loop,A collection of equipment that transport and regulate water among each other,
 https://brickschema.org/schema/Brick#Water_Loss_Alarm,An alarm that indicates a loss of water e.g. during transport,
 https://brickschema.org/schema/Brick#Water_Meter,A meter that measures the usage or consumption of water,
-https://brickschema.org/schema/Brick#Water_Pressure_Sensor,Measures the pressure exerted by water in a system.
 https://brickschema.org/schema/Brick#Water_Pressure_Reducing_Valve,Valve specifically designed to reduce high water pressure to a usable level; maintains uniform water outlet pressure.
 https://brickschema.org/schema/Brick#Water_Pressure_Relief_Valve,Valve designed to automatically relieve excessive water pressure.
+https://brickschema.org/schema/Brick#Water_Pressure_Sensor,Measures the pressure exerted by water in a system.
 https://brickschema.org/schema/Brick#Water_Pump,A pump that performs work on water,
 https://brickschema.org/schema/Brick#Water_Storage_Tank,A specialized type of tank intended for the storage of water for extended periods.,
 https://brickschema.org/schema/Brick#Water_System,"The equipment, devices and conduits that handle the production and distribution of water in a building",
