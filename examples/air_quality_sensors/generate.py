@@ -88,7 +88,7 @@ sensors = [
         BLDG["room_1"],
     ),
 ]
-for (sensor, brick_type, units, location) in sensors:
+for sensor, brick_type, units, location in sensors:
     g.add((sensor, A, brick_type))
     g.add((sensor, BRICK.hasUnit, units))
     g.add((sensor, BRICK.isPointOf, location))

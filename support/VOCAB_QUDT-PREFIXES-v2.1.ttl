@@ -1,0 +1,431 @@
+# baseURI: http://qudt.org/2.1/vocab/prefix
+# imports: http://qudt.org/2.1/schema/facade/qudt
+
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prefix: <http://qudt.org/vocab/prefix/> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vaem: <http://www.linkedmodel.org/schema/vaem#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://qudt.org/2.1/vocab/prefix>
+  a owl:Ontology ;
+  vaem:hasGraphMetadata vaem:GMD_QUDT-PREFIXES ;
+  rdfs:label "QUDT VOCAB Decimal Prefixes Release 2.1.32" ;
+  owl:imports <http://qudt.org/2.1/schema/facade/qudt> ;
+  owl:versionIRI <http://qudt.org/2.1/vocab/prefix> ;
+  owl:versionInfo "Created with TopBraid Composer" ;
+.
+prefix:Atto
+  a qudt:DecimalPrefix ;
+  a qudt:Prefix ;
+  dcterms:description "\"atto\" is a decimal prefix for expressing a value with a scaling of \\(10^{-18}\\)."^^qudt:LatexString ;
+  qudt:dbpediaMatch "http://dbpedia.org/resource/Atto"^^xsd:anyURI ;
+  qudt:informativeReference "http://en.wikipedia.org/wiki/Atto?oldid=412748080"^^xsd:anyURI ;
+  qudt:prefixMultiplier 1.0E-18 ;
+  qudt:symbol "a" ;
+  qudt:ucumCode "a" ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/prefix> ;
+  rdfs:label "Atto"@en ;
+.
+prefix:Centi
+  a qudt:DecimalPrefix ;
+  a qudt:Prefix ;
+  dcterms:description "'centi' is a decimal prefix for expressing a value with a scaling of \\(10^{-2}\\)."^^qudt:LatexString ;
+  qudt:dbpediaMatch "http://dbpedia.org/resource/Centi-"^^xsd:anyURI ;
+  qudt:informativeReference "http://en.wikipedia.org/wiki/Centi-?oldid=480291808"^^xsd:anyURI ;
+  qudt:prefixMultiplier 1.0E-2 ;
+  qudt:symbol "c" ;
+  qudt:ucumCode "c" ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/prefix> ;
+  rdfs:label "Centi"@en ;
+.
+prefix:Deca
+  a qudt:DecimalPrefix ;
+  a qudt:Prefix ;
+  qudt:dbpediaMatch "http://dbpedia.org/resource/Deca"^^xsd:anyURI ;
+  qudt:exactMatch prefix:Deka ;
+  qudt:prefixMultiplier 1.0E1 ;
+  qudt:symbol "da" ;
+  qudt:ucumCode "da" ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/prefix> ;
+  rdfs:label "Deca"@en ;
+.
+prefix:Deci
+  a qudt:DecimalPrefix ;
+  a qudt:Prefix ;
+  dcterms:description "\"deci\" is a decimal prefix for expressing a value with a scaling of \\(10^{-1}\\)."^^qudt:LatexString ;
+  qudt:dbpediaMatch "http://dbpedia.org/resource/Deci-"^^xsd:anyURI ;
+  qudt:informativeReference "http://en.wikipedia.org/wiki/Deci-?oldid=469980160"^^xsd:anyURI ;
+  qudt:prefixMultiplier 1.0E-1 ;
+  qudt:symbol "d" ;
+  qudt:ucumCode "d" ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/prefix> ;
+  rdfs:label "Deci"@en ;
+.
+prefix:Deka
+  a qudt:DecimalPrefix ;
+  a qudt:Prefix ;
+  dcterms:description "<strong>deka</strong> is a decimal prefix for expressing a value with a scaling of \\(10^{1}\\)."^^qudt:LatexString ;
+  qudt:dbpediaMatch "http://dbpedia.org/resource/Deca"^^xsd:anyURI ;
+  qudt:exactMatch prefix:Deca ;
+  qudt:informativeReference "http://en.wikipedia.org/wiki/Deca?oldid=480093935"^^xsd:anyURI ;
+  qudt:prefixMultiplier "10.0"^^xsd:double ;
+  qudt:symbol "da" ;
+  qudt:ucumCode "da" ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/prefix> ;
+  rdfs:label "Deka"@en ;
+.
+prefix:Exa
+  a qudt:DecimalPrefix ;
+  a qudt:Prefix ;
+  dcterms:description "'exa' is a decimal prefix for expressing a value with a scaling of \\(10^{18}\\)."^^qudt:LatexString ;
+  qudt:dbpediaMatch "http://dbpedia.org/resource/Exa-"^^xsd:anyURI ;
+  qudt:informativeReference "http://en.wikipedia.org/wiki/Exa-?oldid=494400216"^^xsd:anyURI ;
+  qudt:prefixMultiplier 1.0E18 ;
+  qudt:symbol "E" ;
+  qudt:ucumCode "E" ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/prefix> ;
+  rdfs:label "Exa"@en ;
+.
+prefix:Exbi
+  a qudt:BinaryPrefix ;
+  a qudt:Prefix ;
+  dcterms:description "A binary prefix for expressing a value with a scaling of \\(1024^{6}\\), or \\(2^{60}\\)."^^qudt:LatexString ;
+  qudt:prefixMultiplier "152921504606846976.0"^^xsd:double ;
+  qudt:symbol "Ei" ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/prefix> ;
+  rdfs:label "Exbi"@en ;
+.
+prefix:Femto
+  a qudt:DecimalPrefix ;
+  a qudt:Prefix ;
+  dcterms:description "'femto' is a decimal prefix for expressing a value with a scaling of \\(10^{-15}\\)."^^qudt:LatexString ;
+  qudt:dbpediaMatch "http://dbpedia.org/resource/Femto-"^^xsd:anyURI ;
+  qudt:informativeReference "http://en.wikipedia.org/wiki/Femto-?oldid=467211359"^^xsd:anyURI ;
+  qudt:prefixMultiplier 1.0E-15 ;
+  qudt:symbol "f" ;
+  qudt:ucumCode "f" ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/prefix> ;
+  rdfs:label "Femto"@en ;
+.
+prefix:Gibi
+  a qudt:BinaryPrefix ;
+  a qudt:Prefix ;
+  dcterms:description "A binary prefix for expressing a value with a scaling of \\(1024^{3}\\), or \\(2^{30}\\)."^^qudt:LatexString ;
+  qudt:prefixMultiplier "1073741824"^^xsd:double ;
+  qudt:symbol "Gi" ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/prefix> ;
+  rdfs:label "Gibi"@en ;
+.
+prefix:Giga
+  a qudt:DecimalPrefix ;
+  a qudt:Prefix ;
+  dcterms:description "'giga' is a decimal prefix for expressing a value with a scaling of \\(10^{9}\\)."^^qudt:LatexString ;
+  qudt:dbpediaMatch "http://dbpedia.org/resource/Giga-"^^xsd:anyURI ;
+  qudt:informativeReference "http://en.wikipedia.org/wiki/Giga-?oldid=473222816"^^xsd:anyURI ;
+  qudt:prefixMultiplier 1.0E9 ;
+  qudt:symbol "G" ;
+  qudt:ucumCode "G" ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/prefix> ;
+  rdfs:label "Giga"@en ;
+.
+prefix:Hecto
+  a qudt:DecimalPrefix ;
+  a qudt:Prefix ;
+  dcterms:description "'hecto' is a decimal prefix for expressing a value with a scaling of \\(10^{2}\\)."^^qudt:LatexString ;
+  qudt:dbpediaMatch "http://dbpedia.org/resource/Hecto-"^^xsd:anyURI ;
+  qudt:informativeReference "http://en.wikipedia.org/wiki/Hecto-?oldid=494711166"^^xsd:anyURI ;
+  qudt:prefixMultiplier 1.0E2 ;
+  qudt:symbol "h" ;
+  qudt:ucumCode "h" ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/prefix> ;
+  rdfs:label "Hecto"@en ;
+.
+prefix:Kibi
+  a qudt:BinaryPrefix ;
+  a qudt:Prefix ;
+  dcterms:description "A binary prefix for expressing a value with a scaling of \\(1024\\), or \\(2^{10}\\)."^^qudt:LatexString ;
+  qudt:prefixMultiplier "1024"^^xsd:double ;
+  qudt:symbol "Ki" ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/prefix> ;
+  rdfs:label "Kibi"@en ;
+.
+prefix:Kilo
+  a qudt:DecimalPrefix ;
+  a qudt:Prefix ;
+  dcterms:description "\"kilo\" is a decimal prefix for expressing a value with a scaling of \\(10^{3}\"\\)."^^qudt:LatexString ;
+  qudt:dbpediaMatch "http://dbpedia.org/resource/Kilo"^^xsd:anyURI ;
+  qudt:informativeReference "http://en.wikipedia.org/wiki/Kilo?oldid=461428121"^^xsd:anyURI ;
+  qudt:prefixMultiplier 1.0E3 ;
+  qudt:symbol "k" ;
+  qudt:ucumCode "k" ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/prefix> ;
+  rdfs:label "Kilo"@en ;
+.
+prefix:Mebi
+  a qudt:BinaryPrefix ;
+  a qudt:Prefix ;
+  dcterms:description "A binary prefix for expressing a value with a scaling of \\(1024^{2}\\), or \\(2^{20}\\)."^^qudt:LatexString ;
+  qudt:prefixMultiplier "1048576"^^xsd:double ;
+  qudt:symbol "Mi" ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/prefix> ;
+  rdfs:label "Mebi"@en ;
+.
+prefix:Mega
+  a qudt:DecimalPrefix ;
+  a qudt:Prefix ;
+  dcterms:description "'mega' is a decimal prefix for expressing a value with a scaling of \\(10^{6}\\)."^^qudt:LatexString ;
+  qudt:dbpediaMatch "http://dbpedia.org/resource/Mega"^^xsd:anyURI ;
+  qudt:informativeReference "http://en.wikipedia.org/wiki/Mega?oldid=494040441"^^xsd:anyURI ;
+  qudt:prefixMultiplier 1.0E6 ;
+  qudt:symbol "M" ;
+  qudt:ucumCode "M" ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/prefix> ;
+  rdfs:label "Mega"@en ;
+.
+prefix:Micro
+  a qudt:DecimalPrefix ;
+  a qudt:Prefix ;
+  dcterms:description "\"micro\" is a decimal prefix for expressing a value with a scaling of \\(10^{-6}\\)."^^qudt:LatexString ;
+  qudt:dbpediaMatch "http://dbpedia.org/resource/Micro"^^xsd:anyURI ;
+  qudt:informativeReference "http://en.wikipedia.org/wiki/Micro?oldid=491618374"^^xsd:anyURI ;
+  qudt:prefixMultiplier 1.0E-6 ;
+  qudt:symbol "μ" ;
+  qudt:ucumCode "u" ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/prefix> ;
+  rdfs:label "Micro"@en ;
+.
+prefix:Milli
+  a qudt:DecimalPrefix ;
+  a qudt:Prefix ;
+  dcterms:description "'milli' is a decimal prefix for expressing a value with a scaling of \\(10^{-3}\\)."^^qudt:LatexString ;
+  qudt:dbpediaMatch "http://dbpedia.org/resource/Milli-"^^xsd:anyURI ;
+  qudt:informativeReference "http://en.wikipedia.org/wiki/Milli-?oldid=467190544"^^xsd:anyURI ;
+  qudt:prefixMultiplier 1.0E-3 ;
+  qudt:symbol "m" ;
+  qudt:ucumCode "m" ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/prefix> ;
+  rdfs:label "Milli"@en ;
+.
+prefix:Nano
+  a qudt:DecimalPrefix ;
+  a qudt:Prefix ;
+  dcterms:description "'nano' is a  decimal prefix for expressing a value with a scaling of \\(10^{-9}\\)."^^qudt:LatexString ;
+  qudt:dbpediaMatch "http://dbpedia.org/resource/Nano"^^xsd:anyURI ;
+  qudt:informativeReference "http://en.wikipedia.org/wiki/Nano?oldid=489001692"^^xsd:anyURI ;
+  qudt:prefixMultiplier 1.0E-9 ;
+  qudt:symbol "n" ;
+  qudt:ucumCode "n" ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/prefix> ;
+  rdfs:label "Nano"@en ;
+.
+prefix:Pebi
+  a qudt:BinaryPrefix ;
+  a qudt:Prefix ;
+  dcterms:description "A binary prefix for expressing a value with a scaling of \\(1024^{5}\\), or \\(2^{50}\\)."^^qudt:LatexString ;
+  qudt:prefixMultiplier "125899906842624"^^xsd:double ;
+  qudt:symbol "Pi" ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/prefix> ;
+  rdfs:label "Pebi"@en ;
+.
+prefix:Peta
+  a qudt:DecimalPrefix ;
+  a qudt:Prefix ;
+  dcterms:description "'peta' is a decimal prefix for expressing a value with a scaling of \\(10^{15}\\)."^^qudt:LatexString ;
+  qudt:dbpediaMatch "http://dbpedia.org/resource/Peta"^^xsd:anyURI ;
+  qudt:informativeReference "http://en.wikipedia.org/wiki/Peta?oldid=488263435"^^xsd:anyURI ;
+  qudt:prefixMultiplier 1.0E15 ;
+  qudt:symbol "P" ;
+  qudt:ucumCode "P" ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/prefix> ;
+  rdfs:label "Peta"@en ;
+.
+prefix:Pico
+  a qudt:DecimalPrefix ;
+  a qudt:Prefix ;
+  dcterms:description "'pico' is a decimal prefix for expressing a value with a scaling of \\(10^{-12}\\)."^^qudt:LatexString ;
+  qudt:dbpediaMatch "http://dbpedia.org/resource/Pico"^^xsd:anyURI ;
+  qudt:informativeReference "http://en.wikipedia.org/wiki/Pico?oldid=485697614"^^xsd:anyURI ;
+  qudt:prefixMultiplier 1.0E-12 ;
+  qudt:symbol "p" ;
+  qudt:ucumCode "p" ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/prefix> ;
+  rdfs:label "Pico"@en ;
+.
+prefix:Quecto
+  a qudt:DecimalPrefix ;
+  a qudt:Prefix ;
+  dcterms:description "'quecto' is a decimal prefix for expressing a value with a scaling of \\(10^{-30}\\)."^^qudt:LatexString ;
+  qudt:dbpediaMatch "http://dbpedia.org/resource/Quecto"^^xsd:anyURI ;
+  qudt:informativeReference "https://www.nist.gov/pml/owm/metric-si-prefixes"^^xsd:anyURI ;
+  qudt:prefixMultiplier 1.0E-30 ;
+  qudt:symbol "q" ;
+  qudt:ucumCode "q" ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/prefix> ;
+  rdfs:label "Quecto"@en ;
+.
+prefix:Quetta
+  a qudt:DecimalPrefix ;
+  a qudt:Prefix ;
+  dcterms:description "'quetta' is a decimal prefix for expressing a value with a scaling of \\(10^{30}\\)."^^qudt:LatexString ;
+  qudt:dbpediaMatch "http://dbpedia.org/resource/Quetta"^^xsd:anyURI ;
+  qudt:informativeReference "https://www.nist.gov/pml/owm/metric-si-prefixes"^^xsd:anyURI ;
+  qudt:prefixMultiplier 1.0E30 ;
+  qudt:symbol "Q" ;
+  qudt:ucumCode "Q" ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/prefix> ;
+  rdfs:label "Quetta"@en ;
+.
+prefix:Ronna
+  a qudt:DecimalPrefix ;
+  a qudt:Prefix ;
+  dcterms:description "'ronna' is a decimal prefix for expressing a value with a scaling of \\(10^{27}\\)."^^qudt:LatexString ;
+  qudt:dbpediaMatch "http://dbpedia.org/resource/Ronna"^^xsd:anyURI ;
+  qudt:informativeReference "https://www.nist.gov/pml/owm/metric-si-prefixes"^^xsd:anyURI ;
+  qudt:prefixMultiplier 1.0E27 ;
+  qudt:symbol "R" ;
+  qudt:ucumCode "R" ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/prefix> ;
+  rdfs:label "Ronna"@en ;
+.
+prefix:Ronto
+  a qudt:DecimalPrefix ;
+  a qudt:Prefix ;
+  dcterms:description "'ronto' is a decimal prefix for expressing a value with a scaling of \\(10^{-27}\\)."^^qudt:LatexString ;
+  qudt:dbpediaMatch "http://dbpedia.org/resource/Ronto"^^xsd:anyURI ;
+  qudt:informativeReference "https://www.nist.gov/pml/owm/metric-si-prefixes"^^xsd:anyURI ;
+  qudt:prefixMultiplier 1.0E-27 ;
+  qudt:symbol "r" ;
+  qudt:ucumCode "r" ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/prefix> ;
+  rdfs:label "Ronto"@en ;
+.
+prefix:Tebi
+  a qudt:BinaryPrefix ;
+  a qudt:Prefix ;
+  dcterms:description "A binary prefix for expressing a value with a scaling of \\(1024^4}\\), or \\(2^{40}\\)."^^qudt:LatexString ;
+  qudt:prefixMultiplier "1099511627776"^^xsd:double ;
+  qudt:symbol "Ti" ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/prefix> ;
+  rdfs:label "Tebi"@en ;
+.
+prefix:Tera
+  a qudt:DecimalPrefix ;
+  a qudt:Prefix ;
+  dcterms:description "'tera' is a decimal prefix for expressing a value with a scaling of \\(10^{12}\\)."^^qudt:LatexString ;
+  qudt:dbpediaMatch "http://dbpedia.org/resource/Tera"^^xsd:anyURI ;
+  qudt:informativeReference "http://en.wikipedia.org/wiki/Tera?oldid=494204788"^^xsd:anyURI ;
+  qudt:prefixMultiplier 1.0E12 ;
+  qudt:symbol "T" ;
+  qudt:ucumCode "T" ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/prefix> ;
+  rdfs:label "Tera"@en ;
+.
+prefix:Yobi
+  a qudt:BinaryPrefix ;
+  a qudt:Prefix ;
+  dcterms:description "A binary prefix for expressing a value with a scaling of \\(1024^{8}\\), or \\(2^{80}\\)."^^qudt:LatexString ;
+  qudt:prefixMultiplier "1208925819614629174706176"^^xsd:double ;
+  qudt:symbol "Yi" ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/prefix> ;
+  rdfs:label "Yobi"@en ;
+.
+prefix:Yocto
+  a qudt:DecimalPrefix ;
+  a qudt:Prefix ;
+  dcterms:description "'yocto' is a decimal prefix for expressing a value with a scaling of \\(10^{-24}\\)."^^qudt:LatexString ;
+  qudt:dbpediaMatch "http://dbpedia.org/resource/Yocto-"^^xsd:anyURI ;
+  qudt:informativeReference "http://en.wikipedia.org/wiki/Yocto-?oldid=488155799"^^xsd:anyURI ;
+  qudt:prefixMultiplier 1.0E-24 ;
+  qudt:symbol "y" ;
+  qudt:ucumCode "y" ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/prefix> ;
+  rdfs:label "Yocto"@en ;
+.
+prefix:Yotta
+  a qudt:DecimalPrefix ;
+  a qudt:Prefix ;
+  dcterms:description "'yotta' is a decimal prefix for expressing a value with a scaling of \\(10^{24}\\)."^^qudt:LatexString ;
+  qudt:dbpediaMatch "http://dbpedia.org/resource/Yotta-"^^xsd:anyURI ;
+  qudt:informativeReference "http://en.wikipedia.org/wiki/Yotta-?oldid=494538119"^^xsd:anyURI ;
+  qudt:prefixMultiplier 1.0E24 ;
+  qudt:symbol "Y" ;
+  qudt:ucumCode "Y" ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/prefix> ;
+  rdfs:label "Yotta"@en ;
+.
+prefix:Zebi
+  a qudt:BinaryPrefix ;
+  a qudt:Prefix ;
+  dcterms:description "A binary prefix for expressing a value with a scaling of \\(1024^{7}\\), or \\(2^{70}\\)."^^qudt:LatexString ;
+  qudt:prefixMultiplier "1180591620717411303424"^^xsd:double ;
+  qudt:symbol "Zi" ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/prefix> ;
+  rdfs:label "Zebi"@en ;
+.
+prefix:Zepto
+  a qudt:DecimalPrefix ;
+  a qudt:Prefix ;
+  dcterms:description "'zepto' is a decimal prefix for expressing a value with a scaling of \\(10^{-21}\\)."^^qudt:LatexString ;
+  qudt:dbpediaMatch "http://dbpedia.org/resource/Zepto-"^^xsd:anyURI ;
+  qudt:informativeReference "http://en.wikipedia.org/wiki/Zepto-?oldid=476974663"^^xsd:anyURI ;
+  qudt:prefixMultiplier 1.0E-21 ;
+  qudt:symbol "z" ;
+  qudt:ucumCode "z" ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/prefix> ;
+  rdfs:label "Zepto"@en ;
+.
+prefix:Zetta
+  a qudt:DecimalPrefix ;
+  a qudt:Prefix ;
+  dcterms:description "'zetta' is a decimal prefix for expressing a value with a scaling of \\(10^{21}\\)."^^qudt:LatexString ;
+  qudt:dbpediaMatch "http://dbpedia.org/resource/Zetta-"^^xsd:anyURI ;
+  qudt:informativeReference "http://en.wikipedia.org/wiki/Zetta-?oldid=495223080"^^xsd:anyURI ;
+  qudt:prefixMultiplier 1.0E21 ;
+  qudt:symbol "Z" ;
+  qudt:ucumCode "Z" ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/prefix> ;
+  rdfs:label "Zetta"@en ;
+.
+vaem:GMD_QUDT-PREFIXES
+  a vaem:GraphMetaData ;
+  dcterms:contributor "Jack Hodges" ;
+  dcterms:contributor "Michael Ringel" ;
+  dcterms:contributor "Ralph Hodgson" ;
+  dcterms:contributor "Steve Ray" ;
+  dcterms:created "2020-07-15"^^xsd:date ;
+  dcterms:creator "Steve Ray" ;
+  dcterms:modified "2023-10-19T12:29:18.111-04:00"^^xsd:dateTime ;
+  dcterms:rights "The QUDT Ontologies are issued under a Creative Commons Attribution 4.0 International License (CC BY 4.0), available at https://creativecommons.org/licenses/by/4.0/. Attribution should be made to QUDT.org" ;
+  dcterms:subject "Prefixes" ;
+  dcterms:title "QUDT Prefixes Version 2.1 Vocabulary" ;
+  vaem:description "The Prefixes vocabulary defines the prefixes commonly prepended to units to connote multiplication, either decimal or binary." ;
+  vaem:graphName "prefix" ;
+  vaem:graphTitle "QUDT Prefixes Version 2.1.32" ;
+  vaem:hasGraphRole vaem:VocabularyGraph ;
+  vaem:hasOwner <http://www.linkedmodel.org/schema/vaem#QUDT.org> ;
+  vaem:hasSteward <http://www.linkedmodel.org/schema/vaem#QUDT.org> ;
+  vaem:intent "Provides a vocabulary of prefixes for both human and machine use" ;
+  vaem:isMetadataFor <http://qudt.org/2.1/vocab/prefix> ;
+  vaem:latestPublishedVersion "https://qudt.org/doc/2023/10/DOC_VOCAB-PREFIXES-v2.1.html"^^xsd:anyURI ;
+  vaem:logo "https://qudt.org/linkedmodels.org/assets/lib/lm/images/logos/qudt_logo-300x110.png"^^xsd:anyURI ;
+  vaem:namespace "http://qudt.org/vocab/prefix/"^^xsd:anyURI ;
+  vaem:namespacePrefix "prefix" ;
+  vaem:owner "QUDT.org" ;
+  vaem:previousPublishedVersion "https://qudt.org/doc/2023/09/DOC_VOCAB-PREFIXES-v2.1.html"^^xsd:anyURI ;
+  vaem:revision "2.1" ;
+  vaem:specificity 1 ;
+  vaem:turtleFileURL "http://qudt.org/2.1/vocab/prefix"^^xsd:anyURI ;
+  vaem:urlForHTML "http://qudt.org/2.1/vocab/prefix.html"^^xsd:anyURI ;
+  vaem:usesNonImportedResource dcterms:abstract ;
+  vaem:usesNonImportedResource dcterms:created ;
+  vaem:usesNonImportedResource dcterms:creator ;
+  vaem:usesNonImportedResource dcterms:modified ;
+  vaem:usesNonImportedResource dcterms:title ;
+  vaem:website "http://qudt.org/2.1/vocab/prefix.ttl"^^xsd:anyURI ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/prefix> ;
+  rdfs:label "QUDT Prefix Vocabulary Version Metadata 2.1.32" ;
+.
