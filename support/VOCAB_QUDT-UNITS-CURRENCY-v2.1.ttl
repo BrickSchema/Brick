@@ -24,7 +24,7 @@
   a owl:Ontology ;
   vaem:hasGraphMetadata vaem:GMD_QUDT-UNITS-CURRENCY ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/currency> ;
-  rdfs:label "QUDT VOCAB Currency Units Release 2.1.30" ;
+  rdfs:label "QUDT VOCAB Currency Units Release 2.1.32" ;
   owl:imports <http://qudt.org/2.1/schema/facade/qudt> ;
   owl:imports <http://qudt.org/2.1/vocab/unit> ;
   owl:versionIRI <http://qudt.org/2.1/vocab/currency> ;
@@ -2542,7 +2542,7 @@ vaem:GMD_QUDT-UNITS-CURRENCY
   dcterms:contributor "Steve Ray" ;
   dcterms:created "2023-03-14"^^xsd:date ;
   dcterms:creator "Steve Ray" ;
-  dcterms:modified "2023-08-28T12:21:51.581-04:00"^^xsd:dateTime ;
+  dcterms:modified "2023-10-19T11:34:33.041-04:00"^^xsd:dateTime ;
   dcterms:rights """
   This product includes all or a portion of the UCUM table, UCUM codes, and UCUM definitions or is derived from it, subject to a license from Regenstrief Institute, Inc. and The UCUM Organization. Your use of the UCUM table, UCUM codes, UCUM definitions also is subject to this license, a copy of which is available at ​http://unitsofmeasure.org. The current complete UCUM table, UCUM Specification are available for download at ​http://unitsofmeasure.org. The UCUM table and UCUM codes are copyright © 1995-2009, Regenstrief Institute, Inc. and the Unified Codes for Units of Measures (UCUM) Organization. All rights reserved.
 
@@ -2553,18 +2553,18 @@ THE UCUM TABLE (IN ALL FORMATS), UCUM DEFINITIONS, AND SPECIFICATION ARE PROVIDE
   dcterms:title "Currency UNITS Version 2.1 Vocabulary" ;
   vaem:description "Standard units of measure for currency units." ;
   vaem:graphName "qudt" ;
-  vaem:graphTitle "QUDT Currency Units Version 2.1.30" ;
+  vaem:graphTitle "QUDT Currency Units Version 2.1.32" ;
   vaem:hasGraphRole vaem:VocabularyGraph ;
   vaem:hasOwner <http://www.linkedmodel.org/schema/vaem#QUDT.org> ;
   vaem:hasSteward <http://www.linkedmodel.org/schema/vaem#QUDT.org> ;
   vaem:intent "To provide a vocabulary of currency units." ;
   vaem:isMetadataFor <http://qudt.org/2.1/vocab/currency> ;
-  vaem:latestPublishedVersion "https://qudt.org/doc/2023/08/DOC_VOCAB-UNITS-CURRENCY-v2.1.html"^^xsd:anyURI ;
+  vaem:latestPublishedVersion "https://qudt.org/doc/2023/10/DOC_VOCAB-UNITS-CURRENCY-v2.1.html"^^xsd:anyURI ;
   vaem:logo "https://qudt.org/linkedmodels.org/assets/lib/lm/images/logos/qudt_logo-300x110.png"^^xsd:anyURI ;
-  vaem:namespace "http://qudt.org/vocab/currency/" ;
+  vaem:namespace "http://qudt.org/vocab/currency/"^^xsd:anyURI ;
   vaem:namespacePrefix "cur" ;
   vaem:owner "QUDT.org" ;
-  vaem:previousPublishedVersion "https://qudt.org/doc/2023/07/DOC_VOCAB-UNITS-CURRENCY-v2.1.html"^^xsd:anyURI ;
+  vaem:previousPublishedVersion "https://qudt.org/doc/2023/09/DOC_VOCAB-UNITS-CURRENCY-v2.1.html"^^xsd:anyURI ;
   vaem:revision "2.1" ;
   vaem:turtleFileURL "http://qudt.org/2.1/vocab/currency"^^xsd:anyURI ;
   vaem:usesNonImportedResource dcterms:abstract ;
@@ -2573,5 +2573,5 @@ THE UCUM TABLE (IN ALL FORMATS), UCUM DEFINITIONS, AND SPECIFICATION ARE PROVIDE
   vaem:usesNonImportedResource dcterms:modified ;
   vaem:usesNonImportedResource dcterms:title ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/currency> ;
-  rdfs:label "QUDT Currency Unit Vocabulary Metadata Version 2.1.30" ;
+  rdfs:label "QUDT Currency Unit Vocabulary Metadata Version 2.1.32" ;
 .

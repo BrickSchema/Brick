@@ -40,7 +40,14 @@ system_subclasses = {
     },
     "Gas_System": {"tags": [TAG.Gas, TAG.System]},
     "Heating_Ventilation_Air_Conditioning_System": {
-        "tags": [TAG.Heat, TAG.Ventilation, TAG.Air, TAG.Conditioning, TAG.HVAC, TAG.System],
+        "tags": [
+            TAG.Heat,
+            TAG.Ventilation,
+            TAG.Air,
+            TAG.Conditioning,
+            TAG.HVAC,
+            TAG.System,
+        ],
         "aliases": [BRICK["HVAC_System"]],
         "subclasses": {
             "Air_System": {
@@ -55,6 +62,8 @@ system_subclasses = {
                     },
                 },
             },
+            "VRF_System": {"tags": [TAG.Variable, TAG.Refrigerant, TAG.Flow, TAG.System]},
+            "Refrigeration_System": {"tags": [TAG.Refrigeration, TAG.System]},
             "Steam_System": {"tags": [TAG.Steam, TAG.System]},
             "Water_System": {
                 "tags": [TAG.Water, TAG.System],
@@ -172,5 +181,10 @@ collection_classes = {
         "tags": [TAG.Collection, TAG.Photovoltaic, TAG.PV, TAG.Array],
         "aliases": [BRICK["PV_Array"]],
         "constraints": {BRICK.hasPart: [BRICK.PV_Panel]},
+    },
+    "Electric_Vehicle_Charging_Hub": {
+        "tags": [TAG.Collection, TAG.Electric, TAG.Vehicle, TAG.Charging, TAG.Hub],
+        "aliases": [BRICK["EV_Charging_Hub"]],
+        "constraints": {BRICK.hasPart: [BRICK.Electric_Vehicle_Charging_Station]},
     },
 }

@@ -482,6 +482,9 @@ status_definitions = {
                 "tags": [TAG.Point, TAG.Pressure, TAG.Status],
             },
             "Lead_Lag_Status": {"tags": [TAG.Point, TAG.Lead, TAG.Lag, TAG.Status]},
+            "Level_Status": {
+                "tags": [TAG.Level, TAG.Status, TAG.Point],
+            },
             "Stages_Status": {"tags": [TAG.Point, TAG.Stages, TAG.Status]},
             "System_Shutdown_Status": {
                 "tags": [TAG.Point, TAG.System, TAG.Shutdown, TAG.Status],

@@ -41,7 +41,9 @@ alarm_definitions = {
                                 ],
                                 "subclasses": {
                                     "Low_Supply_Air_Flow_Alarm": {
-                                        "aliases": [BRICK["Low_Discharge_Air_Flow_Alarm"]],
+                                        "aliases": [
+                                            BRICK["Low_Discharge_Air_Flow_Alarm"]
+                                        ],
                                         "tags": [
                                             TAG.Point,
                                             TAG.Air,
@@ -217,7 +219,11 @@ alarm_definitions = {
                                 ],
                                 "subclasses": {
                                     "High_Supply_Air_Temperature_Alarm": {
-                                        "aliases": [BRICK["High_Discharge_Air_Temperature_Alarm"]],
+                                        "aliases": [
+                                            BRICK[
+                                                "High_Discharge_Air_Temperature_Alarm"
+                                            ]
+                                        ],
                                         "tags": [
                                             TAG.Point,
                                             TAG.High,
@@ -230,7 +236,9 @@ alarm_definitions = {
                                         "parents": [BRICK.High_Temperature_Alarm],
                                     },
                                     "Low_Supply_Air_Temperature_Alarm": {
-                                        "aliases": [BRICK["Low_Discharge_Air_Temperature_Alarm"]],
+                                        "aliases": [
+                                            BRICK["Low_Discharge_Air_Temperature_Alarm"]
+                                        ],
                                         "tags": [
                                             TAG.Point,
                                             TAG.Low,
@@ -288,7 +296,9 @@ alarm_definitions = {
                         "tags": [TAG.Point, TAG.Smoke, TAG.Detection, TAG.Alarm],
                         "subclasses": {
                             "Supply_Air_Smoke_Detection_Alarm": {
-                                "aliases": [BRICK["Discharge_Air_Smoke_Detection_Alarm"]],
+                                "aliases": [
+                                    BRICK["Discharge_Air_Smoke_Detection_Alarm"]
+                                ],
                                 "tags": [
                                     TAG.Point,
                                     TAG.Supply,
