@@ -1041,6 +1041,7 @@ sensor_definitions = {
                 "subclasses": {
                     "Gauge_Pressure_Sensor": {
                         "tags": [TAG.Point, TAG.Sensor, TAG.Pressure, TAG.Gauge],
+                        BRICK.hasQuantity: BRICK.Gauge_Pressure,
                         "subclasses": {
                             "Chilled_Water_Gauge_Pressure_Sensor": {
                                 "tags": [
