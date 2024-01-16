@@ -20434,7 +20434,7 @@ unit:MilliRAD
   qudt:applicableSystem sou:CGS-GAUSS ;
   qudt:applicableSystem sou:SI ;
   qudt:conversionMultiplier 0.001 ;
-  qudt:guidance "<http://physics.nist.gov/Pubs/SP811/sec07.html#7.10>"^^rdf:HTML ;
+  qudt:guidance "<http://physics.nist.gov/Pubs/SP811/sec07.html#7.10>" ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Angle ;
   qudt:iec61360Code "0112/2///62720#UAA897" ;
