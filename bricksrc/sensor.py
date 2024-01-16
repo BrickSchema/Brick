@@ -856,6 +856,7 @@ sensor_definitions = {
                     },
                 },
             },
+            "Waste_Amount_Sensor": {"tags": [TAG.Waste, TAG.Amount, TAG.Sensor]},
             "Frequency_Sensor": {
                 BRICK.hasQuantity: BRICK.Frequency,
                 "tags": [TAG.Point, TAG.Sensor, TAG.Frequency],
