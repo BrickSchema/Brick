@@ -9,6 +9,14 @@ equipment_subclasses = {
     "ICT_Equipment": {
         "tags": [TAG.ICT, TAG.Equipment],
         "subclasses": {
+            "ICT_Hardware": {
+                "tags": [TAG.Equipment, TAG.ICT, TAG.Hardware],
+                "subclasses": {
+                    "Tablet": {
+                        "tags": [TAG.Equipment, TAG.ICT, TAG.Hardware, TAG.Tablet]
+                    },
+                },
+            },
             "Sensor_Equipment": {
                 "tags": [TAG.Sensor, TAG.Equipment, TAG.ICT],
             },
@@ -37,6 +45,25 @@ equipment_subclasses = {
     "Electrical_Equipment": {
         "tags": [TAG.Electrical, TAG.Equipment],
         "subclasses": {
+            "Electric_Vehicle_Charging_Station": {
+                "tags": [
+                    TAG.Electric,
+                    TAG.Vehicle,
+                    TAG.Charging,
+                    TAG.Station,
+                    TAG.Equipment,
+                ],
+                "constraints": {BRICK.hasPart: [BRICK.Electric_Vehicle_Charging_Port]},
+            },
+            "Electric_Vehicle_Charging_Port": {
+                "tags": [
+                    TAG.Electric,
+                    TAG.Vehicle,
+                    TAG.Charging,
+                    TAG.Port,
+                    TAG.Equipment,
+                ],
+            },
             "Energy_Storage": {
                 "tags": [TAG.Energy, TAG.Storage, TAG.Equipment],
                 "subclasses": {
@@ -453,6 +480,7 @@ equipment_subclasses = {
 Define classes of HVAC equipment
 """
 hvac_subclasses = {
+    "Branch_Selector": {"tags": [TAG.Equipment, TAG.HVAC, TAG.Branch, TAG.Selector]},
     "Dry_Cooler": {"tags": [TAG.Equipment, TAG.HVAC, TAG.Dry, TAG.Cooler]},
     "HVAC_Valve": {
         "tags": [TAG.HVAC, TAG.Valve, TAG.Equipment],
@@ -472,6 +500,52 @@ hvac_subclasses = {
             "Fan_Coil_Unit": {
                 "tags": [TAG.Equipment, TAG.Fan, TAG.Coil, TAG.Unit, TAG.FCU],
                 "aliases": [BRICK["FCU"]],
+                "subclasses": {
+                    "Cassette_Fan_Coil_Unit": {
+                        "tags": [
+                            TAG.Equipment,
+                            TAG.Fan,
+                            TAG.Coil,
+                            TAG.Unit,
+                            TAG.FCU,
+                            TAG.Cassette,
+                            TAG.Ceiling,
+                        ]
+                    },
+                    "Duct_Fan_Coil_Unit": {
+                        "tags": [
+                            TAG.Equipment,
+                            TAG.Fan,
+                            TAG.Coil,
+                            TAG.Unit,
+                            TAG.FCU,
+                            TAG.Duct,
+                            TAG.Horizontal,
+                        ],
+                        "aliases": [BRICK["Horizontal_Fan_Coil_Unit"]],
+                    },
+                    "Floor_Fan_Coil_Unit": {
+                        "tags": [
+                            TAG.Equipment,
+                            TAG.Fan,
+                            TAG.Coil,
+                            TAG.Unit,
+                            TAG.FCU,
+                            TAG.Floor,
+                        ]
+                    },
+                    "Wall_Fan_Coil_Unit": {
+                        "tags": [
+                            TAG.Equipment,
+                            TAG.Fan,
+                            TAG.Coil,
+                            TAG.Unit,
+                            TAG.FCU,
+                            TAG.Wall,
+                            TAG.Mounted,
+                        ]
+                    },
+                },
             },
             "Variable_Air_Volume_Box": {
                 "tags": [TAG.Equipment, TAG.Variable, TAG.Volume, TAG.Box, TAG.VAV],
@@ -634,14 +708,98 @@ hvac_subclasses = {
                 "subclasses": {
                     "Chilled_Water_Pump": {
                         "tags": [TAG.Equipment, TAG.Pump, TAG.Chilled, TAG.Water],
+                        "subclasses": {
+                            "Chilled_Water_Circulator_Pump": {
+                                "tags": [
+                                    TAG.Equipment,
+                                    TAG.Pump,
+                                    TAG.Circulator,
+                                    TAG.Chilled,
+                                    TAG.Water,
+                                ],
+                                "parents": [BRICK.Circulator_Pump],
+                            },
+                            "Chilled_Water_Booster_Pump": {
+                                "tags": [
+                                    TAG.Equipment,
+                                    TAG.Pump,
+                                    TAG.Booster,
+                                    TAG.Chilled,
+                                    TAG.Water,
+                                ],
+                                "parents": [BRICK.Booster_Pump],
+                            },
+                        },
                     },
                     "Condenser_Water_Pump": {
                         "tags": [TAG.Equipment, TAG.Pump, TAG.Condenser, TAG.Water],
+                        "subclasses": {
+                            "Condenser_Water_Circulator_Pump": {
+                                "tags": [
+                                    TAG.Equipment,
+                                    TAG.Pump,
+                                    TAG.Circulator,
+                                    TAG.Condenser,
+                                    TAG.Water,
+                                ],
+                                "parents": [BRICK.Circulator_Pump],
+                            },
+                            "Condenser_Water_Booster_Pump": {
+                                "tags": [
+                                    TAG.Equipment,
+                                    TAG.Pump,
+                                    TAG.Booster,
+                                    TAG.Condenser,
+                                    TAG.Water,
+                                ],
+                                "parents": [BRICK.Booster_Pump],
+                            },
+                        },
                     },
                     "Hot_Water_Pump": {
                         "tags": [TAG.Equipment, TAG.Pump, TAG.Hot, TAG.Water],
+                        "subclasses": {
+                            "Hot_Water_Circulator_Pump": {
+                                "tags": [
+                                    TAG.Equipment,
+                                    TAG.Pump,
+                                    TAG.Circulator,
+                                    TAG.Hot,
+                                    TAG.Water,
+                                ],
+                                "parents": [BRICK.Circulator_Pump],
+                                "subclasses": {
+                                    "Domestic_Hot_Water_Circulator_Pump": {
+                                        "tags": [
+                                            TAG.Equipment,
+                                            TAG.Pump,
+                                            TAG.Circulator,
+                                            TAG.Hot,
+                                            TAG.Water,
+                                            TAG.Domestic,
+                                        ],
+                                    },
+                                },
+                            },
+                            "Hot_Water_Booster_Pump": {
+                                "tags": [
+                                    TAG.Equipment,
+                                    TAG.Pump,
+                                    TAG.Booster,
+                                    TAG.Hot,
+                                    TAG.Water,
+                                ],
+                                "parents": [BRICK.Booster_Pump],
+                            },
+                        },
                     },
                 },
+            },
+            "Circulator_Pump": {
+                "tags": [TAG.Equipment, TAG.Pump, TAG.Circulator],
+            },
+            "Booster_Pump": {
+                "tags": [TAG.Equipment, TAG.Pump, TAG.Booster],
             },
         },
     },
@@ -709,6 +867,33 @@ hvac_subclasses = {
             },
         },
     },
+    "Packaged_Heat_Pump": {
+        "tags": [
+            TAG.Equipment,
+            TAG.Heat,
+            TAG.Pump,
+        ],
+        "subclasses": {
+            "Packaged_Air_Source_Heat_Pump": {
+                "tags": [
+                    TAG.Equipment,
+                    TAG.Air,
+                    TAG.Source,
+                    TAG.Heat,
+                    TAG.Pump,
+                ],
+            },
+            "Packaged_Water_Source_Heat_Pump": {
+                "tags": [
+                    TAG.Equipment,
+                    TAG.Water,
+                    TAG.Source,
+                    TAG.Heat,
+                    TAG.Pump,
+                ],
+            },
+        },
+    },
     "Fume_Hood": {"tags": [TAG.Equipment, TAG.Fume, TAG.Hood]},
     "Filter": {
         "tags": [TAG.Equipment, TAG.Filter],
@@ -746,21 +931,153 @@ hvac_subclasses = {
             "Ceiling_Fan": {"tags": [TAG.Equipment, TAG.Fan, TAG.Ceiling]},
             "Outside_Fan": {"tags": [TAG.Equipment, TAG.Fan, TAG.Outside]},
             "Relief_Fan": {"tags": [TAG.Equipment, TAG.Fan, TAG.Relief]},
+            "Pressurization_Fan": {
+                "tags": [TAG.Equipment, TAG.Fan, TAG.Pressurization],
+            },
         },
     },
     "Economizer": {"tags": [TAG.Equipment, TAG.Economizer]},
     "Damper": {
         "tags": [TAG.Equipment, TAG.Damper],
         "subclasses": {
+            "Bypass_Damper": {"tags": [TAG.Equipment, TAG.Damper, TAG.Bypass]},
             "Economizer_Damper": {"tags": [TAG.Equipment, TAG.Damper, TAG.Economizer]},
             "Exhaust_Damper": {"tags": [TAG.Equipment, TAG.Damper, TAG.Exhaust]},
+            "Isolation_Damper": {"tags": [TAG.Equipment, TAG.Damper, TAG.Isolation]},
             "Outside_Damper": {"tags": [TAG.Equipment, TAG.Damper, TAG.Outside]},
             "Return_Damper": {"tags": [TAG.Equipment, TAG.Damper, TAG.Return]},
             "Mixed_Damper": {"tags": [TAG.Equipment, TAG.Damper, TAG.Mixed]},
             "Relief_Damper": {"tags": [TAG.Equipment, TAG.Damper, TAG.Relief]},
+            "Zone_Damper": {"tags": [TAG.Equipment, TAG.Damper, TAG.Zone]},
         },
     },
-    "Condenser": {"tags": [TAG.Equipment, TAG.Condenser]},
+    "Condensing_Unit": {
+        "tags": [TAG.Equipment, TAG.Condenser, TAG.Condensing, TAG.Unit],
+        "subclasses": {
+            "Cooling_Only_Condensing_Unit": {
+                "tags": [
+                    TAG.Equipment,
+                    TAG.Condenser,
+                    TAG.Condensing,
+                    TAG.Unit,
+                    TAG.Cooling,
+                ],
+                "subclasses": {
+                    "Cooling_Only_Air_Source_Condensing_Unit": {
+                        "tags": [
+                            TAG.Equipment,
+                            TAG.Water,
+                            TAG.Source,
+                            TAG.Condenser,
+                            TAG.Condensing,
+                            TAG.Unit,
+                            TAG.Cooling,
+                        ],
+                    },
+                    "Cooling_Only_Ground_Source_Condensing_Unit": {
+                        "tags": [
+                            TAG.Equipment,
+                            TAG.Ground,
+                            TAG.Source,
+                            TAG.Condenser,
+                            TAG.Condensing,
+                            TAG.Unit,
+                            TAG.Cooling,
+                        ],
+                    },
+                    "Cooling_Only_Water_Source_Condensing_Unit": {
+                        "tags": [
+                            TAG.Equipment,
+                            TAG.Water,
+                            TAG.Source,
+                            TAG.Condenser,
+                            TAG.Condensing,
+                            TAG.Unit,
+                            TAG.Cooling,
+                        ],
+                    },
+                },
+            },
+            "Heat_Pump_Condensing_Unit": {
+                "tags": [
+                    TAG.Equipment,
+                    TAG.Condenser,
+                    TAG.Condensing,
+                    TAG.Unit,
+                    TAG.Cooling,
+                    TAG.Heating,
+                ],
+                "subclasses": {
+                    "Heat_Pump_Air_Source_Condensing_Unit": {
+                        "tags": [
+                            TAG.Equipment,
+                            TAG.Air,
+                            TAG.Source,
+                            TAG.Heat,
+                            TAG.Pump,
+                        ],
+                    },
+                    "Heat_Pump_Ground_Source_Condensing_Unit": {
+                        "tags": [
+                            TAG.Equipment,
+                            TAG.Ground,
+                            TAG.Source,
+                            TAG.Heat,
+                            TAG.Pump,
+                        ],
+                    },
+                    "Heat_Pump_Water_Source_Condensing_Unit": {
+                        "tags": [
+                            TAG.Equipment,
+                            TAG.Water,
+                            TAG.Source,
+                            TAG.Heat,
+                            TAG.Pump,
+                        ],
+                    },
+                },
+            },
+            "Heat_Recovery_Condensing_Unit": {
+                "tags": [
+                    TAG.Equipment,
+                    TAG.Condenser,
+                    TAG.Condensing,
+                    TAG.Unit,
+                    TAG.Cooling,
+                    TAG.Heating,
+                    TAG.Recovery,
+                ],
+                "subclasses": {
+                    "Heat_Recovery_Water_Source_Condensing_Unit": {
+                        "tags": [
+                            TAG.Equipment,
+                            TAG.Condenser,
+                            TAG.Condensing,
+                            TAG.Unit,
+                            TAG.Cooling,
+                            TAG.Heating,
+                            TAG.Recovery,
+                            TAG.Water,
+                            TAG.Source,
+                        ]
+                    },
+                    "Heat_Recovery_Air_Source_Condensing_Unit": {
+                        "tags": [
+                            TAG.Equipment,
+                            TAG.Condenser,
+                            TAG.Condensing,
+                            TAG.Unit,
+                            TAG.Cooling,
+                            TAG.Heating,
+                            TAG.Recovery,
+                            TAG.Water,
+                            TAG.Source,
+                        ]
+                    },
+                },
+            },
+        },
+    },
     "Computer_Room_Air_Conditioning": {
         "tags": [
             TAG.Equipment,
@@ -789,6 +1106,22 @@ hvac_subclasses = {
             },
             "Centrifugal_Chiller": {
                 "tags": [TAG.Equipment, TAG.Chiller, TAG.Centrifugal],
+            },
+            "Water_Cooled_Chiller": {
+                "tags": [
+                    TAG.Equipment,
+                    TAG.Water,
+                    TAG.Cooled,
+                    TAG.Chiller,
+                ],
+            },
+            "Air_Cooled_Chiller": {
+                "tags": [
+                    TAG.Equipment,
+                    TAG.Water,
+                    TAG.Cooled,
+                    TAG.Chiller,
+                ],
             },
         },
     },
@@ -833,6 +1166,36 @@ hvac_subclasses = {
             },
         },
         "parents": [BRICK.Water_Heater],
+    },
+    "Refrigerant_Metering_Device": {
+        "tags": [TAG.Fluid, TAG.Throttling, TAG.Device],
+        "subclasses": {
+            "Thermal_Expansion_Valve": {
+                "tags": [
+                    TAG.Refrigerant,
+                    TAG.Modulating,
+                    TAG.Metering,
+                    TAG.Gas,
+                    TAG.Liquid,
+                    TAG.Expansion,
+                    TAG.Valve,
+                ]
+            },
+            "Electronic_Expansion_Valve": {
+                "tags": [
+                    TAG.Refrigerant,
+                    TAG.Modulating,
+                    TAG.Metering,
+                    TAG.Gas,
+                    TAG.Liquid,
+                    TAG.Expansion,
+                    TAG.Valve,
+                ]
+            },
+            "Capillary_Tube_Metering_Device": {
+                "tags": [TAG.Refrigerant, TAG.Gas, TAG.Fixed, TAG.Liquid, TAG.Metering]
+            },
+        },
     },
     "Air_Handling_Unit": {
         "tags": [TAG.Equipment, TAG.Air, TAG.Handling, TAG.Handler, TAG.Unit, TAG.AHU],
@@ -896,6 +1259,9 @@ hvac_subclasses = {
             },
         },
     },
+    "Wall_Air_Conditioner": {
+        "tags": [TAG.Equipment, TAG.Wall, TAG.Air, TAG.Conditioner]
+    },
 }
 
 valve_subclasses = {
@@ -912,18 +1278,73 @@ valve_subclasses = {
                     TAG.Shutoff,
                 ],
             },
-            "Water_Valve": {
-                "tags": [TAG.Valve, TAG.Water, TAG.Equipment],
+            "Check_Valve": {
+                "tags": [TAG.Check, TAG.Valve],
+                "subclasses": {
+                    "Backflow_Preventer_Valve": {
+                        "tags": [TAG.Backflow, TAG.Preventer, TAG.Valve]
+                    }
+                },
+            },
+            "Pressure_Reducing_Valve": {
+                "tags": [TAG.Pressure, TAG.Reducing, TAG.Valve],
+                "subclasses": {
+                    "Water_Pressure_Reducing_Valve": {
+                        "tags": [TAG.Water, TAG.Pressure, TAG.Reducing, TAG.Valve],
+                        "parents": [BRICK["Water_Valve"]],
+                    },
+                    "Steam_Pressure_Reducing_Valve": {
+                        "tags": [TAG.Steam, TAG.Pressure, TAG.Reducing, TAG.Valve],
+                        "parents": [BRICK["Steam_Valve"]],
+                    },
+                },
+            },
+            "Pressure_Regulator_Valve": {
+                "tags": [TAG.Pressure, TAG.Regulator, TAG.Valve],
+                "subclasses": {
+                    "Gas_Pressure_Regulator_Valve": {
+                        "tags": [TAG.Gas, TAG.Pressure, TAG.Regulator, TAG.Valve],
+                        "parents": [BRICK["Gas_Valve"]],
+                    }
+                },
+            },
+            "Pressure_Relief_Valve": {
+                "tags": [TAG.Pressure, TAG.Relief, TAG.Valve],
+                "subclasses": {
+                    "Steam_Pressure_Relief_Valve": {
+                        "tags": [TAG.Steam, TAG.Pressure, TAG.Relief, TAG.Valve],
+                        "parents": [BRICK["Steam_Valve"]],
+                    },
+                    "Water_Pressure_Relief_Valve": {
+                        "tags": [TAG.Steam, TAG.Pressure, TAG.Relief, TAG.Valve],
+                        "parents": [BRICK["Water_Valve"]],
+                    },
+                },
+            },
+            "Mixing_Valve": {
+                "tags": [TAG.Mixing, TAG.Valve],
                 "subclasses": {
                     "Thermostatic_Mixing_Valve": {
                         "tags": [
                             TAG.Mixed,
                             TAG.Valve,
-                            TAG.Water,
                             TAG.Thermal,
                             TAG.Equipment,
                         ],
                     },
+                    "Electronic_Mixing_Valve": {
+                        "tags": [
+                            TAG.Mixed,
+                            TAG.Valve,
+                            TAG.Electronic,
+                            TAG.Equipment,
+                        ],
+                    },
+                },
+            },
+            "Water_Valve": {
+                "tags": [TAG.Valve, TAG.Water, TAG.Equipment],
+                "subclasses": {
                     "Chilled_Water_Valve": {
                         "tags": [TAG.Chilled, TAG.Valve, TAG.Water, TAG.Equipment],
                         "parents": [BRICK.HVAC_Valve],
@@ -972,6 +1393,21 @@ valve_subclasses = {
                 },
             },
             "Gas_Valve": {"tags": [TAG.Gas, TAG.Valve, TAG.Equipment]},
+            "Steam_Valve": {"tags": [TAG.Steam, TAG.Valve, TAG.Equipment]},
+            "Refrigerant_Valve": {
+                "tags": [TAG.Refrigerant, TAG.Valve, TAG.Gas, TAG.Liquid],
+                "subclasses": {
+                    "Reversing_Valve": {
+                        "tags": [
+                            TAG.Refrigerant,
+                            TAG.Valve,
+                            TAG.Gas,
+                            TAG.Liquid,
+                            TAG.Reversing,
+                        ]
+                    },
+                },
+            },
         },
     }
 }

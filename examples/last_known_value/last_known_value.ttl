@@ -4,6 +4,11 @@
 @prefix unit: <http://qudt.org/vocab/unit/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix bacnet: <http://data.ashrae.org/bacnet/2020#> .
+@prefix rec: <https://w3id.org/rec#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+bldg: a  owl:Ontology ;
+    owl:imports <https://brickschema.org/schema/1.3/Brick> .
 
 bldg:sample-device a bacnet:BACnetDevice ;
     bacnet:device-instance 123 ;
@@ -16,8 +21,9 @@ bldg:sensor1 a brick:Air_Temperature_Sensor ;
         bacnet:object-name "BLDG-Z410-ZATS" ;
         bacnet:objectOf bldg:sample-device ;
     ] ;
-    brick:lastKnownValue [
-        brick:value "72.0"^^xsd:float ;
+    brick:lastKnownValue bldg:sensor1_reading1 .
+
+bldg:sensor1_reading1  a rec:TemperatureObservation ;
+        brick:value "72.0"^^xsd:double ;
         brick:timestamp "2020-01-01T00:00:00Z"^^xsd:dateTime ;
-    ] ;
-.
+        rec:sourcePoint bldg:sensor1 .

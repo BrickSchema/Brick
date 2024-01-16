@@ -15,6 +15,7 @@ meter_subclasses = {
             }
         },
     },
+    "Waste_Meter": {"tags": [TAG.Waste, TAG.Meter]},
     "Gas_Meter": {
         "tags": [TAG.Meter, TAG.Equipment, TAG.Gas],
         "subclasses": {

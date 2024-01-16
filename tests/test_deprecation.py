@@ -16,7 +16,7 @@ def test_deprecation(brick_with_imports):
     """,
         format="turtle",
     )
-    g.expand("shacl")
+    g.expand("shacl", backend="topquadrant")
 
     rows = list(g.query("SELECT ?dep WHERE { ?dep owl:deprecated true }"))
     assert len(rows) > 1, "Should infer OWL deprecation notice"
@@ -24,7 +24,7 @@ def test_deprecation(brick_with_imports):
     rows = list(g.query("SELECT ?fan WHERE { ?fan a brick:Outside_Fan }"))
     assert len(rows) == 1, "Outside fan should exist because of mitigation rule"
 
-    valid, repG, report = g.validate()
+    valid, repG, report = g.validate(engine="topquadrant")
     assert valid, report
 
     res = repG.query(
@@ -32,7 +32,7 @@ def test_deprecation(brick_with_imports):
         ?res a sh:ValidationResult .
         ?res sh:focusNode ?node .
         ?res sh:resultSeverity sh:Warning .
-        ?res sh:value ex:fan .
+        ?res sh:value <urn:ex#fan> .
     }"""
     )
-    assert len(list(res)) == 1, "Should have a warning for deprecation"
+    assert len(set(res)) == 1, "Should have a warning for deprecation"
