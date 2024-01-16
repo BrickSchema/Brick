@@ -680,6 +680,10 @@ sensor_definitions = {
                                     TAG.Discharge,
                                 ],
                                 BRICK.hasQuantity: QUDTQK.VolumeFlowRate,
+                                BRICK.hasSubstance: [
+                                    BRICK.Supply_Air,
+                                    BRICK.Discharge_Air,
+                                ],
                                 "aliases": [BRICK["Discharge_Air_Flow_Sensor"]],
                                 "subclasses": {
                                     "Average_Supply_Air_Flow_Sensor": {
@@ -955,6 +959,10 @@ sensor_definitions = {
                                 ],
                                 "aliases": [BRICK["Discharge_Air_Humidity_Sensor"]],
                                 BRICK.hasQuantity: QUDTQK.RelativeHumidity,
+                                BRICK.hasSubstance: [
+                                    BRICK.Supply_Air,
+                                    BRICK.Discharge_Air,
+                                ],
                             },
                             "Zone_Air_Humidity_Sensor": {
                                 "tags": [
@@ -1034,6 +1042,32 @@ sensor_definitions = {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Pressure],
                 BRICK.hasQuantity: BRICK.Pressure,
                 "subclasses": {
+                    "Gauge_Pressure_Sensor": {
+                        "tags": [TAG.Point, TAG.Sensor, TAG.Pressure, TAG.Gauge],
+                        BRICK.hasQuantity: BRICK.Gauge_Pressure,
+                        "subclasses": {
+                            "Chilled_Water_Gauge_Pressure_Sensor": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Sensor,
+                                    TAG.Chilled,
+                                    TAG.Water,
+                                    TAG.Gauge,
+                                    TAG.Pressure,
+                                ],
+                            },
+                            "Hot_Water_Gauge_Pressure_Sensor": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Sensor,
+                                    TAG.Hot,
+                                    TAG.Water,
+                                    TAG.Gauge,
+                                    TAG.Pressure,
+                                ],
+                            },
+                        },
+                    },
                     "Air_Pressure_Sensor": {
                         "tags": [TAG.Point, TAG.Sensor, TAG.Pressure, TAG.Air],
                         BRICK.hasSubstance: BRICK.Air,
