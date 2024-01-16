@@ -1,17 +1,23 @@
+import logging
 import os
+import brickschema
 import importlib
 from pathlib import Path
 import sys
 import csv
 import glob
 import ontoenv
-import logging
 import pyshacl
 from rdflib import Graph, Literal, BNode, URIRef
 from rdflib.namespace import XSD
 from rdflib.collection import Collection
 
-from bricksrc.ontology import define_ontology, ontology_imports, define_extension, BRICK_IRI_VERSION
+from bricksrc.ontology import (
+    define_ontology,
+    ontology_imports,
+    define_extension,
+    BRICK_IRI_VERSION,
+)
 
 
 from bricksrc.namespaces import (
@@ -52,13 +58,17 @@ from bricksrc.quantities import quantity_definitions, get_units
 from bricksrc.entity_properties import entity_properties, get_shapes
 from bricksrc.deprecations import deprecations
 
+
 logging.basicConfig(
     format="%(asctime)s,%(msecs)d %(levelname)-8s [%(filename)s:%(lineno)d] %(message)s",
     datefmt="%Y-%m-%d:%H:%M:%S",
     level=logging.INFO,
 )
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
 
-G = Graph()
+
+G = brickschema.Graph()
 bind_prefixes(G)
 A = RDF.type
 
@@ -91,7 +101,7 @@ def get_units_brick(brick_quantity):
         OPTIONAL {{
             ?unit rdfs:label ?label .
         }}
-    }}"""
+    }}"""  # noqa
     )
     return set(brick_units)
 
@@ -263,6 +273,22 @@ def define_concept_hierarchy(definitions, typeclasses, broader=None, related=Non
         add_relationships(concept, {k: defn[k] for k in other_properties})
 
 
+def inherit_has_quantity(definitions, parent_quantity=None):
+    """
+    Recursively ensures that the BRICK.hasQuantity annotation is inherited down the
+    subclass tree unless a subclass already specifies a BRICK.hasQuantity.
+    """
+    for classname, defn in definitions.items():
+        # Inherit BRICK.hasQuantity from parent if not defined in the current class
+        if BRICK.hasQuantity not in defn and parent_quantity is not None:
+            defn[BRICK.hasQuantity] = parent_quantity
+
+        # Recursively apply to subclasses
+        subclassdef = defn.get("subclasses", {})
+        assert isinstance(subclassdef, dict)
+        inherit_has_quantity(subclassdef, defn.get(BRICK.hasQuantity, parent_quantity))
+
+
 def define_classes(definitions, parent, pun_classes=False, graph=G):
     """
     Generates triples for the hierarchy given by 'definitions', rooted
@@ -321,7 +347,9 @@ def define_classes(definitions, parent, pun_classes=False, graph=G):
             graph.add((alias, OWL.equivalentClass, classname))
             graph.add((alias, BRICK.aliasOf, classname))
             if not has_label(alias, graph=graph):
-                graph.add((alias, RDFS.label, Literal(alias.split("#")[-1].replace("_", " "))))
+                graph.add(
+                    (alias, RDFS.label, Literal(alias.split("#")[-1].replace("_", " ")))
+                )
 
         # all other key-value pairs in the definition are
         # property-object pairs
@@ -383,8 +411,8 @@ def define_entity_properties(definitions, superprop=None, graph=G):
         assert (
             "property_of" in defn
         ), f"{entprop} missing a 'property_of' annotation so Brick doesn't know where this property can be used"
-        assert (
-            _allowed_annotations.intersection(defn.keys())
+        assert _allowed_annotations.intersection(
+            defn.keys()
         ), f"{entprop} missing at least one of {_allowed_annotations} so Brick doesn't know what the values of this property can be"
         assert RDFS.label in defn, f"{entprop} missing a RDFS.label annotation"
         graph.add((entprop, A, BRICK.EntityProperty))
@@ -443,7 +471,7 @@ def define_shape_property_property(shape_name, definitions, graph=G):
                         ?p sh:path {prop_name.n3()} .
                         FILTER NOT EXISTS {{ ?p sh:minCount ?mc }}
                         FILTER NOT EXISTS {{ ?p sh:maxCount ?mc }}
-                    }}"""
+                    }}"""  # noqa
                 )
             )
             if len(prop_exists) > 0:
@@ -458,7 +486,7 @@ def define_shape_property_property(shape_name, definitions, graph=G):
             fname = prop_defn.pop("import_from")
             tmpG = Graph()
             tmpG.parse(fname)
-            res = tmpG.query(f"SELECT ?p ?o WHERE {{ <{prop_name}> ?p ?o }}")
+            res = tmpG.query(f"SELECT ?p ?o WHERE {{ <{prop_name}> ?p ?o }}")  # noqa
             for p, o in res:
                 graph.add((prop_name, p, o))
         if "optional" in prop_defn:
@@ -528,17 +556,19 @@ def define_shape_properties(definitions, graph=G):
             graph.add((brick_value_shape, SH["in"], enumeration))
             graph.add((brick_value_shape, SH.minCount, Literal(1)))
             vals = defn.pop("values")
-            if isinstance(vals[0], str):
+            if all(map(lambda v: isinstance(v, str), vals)):
                 Collection(
-                    graph, enumeration, map(lambda x: Literal(x, datatype=XSD.string), vals)
+                    graph,
+                    enumeration,
+                    map(lambda x: Literal(x, datatype=XSD.string), vals),
                 )
-            elif isinstance(vals[0], int):
+            if all(map(lambda v: isinstance(v, int), vals)):
                 Collection(
                     graph,
                     enumeration,
                     map(lambda x: Literal(x, datatype=XSD.integer), vals),
                 )
-            elif isinstance(vals[0], float):
+            if all(map(lambda v: isinstance(v, float), vals)):
                 Collection(
                     graph,
                     enumeration,
@@ -589,7 +619,9 @@ def define_shape_properties(definitions, graph=G):
                         "maxExclusive",
                         "maxInclusive",
                     ]:
-                        raise Exception(f"brick:value property {prop_name} not valid")
+                        raise Exception(
+                            f"brick:value property {prop_name} not valid"  # noqa
+                        )
                     graph.add((brick_value_shape, SH[prop_name], Literal(prop_value)))
 
 
@@ -671,16 +703,24 @@ def add_definitions(graph=G):
     with open("./bricksrc/definitions.csv", encoding="utf-8") as dictionary_file:
         dictionary = csv.reader(dictionary_file)
 
-        # skip the header
-        next(dictionary)
+        header = next(dictionary)
 
         # add definitions, citations to the graph
         for definition in dictionary:
             term = URIRef(definition[0])
+            if len(definition) > len(header):
+                raise ValueError(
+                    f"The term '{term}' has more elements than expected. Please check the format."
+                )
             if len(definition[1]):
                 graph.add((term, SKOS.definition, Literal(definition[1], lang="en")))
-            if len(definition[2]):
-                graph.add((term, RDFS.seeAlso, URIRef(definition[2])))
+            if len(definition) > 2 and definition[2]:
+                try:
+                    graph.add((term, RDFS.seeAlso, URIRef(definition[2])))
+                except Exception as e:
+                    print(
+                        f"Error processing 'seeAlso' for term '{term}': {e}. The definition provided is: '{definition}'."
+                    )
 
     qstr = """
     select ?param where {
@@ -716,7 +756,7 @@ def add_definitions(graph=G):
             # Setpoint names are not explicit in class's names. Thus needs
             # to be explicily added for the definition text.
             setpoint = setpoint + "_Setpoint"
-            logging.info(f"Inferred setpoint: {setpoint}")
+            logger.info(f"Inferred setpoint: {setpoint}")
         limit_def = limit_def_template.format(direction=direction, setpoint=setpoint)
         if param != BRICK.Limit:  # definition already exists for Limit
             graph.add((param, SKOS.definition, Literal(limit_def, lang="en")))
@@ -725,10 +765,12 @@ def add_definitions(graph=G):
             BIND(brick:{setpoint} as ?class)
             ?class rdfs:subClassOf* brick:Class.
         }}
-        """
+        """  # noqa
         ).bindings
         if not class_exists:
-            logging.warning(f"WARNING: {setpoint} does not exist in Brick for {param}.")
+            logging.warning(
+                f"WARNING: {setpoint} does not exist in Brick for {param}."  # noqa
+            )
 
 
 def handle_deprecations():
@@ -778,9 +820,17 @@ def handle_deprecations():
         G.add((deprecated_term, BRICK.isReplacedBy, md["replace_with"]))
 
 
-logging.info("Beginning BRICK Ontology compilation")
+logger.info("Beginning BRICK Ontology compilation")
 # handle ontology definition
 define_ontology(G)
+
+logger.info("Inheriting annotations down the subclass trees")
+inherit_has_quantity(setpoint_definitions)
+inherit_has_quantity(sensor_definitions)
+inherit_has_quantity(alarm_definitions)
+inherit_has_quantity(status_definitions)
+inherit_has_quantity(command_definitions)
+inherit_has_quantity(parameter_definitions)
 
 # Declare root classes
 
@@ -796,13 +846,13 @@ roots = {
     "Equipment": {"tags": [TAG.Equipment]},
     "Location": {"tags": [TAG.Location]},
     "Point": {"tags": [TAG.Point]},
-    "Measurable": {},
+    "Measurable": {"tags": [TAG.Measurable]},
     "Collection": {"tags": [TAG.Collection]},
 }
 define_classes(roots, BRICK.Class)  # <= Brick v1.3.0
 define_classes(roots, BRICK.Entity)  # >= Brick v1.3.0
 
-logging.info("Defining properties")
+logger.info("Defining properties")
 # define BRICK properties
 G.add((BRICK.Relationship, A, OWL.ObjectProperty))
 G.add((BRICK.Relationship, RDFS.label, Literal("Relationship")))
@@ -820,7 +870,8 @@ define_relationships(relationships)
 G.add((VCARD.hasAddress, A, OWL.ObjectProperty))
 G.add((VCARD.Address, A, OWL.Class))
 
-logging.info("Defining Point subclasses")
+
+logger.info("Defining Point subclasses")
 # define Point subclasses
 define_classes(setpoint_definitions, BRICK.Point)
 define_classes(sensor_definitions, BRICK.Point)
@@ -835,7 +886,7 @@ for pc in pointclasses:
     for o in filter(lambda x: x != pc, pointclasses):
         G.add((BRICK[pc], OWL.disjointWith, BRICK[o]))
 
-logging.info("Defining Equipment, System and Location subclasses")
+logger.info("Defining Equipment, System and Location subclasses")
 # define other root class structures
 define_classes(location_subclasses, BRICK.Location)
 define_classes(equipment_subclasses, BRICK.Equipment)
@@ -846,7 +897,7 @@ define_classes(valve_subclasses, BRICK.Equipment)
 define_classes(security_subclasses, BRICK.Security_Equipment)
 define_classes(safety_subclasses, BRICK.Safety_Equipment)
 
-logging.info("Defining Measurable hierarchy")
+logger.info("Defining Measurable hierarchy")
 # define measurable hierarchy
 G.add((BRICK.Measurable, RDFS.subClassOf, BRICK.Entity))
 # set up Quantity definition
@@ -911,6 +962,7 @@ res = G.query(
                 }"""
 )
 
+logger.info("Adding applicable units")
 # this requires two passes to associate the applicable units with
 # each of the quantities. The first pass associates Brick quantities
 # with QUDT units via the "hasQUDTReference" property; the second pass
@@ -918,10 +970,8 @@ res = G.query(
 # "up" into the broader concepts.
 for r in res:
     brick_quant, qudt_quant = r
-    for (unit,) in get_units(qudt_quant):
+    for unit in get_units(qudt_quant):
         G.add((brick_quant, QUDT.applicableUnit, unit))
-for r in res:
-    brick_quant, qudt_quant = r
     # the symbols, units, and labels are already defined in the previous pass
     for unit, symb, label in get_units_brick(brick_quant):
         G.add((brick_quant, QUDT.applicableUnit, unit))
@@ -934,6 +984,7 @@ for r in res:
 #        G.add((unit, RDFS.label, label))
 
 
+logger.info("Defining entity properties")
 # entity property definitions (must happen after units are defined)
 G.add((BRICK.value, SKOS.definition, Literal("The basic value of an entity property")))
 G.add((BRICK.EntityProperty, RDFS.subClassOf, OWL.ObjectProperty))
@@ -945,11 +996,16 @@ define_shape_properties(get_shapes(G))
 
 G.remove((BRICK.value, A, OWL.ObjectProperty))
 
+logger.info("Adding deprecations")
+# handle class deprecations
 handle_deprecations()
+# handle non-class deprecations
+G.parse("bricksrc/deprecations.ttl")
 
-logging.info("Adding class definitions")
+logger.info("Adding class definitions")
 add_definitions()
 
+logger.info("Adding other .ttl files")
 # add all TTL files in bricksrc
 for ttlfile in glob.glob("bricksrc/*.ttl"):
     G.parse(ttlfile, format="turtle")
@@ -960,6 +1016,7 @@ ref_schema_uri = URIRef(REF.strip("#"))
 for triple in G.cbd(ref_schema_uri):
     G.remove(triple)
 
+logger.info("Cleaning up ontology prefixes")
 # remove duplicate ontology definitions and
 # move prefixes onto Brick ontology definition
 for ontology, pfx in G.subject_objects(predicate=SH.declare):
@@ -974,9 +1031,7 @@ for rule, pfxs in G.subject_objects(predicate=SH.prefixes):
     G.add((rule, SH.prefixes, BRICK_IRI_VERSION))
 
 # remove ontology declarations
-for ontology in G.subjects(
-    predicate=RDF.type, object=OWL.Ontology
-):
+for ontology in G.subjects(predicate=RDF.type, object=OWL.Ontology):
     if ontology != BRICK_IRI_VERSION:
         G.remove((ontology, RDF.type, OWL.Ontology))
         G.remove((ontology, OWL.imports, None))
@@ -989,24 +1044,24 @@ for filename in sys.argv[1:]:
     # TODO: add ontology definition
     print(f"Reading in entity properties and/or class definitions from {filename}")
     mod = importlib.import_module(filename)
-    if hasattr(mod, 'entity_properties'):
+    if hasattr(mod, "entity_properties"):
         define_entity_properties(mod.entity_properties, graph=extension_graph)
-    if hasattr(mod, 'classes'):
+    if hasattr(mod, "classes"):
         for parent, tree in mod.classes.items():
             define_classes(tree, parent, graph=extension_graph)
-    if hasattr(mod, 'property_value_shapes'):
+    if hasattr(mod, "property_value_shapes"):
         define_shape_properties(mod.property_value_shapes, graph=extension_graph)
-    if hasattr(mod, 'ontology_definition'):
+    if hasattr(mod, "ontology_definition"):
         define_extension(extension_graph, mod.ontology_definition)
 
-    parts = Path('/'.join(filename.split('.')))
+    parts = Path("/".join(filename.split(".")))
     dest = Path("extensions") / parts.with_suffix(".ttl")
     os.makedirs(dest.parent, exist_ok=True)
     print(f"Writing extension graph to {dest}")
     extension_graph.serialize(dest, format="ttl")
 
 
-logging.info(f"Brick ontology compilation finished! Generated {len(G)} triples")
+logger.info(f"Brick ontology compilation finished! Generated {len(G)} triples")
 
 extension_graphs = {"shacl_tag_inference": shaclGraph}
 
@@ -1018,6 +1073,10 @@ for name, graph in extension_graphs.items():
         fp.write(graph.serialize(format="turtle").rstrip())
         fp.write("\n")
 
+# add inferred information to Brick
+# logger.info("Adding inferred information to Brick")
+# G.expand('shacl', backend='topquadrant')
+
 # serialize Brick to output
 with open("Brick.ttl", "w", encoding="utf-8") as fp:
     fp.write(G.serialize(format="turtle").rstrip())
@@ -1027,17 +1086,23 @@ with open("Brick.ttl", "w", encoding="utf-8") as fp:
 if os.path.exists("Brick+extensions.ttl"):
     os.remove("Brick+extensions.ttl")
 
+
 # create new directory for storing imports
 os.makedirs("imports", exist_ok=True)
-env = ontoenv.OntoEnv(initialize=True)
-env.refresh()
+env = ontoenv.OntoEnv(initialize=True, search_dirs=["support/"])
 for name, uri in ontology_imports.items():
     depg, loc = env.resolve_uri(str(uri))
     depg.serialize(Path("imports") / f"{name}.ttl", format="ttl")
     G += depg  # add the imported graph to Brick so we can do validation
 
 # validate Brick
-valid, _, report = pyshacl.validate(data_graph=G, advanced=True, allow_warnings=True)
+valid, _, report = G.validate(engine="topquadrant")
 if not valid:
     print(report)
     sys.exit(1)
+
+# validate Brick
+# valid, _, report = pyshacl.validate(data_graph=G, advanced=True, allow_warnings=True)
+# if not valid:
+#    print(report)
+#    sys.exit(1)

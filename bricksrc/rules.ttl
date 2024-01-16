@@ -39,6 +39,24 @@ WHERE {
   sh:targetClass brick:Entity ;
 .
 
+bsh:InferInverseProperties2
+  a sh:NodeShape ;
+  sh:rule [
+      a sh:SPARQLRule ;
+      sh:construct """
+            CONSTRUCT {
+$this ?p ?o .
+}
+WHERE {
+?o ?invP $this .
+?invP owl:inverseOf ?p .
+}
+			""" ;
+      sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
+    ] ;
+  sh:targetClass brick:Entity ;
+.
+
 bsh:InferSymmetricProperties
   a sh:NodeShape ;
   sh:rule [
@@ -96,15 +114,19 @@ bsh:RDFSSubPropertyOfRuleForEntityProperties
     sh:rule [
         a sh:SPARQLRule ;
         sh:construct """
-CONSTRUCT {
-    ?s ?super ?o .
-} WHERE {
-    $this rdfs:subPropertyOf+ ?super .
-    ?super a brick:EntityProperty .
-    $this a brick:EntityProperty .
-    ?s $this ?o .
-}""" ;
-      sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
+            CONSTRUCT {
+                ?s ?super ?skolemized .
+                ?skolemized ?ep ?eo .
+            } WHERE {
+                $this rdfs:subPropertyOf+ ?super .
+                ?super a brick:EntityProperty .
+                $this a brick:EntityProperty .
+                ?s $this ?o .
+                BIND(IF(isBlank(?o), IRI(CONCAT("urn:skolem:", STRUUID())), ?o) AS ?skolemized)
+                ?o ?ep ?eo .
+            }
+        """ ;
+        sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
     ] ;
     sh:targetSubjectsOf rdfs:subPropertyOf ;
 .
@@ -269,6 +291,7 @@ bsh:BuildingMeterRule a sh:NodeShape ;
             $this rdf:type ?type .
             BIND(IRI(CONCAT("https://brickschema.org/schema/Brick#Building_", strafter(str(?type), "https://brickschema.org/schema/Brick#"))) as ?newtype) .
             FILTER (strEnds(str(?type), "_Meter"))
+            FILTER (!strStarts(str(?type), "https://brickschema.org/schema/Brick#Building_"))
         }
         """ ;
         sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
@@ -377,6 +400,39 @@ bsh:TimeseriesReferenceOnPointsConstraint a sh:NodeShape ;
     ] ;
 .
 
+bsh:PointsHaveQuantityKinds a sh:NodeShape ;
+    # add more as needed
+    sh:target [
+        a sh:SPARQLTarget ;
+        sh:select """
+          SELECT ?this
+          WHERE {
+            ?this rdfs:subClassOf+ brick:Sensor .
+            FILTER NOT EXISTS { ?class owl:deprecated true }
+          }
+        """ ;
+        sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
+      ] ;
+    sh:target [
+        a sh:SPARQLTarget ;
+        sh:select """
+          SELECT ?this
+          WHERE {
+            ?this rdfs:subClassOf+ brick:Setpoint .
+            FILTER NOT EXISTS { ?class owl:deprecated true }
+          }
+        """ ;
+        sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
+      ] ;
+    sh:property [
+        sh:class qudt:QuantityKind ;
+        sh:path brick:hasQuantity ;
+        sh:minCount 1 ;
+        sh:message "Brick Points should have associated quantity kinds" ;
+    ] ;
+
+.
+
 bsh:hasQuantity a sh:NodeShape ;
     sh:targetObjectsOf brick:hasQuantity ;
     sh:class qudt:QuantityKind ;
@@ -385,4 +441,81 @@ bsh:hasQuantity a sh:NodeShape ;
 bsh:hasSubstance a sh:NodeShape ;
     sh:targetObjectsOf brick:hasSubstance ;
     sh:class brick:Substance ;
+.
+
+
+# rule to add rec:includes when a brick:Collection contains a brick:Equipment
+bsh:CollectionIncludesEquipment a sh:NodeShape ;
+    sh:targetClass brick:Collection, brick:System, brick:Equipment ;
+    sh:rule [
+        a sh:SPARQLRule ;
+        sh:construct """
+        CONSTRUCT {
+            $this rec:includes ?eq .
+        }
+        WHERE {
+            $this brick:hasPart ?eq .
+            {
+                ?eq rdf:type/rdfs:subClassOf* brick:Equipment .
+            }
+            UNION
+            {
+                ?eq rdf:type/rdfs:subClassOf* brick:Collection .
+            }
+            UNION
+            {
+                ?eq rdf:type/rdfs:subClassOf* brick:System .
+            }
+        }
+        """ ;
+        sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
+    ] ;
+.
+
+# add unidirectional charging to all EVsE chargers as a default value
+# UNLESS there is already a brick:electricVehicleChargerDirectionality attribute
+# on ports associated with the charger
+bsh:AddDefaultEVSEChargerDirection a sh:NodeShape ;
+    sh:targetClass brick:Electric_Vehicle_Charging_Station ;
+    sh:rule [
+        a sh:SPARQLRule ;
+        sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
+        sh:construct """
+        CONSTRUCT {
+            $this brick:electricVehicleChargerDirectionality [ brick:value "unidirectional" ]
+        } WHERE {
+            $this rdf:type brick:Electric_Vehicle_Charging_Station .
+            FILTER NOT EXISTS {
+                $this brick:electricVehicleChargerDirectionality ?direction .
+            }
+            FILTER NOT EXISTS {
+                $this brick:hasPart ?port .
+                ?port a brick:Electric_Vehicle_Charging_Port .
+                ?port brick:electricVehicleChargerDirectionality ?other_direction .
+            }
+        }
+        """ ;
+    ] ;
+.
+
+# inherit the directionality of the EVSE charger to the ports
+bsh:InheritEVSEChargerDirection a sh:NodeShape ;
+    sh:targetClass brick:Electric_Vehicle_Charging_Port ;
+    sh:rule [
+        a sh:SPARQLRule ;
+        sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
+        sh:construct """
+        CONSTRUCT {
+            $this brick:electricVehicleChargerDirectionality ?direction
+        } WHERE {
+            $this rdf:type brick:Electric_Vehicle_Charging_Port .
+            $this brick:isPartOf ?charger .
+            ?charger a brick:Electric_Vehicle_Charging_Station .
+            ?charger brick:electricVehicleChargerDirectionality ?direction .
+            FILTER NOT EXISTS {
+                $this brick:electricVehicleChargerDirectionality ?other_direction .
+            }
+        }
+        """ ;
+    ] ;
 .

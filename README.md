@@ -72,3 +72,8 @@ It will produce three files inside `history/{old_version}-{new_version}`.
 - `added_classes.txt`: A list of new classes introduced in the current version compared to the previous version.
 - `removed_classes.txt`: A list of old classes removed in the current version compared to the previous version.
 - `possible_mapping.json`: A map of candidate classes that can replace removed classes. Keys are removed classes and the values are candidate correspondants in the new vesion.
+
+
+---
+
+*The Brick Development Team was initiated to produce a unified metadata schema for resources in buildings in early 2016. The team consists of members from IBM; Carnegie Mellon University; University of California, Berkeley; University of California, Los Angeles; University of California, San Diego; University of Virginia and University of Southern Denmark.*

@@ -2,6 +2,10 @@
 @prefix brick: <https://brickschema.org/schema/Brick#> .
 @prefix unit: <http://qudt.org/vocab/unit/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+<urn:example> a owl:Ontology ;
+    owl:imports <https://brickschema.org/schema/1.3/Brick> .
 
 # shared efficiency rating
 site:panel_efficiency  a brick:EfficiencyShape ;
@@ -104,16 +108,16 @@ site:pv_meter   a   brick:Electrical_Meter ;
                     site:pv_daily_peak_power .
 
 site:pv_power   a   brick:Electric_Power_Sensor ;
-    brick:powerFlow [ brick:value "export"^^xsd:string ] ;
+    brick:electricalFlow [ brick:value "export"^^xsd:string ] ;
     brick:hasUnit   unit:KiloW .
 
 site:pv_energy   a   brick:Energy_Sensor ;
-    brick:powerFlow [ brick:value "export"^^xsd:string ] ;
+    brick:electricalFlow [ brick:value "export"^^xsd:string ] ;
     brick:hasUnit   unit:KiloW-HR .
 
 site:pv_daily_peak_power   a   brick:Power_Sensor ;
     brick:hasUnit   unit:KiloW ;
-    brick:powerFlow [ brick:value "export"^^xsd:string ] ;
+    brick:electricalFlow [ brick:value "export"^^xsd:string ] ;
     brick:aggregate [
         brick:aggregationFunction    "max" ;
         brick:aggregationInterval    "RP1D" ;

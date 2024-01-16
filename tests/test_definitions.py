@@ -67,7 +67,7 @@ def test_relationship_definitions(brick_with_imports):
 
 def test_obsolete_definitions(brick_with_imports):
     g = brick_with_imports
-    definitions_without_terms = g.query(
+    obsolete_definitions = g.query(
         """SELECT DISTINCT ?term WHERE {
                               ?term skos:definition|rdfs:seeAlso ?definition .
                               FILTER NOT EXISTS {
@@ -77,16 +77,17 @@ def test_obsolete_definitions(brick_with_imports):
     )
     with open("tests/obsolete_definitions.json", "w") as fp:
         json.dump(
-            [
-                definitions_without_term[0]
-                for definitions_without_term in definitions_without_terms
-            ],
+            [str(obsolete_term[0]) for obsolete_term in obsolete_definitions],
             fp,
             indent=2,
         )
-    assert (
-        not definitions_without_terms
-    ), f"{len(definitions_without_terms)} definitions found for deprecated term(s). For more information, see ./tests/obsolete_definitions.json"
+    error_message = (
+        f"{len(obsolete_definitions)} obsolete definition(s) found. "
+        f"Terms needing removal: "
+        f"{', '.join(str(term[0]) for term in obsolete_definitions)}. "
+        "See ./tests/obsolete_definitions.json for more information."
+    )
+    assert not obsolete_definitions, error_message
 
 
 def test_valid_definition_encoding(brick_with_imports):

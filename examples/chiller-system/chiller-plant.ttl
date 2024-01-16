@@ -1,0 +1,69 @@
+@prefix : <urn:chiller-plant#> .
+@prefix brick: <https://brickschema.org/schema/Brick#> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:cws a brick:Chilled_Water_System ;
+    brick:hasPart :ct-1, :ct-2, :ct-3,
+                  :cwp-1, :cwp-2, :cwp-3,
+                  :chwp-1, :chwp-2, :chwp-3, :chwp-4,
+                  :ch-1, :ch-2, :ch-3,
+                  :ch-1-cond, :ch-2-cond, :ch-3-cond,
+                  :chw-coil
+.
+
+:chwp-1 a brick:Chilled_Water_Pump .
+:chwp-2 a brick:Chilled_Water_Pump .
+:chwp-3 a brick:Chilled_Water_Pump .
+:chwp-4 a brick:Chilled_Water_Pump .
+
+:ch-1 a brick:Chiller ;
+    brick:hasPart :ch-1-cond ;
+    brick:feeds :chw-coil ;
+    brick:isFedBy :chwp-1, :chwp-2, :chwp-3, :chwp-4,
+                  :cwp-1, :cwp-2, :cwp-3 ;
+.
+:ch-2 a brick:Chiller ;
+    brick:hasPart :ch-2-cond ;
+    brick:feeds :chw-coil ;
+    brick:isFedBy :chwp-1, :chwp-2, :chwp-3, :chwp-4,
+                  :cwp-1, :cwp-2, :cwp-3 ;
+.
+:ch-3 a brick:Chiller ;
+    brick:hasPart :ch-3-cond ;
+    brick:feeds :chw-coil ;
+    brick:isFedBy :chwp-1, :chwp-2, :chwp-3, :chwp-4,
+                  :cwp-1, :cwp-2, :cwp-3 ;
+.
+
+:ch-1-cond a brick:Condensing_Unit ;
+    brick:feeds :ct-1, :ct-2, :ct-3 ;
+    brick:isFedBy :cwp-1 .
+
+:ch-2-cond a brick:Condensing_Unit ;
+    brick:feeds :ct-1, :ct-2, :ct-3 ;
+    brick:isFedBy :cwp-2 .
+
+:ch-3-cond a brick:Condensing_Unit ;
+    brick:feeds :ct-1, :ct-2, :ct-3 ;
+    brick:isFedBy :cwp-3 .
+
+:chw-coil a brick:Chilled_Water_Coil ;
+    brick:feeds :chwp-1, :chwp-2, :chwp-3, :chwp-4 .
+
+
+:ct-1 a brick:Cooling_Tower ;
+    brick:feeds :cwp-1, :cwp-2, :cwp-3 ;
+    brick:isFedBy :ch-1, :ch-2, :ch-3 .
+
+:ct-2 a brick:Cooling_Tower ;
+    brick:feeds :cwp-1, :cwp-2, :cwp-3 ;
+    brick:isFedBy :ch-1, :ch-2, :ch-3 .
+
+:ct-3 a brick:Cooling_Tower ;
+    brick:feeds :cwp-1, :cwp-2, :cwp-3 ;
+    brick:isFedBy :ch-1, :ch-2, :ch-3 .
+
+:cwp-1 a brick:Condenser_Water_Pump .
+:cwp-2 a brick:Condenser_Water_Pump .
+:cwp-3 a brick:Condenser_Water_Pump .

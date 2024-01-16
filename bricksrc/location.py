@@ -628,8 +628,10 @@ location_subclasses = {
         },
         "constraints": {
             BRICK.hasPart: [
-                BRICK.Room,
                 BRICK.Space,
+                BRICK.Wing,
+                BRICK.Outdoor_Area,
+                BRICK.Floor,
             ],
         },
     },
