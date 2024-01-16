@@ -1,0 +1,3017 @@
+# baseURI: https://w3id.org/rec
+# imports: http://datashapes.org/dash
+# imports: https://brickschema.org/schema/1.3/Brick
+# imports: https://w3id.org/rec/brickpatches
+# prefix: rec
+
+@prefix : <https://w3id.org/rec#> .
+@prefix brick: <https://brickschema.org/schema/Brick#> .
+@prefix brickpatches: <https://w3id.org/rec/brickpatches#> .
+@prefix dash: <http://datashapes.org/dash#> .
+@prefix geojson: <https://geojson.org/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rec: <https://w3id.org/rec#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+brick:Equipment
+  rdf:type owl:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Equipment" ;
+  rdfs:subClassOf rec:Asset ;
+.
+<https://w3id.org/rec>
+  rdf:type owl:Ontology ;
+  rdfs:label "RealEstateCore" ;
+  owl:imports <http://datashapes.org/dash> ;
+  owl:imports <https://brickschema.org/schema/1.3/Brick> ;
+  owl:imports <https://w3id.org/rec/brickpatches> ;
+  owl:versionInfo "4.0" ;
+.
+rec:AbsoluteHumidityObservation
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  qudt:hasQuantityKind <http://qudt.org/vocab/quantitykind/AbsoluteHumidity> ;
+  rdfs:label "Absolute humidity observation" ;
+  rdfs:subClassOf rec:ObservationEvent ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:value ;
+      sh:datatype xsd:double ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:name "value" ;
+    ] ;
+.
+rec:AccelerationObservation
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  qudt:hasQuantityKind <http://qudt.org/vocab/quantitykind/Acceleration> ;
+  rdfs:label "Acceleration observation" ;
+  rdfs:subClassOf rec:ObservationEvent ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:value ;
+      sh:datatype xsd:double ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:name "value" ;
+    ] ;
+.
+rec:AccessControlZone
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Access control zone" ;
+  rdfs:subClassOf rec:Zone ;
+.
+rec:AccessPanel
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Access panel" ;
+  rdfs:subClassOf rec:BarrierAsset ;
+.
+rec:ActuationEvent
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Actuation event" ;
+  rdfs:subClassOf rec:PointEvent ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:targetPoint ;
+      sh:class brick:Point ;
+      sh:description "The brick:Point(s) (e.g., brick:Commands, brick:Setpoints, or brick:Parameters) that the actuation will target/execute." ;
+      sh:minCount 1 ;
+      sh:name "target point" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:value ;
+      sh:datatype xsd:string ;
+      sh:description "The command message/payload of this actuation event." ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:name "value" ;
+    ] ;
+.
+rec:AdmittingRoom
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Admitting room" ;
+  rdfs:subClassOf rec:HealthcareRoom ;
+.
+rec:Agent
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:comment "The human, group, or machine that consumes or acts upon an object or data. This higher-level grouping allows properties that are shared among its subclasses (Person, Organization, ....) to be anchored in one joint place, on the Agent class." ;
+  rdfs:label "Agent" ;
+  rdfs:subClassOf rdfs:Resource ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:isMemberOf ;
+      sh:class rec:Organization ;
+      sh:description "Indicates membership in an organization. Note that componency (e.g., departments of a corporation) are expressed using the more generic Organization.isPartOf property." ;
+      sh:name "is member of" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:owns ;
+      sh:description "Indicates ownership of some thing, e.g., a building, an asset, an organization, etc." ;
+      sh:name "owns" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+.
+rec:AlarmObject
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Alarm object" ;
+  rdfs:subClassOf rec:ServiceObject ;
+.
+rec:AngleObservation
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  qudt:hasQuantityKind <http://qudt.org/vocab/quantitykind/Angle> ;
+  rdfs:label "Angle observation" ;
+  rdfs:subClassOf rec:ObservationEvent ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:value ;
+      sh:datatype xsd:double ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:name "value" ;
+    ] ;
+.
+rec:AngularAccelerationObservation
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  qudt:hasQuantityKind <http://qudt.org/vocab/quantitykind/AngularAcceleration> ;
+  rdfs:label "Angular acceleration observation" ;
+  rdfs:subClassOf rec:ObservationEvent ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:value ;
+      sh:datatype xsd:double ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:name "value" ;
+    ] ;
+.
+rec:AngularVelocityObservation
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  qudt:hasQuantityKind <http://qudt.org/vocab/quantitykind/AngularVelocity> ;
+  rdfs:label "Angular velocity observation" ;
+  rdfs:subClassOf rec:ObservationEvent ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:value ;
+      sh:datatype xsd:double ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:name "value" ;
+    ] ;
+.
+rec:Apartment
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Apartment" ;
+  rdfs:subClassOf rec:Collection ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:includes ;
+      sh:class rec:Room ;
+      sh:minCount 1 ;
+      sh:name "includes" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+.
+rec:ArchitecturalAsset
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Architectural asset" ;
+  rdfs:subClassOf rec:Asset ;
+.
+rec:Architecture
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:comment "A designed/landscaped (or potentially designed/landscaped) part of the physical world that has a 3D spatial extent. E.g., a building site, a building, levels within the building, rooms, etc." ;
+  rdfs:label "Architecture" ;
+  rdfs:subClassOf rec:Space ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:address ;
+      sh:class rec:PostalAddress ;
+      sh:description "Physical address of the architecture (site, building, sub-building, entrance room, etc.) in question." ;
+      sh:name "address" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:adjacentElement ;
+      sh:class rec:BuildingElement ;
+      sh:name "adjacent element" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:architectedBy ;
+      sh:class rec:Agent ;
+      sh:name "architected by" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:area ;
+      sh:class rec:ArchitectureArea ;
+      sh:maxCount 1 ;
+      sh:name "area" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:capacity ;
+      sh:class rec:ArchitectureCapacity ;
+      sh:maxCount 1 ;
+      sh:name "capacity" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:constructedBy ;
+      sh:class rec:Agent ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:containsElement ;
+      sh:class rec:BuildingElement ;
+      sh:description "Links an Architecture to BuildingElement that is contained in the Space." ;
+      sh:name "contains element" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:documentation ;
+      sh:class rec:Document ;
+      sh:name "documentation" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:hasPoint ;
+      sh:class brick:Point ;
+      sh:name "has point" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:intersectingElement ;
+      sh:class rec:BuildingElement ;
+      sh:name "intersecting element" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:isFedBy ;
+      sh:name "is fed by" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:operatedBy ;
+      sh:class rec:Agent ;
+      sh:name "operated by" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:ownedBy ;
+      sh:class rec:Agent ;
+      sh:name "owned by" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+.
+rec:ArchitectureArea
+  rdf:type <dtmi:dtdl:class:Component> ;
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:comment "Describes business-relevant area measurements typically associated with architected spaces. As the exact requirements on these measurements will vary from case to case or jurisdiction to jurisdiction, subclassing and specializing this definition is encouraged." ;
+  rdfs:label "Architecture area" ;
+  rdfs:subClassOf rec:Information ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:grossArea ;
+      sh:datatype xsd:float ;
+      sh:maxCount 1 ;
+      sh:name "gross area" ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:netArea ;
+      sh:datatype xsd:float ;
+      sh:maxCount 1 ;
+      sh:name "net area" ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:rentableArea ;
+      sh:datatype xsd:float ;
+      sh:maxCount 1 ;
+      sh:name "rentable area" ;
+    ] ;
+.
+rec:ArchitectureCapacity
+  rdf:type <dtmi:dtdl:class:Component> ;
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:comment "Describes business-relevant capacity measurements typically associated with architected spaces. As the exact requirements on these measurements will vary from case to case or jurisdiction to jurisdiction, subclassing and specializing this definition is encouraged." ;
+  rdfs:label "Architecture capacity" ;
+  rdfs:subClassOf rec:Information ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:maxOccupancy ;
+      sh:datatype xsd:integer ;
+      sh:description "E.g., per Building Code" ;
+      sh:maxCount 1 ;
+      sh:name "maximum occupancy" ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:seatingCapacity ;
+      sh:datatype xsd:integer ;
+      sh:maxCount 1 ;
+      sh:name "seating capacity" ;
+    ] ;
+.
+rec:AreaObservation
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  qudt:hasQuantityKind <http://qudt.org/vocab/quantitykind/Area> ;
+  rdfs:label "Area observation" ;
+  rdfs:subClassOf rec:ObservationEvent ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:value ;
+      sh:datatype xsd:double ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:name "value" ;
+    ] ;
+.
+rec:Asset
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:comment "Something which is placed inside of a building, but is not an integral part of that building's structure; e.g., furniture, equipment, systems, etc." ;
+  rdfs:label "Asset" ;
+  rdfs:subClassOf rdfs:Resource ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:IPAddress ;
+      sh:datatype xsd:string ;
+      sh:name "IP address" ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:MACAddress ;
+      sh:datatype xsd:string ;
+      sh:name "MAC address" ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:assetTag ;
+      sh:datatype xsd:string ;
+      sh:name "asset tag" ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:commissionedBy ;
+      sh:class rec:Agent ;
+      sh:name "commissioned by" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:commissioningDate ;
+      sh:datatype xsd:date ;
+      sh:maxCount 1 ;
+      sh:name "commissioning date" ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:documentation ;
+      sh:class rec:Document ;
+      sh:name "documentation" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:geometry ;
+      sh:class rec:Geometry ;
+      sh:description "A GeoJSON Geometry representing the position or extent of the asset." ;
+      sh:maxCount 1 ;
+      sh:name "geometry" ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:hasPart ;
+      sh:class rec:Asset ;
+      sh:name "has part" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:hasPoint ;
+      sh:class brick:Point ;
+      sh:name "has point" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:initialCost ;
+      sh:maxCount 1 ;
+      sh:name "initial cost" ;
+      sh:nodeKind sh:Literal ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:installationDate ;
+      sh:datatype xsd:date ;
+      sh:maxCount 1 ;
+      sh:name "installation date" ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:installedBy ;
+      sh:class rec:Agent ;
+      sh:name "installed by" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:isPartOf ;
+      sh:class rec:Asset ;
+      sh:name "is part of" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:locatedIn ;
+      sh:class rec:Space ;
+      sh:name "located in" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:maintenanceInterval ;
+      sh:datatype xsd:duration ;
+      sh:name "maintenance interval" ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:manufacturedBy ;
+      sh:class rec:Agent ;
+      sh:name "manufactured by" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:modelNumber ;
+      sh:datatype xsd:string ;
+      sh:name "model number" ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:mountedOn ;
+      sh:class rec:BuildingElement ;
+      sh:description "An asset may be mounted on some part of the building construction (e.g., a blind on a facade, a camera on a wall, etc)." ;
+      sh:maxCount 1 ;
+      sh:name "mounted on" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:serialNumber ;
+      sh:datatype xsd:string ;
+      sh:name "serial number" ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:servicedBy ;
+      sh:class rec:Agent ;
+      sh:name "serviced by" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:turnoverDate ;
+      sh:datatype xsd:date ;
+      sh:maxCount 1 ;
+      sh:name "turnover date" ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:weight ;
+      sh:datatype xsd:decimal ;
+      sh:maxCount 1 ;
+      sh:name "weight" ;
+    ] ;
+.
+rec:Atrium
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Atrium" ;
+  rdfs:subClassOf rec:Room ;
+.
+rec:AudioVisualEquipment
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:comment "Audio visual equipment." ;
+  rdfs:label "Audio Visual Equipment" ;
+  rdfs:subClassOf rec:ICTEquipment ;
+.
+rec:Auditorium
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Auditorium" ;
+  rdfs:subClassOf rec:Room ;
+.
+rec:BACnetController
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:comment "BACnet controller." ;
+  rdfs:label "BACnet Controller" ;
+  rdfs:subClassOf rec:Controller ;
+.
+rec:BackOffice
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Back office" ;
+  rdfs:subClassOf rec:Room ;
+.
+rec:Balcony
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Balcony" ;
+  rdfs:subClassOf rec:BuildingElement ;
+.
+rec:BarRoom
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Bar room" ;
+  rdfs:subClassOf rec:FoodHandlingRoom ;
+.
+rec:BarrierAsset
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Barrier asset" ;
+  rdfs:subClassOf rec:ArchitecturalAsset ;
+.
+rec:BasementLevel
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Basement level" ;
+  rdfs:subClassOf rec:Level ;
+.
+rec:Bathroom
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Bathroom" ;
+  rdfs:subClassOf rec:Room ;
+.
+rec:Bed
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Bed" ;
+  rdfs:subClassOf rec:Furniture ;
+.
+rec:Bedroom
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Bedroom" ;
+  rdfs:subClassOf rec:Room ;
+.
+rec:BicycleGarage
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Bicycle garage" ;
+  rdfs:subClassOf rec:Garage ;
+.
+rec:Bookcase
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Bookcase" ;
+  rdfs:subClassOf rec:Furniture ;
+.
+rec:BooleanValueObservation
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:comment "Generic xsd:boolean value observation that is not specific to any particular QUDT quantitykind or unit." ;
+  rdfs:label "Boolean value observation" ;
+  rdfs:subClassOf rec:ObservationEvent ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:value ;
+      sh:datatype xsd:boolean ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:name "value" ;
+    ] ;
+.
+rec:Building
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:comment "A confined building structure." ;
+  rdfs:label "Building" ;
+  rdfs:subClassOf rec:Architecture ;
+.
+rec:BuildingElement
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:comment "A part that constitutes a piece of a building's structural makeup. E.g., Facade, Wall, Slab, Roof, etc." ;
+  rdfs:label "Building element" ;
+  rdfs:subClassOf rdfs:Resource ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:documentation ;
+      sh:class rec:Document ;
+      sh:name "documentation" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:hasPart ;
+      sh:class rec:BuildingElement ;
+      sh:name "has part" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:isPartOf ;
+      sh:class rec:BuildingElement ;
+      sh:maxCount 1 ;
+      sh:name "is part of" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:locatedIn ;
+      sh:class rec:Architecture ;
+      sh:description "Indicates the architected space (site, building, level, room...) in which this building element is placed." ;
+      sh:maxCount 1 ;
+      sh:name "located in" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+.
+rec:BulletinBoard
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Bulletin board" ;
+  rdfs:subClassOf rec:Furniture ;
+.
+rec:Cabinet
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Cabinet" ;
+  rdfs:subClassOf rec:UtilitiesRoom ;
+.
+rec:CableRoom
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Cable room" ;
+  rdfs:subClassOf rec:UtilitiesRoom ;
+.
+rec:CafeteriaRoom
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Cafeteria room" ;
+  rdfs:subClassOf rec:FoodHandlingRoom ;
+.
+rec:Campus
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:comment "A campus represents a collection of location entities. The constituent locations may have differing legal ownership and utilization purposes, but they are generally perceived as a coherent unit or sub-region within a city or other region. E.g., a university campus, a hospital campus, a corporate campus, etc." ;
+  rdfs:label "Campus" ;
+  rdfs:subClassOf rec:Collection ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:includes ;
+      sh:class rec:Architecture ;
+      sh:minCount 1 ;
+      sh:name "includes" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+.
+rec:CapacitanceObservation
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  qudt:hasQuantityKind <http://qudt.org/vocab/quantitykind/Capacitance> ;
+  rdfs:label "Capacitance observation" ;
+  rdfs:subClassOf rec:ObservationEvent ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:value ;
+      sh:datatype xsd:double ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:name "value" ;
+    ] ;
+.
+rec:Cart
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Cart" ;
+  rdfs:subClassOf rec:Furniture ;
+.
+rec:Chair
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Chair" ;
+  rdfs:subClassOf rec:Furniture ;
+.
+rec:Cinema
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Cinema" ;
+  rdfs:subClassOf rec:Room ;
+.
+rec:Classroom
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Classroom" ;
+  rdfs:subClassOf rec:EducationalRoom ;
+.
+rec:CleaningRoom
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Cleaning room" ;
+  rdfs:subClassOf rec:Room ;
+.
+rec:ClimateControlRoom
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Climate-control room" ;
+  rdfs:subClassOf rec:UtilitiesRoom ;
+.
+rec:CloakRoom
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Cloak room" ;
+  rdfs:subClassOf rec:Room ;
+.
+rec:CoatRack
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Coat rack" ;
+  rdfs:subClassOf rec:Furniture ;
+.
+rec:CoffeeTable
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Coffee table" ;
+  rdfs:subClassOf rec:Table ;
+.
+rec:Collection
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:comment "An administrative grouping of entities that are adressed and treated as a unit for some purpose. These entities may have some spatial arrangement (e.g., an apartment is typically contiguous) but that is not a requirement (see, e.g., a distributed campus consisting of spatially disjoint plots or buildings). Inclusion in a Collection is determined by the 'includes' field on a specific subclass." ;
+  rdfs:label "Collection" ;
+  rdfs:subClassOf rdfs:Resource ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:documentation ;
+      sh:class rec:Document ;
+      sh:name "documentation" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+.
+rec:Company
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Company" ;
+  rdfs:subClassOf rec:Organization ;
+.
+rec:ComputerCart
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Computer cart" ;
+  rdfs:subClassOf rec:Cart ;
+.
+rec:ConferenceRoom
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Conference room" ;
+  rdfs:subClassOf rec:Room ;
+.
+rec:ConferenceTable
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Conference table" ;
+  rdfs:subClassOf rec:Table ;
+.
+rec:Controller
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:comment "Controller." ;
+  rdfs:label "Controller" ;
+  rdfs:subClassOf rec:ICTEquipment ;
+.
+rec:ConversationRoom
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Conversation room" ;
+  rdfs:subClassOf rec:Room ;
+.
+rec:CookingRoom
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Cooking room" ;
+  rdfs:subClassOf rec:FoodHandlingRoom ;
+.
+rec:CopyingRoom
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Copying room" ;
+  rdfs:subClassOf rec:Room ;
+.
+rec:DataNetworkEquipment
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:comment "Data network equipment." ;
+  rdfs:label "Data Network Equipment" ;
+  rdfs:subClassOf rec:ICTEquipment ;
+.
+rec:DataRateObservation
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  qudt:hasQuantityKind <http://qudt.org/vocab/quantitykind/DataRate> ;
+  rdfs:label "Data rate observation" ;
+  rdfs:subClassOf rec:ObservationEvent ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:value ;
+      sh:datatype xsd:double ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:name "value" ;
+    ] ;
+.
+rec:DataServerRoom
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Data server room" ;
+  rdfs:subClassOf rec:UtilitiesRoom ;
+.
+rec:DataSizeObservation
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  qudt:hasQuantityKind <http://qudt.org/vocab/quantitykind/InformationEntropy> ;
+  rdfs:label "Data size observation" ;
+  rdfs:subClassOf rec:ObservationEvent ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:value ;
+      sh:datatype xsd:double ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:name "value" ;
+    ] ;
+.
+rec:DaylightSensorEquipment
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:comment "Daylight sensor." ;
+  rdfs:label "Daylight Sensor" ;
+  rdfs:subClassOf rec:SensorEquipment ;
+.
+rec:DensityObservation
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  qudt:hasQuantityKind <http://qudt.org/vocab/quantitykind/Density> ;
+  rdfs:label "Density observation" ;
+  rdfs:subClassOf rec:ObservationEvent ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:value ;
+      sh:datatype xsd:double ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:name "value" ;
+    ] ;
+.
+rec:Department
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Department" ;
+  rdfs:subClassOf rec:Organization ;
+.
+rec:Desk
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Desk" ;
+  rdfs:subClassOf rec:Furniture ;
+.
+rec:DeskLamp
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Desk lamp" ;
+  rdfs:subClassOf rec:Lamp ;
+.
+rec:DiningRoom
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Dining room" ;
+  rdfs:subClassOf rec:FoodHandlingRoom ;
+.
+rec:DisabledToilet
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Disabled toilet" ;
+  rdfs:subClassOf rec:PersonalHygiene ;
+.
+rec:DishingRoom
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Dishing room" ;
+  rdfs:subClassOf rec:FoodHandlingRoom ;
+.
+rec:DistanceObservation
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  qudt:hasQuantityKind <http://qudt.org/vocab/quantitykind/Distance> ;
+  rdfs:label "Distance observation" ;
+  rdfs:subClassOf rec:ObservationEvent ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:value ;
+      sh:datatype xsd:double ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:name "value" ;
+    ] ;
+.
+rec:Document
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Document" ;
+  rdfs:subClassOf rec:Information ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:documentTopic ;
+      sh:name "document topic" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:url ;
+      sh:name "URL" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+.
+rec:Door
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Door" ;
+  rdfs:subClassOf rec:BarrierAsset ;
+.
+rec:DoubleValueObservation
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:comment "Generic xsd:double value observation that is not specific to any particular QUDT quantitykind or unit." ;
+  rdfs:label "Double value observation" ;
+  rdfs:subClassOf rec:ObservationEvent ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:value ;
+      sh:datatype xsd:double ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:name "value" ;
+    ] ;
+.
+rec:DressingRoom
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Dressing room" ;
+  rdfs:subClassOf rec:Room ;
+.
+rec:EducationalRoom
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Educational room" ;
+  rdfs:subClassOf rec:Room ;
+.
+rec:ElectricChargeObservation
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  qudt:hasQuantityKind <http://qudt.org/vocab/quantitykind/ElectricCharge> ;
+  rdfs:label "Electric charge observation" ;
+  rdfs:subClassOf rec:ObservationEvent ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:value ;
+      sh:datatype xsd:double ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:name "value" ;
+    ] ;
+.
+rec:ElectricCurrentObservation
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  qudt:hasQuantityKind <http://qudt.org/vocab/quantitykind/ElectricCurrent> ;
+  rdfs:label "Elecric current observation" ;
+  rdfs:subClassOf rec:ObservationEvent ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:value ;
+      sh:datatype xsd:double ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:name "value" ;
+    ] ;
+.
+rec:ElectricityRoom
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Electricity room" ;
+  rdfs:subClassOf rec:UtilitiesRoom ;
+.
+rec:ElevatorRoom
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Elevator room" ;
+  rdfs:subClassOf rec:Room ;
+.
+rec:ElevatorShaft
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Elevator shaft" ;
+  rdfs:subClassOf rec:Room ;
+.
+rec:ElevatorTrip
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Elevator trip" ;
+  rdfs:subClassOf rec:Event ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:currentLevel ;
+      sh:datatype xsd:string ;
+      sh:maxCount 1 ;
+      sh:name "current level" ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:endLevel ;
+      sh:datatype xsd:string ;
+      sh:maxCount 1 ;
+      sh:name "end level" ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:startLevel ;
+      sh:datatype xsd:string ;
+      sh:maxCount 1 ;
+      sh:name "start level" ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:tripDirection ;
+      sh:datatype xsd:string ;
+      sh:in (
+          "Up"
+          "Down"
+        ) ;
+      sh:maxCount 1 ;
+      sh:name "trip direction" ;
+    ] ;
+.
+rec:EndTable
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "End table" ;
+  rdfs:subClassOf rec:Table ;
+.
+rec:EnergyObservation
+  rdf:type <dtmi:dtdl:class:Component> ;
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  qudt:hasQuantityKind <http://qudt.org/vocab/quantitykind/Energy> ;
+  rdfs:label "Energy observation" ;
+  rdfs:subClassOf rec:ObservationEvent ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:value ;
+      sh:datatype xsd:double ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:name "value" ;
+    ] ;
+.
+rec:Entrance
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Entrance" ;
+  rdfs:subClassOf rec:Room ;
+.
+rec:EquipmentCollection
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Equipment collection" ;
+  rdfs:subClassOf rec:Collection ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:includes ;
+      sh:class brick:Equipment ;
+      sh:minCount 1 ;
+      sh:name "includes" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+.
+rec:ErrorReport
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Error report" ;
+  rdfs:subClassOf rec:ServiceObject ;
+.
+rec:EthernetPort
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:comment "Ethernet port." ;
+  rdfs:label "Ethernet Port" ;
+  rdfs:subClassOf rec:DataNetworkEquipment ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:poeType ;
+      sh:datatype xsd:string ;
+      sh:in (
+          "Type1"
+          "Type2"
+          "Type3"
+          "Type4"
+        ) ;
+      sh:maxCount 1 ;
+      sh:name "PoE Type" ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:portSpeed ;
+      sh:datatype xsd:float ;
+      sh:description "The data rate of the port in Mib/s, i.e. mebibit (2^20 bit) per second." ;
+      sh:maxCount 1 ;
+      sh:name "Port Speed" ;
+    ] ;
+.
+rec:EthernetSwitch
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:comment "Ethernet switch." ;
+  rdfs:label "Ethernet Switch" ;
+  rdfs:subClassOf rec:DataNetworkEquipment ;
+.
+rec:Event
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:comment "A temporally indexed entity, e.g., an observation, a lease, a construction project, etc. Can be instantaneous (timestamp property assigned) or have temporal extent (start and end properties assigned). Subclasses may define specific behaviour and requirements, e.g., on spatial indexing, agent participation, etc." ;
+  rdfs:label "Event" ;
+  rdfs:subClassOf rdfs:Resource ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:end ;
+      sh:datatype xsd:dateTime ;
+      sh:description "Event ending timestamp." ;
+      sh:maxCount 1 ;
+      sh:name "end" ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:start ;
+      sh:datatype xsd:dateTime ;
+      sh:description "Event start timestamp." ;
+      sh:maxCount 1 ;
+      sh:name "start" ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:timestamp ;
+      sh:datatype xsd:dateTime ;
+      sh:maxCount 1 ;
+      sh:name "timestamp" ;
+    ] ;
+.
+rec:ExceptionEvent
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Exception event" ;
+  rdfs:subClassOf rec:PointEvent ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:sourcePoint ;
+      sh:class brick:Point ;
+      sh:description "The brick:Point that emitted this exception." ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:name "source point" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:value ;
+      sh:datatype xsd:string ;
+      sh:description "The message of this exception event." ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:name "value" ;
+    ] ;
+.
+rec:ExerciseRoom
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Exercise room" ;
+  rdfs:subClassOf rec:Room ;
+.
+rec:ExhibitionRoom
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Exhibition room" ;
+  rdfs:subClassOf rec:Room ;
+.
+rec:Facade
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Facade" ;
+  rdfs:subClassOf rec:BuildingElement ;
+.
+rec:FilingCabinet
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Filing cabinet" ;
+  rdfs:subClassOf rec:Furniture ;
+.
+rec:FittingRoom
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Fitting room" ;
+  rdfs:subClassOf rec:RetailRoom ;
+.
+rec:FloorLamp
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Floor lamp" ;
+  rdfs:subClassOf rec:Lamp ;
+.
+rec:FloorMat
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Floor mat" ;
+  rdfs:subClassOf rec:Furniture ;
+.
+rec:FoldingChair
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Folding chair" ;
+  rdfs:subClassOf rec:Chair ;
+.
+rec:FoldingTable
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Folding table" ;
+  rdfs:subClassOf rec:Table ;
+.
+rec:FoodHandlingRoom
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Food-handling room" ;
+  rdfs:subClassOf rec:Room ;
+.
+rec:Footrest
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Footrest" ;
+  rdfs:subClassOf rec:Furniture ;
+.
+rec:ForceObservation
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  qudt:hasQuantityKind <http://qudt.org/vocab/quantitykind/Force> ;
+  rdfs:label "Force observation" ;
+  rdfs:subClassOf rec:ObservationEvent ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:value ;
+      sh:datatype xsd:double ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:name "value" ;
+    ] ;
+.
+rec:FrequencyObservation
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  qudt:hasQuantityKind <http://qudt.org/vocab/quantitykind/Frequency> ;
+  rdfs:label "Frequency observation" ;
+  rdfs:subClassOf rec:ObservationEvent ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:value ;
+      sh:datatype xsd:double ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:name "value" ;
+    ] ;
+.
+rec:Furniture
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Furniture" ;
+  rdfs:subClassOf rec:Asset ;
+.
+rec:FurnitureCollection
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Furniture collection" ;
+  rdfs:subClassOf rec:Collection ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:includes ;
+      sh:class rec:Furniture ;
+      sh:minCount 1 ;
+      sh:name "includes" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+.
+rec:Garage
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Garage" ;
+  rdfs:subClassOf rec:Room ;
+.
+rec:Gateway
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:comment "Gateway." ;
+  rdfs:label "Gateway" ;
+  rdfs:subClassOf rec:ICTEquipment ;
+.
+rec:Geometry
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Geometry" ;
+  rdfs:subClassOf rec:Information ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:coordinateSystem ;
+      sh:datatype xsd:string ;
+      sh:in (
+          "WGS84"
+          "SWEREF99"
+          "LocalCoordinates"
+        ) ;
+      sh:maxCount 1 ;
+      sh:name "coordinate system" ;
+      sh:nodeKind sh:Literal ;
+    ] ;
+.
+rec:Georeference
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:comment "A georeference creates a relationship between a local coordinate system into a geographic coordinate system." ;
+  rdfs:label "Georeference" ;
+  rdfs:subClassOf rec:Information ;
+.
+rec:Geotransform
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:comment "A transform following GDAL's Affine Transform that transforms a local coordinate into a WGS84 coordinate. Created from Ground Control Points (GCP) using GDAL's GCPsToGeotransform method." ;
+  rdfs:label "Geotransform" ;
+  rdfs:subClassOf rec:Georeference ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:heightScaleFactor ;
+      sh:datatype xsd:double ;
+      sh:maxCount 1 ;
+      sh:name "height scale factor" ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:originX ;
+      sh:datatype xsd:double ;
+      sh:maxCount 1 ;
+      sh:name "origin x" ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:originY ;
+      sh:datatype xsd:double ;
+      sh:maxCount 1 ;
+      sh:name "origin y" ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:widthScaleFactor ;
+      sh:datatype xsd:double ;
+      sh:maxCount 1 ;
+      sh:name "width scale factor" ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:xRotationalScaleFactor ;
+      sh:datatype xsd:double ;
+      sh:description "Value will be zero if the local coordinate system is north-aligned." ;
+      sh:maxCount 1 ;
+      sh:name "x rotational scale factor" ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:yRotationalScaleFactor ;
+      sh:datatype xsd:double ;
+      sh:description "Value will be zero if the local coordinate system is north-aligned." ;
+      sh:maxCount 1 ;
+      sh:name "y rotational scale factor" ;
+    ] ;
+.
+rec:GroupRoom
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Group room" ;
+  rdfs:subClassOf rec:EducationalRoom ;
+.
+rec:HVACZone
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "HVAC zone" ;
+  rdfs:subClassOf rec:Zone ;
+.
+rec:Hallway
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Hallway" ;
+  rdfs:subClassOf rec:Room ;
+.
+rec:HealthcareRoom
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Healthcare room" ;
+  rdfs:subClassOf rec:Room ;
+.
+rec:Hospital
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Hospital" ;
+  rdfs:subClassOf rec:Building ;
+.
+rec:IAQSensorEquipment
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:comment "Indoor air quality sensor." ;
+  rdfs:label "Indoor Air Quality Sensor" ;
+  rdfs:subClassOf rec:SensorEquipment ;
+.
+rec:ICTEquipment
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:comment "Equipment and devices that are part of a building's ICT infrastructure." ;
+  rdfs:label "ICT Equipment" ;
+  rdfs:subClassOf brick:Equipment ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:heightRUs ;
+      sh:datatype xsd:integer ;
+      sh:name "Height (RUs)" ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:numberOfPorts ;
+      sh:datatype xsd:integer ;
+      sh:name "Number of Ports" ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:standard ;
+      sh:datatype xsd:string ;
+      sh:description "The standard the equipment or device adheres to, e.g. IEEE 802.11." ;
+      sh:name "Standard" ;
+    ] ;
+.
+rec:ICTHardware
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:comment "ICT hardware." ;
+  rdfs:label "ICT Hardware" ;
+  rdfs:subClassOf rec:ICTEquipment ;
+.
+rec:ITRack
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:comment "IT rack." ;
+  rdfs:label "IT Rack" ;
+  rdfs:subClassOf rec:ICTEquipment ;
+.
+rec:IlluminanceObservation
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  qudt:hasQuantityKind <http://qudt.org/vocab/quantitykind/Illuminance> ;
+  rdfs:label "Illuminance observation" ;
+  rdfs:subClassOf rec:ObservationEvent ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:value ;
+      sh:datatype xsd:double ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:name "value" ;
+    ] ;
+.
+rec:InductanceObservation
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  qudt:hasQuantityKind <http://qudt.org/vocab/quantitykind/Inductance> ;
+  rdfs:label "Inductance observation" ;
+  rdfs:subClassOf rec:ObservationEvent ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:value ;
+      sh:datatype xsd:double ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:name "value" ;
+    ] ;
+.
+rec:Information
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Information" ;
+  rdfs:subClassOf rdfs:Resource ;
+.
+rec:IntegerValueObservation
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:comment "Generic xsd:int value observation that is not specific to any particular QUDT quantitykind or unit." ;
+  rdfs:label "Integer value observation" ;
+  rdfs:subClassOf rec:ObservationEvent ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:value ;
+      sh:datatype xsd:integer ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:name "value" ;
+    ] ;
+.
+rec:Kitchenette
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Kitchenette" ;
+  rdfs:subClassOf rec:FoodHandlingRoom ;
+.
+rec:Laboratory
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Laboratory" ;
+  rdfs:subClassOf rec:Room ;
+.
+rec:LaboratoryDry
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Laboratory (dry)" ;
+  rdfs:subClassOf rec:Laboratory ;
+.
+rec:LaboratoryWet
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Laboratory (wet)" ;
+  rdfs:subClassOf rec:Laboratory ;
+.
+rec:Lamp
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Lamp" ;
+  rdfs:subClassOf rec:Furniture ;
+.
+rec:LaundryRoom
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Laundry room" ;
+  rdfs:subClassOf rec:Room ;
+.
+rec:LeakDetectorEquipment
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:comment "Leak detector." ;
+  rdfs:label "Leak Detector" ;
+  rdfs:subClassOf rec:SensorEquipment ;
+.
+rec:Lease
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Lease" ;
+  rdfs:subClassOf rec:Event ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:leaseOf ;
+      sh:description "The object (e.g., property, equipment, etc) that this a lease of." ;
+      sh:minCount 1 ;
+      sh:name "lease of" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:leasee ;
+      sh:class rec:Agent ;
+      sh:description "The agent leasing some leasable object, i.e., the user of the asset." ;
+      sh:minCount 1 ;
+      sh:name "leasee" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:leasor ;
+      sh:class rec:Agent ;
+      sh:description "The agent leasing out some leasable object, i.e., the owner of the asset." ;
+      sh:minCount 1 ;
+      sh:name "leasor" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:regulatedBy ;
+      sh:class rec:LeaseContract ;
+      sh:description "Indicates the contract regulating the terms of the lease in question. " ;
+      sh:name "regulated by" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+.
+rec:LeaseContract
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:comment "Formal document that identifies the Tenant and the leased asset or property; states lease term and fee (rent), and detailed terms and conditions of the lease agreement." ;
+  rdfs:label "Lease contract" ;
+  rdfs:subClassOf rec:Document ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:regulates ;
+      sh:class rec:Lease ;
+      sh:description "Indicates the lease(s) that this contract regulates the conditions of." ;
+      sh:name "regulates" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+.
+rec:LengthObservation
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  qudt:hasQuantityKind <http://qudt.org/vocab/quantitykind/Length> ;
+  rdfs:label "Length observation" ;
+  rdfs:subClassOf rec:ObservationEvent ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:value ;
+      sh:datatype xsd:double ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:name "value" ;
+    ] ;
+.
+rec:Level
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:comment "The level of a building, a.k.a. storey, floor, etc." ;
+  rdfs:label "Level" ;
+  rdfs:subClassOf rec:Architecture ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:levelNumber ;
+      sh:datatype xsd:integer ;
+      sh:description "A number indicating the ordinal number of this level within the containing space (typically a Building or in the case of a Mezzanine, sometimes another level). Note that the implementation of this numbering scheme and its starting point is implementation-specific; e.g., the fifth floor below ground may be 0 in some systems, and -5 in others." ;
+      sh:name "level number" ;
+    ] ;
+.
+rec:Library
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Library" ;
+  rdfs:subClassOf rec:Room ;
+.
+rec:LivingRoom
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Living room" ;
+  rdfs:subClassOf rec:Room ;
+.
+rec:LoadingReceivingRoom
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Loading/receiving room" ;
+  rdfs:subClassOf rec:Room ;
+.
+rec:LockerRoom
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Locker room" ;
+  rdfs:subClassOf rec:Room ;
+.
+rec:LuminanceObservation
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  qudt:hasQuantityKind <http://qudt.org/vocab/quantitykind/Luminance> ;
+  rdfs:label "Luminance observation" ;
+  rdfs:subClassOf rec:ObservationEvent ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:value ;
+      sh:datatype xsd:double ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:name "value" ;
+    ] ;
+.
+rec:LuminousFluxObservation
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  qudt:hasQuantityKind <http://qudt.org/vocab/quantitykind/LuminousFlux> ;
+  rdfs:label "Luminous flux observation" ;
+  rdfs:subClassOf rec:ObservationEvent ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:value ;
+      sh:datatype xsd:double ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:name "value" ;
+    ] ;
+.
+rec:LuminousIntensityObservation
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  qudt:hasQuantityKind <http://qudt.org/vocab/quantitykind/LuminousIntensity> ;
+  rdfs:label "Luminous intensity observation" ;
+  rdfs:subClassOf rec:ObservationEvent ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:value ;
+      sh:datatype xsd:double ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:name "value" ;
+    ] ;
+.
+rec:MagneticFluxObservation
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  qudt:hasQuantityKind <http://qudt.org/vocab/quantitykind/MagneticFlux> ;
+  rdfs:label "Magnetic flux observation" ;
+  rdfs:subClassOf rec:ObservationEvent ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:value ;
+      sh:datatype xsd:double ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:name "value" ;
+    ] ;
+.
+rec:MailRoom
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Mail room" ;
+  rdfs:subClassOf rec:BackOffice ;
+.
+rec:MailroomCart
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Mailroom cart" ;
+  rdfs:subClassOf rec:Cart ;
+.
+rec:MainEntrance
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Main entrance" ;
+  rdfs:subClassOf rec:Entrance ;
+.
+rec:MassFlowRateObservation
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  qudt:hasQuantityKind <http://qudt.org/vocab/quantitykind/MassFlowRate> ;
+  rdfs:label "Mass flow rate observation" ;
+  rdfs:subClassOf rec:ObservationEvent ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:value ;
+      sh:datatype xsd:double ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:name "value" ;
+    ] ;
+.
+rec:MassObservation
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  qudt:hasQuantityKind <http://qudt.org/vocab/quantitykind/Mass> ;
+  rdfs:label "Mass observation" ;
+  rdfs:subClassOf rec:ObservationEvent ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:value ;
+      sh:datatype xsd:double ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:name "value" ;
+    ] ;
+.
+rec:MeditationRoom
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Meditation room" ;
+  rdfs:subClassOf rec:Room ;
+.
+rec:MezzanineLevel
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Mezzanine level" ;
+  rdfs:subClassOf rec:Level ;
+.
+rec:MobileDesk
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Mobile desk" ;
+  rdfs:subClassOf rec:Desk ;
+.
+rec:ModbusController
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:comment "Modbus controller." ;
+  rdfs:label "Modbus Controller" ;
+  rdfs:subClassOf rec:Controller ;
+.
+rec:Morgue
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Morgue" ;
+  rdfs:subClassOf rec:HealthcareRoom ;
+.
+rec:MothersRoom
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Mothers' room" ;
+  rdfs:subClassOf rec:Room ;
+.
+rec:MultiPoint
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Multi point" ;
+  rdfs:subClassOf rec:Geometry ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:coordinates ;
+      sh:datatype geojson:MultiPoint ;
+      sh:description "A GeoJSON MultiPoint coordinate listing. Coordinates may be expressed in two or three dimensions. Ex: [[10.0, 40.0], [40.0, 30.0], [20.0, 20.0], [30.0, 10.0]]." ;
+      sh:maxCount 1 ;
+      sh:name "coordinates" ;
+    ] ;
+.
+rec:MultiPolygon
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Multi polygon" ;
+  rdfs:subClassOf rec:Geometry ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:coordinates ;
+      sh:datatype geojson:MultiPolygon ;
+      sh:description "A GeoJSON MultiPolygon coordinate listing. Coordinates may be expressed in two or three dimensions. Ex: [[[[30.0, 20.0], [45.0, 40.0], [10.0, 40.0], [30.0, 20.0]]], [[[15.0, 5.0], [40.0, 10.0], [10.0, 20.0], [5.0, 10.0], [15.0, 5.0]]]]." ;
+      sh:maxCount 1 ;
+      sh:name "coordinates" ;
+    ] ;
+.
+rec:MultiPurposeRoom
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Multi-purpose room" ;
+  rdfs:subClassOf rec:Room ;
+.
+rec:NeonatalNursingRoom
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Neonatal nursing room" ;
+  rdfs:subClassOf rec:HealthcareRoom ;
+.
+rec:NetworkRouter
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:comment "Network router." ;
+  rdfs:label "Network Router" ;
+  rdfs:subClassOf rec:DataNetworkEquipment ;
+.
+rec:NetworkSecurityEquipment
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:comment "Network security equipment." ;
+  rdfs:label "Network Security Equipment" ;
+  rdfs:subClassOf rec:DataNetworkEquipment ;
+.
+rec:NotificationObject
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Notification object" ;
+  rdfs:subClassOf rec:ServiceObject ;
+.
+rec:ObservationEvent
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Observation event" ;
+  rdfs:subClassOf rec:PointEvent ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:sourcePoint ;
+      sh:class brick:Point ;
+      sh:description "The brick:Point that emitted this observation." ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:name "source point" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+.
+rec:OccupancySensorEquipment
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:comment "Occupancy sensor." ;
+  rdfs:label "Occupancy Sensor" ;
+  rdfs:subClassOf rec:SensorEquipment ;
+.
+rec:OccupancyZone
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:comment "Occupancy Zone is a spatial area where devices are monitoring or reporting on the concept of Occupancy (motion sensors, people counters, cameras, etc.)" ;
+  rdfs:label "Occupancy zone" ;
+  rdfs:subClassOf rec:Zone ;
+.
+rec:Office
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Office" ;
+  rdfs:subClassOf rec:Room ;
+.
+rec:OfficeChair
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Office chair" ;
+  rdfs:subClassOf rec:Chair ;
+.
+rec:OfficeLandscape
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "OfficeLandscape" ;
+  rdfs:subClassOf rec:Office ;
+.
+rec:OfficeRoom
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "OfficeRoom" ;
+  rdfs:subClassOf rec:Office ;
+.
+rec:OperatingRoom
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Operating room" ;
+  rdfs:subClassOf rec:HealthcareRoom ;
+.
+rec:Organization
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:comment "An organization of any sort (e.g., a business, association, project, consortium, tribe, etc.)" ;
+  rdfs:label "Organization" ;
+  rdfs:subClassOf rec:Agent ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:hasMember ;
+      sh:class rec:Agent ;
+      sh:description "Indicates membership in an organization. Note that componency (e.g., departments of a corporation) are expressed using the more generic hasPart property." ;
+      sh:name "has member" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:hasPart ;
+      sh:class rec:Organization ;
+      sh:description "Indicates parthood relations in organizations (e.g., departments of a corporation). Note that membership in an organization is expressed using the more specific hasMember property." ;
+      sh:name "has part" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:isPartOf ;
+      sh:class rec:Organization ;
+      sh:description "Indicates parthood relations in organizations (e.g., departments of a corporation). Note that membership in an organization is expressed using the Agent.isMemberOf property." ;
+      sh:name "is part of" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:logo ;
+      sh:datatype xsd:anyURI ;
+      sh:description "URL link to an image/logo that represents the organization." ;
+      sh:name "logo" ;
+    ] ;
+.
+rec:OutdoorSpace
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Outdoor space" ;
+  rdfs:subClassOf rec:Architecture ;
+.
+rec:OutpatientServicesRoom
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Outpatient services room" ;
+  rdfs:subClassOf rec:HealthcareRoom ;
+.
+rec:Pantry
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Pantry" ;
+  rdfs:subClassOf rec:FoodHandlingRoom ;
+.
+rec:ParkingSpace
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Parking space" ;
+  rdfs:subClassOf rec:Zone ;
+.
+rec:Partition
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Partition" ;
+  rdfs:subClassOf rec:BarrierAsset ;
+.
+rec:PeopleCountSensorEquipment
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:comment "People count sensor." ;
+  rdfs:label "People Count Sensor" ;
+  rdfs:subClassOf rec:SensorEquipment ;
+.
+rec:Person
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:comment "A natural person (i.e., an individual human being)." ;
+  rdfs:label "Person" ;
+  rdfs:subClassOf rec:Agent ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:familyName ;
+      sh:datatype xsd:string ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:gender ;
+      sh:datatype xsd:string ;
+      sh:name "gender" ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:givenName ;
+      sh:datatype xsd:string ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:image ;
+      sh:datatype xsd:anyURI ;
+      sh:description "URL link to an image that represents the person." ;
+      sh:name "image" ;
+    ] ;
+.
+rec:PersonalHygiene
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Personal hygiene room" ;
+  rdfs:subClassOf rec:Room ;
+.
+rec:PharmacyRoom
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Pharmacy room" ;
+  rdfs:subClassOf rec:HealthcareRoom ;
+.
+rec:PhoneBooth
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "PhoneBooth" ;
+  rdfs:subClassOf rec:Office ;
+.
+rec:Point
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Point" ;
+  rdfs:subClassOf rec:Geometry ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:coordinates ;
+      sh:datatype geojson:Point ;
+      sh:description "A GeoJSON Point coordinate listing. Coordinate may be expressed in two or three dimensions. Ex: [30.0, 10.0, 0.0]." ;
+      sh:maxCount 1 ;
+      sh:name "coordinates" ;
+    ] ;
+.
+rec:PointEvent
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:comment "An event emanating from or targeting a Point; e.g., an individual Observation from a Sensor point, or an Actuation sent to a Command point. In other terms, the Points indicate the capability of some Space or Equipment to emit or accept data, while this class represents those actual data messages. Note that in most non-trivially sized systems, these events are not stored in the knowledge graph itself, but are rather forwarded to some C&C system or time series database." ;
+  rdfs:label "Point event" ;
+  rdfs:subClassOf rec:Event ;
+.
+rec:PointOfInterest
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Point of Interest" ;
+  rdfs:subClassOf rec:Information ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:objectOfInterest ;
+      sh:maxCount 1 ;
+      sh:name "object of interest" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+.
+rec:Polygon
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Polygon" ;
+  rdfs:subClassOf rec:Geometry ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:coordinates ;
+      sh:datatype geojson:Polygon ;
+      sh:description "A GeoJSON Polygon coordinate listing. Coordinates may be expressed in two or three dimensions. Ex: [[30.0, 10.0, 0.0], [40.0, 40.0, 2.0], [20.0, 40.0, 2.0], [10.0, 20.0, 2.0], [30.0, 10.0, 0.0]]." ;
+      sh:maxCount 1 ;
+      sh:name "coordinates" ;
+    ] ;
+.
+rec:Portfolio
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:comment "A portfolio is a grouping of buildings, sites, apartments, campuses, etc. that share some business-relevant commonality, e.g., are managed by the same company, are rented out to the same tenant, share utilization or legal definition (industrial vs commercial), etc." ;
+  rdfs:label "Portfolio" ;
+  rdfs:subClassOf rec:Collection ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:includes ;
+      sh:minCount 1 ;
+      sh:name "includes" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+.
+rec:PostalAddress
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Postal address" ;
+  rdfs:subClassOf rec:Information ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:addressLine1 ;
+      sh:datatype xsd:string ;
+      sh:maxCount 1 ;
+      sh:name "address line 1" ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:addressLine2 ;
+      sh:datatype xsd:string ;
+      sh:maxCount 1 ;
+      sh:name "address line 2" ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:city ;
+      sh:datatype xsd:string ;
+      sh:maxCount 1 ;
+      sh:name "city" ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:country ;
+      sh:datatype xsd:string ;
+      sh:description "The country, e.g., USA, Sweden, Argentina, or optionally a two-letter ISO 3166-1 alpha-2 country code, e.g., \"SE\", \"US\", etc." ;
+      sh:maxCount 1 ;
+      sh:name "country" ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:postalCode ;
+      sh:datatype xsd:string ;
+      sh:maxCount 1 ;
+      sh:name "postal code" ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:region ;
+      sh:datatype xsd:string ;
+      sh:maxCount 1 ;
+      sh:name "region" ;
+    ] ;
+.
+rec:PowerObservation
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  qudt:hasQuantityKind <http://qudt.org/vocab/quantitykind/Power> ;
+  rdfs:label "Power observation" ;
+  rdfs:subClassOf rec:ObservationEvent ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:value ;
+      sh:datatype xsd:double ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:name "value" ;
+    ] ;
+.
+rec:Premises
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:comment "A premises is an administrative grouping of spaces that are used for some commercial or industrial purpose by a real estate holder or tenant. E.g, a suite of offices, a shop, or an industrial workshop." ;
+  rdfs:label "Premises" ;
+  rdfs:subClassOf rec:Collection ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:includes ;
+      sh:class rec:Architecture ;
+      sh:minCount 1 ;
+      sh:name "includes" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+.
+rec:PressureObservation
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  qudt:hasQuantityKind <http://qudt.org/vocab/quantitykind/Pressure> ;
+  rdfs:label "Pressure observation" ;
+  rdfs:subClassOf rec:ObservationEvent ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:value ;
+      sh:datatype xsd:double ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:name "value" ;
+    ] ;
+.
+rec:PrinterCart
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Printer cart" ;
+  rdfs:subClassOf rec:Cart ;
+.
+rec:PrinterStand
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Printer stand" ;
+  rdfs:subClassOf rec:Stand ;
+.
+rec:RadiologyRoom
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Radiology room" ;
+  rdfs:subClassOf rec:HealthcareRoom ;
+.
+rec:RealEstate
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:comment "The legal/administrative representation of some lands and/or buildings. I.e., \"Fastighet\" (Swedish), \"Ejendom\" (Denmark), etc." ;
+  rdfs:label "Real Estate" ;
+  rdfs:subClassOf rec:Collection ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:includes ;
+      sh:class rec:Architecture ;
+      sh:minCount 1 ;
+      sh:name "includes" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+.
+rec:Reception
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Reception" ;
+  rdfs:subClassOf rec:Room ;
+.
+rec:ReceptionTable
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Reception table" ;
+  rdfs:subClassOf rec:Table ;
+.
+rec:RecordingRoom
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Recording room" ;
+  rdfs:subClassOf rec:Room ;
+.
+rec:RecreationalRoom
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Recreational room" ;
+  rdfs:subClassOf rec:Room ;
+.
+rec:Region
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:comment "An administrative geospatial unit larger than the individual real estate. For instance, \"Lombary\", \"North America\", \"The Back Bay\", \"Elnätsområde Syd\", etc." ;
+  rdfs:label "Region" ;
+  rdfs:subClassOf rec:Space ;
+.
+rec:RelativeHumidityObservation
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  qudt:hasQuantityKind <http://qudt.org/vocab/quantitykind/RelativeHumidity> ;
+  rdfs:label "Relative humidity observation" ;
+  rdfs:subClassOf rec:ObservationEvent ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:value ;
+      sh:datatype xsd:double ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:name "value" ;
+    ] ;
+.
+rec:ResistanceObservation
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  qudt:hasQuantityKind <http://qudt.org/vocab/quantitykind/Resistance> ;
+  rdfs:label "Resistance observation" ;
+  rdfs:subClassOf rec:ObservationEvent ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:value ;
+      sh:datatype xsd:double ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:name "value" ;
+    ] ;
+.
+rec:RestingRoom
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Resting room" ;
+  rdfs:subClassOf rec:Room ;
+.
+rec:RetailRoom
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Retail room" ;
+  rdfs:subClassOf rec:Room ;
+.
+rec:Roof
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Roof" ;
+  rdfs:subClassOf rec:BuildingElement ;
+.
+rec:RoofLevel
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Roof level" ;
+  rdfs:subClassOf rec:Level ;
+.
+rec:Room
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Room" ;
+  rdfs:subClassOf rec:Architecture ;
+.
+rec:Safe
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Safe" ;
+  rdfs:subClassOf rec:Furniture ;
+.
+rec:Sauna
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Sauna" ;
+  rdfs:subClassOf rec:PersonalHygiene ;
+.
+rec:School
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "School" ;
+  rdfs:subClassOf rec:Building ;
+.
+rec:SecurityRoom
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Security room" ;
+  rdfs:subClassOf rec:Room ;
+.
+rec:SensorEquipment
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:comment "Sensor equipment." ;
+  rdfs:label "Sensor Equipment" ;
+  rdfs:subClassOf rec:ICTEquipment ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:batteryPercentage ;
+      sh:datatype xsd:double ;
+      sh:name "Battery Percentage" ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:wifiSignalStrength ;
+      sh:datatype xsd:double ;
+      sh:name "Wi-Fi Signal Strength" ;
+    ] ;
+.
+rec:Server
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:comment "Server." ;
+  rdfs:label "Server" ;
+  rdfs:subClassOf rec:ICTHardware ;
+.
+rec:ServiceEntrance
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Service entrance" ;
+  rdfs:subClassOf rec:Entrance ;
+.
+rec:ServiceObject
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Service object" ;
+  rdfs:subClassOf rec:Information ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:acknowledgedBy ;
+      sh:class rec:Agent ;
+      sh:maxCount 1 ;
+      sh:name "acknowledged by" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:acknowledgedTime ;
+      sh:datatype xsd:dateTime ;
+      sh:maxCount 1 ;
+      sh:name "acknowledged time" ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:closedBy ;
+      sh:class rec:Agent ;
+      sh:maxCount 1 ;
+      sh:name "closed by" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:closedTime ;
+      sh:datatype xsd:dateTime ;
+      sh:maxCount 1 ;
+      sh:name "closed time" ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:createdBy ;
+      sh:class rec:Agent ;
+      sh:maxCount 1 ;
+      sh:name "created by" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:createdTime ;
+      sh:datatype xsd:dateTime ;
+      sh:maxCount 1 ;
+      sh:name "created time" ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:producedBy ;
+      sh:class brick:Point ;
+      sh:name "produced by" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:relatedTo ;
+      sh:minCount 1 ;
+      sh:name "related to" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:severity ;
+      sh:datatype xsd:string ;
+      sh:in (
+          "Severe"
+          "Major"
+          "Minor"
+        ) ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:name "severity" ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:status ;
+      sh:datatype xsd:string ;
+      sh:in (
+          "Unacknowledged"
+          "Acknowledged"
+          "Closed"
+        ) ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:name "status" ;
+    ] ;
+.
+rec:ServiceShaft
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Service shaft" ;
+  rdfs:subClassOf rec:Room ;
+.
+rec:Shelter
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Shelter" ;
+  rdfs:subClassOf rec:Room ;
+.
+rec:ShelterGasLock
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Shelter gas lock" ;
+  rdfs:subClassOf rec:Shelter ;
+.
+rec:ShelterRoom
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Shelter room" ;
+  rdfs:subClassOf rec:Shelter ;
+.
+rec:ShoppingMall
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Shopping mall" ;
+  rdfs:subClassOf rec:Building ;
+.
+rec:ShowerRoom
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Shower room" ;
+  rdfs:subClassOf rec:PersonalHygiene ;
+.
+rec:Site
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:comment "A piece of land upon which zero or more buildings may be situated." ;
+  rdfs:label "Site" ;
+  rdfs:subClassOf rec:Architecture ;
+.
+rec:Slab
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Slab" ;
+  rdfs:subClassOf rec:BuildingElement ;
+.
+rec:SmallStudyRoom
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Small study room" ;
+  rdfs:subClassOf rec:EducationalRoom ;
+.
+rec:Sofa
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Sofa" ;
+  rdfs:subClassOf rec:Furniture ;
+.
+rec:SoundPressureObservation
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  qudt:hasQuantityKind <http://qudt.org/vocab/quantitykind/SoundPressure> ;
+  rdfs:label "Sound pressure observation" ;
+  rdfs:subClassOf rec:ObservationEvent ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:value ;
+      sh:datatype xsd:double ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:name "value" ;
+    ] ;
+.
+rec:Space
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:comment "A contiguous part of the physical world that contains or can contain sub-spaces. E.g., a Region can contain many Sites, which in turn can contain many Buildings." ;
+  rdfs:label "Space" ;
+  rdfs:subClassOf rdfs:Resource ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:geometry ;
+      sh:class rec:Geometry ;
+      sh:description "Polygon representing the spatial extent of this Space." ;
+      sh:maxCount 1 ;
+      sh:name "geometry" ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:georeference ;
+      sh:class rec:Georeference ;
+      sh:description "A georeference creates a relationship between the local coordinate system used within a building (e.g., measured in meters) and a geographic coordinate system (e.g., lat, long, alt), such that locally placed Spaces can be resolved and rendered in that geographic coordinate system (e.g., for mapping purposes)." ;
+      sh:maxCount 1 ;
+      sh:name "georeference" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:hasPart ;
+      sh:class rec:Space ;
+      sh:name "has part" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:isLocationOf ;
+      sh:name "is location of" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:isPartOf ;
+      sh:class rec:Space ;
+      sh:maxCount 1 ;
+      sh:name "is part of" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+.
+rec:SprinklerRoom
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Sprinkler room" ;
+  rdfs:subClassOf rec:UtilitiesRoom ;
+.
+rec:Stadium
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Stadium" ;
+  rdfs:subClassOf rec:Building ;
+.
+rec:StaffRoom
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Staff room" ;
+  rdfs:subClassOf rec:Room ;
+.
+rec:Stairwell
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Stairwell" ;
+  rdfs:subClassOf rec:Room ;
+.
+rec:Stand
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Stand" ;
+  rdfs:subClassOf rec:Furniture ;
+.
+rec:Storage
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Storage" ;
+  rdfs:subClassOf rec:Room ;
+.
+rec:StorageCabinet
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Storage cabinet" ;
+  rdfs:subClassOf rec:Furniture ;
+.
+rec:SubBuilding
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Sub-building" ;
+  rdfs:subClassOf rec:Architecture ;
+.
+rec:TVStand
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "TV stand" ;
+  rdfs:subClassOf rec:Stand ;
+.
+rec:Table
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Table" ;
+  rdfs:subClassOf rec:Furniture ;
+.
+rec:TelecommunicationRoom
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Telecommunication room" ;
+  rdfs:subClassOf rec:CableRoom ;
+.
+rec:TemperatureObservation
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  qudt:hasQuantityKind <http://qudt.org/vocab/quantitykind/Temperature> ;
+  rdfs:label "Temperature observation" ;
+  rdfs:subClassOf rec:ObservationEvent ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:value ;
+      sh:datatype xsd:double ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:name "value" ;
+    ] ;
+.
+rec:Theater
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Theater" ;
+  rdfs:subClassOf rec:Room ;
+.
+rec:TherapyRoom
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Therapy room" ;
+  rdfs:subClassOf rec:HealthcareRoom ;
+.
+rec:ThermostatEquipment
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:comment "Thermostat." ;
+  rdfs:label "Thermostat" ;
+  rdfs:subClassOf rec:SensorEquipment ;
+.
+rec:ThrustObservation
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  qudt:hasQuantityKind <http://qudt.org/vocab/quantitykind/Thrust> ;
+  rdfs:label "Thrust observation" ;
+  rdfs:subClassOf rec:ObservationEvent ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:value ;
+      sh:datatype xsd:double ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:name "value" ;
+    ] ;
+.
+rec:TimeSpanObservation
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  qudt:hasQuantityKind <http://qudt.org/vocab/quantitykind/Time> ;
+  rdfs:label "Timespan observation" ;
+  rdfs:subClassOf rec:ObservationEvent ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:value ;
+      sh:datatype xsd:double ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:name "value" ;
+    ] ;
+.
+rec:Toilet
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Toilet" ;
+  rdfs:subClassOf rec:PersonalHygiene ;
+.
+rec:TorqueObservation
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  qudt:hasQuantityKind <http://qudt.org/vocab/quantitykind/Torque> ;
+  rdfs:label "Torque observation" ;
+  rdfs:subClassOf rec:ObservationEvent ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:value ;
+      sh:datatype xsd:double ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:name "value" ;
+    ] ;
+.
+rec:TreatmentRoom
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Treatment room" ;
+  rdfs:subClassOf rec:Room ;
+.
+rec:TreatmentWaitingRoom
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Treatment waiting room" ;
+  rdfs:subClassOf rec:TreatmentRoom ;
+.
+rec:UtilitiesRoom
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Utilities room" ;
+  rdfs:subClassOf rec:Room ;
+.
+rec:VelocityObservation
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  qudt:hasQuantityKind <http://qudt.org/vocab/quantitykind/Velocity> ;
+  rdfs:label "Velocity observation" ;
+  rdfs:subClassOf rec:ObservationEvent ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:value ;
+      sh:datatype xsd:double ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:name "value" ;
+    ] ;
+.
+rec:VibrationSensorEquipment
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:comment "Vibration sensor." ;
+  rdfs:label "Vibration Sensor" ;
+  rdfs:subClassOf rec:SensorEquipment ;
+.
+rec:VirtualBuilding
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Virtual building" ;
+  rdfs:subClassOf rec:Building ;
+.
+rec:VoltageObservation
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  qudt:hasQuantityKind <http://qudt.org/vocab/quantitykind/Voltage> ;
+  rdfs:label "Voltage observation" ;
+  rdfs:subClassOf rec:ObservationEvent ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:value ;
+      sh:datatype xsd:double ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:name "value" ;
+    ] ;
+.
+rec:VolumeFlowRateObservation
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  qudt:hasQuantityKind <http://qudt.org/vocab/quantitykind/VolumeFlowRate> ;
+  rdfs:label "Volume flow rate observation" ;
+  rdfs:subClassOf rec:ObservationEvent ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:value ;
+      sh:datatype xsd:double ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:name "value" ;
+    ] ;
+.
+rec:VolumeObservation
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  qudt:hasQuantityKind <http://qudt.org/vocab/quantitykind/Volume> ;
+  rdfs:label "Volume observation" ;
+  rdfs:subClassOf rec:ObservationEvent ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:value ;
+      sh:datatype xsd:double ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:name "value" ;
+    ] ;
+.
+rec:Wall
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Wall" ;
+  rdfs:subClassOf rec:BuildingElement ;
+.
+rec:WallInner
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Wall (inner)" ;
+  rdfs:subClassOf rec:Wall ;
+.
+rec:WasteBasket
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Waste basket" ;
+  rdfs:subClassOf rec:Furniture ;
+.
+rec:WasteManagementRoom
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Waste management room" ;
+  rdfs:subClassOf rec:Room ;
+.
+rec:Window
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Window" ;
+  rdfs:subClassOf rec:BarrierAsset ;
+.
+rec:WirelessAccessPoint
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:comment "Wireless access point." ;
+  rdfs:label "Wireless Access Point" ;
+  rdfs:subClassOf rec:DataNetworkEquipment ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path rec:generation ;
+      sh:datatype xsd:string ;
+      sh:in (
+          "WiFi4"
+          "WiFi5"
+          "WiFi6"
+          "WiFi6E"
+          "WiFi7"
+        ) ;
+      sh:maxCount 1 ;
+      sh:name "Generation" ;
+    ] ;
+.
+rec:WorkOrder
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Work order" ;
+  rdfs:subClassOf rec:ServiceObject ;
+.
+rec:Workshop
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Workshop" ;
+  rdfs:subClassOf rec:Room ;
+.
+rec:Workspace
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Workspace" ;
+  rdfs:subClassOf rec:Zone ;
+.
+rec:Zone
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:comment "A sub-zone within or outside of a building defined to support some technology and/or use, e.g., an HVAC zone, a parking space, a security zone, etc." ;
+  rdfs:label "Zone" ;
+  rdfs:subClassOf rec:Architecture ;
+.
+rec:substance
+  rdf:type owl:AnnotationProperty ;
+  rdfs:domain rec:feeds ;
+  rdfs:domain rec:isFedBy ;
+  rdfs:label "substance" ;
+  rdfs:range [
+      rdf:type rdfs:Datatype ;
+      owl:oneOf (
+          "ACElec"
+          "Air"
+          "BlowdownWater"
+          "ChilledWater"
+          "ColdDomesticWater"
+          "Condensate"
+          "CondenserWater"
+          "DCElec"
+          "Diesel"
+          "DriveElec"
+          "Ethernet"
+          "ExhaustAir"
+          "Freight"
+          "FuelOil"
+          "Gasoline"
+          "GreaseExhaustAir"
+          "HotDomesticWater"
+          "HotWater"
+          "IrrigationWater"
+          "Light"
+          "MakeupWater"
+          "NaturalGas"
+          "NonPotableDomesticWater"
+          "OutsideAir"
+          "People"
+          "Propane"
+          "RecircHotDomesticWater"
+          "Refrig"
+          "ReturnAir"
+          "SprinklerWater"
+          "Steam"
+          "StormDrainage"
+          "SupplyAir"
+          "TransferAir"
+          "WasteVentDrainage"
+          "Water"
+        ) ;
+    ] ;
+.

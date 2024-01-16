@@ -444,6 +444,34 @@ bsh:hasSubstance a sh:NodeShape ;
 .
 
 
+# rule to add rec:includes when a brick:Collection contains a brick:Equipment
+bsh:CollectionIncludesEquipment a sh:NodeShape ;
+    sh:targetClass brick:Collection, brick:System, brick:Equipment ;
+    sh:rule [
+        a sh:SPARQLRule ;
+        sh:construct """
+        CONSTRUCT {
+            $this rec:includes ?eq .
+        }
+        WHERE {
+            $this brick:hasPart ?eq .
+            {
+                ?eq rdf:type/rdfs:subClassOf* brick:Equipment .
+            }
+            UNION
+            {
+                ?eq rdf:type/rdfs:subClassOf* brick:Collection .
+            }
+            UNION
+            {
+                ?eq rdf:type/rdfs:subClassOf* brick:System .
+            }
+        }
+        """ ;
+        sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
+    ] ;
+.
+
 # add unidirectional charging to all EVsE chargers as a default value
 # UNLESS there is already a brick:electricVehicleChargerDirectionality attribute
 # on ports associated with the charger

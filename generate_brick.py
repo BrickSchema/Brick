@@ -1089,7 +1089,7 @@ if os.path.exists("Brick+extensions.ttl"):
 
 # create new directory for storing imports
 os.makedirs("imports", exist_ok=True)
-env = ontoenv.OntoEnv(initialize=True)
+env = ontoenv.OntoEnv(initialize=True, search_dirs=["support/"])
 for name, uri in ontology_imports.items():
     depg, loc = env.resolve_uri(str(uri))
     depg.serialize(Path("imports") / f"{name}.ttl", format="ttl")
@@ -1100,3 +1100,9 @@ valid, _, report = G.validate(engine="topquadrant")
 if not valid:
     print(report)
     sys.exit(1)
+
+# validate Brick
+# valid, _, report = pyshacl.validate(data_graph=G, advanced=True, allow_warnings=True)
+# if not valid:
+#    print(report)
+#    sys.exit(1)

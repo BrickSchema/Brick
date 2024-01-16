@@ -2,7 +2,7 @@ from datetime import datetime
 from rdflib import Literal, BNode, URIRef
 from rdflib.collection import Collection
 
-from .namespaces import DCTERMS, SDO, RDFS, RDF, OWL, BRICK, SH, XSD, REF
+from .namespaces import DCTERMS, SDO, RDFS, RDF, OWL, BRICK, SH, XSD, REF, REC
 from .version import BRICK_VERSION, BRICK_FULL_VERSION
 
 # defines metadata about the Brick ontology
@@ -38,11 +38,14 @@ ontology_imports = {
     "qudtoverlay": "http://qudt.org/2.1/schema/shacl/overlay/qudt",
     "unit": "http://qudt.org/2.1/vocab/unit",
     "bacnet": "http://data.ashrae.org/bacnet/2020",
+    "ref": "https://brickschema.org/schema/Brick/ref",
+    "rec": "https://w3id.org/rec",
+    "recimports": "https://w3id.org/rec/recimports",
+    "brickpatches": "https://w3id.org/rec/brickpatches",
     "quantitykind": "http://qudt.org/2.1/vocab/quantitykind",
     "qudtsou": "http://qudt.org/2.1/vocab/sou",
     "qudtdv": "http://qudt.org/2.1/vocab/dimensionvector",
     "qudtprefix": "http://qudt.org/2.1/vocab/prefix",
-    "ref": "https://brickschema.org/schema/Brick/ref",
 }
 
 shacl_namespace_declarations = [
@@ -75,6 +78,10 @@ shacl_namespace_declarations = [
     {
         SH.namespace: Literal(str(REF), datatype=XSD.anyURI),
         SH.prefix: Literal("ref"),
+    },
+    {
+        SH.namespace: Literal("https://w3id.org/rec#", datatype=XSD.anyURI),
+        SH.prefix: Literal("rec"),
     },
 ]
 
