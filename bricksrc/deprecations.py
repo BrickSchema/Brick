@@ -7,6 +7,32 @@ deprecations = {
         "replace_with": BRICK.Condensing_Unit,
     },
     # ... (other existing deprecations) ...
+    BRICK.Ablutions_Room: {
+        "version": "1.4.0",
+        "mitigation_message": "Brick location classes are being phased out in favor of RealEstateCore classes. There is not yet a replacement in REC for Ablutions_Room",
+        "replace_with": None,
+    },
+    BRICK.Atrium: {
+        "version": "1.4.0",
+        "mitigation_message": "Brick location classes are being phased out in favor of RealEstateCore classes. For a replacement, consider rec:Atrium",
+        "replace_with": REC.Atrium,
+    },
+    BRICK.Auditorium: {
+        "version": "1.4.0",
+        "mitigation_message": "Brick location classes are being phased out in favor of RealEstateCore classes. For a replacement, consider rec:Auditorium",
+        "replace_with": REC.Auditorium,
+    },
+    BRICK.Basement: {
+        "version": "1.4.0",
+        "mitigation_message": "Brick location classes are being phased out in favor of RealEstateCore classes. For a replacement, consider rec:BasementLevel",
+        "replace_with": REC.BasementLevel,
+    },
+    BRICK.Battery_Room: {
+        "version": "1.4.0",
+        "mitigation_message": "Brick location classes are being phased out in favor of RealEstateCore classes. For a replacement, consider rec:ElectricityRoom",
+        "replace_with": REC.ElectricityRoom,
+    },
+    # ... (other deprecated location classes with similar structure) ...
 }
 
 rec_location_deprecations = {
