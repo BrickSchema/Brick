@@ -11,4 +11,4 @@ flake8>=6.0
 semver>=2.10.1
 pytest-xdist[psutil]
 html5lib
-ontoenv>=0.4.0a6
+ontoenv>=0.4.0a10
