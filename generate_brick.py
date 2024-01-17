@@ -1073,9 +1073,14 @@ for name, graph in extension_graphs.items():
         fp.write(graph.serialize(format="turtle").rstrip())
         fp.write("\n")
 
+# add rec stuff
+env = ontoenv.OntoEnv(initialize=True, search_dirs=["support/"])
+env.import_graph(G, "support/rec.ttl")
+env.import_graph(G, "support/brickpatches.ttl")
+
 # add inferred information to Brick
-# logger.info("Adding inferred information to Brick")
-# G.expand('shacl', backend='topquadrant')
+#logger.info("Adding inferred information to Brick")
+#G.expand('shacl', backend='topquadrant')
 
 # serialize Brick to output
 with open("Brick.ttl", "w", encoding="utf-8") as fp:
@@ -1089,11 +1094,9 @@ if os.path.exists("Brick+extensions.ttl"):
 
 # create new directory for storing imports
 os.makedirs("imports", exist_ok=True)
-env = ontoenv.OntoEnv(initialize=True, search_dirs=["support/"])
 for name, uri in ontology_imports.items():
-    depg, loc = env.resolve_uri(str(uri))
-    depg.serialize(Path("imports") / f"{name}.ttl", format="ttl")
-    G += depg  # add the imported graph to Brick so we can do validation
+    graph, _ = env.resolve_uri(uri)
+    env.import_graph(G, graph)
 
 # validate Brick
 valid, _, report = G.validate(engine="topquadrant")

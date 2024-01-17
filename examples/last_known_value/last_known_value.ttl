@@ -25,5 +25,5 @@ bldg:sensor1 a brick:Air_Temperature_Sensor ;
 
 bldg:sensor1_reading1  a rec:TemperatureObservation ;
         brick:value "72.0"^^xsd:double ;
-        brick:timestamp "2020-01-01T00:00:00Z"^^xsd:dateTime ;
+        brick:timestamp "2024-01-01T00:00:00Z"^^xsd:dateTime ;
         rec:sourcePoint bldg:sensor1 .
