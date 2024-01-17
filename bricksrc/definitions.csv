@@ -237,7 +237,7 @@ https://brickschema.org/schema/Brick#Deadband_Setpoint,Sets the size of a deadba
 https://brickschema.org/schema/Brick#Deceleration_Time,,
 https://brickschema.org/schema/Brick#Deceleration_Time_Setpoint,,
 https://brickschema.org/schema/Brick#Dedicated_Outdoor_Air_System_Unit,"A device that conditions and delivers 100% outdoor air to its assigned spaces. It decouples air-conditioning of the outdoor air, usually used to provide minimum outdoor air ventilation, from conditioning of the internal loads.",
-https://brickschema.org/schema/Brick#Dehumdify_Command,"Triggers the dehumidification process, actively removing moisture from the air to achieve desired humidity levels",
+https://brickschema.org/schema/Brick#Dehumidify_Command,"Triggers the dehumidification process, actively removing moisture from the air to achieve desired humidity levels",
 https://brickschema.org/schema/Brick#Deionised_Water_Conductivity_Sensor,Measures the electrical conductance of deionised water,
 https://brickschema.org/schema/Brick#Deionised_Water_Level_Sensor,Measures the height/level of deionised water in some container,
 https://brickschema.org/schema/Brick#Deionized_Water,Water which has been purified by removing its ions (constituting the majority of non-particulate contaminants),
