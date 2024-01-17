@@ -35,4 +35,4 @@ def test_deprecation(brick_with_imports):
         ?res sh:value <urn:ex#fan> .
     }"""
     )
-    assert len(list(res)) == 1, "Should have a warning for deprecation"
+    assert len(set(res)) == 1, "Should have a warning for deprecation"

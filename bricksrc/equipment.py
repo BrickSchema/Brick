@@ -69,7 +69,7 @@ equipment_subclasses = {
                 "subclasses": {
                     "Battery": {
                         "tags": [TAG.Battery, TAG.Energy, TAG.Storage, TAG.Equipment],
-                    },
+                    }
                 },
             },
             "Inverter": {
@@ -81,8 +81,93 @@ equipment_subclasses = {
                 },
             },
             "PlugStrip": {"tags": [TAG.PlugStrip, TAG.Equipment]},
-            "Disconnect_Switch": {"tags": [TAG.Disconnect, TAG.Switch, TAG.Equipment]},
-            "Switchgear": {"tags": [TAG.Switchgear, TAG.Equipment]},
+            "Switchgear": {
+                "tags": [
+                    TAG.Switchgear,
+                    TAG.Equipment,
+                ],
+                "subclasses": {
+                    "Automatic_Switch": {
+                        "tags": [
+                            TAG.Automatic,
+                            TAG.Switch,
+                            TAG.Equipment,
+                        ]
+                    },
+                    "Circuit_Breaker": {
+                        "tags": [
+                            TAG.Circuit,
+                            TAG.Breaker,
+                        ],
+                        "subclasses": {
+                            "Main_Circuit_Breaker": {
+                                "tags": [
+                                    TAG.Main,
+                                    TAG.Circuit,
+                                    TAG.Breaker,
+                                    TAG.Equipment,
+                                ]
+                            }
+                        },
+                    },
+                    "Disconnect_Switch": {
+                        "tags": [
+                            TAG.Disconnect,
+                            TAG.Switch,
+                            TAG.Equipment,
+                        ],
+                        "subclasses": {
+                            "Main_Disconnect_Switch": {
+                                "tags": [
+                                    TAG.Main,
+                                    TAG.Disconnect,
+                                    TAG.Switch,
+                                    TAG.Equipment,
+                                ]
+                            },
+                            "Building_Disconnect_Switch": {
+                                "tags": [
+                                    TAG.Building,
+                                    TAG.Disconnect,
+                                    TAG.Switch,
+                                    TAG.Equipment,
+                                ]
+                            },
+                        },
+                    },
+                    "Isolation_Switch": {
+                        "tags": [TAG.Isolation, TAG.Switch, TAG.Equipment],
+                        "aliases": [BRICK.Disconnect_Switch],
+                    },
+                    "Transfer_Switch": {
+                        "tags": [
+                            TAG.Transfer,
+                            TAG.Switch,
+                            TAG.Equipment,
+                        ],
+                        "subclasses": {
+                            "Automatic_Transfer_Switch": {
+                                "parents": [BRICK.Automatic_Switch],
+                                "tags": [
+                                    TAG.Automatic,
+                                    TAG.Transfer,
+                                    TAG.Switch,
+                                    TAG.Equipment,
+                                ],
+                            },
+                            "Static_Transfer_Switch": {
+                                "parents": [BRICK.Automatic_Switch],
+                                "tags": [
+                                    TAG.Static,
+                                    TAG.Transfer,
+                                    TAG.Switch,
+                                    TAG.Equipment,
+                                ],
+                            },
+                        },
+                    },
+                },
+            },
             "Bus_Riser": {"tags": [TAG.Riser, TAG.Equipment]},
             "Transformer": {"tags": [TAG.Transformer, TAG.Equipment]},
             "Motor_Control_Center": {
