@@ -17,7 +17,7 @@ command_definitions = {
             },
             "Relay_Command": {"tags": [TAG.Point, TAG.Relay, TAG.Command]},
             "Light_Command": {"tags": [TAG.Point, TAG.Light, TAG.Command]},
-           "Level_Command": {
+            "Level_Command": {
                 "tags": [TAG.Level, TAG.Command, TAG.Point],
             },
             "Speed_Command": {"tags": [TAG.Point, TAG.Speed, TAG.Command]},
@@ -37,8 +37,13 @@ command_definitions = {
                     },
                 },
             },
+            "Dehumidify_Command": {
+                "tags": [TAG.Point, TAG.Dehumidify, TAG.Command],
+                BRICK.hasSubstance: BRICK.Air,
+            },
             "Humidify_Command": {
                 "tags": [TAG.Point, TAG.Humidify, TAG.Command],
+                BRICK.hasSubstance: BRICK.Air,
             },
             "Position_Command": {
                 "tags": [TAG.Point, TAG.Position, TAG.Command],
@@ -314,6 +319,9 @@ command_definitions = {
                 "subclasses": {
                     "Off_Command": {"tags": [TAG.Point, TAG.Off, TAG.Command]},
                     "On_Command": {"tags": [TAG.Point, TAG.On, TAG.Command]},
+                    "Open_Close_Command": {
+                        "tags": [TAG.Point, TAG.Open, TAG.Close, TAG.Command]
+                    },
                     "Lead_On_Off_Command": {
                         "tags": [TAG.Point, TAG.Lead, TAG.On, TAG.Off, TAG.Command],
                     },
