@@ -17,7 +17,7 @@ command_definitions = {
             },
             "Relay_Command": {"tags": [TAG.Point, TAG.Relay, TAG.Command]},
             "Light_Command": {"tags": [TAG.Point, TAG.Light, TAG.Command]},
-           "Level_Command": {
+            "Level_Command": {
                 "tags": [TAG.Level, TAG.Command, TAG.Point],
             },
             "Speed_Command": {"tags": [TAG.Point, TAG.Speed, TAG.Command]},
@@ -39,12 +39,10 @@ command_definitions = {
             },
             "Dehumidify_Command": {
                 "tags": [TAG.Point, TAG.Dehumidify, TAG.Command],
-                BRICK.hasQuantity: BRICK.Humidity,
                 BRICK.hasSubstance: BRICK.Air,
             },
             "Humidify_Command": {
                 "tags": [TAG.Point, TAG.Humidify, TAG.Command],
-                BRICK.hasQuantity: BRICK.Humidity,
                 BRICK.hasSubstance: BRICK.Air,
             },
             "Position_Command": {
