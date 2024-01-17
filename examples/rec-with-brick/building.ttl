@@ -1,0 +1,64 @@
+@prefix ex: <http://example.com#> .
+@prefix rec: <https://w3id.org/rec/core/> .
+@prefix brick: <https://brickschema.org/schema/1.1/Brick#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+
+ex:Building1 a rec:Building .
+
+# Floors
+ex:Floor1 a rec:Storey ;
+    rec:isPartOf ex:Building1 .
+ex:Floor2 a rec:Storey ;
+    rec:isPartOf ex:Building1 .
+
+# Zones for each floor
+ex:Floor1Zone1 a rec:Zone ;
+    rec:isPartOf ex:Floor1 .
+ex:Floor1Zone2 a rec:Zone ;
+    rec:isPartOf ex:Floor1 .
+ex:Floor2Zone1 a rec:Zone ;
+    rec:isPartOf ex:Floor2 .
+ex:Floor2Zone2 a rec:Zone ;
+    rec:isPartOf ex:Floor2 .
+
+# Rooms for each zone
+ex:Room1 a rec:Space ;
+    rec:isPartOf ex:Floor1Zone1 .
+ex:Room2 a rec:Space ;
+    rec:isPartOf ex:Floor1Zone1 .
+ex:Room3 a rec:Space ;
+    rec:isPartOf ex:Floor1Zone2 .
+ex:Room4 a rec:Space ;
+    rec:isPartOf ex:Floor1Zone2 .
+ex:Room5 a rec:Space ;
+    rec:isPartOf ex:Floor2Zone1 .
+ex:Room6 a rec:Space ;
+    rec:isPartOf ex:Floor2Zone1 .
+ex:Room7 a rec:Space ;
+    rec:isPartOf ex:Floor2Zone2 .
+ex:Room8 a rec:Space ;
+    rec:isPartOf ex:Floor2Zone2 .
+
+# AHU and VAVs
+ex:MainAHU a brick:Air_Handler_Unit ;
+    brick:feeds ex:RVAV1, ex:RVAV2, ex:RVAV3, ex:RVAV4 .
+
+ex:RVAV1 a brick:Variable_Air_Volume_Box_With_Reheat ;
+    brick:feeds ex:Floor1Zone1 .
+ex:RVAV2 a brick:Variable_Air_Volume_Box_With_Reheat ;
+    brick:feeds ex:Floor1Zone2 .
+ex:RVAV3 a brick:Variable_Air_Volume_Box_With_Reheat ;
+    brick:feeds ex:Floor2Zone1 .
+ex:RVAV4 a brick:Variable_Air_Volume_Box_With_Reheat ;
+    brick:feeds ex:Floor2Zone2 .
+
+# Sensors and Setpoints for each RVAV (only doing for RVAV1 as example, repeat for others)
+ex:AirTempSensor_RVAV1 a brick:Air_Temperature_Sensor ;
+    brick:isPointOf ex:RVAV1 .
+
+ex:AirTempSetpoint_RVAV1 a brick:Temperature_Setpoint ;
+    brick:hasPoint ex:RVAV1 .
+
+ex:AirFlowSensor_RVAV1 a brick:Air_Flow_Sensor ;
+    brick:isPointOf ex:RVAV1 .
