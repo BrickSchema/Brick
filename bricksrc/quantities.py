@@ -43,16 +43,6 @@ def all_units():
 Each is a qudt:QuantityKind
 """
 quantity_definitions = {
-    "CorrelatedColorTemperature": {  # NOTE: Should we duplicate this outside QUDT?
-        QUDT.applicableUnit: [UNIT.K],
-        QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M0H1T0D0"],
-        SKOS.definition: Literal(
-            "Correlated color temperature (CCT) is a measure of light source color appearance defined by the proximity of the light source's chromaticity coordinates to the blackbody locus, as a single number rather than the two required to specify a chromaticity."
-        ),
-        RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
-        RDFS.label: Literal("CorrelatedColorTemperature"),
-        SKOS.broader: QUDTQK.ThermodynamicTemperature,
-    },
     "Air_Quality": {
         SKOS.narrower: {
             "Ammonia_Concentration": {

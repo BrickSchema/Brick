@@ -22,26 +22,15 @@ command_definitions = {
             "Lighting_Level_Command": {
                 "tags": [TAG.Point, TAG.Lighting, TAG.Level, TAG.Command]
             },
-            "Lighting_Color_Temperature_Command": {
+            "Lighting_Correlated_Color_Temperature_Command": {
                 "tags": [
                     TAG.Point,
                     TAG.Lighting,
+                    TAG.Correlated,
                     TAG.Color,
                     TAG.Temperature,
                     TAG.Command,
                 ],
-                "subclasses": {
-                    "Lighting_Correlated_Color_Temperature_Command": {
-                        "tags": [
-                            TAG.Point,
-                            TAG.Lighting,
-                            TAG.Correlated,
-                            TAG.Color,
-                            TAG.Temperature,
-                            TAG.Command,
-                        ],
-                    }
-                },
             },
             "Speed_Command": {"tags": [TAG.Point, TAG.Speed, TAG.Command]},
             "Cooling_Command": {"tags": [TAG.Point, TAG.Cool, TAG.Command]},
