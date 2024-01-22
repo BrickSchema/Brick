@@ -103,6 +103,7 @@ CONSTRUCT {
     $this rdfs:range ?shape .
     ?shape a sh:NodeShape .
     ?ent $this ?val .
+    FILTER NOT EXISTS { ?val a ?shape }
 }""" ;
       sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
     ] ;
