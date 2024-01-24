@@ -1900,6 +1900,18 @@ sensor_definitions = {
                                 ],
                                 BRICK.hasQuantity: BRICK.Differential_Temperature,
                                 BRICK.hasSubstance: BRICK.Water,
+                                "subclasses": {
+                                    "Hot_Water_Differential_Temperature_Sensor": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Hot,
+                                            TAG.Water,
+                                            TAG.Differential,
+                                            TAG.Temperature,
+                                            TAG.Sensor,
+                                        ],
+                                    },
+                                }
                             },
                             "Domestic_Hot_Water_Temperature_Sensor": {
                                 "tags": [
@@ -1923,19 +1935,6 @@ sensor_definitions = {
                                 BRICK.hasQuantity: BRICK.Temperature,
                                 BRICK.hasSubstance: BRICK.Entering_Hot_Water,
                                 "subclasses": {
-                                    "Hot_Water_Differential_Temperature_Sensor": {
-                                        "tags": [
-                                            TAG.Point,
-                                            TAG.Hot,
-                                            TAG.Water,
-                                            TAG.Differential,
-                                            TAG.Temperature,
-                                            TAG.Sensor,
-                                        ],
-                                        "parents": [
-                                            BRICK.Water_Differential_Temperature_Sensor,
-                                        ],
-                                    },
                                     "Entering_Domestic_Hot_Water_Temperature_Sensor": {
                                         "tags": [
                                             TAG.Point,
@@ -1988,19 +1987,6 @@ sensor_definitions = {
                                 BRICK.hasQuantity: BRICK.Temperature,
                                 BRICK.hasSubstance: BRICK.Leaving_Hot_Water,
                                 "subclasses": {
-                                    "Hot_Water_Differential_Temperature_Sensor": {
-                                        "tags": [
-                                            TAG.Point,
-                                            TAG.Hot,
-                                            TAG.Water,
-                                            TAG.Differential,
-                                            TAG.Temperature,
-                                            TAG.Sensor,
-                                        ],
-                                        "parents": [
-                                            BRICK.Water_Differential_Temperature_Sensor,
-                                        ],
-                                    },
                                     "Leaving_Domestic_Hot_Water_Temperature_Sensor": {
                                         "tags": [
                                             TAG.Point,
