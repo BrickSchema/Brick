@@ -1098,6 +1098,9 @@ for name, uri in ontology_imports.items():
     graph, _ = env.resolve_uri(uri)
     env.import_graph(G, graph)
 
+# add new Brick to ontology environment
+env.refresh()
+
 # validate Brick
 valid, _, report = G.validate(engine="topquadrant")
 if not valid:
