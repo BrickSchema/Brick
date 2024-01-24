@@ -1,7 +1,7 @@
 from brickschema.graph import Graph
 from ontoenv import OntoEnv
 from rdflib import Literal, URIRef
-from .namespaces import SKOS, OWL, RDFS, BRICK, QUDTQK, QUDTDV, QUDT, UNIT
+from .namespaces import SKOS, RDFS, BRICK, QUDTQK, QUDTDV, QUDT, UNIT
 
 env = OntoEnv(initialize=True, search_dirs=["support/"])
 g = Graph()

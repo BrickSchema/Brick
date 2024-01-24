@@ -1,4 +1,4 @@
-from .namespaces import BRICK, RDFS, SKOS, A
+from .namespaces import BRICK, RDFS, SKOS, A, REC
 
 deprecations = {
     BRICK.Condenser: {
