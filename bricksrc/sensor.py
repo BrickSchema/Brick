@@ -1015,6 +1015,18 @@ sensor_definitions = {
                     },
                 },
             },
+            "Lighting_Correlated_Color_Temperature_Sensor": {
+                "tags": [
+                    TAG.Point,
+                    TAG.Lighting,
+                    TAG.Correlated,
+                    TAG.Color,
+                    TAG.Temperature,
+                    TAG.Sensor,
+                ],
+                BRICK.hasQuantity: QUDTQK.CorrelatedColorTemperature,
+                BRICK.hasSubstance: BRICK.Light,
+            },
             "Luminance_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Luminance],
                 BRICK.hasQuantity: QUDTQK.Luminance,
@@ -1485,7 +1497,6 @@ sensor_definitions = {
             "Refrigerant_Level_Sensor": {
                 BRICK.hasQuantity: BRICK.Level,
                 BRICK.hasSubstance: BRICK.Refrigerant,
-                "tags": [TAG.Point, TAG.Sensor, TAG.Refrigerant, TAG.Level],
             },
             "Solar_Irradiance_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Irradiance, TAG.Solar],

@@ -1,7 +1,10 @@
-from .namespaces import BRICK, OWL, SKOS
+from .namespaces import BRICK, OWL, SKOS, TAG
 
 # Defining substances
 substances = {
+    "Light": {
+        "tags": [TAG.Light],
+    },
     "Fluid": {
         SKOS.narrower: {
             "Refrigerant": {},

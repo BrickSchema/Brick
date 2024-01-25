@@ -110,6 +110,11 @@ deprecations = {
         "version": "1.3.0",
         "mitigation_message": "Exhaust_Fan_Enable_Command is deprecated as a point name should not include more specific equipment names than top level equipment names",
         "replace_with": BRICK.Enable_Command,
+    },
+    BRICK.Light_Command: {
+        "version": "1.3.1",
+        "mitigation_message": "Replaced with Lighting_Command to represent its function more precisely.",
+        "replace_with": BRICK.Lighting_Level_Command,
         RDFS.subClassOf: BRICK.Command,
     },
     BRICK.Supply_Water_Temperature_Sensor: {

@@ -656,8 +656,10 @@ https://brickschema.org/schema/Brick#Level,,
 https://brickschema.org/schema/Brick#Level_Command,Adjusts the operational state to a specific level within a predefined range.,
 https://brickschema.org/schema/Brick#Level_Status,The current operational state of a specific level within a predefined range.,
 https://brickschema.org/schema/Brick#Library,"A place for the storage and/or consumption of physical media, e.g. books, periodicals, and DVDs/CDs",
-https://brickschema.org/schema/Brick#Light_Command,Controls the amount of the light provided by the device,
 https://brickschema.org/schema/Brick#Lighting,,
+https://brickschema.org/schema/Brick#Lighting_Correlated_Color_Temperature_Command,A command to set correlated color temperature (CCT) which is the temperature of the Planckian radiator whose perceived color most closely resembles that of a given stimulus at the same brightness and under specified viewing conditions.,https://en.wikipedia.org/wiki/Color_temperature#Correlated_color_temperature
+https://brickschema.org/schema/Brick#Lighting_Correlated_Color_Temperature_Sensor,A sensor to measure correlated color temperature (CCT) which is the temperature of the Planckian radiator whose perceived color most closely resembles that of a given stimulus at the same brightness and under specified viewing conditions.,https://en.wikipedia.org/wiki/Color_temperature#Correlated_color_temperature
+https://brickschema.org/schema/Brick#Lighting_Level_Command,Controls the amount of the light provided by the device typically in percentages.,
 https://brickschema.org/schema/Brick#Lighting_System,"The equipment, devices and interfaces that serve or are a part of the lighting subsystem in a building",
 https://brickschema.org/schema/Brick#Lighting_Zone,,
 https://brickschema.org/schema/Brick#Limit,A parameter that places an upper or lower bound on the range of permitted values of another point,
