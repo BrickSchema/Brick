@@ -1,6 +1,6 @@
 @prefix ex: <http://example.com#> .
 @prefix rec: <https://w3id.org/rec/core/> .
-@prefix brick: <https://brickschema.org/schema/1.1/Brick#> .
+@prefix brick: <https://brickschema.org/schema/Brick#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
 
@@ -58,7 +58,7 @@ ex:AirTempSensor_RVAV1 a brick:Air_Temperature_Sensor ;
     brick:isPointOf ex:RVAV1 .
 
 ex:AirTempSetpoint_RVAV1 a brick:Temperature_Setpoint ;
-    brick:hasPoint ex:RVAV1 .
+    brick:isPointOf ex:RVAV1 .
 
 ex:AirFlowSensor_RVAV1 a brick:Air_Flow_Sensor ;
     brick:isPointOf ex:RVAV1 .
