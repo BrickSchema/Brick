@@ -853,8 +853,10 @@ roots = {
     },
     "Location": {
         "tags": [TAG.Location],
-        BRICK.hasPoint: [BRICK.Point],
-        BRICK.hasPart: [BRICK.Location, REC.Space],
+        "constraints": {
+            BRICK.hasPoint: [BRICK.Point],
+            BRICK.hasPart: [BRICK.Location, REC.Space],
+        }
     },
     "Point": {"tags": [TAG.Point]},
     "Measurable": {"tags": [TAG.Measurable]},
