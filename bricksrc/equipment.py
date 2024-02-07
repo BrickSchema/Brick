@@ -1,5 +1,5 @@
 from rdflib import Literal
-from .namespaces import TAG, OWL, BRICK
+from .namespaces import TAG, OWL, BRICK, REC
 from .meters import meter_subclasses
 
 """
@@ -29,7 +29,7 @@ equipment_subclasses = {
         "tags": [TAG.HVAC, TAG.Equipment],
         "constraints": {
             BRICK.hasPart: [BRICK.HVAC_Equipment, BRICK.Valve],
-            BRICK.feeds: [BRICK.HVAC_Equipment, BRICK.Valve, BRICK.Location],
+            BRICK.feeds: [BRICK.HVAC_Equipment, BRICK.Valve, REC.Space],
         },
     },
     "Weather_Station": {"tags": [TAG.Weather, TAG.Station, TAG.Equipment]},
@@ -229,7 +229,7 @@ equipment_subclasses = {
         "tags": [TAG.Lighting, TAG.Equipment],
         "constraints": {
             BRICK.hasPart: [BRICK.Lighting_Equipment, BRICK.Electrical_Equipment],
-            BRICK.feeds: [BRICK.Lighting_Equipment, BRICK.Location],
+            BRICK.feeds: [BRICK.Lighting_Equipment, REC.Space],
         },
         "subclasses": {
             "Lighting": {

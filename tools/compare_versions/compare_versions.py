@@ -20,6 +20,8 @@ def get_root(version):
     short_version = get_short_version(version)
     if short_version == "1.3":
         return "https://brickschema.org/schema/Brick#Class"
+    if short_version == "1.4":
+        return "https://brickschema.org/schema/Brick#Entity"
     if semver.compare(version, "1.0.3") > 0:  # if current version is newer than 1.0.3
         return f"https://brickschema.org/schema/{short_version}/Brick#Class"
     return f"https://brickschema.org/schema/{short_version}/BrickFrame#TagSet"

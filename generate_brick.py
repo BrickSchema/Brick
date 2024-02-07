@@ -23,6 +23,7 @@ from bricksrc.ontology import (
 from bricksrc.namespaces import (
     BRICK,
     BSH,
+    REC,
     RDF,
     OWL,
     RDFS,
@@ -843,8 +844,20 @@ G.add((BRICK.Entity, A, OWL.Class))  # >= Brick v1.3.0
 G.add((BRICK.Tag, A, OWL.Class))
 
 roots = {
-    "Equipment": {"tags": [TAG.Equipment]},
-    "Location": {"tags": [TAG.Location]},
+    "Equipment": {
+        "tags": [TAG.Equipment],
+        "constraints": {
+            BRICK.hasLocation: [REC.Space],
+            BRICK.hasPoint: [BRICK.Point],
+        },
+    },
+    "Location": {
+        "tags": [TAG.Location],
+        "constraints": {
+            BRICK.hasPoint: [BRICK.Point],
+            BRICK.hasPart: [BRICK.Location, REC.Space],
+        }
+    },
     "Point": {"tags": [TAG.Point]},
     "Measurable": {"tags": [TAG.Measurable]},
     "Collection": {"tags": [TAG.Collection]},
@@ -1079,8 +1092,8 @@ env.import_graph(G, "support/rec.ttl")
 env.import_graph(G, "support/brickpatches.ttl")
 
 # add inferred information to Brick
-#logger.info("Adding inferred information to Brick")
-#G.expand('shacl', backend='topquadrant')
+# logger.info("Adding inferred information to Brick")
+# G.expand('shacl', backend='topquadrant')
 
 # serialize Brick to output
 with open("Brick.ttl", "w", encoding="utf-8") as fp:
