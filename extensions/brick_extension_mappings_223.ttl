@@ -10,9 +10,6 @@
 @prefix s223tobrick: <https://brickschema.org/extension/brick_extension_interpret_223#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-s223:AbstractSensor
-  s223tobrick:translatesTo brick:Sensor ;
-.
 s223:ActuatableProperty
   s223tobrick:translatesTo brick:Command ;
 .
@@ -61,8 +58,14 @@ s223:Medium-NaturalGas
 s223:Medium-Refrigerant
   s223tobrick:translatesTo brick:Refrigerant ;
 .
+s223:ObservableProperty
+  s223tobrick:translatesTo brick:Sensor ;
+.
 s223:PhysicalSpace
   s223tobrick:translatesTo brick:Location ;
+.
+s223:Property
+  s223tobrick:translatesTo brick:Point ;
 .
 s223:Pump
   s223tobrick:translatesTo brick:Pump ;
