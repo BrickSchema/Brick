@@ -508,7 +508,7 @@ def define_shape_property_property(shape_name, definitions, graph=G):
             graph.add((ps, SH["in"], enumeration))
             graph.add((ps, SH.minCount, Literal(1)))
             Collection(graph, enumeration, map(Literal, prop_defn.pop("values")))
-            graph.add((prop_name, A, OWL.ObjectProperty))
+            graph.add((prop_name, A, OWL.DatatypeProperty))
         else:
             graph.add((prop_name, A, OWL.ObjectProperty))
         add_relationships(ps, prop_defn, graph=graph)
