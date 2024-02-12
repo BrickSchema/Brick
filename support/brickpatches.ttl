@@ -114,8 +114,8 @@ brick:Bench_Space
 brick:Break_Room
   owl:deprecated "true"^^xsd:boolean ;
     brick:deprecatedInVersion "1.4.0" ;
-    brick:deprecationMitigationMessage "Brick location classes are being phased out in favor of RealEstateCore classes. For a replacement, consider rec:BasementLevel" ;
-    brick:isReplacedBy rec:BasementLevel ;
+    brick:deprecationMitigationMessage "Brick location classes are being phased out in favor of RealEstateCore classes. For a replacement, consider rec:StaffRoom" ;
+    brick:isReplacedBy rec:StaffRoom ;
 .
 brick:Breakroom
   owl:deprecated "true"^^xsd:boolean ;
@@ -1127,6 +1127,9 @@ brick:feeds
 .
 brick:hasLocation
   owl:equivalentProperty rec:locatedIn ;
+.
+brick:isLocationOf
+  owl:equivalentProperty rec:isLocationOf ;
 .
 brick:hasPart
   owl:equivalentProperty rec:hasPart ;
