@@ -149,6 +149,7 @@ loop_subclasses = {
             "Hot_Water_Loop": {"tags": [TAG.Hot, TAG.Water, TAG.Loop]},
             "Chilled_Water_Loop": {"tags": [TAG.Chilled, TAG.Water, TAG.Loop]},
             "Domestic_Water_Loop": {"tags": [TAG.Domestic, TAG.Water, TAG.Loop]},
+            "Condenser_Water_Loop": {"tags": [TAG.Condenser, TAG.Water, TAG.Loop]},
         },
     },
 }

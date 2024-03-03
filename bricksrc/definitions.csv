@@ -180,6 +180,7 @@ https://brickschema.org/schema/Brick#Condenser_Water_Bypass_Valve,A valve instal
 https://brickschema.org/schema/Brick#Condenser_Water_Circulator_Pump,"Used to move chilled water in a closed circuit, ensuring continuous flow.",
 https://brickschema.org/schema/Brick#Condenser_Water_Flow_Sensor,Measures the flow of the condenser water,
 https://brickschema.org/schema/Brick#Condenser_Water_Isolation_Valve,An isolation valve installed in the condenser water loop,
+https://brickschema.org/schema/Brick#Condenser_Water_Loop,A collection of equipment that transport and regulate condenser water among each other,
 https://brickschema.org/schema/Brick#Condenser_Water_Pump,A pump that is part of a condenser system; the pump circulates condenser water from the chiller back to the cooling tower,
 https://brickschema.org/schema/Brick#Condenser_Water_System,"A heat rejection system consisting of (typically) cooling towers, condenser water pumps, chillers and the piping connecting the components",https://www.linquip.com/blog/condenser-water-system-an-overview/
 https://brickschema.org/schema/Brick#Condenser_Water_Temperature_Sensor,Measures the temperature of condenser water,
