@@ -21,6 +21,42 @@ skos:narrower rdf:type rdf:Property ;
   owl:inverseOf skos:broader ;
 .
 
+bsh:EquivalentPropertyRule
+  a sh:NodeShape ;
+  sh:rule [
+      a sh:SPARQLRule ;
+      sh:construct """
+CONSTRUCT {
+    ?s ?t2 ?o .
+} WHERE {
+    ?s $this ?o .
+    { $this owl:equivalentProperty ?t2 }
+    UNION
+    { ?t2 owl:equivalentProperty $this }
+}""" ;
+      sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
+    ] ;
+  sh:targetSubjectsOf owl:equivalentProperty ;
+.
+
+
+bsh:SubPropertyOfRule
+  a sh:NodeShape ;
+  sh:rule [
+      a sh:SPARQLRule ;
+      sh:construct """
+CONSTRUCT {
+   ?s ?t2 ?o .
+} WHERE {
+    ?s $this ?o .
+    { $this rdfs:subPropertyOf ?t2 }
+}""" ;
+      sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
+    ] ;
+    sh:targetSubjectsOf rdfs:subPropertyOf ;
+.
+
+
 bsh:InferInverseProperties
   a sh:NodeShape ;
   sh:rule [
