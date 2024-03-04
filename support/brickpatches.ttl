@@ -1131,8 +1131,8 @@ brick:hasLocation
 brick:isLocationOf
   owl:equivalentProperty rec:isLocationOf ;
 .
-brick:hasPart
-  owl:equivalentProperty rec:hasPart ;
+rec:hasPart
+  rdfs:subPropertyOf brick:hasPart ;
 .
 brick:hasPoint
   owl:equivalentProperty rec:hasPoint ;
@@ -1140,8 +1140,8 @@ brick:hasPoint
 brick:isFedBy
   owl:equivalentProperty rec:isFedBy ;
 .
-brick:isPartOf
-  owl:equivalentProperty rec:isPartOf ;
+rec:isPartOf
+  rdfs:subPropertyOf brick:isPartOf ;
 .
 brick:isPointOf
   owl:equivalentProperty rec:isPointOf ;

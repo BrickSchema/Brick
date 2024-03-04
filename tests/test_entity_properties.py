@@ -1,6 +1,5 @@
-from rdflib import Namespace, Literal
-from brickschema.namespaces import BRICK, A, REF, XSD
-import os
+from rdflib import Namespace, Literal, XSD
+from brickschema.namespaces import BRICK, A, REF
 
 EX = Namespace("urn:ex#")
 
