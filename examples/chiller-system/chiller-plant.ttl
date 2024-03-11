@@ -2,6 +2,10 @@
 @prefix brick: <https://brickschema.org/schema/Brick#> .
 @prefix unit: <http://qudt.org/vocab/unit/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+<urn:chiller-plant> a owl:Ontology ;
+    owl:imports <https://brickschema.org/schema/1.4/Brick> .
 
 :cws a brick:Chilled_Water_System ;
     brick:hasPart :ct-1, :ct-2, :ct-3,

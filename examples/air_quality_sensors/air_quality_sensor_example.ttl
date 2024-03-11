@@ -2,6 +2,10 @@
 @prefix brick: <https://brickschema.org/schema/Brick#> .
 @prefix unit: <http://qudt.org/vocab/unit/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+<urn:example> a owl:Ontology ;
+    owl:imports <https://brickschema.org/schema/1.4/Brick> .
 
 bldg:air_temp_sensor a brick:Air_Temperature_Sensor ;
     brick:hasUnit unit:DEG_C ;

@@ -2,7 +2,7 @@
 # imports: http://data.ashrae.org/standard223/1.0/model/all
 # imports: http://www.w3.org/ns/shacl#
 # imports: https://brickschema.org/extension/mappings_223
-# imports: https://brickschema.org/schema/1.3/Brick
+# imports: https://brickschema.org/schema/1.4/Brick
 # prefix: s223tobrick
 
 @prefix brick: <https://brickschema.org/schema/Brick#> .
@@ -256,7 +256,7 @@ $this s223:hasMeasurementLocation/s223:isConnectionPointOf/rdf:type ?class .
   owl:imports <http://data.ashrae.org/standard223/1.0/model/all> ;
   owl:imports sh: ;
   owl:imports <https://brickschema.org/extension/mappings_223> ;
-  owl:imports <https://brickschema.org/schema/1.3/Brick> ;
+  owl:imports <https://brickschema.org/schema/1.4/Brick> ;
   owl:versionInfo "Created with TopBraid Composer" ;
   sh:declare [
       sh:namespace "http://data.ashrae.org/standard223#"^^xsd:anyURI ;

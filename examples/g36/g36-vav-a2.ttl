@@ -6,6 +6,9 @@
 @prefix unit: <http://qudt.org/vocab/unit/> .
 @prefix ex: <http://example.org#> .
 
+<http://example.org> a owl:Ontology ;
+    owl:imports <https://brickschema.org/schema/1.4/Brick> .
+
 #  VAV (A-2 from G36)
 
 ex:vav1 a   brick:VAV ;
