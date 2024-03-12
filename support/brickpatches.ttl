@@ -274,6 +274,9 @@ brick:Direction_Sensor
 .
 brick:Distribution_Frame
   owl:deprecated "true"^^xsd:boolean ;
+  brick:deprecatedInVersion "1.4.0" ;
+  brick:deprecationMitigationMessage "Brick location classes are being phased out in favor of RealEstateCore classes. For a replacement, consider rec:CableRoom" ;
+  brick:isReplacedBy rec:CableRoom ;
 .
 brick:Duration_Sensor
   sh:property [
@@ -293,12 +296,21 @@ brick:Electrical_Room
 .
 brick:Elevator_Shaft
   owl:deprecated "true"^^xsd:boolean ;
+  brick:deprecatedInVersion "1.4.0" ;
+  brick:deprecationMitigationMessage "Brick location classes are being phased out in favor of RealEstateCore classes. For a replacement, consider rec:ElevatorShaft" ;
+  brick:isReplacedBy rec:ElevatorShaft ;
 .
 brick:Elevator_Space
   owl:deprecated "true"^^xsd:boolean ;
+  brick:deprecatedInVersion "1.4.0" ;
+  brick:deprecationMitigationMessage "Brick location classes are being phased out in favor of RealEstateCore classes. For a replacement, consider rec:ElevatorShaft" ;
+  brick:isReplacedBy rec:ElevatorShaft ;
 .
 brick:Employee_Entrance_Lobby
   owl:deprecated "true"^^xsd:boolean ;
+  brick:deprecatedInVersion "1.4.0" ;
+  brick:deprecationMitigationMessage "Brick location classes are being phased out in favor of RealEstateCore classes. For a replacement, consider rec:ServiceEntrance" ;
+  brick:isReplacedBy rec:ServiceEntrance ;
 .
 brick:Enclosed_Office
   owl:deprecated "true"^^xsd:boolean ;
@@ -318,6 +330,9 @@ brick:Energy_Sensor
 .
 brick:Energy_Zone
   owl:deprecated "true"^^xsd:boolean ;
+  brick:deprecatedInVersion "1.4.0" ;
+  brick:deprecationMitigationMessage "Brick location classes are being phased out in favor of RealEstateCore classes. For a replacement, consider rec:Zone" ;
+  brick:isReplacedBy rec:Zone ;
 .
 brick:Enthalpy_Sensor
   sh:property [
@@ -361,6 +376,9 @@ brick:Equipment_Room
 .
 brick:Exercise_Room
   owl:deprecated "true"^^xsd:boolean ;
+  brick:deprecatedInVersion "1.4.0" ;
+  brick:deprecationMitigationMessage "Brick location classes are being phased out in favor of RealEstateCore classes. For a replacement, consider rec:ExerciseRoom" ;
+  brick:isReplacedBy rec:ExerciseRoom ;
 .
 brick:Field_Of_Play
   owl:deprecated "true"^^xsd:boolean ;
@@ -377,6 +395,9 @@ brick:Fire_Sensor
 .
 brick:Fire_Zone
   owl:deprecated "true"^^xsd:boolean ;
+  brick:deprecatedInVersion "1.4.0" ;
+  brick:deprecationMitigationMessage "Brick location classes are being phased out in favor of RealEstateCore classes. For a replacement, consider rec:ServiceEntrance" ;
+  brick:isReplacedBy rec:ServiceEntrance ;
 .
 brick:First_Aid_Room
   owl:deprecated "true"^^xsd:boolean ;
@@ -399,6 +420,9 @@ brick:Flow_Sensor
 .
 brick:Food_Service_Room
   owl:deprecated "true"^^xsd:boolean ;
+  brick:deprecatedInVersion "1.4.0" ;
+  brick:deprecationMitigationMessage "Brick location classes are being phased out in favor of RealEstateCore classes. For a replacement, consider rec:FoodHandlingRoom" ;
+  brick:isReplacedBy rec:FoodHandlingRoom ;
 .
 brick:Freezer
   owl:deprecated "true"^^xsd:boolean ;
@@ -425,6 +449,9 @@ brick:Frost_Sensor
 .
 brick:Furniture
   owl:deprecated "true"^^xsd:boolean ;
+  brick:deprecatedInVersion "1.4.0" ;
+  brick:deprecationMitigationMessage "Brick location classes are being phased out in favor of RealEstateCore classes. For a replacement, consider rec:Furniture" ;
+  brick:isReplacedBy rec:Furniture ;
 .
 brick:Gas_Sensor
   sh:property [
@@ -451,6 +478,9 @@ brick:Generation_Sensor
 .
 brick:Generator_Room
   owl:deprecated "true"^^xsd:boolean ;
+  brick:deprecatedInVersion "1.4.0" ;
+  brick:deprecationMitigationMessage "Brick location classes are being phased out in favor of RealEstateCore classes. For a replacement, consider rec:ElectricityRoom" ;
+  brick:isReplacedBy rec:ElectricityRoom ;
 .
 brick:HVAC_Zone
   owl:deprecated "true"^^xsd:boolean ;
@@ -495,6 +525,9 @@ brick:Hot_Box
 .
 brick:IDF
   owl:deprecated "true"^^xsd:boolean ;
+  brick:deprecatedInVersion "1.4.0" ;
+  brick:deprecationMitigationMessage "Brick location classes are being phased out in favor of RealEstateCore classes. For a replacement, consider rec:CableRoom" ;
+  brick:isReplacedBy rec:CableRoom ;
 .
 brick:Illuminance_Sensor
   sh:property [
@@ -533,6 +566,9 @@ brick:Laboratory
 .
 brick:Library
   owl:deprecated "true"^^xsd:boolean ;
+  brick:deprecatedInVersion "1.4.0" ;
+  brick:deprecationMitigationMessage "Brick location classes are being phased out in favor of RealEstateCore classes. For a replacement, consider rec:Library" ;
+  brick:isReplacedBy rec:Library ;
 .
 brick:Lighting
   rdf:type sh:NodeShape ;
@@ -584,6 +620,9 @@ brick:Luminance_Sensor
 .
 brick:MDF
   owl:deprecated "true"^^xsd:boolean ;
+  brick:deprecatedInVersion "1.4.0" ;
+  brick:deprecationMitigationMessage "Brick location classes are being phased out in favor of RealEstateCore classes. For a replacement, consider rec:CableRoom" ;
+  brick:isReplacedBy rec:CableRoom ;
 .
 brick:Mail_Room
   owl:deprecated "true"^^xsd:boolean ;
@@ -596,6 +635,9 @@ brick:Majlis
 .
 brick:Massage_Room
   owl:deprecated "true"^^xsd:boolean ;
+  brick:deprecatedInVersion "1.4.0" ;
+  brick:deprecationMitigationMessage "Brick location classes are being phased out in favor of RealEstateCore classes. For a replacement, consider rec:TherapyRoom" ;
+  brick:isReplacedBy rec:TherapyRoom ;
 .
 brick:Mechanical_Room
   owl:deprecated "true"^^xsd:boolean ;
@@ -614,6 +656,9 @@ brick:Media_Room
 .
 brick:Medical_Room
   owl:deprecated "true"^^xsd:boolean ;
+  brick:deprecatedInVersion "1.4.0" ;
+  brick:deprecationMitigationMessage "Brick location classes are being phased out in favor of RealEstateCore classes. For a replacement, consider rec:HealthcareRoom" ;
+  brick:isReplacedBy rec:HealthcareRoom ;
 .
 brick:Motion_Sensor
   sh:property [
@@ -665,6 +710,9 @@ brick:Open_Office
 .
 brick:Outdoor_Area
   owl:deprecated "true"^^xsd:boolean ;
+  brick:deprecatedInVersion "1.4.0" ;
+  brick:deprecationMitigationMessage "Brick location classes are being phased out in favor of RealEstateCore classes. For a replacement, consider rec:OutdoorSpace" ;
+  brick:isReplacedBy rec:OutdoorSpace ;
 .
 brick:Outside
   owl:deprecated "true"^^xsd:boolean ;
@@ -916,9 +964,15 @@ brick:Setpoint
 .
 brick:Shared_Office
   owl:deprecated "true"^^xsd:boolean ;
+  brick:deprecatedInVersion "1.4.0" ;
+  brick:deprecationMitigationMessage "Brick location classes are being phased out in favor of RealEstateCore classes. For a replacement, consider rec:OfficeLandscape" ;
+  brick:isReplacedBy rec:OfficeLandscape ;
 .
 brick:Shower
   owl:deprecated "true"^^xsd:boolean ;
+  brick:deprecatedInVersion "1.4.0" ;
+  brick:deprecationMitigationMessage "Brick location classes are being phased out in favor of RealEstateCore classes. For a replacement, consider rec:ShowerRoom" ;
+  brick:isReplacedBy rec:ShowerRoom ;
 .
 brick:Site
   owl:deprecated "true"^^xsd:boolean ;
@@ -1017,6 +1071,9 @@ brick:TETRA_Room
 .
 brick:Team_Room
   owl:deprecated "true"^^xsd:boolean ;
+  brick:deprecatedInVersion "1.4.0" ;
+  brick:deprecationMitigationMessage "Brick location classes are being phased out in favor of RealEstateCore classes. For a replacement, consider rec:TeamRoom" ;
+  brick:isReplacedBy rec:TeamRoom ;
 .
 brick:Telecom_Room
   owl:deprecated "true"^^xsd:boolean ;
@@ -1087,6 +1144,9 @@ brick:Voltage_Sensor
 .
 brick:Wardrobe
   owl:deprecated "true"^^xsd:boolean ;
+  brick:deprecatedInVersion "1.4.0" ;
+  brick:deprecationMitigationMessage "Brick location classes are being phased out in favor of RealEstateCore classes. For a replacement, consider rec:CloakRoom" ;
+  brick:isReplacedBy rec:CloakRoom ;
 .
 brick:Waste_Storage
   owl:deprecated "true"^^xsd:boolean ;
