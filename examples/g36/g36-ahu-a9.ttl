@@ -6,6 +6,9 @@
 @prefix unit: <http://qudt.org/vocab/unit/> .
 @prefix ex: <http://example.org#> .
 
+<http://example.org> a owl:Ontology ;
+    owl:imports <https://brickschema.org/schema/1.4/Brick> .
+
 #  AHU (A-9 from G36)
 ex:ahu1 a   brick:AHU ;
     brick:hasPart   ex:exad1, ex:rad1, ex:ead1, ex:raf1, ex:saf1,

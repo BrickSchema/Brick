@@ -1,6 +1,10 @@
 @prefix bldg: <urn:example#> .
 @prefix brick: <https://brickschema.org/schema/Brick#> .
 @prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+<urn:example> a owl:Ontology ;
+    owl:imports <https://brickschema.org/schema/1.4/Brick> .
 
 bldg:mysite a brick:Site ;
     brick:hasPart bldg:mybldg .

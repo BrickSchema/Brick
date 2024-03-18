@@ -8,7 +8,7 @@
 # imports: http://qudt.org/2.1/vocab/currency
 # imports: http://qudt.org/2.1/vocab/unit
 # imports: http://www.w3.org/ns/shacl#
-# imports: https://brickschema.org/schema/1.3/Brick
+# imports: https://brickschema.org/schema/1.4/Brick
 # imports: https://brickschema.org/schema/Brick/ref
 
 @prefix all: <http://data.ashrae.org/standard223/model/all#> .
@@ -30,7 +30,7 @@
   owl:imports <http://qudt.org/2.1/vocab/currency> ;
   owl:imports <http://qudt.org/2.1/vocab/unit> ;
   owl:imports sh: ;
-  owl:imports <https://brickschema.org/schema/1.3/Brick> ;
+  owl:imports <https://brickschema.org/schema/1.4/Brick> ;
   owl:imports <https://brickschema.org/schema/Brick/ref> ;
   owl:versionInfo "Created with TopBraid Composer" ;
 .

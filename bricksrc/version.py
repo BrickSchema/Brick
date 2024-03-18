@@ -11,7 +11,7 @@ BRICK_PATCH_VERSION = 0
 
 # the simplified (no patch version) version number for Brick. Intended for
 # inclusion in the Brick namespace URI
-BRICK_VERSION = f"{BRICK_MAJOR_VERSION}.{BRICK_MINOR_VERSION}-rc1"
+BRICK_VERSION = f"{BRICK_MAJOR_VERSION}.{BRICK_MINOR_VERSION}"
 
 # the full "semantic verersion" including the patch number
-BRICK_FULL_VERSION = f"{BRICK_VERSION}.{BRICK_PATCH_VERSION}-rc1"
+BRICK_FULL_VERSION = f"{BRICK_VERSION}.{BRICK_PATCH_VERSION}"

@@ -464,7 +464,7 @@ https://brickschema.org/schema/Brick#Fire_Safety_System,"A system containing dev
 https://brickschema.org/schema/Brick#Fire_Sensor,Measures the presence of fire,
 https://brickschema.org/schema/Brick#Fire_Sprinkler_Thermal_Expansion_Tank,A specialized thermal expansion tank that is part of a building's fire suppression system.,
 https://brickschema.org/schema/Brick#Fire_Sprinkler_Water_Storage_Tank,A specialized tank intended to store water that can be quickly accessed for fire suppression.,
-https://brickschema.org/schema/Brick#Fire_Zone,combustion chamber in a furnace or boiler.,
+https://brickschema.org/schema/Brick#Fire_Zone,A logical subdivision of a building that is monitored for fire; may also have a classification for the type of fire hazard that can occur,
 https://brickschema.org/schema/Brick#First_Aid_Room,A room for a person with minor injuries can be treated or temporarily treated until transferred to a more advanced medical facility,
 https://brickschema.org/schema/Brick#Floor,"A level, typically representing a horizontal aggregation of spaces that are vertically bound. (referring to IFC)",
 https://brickschema.org/schema/Brick#Floor_Fan_Coil_Unit,"A fan coil unit installed on the floor, typically against a wall, for providing heating and cooling in residential or small office spaces",

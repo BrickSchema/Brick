@@ -15,10 +15,73 @@ equipment_subclasses = {
                     "Tablet": {
                         "tags": [TAG.Equipment, TAG.ICT, TAG.Hardware, TAG.Tablet]
                     },
+                    "Server": {
+                        "tags": [TAG.Equipment, TAG.ICT, TAG.Hardware, TAG.Server]
+                    },  
                 },
+            },
+            "ICT_Rack": {
+                "tags": [TAG.Equipment, TAG.ICT, TAG.Rack],
             },
             "Sensor_Equipment": {
                 "tags": [TAG.Sensor, TAG.Equipment, TAG.ICT],
+                "subclasses": {
+                    "Daylight_Sensor_Equipment": {
+                        "tags": [TAG.Daylight, TAG.Sensor, TAG.Equipment, TAG.ICT],
+                    },
+                    "IAQ_Sensor_Equipment": {
+                        "tags": [TAG.IAQ, TAG.Sensor, TAG.Equipment, TAG.ICT],
+                    },
+                    "Leak_Detector_Equipment": {
+                        "tags": [TAG.Leak, TAG.Detector, TAG.Equipment, TAG.ICT],
+                    },
+                    "Occupancy_Sensor_Equipment": {
+                        "tags": [TAG.Occupancy, TAG.Sensor, TAG.Equipment, TAG.ICT],
+                    },
+                    "People_Count_Sensor_Equipment": {
+                        "tags": [TAG.People, TAG.Count, TAG.Sensor, TAG.Equipment, TAG.ICT],
+                    },
+                    "Thermostat_Equipment": {
+                        "tags": [TAG.Thermostat, TAG.Equipment, TAG.ICT],
+                    },
+                    "Vibration_Sensor_Equipment": {
+                        "tags": [TAG.Vibration, TAG.Sensor, TAG.Equipment, TAG.ICT],
+                    },
+                },
+            },
+            "Controller": {
+                "tags": [TAG.Equipment, TAG.ICT, TAG.Controller],
+                "subclasses": {
+                    "BACnet_Controller": {
+                        "tags": [TAG.Equipment, TAG.BACnet, TAG.Controller],
+                    },
+                    "Modbus_Controller": {
+                        "tags": [TAG.Equipment, TAG.Modbus, TAG.Controller],
+                    },
+                },
+            },
+            "Data_Network_Equipment": {
+                "tags": [TAG.Equipment, TAG.Data, TAG.Network],
+                "subclasses": {
+                    "Ethernet_Port": {
+                        "tags": [TAG.Ethernet, TAG.Port, TAG.Equipment],
+                    },
+                    "Ethernet_Switch": {
+                        "tags": [TAG.Ethernet, TAG.Switch, TAG.Equipment],
+                    },
+                    "Network_Router": {
+                        "tags": [TAG.Network, TAG.Router, TAG.Equipment],
+                    },
+                    "Network_Security_Equipment": {
+                        "tags": [TAG.Network, TAG.Security, TAG.Equipment],
+                    },
+                    "Wireless_Access_Point": {
+                        "tags": [TAG.Wireless, TAG.Access, TAG.Point, TAG.Equipment],
+                    },
+                },
+            },
+            "Gateway": {
+                "tags": [TAG.Equipment, TAG.Gateway, TAG.ICT],
             },
             "Audio_Visual_Equipment": {
                 "tags": [TAG.Equipment, TAG.ICT, TAG.Audio, TAG.Visual]
@@ -489,7 +552,10 @@ hvac_subclasses = {
     },
     "Hot_Deck": {"tags": [TAG.Equipment, TAG.Hot, TAG.Deck]},
     "Cold_Deck": {"tags": [TAG.Equipment, TAG.Cold, TAG.Deck]},
-    "Thermostat": {"tags": [TAG.Equipment, TAG.Thermostat]},
+    "Thermostat": {
+        "tags": [TAG.Equipment, TAG.Thermostat],
+        "parents": [BRICK.Sensor_Equipment],
+    },
     "Terminal_Unit": {
         "tags": [TAG.Equipment, TAG.Terminal, TAG.Unit],
         "subclasses": {

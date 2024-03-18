@@ -1,6 +1,10 @@
 @prefix bldg: <urn:example#> .
 @prefix brick: <https://brickschema.org/schema/Brick#> .
 @prefix ref: <https://brickschema.org/schema/Brick/ref#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+<urn:example> a owl:Ontology ;
+    owl:imports <https://brickschema.org/schema/1.4/Brick> .
 
 bldg:space a brick:Space ;
     ref:hasExternalReference [ a ref:IFCReference ;
