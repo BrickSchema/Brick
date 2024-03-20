@@ -5,7 +5,7 @@ tqdm>=4.0
 pyshacl>=0.25
 docker>=6.0
 brickschema[all]>=0.7.5
-black==23.3.0
+black==24.3.0
 pre-commit>=3.2
 flake8>=6.0
 semver>=2.10.1
