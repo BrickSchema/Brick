@@ -24,7 +24,7 @@
   a owl:Ontology ;
   vaem:hasGraphMetadata vaem:GMD_QUDT-UNITS-CURRENCY ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/currency> ;
-  rdfs:label "QUDT VOCAB Currency Units Release 2.1.32" ;
+  rdfs:label "QUDT VOCAB Currency Units Release 2.1.37" ;
   owl:imports <http://qudt.org/2.1/schema/facade/qudt> ;
   owl:imports <http://qudt.org/2.1/vocab/unit> ;
   owl:versionIRI <http://qudt.org/2.1/vocab/currency> ;
@@ -35,7 +35,7 @@ cur:AED
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 784 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/United_Arab_Emirates_dirham"^^xsd:anyURI ;
-  qudt:expression "\\(AED\\)"^^qudt:LatexString ;
+  qudt:expression "$AED$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/United_Arab_Emirates_dirham?oldid=491806142"^^xsd:anyURI ;
@@ -61,7 +61,7 @@ cur:ALL
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 008 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Lek"^^xsd:anyURI ;
-  qudt:expression "\\(ALL\\)"^^qudt:LatexString ;
+  qudt:expression "$ALL$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Lek?oldid=495195665"^^xsd:anyURI ;
@@ -88,7 +88,7 @@ cur:ANG
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 532 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Netherlands_Antillean_guilder"^^xsd:anyURI ;
-  qudt:expression "\\(ANG\\)"^^qudt:LatexString ;
+  qudt:expression "$ANG$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Netherlands_Antillean_guilder?oldid=490030382"^^xsd:anyURI ;
@@ -101,7 +101,7 @@ cur:AOA
   qudt:currencyExponent 1 ;
   qudt:currencyNumber 973 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Angolan_kwanza"^^xsd:anyURI ;
-  qudt:expression "\\(AOA\\)"^^qudt:LatexString ;
+  qudt:expression "$AOA$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Angolan_kwanza?oldid=491748749"^^xsd:anyURI ;
@@ -164,7 +164,7 @@ cur:BAM
   qudt:currencyCode "BAM" ;
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 977 ;
-  qudt:expression "\\(BAM\\)"^^qudt:LatexString ;
+  qudt:expression "$BAM$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:symbol "KM" ;
@@ -201,7 +201,7 @@ cur:BGN
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 975 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Bulgarian_lev"^^xsd:anyURI ;
-  qudt:expression "\\(BGN\\)"^^qudt:LatexString ;
+  qudt:expression "$BGN$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Bulgarian_lev?oldid=494947467"^^xsd:anyURI ;
@@ -227,7 +227,7 @@ cur:BIF
   qudt:currencyExponent 0 ;
   qudt:currencyNumber 108 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Burundian_franc"^^xsd:anyURI ;
-  qudt:expression "\\(BIF\\)"^^qudt:LatexString ;
+  qudt:expression "$BIF$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Burundian_franc?oldid=489383699"^^xsd:anyURI ;
@@ -240,7 +240,7 @@ cur:BMD
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 060 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Bermudian_dollar"^^xsd:anyURI ;
-  qudt:expression "\\(BMD\\)"^^qudt:LatexString ;
+  qudt:expression "$BMD$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Bermudian_dollar?oldid=492670344"^^xsd:anyURI ;
@@ -253,7 +253,7 @@ cur:BND
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 096 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Brunei_dollar"^^xsd:anyURI ;
-  qudt:expression "\\(BND\\)"^^qudt:LatexString ;
+  qudt:expression "$BND$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Brunei_dollar?oldid=495134546"^^xsd:anyURI ;
@@ -266,7 +266,7 @@ cur:BOB
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 068 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Bolivian_boliviano"^^xsd:anyURI ;
-  qudt:expression "\\(BOB\\)"^^qudt:LatexString ;
+  qudt:expression "$BOB$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Bolivian_boliviano?oldid=494873944"^^xsd:anyURI ;
@@ -278,7 +278,7 @@ cur:BOV
   qudt:currencyCode "BOV" ;
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 984 ;
-  qudt:expression "\\(BOV\\)"^^qudt:LatexString ;
+  qudt:expression "$BOV$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/currency> ;
@@ -290,7 +290,7 @@ cur:BRL
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 986 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Brazilian_real"^^xsd:anyURI ;
-  qudt:expression "\\(BRL\\)"^^qudt:LatexString ;
+  qudt:expression "$BRL$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Brazilian_real?oldid=495278259"^^xsd:anyURI ;
@@ -317,7 +317,7 @@ cur:BTN
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 064 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Bhutanese_ngultrum"^^xsd:anyURI ;
-  qudt:expression "\\(BTN\\)"^^qudt:LatexString ;
+  qudt:expression "$BTN$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Bhutanese_ngultrum?oldid=491579260"^^xsd:anyURI ;
@@ -330,7 +330,7 @@ cur:BWP
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 072 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Pula"^^xsd:anyURI ;
-  qudt:expression "\\(BWP\\)"^^qudt:LatexString ;
+  qudt:expression "$BWP$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Pula?oldid=495207177"^^xsd:anyURI ;
@@ -356,7 +356,7 @@ cur:BZD
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 084 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Belize_dollar"^^xsd:anyURI ;
-  qudt:expression "\\(BZD\\)"^^qudt:LatexString ;
+  qudt:expression "$BZD$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Belize_dollar?oldid=462662376"^^xsd:anyURI ;
@@ -383,7 +383,7 @@ cur:CDF
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 976 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Congolese_franc"^^xsd:anyURI ;
-  qudt:expression "\\(CDF\\)"^^qudt:LatexString ;
+  qudt:expression "$CDF$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Congolese_franc?oldid=490314640"^^xsd:anyURI ;
@@ -395,7 +395,7 @@ cur:CHE
   qudt:currencyCode "CHE" ;
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 947 ;
-  qudt:expression "\\(CHE\\)"^^qudt:LatexString ;
+  qudt:expression "$CHE$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/currency> ;
@@ -407,7 +407,7 @@ cur:CHF
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 756 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Swiss_franc"^^xsd:anyURI ;
-  qudt:expression "\\(CHF\\)"^^qudt:LatexString ;
+  qudt:expression "$CHF$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Swiss_franc?oldid=492548706"^^xsd:anyURI ;
@@ -421,7 +421,7 @@ cur:CHW
   qudt:currencyCode "CHW" ;
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 948 ;
-  qudt:expression "\\(CHW\\)"^^qudt:LatexString ;
+  qudt:expression "$CHW$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/currency> ;
@@ -432,7 +432,7 @@ cur:CLF
   qudt:currencyCode "CLF" ;
   qudt:currencyExponent 0 ;
   qudt:currencyNumber 990 ;
-  qudt:expression "\\(CLF\\)"^^qudt:LatexString ;
+  qudt:expression "$CLF$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/currency> ;
@@ -444,7 +444,7 @@ cur:CLP
   qudt:currencyExponent 0 ;
   qudt:currencyNumber 152 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Chilean_peso"^^xsd:anyURI ;
-  qudt:expression "\\(CLP\\)"^^qudt:LatexString ;
+  qudt:expression "$CLP$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Chilean_peso?oldid=495455481"^^xsd:anyURI ;
@@ -458,7 +458,7 @@ cur:CNY
   qudt:currencyExponent 1 ;
   qudt:currencyNumber 156 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Renminbi"^^xsd:anyURI ;
-  qudt:expression "\\(CNY\\)"^^qudt:LatexString ;
+  qudt:expression "$CNY$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Renminbi?oldid=494799454"^^xsd:anyURI ;
@@ -472,7 +472,7 @@ cur:COP
   qudt:currencyExponent 0 ;
   qudt:currencyNumber 170 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Colombian_peso"^^xsd:anyURI ;
-  qudt:expression "\\(COP\\)"^^qudt:LatexString ;
+  qudt:expression "$COP$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Colombian_peso?oldid=490834575"^^xsd:anyURI ;
@@ -485,7 +485,7 @@ cur:COU
   qudt:currencyCode "COU" ;
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 970 ;
-  qudt:expression "\\(COU\\)"^^qudt:LatexString ;
+  qudt:expression "$COU$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/currency> ;
@@ -497,7 +497,7 @@ cur:CRC
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 188 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Costa_Rican_col%C3%B3n"^^xsd:anyURI ;
-  qudt:expression "\\(CRC\\)"^^qudt:LatexString ;
+  qudt:expression "$CRC$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Costa_Rican_colón?oldid=491007608"^^xsd:anyURI ;
@@ -510,7 +510,7 @@ cur:CUP
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 192 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Cuban_peso"^^xsd:anyURI ;
-  qudt:expression "\\(CUP\\)"^^qudt:LatexString ;
+  qudt:expression "$CUP$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Cuban_peso?oldid=486492974"^^xsd:anyURI ;
@@ -523,7 +523,7 @@ cur:CVE
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 132 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Cape_Verdean_escudo"^^xsd:anyURI ;
-  qudt:expression "\\(CVE\\)"^^qudt:LatexString ;
+  qudt:expression "$CVE$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Cape_Verdean_escudo?oldid=491416749"^^xsd:anyURI ;
@@ -536,7 +536,7 @@ cur:CYP
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 196 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Cypriot_pound"^^xsd:anyURI ;
-  qudt:expression "\\(CYP\\)"^^qudt:LatexString ;
+  qudt:expression "$CYP$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Cypriot_pound?oldid=492644935"^^xsd:anyURI ;
@@ -549,7 +549,7 @@ cur:CZK
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 203 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Czech_koruna"^^xsd:anyURI ;
-  qudt:expression "\\(CZK\\)"^^qudt:LatexString ;
+  qudt:expression "$CZK$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Czech_koruna?oldid=493991393"^^xsd:anyURI ;
@@ -563,7 +563,7 @@ cur:DJF
   qudt:currencyExponent 0 ;
   qudt:currencyNumber 262 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Djiboutian_franc"^^xsd:anyURI ;
-  qudt:expression "\\(DJF\\)"^^qudt:LatexString ;
+  qudt:expression "$DJF$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Djiboutian_franc?oldid=486807423"^^xsd:anyURI ;
@@ -576,7 +576,7 @@ cur:DKK
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 208 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Danish_krone"^^xsd:anyURI ;
-  qudt:expression "\\(DKK\\)"^^qudt:LatexString ;
+  qudt:expression "$DKK$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Danish_krone?oldid=491168880"^^xsd:anyURI ;
@@ -590,7 +590,7 @@ cur:DOP
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 214 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Dominican_peso"^^xsd:anyURI ;
-  qudt:expression "\\(DOP\\)"^^qudt:LatexString ;
+  qudt:expression "$DOP$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Dominican_peso?oldid=493950199"^^xsd:anyURI ;
@@ -615,7 +615,7 @@ cur:EEK
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 233 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Estonian_kroon"^^xsd:anyURI ;
-  qudt:expression "\\(EEK\\)"^^qudt:LatexString ;
+  qudt:expression "$EEK$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Estonian_kroon?oldid=492626188"^^xsd:anyURI ;
@@ -628,7 +628,7 @@ cur:EGP
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 818 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Egyptian_pound"^^xsd:anyURI ;
-  qudt:expression "\\(EGP\\)"^^qudt:LatexString ;
+  qudt:expression "$EGP$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Egyptian_pound?oldid=494670285"^^xsd:anyURI ;
@@ -641,7 +641,7 @@ cur:ERN
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 232 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Nakfa"^^xsd:anyURI ;
-  qudt:expression "\\(ERN\\)"^^qudt:LatexString ;
+  qudt:expression "$ERN$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Nakfa?oldid=415286274"^^xsd:anyURI ;
@@ -654,7 +654,7 @@ cur:ETB
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 230 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Ethiopian_birr"^^xsd:anyURI ;
-  qudt:expression "\\(ETB\\)"^^qudt:LatexString ;
+  qudt:expression "$ETB$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Ethiopian_birr?oldid=493373507"^^xsd:anyURI ;
@@ -667,7 +667,7 @@ cur:EUR
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 978 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Euro"^^xsd:anyURI ;
-  qudt:expression "\\(EUR\\)"^^qudt:LatexString ;
+  qudt:expression "$EUR$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Euro?oldid=495293446"^^xsd:anyURI ;
@@ -682,7 +682,7 @@ cur:FJD
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 242 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Fijian_dollar"^^xsd:anyURI ;
-  qudt:expression "\\(FJD\\)"^^qudt:LatexString ;
+  qudt:expression "$FJD$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Fijian_dollar?oldid=494373740"^^xsd:anyURI ;
@@ -695,7 +695,7 @@ cur:FKP
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 238 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Falkland_Islands_pound"^^xsd:anyURI ;
-  qudt:expression "\\(FKP\\)"^^qudt:LatexString ;
+  qudt:expression "$FKP$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Falkland_Islands_pound?oldid=489513616"^^xsd:anyURI ;
@@ -708,7 +708,7 @@ cur:GBP
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 826 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Pound_sterling"^^xsd:anyURI ;
-  qudt:expression "\\(GBP\\)"^^qudt:LatexString ;
+  qudt:expression "$GBP$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Pound_sterling?oldid=495524329"^^xsd:anyURI ;
@@ -723,7 +723,7 @@ cur:GEL
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 981 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Lari"^^xsd:anyURI ;
-  qudt:expression "\\(GEL\\)"^^qudt:LatexString ;
+  qudt:expression "$GEL$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Lari?oldid=486808394"^^xsd:anyURI ;
@@ -737,7 +737,7 @@ cur:GHS
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 936 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Ghanaian_cedi"^^xsd:anyURI ;
-  qudt:expression "\\(GHS\\)"^^qudt:LatexString ;
+  qudt:expression "$GHS$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Ghanaian_cedi?oldid=415914569"^^xsd:anyURI ;
@@ -750,7 +750,7 @@ cur:GIP
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 292 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Gibraltar_pound"^^xsd:anyURI ;
-  qudt:expression "\\(GIP\\)"^^qudt:LatexString ;
+  qudt:expression "$GIP$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Gibraltar_pound?oldid=494842600"^^xsd:anyURI ;
@@ -763,7 +763,7 @@ cur:GMD
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 270 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Gambian_dalasi"^^xsd:anyURI ;
-  qudt:expression "\\(GMD\\)"^^qudt:LatexString ;
+  qudt:expression "$GMD$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Gambian_dalasi?oldid=489522429"^^xsd:anyURI ;
@@ -776,7 +776,7 @@ cur:GNF
   qudt:currencyExponent 0 ;
   qudt:currencyNumber 324 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Guinean_franc"^^xsd:anyURI ;
-  qudt:expression "\\(GNF\\)"^^qudt:LatexString ;
+  qudt:expression "$GNF$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Guinean_franc?oldid=489527042"^^xsd:anyURI ;
@@ -789,7 +789,7 @@ cur:GTQ
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 320 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Quetzal"^^xsd:anyURI ;
-  qudt:expression "\\(GTQ\\)"^^qudt:LatexString ;
+  qudt:expression "$GTQ$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Quetzal?oldid=489813522"^^xsd:anyURI ;
@@ -802,7 +802,7 @@ cur:GYD
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 328 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Guyanese_dollar"^^xsd:anyURI ;
-  qudt:expression "\\(GYD\\)"^^qudt:LatexString ;
+  qudt:expression "$GYD$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Guyanese_dollar?oldid=495070062"^^xsd:anyURI ;
@@ -815,7 +815,7 @@ cur:HKD
   qudt:currencyExponent 1 ;
   qudt:currencyNumber 344 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Hong_Kong_dollar"^^xsd:anyURI ;
-  qudt:expression "\\(HKD\\)"^^qudt:LatexString ;
+  qudt:expression "$HKD$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Hong_Kong_dollar?oldid=495133277"^^xsd:anyURI ;
@@ -830,7 +830,7 @@ cur:HNL
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 340 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Lempira"^^xsd:anyURI ;
-  qudt:expression "\\(HNL\\)"^^qudt:LatexString ;
+  qudt:expression "$HNL$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Lempira?oldid=389955747"^^xsd:anyURI ;
@@ -843,7 +843,7 @@ cur:HRK
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 191 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Croatian_kuna"^^xsd:anyURI ;
-  qudt:expression "\\(HRK\\)"^^qudt:LatexString ;
+  qudt:expression "$HRK$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Croatian_kuna?oldid=490959527"^^xsd:anyURI ;
@@ -856,7 +856,7 @@ cur:HTG
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 332 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Haitian_gourde"^^xsd:anyURI ;
-  qudt:expression "\\(HTG\\)"^^qudt:LatexString ;
+  qudt:expression "$HTG$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Haitian_gourde?oldid=486090975"^^xsd:anyURI ;
@@ -869,7 +869,7 @@ cur:HUF
   qudt:currencyExponent 0 ;
   qudt:currencyNumber 348 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Hungarian_forint"^^xsd:anyURI ;
-  qudt:expression "\\(HUF\\)"^^qudt:LatexString ;
+  qudt:expression "$HUF$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Hungarian_forint?oldid=492818607"^^xsd:anyURI ;
@@ -883,7 +883,7 @@ cur:IDR
   qudt:currencyExponent 0 ;
   qudt:currencyNumber 360 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Indonesian_rupiah"^^xsd:anyURI ;
-  qudt:expression "\\(IDR\\)"^^qudt:LatexString ;
+  qudt:expression "$IDR$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Indonesian_rupiah?oldid=489729458"^^xsd:anyURI ;
@@ -897,7 +897,7 @@ cur:ILS
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 376 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Israeli_new_sheqel"^^xsd:anyURI ;
-  qudt:expression "\\(ILS\\)"^^qudt:LatexString ;
+  qudt:expression "$ILS$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Israeli_new_sheqel?oldid=316213924"^^xsd:anyURI ;
@@ -911,7 +911,7 @@ cur:INR
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 356 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Indian_rupee"^^xsd:anyURI ;
-  qudt:expression "\\(INR\\)"^^qudt:LatexString ;
+  qudt:expression "$INR$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Indian_rupee?oldid=495120167"^^xsd:anyURI ;
@@ -926,7 +926,7 @@ cur:IQD
   qudt:currencyExponent 0 ;
   qudt:currencyNumber 368 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Iraqi_dinar"^^xsd:anyURI ;
-  qudt:expression "\\(IQD\\)"^^qudt:LatexString ;
+  qudt:expression "$IQD$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Iraqi_dinar?oldid=494793908"^^xsd:anyURI ;
@@ -939,7 +939,7 @@ cur:IRR
   qudt:currencyExponent 0 ;
   qudt:currencyNumber 364 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Iranian_rial"^^xsd:anyURI ;
-  qudt:expression "\\(IRR\\)"^^qudt:LatexString ;
+  qudt:expression "$IRR$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Iranian_rial?oldid=495299431"^^xsd:anyURI ;
@@ -952,7 +952,7 @@ cur:ISK
   qudt:currencyExponent 0 ;
   qudt:currencyNumber 352 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Icelandic_kr%C3%B3na"^^xsd:anyURI ;
-  qudt:expression "\\(ISK\\)"^^qudt:LatexString ;
+  qudt:expression "$ISK$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Icelandic_króna?oldid=495457496"^^xsd:anyURI ;
@@ -966,7 +966,7 @@ cur:JMD
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 388 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Jamaican_dollar"^^xsd:anyURI ;
-  qudt:expression "\\(JMD\\)"^^qudt:LatexString ;
+  qudt:expression "$JMD$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Jamaican_dollar?oldid=494039981"^^xsd:anyURI ;
@@ -979,7 +979,7 @@ cur:JOD
   qudt:currencyExponent 3 ;
   qudt:currencyNumber 400 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Jordanian_dinar"^^xsd:anyURI ;
-  qudt:expression "\\(JOD\\)"^^qudt:LatexString ;
+  qudt:expression "$JOD$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Jordanian_dinar?oldid=495270728"^^xsd:anyURI ;
@@ -992,7 +992,7 @@ cur:JPY
   qudt:currencyExponent 0 ;
   qudt:currencyNumber 392 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Japanese_yen"^^xsd:anyURI ;
-  qudt:expression "\\(JPY\\)"^^qudt:LatexString ;
+  qudt:expression "$JPY$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Japanese_yen?oldid=493771966"^^xsd:anyURI ;
@@ -1007,7 +1007,7 @@ cur:KES
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 404 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Kenyan_shilling"^^xsd:anyURI ;
-  qudt:expression "\\(KES\\)"^^qudt:LatexString ;
+  qudt:expression "$KES$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Kenyan_shilling?oldid=489547027"^^xsd:anyURI ;
@@ -1020,7 +1020,7 @@ cur:KGS
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 417 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Som"^^xsd:anyURI ;
-  qudt:expression "\\(KGS\\)"^^qudt:LatexString ;
+  qudt:expression "$KGS$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Som?oldid=495411674"^^xsd:anyURI ;
@@ -1033,7 +1033,7 @@ cur:KHR
   qudt:currencyExponent 0 ;
   qudt:currencyNumber 116 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Riel"^^xsd:anyURI ;
-  qudt:expression "\\(KHR\\)"^^qudt:LatexString ;
+  qudt:expression "$KHR$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Riel?oldid=473309240"^^xsd:anyURI ;
@@ -1046,7 +1046,7 @@ cur:KMF
   qudt:currencyExponent 0 ;
   qudt:currencyNumber 174 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Comorian_franc"^^xsd:anyURI ;
-  qudt:expression "\\(KMF\\)"^^qudt:LatexString ;
+  qudt:expression "$KMF$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Comorian_franc?oldid=489502162"^^xsd:anyURI ;
@@ -1059,7 +1059,7 @@ cur:KPW
   qudt:currencyExponent 0 ;
   qudt:currencyNumber 408 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/North_Korean_won"^^xsd:anyURI ;
-  qudt:expression "\\(KPW\\)"^^qudt:LatexString ;
+  qudt:expression "$KPW$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/North_Korean_won?oldid=495081686"^^xsd:anyURI ;
@@ -1072,7 +1072,7 @@ cur:KRW
   qudt:currencyExponent 0 ;
   qudt:currencyNumber 410 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/South_Korean_won"^^xsd:anyURI ;
-  qudt:expression "\\(KRW\\)"^^qudt:LatexString ;
+  qudt:expression "$KRW$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/South_Korean_won?oldid=494404062"^^xsd:anyURI ;
@@ -1087,7 +1087,7 @@ cur:KWD
   qudt:currencyExponent 3 ;
   qudt:currencyNumber 414 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Kuwaiti_dinar"^^xsd:anyURI ;
-  qudt:expression "\\(KWD\\)"^^qudt:LatexString ;
+  qudt:expression "$KWD$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Kuwaiti_dinar?oldid=489547428"^^xsd:anyURI ;
@@ -1100,7 +1100,7 @@ cur:KYD
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 136 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Cayman_Islands_dollar"^^xsd:anyURI ;
-  qudt:expression "\\(KYD\\)"^^qudt:LatexString ;
+  qudt:expression "$KYD$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Cayman_Islands_dollar?oldid=494206112"^^xsd:anyURI ;
@@ -1113,7 +1113,7 @@ cur:KZT
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 398 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Kazakhstani_tenge"^^xsd:anyURI ;
-  qudt:expression "\\(KZT\\)"^^qudt:LatexString ;
+  qudt:expression "$KZT$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Kazakhstani_tenge?oldid=490523058"^^xsd:anyURI ;
@@ -1137,7 +1137,7 @@ cur:LBP
   qudt:currencyExponent 0 ;
   qudt:currencyNumber 422 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Lebanese_pound"^^xsd:anyURI ;
-  qudt:expression "\\(LBP\\)"^^qudt:LatexString ;
+  qudt:expression "$LBP$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Lebanese_pound?oldid=495528740"^^xsd:anyURI ;
@@ -1150,7 +1150,7 @@ cur:LKR
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 144 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Sri_Lankan_rupee"^^xsd:anyURI ;
-  qudt:expression "\\(LKR\\)"^^qudt:LatexString ;
+  qudt:expression "$LKR$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Sri_Lankan_rupee?oldid=495359963"^^xsd:anyURI ;
@@ -1163,7 +1163,7 @@ cur:LRD
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 430 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Liberian_dollar"^^xsd:anyURI ;
-  qudt:expression "\\(LRD\\)"^^qudt:LatexString ;
+  qudt:expression "$LRD$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Liberian_dollar?oldid=489549110"^^xsd:anyURI ;
@@ -1176,7 +1176,7 @@ cur:LSL
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 426 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Loti"^^xsd:anyURI ;
-  qudt:expression "\\(LSL\\)"^^qudt:LatexString ;
+  qudt:expression "$LSL$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Loti?oldid=384534708"^^xsd:anyURI ;
@@ -1189,7 +1189,7 @@ cur:LTL
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 440 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Lithuanian_litas"^^xsd:anyURI ;
-  qudt:expression "\\(LTL\\)"^^qudt:LatexString ;
+  qudt:expression "$LTL$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Lithuanian_litas?oldid=493046592"^^xsd:anyURI ;
@@ -1202,7 +1202,7 @@ cur:LVL
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 428 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Latvian_lats"^^xsd:anyURI ;
-  qudt:expression "\\(LVL\\)"^^qudt:LatexString ;
+  qudt:expression "$LVL$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Latvian_lats?oldid=492800402"^^xsd:anyURI ;
@@ -1215,7 +1215,7 @@ cur:LYD
   qudt:currencyExponent 3 ;
   qudt:currencyNumber 434 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Libyan_dinar"^^xsd:anyURI ;
-  qudt:expression "\\(LYD\\)"^^qudt:LatexString ;
+  qudt:expression "$LYD$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Libyan_dinar?oldid=491421981"^^xsd:anyURI ;
@@ -1228,7 +1228,7 @@ cur:MAD
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 504 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Moroccan_dirham"^^xsd:anyURI ;
-  qudt:expression "\\(MAD\\)"^^qudt:LatexString ;
+  qudt:expression "$MAD$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Moroccan_dirham?oldid=490560557"^^xsd:anyURI ;
@@ -1241,7 +1241,7 @@ cur:MDL
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 498 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Moldovan_leu"^^xsd:anyURI ;
-  qudt:expression "\\(MDL\\)"^^qudt:LatexString ;
+  qudt:expression "$MDL$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Moldovan_leu?oldid=490027766"^^xsd:anyURI ;
@@ -1255,7 +1255,7 @@ cur:MGA
   qudt:currencyExponent 0 ;
   qudt:currencyNumber 969 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Malagasy_ariary"^^xsd:anyURI ;
-  qudt:expression "\\(MGA\\)"^^qudt:LatexString ;
+  qudt:expression "$MGA$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Malagasy_ariary?oldid=489551279"^^xsd:anyURI ;
@@ -1268,7 +1268,7 @@ cur:MKD
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 807 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Macedonian_denar"^^xsd:anyURI ;
-  qudt:expression "\\(MKD\\)"^^qudt:LatexString ;
+  qudt:expression "$MKD$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Macedonian_denar?oldid=489550202"^^xsd:anyURI ;
@@ -1282,7 +1282,7 @@ cur:MMK
   qudt:currencyExponent 0 ;
   qudt:currencyNumber 104 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Myanma_kyat"^^xsd:anyURI ;
-  qudt:expression "\\(MMK\\)"^^qudt:LatexString ;
+  qudt:expression "$MMK$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Myanma_kyat?oldid=441109905"^^xsd:anyURI ;
@@ -1305,7 +1305,7 @@ cur:MOP
   qudt:currencyExponent 1 ;
   qudt:currencyNumber 446 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Pataca"^^xsd:anyURI ;
-  qudt:expression "\\(MOP\\)"^^qudt:LatexString ;
+  qudt:expression "$MOP$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Pataca?oldid=482490442"^^xsd:anyURI ;
@@ -1318,7 +1318,7 @@ cur:MRU
   qudt:currencyExponent 0 ;
   qudt:currencyNumber 929 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Mauritanian_ouguiya"^^xsd:anyURI ;
-  qudt:expression "\\(MRO\\)"^^qudt:LatexString ;
+  qudt:expression "$MRO$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Mauritanian_ouguiya?oldid=490027072"^^xsd:anyURI ;
@@ -1330,7 +1330,7 @@ cur:MTL
   qudt:currencyCode "MTL" ;
   qudt:currencyNumber 470 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Maltese_lira"^^xsd:anyURI ;
-  qudt:expression "\\(MTL\\)"^^qudt:LatexString ;
+  qudt:expression "$MTL$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Maltese_lira?oldid=493810797"^^xsd:anyURI ;
@@ -1343,7 +1343,7 @@ cur:MUR
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 480 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Mauritian_rupee"^^xsd:anyURI ;
-  qudt:expression "\\(MUR\\)"^^qudt:LatexString ;
+  qudt:expression "$MUR$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Mauritian_rupee?oldid=487629200"^^xsd:anyURI ;
@@ -1356,7 +1356,7 @@ cur:MVR
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 462 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Maldivian_rufiyaa"^^xsd:anyURI ;
-  qudt:expression "\\(MVR\\)"^^qudt:LatexString ;
+  qudt:expression "$MVR$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Maldivian_rufiyaa?oldid=491578728"^^xsd:anyURI ;
@@ -1368,7 +1368,7 @@ cur:MWK
   qudt:currencyCode "MWK" ;
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 454 ;
-  qudt:expression "\\(MWK\\)"^^qudt:LatexString ;
+  qudt:expression "$MWK$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/currency> ;
@@ -1380,7 +1380,7 @@ cur:MXN
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 484 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Mexican_peso"^^xsd:anyURI ;
-  qudt:expression "\\(MXN\\)"^^qudt:LatexString ;
+  qudt:expression "$MXN$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Mexican_peso?oldid=494829813"^^xsd:anyURI ;
@@ -1394,7 +1394,7 @@ cur:MXV
   qudt:currencyCode "MXV" ;
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 979 ;
-  qudt:expression "\\(MXV\\)"^^qudt:LatexString ;
+  qudt:expression "$MXV$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/currency> ;
@@ -1406,7 +1406,7 @@ cur:MYR
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 458 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Malaysian_ringgit"^^xsd:anyURI ;
-  qudt:expression "\\(MYR\\)"^^qudt:LatexString ;
+  qudt:expression "$MYR$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Malaysian_ringgit?oldid=494417091"^^xsd:anyURI ;
@@ -1420,7 +1420,7 @@ cur:MZN
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 943 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Mozambican_metical"^^xsd:anyURI ;
-  qudt:expression "\\(MZN\\)"^^qudt:LatexString ;
+  qudt:expression "$MZN$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Mozambican_metical?oldid=488225670"^^xsd:anyURI ;
@@ -1431,6 +1431,7 @@ cur:MegaUSD
   a qudt:CurrencyUnit ;
   a qudt:DerivedUnit ;
   qudt:conversionMultiplier 1000000.0 ;
+  qudt:conversionMultiplierSN 1.0E6 ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/currency> ;
@@ -1442,7 +1443,7 @@ cur:NAD
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 516 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Namibian_dollar"^^xsd:anyURI ;
-  qudt:expression "\\(NAD\\)"^^qudt:LatexString ;
+  qudt:expression "$NAD$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Namibian_dollar?oldid=495250023"^^xsd:anyURI ;
@@ -1455,7 +1456,7 @@ cur:NGN
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 566 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Nigerian_naira"^^xsd:anyURI ;
-  qudt:expression "\\(NGN\\)"^^qudt:LatexString ;
+  qudt:expression "$NGN$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Nigerian_naira?oldid=493462003"^^xsd:anyURI ;
@@ -1468,7 +1469,7 @@ cur:NIO
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 558 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Nicaraguan_c%C3%B3rdoba"^^xsd:anyURI ;
-  qudt:expression "\\(NIO\\)"^^qudt:LatexString ;
+  qudt:expression "$NIO$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Nicaraguan_córdoba?oldid=486140595"^^xsd:anyURI ;
@@ -1481,7 +1482,7 @@ cur:NOK
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 578 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Norwegian_krone"^^xsd:anyURI ;
-  qudt:expression "\\(NOK\\)"^^qudt:LatexString ;
+  qudt:expression "$NOK$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Norwegian_krone?oldid=495283934"^^xsd:anyURI ;
@@ -1496,7 +1497,7 @@ cur:NPR
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 524 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Nepalese_rupee"^^xsd:anyURI ;
-  qudt:expression "\\(NPR\\)"^^qudt:LatexString ;
+  qudt:expression "$NPR$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Nepalese_rupee?oldid=476894226"^^xsd:anyURI ;
@@ -1509,7 +1510,7 @@ cur:NZD
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 554 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/New_Zealand_dollar"^^xsd:anyURI ;
-  qudt:expression "\\(NZD\\)"^^qudt:LatexString ;
+  qudt:expression "$NZD$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/New_Zealand_dollar?oldid=495487722"^^xsd:anyURI ;
@@ -1524,7 +1525,7 @@ cur:OMR
   qudt:currencyExponent 3 ;
   qudt:currencyNumber 512 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Omani_rial"^^xsd:anyURI ;
-  qudt:expression "\\(OMR\\)"^^qudt:LatexString ;
+  qudt:expression "$OMR$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Omani_rial?oldid=491748879"^^xsd:anyURI ;
@@ -1549,7 +1550,7 @@ cur:PEN
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 604 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Peruvian_nuevo_sol"^^xsd:anyURI ;
-  qudt:expression "\\(PEN\\)"^^qudt:LatexString ;
+  qudt:expression "$PEN$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Peruvian_nuevo_sol?oldid=494237249"^^xsd:anyURI ;
@@ -1562,7 +1563,7 @@ cur:PGK
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 598 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Kina"^^xsd:anyURI ;
-  qudt:expression "\\(PGK\\)"^^qudt:LatexString ;
+  qudt:expression "$PGK$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Kina?oldid=477155361"^^xsd:anyURI ;
@@ -1575,7 +1576,7 @@ cur:PHP
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 608 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Philippine_peso"^^xsd:anyURI ;
-  qudt:expression "\\(PHP\\)"^^qudt:LatexString ;
+  qudt:expression "$PHP$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Philippine_peso?oldid=495411811"^^xsd:anyURI ;
@@ -1589,7 +1590,7 @@ cur:PKR
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 586 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Pakistani_rupee"^^xsd:anyURI ;
-  qudt:expression "\\(PKR\\)"^^qudt:LatexString ;
+  qudt:expression "$PKR$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Pakistani_rupee?oldid=494937873"^^xsd:anyURI ;
@@ -1602,7 +1603,7 @@ cur:PLN
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 985 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Polish_z%C5%82oty"^^xsd:anyURI ;
-  qudt:expression "\\(PLN\\)"^^qudt:LatexString ;
+  qudt:expression "$PLN$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Polish_złoty?oldid=492697733"^^xsd:anyURI ;
@@ -1616,7 +1617,7 @@ cur:PYG
   qudt:currencyExponent 0 ;
   qudt:currencyNumber 600 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Guaran%C3%AD"^^xsd:anyURI ;
-  qudt:expression "\\(PYG\\)"^^qudt:LatexString ;
+  qudt:expression "$PYG$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Guaraní?oldid=412592698"^^xsd:anyURI ;
@@ -1629,7 +1630,7 @@ cur:QAR
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 634 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Qatari_riyal"^^xsd:anyURI ;
-  qudt:expression "\\(QAR\\)"^^qudt:LatexString ;
+  qudt:expression "$QAR$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Qatari_riyal?oldid=491747452"^^xsd:anyURI ;
@@ -1641,7 +1642,7 @@ cur:RON
   qudt:currencyCode "RON" ;
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 946 ;
-  qudt:expression "\\(RON\\)"^^qudt:LatexString ;
+  qudt:expression "$RON$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:symbol "L" ;
@@ -1654,7 +1655,7 @@ cur:RSD
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 941 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Serbian_dinar"^^xsd:anyURI ;
-  qudt:expression "\\(RSD\\)"^^qudt:LatexString ;
+  qudt:expression "$RSD$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Serbian_dinar?oldid=495146650"^^xsd:anyURI ;
@@ -1668,7 +1669,7 @@ cur:RUB
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 643 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Russian_ruble"^^xsd:anyURI ;
-  qudt:expression "\\(RUB\\)"^^qudt:LatexString ;
+  qudt:expression "$RUB$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Russian_ruble?oldid=494336467"^^xsd:anyURI ;
@@ -1682,7 +1683,7 @@ cur:RWF
   qudt:currencyExponent 0 ;
   qudt:currencyNumber 646 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Rwandan_franc"^^xsd:anyURI ;
-  qudt:expression "\\(RWF\\)"^^qudt:LatexString ;
+  qudt:expression "$RWF$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Rwandan_franc?oldid=489727903"^^xsd:anyURI ;
@@ -1695,7 +1696,7 @@ cur:SAR
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 682 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Saudi_riyal"^^xsd:anyURI ;
-  qudt:expression "\\(SAR\\)"^^qudt:LatexString ;
+  qudt:expression "$SAR$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Saudi_riyal?oldid=491092981"^^xsd:anyURI ;
@@ -1709,7 +1710,7 @@ cur:SBD
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 090 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Solomon_Islands_dollar"^^xsd:anyURI ;
-  qudt:expression "\\(SBD\\)"^^qudt:LatexString ;
+  qudt:expression "$SBD$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Solomon_Islands_dollar?oldid=490313285"^^xsd:anyURI ;
@@ -1722,7 +1723,7 @@ cur:SCR
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 690 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Seychellois_rupee"^^xsd:anyURI ;
-  qudt:expression "\\(SCR\\)"^^qudt:LatexString ;
+  qudt:expression "$SCR$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Seychellois_rupee?oldid=492242185"^^xsd:anyURI ;
@@ -1735,7 +1736,7 @@ cur:SDG
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 938 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Sudanese_pound"^^xsd:anyURI ;
-  qudt:expression "\\(SDG\\)"^^qudt:LatexString ;
+  qudt:expression "$SDG$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Sudanese_pound?oldid=495263707"^^xsd:anyURI ;
@@ -1748,7 +1749,7 @@ cur:SEK
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 752 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Swedish_krona"^^xsd:anyURI ;
-  qudt:expression "\\(SEK\\)"^^qudt:LatexString ;
+  qudt:expression "$SEK$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Swedish_krona?oldid=492703602"^^xsd:anyURI ;
@@ -1763,7 +1764,7 @@ cur:SGD
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 702 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Singapore_dollar"^^xsd:anyURI ;
-  qudt:expression "\\(SGD\\)"^^qudt:LatexString ;
+  qudt:expression "$SGD$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Singapore_dollar?oldid=492228311"^^xsd:anyURI ;
@@ -1778,7 +1779,7 @@ cur:SHP
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 654 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Saint_Helena_pound"^^xsd:anyURI ;
-  qudt:expression "\\(SHP\\)"^^qudt:LatexString ;
+  qudt:expression "$SHP$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Saint_Helena_pound?oldid=490152057"^^xsd:anyURI ;
@@ -1790,7 +1791,7 @@ cur:SKK
   qudt:currencyCode "SKK" ;
   qudt:currencyNumber 703 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Slovak_koruna"^^xsd:anyURI ;
-  qudt:expression "\\(SKK\\)"^^qudt:LatexString ;
+  qudt:expression "$SKK$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Slovak_koruna?oldid=492625951"^^xsd:anyURI ;
@@ -1804,7 +1805,7 @@ cur:SLE
   qudt:currencyExponent 0 ;
   qudt:currencyNumber 925 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Sierra_Leonean_leone"^^xsd:anyURI ;
-  qudt:expression "\\(SLL\\)"^^qudt:LatexString ;
+  qudt:expression "$SLL$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Sierra_Leonean_leone?oldid=493517965"^^xsd:anyURI ;
@@ -1817,7 +1818,7 @@ cur:SOS
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 706 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Somali_shilling"^^xsd:anyURI ;
-  qudt:expression "\\(SOS\\)"^^qudt:LatexString ;
+  qudt:expression "$SOS$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Somali_shilling?oldid=494434126"^^xsd:anyURI ;
@@ -1830,7 +1831,7 @@ cur:SRD
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 968 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Surinamese_dollar"^^xsd:anyURI ;
-  qudt:expression "\\(SRD\\)"^^qudt:LatexString ;
+  qudt:expression "$SRD$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Surinamese_dollar?oldid=490316270"^^xsd:anyURI ;
@@ -1843,7 +1844,7 @@ cur:STN
   qudt:currencyExponent 0 ;
   qudt:currencyNumber 930 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Dobra"^^xsd:anyURI ;
-  qudt:expression "\\(STD\\)"^^qudt:LatexString ;
+  qudt:expression "$STD$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Dobra?oldid=475725328"^^xsd:anyURI ;
@@ -1856,7 +1857,7 @@ cur:SYP
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 760 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Syrian_pound"^^xsd:anyURI ;
-  qudt:expression "\\(SYP\\)"^^qudt:LatexString ;
+  qudt:expression "$SYP$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Syrian_pound?oldid=484294722"^^xsd:anyURI ;
@@ -1869,7 +1870,7 @@ cur:SZL
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 748 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Swazi_lilangeni"^^xsd:anyURI ;
-  qudt:expression "\\(SZL\\)"^^qudt:LatexString ;
+  qudt:expression "$SZL$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Swazi_lilangeni?oldid=490323340"^^xsd:anyURI ;
@@ -1895,7 +1896,7 @@ cur:TJS
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 972 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Tajikistani_somoni"^^xsd:anyURI ;
-  qudt:expression "\\(TJS\\)"^^qudt:LatexString ;
+  qudt:expression "$TJS$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Tajikistani_somoni?oldid=492500781"^^xsd:anyURI ;
@@ -1908,7 +1909,7 @@ cur:TMT
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 934 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Manat"^^xsd:anyURI ;
-  qudt:expression "\\(TMM\\)"^^qudt:LatexString ;
+  qudt:expression "$TMM$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Manat?oldid=486967490"^^xsd:anyURI ;
@@ -1921,7 +1922,7 @@ cur:TND
   qudt:currencyExponent 3 ;
   qudt:currencyNumber 788 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Tunisian_dinar"^^xsd:anyURI ;
-  qudt:expression "\\(TND\\)"^^qudt:LatexString ;
+  qudt:expression "$TND$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Tunisian_dinar?oldid=491218035"^^xsd:anyURI ;
@@ -1934,7 +1935,7 @@ cur:TOP
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 776 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Tongan_pa%CA%BBanga"^^xsd:anyURI ;
-  qudt:expression "\\(TOP\\)"^^qudt:LatexString ;
+  qudt:expression "$TOP$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Tongan_paʻanga?oldid=482738012"^^xsd:anyURI ;
@@ -1947,7 +1948,7 @@ cur:TRY
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 949 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Turkish_lira"^^xsd:anyURI ;
-  qudt:expression "\\(TRY\\)"^^qudt:LatexString ;
+  qudt:expression "$TRY$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Turkish_lira?oldid=494097764"^^xsd:anyURI ;
@@ -1961,7 +1962,7 @@ cur:TTD
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 780 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Trinidad_and_Tobago_dollar"^^xsd:anyURI ;
-  qudt:expression "\\(TTD\\)"^^qudt:LatexString ;
+  qudt:expression "$TTD$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Trinidad_and_Tobago_dollar?oldid=490325306"^^xsd:anyURI ;
@@ -1974,7 +1975,7 @@ cur:TWD
   qudt:currencyExponent 1 ;
   qudt:currencyNumber 901 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/New_Taiwan_dollar"^^xsd:anyURI ;
-  qudt:expression "\\(TWD\\)"^^qudt:LatexString ;
+  qudt:expression "$TWD$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/New_Taiwan_dollar?oldid=493996933"^^xsd:anyURI ;
@@ -1988,7 +1989,7 @@ cur:TZS
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 834 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Tanzanian_shilling"^^xsd:anyURI ;
-  qudt:expression "\\(TZS\\)"^^qudt:LatexString ;
+  qudt:expression "$TZS$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Tanzanian_shilling?oldid=492257527"^^xsd:anyURI ;
@@ -2001,7 +2002,7 @@ cur:UAH
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 980 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Ukrainian_hryvnia"^^xsd:anyURI ;
-  qudt:expression "\\(UAH\\)"^^qudt:LatexString ;
+  qudt:expression "$UAH$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Ukrainian_hryvnia?oldid=493064633"^^xsd:anyURI ;
@@ -2015,7 +2016,7 @@ cur:UGX
   qudt:currencyExponent 0 ;
   qudt:currencyNumber 800 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Ugandan_shilling"^^xsd:anyURI ;
-  qudt:expression "\\(UGX\\)"^^qudt:LatexString ;
+  qudt:expression "$UGX$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Ugandan_shilling?oldid=495383966"^^xsd:anyURI ;
@@ -2039,7 +2040,7 @@ cur:USN
   qudt:currencyCode "USN" ;
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 997 ;
-  qudt:expression "\\(USN\\)"^^qudt:LatexString ;
+  qudt:expression "$USN$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/currency> ;
@@ -2061,7 +2062,7 @@ cur:UYU
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 858 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Uruguayan_peso"^^xsd:anyURI ;
-  qudt:expression "\\(UYU\\)"^^qudt:LatexString ;
+  qudt:expression "$UYU$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Uruguayan_peso?oldid=487528781"^^xsd:anyURI ;
@@ -2074,7 +2075,7 @@ cur:UZS
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 860 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Uzbekistani_som"^^xsd:anyURI ;
-  qudt:expression "\\(UZS\\)"^^qudt:LatexString ;
+  qudt:expression "$UZS$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Uzbekistani_som?oldid=490522228"^^xsd:anyURI ;
@@ -2086,7 +2087,7 @@ cur:VES
   qudt:currencyCode "VES" ;
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 928 ;
-  qudt:expression "\\(VEB\\)"^^qudt:LatexString ;
+  qudt:expression "$VEB$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/currency> ;
@@ -2097,7 +2098,7 @@ cur:VND
   qudt:currencyCode "VND" ;
   qudt:currencyExponent 0 ;
   qudt:currencyNumber 704 ;
-  qudt:expression "\\(VND\\)"^^qudt:LatexString ;
+  qudt:expression "$VND$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/currency> ;
@@ -2109,7 +2110,7 @@ cur:VUV
   qudt:currencyExponent 0 ;
   qudt:currencyNumber 548 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Vanuatu_vatu"^^xsd:anyURI ;
-  qudt:expression "\\(VUV\\)"^^qudt:LatexString ;
+  qudt:expression "$VUV$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Vanuatu_vatu?oldid=494667103"^^xsd:anyURI ;
@@ -2122,7 +2123,7 @@ cur:WST
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 882 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Samoan_tala"^^xsd:anyURI ;
-  qudt:expression "\\(WST\\)"^^qudt:LatexString ;
+  qudt:expression "$WST$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Samoan_tala?oldid=423898531"^^xsd:anyURI ;
@@ -2143,7 +2144,7 @@ cur:XAG
   a qudt:CurrencyUnit ;
   qudt:currencyCode "XAG" ;
   qudt:currencyNumber 961 ;
-  qudt:expression "\\(XAG\\)"^^qudt:LatexString ;
+  qudt:expression "$XAG$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:ucumCode "[oz_tr]{Ag}"^^qudt:UCUMcs ;
@@ -2154,7 +2155,7 @@ cur:XAU
   a qudt:CurrencyUnit ;
   qudt:currencyCode "XAU" ;
   qudt:currencyNumber 959 ;
-  qudt:expression "\\(XAU\\)"^^qudt:LatexString ;
+  qudt:expression "$XAU$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:ucumCode "[oz_tr]{Au}"^^qudt:UCUMcs ;
@@ -2165,7 +2166,7 @@ cur:XBA
   a qudt:CurrencyUnit ;
   qudt:currencyCode "XBA" ;
   qudt:currencyNumber 955 ;
-  qudt:expression "\\(XBA\\)"^^qudt:LatexString ;
+  qudt:expression "$XBA$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/currency> ;
@@ -2175,7 +2176,7 @@ cur:XBB
   a qudt:CurrencyUnit ;
   qudt:currencyCode "XBB" ;
   qudt:currencyNumber 956 ;
-  qudt:expression "\\(XBB\\)"^^qudt:LatexString ;
+  qudt:expression "$XBB$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/currency> ;
@@ -2185,7 +2186,7 @@ cur:XBC
   a qudt:CurrencyUnit ;
   qudt:currencyCode "XBC" ;
   qudt:currencyNumber 957 ;
-  qudt:expression "\\(XBC\\)"^^qudt:LatexString ;
+  qudt:expression "$XBC$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/currency> ;
@@ -2195,7 +2196,7 @@ cur:XBD
   a qudt:CurrencyUnit ;
   qudt:currencyCode "XBD" ;
   qudt:currencyNumber 958 ;
-  qudt:expression "\\(XBD\\)"^^qudt:LatexString ;
+  qudt:expression "$XBD$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/currency> ;
@@ -2207,7 +2208,7 @@ cur:XCD
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 951 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/East_Caribbean_dollar"^^xsd:anyURI ;
-  qudt:expression "\\(XCD\\)"^^qudt:LatexString ;
+  qudt:expression "$XCD$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/East_Caribbean_dollar?oldid=493020176"^^xsd:anyURI ;
@@ -2219,7 +2220,7 @@ cur:XDR
   qudt:currencyCode "XDR" ;
   qudt:currencyNumber 960 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Special_Drawing_Rights"^^xsd:anyURI ;
-  qudt:expression "\\(XDR\\)"^^qudt:LatexString ;
+  qudt:expression "$XDR$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Special_Drawing_Rights?oldid=467224374"^^xsd:anyURI ;
@@ -2229,7 +2230,7 @@ cur:XDR
 cur:XFO
   a qudt:CurrencyUnit ;
   qudt:currencyCode "XFO" ;
-  qudt:expression "\\(XFO\\)"^^qudt:LatexString ;
+  qudt:expression "$XFO$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/currency> ;
@@ -2238,7 +2239,7 @@ cur:XFO
 cur:XFU
   a qudt:CurrencyUnit ;
   qudt:currencyCode "XFU" ;
-  qudt:expression "\\(XFU\\)"^^qudt:LatexString ;
+  qudt:expression "$XFU$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/currency> ;
@@ -2258,7 +2259,7 @@ cur:XPD
   a qudt:CurrencyUnit ;
   qudt:currencyCode "XPD" ;
   qudt:currencyNumber 964 ;
-  qudt:expression "\\(XPD\\)"^^qudt:LatexString ;
+  qudt:expression "$XPD$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:ucumCode "[oz_tr]{Pd}"^^qudt:UCUMcs ;
@@ -2279,7 +2280,7 @@ cur:XPT
   a qudt:CurrencyUnit ;
   qudt:currencyCode "XPT" ;
   qudt:currencyNumber 962 ;
-  qudt:expression "\\(XPT\\)"^^qudt:LatexString ;
+  qudt:expression "$XPT$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:ucumCode "[oz_tr]{Pt}"^^qudt:UCUMcs ;
@@ -2292,7 +2293,7 @@ cur:YER
   qudt:currencyExponent 0 ;
   qudt:currencyNumber 886 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Yemeni_rial"^^xsd:anyURI ;
-  qudt:expression "\\(YER\\)"^^qudt:LatexString ;
+  qudt:expression "$YER$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Yemeni_rial?oldid=494507603"^^xsd:anyURI ;
@@ -2305,7 +2306,7 @@ cur:ZAR
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 710 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/South_African_rand"^^xsd:anyURI ;
-  qudt:expression "\\(ZAR\\)"^^qudt:LatexString ;
+  qudt:expression "$ZAR$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/South_African_rand?oldid=493780395"^^xsd:anyURI ;
@@ -2320,7 +2321,7 @@ cur:ZMW
   qudt:currencyExponent 0 ;
   qudt:currencyNumber 967 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Zambian_kwacha"^^xsd:anyURI ;
-  qudt:expression "\\(ZMK\\)"^^qudt:LatexString ;
+  qudt:expression "$ZMK$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Zambian_kwacha?oldid=490328608"^^xsd:anyURI ;
@@ -2333,7 +2334,7 @@ cur:ZWL
   qudt:currencyExponent 2 ;
   qudt:currencyNumber 932 ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Zimbabwean_dollar"^^xsd:anyURI ;
-  qudt:expression "\\(ZWD\\)"^^qudt:LatexString ;
+  qudt:expression "$ZWD$"^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
   qudt:hasQuantityKind quantitykind:Currency ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Zimbabwean_dollar?oldid=491532675"^^xsd:anyURI ;
@@ -2542,7 +2543,7 @@ vaem:GMD_QUDT-UNITS-CURRENCY
   dcterms:contributor "Steve Ray" ;
   dcterms:created "2023-03-14"^^xsd:date ;
   dcterms:creator "Steve Ray" ;
-  dcterms:modified "2023-10-19T11:34:33.041-04:00"^^xsd:dateTime ;
+  dcterms:modified "2024-03-22T16:03:20.998-04:00"^^xsd:dateTime ;
   dcterms:rights """
   This product includes all or a portion of the UCUM table, UCUM codes, and UCUM definitions or is derived from it, subject to a license from Regenstrief Institute, Inc. and The UCUM Organization. Your use of the UCUM table, UCUM codes, UCUM definitions also is subject to this license, a copy of which is available at ​http://unitsofmeasure.org. The current complete UCUM table, UCUM Specification are available for download at ​http://unitsofmeasure.org. The UCUM table and UCUM codes are copyright © 1995-2009, Regenstrief Institute, Inc. and the Unified Codes for Units of Measures (UCUM) Organization. All rights reserved.
 
@@ -2553,18 +2554,18 @@ THE UCUM TABLE (IN ALL FORMATS), UCUM DEFINITIONS, AND SPECIFICATION ARE PROVIDE
   dcterms:title "Currency UNITS Version 2.1 Vocabulary" ;
   vaem:description "Standard units of measure for currency units." ;
   vaem:graphName "qudt" ;
-  vaem:graphTitle "QUDT Currency Units Version 2.1.32" ;
+  vaem:graphTitle "QUDT Currency Units Version 2.1.37" ;
   vaem:hasGraphRole vaem:VocabularyGraph ;
   vaem:hasOwner <http://www.linkedmodel.org/schema/vaem#QUDT.org> ;
   vaem:hasSteward <http://www.linkedmodel.org/schema/vaem#QUDT.org> ;
   vaem:intent "To provide a vocabulary of currency units." ;
   vaem:isMetadataFor <http://qudt.org/2.1/vocab/currency> ;
-  vaem:latestPublishedVersion "https://qudt.org/doc/2023/10/DOC_VOCAB-UNITS-CURRENCY-v2.1.html"^^xsd:anyURI ;
+  vaem:latestPublishedVersion "https://qudt.org/doc/2024/03/DOC_VOCAB-UNITS-CURRENCY-v2.1.html"^^xsd:anyURI ;
   vaem:logo "https://qudt.org/linkedmodels.org/assets/lib/lm/images/logos/qudt_logo-300x110.png"^^xsd:anyURI ;
   vaem:namespace "http://qudt.org/vocab/currency/"^^xsd:anyURI ;
   vaem:namespacePrefix "cur" ;
   vaem:owner "QUDT.org" ;
-  vaem:previousPublishedVersion "https://qudt.org/doc/2023/09/DOC_VOCAB-UNITS-CURRENCY-v2.1.html"^^xsd:anyURI ;
+  vaem:previousPublishedVersion "https://qudt.org/doc/2024/02/DOC_VOCAB-UNITS-CURRENCY-v2.1.html"^^xsd:anyURI ;
   vaem:revision "2.1" ;
   vaem:turtleFileURL "http://qudt.org/2.1/vocab/currency"^^xsd:anyURI ;
   vaem:usesNonImportedResource dcterms:abstract ;
@@ -2573,5 +2574,5 @@ THE UCUM TABLE (IN ALL FORMATS), UCUM DEFINITIONS, AND SPECIFICATION ARE PROVIDE
   vaem:usesNonImportedResource dcterms:modified ;
   vaem:usesNonImportedResource dcterms:title ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/currency> ;
-  rdfs:label "QUDT Currency Unit Vocabulary Metadata Version 2.1.32" ;
+  rdfs:label "QUDT Currency Unit Vocabulary Metadata Version 2.1.37" ;
 .
