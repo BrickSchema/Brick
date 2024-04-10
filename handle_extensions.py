@@ -4,7 +4,7 @@ import rdflib
 # read the base Brick ontology
 brick_graph = rdflib.Graph()
 brick_graph.parse("Brick.ttl", format="ttl")
-BRICK = rdflib.URIRef("https://brickschema.org/schema/1.3/Brick")
+BRICK = rdflib.URIRef("https://brickschema.org/schema/1.4/Brick")
 
 # add extension files to Brick graph
 extension_files = glob.glob("extensions/*.ttl")
