@@ -34,7 +34,7 @@ CONSTRUCT {
     UNION
     { ?t2 owl:equivalentProperty $this }
 }""" ;
-      sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
+      sh:prefixes <https://brickschema.org/schema/1.4/Brick> ;
     ] ;
   sh:targetSubjectsOf owl:equivalentProperty ;
 .
@@ -51,7 +51,7 @@ CONSTRUCT {
     ?s $this ?o .
     { $this rdfs:subPropertyOf ?t2 }
 }""" ;
-      sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
+      sh:prefixes <https://brickschema.org/schema/1.4/Brick> ;
     ] ;
     sh:targetSubjectsOf rdfs:subPropertyOf ;
 .
@@ -70,7 +70,7 @@ WHERE {
 ?invP owl:inverseOf ?p .
 }
 			""" ;
-      sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
+      sh:prefixes <https://brickschema.org/schema/1.4/Brick> ;
     ] ;
   sh:targetClass brick:Entity ;
 .
@@ -88,7 +88,7 @@ WHERE {
 ?invP owl:inverseOf ?p .
 }
 			""" ;
-      sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
+      sh:prefixes <https://brickschema.org/schema/1.4/Brick> ;
     ] ;
   sh:targetClass brick:Entity ;
 .
@@ -107,7 +107,7 @@ WHERE {
   ?prop a owl:SymmetricProperty .
 }
 			""" ;
-      sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
+      sh:prefixes <https://brickschema.org/schema/1.4/Brick> ;
     ] ;
   sh:targetClass brick:Entity ;
 .
@@ -123,7 +123,7 @@ $this brick:hasTag ?tag .
     $this rdf:type/rdfs:subClassOf* ?class .
     ?class brick:hasAssociatedTag ?tag .
 }""" ;
-      sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
+      sh:prefixes <https://brickschema.org/schema/1.4/Brick> ;
     ] ;
     sh:targetClass brick:Entity ;
 .
@@ -141,7 +141,7 @@ CONSTRUCT {
     ?ent $this ?val .
     FILTER NOT EXISTS { ?val a ?shape }
 }""" ;
-      sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
+      sh:prefixes <https://brickschema.org/schema/1.4/Brick> ;
     ] ;
     sh:targetSubjectsOf rdfs:range ;
 .
@@ -163,7 +163,7 @@ bsh:RDFSSubPropertyOfRuleForEntityProperties
                 ?o ?ep ?eo .
             }
         """ ;
-        sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
+        sh:prefixes <https://brickschema.org/schema/1.4/Brick> ;
     ] ;
     sh:targetSubjectsOf rdfs:subPropertyOf ;
 .
@@ -182,7 +182,7 @@ bsh:DeprecationRule
         CONSTRUCT { $this owl:deprecated true }
         WHERE { $this brick:deprecation ?dep }
         """ ;
-      sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
+      sh:prefixes <https://brickschema.org/schema/1.4/Brick> ;
     ] ;
     sh:property [
         sh:path brick:deprecatedInVersion ;
@@ -215,7 +215,7 @@ $this a ?class .
 ?class brick:isReplacedBy ?newClass .
 FILTER NOT EXISTS {$this a ?newClass}
 }""" ;
-      sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
+      sh:prefixes <https://brickschema.org/schema/1.4/Brick> ;
     ] ;
     sh:targetClass brick:Entity ;
 .
@@ -224,7 +224,7 @@ bsh:DeprecationRuleForInstances a sh:NodeShape ;
 sh:severity sh:Warning ;
 sh:sparql [ a sh:SPARQLConstraint ;
 sh:message "{$this} has type {?class} which was deprecated in version {?depver}. For now, it has been updated to also be of type {?newClass}." ;
-sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
+sh:prefixes <https://brickschema.org/schema/1.4/Brick> ;
 sh:select """SELECT $this ?class ?newClass ?depver WHERE {
 $this a ?class .
 ?class owl:deprecated true .
@@ -275,7 +275,7 @@ CONSTRUCT {
     UNION
     { $this owl:equivalentClass ?t2 }
 }""" ;
-      sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
+      sh:prefixes <https://brickschema.org/schema/1.4/Brick> ;
     ] ;
     sh:targetSubjectsOf owl:equivalentClass ;
 .
@@ -293,7 +293,7 @@ CONSTRUCT {
     UNION
     { $this owl:equivalentClass ?t2 }
 }""" ;
-      sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
+      sh:prefixes <https://brickschema.org/schema/1.4/Brick> ;
     ] ;
     sh:targetObjectsOf owl:equivalentClass ;
 .
@@ -331,7 +331,7 @@ bsh:BuildingMeterRule a sh:NodeShape ;
             FILTER (!strStarts(str(?type), "https://brickschema.org/schema/Brick#Building_"))
         }
         """ ;
-        sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
+        sh:prefixes <https://brickschema.org/schema/1.4/Brick> ;
     ] ;
 .
 
@@ -340,7 +340,7 @@ bsh:VirtualMeterRule a sh:NodeShape ;
     sh:sparql [
         a sh:SPARQLConstraint ;
         sh:message "Only meters can have the isVirtualMeter property be true" ;
-      sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
+      sh:prefixes <https://brickschema.org/schema/1.4/Brick> ;
         sh:select """
             SELECT $this WHERE {
                 $this brick:isVirtualMeter/brick:value true .
@@ -354,7 +354,7 @@ bsh:MeterInferSubstance a sh:NodeShape ;
     sh:targetClass brick:Meter ;
     sh:rule [
         a sh:SPARQLRule ;
-        sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
+        sh:prefixes <https://brickschema.org/schema/1.4/Brick> ;
         sh:construct """
         CONSTRUCT {
             $this brick:hasSubstance ?substance .
@@ -373,7 +373,7 @@ bsh:MeterInferSubclassNonBuildingMeter a sh:NodeShape ;
     sh:targetClass brick:Meter ;
     sh:rule [
         a sh:SPARQLRule ;
-        sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
+        sh:prefixes <https://brickschema.org/schema/1.4/Brick> ;
         sh:construct """
         CONSTRUCT {
             $this rdf:type ?metertype .
@@ -397,7 +397,7 @@ bsh:MeterInferSubclassBuildingMeter a sh:NodeShape ;
     sh:targetClass brick:Building_Meter ;
     sh:rule [
         a sh:SPARQLRule ;
-        sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
+        sh:prefixes <https://brickschema.org/schema/1.4/Brick> ;
         sh:construct """
         CONSTRUCT {
             $this rdf:type ?metertype .
@@ -425,7 +425,7 @@ bsh:TimeseriesReferenceOnPointsConstraint a sh:NodeShape ;
     sh:sparql [
         a sh:SPARQLConstraint ;
         sh:message "Only Brick Points can have external timeseries references" ;
-      sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
+      sh:prefixes <https://brickschema.org/schema/1.4/Brick> ;
         sh:select """
             SELECT $this
             WHERE {
@@ -448,7 +448,7 @@ bsh:PointsHaveQuantityKinds a sh:NodeShape ;
             FILTER NOT EXISTS { ?class owl:deprecated true }
           }
         """ ;
-        sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
+        sh:prefixes <https://brickschema.org/schema/1.4/Brick> ;
       ] ;
     sh:target [
         a sh:SPARQLTarget ;
@@ -459,7 +459,7 @@ bsh:PointsHaveQuantityKinds a sh:NodeShape ;
             FILTER NOT EXISTS { ?class owl:deprecated true }
           }
         """ ;
-        sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
+        sh:prefixes <https://brickschema.org/schema/1.4/Brick> ;
       ] ;
     sh:property [
         sh:class qudt:QuantityKind ;
@@ -505,7 +505,7 @@ bsh:CollectionIncludesEquipment a sh:NodeShape ;
             }
         }
         """ ;
-        sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
+        sh:prefixes <https://brickschema.org/schema/1.4/Brick> ;
     ] ;
 .
 
@@ -516,7 +516,7 @@ bsh:AddDefaultEVSEChargerDirection a sh:NodeShape ;
     sh:targetClass brick:Electric_Vehicle_Charging_Station ;
     sh:rule [
         a sh:SPARQLRule ;
-        sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
+        sh:prefixes <https://brickschema.org/schema/1.4/Brick> ;
         sh:construct """
         CONSTRUCT {
             $this brick:electricVehicleChargerDirectionality [ brick:value "unidirectional" ]
@@ -540,7 +540,7 @@ bsh:InheritEVSEChargerDirection a sh:NodeShape ;
     sh:targetClass brick:Electric_Vehicle_Charging_Port ;
     sh:rule [
         a sh:SPARQLRule ;
-        sh:prefixes <https://brickschema.org/schema/1.3/Brick> ;
+        sh:prefixes <https://brickschema.org/schema/1.4/Brick> ;
         sh:construct """
         CONSTRUCT {
             $this brick:electricVehicleChargerDirectionality ?direction
