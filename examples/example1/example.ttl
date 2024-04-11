@@ -1,5 +1,9 @@
 @prefix bldg: <http://example.com/mybuilding#> .
 @prefix brick: <https://brickschema.org/schema/Brick#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+<http://example.com/mybuilding> a owl:Ontology ;
+    owl:imports <https://brickschema.org/schema/1.4/Brick> .
 
 bldg:AHU1A a brick:Air_Handler_Unit ;
     brick:feeds bldg:VAV2-4,
