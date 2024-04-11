@@ -1109,8 +1109,8 @@ if os.path.exists("Brick+extensions.ttl"):
 os.makedirs("imports", exist_ok=True)
 for name, uri in ontology_imports.items():
     graph, _ = env.resolve_uri(uri)
-    env.import_graph(G, graph)
     graph.serialize(f"imports/{name}.ttl", format="turtle")
+    env.import_graph(G, graph)
 
 # add new Brick to ontology environment
 env.refresh()
