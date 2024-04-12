@@ -6,7 +6,7 @@ Defining Brick relationships
 """
 relationships = {
     "connectedTo": {
-        A: [OWL.ObjectProperty, OWL.SymmetricProperty, OWL.IrreflexivProperty],
+        A: [OWL.ObjectProperty, OWL.SymmetricProperty, OWL.IrreflexiveProperty],
         RDFS.label: Literal("Connected To"),
     },
     "isReplacedBy": {
