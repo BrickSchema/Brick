@@ -1,0 +1,122 @@
+# baseURI: http://qudt.org/2.1/collection/usertest
+
+@prefix creativecommons: <http://creativecommons.org/ns#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qkdv: <http://qudt.org/vocab/dimensionvector/> .
+@prefix quantitykind: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix vaem: <http://www.linkedmodel.org/schema/vaem#> .
+@prefix voag: <http://voag.linkedmodel.org/schema/voag#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://qudt.org/2.1/collection/usertest>
+  a owl:Ontology ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/collection/usertest> ;
+  rdfs:label "QUDT Collection - USER TESTS - v 2.1.37" ;
+  sh:declare [
+      a sh:PrefixDeclaration ;
+      sh:namespace "http://purl.org/dc/terms/"^^xsd:anyURI ;
+      sh:prefix "dcterms" ;
+    ] ;
+  sh:declare [
+      a sh:PrefixDeclaration ;
+      sh:namespace "http://qudt.org/schema/qudt/"^^xsd:anyURI ;
+      sh:prefix "qudt" ;
+    ] ;
+  sh:declare [
+      a sh:PrefixDeclaration ;
+      sh:namespace "http://qudt.org/vocab/dimensionvector/"^^xsd:anyURI ;
+      sh:prefix "qkdv" ;
+    ] ;
+  sh:declare [
+      a sh:PrefixDeclaration ;
+      sh:namespace "http://qudt.org/vocab/quantitykind/"^^xsd:anyURI ;
+      sh:prefix "quantitykind" ;
+    ] ;
+  sh:declare [
+      a sh:PrefixDeclaration ;
+      sh:namespace "http://qudt.org/vocab/unit/"^^xsd:anyURI ;
+      sh:prefix "unit" ;
+    ] ;
+  sh:declare [
+      a sh:PrefixDeclaration ;
+      sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+      sh:prefix "rdf" ;
+    ] ;
+  sh:declare [
+      a sh:PrefixDeclaration ;
+      sh:namespace "http://www.w3.org/2000/01/rdf-schema#"^^xsd:anyURI ;
+      sh:prefix "rdfs" ;
+    ] ;
+  sh:declare [
+      a sh:PrefixDeclaration ;
+      sh:namespace "http://www.w3.org/2002/07/owl#"^^xsd:anyURI ;
+      sh:prefix "owl" ;
+    ] ;
+  sh:declare [
+      a sh:PrefixDeclaration ;
+      sh:namespace "http://www.w3.org/2004/02/skos/core#"^^xsd:anyURI ;
+      sh:prefix "skos" ;
+    ] ;
+  sh:declare [
+      a sh:PrefixDeclaration ;
+      sh:namespace "http://www.w3.org/ns/shacl#"^^xsd:anyURI ;
+      sh:prefix "sh" ;
+    ] ;
+  sh:declare [
+      a sh:PrefixDeclaration ;
+      sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+      sh:prefix "xsd" ;
+    ]
+  .
+qudt:DeprecatedPropertyConstraint
+  a sh:NodeShape ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/collection/usertest> ;
+  rdfs:label "Warning about use of a deprecated QUDT property" ;
+  sh:severity sh:Info ;
+  sh:sparql [
+      a sh:SPARQLConstraint ;
+      rdfs:comment "Warns if a deprecated QUDT property is used" ;
+      sh:message "Resource, '{$this}' uses the property '{?oldpstr}' which will be deprecated. Please use '{?newpstr}' instead." ;
+      sh:prefixes <http://qudt.org/2.1/collection/usertest> ;
+      sh:select """SELECT $this ?p ?oldpstr ?newpstr
+WHERE {
+?p qudt:deprecated true .
+?p a rdf:Property .
+$this ?p ?o .
+?p dcterms:isReplacedBy ?newp .
+BIND (STR(?newp) AS ?newpstr)
+BIND (STR(?p) AS ?oldpstr)
+}""" ;
+    ] ;
+  sh:targetClass qudt:Concept ;
+.
+qudt:DeprecationConstraint
+  a sh:NodeShape ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/collection/usertest> ;
+  rdfs:label "Warning about use of a deprecated QUDT resource" ;
+  sh:severity sh:Info ;
+  sh:sparql [
+      a sh:SPARQLConstraint ;
+      rdfs:comment "Warns if a deprecated QUDT resource is used" ;
+      sh:message "Resource, '{?s}' refers to '{?oldqstr}' which has been deprecated. Please refer to '{?newqstr}' instead." ;
+      sh:prefixes <http://qudt.org/2.1/collection/usertest> ;
+      sh:select """SELECT ?s $this ?oldqstr ?newqstr
+WHERE {
+$this qudt:deprecated true .
+?s ?p $this .
+FILTER (!STRSTARTS(STR(?s),'http://qudt.org')) .
+$this dcterms:isReplacedBy ?newq .
+BIND (STR(?newq) AS ?newqstr)
+BIND (STR($this) AS ?oldqstr)
+}""" ;
+    ] ;
+  sh:targetClass qudt:Concept ;
+.
