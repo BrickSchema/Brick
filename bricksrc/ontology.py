@@ -46,6 +46,8 @@ ontology_imports = {
     "qudtsou": "http://qudt.org/2.1/vocab/sou",
     "qudtdv": "http://qudt.org/2.1/vocab/dimensionvector",
     "qudtprefix": "http://qudt.org/2.1/vocab/prefix",
+    "qudtfacade": "http://qudt.org/2.1/schema/facade/qudt",
+    "qudtusertest": "http://qudt.org/2.1/collection/usertest",
 }
 
 shacl_namespace_declarations = [

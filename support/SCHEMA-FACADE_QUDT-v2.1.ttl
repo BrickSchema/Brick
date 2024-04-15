@@ -1,19 +1,21 @@
 # baseURI: http://qudt.org/2.1/schema/facade/qudt
 # imports: http://qudt.org/2.1/schema/shacl/qudt
 # imports: http://qudt.org/2.1/schema/extensions/functions
+# imports: http://qudt.org/2.1/collection/qa/all
 
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix qudt: <http://qudt.org/schema/qudt/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <http://qudt.org/2.1/schema/facade/qudt>
   a owl:Ontology ;
   owl:imports <http://qudt.org/2.1/schema/shacl/qudt> ;
-  owl:imports <http://qudt.org/2.1/schema/extensions/functions> ;
+  owl:imports <http://qudt.org/2.1/collection/usertest> ;
   owl:versionInfo "Created with TopBraid Composer" ;
   rdfs:comment "Facade graph for single place to redirect QUDT schema imports. Note that currently, the functions import uses SPIN and OWL.";
-  rdfs:label "QUDT SCHEMA Facade graph - v2.1.32" ;
+  rdfs:label "QUDT SCHEMA Facade graph - v2.1.37" ;
 .

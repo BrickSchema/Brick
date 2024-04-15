@@ -72,7 +72,7 @@ dcterms:title
   a owl:Ontology ;
   vaem:hasGraphMetadata vaem:GMD_SHACLQUDT-SCHEMA ;
   rdfs:isDefinedBy <http://qudt.org/2.1/schema/shacl/qudt> ;
-  rdfs:label "QUDT SHACL Schema Version 2.1.32" ;
+  rdfs:label "QUDT SHACL Schema Version 2.1.37" ;
   owl:imports <http://qudt.org/2.1/schema/shacl/overlay/qudt> ;
   owl:imports <http://www.linkedmodel.org/schema/dtype> ;
   owl:imports <http://www.linkedmodel.org/schema/vaem> ;
@@ -235,7 +235,7 @@ qudt:ByteEncodingType
 .
 qudt:CT_COUNTABLY-INFINITE
   a qudt:CardinalityType ;
-  dcterms:description "A set of numbers is called countably infinite if there is a way to enumerate them.  Formally this is done with a bijection function that associates each number in the set with exactly one of the positive integers.  The set of all fractions is also countably infinite.  In other words, any set \\(X\\) that has the same cardinality as the set of the natural numbers, or \\(| X | \\; =  \\; | \\mathbb N | \\; = \\; \\aleph0\\), is said to be a countably infinite set."^^qudt:LatexString ;
+  dcterms:description "A set of numbers is called countably infinite if there is a way to enumerate them.  Formally this is done with a bijection function that associates each number in the set with exactly one of the positive integers.  The set of all fractions is also countably infinite.  In other words, any set $X$ that has the same cardinality as the set of the natural numbers, or $| X | \\; =  \\; | \\mathbb N | \\; = \\; \\aleph0$, is said to be a countably infinite set."^^qudt:LatexString ;
   qudt:informativeReference "http://www.math.vanderbilt.edu/~schectex/courses/infinity.pdf"^^xsd:anyURI ;
   qudt:literal "countable" ;
   rdfs:isDefinedBy <http://qudt.org/2.1/schema/shacl/qudt> ;
@@ -243,14 +243,14 @@ qudt:CT_COUNTABLY-INFINITE
 .
 qudt:CT_FINITE
   a qudt:CardinalityType ;
-  dcterms:description "Any set \\(X\\) with cardinality less than that of the natural numbers, or \\(| X | \\\\; <  \\; | \\\\mathbb N | \\), is said to be a finite set."^^qudt:LatexString ;
+  dcterms:description "Any set $X$ with cardinality less than that of the natural numbers, or $| X | \\\\; <  \\; | \\\\mathbb N | $, is said to be a finite set."^^qudt:LatexString ;
   qudt:literal "finite" ;
   rdfs:isDefinedBy <http://qudt.org/2.1/schema/shacl/qudt> ;
   rdfs:label "Finite Cardinality Type" ;
 .
 qudt:CT_UNCOUNTABLE
   a qudt:CardinalityType ;
-  dcterms:description "Any set with cardinality greater than that of the natural numbers, or \\(| X | \\; >  \\; | \\mathbb N | \\),  for example \\(| R| \\; =  \\;  c  \\; > |\\mathbb N |\\), is said to be uncountable."^^qudt:LatexString ;
+  dcterms:description "Any set with cardinality greater than that of the natural numbers, or $| X | \\; >  \\; | \\mathbb N | $,  for example $| R| \\; =  \\;  c  \\; > |\\mathbb N |$, is said to be uncountable."^^qudt:LatexString ;
   qudt:literal "uncountable" ;
   rdfs:isDefinedBy <http://qudt.org/2.1/schema/shacl/qudt> ;
   rdfs:label "Uncountable Cardinality Type" ;
@@ -258,7 +258,7 @@ qudt:CT_UNCOUNTABLE
 qudt:CardinalityType
   a rdfs:Class ;
   a sh:NodeShape ;
-  dcterms:description "In mathematics, the cardinality of a set is a measure of the number of elements of the set.  For example, the set \\(A = {2, 4, 6}\\) contains 3 elements, and therefore \\(A\\) has a cardinality of 3. There are two approaches to cardinality – one which compares sets directly using bijections and injections, and another which uses cardinal numbers."^^qudt:LatexString ;
+  dcterms:description "In mathematics, the cardinality of a set is a measure of the number of elements of the set.  For example, the set $A = {2, 4, 6}$ contains 3 elements, and therefore $A$ has a cardinality of 3. There are two approaches to cardinality – one which compares sets directly using bijections and injections, and another which uses cardinal numbers."^^qudt:LatexString ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Cardinal_number"^^xsd:anyURI ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Cardinality"^^xsd:anyURI ;
   qudt:plainTextDescription "In mathematics, the cardinality of a set is a measure of the number of elements of the set.  For example, the set 'A = {2, 4, 6}' contains 3 elements, and therefore 'A' has a cardinality of 3. There are two approaches to cardinality – one which compares sets directly using bijections and injections, and another which uses cardinal numbers." ;
@@ -398,7 +398,6 @@ qudt:Concept-description
   a sh:PropertyShape ;
   sh:path dcterms:description ;
   rdfs:isDefinedBy <http://qudt.org/2.1/schema/shacl/qudt> ;
-  sh:maxCount 1 ;
 .
 qudt:Concept-guidance
   a sh:PropertyShape ;
@@ -429,8 +428,6 @@ qudt:Concept-plainTextDescription
   a sh:PropertyShape ;
   sh:path qudt:plainTextDescription ;
   rdfs:isDefinedBy <http://qudt.org/2.1/schema/shacl/qudt> ;
-  sh:datatype xsd:string ;
-  sh:maxCount 1 ;
 .
 qudt:ConstantValue
   a rdfs:Class ;
@@ -1005,7 +1002,6 @@ qudt:IntervalScale
   qudt:informativeReference "https://en.wikipedia.org/wiki/Level_of_measurement"^^xsd:anyURI ;
   rdfs:comment """<p>The interval type allows for the degree of difference between items, but not the ratio between them. Examples include temperature with the Celsius scale, which has two defined points (the freezing and boiling point of water at specific conditions) and then separated into 100 intervals, date when measured from an arbitrary epoch (such as AD), percentage such as a percentage return on a stock,[16] location in Cartesian coordinates, and direction measured in degrees from true or magnetic north. Ratios are not meaningful since 20 °C cannot be said to be \"twice as hot\" as 10 °C, nor can multiplication/division be carried out between any two dates directly. However, ratios of differences can be expressed; for example, one difference can be twice another. Interval type variables are sometimes also called \"scaled variables\", but the formal mathematical term is an affine space (in this case an affine line).</p>
 <p>Characteristics: median, percentile &amp; Monotonic increasing (order (&lt;) &amp; totally ordered set</p>"""^^rdf:HTML ;
-  rdfs:comment ""^^rdf:HTML ;
   rdfs:isDefinedBy <http://qudt.org/2.1/schema/shacl/qudt> ;
   rdfs:label "Interval scale" ;
   rdfs:seeAlso qudt:NominalScale ;
@@ -1016,7 +1012,7 @@ qudt:IntervalScale
 qudt:LatexString
   a rdfs:Datatype ;
   a sh:NodeShape ;
-  rdfs:comment "A type of string in which some characters may be wrapped with '\\(' and '\\) characters for LaTeX rendering." ;
+  rdfs:comment "A type of string in which some characters may be wrapped with '$' and '$ characters for LaTeX rendering." ;
   rdfs:isDefinedBy <http://qudt.org/2.1/schema/shacl/qudt> ;
   rdfs:label "Latex String" ;
   rdfs:subClassOf xsd:string ;
@@ -1160,12 +1156,14 @@ qudt:PhysicalConstant
   sh:property qudt:PhysicalConstant-exactConstant ;
   sh:property qudt:PhysicalConstant-exactMatch ;
   sh:property qudt:PhysicalConstant-hasDimensionVector ;
+  sh:property qudt:PhysicalConstant-iec61360Code ;
   sh:property qudt:PhysicalConstant-informativeReference ;
   sh:property qudt:PhysicalConstant-isoNormativeReference ;
   sh:property qudt:PhysicalConstant-latexDefinition ;
   sh:property qudt:PhysicalConstant-latexSymbol ;
   sh:property qudt:PhysicalConstant-mathMLdefinition ;
   sh:property qudt:PhysicalConstant-normativeReference ;
+  sh:property qudt:PhysicalConstant-siExactMatch ;
   sh:property qudt:PhysicalConstant-symbol ;
   sh:property qudt:PhysicalConstant-ucumCode ;
 .
@@ -1206,6 +1204,13 @@ qudt:PhysicalConstant-hasDimensionVector
   rdfs:isDefinedBy <http://qudt.org/2.1/schema/shacl/qudt> ;
   sh:class qudt:QuantityKindDimensionVector ;
 .
+qudt:PhysicalConstant-iec61360Code
+  a sh:PropertyShape ;
+  sh:path qudt:iec61360Code ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/schema/shacl/qudt> ;
+  sh:datatype xsd:string ;
+  sh:minCount 0 ;
+.
 qudt:PhysicalConstant-informativeReference
   a sh:PropertyShape ;
   sh:path qudt:informativeReference ;
@@ -1230,7 +1235,7 @@ qudt:PhysicalConstant-latexSymbol
   sh:path qudt:latexSymbol ;
   rdfs:isDefinedBy <http://qudt.org/2.1/schema/shacl/qudt> ;
   sh:datatype qudt:LatexString ;
-  sh:maxCount 1 ;
+  sh:minCount 0 ;
 .
 qudt:PhysicalConstant-mathMLdefinition
   a sh:PropertyShape ;
@@ -1244,6 +1249,12 @@ qudt:PhysicalConstant-normativeReference
   sh:path qudt:normativeReference ;
   rdfs:isDefinedBy <http://qudt.org/2.1/schema/shacl/qudt> ;
   sh:datatype xsd:anyURI ;
+.
+qudt:PhysicalConstant-siExactMatch
+  a sh:PropertyShape ;
+  sh:path qudt:siExactMatch ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/schema/shacl/qudt> ;
+  sh:maxCount 1 ;
 .
 qudt:PhysicalConstant-symbol
   a sh:PropertyShape ;
@@ -1273,6 +1284,7 @@ qudt:Prefix
   sh:property qudt:Prefix-exactMatch ;
   sh:property qudt:Prefix-latexSymbol ;
   sh:property qudt:Prefix-prefixMultiplier ;
+  sh:property qudt:Prefix-siExactMatch ;
   sh:property qudt:Prefix-symbol ;
   sh:property qudt:Prefix-ucumCode ;
 .
@@ -1294,6 +1306,12 @@ qudt:Prefix-prefixMultiplier
   sh:path qudt:prefixMultiplier ;
   rdfs:isDefinedBy <http://qudt.org/2.1/schema/shacl/qudt> ;
   sh:datatype xsd:double ;
+  sh:maxCount 1 ;
+.
+qudt:Prefix-siExactMatch
+  a sh:PropertyShape ;
+  sh:path qudt:siExactMatch ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/schema/shacl/qudt> ;
   sh:maxCount 1 ;
 .
 qudt:Prefix-symbol
@@ -1321,8 +1339,10 @@ qudt:Quantifiable
   sh:property qudt:Quantifiable-hasUnit ;
   sh:property qudt:Quantifiable-relativeStandardUncertainty ;
   sh:property qudt:Quantifiable-standardUncertainty ;
+  sh:property qudt:Quantifiable-standardUncertaintySN ;
   sh:property qudt:Quantifiable-unit ;
   sh:property qudt:Quantifiable-value ;
+  sh:property qudt:Quantifiable-valueSN ;
 .
 qudt:Quantifiable-dataEncoding
   a sh:PropertyShape ;
@@ -1356,6 +1376,13 @@ qudt:Quantifiable-standardUncertainty
   a sh:PropertyShape ;
   sh:path qudt:standardUncertainty ;
   rdfs:isDefinedBy <http://qudt.org/2.1/schema/shacl/qudt> ;
+  sh:datatype xsd:decimal ;
+  sh:maxCount 1 ;
+.
+qudt:Quantifiable-standardUncertaintySN
+  a sh:PropertyShape ;
+  sh:path qudt:standardUncertaintySN ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/schema/shacl/qudt> ;
   sh:datatype xsd:double ;
   sh:maxCount 1 ;
 .
@@ -1372,15 +1399,28 @@ qudt:Quantifiable-value
   rdfs:isDefinedBy <http://qudt.org/2.1/schema/shacl/qudt> ;
   sh:maxCount 1 ;
 .
+qudt:Quantifiable-valueSN
+  a sh:PropertyShape ;
+  sh:path qudt:valueSN ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/schema/shacl/qudt> ;
+  sh:maxCount 1 ;
+.
 qudt:Quantity
   a rdfs:Class ;
   a sh:NodeShape ;
   qudt:dbpediaMatch "http://dbpedia.org/resource/Quantity"^^xsd:anyURI ;
-  rdfs:comment """<p class=\"lm-para\">A <b>quantity</b> is the measurement of an observable property of a particular object, event, or physical system. A quantity is always associated with the context of measurement (i.e. the thing measured, the measured value, the accuracy of measurement, etc.) whereas the underlying <b>quantity kind</b> is independent of any particular measurement. Thus, length is a quantity kind while the height of a rocket is a specific quantity of length; its magnitude that may be expressed in meters, feet, inches, etc. Examples of physical quantities include physical constants, such as the speed of light in a vacuum, Planck's constant, the electric permittivity of free space, and the fine structure constant. </p>
-
-<p class=\"lm-para\">In other words, quantities are quantifiable aspects of the world, such as the duration of a movie, the distance between two points, velocity of a car, the pressure of the atmosphere, and a person's weight; and units are used to describe their numerical measure.
-
-<p class=\"lm-para\">Many <b>quantity kinds</b> are related to each other by various physical laws, and as a result, the associated units of some quantity kinds can be expressed as products (or ratios) of powers of other quantity kinds (e.g., momentum is mass times velocity and velocity is defined as distance divided by time). In this way, some quantities can be calculated from other measured quantities using their associations to the quantity kinds in these expressions. These quantity kind relationships are also discussed in dimensional analysis. Those that cannot be so expressed can be regarded as \"fundamental\" in this sense.</p>
+  rdfs:comment """<p class=\"lm-para\">A <b>quantity</b> is the measurement of an observable property of a particular object, event, or physical system. 
+  A quantity is always associated with the context of measurement (i.e. the thing measured, the measured value, the accuracy of measurement, etc.) whereas the 
+  underlying <b>quantity kind</b> is independent of any particular measurement. Thus, length is a quantity kind while the height of a rocket is a specific 
+  quantity of length; its magnitude that may be expressed in meters, feet, inches, etc. Examples of physical quantities include physical constants, such as 
+  the speed of light in a vacuum, Planck's constant, the electric permittivity of free space, and the fine structure constant. </p>
+<p class=\"lm-para\">In other words, quantities are quantifiable aspects of the world, such as the duration of a movie, the distance between two points, 
+velocity of a car, the pressure of the atmosphere, and a person's weight; and units are used to describe their numerical measure.</p> 
+<p class=\"lm-para\">Many <b>quantity kinds</b> are related to each other by various physical laws, and as a result, the associated units of some quantity 
+kinds can be expressed as products (or ratios) of powers of other quantity kinds (e.g., momentum is mass times velocity and velocity is defined as distance 
+divided by time). In this way, some quantities can be calculated from other measured quantities using their associations to the quantity kinds in these 
+expressions. These quantity kind relationships are also discussed in dimensional analysis. Those that cannot be so expressed can be regarded 
+as \"fundamental\" in this sense.</p>
 <p class=\"lm-para\">A quantity is distinguished from a \"quantity kind\" in that the former carries a value and the latter is a type specifier.</p>"""^^rdf:HTML ;
   rdfs:isDefinedBy <http://qudt.org/2.1/schema/shacl/qudt> ;
   rdfs:label "Quantity" ;
@@ -1389,6 +1429,7 @@ qudt:Quantity
   sh:property qudt:Quantity-hasQuantityKind ;
   sh:property qudt:Quantity-isDeltaQuantity ;
   sh:property qudt:Quantity-quantityValue ;
+  sh:property qudt:Quantity-quantityValueSN ;
 .
 qudt:Quantity-hasQuantityKind
   a sh:PropertyShape ;
@@ -1435,10 +1476,12 @@ qudt:QuantityKind
   sh:property qudt:QuantityKind-expression ;
   sh:property qudt:QuantityKind-generalization ;
   sh:property qudt:QuantityKind-hasDimensionVector ;
+  sh:property qudt:QuantityKind-iec61360Code ;
   sh:property qudt:QuantityKind-latexDefinition ;
   sh:property qudt:QuantityKind-mathMLdefinition ;
   sh:property qudt:QuantityKind-qkdvDenominator ;
   sh:property qudt:QuantityKind-qkdvNumerator ;
+  sh:property qudt:QuantityKind-siExactMatch ;
 .
 qudt:QuantityKind-applicableCGSUnit
   a sh:PropertyShape ;
@@ -1553,6 +1596,12 @@ qudt:QuantityKind-hasDimensionVector
   sh:minCount 1 ;
   sh:severity sh:Info ;
 .
+qudt:QuantityKind-iec61360Code
+  a sh:PropertyShape ;
+  sh:path qudt:iec61360Code ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/schema/shacl/qudt> ;
+  sh:datatype xsd:string ;
+.
 qudt:QuantityKind-latexDefinition
   a sh:PropertyShape ;
   sh:path qudt:latexDefinition ;
@@ -1581,16 +1630,30 @@ qudt:QuantityKind-qkdvNumerator
   sh:class qudt:QuantityKindDimensionVector ;
   sh:maxCount 1 ;
 .
+qudt:QuantityKind-siExactMatch
+  a sh:PropertyShape ;
+  sh:path qudt:siExactMatch ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/schema/shacl/qudt> ;
+  sh:maxCount 1 ;
+.
 qudt:QuantityKindDimensionVector
   a rdfs:Class ;
   a sh:NodeShape ;
+  dcterms:description """
+ $\\text{Quantity Kind Dimension Vector}$ describes the dimensionality of a quantity kind in the context of a system of units. 
+ In the SI system of units, the dimensions of a quantity kind are expressed as a product of the basic
+  physical dimensions mass ($M$), length ($L$), time ($T$) current ($I$), amount of substance ($N$),
+   luminous intensity ($J$) and absolute temperature 
+   ($\\theta$) as $dim \\, Q = L^{\\alpha} \\, M^{\\beta} \\, T^{\\gamma} \\, I ^{\\delta} \\, \\theta ^{\\epsilon} \\, N^{\\eta} \\, J ^{\\nu}$.
+
+
+  The rational powers of the dimensional exponents, $\\alpha, \\, \\beta, \\, \\gamma, \\, \\delta, \\, \\epsilon, \\, \\eta, \\, \\nu$, are positive, negative, or zero.
+
+  For example, the dimension of the physical quantity kind $\\it{speed}$ is $\\boxed{length/time}$, $L/T$ or $LT^{-1}$,
+   and the dimension of the physical quantity kind force is $\\boxed{mass \\times acceleration}$ or $\\boxed{mass \\times (length/time)/time}$, $ML/T^2$ or $MLT^{-2}$ respectively.
+ """^^qudt:LatexString ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Dimensional_analysis"^^xsd:anyURI ;
   qudt:informativeReference "http://web.mit.edu/2.25/www/pdf/DA_unified.pdf"^^xsd:anyURI ;
-  rdfs:comment """<p class=\"lm-para\">A  <em>Quantity Kind Dimension Vector</em> describes the dimensionality of a quantity kind in the context of a system of units. In the SI system of units, the dimensions of a quantity kind are expressed as a product of the basic physical dimensions mass (\\(M\\)), length (\\(L\\)), time (\\(T\\)) current (\\(I\\)), amount of substance (\\(N\\)), luminous intensity (\\(J\\)) and absolute temperature (\\(\\theta\\)) as \\(dim \\, Q = L^{\\alpha} \\, M^{\\beta} \\, T^{\\gamma} \\, I ^{\\delta} \\, \\theta ^{\\epsilon} \\, N^{\\eta} \\, J ^{\\nu}\\).</p>
-
-<p class=\"lm-para\">The rational powers of the dimensional exponents, \\(\\alpha, \\, \\beta, \\, \\gamma, \\, \\delta, \\, \\epsilon, \\, \\eta, \\, \\nu\\), are positive, negative, or zero.</p>
-
-<p class=\"lm-para\">For example, the dimension of the physical quantity kind \\(\\it{speed}\\) is \\(\\boxed{length/time}\\), \\(L/T\\) or \\(LT^{-1}\\), and the dimension of the physical quantity kind force is \\(\\boxed{mass \\times acceleration}\\) or \\(\\boxed{mass \\times (length/time)/time}\\), \\(ML/T^2\\) or \\(MLT^{-2}\\) respectively.</p>"""^^rdf:HTML ;
   rdfs:isDefinedBy <http://qudt.org/2.1/schema/shacl/qudt> ;
   rdfs:label "Quantity Kind Dimension Vector" ;
   rdfs:subClassOf qudt:Concept ;
@@ -1681,6 +1744,7 @@ qudt:QuantityKindDimensionVector-latexSymbol
   sh:path qudt:latexSymbol ;
   rdfs:isDefinedBy <http://qudt.org/2.1/schema/shacl/qudt> ;
   sh:datatype qudt:LatexString ;
+  sh:minCount 0 ;
 .
 qudt:QuantityKindDimensionVector_CGS
   a rdfs:Class ;
@@ -1746,7 +1810,7 @@ qudt:QuantityKindDimensionVector_SI
 qudt:QuantityType
   a rdfs:Class ;
   a sh:NodeShape ;
-  dcterms:description "\\(\\textit{Quantity Type}\\) is an enumeration of quanity kinds. It specializes \\(\\boxed{dtype:EnumeratedValue}\\) by constrinaing \\(\\boxed{dtype:value}\\) to instances of \\(\\boxed{qudt:QuantityKind}\\)."^^qudt:LatexString ;
+  dcterms:description "$\\textit{Quantity Type}$ is an enumeration of quanity kinds. It specializes $\\boxed{dtype:EnumeratedValue}$ by constrinaing $\\boxed{dtype:value}$ to instances of $\\boxed{qudt:QuantityKind}$."^^qudt:LatexString ;
   rdfs:isDefinedBy <http://qudt.org/2.1/schema/shacl/qudt> ;
   rdfs:label "Quantity type" ;
   rdfs:subClassOf qudt:EnumeratedValue ;
@@ -1761,7 +1825,7 @@ qudt:QuantityType-value
 qudt:QuantityValue
   a rdfs:Class ;
   a sh:NodeShape ;
-  rdfs:comment ""^^rdf:HTML ;
+  rdfs:comment "A <i>Quantity Value</i> expresses the magnitude and kind of a quantity and is given by the product of a numerical value <code>n</code> and a unit of measure <code>U</code>. The number multiplying the unit is referred to as the numerical value of the quantity expressed in that unit. Refer to <a href=\"http://physics.nist.gov/Pubs/SP811/sec07.html\">NIST SP 811 section 7</a> for more on quantity values."^^rdf:HTML ;
   rdfs:isDefinedBy <http://qudt.org/2.1/schema/shacl/qudt> ;
   rdfs:label "Quantity value" ;
   rdfs:subClassOf qudt:Concept ;
@@ -2071,9 +2135,13 @@ qudt:SystemOfQuantityKinds
   rdfs:isDefinedBy <http://qudt.org/2.1/schema/shacl/qudt> ;
   rdfs:label "System of Quantity Kinds" ;
   rdfs:subClassOf qudt:Concept ;
+  rdfs:subClassOf qudt:Verifiable ;
   sh:property qudt:SystemOfQuantityKinds-baseDimensionEnumeration ;
+  sh:property qudt:SystemOfQuantityKinds-hasBaseQuantityKind ;
   sh:property qudt:SystemOfQuantityKinds-hasQuantityKind ;
   sh:property qudt:SystemOfQuantityKinds-hasUnitSystem ;
+  sh:property qudt:SystemOfQuantityKinds-systemDerivedQuantityKind ;
+  sh:property [] ;
 .
 qudt:SystemOfQuantityKinds-baseDimensionEnumeration
   a sh:PropertyShape ;
@@ -2081,6 +2149,13 @@ qudt:SystemOfQuantityKinds-baseDimensionEnumeration
   rdfs:isDefinedBy <http://qudt.org/2.1/schema/shacl/qudt> ;
   sh:class qudt:Enumeration ;
   sh:maxCount 1 ;
+.
+qudt:SystemOfQuantityKinds-hasBaseQuantityKind
+  a sh:PropertyShape ;
+  sh:path qudt:hasBaseQuantityKind ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/schema/shacl/qudt> ;
+  sh:class qudt:QuantityKind ;
+  sh:minCount 0 ;
 .
 qudt:SystemOfQuantityKinds-hasQuantityKind
   a sh:PropertyShape ;
@@ -2095,6 +2170,13 @@ qudt:SystemOfQuantityKinds-hasUnitSystem
   rdfs:isDefinedBy <http://qudt.org/2.1/schema/shacl/qudt> ;
   sh:class qudt:SystemOfUnits ;
   sh:maxCount 1 ;
+.
+qudt:SystemOfQuantityKinds-systemDerivedQuantityKind
+  a sh:PropertyShape ;
+  sh:path qudt:systemDerivedQuantityKind ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/schema/shacl/qudt> ;
+  sh:class qudt:QuantityKind ;
+  sh:minCount 0 ;
 .
 qudt:SystemOfUnits
   a rdfs:Class ;
@@ -2215,7 +2297,7 @@ qudt:UTF8-StringEncoding
 qudt:Unit
   a rdfs:Class ;
   a sh:NodeShape ;
-  dcterms:description "A unit of measure, or unit, is a particular quantity value that has been chosen as a scale for measuring other quantities the same kind (more generally of equivalent dimension). For example, the meter is a quantity of length that has been rigorously defined and standardized by the BIPM (International Board of Weights and Measures). Any measurement of the length can be expressed as a number multiplied by the unit meter. More formally, the value of a physical quantity Q with respect to a unit (U) is expressed as the scalar multiple of a real number (n) and U, as  \\(Q = nU\\)."^^qudt:LatexString ;
+  dcterms:description "A unit of measure, or unit, is a particular quantity value that has been chosen as a scale for measuring other quantities the same kind (more generally of equivalent dimension). For example, the meter is a quantity of length that has been rigorously defined and standardized by the BIPM (International Board of Weights and Measures). Any measurement of the length can be expressed as a number multiplied by the unit meter. More formally, the value of a physical quantity Q with respect to a unit (U) is expressed as the scalar multiple of a real number (n) and U, as  $Q = nU$."^^qudt:LatexString ;
   qudt:informativeReference "http://dbpedia.org/resource/Category:Units_of_measure"^^xsd:anyURI ;
   qudt:informativeReference "http://www.allmeasures.com/Fullconversion.asp"^^xsd:anyURI ;
   rdfs:isDefinedBy <http://qudt.org/2.1/schema/shacl/qudt> ;
@@ -2224,7 +2306,9 @@ qudt:Unit
   rdfs:subClassOf qudt:Verifiable ;
   sh:property qudt:Unit-applicableSystem ;
   sh:property qudt:Unit-conversionMultiplier ;
+  sh:property qudt:Unit-conversionMultiplierSN ;
   sh:property qudt:Unit-conversionOffset ;
+  sh:property qudt:Unit-conversionOffsetSN ;
   sh:property qudt:Unit-definedUnitOfSystem ;
   sh:property qudt:Unit-derivedCoherentUnitOfSystem ;
   sh:property qudt:Unit-derivedUnitOfSystem ;
@@ -2240,6 +2324,7 @@ qudt:Unit
   sh:property qudt:Unit-prefix ;
   sh:property qudt:Unit-qkdvDenominator ;
   sh:property qudt:Unit-qkdvNumerator ;
+  sh:property qudt:Unit-siExactMatch ;
   sh:property qudt:Unit-siUnitsExpression ;
   sh:property qudt:Unit-symbol ;
   sh:property qudt:Unit-ucumCode ;
@@ -2257,35 +2342,29 @@ qudt:Unit-conversionMultiplier
   a sh:PropertyShape ;
   sh:path qudt:conversionMultiplier ;
   rdfs:isDefinedBy <http://qudt.org/2.1/schema/shacl/qudt> ;
+  sh:datatype xsd:decimal ;
   sh:maxCount 1 ;
-  sh:or (
-      [
-        sh:datatype xsd:decimal ;
-      ]
-      [
-        sh:datatype xsd:double ;
-      ]
-      [
-        sh:datatype xsd:float ;
-      ]
-    ) ;
+.
+qudt:Unit-conversionMultiplierSN
+  a sh:PropertyShape ;
+  sh:path qudt:conversionMultiplierSN ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/schema/shacl/qudt> ;
+  sh:datatype xsd:double ;
+  sh:maxCount 1 ;
 .
 qudt:Unit-conversionOffset
   a sh:PropertyShape ;
   sh:path qudt:conversionOffset ;
   rdfs:isDefinedBy <http://qudt.org/2.1/schema/shacl/qudt> ;
+  sh:datatype xsd:decimal ;
   sh:maxCount 1 ;
-  sh:or (
-      [
-        sh:datatype xsd:decimal ;
-      ]
-      [
-        sh:datatype xsd:double ;
-      ]
-      [
-        sh:datatype xsd:float ;
-      ]
-    ) ;
+.
+qudt:Unit-conversionOffsetSN
+  a sh:PropertyShape ;
+  sh:path qudt:conversionOffsetSN ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/schema/shacl/qudt> ;
+  sh:datatype xsd:double ;
+  sh:maxCount 1 ;
 .
 qudt:Unit-definedUnitOfSystem
   a sh:PropertyShape ;
@@ -2384,6 +2463,12 @@ qudt:Unit-qkdvNumerator
   sh:path qudt:qkdvNumerator ;
   rdfs:isDefinedBy <http://qudt.org/2.1/schema/shacl/qudt> ;
   sh:class qudt:QuantityKindDimensionVector ;
+  sh:maxCount 1 ;
+.
+qudt:Unit-siExactMatch
+  a sh:PropertyShape ;
+  sh:path qudt:siExactMatch ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/schema/shacl/qudt> ;
   sh:maxCount 1 ;
 .
 qudt:Unit-siUnitsExpression
@@ -2661,7 +2746,7 @@ qudt:code
 .
 qudt:coherentUnitOfSystem
   a rdf:Property ;
-  dcterms:description "A coherent unit of measurement for a unit system is a defined unit that may be expressed as a product of powers of the system's base units with the proportionality factor of one. A system of units is coherent with respect to a system of quantities and equations if the system of units is chosen in such a way that the equations between numerical values have exactly the same form (including the numerical factors) as the corresponding equations between the quantities. For example, the 'newton' and the 'joule'. These two are, respectively, the force that causes one kilogram to be accelerated at 1 metre per second per  second, and the work done by 1 newton acting over 1 metre. Being coherent refers to this consistent use of 1. In the old c.g.s. system , with its base units the centimetre and the gram, the corresponding coherent units were the dyne and the erg, respectively the force that causes 1 gram to be accelerated at 1 centimetre per second per second, and the work done by 1 dyne acting over 1 centimetre. So \\(1 newton = 10^5\\,dyne\\), \\(1 joule = 10^7\\,erg\\), making each of the four compatible in a decimal sense within its respective other system, but not coherent therein."^^qudt:LatexString ;
+  dcterms:description "A coherent unit of measurement for a unit system is a defined unit that may be expressed as a product of powers of the system's base units with the proportionality factor of one. A system of units is coherent with respect to a system of quantities and equations if the system of units is chosen in such a way that the equations between numerical values have exactly the same form (including the numerical factors) as the corresponding equations between the quantities. For example, the 'newton' and the 'joule'. These two are, respectively, the force that causes one kilogram to be accelerated at 1 metre per second per  second, and the work done by 1 newton acting over 1 metre. Being coherent refers to this consistent use of 1. In the old c.g.s. system , with its base units the centimetre and the gram, the corresponding coherent units were the dyne and the erg, respectively the force that causes 1 gram to be accelerated at 1 centimetre per second per second, and the work done by 1 dyne acting over 1 centimetre. So $1 newton = 10^5\\,dyne$, $1 joule = 10^7\\,erg$, making each of the four compatible in a decimal sense within its respective other system, but not coherent therein."^^qudt:LatexString ;
   qudt:deprecated true ;
   rdfs:isDefinedBy <http://qudt.org/2.1/schema/shacl/qudt> ;
   rdfs:label "is coherent unit of system" ;
@@ -2669,7 +2754,7 @@ qudt:coherentUnitOfSystem
 .
 qudt:coherentUnitSystem
   a rdf:Property ;
-  dcterms:description "<p>A system of units is coherent with respect to a system of quantities and equations if the system of units is chosen in such a way that the equations between numerical values have exactly the same form (including the numerical factors) as the corresponding equations between the quantities. In such a coherent system, no numerical factor other than the number 1 ever occurs in the expressions for the derived units in terms of the base units. For example, the \\(newton\\) and the \\(joule\\). These two are, respectively, the force that causes one kilogram to be accelerated at 1 metre per (1) second per (1) second, and the work done by 1 newton acting over 1 metre. Being coherent refers to this consistent use of 1. In the old c.g.s. system , with its base units the centimetre and the gram, the corresponding coherent units were the dyne and the erg, respectively the force that causes 1 gram to be accelerated at 1 centimetre per (1) second per (1) second, and the work done by 1 dyne acting over 1 centimetre. So \\(1\\,newton = 10^5 dyne\\), \\(1 joule = 10^7 erg\\), making each of the four compatible in a decimal sense within its respective other system, but not coherent therein.</p>"^^qudt:LatexString ;
+  dcterms:description "<p>A system of units is coherent with respect to a system of quantities and equations if the system of units is chosen in such a way that the equations between numerical values have exactly the same form (including the numerical factors) as the corresponding equations between the quantities. In such a coherent system, no numerical factor other than the number 1 ever occurs in the expressions for the derived units in terms of the base units. For example, the $newton$ and the $joule$. These two are, respectively, the force that causes one kilogram to be accelerated at 1 metre per (1) second per (1) second, and the work done by 1 newton acting over 1 metre. Being coherent refers to this consistent use of 1. In the old c.g.s. system , with its base units the centimetre and the gram, the corresponding coherent units were the dyne and the erg, respectively the force that causes 1 gram to be accelerated at 1 centimetre per (1) second per (1) second, and the work done by 1 dyne acting over 1 centimetre. So $1\\,newton = 10^5 dyne$, $1 joule = 10^7 erg$, making each of the four compatible in a decimal sense within its respective other system, but not coherent therein.</p>"^^qudt:LatexString ;
   qudt:informativeReference "https://en.wikipedia.org/wiki/Coherence_(units_of_measurement)"^^xsd:anyURI ;
   rdfs:isDefinedBy <http://qudt.org/2.1/schema/shacl/qudt> ;
   rdfs:label "coherent unit system" ;
@@ -2680,10 +2765,20 @@ qudt:conversionMultiplier
   rdfs:isDefinedBy <http://qudt.org/2.1/schema/shacl/qudt> ;
   rdfs:label "conversion multiplier" ;
 .
+qudt:conversionMultiplierSN
+  a rdf:Property ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/schema/shacl/qudt> ;
+  rdfs:label "conversion multiplier scientific" ;
+.
 qudt:conversionOffset
   a rdf:Property ;
   rdfs:isDefinedBy <http://qudt.org/2.1/schema/shacl/qudt> ;
   rdfs:label "conversion offset" ;
+.
+qudt:conversionOffsetSN
+  a rdf:Property ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/schema/shacl/qudt> ;
+  rdfs:label "conversion offset scientific" ;
 .
 qudt:currencyCode
   a rdf:Property ;
@@ -3171,7 +3266,7 @@ qudt:latexDefinition
 .
 qudt:latexSymbol
   a rdf:Property ;
-  dcterms:description "The symbol is a glyph that is used to represent some concept, typically a unit or a quantity, in a compact form. For example, the symbol for an Ohm is \\(ohm\\). This contrasts with 'unit:abbreviation', which gives a short alphanumeric abbreviation for the unit, 'ohm' for Ohm."^^qudt:LatexString ;
+  dcterms:description "The symbol is a glyph that is used to represent some concept, typically a unit or a quantity, in a compact form. For example, the symbol for an Ohm is $ohm$. This contrasts with 'unit:abbreviation', which gives a short alphanumeric abbreviation for the unit, 'ohm' for Ohm."^^qudt:LatexString ;
   rdfs:isDefinedBy <http://qudt.org/2.1/schema/shacl/qudt> ;
   rdfs:label "latex symbol" ;
 .
@@ -3421,6 +3516,11 @@ qudt:scaleType
   rdfs:isDefinedBy <http://qudt.org/2.1/schema/shacl/qudt> ;
   rdfs:label "scale type" ;
 .
+qudt:siExactMatch
+  a rdf:Property ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/schema/shacl/qudt> ;
+  rdfs:label "Individual from SI Reference Point" ;
+.
 qudt:siUnitsExpression
   a rdf:Property ;
   rdfs:isDefinedBy <http://qudt.org/2.1/schema/shacl/qudt> ;
@@ -3439,9 +3539,15 @@ qudt:standardUncertainty
   rdfs:isDefinedBy <http://qudt.org/2.1/schema/shacl/qudt> ;
   rdfs:label "standard uncertainty" ;
 .
+qudt:standardUncertaintySN
+  a rdf:Property ;
+  dcterms:description "The standard uncertainty of a quantity is the estimated standard deviation of the mean taken from a series of measurements."^^rdf:HTML ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/schema/shacl/qudt> ;
+  rdfs:label "standard uncertainty scientific" ;
+.
 qudt:symbol
   a rdf:Property ;
-  dcterms:description "The symbol is a glyph that is used to represent some concept, typically a unit or a quantity, in a compact form. For example, the symbol for an Ohm is \\(ohm\\). This contrasts with 'unit:abbreviation', which gives a short alphanumeric abbreviation for the unit, 'ohm' for Ohm."^^qudt:LatexString ;
+  dcterms:description "The symbol is a glyph that is used to represent some concept, typically a unit or a quantity, in a compact form. For example, the symbol for an Ohm is $ohm$. This contrasts with 'unit:abbreviation', which gives a short alphanumeric abbreviation for the unit, 'ohm' for Ohm."^^qudt:LatexString ;
   rdfs:isDefinedBy <http://qudt.org/2.1/schema/shacl/qudt> ;
   rdfs:label "symbol" ;
   rdfs:subPropertyOf qudt:literal ;
@@ -3527,7 +3633,7 @@ qudt:url
 .
 qudt:value
   a rdf:Property ;
-  dcterms:description "A property to relate an observable thing with a value that can be of any simple XSD type"^^rdf:HTML ;
+  dcterms:description "A property to relate an observable thing with a value expressed as a decimal"^^rdf:HTML ;
   rdfs:isDefinedBy <http://qudt.org/2.1/schema/shacl/qudt> ;
   rdfs:label "value" ;
 .
@@ -3535,6 +3641,12 @@ qudt:valueQuantity
   a rdf:Property ;
   rdfs:isDefinedBy <http://qudt.org/2.1/schema/shacl/qudt> ;
   rdfs:label "value for quantity" ;
+.
+qudt:valueSN
+  a rdf:Property ;
+  dcterms:description "A property to relate an observable thing with a value expressed in scientific notation"^^rdf:HTML ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/schema/shacl/qudt> ;
+  rdfs:label "value scientific" ;
 .
 qudt:vbName
   a rdf:Property ;
@@ -3580,7 +3692,7 @@ vaem:GMD_SHACLQUDT-SCHEMA
 <p class=\"lm-para\">Except for unit prefixes, all units are specified in separate vocabularies. Descriptions are provided in both HTML and LaTeX formats. A quantity is a measure of an observable phenomenon, that, when associated with something, becomes a property of that thing; a particular object, event, or physical system. </p>
 
 <p class=\"lm-para\">A quantity has meaning in the context of a measurement (i.e. the thing measured, the measured value, the accuracy of measurement, etc.) whereas the underlying quantity kind is independent of any particular measurement. Thus, length is a quantity kind while the height of a rocket is a specific quantity of length; its magnitude that may be expressed in meters, feet, inches, etc.  Or, as stated at Wikipedia, in the language of measurement, quantities are quantifiable aspects of the world, such as time, distance, velocity, mass, momentum, energy, and weight, and units are used to describe their measure. Many of these quantities are related to each other by various physical laws, and as a result the units of some of the quantities can be expressed as products (or ratios) of powers of other units (e.g., momentum is mass times velocity and velocity is measured in distance divided by time).</p>"""^^rdf:HTML ;
-  dcterms:modified "2023-10-19T10:35:06.479-04:00"^^xsd:dateTime ;
+  dcterms:modified "2024-03-22T14:31:08.385-04:00"^^xsd:dateTime ;
   dcterms:rights """
   This product includes all or a portion of the UCUM table, UCUM codes, and UCUM definitions or is derived from it, subject to a license from Regenstrief Institute, Inc. and The UCUM Organization. Your use of the UCUM table, UCUM codes, UCUM definitions also is subject to this license, a copy of which is available at ​http://unitsofmeasure.org. The current complete UCUM table, UCUM Specification are available for download at ​http://unitsofmeasure.org. The UCUM table and UCUM codes are copyright © 1995-2009, Regenstrief Institute, Inc. and the Unified Codes for Units of Measures (UCUM) Organization. All rights reserved.
 
@@ -3588,25 +3700,25 @@ THE UCUM TABLE (IN ALL FORMATS), UCUM DEFINITIONS, AND SPECIFICATION ARE PROVIDE
   """ ;
   dcterms:rights "The QUDT Ontologies are issued under a Creative Commons Attribution 4.0 International License (CC BY 4.0), available at https://creativecommons.org/licenses/by/4.0/. Attribution should be made to QUDT.org" ;
   dcterms:subject "QUDT" ;
-  dcterms:title "QUDT SHACL Schema - Version 2.1.32" ;
+  dcterms:title "QUDT SHACL Schema - Version 2.1.37" ;
   qudt:informativeReference "http://unitsofmeasure.org/trac"^^xsd:anyURI ;
   qudt:informativeReference "http://www.bipm.org/en/publications/si-brochure"^^xsd:anyURI ;
   qudt:informativeReference "http://www.bipm.org/utils/common/documents/jcgm/JCGM_200_2008.pdf"^^xsd:anyURI ;
   qudt:informativeReference "https://books.google.com/books?id=pIlCAAAAIAAJ&dq=dimensional+analysis&hl=en"^^xsd:anyURI ;
   qudt:informativeReference "https://www.nist.gov/physical-measurement-laboratory/special-publication-811"^^xsd:anyURI ;
   vaem:graphName "qudt" ;
-  vaem:graphTitle "Quantities, Units, Dimensions and Types (QUDT) SHACL Schema - Version 2.1.32" ;
+  vaem:graphTitle "Quantities, Units, Dimensions and Types (QUDT) SHACL Schema - Version 2.1.37" ;
   vaem:hasGraphRole vaem:SHACLSchemaGraph ;
   vaem:hasOwner vaem:QUDT ;
   vaem:hasSteward vaem:QUDT ;
   vaem:intent "Specifies the schema for quantities, units and dimensions. Types are defined in other schemas." ;
   vaem:isMetadataFor <http://qudt.org/2.1/schema/shacl/qudt> ;
-  vaem:latestPublishedVersion "https://qudt.org/doc/2023/10/DOC_SCHEMA-SHACL-QUDT-v2.1.html"^^xsd:anyURI ;
+  vaem:latestPublishedVersion "https://qudt.org/doc/2024/03/DOC_SCHEMA-SHACL-QUDT-v2.1.html"^^xsd:anyURI ;
   vaem:logo "https://qudt.org/linkedmodels.org/assets/lib/lm/images/logos/qudt_logo-300x110.png"^^xsd:anyURI ;
   vaem:namespace "http://qudt.org/schema/qudt/" ;
   vaem:namespacePrefix "qudt" ;
   vaem:owner "qudt.org" ;
-  vaem:previousPublishedVersion "https://qudt.org/doc/2023/09/DOC_SCHEMA-SHACL-QUDT-v2.1.html"^^xsd:anyURI ;
+  vaem:previousPublishedVersion "https://qudt.org/doc/2024/02/DOC_SCHEMA-SHACL-QUDT-v2.1.html"^^xsd:anyURI ;
   vaem:revision "2.1" ;
   vaem:turtleFileURL "http://qudt.org/2.1/schema/shacl/qudt"^^xsd:anyURI ;
   vaem:usesNonImportedResource dcterms:abstract ;
@@ -3621,7 +3733,7 @@ THE UCUM TABLE (IN ALL FORMATS), UCUM DEFINITIONS, AND SPECIFICATION ARE PROVIDE
   vaem:usesNonImportedResource voag:QUDT-Attribution ;
   vaem:withAttributionTo voag:QUDT-Attribution ;
   rdfs:isDefinedBy <http://qudt.org/2.1/schema/shacl/qudt> ;
-  rdfs:label "QUDT SHACL Schema Metadata Version 2.1.32" ;
+  rdfs:label "QUDT SHACL Schema Metadata Version 2.1.37" ;
   owl:versionIRI <http://qudt.org/2.1/schema/shacl/qudt> ;
 .
 vaem:QUDT
