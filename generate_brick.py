@@ -346,6 +346,10 @@ def define_classes(definitions, parent, pun_classes=False, graph=G):
             graph.add((alias, A, OWL.Class))
             graph.add((alias, A, SH.NodeShape))
             graph.add((alias, OWL.equivalentClass, classname))
+            # find parent class of what the alias is equivalent to, add the RDFS subClassOf properties
+            parent_classes = list(graph.objects(subject=alias, predicate=RDFS.subClassOf))
+            for pc in parent_classes:
+                graph.add((classname, RDFS.subClassOf, pc))
             graph.add((alias, BRICK.aliasOf, classname))
             if not has_label(alias, graph=graph):
                 graph.add(
