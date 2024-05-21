@@ -1,9 +1,10 @@
 from brickschema.graph import Graph
-from ontoenv import OntoEnv
+from ontoenv import OntoEnv, Config
 from rdflib import Literal, URIRef
 from .namespaces import SKOS, RDFS, BRICK, QUDTQK, QUDTDV, QUDT, UNIT
 
-env = OntoEnv(initialize=True, search_dirs=["support/"])
+cfg = Config(["support/"], strict=False, offline=True)
+env = OntoEnv(cfg)
 g = Graph()
 g.load_file("support/VOCAB_QUDT-QUANTITY-KINDS-ALL-v2.1.ttl")
 g.load_file("support/VOCAB_QUDT-UNITS-ALL-v2.1.ttl")

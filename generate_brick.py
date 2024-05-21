@@ -1087,9 +1087,10 @@ for name, graph in extension_graphs.items():
         fp.write("\n")
 
 # add rec stuff
-env = ontoenv.OntoEnv(initialize=True, search_dirs=["support/"])
-env.import_graph(G, "support/rec.ttl")
-env.import_graph(G, "support/brickpatches.ttl")
+cfg = ontoenv.Config(["Brick.ttl", "support/"], strict=False, offline=True)
+env = ontoenv.OntoEnv(cfg)
+env.import_graph(G, "https://w3id.org/rec")
+env.import_graph(G, "https://w3id.org/rec/brickpatches")
 
 # add inferred information to Brick
 # logger.info("Adding inferred information to Brick")
@@ -1108,9 +1109,9 @@ if os.path.exists("Brick+extensions.ttl"):
 # create new directory for storing imports
 os.makedirs("imports", exist_ok=True)
 for name, uri in ontology_imports.items():
-    graph, _ = env.resolve_uri(uri)
+    graph = env.get_graph(uri)
     graph.serialize(f"imports/{name}.ttl", format="turtle")
-    env.import_graph(G, graph)
+    env.import_graph(G, uri)
 
 # add new Brick to ontology environment
 env.refresh()
