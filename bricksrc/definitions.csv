@@ -694,6 +694,7 @@ https://brickschema.org/schema/Brick#Low_Suction_Pressure_Alarm,An alarm that in
 https://brickschema.org/schema/Brick#Low_Temperature_Alarm,An alarm that indicates low temperature.,
 https://brickschema.org/schema/Brick#Low_Temperature_Alarm_Parameter,A parameter determining the temperature level at which to trigger a low temperature alarm,
 https://brickschema.org/schema/Brick#Low_Voltage_Alarm,An alarm that indicates the voltage is lower than its normal state.,
+https://brickschema.org/schema/Brick#Lower_Threshold_Setpoint,Evaluates to true when the process variable (PV) falls below specified value.,
 https://brickschema.org/schema/Brick#Lowest_Exhaust_Air_Static_Pressure_Sensor,The lowest observed static pressure of air in exhaust regions of an HVAC system over some period of time,
 https://brickschema.org/schema/Brick#Luminaire,"A complete lighting unit consisting of a lamp or lamps and ballast(s) (when applicable) together with the parts designed to distribute the light, to position and protect the lamps, and to connect the lamps to the power supply.",
 https://brickschema.org/schema/Brick#Luminaire_Driver,A power source for a luminaire,
@@ -1085,6 +1086,7 @@ https://brickschema.org/schema/Brick#TETRA_Room,"A room used for local two-way r
 https://brickschema.org/schema/Brick#TVOC_Level_Sensor,A sensor measuring the level of all VOCs in air,
 https://brickschema.org/schema/Brick#Tablet,"A flat, handheld mobile computer, usually with a touchscreen",
 https://brickschema.org/schema/Brick#Tank,A container designed to hold or store fluids for various applications within a system.,
+https://brickschema.org/schema/Brick#Target_Setpoint,Desired target for a process variable (PV).,
 https://brickschema.org/schema/Brick#Team_Room,An office used by multiple team members for specific work tasks. Distinct from Conference Room,
 https://brickschema.org/schema/Brick#Telecom_Room,A class of spaces used to support telecommuncations and IT equipment,
 https://brickschema.org/schema/Brick#Temperature,,
@@ -1113,6 +1115,7 @@ https://brickschema.org/schema/Brick#Thermally_Activated_Building_System_Panel,R
 https://brickschema.org/schema/Brick#Thermostat,An automatic control device used to maintain temperature at a fixed or adjustable setpoint.,
 https://brickschema.org/schema/Brick#Thermostat_Status,Status of a thermostat,
 https://brickschema.org/schema/Brick#Thermostatic_Mixing_Valve,"A valve that blends hot water with cold water to ensure constant, safe shower and bath outlet temperatures, preventing scalding.",https://en.wikipedia.org/wiki/Thermostatic_mixing_valve
+https://brickschema.org/schema/Brick#Threshold_Setpoint,Evaluates to true when a process variable crosses a specified value.,
 https://brickschema.org/schema/Brick#Ticketing_Booth,A room or space used to sell or distribute tickets to events at a venue,
 https://brickschema.org/schema/Brick#Time,,
 https://brickschema.org/schema/Brick#Time_Parameter,,
@@ -1141,6 +1144,7 @@ https://brickschema.org/schema/Brick#Unoccupied_Heating_Zone_Air_Temperature_Set
 https://brickschema.org/schema/Brick#Unoccupied_Humidity_Setpoint,Target humidity level when the location is unoccupied.,
 https://brickschema.org/schema/Brick#Unoccupied_Load_Shed_Command,,
 https://brickschema.org/schema/Brick#Unoccupied_Target_Zone_Air_Temperature_Setpoint,Target Setpoint (also known as Common Setpoint) is a reference point representing the desired unoccupied air temperature in a specific zone of a building. This setpoint acts as a baseline from which deadband setpoints are established by adding or subtracting a deadband width.,
+https://brickschema.org/schema/Brick#Upper_Threshold_Setpoint,Evaluates to true when the process variable (PV) exceeds specified value.,
 https://brickschema.org/schema/Brick#Usage_Sensor,"Measures the amount of some substance that is consumed or used, over some period of time",
 https://brickschema.org/schema/Brick#VAV,See Variable_Air_Volume_Box,
 https://brickschema.org/schema/Brick#VFD,"Electronic device that varies its output frequency to vary the rotating speed of a motor, given a fixed input frequency. Used with fans or pumps to vary the flow in the system as a function of a maintained pressure.",https://xp20.ashrae.org/terminology/index.php?term=vfd&submit=Search
