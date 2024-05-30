@@ -18,7 +18,7 @@ from bricksrc.ontology import (
     define_extension,
     BRICK_IRI_VERSION,
 )
-
+from bricksrc.env import env
 
 from bricksrc.namespaces import (
     BRICK,
@@ -390,13 +390,16 @@ def define_constraints(constraints, classname, graph=G):
         if isinstance(property_values, URIRef):
             graph.add((pnode, SH["class"], property_values))
         elif isinstance(property_values, list):
-            graph.add((pnode, SH["or"], onode))
-            possible_values = []
-            for pv in property_values:
-                pvnode = BNode()
-                graph.add((pvnode, SH["class"], pv))
-                possible_values.append(pvnode)
-            Collection(graph, onode, possible_values)
+            if len(property_values) > 1:
+                graph.add((pnode, SH["or"], onode))
+                possible_values = []
+                for pv in property_values:
+                    pvnode = BNode()
+                    graph.add((pvnode, SH["class"], pv))
+                    possible_values.append(pvnode)
+                Collection(graph, onode, possible_values)
+            elif len(property_values) == 1:
+                graph.add((pnode, SH["class"], property_values[0]))
         else:
             raise Exception("Do not know how to handle constraints for %s" % classname)
 
@@ -846,17 +849,9 @@ G.add((BRICK.Tag, A, OWL.Class))
 roots = {
     "Equipment": {
         "tags": [TAG.Equipment],
-        "constraints": {
-            BRICK.hasLocation: [REC.Space],
-            BRICK.hasPoint: [BRICK.Point],
-        },
     },
     "Location": {
         "tags": [TAG.Location],
-        "constraints": {
-            BRICK.hasPoint: [BRICK.Point],
-            BRICK.hasPart: [BRICK.Location, REC.Space],
-        }
     },
     "Point": {"tags": [TAG.Point]},
     "Measurable": {"tags": [TAG.Measurable]},
@@ -1087,8 +1082,6 @@ for name, graph in extension_graphs.items():
         fp.write("\n")
 
 # add rec stuff
-cfg = ontoenv.Config(["Brick.ttl", "support/"], strict=False, offline=True)
-env = ontoenv.OntoEnv(cfg)
 env.import_graph(G, "https://w3id.org/rec")
 env.import_graph(G, "https://w3id.org/rec/brickpatches")
 
@@ -1114,6 +1107,7 @@ for name, uri in ontology_imports.items():
     env.import_graph(G, uri)
 
 # add new Brick to ontology environment
+env.add("Brick.ttl")
 env.refresh()
 
 # validate Brick
