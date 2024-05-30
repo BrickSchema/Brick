@@ -18,32 +18,30 @@ setpoint_definitions = {
             "Current_Ratio_Setpoint": {
                 BRICK.hasQuantity: BRICK.Electric_Current,
                 "tags": [TAG.Point, TAG.Setpoint, TAG.Current, TAG.Electric, TAG.Ratio],
+                "parents": [BRICK.Target_Setpoint],
             },
             "Voltage_Ratio_Setpoint": {
                 BRICK.hasQuantity: BRICK.Voltage,
                 "tags": [TAG.Point, TAG.Setpoint, TAG.Voltage, TAG.Electric, TAG.Ratio],
+                "parents": [BRICK.Target_Setpoint],
             },
             "Frequency_Setpoint": {
                 "tags": [TAG.Point, TAG.Setpoint, TAG.Frequency],
                 BRICK.hasQuantity: BRICK.Frequency,
+                "parents": [BRICK.Target_Setpoint],
             },
             "Illuminance_Setpoint": {
                 BRICK.hasQuantity: QUDTQK.Illuminance,
                 "tags": [TAG.Point, TAG.Setpoint, TAG.Illuminance],
+                "parents": [BRICK.Target_Setpoint],
             },
             "Enthalpy_Setpoint": {
                 BRICK.hasQuantity: QUDTQK.Enthalpy,
                 "tags": [TAG.Point, TAG.Setpoint, TAG.Enthalpy],
-                "parents": [
-                    BRICK.Target_Setpoint,
-                ],
             },
             "Dewpoint_Setpoint": {
                 BRICK.hasQuantity: QUDTQK.DewPointTemperature,
                 "tags": [TAG.Point, TAG.Dewpoint, TAG.Setpoint],
-                "parents": [
-                    BRICK.Target_Setpoint,
-                ],
             },
             "Demand_Setpoint": {
                 "tags": [TAG.Point, TAG.Demand, TAG.Setpoint],
@@ -1042,6 +1040,7 @@ setpoint_definitions = {
             "Reset_Setpoint": {
                 "tags": [TAG.Point, TAG.Reset, TAG.Setpoint],
                 BRICK.hasQuantity: QUDTQK.Dimensionless,
+                "parents": [BRICK.Threshold_Setpoint],
                 "subclasses": {
                     "Supply_Air_Flow_Reset_Setpoint": {
                         "aliases": [BRICK["Discharge_Air_Flow_Reset_Setpoint"]],
