@@ -524,7 +524,6 @@ rec:Asset
 rec:Atrium
   rdf:type rdfs:Class ;
   rdf:type sh:NodeShape ;
-  rdfs:label "Atrium" ;
   rdfs:subClassOf rec:Room ;
 .
 rec:AudioVisualEquipment
