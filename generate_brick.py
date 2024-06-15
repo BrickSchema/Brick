@@ -147,7 +147,7 @@ def add_tags(klass, definition, graph=G):
         graph.add((klass, BRICK.hasAssociatedTag, tag))
         graph.add((tag, A, BRICK.Tag))  # make sure the tag is declared as such
         graph.add(
-            (tag, RDFS.label, Literal(tag.split("#")[-1]))
+            (tag, RDFS.label, Literal(tag.split("#")[-1], lang="en"))
         )  # make sure the tag is declared as such
 
     # add SHACL shape
@@ -425,7 +425,7 @@ def define_entity_properties(definitions, superprop=None, graph=G):
             if val is not None:
                 val = defn.pop(annotation)
                 graph.add((pshape, annotation, val))
-        graph.add((pshape, RDFS.label, Literal(f"has {defn.get(RDFS.label)} property")))
+        graph.add((pshape, RDFS.label, Literal(f"has {defn.get(RDFS.label)} property", lang="en")))
 
         # add the entity property as a sh:property on all of the
         # other Nodeshapes indicated by "property_of"
@@ -872,7 +872,7 @@ define_classes(roots, BRICK.Entity)  # >= Brick v1.3.0
 logger.info("Defining properties")
 # define BRICK properties
 G.add((BRICK.Relationship, A, OWL.ObjectProperty))
-G.add((BRICK.Relationship, RDFS.label, Literal("Relationship")))
+G.add((BRICK.Relationship, RDFS.label, Literal("Relationship", lang="en")))
 G.add(
     (
         BRICK.Relationship,
@@ -925,7 +925,7 @@ G.add(
 )  # needs the type declaration to satisfy some checkers
 G.add((BRICK.Quantity, RDFS.subClassOf, BRICK.Measurable))
 G.add((BRICK.Quantity, A, OWL.Class))
-G.add((BRICK.Quantity, RDFS.label, Literal("Quantity")))
+G.add((BRICK.Quantity, RDFS.label, Literal("Quantity", lang="en")))
 G.add((BRICK.Quantity, RDFS.subClassOf, SKOS.Concept))
 # set up Substance definition
 G.add((BRICK.Substance, RDFS.subClassOf, SOSA.FeatureOfInterest))
@@ -934,7 +934,7 @@ G.add(
 )  # needs the type declaration to satisfy some checkers
 G.add((BRICK.Substance, RDFS.subClassOf, BRICK.Measurable))
 G.add((BRICK.Substance, A, OWL.Class))
-G.add((BRICK.Substance, RDFS.label, Literal("Substance")))
+G.add((BRICK.Substance, RDFS.label, Literal("Substance", lang="en")))
 
 # We make the punning explicit here. Any subclass of brick:Substance
 # is itself a substance or quantity. There is one canonical instance of
