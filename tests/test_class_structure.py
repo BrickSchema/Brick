@@ -90,7 +90,7 @@ def test_non_root_classes_are_subclasses(brick_with_imports):
     query = f"""
     SELECT ?class WHERE {{
         ?class a owl:Class .
-        STRSTARTS(STR(?class), "{BRICK}") .
+        FILTER STRSTARTS(STR(?class), "{BRICK}") .
         FILTER NOT EXISTS {{
             ?class rdfs:subClassOf ?parent .
         }}
