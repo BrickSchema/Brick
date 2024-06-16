@@ -82,3 +82,19 @@ def test_subclasses(brick_with_imports):
         expected
     ), f"Got extra classes that may not be defined: \
                                       {remaining}"
+
+
+def test_non_root_classes_are_subclasses(brick_with_imports):
+    # find all owl:Class which are in the Brick namespace
+    # and are not subclasses of any other class
+    query = f"""
+    SELECT ?class WHERE {{
+        ?class a owl:Class .
+        FILTER STRSTARTS(STR(?class), "{BRICK}") .
+        FILTER NOT EXISTS {{
+            ?class rdfs:subClassOf ?parent .
+        }}
+        FILTER ( ?class NOT IN (brick:Class, brick:Entity, brick:EntityPropertyValue, brick:EntityProperty, brick:Tag) )
+    }}"""
+    for result in brick_with_imports.query(query):
+        assert False, f"Class {result} is not a subclass of any other class"
