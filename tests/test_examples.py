@@ -3,7 +3,7 @@ Tests all example files. See tests/conftest.py for the fixture that generates ea
 """
 import ontoenv
 
-env = ontoenv.OntoEnv()
+env = ontoenv.OntoEnv(read_only=True)
 
 
 def test_example_file_with_reasoning(brick_with_imports, filename):

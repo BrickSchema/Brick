@@ -7,7 +7,7 @@ Brick.ttl: bricksrc/*.py bricksrc/*.ttl bricksrc/definitions.csv generate_brick.
 	python handle_extensions.py
 
 clean:
-	rm -r Brick.ttl Brick+extensions.ttl imports/
+	rm -r Brick.ttl Brick+extensions.ttl imports/ .ontoenv
 
 format:
 	black generate_brick.py

@@ -32,6 +32,11 @@ brick:Location a sh:NodeShape ;
         sh:class brick:Equipment;
         sh:message "Locations can be fed only by other Equipment."
     ];
+    sh:property [
+        sh:path brick:hasPoint ;
+        sh:class brick:Point ;
+        sh:message "A Location can have Points."
+    ];
     .
 
 brick:Equipment a sh:NodeShape ;
@@ -44,6 +49,11 @@ brick:Equipment a sh:NodeShape ;
         sh:path brick:hasPart;
         sh:class brick:Equipment;
         sh:message "A piece of Equipment's parts should be always other Equipment."
+    ];
+    sh:property [
+        sh:path brick:hasPoint ;
+        sh:class brick:Point ;
+        sh:message "A piece of Equipment can have Points."
     ];
     sh:property [
         sh:path brick:isPartOf;
@@ -81,6 +91,11 @@ brick:Point a sh:NodeShape;
         sh:path brick:hasLocation ;
         sh:maxCount 0 ;
         sh:message "Points cannot have locations; use 'isPointOf' instead" ;
+    ] ;
+    sh:property [
+        sh:path brick:isPointOf ;
+        sh:or ( [ sh:class brick:Equipment ] [ sh:class brick:Location ] [ sh:class rec:Space ] );
+        sh:message "A Point can be a Point of Equipment, Location or Space."
     ] ;
     .
 

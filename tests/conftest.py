@@ -34,7 +34,7 @@ def pytest_configure(config):
 
 @pytest.fixture()
 def brick_with_imports():
-    env = ontoenv.OntoEnv(search_dirs=["support/"])
+    env = ontoenv.OntoEnv(read_only=True)
     g = brickschema.Graph()
     g.load_file("Brick.ttl")
     g.bind("qudt", QUDT)
