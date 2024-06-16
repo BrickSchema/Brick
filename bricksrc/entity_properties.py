@@ -14,37 +14,37 @@ entity_properties = {
         SKOS.definition: Literal("Marks a concept as deprecated"),
         "property_of": BRICK.Entity,
         SH.node: BRICK.DeprecationShape,
-        RDFS.label: Literal("Deprecation Notice"),
+        RDFS.label: Literal("Deprecation Notice", lang="en"),
     },
     BRICK.lastKnownValue: {
         SKOS.definition: Literal("The last known value of the Point entity"),
         "property_of": BRICK.Point,
         SH.node: BSH.LastKnownValueShape,
-        RDFS.label: Literal("Last known value"),
+        RDFS.label: Literal("Last known value", lang="en"),
     },
     BRICK.area: {
         SKOS.definition: Literal("Entity has 2-dimensional area"),
         SH.node: BSH.AreaShape,
         "property_of": BRICK.Location,
-        RDFS.label: Literal("Area"),
+        RDFS.label: Literal("Area", lang="en"),
         "subproperties": {
             BRICK.grossArea: {
                 SKOS.definition: Literal("Entity has gross 2-dimensional area"),
                 SH.node: BSH.AreaShape,
                 "property_of": BRICK.Location,
-                RDFS.label: Literal("Gross area"),
+                RDFS.label: Literal("Gross area", lang="en"),
             },
             BRICK.netArea: {
                 SKOS.definition: Literal("Entity has net 2-dimensional area"),
                 SH.node: BSH.AreaShape,
                 "property_of": BRICK.Location,
-                RDFS.label: Literal("Net area"),
+                RDFS.label: Literal("Net area", lang="en"),
             },
             BRICK.panelArea: {
                 SKOS.definition: Literal("Surface area of a panel, such as a PV panel"),
                 "property_of": BRICK.Equipment,
                 SH.node: BSH.AreaShape,
-                RDFS.label: Literal("Panel area"),
+                RDFS.label: Literal("Panel area", lang="en"),
             },
         },
     },
@@ -52,14 +52,14 @@ entity_properties = {
         SKOS.definition: Literal("Entity has 3-dimensional volume"),
         "property_of": [BRICK.Equipment, BRICK.Location],
         SH.node: BSH.VolumeShape,
-        RDFS.label: Literal("Volume"),
+        RDFS.label: Literal("Volume", lang="en"),
     },
     BRICK.azimuth: {
         SKOS.definition: Literal(
             "(Horizontal) angle between a projected vector and a reference vector (typically a compass bearing). The projected vector usually indicates the direction of a face or plane."
         ),
         SH.node: BSH.AzimuthShape,
-        RDFS.label: Literal("Azimuth"),
+        RDFS.label: Literal("Azimuth", lang="en"),
         "property_of": BRICK.Equipment,
     },
     BRICK.tilt: {
@@ -67,20 +67,20 @@ entity_properties = {
             "The direction an entity is facing in degrees above the horizon"
         ),
         SH.node: BSH.TiltShape,
-        RDFS.label: Literal("Tilt"),
+        RDFS.label: Literal("Tilt", lang="en"),
         "property_of": BRICK.Equipment,
     },
     BRICK.coordinates: {
         SKOS.definition: Literal("The location of an entity in latitude/longitude"),
         SH.node: BSH.CoordinateShape,
-        RDFS.label: Literal("Coordinates"),
+        RDFS.label: Literal("Coordinates", lang="en"),
         "property_of": [BRICK.Equipment, BRICK.Location],
     },
     # electrical properties
     BRICK.electricalComplexPower: {
         SKOS.definition: Literal("Associated electrical complexity with the entity"),
         SH.node: BSH.ElectricalComplexPowerShape,
-        RDFS.label: Literal("electrical complex power type"),
+        RDFS.label: Literal("electrical complex power type", lang="en"),
         "property_of": [BRICK.Equipment, BRICK.Point],
     },
     BRICK.electricalFlow: {
@@ -88,59 +88,59 @@ entity_properties = {
             "Entity has this electrical flow relative to the building'"
         ),
         SH.node: BSH.ElectricalFlowShape,
-        RDFS.label: Literal("Electrical flow direction"),
+        RDFS.label: Literal("Electrical flow direction", lang="en"),
         "property_of": [BRICK.Equipment, BRICK.Point],
     },
     BRICK.electricalPhases: {
         SKOS.definition: Literal("Entity has these electrical AC phases"),
         SH.node: BSH.PhasesShape,
-        RDFS.label: Literal("Electrical phases"),
+        RDFS.label: Literal("Electrical phases", lang="en"),
         "property_of": BRICK.Equipment,
     },
     BRICK.electricalPhaseCount: {
         SKOS.definition: Literal("Entity has these phases"),
         SH.node: BSH.PhaseCountShape,
-        RDFS.label: Literal("Electrical phase count"),
+        RDFS.label: Literal("Electrical phase count", lang="en"),
         "property_of": BRICK.Equipment,
     },
     BRICK.currentFlowType: {
         SKOS.definition: Literal("The current flow type of the entity"),
         SH.node: BSH.CurrentFlowTypeShape,
-        RDFS.label: Literal("Current flow type"),
+        RDFS.label: Literal("Current flow type", lang="en"),
         "property_of": BRICK.Equipment,
     },
     BRICK.ratedPowerOutput: {
         SKOS.definition: Literal("The nominal rated power output of the entity"),
-        RDFS.label: Literal("Rated power output"),
+        RDFS.label: Literal("Rated power output", lang="en"),
         SH.node: BSH.PowerQuantityShape,
         "property_of": BRICK.Equipment,
     },
     BRICK.measuredPowerOutput: {
         SKOS.definition: Literal("The nominal measured power output of the entity"),
-        RDFS.label: Literal("Measured power output"),
+        RDFS.label: Literal("Measured power output", lang="en"),
         SH.node: BSH.PowerQuantityShape,
         "property_of": BRICK.Equipment,
     },
     BRICK.ratedPowerInput: {
         SKOS.definition: Literal("The nominal rated power input of the entity"),
-        RDFS.label: Literal("Rated power input"),
+        RDFS.label: Literal("Rated power input", lang="en"),
         SH.node: BSH.PowerQuantityShape,
         "property_of": BRICK.Equipment,
     },
     BRICK.measuredPowerInput: {
         SKOS.definition: Literal("The nominal measured power input of the entity"),
-        RDFS.label: Literal("Measured power input"),
+        RDFS.label: Literal("Measured power input", lang="en"),
         SH.node: BSH.PowerQuantityShape,
         "property_of": BRICK.Equipment,
     },
     BRICK.ratedVoltageInput: {
         SKOS.definition: Literal("The nominal rated voltage input of the entity"),
         SH.node: BSH.VoltageQuantityShape,
-        RDFS.label: Literal("Measured voltage input"),
+        RDFS.label: Literal("Measured voltage input", lang="en"),
         "property_of": BRICK.Equipment,
         "subproperties": {
             BRICK.ratedMaximumVoltageInput: {
-                RDFS.label: Literal("Rated maximum voltage input"),
+                RDFS.label: Literal("Rated maximum voltage input", lang="en"),
                 SKOS.definition: Literal(
                     "The maximum voltage that can be input to the entity"
                 ),
@@ -148,7 +148,7 @@ entity_properties = {
                 "property_of": BRICK.Equipment,
             },
             BRICK.ratedMinimumVoltageInput: {
-                RDFS.label: Literal("Rated minimum voltage input"),
+                RDFS.label: Literal("Rated minimum voltage input", lang="en"),
                 SKOS.definition: Literal(
                     "The minimum voltage that can be input to the entity"
                 ),
@@ -161,10 +161,10 @@ entity_properties = {
         SKOS.definition: Literal("The nominal rated voltage output of the entity"),
         SH.node: BSH.VoltageQuantityShape,
         "property_of": BRICK.Equipment,
-        RDFS.label: Literal("Rated voltage output"),
+        RDFS.label: Literal("Rated voltage output", lang="en"),
         "subproperties": {
             BRICK.ratedMaximumVoltageOutput: {
-                RDFS.label: Literal("Rated maximum voltage output"),
+                RDFS.label: Literal("Rated maximum voltage output", lang="en"),
                 SKOS.definition: Literal(
                     "The maximum voltage that can be output by the entity"
                 ),
@@ -172,7 +172,7 @@ entity_properties = {
                 "property_of": BRICK.Equipment,
             },
             BRICK.ratedMinimumVoltageOutput: {
-                RDFS.label: Literal("Rated minimum voltage output"),
+                RDFS.label: Literal("Rated minimum voltage output", lang="en"),
                 SKOS.definition: Literal(
                     "The minimum voltage that can be output by the entity"
                 ),
@@ -184,11 +184,11 @@ entity_properties = {
     BRICK.ratedCurrentInput: {
         SKOS.definition: Literal("The nominal rated current input of the entity"),
         SH.node: BSH.Electric_CurrentQuantityShape,
-        RDFS.label: Literal("Rated current input"),
+        RDFS.label: Literal("Rated current input", lang="en"),
         "property_of": BRICK.Equipment,
         "subproperties": {
             BRICK.ratedMaximumCurrentInput: {
-                RDFS.label: Literal("Rated maximum current input"),
+                RDFS.label: Literal("Rated maximum current input", lang="en"),
                 SKOS.definition: Literal(
                     "The maximum current that can be input to the entity"
                 ),
@@ -196,7 +196,7 @@ entity_properties = {
                 "property_of": BRICK.Equipment,
             },
             BRICK.ratedMinimumCurrentInput: {
-                RDFS.label: Literal("Rated minimum current input"),
+                RDFS.label: Literal("Rated minimum current input", lang="en"),
                 SKOS.definition: Literal(
                     "The minimum current that can be input to the entity"
                 ),
@@ -208,11 +208,11 @@ entity_properties = {
     BRICK.ratedCurrentOutput: {
         SKOS.definition: Literal("The nominal rated current output of the entity"),
         SH.node: BSH.Electric_CurrentQuantityShape,
-        RDFS.label: Literal("Rated current output"),
+        RDFS.label: Literal("Rated current output", lang="en"),
         "property_of": BRICK.Equipment,
         "subproperties": {
             BRICK.ratedMaximumCurrentOutput: {
-                RDFS.label: Literal("Rated maximum current output"),
+                RDFS.label: Literal("Rated maximum current output", lang="en"),
                 SKOS.definition: Literal(
                     "The maximum current that can be output by the entity"
                 ),
@@ -220,7 +220,7 @@ entity_properties = {
                 "property_of": BRICK.Equipment,
             },
             BRICK.ratedMinimumCurrentOutput: {
-                RDFS.label: Literal("Rated minimum current output"),
+                RDFS.label: Literal("Rated minimum current output", lang="en"),
                 SKOS.definition: Literal(
                     "The minimum current that can be output by the entity"
                 ),
@@ -234,7 +234,7 @@ entity_properties = {
             "The % change in power output for every degree celsius that the entity is hotter than 25 degrees celsius"
         ),
         SH.node: BSH.TemperatureCoefficientPerDegreeCelsiusShape,
-        RDFS.label: Literal("Temperature coefficient"),
+        RDFS.label: Literal("Temperature coefficient", lang="en"),
         "property_of": BRICK.Equipment,
     },
     BRICK.conversionEfficiency: {
@@ -242,7 +242,7 @@ entity_properties = {
             "The percent efficiency of the conversion process (usually to power or energy) carried out by the entity"
         ),
         SH.node: BSH.EfficiencyShape,
-        RDFS.label: Literal("Conversion efficiency"),
+        RDFS.label: Literal("Conversion efficiency", lang="en"),
         "property_of": BRICK.Equipment,
         "subproperties": {
             BRICK.ratedModuleConversionEfficiency: {
@@ -251,7 +251,7 @@ entity_properties = {
                 ),
                 "property_of": BRICK.PV_Panel,
                 SH.node: BSH.EfficiencyShape,
-                RDFS.label: Literal("Rated module conversion efficiency"),
+                RDFS.label: Literal("Rated module conversion efficiency", lang="en"),
             },
             BRICK.measuredModuleConversionEfficiency: {
                 SKOS.definition: Literal(
@@ -259,7 +259,7 @@ entity_properties = {
                 ),
                 "property_of": BRICK.PV_Panel,
                 SH.node: BSH.EfficiencyShape,
-                RDFS.label: Literal("Measured module conversion efficiency"),
+                RDFS.label: Literal("Measured module conversion efficiency", lang="en"),
             },
         },
     },
@@ -267,7 +267,7 @@ entity_properties = {
     BRICK.operationalStage: {
         SKOS.definition: Literal("The associated operational stage"),
         SH.node: BSH.StageShape,
-        RDFS.label: Literal("Operational stage"),
+        RDFS.label: Literal("Operational stage", lang="en"),
         "property_of": BRICK.Equipment,
     },
     BRICK.operationalStageCount: {
@@ -276,7 +276,7 @@ entity_properties = {
         ),
         "property_of": BRICK.Equipment,
         SH.node: BSH.StageShape,
-        RDFS.label: Literal("Operational stage count"),
+        RDFS.label: Literal("Operational stage count", lang="en"),
     },
     BRICK.coolingCapacity: {
         SKOS.definition: Literal(
@@ -284,7 +284,7 @@ entity_properties = {
         ),
         "property_of": BRICK.Chiller,
         SH.node: BSH.CoolingCapacityShape,
-        RDFS.label: Literal("Cooling capacity"),
+        RDFS.label: Literal("Cooling capacity", lang="en"),
         RDFS.seeAlso: Literal("https://project-haystack.org/tag/coolingCapacity"),
     },
     # building properties
@@ -295,7 +295,7 @@ entity_properties = {
         RDFS.seeAlso: Literal("https://project-haystack.org/tag/primaryFunction"),
         "property_of": BRICK.Building,
         SH.node: BSH.BuildingPrimaryFunctionShape,
-        RDFS.label: Literal("Building primary function"),
+        RDFS.label: Literal("Building primary function", lang="en"),
     },
     BRICK.yearBuilt: {
         SKOS.definition: Literal(
@@ -304,7 +304,7 @@ entity_properties = {
         "property_of": BRICK.Building,
         SH.node: BSH.YearBuiltShape,
         RDFS.seeAlso: Literal("https://project-haystack.org/tag/yearBuilt"),
-        RDFS.label: Literal("Year built"),
+        RDFS.label: Literal("Year built", lang="en"),
     },
     BRICK.thermalTransmittance: {
         SKOS.definition: Literal(
@@ -312,7 +312,7 @@ entity_properties = {
         ),
         "property_of": BRICK.Location,
         SH.node: BSH.ThermalTransmittanceShape,
-        RDFS.label: Literal("Thermal transmittance"),
+        RDFS.label: Literal("Thermal transmittance", lang="en"),
         RDFS.seeAlso: Literal(
             "https://www.iso.org/obp/ui/#iso:std:iso:13789:ed-3:v1:en"
         ),
@@ -326,7 +326,7 @@ entity_properties = {
                 RDFS.seeAlso: Literal(
                     "https://www.iso.org/obp/ui/#iso:std:iso:13789:ed-3:v1:en"
                 ),
-                RDFS.label: Literal("Building thermal transmittance"),
+                RDFS.label: Literal("Building thermal transmittance", lang="en"),
             },
         },
     },
@@ -337,7 +337,7 @@ entity_properties = {
         ),
         "property_of": BRICK.Point,
         SH.node: BSH.AggregationShape,
-        RDFS.label: Literal("Aggregate"),
+        RDFS.label: Literal("Aggregate", lang="en"),
     },
     BRICK.isVirtualMeter: {
         SKOS.definition: Literal(
@@ -345,14 +345,14 @@ entity_properties = {
         ),
         "property_of": BRICK.Meter,
         SH.node: BSH.VirtualMeterShape,
-        RDFS.label: Literal("is virtual meter"),
+        RDFS.label: Literal("is virtual meter", lang="en"),
     },
     BRICK.electricVehicleChargerType: {
         SKOS.definition: Literal(
             "Which type of EVSE charger this is, e.g. Level 1 (up to up to 2.5kW of AC power on 1 phase 120V input), Level 2 (direct AC power but can use higher voltage and up to 3 phases), or Level 3 (direct DC power)"
         ),
         "property_of": BRICK.Electric_Vehicle_Charging_Station,
-        RDFS.label: Literal("has electric vehicle charger type"),
+        RDFS.label: Literal("has electric vehicle charger type", lang="en"),
         SH.node: BSH.ElectricVehicleChargingTypeShape,
     },
     BRICK.electricVehicleChargerDirectionality: {
@@ -363,7 +363,7 @@ entity_properties = {
             BRICK.Electric_Vehicle_Charging_Station,
             BRICK.Electric_Vehicle_Charging_Port,
         ],
-        RDFS.label: Literal("has electric vehicle charger directionality"),
+        RDFS.label: Literal("has electric vehicle charger directionality", lang="en"),
         SH.node: BSH.ElectricVehicleChargingDirectionalityShape,
     },
     BRICK.electricVehicleConnectorType: {
@@ -371,7 +371,7 @@ entity_properties = {
             "Identifies which kind of connector the port has. This property helps identify the physical connection required between the vehicle and the charging equipment."
         ),
         "property_of": BRICK.Electric_Vehicle_Charging_Port,
-        RDFS.label: Literal("has electric vehicle connector type"),
+        RDFS.label: Literal("has electric vehicle connector type", lang="en"),
         SH.node: BSH.ElectricVehicleConnectorTypeShape,
     },
 }
