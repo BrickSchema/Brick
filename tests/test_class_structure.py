@@ -94,6 +94,7 @@ def test_non_root_classes_are_subclasses(brick_with_imports):
         FILTER NOT EXISTS {{
             ?class rdfs:subClassOf ?parent .
         }}
+        FILTER ( ?class NOT IN (brick:Class, brick:Entity, brick:EntityPropertyValue, brick:EntityProperty, brick:Tag) )
     }}"""
     for result in brick_with_imports.query(query):
         assert False, f"Class {result} is not a subclass of any other class"
