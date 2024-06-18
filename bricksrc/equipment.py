@@ -17,7 +17,7 @@ equipment_subclasses = {
                     },
                     "Server": {
                         "tags": [TAG.Equipment, TAG.ICT, TAG.Hardware, TAG.Server]
-                    },  
+                    },
                 },
             },
             "ICT_Rack": {
@@ -39,7 +39,13 @@ equipment_subclasses = {
                         "tags": [TAG.Occupancy, TAG.Sensor, TAG.Equipment, TAG.ICT],
                     },
                     "People_Count_Sensor_Equipment": {
-                        "tags": [TAG.People, TAG.Count, TAG.Sensor, TAG.Equipment, TAG.ICT],
+                        "tags": [
+                            TAG.People,
+                            TAG.Count,
+                            TAG.Sensor,
+                            TAG.Equipment,
+                            TAG.ICT,
+                        ],
                     },
                     "Thermostat_Equipment": {
                         "tags": [TAG.Thermostat, TAG.Equipment, TAG.ICT],
@@ -960,7 +966,6 @@ hvac_subclasses = {
             },
         },
     },
-    "Fume_Hood": {"tags": [TAG.Equipment, TAG.Fume, TAG.Hood]},
     "Filter": {
         "tags": [TAG.Equipment, TAG.Filter],
         "subclasses": {
@@ -986,7 +991,12 @@ hvac_subclasses = {
             "Cooling_Tower_Fan": {
                 "tags": [TAG.Cool, TAG.Tower, TAG.Equipment, TAG.Fan],
             },
-            "Exhaust_Fan": {"tags": [TAG.Equipment, TAG.Fan, TAG.Exhaust]},
+            "Exhaust_Fan": {
+                "tags": [TAG.Equipment, TAG.Fan, TAG.Exhaust],
+                "subclasses": {
+                    "Fume_Hood": {"tags": [TAG.Equipment, TAG.Fume, TAG.Hood]},
+                },
+            },
             "Return_Fan": {"tags": [TAG.Equipment, TAG.Fan, TAG.Return]},
             "Booster_Fan": {"tags": [TAG.Equipment, TAG.Fan, TAG.Booster]},
             "Standby_Fan": {"tags": [TAG.Equipment, TAG.Fan, TAG.Standby]},
