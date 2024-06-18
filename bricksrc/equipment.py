@@ -17,7 +17,7 @@ equipment_subclasses = {
                     },
                     "Server": {
                         "tags": [TAG.Equipment, TAG.ICT, TAG.Hardware, TAG.Server]
-                    },  
+                    },
                 },
             },
             "ICT_Rack": {
@@ -39,7 +39,13 @@ equipment_subclasses = {
                         "tags": [TAG.Occupancy, TAG.Sensor, TAG.Equipment, TAG.ICT],
                     },
                     "People_Count_Sensor_Equipment": {
-                        "tags": [TAG.People, TAG.Count, TAG.Sensor, TAG.Equipment, TAG.ICT],
+                        "tags": [
+                            TAG.People,
+                            TAG.Count,
+                            TAG.Sensor,
+                            TAG.Equipment,
+                            TAG.ICT,
+                        ],
                     },
                     "Thermostat_Equipment": {
                         "tags": [TAG.Thermostat, TAG.Equipment, TAG.ICT],
@@ -959,6 +965,9 @@ hvac_subclasses = {
                 ],
             },
         },
+    },
+    "Freezer": {
+        "tags": [TAG.Freezer, TAG.Equipment],
     },
     "Fume_Hood": {"tags": [TAG.Equipment, TAG.Fume, TAG.Hood]},
     "Filter": {
