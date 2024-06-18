@@ -17,7 +17,6 @@ status_definitions = {
             "Damper_Position_Status": {
                 "tags": [TAG.Point, TAG.Damper, TAG.Position, TAG.Status],
                 BRICK.hasQuantity: BRICK.Position,
-                "tags": [TAG.Damper, TAG.Position, TAG.Status, TAG.Point],
             },
             "Direction_Status": {
                 BRICK.hasQuantity: BRICK.Direction,
@@ -246,6 +245,9 @@ status_definitions = {
             },
             "Mode_Status": {
                 "subclasses": {
+                    "Speed_Mode_Status": {
+                        "tags": [TAG.Point, TAG.Speed, TAG.Status, TAG.Mode],
+                    },
                     "Zone_Air_Conditioning_Mode_Status": {
                         "tags": [
                             TAG.Point,
@@ -540,15 +542,6 @@ status_definitions = {
                             },
                         },
                     },
-                },
-            },
-            "Speed_Status": {
-                "tags": [TAG.Point, TAG.Speed, TAG.Status],
-                "subclasses": {
-                    "Speed_Mode_Status": {
-                        "tags": [TAG.Point, TAG.Speed, TAG.Status, TAG.Mode],
-                        "parents": [BRICK.Mode_Status],
-                    }
                 },
             },
         },
