@@ -98,23 +98,25 @@ s223:DomainSpace
       sh:subject sh:this ;
     ] ;
 .
-s223:EnumerationKind-Medium
-  sh:rule [
-      a sh:TripleRule ;
-      sh:object [
-          sh:path s223tobrick:translatesTo ;
-        ] ;
-      sh:predicate brick:hasSubstance ;
-      sh:subject [
-          sh:path (
-              [
-                sh:inversePath s223:hasMedium ;
-              ]
-              s223:isConnectionPointOf
-            ) ;
-        ] ;
-    ] ;
-.
+# TODO: the rule execution in topquaadrant does not seem to evaluate the blank node
+# expressions inside sh:object, sh:subject
+#s223:EnumerationKind-Medium
+#  sh:rule [
+#      a sh:TripleRule ;
+#      sh:object [
+#          sh:path s223tobrick:translatesTo ;
+#        ] ;
+#      sh:predicate brick:hasSubstance ;
+#      sh:subject [
+#          sh:path (
+#              [
+#                sh:inversePath s223:hasMedium ;
+#              ]
+#              s223:isConnectionPointOf
+#            ) ;
+#        ] ;
+#    ] ;
+#.
 s223:Setpoint
   sh:rule [
       a sh:TripleRule ;

@@ -92,11 +92,6 @@ brick:Point a sh:NodeShape;
         sh:maxCount 0 ;
         sh:message "Points cannot have locations; use 'isPointOf' instead" ;
     ] ;
-    sh:property [
-        sh:path brick:isPointOf ;
-        sh:or ( [ sh:class brick:Equipment ] [ sh:class brick:Location ] [ sh:class rec:Space ] );
-        sh:message "A Point can be a Point of Equipment, Location or Space."
-    ] ;
     .
 
 brick:Collection a sh:NodeShape;
@@ -139,3 +134,11 @@ bsh:hasHotColdDeck
         sh:message "DDAHU must have a brick:Cold_Deck" ;
     ] ;
 .
+
+bsh:isPointOfShape a sh:PropertyShape ;
+    sh:targetClass brick:Point ;
+    sh:path brick:isPointOf ;
+    sh:or ( [ sh:class brick:Equipment ] [ sh:class brick:Location ] [ sh:class rec:Space ] );
+    sh:message "A Point can be a Point of Equipment, Location or Space."
+.
+
