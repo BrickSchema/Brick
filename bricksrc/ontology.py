@@ -48,7 +48,6 @@ ontology_imports = {
     "qudtprefix": "http://qudt.org/2.1/vocab/prefix",
     "qudtfacade": "http://qudt.org/2.1/schema/facade/qudt",
     "qudtusertest": "http://qudt.org/2.1/collection/usertest",
-    "s223ext": "https://brickschema.org/extension/s223extension",
 }
 
 shacl_namespace_declarations = [

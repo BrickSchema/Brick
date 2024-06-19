@@ -5,7 +5,8 @@
 @prefix : <urn:duct_example/> .
 
 <urn:duct_example> a owl:Ontology ;
-    owl:imports <https://brickschema.org/schema/1.4/Brick> .
+    owl:imports <https://brickschema.org/schema/1.4/Brick>,
+                <https://brickschema.org/extension/s223extension> .
 
 :saf1  a  brick:Supply_Air_Flow_Sensor ;
     rdfs:label "Supply Air Flow Sensor" .
