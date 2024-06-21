@@ -1,0 +1,77 @@
+@prefix brick: <https://brickschema.org/schema/Brick#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix s223: <http://data.ashrae.org/standard223#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix : <urn:rvav_example/> .
+
+
+<urn:rvav_example> a owl:Ontology ;
+    owl:imports <https://brickschema.org/schema/1.4/Brick>,
+                <https://brickschema.org/extension/s223extension> .
+
+# define the VAV with air and water connection points
+:vav  a  brick:VAV ;
+    rdfs:label "VAV" ;
+    brick:hasPart :coil, :damper ;
+    s223:hasConnectionPoint  :vav_air_inlet, :vav_air_outlet, :vav_water_inlet, :vav_water_outlet .
+
+:vav_air_inlet  a  s223:InletConnectionPoint ;
+    rdfs:label "VAV air inlet" ;
+    s223:hasMedium s223:Medium-Air .
+
+:vav_air_outlet  a  s223:OutletConnectionPoint ;
+    rdfs:label "VAV air outlet" ;
+    s223:hasMedium s223:Medium-Air .
+
+:vav_water_inlet  a  s223:InletConnectionPoint ;
+    rdfs:label "VAV water inlet" ;
+    s223:hasMedium s223:Medium-Water .
+
+:vav_water_outlet  a  s223:OutletConnectionPoint ;
+    rdfs:label "VAV water outlet" ;
+    s223:hasMedium s223:Medium-Water .
+
+
+# define the coil with water connection points
+:coil  a  brick:Hot_Water_Coil ;
+    rdfs:label "Heating Coil" ;
+    s223:hasConnectionPoint  :coil_water_inlet, :coil_water_outlet .
+
+:coil_water_inlet  a  s223:InletConnectionPoint ;
+    rdfs:label "Coil water inlet" ;
+    s223:mapsTo  :vav_water_inlet ;
+    s223:hasMedium s223:Medium-Water .
+
+:coil_water_outlet  a  s223:OutletConnectionPoint ;
+    rdfs:label "Coil water outlet" ;
+    s223:mapsTo  :vav_water_outlet ;
+    s223:hasMedium s223:Medium-Water .
+
+# define the damper
+:damper  a  brick:Damper ;
+    rdfs:label "Damper" .
+
+# define the boiler
+:boiler  a  brick:Boiler ;
+    rdfs:label "Boiler" ;
+    s223:hasConnectionPoint  :boiler_water_supply, :boiler_water_return .
+
+:boiler_water_supply  a  s223:OutletConnectionPoint ;
+    rdfs:label "Boiler water supply" ;
+    s223:hasMedium s223:Medium-Water .
+
+:boiler_water_return  a  s223:InletConnectionPoint ;
+    rdfs:label "Boiler water return" ;
+    s223:hasMedium s223:Medium-Water .
+
+# define the pipes
+:pipe1  a  s223:Pipe ;
+    rdfs:label "Pipe 1" ;
+    s223:hasMedium s223:Medium-Water ;
+    s223:cnx  :boiler_water_supply, :coil_water_inlet .
+
+:pipe2  a  s223:Pipe ;
+    rdfs:label "Pipe 2" ;
+    s223:hasMedium s223:Medium-Water ;
+    s223:cnx  :coil_water_outlet, :boiler_water_return .
+
