@@ -1,11 +1,19 @@
 import argparse
+import numpy as np
+from sentence_transformers import SentenceTransformer
+from scipy.optimize import linear_sum_assignment
 import json
 import os
 from collections import defaultdict
 from pathlib import Path
+import sys
+
+dirname = Path(__file__).resolve().parent.parent.parent
+sys.path.append(str(dirname))
+from bricksrc.deprecations import deprecations
 
 import semver
-from rdflib import Graph, OWL, RDF, RDFS, Namespace
+from rdflib import Graph, OWL, RDF, RDFS, Namespace, SKOS
 from tqdm import tqdm
 
 
@@ -77,6 +85,12 @@ g.bind("rdfs", RDFS)
 g.bind("rdf", RDF)
 g.bind("owl", OWL)
 
+old_brick = Graph()
+old_brick.parse(old_ttl, format="turtle")
+
+new_brick = Graph()
+new_brick.parse(new_ttl, format="turtle")
+
 
 def get_tag_sets(root):
     tag_sets = {}
@@ -93,14 +107,38 @@ def get_tag_sets(root):
     return tag_sets
 
 
-old_tag_sets = get_tag_sets(OLD_ROOT)
-new_tag_sets = get_tag_sets(NEW_ROOT)
+def get_concepts(graph):
+    # return everything in the brick: namespace
+    qstr = """SELECT ?s WHERE {
+        FILTER(STRSTARTS(STR(?s), "https://brickschema.org/schema"))
+        { ?s a owl:Class }
+        UNION
+        { ?s a owl:ObjectProperty }
+        UNION
+        { ?s a owl:DatatypeProperty }
+        UNION
+        { ?s a brick:Quantity }
+        UNION
+        { ?s a brick:EntityPropertyValue }
+        UNION
+        { ?s a brick:EntityProperty }
+    }"""
+    return set([row[0] for row in graph.query(qstr)])
+
+
+old_classes = get_concepts(old_brick)
+new_classes = get_concepts(new_brick)
+
+print(f"Old classes: {len(old_classes)}")
+print(f"New classes: {len(new_classes)}")
 
 history_dir = Path(f"history/{old_ver}-{new_ver}")
 os.makedirs(history_dir, exist_ok=True)
 
-old_classes = set(old_tag_sets.keys())
-new_classes = set(new_tag_sets.keys())
+# old_classes = set(old_tag_sets.keys())
+# new_classes = set(new_tag_sets.keys())
+
+print(f"Common classes: {len(old_classes & new_classes)}")
 
 with open(history_dir / "removed_classes.txt", "w") as fp:
     fp.write("\n".join(sorted(old_classes - new_classes)))
@@ -112,20 +150,45 @@ if args.serialize:
     g.serialize(history_dir / "graph.ttl", format="turtle")
 
 
-# List possible matches for removed classes
-mapping_candidates = defaultdict(list)
-for old_class, old_tag_set in tqdm(old_tag_sets.items()):
-    if old_class in new_tag_sets:
-        continue
-    for new_class, new_tag_set in new_tag_sets.items():
-        # If the delimited tags are similar in the old class and this new class,
-        # they might be mappable across the version.
-        if (
-            len(old_tag_set.intersection(new_tag_set))
-            / len(old_tag_set.union(new_tag_set))
-            > 0.7
-        ):
-            mapping_candidates[old_class].append(new_class)
+def prep_concept(graph, concept):
+    # remove BRICK namespace from concept, change '_' in to ' '
+    name = concept.split("#")[-1].replace("_", " ")
+    definition = graph.value(concept, RDFS.comment) or graph.value(
+        concept, SKOS.definition
+    )
+    # get the cbd of the concept
+    sentence = f"{name} - {definition}"
+    return sentence
 
-with open(history_dir / "possible_mapping.json", "w") as fp:
-    json.dump(mapping_candidates, fp, indent=2)
+
+THRESHOLD = 0.7
+
+model = SentenceTransformer("all-MiniLM-L6-v2")
+old_classes = list(old_classes)
+old_classes_sentences = [prep_concept(old_brick, c) for c in old_classes]
+old_embeddings = model.encode(old_classes_sentences)
+
+new_classes = list(new_classes)
+new_classes_sentences = [prep_concept(new_brick, c) for c in new_classes]
+new_embeddings = model.encode(new_classes_sentences)
+similarities = np.dot(old_embeddings, new_embeddings.T)
+distance_matrix = 1 - similarities
+row_ind, col_ind = linear_sum_assignment(distance_matrix)
+
+mapping = {}
+for i, j in zip(row_ind, col_ind):
+    score = similarities[i, j]
+    if score < THRESHOLD:
+        continue
+    if old_classes[i] == new_classes[j]:
+        continue
+    if old_classes[i] in deprecations:
+        continue
+    mapping[old_classes[i]] = new_classes[j]
+
+with open(history_dir / "mapping.json", "w") as fp:
+    json.dump(mapping, fp)
+
+# write deprecations to json file
+with open(history_dir / "deprecations.json", "w") as fp:
+    json.dump(deprecations, fp)

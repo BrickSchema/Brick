@@ -1,0 +1,6 @@
+sentence-transformers>=3.0.1
+scipy>=1.13.1
+numpy>=2.0.0
+semver>=3.0.2
+rdflib>=7.0.0
+tqdm>=4.66.4
