@@ -160,7 +160,6 @@ brick:Vertical_Space
 brick:Absolute_Humidity_Sensor
   rdf:type owl:Class ;
   rdf:type sh:NodeShape ;
-  rdfs:label "Absolute Humidity Sensor" ;
   rdfs:subClassOf brick:Humidity_Sensor ;
   sh:property [
       rdf:type sh:PropertyShape ;

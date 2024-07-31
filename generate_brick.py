@@ -1096,7 +1096,6 @@ for name, graph in extension_graphs.items():
 
 # add rec stuff
 env.import_graph(G, "https://w3id.org/rec")
-env.import_graph(G, "https://w3id.org/rec/brickpatches")
 
 # add inferred information to Brick
 # logger.info("Adding inferred information to Brick")
