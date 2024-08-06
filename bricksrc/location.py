@@ -192,14 +192,6 @@ location_subclasses = {
                     "Laboratory": {
                         "tags": [TAG.Laboratory, TAG.Room, TAG.Location],
                         "subclasses": {
-                            "Freezer": {
-                                "tags": [
-                                    TAG.Freezer,
-                                    TAG.Laboratory,
-                                    TAG.Room,
-                                    TAG.Location,
-                                ],
-                            },
                             "Cold_Box": {
                                 "tags": [
                                     TAG.Cold,
