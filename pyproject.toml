@@ -19,7 +19,7 @@ dependencies = [
     "brickschema[all]>=0.7.5",
     "semver>=2.10.1",
     "html5lib>=1.1",
-    "pyontoenv>=0.1.9a5",
+    "pyontoenv>=0.1.9a6",
 ]
 readme = "README.md"
 requires-python = ">= 3.9"
