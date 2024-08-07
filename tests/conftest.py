@@ -4,6 +4,7 @@ Generates tests automatically
 import pytest
 from rdflib import Namespace
 import ontoenv
+from ontoenv import OntoEnv, Config
 import brickschema
 import glob
 import sys
@@ -42,6 +43,8 @@ def brick_with_imports():
     g.bind("rdfs", RDFS)
     g.bind("brick", BRICK)
     env.import_dependencies(g)
+    # remove all imports
+    g.remove((None, OWL.imports, None))
     return g
 
 
