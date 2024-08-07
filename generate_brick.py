@@ -650,11 +650,12 @@ def define_relationships(definitions, superprop=None, graph=G):
         assert isinstance(subproperties_def, dict)
         define_relationships(subproperties_def, prop, graph=graph)
 
-        # generate a SHACL Property Shape for this relationship
-        qname = graph.namespace_manager.qname(prop)
-        propshape = BSH[f"{qname.replace(':','_')}Shape"]
-        graph.add((propshape, A, SH.PropertyShape))
-        graph.add((propshape, SH.path, prop))
+        # generate a SHACL Property Shape for this relationship if it is a Brick property
+        if prop.startswith(BRICK):
+            qname = graph.namespace_manager.qname(prop)
+            propshape = BSH[f"{qname.replace(':','_')}Shape"]
+            graph.add((propshape, A, SH.PropertyShape))
+            graph.add((propshape, SH.path, prop))
         if "range" in propdefn.keys():
             range_defn = propdefn.pop("range")
             if isinstance(range_defn, (tuple, list)):
