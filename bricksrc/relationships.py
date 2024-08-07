@@ -194,6 +194,24 @@ relationships = {
         "domain": BRICK.Meter,
         RDFS.label: Literal("is sub-meter of", lang="en"),
     },
+    "hasAmbientTemperature": {
+        A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+    },
+    "deprecationMitigationMessage": {
+        A: [OWL.DatatypeProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+    },
+    "deprecatedInVersion": {
+        A: [OWL.DatatypeProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+    },
+    "deprecationMitigationRule": {
+        A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+    },
+    "aggregationFunction": {
+        A: [OWL.DatatypeProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+    },
+    "ambientTemperatureOfMeasurement": {
+        A: [OWL.DatatypeProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+    },
 }
 
 # add REC relationships by mining them from the REC ontology
