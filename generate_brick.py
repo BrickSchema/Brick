@@ -631,12 +631,13 @@ def define_relationships(definitions, superprop=None, graph=G):
         return
 
     for prop, propdefn in definitions.items():
-        if isinstance(prop, str):
+        if not isinstance(prop, URIRef):
             prop = BRICK[prop]
         if superprop is not None:
             graph.add((prop, RDFS.subPropertyOf, superprop))
 
-        graph.add((prop, RDFS.subPropertyOf, BRICK.Relationship))
+        if prop.startswith(BRICK):
+            graph.add((prop, RDFS.subPropertyOf, BRICK.Relationship))
 
         # define property types
         prop_types = propdefn.get(A, [])
@@ -650,7 +651,8 @@ def define_relationships(definitions, superprop=None, graph=G):
         define_relationships(subproperties_def, prop, graph=graph)
 
         # generate a SHACL Property Shape for this relationship
-        propshape = BSH[f"{prop.split('#')[-1]}Shape"]
+        qname = graph.namespace_manager.qname(prop)
+        propshape = BSH[f"{qname.replace(':','_')}Shape"]
         graph.add((propshape, A, SH.PropertyShape))
         graph.add((propshape, SH.path, prop))
         if "range" in propdefn.keys():
