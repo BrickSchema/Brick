@@ -1266,26 +1266,6 @@ brick:Vertical_Space
   owl:deprecated "true"^^xsd:boolean ;
 .
 
-brick:TeamRoom
-  owl:deprecated "true"^^xsd:boolean ;
-  brick:deprecatedInVersion "1.4.0" ;
-  brick:deprecationMitigationMessage "Brick location classes are being phased out in favor of RealEstateCore classes. For a replacement, consider rec:TeamRoom" ;
-  brick:isReplacedBy rec:TeamRoom ;
-.
-
-brick:Lobby
-  owl:deprecated "true"^^xsd:boolean ;
-  brick:deprecatedInVersion "1.4.0" ;
-  brick:deprecationMitigationMessage "Brick location classes are being phased out in favor of RealEstateCore classes. For a replacement, consider rec:Lobby" ;
-  brick:isReplacedBy rec:Lobby ;
-.
-
-brick:Lounge
-  owl:deprecated "true"^^xsd:boolean ;
-  brick:deprecatedInVersion "1.4.0" ;
-  brick:deprecationMitigationMessage "Brick location classes are being phased out in favor of RealEstateCore classes. For a replacement, consider rec:Lounge" ;
-  brick:isReplacedBy rec:Lounge ;
-.
 brick:Visitor_Lobby
   owl:deprecated "true"^^xsd:boolean ;
     brick:deprecatedInVersion "1.4.0" ;
