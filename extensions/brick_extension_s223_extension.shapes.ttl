@@ -44,10 +44,10 @@
 brick:Equipment
   rdfs:subClassOf s223:Equipment ;
 .
-bsh:brick_isPointOfShape
+bsh:isPointOfShape
 sh:deactivated true ;
 .
-bsh:brick_isPointOfShapeExt
+bsh:isPointOfShapeExt
   a sh:PropertyShape ;
     sh:targetClass brick:Point ;
     sh:path brick:isPointOf ;

@@ -652,8 +652,7 @@ def define_relationships(definitions, superprop=None, graph=G):
 
         # generate a SHACL Property Shape for this relationship if it is a Brick property
         if prop.startswith(BRICK):
-            qname = graph.namespace_manager.qname(prop)
-            propshape = BSH[f"{qname.replace(':','_')}Shape"]
+            propshape = BSH[f"{prop[len(BRICK):]}Shape"]
             graph.add((propshape, A, SH.PropertyShape))
             graph.add((propshape, SH.path, prop))
         if "range" in propdefn.keys():

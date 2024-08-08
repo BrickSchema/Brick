@@ -21,6 +21,7 @@ def test_relationship_identification(brick):
     }
     non_brick_properties = all_properties - relships
 
+    # add 1 for the Relationship class itself, which is not defined in relationships.py
     assert (
-        len(relships) + len(non_brick_properties) == len(relationships)
+        len(relships) + len(non_brick_properties) == len(relationships) + 1
     ), "There are properties in the built ontology which do not appear in the relationships.py file. Make sure to add all properties to relationships.py."
