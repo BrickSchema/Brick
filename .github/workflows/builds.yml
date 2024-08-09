@@ -35,7 +35,7 @@ jobs:
         cat Brick.ttl
     - name: upload ttls
       id: upload-ttls
-      if: ${{ matrix.python-version }} == "3.10"
+      if: matrix.python-version == '3.10'
       uses: actions/upload-artifact@v4
       with:
         name: Brick-ontology
