@@ -6,6 +6,16 @@ on:
         - master
         - v1.*
   pull_request:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  # the python version to release the ontology with.
+  # Must be a version in the matrix.python-version list
+  RELEASE_PYTHON_VERSION: '3.10'
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -35,7 +45,7 @@ jobs:
         cat Brick.ttl
     - name: upload ttls
       id: upload-ttls
-      if: matrix.python-version == '3.10'
+      if: ${{ matrix.python-version == env.RELEASE_PYTHON_VERSION }}
       uses: actions/upload-artifact@v4
       with:
         name: Brick-ontology
@@ -43,7 +53,7 @@ jobs:
           Brick.ttl
     - name: comment artifact
       # if the trigger is on a pull request
-      if: github.event_name == 'pull_request' && matrix.python-version == '3.10'
+      if: ${{ github.event_name == 'pull_request' && matrix.python-version == env.RELEASE_PYTHON_VERSION }}
       uses: peter-evans/create-or-update-comment@v4
       with:
         issue-number: ${{ github.event.number }}
