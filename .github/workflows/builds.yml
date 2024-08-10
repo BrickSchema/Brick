@@ -43,7 +43,7 @@ jobs:
           Brick.ttl
     - name: comment artifact
       # if the trigger is on a pull request
-      if: github.event_name == 'pull_request'
+      if: github.event_name == 'pull_request' && matrix.python-version == '3.10'
       uses: peter-evans/create-or-update-comment@v4
       with:
         issue-number: ${{ github.event.number }}
