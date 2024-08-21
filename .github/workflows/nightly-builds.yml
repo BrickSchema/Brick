@@ -40,6 +40,8 @@ jobs:
           title: Nightly Build ${{ steps.date.outputs.date }}
           files: |
             Brick.ttl
+            Brick+imports.ttl
             Brick+extensions.ttl
+            Brick-only.ttl
             imports.zip
             extensions.zip

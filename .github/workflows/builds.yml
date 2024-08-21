@@ -33,6 +33,10 @@ jobs:
       run: |
         make
         cat Brick.ttl
+    - name: zip imports and extensions
+      run: |
+        zip -r imports.zip imports
+        zip -r extensions.zip extensions
     - name: upload ttls
       if: ${{ matrix.python-version }} == "3.10"
       uses: actions/upload-artifact@v3
@@ -40,6 +44,11 @@ jobs:
         name: Brick-ontology
         path: |
           Brick.ttl
+          Brick+imports.ttl
+          Brick+extensions.ttl
+          Brick-only.ttl
+          imports.zip
+          extensions.zip
     - name: Run the tests
       # -s flag: do not capture output (avoids killing test after 10 min)
       run: |
