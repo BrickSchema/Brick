@@ -12,8 +12,36 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix bsh: <https://brickschema.org/schema/BrickShape#> .
 
+### These concepts should be defined in the REC ontology but are not currently
+### contained in their Turtle distribution. They are defined here only temporarily
+### until they are added to the REC ontology.
+rec:Lounge
+  rdf:type rdf:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Lounge" ;
+  rdfs:comment "This concept definition comes from the Brick distribution until it is added in the REC ontology Turtle distribution." ;
+  rdfs:subClassOf rec:Room ;
+.
+
+rec:TeamRoom
+  rdf:type rdf:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Team Room" ;
+  rdfs:comment "This concept definition comes from the Brick distribution until it is added in the REC ontology Turtle distribution." ;
+  rdfs:subClassOf rec:Room ;
+.
+
+rec:Lobby
+  rdf:type rdf:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Lobby" ;
+  rdfs:comment "This concept definition comes from the Brick distribution until it is added in the REC ontology Turtle distribution." ;
+  rdfs:subClassOf rec:Room ;
+.
+
 brick:Ablutions_Room
   owl:deprecated "true"^^xsd:boolean ;
+    brick:isReplacedBy rec:Room ;
     brick:deprecatedInVersion "1.4.0" ;
     brick:deprecationMitigationMessage "Brick location classes are being phased out in favor of RealEstateCore classes. There is not yet a replacement in REC for Ablutions_Room" ;
 .
@@ -673,6 +701,9 @@ brick:Hallway
 .
 brick:Hazardous_Materials_Storage
   owl:deprecated "true"^^xsd:boolean ;
+  brick:deprecatedInVersion "1.4.0" ;
+  brick:deprecationMitigationMessage "Brick location classes are being phased out in favor of RealEstateCore classes. There is not yet a replacement in REC for Hazardous_Materials_Storage" ;
+  brick:isReplacedBy rec:Room ;
 .
 brick:Heat_Sensor
   sh:property [
@@ -1292,6 +1323,9 @@ brick:Usage_Sensor
 .
 brick:Vertical_Space
   owl:deprecated "true"^^xsd:boolean ;
+  brick:deprecatedInVersion "1.4.0" ;
+  brick:deprecationMitigationMessage "Brick location classes are being phased out in favor of RealEstateCore classes. There is not yet a replacement in REC for Vertical_Space" ;
+  brick:isReplacedBy rec:Room ;
 .
 
 brick:Visitor_Lobby
