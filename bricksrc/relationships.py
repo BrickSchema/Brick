@@ -1,5 +1,6 @@
 from rdflib import Literal
-from .namespaces import A, OWL, RDFS, BRICK, VCARD, QUDT, SDO, RDF, BSH, XSD
+from .namespaces import A, OWL, RDFS, BRICK, VCARD, QUDT, SDO, RDF, BSH, XSD, REC
+from .env import env
 
 """
 Defining Brick relationships
@@ -193,4 +194,38 @@ relationships = {
         "domain": BRICK.Meter,
         RDFS.label: Literal("is sub-meter of", lang="en"),
     },
+    "hasAmbientTemperature": {
+        A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+    },
+    "deprecationMitigationMessage": {
+        A: [OWL.DatatypeProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+    },
+    "deprecatedInVersion": {
+        A: [OWL.DatatypeProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+    },
+    "deprecationMitigationRule": {
+        A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+    },
+    "aggregationFunction": {
+        A: [OWL.DatatypeProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+    },
+    "ambientTemperatureOfMeasurement": {
+        A: [OWL.DatatypeProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+    },
 }
+
+# add REC relationships by mining them from the REC ontology
+rec = env.get_graph("https://w3id.org/rec")
+# for all objects of sh:path, read out the sh:nodeKind and sh:datatype
+query = """SELECT ?path ?nodeKind ?datatype WHERE {
+    ?p sh:path ?path .
+    OPTIONAL { ?p sh:nodeKind ?nodeKind }
+    OPTIONAL { ?p sh:datatype ?datatype }
+}"""
+for row in rec.query(query):
+    if row["path"] not in relationships:
+        relationships[row["path"]] = {}
+    if row["datatype"]:
+        relationships[row["path"]][A] = [OWL.DatatypeProperty]
+    if row["nodeKind"]:
+        relationships[row["path"]][A] = [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty]

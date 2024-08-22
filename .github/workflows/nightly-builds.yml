@@ -9,6 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        with:
+          submodules: 'recursive'
       - name: Get current date
         id: date
         run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
@@ -38,6 +40,8 @@ jobs:
           title: Nightly Build ${{ steps.date.outputs.date }}
           files: |
             Brick.ttl
+            Brick+imports.ttl
             Brick+extensions.ttl
+            Brick-only.ttl
             imports.zip
             extensions.zip

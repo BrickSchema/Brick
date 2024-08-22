@@ -631,12 +631,13 @@ def define_relationships(definitions, superprop=None, graph=G):
         return
 
     for prop, propdefn in definitions.items():
-        if isinstance(prop, str):
+        if not isinstance(prop, URIRef):
             prop = BRICK[prop]
         if superprop is not None:
             graph.add((prop, RDFS.subPropertyOf, superprop))
 
-        graph.add((prop, RDFS.subPropertyOf, BRICK.Relationship))
+        if prop.startswith(BRICK):
+            graph.add((prop, RDFS.subPropertyOf, BRICK.Relationship))
 
         # define property types
         prop_types = propdefn.get(A, [])
@@ -649,10 +650,11 @@ def define_relationships(definitions, superprop=None, graph=G):
         assert isinstance(subproperties_def, dict)
         define_relationships(subproperties_def, prop, graph=graph)
 
-        # generate a SHACL Property Shape for this relationship
-        propshape = BSH[f"{prop.split('#')[-1]}Shape"]
-        graph.add((propshape, A, SH.PropertyShape))
-        graph.add((propshape, SH.path, prop))
+        # generate a SHACL Property Shape for this relationship if it is a Brick property
+        if prop.startswith(BRICK):
+            propshape = BSH[f"{prop[len(BRICK):]}Shape"]
+            graph.add((propshape, A, SH.PropertyShape))
+            graph.add((propshape, SH.path, prop))
         if "range" in propdefn.keys():
             range_defn = propdefn.pop("range")
             if isinstance(range_defn, (tuple, list)):
@@ -1094,9 +1096,13 @@ for name, graph in extension_graphs.items():
         fp.write(graph.serialize(format="turtle").rstrip())
         fp.write("\n")
 
+# serialize Brick-only to output
+with open("Brick-only.ttl", "w", encoding="utf-8") as fp:
+    fp.write(G.serialize(format="turtle").rstrip())
+    fp.write("\n")
+
 # add rec stuff
 env.import_graph(G, "https://w3id.org/rec")
-env.import_graph(G, "https://w3id.org/rec/brickpatches")
 
 # add inferred information to Brick
 # logger.info("Adding inferred information to Brick")
@@ -1131,6 +1137,11 @@ valid, _, report = G.validate(engine="topquadrant")
 if not valid:
     print(report)
     sys.exit(1)
+
+# serialize Brick+imports to output
+with open("Brick+imports.ttl", "w", encoding="utf-8") as fp:
+    fp.write(G.serialize(format="turtle").rstrip())
+    fp.write("\n")
 
 # validate Brick
 # valid, _, report = pyshacl.validate(data_graph=G, advanced=True, allow_warnings=True)

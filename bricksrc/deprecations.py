@@ -1,6 +1,11 @@
 from .namespaces import BRICK, RDFS, SKOS, A, REC
 
 deprecations = {
+    BRICK.Speed_Status: {
+        "version": "1.4.0",
+        "mitigation_message": "Speed Status is no longer necessary. Use Speed Mode Status for motors with various categorical speed settings, such as low, medium, and high. To further clarify, points representing the current speed of a variable speed fan as an analog value or input, use Speed Sensor.",
+        "replace_with": BRICK.Speed_Mode_Status,
+    },
     BRICK.Condenser: {
         "version": "1.3.0",
         "mitigation_message": "'Condenser' and 'Condensing Unit' are interchangable terms. Renaming class to 'Condensing_Unit' to further aligns with ASHRAE's terminology.",

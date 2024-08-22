@@ -1,0 +1,28 @@
+[project]
+name = "brick"
+version = "0.1.0"
+description = "Add your description here"
+authors = [
+    { name = "Gabe Fierro", email = "gtfierro@mines.edu" }
+]
+readme = "README.md"
+requires-python = ">= 3.9"
+[tool.uv]
+dev-dependencies = [
+    "rdflib>=7.0.0",
+    "owlrl>=6.0.2",
+    "pytest>=8.3.2",
+    "tqdm>=4.66.5",
+    "pyshacl>=0.25.0",
+    "docker>=7.1.0",
+    "black>=24.8.0",
+    "pre-commit>=3.8.0",
+    "flake8>=7.1.1",
+    "pytest-xdist[psutil]>=3.6.1",
+    "semver>=3.0.2",
+    "html5lib>=1.1",
+    "pyontoenv>=0.1.9a6",
+    "brickschema[topquadrant]>=0.7.6a2",
+]
+[tool.uv.workspace]
+members = []

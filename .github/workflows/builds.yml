@@ -6,6 +6,16 @@ on:
         - master
         - v1.*
   pull_request:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  # the python version to release the ontology with.
+  # Must be a version in the matrix.python-version list
+  RELEASE_PYTHON_VERSION: '3.10'
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -14,6 +24,8 @@ jobs:
         python-version: ['3.9', '3.10']
     steps:
     - uses: actions/checkout@v3
+      with:
+        submodules: 'recursive'
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v3
       with:
@@ -31,13 +43,32 @@ jobs:
       run: |
         make
         cat Brick.ttl
+    - name: zip imports and extensions
+      run: |
+        zip -r imports.zip imports
+        zip -r extensions.zip extensions
     - name: upload ttls
-      if: ${{ matrix.python-version }} == "3.10"
-      uses: actions/upload-artifact@v3
+      id: upload-ttls
+      if: ${{ matrix.python-version == env.RELEASE_PYTHON_VERSION }}
+      uses: actions/upload-artifact@v4
       with:
         name: Brick-ontology
         path: |
           Brick.ttl
+          Brick+imports.ttl
+          Brick+extensions.ttl
+          Brick-only.ttl
+          imports.zip
+          extensions.zip
+    - name: comment artifact
+      # if the trigger is on a pull request
+      if: ${{ github.event_name == 'pull_request' && matrix.python-version == env.RELEASE_PYTHON_VERSION }}
+      uses: peter-evans/create-or-update-comment@v4
+      with:
+        issue-number: ${{ github.event.number }}
+        # in the body, make a markdown link to the steps.upload-ttls.output.artifact-url
+        body: |
+          The latest build of the Brick ontology on this PR is available [here](${{ steps.upload-ttls.outputs.artifact-url }}).
     - name: Run the tests
       # -s flag: do not capture output (avoids killing test after 10 min)
       run: |
