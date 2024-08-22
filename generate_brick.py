@@ -1096,6 +1096,11 @@ for name, graph in extension_graphs.items():
         fp.write(graph.serialize(format="turtle").rstrip())
         fp.write("\n")
 
+# serialize Brick-only to output
+with open("Brick-only.ttl", "w", encoding="utf-8") as fp:
+    fp.write(G.serialize(format="turtle").rstrip())
+    fp.write("\n")
+
 # add rec stuff
 env.import_graph(G, "https://w3id.org/rec")
 
@@ -1132,6 +1137,11 @@ valid, _, report = G.validate(engine="topquadrant")
 if not valid:
     print(report)
     sys.exit(1)
+
+# serialize Brick+imports to output
+with open("Brick+imports.ttl", "w", encoding="utf-8") as fp:
+    fp.write(G.serialize(format="turtle").rstrip())
+    fp.write("\n")
 
 # validate Brick
 # valid, _, report = pyshacl.validate(data_graph=G, advanced=True, allow_warnings=True)
