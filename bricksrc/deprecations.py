@@ -5,6 +5,7 @@ deprecations = {
         "version": "1.4.0",
         "mitigation_message": "Speed Status is no longer necessary. Use Speed Mode Status for motors with various categorical speed settings, such as low, medium, and high. To further clarify, points representing the current speed of a variable speed fan as an analog value or input, use Speed Sensor.",
         "replace_with": BRICK.Speed_Mode_Status,
+        RDFS.subClassOf: BRICK.Status,
     },
     BRICK.Condenser: {
         "version": "1.3.0",
@@ -15,6 +16,7 @@ deprecations = {
         "version": "1.4.0",
         "mitigation_message": "This class has a poor definition is supplanted by Temperature_Sensor",
         "replace_with": BRICK.Temperature_Sensor,
+        RDFS.subClassOf: BRICK.Sensor,
     },
     BRICK.Trace_Heat_Sensor: {
         "version": "1.4.0",
