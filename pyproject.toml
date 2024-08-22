@@ -5,6 +5,8 @@ description = "Add your description here"
 authors = [
     { name = "Gabe Fierro", email = "gtfierro@mines.edu" }
 ]
+readme = "README.md"
+requires-python = ">= 3.9"
 [tool.uv]
 dev-dependencies = [
     "rdflib>=7.0.0",
@@ -23,9 +25,8 @@ dev-dependencies = [
     "brickschema[topquadrant]>=0.7.6a2",
     "scipy>=1.13.1",
     "sentence-transformers>=3.0.1",
+    "numpy>=2.0.1",
 ]
-readme = "README.md"
-requires-python = ">= 3.9"
 
 [build-system]
 requires = ["hatchling"]
