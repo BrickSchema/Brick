@@ -10,7 +10,6 @@ import sys
 
 dirname = Path(__file__).resolve().parent.parent.parent
 sys.path.append(str(dirname))
-from bricksrc.deprecations import deprecations
 
 import semver
 from rdflib import Graph, OWL, RDF, RDFS, Namespace, SKOS
@@ -28,11 +27,12 @@ def get_root(version):
     short_version = get_short_version(version)
     if short_version == "1.3":
         return "https://brickschema.org/schema/Brick#Class"
-    if short_version == "1.4":
-        return "https://brickschema.org/schema/Brick#Entity"
     if semver.compare(version, "1.0.3") > 0:  # if current version is newer than 1.0.3
         return f"https://brickschema.org/schema/{short_version}/Brick#Class"
-    return f"https://brickschema.org/schema/{short_version}/BrickFrame#TagSet"
+    if semver.compare(version, "1.0.3") <= 0:  # if current version is older than 1.0.3
+        return f"https://brickschema.org/schema/{short_version}/BrickFrame#TagSet"
+    # 1.4 and later
+    return "https://brickschema.org/schema/Brick#Entity"
 
 
 argparser = argparse.ArgumentParser()
@@ -175,6 +175,23 @@ similarities = np.dot(old_embeddings, new_embeddings.T)
 distance_matrix = 1 - similarities
 row_ind, col_ind = linear_sum_assignment(distance_matrix)
 
+# fetch all deprecations from Brick
+deprecations = {}
+qstr = """
+SELECT ?s ?version ?message ?replacement WHERE {
+    ?s owl:deprecated true .
+    ?s brick:deprecatedInVersion ?version .
+    ?s brick:deprecationMitigationMessage ?message .
+    ?s brick:isReplacedBy ?replacement .
+}
+"""
+for row in new_brick.query(qstr):
+    deprecations[row[0]] = {
+        "version": row[1],
+        "message": row[2],
+        "replacement": row[3],
+    }
+
 mapping = {}
 for i, j in zip(row_ind, col_ind):
     score = similarities[i, j]
@@ -189,6 +206,26 @@ for i, j in zip(row_ind, col_ind):
 with open(history_dir / "mapping.json", "w") as fp:
     json.dump(mapping, fp)
 
-# write deprecations to json file
-with open(history_dir / "deprecations.json", "w") as fp:
-    json.dump(deprecations, fp)
+# remove deprecations that are not new
+for row in old_brick.query(qstr):
+    if row[0] in deprecations:
+        del deprecations[row[0]]
+
+# output the Markdown-formatted release notes
+
+# output added classes
+with open(history_dir / "release_notes.md", "w") as fp:
+    fp.write("## Added Concepts\n\n```\n")
+    for c in sorted(set(new_classes) - set(old_classes)):
+        fp.write(f"{c}")
+    fp.write("\n```\n")
+
+    fp.write("\n\n## Removed Concepts\n\n```\n")
+    for c in sorted(set(old_classes) - set(new_classes)):
+        fp.write(f"{c}")
+    fp.write("\n```\n")
+
+    fp.write("\n\n## Deprecations\n\n")
+    fp.write("<details>\n<summary>Deprecations JSON</summary>\n\n```json\n")
+    json.dump(deprecations, fp, indent=2)
+    fp.write("\n```\n")

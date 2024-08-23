@@ -23,6 +23,18 @@ dev-dependencies = [
     "html5lib>=1.1",
     "pyontoenv>=0.1.9a6",
     "brickschema[topquadrant]>=0.7.6a2",
+    "scipy>=1.13.1",
+    "sentence-transformers>=3.0.1",
+    "numpy>=2.0.1",
 ]
-[tool.uv.workspace]
-members = []
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.rye]
+managed = true
+dev-dependencies = []
+
+[tool.hatch.metadata]
+allow-direct-references = true
