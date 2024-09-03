@@ -1206,14 +1206,13 @@ setpoint_definitions = {
                                             TAG.Effective,
                                         ],
                                     },
-                                    "Effective_Target_Zone_Air_Temperature_Setpoint": {
+                                    "Effective_Zone_Air_Temperature_Setpoint": {
                                         "parents": [
                                             BRICK.Effective_Air_Temperature_Setpoint,
                                         ],
                                         "tags": [
                                             TAG.Point,
                                             TAG.Effective,
-                                            TAG.Target,
                                             TAG.Zone,
                                             TAG.Air,
                                             TAG.Temperature,
@@ -1290,14 +1289,13 @@ setpoint_definitions = {
                                             TAG.Occupied,
                                         ],
                                     },
-                                    "Occupied_Target_Zone_Air_Temperature_Setpoint": {
+                                    "Occupied_Zone_Air_Temperature_Setpoint": {
                                         "parents": [
                                             BRICK.Occupied_Air_Temperature_Setpoint,
                                         ],
                                         "tags": [
                                             TAG.Point,
                                             TAG.Occupied,
-                                            TAG.Target,
                                             TAG.Zone,
                                             TAG.Air,
                                             TAG.Temperature,
@@ -1524,65 +1522,60 @@ setpoint_definitions = {
                                     },
                                 },
                             },
-                            "Target_Zone_Air_Temperature_Setpoint": {
+                            "Zone_Air_Temperature_Setpoint": {
                                 BRICK.hasQuantity: BRICK.Temperature,
                                 BRICK.hasSubstance: BRICK.Zone_Air,
                                 "tags": [
                                     TAG.Point,
-                                    TAG.Target,
                                     TAG.Zone,
                                     TAG.Air,
                                     TAG.Temperature,
                                     TAG.Setpoint,
                                 ],
                                 "subclasses": {
-                                    "Effective_Target_Zone_Air_Temperature_Setpoint": {
+                                    "Effective_Zone_Air_Temperature_Setpoint": {
                                         "parents": [
                                             BRICK.Effective_Air_Temperature_Setpoint,
                                         ],
                                         "tags": [
                                             TAG.Point,
                                             TAG.Effective,
-                                            TAG.Target,
                                             TAG.Zone,
                                             TAG.Air,
                                             TAG.Temperature,
                                             TAG.Setpoint,
                                         ],
                                     },
-                                    "Occupied_Target_Zone_Air_Temperature_Setpoint": {
+                                    "Occupied_Zone_Air_Temperature_Setpoint": {
                                         "parents": [
                                             BRICK.Occupied_Air_Temperature_Setpoint,
                                         ],
                                         "tags": [
                                             TAG.Point,
                                             TAG.Occupied,
-                                            TAG.Target,
                                             TAG.Zone,
                                             TAG.Air,
                                             TAG.Temperature,
                                             TAG.Setpoint,
                                         ],
                                     },
-                                    "Standby_Target_Zone_Air_Temperature_Setpoint": {
+                                    "Standby_Zone_Air_Temperature_Setpoint": {
                                         "tags": [
                                             TAG.Point,
                                             TAG.Standby,
-                                            TAG.Target,
                                             TAG.Zone,
                                             TAG.Air,
                                             TAG.Temperature,
                                             TAG.Setpoint,
                                         ],
                                     },
-                                    "Unoccupied_Target_Zone_Air_Temperature_Setpoint": {
+                                    "Unoccupied_Zone_Air_Temperature_Setpoint": {
                                         "parents": [
                                             BRICK.Unoccupied_Air_Temperature_Setpoint,
                                         ],
                                         "tags": [
                                             TAG.Point,
                                             TAG.Unoccupied,
-                                            TAG.Target,
                                             TAG.Zone,
                                             TAG.Air,
                                             TAG.Temperature,
@@ -1646,14 +1639,13 @@ setpoint_definitions = {
                                             TAG.Unoccupied,
                                         ],
                                     },
-                                    "Unoccupied_Target_Zone_Air_Temperature_Setpoint": {
+                                    "Unoccupied_Zone_Air_Temperature_Setpoint": {
                                         "parents": [
                                             BRICK.Unoccupied_Air_Temperature_Setpoint,
                                         ],
                                         "tags": [
                                             TAG.Point,
                                             TAG.Unoccupied,
-                                            TAG.Target,
                                             TAG.Zone,
                                             TAG.Air,
                                             TAG.Temperature,
