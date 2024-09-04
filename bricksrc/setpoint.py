@@ -1,4 +1,4 @@
-from namespaces import TAG, BRICK, RDFS, QUDTQK
+from .namespaces import TAG, BRICK, RDFS, QUDTQK
 from rdflib import Literal
 
 setpoint_definitions = {
