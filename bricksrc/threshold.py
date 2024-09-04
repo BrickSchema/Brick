@@ -822,7 +822,7 @@ threshold_definitions = {
                     },
                 },
             },
-            "Upper_Threshold_Threshold": {
+            "Upper_Threshold": {
                 "subclasses": {
                     "CO2_Threshold": {
                         BRICK.hasQuantity: BRICK.CO2_Concentration,
