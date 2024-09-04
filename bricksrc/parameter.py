@@ -94,18 +94,18 @@ parameter_definitions = {
                     },
                 },
             },
-            "Deadband_Parameter": {
+            "Deadband": {
                 "tags": [TAG.Point, TAG.Deadband, TAG.Parameter],
                 BRICK.hasQuantity: QUDTQK.Dimensionless,
                 "subclasses": {
-                    "Humidity_Deadband_Parameter": {
+                    "Humidity_Deadband": {
                         BRICK.hasQuantity: QUDTQK.RelativeHumidity,
                         "tags": [TAG.Point, TAG.Deadband, TAG.Parameter, TAG.Humidity],
                     },
-                    "Temperature_Deadband_Parameter": {
+                    "Temperature_Deadband": {
                         BRICK.hasQuantity: BRICK.Temperature,
                         "subclasses": {
-                            "Occupied_Cooling_Temperature_Deadband_Parameter": {
+                            "Occupied_Cooling_Temperature_Deadband": {
                                 BRICK.hasQuantity: BRICK.Temperature,
                                 "tags": [
                                     TAG.Point,
@@ -117,7 +117,7 @@ parameter_definitions = {
                                 ],
                                 "parents": [BRICK.Cooling_Temperature_Setpoint],
                             },
-                            "Occupied_Heating_Temperature_Deadband_Parameter": {
+                            "Occupied_Heating_Temperature_Deadband": {
                                 BRICK.hasQuantity: BRICK.Temperature,
                                 "tags": [
                                     TAG.Point,
@@ -129,7 +129,7 @@ parameter_definitions = {
                                 ],
                                 "parents": [BRICK.Heating_Temperature_Setpoint],
                             },
-                            "Unoccupied_Cooling_Temperature_Deadband_Parameter": {
+                            "Unoccupied_Cooling_Temperature_Deadband": {
                                 "tags": [
                                     TAG.Point,
                                     TAG.Unoccupied,
@@ -140,7 +140,7 @@ parameter_definitions = {
                                 ],
                                 "parents": [BRICK.Cooling_Temperature_Setpoint],
                             },
-                            "Unoccupied_Heating_Temperature_Deadband_Parameter": {
+                            "Unoccupied_Heating_Temperature_Deadband": {
                                 "tags": [
                                     TAG.Point,
                                     TAG.Unoccupied,
@@ -151,7 +151,7 @@ parameter_definitions = {
                                 ],
                                 "parents": [BRICK.Heating_Temperature_Setpoint],
                             },
-                            "Supply_Air_Temperature_Deadband_Parameter": {
+                            "Supply_Air_Temperature_Deadband": {
                                 BRICK.hasSubstance: [
                                     BRICK.Supply_Air,
                                     BRICK.Discharge_Air,
@@ -162,15 +162,13 @@ parameter_definitions = {
                                 ],
                                 BRICK.hasQuantity: BRICK.Temperature,
                                 "aliases": [
-                                    BRICK[
-                                        "Discharge_Air_Temperature_Deadband_Parameter"
-                                    ]
+                                    BRICK["Discharge_Air_Temperature_Deadband"]
                                 ],
                                 "subclasses": {
-                                    "Heating_Supply_Air_Temperature_Deadband_Parameter": {
+                                    "Heating_Supply_Air_Temperature_Deadband": {
                                         "aliases": [
                                             BRICK[
-                                                "Heating_Discharge_Air_Temperature_Deadband_Parameter"
+                                                "Heating_Discharge_Air_Temperature_Deadband"
                                             ]
                                         ],
                                         BRICK.hasQuantity: BRICK.Temperature,
@@ -190,10 +188,10 @@ parameter_definitions = {
                                             BRICK.Heating_Temperature_Setpoint,
                                         ],
                                     },
-                                    "Cooling_Supply_Air_Temperature_Deadband_Parameter": {
+                                    "Cooling_Supply_Air_Temperature_Deadband": {
                                         "aliases": [
                                             BRICK[
-                                                "Cooling_Discharge_Air_Temperature_Deadband_Parameter"
+                                                "Cooling_Discharge_Air_Temperature_Deadband"
                                             ]
                                         ],
                                         BRICK.hasQuantity: BRICK.Temperature,
@@ -228,7 +226,7 @@ parameter_definitions = {
                                     BRICK.Air_Temperature_Setpoint,
                                 ],
                             },
-                            "Entering_Water_Temperature_Deadband_Parameter": {
+                            "Entering_Water_Temperature_Deadband": {
                                 BRICK.hasSubstance: BRICK.Entering_Water,
                                 BRICK.hasQuantity: BRICK.Temperature,
                                 "tags": [
@@ -241,7 +239,7 @@ parameter_definitions = {
                                 ],
                                 "parents": [BRICK.Entering_Water_Temperature_Setpoint],
                             },
-                            "Leaving_Water_Temperature_Deadband_Parameter": {
+                            "Leaving_Water_Temperature_Deadband": {
                                 BRICK.hasSubstance: BRICK.Leaving_Water,
                                 BRICK.hasQuantity: BRICK.Temperature,
                                 "tags": [
@@ -263,11 +261,11 @@ parameter_definitions = {
                         ],
                         "parents": [BRICK.Temperature_Setpoint],
                     },
-                    "Air_Flow_Deadband_Parameter": {
+                    "Air_Flow_Deadband": {
                         BRICK.hasSubstance: BRICK.Air,
                         BRICK.hasQuantity: QUDTQK.VolumeFlowRate,
                         "subclasses": {
-                            "Exhaust_Air_Stack_Flow_Deadband_Parameter": {
+                            "Exhaust_Air_Stack_Flow_Deadband": {
                                 "tags": [
                                     TAG.Point,
                                     TAG.Exhaust,
@@ -289,7 +287,7 @@ parameter_definitions = {
                         ],
                         "parents": [BRICK.Air_Flow_Setpoint],
                     },
-                    "Static_Pressure_Deadband_Parameter": {
+                    "Static_Pressure_Deadband": {
                         BRICK.hasQuantity: BRICK.Static_Pressure,
                         "tags": [
                             TAG.Point,
@@ -300,7 +298,7 @@ parameter_definitions = {
                         ],
                         "parents": [BRICK.Static_Pressure_Setpoint],
                         "subclasses": {
-                            "Supply_Air_Static_Pressure_Deadband_Parameter": {
+                            "Supply_Air_Static_Pressure_Deadband": {
                                 BRICK.hasSubstance: [
                                     BRICK.Supply_Air,
                                     BRICK.Discharge_Air,
@@ -311,9 +309,7 @@ parameter_definitions = {
                                 ],
                                 BRICK.hasQuantity: BRICK.Static_Pressure,
                                 "aliases": [
-                                    BRICK[
-                                        "Discharge_Air_Static_Pressure_Deadband_Parameter"
-                                    ]
+                                    BRICK["Discharge_Air_Static_Pressure_Deadband"]
                                 ],
                                 "tags": [
                                     TAG.Point,
