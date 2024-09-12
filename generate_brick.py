@@ -823,6 +823,7 @@ def handle_concept_labels():
     If there are two or more labels for a concept, choose one and raise a Warning
     """
     concepts = chain(
+            G.transitive_subjects(RDFS.subClassOf, BRICK.Entity),
             G.subjects(A, BRICK.Entity),
             G.subjects(A, OWL.ObjectProperty),
             G.subjects(A, OWL.DatatypeProperty),
