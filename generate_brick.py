@@ -1103,6 +1103,8 @@ with open("Brick-only.ttl", "w", encoding="utf-8") as fp:
 
 # add rec stuff
 env.import_graph(G, "https://w3id.org/rec")
+# remove the REC import
+G.remove((None, OWL.imports, URIRef("https://w3id.org/rec")))
 
 # add inferred information to Brick
 # logger.info("Adding inferred information to Brick")
