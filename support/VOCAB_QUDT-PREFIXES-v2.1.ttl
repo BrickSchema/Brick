@@ -14,7 +14,7 @@
 <http://qudt.org/2.1/vocab/prefix>
   a owl:Ontology ;
   vaem:hasGraphMetadata vaem:GMD_QUDT-PREFIXES ;
-  rdfs:label "QUDT VOCAB Decimal Prefixes Release 2.1.37" ;
+  rdfs:label "QUDT VOCAB Decimal Prefixes Release 2.1.42" ;
   owl:imports <http://qudt.org/2.1/schema/facade/qudt> ;
   owl:versionIRI <http://qudt.org/2.1/vocab/prefix> ;
   owl:versionInfo "Created with TopBraid Composer" ;
@@ -429,24 +429,24 @@ vaem:GMD_QUDT-PREFIXES
   dcterms:contributor "Steve Ray" ;
   dcterms:created "2020-07-15"^^xsd:date ;
   dcterms:creator "Steve Ray" ;
-  dcterms:modified "2024-03-22T17:08:06.843-04:00"^^xsd:dateTime ;
+  dcterms:modified "2024-08-31T13:12:42.284-04:00"^^xsd:dateTime ;
   dcterms:rights "The QUDT Ontologies are issued under a Creative Commons Attribution 4.0 International License (CC BY 4.0), available at https://creativecommons.org/licenses/by/4.0/. Attribution should be made to QUDT.org" ;
   dcterms:subject "Prefixes" ;
   dcterms:title "QUDT Prefixes Version 2.1 Vocabulary" ;
   vaem:description "The Prefixes vocabulary defines the prefixes commonly prepended to units to connote multiplication, either decimal or binary." ;
   vaem:graphName "prefix" ;
-  vaem:graphTitle "QUDT Prefixes Version 2.1.37" ;
+  vaem:graphTitle "QUDT Prefixes Version 2.1.42" ;
   vaem:hasGraphRole vaem:VocabularyGraph ;
   vaem:hasOwner <http://www.linkedmodel.org/schema/vaem#QUDT.org> ;
   vaem:hasSteward <http://www.linkedmodel.org/schema/vaem#QUDT.org> ;
   vaem:intent "Provides a vocabulary of prefixes for both human and machine use" ;
   vaem:isMetadataFor <http://qudt.org/2.1/vocab/prefix> ;
-  vaem:latestPublishedVersion "https://qudt.org/doc/2024/03/DOC_VOCAB-PREFIXES-v2.1.html"^^xsd:anyURI ;
+  vaem:latestPublishedVersion "https://qudt.org/doc/2024/08/DOC_VOCAB-PREFIXES-v2.1.html"^^xsd:anyURI ;
   vaem:logo "https://qudt.org/linkedmodels.org/assets/lib/lm/images/logos/qudt_logo-300x110.png"^^xsd:anyURI ;
   vaem:namespace "http://qudt.org/vocab/prefix/"^^xsd:anyURI ;
   vaem:namespacePrefix "prefix" ;
   vaem:owner "QUDT.org" ;
-  vaem:previousPublishedVersion "https://qudt.org/doc/2024/02/DOC_VOCAB-PREFIXES-v2.1.html"^^xsd:anyURI ;
+  vaem:previousPublishedVersion "https://qudt.org/doc/2024/07/DOC_VOCAB-PREFIXES-v2.1.html"^^xsd:anyURI ;
   vaem:revision "2.1" ;
   vaem:specificity 1 ;
   vaem:turtleFileURL "http://qudt.org/2.1/vocab/prefix"^^xsd:anyURI ;
@@ -458,5 +458,5 @@ vaem:GMD_QUDT-PREFIXES
   vaem:usesNonImportedResource dcterms:title ;
   vaem:website "http://qudt.org/2.1/vocab/prefix.ttl"^^xsd:anyURI ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/prefix> ;
-  rdfs:label "QUDT Prefix Vocabulary Version Metadata 2.1.37" ;
+  rdfs:label "QUDT Prefix Vocabulary Version Metadata 2.1.42" ;
 .

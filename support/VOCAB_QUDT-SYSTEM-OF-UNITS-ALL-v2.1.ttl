@@ -21,7 +21,7 @@
 <http://qudt.org/2.1/vocab/sou>
   a owl:Ontology ;
   vaem:hasGraphMetadata vaem:GMD_QUDT-SOU ;
-  rdfs:label "QUDT VOCAB Systems of Units Release 2.1.37" ;
+  rdfs:label "QUDT VOCAB Systems of Units Release 2.1.42" ;
   owl:imports <http://qudt.org/2.1/schema/facade/qudt> ;
   owl:imports <http://qudt.org/2.1/vocab/prefix> ;
   owl:versionInfo "Created with TopBraid Composer" ;
@@ -98,7 +98,7 @@ sou:IMPERIAL
 .
 sou:PLANCK
   a qudt:SystemOfUnits ;
-  dcterms:description """In physics, Planck units are physical units of measurement defined exclusively in terms of five universal physical constants listed below, in such a manner that these five physical constants take on the numerical value of 1 when expressed in terms of these units. Planck units elegantly simplify particular algebraic expressions appearing in physical law.  
+  dcterms:description """In physics, Planck units are physical units of measurement defined exclusively in terms of five universal physical constants listed below, in such a manner that these five physical constants take on the numerical value of 1 when expressed in terms of these units. Planck units elegantly simplify particular algebraic expressions appearing in physical law.
 Originally proposed in 1899 by German physicist Max Planck, these units are also known as natural units because the origin of their definition comes only from properties of nature and not from any human construct. Planck units are unique among systems of natural units, because they are not defined in terms of properties of any prototype, physical object, or even elementary particle.
 Unlike the meter and second, which exist as fundamental units in the SI system for (human) historical reasons, the Planck length and Planck time are conceptually linked at a fundamental physical level. Natural units help physicists to reframe questions."""^^rdf:HTML ;
   qudt:abbreviation "PLANCK" ;
@@ -236,29 +236,29 @@ vaem:GMD_QUDT-SOU
   dcterms:contributor "Steve Ray" ;
   dcterms:created "2016-07-04"^^xsd:date ;
   dcterms:creator "Ralph Hodgson" ;
-  dcterms:description "QUDT Systems of Units Vocabulary Version 2.1.37"^^rdf:HTML ;
-  dcterms:modified "2024-03-22T17:09:17.517-04:00"^^xsd:dateTime ;
+  dcterms:description "QUDT Systems of Units Vocabulary Version 2.1.42"^^rdf:HTML ;
+  dcterms:modified "2024-08-31T13:13:58.907-04:00"^^xsd:dateTime ;
   dcterms:rights "The QUDT Ontologies are issued under a Creative Commons Attribution 4.0 International License (CC BY 4.0), available at https://creativecommons.org/licenses/by/4.0/. Attribution should be made to QUDT.org" ;
   dcterms:subject "Systems of Units" ;
   dcterms:title "QUDT Systems of Units Version 2.1 Vocabulary" ;
-  vaem:graphTitle "QUDT Systems of Units Version 2.1.37" ;
+  vaem:graphTitle "QUDT Systems of Units Version 2.1.42" ;
   vaem:hasGraphRole vaem:VocabularyGraph ;
   vaem:hasOwner vaem:QUDT ;
   vaem:hasSteward vaem:QUDT ;
   vaem:intent "The intent of this graph is the specification of all Systems of Units" ;
   vaem:isMetadataFor <http://qudt.org/2.1/vocab/sou> ;
-  vaem:latestPublishedVersion "https://qudt.org/doc/2024/03/DOC_VOCAB-SYSTEMS-OF-UNITS-v2.1.html"^^xsd:anyURI ;
+  vaem:latestPublishedVersion "https://qudt.org/doc/2024/08/DOC_VOCAB-SYSTEMS-OF-UNITS-v2.1.html"^^xsd:anyURI ;
   vaem:logo "https://qudt.org/linkedmodels.org/assets/lib/lm/images/logos/qudt_logo-300x110.png"^^xsd:anyURI ;
   vaem:name "sou" ;
   vaem:namespace "http://qudt.org/vocab/sou/"^^xsd:anyURI ;
   vaem:namespacePrefix "sou" ;
   vaem:owner "qudt.org" ;
-  vaem:previousPublishedVersion "https://qudt.org/doc/2024/02/DOC_VOCAB-SYSTEMS-OF-UNITS-v2.1.html"^^xsd:anyURI ;
+  vaem:previousPublishedVersion "https://qudt.org/doc/2024/07/DOC_VOCAB-SYSTEMS-OF-UNITS-v2.1.html"^^xsd:anyURI ;
   vaem:revision "2.1" ;
   vaem:turtleFileURL "http://qudt.org/2.1/vocab/sou"^^xsd:anyURI ;
   vaem:usesNonImportedResource prov:wasInfluencedBy ;
   vaem:usesNonImportedResource prov:wasInformedBy ;
   rdfs:isDefinedBy <http://qudt.org/2.1/vocab/sou> ;
-  rdfs:label "QUDT System of Units Vocabulary Metadata Version v2.1.37" ;
+  rdfs:label "QUDT System of Units Vocabulary Metadata Version v2.1.42" ;
   owl:versionIRI <http://qudt.org/2.1/vocab/sou> ;
 .
