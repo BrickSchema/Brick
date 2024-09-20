@@ -7,7 +7,7 @@ BRICK_MINOR_VERSION = 4
 
 # Patch version: increment for minor additions/changes to the ontology that
 # are largely backwards compatible (bug-fixes exempted)
-BRICK_PATCH_VERSION = 1
+BRICK_PATCH_VERSION = 2
 
 # the simplified (no patch version) version number for Brick. Intended for
 # inclusion in the Brick namespace URI

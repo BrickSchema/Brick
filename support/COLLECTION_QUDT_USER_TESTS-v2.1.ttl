@@ -19,7 +19,7 @@
 <http://qudt.org/2.1/collection/usertest>
   a owl:Ontology ;
   rdfs:isDefinedBy <http://qudt.org/2.1/collection/usertest> ;
-  rdfs:label "QUDT Collection - USER TESTS - v 2.1.37" ;
+  rdfs:label "QUDT Collection - USER TESTS - v 2.1.42" ;
   sh:declare [
       a sh:PrefixDeclaration ;
       sh:namespace "http://purl.org/dc/terms/"^^xsd:anyURI ;
@@ -76,6 +76,27 @@
       sh:prefix "xsd" ;
     ]
   .
+qudt:ConsistentDimensionVectorConstraint
+  a sh:NodeShape ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/collection/usertest> ;
+  rdfs:label "Consistent Dimension Vector Constraint" ;
+  sh:sparql [
+      a sh:SPARQLConstraint ;
+      rdfs:comment "Checks for consistent dimension vectors for a QuantityKind and the Unit" ;
+      sh:message "s223: Inconsistent dimensionalities for a Quantity's Unit and Quantity Kind" ;
+      sh:prefixes <http://qudt.org/2.1/collection/usertest> ;
+      sh:select """
+SELECT $this
+   WHERE
+{
+      $this qudt:hasQuantityKind/qudt:hasDimensionVector ?qkdv1 .
+      $this qudt:hasUnit/qudt:hasDimensionVector ?qkdv2 .
+FILTER (?qkdv1 != ?qkdv2) .
+}
+""" ;
+    ] ;
+  sh:targetClass qudt:Quantity ;
+.
 qudt:DeprecatedPropertyConstraint
   a sh:NodeShape ;
   rdfs:isDefinedBy <http://qudt.org/2.1/collection/usertest> ;
