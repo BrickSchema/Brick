@@ -884,6 +884,26 @@ hvac_subclasses = {
             },
             "Condenser_Heat_Exchanger": {
                 "tags": [TAG.Condenser, TAG.Equipment, TAG.Heat, TAG.Exchanger],
+                "subclasses": {
+                    "Water_Cooled_Condenser_Heat_Exchanger": {
+                        "tags": [
+                            TAG.Water,
+                            TAG.Condenser,
+                            TAG.Equipment,
+                            TAG.Heat,
+                            TAG.Exchanger,
+                        ],
+                    },
+                    "Air_Cooled_Condenser_Heat_Exchanger": {
+                        "tags": [
+                            TAG.Air,
+                            TAG.Condenser,
+                            TAG.Equipment,
+                            TAG.Heat,
+                            TAG.Exchanger,
+                        ],
+                    },
+                },
             },
             "Heat_Wheel": {"tags": [TAG.Equipment, TAG.Heat, TAG.Wheel]},
             "Coil": {
