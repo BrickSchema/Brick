@@ -11,6 +11,7 @@ https://brickschema.org/schema/Brick#Adjust_Sensor,Measures user-provided adjust
 https://brickschema.org/schema/Brick#Air,"the invisible gaseous substance surrounding the earth, a mixture mainly of oxygen and nitrogen.",
 https://brickschema.org/schema/Brick#Air_Alarm,,
 https://brickschema.org/schema/Brick#Air_Cooled_Chiller,"A chiller that uses air to cool the refrigerant, used in various commercial and industrial cooling applications",
+https://brickschema.org/schema/Brick#Air_Cooled_Condenser_Heat_Exchanger,A type of heat exchanger used in refrigeration and air conditioning systems where the primary refrigerant vapor condenses into liquid by transferring heat to ambient air. It typically consists of finned tubes exposed to forced airflow.,
 https://brickschema.org/schema/Brick#Air_Differential_Pressure_Sensor,Measures the difference in pressure between two regions of air,
 https://brickschema.org/schema/Brick#Air_Differential_Pressure_Setpoint,Sets the target air differential pressure between an upstream and downstream point in a air duct or conduit,
 https://brickschema.org/schema/Brick#Air_Diffuser,A device that is a component of the air distribution system that controls the delivery of conditioned and/or ventilating air into a room,
@@ -1178,6 +1179,7 @@ https://brickschema.org/schema/Brick#Waste_Storage,A room used for storing waste
 https://brickschema.org/schema/Brick#Water,"transparent, odorless, tasteless liquid; a compound of hydrogen and oxygen (H2O), containing 11.188% hydrogen and 88.812% oxygen by mass; freezing at 32°F (0°C); boiling near 212°F (100°C).",
 https://brickschema.org/schema/Brick#Water_Alarm,"Alarm that indicates an undesirable event with a pipe, container, or equipment carrying water e.g. water leak",
 https://brickschema.org/schema/Brick#Water_Cooled_Chiller,"A chiller system using water in the heat exchange process, employed in industrial or commercial facilities for cooling",
+https://brickschema.org/schema/Brick#Water_Cooled_Condenser_Heat_Exchanger,A type of heat exchanger used in refrigeration and air conditioning systems where the primary refrigerant vapor condenses into liquid by transferring heat to circulating water. This process typically occurs in a shell-and-tube or plate heat exchanger.,
 https://brickschema.org/schema/Brick#Water_Differential_Pressure_Sensor,Measures the difference in water pressure between two points in a system.
 https://brickschema.org/schema/Brick#Water_Differential_Pressure_Setpoint,Sets the target water differential pressure between an upstream and downstream point in a water pipe or conduit,
 https://brickschema.org/schema/Brick#Water_Differential_Temperature_Sensor,Measures the difference in water temperature between an upstream and downstream point in a pipe or conduit,
