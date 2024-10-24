@@ -823,6 +823,7 @@ def handle_concept_labels():
     If there are two or more labels for a concept, choose one and raise a Warning
     """
     concepts = chain(
+            G.transitive_subjects(RDFS.subClassOf, BRICK.Entity),
             G.subjects(A, BRICK.Entity),
             G.subjects(A, OWL.ObjectProperty),
             G.subjects(A, OWL.DatatypeProperty),
@@ -1103,6 +1104,8 @@ with open("Brick-only.ttl", "w", encoding="utf-8") as fp:
 
 # add rec stuff
 env.import_graph(G, "https://w3id.org/rec")
+# remove the REC import
+G.remove((None, OWL.imports, URIRef("https://w3id.org/rec")))
 
 # add inferred information to Brick
 # logger.info("Adding inferred information to Brick")

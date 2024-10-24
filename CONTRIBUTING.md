@@ -49,7 +49,13 @@ git clone https://github.com/BrickSchema/Brick
 cd Brick
 ```
 
-2. Install the virtual environment and set up dependencies
+2. Use Git submodules to pull in the RealEstateCore ontology
+
+```bash
+git submodule update --init
+```
+
+3. Install the virtual environment and set up dependencies
 
 ```bash
 # creates virtual environment
@@ -65,7 +71,7 @@ pip install -r requirements.txt
 pre-commit install
 ```
 
-3. Run tests to make sure the build is not broken
+4. Run tests to make sure the build is not broken
 
 ```bash
 make test

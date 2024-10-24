@@ -24,7 +24,7 @@
   a owl:Ontology ;
   vaem:hasGraphMetadata vaem:GMD_SHACLQUDTOVERLAY-SCHEMA ;
   rdfs:comment "Supplements the generated SHACL Schema with constructs not expressible in the QUDT OWL Ontology" ;
-  rdfs:label "QUDT SHACL Schema Supplement Version 2.1.37" ;
+  rdfs:label "QUDT SHACL Schema Supplement Version 2.1.42" ;
   owl:imports <http://qudt.org/2.1/schema/shacl/qudt> ;
   owl:imports sh: ;
   sh:declare [
@@ -581,7 +581,7 @@ vaem:GMD_SHACLQUDTOVERLAY-SCHEMA
   dcterms:created "2020-04-20"^^xsd:date ;
   dcterms:creator "Ralph Hodgson" ;
   dcterms:description "<p class=\"lm-para\">The QUDT, or \"Quantity, Unit, Dimension and Type\" schema defines the base classes properties, and restrictions used for modeling physical quantities, units of measure, and their dimensions in various measurement systems. This overlay graph provides additional properties that affect the display of entities in a user interface, as well as some SHACL rules.</p>"^^rdf:HTML ;
-  dcterms:modified "2024-03-22T14:31:43.241-04:00"^^xsd:dateTime ;
+  dcterms:modified "2024-08-31T10:34:42.434-04:00"^^xsd:dateTime ;
   dcterms:rights """
   This product includes all or a portion of the UCUM table, UCUM codes, and UCUM definitions or is derived from it, subject to a license from Regenstrief Institute, Inc. and The UCUM Organization. Your use of the UCUM table, UCUM codes, UCUM definitions also is subject to this license, a copy of which is available at ​http://unitsofmeasure.org. The current complete UCUM table, UCUM Specification are available for download at ​http://unitsofmeasure.org. The UCUM table and UCUM codes are copyright © 1995-2009, Regenstrief Institute, Inc. and the Unified Codes for Units of Measures (UCUM) Organization. All rights reserved.
 
@@ -589,20 +589,20 @@ THE UCUM TABLE (IN ALL FORMATS), UCUM DEFINITIONS, AND SPECIFICATION ARE PROVIDE
   """ ;
   dcterms:rights "The QUDT Ontologies are issued under a Creative Commons Attribution 4.0 International License (CC BY 4.0), available at https://creativecommons.org/licenses/by/4.0/. Attribution should be made to QUDT.org" ;
   dcterms:subject "QUDT" ;
-  dcterms:title "QUDT SHACL Schema Overlay - Version 2.1.37" ;
+  dcterms:title "QUDT SHACL Schema Overlay - Version 2.1.42" ;
   vaem:graphName "qudtOverlay" ;
-  vaem:graphTitle "Quantities, Units, Dimensions and Types (QUDT) SHACL Schema Overlay - Version 2.1.37" ;
+  vaem:graphTitle "Quantities, Units, Dimensions and Types (QUDT) SHACL Schema Overlay - Version 2.1.42" ;
   vaem:hasGraphRole vaem:SHACLSchemaOverlayGraph ;
   vaem:hasOwner vaem:QUDT ;
   vaem:hasSteward vaem:QUDT ;
   vaem:intent "Specifies overlay properties and rules for the schema for quantities, units and dimensions. Types are defined in other schemas." ;
   vaem:isMetadataFor <http://qudt.org/2.1/schema/shacl/overlay/qudt> ;
-  vaem:latestPublishedVersion "https://qudt.org/doc/2024/03/DOC_SCHEMA-SHACL-QUDT-OVERLAY-v2.1.html"^^xsd:anyURI ;
+  vaem:latestPublishedVersion "https://qudt.org/doc/2024/08/DOC_SCHEMA-SHACL-QUDT-OVERLAY-v2.1.html"^^xsd:anyURI ;
   vaem:logo "https://qudt.org/linkedmodels.org/assets/lib/lm/images/logos/qudt_logo-300x110.png"^^xsd:anyURI ;
   vaem:namespace "http://qudt.org/schema/qudt/" ;
   vaem:namespacePrefix "qudt" ;
   vaem:owner "qudt.org" ;
-  vaem:previousPublishedVersion "https://qudt.org/doc/2024/02/DOC_SCHEMA-SHACL-QUDT-OVERLAY-v2.1.html"^^xsd:anyURI ;
+  vaem:previousPublishedVersion "https://qudt.org/doc/2024/07/DOC_SCHEMA-SHACL-QUDT-OVERLAY-v2.1.html"^^xsd:anyURI ;
   vaem:revision "2.1" ;
   vaem:turtleFileURL "http://qudt.org/2.1/schema/shacl/overlay/qudt"^^xsd:anyURI ;
   vaem:usesNonImportedResource dcterms:abstract ;
@@ -617,6 +617,6 @@ THE UCUM TABLE (IN ALL FORMATS), UCUM DEFINITIONS, AND SPECIFICATION ARE PROVIDE
   vaem:usesNonImportedResource voag:QUDT-Attribution ;
   vaem:withAttributionTo voag:QUDT-Attribution ;
   rdfs:isDefinedBy <http://qudt.org/2.1/schema/shacl/overlay/qudt> ;
-  rdfs:label "QUDT SHACL Schema Overlay Metadata Version 2.1.37" ;
+  rdfs:label "QUDT SHACL Schema Overlay Metadata Version 2.1.42" ;
   owl:versionIRI <http://qudt.org/2.1/schema/shacl/overlay/qudt> ;
 .
