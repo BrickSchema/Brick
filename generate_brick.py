@@ -871,7 +871,6 @@ roots = {
     },
     "Point": {"tags": [TAG.Point]},
     "Measurable": {"tags": [TAG.Measurable]},
-    "Collection": {"tags": [TAG.Collection]},
 }
 define_classes(roots, BRICK.Class)  # <= Brick v1.3.0
 define_classes(roots, BRICK.Entity)  # >= Brick v1.3.0
@@ -914,7 +913,7 @@ logger.info("Defining Equipment, System and Location subclasses")
 # define other root class structures
 define_classes(location_subclasses, BRICK.Location)
 define_classes(equipment_subclasses, BRICK.Equipment)
-define_classes(collection_classes, BRICK.Collection)
+define_classes(collection_classes, REC.Collection)
 define_classes(hvac_subclasses, BRICK.HVAC_Equipment)
 define_classes(hvac_valve_subclasses, BRICK.HVAC_Equipment)
 define_classes(valve_subclasses, BRICK.Equipment)

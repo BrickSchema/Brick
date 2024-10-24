@@ -1,6 +1,12 @@
 from .namespaces import BRICK, RDFS, SKOS, A, REC
 
 deprecations = {
+    BRICK.Collection: {
+        "version": "1.5.0",
+        "mitigation_message": "Brick Collection is deprecated in favor of REC Collection to remove redundancy between the two ontologies.",
+        "replace_with": REC.Collection,
+        RDFS.subClassOf: BRICK.Entity,
+    },
     BRICK.Speed_Status: {
         "version": "1.4.0",
         "mitigation_message": "Speed Status is no longer necessary. Use Speed Mode Status for motors with various categorical speed settings, such as low, medium, and high. To further clarify, points representing the current speed of a variable speed fan as an analog value or input, use Speed Sensor.",
