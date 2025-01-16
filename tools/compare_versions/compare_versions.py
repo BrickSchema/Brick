@@ -217,12 +217,12 @@ for row in old_brick.query(qstr):
 with open(history_dir / "release_notes.md", "w") as fp:
     fp.write("## Added Concepts\n\n```\n")
     for c in sorted(set(new_classes) - set(old_classes)):
-        fp.write(f"{c}")
+        fp.write(f"{c}\n")
     fp.write("\n```\n")
 
     fp.write("\n\n## Removed Concepts\n\n```\n")
     for c in sorted(set(old_classes) - set(new_classes)):
-        fp.write(f"{c}")
+        fp.write(f"{c}\n")
     fp.write("\n```\n")
 
     fp.write("\n\n## Deprecations\n\n")
