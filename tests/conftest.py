@@ -45,7 +45,7 @@ def brick():
 
 @pytest.fixture()
 def brick_with_imports():
-    env = ontoenv.OntoEnv(read_only=True)
+    env = ontoenv.OntoEnv(path=".")
     g = brickschema.Graph()
     g.load_file("Brick.ttl")
     g.bind("qudt", QUDT)
