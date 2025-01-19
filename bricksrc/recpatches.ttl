@@ -1822,3 +1822,17 @@ rec:WirelessAccessPoint
   brick:deprecationMitigationMessage "REC ICT classes are being phased out in favor of Brick classes. For a replacement, consider brick:Wireless_Access_Point" ;
   brick:isReplacedBy brick:Wireless_Access_Point ;
 .
+
+rec:Gateway
+  owl:deprecated "true"^^xsd:boolean ;
+  brick:deprecatedInVersion "1.4.0" ;
+  brick:deprecationMitigationMessage "REC ICT classes are being phased out in favor of Brick classes. For a replacement, consider brick:Gateway" ;
+  brick:isReplacedBy brick:Gateway ;
+.
+
+rec:AudioVisualEquipment
+  owl:deprecated "true"^^xsd:boolean ;
+  brick:deprecatedInVersion "1.4.0" ;
+  brick:deprecationMitigationMessage "REC ICT classes are being phased out in favor of Brick classes. For a replacement, consider brick:Audio_Visual_Equipment" ;
+  brick:isReplacedBy brick:Audio_Visual_Equipment ;
+.
