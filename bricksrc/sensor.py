@@ -39,6 +39,17 @@ sensor_definitions = {
                             "CO_Level_Sensor": {
                                 "tags": [TAG.Point, TAG.CO, TAG.Level, TAG.Sensor],
                             },
+                            "Zone_CO_Level_Sensor": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.CO,
+                                    TAG.Level,
+                                    TAG.Sensor,
+                                    TAG.Zone,
+                                ],
+                                BRICK.hasQuantity: BRICK.CO_Concentration,
+                                BRICK.hasSubstance: BRICK.Air,
+                            },
                             "CO_Differential_Sensor": {
                                 BRICK.hasQuantity: BRICK.Differential_CO_Concentration,
                                 BRICK.hasSubstance: BRICK.Air,
@@ -103,6 +114,19 @@ sensor_definitions = {
                                             TAG.Sensor,
                                             TAG.Zone,
                                         ],
+                                    },
+                                    "Domestic_Hot_Water_Return_Temperature_Sensor": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Domestic,
+                                            TAG.Hot,
+                                            TAG.Water,
+                                            TAG.Return,
+                                            TAG.Temperature,
+                                            TAG.Sensor,
+                                        ],
+                                        BRICK.hasQuantity: BRICK.Temperature,
+                                        BRICK.hasSubstance: BRICK.Domestic_Hot_Water,
                                     },
                                 },
                             },
@@ -861,6 +885,11 @@ sensor_definitions = {
                 },
             },
             "Waste_Amount_Sensor": {"tags": [TAG.Waste, TAG.Amount, TAG.Sensor]},
+            "Water_Volume_Sensor": {
+                "tags": [TAG.Point, TAG.Sensor, TAG.Water, TAG.Volume],
+                BRICK.hasQuantity: QUDTQK.Volume,
+                BRICK.hasSubstance: BRICK.Water,
+            },
             "Frequency_Sensor": {
                 BRICK.hasQuantity: BRICK.Frequency,
                 "tags": [TAG.Point, TAG.Sensor, TAG.Frequency],
@@ -1330,6 +1359,18 @@ sensor_definitions = {
                                             },
                                         },
                                     },
+                                    "Return_Air_Static_Pressure_Sensor": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Return,
+                                            TAG.Air,
+                                            TAG.Static,
+                                            TAG.Pressure,
+                                            TAG.Sensor,
+                                        ],
+                                        BRICK.hasQuantity: BRICK.Static_Pressure,
+                                        BRICK.hasSubstance: BRICK.Return_Air,
+                                    },
                                     "Underfloor_Air_Plenum_Static_Pressure_Sensor": {
                                         "tags": [
                                             TAG.Point,
@@ -1793,6 +1834,17 @@ sensor_definitions = {
                                     TAG.Air,
                                     TAG.Return,
                                 ],
+                            },
+                            "Room_Air_Temperature_Sensor": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Room,
+                                    TAG.Air,
+                                    TAG.Temperature,
+                                    TAG.Sensor,
+                                ],
+                                BRICK.hasQuantity: BRICK.Temperature,
+                                BRICK.hasSubstance: BRICK.Room_Air,
                             },
                             "Outside_Air_Temperature_Sensor": {
                                 "tags": [
