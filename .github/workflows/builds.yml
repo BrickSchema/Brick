@@ -1,11 +1,15 @@
 name: Build
 
+permissions:
+  pull-requests: write
+  issues: write
+
 on:
   push:
     branches:
         - master
         - v1.*
-  pull_request:
+  pull_request_target:
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -62,7 +66,7 @@ jobs:
           extensions.zip
     - name: comment artifact
       # if the trigger is on a pull request
-      if: ${{ github.event_name == 'pull_request' && matrix.python-version == env.RELEASE_PYTHON_VERSION }}
+      if: ${{ github.event_name == 'pull_request_target' && matrix.python-version == env.RELEASE_PYTHON_VERSION }}
       uses: peter-evans/create-or-update-comment@v4
       with:
         issue-number: ${{ github.event.number }}
