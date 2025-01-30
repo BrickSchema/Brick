@@ -68,10 +68,8 @@ jobs:
       # if the trigger is on a pull request
       if: ${{ github.event_name == 'pull_request' && matrix.python-version == env.RELEASE_PYTHON_VERSION }}
       uses: peter-evans/create-or-update-comment@v4
-      permissions: write-all
       with:
         issue-number: ${{ github.event.number }}
-        token: "${{ secrets.GITHUB_TOKEN }}"
         # in the body, make a markdown link to the steps.upload-ttls.output.artifact-url
         body: |
           The latest build of the Brick ontology on this PR is available [here](${{ steps.upload-ttls.outputs.artifact-url }}).
