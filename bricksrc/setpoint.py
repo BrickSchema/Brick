@@ -374,6 +374,17 @@ setpoint_definitions = {
                                     TAG.Setpoint,
                                 ],
                             },
+                            "Return_Air_Flow_Setpoint": {
+                                BRICK.hasQuantity: QUDTQK.VolumeFlowRate,
+                                BRICK.hasSubstance: BRICK.Return_Air,
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Return,
+                                    TAG.Air,
+                                    TAG.Flow,
+                                    TAG.Setpoint,
+                                ],
+                            },
                             "Supply_Air_Flow_Setpoint": {
                                 BRICK.hasQuantity: QUDTQK.VolumeFlowRate,
                                 BRICK.hasSubstance: [
@@ -919,10 +930,6 @@ setpoint_definitions = {
                                     BRICK.Supply_Air,
                                     BRICK.Discharge_Air,
                                 ],
-                                BRICK.hasSubstance: [
-                                    BRICK.Supply_Air,
-                                    BRICK.Discharge_Air,
-                                ],
                                 BRICK.hasQuantity: BRICK.Static_Pressure,
                                 "aliases": [
                                     BRICK["Discharge_Air_Static_Pressure_Setpoint"]
@@ -931,6 +938,18 @@ setpoint_definitions = {
                                     TAG.Point,
                                     TAG.Supply,
                                     TAG.Discharge,
+                                    TAG.Air,
+                                    TAG.Static,
+                                    TAG.Pressure,
+                                    TAG.Setpoint,
+                                ],
+                            },
+                            "Return_Air_Static_Pressure_Setpoint": {
+                                BRICK.hasSubstance: BRICK.Return_Air,
+                                BRICK.hasQuantity: BRICK.Static_Pressure,
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Return,
                                     TAG.Air,
                                     TAG.Static,
                                     TAG.Pressure,
@@ -1902,6 +1921,20 @@ setpoint_definitions = {
                                 ],
                                 "parents": [BRICK.Hot_Water_Temperature_Setpoint],
                                 "subclasses": {
+                                    "Return_Domestic_Hot_Water_Temperature_Setpoint": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Domestic,
+                                            TAG.Hot,
+                                            TAG.Return,
+                                            TAG.Water,
+                                            TAG.Temperature,
+                                            TAG.Setpoint,
+                                        ],
+                                        "parents": [
+                                            BRICK.Return_Water_Temperature_Setpoint,
+                                        ],
+                                    },
                                     "Entering_Domestic_Hot_Water_Temperature_Setpoint": {
                                         "tags": [
                                             TAG.Point,
@@ -2091,9 +2124,27 @@ setpoint_definitions = {
                     "Return_Air_CO2_Setpoint": {
                         BRICK.hasQuantity: BRICK.CO2_Concentration,
                         "tags": [TAG.Point, TAG.Return, TAG.Air, TAG.CO2, TAG.Setpoint],
-                    }
+                    },
+                    "Zone_CO2_Level_Setpoint": {
+                        BRICK.hasQuantity: BRICK.CO2_Concentration,
+                        "tags": [TAG.Point, TAG.Zone, TAG.CO2, TAG.Setpoint],
+                    },
                 },
                 "tags": [TAG.Point, TAG.CO2, TAG.Setpoint],
+            },
+            "CO_Setpoint": {
+                BRICK.hasQuantity: BRICK.CO_Concentration,
+                "tags": [TAG.Point, TAG.CO, TAG.Setpoint],
+                "subclasses": {
+                    "Zone_CO_Level_Setpoint": {
+                        BRICK.hasQuantity: BRICK.CO_Concentration,
+                        "tags": [TAG.Point, TAG.Zone, TAG.CO, TAG.Setpoint],
+                    },
+                    "Return_Air_CO_Setpoint": {
+                        BRICK.hasQuantity: BRICK.CO_Concentration,
+                        "tags": [TAG.Point, TAG.Return, TAG.Air, TAG.CO, TAG.Setpoint],
+                    },
+                },
             },
             "Time_Setpoint": {
                 BRICK.hasQuantity: BRICK.Time,

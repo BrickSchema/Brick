@@ -115,19 +115,6 @@ sensor_definitions = {
                                             TAG.Zone,
                                         ],
                                     },
-                                    "Domestic_Hot_Water_Return_Temperature_Sensor": {
-                                        "tags": [
-                                            TAG.Point,
-                                            TAG.Domestic,
-                                            TAG.Hot,
-                                            TAG.Water,
-                                            TAG.Return,
-                                            TAG.Temperature,
-                                            TAG.Sensor,
-                                        ],
-                                        BRICK.hasQuantity: BRICK.Temperature,
-                                        BRICK.hasSubstance: BRICK.Domestic_Hot_Water,
-                                    },
                                 },
                             },
                             "Outside_Air_CO2_Sensor": {
@@ -1985,6 +1972,34 @@ sensor_definitions = {
                                     TAG.Temperature,
                                     TAG.Sensor,
                                 ],
+                                "subclasses": {
+                                    "Domestic_Hot_Water_Return_Temperature_Sensor": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Domestic,
+                                            TAG.Hot,
+                                            TAG.Water,
+                                            TAG.Return,
+                                            TAG.Temperature,
+                                            TAG.Sensor,
+                                        ],
+                                        BRICK.hasQuantity: BRICK.Temperature,
+                                        BRICK.hasSubstance: BRICK.Domestic_Hot_Water,
+                                    },
+                                    "Domestic_Hot_Water_Supply_Temperature_Sensor": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Domestic,
+                                            TAG.Hot,
+                                            TAG.Water,
+                                            TAG.Supply,
+                                            TAG.Temperature,
+                                            TAG.Sensor,
+                                        ],
+                                        BRICK.hasQuantity: BRICK.Temperature,
+                                        BRICK.hasSubstance: BRICK.Domestic_Hot_Water,
+                                    },
+                                },
                             },
                             "Entering_Hot_Water_Temperature_Sensor": {
                                 "tags": [
