@@ -76,6 +76,14 @@ entity_properties = {
         RDFS.label: Literal("Coordinates", lang="en"),
         "property_of": [BRICK.Equipment, BRICK.Location],
     },
+    BRICK.resolution: {
+        SKOS.definition: Literal(
+            "The resolution of the entity specifing the smallest measurable or controllable increment"
+            ),
+        SH.node: BSH.ResolutionShape,
+        RDFS.label: Literal("Resolution", lang="en"),
+        "property_of": BRICK.Point,
+    },
     # electrical properties
     BRICK.electricalComplexPower: {
         SKOS.definition: Literal("Associated electrical complexity with the entity"),
@@ -272,7 +280,7 @@ entity_properties = {
     },
     BRICK.operationalStageCount: {
         SKOS.definition: Literal(
-            "The number of operational stages supported by this eqiupment"
+            "The number of operational stages supported by this equipment"
         ),
         "property_of": BRICK.Equipment,
         SH.node: BSH.StageShape,
@@ -333,7 +341,7 @@ entity_properties = {
     # special stuff
     BRICK.aggregate: {
         SKOS.definition: Literal(
-            "Description of how the dta for this point is aggregated"
+            "Description of how the data for this point is aggregated"
         ),
         "property_of": BRICK.Point,
         SH.node: BSH.AggregationShape,
@@ -513,6 +521,10 @@ shape_properties = {
         "datatype": BSH.NumericValue,
         "units": [UNIT.PERCENT],
         "range": {"minInclusive": 0},
+    },
+    BSH.ResolutionShape: {
+        "datatype": BSH.NumericValue,
+        "range": {"minExclusive": 0},
     },
     BSH.CoolingCapacityShape: {
         "datatype": BSH.NumericValue,
