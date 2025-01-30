@@ -82,7 +82,7 @@ entity_properties = {
             ),
         SH.node: BSH.ResolutionShape,
         RDFS.label: Literal("Resolution", lang="en"),
-        "property_of": [BRICK.Point,BRICK.Equipment],
+        "property_of": BRICK.Point,
     },
     # electrical properties
     BRICK.electricalComplexPower: {
@@ -521,6 +521,10 @@ shape_properties = {
         "datatype": BSH.NumericValue,
         "units": [UNIT.PERCENT],
         "range": {"minInclusive": 0},
+    },
+    BSH.ResolutionShape: {
+        "datatype": BSH.NumericValue,
+        "range": {"minExclusive": 0},
     },
     BSH.CoolingCapacityShape: {
         "datatype": BSH.NumericValue,
