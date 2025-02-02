@@ -1493,6 +1493,7 @@ HVAC-specific Valve subclasses
 """
 hvac_valve_subclasses = {
     "Heating_Valve": {
+        "parents": [BRICK.Valve],
         "tags": [TAG.Valve, TAG.Heat, TAG.Equipment],
         "subclasses": {
             "Reheat_Valve": {"tags": [TAG.Valve, TAG.Reheat, TAG.Heat, TAG.Equipment]},
@@ -1501,9 +1502,13 @@ hvac_valve_subclasses = {
             },
         },
     },
-    "Cooling_Valve": {"tags": [TAG.Valve, TAG.Cool, TAG.Equipment]},
+    "Cooling_Valve": {
+        "parents": [BRICK.Valve],
+        "tags": [TAG.Valve, TAG.Cool, TAG.Equipment]
+    },
     "Isolation_Valve": {
         "tags": [TAG.Isolation, TAG.Valve, TAG.Equipment],
+        "parents": [BRICK.Valve],
         "subclasses": {
             "Condenser_Water_Isolation_Valve": {
                 "tags": [
@@ -1516,8 +1521,12 @@ hvac_valve_subclasses = {
             }
         },
     },
-    "Steam_Valve": {"tags": [TAG.Steam, TAG.Valve, TAG.Equipment]},
+    "Steam_Valve": {
+        "tags": [TAG.Steam, TAG.Valve, TAG.Equipment],
+        "parents": [BRICK.Valve],
+    },
     "Bypass_Valve": {
+        "parents": [BRICK.Valve],
         "tags": [TAG.Bypass, TAG.Valve, TAG.Equipment],
         "subclasses": {
             "Differential_Pressure_Bypass_Valve": {
