@@ -1,9 +1,5 @@
 name: Build
 
-permissions:
-  pull-requests: write
-  issues: write
-
 on:
   push:
     branches:
@@ -66,11 +62,10 @@ jobs:
           extensions.zip
     - name: comment artifact
       # if the trigger is on a pull request
-      if: ${{ github.event_name == 'pull_request_target' && matrix.python-version == env.RELEASE_PYTHON_VERSION }}
+      if: ${{ github.event_name == 'pull_request' && matrix.python-version == env.RELEASE_PYTHON_VERSION }}
       uses: peter-evans/create-or-update-comment@v4
       with:
         issue-number: ${{ github.event.number }}
-        github-token: "${{ secrets.GITHUB_TOKEN }}"
         # in the body, make a markdown link to the steps.upload-ttls.output.artifact-url
         body: |
           The latest build of the Brick ontology on this PR is available [here](${{ steps.upload-ttls.outputs.artifact-url }}).
