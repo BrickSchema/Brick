@@ -1794,6 +1794,17 @@ sensor_definitions = {
                                     TAG.Return,
                                 ],
                             },
+                            "Room_Air_Temperature_Sensor": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Room,
+                                    TAG.Air,
+                                    TAG.Temperature,
+                                    TAG.Sensor,
+                                ],
+                                BRICK.hasQuantity: BRICK.Temperature,
+                                BRICK.hasSubstance: BRICK.Air,
+                            },
                             "Outside_Air_Temperature_Sensor": {
                                 "tags": [
                                     TAG.Point,
