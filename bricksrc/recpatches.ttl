@@ -992,8 +992,6 @@ brick:Rain_Level_Sensor
       sh:name "last known value" ;
       sh:nodeKind sh:IRI ;
     ] ;
-.
-brick:Rain_Sensor
   sh:property [
       rdf:type sh:PropertyShape ;
       sh:path brick:lastKnownValue ;

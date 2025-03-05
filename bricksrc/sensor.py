@@ -1495,6 +1495,7 @@ sensor_definitions = {
                 },
             },
             "Refrigerant_Level_Sensor": {
+                "tags": [TAG.Point, TAG.Sensor, TAG.Refrigerant, TAG.Level],
                 BRICK.hasQuantity: BRICK.Level,
                 BRICK.hasSubstance: BRICK.Refrigerant,
             },
@@ -1606,7 +1607,7 @@ sensor_definitions = {
                         "tags": [TAG.Point, TAG.Sensor, TAG.Energy, TAG.Usage],
                         "subclasses": {
                             "Electrical_Energy_Usage_Sensor": {
-                                BRICK.Quantity: BRICK.Electric_Energy,
+                                BRICK.hasQuantity: BRICK.Electric_Energy,
                                 "tags": [
                                     TAG.Point,
                                     TAG.Electric,
