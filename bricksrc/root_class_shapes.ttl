@@ -40,11 +40,12 @@ brick:Location a sh:NodeShape ;
     .
 
 brick:Equipment a sh:NodeShape ;
-    sh:node    [sh:not [ sh:class brick:Point ] ; sh:message "Equipment is an exclusive top class." ],
-               [sh:not [ sh:class brick:Location ] ; sh:message "Equipment is an exclusive top class." ],
-               [sh:not [ sh:class brick:Substance ] ; sh:message "Equipment is an exclusive top class." ],
-               [sh:not [ sh:class brick:Quantity ] ; sh:message "Equipment is an exclusive top class." ],
-               [sh:not [ sh:class brick:Collection ] ; sh:message "Equipment is an exclusive top class." ] ;
+    sh:not [ sh:class brick:Location ; sh:message "Instances of Equipment cannot be Locations." ] ,
+           [ sh:class brick:Substance ; sh:message "Instances of Equipment cannot be Substances." ],
+           [ sh:class brick:Quantity ; sh:message "Instances of Equipment cannot be Quantities." ],
+           [ sh:class brick:Collection ; sh:message "Instances of Equipment cannot be Collections." ],
+           [ sh:class brick:Point ; sh:message "Instances of Equipment cannot be Points." ],
+           [ sh:class brick:EntityProperty ; sh:message "Instances of Equipment cannot be EntityProperties." ] ;
     sh:property [
         sh:path brick:hasPart;
         sh:class brick:Equipment;
@@ -81,12 +82,12 @@ brick:Equipment a sh:NodeShape ;
     .
 
 brick:Point a sh:NodeShape;
-    sh:node [sh:not [ sh:class brick:Equipment ] ; sh:message "Point is an exclusive top class." ],
-            [sh:not [ sh:class brick:Location ] ; sh:message "Point is an exclusive top class." ],
-            [sh:not [ sh:class rec:Space ] ; sh:message "Point is an exclusive top class." ],
-            [sh:not [ sh:class brick:Substance ] ; sh:message "Point is an exclusive top class." ],
-            [sh:not [ sh:class brick:Quantity ] ; sh:message "Point is an exclusive top class." ],
-            [sh:not [ sh:class brick:Collection ] ; sh:message "Point is an exclusive top class." ] ;
+    sh:not [ sh:class brick:Equipment ; sh:message "Instances of Point cannot be Equipment." ],
+           [ sh:class brick:Location ; sh:message "Instances of Point cannot be Locations." ],
+           [ sh:class brick:Substance ; sh:message "Instances of Point cannot be Substances." ],
+           [ sh:class brick:Quantity ; sh:message "Instances of Point cannot be Quantities." ],
+           [ sh:class brick:Collection ; sh:message "Instances of Point cannot be Collections." ],
+           [ sh:class brick:EntityProperty ; sh:message "Instances of Point cannot be EntityProperties." ] ;
     sh:property [
         sh:path brick:hasLocation ;
         sh:maxCount 0 ;
