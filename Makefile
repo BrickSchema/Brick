@@ -1,6 +1,6 @@
 .PHONY: format
 
-Brick.ttl: bricksrc/*.py bricksrc/*.ttl bricksrc/definitions.csv generate_brick.py support/*.ttl
+Brick.ttl: bricksrc/*.py bricksrc/*.ttl bricksrc/definitions.csv generate_brick.py support/*.ttl validation.ttl
 	mkdir -p extensions
 	python tools/sort_definitions.py bricksrc/definitions.csv
 	python generate_brick.py
