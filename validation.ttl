@@ -1,0 +1,104 @@
+@prefix bacnet: <http://data.ashrae.org/bacnet/2020#> .
+@prefix brick: <https://brickschema.org/schema/Brick#> .
+@prefix bsh: <https://brickschema.org/schema/BrickShape#> .
+@prefix dcterms: <http://purl.org/dc/terms#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sdo: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix tag: <https://brickschema.org/schema/BrickTag#> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+
+# SHACL rule which tests that every single URI that starts with the Brick namespace
+# has a corresponding class or property in the Brick ontology
+
+bsh:NamespaceDefinitionRule
+    a sh:NodeShape ;
+    # Target every node that appears in the graph
+    sh:target [
+        a sh:SPARQLTarget ;
+        sh:select """
+            SELECT DISTINCT ?node WHERE {
+              { ?node ?p ?o } UNION { ?s ?p ?node }
+            }
+        """
+    ] ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "URIs in the brick namespace must have a class or be an instance of Substance, Quantity, or Tag." ;
+        sh:prefixes <https://brickschema.org/schema/Brick> ;
+        sh:select """
+        PREFIX brick: <https://brickschema.org/schema/Brick#>
+        PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+        PREFIX owl: <http://www.w3.org/2002/07/owl#>
+        PREFIX sh: <http://www.w3.org/ns/shacl#>
+        PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            SELECT $this WHERE {
+              FILTER NOT EXISTS { $this owl:deprecated true }
+              FILTER(isIRI($this))
+              FILTER(STRSTARTS(STR($this), "https://brickschema.org/schema/Brick#"))
+              FILTER NOT EXISTS {
+                { $this a owl:Class, sh:NodeShape ; rdfs:subClassOf* brick:Entity }
+                UNION
+                { $this a brick:Substance }
+                UNION
+                { $this a brick:Quantity }
+                UNION
+                { $this a brick:Tag }
+                UNION
+                { $this a brick:EntityProperty }
+                UNION
+                { $this a owl:ObjectProperty }
+                UNION
+                { $this a owl:DatatypeProperty }
+                UNION
+                { $this a rdf:Property }
+                UNION
+                { $this a sh:NodeShape }
+                UNION
+                { $this rdfs:subPropertyOf* brick:Relationship }
+              }
+            }
+        """
+    ] .
+
+bsh:NamespaceDefinitionRuleProperty
+    a sh:NodeShape ;
+    # Target every node that appears in the graph
+    sh:target [
+        a sh:SPARQLTarget ;
+        sh:select """
+            SELECT DISTINCT ?node WHERE {
+              ?s ?node ?o
+            }
+        """
+    ] ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "URIs in the example.org namespace must have a class or property definition." ;
+        sh:prefixes <https://brickschema.org/schema/Brick> ;
+        sh:select """
+        PREFIX brick: <https://brickschema.org/schema/Brick#>
+        PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+        PREFIX owl: <http://www.w3.org/2002/07/owl#>
+            SELECT $this WHERE {
+              FILTER NOT EXISTS { $this owl:deprecated true }
+              FILTER(isIRI($this))
+              FILTER(STRSTARTS(STR($this), "https://brickschema.org/schema/Brick#"))
+              FILTER NOT EXISTS {
+                $this rdfs:subPropertyOf* brick:Relationship .
+                { $this a owl:ObjectProperty }
+                UNION
+                { $this a owl:DatatypeProperty }
+              }
+            }
+        """
+    ] .
