@@ -519,7 +519,7 @@ bsh:AddDefaultEVSEChargerDirection a sh:NodeShape ;
         sh:prefixes <https://brickschema.org/schema/1.4/Brick> ;
         sh:construct """
         CONSTRUCT {
-            $this brick:electricVehicleChargerDirectionality [ brick:value "unidirectional" ]
+            $this brick:electricVehicleChargerDirectionality [ brick:value "unidirectional"^^xsd:string ]
         } WHERE {
             $this rdf:type brick:Electric_Vehicle_Charging_Station .
             FILTER NOT EXISTS {
