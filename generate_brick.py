@@ -414,7 +414,7 @@ def define_entity_properties(definitions, superprop=None, graph=G):
         assert _allowed_annotations.intersection(
             defn.keys()
         ), f"{entprop} missing at least one of {_allowed_annotations} so Brick doesn't know what the values of this property can be"
-        graph.add((entprop, RDFS.subPropertyOf, BRICK.EntityProperty))
+        graph.add((entprop, A, BRICK.EntityProperty))
         graph.add((entprop, A, OWL.ObjectProperty))
         if superprop is not None:
             graph.add((entprop, RDFS.subPropertyOf, superprop))
@@ -639,7 +639,7 @@ def define_relationships(definitions, superprop=None, graph=G):
             graph.add((prop, RDFS.subPropertyOf, superprop))
 
         if prop.startswith(BRICK):
-            graph.add((prop, RDFS.subPropertyOf, BRICK.Relationship))
+            graph.add((prop, A, BRICK.Relationship))
 
         # define property types
         prop_types = propdefn.get(A, [])
@@ -885,7 +885,8 @@ define_classes(roots, BRICK.Entity)  # >= Brick v1.3.0
 
 logger.info("Defining properties")
 # define BRICK properties
-G.add((BRICK.Relationship, A, OWL.ObjectProperty))
+G.add((BRICK.Relationship, RDFS.subClassOf, OWL.ObjectProperty))
+G.add((BRICK.Relationship, A, BRICK.Relationship))
 G.add((BRICK.Relationship, RDFS.label, Literal("Relationship", lang="en")))
 G.add(
     (
@@ -1021,8 +1022,7 @@ logger.info("Defining entity properties")
 # entity property definitions (must happen after units are defined)
 G.add((BRICK.value, SKOS.definition, Literal("The basic value of an entity property")))
 G.add((BRICK.EntityProperty, A, OWL.ObjectProperty))
-G.add((BRICK.EntityProperty, RDFS.subPropertyOf, BRICK.Relationship))
-G.add((BRICK.EntityProperty, A, OWL.Class))
+G.add((BRICK.EntityProperty, RDFS.subClassOf, BRICK.Relationship))
 G.add((BRICK.EntityPropertyValue, A, OWL.Class))
 G.add((BRICK.EntityPropertyValue, A, SH.NodeShape))
 G.add((BRICK.EntityPropertyValue, RDFS.label, Literal("EntityPropertyValue", lang="en")))

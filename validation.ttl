@@ -33,7 +33,7 @@ bsh:NamespaceDefinitionRule
     ] ;
     sh:sparql [
         a sh:SPARQLConstraint ;
-        sh:message "URIs in the brick namespace must have a class or be an instance of Substance, Quantity, or Tag." ;
+        sh:message "URIs in the Brick namespace must have a class or be an instance of Substance, Quantity, or Tag." ;
         sh:prefixes <https://brickschema.org/schema/Brick> ;
         sh:select """
         PREFIX brick: <https://brickschema.org/schema/Brick#>
@@ -64,7 +64,7 @@ bsh:NamespaceDefinitionRule
                 UNION
                 { $this a sh:NodeShape }
                 UNION
-                { $this rdfs:subPropertyOf* brick:Relationship }
+                { $this rdf:type/rdfs:subClassOf* brick:Relationship }
               }
             }
         """
@@ -83,7 +83,7 @@ bsh:NamespaceDefinitionRuleProperty
     ] ;
     sh:sparql [
         a sh:SPARQLConstraint ;
-        sh:message "URIs in the example.org namespace must have a class or property definition." ;
+        sh:message "Properties in the Brick namespace must be an instance of EntityProperty/Relationship and ObjectProperty/DatatypeProperty." ;
         sh:prefixes <https://brickschema.org/schema/Brick> ;
         sh:select """
         PREFIX brick: <https://brickschema.org/schema/Brick#>
@@ -94,7 +94,9 @@ bsh:NamespaceDefinitionRuleProperty
               FILTER(isIRI($this))
               FILTER(STRSTARTS(STR($this), "https://brickschema.org/schema/Brick#"))
               FILTER NOT EXISTS {
-                $this rdfs:subPropertyOf* brick:Relationship .
+                { $this a brick:Relationship }
+                UNION
+                { $this a brick:EntityProperty }
                 { $this a owl:ObjectProperty }
                 UNION
                 { $this a owl:DatatypeProperty }
