@@ -1148,6 +1148,9 @@ for name, uri in ontology_imports.items():
 env.add("Brick.ttl")
 env.refresh()
 
+# add the validation shapes (not for Brick distribution)
+G.parse("validation.ttl")
+
 # validate Brick
 valid, _, report = G.validate(engine="topquadrant")
 if not valid:
@@ -1158,9 +1161,3 @@ if not valid:
 with open("Brick+imports.ttl", "w", encoding="utf-8") as fp:
     fp.write(G.serialize(format="turtle").rstrip())
     fp.write("\n")
-
-# validate Brick
-# valid, _, report = pyshacl.validate(data_graph=G, advanced=True, allow_warnings=True)
-# if not valid:
-#    print(report)
-#    sys.exit(1)
