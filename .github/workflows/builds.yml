@@ -62,7 +62,7 @@ jobs:
           extensions.zip
     - name: comment artifact
       # if the trigger is on a pull request
-      if: ${{ github.event_name == 'pull_request' && matrix.python-version == env.RELEASE_PYTHON_VERSION }}
+      if: ${{ github.event_name == 'pull_request' && matrix.python-version == env.RELEASE_PYTHON_VERSION && github.event.pull_request.head.repo.full_name == 'BrickSchema/Brick' }}
       uses: peter-evans/create-or-update-comment@v4
       with:
         issue-number: ${{ github.event.number }}
