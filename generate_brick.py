@@ -301,6 +301,7 @@ def define_classes(definitions, parent, pun_classes=False, graph=G):
         classname = BRICK[classname] if not isinstance(classname, URIRef) else classname
         # class is a owl:Class
         graph.add((classname, A, OWL.Class))
+        graph.add((classname, A, SH.NodeShape))
         # subclass of parent
         graph.add((classname, RDFS.subClassOf, parent))
         # add label
@@ -414,6 +415,7 @@ def define_entity_properties(definitions, superprop=None, graph=G):
             defn.keys()
         ), f"{entprop} missing at least one of {_allowed_annotations} so Brick doesn't know what the values of this property can be"
         graph.add((entprop, A, BRICK.EntityProperty))
+        graph.add((entprop, A, OWL.ObjectProperty))
         if superprop is not None:
             graph.add((entprop, RDFS.subPropertyOf, superprop))
         if "subproperties" in defn:
@@ -637,7 +639,7 @@ def define_relationships(definitions, superprop=None, graph=G):
             graph.add((prop, RDFS.subPropertyOf, superprop))
 
         if prop.startswith(BRICK):
-            graph.add((prop, RDFS.subPropertyOf, BRICK.Relationship))
+            graph.add((prop, A, BRICK.Relationship))
 
         # define property types
         prop_types = propdefn.get(A, [])
@@ -858,9 +860,14 @@ inherit_has_quantity(parameter_definitions)
 # class of Brick prior to v1.3.0, in order to maintain backwards
 # compatibility with older Brick models. Both brick:Class and
 # brick:Entity are root classes
-G.add((BRICK.Class, A, OWL.Class))  # < Brick v1.3.0
 G.add((BRICK.Entity, A, OWL.Class))  # >= Brick v1.3.0
+G.add((BRICK.Entity, A, SH.NodeShape))  # >= Brick v1.3.0
+G.add((BRICK.Class, A, OWL.Class))  # < Brick v1.3.0
+G.add((BRICK.Class, A, SH.NodeShape))  # < Brick v1.3.0
+G.add((BRICK.Class, RDFS.subClassOf, BRICK.Entity))  # < Brick v1.3.0
 G.add((BRICK.Tag, A, OWL.Class))
+G.add((BRICK.Tag, A, SH.NodeShape))
+G.add((BRICK.Tag, RDFS.subClassOf, BRICK.Entity))
 
 roots = {
     "Equipment": {
@@ -878,7 +885,8 @@ define_classes(roots, BRICK.Entity)  # >= Brick v1.3.0
 
 logger.info("Defining properties")
 # define BRICK properties
-G.add((BRICK.Relationship, A, OWL.ObjectProperty))
+G.add((BRICK.Relationship, RDFS.subClassOf, OWL.ObjectProperty))
+G.add((BRICK.Relationship, A, BRICK.Relationship))
 G.add((BRICK.Relationship, RDFS.label, Literal("Relationship", lang="en")))
 G.add(
     (
@@ -932,6 +940,7 @@ G.add(
 )  # needs the type declaration to satisfy some checkers
 G.add((BRICK.Quantity, RDFS.subClassOf, BRICK.Measurable))
 G.add((BRICK.Quantity, A, OWL.Class))
+G.add((BRICK.Quantity, A, SH.NodeShape))
 G.add((BRICK.Quantity, RDFS.label, Literal("Quantity", lang="en")))
 G.add((BRICK.Quantity, RDFS.subClassOf, SKOS.Concept))
 # set up Substance definition
@@ -941,6 +950,7 @@ G.add(
 )  # needs the type declaration to satisfy some checkers
 G.add((BRICK.Substance, RDFS.subClassOf, BRICK.Measurable))
 G.add((BRICK.Substance, A, OWL.Class))
+G.add((BRICK.Substance, A, SH.NodeShape))
 G.add((BRICK.Substance, RDFS.label, Literal("Substance", lang="en")))
 
 # We make the punning explicit here. Any subclass of brick:Substance
@@ -1011,9 +1021,12 @@ for r in res:
 logger.info("Defining entity properties")
 # entity property definitions (must happen after units are defined)
 G.add((BRICK.value, SKOS.definition, Literal("The basic value of an entity property")))
-G.add((BRICK.EntityProperty, RDFS.subClassOf, OWL.ObjectProperty))
-G.add((BRICK.EntityProperty, A, OWL.Class))
+G.add((BRICK.EntityProperty, A, OWL.ObjectProperty))
+G.add((BRICK.EntityProperty, RDFS.subClassOf, BRICK.Relationship))
 G.add((BRICK.EntityPropertyValue, A, OWL.Class))
+G.add((BRICK.EntityPropertyValue, A, SH.NodeShape))
+G.add((BRICK.EntityPropertyValue, RDFS.label, Literal("EntityPropertyValue", lang="en")))
+G.add((BRICK.EntityPropertyValue, RDFS.subClassOf, BRICK.Entity))
 G.add((BSH.ValueShape, A, OWL.Class))
 define_entity_properties(entity_properties)
 define_shape_properties(get_shapes(G))
@@ -1135,6 +1148,9 @@ for name, uri in ontology_imports.items():
 env.add("Brick.ttl")
 env.refresh()
 
+# add the validation shapes (not for Brick distribution)
+G.parse("validation.ttl")
+
 # validate Brick
 valid, _, report = G.validate(engine="topquadrant")
 if not valid:
@@ -1145,9 +1161,3 @@ if not valid:
 with open("Brick+imports.ttl", "w", encoding="utf-8") as fp:
     fp.write(G.serialize(format="turtle").rstrip())
     fp.write("\n")
-
-# validate Brick
-# valid, _, report = pyshacl.validate(data_graph=G, advanced=True, allow_warnings=True)
-# if not valid:
-#    print(report)
-#    sys.exit(1)

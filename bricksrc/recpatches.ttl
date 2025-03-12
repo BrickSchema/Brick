@@ -992,8 +992,6 @@ brick:Rain_Level_Sensor
       sh:name "last known value" ;
       sh:nodeKind sh:IRI ;
     ] ;
-.
-brick:Rain_Sensor
   sh:property [
       rdf:type sh:PropertyShape ;
       sh:path brick:lastKnownValue ;
@@ -1629,6 +1627,51 @@ $this brick:value ?v
     ] ;
 .
 
+brick:ICT_Equipment sh:property [ a sh:PropertyShape ;
+            sh:datatype xsd:integer ;
+            sh:name "Number of Ports"^^xsd:string ;
+            sh:path rec:numberOfPorts ],
+        [ a sh:PropertyShape ;
+            sh:datatype xsd:integer ;
+            sh:name "Height (RUs)"^^xsd:string ;
+            sh:path rec:heightRUs ],
+        [ a sh:PropertyShape ;
+            sh:datatype xsd:string ;
+            sh:description "The standard the equipment or device adheres to, e.g. IEEE 802.11."^^xsd:string ;
+            sh:name "Standard"^^xsd:string ;
+            sh:path rec:standard ] .
+
+brick:Ethernet_Port sh:property 
+        [ a sh:PropertyShape ;
+            sh:datatype xsd:float ;
+            sh:description "The data rate of the port in Mib/s, i.e. mebibit (2^20 bit) per second."^^xsd:string ;
+            sh:maxCount 1 ;
+            sh:name "Port Speed"^^xsd:string ;
+            sh:path rec:portSpeed ],
+        [ a sh:PropertyShape ;
+            sh:datatype xsd:string ;
+            sh:in ( "Type1"^^xsd:string "Type2"^^xsd:string "Type3"^^xsd:string "Type4"^^xsd:string ) ;
+            sh:maxCount 1 ;
+            sh:name "PoE Type"^^xsd:string ;
+            sh:path rec:poeType ] .
+
+brick:Wireless_Access_Point sh:property [ 
+            a sh:PropertyShape ;
+            sh:datatype xsd:string ;
+            sh:in ( "WiFi4"^^xsd:string "WiFi5"^^xsd:string "WiFi6"^^xsd:string "WiFi6E"^^xsd:string "WiFi7"^^xsd:string ) ;
+            sh:maxCount 1 ;
+            sh:name "Generation"^^xsd:string ;
+            sh:path rec:generation ] .
+
+brick:Sensor_Equipment sh:property 
+        [ a sh:PropertyShape ;
+            sh:datatype xsd:double ;
+            sh:name "Battery Percentage"^^xsd:string ;
+            sh:path rec:batteryPercentage ],
+        [ a sh:PropertyShape ;
+            sh:datatype xsd:double ;
+            sh:name "Wi-Fi Signal Strength"^^xsd:string ;
+            sh:path rec:wifiSignalStrength ] .
 
 # deprecations for REC ICT Equipment
 rec:ICT_Equipment
@@ -1662,56 +1705,56 @@ rec:ICTRack
 rec:SensorEquipment
   owl:deprecated "true"^^xsd:boolean ;
   brick:deprecatedInVersion "1.4.0" ;
-  brick:deprecationMitigationMessage "REC ICT classes are being phased out in favor of Brick classes. For a replacement, consider brick:SensorEquipment" ;
+  brick:deprecationMitigationMessage "REC ICT classes are being phased out in favor of Brick classes. For a replacement, consider brick:Sensor_Equipment" ;
   brick:isReplacedBy brick:Sensor_Equipment ;
 .
 
 rec:DaylightSensorEquipment
   owl:deprecated "true"^^xsd:boolean ;
   brick:deprecatedInVersion "1.4.0" ;
-  brick:deprecationMitigationMessage "REC ICT classes are being phased out in favor of Brick classes. For a replacement, consider brick:DaylightSensorEquipment" ;
+  brick:deprecationMitigationMessage "REC ICT classes are being phased out in favor of Brick classes. For a replacement, consider brick:Daylight_Sensor_Equipment" ;
   brick:isReplacedBy brick:Daylight_Sensor_Equipment ;
 .
 
 rec:IAQSensorEquipment
   owl:deprecated "true"^^xsd:boolean ;
   brick:deprecatedInVersion "1.4.0" ;
-  brick:deprecationMitigationMessage "REC ICT classes are being phased out in favor of Brick classes. For a replacement, consider brick:IAQSensorEquipment" ;
+  brick:deprecationMitigationMessage "REC ICT classes are being phased out in favor of Brick classes. For a replacement, consider brick:IAQ_Sensor_Equipment" ;
   brick:isReplacedBy brick:IAQ_Sensor_Equipment ;
 .
 
 rec:LeakDetectorEquipment
   owl:deprecated "true"^^xsd:boolean ;
   brick:deprecatedInVersion "1.4.0" ;
-  brick:deprecationMitigationMessage "REC ICT classes are being phased out in favor of Brick classes. For a replacement, consider brick:LeakDetectorEquipment" ;
+  brick:deprecationMitigationMessage "REC ICT classes are being phased out in favor of Brick classes. For a replacement, consider brick:Leak_Detector_Equipment" ;
   brick:isReplacedBy brick:Leak_Detector_Equipment ;
 .
 
 rec:OccupancySensorEquipment
   owl:deprecated "true"^^xsd:boolean ;
   brick:deprecatedInVersion "1.4.0" ;
-  brick:deprecationMitigationMessage "REC ICT classes are being phased out in favor of Brick classes. For a replacement, consider brick:OccupancySensorEquipment" ;
+  brick:deprecationMitigationMessage "REC ICT classes are being phased out in favor of Brick classes. For a replacement, consider brick:Occupancy_Sensor_Equipment" ;
   brick:isReplacedBy brick:Occupancy_Sensor_Equipment ;
 .
 
 rec:PeopleCountSensorEquipment
   owl:deprecated "true"^^xsd:boolean ;
   brick:deprecatedInVersion "1.4.0" ;
-  brick:deprecationMitigationMessage "REC ICT classes are being phased out in favor of Brick classes. For a replacement, consider brick:PeopleCountSensorEquipment" ;
+  brick:deprecationMitigationMessage "REC ICT classes are being phased out in favor of Brick classes. For a replacement, consider brick:People_Count_Sensor_Equipment" ;
   brick:isReplacedBy brick:People_Count_Sensor_Equipment ;
 .
 
 rec:ThermostatEquipment
   owl:deprecated "true"^^xsd:boolean ;
   brick:deprecatedInVersion "1.4.0" ;
-  brick:deprecationMitigationMessage "REC ICT classes are being phased out in favor of Brick classes. For a replacement, consider brick:ThermostatEquipment" ;
+  brick:deprecationMitigationMessage "REC ICT classes are being phased out in favor of Brick classes. For a replacement, consider brick:Thermostat" ;
   brick:isReplacedBy brick:Thermostat ;
 .
 
 rec:VibrationSensorEquipment
   owl:deprecated "true"^^xsd:boolean ;
   brick:deprecatedInVersion "1.4.0" ;
-  brick:deprecationMitigationMessage "REC ICT classes are being phased out in favor of Brick classes. For a replacement, consider brick:VibrationSensorEquipment" ;
+  brick:deprecationMitigationMessage "REC ICT classes are being phased out in favor of Brick classes. For a replacement, consider brick:Vibration_Sensor_Equipment" ;
   brick:isReplacedBy brick:Vibration_Sensor_Equipment ;
 .
 
@@ -1725,55 +1768,69 @@ rec:Controller
 rec:BACnetController
   owl:deprecated "true"^^xsd:boolean ;
   brick:deprecatedInVersion "1.4.0" ;
-  brick:deprecationMitigationMessage "REC ICT classes are being phased out in favor of Brick classes. For a replacement, consider brick:BACnetController" ;
+  brick:deprecationMitigationMessage "REC ICT classes are being phased out in favor of Brick classes. For a replacement, consider brick:BACnet_Controller" ;
   brick:isReplacedBy brick:BACnet_Controller ;
 .
 
 rec:ModbusController
   owl:deprecated "true"^^xsd:boolean ;
   brick:deprecatedInVersion "1.4.0" ;
-  brick:deprecationMitigationMessage "REC ICT classes are being phased out in favor of Brick classes. For a replacement, consider brick:ModbusController" ;
+  brick:deprecationMitigationMessage "REC ICT classes are being phased out in favor of Brick classes. For a replacement, consider brick:Modbus_Controller" ;
   brick:isReplacedBy brick:Modbus_Controller ;
 .
 
 rec:DataNetworkEquipment
   owl:deprecated "true"^^xsd:boolean ;
   brick:deprecatedInVersion "1.4.0" ;
-  brick:deprecationMitigationMessage "REC ICT classes are being phased out in favor of Brick classes. For a replacement, consider brick:DataNetworkEquipment" ;
+  brick:deprecationMitigationMessage "REC ICT classes are being phased out in favor of Brick classes. For a replacement, consider brick:Data_Network_Equipment" ;
   brick:isReplacedBy brick:Data_Network_Equipment ;
 .
 
 rec:EthernetPort
   owl:deprecated "true"^^xsd:boolean ;
   brick:deprecatedInVersion "1.4.0" ;
-  brick:deprecationMitigationMessage "REC ICT classes are being phased out in favor of Brick classes. For a replacement, consider brick:EthernetPort" ;
+  brick:deprecationMitigationMessage "REC ICT classes are being phased out in favor of Brick classes. For a replacement, consider brick:Ethernet_Port" ;
   brick:isReplacedBy brick:Ethernet_Port ;
 .
 
 rec:EthernetSwitch
   owl:deprecated "true"^^xsd:boolean ;
   brick:deprecatedInVersion "1.4.0" ;
-  brick:deprecationMitigationMessage "REC ICT classes are being phased out in favor of Brick classes. For a replacement, consider brick:EthernetSwitch" ;
+  brick:deprecationMitigationMessage "REC ICT classes are being phased out in favor of Brick classes. For a replacement, consider brick:Ethernet_Switch" ;
   brick:isReplacedBy brick:Ethernet_Switch ;
 .
 
 rec:Network_Router
   owl:deprecated "true"^^xsd:boolean ;
   brick:deprecatedInVersion "1.4.0" ;
-  brick:deprecationMitigationMessage "REC ICT classes are being phased out in favor of Brick classes. For a replacement, consider brick:NetworkRouter" ;
+  brick:deprecationMitigationMessage "REC ICT classes are being phased out in favor of Brick classes. For a replacement, consider brick:Network_Router" ;
   brick:isReplacedBy brick:Network_Router ;
 .
 
 rec:NetworkSecurityEquipment
   owl:deprecated "true"^^xsd:boolean ;
   brick:deprecatedInVersion "1.4.0" ;
-  brick:deprecationMitigationMessage "REC ICT classes are being phased out in favor of Brick classes. For a replacement, consider brick:NetworkSecurityEquipment" ;
+  brick:deprecationMitigationMessage "REC ICT classes are being phased out in favor of Brick classes. For a replacement, consider brick:Network_Security_Equipment" ;
   brick:isReplacedBy brick:Network_Security_Equipment ;
 .
 
 rec:WirelessAccessPoint
   owl:deprecated "true"^^xsd:boolean ;
   brick:deprecatedInVersion "1.4.0" ;
-  brick:deprecationMitigationMessage "REC ICT classes are being phased out in favor of Brick classes. For a replacement, consider brick:WirelessAccessPoint" ;
+  brick:deprecationMitigationMessage "REC ICT classes are being phased out in favor of Brick classes. For a replacement, consider brick:Wireless_Access_Point" ;
   brick:isReplacedBy brick:Wireless_Access_Point ;
+.
+
+rec:Gateway
+  owl:deprecated "true"^^xsd:boolean ;
+  brick:deprecatedInVersion "1.4.0" ;
+  brick:deprecationMitigationMessage "REC ICT classes are being phased out in favor of Brick classes. For a replacement, consider brick:Gateway" ;
+  brick:isReplacedBy brick:Gateway ;
+.
+
+rec:AudioVisualEquipment
+  owl:deprecated "true"^^xsd:boolean ;
+  brick:deprecatedInVersion "1.4.0" ;
+  brick:deprecationMitigationMessage "REC ICT classes are being phased out in favor of Brick classes. For a replacement, consider brick:Audio_Visual_Equipment" ;
+  brick:isReplacedBy brick:Audio_Visual_Equipment ;
 .

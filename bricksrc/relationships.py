@@ -1,5 +1,5 @@
 from rdflib import Literal
-from .namespaces import A, OWL, RDFS, BRICK, VCARD, QUDT, SDO, RDF, BSH, XSD, REC
+from .namespaces import A, OWL, RDFS, BRICK, VCARD, QUDT, SDO, RDF, BSH, XSD, REC, SH
 from .env import env
 
 """
@@ -17,13 +17,13 @@ relationships = {
         "domain": BRICK.Entity,
     },
     "hasSubstance": {
-        A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+        A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         RDFS.label: Literal("Has Substance", lang="en"),
         "range": BRICK.Substance,
         "domain": [BRICK.Point, BRICK.Meter],
     },
     "hasQuantity": {
-        A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+        A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         RDFS.label: Literal("Has Quantity", lang="en"),
         RDFS.subPropertyOf: QUDT.hasQuantityKind,
         "range": [BRICK.Quantity, QUDT.QuantityKind],
@@ -135,7 +135,7 @@ relationships = {
     "isTagOf": {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         "domain": BRICK.Tag,
-        "range": OWL.Class,
+        "range": [BRICK.Entity, BRICK.Measurable],
         RDFS.label: Literal("Is tag of", lang="en"),
     },
     "hasAssociatedTag": {
@@ -197,14 +197,26 @@ relationships = {
     "hasAmbientTemperature": {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
     },
+    "aliasOf": {
+        A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+        "range": BRICK.Entity,
+        "domain": BRICK.Entity,
+    },
+    "deprecation": {
+        A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+        "range": [BSH.DeprecationRule],
+    },
     "deprecationMitigationMessage": {
         A: [OWL.DatatypeProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+        "range": XSD.string,
     },
     "deprecatedInVersion": {
         A: [OWL.DatatypeProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+        "range": XSD.string,
     },
     "deprecationMitigationRule": {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+        "range": [SH.PropertyShape],
     },
     "aggregationFunction": {
         A: [OWL.DatatypeProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],

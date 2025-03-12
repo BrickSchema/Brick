@@ -41,7 +41,9 @@ for example, using the git tag for the `v1.2.0` release:
 git shortlog v1.2.0..HEAD -n -s
 ```
 
-Include the added/removed classes at the bottom of the release notes. Be sure to tag the release following the usual naming schema `vMAJOR.MINOR.PATCH`.
+Copy the contents of `history/<old version>-<released version>/release_notes.md` file into the bottom of the release notes on GitHub.
+
+Be sure to tag the release following the usual naming schema `vMAJOR.MINOR.PATCH`.
 
 ## Update `brickschema`
 
