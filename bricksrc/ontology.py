@@ -55,6 +55,10 @@ shacl_namespace_declarations = [
         SH.prefix: Literal("rdf"),
     },
     {
+        SH.namespace: Literal(str(XSD), datatype=XSD.anyURI),
+        SH.prefix: Literal("xsd"),
+    },
+    {
         SH.namespace: Literal(str(RDFS), datatype=XSD.anyURI),
         SH.prefix: Literal("rdfs"),
     },

@@ -63,7 +63,13 @@ substances = {
                                     "Leaving_Condenser_Water": {},
                                 },
                             },
-                            "Domestic_Water": {},
+                            "Domestic_Water": {
+                                SKOS.narrower: {
+                                    "Domestic_Hot_Water": {
+                                        "parents": [BRICK.Hot_Water],
+                                    },
+                                }
+                            },
                             "Potable_Water": {},
                             "Leaving_Water": {},
                             "Entering_Water": {},

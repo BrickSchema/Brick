@@ -13,7 +13,7 @@ entity_properties = {
     BRICK.deprecation: {
         SKOS.definition: Literal("Marks a concept as deprecated"),
         "property_of": BRICK.Entity,
-        SH.node: BRICK.DeprecationShape,
+        SH.node: BSH.DeprecationShape,
         RDFS.label: Literal("Deprecation Notice", lang="en"),
     },
     BRICK.lastKnownValue: {
@@ -549,7 +549,7 @@ shape_properties = {
             },
         }
     },
-    BRICK.DeprecationShape: {
+    BSH.DeprecationShape: {
         "properties": {
             BRICK.deprecatedInVersion: {
                 SKOS.definition: Literal(
@@ -572,13 +572,13 @@ shape_properties = {
             },
         },
     },
-    BRICK.ElectricVehicleChargingTypeShape: {
+    BSH.ElectricVehicleChargingTypeShape: {
         "values": ["Level 1", "Level 2", "Level 3"]
     },
-    BRICK.ElectricVehicleChargingDirectionalityShape: {
+    BSH.ElectricVehicleChargingDirectionalityShape: {
         "values": ["unidirectional", "bidirectional"]
     },
-    BRICK.ElectricVehicleConnectorTypeShape: {
+    BSH.ElectricVehicleConnectorTypeShape: {
         "values": [
             "Type 1 (CSS)",
             "Type 2 (CSS)",

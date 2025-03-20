@@ -74,6 +74,7 @@ def test_subclasses(brick_with_imports):
             QUDT.Unit,
             QUDT.QuantityKind,
             XSD.string,
+            BRICK.Relationship,
         ]
     )
 
