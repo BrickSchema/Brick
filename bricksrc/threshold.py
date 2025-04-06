@@ -1,0 +1,1275 @@
+from .namespaces import TAG, BRICK, RDFS, QUDTQK
+
+
+threshold_definitions = {
+    "Threshold": {
+        "subclasses": {
+            "Lockout_Threshold": {},
+            "Lower_Threshold": {
+                "subclasses": {
+                    "Enable_Hot_Water_System_Outside_Air_Temperature_Threshold": {
+                        "tags": [
+                            TAG.Point,
+                            TAG.Enable,
+                            TAG.Hot,
+                            TAG.Water,
+                            TAG.System,
+                            TAG.Outside,
+                            TAG.Air,
+                            TAG.Temperature,
+                            TAG.Threshold,
+                        ],
+                    },
+                    "Entering_Hot_Water_Temperature_Low_Reset_Threshold": {
+                        "tags": [
+                            TAG.Point,
+                            TAG.Hot,
+                            TAG.Water,
+                            TAG.Entering,
+                            TAG.Temperature,
+                            TAG.Low,
+                            TAG.Reset,
+                            TAG.Threshold,
+                        ],
+                        "subclasses": {
+                            "Entering_Medium_Temperature_Hot_Water_Temperature_Low_Reset_Threshold": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Medium,
+                                    TAG.Temperature,
+                                    TAG.Hot,
+                                    TAG.Water,
+                                    TAG.Entering,
+                                    TAG.Temperature,
+                                    TAG.Low,
+                                    TAG.Reset,
+                                    TAG.Threshold,
+                                ],
+                            },
+                        },
+                    },
+                    "Entering_Medium_Temperature_Hot_Water_Temperature_Low_Reset_Threshold": {
+                        "tags": [
+                            TAG.Point,
+                            TAG.Medium,
+                            TAG.Temperature,
+                            TAG.Hot,
+                            TAG.Water,
+                            TAG.Entering,
+                            TAG.Temperature,
+                            TAG.Low,
+                            TAG.Reset,
+                            TAG.Threshold,
+                        ],
+                    },
+                    "Heating_Temperature_Threshold": {
+                        BRICK.hasQuantity: BRICK.Temperature,
+                        "tags": [
+                            TAG.Point,
+                            TAG.Temperature,
+                            TAG.Threshold,
+                            TAG.Heat,
+                        ],
+                        "subclasses": {
+                            "Heating_Zone_Air_Temperature_Threshold": {
+                                BRICK.hasQuantity: BRICK.Temperature,
+                                BRICK.hasSubstance: BRICK.Zone_Air,
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Heat,
+                                    TAG.Zone,
+                                    TAG.Air,
+                                    TAG.Temperature,
+                                    TAG.Threshold,
+                                ],
+                                "subclasses": {
+                                    "Effective_Heating_Zone_Air_Temperature_Threshold": {
+                                        "parents": [
+                                            BRICK.Effective_Air_Temperature_Threshold,
+                                        ],
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Effective,
+                                            TAG.Heat,
+                                            TAG.Zone,
+                                            TAG.Air,
+                                            TAG.Temperature,
+                                            TAG.Threshold,
+                                        ],
+                                    },
+                                    "Occupied_Heating_Zone_Air_Temperature_Threshold": {
+                                        "parents": [
+                                            BRICK.Occupied_Air_Temperature_Threshold,
+                                        ],
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Occupied,
+                                            TAG.Heat,
+                                            TAG.Zone,
+                                            TAG.Air,
+                                            TAG.Temperature,
+                                            TAG.Threshold,
+                                        ],
+                                    },
+                                    "Standby_Heating_Zone_Air_Temperature_Threshold": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Standby,
+                                            TAG.Heat,
+                                            TAG.Zone,
+                                            TAG.Air,
+                                            TAG.Temperature,
+                                            TAG.Threshold,
+                                        ],
+                                    },
+                                    "Unoccupied_Heating_Zone_Air_Temperature_Threshold": {
+                                        "parents": [
+                                            BRICK.Unoccupied_Air_Temperature_Threshold,
+                                        ],
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Unoccupied,
+                                            TAG.Heat,
+                                            TAG.Zone,
+                                            TAG.Air,
+                                            TAG.Temperature,
+                                            TAG.Threshold,
+                                        ],
+                                    },
+                                },
+                            },
+                            "Occupied_Heating_Temperature_Threshold": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Temperature,
+                                    TAG.Threshold,
+                                    TAG.Heat,
+                                    TAG.Occupied,
+                                ],
+                                "subclasses": {
+                                    "Occupied_Heating_Zone_Air_Temperature_Threshold": {
+                                        "parents": [
+                                            BRICK.Occupied_Air_Temperature_Threshold,
+                                        ],
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Occupied,
+                                            TAG.Heat,
+                                            TAG.Zone,
+                                            TAG.Air,
+                                            TAG.Temperature,
+                                            TAG.Threshold,
+                                        ],
+                                    },
+                                },
+                            },
+                            "Open_Heating_Valve_Outside_Air_Temperature_Threshold": {
+                                "parents": [
+                                    BRICK.Heating_Temperature_Threshold,
+                                ],
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Open,
+                                    TAG.Heat,
+                                    TAG.Valve,
+                                    TAG.Outside,
+                                    TAG.Air,
+                                    TAG.Temperature,
+                                    TAG.Threshold,
+                                ],
+                            },
+                            "Unoccupied_Heating_Temperature_Threshold": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Temperature,
+                                    TAG.Threshold,
+                                    TAG.Heat,
+                                    TAG.Unoccupied,
+                                ],
+                                "subclasses": {
+                                    "Unoccupied_Heating_Zone_Air_Temperature_Threshold": {
+                                        "parents": [
+                                            BRICK.Unoccupied_Air_Temperature_Threshold,
+                                        ],
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Unoccupied,
+                                            TAG.Heat,
+                                            TAG.Zone,
+                                            TAG.Air,
+                                            TAG.Temperature,
+                                            TAG.Threshold,
+                                        ],
+                                    },
+                                },
+                            },
+                        },
+                    },
+                    "Humidification_Threshold": {},
+                    "Leaving_Hot_Water_Temperature_Low_Reset_Threshold": {
+                        BRICK.hasQuantity: BRICK.Temperature,
+                        BRICK.hasSubstance: BRICK.Leaving_Hot_Water,
+                        "tags": [
+                            TAG.Point,
+                            TAG.Hot,
+                            TAG.Water,
+                            TAG.Leaving,
+                            TAG.Temperature,
+                            TAG.Low,
+                            TAG.Reset,
+                            TAG.Threshold,
+                        ],
+                        "subclasses": {
+                            "Leaving_Medium_Temperature_Hot_Water_Temperature_Low_Reset_Threshold": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Medium,
+                                    TAG.Temperature,
+                                    TAG.Hot,
+                                    TAG.Water,
+                                    TAG.Leaving,
+                                    TAG.Temperature,
+                                    TAG.Low,
+                                    TAG.Reset,
+                                    TAG.Threshold,
+                                ],
+                            },
+                        },
+                    },
+                    "Leaving_Medium_Temperature_Hot_Water_Temperature_Low_Reset_Threshold": {
+                        "tags": [
+                            TAG.Point,
+                            TAG.Medium,
+                            TAG.Temperature,
+                            TAG.Hot,
+                            TAG.Water,
+                            TAG.Leaving,
+                            TAG.Temperature,
+                            TAG.Low,
+                            TAG.Reset,
+                            TAG.Threshold,
+                        ],
+                    },
+                    "Low_Outside_Air_Temperature_Enable_Threshold": {
+                        "tags": [
+                            TAG.Point,
+                            TAG.Low,
+                            TAG.Outside,
+                            TAG.Air,
+                            TAG.Temperature,
+                            TAG.Enable,
+                            TAG.Threshold,
+                        ],
+                    },
+                    "Outside_Air_Temperature_Low_Reset_Threshold": {
+                        BRICK.hasQuantity: BRICK.Temperature,
+                        BRICK.hasSubstance: BRICK.Outside_Air,
+                        "tags": [
+                            TAG.Point,
+                            TAG.Outside,
+                            TAG.Air,
+                            TAG.Temperature,
+                            TAG.Low,
+                            TAG.Reset,
+                            TAG.Threshold,
+                        ],
+                    },
+                    "Return_Air_Temperature_Low_Reset_Threshold": {
+                        BRICK.hasQuantity: BRICK.Temperature,
+                        BRICK.hasSubstance: BRICK.Return_Air,
+                        "tags": [
+                            TAG.Point,
+                            TAG.Return,
+                            TAG.Air,
+                            TAG.Temperature,
+                            TAG.Low,
+                            TAG.Reset,
+                            TAG.Threshold,
+                        ],
+                    },
+                    "Supply_Air_Flow_Low_Reset_Threshold": {
+                        "aliases": [
+                            BRICK.Discharge_Air_Flow_Low_Reset_Threshold,
+                        ],
+                        "tags": [
+                            TAG.Point,
+                            TAG.Supply,
+                            TAG.Discharge,
+                            TAG.Air,
+                            TAG.Flow,
+                            TAG.Reset,
+                            TAG.Threshold,
+                            TAG.Low,
+                        ],
+                    },
+                    "Supply_Air_Temperature_Low_Reset_Threshold": {
+                        "aliases": [
+                            BRICK.Discharge_Air_Temperature_Low_Reset_Threshold,
+                        ],
+                        BRICK.hasQuantity: BRICK.Temperature,
+                        BRICK.hasSubstance: BRICK.Supply_Air,
+                        "parents": [
+                            BRICK.Temperature_Low_Reset_Threshold,
+                        ],
+                        "tags": [
+                            TAG.Point,
+                            TAG.Supply,
+                            TAG.Discharge,
+                            TAG.Air,
+                            TAG.Temperature,
+                            TAG.Differential,
+                            TAG.Reset,
+                            TAG.Threshold,
+                            TAG.Low,
+                        ],
+                    },
+                    "Temperature_Low_Reset_Threshold": {
+                        BRICK.hasQuantity: BRICK.Temperature,
+                        "tags": [
+                            TAG.Point,
+                            TAG.Temperature,
+                            TAG.Low,
+                            TAG.Reset,
+                            TAG.Threshold,
+                        ],
+                        "subclasses": {
+                            "Entering_Hot_Water_Temperature_Low_Reset_Threshold": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Hot,
+                                    TAG.Water,
+                                    TAG.Entering,
+                                    TAG.Temperature,
+                                    TAG.Low,
+                                    TAG.Reset,
+                                    TAG.Threshold,
+                                ],
+                                "subclasses": {
+                                    "Entering_Medium_Temperature_Hot_Water_Temperature_Low_Reset_Threshold": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Medium,
+                                            TAG.Temperature,
+                                            TAG.Hot,
+                                            TAG.Water,
+                                            TAG.Entering,
+                                            TAG.Temperature,
+                                            TAG.Low,
+                                            TAG.Reset,
+                                            TAG.Threshold,
+                                        ],
+                                    },
+                                },
+                            },
+                            "Leaving_Hot_Water_Temperature_Low_Reset_Threshold": {
+                                BRICK.hasQuantity: BRICK.Temperature,
+                                BRICK.hasSubstance: BRICK.Leaving_Hot_Water,
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Hot,
+                                    TAG.Water,
+                                    TAG.Leaving,
+                                    TAG.Temperature,
+                                    TAG.Low,
+                                    TAG.Reset,
+                                    TAG.Threshold,
+                                ],
+                                "subclasses": {
+                                    "Leaving_Medium_Temperature_Hot_Water_Temperature_Low_Reset_Threshold": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Medium,
+                                            TAG.Temperature,
+                                            TAG.Hot,
+                                            TAG.Water,
+                                            TAG.Leaving,
+                                            TAG.Temperature,
+                                            TAG.Low,
+                                            TAG.Reset,
+                                            TAG.Threshold,
+                                        ],
+                                    },
+                                },
+                            },
+                            "Outside_Air_Temperature_Low_Reset_Threshold": {
+                                BRICK.hasQuantity: BRICK.Temperature,
+                                BRICK.hasSubstance: BRICK.Outside_Air,
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Outside,
+                                    TAG.Air,
+                                    TAG.Temperature,
+                                    TAG.Low,
+                                    TAG.Reset,
+                                    TAG.Threshold,
+                                ],
+                            },
+                            "Return_Air_Temperature_Low_Reset_Threshold": {
+                                BRICK.hasQuantity: BRICK.Temperature,
+                                BRICK.hasSubstance: BRICK.Return_Air,
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Return,
+                                    TAG.Air,
+                                    TAG.Temperature,
+                                    TAG.Low,
+                                    TAG.Reset,
+                                    TAG.Threshold,
+                                ],
+                            },
+                            "Supply_Air_Temperature_Low_Reset_Threshold": {
+                                "aliases": [
+                                    BRICK.Discharge_Air_Temperature_Low_Reset_Threshold,
+                                ],
+                                BRICK.hasQuantity: BRICK.Temperature,
+                                BRICK.hasSubstance: BRICK.Supply_Air,
+                                "parents": [
+                                    BRICK.Temperature_Low_Reset_Threshold,
+                                ],
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Supply,
+                                    TAG.Discharge,
+                                    TAG.Air,
+                                    TAG.Temperature,
+                                    TAG.Differential,
+                                    TAG.Reset,
+                                    TAG.Threshold,
+                                    TAG.Low,
+                                ],
+                            },
+                        },
+                    },
+                },
+            },
+            "Outside_Air_Lockout_Temperature_Threshold": {
+                "tags": [
+                    TAG.Point,
+                    TAG.Outside,
+                    TAG.Air,
+                    TAG.Lockout,
+                    TAG.Temperature,
+                    TAG.Threshold,
+                ],
+            },
+            "Reset_Threshold": {
+                BRICK.hasQuantity: QUDTQK.Dimensionless,
+                "tags": [
+                    TAG.Point,
+                    TAG.Reset,
+                    TAG.Threshold,
+                ],
+                "subclasses": {
+                    "Supply_Air_Flow_Reset_Threshold": {
+                        "aliases": [
+                            BRICK.Discharge_Air_Flow_Reset_Threshold,
+                        ],
+                        BRICK.hasQuantity: QUDTQK.VolumeFlowRate,
+                        BRICK.hasSubstance: BRICK.Discharge_Air,
+                        "tags": [
+                            TAG.Point,
+                            TAG.Supply,
+                            TAG.Discharge,
+                            TAG.Air,
+                            TAG.Flow,
+                            TAG.Reset,
+                            TAG.Threshold,
+                        ],
+                        "subclasses": {
+                            "Supply_Air_Flow_High_Reset_Threshold": {
+                                "aliases": [
+                                    BRICK.Discharge_Air_Flow_High_Reset_Threshold,
+                                ],
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Supply,
+                                    TAG.Discharge,
+                                    TAG.Air,
+                                    TAG.Flow,
+                                    TAG.Reset,
+                                    TAG.Threshold,
+                                    TAG.High,
+                                ],
+                            },
+                            "Supply_Air_Flow_Low_Reset_Threshold": {
+                                "aliases": [
+                                    BRICK.Discharge_Air_Flow_Low_Reset_Threshold,
+                                ],
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Supply,
+                                    TAG.Discharge,
+                                    TAG.Air,
+                                    TAG.Flow,
+                                    TAG.Reset,
+                                    TAG.Threshold,
+                                    TAG.Low,
+                                ],
+                            },
+                        },
+                    },
+                    "Supply_Air_Temperature_Reset_Differential_Threshold": {
+                        "aliases": [
+                            BRICK.Discharge_Air_Temperature_Reset_Differential_Threshold,
+                        ],
+                        BRICK.hasQuantity: BRICK.Differential_Temperature,
+                        BRICK.hasSubstance: [
+                            BRICK.Supply_Air,
+                            BRICK.Discharge_Air,
+                        ],
+                        "tags": [
+                            TAG.Point,
+                            TAG.Supply,
+                            TAG.Discharge,
+                            TAG.Air,
+                            TAG.Temperature,
+                            TAG.Differential,
+                            TAG.Reset,
+                            TAG.Threshold,
+                        ],
+                    },
+                    "Temperature_Differential_Reset_Threshold": {
+                        BRICK.hasQuantity: BRICK.Differential_Temperature,
+                        "tags": [
+                            TAG.Point,
+                            TAG.Temperature,
+                            TAG.Differential,
+                            TAG.Reset,
+                            TAG.Threshold,
+                        ],
+                    },
+                    "Temperature_High_Reset_Threshold": {
+                        BRICK.hasQuantity: BRICK.Temperature,
+                        "tags": [
+                            TAG.Point,
+                            TAG.Temperature,
+                            TAG.High,
+                            TAG.Reset,
+                            TAG.Threshold,
+                        ],
+                        "subclasses": {
+                            "Entering_Hot_Water_Temperature_High_Reset_Threshold": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Hot,
+                                    TAG.Water,
+                                    TAG.Entering,
+                                    TAG.Temperature,
+                                    TAG.High,
+                                    TAG.Reset,
+                                    TAG.Threshold,
+                                ],
+                                "subclasses": {
+                                    "Entering_Medium_Temperature_Hot_Water_Temperature_High_Reset_Threshold": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Medium,
+                                            TAG.Temperature,
+                                            TAG.Hot,
+                                            TAG.Water,
+                                            TAG.Entering,
+                                            TAG.Temperature,
+                                            TAG.High,
+                                            TAG.Reset,
+                                            TAG.Threshold,
+                                        ],
+                                    },
+                                },
+                            },
+                            "Leaving_Hot_Water_Temperature_High_Reset_Threshold": {
+                                BRICK.hasQuantity: BRICK.Temperature,
+                                BRICK.hasSubstance: BRICK.Leaving_Hot_Water,
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Hot,
+                                    TAG.Water,
+                                    TAG.Leaving,
+                                    TAG.Temperature,
+                                    TAG.High,
+                                    TAG.Reset,
+                                    TAG.Threshold,
+                                ],
+                                "subclasses": {
+                                    "Leaving_Medium_Temperature_Hot_Water_Temperature_High_Reset_Threshold": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Medium,
+                                            TAG.Temperature,
+                                            TAG.Hot,
+                                            TAG.Water,
+                                            TAG.Leaving,
+                                            TAG.Temperature,
+                                            TAG.High,
+                                            TAG.Reset,
+                                            TAG.Threshold,
+                                        ],
+                                    },
+                                },
+                            },
+                            "Outside_Air_Temperature_High_Reset_Threshold": {
+                                BRICK.hasQuantity: BRICK.Temperature,
+                                BRICK.hasSubstance: BRICK.Outside_Air,
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Outside,
+                                    TAG.Air,
+                                    TAG.Temperature,
+                                    TAG.High,
+                                    TAG.Reset,
+                                    TAG.Threshold,
+                                ],
+                            },
+                            "Return_Air_Temperature_High_Reset_Threshold": {
+                                BRICK.hasQuantity: BRICK.Temperature,
+                                BRICK.hasSubstance: BRICK.Return_Air,
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Return,
+                                    TAG.Air,
+                                    TAG.Temperature,
+                                    TAG.High,
+                                    TAG.Reset,
+                                    TAG.Threshold,
+                                ],
+                            },
+                            "Supply_Air_Temperature_High_Reset_Threshold": {
+                                "aliases": [
+                                    BRICK.Discharge_Air_Temperature_High_Reset_Threshold,
+                                ],
+                                BRICK.hasQuantity: BRICK.Temperature,
+                                BRICK.hasSubstance: BRICK.Supply_Air,
+                                "parents": [
+                                    BRICK.Temperature_High_Reset_Threshold,
+                                ],
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Supply,
+                                    TAG.Discharge,
+                                    TAG.Air,
+                                    TAG.Temperature,
+                                    TAG.Differential,
+                                    TAG.Reset,
+                                    TAG.Threshold,
+                                    TAG.High,
+                                ],
+                            },
+                        },
+                    },
+                    "Temperature_Low_Reset_Threshold": {
+                        BRICK.hasQuantity: BRICK.Temperature,
+                        "tags": [
+                            TAG.Point,
+                            TAG.Temperature,
+                            TAG.Low,
+                            TAG.Reset,
+                            TAG.Threshold,
+                        ],
+                        "subclasses": {
+                            "Entering_Hot_Water_Temperature_Low_Reset_Threshold": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Hot,
+                                    TAG.Water,
+                                    TAG.Entering,
+                                    TAG.Temperature,
+                                    TAG.Low,
+                                    TAG.Reset,
+                                    TAG.Threshold,
+                                ],
+                                "subclasses": {
+                                    "Entering_Medium_Temperature_Hot_Water_Temperature_Low_Reset_Threshold": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Medium,
+                                            TAG.Temperature,
+                                            TAG.Hot,
+                                            TAG.Water,
+                                            TAG.Entering,
+                                            TAG.Temperature,
+                                            TAG.Low,
+                                            TAG.Reset,
+                                            TAG.Threshold,
+                                        ],
+                                    },
+                                },
+                            },
+                            "Leaving_Hot_Water_Temperature_Low_Reset_Threshold": {
+                                BRICK.hasQuantity: BRICK.Temperature,
+                                BRICK.hasSubstance: BRICK.Leaving_Hot_Water,
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Hot,
+                                    TAG.Water,
+                                    TAG.Leaving,
+                                    TAG.Temperature,
+                                    TAG.Low,
+                                    TAG.Reset,
+                                    TAG.Threshold,
+                                ],
+                                "subclasses": {
+                                    "Leaving_Medium_Temperature_Hot_Water_Temperature_Low_Reset_Threshold": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Medium,
+                                            TAG.Temperature,
+                                            TAG.Hot,
+                                            TAG.Water,
+                                            TAG.Leaving,
+                                            TAG.Temperature,
+                                            TAG.Low,
+                                            TAG.Reset,
+                                            TAG.Threshold,
+                                        ],
+                                    },
+                                },
+                            },
+                            "Outside_Air_Temperature_Low_Reset_Threshold": {
+                                BRICK.hasQuantity: BRICK.Temperature,
+                                BRICK.hasSubstance: BRICK.Outside_Air,
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Outside,
+                                    TAG.Air,
+                                    TAG.Temperature,
+                                    TAG.Low,
+                                    TAG.Reset,
+                                    TAG.Threshold,
+                                ],
+                            },
+                            "Return_Air_Temperature_Low_Reset_Threshold": {
+                                BRICK.hasQuantity: BRICK.Temperature,
+                                BRICK.hasSubstance: BRICK.Return_Air,
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Return,
+                                    TAG.Air,
+                                    TAG.Temperature,
+                                    TAG.Low,
+                                    TAG.Reset,
+                                    TAG.Threshold,
+                                ],
+                            },
+                            "Supply_Air_Temperature_Low_Reset_Threshold": {
+                                "aliases": [
+                                    BRICK.Discharge_Air_Temperature_Low_Reset_Threshold,
+                                ],
+                                BRICK.hasQuantity: BRICK.Temperature,
+                                BRICK.hasSubstance: BRICK.Supply_Air,
+                                "parents": [
+                                    BRICK.Temperature_Low_Reset_Threshold,
+                                ],
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Supply,
+                                    TAG.Discharge,
+                                    TAG.Air,
+                                    TAG.Temperature,
+                                    TAG.Differential,
+                                    TAG.Reset,
+                                    TAG.Threshold,
+                                    TAG.Low,
+                                ],
+                            },
+                        },
+                    },
+                },
+            },
+            "Supply_Air_Flow_Reset_Threshold": {
+                "aliases": [
+                    BRICK.Discharge_Air_Flow_Reset_Threshold,
+                ],
+                BRICK.hasQuantity: QUDTQK.VolumeFlowRate,
+                BRICK.hasSubstance: BRICK.Discharge_Air,
+                "tags": [
+                    TAG.Point,
+                    TAG.Supply,
+                    TAG.Discharge,
+                    TAG.Air,
+                    TAG.Flow,
+                    TAG.Reset,
+                    TAG.Threshold,
+                ],
+                "subclasses": {
+                    "Supply_Air_Flow_High_Reset_Threshold": {
+                        "aliases": [
+                            BRICK.Discharge_Air_Flow_High_Reset_Threshold,
+                        ],
+                        "tags": [
+                            TAG.Point,
+                            TAG.Supply,
+                            TAG.Discharge,
+                            TAG.Air,
+                            TAG.Flow,
+                            TAG.Reset,
+                            TAG.Threshold,
+                            TAG.High,
+                        ],
+                    },
+                    "Supply_Air_Flow_Low_Reset_Threshold": {
+                        "aliases": [
+                            BRICK.Discharge_Air_Flow_Low_Reset_Threshold,
+                        ],
+                        "tags": [
+                            TAG.Point,
+                            TAG.Supply,
+                            TAG.Discharge,
+                            TAG.Air,
+                            TAG.Flow,
+                            TAG.Reset,
+                            TAG.Threshold,
+                            TAG.Low,
+                        ],
+                    },
+                },
+            },
+            "Upper_Threshold": {
+                "subclasses": {
+                    "CO2_Threshold": {
+                        BRICK.hasQuantity: BRICK.CO2_Concentration,
+                        "tags": [
+                            TAG.Point,
+                            TAG.CO2,
+                            TAG.Threshold,
+                        ],
+                        "subclasses": {
+                            "Return_Air_CO2_Threshold": {
+                                BRICK.hasQuantity: BRICK.CO2_Concentration,
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Return,
+                                    TAG.Air,
+                                    TAG.CO2,
+                                    TAG.Threshold,
+                                ],
+                            },
+                        },
+                    },
+                    "Cooling_Temperature_Threshold": {
+                        BRICK.hasQuantity: BRICK.Temperature,
+                        "tags": [
+                            TAG.Point,
+                            TAG.Temperature,
+                            TAG.Threshold,
+                            TAG.Cool,
+                        ],
+                        "subclasses": {
+                            "Cooling_Zone_Air_Temperature_Threshold": {
+                                BRICK.hasQuantity: BRICK.Temperature,
+                                BRICK.hasSubstance: BRICK.Zone_Air,
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Cool,
+                                    TAG.Zone,
+                                    TAG.Air,
+                                    TAG.Temperature,
+                                    TAG.Threshold,
+                                ],
+                                "subclasses": {
+                                    "Effective_Cooling_Zone_Air_Temperature_Threshold": {
+                                        "parents": [
+                                            BRICK.Effective_Air_Temperature_Threshold,
+                                        ],
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Effective,
+                                            TAG.Cool,
+                                            TAG.Zone,
+                                            TAG.Air,
+                                            TAG.Temperature,
+                                            TAG.Threshold,
+                                        ],
+                                    },
+                                    "Occupied_Cooling_Zone_Air_Temperature_Threshold": {
+                                        "parents": [
+                                            BRICK.Occupied_Air_Temperature_Threshold,
+                                        ],
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Occupied,
+                                            TAG.Cool,
+                                            TAG.Zone,
+                                            TAG.Air,
+                                            TAG.Temperature,
+                                            TAG.Threshold,
+                                        ],
+                                    },
+                                    "Standby_Cooling_Zone_Air_Temperature_Threshold": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Standby,
+                                            TAG.Cool,
+                                            TAG.Zone,
+                                            TAG.Air,
+                                            TAG.Temperature,
+                                            TAG.Threshold,
+                                        ],
+                                    },
+                                    "Unoccupied_Cooling_Zone_Air_Temperature_Threshold": {
+                                        "parents": [
+                                            BRICK.Unoccupied_Air_Temperature_Threshold,
+                                        ],
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Unoccupied,
+                                            TAG.Cool,
+                                            TAG.Zone,
+                                            TAG.Air,
+                                            TAG.Temperature,
+                                            TAG.Threshold,
+                                        ],
+                                    },
+                                },
+                            },
+                            "Occupied_Cooling_Temperature_Threshold": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Temperature,
+                                    TAG.Threshold,
+                                    TAG.Cool,
+                                    TAG.Occupied,
+                                ],
+                                "subclasses": {
+                                    "Occupied_Cooling_Zone_Air_Temperature_Threshold": {
+                                        "parents": [
+                                            BRICK.Occupied_Air_Temperature_Threshold,
+                                        ],
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Occupied,
+                                            TAG.Cool,
+                                            TAG.Zone,
+                                            TAG.Air,
+                                            TAG.Temperature,
+                                            TAG.Threshold,
+                                        ],
+                                    },
+                                },
+                            },
+                            "Supply_Air_Temperature_Cooling_Threshold": {
+                                "aliases": [
+                                    BRICK.Discharge_Air_Temperature_Cooling_Threshold,
+                                ],
+                                "parents": [
+                                    BRICK.Cooling_Temperature_Threshold,
+                                ],
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Supply,
+                                    TAG.Discharge,
+                                    TAG.Air,
+                                    TAG.Temperature,
+                                    TAG.Cool,
+                                    TAG.Threshold,
+                                ],
+                            },
+                            "Unoccupied_Cooling_Temperature_Threshold": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Temperature,
+                                    TAG.Threshold,
+                                    TAG.Cool,
+                                    TAG.Unoccupied,
+                                ],
+                                "subclasses": {
+                                    "Unoccupied_Cooling_Zone_Air_Temperature_Threshold": {
+                                        "parents": [
+                                            BRICK.Unoccupied_Air_Temperature_Threshold,
+                                        ],
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Unoccupied,
+                                            TAG.Cool,
+                                            TAG.Zone,
+                                            TAG.Air,
+                                            TAG.Temperature,
+                                            TAG.Threshold,
+                                        ],
+                                    },
+                                },
+                            },
+                        },
+                    },
+                    "Dehumidification_Threshold": {},
+                    "Disable_Hot_Water_System_Outside_Air_Temperature_Threshold": {
+                        "tags": [
+                            TAG.Point,
+                            TAG.Disable,
+                            TAG.Hot,
+                            TAG.Water,
+                            TAG.System,
+                            TAG.Outside,
+                            TAG.Air,
+                            TAG.Temperature,
+                            TAG.Threshold,
+                        ],
+                    },
+                    "Entering_Hot_Water_Temperature_High_Reset_Threshold": {
+                        "tags": [
+                            TAG.Point,
+                            TAG.Hot,
+                            TAG.Water,
+                            TAG.Entering,
+                            TAG.Temperature,
+                            TAG.High,
+                            TAG.Reset,
+                            TAG.Threshold,
+                        ],
+                        "subclasses": {
+                            "Entering_Medium_Temperature_Hot_Water_Temperature_High_Reset_Threshold": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Medium,
+                                    TAG.Temperature,
+                                    TAG.Hot,
+                                    TAG.Water,
+                                    TAG.Entering,
+                                    TAG.Temperature,
+                                    TAG.High,
+                                    TAG.Reset,
+                                    TAG.Threshold,
+                                ],
+                            },
+                        },
+                    },
+                    "Entering_Medium_Temperature_Hot_Water_Temperature_High_Reset_Threshold": {
+                        "tags": [
+                            TAG.Point,
+                            TAG.Medium,
+                            TAG.Temperature,
+                            TAG.Hot,
+                            TAG.Water,
+                            TAG.Entering,
+                            TAG.Temperature,
+                            TAG.High,
+                            TAG.Reset,
+                            TAG.Threshold,
+                        ],
+                    },
+                    "Leaving_Hot_Water_Temperature_High_Reset_Threshold": {
+                        BRICK.hasQuantity: BRICK.Temperature,
+                        BRICK.hasSubstance: BRICK.Leaving_Hot_Water,
+                        "tags": [
+                            TAG.Point,
+                            TAG.Hot,
+                            TAG.Water,
+                            TAG.Leaving,
+                            TAG.Temperature,
+                            TAG.High,
+                            TAG.Reset,
+                            TAG.Threshold,
+                        ],
+                        "subclasses": {
+                            "Leaving_Medium_Temperature_Hot_Water_Temperature_High_Reset_Threshold": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Medium,
+                                    TAG.Temperature,
+                                    TAG.Hot,
+                                    TAG.Water,
+                                    TAG.Leaving,
+                                    TAG.Temperature,
+                                    TAG.High,
+                                    TAG.Reset,
+                                    TAG.Threshold,
+                                ],
+                            },
+                        },
+                    },
+                    "Leaving_Medium_Temperature_Hot_Water_Temperature_High_Reset_Threshold": {
+                        "tags": [
+                            TAG.Point,
+                            TAG.Medium,
+                            TAG.Temperature,
+                            TAG.Hot,
+                            TAG.Water,
+                            TAG.Leaving,
+                            TAG.Temperature,
+                            TAG.High,
+                            TAG.Reset,
+                            TAG.Threshold,
+                        ],
+                    },
+                    "Outside_Air_Temperature_High_Reset_Threshold": {
+                        BRICK.hasQuantity: BRICK.Temperature,
+                        BRICK.hasSubstance: BRICK.Outside_Air,
+                        "tags": [
+                            TAG.Point,
+                            TAG.Outside,
+                            TAG.Air,
+                            TAG.Temperature,
+                            TAG.High,
+                            TAG.Reset,
+                            TAG.Threshold,
+                        ],
+                    },
+                    "Return_Air_Temperature_High_Reset_Threshold": {
+                        BRICK.hasQuantity: BRICK.Temperature,
+                        BRICK.hasSubstance: BRICK.Return_Air,
+                        "tags": [
+                            TAG.Point,
+                            TAG.Return,
+                            TAG.Air,
+                            TAG.Temperature,
+                            TAG.High,
+                            TAG.Reset,
+                            TAG.Threshold,
+                        ],
+                    },
+                    "Supply_Air_Flow_High_Reset_Threshold": {
+                        "aliases": [
+                            BRICK.Discharge_Air_Flow_High_Reset_Threshold,
+                        ],
+                        "tags": [
+                            TAG.Point,
+                            TAG.Supply,
+                            TAG.Discharge,
+                            TAG.Air,
+                            TAG.Flow,
+                            TAG.Reset,
+                            TAG.Threshold,
+                            TAG.High,
+                        ],
+                    },
+                    "Supply_Air_Temperature_High_Reset_Threshold": {
+                        "aliases": [
+                            BRICK.Discharge_Air_Temperature_High_Reset_Threshold,
+                        ],
+                        BRICK.hasQuantity: BRICK.Temperature,
+                        BRICK.hasSubstance: BRICK.Supply_Air,
+                        "parents": [
+                            BRICK.Temperature_High_Reset_Threshold,
+                        ],
+                        "tags": [
+                            TAG.Point,
+                            TAG.Supply,
+                            TAG.Discharge,
+                            TAG.Air,
+                            TAG.Temperature,
+                            TAG.Differential,
+                            TAG.Reset,
+                            TAG.Threshold,
+                            TAG.High,
+                        ],
+                    },
+                    "Temperature_High_Reset_Threshold": {
+                        BRICK.hasQuantity: BRICK.Temperature,
+                        "tags": [
+                            TAG.Point,
+                            TAG.Temperature,
+                            TAG.High,
+                            TAG.Reset,
+                            TAG.Threshold,
+                        ],
+                        "subclasses": {
+                            "Entering_Hot_Water_Temperature_High_Reset_Threshold": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Hot,
+                                    TAG.Water,
+                                    TAG.Entering,
+                                    TAG.Temperature,
+                                    TAG.High,
+                                    TAG.Reset,
+                                    TAG.Threshold,
+                                ],
+                                "subclasses": {
+                                    "Entering_Medium_Temperature_Hot_Water_Temperature_High_Reset_Threshold": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Medium,
+                                            TAG.Temperature,
+                                            TAG.Hot,
+                                            TAG.Water,
+                                            TAG.Entering,
+                                            TAG.Temperature,
+                                            TAG.High,
+                                            TAG.Reset,
+                                            TAG.Threshold,
+                                        ],
+                                    },
+                                },
+                            },
+                            "Leaving_Hot_Water_Temperature_High_Reset_Threshold": {
+                                BRICK.hasQuantity: BRICK.Temperature,
+                                BRICK.hasSubstance: BRICK.Leaving_Hot_Water,
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Hot,
+                                    TAG.Water,
+                                    TAG.Leaving,
+                                    TAG.Temperature,
+                                    TAG.High,
+                                    TAG.Reset,
+                                    TAG.Threshold,
+                                ],
+                                "subclasses": {
+                                    "Leaving_Medium_Temperature_Hot_Water_Temperature_High_Reset_Threshold": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Medium,
+                                            TAG.Temperature,
+                                            TAG.Hot,
+                                            TAG.Water,
+                                            TAG.Leaving,
+                                            TAG.Temperature,
+                                            TAG.High,
+                                            TAG.Reset,
+                                            TAG.Threshold,
+                                        ],
+                                    },
+                                },
+                            },
+                            "Outside_Air_Temperature_High_Reset_Threshold": {
+                                BRICK.hasQuantity: BRICK.Temperature,
+                                BRICK.hasSubstance: BRICK.Outside_Air,
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Outside,
+                                    TAG.Air,
+                                    TAG.Temperature,
+                                    TAG.High,
+                                    TAG.Reset,
+                                    TAG.Threshold,
+                                ],
+                            },
+                            "Return_Air_Temperature_High_Reset_Threshold": {
+                                BRICK.hasQuantity: BRICK.Temperature,
+                                BRICK.hasSubstance: BRICK.Return_Air,
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Return,
+                                    TAG.Air,
+                                    TAG.Temperature,
+                                    TAG.High,
+                                    TAG.Reset,
+                                    TAG.Threshold,
+                                ],
+                            },
+                            "Supply_Air_Temperature_High_Reset_Threshold": {
+                                "aliases": [
+                                    BRICK.Discharge_Air_Temperature_High_Reset_Threshold,
+                                ],
+                                BRICK.hasQuantity: BRICK.Temperature,
+                                BRICK.hasSubstance: BRICK.Supply_Air,
+                                "parents": [
+                                    BRICK.Temperature_High_Reset_Threshold,
+                                ],
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Supply,
+                                    TAG.Discharge,
+                                    TAG.Air,
+                                    TAG.Temperature,
+                                    TAG.Differential,
+                                    TAG.Reset,
+                                    TAG.Threshold,
+                                    TAG.High,
+                                ],
+                            },
+                        },
+                    },
+                },
+            },
+        }
+    }
+}
