@@ -235,7 +235,9 @@ def define_concept_hierarchy(definitions, typeclasses, broader=None, related=Non
     Currently this is used for Brick Quantities
     """
     for concept, defn in definitions.items():
+        label = concept.split("#")[-1].replace("_", " ")
         concept = BRICK[concept]
+        G.add((concept, RDFS.label, Literal(label, lang="en")))
         for typeclass in typeclasses:
             G.add((concept, A, typeclass))
         # mark broader concept if one exists
