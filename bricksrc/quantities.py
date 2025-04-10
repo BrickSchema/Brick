@@ -65,6 +65,7 @@ quantity_definitions = {
                 SKOS.narrower: {
                     "Differential_CO_Concentration": {
                         QUDT.isDeltaQuantity: Literal(True),
+                        QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M0H0T0D1"],
                         QUDT.applicableUnit: [UNIT.PPM, UNIT.PPB],
                         SKOS.definition: Literal(
                             "The difference in carbon monoxide concentration between two areas"
@@ -86,6 +87,7 @@ quantity_definitions = {
                 SKOS.narrower: {
                     "Differential_CO2_Concentration": {
                         QUDT.isDeltaQuantity: Literal(True),
+                        QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M0H0T0D1"],
                         QUDT.applicableUnit: [UNIT.PPM, UNIT.PPB],
                         SKOS.definition: Literal(
                             "The difference in carbon dioxide concentration between two areas"
@@ -132,6 +134,7 @@ quantity_definitions = {
             },
             "PM10_Concentration": {
                 QUDT.applicableUnit: [UNIT.PPM, UNIT.PPB, UNIT["MicroGM-PER-M3"]],
+                QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M0H0T0D1"],
                 SKOS.definition: Literal(
                     "The concentration of particulates with diameter of 10 microns or less in air"
                 ),
@@ -140,6 +143,7 @@ quantity_definitions = {
             },
             "PM2.5_Concentration": {
                 QUDT.applicableUnit: [UNIT.PPM, UNIT.PPB, UNIT["MicroGM-PER-M3"]],
+                QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M0H0T0D1"],
                 SKOS.definition: Literal(
                     "The concentration of particulates with diameter of 2.5 microns or less in air"
                 ),
@@ -148,6 +152,7 @@ quantity_definitions = {
             },
             "PM1_Concentration": {
                 QUDT.applicableUnit: [UNIT.PPM, UNIT.PPB, UNIT["MicroGM-PER-M3"]],
+                QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M0H0T0D1"],
                 SKOS.definition: Literal(
                     "The concentration of particulates with diameter of 1 microns or less in air"
                 ),
@@ -234,8 +239,8 @@ quantity_definitions = {
         },
     },
     "Cloudage": {
-        # TODO: define Okta?
-        # QUDT.applicableUnit: [UNIT.Okta],
+        QUDT.applicableUnit: [UNIT.Okta],
+        QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M0H0T0D1"],
         SKOS.definition: Literal(
             "The fraction of the sky obscured by clouds when observed from a particular location"
         ),
@@ -601,6 +606,7 @@ quantity_definitions = {
     },
     "Speed": {
         BRICK.hasQUDTReference: QUDTQK["Speed"],
+        QUDT.hasDimensionVector: QUDTDV["A0E0L1I0M0H0T-1D0"],
         SKOS.narrower: {
             "Linear_Speed": {
                 QUDT.applicableUnit: [
