@@ -9,7 +9,7 @@ setpoint_definitions = {
         "tags": [TAG.Point, TAG.Setpoint],
         "subclasses": {
             "Current_Ratio_Setpoint": {
-                BRICK.hasQuantity: BRICK.Electric_Current,
+                BRICK.hasQuantity: QUDTQK.ElectricCurrent,
                 "tags": [TAG.Point, TAG.Setpoint, TAG.Current, TAG.Electric, TAG.Ratio],
             },
             "Voltage_Ratio_Setpoint": {
@@ -277,7 +277,7 @@ setpoint_definitions = {
                         "parents": [BRICK.Air_Flow_Setpoint],
                     },
                     "Static_Pressure_Deadband_Setpoint": {
-                        BRICK.hasQuantity: BRICK.Static_Pressure,
+                        BRICK.hasQuantity: QUDTQK.StaticPressure,
                         "tags": [
                             TAG.Point,
                             TAG.Static,
@@ -292,11 +292,7 @@ setpoint_definitions = {
                                     BRICK.Supply_Air,
                                     BRICK.Discharge_Air,
                                 ],
-                                BRICK.hasSubstance: [
-                                    BRICK.Supply_Air,
-                                    BRICK.Discharge_Air,
-                                ],
-                                BRICK.hasQuantity: BRICK.Static_Pressure,
+                                BRICK.hasQuantity: QUDTQK.StaticPressure,
                                 "aliases": [
                                     BRICK[
                                         "Discharge_Air_Static_Pressure_Deadband_Setpoint"
@@ -840,23 +836,23 @@ setpoint_definitions = {
                 BRICK.hasQuantity: QUDTQK.Luminance,
             },
             "Pressure_Setpoint": {
-                BRICK.hasQuantity: BRICK.Pressure,
+                BRICK.hasQuantity: QUDTQK.Pressure,
                 "subclasses": {
                     "Air_Pressure_Setpoint": {
                         "tags": [TAG.Setpoint, TAG.Pressure, TAG.Setpoint, TAG.Air],
-                        BRICK.hasQuantity: BRICK.Pressure,
+                        BRICK.hasQuantity: QUDTQK.Pressure,
                     },
                     "Water_Pressure_Setpoint": {
                         "tags": [TAG.Setpoint, TAG.Pressure, TAG.Setpoint, TAG.Water],
-                        BRICK.hasQuantity: BRICK.Pressure,
+                        BRICK.hasQuantity: QUDTQK.Pressure,
                     },
                     "Static_Pressure_Setpoint": {
-                        BRICK.hasQuantity: BRICK.Static_Pressure,
+                        BRICK.hasQuantity: QUDTQK.StaticPressure,
                         "subclasses": {
                             "Building_Air_Static_Pressure_Setpoint": {
                                 "parents": [BRICK["Air_Pressure_Setpoint"]],
                                 BRICK.hasSubstance: BRICK.Building_Air,
-                                BRICK.hasQuantity: BRICK.Static_Pressure,
+                                BRICK.hasQuantity: QUDTQK.StaticPressure,
                                 "tags": [
                                     TAG.Point,
                                     TAG.Building,
@@ -868,7 +864,7 @@ setpoint_definitions = {
                             },
                             "Chilled_Water_Static_Pressure_Setpoint": {
                                 BRICK.hasSubstance: BRICK.Chilled_Water,
-                                BRICK.hasQuantity: BRICK.Static_Pressure,
+                                BRICK.hasQuantity: QUDTQK.StaticPressure,
                                 "tags": [
                                     TAG.Point,
                                     TAG.Chilled,
@@ -880,7 +876,7 @@ setpoint_definitions = {
                             },
                             "Duct_Air_Static_Pressure_Setpoint": {
                                 BRICK.hasSubstance: BRICK.Air,
-                                BRICK.hasQuantity: BRICK.Static_Pressure,
+                                BRICK.hasQuantity: QUDTQK.StaticPressure,
                                 "tags": [
                                     TAG.Point,
                                     TAG.Duct,
@@ -892,7 +888,7 @@ setpoint_definitions = {
                             },
                             "Exhaust_Air_Static_Pressure_Setpoint": {
                                 BRICK.hasSubstance: BRICK.Exhaust_Air,
-                                BRICK.hasQuantity: BRICK.Static_Pressure,
+                                BRICK.hasQuantity: QUDTQK.StaticPressure,
                                 "tags": [
                                     TAG.Point,
                                     TAG.Exhaust,
@@ -904,7 +900,7 @@ setpoint_definitions = {
                             },
                             "Hot_Water_Static_Pressure_Setpoint": {
                                 BRICK.hasSubstance: BRICK.Hot_Water,
-                                BRICK.hasQuantity: BRICK.Static_Pressure,
+                                BRICK.hasQuantity: QUDTQK.StaticPressure,
                                 "tags": [
                                     TAG.Point,
                                     TAG.Hot,
@@ -923,7 +919,7 @@ setpoint_definitions = {
                                     BRICK.Supply_Air,
                                     BRICK.Discharge_Air,
                                 ],
-                                BRICK.hasQuantity: BRICK.Static_Pressure,
+                                BRICK.hasQuantity: QUDTQK.StaticPressure,
                                 "aliases": [
                                     BRICK["Discharge_Air_Static_Pressure_Setpoint"]
                                 ],

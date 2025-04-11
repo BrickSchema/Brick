@@ -510,7 +510,6 @@ sensor_definitions = {
             },
             "Direction_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Direction],
-                BRICK.hasQuantity: BRICK.Direction,
                 "subclasses": {
                     "Wind_Direction_Sensor": {
                         "tags": [TAG.Point, TAG.Sensor, TAG.Direction, TAG.Wind],
@@ -520,7 +519,7 @@ sensor_definitions = {
             },
             "Energy_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Energy],
-                BRICK.hasQuantity: BRICK.Energy,
+                BRICK.hasQuantity: QUDTQK.Energy,
                 "subclasses": {
                     "Electric_Energy_Sensor": {
                         "tags": [TAG.Point, TAG.Sensor, TAG.Energy, TAG.Electric],
@@ -1052,11 +1051,11 @@ sensor_definitions = {
             },
             "Pressure_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Pressure],
-                BRICK.hasQuantity: BRICK.Pressure,
+                BRICK.hasQuantity: QUDTQK.Pressure,
                 "subclasses": {
                     "Gauge_Pressure_Sensor": {
                         "tags": [TAG.Point, TAG.Sensor, TAG.Pressure, TAG.Gauge],
-                        BRICK.hasQuantity: BRICK.Gauge_Pressure,
+                        BRICK.hasQuantity: QUDTQK.GaugePressure,
                         "subclasses": {
                             "Chilled_Water_Gauge_Pressure_Sensor": {
                                 "tags": [
@@ -1083,7 +1082,7 @@ sensor_definitions = {
                     "Air_Pressure_Sensor": {
                         "tags": [TAG.Point, TAG.Sensor, TAG.Pressure, TAG.Air],
                         BRICK.hasSubstance: BRICK.Air,
-                        BRICK.hasQuantity: BRICK.Pressure,
+                        BRICK.hasQuantity: QUDTQK.Pressure,
                     },
                     "Differential_Pressure_Sensor": {
                         "tags": [TAG.Point, TAG.Sensor, TAG.Pressure, TAG.Differential],
@@ -1179,6 +1178,7 @@ sensor_definitions = {
                                         BRICK.hasSubstance: BRICK.Hot_Water,
                                         "subclasses": {
                                             "Medium_Temperature_Hot_Water_Differential_Pressure_Sensor": {
+                                                BRICK.hasQuantity: BRICK.Differential_Pressure,
                                                 "tags": [
                                                     TAG.Point,
                                                     TAG.Medium,
@@ -1191,6 +1191,7 @@ sensor_definitions = {
                                                 ],
                                             },
                                             "Domestic_Hot_Water_Differential_Pressure_Sensor": {
+                                                BRICK.hasQuantity: BRICK.Differential_Pressure,
                                                 "tags": [
                                                     TAG.Point,
                                                     TAG.Sensor,
@@ -1262,7 +1263,7 @@ sensor_definitions = {
                                 ],
                                 "subclasses": {
                                     "Building_Air_Static_Pressure_Sensor": {
-                                        BRICK.hasQuantity: BRICK.Static_Pressure,
+                                        BRICK.hasQuantity: QUDTQK.StaticPressure,
                                         BRICK.hasSubstance: BRICK.Building_Air,
                                         "tags": [
                                             TAG.Point,
@@ -1288,7 +1289,7 @@ sensor_definitions = {
                                                 "Discharge_Air_Static_Pressure_Sensor"
                                             ]
                                         ],
-                                        BRICK.hasQuantity: BRICK.Static_Pressure,
+                                        BRICK.hasQuantity: QUDTQK.StaticPressure,
                                         BRICK.hasSubstance: [
                                             BRICK.Supply_Air,
                                             BRICK.Discharge_Air,
@@ -1303,7 +1304,7 @@ sensor_definitions = {
                                             TAG.Air,
                                             TAG.Exhaust,
                                         ],
-                                        BRICK.hasQuantity: BRICK.Static_Pressure,
+                                        BRICK.hasQuantity: QUDTQK.StaticPressure,
                                         BRICK.hasSubstance: BRICK.Exhaust_Air,
                                         "subclasses": {
                                             "Average_Exhaust_Air_Static_Pressure_Sensor": {
@@ -1354,7 +1355,7 @@ sensor_definitions = {
                                     TAG.Pressure,
                                     TAG.Velocity,
                                 ],
-                                BRICK.hasQuantity: BRICK.Velocity_Pressure,
+                                BRICK.hasQuantity: QUDTQK.DynamicPressure,
                                 "subclasses": {
                                     "Exhaust_Air_Velocity_Pressure_Sensor": {
                                         "tags": [
@@ -1365,7 +1366,7 @@ sensor_definitions = {
                                             TAG.Exhaust,
                                             TAG.Air,
                                         ],
-                                        BRICK.hasQuantity: BRICK.Velocity_Pressure,
+                                        BRICK.hasQuantity: QUDTQK.DynamicPressure,
                                         BRICK.hasSubstance: BRICK.Exhaust_Air,
                                     },
                                     "Supply_Air_Velocity_Pressure_Sensor": {
@@ -1383,7 +1384,7 @@ sensor_definitions = {
                                                 "Discharge_Air_Velocity_Pressure_Sensor"
                                             ]
                                         ],
-                                        BRICK.hasQuantity: BRICK.Velocity_Pressure,
+                                        BRICK.hasQuantity: QUDTQK.DynamicPressure,
                                         BRICK.hasSubstance: [
                                             BRICK.Supply_Air,
                                             BRICK.Discharge_Air,
@@ -1420,7 +1421,7 @@ sensor_definitions = {
             },
             "Power_Factor_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Power, TAG.Factor],
-                BRICK.hasQuantity: BRICK.Power_Factor,
+                BRICK.hasQuantity: QUDTQK.PowerFactor,
             },
             "Power_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Power],
@@ -1579,7 +1580,7 @@ sensor_definitions = {
                 "subclasses": {
                     "Energy_Generation_Sensor": {
                         "tags": [TAG.Point, TAG.Sensor, TAG.Generation, TAG.Energy],
-                        BRICK.hasQuantity: BRICK.Energy,
+                        BRICK.hasQuantity: QUDTQK.Energy,
                     }
                 },
             },
@@ -1603,7 +1604,7 @@ sensor_definitions = {
                     },
                     "Energy_Usage_Sensor": {
                         "parents": [BRICK.Energy_Sensor],
-                        BRICK.hasQuantity: BRICK.Energy,
+                        BRICK.hasQuantity: QUDTQK.Energy,
                         "tags": [TAG.Point, TAG.Sensor, TAG.Energy, TAG.Usage],
                         "subclasses": {
                             "Electrical_Energy_Usage_Sensor": {
@@ -1617,7 +1618,7 @@ sensor_definitions = {
                                 ],
                             },
                             "Thermal_Energy_Usage_Sensor": {
-                                BRICK.hasQuantity: BRICK.Thermal_Energy,
+                                BRICK.hasQuantity: QUDTQK.ThermalEnergy,
                                 "tags": [
                                     TAG.Point,
                                     TAG.Thermal,
