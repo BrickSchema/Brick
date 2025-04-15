@@ -10,10 +10,10 @@ requires-python = ">= 3.10"
 [tool.uv]
 dev-dependencies = [
     "rdflib>=7.0.0",
-    "owlrl>=6.0.2",
+    "owlrl>=7.0.2",
     "pytest>=8.3.2",
     "tqdm>=4.66.5",
-    "pyshacl>=0.25.0",
+    "pyshacl>=0.30",
     "docker>=7.1.0",
     "black>=24.8.0",
     "pre-commit>=3.8.0",
@@ -21,7 +21,7 @@ dev-dependencies = [
     "pytest-xdist[psutil]>=3.6.1",
     "semver>=3.0.2",
     "html5lib>=1.1",
-    "pyontoenv>=0.2.0a5",
+    "pyontoenv>=0.2.0a6",
     "brickschema>=0.7.6",
     "scipy>=1.13.1",
     "sentence-transformers>=3.0.1",
