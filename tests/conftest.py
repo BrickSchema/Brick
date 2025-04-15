@@ -45,7 +45,8 @@ def brick():
 
 @pytest.fixture()
 def brick_with_imports():
-    env = ontoenv.OntoEnv(read_only=True)
+    cfg = Config(["Brick.ttl", "support/", "extensions/", "rec/Source/SHACL/RealEstateCore"], strict=False, offline=True, temporary=True)
+    env = OntoEnv(cfg)
     g = brickschema.Graph()
     g.load_file("Brick.ttl")
     g.bind("qudt", QUDT)

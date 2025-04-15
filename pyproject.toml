@@ -6,7 +6,7 @@ authors = [
     { name = "Gabe Fierro", email = "gtfierro@mines.edu" }
 ]
 readme = "README.md"
-requires-python = ">= 3.9"
+requires-python = ">= 3.10"
 [tool.uv]
 dev-dependencies = [
     "rdflib>=7.0.0",
@@ -21,8 +21,8 @@ dev-dependencies = [
     "pytest-xdist[psutil]>=3.6.1",
     "semver>=3.0.2",
     "html5lib>=1.1",
-    "pyontoenv>=0.2.0a4",
-    "brickschema>=0.7.6a2",
+    "pyontoenv>=0.2.0a5",
+    "brickschema>=0.7.6",
     "scipy>=1.13.1",
     "sentence-transformers>=3.0.1",
     "numpy>=2.0.1",
