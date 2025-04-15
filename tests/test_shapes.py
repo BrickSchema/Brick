@@ -103,8 +103,8 @@ def test_meter_shapes(brick_with_imports):
 """
     )
     valid_g = brickschema.Graph().parse(data=valid_data, format="turtle")
-    conforms, _, _ = valid_g.validate([brick_with_imports], engine="topquadrant")
-    assert conforms
+    conforms, _, report_str = valid_g.validate([brick_with_imports], engine="topquadrant")
+    assert conforms, report_str
 
     invalid_data = (
         base_data
