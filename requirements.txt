@@ -4,11 +4,11 @@ pytest>=7.3
 tqdm>=4.0
 pyshacl>=0.25
 docker>=6.0
-brickschema[all]>=0.7.5
+brickschema[all]>=0.7.6
 black==24.3.0
 pre-commit>=3.2
 flake8>=6.0
 semver>=2.10.1
 pytest-xdist[psutil]
 html5lib
-pyontoenv>=0.1.9
+pyontoenv>=0.2.0a4

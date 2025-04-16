@@ -5,7 +5,8 @@ import ontoenv
 from rdflib import OWL, RDF
 from brickschema import Graph
 
-env = ontoenv.OntoEnv(read_only=True)
+cfg = ontoenv.Config(["Brick.ttl", "examples/", "support/", "extensions/", "rec/Source/SHACL/RealEstateCore"], strict=False, offline=True, temporary=True, excludes=[".venv/*"])
+env = ontoenv.OntoEnv(cfg)
 
 
 def test_example_file_with_reasoning(filename):

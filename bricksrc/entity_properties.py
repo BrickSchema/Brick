@@ -498,7 +498,7 @@ shape_properties = {
     },
     BSH.TiltShape: {"unitsFromQuantity": QUDTQK.Angle, "datatype": BSH.NumericValue},
     BSH.TemperatureShape: {
-        "unitsFromQuantity": BRICK.Temperature,
+        "unitsFromQuantity": QUDTQK.Temperature,
         "datatype": BSH.NumericValue,
     },
     BSH.TemperatureCoefficientPerDegreeCelsiusShape: {

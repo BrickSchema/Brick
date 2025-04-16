@@ -1,4 +1,4 @@
-from .namespaces import TAG, BRICK, OWL, QUDT
+from .namespaces import TAG, BRICK, OWL, QUDTQK
 
 status_definitions = {
     "Status": {
@@ -466,7 +466,7 @@ status_definitions = {
                 "tags": [TAG.Point, TAG.Overridden, TAG.Status],
             },
             "Pressure_Status": {
-                BRICK.hasQuantity: BRICK.Pressure,
+                BRICK.hasQuantity: QUDTQK.Pressure,
                 "subclasses": {
                     "Supply_Air_Duct_Pressure_Status": {
                         "aliases": [BRICK["Discharge_Air_Duct_Pressure_Status"]],
