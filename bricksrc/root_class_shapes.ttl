@@ -151,8 +151,8 @@ bsh:SensorInheritQuantityKind a sh:NodeShape ;
         sh:select """
         PREFIX brick: <https://brickschema.org/schema/Brick#>
         PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-            SELECT DISTINCT ?node WHERE {
-              ?node rdfs:subClassOf+ brick:Sensor
+            SELECT DISTINCT ?this WHERE {
+              ?this rdfs:subClassOf+ brick:Sensor
             }
         """
     ] ;
