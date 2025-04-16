@@ -146,9 +146,10 @@ def add_tags(klass, definition, graph=G):
     for tag in definition:
         graph.add((klass, BRICK.hasAssociatedTag, tag))
         graph.add((tag, A, BRICK.Tag))  # make sure the tag is declared as such
-        graph.add(
-            (tag, RDFS.label, Literal(tag.split("#")[-1], lang="en"))
-        )  # make sure the tag is declared as such
+        if not has_label(tag):
+            graph.add(
+                (tag, RDFS.label, Literal(tag.split("#")[-1], lang="en"))
+            )  # make sure the tag is declared as such
 
     # add SHACL shape
     sc = BSH[klass.split("#")[-1] + "_TagShape"]
@@ -237,7 +238,8 @@ def define_concept_hierarchy(definitions, typeclasses, broader=None, related=Non
     for concept, defn in definitions.items():
         label = concept.split("#")[-1].replace("_", " ")
         concept = BRICK[concept]
-        G.add((concept, RDFS.label, Literal(label, lang="en")))
+        if not has_label(concept):
+            G.add((concept, RDFS.label, Literal(label, lang="en")))
         for typeclass in typeclasses:
             G.add((concept, A, typeclass))
         # mark broader concept if one exists
@@ -433,7 +435,8 @@ def define_entity_properties(definitions, superprop=None, graph=G):
             if val is not None:
                 val = defn.pop(annotation)
                 graph.add((pshape, annotation, val))
-        graph.add((pshape, RDFS.label, Literal(f"has {defn.get(RDFS.label)} property", lang="en")))
+        if not has_label(pshape):
+            graph.add((pshape, RDFS.label, Literal(f"has {defn.get(RDFS.label)} property", lang="en")))
 
         # add the entity property as a sh:property on all of the
         # other Nodeshapes indicated by "property_of"
