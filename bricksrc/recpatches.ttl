@@ -44,7 +44,7 @@ rec:Wing
   rdf:type sh:NodeShape ;
   rdfs:label "Wing" ;
   rdfs:comment "This concept definition comes from the Brick distribution until it is added in the REC ontology Turtle distribution." ;
-  rdfs:subClassOf rec:Space ;
+  rdfs:subClassOf rec:Architecture ;
 .
 
 brick:Ablutions_Room
