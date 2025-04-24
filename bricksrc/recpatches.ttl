@@ -16,7 +16,7 @@
 ### contained in their Turtle distribution. They are defined here only temporarily
 ### until they are added to the REC ontology.
 rec:Lounge
-  rdf:type rdf:Class ;
+  rdf:type rdfs:Class ;
   rdf:type sh:NodeShape ;
   rdfs:label "Lounge" ;
   rdfs:comment "This concept definition comes from the Brick distribution until it is added in the REC ontology Turtle distribution." ;
@@ -24,7 +24,7 @@ rec:Lounge
 .
 
 rec:TeamRoom
-  rdf:type rdf:Class ;
+  rdf:type rdfs:Class ;
   rdf:type sh:NodeShape ;
   rdfs:label "Team Room" ;
   rdfs:comment "This concept definition comes from the Brick distribution until it is added in the REC ontology Turtle distribution." ;
@@ -32,7 +32,7 @@ rec:TeamRoom
 .
 
 rec:Lobby
-  rdf:type rdf:Class ;
+  rdf:type rdfs:Class ;
   rdf:type sh:NodeShape ;
   rdfs:label "Lobby" ;
   rdfs:comment "This concept definition comes from the Brick distribution until it is added in the REC ontology Turtle distribution." ;
@@ -40,7 +40,7 @@ rec:Lobby
 .
 
 rec:Wing
-  rdf:type rdf:Class ;
+  rdf:type rdfs:Class ;
   rdf:type sh:NodeShape ;
   rdfs:label "Wing" ;
   rdfs:comment "This concept definition comes from the Brick distribution until it is added in the REC ontology Turtle distribution." ;
