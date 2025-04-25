@@ -1041,8 +1041,7 @@ G.remove((BRICK.value, A, OWL.ObjectProperty))
 logger.info("Adding deprecations")
 # handle class deprecations
 handle_deprecations()
-# handle non-class deprecations
-G.parse("bricksrc/deprecations.ttl")
+# non-class deprecations handled in bricksrc/deprecations.ttl, which is added below
 
 logger.info("Adding class definitions")
 add_definitions()

@@ -26,8 +26,8 @@ bsh:NamespaceDefinitionRule
     sh:target [
         a sh:SPARQLTarget ;
         sh:select """
-            SELECT DISTINCT ?node WHERE {
-              { ?node ?p ?o } UNION { ?s ?p ?node }
+            SELECT DISTINCT ?this WHERE {
+              { ?this ?p ?o } UNION { ?s ?p ?this }
             }
         """
     ] ;
@@ -76,8 +76,8 @@ bsh:NamespaceDefinitionRuleProperty
     sh:target [
         a sh:SPARQLTarget ;
         sh:select """
-            SELECT DISTINCT ?node WHERE {
-              ?s ?node ?o
+            SELECT DISTINCT ?this WHERE {
+              ?s ?this ?o
             }
         """
     ] ;
