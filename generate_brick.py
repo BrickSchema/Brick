@@ -890,7 +890,7 @@ define_classes(roots, BRICK.Entity)  # >= Brick v1.3.0
 
 logger.info("Defining properties")
 # define BRICK properties
-G.add((BRICK.Relationship, RDFS.subClassOf, OWL.ObjectProperty))
+G.add((BRICK.Relationship, RDFS.subClassOf, RDF.Property))
 G.add((BRICK.Relationship, A, BRICK.Relationship))
 G.add((BRICK.Relationship, RDFS.label, Literal("Relationship", lang="en")))
 G.add(
@@ -903,10 +903,6 @@ G.add(
     )
 )
 define_relationships(relationships)
-# add types to some external properties
-G.add((VCARD.hasAddress, A, OWL.ObjectProperty))
-G.add((VCARD.Address, A, OWL.Class))
-
 
 logger.info("Defining Point subclasses")
 # define Point subclasses
@@ -1026,7 +1022,7 @@ for r in res:
 logger.info("Defining entity properties")
 # entity property definitions (must happen after units are defined)
 G.add((BRICK.value, SKOS.definition, Literal("The basic value of an entity property")))
-G.add((BRICK.EntityProperty, A, OWL.ObjectProperty))
+G.add((BRICK.EntityProperty, A, RDF.Property))
 G.add((BRICK.EntityProperty, RDFS.subClassOf, BRICK.Relationship))
 G.add((BRICK.EntityPropertyValue, A, OWL.Class))
 G.add((BRICK.EntityPropertyValue, A, SH.NodeShape))
