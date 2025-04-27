@@ -104,3 +104,11 @@ bsh:NamespaceDefinitionRuleProperty
             }
         """
     ] .
+
+bsh:ObjectDatatypePropertyDisjoint a sh:NodeShape  ;
+    sh:targetClass owl:ObjectProperty, owl:DatatypeProperty ;
+    sh:message "Object and Datatype properties must be disjoint." ;
+    sh:xone (
+        [ sh:class owl:ObjectProperty ]
+        [ sh:class owl:DatatypeProperty ]
+    ) .

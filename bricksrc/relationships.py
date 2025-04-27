@@ -39,14 +39,12 @@ relationships = {
     "latitude": {
         RDFS.subPropertyOf: SDO.latitude,
         RDFS.label: Literal("Latitude", lang="en"),
-        A: [OWL.ObjectProperty],
         "domain": BRICK.Entity,
         "datatype": BSH.NumericValue,
     },
     "longitude": {
         RDFS.subPropertyOf: SDO.longitude,
         RDFS.label: Literal("Longitude", lang="en"),
-        A: [OWL.ObjectProperty],
         "domain": BRICK.Entity,
         "datatype": BSH.NumericValue,
     },
@@ -222,7 +220,7 @@ relationships = {
         A: [OWL.DatatypeProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
     },
     "ambientTemperatureOfMeasurement": {
-        A: [OWL.DatatypeProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+        A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
     },
 }
 
