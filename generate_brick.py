@@ -820,7 +820,8 @@ def handle_deprecations():
                 Literal(md["mitigation_message"]),
             )
         )
-        G.add((deprecated_term, BRICK.isReplacedBy, md["replace_with"]))
+        if "replace_with" in md:
+            G.add((deprecated_term, BRICK.isReplacedBy, md["replace_with"]))
 
 
 def handle_concept_labels():
