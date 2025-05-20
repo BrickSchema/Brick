@@ -49,7 +49,7 @@ def test_point_substances_bad(brick_with_imports):
 @prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
 
 bldg:myPoint a brick:Air_Temperature_Sensor ;
-    qudtqk:hasQuantity brick:Temperature ;
+    brick:hasQuantity brick:Temperature ;
     brick:hasSubstance brick:Air .
 """)
     valid, _, report = (brick_with_imports + g).validate(engine="topquadrant")
