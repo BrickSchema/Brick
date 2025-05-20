@@ -556,3 +556,43 @@ bsh:InheritEVSEChargerDirection a sh:NodeShape ;
         """ ;
     ] ;
 .
+
+
+bsh:PointInstanceQuantityConsistency a sh:NodeShape ;
+    sh:targetClass brick:Point ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "Instance quantity {?instanceQuantity} on {$this} must match class quantity {?classQuantity} defined on its type {?type}." ;
+        sh:prefixes <https://brickschema.org/schema/Brick#> ;
+        sh:select """
+            SELECT $this ?type ?instanceQuantity ?classQuantity
+            WHERE {
+                $this rdf:type ?type .
+                # Ensure ?type is a Point class or subclass, not some other type $this might have
+                ?type rdfs:subClassOf* brick:Point .
+
+                $this brick:hasQuantity ?instanceQuantity .
+                ?type brick:hasQuantity ?classQuantity . # This is the OWL annotation on the class
+
+                FILTER (?instanceQuantity != ?classQuantity)
+            }
+        """ ;
+    ] .
+
+bsh:PointInstanceSubstanceConsistency a sh:NodeShape ;
+    sh:targetClass brick:Point ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "Instance substance {?instanceSubstance} on {$this} must match class substance {?classSubstance} defined on its type {?type}." ;
+        sh:prefixes <https://brickschema.org/schema/Brick#> ;
+        sh:select """
+            SELECT $this ?type ?instanceSubstance ?classSubstance
+            WHERE {
+                $this rdf:type ?type .
+                ?type rdfs:subClassOf* brick:Point .
+                $this brick:hasSubstance ?instanceSubstance .
+                ?type brick:hasSubstance ?classSubstance . # This is the OWL annotation on the class
+                FILTER (?instanceSubstance != ?classSubstance)
+            }
+        """ ;
+    ] .
