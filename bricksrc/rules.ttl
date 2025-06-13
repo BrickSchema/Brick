@@ -556,3 +556,40 @@ bsh:InheritEVSEChargerDirection a sh:NodeShape ;
         """ ;
     ] ;
 .
+
+bsh:NoSubstanceOrQuantityOnPointInstances
+    a sh:NodeShape ;
+
+    sh:target [
+        a sh:SPARQLTarget ;
+        sh:prefixes (
+            <https://brickschema.org/schema/1.4/Brick>
+            <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            <http://www.w3.org/2000/01/rdf-schema#>
+        ) ;
+        sh:select """
+          SELECT ?this
+          WHERE {
+            ?this rdf:type/rdfs:subClassOf* brick:Point .
+          }
+        """ ;
+    ] ;
+
+    sh:property [
+        sh:path brick:hasSubstance ;
+        sh:maxCount 0 ;
+        sh:message """
+          Point instances must NOT directly assert brick:hasSubstance;
+          this should only be inferred via class definitions.
+        """ ;
+    ] ;
+
+    sh:property [
+        sh:path brick:hasQuantity ;
+        sh:maxCount 0 ;
+        sh:message """
+          Point instances must NOT directly assert qudt:hasQuantityKind;
+          this should only be inferred via class definitions.
+        """ ;
+    ] ;
+.

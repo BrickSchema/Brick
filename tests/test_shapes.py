@@ -18,7 +18,9 @@ base_data = (
 def test_no_relations(brick_with_imports):
     data = base_data
     data_g = brickschema.Graph().parse(data=data, format="turtle")
-    conforms, _, report_str = data_g.validate([brick_with_imports], engine="topquadrant")
+    conforms, _, report_str = data_g.validate(
+        [brick_with_imports], engine="topquadrant"
+    )
     assert conforms, report_str
 
 
@@ -30,7 +32,9 @@ def test_equip(brick_with_imports):
 """
     )
     valid_g = brickschema.Graph().parse(data=valid_data, format="turtle")
-    conforms, _, report_str = valid_g.validate([brick_with_imports], engine="topquadrant")
+    conforms, _, report_str = valid_g.validate(
+        [brick_with_imports], engine="topquadrant"
+    )
     assert conforms, report_str
 
     invalid_data = (
@@ -103,7 +107,9 @@ def test_meter_shapes(brick_with_imports):
 """
     )
     valid_g = brickschema.Graph().parse(data=valid_data, format="turtle")
-    conforms, _, report_str = valid_g.validate([brick_with_imports], engine="topquadrant")
+    conforms, _, report_str = valid_g.validate(
+        [brick_with_imports], engine="topquadrant"
+    )
     assert conforms, report_str
 
     invalid_data = (
@@ -139,5 +145,7 @@ def test_meter_shapes(brick_with_imports):
 """
     )
     valid_g = brickschema.Graph().parse(data=valid_data, format="turtle")
-    conforms, _, report_str = valid_g.validate([brick_with_imports], engine="topquadrant")
+    conforms, _, report_str = valid_g.validate(
+        [brick_with_imports], engine="topquadrant"
+    )
     assert conforms, report_str

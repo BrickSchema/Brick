@@ -7,4 +7,3 @@ python tools/compare_versions/compare_versions.py --oldbrick 1.3.0 https://githu
 ```
 
 This will produce the comparison results inside `./history/{old_version}-{new_version}`.
-

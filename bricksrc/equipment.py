@@ -1504,7 +1504,7 @@ hvac_valve_subclasses = {
     },
     "Cooling_Valve": {
         "parents": [BRICK.Valve],
-        "tags": [TAG.Valve, TAG.Cool, TAG.Equipment]
+        "tags": [TAG.Valve, TAG.Cool, TAG.Equipment],
     },
     "Isolation_Valve": {
         "tags": [TAG.Isolation, TAG.Valve, TAG.Equipment],
@@ -1589,7 +1589,7 @@ security_subclasses = {
                     TAG.Surveillance,
                     TAG.Camera,
                 ],
-                "parents": [BRICK.Camera]
+                "parents": [BRICK.Camera],
                 # TODO: subclass of PTZ (Pan/Tilt/Zoom) cameras?
             },
             "Network_Video_Recorder": {

@@ -36,11 +36,11 @@ unit:2PiRAD
 
 unit:A
   a qudt:Unit ;
-  dcterms:description """$\\textit{Ampere}$, often shortened to $\\text{amp}$, 
+  dcterms:description """$\\textit{Ampere}$, often shortened to $\\text{amp}$,
 is the SI unit of electric current and is one of the seven SI base units defined as:
 
-$$\\text{A} \\equiv \\frac{\\textit{C}}{\\textit{s}} 
-\\equiv \\frac{\\textit{coulomb}}{\\textit{second}} 
+$$\\text{A} \\equiv \\frac{\\textit{C}}{\\textit{s}}
+\\equiv \\frac{\\textit{coulomb}}{\\textit{second}}
 \\equiv \\frac{\\text{joule}}{\\text{weber}}$$
 
 Note that SI supports only the use of symbols and deprecates the use of any abbreviations for units.
@@ -98,13 +98,13 @@ Note that SI supports only the use of symbols and deprecates the use of any abbr
 unit:A-HR
   a qudt:DerivedUnit, qudt:Unit ;
   dcterms:description """$\\textit{Ampere Hour}$ is a practical unit of electric charge equal to the charge flowing
-   in one hour through a conductor passing one ampere. 
+   in one hour through a conductor passing one ampere.
    An ampere-hour or amp-hour (symbol $Ah,\\,AHr,\\, A \\cdot h, A h$) is a unit of electric
     charge, with sub-units milliampere-hour ($mAh$) and milliampere second ($mAs$).
     One ampere-hour is equal to 3600 coulombs (ampere-seconds), the electric charge transferred
-     by a steady current of one ampere for one hour. 
+     by a steady current of one ampere for one hour.
     The ampere-hour is frequently used in measurements of electrochemical systems such as
-     electroplating and electrical batteries. 
+     electroplating and electrical batteries.
     The commonly seen milliampere-hour ($mAh$ or $mA \\cdot h$) is one-thousandth of an
      ampere-hour ($3.6 \\,coulombs$).
   """^^qudt:LatexString ;
@@ -478,7 +478,7 @@ unit:A-PER-DEG_C
 
 unit:A-PER-GM
   a qudt:DerivedUnit, qudt:Unit ;
-  dcterms:description """$\\textit{Ampere per gram}$ is a practical unit to describe an (applied) current relative to the involved amount of material. 
+  dcterms:description """$\\textit{Ampere per gram}$ is a practical unit to describe an (applied) current relative to the involved amount of material.
   This unit is often found in electrochemistry to standardize test conditions and compare various scales of investigated materials.
   """^^qudt:LatexString ;
   qudt:conversionMultiplier 1000.0 ;
@@ -503,7 +503,7 @@ unit:A-PER-GM
 
 unit:A-PER-J
   a qudt:Unit ;
-  dcterms:description """$\\textit{Ampere per Joule}$ is the inverse measure of $joule-per-ampere$ or $weber$. 
+  dcterms:description """$\\textit{Ampere per Joule}$ is the inverse measure of $joule-per-ampere$ or $weber$.
   The measure for the reciprical of magnetic flux.
   """^^qudt:LatexString ;
   qudt:applicableSystem sou:CGS-EMU ;
@@ -628,7 +628,7 @@ unit:A-PER-M
 
 unit:A-PER-M2
   a qudt:DerivedUnit, qudt:Unit ;
-  dcterms:description """$\\textit{Ampere Per Square Meter}$ is a unit in the category of electric current density. 
+  dcterms:description """$\\textit{Ampere Per Square Meter}$ is a unit in the category of electric current density.
 This unit is commonly used in the SI unit system.
 """^^qudt:LatexString ;
   qudt:applicableSystem sou:CGS-EMU ;
@@ -1133,8 +1133,8 @@ unit:AT-PER-IN
 unit:AT-PER-M
   a qudt:DerivedUnit, qudt:Unit ;
   dcterms:description """
-  The  $\\textit{Ampere Turn per Metre}$ is the SI unit of magnetic field strength. 
-  One ampere per meter is equal to $\\pi/250$ oersteds (12.566 371 millioersteds) in CGS units. 
+  The  $\\textit{Ampere Turn per Metre}$ is the SI unit of magnetic field strength.
+  One ampere per meter is equal to $\\pi/250$ oersteds (12.566 371 millioersteds) in CGS units.
   The ampere per meter is also the SI unit of "magnetization" in the sense of magnetic dipole moment per unit volume;
    in this context $1 A/m = 0.001 emu per cubic centimeter$.
   """^^qudt:LatexString ;
@@ -1163,7 +1163,7 @@ unit:ATM
   a qudt:Unit ;
   dcterms:description """
   The unit for $\\textit{Standard Atmosphere}$, symbol: $atm$, is an international reference pressure defined as $101.325 \\,kPa$ and formerly used as unit of pressure.
-  For practical purposes it has been replaced by the bar which is $100 kPa$. 
+  For practical purposes it has been replaced by the bar which is $100 kPa$.
   The difference of about 1% is not significant for many applications, and is within the error range of common pressure gauges.
   """^^qudt:LatexString ;
   qudt:applicableSystem sou:CGS ;
@@ -1240,11 +1240,11 @@ unit:ATM-PER-M
 unit:ATM_T
   a qudt:Unit ;
   dcterms:description """
-  The unit for $\\textit{Technical Atmosphere}$, symbol: $at$, is a non-SI unit of pressure equal to one kilogram-force per square centimeter. 
-  The symbol $at$ clashes with that of the katal (symbol: $kat$), the SI unit of catalytic activity; a kilotechnical atmosphere would have the symbol $kat$, indistinguishable from the symbol for katal. 
-  It also clashes with that of the non-SI unit, the $attotonne$, but that unit would be more likely be rendered as the equivalent SI unit. 
+  The unit for $\\textit{Technical Atmosphere}$, symbol: $at$, is a non-SI unit of pressure equal to one kilogram-force per square centimeter.
+  The symbol $at$ clashes with that of the katal (symbol: $kat$), the SI unit of catalytic activity; a kilotechnical atmosphere would have the symbol $kat$, indistinguishable from the symbol for katal.
+  It also clashes with that of the non-SI unit, the $attotonne$, but that unit would be more likely be rendered as the equivalent SI unit.
   Assay ton (abbreviation $AT$) is not a unit of measurement, but a standard quantity used in assaying ores of precious metals; it is $29 1D6 \\,grams$ (short assay ton) or $32 2D3 \\,grams$ (long assay ton),
-   the amount which bears the same ratio to a milligram as a short or long ton bears to a troy ounce. 
+   the amount which bears the same ratio to a milligram as a short or long ton bears to a troy ounce.
   In other words, the number of milligrams of a particular metal found in a sample of this size gives the number of troy ounces contained in a short or long ton of ore.
   """^^qudt:LatexString ;
   qudt:applicableSystem sou:CGS ;
@@ -1324,8 +1324,8 @@ unit:AU
 unit:A_Ab
   a qudt:Unit ;
   dcterms:description """
-  The $\\textit{Abampere (aA)}$, also called the $biot$ after Jean-Baptiste Biot, is the basic electromagnetic unit of electric current in the emu-cgs system of units (electromagnetic cgs). 
-  One $abampere$ is equal to ten amperes in the SI system of units. 
+  The $\\textit{Abampere (aA)}$, also called the $biot$ after Jean-Baptiste Biot, is the basic electromagnetic unit of electric current in the emu-cgs system of units (electromagnetic cgs).
+  One $abampere$ is equal to ten amperes in the SI system of units.
   An $abampere$ is the constant current that produces, when maintained in two parallel conductors of negligible circular section and of infinite length placed 1 centimetre apart,
    a force of 2 dynes per centimetre between the two conductors.
   """^^qudt:LatexString ;
@@ -1383,11 +1383,11 @@ unit:A_Ab-CentiM2
 unit:A_Ab-PER-CentiM2
   a qudt:Unit ;
   dcterms:description """
-  The unit $\\textit{Abampere Per Square Centimeter}$, symbol $aA/cm^2$, is a unit in the category of Electric current density. 
+  The unit $\\textit{Abampere Per Square Centimeter}$, symbol $aA/cm^2$, is a unit in the category of Electric current density.
   It is also known as $\\textit{abamperes per square centimeter}$, $\\textit{abampere/square centimeter}$,
-   and $\\textit{abampere per square centimetre}$. 
+   and $\\textit{abampere per square centimetre}$.
    This unit is commonly used in the cgs unit system.
-  $\\textit{Abampere Per Square Centimeter}$ has a dimension of $L^{-2}I$ where $L$ is length, and $I$ is electric current. 
+  $\\textit{Abampere Per Square Centimeter}$ has a dimension of $L^{-2}I$ where $L$ is length, and $I$ is electric current.
   It can be converted to the corresponding standard SI unit $A/m^{2}$ by multiplying its value by a factor of 100000.
   """^^qudt:LatexString ;
   qudt:applicableSystem sou:CGS ;
@@ -1418,10 +1418,10 @@ unit:A_Ab-PER-CentiM2
 unit:A_Stat
   a qudt:Unit ;
   dcterms:description """
-  The unit $\\textit{Statampere}$, symbol $statA$ is a unit in the category of Electric current. 
-  It is also known as statamperes. 
-  This unit is commonly used in the cgs unit system. 
-  $\\textit{Statampere (statA)}$ has a dimension of $I$ where $I$ is electric current. 
+  The unit $\\textit{Statampere}$, symbol $statA$ is a unit in the category of Electric current.
+  It is also known as statamperes.
+  This unit is commonly used in the cgs unit system.
+  $\\textit{Statampere (statA)}$ has a dimension of $I$ where $I$ is electric current.
   It can be converted to the corresponding standard SI unit $A$ by multiplying its value by a factor of 3.355641E-010.
   """^^qudt:LatexString ;
   qudt:applicableSystem sou:CGS ;
@@ -1614,7 +1614,7 @@ unit:AttoSEC
 unit:B
   a qudt:DimensionlessUnit, qudt:LogarithmicUnit, qudt:Unit ;
   dcterms:description """
-  The $\\textit{Bel}$ is a logarithmic unit of sound pressure equal to 10 decibels (dB). 
+  The $\\textit{Bel}$ is a logarithmic unit of sound pressure equal to 10 decibels (dB).
   It is defined as: $1 B = (1/2) \\log_{10}(Np)$
   """^^qudt:LatexString ;
   qudt:applicableSystem sou:ASU ;
@@ -1691,7 +1691,7 @@ unit:BAN
   dcterms:description """
   A $\\textit{ban}$ is a logarithmic unit which measures information or entropy,
    based on base 10 logarithms and powers of 10, rather than the powers of 2
-   and base 2 logarithms which define the bit. 
+   and base 2 logarithms which define the bit.
   One $\\textit{ban}$ is approximately $3.32 (log_2 10) bits$.
   """^^qudt:LatexString ;
   qudt:applicableSystem sou:ASU ;
@@ -1717,12 +1717,12 @@ unit:BAR
   a qudt:Unit ;
   dcterms:description """
   The $\\textit{bar}$ is a non-SI unit of pressure, defined by the IUPAC as exactly equal
-   to $100,000\\,Pa$. 
+   to $100,000\\,Pa$.
   It is about equal to the atmospheric pressure on Earth at sea level, and since 1982
    the IUPAC has recommended that the standard for atmospheric pressure should be
-   harmonized to $100,000\\,Pa = 1 \\,bar \\approx 750.0616827\\, Torr$. 
+   harmonized to $100,000\\,Pa = 1 \\,bar \\approx 750.0616827\\, Torr$.
   Units derived from the bar are the megabar (symbol: $Mbar$), kilobar (symbol: $kbar$),
-   decibar (symbol: $dbar$), centibar (symbol: $cbar$), and millibar (symbol: $mbar$ or $mb$). 
+   decibar (symbol: $dbar$), centibar (symbol: $cbar$), and millibar (symbol: $mbar$ or $mb$).
   They are not SI or cgs units, but they are accepted for use with the SI.
   """^^qudt:LatexString ;
   qudt:applicableSystem sou:CGS ;
@@ -2528,15 +2528,15 @@ unit:BQ
   a qudt:DerivedUnit, qudt:Unit ;
   dcterms:description """
   The $\\textit{Becquerel}$ is the SI derived unit of activity, usually meaning radioactivity.
-  Radioactivity is caused when atoms disintegrate, ejecting energetic particles. 
-  One becquerel is the radiation caused by one disintegration per second; 
-  this is equivalent to about $27.0270 \\text{picocuries (pCi)}$. 
-  The unit is named for a French physicist, Antoine-Henri Becquerel (1852-1908), 
-  the discoverer of radioactivity. 
-  Note: both the becquerel and the hertz are basically defined as one event per second, 
-  yet they measure different things. 
-  The hertz is used to measure the rates of events that happen periodically in a fixed and definite cycle. 
-  The becquerel is used to measure the rates of events that happen sporadically and unpredictably, 
+  Radioactivity is caused when atoms disintegrate, ejecting energetic particles.
+  One becquerel is the radiation caused by one disintegration per second;
+  this is equivalent to about $27.0270 \\text{picocuries (pCi)}$.
+  The unit is named for a French physicist, Antoine-Henri Becquerel (1852-1908),
+  the discoverer of radioactivity.
+  Note: both the becquerel and the hertz are basically defined as one event per second,
+  yet they measure different things.
+  The hertz is used to measure the rates of events that happen periodically in a fixed and definite cycle.
+  The becquerel is used to measure the rates of events that happen sporadically and unpredictably,
   not in a definite cycle.
   """^^qudt:LatexString ;
   qudt:applicableSystem sou:CGS ;
@@ -2809,10 +2809,10 @@ unit:BTU_60DEG_F
 
 unit:BTU_IT
   a qudt:Unit ;
-  dcterms:description """$\\textit{British Thermal Unit}$ (BTU or Btu) is a traditional unit of energy equal to about $1.0550558526 \\textit{ kilojoule}$. 
-  It is approximately the amount of energy needed to heat 1 pound (0.454 kg) of water from $39^{\\circ}{F}$ to $40^{\\circ}{F}$ . 
-  The unit is most often used in the power, steam generation, heating and air conditioning industries. 
-  In scientific contexts the BTU has largely been replaced by the SI unit of energy, the $joule$, though it may be used as a measure of agricultural energy production (BTU/kg). 
+  dcterms:description """$\\textit{British Thermal Unit}$ (BTU or Btu) is a traditional unit of energy equal to about $1.0550558526 \\textit{ kilojoule}$.
+  It is approximately the amount of energy needed to heat 1 pound (0.454 kg) of water from $39^{\\circ}{F}$ to $40^{\\circ}{F}$ .
+  The unit is most often used in the power, steam generation, heating and air conditioning industries.
+  In scientific contexts the BTU has largely been replaced by the SI unit of energy, the $joule$, though it may be used as a measure of agricultural energy production (BTU/kg).
   It is still used unofficially in metric English-speaking countries (such as Canada), and remains the standard unit of classification for air conditioning units manufactured and sold in many non-English-speaking metric countries.
   """^^qudt:LatexString ;
   qudt:applicableSystem sou:IMPERIAL ;
@@ -2937,7 +2937,7 @@ unit:BTU_IT-IN-PER-FT2-HR-DEG_F
   a qudt:DerivedUnit, qudt:Unit ;
   dcterms:description """
   $BTU_{th}$ Inch per Square Foot Hour Degree Fahrenheit is an Imperial unit for 'Thermal Conductivity' expressed as $Btu_{it}-in/(h-ft^{2}-degF)$.
-  An International British thermal unit inch per second per square foot per degree Fahrenheit is a unit of thermal conductivity in the US Customary Units and British Imperial Units. 
+  An International British thermal unit inch per second per square foot per degree Fahrenheit is a unit of thermal conductivity in the US Customary Units and British Imperial Units.
   $1\\,Btu_{it} \\cdot in/(h \\cdot ft^{2} \\cdot degF)$ shows that one thermochemical BTU of heat per one hour moves through one square foot of material, which is one foot thick due to a temperature difference of one degree Fahrenheit.
   """^^qudt:LatexString ;
   qudt:applicableSystem sou:IMPERIAL ;
@@ -3105,7 +3105,7 @@ unit:BTU_IT-IN-PER-SEC-FT2-DEG_F
 
 unit:BTU_IT-PER-DEG_F
   a qudt:DerivedUnit, qudt:Unit ;
-  dcterms:description """$\\textit{British Thermal Unit (IT) Per Fahrenheit Degree}$ ($Btu (IT)/^\\circ F$) is a measure of heat capacity. 
+  dcterms:description """$\\textit{British Thermal Unit (IT) Per Fahrenheit Degree}$ ($Btu (IT)/^\\circ F$) is a measure of heat capacity.
   It can be converted to the corresponding standard SI unit $J/K$ by multiplying its value by a factor of $1899.10534$.
   """^^qudt:LatexString ;
   qudt:applicableSystem sou:IMPERIAL ;
@@ -3322,10 +3322,10 @@ unit:BTU_IT-PER-FT2-SEC-DEG_F
 
 unit:BTU_IT-PER-FT3
   a qudt:Unit ;
-  dcterms:description """$\\textit{British Thermal Unit (IT) Per Cubic Foot}$ ($Btu (IT)/ft^3$) is a unit in the category of Energy density. 
-  It is also known as Btu per cubic foot, Btu/cubic foot. 
-  This unit is commonly used in the UK, US unit systems. 
-  It has a dimension of $ML^{-1}T^{-2}$ where $M$ is mass, $L$ is length, and $T$ is time. 
+  dcterms:description """$\\textit{British Thermal Unit (IT) Per Cubic Foot}$ ($Btu (IT)/ft^3$) is a unit in the category of Energy density.
+  It is also known as Btu per cubic foot, Btu/cubic foot.
+  This unit is commonly used in the UK, US unit systems.
+  It has a dimension of $ML^{-1}T^{-2}$ where $M$ is mass, $L$ is length, and $T$ is time.
   It can be converted to the corresponding standard SI unit $J/m^3$ by multiplying its value by a factor of 37258.94579.
   """^^qudt:LatexString ;
   qudt:applicableSystem sou:IMPERIAL ;
@@ -3358,7 +3358,7 @@ unit:BTU_IT-PER-FT3
 unit:BTU_IT-PER-HR
   a qudt:DerivedUnit, qudt:Unit ;
   dcterms:description """
-  The $\\text{BTU per Hour}$ is the amount of energy that is being produced or consumed per hour. 
+  The $\\text{BTU per Hour}$ is the amount of energy that is being produced or consumed per hour.
   """^^qudt:LatexString ;
   qudt:applicableSystem sou:IMPERIAL ;
   qudt:applicableSystem sou:USCS ;
@@ -3957,9 +3957,9 @@ unit:BTU_MEAN
 unit:BTU_TH
   a qudt:Unit ;
   dcterms:description """
-  The $\\textit{British Thermal Unit (thermochemical definition)}$ ($BTU_{th}$), is a traditional unit of energy equal to about $1.0543502645 kilojoule$. 
-  It is approximately the amount of energy needed to heat 1 pound (0.454 kg) of water from $39^{\\circ}\\text{F}$ ($3.9^{\\circ}\\text{C}$) to $40^{\\circ}\\text{F}$ ($4.4^{\\circ}\\text{C}$). 
-  The unit is most often used in the power, steam generation, heating and air conditioning industries. 
+  The $\\textit{British Thermal Unit (thermochemical definition)}$ ($BTU_{th}$), is a traditional unit of energy equal to about $1.0543502645 kilojoule$.
+  It is approximately the amount of energy needed to heat 1 pound (0.454 kg) of water from $39^{\\circ}\\text{F}$ ($3.9^{\\circ}\\text{C}$) to $40^{\\circ}\\text{F}$ ($4.4^{\\circ}\\text{C}$).
+  The unit is most often used in the power, steam generation, heating and air conditioning industries.
   In scientific contexts the BTU has largely been replaced by the SI unit of energy, the $joule$.
   """^^qudt:LatexString ;
   qudt:applicableSystem sou:IMPERIAL ;
@@ -4952,10 +4952,10 @@ unit:C
 unit:C-M
   a qudt:DerivedUnit, qudt:Unit ;
   dcterms:description """
-  The $\\text{Coulomb Meter (C-m)}$ is a unit in the category of Electric dipole moment. 
-  It is also known as atomic unit, u.a., au, ua. 
-  This unit is commonly used in the SI unit system. 
-  Coulomb Meter (C-m) has a dimension of LTI where $L$ is length, $T$ is time, and $I$ is electric current. 
+  The $\\text{Coulomb Meter (C-m)}$ is a unit in the category of Electric dipole moment.
+  It is also known as atomic unit, u.a., au, ua.
+  This unit is commonly used in the SI unit system.
+  Coulomb Meter (C-m) has a dimension of LTI where $L$ is length, $T$ is time, and $I$ is electric current.
   This unit is the standard SI unit in this category.
   """^^qudt:LatexString ;
   qudt:applicableSystem sou:CGS ;
@@ -9167,7 +9167,7 @@ unit:C_Stat
 
 unit:C_Stat-PER-CentiM2
   a qudt:Unit ;
-  dcterms:description """$\\textit{Statcoulomb per Square Centimeter}$ is a unit of measure for electric flux density and electric polarization. 
+  dcterms:description """$\\textit{Statcoulomb per Square Centimeter}$ is a unit of measure for electric flux density and electric polarization.
   One Statcoulomb per Square Centimeter is $2.15\\times 10^9 \\, coulomb\\,per\\,square\\,inch$.
   """^^qudt:LatexString ;
   qudt:applicableSystem sou:CGS ;
@@ -11274,12 +11274,12 @@ unit:DEGREE_TWADDELL
 unit:DEG_C
   a qudt:DerivedUnit, qudt:Unit ;
   dcterms:description """
-  The unit $\\textit{Celsius}$, also known as centigrade, is a scale and unit of measurement for temperature. 
-  It can refer to a specific temperature on the Celsius scale as well as a unit to indicate a temperature interval, 
-  a difference between two temperatures or an uncertainty. 
-  This definition fixes the magnitude of both the degree Celsius and the kelvin as precisely 1 part 
-  in 273.16 (approximately 0.00366) of the difference between absolute zero and the triple point of water. 
-  Thus, it sets the magnitude of one degree Celsius and that of one kelvin as exactly the same. 
+  The unit $\\textit{Celsius}$, also known as centigrade, is a scale and unit of measurement for temperature.
+  It can refer to a specific temperature on the Celsius scale as well as a unit to indicate a temperature interval,
+  a difference between two temperatures or an uncertainty.
+  This definition fixes the magnitude of both the degree Celsius and the kelvin as precisely 1 part
+  in 273.16 (approximately 0.00366) of the difference between absolute zero and the triple point of water.
+  Thus, it sets the magnitude of one degree Celsius and that of one kelvin as exactly the same.
   Additionally, it establishes the difference between the two scales' null points as being precisely $273.15^{\\circ}\\text{C}$.
   """^^qudt:LatexString ;
   qudt:applicableSystem sou:CGS ;
@@ -11653,7 +11653,7 @@ unit:DEG_C_GROWING_CEREAL-DAY
 unit:DEG_F
   a qudt:Unit ;
   dcterms:description """
-  The unit $\\textit{Degree Fahrenheit}$ is an Imperial unit for 'Thermodynamic Temperature' expressed as 
+  The unit $\\textit{Degree Fahrenheit}$ is an Imperial unit for 'Thermodynamic Temperature' expressed as
   $\\circ\\text{F}$
   """^^qudt:LatexString ;
   qudt:applicableSystem sou:IMPERIAL ;
@@ -12144,10 +12144,10 @@ unit:DEG_F-SEC-PER-BTU_TH
 unit:DEG_R
   a qudt:Unit ;
   dcterms:description """
-  The unit $\\textit{Degree Rankine}$ is a thermodynamic (absolute) temperature scale. 
-  The symbol for degrees Rankine is $^\\circ R$ or $^\\circ Ra$ if necessary to distinguish it from the Rømer and Réaumur scales). 
+  The unit $\\textit{Degree Rankine}$ is a thermodynamic (absolute) temperature scale.
+  The symbol for degrees Rankine is $^\\circ R$ or $^\\circ Ra$ if necessary to distinguish it from the Rømer and Réaumur scales).
   Zero on both the Kelvin and Rankine scales is absolute zero, but the Rankine degree is defined as equal
-   to one degree Fahrenheit, rather than the one degree Celsius used by the Kelvin scale. 
+   to one degree Fahrenheit, rather than the one degree Celsius used by the Kelvin scale.
   A temperature of $-459.67 ^\\circ F$ is exactly equal to $0 ^\\circ R$.
   """^^qudt:LatexString ;
   qudt:applicableSystem sou:CGS ;
@@ -12277,10 +12277,10 @@ unit:DIOPTER
   a qudt:Unit ;
   dcterms:description """
   The unit $\\textit{Dioptre}$, or $\\textit{Diopter}$, is a unit of measurement for the optical power of a lens or curved mirror,
-   which is equal to the reciprocal of the focal length measured in metres (that is, $1/metre$). 
-  For example, a $3 \\; dioptre$ lens brings parallel rays of light to focus at $1/3\\,metre$. 
+   which is equal to the reciprocal of the focal length measured in metres (that is, $1/metre$).
+  For example, a $3 \\; dioptre$ lens brings parallel rays of light to focus at $1/3\\,metre$.
   The same unit is also sometimes used for other reciprocals of distance, particularly radii of curvature
-   and the vergence of optical beams. 
+   and the vergence of optical beams.
   Though the diopter is based on the SI-metric system it has not been included in the standard so that there is
    no international name or abbreviation for this unit of measurement within the international system of units
     this unit for optical power would need to be specified explicitly as the inverse metre.
@@ -12387,10 +12387,10 @@ unit:DWT
 unit:DYN
   a qudt:DerivedUnit, qudt:Unit ;
   dcterms:description """
-  In physics, the $dyne$ is a unit of force specified in the centimetre-gram-second (CGS) system of units. 
-  The $dyne$ is a unit of force specified in the centimetre-gram-second (CGS) system of units. 
-  One $dyne$ is equal to $\\SI{10}{\\micro\\newton}$. 
-  Equivalently, the $dyne$ is defined as 'the force required to accelerate a mass of one gram at a rate of one centimetre per square second'. 
+  In physics, the $dyne$ is a unit of force specified in the centimetre-gram-second (CGS) system of units.
+  The $dyne$ is a unit of force specified in the centimetre-gram-second (CGS) system of units.
+  One $dyne$ is equal to $\\SI{10}{\\micro\\newton}$.
+  Equivalently, the $dyne$ is defined as 'the force required to accelerate a mass of one gram at a rate of one centimetre per square second'.
   A $\\textit{dyne per centimetre}$ is the unit traditionally used to measure surface tension.
   """^^qudt:LatexString ;
   qudt:applicableSystem sou:CGS ;
@@ -13663,10 +13663,10 @@ unit:Denier
 
 unit:E
   a qudt:Unit ;
-  dcterms:description """$\\textit{Elementary Charge}$, usually denoted as $e$, is the electric charge carried by a single proton, 
-  or equivalently, the negation (opposite) of the electric charge carried by a single electron. 
-  This elementary charge is a fundamental physical constant. 
-  To avoid confusion over its sign, e is sometimes called the elementary positive charge. 
+  dcterms:description """$\\textit{Elementary Charge}$, usually denoted as $e$, is the electric charge carried by a single proton,
+  or equivalently, the negation (opposite) of the electric charge carried by a single electron.
+  This elementary charge is a fundamental physical constant.
+  To avoid confusion over its sign, e is sometimes called the elementary positive charge.
   This charge has a measured value of approximately $1.602176634 \\times 10^{-19} coulombs$.
   In the cgs system, $e$ is $4.80320471257026372 \\times 10^{-10} statcoulombs$.
   """^^qudt:LatexString ;
@@ -14829,10 +14829,10 @@ unit:FARAD_Ab-PER-CentiM
 unit:FARAD_Stat
   a qudt:Unit ;
   dcterms:description """
-  The $\\text{Statfarad (statF)}$ is a unit in the category of Electric capacitance. 
-  It is also known as $statfarads$. 
-  This unit is commonly used in the cgs unit system. 
-  $Statfarad$ has a dimension of $M^{-1}L^{-2}T^4I^2$ where $M$ is mass, $L$ is length, $T$ is time, and $I$ is electric current. 
+  The $\\text{Statfarad (statF)}$ is a unit in the category of Electric capacitance.
+  It is also known as $statfarads$.
+  This unit is commonly used in the cgs unit system.
+  $Statfarad$ has a dimension of $M^{-1}L^{-2}T^4I^2$ where $M$ is mass, $L$ is length, $T$ is time, and $I$ is electric current.
   It can be converted to the corresponding standard SI unit F by multiplying its value by a factor of 1.11265E-012.
   """^^qudt:LatexString ;
   qudt:applicableSystem sou:CGS ;
@@ -15944,8 +15944,8 @@ unit:FT2-SEC-DEG_F
 unit:FT3
   a qudt:DerivedUnit, qudt:Unit ;
   dcterms:description """
-  The cubic foot is an Imperial and US customary unit of volume, used in the United States and the United Kingdom. 
-  It is defined as the volume of a cube with sides of one foot (0.3048 m) in length. 
+  The cubic foot is an Imperial and US customary unit of volume, used in the United States and the United Kingdom.
+  It is defined as the volume of a cube with sides of one foot (0.3048 m) in length.
   To calculate cubic feet multiply length X width X height.
   """^^qudt:LatexString ;
   qudt:applicableSystem sou:IMPERIAL ;
@@ -20780,13 +20780,13 @@ unit:GigaW-HR
 unit:Gs
   a qudt:Unit ;
   dcterms:description """
-  The $gauss$, abbreviated as $G$, is the cgs unit of measurement of a magnetic field $B$, 
+  The $gauss$, abbreviated as $G$, is the cgs unit of measurement of a magnetic field $B$,
   which is also known as the "magnetic flux density" or the "magnetic induction".
-  One gauss is defined as one maxwell per square centimeter; it equals $10^{-4} tesla$ (or $100 micro T$). 
-  The Gauss is identical to maxwells per square centimetre; technically defined in a three-dimensional system, 
-  it corresponds in the SI, with its extra base unit the ampere. 
-  The gauss is quite small by earthly standards, 1 Gs being only about four times Earth's flux density, 
-  but it is subdivided, with $1 gauss = 105 gamma$. 
+  One gauss is defined as one maxwell per square centimeter; it equals $10^{-4} tesla$ (or $100 micro T$).
+  The Gauss is identical to maxwells per square centimetre; technically defined in a three-dimensional system,
+  it corresponds in the SI, with its extra base unit the ampere.
+  The gauss is quite small by earthly standards, 1 Gs being only about four times Earth's flux density,
+  but it is subdivided, with $1 gauss = 105 gamma$.
   This unit of magnetic induction is also known as the $\\textit{abtesla}$.
   """^^qudt:LatexString ;
   dcterms:isReplacedBy unit:GAUSS ;
@@ -20812,14 +20812,14 @@ unit:Gs
 unit:H
   a qudt:DerivedUnit, qudt:Unit ;
   dcterms:description """
-  The unit $\\textit{Henry}$ is the SI unit of electric inductance. 
-  A changing magnetic field induces an electric current in a loop of wire (or in a coil of many loops) located in the field. 
-  Although the induced voltage depends only on the rate at which the magnetic flux changes, measured in webers per second, the amount of the current depends also on the physical properties of the coil. 
-  A coil with an inductance of one henry requires a flux of one weber for each ampere of induced current. 
-  If, on the other hand, it is the current which changes, then the induced field will generate a potential difference within the coil: 
-  if the inductance is one henry a current change of one ampere per second generates a potential difference of one volt. 
-  The henry is a large unit; inductances in practical circuits are measured in millihenrys (mH) or microhenrys (u03bc H). 
-  The unit is named for the American physicist Joseph Henry (1797-1878), one of several scientists who discovered independently how magnetic fields can be used to generate alternating currents. 
+  The unit $\\textit{Henry}$ is the SI unit of electric inductance.
+  A changing magnetic field induces an electric current in a loop of wire (or in a coil of many loops) located in the field.
+  Although the induced voltage depends only on the rate at which the magnetic flux changes, measured in webers per second, the amount of the current depends also on the physical properties of the coil.
+  A coil with an inductance of one henry requires a flux of one weber for each ampere of induced current.
+  If, on the other hand, it is the current which changes, then the induced field will generate a potential difference within the coil:
+  if the inductance is one henry a current change of one ampere per second generates a potential difference of one volt.
+  The henry is a large unit; inductances in practical circuits are measured in millihenrys (mH) or microhenrys (u03bc H).
+  The unit is named for the American physicist Joseph Henry (1797-1878), one of several scientists who discovered independently how magnetic fields can be used to generate alternating currents.
 
   A $\\textit{Henry}$ is defined as:
 
@@ -21274,8 +21274,8 @@ unit:HR_Sidereal
 unit:HZ
   a qudt:DerivedUnit, qudt:Unit ;
   dcterms:description """
-  $\\textit{Hertz}$ (symbol $Hz$) is the SI unit of frequency defined as the number of cycles per second of a periodic phenomenon. 
-  One of its most common uses is the description of the sine wave, particularly those used in radio and audio applications, such as the frequency of musical tones. 
+  $\\textit{Hertz}$ (symbol $Hz$) is the SI unit of frequency defined as the number of cycles per second of a periodic phenomenon.
+  One of its most common uses is the description of the sine wave, particularly those used in radio and audio applications, such as the frequency of musical tones.
   The word $\\bf{hertz}$ is named for Heinrich Rudolf Hertz, who was the first to conclusively prove the existence of electromagnetic waves.
   """^^qudt:LatexString ;
   qudt:applicableSystem sou:CGS ;
@@ -21475,10 +21475,10 @@ unit:H_Ab
 unit:H_Stat
   a qudt:Unit ;
   dcterms:description """
-  The $\\text{Stathenry (statH)}$ is a unit in the category of Electric inductance. 
-  It is also known as $tathenries$. 
-  This unit is commonly used in the cgs unit system. 
-  $Stathenry$ has a dimension of $ML^2T^{-2}I^{-2}$ where $M$ is mass, $L$ is length, $T$ is time, and $I$ is electric current. 
+  The $\\text{Stathenry (statH)}$ is a unit in the category of Electric inductance.
+  It is also known as $tathenries$.
+  This unit is commonly used in the cgs unit system.
+  $Stathenry$ has a dimension of $ML^2T^{-2}I^{-2}$ where $M$ is mass, $L$ is length, $T$ is time, and $I$ is electric current.
   It can be converted to the corresponding standard SI unit H by multiplying its value by a factor of $8.987552 \\times 10^{11}$.
   """^^qudt:LatexString ;
   qudt:applicableSystem sou:CGS ;
@@ -22565,7 +22565,7 @@ The magnitude of one $IU/L$ depends on the material, so there is no single conve
 
 unit:J
   a qudt:DerivedUnit, qudt:Unit ;
-  dcterms:description """$\\textit{Joule}$ is the SI unit of work or energy, defined to be the work done by a force of one newton acting to move an object through a distance of one meter in the direction in which the force is applied. 
+  dcterms:description """$\\textit{Joule}$ is the SI unit of work or energy, defined to be the work done by a force of one newton acting to move an object through a distance of one meter in the direction in which the force is applied.
   Equivalently, since kinetic energy is one half the mass times the square of the velocity, one joule is the kinetic energy of a mass of two kilograms moving at a velocity of $1 m/s$.
   """^^qudt:LatexString ;
   qudt:applicableSystem sou:CGS ;
@@ -22994,9 +22994,9 @@ unit:J-PER-K
 unit:J-PER-KiloGM
   a qudt:DerivedUnit, qudt:Unit ;
   dcterms:description """
-  A $\\textit{Joule Per Kilogram}$, ($J/kg$), is a unit in the category of Thermal heat capacity. 
-  It is also known as $\\textit{joules per kilogram}$.  
-  The unit has a dimension of $L2T^{-2}$ where $L$ is length, and $T$ is time. 
+  A $\\textit{Joule Per Kilogram}$, ($J/kg$), is a unit in the category of Thermal heat capacity.
+  It is also known as $\\textit{joules per kilogram}$.
+  The unit has a dimension of $L2T^{-2}$ where $L$ is length, and $T$ is time.
   This unit is the standard SI unit in this category.
   """^^qudt:LatexString ;
   qudt:applicableSystem sou:CGS ;
@@ -23072,7 +23072,7 @@ unit:J-PER-KiloGM-K
   a qudt:DerivedUnit, qudt:Unit ;
   dcterms:description """
   Specific heat capacity - The heat required to raise unit mass of a substance by unit temperature interval under specified conditions,
-   such as constant pressure: usually measured in joules per kelvin per kilogram. 
+   such as constant pressure: usually measured in joules per kelvin per kilogram.
   Symbol $c_p$ (for constant pressure).
   Also called specific heat.
   """^^qudt:LatexString ;
@@ -23306,7 +23306,7 @@ unit:J-PER-M3-K
 unit:J-PER-M4
   a qudt:DerivedUnit, qudt:Unit ;
   dcterms:description """
-  The unit $\\textit{Joule Per Quartic Meter}$ ($J/m^4$) is a unit for the spectral concentration of radiant energy density (in terms of wavelength), or the spectral radiant energy density (in terms of wave length). 
+  The unit $\\textit{Joule Per Quartic Meter}$ ($J/m^4$) is a unit for the spectral concentration of radiant energy density (in terms of wavelength), or the spectral radiant energy density (in terms of wave length).
   This unit is commonly used in the SI unit system.
   """^^qudt:LatexString ;
   qudt:applicableSystem sou:CGS ;
@@ -23540,7 +23540,7 @@ unit:J-PER-T2
 unit:J-SEC
   a qudt:DerivedUnit, qudt:Unit ;
   dcterms:description """
-  The $\\textit{joule-second}$ is a unit equal to a $joule$ multiplied by a second, used to measure action or angular momentum. 
+  The $\\textit{joule-second}$ is a unit equal to a $joule$ multiplied by a second, used to measure action or angular momentum.
   The joule-second is the unit used for Planck's constant.
   """^^qudt:LatexString ;
   qudt:applicableSystem sou:CGS ;
@@ -23619,12 +23619,12 @@ unit:J-SEC-PER-MOL
 unit:K
   a qudt:Unit ;
   dcterms:description """
-  The unit $\\textit{Kelvin}$ is the SI base unit of temperature, previously called the degree Kelvin. 
-  One kelvin represents the same temperature difference as one degree Celsius. 
+  The unit $\\textit{Kelvin}$ is the SI base unit of temperature, previously called the degree Kelvin.
+  One kelvin represents the same temperature difference as one degree Celsius.
   In 1967 the General Conference on Weights and Measures defined the temperature of the triple point of water
-   (the temperature at which water exists simultaneously in the gaseous, liquid, and solid states) to be exactly 273.16 kelvins. 
-  Since this temperature is also equal to 0.01 u00b0C, the temperature in kelvins is always equal to 273.15 plus the temperature in degrees Celsius. 
-  The kelvin equals exactly 1.8 degrees Fahrenheit. 
+   (the temperature at which water exists simultaneously in the gaseous, liquid, and solid states) to be exactly 273.16 kelvins.
+  Since this temperature is also equal to 0.01 u00b0C, the temperature in kelvins is always equal to 273.15 plus the temperature in degrees Celsius.
+  The kelvin equals exactly 1.8 degrees Fahrenheit.
   The unit is named for the British mathematician and physicist William Thomson (1824-1907),
    later known as Lord Kelvin after he was named Baron Kelvin of Largs.
   """^^qudt:LatexString ;
@@ -27270,9 +27270,9 @@ unit:KiloGM-PER-MOL
   a qudt:Unit ;
   dcterms:description """
   The unit $\\textit{}$, symbol $kg/mol$, is the base SI unit for molar mass.
-  In chemistry, the molar mass $M$ is defined as the mass of a given substance (chemical element or chemical compound) divided by its amount of substance. 
-  It is a physical property of a given substance.  
-  However, for historical reasons, molar masses are almost always expressed in $g/mol$. 
+  In chemistry, the molar mass $M$ is defined as the mass of a given substance (chemical element or chemical compound) divided by its amount of substance.
+  It is a physical property of a given substance.
+  However, for historical reasons, molar masses are almost always expressed in $g/mol$.
   As an example, the molar mass of water is approximately: $18.01528(33) \\; g/mol$.
   """^^qudt:LatexString ;
   qudt:applicableSystem sou:SI ;
@@ -30027,7 +30027,7 @@ unit:KiloVAR-PER-K
 unit:KiloW
   a qudt:DerivedUnit, qudt:Unit ;
   dcterms:description """
-  The unit $\\textit{Kilowatt}$ is a derived unit of power in the International System of Units (SI). 
+  The unit $\\textit{Kilowatt}$ is a derived unit of power in the International System of Units (SI).
   The unit, defined as 1,000 joule per second, measures the rate of energy conversion or transfer.
   """^^qudt:LatexString ;
   qudt:applicableSystem sou:CGS ;
@@ -35909,11 +35909,11 @@ unit:M2-PER-K
 unit:M2-PER-KiloGM
   a qudt:DerivedUnit, qudt:Unit ;
   dcterms:description """
-  Square Meter Per Kilogram (m2/kg) is a unit in the category of Specific Area. 
+  Square Meter Per Kilogram (m2/kg) is a unit in the category of Specific Area.
   It is also known as square meters per kilogram, square metre per kilogram, square metres per kilogram,
-   square meter/kilogram, square metre/kilogram. 
+   square meter/kilogram, square metre/kilogram.
    This unit is commonly used in the SI unit system.
-  Square Meter Per Kilogram (m2/kg) has a dimension of M-1L2 where $M$ is mass, and $L$ is length. 
+  Square Meter Per Kilogram (m2/kg) has a dimension of M-1L2 where $M$ is mass, and $L$ is length.
   This unit is the standard SI unit in this category.
   """^^qudt:LatexString ;
   qudt:applicableSystem sou:CGS ;
@@ -36093,8 +36093,8 @@ unit:M2-PER-SEC
   a qudt:DerivedUnit, qudt:Unit ;
   dcterms:description """
   The unit $\\textit{Square Metres per Second}$ is the SI derived unit of angular momentum, defined by distance
-   or displacement in metres multiplied by distance again in metres and divided by time in seconds. 
-  The unit is written in symbols as $m^2/s$ or $m^22s^{-1}$. 
+   or displacement in metres multiplied by distance again in metres and divided by time in seconds.
+  The unit is written in symbols as $m^2/s$ or $m^22s^{-1}$.
   It may be better understood when phrased as $\\textit{metres per second times metres}$, i.e. the momentum
    of an object with respect to a position.
   """^^qudt:LatexString ;
@@ -36152,7 +36152,7 @@ unit:M2-PER-SEC-BAR
   dcterms:description """
   The unit $\\textit{Square Metre per Second Bar}$ typically refers to a measure of fluid permeability in the
    context of materials science or engineering.
-  It is the volume of fluid (in square metres) that can pass through a material in one second under a pressure difference of one bar. 
+  It is the volume of fluid (in square metres) that can pass through a material in one second under a pressure difference of one bar.
   This unit is particularly important in fields such as petrophysics, hydrogeology, and materials engineering,
    where understanding the flow of fluids through porous media is crucial.
   A $Bar$ is not an SI unit but is a unit of pressure that is widely used in various scientific and engineering contexts.
@@ -36186,7 +36186,7 @@ unit:M2-PER-SEC-K
   a qudt:Unit ;
   dcterms:description """
   The unit $\\textit{Square Metre per Second Kelvin}$ is a heat transfer coefficient that is area-dependent
-   and varies with time and temperature difference. 
+   and varies with time and temperature difference.
   Heat transfer is typically defined in terms of watts per square meter per kelvin ($W/m^{2}K$),
    representing the rate of heat transfer across a surface per unit area per unit temperature difference.
   """^^qudt:LatexString ;
@@ -36218,7 +36218,7 @@ unit:M2-PER-SEC-PA
   a qudt:Unit ;
   dcterms:description """
   The unit $\\textit{Square Metre per Second Pascal}$, symbol $m^{2}/s\\cdot Pa$, is a measure of permeability, which describes the ability
-   of a material to allow fluids to pass through it under a pressure gradient. 
+   of a material to allow fluids to pass through it under a pressure gradient.
   It's particularly relevant in fields like hydrogeology, petroleum engineering, and civil engineering,
    where understanding fluid flow through porous materials is essential.
   """^^qudt:LatexString ;
@@ -37954,7 +37954,7 @@ unit:MO
 unit:MOHM
   a qudt:Unit ;
   dcterms:description """
-  The $\\textit{Mohm}$ is a unit of mechanical mobility for sound waves, being the reciprocal of the mechanical $ohm$ unit of impedance, i.e., for an acoustic medium, the ratio of the flux or volumic speed (area times particle speed) of the resulting waves through it to the effective sound pressure (i.e. force) causing them, the unit being qualified, according to the units used, as m.k.s. or c.g.s. 
+  The $\\textit{Mohm}$ is a unit of mechanical mobility for sound waves, being the reciprocal of the mechanical $ohm$ unit of impedance, i.e., for an acoustic medium, the ratio of the flux or volumic speed (area times particle speed) of the resulting waves through it to the effective sound pressure (i.e. force) causing them, the unit being qualified, according to the units used, as m.k.s. or c.g.s.
   The mechanical ohm is defined as:
   $$Mohm \\equiv 1\\,dyn\\cdot\\,s\\cdot cm^{-1} \\text{ or } 10^{-3} N\\cdot s\\cdot m^{-1}$$.
   """^^qudt:LatexString ;
@@ -37974,12 +37974,12 @@ unit:MOHM
 unit:MOL
   a qudt:Unit ;
   dcterms:description """
-  The $\\textit{mole}$ is a unit of measurement used in chemistry to express amounts of a chemical substance. 
+  The $\\textit{mole}$ is a unit of measurement used in chemistry to express amounts of a chemical substance.
   The official definition, adopted as part of the SI system in 1971, is that one mole of a substance contains just as many elementary entities (atoms, molecules, ions, or other kinds of particles) as there are atoms in 12 grams of carbon-12 (carbon-12 is the most common atomic form of carbon, consisting of atoms having 6 protons and 6 neutrons).
-  This corresponds to a value of $6.02214179(30) \\times 10^{23}$ elementary entities of the substance. 
-  It is one of the base units in the International System of Units, and has the unit symbol $mol$. 
-  A Mole is the SI base unit of the amount of a substance (as distinct from its mass or weight). 
-  Moles measure the actual number of atoms or molecules in an object. 
+  This corresponds to a value of $6.02214179(30) \\times 10^{23}$ elementary entities of the substance.
+  It is one of the base units in the International System of Units, and has the unit symbol $mol$.
+  A Mole is the SI base unit of the amount of a substance (as distinct from its mass or weight).
+  Moles measure the actual number of atoms or molecules in an object.
   An earlier name is gram molecular weight, because one mole of a chemical compound is the same number of grams as the molecular weight of a molecule of that compound measured in atomic mass units.
   """^^qudt:LatexString ;
   qudt:applicableSystem sou:SI ;
@@ -43745,8 +43745,8 @@ unit:MilliA-HR
 
 unit:MilliA-HR-PER-GM
   a qudt:DerivedUnit, qudt:Unit ;
-  dcterms:description """$\\textit{Milliampere hour per gram}$ is a practical unit of electric charge relative to the mass of the (active) parts. 
-  1mAh/g describes the capability of a material to store charge equivalent to 1h charge with 1mA per gram. 
+  dcterms:description """$\\textit{Milliampere hour per gram}$ is a practical unit of electric charge relative to the mass of the (active) parts.
+  1mAh/g describes the capability of a material to store charge equivalent to 1h charge with 1mA per gram.
   The unit is often used in electrochemistry to describe the properties of active components like electrodes.
   """^^qudt:LatexString ;
   qudt:conversionMultiplier 3600.0 ;
@@ -44387,10 +44387,10 @@ unit:MilliCi
 unit:MilliDARCY
   a qudt:DerivedUnit, qudt:Unit ;
   dcterms:description """
-  The $\\textit{Millidarcy}$ ($md$) is a unit of permeability named after Henry Darcy. 
-  It is not an SI unit, but it is widely used in petroleum engineering and geology. 
-  The unit has also been used in biophysics and biomechanics, where the flow of fluids such as 
-  blood through capillary beds and cerebrospinal fluid through the brain interstitial space is being examined. 
+  The $\\textit{Millidarcy}$ ($md$) is a unit of permeability named after Henry Darcy.
+  It is not an SI unit, but it is widely used in petroleum engineering and geology.
+  The unit has also been used in biophysics and biomechanics, where the flow of fluids such as
+  blood through capillary beds and cerebrospinal fluid through the brain interstitial space is being examined.
   A millidarcy has dimensional units of $length^2$.
   """^^qudt:LatexString ;
   qudt:applicableSystem sou:CGS ;
@@ -50527,9 +50527,9 @@ unit:N-SEC-PER-M2
 unit:N-SEC-PER-M3
   a qudt:DerivedUnit, qudt:Unit ;
   dcterms:description """
-  The SI unit of specific acoustic impedance. 
-  When sound waves pass through any physical substance the pressure of the waves causes the particles of the substance to move. 
-  The sound specific impedance is the ratio between the sound pressure and the particle velocity it produces. 
+  The SI unit of specific acoustic impedance.
+  When sound waves pass through any physical substance the pressure of the waves causes the particles of the substance to move.
+  The sound specific impedance is the ratio between the sound pressure and the particle velocity it produces.
   The specific impedance is $1 N \\cdot s \\cdot m^{-3}$ if unit pressure produces unit velocity.
   """^^qudt:LatexString ;
   qudt:applicableSystem sou:CGS ;
@@ -50693,10 +50693,10 @@ unit:NT
   qudt:hasDimensionVector qkdv:A0E0L3I0M0H0T0D0 ;
   qudt:hasQuantityKind quantitykind:Volume ;
   qudt:informativeReference "http://en.wikipedia.org/wiki/Net_tonnage"^^xsd:anyURI ;
-  qudt:plainTextDescription """Net tonnage is used in the United States to determine eligibility for registering boats with 
- the federal government. It is a nonlinear unit derived from the total volume of a ship's cargo space as well as some 
- dimensionless factors. Net tonnage is not a measure of the weight of the ship or its cargo, and should not be confused 
- with terms such as deadweight tonnage or displacement. Net tonnage is also used to determine the amount of money that 
+  qudt:plainTextDescription """Net tonnage is used in the United States to determine eligibility for registering boats with
+ the federal government. It is a nonlinear unit derived from the total volume of a ship's cargo space as well as some
+ dimensionless factors. Net tonnage is not a measure of the weight of the ship or its cargo, and should not be confused
+ with terms such as deadweight tonnage or displacement. Net tonnage is also used to determine the amount of money that
  can be charged to a ship for using a port's facilities.""" ;
   qudt:symbol "NT" ;
   rdfs:isDefinedBy <http://qudt.org/3.1.0/vocab/unit> ;
@@ -52927,12 +52927,12 @@ unit:OERSTED-CentiM
 unit:OHM
   a qudt:DerivedUnit, qudt:Unit ;
   dcterms:description """
-  The $\\textit{ohm}$ is the SI derived unit of electrical resistance, named after German physicist Georg Simon Ohm. 
-  
+  The $\\textit{ohm}$ is the SI derived unit of electrical resistance, named after German physicist Georg Simon Ohm.
+
   It is defined as:
-  
+
   $$\\Omega \\equiv\\ \\frac{\\text{V}}{\\text{A}}\\ \\equiv\\ \\frac{\\text{volt}}{\\text{amp}}\\ \\equiv\\ \\frac{\\text{W}}{\\text {A}^{2}}\\ \\equiv\\ \\frac{\\text{watt}}{\\text{amp}^{2}}\\ \\equiv\\ \\frac{\\text{H}}{\\text {s}}\\ \\equiv\\ \\frac{\\text{henry}}{\\text{second}}$$
-  
+
   """^^qudt:LatexString ;
   qudt:applicableSystem sou:CGS-EMU ;
   qudt:applicableSystem sou:CGS-GAUSS ;
@@ -55510,11 +55510,11 @@ unit:PDL-IN
 unit:PDL-PER-FT2
   a qudt:Unit ;
   dcterms:description """
-  A $\\textit{Poundal Per Square Foot}$, ($pdl/ft^2$), is a unit in the category of Pressure. 
-  It is also known as poundals per square foot, poundal/square foot. 
-  This unit is commonly used in the UK, US unit systems. 
+  A $\\textit{Poundal Per Square Foot}$, ($pdl/ft^2$), is a unit in the category of Pressure.
+  It is also known as poundals per square foot, poundal/square foot.
+  This unit is commonly used in the UK, US unit systems.
   A $\\textit{Poundal Per Square Foot}$ has a dimension of $ML^{-1}T^{-2}$,
-   where $M$ is mass, $L$ is length, and $T$ is time. 
+   where $M$ is mass, $L$ is length, and $T$ is time.
    It can be converted to the corresponding standard SI unit $\\textit{Pa}$ by multiplying its value
     by a factor of 1.488163944.
   """^^qudt:LatexString ;
@@ -59238,11 +59238,11 @@ unit:PERMEABILITY_REL
 unit:PERMITTIVITY_REL
   a qudt:Unit ;
   dcterms:description """
-  The $\\textit{relative permittivity}$ of a material under given conditions reflects the extent to which it concentrates electrostatic lines of flux. 
-  In technical terms, it is the ratio of the amount of electrical energy stored in a material by an applied voltage, 
-  relative to that stored in a vacuum. 
-  Likewise, it is also the ratio of the capacitance of a capacitor using that material as a dielectric, compared to a similar capacitor that has a vacuum as its dielectric. 
-  Relative permittivity is a dimensionless number that is in general complex. 
+  The $\\textit{relative permittivity}$ of a material under given conditions reflects the extent to which it concentrates electrostatic lines of flux.
+  In technical terms, it is the ratio of the amount of electrical energy stored in a material by an applied voltage,
+  relative to that stored in a vacuum.
+  Likewise, it is also the ratio of the capacitance of a capacitor using that material as a dielectric, compared to a similar capacitor that has a vacuum as its dielectric.
+  Relative permittivity is a dimensionless number that is in general complex.
   The imaginary portion of the permittivity corresponds to a phase shift of the polarization $P$ relative to $E$ and leads to the attenuation of electromagnetic waves passing through the medium.
   $$\\epsilon_r(w) = \\frac{\\epsilon(w)}{\\epsilon_O}$$,
    where $\\epsilon_r(w)$ is the complex frequency-dependent absolute permittivity of the material,
@@ -59379,19 +59379,19 @@ unit:PH
   Where $a_{H^+}$ is the equilibrium molar concentration of $H^+$ in the solution, the activity of
    the hydrogen ion in the solution.
   $$$$
-  This definition is appropriate for concentrations equal to, or less than $1\\ mol/l$, 
+  This definition is appropriate for concentrations equal to, or less than $1\\ mol/l$,
    where $aH+ \\equiv [H+]$, that is, $1\\ mol/L\\ HCl$ has a $pH$ of zero.
   $$$$
-  To relate this to standard molality ($b^\\circ$), typically taken as $1 \\ mol/kg$, 
+  To relate this to standard molality ($b^\\circ$), typically taken as $1 \\ mol/kg$,
    consideration is given to the activity ($a_{H^+}$) of the hydrogen ions.
   $$$$
   The activity can be expressed as:
 
-  $$a_{H^+} = \\gamma_{H^+} \\times m_{H^+}$$ 
+  $$a_{H^+} = \\gamma_{H^+} \\times m_{H^+}$$
 
   Where, $\\gamma_{H^+}$ is the activity coefficient, which adjusts the molality to account for
    non-ideal behavior due to interactions between ions in the solution.
-  $m_{H^+}$ is the molality of hydrogen ions in the solution relative to the standard molality, 
+  $m_{H^+}$ is the molality of hydrogen ions in the solution relative to the standard molality,
    expressed in $mol/kg$.
   $$$$
   The expansion of $pH$ then becomes:
@@ -59399,7 +59399,7 @@ unit:PH
   $$\\text{pH} = -log_{10}\\left(m_{H+}\\times\\gamma_{H^+}\\right)$$
 
   $$$$
-  This definition is relevant in more concentrated solutions or when precise thermodynamic calculations are required. 
+  This definition is relevant in more concentrated solutions or when precise thermodynamic calculations are required.
   It reflects how the properties of the solution deviate from ideal behavior and provides a more accurate understanding of the $pH$ under various conditions.
   $$$$
   While $pH$ is a universally recognized scale for expressing hydrogen ion activity,
@@ -62222,16 +62222,16 @@ unit:PlanckTemperature
 unit:PlanckTime
   a qudt:Unit ;
   dcterms:description """
-  In physics, the Planck time, denoted by $t_P$, is the unit of time in the system of natural units known as Planck units. 
-  It is the time required for light to travel, in a vacuum, a distance of 1 Planck length. 
+  In physics, the Planck time, denoted by $t_P$, is the unit of time in the system of natural units known as Planck units.
+  It is the time required for light to travel, in a vacuum, a distance of 1 Planck length.
   The unit is named after Max Planck, who was the first to propose it.
-  
+
   The formula for $\\textit{PlankTime}$ is:
-  
+
   $$ \\\\ t_P \\equiv  \\sqrt{\\frac{\\hbar G}{c^5}} \\approx 5.39106(32) \\times 10^{-44} s$$
-  
+
    where, $c$ is the speed of light in a vacuum, $\\hbar$ is the reduced Planck's constant
-    (defined as $\\hbar = \\frac{h}{2 \\pi}$ and $G$ is the gravitational constant. 
+    (defined as $\\hbar = \\frac{h}{2 \\pi}$ and $G$ is the gravitational constant.
   The two digits between parentheses denote the standard error of the estimated value.
   """^^qudt:LatexString ;
   qudt:applicableSystem sou:PLANCK ;
@@ -62558,9 +62558,9 @@ unit:QUAD
   a qudt:Unit ;
   dcterms:description """
   A $\\textit{quad}$ is a unit of energy equal to $10 BTU$, or $1.055 \\times 10\\,\\text{joule}$,
-   which is $1.055 exajoule$ or $EJ$ in SI units. 
-  The unit is used by the U.S. Department of Energy in discussing world and national energy budgets. 
-  
+   which is $1.055 exajoule$ or $EJ$ in SI units.
+  The unit is used by the U.S. Department of Energy in discussing world and national energy budgets.
+
   Some common types of an energy carrier approximately equal 1 quad are:
 
   8,007,000,000 Gallons (US) of gasoline, 293,083,000,000 Kilowatt-hours (kWh), 36,000,000 Tonnes of coal,
@@ -63267,11 +63267,11 @@ unit:RichterMagnitude
 
 unit:S
   a qudt:DerivedUnit, qudt:Unit ;
-  dcterms:description """$\\textit{Siemens}$ is the SI unit of electric conductance, susceptance, and admittance. 
-The most important property of a conductor is the amount of current it will carry when a voltage is applied. 
-Current flow is opposed by resistance in all circuits, and by also by reactance and impedance in alternating current circuits. 
-Conductance, susceptance, and admittance are the inverses of resistance, reactance, and impedance, respectively. 
-To measure these properties, the siemens is the reciprocal of the ohm. In other words, the conductance, susceptance, or admittance, in siemens, is simply 1 divided by the resistance, reactance or impedance, respectively, in ohms. 
+  dcterms:description """$\\textit{Siemens}$ is the SI unit of electric conductance, susceptance, and admittance.
+The most important property of a conductor is the amount of current it will carry when a voltage is applied.
+Current flow is opposed by resistance in all circuits, and by also by reactance and impedance in alternating current circuits.
+Conductance, susceptance, and admittance are the inverses of resistance, reactance, and impedance, respectively.
+To measure these properties, the siemens is the reciprocal of the ohm. In other words, the conductance, susceptance, or admittance, in siemens, is simply 1 divided by the resistance, reactance or impedance, respectively, in ohms.
 The unit is named for the German electrical engineer Werner von Siemens (1816-1892).
 $$\\  \\text{Siemens}\\equiv\\frac{\\text{A}}{\\text{V}}\\equiv\\frac{\\text{amp}}{\\text{volt}}\\equiv\\frac{\\text{F}}{\\text {s}}\\equiv\\frac{\\text{farad}}{\\text{second}}$$
   """^^qudt:LatexString ;
@@ -63464,7 +63464,7 @@ unit:SAMPLE-PER-SEC
 unit:SCF
   a qudt:Unit ;
   dcterms:description """
-The $\\textit{standard cubic foot}$ (scf) is a unit representing the amount of gas (such as natural gas) 
+The $\\textit{standard cubic foot}$ (scf) is a unit representing the amount of gas (such as natural gas)
 contained in a volume of one cubic foot at reference temperature and pressure conditions. As such, it is a measure of the actual amount of gas,
 not the volume of the gas. The reference conditions for standard cubic foot are 60 degrees Fahrenheit and 14.7 pounds per square inch (psi) of pressure.
   """^^qudt:LatexString ;
@@ -63482,7 +63482,7 @@ unit:SCF-PER-HR
   dcterms:description """
 The $\\textit{standard cubic foot per hour}$ (scfm) is the molar flow rate of a gas (such as natural gas)
 contained in a volume of one cubic foot at reference temperature and pressure conditions. As such, it is a measure of the actual amount of gas,
-not the volume of the gas. The reference conditions for standard cubic foot per minute are 60 degrees Fahrenheit and 14.7 pounds per 
+not the volume of the gas. The reference conditions for standard cubic foot per minute are 60 degrees Fahrenheit and 14.7 pounds per
 square inch (psi) of pressure.
   """^^qudt:LatexString ;
   qudt:conversionMultiplier 0.0003328 ;
@@ -63507,7 +63507,7 @@ unit:SCF-PER-MIN
   dcterms:description """
 The $\\textit{standard cubic foot per minute}$ (scfm) is the molar flow rate of a gas (such as natural gas)
 contained in a volume of one cubic foot at reference temperature and pressure conditions. As such, it is a measure of the actual amount of gas,
-not the volume of the gas. The reference conditions for standard cubic foot per minute are 60 degrees Fahrenheit and 14.7 pounds per 
+not the volume of the gas. The reference conditions for standard cubic foot per minute are 60 degrees Fahrenheit and 14.7 pounds per
 square inch (psi) of pressure.
   """^^qudt:LatexString ;
   qudt:conversionMultiplier 0.0199683 ;
@@ -64339,12 +64339,12 @@ unit:STANDARD
 unit:STILB
   a qudt:Unit ;
   dcterms:description """
-  The $\\textit{stilb (sb)}$ is the CGS unit of luminance for objects that are not self-luminous. 
-  It is equal to one candela per square centimeter or 10 nits (candelas per square meter). 
-  The name was coined by the French physicist A. Blondel around 1920. 
-  It comes from the Greek word stilbein meaning 'to glitter'. 
-  It was in common use in Europe up to World War I. 
-  In North America self-explanatory terms such as candle per square inch and candle per square meter were more common. 
+  The $\\textit{stilb (sb)}$ is the CGS unit of luminance for objects that are not self-luminous.
+  It is equal to one candela per square centimeter or 10 nits (candelas per square meter).
+  The name was coined by the French physicist A. Blondel around 1920.
+  It comes from the Greek word stilbein meaning 'to glitter'.
+  It was in common use in Europe up to World War I.
+  In North America self-explanatory terms such as candle per square inch and candle per square meter were more common.
   The unit has since largely been replaced by the SI unit: $\\textit{candela per square meter}$.
   """^^qudt:LatexString ;
   qudt:applicableSystem sou:CGS ;
@@ -64843,10 +64843,10 @@ unit:THM_EEC
 unit:THM_US
   a qudt:Unit ;
   dcterms:description """
-  $\\textit{Therm}$ (symbol $thm$) is a non-SI unit of heat energy. 
-  It was defined in the United States in 1968 as the energy equivalent of burning 100 cubic feet of 
-  natural gas at standard temperature and pressure. 
-  In the US gas industry its SI equivalent is defined as exactly $100,000 BTU59^{\\circ}{F}$ or $105.4804 megajoules$. 
+  $\\textit{Therm}$ (symbol $thm$) is a non-SI unit of heat energy.
+  It was defined in the United States in 1968 as the energy equivalent of burning 100 cubic feet of
+  natural gas at standard temperature and pressure.
+  In the US gas industry its SI equivalent is defined as exactly $100,000 BTU59^{\\circ}{F}$ or $105.4804 megajoules$.
   Public utilities in the U.S. use the therm unit for measuring customer usage of gas and calculating the monthly bills.
   """^^qudt:LatexString ;
   qudt:applicableSystem sou:USCS ;
@@ -67321,12 +67321,12 @@ unit:UnitPole
 
 unit:V
   a qudt:Unit ;
-  dcterms:description """$\\textit{Volt}$ is the SI unit of electric potential. 
-  Separating electric charges creates potential energy, which can be measured in energy units such as joules. 
-  Electric potential is defined as the amount of potential energy present per unit of charge. 
-  Electric potential is measured in volts, with one volt representing a potential of one joule per coulomb of charge. 
+  dcterms:description """$\\textit{Volt}$ is the SI unit of electric potential.
+  Separating electric charges creates potential energy, which can be measured in energy units such as joules.
+  Electric potential is defined as the amount of potential energy present per unit of charge.
+  Electric potential is measured in volts, with one volt representing a potential of one joule per coulomb of charge.
   The name of the unit honors the Italian scientist Count Alessandro Volta (1745-1827), the inventor of the first battery.
-  The volt also may be expressed with a variety of other units. 
+  The volt also may be expressed with a variety of other units.
   For example, a volt is also equal to one watt per ampere ($W/A$) and one joule per ampere per second ($J/A/s$).
   """^^qudt:LatexString ;
   qudt:applicableSystem sou:CGS-EMU ;
@@ -67744,10 +67744,10 @@ unit:V-PER-L-MIN
 unit:V-PER-M
   a qudt:DerivedUnit, qudt:Unit ;
   dcterms:description """
-  The unit $\\{Volt Per Meter (V/m)}$ is a unit in the category of Electric field strength. 
-  It is also known as volts per meter, volt/meter, volt/metre, volt per metre, volts per metre. 
-  This unit is commonly used in the SI unit system. 
-  $\\{Volt Per Meter}$ has a dimension of $MLT^{-3}I^{-1}$ where $M$ is mass, $L$ is length, $T$ is time, and $I$ is electric current. 
+  The unit $\\{Volt Per Meter (V/m)}$ is a unit in the category of Electric field strength.
+  It is also known as volts per meter, volt/meter, volt/metre, volt per metre, volts per metre.
+  This unit is commonly used in the SI unit system.
+  $\\{Volt Per Meter}$ has a dimension of $MLT^{-3}I^{-1}$ where $M$ is mass, $L$ is length, $T$ is time, and $I$ is electric current.
   This unit is the standard SI unit in this category.
   """^^qudt:LatexString ;
   qudt:applicableSystem sou:CGS-EMU ;
@@ -67800,8 +67800,8 @@ unit:V-PER-M
 unit:V-PER-M2
   a qudt:Unit ;
   dcterms:description """
-  $\\textit{Volt per Square Metre}$ is the divergence at a particular point in a vector field is (roughly) how much the vector field 'spreads out' from that point. 
-  Operationally, we take the partial derivative of each of the field with respect to each of its space variables and add all the derivatives together to get the divergence. 
+  $\\textit{Volt per Square Metre}$ is the divergence at a particular point in a vector field is (roughly) how much the vector field 'spreads out' from that point.
+  Operationally, we take the partial derivative of each of the field with respect to each of its space variables and add all the derivatives together to get the divergence.
   $\\textit{Electric field}$ ($V/m$) differentiated with respect to distance ($m$) yields $V/(m^2)$.
   """^^qudt:LatexString ;
   qudt:applicableSystem sou:CGS-EMU ;
@@ -68887,10 +68887,10 @@ unit:W-PER-M2
 unit:W-PER-M2-K
   a qudt:DerivedUnit, qudt:Unit ;
   dcterms:description """
-  The unit $\\textit{Watt Per Square Meter Kelvin }$ ($W m^{-2} K^{-1}$) is a unit in the category of Thermal heat transfer coefficient. 
-  It is also known as $\\textit{watt/square meter-kelvin}$. 
-  This unit is commonly used in the SI unit system. 
-  $\\textit{Watt Per Square Meter Kelvin }$ has a dimension of $MT^{-1}Q^{-1}$ where $M$ is mass, $T$ is time, and $Q$ is temperature. 
+  The unit $\\textit{Watt Per Square Meter Kelvin }$ ($W m^{-2} K^{-1}$) is a unit in the category of Thermal heat transfer coefficient.
+  It is also known as $\\textit{watt/square meter-kelvin}$.
+  This unit is commonly used in the SI unit system.
+  $\\textit{Watt Per Square Meter Kelvin }$ has a dimension of $MT^{-1}Q^{-1}$ where $M$ is mass, $T$ is time, and $Q$ is temperature.
   This unit is the standard SI unit in this category.
   """^^qudt:LatexString ;
   qudt:applicableSystem sou:SI ;
@@ -69107,8 +69107,8 @@ unit:W-PER-M2-SR
   while that of spectral radiance in frequency is the watt per steradian per square metre
   per hertz ($W·sr^{-1}·m^{-2}·Hz^{-1}$) and that of spectral radiance in wavelength is
   the watt per steradian per square metre, per metre ($W·sr^{-1}·m^{-3}$),
-  commonly the watt per steradian per square metre per nanometre ($W·sr^{-1}·m^{-2}·nm^{-1}$). 
-  It has a dimension of $ML^{-4}T^{-3}$ where $M$ is mass, $L$ is length, and $T$ is time. 
+  commonly the watt per steradian per square metre per nanometre ($W·sr^{-1}·m^{-2}·nm^{-1}$).
+  It has a dimension of $ML^{-4}T^{-3}$ where $M$ is mass, $L$ is length, and $T$ is time.
   This unit is the standard SI unit in this category."
   """^^qudt:LatexString ;
   qudt:applicableSystem sou:CGS ;
@@ -70061,10 +70061,10 @@ vaem:GMD_QUDT-UNITS-ALL
   dcterms:modified "2025-03-20T15:47:09Z"^^xsd:dateTime ;
   dcterms:rights """
   This product includes all or a portion of the UCUM table, UCUM codes, and UCUM definitions
-   or is derived from it, subject to a license from Regenstrief Institute, Inc. and The UCUM Organization. 
+   or is derived from it, subject to a license from Regenstrief Institute, Inc. and The UCUM Organization.
   Your use of the UCUM table, UCUM codes, UCUM definitions also is subject to this license,
-   a copy of which is available at ​http://unitsofmeasure.org. 
-  The current complete UCUM table, UCUM Specification are available for download at ​http://unitsofmeasure.org. 
+   a copy of which is available at ​http://unitsofmeasure.org.
+  The current complete UCUM table, UCUM Specification are available for download at ​http://unitsofmeasure.org.
   The UCUM table and UCUM codes are copyright © 1995-2009, Regenstrief Institute, Inc. and the Unified Codes for Units of Measures (UCUM) Organization.
   All rights reserved.
   THE UCUM TABLE (IN ALL FORMATS), UCUM DEFINITIONS, AND SPECIFICATION ARE PROVIDED 'AS IS.' ANY EXPRESS OR IMPLIED WARRANTIES ARE DISCLAIMED,
@@ -70100,5 +70100,3 @@ voag:QUDT-UNITS-VocabCatalogEntry
   a vaem:CatalogEntry ;
   rdfs:isDefinedBy <http://qudt.org/3.1.0/vocab/unit> ;
   rdfs:label "QUDT UNITS Vocab Catalog Entry" .
-
-
