@@ -1,6 +1,7 @@
 """
 Entity property definitions
 """
+
 from collections import defaultdict
 from rdflib import Literal
 from .namespaces import BRICK, RDFS, SKOS, UNIT, XSD, SH, BSH, REF, QUDTQK
@@ -79,7 +80,7 @@ entity_properties = {
     BRICK.resolution: {
         SKOS.definition: Literal(
             "The resolution of the entity specifing the smallest measurable or controllable increment"
-            ),
+        ),
         SH.node: BSH.ResolutionShape,
         RDFS.label: Literal("Resolution", lang="en"),
         "property_of": BRICK.Point,
@@ -572,9 +573,7 @@ shape_properties = {
             },
         },
     },
-    BSH.ElectricVehicleChargingTypeShape: {
-        "values": ["Level 1", "Level 2", "Level 3"]
-    },
+    BSH.ElectricVehicleChargingTypeShape: {"values": ["Level 1", "Level 2", "Level 3"]},
     BSH.ElectricVehicleChargingDirectionalityShape: {
         "values": ["unidirectional", "bidirectional"]
     },

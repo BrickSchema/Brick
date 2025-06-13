@@ -1924,7 +1924,7 @@ sensor_definitions = {
                                             TAG.Sensor,
                                         ],
                                     },
-                                }
+                                },
                             },
                             "Domestic_Hot_Water_Temperature_Sensor": {
                                 "tags": [

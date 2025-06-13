@@ -1,0 +1,53 @@
+@prefix brick: <https://brickschema.org/schema/Brick#> .
+@prefix ns1: <http://buildsys.org/ontologies/bldg1#> .
+
+<http://buildsys.org/ontologies/bldg1> a owl:Ontology ;
+    owl:imports <https://brickschema.org/schema/1.4/Brick> .
+
+ns1:Flow_Sensor_1 a brick:Flow_Sensor ;
+    brick:hasQuantity brick:Humidity ;
+    brick:hasSubstance brick:Natural_Gas .
+
+ns1:Flow_Sensor_2 a brick:Flow_Sensor ;
+    brick:hasQuantity brick:Humidity ;
+    brick:hasSubstance brick:Natural_Gas .
+
+ns1:Flow_Sensor_3 a brick:Flow_Sensor ;
+    brick:hasQuantity brick:Humidity ;
+    brick:hasSubstance brick:Natural_Gas .
+
+ns1:Pressure_Sensor_1 a brick:Pressure_Sensor ;
+    brick:hasQuantity brick:Pressure ;
+    brick:hasSubstance brick:Water .
+
+ns1:Pressure_Sensor_2 a brick:Pressure_Sensor ;
+    brick:hasQuantity brick:Pressure ;
+    brick:hasSubstance brick:Water .
+
+ns1:Pressure_Sensor_3 a brick:Pressure_Sensor ;
+    brick:hasQuantity brick:Pressure ;
+    brick:hasSubstance brick:Water .
+
+ns1:Supply_Air_Temperature_Setpoint_1 a brick:Supply_Air_Temperature_Setpoint ;
+    brick:hasQuantity brick:Flow ;
+    brick:hasSubstance brick:Supply_Air .
+
+ns1:Supply_Air_Temperature_Setpoint_2 a brick:Supply_Air_Temperature_Setpoint ;
+    brick:hasQuantity brick:Flow ;
+    brick:hasSubstance brick:Supply_Air .
+
+ns1:Supply_Air_Temperature_Setpoint_3 a brick:Supply_Air_Temperature_Setpoint ;
+    brick:hasQuantity brick:Flow ;
+    brick:hasSubstance brick:Supply_Air .
+
+ns1:Temperature_Sensor_1 a brick:Temperature_Sensor ;
+    brick:hasQuantity brick:Temperature ;
+    brick:hasSubstance brick:Air .
+
+ns1:Temperature_Sensor_2 a brick:Temperature_Sensor ;
+    brick:hasQuantity brick:Temperature ;
+    brick:hasSubstance brick:Air .
+
+ns1:Temperature_Sensor_3 a brick:Temperature_Sensor ;
+    brick:hasQuantity brick:Temperature ;
+    brick:hasSubstance brick:Air .

@@ -17,7 +17,7 @@ format:
 	black tools/
 
 test: Brick.ttl
-	pytest -s -vvvv  -n auto tests
+	pytest -s -vvvv -n auto tests
 
 quantity-test: Brick.ttl
 	pytest -s -vvvv tests/test_quantities.py

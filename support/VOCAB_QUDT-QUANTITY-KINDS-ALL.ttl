@@ -41,13 +41,13 @@ quantitykind:AbsoluteActivity
 quantitykind:AbsoluteHumidity
   a qudt:QuantityKind ;
   dcterms:description """
-  $\\textit{Absolute Humidity}$ is an amount of water vapor, usually discussed per unit volume. 
-  Absolute humidity in air ranges from zero to roughly 30 grams per cubic meter when the air is saturated at $30 ^\\circ C$. 
-  The absolute humidity changes as air temperature or pressure changes. 
+  $\\textit{Absolute Humidity}$ is an amount of water vapor, usually discussed per unit volume.
+  Absolute humidity in air ranges from zero to roughly 30 grams per cubic meter when the air is saturated at $30 ^\\circ C$.
+  The absolute humidity changes as air temperature or pressure changes.
   $$$$
-  This is very inconvenient for chemical engineering calculations, e.g. for clothes dryers, where temperature can vary considerably. 
+  This is very inconvenient for chemical engineering calculations, e.g. for clothes dryers, where temperature can vary considerably.
   As a result, absolute humidity is generally defined in chemical engineering as mass of water vapor per unit mass of dry air,
-   also known as the mass mixing ratio, which is much more rigorous for heat and mass balance calculations. 
+   also known as the mass mixing ratio, which is much more rigorous for heat and mass balance calculations.
   $$$$
   Mass of water per unit volume as in the equation above would then be defined as volumetric humidity, because of the potential confusion.
   """^^qudt:LatexString ;
@@ -263,13 +263,13 @@ quantitykind:Absorptance
 quantitykind:Acceleration
   a qudt:QuantityKind ;
   dcterms:description """
-  $\\textit{Acceleration}$ is the (instantaneous) rate of change of velocity. 
-  Acceleration may be either linear acceleration, or angular acceleration. 
+  $\\textit{Acceleration}$ is the (instantaneous) rate of change of velocity.
+  Acceleration may be either linear acceleration, or angular acceleration.
   It is a vector quantity with dimension $length/time^{2}$ for linear acceleration,
-   or in the case of angular acceleration, with dimension $angle/time^{2}$. 
+   or in the case of angular acceleration, with dimension $angle/time^{2}$.
   $$$$
   In SI units, linear acceleration is measured in $meters/second^{2}$ ($m \\cdot s^{-2}$),
-   and angular acceleration is measured in $radians/second^{2}$. 
+   and angular acceleration is measured in $radians/second^{2}$.
   $$$$
   In physics, any increase or decrease in speed is referred to as acceleration and similarly,
    motion in a circle at constant speed is also an acceleration, since the direction component of the velocity is changing.
@@ -465,14 +465,14 @@ quantitykind:AcousticImpedance
 quantitykind:Action
   a qudt:QuantityKind ;
   dcterms:description """
-  An action is usually an integral over time. 
-  But for action pertaining to fields, it may be integrated over spatial variables as well. 
-  In some cases, the action is integrated along the path followed by the physical system.  
+  An action is usually an integral over time.
+  But for action pertaining to fields, it may be integrated over spatial variables as well.
+  In some cases, the action is integrated along the path followed by the physical system.
   $$$$
-  The evolution of a physical system between two states is determined by requiring the action be minimized or, more generally, 
+  The evolution of a physical system between two states is determined by requiring the action be minimized or, more generally,
    be stationary for small perturbations about the true evolution.
-  This requirement leads to differential equations that describe the true evolution. 
-  Conversely, an action principle is a method for reformulating differential equations of motion for a physical system as an equivalent integral equation. 
+  This requirement leads to differential equations that describe the true evolution.
+  Conversely, an action principle is a method for reformulating differential equations of motion for a physical system as an equivalent integral equation.
   Although several variants have been defined (see below), the most commonly used action principle is Hamilton's principle.
   """^^qudt:LatexString ;
   qudt:applicableUnit unit:AttoJ-SEC ;
@@ -610,7 +610,7 @@ quantitykind:ActiveEnergy
 quantitykind:ActivePower
   a qudt:QuantityKind ;
   dcterms:description """
-  An $Active Power$ is, under periodic conditions, the mean value, taken over one period $T$, of the instantaneous power $p$. 
+  An $Active Power$ is, under periodic conditions, the mean value, taken over one period $T$, of the instantaneous power $p$.
   In complex notation, $P = \\mathbf{Re} \\; \\underline{S}$, where $\\underline{S}$ is $\\textit{complex power}$.
   """^^qudt:LatexString ;
   qudt:applicableUnit unit:ExaW ;
@@ -650,7 +650,7 @@ quantitykind:Activity
   a qudt:QuantityKind ;
   dcterms:description """
   $\\textit{Activity}$ is the number of decays per unit time of a radioactive sample,
-   the term used to characterise the number of nuclei which disintegrate in a radioactive substance per unit time. 
+   the term used to characterise the number of nuclei which disintegrate in a radioactive substance per unit time.
   Activity is usually measured in Becquerels ($Bq$), where 1 $Bq$ is 1 disintegration per second,
    in honor of the scientist Henri Becquerel.
   """^^qudt:LatexString ;
@@ -675,8 +675,8 @@ quantitykind:Activity
   qudt:isoNormativeReference "http://www.iso.org/iso/catalogue_detail?csnumber=31895"^^xsd:anyURI ;
   qudt:latexDefinition """
   $A = Z + N$, where $Z$ is the atomic number and $N$ is the neutron number.
-  Variation $dN$ of spontaneous number of nuclei $N$ in a particular energy state, 
-   in a sample of radionuclide, due to spontaneous nuclear transitions from this state during an infinitesimal time interval, 
+  Variation $dN$ of spontaneous number of nuclei $N$ in a particular energy state,
+   in a sample of radionuclide, due to spontaneous nuclear transitions from this state during an infinitesimal time interval,
    divided by its duration $dt$, thus $A = -\\frac{dN}{dt}$.
   """^^qudt:LatexString ;
   qudt:siExactMatch si-quantity:ARRN ;
@@ -721,7 +721,7 @@ quantitykind:ActivityConcentration
 quantitykind:ActivityRelatedByMass
   a qudt:QuantityKind ;
   dcterms:description """
-  $\\textit{Activity Related By Mass}$ is quantitative data of the radioactivity of the amount of a radionuclide in a particular state of energy at a defined point in time, 
+  $\\textit{Activity Related By Mass}$ is quantitative data of the radioactivity of the amount of a radionuclide in a particular state of energy at a defined point in time,
    divided by the related mass of this quantity.
   """^^qudt:LatexString ;
   qudt:applicableUnit unit:BQ-PER-KiloGM ;
@@ -1032,18 +1032,18 @@ quantitykind:AmountOfSubstance
   a qudt:QuantityKind ;
   dcterms:description """
   $\\textit{Amount of Substance}$ is a standards-defined quantity that measures the size of an ensemble of elementary entities,
-   such as atoms, molecules, electrons, and other particles. 
+   such as atoms, molecules, electrons, and other particles.
   It is sometimes referred to as chemical amount.
 
-  The International System of Units (SI) defines the amount of substance to be proportional to the number of elementary entities present. 
-  The SI unit for amount of substance is mole. 
+  The International System of Units (SI) defines the amount of substance to be proportional to the number of elementary entities present.
+  The SI unit for amount of substance is mole.
   It has the unit symbol $mol$.
 
-  The mole is defined as the amount of substance that contains an equal number of elementary entities as there are atoms in 0.012kg of the isotope carbon-12. 
-  This number is called Avogadro's number and has the value $6.02214179(30) \\times 10^{23}$. 
-  
+  The mole is defined as the amount of substance that contains an equal number of elementary entities as there are atoms in 0.012kg of the isotope carbon-12.
+  This number is called Avogadro's number and has the value $6.02214179(30) \\times 10^{23}$.
+
   The only other unit of amount of substance in current use is the $pound-mole$ with the symbol $lb-mol$,
-   which is sometimes used in chemical engineering in the United States. 
+   which is sometimes used in chemical engineering in the United States.
   One $pound-mole$ is exactly $453.59237 mol$.
   """^^qudt:LatexString ;
   qudt:applicableUnit unit:CentiMOL ;
@@ -1448,8 +1448,8 @@ quantitykind:AngularMomentum
   a qudt:QuantityKind ;
   dcterms:description """
   $\\textit{Angular Momentum}$, $\\textit{Moment of Momentum}$, or $\\textit{Rotational Momentum}$, is a vector quantity that represents the product of a body's rotational inertia and rotational velocity about a particular axis.
-  The $\\textit{Angular Momentum}$ of an object rotating about some reference point is the measure of the extent to which the object will continue to rotate about that point unless acted upon by an external torque. 
-  In particular, if a point mass rotates about an axis, then the angular momentum with respect to a point on the axis is related to the mass of the object, the velocity and the distance of the mass to the axis. 
+  The $\\textit{Angular Momentum}$ of an object rotating about some reference point is the measure of the extent to which the object will continue to rotate about that point unless acted upon by an external torque.
+  In particular, if a point mass rotates about an axis, then the angular momentum with respect to a point on the axis is related to the mass of the object, the velocity and the distance of the mass to the axis.
   While the motion associated with linear momentum has no absolute frame of reference, the rotation associated with angular momentum is sometimes spoken of as being measured relative to the fixed stars.
   """^^qudt:LatexString ;
   qudt:applicableUnit unit:ERG-SEC ;
@@ -2624,7 +2624,7 @@ quantitykind:AverageVacuumThrust
 
 quantitykind:Azimuth
   a qudt:QuantityKind ;
-  dcterms:description """The horizontal angle between an object's orientation frame and a cardinal direction, generally north. 
+  dcterms:description """The horizontal angle between an object's orientation frame and a cardinal direction, generally north.
   In the context of architecture, this would refer to the direction a structure faces relative to the direction north.""" ;
   qudt:applicableUnit unit:2PiRAD ;
   qudt:applicableUnit unit:ARCMIN ;
@@ -2640,7 +2640,7 @@ quantitykind:Azimuth
   qudt:applicableUnit unit:RAD ;
   qudt:applicableUnit unit:REV ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
-  qudt:plainTextDescription """The horizontal angle between an object and a cardinal direction, generally north. 
+  qudt:plainTextDescription """The horizontal angle between an object and a cardinal direction, generally north.
   In the context of architecture, this would refer to the direction a structure faces relative to the direction north.""" ;
   rdfs:comment "Applicable units are those of quantitykind:Angle" ;
   rdfs:isDefinedBy <http://qudt.org/3.1.0/vocab/quantitykind> ;
@@ -2895,23 +2895,23 @@ quantitykind:BitTransmissionRate
 quantitykind:BloodGlucoseLevel
   a qudt:QuantityKind ;
   dcterms:description """
-  Blood sugar level, blood sugar concentration, or blood glucose level is the amount of glucose present in the blood of humans and animals. 
-  Glucose is a simple sugar and approximately 4 grams of glucose are present in the blood of humans at all times.  
+  Blood sugar level, blood sugar concentration, or blood glucose level is the amount of glucose present in the blood of humans and animals.
+  Glucose is a simple sugar and approximately 4 grams of glucose are present in the blood of humans at all times.
   Stored in skeletal muscle and liver cells in the form of glycogen, the body tightly regulates blood glucose levels as a part of metabolic homeostasis.
-  During fasting blood glucose is maintained at a constant level at the expense of the glycogen stores in the liver and skeletal muscle. 
-  There are two main methods of describing concentrations: by weight, and by molecular count. 
-  Weights are in grams and molecular counts in moles. 
+  During fasting blood glucose is maintained at a constant level at the expense of the glycogen stores in the liver and skeletal muscle.
+  There are two main methods of describing concentrations: by weight, and by molecular count.
+  Weights are in grams and molecular counts in moles.
   A mole is $6.022\\times 10^{23}$ molecules.
   In both cases, the unit is usually modified by $milli-$ or $micro-$ or other prefix,
-   and is always $per$ some volume, often a litre. 
-  Conversion factors depend on the molecular weight of the substance in question. 
-  $mmol/L$ is millimoles/liter, and is the world standard unit for measuring glucose in blood. 
-  Specifically, it is the designated SI (Systeme International) unit. 
-  Some countries use $mg/dl$. 
+   and is always $per$ some volume, often a litre.
+  Conversion factors depend on the molecular weight of the substance in question.
+  $mmol/L$ is millimoles/liter, and is the world standard unit for measuring glucose in blood.
+  Specifically, it is the designated SI (Systeme International) unit.
+  Some countries use $mg/dl$.
   A mole is about $6\\times 10^{23}$ molecules.
-  $mg/dL$ (milligrams/deciliter) is the traditional unit for measuring $bG$ (blood glucose). 
-  There is a trend toward using $mmol/L$ however $mg/dL$ is much in practice. 
-  Some use is made of $mmol/L$ as the primary unit with $mg/dL$ quoted in parentheses. 
+  $mg/dL$ (milligrams/deciliter) is the traditional unit for measuring $bG$ (blood glucose).
+  There is a trend toward using $mmol/L$ however $mg/dL$ is much in practice.
+  Some use is made of $mmol/L$ as the primary unit with $mg/dL$ quoted in parentheses.
   This acknowledges the large base of health care providers, researchers and patients who are already familiar with $mg/dL$.
   """^^qudt:LatexString ;
   qudt:applicableUnit unit:MilliMOL-PER-L ;
@@ -2926,23 +2926,23 @@ quantitykind:BloodGlucoseLevel
 quantitykind:BloodGlucoseLevel_Mass
   a qudt:QuantityKind ;
   dcterms:description """
-  Blood sugar level, blood sugar concentration, or blood glucose level is the amount of glucose present in the blood of humans and animals. 
-  Glucose is a simple sugar and approximately 4 grams of glucose are present in the blood of humans at all times.  
+  Blood sugar level, blood sugar concentration, or blood glucose level is the amount of glucose present in the blood of humans and animals.
+  Glucose is a simple sugar and approximately 4 grams of glucose are present in the blood of humans at all times.
   Stored in skeletal muscle and liver cells in the form of glycogen, the body tightly regulates blood glucose levels as a part of metabolic homeostasis.
-  During fasting blood glucose is maintained at a constant level at the expense of the glycogen stores in the liver and skeletal muscle. 
-  There are two main methods of describing concentrations: by weight, and by molecular count. 
-  Weights are in grams and molecular counts in moles. 
+  During fasting blood glucose is maintained at a constant level at the expense of the glycogen stores in the liver and skeletal muscle.
+  There are two main methods of describing concentrations: by weight, and by molecular count.
+  Weights are in grams and molecular counts in moles.
   A mole is $6.022\\times 10^{23}$ molecules.
   In both cases, the unit is usually modified by $milli-$ or $micro-$ or other prefix,
-   and is always $per$ some volume, often a litre. 
-  Conversion factors depend on the molecular weight of the substance in question. 
-  $mmol/L$ is millimoles/liter, and is the world standard unit for measuring glucose in blood. 
-  Specifically, it is the designated SI (Systeme International) unit. 
-  Some countries use $mg/dl$. 
+   and is always $per$ some volume, often a litre.
+  Conversion factors depend on the molecular weight of the substance in question.
+  $mmol/L$ is millimoles/liter, and is the world standard unit for measuring glucose in blood.
+  Specifically, it is the designated SI (Systeme International) unit.
+  Some countries use $mg/dl$.
   A mole is about $6\\times 10^{23}$ molecules.
-  $mg/dL$ (milligrams/deciliter) is the traditional unit for measuring $bG$ (blood glucose). 
-  There is a trend toward using $mmol/L$ however $mg/dL$ is much in practice. 
-  Some use is made of $mmol/L$ as the primary unit with $mg/dL$ quoted in parentheses. 
+  $mg/dL$ (milligrams/deciliter) is the traditional unit for measuring $bG$ (blood glucose).
+  There is a trend toward using $mmol/L$ however $mg/dL$ is much in practice.
+  Some use is made of $mmol/L$ as the primary unit with $mg/dL$ quoted in parentheses.
   This acknowledges the large base of health care providers, researchers and patients who are already familiar with $mg/dL$.
   """^^qudt:LatexString ;
   qudt:applicableUnit unit:MilliGM-PER-DeciL ;
@@ -3521,8 +3521,8 @@ quantitykind:CENTER-OF-MASS
 
 quantitykind:CO2Equivalent
   a qudt:QuantityKind ;
-  dcterms:description """The CO2 equivalent is a measure used to compare the emissions from various greenhouse gases 
-  on the basis of their global-warming potential (GWP), by converting amounts of other gases to the equivalent amount 
+  dcterms:description """The CO2 equivalent is a measure used to compare the emissions from various greenhouse gases
+  on the basis of their global-warming potential (GWP), by converting amounts of other gases to the equivalent amount
   of carbon dioxide with the same global warming potential."""^^rdf:HTML ;
   qudt:applicableUnit unit:KiloGM ;
   qudt:applicableUnit unit:TONNE ;
@@ -4823,7 +4823,7 @@ quantitykind:ConductiveHeatTransferRate
 quantitykind:Conductivity
   a qudt:QuantityKind ;
   dcterms:description """
-  $\\textit{Conductivity}$ is a scalar or tensor quantity the product of which by the electric field strength in a medium is equal to the electric current density. 
+  $\\textit{Conductivity}$ is a scalar or tensor quantity the product of which by the electric field strength in a medium is equal to the electric current density.
   For an isotropic medium the conductivity is a scalar quantity; for an anisotropic medium it is a tensor quantity.
   $$\\mathbf{J} = \\sigma \\mathbf{E}$$
   Where $\\mathbf{J}$ is electric current density, and $\\mathbf{E}$ is electric field strength.
@@ -5728,10 +5728,10 @@ quantitykind:DegreeOfDissociation
 quantitykind:Density
   a qudt:QuantityKind ;
   dcterms:description """
-  The mass density or density of a material is defined as its mass per unit volume. 
-  The symbol most often used for density is $\\rho$. 
+  The mass density or density of a material is defined as its mass per unit volume.
+  The symbol most often used for density is $\\rho$.
    Mathematically, density is defined as mass divided by volume: $\\rho = m/V$,
-    where $\\rho$ is the density, $m$ is the mass, and $V$ is the volume. 
+    where $\\rho$ is the density, $m$ is the mass, and $V$ is the volume.
     In some cases, density is also defined as its weight per unit volume, although this quantity is more properly called specific weight.
     """^^qudt:LatexString ;
   qudt:applicableUnit unit:DEGREE_BALLING ;
@@ -6460,8 +6460,8 @@ quantitykind:DisplacementCurrent
 quantitykind:DisplacementCurrentDensity
   a qudt:QuantityKind ;
   dcterms:description """
-$\\text{Displacement Current Density}$ is the time rate of change of the $\\textit{Electric Flux Density}$. 
-  This is a measure of how quickly the electric field changes if we observe it as a function of time. 
+$\\text{Displacement Current Density}$ is the time rate of change of the $\\textit{Electric Flux Density}$.
+  This is a measure of how quickly the electric field changes if we observe it as a function of time.
   This is different than if we look at how the electric field changes spatially, that is, over a region of space for a fixed amount of time.
   """^^qudt:LatexString ;
   qudt:applicableUnit unit:A-PER-M2 ;
@@ -7520,9 +7520,9 @@ quantitykind:ElectricChargeVolumeDensity
 quantitykind:ElectricConductivity
   a qudt:QuantityKind ;
   dcterms:description """
-  The quantity kind $\\textit{Electric Conductivity}$ or $\\textit{Specific Conductance}$ is a measure of a material's ability to conduct an electric current. 
-  When an electrical potential difference is placed across a conductor, its movable charges flow, giving rise to an electric current. 
-  The conductivity $\\sigma$ is defined as the ratio of the electric current density $J$ to the electric field, $E$: $J = \\sigma E$. 
+  The quantity kind $\\textit{Electric Conductivity}$ or $\\textit{Specific Conductance}$ is a measure of a material's ability to conduct an electric current.
+  When an electrical potential difference is placed across a conductor, its movable charges flow, giving rise to an electric current.
+  The conductivity $\\sigma$ is defined as the ratio of the electric current density $J$ to the electric field, $E$: $J = \\sigma E$.
   In isotropic materials, conductivity is scalar-valued, however in general, conductivity is a tensor-valued quantity.
   """^^qudt:LatexString ;
   qudt:applicableUnit unit:MHO_Stat ;
@@ -7547,10 +7547,10 @@ quantitykind:ElectricConductivity
 quantitykind:ElectricCurrent
   a qudt:QuantityKind ;
   dcterms:description """
-  The quantity kind $\\textit{Electric Current}$ is the flow (movement) of electric charge. 
+  The quantity kind $\\textit{Electric Current}$ is the flow (movement) of electric charge.
   The amount of electric current through some surface, for example, a section through a copper conductor,
-   is defined as the amount of electric charge flowing through that surface over time. 
-  Current is a scalar-valued quantity. 
+   is defined as the amount of electric charge flowing through that surface over time.
+  Current is a scalar-valued quantity.
   Electric current is one of the base quantities in the International System of Quantities, ISQ,
    on which the International System of Units, SI, is based.
   """^^rdf:HTML ;
@@ -8411,14 +8411,14 @@ $\\textit{Electromagnetic Energy Density}$, also known as the $\\color{indigo} {
 quantitykind:ElectromagneticPermeability
   a qudt:QuantityKind ;
   dcterms:description """
-  $\\textit{Permeability}$ is the degree of magnetization of a material that responds linearly to an applied magnetic field. 
-  In general permeability is a tensor-valued quantity. 
-  The definition given applies to an isotropic medium. 
-  For an anisotropic medium permeability is a second order tensor. 
-  In electromagnetism, permeability is the measure of the ability of a material to support the formation of a magnetic field within itself. 
-  In other words, it is the degree of magnetization that a material obtains in response to an applied magnetic field. 
-  Magnetic permeability is typically represented by the Greek letter $\\mu$. 
-  The term was coined in September, 1885 by Oliver Heaviside. 
+  $\\textit{Permeability}$ is the degree of magnetization of a material that responds linearly to an applied magnetic field.
+  In general permeability is a tensor-valued quantity.
+  The definition given applies to an isotropic medium.
+  For an anisotropic medium permeability is a second order tensor.
+  In electromagnetism, permeability is the measure of the ability of a material to support the formation of a magnetic field within itself.
+  In other words, it is the degree of magnetization that a material obtains in response to an applied magnetic field.
+  Magnetic permeability is typically represented by the Greek letter $\\mu$.
+  The term was coined in September, 1885 by Oliver Heaviside.
   The reciprocal of magnetic permeability is $\\textit{Magnetic Reluctivity}$.
   """^^qudt:LatexString ;
   qudt:applicableUnit unit:H-PER-M ;
@@ -8480,7 +8480,7 @@ quantitykind:ElectromagneticWavePhaseSpeed
 quantitykind:ElectromotiveForce
   a qudt:QuantityKind ;
   dcterms:description """
-  In physics, $\\textit{Electromotive Force}$, or most commonly $emf$ (seldom capitalized), or (occasionally) electromotance is that which tends to cause current (actual electrons and ions) to flow. 
+  In physics, $\\textit{Electromotive Force}$, or most commonly $emf$ (seldom capitalized), or (occasionally) electromotance is that which tends to cause current (actual electrons and ions) to flow.
   More formally, $emf$ is the external work expended per unit of charge to produce an electric potential difference across two open-circuited terminals.
   $\\textit{Electromotive Force}$ is deprecated in the ISO System of Quantities.
   """^^qudt:LatexString ;
@@ -8527,7 +8527,7 @@ quantitykind:ElectromotiveForce
 quantitykind:ElectronAffinity
   a qudt:QuantityKind ;
   dcterms:description """
-  $\\textit{Electron Affinity}$ is the energy difference between an electron at rest at infinity and an electron at the lowest level of the conduction band in an insulator or semiconductor. 
+  $\\textit{Electron Affinity}$ is the energy difference between an electron at rest at infinity and an electron at the lowest level of the conduction band in an insulator or semiconductor.
   The amount of energy released when an electron is added to a neutral atom or molecule to form a negative ion.
   """^^qudt:LatexString ;
   qudt:applicableUnit unit:AttoJ ;
@@ -8593,7 +8593,7 @@ quantitykind:ElectronAffinity
 quantitykind:ElectronDensity
   a qudt:QuantityKind ;
   dcterms:description """
-  $\\textit{Electron Density}$ is the number of electrons per volume in conduction bands. 
+  $\\textit{Electron Density}$ is the number of electrons per volume in conduction bands.
   It is the measure of the probability of an electron being present at a specific location.
   """^^qudt:LatexString ;
   qudt:applicableUnit unit:NUM-PER-L ;
@@ -9015,7 +9015,7 @@ quantitykind:EnergyContent
 quantitykind:EnergyDensity
   a qudt:QuantityKind ;
   dcterms:description """
-  Energy density is defined as energy per unit volume. 
+  Energy density is defined as energy per unit volume.
   The SI unit for energy density is the joule per cubic meter.
   """^^qudt:LatexString ;
   qudt:applicableUnit unit:BTU_IT-PER-FT3 ;
@@ -9798,7 +9798,7 @@ quantitykind:EquivalentAbsorptionArea
 
 quantitykind:EquivalentConcentration
   a qudt:QuantityKind ;
-  dcterms:description """"Equivalent Concentration" is the amount of a substance that reacts with (or is equivalent to) an arbitrary amount (typically one mole) of 
+  dcterms:description """"Equivalent Concentration" is the amount of a substance that reacts with (or is equivalent to) an arbitrary amount (typically one mole) of
 another substance in a given chemical reaction, per volume."""^^rdf:HTML ;
   qudt:applicableUnit unit:CentiMOL-PER-L ;
   qudt:applicableUnit unit:FemtoMOL-PER-L ;
@@ -9822,7 +9822,7 @@ another substance in a given chemical reaction, per volume."""^^rdf:HTML ;
 
 quantitykind:EquivalentDensity
   a qudt:QuantityKind ;
-  dcterms:description """"Equivalent Density" is the mass of a substance that reacts with (or is equivalent to) an arbitrary mass of 
+  dcterms:description """"Equivalent Density" is the mass of a substance that reacts with (or is equivalent to) an arbitrary mass of
 another substance in a given chemical reaction, per volume."""^^rdf:HTML ;
   qudt:applicableUnit unit:DEGREE_BALLING ;
   qudt:applicableUnit unit:DEGREE_BAUME ;
@@ -9890,7 +9890,7 @@ another substance in a given chemical reaction, per volume."""^^rdf:HTML ;
 
 quantitykind:Equivalent_Mass
   a qudt:QuantityKind ;
-  dcterms:description """"Mass Equivalent" is the mass of a substance that reacts with (or is equivalent to) an arbitrary mass of 
+  dcterms:description """"Mass Equivalent" is the mass of a substance that reacts with (or is equivalent to) an arbitrary mass of
 another substance in a given chemical reaction."""^^rdf:HTML ;
   qudt:applicableUnit unit:AMU ;
   qudt:applicableUnit unit:CARAT ;
@@ -9955,7 +9955,7 @@ another substance in a given chemical reaction."""^^rdf:HTML ;
 
 quantitykind:Equivalent_Molar
   a qudt:QuantityKind ;
-  dcterms:description """"Molar Equivalent" is the amount of a substance that reacts with (or is equivalent to) an arbitrary amount (typically one mole) of 
+  dcterms:description """"Molar Equivalent" is the amount of a substance that reacts with (or is equivalent to) an arbitrary amount (typically one mole) of
 another substance in a given chemical reaction."""^^rdf:HTML ;
   qudt:applicableUnit unit:CentiMOL ;
   qudt:applicableUnit unit:FemtoMOL ;
@@ -11550,8 +11550,8 @@ quantitykind:GasLeakRate
 
 quantitykind:GaugePressure
   a qudt:QuantityKind ;
-  dcterms:description """Gauge Pressure is the pressure of a system relative to the pressure of the surrounding atmosphere. 
-It is the difference between the absolute pressure and the atmospheric pressure. Gauge pressure is positive for pressures 
+  dcterms:description """Gauge Pressure is the pressure of a system relative to the pressure of the surrounding atmosphere.
+It is the difference between the absolute pressure and the atmospheric pressure. Gauge pressure is positive for pressures
 above atmospheric pressure and negative for pressures below it. A Quantity in QUDT having a QuantityKind of GaugePressure
 would typically also assert the value of qudt:isDeltaQuantity to be true, indicating that the value is a difference between
 two pressures."""^^qudt:LatexString ;
@@ -11696,10 +11696,10 @@ quantitykind:GeneralizedVelocity
 quantitykind:GibbsEnergy
   a qudt:QuantityKind ;
   dcterms:description """
-  $\\textit{Internal Energy}$ is one of the potentials are used to measure energy changes in systems as they evolve from an initial state to a final state. 
-  The potential used depends on the constraints of the system, such as constant temperature or pressure. 
+  $\\textit{Internal Energy}$ is one of the potentials are used to measure energy changes in systems as they evolve from an initial state to a final state.
+  The potential used depends on the constraints of the system, such as constant temperature or pressure.
   $\\textit{Internal Energy}$ is the internal energy of the system, $\\textit{Enthalpy}$ is the internal energy of the system plus the energy related to pressure-volume work,
-   and Helmholtz and Gibbs free energy are the energies available in a system to do useful work when the temperature and volume or the pressure and temperature are fixed, respectively. 
+   and Helmholtz and Gibbs free energy are the energies available in a system to do useful work when the temperature and volume or the pressure and temperature are fixed, respectively.
   The name $\\textit{Gibbs Free Energy}$ is also used.
   """^^qudt:LatexString ;
   qudt:applicableUnit unit:AttoJ ;
@@ -11924,7 +11924,7 @@ quantitykind:GyromagneticRatio
   dcterms:description """
   $\\textit{Gyromagnetic Ratio}$, also sometimes known as the magnetogyric ratio in other disciplines,
    of a particle or system is the ratio of its magnetic dipole moment to its angular momentum,
-  and it is often denoted by the symbol, $\\gamma$. 
+  and it is often denoted by the symbol, $\\gamma$.
   Its SI units are radian per second per tesla ($rad s^{-1} \\cdot T^{1}$) or, equivalently,
    coulomb per kilogram ($C \\cdot kg^{-1}$).
   """^^qudt:LatexString ;
@@ -13332,15 +13332,15 @@ quantitykind:InitialVelocity
 quantitykind:InstantaneousPower
   a qudt:QuantityKind ;
   dcterms:description """
-  For a two-terminal element or a two-terminal circuit with terminals A and B, 
-   $\\textit{Instantaneous Power}$ is the product of the voltage $u_{AB}$ between the terminals and the electric current i in the element or circuit: 
+  For a two-terminal element or a two-terminal circuit with terminals A and B,
+   $\\textit{Instantaneous Power}$ is the product of the voltage $u_{AB}$ between the terminals and the electric current i in the element or circuit:
   $$p = u_{AB} \\cdot i$$
   Where $u_{AB}$ is the line integral of the electric field strength from A to B,
-    and where the electric current in the element or circuit is taken positive if its direction is from A to B and negative in the opposite case. 
+    and where the electric current in the element or circuit is taken positive if its direction is from A to B and negative in the opposite case.
   $$$$
-  For an n-terminal circuit, it is the sum of the instantaneous powers relative to the n - 1 pairs of terminals when one of the terminals is chosen as a common terminal for the pairs. 
+  For an n-terminal circuit, it is the sum of the instantaneous powers relative to the n - 1 pairs of terminals when one of the terminals is chosen as a common terminal for the pairs.
   $$$$
-  For a polyphase element, it is the sum of the instantaneous powers in all phase elements of a polyphase element.  
+  For a polyphase element, it is the sum of the instantaneous powers in all phase elements of a polyphase element.
   $$$$
   For a polyphase line consisting of m line conductors and one neutral conductor, it is the sum of the m instantaneous powers expressed for each line conductor by the product of the polyphase line-to-neutral voltage and the corresponding line current.
    """^^qudt:LatexString ;
@@ -13956,7 +13956,7 @@ quantitykind:IsentropicCompressibility
 quantitykind:IsentropicExponent
   a qudt:QuantityKind ;
   dcterms:description """
-  $\\textit{Isentropic Exponent}$ is a variant of $\\textit{Specific Heat Ratio Capacities}$. 
+  $\\textit{Isentropic Exponent}$ is a variant of $\\textit{Specific Heat Ratio Capacities}$.
   For an ideal gas $\\textit{Isentropic Exponent}$, $\\varkappa$. is equal to $\\gamma$,
    the ratio of its specific heat capacities $c_p$ and $c_v$ under steady pressure and volume.
   """^^qudt:LatexString ;
@@ -15759,7 +15759,7 @@ quantitykind:LuminousExposure
 quantitykind:LuminousFlux
   a qudt:QuantityKind ;
   dcterms:description """
-  $\\textit{Luminous Flux}$, or $\\textit{Luminous Power}$, is the measure of the perceived power of light. 
+  $\\textit{Luminous Flux}$, or $\\textit{Luminous Power}$, is the measure of the perceived power of light.
   It differs from radiant flux, the measure of the total power of light emitted,
    in that luminous flux is adjusted to reflect the varying sensitivity of the human eye to different wavelengths of light.
   """^^qudt:LatexString ;
@@ -16737,11 +16737,11 @@ quantitykind:MagnetizationField
 quantitykind:MagnetomotiveForce
   a qudt:QuantityKind ;
   dcterms:description """
-$\\text{Magnetomotive Force}$, also referred to as ($mmf$), is the ability of an electric circuit to produce magnetic flux. 
-  Just as the ability of a battery to produce electric current is called its electromotive force 
-  or emf, mmf is taken as the work required to move a unit magnet pole from any point through any path 
-  which links the electric circuit back the same point in the presence of the magnetic force produced 
-  by the electric current in the circuit. 
+$\\text{Magnetomotive Force}$, also referred to as ($mmf$), is the ability of an electric circuit to produce magnetic flux.
+  Just as the ability of a battery to produce electric current is called its electromotive force
+  or emf, mmf is taken as the work required to move a unit magnet pole from any point through any path
+  which links the electric circuit back the same point in the presence of the magnetic force produced
+  by the electric current in the circuit.
 $\\text{Magnetomotive Force}$ is the scalar line integral of the magnetic field strength along a closed path.
   """^^qudt:LatexString ;
   qudt:applicableUnit unit:A ;
@@ -20437,13 +20437,13 @@ quantitykind:OlfactoryThreshold
 
 quantitykind:OpeningRatio
   a qudt:QuantityKind ;
-  dcterms:description """In the context of mechanical systems, "opening ratio" might refer to the proportion of time 
+  dcterms:description """In the context of mechanical systems, "opening ratio" might refer to the proportion of time
   or the extent to which a valve or gate is open relative to its maximum capacity.""" ;
   qudt:applicableUnit unit:FRACTION ;
   qudt:applicableUnit unit:NUM ;
   qudt:applicableUnit unit:PERCENT ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
-  qudt:plainTextDescription """In the context of mechanical systems, "opening ratio" might refer to the proportion of time 
+  qudt:plainTextDescription """In the context of mechanical systems, "opening ratio" might refer to the proportion of time
   or the extent to which a valve or gate is open relative to its maximum capacity.""" ;
   rdfs:comment "Applicable units are those of quantitykind:OpeningRatio" ;
   rdfs:isDefinedBy <http://qudt.org/3.1.0/vocab/quantitykind> ;
@@ -20769,7 +20769,7 @@ quantitykind:PRODUCT-OF-INERTIA
   a qudt:QuantityKind ;
   dcterms:description """
   The quantity kind $\\textit{Product of Inertia}$ is a measure of a body's dynamic
-   (or coupled) imbalance resulting in a precession when rotating about an axis 
+   (or coupled) imbalance resulting in a precession when rotating about an axis
    other than the body's principal axis.
   """^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L2I0M1H0T0D0 ;
@@ -20799,7 +20799,7 @@ quantitykind:PRODUCT-OF-INERTIA_Y
   """^^qudt:LatexString ;
   qudt:hasDimensionVector qkdv:A0E0L2I0M1H0T0D0 ;
   qudt:plainTextDescription """
-  The quantity kind 'Product of Inertia in the Y axis' is a measure of a body's 
+  The quantity kind 'Product of Inertia in the Y axis' is a measure of a body's
   dynamic (or coupled) imbalance resulting in a precession when rotating about an axis
   other than the body's principal axis.
   """ ;
@@ -22267,9 +22267,9 @@ quantitykind:PoyntingVector
   a qudt:QuantityKind ;
   dcterms:description """
   A $\\textit{Poynting Vector}$ is the vector product of the electric field strength $\\mathbf{E}$
-   and the magnetic field strength $\\mathbf{H}$ of the electromagnetic field at a given point. 
+   and the magnetic field strength $\\mathbf{H}$ of the electromagnetic field at a given point.
   The flux of the Poynting vector through a closed surface is equal to the electromagnetic power passing
-   through this surface. 
+   through this surface.
   For a periodic electromagnetic field, the time average of the Poynting vector is a vector of which,
    with certain reservations, the direction may be considered as being the direction of propagation
    of electromagnetic energy and the magnitude considered as being the average electromagnetic power
@@ -23068,8 +23068,8 @@ quantitykind:RadiantEmmitance
 quantitykind:RadiantEnergy
   a qudt:QuantityKind ;
   dcterms:description """
-  In radiometry, $\\textit{Radiant Energy}$ is the energy of electromagnetic waves. 
-  The quantity of radiant energy may be calculated by integrating radiant flux (or power) with respect to time. 
+  In radiometry, $\\textit{Radiant Energy}$ is the energy of electromagnetic waves.
+  The quantity of radiant energy may be calculated by integrating radiant flux (or power) with respect to time.
   In nuclear physics, $\\textit{Radiant Energy}$ is energy, excluding rest energy, of the particles that are emitted, transferred, or received.
   """^^qudt:LatexString ;
   qudt:abbreviation "M-L2-PER-T2" ;
@@ -23586,7 +23586,7 @@ quantitykind:RatioOfSpecificHeatCapacities
   a qudt:QuantityKind ;
   dcterms:description """
   The specific heat ratio of a gas is the ratio of the specific heat at constant pressure,
-   $c_p$, to the specific heat at constant volume, $c_V$. 
+   $c_p$, to the specific heat at constant volume, $c_V$.
   It is sometimes referred to as the $\\textit{adiabatic index}$,
    or the $\\textit{heat capacity ratio}$,
    or the $\\textit{isentropic expansion factor}$,
@@ -23609,10 +23609,10 @@ quantitykind:Reactance
   a qudt:QuantityKind ;
   dcterms:description """
   $\\textit{Reactance}$ is the opposition of a circuit element to a change of electric current or voltage,
-   due to that element's inductance or capacitance. 
+   due to that element's inductance or capacitance.
   A built-up electric field resists the change of voltage on the element,
-   while a magnetic field resists the change of current. 
-  The notion of reactance is similar to electrical resistance, but they differ in several respects. 
+   while a magnetic field resists the change of current.
+  The notion of reactance is similar to electrical resistance, but they differ in several respects.
   Capacitance and inductance are inherent properties of an element, just like resistance.
   """^^qudt:LatexString ;
   qudt:applicableUnit unit:OHM ;
@@ -23957,10 +23957,10 @@ quantitykind:RelativeAtomicMass
 quantitykind:RelativeHumidity
   a qudt:QuantityKind ;
   dcterms:description """
-  $\\textit{Relative Humidity}$ is the ratio of the partial pressure of water vapor in an air-water mixture to the saturated vapor pressure of water at a prescribed temperature. 
-  The relative humidity of air depends not only on temperature but also on the pressure of the system of interest. 
+  $\\textit{Relative Humidity}$ is the ratio of the partial pressure of water vapor in an air-water mixture to the saturated vapor pressure of water at a prescribed temperature.
+  The relative humidity of air depends not only on temperature but also on the pressure of the system of interest.
   $$$$
-  $\\textit{Relative Humidity}$ is also referred to as $\\textit{Relative Partial Pressure}$. 
+  $\\textit{Relative Humidity}$ is also referred to as $\\textit{Relative Partial Pressure}$.
   $$$$
   Relative partial pressure is often referred to as $RH$ and expressed in percent.
   """^^qudt:LatexString ;
@@ -25892,7 +25892,7 @@ quantitykind:SourceVoltage
   a qudt:QuantityKind ;
   dcterms:description """
   The quantity kind $\\textit{Source Voltage}$, also referred to as $\\textit{Source Tension}$
-   is the voltage between the two terminals of a voltage source when there is no electric current through the source. 
+   is the voltage between the two terminals of a voltage source when there is no electric current through the source.
   The name $\\text{electromotive force}$ with the abbreviation $\\textit{EMF}$ and the symbol $E$ is deprecated.
   """^^qudt:LatexString ;
   qudt:applicableUnit unit:ExaV ;
@@ -26047,16 +26047,16 @@ quantitykind:SpecificElectricCurrent
 quantitykind:SpecificEnergy
   a qudt:QuantityKind ;
   dcterms:description """
-  $\\textit{Specific Energy}$ is defined as the energy per unit mass. 
-  Common metric units are $J/kg$. 
-  It is an intensive property. 
-  Contrast this with energy, which is an extensive property. 
-  There are two main types of specific energy: potential energy and specific kinetic energy. 
-  Others are the $\\textit{gray}$ and $\\textit{sievert}$, which are measures for the absorption of radiation. 
+  $\\textit{Specific Energy}$ is defined as the energy per unit mass.
+  Common metric units are $J/kg$.
+  It is an intensive property.
+  Contrast this with energy, which is an extensive property.
+  There are two main types of specific energy: potential energy and specific kinetic energy.
+  Others are the $\\textit{gray}$ and $\\textit{sievert}$, which are measures for the absorption of radiation.
   $$$$
-  The concept of specific energy applies to a particular or theoretical way of extracting useful energy from the material considered that is usually implied by context. 
+  The concept of specific energy applies to a particular or theoretical way of extracting useful energy from the material considered that is usually implied by context.
   These intensive properties are each symbolized by using the lower case letter of the symbol for the corresponding extensive property,
-   which is symbolized by a capital letter. 
+   which is symbolized by a capital letter.
   For example, the extensive thermodynamic property enthalpy is symbolized by $H$; specific enthalpy is symbolized by $h$.
   """^^qudt:LatexString ;
   qudt:applicableUnit unit:BTU_IT-PER-LB ;
@@ -26186,8 +26186,8 @@ quantitykind:SpecificGibbsEnergy
   a qudt:QuantityKind ;
   dcterms:description """
   $\\textit{Specific Gibbs Energy}$ is a "corresponding intensive property",
-   which is $\\textit{Gibbs Energy}$ per mass of substance involved. 
-  Energy has corresponding intensive (size-independent) properties for pure materials. 
+   which is $\\textit{Gibbs Energy}$ per mass of substance involved.
+  Energy has corresponding intensive (size-independent) properties for pure materials.
   $\\textit{Specific Gibbs Energy}$ is denoted by a lower case $g$,
    with dimension of energy per mass (SI unit: $joule/kg$).
   """^^qudt:LatexString ;
@@ -26378,7 +26378,7 @@ quantitykind:SpecificHelmholtzEnergy
   dcterms:description """
   $\\textit{Specific Helmholtz Energy}$ is a "corresponding intensive property",
     which is $\\textit{Helmholz Energy}$ per mass of substance involved.
-  Energy has corresponding intensive (size-independent) properties for pure materials. 
+  Energy has corresponding intensive (size-independent) properties for pure materials.
   $\\textit{Specific Helmholz Energy}$ is denoted by a lower case $u$,
    with dimension of energy per mass (SI unit: $joule/kg$).
   """^^qudt:LatexString ;
@@ -29022,7 +29022,7 @@ quantitykind:ThrusterPowerToThrustEfficiency
 
 quantitykind:Tilt
   a qudt:QuantityKind ;
-  dcterms:description """The angle between an object's orientation vector relative to a reference frame.  
+  dcterms:description """The angle between an object's orientation vector relative to a reference frame.
   In the context of architecture, this would refer to the angle between the ground and the face of a surface.""" ;
   qudt:applicableUnit unit:2PiRAD ;
   qudt:applicableUnit unit:ARCMIN ;
@@ -29038,7 +29038,7 @@ quantitykind:Tilt
   qudt:applicableUnit unit:RAD ;
   qudt:applicableUnit unit:REV ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
-  qudt:plainTextDescription """The angle between an object's orientation vector relative to a reference frame.  
+  qudt:plainTextDescription """The angle between an object's orientation vector relative to a reference frame.
   In the context of architecture, this would refer to the angle between the ground and the face of a surface.""" ;
   rdfs:comment "Applicable units are those of quantitykind:Angle" ;
   rdfs:isDefinedBy <http://qudt.org/3.1.0/vocab/quantitykind> ;
@@ -30905,8 +30905,8 @@ quantitykind:VolumeFlowRate_SurfaceRelated
 
 quantitykind:VolumeFlowRatio
   a qudt:QuantityKind ;
-  dcterms:description """Volume flow ratio is commonly used in fluid dynamics and engineering, 
-  referring to the ratio of the flow rates of two or more fluid streams within a system. In HVAC systems, 
+  dcterms:description """Volume flow ratio is commonly used in fluid dynamics and engineering,
+  referring to the ratio of the flow rates of two or more fluid streams within a system. In HVAC systems,
   the flow ratio could compare the amount of fresh air introduced to the amount of recirculated air.""" ;
   qudt:applicableUnit unit:FRACTION ;
   qudt:applicableUnit unit:GR ;
@@ -30922,8 +30922,8 @@ quantitykind:VolumeFlowRatio
   qudt:applicableUnit unit:PSU ;
   qudt:applicableUnit unit:UNITLESS ;
   qudt:hasDimensionVector qkdv:A0E0L0I0M0H0T0D1 ;
-  qudt:plainTextDescription """Volume flow ratio is commonly used in fluid dynamics and engineering, 
-  referring to the ratio of the flow rates of two or more fluid streams within a system. In HVAC systems, 
+  qudt:plainTextDescription """Volume flow ratio is commonly used in fluid dynamics and engineering,
+  referring to the ratio of the flow rates of two or more fluid streams within a system. In HVAC systems,
   the flow ratio could compare the amount of fresh air introduced to the amount of recirculated air.""" ;
   qudt:qkdvDenominator qkdv:A0E0L3I0M0H0T-1D0 ;
   qudt:qkdvNumerator qkdv:A0E0L3I0M0H0T-1D0 ;
@@ -31800,12 +31800,12 @@ quantitykind:Width
 quantitykind:Work
   a qudt:QuantityKind ;
   dcterms:description """
-  $\\textit{Work}$ or $net\\ work$ is equal to the change in kinetic energy. 
-  This relationship is called the work-energy theorem: 
+  $\\textit{Work}$ or $net\\ work$ is equal to the change in kinetic energy.
+  This relationship is called the work-energy theorem:
   $$Wnet = K. E._f  K. E._o $$
-   where $K. E._f$ is the final kinetic energy and $K. E._o$ is the original kinetic energy. 
-  Potential energy, also referred to as stored energy, is the ability of a system to do work due to its position or internal structure. 
-  Change in potential energy is equal to work. 
+   where $K. E._f$ is the final kinetic energy and $K. E._o$ is the original kinetic energy.
+  Potential energy, also referred to as stored energy, is the ability of a system to do work due to its position or internal structure.
+  Change in potential energy is equal to work.
   The potential energy equations can also be derived from the integral form of work:
   $$\\Delta P. E. = W = \\int  F \\cdot dx$$.
   """^^qudt:LatexString ;
@@ -32005,5 +32005,3 @@ voag:QUDT-QUANTITY-KINDS-VocabCatalogEntry_v1.2
   a vaem:CatalogEntry ;
   rdfs:isDefinedBy <http://qudt.org/3.1.0/vocab/quantitykind> ;
   rdfs:label "QUDT Quantity Kinds Vocabulary Catalog Entry v1.2" .
-
-

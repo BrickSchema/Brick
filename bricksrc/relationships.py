@@ -238,4 +238,8 @@ for row in rec.query(query):
     if row["datatype"]:
         relationships[row["path"]][A] = [OWL.DatatypeProperty]
     if row["nodeKind"]:
-        relationships[row["path"]][A] = [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty]
+        relationships[row["path"]][A] = [
+            OWL.ObjectProperty,
+            OWL.AsymmetricProperty,
+            OWL.IrreflexiveProperty,
+        ]

@@ -74,4 +74,3 @@
     rdfs:label "Pipe 2" ;
     s223:hasMedium s223:Medium-Water ;
     s223:cnx  :coil_water_outlet, :boiler_water_return .
-

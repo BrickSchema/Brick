@@ -1,5 +1,6 @@
 """
 """
+
 from bricksrc.namespaces import TAG, A, OWL, BRICK
 from bricksrc.setpoint import setpoint_definitions
 from bricksrc.sensor import sensor_definitions

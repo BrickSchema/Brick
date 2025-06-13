@@ -347,7 +347,9 @@ def define_classes(definitions, parent, pun_classes=False, graph=G):
             graph.add((alias, A, SH.NodeShape))
             graph.add((alias, OWL.equivalentClass, classname))
             # find parent class of what the alias is equivalent to, add the RDFS subClassOf properties
-            parent_classes = list(graph.objects(subject=classname, predicate=RDFS.subClassOf))
+            parent_classes = list(
+                graph.objects(subject=classname, predicate=RDFS.subClassOf)
+            )
             for pc in parent_classes:
                 graph.add((alias, RDFS.subClassOf, pc))
             graph.add((alias, BRICK.aliasOf, classname))
@@ -436,7 +438,13 @@ def define_entity_properties(definitions, superprop=None, graph=G):
                 val = defn.pop(annotation)
                 graph.add((pshape, annotation, val))
         if not has_label(pshape):
-            graph.add((pshape, RDFS.label, Literal(f"has {defn.get(RDFS.label)} property", lang="en")))
+            graph.add(
+                (
+                    pshape,
+                    RDFS.label,
+                    Literal(f"has {defn.get(RDFS.label)} property", lang="en"),
+                )
+            )
 
         # add the entity property as a sh:property on all of the
         # other Nodeshapes indicated by "property_of"
@@ -831,21 +839,22 @@ def handle_concept_labels():
     If there are two or more labels for a concept, choose one and raise a Warning
     """
     concepts = chain(
-            G.transitive_subjects(RDFS.subClassOf, BRICK.Entity),
-            G.subjects(A, BRICK.Entity),
-            G.subjects(A, OWL.ObjectProperty),
-            G.subjects(A, OWL.DatatypeProperty),
-            )
+        G.transitive_subjects(RDFS.subClassOf, BRICK.Entity),
+        G.subjects(A, BRICK.Entity),
+        G.subjects(A, OWL.ObjectProperty),
+        G.subjects(A, OWL.DatatypeProperty),
+    )
     for s in concepts:
         labels = list(G.objects(s, RDFS.label))
         if len(labels) == 0:
-            G.add((s, RDFS.label, Literal(s.split("#")[-1].replace("_", " "), lang="en")))
+            G.add(
+                (s, RDFS.label, Literal(s.split("#")[-1].replace("_", " "), lang="en"))
+            )
         elif len(labels) > 1:
             logging.warning(f"Multiple labels for {s}: {labels}")
             # choose one and remove the others
             for to_remove in labels[1:]:
                 G.remove((s, RDFS.label, to_remove))
-
 
 
 logger.info("Beginning BRICK Ontology compilation")
@@ -1027,7 +1036,9 @@ G.add((BRICK.EntityProperty, A, RDF.Property))
 G.add((BRICK.EntityProperty, RDFS.subClassOf, BRICK.Relationship))
 G.add((BRICK.EntityPropertyValue, A, OWL.Class))
 G.add((BRICK.EntityPropertyValue, A, SH.NodeShape))
-G.add((BRICK.EntityPropertyValue, RDFS.label, Literal("EntityPropertyValue", lang="en")))
+G.add(
+    (BRICK.EntityPropertyValue, RDFS.label, Literal("EntityPropertyValue", lang="en"))
+)
 G.add((BRICK.EntityPropertyValue, RDFS.subClassOf, BRICK.Entity))
 G.add((BSH.ValueShape, A, OWL.Class))
 define_entity_properties(entity_properties)

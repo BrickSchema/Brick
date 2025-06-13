@@ -320,7 +320,7 @@ quantity_definitions = {
                 SKOS.definition: Literal("Direction of wind relative to North"),
                 RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
             }
-        }
+        },
     },
     "Electric_Energy": {
         QUDT.applicableUnit: [
@@ -439,7 +439,7 @@ quantity_definitions = {
                 RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
                 SKOS.broader: QUDTQK.Dimensionless,
             },
-        }
+        },
     },
     "Position": {
         QUDT.applicableUnit: [UNIT["PERCENT"]],
