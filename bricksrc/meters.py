@@ -12,7 +12,27 @@ meter_subclasses = {
                     TAG.Equipment,
                 ],
                 "parents": [BRICK.Building_Meter],
-            }
+            },
+            "Multi_Circuit_Electrical_Meter": {
+                "tags": [
+                    TAG.Multi,
+                    TAG.Circuit,
+                    TAG.Electrical,
+                    TAG.Meter,
+                    TAG.Equipment,
+                ],
+                "subclasses": {
+                    "Branch_Circuit_Electrical_Meter": {
+                        "tags": [
+                            TAG.Branch,
+                            TAG.Circuit,
+                            TAG.Electrical,
+                            TAG.Meter,
+                            TAG.Equipment,
+                        ]
+                    }
+                },
+            },
         },
     },
     "Waste_Meter": {"tags": [TAG.Waste, TAG.Meter]},
