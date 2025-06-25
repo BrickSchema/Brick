@@ -1,3 +1,1 @@
-*.rdf text eol=lf
-*.ttl text eol=lf
-*.py text eol=lf
+* text=auto
