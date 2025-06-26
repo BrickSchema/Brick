@@ -38,7 +38,7 @@ https://brickschema.org/schema/Brick#Air_Temperature_Sensor,Measures the tempera
 https://brickschema.org/schema/Brick#Air_Temperature_Setpoint,Sets temperature of air,
 https://brickschema.org/schema/Brick#Air_Temperature_Step_Parameter,,
 https://brickschema.org/schema/Brick#Air_Velocity_Pressure_Sensor,Measures the difference between total air pressure and static air pressure.,
-https://brickschema.org/schema/Brick#Alarm,Alarm points are signals (either audible or visual) that alert an operator to an off-normal condition which requires some form of corrective action,https://xp20.ashrae.org/terminology/index.php?term=alarm
+https://brickschema.org/schema/Brick#Alarm,Alarm points are signals (either audible or visual) that alert an operator to an off-normal condition which requires some form of corrective action,https://terminology.ashrae.org/?term=alarm
 https://brickschema.org/schema/Brick#Alarm_Delay_Parameter,A parameter determining how long to delay an alarm after sufficient conditions have been met,
 https://brickschema.org/schema/Brick#Alarm_Sensitivity_Parameter,A parameter indicates the sensitivity to activate an alarm.,
 https://brickschema.org/schema/Brick#Alternating_Current_Frequency,The frequency of the oscillations of alternating current,
@@ -96,7 +96,7 @@ https://brickschema.org/schema/Brick#Bypass_Air_Flow_Sensor,Measures the rate of
 https://brickschema.org/schema/Brick#Bypass_Air_Humidity_Setpoint,Humidity setpoint for bypass air,
 https://brickschema.org/schema/Brick#Bypass_Command,,
 https://brickschema.org/schema/Brick#Bypass_Damper,"A bypass damper is a type of damper that is employed in forced-air bypass applications to reduce the buildup of static pressure, usually when certain zone dampers are closed.",
-https://brickschema.org/schema/Brick#Bypass_Valve,A type of valve installed in a bypass pipeline,https://www.petropedia.com/definition/5050/bypass-valve
+https://brickschema.org/schema/Brick#Bypass_Valve,A type of valve installed in a bypass pipeline,
 https://brickschema.org/schema/Brick#Bypass_Water,Water that circumvents a piece of equipment or system,
 https://brickschema.org/schema/Brick#Bypass_Water_Flow_Sensor,Measures the rate of flow of bypass water,
 https://brickschema.org/schema/Brick#Bypass_Water_Flow_Setpoint,Sets the target flow rate of bypass water,
@@ -262,10 +262,10 @@ https://brickschema.org/schema/Brick#Differential_Pressure_Proportional_Band,,
 https://brickschema.org/schema/Brick#Differential_Pressure_Sensor,Measures the difference between two applied pressures,
 https://brickschema.org/schema/Brick#Differential_Pressure_Setpoint,Sets differential pressure,
 https://brickschema.org/schema/Brick#Differential_Pressure_Step_Parameter,,
-https://brickschema.org/schema/Brick#Differential_Setpoint,A type of Setpoints that is related to the difference between two measurements,https://xp20.ashrae.org/terminology/index.php?term=setpoint
+https://brickschema.org/schema/Brick#Differential_Setpoint,A type of Setpoints that is related to the difference between two measurements,https://terminology.ashrae.org/?term=setpoint
 https://brickschema.org/schema/Brick#Differential_Speed_Sensor,,
 https://brickschema.org/schema/Brick#Differential_Speed_Setpoint,Sets differential speed,
-https://brickschema.org/schema/Brick#Differential_Temperature_Setpoint,A type of Setpoints that is related to the difference between two temperature measurements,https://xp20.ashrae.org/terminology/index.php?term=setpoint
+https://brickschema.org/schema/Brick#Differential_Temperature_Setpoint,A type of Setpoints that is related to the difference between two temperature measurements,https://terminology.ashrae.org/?term=setpoint
 https://brickschema.org/schema/Brick#Dimmer,A switch providing continuous control over all or part of a lighting installation; typically potentiometer-based,
 https://brickschema.org/schema/Brick#Direction,,
 https://brickschema.org/schema/Brick#Direction_Command,Commands that affect the direction of some phenomenon,
@@ -457,10 +457,10 @@ https://brickschema.org/schema/Brick#Filter_Status,Indicates if a filter needs t
 https://brickschema.org/schema/Brick#Filter_Water_Differential_Pressure_Sensor,Measures the difference in water pressure before and after a water filter.,
 https://brickschema.org/schema/Brick#Final_Filter,"The last, high-efficiency filter installed in a sequence to remove the finest particulates from the substance being filtered",
 https://brickschema.org/schema/Brick#Fire_Alarm_Control_Panel,Fire alarm panel is the controlling component of a fire alarm system.,https://en.wikipedia.org/wiki/Fire_alarm_control_panel
-https://brickschema.org/schema/Brick#Fire_Alarm_Manual_Call_Point,Manual alarm call points are designed for the purpose of raising an alarm manually once verification of a fire or emergency condition exists. by operating the push button or break glass the alarm signal can be raised.,http://www.coopermedc.com/products/manual-alarm-call-points
+https://brickschema.org/schema/Brick#Fire_Alarm_Manual_Call_Point,Manual alarm call points are designed for the purpose of raising an alarm manually once verification of a fire or emergency condition exists. by operating the push button or break glass the alarm signal can be raised.,
 https://brickschema.org/schema/Brick#Fire_Alarm_Pull_Station,An active fire protection device (usually wall-mounted) that when activated initiates an alarm on a fire alarm system. In its simplest form the user activates the alarm by pulling the handle down.,https://en.wikipedia.org/wiki/Manual_fire_alarm_activation#Fire_alarm_pull_station
 https://brickschema.org/schema/Brick#Fire_Control_Panel,A panel-mounted device that provides status and control of a fire safety system,
-https://brickschema.org/schema/Brick#Fire_Safety_System,"A system containing devices and equipment that monitor, detect and suppress fire hazards",https://assetinsights.net/Glossary/G_Fire_Safety_System.html
+https://brickschema.org/schema/Brick#Fire_Safety_System,"A system containing devices and equipment that monitor, detect and suppress fire hazards",
 https://brickschema.org/schema/Brick#Fire_Sensor,Measures the presence of fire,
 https://brickschema.org/schema/Brick#Fire_Sprinkler_Thermal_Expansion_Tank,A specialized thermal expansion tank that is part of a building's fire suppression system.,
 https://brickschema.org/schema/Brick#Fire_Sprinkler_Water_Storage_Tank,A specialized tank intended to store water that can be quickly accessed for fire suppression.,
@@ -757,7 +757,7 @@ https://brickschema.org/schema/Brick#Mixing_Valve,Valve used for mixing hot and 
 https://brickschema.org/schema/Brick#Mode_Command,Controls the operating mode of a device or controller,
 https://brickschema.org/schema/Brick#Mode_Status,"Indicates which mode a system, device or control loop is currently in",
 https://brickschema.org/schema/Brick#Motion_Sensor,Detects the presence of motion in some area,
-https://brickschema.org/schema/Brick#Motor,A machine in which power is applied to do work by the conversion of various forms of energy into mechanical force and motion.,https://xp20.ashrae.org/terminology/index.php?term=motor
+https://brickschema.org/schema/Brick#Motor,A machine in which power is applied to do work by the conversion of various forms of energy into mechanical force and motion.,https://terminology.ashrae.org/?term=motor
 https://brickschema.org/schema/Brick#Motor_Control_Center,The Motor Control Center is a specialized type of switchgear which provides electrical power to major mechanical systems in the building such as HVAC components.,
 https://brickschema.org/schema/Brick#Motor_Current_Sensor,Measures the current consumed by a motor,
 https://brickschema.org/schema/Brick#Motor_Direction_Status,"Indicates which direction a motor is operating in, e.g. forward or reverse",
@@ -885,7 +885,7 @@ https://brickschema.org/schema/Brick#Prayer_Room,A room set aside for prayer,
 https://brickschema.org/schema/Brick#Pre-Cooling_Air_Unit,"A type of AHU, use to pre-treat the outdoor air before feed to AHU",
 https://brickschema.org/schema/Brick#Pre_Filter,A filter installed in front of a more efficient filter to extend the life of the more expensive higher efficiency filter,
 https://brickschema.org/schema/Brick#Pre_Filter_Status,Indicates if a prefilter needs to be replaced,
-https://brickschema.org/schema/Brick#Precipitation,"Amount of atmospheric water vapor fallen including rain, sleet, snow, and hail (https://project-haystack.dev/doc/lib-phScience/precipitation)",
+https://brickschema.org/schema/Brick#Precipitation,"Amount of atmospheric water vapor fallen including rain, sleet, snow, and hail (https://project-haystack.org/doc/lib-phScience/precipitation)",
 https://brickschema.org/schema/Brick#Preheat_Command,A command to activate preheating. Typically used to preheat cool air coming from a mixing box or economizer,
 https://brickschema.org/schema/Brick#Preheat_Demand_Setpoint,Sets the rate required for preheat,
 https://brickschema.org/schema/Brick#Preheat_Discharge_Air_Temperature_Sensor,,
@@ -984,7 +984,7 @@ https://brickschema.org/schema/Brick#Sensor_Equipment,A piece of equipment for s
 https://brickschema.org/schema/Brick#Separation_Tank,A tank used in conjunction with a filter to facilitate the separation of filtrate material for disposal.,
 https://brickschema.org/schema/Brick#Server_Room,,
 https://brickschema.org/schema/Brick#Service_Room,"A class of spaces related to the operations of building subsystems, e.g. HVAC, electrical, IT, plumbing, etc",
-https://brickschema.org/schema/Brick#Setpoint,A Setpoint is an input value at which the desired property is set,https://xp20.ashrae.org/terminology/index.php?term=setpoint
+https://brickschema.org/schema/Brick#Setpoint,A Setpoint is an input value at which the desired property is set,https://terminology.ashrae.org/?term=setpoint
 https://brickschema.org/schema/Brick#Shading_System,Devices that can control daylighting through various means,
 https://brickschema.org/schema/Brick#Shared_Office,An office used by multiple people,
 https://brickschema.org/schema/Brick#Short_Cycle_Alarm,An alarm that indicates a short cycle occurred. A short cycle occurs when a cooling cycle is prevented from completing its full cycle,
@@ -1153,7 +1153,7 @@ https://brickschema.org/schema/Brick#Valve_Position_Sensor,Measures the current 
 https://brickschema.org/schema/Brick#Valve_Status,The current status of the valve.,
 https://brickschema.org/schema/Brick#Variable_Air_Volume_Box,A device that regulates the volume and temperature of air delivered to a zone by opening or closing a damper,https://en.wikipedia.org/wiki/Variable_air_volume
 https://brickschema.org/schema/Brick#Variable_Air_Volume_Box_With_Reheat,A VAV box with a reheat coil mounted on the discharge end of the unit that can heat the air delivered to a zone,
-https://brickschema.org/schema/Brick#Variable_Frequency_Drive,"Electronic device that varies its output frequency to vary the rotating speed of a motor, given a fixed input frequency. Used with fans or pumps to vary the flow in the system as a function of a maintained pressure.",https://xp20.ashrae.org/terminology/index.php?term=vfd&submit=Search
+https://brickschema.org/schema/Brick#Variable_Frequency_Drive,"Electronic device that varies its output frequency to vary the rotating speed of a motor, given a fixed input frequency. Used with fans or pumps to vary the flow in the system as a function of a maintained pressure.",https://terminology.ashrae.org/?term=vfd
 https://brickschema.org/schema/Brick#Velocity_Pressure_Sensor,Measures the difference between total pressure and static pressure,
 https://brickschema.org/schema/Brick#Velocity_Pressure_Setpoint,Sets static veloicty pressure,
 https://brickschema.org/schema/Brick#Vent_Operating_Mode_Status,Indicates the current operating mode of a vent,
