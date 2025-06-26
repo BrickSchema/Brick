@@ -1143,7 +1143,7 @@ https://brickschema.org/schema/Brick#Unoccupied_Load_Shed_Command,,
 https://brickschema.org/schema/Brick#Unoccupied_Target_Zone_Air_Temperature_Setpoint,Target Setpoint (also known as Common Setpoint) is a reference point representing the desired unoccupied air temperature in a specific zone of a building. This setpoint acts as a baseline from which deadband setpoints are established by adding or subtracting a deadband width.,
 https://brickschema.org/schema/Brick#Usage_Sensor,"Measures the amount of some substance that is consumed or used, over some period of time",
 https://brickschema.org/schema/Brick#VAV,,
-https://brickschema.org/schema/Brick#VFD,,https://xp20.ashrae.org/terminology/index.php?term=vfd&submit=Search
+https://brickschema.org/schema/Brick#VFD,,
 https://brickschema.org/schema/Brick#VFD_Enable_Command,Enables operation of a variable frequency drive,
 https://brickschema.org/schema/Brick#Valve,"A device that regulates, directs or controls the flow of a fluid by opening, closing or partially obstructing various passageways",https://en.wikipedia.org/wiki/Valve
 https://brickschema.org/schema/Brick#Valve_Command,Controls or reports the openness of a valve (typically as a proportion of its full range of motion),
