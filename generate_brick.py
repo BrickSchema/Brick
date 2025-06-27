@@ -765,7 +765,8 @@ def add_definitions(graph=G):
             setpoint = setpoint + "_Setpoint"
             logger.info(f"Inferred setpoint: {setpoint}")
         limit_def = limit_def_template.format(direction=direction, setpoint=setpoint)
-        if param != BRICK.Limit:  # definition already exists for Limit
+        is_alias = list(graph.objects(subject=param,predicate=BRICK.aliasOf))
+        if param != BRICK.Limit and len(is_alias)==0:  # definition already exists for Limit
             graph.add((param, SKOS.definition, Literal(limit_def, lang="en")))
         class_exists = graph.query(
             f"""select ?class where {{
