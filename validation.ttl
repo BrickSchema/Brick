@@ -121,6 +121,7 @@ bsh:NonCanonicalWithDefinitionShape
             PREFIX brick: <https://brickschema.org/schema/Brick#>
             PREFIX owl: <http://www.w3.org/2002/07/owl#>
             PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+            PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
             SELECT DISTINCT ?this WHERE {
                 ?this a owl:Class ;
                       brick:aliasOf ?canonical ;
