@@ -1,4 +1,5 @@
 from brickschema.graph import Graph
+from brick_tq_shacl.pyshacl import infer, validate
 from ontoenv import OntoEnv, Config
 from rdflib import Literal, URIRef
 from .namespaces import SKOS, RDFS, BRICK, QUDTQK, QUDTDV, QUDT, UNIT, XSD
@@ -11,7 +12,7 @@ g.bind("qudt", QUDT)
 g.bind("qudtqk", QUDTQK)
 
 env.import_dependencies(g)
-g.expand("shacl", backend="topquadrant")
+g = infer(g)
 
 
 def get_units(qudt_quantity):
