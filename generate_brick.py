@@ -1,4 +1,5 @@
 import logging
+from brick_tq_shacl.pyshacl import infer, validate
 from itertools import chain
 import os
 import brickschema
@@ -1141,7 +1142,7 @@ if os.path.exists("Brick+extensions.ttl"):
 # create new directory for storing imports
 os.makedirs("imports", exist_ok=True)
 for name, uri in ontology_imports.items():
-    graph = env.get_graph(uri)
+    graph = env.get(uri)
     graph.serialize(f"imports/{name}.ttl", format="turtle")
     env.import_graph(G, uri)
 
@@ -1153,7 +1154,7 @@ env.refresh()
 G.parse("validation.ttl")
 
 # validate Brick
-valid, _, report = G.validate(engine="topquadrant")
+valid, _, report = validate(G)
 if not valid:
     print(report)
     sys.exit(1)
