@@ -2,6 +2,7 @@ import json
 from collections import defaultdict
 from rdflib import Namespace, URIRef
 import sys
+from brick_tq_shacl.pyshacl import infer
 
 sys.path.append("..")
 from bricksrc.namespaces import BRICK  # noqa: E402
@@ -61,7 +62,7 @@ def test_measures_infers(brick_with_imports):
 
     # Infer classes of the entities.
     # Apply reasoner
-    g.expand(profile="shacl", backend="topquadrant")
+    g = infer(g)
 
     qstr = """select ?instance ?class where {
         ?instance a ?class.

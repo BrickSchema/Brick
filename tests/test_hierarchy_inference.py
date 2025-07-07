@@ -7,6 +7,7 @@ from tqdm import tqdm
 from rdflib import URIRef
 from .util import make_readable
 import sys
+from brick_tq_shacl.pyshacl import infer
 
 sys.path.append("..")
 from bricksrc.namespaces import BRICK  # noqa: E402
@@ -55,7 +56,7 @@ def test_hierarchyinference():
     # Infer classes of the entities.
     # Apply reasoner
     g.load_file("extensions/brick_extension_shacl_tag_inference.ttl")
-    g.expand(profile="shacl", backend="topquadrant")
+    g = infer(g)
     g.serialize(inference_file, format="turtle")  # Store the inferred graph.
 
     # Find all instances and their parents from the inferred graph.

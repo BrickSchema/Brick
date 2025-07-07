@@ -1,5 +1,6 @@
 from rdflib import Namespace, Literal, XSD
 from brickschema.namespaces import BRICK, A, REF
+from brick_tq_shacl.pyshacl import infer
 
 EX = Namespace("urn:ex#")
 
@@ -17,7 +18,7 @@ def test_entity_property_validation(brick_with_imports):
         )
     )
 
-    g.expand("shacl", backend="topquadrant")
+    g = infer(g)
     valid, _, report = g.validate(engine="topquadrant")
     assert valid, report
 
@@ -34,7 +35,7 @@ def test_entity_property_validation_failure(brick_with_imports):
         )
     )
 
-    g.expand("shacl", backend="topquadrant")
+    g = infer(g)
     valid, _, _ = g.validate(engine="topquadrant")
     assert not valid, "'AquariumFail' should have thrown a validation error"
 
@@ -57,7 +58,7 @@ def test_entity_property_type_inference(brick_with_imports):
     valid, _, report = g.validate(engine="topquadrant")
     g.serialize("test.ttl", format="ttl")
     assert valid, report
-    g.expand("shacl", backend="topquadrant")
+    g = infer(g)
 
     res = g.query(
         "SELECT ?ref WHERE { ?point ref:hasExternalReference ?ref . ?ref a ref:BACnetReference }"
@@ -113,7 +114,7 @@ def test_external_reference_rules(brick_with_imports):
         )
     )
 
-    g.expand("shacl", backend="topquadrant")
+    g = infer(g)
     print(g.serialize(format="ttl"))
     valid, _, report = g.validate(engine="topquadrant")
     assert valid, report
@@ -134,6 +135,6 @@ def test_external_reference_rules(brick_with_imports):
         )
     )
 
-    g.expand("shacl", backend="topquadrant")
+    g = infer(g)
     valid, _, report = g.validate(engine="topquadrant")
     assert not valid, report

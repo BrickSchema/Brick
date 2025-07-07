@@ -1,5 +1,6 @@
 import sys
 from rdflib import RDF, OWL, RDFS, Namespace, BNode
+from brick_tq_shacl.pyshacl import infer
 
 sys.path.append("..")
 from bricksrc.namespaces import (  # noqa: E402
@@ -17,7 +18,7 @@ def test_subclasses(brick_with_imports):
     BLDG = Namespace("https://brickschema.org/schema/ExampleBuilding#")
 
     g = brick_with_imports
-    g.expand("shacl", backend="topquadrant")
+    g = infer(g)
 
     g.bind("rdf", RDF)
     g.bind("owl", OWL)
