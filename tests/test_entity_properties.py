@@ -1,6 +1,6 @@
 from rdflib import Namespace, Literal, XSD
 from brickschema.namespaces import BRICK, A, REF
-from brick_tq_shacl.pyshacl import infer
+from brick_tq_shacl.pyshacl import infer, validate
 
 EX = Namespace("urn:ex#")
 
@@ -19,7 +19,7 @@ def test_entity_property_validation(brick_with_imports):
     )
 
     g = infer(g)
-    valid, _, report = g.validate(engine="topquadrant")
+    valid, _, report = validate(g, engine="topquadrant")
     assert valid, report
 
 
@@ -36,7 +36,7 @@ def test_entity_property_validation_failure(brick_with_imports):
     )
 
     g = infer(g)
-    valid, _, _ = g.validate(engine="topquadrant")
+    valid, _, _ = validate(g, engine="topquadrant")
     assert not valid, "'AquariumFail' should have thrown a validation error"
 
 
@@ -55,7 +55,7 @@ def test_entity_property_type_inference(brick_with_imports):
         )
     )
 
-    valid, _, report = g.validate(engine="topquadrant")
+    valid, _, report = validate(g, engine="topquadrant")
     g.serialize("test.ttl", format="ttl")
     assert valid, report
     g = infer(g)
@@ -82,7 +82,7 @@ def test_last_known_value(brick_with_imports):
             ],
         )
     )
-    valid, _, report = g.validate(engine="topquadrant")
+    valid, _, report = validate(g, engine="topquadrant")
     assert valid, report
     g.add(
         (
@@ -97,7 +97,7 @@ def test_last_known_value(brick_with_imports):
             ],
         )
     )
-    valid, _, report = g.validate(engine="topquadrant")
+    valid, _, report = validate(g, engine="topquadrant")
     assert not valid, report
 
 
@@ -116,7 +116,7 @@ def test_external_reference_rules(brick_with_imports):
 
     g = infer(g)
     print(g.serialize(format="ttl"))
-    valid, _, report = g.validate(engine="topquadrant")
+    valid, _, report = validate(g, engine="topquadrant")
     assert valid, report
 
     res = g.query(
@@ -136,5 +136,5 @@ def test_external_reference_rules(brick_with_imports):
     )
 
     g = infer(g)
-    valid, _, report = g.validate(engine="topquadrant")
+    valid, _, report = validate(g, engine="topquadrant")
     assert not valid, report
