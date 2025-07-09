@@ -562,26 +562,7 @@ def define_shape_properties(definitions, graph=G):
             graph.add((brick_value_shape, SH["in"], enumeration))
             graph.add((brick_value_shape, SH.minCount, Literal(1)))
             vals = defn.pop("values")
-            if all(map(lambda v: isinstance(v, str), vals)):
-                Collection(
-                    graph,
-                    enumeration,
-                    map(lambda x: Literal(x, datatype=XSD.string), vals),
-                )
-            if all(map(lambda v: isinstance(v, int), vals)):
-                Collection(
-                    graph,
-                    enumeration,
-                    map(lambda x: Literal(x, datatype=XSD.integer), vals),
-                )
-            if all(map(lambda v: isinstance(v, float), vals)):
-                Collection(
-                    graph,
-                    enumeration,
-                    map(lambda x: Literal(x, datatype=XSD.decimal), vals),
-                )
-            else:
-                Collection(graph, enumeration, map(Literal, vals))
+            Collection(graph, enumeration, map(Literal, vals))
         if "units" in defn:
             v = BNode()
             enumeration = BNode()
