@@ -1,5 +1,4 @@
 import logging
-from brick_tq_shacl.pyshacl import infer, validate
 from itertools import chain
 import os
 import brickschema
@@ -1148,7 +1147,7 @@ env.update()
 G.parse("validation.ttl")
 
 # validate Brick
-valid, _, report = validate(G)
+valid, _, report = G.validate()
 if not valid:
     print(report)
     sys.exit(1)

@@ -12,7 +12,6 @@ import sys
 sys.path.append("..")
 from bricksrc.namespaces import QUDT, RDF, RDFS, BRICK  # noqa: E402
 from bricksrc.namespaces import TAG, SKOS, A, OWL  # noqa: E402
-from brick_tq_shacl.pyshacl import infer
 
 
 def pytest_generate_tests(metafunc):
@@ -109,5 +108,5 @@ def simple_brick_model():
     g.add((BLDG.TS1, BRICK.hasLocation, BLDG.Room1))
 
     # lets us use both relationships
-    g = infer(g)
+    g = g.expand("shacl")
     return g

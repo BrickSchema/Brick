@@ -4,7 +4,6 @@ import brickschema
 from collections import defaultdict
 import warnings
 import sys
-from brick_tq_shacl.pyshacl import infer
 
 sys.path.append("..")
 from bricksrc.namespaces import A, BRICK, QUDT  # noqa: E402
@@ -19,7 +18,7 @@ def test_quantity_has_one_quantitykind(brick_with_imports):
     does not end up with more than 1 QuantityKind
     """
     g = brick_with_imports
-    g = infer(g)
+    g = g.expand("shacl")
     quantity_qk = g.query(
         "SELECT ?quantity ?kind WHERE {\
             ?quantity   a   brick:Quantity .\
@@ -76,7 +75,7 @@ def test_instances_measure_correct_units(brick_with_imports):
         triples.append((instance, A, brickclass))
         triples.append((instance, BRICK.hasUnit, unit))
     g.add(*triples)
-    g = infer(g)
+    g = g.expand("shacl")
 
     instances = g.query(
         "SELECT distinct ?inst WHERE {\
@@ -90,7 +89,7 @@ def test_instances_measure_correct_units(brick_with_imports):
 def test_quantity_units(brick_with_imports):
     g = brick_with_imports
     g.bind("qudt", QUDT)
-    g = infer(g)
+    g = g.expand("shacl")
 
     # test the definitions by making sure that some quantities have applicable
     # units
@@ -104,7 +103,7 @@ def test_quantity_units(brick_with_imports):
 
 def test_all_quantities_have_units(brick_with_imports):
     g = brick_with_imports
-    g = infer(g)
+    g = g.expand("shacl")
 
     # test the definitions by making sure that some quantities have applicable
     # units
