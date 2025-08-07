@@ -4,7 +4,7 @@ Tests all example files. See tests/conftest.py for the fixture that generates ea
 import ontoenv
 from rdflib import OWL, RDF
 from brickschema import Graph
-from brick_tq_shacl.pyshacl import infer, validate
+from brick_tq_shacl.pyshacl import validate
 
 cfg = ontoenv.Config(["Brick.ttl", "examples/", "support/", "extensions/", "rec/Source/SHACL/RealEstateCore"], strict=False, offline=True, temporary=True, excludes=[".venv/*"])
 env = ontoenv.OntoEnv(cfg)
@@ -14,7 +14,7 @@ def test_example_file_with_reasoning(filename):
     g = Graph()
     g.load_file(filename)
     env.import_dependencies(g)
-    g = infer(g)
+    g.expand("shacl")
 
     valid, _, report = validate(g, engine="topquadrant")
     assert valid, report

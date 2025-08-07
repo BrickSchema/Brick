@@ -7,7 +7,6 @@ import sys
 
 sys.path.append("..")
 from bricksrc.namespaces import BRICK, TAG  # noqa: E402
-from brick_tq_shacl.pyshacl import infer
 
 BLDG = Namespace("https://brickschema.org/schema/ExampleBuilding#")
 
@@ -41,7 +40,7 @@ def quantity_fixtures(brick_with_imports):
         for m in measurables:
             g.add((inst, BRICK.measures, m))
 
-    g = infer(g)
+    g.expand("shacl")
     return desired_inferences, g
 
 

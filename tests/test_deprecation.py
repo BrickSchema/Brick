@@ -1,5 +1,5 @@
 from rdflib import Namespace
-from brick_tq_shacl.pyshacl import infer, validate
+from brick_tq_shacl.pyshacl import validate
 
 
 def test_deprecation(brick_with_imports):
@@ -17,7 +17,7 @@ def test_deprecation(brick_with_imports):
     """,
         format="turtle",
     )
-    g = infer(g)
+    g.expand("shacl")
 
     rows = list(g.query("SELECT ?dep WHERE { ?dep owl:deprecated true }"))
     assert len(rows) > 1, "Should infer OWL deprecation notice"
