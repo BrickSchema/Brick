@@ -4,7 +4,6 @@ import brickschema
 from .util import make_readable
 import os
 import sys
-from brick_tq_shacl.pyshacl import validate
 
 sys.path.append("..")
 from bricksrc.namespaces import BRICK, TAG, A, SKOS  # noqa: E402
@@ -211,7 +210,7 @@ def test_virtual_meter1(brick_with_imports):
     g = brick_with_imports
     g.add((BLDG.abcdef, A, BRICK.Electrical_Meter))
     g.add((BLDG.abcdef, BRICK.isVirtualMeter, [(BRICK.value, Literal(True))]))
-    valid, _, report = validate(g, engine="topquadrant")
+    valid, _, report = g.validate(engine="topquadrant")
     assert valid, report
 
 
@@ -219,7 +218,7 @@ def test_virtual_meter2(brick_with_imports):
     g = brick_with_imports
     g.add((BLDG.abcdef, A, BRICK.Building))
     g.add((BLDG.abcdef, BRICK.isVirtualMeter, [(BRICK.value, Literal(True))]))
-    valid, _, report = validate(g, engine="topquadrant")
+    valid, _, report = g.validate(engine="topquadrant")
     assert not valid, f"Virtual meter should not be allowed on a building ({report})"
 
 
@@ -227,7 +226,7 @@ def test_virtual_meter3(brick_with_imports):
     g = brick_with_imports
     g.add((BLDG.abcdef, A, BRICK.Building))
     g.add((BLDG.abcdef, BRICK.isVirtualMeter, [(BRICK.value, Literal(False))]))
-    valid, _, report = validate(g, engine="topquadrant")
+    valid, _, report = g.validate(engine="topquadrant")
     assert valid, report
 
 
