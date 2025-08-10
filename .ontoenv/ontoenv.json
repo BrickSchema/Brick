@@ -1,0 +1,20 @@
+{
+  "root": ".",
+  "locations": [
+    "support/",
+    "extensions/",
+    "rec/Source/SHACL/RealEstateCore"
+  ],
+  "includes": [
+    "*.ttl",
+    "*.xml",
+    "*.n3"
+  ],
+  "excludes": [],
+  "require_ontology_names": false,
+  "strict": false,
+  "offline": true,
+  "resolution_policy": "default",
+  "temporary": false,
+  "no_search": false
+}

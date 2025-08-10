@@ -1,0 +1,249 @@
+{
+  "nodes": [
+    {
+      "location": {
+        "file": "support/bacnet.ttl"
+      },
+      "name": "http://data.ashrae.org/bacnet/2020"
+    },
+    {
+      "location": {
+        "file": "extensions/brick_extension_MODEL_SP223_core-v1.0.ttl"
+      },
+      "name": "http://data.ashrae.org/standard223/1.0/model/core"
+    },
+    {
+      "location": {
+        "file": "extensions/brick_extension_model-rules.shapes.ttl"
+      },
+      "name": "http://data.ashrae.org/standard223/1.0/inference/model-rules"
+    },
+    {
+      "location": {
+        "file": "extensions/brick_extension_G36-inference_SP223-v1.0.shapes.ttl"
+      },
+      "name": "http://data.ashrae.org/standard223/1.0/extensions/g36-inference"
+    },
+    {
+      "location": {
+        "file": "support/VOCAB_QUDT-UNITS-ALL.ttl"
+      },
+      "name": "http://qudt.org/3.1.0/vocab/unit"
+    },
+    {
+      "location": {
+        "file": "extensions/brick_extension_model.shapes.ttl"
+      },
+      "name": "http://data.ashrae.org/standard223/1.0/validation/model"
+    },
+    {
+      "location": {
+        "file": "extensions/brick_extension_MODEL_SP223_fnblck-v1.0.ttl"
+      },
+      "name": "http://data.ashrae.org/standard223/1.0/model/fnblck"
+    },
+    {
+      "location": {
+        "file": "extensions/brick_extension_G36_SP223-v1.0.ttl"
+      },
+      "name": "http://data.ashrae.org/standard223/1.0/extensions/g36"
+    },
+    {
+      "location": {
+        "file": "support/VOCAB_QUDT-QUANTITY-KINDS-ALL.ttl"
+      },
+      "name": "http://qudt.org/3.1.0/vocab/quantitykind"
+    },
+    {
+      "location": {
+        "file": "extensions/brick_extension_mappings_223.ttl"
+      },
+      "name": "https://brickschema.org/extension/mappings_223"
+    },
+    {
+      "location": {
+        "file": "extensions/brick_extension_MODEL_SP223_all-v1.0.ttl"
+      },
+      "name": "http://data.ashrae.org/standard223/1.0/model/all"
+    },
+    {
+      "location": {
+        "file": "extensions/brick_extension_MODEL_SP223_equipment-v1.0.ttl"
+      },
+      "name": "http://data.ashrae.org/standard223/1.0/model/device"
+    },
+    {
+      "location": {
+        "file": "support/recimports.ttl"
+      },
+      "name": "https://w3id.org/rec/recimports"
+    },
+    {
+      "location": {
+        "file": "extensions/brick_extension_schema.shapes.ttl"
+      },
+      "name": "http://data.ashrae.org/standard223/1.0/validation/schema"
+    },
+    {
+      "location": {
+        "file": "support/ref-schema.ttl"
+      },
+      "name": "https://brickschema.org/schema/Brick/ref"
+    },
+    {
+      "location": {
+        "file": "extensions/brick_extension_s223_extension.shapes.ttl"
+      },
+      "name": "https://brickschema.org/extension/s223extension"
+    },
+    {
+      "location": {
+        "file": "extensions/brick_extension_G36-validation_SP223-v1.0.shapes.ttl"
+      },
+      "name": "http://data.ashrae.org/standard223/1.0/extensions/g36-validation"
+    },
+    {
+      "location": {
+        "file": "extensions/brick_extension_owl-subset.shapes.ttl"
+      },
+      "name": "http://data.ashrae.org/standard223/1.0/inference/owl-subset"
+    },
+    {
+      "location": {
+        "file": "extensions/brick_extension_VOCAB_SP223_enumeration-v1.0.ttl"
+      },
+      "name": "http://data.ashrae.org/standard223/1.0/vocab/enumeration"
+    },
+    {
+      "location": {
+        "file": "extensions/brick_extension_interpret_223.shapes.ttl"
+      },
+      "name": "https://brickschema.org/extension/brick_extension_interpret_223"
+    },
+    {
+      "location": {
+        "file": "extensions/brick_extension_VOCAB_SP223_electricity-v1.0.ttl"
+      },
+      "name": "http://data.ashrae.org/standard223/1.0/vocab/electricity"
+    }
+  ],
+  "node_holes": [],
+  "edge_property": "directed",
+  "edges": [
+    [
+      1,
+      10,
+      null
+    ],
+    [
+      2,
+      10,
+      null
+    ],
+    [
+      3,
+      10,
+      null
+    ],
+    [
+      4,
+      8,
+      null
+    ],
+    [
+      5,
+      10,
+      null
+    ],
+    [
+      6,
+      10,
+      null
+    ],
+    [
+      7,
+      10,
+      null
+    ],
+    [
+      10,
+      18,
+      null
+    ],
+    [
+      10,
+      6,
+      null
+    ],
+    [
+      10,
+      1,
+      null
+    ],
+    [
+      10,
+      11,
+      null
+    ],
+    [
+      10,
+      14,
+      null
+    ],
+    [
+      11,
+      10,
+      null
+    ],
+    [
+      13,
+      10,
+      null
+    ],
+    [
+      15,
+      10,
+      null
+    ],
+    [
+      15,
+      19,
+      null
+    ],
+    [
+      16,
+      10,
+      null
+    ],
+    [
+      17,
+      10,
+      null
+    ],
+    [
+      18,
+      10,
+      null
+    ],
+    [
+      18,
+      20,
+      null
+    ],
+    [
+      19,
+      10,
+      null
+    ],
+    [
+      19,
+      9,
+      null
+    ],
+    [
+      20,
+      10,
+      null
+    ]
+  ]
+}

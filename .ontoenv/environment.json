@@ -1,0 +1,482 @@
+{
+  "ontologies": [
+    {
+      "id": {
+        "location": {
+          "file": "support/bacnet.ttl"
+        },
+        "name": "http://data.ashrae.org/bacnet/2020"
+      },
+      "name": "http://data.ashrae.org/bacnet/2020",
+      "imports": [],
+      "location": {
+        "file": "support/bacnet.ttl"
+      },
+      "last_updated": "2025-08-10T21:42:47.536673174Z",
+      "version_properties": {},
+      "namespace_map": {}
+    },
+    {
+      "id": {
+        "location": {
+          "file": "extensions/brick_extension_MODEL_SP223_core-v1.0.ttl"
+        },
+        "name": "http://data.ashrae.org/standard223/1.0/model/core"
+      },
+      "name": "http://data.ashrae.org/standard223/1.0/model/core",
+      "imports": [
+        "http://data.ashrae.org/standard223/1.0/model/all"
+      ],
+      "location": {
+        "file": "extensions/brick_extension_MODEL_SP223_core-v1.0.ttl"
+      },
+      "last_updated": "2025-08-10T21:42:47.536688382Z",
+      "version_properties": {
+        "http://www.w3.org/2002/07/owl#versionInfo": "\"Created with TopBraid Composer\""
+      },
+      "namespace_map": {}
+    },
+    {
+      "id": {
+        "location": {
+          "file": "extensions/brick_extension_model-rules.shapes.ttl"
+        },
+        "name": "http://data.ashrae.org/standard223/1.0/inference/model-rules"
+      },
+      "name": "http://data.ashrae.org/standard223/1.0/inference/model-rules",
+      "imports": [
+        "http://data.ashrae.org/standard223/1.0/model/all"
+      ],
+      "location": {
+        "file": "extensions/brick_extension_model-rules.shapes.ttl"
+      },
+      "last_updated": "2025-08-10T21:42:47.536670860Z",
+      "version_properties": {
+        "http://www.w3.org/2002/07/owl#versionInfo": "\"Created with TopBraid Composer\""
+      },
+      "namespace_map": {
+        "role": "http://data.ashrae.org/standard223/1.0/vocab/role#",
+        "qudtqk": "http://qudt.org/vocab/quantitykind/",
+        "unit": "http://qudt.org/vocab/unit/",
+        "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+        "s223": "http://data.ashrae.org/standard223#"
+      }
+    },
+    {
+      "id": {
+        "location": {
+          "file": "extensions/brick_extension_G36-inference_SP223-v1.0.shapes.ttl"
+        },
+        "name": "http://data.ashrae.org/standard223/1.0/extensions/g36-inference"
+      },
+      "name": "http://data.ashrae.org/standard223/1.0/extensions/g36-inference",
+      "imports": [
+        "http://data.ashrae.org/standard223/1.0/model/all",
+        "http://data.ashrae.org/standard223/1.0/extensions/settings"
+      ],
+      "location": {
+        "file": "extensions/brick_extension_G36-inference_SP223-v1.0.shapes.ttl"
+      },
+      "last_updated": "2025-08-10T21:42:47.536644931Z",
+      "version_properties": {},
+      "namespace_map": {}
+    },
+    {
+      "id": {
+        "location": {
+          "file": "support/VOCAB_QUDT-UNITS-ALL.ttl"
+        },
+        "name": "http://qudt.org/3.1.0/vocab/unit"
+      },
+      "name": "http://qudt.org/3.1.0/vocab/unit",
+      "imports": [
+        "http://qudt.org/3.1.0/vocab/sou",
+        "http://qudt.org/3.1.0/vocab/prefix",
+        "http://qudt.org/3.1.0/schema/facade/qudt",
+        "http://qudt.org/3.1.0/vocab/quantitykind"
+      ],
+      "location": {
+        "file": "support/VOCAB_QUDT-UNITS-ALL.ttl"
+      },
+      "last_updated": "2025-08-10T21:42:47.536693021Z",
+      "version_properties": {
+        "http://www.w3.org/2002/07/owl#versionIRI": "<http://qudt.org/3.1.0/vocab/unit>",
+        "http://www.w3.org/2000/01/rdf-schema#label": "\"QUDT Unit of Measure Vocabulary Metadata Version 3.1.0\"",
+        "http://purl.org/dc/terms/created": "\"2019-07-30\"^^<http://www.w3.org/2001/XMLSchema#date>",
+        "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": "<http://qudt.org/3.1.0/vocab/unit>",
+        "http://purl.org/dc/terms/modified": "\"2025-03-20T15:47:09Z\"^^<http://www.w3.org/2001/XMLSchema#dateTime>",
+        "http://purl.org/dc/terms/title": "\"QUDT Units Version 3.1 Vocabulary\""
+      },
+      "namespace_map": {}
+    },
+    {
+      "id": {
+        "location": {
+          "file": "extensions/brick_extension_model.shapes.ttl"
+        },
+        "name": "http://data.ashrae.org/standard223/1.0/validation/model"
+      },
+      "name": "http://data.ashrae.org/standard223/1.0/validation/model",
+      "imports": [
+        "http://data.ashrae.org/standard223/1.0/model/all"
+      ],
+      "location": {
+        "file": "extensions/brick_extension_model.shapes.ttl"
+      },
+      "last_updated": "2025-08-10T21:42:47.536581564Z",
+      "version_properties": {
+        "http://www.w3.org/2002/07/owl#versionInfo": "\"Created with TopBraid Composer\""
+      },
+      "namespace_map": {
+        "s223": "http://data.ashrae.org/standard223#",
+        "enum": "http://data.ashrae.org/standard223/1.0/vocab/enumeration#",
+        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        "sh": "http://www.w3.org/ns/shacl#",
+        "rdfs": "http://www.w3.org/2000/01/rdf-schema#"
+      }
+    },
+    {
+      "id": {
+        "location": {
+          "file": "extensions/brick_extension_MODEL_SP223_fnblck-v1.0.ttl"
+        },
+        "name": "http://data.ashrae.org/standard223/1.0/model/fnblck"
+      },
+      "name": "http://data.ashrae.org/standard223/1.0/model/fnblck",
+      "imports": [
+        "http://data.ashrae.org/standard223/1.0/model/all"
+      ],
+      "location": {
+        "file": "extensions/brick_extension_MODEL_SP223_fnblck-v1.0.ttl"
+      },
+      "last_updated": "2025-08-10T21:42:47.536699112Z",
+      "version_properties": {},
+      "namespace_map": {}
+    },
+    {
+      "id": {
+        "location": {
+          "file": "extensions/brick_extension_G36_SP223-v1.0.ttl"
+        },
+        "name": "http://data.ashrae.org/standard223/1.0/extensions/g36"
+      },
+      "name": "http://data.ashrae.org/standard223/1.0/extensions/g36",
+      "imports": [
+        "http://data.ashrae.org/standard223/1.0/model/all",
+        "http://data.ashrae.org/standard223/1.0/extensions/settings"
+      ],
+      "location": {
+        "file": "extensions/brick_extension_G36_SP223-v1.0.ttl"
+      },
+      "last_updated": "2025-08-10T21:42:47.536643800Z",
+      "version_properties": {
+        "http://www.w3.org/2002/07/owl#versionInfo": "\"Created with TopBraid Composer\""
+      },
+      "namespace_map": {}
+    },
+    {
+      "id": {
+        "location": {
+          "file": "support/VOCAB_QUDT-QUANTITY-KINDS-ALL.ttl"
+        },
+        "name": "http://qudt.org/3.1.0/vocab/quantitykind"
+      },
+      "name": "http://qudt.org/3.1.0/vocab/quantitykind",
+      "imports": [
+        "http://qudt.org/3.1.0/vocab/dimensionvector",
+        "http://qudt.org/3.1.0/schema/facade/qudt"
+      ],
+      "location": {
+        "file": "support/VOCAB_QUDT-QUANTITY-KINDS-ALL.ttl"
+      },
+      "last_updated": "2025-08-10T21:42:47.536665670Z",
+      "version_properties": {
+        "http://www.w3.org/2000/01/rdf-schema#label": "\"QUDT Quantity Kind Vocabulary Metadata Version 3.1.0\"",
+        "http://purl.org/dc/terms/title": "\"QUDT Quantity Kinds Version 3.1 Vocabulary\"",
+        "http://purl.org/dc/terms/modified": "\"2024-10-26T14:11:16.049-04:00\"^^<http://www.w3.org/2001/XMLSchema#dateTime>",
+        "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": "<http://qudt.org/3.1.0/vocab/quantitykind>",
+        "http://purl.org/dc/terms/created": "\"2019-08-01T16:25:54.85Z\"^^<http://www.w3.org/2001/XMLSchema#dateTime>",
+        "http://www.w3.org/2002/07/owl#versionIRI": "<http://qudt.org/3.1.0/vocab/quantitykind>"
+      },
+      "namespace_map": {}
+    },
+    {
+      "id": {
+        "location": {
+          "file": "extensions/brick_extension_mappings_223.ttl"
+        },
+        "name": "https://brickschema.org/extension/mappings_223"
+      },
+      "name": "https://brickschema.org/extension/mappings_223",
+      "imports": [],
+      "location": {
+        "file": "extensions/brick_extension_mappings_223.ttl"
+      },
+      "last_updated": "2025-08-10T21:42:47.536697249Z",
+      "version_properties": {
+        "http://www.w3.org/2002/07/owl#versionInfo": "\"Created with TopBraid Composer\""
+      },
+      "namespace_map": {}
+    },
+    {
+      "id": {
+        "location": {
+          "file": "extensions/brick_extension_MODEL_SP223_all-v1.0.ttl"
+        },
+        "name": "http://data.ashrae.org/standard223/1.0/model/all"
+      },
+      "name": "http://data.ashrae.org/standard223/1.0/model/all",
+      "imports": [
+        "http://qudt.org/2.1/vocab/unit",
+        "http://data.ashrae.org/standard223/1.0/vocab/enumeration",
+        "http://www.w3.org/ns/shacl#",
+        "http://qudt.org/2.1/vocab/currency",
+        "http://qudt.org/2.1/vocab/constant",
+        "http://data.ashrae.org/standard223/1.0/model/fnblck",
+        "https://brickschema.org/schema/1.4/Brick",
+        "http://data.ashrae.org/standard223/1.0/model/core",
+        "http://data.ashrae.org/standard223/1.0/extensions/settings",
+        "http://data.ashrae.org/standard223/1.0/model/device",
+        "https://brickschema.org/schema/Brick/ref"
+      ],
+      "location": {
+        "file": "extensions/brick_extension_MODEL_SP223_all-v1.0.ttl"
+      },
+      "last_updated": "2025-08-10T21:42:47.536695285Z",
+      "version_properties": {
+        "http://www.w3.org/2002/07/owl#versionInfo": "\"Created with TopBraid Composer\""
+      },
+      "namespace_map": {}
+    },
+    {
+      "id": {
+        "location": {
+          "file": "extensions/brick_extension_MODEL_SP223_equipment-v1.0.ttl"
+        },
+        "name": "http://data.ashrae.org/standard223/1.0/model/device"
+      },
+      "name": "http://data.ashrae.org/standard223/1.0/model/device",
+      "imports": [
+        "http://data.ashrae.org/standard223/1.0/model/all"
+      ],
+      "location": {
+        "file": "extensions/brick_extension_MODEL_SP223_equipment-v1.0.ttl"
+      },
+      "last_updated": "2025-08-10T21:42:47.536678414Z",
+      "version_properties": {
+        "http://www.w3.org/2002/07/owl#versionInfo": "\"Created with TopBraid Composer\""
+      },
+      "namespace_map": {
+        "qudt": "http://qudt.org/schema/qudt/",
+        "quantitykind": "http://qudt.org/vocab/quantitykind/"
+      }
+    },
+    {
+      "id": {
+        "location": {
+          "file": "support/recimports.ttl"
+        },
+        "name": "https://w3id.org/rec/recimports"
+      },
+      "name": "https://w3id.org/rec/recimports",
+      "imports": [
+        "https://w3id.org/rec"
+      ],
+      "location": {
+        "file": "support/recimports.ttl"
+      },
+      "last_updated": "2025-08-10T21:42:47.536652456Z",
+      "version_properties": {},
+      "namespace_map": {}
+    },
+    {
+      "id": {
+        "location": {
+          "file": "extensions/brick_extension_schema.shapes.ttl"
+        },
+        "name": "http://data.ashrae.org/standard223/1.0/validation/schema"
+      },
+      "name": "http://data.ashrae.org/standard223/1.0/validation/schema",
+      "imports": [
+        "http://data.ashrae.org/standard223/1.0/model/all"
+      ],
+      "location": {
+        "file": "extensions/brick_extension_schema.shapes.ttl"
+      },
+      "last_updated": "2025-08-10T21:42:47.536656704Z",
+      "version_properties": {
+        "http://www.w3.org/2002/07/owl#versionInfo": "\"Created with TopBraid Composer\""
+      },
+      "namespace_map": {
+        "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+        "s223": "http://data.ashrae.org/standard223#"
+      }
+    },
+    {
+      "id": {
+        "location": {
+          "file": "support/ref-schema.ttl"
+        },
+        "name": "https://brickschema.org/schema/Brick/ref"
+      },
+      "name": "https://brickschema.org/schema/Brick/ref",
+      "imports": [],
+      "location": {
+        "file": "support/ref-schema.ttl"
+      },
+      "last_updated": "2025-08-10T21:42:47.536678995Z",
+      "version_properties": {
+        "http://purl.org/dc/terms/title": "\"Ref Schema\""
+      },
+      "namespace_map": {
+        "sh": "http://www.w3.org/ns/shacl#",
+        "owl": "http://www.w3.org/2002/07/owl#",
+        "ref": "https://brickschema.org/schema/Brick/ref#",
+        "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+      }
+    },
+    {
+      "id": {
+        "location": {
+          "file": "extensions/brick_extension_s223_extension.shapes.ttl"
+        },
+        "name": "https://brickschema.org/extension/s223extension"
+      },
+      "name": "https://brickschema.org/extension/s223extension",
+      "imports": [
+        "http://www.w3.org/ns/shacl#",
+        "http://data.ashrae.org/standard223/1.0/model/all",
+        "https://brickschema.org/extension/brick_extension_interpret_223",
+        "https://brickschema.org/schema/1.4/Brick"
+      ],
+      "location": {
+        "file": "extensions/brick_extension_s223_extension.shapes.ttl"
+      },
+      "last_updated": "2025-08-10T21:42:47.536676250Z",
+      "version_properties": {
+        "http://www.w3.org/2002/07/owl#versionInfo": "\"Created with TopBraid Composer\""
+      },
+      "namespace_map": {
+        "owl": "http://www.w3.org/2002/07/owl#",
+        "s223": "http://data.ashrae.org/standard223#",
+        "sh": "http://www.w3.org/ns/shacl#",
+        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+        "ref": "https://brickschema.org/schema/Brick/ref#",
+        "brick": "https://brickschema.org/schema/Brick#"
+      }
+    },
+    {
+      "id": {
+        "location": {
+          "file": "extensions/brick_extension_G36-validation_SP223-v1.0.shapes.ttl"
+        },
+        "name": "http://data.ashrae.org/standard223/1.0/extensions/g36-validation"
+      },
+      "name": "http://data.ashrae.org/standard223/1.0/extensions/g36-validation",
+      "imports": [
+        "http://data.ashrae.org/standard223/1.0/model/all"
+      ],
+      "location": {
+        "file": "extensions/brick_extension_G36-validation_SP223-v1.0.shapes.ttl"
+      },
+      "last_updated": "2025-08-10T21:42:47.536654279Z",
+      "version_properties": {
+        "http://www.w3.org/2002/07/owl#versionInfo": "\"Created with TopBraid Composer\""
+      },
+      "namespace_map": {}
+    },
+    {
+      "id": {
+        "location": {
+          "file": "extensions/brick_extension_owl-subset.shapes.ttl"
+        },
+        "name": "http://data.ashrae.org/standard223/1.0/inference/owl-subset"
+      },
+      "name": "http://data.ashrae.org/standard223/1.0/inference/owl-subset",
+      "imports": [
+        "http://data.ashrae.org/standard223/1.0/model/all"
+      ],
+      "location": {
+        "file": "extensions/brick_extension_owl-subset.shapes.ttl"
+      },
+      "last_updated": "2025-08-10T21:42:47.536668626Z",
+      "version_properties": {
+        "http://www.w3.org/2002/07/owl#versionInfo": "\"Created with TopBraid Composer\""
+      },
+      "namespace_map": {
+        "s223": "http://data.ashrae.org/standard223#"
+      }
+    },
+    {
+      "id": {
+        "location": {
+          "file": "extensions/brick_extension_VOCAB_SP223_enumeration-v1.0.ttl"
+        },
+        "name": "http://data.ashrae.org/standard223/1.0/vocab/enumeration"
+      },
+      "name": "http://data.ashrae.org/standard223/1.0/vocab/enumeration",
+      "imports": [
+        "http://data.ashrae.org/standard223/1.0/model/all",
+        "http://data.ashrae.org/standard223/1.0/vocab/electricity"
+      ],
+      "location": {
+        "file": "extensions/brick_extension_VOCAB_SP223_enumeration-v1.0.ttl"
+      },
+      "last_updated": "2025-08-10T21:42:47.536647046Z",
+      "version_properties": {
+        "http://www.w3.org/2002/07/owl#versionInfo": "\"Created with TopBraid Composer\""
+      },
+      "namespace_map": {}
+    },
+    {
+      "id": {
+        "location": {
+          "file": "extensions/brick_extension_interpret_223.shapes.ttl"
+        },
+        "name": "https://brickschema.org/extension/brick_extension_interpret_223"
+      },
+      "name": "https://brickschema.org/extension/brick_extension_interpret_223",
+      "imports": [
+        "http://www.w3.org/ns/shacl#",
+        "http://data.ashrae.org/standard223/1.0/model/all",
+        "https://brickschema.org/extension/mappings_223",
+        "https://brickschema.org/schema/1.4/Brick"
+      ],
+      "location": {
+        "file": "extensions/brick_extension_interpret_223.shapes.ttl"
+      },
+      "last_updated": "2025-08-10T21:42:47.536651294Z",
+      "version_properties": {
+        "http://www.w3.org/2002/07/owl#versionInfo": "\"Created with TopBraid Composer\""
+      },
+      "namespace_map": {
+        "s223tobrick": "https://brickschema.org/extension/brick_extension_interpret_223#",
+        "s223": "http://data.ashrae.org/standard223#",
+        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+        "brick": "https://brickschema.org/schema/Brick#"
+      }
+    },
+    {
+      "id": {
+        "location": {
+          "file": "extensions/brick_extension_VOCAB_SP223_electricity-v1.0.ttl"
+        },
+        "name": "http://data.ashrae.org/standard223/1.0/vocab/electricity"
+      },
+      "name": "http://data.ashrae.org/standard223/1.0/vocab/electricity",
+      "imports": [
+        "http://data.ashrae.org/standard223/1.0/model/all"
+      ],
+      "location": {
+        "file": "extensions/brick_extension_VOCAB_SP223_electricity-v1.0.ttl"
+      },
+      "last_updated": "2025-08-10T21:42:47.536687641Z",
+      "version_properties": {},
+      "namespace_map": {}
+    }
+  ],
+  "default_policy": "default"
+}
