@@ -1,5 +1,6 @@
 @prefix bldg: <urn:example#> .
 @prefix brick: <https://brickschema.org/schema/Brick#> .
+@prefix rec: <https://w3id.org/rec#> .
 @prefix unit: <http://qudt.org/vocab/unit/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 
@@ -23,8 +24,8 @@ bldg:building_power_sensor a brick:Electric_Power_Sensor ;
     brick:isPointOf bldg:main-meter ;
     brick:timeseries [ brick:hasTimeseriesId "fd64fbc8-0742-4e1e-8f88-e2cd8a3d78af" ] .
 
-bldg:mysite a brick:Site ;
-    brick:hasPart bldg:mybldg .
+bldg:mysite a rec:Site ;
+    rec:hasPart bldg:mybldg .
 
 bldg:submeter-submeter-floor1-power a brick:Electric_Power_Sensor ;
     brick:hasUnit unit:KiloW ;
@@ -41,14 +42,14 @@ bldg:submeter-submeter-floor3-power a brick:Electric_Power_Sensor ;
     brick:isPointOf bldg:submeter-floor3 ;
     brick:timeseries [ brick:hasTimeseriesId "82332722-56ee-11ec-bf02-3dcb0419df3b" ] .
 
-bldg:floor1 a brick:Floor ;
-    brick:isPartOf bldg:mybldg .
+bldg:floor1 a rec:Level ;
+    rec:isPartOf bldg:mybldg .
 
-bldg:floor2 a brick:Floor ;
-    brick:isPartOf bldg:mybldg .
+bldg:floor2 a rec:Level ;
+    rec:isPartOf bldg:mybldg .
 
-bldg:floor3 a brick:Floor ;
-    brick:isPartOf bldg:mybldg .
+bldg:floor3 a rec:Level ;
+    rec:isPartOf bldg:mybldg .
 
 bldg:submeter-floor1 a brick:Electrical_Meter ;
     brick:meters bldg:floor1 ;
@@ -62,7 +63,7 @@ bldg:submeter-floor3 a brick:Electrical_Meter ;
     brick:meters bldg:floor3 ;
     brick:isSubMeterOf bldg:main-meter .
 
-bldg:mybldg a brick:Building ;
+bldg:mybldg a rec:Building ;
     brick:isMeteredBy bldg:main-meter .
 
 bldg:main-meter a brick:Building_Electrical_Meter .
