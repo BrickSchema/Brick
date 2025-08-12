@@ -70,4 +70,4 @@ jobs:
     - name: Run the tests
       # -s flag: do not capture output (avoids killing test after 10 min)
       run: |
-        uv run pytest -s -vvvv --durations=0 -n auto tests
+        uv run pytest --durations=0 -n auto tests
