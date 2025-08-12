@@ -110,9 +110,10 @@ def test_external_reference_rules(brick_with_imports):
         (
             EX["p1"],
             REF.hasExternalReference,
-            EX["ref1-p1"]
-        ),
-        (EX["ref1-p1"], REF.hasTimeseriesId, Literal("abc")),
+            [
+                (REF.hasTimeseriesId, Literal("abc")),
+            ],
+        )
     )
 
     g.expand("shacl")
@@ -130,9 +131,10 @@ def test_external_reference_rules(brick_with_imports):
         (
             EX["e1"],
             REF.hasExternalReference,
-            EX["ref1-e1"],
-        ),
-        (EX["ref1-e1"], REF.hasTimeseriesId, Literal("def")),
+            [
+                (REF.hasTimeseriesId, Literal("def")),
+            ],
+        )
     )
 
     g.expand("shacl")
