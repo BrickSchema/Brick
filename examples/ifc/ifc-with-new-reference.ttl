@@ -7,27 +7,21 @@
     owl:imports <https://brickschema.org/schema/1.4/Brick> .
 
 bldg:space a brick:Space ;
-    ref:hasExternalReference bldg:space_ref .
-
-bldg:space_ref a ref:IFCReference ;
-    ref:hasIfcProjectReference bldg:ifc_project ;
-    ref:ifcGlobalID "123" ;
-    ref:ifcName "Example Space" .
+    ref:hasExternalReference [ a ref:IFCReference ;
+            ref:hasIfcProjectReference bldg:ifc_project ;
+            ref:ifcGlobalID "123" ;
+            ref:ifcName "Example Space" ] .
 
 bldg:space2 a brick:Space ;
-    ref:hasExternalReference bldg:space2_ref .
-
-bldg:space2_ref a ref:IFCReference ;
-    ref:hasIfcProjectReference bldg:ifc_project ;
-    ref:ifcGlobalID "124" ;
-    ref:ifcName "Example Space" .
+    ref:hasExternalReference [ a ref:IFCReference ;
+            ref:hasIfcProjectReference bldg:ifc_project ;
+            ref:ifcGlobalID "124" ;
+            ref:ifcName "Example Space" ] .
 
 bldg:space3 a brick:Space ;
-    ref:hasExternalReference bldg:space3_ref .
-
-bldg:space3_ref a ref:IFCReference ;
-    ref:hasIfcProjectReference bldg:ifc_project ;
-    ref:ifcGlobalID "abc123" .
+    ref:hasExternalReference [ a ref:IFCReference ;
+            ref:hasIfcProjectReference bldg:ifc_project ;
+            ref:ifcGlobalID "abc123" ] .
 
 bldg:ifc_project a ref:ifcProject ;
     ref:ifcFileLocation "file://./building.ifc" ;
