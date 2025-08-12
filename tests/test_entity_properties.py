@@ -47,14 +47,11 @@ def test_entity_property_type_inference(brick_with_imports):
         (
             EX["point"],
             REF.hasExternalReference,
-            EX["ref"],
-        ),
-        (EX["ref"], BACNET.objectOf, [(A, BACNET.BACnetDevice)]),
-        (
-            EX["ref"],
-            REF.BACnetURI,
-            Literal("bacnet://123/analog-input,3/present-value"),
-        ),
+            [
+                (BACNET.objectOf, [(A, BACNET.BACnetDevice)]),
+                (REF.BACnetURI, Literal("bacnet://123/analog-input,3/present-value")),
+            ],
+        )
     )
 
     valid, _, report = g.validate(engine="topquadrant")
