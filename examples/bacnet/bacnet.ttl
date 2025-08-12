@@ -11,29 +11,33 @@
 
 bldg:sample-device a bacnet:BACnetDevice ;
     bacnet:device-instance 123 ;
-    bacnet:hasPort [ a bacnet:Port ] .
+    bacnet:hasPort bldg:sample-device-port .
+
+bldg:sample-device-port a bacnet:Port .
 
 bldg:ts1 a brick:Zone_Air_Temperature_Sensor ;
     brick:hasUnit unit:DEG_C ;
-    ref:hasExternalReference [
-        bacnet:object-identifier "analog-value,5" ;
-        bacnet:object-name "BLDG-Z410-ZATS" ;
-        bacnet:objectOf bldg:sample-device ;
-    ] ;
-    ref:hasExternalReference [
-        ref:hasTimeseriesId "756e1623-914f-4415-9000-b1b10ce8f5c9" ;
-        ref:storedAt "postgres://1.2.3.4:5432/mydata" ;
-    ] ;
-.
+    ref:hasExternalReference bldg:ts1_bacnet_ref ;
+    ref:hasExternalReference bldg:ts1_ts_ref .
+
+bldg:ts1_bacnet_ref
+    bacnet:object-identifier "analog-value,5" ;
+    bacnet:object-name "BLDG-Z410-ZATS" ;
+    bacnet:objectOf bldg:sample-device .
+
+bldg:ts1_ts_ref
+    ref:hasTimeseriesId "756e1623-914f-4415-9000-b1b10ce8f5c9" ;
+    ref:storedAt "postgres://1.2.3.4:5432/mydata" .
 
 bldg:ts2 a brick:Zone_Air_Temperature_Sensor ;
     brick:hasUnit unit:DEG_C ;
-    ref:hasExternalReference [
-        ref:BACnetURI "bacnet://123/analog-value,5/present-value" ;
-        bacnet:objectOf bldg:sample-device ;
-    ] ;
-    ref:hasExternalReference [
-        ref:hasTimeseriesId "4245c136-f95c-4ef5-a0d9-a7d04f1d97f9" ;
-        ref:storedAt "postgres://1.2.3.4:5432/mydata" ;
-    ] ;
-.
+    ref:hasExternalReference bldg:ts2_bacnet_ref ;
+    ref:hasExternalReference bldg:ts2_ts_ref .
+
+bldg:ts2_bacnet_ref
+    ref:BACnetURI "bacnet://123/analog-value,5/present-value" ;
+    bacnet:objectOf bldg:sample-device .
+
+bldg:ts2_ts_ref
+    ref:hasTimeseriesId "4245c136-f95c-4ef5-a0d9-a7d04f1d97f9" ;
+    ref:storedAt "postgres://1.2.3.4:5432/mydata" .

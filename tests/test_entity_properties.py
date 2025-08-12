@@ -47,11 +47,14 @@ def test_entity_property_type_inference(brick_with_imports):
         (
             EX["point"],
             REF.hasExternalReference,
-            [
-                (BACNET.objectOf, [(A, BACNET.BACnetDevice)]),
-                (REF.BACnetURI, Literal("bacnet://123/analog-input,3/present-value")),
-            ],
-        )
+            EX["ref"],
+        ),
+        (EX["ref"], BACNET.objectOf, [(A, BACNET.BACnetDevice)]),
+        (
+            EX["ref"],
+            REF.BACnetURI,
+            Literal("bacnet://123/analog-input,3/present-value"),
+        ),
     )
 
     valid, _, report = g.validate(engine="topquadrant")
@@ -107,10 +110,9 @@ def test_external_reference_rules(brick_with_imports):
         (
             EX["p1"],
             REF.hasExternalReference,
-            [
-                (REF.hasTimeseriesId, Literal("abc")),
-            ],
-        )
+            EX["ref1-p1"]
+        ),
+        (EX["ref1-p1"], REF.hasTimeseriesId, Literal("abc")),
     )
 
     g.expand("shacl")
@@ -128,10 +130,9 @@ def test_external_reference_rules(brick_with_imports):
         (
             EX["e1"],
             REF.hasExternalReference,
-            [
-                (REF.hasTimeseriesId, Literal("def")),
-            ],
-        )
+            EX["ref1-e1"],
+        ),
+        (EX["ref1-e1"], REF.hasTimeseriesId, Literal("def")),
     )
 
     g.expand("shacl")
