@@ -35,7 +35,7 @@ jobs:
         docker version
         docker pull franzinc/agraph:v7.1.0
     - name: Install the project
-        run: uv sync --locked --all-extras --dev
+      run: uv sync --locked --all-extras --dev
     - name: Generate new Brick ontology
       # generate new Brick ontology (in case this hasn't been run)
       run: |
