@@ -108,5 +108,5 @@ def simple_brick_model():
     g.add((BLDG.TS1, BRICK.hasLocation, BLDG.Room1))
 
     # lets us use both relationships
-    g = g.expand("shacl")
+    g.compile()
     return g

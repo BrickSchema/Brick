@@ -40,7 +40,7 @@ def quantity_fixtures(brick_with_imports):
         for m in measurables:
             g.add((inst, BRICK.measures, m))
 
-    g.expand("shacl")
+    g.compile()
     return desired_inferences, g
 
 

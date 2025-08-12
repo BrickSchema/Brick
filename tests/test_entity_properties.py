@@ -17,7 +17,7 @@ def test_entity_property_validation(brick_with_imports):
         )
     )
 
-    g.expand("shacl")
+    g.compile()
     valid, _, report = g.validate(engine="topquadrant")
     assert valid, report
 
@@ -34,7 +34,7 @@ def test_entity_property_validation_failure(brick_with_imports):
         )
     )
 
-    g.expand("shacl")
+    g.compile()
     valid, _, _ = g.validate(engine="topquadrant")
     assert not valid, "'AquariumFail' should have thrown a validation error"
 
@@ -57,7 +57,7 @@ def test_entity_property_type_inference(brick_with_imports):
     valid, _, report = g.validate(engine="topquadrant")
     g.serialize("test.ttl", format="ttl")
     assert valid, report
-    g.expand("shacl")
+    g.compile()
 
     res = g.query(
         "SELECT ?ref WHERE { ?point ref:hasExternalReference ?ref . ?ref a ref:BACnetReference }"
@@ -113,7 +113,7 @@ def test_external_reference_rules(brick_with_imports):
         )
     )
 
-    g.expand("shacl")
+    g.compile()
     print(g.serialize(format="ttl"))
     valid, _, report = g.validate(engine="topquadrant")
     assert valid, report
@@ -134,6 +134,6 @@ def test_external_reference_rules(brick_with_imports):
         )
     )
 
-    g.expand("shacl")
+    g.compile()
     valid, _, report = g.validate(engine="topquadrant")
     assert not valid, report

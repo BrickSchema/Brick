@@ -13,7 +13,7 @@ def test_example_file_with_reasoning(filename):
     g = Graph()
     g.load_file(filename)
     env.import_dependencies(g)
-    g.expand("shacl")
+    g.compile()
 
     valid, _, report = g.validate(engine="topquadrant")
     assert valid, report

@@ -61,7 +61,7 @@ def test_measures_infers(brick_with_imports):
 
     # Infer classes of the entities.
     # Apply reasoner
-    g.expand("shacl")
+    g.compile()
 
     qstr = """select ?instance ?class where {
         ?instance a ?class.
