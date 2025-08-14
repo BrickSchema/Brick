@@ -12,8 +12,8 @@ env = ontoenv.OntoEnv(cfg)
 def test_example_file_with_reasoning(filename):
     g = Graph()
     g.load_file(filename)
-    env.import_dependencies(g)
-    g.compile()
+    shapes, imported = env.get_dependencies_graph(g)
+    g.compile(ontology_graph=shapes, backend="topquadrant")
 
-    valid, _, report = g.validate(engine="topquadrant")
+    valid, _, report = g.validate(shape_graphs=shapes, engine="topquadrant")
     assert valid, report
