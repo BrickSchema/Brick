@@ -2,9 +2,9 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix s223: <http://data.ashrae.org/standard223#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix : <urn:duct_example/> .
+@prefix : <http://example.com/duct_example/> .
 
-<urn:duct_example> a owl:Ontology ;
+<http://example.com/duct_example> a owl:Ontology ;
     owl:imports <https://brickschema.org/schema/1.4/Brick>,
                 <https://brickschema.org/extension/s223extension> .
 

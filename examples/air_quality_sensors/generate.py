@@ -4,7 +4,7 @@ from rdflib import Namespace, Literal
 from brick_tq_shacl.pyshacl import infer
 
 # our entities will live in this namespace
-BLDG = Namespace("urn:example#")
+BLDG = Namespace("http://example.com#")
 
 # load brick into a graph so we can query it
 brick = brickschema.Graph().load_file("../../Brick.ttl")
