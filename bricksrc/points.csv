@@ -128,9 +128,9 @@ brick:Deadband_Setpoint,,,,,,brick:Deadband_Setpoint,,Sets the size of a deadban
 brick:Deceleration_Time_Setpoint,,,,,,brick:Setpoint,Deceleration Time,
 brick:Dehumidification_Start_Stop_Status,,,,,,brick:Status,Dehumidification Start Stop,
 brick:Dehumidify_Command,,,,,,brick:Command,Dehumidify,"Triggers the dehumidification process, actively removing moisture from the air to achieve desired humidity levels"
-brick:Deionised_Water_Conductivity_Sensor,,,brick:Water,,quantitykind:Conductivity,brick:Sensor,Deionised,Measures the electrical conductance of deionised water
-brick:Deionised_Water_Level_Sensor,,,brick:Water,,,brick:Sensor,Deionised Level,Measures the height/level of deionised water in some container
 brick:Deionized_Water_Alarm,,,brick:Deionized_Water,,,brick:Alarm,,An alarm that indicates deionized water leaks.
+brick:Deionized_Water_Conductivity_Sensor,,,brick:Deionized_Water,,quantitykind:Conductivity,brick:Sensor,,Measures the electrical conductance of deionized water
+brick:Deionized_Water_Level_Sensor,,,brick:Deionized_Water,,,brick:Sensor,Level,Measures the height/level of deionized water in some container
 brick:Delay_Parameter,,,,,,brick:Parameter,Delay,A parameter determining how long to delay a subsequent action to take place after a received signal
 brick:Demand_Sensor,,,,,,brick:Sensor,Demand,Measures the amount of power consumed by the use of some process; typically found by multiplying the tonnage of a unit (e.g. RTU) by the efficiency rating in kW/ton
 brick:Demand_Setpoint,,,,,,brick:Setpoint,Demand,Sets the rate required for a process
