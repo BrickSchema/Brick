@@ -20,7 +20,7 @@
     rdfs:label "AHU air supply" ;
     s223:hasRole s223:Role-Supply ;
     brick:hasPoint :saf1 ; # put the supply air flow sensor at the outlet of the AHU
-    s223:hasMedium s223:Medium-Air .
+    s223:hasMedium s223:Fluid-Air .
 
 # define the VAV with a air inlet connection point
 :vav  a  brick:VAV ;
@@ -28,12 +28,12 @@
     s223:hasConnectionPoint  :vav_air_inlet .
 :vav_air_inlet  a  s223:InletConnectionPoint ;
     rdfs:label "VAV air inlet" ;
-    s223:hasMedium s223:Medium-Air .
+    s223:hasMedium s223:Fluid-Air .
 
 # now that we have connection points, we can define the duct using s223:cnx,
 # which will infer the rest of the relationship and the correct direction
 # of the connection
 :duct  a  s223:Duct ;
     rdfs:label "duct" ;
-    s223:hasMedium s223:Medium-Air ;
+    s223:hasMedium s223:Fluid-Air ;
     s223:cnx  :ahu_air_supply, :vav_air_inlet .
