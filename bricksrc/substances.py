@@ -27,6 +27,7 @@ substances = {
                             },
                         },
                     },
+                    "Ammonia": {},
                     "CO2": {},
                     "CO": {},
                     "Steam": {},

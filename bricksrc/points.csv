@@ -31,7 +31,7 @@ brick:Air_Wet_Bulb_Temperature_Sensor,,,brick:Air,,quantitykind:WetBulbTemperatu
 brick:Alarm,,,,,,brick:Alarm,,Alarm points are signals (either audible or visual) that alert an operator to an off-normal condition which requires some form of corrective action
 brick:Alarm_Delay_Parameter,,,,,,brick:Parameter,Alarm Delay,A parameter determining how long to delay an alarm after sufficient conditions have been met
 brick:Alarm_Sensitivity_Parameter,,,,,,brick:Parameter,Alarm Sensitivity,A parameter indicates the sensitivity to activate an alarm.
-brick:Ammonia_Sensor,,,,,,brick:Sensor,Ammonia,
+brick:Ammonia_Sensor,,,brick:Ammonia,,,brick:Sensor,,Measures the concentration of ammonia in air
 brick:Angle_Sensor,,,,,quantitykind:Angle,brick:Sensor,,Measues the planar angle of some phenomenon
 brick:Automatic_Mode_Command,,,,,,brick:Command,Automatic Mode,"Controls whether or not a device or controller is operating in ""Automatic"" mode"
 brick:Availability_Status,,,,,,brick:Status,Availability,"Indicates if a piece of equipment, system, or functionality is available for operation"
