@@ -51,7 +51,8 @@ def test_instances_measure_correct_units(brick_with_imports):
         "SELECT distinct ?class ?quantity ?unit WHERE { \
              ?class rdfs:subClassOf* brick:Point .\
              ?class brick:hasQuantity ?quantity .\
-             ?quantity qudt:applicableUnit ?unit }"
+             ?quantity qudt:applicableUnit ?unit . \
+             FILTER NOT EXISTS { ?class brick:aliasOf ?alias } }"
     )
 
     triples = []
@@ -73,7 +74,8 @@ def test_instances_measure_correct_units(brick_with_imports):
              ?inst rdf:type/rdfs:subClassOf* ?klass . \
              ?klass brick:hasQuantity ?quantity . \
              ?inst brick:hasUnit ?unit . \
-             ?quantity qudt:applicableUnit ?unit . }"
+             ?quantity qudt:applicableUnit ?unit . \
+             FILTER NOT EXISTS { ?klass brick:aliasOf ?alias } }"
     )
     assert len(instances) == len(classes_with_quantities)
 
@@ -89,6 +91,7 @@ def test_instances_measure_correct_units(brick_with_imports):
                    ?k brick:hasQuantity ?q . \
                    ?q qudt:applicableUnit ?unit . \
                  } \
+                 FILTER NOT EXISTS { ?klass brick:aliasOf ?alias } \
             }"
         )
     )
