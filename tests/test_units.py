@@ -52,7 +52,9 @@ def test_instances_measure_correct_units(brick_with_imports):
              ?class rdfs:subClassOf* brick:Point .\
              ?class brick:hasQuantity ?quantity .\
              ?quantity qudt:applicableUnit ?unit . \
-             FILTER NOT EXISTS { ?class brick:aliasOf ?alias } }"
+             FILTER NOT EXISTS { ?class brick:aliasOf ?alias } \
+             FILTER NOT EXISTS { ?class owl:deprecated ?_d } \
+             FILTER NOT EXISTS { ?quantity owl:deprecated ?_dq } }"
     )
 
     triples = []
@@ -75,7 +77,9 @@ def test_instances_measure_correct_units(brick_with_imports):
              ?klass brick:hasQuantity ?quantity . \
              ?inst brick:hasUnit ?unit . \
              ?quantity qudt:applicableUnit ?unit . \
-             FILTER NOT EXISTS { ?klass brick:aliasOf ?alias } }"
+             FILTER NOT EXISTS { ?klass brick:aliasOf ?alias } \
+             FILTER NOT EXISTS { ?klass owl:deprecated ?_d } \
+             FILTER NOT EXISTS { ?quantity owl:deprecated ?_dq } }"
     )
     assert len(instances) == len(classes_with_quantities)
 
@@ -92,6 +96,7 @@ def test_instances_measure_correct_units(brick_with_imports):
                    ?q qudt:applicableUnit ?unit . \
                  } \
                  FILTER NOT EXISTS { ?klass brick:aliasOf ?alias } \
+                 FILTER NOT EXISTS { ?klass owl:deprecated ?_d } \
             }"
         )
     )
