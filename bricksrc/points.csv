@@ -700,9 +700,9 @@ brick:Short_Cycle_Alarm,,,,,,brick:Alarm,Short Cycle,An alarm that indicates a s
 brick:Smoke_Alarm,,,,,,brick:Alarm,Smoke,An alarm that indicates the off-normal conditions associated with smoke.
 brick:Smoke_Detection_Alarm,,,,,,brick:Alarm,Smoke Detection,
 brick:Soil_Temperature_Sensor,,,brick:Soil,,quantitykind:Temperature,brick:Sensor,,Measures the temperature of soil
-brick:Solar_Azimuth_Angle_Sensor,,,,,quantitykind:Angle,brick:Sensor,Solar Azimuth,Measures the azimuth angle of the sun
-brick:Solar_Irradiance_Sensor,,,,,,brick:Sensor,Solar Irradiance,Measures solar irradiance levels for photovoltaic systems
-brick:Solar_Zenith_Angle_Sensor,,,,,quantitykind:Angle,brick:Sensor,Solar Zenith,Measures the zenith angle of the sun
+brick:Solar_Azimuth_Angle_Sensor,,,brick:Solar,,quantitykind:Azimuth,brick:Sensor,,Measures the azimuth angle of the sun
+brick:Solar_Irradiance_Sensor,,,brick:Solar,,quantitykind:Irradiance,brick:Sensor,,Measures solar irradiance levels for photovoltaic systems
+brick:Solar_Zenith_Angle_Sensor,,,brick:Solar,,quantitykind:Zenith,brick:Sensor,,Measures the zenith angle of the sun
 brick:Speed_Command,,,,,,brick:Command,Speed,A command to set speed to a certain degree.
 brick:Speed_Mode_Status,,,,,,brick:Status,Speed Mode,"Indicates the speed mode of a motor with various categorical settings, such as a multi-state value including low, medium, and high."
 brick:Speed_Reset_Command,,,,,,brick:Command,Speed Reset,

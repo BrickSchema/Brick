@@ -5,6 +5,9 @@ substances = {
     "Light": {
         "tags": [TAG.Light],
     },
+    "Solar": {
+        "tags": [TAG.Solar],
+    },
     "Fluid": {
         SKOS.narrower: {
             "Refrigerant": {},
