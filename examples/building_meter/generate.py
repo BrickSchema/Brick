@@ -3,7 +3,7 @@ from brickschema.namespaces import A, OWL, BRICK, UNIT
 from rdflib import Namespace, Literal
 
 # our entities will live in this namespace
-BLDG = Namespace("urn:example#")
+BLDG = Namespace("http://example.com#")
 
 # create a graph for our model
 g = brickschema.Graph()

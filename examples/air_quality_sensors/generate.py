@@ -1,9 +1,10 @@
 import brickschema
 from brickschema.namespaces import A, OWL, BRICK, UNIT, XSD
 from rdflib import Namespace, Literal
+from brick_tq_shacl.pyshacl import infer
 
 # our entities will live in this namespace
-BLDG = Namespace("urn:example#")
+BLDG = Namespace("http://example.com#")
 
 # load brick into a graph so we can query it
 brick = brickschema.Graph().load_file("../../Brick.ttl")
@@ -99,7 +100,7 @@ g.serialize("air_quality_sensor_example.ttl", format="ttl")
 
 # now we can load in Brick, "compile" it with a reasoner, and then run some interesting queries
 g.load_file("../../Brick.ttl")
-g.expand("brick")
+g = infer(g)
 
 print("What sensors in the graph measure air quality?")
 q = """SELECT ?sensor ?location WHERE {
