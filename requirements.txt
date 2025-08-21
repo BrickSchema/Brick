@@ -11,4 +11,5 @@ flake8>=6.0
 semver>=2.10.1
 pytest-xdist[psutil]
 html5lib
-pyontoenv>=0.2.0a4
+pyontoenv>=0.3.0a2
+brick-tq-shacl==0.4.0a6
