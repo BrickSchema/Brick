@@ -538,8 +538,6 @@ def define_shape_properties(definitions, graph=G):
     """
     for shape_name, defn in definitions.items():
         graph.add((shape_name, A, SH.NodeShape))
-        graph.add((shape_name, A, OWL.Class))
-        graph.add((shape_name, A, BRICK.EntityPropertyValue))
         graph.add((shape_name, RDFS.subClassOf, BSH.ValueShape))
 
         needs_value_properties = ["values", "units", "unitsFromQuantity", "datatype"]
@@ -1025,10 +1023,6 @@ logger.info("Defining entity properties")
 G.add((BRICK.value, SKOS.definition, Literal("The basic value of an entity property")))
 G.add((BRICK.EntityProperty, A, RDF.Property))
 G.add((BRICK.EntityProperty, RDFS.subClassOf, BRICK.Relationship))
-G.add((BRICK.EntityPropertyValue, A, OWL.Class))
-G.add((BRICK.EntityPropertyValue, A, SH.NodeShape))
-G.add((BRICK.EntityPropertyValue, RDFS.label, Literal("EntityPropertyValue", lang="en")))
-G.add((BRICK.EntityPropertyValue, RDFS.subClassOf, BRICK.Entity))
 G.add((BSH.ValueShape, A, OWL.Class))
 define_entity_properties(entity_properties)
 define_shape_properties(get_shapes(G))
@@ -1147,13 +1141,13 @@ for name, uri in ontology_imports.items():
 
 # add new Brick to ontology environment
 env.add("Brick.ttl")
-env.refresh()
+env.update()
 
 # add the validation shapes (not for Brick distribution)
 G.parse("validation.ttl")
 
 # validate Brick
-valid, _, report = G.validate(engine="topquadrant")
+valid, _, report = G.validate()
 if not valid:
     print(report)
     sys.exit(1)
