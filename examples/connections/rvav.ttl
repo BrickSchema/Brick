@@ -13,6 +13,7 @@
 :vav  a  brick:VAV ;
     rdfs:label "VAV" ;
     brick:hasPart :coil, :damper ;
+    s223:contains :coil, :damper ;
     s223:hasConnectionPoint  :vav_air_inlet, :vav_air_outlet, :vav_water_inlet, :vav_water_outlet .
 
 :vav_air_inlet  a  s223:InletConnectionPoint ;
@@ -68,10 +69,10 @@
 :pipe1  a  s223:Pipe ;
     rdfs:label "Pipe 1" ;
     s223:hasMedium s223:Fluid-Water ;
-    s223:cnx  :boiler_water_supply, :coil_water_inlet .
+    s223:cnx  :boiler_water_supply, :vav_water_inlet .
 
 :pipe2  a  s223:Pipe ;
     rdfs:label "Pipe 2" ;
     s223:hasMedium s223:Fluid-Water ;
-    s223:cnx  :coil_water_outlet, :boiler_water_return .
+    s223:cnx  :vav_water_outlet, :boiler_water_return .
 
