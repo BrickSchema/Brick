@@ -149,8 +149,8 @@ brick:Differential_Pressure_Setpoint,,,,brick:Differential,quantitykind:Pressure
 brick:Differential_Pressure_Setpoint_Limit,,,,brick:Differential,quantitykind:Pressure,brick:Setpoint_Limit,,A parameter that places a lower or upper bound on the range of permitted values of a Differential_Pressure_Setpoint.
 brick:Differential_Pressure_Step_Parameter,,,,brick:Differential,quantitykind:Pressure,brick:Parameter,Step,
 brick:Differential_Setpoint,,,,brick:Differential,,brick:Setpoint,,A type of Setpoints that is related to the difference between two measurements
-brick:Differential_Speed_Sensor,,,,brick:Differential,,brick:Sensor,Speed,
-brick:Differential_Speed_Setpoint,,,,brick:Differential,,brick:Setpoint,Speed,Sets differential speed
+brick:Differential_Speed_Sensor,,,,brick:Differential,quantitykind:Speed,brick:Sensor,,
+brick:Differential_Speed_Setpoint,,,,brick:Differential,quantitykind:Speed,brick:Setpoint,,Sets differential speed
 brick:Differential_Temperature_Setpoint,,,,brick:Differential,quantitykind:Temperature,brick:Setpoint,,A type of Setpoints that is related to the difference between two temperature measurements
 brick:Direction_Command,,,,,,brick:Command,Direction,Commands that affect the direction of some phenomenon
 brick:Direction_Sensor,,,,,,brick:Sensor,Direction,Measures the direction in degrees in which a phenomenon is occuring
@@ -295,7 +295,7 @@ brick:Exhaust_Air_Velocity_Pressure_Sensor,,,brick:Exhaust_Air,,quantitykind:Vel
 brick:Failure_Alarm,,,,,,brick:Alarm,Failure,"Alarms that indicate the failure of devices, equipment, systems and control loops"
 brick:Fan_Command,,brick:Fan,,,,brick:Command,,Controls properties of fans
 brick:Fan_On_Off_Status,,brick:Fan,,,,brick:Status,On Off,
-brick:Fan_Speed_Command,,brick:Fan,,,,brick:Command,Speed,Controls the speed of fans
+brick:Fan_Speed_Command,,brick:Fan,,,quantitykind:Speed,brick:Command,,Controls the speed of fans
 brick:Fan_Status,,brick:Fan,,,,brick:Status,,Indicates properties of fans
 brick:Fault_Reset_Command,,,,,,brick:Command,Fault Reset,Clears a fault status
 brick:Fault_Status,,,,,,brick:Status,Fault,"Indicates the presence of a fault in a device, system or control loop"
@@ -487,7 +487,7 @@ brick:Max_Occupied_Heating_Discharge_Air_Flow_Setpoint_Limit,brick:Maximum,,bric
 brick:Max_Occupied_Heating_Supply_Air_Flow_Setpoint_Limit,brick:Maximum,,brick:Supply_Air,,quantitykind:VolumeFlowRate,brick:Setpoint_Limit,Occupied Heating,A parameter that places an upper bound on the range of permitted values of a Occupied_Heating_Supply_Air_Flow_Setpoint.
 brick:Max_Outside_Air_Flow_Setpoint_Limit,brick:Maximum,,brick:Outside_Air,,quantitykind:VolumeFlowRate,brick:Setpoint_Limit,,A parameter that places an upper bound on the range of permitted values of a Outside_Air_Flow_Setpoint.
 brick:Max_Position_Setpoint_Limit,brick:Maximum,,,,,brick:Setpoint_Limit,Position,A parameter that places an upper bound on the range of permitted values of a Position_Setpoint.
-brick:Max_Speed_Setpoint_Limit,brick:Maximum,,,,,brick:Setpoint_Limit,Speed,A parameter that places an upper bound on the range of permitted values of a Speed_Setpoint.
+brick:Max_Speed_Setpoint_Limit,brick:Maximum,,,,quantitykind:Speed,brick:Setpoint_Limit,,A parameter that places an upper bound on the range of permitted values of a Speed_Setpoint.
 brick:Max_Static_Pressure_Setpoint_Limit,brick:Maximum,,,,quantitykind:StaticPressure,brick:Setpoint_Limit,,A parameter that places an upper bound on the range of permitted values of a Static_Pressure_Setpoint.
 brick:Max_Supply_Air_Static_Pressure_Setpoint_Limit,brick:Maximum,,brick:Supply_Air,,quantitykind:StaticPressure,brick:Setpoint_Limit,,A parameter that places an upper bound on the range of permitted values of a Supply_Air_Static_Pressure_Setpoint.
 brick:Max_Supply_Air_Temperature_Setpoint_Limit,brick:Maximum,,brick:Supply_Air,,quantitykind:Temperature,brick:Setpoint_Limit,,A parameter that places an upper bound on the range of permitted values of a Supply_Air_Temperature_Setpoint.
@@ -524,7 +524,7 @@ brick:Min_Occupied_Heating_Discharge_Air_Flow_Setpoint_Limit,brick:Minimum,,bric
 brick:Min_Occupied_Heating_Supply_Air_Flow_Setpoint_Limit,brick:Minimum,,brick:Supply_Air,,quantitykind:VolumeFlowRate,brick:Setpoint_Limit,Occupied Heating,A parameter that places a lower bound on the range of permitted values of a Occupied_Heating_Supply_Air_Flow_Setpoint.
 brick:Min_Outside_Air_Flow_Setpoint_Limit,brick:Minimum,,brick:Outside_Air,,quantitykind:VolumeFlowRate,brick:Setpoint_Limit,,A parameter that places a lower bound on the range of permitted values of a Outside_Air_Flow_Setpoint.
 brick:Min_Position_Setpoint_Limit,brick:Minimum,,,,,brick:Setpoint_Limit,Position,A parameter that places a lower bound on the range of permitted values of a Position_Setpoint.
-brick:Min_Speed_Setpoint_Limit,brick:Minimum,,,,,brick:Setpoint_Limit,Speed,A parameter that places a lower bound on the range of permitted values of a Speed_Setpoint.
+brick:Min_Speed_Setpoint_Limit,brick:Minimum,,,,quantitykind:Speed,brick:Setpoint_Limit,,A parameter that places a lower bound on the range of permitted values of a Speed_Setpoint.
 brick:Min_Static_Pressure_Setpoint_Limit,brick:Minimum,,,,quantitykind:StaticPressure,brick:Setpoint_Limit,,A parameter that places a lower bound on the range of permitted values of a Static_Pressure_Setpoint.
 brick:Min_Supply_Air_Static_Pressure_Setpoint_Limit,brick:Minimum,,brick:Supply_Air,,quantitykind:StaticPressure,brick:Setpoint_Limit,,A parameter that places a lower bound on the range of permitted values of a Supply_Air_Static_Pressure_Setpoint.
 brick:Min_Supply_Air_Temperature_Setpoint_Limit,brick:Minimum,,brick:Supply_Air,,quantitykind:Temperature,brick:Setpoint_Limit,,A parameter that places a lower bound on the range of permitted values of a Supply_Air_Temperature_Setpoint.
@@ -546,7 +546,7 @@ brick:Motion_Sensor,,,,,,brick:Sensor,Motion,Detects the presence of motion in s
 brick:Motor_Current_Sensor,,brick:Motor,,,quantitykind:ElectricCurrent,brick:Sensor,,Measures the current consumed by a motor
 brick:Motor_Direction_Status,,brick:Motor,,,,brick:Status,Direction,"Indicates which direction a motor is operating in, e.g. forward or reverse"
 brick:Motor_On_Off_Status,,brick:Motor,,,,brick:Status,On Off,
-brick:Motor_Speed_Sensor,,brick:Motor,,,,brick:Sensor,Speed,
+brick:Motor_Speed_Sensor,,brick:Motor,,,quantitykind:Speed,brick:Sensor,,
 brick:Motor_Torque_Sensor,,brick:Motor,,,quantitykind:Torque,brick:Sensor,,"Measures the torque, or rotating power, of a motor"
 brick:Natural_Gas_Flow_Sensor,,,brick:Natural_Gas,,quantitykind:VolumeFlowRate,brick:Sensor,,Measures the rate of flow of natural gas
 brick:Natural_Gas_Temperature_Sensor,,,brick:Natural_Gas,,quantitykind:Temperature,brick:Sensor,,Measures the temperature of natural gas
@@ -554,7 +554,7 @@ brick:Natural_Gas_Usage_Sensor,,,brick:Natural_Gas,,,brick:Sensor,Usage,"Measure
 brick:No_Water_Alarm,,,brick:Water,,,brick:Alarm,No,Alarm indicating that there is no water in the equipment or system
 brick:NO2_Level_Sensor,,,,,,brick:Sensor,NO2 Level,Measures the concentration of NO2 in air
 brick:Occupancy_Command,,,,,,brick:Command,Occupancy,"Controls whether or not a device or controller is operating in ""Occupied"" mode"
-brick:Occupancy_Count_Sensor,,,,,,brick:Sensor,Occupancy Count,Sensors measuring the number of people in an area
+brick:Occupancy_Count_Sensor,,,,,quantitykind:Count,brick:Sensor,Occupancy,Sensors measuring the number of people in an area
 brick:Occupancy_Sensor,,,,,,brick:Sensor,Occupancy,Detects occupancy of some space or area
 brick:Occupancy_Status,,,,,,brick:Status,Occupancy,Indicates if a room or space is occupied
 brick:Occupied_Air_Temperature_Setpoint,,,brick:Air,,quantitykind:Temperature,brick:Setpoint,Occupied,
@@ -659,7 +659,7 @@ brick:Radiant_Panel_Temperature_Setpoint,,brick:Radiant_Panel,,,quantitykind:Tem
 brick:Radon_Concentration_Sensor,,,,,,brick:Sensor,Radon Concentration,Measures the concentration of radioactivity due to radon
 brick:Rain_Duration_Sensor,,,,,quantitykind:Time,brick:Sensor,Rain,Measures the duration of precipitation within some time frame
 brick:Rain_Level_Sensor,,,,,,brick:Sensor,Rain Level,Measures the amount of precipitation fallen
-brick:Rated_Speed_Setpoint,,,,,,brick:Setpoint,Rated Speed,Sets rated speed
+brick:Rated_Speed_Setpoint,,,,,quantitykind:Speed,brick:Setpoint,Rated,Sets rated speed
 brick:Reactive_Energy_Sensor,,,,,,brick:Sensor,Reactive Energy,Measures the integral of reactive power
 brick:Reactive_Power_Sensor,,,,,quantitykind:ReactivePower,brick:Sensor,,"Measures the portion of power that, averaged over a complete cycle of the AC waveform, is due to stored energy which returns to the source in each cycle"
 brick:Refrigerant_Level_Sensor,,,brick:Refrigerant,,,brick:Sensor,Level,
@@ -703,12 +703,12 @@ brick:Soil_Temperature_Sensor,,,brick:Soil,,quantitykind:Temperature,brick:Senso
 brick:Solar_Azimuth_Angle_Sensor,,,brick:Solar,,quantitykind:Azimuth,brick:Sensor,,Measures the azimuth angle of the sun
 brick:Solar_Irradiance_Sensor,,,brick:Solar,,quantitykind:Irradiance,brick:Sensor,,Measures solar irradiance levels for photovoltaic systems
 brick:Solar_Zenith_Angle_Sensor,,,brick:Solar,,quantitykind:Zenith,brick:Sensor,,Measures the zenith angle of the sun
-brick:Speed_Command,,,,,,brick:Command,Speed,A command to set speed to a certain degree.
-brick:Speed_Mode_Status,,,,,,brick:Status,Speed Mode,"Indicates the speed mode of a motor with various categorical settings, such as a multi-state value including low, medium, and high."
-brick:Speed_Reset_Command,,,,,,brick:Command,Speed Reset,
-brick:Speed_Sensor,,,,,,brick:Sensor,Speed,Measures the magnitude of velocity of some form of movement
-brick:Speed_Setpoint,,,,,,brick:Setpoint,Speed,Sets speed
-brick:Speed_Setpoint_Limit,,,,,,brick:Setpoint_Limit,Speed,A parameter that places a lower or upper bound on the range of permitted values of a Speed_Setpoint.
+brick:Speed_Command,,,,,quantitykind:Speed,brick:Command,,A command to set speed to a certain degree.
+brick:Speed_Mode_Status,,,,,quantitykind:Speed,brick:Status,Mode,"Indicates the speed mode of a motor with various categorical settings, such as a multi-state value including low, medium, and high."
+brick:Speed_Reset_Command,,,,,quantitykind:Speed,brick:Command,Reset,
+brick:Speed_Sensor,,,,,quantitykind:Speed,brick:Sensor,,Measures the magnitude of velocity of some form of movement
+brick:Speed_Setpoint,,,,,quantitykind:Speed,brick:Setpoint,,Sets speed
+brick:Speed_Setpoint_Limit,,,,,quantitykind:Speed,brick:Setpoint_Limit,,A parameter that places a lower or upper bound on the range of permitted values of a Speed_Setpoint.
 brick:Stage_Enable_Command,,,,,,brick:Command,Stage Enable,A point representing a discrete stage which the equipment should be operating at. The desired stage number should be identified by an entity property
 brick:Stages_Status,,,,,,brick:Status,Stages,Indicates which stage a control loop or equipment is in
 brick:Standby_Cooling_Zone_Air_Temperature_Setpoint,,,brick:Zone_Air,,quantitykind:Temperature,brick:Setpoint,Standby Cooling,
@@ -855,7 +855,7 @@ brick:Water_Temperature_Sensor,,,brick:Water,,quantitykind:Temperature,brick:Sen
 brick:Water_Temperature_Setpoint,,,brick:Water,,quantitykind:Temperature,brick:Setpoint,,Sets temperature of water
 brick:Water_Usage_Sensor,,,brick:Water,,,brick:Sensor,Usage,"Measures the amount of water that is consumed, over some period of time"
 brick:Wind_Direction_Sensor,,,,,,brick:Sensor,Wind Direction,Measures the direction of wind in degrees relative to North
-brick:Wind_Speed_Sensor,,,,,,brick:Sensor,Wind Speed,"Measured speed of wind, caused by air moving from high to low pressure"
+brick:Wind_Speed_Sensor,,,,,quantitykind:Speed,brick:Sensor,Wind,"Measured speed of wind, caused by air moving from high to low pressure"
 brick:Zone_Air_Conditioning_Mode_Status,,,brick:Zone_Air,,,brick:Status,Conditioning Mode,Indicates the mode of AC for a zone
 brick:Zone_Air_Dewpoint_Sensor,,,brick:Zone_Air,,quantitykind:DewPointTemperature,brick:Sensor,,Measures dewpoint of zone air
 brick:Zone_Air_Humidity_Sensor,,,brick:Zone_Air,,,brick:Sensor,Humidity,Measures the relative humidity of zone air
