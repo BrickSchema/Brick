@@ -10,9 +10,6 @@ env.import_graph(g, "http://qudt.org/3.1.0/vocab/quantitykind")
 g.bind("qudt", QUDT)
 g.bind("qudtqk", QUDTQK)
 
-env.import_dependencies(g)
-g.expand("shacl", backend="topquadrant")
-
 
 def get_units(qudt_quantity):
     """
