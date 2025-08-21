@@ -1,4 +1,5 @@
 from brickschema.graph import Graph
+from brick_tq_shacl.pyshacl import infer, validate
 from ontoenv import OntoEnv, Config
 from rdflib import Literal, URIRef
 from .namespaces import SKOS, RDFS, BRICK, QUDTQK, QUDTDV, QUDT, UNIT, XSD
