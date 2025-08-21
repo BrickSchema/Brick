@@ -167,7 +167,7 @@ relationships = {
         OWL.inverseOf: BRICK.isMeteredBy,
         "domain": BRICK.Meter,
         # this is a special property that implements the 'range' as a SHACL shape
-        "range": [BRICK.Equipment, BRICK.Location, BRICK.Collection],
+        "range": [BRICK.Equipment, BRICK.Location, BRICK.Collection, REC.Space],
         RDFS.label: Literal("meters", lang="en"),
     },
     "isMeteredBy": {

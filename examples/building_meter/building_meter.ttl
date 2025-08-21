@@ -1,10 +1,8 @@
 @prefix bldg: <http://example.com#> .
 @prefix brick: <https://brickschema.org/schema/Brick#> .
-@prefix unit: <http://qudt.org/vocab/unit/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
-
-<http://example.com> a owl:Ontology ;
-    owl:imports <https://brickschema.org/schema/1.4/Brick> .
+@prefix rec: <https://w3id.org/rec#> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
 
 bldg:building_energy_sensor a brick:Energy_Sensor ;
     brick:hasUnit unit:KiloW-HR ;
@@ -26,6 +24,9 @@ bldg:building_power_sensor a brick:Electric_Power_Sensor ;
 bldg:mysite a brick:Site ;
     brick:hasPart bldg:mybldg .
 
+bldg:ontology a owl:Ontology ;
+    owl:imports <https://brickschema.org/schema/1.4/Brick> .
+
 bldg:submeter-submeter-floor1-power a brick:Electric_Power_Sensor ;
     brick:hasUnit unit:KiloW ;
     brick:isPointOf bldg:submeter-floor1 ;
@@ -41,28 +42,29 @@ bldg:submeter-submeter-floor3-power a brick:Electric_Power_Sensor ;
     brick:isPointOf bldg:submeter-floor3 ;
     brick:timeseries [ brick:hasTimeseriesId "82332722-56ee-11ec-bf02-3dcb0419df3b" ] .
 
-bldg:floor1 a brick:Floor ;
+bldg:floor1 a rec:Floor ;
     brick:isPartOf bldg:mybldg .
 
-bldg:floor2 a brick:Floor ;
+bldg:floor2 a rec:Floor ;
     brick:isPartOf bldg:mybldg .
 
-bldg:floor3 a brick:Floor ;
+bldg:floor3 a rec:Floor ;
     brick:isPartOf bldg:mybldg .
 
 bldg:submeter-floor1 a brick:Electrical_Meter ;
-    brick:meters bldg:floor1 ;
-    brick:isSubMeterOf bldg:main-meter .
+    brick:isSubMeterOf bldg:main-meter ;
+    brick:meters bldg:floor1 .
 
 bldg:submeter-floor2 a brick:Electrical_Meter ;
-    brick:meters bldg:floor2 ;
-    brick:isSubMeterOf bldg:main-meter .
+    brick:isSubMeterOf bldg:main-meter ;
+    brick:meters bldg:floor2 .
 
 bldg:submeter-floor3 a brick:Electrical_Meter ;
-    brick:meters bldg:floor3 ;
-    brick:isSubMeterOf bldg:main-meter .
+    brick:isSubMeterOf bldg:main-meter ;
+    brick:meters bldg:floor3 .
 
-bldg:mybldg a brick:Building ;
+bldg:mybldg a rec:Building ;
     brick:isMeteredBy bldg:main-meter .
 
 bldg:main-meter a brick:Building_Electrical_Meter .
+
