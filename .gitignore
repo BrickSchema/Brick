@@ -187,3 +187,4 @@ fabric.properties
 Brick+extensions.ttl
 Brick.ttl
 extensions/brick_extension_shacl_tag_inference.ttl
+.ontoenv/
