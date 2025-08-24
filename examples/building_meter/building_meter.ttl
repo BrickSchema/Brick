@@ -21,8 +21,8 @@ bldg:building_power_sensor a brick:Electric_Power_Sensor ;
     brick:isPointOf bldg:main-meter ;
     brick:timeseries [ brick:hasTimeseriesId "fd64fbc8-0742-4e1e-8f88-e2cd8a3d78af" ] .
 
-bldg:mysite a brick:Site ;
-    brick:hasPart bldg:mybldg .
+bldg:mysite a rec:Site ;
+    rec:hasPart bldg:mybldg .
 
 bldg:ontology a owl:Ontology ;
     owl:imports <https://brickschema.org/schema/1.4/Brick> .
@@ -42,14 +42,14 @@ bldg:submeter-submeter-floor3-power a brick:Electric_Power_Sensor ;
     brick:isPointOf bldg:submeter-floor3 ;
     brick:timeseries [ brick:hasTimeseriesId "82332722-56ee-11ec-bf02-3dcb0419df3b" ] .
 
-bldg:floor1 a rec:Floor ;
-    brick:isPartOf bldg:mybldg .
+bldg:floor1 a rec:Level ;
+    rec:isPartOf bldg:mybldg .
 
-bldg:floor2 a rec:Floor ;
-    brick:isPartOf bldg:mybldg .
+bldg:floor2 a rec:Level ;
+    rec:isPartOf bldg:mybldg .
 
-bldg:floor3 a rec:Floor ;
-    brick:isPartOf bldg:mybldg .
+bldg:floor3 a rec:Level ;
+    rec:isPartOf bldg:mybldg .
 
 bldg:submeter-floor1 a brick:Electrical_Meter ;
     brick:isSubMeterOf bldg:main-meter ;
