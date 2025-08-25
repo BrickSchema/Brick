@@ -18,25 +18,25 @@
 @prefix unit: <http://qudt.org/vocab/unit/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-s223:Concept
-  sh:rule [
-      a sh:TripleRule ;
-      sh:object [
-          sh:path (
-              rdf:type
-              [
-                sh:zeroOrMorePath rdfs:subClassOf ;
-              ]
-              s223tobrick:translatesTo
-            ) ;
-        ] ;
-      sh:predicate rdf:type ;
-      sh:subject sh:this ;
-    ] ;
-  sh:property [
-    sh:path s223tobrick:translatesTo ;
-  ]
-.
+#s223:Concept
+#  sh:rule [
+#      a sh:TripleRule ;
+#      sh:object [
+#          sh:path (
+#              rdf:type
+#              [
+#                sh:zeroOrMorePath rdfs:subClassOf ;
+#              ]
+#              s223tobrick:translatesTo
+#            ) ;
+#        ] ;
+#      sh:predicate rdf:type ;
+#      sh:subject sh:this ;
+#    ] ;
+#  sh:property [
+#    sh:path s223tobrick:translatesTo ;
+#  ]
+#.
 s223:Connectable
   sh:rule [
       a sh:TripleRule ;
