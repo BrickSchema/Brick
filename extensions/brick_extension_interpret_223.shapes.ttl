@@ -95,25 +95,23 @@ s223:DomainSpace
       sh:subject sh:this ;
     ] ;
 .
-# TODO: the rule execution in topquaadrant does not seem to evaluate the blank node
-# expressions inside sh:object, sh:subject
-#s223:EnumerationKind-Medium
-#  sh:rule [
-#      a sh:TripleRule ;
-#      sh:object [
-#          sh:path s223tobrick:translatesTo ;
-#        ] ;
-#      sh:predicate brick:hasSubstance ;
-#      sh:subject [
-#          sh:path (
-#              [
-#                sh:inversePath s223:hasMedium ;
-#              ]
-#              s223:isConnectionPointOf
-#            ) ;
-#        ] ;
-#    ] ;
-#.
+s223:EnumerationKind-Medium
+  sh:rule [
+      a sh:SPARQLRule ;
+      sh:construct """
+CONSTRUCT {
+  ?equip brick:hasSubstance ?substance .
+}
+WHERE {
+  BIND($this AS ?medium)
+  ?medium s223tobrick:translatesTo ?substance .
+  ?cp s223:hasMedium ?medium .
+  ?cp s223:isConnectionPointOf ?equip .
+}
+""" ;
+      sh:prefixes <https://brickschema.org/extension/brick_extension_interpret_223> ;
+    ] ;
+.
 s223:Setpoint
   sh:rule [
       a sh:TripleRule ;
