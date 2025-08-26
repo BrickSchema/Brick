@@ -225,7 +225,7 @@ relationships = {
 }
 
 # add REC relationships by mining them from the REC ontology
-rec = env.get("https://w3id.org/rec")
+rec = env.get_graph("https://w3id.org/rec")
 # for all objects of sh:path, read out the sh:nodeKind and sh:datatype
 query = """SELECT ?path ?nodeKind ?datatype WHERE {
     ?p sh:path ?path .
