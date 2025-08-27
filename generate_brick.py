@@ -1116,8 +1116,8 @@ env.import_graph(G, "https://w3id.org/rec")
 G.remove((None, OWL.imports, URIRef("https://w3id.org/rec")))
 
 # add inferred information to Brick
-# logger.info("Adding inferred information to Brick")
-# G.expand('shacl', backend='topquadrant')
+logger.info("Adding inferred information to Brick")
+G.compile()
 
 # add labels to all concepts
 handle_concept_labels()

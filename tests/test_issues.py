@@ -12,34 +12,23 @@ def test_issue_719(brick_with_imports):
     of Discharge_Air_Temperature_Alarm via equivalence with Supply_Air_Temperature_Alarm.
     """
     g = brick_with_imports
-    g.expand("shacl", backend="topquadrant")
 
     # High_Discharge_Air_Temperature_Alarm should be a subclass of Discharge_Air_Temperature_Alarm
-    res_high = list(
-        g.query(
+    res_high = g.query(
             """
-        SELECT ?x WHERE {
+        ASK {
             brick:High_Discharge_Air_Temperature_Alarm rdfs:subClassOf brick:Discharge_Air_Temperature_Alarm .
-            BIND(true AS ?x)
         }
         """
         )
-    )
-    assert (
-        len(res_high) >= 1
-    ), "High_Discharge_Air_Temperature_Alarm should be a subclass of Discharge_Air_Temperature_Alarm"
+    assert res_high.askAnswer, "High_Discharge_Air_Temperature_Alarm should be a subclass of Discharge_Air_Temperature_Alarm"
 
     # Low_Discharge_Air_Temperature_Alarm should be a subclass of Discharge_Air_Temperature_Alarm
-    res_low = list(
-        g.query(
+    res_low = g.query(
             """
-        SELECT ?x WHERE {
+        ASK {
             brick:Low_Discharge_Air_Temperature_Alarm rdfs:subClassOf brick:Discharge_Air_Temperature_Alarm .
-            BIND(true AS ?x)
         }
         """
         )
-    )
-    assert (
-        len(res_low) >= 1
-    ), "Low_Discharge_Air_Temperature_Alarm should be a subclass of Discharge_Air_Temperature_Alarm"
+    assert res_low.askAnswer, "Low_Discharge_Air_Temperature_Alarm should be a subclass of Discharge_Air_Temperature_Alarm"
