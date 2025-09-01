@@ -143,7 +143,7 @@ brick:Differential_Entering_Leaving_Water_Temperature_Sensor,,,brick:Leaving_Wat
 brick:Differential_Pressure_Deadband_Setpoint,,,,brick:Differential,quantitykind:Pressure,brick:Deadband_Setpoint,,Sets the size of a deadband of differential pressure
 brick:Differential_Pressure_Integral_Time_Parameter,,,,brick:Differential,quantitykind:Pressure,brick:Integral_Time_Parameter,,
 brick:Differential_Pressure_Load_Shed_Status,,,,brick:Differential,quantitykind:Pressure,brick:Status,Load Shed,
-brick:Differential_Pressure_Proportional_Band,,,,brick:Differential,quantitykind:Pressure,,Proportional Band,
+brick:Differential_Pressure_Proportional_Band_Parameter,,,,brick:Differential,quantitykind:Pressure,brick:Proportional_Band_Parameter,,
 brick:Differential_Pressure_Sensor,,,,brick:Differential,quantitykind:Pressure,brick:Sensor,,Measures the difference between two applied pressures
 brick:Differential_Pressure_Setpoint,,,,brick:Differential,quantitykind:Pressure,brick:Setpoint,,Sets differential pressure
 brick:Differential_Pressure_Setpoint_Limit,,,,brick:Differential,quantitykind:Pressure,brick:Setpoint_Limit,,A parameter that places a lower or upper bound on the range of permitted values of a Differential_Pressure_Setpoint.

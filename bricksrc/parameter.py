@@ -577,7 +577,12 @@ parameter_definitions = {
                             TAG.PID,
                         ],
                         "subclasses": {
-                            "Differential_Pressure_Proportional_Band": {
+                            "Differential_Pressure_Proportional_Band_Parameter": {
+                                "aliases": [
+                                    BRICK[
+                                        "Differential_Pressure_Proportional_Band"
+                                    ]
+                                ],
                                 "tags": [
                                     TAG.Point,
                                     TAG.Differential,
