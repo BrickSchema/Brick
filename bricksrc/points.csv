@@ -31,7 +31,7 @@ brick:Air_Wet_Bulb_Temperature_Sensor,,,brick:Air,,quantitykind:WetBulbTemperatu
 brick:Alarm,,,,,,brick:Alarm,,Alarm points are signals (either audible or visual) that alert an operator to an off-normal condition which requires some form of corrective action
 brick:Alarm_Delay_Parameter,,,,,,brick:Parameter,Alarm Delay,A parameter determining how long to delay an alarm after sufficient conditions have been met
 brick:Alarm_Sensitivity_Parameter,,,,,,brick:Parameter,Alarm Sensitivity,A parameter indicates the sensitivity to activate an alarm.
-brick:Ammonia_Sensor,,,brick:Ammonia,,,brick:Sensor,,Measures the concentration of ammonia in air
+brick:Ammonia_Sensor,,,brick:NH3,,,brick:Sensor,,Measures the concentration of ammonia in air
 brick:Angle_Sensor,,,,,quantitykind:Angle,brick:Sensor,,Measues the planar angle of some phenomenon
 brick:Automatic_Mode_Command,,,,,brick:EnumerationKind-Automatic_Mode,brick:Command,,"Controls whether or not a device or controller is operating in ""Automatic"" mode"
 brick:Availability_Status,,,,,brick:EnumerationKind-Availability,brick:Status,,"Indicates if a piece of equipment, system, or functionality is available for operation"
@@ -307,7 +307,7 @@ brick:Filter_Water_Differential_Pressure_Sensor,,brick:Filter,brick:Water,brick:
 brick:Fire_Sensor,,,,,,brick:Sensor,Fire,Measures the presence of fire
 brick:Flow_Sensor,,,,,quantitykind:VolumeFlowRate,brick:Sensor,,Measures the rate of flow of some substance
 brick:Flow_Setpoint,,,,,quantitykind:VolumeFlowRate,brick:Setpoint,,Sets flow
-brick:Formaldehyde_Level_Sensor,,,,,,brick:Sensor,Formaldehyde Level,Measures the concentration of formaldehyde in air
+brick:Formaldehyde_Level_Sensor,,,brick:CH2O,,,brick:Sensor,Level,Measures the concentration of formaldehyde in air
 brick:Freeze_Status,,,,,,brick:Status,Freeze,Indicates if a substance contained within a vessel has frozen
 brick:Frequency_Command,,,,,quantitykind:Frequency,brick:Command,,Controls the frequency of a device's operation (e.g. rotational frequency)
 brick:Frequency_Sensor,,,,,quantitykind:Frequency,brick:Sensor,,"Measures the frequency of a phenomenon or aspect of a phenomenon, e.g. the frequency of a fan turning"
@@ -503,7 +503,7 @@ brick:Medium_Temperature_Hot_Water_Differential_Pressure_Load_Shed_Setpoint,,,br
 brick:Medium_Temperature_Hot_Water_Differential_Pressure_Load_Shed_Status,,,brick:Hot_Water,brick:Differential,quantitykind:Temperature,brick:Status,Medium Pressure Load Shed,
 brick:Medium_Temperature_Hot_Water_Differential_Pressure_Sensor,,,brick:Hot_Water,brick:Differential,quantitykind:Temperature,brick:Sensor,Medium Pressure,Measures the difference in water pressure between sections of a medium temperature hot water system
 brick:Medium_Temperature_Hot_Water_Differential_Pressure_Setpoint,,,brick:Hot_Water,brick:Differential,quantitykind:Temperature,brick:Setpoint,Medium Pressure,
-brick:Methane_Level_Sensor,,,,,,brick:Sensor,Methane Level,Measures the concentration of methane in air
+brick:Methane_Level_Sensor,,,brick:CH4,,,brick:Sensor,Level,Measures the concentration of methane in air
 brick:Min_Air_Flow_Setpoint_Limit,brick:Minimum,,brick:Air,,quantitykind:VolumeFlowRate,brick:Setpoint_Limit,,A parameter that places a lower bound on the range of permitted values of a Air_Flow_Setpoint.
 brick:Min_Air_Temperature_Setpoint,brick:Minimum,,brick:Air,,quantitykind:Temperature,brick:Setpoint,,Setpoint for minimum air temperature
 brick:Min_Chilled_Water_Differential_Pressure_Setpoint_Limit,brick:Minimum,,brick:Chilled_Water,brick:Differential,quantitykind:Pressure,brick:Setpoint_Limit,,A parameter that places a lower bound on the range of permitted values of a Chilled_Water_Differential_Pressure_Setpoint.
@@ -552,7 +552,7 @@ brick:Natural_Gas_Flow_Sensor,,,brick:Natural_Gas,,quantitykind:VolumeFlowRate,b
 brick:Natural_Gas_Temperature_Sensor,,,brick:Natural_Gas,,quantitykind:Temperature,brick:Sensor,,Measures the temperature of natural gas
 brick:Natural_Gas_Usage_Sensor,,,brick:Natural_Gas,,,brick:Sensor,Usage,"Measures the amount of natural gas that is consumed or used, over some period of time"
 brick:No_Water_Alarm,,,brick:Water,,,brick:Alarm,No,Alarm indicating that there is no water in the equipment or system
-brick:NO2_Level_Sensor,,,,,,brick:Sensor,NO2 Level,Measures the concentration of NO2 in air
+brick:NO2_Level_Sensor,,,brick:NO2,,,brick:Sensor,Level,Measures the concentration of NO2 in air
 brick:Occupancy_Command,,,,,,brick:Command,Occupancy,"Controls whether or not a device or controller is operating in ""Occupied"" mode"
 brick:Occupancy_Count_Sensor,,,,,quantitykind:Count,brick:Sensor,Occupancy,Sensors measuring the number of people in an area
 brick:Occupancy_Sensor,,,,,,brick:Sensor,Occupancy,Detects occupancy of some space or area
@@ -618,20 +618,20 @@ brick:Overridden_Off_Status,,,,,,brick:Status,Overridden Off,"Indicates if a con
 brick:Overridden_On_Status,,,,,,brick:Status,Overridden On,"Indicates if a control loop, relay or equipment has been turned on when it would otherwise be scheduled to be off"
 brick:Overridden_Status,,,,,,brick:Status,Overridden,Indicates if the expected operating status of an equipment or control loop has been overridden
 brick:Override_Command,,,,,,brick:Override_Command,,Controls or reports whether or not a device or control loop is in 'override'
-brick:Ozone_Level_Sensor,,,,,,brick:Sensor,Ozone Level,Measures the concentration of ozone in air
+brick:Ozone_Level_Sensor,,,brick:O3,,,brick:Sensor,Level,Measures the concentration of ozone in air
 brick:Parameter,,,,,,brick:Parameter,,Parameter points are configuration settings used to guide the operation of equipment and control systems; for example they may provide bounds on valid setpoint values
-brick:Particulate_Matter_Sensor,,,,,,brick:Sensor,Particulate Matter,Detects pollutants in the ambient air
+brick:Particulate_Matter_Sensor,,,brick:Particulate_Matter,,,brick:Sensor,,Detects pollutants in the ambient air
 brick:Peak_Demand_Sensor,brick:Peak,,,,,brick:Sensor,Demand,The peak power consumed by a process over some period of time
 brick:Photovoltaic_Current_Output_Sensor,,,,,quantitykind:ElectricCurrent,brick:Sensor,Photovoltaic Output,Senses the amperes of electrical current produced as output by a photovoltaic device
 brick:PID_Parameter,,,,,,brick:Parameter,PID,
 brick:Piezoelectric_Sensor,,,,,,brick:Sensor,Piezoelectric,"Senses changes pressure, acceleration, temperature, force or strain via the piezoelectric effect"
 brick:PIR_Sensor,,,,,,brick:Sensor,PIR,Detects the presense of motion in some area using the differential change in infrared intensity between two or more receptors
-brick:PM1_Level_Sensor,,,,,,brick:Sensor,PM1 Level,Detects level of particulates of size 1 microns
-brick:PM1_Sensor,,,,,,brick:Sensor,PM1,Detects matter of size 1 micron
-brick:PM10_Level_Sensor,,,,,,brick:Sensor,PM10 Level,Detects level of particulates of size 10 microns
-brick:PM10_Sensor,,,,,,brick:Sensor,PM10,Detects matter of size 10 microns
-brick:PM2.5_Level_Sensor,,,,,,brick:Sensor,PM2.5 Level,Detects level of particulates of size 2.5 microns
-brick:PM2.5_Sensor,,,,,,brick:Sensor,PM2.5,Detects matter of size 2.5 microns
+brick:PM1_Level_Sensor,,,brick:PM1,,,brick:Sensor,Level,Detects level of particulates of size 1 microns
+brick:PM1_Sensor,,,brick:PM1,,,brick:Sensor,,Detects matter of size 1 micron
+brick:PM10_Level_Sensor,,,brick:PM10,,,brick:Sensor,Level,Detects level of particulates of size 10 microns
+brick:PM10_Sensor,,,brick:PM10,,,brick:Sensor,,Detects matter of size 10 microns
+brick:PM2.5_Level_Sensor,,,brick:PM2.5,,,brick:Sensor,Level,Detects level of particulates of size 2.5 microns
+brick:PM2.5_Sensor,,,brick:PM2.5,,,brick:Sensor,,Detects matter of size 2.5 microns
 brick:Position_Command,,,,,,brick:Command,Position,Controls or reports the position of some object
 brick:Position_Limit,,,,,,brick:Limit,Position,A parameter that places a lower or upper bound on the range of permitted values of a Position_Setpoint.
 brick:Position_Sensor,,,,,,brick:Sensor,Position,Measures the current position of a component in terms of a fraction of its full range of motion
@@ -656,7 +656,7 @@ brick:Pump_Status,,brick:Pump,,,,brick:Status,,Status of a pump
 brick:PV_Current_Output_Sensor,,,,,quantitykind:ElectricCurrent,brick:Sensor,PV Output,See Photovoltaic_Current_Output_Sensor
 brick:Radiant_Panel_Temperature_Sensor,,brick:Radiant_Panel,,,quantitykind:Temperature,brick:Sensor,,Measures the temperature of the radiant panel of the radiant heating and cooling HVAC system.
 brick:Radiant_Panel_Temperature_Setpoint,,brick:Radiant_Panel,,,quantitykind:Temperature,brick:Setpoint,,Sets temperature of radiant panel.
-brick:Radon_Concentration_Sensor,,,,,,brick:Sensor,Radon Concentration,Measures the concentration of radioactivity due to radon
+brick:Radon_Concentration_Sensor,,,brick:Rn,,,brick:Sensor,Concentration,Measures the concentration of radioactivity due to radon
 brick:Rain_Duration_Sensor,,,,,quantitykind:Time,brick:Sensor,Rain,Measures the duration of precipitation within some time frame
 brick:Rain_Level_Sensor,,,,,,brick:Sensor,Rain Level,Measures the amount of precipitation fallen
 brick:Rated_Speed_Setpoint,,,,,quantitykind:Speed,brick:Setpoint,Rated,Sets rated speed
@@ -791,8 +791,8 @@ brick:Tint_Command,,,,,,brick:Command,Tint,The target level of window tint.
 brick:Tint_Status,,,,,,brick:Status,Tint,"The current level of window tint, errors, or transient states."
 brick:Tolerance_Parameter,,,,,,brick:Tolerance_Parameter,,difference between upper and lower limits of size for a given nominal dimension or value.
 brick:Torque_Sensor,,,,,quantitykind:Torque,brick:Sensor,,"Measures torque, the tendency of a force to rotate an object about some axis"
-brick:TVOC_Level_Sensor,,,,,,brick:Sensor,TVOC Level,A sensor measuring the level of all VOCs in air
-brick:TVOC_Sensor,,,,,,brick:Sensor,TVOC,
+brick:TVOC_Level_Sensor,,,brick:VOC,,,brick:Sensor,Level,A sensor measuring the level of all VOCs in air
+brick:TVOC_Sensor,,,brick:VOC,,,brick:Sensor,,
 brick:Underfloor_Air_Plenum_Static_Pressure_Sensor,,brick:Underfloor_Air_Plenum,,,quantitykind:StaticPressure,brick:Sensor,,Measures the outward push of air against the plenum surfaces and used to measure the resistance when air moves through the plenum
 brick:Underfloor_Air_Plenum_Static_Pressure_Setpoint,,brick:Underfloor_Air_Plenum,,,quantitykind:StaticPressure,brick:Setpoint,,Sets the underfloor air plenum static pressure
 brick:Underfloor_Air_Temperature_Sensor,,,brick:Air,,quantitykind:Temperature,brick:Sensor,Underfloor,Measures the temperature of underfloor air

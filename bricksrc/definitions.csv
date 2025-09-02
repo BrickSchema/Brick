@@ -41,7 +41,6 @@ https://brickschema.org/schema/Brick#Alarm,Alarm points are signals (either audi
 https://brickschema.org/schema/Brick#Alarm_Delay_Parameter,A parameter determining how long to delay an alarm after sufficient conditions have been met,
 https://brickschema.org/schema/Brick#Alarm_Sensitivity_Parameter,A parameter indicates the sensitivity to activate an alarm.,
 https://brickschema.org/schema/Brick#Alternating_Current_Frequency,The frequency of the oscillations of alternating current,
-https://brickschema.org/schema/Brick#Ammonia,A colorless gas with a distinctive pungent smell,
 https://brickschema.org/schema/Brick#Ammonia_Sensor,Measures the concentration of ammonia in air,
 https://brickschema.org/schema/Brick#Angle_Sensor,Measues the planar angle of some phenomenon,
 https://brickschema.org/schema/Brick#Atrium,a large open-air or skylight covered space surrounded by a building.,https://en.wikipedia.org/wiki/Atrium_(architecture)
