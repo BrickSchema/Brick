@@ -1,18 +1,23 @@
 import brickschema
 from brickschema.namespaces import A, OWL, BRICK, UNIT
-from rdflib import Namespace, Literal
+from rdflib import Namespace, URIRef, Literal
 
 # our entities will live in this namespace
 BLDG = Namespace("http://example.com#")
+REC = Namespace("https://w3id.org/rec#")
 
 # create a graph for our model
 g = brickschema.Graph()
 g.bind("bldg", BLDG)
 
+# add ontology definition
+g.add((BLDG["ontology"], A, OWL.Ontology))
+g.add((BLDG["ontology"], OWL.imports, URIRef("https://brickschema.org/schema/1.4/Brick")))
+
 # define a building in a site
-g.add((BLDG["mysite"], A, BRICK.Site))
-g.add((BLDG["mybldg"], A, BRICK.Building))
-g.add((BLDG["mysite"], BRICK.hasPart, BLDG["mybldg"]))
+g.add((BLDG["mysite"], A, REC.Site))
+g.add((BLDG["mybldg"], A, REC.Building))
+g.add((BLDG["mysite"], REC.hasPart, BLDG["mybldg"]))
 
 # add a full building meter to the building
 g.add((BLDG["main-meter"], A, BRICK.Building_Electrical_Meter))
@@ -74,8 +79,8 @@ for submeter in submeters:
     g.add((BLDG[submeter["name"]], A, BRICK.Electrical_Meter))
     g.add((BLDG[submeter["name"]], BRICK.meters, BLDG[submeter["floor"]]))
     g.add((BLDG[submeter["name"]], BRICK.isSubMeterOf, BLDG["main-meter"]))
-    g.add((BLDG[submeter["floor"]], A, BRICK.Floor))
-    g.add((BLDG[submeter["floor"]], BRICK.isPartOf, BLDG["mybldg"]))
+    g.add((BLDG[submeter["floor"]], A, REC.Level))
+    g.add((BLDG[submeter["floor"]], REC.isPartOf, BLDG["mybldg"]))
 
     # each of them has a power sensor w/ a provided UUID
     g.add((BLDG[f"submeter-{submeter['name']}-power"], A, BRICK.Electric_Power_Sensor))
