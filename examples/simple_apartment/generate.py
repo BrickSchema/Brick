@@ -7,7 +7,7 @@ We define the 'apt' namespace to identify the entities that are part of the
 apartment graph vs the entities/concepts that are part of Brick
 """
 g = Graph()
-APT = Namespace("apartment#")
+APT = Namespace("http://example.com/apartment#")
 g.bind("apt", APT)
 g.bind("brick", BRICK)
 g.bind("rdf", RDF)

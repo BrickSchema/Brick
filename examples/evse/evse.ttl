@@ -2,9 +2,9 @@
 @prefix unit: <http://qudt.org/vocab/unit/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix : <urn:evse#> .
+@prefix : <http://example.com/evse#> .
 
-<urn:evse> a owl:Ontology ;
+<http://example.com/evse> a owl:Ontology ;
     owl:imports <https://brickschema.org/schema/1.4/Brick> .
 
 :parking_lot a brick:Parking_Structure ;
