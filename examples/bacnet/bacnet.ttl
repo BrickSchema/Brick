@@ -1,4 +1,4 @@
-@prefix bldg: <urn:example#> .
+@prefix bldg: <http://example.com#> .
 @prefix brick: <https://brickschema.org/schema/Brick#> .
 @prefix bacnet: <http://data.ashrae.org/bacnet/2020#> .
 @prefix unit: <http://qudt.org/vocab/unit/> .
@@ -6,7 +6,7 @@
 @prefix ref: <https://brickschema.org/schema/Brick/ref#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 
-<urn:example> a owl:Ontology ;
+<http://example.com> a owl:Ontology ;
     owl:imports <https://brickschema.org/schema/1.4/Brick> .
 
 bldg:sample-device a bacnet:BACnetDevice ;

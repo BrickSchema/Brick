@@ -4,7 +4,7 @@ Generates tests automatically
 import pytest
 from rdflib import Namespace
 import ontoenv
-from ontoenv import OntoEnv, Config
+from ontoenv import OntoEnv
 import brickschema
 import glob
 import sys
@@ -45,8 +45,7 @@ def brick():
 
 @pytest.fixture()
 def brick_with_imports():
-    cfg = Config(["Brick.ttl", "support/", "extensions/", "rec/Source/SHACL/RealEstateCore"], strict=False, offline=True, temporary=True)
-    env = OntoEnv(cfg)
+    env = OntoEnv(read_only=True)
     g = brickschema.Graph()
     g.load_file("Brick.ttl")
     g.bind("qudt", QUDT)
