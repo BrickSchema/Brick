@@ -2,6 +2,7 @@
 @prefix brick: <https://brickschema.org/schema/Brick#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rec: <https://w3id.org/rec#> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
 
 bldg:building_energy_sensor a brick:Energy_Sensor ;
     brick:hasUnit unit:KiloW-HR ;
