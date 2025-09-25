@@ -161,7 +161,7 @@ collection_classes = {
     },
     "Point_Group": {
         "tags": [TAG.Collection, TAG.Point_Group],
-        "constraints": {REC.includes: [BRICK.Point]},
+        "constraints": {REC.includes: [BRICK.Point, BRICK.Point_Group]},
     },
     "System": {
         "tags": [TAG.Collection, TAG.System],

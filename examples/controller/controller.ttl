@@ -16,6 +16,7 @@ bldg:Controller_1 a brick:Controller ;
     rdfs:label "Main Building Controller" ;
     brick:hosts bldg:VAV1PointGroup ;
     brick:controls bldg:VAV1 ;
+    brick:concerns bldg:Zone1 ;
 .
 
 bldg:VAV1PointGroup a brick:Point_Group ;
