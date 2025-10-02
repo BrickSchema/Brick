@@ -822,6 +822,35 @@ def handle_deprecations():
         if "replace_with" in md:
             G.add((deprecated_term, BRICK.isReplacedBy, md["replace_with"]))
 
+    """
+    The following part adds definitions for deprecated Brick subclasses through SKOS.definitions.
+
+    This parses the definitions from ./bricksrc/definitions_of_deprecated.csv and
+    adds it to the graph. If available, adds the source information of
+    through RDFS.seeAlso.
+    """
+    with open("./bricksrc/definitions_of_deprecated.csv", encoding="utf-8") as dictionary_file:
+        dictionary = csv.reader(dictionary_file)
+
+        header = next(dictionary)
+
+        # add definitions, citations to the graph
+        for definition in dictionary:
+            term = URIRef(definition[0])
+            if len(definition) > len(header):
+                raise ValueError(
+                    f"The term '{term}' has more elements than expected. Please check the format."
+                )
+            if len(definition[1]):
+                graph.add((term, SKOS.definition, Literal(definition[1], lang="en")))
+            if len(definition) > 2 and definition[2]:
+                try:
+                    graph.add((term, RDFS.seeAlso, URIRef(definition[2])))
+                except Exception as e:
+                    print(
+                        f"Error processing 'seeAlso' for term '{term}': {e}. The definition provided is: '{definition}'."
+                    )
+
 
 def handle_concept_labels():
     """
