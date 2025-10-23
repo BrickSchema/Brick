@@ -705,7 +705,7 @@ def add_definitions(graph=G):
     adds it to the graph. If available, adds the source information of
     through RDFS.seeAlso.
     """
-    with open("./bricksrc/definitions.csv", encoding="utf-8") as dictionary_file:
+    with open(Path("./bricksrc/definitions.csv"), encoding="utf-8") as dictionary_file:
         dictionary = csv.reader(dictionary_file)
 
         header = next(dictionary)
@@ -829,7 +829,7 @@ def handle_deprecations():
     adds it to the graph. If available, adds the source information of
     through RDFS.seeAlso.
     """
-    with open("./bricksrc/definitions_of_deprecated.csv", encoding="utf-8") as dictionary_file:
+    with open(Path("./bricksrc/definitions_of_deprecated.csv"), encoding="utf-8") as dictionary_file:
         dictionary = csv.reader(dictionary_file)
 
         header = next(dictionary)
@@ -842,10 +842,10 @@ def handle_deprecations():
                     f"The term '{term}' has more elements than expected. Please check the format."
                 )
             if len(definition[1]):
-                graph.add((term, SKOS.definition, Literal(definition[1], lang="en")))
+                G.add((term, SKOS.definition, Literal(definition[1], lang="en")))
             if len(definition) > 2 and definition[2]:
                 try:
-                    graph.add((term, RDFS.seeAlso, URIRef(definition[2])))
+                    G.add((term, RDFS.seeAlso, URIRef(definition[2])))
                 except Exception as e:
                     print(
                         f"Error processing 'seeAlso' for term '{term}': {e}. The definition provided is: '{definition}'."
