@@ -1,0 +1,262 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix ns1: <http://data.ashrae.org/bacnet/2020#> .
+@prefix ns2: <http://schema.org/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://brickschema.org/schema/Brick/ref#BACnetReferenceShape> a sh:NodeShape ;
+    skos:definition "Infers a BACnetReference instance from the object of an hasExternalReference."^^xsd:string ;
+    sh:rule [ a sh:TripleRule ;
+            sh:condition <https://brickschema.org/schema/Brick/ref#BACnetReference> ;
+            sh:object <https://brickschema.org/schema/Brick/ref#BACnetReference> ;
+            sh:predicate rdf:type ;
+            sh:subject sh:this ] ;
+    sh:targetObjectsOf <https://brickschema.org/schema/Brick/ref#hasExternalReference> .
+
+<https://brickschema.org/schema/Brick/ref#ExternalReferenceShape> a sh:NodeShape ;
+    sh:property [ sh:message "All ExternalReference must have an skos:definition"^^xsd:string ;
+            sh:minCount 1 ;
+            sh:path skos:definition ],
+        [ sh:message "All ExternalReference must have an rdfs:label"^^xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ] ;
+    sh:target [ a sh:SPARQLTarget ;
+            sh:prefixes <https://brickschema.org/schema/Brick/ref> ;
+            sh:select """
+    SELECT ?this WHERE {
+     ?this rdfs:subClassOf+ ref:ExternalReference .
+    }
+    """^^xsd:string ] .
+
+<https://brickschema.org/schema/Brick/ref#IFCReferenceShape> a sh:NodeShape ;
+    skos:definition "Infers a IFCReference instance from the object of an hasExternalReference."^^xsd:string ;
+    sh:rule [ a sh:TripleRule ;
+            sh:condition <https://brickschema.org/schema/Brick/ref#IFCReference> ;
+            sh:object <https://brickschema.org/schema/Brick/ref#IFCReference> ;
+            sh:predicate rdf:type ;
+            sh:subject sh:this ] ;
+    sh:targetObjectsOf <https://brickschema.org/schema/Brick/ref#hasExternalReference> .
+
+<https://brickschema.org/schema/Brick/ref#PreferredShape> a sh:NodeShape ;
+    sh:property [ sh:message "An entity can only have one 'preferred' External Reference"^^xsd:string ;
+            sh:path <https://brickschema.org/schema/Brick/ref#hasExternalReference> ;
+            sh:qualifiedMaxCount 1 ;
+            sh:qualifiedValueShape [ sh:class <https://brickschema.org/schema/Brick/ref#ExternalReference> ;
+                    sh:property [ sh:datatype xsd:boolean ;
+                            sh:hasValue true ;
+                            sh:path <https://brickschema.org/schema/Brick/ref#preferred> ] ] ] ;
+    sh:targetSubjectsOf <https://brickschema.org/schema/Brick/ref#hasExternalReference> .
+
+<https://brickschema.org/schema/Brick/ref#TimeseriesReferenceShape> a sh:NodeShape ;
+    skos:definition "Infers a TimeseriesReference instance from the object of an hasExternalReference."^^xsd:string ;
+    sh:rule [ a sh:TripleRule ;
+            sh:condition <https://brickschema.org/schema/Brick/ref#TimeseriesReference> ;
+            sh:object <https://brickschema.org/schema/Brick/ref#TimeseriesReference> ;
+            sh:predicate rdf:type ;
+            sh:subject sh:this ] ;
+    sh:targetObjectsOf <https://brickschema.org/schema/Brick/ref#hasExternalReference> .
+
+<https://brickschema.org/schema/Brick/ref#bacnet-read-property> a owl:DatatypeProperty ;
+    rdfs:label "bacnet-read-property"^^xsd:string ;
+    rdfs:comment "The property of the BACnet object to read to get the current value of this entity."^^xsd:string .
+
+<https://brickschema.org/schema/Brick/ref#hasTimeseriesReference> a owl:ObjectProperty ;
+    rdfs:label "hasTimeseriesReference"^^xsd:string ;
+    rdfs:range <https://brickschema.org/schema/Brick/ref#TimeseriesReference> ;
+    rdfs:subPropertyOf <https://brickschema.org/schema/Brick/ref#hasExternalReference> ;
+    skos:definition "Metadata for accessing related timeseries data: Relates a data source (such as a Brick Point or 223 Property) to the TimeseriesReference that indicates where and how the data for this point is stored"@en .
+
+ns1:description a ns1:StandardProperty,
+        owl:DatatypeProperty ;
+    ns1:propertyEnum ns1:PropertyIdentifier-description ;
+    ns1:propertyName "description"^^xsd:string ;
+    ns1:propertyRef ns1:Description ;
+    skos:definition "The content of the description field of the BACnet object."^^xsd:string .
+
+ns1:object-identifier a ns1:StandardProperty,
+        rdf:Property,
+        owl:DatatypeProperty ;
+    rdfs:label "object-identifier"^^xsd:string ;
+    ns1:propertyEnum ns1:PropertyIdentifier-object-identifier ;
+    ns1:propertyName "object-identifier"^^xsd:string ;
+    ns1:propertyOf ns1:Object ;
+    ns1:propertyRef ns1:Object_Identifier ;
+    rdfs:subPropertyOf ns1:ReadableProperty ;
+    skos:definition "The BACnet object identifier"^^xsd:string .
+
+ns1:object-name a ns1:StandardProperty,
+        owl:DatatypeProperty ;
+    ns1:propertyEnum ns1:PropertyIdentifier-object-name ;
+    ns1:propertyName "object-name"^^xsd:string ;
+    ns1:propertyOf ns1:Object ;
+    ns1:propertyRef ns1:Object_Name ;
+    rdfs:subPropertyOf ns1:ReadableProperty ;
+    skos:definition "The content of the name field of the BACnet object."^^xsd:string .
+
+ns1:object-type a ns1:StandardProperty,
+        rdf:Property,
+        owl:DatatypeProperty ;
+    rdfs:label "object-type"^^xsd:string ;
+    ns1:propertyEnum ns1:PropertyIdentifier-object-type ;
+    ns1:propertyName "object-type"^^xsd:string ;
+    ns1:propertyOf ns1:Object ;
+    ns1:propertyRef ns1:Object_Type ;
+    rdfs:subPropertyOf ns1:ReadableProperty ;
+    skos:definition "The type of the BACnet object"^^xsd:string .
+
+ns1:objectOf a owl:ObjectProperty ;
+    rdfs:label "objectOf"^^xsd:string ;
+    rdfs:comment "The 'parent' BACnet device that hosts this BACnet object."^^xsd:string ;
+    rdfs:range ns1:BACnetDevice .
+
+<https://brickschema.org/schema/Brick/ref> a owl:Ontology ;
+    dcterms:creator ( [ a ns2:Person ;
+                ns2:email "gtfierro@mines.edu"^^xsd:string ;
+                ns2:name "Gabe Fierro"^^xsd:string ] ) ;
+    dcterms:title "Ref Schema"^^xsd:string ;
+    sh:declare [ sh:namespace "http://www.w3.org/2000/01/rdf-schema#"^^xsd:anyURI ;
+            sh:prefix "rdfs"^^xsd:string ],
+        [ sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+            sh:prefix "rdf"^^xsd:string ],
+        [ sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+            sh:prefix "rdf"^^xsd:string ],
+        [ sh:namespace "http://www.w3.org/2002/07/owl#"^^xsd:anyURI ;
+            sh:prefix "owl"^^xsd:string ],
+        [ sh:namespace "http://www.w3.org/ns/shacl#"^^xsd:anyURI ;
+            sh:prefix "sh"^^xsd:string ],
+        [ sh:namespace "https://brickschema.org/schema/Brick/ref#"^^xsd:anyURI ;
+            sh:prefix "ref"^^xsd:string ] .
+
+<https://brickschema.org/schema/Brick/ref#BACnetURI> a owl:DatatypeProperty ;
+    rdfs:label "BACnetURI"^^xsd:string ;
+    rdfs:comment "Clause Q.8 BACnet URI scheme: bacnet:// <device> / <object> [ / <property> [ / <index> ]]"^^xsd:string .
+
+<https://brickschema.org/schema/Brick/ref#hasIfcProjectReference> a owl:ObjectProperty ;
+    rdfs:label "hasIfcProjectReference"^^xsd:string ;
+    skos:definition "A reference to the IFC Project that defines this entity"^^xsd:string .
+
+<https://brickschema.org/schema/Brick/ref#hasTimeseriesId> a owl:DatatypeProperty ;
+    rdfs:label "hasTimeseriesId"^^xsd:string ;
+    skos:definition "The unique identifier (primary key) for this TimeseriesReference in some database"@en .
+
+<https://brickschema.org/schema/Brick/ref#ifcFileLocation> a owl:DatatypeProperty ;
+    rdfs:label "The location of the IFC file defining a project"^^xsd:string ;
+    rdfs:range xsd:string .
+
+<https://brickschema.org/schema/Brick/ref#ifcGlobalID> a owl:DatatypeProperty ;
+    rdfs:label "ifcGlobalID"^^xsd:string ;
+    skos:definition "The IFC Global ID of the entity"^^xsd:string .
+
+<https://brickschema.org/schema/Brick/ref#ifcName> a owl:DatatypeProperty ;
+    rdfs:label "ifcName"^^xsd:string ;
+    skos:definition "The name of the IFC entity"^^xsd:string .
+
+<https://brickschema.org/schema/Brick/ref#ifcProject> a owl:Class,
+        sh:NodeShape ;
+    rdfs:label "IfcProject"^^xsd:string ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path <https://brickschema.org/schema/Brick/ref#ifcFileLocation> ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path <https://brickschema.org/schema/Brick/ref#ifcProjectID> ] .
+
+<https://brickschema.org/schema/Brick/ref#ifcProjectID> a owl:DatatypeProperty ;
+    rdfs:label "ifcProjectID"^^xsd:string ;
+    skos:definition "The IFC ID of the containing project"^^xsd:string .
+
+<https://brickschema.org/schema/Brick/ref#preferred> a owl:DatatypeProperty ;
+    skos:definition "An entity can have one 'preferred' External Reference. Consumers of the model should prioritize any external reference with the 'preferred' property"^^xsd:string .
+
+<https://brickschema.org/schema/Brick/ref#storedAt> a owl:DatatypeProperty ;
+    rdfs:label "storedAt"^^xsd:string ;
+    skos:definition "A reference to where the data for this TimeseriesReference is stored"@en .
+
+<https://brickschema.org/schema/Brick/ref#BACnetReference> a owl:Class,
+        sh:NodeShape ;
+    rdfs:label "BACnet Reference"^^xsd:string ;
+    rdfs:subClassOf <https://brickschema.org/schema/Brick/ref#ExternalReference> ;
+    skos:definition "A reference to the BACnet object represented by this entity."^^xsd:string ;
+    sh:or ( [ sh:property [ a sh:PropertyShape ;
+                        sh:class ns1:EngineeringUnitsEnumerationValue ;
+                        sh:maxCount 1 ;
+                        sh:minCount 0 ;
+                        sh:path ns1:units ],
+                    [ a sh:PropertyShape ;
+                        sh:datatype ns1:Property ;
+                        sh:defaultValue ns1:Present_Value ;
+                        sh:path <https://brickschema.org/schema/Brick/ref#read-property> ],
+                    [ a sh:PropertyShape ;
+                        sh:datatype xsd:string ;
+                        sh:path ns1:object-type ],
+                    [ a sh:PropertyShape ;
+                        sh:datatype xsd:string ;
+                        sh:path ns1:description ],
+                    [ a sh:PropertyShape ;
+                        sh:datatype xsd:string ;
+                        sh:minLength 1 ;
+                        sh:path ns1:object-name ],
+                    [ a sh:PropertyShape ;
+                        sh:datatype xsd:string ;
+                        sh:minCount 1 ;
+                        sh:path ns1:object-identifier ] ] [ sh:property [ a sh:PropertyShape ;
+                        skos:definition "Clause Q.8 BACnet URI scheme: bacnet:// <device> / <object> [ / <property> [ / <index> ]]"^^xsd:string ;
+                        sh:datatype xsd:string ;
+                        sh:path <https://brickschema.org/schema/Brick/ref#BACnetURI> ] ] ) ;
+    sh:property [ a sh:PropertyShape ;
+            sh:class ns1:BACnetDevice ;
+            sh:minCount 1 ;
+            sh:path ns1:objectOf ] .
+
+<https://brickschema.org/schema/Brick/ref#IFCReference> a owl:Class,
+        sh:NodeShape ;
+    rdfs:label "Industry Foundation Classes Reference"^^xsd:string ;
+    rdfs:subClassOf <https://brickschema.org/schema/Brick/ref#ExternalReference> ;
+    skos:definition "A reference to an entity in an IFC project which may contain additional metadata about this entity."^^xsd:string ;
+    sh:property [ a sh:PropertyShape ;
+            skos:definition "Reference to an IFC Project object, containing the project ID"^^xsd:string ;
+            sh:class <https://brickschema.org/schema/Brick/ref#ifcProject> ;
+            sh:minCount 1 ;
+            sh:path <https://brickschema.org/schema/Brick/ref#hasIfcProjectReference> ],
+        [ a sh:PropertyShape ;
+            skos:definition "The global ID of the entity in the IFC project"^^xsd:string ;
+            sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path <https://brickschema.org/schema/Brick/ref#ifcGlobalID> ],
+        [ a sh:PropertyShape ;
+            skos:definition "Name of the entity in IFC"^^xsd:string ;
+            sh:datatype xsd:string ;
+            sh:path <https://brickschema.org/schema/Brick/ref#ifcName> ] .
+
+<https://brickschema.org/schema/Brick/ref#TimeseriesReference> a owl:Class,
+        sh:NodeShape ;
+    rdfs:label "Timeseries Reference"^^xsd:string ;
+    rdfs:subClassOf <https://brickschema.org/schema/Brick/ref#ExternalReference> ;
+    skos:definition "A reference to a stream of timeseries data in a database. Contains the data for this entity"^^xsd:string ;
+    sh:property [ a sh:PropertyShape ;
+            skos:definition "The identifier for the timeseries data corresponding to this point"^^xsd:string ;
+            sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path <https://brickschema.org/schema/Brick/ref#hasTimeseriesId> ],
+        [ a sh:PropertyShape ;
+            skos:definition "Refers to a database storing the timeseries data for the related point. Properties on this class are *to be determined*; feel free to add arbitrary properties onto Database instances for your particular deployment"^^xsd:string ;
+            sh:nodeKind sh:IRIOrLiteral ;
+            sh:path <https://brickschema.org/schema/Brick/ref#storedAt> ] .
+
+<https://brickschema.org/schema/Brick/ref#ExternalReference> a owl:Class,
+        sh:NodeShape ;
+    rdfs:label "External reference"^^xsd:string ;
+    rdfs:subClassOf <http://data.ashrae.org/standard223#ExternalReference> ;
+    skos:definition "The parent class of all external reference types"^^xsd:string .
+
+<https://brickschema.org/schema/Brick/ref#hasExternalReference> a owl:ObjectProperty ;
+    rdfs:label "hasExternalReference"^^xsd:string ;
+    rdfs:subPropertyOf <http://data.ashrae.org/standard223#hasExternalReference> ;
+    skos:definition "Points to the external reference for this entity, which contains additional metadata/data not included in this graph."^^xsd:string .
+

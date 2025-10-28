@@ -1,0 +1,2346 @@
+@prefix brick: <https://brickschema.org/schema/Brick#> .
+@prefix ns1: <http://qudt.org/schema/qudt/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/rec#AbsoluteHumidityObservation> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Absolute humidity observation"^^xsd:string ;
+    ns1:hasQuantityKind <http://qudt.org/vocab/quantitykind/AbsoluteHumidity> ;
+    rdfs:subClassOf <https://w3id.org/rec#ObservationEvent> ;
+    sh:property [ a sh:PropertyShape ;
+            sh:datatype xsd:double ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "value"^^xsd:string ;
+            sh:path <https://w3id.org/rec#value> ] .
+
+<https://w3id.org/rec#AccelerationObservation> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Acceleration observation"^^xsd:string ;
+    ns1:hasQuantityKind <http://qudt.org/vocab/quantitykind/Acceleration> ;
+    rdfs:subClassOf <https://w3id.org/rec#ObservationEvent> ;
+    sh:property [ a sh:PropertyShape ;
+            sh:datatype xsd:double ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "value"^^xsd:string ;
+            sh:path <https://w3id.org/rec#value> ] .
+
+<https://w3id.org/rec#AccessControlZone> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Access control zone"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Zone> .
+
+<https://w3id.org/rec#AccessPanel> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Access panel"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#BarrierAsset> .
+
+<https://w3id.org/rec#ActuationEvent> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Actuation event"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#PointEvent> ;
+    sh:property [ a sh:PropertyShape ;
+            sh:datatype xsd:string ;
+            sh:description "The command message/payload of this actuation event."^^xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "value"^^xsd:string ;
+            sh:path <https://w3id.org/rec#value> ],
+        [ a sh:PropertyShape ;
+            sh:class brick:Point ;
+            sh:description "The brick:Point(s) (e.g., brick:Commands, brick:Setpoints, or brick:Parameters) that the actuation will target/execute."^^xsd:string ;
+            sh:minCount 1 ;
+            sh:name "target point"^^xsd:string ;
+            sh:nodeKind sh:IRI ;
+            sh:path <https://w3id.org/rec#targetPoint> ] .
+
+<https://w3id.org/rec#AdmittingRoom> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Admitting room"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#HealthcareRoom> .
+
+<https://w3id.org/rec#Agent> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Agent"^^xsd:string ;
+    rdfs:comment "The human, group, or machine that consumes or acts upon an object or data. This higher-level grouping allows properties that are shared among its subclasses (Person, Organization, ....) to be anchored in one joint place, on the Agent class."^^xsd:string ;
+    rdfs:subClassOf rdfs:Resource ;
+    sh:property [ a sh:PropertyShape ;
+            sh:description "Indicates ownership of some thing, e.g., a building, an asset, an organization, etc."^^xsd:string ;
+            sh:name "owns"^^xsd:string ;
+            sh:nodeKind sh:IRI ;
+            sh:path <https://w3id.org/rec#owns> ],
+        [ a sh:PropertyShape ;
+            sh:class <https://w3id.org/rec#Organization> ;
+            sh:description "Indicates membership in an organization. Note that componency (e.g., departments of a corporation) are expressed using the more generic Organization.isPartOf property."^^xsd:string ;
+            sh:name "is member of"^^xsd:string ;
+            sh:nodeKind sh:IRI ;
+            sh:path <https://w3id.org/rec#isMemberOf> ] .
+
+<https://w3id.org/rec#AlarmObject> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Alarm object"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#ServiceObject> .
+
+<https://w3id.org/rec#AngleObservation> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Angle observation"^^xsd:string ;
+    ns1:hasQuantityKind <http://qudt.org/vocab/quantitykind/Angle> ;
+    rdfs:subClassOf <https://w3id.org/rec#ObservationEvent> ;
+    sh:property [ a sh:PropertyShape ;
+            sh:datatype xsd:double ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "value"^^xsd:string ;
+            sh:path <https://w3id.org/rec#value> ] .
+
+<https://w3id.org/rec#AngularAccelerationObservation> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Angular acceleration observation"^^xsd:string ;
+    ns1:hasQuantityKind <http://qudt.org/vocab/quantitykind/AngularAcceleration> ;
+    rdfs:subClassOf <https://w3id.org/rec#ObservationEvent> ;
+    sh:property [ a sh:PropertyShape ;
+            sh:datatype xsd:double ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "value"^^xsd:string ;
+            sh:path <https://w3id.org/rec#value> ] .
+
+<https://w3id.org/rec#AngularVelocityObservation> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Angular velocity observation"^^xsd:string ;
+    ns1:hasQuantityKind <http://qudt.org/vocab/quantitykind/AngularVelocity> ;
+    rdfs:subClassOf <https://w3id.org/rec#ObservationEvent> ;
+    sh:property [ a sh:PropertyShape ;
+            sh:datatype xsd:double ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "value"^^xsd:string ;
+            sh:path <https://w3id.org/rec#value> ] .
+
+<https://w3id.org/rec#Apartment> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Apartment"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Collection> ;
+    sh:property [ a sh:PropertyShape ;
+            sh:class <https://w3id.org/rec#Room> ;
+            sh:minCount 1 ;
+            sh:name "includes"^^xsd:string ;
+            sh:nodeKind sh:IRI ;
+            sh:path <https://w3id.org/rec#includes> ] .
+
+<https://w3id.org/rec#ArchitecturalAsset> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Architectural asset"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Asset> .
+
+<https://w3id.org/rec#Architecture> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Architecture"^^xsd:string ;
+    rdfs:comment "A designed/landscaped (or potentially designed/landscaped) part of the physical world that has a 3D spatial extent. E.g., a building site, a building, levels within the building, rooms, etc."^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Space> ;
+    sh:property [ a sh:PropertyShape ;
+            sh:class <https://w3id.org/rec#Agent> ;
+            sh:name "architected by"^^xsd:string ;
+            sh:nodeKind sh:IRI ;
+            sh:path <https://w3id.org/rec#architectedBy> ],
+        [ a sh:PropertyShape ;
+            sh:class <https://w3id.org/rec#BuildingElement> ;
+            sh:name "adjacent element"^^xsd:string ;
+            sh:nodeKind sh:IRI ;
+            sh:path <https://w3id.org/rec#adjacentElement> ],
+        [ a sh:PropertyShape ;
+            sh:class <https://w3id.org/rec#BuildingElement> ;
+            sh:name "intersecting element"^^xsd:string ;
+            sh:nodeKind sh:IRI ;
+            sh:path <https://w3id.org/rec#intersectingElement> ],
+        [ a sh:PropertyShape ;
+            sh:class <https://w3id.org/rec#BuildingElement> ;
+            sh:description "Links an Architecture to BuildingElement that is contained in the Space."^^xsd:string ;
+            sh:name "contains element"^^xsd:string ;
+            sh:nodeKind sh:IRI ;
+            sh:path <https://w3id.org/rec#containsElement> ],
+        [ a sh:PropertyShape ;
+            sh:class <https://w3id.org/rec#Agent> ;
+            sh:name "owned by"^^xsd:string ;
+            sh:nodeKind sh:IRI ;
+            sh:path <https://w3id.org/rec#ownedBy> ],
+        [ a sh:PropertyShape ;
+            sh:class <https://w3id.org/rec#ArchitectureArea> ;
+            sh:maxCount 1 ;
+            sh:name "area"^^xsd:string ;
+            sh:nodeKind sh:IRI ;
+            sh:path <https://w3id.org/rec#area> ],
+        [ a sh:PropertyShape ;
+            sh:class <https://w3id.org/rec#ArchitectureCapacity> ;
+            sh:maxCount 1 ;
+            sh:name "capacity"^^xsd:string ;
+            sh:nodeKind sh:IRI ;
+            sh:path <https://w3id.org/rec#capacity> ],
+        [ a sh:PropertyShape ;
+            sh:class <https://w3id.org/rec#Document> ;
+            sh:name "documentation"^^xsd:string ;
+            sh:nodeKind sh:IRI ;
+            sh:path <https://w3id.org/rec#documentation> ],
+        [ a sh:PropertyShape ;
+            sh:class brick:Point ;
+            sh:name "has point"^^xsd:string ;
+            sh:nodeKind sh:IRI ;
+            sh:path <https://w3id.org/rec#hasPoint> ],
+        [ a sh:PropertyShape ;
+            sh:class <https://w3id.org/rec#PostalAddress> ;
+            sh:description "Physical address of the architecture (site, building, sub-building, entrance room, etc.) in question."^^xsd:string ;
+            sh:name "address"^^xsd:string ;
+            sh:nodeKind sh:IRI ;
+            sh:path <https://w3id.org/rec#address> ],
+        [ a sh:PropertyShape ;
+            sh:name "is fed by"^^xsd:string ;
+            sh:nodeKind sh:IRI ;
+            sh:path <https://w3id.org/rec#isFedBy> ],
+        [ a sh:PropertyShape ;
+            sh:class <https://w3id.org/rec#Agent> ;
+            sh:name "operated by"^^xsd:string ;
+            sh:nodeKind sh:IRI ;
+            sh:path <https://w3id.org/rec#operatedBy> ],
+        [ a sh:PropertyShape ;
+            sh:class <https://w3id.org/rec#Agent> ;
+            sh:nodeKind sh:IRI ;
+            sh:path <https://w3id.org/rec#constructedBy> ] .
+
+<https://w3id.org/rec#ArchitectureArea> a <dtmi:dtdl:class:Component>,
+        rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Architecture area"^^xsd:string ;
+    rdfs:comment "Describes business-relevant area measurements typically associated with architected spaces. As the exact requirements on these measurements will vary from case to case or jurisdiction to jurisdiction, subclassing and specializing this definition is encouraged."^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Information> ;
+    sh:property [ a sh:PropertyShape ;
+            sh:datatype xsd:float ;
+            sh:maxCount 1 ;
+            sh:name "rentable area"^^xsd:string ;
+            sh:path <https://w3id.org/rec#rentableArea> ],
+        [ a sh:PropertyShape ;
+            sh:datatype xsd:float ;
+            sh:maxCount 1 ;
+            sh:name "net area"^^xsd:string ;
+            sh:path <https://w3id.org/rec#netArea> ],
+        [ a sh:PropertyShape ;
+            sh:datatype xsd:float ;
+            sh:maxCount 1 ;
+            sh:name "gross area"^^xsd:string ;
+            sh:path <https://w3id.org/rec#grossArea> ] .
+
+<https://w3id.org/rec#ArchitectureCapacity> a <dtmi:dtdl:class:Component>,
+        rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Architecture capacity"^^xsd:string ;
+    rdfs:comment "Describes business-relevant capacity measurements typically associated with architected spaces. As the exact requirements on these measurements will vary from case to case or jurisdiction to jurisdiction, subclassing and specializing this definition is encouraged."^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Information> ;
+    sh:property [ a sh:PropertyShape ;
+            sh:datatype xsd:integer ;
+            sh:description "E.g., per Building Code"^^xsd:string ;
+            sh:maxCount 1 ;
+            sh:name "maximum occupancy"^^xsd:string ;
+            sh:path <https://w3id.org/rec#maxOccupancy> ],
+        [ a sh:PropertyShape ;
+            sh:datatype xsd:integer ;
+            sh:maxCount 1 ;
+            sh:name "seating capacity"^^xsd:string ;
+            sh:path <https://w3id.org/rec#seatingCapacity> ] .
+
+<https://w3id.org/rec#AreaObservation> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Area observation"^^xsd:string ;
+    ns1:hasQuantityKind <http://qudt.org/vocab/quantitykind/Area> ;
+    rdfs:subClassOf <https://w3id.org/rec#ObservationEvent> ;
+    sh:property [ a sh:PropertyShape ;
+            sh:datatype xsd:double ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "value"^^xsd:string ;
+            sh:path <https://w3id.org/rec#value> ] .
+
+<https://w3id.org/rec#Asset> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Asset"^^xsd:string ;
+    rdfs:comment "Something which is placed inside of a building, but is not an integral part of that building's structure; e.g., furniture, equipment, systems, etc."^^xsd:string ;
+    rdfs:subClassOf rdfs:Resource ;
+    sh:property [ a sh:PropertyShape ;
+            sh:class <https://w3id.org/rec#Document> ;
+            sh:name "documentation"^^xsd:string ;
+            sh:nodeKind sh:IRI ;
+            sh:path <https://w3id.org/rec#documentation> ],
+        [ a sh:PropertyShape ;
+            sh:datatype xsd:duration ;
+            sh:name "maintenance interval"^^xsd:string ;
+            sh:path <https://w3id.org/rec#maintenanceInterval> ],
+        [ a sh:PropertyShape ;
+            sh:datatype xsd:date ;
+            sh:maxCount 1 ;
+            sh:name "installation date"^^xsd:string ;
+            sh:path <https://w3id.org/rec#installationDate> ],
+        [ a sh:PropertyShape ;
+            sh:datatype xsd:date ;
+            sh:maxCount 1 ;
+            sh:name "commissioning date"^^xsd:string ;
+            sh:path <https://w3id.org/rec#commissioningDate> ],
+        [ a sh:PropertyShape ;
+            sh:datatype xsd:date ;
+            sh:maxCount 1 ;
+            sh:name "turnover date"^^xsd:string ;
+            sh:path <https://w3id.org/rec#turnoverDate> ],
+        [ a sh:PropertyShape ;
+            sh:class <https://w3id.org/rec#Agent> ;
+            sh:name "serviced by"^^xsd:string ;
+            sh:nodeKind sh:IRI ;
+            sh:path <https://w3id.org/rec#servicedBy> ],
+        [ a sh:PropertyShape ;
+            sh:class <https://w3id.org/rec#Asset> ;
+            sh:name "has part"^^xsd:string ;
+            sh:nodeKind sh:IRI ;
+            sh:path <https://w3id.org/rec#hasPart> ],
+        [ a sh:PropertyShape ;
+            sh:class <https://w3id.org/rec#Space> ;
+            sh:name "located in"^^xsd:string ;
+            sh:nodeKind sh:IRI ;
+            sh:path <https://w3id.org/rec#locatedIn> ],
+        [ a sh:PropertyShape ;
+            sh:maxCount 1 ;
+            sh:name "initial cost"^^xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:path <https://w3id.org/rec#initialCost> ],
+        [ a sh:PropertyShape ;
+            sh:class <https://w3id.org/rec#Agent> ;
+            sh:name "manufactured by"^^xsd:string ;
+            sh:nodeKind sh:IRI ;
+            sh:path <https://w3id.org/rec#manufacturedBy> ],
+        [ a sh:PropertyShape ;
+            sh:class <https://w3id.org/rec#Agent> ;
+            sh:name "installed by"^^xsd:string ;
+            sh:nodeKind sh:IRI ;
+            sh:path <https://w3id.org/rec#installedBy> ],
+        [ a sh:PropertyShape ;
+            sh:datatype xsd:string ;
+            sh:name "serial number"^^xsd:string ;
+            sh:path <https://w3id.org/rec#serialNumber> ],
+        [ a sh:PropertyShape ;
+            sh:datatype xsd:decimal ;
+            sh:maxCount 1 ;
+            sh:name "weight"^^xsd:string ;
+            sh:path <https://w3id.org/rec#weight> ],
+        [ a sh:PropertyShape ;
+            sh:class <https://w3id.org/rec#Geometry> ;
+            sh:description "A GeoJSON Geometry representing the position or extent of the asset."^^xsd:string ;
+            sh:maxCount 1 ;
+            sh:name "geometry"^^xsd:string ;
+            sh:path <https://w3id.org/rec#geometry> ],
+        [ a sh:PropertyShape ;
+            sh:datatype xsd:string ;
+            sh:name "model number"^^xsd:string ;
+            sh:path <https://w3id.org/rec#modelNumber> ],
+        [ a sh:PropertyShape ;
+            sh:datatype xsd:string ;
+            sh:name "asset tag"^^xsd:string ;
+            sh:path <https://w3id.org/rec#assetTag> ],
+        [ a sh:PropertyShape ;
+            sh:class <https://w3id.org/rec#Asset> ;
+            sh:name "is part of"^^xsd:string ;
+            sh:nodeKind sh:IRI ;
+            sh:path <https://w3id.org/rec#isPartOf> ],
+        [ a sh:PropertyShape ;
+            sh:class brick:Point ;
+            sh:name "has point"^^xsd:string ;
+            sh:nodeKind sh:IRI ;
+            sh:path <https://w3id.org/rec#hasPoint> ],
+        [ a sh:PropertyShape ;
+            sh:datatype xsd:string ;
+            sh:name "IP address"^^xsd:string ;
+            sh:path <https://w3id.org/rec#IPAddress> ],
+        [ a sh:PropertyShape ;
+            sh:datatype xsd:string ;
+            sh:name "MAC address"^^xsd:string ;
+            sh:path <https://w3id.org/rec#MACAddress> ],
+        [ a sh:PropertyShape ;
+            sh:class <https://w3id.org/rec#BuildingElement> ;
+            sh:description "An asset may be mounted on some part of the building construction (e.g., a blind on a facade, a camera on a wall, etc)."^^xsd:string ;
+            sh:maxCount 1 ;
+            sh:name "mounted on"^^xsd:string ;
+            sh:nodeKind sh:IRI ;
+            sh:path <https://w3id.org/rec#mountedOn> ],
+        [ a sh:PropertyShape ;
+            sh:class <https://w3id.org/rec#Agent> ;
+            sh:name "commissioned by"^^xsd:string ;
+            sh:nodeKind sh:IRI ;
+            sh:path <https://w3id.org/rec#commissionedBy> ] .
+
+<https://w3id.org/rec#Atrium> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Atrium"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Room> .
+
+<https://w3id.org/rec#AudioVisualEquipment> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Audio Visual Equipment"^^xsd:string ;
+    rdfs:comment "Audio visual equipment."^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#ICTEquipment> .
+
+<https://w3id.org/rec#Auditorium> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Auditorium"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Room> .
+
+<https://w3id.org/rec#BACnetController> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "BACnet Controller"^^xsd:string ;
+    rdfs:comment "BACnet controller."^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Controller> .
+
+<https://w3id.org/rec#BackOffice> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Back office"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Room> .
+
+<https://w3id.org/rec#Balcony> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Balcony"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#BuildingElement> .
+
+<https://w3id.org/rec#BarRoom> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Bar room"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#FoodHandlingRoom> .
+
+<https://w3id.org/rec#BarrierAsset> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Barrier asset"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#ArchitecturalAsset> .
+
+<https://w3id.org/rec#BasementLevel> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Basement level"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Level> .
+
+<https://w3id.org/rec#Bathroom> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Bathroom"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Room> .
+
+<https://w3id.org/rec#Bed> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Bed"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Furniture> .
+
+<https://w3id.org/rec#Bedroom> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Bedroom"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Room> .
+
+<https://w3id.org/rec#BicycleGarage> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Bicycle garage"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Garage> .
+
+<https://w3id.org/rec#Bookcase> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Bookcase"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Furniture> .
+
+<https://w3id.org/rec#BooleanValueObservation> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Boolean value observation"^^xsd:string ;
+    rdfs:comment "Generic xsd:boolean value observation that is not specific to any particular QUDT quantitykind or unit."^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#ObservationEvent> ;
+    sh:property [ a sh:PropertyShape ;
+            sh:datatype xsd:boolean ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "value"^^xsd:string ;
+            sh:path <https://w3id.org/rec#value> ] .
+
+<https://w3id.org/rec#Building> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Building"^^xsd:string ;
+    rdfs:comment "A confined building structure."^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Architecture> .
+
+<https://w3id.org/rec#BuildingElement> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Building element"^^xsd:string ;
+    rdfs:comment "A part that constitutes a piece of a building's structural makeup. E.g., Facade, Wall, Slab, Roof, etc."^^xsd:string ;
+    rdfs:subClassOf rdfs:Resource ;
+    sh:property [ a sh:PropertyShape ;
+            sh:class <https://w3id.org/rec#BuildingElement> ;
+            sh:maxCount 1 ;
+            sh:name "is part of"^^xsd:string ;
+            sh:nodeKind sh:IRI ;
+            sh:path <https://w3id.org/rec#isPartOf> ],
+        [ a sh:PropertyShape ;
+            sh:class <https://w3id.org/rec#Architecture> ;
+            sh:description "Indicates the architected space (site, building, level, room...) in which this building element is placed."^^xsd:string ;
+            sh:maxCount 1 ;
+            sh:name "located in"^^xsd:string ;
+            sh:nodeKind sh:IRI ;
+            sh:path <https://w3id.org/rec#locatedIn> ],
+        [ a sh:PropertyShape ;
+            sh:class <https://w3id.org/rec#Document> ;
+            sh:name "documentation"^^xsd:string ;
+            sh:nodeKind sh:IRI ;
+            sh:path <https://w3id.org/rec#documentation> ],
+        [ a sh:PropertyShape ;
+            sh:class <https://w3id.org/rec#BuildingElement> ;
+            sh:name "has part"^^xsd:string ;
+            sh:nodeKind sh:IRI ;
+            sh:path <https://w3id.org/rec#hasPart> ] .
+
+<https://w3id.org/rec#BulletinBoard> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Bulletin board"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Furniture> .
+
+<https://w3id.org/rec#Cabinet> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Cabinet"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#UtilitiesRoom> .
+
+<https://w3id.org/rec#CableRoom> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Cable room"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#UtilitiesRoom> .
+
+<https://w3id.org/rec#CafeteriaRoom> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Cafeteria room"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#FoodHandlingRoom> .
+
+<https://w3id.org/rec#Campus> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Campus"^^xsd:string ;
+    rdfs:comment "A campus represents a collection of location entities. The constituent locations may have differing legal ownership and utilization purposes, but they are generally perceived as a coherent unit or sub-region within a city or other region. E.g., a university campus, a hospital campus, a corporate campus, etc."^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Collection> ;
+    sh:property [ a sh:PropertyShape ;
+            sh:class <https://w3id.org/rec#Architecture> ;
+            sh:minCount 1 ;
+            sh:name "includes"^^xsd:string ;
+            sh:nodeKind sh:IRI ;
+            sh:path <https://w3id.org/rec#includes> ] .
+
+<https://w3id.org/rec#CapacitanceObservation> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Capacitance observation"^^xsd:string ;
+    ns1:hasQuantityKind <http://qudt.org/vocab/quantitykind/Capacitance> ;
+    rdfs:subClassOf <https://w3id.org/rec#ObservationEvent> ;
+    sh:property [ a sh:PropertyShape ;
+            sh:datatype xsd:double ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "value"^^xsd:string ;
+            sh:path <https://w3id.org/rec#value> ] .
+
+<https://w3id.org/rec#Cart> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Cart"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Furniture> .
+
+<https://w3id.org/rec#Chair> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Chair"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Furniture> .
+
+<https://w3id.org/rec#Cinema> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Cinema"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Room> .
+
+<https://w3id.org/rec#Classroom> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Classroom"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#EducationalRoom> .
+
+<https://w3id.org/rec#CleaningRoom> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Cleaning room"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Room> .
+
+<https://w3id.org/rec#ClimateControlRoom> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Climate-control room"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#UtilitiesRoom> .
+
+<https://w3id.org/rec#CloakRoom> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Cloak room"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Room> .
+
+<https://w3id.org/rec#CoatRack> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Coat rack"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Furniture> .
+
+<https://w3id.org/rec#CoffeeTable> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Coffee table"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Table> .
+
+<https://w3id.org/rec#Collection> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Collection"^^xsd:string ;
+    rdfs:comment "An administrative grouping of entities that are adressed and treated as a unit for some purpose. These entities may have some spatial arrangement (e.g., an apartment is typically contiguous) but that is not a requirement (see, e.g., a distributed campus consisting of spatially disjoint plots or buildings). Inclusion in a Collection is determined by the 'includes' field on a specific subclass."^^xsd:string ;
+    rdfs:subClassOf rdfs:Resource ;
+    sh:property [ a sh:PropertyShape ;
+            sh:class <https://w3id.org/rec#Document> ;
+            sh:name "documentation"^^xsd:string ;
+            sh:nodeKind sh:IRI ;
+            sh:path <https://w3id.org/rec#documentation> ] .
+
+<https://w3id.org/rec#Company> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Company"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Organization> .
+
+<https://w3id.org/rec#ComputerCart> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Computer cart"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Cart> .
+
+<https://w3id.org/rec#ConferenceRoom> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Conference room"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Room> .
+
+<https://w3id.org/rec#ConferenceTable> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Conference table"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Table> .
+
+<https://w3id.org/rec#Controller> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Controller"^^xsd:string ;
+    rdfs:comment "Controller."^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#ICTEquipment> .
+
+<https://w3id.org/rec#ConversationRoom> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Conversation room"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Room> .
+
+<https://w3id.org/rec#CookingRoom> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Cooking room"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#FoodHandlingRoom> .
+
+<https://w3id.org/rec#CopyingRoom> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Copying room"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Room> .
+
+<https://w3id.org/rec#DataNetworkEquipment> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Data Network Equipment"^^xsd:string ;
+    rdfs:comment "Data network equipment."^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#ICTEquipment> .
+
+<https://w3id.org/rec#DataRateObservation> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Data rate observation"^^xsd:string ;
+    ns1:hasQuantityKind <http://qudt.org/vocab/quantitykind/DataRate> ;
+    rdfs:subClassOf <https://w3id.org/rec#ObservationEvent> ;
+    sh:property [ a sh:PropertyShape ;
+            sh:datatype xsd:double ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "value"^^xsd:string ;
+            sh:path <https://w3id.org/rec#value> ] .
+
+<https://w3id.org/rec#DataServerRoom> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Data server room"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#UtilitiesRoom> .
+
+<https://w3id.org/rec#DataSizeObservation> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Data size observation"^^xsd:string ;
+    ns1:hasQuantityKind <http://qudt.org/vocab/quantitykind/InformationEntropy> ;
+    rdfs:subClassOf <https://w3id.org/rec#ObservationEvent> ;
+    sh:property [ a sh:PropertyShape ;
+            sh:datatype xsd:double ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "value"^^xsd:string ;
+            sh:path <https://w3id.org/rec#value> ] .
+
+<https://w3id.org/rec#DaylightSensorEquipment> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Daylight Sensor"^^xsd:string ;
+    rdfs:comment "Daylight sensor."^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#SensorEquipment> .
+
+<https://w3id.org/rec#DensityObservation> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Density observation"^^xsd:string ;
+    ns1:hasQuantityKind <http://qudt.org/vocab/quantitykind/Density> ;
+    rdfs:subClassOf <https://w3id.org/rec#ObservationEvent> ;
+    sh:property [ a sh:PropertyShape ;
+            sh:datatype xsd:double ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "value"^^xsd:string ;
+            sh:path <https://w3id.org/rec#value> ] .
+
+<https://w3id.org/rec#Department> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Department"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Organization> .
+
+<https://w3id.org/rec#Desk> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Desk"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Furniture> .
+
+<https://w3id.org/rec#DeskLamp> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Desk lamp"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Lamp> .
+
+<https://w3id.org/rec#DiningRoom> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Dining room"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#FoodHandlingRoom> .
+
+<https://w3id.org/rec#DisabledToilet> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Disabled toilet"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#PersonalHygiene> .
+
+<https://w3id.org/rec#DishingRoom> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Dishing room"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#FoodHandlingRoom> .
+
+<https://w3id.org/rec#DistanceObservation> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Distance observation"^^xsd:string ;
+    ns1:hasQuantityKind <http://qudt.org/vocab/quantitykind/Distance> ;
+    rdfs:subClassOf <https://w3id.org/rec#ObservationEvent> ;
+    sh:property [ a sh:PropertyShape ;
+            sh:datatype xsd:double ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "value"^^xsd:string ;
+            sh:path <https://w3id.org/rec#value> ] .
+
+<https://w3id.org/rec#Document> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Document"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Information> ;
+    sh:property [ a sh:PropertyShape ;
+            sh:name "document topic"^^xsd:string ;
+            sh:nodeKind sh:IRI ;
+            sh:path <https://w3id.org/rec#documentTopic> ],
+        [ a sh:PropertyShape ;
+            sh:name "URL"^^xsd:string ;
+            sh:nodeKind sh:IRI ;
+            sh:path <https://w3id.org/rec#url> ] .
+
+<https://w3id.org/rec#Door> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Door"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#BarrierAsset> .
+
+<https://w3id.org/rec#DoubleValueObservation> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Double value observation"^^xsd:string ;
+    rdfs:comment "Generic xsd:double value observation that is not specific to any particular QUDT quantitykind or unit."^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#ObservationEvent> ;
+    sh:property [ a sh:PropertyShape ;
+            sh:datatype xsd:double ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "value"^^xsd:string ;
+            sh:path <https://w3id.org/rec#value> ] .
+
+<https://w3id.org/rec#DressingRoom> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Dressing room"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Room> .
+
+<https://w3id.org/rec#EducationalRoom> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Educational room"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Room> .
+
+<https://w3id.org/rec#ElectricChargeObservation> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Electric charge observation"^^xsd:string ;
+    ns1:hasQuantityKind <http://qudt.org/vocab/quantitykind/ElectricCharge> ;
+    rdfs:subClassOf <https://w3id.org/rec#ObservationEvent> ;
+    sh:property [ a sh:PropertyShape ;
+            sh:datatype xsd:double ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "value"^^xsd:string ;
+            sh:path <https://w3id.org/rec#value> ] .
+
+<https://w3id.org/rec#ElectricCurrentObservation> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Elecric current observation"^^xsd:string ;
+    ns1:hasQuantityKind <http://qudt.org/vocab/quantitykind/ElectricCurrent> ;
+    rdfs:subClassOf <https://w3id.org/rec#ObservationEvent> ;
+    sh:property [ a sh:PropertyShape ;
+            sh:datatype xsd:double ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "value"^^xsd:string ;
+            sh:path <https://w3id.org/rec#value> ] .
+
+<https://w3id.org/rec#ElectricityRoom> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Electricity room"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#UtilitiesRoom> .
+
+<https://w3id.org/rec#ElevatorRoom> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Elevator room"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Room> .
+
+<https://w3id.org/rec#ElevatorShaft> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Elevator shaft"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Room> .
+
+<https://w3id.org/rec#ElevatorTrip> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Elevator trip"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Event> ;
+    sh:property [ a sh:PropertyShape ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:name "end level"^^xsd:string ;
+            sh:path <https://w3id.org/rec#endLevel> ],
+        [ a sh:PropertyShape ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:name "start level"^^xsd:string ;
+            sh:path <https://w3id.org/rec#startLevel> ],
+        [ a sh:PropertyShape ;
+            sh:datatype xsd:string ;
+            sh:in ( "Up"^^xsd:string "Down"^^xsd:string ) ;
+            sh:maxCount 1 ;
+            sh:name "trip direction"^^xsd:string ;
+            sh:path <https://w3id.org/rec#tripDirection> ],
+        [ a sh:PropertyShape ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:name "current level"^^xsd:string ;
+            sh:path <https://w3id.org/rec#currentLevel> ] .
+
+<https://w3id.org/rec#EndTable> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "End table"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Table> .
+
+<https://w3id.org/rec#EnergyObservation> a <dtmi:dtdl:class:Component>,
+        rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Energy observation"^^xsd:string ;
+    ns1:hasQuantityKind <http://qudt.org/vocab/quantitykind/Energy> ;
+    rdfs:subClassOf <https://w3id.org/rec#ObservationEvent> ;
+    sh:property [ a sh:PropertyShape ;
+            sh:datatype xsd:double ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "value"^^xsd:string ;
+            sh:path <https://w3id.org/rec#value> ] .
+
+<https://w3id.org/rec#Entrance> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Entrance"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Room> .
+
+<https://w3id.org/rec#EquipmentCollection> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Equipment collection"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Collection> ;
+    sh:property [ a sh:PropertyShape ;
+            sh:class brick:Equipment ;
+            sh:minCount 1 ;
+            sh:name "includes"^^xsd:string ;
+            sh:nodeKind sh:IRI ;
+            sh:path <https://w3id.org/rec#includes> ] .
+
+<https://w3id.org/rec#ErrorReport> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Error report"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#ServiceObject> .
+
+<https://w3id.org/rec#EthernetPort> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Ethernet Port"^^xsd:string ;
+    rdfs:comment "Ethernet port."^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#DataNetworkEquipment> ;
+    sh:property [ a sh:PropertyShape ;
+            sh:datatype xsd:float ;
+            sh:description "The data rate of the port in Mib/s, i.e. mebibit (2^20 bit) per second."^^xsd:string ;
+            sh:maxCount 1 ;
+            sh:name "Port Speed"^^xsd:string ;
+            sh:path <https://w3id.org/rec#portSpeed> ],
+        [ a sh:PropertyShape ;
+            sh:datatype xsd:string ;
+            sh:in ( "Type1"^^xsd:string "Type2"^^xsd:string "Type3"^^xsd:string "Type4"^^xsd:string ) ;
+            sh:maxCount 1 ;
+            sh:name "PoE Type"^^xsd:string ;
+            sh:path <https://w3id.org/rec#poeType> ] .
+
+<https://w3id.org/rec#EthernetSwitch> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Ethernet Switch"^^xsd:string ;
+    rdfs:comment "Ethernet switch."^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#DataNetworkEquipment> .
+
+<https://w3id.org/rec#Event> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Event"^^xsd:string ;
+    rdfs:comment "A temporally indexed entity, e.g., an observation, a lease, a construction project, etc. Can be instantaneous (timestamp property assigned) or have temporal extent (start and end properties assigned). Subclasses may define specific behaviour and requirements, e.g., on spatial indexing, agent participation, etc."^^xsd:string ;
+    rdfs:subClassOf rdfs:Resource ;
+    sh:property [ a sh:PropertyShape ;
+            sh:datatype xsd:dateTime ;
+            sh:description "Event start timestamp."^^xsd:string ;
+            sh:maxCount 1 ;
+            sh:name "start"^^xsd:string ;
+            sh:path <https://w3id.org/rec#start> ],
+        [ a sh:PropertyShape ;
+            sh:datatype xsd:dateTime ;
+            sh:description "Event ending timestamp."^^xsd:string ;
+            sh:maxCount 1 ;
+            sh:name "end"^^xsd:string ;
+            sh:path <https://w3id.org/rec#end> ],
+        [ a sh:PropertyShape ;
+            sh:datatype xsd:dateTime ;
+            sh:maxCount 1 ;
+            sh:name "timestamp"^^xsd:string ;
+            sh:path <https://w3id.org/rec#timestamp> ] .
+
+<https://w3id.org/rec#ExceptionEvent> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Exception event"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#PointEvent> ;
+    sh:property [ a sh:PropertyShape ;
+            sh:datatype xsd:string ;
+            sh:description "The message of this exception event."^^xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "value"^^xsd:string ;
+            sh:path <https://w3id.org/rec#value> ],
+        [ a sh:PropertyShape ;
+            sh:class brick:Point ;
+            sh:description "The brick:Point that emitted this exception."^^xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "source point"^^xsd:string ;
+            sh:nodeKind sh:IRI ;
+            sh:path <https://w3id.org/rec#sourcePoint> ] .
+
+<https://w3id.org/rec#ExerciseRoom> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Exercise room"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Room> .
+
+<https://w3id.org/rec#ExhibitionRoom> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Exhibition room"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Room> .
+
+<https://w3id.org/rec#Facade> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Facade"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#BuildingElement> .
+
+<https://w3id.org/rec#FilingCabinet> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Filing cabinet"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Furniture> .
+
+<https://w3id.org/rec#FittingRoom> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Fitting room"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#RetailRoom> .
+
+<https://w3id.org/rec#FloorLamp> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Floor lamp"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Lamp> .
+
+<https://w3id.org/rec#FloorMat> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Floor mat"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Furniture> .
+
+<https://w3id.org/rec#FoldingChair> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Folding chair"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Chair> .
+
+<https://w3id.org/rec#FoldingTable> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Folding table"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Table> .
+
+<https://w3id.org/rec#FoodHandlingRoom> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Food-handling room"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Room> .
+
+<https://w3id.org/rec#Footrest> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Footrest"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Furniture> .
+
+<https://w3id.org/rec#ForceObservation> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Force observation"^^xsd:string ;
+    ns1:hasQuantityKind <http://qudt.org/vocab/quantitykind/Force> ;
+    rdfs:subClassOf <https://w3id.org/rec#ObservationEvent> ;
+    sh:property [ a sh:PropertyShape ;
+            sh:datatype xsd:double ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "value"^^xsd:string ;
+            sh:path <https://w3id.org/rec#value> ] .
+
+<https://w3id.org/rec#FrequencyObservation> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Frequency observation"^^xsd:string ;
+    ns1:hasQuantityKind <http://qudt.org/vocab/quantitykind/Frequency> ;
+    rdfs:subClassOf <https://w3id.org/rec#ObservationEvent> ;
+    sh:property [ a sh:PropertyShape ;
+            sh:datatype xsd:double ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "value"^^xsd:string ;
+            sh:path <https://w3id.org/rec#value> ] .
+
+<https://w3id.org/rec#Furniture> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Furniture"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Asset> .
+
+<https://w3id.org/rec#FurnitureCollection> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Furniture collection"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Collection> ;
+    sh:property [ a sh:PropertyShape ;
+            sh:class <https://w3id.org/rec#Furniture> ;
+            sh:minCount 1 ;
+            sh:name "includes"^^xsd:string ;
+            sh:nodeKind sh:IRI ;
+            sh:path <https://w3id.org/rec#includes> ] .
+
+<https://w3id.org/rec#Garage> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Garage"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Room> .
+
+<https://w3id.org/rec#Gateway> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Gateway"^^xsd:string ;
+    rdfs:comment "Gateway."^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#ICTEquipment> .
+
+<https://w3id.org/rec#Geometry> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Geometry"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Information> ;
+    sh:property [ a sh:PropertyShape ;
+            sh:datatype xsd:string ;
+            sh:in ( "WGS84"^^xsd:string "SWEREF99"^^xsd:string "LocalCoordinates"^^xsd:string ) ;
+            sh:maxCount 1 ;
+            sh:name "coordinate system"^^xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:path <https://w3id.org/rec#coordinateSystem> ] .
+
+<https://w3id.org/rec#Georeference> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Georeference"^^xsd:string ;
+    rdfs:comment "A georeference creates a relationship between a local coordinate system into a geographic coordinate system."^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Information> .
+
+<https://w3id.org/rec#Geotransform> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Geotransform"^^xsd:string ;
+    rdfs:comment "A transform following GDAL's Affine Transform that transforms a local coordinate into a WGS84 coordinate. Created from Ground Control Points (GCP) using GDAL's GCPsToGeotransform method."^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Georeference> ;
+    sh:property [ a sh:PropertyShape ;
+            sh:datatype xsd:double ;
+            sh:maxCount 1 ;
+            sh:name "height scale factor"^^xsd:string ;
+            sh:path <https://w3id.org/rec#heightScaleFactor> ],
+        [ a sh:PropertyShape ;
+            sh:datatype xsd:double ;
+            sh:description "Value will be zero if the local coordinate system is north-aligned."^^xsd:string ;
+            sh:maxCount 1 ;
+            sh:name "y rotational scale factor"^^xsd:string ;
+            sh:path <https://w3id.org/rec#yRotationalScaleFactor> ],
+        [ a sh:PropertyShape ;
+            sh:datatype xsd:double ;
+            sh:maxCount 1 ;
+            sh:name "origin x"^^xsd:string ;
+            sh:path <https://w3id.org/rec#originX> ],
+        [ a sh:PropertyShape ;
+            sh:datatype xsd:double ;
+            sh:maxCount 1 ;
+            sh:name "width scale factor"^^xsd:string ;
+            sh:path <https://w3id.org/rec#widthScaleFactor> ],
+        [ a sh:PropertyShape ;
+            sh:datatype xsd:double ;
+            sh:maxCount 1 ;
+            sh:name "origin y"^^xsd:string ;
+            sh:path <https://w3id.org/rec#originY> ],
+        [ a sh:PropertyShape ;
+            sh:datatype xsd:double ;
+            sh:description "Value will be zero if the local coordinate system is north-aligned."^^xsd:string ;
+            sh:maxCount 1 ;
+            sh:name "x rotational scale factor"^^xsd:string ;
+            sh:path <https://w3id.org/rec#xRotationalScaleFactor> ] .
+
+<https://w3id.org/rec#GroupRoom> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Group room"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#EducationalRoom> .
+
+<https://w3id.org/rec#HVACZone> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "HVAC zone"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Zone> .
+
+<https://w3id.org/rec#Hallway> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Hallway"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Room> .
+
+<https://w3id.org/rec#HealthcareRoom> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Healthcare room"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Room> .
+
+<https://w3id.org/rec#Hospital> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Hospital"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Building> .
+
+<https://w3id.org/rec#IAQSensorEquipment> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Indoor Air Quality Sensor"^^xsd:string ;
+    rdfs:comment "Indoor air quality sensor."^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#SensorEquipment> .
+
+<https://w3id.org/rec#ICTEquipment> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "ICT Equipment"^^xsd:string ;
+    rdfs:comment "Equipment and devices that are part of a building's ICT infrastructure."^^xsd:string ;
+    rdfs:subClassOf brick:Equipment ;
+    sh:property [ a sh:PropertyShape ;
+            sh:datatype xsd:integer ;
+            sh:name "Height (RUs)"^^xsd:string ;
+            sh:path <https://w3id.org/rec#heightRUs> ],
+        [ a sh:PropertyShape ;
+            sh:datatype xsd:integer ;
+            sh:name "Number of Ports"^^xsd:string ;
+            sh:path <https://w3id.org/rec#numberOfPorts> ],
+        [ a sh:PropertyShape ;
+            sh:datatype xsd:string ;
+            sh:description "The standard the equipment or device adheres to, e.g. IEEE 802.11."^^xsd:string ;
+            sh:name "Standard"^^xsd:string ;
+            sh:path <https://w3id.org/rec#standard> ] .
+
+<https://w3id.org/rec#ICTHardware> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "ICT Hardware"^^xsd:string ;
+    rdfs:comment "ICT hardware."^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#ICTEquipment> .
+
+<https://w3id.org/rec#ITRack> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "IT Rack"^^xsd:string ;
+    rdfs:comment "IT rack."^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#ICTEquipment> .
+
+<https://w3id.org/rec#IlluminanceObservation> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Illuminance observation"^^xsd:string ;
+    ns1:hasQuantityKind <http://qudt.org/vocab/quantitykind/Illuminance> ;
+    rdfs:subClassOf <https://w3id.org/rec#ObservationEvent> ;
+    sh:property [ a sh:PropertyShape ;
+            sh:datatype xsd:double ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "value"^^xsd:string ;
+            sh:path <https://w3id.org/rec#value> ] .
+
+<https://w3id.org/rec#InductanceObservation> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Inductance observation"^^xsd:string ;
+    ns1:hasQuantityKind <http://qudt.org/vocab/quantitykind/Inductance> ;
+    rdfs:subClassOf <https://w3id.org/rec#ObservationEvent> ;
+    sh:property [ a sh:PropertyShape ;
+            sh:datatype xsd:double ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "value"^^xsd:string ;
+            sh:path <https://w3id.org/rec#value> ] .
+
+<https://w3id.org/rec#Information> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Information"^^xsd:string ;
+    rdfs:subClassOf rdfs:Resource .
+
+<https://w3id.org/rec#IntegerValueObservation> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Integer value observation"^^xsd:string ;
+    rdfs:comment "Generic xsd:int value observation that is not specific to any particular QUDT quantitykind or unit."^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#ObservationEvent> ;
+    sh:property [ a sh:PropertyShape ;
+            sh:datatype xsd:integer ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "value"^^xsd:string ;
+            sh:path <https://w3id.org/rec#value> ] .
+
+<https://w3id.org/rec#Kitchenette> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Kitchenette"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#FoodHandlingRoom> .
+
+<https://w3id.org/rec#Laboratory> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Laboratory"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Room> .
+
+<https://w3id.org/rec#LaboratoryDry> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Laboratory (dry)"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Laboratory> .
+
+<https://w3id.org/rec#LaboratoryWet> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Laboratory (wet)"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Laboratory> .
+
+<https://w3id.org/rec#Lamp> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Lamp"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Furniture> .
+
+<https://w3id.org/rec#LaundryRoom> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Laundry room"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Room> .
+
+<https://w3id.org/rec#LeakDetectorEquipment> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Leak Detector"^^xsd:string ;
+    rdfs:comment "Leak detector."^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#SensorEquipment> .
+
+<https://w3id.org/rec#Lease> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Lease"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Event> ;
+    sh:property [ a sh:PropertyShape ;
+            sh:description "The object (e.g., property, equipment, etc) that this a lease of."^^xsd:string ;
+            sh:minCount 1 ;
+            sh:name "lease of"^^xsd:string ;
+            sh:nodeKind sh:IRI ;
+            sh:path <https://w3id.org/rec#leaseOf> ],
+        [ a sh:PropertyShape ;
+            sh:class <https://w3id.org/rec#Agent> ;
+            sh:description "The agent leasing some leasable object, i.e., the user of the asset."^^xsd:string ;
+            sh:minCount 1 ;
+            sh:name "leasee"^^xsd:string ;
+            sh:nodeKind sh:IRI ;
+            sh:path <https://w3id.org/rec#leasee> ],
+        [ a sh:PropertyShape ;
+            sh:class <https://w3id.org/rec#Agent> ;
+            sh:description "The agent leasing out some leasable object, i.e., the owner of the asset."^^xsd:string ;
+            sh:minCount 1 ;
+            sh:name "leasor"^^xsd:string ;
+            sh:nodeKind sh:IRI ;
+            sh:path <https://w3id.org/rec#leasor> ],
+        [ a sh:PropertyShape ;
+            sh:class <https://w3id.org/rec#LeaseContract> ;
+            sh:description "Indicates the contract regulating the terms of the lease in question. "^^xsd:string ;
+            sh:name "regulated by"^^xsd:string ;
+            sh:nodeKind sh:IRI ;
+            sh:path <https://w3id.org/rec#regulatedBy> ] .
+
+<https://w3id.org/rec#LeaseContract> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Lease contract"^^xsd:string ;
+    rdfs:comment "Formal document that identifies the Tenant and the leased asset or property; states lease term and fee (rent), and detailed terms and conditions of the lease agreement."^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Document> ;
+    sh:property [ a sh:PropertyShape ;
+            sh:class <https://w3id.org/rec#Lease> ;
+            sh:description "Indicates the lease(s) that this contract regulates the conditions of."^^xsd:string ;
+            sh:name "regulates"^^xsd:string ;
+            sh:nodeKind sh:IRI ;
+            sh:path <https://w3id.org/rec#regulates> ] .
+
+<https://w3id.org/rec#LengthObservation> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Length observation"^^xsd:string ;
+    ns1:hasQuantityKind <http://qudt.org/vocab/quantitykind/Length> ;
+    rdfs:subClassOf <https://w3id.org/rec#ObservationEvent> ;
+    sh:property [ a sh:PropertyShape ;
+            sh:datatype xsd:double ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "value"^^xsd:string ;
+            sh:path <https://w3id.org/rec#value> ] .
+
+<https://w3id.org/rec#Level> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Level"^^xsd:string ;
+    rdfs:comment "The level of a building, a.k.a. storey, floor, etc."^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Architecture> ;
+    sh:property [ a sh:PropertyShape ;
+            sh:datatype xsd:integer ;
+            sh:description "A number indicating the ordinal number of this level within the containing space (typically a Building or in the case of a Mezzanine, sometimes another level). Note that the implementation of this numbering scheme and its starting point is implementation-specific; e.g., the fifth floor below ground may be 0 in some systems, and -5 in others."^^xsd:string ;
+            sh:name "level number"^^xsd:string ;
+            sh:path <https://w3id.org/rec#levelNumber> ] .
+
+<https://w3id.org/rec#Library> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Library"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Room> .
+
+<https://w3id.org/rec#LivingRoom> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Living room"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Room> .
+
+<https://w3id.org/rec#LoadingReceivingRoom> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Loading/receiving room"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Room> .
+
+<https://w3id.org/rec#LockerRoom> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Locker room"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Room> .
+
+<https://w3id.org/rec#LuminanceObservation> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Luminance observation"^^xsd:string ;
+    ns1:hasQuantityKind <http://qudt.org/vocab/quantitykind/Luminance> ;
+    rdfs:subClassOf <https://w3id.org/rec#ObservationEvent> ;
+    sh:property [ a sh:PropertyShape ;
+            sh:datatype xsd:double ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "value"^^xsd:string ;
+            sh:path <https://w3id.org/rec#value> ] .
+
+<https://w3id.org/rec#LuminousFluxObservation> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Luminous flux observation"^^xsd:string ;
+    ns1:hasQuantityKind <http://qudt.org/vocab/quantitykind/LuminousFlux> ;
+    rdfs:subClassOf <https://w3id.org/rec#ObservationEvent> ;
+    sh:property [ a sh:PropertyShape ;
+            sh:datatype xsd:double ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "value"^^xsd:string ;
+            sh:path <https://w3id.org/rec#value> ] .
+
+<https://w3id.org/rec#LuminousIntensityObservation> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Luminous intensity observation"^^xsd:string ;
+    ns1:hasQuantityKind <http://qudt.org/vocab/quantitykind/LuminousIntensity> ;
+    rdfs:subClassOf <https://w3id.org/rec#ObservationEvent> ;
+    sh:property [ a sh:PropertyShape ;
+            sh:datatype xsd:double ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "value"^^xsd:string ;
+            sh:path <https://w3id.org/rec#value> ] .
+
+<https://w3id.org/rec#MagneticFluxObservation> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Magnetic flux observation"^^xsd:string ;
+    ns1:hasQuantityKind <http://qudt.org/vocab/quantitykind/MagneticFlux> ;
+    rdfs:subClassOf <https://w3id.org/rec#ObservationEvent> ;
+    sh:property [ a sh:PropertyShape ;
+            sh:datatype xsd:double ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "value"^^xsd:string ;
+            sh:path <https://w3id.org/rec#value> ] .
+
+<https://w3id.org/rec#MailRoom> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Mail room"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#BackOffice> .
+
+<https://w3id.org/rec#MailroomCart> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Mailroom cart"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Cart> .
+
+<https://w3id.org/rec#MainEntrance> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Main entrance"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Entrance> .
+
+<https://w3id.org/rec#MassFlowRateObservation> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Mass flow rate observation"^^xsd:string ;
+    ns1:hasQuantityKind <http://qudt.org/vocab/quantitykind/MassFlowRate> ;
+    rdfs:subClassOf <https://w3id.org/rec#ObservationEvent> ;
+    sh:property [ a sh:PropertyShape ;
+            sh:datatype xsd:double ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "value"^^xsd:string ;
+            sh:path <https://w3id.org/rec#value> ] .
+
+<https://w3id.org/rec#MassObservation> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Mass observation"^^xsd:string ;
+    ns1:hasQuantityKind <http://qudt.org/vocab/quantitykind/Mass> ;
+    rdfs:subClassOf <https://w3id.org/rec#ObservationEvent> ;
+    sh:property [ a sh:PropertyShape ;
+            sh:datatype xsd:double ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "value"^^xsd:string ;
+            sh:path <https://w3id.org/rec#value> ] .
+
+<https://w3id.org/rec#MeditationRoom> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Meditation room"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Room> .
+
+<https://w3id.org/rec#MezzanineLevel> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Mezzanine level"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Level> .
+
+<https://w3id.org/rec#MobileDesk> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Mobile desk"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Desk> .
+
+<https://w3id.org/rec#ModbusController> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Modbus Controller"^^xsd:string ;
+    rdfs:comment "Modbus controller."^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Controller> .
+
+<https://w3id.org/rec#Morgue> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Morgue"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#HealthcareRoom> .
+
+<https://w3id.org/rec#MothersRoom> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Mothers' room"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Room> .
+
+<https://w3id.org/rec#MultiPoint> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Multi point"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Geometry> ;
+    sh:property [ a sh:PropertyShape ;
+            sh:datatype <https://geojson.org/MultiPoint> ;
+            sh:description "A GeoJSON MultiPoint coordinate listing. Coordinates may be expressed in two or three dimensions. Ex: [[10.0, 40.0], [40.0, 30.0], [20.0, 20.0], [30.0, 10.0]]."^^xsd:string ;
+            sh:maxCount 1 ;
+            sh:name "coordinates"^^xsd:string ;
+            sh:path <https://w3id.org/rec#coordinates> ] .
+
+<https://w3id.org/rec#MultiPolygon> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Multi polygon"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Geometry> ;
+    sh:property [ a sh:PropertyShape ;
+            sh:datatype <https://geojson.org/MultiPolygon> ;
+            sh:description "A GeoJSON MultiPolygon coordinate listing. Coordinates may be expressed in two or three dimensions. Ex: [[[[30.0, 20.0], [45.0, 40.0], [10.0, 40.0], [30.0, 20.0]]], [[[15.0, 5.0], [40.0, 10.0], [10.0, 20.0], [5.0, 10.0], [15.0, 5.0]]]]."^^xsd:string ;
+            sh:maxCount 1 ;
+            sh:name "coordinates"^^xsd:string ;
+            sh:path <https://w3id.org/rec#coordinates> ] .
+
+<https://w3id.org/rec#MultiPurposeRoom> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Multi-purpose room"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Room> .
+
+<https://w3id.org/rec#NeonatalNursingRoom> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Neonatal nursing room"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#HealthcareRoom> .
+
+<https://w3id.org/rec#NetworkRouter> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Network Router"^^xsd:string ;
+    rdfs:comment "Network router."^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#DataNetworkEquipment> .
+
+<https://w3id.org/rec#NetworkSecurityEquipment> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Network Security Equipment"^^xsd:string ;
+    rdfs:comment "Network security equipment."^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#DataNetworkEquipment> .
+
+<https://w3id.org/rec#NotificationObject> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Notification object"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#ServiceObject> .
+
+<https://w3id.org/rec#ObservationEvent> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Observation event"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#PointEvent> ;
+    sh:property [ a sh:PropertyShape ;
+            sh:class brick:Point ;
+            sh:description "The brick:Point that emitted this observation."^^xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "source point"^^xsd:string ;
+            sh:nodeKind sh:IRI ;
+            sh:path <https://w3id.org/rec#sourcePoint> ] .
+
+<https://w3id.org/rec#OccupancySensorEquipment> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Occupancy Sensor"^^xsd:string ;
+    rdfs:comment "Occupancy sensor."^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#SensorEquipment> .
+
+<https://w3id.org/rec#OccupancyZone> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Occupancy zone"^^xsd:string ;
+    rdfs:comment "Occupancy Zone is a spatial area where devices are monitoring or reporting on the concept of Occupancy (motion sensors, people counters, cameras, etc.)"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Zone> .
+
+<https://w3id.org/rec#Office> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Office"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Room> .
+
+<https://w3id.org/rec#OfficeChair> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Office chair"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Chair> .
+
+<https://w3id.org/rec#OfficeLandscape> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "OfficeLandscape"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Office> .
+
+<https://w3id.org/rec#OfficeRoom> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "OfficeRoom"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Office> .
+
+<https://w3id.org/rec#OperatingRoom> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Operating room"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#HealthcareRoom> .
+
+<https://w3id.org/rec#Organization> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Organization"^^xsd:string ;
+    rdfs:comment "An organization of any sort (e.g., a business, association, project, consortium, tribe, etc.)"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Agent> ;
+    sh:property [ a sh:PropertyShape ;
+            sh:datatype xsd:anyURI ;
+            sh:description "URL link to an image/logo that represents the organization."^^xsd:string ;
+            sh:name "logo"^^xsd:string ;
+            sh:path <https://w3id.org/rec#logo> ],
+        [ a sh:PropertyShape ;
+            sh:class <https://w3id.org/rec#Agent> ;
+            sh:description "Indicates membership in an organization. Note that componency (e.g., departments of a corporation) are expressed using the more generic hasPart property."^^xsd:string ;
+            sh:name "has member"^^xsd:string ;
+            sh:nodeKind sh:IRI ;
+            sh:path <https://w3id.org/rec#hasMember> ],
+        [ a sh:PropertyShape ;
+            sh:class <https://w3id.org/rec#Organization> ;
+            sh:description "Indicates parthood relations in organizations (e.g., departments of a corporation). Note that membership in an organization is expressed using the Agent.isMemberOf property."^^xsd:string ;
+            sh:name "is part of"^^xsd:string ;
+            sh:nodeKind sh:IRI ;
+            sh:path <https://w3id.org/rec#isPartOf> ],
+        [ a sh:PropertyShape ;
+            sh:class <https://w3id.org/rec#Organization> ;
+            sh:description "Indicates parthood relations in organizations (e.g., departments of a corporation). Note that membership in an organization is expressed using the more specific hasMember property."^^xsd:string ;
+            sh:name "has part"^^xsd:string ;
+            sh:nodeKind sh:IRI ;
+            sh:path <https://w3id.org/rec#hasPart> ] .
+
+<https://w3id.org/rec#OutdoorSpace> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Outdoor space"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Architecture> .
+
+<https://w3id.org/rec#OutpatientServicesRoom> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Outpatient services room"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#HealthcareRoom> .
+
+<https://w3id.org/rec#Pantry> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Pantry"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#FoodHandlingRoom> .
+
+<https://w3id.org/rec#ParkingSpace> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Parking space"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Zone> .
+
+<https://w3id.org/rec#Partition> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Partition"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#BarrierAsset> .
+
+<https://w3id.org/rec#PeopleCountSensorEquipment> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "People Count Sensor"^^xsd:string ;
+    rdfs:comment "People count sensor."^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#SensorEquipment> .
+
+<https://w3id.org/rec#Person> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Person"^^xsd:string ;
+    rdfs:comment "A natural person (i.e., an individual human being)."^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Agent> ;
+    sh:property [ a sh:PropertyShape ;
+            sh:datatype xsd:string ;
+            sh:name "gender"^^xsd:string ;
+            sh:path <https://w3id.org/rec#gender> ],
+        [ a sh:PropertyShape ;
+            sh:datatype xsd:string ;
+            sh:path <https://w3id.org/rec#givenName> ],
+        [ a sh:PropertyShape ;
+            sh:datatype xsd:string ;
+            sh:path <https://w3id.org/rec#familyName> ],
+        [ a sh:PropertyShape ;
+            sh:datatype xsd:anyURI ;
+            sh:description "URL link to an image that represents the person."^^xsd:string ;
+            sh:name "image"^^xsd:string ;
+            sh:path <https://w3id.org/rec#image> ] .
+
+<https://w3id.org/rec#PersonalHygiene> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Personal hygiene room"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Room> .
+
+<https://w3id.org/rec#PharmacyRoom> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Pharmacy room"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#HealthcareRoom> .
+
+<https://w3id.org/rec#PhoneBooth> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "PhoneBooth"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Office> .
+
+<https://w3id.org/rec#Point> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Point"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Geometry> ;
+    sh:property [ a sh:PropertyShape ;
+            sh:datatype <https://geojson.org/Point> ;
+            sh:description "A GeoJSON Point coordinate listing. Coordinate may be expressed in two or three dimensions. Ex: [30.0, 10.0, 0.0]."^^xsd:string ;
+            sh:maxCount 1 ;
+            sh:name "coordinates"^^xsd:string ;
+            sh:path <https://w3id.org/rec#coordinates> ] .
+
+<https://w3id.org/rec#PointEvent> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Point event"^^xsd:string ;
+    rdfs:comment "An event emanating from or targeting a Point; e.g., an individual Observation from a Sensor point, or an Actuation sent to a Command point. In other terms, the Points indicate the capability of some Space or Equipment to emit or accept data, while this class represents those actual data messages. Note that in most non-trivially sized systems, these events are not stored in the knowledge graph itself, but are rather forwarded to some C&C system or time series database."^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Event> .
+
+<https://w3id.org/rec#PointOfInterest> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Point of Interest"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Information> ;
+    sh:property [ a sh:PropertyShape ;
+            sh:maxCount 1 ;
+            sh:name "object of interest"^^xsd:string ;
+            sh:nodeKind sh:IRI ;
+            sh:path <https://w3id.org/rec#objectOfInterest> ] .
+
+<https://w3id.org/rec#Polygon> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Polygon"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Geometry> ;
+    sh:property [ a sh:PropertyShape ;
+            sh:datatype <https://geojson.org/Polygon> ;
+            sh:description "A GeoJSON Polygon coordinate listing. Coordinates may be expressed in two or three dimensions. Ex: [[30.0, 10.0, 0.0], [40.0, 40.0, 2.0], [20.0, 40.0, 2.0], [10.0, 20.0, 2.0], [30.0, 10.0, 0.0]]."^^xsd:string ;
+            sh:maxCount 1 ;
+            sh:name "coordinates"^^xsd:string ;
+            sh:path <https://w3id.org/rec#coordinates> ] .
+
+<https://w3id.org/rec#Portfolio> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Portfolio"^^xsd:string ;
+    rdfs:comment "A portfolio is a grouping of buildings, sites, apartments, campuses, etc. that share some business-relevant commonality, e.g., are managed by the same company, are rented out to the same tenant, share utilization or legal definition (industrial vs commercial), etc."^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Collection> ;
+    sh:property [ a sh:PropertyShape ;
+            sh:minCount 1 ;
+            sh:name "includes"^^xsd:string ;
+            sh:nodeKind sh:IRI ;
+            sh:path <https://w3id.org/rec#includes> ] .
+
+<https://w3id.org/rec#PostalAddress> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Postal address"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Information> ;
+    sh:property [ a sh:PropertyShape ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:name "address line 1"^^xsd:string ;
+            sh:path <https://w3id.org/rec#addressLine1> ],
+        [ a sh:PropertyShape ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:name "address line 2"^^xsd:string ;
+            sh:path <https://w3id.org/rec#addressLine2> ],
+        [ a sh:PropertyShape ;
+            sh:datatype xsd:string ;
+            sh:description "The country, e.g., USA, Sweden, Argentina, or optionally a two-letter ISO 3166-1 alpha-2 country code, e.g., \"SE\", \"US\", etc."^^xsd:string ;
+            sh:maxCount 1 ;
+            sh:name "country"^^xsd:string ;
+            sh:path <https://w3id.org/rec#country> ],
+        [ a sh:PropertyShape ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:name "city"^^xsd:string ;
+            sh:path <https://w3id.org/rec#city> ],
+        [ a sh:PropertyShape ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:name "postal code"^^xsd:string ;
+            sh:path <https://w3id.org/rec#postalCode> ],
+        [ a sh:PropertyShape ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:name "region"^^xsd:string ;
+            sh:path <https://w3id.org/rec#region> ] .
+
+<https://w3id.org/rec#PowerObservation> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Power observation"^^xsd:string ;
+    ns1:hasQuantityKind <http://qudt.org/vocab/quantitykind/Power> ;
+    rdfs:subClassOf <https://w3id.org/rec#ObservationEvent> ;
+    sh:property [ a sh:PropertyShape ;
+            sh:datatype xsd:double ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "value"^^xsd:string ;
+            sh:path <https://w3id.org/rec#value> ] .
+
+<https://w3id.org/rec#Premises> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Premises"^^xsd:string ;
+    rdfs:comment "A premises is an administrative grouping of spaces that are used for some commercial or industrial purpose by a real estate holder or tenant. E.g, a suite of offices, a shop, or an industrial workshop."^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Collection> ;
+    sh:property [ a sh:PropertyShape ;
+            sh:class <https://w3id.org/rec#Architecture> ;
+            sh:minCount 1 ;
+            sh:name "includes"^^xsd:string ;
+            sh:nodeKind sh:IRI ;
+            sh:path <https://w3id.org/rec#includes> ] .
+
+<https://w3id.org/rec#PressureObservation> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Pressure observation"^^xsd:string ;
+    ns1:hasQuantityKind <http://qudt.org/vocab/quantitykind/Pressure> ;
+    rdfs:subClassOf <https://w3id.org/rec#ObservationEvent> ;
+    sh:property [ a sh:PropertyShape ;
+            sh:datatype xsd:double ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "value"^^xsd:string ;
+            sh:path <https://w3id.org/rec#value> ] .
+
+<https://w3id.org/rec#PrinterCart> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Printer cart"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Cart> .
+
+<https://w3id.org/rec#PrinterStand> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Printer stand"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Stand> .
+
+<https://w3id.org/rec#RadiologyRoom> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Radiology room"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#HealthcareRoom> .
+
+<https://w3id.org/rec#RealEstate> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Real Estate"^^xsd:string ;
+    rdfs:comment "The legal/administrative representation of some lands and/or buildings. I.e., \"Fastighet\" (Swedish), \"Ejendom\" (Denmark), etc."^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Collection> ;
+    sh:property [ a sh:PropertyShape ;
+            sh:class <https://w3id.org/rec#Architecture> ;
+            sh:minCount 1 ;
+            sh:name "includes"^^xsd:string ;
+            sh:nodeKind sh:IRI ;
+            sh:path <https://w3id.org/rec#includes> ] .
+
+<https://w3id.org/rec#Reception> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Reception"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Room> .
+
+<https://w3id.org/rec#ReceptionTable> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Reception table"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Table> .
+
+<https://w3id.org/rec#RecordingRoom> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Recording room"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Room> .
+
+<https://w3id.org/rec#RecreationalRoom> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Recreational room"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Room> .
+
+<https://w3id.org/rec#Region> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Region"^^xsd:string ;
+    rdfs:comment "An administrative geospatial unit larger than the individual real estate. For instance, \"Lombary\", \"North America\", \"The Back Bay\", \"Elnätsområde Syd\", etc."^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Space> .
+
+<https://w3id.org/rec#RelativeHumidityObservation> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Relative humidity observation"^^xsd:string ;
+    ns1:hasQuantityKind <http://qudt.org/vocab/quantitykind/RelativeHumidity> ;
+    rdfs:subClassOf <https://w3id.org/rec#ObservationEvent> ;
+    sh:property [ a sh:PropertyShape ;
+            sh:datatype xsd:double ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "value"^^xsd:string ;
+            sh:path <https://w3id.org/rec#value> ] .
+
+<https://w3id.org/rec#ResistanceObservation> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Resistance observation"^^xsd:string ;
+    ns1:hasQuantityKind <http://qudt.org/vocab/quantitykind/Resistance> ;
+    rdfs:subClassOf <https://w3id.org/rec#ObservationEvent> ;
+    sh:property [ a sh:PropertyShape ;
+            sh:datatype xsd:double ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "value"^^xsd:string ;
+            sh:path <https://w3id.org/rec#value> ] .
+
+<https://w3id.org/rec#RestingRoom> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Resting room"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Room> .
+
+<https://w3id.org/rec#RetailRoom> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Retail room"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Room> .
+
+<https://w3id.org/rec#Roof> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Roof"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#BuildingElement> .
+
+<https://w3id.org/rec#RoofLevel> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Roof level"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Level> .
+
+<https://w3id.org/rec#Room> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Room"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Architecture> .
+
+<https://w3id.org/rec#Safe> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Safe"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Furniture> .
+
+<https://w3id.org/rec#Sauna> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Sauna"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#PersonalHygiene> .
+
+<https://w3id.org/rec#School> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "School"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Building> .
+
+<https://w3id.org/rec#SecurityRoom> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Security room"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Room> .
+
+<https://w3id.org/rec#SensorEquipment> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Sensor Equipment"^^xsd:string ;
+    rdfs:comment "Sensor equipment."^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#ICTEquipment> ;
+    sh:property [ a sh:PropertyShape ;
+            sh:datatype xsd:double ;
+            sh:name "Battery Percentage"^^xsd:string ;
+            sh:path <https://w3id.org/rec#batteryPercentage> ],
+        [ a sh:PropertyShape ;
+            sh:datatype xsd:double ;
+            sh:name "Wi-Fi Signal Strength"^^xsd:string ;
+            sh:path <https://w3id.org/rec#wifiSignalStrength> ] .
+
+<https://w3id.org/rec#Server> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Server"^^xsd:string ;
+    rdfs:comment "Server."^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#ICTHardware> .
+
+<https://w3id.org/rec#ServiceEntrance> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Service entrance"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Entrance> .
+
+<https://w3id.org/rec#ServiceObject> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Service object"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Information> ;
+    sh:property [ a sh:PropertyShape ;
+            sh:class <https://w3id.org/rec#Agent> ;
+            sh:maxCount 1 ;
+            sh:name "created by"^^xsd:string ;
+            sh:nodeKind sh:IRI ;
+            sh:path <https://w3id.org/rec#createdBy> ],
+        [ a sh:PropertyShape ;
+            sh:datatype xsd:dateTime ;
+            sh:maxCount 1 ;
+            sh:name "closed time"^^xsd:string ;
+            sh:path <https://w3id.org/rec#closedTime> ],
+        [ a sh:PropertyShape ;
+            sh:class <https://w3id.org/rec#Agent> ;
+            sh:maxCount 1 ;
+            sh:name "closed by"^^xsd:string ;
+            sh:nodeKind sh:IRI ;
+            sh:path <https://w3id.org/rec#closedBy> ],
+        [ a sh:PropertyShape ;
+            sh:datatype xsd:string ;
+            sh:in ( "Unacknowledged"^^xsd:string "Acknowledged"^^xsd:string "Closed"^^xsd:string ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "status"^^xsd:string ;
+            sh:path <https://w3id.org/rec#status> ],
+        [ a sh:PropertyShape ;
+            sh:datatype xsd:dateTime ;
+            sh:maxCount 1 ;
+            sh:name "acknowledged time"^^xsd:string ;
+            sh:path <https://w3id.org/rec#acknowledgedTime> ],
+        [ a sh:PropertyShape ;
+            sh:class <https://w3id.org/rec#Agent> ;
+            sh:maxCount 1 ;
+            sh:name "acknowledged by"^^xsd:string ;
+            sh:nodeKind sh:IRI ;
+            sh:path <https://w3id.org/rec#acknowledgedBy> ],
+        [ a sh:PropertyShape ;
+            sh:minCount 1 ;
+            sh:name "related to"^^xsd:string ;
+            sh:nodeKind sh:IRI ;
+            sh:path <https://w3id.org/rec#relatedTo> ],
+        [ a sh:PropertyShape ;
+            sh:datatype xsd:dateTime ;
+            sh:maxCount 1 ;
+            sh:name "created time"^^xsd:string ;
+            sh:path <https://w3id.org/rec#createdTime> ],
+        [ a sh:PropertyShape ;
+            sh:class brick:Point ;
+            sh:name "produced by"^^xsd:string ;
+            sh:nodeKind sh:IRI ;
+            sh:path <https://w3id.org/rec#producedBy> ],
+        [ a sh:PropertyShape ;
+            sh:datatype xsd:string ;
+            sh:in ( "Severe"^^xsd:string "Major"^^xsd:string "Minor"^^xsd:string ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "severity"^^xsd:string ;
+            sh:path <https://w3id.org/rec#severity> ] .
+
+<https://w3id.org/rec#ServiceShaft> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Service shaft"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Room> .
+
+<https://w3id.org/rec#Shelter> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Shelter"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Room> .
+
+<https://w3id.org/rec#ShelterGasLock> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Shelter gas lock"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Shelter> .
+
+<https://w3id.org/rec#ShelterRoom> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Shelter room"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Shelter> .
+
+<https://w3id.org/rec#ShoppingMall> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Shopping mall"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Building> .
+
+<https://w3id.org/rec#ShowerRoom> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Shower room"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#PersonalHygiene> .
+
+<https://w3id.org/rec#Site> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Site"^^xsd:string ;
+    rdfs:comment "A piece of land upon which zero or more buildings may be situated."^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Architecture> .
+
+<https://w3id.org/rec#Slab> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Slab"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#BuildingElement> .
+
+<https://w3id.org/rec#SmallStudyRoom> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Small study room"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#EducationalRoom> .
+
+<https://w3id.org/rec#Sofa> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Sofa"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Furniture> .
+
+<https://w3id.org/rec#SoundPressureObservation> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Sound pressure observation"^^xsd:string ;
+    ns1:hasQuantityKind <http://qudt.org/vocab/quantitykind/SoundPressure> ;
+    rdfs:subClassOf <https://w3id.org/rec#ObservationEvent> ;
+    sh:property [ a sh:PropertyShape ;
+            sh:datatype xsd:double ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "value"^^xsd:string ;
+            sh:path <https://w3id.org/rec#value> ] .
+
+<https://w3id.org/rec#Space> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Space"^^xsd:string ;
+    rdfs:comment "A contiguous part of the physical world that contains or can contain sub-spaces. E.g., a Region can contain many Sites, which in turn can contain many Buildings."^^xsd:string ;
+    rdfs:subClassOf rdfs:Resource ;
+    sh:property [ a sh:PropertyShape ;
+            sh:class <https://w3id.org/rec#Space> ;
+            sh:maxCount 1 ;
+            sh:name "is part of"^^xsd:string ;
+            sh:nodeKind sh:IRI ;
+            sh:path <https://w3id.org/rec#isPartOf> ],
+        [ a sh:PropertyShape ;
+            sh:class <https://w3id.org/rec#Geometry> ;
+            sh:description "Polygon representing the spatial extent of this Space."^^xsd:string ;
+            sh:maxCount 1 ;
+            sh:name "geometry"^^xsd:string ;
+            sh:path <https://w3id.org/rec#geometry> ],
+        [ a sh:PropertyShape ;
+            sh:name "is location of"^^xsd:string ;
+            sh:nodeKind sh:IRI ;
+            sh:path <https://w3id.org/rec#isLocationOf> ],
+        [ a sh:PropertyShape ;
+            sh:class <https://w3id.org/rec#Space> ;
+            sh:name "has part"^^xsd:string ;
+            sh:nodeKind sh:IRI ;
+            sh:path <https://w3id.org/rec#hasPart> ],
+        [ a sh:PropertyShape ;
+            sh:class <https://w3id.org/rec#Georeference> ;
+            sh:description "A georeference creates a relationship between the local coordinate system used within a building (e.g., measured in meters) and a geographic coordinate system (e.g., lat, long, alt), such that locally placed Spaces can be resolved and rendered in that geographic coordinate system (e.g., for mapping purposes)."^^xsd:string ;
+            sh:maxCount 1 ;
+            sh:name "georeference"^^xsd:string ;
+            sh:nodeKind sh:IRI ;
+            sh:path <https://w3id.org/rec#georeference> ] .
+
+<https://w3id.org/rec#SprinklerRoom> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Sprinkler room"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#UtilitiesRoom> .
+
+<https://w3id.org/rec#Stadium> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Stadium"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Building> .
+
+<https://w3id.org/rec#StaffRoom> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Staff room"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Room> .
+
+<https://w3id.org/rec#Stairwell> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Stairwell"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Room> .
+
+<https://w3id.org/rec#Stand> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Stand"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Furniture> .
+
+<https://w3id.org/rec#Storage> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Storage"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Room> .
+
+<https://w3id.org/rec#StorageCabinet> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Storage cabinet"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Furniture> .
+
+<https://w3id.org/rec#SubBuilding> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Sub-building"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Architecture> .
+
+<https://w3id.org/rec#TVStand> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "TV stand"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Stand> .
+
+<https://w3id.org/rec#Table> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Table"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Furniture> .
+
+<https://w3id.org/rec#TelecommunicationRoom> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Telecommunication room"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#CableRoom> .
+
+<https://w3id.org/rec#TemperatureObservation> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Temperature observation"^^xsd:string ;
+    ns1:hasQuantityKind <http://qudt.org/vocab/quantitykind/Temperature> ;
+    rdfs:subClassOf <https://w3id.org/rec#ObservationEvent> ;
+    sh:property [ a sh:PropertyShape ;
+            sh:datatype xsd:double ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "value"^^xsd:string ;
+            sh:path <https://w3id.org/rec#value> ] .
+
+<https://w3id.org/rec#Theater> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Theater"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Room> .
+
+<https://w3id.org/rec#TherapyRoom> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Therapy room"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#HealthcareRoom> .
+
+<https://w3id.org/rec#ThermostatEquipment> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Thermostat"^^xsd:string ;
+    rdfs:comment "Thermostat."^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#SensorEquipment> .
+
+<https://w3id.org/rec#ThrustObservation> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Thrust observation"^^xsd:string ;
+    ns1:hasQuantityKind <http://qudt.org/vocab/quantitykind/Thrust> ;
+    rdfs:subClassOf <https://w3id.org/rec#ObservationEvent> ;
+    sh:property [ a sh:PropertyShape ;
+            sh:datatype xsd:double ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "value"^^xsd:string ;
+            sh:path <https://w3id.org/rec#value> ] .
+
+<https://w3id.org/rec#TimeSpanObservation> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Timespan observation"^^xsd:string ;
+    ns1:hasQuantityKind <http://qudt.org/vocab/quantitykind/Time> ;
+    rdfs:subClassOf <https://w3id.org/rec#ObservationEvent> ;
+    sh:property [ a sh:PropertyShape ;
+            sh:datatype xsd:double ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "value"^^xsd:string ;
+            sh:path <https://w3id.org/rec#value> ] .
+
+<https://w3id.org/rec#Toilet> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Toilet"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#PersonalHygiene> .
+
+<https://w3id.org/rec#TorqueObservation> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Torque observation"^^xsd:string ;
+    ns1:hasQuantityKind <http://qudt.org/vocab/quantitykind/Torque> ;
+    rdfs:subClassOf <https://w3id.org/rec#ObservationEvent> ;
+    sh:property [ a sh:PropertyShape ;
+            sh:datatype xsd:double ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "value"^^xsd:string ;
+            sh:path <https://w3id.org/rec#value> ] .
+
+<https://w3id.org/rec#TreatmentRoom> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Treatment room"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Room> .
+
+<https://w3id.org/rec#TreatmentWaitingRoom> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Treatment waiting room"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#TreatmentRoom> .
+
+<https://w3id.org/rec#UtilitiesRoom> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Utilities room"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Room> .
+
+<https://w3id.org/rec#VelocityObservation> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Velocity observation"^^xsd:string ;
+    ns1:hasQuantityKind <http://qudt.org/vocab/quantitykind/Velocity> ;
+    rdfs:subClassOf <https://w3id.org/rec#ObservationEvent> ;
+    sh:property [ a sh:PropertyShape ;
+            sh:datatype xsd:double ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "value"^^xsd:string ;
+            sh:path <https://w3id.org/rec#value> ] .
+
+<https://w3id.org/rec#VibrationSensorEquipment> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Vibration Sensor"^^xsd:string ;
+    rdfs:comment "Vibration sensor."^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#SensorEquipment> .
+
+<https://w3id.org/rec#VirtualBuilding> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Virtual building"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Building> .
+
+<https://w3id.org/rec#VoltageObservation> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Voltage observation"^^xsd:string ;
+    ns1:hasQuantityKind <http://qudt.org/vocab/quantitykind/Voltage> ;
+    rdfs:subClassOf <https://w3id.org/rec#ObservationEvent> ;
+    sh:property [ a sh:PropertyShape ;
+            sh:datatype xsd:double ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "value"^^xsd:string ;
+            sh:path <https://w3id.org/rec#value> ] .
+
+<https://w3id.org/rec#VolumeFlowRateObservation> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Volume flow rate observation"^^xsd:string ;
+    ns1:hasQuantityKind <http://qudt.org/vocab/quantitykind/VolumeFlowRate> ;
+    rdfs:subClassOf <https://w3id.org/rec#ObservationEvent> ;
+    sh:property [ a sh:PropertyShape ;
+            sh:datatype xsd:double ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "value"^^xsd:string ;
+            sh:path <https://w3id.org/rec#value> ] .
+
+<https://w3id.org/rec#VolumeObservation> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Volume observation"^^xsd:string ;
+    ns1:hasQuantityKind <http://qudt.org/vocab/quantitykind/Volume> ;
+    rdfs:subClassOf <https://w3id.org/rec#ObservationEvent> ;
+    sh:property [ a sh:PropertyShape ;
+            sh:datatype xsd:double ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "value"^^xsd:string ;
+            sh:path <https://w3id.org/rec#value> ] .
+
+<https://w3id.org/rec#Wall> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Wall"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#BuildingElement> .
+
+<https://w3id.org/rec#WallInner> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Wall (inner)"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Wall> .
+
+<https://w3id.org/rec#WasteBasket> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Waste basket"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Furniture> .
+
+<https://w3id.org/rec#WasteManagementRoom> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Waste management room"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Room> .
+
+<https://w3id.org/rec#Window> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Window"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#BarrierAsset> .
+
+<https://w3id.org/rec#WirelessAccessPoint> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Wireless Access Point"^^xsd:string ;
+    rdfs:comment "Wireless access point."^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#DataNetworkEquipment> ;
+    sh:property [ a sh:PropertyShape ;
+            sh:datatype xsd:string ;
+            sh:in ( "WiFi4"^^xsd:string "WiFi5"^^xsd:string "WiFi6"^^xsd:string "WiFi6E"^^xsd:string "WiFi7"^^xsd:string ) ;
+            sh:maxCount 1 ;
+            sh:name "Generation"^^xsd:string ;
+            sh:path <https://w3id.org/rec#generation> ] .
+
+<https://w3id.org/rec#WorkOrder> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Work order"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#ServiceObject> .
+
+<https://w3id.org/rec#Workshop> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Workshop"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Room> .
+
+<https://w3id.org/rec#Workspace> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Workspace"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Zone> .
+
+<https://w3id.org/rec#Zone> a rdfs:Class,
+        sh:NodeShape ;
+    rdfs:label "Zone"^^xsd:string ;
+    rdfs:comment "A sub-zone within or outside of a building defined to support some technology and/or use, e.g., an HVAC zone, a parking space, a security zone, etc."^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Architecture> .
+
+<https://w3id.org/rec> a owl:Ontology ;
+    rdfs:label "RealEstateCore"^^xsd:string ;
+    owl:imports <http://datashapes.org/dash>,
+        <https://brickschema.org/schema/1.3/Brick>,
+        <https://w3id.org/rec/brickpatches> ;
+    owl:versionInfo "4.0"^^xsd:string .
+
+<https://w3id.org/rec#substance> a owl:AnnotationProperty ;
+    rdfs:label "substance"^^xsd:string ;
+    rdfs:domain <https://w3id.org/rec#feeds>,
+        <https://w3id.org/rec#isFedBy> ;
+    rdfs:range [ a rdfs:Datatype ;
+            owl:oneOf ( "ACElec"^^xsd:string "Air"^^xsd:string "BlowdownWater"^^xsd:string "ChilledWater"^^xsd:string "ColdDomesticWater"^^xsd:string "Condensate"^^xsd:string "CondenserWater"^^xsd:string "DCElec"^^xsd:string "Diesel"^^xsd:string "DriveElec"^^xsd:string "Ethernet"^^xsd:string "ExhaustAir"^^xsd:string "Freight"^^xsd:string "FuelOil"^^xsd:string "Gasoline"^^xsd:string "GreaseExhaustAir"^^xsd:string "HotDomesticWater"^^xsd:string "HotWater"^^xsd:string "IrrigationWater"^^xsd:string "Light"^^xsd:string "MakeupWater"^^xsd:string "NaturalGas"^^xsd:string "NonPotableDomesticWater"^^xsd:string "OutsideAir"^^xsd:string "People"^^xsd:string "Propane"^^xsd:string "RecircHotDomesticWater"^^xsd:string "Refrig"^^xsd:string "ReturnAir"^^xsd:string "SprinklerWater"^^xsd:string "Steam"^^xsd:string "StormDrainage"^^xsd:string "SupplyAir"^^xsd:string "TransferAir"^^xsd:string "WasteVentDrainage"^^xsd:string "Water"^^xsd:string ) ] .
+
+brick:Equipment a owl:Class,
+        sh:NodeShape ;
+    rdfs:label "Equipment"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/rec#Asset> .
+

@@ -1,0 +1,96 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://qudt.org/schema/qudt/hasQuantityKind> a owl:ObjectProperty .
+
+<http://qudt.org/vocab/quantitykind/AbsoluteHumidity> a rdfs:Resource .
+
+<http://qudt.org/vocab/quantitykind/Acceleration> a rdfs:Resource ;
+    rdfs:label "Acceleration"^^xsd:string .
+
+<http://qudt.org/vocab/quantitykind/Angle> a rdfs:Resource .
+
+<http://qudt.org/vocab/quantitykind/AngularAcceleration> a rdfs:Resource ;
+    rdfs:label "Angular acceleration"^^xsd:string .
+
+<http://qudt.org/vocab/quantitykind/AngularVelocity> a rdfs:Resource ;
+    rdfs:label "Angular velocity"^^xsd:string .
+
+<http://qudt.org/vocab/quantitykind/Area> a rdfs:Resource ;
+    rdfs:label "Area"^^xsd:string .
+
+<http://qudt.org/vocab/quantitykind/Capacitance> a rdfs:Resource ;
+    rdfs:label "Capacitance"^^xsd:string .
+
+<http://qudt.org/vocab/quantitykind/DataRate> a rdfs:Resource .
+
+<http://qudt.org/vocab/quantitykind/Density> a rdfs:Resource .
+
+<http://qudt.org/vocab/quantitykind/Distance> a rdfs:Resource .
+
+<http://qudt.org/vocab/quantitykind/ElectricCharge> a rdfs:Resource .
+
+<http://qudt.org/vocab/quantitykind/ElectricCurrent> a rdfs:Resource ;
+    rdfs:label "Electric current"^^xsd:string .
+
+<http://qudt.org/vocab/quantitykind/Energy> a rdfs:Resource .
+
+<http://qudt.org/vocab/quantitykind/Force> a rdfs:Resource .
+
+<http://qudt.org/vocab/quantitykind/Frequency> a rdfs:Resource .
+
+<http://qudt.org/vocab/quantitykind/Illuminance> a rdfs:Resource .
+
+<http://qudt.org/vocab/quantitykind/Inductance> a rdfs:Resource .
+
+<http://qudt.org/vocab/quantitykind/InformationEntropy> a rdfs:Resource .
+
+<http://qudt.org/vocab/quantitykind/Length> a rdfs:Resource .
+
+<http://qudt.org/vocab/quantitykind/Luminance> a rdfs:Resource .
+
+<http://qudt.org/vocab/quantitykind/LuminousFlux> a rdfs:Resource .
+
+<http://qudt.org/vocab/quantitykind/LuminousIntensity> a rdfs:Resource .
+
+<http://qudt.org/vocab/quantitykind/MagneticFlux> a rdfs:Resource .
+
+<http://qudt.org/vocab/quantitykind/Mass> a rdfs:Resource .
+
+<http://qudt.org/vocab/quantitykind/MassFlowRate> a rdfs:Resource .
+
+<http://qudt.org/vocab/quantitykind/Power> a rdfs:Resource .
+
+<http://qudt.org/vocab/quantitykind/Pressure> a rdfs:Resource .
+
+<http://qudt.org/vocab/quantitykind/RelativeHumidity> a rdfs:Resource .
+
+<http://qudt.org/vocab/quantitykind/Resistance> a rdfs:Resource .
+
+<http://qudt.org/vocab/quantitykind/SoundPressure> a rdfs:Resource .
+
+<http://qudt.org/vocab/quantitykind/Temperature> a rdfs:Resource .
+
+<http://qudt.org/vocab/quantitykind/Thrust> a rdfs:Resource .
+
+<http://qudt.org/vocab/quantitykind/Time> a rdfs:Resource .
+
+<http://qudt.org/vocab/quantitykind/Torque> a rdfs:Resource .
+
+<http://qudt.org/vocab/quantitykind/Velocity> a rdfs:Resource .
+
+<http://qudt.org/vocab/quantitykind/Voltage> a rdfs:Resource .
+
+<http://qudt.org/vocab/quantitykind/Volume> a rdfs:Resource .
+
+<http://qudt.org/vocab/quantitykind/VolumeFlowRate> a rdfs:Resource .
+
+<https://geojson.org/Polygon> a rdfs:Datatype ;
+    rdfs:label "Polygon"^^xsd:string ;
+    rdfs:comment "A GeoJSON Polygon coordinate listing representing the geometrical representation of the space. Coordinates may be expressed in two or three dimensions. Ex: [[30.0, 10.0, 0.0], [40.0, 40.0, 2.0], [20.0, 40.0, 2.0], [10.0, 20.0, 2.0], [30.0, 10.0, 0.0]]."^^xsd:string ;
+    owl:onDatatype xsd:string .
+
+<https://w3id.org/rec/recimports> a owl:Ontology ;
+    owl:imports <https://w3id.org/rec> .
+

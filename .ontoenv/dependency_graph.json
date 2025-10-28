@@ -1,0 +1,156 @@
+{
+  "nodes": [
+    {
+      "location": {
+        "file": "rec/Source/SHACL/RealEstateCore/recimports.ttl"
+      },
+      "name": "https://w3id.org/rec/recimports"
+    },
+    {
+      "location": {
+        "file": "extensions/brick_extension_interpret_223.shapes.ttl"
+      },
+      "name": "https://brickschema.org/extension/brick_extension_interpret_223"
+    },
+    {
+      "location": {
+        "file": "extensions/brick_extension_s223_extension.shapes.ttl"
+      },
+      "name": "https://brickschema.org/extension/s223extension"
+    },
+    {
+      "location": {
+        "file": "support/VOCAB_QUDT-UNITS-ALL.ttl"
+      },
+      "name": "http://qudt.org/3.1.0/vocab/unit"
+    },
+    {
+      "location": {
+        "file": "extensions/223p.ttl"
+      },
+      "name": "http://data.ashrae.org/standard223/1.0/model/all"
+    },
+    {
+      "location": {
+        "file": "rec/Source/SHACL/RealEstateCore/rec.ttl"
+      },
+      "name": "https://w3id.org/rec"
+    },
+    {
+      "location": {
+        "file": "support/ref-schema.ttl"
+      },
+      "name": "https://brickschema.org/schema/Brick/ref"
+    },
+    {
+      "location": {
+        "file": "support/VOCAB_QUDT-QUANTITY-KINDS-ALL.ttl"
+      },
+      "name": "http://qudt.org/3.1.0/vocab/quantitykind"
+    },
+    {
+      "location": {
+        "file": "extensions/brick_extension_shacl_tag_inference.ttl"
+      },
+      "name": "file://extensions/brick_extension_shacl_tag_inference.ttl"
+    },
+    {
+      "location": {
+        "file": "support/bacnet.ttl"
+      },
+      "name": "http://data.ashrae.org/bacnet/2020"
+    },
+    {
+      "location": {
+        "file": "/home/runner/work/Brick/Brick/Brick.ttl"
+      },
+      "name": "https://brickschema.org/schema/1.4/Brick"
+    },
+    {
+      "location": {
+        "file": "extensions/brick_extension_mappings_223.ttl"
+      },
+      "name": "https://brickschema.org/extension/mappings_223"
+    },
+    {
+      "location": {
+        "file": "support/recimports.ttl"
+      },
+      "name": "https://w3id.org/rec/recimports"
+    }
+  ],
+  "node_holes": [],
+  "edge_property": "directed",
+  "edges": [
+    [
+      0,
+      5,
+      null
+    ],
+    [
+      1,
+      10,
+      null
+    ],
+    [
+      1,
+      11,
+      null
+    ],
+    [
+      1,
+      4,
+      null
+    ],
+    [
+      2,
+      10,
+      null
+    ],
+    [
+      2,
+      1,
+      null
+    ],
+    [
+      2,
+      4,
+      null
+    ],
+    [
+      3,
+      7,
+      null
+    ],
+    [
+      10,
+      0,
+      null
+    ],
+    [
+      10,
+      6,
+      null
+    ],
+    [
+      10,
+      3,
+      null
+    ],
+    [
+      10,
+      7,
+      null
+    ],
+    [
+      10,
+      9,
+      null
+    ],
+    [
+      12,
+      5,
+      null
+    ]
+  ]
+}
