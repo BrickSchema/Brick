@@ -45,19 +45,19 @@
     rdfs:label "Actuation event"^^xsd:string ;
     rdfs:subClassOf <https://w3id.org/rec#PointEvent> ;
     sh:property [ a sh:PropertyShape ;
-            sh:datatype xsd:string ;
-            sh:description "The command message/payload of this actuation event."^^xsd:string ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:name "value"^^xsd:string ;
-            sh:path <https://w3id.org/rec#value> ],
-        [ a sh:PropertyShape ;
             sh:class brick:Point ;
             sh:description "The brick:Point(s) (e.g., brick:Commands, brick:Setpoints, or brick:Parameters) that the actuation will target/execute."^^xsd:string ;
             sh:minCount 1 ;
             sh:name "target point"^^xsd:string ;
             sh:nodeKind sh:IRI ;
-            sh:path <https://w3id.org/rec#targetPoint> ] .
+            sh:path <https://w3id.org/rec#targetPoint> ],
+        [ a sh:PropertyShape ;
+            sh:datatype xsd:string ;
+            sh:description "The command message/payload of this actuation event."^^xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "value"^^xsd:string ;
+            sh:path <https://w3id.org/rec#value> ] .
 
 <https://w3id.org/rec#AdmittingRoom> a rdfs:Class,
         sh:NodeShape ;
@@ -70,16 +70,16 @@
     rdfs:comment "The human, group, or machine that consumes or acts upon an object or data. This higher-level grouping allows properties that are shared among its subclasses (Person, Organization, ....) to be anchored in one joint place, on the Agent class."^^xsd:string ;
     rdfs:subClassOf rdfs:Resource ;
     sh:property [ a sh:PropertyShape ;
-            sh:description "Indicates ownership of some thing, e.g., a building, an asset, an organization, etc."^^xsd:string ;
-            sh:name "owns"^^xsd:string ;
-            sh:nodeKind sh:IRI ;
-            sh:path <https://w3id.org/rec#owns> ],
-        [ a sh:PropertyShape ;
             sh:class <https://w3id.org/rec#Organization> ;
             sh:description "Indicates membership in an organization. Note that componency (e.g., departments of a corporation) are expressed using the more generic Organization.isPartOf property."^^xsd:string ;
             sh:name "is member of"^^xsd:string ;
             sh:nodeKind sh:IRI ;
-            sh:path <https://w3id.org/rec#isMemberOf> ] .
+            sh:path <https://w3id.org/rec#isMemberOf> ],
+        [ a sh:PropertyShape ;
+            sh:description "Indicates ownership of some thing, e.g., a building, an asset, an organization, etc."^^xsd:string ;
+            sh:name "owns"^^xsd:string ;
+            sh:nodeKind sh:IRI ;
+            sh:path <https://w3id.org/rec#owns> ] .
 
 <https://w3id.org/rec#AlarmObject> a rdfs:Class,
         sh:NodeShape ;
@@ -144,31 +144,36 @@
     rdfs:comment "A designed/landscaped (or potentially designed/landscaped) part of the physical world that has a 3D spatial extent. E.g., a building site, a building, levels within the building, rooms, etc."^^xsd:string ;
     rdfs:subClassOf <https://w3id.org/rec#Space> ;
     sh:property [ a sh:PropertyShape ;
+            sh:class <https://w3id.org/rec#ArchitectureCapacity> ;
+            sh:maxCount 1 ;
+            sh:name "capacity"^^xsd:string ;
+            sh:nodeKind sh:IRI ;
+            sh:path <https://w3id.org/rec#capacity> ],
+        [ a sh:PropertyShape ;
             sh:class <https://w3id.org/rec#Agent> ;
             sh:name "architected by"^^xsd:string ;
             sh:nodeKind sh:IRI ;
             sh:path <https://w3id.org/rec#architectedBy> ],
         [ a sh:PropertyShape ;
             sh:class <https://w3id.org/rec#BuildingElement> ;
-            sh:name "adjacent element"^^xsd:string ;
-            sh:nodeKind sh:IRI ;
-            sh:path <https://w3id.org/rec#adjacentElement> ],
-        [ a sh:PropertyShape ;
-            sh:class <https://w3id.org/rec#BuildingElement> ;
             sh:name "intersecting element"^^xsd:string ;
             sh:nodeKind sh:IRI ;
             sh:path <https://w3id.org/rec#intersectingElement> ],
         [ a sh:PropertyShape ;
-            sh:class <https://w3id.org/rec#BuildingElement> ;
-            sh:description "Links an Architecture to BuildingElement that is contained in the Space."^^xsd:string ;
-            sh:name "contains element"^^xsd:string ;
+            sh:class <https://w3id.org/rec#Document> ;
+            sh:name "documentation"^^xsd:string ;
             sh:nodeKind sh:IRI ;
-            sh:path <https://w3id.org/rec#containsElement> ],
+            sh:path <https://w3id.org/rec#documentation> ],
         [ a sh:PropertyShape ;
             sh:class <https://w3id.org/rec#Agent> ;
-            sh:name "owned by"^^xsd:string ;
+            sh:name "operated by"^^xsd:string ;
             sh:nodeKind sh:IRI ;
-            sh:path <https://w3id.org/rec#ownedBy> ],
+            sh:path <https://w3id.org/rec#operatedBy> ],
+        [ a sh:PropertyShape ;
+            sh:class <https://w3id.org/rec#BuildingElement> ;
+            sh:name "adjacent element"^^xsd:string ;
+            sh:nodeKind sh:IRI ;
+            sh:path <https://w3id.org/rec#adjacentElement> ],
         [ a sh:PropertyShape ;
             sh:class <https://w3id.org/rec#ArchitectureArea> ;
             sh:maxCount 1 ;
@@ -176,21 +181,20 @@
             sh:nodeKind sh:IRI ;
             sh:path <https://w3id.org/rec#area> ],
         [ a sh:PropertyShape ;
-            sh:class <https://w3id.org/rec#ArchitectureCapacity> ;
-            sh:maxCount 1 ;
-            sh:name "capacity"^^xsd:string ;
+            sh:class <https://w3id.org/rec#BuildingElement> ;
+            sh:description "Links an Architecture to BuildingElement that is contained in the Space."^^xsd:string ;
+            sh:name "contains element"^^xsd:string ;
             sh:nodeKind sh:IRI ;
-            sh:path <https://w3id.org/rec#capacity> ],
-        [ a sh:PropertyShape ;
-            sh:class <https://w3id.org/rec#Document> ;
-            sh:name "documentation"^^xsd:string ;
-            sh:nodeKind sh:IRI ;
-            sh:path <https://w3id.org/rec#documentation> ],
+            sh:path <https://w3id.org/rec#containsElement> ],
         [ a sh:PropertyShape ;
             sh:class brick:Point ;
             sh:name "has point"^^xsd:string ;
             sh:nodeKind sh:IRI ;
             sh:path <https://w3id.org/rec#hasPoint> ],
+        [ a sh:PropertyShape ;
+            sh:name "is fed by"^^xsd:string ;
+            sh:nodeKind sh:IRI ;
+            sh:path <https://w3id.org/rec#isFedBy> ],
         [ a sh:PropertyShape ;
             sh:class <https://w3id.org/rec#PostalAddress> ;
             sh:description "Physical address of the architecture (site, building, sub-building, entrance room, etc.) in question."^^xsd:string ;
@@ -198,18 +202,14 @@
             sh:nodeKind sh:IRI ;
             sh:path <https://w3id.org/rec#address> ],
         [ a sh:PropertyShape ;
-            sh:name "is fed by"^^xsd:string ;
-            sh:nodeKind sh:IRI ;
-            sh:path <https://w3id.org/rec#isFedBy> ],
-        [ a sh:PropertyShape ;
-            sh:class <https://w3id.org/rec#Agent> ;
-            sh:name "operated by"^^xsd:string ;
-            sh:nodeKind sh:IRI ;
-            sh:path <https://w3id.org/rec#operatedBy> ],
-        [ a sh:PropertyShape ;
             sh:class <https://w3id.org/rec#Agent> ;
             sh:nodeKind sh:IRI ;
-            sh:path <https://w3id.org/rec#constructedBy> ] .
+            sh:path <https://w3id.org/rec#constructedBy> ],
+        [ a sh:PropertyShape ;
+            sh:class <https://w3id.org/rec#Agent> ;
+            sh:name "owned by"^^xsd:string ;
+            sh:nodeKind sh:IRI ;
+            sh:path <https://w3id.org/rec#ownedBy> ] .
 
 <https://w3id.org/rec#ArchitectureArea> a <dtmi:dtdl:class:Component>,
         rdfs:Class,
@@ -220,13 +220,13 @@
     sh:property [ a sh:PropertyShape ;
             sh:datatype xsd:float ;
             sh:maxCount 1 ;
-            sh:name "rentable area"^^xsd:string ;
-            sh:path <https://w3id.org/rec#rentableArea> ],
+            sh:name "net area"^^xsd:string ;
+            sh:path <https://w3id.org/rec#netArea> ],
         [ a sh:PropertyShape ;
             sh:datatype xsd:float ;
             sh:maxCount 1 ;
-            sh:name "net area"^^xsd:string ;
-            sh:path <https://w3id.org/rec#netArea> ],
+            sh:name "rentable area"^^xsd:string ;
+            sh:path <https://w3id.org/rec#rentableArea> ],
         [ a sh:PropertyShape ;
             sh:datatype xsd:float ;
             sh:maxCount 1 ;
@@ -269,10 +269,10 @@
     rdfs:comment "Something which is placed inside of a building, but is not an integral part of that building's structure; e.g., furniture, equipment, systems, etc."^^xsd:string ;
     rdfs:subClassOf rdfs:Resource ;
     sh:property [ a sh:PropertyShape ;
-            sh:class <https://w3id.org/rec#Document> ;
-            sh:name "documentation"^^xsd:string ;
+            sh:class <https://w3id.org/rec#Agent> ;
+            sh:name "commissioned by"^^xsd:string ;
             sh:nodeKind sh:IRI ;
-            sh:path <https://w3id.org/rec#documentation> ],
+            sh:path <https://w3id.org/rec#commissionedBy> ],
         [ a sh:PropertyShape ;
             sh:datatype xsd:duration ;
             sh:name "maintenance interval"^^xsd:string ;
@@ -280,89 +280,45 @@
         [ a sh:PropertyShape ;
             sh:datatype xsd:date ;
             sh:maxCount 1 ;
-            sh:name "installation date"^^xsd:string ;
-            sh:path <https://w3id.org/rec#installationDate> ],
-        [ a sh:PropertyShape ;
-            sh:datatype xsd:date ;
-            sh:maxCount 1 ;
             sh:name "commissioning date"^^xsd:string ;
             sh:path <https://w3id.org/rec#commissioningDate> ],
         [ a sh:PropertyShape ;
-            sh:datatype xsd:date ;
-            sh:maxCount 1 ;
-            sh:name "turnover date"^^xsd:string ;
-            sh:path <https://w3id.org/rec#turnoverDate> ],
-        [ a sh:PropertyShape ;
-            sh:class <https://w3id.org/rec#Agent> ;
-            sh:name "serviced by"^^xsd:string ;
-            sh:nodeKind sh:IRI ;
-            sh:path <https://w3id.org/rec#servicedBy> ],
-        [ a sh:PropertyShape ;
-            sh:class <https://w3id.org/rec#Asset> ;
-            sh:name "has part"^^xsd:string ;
-            sh:nodeKind sh:IRI ;
-            sh:path <https://w3id.org/rec#hasPart> ],
-        [ a sh:PropertyShape ;
-            sh:class <https://w3id.org/rec#Space> ;
-            sh:name "located in"^^xsd:string ;
-            sh:nodeKind sh:IRI ;
-            sh:path <https://w3id.org/rec#locatedIn> ],
+            sh:datatype xsd:string ;
+            sh:name "serial number"^^xsd:string ;
+            sh:path <https://w3id.org/rec#serialNumber> ],
         [ a sh:PropertyShape ;
             sh:maxCount 1 ;
             sh:name "initial cost"^^xsd:string ;
             sh:nodeKind sh:Literal ;
             sh:path <https://w3id.org/rec#initialCost> ],
         [ a sh:PropertyShape ;
-            sh:class <https://w3id.org/rec#Agent> ;
-            sh:name "manufactured by"^^xsd:string ;
+            sh:class brick:Point ;
+            sh:name "has point"^^xsd:string ;
             sh:nodeKind sh:IRI ;
-            sh:path <https://w3id.org/rec#manufacturedBy> ],
+            sh:path <https://w3id.org/rec#hasPoint> ],
         [ a sh:PropertyShape ;
-            sh:class <https://w3id.org/rec#Agent> ;
-            sh:name "installed by"^^xsd:string ;
-            sh:nodeKind sh:IRI ;
-            sh:path <https://w3id.org/rec#installedBy> ],
-        [ a sh:PropertyShape ;
-            sh:datatype xsd:string ;
-            sh:name "serial number"^^xsd:string ;
-            sh:path <https://w3id.org/rec#serialNumber> ],
+            sh:datatype xsd:date ;
+            sh:maxCount 1 ;
+            sh:name "turnover date"^^xsd:string ;
+            sh:path <https://w3id.org/rec#turnoverDate> ],
         [ a sh:PropertyShape ;
             sh:datatype xsd:decimal ;
             sh:maxCount 1 ;
             sh:name "weight"^^xsd:string ;
             sh:path <https://w3id.org/rec#weight> ],
         [ a sh:PropertyShape ;
-            sh:class <https://w3id.org/rec#Geometry> ;
-            sh:description "A GeoJSON Geometry representing the position or extent of the asset."^^xsd:string ;
-            sh:maxCount 1 ;
-            sh:name "geometry"^^xsd:string ;
-            sh:path <https://w3id.org/rec#geometry> ],
-        [ a sh:PropertyShape ;
             sh:datatype xsd:string ;
-            sh:name "model number"^^xsd:string ;
-            sh:path <https://w3id.org/rec#modelNumber> ],
+            sh:name "MAC address"^^xsd:string ;
+            sh:path <https://w3id.org/rec#MACAddress> ],
+        [ a sh:PropertyShape ;
+            sh:class <https://w3id.org/rec#Document> ;
+            sh:name "documentation"^^xsd:string ;
+            sh:nodeKind sh:IRI ;
+            sh:path <https://w3id.org/rec#documentation> ],
         [ a sh:PropertyShape ;
             sh:datatype xsd:string ;
             sh:name "asset tag"^^xsd:string ;
             sh:path <https://w3id.org/rec#assetTag> ],
-        [ a sh:PropertyShape ;
-            sh:class <https://w3id.org/rec#Asset> ;
-            sh:name "is part of"^^xsd:string ;
-            sh:nodeKind sh:IRI ;
-            sh:path <https://w3id.org/rec#isPartOf> ],
-        [ a sh:PropertyShape ;
-            sh:class brick:Point ;
-            sh:name "has point"^^xsd:string ;
-            sh:nodeKind sh:IRI ;
-            sh:path <https://w3id.org/rec#hasPoint> ],
-        [ a sh:PropertyShape ;
-            sh:datatype xsd:string ;
-            sh:name "IP address"^^xsd:string ;
-            sh:path <https://w3id.org/rec#IPAddress> ],
-        [ a sh:PropertyShape ;
-            sh:datatype xsd:string ;
-            sh:name "MAC address"^^xsd:string ;
-            sh:path <https://w3id.org/rec#MACAddress> ],
         [ a sh:PropertyShape ;
             sh:class <https://w3id.org/rec#BuildingElement> ;
             sh:description "An asset may be mounted on some part of the building construction (e.g., a blind on a facade, a camera on a wall, etc)."^^xsd:string ;
@@ -372,9 +328,53 @@
             sh:path <https://w3id.org/rec#mountedOn> ],
         [ a sh:PropertyShape ;
             sh:class <https://w3id.org/rec#Agent> ;
-            sh:name "commissioned by"^^xsd:string ;
+            sh:name "serviced by"^^xsd:string ;
             sh:nodeKind sh:IRI ;
-            sh:path <https://w3id.org/rec#commissionedBy> ] .
+            sh:path <https://w3id.org/rec#servicedBy> ],
+        [ a sh:PropertyShape ;
+            sh:class <https://w3id.org/rec#Agent> ;
+            sh:name "installed by"^^xsd:string ;
+            sh:nodeKind sh:IRI ;
+            sh:path <https://w3id.org/rec#installedBy> ],
+        [ a sh:PropertyShape ;
+            sh:datatype xsd:string ;
+            sh:name "model number"^^xsd:string ;
+            sh:path <https://w3id.org/rec#modelNumber> ],
+        [ a sh:PropertyShape ;
+            sh:class <https://w3id.org/rec#Space> ;
+            sh:name "located in"^^xsd:string ;
+            sh:nodeKind sh:IRI ;
+            sh:path <https://w3id.org/rec#locatedIn> ],
+        [ a sh:PropertyShape ;
+            sh:datatype xsd:string ;
+            sh:name "IP address"^^xsd:string ;
+            sh:path <https://w3id.org/rec#IPAddress> ],
+        [ a sh:PropertyShape ;
+            sh:class <https://w3id.org/rec#Asset> ;
+            sh:name "has part"^^xsd:string ;
+            sh:nodeKind sh:IRI ;
+            sh:path <https://w3id.org/rec#hasPart> ],
+        [ a sh:PropertyShape ;
+            sh:class <https://w3id.org/rec#Agent> ;
+            sh:name "manufactured by"^^xsd:string ;
+            sh:nodeKind sh:IRI ;
+            sh:path <https://w3id.org/rec#manufacturedBy> ],
+        [ a sh:PropertyShape ;
+            sh:class <https://w3id.org/rec#Geometry> ;
+            sh:description "A GeoJSON Geometry representing the position or extent of the asset."^^xsd:string ;
+            sh:maxCount 1 ;
+            sh:name "geometry"^^xsd:string ;
+            sh:path <https://w3id.org/rec#geometry> ],
+        [ a sh:PropertyShape ;
+            sh:class <https://w3id.org/rec#Asset> ;
+            sh:name "is part of"^^xsd:string ;
+            sh:nodeKind sh:IRI ;
+            sh:path <https://w3id.org/rec#isPartOf> ],
+        [ a sh:PropertyShape ;
+            sh:datatype xsd:date ;
+            sh:maxCount 1 ;
+            sh:name "installation date"^^xsd:string ;
+            sh:path <https://w3id.org/rec#installationDate> ] .
 
 <https://w3id.org/rec#Atrium> a rdfs:Class,
         sh:NodeShape ;
@@ -473,10 +473,9 @@
     rdfs:subClassOf rdfs:Resource ;
     sh:property [ a sh:PropertyShape ;
             sh:class <https://w3id.org/rec#BuildingElement> ;
-            sh:maxCount 1 ;
-            sh:name "is part of"^^xsd:string ;
+            sh:name "has part"^^xsd:string ;
             sh:nodeKind sh:IRI ;
-            sh:path <https://w3id.org/rec#isPartOf> ],
+            sh:path <https://w3id.org/rec#hasPart> ],
         [ a sh:PropertyShape ;
             sh:class <https://w3id.org/rec#Architecture> ;
             sh:description "Indicates the architected space (site, building, level, room...) in which this building element is placed."^^xsd:string ;
@@ -491,9 +490,10 @@
             sh:path <https://w3id.org/rec#documentation> ],
         [ a sh:PropertyShape ;
             sh:class <https://w3id.org/rec#BuildingElement> ;
-            sh:name "has part"^^xsd:string ;
+            sh:maxCount 1 ;
+            sh:name "is part of"^^xsd:string ;
             sh:nodeKind sh:IRI ;
-            sh:path <https://w3id.org/rec#hasPart> ] .
+            sh:path <https://w3id.org/rec#isPartOf> ] .
 
 <https://w3id.org/rec#BulletinBoard> a rdfs:Class,
         sh:NodeShape ;
@@ -736,13 +736,13 @@
     rdfs:label "Document"^^xsd:string ;
     rdfs:subClassOf <https://w3id.org/rec#Information> ;
     sh:property [ a sh:PropertyShape ;
-            sh:name "document topic"^^xsd:string ;
-            sh:nodeKind sh:IRI ;
-            sh:path <https://w3id.org/rec#documentTopic> ],
-        [ a sh:PropertyShape ;
             sh:name "URL"^^xsd:string ;
             sh:nodeKind sh:IRI ;
-            sh:path <https://w3id.org/rec#url> ] .
+            sh:path <https://w3id.org/rec#url> ],
+        [ a sh:PropertyShape ;
+            sh:name "document topic"^^xsd:string ;
+            sh:nodeKind sh:IRI ;
+            sh:path <https://w3id.org/rec#documentTopic> ] .
 
 <https://w3id.org/rec#Door> a rdfs:Class,
         sh:NodeShape ;
@@ -817,13 +817,13 @@
     sh:property [ a sh:PropertyShape ;
             sh:datatype xsd:string ;
             sh:maxCount 1 ;
-            sh:name "end level"^^xsd:string ;
-            sh:path <https://w3id.org/rec#endLevel> ],
+            sh:name "start level"^^xsd:string ;
+            sh:path <https://w3id.org/rec#startLevel> ],
         [ a sh:PropertyShape ;
             sh:datatype xsd:string ;
             sh:maxCount 1 ;
-            sh:name "start level"^^xsd:string ;
-            sh:path <https://w3id.org/rec#startLevel> ],
+            sh:name "current level"^^xsd:string ;
+            sh:path <https://w3id.org/rec#currentLevel> ],
         [ a sh:PropertyShape ;
             sh:datatype xsd:string ;
             sh:in ( "Up"^^xsd:string "Down"^^xsd:string ) ;
@@ -833,8 +833,8 @@
         [ a sh:PropertyShape ;
             sh:datatype xsd:string ;
             sh:maxCount 1 ;
-            sh:name "current level"^^xsd:string ;
-            sh:path <https://w3id.org/rec#currentLevel> ] .
+            sh:name "end level"^^xsd:string ;
+            sh:path <https://w3id.org/rec#endLevel> ] .
 
 <https://w3id.org/rec#EndTable> a rdfs:Class,
         sh:NodeShape ;
@@ -906,10 +906,9 @@
     rdfs:subClassOf rdfs:Resource ;
     sh:property [ a sh:PropertyShape ;
             sh:datatype xsd:dateTime ;
-            sh:description "Event start timestamp."^^xsd:string ;
             sh:maxCount 1 ;
-            sh:name "start"^^xsd:string ;
-            sh:path <https://w3id.org/rec#start> ],
+            sh:name "timestamp"^^xsd:string ;
+            sh:path <https://w3id.org/rec#timestamp> ],
         [ a sh:PropertyShape ;
             sh:datatype xsd:dateTime ;
             sh:description "Event ending timestamp."^^xsd:string ;
@@ -918,29 +917,30 @@
             sh:path <https://w3id.org/rec#end> ],
         [ a sh:PropertyShape ;
             sh:datatype xsd:dateTime ;
+            sh:description "Event start timestamp."^^xsd:string ;
             sh:maxCount 1 ;
-            sh:name "timestamp"^^xsd:string ;
-            sh:path <https://w3id.org/rec#timestamp> ] .
+            sh:name "start"^^xsd:string ;
+            sh:path <https://w3id.org/rec#start> ] .
 
 <https://w3id.org/rec#ExceptionEvent> a rdfs:Class,
         sh:NodeShape ;
     rdfs:label "Exception event"^^xsd:string ;
     rdfs:subClassOf <https://w3id.org/rec#PointEvent> ;
     sh:property [ a sh:PropertyShape ;
-            sh:datatype xsd:string ;
-            sh:description "The message of this exception event."^^xsd:string ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:name "value"^^xsd:string ;
-            sh:path <https://w3id.org/rec#value> ],
-        [ a sh:PropertyShape ;
             sh:class brick:Point ;
             sh:description "The brick:Point that emitted this exception."^^xsd:string ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:name "source point"^^xsd:string ;
             sh:nodeKind sh:IRI ;
-            sh:path <https://w3id.org/rec#sourcePoint> ] .
+            sh:path <https://w3id.org/rec#sourcePoint> ],
+        [ a sh:PropertyShape ;
+            sh:datatype xsd:string ;
+            sh:description "The message of this exception event."^^xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "value"^^xsd:string ;
+            sh:path <https://w3id.org/rec#value> ] .
 
 <https://w3id.org/rec#ExerciseRoom> a rdfs:Class,
         sh:NodeShape ;
@@ -1073,9 +1073,25 @@
     rdfs:subClassOf <https://w3id.org/rec#Georeference> ;
     sh:property [ a sh:PropertyShape ;
             sh:datatype xsd:double ;
+            sh:description "Value will be zero if the local coordinate system is north-aligned."^^xsd:string ;
+            sh:maxCount 1 ;
+            sh:name "x rotational scale factor"^^xsd:string ;
+            sh:path <https://w3id.org/rec#xRotationalScaleFactor> ],
+        [ a sh:PropertyShape ;
+            sh:datatype xsd:double ;
             sh:maxCount 1 ;
             sh:name "height scale factor"^^xsd:string ;
             sh:path <https://w3id.org/rec#heightScaleFactor> ],
+        [ a sh:PropertyShape ;
+            sh:datatype xsd:double ;
+            sh:maxCount 1 ;
+            sh:name "width scale factor"^^xsd:string ;
+            sh:path <https://w3id.org/rec#widthScaleFactor> ],
+        [ a sh:PropertyShape ;
+            sh:datatype xsd:double ;
+            sh:maxCount 1 ;
+            sh:name "origin x"^^xsd:string ;
+            sh:path <https://w3id.org/rec#originX> ],
         [ a sh:PropertyShape ;
             sh:datatype xsd:double ;
             sh:description "Value will be zero if the local coordinate system is north-aligned."^^xsd:string ;
@@ -1085,24 +1101,8 @@
         [ a sh:PropertyShape ;
             sh:datatype xsd:double ;
             sh:maxCount 1 ;
-            sh:name "origin x"^^xsd:string ;
-            sh:path <https://w3id.org/rec#originX> ],
-        [ a sh:PropertyShape ;
-            sh:datatype xsd:double ;
-            sh:maxCount 1 ;
-            sh:name "width scale factor"^^xsd:string ;
-            sh:path <https://w3id.org/rec#widthScaleFactor> ],
-        [ a sh:PropertyShape ;
-            sh:datatype xsd:double ;
-            sh:maxCount 1 ;
             sh:name "origin y"^^xsd:string ;
-            sh:path <https://w3id.org/rec#originY> ],
-        [ a sh:PropertyShape ;
-            sh:datatype xsd:double ;
-            sh:description "Value will be zero if the local coordinate system is north-aligned."^^xsd:string ;
-            sh:maxCount 1 ;
-            sh:name "x rotational scale factor"^^xsd:string ;
-            sh:path <https://w3id.org/rec#xRotationalScaleFactor> ] .
+            sh:path <https://w3id.org/rec#originY> ] .
 
 <https://w3id.org/rec#GroupRoom> a rdfs:Class,
         sh:NodeShape ;
@@ -1142,12 +1142,12 @@
     rdfs:subClassOf brick:Equipment ;
     sh:property [ a sh:PropertyShape ;
             sh:datatype xsd:integer ;
-            sh:name "Height (RUs)"^^xsd:string ;
-            sh:path <https://w3id.org/rec#heightRUs> ],
-        [ a sh:PropertyShape ;
-            sh:datatype xsd:integer ;
             sh:name "Number of Ports"^^xsd:string ;
             sh:path <https://w3id.org/rec#numberOfPorts> ],
+        [ a sh:PropertyShape ;
+            sh:datatype xsd:integer ;
+            sh:name "Height (RUs)"^^xsd:string ;
+            sh:path <https://w3id.org/rec#heightRUs> ],
         [ a sh:PropertyShape ;
             sh:datatype xsd:string ;
             sh:description "The standard the equipment or device adheres to, e.g. IEEE 802.11."^^xsd:string ;
@@ -1248,18 +1248,18 @@
     rdfs:label "Lease"^^xsd:string ;
     rdfs:subClassOf <https://w3id.org/rec#Event> ;
     sh:property [ a sh:PropertyShape ;
-            sh:description "The object (e.g., property, equipment, etc) that this a lease of."^^xsd:string ;
-            sh:minCount 1 ;
-            sh:name "lease of"^^xsd:string ;
-            sh:nodeKind sh:IRI ;
-            sh:path <https://w3id.org/rec#leaseOf> ],
-        [ a sh:PropertyShape ;
             sh:class <https://w3id.org/rec#Agent> ;
             sh:description "The agent leasing some leasable object, i.e., the user of the asset."^^xsd:string ;
             sh:minCount 1 ;
             sh:name "leasee"^^xsd:string ;
             sh:nodeKind sh:IRI ;
             sh:path <https://w3id.org/rec#leasee> ],
+        [ a sh:PropertyShape ;
+            sh:class <https://w3id.org/rec#LeaseContract> ;
+            sh:description "Indicates the contract regulating the terms of the lease in question. "^^xsd:string ;
+            sh:name "regulated by"^^xsd:string ;
+            sh:nodeKind sh:IRI ;
+            sh:path <https://w3id.org/rec#regulatedBy> ],
         [ a sh:PropertyShape ;
             sh:class <https://w3id.org/rec#Agent> ;
             sh:description "The agent leasing out some leasable object, i.e., the owner of the asset."^^xsd:string ;
@@ -1268,11 +1268,11 @@
             sh:nodeKind sh:IRI ;
             sh:path <https://w3id.org/rec#leasor> ],
         [ a sh:PropertyShape ;
-            sh:class <https://w3id.org/rec#LeaseContract> ;
-            sh:description "Indicates the contract regulating the terms of the lease in question. "^^xsd:string ;
-            sh:name "regulated by"^^xsd:string ;
+            sh:description "The object (e.g., property, equipment, etc) that this a lease of."^^xsd:string ;
+            sh:minCount 1 ;
+            sh:name "lease of"^^xsd:string ;
             sh:nodeKind sh:IRI ;
-            sh:path <https://w3id.org/rec#regulatedBy> ] .
+            sh:path <https://w3id.org/rec#leaseOf> ] .
 
 <https://w3id.org/rec#LeaseContract> a rdfs:Class,
         sh:NodeShape ;
@@ -1552,6 +1552,18 @@
     rdfs:comment "An organization of any sort (e.g., a business, association, project, consortium, tribe, etc.)"^^xsd:string ;
     rdfs:subClassOf <https://w3id.org/rec#Agent> ;
     sh:property [ a sh:PropertyShape ;
+            sh:class <https://w3id.org/rec#Organization> ;
+            sh:description "Indicates parthood relations in organizations (e.g., departments of a corporation). Note that membership in an organization is expressed using the more specific hasMember property."^^xsd:string ;
+            sh:name "has part"^^xsd:string ;
+            sh:nodeKind sh:IRI ;
+            sh:path <https://w3id.org/rec#hasPart> ],
+        [ a sh:PropertyShape ;
+            sh:class <https://w3id.org/rec#Organization> ;
+            sh:description "Indicates parthood relations in organizations (e.g., departments of a corporation). Note that membership in an organization is expressed using the Agent.isMemberOf property."^^xsd:string ;
+            sh:name "is part of"^^xsd:string ;
+            sh:nodeKind sh:IRI ;
+            sh:path <https://w3id.org/rec#isPartOf> ],
+        [ a sh:PropertyShape ;
             sh:datatype xsd:anyURI ;
             sh:description "URL link to an image/logo that represents the organization."^^xsd:string ;
             sh:name "logo"^^xsd:string ;
@@ -1561,19 +1573,7 @@
             sh:description "Indicates membership in an organization. Note that componency (e.g., departments of a corporation) are expressed using the more generic hasPart property."^^xsd:string ;
             sh:name "has member"^^xsd:string ;
             sh:nodeKind sh:IRI ;
-            sh:path <https://w3id.org/rec#hasMember> ],
-        [ a sh:PropertyShape ;
-            sh:class <https://w3id.org/rec#Organization> ;
-            sh:description "Indicates parthood relations in organizations (e.g., departments of a corporation). Note that membership in an organization is expressed using the Agent.isMemberOf property."^^xsd:string ;
-            sh:name "is part of"^^xsd:string ;
-            sh:nodeKind sh:IRI ;
-            sh:path <https://w3id.org/rec#isPartOf> ],
-        [ a sh:PropertyShape ;
-            sh:class <https://w3id.org/rec#Organization> ;
-            sh:description "Indicates parthood relations in organizations (e.g., departments of a corporation). Note that membership in an organization is expressed using the more specific hasMember property."^^xsd:string ;
-            sh:name "has part"^^xsd:string ;
-            sh:nodeKind sh:IRI ;
-            sh:path <https://w3id.org/rec#hasPart> ] .
+            sh:path <https://w3id.org/rec#hasMember> ] .
 
 <https://w3id.org/rec#OutdoorSpace> a rdfs:Class,
         sh:NodeShape ;
@@ -1613,19 +1613,19 @@
     rdfs:subClassOf <https://w3id.org/rec#Agent> ;
     sh:property [ a sh:PropertyShape ;
             sh:datatype xsd:string ;
-            sh:name "gender"^^xsd:string ;
-            sh:path <https://w3id.org/rec#gender> ],
+            sh:path <https://w3id.org/rec#familyName> ],
         [ a sh:PropertyShape ;
             sh:datatype xsd:string ;
             sh:path <https://w3id.org/rec#givenName> ],
         [ a sh:PropertyShape ;
-            sh:datatype xsd:string ;
-            sh:path <https://w3id.org/rec#familyName> ],
-        [ a sh:PropertyShape ;
             sh:datatype xsd:anyURI ;
             sh:description "URL link to an image that represents the person."^^xsd:string ;
             sh:name "image"^^xsd:string ;
-            sh:path <https://w3id.org/rec#image> ] .
+            sh:path <https://w3id.org/rec#image> ],
+        [ a sh:PropertyShape ;
+            sh:datatype xsd:string ;
+            sh:name "gender"^^xsd:string ;
+            sh:path <https://w3id.org/rec#gender> ] .
 
 <https://w3id.org/rec#PersonalHygiene> a rdfs:Class,
         sh:NodeShape ;
@@ -1698,13 +1698,18 @@
     sh:property [ a sh:PropertyShape ;
             sh:datatype xsd:string ;
             sh:maxCount 1 ;
+            sh:name "region"^^xsd:string ;
+            sh:path <https://w3id.org/rec#region> ],
+        [ a sh:PropertyShape ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
             sh:name "address line 1"^^xsd:string ;
             sh:path <https://w3id.org/rec#addressLine1> ],
         [ a sh:PropertyShape ;
             sh:datatype xsd:string ;
             sh:maxCount 1 ;
-            sh:name "address line 2"^^xsd:string ;
-            sh:path <https://w3id.org/rec#addressLine2> ],
+            sh:name "postal code"^^xsd:string ;
+            sh:path <https://w3id.org/rec#postalCode> ],
         [ a sh:PropertyShape ;
             sh:datatype xsd:string ;
             sh:description "The country, e.g., USA, Sweden, Argentina, or optionally a two-letter ISO 3166-1 alpha-2 country code, e.g., \"SE\", \"US\", etc."^^xsd:string ;
@@ -1714,18 +1719,13 @@
         [ a sh:PropertyShape ;
             sh:datatype xsd:string ;
             sh:maxCount 1 ;
+            sh:name "address line 2"^^xsd:string ;
+            sh:path <https://w3id.org/rec#addressLine2> ],
+        [ a sh:PropertyShape ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
             sh:name "city"^^xsd:string ;
-            sh:path <https://w3id.org/rec#city> ],
-        [ a sh:PropertyShape ;
-            sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:name "postal code"^^xsd:string ;
-            sh:path <https://w3id.org/rec#postalCode> ],
-        [ a sh:PropertyShape ;
-            sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:name "region"^^xsd:string ;
-            sh:path <https://w3id.org/rec#region> ] .
+            sh:path <https://w3id.org/rec#city> ] .
 
 <https://w3id.org/rec#PowerObservation> a rdfs:Class,
         sh:NodeShape ;
@@ -1892,12 +1892,12 @@
     rdfs:subClassOf <https://w3id.org/rec#ICTEquipment> ;
     sh:property [ a sh:PropertyShape ;
             sh:datatype xsd:double ;
-            sh:name "Battery Percentage"^^xsd:string ;
-            sh:path <https://w3id.org/rec#batteryPercentage> ],
+            sh:name "Wi-Fi Signal Strength"^^xsd:string ;
+            sh:path <https://w3id.org/rec#wifiSignalStrength> ],
         [ a sh:PropertyShape ;
             sh:datatype xsd:double ;
-            sh:name "Wi-Fi Signal Strength"^^xsd:string ;
-            sh:path <https://w3id.org/rec#wifiSignalStrength> ] .
+            sh:name "Battery Percentage"^^xsd:string ;
+            sh:path <https://w3id.org/rec#batteryPercentage> ] .
 
 <https://w3id.org/rec#Server> a rdfs:Class,
         sh:NodeShape ;
@@ -1921,10 +1921,17 @@
             sh:nodeKind sh:IRI ;
             sh:path <https://w3id.org/rec#createdBy> ],
         [ a sh:PropertyShape ;
-            sh:datatype xsd:dateTime ;
+            sh:datatype xsd:string ;
+            sh:in ( "Unacknowledged"^^xsd:string "Acknowledged"^^xsd:string "Closed"^^xsd:string ) ;
             sh:maxCount 1 ;
-            sh:name "closed time"^^xsd:string ;
-            sh:path <https://w3id.org/rec#closedTime> ],
+            sh:minCount 1 ;
+            sh:name "status"^^xsd:string ;
+            sh:path <https://w3id.org/rec#status> ],
+        [ a sh:PropertyShape ;
+            sh:minCount 1 ;
+            sh:name "related to"^^xsd:string ;
+            sh:nodeKind sh:IRI ;
+            sh:path <https://w3id.org/rec#relatedTo> ],
         [ a sh:PropertyShape ;
             sh:class <https://w3id.org/rec#Agent> ;
             sh:maxCount 1 ;
@@ -1933,16 +1940,21 @@
             sh:path <https://w3id.org/rec#closedBy> ],
         [ a sh:PropertyShape ;
             sh:datatype xsd:string ;
-            sh:in ( "Unacknowledged"^^xsd:string "Acknowledged"^^xsd:string "Closed"^^xsd:string ) ;
+            sh:in ( "Severe"^^xsd:string "Major"^^xsd:string "Minor"^^xsd:string ) ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
-            sh:name "status"^^xsd:string ;
-            sh:path <https://w3id.org/rec#status> ],
+            sh:name "severity"^^xsd:string ;
+            sh:path <https://w3id.org/rec#severity> ],
         [ a sh:PropertyShape ;
             sh:datatype xsd:dateTime ;
             sh:maxCount 1 ;
             sh:name "acknowledged time"^^xsd:string ;
             sh:path <https://w3id.org/rec#acknowledgedTime> ],
+        [ a sh:PropertyShape ;
+            sh:class brick:Point ;
+            sh:name "produced by"^^xsd:string ;
+            sh:nodeKind sh:IRI ;
+            sh:path <https://w3id.org/rec#producedBy> ],
         [ a sh:PropertyShape ;
             sh:class <https://w3id.org/rec#Agent> ;
             sh:maxCount 1 ;
@@ -1950,27 +1962,15 @@
             sh:nodeKind sh:IRI ;
             sh:path <https://w3id.org/rec#acknowledgedBy> ],
         [ a sh:PropertyShape ;
-            sh:minCount 1 ;
-            sh:name "related to"^^xsd:string ;
-            sh:nodeKind sh:IRI ;
-            sh:path <https://w3id.org/rec#relatedTo> ],
+            sh:datatype xsd:dateTime ;
+            sh:maxCount 1 ;
+            sh:name "closed time"^^xsd:string ;
+            sh:path <https://w3id.org/rec#closedTime> ],
         [ a sh:PropertyShape ;
             sh:datatype xsd:dateTime ;
             sh:maxCount 1 ;
             sh:name "created time"^^xsd:string ;
-            sh:path <https://w3id.org/rec#createdTime> ],
-        [ a sh:PropertyShape ;
-            sh:class brick:Point ;
-            sh:name "produced by"^^xsd:string ;
-            sh:nodeKind sh:IRI ;
-            sh:path <https://w3id.org/rec#producedBy> ],
-        [ a sh:PropertyShape ;
-            sh:datatype xsd:string ;
-            sh:in ( "Severe"^^xsd:string "Major"^^xsd:string "Minor"^^xsd:string ) ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:name "severity"^^xsd:string ;
-            sh:path <https://w3id.org/rec#severity> ] .
+            sh:path <https://w3id.org/rec#createdTime> ] .
 
 <https://w3id.org/rec#ServiceShaft> a rdfs:Class,
         sh:NodeShape ;
@@ -2047,15 +2047,15 @@
             sh:nodeKind sh:IRI ;
             sh:path <https://w3id.org/rec#isPartOf> ],
         [ a sh:PropertyShape ;
+            sh:name "is location of"^^xsd:string ;
+            sh:nodeKind sh:IRI ;
+            sh:path <https://w3id.org/rec#isLocationOf> ],
+        [ a sh:PropertyShape ;
             sh:class <https://w3id.org/rec#Geometry> ;
             sh:description "Polygon representing the spatial extent of this Space."^^xsd:string ;
             sh:maxCount 1 ;
             sh:name "geometry"^^xsd:string ;
             sh:path <https://w3id.org/rec#geometry> ],
-        [ a sh:PropertyShape ;
-            sh:name "is location of"^^xsd:string ;
-            sh:nodeKind sh:IRI ;
-            sh:path <https://w3id.org/rec#isLocationOf> ],
         [ a sh:PropertyShape ;
             sh:class <https://w3id.org/rec#Space> ;
             sh:name "has part"^^xsd:string ;

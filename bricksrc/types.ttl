@@ -11,6 +11,7 @@ bsh:NumericValue a rdf:List ;
     rdf:rest (
         [ sh:datatype xsd:decimal ]
         [ sh:datatype xsd:integer ]
+        [ sh:datatype xsd:long ]
         [ sh:datatype xsd:double ]
     )
 .

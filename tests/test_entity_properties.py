@@ -103,6 +103,30 @@ def test_last_known_value(brick_with_imports):
     assert not valid, report
 
 
+def test_numeric_value_xsd_long(brick_with_imports):
+    """Test that xsd:long values are accepted in NumericValue"""
+    g = Graph()
+    EX = Namespace("urn:ex#")
+    
+    # Test xsd:long is valid for lastKnownValue
+    g.add(
+        (
+            EX["point"],
+            BRICK.lastKnownValue,
+            [
+                (BRICK.value, Literal("9223372036854775807", datatype=XSD.long)),  # max long value
+                (
+                    BRICK.timestamp,
+                    Literal("2020-01-01T00:00:00", datatype=XSD.dateTime),
+                ),
+            ],
+        )
+    )
+    valid, _, report = g.validate(extra_graphs=[brick_with_imports], engine="topquadrant")
+    assert valid, f"xsd:long should be valid in NumericValue. Report: {report}"
+
+
+
 def test_external_reference_rules(brick_with_imports):
     g = Graph()
     g.add((EX["p1"], A, BRICK.Point))

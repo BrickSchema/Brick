@@ -3,6 +3,203 @@
     {
       "id": {
         "location": {
+          "file": "extensions/brick_extension_s223_extension.shapes.ttl"
+        },
+        "name": "https://brickschema.org/extension/s223extension"
+      },
+      "name": "https://brickschema.org/extension/s223extension",
+      "imports": [
+        "https://brickschema.org/schema/1.4/Brick",
+        "https://brickschema.org/extension/brick_extension_interpret_223",
+        "http://www.w3.org/ns/shacl#",
+        "http://data.ashrae.org/standard223/1.0/model/all"
+      ],
+      "location": {
+        "file": "extensions/brick_extension_s223_extension.shapes.ttl"
+      },
+      "last_updated": "2025-10-28T19:01:22.828924894Z",
+      "version_properties": {
+        "http://www.w3.org/2002/07/owl#versionInfo": "\"Created with TopBraid Composer\""
+      },
+      "namespace_map": {
+        "sh": "http://www.w3.org/ns/shacl#",
+        "ref": "https://brickschema.org/schema/Brick/ref#",
+        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        "s223": "http://data.ashrae.org/standard223#",
+        "brick": "https://brickschema.org/schema/Brick#",
+        "owl": "http://www.w3.org/2002/07/owl#",
+        "rec": "https://w3id.org/rec#",
+        "rdfs": "http://www.w3.org/2000/01/rdf-schema#"
+      }
+    },
+    {
+      "id": {
+        "location": {
+          "file": "/home/runner/work/Brick/Brick/Brick.ttl"
+        },
+        "name": "https://brickschema.org/schema/1.4/Brick"
+      },
+      "name": "https://brickschema.org/schema/1.4/Brick",
+      "imports": [
+        "https://w3id.org/rec/recimports",
+        "https://brickschema.org/schema/Brick/ref",
+        "http://qudt.org/3.1.0/vocab/unit",
+        "http://qudt.org/3.1.0/vocab/quantitykind",
+        "http://data.ashrae.org/bacnet/2020"
+      ],
+      "location": {
+        "file": "/home/runner/work/Brick/Brick/Brick.ttl"
+      },
+      "last_updated": "2025-10-28T19:01:39.948921643Z",
+      "version_properties": {
+        "http://www.w3.org/2000/01/rdf-schema#seeAlso": "<https://brickschema.org>",
+        "http://purl.org/dc/terms/modified": "\"2025-10-28\"",
+        "http://www.w3.org/2002/07/owl#versionInfo": "\"1.4.4\"",
+        "http://www.w3.org/2000/01/rdf-schema#label": "\"Brick\"",
+        "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": "<https://brickschema.org/schema/1.4/Brick>"
+      },
+      "namespace_map": {
+        "sh": "http://www.w3.org/ns/shacl#",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "ref": "https://brickschema.org/schema/Brick/ref#",
+        "brick": "https://brickschema.org/schema/Brick#",
+        "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+        "rec": "https://w3id.org/rec#",
+        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        "s223": "http://data.ashrae.org/standard223#",
+        "owl": "http://www.w3.org/2002/07/owl#"
+      }
+    },
+    {
+      "id": {
+        "location": {
+          "file": "support/ref-schema.ttl"
+        },
+        "name": "https://brickschema.org/schema/Brick/ref"
+      },
+      "name": "https://brickschema.org/schema/Brick/ref",
+      "imports": [],
+      "location": {
+        "file": "support/ref-schema.ttl"
+      },
+      "last_updated": "2025-10-28T19:01:39.948925671Z",
+      "version_properties": {
+        "http://purl.org/dc/terms/title": "\"Ref Schema\""
+      },
+      "namespace_map": {
+        "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        "owl": "http://www.w3.org/2002/07/owl#",
+        "sh": "http://www.w3.org/ns/shacl#",
+        "ref": "https://brickschema.org/schema/Brick/ref#"
+      }
+    },
+    {
+      "id": {
+        "location": {
+          "file": "support/VOCAB_QUDT-UNITS-ALL.ttl"
+        },
+        "name": "http://qudt.org/3.1.0/vocab/unit"
+      },
+      "name": "http://qudt.org/3.1.0/vocab/unit",
+      "imports": [
+        "http://qudt.org/3.1.0/vocab/sou",
+        "http://qudt.org/3.1.0/vocab/quantitykind",
+        "http://qudt.org/3.1.0/vocab/prefix",
+        "http://qudt.org/3.1.0/schema/facade/qudt"
+      ],
+      "location": {
+        "file": "support/VOCAB_QUDT-UNITS-ALL.ttl"
+      },
+      "last_updated": "2025-10-28T19:01:39.948928747Z",
+      "version_properties": {
+        "http://purl.org/dc/terms/created": "\"2019-07-30\"^^<http://www.w3.org/2001/XMLSchema#date>",
+        "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": "<http://qudt.org/3.1.0/vocab/unit>",
+        "http://www.w3.org/2000/01/rdf-schema#label": "\"QUDT Unit of Measure Vocabulary Metadata Version 3.1.0\"",
+        "http://www.w3.org/2002/07/owl#versionIRI": "<http://qudt.org/3.1.0/vocab/unit>",
+        "http://purl.org/dc/terms/modified": "\"2025-03-20T15:47:09Z\"^^<http://www.w3.org/2001/XMLSchema#dateTime>",
+        "http://purl.org/dc/terms/title": "\"QUDT Units Version 3.1 Vocabulary\""
+      },
+      "namespace_map": {}
+    },
+    {
+      "id": {
+        "location": {
+          "file": "rec/Source/SHACL/RealEstateCore/rec.ttl"
+        },
+        "name": "https://w3id.org/rec"
+      },
+      "name": "https://w3id.org/rec",
+      "imports": [
+        "https://w3id.org/rec/brickpatches",
+        "https://brickschema.org/schema/1.3/Brick",
+        "http://datashapes.org/dash"
+      ],
+      "location": {
+        "file": "rec/Source/SHACL/RealEstateCore/rec.ttl"
+      },
+      "last_updated": "2025-10-28T19:01:39.948935409Z",
+      "version_properties": {
+        "http://www.w3.org/2002/07/owl#versionInfo": "\"4.0\"",
+        "http://www.w3.org/2000/01/rdf-schema#label": "\"RealEstateCore\""
+      },
+      "namespace_map": {}
+    },
+    {
+      "id": {
+        "location": {
+          "file": "support/recimports.ttl"
+        },
+        "name": "https://w3id.org/rec/recimports"
+      },
+      "name": "https://w3id.org/rec/recimports",
+      "imports": [
+        "https://w3id.org/rec"
+      ],
+      "location": {
+        "file": "support/recimports.ttl"
+      },
+      "last_updated": "2025-10-28T19:01:39.948923126Z",
+      "version_properties": {},
+      "namespace_map": {}
+    },
+    {
+      "id": {
+        "location": {
+          "file": "extensions/brick_extension_shacl_tag_inference.ttl"
+        },
+        "name": "file://extensions/brick_extension_shacl_tag_inference.ttl"
+      },
+      "name": "file://extensions/brick_extension_shacl_tag_inference.ttl",
+      "imports": [],
+      "location": {
+        "file": "extensions/brick_extension_shacl_tag_inference.ttl"
+      },
+      "last_updated": "2025-10-28T19:01:40.451185607Z",
+      "version_properties": {},
+      "namespace_map": {}
+    },
+    {
+      "id": {
+        "location": {
+          "file": "extensions/brick_extension_mappings_223.ttl"
+        },
+        "name": "https://brickschema.org/extension/mappings_223"
+      },
+      "name": "https://brickschema.org/extension/mappings_223",
+      "imports": [],
+      "location": {
+        "file": "extensions/brick_extension_mappings_223.ttl"
+      },
+      "last_updated": "2025-10-28T19:01:22.828918312Z",
+      "version_properties": {
+        "http://www.w3.org/2002/07/owl#versionInfo": "\"Created with TopBraid Composer\""
+      },
+      "namespace_map": {}
+    },
+    {
+      "id": {
+        "location": {
           "file": "rec/Source/SHACL/RealEstateCore/recimports.ttl"
         },
         "name": "https://w3id.org/rec/recimports"
@@ -14,7 +211,7 @@
       "location": {
         "file": "rec/Source/SHACL/RealEstateCore/recimports.ttl"
       },
-      "last_updated": "2025-10-28T18:52:15.721787795Z",
+      "last_updated": "2025-10-28T19:01:22.828913914Z",
       "version_properties": {},
       "namespace_map": {}
     },
@@ -35,76 +232,58 @@
       "location": {
         "file": "extensions/brick_extension_interpret_223.shapes.ttl"
       },
-      "last_updated": "2025-10-28T18:51:58.862016706Z",
+      "last_updated": "2025-10-28T19:01:22.828917581Z",
       "version_properties": {
         "http://www.w3.org/2002/07/owl#versionInfo": "\"Created with TopBraid Composer\""
       },
       "namespace_map": {
-        "brick": "https://brickschema.org/schema/Brick#",
         "s223tobrick": "https://brickschema.org/extension/brick_extension_interpret_223#",
-        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-        "s223": "http://data.ashrae.org/standard223#",
-        "rdfs": "http://www.w3.org/2000/01/rdf-schema#"
-      }
-    },
-    {
-      "id": {
-        "location": {
-          "file": "extensions/brick_extension_s223_extension.shapes.ttl"
-        },
-        "name": "https://brickschema.org/extension/s223extension"
-      },
-      "name": "https://brickschema.org/extension/s223extension",
-      "imports": [
-        "https://brickschema.org/schema/1.4/Brick",
-        "https://brickschema.org/extension/brick_extension_interpret_223",
-        "http://www.w3.org/ns/shacl#",
-        "http://data.ashrae.org/standard223/1.0/model/all"
-      ],
-      "location": {
-        "file": "extensions/brick_extension_s223_extension.shapes.ttl"
-      },
-      "last_updated": "2025-10-28T18:51:58.861978134Z",
-      "version_properties": {
-        "http://www.w3.org/2002/07/owl#versionInfo": "\"Created with TopBraid Composer\""
-      },
-      "namespace_map": {
-        "brick": "https://brickschema.org/schema/Brick#",
-        "rec": "https://w3id.org/rec#",
-        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-        "s223": "http://data.ashrae.org/standard223#",
         "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-        "ref": "https://brickschema.org/schema/Brick/ref#",
-        "owl": "http://www.w3.org/2002/07/owl#",
-        "sh": "http://www.w3.org/ns/shacl#"
+        "brick": "https://brickschema.org/schema/Brick#",
+        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        "s223": "http://data.ashrae.org/standard223#"
       }
     },
     {
       "id": {
         "location": {
-          "file": "support/VOCAB_QUDT-UNITS-ALL.ttl"
+          "file": "support/VOCAB_QUDT-QUANTITY-KINDS-ALL.ttl"
         },
-        "name": "http://qudt.org/3.1.0/vocab/unit"
+        "name": "http://qudt.org/3.1.0/vocab/quantitykind"
       },
-      "name": "http://qudt.org/3.1.0/vocab/unit",
+      "name": "http://qudt.org/3.1.0/vocab/quantitykind",
       "imports": [
-        "http://qudt.org/3.1.0/vocab/sou",
-        "http://qudt.org/3.1.0/vocab/quantitykind",
-        "http://qudt.org/3.1.0/vocab/prefix",
+        "http://qudt.org/3.1.0/vocab/dimensionvector",
         "http://qudt.org/3.1.0/schema/facade/qudt"
       ],
       "location": {
-        "file": "support/VOCAB_QUDT-UNITS-ALL.ttl"
+        "file": "support/VOCAB_QUDT-QUANTITY-KINDS-ALL.ttl"
       },
-      "last_updated": "2025-10-28T18:52:15.721792935Z",
+      "last_updated": "2025-10-28T19:01:39.948931833Z",
       "version_properties": {
-        "http://purl.org/dc/terms/modified": "\"2025-03-20T15:47:09Z\"^^<http://www.w3.org/2001/XMLSchema#dateTime>",
-        "http://www.w3.org/2002/07/owl#versionIRI": "<http://qudt.org/3.1.0/vocab/unit>",
-        "http://www.w3.org/2000/01/rdf-schema#label": "\"QUDT Unit of Measure Vocabulary Metadata Version 3.1.0\"",
-        "http://purl.org/dc/terms/title": "\"QUDT Units Version 3.1 Vocabulary\"",
-        "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": "<http://qudt.org/3.1.0/vocab/unit>",
-        "http://purl.org/dc/terms/created": "\"2019-07-30\"^^<http://www.w3.org/2001/XMLSchema#date>"
+        "http://purl.org/dc/terms/created": "\"2019-08-01T16:25:54.85Z\"^^<http://www.w3.org/2001/XMLSchema#dateTime>",
+        "http://purl.org/dc/terms/title": "\"QUDT Quantity Kinds Version 3.1 Vocabulary\"",
+        "http://purl.org/dc/terms/modified": "\"2024-10-26T14:11:16.049-04:00\"^^<http://www.w3.org/2001/XMLSchema#dateTime>",
+        "http://www.w3.org/2002/07/owl#versionIRI": "<http://qudt.org/3.1.0/vocab/quantitykind>",
+        "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": "<http://qudt.org/3.1.0/vocab/quantitykind>",
+        "http://www.w3.org/2000/01/rdf-schema#label": "\"QUDT Quantity Kind Vocabulary Metadata Version 3.1.0\""
       },
+      "namespace_map": {}
+    },
+    {
+      "id": {
+        "location": {
+          "file": "support/bacnet.ttl"
+        },
+        "name": "http://data.ashrae.org/bacnet/2020"
+      },
+      "name": "http://data.ashrae.org/bacnet/2020",
+      "imports": [],
+      "location": {
+        "file": "support/bacnet.ttl"
+      },
+      "last_updated": "2025-10-28T19:01:39.948934317Z",
+      "version_properties": {},
       "namespace_map": {}
     },
     {
@@ -123,200 +302,21 @@
       "location": {
         "file": "extensions/223p.ttl"
       },
-      "last_updated": "2025-10-28T18:51:58.862018429Z",
+      "last_updated": "2025-10-28T19:01:22.828924374Z",
       "version_properties": {
         "http://www.w3.org/2002/07/owl#versionInfo": "\"Created with TopBraid Composer\""
       },
       "namespace_map": {
+        "role": "http://data.ashrae.org/standard223/1.0/vocab/role#",
+        "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+        "qudt": "http://qudt.org/schema/qudt/",
+        "sh": "http://www.w3.org/ns/shacl#",
+        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        "qudtqk": "http://qudt.org/vocab/quantitykind/",
         "unit": "http://qudt.org/vocab/unit/",
         "s223": "http://data.ashrae.org/standard223#",
-        "sh": "http://www.w3.org/ns/shacl#",
-        "qudt": "http://qudt.org/schema/qudt/",
-        "qudtqk": "http://qudt.org/vocab/quantitykind/",
-        "role": "http://data.ashrae.org/standard223/1.0/vocab/role#",
-        "quantitykind": "http://qudt.org/vocab/quantitykind/",
-        "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+        "quantitykind": "http://qudt.org/vocab/quantitykind/"
       }
-    },
-    {
-      "id": {
-        "location": {
-          "file": "rec/Source/SHACL/RealEstateCore/rec.ttl"
-        },
-        "name": "https://w3id.org/rec"
-      },
-      "name": "https://w3id.org/rec",
-      "imports": [
-        "https://w3id.org/rec/brickpatches",
-        "https://brickschema.org/schema/1.3/Brick",
-        "http://datashapes.org/dash"
-      ],
-      "location": {
-        "file": "rec/Source/SHACL/RealEstateCore/rec.ttl"
-      },
-      "last_updated": "2025-10-28T18:52:15.721800138Z",
-      "version_properties": {
-        "http://www.w3.org/2000/01/rdf-schema#label": "\"RealEstateCore\"",
-        "http://www.w3.org/2002/07/owl#versionInfo": "\"4.0\""
-      },
-      "namespace_map": {}
-    },
-    {
-      "id": {
-        "location": {
-          "file": "support/ref-schema.ttl"
-        },
-        "name": "https://brickschema.org/schema/Brick/ref"
-      },
-      "name": "https://brickschema.org/schema/Brick/ref",
-      "imports": [],
-      "location": {
-        "file": "support/ref-schema.ttl"
-      },
-      "last_updated": "2025-10-28T18:52:15.721789999Z",
-      "version_properties": {
-        "http://purl.org/dc/terms/title": "\"Ref Schema\""
-      },
-      "namespace_map": {
-        "sh": "http://www.w3.org/ns/shacl#",
-        "ref": "https://brickschema.org/schema/Brick/ref#",
-        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-        "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-        "owl": "http://www.w3.org/2002/07/owl#"
-      }
-    },
-    {
-      "id": {
-        "location": {
-          "file": "support/VOCAB_QUDT-QUANTITY-KINDS-ALL.ttl"
-        },
-        "name": "http://qudt.org/3.1.0/vocab/quantitykind"
-      },
-      "name": "http://qudt.org/3.1.0/vocab/quantitykind",
-      "imports": [
-        "http://qudt.org/3.1.0/vocab/dimensionvector",
-        "http://qudt.org/3.1.0/schema/facade/qudt"
-      ],
-      "location": {
-        "file": "support/VOCAB_QUDT-QUANTITY-KINDS-ALL.ttl"
-      },
-      "last_updated": "2025-10-28T18:52:15.721796001Z",
-      "version_properties": {
-        "http://purl.org/dc/terms/created": "\"2019-08-01T16:25:54.85Z\"^^<http://www.w3.org/2001/XMLSchema#dateTime>",
-        "http://purl.org/dc/terms/title": "\"QUDT Quantity Kinds Version 3.1 Vocabulary\"",
-        "http://purl.org/dc/terms/modified": "\"2024-10-26T14:11:16.049-04:00\"^^<http://www.w3.org/2001/XMLSchema#dateTime>",
-        "http://www.w3.org/2002/07/owl#versionIRI": "<http://qudt.org/3.1.0/vocab/quantitykind>",
-        "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": "<http://qudt.org/3.1.0/vocab/quantitykind>",
-        "http://www.w3.org/2000/01/rdf-schema#label": "\"QUDT Quantity Kind Vocabulary Metadata Version 3.1.0\""
-      },
-      "namespace_map": {}
-    },
-    {
-      "id": {
-        "location": {
-          "file": "extensions/brick_extension_shacl_tag_inference.ttl"
-        },
-        "name": "file://extensions/brick_extension_shacl_tag_inference.ttl"
-      },
-      "name": "file://extensions/brick_extension_shacl_tag_inference.ttl",
-      "imports": [],
-      "location": {
-        "file": "extensions/brick_extension_shacl_tag_inference.ttl"
-      },
-      "last_updated": "2025-10-28T18:52:16.214236908Z",
-      "version_properties": {},
-      "namespace_map": {}
-    },
-    {
-      "id": {
-        "location": {
-          "file": "support/bacnet.ttl"
-        },
-        "name": "http://data.ashrae.org/bacnet/2020"
-      },
-      "name": "http://data.ashrae.org/bacnet/2020",
-      "imports": [],
-      "location": {
-        "file": "support/bacnet.ttl"
-      },
-      "last_updated": "2025-10-28T18:52:15.721798866Z",
-      "version_properties": {},
-      "namespace_map": {}
-    },
-    {
-      "id": {
-        "location": {
-          "file": "/home/runner/work/Brick/Brick/Brick.ttl"
-        },
-        "name": "https://brickschema.org/schema/1.4/Brick"
-      },
-      "name": "https://brickschema.org/schema/1.4/Brick",
-      "imports": [
-        "https://w3id.org/rec/recimports",
-        "https://brickschema.org/schema/Brick/ref",
-        "http://qudt.org/3.1.0/vocab/unit",
-        "http://qudt.org/3.1.0/vocab/quantitykind",
-        "http://data.ashrae.org/bacnet/2020"
-      ],
-      "location": {
-        "file": "/home/runner/work/Brick/Brick/Brick.ttl"
-      },
-      "last_updated": "2025-10-28T18:52:15.721786333Z",
-      "version_properties": {
-        "http://www.w3.org/2000/01/rdf-schema#label": "\"Brick\"",
-        "http://www.w3.org/2000/01/rdf-schema#seeAlso": "<https://brickschema.org>",
-        "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": "<https://brickschema.org/schema/1.4/Brick>",
-        "http://purl.org/dc/terms/modified": "\"2025-10-28\"",
-        "http://www.w3.org/2002/07/owl#versionInfo": "\"1.4.4\""
-      },
-      "namespace_map": {
-        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-        "sh": "http://www.w3.org/ns/shacl#",
-        "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-        "s223": "http://data.ashrae.org/standard223#",
-        "owl": "http://www.w3.org/2002/07/owl#",
-        "ref": "https://brickschema.org/schema/Brick/ref#",
-        "rec": "https://w3id.org/rec#",
-        "xsd": "http://www.w3.org/2001/XMLSchema#",
-        "brick": "https://brickschema.org/schema/Brick#"
-      }
-    },
-    {
-      "id": {
-        "location": {
-          "file": "extensions/brick_extension_mappings_223.ttl"
-        },
-        "name": "https://brickschema.org/extension/mappings_223"
-      },
-      "name": "https://brickschema.org/extension/mappings_223",
-      "imports": [],
-      "location": {
-        "file": "extensions/brick_extension_mappings_223.ttl"
-      },
-      "last_updated": "2025-10-28T18:51:58.862053825Z",
-      "version_properties": {
-        "http://www.w3.org/2002/07/owl#versionInfo": "\"Created with TopBraid Composer\""
-      },
-      "namespace_map": {}
-    },
-    {
-      "id": {
-        "location": {
-          "file": "support/recimports.ttl"
-        },
-        "name": "https://w3id.org/rec/recimports"
-      },
-      "name": "https://w3id.org/rec/recimports",
-      "imports": [
-        "https://w3id.org/rec"
-      ],
-      "location": {
-        "file": "support/recimports.ttl"
-      },
-      "last_updated": "2025-10-28T18:51:58.862055779Z",
-      "version_properties": {},
-      "namespace_map": {}
     }
   ],
   "default_policy": "default",
