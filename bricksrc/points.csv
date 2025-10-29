@@ -656,7 +656,7 @@ brick:Pump_Status,,,brick:Pump,,,,brick:Status,,Status of a pump
 brick:PV_Current_Output_Sensor,,,,,,,,(deprecated),See Photovoltaic_Current_Output_Sensor
 brick:Radiant_Panel_Temperature_Sensor,,,brick:Radiant_Panel,,,quantitykind:Temperature,brick:Sensor,,Measures the temperature of the radiant panel of the radiant heating and cooling HVAC system.
 brick:Radiant_Panel_Temperature_Setpoint,,,brick:Radiant_Panel,,,quantitykind:Temperature,brick:Setpoint,,Sets temperature of radiant panel.
-brick:Radon_Concentration_Sensor,,,,brick:Rn,,,brick:Sensor,Concentration,Measures the concentration of radioactivity due to radon
+brick:Radon_Concentration_Sensor,,,,brick:Rn,,quantitykind:ActivityConcentration,brick:Sensor,,Measures the concentration of radioactivity due to radon
 brick:Rain_Duration_Sensor,,,,brick:Rain,,quantitykind:Time,brick:Sensor,,Measures the duration of precipitation within some time frame
 brick:Rain_Level_Sensor,,,,brick:Rain,,,brick:Sensor,Level,Measures the amount of precipitation fallen
 brick:Rated_Speed_Setpoint,,,,,,,,(deprecated),Sets rated speed
