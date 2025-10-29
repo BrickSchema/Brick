@@ -68,7 +68,7 @@ brick:Chilled_Water_Flow_Sensor,,,,brick:Chilled_Water,,quantitykind:VolumeFlowR
 brick:Chilled_Water_Flow_Setpoint,,,,brick:Chilled_Water,,quantitykind:VolumeFlowRate,brick:Setpoint,,Sets the target flow rate of chilled water
 brick:Chilled_Water_Gauge_Pressure_Sensor,,,,brick:Chilled_Water,,quantitykind:GaugePressure,brick:Sensor,,Sensor measuring the gauge pressure (zero-referenced against ambient air pressure) of chilled water
 brick:Chilled_Water_Static_Pressure_Setpoint,,,,brick:Chilled_Water,,quantitykind:StaticPressure,brick:Setpoint,,Sets static pressure of chilled water
-brick:Chilled_Water_System_Enable_Command,,,brick:Chilled_Water_System,,,,brick:Command,Enable,Enables operation of the chilled water system
+brick:Chilled_Water_System_Enable_Command,,,brick:Chilled_Water_System,,,,brick:Enable_Command,,Enables operation of the chilled water system
 brick:Chilled_Water_Temperature_Sensor,,,,brick:Chilled_Water,,quantitykind:Temperature,brick:Sensor,,Measures the temperature of chilled water
 brick:Chilled_Water_Temperature_Setpoint,,,,brick:Chilled_Water,,quantitykind:Temperature,brick:Setpoint,,Sets the temperature of chilled water
 brick:Close_Limit,,,,,,,,(deprecated),A parameter that places a lower or upper bound on the range of permitted values of a Close_Setpoint.
@@ -100,7 +100,7 @@ brick:Cooling_Discharge_Air_Flow_Setpoint,,,brick:Cooling,brick:Discharge_Air,,q
 brick:Cooling_Discharge_Air_Temperature_Deadband_Setpoint,,,brick:Cooling,brick:Discharge_Air,,quantitykind:Temperature,brick:Deadband_Setpoint,,Sets the size of a deadband of temperature of cooling discharge air
 brick:Cooling_Discharge_Air_Temperature_Integral_Time_Parameter,,,brick:Cooling,brick:Discharge_Air,,quantitykind:Temperature,brick:Integral_Time_Parameter,,
 brick:Cooling_Discharge_Air_Temperature_Proportional_Band_Parameter,,,brick:Cooling,brick:Discharge_Air,,quantitykind:Temperature,brick:Proportional_Band_Parameter,,
-brick:Cooling_Enable_Command,,,brick:Cooling,,,,brick:Command,Enable,"Command that enables cooling functionality in equipment but certain condition(s) must be met first before actively cooling. For the actively cooling control, see Cooling_Command."
+brick:Cooling_Enable_Command,,,brick:Cooling,,,,brick:Enable_Command,,"Command that enables cooling functionality in equipment but certain condition(s) must be met first before actively cooling. For the actively cooling control, see Cooling_Command."
 brick:Cooling_Mode_Status,,,brick:Cooling,,,brick:EnumerationKind-Mode,brick:Status,,"Indicates whether a system, device or control loop is in a cooling mode"
 brick:Cooling_Start_Stop_Status,,,brick:Cooling,,,brick:EnumerationKind-Start_Stop,brick:Status,,
 brick:Cooling_Supply_Air_Flow_Setpoint,,,brick:Cooling,brick:Supply_Air,,quantitykind:VolumeFlowRate,brick:Setpoint,,Sets supply air flow rate for cooling
@@ -155,13 +155,13 @@ brick:Differential_Temperature_Setpoint,,,,,brick:Differential,quantitykind:Temp
 brick:Direction_Command,,,,,,,brick:Command,Direction,Commands that affect the direction of some phenomenon
 brick:Direction_Sensor,,,,,,,brick:Sensor,Direction,Measures the direction in degrees in which a phenomenon is occuring
 brick:Direction_Status,,,,,,,brick:Status,Direction,Indicates which direction a device is operating in
-brick:Disable_Command,,,,,,,brick:Command,Disable,Commands that disable functionality
-brick:Disable_Differential_Enthalpy_Command,,,,,brick:Differential,quantitykind:Enthalpy,brick:Command,Disable,Disables the use of differential enthalpy control
-brick:Disable_Differential_Temperature_Command,,,,,brick:Differential,quantitykind:Temperature,brick:Command,Disable,Disables the use of differential temperature control
-brick:Disable_Fixed_Enthalpy_Command,,,,,,quantitykind:Enthalpy,brick:Command,Disable Fixed,Disables the use of fixed enthalpy control
-brick:Disable_Fixed_Temperature_Command,,,,,,quantitykind:Temperature,brick:Command,Disable Fixed,Disables the use of fixed temperature temperature
-brick:Disable_Hot_Water_System_Outside_Air_Temperature_Setpoint,,,brick:Hot_Water_System,brick:Outside_Air,,quantitykind:Temperature,brick:Setpoint,Disable,Disables hot water system when outside air temperature reaches the indicated value
-brick:Disable_Status,,,,,,,brick:Status,Disable,Indicates if functionality has been disabled
+brick:Disable_Command,,,,,,,brick:Disable_Command,,Commands that disable functionality
+brick:Disable_Differential_Enthalpy_Command,,,,,brick:Differential,quantitykind:Enthalpy,brick:Disable_Command,,Disables the use of differential enthalpy control
+brick:Disable_Differential_Temperature_Command,,,,,brick:Differential,quantitykind:Temperature,brick:Disable_Command,,Disables the use of differential temperature control
+brick:Disable_Fixed_Enthalpy_Command,,,,,,quantitykind:Enthalpy,brick:Disable_Command,Fixed,Disables the use of fixed enthalpy control
+brick:Disable_Fixed_Temperature_Command,,,,,,quantitykind:Temperature,brick:Disable_Command,Fixed,Disables the use of fixed temperature temperature
+brick:Disable_Hot_Water_System_Outside_Air_Temperature_Setpoint,,,brick:Hot_Water_System,brick:Outside_Air,,quantitykind:Temperature,brick:Disable_Setpoint,,Disables hot water system when outside air temperature reaches the indicated value
+brick:Disable_Status,,,,,,,brick:Disable_Status,,Indicates if functionality has been disabled
 brick:Discharge_Air_Dewpoint_Sensor,,,,brick:Discharge_Air,,quantitykind:DewPointTemperature,brick:Sensor,,Measures dewpoint of discharge air
 brick:Discharge_Air_Differential_Pressure_Sensor,,,,brick:Discharge_Air,brick:Differential,quantitykind:Pressure,brick:Sensor,,
 brick:Discharge_Air_Differential_Pressure_Setpoint,,,,brick:Discharge_Air,brick:Differential,quantitykind:Pressure,brick:Setpoint,,
@@ -198,7 +198,7 @@ brick:Discharge_Air_Temperature_Step_Parameter,,,,brick:Discharge_Air,,quantityk
 brick:Discharge_Air_Velocity_Pressure_Sensor,,,,brick:Discharge_Air,,quantitykind:DynamicPressure,brick:Sensor,,
 brick:Domestic_Hot_Water_Differential_Pressure_Sensor,,,,brick:Domestic_Hot_Water,brick:Differential,quantitykind:Pressure,brick:Sensor,,Measures the pressure difference in domestic hot water systems.
 brick:Domestic_Hot_Water_Differential_Pressure_Setpoint,,,,brick:Domestic_Hot_Water,brick:Differential,quantitykind:Pressure,brick:Setpoint,,Sets the target water differential pressure between an upstream and downstream point in a water pipe used to carry domestic hot water
-brick:Domestic_Hot_Water_System_Enable_Command,,,brick:Domestic_Hot_Water_System,,,,brick:Command,Enable,Enables operation of the domestic hot water system
+brick:Domestic_Hot_Water_System_Enable_Command,,,brick:Domestic_Hot_Water_System,,,,brick:Enable_Command,,Enables operation of the domestic hot water system
 brick:Domestic_Hot_Water_Temperature_Sensor,,,,brick:Domestic_Hot_Water,,quantitykind:Temperature,brick:Sensor,,
 brick:Domestic_Hot_Water_Temperature_Setpoint,,,,brick:Domestic_Hot_Water,,quantitykind:Temperature,brick:Setpoint,,Sets temperature of domestic hot water
 brick:Drive_Ready_Status,,,,,,,,(deprecated),"Indicates if a hard drive or other storage device is ready to be used, e.g. in the context of RAID"
@@ -226,13 +226,13 @@ brick:Emergency_Power_Off_System_Activated_By_High_Temperature_Status,brick:High
 brick:Emergency_Power_Off_System_Activated_By_Leak_Detection_System_Status,,,brick:Emergency_Power_Off_System,,,,brick:Status,Activated By Leak Detection System,
 brick:Emergency_Power_Off_System_Status,,,brick:Emergency_Power_Off_System,,,,brick:Status,,
 brick:Emergency_Push_Button_Status,,,,,,,brick:Status,Emergency Push Button,Indicates if an emergency button has been pushed
-brick:Enable_Command,,,,,,,brick:Command,Enable,Commands that enable functionality
-brick:Enable_Differential_Enthalpy_Command,,,,,brick:Differential,quantitykind:Enthalpy,brick:Command,Enable,Enables the use of differential enthalpy control
-brick:Enable_Differential_Temperature_Command,,,,,brick:Differential,quantitykind:Temperature,brick:Command,Enable,Enables the use of differential temperature control
-brick:Enable_Fixed_Enthalpy_Command,,,,,,quantitykind:Enthalpy,brick:Command,Enable Fixed,Enables the use of fixed enthalpy control
-brick:Enable_Fixed_Temperature_Command,,,,,,quantitykind:Temperature,brick:Command,Enable Fixed,Enables the use of fixed temperature control
-brick:Enable_Hot_Water_System_Outside_Air_Temperature_Setpoint,,,brick:Hot_Water_System,brick:Outside_Air,,quantitykind:Temperature,brick:Setpoint,Enable,Enables hot water system when outside air temperature reaches the indicated value
-brick:Enable_Status,,,,,,,brick:Status,Enable,Indicates if a system or piece of functionality has been enabled
+brick:Enable_Command,,,,,,,brick:Enable_Command,,Commands that enable functionality
+brick:Enable_Differential_Enthalpy_Command,,,,,brick:Differential,quantitykind:Enthalpy,brick:Enable_Command,,Enables the use of differential enthalpy control
+brick:Enable_Differential_Temperature_Command,,,,,brick:Differential,quantitykind:Temperature,brick:Enable_Command,,Enables the use of differential temperature control
+brick:Enable_Fixed_Enthalpy_Command,,,,,,quantitykind:Enthalpy,brick:Enable_Command,Fixed,Enables the use of fixed enthalpy control
+brick:Enable_Fixed_Temperature_Command,,,,,,quantitykind:Temperature,brick:Enable_Command,Fixed,Enables the use of fixed temperature control
+brick:Enable_Hot_Water_System_Outside_Air_Temperature_Setpoint,,,brick:Hot_Water_System,brick:Outside_Air,,quantitykind:Temperature,brick:Enable_Setpoint,,Enables hot water system when outside air temperature reaches the indicated value
+brick:Enable_Status,,,,,,,brick:Enable_Status,,Indicates if a system or piece of functionality has been enabled
 brick:Energy_Generation_Sensor,,,,,,,brick:Sensor,Energy Generation,A sensor measuring the amount of generated energy.
 brick:Energy_Sensor,,,,,,,brick:Sensor,Energy,Measures energy consumption
 brick:Energy_Usage_Sensor,,,,,,,brick:Sensor,Energy Usage,Measures the total amount of energy used over some period of time
@@ -321,7 +321,7 @@ brick:Gauge_Pressure_Sensor,,,,,,quantitykind:GaugePressure,brick:Sensor,,Pressu
 brick:Generation_Sensor,,,,,,,brick:Sensor,Generation,A sensor measuring how much something has been generated.
 brick:Hail_Sensor,,,,brick:Hail,,,brick:Sensor,,Measures hail in terms of its size and damage potential
 brick:Heat_Exchanger_Leaving_Water_Temperature_Sensor,,,brick:Heat_Exchanger,brick:Leaving_Water,,quantitykind:Temperature,brick:Sensor,,
-brick:Heat_Exchanger_System_Enable_Status,,,brick:Heat_Exchanger_System,,,,brick:Status,Enable,Indicates if the heat exchanger system has been enabled
+brick:Heat_Exchanger_System_Enable_Status,,,brick:Heat_Exchanger_System,,,,brick:Enable_Status,,Indicates if the heat exchanger system has been enabled
 brick:Heat_Sink_Temperature_Sensor,,,,,,,,(deprecated),Measure temperature of the heat sink on a device such as a VFD.
 brick:Heating_Command,,,brick:Heating,,,,brick:Command,,Controls the amount of heating to be delivered (typically as a proportion of total heating output)
 brick:Heating_Demand_Sensor,,,brick:Heating,,,,brick:Demand_Sensor,,Measures the amount of power consumed by a heating process; typically found by multiplying the tonnage of a unit (e.g. RTU) by the efficiency rating in kW/ton
@@ -330,7 +330,7 @@ brick:Heating_Discharge_Air_Flow_Setpoint,,,brick:Heating,brick:Discharge_Air,,q
 brick:Heating_Discharge_Air_Temperature_Deadband_Setpoint,,,brick:Heating,brick:Discharge_Air,,quantitykind:Temperature,brick:Deadband_Setpoint,,Sets the size of a deadband of temperature of heating discharge air
 brick:Heating_Discharge_Air_Temperature_Integral_Time_Parameter,,,brick:Heating,brick:Discharge_Air,,quantitykind:Temperature,brick:Integral_Time_Parameter,,
 brick:Heating_Discharge_Air_Temperature_Proportional_Band_Parameter,,,brick:Heating,brick:Discharge_Air,,quantitykind:Temperature,brick:Proportional_Band_Parameter,,
-brick:Heating_Enable_Command,,,brick:Heating,,,,brick:Command,Enable,"Command that enables heating functionality in equipment but certain condition(s) must be met first before actively heating. For the actively heating control, see Heating_Command."
+brick:Heating_Enable_Command,,,brick:Heating,,,,brick:Enable_Command,,"Command that enables heating functionality in equipment but certain condition(s) must be met first before actively heating. For the actively heating control, see Heating_Command."
 brick:Heating_Mode_Status,,,brick:Heating,,,brick:EnumerationKind-Mode,brick:Status,,"Indicates whether a system, device or control loop is in a heating mode"
 brick:Heating_Start_Stop_Status,,,brick:Heating,,,brick:EnumerationKind-Start_Stop,brick:Status,,
 brick:Heating_Supply_Air_Flow_Setpoint,,,brick:Heating,brick:Supply_Air,,quantitykind:VolumeFlowRate,brick:Setpoint,,Sets supply air flow rate for heating
@@ -365,7 +365,7 @@ brick:Hot_Water_Flow_Sensor,,,,brick:Hot_Water,,quantitykind:VolumeFlowRate,bric
 brick:Hot_Water_Flow_Setpoint,,,,brick:Hot_Water,,quantitykind:VolumeFlowRate,brick:Setpoint,,Sets the target flow rate of hot water
 brick:Hot_Water_Gauge_Pressure_Sensor,,,,brick:Hot_Water,,quantitykind:GaugePressure,brick:Sensor,,Sensor measuring the gauge pressure (zero-referenced against ambient air pressure) of hot water
 brick:Hot_Water_Static_Pressure_Setpoint,,,,brick:Hot_Water,,quantitykind:StaticPressure,brick:Setpoint,,Sets static pressure of hot air
-brick:Hot_Water_System_Enable_Command,,,brick:Hot_Water_System,,,,brick:Command,Enable,Enables operation of the hot water system
+brick:Hot_Water_System_Enable_Command,,,brick:Hot_Water_System,,,,brick:Enable_Command,,Enables operation of the hot water system
 brick:Hot_Water_Temperature_Setpoint,,,,brick:Hot_Water,,quantitykind:Temperature,brick:Setpoint,,Sets the temperature of hot water
 brick:Hot_Water_Usage_Sensor,,,,brick:Hot_Water,,,brick:Sensor,Usage,"Measures the amount of hot water that is consumed, over some period of time"
 brick:Humidification_Start_Stop_Status,,,brick:Humidification,,,brick:EnumerationKind-Start_Stop,brick:Status,,
@@ -450,8 +450,8 @@ brick:Low_Freeze_Protect_Temperature_Parameter,,,,,,,,(deprecated),
 brick:Low_Humidity_Alarm,brick:Low,,,,,quantitykind:RelativeHumidity,brick:Alarm,,An alarm that indicates low concentration of water vapor in the air.
 brick:Low_Humidity_Alarm_Parameter,brick:Low,,,,,quantitykind:RelativeHumidity,brick:Alarm_Parameter,,A parameter determining the humidity level at which to trigger a low humidity alarm
 brick:Low_Outside_Air_Lockout_Temperature_Differential_Parameter,brick:Low,,brick:Lockout,brick:Outside_Air,brick:Differential,quantitykind:Temperature,brick:Parameter,,The lower bound of the outside air temperature lockout range
-brick:Low_Outside_Air_Temperature_Enable_Differential_Sensor,brick:Low,,,brick:Outside_Air,brick:Differential,quantitykind:Temperature,brick:Sensor,Enable,
-brick:Low_Outside_Air_Temperature_Enable_Setpoint,brick:Low,,,brick:Outside_Air,,quantitykind:Temperature,brick:Setpoint,Enable,
+brick:Low_Outside_Air_Temperature_Enable_Differential_Sensor,brick:Low,,,brick:Outside_Air,brick:Differential,quantitykind:Temperature,brick:Enable_Sensor,,
+brick:Low_Outside_Air_Temperature_Enable_Setpoint,brick:Low,,,brick:Outside_Air,,quantitykind:Temperature,brick:Enable_Setpoint,,
 brick:Low_Return_Air_Temperature_Alarm,brick:Low,,,brick:Return_Air,,quantitykind:Temperature,brick:Alarm,,An alarm that indicates that return air temperature is too low
 brick:Low_Suction_Pressure_Alarm,,,,,,,,(deprecated),An alarm that indicates a low suction pressure in the compressor in a refrigeration or air conditioning system.
 brick:Low_Supply_Air_Flow_Alarm,brick:Low,,,brick:Supply_Air,,quantitykind:VolumeFlowRate,brick:Alarm,,
@@ -604,7 +604,7 @@ brick:Outside_Air_Humidity_Sensor,,,,brick:Outside_Air,,quantitykind:RelativeHum
 brick:Outside_Air_Humidity_Setpoint,,,,brick:Outside_Air,,quantitykind:RelativeHumidity,brick:Setpoint,,Humidity setpoint for outside air
 brick:Outside_Air_Lockout_Temperature_Differential_Parameter,,,brick:Lockout,brick:Outside_Air,brick:Differential,quantitykind:Temperature,brick:Parameter,,
 brick:Outside_Air_Lockout_Temperature_Setpoint,,,brick:Lockout,brick:Outside_Air,,quantitykind:Temperature,brick:Setpoint,,
-brick:Outside_Air_Temperature_Enable_Differential_Sensor,,,,brick:Outside_Air,brick:Differential,quantitykind:Temperature,brick:Sensor,Enable,
+brick:Outside_Air_Temperature_Enable_Differential_Sensor,,,,brick:Outside_Air,brick:Differential,quantitykind:Temperature,brick:Enable_Sensor,,
 brick:Outside_Air_Temperature_High_Reset_Setpoint,,,,brick:Outside_Air,,quantitykind:Temperature,brick:High_Reset_Setpoint,,
 brick:Outside_Air_Temperature_Low_Reset_Setpoint,,,,brick:Outside_Air,,quantitykind:Temperature,brick:Low_Reset_Setpoint,,
 brick:Outside_Air_Temperature_Sensor,,,,brick:Outside_Air,,quantitykind:Temperature,brick:Sensor,,Measures the temperature of outside air
@@ -687,7 +687,7 @@ brick:Return_Air_Temperature_Sensor,,,,brick:Return_Air,,quantitykind:Temperatur
 brick:Return_Air_Temperature_Setpoint,,,,brick:Return_Air,,quantitykind:Temperature,brick:Setpoint,,"The target temperature for return air, often used as an approximation of zone air temperature"
 brick:Room_Air_Temperature_Sensor,,,,brick:Room_Air,,quantitykind:Temperature,brick:Sensor,,
 brick:Room_Air_Temperature_Setpoint,,,,brick:Room_Air,,quantitykind:Temperature,brick:Setpoint,,Sets temperature of room air
-brick:Run_Enable_Command,,,,,,,brick:Command,Run Enable,
+brick:Run_Enable_Command,,,,,,,brick:Enable_Command,Run,
 brick:Run_Request_Status,,,,,,,brick:Status,Run Request,Indicates if a request has been filed to start a device or equipment
 brick:Run_Status,,,,,,,brick:Status,Run,
 brick:Run_Time_Sensor,,,,,,,brick:Sensor,Run Time,"Measures the duration for which a device was in an active or ""on"" state"
@@ -765,7 +765,7 @@ brick:Supply_Air_Temperature_Setpoint_Limit,,,,brick:Supply_Air,,quantitykind:Te
 brick:Supply_Air_Temperature_Step_Parameter,,,,brick:Supply_Air,,quantitykind:Temperature,brick:Step_Parameter,,
 brick:Supply_Air_Velocity_Pressure_Sensor,,,,brick:Supply_Air,,quantitykind:DynamicPressure,brick:Sensor,,
 brick:Switch_Status,,,brick:Switch,,,,brick:Status,,Status of a switch
-brick:System_Enable_Command,,,brick:System,,,,brick:Command,Enable,Enables operation of a system
+brick:System_Enable_Command,,,brick:System,,,,brick:Enable_Command,,Enables operation of a system
 brick:System_Shutdown_Status,,,brick:System,,,brick:EnumerationKind-Shutdown,brick:Status,,Indicates if a system has been shutdown
 brick:System_Status,,,brick:System,,,,brick:Status,,Indicates properties of the activity of a system
 brick:Target_Zone_Air_Temperature_Setpoint,,,,brick:Zone_Air,,quantitykind:Temperature,brick:Setpoint,Target,
@@ -830,7 +830,7 @@ brick:Velocity_Pressure_Sensor,,,,,,quantitykind:DynamicPressure,brick:Sensor,,M
 brick:Velocity_Pressure_Setpoint,,,,,,quantitykind:DynamicPressure,brick:Setpoint,,Sets static veloicty pressure
 brick:Vent_Operating_Mode_Status,,,,,,,,(deprecated),Indicates the current operating mode of a vent
 brick:Ventilation_Air_Flow_Ratio_Limit,,,,,,,,(deprecated),A parameter that places a lower or upper bound on the range of permitted values of a Ventilation_Air_Flow_Ratio_Setpoint.
-brick:VFD_Enable_Command,,,brick:VFD,,,,brick:Command,Enable,Enables operation of a variable frequency drive
+brick:VFD_Enable_Command,,,brick:VFD,,,,brick:Enable_Command,,Enables operation of a variable frequency drive
 brick:Voltage_Alarm,,,,,,quantitykind:Voltage,brick:Alarm,,An alarm that indicates the voltage is not in a normal state.
 brick:Voltage_Imbalance_Sensor,,,,,,quantitykind:Voltage,brick:Sensor,Imbalance,A sensor which measures the voltage difference (imbalance) between phases of an electrical system
 brick:Voltage_Ratio_Setpoint,,,,,,quantitykind:Voltage,brick:Setpoint,Ratio,Sets the ratio of voltage in a transformer
