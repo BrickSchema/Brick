@@ -126,7 +126,7 @@ brick:Damper_Position_Status,,,brick:Damper,,,,brick:Status,Position,
 brick:DC_Bus_Voltage_Sensor,,,,,,,,(deprecated),Measures the voltage across a DC bus
 brick:Deadband_Setpoint,,,,,,,brick:Deadband_Setpoint,,Sets the size of a deadband
 brick:Deceleration_Time_Setpoint,,,,,,,,(deprecated),
-brick:Dehumidification_Start_Stop_Status,,,,,,brick:EnumerationKind-Start_Stop,brick:Status,Dehumidification,
+brick:Dehumidification_Start_Stop_Status,,,brick:Dehumidification,,,brick:EnumerationKind-Start_Stop,brick:Status,,
 brick:Dehumidify_Command,,,,,,,brick:Command,Dehumidify,"Triggers the dehumidification process, actively removing moisture from the air to achieve desired humidity levels"
 brick:Deionized_Water_Alarm,,,,brick:Deionized_Water,,,brick:Alarm,,An alarm that indicates deionized water leaks.
 brick:Deionized_Water_Conductivity_Sensor,,,,brick:Deionized_Water,,quantitykind:Conductivity,brick:Sensor,,Measures the electrical conductance of deionized water
@@ -219,13 +219,13 @@ brick:Electrical_Energy_Usage_Sensor,,,,,,,brick:Sensor,Electrical Energy Usage,
 brick:Embedded_Temperature_Sensor,,,,,,quantitykind:Temperature,brick:Sensor,Embedded,Measures the internal temperature of the radiant layer of the radiant heating and cooling HVAC system.
 brick:Embedded_Temperature_Setpoint,,,,,,quantitykind:Temperature,brick:Setpoint,Embedded,"Sets temperature for the internal material, e.g. concrete slab, of the radiant panel."
 brick:Emergency_Air_Flow_System_Status,,,brick:Emergency_Air_Flow_System,,,,brick:Status,,
-brick:Emergency_Alarm,,,,,,,,(deprecated),Alarms that indicate off-normal conditions associated with emergency systems
+brick:Emergency_Alarm,,,,,,,brick:Alarm,Emergency,Alarms that indicate off-normal conditions associated with emergency systems
 brick:Emergency_Generator_Alarm,,,brick:Emergency_Generator,,,,brick:Alarm,,An alarm that indicates off-normal conditions associated with an emergency generator
 brick:Emergency_Generator_Status,,,brick:Emergency_Generator,,,,brick:Status,,Indicates if an emergency generator is active
-brick:Emergency_Power_Off_System_Activated_By_High_Temperature_Status,,,,,,,,(deprecated),
-brick:Emergency_Power_Off_System_Activated_By_Leak_Detection_System_Status,,,,,,,,(deprecated),
+brick:Emergency_Power_Off_System_Activated_By_High_Temperature_Status,brick:High,,brick:Emergency_Power_Off_System,,,quantitykind:Temperature,brick:Status,Activated By,
+brick:Emergency_Power_Off_System_Activated_By_Leak_Detection_System_Status,,,brick:Emergency_Power_Off_System,,,,brick:Status,Activated By Leak Detection System,
 brick:Emergency_Power_Off_System_Status,,,brick:Emergency_Power_Off_System,,,,brick:Status,,
-brick:Emergency_Push_Button_Status,,,,,,,,(deprecated),Indicates if an emergency button has been pushed
+brick:Emergency_Push_Button_Status,,,,,,,brick:Status,Emergency Push Button,Indicates if an emergency button has been pushed
 brick:Enable_Command,,,,,,brick:EnumerationKind-Enable,brick:Command,,Commands that enable functionality
 brick:Enable_Differential_Enthalpy_Command,,,,,brick:Differential,brick:EnumerationKind-Enable,brick:Command,Enthalpy,Enables the use of differential enthalpy control
 brick:Enable_Differential_Temperature_Command,,,,,brick:Differential,brick:EnumerationKind-Enable,brick:Command,Temperature,Enables the use of differential temperature control
@@ -308,14 +308,14 @@ brick:Fire_Sensor,,,,,,,,(deprecated),Measures the presence of fire
 brick:Flow_Sensor,,,,,,quantitykind:VolumeFlowRate,brick:Sensor,,Measures the rate of flow of some substance
 brick:Flow_Setpoint,,,,,,quantitykind:VolumeFlowRate,brick:Setpoint,,Sets flow
 brick:Formaldehyde_Level_Sensor,,,,brick:CH2O,,,brick:Sensor,Level,Measures the concentration of formaldehyde in air
-brick:Freeze_Status,,,,,,,,(deprecated),Indicates if a substance contained within a vessel has frozen
+brick:Freeze_Status,,,,,,,brick:Status,Freeze,Indicates if a substance contained within a vessel has frozen
 brick:Frequency_Command,,,,,,quantitykind:Frequency,brick:Command,,Controls the frequency of a device's operation (e.g. rotational frequency)
 brick:Frequency_Sensor,,,,,,quantitykind:Frequency,brick:Sensor,,"Measures the frequency of a phenomenon or aspect of a phenomenon, e.g. the frequency of a fan turning"
 brick:Frequency_Setpoint,,,,,,quantitykind:Frequency,brick:Setpoint,,Sets frequency
 brick:Fresh_Air_Setpoint_Limit,,,,brick:Fresh_Air,,,brick:Setpoint_Limit,,A parameter that places a lower or upper bound on the range of permitted values of a Fresh_Air_Setpoint.
 brick:Frost_Sensor,,,,brick:Frost,,,brick:Sensor,,Senses the presence of frost or conditions that may cause frost
 brick:Fume_Hood_Air_Flow_Sensor,,,brick:Fume_Hood,brick:Air,,quantitykind:VolumeFlowRate,brick:Sensor,,Measures the rate of flow of air in a fume hood
-brick:Gain_Parameter,,,,,,,,(deprecated),
+brick:Gain_Parameter,,,,,,,brick:Parameter,Gain,
 brick:Gas_Sensor,,,,brick:Gas,,,brick:Sensor,,Measures gas concentration (other than CO2)
 brick:Gauge_Pressure_Sensor,,,,,,quantitykind:GaugePressure,brick:Sensor,,Pressure sensor which is zero-referenced against ambient air pressure
 brick:Generation_Sensor,,,,,,,brick:Sensor,Generation,A sensor measuring how much something has been generated.
@@ -368,7 +368,7 @@ brick:Hot_Water_Static_Pressure_Setpoint,,,,brick:Hot_Water,,quantitykind:Static
 brick:Hot_Water_System_Enable_Command,,,brick:Hot_Water_System,,,brick:EnumerationKind-Enable,brick:Command,,Enables operation of the hot water system
 brick:Hot_Water_Temperature_Setpoint,,,,brick:Hot_Water,,quantitykind:Temperature,brick:Setpoint,,Sets the temperature of hot water
 brick:Hot_Water_Usage_Sensor,,,,brick:Hot_Water,,,brick:Sensor,Usage,"Measures the amount of hot water that is consumed, over some period of time"
-brick:Humidification_Start_Stop_Status,,,,,,brick:EnumerationKind-Start_Stop,brick:Status,Humidification,
+brick:Humidification_Start_Stop_Status,,,brick:Humidification,,,brick:EnumerationKind-Start_Stop,brick:Status,,
 brick:Humidifier_Fault_Status,,,brick:Humidifier,,,,brick:Fault_Status,,Indicates the presence of a fault in a humidifier
 brick:Humidify_Command,,,,,,,brick:Command,Humidify,
 brick:Humidity_Alarm,,,,,,quantitykind:RelativeHumidity,brick:Alarm,,An alarm that indicates the off-normal conditions associated with the concentration of water vapor in the air.
@@ -688,11 +688,11 @@ brick:Return_Air_Temperature_Setpoint,,,,brick:Return_Air,,quantitykind:Temperat
 brick:Room_Air_Temperature_Sensor,,,,brick:Room_Air,,quantitykind:Temperature,brick:Sensor,,
 brick:Room_Air_Temperature_Setpoint,,,,brick:Room_Air,,quantitykind:Temperature,brick:Setpoint,,Sets temperature of room air
 brick:Run_Enable_Command,,,,,,brick:EnumerationKind-Enable,brick:Command,Run,
-brick:Run_Request_Status,,,,,,,,(deprecated),Indicates if a request has been filed to start a device or equipment
+brick:Run_Request_Status,,,,,,,brick:Status,Run Request,Indicates if a request has been filed to start a device or equipment
 brick:Run_Status,,,,,,,brick:Status,Run,
 brick:Run_Time_Sensor,,,,,,,brick:Sensor,Run Time,"Measures the duration for which a device was in an active or ""on"" state"
-brick:Sash_Position_Sensor,,,,,,,,(deprecated),Measures the current position of a sash in terms of the percent of fully open
-brick:Schedule_Temperature_Setpoint,,,,,,,,(deprecated),The current setpoint as indicated by the schedule
+brick:Sash_Position_Sensor,,,,,,,brick:Sensor,Sash Position,Measures the current position of a sash in terms of the percent of fully open
+brick:Schedule_Temperature_Setpoint,,,,,,quantitykind:Temperature,brick:Setpoint,Schedule,The current setpoint as indicated by the schedule
 brick:Sensor,,,,,,,brick:Sensor,,A Sensor is an input point that represents the value of a device or instrument designed to detect and measure a variable (ASHRAE Dictionary).
 brick:Sensor_Failure_Alarm,,,,,,,,(deprecated),
 brick:Setpoint,,,,,,,brick:Setpoint,,A Setpoint is an input value at which the desired property is set
@@ -795,7 +795,7 @@ brick:TVOC_Level_Sensor,,,,brick:VOC,,,brick:Sensor,Level,A sensor measuring the
 brick:TVOC_Sensor,,,,brick:VOC,,,brick:Sensor,,
 brick:Underfloor_Air_Plenum_Static_Pressure_Sensor,,,brick:Underfloor_Air_Plenum,,,quantitykind:StaticPressure,brick:Sensor,,Measures the outward push of air against the plenum surfaces and used to measure the resistance when air moves through the plenum
 brick:Underfloor_Air_Plenum_Static_Pressure_Setpoint,,,brick:Underfloor_Air_Plenum,,,quantitykind:StaticPressure,brick:Setpoint,,Sets the underfloor air plenum static pressure
-brick:Underfloor_Air_Temperature_Sensor,,,,,,,,(deprecated),Measures the temperature of underfloor air
+brick:Underfloor_Air_Temperature_Sensor,,,,brick:Air,,quantitykind:Temperature,brick:Sensor,Underfloor,Measures the temperature of underfloor air
 brick:Unit_Failure_Alarm,,,,,,,brick:Failure_Alarm,Unit,An alarm that indicates the failure of an equipment or device
 brick:Unoccupied_Air_Temperature_Setpoint,,brick:Unoccupied,,brick:Air,,quantitykind:Temperature,brick:Setpoint,,Sets temperature of air when unoccupied
 brick:Unoccupied_Cooling_Discharge_Air_Flow_Setpoint,,brick:Unoccupied,brick:Cooling,brick:Discharge_Air,,quantitykind:VolumeFlowRate,brick:Setpoint,,Sets discharge air flow for cooling when unoccupied
