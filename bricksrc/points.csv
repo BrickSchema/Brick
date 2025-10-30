@@ -222,8 +222,8 @@ brick:Emergency_Air_Flow_System_Status,,,brick:Emergency_Air_Flow_System,,,,bric
 brick:Emergency_Alarm,,,,,,,brick:Alarm,Emergency,Alarms that indicate off-normal conditions associated with emergency systems
 brick:Emergency_Generator_Alarm,,,brick:Emergency_Generator,,,,brick:Alarm,,An alarm that indicates off-normal conditions associated with an emergency generator
 brick:Emergency_Generator_Status,,,brick:Emergency_Generator,,,,brick:Status,,Indicates if an emergency generator is active
-brick:Emergency_Power_Off_System_Activated_By_High_Temperature_Status,brick:High,,brick:Emergency_Power_Off_System,,,quantitykind:Temperature,brick:Status,Activated By,
-brick:Emergency_Power_Off_System_Activated_By_Leak_Detection_System_Status,,,brick:Emergency_Power_Off_System,,,,brick:Status,Activated By Leak Detection System,
+brick:Emergency_Power_Off_System_Activated_By_High_Temperature_Status,,,,,,,,(deprecated),
+brick:Emergency_Power_Off_System_Activated_By_Leak_Detection_System_Status,,,,,,,,(deprecated),
 brick:Emergency_Power_Off_System_Status,,,brick:Emergency_Power_Off_System,,,,brick:Status,,
 brick:Emergency_Push_Button_Status,,,,,,,brick:Status,Emergency Push Button,Indicates if an emergency button has been pushed
 brick:Enable_Command,,,,,,,brick:Enable_Command,,Commands that enable functionality
@@ -340,18 +340,18 @@ brick:Heating_Supply_Air_Temperature_Proportional_Band_Parameter,,,brick:Heating
 brick:Heating_Temperature_Setpoint,,,brick:Heating,,,quantitykind:Temperature,brick:Setpoint,,Sets temperature for heating
 brick:Heating_Thermal_Power_Sensor,,,brick:Heating,,,quantitykind:Power,brick:Sensor,Thermal,
 brick:Heating_Zone_Air_Temperature_Setpoint,,,brick:Heating,brick:Zone_Air,,quantitykind:Temperature,brick:Setpoint,,The heating setpoint for a specific zone in a building.
-brick:High_Air_Flow_Alarm,brick:High,,,brick:Air,,quantitykind:VolumeFlowRate,brick:Alarm,,An alarm that indicates that the air flow is higher than normal.
-brick:High_CO2_Alarm,brick:High,,,brick:CO2,,,brick:Alarm,,A device that indicates high concentration of carbon dioxide.
-brick:High_Discharge_Air_Temperature_Alarm,brick:High,,,brick:Discharge_Air,,quantitykind:Temperature,brick:Alarm,,An alarm that indicates that discharge air temperature is too high
+brick:High_Air_Flow_Alarm,,,,brick:Air,,quantitykind:VolumeFlowRate,brick:High_Alarm,,An alarm that indicates that the air flow is higher than normal.
+brick:High_CO2_Alarm,,,,brick:CO2,,,brick:High_Alarm,,A device that indicates high concentration of carbon dioxide.
+brick:High_Discharge_Air_Temperature_Alarm,,,,brick:Discharge_Air,,quantitykind:Temperature,brick:High_Alarm,,An alarm that indicates that discharge air temperature is too high
 brick:High_Head_Pressure_Alarm,,,,,,,,(deprecated),An alarm that indicates a high pressure generated on the output side of a gas compressor in a refrigeration or air conditioning system.
-brick:High_Humidity_Alarm,brick:High,,,,,quantitykind:RelativeHumidity,brick:Alarm,,An alarm that indicates high concentration of water vapor in the air.
-brick:High_Humidity_Alarm_Parameter,brick:High,,,,,quantitykind:RelativeHumidity,brick:Alarm_Parameter,,A parameter determining the humidity level at which to trigger a high humidity alarm
-brick:High_Outside_Air_Lockout_Temperature_Differential_Parameter,brick:High,,brick:Lockout,brick:Outside_Air,brick:Differential,quantitykind:Temperature,brick:Parameter,,The upper bound of the outside air temperature lockout range
-brick:High_Return_Air_Temperature_Alarm,brick:High,,,brick:Return_Air,,quantitykind:Temperature,brick:Alarm,,An alarm that indicates that return air temperature is too high
+brick:High_Humidity_Alarm,,,,,,quantitykind:RelativeHumidity,brick:High_Alarm,,An alarm that indicates high concentration of water vapor in the air.
+brick:High_Humidity_Alarm_Parameter,,,,,,quantitykind:RelativeHumidity,brick:High_Alarm_Parameter,,A parameter determining the humidity level at which to trigger a high humidity alarm
+brick:High_Outside_Air_Lockout_Temperature_Differential_Parameter,,,brick:Lockout,brick:Outside_Air,brick:Differential,quantitykind:Temperature,brick:High_Parameter,,The upper bound of the outside air temperature lockout range
+brick:High_Return_Air_Temperature_Alarm,,,,brick:Return_Air,,quantitykind:Temperature,brick:High_Alarm,,An alarm that indicates that return air temperature is too high
 brick:High_Static_Pressure_Cutout_Setpoint_Limit,,,,,,,,(deprecated),A parameter that places a lower or upper bound on the range of permitted values of a High_Static_Pressure_Cutout_Setpoint.
-brick:High_Supply_Air_Temperature_Alarm,brick:High,,,brick:Supply_Air,,quantitykind:Temperature,brick:Alarm,,
-brick:High_Temperature_Alarm,brick:High,,,,,quantitykind:Temperature,brick:Alarm,,An alarm that indicates high temperature.
-brick:High_Temperature_Alarm_Parameter,brick:High,,,,,quantitykind:Temperature,brick:Alarm_Parameter,,A parameter determining the temperature level at which to trigger a high temperature alarm
+brick:High_Supply_Air_Temperature_Alarm,,,,brick:Supply_Air,,quantitykind:Temperature,brick:High_Alarm,,
+brick:High_Temperature_Alarm,,,,,,quantitykind:Temperature,brick:High_Alarm,,An alarm that indicates high temperature.
+brick:High_Temperature_Alarm_Parameter,,,,,,quantitykind:Temperature,brick:High_Alarm_Parameter,,A parameter determining the temperature level at which to trigger a high temperature alarm
 brick:Hold_Status,,,,,,,,(deprecated),
 brick:Hot_Water_Differential_Pressure_Deadband_Setpoint,,,,brick:Hot_Water,brick:Differential,quantitykind:Pressure,brick:Deadband_Setpoint,,Sets the size of a deadband of differential pressure of hot water
 brick:Hot_Water_Differential_Pressure_Integral_Time_Parameter,,,,brick:Hot_Water,brick:Differential,quantitykind:Pressure,brick:Integral_Time_Parameter,,
@@ -442,23 +442,23 @@ brick:Load_Shed_Status,,,brick:Load_Shed,,,,brick:Status,,Indicates if a load sh
 brick:Locally_On_Off_Status,,,,,,,,(deprecated),
 brick:Lockout_Status,,,brick:Lockout,,,,brick:Status,,"Indicates if a piece of equipment, system, or functionality has been locked out from operation"
 brick:Lockout_Temperature_Differential_Parameter,,,brick:Lockout,,brick:Differential,quantitykind:Temperature,brick:Parameter,,
-brick:Low_Air_Flow_Alarm,brick:Low,,,brick:Air,,quantitykind:VolumeFlowRate,brick:Alarm,,An alarm that indicates that the air flow is lower than normal.
-brick:Low_Battery_Alarm,brick:Low,,brick:Battery,,,,brick:Alarm,,An alarm that indicates the battery is low.
-brick:Low_Discharge_Air_Flow_Alarm,brick:Low,,,brick:Discharge_Air,,quantitykind:VolumeFlowRate,brick:Alarm,,An alarm that indicates that the discharge air flow is lower than normal.
-brick:Low_Discharge_Air_Temperature_Alarm,brick:Low,,,brick:Discharge_Air,,quantitykind:Temperature,brick:Alarm,,
+brick:Low_Air_Flow_Alarm,,,,brick:Air,,quantitykind:VolumeFlowRate,brick:Low_Alarm,,An alarm that indicates that the air flow is lower than normal.
+brick:Low_Battery_Alarm,,,brick:Battery,,,,brick:Low_Alarm,,An alarm that indicates the battery is low.
+brick:Low_Discharge_Air_Flow_Alarm,,,,brick:Discharge_Air,,quantitykind:VolumeFlowRate,brick:Low_Alarm,,An alarm that indicates that the discharge air flow is lower than normal.
+brick:Low_Discharge_Air_Temperature_Alarm,,,,brick:Discharge_Air,,quantitykind:Temperature,brick:Low_Alarm,,
 brick:Low_Freeze_Protect_Temperature_Parameter,,,,,,,,(deprecated),
-brick:Low_Humidity_Alarm,brick:Low,,,,,quantitykind:RelativeHumidity,brick:Alarm,,An alarm that indicates low concentration of water vapor in the air.
-brick:Low_Humidity_Alarm_Parameter,brick:Low,,,,,quantitykind:RelativeHumidity,brick:Alarm_Parameter,,A parameter determining the humidity level at which to trigger a low humidity alarm
-brick:Low_Outside_Air_Lockout_Temperature_Differential_Parameter,brick:Low,,brick:Lockout,brick:Outside_Air,brick:Differential,quantitykind:Temperature,brick:Parameter,,The lower bound of the outside air temperature lockout range
-brick:Low_Outside_Air_Temperature_Enable_Differential_Sensor,brick:Low,,,brick:Outside_Air,brick:Differential,quantitykind:Temperature,brick:Enable_Sensor,,
-brick:Low_Outside_Air_Temperature_Enable_Setpoint,brick:Low,,,brick:Outside_Air,,quantitykind:Temperature,brick:Enable_Setpoint,,
-brick:Low_Return_Air_Temperature_Alarm,brick:Low,,,brick:Return_Air,,quantitykind:Temperature,brick:Alarm,,An alarm that indicates that return air temperature is too low
+brick:Low_Humidity_Alarm,,,,,,quantitykind:RelativeHumidity,brick:Low_Alarm,,An alarm that indicates low concentration of water vapor in the air.
+brick:Low_Humidity_Alarm_Parameter,,,,,,quantitykind:RelativeHumidity,brick:Low_Alarm_Parameter,,A parameter determining the humidity level at which to trigger a low humidity alarm
+brick:Low_Outside_Air_Lockout_Temperature_Differential_Parameter,,,brick:Lockout,brick:Outside_Air,brick:Differential,quantitykind:Temperature,brick:Low_Parameter,,The lower bound of the outside air temperature lockout range
+brick:Low_Outside_Air_Temperature_Enable_Differential_Sensor,,,,,,,,(deprecated),
+brick:Low_Outside_Air_Temperature_Enable_Setpoint,,,,,,,,(deprecated),
+brick:Low_Return_Air_Temperature_Alarm,,,,brick:Return_Air,,quantitykind:Temperature,brick:Low_Alarm,,An alarm that indicates that return air temperature is too low
 brick:Low_Suction_Pressure_Alarm,,,,,,,,(deprecated),An alarm that indicates a low suction pressure in the compressor in a refrigeration or air conditioning system.
-brick:Low_Supply_Air_Flow_Alarm,brick:Low,,,brick:Supply_Air,,quantitykind:VolumeFlowRate,brick:Alarm,,
-brick:Low_Supply_Air_Temperature_Alarm,brick:Low,,,brick:Supply_Air,,quantitykind:Temperature,brick:Alarm,,
-brick:Low_Temperature_Alarm,brick:Low,,,,,quantitykind:Temperature,brick:Alarm,,An alarm that indicates low temperature.
-brick:Low_Temperature_Alarm_Parameter,brick:Low,,,,,quantitykind:Temperature,brick:Alarm_Parameter,,A parameter determining the temperature level at which to trigger a low temperature alarm
-brick:Low_Voltage_Alarm,brick:Low,,,,,quantitykind:Voltage,brick:Alarm,,An alarm that indicates the voltage is lower than its normal state.
+brick:Low_Supply_Air_Flow_Alarm,,,,brick:Supply_Air,,quantitykind:VolumeFlowRate,brick:Low_Alarm,,
+brick:Low_Supply_Air_Temperature_Alarm,,,,brick:Supply_Air,,quantitykind:Temperature,brick:Low_Alarm,,
+brick:Low_Temperature_Alarm,,,,,,quantitykind:Temperature,brick:Low_Alarm,,An alarm that indicates low temperature.
+brick:Low_Temperature_Alarm_Parameter,,,,,,quantitykind:Temperature,brick:Low_Alarm_Parameter,,A parameter determining the temperature level at which to trigger a low temperature alarm
+brick:Low_Voltage_Alarm,,,,,,quantitykind:Voltage,brick:Low_Alarm,,An alarm that indicates the voltage is lower than its normal state.
 brick:Lowest_Exhaust_Air_Static_Pressure_Sensor,brick:Lowest,,,brick:Exhaust_Air,,quantitykind:StaticPressure,brick:Sensor,,The lowest observed static pressure of air in exhaust regions of an HVAC system over some period of time
 brick:Luminance_Alarm,,,,,,quantitykind:Luminance,brick:Alarm,,
 brick:Luminance_Command,,,,,,quantitykind:Luminance,brick:Command,,Controls the amount of luminance delivered by a lighting system
@@ -511,7 +511,7 @@ brick:Min_Cooling_Discharge_Air_Flow_Setpoint_Limit,,,brick:Cooling,brick:Discha
 brick:Min_Cooling_Supply_Air_Flow_Setpoint_Limit,,,brick:Cooling,brick:Supply_Air,,quantitykind:VolumeFlowRate,brick:Min_Limit,,A parameter that places a lower bound on the range of permitted values of a Cooling_Supply_Air_Flow_Setpoint.
 brick:Min_Discharge_Air_Static_Pressure_Setpoint_Limit,,,,brick:Discharge_Air,,quantitykind:StaticPressure,brick:Min_Limit,,A parameter that places a lower bound on the range of permitted values of a Discharge_Air_Static_Pressure_Setpoint.
 brick:Min_Discharge_Air_Temperature_Setpoint_Limit,,,,brick:Discharge_Air,,quantitykind:Temperature,brick:Min_Limit,,A parameter that places a lower bound on the range of permitted values of a Discharge_Air_Temperature_Setpoint.
-brick:Min_Frequency_Command,,,,,,quantitykind:Frequency,,,
+brick:Min_Frequency_Command,,,,,,quantitykind:Frequency,brick:Min_Command,,
 brick:Min_Fresh_Air_Setpoint_Limit,,,,brick:Fresh_Air,,,brick:Min_Limit,,A parameter that places a lower bound on the range of permitted values of a Fresh_Air_Setpoint.
 brick:Min_Heating_Discharge_Air_Flow_Setpoint_Limit,,,brick:Heating,brick:Discharge_Air,,quantitykind:VolumeFlowRate,brick:Min_Limit,,A parameter that places a lower bound on the range of permitted values of a Heating_Discharge_Air_Flow_Setpoint.
 brick:Min_Heating_Supply_Air_Flow_Setpoint_Limit,,,brick:Heating,brick:Supply_Air,,quantitykind:VolumeFlowRate,brick:Min_Limit,,A parameter that places a lower bound on the range of permitted values of a Heating_Supply_Air_Flow_Setpoint.
@@ -604,7 +604,7 @@ brick:Outside_Air_Humidity_Sensor,,,,brick:Outside_Air,,quantitykind:RelativeHum
 brick:Outside_Air_Humidity_Setpoint,,,,brick:Outside_Air,,quantitykind:RelativeHumidity,brick:Setpoint,,Humidity setpoint for outside air
 brick:Outside_Air_Lockout_Temperature_Differential_Parameter,,,brick:Lockout,brick:Outside_Air,brick:Differential,quantitykind:Temperature,brick:Parameter,,
 brick:Outside_Air_Lockout_Temperature_Setpoint,,,brick:Lockout,brick:Outside_Air,,quantitykind:Temperature,brick:Setpoint,,
-brick:Outside_Air_Temperature_Enable_Differential_Sensor,,,,brick:Outside_Air,brick:Differential,quantitykind:Temperature,brick:Enable_Sensor,,
+brick:Outside_Air_Temperature_Enable_Differential_Sensor,,,,,,,,(deprecated),
 brick:Outside_Air_Temperature_High_Reset_Setpoint,,,,brick:Outside_Air,,quantitykind:Temperature,brick:High_Reset_Setpoint,,
 brick:Outside_Air_Temperature_Low_Reset_Setpoint,,,,brick:Outside_Air,,quantitykind:Temperature,brick:Low_Reset_Setpoint,,
 brick:Outside_Air_Temperature_Sensor,,,,brick:Outside_Air,,quantitykind:Temperature,brick:Sensor,,Measures the temperature of outside air
