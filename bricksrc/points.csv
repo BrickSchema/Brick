@@ -297,7 +297,7 @@ brick:Fan_Command,,brick:Fan,,,,brick:Command,,Controls properties of fans
 brick:Fan_On_Off_Status,,brick:Fan,,,brick:EnumerationKind-On_Off,brick:Status,,
 brick:Fan_Speed_Command,,brick:Fan,,,quantitykind:Speed,brick:Command,,Controls the speed of fans
 brick:Fan_Status,,brick:Fan,,,,brick:Status,,Indicates properties of fans
-brick:Fault_Reset_Command,,,,,,brick:Reset_Command,Fault,Clears a fault status
+brick:Fault_Reset_Command,,,,,,brick:Fault_Reset_Command,,Clears a fault status
 brick:Fault_Status,,,,,,brick:Fault_Status,,"Indicates the presence of a fault in a device, system or control loop"
 brick:Filter_Air_Differential_Pressure_Sensor,,brick:Filter,brick:Air,brick:Differential,quantitykind:Pressure,brick:Sensor,,Measures the difference in air pressure before and after an air filter.
 brick:Filter_Differential_Pressure_Sensor,,brick:Filter,,brick:Differential,quantitykind:Pressure,brick:Sensor,,Measures the difference in pressure on either side of a filter
@@ -346,7 +346,7 @@ brick:High_Discharge_Air_Temperature_Alarm,,,brick:Discharge_Air,,quantitykind:T
 brick:High_Head_Pressure_Alarm,,,,,,,(deprecated),An alarm that indicates a high pressure generated on the output side of a gas compressor in a refrigeration or air conditioning system.
 brick:High_Humidity_Alarm,,,,,quantitykind:RelativeHumidity,brick:High_Alarm,,An alarm that indicates high concentration of water vapor in the air.
 brick:High_Humidity_Alarm_Parameter,,,,,quantitykind:RelativeHumidity,brick:High_Alarm_Parameter,,A parameter determining the humidity level at which to trigger a high humidity alarm
-brick:High_Outside_Air_Lockout_Temperature_Differential_Parameter,,brick:Lockout,brick:Outside_Air,brick:Differential,quantitykind:Temperature,brick:High_Parameter,,The upper bound of the outside air temperature lockout range
+brick:High_Outside_Air_Lockout_Temperature_Differential_Parameter,,,brick:Outside_Air,brick:Differential,quantitykind:Temperature,brick:High_Parameter,Lockout,The upper bound of the outside air temperature lockout range
 brick:High_Return_Air_Temperature_Alarm,,,brick:Return_Air,,quantitykind:Temperature,brick:High_Alarm,,An alarm that indicates that return air temperature is too high
 brick:High_Static_Pressure_Cutout_Setpoint_Limit,,,,,,,(deprecated),A parameter that places a lower or upper bound on the range of permitted values of a High_Static_Pressure_Cutout_Setpoint.
 brick:High_Supply_Air_Temperature_Alarm,,,brick:Supply_Air,,quantitykind:Temperature,brick:High_Alarm,,
@@ -440,8 +440,8 @@ brick:Load_Shed_Differential_Pressure_Setpoint,,brick:Load_Shed,,brick:Different
 brick:Load_Shed_Setpoint,,brick:Load_Shed,,,,brick:Setpoint,,
 brick:Load_Shed_Status,,brick:Load_Shed,,,,brick:Status,,Indicates if a load shedding policy is in effect
 brick:Locally_On_Off_Status,,,,,,,(deprecated),
-brick:Lockout_Status,,brick:Lockout,,,,brick:Status,,"Indicates if a piece of equipment, system, or functionality has been locked out from operation"
-brick:Lockout_Temperature_Differential_Parameter,,brick:Lockout,,brick:Differential,quantitykind:Temperature,brick:Parameter,,
+brick:Lockout_Status,,,,,,brick:Status,Lockout,"Indicates if a piece of equipment, system, or functionality has been locked out from operation"
+brick:Lockout_Temperature_Differential_Parameter,,,,brick:Differential,quantitykind:Temperature,brick:Parameter,Lockout,
 brick:Low_Air_Flow_Alarm,,,brick:Air,,quantitykind:VolumeFlowRate,brick:Low_Alarm,,An alarm that indicates that the air flow is lower than normal.
 brick:Low_Battery_Alarm,,brick:Battery,,,,brick:Low_Alarm,,An alarm that indicates the battery is low.
 brick:Low_Discharge_Air_Flow_Alarm,,,brick:Discharge_Air,,quantitykind:VolumeFlowRate,brick:Low_Alarm,,An alarm that indicates that the discharge air flow is lower than normal.
@@ -449,7 +449,7 @@ brick:Low_Discharge_Air_Temperature_Alarm,,,brick:Discharge_Air,,quantitykind:Te
 brick:Low_Freeze_Protect_Temperature_Parameter,,,,,,,(deprecated),
 brick:Low_Humidity_Alarm,,,,,quantitykind:RelativeHumidity,brick:Low_Alarm,,An alarm that indicates low concentration of water vapor in the air.
 brick:Low_Humidity_Alarm_Parameter,,,,,quantitykind:RelativeHumidity,brick:Low_Alarm_Parameter,,A parameter determining the humidity level at which to trigger a low humidity alarm
-brick:Low_Outside_Air_Lockout_Temperature_Differential_Parameter,,brick:Lockout,brick:Outside_Air,brick:Differential,quantitykind:Temperature,brick:Low_Parameter,,The lower bound of the outside air temperature lockout range
+brick:Low_Outside_Air_Lockout_Temperature_Differential_Parameter,,,brick:Outside_Air,brick:Differential,quantitykind:Temperature,brick:Low_Parameter,Lockout,The lower bound of the outside air temperature lockout range
 brick:Low_Outside_Air_Temperature_Enable_Differential_Sensor,,,,,,,(deprecated),
 brick:Low_Outside_Air_Temperature_Enable_Setpoint,,,,,,,(deprecated),
 brick:Low_Return_Air_Temperature_Alarm,,,brick:Return_Air,,quantitykind:Temperature,brick:Low_Alarm,,An alarm that indicates that return air temperature is too low
@@ -602,8 +602,8 @@ brick:Outside_Air_Flow_Setpoint,,,brick:Outside_Air,,quantitykind:VolumeFlowRate
 brick:Outside_Air_Grains_Sensor,,,brick:Outside_Air,,,brick:Sensor,Grains,Measures the mass of water vapor in outside air
 brick:Outside_Air_Humidity_Sensor,,,brick:Outside_Air,,quantitykind:RelativeHumidity,brick:Sensor,,Measures the relative humidity of outside air
 brick:Outside_Air_Humidity_Setpoint,,,brick:Outside_Air,,quantitykind:RelativeHumidity,brick:Setpoint,,Humidity setpoint for outside air
-brick:Outside_Air_Lockout_Temperature_Differential_Parameter,,brick:Lockout,brick:Outside_Air,brick:Differential,quantitykind:Temperature,brick:Parameter,,
-brick:Outside_Air_Lockout_Temperature_Setpoint,,brick:Lockout,brick:Outside_Air,,quantitykind:Temperature,brick:Setpoint,,
+brick:Outside_Air_Lockout_Temperature_Differential_Parameter,,,brick:Outside_Air,brick:Differential,quantitykind:Temperature,brick:Parameter,Lockout,
+brick:Outside_Air_Lockout_Temperature_Setpoint,,,brick:Outside_Air,,quantitykind:Temperature,brick:Setpoint,Lockout,
 brick:Outside_Air_Temperature_Enable_Differential_Sensor,,,,,,,(deprecated),
 brick:Outside_Air_Temperature_High_Reset_Setpoint,,,brick:Outside_Air,,quantitykind:Temperature,brick:High_Reset_Setpoint,,
 brick:Outside_Air_Temperature_Low_Reset_Setpoint,,,brick:Outside_Air,,quantitykind:Temperature,brick:Low_Reset_Setpoint,,
@@ -623,7 +623,7 @@ brick:Parameter,,,,,,brick:Parameter,,Parameter points are configuration setting
 brick:Particulate_Matter_Sensor,,,brick:Particulate_Matter,,,brick:Sensor,,Detects pollutants in the ambient air
 brick:Peak_Demand_Sensor,,,,,,brick:Demand_Sensor,Peak,The peak power consumed by a process over some period of time
 brick:Photovoltaic_Current_Output_Sensor,,,,,,,(deprecated),Senses the amperes of electrical current produced as output by a photovoltaic device
-brick:PID_Parameter,,,,,,,(deprecated),
+brick:PID_Parameter,,,,,,brick:PID_Parameter,,
 brick:Piezoelectric_Sensor,,,,,,,(deprecated),"Senses changes pressure, acceleration, temperature, force or strain via the piezoelectric effect"
 brick:PIR_Sensor,,,,,,,(deprecated),Detects the presense of motion in some area using the differential change in infrared intensity between two or more receptors
 brick:PM1_Level_Sensor,,,brick:PM1.0,,,brick:Sensor,Level,Detects level of particulates of size 1 microns
@@ -663,7 +663,7 @@ brick:Rated_Speed_Setpoint,,,,,,,(deprecated),Sets rated speed
 brick:Reactive_Energy_Sensor,,,,,,brick:Sensor,Reactive Energy,Measures the integral of reactive power
 brick:Reactive_Power_Sensor,,,,,quantitykind:ReactivePower,brick:Sensor,,"Measures the portion of power that, averaged over a complete cycle of the AC waveform, is due to stored energy which returns to the source in each cycle"
 brick:Refrigerant_Level_Sensor,,,brick:Refrigerant,,,brick:Sensor,Level,
-brick:Reheat_Command,,,,,,,(deprecated),"A command to activate reheating, which is used for either heating or for dehumidification purposes"
+brick:Reheat_Command,,brick:Reheat,,,,brick:Command,,"A command to activate reheating, which is used for either heating or for dehumidification purposes"
 brick:Relative_Humidity_Sensor,,,,,quantitykind:RelativeHumidity,brick:Sensor,,Measures the present state of absolute humidity relative to a maximum humidity given the same temperature
 brick:Relay_Command,,brick:Relay,,,,brick:Command,,Commands to switch the relay
 brick:Remotely_On_Off_Status,,,,,,,(deprecated),
@@ -694,7 +694,7 @@ brick:Run_Time_Sensor,,brick:Run,,,quantitykind:Time,brick:Sensor,,"Measures the
 brick:Sash_Position_Sensor,,,,,,brick:Sensor,Sash Position,Measures the current position of a sash in terms of the percent of fully open
 brick:Schedule_Temperature_Setpoint,,,,,quantitykind:Temperature,brick:Setpoint,Schedule,The current setpoint as indicated by the schedule
 brick:Sensor,,,,,,brick:Sensor,,A Sensor is an input point that represents the value of a device or instrument designed to detect and measure a variable (ASHRAE Dictionary).
-brick:Sensor_Failure_Alarm,,,,,,,(deprecated),
+brick:Sensor_Failure_Alarm,,,,,,brick:Sensor_Failure_Alarm,,
 brick:Setpoint,,,,,,brick:Setpoint,,A Setpoint is an input value at which the desired property is set
 brick:Short_Cycle_Alarm,,,,,,,(deprecated),An alarm that indicates a short cycle occurred. A short cycle occurs when a cooling cycle is prevented from completing its full cycle
 brick:Smoke_Alarm,,,brick:Smoke,,,brick:Alarm,,An alarm that indicates the off-normal conditions associated with smoke.
