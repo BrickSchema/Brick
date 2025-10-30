@@ -1,6 +1,6 @@
 ﻿@id,brick:inMode,brick:ofSystem/Equipment/Process,brick:hasSubstance,brick:isDifferential,brick:hasQuantity/Enumeration,rdfs:subClassOf,todo:,skos:definition
 brick:Absolute_Humidity_Sensor,,,,,quantitykind:AbsoluteHumidity,brick:Sensor,,Measures the present state of absolute humidity
-brick:Acceleration_Time_Setpoint,,brick:Acceleration,,,,brick:Time_Setpoint,,
+brick:Acceleration_Time_Setpoint,,brick:Acceleration,,,quantitykind:Time,brick:Setpoint,,
 brick:Active_Power_Sensor,,,,,quantitykind:ActivePower,brick:Sensor,,"Measures the portion of power that, averaged over a complete cycle of the AC waveform, results in net transfer of energy in one direction"
 brick:Adjust_Sensor,,,,,,,(deprecated),Measures user-provided adjustment of some value
 brick:Air_Alarm,,,brick:Air,,,brick:Alarm,,
@@ -125,7 +125,7 @@ brick:Damper_Position_Setpoint,,brick:Damper,,,,brick:Setpoint,Position,Sets the
 brick:Damper_Position_Status,,brick:Damper,,,,brick:Status,Position,
 brick:DC_Bus_Voltage_Sensor,,,,,,,(deprecated),Measures the voltage across a DC bus
 brick:Deadband_Setpoint,,,,,,brick:Deadband_Setpoint,,Sets the size of a deadband
-brick:Deceleration_Time_Setpoint,,brick:Deceleration,,,,brick:Time_Setpoint,,
+brick:Deceleration_Time_Setpoint,,brick:Deceleration,,,quantitykind:Time,brick:Setpoint,,
 brick:Dehumidification_Start_Stop_Status,,brick:Dehumidification,,,brick:EnumerationKind-Start_Stop,brick:Status,,
 brick:Dehumidify_Command,,,,,,brick:Command,Dehumidify,"Triggers the dehumidification process, actively removing moisture from the air to achieve desired humidity levels"
 brick:Deionized_Water_Alarm,,,brick:Deionized_Water,,,brick:Alarm,,An alarm that indicates deionized water leaks.
@@ -687,10 +687,10 @@ brick:Return_Air_Temperature_Sensor,,,brick:Return_Air,,quantitykind:Temperature
 brick:Return_Air_Temperature_Setpoint,,,brick:Return_Air,,quantitykind:Temperature,brick:Setpoint,,"The target temperature for return air, often used as an approximation of zone air temperature"
 brick:Room_Air_Temperature_Sensor,,,brick:Room_Air,,quantitykind:Temperature,brick:Sensor,,
 brick:Room_Air_Temperature_Setpoint,,,brick:Room_Air,,quantitykind:Temperature,brick:Setpoint,,Sets temperature of room air
-brick:Run_Enable_Command,,,,,,brick:Enable_Command,Run,
-brick:Run_Request_Status,,,,,,brick:Status,Run Request,Indicates if a request has been filed to start a device or equipment
-brick:Run_Status,,,,,,brick:Status,Run,
-brick:Run_Time_Sensor,,,,,,brick:Sensor,Run Time,"Measures the duration for which a device was in an active or ""on"" state"
+brick:Run_Enable_Command,,brick:Run,,,,brick:Enable_Command,,
+brick:Run_Request_Status,,brick:Run,,,,brick:Status,Request,Indicates if a request has been filed to start a device or equipment
+brick:Run_Status,,brick:Run,,,,brick:Status,,
+brick:Run_Time_Sensor,,brick:Run,,,quantitykind:Time,brick:Sensor,,"Measures the duration for which a device was in an active or ""on"" state"
 brick:Sash_Position_Sensor,,,,,,brick:Sensor,Sash Position,Measures the current position of a sash in terms of the percent of fully open
 brick:Schedule_Temperature_Setpoint,,,,,quantitykind:Temperature,brick:Setpoint,Schedule,The current setpoint as indicated by the schedule
 brick:Sensor,,,,,,brick:Sensor,,A Sensor is an input point that represents the value of a device or instrument designed to detect and measure a variable (ASHRAE Dictionary).
@@ -785,8 +785,8 @@ brick:Temporary_Occupancy_Status,,,,,,,(deprecated),"For systems that differenti
 brick:Thermal_Energy_Usage_Sensor,,,,,quantitykind:ThermalEnergy,brick:Sensor,Usage,A sensor that records the quantity of thermal energy consumed in a given period
 brick:Thermal_Power_Sensor,,,,,quantitykind:Power,brick:Sensor,Thermal,
 brick:Thermostat_Status,,brick:Thermostat,,,,brick:Status,,Status of a thermostat
-brick:Time_Parameter,,,,,,brick:Parameter,Time,
-brick:Time_Setpoint,,,,,,brick:Time_Setpoint,,
+brick:Time_Parameter,,,,,quantitykind:Time,brick:Parameter,,
+brick:Time_Setpoint,,,,,quantitykind:Time,brick:Setpoint,,
 brick:Tint_Command,,,,,,brick:Command,Tint,The target level of window tint.
 brick:Tint_Status,,,,,,brick:Status,Tint,"The current level of window tint, errors, or transient states."
 brick:Tolerance_Parameter,,,,,,brick:Tolerance_Parameter,,difference between upper and lower limits of size for a given nominal dimension or value.
