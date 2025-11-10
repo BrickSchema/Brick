@@ -308,8 +308,6 @@ def define_classes(definitions, parent, pun_classes=False, graph=G):
         graph.add((classname, A, SH.NodeShape))
         # subclass of parent
         graph.add((classname, RDFS.subClassOf, parent))
-        # add label
-        class_label = classname.split("#")[-1].replace("_", " ")
 
         if pun_classes:
             graph.add((classname, A, classname))
@@ -347,7 +345,9 @@ def define_classes(definitions, parent, pun_classes=False, graph=G):
             graph.add((alias, A, SH.NodeShape))
             graph.add((alias, OWL.equivalentClass, classname))
             # find parent class of what the alias is equivalent to, add the RDFS subClassOf properties
-            parent_classes = list(graph.objects(subject=classname, predicate=RDFS.subClassOf))
+            parent_classes = list(
+                graph.objects(subject=classname, predicate=RDFS.subClassOf)
+            )
             for pc in parent_classes:
                 graph.add((alias, RDFS.subClassOf, pc))
             graph.add((alias, BRICK.aliasOf, classname))
@@ -436,7 +436,13 @@ def define_entity_properties(definitions, superprop=None, graph=G):
                 val = defn.pop(annotation)
                 graph.add((pshape, annotation, val))
         if not has_label(pshape):
-            graph.add((pshape, RDFS.label, Literal(f"has {defn.get(RDFS.label)} property", lang="en")))
+            graph.add(
+                (
+                    pshape,
+                    RDFS.label,
+                    Literal(f"has {defn.get(RDFS.label)} property", lang="en"),
+                )
+            )
 
         # add the entity property as a sh:property on all of the
         # other Nodeshapes indicated by "property_of"
@@ -744,8 +750,10 @@ def add_definitions(graph=G):
             setpoint = setpoint + "_Setpoint"
             logger.info(f"Inferred setpoint: {setpoint}")
         limit_def = limit_def_template.format(direction=direction, setpoint=setpoint)
-        is_alias = list(graph.objects(subject=param,predicate=BRICK.aliasOf))
-        if param != BRICK.Limit and len(is_alias)==0:  # definition already exists for Limit
+        is_alias = list(graph.objects(subject=param, predicate=BRICK.aliasOf))
+        if (
+            param != BRICK.Limit and len(is_alias) == 0
+        ):  # definition already exists for Limit
             graph.add((param, SKOS.definition, Literal(limit_def, lang="en")))
         class_exists = graph.query(
             f"""select ?class where {{
@@ -811,21 +819,22 @@ def handle_concept_labels():
     If there are two or more labels for a concept, choose one and raise a Warning
     """
     concepts = chain(
-            G.transitive_subjects(RDFS.subClassOf, BRICK.Entity),
-            G.subjects(A, BRICK.Entity),
-            G.subjects(A, OWL.ObjectProperty),
-            G.subjects(A, OWL.DatatypeProperty),
-            )
+        G.transitive_subjects(RDFS.subClassOf, BRICK.Entity),
+        G.subjects(A, BRICK.Entity),
+        G.subjects(A, OWL.ObjectProperty),
+        G.subjects(A, OWL.DatatypeProperty),
+    )
     for s in concepts:
         labels = list(G.objects(s, RDFS.label))
         if len(labels) == 0:
-            G.add((s, RDFS.label, Literal(s.split("#")[-1].replace("_", " "), lang="en")))
+            G.add(
+                (s, RDFS.label, Literal(s.split("#")[-1].replace("_", " "), lang="en"))
+            )
         elif len(labels) > 1:
             logging.warning(f"Multiple labels for {s}: {labels}")
             # choose one and remove the others
             for to_remove in labels[1:]:
                 G.remove((s, RDFS.label, to_remove))
-
 
 
 logger.info("Beginning BRICK Ontology compilation")
@@ -1099,7 +1108,8 @@ G.remove((None, OWL.imports, URIRef("https://w3id.org/rec")))
 
 # add inferred information to Brick
 logger.info("Adding inferred information to Brick")
-G.compile()
+profile = "brick"
+G.expand(profile)
 
 # add labels to all concepts
 handle_concept_labels()

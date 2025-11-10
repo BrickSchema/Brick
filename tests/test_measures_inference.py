@@ -61,7 +61,8 @@ def test_measures_infers(brick_with_imports):
 
     # Infer classes of the entities.
     # Apply reasoner
-    g.compile()
+    profile = "brick"
+    g.expand(profile)()
 
     qstr = """select ?instance ?class where {
         ?instance a ?class.

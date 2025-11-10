@@ -32,6 +32,7 @@ def pytest_configure(config):
         "markers", "slow: mark tests as slow (deselect w/ '-m \"not slow\"')"
     )
 
+
 @pytest.fixture()
 def brick():
     g = brickschema.Graph()
@@ -42,6 +43,7 @@ def brick():
     g.bind("brick", BRICK)
     g.remove((None, OWL.imports, None))
     return g
+
 
 @pytest.fixture()
 def brick_with_imports():
@@ -107,5 +109,6 @@ def simple_brick_model():
     g.add((BLDG.TS1, BRICK.hasLocation, BLDG.Room1))
 
     # lets us use both relationships
-    g.compile()
+    profile = "brick"
+    g.expand(profile)()
     return g

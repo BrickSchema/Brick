@@ -18,7 +18,8 @@ def test_quantity_has_one_quantitykind(brick_with_imports):
     does not end up with more than 1 QuantityKind
     """
     g = brick_with_imports
-    g.compile()
+    profile = "brick"
+    g.expand(profile)()
     quantity_qk = g.query(
         "SELECT ?quantity ?kind WHERE {\
             ?quantity   a   brick:Quantity .\
@@ -68,7 +69,8 @@ def test_instances_measure_correct_units(brick_with_imports):
 
     if triples:
         g.add(*triples)
-    g.compile()
+    profile = "brick"
+    g.expand(profile)()
 
     # Each created instance should be countable via the applicability join.
     instances = g.query(
@@ -100,13 +102,16 @@ def test_instances_measure_correct_units(brick_with_imports):
             }"
         )
     )
-    assert len(mismatches) == 0, f"Found {len(mismatches)} instances with non-applicable units, e.g. {mismatches[:5]}"
+    assert (
+        len(mismatches) == 0
+    ), f"Found {len(mismatches)} instances with non-applicable units, e.g. {mismatches[:5]}"
 
 
 def test_quantity_units(brick_with_imports):
     g = brick_with_imports
     g.bind("qudt", QUDT)
-    g.compile()
+    profile = "brick"
+    g.expand(profile)()
 
     # test the definitions by making sure that some quantities have applicable
     # units
@@ -120,7 +125,8 @@ def test_quantity_units(brick_with_imports):
 
 def test_all_quantities_have_units(brick_with_imports):
     g = brick_with_imports
-    g.compile()
+    profile = "brick"
+    g.expand(profile)()
 
     # test the definitions by making sure that some quantities have applicable
     # units
