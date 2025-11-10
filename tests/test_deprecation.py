@@ -16,8 +16,8 @@ def test_deprecation(brick_with_imports):
     """,
         format="turtle",
     )
-    profile = "brick"
-    g.expand(profile)()
+    profile = "shacl"
+    g.expand(profile, backend="topquadrant")
 
     rows = list(g.query("SELECT ?dep WHERE { ?dep owl:deprecated true }"))
     assert len(rows) > 1, "Should infer OWL deprecation notice"

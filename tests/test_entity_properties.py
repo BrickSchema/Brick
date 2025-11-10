@@ -18,8 +18,10 @@ def test_entity_property_validation(brick_with_imports):
         )
     )
 
-    profile = "brick"
-    g.expand(profile)(extra_graphs=[brick_with_imports], engine="topquadrant")
+    profile = "shacl"
+    g.expand(profile, backend="topquadrant")(
+        extra_graphs=[brick_with_imports], engine="topquadrant"
+    )
     valid, _, report = g.validate(
         extra_graphs=[brick_with_imports], engine="topquadrant"
     )
@@ -38,8 +40,10 @@ def test_entity_property_validation_failure(brick_with_imports):
         )
     )
 
-    profile = "brick"
-    g.expand(profile)(extra_graphs=[brick_with_imports], engine="topquadrant")
+    profile = "shacl"
+    g.expand(profile, backend="topquadrant")(
+        extra_graphs=[brick_with_imports], engine="topquadrant"
+    )
     # g.serialize("/tmp/test.ttl", format="ttl")
     valid, _, report = g.validate(
         extra_graphs=[brick_with_imports], engine="topquadrant"
@@ -68,8 +72,10 @@ def test_entity_property_type_inference(brick_with_imports):
     )
     g.serialize("test.ttl", format="ttl")
     assert valid, report
-    profile = "brick"
-    g.expand(profile)(extra_graphs=[brick_with_imports], engine="topquadrant")
+    profile = "shacl"
+    g.expand(profile, backend="topquadrant")(
+        extra_graphs=[brick_with_imports], engine="topquadrant"
+    )
 
     res = g.query(
         "SELECT ?ref WHERE { ?point ref:hasExternalReference ?ref . ?ref a ref:BACnetReference }"
@@ -129,8 +135,10 @@ def test_external_reference_rules(brick_with_imports):
         )
     )
 
-    g = profile = "brick"
-    g.expand(profile)(extra_graphs=[brick_with_imports], engine="topquadrant")
+    g = profile = "shacl"
+    g.expand(profile, backend="topquadrant")(
+        extra_graphs=[brick_with_imports], engine="topquadrant"
+    )
     g.serialize("/tmp/test.ttl")
     valid, _, report = g.validate(
         extra_graphs=[brick_with_imports], engine="topquadrant"
@@ -154,8 +162,10 @@ def test_external_reference_rules(brick_with_imports):
     )
     print(g.serialize(format="ttl"))
 
-    profile = "brick"
-    g.expand(profile)(extra_graphs=[brick_with_imports], engine="topquadrant")
+    profile = "shacl"
+    g.expand(profile, backend="topquadrant")(
+        extra_graphs=[brick_with_imports], engine="topquadrant"
+    )
     valid, _, report = g.validate(
         extra_graphs=[brick_with_imports], engine="topquadrant"
     )

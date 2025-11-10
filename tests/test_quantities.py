@@ -40,8 +40,8 @@ def quantity_fixtures(brick_with_imports):
         for m in measurables:
             g.add((inst, BRICK.measures, m))
 
-    profile = "brick"
-    g.expand(profile)()
+    profile = "shacl"
+    g.expand(profile, backend="topquadrant")
     return desired_inferences, g
 
 

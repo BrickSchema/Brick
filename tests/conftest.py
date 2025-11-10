@@ -109,6 +109,6 @@ def simple_brick_model():
     g.add((BLDG.TS1, BRICK.hasLocation, BLDG.Room1))
 
     # lets us use both relationships
-    profile = "brick"
-    g.expand(profile)()
+    profile = "shacl"
+    g.expand(profile, backend="topquadrant")
     return g

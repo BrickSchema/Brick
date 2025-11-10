@@ -55,8 +55,8 @@ def test_hierarchyinference():
     # Infer classes of the entities.
     # Apply reasoner
     g.load_file("extensions/brick_extension_shacl_tag_inference.ttl")
-    profile = "brick"
-    g.expand(profile)()
+    profile = "shacl"
+    g.expand(profile, backend="topquadrant")
     g.serialize(inference_file, format="turtle")  # Store the inferred graph.
 
     # Find all instances and their parents from the inferred graph.
