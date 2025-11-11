@@ -167,7 +167,7 @@ quantity_definitions = {
                 QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M1H0T0D0"],
                 RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
                 SKOS.definition: Literal(
-                    "Mass of moisture per pround of air, measured in grains of water"
+                    "Mass of moisture per pound of air, measured in grains of water"
                 ),
                 SKOS.broader: QUDTQK.Mass,
             },
