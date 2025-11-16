@@ -2,27 +2,36 @@
 
 Thank you for helping improve Brick. This document captures how we collaborate today, how to set up a working environment, and what we expect when you submit changes. Suggestions to improve these guidelines are always welcome via Pull Request (PR).
 
-## Getting Help First
+## Reporting Bugs and Issues in Brick
 
-If you have a question about Brick or the surrounding tooling:
-- Search the Brick User Forum (https://groups.google.com/forum/#!forum/brickschema) and the Brick GitHub issue tracker to see if it has already been discussed.
-- If you find a relevant thread, add your context there; otherwise open a new forum post or GitHub issue.
-- Website-specific questions can also go to the main Brick issue tracker.
+If you have a question about Brick or its related tools, it is recommended to make a post in the [Brick User Forum](https://groups.google.com/forum/#!forum/brickschema) or under the [Brick GitHub Issue Tracker](https://github.com/BrickSchema/Brick/issues). If you have a question about the website, please file the question either in the User Forum or on the [Brick Website Issue Tracker](https://github.com/BrickSchema/Brick/issues).
 
-## Reporting Bugs and Issues
+Please conduct a brief search to see if someone has asked your question already; if they have, feel free to jump into the conversation. Otherwise, please file a new issue or make a new post on the forum.
 
-All bugs, ontology issues, or missing definitions should be filed on https://github.com/BrickSchema/Brick/issues. Helpful reports include:
-- a concise title that states the problem
-- a complete description with Brick/SPARQL queries, RDF snippets, or Python code demonstrating the issue
-- observed vs. expected behavior
-- precise reproduction steps, including whether you generated a fresh `Brick.ttl`
-- confirmation that you tested against the latest `main`
+Bug reports are most helpful when they fully explain the problem and include as many details as possible.
+Some suggestions:
 
-## Proposing Changes
+- **Use a clear and descriptive title** for the issue that identifies the problem
+- **Include as many details as possible** about the problem, including any relevant Brick/SPARQL queries, RDF triples, segments of Turtle files, Python code, etc
+- **Describe the observed and expected behavior**: for example, what query did you run, what were the results, and what did you expect the results to be? What definition exists and what definition would you expect?
+ - **Describe the exact steps to reproducing the problem** where it is appropriate: did you execute a query and
 
-Feature ideas, ontology extensions, or documentation improvements should also begin life as an issue. Well-scoped proposals explain the motivation, expected ontology changes, and any design constraints so reviewers understand impact before you start coding.
+- Make sure you are using the most recent version of the Brick repository/ontology
 
-## Development Workflow Overview
+## Proposing Changes to Brick
+
+The content, structure and extent of Brick is determined by its community, so suggestions for how to improve Brick are always welcome and will be taken under consideration.
+Proposed changes to Brick are tracked on the [Brick GitHub Issue Tracker](https://github.com/BrickSchema/Brick/issues).
+
+Effective proposals should fully explain the motivation and scope of the proposed changes, and should have at least an initial impression of the nature of the implementation.
+The more detail, the better!
+
+## Submitting Changes to Brick
+
+Changes to Brick are performed through [Pull Requests](https://github.com/BrickSchema/Brick/pulls).
+It is recommended that you become familiar with how to [fork a repository](https://help.github.com/en/articles/fork-a-repo) and [create a pull request](https://help.github.com/en/articles/creating-a-pull-request-from-a-fork).
+
+# Development Workflow Overview
 
 1. Fork `BrickSchema/Brick` and clone your fork.
 2. Initialize submodules (for example RealEstateCore):
