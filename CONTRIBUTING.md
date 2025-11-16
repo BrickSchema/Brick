@@ -1,226 +1,150 @@
 # Contributing to Brick
 
-This document is a set of guidelines and resources for contributing to the Brick effort.
-Improvements and changes to this document are always welcome via [Pull Request](https://github.com/BrickSchema/Brick/pulls)
+Thank you for helping improve Brick. This document captures how we collaborate today, how to set up a working environment, and what we expect when you submit changes. Suggestions to improve these guidelines are always welcome via Pull Request (PR).
 
-## Asking Questions
+## Getting Help First
 
-If you have a question about Brick or its related tools, it is recommended to make a post in the [Brick User Forum](https://groups.google.com/forum/#!forum/brickschema) or under the [Brick GitHub Issue Tracker](https://github.com/BrickSchema/Brick/issues). If you have a question about the website, please file the question either in the User Forum or on the [Brick Website Issue Tracker](https://github.com/BrickSchema/Brick/issues).
-
-Please conduct a brief search to see if someone has asked your question already; if they have, feel free to jump into the conversation. Otherwise, please file a new issue or make a new post on the forum.
+If you have a question about Brick or the surrounding tooling:
+- Search the Brick User Forum (https://groups.google.com/forum/#!forum/brickschema) and the Brick GitHub issue tracker to see if it has already been discussed.
+- If you find a relevant thread, add your context there; otherwise open a new forum post or GitHub issue.
+- Website-specific questions can also go to the main Brick issue tracker.
 
 ## Reporting Bugs and Issues
 
-Reporting of bugs and issues should be done on the [Brick GitHub Issue Tracker](https://github.com/BrickSchema/Brick/issues). The purview of "bugs and issues" includes (but is not limited to):
+All bugs, ontology issues, or missing definitions should be filed on https://github.com/BrickSchema/Brick/issues. Helpful reports include:
+- a concise title that states the problem
+- a complete description with Brick/SPARQL queries, RDF snippets, or Python code demonstrating the issue
+- observed vs. expected behavior
+- precise reproduction steps, including whether you generated a fresh `Brick.ttl`
+- confirmation that you tested against the latest `main`
 
-- missing, incomplete or incorrect definitions of Brick classes
-- errors, mistakes or inconsistencies in the Brick ontology definition
+## Proposing Changes
 
-Bug reports are most helpful when they fully explain the problem and include as many details as possible.
-Some suggestions:
+Feature ideas, ontology extensions, or documentation improvements should also begin life as an issue. Well-scoped proposals explain the motivation, expected ontology changes, and any design constraints so reviewers understand impact before you start coding.
 
-- **Use a clear and descriptive title** for the issue that identifies the problem
-- **Include as many details as possible** about the problem, including any relevant Brick/SPARQL queries, RDF triples, segments of Turtle files, Python code, etc
-- **Describe the observed and expected behavior**: for example, what query did you run, what were the results, and what did you expect the results to be? What definition exists and what definition would you expect?
-- **Describe the exact steps to reproducing the problem** where it is appropriate: did you execute a query and
-- Make sure you are using the most recent version of the Brick repository
+## Development Workflow Overview
 
-## Proposing Changes to Brick
+1. Fork `BrickSchema/Brick` and clone your fork.
+2. Initialize submodules (for example RealEstateCore):
+   ```bash
+   git submodule update --init --recursive
+   ```
+3. Work with Python 3.11 or newer (the repo enforces `requires-python = ">= 3.11"` in `pyproject.toml`).
+4. Use a virtual environment managed by **uv** (recommended) or standard `pip`. Both approaches install dependencies straight from `pyproject.toml`, so you do not need `requirements.txt`.
+5. Run tests locally before opening a PR.
 
-The content, structure and extent of Brick is determined by its community, so suggestions for how to improve Brick are always welcome and will be taken under consideration.
-Proposed changes to Brick are tracked on the [Brick GitHub Issue Tracker](https://github.com/BrickSchema/Brick/issues).
+## Environment Setup
 
-Effective proposals should fully explain the motivation and scope of the proposed changes, and should have at least an initial impression of the nature of the implementation.
-The more detail, the better!
+### Using uv (recommended)
 
-## Submitting Changes to Brick
+1. Install uv by following https://docs.astral.sh/uv/ (macOS/Linux installer: `curl -LsSf https://astral.sh/uv/install.sh | sh`).
+2. Ensure Python 3.11 is available (uv can install it with `uv python install 3.11`).
+3. Sync dependencies directly from `pyproject.toml`/`uv.lock` (uv will create a managed `.venv` automatically):
+   ```bash
+   uv sync
+   ```
+4. Install pre-commit hooks without activating the venv by prefixing commands with `uv run`:
+   ```bash
+   uv run pre-commit install
+   ```
+5. When dependencies change, refresh the environment with `uv sync` so it stays aligned with the lockfile. You can run any project command through `uv run …` (for example `uv run python generate_brick.py`).
 
-Changes to Brick are performed through [Pull Requests](https://github.com/BrickSchema/Brick/pulls).
-It is recommended that you become familiar with how to [fork a repository](https://help.github.com/en/articles/fork-a-repo) and [create a pull request](https://help.github.com/en/articles/creating-a-pull-request-from-a-fork).
+### Using pip (alternative)
 
-### Setting up Development Environment
+These steps assume you are **not** using uv anywhere in your toolchain.
 
-Brick requires Python >= 3.6. We recommend using [virtual environments](https://docs.python.org/3/library/venv.html) to manage dependencies. We use [pre-commit hooks](https://pre-commit.com/) to automatically run code formatters and style checkers when you commit.
+1. Verify Python 3.11 is available (for example `python3.11 --version`).
+2. Create and activate a virtual environment:
+   ```bash
+   python3.11 -m venv .venv
+   source .venv/bin/activate
+   ```
+3. Install Brick in editable mode so you can iterate quickly:
+   ```bash
+   python -m pip install --upgrade pip
+   python -m pip install -e .
+   python -m pip install pre-commit
+   pre-commit install
+   ```
 
-1. Check out the Brick repository (or your own fork of it)
+## Dependency Management (`pyproject.toml`)
 
-```bash
-git clone https://github.com/BrickSchema/Brick
-cd Brick
-```
+`pyproject.toml` is the single source of truth for runtime and development requirements. When you need a new library:
+- add it under `[project.dependencies]` (or the relevant optional extra) with an appropriate version range
+- if the dependency is only for tooling/tests, consider creating an extra such as `.[dev]`
+- run `uv lock` to refresh `uv.lock` so CI stays reproducible
+- rerun `uv sync` (uv workflow) or `pip install -e .` (pip workflow) to pick up the new dependency
+- mention the change in your PR description so reviewers know why it is needed
 
-2. Use Git submodules to pull in the RealEstateCore ontology
+## Formatting, Linting, and Hooks
 
-```bash
-git submodule update --init
-```
+We use [`pre-commit`](https://pre-commit.com/) to run formatters and linters (Black, flake8, etc.) before every commit. After installing hooks (`pre-commit install` in your activated environment) you can manually check everything with `pre-commit run --all-files`. Commits should be free of formatting issues before you open a PR.
 
-3. Install the virtual environment and set up dependencies
+## Generating Artifacts and Running Tests
 
-```bash
-# creates virtual environment
-python3 -m venv venv
+1. Regenerate ontology outputs whenever you touch ontological source files:
+   ```bash
+   python generate_brick.py
+   ```
+   or, if you prefer uv, `uv run python generate_brick.py`.
+2. Run the pytest suite from the repository root so `Brick.ttl` and related artifacts are up to date:
+   ```bash
+   uv run pytest
+   # or, after activating your pip environment:
+   pytest
+   ```
+3. Tests live in `tests/` and may be parallelized thanks to `pytest-xdist`; keep them deterministic.
+4. Please add or update tests whenever you change ontology behavior or Python utilities.
 
-# activates virtual environment; do this every time you develop on Brick
-source venv/bin/activate
+## Submitting Pull Requests
 
-# install dependencies
-pip install -r requirements.txt
+- Keep PRs focused; smaller changes are easier to review.
+- Ensure `git status` is clean, tests pass, and hooks succeed before pushing.
+- Fill out the PR template with context, testing evidence, and any migration notes.
+- Respond promptly to review comments; collaborative discussion is encouraged.
 
-# install pre-commit hooks
-pre-commit install
-```
+## Extending the Ontology Programmatically
 
-4. Run tests to make sure the build is not broken
+The Brick class hierarchy lives inside `bricksrc/`. Each file contains nested dictionaries describing a slice of the hierarchy. Follow these placement guidelines:
+- Point subclasses (`Command`, `Sensor`, `Setpoint`, `Status`) belong in their respective `bricksrc/<class>.py` files.
+- `Equipment` definitions go in `bricksrc/equipment.py`.
+- `Location`, `Parameter`, `Quantity`, and `Substance` classes go in their similarly named modules.
 
-```bash
-make test
-```
-
-4. Whenever you commit, the `pre-commit` script will run the Black code formatting tool and the flake8 style checker. It will automatically format the code where it can, and indicate when there is a style error. **The tools will not commit unformatted code**; if you see a "Failed" message, please fix the style and re-commit the code. An example of what this looks like is below; the failed flake8 check results in a short error report at the bottom.
-
-```
-gabe@arkestra:~/src/Brick$ git commit -m 'adding changes to Alarm hierarchy'
-[WARNING] Unstaged files detected.
-[INFO] Stashing unstaged files to /home/gabe/.cache/pre-commit/patch1581700010.
-Check Yaml...........................................(no files to check)Skipped
-Fix End of Files.........................................................Passed
-Trim Trailing Whitespace.................................................Passed
-black....................................................................Passed
-flake8...................................................................Failed
-- hook id: flake8
-- exit code: 1
-
-bricksrc/alarm.py:85:78: E231 missing whitespace after ','
-
-[INFO] Restored changes from /home/gabe/.cache/pre-commit/patch1581700010.
-```
-
-### Extending the Class Hierarchy
-
-The Brick class hierarchy is defined across several files in `bricksrc/`, named according to the Brick class that roots the hierarchy defined in the file.
-
-Brick point class definitions should be placed in one of the following files:
-- `bricksrc/command.py` for subclasses of the Brick `Command` class
-- `bricksrc/sensor.py` for subclasses of the Brick `Sensor` class
-- `bricksrc/setpoint.py` for subclasses of the Brick `Setpoint` class
-- `bricksrc/status.py` for subclasses of the Brick `Status` class
-
-Brick `Equipment` definitions should be placed in the `bricksrc/equipment.py` file.
-
-Brick `Location` definitions should be placed in the `bricksrc/location.py` file.
-
-Brick `Parameter` definitions should be placed in the `bricksrc/parameter.py` file.
-
-Brick `Quantity` definitions should be placed in the `bricksrc/quantities.py` file.
-
-Brick `Substance` definitions should be placed in the `bricksrc/substances.py` file.
-
-Brick class definitions are written using a nested Python dictionary structure.
-Observe the example below from `bricksrc/sensor.py`:
+Definitions use the following structure:
 
 ```python
 {
     "Sensor": {
-        "tags": [ TAG.Sensor ],
+        "tags": [TAG.Sensor],
         "subclasses": {
             "Air_Grains_Sensor": {
-                "tags": [ TAG.Sensor, TAG.Air, TAG.Grains ],
-                "substances": [ [ BRICK.measures, BRICK.Air ], [ BRICK.measures, BRICK.Grains ], ],
+                "tags": [TAG.Sensor, TAG.Air, TAG.Grains],
+                "substances": [[BRICK.measures, BRICK.Air], [BRICK.measures, BRICK.Grains]],
                 "subclasses": {
                     "Outside_Air_Grains_Sensor": {
-                        "tags": [ TAG.Outside, TAG.Air, TAG.Grains, TAG.Sensor ],
+                        "tags": [TAG.Outside, TAG.Air, TAG.Grains, TAG.Sensor],
                     },
                     "Return_Air_Grains_Sensor": {
-                        "tags": [ TAG.Return, TAG.Air, TAG.Grains, TAG.Sensor ],
-                    }
-                }
+                        "tags": [TAG.Return, TAG.Air, TAG.Grains, TAG.Sensor],
+                    },
+                },
             }
         }
     }
 }
 ```
 
-The core class definition structure is a dictionary whose keys are Brick class names and whose values are dictionaries containing the class properties.
-Class names should be alpha-numeric strings consisting of capitalized words separated by the `_` character; class names can not contain spaces.
-The class property dictionary can have the following keys:
+Guidelines:
+- Class names are Camel_Case strings with `_` separators.
+- `tags` combine Brick tag constants; an entity that has all tags will be inferred as the class.
+- Use `parents` to share ancestry without duplicating structures.
+- `substances` entries look like `[BRICK.measures, BRICK.<Substance>]` and must match definitions in `bricksrc/substances.py`.
 
-- `tags`: a list of Brick tags; an entity who has all of these tags will be inferred as an instance of the class
-- `parents`: a list of Brick *classes* that are parent classes of the current class; this lets us form the class lattice with less duplication
-- `subclasses`: a dictionary whose keys+values are class names and definitions; this recursively follows the same structure
-- `substances`: a nested list of Brick Substance classes. Each list item should be of the form `[BRICK.measures, BRICK.<substance name>]` where `<substance name>` is replaced with the substance that is measured. Substances are defined in `bricksrc/substances.py`
+To add textual descriptions, edit `bricksrc/definitions.csv` and insert a row with the full Brick URI, a human-readable definition (quote it if it contains commas), and an optional citation. Keep the file alphabetized.
 
-To provide a textual definition for a Brick class (which will be linked to its definition via the `SKOS.definition` property), add the class name and its definition to `bricksrc/definitions.csv`.
-Each entry has 3 columns: the full Brick URI for the class name (with the Brick namespace prefix), a textual definition (if this contains commas, then make sure the definition is enclosed in quotes), and an optional citation or additional resource.
-Entries should be placed into the file alphabetically to facilitate maintenance.
+## Need Help?
 
-For example, here is the row providing the textual definition of a `brick:Thermostat`:
-
-```
-https://brickschema.org/schema/Brick#Thermostat,An automatic control device used to maintain temperature at a fixed or adjustable setpoint.,
-```
-
-### Managing Tags
-
-Tags provide an alternative way of instantiating classes; Brick can infer classifications from the set of tags applied to an entity with the `brick.hasTag` relationship.
-Each subclass's tags should contain *at least* the tags of its parent class; currently, the set of tags for a class must be explicitly annotated.
-
-### Defining Brick Relationships
-
-Brick relationships are defined in `bricksrc/properties.py`.
-The `properties` dictionary contains these definitions and follows a similar structure to the Brick class definitions: keys are property names; values are dictionaries of properties of the relationships.
-
-The following keys are expected for each relationship:
-
-- `A`: value is a list of OWL property classes defining how this relationships behaves. `OWL.AsymmetricProperty` and `OWL.IrreflexiveProperty` are the most common
-- `SKOS.definition`: value is an RDFlib Literal containing a textual definition of the relationship
-- `OWL.inverseOf` (optional): value is a string representing the name of the inverse relationship. If a relationship has a defined inverse, the inverse relationship should also appear as a top-level relationship in the `properties` dictionary.
-- `RDFS.range` (optional): value is a Brick class whose instances can be object of this relationship
-- `RDFS.domain` (optional): value is a Brick class whose instances can be subject of this relationship
-
-*Subproperties are under development; this document will be updated with instructions for defining subproperties when development has finished*
-
-### Defining Entity Properties
-
-Brick entity properties are defined in `bricksrc/entity_properties.py`.
-There are two dictionaries in this file. The `entity_properties` dictionary defines the names of properties and subproperties that relate Brick entities to their property values. These should all have `SKOS.definition` entries and an `RDFS.range` property which is a SHACL shape.
-
-The second dictionary, `shape_properties`, defines the SHACL shapes describing the actual entity property values. Shapes fall into one of 3 forms:
-- `units` and `datatype`: lists the appropriate engineering units and the allowed datatype of the value
-- `values`: an enumeration of possible values of the property
-- `properties`: custom properties that don't fall under the above. So far this is just used for the `AggregationShape`
-
-As a general design pattern (but not prescribed rule), entity properties should *not* begin with "has"; simply name the property (e.g. `hasCoolingCapacity` should be `coolingCapacity`).
-
-### Development Environment
-
-The Brick schema is generated by a set of Python files located in this repository.
-To set up the development environment
-
-0. Make sure you have Python3 installed on your development system
-1. Fork the [Brick repository](https://github.com/BrickSchema/Brick) and clone it to your development system
-2. [Set up a virtual environment](https://docs.python.org/3/library/venv.html) in the repository folder
-    ```bash
-    # making the virtual environment
-    python3 -m venv brickvenv
-    ```
-3. Install the Python3 dependencies using pip:
-    ```bash
-    # enter the virtual environment
-    . brickvenv/bin/activate
-    pip install -r requirements.txt
-    ```
-    * You do not need to install the `docker` dependency if your system does not support it. Use of docker enables use of Allegrograph, which can speed up some of the Brick compilation processes.
-    * If C++ compiler is not installed you may get an error installing the Levenshtein-search.  It is not strickly necessary to build and test brick.  You can safely ignore this error.
-4. Make the desired changes **to the Python files**. Do not edit the `Brick.ttl` or `Brick+extensions.ttl` files directly.
-5. Compile the `Brick.ttl` and `Brick_expanded.ttl` files by executing the `generate_brick.py` script using Python
-    ```bash
-    python generate_brick.py
-    ```
-    It may be the case that additional work is needed to generate the Brick file. If your system supports it, it is
-    recommended to use the Makefile to build Brick:
-    ```bash
-    make
-    ```
-6. Commit your changes and push to your fork
-7. Submit the pull request
+When in doubt:
+- start a discussion in the Brick User Forum
+- tag relevant maintainers in an issue or PR
+- open a draft PR early so maintainers can guide the direction
