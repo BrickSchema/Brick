@@ -144,11 +144,34 @@ Definitions use the following structure:
 
 Guidelines:
 - Class names are Camel_Case strings with `_` separators.
-- `tags` combine Brick tag constants; an entity that has all tags will be inferred as the class.
-- Use `parents` to share ancestry without duplicating structures.
+- Keep definitions alphabetical inside each file so merge conflicts stay small.
+- Prefer composing behavior through `parents` instead of duplicating branches.
 - `substances` entries look like `[BRICK.measures, BRICK.<Substance>]` and must match definitions in `bricksrc/substances.py`.
 
+Each class dictionary can use the following keys:
+- `tags`: list of Brick tag constants; an entity that owns *all* of these tags will be classified as the class.
+- `parents`: optional list of Brick classes whose semantics you want to inherit without nesting the full structure again.
+- `subclasses`: nested dictionary of child class definitions that follow the same schema shown above.
+- `substances`: nested list of `[predicate, object]` tuples describing what the class measures (commonly `[BRICK.measures, BRICK.Air]`).
+
 To add textual descriptions, edit `bricksrc/definitions.csv` and insert a row with the full Brick URI, a human-readable definition (quote it if it contains commas), and an optional citation. Keep the file alphabetized.
+
+### Managing Tags
+
+Tags provide an alternate way to recognize classes: applying all tags from a class definition to an entity allows Brick to infer the correct class via `brick.hasTag`. When updating the hierarchy:
+- ensure every child repeats the tags from its parent plus any new differentiators (for example a `Discharge_Air_Temperature_Sensor` includes `Sensor`, `Air`, `Temperature`, and `Discharge` tags)
+- define new tags or aliases in `bricksrc/tags.py`, keeping names sorted and adding short comments if their usage is subtle
+- avoid inventing overlapping tags when an existing combination already encodes the same concept
+
+### Defining Brick Relationships
+
+Object properties and data properties live in `bricksrc/properties.py`. Relationships use a structure similar to classes, with the property name as the key and a dictionary of metadata as the value. Typical keys include:
+- `A`: list of OWL property classes (for example `OWL.AsymmetricProperty`, `OWL.IrreflexiveProperty`, `OWL.FunctionalProperty`)
+- `SKOS.definition`: free-text RDFlib `Literal` describing how the relationship should be used
+- `OWL.inverseOf` (optional): string naming the inverse Brick property; remember to define the inverse explicitly as its own top-level entry
+- `RDFS.domain` / `RDFS.range` (optional): Brick classes constraining the subjects and objects that can use the property
+
+Subproperties currently rely on hand-authored TTL. If you need one, discuss it in an issue or PR so we can decide whether to encode it in `bricksrc/properties.py` or a companion Turtle file.
 
 ## Need Help?
 
