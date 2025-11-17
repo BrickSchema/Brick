@@ -14,9 +14,8 @@ Some suggestions:
 - **Use a clear and descriptive title** for the issue that identifies the problem
 - **Include as many details as possible** about the problem, including any relevant Brick/SPARQL queries, RDF triples, segments of Turtle files, Python code, etc
 - **Describe the observed and expected behavior**: for example, what query did you run, what were the results, and what did you expect the results to be? What definition exists and what definition would you expect?
- - **Describe the exact steps to reproducing the problem** where it is appropriate: did you execute a query and
-
-- Make sure you are using the most recent version of the Brick repository/ontology
+ - **Describe the exact steps to reproducing the problem** where it is appropriate: for example, share minimal models that reproduce the problem when validating or querying.
+- **Make sure you are using the most recent version of the Brick repository/ontology**
 
 ## Proposing Changes to Brick
 
