@@ -38,8 +38,8 @@ ontology_imports = {
     "ref": "https://brickschema.org/schema/Brick/ref",
     "rec": "https://w3id.org/rec",
     "recimports": "https://w3id.org/rec/recimports",
-    "quantitykind": "http://qudt.org/3.1.0/vocab/quantitykind",
-    "unit": "http://qudt.org/3.1.0/vocab/unit",
+    "quantitykind": "http://qudt.org/3.1.8/vocab/quantitykind",
+    "unit": "http://qudt.org/3.1.8/vocab/unit",
 }
 
 shacl_namespace_declarations = [

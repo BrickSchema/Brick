@@ -4,8 +4,8 @@ from .namespaces import SKOS, RDFS, BRICK, QUDTQK, QUDTDV, QUDT, UNIT, XSD
 from .env import env
 
 g = Graph()
-env.import_graph(g, "http://qudt.org/3.1.0/vocab/unit")
-env.import_graph(g, "http://qudt.org/3.1.0/vocab/quantitykind")
+env.import_graph(g, "http://qudt.org/3.1.8/vocab/unit")
+env.import_graph(g, "http://qudt.org/3.1.8/vocab/quantitykind")
 g.bind("qudt", QUDT)
 g.bind("qudtqk", QUDTQK)
 
@@ -316,7 +316,7 @@ quantity_definitions = {
                 SKOS.definition: Literal("Direction of wind relative to North"),
                 RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
             }
-        }
+        },
     },
     "Electric_Energy": {
         QUDT.applicableUnit: [
@@ -435,7 +435,7 @@ quantity_definitions = {
                 RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
                 SKOS.broader: QUDTQK.Dimensionless,
             },
-        }
+        },
     },
     "Position": {
         QUDT.applicableUnit: [UNIT["PERCENT"]],
