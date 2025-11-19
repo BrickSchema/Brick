@@ -686,7 +686,7 @@ def add_definitions(graph=G):
     adds it to the graph. If available, adds the source information of
     through RDFS.seeAlso.
     """
-    with open("./bricksrc/definitions.csv", encoding="utf-8") as dictionary_file:
+    with open(Path("./bricksrc/definitions.csv"), encoding="utf-8") as dictionary_file:
         dictionary = csv.reader(dictionary_file)
 
         header = next(dictionary)
@@ -701,12 +701,9 @@ def add_definitions(graph=G):
             if len(definition[1]):
                 graph.add((term, SKOS.definition, Literal(definition[1], lang="en")))
             if len(definition) > 2 and definition[2]:
-                try:
-                    graph.add((term, RDFS.seeAlso, URIRef(definition[2])))
-                except Exception as e:
-                    print(
-                        f"Error processing 'seeAlso' for term '{term}': {e}. The definition provided is: '{definition}'."
-                    )
+                # add seeAlso only if provided
+                graph.add((term, RDFS.seeAlso, URIRef(definition[2])))
+
 
     qstr = """
     select ?param where {
@@ -760,40 +757,40 @@ def add_definitions(graph=G):
             )
 
 
-def handle_deprecations():
+def handle_deprecations(graph: Graph=G):
     for deprecated_term, md in deprecations.items():
         term_type = md.get(A)
         if term_type:
-            G.add((deprecated_term, A, term_type))
+            graph.add((deprecated_term, A, term_type))
 
-        G.add((deprecated_term, OWL.deprecated, Literal(True)))
+        graph.add((deprecated_term, OWL.deprecated, Literal(True)))
 
         # handle subclasses or skos. Only add it as an owl:Class if
         # the use of rdfs:subClassOf exists, implying this is a Class
         if RDFS.subClassOf in md:
-            G.add((deprecated_term, A, OWL.Class))
+            graph.add((deprecated_term, A, OWL.Class))
             subclasses = md.pop(RDFS.subClassOf)
             if subclasses is not None:
                 if not isinstance(subclasses, list):
                     subclasses = [subclasses]
                 for subclass in subclasses:
-                    G.add((deprecated_term, RDFS.subClassOf, subclass))
+                    graph.add((deprecated_term, RDFS.subClassOf, subclass))
         elif SKOS.narrower in md:
             subconcepts = md.pop(SKOS.narrower)
             if subconcepts is not None:
                 if not isinstance(subconcepts, list):
                     subconcepts = [subconcepts]
                 for subclass in subconcepts:
-                    G.add((deprecated_term, SKOS.narrower, subclass))
+                    graph.add((deprecated_term, SKOS.narrower, subclass))
         elif SKOS.broader in md:
             subconcepts = md.pop(SKOS.broader)
             if subconcepts is not None:
                 if not isinstance(subconcepts, list):
                     subconcepts = [subconcepts]
                 for subclass in subconcepts:
-                    G.add((deprecated_term, SKOS.broader, subclass))
-        G.add((deprecated_term, BRICK.deprecatedInVersion, Literal(md["version"])))
-        G.add(
+                    graph.add((deprecated_term, SKOS.broader, subclass))
+        graph.add((deprecated_term, BRICK.deprecatedInVersion, Literal(md["version"])))
+        graph.add(
             (
                 deprecated_term,
                 BRICK.deprecationMitigationMessage,
@@ -801,30 +798,56 @@ def handle_deprecations():
             )
         )
         if "replace_with" in md:
-            G.add((deprecated_term, BRICK.isReplacedBy, md["replace_with"]))
+            graph.add((deprecated_term, BRICK.isReplacedBy, md["replace_with"]))
+
+    """
+    The following part adds definitions for deprecated Brick subclasses through SKOS.definitions.
+
+    This parses the definitions from ./bricksrc/definitions_of_deprecated.csv and
+    adds it to the graph. If available, adds the source information of
+    through RDFS.seeAlso.
+    """
+    with open(Path("./bricksrc/definitions_of_deprecated.csv"), encoding="utf-8") as dictionary_file:
+        dictionary = csv.reader(dictionary_file)
+
+        header = next(dictionary)
+
+        # add definitions, citations to the graph
+        for definition in dictionary:
+            term = URIRef(definition[0])
+            if len(definition) > len(header):
+                raise ValueError(
+                    f"The term '{term}' has more elements than expected. Please check the format."
+                )
+            if len(definition[1]):
+                graph.add((term, SKOS.definition, Literal(definition[1], lang="en")))
+            if len(definition) > 2 and definition[2]:
+                # add seeAlso only if provided
+                graph.add((term, RDFS.seeAlso, URIRef(definition[2])))
+                
 
 
-def handle_concept_labels():
+def handle_concept_labels(graph: Graph=G):
     """
     Adds labels to all concepts in the Brick namespace, unless they already have one.
     Brick concepts are all subclasses of Brick.Entity and subproperties of Brick.Relationship.
     If there are two or more labels for a concept, choose one and raise a Warning
     """
     concepts = chain(
-            G.transitive_subjects(RDFS.subClassOf, BRICK.Entity),
-            G.subjects(A, BRICK.Entity),
-            G.subjects(A, OWL.ObjectProperty),
-            G.subjects(A, OWL.DatatypeProperty),
+            graph.transitive_subjects(RDFS.subClassOf, BRICK.Entity),
+            graph.subjects(A, BRICK.Entity),
+            graph.subjects(A, OWL.ObjectProperty),
+            graph.subjects(A, OWL.DatatypeProperty),
             )
     for s in concepts:
-        labels = list(G.objects(s, RDFS.label))
+        labels = list(graph.objects(s, RDFS.label))
         if len(labels) == 0:
-            G.add((s, RDFS.label, Literal(s.split("#")[-1].replace("_", " "), lang="en")))
+            graph.add((s, RDFS.label, Literal(s.split("#")[-1].replace("_", " "), lang="en")))
         elif len(labels) > 1:
             logging.warning(f"Multiple labels for {s}: {labels}")
             # choose one and remove the others
             for to_remove in labels[1:]:
-                G.remove((s, RDFS.label, to_remove))
+                graph.remove((s, RDFS.label, to_remove))
 
 
 
@@ -1013,11 +1036,11 @@ G.remove((BRICK.value, A, OWL.ObjectProperty))
 
 logger.info("Adding deprecations")
 # handle class deprecations
-handle_deprecations()
+handle_deprecations(G)
 # non-class deprecations handled in bricksrc/deprecations.ttl, which is added below
 
 logger.info("Adding class definitions")
-add_definitions()
+add_definitions(G)
 
 logger.info("Adding other .ttl files")
 # add all TTL files in bricksrc
@@ -1102,7 +1125,7 @@ logger.info("Adding inferred information to Brick")
 G.compile()
 
 # add labels to all concepts
-handle_concept_labels()
+handle_concept_labels(G)
 
 # serialize Brick to output
 with open("Brick.ttl", "w", encoding="utf-8") as fp:
