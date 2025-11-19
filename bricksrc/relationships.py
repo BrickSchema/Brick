@@ -162,6 +162,48 @@ relationships = {
         "domain": BRICK.Point,
         RDFS.label: Literal("Has unit", lang="en"),
     },
+    "controls": {
+        A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+        OWL.inverseOf: BRICK["isControlledBy"],
+        "range": BRICK.Equipment,
+        "domain": BRICK.Controller,
+        RDFS.label: Literal("Controls", lang="en"),
+    },
+    "isControlledBy": {
+        A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+        OWL.inverseOf: BRICK["controls"],
+        "range": BRICK.Controller,
+        "domain": BRICK.Equipment,
+        RDFS.label: Literal("Is controlled by", lang="en"),
+    },
+    "hosts": {
+        A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+        OWL.inverseOf: BRICK["isHostedBy"],
+        "range": REC.Collection,
+        "domain": BRICK.Controller,
+        RDFS.label: Literal("Hosts", lang="en"),
+    },
+    "isHostedBy": {
+        A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+        OWL.inverseOf: BRICK["hosts"],
+        "range": BRICK.Controller,
+        "domain": REC.Collection,
+        RDFS.label: Literal("Is hosted by", lang="en"),
+    },
+    "concerns": {
+        A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+        OWL.inverseOf: BRICK["isConcernedBy"],
+        "range": REC.Zone,
+        "domain": BRICK.Controller,
+        RDFS.label: Literal("Concerns", lang="en"),
+    },
+    "isConcernedBy": {
+        A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+        OWL.inverseOf: BRICK["concerns"],
+        "range": BRICK.Controller,
+        "domain": REC.Zone,
+        RDFS.label: Literal("Is concerned by", lang="en"),
+    },
     "meters": {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         OWL.inverseOf: BRICK.isMeteredBy,
@@ -238,4 +280,8 @@ for row in rec.query(query):
     if row["datatype"]:
         relationships[row["path"]][A] = [OWL.DatatypeProperty]
     if row["nodeKind"]:
-        relationships[row["path"]][A] = [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty]
+        relationships[row["path"]][A] = [
+            OWL.ObjectProperty,
+            OWL.AsymmetricProperty,
+            OWL.IrreflexiveProperty,
+        ]
