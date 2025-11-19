@@ -886,6 +886,9 @@ hvac_subclasses = {
                 "tags": [TAG.Condenser, TAG.Equipment, TAG.Heat, TAG.Exchanger],
             },
             "Heat_Wheel": {"tags": [TAG.Equipment, TAG.Heat, TAG.Wheel]},
+            "Plate_Heat_Exchanger": {
+                "tags": [TAG.Equipment, TAG.Heat, TAG.Exchanger, TAG.HX, TAG.Plate],
+            },
             "Coil": {
                 "tags": [TAG.Equipment, TAG.Coil],
                 "subclasses": {
@@ -1504,7 +1507,7 @@ hvac_valve_subclasses = {
     },
     "Cooling_Valve": {
         "parents": [BRICK.Valve],
-        "tags": [TAG.Valve, TAG.Cool, TAG.Equipment]
+        "tags": [TAG.Valve, TAG.Cool, TAG.Equipment],
     },
     "Isolation_Valve": {
         "tags": [TAG.Isolation, TAG.Valve, TAG.Equipment],
@@ -1518,7 +1521,16 @@ hvac_valve_subclasses = {
                     TAG.Valve,
                     TAG.Equipment,
                 ]
-            }
+            },
+            "Chilled_Water_Isolation_Valve": {
+                "tags": [
+                    TAG.Chilled,
+                    TAG.Water,
+                    TAG.Isolation,
+                    TAG.Valve,
+                    TAG.Equipment,
+                ]
+            },
         },
     },
     "Steam_Valve": {
@@ -1540,6 +1552,9 @@ hvac_valve_subclasses = {
             },
             "Condenser_Water_Bypass_Valve": {
                 "tags": [TAG.Condenser, TAG.Water, TAG.Bypass, TAG.Valve, TAG.Equipment]
+            },
+            "Chilled_Water_Bypass_Valve": {
+                "tags": [TAG.Chilled, TAG.Water, TAG.Bypass, TAG.Valve, TAG.Equipment]
             },
         },
     },
