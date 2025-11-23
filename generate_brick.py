@@ -1114,7 +1114,8 @@ G.remove(
 
 # add inferred information to Brick
 logger.info("Adding inferred information to Brick")
-G.compile()
+profile = "shacl"
+G.expand(profile, backend="topquadrant")
 
 # add labels to all concepts
 handle_concept_labels()
@@ -1137,8 +1138,7 @@ for name, uri in ontology_imports.items():
     env.import_graph(G, uri)
 
 # add new Brick to ontology environment
-env.add("Brick.ttl")
-env.update()
+G.parse("Brick.ttl")
 
 # add the validation shapes (not for Brick distribution)
 G.parse("validation.ttl")
