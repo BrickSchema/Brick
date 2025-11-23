@@ -1101,10 +1101,19 @@ with open("Brick-only.ttl", "w", encoding="utf-8") as fp:
     fp.write(G.serialize(format="turtle").rstrip())
     fp.write("\n")
 
-# add rec stuff
+# add rec stuff; this also removes the import statement for REC from the Brick graph
 env.import_graph(G, "https://w3id.org/rec")
-# remove the REC import
-G.remove((None, OWL.imports, URIRef("https://w3id.org/rec")))
+# CURRENTLY, rec imports Brick 1.3, which is out of date. We want it
+# to depend on the current Brick version instead. Here we rewrite that
+# import to point to the current Brick version.
+G.remove(
+    (
+        URIRef("https://w3id.org/rec"),
+        OWL.imports,
+        URIRef("https://brickschema.org/schema/1.3/Brick"),
+    )
+)
+G.add((URIRef("https://w3id.org/rec"), OWL.imports, BRICK_IRI_VERSION))
 
 # add inferred information to Brick
 logger.info("Adding inferred information to Brick")
