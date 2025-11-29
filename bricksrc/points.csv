@@ -113,7 +113,7 @@ brick:Core_Temperature_Sensor,,,,,quantitykind:Temperature,brick:Sensor,Core,Mea
 brick:Core_Temperature_Setpoint,,,,,quantitykind:Temperature,brick:Setpoint,Core,"Sets temperature for the core, i.e. the temperature at the heat source or sink level, of the radiant panel."
 brick:Current_Imbalance_Sensor,,,,,quantitykind:ElectricCurrent,brick:Sensor,Imbalance,A sensor which measures the current difference (imbalance) between phases of an electrical system
 brick:Current_Limit,,,,,quantitykind:ElectricCurrent,brick:Limit,,A parameter that places a lower or upper bound on the range of permitted values of a Current_Setpoint.
-brick:Current_Output_Sensor,,,,,quantitykind:ElectricCurrent,brick:Sensor,Output,Senses the amperes of electrical current produced as output by a device
+brick:Current_Output_Sensor,,,,,,,(deprecated),Senses the amperes of electrical current produced as output by a device
 brick:Current_Ratio_Setpoint,,,,,quantitykind:ElectricCurrent,brick:Setpoint,Ratio,Sets the ratio of currents in a transformer
 brick:Current_Sensor,,,,,quantitykind:ElectricCurrent,brick:Sensor,,Senses the amperes of electrical current passing through the sensor
 brick:Curtailment_Override_Command,,,,,,,(deprecated),
@@ -127,10 +127,10 @@ brick:DC_Bus_Voltage_Sensor,,,,,,,(deprecated),Measures the voltage across a DC 
 brick:Deadband_Setpoint,,,,,,brick:Deadband_Setpoint,,Sets the size of a deadband
 brick:Deceleration_Time_Setpoint,,brick:Deceleration,,,quantitykind:Time,brick:Setpoint,,
 brick:Dehumidification_Start_Stop_Status,,brick:Dehumidification,,,brick:EnumerationKind-Start_Stop,brick:Status,,
-brick:Dehumidify_Command,,,,,,brick:Command,Dehumidify,"Triggers the dehumidification process, actively removing moisture from the air to achieve desired humidity levels"
+brick:Dehumidify_Command,,brick:Dehumidification,,,,brick:Enable_Command,,"Triggers the dehumidification process, actively removing moisture from the air to achieve desired humidity levels"
+brick:Deionised_Water_Conductivity_Sensor,,,brick:Deionized_Water,,quantitykind:Conductivity,brick:Sensor,,Measures the electrical conductance of deionized water
+brick:Deionised_Water_Level_Sensor,,,brick:Deionized_Water,,,brick:Sensor,Level,Measures the height/level of deionized water in some container
 brick:Deionized_Water_Alarm,,,brick:Deionized_Water,,,brick:Alarm,,An alarm that indicates deionized water leaks.
-brick:Deionized_Water_Conductivity_Sensor,,,brick:Deionized_Water,,quantitykind:Conductivity,brick:Sensor,,Measures the electrical conductance of deionized water
-brick:Deionized_Water_Level_Sensor,,,brick:Deionized_Water,,,brick:Sensor,Level,Measures the height/level of deionized water in some container
 brick:Delay_Parameter,,,,,,brick:Delay_Parameter,,A parameter determining how long to delay a subsequent action to take place after a received signal
 brick:Demand_Sensor,,,,,,brick:Demand_Sensor,,Measures the amount of power consumed by the use of some process; typically found by multiplying the tonnage of a unit (e.g. RTU) by the efficiency rating in kW/ton
 brick:Demand_Setpoint,,,,,,brick:Demand_Setpoint,,Sets the rate required for a process
@@ -139,11 +139,11 @@ brick:Derivative_Time_Parameter,,,,,,brick:Derivative_Time_Parameter,,
 brick:Dewpoint_Sensor,,,,,quantitykind:DewPointTemperature,brick:Sensor,,Senses the dewpoint temperature . Dew point is the temperature to which air must be cooled to become saturated with water vapor
 brick:Dewpoint_Setpoint,,,,,quantitykind:DewPointTemperature,brick:Setpoint,,Sets dew point
 brick:Differential_Air_Temperature_Setpoint,,,brick:Air,brick:Differential,quantitykind:Temperature,brick:Setpoint,,Sets temperature of diffrential air
-brick:Differential_Entering_Leaving_Water_Temperature_Sensor,,,brick:Leaving_Water,brick:Differential,quantitykind:Temperature,brick:Sensor,Entering,Measures the difference in temperature between entering and leaving water of water a circuit
+brick:Differential_Entering_Leaving_Water_Temperature_Sensor,,,,,,,(deprecated),Measures the difference in temperature between entering and leaving water of water a circuit
 brick:Differential_Pressure_Deadband_Setpoint,,,,brick:Differential,quantitykind:Pressure,brick:Deadband_Setpoint,,Sets the size of a deadband of differential pressure
 brick:Differential_Pressure_Integral_Time_Parameter,,,,brick:Differential,quantitykind:Pressure,brick:Integral_Time_Parameter,,
 brick:Differential_Pressure_Load_Shed_Status,,brick:Load_Shed,,brick:Differential,quantitykind:Pressure,brick:Status,,
-brick:Differential_Pressure_Proportional_Band_Parameter,,,,brick:Differential,quantitykind:Pressure,brick:Proportional_Band_Parameter,,
+brick:Differential_Pressure_Proportional_Band,,,,brick:Differential,quantitykind:Pressure,brick:Proportional_Band_Parameter,,
 brick:Differential_Pressure_Sensor,,,,brick:Differential,quantitykind:Pressure,brick:Sensor,,Measures the difference between two applied pressures
 brick:Differential_Pressure_Setpoint,,,,brick:Differential,quantitykind:Pressure,brick:Setpoint,,Sets differential pressure
 brick:Differential_Pressure_Setpoint_Limit,,,,brick:Differential,quantitykind:Pressure,brick:Setpoint_Limit,,A parameter that places a lower or upper bound on the range of permitted values of a Differential_Pressure_Setpoint.
@@ -152,9 +152,9 @@ brick:Differential_Setpoint,,,,brick:Differential,,brick:Setpoint,,A type of Set
 brick:Differential_Speed_Sensor,,,,brick:Differential,quantitykind:Speed,brick:Sensor,,
 brick:Differential_Speed_Setpoint,,,,brick:Differential,quantitykind:Speed,brick:Setpoint,,Sets differential speed
 brick:Differential_Temperature_Setpoint,,,,brick:Differential,quantitykind:Temperature,brick:Setpoint,,A type of Setpoints that is related to the difference between two temperature measurements
-brick:Direction_Command,,,,,,brick:Command,Direction,Commands that affect the direction of some phenomenon
-brick:Direction_Sensor,,,,,,brick:Sensor,Direction,Measures the direction in degrees in which a phenomenon is occuring
-brick:Direction_Status,,,,,,brick:Status,Direction,Indicates which direction a device is operating in
+brick:Direction_Command,,,,,,,(deprecated),Commands that affect the direction of some phenomenon
+brick:Direction_Sensor,,,,,,,(deprecated),Measures the direction in degrees in which a phenomenon is occuring
+brick:Direction_Status,,,,,,,(deprecated),Indicates which direction a device is operating in
 brick:Disable_Command,,,,,,brick:Disable_Command,,Commands that disable functionality
 brick:Disable_Differential_Enthalpy_Command,,,,brick:Differential,quantitykind:Enthalpy,brick:Disable_Command,,Disables the use of differential enthalpy control
 brick:Disable_Differential_Temperature_Command,,,,brick:Differential,quantitykind:Temperature,brick:Disable_Command,,Disables the use of differential temperature control
@@ -165,7 +165,7 @@ brick:Disable_Status,,,,,,brick:Disable_Status,,Indicates if functionality has b
 brick:Discharge_Air_Dewpoint_Sensor,,,brick:Discharge_Air,,quantitykind:DewPointTemperature,brick:Sensor,,Measures dewpoint of discharge air
 brick:Discharge_Air_Differential_Pressure_Sensor,,,brick:Discharge_Air,brick:Differential,quantitykind:Pressure,brick:Sensor,,
 brick:Discharge_Air_Differential_Pressure_Setpoint,,,brick:Discharge_Air,brick:Differential,quantitykind:Pressure,brick:Setpoint,,
-brick:Discharge_Air_Duct_Pressure_Status,,,brick:Discharge_Air,,quantitykind:Pressure,brick:Status,Duct,Indicates if air pressure in discharge duct is within expected bounds
+brick:Discharge_Air_Duct_Pressure_Status,,,,,,,(deprecated),Indicates if air pressure in discharge duct is within expected bounds
 brick:Discharge_Air_Flow_Demand_Setpoint,,,brick:Discharge_Air,,quantitykind:VolumeFlowRate,brick:Demand_Setpoint,,Sets the rate of discharge air flow required for a process
 brick:Discharge_Air_Flow_High_Reset_Setpoint,,,brick:Discharge_Air,,quantitykind:VolumeFlowRate,brick:High_Reset_Setpoint,,
 brick:Discharge_Air_Flow_Low_Reset_Setpoint,,,brick:Discharge_Air,,quantitykind:VolumeFlowRate,brick:Low_Reset_Setpoint,,
@@ -190,7 +190,7 @@ brick:Discharge_Air_Temperature_Heating_Setpoint,,brick:Heating,brick:Discharge_
 brick:Discharge_Air_Temperature_High_Reset_Setpoint,,,brick:Discharge_Air,,quantitykind:Temperature,brick:High_Reset_Setpoint,,
 brick:Discharge_Air_Temperature_Low_Reset_Setpoint,,,brick:Discharge_Air,,quantitykind:Temperature,brick:Low_Reset_Setpoint,,
 brick:Discharge_Air_Temperature_Proportional_Band_Parameter,,,brick:Discharge_Air,,quantitykind:Temperature,brick:Proportional_Band_Parameter,,
-brick:Discharge_Air_Temperature_Reset_Differential_Setpoint,,,brick:Discharge_Air,brick:Differential,quantitykind:Temperature,brick:Setpoint,Reset,
+brick:Discharge_Air_Temperature_Reset_Differential_Setpoint,,,brick:Discharge_Air,brick:Differential,quantitykind:Temperature,brick:Reset_Setpoint,,
 brick:Discharge_Air_Temperature_Sensor,,,brick:Discharge_Air,,quantitykind:Temperature,brick:Sensor,,Measures the temperature of discharge air
 brick:Discharge_Air_Temperature_Setpoint,,,brick:Discharge_Air,,quantitykind:Temperature,brick:Setpoint,,Sets temperature of discharge air
 brick:Discharge_Air_Temperature_Setpoint_Limit,,,brick:Discharge_Air,,quantitykind:Temperature,brick:Setpoint_Limit,,A parameter that places a lower or upper bound on the range of permitted values of a Discharge_Air_Temperature_Setpoint.
@@ -202,7 +202,7 @@ brick:Domestic_Hot_Water_System_Enable_Command,,brick:Domestic_Hot_Water_System,
 brick:Domestic_Hot_Water_Temperature_Sensor,,,brick:Domestic_Hot_Water,,quantitykind:Temperature,brick:Sensor,,
 brick:Domestic_Hot_Water_Temperature_Setpoint,,,brick:Domestic_Hot_Water,,quantitykind:Temperature,brick:Setpoint,,Sets temperature of domestic hot water
 brick:Drive_Ready_Status,,,,,,,(deprecated),"Indicates if a hard drive or other storage device is ready to be used, e.g. in the context of RAID"
-brick:Duct_Air_Static_Pressure_Setpoint,,,brick:Air,,quantitykind:StaticPressure,brick:Setpoint,Duct,
+brick:Duct_Air_Static_Pressure_Setpoint,,,,,,,(deprecated),
 brick:Duration_Sensor,,,,,quantitykind:Time,brick:Sensor,,Measures the duration of a phenomenon or event
 brick:EconCycle_Start_Stop_Status,,,,,,,(deprecated),
 brick:Effective_Air_Temperature_Setpoint,,,brick:Air,,quantitykind:Temperature,brick:Effective_Setpoint,,
@@ -370,7 +370,7 @@ brick:Hot_Water_Temperature_Setpoint,,,brick:Hot_Water,,quantitykind:Temperature
 brick:Hot_Water_Usage_Sensor,,,brick:Hot_Water,,,brick:Sensor,Usage,"Measures the amount of hot water that is consumed, over some period of time"
 brick:Humidification_Start_Stop_Status,,brick:Humidification,,,brick:EnumerationKind-Start_Stop,brick:Status,,
 brick:Humidifier_Fault_Status,,brick:Humidifier,,,,brick:Fault_Status,,Indicates the presence of a fault in a humidifier
-brick:Humidify_Command,,,,,,brick:Command,Humidify,
+brick:Humidify_Command,,brick:Humidification,,,,brick:Enable_Command,,
 brick:Humidity_Alarm,,,,,quantitykind:RelativeHumidity,brick:Alarm,,An alarm that indicates the off-normal conditions associated with the concentration of water vapor in the air.
 brick:Humidity_Deadband_Setpoint,,,,,quantitykind:RelativeHumidity,brick:Deadband_Setpoint,,Sets the size of a deadband of humidity
 brick:Humidity_Parameter,,,,,quantitykind:RelativeHumidity,brick:Parameter,,Parameters relevant to humidity-related systems and points
@@ -544,7 +544,7 @@ brick:Mode_Command,,,,,brick:EnumerationKind-Mode,brick:Command,,Controls the op
 brick:Mode_Status,,,,,brick:EnumerationKind-Mode,brick:Status,,"Indicates which mode a system, device or control loop is currently in"
 brick:Motion_Sensor,,,,,brick:EnumerationKind-Motion,brick:Sensor,,Detects the presence of motion in some area
 brick:Motor_Current_Sensor,,brick:Motor,,,quantitykind:ElectricCurrent,brick:Sensor,,Measures the current consumed by a motor
-brick:Motor_Direction_Status,,brick:Motor,,,,brick:Status,Direction,"Indicates which direction a motor is operating in, e.g. forward or reverse"
+brick:Motor_Direction_Status,,brick:Motor,,,brick:EnumerationKind-Forward_Reverse,brick:Status,,"Indicates which direction a motor is operating in, e.g. forward or reverse"
 brick:Motor_On_Off_Status,,brick:Motor,,,brick:EnumerationKind-On_Off,brick:Status,,
 brick:Motor_Speed_Sensor,,brick:Motor,,,quantitykind:Speed,brick:Sensor,,
 brick:Motor_Torque_Sensor,,brick:Motor,,,quantitykind:Torque,brick:Sensor,,"Measures the torque, or rotating power, of a motor"
@@ -591,8 +591,8 @@ brick:Open_Close_Command,,,,,brick:EnumerationKind-Open_Close,brick:Command,,"A 
 brick:Open_Close_Status,,,,,brick:EnumerationKind-Open_Close,brick:Status,,Indicates the open/close status of a device such as a damper or valve
 brick:Open_Heating_Valve_Outside_Air_Temperature_Setpoint,,,,,,,(deprecated),
 brick:Operating_Mode_Status,,,,,brick:EnumerationKind-Operating_Mode,brick:Status,,"Indicates the current operating mode of a system, device or control loop"
-brick:Output_Frequency_Sensor,,,,,quantitykind:Frequency,brick:Sensor,Output,
-brick:Output_Voltage_Sensor,,,,,quantitykind:Voltage,brick:Sensor,Output,Measures the voltage output by some process or device
+brick:Output_Frequency_Sensor,,,,,,,(deprecated),
+brick:Output_Voltage_Sensor,,,,,,,(deprecated),Measures the voltage output by some process or device
 brick:Outside_Air_CO_Sensor,,,brick:Outside_Air,,,brick:Sensor,CO,Measures the concentration of CO in outside air
 brick:Outside_Air_CO2_Sensor,,,brick:Outside_Air,,,brick:Sensor,CO2,Measures the concentration of CO2 in outside air
 brick:Outside_Air_Dewpoint_Sensor,,,brick:Outside_Air,,quantitykind:DewPointTemperature,brick:Sensor,,Senses the dewpoint temperature of outside air
@@ -733,7 +733,7 @@ brick:Step_Parameter,,,,,,brick:Step_Parameter,,
 brick:Supply_Air_Dewpoint_Sensor,,,brick:Supply_Air,,quantitykind:DewPointTemperature,brick:Sensor,,
 brick:Supply_Air_Differential_Pressure_Sensor,,,brick:Supply_Air,brick:Differential,quantitykind:Pressure,brick:Sensor,,Measures the difference in pressure between an upstream and downstream of an air duct or other air conduit used to supply air into the building
 brick:Supply_Air_Differential_Pressure_Setpoint,,,brick:Supply_Air,brick:Differential,quantitykind:Pressure,brick:Setpoint,,Sets the target air differential pressure between an upstream and downstream point in a supply air duct or conduit
-brick:Supply_Air_Duct_Pressure_Status,,,brick:Supply_Air,,quantitykind:Pressure,brick:Status,Duct,Indicates if air pressure in supply duct is within expected bounds
+brick:Supply_Air_Duct_Pressure_Status,,,,,,,(deprecated),Indicates if air pressure in supply duct is within expected bounds
 brick:Supply_Air_Flow_Demand_Setpoint,,,brick:Supply_Air,,quantitykind:VolumeFlowRate,brick:Demand_Setpoint,,Sets the rate of supply air flow required for a process
 brick:Supply_Air_Flow_High_Reset_Setpoint,,,brick:Supply_Air,,quantitykind:VolumeFlowRate,brick:High_Reset_Setpoint,,
 brick:Supply_Air_Flow_Low_Reset_Setpoint,,,brick:Supply_Air,,quantitykind:VolumeFlowRate,brick:Low_Reset_Setpoint,,
@@ -758,7 +758,7 @@ brick:Supply_Air_Temperature_Heating_Setpoint,,brick:Heating,brick:Supply_Air,,q
 brick:Supply_Air_Temperature_High_Reset_Setpoint,,,brick:Supply_Air,,quantitykind:Temperature,brick:High_Reset_Setpoint,,
 brick:Supply_Air_Temperature_Low_Reset_Setpoint,,,brick:Supply_Air,,quantitykind:Temperature,brick:Low_Reset_Setpoint,,
 brick:Supply_Air_Temperature_Proportional_Band_Parameter,,,brick:Supply_Air,,quantitykind:Temperature,brick:Proportional_Band_Parameter,,
-brick:Supply_Air_Temperature_Reset_Differential_Setpoint,,,brick:Supply_Air,brick:Differential,quantitykind:Temperature,brick:Setpoint,Reset,
+brick:Supply_Air_Temperature_Reset_Differential_Setpoint,,,brick:Supply_Air,brick:Differential,quantitykind:Temperature,brick:Reset_Setpoint,,
 brick:Supply_Air_Temperature_Sensor,,,brick:Supply_Air,,quantitykind:Temperature,brick:Sensor,,Measures the temperature of supply air
 brick:Supply_Air_Temperature_Setpoint,,,brick:Supply_Air,,quantitykind:Temperature,brick:Setpoint,,Temperature setpoint for supply air
 brick:Supply_Air_Temperature_Setpoint_Limit,,,brick:Supply_Air,,quantitykind:Temperature,brick:Setpoint_Limit,,A parameter that places a lower or upper bound on the range of permitted values of a Supply_Air_Temperature_Setpoint.
@@ -854,7 +854,7 @@ brick:Water_Temperature_Alarm,,,brick:Water,,quantitykind:Temperature,brick:Alar
 brick:Water_Temperature_Sensor,,,brick:Water,,quantitykind:Temperature,brick:Sensor,,Measures the temperature of water
 brick:Water_Temperature_Setpoint,,,brick:Water,,quantitykind:Temperature,brick:Setpoint,,Sets temperature of water
 brick:Water_Usage_Sensor,,,brick:Water,,,brick:Sensor,Usage,"Measures the amount of water that is consumed, over some period of time"
-brick:Wind_Direction_Sensor,,,brick:Wind,,,brick:Sensor,Direction,Measures the direction of wind in degrees relative to North
+brick:Wind_Direction_Sensor,,,brick:Wind,,quantitykind:Azimuth,brick:Sensor,,Measures the direction of wind in degrees relative to North
 brick:Wind_Speed_Sensor,,,brick:Wind,,quantitykind:Speed,brick:Sensor,,"Measured speed of wind, caused by air moving from high to low pressure"
 brick:Zone_Air_Conditioning_Mode_Status,,,brick:Zone_Air,,brick:EnumerationKind-Conditioning_Mode,brick:Status,,Indicates the mode of AC for a zone
 brick:Zone_Air_Dewpoint_Sensor,,,brick:Zone_Air,,quantitykind:DewPointTemperature,brick:Sensor,,Measures dewpoint of zone air
