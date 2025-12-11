@@ -62,7 +62,9 @@ system_subclasses = {
                     },
                 },
             },
-            "VRF_System": {"tags": [TAG.Variable, TAG.Refrigerant, TAG.Flow, TAG.System]},
+            "VRF_System": {
+                "tags": [TAG.Variable, TAG.Refrigerant, TAG.Flow, TAG.System]
+            },
             "Refrigeration_System": {"tags": [TAG.Refrigeration, TAG.System]},
             "Steam_System": {"tags": [TAG.Steam, TAG.System]},
             "Water_System": {
@@ -161,7 +163,7 @@ collection_classes = {
     },
     "Point_Group": {
         "tags": [TAG.Collection, TAG.Point_Group],
-        "constraints": {REC.includes: [BRICK.Point, BRICK.Point_Group]},
+        "constraints": {BRICK.hasPart: [BRICK.Point, BRICK.Point_Group]},
     },
     "System": {
         "tags": [TAG.Collection, TAG.System],

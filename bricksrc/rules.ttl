@@ -572,22 +572,13 @@ bsh:InheritEVSEChargerDirection a sh:NodeShape ;
     ] ;
 .
 
-# check that controllers host the points of the equipment they control
-bsh:CheckControllerHostsPointGroups a sh:NodeShape ;
-    sh:targetClass brick:Controller ;
-    sh:sparql [
-        a sh:SPARQLConstraint ;
-        sh:message "Controllers should host the points of the equipment they control" ;
-        sh:prefixes <https://brickschema.org/schema/1.4/Brick> ;
-        sh:select """
-        SELECT $this ?pt ?eq WHERE {
-            $this brick:controls ?eq .
-            ?eq brick:hasPoint ?pt .
-            FILTER NOT EXISTS {
-                $this brick:hosts ?pg .
-                ?pg rec:includes ?pt .
-            }
-        }
-        """ ;
-    ]
+# each point can only be hosted by one Controller
+bsh:PointHostedByOneController a sh:NodeShape ;
+    sh:targetClass brick:Point ;
+    sh:property [
+        sh:path brick:isHostedBy ;
+        sh:class brick:Controller ;
+        sh:maxCount 1 ;
+        sh:message "A Brick Point can only be hosted by one Controller" ;
+    ] ;
 .
