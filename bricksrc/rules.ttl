@@ -21,6 +21,21 @@ skos:narrower rdf:type rdf:Property ;
   owl:inverseOf skos:broader ;
 .
 
+bsh:AddSubclassAliasesRule
+    a sh:NodeShape ;
+    sh:rule [
+        a sh:SPARQLRule ;
+        sh:construct """
+CONSTRUCT {
+    $this rdfs:subClassOf ?superclass .
+} WHERE {
+    $this (brick:aliasOf|owl:equivalentClass)?/rdfs:subClassOf/(brick:aliasOf|owl:equivalentClass)? ?superclass
+}""" ;
+      sh:prefixes <https://brickschema.org/schema/1.4/Brick> ;
+    ] ;
+    sh:targetSubjectsOf brick:aliasOf ;
+.
+
 bsh:EquivalentPropertyRule
   a sh:NodeShape ;
   sh:rule [

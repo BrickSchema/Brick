@@ -308,8 +308,6 @@ def define_classes(definitions, parent, pun_classes=False, graph=G):
         graph.add((classname, A, SH.NodeShape))
         # subclass of parent
         graph.add((classname, RDFS.subClassOf, parent))
-        # add label
-        class_label = classname.split("#")[-1].replace("_", " ")
 
         if pun_classes:
             graph.add((classname, A, classname))
@@ -347,7 +345,9 @@ def define_classes(definitions, parent, pun_classes=False, graph=G):
             graph.add((alias, A, SH.NodeShape))
             graph.add((alias, OWL.equivalentClass, classname))
             # find parent class of what the alias is equivalent to, add the RDFS subClassOf properties
-            parent_classes = list(graph.objects(subject=classname, predicate=RDFS.subClassOf))
+            parent_classes = list(
+                graph.objects(subject=classname, predicate=RDFS.subClassOf)
+            )
             for pc in parent_classes:
                 graph.add((alias, RDFS.subClassOf, pc))
             graph.add((alias, BRICK.aliasOf, classname))
@@ -369,9 +369,9 @@ def define_classes(definitions, parent, pun_classes=False, graph=G):
             propval = defn[propname]
             if isinstance(propval, list):
                 for pv in propval:
-                    G.add((classname, propname, pv))
+                    graph.add((classname, propname, pv))
             else:
-                G.add((classname, propname, propval))
+                graph.add((classname, propname, propval))
 
 
 def define_constraints(constraints, classname, graph=G):
@@ -436,7 +436,13 @@ def define_entity_properties(definitions, superprop=None, graph=G):
                 val = defn.pop(annotation)
                 graph.add((pshape, annotation, val))
         if not has_label(pshape):
-            graph.add((pshape, RDFS.label, Literal(f"has {defn.get(RDFS.label)} property", lang="en")))
+            graph.add(
+                (
+                    pshape,
+                    RDFS.label,
+                    Literal(f"has {defn.get(RDFS.label)} property", lang="en"),
+                )
+            )
 
         # add the entity property as a sh:property on all of the
         # other Nodeshapes indicated by "property_of"
@@ -559,26 +565,7 @@ def define_shape_properties(definitions, graph=G):
             graph.add((brick_value_shape, SH["in"], enumeration))
             graph.add((brick_value_shape, SH.minCount, Literal(1)))
             vals = defn.pop("values")
-            if all(map(lambda v: isinstance(v, str), vals)):
-                Collection(
-                    graph,
-                    enumeration,
-                    map(lambda x: Literal(x, datatype=XSD.string), vals),
-                )
-            if all(map(lambda v: isinstance(v, int), vals)):
-                Collection(
-                    graph,
-                    enumeration,
-                    map(lambda x: Literal(x, datatype=XSD.integer), vals),
-                )
-            if all(map(lambda v: isinstance(v, float), vals)):
-                Collection(
-                    graph,
-                    enumeration,
-                    map(lambda x: Literal(x, datatype=XSD.decimal), vals),
-                )
-            else:
-                Collection(graph, enumeration, map(Literal, vals))
+            Collection(graph, enumeration, map(Literal, vals))
         if "units" in defn:
             v = BNode()
             enumeration = BNode()
@@ -657,7 +644,7 @@ def define_relationships(definitions, superprop=None, graph=G):
 
         # generate a SHACL Property Shape for this relationship if it is a Brick property
         if prop.startswith(BRICK):
-            propshape = BSH[f"{prop[len(BRICK):]}Shape"]
+            propshape = BSH[f"{prop[len(BRICK) :]}Shape"]
             graph.add((propshape, A, SH.PropertyShape))
             graph.add((propshape, SH.path, prop))
         if "range" in propdefn.keys():
@@ -763,7 +750,10 @@ def add_definitions(graph=G):
             setpoint = setpoint + "_Setpoint"
             logger.info(f"Inferred setpoint: {setpoint}")
         limit_def = limit_def_template.format(direction=direction, setpoint=setpoint)
-        if param != BRICK.Limit:  # definition already exists for Limit
+        is_alias = list(graph.objects(subject=param, predicate=BRICK.aliasOf))
+        if (
+            param != BRICK.Limit and len(is_alias) == 0
+        ):  # definition already exists for Limit
             graph.add((param, SKOS.definition, Literal(limit_def, lang="en")))
         class_exists = graph.query(
             f"""select ?class where {{
@@ -829,21 +819,22 @@ def handle_concept_labels():
     If there are two or more labels for a concept, choose one and raise a Warning
     """
     concepts = chain(
-            G.transitive_subjects(RDFS.subClassOf, BRICK.Entity),
-            G.subjects(A, BRICK.Entity),
-            G.subjects(A, OWL.ObjectProperty),
-            G.subjects(A, OWL.DatatypeProperty),
-            )
+        G.transitive_subjects(RDFS.subClassOf, BRICK.Entity),
+        G.subjects(A, BRICK.Entity),
+        G.subjects(A, OWL.ObjectProperty),
+        G.subjects(A, OWL.DatatypeProperty),
+    )
     for s in concepts:
         labels = list(G.objects(s, RDFS.label))
         if len(labels) == 0:
-            G.add((s, RDFS.label, Literal(s.split("#")[-1].replace("_", " "), lang="en")))
+            G.add(
+                (s, RDFS.label, Literal(s.split("#")[-1].replace("_", " "), lang="en"))
+            )
         elif len(labels) > 1:
             logging.warning(f"Multiple labels for {s}: {labels}")
             # choose one and remove the others
             for to_remove in labels[1:]:
                 G.remove((s, RDFS.label, to_remove))
-
 
 
 logger.info("Beginning BRICK Ontology compilation")
@@ -1110,14 +1101,20 @@ with open("Brick-only.ttl", "w", encoding="utf-8") as fp:
     fp.write(G.serialize(format="turtle").rstrip())
     fp.write("\n")
 
-# add rec stuff
+# add rec stuff; this also removes the import statement for REC from the Brick graph
 env.import_graph(G, "https://w3id.org/rec")
-# remove the REC import
-G.remove((None, OWL.imports, URIRef("https://w3id.org/rec")))
+# CURRENTLY, rec imports Brick 1.3, which is out of date; remove this import
+G.remove(
+    (
+        URIRef("https://w3id.org/rec"),
+        OWL.imports,
+        URIRef("https://brickschema.org/schema/1.3/Brick"),
+    )
+)
 
 # add inferred information to Brick
-# logger.info("Adding inferred information to Brick")
-# G.expand('shacl', backend='topquadrant')
+logger.info("Adding inferred information to Brick")
+G.compile()
 
 # add labels to all concepts
 handle_concept_labels()

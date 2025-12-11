@@ -112,3 +112,39 @@ bsh:ObjectDatatypePropertyDisjoint a sh:NodeShape  ;
         [ sh:class owl:ObjectProperty ]
         [ sh:class owl:DatatypeProperty ]
     ) .
+
+bsh:NonCanonicalWithDefinitionShape
+    a sh:NodeShape ;
+    sh:target [
+        a sh:SPARQLTarget ;
+        sh:select """
+            PREFIX brick: <https://brickschema.org/schema/Brick#>
+            PREFIX owl: <http://www.w3.org/2002/07/owl#>
+            PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+            PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+            SELECT DISTINCT ?this WHERE {
+                ?this a owl:Class ;
+                      brick:aliasOf ?canonical ;
+                      skos:definition ?def ;
+                      rdfs:subClassOf* brick:Entity .
+            }
+        """
+    ] ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "This class has a skos:definition but is marked as non-canonical via brick:aliasOf. Only canonical classes may have definitions." ;
+        sh:prefixes <https://brickschema.org/schema/Brick> ;
+        sh:select """
+            PREFIX brick: <https://brickschema.org/schema/Brick#>
+            PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+            PREFIX owl: <http://www.w3.org/2002/07/owl#>
+            PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+            SELECT $this WHERE {
+              FILTER(isIRI($this))
+              FILTER(STRSTARTS(STR($this), "https://brickschema.org/schema/Brick#"))
+              FILTER EXISTS { $this skos:definition ?def }
+              FILTER EXISTS { $this brick:aliasOf ?canonical}
+            }
+        """
+    ] .
