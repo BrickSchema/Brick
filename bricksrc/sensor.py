@@ -2068,6 +2068,17 @@ sensor_definitions = {
                                     },
                                 },
                             },
+                            "Hot_Water_Temperature_Sensor": {
+                                BRICK.hasQuantity: QUDTQK.Temperature,
+                                BRICK.hasSubstance: BRICK.Hot_Water,
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Hot,
+                                    TAG.Water,
+                                    TAG.Temperature,
+                                    TAG.Sensor,
+                                ],
+                            },
                             "Entering_Hot_Water_Temperature_Sensor": {
                                 "tags": [
                                     TAG.Point,

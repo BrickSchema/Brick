@@ -2165,6 +2165,18 @@ setpoint_definitions = {
                                     },
                                 },
                             },
+                            "Supply_Water_Temperature_Setpoint": {
+                                BRICK.hasQuantity: QUDTQK.Temperature,
+                                BRICK.hasSubstance: BRICK.Leaving_Water,
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Supply,
+                                    TAG.Water,
+                                    TAG.Temperature,
+                                    TAG.Setpoint,
+                                ],
+                                "parents": [BRICK.Leaving_Water_Temperature_Setpoint],
+                            },
                             "Entering_Water_Temperature_Setpoint": {
                                 BRICK.hasQuantity: QUDTQK.Temperature,
                                 BRICK.hasSubstance: BRICK.Entering_Water,
