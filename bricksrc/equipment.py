@@ -884,8 +884,31 @@ hvac_subclasses = {
             },
             "Condenser_Heat_Exchanger": {
                 "tags": [TAG.Condenser, TAG.Equipment, TAG.Heat, TAG.Exchanger],
+                "subclasses": {
+                    "Water_Cooled_Condenser_Heat_Exchanger": {
+                        "tags": [
+                            TAG.Water,
+                            TAG.Condenser,
+                            TAG.Equipment,
+                            TAG.Heat,
+                            TAG.Exchanger,
+                        ],
+                    },
+                    "Air_Cooled_Condenser_Heat_Exchanger": {
+                        "tags": [
+                            TAG.Air,
+                            TAG.Condenser,
+                            TAG.Equipment,
+                            TAG.Heat,
+                            TAG.Exchanger,
+                        ],
+                    },
+                },
             },
             "Heat_Wheel": {"tags": [TAG.Equipment, TAG.Heat, TAG.Wheel]},
+            "Plate_Heat_Exchanger": {
+                "tags": [TAG.Equipment, TAG.Heat, TAG.Exchanger, TAG.HX, TAG.Plate],
+            },
             "Coil": {
                 "tags": [TAG.Equipment, TAG.Coil],
                 "subclasses": {
@@ -1493,6 +1516,7 @@ HVAC-specific Valve subclasses
 """
 hvac_valve_subclasses = {
     "Heating_Valve": {
+        "parents": [BRICK.Valve],
         "tags": [TAG.Valve, TAG.Heat, TAG.Equipment],
         "subclasses": {
             "Reheat_Valve": {"tags": [TAG.Valve, TAG.Reheat, TAG.Heat, TAG.Equipment]},
@@ -1501,9 +1525,13 @@ hvac_valve_subclasses = {
             },
         },
     },
-    "Cooling_Valve": {"tags": [TAG.Valve, TAG.Cool, TAG.Equipment]},
+    "Cooling_Valve": {
+        "parents": [BRICK.Valve],
+        "tags": [TAG.Valve, TAG.Cool, TAG.Equipment],
+    },
     "Isolation_Valve": {
         "tags": [TAG.Isolation, TAG.Valve, TAG.Equipment],
+        "parents": [BRICK.Valve],
         "subclasses": {
             "Condenser_Water_Isolation_Valve": {
                 "tags": [
@@ -1513,11 +1541,24 @@ hvac_valve_subclasses = {
                     TAG.Valve,
                     TAG.Equipment,
                 ]
-            }
+            },
+            "Chilled_Water_Isolation_Valve": {
+                "tags": [
+                    TAG.Chilled,
+                    TAG.Water,
+                    TAG.Isolation,
+                    TAG.Valve,
+                    TAG.Equipment,
+                ]
+            },
         },
     },
-    "Steam_Valve": {"tags": [TAG.Steam, TAG.Valve, TAG.Equipment]},
+    "Steam_Valve": {
+        "tags": [TAG.Steam, TAG.Valve, TAG.Equipment],
+        "parents": [BRICK.Valve],
+    },
     "Bypass_Valve": {
+        "parents": [BRICK.Valve],
         "tags": [TAG.Bypass, TAG.Valve, TAG.Equipment],
         "subclasses": {
             "Differential_Pressure_Bypass_Valve": {
@@ -1531,6 +1572,9 @@ hvac_valve_subclasses = {
             },
             "Condenser_Water_Bypass_Valve": {
                 "tags": [TAG.Condenser, TAG.Water, TAG.Bypass, TAG.Valve, TAG.Equipment]
+            },
+            "Chilled_Water_Bypass_Valve": {
+                "tags": [TAG.Chilled, TAG.Water, TAG.Bypass, TAG.Valve, TAG.Equipment]
             },
         },
     },

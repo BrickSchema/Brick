@@ -17,7 +17,7 @@ def test_subclasses(brick_with_imports):
     BLDG = Namespace("https://brickschema.org/schema/ExampleBuilding#")
 
     g = brick_with_imports
-    g.expand("shacl", backend="topquadrant")
+    g.compile()
 
     g.bind("rdf", RDF)
     g.bind("owl", OWL)
@@ -74,6 +74,7 @@ def test_subclasses(brick_with_imports):
             QUDT.Unit,
             QUDT.QuantityKind,
             XSD.string,
+            BRICK.Relationship,
         ]
     )
 

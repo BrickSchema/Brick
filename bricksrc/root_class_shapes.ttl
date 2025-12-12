@@ -40,11 +40,12 @@ brick:Location a sh:NodeShape ;
     .
 
 brick:Equipment a sh:NodeShape ;
-    sh:node    [sh:not [ sh:class brick:Point ] ; sh:message "Equipment is an exclusive top class." ],
-               [sh:not [ sh:class brick:Location ] ; sh:message "Equipment is an exclusive top class." ],
-               [sh:not [ sh:class brick:Substance ] ; sh:message "Equipment is an exclusive top class." ],
-               [sh:not [ sh:class brick:Quantity ] ; sh:message "Equipment is an exclusive top class." ],
-               [sh:not [ sh:class brick:Collection ] ; sh:message "Equipment is an exclusive top class." ] ;
+    sh:not [ sh:class brick:Location ; sh:message "Instances of Equipment cannot be Locations." ] ,
+           [ sh:class brick:Substance ; sh:message "Instances of Equipment cannot be Substances." ],
+           [ sh:class brick:Quantity ; sh:message "Instances of Equipment cannot be Quantities." ],
+           [ sh:class brick:Collection ; sh:message "Instances of Equipment cannot be Collections." ],
+           [ sh:class brick:Point ; sh:message "Instances of Equipment cannot be Points." ],
+           [ sh:class brick:EntityProperty ; sh:message "Instances of Equipment cannot be EntityProperties." ] ;
     sh:property [
         sh:path brick:hasPart;
         sh:class brick:Equipment;
@@ -81,12 +82,12 @@ brick:Equipment a sh:NodeShape ;
     .
 
 brick:Point a sh:NodeShape;
-    sh:node [sh:not [ sh:class brick:Equipment ] ; sh:message "Point is an exclusive top class." ],
-            [sh:not [ sh:class brick:Location ] ; sh:message "Point is an exclusive top class." ],
-            [sh:not [ sh:class rec:Space ] ; sh:message "Point is an exclusive top class." ],
-            [sh:not [ sh:class brick:Substance ] ; sh:message "Point is an exclusive top class." ],
-            [sh:not [ sh:class brick:Quantity ] ; sh:message "Point is an exclusive top class." ],
-            [sh:not [ sh:class brick:Collection ] ; sh:message "Point is an exclusive top class." ] ;
+    sh:not [ sh:class brick:Equipment ; sh:message "Instances of Point cannot be Equipment." ],
+           [ sh:class brick:Location ; sh:message "Instances of Point cannot be Locations." ],
+           [ sh:class brick:Substance ; sh:message "Instances of Point cannot be Substances." ],
+           [ sh:class brick:Quantity ; sh:message "Instances of Point cannot be Quantities." ],
+           [ sh:class brick:Collection ; sh:message "Instances of Point cannot be Collections." ],
+           [ sh:class brick:EntityProperty ; sh:message "Instances of Point cannot be EntityProperties." ] ;
     sh:property [
         sh:path brick:hasLocation ;
         sh:maxCount 0 ;
@@ -142,3 +143,32 @@ bsh:isPointOfShape a sh:PropertyShape ;
     sh:message "A Point can be a Point of Equipment, Location or Space."
 .
 
+
+# sensors inherit hasQuantity from their parent class
+bsh:SensorInheritQuantityKind a sh:NodeShape ;
+    sh:target [
+        a sh:SPARQLTarget ;
+        sh:select """
+        PREFIX brick: <https://brickschema.org/schema/Brick#>
+        PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+            SELECT DISTINCT ?this WHERE {
+              ?this rdfs:subClassOf+ brick:Sensor
+            }
+        """
+    ] ;
+    sh:rule [
+        a sh:SPARQLRule ;
+        sh:prefixes <https://brickschema.org/schema/1.4/Brick> ;
+        sh:construct """
+        CONSTRUCT {
+            $this brick:hasQuantity ?quantity .
+        } WHERE {
+            $this rdfs:subClassOf+ ?parent .
+            ?parent brick:hasQuantity ?quantity .
+            FILTER NOT EXISTS {
+                $this brick:hasQuantity ?quantity .
+            }
+        }
+        """ ;
+    ] ;
+.

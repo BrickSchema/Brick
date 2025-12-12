@@ -9,16 +9,16 @@ setpoint_definitions = {
         "tags": [TAG.Point, TAG.Setpoint],
         "subclasses": {
             "Current_Ratio_Setpoint": {
-                BRICK.hasQuantity: BRICK.Electric_Current,
+                BRICK.hasQuantity: QUDTQK.ElectricCurrent,
                 "tags": [TAG.Point, TAG.Setpoint, TAG.Current, TAG.Electric, TAG.Ratio],
             },
             "Voltage_Ratio_Setpoint": {
-                BRICK.hasQuantity: BRICK.Voltage,
+                BRICK.hasQuantity: QUDTQK.Voltage,
                 "tags": [TAG.Point, TAG.Setpoint, TAG.Voltage, TAG.Electric, TAG.Ratio],
             },
             "Frequency_Setpoint": {
                 "tags": [TAG.Point, TAG.Setpoint, TAG.Frequency],
-                BRICK.hasQuantity: BRICK.Frequency,
+                BRICK.hasQuantity: QUDTQK.Frequency,
             },
             "Illuminance_Setpoint": {
                 BRICK.hasQuantity: QUDTQK.Illuminance,
@@ -92,10 +92,10 @@ setpoint_definitions = {
                         "tags": [TAG.Point, TAG.Deadband, TAG.Setpoint, TAG.Humidity],
                     },
                     "Temperature_Deadband_Setpoint": {
-                        BRICK.hasQuantity: BRICK.Temperature,
+                        BRICK.hasQuantity: QUDTQK.Temperature,
                         "subclasses": {
                             "Occupied_Cooling_Temperature_Deadband_Setpoint": {
-                                BRICK.hasQuantity: BRICK.Temperature,
+                                BRICK.hasQuantity: QUDTQK.Temperature,
                                 "tags": [
                                     TAG.Point,
                                     TAG.Occupied,
@@ -107,7 +107,7 @@ setpoint_definitions = {
                                 "parents": [BRICK.Cooling_Temperature_Setpoint],
                             },
                             "Occupied_Heating_Temperature_Deadband_Setpoint": {
-                                BRICK.hasQuantity: BRICK.Temperature,
+                                BRICK.hasQuantity: QUDTQK.Temperature,
                                 "tags": [
                                     TAG.Point,
                                     TAG.Occupied,
@@ -149,7 +149,7 @@ setpoint_definitions = {
                                     BRICK.Supply_Air,
                                     BRICK.Discharge_Air,
                                 ],
-                                BRICK.hasQuantity: BRICK.Temperature,
+                                BRICK.hasQuantity: QUDTQK.Temperature,
                                 "aliases": [
                                     BRICK["Discharge_Air_Temperature_Deadband_Setpoint"]
                                 ],
@@ -160,7 +160,7 @@ setpoint_definitions = {
                                                 "Heating_Discharge_Air_Temperature_Deadband_Setpoint"
                                             ]
                                         ],
-                                        BRICK.hasQuantity: BRICK.Temperature,
+                                        BRICK.hasQuantity: QUDTQK.Temperature,
                                         BRICK.hasSubstance: BRICK.Discharge_Air,
                                         "tags": [
                                             TAG.Point,
@@ -183,7 +183,7 @@ setpoint_definitions = {
                                                 "Cooling_Discharge_Air_Temperature_Deadband_Setpoint"
                                             ]
                                         ],
-                                        BRICK.hasQuantity: BRICK.Temperature,
+                                        BRICK.hasQuantity: QUDTQK.Temperature,
                                         BRICK.hasSubstance: BRICK.Discharge_Air,
                                         "tags": [
                                             TAG.Point,
@@ -217,7 +217,7 @@ setpoint_definitions = {
                             },
                             "Entering_Water_Temperature_Deadband_Setpoint": {
                                 BRICK.hasSubstance: BRICK.Entering_Water,
-                                BRICK.hasQuantity: BRICK.Temperature,
+                                BRICK.hasQuantity: QUDTQK.Temperature,
                                 "tags": [
                                     TAG.Point,
                                     TAG.Entering,
@@ -230,7 +230,7 @@ setpoint_definitions = {
                             },
                             "Leaving_Water_Temperature_Deadband_Setpoint": {
                                 BRICK.hasSubstance: BRICK.Leaving_Water,
-                                BRICK.hasQuantity: BRICK.Temperature,
+                                BRICK.hasQuantity: QUDTQK.Temperature,
                                 "tags": [
                                     TAG.Point,
                                     TAG.Leaving,
@@ -277,7 +277,7 @@ setpoint_definitions = {
                         "parents": [BRICK.Air_Flow_Setpoint],
                     },
                     "Static_Pressure_Deadband_Setpoint": {
-                        BRICK.hasQuantity: BRICK.Static_Pressure,
+                        BRICK.hasQuantity: QUDTQK.StaticPressure,
                         "tags": [
                             TAG.Point,
                             TAG.Static,
@@ -292,11 +292,7 @@ setpoint_definitions = {
                                     BRICK.Supply_Air,
                                     BRICK.Discharge_Air,
                                 ],
-                                BRICK.hasSubstance: [
-                                    BRICK.Supply_Air,
-                                    BRICK.Discharge_Air,
-                                ],
-                                BRICK.hasQuantity: BRICK.Static_Pressure,
+                                BRICK.hasQuantity: QUDTQK.StaticPressure,
                                 "aliases": [
                                     BRICK[
                                         "Discharge_Air_Static_Pressure_Deadband_Setpoint"
@@ -851,23 +847,23 @@ setpoint_definitions = {
                 BRICK.hasQuantity: QUDTQK.Luminance,
             },
             "Pressure_Setpoint": {
-                BRICK.hasQuantity: BRICK.Pressure,
+                BRICK.hasQuantity: QUDTQK.Pressure,
                 "subclasses": {
                     "Air_Pressure_Setpoint": {
                         "tags": [TAG.Setpoint, TAG.Pressure, TAG.Setpoint, TAG.Air],
-                        BRICK.hasQuantity: BRICK.Pressure,
+                        BRICK.hasQuantity: QUDTQK.Pressure,
                     },
                     "Water_Pressure_Setpoint": {
                         "tags": [TAG.Setpoint, TAG.Pressure, TAG.Setpoint, TAG.Water],
-                        BRICK.hasQuantity: BRICK.Pressure,
+                        BRICK.hasQuantity: QUDTQK.Pressure,
                     },
                     "Static_Pressure_Setpoint": {
-                        BRICK.hasQuantity: BRICK.Static_Pressure,
+                        BRICK.hasQuantity: QUDTQK.StaticPressure,
                         "subclasses": {
                             "Building_Air_Static_Pressure_Setpoint": {
                                 "parents": [BRICK["Air_Pressure_Setpoint"]],
                                 BRICK.hasSubstance: BRICK.Building_Air,
-                                BRICK.hasQuantity: BRICK.Static_Pressure,
+                                BRICK.hasQuantity: QUDTQK.StaticPressure,
                                 "tags": [
                                     TAG.Point,
                                     TAG.Building,
@@ -879,7 +875,7 @@ setpoint_definitions = {
                             },
                             "Chilled_Water_Static_Pressure_Setpoint": {
                                 BRICK.hasSubstance: BRICK.Chilled_Water,
-                                BRICK.hasQuantity: BRICK.Static_Pressure,
+                                BRICK.hasQuantity: QUDTQK.StaticPressure,
                                 "tags": [
                                     TAG.Point,
                                     TAG.Chilled,
@@ -891,7 +887,7 @@ setpoint_definitions = {
                             },
                             "Duct_Air_Static_Pressure_Setpoint": {
                                 BRICK.hasSubstance: BRICK.Air,
-                                BRICK.hasQuantity: BRICK.Static_Pressure,
+                                BRICK.hasQuantity: QUDTQK.StaticPressure,
                                 "tags": [
                                     TAG.Point,
                                     TAG.Duct,
@@ -903,7 +899,7 @@ setpoint_definitions = {
                             },
                             "Exhaust_Air_Static_Pressure_Setpoint": {
                                 BRICK.hasSubstance: BRICK.Exhaust_Air,
-                                BRICK.hasQuantity: BRICK.Static_Pressure,
+                                BRICK.hasQuantity: QUDTQK.StaticPressure,
                                 "tags": [
                                     TAG.Point,
                                     TAG.Exhaust,
@@ -915,7 +911,7 @@ setpoint_definitions = {
                             },
                             "Hot_Water_Static_Pressure_Setpoint": {
                                 BRICK.hasSubstance: BRICK.Hot_Water,
-                                BRICK.hasQuantity: BRICK.Static_Pressure,
+                                BRICK.hasQuantity: QUDTQK.StaticPressure,
                                 "tags": [
                                     TAG.Point,
                                     TAG.Hot,
@@ -930,7 +926,11 @@ setpoint_definitions = {
                                     BRICK.Supply_Air,
                                     BRICK.Discharge_Air,
                                 ],
-                                BRICK.hasQuantity: BRICK.Static_Pressure,
+                                BRICK.hasSubstance: [
+                                    BRICK.Supply_Air,
+                                    BRICK.Discharge_Air,
+                                ],
+                                BRICK.hasQuantity: QUDTQK.StaticPressure,
                                 "aliases": [
                                     BRICK["Discharge_Air_Static_Pressure_Setpoint"]
                                 ],
@@ -1027,7 +1027,7 @@ setpoint_definitions = {
                         },
                     },
                     "Temperature_High_Reset_Setpoint": {
-                        BRICK.hasQuantity: BRICK.Temperature,
+                        BRICK.hasQuantity: QUDTQK.Temperature,
                         "tags": [
                             TAG.Point,
                             TAG.Temperature,
@@ -1038,7 +1038,7 @@ setpoint_definitions = {
                         "subclasses": {
                             "Leaving_Hot_Water_Temperature_High_Reset_Setpoint": {
                                 BRICK.hasSubstance: BRICK.Leaving_Hot_Water,
-                                BRICK.hasQuantity: BRICK.Temperature,
+                                BRICK.hasQuantity: QUDTQK.Temperature,
                                 "tags": [
                                     TAG.Point,
                                     TAG.Hot,
@@ -1096,7 +1096,7 @@ setpoint_definitions = {
                             },
                             "Outside_Air_Temperature_High_Reset_Setpoint": {
                                 BRICK.hasSubstance: BRICK.Outside_Air,
-                                BRICK.hasQuantity: BRICK.Temperature,
+                                BRICK.hasQuantity: QUDTQK.Temperature,
                                 "tags": [
                                     TAG.Point,
                                     TAG.Outside,
@@ -1109,7 +1109,7 @@ setpoint_definitions = {
                             },
                             "Return_Air_Temperature_High_Reset_Setpoint": {
                                 BRICK.hasSubstance: BRICK.Return_Air,
-                                BRICK.hasQuantity: BRICK.Temperature,
+                                BRICK.hasQuantity: QUDTQK.Temperature,
                                 "tags": [
                                     TAG.Point,
                                     TAG.Return,
@@ -1123,7 +1123,7 @@ setpoint_definitions = {
                         },
                     },
                     "Temperature_Low_Reset_Setpoint": {
-                        BRICK.hasQuantity: BRICK.Temperature,
+                        BRICK.hasQuantity: QUDTQK.Temperature,
                         "tags": [
                             TAG.Point,
                             TAG.Temperature,
@@ -1134,7 +1134,7 @@ setpoint_definitions = {
                         "subclasses": {
                             "Leaving_Hot_Water_Temperature_Low_Reset_Setpoint": {
                                 BRICK.hasSubstance: BRICK.Leaving_Hot_Water,
-                                BRICK.hasQuantity: BRICK.Temperature,
+                                BRICK.hasQuantity: QUDTQK.Temperature,
                                 "tags": [
                                     TAG.Point,
                                     TAG.Hot,
@@ -1192,7 +1192,7 @@ setpoint_definitions = {
                             },
                             "Outside_Air_Temperature_Low_Reset_Setpoint": {
                                 BRICK.hasSubstance: BRICK.Outside_Air,
-                                BRICK.hasQuantity: BRICK.Temperature,
+                                BRICK.hasQuantity: QUDTQK.Temperature,
                                 "tags": [
                                     TAG.Point,
                                     TAG.Outside,
@@ -1205,7 +1205,7 @@ setpoint_definitions = {
                             },
                             "Return_Air_Temperature_Low_Reset_Setpoint": {
                                 BRICK.hasSubstance: BRICK.Return_Air,
-                                BRICK.hasQuantity: BRICK.Temperature,
+                                BRICK.hasQuantity: QUDTQK.Temperature,
                                 "tags": [
                                     TAG.Point,
                                     TAG.Return,
@@ -1235,12 +1235,12 @@ setpoint_definitions = {
                 "tags": [TAG.Point, TAG.Temperature, TAG.Setpoint],
                 "subclasses": {
                     "Air_Temperature_Setpoint": {
-                        BRICK.hasQuantity: BRICK.Temperature,
+                        BRICK.hasQuantity: QUDTQK.Temperature,
                         BRICK.hasSubstance: BRICK.Air,
                         "tags": [TAG.Point, TAG.Air, TAG.Temperature, TAG.Setpoint],
                         "subclasses": {
                             "Effective_Air_Temperature_Setpoint": {
-                                BRICK.hasQuantity: BRICK.Temperature,
+                                BRICK.hasQuantity: QUDTQK.Temperature,
                                 BRICK.hasSubstance: BRICK.Air,
                                 "tags": [
                                     TAG.Point,
@@ -1251,7 +1251,7 @@ setpoint_definitions = {
                                 ],
                             },
                             "Mixed_Air_Temperature_Setpoint": {
-                                BRICK.hasQuantity: BRICK.Temperature,
+                                BRICK.hasQuantity: QUDTQK.Temperature,
                                 BRICK.hasSubstance: BRICK.Mixed_Air,
                                 "tags": [
                                     TAG.Point,
@@ -1262,7 +1262,7 @@ setpoint_definitions = {
                                 ],
                             },
                             "Occupied_Air_Temperature_Setpoint": {
-                                BRICK.hasQuantity: BRICK.Temperature,
+                                BRICK.hasQuantity: QUDTQK.Temperature,
                                 BRICK.hasSubstance: BRICK.Air,
                                 "tags": [
                                     TAG.Point,
@@ -1273,7 +1273,7 @@ setpoint_definitions = {
                                 ],
                             },
                             "Return_Air_Temperature_Setpoint": {
-                                BRICK.hasQuantity: BRICK.Temperature,
+                                BRICK.hasQuantity: QUDTQK.Temperature,
                                 BRICK.hasSubstance: BRICK.Return_Air,
                                 "tags": [
                                     TAG.Point,
@@ -1328,7 +1328,7 @@ setpoint_definitions = {
                                 },
                             },
                             "Room_Air_Temperature_Setpoint": {
-                                BRICK.hasQuantity: BRICK.Temperature,
+                                BRICK.hasQuantity: QUDTQK.Temperature,
                                 BRICK.hasSubstance: BRICK.Air,
                                 "tags": [
                                     TAG.Point,
@@ -1383,7 +1383,7 @@ setpoint_definitions = {
                                 },
                             },
                             "Target_Zone_Air_Temperature_Setpoint": {
-                                BRICK.hasQuantity: BRICK.Temperature,
+                                BRICK.hasQuantity: QUDTQK.Temperature,
                                 BRICK.hasSubstance: BRICK.Zone_Air,
                                 "tags": [
                                     TAG.Point,
@@ -1450,7 +1450,7 @@ setpoint_definitions = {
                                 },
                             },
                             "Cooling_Zone_Air_Temperature_Setpoint": {
-                                BRICK.hasQuantity: BRICK.Temperature,
+                                BRICK.hasQuantity: QUDTQK.Temperature,
                                 BRICK.hasSubstance: BRICK.Zone_Air,
                                 "tags": [
                                     TAG.Point,
@@ -1517,7 +1517,7 @@ setpoint_definitions = {
                                 },
                             },
                             "Heating_Zone_Air_Temperature_Setpoint": {
-                                BRICK.hasQuantity: BRICK.Temperature,
+                                BRICK.hasQuantity: QUDTQK.Temperature,
                                 BRICK.hasSubstance: BRICK.Zone_Air,
                                 "tags": [
                                     TAG.Point,
@@ -1584,7 +1584,7 @@ setpoint_definitions = {
                                 },
                             },
                             "Outside_Air_Temperature_Setpoint": {
-                                BRICK.hasQuantity: BRICK.Temperature,
+                                BRICK.hasQuantity: QUDTQK.Temperature,
                                 BRICK.hasSubstance: BRICK.Outside_Air,
                                 "subclasses": {
                                     "Low_Outside_Air_Temperature_Enable_Setpoint": {
@@ -1666,7 +1666,7 @@ setpoint_definitions = {
                                 ],
                             },
                             "Supply_Air_Temperature_Setpoint": {
-                                BRICK.hasQuantity: BRICK.Temperature,
+                                BRICK.hasQuantity: QUDTQK.Temperature,
                                 BRICK.hasSubstance: [
                                     BRICK.Supply_Air,
                                     BRICK.Discharge_Air,
@@ -1800,7 +1800,7 @@ setpoint_definitions = {
                         },
                     },
                     "Cooling_Temperature_Setpoint": {
-                        BRICK.hasQuantity: BRICK.Temperature,
+                        BRICK.hasQuantity: QUDTQK.Temperature,
                         "tags": [TAG.Point, TAG.Temperature, TAG.Setpoint, TAG.Cool],
                         "subclasses": {
                             "Occupied_Cooling_Temperature_Setpoint": {
@@ -1824,7 +1824,7 @@ setpoint_definitions = {
                         },
                     },
                     "Heating_Temperature_Setpoint": {
-                        BRICK.hasQuantity: BRICK.Temperature,
+                        BRICK.hasQuantity: QUDTQK.Temperature,
                         "tags": [TAG.Point, TAG.Temperature, TAG.Setpoint, TAG.Heat],
                         "subclasses": {
                             "Occupied_Heating_Temperature_Setpoint": {
@@ -1848,7 +1848,7 @@ setpoint_definitions = {
                         },
                     },
                     "Schedule_Temperature_Setpoint": {
-                        BRICK.hasQuantity: BRICK.Temperature,
+                        BRICK.hasQuantity: QUDTQK.Temperature,
                         "tags": [
                             TAG.Point,
                             TAG.Temperature,
@@ -1857,7 +1857,7 @@ setpoint_definitions = {
                         ],
                     },
                     "Radiant_Panel_Temperature_Setpoint": {
-                        BRICK.hasQuantity: BRICK.Temperature,
+                        BRICK.hasQuantity: QUDTQK.Temperature,
                         "tags": [
                             TAG.Point,
                             TAG.Radiant,
@@ -1907,7 +1907,7 @@ setpoint_definitions = {
                         },
                     },
                     "Water_Temperature_Setpoint": {
-                        BRICK.hasQuantity: BRICK.Temperature,
+                        BRICK.hasQuantity: QUDTQK.Temperature,
                         BRICK.hasSubstance: BRICK.Water,
                         "subclasses": {
                             "Domestic_Hot_Water_Temperature_Setpoint": {
@@ -1966,7 +1966,7 @@ setpoint_definitions = {
                                 },
                             },
                             "Chilled_Water_Temperature_Setpoint": {
-                                BRICK.hasQuantity: BRICK.Temperature,
+                                BRICK.hasQuantity: QUDTQK.Temperature,
                                 BRICK.hasSubstance: BRICK.Chilled_Water,
                                 "tags": [
                                     TAG.Point,
@@ -1977,7 +1977,7 @@ setpoint_definitions = {
                                 ],
                             },
                             "Hot_Water_Temperature_Setpoint": {
-                                BRICK.hasQuantity: BRICK.Temperature,
+                                BRICK.hasQuantity: QUDTQK.Temperature,
                                 BRICK.hasSubstance: BRICK.Hot_Water,
                                 "tags": [
                                     TAG.Point,
@@ -1988,7 +1988,7 @@ setpoint_definitions = {
                                 ],
                             },
                             "Leaving_Water_Temperature_Setpoint": {
-                                BRICK.hasQuantity: BRICK.Temperature,
+                                BRICK.hasQuantity: QUDTQK.Temperature,
                                 BRICK.hasSubstance: BRICK.Leaving_Water,
                                 "tags": [
                                     TAG.Point,
@@ -2035,7 +2035,7 @@ setpoint_definitions = {
                                         ],
                                     },
                                     "Entering_Condenser_Water_Temperature_Setpoint": {
-                                        BRICK.hasQuantity: BRICK.Temperature,
+                                        BRICK.hasQuantity: QUDTQK.Temperature,
                                         BRICK.hasSubstance: BRICK.Entering_Condenser_Water,
                                         "tags": [
                                             TAG.Point,
@@ -2049,7 +2049,7 @@ setpoint_definitions = {
                                 },
                             },
                             "Entering_Water_Temperature_Setpoint": {
-                                BRICK.hasQuantity: BRICK.Temperature,
+                                BRICK.hasQuantity: QUDTQK.Temperature,
                                 BRICK.hasSubstance: BRICK.Entering_Water,
                                 "tags": [
                                     TAG.Point,
@@ -2060,7 +2060,7 @@ setpoint_definitions = {
                                 ],
                                 "subclasses": {
                                     "Entering_Hot_Water_Temperature_Setpoint": {
-                                        BRICK.hasQuantity: BRICK.Temperature,
+                                        BRICK.hasQuantity: QUDTQK.Temperature,
                                         BRICK.hasSubstance: BRICK.Entering_Hot_Water,
                                         "tags": [
                                             TAG.Point,
@@ -2075,7 +2075,7 @@ setpoint_definitions = {
                                         ],
                                     },
                                     "Entering_Chilled_Water_Temperature_Setpoint": {
-                                        BRICK.hasQuantity: BRICK.Temperature,
+                                        BRICK.hasQuantity: QUDTQK.Temperature,
                                         BRICK.hasSubstance: BRICK.Entering_Chilled_Water,
                                         "tags": [
                                             TAG.Point,
@@ -2092,7 +2092,7 @@ setpoint_definitions = {
                                 },
                             },
                             "Min_Water_Temperature_Setpoint": {
-                                BRICK.hasQuantity: BRICK.Temperature,
+                                BRICK.hasQuantity: QUDTQK.Temperature,
                                 BRICK.hasSubstance: BRICK.Water,
                                 "tags": [
                                     TAG.Point,
@@ -2103,7 +2103,7 @@ setpoint_definitions = {
                                 ],
                             },
                             "Max_Water_Temperature_Setpoint": {
-                                BRICK.hasQuantity: BRICK.Temperature,
+                                BRICK.hasQuantity: QUDTQK.Temperature,
                                 BRICK.hasSubstance: BRICK.Water,
                                 "tags": [
                                     TAG.Point,
@@ -2147,15 +2147,15 @@ setpoint_definitions = {
                 },
             },
             "Time_Setpoint": {
-                BRICK.hasQuantity: BRICK.Time,
+                BRICK.hasQuantity: QUDTQK.Time,
                 "tags": [TAG.Point, TAG.Time, TAG.Setpoint],
                 "subclasses": {
                     "Deceleration_Time_Setpoint": {
-                        BRICK.hasQuantity: BRICK.Time,
+                        BRICK.hasQuantity: QUDTQK.Time,
                         "tags": [TAG.Point, TAG.Time, TAG.Setpoint, TAG.Deceleration],
                     },
                     "Acceleration_Time_Setpoint": {
-                        BRICK.hasQuantity: BRICK.Time,
+                        BRICK.hasQuantity: QUDTQK.Time,
                         "tags": [TAG.Point, TAG.Time, TAG.Setpoint, TAG.Acceleration],
                     },
                 },
@@ -2233,7 +2233,7 @@ setpoint_definitions = {
                                 "subclasses": {
                                     "Supply_Air_Temperature_High_Reset_Setpoint": {
                                         BRICK.hasSubstance: BRICK.Supply_Air,
-                                        BRICK.hasQuantity: BRICK.Temperature,
+                                        BRICK.hasQuantity: QUDTQK.Temperature,
                                         "aliases": [
                                             BRICK[
                                                 "Discharge_Air_Temperature_High_Reset_Setpoint"
@@ -2256,7 +2256,7 @@ setpoint_definitions = {
                                     },
                                     "Supply_Air_Temperature_Low_Reset_Setpoint": {
                                         BRICK.hasSubstance: BRICK.Supply_Air,
-                                        BRICK.hasQuantity: BRICK.Temperature,
+                                        BRICK.hasQuantity: QUDTQK.Temperature,
                                         "aliases": [
                                             BRICK[
                                                 "Discharge_Air_Temperature_Low_Reset_Setpoint"

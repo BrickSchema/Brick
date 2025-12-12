@@ -1,5 +1,5 @@
 from rdflib import Literal
-from .namespaces import TAG, BRICK, QUDT
+from .namespaces import TAG, BRICK, QUDTQK
 
 command_definitions = {
     "Command": {
@@ -315,7 +315,7 @@ command_definitions = {
             },
             "Frequency_Command": {
                 "tags": [TAG.Point, TAG.Frequency, TAG.Command],
-                BRICK.hasQuantity: BRICK.Frequency,
+                BRICK.hasQuantity: QUDTQK.Frequency,
                 "subclasses": {
                     "Max_Frequency_Command": {
                         "tags": [TAG.Point, TAG.Max, TAG.Frequency, TAG.Command],

@@ -2,9 +2,9 @@
 @prefix unit: <http://qudt.org/vocab/unit/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix : <urn:evse#> .
+@prefix : <http://example.com/evse#> .
 
-<urn:evse> a owl:Ontology ;
+<http://example.com/evse> a owl:Ontology ;
     owl:imports <https://brickschema.org/schema/1.4/Brick> .
 
 :parking_lot a brick:Parking_Structure ;
@@ -14,14 +14,14 @@
     brick:hasPart :station1, :station2 .
 
 :station1 a brick:Electric_Vehicle_Charging_Station ;
-    brick:electricVehicleChargerType [ brick:value "Level 1" ] ;
+    brick:electricVehicleChargerType [ brick:value "Level 1"^^xsd:string ] ;
     brick:hasPart :port1-1, :port1-2 ;
 .
 
 :port1-1 a brick:Electric_Vehicle_Charging_Port ;
-    brick:electricVehicleChargerDirectionality [ brick:value "bidirectional" ] ;
-    brick:electricVehicleConnectorType [ brick:value "Level 1 (SAE J1772)" ] ;
-    brick:currentFlowType [ brick:value "AC" ] ;
+    brick:electricVehicleChargerDirectionality [ brick:value "bidirectional"^^xsd:string ] ;
+    brick:electricVehicleConnectorType [ brick:value "Type 1 (SAE J1772)"^^xsd:string ] ;
+    brick:currentFlowType [ brick:value "AC"^^xsd:string ] ;
     brick:electricalPhaseCount [ brick:value 1 ] ;
     brick:hasPoint :port1-1-voltage ;
 .
@@ -30,9 +30,9 @@
 .
 
 :port1-2 a brick:Electric_Vehicle_Charging_Port ;
-    brick:electricVehicleChargerDirectionality [ brick:value "bidirectional" ] ;
-    brick:electricVehicleConnectorType [ brick:value "Level 1 (SAE J1772)" ] ;
-    brick:currentFlowType [ brick:value "AC" ] ;
+    brick:electricVehicleChargerDirectionality [ brick:value "bidirectional"^^xsd:string ] ;
+    brick:electricVehicleConnectorType [ brick:value "Type 1 (SAE J1772)"^^xsd:string ] ;
+    brick:currentFlowType [ brick:value "AC"^^xsd:string ] ;
     brick:electricalPhaseCount [ brick:value 1 ] ;
     brick:hasPoint :port1-2-voltage ;
 .
@@ -41,15 +41,15 @@
 .
 
 :station2 a brick:Electric_Vehicle_Charging_Station ;
-    brick:electricVehicleChargerDirectionality [ brick:value "unidirectional" ] ;
-    brick:electricVehicleChargerType [ brick:value "Level 2" ] ;
+    brick:electricVehicleChargerDirectionality [ brick:value "unidirectional"^^xsd:string ] ;
+    brick:electricVehicleChargerType [ brick:value "Level 2"^^xsd:string ] ;
     brick:hasPart :port2-1 ;
 .
 
 :port2-1 a brick:Electric_Vehicle_Charging_Port ;
     # this should inherit 'unidirectional' from the station
-    brick:electricVehicleConnectorType [ brick:value "Level 2 (IEC 62196)" ] ;
-    brick:currentFlowType [ brick:value "AC" ] ;
+    brick:electricVehicleConnectorType [ brick:value "Type 2 (IEC 62196)"^^xsd:string ] ;
+    brick:currentFlowType [ brick:value "AC"^^xsd:string ] ;
     brick:electricalPhaseCount [ brick:value 3 ] ;
     brick:hasPoint :port2-1-voltage ;
 .

@@ -1,5 +1,5 @@
 from rdflib import Literal
-from .namespaces import A, OWL, RDFS, BRICK, VCARD, QUDT, SDO, RDF, BSH, XSD, REC
+from .namespaces import A, OWL, RDFS, BRICK, VCARD, QUDT, SDO, RDF, BSH, XSD, REC, SH
 from .env import env
 
 """
@@ -17,13 +17,13 @@ relationships = {
         "domain": BRICK.Entity,
     },
     "hasSubstance": {
-        A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+        A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         RDFS.label: Literal("Has Substance", lang="en"),
         "range": BRICK.Substance,
         "domain": [BRICK.Point, BRICK.Meter],
     },
     "hasQuantity": {
-        A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+        A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         RDFS.label: Literal("Has Quantity", lang="en"),
         RDFS.subPropertyOf: QUDT.hasQuantityKind,
         "range": [BRICK.Quantity, QUDT.QuantityKind],
@@ -39,14 +39,12 @@ relationships = {
     "latitude": {
         RDFS.subPropertyOf: SDO.latitude,
         RDFS.label: Literal("Latitude", lang="en"),
-        A: [OWL.ObjectProperty],
         "domain": BRICK.Entity,
         "datatype": BSH.NumericValue,
     },
     "longitude": {
         RDFS.subPropertyOf: SDO.longitude,
         RDFS.label: Literal("Longitude", lang="en"),
-        A: [OWL.ObjectProperty],
         "domain": BRICK.Entity,
         "datatype": BSH.NumericValue,
     },
@@ -135,7 +133,7 @@ relationships = {
     "isTagOf": {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         "domain": BRICK.Tag,
-        "range": OWL.Class,
+        "range": [BRICK.Entity, BRICK.Measurable],
         RDFS.label: Literal("Is tag of", lang="en"),
     },
     "hasAssociatedTag": {
@@ -169,14 +167,14 @@ relationships = {
         OWL.inverseOf: BRICK.isMeteredBy,
         "domain": BRICK.Meter,
         # this is a special property that implements the 'range' as a SHACL shape
-        "range": [BRICK.Equipment, BRICK.Location, BRICK.Collection],
+        "range": [BRICK.Equipment, BRICK.Location, BRICK.Collection, REC.Architecture],
         RDFS.label: Literal("meters", lang="en"),
     },
     "isMeteredBy": {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         OWL.inverseOf: BRICK.meters,
         # this is a special property that implements the 'domain' as a SHACL shape
-        "domain": [BRICK.Equipment, BRICK.Location, BRICK.Collection],
+        "domain": [BRICK.Equipment, BRICK.Location, BRICK.Collection, REC.Architecture],
         "range": BRICK.Meter,
         RDFS.label: Literal("is metered by", lang="en"),
     },
@@ -197,20 +195,32 @@ relationships = {
     "hasAmbientTemperature": {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
     },
+    "aliasOf": {
+        A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+        "range": BRICK.Entity,
+        "domain": BRICK.Entity,
+    },
+    "deprecation": {
+        A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+        "range": [BSH.DeprecationRule],
+    },
     "deprecationMitigationMessage": {
         A: [OWL.DatatypeProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+        "range": XSD.string,
     },
     "deprecatedInVersion": {
         A: [OWL.DatatypeProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+        "range": XSD.string,
     },
     "deprecationMitigationRule": {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+        "range": [SH.PropertyShape],
     },
     "aggregationFunction": {
         A: [OWL.DatatypeProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
     },
     "ambientTemperatureOfMeasurement": {
-        A: [OWL.DatatypeProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+        A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
     },
 }
 
