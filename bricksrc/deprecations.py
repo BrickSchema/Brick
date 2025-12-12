@@ -641,6 +641,31 @@ deprecations = {
             BRICK.Return_Water_Flow_Sensor,
         ],
     },
+    # Legacy domestic hot water supply/return temperature sensors and setpoints
+    BRICK.Domestic_Hot_Water_Supply_Temperature_Sensor: {
+        "version": "1.3.0",
+        "mitigation_message": "Renamed for supply/return clarity; use Supply_Domestic_Hot_Water_Temperature_Sensor.",
+        "replace_with": BRICK.Supply_Domestic_Hot_Water_Temperature_Sensor,
+        RDFS.subClassOf: BRICK.Hot_Water_Supply_Temperature_Sensor,
+    },
+    BRICK.Domestic_Hot_Water_Return_Temperature_Sensor: {
+        "version": "1.3.0",
+        "mitigation_message": "Renamed for supply/return clarity; use Return_Domestic_Hot_Water_Temperature_Sensor.",
+        "replace_with": BRICK.Return_Domestic_Hot_Water_Temperature_Sensor,
+        RDFS.subClassOf: BRICK.Hot_Water_Return_Temperature_Sensor,
+    },
+    BRICK.Domestic_Hot_Water_Supply_Temperature_Setpoint: {
+        "version": "1.3.0",
+        "mitigation_message": "Renamed for supply/return clarity; use Supply_Domestic_Hot_Water_Temperature_Setpoint.",
+        "replace_with": BRICK.Supply_Domestic_Hot_Water_Temperature_Setpoint,
+        RDFS.subClassOf: BRICK.Supply_Hot_Water_Temperature_Setpoint,
+    },
+    BRICK.Domestic_Hot_Water_Return_Temperature_Setpoint: {
+        "version": "1.3.0",
+        "mitigation_message": "Renamed for supply/return clarity; use Return_Domestic_Hot_Water_Temperature_Setpoint.",
+        "replace_with": BRICK.Return_Domestic_Hot_Water_Temperature_Setpoint,
+        RDFS.subClassOf: BRICK.Return_Hot_Water_Temperature_Setpoint,
+    },
     BRICK.Pressure: {
         "version": "1.4.4",
         "mitigation_message": "Brick-defined generic quantity 'Pressure' is deprecated. Use the equivalent QUDT quantity 'qudt:QuantityKind/Pressure' directly, or more specific QUDT/Brick quantities like qudt:QuantityKind/StaticPressure, qudt:QuantityKind/AtmosphericPressure, brick:Differential_Pressure, etc.",

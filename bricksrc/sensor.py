@@ -2040,7 +2040,7 @@ sensor_definitions = {
                                     TAG.Sensor,
                                 ],
                                 "subclasses": {
-                                    "Domestic_Hot_Water_Return_Temperature_Sensor": {
+                                    "Return_Domestic_Hot_Water_Temperature_Sensor": {
                                         "tags": [
                                             TAG.Point,
                                             TAG.Domestic,
@@ -2052,8 +2052,13 @@ sensor_definitions = {
                                         ],
                                         BRICK.hasQuantity: QUDTQK.Temperature,
                                         BRICK.hasSubstance: BRICK.Domestic_Hot_Water,
+                                        "aliases": [
+                                            BRICK[
+                                                "Domestic_Hot_Water_Return_Temperature_Sensor"
+                                            ]
+                                        ],
                                     },
-                                    "Domestic_Hot_Water_Supply_Temperature_Sensor": {
+                                    "Supply_Domestic_Hot_Water_Temperature_Sensor": {
                                         "tags": [
                                             TAG.Point,
                                             TAG.Domestic,
@@ -2065,6 +2070,11 @@ sensor_definitions = {
                                         ],
                                         BRICK.hasQuantity: QUDTQK.Temperature,
                                         BRICK.hasSubstance: BRICK.Domestic_Hot_Water,
+                                        "aliases": [
+                                            BRICK[
+                                                "Domestic_Hot_Water_Supply_Temperature_Sensor"
+                                            ]
+                                        ],
                                     },
                                 },
                             },

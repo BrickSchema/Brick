@@ -1935,7 +1935,7 @@ setpoint_definitions = {
                                 ],
                                 "parents": [BRICK.Hot_Water_Temperature_Setpoint],
                                 "subclasses": {
-                                    "Domestic_Hot_Water_Return_Temperature_Setpoint": {
+                                    "Return_Domestic_Hot_Water_Temperature_Setpoint": {
                                         "tags": [
                                             TAG.Point,
                                             TAG.Domestic,
@@ -1950,11 +1950,11 @@ setpoint_definitions = {
                                         ],
                                         "aliases": [
                                             BRICK[
-                                                "Return_Domestic_Hot_Water_Temperature_Setpoint"
+                                                "Domestic_Hot_Water_Return_Temperature_Setpoint"
                                             ]
                                         ],
                                     },
-                                    "Domestic_Hot_Water_Supply_Temperature_Setpoint": {
+                                    "Supply_Domestic_Hot_Water_Temperature_Setpoint": {
                                         "tags": [
                                             TAG.Point,
                                             TAG.Domestic,
@@ -1966,6 +1966,11 @@ setpoint_definitions = {
                                         ],
                                         "parents": [
                                             BRICK.Leaving_Water_Temperature_Setpoint
+                                        ],
+                                        "aliases": [
+                                            BRICK[
+                                                "Domestic_Hot_Water_Supply_Temperature_Setpoint"
+                                            ]
                                         ],
                                     },
                                     "Entering_Domestic_Hot_Water_Temperature_Setpoint": {
