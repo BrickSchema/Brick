@@ -583,14 +583,3 @@ bsh:PointHostedByOneController a sh:NodeShape ;
         sh:message "A Brick Point can only be hosted by one Controller" ;
     ] ;
 .
-
-# use brick:hasPart to relate Point Groups to their Points, *not* rec:includes
-bsh:PointGroupHasPartPoints a sh:NodeShape ;
-    sh:targetClass brick:Point_Group ;
-    sh:property [
-        sh:path rec:includes ;
-        sh:class brick:Point ;
-        sh:message "Use brick:hasPart to relate Point Groups to their Points, not rec:includes" ;
-        sh:maxCount 0 ;
-    ] ;
-.
