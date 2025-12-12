@@ -190,20 +190,6 @@ relationships = {
         "domain": BRICK.Point,
         RDFS.label: Literal("Is hosted by", lang="en"),
     },
-    "concerns": {
-        A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
-        OWL.inverseOf: BRICK["isConcernedBy"],
-        "range": REC.Zone,
-        "domain": BRICK.Controller,
-        RDFS.label: Literal("Concerns", lang="en"),
-    },
-    "isConcernedBy": {
-        A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
-        OWL.inverseOf: BRICK["concerns"],
-        "range": BRICK.Controller,
-        "domain": REC.Zone,
-        RDFS.label: Literal("Is concerned by", lang="en"),
-    },
     "meters": {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         OWL.inverseOf: BRICK.isMeteredBy,
