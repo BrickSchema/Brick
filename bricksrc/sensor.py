@@ -790,6 +790,44 @@ sensor_definitions = {
                                 ],
                                 BRICK.hasQuantity: QUDTQK.VolumeFlowRate,
                                 BRICK.hasSubstance: BRICK.Hot_Water,
+                                "subclasses": {
+                                    "Return_Hot_Water_Flow_Sensor": {
+                                        BRICK.hasQuantity: QUDTQK.VolumeFlowRate,
+                                        BRICK.hasSubstance: BRICK.Entering_Hot_Water,
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Return,
+                                            TAG.Hot,
+                                            TAG.Water,
+                                            TAG.Flow,
+                                            TAG.Sensor,
+                                        ],
+                                        "parents": [
+                                            BRICK.Entering_Hot_Water_Flow_Sensor,
+                                        ],
+                                        "aliases": [
+                                            BRICK["Hot_Water_Return_Flow_Sensor"]
+                                        ],
+                                    },
+                                    "Supply_Hot_Water_Flow_Sensor": {
+                                        BRICK.hasQuantity: QUDTQK.VolumeFlowRate,
+                                        BRICK.hasSubstance: BRICK.Leaving_Hot_Water,
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Supply,
+                                            TAG.Hot,
+                                            TAG.Water,
+                                            TAG.Flow,
+                                            TAG.Sensor,
+                                        ],
+                                        "parents": [
+                                            BRICK.Leaving_Hot_Water_Flow_Sensor,
+                                        ],
+                                        "aliases": [
+                                            BRICK["Hot_Water_Supply_Flow_Sensor"]
+                                        ],
+                                    },
+                                },
                             },
                             "Chilled_Water_Flow_Sensor": {
                                 "tags": [
@@ -801,6 +839,44 @@ sensor_definitions = {
                                 ],
                                 BRICK.hasQuantity: QUDTQK.VolumeFlowRate,
                                 BRICK.hasSubstance: BRICK.Chilled_Water,
+                                "subclasses": {
+                                    "Return_Chilled_Water_Flow_Sensor": {
+                                        BRICK.hasQuantity: QUDTQK.VolumeFlowRate,
+                                        BRICK.hasSubstance: BRICK.Entering_Chilled_Water,
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Return,
+                                            TAG.Chilled,
+                                            TAG.Water,
+                                            TAG.Flow,
+                                            TAG.Sensor,
+                                        ],
+                                        "parents": [
+                                            BRICK.Entering_Chilled_Water_Flow_Sensor,
+                                        ],
+                                        "aliases": [
+                                            BRICK["Chilled_Water_Return_Flow_Sensor"]
+                                        ],
+                                    },
+                                    "Supply_Chilled_Water_Flow_Sensor": {
+                                        BRICK.hasQuantity: QUDTQK.VolumeFlowRate,
+                                        BRICK.hasSubstance: BRICK.Leaving_Chilled_Water,
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Supply,
+                                            TAG.Chilled,
+                                            TAG.Water,
+                                            TAG.Flow,
+                                            TAG.Sensor,
+                                        ],
+                                        "parents": [
+                                            BRICK.Leaving_Chilled_Water_Flow_Sensor,
+                                        ],
+                                        "aliases": [
+                                            BRICK["Chilled_Water_Supply_Flow_Sensor"]
+                                        ],
+                                    },
+                                },
                             },
                             "Leaving_Water_Flow_Sensor": {
                                 BRICK.hasQuantity: QUDTQK.VolumeFlowRate,
@@ -1344,7 +1420,7 @@ sensor_definitions = {
                                             TAG.Pressure,
                                             TAG.Sensor,
                                         ],
-                                        BRICK.hasQuantity: BRICK.Static_Pressure,
+                                        BRICK.hasQuantity: QUDTQK.StaticPressure,
                                         BRICK.hasSubstance: BRICK.Return_Air,
                                     },
                                     "Underfloor_Air_Plenum_Static_Pressure_Sensor": {
@@ -1974,7 +2050,7 @@ sensor_definitions = {
                                             TAG.Temperature,
                                             TAG.Sensor,
                                         ],
-                                        BRICK.hasQuantity: BRICK.Temperature,
+                                        BRICK.hasQuantity: QUDTQK.Temperature,
                                         BRICK.hasSubstance: BRICK.Domestic_Hot_Water,
                                     },
                                     "Domestic_Hot_Water_Supply_Temperature_Sensor": {
@@ -1987,7 +2063,7 @@ sensor_definitions = {
                                             TAG.Temperature,
                                             TAG.Sensor,
                                         ],
-                                        BRICK.hasQuantity: BRICK.Temperature,
+                                        BRICK.hasQuantity: QUDTQK.Temperature,
                                         BRICK.hasSubstance: BRICK.Domestic_Hot_Water,
                                     },
                                 },
@@ -2096,6 +2172,40 @@ sensor_definitions = {
                                     },
                                 },
                             },
+                            "Return_Hot_Water_Temperature_Sensor": {
+                                BRICK.hasQuantity: QUDTQK.Temperature,
+                                BRICK.hasSubstance: BRICK.Entering_Hot_Water,
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Return,
+                                    TAG.Hot,
+                                    TAG.Water,
+                                    TAG.Temperature,
+                                    TAG.Sensor,
+                                ],
+                                "parents": [
+                                    BRICK.Entering_Hot_Water_Temperature_Sensor
+                                ],
+                                "aliases": [
+                                    BRICK["Hot_Water_Return_Temperature_Sensor"],
+                                ],
+                            },
+                            "Supply_Hot_Water_Temperature_Sensor": {
+                                BRICK.hasQuantity: QUDTQK.Temperature,
+                                BRICK.hasSubstance: BRICK.Leaving_Hot_Water,
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Supply,
+                                    TAG.Hot,
+                                    TAG.Water,
+                                    TAG.Temperature,
+                                    TAG.Sensor,
+                                ],
+                                "parents": [BRICK.Leaving_Hot_Water_Temperature_Sensor],
+                                "aliases": [
+                                    BRICK["Hot_Water_Supply_Temperature_Sensor"],
+                                ],
+                            },
                             "Chilled_Water_Temperature_Sensor": {
                                 "tags": [
                                     TAG.Point,
@@ -2145,6 +2255,46 @@ sensor_definitions = {
                                         ],
                                         BRICK.hasQuantity: QUDTQK.Temperature,
                                         BRICK.hasSubstance: BRICK.Leaving_Chilled_Water,
+                                    },
+                                    "Return_Chilled_Water_Temperature_Sensor": {
+                                        BRICK.hasQuantity: QUDTQK.Temperature,
+                                        BRICK.hasSubstance: BRICK.Entering_Chilled_Water,
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Return,
+                                            TAG.Chilled,
+                                            TAG.Water,
+                                            TAG.Temperature,
+                                            TAG.Sensor,
+                                        ],
+                                        "parents": [
+                                            BRICK.Entering_Chilled_Water_Temperature_Sensor
+                                        ],
+                                        "aliases": [
+                                            BRICK[
+                                                "Chilled_Water_Return_Temperature_Sensor"
+                                            ]
+                                        ],
+                                    },
+                                    "Supply_Chilled_Water_Temperature_Sensor": {
+                                        BRICK.hasQuantity: QUDTQK.Temperature,
+                                        BRICK.hasSubstance: BRICK.Leaving_Chilled_Water,
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Supply,
+                                            TAG.Chilled,
+                                            TAG.Water,
+                                            TAG.Temperature,
+                                            TAG.Sensor,
+                                        ],
+                                        "parents": [
+                                            BRICK.Leaving_Chilled_Water_Temperature_Sensor
+                                        ],
+                                        "aliases": [
+                                            BRICK[
+                                                "Chilled_Water_Supply_Temperature_Sensor"
+                                            ]
+                                        ],
                                     },
                                     "Differential_Entering_Leaving_Water_Temperature_Sensor": {
                                         "tags": [

@@ -62,7 +62,9 @@ system_subclasses = {
                     },
                 },
             },
-            "VRF_System": {"tags": [TAG.Variable, TAG.Refrigerant, TAG.Flow, TAG.System]},
+            "VRF_System": {
+                "tags": [TAG.Variable, TAG.Refrigerant, TAG.Flow, TAG.System]
+            },
             "Refrigeration_System": {"tags": [TAG.Refrigeration, TAG.System]},
             "Steam_System": {"tags": [TAG.Steam, TAG.System]},
             "Water_System": {
@@ -70,6 +72,10 @@ system_subclasses = {
                 "subclasses": {
                     "Chilled_Water_System": {
                         "tags": [TAG.Water, TAG.Chilled, TAG.System],
+                    },
+                    "Domestic_Water_System": {
+                        "tags": [TAG.Domestic, TAG.Water, TAG.System],
+                        "aliases": [BRICK["Domestic_Cold_Water_System"]],
                     },
                     "Hot_Water_System": {
                         "tags": [TAG.Water, TAG.Hot, TAG.System],
