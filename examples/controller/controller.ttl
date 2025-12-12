@@ -21,7 +21,7 @@ bldg:Controller_1 a brick:Controller ;
 
 bldg:VAV1PointGroup a brick:Point_Group ;
     rdfs:label "VAV1 Point Group" ;
-    rec:includes bldg:VAV1_Temperature_Sensor, bldg:VAV1_Occupancy_Sensor ;
+    brick:hasPart bldg:VAV1_Temperature_Sensor, bldg:VAV1_Occupancy_Sensor ;
 .
 
 bldg:VAV1_Temperature_Sensor a brick:Temperature_Sensor ;
