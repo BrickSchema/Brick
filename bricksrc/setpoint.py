@@ -2,6 +2,9 @@ from .namespaces import TAG, BRICK, RDFS, QUDTQK
 from rdflib import Literal
 
 setpoint_definitions = {
+    "Threshold": {
+        "tags": [TAG.Point, TAG.Threshold],
+    },
     "Setpoint": {
         RDFS.seeAlso: Literal(
             "https://xp20.ashrae.org/terminology/index.php?term=setpoint"
@@ -2468,5 +2471,5 @@ setpoint_definitions = {
                 },
             },
         },
-    }
+    },
 }
