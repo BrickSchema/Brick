@@ -578,9 +578,9 @@ bsh:PointHostedByOneController a sh:NodeShape ;
     sh:targetClass brick:Point ;
     sh:property [
         sh:path brick:isHostedBy ;
-        sh:class brick:Controller ;
+        sh:class brick:ICT_Equipment ;
         sh:maxCount 1 ;
-        sh:message "A Brick Point can only be hosted by one Controller" ;
+        sh:message "A Brick Point can only be hosted by one piece of ICT Equipment (e.g., a Controller)" ;
     ] ;
 .
 
