@@ -58,6 +58,7 @@ equipment_subclasses = {
             },
             "Controller": {
                 "tags": [TAG.Equipment, TAG.ICT, TAG.Controller],
+                BRICK.controls: [BRICK.Equipment],
                 "subclasses": {
                     "BACnet_Controller": {
                         "tags": [TAG.Equipment, TAG.BACnet, TAG.Controller],

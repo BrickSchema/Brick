@@ -79,6 +79,11 @@ brick:Equipment a sh:NodeShape ;
         );
         sh:message "A piece of Equipment can feed a Equipment or Location/Space."
     ];
+    sh:property [
+        sh:path brick:isControlledBy ;
+        sh:class brick:Controller ;
+        sh:message "Equipment can be controlled only by Controllers."
+    ] ;
     .
 
 brick:Point a sh:NodeShape;
@@ -93,7 +98,13 @@ brick:Point a sh:NodeShape;
         sh:maxCount 0 ;
         sh:message "Points cannot have locations; use 'isPointOf' instead" ;
     ] ;
-    .
+    sh:property [
+        sh:path brick:isHostedBy ;
+        sh:maxCount 1 ;
+        sh:class brick:ICT_Equipment ;
+        sh:message "A Point can be hosted by at most one ICT Equipment."
+    ] ;
+.
 
 brick:Collection a sh:NodeShape;
     sh:node [sh:not [ sh:class brick:Equipment ] ; sh:message "Collection is an exclusive top class." ],
