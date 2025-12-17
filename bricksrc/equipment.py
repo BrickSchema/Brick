@@ -182,9 +182,11 @@ equipment_subclasses = {
                     "Disconnect_Switch": {
                         "tags": [
                             TAG.Disconnect,
+                            TAG.Isolation,
                             TAG.Switch,
                             TAG.Equipment,
                         ],
+                        "aliases": [BRICK.Isolation_Switch],
                         "subclasses": {
                             "Main_Disconnect_Switch": {
                                 "tags": [
@@ -192,21 +194,10 @@ equipment_subclasses = {
                                     TAG.Disconnect,
                                     TAG.Switch,
                                     TAG.Equipment,
-                                ]
-                            },
-                            "Building_Disconnect_Switch": {
-                                "tags": [
-                                    TAG.Building,
-                                    TAG.Disconnect,
-                                    TAG.Switch,
-                                    TAG.Equipment,
-                                ]
+                                ],
+                                "aliases": [BRICK.Building_Disconnect_Switch],
                             },
                         },
-                    },
-                    "Isolation_Switch": {
-                        "tags": [TAG.Isolation, TAG.Switch, TAG.Equipment],
-                        "aliases": [BRICK.Disconnect_Switch],
                     },
                     "Transfer_Switch": {
                         "tags": [
