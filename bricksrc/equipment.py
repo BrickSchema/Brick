@@ -8,6 +8,7 @@ Set up subclasses of the equipment superclass
 equipment_subclasses = {
     "ICT_Equipment": {
         "tags": [TAG.ICT, TAG.Equipment],
+        BRICK.hostsPoint: [BRICK.Point],
         "subclasses": {
             "ICT_Hardware": {
                 "tags": [TAG.Equipment, TAG.ICT, TAG.Hardware],
@@ -57,7 +58,6 @@ equipment_subclasses = {
             },
             "Controller": {
                 "tags": [TAG.Equipment, TAG.ICT, TAG.Controller],
-                BRICK.hostsPoint: [BRICK.Point],
                 "subclasses": {
                     "BACnet_Controller": {
                         "tags": [TAG.Equipment, TAG.BACnet, TAG.Controller],
