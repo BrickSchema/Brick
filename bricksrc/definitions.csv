@@ -203,7 +203,7 @@ https://brickschema.org/schema/Brick#Conference_Room,A space dedicated in which 
 https://brickschema.org/schema/Brick#Constant_Air_Volume_Box,A terminal unit for which supply air flow rate is constant and the supply air temperature is varied to meet thermal load,https://en.wikipedia.org/wiki/Constant_air_volume
 https://brickschema.org/schema/Brick#Contact_Sensor,"Senses or detects contact, such as for determining if a door is closed.",
 https://brickschema.org/schema/Brick#Control_Room,A space from which operations are managed,
-https://brickschema.org/schema/Brick#Controller,,
+https://brickschema.org/schema/Brick#Controller,An ICT device that exposes Points on a network and implements software to control or monitor equipment or systems using those Points.,
 https://brickschema.org/schema/Brick#Cooling_Coil,"A cooling element made of pipe or tube that removes heat from equipment, machines or airflows. Typically filled with either refrigerant or cold water.",
 https://brickschema.org/schema/Brick#Cooling_Command,Controls the amount of cooling to be delivered (typically as a proportion of total cooling output),
 https://brickschema.org/schema/Brick#Cooling_Demand_Sensor,Measures the amount of power consumed by a cooling process; typically found by multiplying the tonnage of a unit (e.g. RTU) by the efficiency rating in kW/ton,
@@ -937,6 +937,7 @@ https://brickschema.org/schema/Brick#Plate_Heat_Exchanger,A heat exchanger that 
 https://brickschema.org/schema/Brick#PlugStrip,A device containing a block of electrical sockets allowing multiple electrical devices to be powered from a single electrical socket.,https://en.wikipedia.org/wiki/Power_strip
 https://brickschema.org/schema/Brick#Plumbing_Room,A service room devoted to the operation and routing of water in a building. Usually distinct from the HVAC subsystems.,
 https://brickschema.org/schema/Brick#Point,,
+https://brickschema.org/schema/Brick#Point_Group,"Nestable collections of associated points with a label, e.g. to model associations of points for display, configuration, packaging, and other user-defined needs",
 https://brickschema.org/schema/Brick#Portfolio,A collection of sites,
 https://brickschema.org/schema/Brick#Position,The fraction of the full range of motion,
 https://brickschema.org/schema/Brick#Position_Command,Controls or reports the position of some object,
