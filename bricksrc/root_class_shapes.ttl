@@ -52,7 +52,7 @@ brick:Equipment a sh:NodeShape ;
             [ sh:class brick:Equipment ]
             [ sh:class brick:Automation_Group ]
         ) ;
-        sh:message "A piece of Equipment's parts should be always other Equipment or Collections"
+        sh:message "A piece of Equipment's parts should be always other Equipment or Automation Groups"
     ];
     sh:property [
         sh:path brick:hasPoint ;
