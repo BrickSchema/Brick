@@ -1174,20 +1174,6 @@ brick:Switch_Room
     brick:deprecationMitigationMessage "Brick location classes are being phased out in favor of RealEstateCore classes. For a replacement, consider rec:DataServerRoom" ;
     brick:isReplacedBy rec:DataServerRoom ;
 .
-#brick:Collection
-#  rdfs:subClassOf rec:Collection ;
-#  sh:property [
-#      rdf:type sh:PropertyShape ;
-#      sh:path rec:includes ;
-#      sh:or (
-#          [ sh:class brick:Equipment ]
-#          [ sh:class brick:Collection ]
-#      ) ;
-#      sh:minCount 1 ;
-#      sh:name "includes" ;
-#      sh:nodeKind sh:IRI ;
-#    ] ;
-#.
 brick:Team_Room
   owl:deprecated "true"^^xsd:boolean ;
   brick:deprecatedInVersion "1.4.0" ;
