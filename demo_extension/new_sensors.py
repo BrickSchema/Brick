@@ -1,6 +1,6 @@
 import rdflib
 from datetime import datetime
-from bricksrc.namespaces import BRICK, SKOS, SH, XSD, RDFS, DCTERMS, RDF, SDO, OWL
+from bricksrc.namespaces import BRICK, SKOS, SH, XSD, RDFS, DCTERMS, RDF, SDO, OWL, TAG
 
 # define the namespace to hold all of our terms, classes, properties, etc
 DEMO = rdflib.Namespace("urn:demo_extension#")
@@ -42,6 +42,7 @@ ontology_definition = {
         "rdf": RDF,
         "rdfs": RDFS,
         "brick": BRICK,
+        "tag": TAG,
         "owl": OWL,
         "sh": SH,
         "demo": DEMO,
@@ -58,6 +59,11 @@ classes = {
         DEMO["Sensor_Platform"]: {},
         DEMO["PurpleAir_Weather_Station"]: {
             "parents": [BRICK.Weather_Station],
+            "tags": [TAG.Purple, TAG.Air, TAG.Weather, TAG.Station, TAG.Equipment],
+            RDFS.label: rdflib.Literal("PurpleAir Weather Station", lang="en"),
+            SKOS.definition: rdflib.Literal(
+                "A lavender weather measurement station", lang="en"
+            ),
         },
     },
 }

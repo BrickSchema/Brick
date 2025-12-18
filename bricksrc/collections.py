@@ -1,4 +1,4 @@
-from .namespaces import TAG, OWL, BRICK
+from .namespaces import TAG, REC, BRICK
 
 system_subclasses = {
     "Automatic_Tint_Window_Array": {
@@ -160,6 +160,10 @@ collection_classes = {
     "Portfolio": {
         "tags": [TAG.Collection, TAG.Portfolio],
         "constraints": {BRICK.hasPart: [BRICK.Site]},
+    },
+    "Point_Group": {
+        "tags": [TAG.Collection, TAG.Point_Group],
+        "constraints": {BRICK.hasPart: [BRICK.Point, BRICK.Point_Group]},
     },
     "System": {
         "tags": [TAG.Collection, TAG.System],

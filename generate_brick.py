@@ -369,9 +369,9 @@ def define_classes(definitions, parent, pun_classes=False, graph=G):
             propval = defn[propname]
             if isinstance(propval, list):
                 for pv in propval:
-                    G.add((classname, propname, pv))
+                    graph.add((classname, propname, pv))
             else:
-                G.add((classname, propname, propval))
+                graph.add((classname, propname, propval))
 
 
 def define_constraints(constraints, classname, graph=G):

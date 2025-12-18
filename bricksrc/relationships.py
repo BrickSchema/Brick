@@ -117,6 +117,7 @@ relationships = {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         OWL.inverseOf: BRICK["isPartOf"],
         RDFS.label: Literal("Has part", lang="en"),
+        RDFS.subPropertyOf: REC.includes,
     },
     "isPartOf": {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
@@ -161,6 +162,34 @@ relationships = {
         "range": QUDT.Unit,
         "domain": BRICK.Point,
         RDFS.label: Literal("Has unit", lang="en"),
+    },
+    "controls": {
+        A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+        OWL.inverseOf: BRICK["isControlledBy"],
+        "range": BRICK.Equipment,
+        "domain": BRICK.Controller,
+        RDFS.label: Literal("Controls", lang="en"),
+    },
+    "isControlledBy": {
+        A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+        OWL.inverseOf: BRICK["controls"],
+        "range": BRICK.Controller,
+        "domain": BRICK.Equipment,
+        RDFS.label: Literal("Is controlled by", lang="en"),
+    },
+    "hostsPoint": {
+        A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+        OWL.inverseOf: BRICK["isHostedBy"],
+        "range": BRICK.Point,
+        "domain": BRICK.ICT_Equipment,
+        RDFS.label: Literal("Hosts point", lang="en"),
+    },
+    "isHostedBy": {
+        A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+        OWL.inverseOf: BRICK["hostsPoint"],
+        "range": BRICK.ICT_Equipment,
+        "domain": BRICK.Point,
+        RDFS.label: Literal("Is hosted by", lang="en"),
     },
     "meters": {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
@@ -238,4 +267,8 @@ for row in rec.query(query):
     if row["datatype"]:
         relationships[row["path"]][A] = [OWL.DatatypeProperty]
     if row["nodeKind"]:
-        relationships[row["path"]][A] = [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty]
+        relationships[row["path"]][A] = [
+            OWL.ObjectProperty,
+            OWL.AsymmetricProperty,
+            OWL.IrreflexiveProperty,
+        ]
