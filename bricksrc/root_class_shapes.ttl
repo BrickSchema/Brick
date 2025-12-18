@@ -48,8 +48,11 @@ brick:Equipment a sh:NodeShape ;
            [ sh:class brick:EntityProperty ; sh:message "Instances of Equipment cannot be EntityProperties." ] ;
     sh:property [
         sh:path brick:hasPart;
-        sh:class brick:Equipment;
-        sh:message "A piece of Equipment's parts should be always other Equipment."
+        sh:or (
+            [ sh:class brick:Equipment ]
+            [ sh:class brick:Automation_Group ]
+        ) ;
+        sh:message "A piece of Equipment's parts should be always other Equipment or Collections"
     ];
     sh:property [
         sh:path brick:hasPoint ;

@@ -57,6 +57,7 @@ https://brickschema.org/schema/Brick#Automatic_Switch,An automatic switch operat
 https://brickschema.org/schema/Brick#Automatic_Tint_Window,A window with tint control.,
 https://brickschema.org/schema/Brick#Automatic_Tint_Window_Array,An array of Automatic Tint Windows.,
 https://brickschema.org/schema/Brick#Automatic_Transfer_Switch,An automatic transfer switch (ATS) is a device that automatically transfers a power supply from its primary source to a backup source when it senses a failure or outage in the primary source.,
+https://brickschema.org/schema/Brick#Automation_Group,"A collection of equipment, points, and other automation groups that are logically grouped together for the purpose of management, control, or organization within a building automation system. We encourage that you develop your own sub-classes of Automation_Group to represent specific groupings relevant to your use case.",
 https://brickschema.org/schema/Brick#Availability_Status,"Indicates if a piece of equipment, system, or functionality is available for operation",
 https://brickschema.org/schema/Brick#Average_Cooling_Demand_Sensor,Measures the average power consumed by a cooling process as the amount of power consumed over some interval,
 https://brickschema.org/schema/Brick#Average_Exhaust_Air_Static_Pressure_Sensor,The computed average static pressure of air in exhaust regions of an HVAC system over some period of time,

@@ -1174,20 +1174,20 @@ brick:Switch_Room
     brick:deprecationMitigationMessage "Brick location classes are being phased out in favor of RealEstateCore classes. For a replacement, consider rec:DataServerRoom" ;
     brick:isReplacedBy rec:DataServerRoom ;
 .
-brick:Collection
-  rdfs:subClassOf rec:Collection ;
-  sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path rec:includes ;
-      sh:or (
-          [ sh:class brick:Equipment ]
-          [ sh:class brick:Collection ]
-      ) ;
-      sh:minCount 1 ;
-      sh:name "includes" ;
-      sh:nodeKind sh:IRI ;
-    ] ;
-.
+#brick:Collection
+#  rdfs:subClassOf rec:Collection ;
+#  sh:property [
+#      rdf:type sh:PropertyShape ;
+#      sh:path rec:includes ;
+#      sh:or (
+#          [ sh:class brick:Equipment ]
+#          [ sh:class brick:Collection ]
+#      ) ;
+#      sh:minCount 1 ;
+#      sh:name "includes" ;
+#      sh:nodeKind sh:IRI ;
+#    ] ;
+#.
 brick:Team_Room
   owl:deprecated "true"^^xsd:boolean ;
   brick:deprecatedInVersion "1.4.0" ;
@@ -1581,7 +1581,7 @@ brick:ICT_Equipment sh:property [ a sh:PropertyShape ;
             sh:name "Standard"^^xsd:string ;
             sh:path rec:standard ] .
 
-brick:Ethernet_Port sh:property 
+brick:Ethernet_Port sh:property
         [ a sh:PropertyShape ;
             sh:datatype xsd:float ;
             sh:description "The data rate of the port in Mib/s, i.e. mebibit (2^20 bit) per second."^^xsd:string ;
@@ -1595,7 +1595,7 @@ brick:Ethernet_Port sh:property
             sh:name "PoE Type"^^xsd:string ;
             sh:path rec:poeType ] .
 
-brick:Wireless_Access_Point sh:property [ 
+brick:Wireless_Access_Point sh:property [
             a sh:PropertyShape ;
             sh:datatype xsd:string ;
             sh:in ( "WiFi4"^^xsd:string "WiFi5"^^xsd:string "WiFi6"^^xsd:string "WiFi6E"^^xsd:string "WiFi7"^^xsd:string ) ;
@@ -1603,7 +1603,7 @@ brick:Wireless_Access_Point sh:property [
             sh:name "Generation"^^xsd:string ;
             sh:path rec:generation ] .
 
-brick:Sensor_Equipment sh:property 
+brick:Sensor_Equipment sh:property
         [ a sh:PropertyShape ;
             sh:datatype xsd:double ;
             sh:name "Battery Percentage"^^xsd:string ;
