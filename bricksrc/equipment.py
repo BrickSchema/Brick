@@ -1272,6 +1272,7 @@ hvac_subclasses = {
         "tags": [TAG.Fluid, TAG.Throttling, TAG.Device],
         "subclasses": {
             "Thermal_Expansion_Valve": {
+                "parents": [BRICK["Valve"]],
                 "tags": [
                     TAG.Refrigerant,
                     TAG.Modulating,
@@ -1283,6 +1284,7 @@ hvac_subclasses = {
                 ]
             },
             "Electronic_Expansion_Valve": {
+                "parents": [BRICK["Valve"]],
                 "tags": [
                     TAG.Refrigerant,
                     TAG.Modulating,
