@@ -1,4 +1,4 @@
-from .namespaces import TAG, BRICK
+from .namespaces import TAG, BRICK, REC
 
 meter_subclasses = {
     "Electrical_Meter": {
@@ -77,6 +77,6 @@ meter_subclasses = {
     },
     "Building_Meter": {
         "tags": [TAG.Meter, TAG.Equipment, TAG.Building],
-        "constraints": {BRICK.meters: [BRICK.Building]},
+        "constraints": {BRICK.meters: [BRICK.Building, REC.Building]},
     },
 }

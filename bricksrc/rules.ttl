@@ -1,4 +1,5 @@
 @prefix brick: <https://brickschema.org/schema/Brick#> .
+@prefix rec: <https://w3id.org/rec#> .
 @prefix qudt: <http://qudt.org/schema/qudt/> .
 @prefix ref: <https://brickschema.org/schema/Brick/ref#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -19,6 +20,21 @@ skos:broader rdf:type rdf:Property ;
 skos:narrower rdf:type rdf:Property ;
   rdfs:label "has narrower"@en ;
   owl:inverseOf skos:broader ;
+.
+
+bsh:AddSubclassAliasesRule
+    a sh:NodeShape ;
+    sh:rule [
+        a sh:SPARQLRule ;
+        sh:construct """
+CONSTRUCT {
+    $this rdfs:subClassOf ?superclass .
+} WHERE {
+    $this (brick:aliasOf|owl:equivalentClass)?/rdfs:subClassOf/(brick:aliasOf|owl:equivalentClass)? ?superclass
+}""" ;
+      sh:prefixes <https://brickschema.org/schema/1.4/Brick> ;
+    ] ;
+    sh:targetSubjectsOf brick:aliasOf ;
 .
 
 bsh:EquivalentPropertyRule
@@ -554,5 +570,29 @@ bsh:InheritEVSEChargerDirection a sh:NodeShape ;
             }
         }
         """ ;
+    ] ;
+.
+
+# if point group rec:includes a point or point group, add brick:hasPart relationship
+bsh:PointGroupIncludesHasPart a sh:NodeShape ;
+    sh:targetClass brick:Point_Group ;
+    sh:rule [
+        a sh:SPARQLRule ;
+        sh:construct """
+        CONSTRUCT {
+            $this brick:hasPart ?part .
+        }
+        WHERE {
+            $this rec:includes ?part .
+            {
+                ?part rdf:type/rdfs:subClassOf* brick:Point .
+            }
+            UNION
+            {
+                ?part rdf:type/rdfs:subClassOf* brick:Point_Group .
+            }
+        }
+        """ ;
+        sh:prefixes <https://brickschema.org/schema/1.4/Brick> ;
     ] ;
 .

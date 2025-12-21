@@ -6,11 +6,23 @@
 
 bsh:NumericValue a rdf:List ;
     rdf:first [
-        sh:datatype xsd:float
+        sh:datatype xsd:decimal
     ] ;
     rdf:rest (
-        [ sh:datatype xsd:decimal ]
         [ sh:datatype xsd:integer ]
         [ sh:datatype xsd:double ]
+        [ sh:datatype xsd:float ]
+        [ sh:datatype xsd:byte ]
+        [ sh:datatype xsd:short ]
+        [ sh:datatype xsd:int ]
+        [ sh:datatype xsd:long ]
+        [ sh:datatype xsd:unsignedByte ]
+        [ sh:datatype xsd:unsignedShort ]
+        [ sh:datatype xsd:unsignedInt ]
+        [ sh:datatype xsd:unsignedLong ]
+        [ sh:datatype xsd:positiveInteger ]
+        [ sh:datatype xsd:nonNegativeInteger ]
+        [ sh:datatype xsd:negativeInteger ]
+        [ sh:datatype xsd:nonPositiveInteger ]
     )
 .

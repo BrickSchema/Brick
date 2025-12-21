@@ -117,6 +117,7 @@ relationships = {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         OWL.inverseOf: BRICK["isPartOf"],
         RDFS.label: Literal("Has part", lang="en"),
+        RDFS.subPropertyOf: REC.includes,
     },
     "isPartOf": {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
@@ -162,19 +163,47 @@ relationships = {
         "domain": BRICK.Point,
         RDFS.label: Literal("Has unit", lang="en"),
     },
+    "controls": {
+        A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+        OWL.inverseOf: BRICK["isControlledBy"],
+        "range": BRICK.Equipment,
+        "domain": BRICK.Controller,
+        RDFS.label: Literal("Controls", lang="en"),
+    },
+    "isControlledBy": {
+        A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+        OWL.inverseOf: BRICK["controls"],
+        "range": BRICK.Controller,
+        "domain": BRICK.Equipment,
+        RDFS.label: Literal("Is controlled by", lang="en"),
+    },
+    "hostsPoint": {
+        A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+        OWL.inverseOf: BRICK["isHostedBy"],
+        "range": BRICK.Point,
+        "domain": BRICK.ICT_Equipment,
+        RDFS.label: Literal("Hosts point", lang="en"),
+    },
+    "isHostedBy": {
+        A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+        OWL.inverseOf: BRICK["hostsPoint"],
+        "range": BRICK.ICT_Equipment,
+        "domain": BRICK.Point,
+        RDFS.label: Literal("Is hosted by", lang="en"),
+    },
     "meters": {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         OWL.inverseOf: BRICK.isMeteredBy,
         "domain": BRICK.Meter,
         # this is a special property that implements the 'range' as a SHACL shape
-        "range": [BRICK.Equipment, BRICK.Location, BRICK.Collection],
+        "range": [BRICK.Equipment, BRICK.Location, BRICK.Collection, REC.Architecture],
         RDFS.label: Literal("meters", lang="en"),
     },
     "isMeteredBy": {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         OWL.inverseOf: BRICK.meters,
         # this is a special property that implements the 'domain' as a SHACL shape
-        "domain": [BRICK.Equipment, BRICK.Location, BRICK.Collection],
+        "domain": [BRICK.Equipment, BRICK.Location, BRICK.Collection, REC.Architecture],
         "range": BRICK.Meter,
         RDFS.label: Literal("is metered by", lang="en"),
     },
@@ -225,7 +254,7 @@ relationships = {
 }
 
 # add REC relationships by mining them from the REC ontology
-rec = env.get("https://w3id.org/rec")
+rec = env.get_graph("https://w3id.org/rec")
 # for all objects of sh:path, read out the sh:nodeKind and sh:datatype
 query = """SELECT ?path ?nodeKind ?datatype WHERE {
     ?p sh:path ?path .
@@ -238,4 +267,8 @@ for row in rec.query(query):
     if row["datatype"]:
         relationships[row["path"]][A] = [OWL.DatatypeProperty]
     if row["nodeKind"]:
-        relationships[row["path"]][A] = [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty]
+        relationships[row["path"]][A] = [
+            OWL.ObjectProperty,
+            OWL.AsymmetricProperty,
+            OWL.IrreflexiveProperty,
+        ]
