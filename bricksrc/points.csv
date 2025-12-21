@@ -861,7 +861,7 @@ brick:Zone_Air_Dewpoint_Sensor,,,brick:Zone_Air,,quantitykind:DewPointTemperatur
 brick:Zone_Air_Humidity_Sensor,,,brick:Zone_Air,,quantitykind:RelativeHumidity,brick:Sensor,,Measures the relative humidity of zone air
 brick:Zone_Air_Humidity_Setpoint,,,brick:Zone_Air,,quantitykind:RelativeHumidity,brick:Setpoint,,Humidity setpoint for zone air
 brick:Zone_Air_Temperature_Sensor,,,brick:Zone_Air,,quantitykind:Temperature,brick:Sensor,,A physical or virtual sensor which represents the temperature of an HVAC Zone
-brick:Zone_CO2_Level_Sensor,,,brick:CO2,,,brick:Sensor,Zone Level,A physical or virtual sensor which represents the CO2 level of an HVAC Zone
+brick:Zone_CO2_Level_Sensor,,,brick:Zone_Air,,,brick:Sensor,CO2 Level,A physical or virtual sensor which represents the CO2 level of an HVAC Zone
 brick:Zone_Occupied_Load_Shed_Command,brick:Occupied,brick:Load_Shed,,,,brick:Command,Zone,
 brick:Zone_Standby_Load_Shed_Command,,,,,,,(deprecated),
 brick:Zone_Unoccupied_Load_Shed_Command,brick:Unoccupied,brick:Load_Shed,,,,brick:Command,Zone,
