@@ -1,0 +1,39 @@
+@prefix brick: <https://brickschema.org/schema/Brick#> .
+@prefix bldg:  <urn:example/collection#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix mpo: <http://my-private-ontology.com/> .
+
+<http://example.com/collection> a owl:Ontology ;
+    owl:imports <https://brickschema.org/schema/1.4/Brick> .
+
+# my custom class for frost detection group in my private ontology
+mpo:FrostDetectionGroup a owl:Class ;
+  # Here, we did *not* define this as a subclass of brick:Automation_Group.
+  # For this reason, bldg:FrostDetection is explicitly typed as both.
+  # We can always subclass brick:Automation_Group if needed, and in that
+  # case we don't need the explicit rdf:type brick:Automation_Group below.
+  rdfs:label "Frost Detection Group" ;
+  rdfs:comment "An automation group that includes components for frost detection in an AHU." .
+
+bldg:Ahu a brick:AHU ;
+  brick:hasPart bldg:Hcl ;
+  brick:hasPart bldg:Fan ;
+  brick:hasPart bldg:FrostDetection .
+
+bldg:Hcl a brick:Heating_Coil .
+
+bldg:Fan a brick:Discharge_Fan .
+
+bldg:FrostDetection a brick:Automation_Group, mpo:FrostDetectionGroup ;
+  brick:hasPart bldg:FrostDetectionSensor ;
+  brick:hasPart bldg:FrostDetectionMonitoring .
+
+bldg:FrostDetectionSensor a brick:Sensor_Equipment ;
+  brick:hasPoint bldg:FrostDetected .
+
+bldg:FrostDetectionMonitoring a brick:Enable_Command .
+
+bldg:FrostDetected a brick:Frost_Sensor .
