@@ -1924,7 +1924,7 @@ sensor_definitions = {
                                             TAG.Sensor,
                                         ],
                                     },
-                                }
+                                },
                             },
                             "Domestic_Hot_Water_Temperature_Sensor": {
                                 "tags": [
@@ -2040,6 +2040,30 @@ sensor_definitions = {
                                     },
                                 },
                             },
+                            "Return_Hot_Water_Temperature_Sensor": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Sensor,
+                                    TAG.Temperature,
+                                    TAG.Water,
+                                    TAG.Hot,
+                                    TAG.Return,
+                                ],
+                                BRICK.hasQuantity: QUDTQK.Temperature,
+                                BRICK.hasSubstance: BRICK.Return_Hot_Water,
+                            },
+                            "Supply_Hot_Water_Temperature_Sensor": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Sensor,
+                                    TAG.Temperature,
+                                    TAG.Water,
+                                    TAG.Hot,
+                                    TAG.Supply,
+                                ],
+                                BRICK.hasQuantity: QUDTQK.Temperature,
+                                BRICK.hasSubstance: BRICK.Supply_Hot_Water,
+                            },
                             "Chilled_Water_Temperature_Sensor": {
                                 "tags": [
                                     TAG.Point,
@@ -2066,6 +2090,23 @@ sensor_definitions = {
                                             BRICK.Water_Differential_Temperature_Sensor
                                         ],
                                     },
+                                    "Differential_Entering_Leaving_Water_Temperature_Sensor": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Sensor,
+                                            TAG.Temperature,
+                                            TAG.Water,
+                                            TAG.Chilled,
+                                            TAG.Leaving,
+                                            TAG.Entering,
+                                            TAG.Differential,
+                                        ],
+                                        BRICK.hasSubstance: [
+                                            BRICK.Leaving_Chilled_Water,
+                                            BRICK.Entering_Chilled_Water,
+                                        ],
+                                        BRICK.hasQuantity: QUDTQK.Temperature,
+                                    },
                                     "Entering_Chilled_Water_Temperature_Sensor": {
                                         "tags": [
                                             TAG.Point,
@@ -2090,22 +2131,29 @@ sensor_definitions = {
                                         BRICK.hasQuantity: QUDTQK.Temperature,
                                         BRICK.hasSubstance: BRICK.Leaving_Chilled_Water,
                                     },
-                                    "Differential_Entering_Leaving_Water_Temperature_Sensor": {
+                                    "Return_Chilled_Water_Temperature_Sensor": {
                                         "tags": [
                                             TAG.Point,
                                             TAG.Sensor,
                                             TAG.Temperature,
                                             TAG.Water,
                                             TAG.Chilled,
-                                            TAG.Leaving,
-                                            TAG.Entering,
-                                            TAG.Differential,
-                                        ],
-                                        BRICK.hasSubstance: [
-                                            BRICK.Leaving_Chilled_Water,
-                                            BRICK.Entering_Chilled_Water,
+                                            TAG.Return,
                                         ],
                                         BRICK.hasQuantity: QUDTQK.Temperature,
+                                        BRICK.hasSubstance: BRICK.Return_Chilled_Water,
+                                    },
+                                    "Supply_Chilled_Water_Temperature_Sensor": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Sensor,
+                                            TAG.Temperature,
+                                            TAG.Water,
+                                            TAG.Chilled,
+                                            TAG.Supply,
+                                        ],
+                                        BRICK.hasQuantity: QUDTQK.Temperature,
+                                        BRICK.hasSubstance: BRICK.Supply_Chilled_Water,
                                     },
                                 },
                             },
@@ -2154,6 +2202,28 @@ sensor_definitions = {
                                         ],
                                     },
                                 },
+                            },
+                            "Return_Water_Temperature_Sensor": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Sensor,
+                                    TAG.Temperature,
+                                    TAG.Water,
+                                    TAG.Return,
+                                ],
+                                BRICK.hasQuantity: QUDTQK.Temperature,
+                                BRICK.hasSubstance: BRICK.Return_Water,
+                            },
+                            "Supply_Water_Temperature_Sensor": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Sensor,
+                                    TAG.Temperature,
+                                    TAG.Water,
+                                    TAG.Supply,
+                                ],
+                                BRICK.hasQuantity: QUDTQK.Temperature,
+                                BRICK.hasSubstance: BRICK.Supply_Water,
                             },
                             "Collection_Basin_Water_Temperature_Sensor": {
                                 BRICK.hasQuantity: QUDTQK.Temperature,
