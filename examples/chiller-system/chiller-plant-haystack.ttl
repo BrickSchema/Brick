@@ -1,0 +1,46 @@
+# modeling the system in https://project-haystack.org/doc/docHaystack/chilled-water-plant.svg
+@prefix : <http://example.com/chiller-plant-haystack#> .
+@prefix brick: <https://brickschema.org/schema/Brick#> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+<http://example.com/chiller-plant-haystack> a owl:Ontology ;
+    owl:imports <https://brickschema.org/schema/1.4/Brick> .
+
+:plant a brick:Chilled_Water_System ;
+    brick:hasPart :ct, :chiller ;
+    brick:hasPoint :plant-chilled-water-supply-temp, :plant-chilled-water-return-temp .
+:plant-chilled-water-supply-temp a brick:Supply_Chilled_Water_Temperature_Sensor ;
+    rdfs:label "Plant's temp sensor for the leaving chilled water (supply to load)" ;
+    brick:hasUnit unit:DEG_C .
+:plant-chilled-water-return-temp a brick:Return_Chilled_Water_Temperature_Sensor ;
+    rdfs:label "Plant's temp sensor for the entering chilled water (return from load)" ;
+    brick:hasUnit unit:DEG_C .
+
+:ct a brick:Cooling_Tower ;
+    brick:hasPoint :ct-cond-water-leave-temp, :ct-cond-water-enter-temp .
+:ct-cond-water-leave-temp a brick:Leaving_Condenser_Water_Temperature_Sensor ;
+    rdfs:label "Condenser Water Leave Temp Sensor, measured at cooling tower's condenser" ;
+    brick:hasUnit unit:DEG_C .
+:ct-cond-water-enter-temp a brick:Entering_Condenser_Water_Temperature_Sensor ;
+    rdfs:label "Condenser Water Enter Temp Sensor, measured at cooling tower's condenser" ;
+    brick:hasUnit unit:DEG_C .
+
+:chiller a brick:Chiller ;
+    brick:hasPoint :cond-water-return-temp, :cond-water-supply-temp,
+                   :chilled-water-enter-temp, :chilled-water-leave-temp .
+:chilled-water-return-temp a brick:Return_Chilled_Water_Temperature_Sensor ;
+    rdfs:label "Chilled Water Enter Temp Sensor (return from load)" ;
+    brick:hasUnit unit:DEG_C .
+:chilled-water-supply-temp a brick:Supply_Chilled_Water_Temperature_Sensor ;
+    rdfs:label "Chilled Water Leave Temp Sensor (supply to load)" ;
+    brick:hasUnit unit:DEG_C .
+:cond-water-enter-temp a brick:Entering_Condenser_Water_Temperature_Sensor ;
+    rdfs:label "Condenser Water Enter Temp Sensor, measured at chiller" ;
+    brick:hasUnit unit:DEG_C .
+:cond-water-leave-temp a brick:Leaving_Condenser_Water_Temperature_Sensor ;
+    rdfs:label "Condenser Water Leave Temp Sensor, measured at chiller" ;
+    brick:hasUnit unit:DEG_C .
