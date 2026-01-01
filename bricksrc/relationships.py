@@ -6,10 +6,6 @@ from .env import env
 Defining Brick relationships
 """
 relationships = {
-    "connectedTo": {
-        A: [OWL.ObjectProperty, OWL.SymmetricProperty, OWL.IrreflexiveProperty],
-        RDFS.label: Literal("Connected To", lang="en"),
-    },
     "isReplacedBy": {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         RDFS.label: Literal("Is replaced by", lang="en"),
@@ -238,4 +234,8 @@ for row in rec.query(query):
     if row["datatype"]:
         relationships[row["path"]][A] = [OWL.DatatypeProperty]
     if row["nodeKind"]:
-        relationships[row["path"]][A] = [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty]
+        relationships[row["path"]][A] = [
+            OWL.ObjectProperty,
+            OWL.AsymmetricProperty,
+            OWL.IrreflexiveProperty,
+        ]
