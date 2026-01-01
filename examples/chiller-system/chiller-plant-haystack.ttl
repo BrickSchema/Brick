@@ -11,14 +11,15 @@
     owl:imports <https://brickschema.org/schema/1.4/Brick> .
 
 :plant a brick:Chilled_Water_System ;
-    brick:hasPart :ct, :chiller ;
-    brick:hasPoint :plant-chilled-water-supply-temp, :plant-chilled-water-return-temp .
-:plant-chilled-water-supply-temp a brick:Supply_Chilled_Water_Temperature_Sensor ;
-    rdfs:label "Plant's temp sensor for the leaving chilled water (supply to load)" ;
-    brick:hasUnit unit:DEG_C .
-:plant-chilled-water-return-temp a brick:Return_Chilled_Water_Temperature_Sensor ;
-    rdfs:label "Plant's temp sensor for the entering chilled water (return from load)" ;
-    brick:hasUnit unit:DEG_C .
+    brick:hasPart :ct, :chiller .
+# currently can't put points on the system itself in Brick
+#    brick:hasPoint :plant-chilled-water-supply-temp, :plant-chilled-water-return-temp .
+# :plant-chilled-water-supply-temp a brick:Supply_Chilled_Water_Temperature_Sensor ;
+#     rdfs:label "Plant's temp sensor for the leaving chilled water (supply to load)" ;
+#     brick:hasUnit unit:DEG_C .
+# :plant-chilled-water-return-temp a brick:Return_Chilled_Water_Temperature_Sensor ;
+#     rdfs:label "Plant's temp sensor for the entering chilled water (return from load)" ;
+#     brick:hasUnit unit:DEG_C .
 
 :ct a brick:Cooling_Tower ;
     brick:hasPoint :ct-cond-water-leave-temp, :ct-cond-water-enter-temp .
@@ -30,8 +31,8 @@
     brick:hasUnit unit:DEG_C .
 
 :chiller a brick:Chiller ;
-    brick:hasPoint :cond-water-return-temp, :cond-water-supply-temp,
-                   :chilled-water-enter-temp, :chilled-water-leave-temp .
+    brick:hasPoint :cond-water-enter-temp, :cond-water-leave-temp,
+                   :chilled-water-return-temp, :chilled-water-supply-temp .
 :chilled-water-return-temp a brick:Return_Chilled_Water_Temperature_Sensor ;
     rdfs:label "Chilled Water Enter Temp Sensor (return from load)" ;
     brick:hasUnit unit:DEG_C .
