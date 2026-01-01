@@ -53,6 +53,12 @@ substances = {
                                     "Leaving_Chilled_Water": {
                                         "parents": [BRICK.Leaving_Water],
                                     },
+                                    "Return_Chilled_Water": {
+                                        "parents": [BRICK.Return_Water],
+                                    },
+                                    "Supply_Chilled_Water": {
+                                        "parents": [BRICK.Supply_Water],
+                                    },
                                 },
                             },
                             "Collection_Basin_Water": {},
@@ -72,14 +78,22 @@ substances = {
                             },
                             "Potable_Water": {},
                             "Leaving_Water": {},
+                            "Return_Water": {},
+                            "Supply_Water": {},
                             "Entering_Water": {},
                             "Hot_Water": {
                                 SKOS.narrower: {
                                     "Entering_Hot_Water": {
                                         "parents": [BRICK.Entering_Water],
                                     },
+                                    "Return_Hot_Water": {
+                                        "parents": [BRICK.Return_Water],
+                                    },
                                     "Leaving_Hot_Water": {
                                         "parents": [BRICK.Leaving_Water],
+                                    },
+                                    "Supply_Hot_Water": {
+                                        "parents": [BRICK.Supply_Water],
                                     },
                                 },
                             },
