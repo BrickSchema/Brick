@@ -177,7 +177,7 @@ relationships = {
         "domain": BRICK.Equipment,
         RDFS.label: Literal("Is controlled by", lang="en"),
     },
-    "hostsPoint": {
+    "hosts": {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         OWL.inverseOf: BRICK["isHostedBy"],
         "range": BRICK.Point,
@@ -186,7 +186,7 @@ relationships = {
     },
     "isHostedBy": {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
-        OWL.inverseOf: BRICK["hostsPoint"],
+        OWL.inverseOf: BRICK["hosts"],
         "range": BRICK.ICT_Equipment,
         "domain": BRICK.Point,
         RDFS.label: Literal("Is hosted by", lang="en"),
