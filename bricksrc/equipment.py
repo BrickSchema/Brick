@@ -8,7 +8,7 @@ Set up subclasses of the equipment superclass
 equipment_subclasses = {
     "ICT_Equipment": {
         "tags": [TAG.ICT, TAG.Equipment],
-        BRICK.hosts: [BRICK.Point],
+        "constraints": {BRICK.hosts: [BRICK.Point]},
         "subclasses": {
             "ICT_Hardware": {
                 "tags": [TAG.Equipment, TAG.ICT, TAG.Hardware],
@@ -58,7 +58,7 @@ equipment_subclasses = {
             },
             "Controller": {
                 "tags": [TAG.Equipment, TAG.ICT, TAG.Controller],
-                BRICK.controls: [BRICK.Equipment],
+                "constraints": {BRICK.controls: [BRICK.Equipment]},
                 "subclasses": {
                     "BACnet_Controller": {
                         "tags": [TAG.Equipment, TAG.BACnet, TAG.Controller],
@@ -1281,7 +1281,7 @@ hvac_subclasses = {
                     TAG.Liquid,
                     TAG.Expansion,
                     TAG.Valve,
-                ]
+                ],
             },
             "Electronic_Expansion_Valve": {
                 "parents": [BRICK["Valve"]],
@@ -1293,7 +1293,7 @@ hvac_subclasses = {
                     TAG.Liquid,
                     TAG.Expansion,
                     TAG.Valve,
-                ]
+                ],
             },
             "Capillary_Tube_Metering_Device": {
                 "tags": [TAG.Refrigerant, TAG.Gas, TAG.Fixed, TAG.Liquid, TAG.Metering]
