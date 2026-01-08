@@ -117,7 +117,6 @@ relationships = {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         OWL.inverseOf: BRICK["isPartOf"],
         RDFS.label: Literal("Has part", lang="en"),
-        RDFS.subPropertyOf: REC.includes,
     },
     "isPartOf": {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
