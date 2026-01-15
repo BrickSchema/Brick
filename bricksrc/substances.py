@@ -5,6 +5,9 @@ substances = {
     "Light": {
         "tags": [TAG.Light],
     },
+    "Solar": {
+        "tags": [TAG.Solar],
+    },
     "Fluid": {
         SKOS.narrower: {
             "Refrigerant": {},
@@ -27,10 +30,17 @@ substances = {
                             },
                         },
                     },
-                    "CO2": {},
-                    "CO": {},
-                    "Steam": {},
+                    "CH2O": {}, # Formaldehyde
+                    "CH4": {}, # Methane
+                    "CO": {}, # Carbon monoxide
+                    "CO2": {}, # Carbon dioxide
                     "Natural_Gas": {},
+                    "NH3": {}, # Ammonia
+                    "NO2": {}, # Nitrogen dioxide
+                    "O3": {}, # Ozone
+                    "Rn": {}, # Radon
+                    "Steam": {},
+                    "VOC": {}, # Volatile organic compounds
                 },
             },
             "Liquid": {
@@ -96,6 +106,13 @@ substances = {
             "Frost": {},
             "Hail": {},
             "Soil": {},
+        },
+    },
+    "Particulate_Matter": {
+        SKOS.narrower: {
+            "PM1": {},
+            "PM2.5": {},
+            "PM10": {},
         },
     },
 }

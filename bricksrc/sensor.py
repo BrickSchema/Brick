@@ -329,7 +329,8 @@ sensor_definitions = {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Conductivity],
                 BRICK.hasQuantity: QUDTQK.Conductivity,
                 "subclasses": {
-                    "Deionised_Water_Conductivity_Sensor": {
+                    "Deionized_Water_Conductivity_Sensor": {
+                        "aliases": [BRICK["Deionised_Water_Conductivity_Sensor"]],
                         "tags": [
                             TAG.Point,
                             TAG.Sensor,
@@ -1538,7 +1539,8 @@ sensor_definitions = {
                 BRICK.hasQuantity: BRICK.Level,
                 BRICK.hasSubstance: BRICK.Water,
                 "subclasses": {
-                    "Deionised_Water_Level_Sensor": {
+                    "Deionized_Water_Level_Sensor": {
+                        "aliases": [BRICK["Deionised_Water_Level_Sensor"]],
                         "tags": [
                             TAG.Point,
                             TAG.Sensor,
