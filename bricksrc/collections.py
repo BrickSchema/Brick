@@ -179,6 +179,17 @@ collection_classes = {
             ]
         },
     },
+    "Automation_Group": {
+        "tags": [TAG.Collection, TAG.Automation, TAG.Group],
+        "constraints": {
+            BRICK.hasPart: [
+                BRICK.Equipment,
+                BRICK.Point,
+                BRICK.Automation_Group,
+                BRICK.Point_Group,
+            ]
+        },
+    },
     "Loop": {
         "tags": [TAG.Collection, TAG.Loop],
         "subclasses": loop_subclasses,
