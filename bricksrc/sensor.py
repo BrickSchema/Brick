@@ -1033,6 +1033,10 @@ sensor_definitions = {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Occupancy, TAG.Count],
                 BRICK.hasQuantity: BRICK.Occupancy_Count,
             },
+            "Output_Lumen_Sensor": {
+                "tags": [TAG.Point, TAG.Sensor, TAG.Output, TAG.Lumen],
+                BRICK.hasQuantity: QUDTQK.LuminousFlux,
+            },
             "Piezoelectric_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Piezoelectric],
                 BRICK.hasQuantity: QUDTQK.Dimensionless,
@@ -1444,6 +1448,16 @@ sensor_definitions = {
                                 ],
                                 BRICK.hasQuantity: QUDTQK.ActivePower,
                             },
+                            "Apparent_Power_Sensor": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Sensor,
+                                    TAG.Power,
+                                    TAG.Apparent,
+                                    TAG.Electric,
+                                ],
+                                BRICK.hasQuantity: QUDTQK.ApparentPower,
+                            },
                             "Reactive_Power_Sensor": {
                                 "tags": [
                                     TAG.Point,
@@ -1508,6 +1522,10 @@ sensor_definitions = {
                         BRICK.hasQuantity: BRICK.Linear_Speed,
                     },
                 },
+            },
+            "Start_Stop_Counter": {
+                "tags": [TAG.Point, TAG.Sensor, TAG.Start, TAG.Stop, TAG.Count],
+                BRICK.hasQuantity: QUDTQK.Dimensionless,
             },
             "Torque_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Torque],
@@ -1924,7 +1942,7 @@ sensor_definitions = {
                                             TAG.Sensor,
                                         ],
                                     },
-                                }
+                                },
                             },
                             "Domestic_Hot_Water_Temperature_Sensor": {
                                 "tags": [
