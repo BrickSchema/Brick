@@ -6,10 +6,6 @@ from .env import env
 Defining Brick relationships
 """
 relationships = {
-    "connectedTo": {
-        A: [OWL.ObjectProperty, OWL.SymmetricProperty, OWL.IrreflexiveProperty],
-        RDFS.label: Literal("Connected To", lang="en"),
-    },
     "isReplacedBy": {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         RDFS.label: Literal("Is replaced by", lang="en"),
@@ -117,7 +113,6 @@ relationships = {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         OWL.inverseOf: BRICK["isPartOf"],
         RDFS.label: Literal("Has part", lang="en"),
-        RDFS.subPropertyOf: REC.includes,
     },
     "isPartOf": {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
@@ -177,7 +172,7 @@ relationships = {
         "domain": BRICK.Equipment,
         RDFS.label: Literal("Is controlled by", lang="en"),
     },
-    "hostsPoint": {
+    "hosts": {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         OWL.inverseOf: BRICK["isHostedBy"],
         "range": BRICK.Point,
@@ -186,7 +181,7 @@ relationships = {
     },
     "isHostedBy": {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
-        OWL.inverseOf: BRICK["hostsPoint"],
+        OWL.inverseOf: BRICK["hosts"],
         "range": BRICK.ICT_Equipment,
         "domain": BRICK.Point,
         RDFS.label: Literal("Is hosted by", lang="en"),
