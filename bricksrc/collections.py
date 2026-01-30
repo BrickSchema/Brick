@@ -186,7 +186,7 @@ collection_classes = {
                 BRICK.Equipment,
                 BRICK.Point,
                 BRICK.Automation_Group,
-                BRICK.Point_Group,
+                BRICK.Point_Collection,
             ]
         },
     },
