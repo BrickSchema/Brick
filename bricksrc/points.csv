@@ -617,15 +617,15 @@ brick:Overload_Alarm,,,,,,,(deprecated),An alarm that can indicate when a full-l
 brick:Overridden_Off_Status,,,,,,,(deprecated),"Indicates if a control loop, relay or equipment has been turned off when it would otherwise be scheduled to be on"
 brick:Overridden_On_Status,,,,,,,(deprecated),"Indicates if a control loop, relay or equipment has been turned on when it would otherwise be scheduled to be off"
 brick:Overridden_Status,,,,,,,(deprecated),Indicates if the expected operating status of an equipment or control loop has been overridden
-brick:Override_Command,,,,,,brick:Override_Command,,Controls or reports whether or not a device or control loop is in 'override'
+brick:Override_Command,,,,,,,(deprecated),Controls or reports whether or not a device or control loop is in 'override'
 brick:Ozone_Level_Sensor,,,brick:O3,,,brick:Sensor,Level,Measures the concentration of ozone in air
 brick:Parameter,,,,,,brick:Parameter,,Parameter points are configuration settings used to guide the operation of equipment and control systems; for example they may provide bounds on valid setpoint values
 brick:Particulate_Matter_Sensor,,,brick:Particulate_Matter,,,brick:Sensor,,Detects pollutants in the ambient air
 brick:Peak_Demand_Sensor,,,,,,,(deprecated),The peak power consumed by a process over some period of time
 brick:Photovoltaic_Current_Output_Sensor,,,,,,,(deprecated),Senses the amperes of electrical current produced as output by a photovoltaic device
 brick:PID_Parameter,,,,,,brick:PID_Parameter,,
-brick:Piezoelectric_Sensor,,,,,,brick:Sensor,Piezoelectric,"Senses changes pressure, acceleration, temperature, force or strain via the piezoelectric effect"
-brick:PIR_Sensor,,,,,,brick:Sensor,PIR,Detects the presense of motion in some area using the differential change in infrared intensity between two or more receptors
+brick:Piezoelectric_Sensor,,,,,,,(deprecated),"Senses changes pressure, acceleration, temperature, force or strain via the piezoelectric effect"
+brick:PIR_Sensor,,,,,,,(deprecated),Detects the presense of motion in some area using the differential change in infrared intensity between two or more receptors
 brick:PM1_Level_Sensor,,,brick:PM1.0,,,brick:Sensor,Level,Detects level of particulates of size 1 microns
 brick:PM1_Sensor,,,brick:PM1.0,,,brick:Sensor,,Detects matter of size 1 micron
 brick:PM10_Level_Sensor,,,brick:PM10.0,,,brick:Sensor,Level,Detects level of particulates of size 10 microns
@@ -659,7 +659,7 @@ brick:Radiant_Panel_Temperature_Setpoint,,brick:Radiant_Panel,,,quantitykind:Tem
 brick:Radon_Concentration_Sensor,,,brick:Rn,,quantitykind:ActivityConcentration,brick:Sensor,,Measures the concentration of radioactivity due to radon
 brick:Rain_Duration_Sensor,,,brick:Rain,,quantitykind:Time,brick:Sensor,,Measures the duration of precipitation within some time frame
 brick:Rain_Level_Sensor,,,brick:Rain,,,brick:Sensor,Level,Measures the amount of precipitation fallen
-brick:Rated_Speed_Setpoint,,,,,quantitykind:Speed,brick:Setpoint,Rated,Sets rated speed
+brick:Rated_Speed_Setpoint,,,,,,,(deprecated),Sets rated speed
 brick:Reactive_Energy_Sensor,,,,,quantitykind:Energy,brick:Sensor,Reactive,Measures the integral of reactive power
 brick:Reactive_Power_Sensor,,,,,quantitykind:ReactivePower,brick:Sensor,,"Measures the portion of power that, averaged over a complete cycle of the AC waveform, is due to stored energy which returns to the source in each cycle"
 brick:Refrigerant_Level_Sensor,,,brick:Refrigerant,,,brick:Sensor,Level,
@@ -691,12 +691,12 @@ brick:Run_Enable_Command,,brick:Run,,,,brick:Enable_Command,,
 brick:Run_Request_Status,,brick:Run,,,,brick:Status,Request,Indicates if a request has been filed to start a device or equipment
 brick:Run_Status,,brick:Run,,,,brick:Status,,
 brick:Run_Time_Sensor,,brick:Run,,,quantitykind:Time,brick:Sensor,,"Measures the duration for which a device was in an active or ""on"" state"
-brick:Sash_Position_Sensor,,,,,,brick:Sensor,Sash Position,Measures the current position of a sash in terms of the percent of fully open
-brick:Schedule_Temperature_Setpoint,,,,,quantitykind:Temperature,brick:Setpoint,Schedule,The current setpoint as indicated by the schedule
+brick:Sash_Position_Sensor,,brick:Fume_Hood_Sash,,,,brick:Sensor,Position,Measures the current position of a sash in terms of the percent of fully open
+brick:Schedule_Temperature_Setpoint,,,,,,,(deprecated),The current setpoint as indicated by the schedule
 brick:Sensor,,,,,,brick:Sensor,,A Sensor is an input point that represents the value of a device or instrument designed to detect and measure a variable (ASHRAE Dictionary).
 brick:Sensor_Failure_Alarm,,,,,,brick:Sensor_Failure_Alarm,,
 brick:Setpoint,,,,,,brick:Setpoint,,A Setpoint is an input value at which the desired property is set
-brick:Short_Cycle_Alarm,,,,,,brick:Alarm,Short Cycle,An alarm that indicates a short cycle occurred. A short cycle occurs when a cooling cycle is prevented from completing its full cycle
+brick:Short_Cycle_Alarm,,,,,,brick:Short_Cycle_Alarm,,An alarm that indicates a short cycle occurred. A short cycle occurs when a cooling cycle is prevented from completing its full cycle
 brick:Smoke_Alarm,,,brick:Smoke,,,brick:Alarm,,An alarm that indicates the off-normal conditions associated with smoke.
 brick:Smoke_Detection_Alarm,,brick:Smoke_Detection,,,,brick:Alarm,,
 brick:Soil_Temperature_Sensor,,,brick:Soil,,quantitykind:Temperature,brick:Sensor,,Measures the temperature of soil
@@ -709,8 +709,8 @@ brick:Speed_Reset_Command,,,,,quantitykind:Speed,brick:Reset_Command,,
 brick:Speed_Sensor,,,,,quantitykind:Speed,brick:Sensor,,Measures the magnitude of velocity of some form of movement
 brick:Speed_Setpoint,,,,,quantitykind:Speed,brick:Setpoint,,Sets speed
 brick:Speed_Setpoint_Limit,,,,,quantitykind:Speed,brick:Setpoint_Limit,,A parameter that places a lower or upper bound on the range of permitted values of a Speed_Setpoint.
-brick:Stage_Enable_Command,,,,,,brick:Enable_Command,Stage,A point representing a discrete stage which the equipment should be operating at. The desired stage number should be identified by an entity property
-brick:Stages_Status,,,,,,brick:Status,Stages,Indicates which stage a control loop or equipment is in
+brick:Stage_Enable_Command,,,,,brick:EnumerationKind-Stage,brick:Enable_Command,,A point representing a discrete stage which the equipment should be operating at. The desired stage number should be identified by an entity property
+brick:Stages_Status,,,,,brick:EnumerationKind-Stage,brick:Status,,Indicates which stage a control loop or equipment is in
 brick:Standby_Cooling_Zone_Air_Temperature_Setpoint,,,,,,,(deprecated),
 brick:Standby_Glycool_Unit_On_Off_Status,,,,,,,(deprecated),Indicates the on/off status of a standby glycool unit
 brick:Standby_Heating_Zone_Air_Temperature_Setpoint,,,,,,,(deprecated),
