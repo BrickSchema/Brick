@@ -781,9 +781,9 @@ brick:Temperature_Sensor,,,,,quantitykind:Temperature,brick:Sensor,,Measures tem
 brick:Temperature_Setpoint,,,,,quantitykind:Temperature,brick:Setpoint,,Sets temperature
 brick:Temperature_Step_Parameter,,,,,quantitykind:Temperature,brick:Step_Parameter,,
 brick:Temperature_Tolerance_Parameter,,,,,quantitykind:Temperature,brick:Tolerance_Parameter,,A parameter determining the difference between upper and lower limits of temperature.
-brick:Temporary_Occupancy_Status,,,,,brick:EnumerationKind-Occupancy,brick:Status,Temporary,"For systems that differentiate between scheduled occupied/unoccupied mode, this indicates if a space is temporarily occupied when it would otherwise be unoccupied"
+brick:Temporary_Occupancy_Status,,,,,,,(deprecated),"For systems that differentiate between scheduled occupied/unoccupied mode, this indicates if a space is temporarily occupied when it would otherwise be unoccupied"
 brick:Thermal_Energy_Usage_Sensor,,,,,quantitykind:ThermalEnergy,brick:Usage_Sensor,,A sensor that records the quantity of thermal energy consumed in a given period
-brick:Thermal_Power_Sensor,,,,,quantitykind:Power,brick:Sensor,Thermal,
+brick:Thermal_Power_Sensor,,,,,,,(deprecated),
 brick:Thermostat_Status,,brick:Thermostat,,,,brick:Status,,Status of a thermostat
 brick:Time_Parameter,,,,,quantitykind:Time,brick:Parameter,,
 brick:Time_Setpoint,,,,,quantitykind:Time,brick:Setpoint,,
@@ -796,7 +796,7 @@ brick:TVOC_Sensor,,,brick:VOC,,,brick:Sensor,,
 brick:Underfloor_Air_Plenum_Static_Pressure_Sensor,,brick:Underfloor_Air_Plenum,,,quantitykind:StaticPressure,brick:Sensor,,Measures the outward push of air against the plenum surfaces and used to measure the resistance when air moves through the plenum
 brick:Underfloor_Air_Plenum_Static_Pressure_Setpoint,,brick:Underfloor_Air_Plenum,,,quantitykind:StaticPressure,brick:Setpoint,,Sets the underfloor air plenum static pressure
 brick:Underfloor_Air_Temperature_Sensor,,,brick:Air,,quantitykind:Temperature,brick:Sensor,Underfloor,Measures the temperature of underfloor air
-brick:Unit_Failure_Alarm,,,,,,,(deprecated),An alarm that indicates the failure of an equipment or device
+brick:Unit_Failure_Alarm,,brick:Equipment,,,,brick:Failure_Alarm,,An alarm that indicates the failure of an equipment or device
 brick:Unoccupied_Air_Temperature_Setpoint,brick:Unoccupied,,brick:Air,,quantitykind:Temperature,brick:Setpoint,,Sets temperature of air when unoccupied
 brick:Unoccupied_Cooling_Discharge_Air_Flow_Setpoint,brick:Unoccupied,brick:Cooling,brick:Discharge_Air,,quantitykind:VolumeFlowRate,brick:Setpoint,,Sets discharge air flow for cooling when unoccupied
 brick:Unoccupied_Cooling_Mode_Status,brick:Unoccupied,brick:Cooling,,,brick:EnumerationKind-Mode,brick:Status,,"Indicates whether a system, device or control loop is in an unoccupied cooling mode"
@@ -828,8 +828,8 @@ brick:Valve_Position_Sensor,,brick:Valve,,,,brick:Sensor,Position,Measures the c
 brick:Valve_Status,,brick:Valve,,,,brick:Status,,The current status of the valve.
 brick:Velocity_Pressure_Sensor,,,,,quantitykind:DynamicPressure,brick:Sensor,,Measures the difference between total pressure and static pressure
 brick:Velocity_Pressure_Setpoint,,,,,quantitykind:DynamicPressure,brick:Setpoint,,Sets static veloicty pressure
-brick:Vent_Operating_Mode_Status,,,,,brick:EnumerationKind-Operating_Mode,brick:Status,Vent,Indicates the current operating mode of a vent
-brick:Ventilation_Air_Flow_Ratio_Limit,,,brick:Air,,quantitykind:VolumeFlowRate,brick:Limit,Ventilation Ratio,A parameter that places a lower or upper bound on the range of permitted values of a Ventilation_Air_Flow_Ratio_Setpoint.
+brick:Vent_Operating_Mode_Status,,,,,,,(deprecated),Indicates the current operating mode of a vent
+brick:Ventilation_Air_Flow_Ratio_Limit,,,,,,,(deprecated),A parameter that places a lower or upper bound on the range of permitted values of a Ventilation_Air_Flow_Ratio_Setpoint.
 brick:VFD_Enable_Command,,brick:VFD,,,,brick:Enable_Command,,Enables operation of a variable frequency drive
 brick:Voltage_Alarm,,,,,quantitykind:Voltage,brick:Alarm,,An alarm that indicates the voltage is not in a normal state.
 brick:Voltage_Imbalance_Sensor,,,,,quantitykind:Voltage,brick:Sensor,Imbalance,A sensor which measures the voltage difference (imbalance) between phases of an electrical system
@@ -862,6 +862,6 @@ brick:Zone_Air_Humidity_Sensor,,,brick:Zone_Air,,quantitykind:RelativeHumidity,b
 brick:Zone_Air_Humidity_Setpoint,,,brick:Zone_Air,,quantitykind:RelativeHumidity,brick:Setpoint,,Humidity setpoint for zone air
 brick:Zone_Air_Temperature_Sensor,,,brick:Zone_Air,,quantitykind:Temperature,brick:Sensor,,A physical or virtual sensor which represents the temperature of an HVAC Zone
 brick:Zone_CO2_Level_Sensor,,,brick:Zone_Air,,,brick:Sensor,CO2 Level,A physical or virtual sensor which represents the CO2 level of an HVAC Zone
-brick:Zone_Occupied_Load_Shed_Command,brick:Occupied,brick:Load_Shed,,,,brick:Command,Zone,
+brick:Zone_Occupied_Load_Shed_Command,,,,,,,(deprecated),
 brick:Zone_Standby_Load_Shed_Command,,,,,,,(deprecated),
-brick:Zone_Unoccupied_Load_Shed_Command,brick:Unoccupied,brick:Load_Shed,,,,brick:Command,Zone,
+brick:Zone_Unoccupied_Load_Shed_Command,,,,,,,(deprecated),
