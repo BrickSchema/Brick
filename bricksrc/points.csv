@@ -212,7 +212,7 @@ brick:Effective_Heating_Zone_Air_Temperature_Setpoint,,brick:Heating,brick:Zone_
 brick:Effective_Return_Air_Temperature_Setpoint,,,brick:Return_Air,,quantitykind:Temperature,brick:Effective_Setpoint,,
 brick:Effective_Room_Air_Temperature_Setpoint,,,brick:Room_Air,,quantitykind:Temperature,brick:Effective_Setpoint,,
 brick:Effective_Supply_Air_Temperature_Setpoint,,,brick:Supply_Air,,quantitykind:Temperature,brick:Effective_Setpoint,,
-brick:Effective_Target_Zone_Air_Temperature_Setpoint,,,brick:Zone_Air,,quantitykind:Temperature,brick:Effective_Setpoint,Target,Target Setpoint (also known as Common Setpoint) is a reference point representing the desired air temperature in a specific zone of a building. This setpoint acts as a baseline from which the cooling and heating setpoints are established by adding or subtracting a deadband width
+brick:Effective_Target_Zone_Air_Temperature_Setpoint,,,brick:Zone_Air,,quantitykind:Temperature,brick:Effective_Setpoint,,Target Setpoint (also known as Common Setpoint) is a reference point representing the desired air temperature in a specific zone of a building. This setpoint acts as a baseline from which the cooling and heating setpoints are established by adding or subtracting a deadband width
 brick:Electric_Energy_Sensor,,,,,quantitykind:Energy,brick:Sensor,Electric,
 brick:Electric_Power_Sensor,,,,,quantitykind:ElectricPower,brick:Sensor,,Measures the amount of instantaneous electric power consumed
 brick:Electrical_Energy_Usage_Sensor,,,,,quantitykind:Energy,brick:Usage_Sensor,Electric,A sensor that records the quantity of electrical energy consumed in a given period
@@ -579,7 +579,7 @@ brick:Occupied_Return_Air_Temperature_Setpoint,brick:Occupied,,brick:Return_Air,
 brick:Occupied_Room_Air_Temperature_Setpoint,brick:Occupied,,brick:Room_Air,,quantitykind:Temperature,brick:Setpoint,,
 brick:Occupied_Supply_Air_Flow_Setpoint,brick:Occupied,,brick:Supply_Air,,quantitykind:VolumeFlowRate,brick:Setpoint,,Sets supply air flow rate when occupied
 brick:Occupied_Supply_Air_Temperature_Setpoint,brick:Occupied,,brick:Supply_Air,,quantitykind:Temperature,brick:Setpoint,,
-brick:Occupied_Target_Zone_Air_Temperature_Setpoint,brick:Occupied,,brick:Zone_Air,,quantitykind:Temperature,brick:Setpoint,Target,Target Setpoint (also known as Common Setpoint) is a reference point representing the desired occupied air temperature in a specific zone of a building. This setpoint acts as a baseline from which deadband setpoints are established by adding or subtracting a deadband width.
+brick:Occupied_Target_Zone_Air_Temperature_Setpoint,brick:Occupied,,brick:Zone_Air,,quantitykind:Temperature,brick:Setpoint,,Target Setpoint (also known as Common Setpoint) is a reference point representing the desired occupied air temperature in a specific zone of a building. This setpoint acts as a baseline from which deadband setpoints are established by adding or subtracting a deadband width.
 brick:Off_Command,,,,,brick:On_Off-Off,brick:Command,,"An Off Command controls or reports the binary 'off' status of a control loop, relay or equipment activity. It can only be used to stop/deactivate an associated equipment or process, or determine that the related entity is 'off'"
 brick:Off_Status,,,,,brick:On_Off-Off,brick:Status,,"Indicates if a control loop, relay or equipment is off"
 brick:On_Command,,,,,brick:On_Off-On,brick:Command,,"An On Command controls or reports the binary 'on' status of a control loop, relay or equipment activity. It can only be used to start/activate an associated equipment or process, or determine that the related entity is 'on'"
@@ -768,7 +768,7 @@ brick:Switch_Status,,brick:Switch,,,,brick:Status,,Status of a switch
 brick:System_Enable_Command,,brick:System,,,,brick:Enable_Command,,Enables operation of a system
 brick:System_Shutdown_Status,,brick:System,,,brick:EnumerationKind-Shutdown,brick:Status,,Indicates if a system has been shutdown
 brick:System_Status,,brick:System,,,,brick:Status,,Indicates properties of the activity of a system
-brick:Target_Zone_Air_Temperature_Setpoint,,,brick:Zone_Air,,quantitykind:Temperature,brick:Setpoint,Target,
+brick:Target_Zone_Air_Temperature_Setpoint,,,brick:Zone_Air,,quantitykind:Temperature,brick:Setpoint,,
 brick:Temperature_Adjust_Sensor,,,,,,,(deprecated),Measures user-provided adjustment of temperature
 brick:Temperature_Alarm,,,,,quantitykind:Temperature,brick:Alarm,,An alarm that indicates the off-normal conditions associated with temperature.
 brick:Temperature_Alarm_Sensitivity_Parameter,,,,,quantitykind:Temperature,brick:Alarm_Sensitivity_Parameter,,A parameter indicates the sensitivity to activate a temperature alarm.
@@ -819,7 +819,7 @@ brick:Unoccupied_Return_Air_Temperature_Setpoint,brick:Unoccupied,,brick:Return_
 brick:Unoccupied_Room_Air_Temperature_Setpoint,brick:Unoccupied,,brick:Room_Air,,quantitykind:Temperature,brick:Setpoint,,
 brick:Unoccupied_Supply_Air_Flow_Setpoint,brick:Unoccupied,,brick:Supply_Air,,quantitykind:VolumeFlowRate,brick:Setpoint,,
 brick:Unoccupied_Supply_Air_Temperature_Setpoint,brick:Unoccupied,,brick:Supply_Air,,quantitykind:Temperature,brick:Setpoint,,
-brick:Unoccupied_Target_Zone_Air_Temperature_Setpoint,brick:Unoccupied,,brick:Zone_Air,,quantitykind:Temperature,brick:Setpoint,Target,Target Setpoint (also known as Common Setpoint) is a reference point representing the desired unoccupied air temperature in a specific zone of a building. This setpoint acts as a baseline from which deadband setpoints are established by adding or subtracting a deadband width.
+brick:Unoccupied_Target_Zone_Air_Temperature_Setpoint,brick:Unoccupied,,brick:Zone_Air,,quantitykind:Temperature,brick:Setpoint,,Target Setpoint (also known as Common Setpoint) is a reference point representing the desired unoccupied air temperature in a specific zone of a building. This setpoint acts as a baseline from which deadband setpoints are established by adding or subtracting a deadband width.
 brick:Usage_Sensor,,,,,,brick:Usage_Sensor,,"Measures the amount of some substance that is consumed or used, over some period of time"
 brick:Valve_Command,,brick:Valve,,,,brick:Command,,Controls or reports the openness of a valve (typically as a proportion of its full range of motion)
 brick:Valve_Position_Alarm,,brick:Valve,,,,brick:Alarm,Position,An alarm that indicates that the valve position is not in a normal state.
