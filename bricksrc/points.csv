@@ -160,7 +160,7 @@ brick:Disable_Differential_Enthalpy_Command,,,,brick:Differential,quantitykind:E
 brick:Disable_Differential_Temperature_Command,,,,brick:Differential,quantitykind:Temperature,brick:Disable_Command,,Disables the use of differential temperature control
 brick:Disable_Fixed_Enthalpy_Command,,,,,quantitykind:Enthalpy,brick:Disable_Command,Fixed,Disables the use of fixed enthalpy control
 brick:Disable_Fixed_Temperature_Command,,,,,quantitykind:Temperature,brick:Disable_Command,Fixed,Disables the use of fixed temperature temperature
-brick:Disable_Hot_Water_System_Outside_Air_Temperature_Setpoint,,brick:Hot_Water_System,brick:Outside_Air,,quantitykind:Temperature,brick:Disable_Setpoint,,Disables hot water system when outside air temperature reaches the indicated value
+brick:Disable_Hot_Water_System_Outside_Air_Temperature_Setpoint,,,,,,,(deprecated),Disables hot water system when outside air temperature reaches the indicated value
 brick:Disable_Status,,,,,,brick:Disable_Status,,Indicates if functionality has been disabled
 brick:Discharge_Air_Dewpoint_Sensor,,,brick:Discharge_Air,,quantitykind:DewPointTemperature,brick:Sensor,,Measures dewpoint of discharge air
 brick:Discharge_Air_Differential_Pressure_Sensor,,,brick:Discharge_Air,brick:Differential,quantitykind:Pressure,brick:Sensor,,
@@ -231,7 +231,7 @@ brick:Enable_Differential_Enthalpy_Command,,,,brick:Differential,quantitykind:En
 brick:Enable_Differential_Temperature_Command,,,,brick:Differential,quantitykind:Temperature,brick:Enable_Command,,Enables the use of differential temperature control
 brick:Enable_Fixed_Enthalpy_Command,,,,,quantitykind:Enthalpy,brick:Enable_Command,Fixed,Enables the use of fixed enthalpy control
 brick:Enable_Fixed_Temperature_Command,,,,,quantitykind:Temperature,brick:Enable_Command,Fixed,Enables the use of fixed temperature control
-brick:Enable_Hot_Water_System_Outside_Air_Temperature_Setpoint,,brick:Hot_Water_System,brick:Outside_Air,,quantitykind:Temperature,brick:Enable_Setpoint,,Enables hot water system when outside air temperature reaches the indicated value
+brick:Enable_Hot_Water_System_Outside_Air_Temperature_Setpoint,,,,,,,(deprecated),Enables hot water system when outside air temperature reaches the indicated value
 brick:Enable_Status,,,,,,brick:Enable_Status,,Indicates if a system or piece of functionality has been enabled
 brick:Energy_Generation_Sensor,,,,,quantitykind:Energy,brick:Generation_Sensor,,A sensor measuring the amount of generated energy.
 brick:Energy_Sensor,,,,,quantitykind:Energy,brick:Sensor,,Measures energy consumption
@@ -468,13 +468,13 @@ brick:Maintenance_Mode_Command,,,,,brick:EnumerationKind-Maintenance_Mode,brick:
 brick:Maintenance_Required_Alarm,,,,,,brick:Maintenance_Required_Alarm,,An alarm that indicates that repair/maintenance is required on an associated device or equipment
 brick:Manual_Auto_Status,,,,,brick:EnumerationKind-Manual_Auto,brick:Status,,Indicates if a system is under manual or automatic operation
 brick:Max_Air_Flow_Setpoint_Limit,,,brick:Air,,quantitykind:VolumeFlowRate,brick:Max_Limit,,A parameter that places an upper bound on the range of permitted values of a Air_Flow_Setpoint.
-brick:Max_Air_Temperature_Setpoint,,,brick:Air,,quantitykind:Temperature,brick:Max_Setpoint,,Setpoint for maximum air temperature
+brick:Max_Air_Temperature_Setpoint,,,,,,,(deprecated),Setpoint for maximum air temperature
 brick:Max_Chilled_Water_Differential_Pressure_Setpoint_Limit,,,brick:Chilled_Water,brick:Differential,quantitykind:Pressure,brick:Max_Limit,,A parameter that places an upper bound on the range of permitted values of a Chilled_Water_Differential_Pressure_Setpoint.
 brick:Max_Cooling_Discharge_Air_Flow_Setpoint_Limit,,brick:Cooling,brick:Discharge_Air,,quantitykind:VolumeFlowRate,brick:Max_Limit,,A parameter that places an upper bound on the range of permitted values of a Cooling_Discharge_Air_Flow_Setpoint.
 brick:Max_Cooling_Supply_Air_Flow_Setpoint_Limit,,brick:Cooling,brick:Supply_Air,,quantitykind:VolumeFlowRate,brick:Max_Limit,,A parameter that places an upper bound on the range of permitted values of a Cooling_Supply_Air_Flow_Setpoint.
 brick:Max_Discharge_Air_Static_Pressure_Setpoint_Limit,,,brick:Discharge_Air,,quantitykind:StaticPressure,brick:Max_Limit,,A parameter that places an upper bound on the range of permitted values of a Discharge_Air_Static_Pressure_Setpoint.
 brick:Max_Discharge_Air_Temperature_Setpoint_Limit,,,brick:Discharge_Air,,quantitykind:Temperature,brick:Max_Limit,,A parameter that places an upper bound on the range of permitted values of a Discharge_Air_Temperature_Setpoint.
-brick:Max_Frequency_Command,,,,,quantitykind:Frequency,brick:Max_Command,,Sets the maximum permitted frequency
+brick:Max_Frequency_Command,,,,,,,(deprecated),Sets the maximum permitted frequency
 brick:Max_Fresh_Air_Setpoint_Limit,,,brick:Fresh_Air,,,brick:Max_Limit,,A parameter that places an upper bound on the range of permitted values of a Fresh_Air_Setpoint.
 brick:Max_Heating_Discharge_Air_Flow_Setpoint_Limit,,brick:Heating,brick:Discharge_Air,,quantitykind:VolumeFlowRate,brick:Max_Limit,,A parameter that places an upper bound on the range of permitted values of a Heating_Discharge_Air_Flow_Setpoint.
 brick:Max_Heating_Supply_Air_Flow_Setpoint_Limit,,brick:Heating,brick:Supply_Air,,quantitykind:VolumeFlowRate,brick:Max_Limit,,A parameter that places an upper bound on the range of permitted values of a Heating_Supply_Air_Flow_Setpoint.
@@ -497,7 +497,7 @@ brick:Max_Unoccupied_Cooling_Supply_Air_Flow_Setpoint_Limit,brick:Unoccupied,bri
 brick:Max_Unoccupied_Heating_Discharge_Air_Flow_Setpoint_Limit,brick:Unoccupied,brick:Heating,brick:Discharge_Air,,quantitykind:VolumeFlowRate,brick:Max_Limit,,A parameter that places an upper bound on the range of permitted values of a Unoccupied_Heating_Discharge_Air_Flow_Setpoint.
 brick:Max_Unoccupied_Heating_Supply_Air_Flow_Setpoint_Limit,brick:Unoccupied,brick:Heating,brick:Supply_Air,,quantitykind:VolumeFlowRate,brick:Max_Limit,,A parameter that places an upper bound on the range of permitted values of a Unoccupied_Heating_Supply_Air_Flow_Setpoint.
 brick:Max_Water_Level_Alarm,,,brick:Water,,,brick:Max_Alarm,Level,Alarm indicating that the maximum water level was reached
-brick:Max_Water_Temperature_Setpoint,,,brick:Water,,quantitykind:Temperature,brick:Max_Setpoint,,Setpoint for max water temperature
+brick:Max_Water_Temperature_Setpoint,,,,,,,(deprecated),Setpoint for max water temperature
 brick:Medium_Temperature_Hot_Water_Differential_Pressure_Load_Shed_Reset_Status,,brick:Load_Shed,brick:Medium_Temperature_Hot_Water,brick:Differential,quantitykind:Pressure,brick:Reset_Status,,
 brick:Medium_Temperature_Hot_Water_Differential_Pressure_Load_Shed_Setpoint,,brick:Load_Shed,brick:Medium_Temperature_Hot_Water,brick:Differential,quantitykind:Pressure,brick:Setpoint,,
 brick:Medium_Temperature_Hot_Water_Differential_Pressure_Load_Shed_Status,,brick:Load_Shed,brick:Medium_Temperature_Hot_Water,brick:Differential,quantitykind:Pressure,brick:Status,,
@@ -505,13 +505,13 @@ brick:Medium_Temperature_Hot_Water_Differential_Pressure_Sensor,,,brick:Medium_T
 brick:Medium_Temperature_Hot_Water_Differential_Pressure_Setpoint,,,brick:Medium_Temperature_Hot_Water,brick:Differential,quantitykind:Pressure,brick:Setpoint,,
 brick:Methane_Level_Sensor,,,brick:CH4,,quantitykind:AmountOfSubstanceFraction,brick:Sensor,,Measures the concentration of methane in air
 brick:Min_Air_Flow_Setpoint_Limit,,,brick:Air,,quantitykind:VolumeFlowRate,brick:Min_Limit,,A parameter that places a lower bound on the range of permitted values of a Air_Flow_Setpoint.
-brick:Min_Air_Temperature_Setpoint,,,brick:Air,,quantitykind:Temperature,brick:Min_Setpoint,,Setpoint for minimum air temperature
+brick:Min_Air_Temperature_Setpoint,,,,,,,(deprecated),Setpoint for minimum air temperature
 brick:Min_Chilled_Water_Differential_Pressure_Setpoint_Limit,,,brick:Chilled_Water,brick:Differential,quantitykind:Pressure,brick:Min_Limit,,A parameter that places a lower bound on the range of permitted values of a Chilled_Water_Differential_Pressure_Setpoint.
 brick:Min_Cooling_Discharge_Air_Flow_Setpoint_Limit,,brick:Cooling,brick:Discharge_Air,,quantitykind:VolumeFlowRate,brick:Min_Limit,,A parameter that places a lower bound on the range of permitted values of a Cooling_Discharge_Air_Flow_Setpoint.
 brick:Min_Cooling_Supply_Air_Flow_Setpoint_Limit,,brick:Cooling,brick:Supply_Air,,quantitykind:VolumeFlowRate,brick:Min_Limit,,A parameter that places a lower bound on the range of permitted values of a Cooling_Supply_Air_Flow_Setpoint.
 brick:Min_Discharge_Air_Static_Pressure_Setpoint_Limit,,,brick:Discharge_Air,,quantitykind:StaticPressure,brick:Min_Limit,,A parameter that places a lower bound on the range of permitted values of a Discharge_Air_Static_Pressure_Setpoint.
 brick:Min_Discharge_Air_Temperature_Setpoint_Limit,,,brick:Discharge_Air,,quantitykind:Temperature,brick:Min_Limit,,A parameter that places a lower bound on the range of permitted values of a Discharge_Air_Temperature_Setpoint.
-brick:Min_Frequency_Command,,,,,quantitykind:Frequency,brick:Min_Command,,
+brick:Min_Frequency_Command,,,,,,,(deprecated),
 brick:Min_Fresh_Air_Setpoint_Limit,,,brick:Fresh_Air,,,brick:Min_Limit,,A parameter that places a lower bound on the range of permitted values of a Fresh_Air_Setpoint.
 brick:Min_Heating_Discharge_Air_Flow_Setpoint_Limit,,brick:Heating,brick:Discharge_Air,,quantitykind:VolumeFlowRate,brick:Min_Limit,,A parameter that places a lower bound on the range of permitted values of a Heating_Discharge_Air_Flow_Setpoint.
 brick:Min_Heating_Supply_Air_Flow_Setpoint_Limit,,brick:Heating,brick:Supply_Air,,quantitykind:VolumeFlowRate,brick:Min_Limit,,A parameter that places a lower bound on the range of permitted values of a Heating_Supply_Air_Flow_Setpoint.
@@ -534,7 +534,7 @@ brick:Min_Unoccupied_Cooling_Supply_Air_Flow_Setpoint_Limit,brick:Unoccupied,bri
 brick:Min_Unoccupied_Heating_Discharge_Air_Flow_Setpoint_Limit,brick:Unoccupied,brick:Heating,brick:Discharge_Air,,quantitykind:VolumeFlowRate,brick:Min_Limit,,A parameter that places a lower bound on the range of permitted values of a Unoccupied_Heating_Discharge_Air_Flow_Setpoint.
 brick:Min_Unoccupied_Heating_Supply_Air_Flow_Setpoint_Limit,brick:Unoccupied,brick:Heating,brick:Supply_Air,,quantitykind:VolumeFlowRate,brick:Min_Limit,,A parameter that places a lower bound on the range of permitted values of a Unoccupied_Heating_Supply_Air_Flow_Setpoint.
 brick:Min_Water_Level_Alarm,,,brick:Water,,,brick:Min_Alarm,Level,Alarm indicating that the minimum water level was reached
-brick:Min_Water_Temperature_Setpoint,,,brick:Water,,quantitykind:Temperature,brick:Min_Setpoint,,Setpoint for min water temperature
+brick:Min_Water_Temperature_Setpoint,,,,,,,(deprecated),Setpoint for min water temperature
 brick:Mixed_Air_Flow_Sensor,,,brick:Mixed_Air,,quantitykind:VolumeFlowRate,brick:Sensor,,Measures the rate of flow of mixed air
 brick:Mixed_Air_Humidity_Sensor,,,brick:Mixed_Air,,quantitykind:RelativeHumidity,brick:Sensor,,Measures the humidity of mixed air
 brick:Mixed_Air_Humidity_Setpoint,,,brick:Mixed_Air,,quantitykind:RelativeHumidity,brick:Setpoint,,Humidity setpoint for mixed air
