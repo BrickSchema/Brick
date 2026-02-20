@@ -156,10 +156,10 @@ brick:Direction_Command,,,,,,,(deprecated),Commands that affect the direction of
 brick:Direction_Sensor,,,,,,,(deprecated),Measures the direction in degrees in which a phenomenon is occuring
 brick:Direction_Status,,,,,,,(deprecated),Indicates which direction a device is operating in
 brick:Disable_Command,,,,,,brick:Disable_Command,,Commands that disable functionality
-brick:Disable_Differential_Enthalpy_Command,,,,brick:Differential,quantitykind:Enthalpy,brick:Disable_Command,,Disables the use of differential enthalpy control
-brick:Disable_Differential_Temperature_Command,,,,brick:Differential,quantitykind:Temperature,brick:Disable_Command,,Disables the use of differential temperature control
-brick:Disable_Fixed_Enthalpy_Command,,,,,quantitykind:Enthalpy,brick:Disable_Command,Fixed,Disables the use of fixed enthalpy control
-brick:Disable_Fixed_Temperature_Command,,,,,quantitykind:Temperature,brick:Disable_Command,Fixed,Disables the use of fixed temperature temperature
+brick:Disable_Differential_Enthalpy_Command,,brick:Differential_Enthalpy,,,,brick:Disable_Command,,Disables the use of differential enthalpy control
+brick:Disable_Differential_Temperature_Command,,brick:Differential_Temperature,,,,brick:Disable_Command,,Disables the use of differential temperature control
+brick:Disable_Fixed_Enthalpy_Command,,brick:Fixed_Enthalpy,,,,brick:Disable_Command,,Disables the use of fixed enthalpy control
+brick:Disable_Fixed_Temperature_Command,,brick:Fixed_Temperature,,,,brick:Disable_Command,,Disables the use of fixed temperature temperature
 brick:Disable_Hot_Water_System_Outside_Air_Temperature_Setpoint,,,,,,,(deprecated),Disables hot water system when outside air temperature reaches the indicated value
 brick:Disable_Status,,,,,,brick:Disable_Status,,Indicates if functionality has been disabled
 brick:Discharge_Air_Dewpoint_Sensor,,,brick:Discharge_Air,,quantitykind:DewPointTemperature,brick:Sensor,,Measures dewpoint of discharge air
@@ -227,10 +227,10 @@ brick:Emergency_Power_Off_System_Activated_By_Leak_Detection_System_Status,,,,,,
 brick:Emergency_Power_Off_System_Status,,,,,,,(deprecated),
 brick:Emergency_Push_Button_Status,,,,,,,(deprecated),Indicates if an emergency button has been pushed
 brick:Enable_Command,,,,,,brick:Enable_Command,,Commands that enable functionality
-brick:Enable_Differential_Enthalpy_Command,,,,brick:Differential,quantitykind:Enthalpy,brick:Enable_Command,,Enables the use of differential enthalpy control
-brick:Enable_Differential_Temperature_Command,,,,brick:Differential,quantitykind:Temperature,brick:Enable_Command,,Enables the use of differential temperature control
-brick:Enable_Fixed_Enthalpy_Command,,,,,quantitykind:Enthalpy,brick:Enable_Command,Fixed,Enables the use of fixed enthalpy control
-brick:Enable_Fixed_Temperature_Command,,,,,quantitykind:Temperature,brick:Enable_Command,Fixed,Enables the use of fixed temperature control
+brick:Enable_Differential_Enthalpy_Command,,brick:Differential_Enthalpy,,,,brick:Enable_Command,,Enables the use of differential enthalpy control
+brick:Enable_Differential_Temperature_Command,,brick:Differential_Temperature,,,,brick:Enable_Command,,Enables the use of differential temperature control
+brick:Enable_Fixed_Enthalpy_Command,,brick:Fixed_Enthalpy,,,,brick:Enable_Command,,Enables the use of fixed enthalpy control
+brick:Enable_Fixed_Temperature_Command,,brick:Fixed_Temperature,,,,brick:Enable_Command,,Enables the use of fixed temperature control
 brick:Enable_Hot_Water_System_Outside_Air_Temperature_Setpoint,,,,,,,(deprecated),Enables hot water system when outside air temperature reaches the indicated value
 brick:Enable_Status,,,,,,brick:Enable_Status,,Indicates if a system or piece of functionality has been enabled
 brick:Energy_Generation_Sensor,,,,,quantitykind:Energy,brick:Generation_Sensor,,A sensor measuring the amount of generated energy.
@@ -580,12 +580,12 @@ brick:Occupied_Room_Air_Temperature_Setpoint,brick:Occupied,,brick:Room_Air,,qua
 brick:Occupied_Supply_Air_Flow_Setpoint,brick:Occupied,,brick:Supply_Air,,quantitykind:VolumeFlowRate,brick:Setpoint,,Sets supply air flow rate when occupied
 brick:Occupied_Supply_Air_Temperature_Setpoint,brick:Occupied,,brick:Supply_Air,,quantitykind:Temperature,brick:Setpoint,,
 brick:Occupied_Target_Zone_Air_Temperature_Setpoint,brick:Occupied,,brick:Zone_Air,,quantitykind:Temperature,brick:Setpoint,,Target Setpoint (also known as Common Setpoint) is a reference point representing the desired occupied air temperature in a specific zone of a building. This setpoint acts as a baseline from which deadband setpoints are established by adding or subtracting a deadband width.
-brick:Off_Command,,,,,brick:On_Off-Off,brick:Command,,"An Off Command controls or reports the binary 'off' status of a control loop, relay or equipment activity. It can only be used to stop/deactivate an associated equipment or process, or determine that the related entity is 'off'"
-brick:Off_Status,,,,,brick:On_Off-Off,brick:Status,,"Indicates if a control loop, relay or equipment is off"
-brick:On_Command,,,,,brick:On_Off-On,brick:Command,,"An On Command controls or reports the binary 'on' status of a control loop, relay or equipment activity. It can only be used to start/activate an associated equipment or process, or determine that the related entity is 'on'"
+brick:Off_Command,,,,,brick:EnumerationKind-Off,brick:Command,,"An Off Command controls or reports the binary 'off' status of a control loop, relay or equipment activity. It can only be used to stop/deactivate an associated equipment or process, or determine that the related entity is 'off'"
+brick:Off_Status,,,,,brick:EnumerationKind-Off,brick:Status,,"Indicates if a control loop, relay or equipment is off"
+brick:On_Command,,,,,brick:EnumerationKind-On,brick:Command,,"An On Command controls or reports the binary 'on' status of a control loop, relay or equipment activity. It can only be used to start/activate an associated equipment or process, or determine that the related entity is 'on'"
 brick:On_Off_Command,,,,,brick:EnumerationKind-On_Off,brick:Command,,"An On/Off Command controls or reports the binary status of a control loop, relay or equipment activity"
 brick:On_Off_Status,,,,,brick:EnumerationKind-On_Off,brick:Status,,"Indicates the on/off status of a control loop, relay or equipment"
-brick:On_Status,,,,,brick:On_Off-On,brick:Status,,"Indicates if a control loop, relay or equipment is on"
+brick:On_Status,,,,,brick:EnumerationKind-On,brick:Status,,"Indicates if a control loop, relay or equipment is on"
 brick:On_Timer_Sensor,,,,,,,(deprecated),"Measures the duration for which a device was in an active or ""on"" state"
 brick:Open_Close_Command,,,,,brick:EnumerationKind-Open_Close,brick:Command,,"A binary signal given to a device, such as a damper or valve, to either open or close"
 brick:Open_Close_Status,,,,,brick:EnumerationKind-Open_Close,brick:Status,,Indicates the open/close status of a device such as a damper or valve
@@ -709,7 +709,7 @@ brick:Speed_Reset_Command,,,,,quantitykind:Speed,brick:Reset_Command,,
 brick:Speed_Sensor,,,,,quantitykind:Speed,brick:Sensor,,Measures the magnitude of velocity of some form of movement
 brick:Speed_Setpoint,,,,,quantitykind:Speed,brick:Setpoint,,Sets speed
 brick:Speed_Setpoint_Limit,,,,,quantitykind:Speed,brick:Setpoint_Limit,,A parameter that places a lower or upper bound on the range of permitted values of a Speed_Setpoint.
-brick:Stage_Enable_Command,,,,,brick:EnumerationKind-Stage,brick:Enable_Command,,A point representing a discrete stage which the equipment should be operating at. The desired stage number should be identified by an entity property
+brick:Stage_Enable_Command,,,,,brick:EnumerationKind-Stage,brick:Command,,A point representing a discrete stage which the equipment should be operating at. The desired stage number should be identified by an entity property
 brick:Stages_Status,,,,,brick:EnumerationKind-Stage,brick:Status,,Indicates which stage a control loop or equipment is in
 brick:Standby_Cooling_Zone_Air_Temperature_Setpoint,,,,,,,(deprecated),
 brick:Standby_Glycool_Unit_On_Off_Status,,,,,,,(deprecated),Indicates the on/off status of a standby glycool unit
