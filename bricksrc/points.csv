@@ -282,11 +282,11 @@ brick:Exhaust_Air_Flow_Sensor,,,brick:Exhaust_Air,,quantitykind:VolumeFlowRate,b
 brick:Exhaust_Air_Flow_Setpoint,,,brick:Exhaust_Air,,quantitykind:VolumeFlowRate,brick:Setpoint,,Sets exhaust air flow rate
 brick:Exhaust_Air_Humidity_Sensor,,,brick:Exhaust_Air,,quantitykind:RelativeHumidity,brick:Sensor,,Measures the relative humidity of exhaust air
 brick:Exhaust_Air_Humidity_Setpoint,,,brick:Exhaust_Air,,quantitykind:RelativeHumidity,brick:Setpoint,,Humidity setpoint for exhaust air
-brick:Exhaust_Air_Stack_Flow_Deadband_Setpoint,,brick:Exhaust_Air_Stack,,,quantitykind:VolumeFlowRate,brick:Deadband_Setpoint,,Sets the size of a deadband of exhaust air stack flow
-brick:Exhaust_Air_Stack_Flow_Integral_Time_Parameter,,brick:Exhaust_Air_Stack,,,quantitykind:VolumeFlowRate,brick:Integral_Time_Parameter,,
-brick:Exhaust_Air_Stack_Flow_Proportional_Band_Parameter,,brick:Exhaust_Air_Stack,,,quantitykind:VolumeFlowRate,brick:Proportional_Band_Parameter,,
+brick:Exhaust_Air_Stack_Flow_Deadband_Setpoint,,brick:Exhaust_Air_Stack,brick:Air,,quantitykind:VolumeFlowRate,brick:Deadband_Setpoint,,Sets the size of a deadband of exhaust air stack flow
+brick:Exhaust_Air_Stack_Flow_Integral_Time_Parameter,,brick:Exhaust_Air_Stack,brick:Air,,quantitykind:VolumeFlowRate,brick:Integral_Time_Parameter,,
+brick:Exhaust_Air_Stack_Flow_Proportional_Band_Parameter,,brick:Exhaust_Air_Stack,brick:Air,,quantitykind:VolumeFlowRate,brick:Proportional_Band_Parameter,,
 brick:Exhaust_Air_Stack_Flow_Sensor,,brick:Exhaust_Air_Stack,brick:Air,,quantitykind:VolumeFlowRate,brick:Sensor,,Measures the rate of flow of air in the exhaust air stack
-brick:Exhaust_Air_Stack_Flow_Setpoint,,brick:Exhaust_Air_Stack,,,quantitykind:VolumeFlowRate,brick:Setpoint,,Sets exhaust air stack flow rate
+brick:Exhaust_Air_Stack_Flow_Setpoint,,brick:Exhaust_Air_Stack,brick:Air,,quantitykind:VolumeFlowRate,brick:Setpoint,,Sets exhaust air stack flow rate
 brick:Exhaust_Air_Static_Pressure_Proportional_Band_Parameter,,,brick:Exhaust_Air,,quantitykind:StaticPressure,brick:Proportional_Band_Parameter,,
 brick:Exhaust_Air_Static_Pressure_Sensor,,,brick:Exhaust_Air,,quantitykind:StaticPressure,brick:Sensor,,The static pressure of air within exhaust regions of an HVAC system
 brick:Exhaust_Air_Static_Pressure_Setpoint,,,brick:Exhaust_Air,,quantitykind:StaticPressure,brick:Setpoint,,Sets static pressure of exhaust air
