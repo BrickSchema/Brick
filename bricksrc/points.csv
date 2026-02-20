@@ -626,12 +626,12 @@ brick:Photovoltaic_Current_Output_Sensor,,,,,,,(deprecated),Senses the amperes o
 brick:PID_Parameter,,,,,,brick:PID_Parameter,,
 brick:Piezoelectric_Sensor,,,,,,,(deprecated),"Senses changes pressure, acceleration, temperature, force or strain via the piezoelectric effect"
 brick:PIR_Sensor,,,,,,,(deprecated),Detects the presense of motion in some area using the differential change in infrared intensity between two or more receptors
-brick:PM1_Level_Sensor,,,brick:PM1.0,,quantitykind:MassDensity,brick:Sensor,,Detects level of particulates of size 1 microns
-brick:PM1_Sensor,,,brick:PM1.0,,quantitykind:MassDensity,brick:Sensor,,Detects matter of size 1 micron
+brick:PM1_Level_Sensor,,,brick:PM1,,quantitykind:MassDensity,brick:Sensor,,Detects level of particulates of size 1 microns
+brick:PM1_Sensor,,,brick:PM1,,quantitykind:MassDensity,brick:Sensor,,Detects matter of size 1 micron
 brick:PM2.5_Level_Sensor,,,brick:PM2.5,,quantitykind:MassDensity,brick:Sensor,,Detects level of particulates of size 2.5 microns
 brick:PM2.5_Sensor,,,brick:PM2.5,,quantitykind:MassDensity,brick:Sensor,,Detects matter of size 2.5 microns
-brick:PM10_Level_Sensor,,,brick:PM10.0,,quantitykind:MassDensity,brick:Sensor,,Detects level of particulates of size 10 microns
-brick:PM10_Sensor,,,brick:PM10.0,,quantitykind:MassDensity,brick:Sensor,,Detects matter of size 10 microns
+brick:PM10_Level_Sensor,,,brick:PM10,,quantitykind:MassDensity,brick:Sensor,,Detects level of particulates of size 10 microns
+brick:PM10_Sensor,,,brick:PM10,,quantitykind:MassDensity,brick:Sensor,,Detects matter of size 10 microns
 brick:Position_Command,,,,,,brick:Command,Position,Controls or reports the position of some object
 brick:Position_Limit,,,,,,brick:Limit,Position,A parameter that places a lower or upper bound on the range of permitted values of a Position_Setpoint.
 brick:Position_Sensor,,,,,,brick:Sensor,Position,Measures the current position of a component in terms of a fraction of its full range of motion
