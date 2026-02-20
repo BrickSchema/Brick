@@ -1,5 +1,5 @@
 ﻿@id,brick:inMode,brick:ofSystem/Equipment/Process,brick:hasSubstance,brick:ofConstituent,brick:isDifferential,brick:hasQuantity/Enumeration,rdfs:subClassOf,todo:,skos:definition
-brick:Absolute_Humidity_Sensor,,,,,,quantitykind:AbsoluteHumidity,brick:Sensor,,Measures the present state of absolute humidity
+brick:Absolute_Humidity_Sensor,,,brick:Air,,,quantitykind:AbsoluteHumidity,brick:Sensor,,Measures the present state of absolute humidity
 brick:Acceleration_Time_Setpoint,,brick:Acceleration,,,,quantitykind:Time,brick:Setpoint,,
 brick:Active_Power_Sensor,,,,,,quantitykind:ActivePower,brick:Sensor,,"Measures the portion of power that, averaged over a complete cycle of the AC waveform, results in net transfer of energy in one direction"
 brick:Adjust_Sensor,,,,,,,,(deprecated),Measures user-provided adjustment of some value
@@ -112,12 +112,12 @@ brick:Cooling_Zone_Air_Temperature_Setpoint,,brick:Cooling,brick:Zone_Air,,,quan
 brick:Core_Temperature_Sensor,,,,,,quantitykind:Temperature,brick:Sensor,Core,Measures the internal temperature of the radiant layer at the heat source or sink level of the radiant heating and cooling HVAC system.
 brick:Core_Temperature_Setpoint,,,,,,quantitykind:Temperature,brick:Setpoint,Core,"Sets temperature for the core, i.e. the temperature at the heat source or sink level, of the radiant panel."
 brick:Current_Imbalance_Sensor,,,,,,quantitykind:ElectricCurrent,brick:Sensor,Imbalance,A sensor which measures the current difference (imbalance) between phases of an electrical system
-brick:Current_Limit,,,,,,quantitykind:ElectricCurrent,brick:Limit,,A parameter that places a lower or upper bound on the range of permitted values of a Current_Setpoint.
+brick:Current_Limit,,,,,,quantitykind:ElectricCurrent,brick:Setpoint_Limit,,A parameter that places a lower or upper bound on the range of permitted values of a Current_Setpoint.
 brick:Current_Output_Sensor,,,,,,,,(deprecated),Senses the amperes of electrical current produced as output by a device
 brick:Current_Ratio_Setpoint,,,,,,quantitykind:ElectricCurrent,brick:Setpoint,Ratio,Sets the ratio of currents in a transformer
 brick:Current_Sensor,,,,,,quantitykind:ElectricCurrent,brick:Sensor,,Senses the amperes of electrical current passing through the sensor
 brick:Curtailment_Override_Command,,,,,,,,(deprecated),
-brick:Cycle_Alarm,,,,,,,,(deprecated),An alarm that indicates off-normal conditions associated with HVAC cycles
+brick:Cycle_Alarm,,,,,,,brick:Cycle_Alarm,,An alarm that indicates off-normal conditions associated with HVAC cycles
 brick:Damper_Command,,brick:Damper,,,,,brick:Command,,Controls properties of dampers
 brick:Damper_Position_Command,,brick:Damper,,,,,brick:Command,Position,Controls the position (the degree of openness) of a damper
 brick:Damper_Position_Sensor,,brick:Damper,,,,,brick:Sensor,Position,Measures the current position of a damper in terms of the percent of fully open
@@ -218,7 +218,7 @@ brick:Electric_Power_Sensor,,,,,,quantitykind:ElectricPower,brick:Sensor,,Measur
 brick:Electrical_Energy_Usage_Sensor,,,,,,quantitykind:Energy,brick:Usage_Sensor,Electric,A sensor that records the quantity of electrical energy consumed in a given period
 brick:Embedded_Temperature_Sensor,,,,,,quantitykind:Temperature,brick:Sensor,Embedded,Measures the internal temperature of the radiant layer of the radiant heating and cooling HVAC system.
 brick:Embedded_Temperature_Setpoint,,,,,,quantitykind:Temperature,brick:Setpoint,Embedded,"Sets temperature for the internal material, e.g. concrete slab, of the radiant panel."
-brick:Emergency_Air_Flow_System_Status,,brick:Emergency_Air_Flow_System,,,,,brick:Status,,
+brick:Emergency_Air_Flow_System_Status,,,,,,,,(deprecated),
 brick:Emergency_Alarm,,,,,,,,(deprecated),Alarms that indicate off-normal conditions associated with emergency systems
 brick:Emergency_Generator_Alarm,,,,,,,,(deprecated),An alarm that indicates off-normal conditions associated with an emergency generator
 brick:Emergency_Generator_Status,,,,,,,,(deprecated),Indicates if an emergency generator is active
@@ -312,7 +312,7 @@ brick:Freeze_Status,,,,,,,,(deprecated),Indicates if a substance contained withi
 brick:Frequency_Command,,,,,,quantitykind:Frequency,brick:Command,,Controls the frequency of a device's operation (e.g. rotational frequency)
 brick:Frequency_Sensor,,,,,,quantitykind:Frequency,brick:Sensor,,"Measures the frequency of a phenomenon or aspect of a phenomenon, e.g. the frequency of a fan turning"
 brick:Frequency_Setpoint,,,,,,quantitykind:Frequency,brick:Setpoint,,Sets frequency
-brick:Fresh_Air_Setpoint_Limit,,,brick:Fresh_Air,,,,brick:Setpoint_Limit,,A parameter that places a lower or upper bound on the range of permitted values of a Fresh_Air_Setpoint.
+brick:Fresh_Air_Setpoint_Limit,,,,,,,,(deprecated),A parameter that places a lower or upper bound on the range of permitted values of a Fresh_Air_Setpoint.
 brick:Frost_Sensor,,,brick:Frost,,,,brick:Sensor,,Senses the presence of frost or conditions that may cause frost
 brick:Fume_Hood_Air_Flow_Sensor,,brick:Fume_Hood,brick:Air,,,quantitykind:VolumeFlowRate,brick:Sensor,,Measures the rate of flow of air in a fume hood
 brick:Gain_Parameter,,,,,,,brick:Gain_Parameter,,
@@ -344,8 +344,8 @@ brick:High_Air_Flow_Alarm,,,brick:Air,,,quantitykind:VolumeFlowRate,brick:High_A
 brick:High_CO2_Alarm,,,brick:Air,brick:CO2,,quantitykind:AmountOfSubstanceFraction,brick:High_Alarm,,A device that indicates high concentration of carbon dioxide.
 brick:High_Discharge_Air_Temperature_Alarm,,,brick:Discharge_Air,,,quantitykind:Temperature,brick:High_Alarm,,An alarm that indicates that discharge air temperature is too high
 brick:High_Head_Pressure_Alarm,,,,,,,,(deprecated),An alarm that indicates a high pressure generated on the output side of a gas compressor in a refrigeration or air conditioning system.
-brick:High_Humidity_Alarm,,,,,,quantitykind:RelativeHumidity,brick:High_Alarm,,An alarm that indicates high concentration of water vapor in the air.
-brick:High_Humidity_Alarm_Parameter,,,,,,quantitykind:RelativeHumidity,brick:High_Alarm_Parameter,,A parameter determining the humidity level at which to trigger a high humidity alarm
+brick:High_Humidity_Alarm,,,brick:Air,,,quantitykind:RelativeHumidity,brick:High_Alarm,,An alarm that indicates high concentration of water vapor in the air.
+brick:High_Humidity_Alarm_Parameter,,,brick:Air,,,quantitykind:RelativeHumidity,brick:High_Alarm_Parameter,,A parameter determining the humidity level at which to trigger a high humidity alarm
 brick:High_Outside_Air_Lockout_Temperature_Differential_Parameter,,,,,,,,(deprecated),The upper bound of the outside air temperature lockout range
 brick:High_Return_Air_Temperature_Alarm,,,brick:Return_Air,,,quantitykind:Temperature,brick:High_Alarm,,An alarm that indicates that return air temperature is too high
 brick:High_Static_Pressure_Cutout_Setpoint_Limit,,,,,,,,(deprecated),A parameter that places a lower or upper bound on the range of permitted values of a High_Static_Pressure_Cutout_Setpoint.
@@ -371,19 +371,19 @@ brick:Hot_Water_Usage_Sensor,,,brick:Hot_Water,,,,brick:Usage_Sensor,,"Measures 
 brick:Humidification_Start_Stop_Status,,brick:Humidification,,,,brick:EnumerationKind-Start_Stop,brick:Status,,
 brick:Humidifier_Fault_Status,,brick:Humidifier,,,,,brick:Fault_Status,,Indicates the presence of a fault in a humidifier
 brick:Humidify_Command,,brick:Humidification,,,,,brick:Enable_Command,,
-brick:Humidity_Alarm,,,,,,quantitykind:RelativeHumidity,brick:Alarm,,An alarm that indicates the off-normal conditions associated with the concentration of water vapor in the air.
-brick:Humidity_Deadband_Setpoint,,,,,,quantitykind:RelativeHumidity,brick:Deadband_Setpoint,,Sets the size of a deadband of humidity
-brick:Humidity_Parameter,,,,,,quantitykind:RelativeHumidity,brick:Parameter,,Parameters relevant to humidity-related systems and points
-brick:Humidity_Sensor,,,,,,quantitykind:RelativeHumidity,brick:Sensor,,Measures the concentration of water vapor in air
-brick:Humidity_Setpoint,,,,,,quantitykind:RelativeHumidity,brick:Setpoint,,Sets humidity
-brick:Humidity_Tolerance_Parameter,,,,,,quantitykind:RelativeHumidity,brick:Tolerance_Parameter,,A parameter determining the difference between upper and lower limits of humidity.
+brick:Humidity_Alarm,,,brick:Air,,,quantitykind:RelativeHumidity,brick:Alarm,,An alarm that indicates the off-normal conditions associated with the concentration of water vapor in the air.
+brick:Humidity_Deadband_Setpoint,,,brick:Air,,,quantitykind:RelativeHumidity,brick:Deadband_Setpoint,,Sets the size of a deadband of humidity
+brick:Humidity_Parameter,,,brick:Air,,,quantitykind:RelativeHumidity,brick:Parameter,,Parameters relevant to humidity-related systems and points
+brick:Humidity_Sensor,,,brick:Air,,,quantitykind:RelativeHumidity,brick:Sensor,,Measures the concentration of water vapor in air
+brick:Humidity_Setpoint,,,brick:Air,,,quantitykind:RelativeHumidity,brick:Setpoint,,Sets humidity
+brick:Humidity_Tolerance_Parameter,,,brick:Air,,,quantitykind:RelativeHumidity,brick:Tolerance_Parameter,,A parameter determining the difference between upper and lower limits of humidity.
 brick:Ice_Tank_Leaving_Water_Temperature_Sensor,,brick:Ice_Tank,brick:Leaving_Water,,,quantitykind:Temperature,brick:Sensor,,Measures the temperature of water leaving an ice tank
 brick:Illuminance_Sensor,,,,,,quantitykind:Illuminance,brick:Sensor,,"Measures the total luminous flux incident on a surface, per unit area"
 brick:Illuminance_Setpoint,,,,,,quantitykind:Illuminance,brick:Setpoint,,Target Illuminance of the zone.
 brick:Imbalance_Sensor,,,,,,,brick:Sensor,Imbalance,A sensor which measures difference (imbalance) between phases of an electrical system
 brick:Inside_Face_Surface_Temperature_Sensor,,,,,,quantitykind:Temperature,brick:Sensor,Inside Face Surface,Measures the inside surface (relative to the space) of the radiant panel of the radiant heating and cooling HVAC system.
 brick:Inside_Face_Surface_Temperature_Setpoint,,,,,,quantitykind:Temperature,brick:Setpoint,Inside Face Surface,Sets temperature for the inside face surface temperature of the radiant panel.
-brick:Intake_Air_Temperature_Sensor,,,brick:Intake_Air,,,quantitykind:Temperature,brick:Sensor,,Measures air at the interface between the building and the outside
+brick:Intake_Air_Temperature_Sensor,,,,,,,,(deprecated),Measures air at the interface between the building and the outside
 brick:Integral_Gain_Parameter,,,,,,,brick:Integral_Gain_Parameter,,
 brick:Integral_Time_Parameter,,,,,,,brick:Integral_Time_Parameter,,
 brick:Last_Fault_Code_Status,,,,,,,,(deprecated),Indicates the last fault code that occurred
@@ -443,12 +443,12 @@ brick:Locally_On_Off_Status,,,,,,,,(deprecated),
 brick:Lockout_Status,,,,,,,,(deprecated),"Indicates if a piece of equipment, system, or functionality has been locked out from operation"
 brick:Lockout_Temperature_Differential_Parameter,,,,,,,,(deprecated),
 brick:Low_Air_Flow_Alarm,,,brick:Air,,,quantitykind:VolumeFlowRate,brick:Low_Alarm,,An alarm that indicates that the air flow is lower than normal.
-brick:Low_Battery_Alarm,,brick:Battery,,,,,brick:Low_Alarm,,An alarm that indicates the battery is low.
+brick:Low_Battery_Alarm,,,,,,,brick:Low_Battery_Alarm,,An alarm that indicates the battery is low.
 brick:Low_Discharge_Air_Flow_Alarm,,,brick:Discharge_Air,,,quantitykind:VolumeFlowRate,brick:Low_Alarm,,An alarm that indicates that the discharge air flow is lower than normal.
 brick:Low_Discharge_Air_Temperature_Alarm,,,brick:Discharge_Air,,,quantitykind:Temperature,brick:Low_Alarm,,
 brick:Low_Freeze_Protect_Temperature_Parameter,,,,,,,,(deprecated),
-brick:Low_Humidity_Alarm,,,,,,quantitykind:RelativeHumidity,brick:Low_Alarm,,An alarm that indicates low concentration of water vapor in the air.
-brick:Low_Humidity_Alarm_Parameter,,,,,,quantitykind:RelativeHumidity,brick:Low_Alarm_Parameter,,A parameter determining the humidity level at which to trigger a low humidity alarm
+brick:Low_Humidity_Alarm,,,brick:Air,,,quantitykind:RelativeHumidity,brick:Low_Alarm,,An alarm that indicates low concentration of water vapor in the air.
+brick:Low_Humidity_Alarm_Parameter,,,brick:Air,,,quantitykind:RelativeHumidity,brick:Low_Alarm_Parameter,,A parameter determining the humidity level at which to trigger a low humidity alarm
 brick:Low_Outside_Air_Lockout_Temperature_Differential_Parameter,,,,,,,,(deprecated),The lower bound of the outside air temperature lockout range
 brick:Low_Outside_Air_Temperature_Enable_Differential_Sensor,,,,,,,,(deprecated),
 brick:Low_Outside_Air_Temperature_Enable_Setpoint,,,,,,,,(deprecated),
@@ -475,7 +475,7 @@ brick:Max_Cooling_Supply_Air_Flow_Setpoint_Limit,,brick:Cooling,brick:Supply_Air
 brick:Max_Discharge_Air_Static_Pressure_Setpoint_Limit,,,brick:Discharge_Air,,,quantitykind:StaticPressure,brick:Max_Limit,,A parameter that places an upper bound on the range of permitted values of a Discharge_Air_Static_Pressure_Setpoint.
 brick:Max_Discharge_Air_Temperature_Setpoint_Limit,,,brick:Discharge_Air,,,quantitykind:Temperature,brick:Max_Limit,,A parameter that places an upper bound on the range of permitted values of a Discharge_Air_Temperature_Setpoint.
 brick:Max_Frequency_Command,,,,,,,,(deprecated),Sets the maximum permitted frequency
-brick:Max_Fresh_Air_Setpoint_Limit,,,brick:Fresh_Air,,,,brick:Max_Limit,,A parameter that places an upper bound on the range of permitted values of a Fresh_Air_Setpoint.
+brick:Max_Fresh_Air_Setpoint_Limit,,,,,,,,(deprecated),A parameter that places an upper bound on the range of permitted values of a Fresh_Air_Setpoint.
 brick:Max_Heating_Discharge_Air_Flow_Setpoint_Limit,,brick:Heating,brick:Discharge_Air,,,quantitykind:VolumeFlowRate,brick:Max_Limit,,A parameter that places an upper bound on the range of permitted values of a Heating_Discharge_Air_Flow_Setpoint.
 brick:Max_Heating_Supply_Air_Flow_Setpoint_Limit,,brick:Heating,brick:Supply_Air,,,quantitykind:VolumeFlowRate,brick:Max_Limit,,A parameter that places an upper bound on the range of permitted values of a Heating_Supply_Air_Flow_Setpoint.
 brick:Max_Hot_Water_Differential_Pressure_Setpoint_Limit,,,brick:Hot_Water,,brick:Differential,quantitykind:Pressure,brick:Max_Limit,,A parameter that places an upper bound on the range of permitted values of a Hot_Water_Differential_Pressure_Setpoint.
@@ -512,7 +512,7 @@ brick:Min_Cooling_Supply_Air_Flow_Setpoint_Limit,,brick:Cooling,brick:Supply_Air
 brick:Min_Discharge_Air_Static_Pressure_Setpoint_Limit,,,brick:Discharge_Air,,,quantitykind:StaticPressure,brick:Min_Limit,,A parameter that places a lower bound on the range of permitted values of a Discharge_Air_Static_Pressure_Setpoint.
 brick:Min_Discharge_Air_Temperature_Setpoint_Limit,,,brick:Discharge_Air,,,quantitykind:Temperature,brick:Min_Limit,,A parameter that places a lower bound on the range of permitted values of a Discharge_Air_Temperature_Setpoint.
 brick:Min_Frequency_Command,,,,,,,,(deprecated),
-brick:Min_Fresh_Air_Setpoint_Limit,,,brick:Fresh_Air,,,,brick:Min_Limit,,A parameter that places a lower bound on the range of permitted values of a Fresh_Air_Setpoint.
+brick:Min_Fresh_Air_Setpoint_Limit,,,,,,,,(deprecated),A parameter that places a lower bound on the range of permitted values of a Fresh_Air_Setpoint.
 brick:Min_Heating_Discharge_Air_Flow_Setpoint_Limit,,brick:Heating,brick:Discharge_Air,,,quantitykind:VolumeFlowRate,brick:Min_Limit,,A parameter that places a lower bound on the range of permitted values of a Heating_Discharge_Air_Flow_Setpoint.
 brick:Min_Heating_Supply_Air_Flow_Setpoint_Limit,,brick:Heating,brick:Supply_Air,,,quantitykind:VolumeFlowRate,brick:Min_Limit,,A parameter that places a lower bound on the range of permitted values of a Heating_Supply_Air_Flow_Setpoint.
 brick:Min_Hot_Water_Differential_Pressure_Setpoint_Limit,,,brick:Hot_Water,,brick:Differential,quantitykind:Pressure,brick:Min_Limit,,A parameter that places a lower bound on the range of permitted values of a Hot_Water_Differential_Pressure_Setpoint.
@@ -688,7 +688,7 @@ brick:Return_Air_Temperature_Setpoint,,,brick:Return_Air,,,quantitykind:Temperat
 brick:Room_Air_Temperature_Sensor,,,brick:Room_Air,,,quantitykind:Temperature,brick:Sensor,,
 brick:Room_Air_Temperature_Setpoint,,,brick:Room_Air,,,quantitykind:Temperature,brick:Setpoint,,Sets temperature of room air
 brick:Run_Enable_Command,,brick:Run,,,,,brick:Enable_Command,,
-brick:Run_Request_Status,,brick:Run,,,,,brick:Status,Request,Indicates if a request has been filed to start a device or equipment
+brick:Run_Request_Status,,,,,,,,(deprecated),Indicates if a request has been filed to start a device or equipment
 brick:Run_Status,,brick:Run,,,,,brick:Status,,
 brick:Run_Time_Sensor,,brick:Run,,,,quantitykind:Time,brick:Sensor,,"Measures the duration for which a device was in an active or ""on"" state"
 brick:Sash_Position_Sensor,,brick:Fume_Hood_Sash,,,,,brick:Sensor,Position,Measures the current position of a sash in terms of the percent of fully open
@@ -697,7 +697,7 @@ brick:Sensor,,,,,,,brick:Sensor,,A Sensor is an input point that represents the 
 brick:Sensor_Failure_Alarm,,,,,,,brick:Sensor_Failure_Alarm,,
 brick:Setpoint,,,,,,,brick:Setpoint,,A Setpoint is an input value at which the desired property is set
 brick:Short_Cycle_Alarm,,,,,,,brick:Short_Cycle_Alarm,,An alarm that indicates a short cycle occurred. A short cycle occurs when a cooling cycle is prevented from completing its full cycle
-brick:Smoke_Alarm,,,brick:Smoke,,,,brick:Alarm,,An alarm that indicates the off-normal conditions associated with smoke.
+brick:Smoke_Alarm,,,,,,,brick:Smoke_Alarm,,An alarm that indicates the off-normal conditions associated with smoke.
 brick:Smoke_Detection_Alarm,,,,,,,brick:Smoke_Detection_Alarm,,
 brick:Soil_Temperature_Sensor,,,brick:Soil,,,quantitykind:Temperature,brick:Sensor,,Measures the temperature of soil
 brick:Solar_Azimuth_Angle_Sensor,,,brick:Solar,,,quantitykind:Azimuth,brick:Sensor,,Measures the azimuth angle of the sun
@@ -847,7 +847,7 @@ brick:Water_Flow_Sensor,,,brick:Water,,,quantitykind:VolumeFlowRate,brick:Sensor
 brick:Water_Flow_Setpoint,,,brick:Water,,,quantitykind:VolumeFlowRate,brick:Setpoint,,Sets the target flow rate of water
 brick:Water_Level_Alarm,,,brick:Water,,,,brick:Alarm,Level,An alarm that indicates a high or low water level e.g. in a basin
 brick:Water_Level_Sensor,,,brick:Water,,,,brick:Sensor,Level,Measures the height/level of water in some container
-brick:Water_Loss_Alarm,,,brick:Water,,,,brick:Loss_Alarm,,An alarm that indicates a loss of water e.g. during transport
+brick:Water_Loss_Alarm,,,brick:Water,,,,brick:Leak_Alarm,,An alarm that indicates a loss of water e.g. during transport
 brick:Water_Pressure_Sensor,,,brick:Water,,,quantitykind:Pressure,brick:Sensor,,Measures the pressure exerted by water in a system.
 brick:Water_Pressure_Setpoint,,,brick:Water,,,quantitykind:Pressure,brick:Setpoint,,
 brick:Water_Temperature_Alarm,,,brick:Water,,,quantitykind:Temperature,brick:Alarm,,An alarm that indicates the off-normal conditions associated with temperature of water.
