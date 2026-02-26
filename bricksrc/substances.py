@@ -18,6 +18,7 @@ substances = {
                             "Bypass_Air": {},
                             "Outside_Air": {},
                             "Zone_Air": {},
+                            "Room_Air": {},
                             "Building_Air": {},
                             "Mixed_Air": {},
                             "Return_Air": {},
@@ -32,15 +33,15 @@ substances = {
                     },
                     "CH2O": {}, # Formaldehyde
                     "CH4": {}, # Methane
-                    "CO": {}, # Carbon monoxide
-                    "CO2": {}, # Carbon dioxide
+                    "CO": {}, # Carbon Monoxide
+                    "CO2": {}, # Carbon Dioxide
                     "Natural_Gas": {},
                     "NH3": {}, # Ammonia
-                    "NO2": {}, # Nitrogen dioxide
+                    "NO2": {}, # Nitrogen Dioxide
                     "O3": {}, # Ozone
                     "Rn": {}, # Radon
                     "Steam": {},
-                    "VOC": {}, # Volatile organic compounds
+                    "VOC": {}, # Volatile Organic Compound
                 },
             },
             "Liquid": {
@@ -77,6 +78,14 @@ substances = {
                                 SKOS.narrower: {
                                     "Domestic_Hot_Water": {
                                         "parents": [BRICK.Hot_Water],
+                                        SKOS.narrower: {
+                                            "Entering_Domestic_Hot_Water": {
+                                                "parents": [BRICK.Entering_Water],
+                                            },
+                                            "Leaving_Domestic_Hot_Water": {
+                                                "parents": [BRICK.Leaving_Water],
+                                            },
+                                        },
                                     },
                                 }
                             },
@@ -90,6 +99,26 @@ substances = {
                                     },
                                     "Leaving_Hot_Water": {
                                         "parents": [BRICK.Leaving_Water],
+                                    },
+                                    "High_Temperature_Hot_Water": {
+                                        SKOS.narrower: {
+                                            "Entering_High_Temperature_Hot_Water": {
+                                                "parents": [BRICK.Entering_Water],
+                                            },
+                                            "Leaving_High_Temperature_Hot_Water": {
+                                                "parents": [BRICK.Leaving_Water],
+                                            },
+                                        },
+                                    },
+                                    "Medium_Temperature_Hot_Water": {
+                                        SKOS.narrower: {
+                                            "Entering_Medium_Temperature_Hot_Water": {
+                                                "parents": [BRICK.Entering_Water],
+                                            },
+                                            "Leaving_Medium_Temperature_Hot_Water": {
+                                                "parents": [BRICK.Leaving_Water],
+                                            },
+                                        },
                                     },
                                 },
                             },
