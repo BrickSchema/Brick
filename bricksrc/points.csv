@@ -850,7 +850,7 @@ brick:Temporary_Occupancy_Status,,,,,,,,(deprecated),"For systems that different
 brick:Thermal_Energy_Usage_Sensor,,,,,,quantitykind:ThermalEnergy,brick:Usage_Sensor,,A sensor that records the quantity of thermal energy consumed in a given period
 brick:Thermal_Power_Sensor,,,,,,,,(deprecated),
 brick:Thermostat_Status,,brick:Thermostat,,,,,brick:Status,,Status of a thermostat
-brick:Time_Parameter,,,,,,quantitykind:Time,brick:Parameter,,
+brick:Time_Parameter,,,,,,,brick:Time_Parameter,,
 brick:Time_Setpoint,,,,,,quantitykind:Time,brick:Setpoint,,
 brick:Tint_Command,,,,,,,brick:Command,Tint,The target level of window tint.
 brick:Tint_Status,,,,,,,brick:Status,Tint,"The current level of window tint, errors, or transient states."
