@@ -127,10 +127,10 @@ brick:Current_Sensor,,,,,,quantitykind:ElectricCurrent,brick:Sensor,,Senses the 
 brick:Curtailment_Override_Command,,,,,,,,(deprecated),
 brick:Cycle_Alarm,,,,,,,brick:Cycle_Alarm,,An alarm that indicates off-normal conditions associated with HVAC cycles
 brick:Damper_Command,,brick:Damper,,,,,brick:Command,,Controls properties of dampers
-brick:Damper_Position_Command,,brick:Damper,,,,,brick:Command,Position,Controls the position (the degree of openness) of a damper
-brick:Damper_Position_Sensor,,brick:Damper,,,,,brick:Sensor,Position,Measures the current position of a damper in terms of the percent of fully open
-brick:Damper_Position_Setpoint,,brick:Damper,,,,,brick:Setpoint,Position,Sets the position of damper
-brick:Damper_Position_Status,,brick:Damper,,,,,brick:Status,Position,
+brick:Damper_Position_Command,,brick:Damper,,,,quantitykind:OpeningRatio,brick:Command,,Controls the position (the degree of openness) of a damper
+brick:Damper_Position_Sensor,,brick:Damper,,,,quantitykind:OpeningRatio,brick:Sensor,,Measures the current position of a damper in terms of the percent of fully open
+brick:Damper_Position_Setpoint,,brick:Damper,,,,quantitykind:OpeningRatio,brick:Setpoint,,Sets the position of damper
+brick:Damper_Position_Status,,brick:Damper,,,,quantitykind:OpeningRatio,brick:Status,,
 brick:DC_Bus_Voltage_Sensor,,,,,,,,(deprecated),Measures the voltage across a DC bus
 brick:Deadband_Setpoint,,,,,,,brick:Deadband_Setpoint,,Sets the size of a deadband
 brick:Deceleration_Time_Setpoint,,brick:Deceleration,,,,quantitykind:Time,brick:Setpoint,,
@@ -527,7 +527,7 @@ brick:Max_Occupied_Cooling_Supply_Air_Flow_Setpoint_Limit,brick:Occupied,brick:C
 brick:Max_Occupied_Heating_Discharge_Air_Flow_Setpoint_Limit,brick:Occupied,brick:Heating,brick:Discharge_Air,,,quantitykind:VolumeFlowRate,brick:Max_Limit,(alias),
 brick:Max_Occupied_Heating_Supply_Air_Flow_Setpoint_Limit,brick:Occupied,brick:Heating,brick:Supply_Air,,,quantitykind:VolumeFlowRate,brick:Max_Limit,,A parameter that places an upper bound on the range of permitted values of a Occupied_Heating_Supply_Air_Flow_Setpoint.
 brick:Max_Outside_Air_Flow_Setpoint_Limit,,,brick:Outside_Air,,,quantitykind:VolumeFlowRate,brick:Max_Limit,,A parameter that places an upper bound on the range of permitted values of a Outside_Air_Flow_Setpoint.
-brick:Max_Position_Setpoint_Limit,,,,,,,brick:Max_Limit,Position,A parameter that places an upper bound on the range of permitted values of a Position_Setpoint.
+brick:Max_Position_Setpoint_Limit,,,,,,quantitykind:OpeningRatio,brick:Max_Limit,,A parameter that places an upper bound on the range of permitted values of a Position_Setpoint.
 brick:Max_Speed_Setpoint_Limit,,,,,,quantitykind:Speed,brick:Max_Limit,,A parameter that places an upper bound on the range of permitted values of a Speed_Setpoint.
 brick:Max_Static_Pressure_Setpoint_Limit,,,,,,quantitykind:StaticPressure,brick:Max_Limit,,A parameter that places an upper bound on the range of permitted values of a Static_Pressure_Setpoint.
 brick:Max_Supply_Air_Static_Pressure_Setpoint_Limit,,,brick:Supply_Air,,,quantitykind:StaticPressure,brick:Max_Limit,,A parameter that places an upper bound on the range of permitted values of a Supply_Air_Static_Pressure_Setpoint.
@@ -567,7 +567,7 @@ brick:Min_Occupied_Cooling_Supply_Air_Flow_Setpoint_Limit,brick:Occupied,brick:C
 brick:Min_Occupied_Heating_Discharge_Air_Flow_Setpoint_Limit,brick:Occupied,brick:Heating,brick:Discharge_Air,,,quantitykind:VolumeFlowRate,brick:Min_Limit,(alias),
 brick:Min_Occupied_Heating_Supply_Air_Flow_Setpoint_Limit,brick:Occupied,brick:Heating,brick:Supply_Air,,,quantitykind:VolumeFlowRate,brick:Min_Limit,,A parameter that places a lower bound on the range of permitted values of a Occupied_Heating_Supply_Air_Flow_Setpoint.
 brick:Min_Outside_Air_Flow_Setpoint_Limit,,,brick:Outside_Air,,,quantitykind:VolumeFlowRate,brick:Min_Limit,,A parameter that places a lower bound on the range of permitted values of a Outside_Air_Flow_Setpoint.
-brick:Min_Position_Setpoint_Limit,,,,,,,brick:Min_Limit,Position,A parameter that places a lower bound on the range of permitted values of a Position_Setpoint.
+brick:Min_Position_Setpoint_Limit,,,,,,quantitykind:OpeningRatio,brick:Min_Limit,,A parameter that places a lower bound on the range of permitted values of a Position_Setpoint.
 brick:Min_Speed_Setpoint_Limit,,,,,,quantitykind:Speed,brick:Min_Limit,,A parameter that places a lower bound on the range of permitted values of a Speed_Setpoint.
 brick:Min_Static_Pressure_Setpoint_Limit,,,,,,quantitykind:StaticPressure,brick:Min_Limit,,A parameter that places a lower bound on the range of permitted values of a Static_Pressure_Setpoint.
 brick:Min_Supply_Air_Static_Pressure_Setpoint_Limit,,,brick:Supply_Air,,,quantitykind:StaticPressure,brick:Min_Limit,,A parameter that places a lower bound on the range of permitted values of a Supply_Air_Static_Pressure_Setpoint.
@@ -679,9 +679,9 @@ brick:PM2.5_Level_Sensor,,,brick:PM2.5,,,quantitykind:MassDensity,brick:Sensor,,
 brick:PM2.5_Sensor,,,brick:PM2.5,,,quantitykind:MassDensity,brick:Sensor,,Detects matter of size 2.5 microns
 brick:PM10_Level_Sensor,,,brick:PM10,,,quantitykind:MassDensity,brick:Sensor,,Detects level of particulates of size 10 microns
 brick:PM10_Sensor,,,brick:PM10,,,quantitykind:MassDensity,brick:Sensor,,Detects matter of size 10 microns
-brick:Position_Command,,,,,,,brick:Command,Position,Controls or reports the position of some object
-brick:Position_Limit,,,,,,,brick:Limit,Position,A parameter that places a lower or upper bound on the range of permitted values of a Position_Setpoint.
-brick:Position_Sensor,,,,,,,brick:Sensor,Position,Measures the current position of a component in terms of a fraction of its full range of motion
+brick:Position_Command,,,,,,quantitykind:OpeningRatio,brick:Command,,Controls or reports the position of some object
+brick:Position_Limit,,,,,,quantitykind:OpeningRatio,brick:Limit,,A parameter that places a lower or upper bound on the range of permitted values of a Position_Setpoint.
+brick:Position_Sensor,,,,,,quantitykind:OpeningRatio,brick:Sensor,,Measures the current position of a component in terms of a fraction of its full range of motion
 brick:Power_Alarm,,,,,,quantitykind:Power,brick:Alarm,,An alarm that indicates the off-normal conditions associated with electrical power.
 brick:Power_Factor_Sensor,,,,,,quantitykind:PowerFactor,brick:Sensor,,"Sensors measuring power Factor, under periodic conditions, is the ratio of the absolute value of the active power (P) to the apparent power (S)."
 brick:Power_Loss_Alarm,,,,,,,brick:Power_Loss_Alarm,,An alarm that indicates a power failure.
@@ -746,7 +746,7 @@ brick:Run_Enable_Command,,brick:Run,,,,,brick:Enable_Command,,
 brick:Run_Request_Status,,,,,,,,(deprecated),Indicates if a request has been filed to start a device or equipment
 brick:Run_Status,,brick:Run,,,,,brick:Status,,
 brick:Run_Time_Sensor,,brick:Run,,,,quantitykind:Time,brick:Sensor,(alias),
-brick:Sash_Position_Sensor,,brick:Fume_Hood_Sash,,,,,brick:Sensor,Position,Measures the current position of a sash in terms of the percent of fully open
+brick:Sash_Position_Sensor,,brick:Fume_Hood_Sash,,,,quantitykind:OpeningRatio,brick:Sensor,,Measures the current position of a sash in terms of the percent of fully open
 brick:Schedule_Temperature_Setpoint,,,,,,,,(deprecated),The current setpoint as indicated by the schedule
 brick:Sensor,,,,,,,brick:Sensor,,A Sensor is an input point that represents the value of a device or instrument designed to detect and measure a variable (ASHRAE Dictionary).
 brick:Sensor_Failure_Alarm,,,,,,,brick:Sensor_Failure_Alarm,,
@@ -890,9 +890,9 @@ brick:Unoccupied_Target_Zone_Air_Temperature_Setpoint,brick:Unoccupied,,brick:Zo
 brick:Unoccupied_Zone_Air_Temperature_Setpoint,,,,,,,,(deprecated),
 brick:Usage_Sensor,,,,,,,brick:Usage_Sensor,,"Measures the amount of some substance that is consumed or used, over some period of time"
 brick:Valve_Command,,brick:Valve,,,,,brick:Command,,Controls or reports the openness of a valve (typically as a proportion of its full range of motion)
-brick:Valve_Position_Alarm,,brick:Valve,,,,,brick:Alarm,Position,An alarm that indicates that the valve position is not in a normal state.
-brick:Valve_Position_Command,,brick:Valve,,,,,brick:Command,Position,Controls the position (the degree of openness) of a valve
-brick:Valve_Position_Sensor,,brick:Valve,,,,,brick:Sensor,Position,Measures the current position of a valve in terms of the percent of fully open
+brick:Valve_Position_Alarm,,brick:Valve,,,,quantitykind:OpeningRatio,brick:Alarm,,An alarm that indicates that the valve position is not in a normal state.
+brick:Valve_Position_Command,,brick:Valve,,,,quantitykind:OpeningRatio,brick:Command,,Controls the position (the degree of openness) of a valve
+brick:Valve_Position_Sensor,,brick:Valve,,,,quantitykind:OpeningRatio,brick:Sensor,,Measures the current position of a valve in terms of the percent of fully open
 brick:Valve_Status,,brick:Valve,,,,,brick:Status,,The current status of the valve.
 brick:Velocity_Pressure_Sensor,,,,,,quantitykind:DynamicPressure,brick:Sensor,,Measures the difference between total pressure and static pressure
 brick:Velocity_Pressure_Setpoint,,,,,,quantitykind:DynamicPressure,brick:Setpoint,,Sets static veloicty pressure
