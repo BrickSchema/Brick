@@ -1,0 +1,70 @@
+﻿@id,brick:atConnectionPoint,brick:inLoop,rdfs:subClassOf,todo:,skos:definition
+brick:Air,,,brick:Air,,"the invisible gaseous substance surrounding the earth, a mixture mainly of oxygen and nitrogen."
+brick:Blowdown_Water,,,brick:Water,Blowdown,Water expelled from a system to remove mineral build up
+brick:Building_Air,,,brick:Air,Building,air contained within a building
+brick:Bypass_Air,,,brick:Air,Bypass,"air in a bypass duct, used to relieve static pressure"
+brick:Bypass_Water,,,brick:Water,Bypass,Water that circumvents a piece of equipment or system
+brick:CH2O,,,brick:CH2O,,Formaldehyde
+brick:CH4,,,brick:CH4,,Methane
+brick:Chilled_Water,,brick:Chilled_Water_Loop,brick:Water,,water used as a cooling medium (particularly in air-conditioning systems or in processes) at below ambient temperature.
+brick:CO,,,brick:CO,,Carbon Monoxide in the vapor phase
+brick:CO2,,,brick:CO2,,Carbon Dioxide in the vapor phase
+brick:Collection_Basin_Water,,,brick:Water,Collection Basin,"Water transiently collected and directed to the sump or pump suction line, typically integral with a cooling tower"
+brick:Condenser_Water,,brick:Condenser_Water_Loop,brick:Water,,Water used used to remove heat through condensation
+brick:Deionized_Water,,,brick:Water,Deionized,Water which has been purified by removing its ions (constituting the majority of non-particulate contaminants)
+brick:Discharge_Air,,,brick:Air,Discharge,the air exiting the registers (vents).
+brick:Domestic_Hot_Water,,,brick:Water,Domestic Hot,
+brick:Domestic_Water,,,brick:Water,Domestic,A collection of equipment that transport and regulate domestic water among each other
+brick:Entering_Chilled_Water,brick:Entering,brick:Chilled_Water_Loop,brick:Water,,Chilled water that is entering a piece of equipment or system
+brick:Entering_Condenser_Water,brick:Entering,brick:Condenser_Water_Loop,brick:Water,,"In a condenser water loop, this is water being brought away from the condenser side of a heat-rejection device (e.g. chiller). It is the 'warm' side."
+brick:Entering_Domestic_Hot_Water,brick:Entering,,brick:Water,Domestic Hot,Domestic hot water that is entering a piece of equipment or system
+brick:Entering_High_Temperature_Hot_Water,brick:Entering,,brick:Water,High Temperature Hot,High-temperature hot water entering a hot water system
+brick:Entering_Hot_Water,brick:Entering,,brick:Water,Hot,
+brick:Entering_Medium_Temperature_Hot_Water,brick:Entering,,brick:Water,Medium Temperature Hot,Medium-temperature hot water entering a hot water system
+brick:Entering_Water,brick:Entering,,brick:Water,,Water that is entering a piece of equipment or system
+brick:Exhaust_Air,,,brick:Air,Exhaust,"air that must be removed from a space due to contaminants, regardless of pressurization"
+brick:Fluid,,,brick:Fluid,,"substance, as a liquid or gas, that is capable of flowing and that changes shape when acted on by a force."
+brick:Frost,,,brick:Frost,,"frost formed on the cold surface (tubes, plates) of a cooling coil."
+brick:Fuel_Oil,,,brick:Fuel_Oil,,Petroleum based oil burned for energy
+brick:Gas,,,brick:Gas,,"state of matter in which substances exist in the form of nonaggregated molecules and which, within acceptable limits of accuracy, satisfy the ideal gas laws; usually a highly superheated vapor. See [[state]]."
+brick:Gasoline,,,brick:Gasoline,,Petroleum derived liquid used as a fuel source
+brick:Glycol,,,brick:Glycol,,
+brick:Hail,,,brick:Hail,,pellets of frozen rain which fall in showers from cumulonimbus clouds.
+brick:High_Temperature_Hot_Water,,,brick:Water,High Temperature Hot,High-temperature hot water
+brick:Hot_Water,,,brick:Water,Hot,Hot water used for HVAC heating or supply to hot taps
+brick:Ice,,,brick:Ice,,Water in its solid form
+brick:Leaving_Chilled_Water,brick:Leaving,brick:Chilled_Water_Loop,brick:Water,,Chilled water that is leaving a piece of equipment or system
+brick:Leaving_Condenser_Water,brick:Leaving,brick:Condenser_Water_Loop,brick:Water,,"In a condenser water loop, this is water being brought to the condenser side of a heat-rejection device (e.g. chiller). It is the 'cold' side."
+brick:Leaving_Domestic_Hot_Water,brick:Leaving,,brick:Water,Domestic Hot,Domestic hot water that is leaving a piece of equipment or system
+brick:Leaving_High_Temperature_Hot_Water,brick:Leaving,,brick:Water,High Temperature Hot,High-temperature hot water leaving a hot water system
+brick:Leaving_Hot_Water,brick:Leaving,,brick:Water,Hot,
+brick:Leaving_Medium_Temperature_Hot_Water,brick:Leaving,,brick:Water,Medium Temperature Hot,Medium-temperature hot water leaving a hot water system
+brick:Leaving_Water,brick:Leaving,,brick:Water,,Water that is leaving a piece of equipment or system
+brick:Light,,,brick:Light,,
+brick:Liquid,,,brick:Liquid,,"state of matter intermediate between crystalline substances and gases in which the volume of a substance, but not the shape, remains relatively constant."
+brick:Liquid_CO2,,,brick:Liquid_CO2,,Carbon Dioxide in the liquid phase
+brick:Makeup_Water,,,brick:Water,Makeup,"Water used used to makeup water loss through leaks, evaporation, or blowdown"
+brick:Medium_Temperature_Hot_Water,,,brick:Water,Medium Temperature Hot,Medium-temperature hot water
+brick:Mixed_Air,,,brick:Air,Mixed,(1) air that contains two or more streams of air. (2) combined outdoor air and recirculated air.
+brick:Natural_Gas,,,brick:Natural_Gas,,Fossil fuel energy source consisting largely of methane and other hydrocarbons
+brick:NH3,,,brick:NH3,,Ammonia
+brick:NO2,,,brick:NO2,,Nitrogen Dioxide
+brick:O3,,,brick:O3,,Ozone
+brick:Oil,,,brick:Oil,,"a viscous liquid derived from petroleum, especially for use as a fuel or lubricant."
+brick:Outside_Air,,,brick:Air,Outside,"air external to a defined zone (e.g., corridors)."
+brick:Particulate_Matter,,,brick:Particulate_Matter,,a mixture of solid particles and liquid droplets found in the air
+brick:PM1,,,brick:PM1,,Particulate matter with a diameter of 1 micrometer and smaller
+brick:PM2.5,,,brick:PM2.5,,Particulate matter with a diameter of 2.5 micrometers and smaller
+brick:PM10,,,brick:PM10,,Particulate matter with a diameter of 10 micrometers and smaller
+brick:Potable_Water,,,brick:Water,Potable,Water that is safe to drink
+brick:Refrigerant,,,brick:Refrigerant,,A refrigerant is a working fluid used in the refrigeration cycle of air conditioning systems and heat pumps where in most cases they undergo a repeated phase transition from a liquid to a gas and back again.
+brick:Return_Air,,,brick:Air,Return,"air removed from a space to be recirculated or exhausted. Air extracted from a space and totally or partially returned to an air conditioner, furnace, or other heating, cooling, or ventilating system."
+brick:Rn,,,brick:Rn,,Radon
+brick:Room_Air,,,brick:Air,Room,
+brick:Soil,,,brick:Soil,,
+brick:Solid,,,brick:Solid,,"one of the three states or phases of matter characterized by stability of dimensions, relative incompressibility, and molecular motion held to limited oscillation."
+brick:Steam,,,brick:Steam,,water in the vapor phase.
+brick:Supply_Air,,,brick:Air,Supply,"(1) air delivered by mechanical or natural ventilation to a space, composed of any combination of outdoor air, recirculated air, or transfer air. (2) air entering a space from an air-conditioning, heating, or ventilating apparatus for the purpose of comfort conditioning. Supply air is generally filtered, fan forced, and either heated, cooled, humidified, or dehumidified as necessary to maintain specified conditions. Only the quantity of outdoor air within the supply airflow may be used as replacement air."
+brick:VOC,,,brick:VOC,,Volatile Organic Compound
+brick:Water,,,brick:Water,,"transparent, odorless, tasteless liquid; a compound of hydrogen and oxygen (H2O), containing 11.188% hydrogen and 88.812% oxygen by mass; freezing at 32°F (0°C); boiling near 212°F (100°C)."
+brick:Zone_Air,,,brick:Air,Zone,"air inside a defined zone (e.g., corridors)."
