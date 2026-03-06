@@ -31,7 +31,7 @@ brick:Air_Wet_Bulb_Temperature_Sensor,,,brick:Air,,,quantitykind:WetBulbTemperat
 brick:Alarm,,,,,,,brick:Alarm,,Alarm points are signals (either audible or visual) that alert an operator to an off-normal condition which requires some form of corrective action
 brick:Alarm_Delay_Parameter,,,,,,,brick:Alarm_Delay_Parameter,,A parameter determining how long to delay an alarm after sufficient conditions have been met
 brick:Alarm_Sensitivity_Parameter,,,,,,,brick:Alarm_Sensitivity_Parameter,,A parameter indicates the sensitivity to activate an alarm.
-brick:Ammonia_Sensor,,,brick:Air,brick:NH3,,quantitykind:AmountOfSubstanceFraction,brick:Sensor,,
+brick:Ammonia_Sensor,,,brick:Air,brick:Ammonia,,quantitykind:AmountOfSubstanceFraction,brick:Sensor,,
 brick:Angle_Sensor,,,,,,quantitykind:Angle,brick:Sensor,,Measues the planar angle of some phenomenon
 brick:Automatic_Mode_Command,,,,,,brick:EnumerationKind-Automatic_Mode,brick:Command,,"Controls whether or not a device or controller is operating in ""Automatic"" mode"
 brick:Availability_Status,,,,,,brick:EnumerationKind-Availability,brick:Status,,"Indicates if a piece of equipment, system, or functionality is available for operation"
@@ -307,7 +307,7 @@ brick:Filter_Water_Differential_Pressure_Sensor,,brick:Filter,brick:Water,,brick
 brick:Fire_Sensor,,,brick:Fire,,,,brick:Sensor,,Measures the presence of fire
 brick:Flow_Sensor,,,,,,quantitykind:VolumeFlowRate,brick:Sensor,,Measures the rate of flow of some substance
 brick:Flow_Setpoint,,,,,,quantitykind:VolumeFlowRate,brick:Setpoint,,Sets flow
-brick:Formaldehyde_Level_Sensor,,,brick:Air,brick:CH2O,,quantitykind:MassDensity,brick:Sensor,,Measures the concentration of formaldehyde in air
+brick:Formaldehyde_Level_Sensor,,,brick:Air,brick:Formaldehyde,,quantitykind:MassDensity,brick:Sensor,,Measures the concentration of formaldehyde in air
 brick:Freeze_Status,,,,,,,,(deprecated),Indicates if a substance contained within a vessel has frozen
 brick:Frequency_Command,,,,,,quantitykind:Frequency,brick:Command,,Controls the frequency of a device's operation (e.g. rotational frequency)
 brick:Frequency_Sensor,,,,,,quantitykind:Frequency,brick:Sensor,,"Measures the frequency of a phenomenon or aspect of a phenomenon, e.g. the frequency of a fan turning"
@@ -503,7 +503,7 @@ brick:Medium_Temperature_Hot_Water_Differential_Pressure_Load_Shed_Setpoint,,,br
 brick:Medium_Temperature_Hot_Water_Differential_Pressure_Load_Shed_Status,,,brick:Medium_Temperature_Hot_Water,,brick:Differential,quantitykind:Pressure,brick:Load_Shed_Status,,
 brick:Medium_Temperature_Hot_Water_Differential_Pressure_Sensor,,,brick:Medium_Temperature_Hot_Water,,brick:Differential,quantitykind:Pressure,brick:Sensor,,Measures the difference in water pressure between sections of a medium temperature hot water system
 brick:Medium_Temperature_Hot_Water_Differential_Pressure_Setpoint,,,brick:Medium_Temperature_Hot_Water,,brick:Differential,quantitykind:Pressure,brick:Setpoint,,
-brick:Methane_Level_Sensor,,,brick:Air,brick:CH4,,quantitykind:AmountOfSubstanceFraction,brick:Sensor,,Measures the concentration of methane in air
+brick:Methane_Level_Sensor,,,brick:Air,brick:Methane,,quantitykind:AmountOfSubstanceFraction,brick:Sensor,,Measures the concentration of methane in air
 brick:Min_Air_Flow_Setpoint_Limit,,,brick:Air,,,quantitykind:VolumeFlowRate,brick:Min_Limit,,A parameter that places a lower bound on the range of permitted values of a Air_Flow_Setpoint.
 brick:Min_Air_Temperature_Setpoint,,,,,,,,(deprecated),Setpoint for minimum air temperature
 brick:Min_Chilled_Water_Differential_Pressure_Setpoint_Limit,,,brick:Chilled_Water,,brick:Differential,quantitykind:Pressure,brick:Min_Limit,,A parameter that places a lower bound on the range of permitted values of a Chilled_Water_Differential_Pressure_Setpoint.
@@ -618,7 +618,7 @@ brick:Overridden_Off_Status,,,,,,,,(deprecated),"Indicates if a control loop, re
 brick:Overridden_On_Status,,,,,,,,(deprecated),"Indicates if a control loop, relay or equipment has been turned on when it would otherwise be scheduled to be off"
 brick:Overridden_Status,,,,,,,,(deprecated),Indicates if the expected operating status of an equipment or control loop has been overridden
 brick:Override_Command,,,,,,,,(deprecated),Controls or reports whether or not a device or control loop is in 'override'
-brick:Ozone_Level_Sensor,,,brick:Air,brick:O3,,quantitykind:MassDensity,brick:Sensor,,Measures the concentration of ozone in air
+brick:Ozone_Level_Sensor,,,brick:Air,brick:Ozone,,quantitykind:MassDensity,brick:Sensor,,Measures the concentration of ozone in air
 brick:Parameter,,,,,,,brick:Parameter,,Parameter points are configuration settings used to guide the operation of equipment and control systems; for example they may provide bounds on valid setpoint values
 brick:Particulate_Matter_Sensor,,,brick:Particulate_Matter,,,,brick:Sensor,,Detects pollutants in the ambient air
 brick:Peak_Demand_Sensor,,,,,,,,(deprecated),The peak power consumed by a process over some period of time
@@ -656,7 +656,7 @@ brick:Pump_Status,,brick:Pump,,,,,brick:Status,,Status of a pump
 brick:PV_Current_Output_Sensor,,,,,,,,(deprecated) (alias),
 brick:Radiant_Panel_Temperature_Sensor,,brick:Radiant_Panel,,,,quantitykind:Temperature,brick:Sensor,,Measures the temperature of the radiant panel of the radiant heating and cooling HVAC system.
 brick:Radiant_Panel_Temperature_Setpoint,,brick:Radiant_Panel,,,,quantitykind:Temperature,brick:Setpoint,,Sets temperature of radiant panel.
-brick:Radon_Concentration_Sensor,,,brick:Air,brick:Rn,,quantitykind:ActivityConcentration,brick:Sensor,,Measures the concentration of radioactivity due to radon
+brick:Radon_Concentration_Sensor,,,brick:Air,brick:Radon,,quantitykind:ActivityConcentration,brick:Sensor,,Measures the concentration of radioactivity due to radon
 brick:Rain_Duration_Sensor,,,brick:Rain,,,quantitykind:Time,brick:Sensor,,Measures the duration of precipitation within some time frame
 brick:Rain_Level_Sensor,,,brick:Rain,,,quantitykind:Depth,brick:Sensor,,Measures the amount of precipitation fallen
 brick:Rated_Speed_Setpoint,,,,,,,,(deprecated),Sets rated speed
@@ -791,8 +791,8 @@ brick:Tint_Command,,,,,,,brick:Command,Tint,The target level of window tint.
 brick:Tint_Status,,,,,,,brick:Status,Tint,"The current level of window tint, errors, or transient states."
 brick:Tolerance_Parameter,,,,,,,brick:Tolerance_Parameter,,difference between upper and lower limits of size for a given nominal dimension or value.
 brick:Torque_Sensor,,,,,,quantitykind:Torque,brick:Sensor,,"Measures torque, the tendency of a force to rotate an object about some axis"
-brick:TVOC_Level_Sensor,,,brick:Air,brick:VOC,,quantitykind:MassDensity,brick:Sensor,,A sensor measuring the level of all VOCs in air
-brick:TVOC_Sensor,,,brick:Air,brick:VOC,,quantitykind:MassDensity,brick:Sensor,,
+brick:TVOC_Level_Sensor,,,brick:Air,brick:TVOC,,quantitykind:MassDensity,brick:Sensor,,A sensor measuring the level of all VOCs in air
+brick:TVOC_Sensor,,,brick:Air,brick:TVOC,,quantitykind:MassDensity,brick:Sensor,,
 brick:Underfloor_Air_Plenum_Static_Pressure_Sensor,,brick:Underfloor_Air_Plenum,,,,quantitykind:StaticPressure,brick:Sensor,,Measures the outward push of air against the plenum surfaces and used to measure the resistance when air moves through the plenum
 brick:Underfloor_Air_Plenum_Static_Pressure_Setpoint,,brick:Underfloor_Air_Plenum,,,,quantitykind:StaticPressure,brick:Setpoint,,Sets the underfloor air plenum static pressure
 brick:Underfloor_Air_Temperature_Sensor,,,brick:Air,,,quantitykind:Temperature,brick:Sensor,Underfloor,Measures the temperature of underfloor air

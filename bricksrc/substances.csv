@@ -4,8 +4,8 @@ brick:Blowdown_Water,,,,brick:Water,Blowdown,Water expelled from a system to rem
 brick:Building_Air,,brick:Building,,brick:Air,,air contained within a building
 brick:Bypass_Air,,,,brick:Air,Bypass,"air in a bypass duct, used to relieve static pressure"
 brick:Bypass_Water,,,,brick:Water,Bypass,Water that circumvents a piece of equipment or system
-brick:CH2O,,,,brick:CH2O,,Formaldehyde
-brick:CH4,,,,brick:CH4,,Methane
+brick:CH2O,,,,brick:Formaldehyde,,Formaldehyde
+brick:CH4,,,,brick:Methane,,Methane
 brick:Chilled_Water,,,brick:Chilled_Water_Loop,brick:Water,,water used as a cooling medium (particularly in air-conditioning systems or in processes) at below ambient temperature.
 brick:CO,,,,brick:CO,,Carbon Monoxide in the vapor phase
 brick:CO2,,,,brick:CO2,,Carbon Dioxide in the vapor phase
@@ -47,9 +47,9 @@ brick:Makeup_Water,,,,brick:Water,Makeup,"Water used used to makeup water loss t
 brick:Medium_Temperature_Hot_Water,,,brick:Hot_Water_Loop,brick:Water,Medium Temperature,Medium-temperature hot water
 brick:Mixed_Air,,brick:Mixed_Air_Duct,,brick:Air,,(1) air that contains two or more streams of air. (2) combined outdoor air and recirculated air.
 brick:Natural_Gas,,,,brick:Natural_Gas,,Fossil fuel energy source consisting largely of methane and other hydrocarbons
-brick:NH3,,,,brick:NH3,,Ammonia
+brick:NH3,,,,brick:Ammonia,,Ammonia
 brick:NO2,,,,brick:NO2,,Nitrogen Dioxide
-brick:O3,,,,brick:O3,,Ozone
+brick:O3,,,,brick:Ozone,,Ozone
 brick:Oil,,,,brick:Oil,,"a viscous liquid derived from petroleum, especially for use as a fuel or lubricant."
 brick:Outside_Air,,brick:Outside,,brick:Air,,"air external to a defined zone (e.g., corridors)."
 brick:Particulate_Matter,,,,brick:Particulate_Matter,,a mixture of solid particles and liquid droplets found in the air
@@ -59,12 +59,12 @@ brick:PM10,,,,brick:PM10,,Particulate matter with a diameter of 10 micrometers a
 brick:Potable_Water,,,,brick:Water,Potable,Water that is safe to drink
 brick:Refrigerant,,,,brick:Refrigerant,,A refrigerant is a working fluid used in the refrigeration cycle of air conditioning systems and heat pumps where in most cases they undergo a repeated phase transition from a liquid to a gas and back again.
 brick:Return_Air,,brick:Return_Air_Duct,,brick:Air,,"air removed from a space to be recirculated or exhausted. Air extracted from a space and totally or partially returned to an air conditioner, furnace, or other heating, cooling, or ventilating system."
-brick:Rn,,,,brick:Rn,,Radon
+brick:Rn,,,,brick:Radon,,Radon
 brick:Room_Air,,brick:Room,,brick:Air,,
 brick:Soil,,,,brick:Soil,,
 brick:Solid,,,,brick:Solid,,"one of the three states or phases of matter characterized by stability of dimensions, relative incompressibility, and molecular motion held to limited oscillation."
 brick:Steam,,,,brick:Steam,,water in the vapor phase.
 brick:Supply_Air,,brick:Supply_Air_Duct,,brick:Air,,"(1) air delivered by mechanical or natural ventilation to a space, composed of any combination of outdoor air, recirculated air, or transfer air. (2) air entering a space from an air-conditioning, heating, or ventilating apparatus for the purpose of comfort conditioning. Supply air is generally filtered, fan forced, and either heated, cooled, humidified, or dehumidified as necessary to maintain specified conditions. Only the quantity of outdoor air within the supply airflow may be used as replacement air."
-brick:VOC,,,,brick:VOC,,Volatile Organic Compound
+brick:VOC,,,,brick:TVOC,,Volatile Organic Compound
 brick:Water,,,,brick:Water,,"transparent, odorless, tasteless liquid; a compound of hydrogen and oxygen (H2O), containing 11.188% hydrogen and 88.812% oxygen by mass; freezing at 32°F (0°C); boiling near 212°F (100°C)."
 brick:Zone_Air,,brick:Zone,,brick:Air,,"air inside a defined zone (e.g., corridors)."
