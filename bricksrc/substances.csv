@@ -13,14 +13,14 @@ brick:Collection_Basin_Water,,,brick:Water,Collection Basin,"Water transiently c
 brick:Condenser_Water,,brick:Condenser_Water_Loop,brick:Water,,Water used used to remove heat through condensation
 brick:Deionized_Water,,,brick:Water,Deionized,Water which has been purified by removing its ions (constituting the majority of non-particulate contaminants)
 brick:Discharge_Air,,,brick:Air,Discharge,the air exiting the registers (vents).
-brick:Domestic_Hot_Water,,,brick:Water,Domestic Hot,
-brick:Domestic_Water,,,brick:Water,Domestic,A collection of equipment that transport and regulate domestic water among each other
+brick:Domestic_Hot_Water,,brick:Domestic_Water_Loop,brick:Water,Hot,
+brick:Domestic_Water,,brick:Domestic_Water_Loop,brick:Water,,A collection of equipment that transport and regulate domestic water among each other
 brick:Entering_Chilled_Water,brick:Entering,brick:Chilled_Water_Loop,brick:Water,,Chilled water that is entering a piece of equipment or system
 brick:Entering_Condenser_Water,brick:Entering,brick:Condenser_Water_Loop,brick:Water,,"In a condenser water loop, this is water being brought away from the condenser side of a heat-rejection device (e.g. chiller). It is the 'warm' side."
-brick:Entering_Domestic_Hot_Water,brick:Entering,,brick:Water,Domestic Hot,Domestic hot water that is entering a piece of equipment or system
-brick:Entering_High_Temperature_Hot_Water,brick:Entering,,brick:Water,High Temperature Hot,High-temperature hot water entering a hot water system
-brick:Entering_Hot_Water,brick:Entering,,brick:Water,Hot,
-brick:Entering_Medium_Temperature_Hot_Water,brick:Entering,,brick:Water,Medium Temperature Hot,Medium-temperature hot water entering a hot water system
+brick:Entering_Domestic_Hot_Water,brick:Entering,brick:Domestic_Water_Loop,brick:Water,Hot,Domestic hot water that is entering a piece of equipment or system
+brick:Entering_High_Temperature_Hot_Water,brick:Entering,brick:Hot_Water_Loop,brick:Water,High Temperature,High-temperature hot water entering a hot water system
+brick:Entering_Hot_Water,brick:Entering,brick:Hot_Water_Loop,brick:Water,,
+brick:Entering_Medium_Temperature_Hot_Water,brick:Entering,brick:Hot_Water_Loop,brick:Water,Medium Temperature,Medium-temperature hot water entering a hot water system
 brick:Entering_Water,brick:Entering,,brick:Water,,Water that is entering a piece of equipment or system
 brick:Exhaust_Air,,,brick:Air,Exhaust,"air that must be removed from a space due to contaminants, regardless of pressurization"
 brick:Fluid,,,brick:Fluid,,"substance, as a liquid or gas, that is capable of flowing and that changes shape when acted on by a force."
@@ -30,21 +30,21 @@ brick:Gas,,,brick:Gas,,"state of matter in which substances exist in the form of
 brick:Gasoline,,,brick:Gasoline,,Petroleum derived liquid used as a fuel source
 brick:Glycol,,,brick:Glycol,,
 brick:Hail,,,brick:Hail,,pellets of frozen rain which fall in showers from cumulonimbus clouds.
-brick:High_Temperature_Hot_Water,,,brick:Water,High Temperature Hot,High-temperature hot water
-brick:Hot_Water,,,brick:Water,Hot,Hot water used for HVAC heating or supply to hot taps
+brick:High_Temperature_Hot_Water,,brick:Hot_Water_Loop,brick:Water,High Temperature,High-temperature hot water
+brick:Hot_Water,,brick:Hot_Water_Loop,brick:Water,,Hot water used for HVAC heating or supply to hot taps
 brick:Ice,,,brick:Ice,,Water in its solid form
 brick:Leaving_Chilled_Water,brick:Leaving,brick:Chilled_Water_Loop,brick:Water,,Chilled water that is leaving a piece of equipment or system
 brick:Leaving_Condenser_Water,brick:Leaving,brick:Condenser_Water_Loop,brick:Water,,"In a condenser water loop, this is water being brought to the condenser side of a heat-rejection device (e.g. chiller). It is the 'cold' side."
-brick:Leaving_Domestic_Hot_Water,brick:Leaving,,brick:Water,Domestic Hot,Domestic hot water that is leaving a piece of equipment or system
-brick:Leaving_High_Temperature_Hot_Water,brick:Leaving,,brick:Water,High Temperature Hot,High-temperature hot water leaving a hot water system
-brick:Leaving_Hot_Water,brick:Leaving,,brick:Water,Hot,
-brick:Leaving_Medium_Temperature_Hot_Water,brick:Leaving,,brick:Water,Medium Temperature Hot,Medium-temperature hot water leaving a hot water system
+brick:Leaving_Domestic_Hot_Water,brick:Leaving,brick:Domestic_Water_Loop,brick:Water,Hot,Domestic hot water that is leaving a piece of equipment or system
+brick:Leaving_High_Temperature_Hot_Water,brick:Leaving,brick:Hot_Water_Loop,brick:Water,High Temperature,High-temperature hot water leaving a hot water system
+brick:Leaving_Hot_Water,brick:Leaving,brick:Hot_Water_Loop,brick:Water,,
+brick:Leaving_Medium_Temperature_Hot_Water,brick:Leaving,brick:Hot_Water_Loop,brick:Water,Medium Temperature,Medium-temperature hot water leaving a hot water system
 brick:Leaving_Water,brick:Leaving,,brick:Water,,Water that is leaving a piece of equipment or system
 brick:Light,,,brick:Light,,
 brick:Liquid,,,brick:Liquid,,"state of matter intermediate between crystalline substances and gases in which the volume of a substance, but not the shape, remains relatively constant."
 brick:Liquid_CO2,,,brick:Liquid_CO2,,Carbon Dioxide in the liquid phase
 brick:Makeup_Water,,,brick:Water,Makeup,"Water used used to makeup water loss through leaks, evaporation, or blowdown"
-brick:Medium_Temperature_Hot_Water,,,brick:Water,Medium Temperature Hot,Medium-temperature hot water
+brick:Medium_Temperature_Hot_Water,,brick:Hot_Water_Loop,brick:Water,Medium Temperature,Medium-temperature hot water
 brick:Mixed_Air,,,brick:Air,Mixed,(1) air that contains two or more streams of air. (2) combined outdoor air and recirculated air.
 brick:Natural_Gas,,,brick:Natural_Gas,,Fossil fuel energy source consisting largely of methane and other hydrocarbons
 brick:NH3,,,brick:NH3,,Ammonia
