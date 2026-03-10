@@ -554,7 +554,7 @@ brick:Natural_Gas_Usage_Sensor,,,brick:Natural_Gas,,,,brick:Usage_Sensor,,"Measu
 brick:No_Water_Alarm,,,,,,,,(deprecated),Alarm indicating that there is no water in the equipment or system
 brick:NO2_Level_Sensor,,,brick:Air,brick:NO2,,quantitykind:MassDensity,brick:Sensor,,Measures the concentration of NO2 in air
 brick:Occupancy_Command,,,,,,brick:EnumerationKind-Occupancy,brick:Command,,"Controls whether or not a device or controller is operating in ""Occupied"" mode"
-brick:Occupancy_Count_Sensor,,,brick:People,,,quantitykind:Count,brick:Sensor,,Sensors measuring the number of people in an area
+brick:Occupancy_Count_Sensor,,,,,,quantitykind:Population,brick:Sensor,,Sensors measuring the number of people in an area
 brick:Occupancy_Sensor,,,,,,brick:EnumerationKind-Occupancy,brick:Sensor,,Detects occupancy of some space or area
 brick:Occupancy_Status,,,,,,brick:EnumerationKind-Occupancy,brick:Status,,Indicates if a room or space is occupied
 brick:Occupied_Air_Temperature_Setpoint,brick:Occupied,,brick:Air,,,quantitykind:Temperature,brick:Setpoint,,
