@@ -14,7 +14,7 @@ brick:Air_Flow_Loss_Alarm,,,brick:Air,,,quantitykind:VolumeFlowRate,brick:Loss_A
 brick:Air_Flow_Sensor,,,brick:Air,,,quantitykind:VolumeFlowRate,brick:Sensor,,Measures the rate of flow of air
 brick:Air_Flow_Setpoint,,,brick:Air,,,quantitykind:VolumeFlowRate,brick:Setpoint,,Sets air flow
 brick:Air_Flow_Setpoint_Limit,,,brick:Air,,,quantitykind:VolumeFlowRate,brick:Setpoint_Limit,,A parameter that places a lower or upper bound on the range of permitted values of a Air_Flow_Setpoint.
-brick:Air_Grains_Sensor,,,brick:Air,,,,brick:Sensor,Grains,Measures the mass of water vapor in air
+brick:Air_Grains_Sensor,,,brick:Air,,,quantitykind:SpecificHumidity,brick:Sensor,,Measures the mass of water vapor in air
 brick:Air_Pressure_Sensor,,,brick:Air,,,quantitykind:Pressure,brick:Sensor,,Measures the pressure of the surrounding air.
 brick:Air_Pressure_Setpoint,,,brick:Air,,,quantitykind:Pressure,brick:Setpoint,,
 brick:Air_Quality_Sensor,,,,,,,brick:Air_Quality_Sensor,,A sensor which provides a measure of air quality
@@ -599,7 +599,7 @@ brick:Outside_Air_Dewpoint_Sensor,,,brick:Outside_Air,,,quantitykind:DewPointTem
 brick:Outside_Air_Enthalpy_Sensor,,,brick:Outside_Air,,,quantitykind:Enthalpy,brick:Sensor,,Measures the total heat content of outside air
 brick:Outside_Air_Flow_Sensor,,,brick:Outside_Air,,,quantitykind:VolumeFlowRate,brick:Sensor,,Measures the rate of flow of outside air into the system
 brick:Outside_Air_Flow_Setpoint,,,brick:Outside_Air,,,quantitykind:VolumeFlowRate,brick:Setpoint,,Sets outside air flow rate
-brick:Outside_Air_Grains_Sensor,,,brick:Outside_Air,,,,brick:Sensor,Grains,Measures the mass of water vapor in outside air
+brick:Outside_Air_Grains_Sensor,,,brick:Outside_Air,,,quantitykind:SpecificHumidity,brick:Sensor,,Measures the mass of water vapor in outside air
 brick:Outside_Air_Humidity_Sensor,,,brick:Outside_Air,,,quantitykind:RelativeHumidity,brick:Sensor,,Measures the relative humidity of outside air
 brick:Outside_Air_Humidity_Setpoint,,,brick:Outside_Air,,,quantitykind:RelativeHumidity,brick:Setpoint,,Humidity setpoint for outside air
 brick:Outside_Air_Lockout_Temperature_Differential_Parameter,,,,,,,,(deprecated),
@@ -677,7 +677,7 @@ brick:Return_Air_Differential_Pressure_Sensor,,,brick:Return_Air,,brick:Differen
 brick:Return_Air_Differential_Pressure_Setpoint,,,brick:Return_Air,,brick:Differential,quantitykind:Pressure,brick:Setpoint,,Sets the target air differential pressure between an upstream and downstream point in a return air duct or conduit
 brick:Return_Air_Enthalpy_Sensor,,,brick:Return_Air,,,quantitykind:Enthalpy,brick:Sensor,,Measures the total heat content of return air
 brick:Return_Air_Flow_Sensor,,,brick:Return_Air,,,quantitykind:VolumeFlowRate,brick:Sensor,,Measures the rate of flow of return air
-brick:Return_Air_Grains_Sensor,,,brick:Return_Air,,,,brick:Sensor,Grains,Measures the mass of water vapor in return air
+brick:Return_Air_Grains_Sensor,,,brick:Return_Air,,,quantitykind:SpecificHumidity,brick:Sensor,,Measures the mass of water vapor in return air
 brick:Return_Air_Humidity_Sensor,,,brick:Return_Air,,,quantitykind:RelativeHumidity,brick:Sensor,,Measures the relative humidity of return air
 brick:Return_Air_Humidity_Setpoint,,,brick:Return_Air,,,quantitykind:RelativeHumidity,brick:Setpoint,,Humidity setpoint for return air
 brick:Return_Air_Temperature_Alarm,,,brick:Return_Air,,,quantitykind:Temperature,brick:Alarm,,An alarm that indicates the off-normal conditions associated with the temperature of return air.
