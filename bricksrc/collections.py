@@ -1,4 +1,4 @@
-from .namespaces import TAG, OWL, BRICK
+from .namespaces import TAG, REC, BRICK
 
 system_subclasses = {
     "Automatic_Tint_Window_Array": {
@@ -62,7 +62,9 @@ system_subclasses = {
                     },
                 },
             },
-            "VRF_System": {"tags": [TAG.Variable, TAG.Refrigerant, TAG.Flow, TAG.System]},
+            "VRF_System": {
+                "tags": [TAG.Variable, TAG.Refrigerant, TAG.Flow, TAG.System]
+            },
             "Refrigeration_System": {"tags": [TAG.Refrigeration, TAG.System]},
             "Steam_System": {"tags": [TAG.Steam, TAG.System]},
             "Water_System": {
@@ -158,6 +160,10 @@ collection_classes = {
     "Portfolio": {
         "tags": [TAG.Collection, TAG.Portfolio],
         "constraints": {BRICK.hasPart: [BRICK.Site]},
+    },
+    "Point_Collection": {
+        "tags": [TAG.Collection, TAG.Point_Collection],
+        "constraints": {BRICK.hasPart: [BRICK.Point, BRICK.Point_Collection]},
     },
     "System": {
         "tags": [TAG.Collection, TAG.System],
