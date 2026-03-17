@@ -19,6 +19,12 @@ parameter_definitions = {
             "Deadband": {
                 "tags": [TAG.Point, TAG.Deadband, TAG.Parameter],
             },
+            "Deadband_Shift": {
+                "tags": [TAG.Point, TAG.Deadband, TAG.Shift, TAG.Parameter],
+            },
+            "Alarm_Threshold": {
+                "tags": [TAG.Point, TAG.Alarm, TAG.Threshold, TAG.Parameter],
+            },
             "Alarm_Sensitivity_Parameter": {
                 "tags": [TAG.Point, TAG.Alarm, TAG.Sensitivity, TAG.Parameter],
                 "subclasses": {

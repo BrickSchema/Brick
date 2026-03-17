@@ -2,15 +2,15 @@ from .namespaces import TAG, BRICK, RDFS, QUDTQK
 from rdflib import Literal
 
 setpoint_definitions = {
-    "Threshold": {
-        "tags": [TAG.Point, TAG.Threshold],
-    },
     "Setpoint": {
         RDFS.seeAlso: Literal(
             "https://xp20.ashrae.org/terminology/index.php?term=setpoint"
         ),
         "tags": [TAG.Point, TAG.Setpoint],
         "subclasses": {
+            "Threshold": {
+                "tags": [TAG.Point, TAG.Setpoint, TAG.Threshold],
+            },
             "Current_Ratio_Setpoint": {
                 BRICK.hasQuantity: QUDTQK.ElectricCurrent,
                 "tags": [TAG.Point, TAG.Setpoint, TAG.Current, TAG.Electric, TAG.Ratio],
