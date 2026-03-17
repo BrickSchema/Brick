@@ -147,6 +147,31 @@ bsh:hasHotColdDeck
     ] ;
 .
 
+brick:Threshold a sh:NodeShape ;
+    sh:property [
+        sh:path brick:hasTrigger ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:class brick:TriggerDirection ;
+        sh:message "A Threshold must have exactly one hasTrigger of type TriggerDirection."
+    ] .
+
+brick:Alarm_Threshold a sh:NodeShape ;
+    sh:property [
+        sh:path brick:hasTrigger ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:class brick:TriggerDirection ;
+        sh:message "An Alarm_Threshold must have exactly one hasTrigger of type TriggerDirection."
+    ] .
+
+brick:Alarm a sh:NodeShape ;
+    sh:property [
+        sh:path brick:hasParameter ;
+        sh:class brick:Alarm_Threshold ;
+        sh:message "An Alarm's parameters must be Alarm_Thresholds."
+    ] .
+
 bsh:isPointOfShape a sh:PropertyShape ;
     sh:targetClass brick:Point ;
     sh:path brick:isPointOf ;
