@@ -44,6 +44,7 @@ from bricksrc.alarm import alarm_definitions
 from bricksrc.status import status_definitions
 from bricksrc.command import command_definitions
 from bricksrc.parameter import parameter_definitions
+from bricksrc.point import point_definitions
 from bricksrc.collections import collection_classes
 from bricksrc.location import location_subclasses
 from bricksrc.equipment import (
@@ -324,7 +325,7 @@ def define_classes(definitions, parent, pun_classes=False, graph=G):
         # this is a nested dictionary
         subclassdef = defn.get("subclasses", {})
         assert isinstance(subclassdef, dict)
-        define_classes(subclassdef, classname, graph=graph)
+        define_classes(subclassdef, classname, pun_classes=pun_classes, graph=graph)
 
         # handle 'parents' subclasses (links outside of tree-based hierarchy)
         parents = defn.get("parents", [])
@@ -878,6 +879,52 @@ roots = {
 define_classes(roots, BRICK.Class)  # <= Brick v1.3.0
 define_classes(roots, BRICK.Entity)  # >= Brick v1.3.0
 
+# TriggerDirection punned enumeration hierarchy (modeled after s223 EnumerationKinds).
+# Each class is also an instance of itself, allowing values to be set at any level
+# of specificity (e.g. TriggerDirection-Rising or TriggerDirection-Cooling).
+trigger_direction_definitions = {
+    "TriggerDirection": {
+        RDFS.comment: Literal(
+            "Enumerates the direction a measured value crosses a threshold to trigger an action. "
+            "Each subclass is also an instance of itself (punned enumeration).",
+            lang="en",
+        ),
+        "subclasses": {
+            "TriggerDirection-Rising": {
+                RDFS.comment: Literal(
+                    "The threshold is triggered when the measured value rises above it.",
+                    lang="en",
+                ),
+                "subclasses": {
+                    "TriggerDirection-Cooling": {
+                        RDFS.comment: Literal(
+                            "A rising trigger associated with cooling: cooling begins when "
+                            "the measured value rises above the threshold.",
+                            lang="en",
+                        ),
+                    },
+                },
+            },
+            "TriggerDirection-Falling": {
+                RDFS.comment: Literal(
+                    "The threshold is triggered when the measured value falls below it.",
+                    lang="en",
+                ),
+                "subclasses": {
+                    "TriggerDirection-Heating": {
+                        RDFS.comment: Literal(
+                            "A falling trigger associated with heating: heating begins when "
+                            "the measured value falls below the threshold.",
+                            lang="en",
+                        ),
+                    },
+                },
+            },
+        },
+    },
+}
+define_classes(trigger_direction_definitions, BRICK.Entity, pun_classes=True)
+
 logger.info("Defining properties")
 # define BRICK properties
 G.add((BRICK.Relationship, RDFS.subClassOf, RDF.Property))
@@ -901,10 +948,19 @@ define_classes(sensor_definitions, BRICK.Point)
 define_classes(alarm_definitions, BRICK.Point)
 define_classes(status_definitions, BRICK.Point)
 define_classes(command_definitions, BRICK.Point)
+define_classes(point_definitions, BRICK.Point)
 define_classes(parameter_definitions, BRICK.Point)
 
 # make points disjoint
-pointclasses = ["Alarm", "Status", "Command", "Setpoint", "Sensor", "Parameter"]
+pointclasses = [
+    "Alarm",
+    "Status",
+    "Command",
+    "Setpoint",
+    "Sensor",
+    "Parameter",
+    "Limit",
+]
 for pc in pointclasses:
     for o in filter(lambda x: x != pc, pointclasses):
         G.add((BRICK[pc], OWL.disjointWith, BRICK[o]))
