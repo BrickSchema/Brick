@@ -1432,6 +1432,8 @@ setpoint_definitions = {
                             "Cooling_Zone_Air_Temperature_Setpoint": {
                                 BRICK.hasQuantity: QUDTQK.Temperature,
                                 BRICK.hasSubstance: BRICK.Zone_Air,
+                                BRICK.hasTrigger: BRICK["TriggerDirection-Cooling"],
+                                "parents": [BRICK.Threshold],
                                 "tags": [
                                     TAG.Point,
                                     TAG.Cool,
@@ -1499,6 +1501,8 @@ setpoint_definitions = {
                             "Heating_Zone_Air_Temperature_Setpoint": {
                                 BRICK.hasQuantity: QUDTQK.Temperature,
                                 BRICK.hasSubstance: BRICK.Zone_Air,
+                                BRICK.hasTrigger: BRICK["TriggerDirection-Heating"],
+                                "parents": [BRICK.Threshold],
                                 "tags": [
                                     TAG.Point,
                                     TAG.Heat,
@@ -1781,6 +1785,8 @@ setpoint_definitions = {
                     },
                     "Cooling_Temperature_Setpoint": {
                         BRICK.hasQuantity: QUDTQK.Temperature,
+                        BRICK.hasTrigger: BRICK["TriggerDirection-Cooling"],
+                        "parents": [BRICK.Threshold],
                         "tags": [TAG.Point, TAG.Temperature, TAG.Setpoint, TAG.Cool],
                         "subclasses": {
                             "Occupied_Cooling_Temperature_Setpoint": {
@@ -1805,6 +1811,8 @@ setpoint_definitions = {
                     },
                     "Heating_Temperature_Setpoint": {
                         BRICK.hasQuantity: QUDTQK.Temperature,
+                        BRICK.hasTrigger: BRICK["TriggerDirection-Heating"],
+                        "parents": [BRICK.Threshold],
                         "tags": [TAG.Point, TAG.Temperature, TAG.Setpoint, TAG.Heat],
                         "subclasses": {
                             "Occupied_Heating_Temperature_Setpoint": {
