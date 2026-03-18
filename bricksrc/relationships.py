@@ -50,6 +50,12 @@ relationships = {
         "domain": BRICK.Entity,
         "datatype": XSD.dateTime,
     },
+    "expectedLifetime": {
+        RDFS.label: Literal("Expected lifetime", lang="en"),
+        A: [OWL.DatatypeProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+        "domain": BRICK.Equipment,
+        "datatype": XSD.duration,
+    },
     "hasQUDTReference": {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         RDFS.label: Literal("Has QUDT reference", lang="en"),
