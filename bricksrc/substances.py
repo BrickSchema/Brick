@@ -15,6 +15,7 @@ substances = {
                             "Bypass_Air": {},
                             "Outside_Air": {},
                             "Zone_Air": {},
+                            "Room_Air": {},
                             "Building_Air": {},
                             "Mixed_Air": {},
                             "Return_Air": {},
@@ -27,10 +28,17 @@ substances = {
                             },
                         },
                     },
-                    "CO2": {},
-                    "CO": {},
-                    "Steam": {},
+                    "Formaldehyde": {},
+                    "Methane": {},
+                    "CO": {},  # Carbon Monoxide
+                    "CO2": {},  # Carbon Dioxide
                     "Natural_Gas": {},
+                    "Ammonia": {},
+                    "NO2": {},  # Nitrogen Dioxide
+                    "Ozone": {},
+                    "Radon": {},
+                    "Steam": {},
+                    "TVOC": {},  # Total Volatile Organic Compounds
                 },
             },
             "Liquid": {
@@ -73,6 +81,14 @@ substances = {
                                 SKOS.narrower: {
                                     "Domestic_Hot_Water": {
                                         "parents": [BRICK.Hot_Water],
+                                        SKOS.narrower: {
+                                            "Entering_Domestic_Hot_Water": {
+                                                "parents": [BRICK.Entering_Water],
+                                            },
+                                            "Leaving_Domestic_Hot_Water": {
+                                                "parents": [BRICK.Leaving_Water],
+                                            },
+                                        },
                                     },
                                 }
                             },
@@ -92,8 +108,25 @@ substances = {
                                     "Leaving_Hot_Water": {
                                         "parents": [BRICK.Leaving_Water],
                                     },
-                                    "Supply_Hot_Water": {
-                                        "parents": [BRICK.Supply_Water],
+                                    "High_Temperature_Hot_Water": {
+                                        SKOS.narrower: {
+                                            "Entering_High_Temperature_Hot_Water": {
+                                                "parents": [BRICK.Entering_Water],
+                                            },
+                                            "Leaving_High_Temperature_Hot_Water": {
+                                                "parents": [BRICK.Leaving_Water],
+                                            },
+                                        },
+                                    },
+                                    "Medium_Temperature_Hot_Water": {
+                                        SKOS.narrower: {
+                                            "Entering_Medium_Temperature_Hot_Water": {
+                                                "parents": [BRICK.Entering_Water],
+                                            },
+                                            "Leaving_Medium_Temperature_Hot_Water": {
+                                                "parents": [BRICK.Leaving_Water],
+                                            },
+                                        },
                                     },
                                 },
                             },
@@ -110,6 +143,13 @@ substances = {
             "Frost": {},
             "Hail": {},
             "Soil": {},
+        },
+    },
+    "Particulate_Matter": {
+        SKOS.narrower: {
+            "PM1": {},
+            "PM2.5": {},
+            "PM10": {},
         },
     },
 }
