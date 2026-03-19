@@ -40,6 +40,7 @@ bldg:FrostDetection a mpo:FrostDetectionCollection ;
 bldg:FrostDetectionSensor a brick:Sensor_Equipment ;
   brick:hasPoint bldg:FrostDetected .
 
-bldg:FrostDetectionMonitoring a brick:Enable_Command .
+bldg:FrostDetectionMonitoring a brick:Enable_Command ;
+  brick:isPointOf bldg:Ahu .
 
 bldg:FrostDetected a brick:Frost_Sensor .
