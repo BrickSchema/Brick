@@ -1,0 +1,35 @@
+@prefix brick: <https://brickschema.org/schema/Brick#> .
+@prefix ex: <http://example.org/building#> .
+
+#################
+# Example model #
+#################
+
+# Single target setpoint with symmetric deadband (shift = 0)
+ex:room100_target_sp a brick:Target_Zone_Air_Temperature_Setpoint ;
+    brick:hasParameter ex:room100_deadband, ex:room100_deadband_shift ;
+    brick:hasParameter ex:room100_min_limit, ex:room100_max_limit .
+ex:room100_deadband a brick:Deadband .        # e.g. size = 4 degF (a delta quantity)
+ex:room100_deadband_shift a brick:Deadband_Shift . # shift = 0 (symmetric)
+ex:room100_min_limit a brick:Min_Zone_Air_Temperature_Limit .
+ex:room100_max_limit a brick:Max_Zone_Air_Temperature_Limit .
+
+# Dual heating/cooling setpoints (gap is implicit in the two setpoint values)
+ex:room101_cooling_sp a brick:Cooling_Zone_Air_Temperature_Setpoint ;
+    brick:hasParameter ex:room101_min_limit, ex:room101_max_limit .
+
+ex:room101_heating_sp a brick:Heating_Zone_Air_Temperature_Setpoint ;
+    brick:hasParameter ex:room101_min_limit, ex:room101_max_limit .
+
+ex:room101_high_temp_alarm a brick:Alarm ;
+    brick:hasParameter ex:room101_high_temp_alarm_thresh .
+ex:room101_high_temp_alarm_thresh a brick:Alarm_Threshold ;
+    brick:hasTrigger brick:TriggerDirection-Rising .
+# or
+ex:room101_high_temp_alarm_thresh a brick:High_Alarm_Threshold .
+brick:High_Alarm_Threshold a owl:Class ;
+    rdfs:subClassOf brick:Alarm_Threshold ;
+    brick:hasTrigger brick:TriggerDirection-Rising .
+
+ex:room101_min_limit a brick:Min_Zone_Air_Temperature_Limit .
+ex:room101_max_limit a brick:Max_Zone_Air_Temperature_Limit .

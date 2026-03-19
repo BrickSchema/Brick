@@ -1,0 +1,330 @@
+@prefix brick: <https://brickschema.org/schema/Brick#> .
+@prefix ex: <http://example.org/ahu_pointlist#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://example.org/ahu_pointlist> a owl:Ontology ;
+    owl:imports <https://brickschema.org/schema/1.4/Brick> .
+
+#################
+# Example model #
+#################
+
+# AHU based on ahulist1.md: separate OA dampers, SAT and duct static
+# trim-and-respond points, and relief damper control. Where this branch has
+# a specific Brick class, it is used directly; unresolved mappings are marked
+# as brick:TODO placeholders.
+
+ex:ahu1 a brick:Air_Handling_Unit ;
+    rdfs:label "AHU 1" ;
+    brick:hasPart ex:ahu1_cooling_coil,
+        ex:ahu1_economizer_damper,
+        ex:ahu1_heating_coil,
+        ex:ahu1_min_oa_damper,
+        ex:ahu1_mixed_air_filter,
+        ex:ahu1_relief_damper,
+        ex:ahu1_return_damper,
+        ex:ahu1_supply_fan ;
+    brick:hasPoint ex:ahu1_cool_sat_ignored_requests,
+        ex:ahu1_cool_sat_initial_sp,
+        ex:ahu1_cool_sat_max_response,
+        ex:ahu1_cool_sat_max_sp,
+        ex:ahu1_cool_sat_min_sp,
+        ex:ahu1_cool_sat_requests,
+        ex:ahu1_cool_sat_respond_amount,
+        ex:ahu1_cool_sat_time_step,
+        ex:ahu1_cool_sat_trim_amount,
+        ex:ahu1_cooling_sat_delay,
+        ex:ahu1_design_max_duct_static_pressure,
+        ex:ahu1_dsp_delay,
+        ex:ahu1_dsp_ignored_requests,
+        ex:ahu1_dsp_initial_sp,
+        ex:ahu1_dsp_max_response,
+        ex:ahu1_dsp_max_sp,
+        ex:ahu1_dsp_min_sp,
+        ex:ahu1_dsp_requests,
+        ex:ahu1_dsp_respond_amount,
+        ex:ahu1_dsp_time_step,
+        ex:ahu1_dsp_trim_amount,
+        ex:ahu1_econ_climate_zone,
+        ex:ahu1_econ_lockout_method,
+        ex:ahu1_highest_cooling_sat_sp,
+        ex:ahu1_lowest_cooling_sat_sp,
+        ex:ahu1_mat,
+        ex:ahu1_max_zone_outdoor_air_fraction,
+        ex:ahu1_min_outdoor_airflow_sp,
+        ex:ahu1_oat,
+        ex:ahu1_oat_reset_lower_bound,
+        ex:ahu1_oat_reset_upper_bound,
+        ex:ahu1_rat,
+        ex:ahu1_sat,
+        ex:ahu1_std62_design_total_outdoor_airflow,
+        ex:ahu1_sum_primary_airflows,
+        ex:ahu1_supply_air_temperature_sp,
+        ex:ahu1_supply_duct_static_pressure,
+        ex:ahu1_supply_duct_static_pressure_sp,
+        ex:ahu1_system_mode,
+        ex:ahu1_system_ventilation_efficiency,
+        ex:ahu1_uncorrected_outdoor_air_rate .
+
+ex:ahu1_mixed_air_filter a brick:Mixed_Air_Filter ;
+    rdfs:label "AHU 1 Mixed Air Filter" ;
+    brick:hasPoint ex:ahu1_filter_dp,
+        ex:ahu1_filter_dp_high_limit .
+
+ex:ahu1_supply_fan a brick:Supply_Fan ;
+    rdfs:label "AHU 1 Supply Fan" ;
+    brick:hasPoint ex:ahu1_supply_fan_min_speed,
+        ex:ahu1_supply_fan_speed,
+        ex:ahu1_supply_fan_start_stop .
+
+ex:ahu1_economizer_damper a brick:Economizer_Damper ;
+    rdfs:label "AHU 1 Economizer OA Damper" ;
+    brick:hasPoint ex:ahu1_economizer_oa_damper_cmd .
+
+ex:ahu1_min_oa_damper a brick:Outside_Damper ;
+    rdfs:label "AHU 1 Minimum OA Damper" ;
+    brick:hasPoint ex:ahu1_min_oa_control_threshold,
+        ex:ahu1_min_oa_damper_cmd,
+        ex:ahu1_min_oa_damper_design_dp,
+        ex:ahu1_min_oa_damper_dp,
+        ex:ahu1_min_oa_damper_dp_sp .
+
+ex:ahu1_return_damper a brick:Return_Damper ;
+    rdfs:label "AHU 1 Return Air Damper" ;
+    brick:hasPoint ex:ahu1_max_return_damper_position,
+        ex:ahu1_return_air_damper_cmd,
+        ex:ahu1_return_air_min_oa_threshold .
+
+ex:ahu1_relief_damper a brick:Relief_Damper ;
+    rdfs:label "AHU 1 Relief Damper" ;
+    brick:hasPoint ex:ahu1_relief_damper_cmd .
+
+ex:ahu1_cooling_coil a brick:Chilled_Water_Coil ;
+    rdfs:label "AHU 1 Cooling Coil" ;
+    brick:hasPart ex:ahu1_chw_valve .
+
+ex:ahu1_chw_valve a brick:Cooling_Valve ;
+    rdfs:label "AHU 1 CHW Valve" ;
+    brick:hasPoint ex:ahu1_cooling_signal .
+
+ex:ahu1_heating_coil a brick:Hot_Water_Coil ;
+    rdfs:label "AHU 1 Heating Coil" ;
+    brick:hasPart ex:ahu1_hw_valve .
+
+ex:ahu1_hw_valve a brick:Heating_Valve ;
+    rdfs:label "AHU 1 HW Valve" ;
+    brick:hasPoint ex:ahu1_heating_signal .
+
+ex:building a brick:Building ;
+    rdfs:label "Example Building" ;
+    brick:hasPoint ex:building_pressure,
+        ex:building_pressure_rolling_average,
+        ex:building_pressure_sp .
+
+##################
+# Measured points #
+##################
+
+ex:ahu1_sat a brick:Supply_Air_Temperature_Sensor ;
+    rdfs:label "Supply Air Temperature (AHU_SAT)" .
+
+ex:ahu1_rat a brick:Return_Air_Temperature_Sensor ;
+    rdfs:label "Return Air Temperature (AHU_RAT)" .
+
+ex:ahu1_mat a brick:Mixed_Air_Temperature_Sensor ;
+    rdfs:label "Mixed Air Temperature (AHU_MAT)" .
+
+ex:ahu1_oat a brick:Outside_Air_Temperature_Sensor ;
+    rdfs:label "Outdoor Air Temperature (OAT)" .
+
+ex:ahu1_supply_duct_static_pressure a brick:Supply_Air_Static_Pressure_Sensor ;
+    rdfs:label "Duct Static Pressure (AHU_DSP)" .
+
+ex:ahu1_filter_dp a brick:Filter_Differential_Pressure_Sensor ;
+    rdfs:label "Filter Pressure Drop (FilterDP)" .
+
+ex:ahu1_min_oa_damper_dp a brick:Air_Differential_Pressure_Sensor ;
+    rdfs:label "Minimum Outdoor Air Damper Differential Pressure (MinOAD_DP)" .
+
+ex:building_pressure a brick:Building_Air_Static_Pressure_Sensor ;
+    rdfs:label "Building Static Pressure, Instantaneous (BldDP)" .
+
+ex:building_pressure_rolling_average a brick:Building_Air_Static_Pressure_Sensor ;
+    rdfs:label "Building Static Pressure, Rolling Average (BldDPavg)" .
+
+########################
+# Requests and statuses #
+########################
+
+ex:ahu1_dsp_requests a brick:Request ;
+    rdfs:label "Duct Static Pressure Requests (DSP_Req)" .
+
+ex:ahu1_cool_sat_requests a brick:Request ;
+    rdfs:label "Cooling SAT Requests (CoolSAT_Req)" .
+
+ex:ahu1_system_mode a brick:Operating_Mode_Status ;
+    rdfs:label "AHU System Mode (AHUMode)" .
+
+############
+# Setpoints #
+############
+
+ex:ahu1_supply_duct_static_pressure_sp a brick:Supply_Air_Static_Pressure_Setpoint ;
+    rdfs:label "Duct Static Pressure Setpoint (AHU_DSPsp)" .
+
+ex:ahu1_supply_air_temperature_sp a brick:Supply_Air_Temperature_Setpoint ;
+    rdfs:label "Supply Air Temperature Setpoint (AHU_SATsp)" .
+
+ex:ahu1_min_outdoor_airflow_sp a brick:Outside_Air_Flow_Setpoint ;
+    rdfs:label "Minimum Outdoor Airflow Setpoint (MinOAsp)" .
+
+ex:ahu1_dsp_initial_sp a brick:Supply_Air_Static_Pressure_Setpoint ;
+    rdfs:label "Duct Static Pressure T&R Initial Setpoint (DSP_SPo)" .
+
+ex:ahu1_dsp_min_sp a brick:Min_Supply_Air_Static_Pressure_Setpoint_Limit ;
+    rdfs:label "Duct Static Pressure T&R Minimum Setpoint (DSP_SPmin)" .
+
+ex:ahu1_dsp_max_sp a brick:Max_Supply_Air_Static_Pressure_Setpoint_Limit ;
+    rdfs:label "Duct Static Pressure T&R Maximum Setpoint (DSP_SPmax)" .
+
+ex:ahu1_cool_sat_initial_sp a brick:Supply_Air_Temperature_Cooling_Setpoint ;
+    rdfs:label "Cooling Supply Air Temperature T&R Initial Setpoint (CoolSAT_SPo)" .
+
+ex:ahu1_cool_sat_min_sp a brick:Min_Supply_Air_Temperature_Setpoint_Limit ;
+    rdfs:label "Cooling Supply Air Temperature T&R Minimum Setpoint (CoolSAT_SPmin)" .
+
+ex:ahu1_cool_sat_max_sp a brick:Max_Supply_Air_Temperature_Setpoint_Limit ;
+    rdfs:label "Cooling Supply Air Temperature T&R Maximum Setpoint (CoolSAT_SPmax)" .
+
+ex:ahu1_lowest_cooling_sat_sp a brick:Min_Supply_Air_Temperature_Setpoint_Limit ;
+    rdfs:label "Lowest Cooling SAT Setpoint (Min_ClgSAT)" .
+
+ex:ahu1_highest_cooling_sat_sp a brick:Max_Supply_Air_Temperature_Setpoint_Limit ;
+    rdfs:label "Highest Cooling SAT Setpoint (Max_ClgSAT)" .
+
+ex:ahu1_oat_reset_lower_bound a brick:Outside_Air_Temperature_Low_Reset_Setpoint ;
+    rdfs:label "OAT Reset Lower Bound (OAT_Min)" .
+
+ex:ahu1_oat_reset_upper_bound a brick:Outside_Air_Temperature_High_Reset_Setpoint ;
+    rdfs:label "OAT Reset Upper Bound (OAT_Max)" .
+
+ex:ahu1_min_oa_damper_dp_sp a brick:Air_Differential_Pressure_Setpoint ;
+    rdfs:label "Minimum Outdoor Air Damper Differential Pressure Setpoint (MinDPsp)" .
+
+ex:building_pressure_sp a brick:Building_Air_Static_Pressure_Setpoint ;
+    rdfs:label "Building Pressure Setpoint (BldDPsp)" .
+
+############
+# Commands #
+############
+
+ex:ahu1_economizer_oa_damper_cmd a brick:Damper_Position_Command ;
+    rdfs:label "Economizer Outdoor Air Damper Command (AHUDamperEconOA)" .
+
+ex:ahu1_return_air_damper_cmd a brick:Damper_Position_Command ;
+    rdfs:label "Return Air Damper Command (AHUDamperRA)" .
+
+ex:ahu1_min_oa_damper_cmd a brick:Damper_Position_Command ;
+    rdfs:label "Minimum Outdoor Air Damper Open/Close (AHUDamperMinOA)" .
+
+ex:ahu1_relief_damper_cmd a brick:Damper_Position_Command ;
+    rdfs:label "Relief Damper Command (AHUDamperRE)" .
+
+ex:ahu1_cooling_signal a brick:Valve_Command ;
+    rdfs:label "AHU Cooling Signal (CHW_Valve)" .
+
+ex:ahu1_heating_signal a brick:Valve_Command ;
+    rdfs:label "AHU Heating Signal (HW_Valve)" .
+
+ex:ahu1_supply_fan_start_stop a brick:Start_Stop_Command ;
+    rdfs:label "AHU Supply Fan Start/Stop (SF_SS)" .
+
+ex:ahu1_supply_fan_speed a brick:Speed_Setpoint ;
+    rdfs:label "Supply Fan Speed (SF_Speed)" .
+
+###########################
+# Trim/respond parameters #
+###########################
+
+ex:ahu1_dsp_delay a brick:Delay_Parameter ;
+    rdfs:label "Duct Static Pressure T&R Delay Timer (DSP_Td)" .
+
+ex:ahu1_dsp_time_step a brick:Time_Parameter ;
+    rdfs:label "Duct Static Pressure T&R Time Step (DSP_T)" .
+
+ex:ahu1_dsp_ignored_requests a brick:TODO ;
+    rdfs:label "Duct Static Pressure T&R Number of Ignored Requests (DSP_Ignores)" .
+
+ex:ahu1_dsp_trim_amount a brick:Supply_Air_Static_Pressure_Step_Parameter ;
+    rdfs:label "Duct Static Pressure T&R Trim Amount (DSP_SPtrim)" .
+
+ex:ahu1_dsp_respond_amount a brick:Supply_Air_Static_Pressure_Step_Parameter ;
+    rdfs:label "Duct Static Pressure T&R Respond Amount (DSP_SPres)" .
+
+ex:ahu1_dsp_max_response a brick:TODO ;
+    rdfs:label "Duct Static Pressure T&R Maximum Response (DSP_SPres-max)" .
+
+ex:ahu1_cooling_sat_delay a brick:Delay_Parameter ;
+    rdfs:label "Cooling Supply Air Temperature T&R Delay Timer (CoolSAT_Td)" .
+
+ex:ahu1_cool_sat_time_step a brick:Time_Parameter ;
+    rdfs:label "Cooling Supply Air Temperature T&R Time Step (CoolSAT_T)" .
+
+ex:ahu1_cool_sat_ignored_requests a brick:TODO ;
+    rdfs:label "Cooling Supply Air Temperature T&R Number of Ignored Requests (CoolSAT_Ignores)" .
+
+ex:ahu1_cool_sat_trim_amount a brick:Supply_Air_Temperature_Step_Parameter ;
+    rdfs:label "Cooling Supply Air Temperature T&R Trim Amount (CoolSAT_SPtrim)" .
+
+ex:ahu1_cool_sat_respond_amount a brick:Supply_Air_Temperature_Step_Parameter ;
+    rdfs:label "Cooling Supply Air Temperature T&R Respond Amount (CoolSAT_SPres)" .
+
+ex:ahu1_cool_sat_max_response a brick:TODO ;
+    rdfs:label "Cooling Supply Air Temperature T&R Maximum Response (CoolSAT_SPres-max)" .
+
+###########################
+# Limits and calculations #
+###########################
+
+ex:ahu1_filter_dp_high_limit a brick:Alarm_Threshold ;
+    rdfs:label "Filter Differential Pressure High Limit (DP100)" .
+
+ex:ahu1_design_max_duct_static_pressure a brick:Max_Supply_Air_Static_Pressure_Setpoint_Limit ;
+    rdfs:label "Design Maximum Duct Static Pressure (Max_DSP)" .
+
+ex:ahu1_supply_fan_min_speed a brick:Min_Speed_Setpoint_Limit ;
+    rdfs:label "Supply Fan Minimum Speed (SF_MinSpeed)" .
+
+ex:ahu1_std62_design_total_outdoor_airflow a brick:TODO ;
+    rdfs:label "Standard 62.1 Design Total Outdoor Airflow (DesVot)" .
+
+ex:ahu1_uncorrected_outdoor_air_rate a brick:TODO ;
+    rdfs:label "Uncorrected Outdoor Air Rate (Vou)" .
+
+ex:ahu1_sum_primary_airflows a brick:TODO ;
+    rdfs:label "Sum of Primary Airflows (Vps)" .
+
+ex:ahu1_max_zone_outdoor_air_fraction a brick:TODO ;
+    rdfs:label "Maximum Zone Outdoor Air Fraction (Zp)" .
+
+ex:ahu1_system_ventilation_efficiency a brick:TODO ;
+    rdfs:label "System Ventilation Efficiency (Ev)" .
+
+ex:ahu1_min_oa_damper_design_dp a brick:TODO ;
+    rdfs:label "MinOA Damper DP for Design Minimum Airflow (DesMinDP)" .
+
+ex:ahu1_min_oa_control_threshold a brick:TODO ;
+    rdfs:label "OA Damper MinOA Control Threshold (MOA-P)" .
+
+ex:ahu1_return_air_min_oa_threshold a brick:TODO ;
+    rdfs:label "RA Damper MinOA Control Threshold (MRA-P)" .
+
+ex:ahu1_max_return_damper_position a brick:Max_Position_Setpoint_Limit ;
+    rdfs:label "Maximum Return Damper Position (MaxRA-P)" .
+
+ex:ahu1_econ_climate_zone a brick:TODO ;
+    rdfs:label "Economizer Lockout Climate Zone (EconClimate)" .
+
+ex:ahu1_econ_lockout_method a brick:TODO ;
+    rdfs:label "Economizer Lockout Method (EconLockout)" .

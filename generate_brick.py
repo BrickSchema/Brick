@@ -44,6 +44,7 @@ from bricksrc.alarm import alarm_definitions
 from bricksrc.status import status_definitions
 from bricksrc.command import command_definitions
 from bricksrc.parameter import parameter_definitions
+from bricksrc.point import point_definitions
 from bricksrc.collections import collection_classes
 from bricksrc.location import location_subclasses
 from bricksrc.equipment import (
@@ -55,6 +56,7 @@ from bricksrc.equipment import (
     safety_subclasses,
 )
 from bricksrc.substances import substances
+from bricksrc.enumerations import enumeration_definitions
 from bricksrc.relationships import relationships
 from bricksrc.quantities import quantity_definitions, get_units
 from bricksrc.entity_properties import entity_properties, get_shapes
@@ -324,7 +326,7 @@ def define_classes(definitions, parent, pun_classes=False, graph=G):
         # this is a nested dictionary
         subclassdef = defn.get("subclasses", {})
         assert isinstance(subclassdef, dict)
-        define_classes(subclassdef, classname, graph=graph)
+        define_classes(subclassdef, classname, pun_classes=pun_classes, graph=graph)
 
         # handle 'parents' subclasses (links outside of tree-based hierarchy)
         parents = defn.get("parents", [])
@@ -878,6 +880,13 @@ roots = {
 define_classes(roots, BRICK.Class)  # <= Brick v1.3.0
 define_classes(roots, BRICK.Entity)  # >= Brick v1.3.0
 
+# EnumerationKind root: punned class under Entity for all enumeration hierarchies
+G.add((BRICK.EnumerationKind, A, OWL.Class))
+G.add((BRICK.EnumerationKind, A, SH.NodeShape))
+G.add((BRICK.EnumerationKind, A, BRICK.EnumerationKind))
+G.add((BRICK.EnumerationKind, RDFS.subClassOf, BRICK.Entity))
+define_classes(enumeration_definitions, BRICK.EnumerationKind, pun_classes=True)
+
 logger.info("Defining properties")
 # define BRICK properties
 G.add((BRICK.Relationship, RDFS.subClassOf, RDF.Property))
@@ -901,10 +910,19 @@ define_classes(sensor_definitions, BRICK.Point)
 define_classes(alarm_definitions, BRICK.Point)
 define_classes(status_definitions, BRICK.Point)
 define_classes(command_definitions, BRICK.Point)
+define_classes(point_definitions, BRICK.Point)
 define_classes(parameter_definitions, BRICK.Point)
 
 # make points disjoint
-pointclasses = ["Alarm", "Status", "Command", "Setpoint", "Sensor", "Parameter"]
+pointclasses = [
+    "Alarm",
+    "Status",
+    "Command",
+    "Setpoint",
+    "Sensor",
+    "Parameter",
+    "Limit",
+]
 for pc in pointclasses:
     for o in filter(lambda x: x != pc, pointclasses):
         G.add((BRICK[pc], OWL.disjointWith, BRICK[o]))
