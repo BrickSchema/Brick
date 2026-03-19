@@ -879,14 +879,36 @@ roots = {
 define_classes(roots, BRICK.Class)  # <= Brick v1.3.0
 define_classes(roots, BRICK.Entity)  # >= Brick v1.3.0
 
-# TriggerDirection punned enumeration hierarchy (modeled after s223 EnumerationKinds).
-# Each class is also an instance of itself, allowing values to be set at any level
-# of specificity (e.g. TriggerDirection-Rising or TriggerDirection-Cooling).
+# EnumerationKind is the root class for all punned enumerations (modeled after
+# s223 EnumerationKinds).  Each subclass is also an instance of itself, allowing
+# values to be set at any level of specificity.
+G.add((BRICK.EnumerationKind, A, OWL.Class))
+G.add((BRICK.EnumerationKind, A, SH.NodeShape))
+G.add((BRICK.EnumerationKind, A, BRICK.EnumerationKind))
+G.add((BRICK.EnumerationKind, RDFS.subClassOf, BRICK.Entity))
+G.add(
+    (
+        BRICK.EnumerationKind,
+        RDFS.label,
+        Literal("Enumeration Kind", lang="en"),
+    )
+)
+G.add(
+    (
+        BRICK.EnumerationKind,
+        RDFS.comment,
+        Literal(
+            "Root class for punned enumerations. Each subclass is also an instance "
+            "of itself, enabling values at any level of specificity.",
+            lang="en",
+        ),
+    )
+)
+
 trigger_direction_definitions = {
     "TriggerDirection": {
         RDFS.comment: Literal(
-            "Enumerates the direction a measured value crosses a threshold to trigger an action. "
-            "Each subclass is also an instance of itself (punned enumeration).",
+            "Enumerates the direction a measured value crosses a threshold to trigger an action.",
             lang="en",
         ),
         "subclasses": {
@@ -923,7 +945,7 @@ trigger_direction_definitions = {
         },
     },
 }
-define_classes(trigger_direction_definitions, BRICK.Entity, pun_classes=True)
+define_classes(trigger_direction_definitions, BRICK.EnumerationKind, pun_classes=True)
 
 logger.info("Defining properties")
 # define BRICK properties

@@ -107,7 +107,6 @@ setpoint_definitions = {
                                     TAG.Deadband,
                                     TAG.Setpoint,
                                 ],
-                                "parents": [BRICK.Cooling_Temperature_Setpoint],
                             },
                             "Occupied_Heating_Temperature_Deadband_Setpoint": {
                                 BRICK.hasQuantity: QUDTQK.Temperature,
@@ -119,7 +118,6 @@ setpoint_definitions = {
                                     TAG.Deadband,
                                     TAG.Setpoint,
                                 ],
-                                "parents": [BRICK.Heating_Temperature_Setpoint],
                             },
                             "Unoccupied_Cooling_Temperature_Deadband_Setpoint": {
                                 "tags": [
@@ -130,7 +128,6 @@ setpoint_definitions = {
                                     TAG.Deadband,
                                     TAG.Setpoint,
                                 ],
-                                "parents": [BRICK.Cooling_Temperature_Setpoint],
                             },
                             "Unoccupied_Heating_Temperature_Deadband_Setpoint": {
                                 "tags": [
@@ -141,7 +138,6 @@ setpoint_definitions = {
                                     TAG.Deadband,
                                     TAG.Setpoint,
                                 ],
-                                "parents": [BRICK.Heating_Temperature_Setpoint],
                             },
                             "Supply_Air_Temperature_Deadband_Setpoint": {
                                 BRICK.hasSubstance: [
@@ -177,7 +173,6 @@ setpoint_definitions = {
                                         ],
                                         "parents": [
                                             BRICK.Discharge_Air_Temperature_Heating_Setpoint,
-                                            BRICK.Heating_Temperature_Setpoint,
                                         ],
                                     },
                                     "Cooling_Supply_Air_Temperature_Deadband_Setpoint": {
@@ -200,7 +195,6 @@ setpoint_definitions = {
                                         ],
                                         "parents": [
                                             BRICK.Discharge_Air_Temperature_Cooling_Setpoint,
-                                            BRICK.Cooling_Temperature_Setpoint,
                                         ],
                                     },
                                 },
