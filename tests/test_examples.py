@@ -11,7 +11,7 @@ env = ontoenv.OntoEnv(search_directories=["Brick.ttl", "examples/", "support/", 
 def test_example_file_with_reasoning(filename):
     g = Graph()
     g.load_file(filename)
-    shapes, imported = env.get_dependencies_graph(g)
+    shapes, imported = env.get_dependencies(g)
     g.compile(extra_graphs=[shapes], engine="topquadrant")
 
     valid, _, report = g.validate(extra_graphs=[shapes], engine="topquadrant")
