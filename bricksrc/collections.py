@@ -161,9 +161,9 @@ collection_classes = {
         "tags": [TAG.Collection, TAG.Portfolio],
         "constraints": {BRICK.hasPart: [BRICK.Site]},
     },
-    "Point_Group": {
-        "tags": [TAG.Collection, TAG.Point_Group],
-        "constraints": {BRICK.hasPart: [BRICK.Point, BRICK.Point_Group]},
+    "Point_Collection": {
+        "tags": [TAG.Collection, TAG.Point_Collection],
+        "constraints": {BRICK.hasPart: [BRICK.Point, BRICK.Point_Collection]},
     },
     "System": {
         "tags": [TAG.Collection, TAG.System],

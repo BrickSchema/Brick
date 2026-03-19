@@ -6,10 +6,6 @@ from .env import env
 Defining Brick relationships
 """
 relationships = {
-    "connectedTo": {
-        A: [OWL.ObjectProperty, OWL.SymmetricProperty, OWL.IrreflexiveProperty],
-        RDFS.label: Literal("Connected To", lang="en"),
-    },
     "isReplacedBy": {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         RDFS.label: Literal("Is replaced by", lang="en"),
@@ -63,7 +59,7 @@ relationships = {
     "isLocationOf": {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         OWL.inverseOf: BRICK["hasLocation"],
-        "domain": BRICK.Location,
+        "domain": [BRICK.Location, REC.Architecture],
         "range": BRICK.Entity,
         RDFS.label: Literal("Is location of", lang="en"),
     },
@@ -71,7 +67,7 @@ relationships = {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         OWL.inverseOf: BRICK["isLocationOf"],
         "domain": BRICK.Entity,
-        "range": BRICK.Location,
+        "range":[BRICK.Location, REC.Architecture],
         RDFS.label: Literal("Has location", lang="en"),
     },
     "hasInputSubstance": {
@@ -100,7 +96,7 @@ relationships = {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         OWL.inverseOf: BRICK["isPointOf"],
         "range": BRICK.Point,
-        "domain": [BRICK.Equipment, BRICK.Location],
+        "domain": [BRICK.Equipment, BRICK.Location, REC.Architecture],
         RDFS.label: Literal("Has point", lang="en"),
     },
     "isPointOf": {
@@ -110,6 +106,7 @@ relationships = {
         "range": [
             BRICK.Equipment,
             BRICK.Location,
+            REC.Architecture
         ],
         RDFS.label: Literal("Is point of", lang="en"),
     },
@@ -117,7 +114,6 @@ relationships = {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         OWL.inverseOf: BRICK["isPartOf"],
         RDFS.label: Literal("Has part", lang="en"),
-        RDFS.subPropertyOf: REC.includes,
     },
     "isPartOf": {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
@@ -177,7 +173,7 @@ relationships = {
         "domain": BRICK.Equipment,
         RDFS.label: Literal("Is controlled by", lang="en"),
     },
-    "hostsPoint": {
+    "hosts": {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         OWL.inverseOf: BRICK["isHostedBy"],
         "range": BRICK.Point,
@@ -186,7 +182,7 @@ relationships = {
     },
     "isHostedBy": {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
-        OWL.inverseOf: BRICK["hostsPoint"],
+        OWL.inverseOf: BRICK["hosts"],
         "range": BRICK.ICT_Equipment,
         "domain": BRICK.Point,
         RDFS.label: Literal("Is hosted by", lang="en"),
