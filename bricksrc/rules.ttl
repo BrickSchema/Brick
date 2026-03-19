@@ -596,3 +596,26 @@ bsh:PointGroupIncludesHasPart a sh:NodeShape ;
         sh:prefixes <https://brickschema.org/schema/1.4/Brick> ;
     ] ;
 .
+
+bsh:AutomationCollectionPointsRequireIsPointOf a sh:NodeShape ;
+    sh:target [
+        a sh:SPARQLTarget ;
+        sh:select """
+        PREFIX brick: <https://brickschema.org/schema/Brick#>
+        PREFIX rec: <https://w3id.org/rec#>
+        PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+        PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+        SELECT DISTINCT ?this
+        WHERE {
+            ?collection rdf:type/rdfs:subClassOf* brick:Automation_Collection .
+            ?collection rec:includes+ ?this .
+            ?this rdf:type/rdfs:subClassOf* brick:Point .
+        }
+        """ ;
+    ] ;
+    sh:property [
+        sh:path brick:isPointOf ;
+        sh:minCount 1 ;
+        sh:message "Points included in an Automation_Collection via rec:includes must have at least one brick:isPointOf relationship" ;
+    ] ;
+.
