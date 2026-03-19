@@ -45,13 +45,13 @@ def test_entity_property_validation_failure(brick_with_imports):
 def test_entity_property_type_inference(brick_with_imports):
     g = Graph()
     REF = Namespace("https://brickschema.org/schema/Brick/ref#")
-    BACNET = Namespace("http://data.ashrae.org/bacnet/2020#")
+    BACNET = Namespace("http://data.ashrae.org/bacnet/")
     g.add(
         (
             EX["point"],
             REF.hasExternalReference,
             [
-                (BACNET.objectOf, [(A, BACNET.BACnetDevice)]),
+                (BACNET.contains, [(A, BACNET.Device)]),
                 (REF.BACnetURI, Literal("bacnet://123/analog-input,3/present-value")),
             ],
         )
