@@ -16,6 +16,18 @@ def getDict(g, q):
     return d
 
 
+def getSet(g, q):
+    s = set()
+
+    res = g.query(q)
+
+    for row in res:
+        c1 = row.c.toPython().replace("https://brickschema.org/schema/Brick#", "")
+        s.add(c1)
+
+    return s
+
+
 def matchMinMax(d):
     ds = {}
     ds["MissingMatchingMin"] = []
@@ -101,7 +113,7 @@ def matchOccupiedUnoccupied(d):
     )
 
 
-def matchSupplyDischarge(d, e):
+def matchSupplyDischarge(d, e, allowed=None):
     ds = {}
     ds["MissingMatchingDischarge"] = []
     ds["MissingMatchingSupply"] = []
@@ -112,6 +124,8 @@ def matchSupplyDischarge(d, e):
     countdbutnots = 0
     countsbutnotd = 0
     for c in d:
+        if allowed is not None and c not in allowed:
+            continue
         if "Discharge" in c:
             s = c.replace("Discharge", "Supply")
             if s in d:
@@ -137,6 +151,8 @@ def matchSupplyDischarge(d, e):
                 dislist.append(c)
                 countdbutnots += 1
     for c in d:
+        if allowed is not None and c not in allowed:
+            continue
         if "Supply" in c:
             dis = c.replace("Supply", "Discharge")
             if dis in dislist:
@@ -196,5 +212,17 @@ def test_matching_classes(brick_with_imports):
        }
        """,
     )
+    supply_discharge = getSet(
+        g,
+        """
+       SELECT DISTINCT ?c
+       WHERE {
+           ?c (owl:equivalentClass|^owl:equivalentClass)* ?e .
+           ?e brick:hasSubstance ?s .
+           FILTER (?s IN (brick:Supply_Air, brick:Discharge_Air)) .
+           FILTER NOT EXISTS { ?c owl:deprecated true } .
+       }
+       """,
+    )
     print("verifying supply discharge classes...")
-    matchSupplyDischarge(d, deq)
+    matchSupplyDischarge(d, deq, allowed=supply_discharge)

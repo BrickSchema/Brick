@@ -30,15 +30,15 @@ substances = {
                     },
                     "Formaldehyde": {},
                     "Methane": {},
-                    "CO": {}, # Carbon Monoxide
-                    "CO2": {}, # Carbon Dioxide
+                    "CO": {},  # Carbon Monoxide
+                    "CO2": {},  # Carbon Dioxide
                     "Natural_Gas": {},
                     "Ammonia": {},
-                    "NO2": {}, # Nitrogen Dioxide
+                    "NO2": {},  # Nitrogen Dioxide
                     "Ozone": {},
                     "Radon": {},
                     "Steam": {},
-                    "TVOC": {}, # Total Volatile Organic Compounds
+                    "TVOC": {},  # Total Volatile Organic Compounds
                 },
             },
             "Liquid": {
@@ -60,6 +60,12 @@ substances = {
                                     },
                                     "Leaving_Chilled_Water": {
                                         "parents": [BRICK.Leaving_Water],
+                                    },
+                                    "Return_Chilled_Water": {
+                                        "parents": [BRICK.Return_Water],
+                                    },
+                                    "Supply_Chilled_Water": {
+                                        "parents": [BRICK.Supply_Water],
                                     },
                                 },
                             },
@@ -88,11 +94,16 @@ substances = {
                             },
                             "Potable_Water": {},
                             "Leaving_Water": {},
+                            "Return_Water": {},
+                            "Supply_Water": {},
                             "Entering_Water": {},
                             "Hot_Water": {
                                 SKOS.narrower: {
                                     "Entering_Hot_Water": {
                                         "parents": [BRICK.Entering_Water],
+                                    },
+                                    "Return_Hot_Water": {
+                                        "parents": [BRICK.Return_Water],
                                     },
                                     "Leaving_Hot_Water": {
                                         "parents": [BRICK.Leaving_Water],
