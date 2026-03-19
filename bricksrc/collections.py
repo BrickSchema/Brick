@@ -179,13 +179,13 @@ collection_classes = {
             ]
         },
     },
-    "Automation_Group": {
-        "tags": [TAG.Collection, TAG.Automation, TAG.Group],
+    "Automation_Collection": {
+        "tags": [TAG.Collection, TAG.Automation],
         "constraints": {
-            BRICK.hasPart: [
+            REC.includes: [
                 BRICK.Equipment,
                 BRICK.Point,
-                BRICK.Automation_Group,
+                BRICK.Automation_Collection,
                 BRICK.Point_Collection,
             ]
         },

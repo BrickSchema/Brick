@@ -13,14 +13,14 @@
 mpo:FrostDetectionCollection a owl:Class ;
   rdfs:subClassOf brick:Automation_Collection ;
   rdfs:label "Frost Detection Collection" ;
-  rdfs:comment "An automation group that includes components for frost detection in an AHU." .
+  rdfs:comment "An automation collection that includes components for frost detection in an AHU." .
 
 bldg:Ahu a brick:AHU ;
   brick:hasPart bldg:Hcl ;
   brick:hasPart bldg:Fan ;
   rec:includes bldg:FrostDetection .
 
-# WHERE { ?ahu hasPart+ ?part }
+# WHERE { ?ahu (brick:hasPart|rec:includes)+ ?part }
 
 # equip includes collection
 # collection includes point, equip
@@ -30,7 +30,7 @@ bldg:Hcl a brick:Heating_Coil .
 
 bldg:Fan a brick:Discharge_Fan .
 
-# here, we are using an automation group instead of a point collection because
+# here, we are using an automation collection instead of a point collection because
 # we want to include the Sensor Equipment as part of the group
 bldg:FrostDetection a mpo:FrostDetectionCollection ;
   rec:includes bldg:FrostDetectionSensor ;
