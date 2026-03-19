@@ -842,15 +842,15 @@ def handle_concept_labels(graph: Graph=G):
     If there are two or more labels for a concept, choose one and raise a Warning
     """
     concepts = chain(
-        G.transitive_subjects(RDFS.subClassOf, BRICK.Entity),
-        G.subjects(A, BRICK.Entity),
-        G.subjects(A, OWL.ObjectProperty),
-        G.subjects(A, OWL.DatatypeProperty),
+        graph.transitive_subjects(RDFS.subClassOf, BRICK.Entity),
+        graph.subjects(A, BRICK.Entity),
+        graph.subjects(A, OWL.ObjectProperty),
+        graph.subjects(A, OWL.DatatypeProperty),
     )
     for s in concepts:
         labels = list(graph.objects(s, RDFS.label))
         if len(labels) == 0:
-            G.add(
+            graph.add(
                 (s, RDFS.label, Literal(s.split("#")[-1].replace("_", " "), lang="en"))
             )
         elif len(labels) > 1:
