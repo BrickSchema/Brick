@@ -53,7 +53,7 @@ brick:Equipment a sh:NodeShape ;
     ];
     sh:property [
         sh:path rec:includes;
-        sh:class brick:Automation_Collection ;
+       sh:or ( [ sh:class brick:Equipment ] [ sh:class brick:Automation_Collection ] [ sh:class brick:Point_Collection ] ) ;
         sh:message "Equipment should include Automation Collections using rec:includes."
     ];
     sh:property [
