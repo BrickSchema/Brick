@@ -28,17 +28,17 @@ substances = {
                             },
                         },
                     },
-                    "CH2O": {}, # Formaldehyde
-                    "CH4": {}, # Methane
+                    "Formaldehyde": {},
+                    "Methane": {},
                     "CO": {}, # Carbon Monoxide
                     "CO2": {}, # Carbon Dioxide
                     "Natural_Gas": {},
-                    "NH3": {}, # Ammonia
+                    "Ammonia": {},
                     "NO2": {}, # Nitrogen Dioxide
-                    "O3": {}, # Ozone
-                    "Rn": {}, # Radon
+                    "Ozone": {},
+                    "Radon": {},
                     "Steam": {},
-                    "VOC": {}, # Volatile Organic Compound
+                    "TVOC": {}, # Total Volatile Organic Compounds
                 },
             },
             "Liquid": {
