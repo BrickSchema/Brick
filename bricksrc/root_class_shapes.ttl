@@ -106,6 +106,10 @@ brick:Point a sh:NodeShape;
     ] ;
 .
 
+brick:EnumerationKind
+    rdfs:label "Enumeration Kind" ;
+    rdfs:comment "Root class for punned enumerations: each subclass is also an instance of itself. This allows them to be used as values while still being referencable at multiple levels of granularity." .
+
 brick:Collection a sh:NodeShape;
     sh:node [sh:not [ sh:class brick:Equipment ] ; sh:message "Collection is an exclusive top class." ],
             [sh:not [ sh:class brick:Location ] ; sh:message "Collection is an exclusive top class." ],

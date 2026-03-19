@@ -880,32 +880,11 @@ roots = {
 define_classes(roots, BRICK.Class)  # <= Brick v1.3.0
 define_classes(roots, BRICK.Entity)  # >= Brick v1.3.0
 
-# EnumerationKind is the root class for all punned enumerations (modeled after
-# s223 EnumerationKinds).  Each subclass is also an instance of itself, allowing
-# values to be set at any level of specificity.
+# EnumerationKind root: punned class under Entity for all enumeration hierarchies
 G.add((BRICK.EnumerationKind, A, OWL.Class))
 G.add((BRICK.EnumerationKind, A, SH.NodeShape))
 G.add((BRICK.EnumerationKind, A, BRICK.EnumerationKind))
 G.add((BRICK.EnumerationKind, RDFS.subClassOf, BRICK.Entity))
-G.add(
-    (
-        BRICK.EnumerationKind,
-        RDFS.label,
-        Literal("Enumeration Kind", lang="en"),
-    )
-)
-G.add(
-    (
-        BRICK.EnumerationKind,
-        RDFS.comment,
-        Literal(
-            "Root class for punned enumerations. Each subclass is also an instance "
-            "of itself, enabling values at any level of specificity.",
-            lang="en",
-        ),
-    )
-)
-
 define_classes(enumeration_definitions, BRICK.EnumerationKind, pun_classes=True)
 
 logger.info("Defining properties")
