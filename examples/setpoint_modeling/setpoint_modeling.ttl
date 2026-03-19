@@ -25,6 +25,11 @@ ex:room101_high_temp_alarm a brick:Alarm ;
     brick:hasParameter ex:room101_high_temp_alarm_thresh .
 ex:room101_high_temp_alarm_thresh a brick:Alarm_Threshold ;
     brick:hasTrigger brick:TriggerDirection-Rising .
+# or
+ex:room101_high_temp_alarm_thresh a brick:High_Alarm_Threshold .
+brick:High_Alarm_Threshold a owl:Class ;
+    rdfs:subClassOf brick:Alarm_Threshold ;
+    brick:hasTrigger brick:TriggerDirection-Rising .
 
 ex:room101_min_limit a brick:Min_Zone_Air_Temperature_Limit .
 ex:room101_max_limit a brick:Max_Zone_Air_Temperature_Limit .
