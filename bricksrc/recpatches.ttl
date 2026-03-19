@@ -542,7 +542,6 @@ brick:Entrance
     brick:isReplacedBy rec:Entrance ;
 .
 brick:Equipment
-  rdfs:subClassOf rec:Asset ;
   sh:property [
       rdf:type sh:PropertyShape ;
       sh:path rec:feeds ;
@@ -1180,10 +1179,6 @@ brick:Collection
   sh:property [
       rdf:type sh:PropertyShape ;
       sh:path rec:includes ;
-      sh:or (
-          [ sh:class brick:Equipment ]
-          [ sh:class brick:Collection ]
-      ) ;
       sh:minCount 1 ;
       sh:name "includes" ;
       sh:nodeKind sh:IRI ;
@@ -1435,9 +1430,6 @@ rec:AngularVelocityObservation
 rec:AreaObservation
   rdf:type <dtmi:dtdl:class:Component> ;
 .
-rec:Asset
-  rdf:type sh:NodeShape ;
-.
 rec:AssetCollection
   rdf:type sh:NodeShape ;
 .
@@ -1446,9 +1438,6 @@ rec:BooleanValueObservation
 .
 rec:CapacitanceObservation
   rdf:type <dtmi:dtdl:class:Component> ;
-.
-rec:Collection
-  rdf:type sh:NodeShape ;
 .
 rec:DataRateObservation
   rdf:type <dtmi:dtdl:class:Component> ;
@@ -1470,12 +1459,6 @@ rec:ElectricChargeObservation
 .
 rec:ElectricCurrentObservation
   rdf:type <dtmi:dtdl:class:Component> ;
-.
-rec:EnergyObservation
-  rdf:type <dtmi:dtdl:class:Component> ;
-.
-rec:EquipmentCollection
-  rdf:type sh:NodeShape ;
 .
 rec:ExceptionEvent
   rdf:type <dtmi:dtdl:class:Component> ;
@@ -1554,53 +1537,6 @@ rec:VolumeFlowRateObservation
 .
 rec:VolumeObservation
   rdf:type <dtmi:dtdl:class:Component> ;
-.
-rec:substance
-  rdf:type owl:AnnotationProperty ;
-  rdfs:domain rec:feeds ;
-  rdfs:domain rec:isFedBy ;
-  rdfs:label "substance" ;
-  rdfs:range [
-      rdf:type rdfs:Datatype ;
-      owl:oneOf (
-          "ACElec"
-          "Air"
-          "BlowdownWater"
-          "ChilledWater"
-          "ColdDomesticWater"
-          "Condensate"
-          "CondenserWater"
-          "DCElec"
-          "Diesel"
-          "DriveElec"
-          "Ethernet"
-          "ExhaustAir"
-          "Freight"
-          "FuelOil"
-          "Gasoline"
-          "GreaseExhaustAir"
-          "HotDomesticWater"
-          "HotWater"
-          "IrrigationWater"
-          "Light"
-          "MakeupWater"
-          "NaturalGas"
-          "NonPotableDomesticWater"
-          "OutsideAir"
-          "People"
-          "Propane"
-          "RecircHotDomesticWater"
-          "Refrig"
-          "ReturnAir"
-          "SprinklerWater"
-          "Steam"
-          "StormDrainage"
-          "SupplyAir"
-          "TransferAir"
-          "WasteVentDrainage"
-          "Water"
-        ) ;
-    ] ;
 .
 <https://w3id.org/rec/brickpatches>
   rdf:type owl:Ontology ;

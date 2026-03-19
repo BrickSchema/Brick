@@ -8,6 +8,7 @@ Set up subclasses of the equipment superclass
 equipment_subclasses = {
     "ICT_Equipment": {
         "tags": [TAG.ICT, TAG.Equipment],
+        "constraints": {BRICK.hosts: [BRICK.Point]},
         "subclasses": {
             "ICT_Hardware": {
                 "tags": [TAG.Equipment, TAG.ICT, TAG.Hardware],
@@ -57,6 +58,7 @@ equipment_subclasses = {
             },
             "Controller": {
                 "tags": [TAG.Equipment, TAG.ICT, TAG.Controller],
+                "constraints": {BRICK.controls: [BRICK.Equipment]},
                 "subclasses": {
                     "BACnet_Controller": {
                         "tags": [TAG.Equipment, TAG.BACnet, TAG.Controller],
@@ -182,9 +184,11 @@ equipment_subclasses = {
                     "Disconnect_Switch": {
                         "tags": [
                             TAG.Disconnect,
+                            TAG.Isolation,
                             TAG.Switch,
                             TAG.Equipment,
                         ],
+                        "aliases": [BRICK.Isolation_Switch],
                         "subclasses": {
                             "Main_Disconnect_Switch": {
                                 "tags": [
@@ -192,21 +196,10 @@ equipment_subclasses = {
                                     TAG.Disconnect,
                                     TAG.Switch,
                                     TAG.Equipment,
-                                ]
-                            },
-                            "Building_Disconnect_Switch": {
-                                "tags": [
-                                    TAG.Building,
-                                    TAG.Disconnect,
-                                    TAG.Switch,
-                                    TAG.Equipment,
-                                ]
+                                ],
+                                "aliases": [BRICK.Building_Disconnect_Switch],
                             },
                         },
-                    },
-                    "Isolation_Switch": {
-                        "tags": [TAG.Isolation, TAG.Switch, TAG.Equipment],
-                        "aliases": [BRICK.Disconnect_Switch],
                     },
                     "Transfer_Switch": {
                         "tags": [
@@ -884,8 +877,31 @@ hvac_subclasses = {
             },
             "Condenser_Heat_Exchanger": {
                 "tags": [TAG.Condenser, TAG.Equipment, TAG.Heat, TAG.Exchanger],
+                "subclasses": {
+                    "Water_Cooled_Condenser_Heat_Exchanger": {
+                        "tags": [
+                            TAG.Water,
+                            TAG.Condenser,
+                            TAG.Equipment,
+                            TAG.Heat,
+                            TAG.Exchanger,
+                        ],
+                    },
+                    "Air_Cooled_Condenser_Heat_Exchanger": {
+                        "tags": [
+                            TAG.Air,
+                            TAG.Condenser,
+                            TAG.Equipment,
+                            TAG.Heat,
+                            TAG.Exchanger,
+                        ],
+                    },
+                },
             },
             "Heat_Wheel": {"tags": [TAG.Equipment, TAG.Heat, TAG.Wheel]},
+            "Plate_Heat_Exchanger": {
+                "tags": [TAG.Equipment, TAG.Heat, TAG.Exchanger, TAG.HX, TAG.Plate],
+            },
             "Coil": {
                 "tags": [TAG.Equipment, TAG.Coil],
                 "subclasses": {
@@ -1247,6 +1263,7 @@ hvac_subclasses = {
         "tags": [TAG.Fluid, TAG.Throttling, TAG.Device],
         "subclasses": {
             "Thermal_Expansion_Valve": {
+                "parents": [BRICK["Valve"]],
                 "tags": [
                     TAG.Refrigerant,
                     TAG.Modulating,
@@ -1255,9 +1272,10 @@ hvac_subclasses = {
                     TAG.Liquid,
                     TAG.Expansion,
                     TAG.Valve,
-                ]
+                ],
             },
             "Electronic_Expansion_Valve": {
+                "parents": [BRICK["Valve"]],
                 "tags": [
                     TAG.Refrigerant,
                     TAG.Modulating,
@@ -1266,7 +1284,7 @@ hvac_subclasses = {
                     TAG.Liquid,
                     TAG.Expansion,
                     TAG.Valve,
-                ]
+                ],
             },
             "Capillary_Tube_Metering_Device": {
                 "tags": [TAG.Refrigerant, TAG.Gas, TAG.Fixed, TAG.Liquid, TAG.Metering]
@@ -1504,7 +1522,7 @@ hvac_valve_subclasses = {
     },
     "Cooling_Valve": {
         "parents": [BRICK.Valve],
-        "tags": [TAG.Valve, TAG.Cool, TAG.Equipment]
+        "tags": [TAG.Valve, TAG.Cool, TAG.Equipment],
     },
     "Isolation_Valve": {
         "tags": [TAG.Isolation, TAG.Valve, TAG.Equipment],
@@ -1518,7 +1536,16 @@ hvac_valve_subclasses = {
                     TAG.Valve,
                     TAG.Equipment,
                 ]
-            }
+            },
+            "Chilled_Water_Isolation_Valve": {
+                "tags": [
+                    TAG.Chilled,
+                    TAG.Water,
+                    TAG.Isolation,
+                    TAG.Valve,
+                    TAG.Equipment,
+                ]
+            },
         },
     },
     "Steam_Valve": {
@@ -1540,6 +1567,9 @@ hvac_valve_subclasses = {
             },
             "Condenser_Water_Bypass_Valve": {
                 "tags": [TAG.Condenser, TAG.Water, TAG.Bypass, TAG.Valve, TAG.Equipment]
+            },
+            "Chilled_Water_Bypass_Valve": {
+                "tags": [TAG.Chilled, TAG.Water, TAG.Bypass, TAG.Valve, TAG.Equipment]
             },
         },
     },
