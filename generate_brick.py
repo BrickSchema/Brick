@@ -811,11 +811,11 @@ def handle_deprecations(graph: Graph=G):
     """
     The following part adds definitions for deprecated Brick subclasses through SKOS.definitions.
 
-    This parses the definitions from ./bricksrc/definitions_of_deprecated.csv and
+    This parses the definitions from ./bricksrc/deprecated_definitions.csv and
     adds it to the graph. If available, adds the source information of
     through RDFS.seeAlso.
     """
-    with open(Path("./bricksrc/definitions_of_deprecated.csv"), encoding="utf-8") as dictionary_file:
+    with open(Path("./bricksrc/deprecated_definitions.csv"), encoding="utf-8") as dictionary_file:
         dictionary = csv.reader(dictionary_file)
 
         header = next(dictionary)
