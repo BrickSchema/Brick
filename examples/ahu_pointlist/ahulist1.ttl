@@ -13,7 +13,9 @@
 # AHU based on ahulist1.md: separate OA dampers, SAT and duct static
 # trim-and-respond points, and relief damper control. Where this branch has
 # a specific Brick class, it is used directly; unresolved mappings are marked
-# as brick:TODO placeholders.
+# as brick:TODO placeholders. For minimum/maximum-style points that only have
+# a close Brick limit class, the instance is typed as both the close match and
+# brick:TODO.
 
 ex:ahu1 a brick:Air_Handling_Unit ;
     rdfs:label "AHU 1" ;
@@ -157,10 +159,10 @@ ex:building_pressure_rolling_average a brick:Building_Air_Static_Pressure_Sensor
 # Requests and statuses #
 ########################
 
-ex:ahu1_dsp_requests a brick:Request ;
+ex:ahu1_dsp_requests a brick:Request, brick:TODO ;
     rdfs:label "Duct Static Pressure Requests (DSP_Req)" .
 
-ex:ahu1_cool_sat_requests a brick:Request ;
+ex:ahu1_cool_sat_requests a brick:Request, brick:TODO ;
     rdfs:label "Cooling SAT Requests (CoolSAT_Req)" .
 
 ex:ahu1_system_mode a brick:Operating_Mode_Status ;
@@ -182,25 +184,31 @@ ex:ahu1_min_outdoor_airflow_sp a brick:Outside_Air_Flow_Setpoint ;
 ex:ahu1_dsp_initial_sp a brick:Supply_Air_Static_Pressure_Setpoint ;
     rdfs:label "Duct Static Pressure T&R Initial Setpoint (DSP_SPo)" .
 
-ex:ahu1_dsp_min_sp a brick:Min_Supply_Air_Static_Pressure_Setpoint_Limit ;
+ex:ahu1_dsp_min_sp a brick:Min_Supply_Air_Static_Pressure_Setpoint_Limit,
+        brick:TODO ;
     rdfs:label "Duct Static Pressure T&R Minimum Setpoint (DSP_SPmin)" .
 
-ex:ahu1_dsp_max_sp a brick:Max_Supply_Air_Static_Pressure_Setpoint_Limit ;
+ex:ahu1_dsp_max_sp a brick:Max_Supply_Air_Static_Pressure_Setpoint_Limit,
+        brick:TODO ;
     rdfs:label "Duct Static Pressure T&R Maximum Setpoint (DSP_SPmax)" .
 
 ex:ahu1_cool_sat_initial_sp a brick:Supply_Air_Temperature_Cooling_Setpoint ;
     rdfs:label "Cooling Supply Air Temperature T&R Initial Setpoint (CoolSAT_SPo)" .
 
-ex:ahu1_cool_sat_min_sp a brick:Min_Supply_Air_Temperature_Setpoint_Limit ;
+ex:ahu1_cool_sat_min_sp a brick:Min_Supply_Air_Temperature_Setpoint_Limit,
+        brick:TODO ;
     rdfs:label "Cooling Supply Air Temperature T&R Minimum Setpoint (CoolSAT_SPmin)" .
 
-ex:ahu1_cool_sat_max_sp a brick:Max_Supply_Air_Temperature_Setpoint_Limit ;
+ex:ahu1_cool_sat_max_sp a brick:Max_Supply_Air_Temperature_Setpoint_Limit,
+        brick:TODO ;
     rdfs:label "Cooling Supply Air Temperature T&R Maximum Setpoint (CoolSAT_SPmax)" .
 
-ex:ahu1_lowest_cooling_sat_sp a brick:Min_Supply_Air_Temperature_Setpoint_Limit ;
+ex:ahu1_lowest_cooling_sat_sp a brick:Min_Supply_Air_Temperature_Setpoint_Limit,
+        brick:TODO ;
     rdfs:label "Lowest Cooling SAT Setpoint (Min_ClgSAT)" .
 
-ex:ahu1_highest_cooling_sat_sp a brick:Max_Supply_Air_Temperature_Setpoint_Limit ;
+ex:ahu1_highest_cooling_sat_sp a brick:Max_Supply_Air_Temperature_Setpoint_Limit,
+        brick:TODO ;
     rdfs:label "Highest Cooling SAT Setpoint (Max_ClgSAT)" .
 
 ex:ahu1_oat_reset_lower_bound a brick:Outside_Air_Temperature_Low_Reset_Setpoint ;
@@ -290,10 +298,12 @@ ex:ahu1_cool_sat_max_response a brick:TODO ;
 ex:ahu1_filter_dp_high_limit a brick:Alarm_Threshold ;
     rdfs:label "Filter Differential Pressure High Limit (DP100)" .
 
-ex:ahu1_design_max_duct_static_pressure a brick:Max_Supply_Air_Static_Pressure_Setpoint_Limit ;
+ex:ahu1_design_max_duct_static_pressure a brick:Max_Supply_Air_Static_Pressure_Setpoint_Limit,
+        brick:TODO ;
     rdfs:label "Design Maximum Duct Static Pressure (Max_DSP)" .
 
-ex:ahu1_supply_fan_min_speed a brick:Min_Speed_Setpoint_Limit ;
+ex:ahu1_supply_fan_min_speed a brick:Min_Speed_Setpoint_Limit,
+        brick:TODO ;
     rdfs:label "Supply Fan Minimum Speed (SF_MinSpeed)" .
 
 ex:ahu1_std62_design_total_outdoor_airflow a brick:TODO ;
@@ -320,7 +330,8 @@ ex:ahu1_min_oa_control_threshold a brick:TODO ;
 ex:ahu1_return_air_min_oa_threshold a brick:TODO ;
     rdfs:label "RA Damper MinOA Control Threshold (MRA-P)" .
 
-ex:ahu1_max_return_damper_position a brick:Max_Position_Setpoint_Limit ;
+ex:ahu1_max_return_damper_position a brick:Max_Position_Setpoint_Limit,
+        brick:TODO ;
     rdfs:label "Maximum Return Damper Position (MaxRA-P)" .
 
 ex:ahu1_econ_climate_zone a brick:TODO ;
