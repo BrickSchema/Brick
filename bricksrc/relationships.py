@@ -65,7 +65,7 @@ relationships = {
     "isLocationOf": {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         OWL.inverseOf: BRICK["hasLocation"],
-        "domain": BRICK.Location,
+        "domain": [BRICK.Location, REC.Architecture],
         "range": BRICK.Entity,
         RDFS.label: Literal("Is location of", lang="en"),
     },
@@ -73,7 +73,7 @@ relationships = {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         OWL.inverseOf: BRICK["isLocationOf"],
         "domain": BRICK.Entity,
-        "range": BRICK.Location,
+        "range": [BRICK.Location, REC.Architecture],
         RDFS.label: Literal("Has location", lang="en"),
     },
     "hasInputSubstance": {
@@ -102,17 +102,14 @@ relationships = {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         OWL.inverseOf: BRICK["isPointOf"],
         "range": BRICK.Point,
-        "domain": [BRICK.Equipment, BRICK.Location],
+        "domain": [BRICK.Equipment, BRICK.Location, REC.Architecture],
         RDFS.label: Literal("Has point", lang="en"),
     },
     "isPointOf": {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         OWL.inverseOf: BRICK["hasPoint"],
         "domain": BRICK.Point,
-        "range": [
-            BRICK.Equipment,
-            BRICK.Location,
-        ],
+        "range": [BRICK.Equipment, BRICK.Location, REC.Architecture],
         RDFS.label: Literal("Is point of", lang="en"),
     },
     "hasPart": {
