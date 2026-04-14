@@ -1936,6 +1936,18 @@ sensor_definitions = {
                                     TAG.Sensor,
                                 ],
                             },
+                            "Heating_Hot_Water_Temperature_Sensor": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Heating,
+                                    TAG.Hot,
+                                    TAG.Water,
+                                    TAG.Temperature,
+                                    TAG.Sensor,
+                                ],
+                                BRICK.hasQuantity: QUDTQK.Temperature,
+                                BRICK.hasSubstance: BRICK.Heating_Hot_Water,
+                            },
                             "Entering_Hot_Water_Temperature_Sensor": {
                                 "tags": [
                                     TAG.Point,
@@ -1960,6 +1972,54 @@ sensor_definitions = {
                                         ],
                                         "parents": [
                                             BRICK.Domestic_Hot_Water_Temperature_Sensor
+                                        ],
+                                    },
+                                    "Entering_Heating_Hot_Water_Temperature_Sensor": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Heating,
+                                            TAG.Hot,
+                                            TAG.Water,
+                                            TAG.Entering,
+                                            TAG.Temperature,
+                                            TAG.Sensor,
+                                        ],
+                                        BRICK.hasQuantity: QUDTQK.Temperature,
+                                        BRICK.hasSubstance: BRICK.Entering_Heating_Hot_Water,
+                                        "parents": [
+                                            BRICK.Heating_Hot_Water_Temperature_Sensor
+                                        ],
+                                    },
+                                    "Entering_Building_Hot_Water_Temperature_Sensor": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Building,
+                                            TAG.Hot,
+                                            TAG.Water,
+                                            TAG.Entering,
+                                            TAG.Temperature,
+                                            TAG.Sensor,
+                                        ],
+                                        BRICK.hasQuantity: QUDTQK.Temperature,
+                                        BRICK.hasSubstance: BRICK.Entering_Building_Hot_Water,
+                                        "parents": [
+                                            BRICK.Entering_Heating_Hot_Water_Temperature_Sensor
+                                        ],
+                                    },
+                                    "Entering_District_Hot_Water_Temperature_Sensor": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.District,
+                                            TAG.Hot,
+                                            TAG.Water,
+                                            TAG.Entering,
+                                            TAG.Temperature,
+                                            TAG.Sensor,
+                                        ],
+                                        BRICK.hasQuantity: QUDTQK.Temperature,
+                                        BRICK.hasSubstance: BRICK.Entering_District_Hot_Water,
+                                        "parents": [
+                                            BRICK.Entering_Heating_Hot_Water_Temperature_Sensor
                                         ],
                                     },
                                     "Entering_High_Temperature_Hot_Water_Temperature_Sensor": {
@@ -2012,6 +2072,54 @@ sensor_definitions = {
                                         ],
                                         "parents": [
                                             BRICK.Domestic_Hot_Water_Temperature_Sensor
+                                        ],
+                                    },
+                                    "Leaving_Heating_Hot_Water_Temperature_Sensor": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Heating,
+                                            TAG.Hot,
+                                            TAG.Water,
+                                            TAG.Leaving,
+                                            TAG.Temperature,
+                                            TAG.Sensor,
+                                        ],
+                                        BRICK.hasQuantity: QUDTQK.Temperature,
+                                        BRICK.hasSubstance: BRICK.Leaving_Heating_Hot_Water,
+                                        "parents": [
+                                            BRICK.Heating_Hot_Water_Temperature_Sensor
+                                        ],
+                                    },
+                                    "Leaving_Building_Hot_Water_Temperature_Sensor": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Building,
+                                            TAG.Hot,
+                                            TAG.Water,
+                                            TAG.Leaving,
+                                            TAG.Temperature,
+                                            TAG.Sensor,
+                                        ],
+                                        BRICK.hasQuantity: QUDTQK.Temperature,
+                                        BRICK.hasSubstance: BRICK.Leaving_Building_Hot_Water,
+                                        "parents": [
+                                            BRICK.Leaving_Heating_Hot_Water_Temperature_Sensor
+                                        ],
+                                    },
+                                    "Leaving_District_Hot_Water_Temperature_Sensor": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.District,
+                                            TAG.Hot,
+                                            TAG.Water,
+                                            TAG.Leaving,
+                                            TAG.Temperature,
+                                            TAG.Sensor,
+                                        ],
+                                        BRICK.hasQuantity: QUDTQK.Temperature,
+                                        BRICK.hasSubstance: BRICK.Leaving_District_Hot_Water,
+                                        "parents": [
+                                            BRICK.Leaving_Heating_Hot_Water_Temperature_Sensor
                                         ],
                                     },
                                     "Leaving_High_Temperature_Hot_Water_Temperature_Sensor": {

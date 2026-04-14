@@ -105,26 +105,93 @@ substances = {
                                     "Return_Hot_Water": {
                                         "parents": [BRICK.Return_Water],
                                     },
+                                    "Supply_Hot_Water": {
+                                        "parents": [BRICK.Supply_Water],
+                                    },
                                     "Leaving_Hot_Water": {
                                         "parents": [BRICK.Leaving_Water],
                                     },
-                                    "High_Temperature_Hot_Water": {
+                                    "Heating_Hot_Water": {
                                         SKOS.narrower: {
-                                            "Entering_High_Temperature_Hot_Water": {
+                                            "Entering_Heating_Hot_Water": {
                                                 "parents": [BRICK.Entering_Water],
                                             },
-                                            "Leaving_High_Temperature_Hot_Water": {
+                                            "Return_Heating_Hot_Water": {
+                                                "parents": [BRICK.Return_Water],
+                                            },
+                                            "Supply_Heating_Hot_Water": {
+                                                "parents": [BRICK.Supply_Water],
+                                            },
+                                            "Leaving_Heating_Hot_Water": {
                                                 "parents": [BRICK.Leaving_Water],
                                             },
-                                        },
-                                    },
-                                    "Medium_Temperature_Hot_Water": {
-                                        SKOS.narrower: {
-                                            "Entering_Medium_Temperature_Hot_Water": {
-                                                "parents": [BRICK.Entering_Water],
+                                            "Building_Hot_Water": {
+                                                SKOS.narrower: {
+                                                    "Entering_Building_Hot_Water": {
+                                                        "parents": [
+                                                            BRICK.Entering_Water
+                                                        ],
+                                                    },
+                                                    "Return_Building_Hot_Water": {
+                                                        "parents": [BRICK.Return_Water],
+                                                    },
+                                                    "Supply_Building_Hot_Water": {
+                                                        "parents": [BRICK.Supply_Water],
+                                                    },
+                                                    "Leaving_Building_Hot_Water": {
+                                                        "parents": [
+                                                            BRICK.Leaving_Water
+                                                        ],
+                                                    },
+                                                },
                                             },
-                                            "Leaving_Medium_Temperature_Hot_Water": {
-                                                "parents": [BRICK.Leaving_Water],
+                                            "District_Hot_Water": {
+                                                SKOS.narrower: {
+                                                    "Entering_District_Hot_Water": {
+                                                        "parents": [
+                                                            BRICK.Entering_Water
+                                                        ],
+                                                    },
+                                                    "Return_District_Hot_Water": {
+                                                        "parents": [BRICK.Return_Water],
+                                                    },
+                                                    "Supply_District_Hot_Water": {
+                                                        "parents": [BRICK.Supply_Water],
+                                                    },
+                                                    "Leaving_District_Hot_Water": {
+                                                        "parents": [
+                                                            BRICK.Leaving_Water
+                                                        ],
+                                                    },
+                                                },
+                                            },
+                                            "High_Temperature_Hot_Water": {
+                                                SKOS.narrower: {
+                                                    "Entering_High_Temperature_Hot_Water": {
+                                                        "parents": [
+                                                            BRICK.Entering_Water
+                                                        ],
+                                                    },
+                                                    "Leaving_High_Temperature_Hot_Water": {
+                                                        "parents": [
+                                                            BRICK.Leaving_Water
+                                                        ],
+                                                    },
+                                                },
+                                            },
+                                            "Medium_Temperature_Hot_Water": {
+                                                SKOS.narrower: {
+                                                    "Entering_Medium_Temperature_Hot_Water": {
+                                                        "parents": [
+                                                            BRICK.Entering_Water
+                                                        ],
+                                                    },
+                                                    "Leaving_Medium_Temperature_Hot_Water": {
+                                                        "parents": [
+                                                            BRICK.Leaving_Water
+                                                        ],
+                                                    },
+                                                },
                                             },
                                         },
                                     },
