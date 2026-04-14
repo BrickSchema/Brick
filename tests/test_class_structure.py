@@ -88,14 +88,39 @@ def test_subclasses(brick_with_imports):
 def test_non_root_classes_are_subclasses(brick_with_imports):
     # find all owl:Class which are in the Brick namespace
     # and are not subclasses of any other class
-    query = f"""
+    query = """
     SELECT ?class WHERE {{
         ?class a owl:Class .
-        FILTER STRSTARTS(STR(?class), "{BRICK}") .
+        FILTER STRSTARTS(STR(?class), "{brick}") .
         FILTER NOT EXISTS {{
             ?class rdfs:subClassOf ?parent .
         }}
-        FILTER ( ?class NOT IN (brick:Class, brick:Entity, brick:EntityPropertyValue, brick:EntityProperty, brick:Tag) )
-    }}"""
+        FILTER (?class NOT IN (
+            brick:Class,
+            brick:Entity,
+            brick:EntityPropertyValue,
+            brick:EntityProperty,
+            brick:Tag
+        ))
+    }}""".format(
+        brick=BRICK
+    )
     for result in brick_with_imports.query(query):
         assert False, f"Class {result} is not a subclass of any other class"
+
+
+def test_deprecated_water_setpoints_are_not_sensors(brick_with_imports):
+    query = """
+    SELECT ?klass ?parent WHERE {
+        VALUES ?klass {
+            brick:Hot_Water_Supply_Flow_Setpoint
+            brick:Supply_Condenser_Water_Temperature_Setpoint
+            brick:Supply_Hot_Water_Temperature_Setpoint
+            brick:Discharge_Condenser_Water_Temperature_Setpoint
+            brick:Discharge_Hot_Water_Temperature_Setpoint
+        }
+        ?klass rdfs:subClassOf ?parent .
+        ?parent rdfs:subClassOf* brick:Sensor .
+    }"""
+    bad = list(brick_with_imports.query(query))
+    assert not bad, f"Deprecated setpoints should not inherit from sensors: {bad}"
