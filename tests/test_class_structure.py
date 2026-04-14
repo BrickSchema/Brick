@@ -111,16 +111,14 @@ def test_non_root_classes_are_subclasses(brick_with_imports):
 
 def test_deprecated_water_setpoints_are_not_sensors(brick_with_imports):
     query = """
-    SELECT ?klass ?parent WHERE {
-        VALUES ?klass {
-            brick:Hot_Water_Supply_Flow_Setpoint
-            brick:Supply_Condenser_Water_Temperature_Setpoint
-            brick:Supply_Hot_Water_Temperature_Setpoint
-            brick:Discharge_Condenser_Water_Temperature_Setpoint
-            brick:Discharge_Hot_Water_Temperature_Setpoint
-        }
+    SELECT ?klass ?parent WHERE {{
+        ?klass a owl:Class .
+        FILTER STRSTARTS(STR(?klass), "{brick}") .
+        FILTER STRENDS(STR(?klass), "Setpoint") .
         ?klass rdfs:subClassOf ?parent .
         ?parent rdfs:subClassOf* brick:Sensor .
-    }"""
+    }}""".format(
+        brick=BRICK
+    )
     bad = list(brick_with_imports.query(query))
-    assert not bad, f"Deprecated setpoints should not inherit from sensors: {bad}"
+    assert not bad, f"Setpoints should not inherit from sensors: {bad}"
