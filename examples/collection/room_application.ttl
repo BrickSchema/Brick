@@ -10,8 +10,8 @@
 bldg:Zone a rec:Zone ;
   rec:includes bldg:Hvac .
 
-bldg:Room a rec:Space ;
-  rec:isPartOf bldg:Zone .
+bldg:Room a rec:Room;
+  rec:hasPart bldg:Zone .
 
 # Z: Zone
 # C: HVAC
