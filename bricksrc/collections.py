@@ -161,9 +161,19 @@ collection_classes = {
         "tags": [TAG.Collection, TAG.Portfolio],
         "constraints": {BRICK.hasPart: [BRICK.Site]},
     },
-    "Point_Collection": {
-        "tags": [TAG.Collection, TAG.Point_Collection],
-        "constraints": {BRICK.hasPart: [BRICK.Point, BRICK.Point_Collection]},
+    "Automation_Collection": {
+        "constraints": {
+            REC.includes: [
+                BRICK.Equipment,
+                BRICK.Point,
+                BRICK.Automation_Collection,
+            ]
+        },
+        "subclasses": {
+            "Point_Collection": {
+                "constraints": {REC.includes: [BRICK.Point, BRICK.Point_Collection]},
+            },
+        },
     },
     "System": {
         "tags": [TAG.Collection, TAG.System],
@@ -176,17 +186,6 @@ collection_classes = {
                 BRICK.System,
                 BRICK.Location,
                 BRICK.PV_Array,
-            ]
-        },
-    },
-    "Automation_Collection": {
-        "tags": [TAG.Collection, TAG.Automation],
-        "constraints": {
-            REC.includes: [
-                BRICK.Equipment,
-                BRICK.Point,
-                BRICK.Automation_Collection,
-                BRICK.Point_Collection,
             ]
         },
     },
