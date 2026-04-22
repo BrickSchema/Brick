@@ -1002,18 +1002,6 @@ sensor_definitions = {
                     },
                 },
             },
-            "Lighting_Correlated_Color_Temperature_Sensor": {
-                "tags": [
-                    TAG.Point,
-                    TAG.Lighting,
-                    TAG.Correlated,
-                    TAG.Color,
-                    TAG.Temperature,
-                    TAG.Sensor,
-                ],
-                BRICK.hasQuantity: QUDTQK.CorrelatedColorTemperature,
-                BRICK.hasSubstance: BRICK.Light,
-            },
             "Luminance_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Luminance],
                 BRICK.hasQuantity: QUDTQK.Luminance,
@@ -1408,6 +1396,11 @@ sensor_definitions = {
                     },
                 },
             },
+            "Power_Cycle_Count_Sensor": {
+                "tags": [TAG.Point, TAG.Sensor, TAG.Power, TAG.Cycle, TAG.Count],
+                BRICK.hasQuantity: QUDTQK.Dimensionless,
+                "aliases": [BRICK.Start_Stop_Counter],
+            },
             "Power_Factor_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Power, TAG.Factor],
                 BRICK.hasQuantity: QUDTQK.PowerFactor,
@@ -1443,6 +1436,16 @@ sensor_definitions = {
                                     TAG.Electric,
                                 ],
                                 BRICK.hasQuantity: QUDTQK.ActivePower,
+                            },
+                            "Apparent_Power_Sensor": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Sensor,
+                                    TAG.Power,
+                                    TAG.Apparent,
+                                    TAG.Electric,
+                                ],
+                                BRICK.hasQuantity: QUDTQK.ApparentPower,
                             },
                             "Reactive_Power_Sensor": {
                                 "tags": [
@@ -1924,7 +1927,7 @@ sensor_definitions = {
                                             TAG.Sensor,
                                         ],
                                     },
-                                }
+                                },
                             },
                             "Domestic_Hot_Water_Temperature_Sensor": {
                                 "tags": [
