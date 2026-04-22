@@ -69,7 +69,13 @@ location_subclasses = {
     "Space": {
         "tags": [TAG.Space, TAG.Location],
         "constraints": {
-            REC.includes: [BRICK.Automation_Collection],
+            REC.includes: [
+                BRICK.Automation_Collection,
+                BRICK.Space,
+                BRICK.Wing,
+                BRICK.Outdoor_Area,
+                BRICK.Floor,
+            ],
         },
         "subclasses": {
             "Common_Space": {
@@ -636,7 +642,13 @@ location_subclasses = {
                 BRICK.Outdoor_Area,
                 BRICK.Floor,
             ],
-            REC.includes: [BRICK.Automation_Collection],
+            REC.includes: [
+                BRICK.Automation_Collection,
+                BRICK.Space,
+                BRICK.Wing,
+                BRICK.Outdoor_Area,
+                BRICK.Floor,
+            ],
         },
     },
 }

@@ -574,28 +574,28 @@ bsh:InheritEVSEChargerDirection a sh:NodeShape ;
 .
 
 # if point group rec:includes a point or point group, add brick:hasPart relationship
-bsh:PointGroupIncludesHasPart a sh:NodeShape ;
-    sh:targetClass brick:Point_Collection ;
-    sh:rule [
-        a sh:SPARQLRule ;
-        sh:construct """
-        CONSTRUCT {
-            $this brick:hasPart ?part .
-        }
-        WHERE {
-            $this rec:includes ?part .
-            {
-                ?part rdf:type/rdfs:subClassOf* brick:Point .
-            }
-            UNION
-            {
-                ?part rdf:type/rdfs:subClassOf* brick:Point_Collection .
-            }
-        }
-        """ ;
-        sh:prefixes <https://brickschema.org/schema/1.4/Brick> ;
-    ] ;
-.
+#bsh:PointGroupIncludesHasPart a sh:NodeShape ;
+#    sh:targetClass brick:Point_Collection ;
+#    sh:rule [
+#        a sh:SPARQLRule ;
+#        sh:construct """
+#        CONSTRUCT {
+#            $this brick:hasPart ?part .
+#        }
+#        WHERE {
+#            $this rec:includes ?part .
+#            {
+#                ?part rdf:type/rdfs:subClassOf* brick:Point .
+#            }
+#            UNION
+#            {
+#                ?part rdf:type/rdfs:subClassOf* brick:Point_Collection .
+#            }
+#        }
+#        """ ;
+#        sh:prefixes <https://brickschema.org/schema/1.4/Brick> ;
+#    ] ;
+#.
 
 bsh:AutomationCollectionPointsRequireIsPointOf a sh:NodeShape ;
     sh:target [

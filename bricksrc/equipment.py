@@ -105,6 +105,8 @@ equipment_subclasses = {
             ],
             REC.includes: [
                 BRICK.Automation_Collection,
+                BRICK.HVAC_Equipment,
+                BRICK.Valve,
             ],
             BRICK.feeds: [BRICK.HVAC_Equipment, BRICK.Valve, REC.Space],
         },
