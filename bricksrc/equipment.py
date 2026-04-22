@@ -302,6 +302,7 @@ equipment_subclasses = {
         "subclasses": {
             "Lighting": {
                 "subclasses": {
+                    "Light_Source": {"tags": [TAG.Light, TAG.Source, TAG.Equipment]},
                     "Luminaire": {"tags": [TAG.Luminaire, TAG.Equipment]},
                     "Luminaire_Driver": {
                         "tags": [TAG.Luminaire, TAG.Driver, TAG.Equipment],
