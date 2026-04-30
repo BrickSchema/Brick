@@ -99,7 +99,15 @@ equipment_subclasses = {
     "HVAC_Equipment": {
         "tags": [TAG.HVAC, TAG.Equipment],
         "constraints": {
-            BRICK.hasPart: [BRICK.HVAC_Equipment, BRICK.Valve],
+            BRICK.hasPart: [
+                BRICK.HVAC_Equipment,
+                BRICK.Valve,
+            ],
+            REC.includes: [
+                BRICK.Automation_Collection,
+                BRICK.HVAC_Equipment,
+                BRICK.Valve,
+            ],
             BRICK.feeds: [BRICK.HVAC_Equipment, BRICK.Valve, REC.Space],
         },
     },
