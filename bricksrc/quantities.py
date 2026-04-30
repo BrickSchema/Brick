@@ -4,8 +4,8 @@ from .namespaces import SKOS, RDFS, BRICK, QUDTQK, QUDTDV, QUDT, UNIT, XSD
 from .env import env
 
 g = Graph()
-env.import_graph(g, "http://qudt.org/3.1.8/vocab/unit")
-env.import_graph(g, "http://qudt.org/3.1.8/vocab/quantitykind")
+env.import_graph(g, "http://qudt.org/3.2.1/vocab/unit")
+env.import_graph(g, "http://qudt.org/3.2.1/vocab/quantitykind")
 g.bind("qudt", QUDT)
 g.bind("qudtqk", QUDTQK)
 
