@@ -6,7 +6,7 @@ import warnings
 import sys
 
 sys.path.append("..")
-from bricksrc.namespaces import A, BRICK, QUDT, QUDTQK, SKOS, UNIT  # noqa: E402
+from bricksrc.namespaces import A, BRICK, QUDT, QUDTQK, UNIT  # noqa: E402
 
 BLDG = Namespace("https://brickschema.org/schema/ExampleBuilding#")
 
@@ -147,7 +147,7 @@ def test_issue_758_point_quantity_updates(brick_with_imports):
         BRICK.Heating_Thermal_Power_Sensor: QUDTQK.ThermalPower,
         BRICK.Current_Imbalance_Sensor: QUDTQK.ElectricCurrentImbalance,
         BRICK.Voltage_Imbalance_Sensor: QUDTQK.VoltageImbalance,
-        BRICK.Air_Grains_Sensor: BRICK.GrainsOfMoisture,
+        BRICK.Air_Grains_Sensor: QUDTQK.SpecificHumidity,
         BRICK.Radon_Concentration_Sensor: BRICK.Radon_Concentration,
         BRICK.Tint_Command: QUDTQK.Transmittance,
         BRICK.Tint_Status: QUDTQK.Transmittance,
@@ -158,15 +158,13 @@ def test_issue_758_point_quantity_updates(brick_with_imports):
 
     expected_units = {
         BRICK.Radon_Concentration: UNIT["PicoCI-PER-L"],
-        BRICK.GrainsOfMoisture: UNIT["GRAIN-PER-LB_M"],
-        BRICK.Current_Imbalance: UNIT.PERCENT,
-        BRICK.Voltage_Imbalance: UNIT.PERCENT,
+        QUDTQK.SpecificHumidity: UNIT["GRAIN-PER-LB_M"],
+        QUDTQK.ElectricCurrentImbalance: UNIT.PERCENT,
+        QUDTQK.VoltageImbalance: UNIT.PERCENT,
     }
 
     for quantity, unit in expected_units.items():
         assert (quantity, QUDT.applicableUnit, unit) in g
-
-    assert (BRICK.GrainsOfMoisture, SKOS.broader, QUDTQK.SpecificHumidity) in g
 
 
 # Deleting this test because it requires RDFS semantics, which we are no longer

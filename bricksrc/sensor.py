@@ -264,7 +264,7 @@ sensor_definitions = {
             "Air_Grains_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Air, TAG.Grains],
                 BRICK.hasSubstance: BRICK.Air,
-                BRICK.hasQuantity: BRICK.GrainsOfMoisture,
+                BRICK.hasQuantity: QUDTQK.SpecificHumidity,
                 "subclasses": {
                     "Outside_Air_Grains_Sensor": {
                         "tags": [
@@ -275,7 +275,7 @@ sensor_definitions = {
                             TAG.Sensor,
                         ],
                         BRICK.hasSubstance: BRICK.Outside_Air,
-                        BRICK.hasQuantity: BRICK.GrainsOfMoisture,
+                        BRICK.hasQuantity: QUDTQK.SpecificHumidity,
                     },
                     "Return_Air_Grains_Sensor": {
                         "tags": [
@@ -286,7 +286,7 @@ sensor_definitions = {
                             TAG.Sensor,
                         ],
                         BRICK.hasSubstance: BRICK.Return_Air,
-                        BRICK.hasQuantity: BRICK.GrainsOfMoisture,
+                        BRICK.hasQuantity: QUDTQK.SpecificHumidity,
                     },
                 },
             },
@@ -1602,7 +1602,7 @@ sensor_definitions = {
                         "tags": [TAG.Point, TAG.Sensor, TAG.Energy, TAG.Usage],
                         "subclasses": {
                             "Electrical_Energy_Usage_Sensor": {
-                                BRICK.hasQuantity: BRICK.Electric_Energy,
+                                BRICK.hasQuantity: QUDTQK.ElectricEnergy,
                                 "tags": [
                                     TAG.Point,
                                     TAG.Electric,
