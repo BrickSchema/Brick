@@ -6,7 +6,10 @@ command_definitions = {
         "tags": [TAG.Point, TAG.Command],
         "subclasses": {
             "Boiler_Command": {"tags": [TAG.Boiler, TAG.Command, TAG.Point]},
-            "Tint_Command": {"tags": [TAG.Tint, TAG.Command, TAG.Point]},
+            "Tint_Command": {
+                "tags": [TAG.Tint, TAG.Command, TAG.Point],
+                BRICK.hasQuantity: QUDTQK.Transmittance,
+            },
             "Fan_Command": {
                 "tags": [TAG.Fan, TAG.Command, TAG.Point],
                 "subclasses": {

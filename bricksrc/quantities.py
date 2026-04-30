@@ -145,7 +145,7 @@ quantity_definitions = {
                 RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
             },
             "Radon_Concentration": {
-                QUDT.applicableUnit: [UNIT["BQ-PER-M3"]],
+                QUDT.applicableUnit: [UNIT["BQ-PER-M3"], UNIT["PicoCI-PER-L"]],
                 QUDT.hasDimensionVector: QUDTDV["A0E0L-3I0M0H0T-1D0"],
                 SKOS.definition: Literal(
                     "The concentration of radioactivity due to Radon in a medium"
@@ -163,13 +163,13 @@ quantity_definitions = {
                 SKOS.broader: QUDTQK.DimensionlessRatio,
             },
             "GrainsOfMoisture": {
-                QUDT.applicableUnit: UNIT.GRAIN,
-                QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M1H0T0D0"],
+                QUDT.applicableUnit: UNIT["GRAIN-PER-LB_M"],
+                QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M0H0T0D1"],
                 RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
                 SKOS.definition: Literal(
                     "Mass of moisture per pound of air, measured in grains of water"
                 ),
-                SKOS.broader: QUDTQK.Mass,
+                SKOS.broader: QUDTQK.SpecificHumidity,
             },
         },
     },

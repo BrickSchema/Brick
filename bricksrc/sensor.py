@@ -310,6 +310,7 @@ sensor_definitions = {
                             TAG.Angle,
                             TAG.Sensor,
                         ],
+                        BRICK.hasQuantity: QUDTQK.ZenithAngle,
                     },
                 },
                 "tags": [TAG.Point, TAG.Angle, TAG.Sensor],
@@ -511,10 +512,10 @@ sensor_definitions = {
                 "subclasses": {
                     "Electric_Energy_Sensor": {
                         "tags": [TAG.Point, TAG.Sensor, TAG.Energy, TAG.Electric],
-                        BRICK.hasQuantity: BRICK.Electric_Energy,
+                        BRICK.hasQuantity: QUDTQK.ElectricEnergy,
                         "subclasses": {
                             "Reactive_Energy_Sensor": {
-                                BRICK.hasQuantity: BRICK.Reactive_Energy,
+                                BRICK.hasQuantity: QUDTQK.ReactiveEnergy,
                                 "tags": [
                                     TAG.Point,
                                     TAG.Sensor,
@@ -994,11 +995,11 @@ sensor_definitions = {
                 "subclasses": {
                     "Current_Imbalance_Sensor": {
                         "tags": [TAG.Point, TAG.Sensor, TAG.Imbalance, TAG.Current],
-                        BRICK.hasQuantity: BRICK.Current_Imbalance,
+                        BRICK.hasQuantity: QUDTQK.ElectricCurrentImbalance,
                     },
                     "Voltage_Imbalance_Sensor": {
                         "tags": [TAG.Point, TAG.Sensor, TAG.Imbalance, TAG.Voltage],
-                        BRICK.hasQuantity: BRICK.Voltage_Imbalance,
+                        BRICK.hasQuantity: QUDTQK.VoltageImbalance,
                     },
                 },
             },
@@ -1411,6 +1412,7 @@ sensor_definitions = {
                 "subclasses": {
                     "Thermal_Power_Sensor": {
                         "tags": [TAG.Point, TAG.Sensor, TAG.Power, TAG.Thermal],
+                        BRICK.hasQuantity: QUDTQK.ThermalPower,
                         "subclasses": {
                             "Heating_Thermal_Power_Sensor": {
                                 "tags": [
