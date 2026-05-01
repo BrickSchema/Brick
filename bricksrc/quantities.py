@@ -145,7 +145,7 @@ quantity_definitions = {
                 RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
             },
             "Radon_Concentration": {
-                QUDT.applicableUnit: [UNIT["BQ-PER-M3"]],
+                QUDT.applicableUnit: [UNIT["BQ-PER-M3"], UNIT["PicoCI-PER-L"]],
                 QUDT.hasDimensionVector: QUDTDV["A0E0L-3I0M0H0T-1D0"],
                 SKOS.definition: Literal(
                     "The concentration of radioactivity due to Radon in a medium"
@@ -161,15 +161,6 @@ quantity_definitions = {
                 ),
                 RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
                 SKOS.broader: QUDTQK.DimensionlessRatio,
-            },
-            "GrainsOfMoisture": {
-                QUDT.applicableUnit: UNIT.GRAIN,
-                QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M1H0T0D0"],
-                RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
-                SKOS.definition: Literal(
-                    "Mass of moisture per pound of air, measured in grains of water"
-                ),
-                SKOS.broader: QUDTQK.Mass,
             },
         },
     },
@@ -241,13 +232,6 @@ quantity_definitions = {
         RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
         SKOS.broader: BRICK.Phasor_Angle,
     },
-    "Current_Imbalance": {
-        SKOS.definition: Literal("The percent deviation from average current"),
-        QUDT.applicableUnit: [UNIT.PERCENT],
-        QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M0H0T0D1"],
-        RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
-        SKOS.broader: QUDTQK.Dimensionless,
-    },
     "Current_Total_Harmonic_Distortion": {
         SKOS.definition: Literal(
             "Measurement of harmonic distortion present in a signal defined as the sum of the powers of all harmonic components to the power of the fundamental frequency. (https://en.wikipedia.org/wiki/Total_harmonic_distortion)"
@@ -288,13 +272,6 @@ quantity_definitions = {
         RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
         SKOS.broader: BRICK.Phasor_Angle,
     },
-    "Voltage_Imbalance": {
-        SKOS.definition: Literal("The percent deviation from average voltage"),
-        QUDT.applicableUnit: [UNIT.PERCENT],
-        QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M0H0T0D1"],
-        RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
-        SKOS.broader: QUDTQK.Dimensionless,
-    },
     "Direction": {
         QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M0H0T0D1"],
         SKOS.narrower: {
@@ -318,63 +295,18 @@ quantity_definitions = {
             }
         },
     },
-    "Electric_Energy": {
+    "Apparent_Energy": {
+        QUDT.hasDimensionVector: QUDTDV["A0E0L2I0M1H0T-2D0"],
         QUDT.applicableUnit: [
-            UNIT.J,
-            UNIT["W-HR"],
-            UNIT["KiloW-HR"],
-            UNIT["MegaW-HR"],
-            UNIT["V-A_Reactive-HR"],
-            UNIT["KiloV-A_Reactive-HR"],
-            UNIT["MegaV-A_Reactive-HR"],
             UNIT["KiloV-A-HR"],
             UNIT["V-A-HR"],
             UNIT["MegaV-A-HR"],
         ],
-        QUDT.hasDimensionVector: QUDTDV["A0E0L2I0M1H0T-2D0"],
         SKOS.definition: Literal(
-            "A form of energy resulting from the flow of electrical charge"
+            "The integral of the apparent power over a time interval"
         ),
         RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
-        SKOS.broader: QUDTQK["Energy"],
-        SKOS.narrower: {
-            "Active_Energy": {
-                QUDT.hasDimensionVector: QUDTDV["A0E0L2I0M1H0T-2D0"],
-                QUDT.applicableUnit: [
-                    UNIT["W-HR"],
-                    UNIT["KiloW-HR"],
-                    UNIT["MegaW-HR"],
-                ],
-                SKOS.definition: Literal(
-                    "The integral of the active power over a time interval"
-                ),
-                RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
-            },
-            "Reactive_Energy": {
-                QUDT.hasDimensionVector: QUDTDV["A0E0L2I0M1H0T-2D0"],
-                QUDT.applicableUnit: [
-                    UNIT["V-A_Reactive-HR"],
-                    UNIT["KiloV-A_Reactive-HR"],
-                    UNIT["MegaV-A_Reactive-HR"],
-                ],
-                SKOS.definition: Literal(
-                    "The integral of the reactive power over a time interval"
-                ),
-                RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
-            },
-            "Apparent_Energy": {
-                QUDT.hasDimensionVector: QUDTDV["A0E0L2I0M1H0T-2D0"],
-                QUDT.applicableUnit: [
-                    UNIT["KiloV-A-HR"],
-                    UNIT["V-A-HR"],
-                    UNIT["MegaV-A-HR"],
-                ],
-                SKOS.definition: Literal(
-                    "The integral of the apparent power over a time interval"
-                ),
-                RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
-            },
-        },
+        SKOS.broader: QUDTQK.ElectricEnergy,
     },
     "Level": {
         QUDT.applicableUnit: [
