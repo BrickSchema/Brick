@@ -295,6 +295,19 @@ quantity_definitions = {
             }
         },
     },
+    "Apparent_Energy": {
+        QUDT.hasDimensionVector: QUDTDV["A0E0L2I0M1H0T-2D0"],
+        QUDT.applicableUnit: [
+            UNIT["KiloV-A-HR"],
+            UNIT["V-A-HR"],
+            UNIT["MegaV-A-HR"],
+        ],
+        SKOS.definition: Literal(
+            "The integral of the apparent power over a time interval"
+        ),
+        RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
+        SKOS.broader: QUDTQK.ElectricEnergy,
+    },
     "Level": {
         QUDT.applicableUnit: [
             UNIT["CentiM"],

@@ -1,5 +1,7 @@
 from rdflib import Namespace
 
+from bricksrc.namespaces import BRICK, QUDTQK
+
 
 def test_deprecation(brick_with_imports):
     """

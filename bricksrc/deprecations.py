@@ -710,6 +710,36 @@ deprecations = {
         "mitigation_message": "Brick-defined quantity 'Energy' is deprecated. Use the equivalent QUDT quantity 'qudt:QuantityKind/Energy' directly.",
         "replace_with": QUDTQK.Energy,
     },
+    BRICK.Electric_Energy: {
+        "version": "1.4.4",
+        "mitigation_message": "Brick-defined quantity 'Electric_Energy' is deprecated. Use QUDT quantitykind:ElectricEnergy directly.",
+        "replace_with": QUDTQK.ElectricEnergy,
+    },
+    BRICK.Active_Energy: {
+        "version": "1.4.4",
+        "mitigation_message": "Brick-defined quantity 'Active_Energy' is deprecated. Use QUDT quantitykind:ActiveEnergy directly.",
+        "replace_with": QUDTQK.ActiveEnergy,
+    },
+    BRICK.Reactive_Energy: {
+        "version": "1.4.4",
+        "mitigation_message": "Brick-defined quantity 'Reactive_Energy' is deprecated. Use QUDT quantitykind:ReactiveEnergy directly.",
+        "replace_with": QUDTQK.ReactiveEnergy,
+    },
+    BRICK.Current_Imbalance: {
+        "version": "1.4.4",
+        "mitigation_message": "Brick-defined quantity 'Current_Imbalance' is deprecated. Use QUDT quantitykind:ElectricCurrentImbalance directly.",
+        "replace_with": QUDTQK.ElectricCurrentImbalance,
+    },
+    BRICK.Voltage_Imbalance: {
+        "version": "1.4.4",
+        "mitigation_message": "Brick-defined quantity 'Voltage_Imbalance' is deprecated. Use QUDT quantitykind:VoltageImbalance directly.",
+        "replace_with": QUDTQK.VoltageImbalance,
+    },
+    BRICK.GrainsOfMoisture: {
+        "version": "1.4.4",
+        "mitigation_message": "Brick-defined quantity 'GrainsOfMoisture' is deprecated. Use QUDT quantitykind:SpecificHumidity directly.",
+        "replace_with": QUDTQK.SpecificHumidity,
+    },
     BRICK.Deceleration_Time: {
         "version": "1.4.4",
         "mitigation_message": "Brick-defined quantity 'Deceleration_Time' is deprecated. Use the equivalent QUDT quantity 'qudt:QuantityKind/Time' directly.",
