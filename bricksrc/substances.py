@@ -105,6 +105,9 @@ substances = {
                                     "Return_Hot_Water": {
                                         "parents": [BRICK.Return_Water],
                                     },
+                                    "Supply_Hot_Water": {
+                                        "parents": [BRICK.Supply_Water],
+                                    },
                                     "Leaving_Hot_Water": {
                                         "parents": [BRICK.Leaving_Water],
                                     },
