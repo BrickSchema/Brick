@@ -1,0 +1,46 @@
+@prefix brick: <https://brickschema.org/schema/Brick#> .
+@prefix bldg:  <urn:example/collection#> .
+@prefix rec: <https://w3id.org/rec#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix mpo: <http://my-private-ontology.com/> .
+
+<http://example.com/collection> a owl:Ontology ;
+    owl:imports <https://brickschema.org/schema/1.4/Brick> .
+
+# my custom class for frost detection group in my private ontology
+mpo:FrostDetectionCollection a owl:Class ;
+  rdfs:subClassOf brick:Automation_Collection ;
+  rdfs:label "Frost Detection Collection" ;
+  rdfs:comment "An automation collection that includes components for frost detection in an AHU." .
+
+bldg:Ahu a brick:AHU ;
+  brick:hasPart bldg:Hcl ;
+  brick:hasPart bldg:Fan ;
+  rec:includes bldg:FrostDetection .
+
+# WHERE { ?ahu (brick:hasPart|rec:includes)+ ?part }
+
+# equip includes collection
+# collection includes point, equip
+# BUT point has no isPointOf relationship
+
+bldg:Hcl a brick:Heating_Coil .
+
+bldg:Fan a brick:Discharge_Fan .
+
+# here, we are using an automation collection instead of a point collection because
+# we want to include the Sensor Equipment as part of the group
+bldg:FrostDetection a mpo:FrostDetectionCollection ;
+  rec:includes bldg:FrostDetectionSensor ;
+  rec:includes bldg:FrostDetectionMonitoring .
+
+bldg:FrostDetectionSensor a brick:Sensor_Equipment ;
+  brick:hasPoint bldg:FrostDetected .
+
+bldg:FrostDetectionMonitoring a brick:Enable_Command ;
+  brick:isPointOf bldg:Ahu .
+
+bldg:FrostDetected a brick:Frost_Sensor .

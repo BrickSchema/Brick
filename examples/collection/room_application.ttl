@@ -1,0 +1,82 @@
+@prefix brick: <https://brickschema.org/schema/Brick#> .
+@prefix bldg:  <urn:example/room-application#> .
+@prefix rec: <https://w3id.org/rec#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://example.com/room-application> a owl:Ontology ;
+    owl:imports <https://brickschema.org/schema/1.4/Brick> .
+
+bldg:Zone a rec:Zone ;
+  rec:includes bldg:Hvac .
+
+bldg:Room a rec:Room;
+  rec:hasPart bldg:Zone .
+
+# Z: Zone
+# C: HVAC
+# E: Radiant ceiling
+# C: Room temperature setpoint determination
+# P: Room temperature setpoint
+# P: Room temperature setpoint shift
+# C: Air volume flow tracking
+# P: Room supply air volume flow
+# P: Present setpoint for room extract air volume flow
+# C: Ventilation control
+# P: Present ventilation setpoint
+# P: Setpoint room air quality for comfort
+# P: Setpoint room air quality for pre-comfort
+bldg:Hvac a brick:Automation_Collection ;
+  rdfs:label "HVAC" ;
+  rec:includes bldg:RadiantCeiling ;
+  rec:includes bldg:RoomTemperatureSetpointDetermination ;
+  rec:includes bldg:AirVolumeFlowTracking ;
+  rec:includes bldg:VentilationControl .
+
+bldg:RadiantCeiling a brick:Radiant_Panel ;
+  rdfs:label "Radiant ceiling" ;
+  brick:feeds bldg:Room .
+
+bldg:RoomTemperatureSetpointDetermination a brick:Automation_Collection ;
+  rdfs:label "Room temperature setpoint determination" ;
+  rec:includes bldg:RoomTemperatureSetpoint ;
+  rec:includes bldg:RoomTemperatureSetpointShift .
+
+bldg:RoomTemperatureSetpoint a brick:Target_Zone_Air_Temperature_Setpoint ;
+  rdfs:label "Room temperature setpoint" ;
+  brick:isPointOf bldg:Zone .
+
+bldg:RoomTemperatureSetpointShift a brick:Temperature_Adjust_Sensor ;
+  rdfs:label "Room temperature setpoint shift" ;
+  brick:isPointOf bldg:Zone .
+
+bldg:AirVolumeFlowTracking a brick:Automation_Collection ;
+  rdfs:label "Air volume flow tracking" ;
+  rec:includes bldg:RoomSupplyAirVolumeFlow ;
+  rec:includes bldg:RoomExtractAirVolumeFlowSetpoint .
+
+bldg:RoomSupplyAirVolumeFlow a brick:Supply_Air_Flow_Sensor ;
+  rdfs:label "Room supply air volume flow" ;
+  brick:isPointOf bldg:Zone .
+
+bldg:RoomExtractAirVolumeFlowSetpoint a brick:Exhaust_Air_Flow_Setpoint ;
+  rdfs:label "Present setpoint for room extract air volume flow" ;
+  brick:isPointOf bldg:Zone .
+
+bldg:VentilationControl a brick:Automation_Collection ;
+  rdfs:label "Ventilation control" ;
+  rec:includes bldg:PresentVentilationSetpoint ;
+  rec:includes bldg:RoomAirQualitySetpointComfort ;
+  rec:includes bldg:RoomAirQualitySetpointPreComfort .
+
+bldg:PresentVentilationSetpoint a brick:Damper_Position_Setpoint ;
+  rdfs:label "Present ventilation setpoint" ;
+  brick:isPointOf bldg:Zone .
+
+bldg:RoomAirQualitySetpointComfort a brick:CO2_Setpoint ;
+  rdfs:label "Setpoint room air quality for comfort" ;
+  brick:isPointOf bldg:Zone .
+
+bldg:RoomAirQualitySetpointPreComfort a brick:CO2_Setpoint ;
+  rdfs:label "Setpoint room air quality for pre-comfort" ;
+  brick:isPointOf bldg:Zone .
