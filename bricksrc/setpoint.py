@@ -8,6 +8,9 @@ setpoint_definitions = {
         ),
         "tags": [TAG.Point, TAG.Setpoint],
         "subclasses": {
+            "Threshold": {
+                "tags": [TAG.Point, TAG.Setpoint, TAG.Threshold],
+            },
             "Current_Ratio_Setpoint": {
                 BRICK.hasQuantity: QUDTQK.ElectricCurrent,
                 "tags": [TAG.Point, TAG.Setpoint, TAG.Current, TAG.Electric, TAG.Ratio],
@@ -104,7 +107,6 @@ setpoint_definitions = {
                                     TAG.Deadband,
                                     TAG.Setpoint,
                                 ],
-                                "parents": [BRICK.Cooling_Temperature_Setpoint],
                             },
                             "Occupied_Heating_Temperature_Deadband_Setpoint": {
                                 BRICK.hasQuantity: QUDTQK.Temperature,
@@ -116,7 +118,6 @@ setpoint_definitions = {
                                     TAG.Deadband,
                                     TAG.Setpoint,
                                 ],
-                                "parents": [BRICK.Heating_Temperature_Setpoint],
                             },
                             "Unoccupied_Cooling_Temperature_Deadband_Setpoint": {
                                 "tags": [
@@ -127,7 +128,6 @@ setpoint_definitions = {
                                     TAG.Deadband,
                                     TAG.Setpoint,
                                 ],
-                                "parents": [BRICK.Cooling_Temperature_Setpoint],
                             },
                             "Unoccupied_Heating_Temperature_Deadband_Setpoint": {
                                 "tags": [
@@ -138,7 +138,6 @@ setpoint_definitions = {
                                     TAG.Deadband,
                                     TAG.Setpoint,
                                 ],
-                                "parents": [BRICK.Heating_Temperature_Setpoint],
                             },
                             "Supply_Air_Temperature_Deadband_Setpoint": {
                                 BRICK.hasSubstance: [
@@ -174,7 +173,6 @@ setpoint_definitions = {
                                         ],
                                         "parents": [
                                             BRICK.Discharge_Air_Temperature_Heating_Setpoint,
-                                            BRICK.Heating_Temperature_Setpoint,
                                         ],
                                     },
                                     "Cooling_Supply_Air_Temperature_Deadband_Setpoint": {
@@ -197,7 +195,6 @@ setpoint_definitions = {
                                         ],
                                         "parents": [
                                             BRICK.Discharge_Air_Temperature_Cooling_Setpoint,
-                                            BRICK.Cooling_Temperature_Setpoint,
                                         ],
                                     },
                                 },
@@ -1429,6 +1426,8 @@ setpoint_definitions = {
                             "Cooling_Zone_Air_Temperature_Setpoint": {
                                 BRICK.hasQuantity: QUDTQK.Temperature,
                                 BRICK.hasSubstance: BRICK.Zone_Air,
+                                BRICK.hasTrigger: BRICK["TriggerDirection-Cooling"],
+                                "parents": [BRICK.Threshold],
                                 "tags": [
                                     TAG.Point,
                                     TAG.Cool,
@@ -1496,6 +1495,8 @@ setpoint_definitions = {
                             "Heating_Zone_Air_Temperature_Setpoint": {
                                 BRICK.hasQuantity: QUDTQK.Temperature,
                                 BRICK.hasSubstance: BRICK.Zone_Air,
+                                BRICK.hasTrigger: BRICK["TriggerDirection-Heating"],
+                                "parents": [BRICK.Threshold],
                                 "tags": [
                                     TAG.Point,
                                     TAG.Heat,
@@ -1778,6 +1779,8 @@ setpoint_definitions = {
                     },
                     "Cooling_Temperature_Setpoint": {
                         BRICK.hasQuantity: QUDTQK.Temperature,
+                        BRICK.hasTrigger: BRICK["TriggerDirection-Cooling"],
+                        "parents": [BRICK.Threshold],
                         "tags": [TAG.Point, TAG.Temperature, TAG.Setpoint, TAG.Cool],
                         "subclasses": {
                             "Occupied_Cooling_Temperature_Setpoint": {
@@ -1802,6 +1805,8 @@ setpoint_definitions = {
                     },
                     "Heating_Temperature_Setpoint": {
                         BRICK.hasQuantity: QUDTQK.Temperature,
+                        BRICK.hasTrigger: BRICK["TriggerDirection-Heating"],
+                        "parents": [BRICK.Threshold],
                         "tags": [TAG.Point, TAG.Temperature, TAG.Setpoint, TAG.Heat],
                         "subclasses": {
                             "Occupied_Heating_Temperature_Setpoint": {
@@ -2468,5 +2473,5 @@ setpoint_definitions = {
                 },
             },
         },
-    }
+    },
 }
