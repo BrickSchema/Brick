@@ -2,7 +2,7 @@ from brickschema import Graph
 from rdflib import Namespace, Literal, XSD
 from brickschema.namespaces import BRICK, A, REF
 
-EX = Namespace("urn:ex#")
+EX = Namespace("urn:ex:")
 
 
 def test_entity_property_validation(brick_with_imports):
@@ -51,14 +51,13 @@ def test_entity_property_type_inference(brick_with_imports):
             EX["point"],
             REF.hasExternalReference,
             [
-                (BACNET.contains, [(A, BACNET.Device)]),
+                (BACNET.contains, [(A, BACNET.device)]),
                 (REF.BACnetURI, Literal("bacnet://123/analog-input,3/present-value")),
             ],
         )
     )
 
     valid, _, report = g.validate(extra_graphs=[brick_with_imports], engine="topquadrant")
-    g.serialize("test.ttl", format="ttl")
     assert valid, report
     g.compile(extra_graphs=[brick_with_imports], engine="topquadrant")
 
