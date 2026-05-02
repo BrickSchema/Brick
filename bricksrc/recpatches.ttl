@@ -12,6 +12,13 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix bsh: <https://brickschema.org/schema/BrickShape#> .
 
+# allowing brick:feeds to be used to connect Spaces to "feed" Equipment, e.g. for the return/discharge path
+rec:Space sh:property [
+    rdf:type sh:PropertyShape ;
+    sh:path brick:feeds ;
+    sh:class brick:Equipment ;
+] .
+
 ### These concepts should be defined in the REC ontology but are not currently
 ### contained in their Turtle distribution. They are defined here only temporarily
 ### until they are added to the REC ontology.
