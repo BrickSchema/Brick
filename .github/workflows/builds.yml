@@ -11,6 +11,10 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
+permissions:
+  contents: read
+  pull-requests: write
+
 env:
   # the python version to release the ontology with.
   # Must be a version in the matrix.python-version list
@@ -29,18 +33,15 @@ jobs:
     - name: Install uv
       uses: astral-sh/setup-uv@v6
       with:
+        enable-cache: true
         python-version: ${{ matrix.python-version }}
-    - name: Set up AllegroGraph (Docker)
-      run: |
-        docker version
-        docker pull franzinc/agraph:v7.1.0
     - name: Install the project
       run: uv sync --all-extras --dev --pre
     - name: Generate new Brick ontology
       # generate new Brick ontology (in case this hasn't been run)
       run: |
         uv run make
-        cat Brick.ttl
+        ls -lh Brick*.ttl
     - name: zip imports and extensions
       run: |
         zip -r imports.zip imports
