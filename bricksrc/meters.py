@@ -61,7 +61,7 @@ meter_subclasses = {
                 "tags": [TAG.Meter, TAG.Equipment, TAG.Water, TAG.Hot],
                 "subclasses": {
                     "Building_Hot_Water_Meter": {
-                        BRICK.hasSubstance: BRICK.Hot_Water,
+                        BRICK.hasSubstance: BRICK.Building_Hot_Water,
                         "tags": [
                             TAG.Building,
                             TAG.Hot,

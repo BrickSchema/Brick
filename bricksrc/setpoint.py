@@ -1928,6 +1928,19 @@ setpoint_definitions = {
                                     },
                                 },
                             },
+                            "Heating_Hot_Water_Temperature_Setpoint": {
+                                BRICK.hasQuantity: QUDTQK.Temperature,
+                                BRICK.hasSubstance: BRICK.Heating_Hot_Water,
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Heating,
+                                    TAG.Hot,
+                                    TAG.Water,
+                                    TAG.Temperature,
+                                    TAG.Setpoint,
+                                ],
+                                "parents": [BRICK.Hot_Water_Temperature_Setpoint],
+                            },
                             "Chilled_Water_Temperature_Setpoint": {
                                 BRICK.hasQuantity: QUDTQK.Temperature,
                                 BRICK.hasSubstance: BRICK.Chilled_Water,
@@ -1984,6 +1997,54 @@ setpoint_definitions = {
                                             BRICK.Hot_Water_Temperature_Setpoint
                                         ],
                                     },
+                                    "Leaving_Heating_Hot_Water_Temperature_Setpoint": {
+                                        BRICK.hasQuantity: QUDTQK.Temperature,
+                                        BRICK.hasSubstance: BRICK.Leaving_Heating_Hot_Water,
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Heating,
+                                            TAG.Leaving,
+                                            TAG.Water,
+                                            TAG.Temperature,
+                                            TAG.Setpoint,
+                                            TAG.Hot,
+                                        ],
+                                        "parents": [
+                                            BRICK.Heating_Hot_Water_Temperature_Setpoint
+                                        ],
+                                    },
+                                    "Leaving_Building_Hot_Water_Temperature_Setpoint": {
+                                        BRICK.hasQuantity: QUDTQK.Temperature,
+                                        BRICK.hasSubstance: BRICK.Leaving_Building_Hot_Water,
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Building,
+                                            TAG.Leaving,
+                                            TAG.Water,
+                                            TAG.Temperature,
+                                            TAG.Setpoint,
+                                            TAG.Hot,
+                                        ],
+                                        "parents": [
+                                            BRICK.Leaving_Heating_Hot_Water_Temperature_Setpoint
+                                        ],
+                                    },
+                                    "Leaving_District_Hot_Water_Temperature_Setpoint": {
+                                        BRICK.hasQuantity: QUDTQK.Temperature,
+                                        BRICK.hasSubstance: BRICK.Leaving_District_Hot_Water,
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.District,
+                                            TAG.Leaving,
+                                            TAG.Water,
+                                            TAG.Temperature,
+                                            TAG.Setpoint,
+                                            TAG.Hot,
+                                        ],
+                                        "parents": [
+                                            BRICK.Leaving_Heating_Hot_Water_Temperature_Setpoint
+                                        ],
+                                    },
                                     "Leaving_Chilled_Water_Temperature_Setpoint": {
                                         "tags": [
                                             TAG.Point,
@@ -2035,6 +2096,54 @@ setpoint_definitions = {
                                         ],
                                         "parents": [
                                             BRICK.Hot_Water_Temperature_Setpoint
+                                        ],
+                                    },
+                                    "Entering_Heating_Hot_Water_Temperature_Setpoint": {
+                                        BRICK.hasQuantity: QUDTQK.Temperature,
+                                        BRICK.hasSubstance: BRICK.Entering_Heating_Hot_Water,
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Heating,
+                                            TAG.Entering,
+                                            TAG.Water,
+                                            TAG.Temperature,
+                                            TAG.Setpoint,
+                                            TAG.Hot,
+                                        ],
+                                        "parents": [
+                                            BRICK.Heating_Hot_Water_Temperature_Setpoint
+                                        ],
+                                    },
+                                    "Entering_Building_Hot_Water_Temperature_Setpoint": {
+                                        BRICK.hasQuantity: QUDTQK.Temperature,
+                                        BRICK.hasSubstance: BRICK.Entering_Building_Hot_Water,
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Building,
+                                            TAG.Entering,
+                                            TAG.Water,
+                                            TAG.Temperature,
+                                            TAG.Setpoint,
+                                            TAG.Hot,
+                                        ],
+                                        "parents": [
+                                            BRICK.Entering_Heating_Hot_Water_Temperature_Setpoint
+                                        ],
+                                    },
+                                    "Entering_District_Hot_Water_Temperature_Setpoint": {
+                                        BRICK.hasQuantity: QUDTQK.Temperature,
+                                        BRICK.hasSubstance: BRICK.Entering_District_Hot_Water,
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.District,
+                                            TAG.Entering,
+                                            TAG.Water,
+                                            TAG.Temperature,
+                                            TAG.Setpoint,
+                                            TAG.Hot,
+                                        ],
+                                        "parents": [
+                                            BRICK.Entering_Heating_Hot_Water_Temperature_Setpoint
                                         ],
                                     },
                                     "Entering_Chilled_Water_Temperature_Setpoint": {
