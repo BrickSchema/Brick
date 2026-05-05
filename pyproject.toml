@@ -13,7 +13,6 @@ dependencies = [
     "pytest>=8.3.2",
     "tqdm>=4.66.5",
     "pyshacl>=0.30",
-    "docker>=7.1.0",
     "black>=24.8.0",
     "pre-commit>=3.8.0",
     "flake8>=7.1.1",

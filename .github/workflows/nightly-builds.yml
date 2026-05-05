@@ -4,21 +4,29 @@ on:
     - cron: '0 2 * * *' # run at 2 AM UTC
   workflow_dispatch:
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
 jobs:
   build:
     name: Nightly Build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           submodules: 'recursive'
       - name: Get current date
         id: date
-        run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
+        run: echo "date=$(date +'%Y-%m-%d')" >> "$GITHUB_OUTPUT"
 
       - name: Install uv
         uses: astral-sh/setup-uv@v6
         with:
+          enable-cache: true
           python-version: '3.11'
       - name: Install the project
         run: uv sync --all-extras --dev --pre
@@ -26,7 +34,7 @@ jobs:
         # generate new Brick ontology (in case this hasn't been run)
         run: |
           uv run make
-          cat Brick.ttl
+          ls -lh Brick*.ttl
       - name: zip imports and extensions
         run: |
           zip -r imports.zip imports
