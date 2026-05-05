@@ -1,228 +1,155 @@
-from rdflib import Graph, URIRef
 from collections import defaultdict
 
+BRICK_PREFIX = "https://brickschema.org/schema/Brick#"
 
-def getDict(g, q):
-    d = defaultdict(list)
 
-    res = g.query(q)
+def _brick_name(value):
+    return value.toPython().replace(BRICK_PREFIX, "")
 
-    for row in res:
-        c1 = row.c.toPython().replace("https://brickschema.org/schema/Brick#", "")
+
+def _query_class_relations(g, query):
+    relations = defaultdict(list)
+    for row in g.query(query):
+        class_name = _brick_name(row.c)
         if row.p:
-            c2 = row.p.toPython().replace("https://brickschema.org/schema/Brick#", "")
-            d[c1].append(c2)
-
-    return d
+            relations[class_name].append(_brick_name(row.p))
+    return relations
 
 
-def getSet(g, q):
-    s = set()
-
-    res = g.query(q)
-
-    for row in res:
-        c1 = row.c.toPython().replace("https://brickschema.org/schema/Brick#", "")
-        s.add(c1)
-
-    return s
+def _query_class_names(g, query):
+    return {_brick_name(row.c) for row in g.query(query)}
 
 
-def matchMinMax(d):
-    ds = {}
-    ds["MissingMatchingMin"] = []
-    ds["MissingMatchingMax"] = []
-    ds["AllGood"] = []
-    dislist = []
-    countmatch = 0
-    countobutnotu = 0
-    countubutnoto = 0
-    for c in d:
-        if "Min" in c:
-            s = c.replace("Min", "Max")
-            if s in d:
-                # print('debug:',s,e[s])
-                ds["AllGood"].append((s, c))
-                countmatch += 1
-                dislist.append(c)
-            else:
-                ds["MissingMatchingMax"].append(c)
-                dislist.append(c)
-                countobutnotu += 1
-    for c in d:
-        if "Max" in c:
-            dis = c.replace("Max", "Min")
-            if dis in dislist:
-                pass
-            else:
-                ds["MissingMatchingMin"].append(c)
-                countubutnoto += 1
-    # print(json.dumps(ds,indent=4),file=open('tests/mm.json','w'))
-    assert not ds[
-        "MissingMatchingMin"
-    ], "There are {0} classes that have Max but not Min".format(
-        len(ds["MissingMatchingMin"])
-    )
-    assert not ds[
-        "MissingMatchingMax"
-    ], "There are {0} classes that have Min but not Max".format(
-        len(ds["MissingMatchingMax"])
-    )
-
-
-def matchOccupiedUnoccupied(d):
-    ds = {}
-    ds["MissingMatchingOccupied"] = []
-    ds["MissingMatchingUnoccupied"] = []
-    ds["AllGood"] = []
-    dislist = []
-    countmatch = 0
-    countobutnotu = 0
-    countubutnoto = 0
-    for c in d:
-        if "Occupied" in c:
-            s = c.replace("Occupied", "Unoccupied")
-            if s in d:
-                # print('debug:',s,e[s])
-                ds["AllGood"].append((s, c))
-                countmatch += 1
-                dislist.append(c)
-            else:
-                ds["MissingMatchingUnoccupied"].append(c)
-                dislist.append(c)
-                countobutnotu += 1
-    for c in d:
-        if "Unoccupied" in c:
-            dis = c.replace("Unoccupied", "Occupied")
-            if dis in dislist:
-                pass
-            else:
-                ds["MissingMatchingOccupied"].append(c)
-                countubutnoto += 1
-
-    # print(json.dumps(ds,indent=4),file=open('tests/uo.json','w'))
-    assert not ds[
-        "MissingMatchingOccupied"
-    ], "There are {0} classes that have Unoccupied but not Occupied".format(
-        len(ds["MissingMatchingOccupied"])
-    )
-    assert not ds[
-        "MissingMatchingUnoccupied"
-    ], "There are {0} classes that have Occupied but not Unoccupied".format(
-        len(ds["MissingMatchingUnoccupied"])
-    )
-
-
-def matchSupplyDischarge(d, e, allowed=None):
-    ds = {}
-    ds["MissingMatchingDischarge"] = []
-    ds["MissingMatchingSupply"] = []
-    ds["NoEquivalenceDefined"] = {}
-    ds["AllGood"] = {}
-    dislist = []
-    countmatch = 0
-    countdbutnots = 0
-    countsbutnotd = 0
-    for c in d:
-        if allowed is not None and c not in allowed:
-            continue
-        if "Discharge" in c:
-            s = c.replace("Discharge", "Supply")
-            if s in d:
-                if s in e:
-                    # print('debug:',s,e[s])
-                    if c in e[s]:
-                        pass
-                    else:
-                        print("*ERROR* ", s, e[s])
-                    ds["AllGood"][c] = s
-                elif c in e:
-                    if s in e[c]:
-                        pass
-                    else:
-                        print("*ERROR* ", c, e[c])
-                    ds["AllGood"][c] = s
-                else:
-                    ds["NoEquivalenceDefined"][c] = s
-                countmatch += 1
-                dislist.append(c)
-            else:
-                ds["MissingMatchingSupply"].append(c)
-                dislist.append(c)
-                countdbutnots += 1
-    for c in d:
-        if allowed is not None and c not in allowed:
-            continue
-        if "Supply" in c:
-            dis = c.replace("Supply", "Discharge")
-            if dis in dislist:
-                pass
-            else:
-                ds["MissingMatchingDischarge"].append(c)
-                countsbutnotd += 1
-
-    # print(json.dumps(ds,indent=4),file=open('tests/ds.json','w'))
-    assert not ds[
-        "MissingMatchingSupply"
-    ], "There are {0} classes that have Discharge but not Supply".format(
-        len(ds["MissingMatchingSupply"])
-    )
-    assert not ds[
-        "MissingMatchingDischarge"
-    ], "There are {0} classes that have Supply but not Discharge".format(
-        len(ds["MissingMatchingDischarge"])
-    )
-    assert not ds[
-        "NoEquivalenceDefined"
-    ], "There are {0} classes that don't have Supply = Discharge defined".format(
-        len(ds["NoEquivalenceDefined"])
-    )
-
-
-# maincode
-def test_matching_classes(brick_with_imports):
-    g = brick_with_imports
-    # DeductiveClosure(OWLRL_Semantics).expand(g)
-
-    d = getDict(
+def _all_non_deprecated_class_relations(g):
+    # This is the shared universe of active Brick class names for the
+    # name-pair checks below. The relation values are only needed for the
+    # supply/discharge equivalence check.
+    return _query_class_relations(
         g,
         """
-       SELECT DISTINCT ?c ?p
-       WHERE {
-           ?c (rdfs:subClassOf | owl:equivalentClass)+ ?p .
-           FILTER NOT EXISTS { ?c owl:deprecated true } .
-           FILTER NOT EXISTS { ?p owl:deprecated true } .
-       }
-       """,
+        SELECT DISTINCT ?c ?p
+        WHERE {
+            ?c (rdfs:subClassOf | owl:equivalentClass)+ ?p .
+            FILTER NOT EXISTS { ?c owl:deprecated true } .
+            FILTER NOT EXISTS { ?p owl:deprecated true } .
+        }
+        """,
     )
 
-    print("verifying min max classes...")
-    matchMinMax(d)
-    print("verifying occupied unoccupied classes...")
-    matchOccupiedUnoccupied(d)
 
-    deq = getDict(
+def _explicit_equivalent_classes(g):
+    # The supply/discharge naming convention is not enough by itself: those
+    # class pairs should also be connected with an explicit equivalentClass.
+    return _query_class_relations(
         g,
         """
-       SELECT DISTINCT ?c ?p
-       WHERE {
-           ?c (rdfs:subClassOf | owl:equivalentClass)* brick:Class .
-           ?c owl:equivalentClass ?p .
-           FILTER NOT EXISTS { ?c owl:deprecated true } .
-       }
-       """,
+        SELECT DISTINCT ?c ?p
+        WHERE {
+            ?c (rdfs:subClassOf | owl:equivalentClass)* brick:Class .
+            ?c owl:equivalentClass ?p .
+            FILTER NOT EXISTS { ?c owl:deprecated true } .
+        }
+        """,
     )
-    supply_discharge = getSet(
+
+
+def _supply_discharge_air_classes(g):
+    # Water supply/return terminology is distinct from air supply/discharge.
+    # Limit this check to classes tied to the aliased air substances.
+    return _query_class_names(
         g,
         """
-       SELECT DISTINCT ?c
-       WHERE {
-           ?c (owl:equivalentClass|^owl:equivalentClass)* ?e .
-           ?e brick:hasSubstance ?s .
-           FILTER (?s IN (brick:Supply_Air, brick:Discharge_Air)) .
-           FILTER NOT EXISTS { ?c owl:deprecated true } .
-       }
-       """,
+        SELECT DISTINCT ?c
+        WHERE {
+            ?c (owl:equivalentClass|^owl:equivalentClass)* ?e .
+            ?e brick:hasSubstance ?s .
+            FILTER (?s IN (brick:Supply_Air, brick:Discharge_Air)) .
+            FILTER NOT EXISTS { ?c owl:deprecated true } .
+        }
+        """,
     )
-    print("verifying supply discharge classes...")
-    matchSupplyDischarge(d, deq, allowed=supply_discharge)
+
+
+def _assert_matching_name_pairs(classes, left, right, *, allowed=None):
+    # For every active class containing one side of a conventional name pair,
+    # make sure the corresponding class name also exists.
+    classes_to_check = set(classes)
+    if allowed is not None:
+        classes_to_check &= set(allowed)
+
+    missing_right = []
+    missing_left = []
+    for class_name in classes_to_check:
+        if left in class_name:
+            counterpart = class_name.replace(left, right)
+            if counterpart not in classes:
+                missing_right.append((class_name, counterpart))
+        if right in class_name:
+            counterpart = class_name.replace(right, left)
+            if counterpart not in classes:
+                missing_left.append((class_name, counterpart))
+
+    assert (
+        not missing_left
+    ), "Missing {left} counterparts for {right} classes: {missing}".format(
+        left=left,
+        right=right,
+        missing=sorted(missing_left),
+    )
+    assert (
+        not missing_right
+    ), "Missing {right} counterparts for {left} classes: {missing}".format(
+        left=left,
+        right=right,
+        missing=sorted(missing_right),
+    )
+
+
+def _assert_supply_discharge_equivalence(classes, equivalent_classes, allowed):
+    # Supply/Discharge air class names are aliases, so the ontology should
+    # encode that aliasing explicitly instead of only relying on similar names.
+    classes_to_check = set(classes) & set(allowed)
+    missing_equivalence = {}
+
+    for class_name in classes_to_check:
+        if "Discharge" in class_name:
+            counterpart = class_name.replace("Discharge", "Supply")
+            if counterpart in classes:
+                if class_name not in equivalent_classes.get(
+                    counterpart, []
+                ) and counterpart not in equivalent_classes.get(class_name, []):
+                    missing_equivalence[class_name] = counterpart
+
+    assert not missing_equivalence, (
+        "Missing Supply/Discharge owl:equivalentClass definitions: "
+        f"{missing_equivalence}"
+    )
+
+
+def test_min_max_classes_have_matching_counterparts(brick_with_imports):
+    relations = _all_non_deprecated_class_relations(brick_with_imports)
+    _assert_matching_name_pairs(relations, "Min", "Max")
+
+
+def test_occupied_unoccupied_classes_have_matching_counterparts(brick_with_imports):
+    relations = _all_non_deprecated_class_relations(brick_with_imports)
+    _assert_matching_name_pairs(relations, "Occupied", "Unoccupied")
+
+
+def test_supply_discharge_air_classes_have_matching_equivalent_counterparts(
+    brick_with_imports,
+):
+    relations = _all_non_deprecated_class_relations(brick_with_imports)
+    supply_discharge_air_classes = _supply_discharge_air_classes(brick_with_imports)
+
+    _assert_matching_name_pairs(
+        relations,
+        "Discharge",
+        "Supply",
+        allowed=supply_discharge_air_classes,
+    )
+    _assert_supply_discharge_equivalence(
+        relations,
+        _explicit_equivalent_classes(brick_with_imports),
+        supply_discharge_air_classes,
+    )
