@@ -1,4 +1,4 @@
-@prefix bacnet: <http://data.ashrae.org/bacnet/2020#> .
+@prefix bacnet: <http://data.ashrae.org/bacnet/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -110,10 +110,10 @@ bacnet:object-type a bacnet:StandardProperty,
     rdfs:subPropertyOf bacnet:ReadableProperty ;
     skos:definition "The type of the BACnet object" .
 
-bacnet:objectOf a owl:ObjectProperty ;
-    rdfs:label "objectOf" ;
-    rdfs:comment "The 'parent' BACnet device that hosts this BACnet object." ;
-    rdfs:range bacnet:BACnetDevice .
+bacnet:contains a owl:ObjectProperty ;
+    rdfs:label "contains" ;
+    rdfs:comment "The BACnet device that hosts this BACnet object." ;
+    rdfs:range bacnet:device .
 
 <https://brickschema.org/schema/Brick/ref> a owl:Ontology ;
     dcterms:creator ( [ a sdo:Person ;
@@ -212,9 +212,9 @@ ref:BACnetReference a owl:Class,
                         sh:datatype xsd:string ;
                         sh:path ref:BACnetURI ] ] ) ;
     sh:property [ a sh:PropertyShape ;
-            sh:class bacnet:BACnetDevice ;
+            sh:class bacnet:device ;
             sh:minCount 1 ;
-            sh:path bacnet:objectOf ] .
+            sh:path bacnet:contains ] .
 
 ref:IFCReference a owl:Class,
         sh:NodeShape ;

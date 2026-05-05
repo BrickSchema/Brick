@@ -264,7 +264,7 @@ sensor_definitions = {
             "Air_Grains_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Air, TAG.Grains],
                 BRICK.hasSubstance: BRICK.Air,
-                BRICK.hasQuantity: BRICK.GrainsOfMoisture,
+                BRICK.hasQuantity: QUDTQK.SpecificHumidity,
                 "subclasses": {
                     "Outside_Air_Grains_Sensor": {
                         "tags": [
@@ -275,7 +275,7 @@ sensor_definitions = {
                             TAG.Sensor,
                         ],
                         BRICK.hasSubstance: BRICK.Outside_Air,
-                        BRICK.hasQuantity: BRICK.GrainsOfMoisture,
+                        BRICK.hasQuantity: QUDTQK.SpecificHumidity,
                     },
                     "Return_Air_Grains_Sensor": {
                         "tags": [
@@ -286,7 +286,7 @@ sensor_definitions = {
                             TAG.Sensor,
                         ],
                         BRICK.hasSubstance: BRICK.Return_Air,
-                        BRICK.hasQuantity: BRICK.GrainsOfMoisture,
+                        BRICK.hasQuantity: QUDTQK.SpecificHumidity,
                     },
                 },
             },
@@ -310,6 +310,7 @@ sensor_definitions = {
                             TAG.Angle,
                             TAG.Sensor,
                         ],
+                        BRICK.hasQuantity: QUDTQK.ZenithAngle,
                     },
                 },
                 "tags": [TAG.Point, TAG.Angle, TAG.Sensor],
@@ -511,10 +512,10 @@ sensor_definitions = {
                 "subclasses": {
                     "Electric_Energy_Sensor": {
                         "tags": [TAG.Point, TAG.Sensor, TAG.Energy, TAG.Electric],
-                        BRICK.hasQuantity: BRICK.Electric_Energy,
+                        BRICK.hasQuantity: QUDTQK.ElectricEnergy,
                         "subclasses": {
                             "Reactive_Energy_Sensor": {
-                                BRICK.hasQuantity: BRICK.Reactive_Energy,
+                                BRICK.hasQuantity: QUDTQK.ReactiveEnergy,
                                 "tags": [
                                     TAG.Point,
                                     TAG.Sensor,
@@ -994,25 +995,13 @@ sensor_definitions = {
                 "subclasses": {
                     "Current_Imbalance_Sensor": {
                         "tags": [TAG.Point, TAG.Sensor, TAG.Imbalance, TAG.Current],
-                        BRICK.hasQuantity: BRICK.Current_Imbalance,
+                        BRICK.hasQuantity: QUDTQK.ElectricCurrentImbalance,
                     },
                     "Voltage_Imbalance_Sensor": {
                         "tags": [TAG.Point, TAG.Sensor, TAG.Imbalance, TAG.Voltage],
-                        BRICK.hasQuantity: BRICK.Voltage_Imbalance,
+                        BRICK.hasQuantity: QUDTQK.VoltageImbalance,
                     },
                 },
-            },
-            "Lighting_Correlated_Color_Temperature_Sensor": {
-                "tags": [
-                    TAG.Point,
-                    TAG.Lighting,
-                    TAG.Correlated,
-                    TAG.Color,
-                    TAG.Temperature,
-                    TAG.Sensor,
-                ],
-                BRICK.hasQuantity: QUDTQK.CorrelatedColorTemperature,
-                BRICK.hasSubstance: BRICK.Light,
             },
             "Luminance_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Luminance],
@@ -1408,6 +1397,11 @@ sensor_definitions = {
                     },
                 },
             },
+            "Power_Cycle_Count_Sensor": {
+                "tags": [TAG.Point, TAG.Sensor, TAG.Power, TAG.Cycle, TAG.Count],
+                BRICK.hasQuantity: QUDTQK.Dimensionless,
+                "aliases": [BRICK.Start_Stop_Counter],
+            },
             "Power_Factor_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Power, TAG.Factor],
                 BRICK.hasQuantity: QUDTQK.PowerFactor,
@@ -1418,6 +1412,7 @@ sensor_definitions = {
                 "subclasses": {
                     "Thermal_Power_Sensor": {
                         "tags": [TAG.Point, TAG.Sensor, TAG.Power, TAG.Thermal],
+                        BRICK.hasQuantity: QUDTQK.ThermalPower,
                         "subclasses": {
                             "Heating_Thermal_Power_Sensor": {
                                 "tags": [
@@ -1443,6 +1438,16 @@ sensor_definitions = {
                                     TAG.Electric,
                                 ],
                                 BRICK.hasQuantity: QUDTQK.ActivePower,
+                            },
+                            "Apparent_Power_Sensor": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Sensor,
+                                    TAG.Power,
+                                    TAG.Apparent,
+                                    TAG.Electric,
+                                ],
+                                BRICK.hasQuantity: QUDTQK.ApparentPower,
                             },
                             "Reactive_Power_Sensor": {
                                 "tags": [
@@ -1597,7 +1602,7 @@ sensor_definitions = {
                         "tags": [TAG.Point, TAG.Sensor, TAG.Energy, TAG.Usage],
                         "subclasses": {
                             "Electrical_Energy_Usage_Sensor": {
-                                BRICK.hasQuantity: BRICK.Electric_Energy,
+                                BRICK.hasQuantity: QUDTQK.ElectricEnergy,
                                 "tags": [
                                     TAG.Point,
                                     TAG.Electric,

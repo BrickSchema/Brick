@@ -79,7 +79,7 @@ entity_properties = {
     BRICK.resolution: {
         SKOS.definition: Literal(
             "The resolution of the entity specifing the smallest measurable or controllable increment"
-            ),
+        ),
         SH.node: BSH.ResolutionShape,
         RDFS.label: Literal("Resolution", lang="en"),
         "property_of": BRICK.Point,
@@ -122,6 +122,12 @@ entity_properties = {
         RDFS.label: Literal("Rated power output", lang="en"),
         SH.node: BSH.PowerQuantityShape,
         "property_of": BRICK.Equipment,
+    },
+    BRICK.ratedApparentPower: {
+        SKOS.definition: Literal("The nominal rated apparent power of the entity"),
+        RDFS.label: Literal("Rated apparent power", lang="en"),
+        SH.node: BSH.ApparentPowerQuantityShape,
+        "property_of": BRICK.Lighting_Equipment,
     },
     BRICK.measuredPowerOutput: {
         SKOS.definition: Literal("The nominal measured power output of the entity"),
@@ -236,6 +242,20 @@ entity_properties = {
                 "property_of": BRICK.Equipment,
             },
         },
+    },
+    BRICK.ratedCorrelatedColorTemperature: {
+        SKOS.definition: Literal(
+            "The nominal rated correlated color temperature of the entity"
+        ),
+        SH.node: BSH.CorrelatedColorTemperatureQuantityShape,
+        RDFS.label: Literal("Rated correlated color temperature", lang="en"),
+        "property_of": BRICK.Lighting_Equipment,
+    },
+    BRICK.ratedLuminousFlux: {
+        SKOS.definition: Literal("The nominal rated luminous flux of the entity"),
+        SH.node: BSH.LuminousFluxQuantityShape,
+        RDFS.label: Literal("Rated luminous flux", lang="en"),
+        "property_of": BRICK.Lighting_Equipment,
     },
     BRICK.temperatureCoefficientofPmax: {
         SKOS.definition: Literal(
@@ -572,9 +592,7 @@ shape_properties = {
             },
         },
     },
-    BSH.ElectricVehicleChargingTypeShape: {
-        "values": ["Level 1", "Level 2", "Level 3"]
-    },
+    BSH.ElectricVehicleChargingTypeShape: {"values": ["Level 1", "Level 2", "Level 3"]},
     BSH.ElectricVehicleChargingDirectionalityShape: {
         "values": ["unidirectional", "bidirectional"]
     },

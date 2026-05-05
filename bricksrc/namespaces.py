@@ -26,7 +26,7 @@ UNIT = Namespace("http://qudt.org/vocab/unit/")
 CURRENCY = Namespace("http://qudt.org/vocab/currency/")
 
 # TODO: fix these namespaces
-BACNET = Namespace("http://data.ashrae.org/bacnet/2020#")
+BACNET = Namespace("http://data.ashrae.org/bacnet/")
 IFC = Namespace("https://brickschema.org/extension/ifc#")
 
 A = RDF.type

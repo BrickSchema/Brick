@@ -34,12 +34,12 @@ ontology = {
 
 # TODO: URL for RealEstateCore?
 ontology_imports = {
-    "bacnet": "http://data.ashrae.org/bacnet/2020",
+    "bacnet": "http://data.ashrae.org/bacnet",
     "ref": "https://brickschema.org/schema/Brick/ref",
     "rec": "https://w3id.org/rec",
     "recimports": "https://w3id.org/rec/recimports",
-    "quantitykind": "http://qudt.org/3.1.8/vocab/quantitykind",
-    "unit": "http://qudt.org/3.1.8/vocab/unit",
+    "unit": "http://qudt.org/3.2.1/vocab/unit",
+    "quantitykind": "http://qudt.org/3.2.1/vocab/quantitykind",
 }
 
 shacl_namespace_declarations = [

@@ -122,6 +122,81 @@ def test_meter_shapes(brick_with_imports):
     )
     assert conforms, report_str
 
+
+def test_automation_collection_points_require_ispointof(brick_with_imports):
+    invalid_data = (
+        prefixes
+        + """
+@prefix rec: <https://w3id.org/rec#> .
+
+:group a brick:Automation_Collection .
+:equip a brick:AHU .
+:point a brick:Temperature_Sensor .
+:group rec:includes :point .
+"""
+    )
+    invalid_g = brickschema.Graph().parse(data=invalid_data, format="turtle")
+    conforms, _, _ = invalid_g.validate(
+        extra_graphs=[brick_with_imports], engine="topquadrant"
+    )
+    assert not conforms
+
+    valid_data = (
+        prefixes
+        + """
+@prefix rec: <https://w3id.org/rec#> .
+
+:group a brick:Automation_Collection .
+:equip a brick:AHU .
+:point a brick:Temperature_Sensor ;
+    brick:isPointOf :equip .
+:group rec:includes :point .
+"""
+    )
+    valid_g = brickschema.Graph().parse(data=valid_data, format="turtle")
+    conforms, _, report_str = valid_g.validate(
+        extra_graphs=[brick_with_imports], engine="topquadrant"
+    )
+    assert conforms, report_str
+
+
+def test_automation_collection_requires_rec_includes(brick_with_imports):
+    invalid_data = (
+        prefixes
+        + """
+@prefix rec: <https://w3id.org/rec#> .
+
+:group a brick:Automation_Collection .
+:equip a brick:AHU .
+:group brick:hasPart :equip .
+"""
+    )
+    invalid_g = brickschema.Graph().parse(data=invalid_data, format="turtle")
+    conforms, _, _ = invalid_g.validate(
+        extra_graphs=[brick_with_imports], engine="topquadrant"
+    )
+    assert not conforms
+
+    valid_data = (
+        prefixes
+        + """
+@prefix rec: <https://w3id.org/rec#> .
+
+:ahu a brick:AHU ;
+    rec:includes :group .
+:group a brick:Automation_Collection ;
+    rec:includes :equip .
+:equip a brick:Fan .
+"""
+    )
+    valid_g = brickschema.Graph().parse(data=valid_data, format="turtle")
+    conforms, _, report_str = valid_g.validate(
+        extra_graphs=[brick_with_imports], engine="topquadrant"
+    )
+    assert conforms, report_str
+
+
+def test_meter_relationship_shapes(brick_with_imports):
     invalid_data = (
         base_data
         + """

@@ -50,6 +50,12 @@ relationships = {
         "domain": BRICK.Entity,
         "datatype": XSD.dateTime,
     },
+    "expectedLifetime": {
+        RDFS.label: Literal("Expected lifetime", lang="en"),
+        A: [OWL.DatatypeProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+        "domain": BRICK.Equipment,
+        "datatype": XSD.duration,
+    },
     "hasQUDTReference": {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         RDFS.label: Literal("Has QUDT reference", lang="en"),
@@ -67,7 +73,7 @@ relationships = {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         OWL.inverseOf: BRICK["isLocationOf"],
         "domain": BRICK.Entity,
-        "range":[BRICK.Location, REC.Architecture],
+        "range": [BRICK.Location, REC.Architecture],
         RDFS.label: Literal("Has location", lang="en"),
     },
     "hasInputSubstance": {
@@ -103,11 +109,7 @@ relationships = {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         OWL.inverseOf: BRICK["hasPoint"],
         "domain": BRICK.Point,
-        "range": [
-            BRICK.Equipment,
-            BRICK.Location,
-            REC.Architecture
-        ],
+        "range": [BRICK.Equipment, BRICK.Location, REC.Architecture],
         RDFS.label: Literal("Is point of", lang="en"),
     },
     "hasPart": {

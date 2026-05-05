@@ -1,0 +1,95 @@
+@prefix brick: <https://brickschema.org/schema/Brick#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix : <http://example.com/lighting#> .
+
+<http://example.com/lighting> a owl:Ontology ;
+    owl:imports <https://brickschema.org/schema/1.4/Brick> .
+
+:open_office a brick:Room .
+
+:lighting_system a brick:Lighting_System ;
+    brick:hasLocation :open_office ;
+    brick:hasPart :luminaire_1 .
+
+:luminaire_1 a brick:Luminaire ;
+    brick:hasLocation :open_office ;
+    brick:isPartOf :lighting_system ;
+    brick:hasPart :driver_1, :light_source_1 ;
+    brick:expectedLifetime "PT60000H"^^xsd:duration ;
+    brick:ratedApparentPower [
+        brick:hasUnit unit:VA ;
+        brick:value "38"^^xsd:decimal
+    ] ;
+    brick:ratedCorrelatedColorTemperature [
+        brick:hasUnit unit:K ;
+        brick:value "3000"^^xsd:decimal
+    ] ;
+    brick:ratedLuminousFlux [
+        brick:hasUnit unit:LM ;
+        brick:value "4200"^^xsd:decimal
+    ] .
+
+:driver_1 a brick:Luminaire_Driver ;
+    brick:hasLocation :open_office ;
+    brick:isPartOf :luminaire_1 ;
+    brick:expectedLifetime "PT50000H"^^xsd:duration ;
+    brick:ratedPowerInput [
+        brick:hasUnit unit:W ;
+        brick:value "32"^^xsd:decimal
+    ] ;
+    brick:ratedVoltageOutput [
+        brick:hasUnit unit:V ;
+        brick:value "12"^^xsd:decimal
+    ] .
+
+:light_source_1 a brick:Light_Source ;
+    brick:hasLocation :open_office ;
+    brick:isPartOf :luminaire_1 ;
+    brick:expectedLifetime "PT25000H"^^xsd:duration ;
+    brick:ratedVoltageInput [
+        brick:hasUnit unit:V ;
+        brick:value "12"^^xsd:decimal
+    ] .
+
+:luminaire_1_on_off_command a brick:On_Off_Command ;
+    brick:isPointOf :luminaire_1 .
+
+:luminaire_1_on_off_status a brick:On_Off_Status ;
+    brick:isPointOf :luminaire_1 .
+
+:luminaire_1_lighting_level_command a brick:Lighting_Level_Command ;
+    brick:hasUnit unit:PERCENT ;
+    brick:isPointOf :luminaire_1 .
+
+:luminaire_1_active_power a brick:Active_Power_Sensor ;
+    brick:hasUnit unit:W ;
+    brick:isPointOf :luminaire_1 .
+
+:luminaire_1_energy a brick:Energy_Sensor ;
+    brick:hasUnit unit:KiloW-HR ;
+    brick:isPointOf :luminaire_1 .
+
+:luminaire_1_run_time a brick:Run_Time_Sensor ;
+    brick:hasUnit unit:HR ;
+    brick:isPointOf :luminaire_1 .
+
+:driver_1_power_cycle_count a brick:Power_Cycle_Count_Sensor ;
+    brick:hasUnit unit:NUM ;
+    brick:isPointOf :driver_1 .
+
+:light_source_1_power_cycle_count a brick:Power_Cycle_Count_Sensor ;
+    brick:hasUnit unit:NUM ;
+    brick:isPointOf :light_source_1 .
+
+:light_source_1_run_time a brick:Run_Time_Sensor ;
+    brick:hasUnit unit:HR ;
+    brick:isPointOf :light_source_1 .
+
+:open_office_occupancy a brick:Motion_Sensor ;
+    brick:isPointOf :open_office .
+
+:open_office_illuminance a brick:Illuminance_Sensor ;
+    brick:hasUnit unit:LUX ;
+    brick:isPointOf :open_office .

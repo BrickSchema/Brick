@@ -13,7 +13,10 @@ status_definitions = {
             "Switch_Status": {
                 "tags": [TAG.Point, TAG.Status, TAG.Switch],
             },
-            "Tint_Status": {"tags": [TAG.Tint, TAG.Status, TAG.Point]},
+            "Tint_Status": {
+                "tags": [TAG.Tint, TAG.Status, TAG.Point],
+                BRICK.hasQuantity: QUDTQK.Transmittance,
+            },
             "Damper_Position_Status": {
                 "tags": [TAG.Point, TAG.Damper, TAG.Position, TAG.Status],
                 BRICK.hasQuantity: BRICK.Position,
