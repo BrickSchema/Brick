@@ -99,6 +99,24 @@ brick:Automation_Collection a sh:NodeShape ;
     ] ;
     .
 
+brick:System a sh:NodeShape ;
+    sh:property [
+        sh:path brick:hasPart ;
+        sh:maxCount 0 ;
+        sh:severity sh:Warning ;
+        sh:message "Systems should use rec:includes instead of brick:hasPart. Brick will infer the corresponding rec:includes relationship."
+    ] ;
+    .
+
+brick:Loop a sh:NodeShape ;
+    sh:property [
+        sh:path brick:hasPart ;
+        sh:maxCount 0 ;
+        sh:severity sh:Warning ;
+        sh:message "Loops should use rec:includes instead of brick:hasPart. Brick will infer the corresponding rec:includes relationship."
+    ] ;
+    .
+
 brick:Point a sh:NodeShape;
     sh:not [ sh:class brick:Equipment ; sh:message "Instances of Point cannot be Equipment." ],
            [ sh:class brick:Location ; sh:message "Instances of Point cannot be Locations." ],

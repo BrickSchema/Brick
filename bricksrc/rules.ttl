@@ -525,6 +525,22 @@ bsh:CollectionIncludesEquipment a sh:NodeShape ;
     ] ;
 .
 
+bsh:SystemLoopLegacyHasPartIncludes a sh:NodeShape ;
+    sh:targetClass brick:System, brick:Loop ;
+    sh:rule [
+        a sh:SPARQLRule ;
+        sh:construct """
+        CONSTRUCT {
+            $this rec:includes ?part .
+        }
+        WHERE {
+            $this brick:hasPart ?part .
+        }
+        """ ;
+        sh:prefixes <https://brickschema.org/schema/1.4/Brick> ;
+    ] ;
+.
+
 # add unidirectional charging to all EVsE chargers as a default value
 # UNLESS there is already a brick:electricVehicleChargerDirectionality attribute
 # on ports associated with the charger

@@ -1,4 +1,6 @@
 import brickschema
+from rdflib import Namespace
+from bricksrc.namespaces import REC
 
 prefixes = """
 @prefix brick: <https://brickschema.org/schema/Brick#> .
@@ -238,3 +240,77 @@ def test_meter_relationship_shapes(brick_with_imports):
         extra_graphs=[brick_with_imports], engine="topquadrant"
     )
     assert conforms, report_str
+
+
+def test_system_haspart_warns_and_infers_rec_includes(brick_with_imports):
+    EX = Namespace("http://example.com/ns#")
+    g = brick_with_imports
+    g.bind("ex", EX)
+    g.parse(
+        data="""
+    @prefix brick: <https://brickschema.org/schema/Brick#> .
+    @prefix rec: <https://w3id.org/rec#> .
+    @prefix ex: <http://example.com/ns#> .
+
+    ex:sys a brick:System ;
+        brick:hasPart ex:ahu .
+    ex:ahu a brick:AHU .
+    """,
+        format="turtle",
+    )
+    g.compile()
+
+    assert (EX.sys, REC.includes, EX.ahu) in g
+
+    valid, repG, report = g.validate(engine="topquadrant")
+    assert valid, report
+
+    res = list(
+        repG.query(
+            """PREFIX sh: <http://www.w3.org/ns/shacl#>
+        SELECT ?node WHERE {
+            ?res a sh:ValidationResult .
+            ?res sh:focusNode ?node .
+            ?res sh:resultSeverity sh:Warning .
+            ?res sh:value <http://example.com/ns#ahu> .
+        }"""
+        )
+    )
+    assert len(set(res)) == 1, "System legacy hasPart usage should emit a warning"
+
+
+def test_loop_haspart_warns_and_infers_rec_includes(brick_with_imports):
+    EX = Namespace("http://example.com/ns#")
+    g = brick_with_imports
+    g.bind("ex", EX)
+    g.parse(
+        data="""
+    @prefix brick: <https://brickschema.org/schema/Brick#> .
+    @prefix rec: <https://w3id.org/rec#> .
+    @prefix ex: <http://example.com/ns#> .
+
+    ex:loop a brick:Loop ;
+        brick:hasPart ex:point .
+    ex:point a brick:Temperature_Sensor .
+    """,
+        format="turtle",
+    )
+    g.compile()
+
+    assert (EX.loop, REC.includes, EX.point) in g
+
+    valid, repG, report = g.validate(engine="topquadrant")
+    assert valid, report
+
+    res = list(
+        repG.query(
+            """PREFIX sh: <http://www.w3.org/ns/shacl#>
+        SELECT ?node WHERE {
+            ?res a sh:ValidationResult .
+            ?res sh:focusNode ?node .
+            ?res sh:resultSeverity sh:Warning .
+            ?res sh:value <http://example.com/ns#point> .
+        }"""
+        )
+    )
+    assert len(set(res)) == 1, "Loop legacy hasPart usage should emit a warning"
