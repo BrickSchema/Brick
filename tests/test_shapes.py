@@ -198,6 +198,61 @@ def test_automation_collection_requires_rec_includes(brick_with_imports):
     assert conforms, report_str
 
 
+def test_collection_requires_rec_includes(brick_with_imports):
+    invalid_data = (
+        prefixes
+        + """
+@prefix rec: <https://w3id.org/rec#> .
+
+:group a brick:Collection .
+:equip a brick:AHU .
+:group brick:hasPart :equip .
+"""
+    )
+    invalid_g = brickschema.Graph().parse(data=invalid_data, format="turtle")
+    conforms, _, _ = invalid_g.validate(
+        extra_graphs=[brick_with_imports], engine="topquadrant"
+    )
+    assert not conforms
+
+    valid_data = (
+        prefixes
+        + """
+@prefix rec: <https://w3id.org/rec#> .
+
+:group a brick:Collection .
+:point a brick:Temperature_Sensor .
+:group rec:includes :point .
+"""
+    )
+    valid_g = brickschema.Graph().parse(data=valid_data, format="turtle")
+    conforms, _, report_str = valid_g.validate(
+        extra_graphs=[brick_with_imports], engine="topquadrant"
+    )
+    assert conforms, report_str
+
+
+def test_system_and_loop_can_include_points(brick_with_imports):
+    valid_data = (
+        prefixes
+        + """
+@prefix rec: <https://w3id.org/rec#> .
+
+:system a brick:System ;
+    rec:includes :system_point .
+:loop a brick:Loop ;
+    rec:includes :loop_point .
+:system_point a brick:Temperature_Sensor .
+:loop_point a brick:Temperature_Sensor .
+"""
+    )
+    valid_g = brickschema.Graph().parse(data=valid_data, format="turtle")
+    conforms, _, report_str = valid_g.validate(
+        extra_graphs=[brick_with_imports], engine="topquadrant"
+    )
+    assert conforms, report_str
+
+
 def test_meter_relationship_shapes(brick_with_imports):
     invalid_data = (
         base_data
@@ -242,7 +297,7 @@ def test_meter_relationship_shapes(brick_with_imports):
     assert conforms, report_str
 
 
-def test_system_haspart_warns_and_infers_rec_includes(brick_with_imports):
+def test_system_haspart_rejected_and_infers_rec_includes(brick_with_imports):
     EX = Namespace("http://example.com/ns#")
     g = brick_with_imports
     g.bind("ex", EX)
@@ -262,23 +317,25 @@ def test_system_haspart_warns_and_infers_rec_includes(brick_with_imports):
 
     assert (EX.sys, REC.includes, EX.ahu) in g
 
-    valid, repG, report = g.validate(engine="topquadrant")
-    assert valid, report
+    valid, repG, _ = g.validate(engine="topquadrant")
+    assert not valid
 
     res = list(
         repG.query(
             """PREFIX sh: <http://www.w3.org/ns/shacl#>
+        PREFIX brick: <https://brickschema.org/schema/Brick#>
         SELECT ?node WHERE {
             ?res a sh:ValidationResult .
             ?res sh:focusNode ?node .
-            ?res sh:resultSeverity sh:Warning .
+            ?res sh:resultSeverity sh:Violation .
+            ?res sh:resultPath brick:hasPart .
         }"""
         )
     )
-    assert len(set(res)) == 1, f"System legacy hasPart usage should emit a warning\n{repG.serialize()}"
+    assert len(set(res)) == 1, f"System legacy hasPart usage should be rejected\n{repG.serialize()}"
 
 
-def test_loop_haspart_warns_and_infers_rec_includes(brick_with_imports):
+def test_loop_haspart_rejected_and_infers_rec_includes(brick_with_imports):
     EX = Namespace("http://example.com/ns#")
     g = brick_with_imports
     g.bind("ex", EX)
@@ -298,17 +355,19 @@ def test_loop_haspart_warns_and_infers_rec_includes(brick_with_imports):
 
     assert (EX.loop, REC.includes, EX.point) in g
 
-    valid, repG, report = g.validate(engine="topquadrant")
-    assert valid, report
+    valid, repG, _ = g.validate(engine="topquadrant")
+    assert not valid
 
     res = list(
         repG.query(
             """PREFIX sh: <http://www.w3.org/ns/shacl#>
+        PREFIX brick: <https://brickschema.org/schema/Brick#>
         SELECT ?node WHERE {
             ?res a sh:ValidationResult .
             ?res sh:focusNode ?node .
-            ?res sh:resultSeverity sh:Warning .
+            ?res sh:resultSeverity sh:Violation .
+            ?res sh:resultPath brick:hasPart .
         }"""
         )
     )
-    assert len(set(res)) == 1, f"Loop legacy hasPart usage should emit a warning\n{repG.serialize()}"
+    assert len(set(res)) == 1, f"Loop legacy hasPart usage should be rejected\n{repG.serialize()}"

@@ -159,7 +159,7 @@ loop_subclasses = {
 collection_classes = {
     "Portfolio": {
         "tags": [TAG.Collection, TAG.Portfolio],
-        "constraints": {BRICK.hasPart: [BRICK.Site]},
+        "constraints": {REC.includes: [BRICK.Site]},
     },
     "Automation_Collection": {
         "constraints": {
@@ -197,11 +197,11 @@ collection_classes = {
     "Photovoltaic_Array": {
         "tags": [TAG.Collection, TAG.Photovoltaic, TAG.PV, TAG.Array],
         "aliases": [BRICK["PV_Array"]],
-        "constraints": {BRICK.hasPart: [BRICK.PV_Panel]},
+        "constraints": {REC.includes: [BRICK.PV_Panel]},
     },
     "Electric_Vehicle_Charging_Hub": {
         "tags": [TAG.Collection, TAG.Electric, TAG.Vehicle, TAG.Charging, TAG.Hub],
         "aliases": [BRICK["EV_Charging_Hub"]],
-        "constraints": {BRICK.hasPart: [BRICK.Electric_Vehicle_Charging_Station]},
+        "constraints": {REC.includes: [BRICK.Electric_Vehicle_Charging_Station]},
     },
 }
