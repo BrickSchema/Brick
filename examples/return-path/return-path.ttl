@@ -1,0 +1,121 @@
+@prefix brick: <https://brickschema.org/schema/Brick#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rec: <https://w3id.org/rec#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix ex: <http://example.com/return-path#> .
+
+# This example demonstrates how to model both the supply and return air paths
+# in a VAV HVAC system using brick:feeds.
+#
+# Supply path (equip feeds space):
+#   AHU -> VAV -> HVAC Zone
+#
+# Return path (space feeds equip):
+#   HVAC Zone -> Return Fan -> AHU
+#
+# The return/exhaust direction is modeled using brick:feeds from a rec:Space
+# to a brick:Equipment, which is the inverse of the typical supply-side pattern.
+# This is valid per the Brick shape extension in bricksrc/recpatches.ttl, which
+# allows rec:Space to use brick:feeds with a brick:Equipment as the target.
+# See: https://github.com/BrickSchema/Brick/issues/723
+
+<http://example.com/return-path> a owl:Ontology ;
+    owl:imports <https://brickschema.org/schema/1.4/Brick> .
+
+# --- Equipment ---
+
+ex:ahu a brick:AHU ;
+    rdfs:label "Air Handling Unit" ;
+    brick:hasPart ex:supply_fan, ex:return_fan,
+                  ex:heating_coil, ex:cooling_coil,
+                  ex:return_damper, ex:exhaust_damper ;
+    brick:feeds ex:vav1, ex:vav2 .
+
+ex:supply_fan a brick:Supply_Fan ;
+    rdfs:label "Supply Fan" ;
+    brick:hasPoint ex:sf_status, ex:sf_speed_cmd .
+
+ex:return_fan a brick:Return_Fan ;
+    rdfs:label "Return Fan" ;
+    brick:hasPoint ex:rf_status, ex:rf_speed_cmd ;
+    # The return fan is fed by the zones it collects air from
+    brick:isFedBy ex:zone1, ex:zone2 .
+
+ex:heating_coil a brick:Hot_Water_Coil ;
+    rdfs:label "Heating Coil" .
+
+ex:cooling_coil a brick:Chilled_Water_Coil ;
+    rdfs:label "Cooling Coil" .
+
+ex:return_damper a brick:Return_Damper ;
+    rdfs:label "Return Damper" ;
+    brick:hasPoint ex:rad_pos .
+
+ex:exhaust_damper a brick:Exhaust_Damper ;
+    rdfs:label "Exhaust Damper" ;
+    brick:hasPoint ex:exd_pos .
+
+ex:vav1 a brick:VAV ;
+    rdfs:label "VAV Box 1" ;
+    brick:hasPart ex:vav1_damper ;
+    brick:hasPoint ex:vav1_flow, ex:vav1_sat ;
+    brick:feeds ex:zone1 .
+
+ex:vav1_damper a brick:Damper ;
+    rdfs:label "VAV 1 Damper" ;
+    brick:hasPoint ex:vav1_dmp_pos .
+
+ex:vav2 a brick:VAV ;
+    rdfs:label "VAV Box 2" ;
+    brick:hasPart ex:vav2_damper ;
+    brick:hasPoint ex:vav2_flow, ex:vav2_sat ;
+    brick:feeds ex:zone2 .
+
+ex:vav2_damper a brick:Damper ;
+    rdfs:label "VAV 2 Damper" ;
+    brick:hasPoint ex:vav2_dmp_pos .
+
+# --- Spaces ---
+
+# Zone 1: supply air comes from VAV1, return air goes to the return fan
+ex:zone1 a brick:HVAC_Zone ;
+    rdfs:label "HVAC Zone 1" ;
+    brick:hasPart ex:room1, ex:room2 ;
+    brick:hasPoint ex:zone1_temp, ex:zone1_co2 ;
+    # Supply side: zone is fed by the VAV (implicit via vav1 brick:feeds zone1)
+    # Return side: zone feeds the return fan (air flows from zone back to AHU)
+    brick:feeds ex:return_fan .
+
+# Zone 2: supply air comes from VAV2, return air goes to the return fan
+ex:zone2 a brick:HVAC_Zone ;
+    rdfs:label "HVAC Zone 2" ;
+    brick:hasPart ex:room3 ;
+    brick:hasPoint ex:zone2_temp ;
+    brick:feeds ex:return_fan .
+
+ex:room1 a brick:Room ;
+    rdfs:label "Room 101" .
+
+ex:room2 a brick:Room ;
+    rdfs:label "Room 102" .
+
+ex:room3 a brick:Room ;
+    rdfs:label "Room 201" .
+
+# --- Points ---
+
+ex:sf_status a brick:Fan_Status .
+ex:sf_speed_cmd a brick:Speed_Setpoint .
+ex:rf_status a brick:Fan_Status .
+ex:rf_speed_cmd a brick:Speed_Setpoint .
+ex:rad_pos a brick:Damper_Position_Command .
+ex:exd_pos a brick:Damper_Position_Command .
+ex:vav1_flow a brick:Supply_Air_Flow_Sensor .
+ex:vav1_sat a brick:Supply_Air_Temperature_Sensor .
+ex:vav1_dmp_pos a brick:Damper_Position_Command .
+ex:vav2_flow a brick:Supply_Air_Flow_Sensor .
+ex:vav2_sat a brick:Supply_Air_Temperature_Sensor .
+ex:vav2_dmp_pos a brick:Damper_Position_Command .
+ex:zone1_temp a brick:Zone_Air_Temperature_Sensor .
+ex:zone1_co2 a brick:CO2_Sensor .
+ex:zone2_temp a brick:Zone_Air_Temperature_Sensor .
