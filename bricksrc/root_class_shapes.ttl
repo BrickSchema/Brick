@@ -146,6 +146,11 @@ brick:Collection a sh:NodeShape;
             [sh:not [ sh:class brick:Point ] ; sh:message "Collection is an exclusive top class." ] ;
     sh:property [
         sh:path brick:hasPart;
+        sh:maxCount 0 ;
+        sh:message "Collections must use rec:includes instead of brick:hasPart."
+    ];
+    sh:property [
+        sh:path rec:includes;
         sh:or (
             [ sh:class brick:Equipment ]
             [ sh:class brick:Location ]
@@ -153,7 +158,7 @@ brick:Collection a sh:NodeShape;
             [ sh:class brick:Point ]
             [ sh:class brick:Collection ]
         );
-        sh:message "A Collection can be associated with Equipments, Locations/Spaces, Points, and other Collections."
+        sh:message "A Collection can include Equipment, Locations/Spaces, Points, and other Collections."
     ];
     .
 
