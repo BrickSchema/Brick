@@ -1,4 +1,5 @@
 @prefix brick: <https://brickschema.org/schema/Brick#> .
+@prefix rec: <https://w3id.org/rec#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix unit: <http://qudt.org/vocab/unit/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -11,7 +12,7 @@
 
 :lighting_system a brick:Lighting_System ;
     brick:hasLocation :open_office ;
-    brick:hasPart :luminaire_1 .
+    rec:includes :luminaire_1 .
 
 :luminaire_1 a brick:Luminaire ;
     brick:hasLocation :open_office ;

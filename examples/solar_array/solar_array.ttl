@@ -1,4 +1,5 @@
 @prefix site: <http://example.com#> .
+@prefix rec: <https://w3id.org/rec#> .
 @prefix brick: <https://brickschema.org/schema/Brick#> .
 @prefix unit: <http://qudt.org/vocab/unit/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -100,7 +101,7 @@ site:panel23 a brick:PV_Panel ;
             brick:value "5"^^xsd:decimal ] .
 
 site:pv_generation_system a brick:PV_Generation_System ;
-    brick:hasPart site:array1, site:array2 ;
+    rec:includes site:array1, site:array2 ;
     brick:feeds site:pv_meter .
 
 site:pv_meter   a   brick:Electrical_Meter ;

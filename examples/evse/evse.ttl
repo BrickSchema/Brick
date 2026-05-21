@@ -1,4 +1,5 @@
 @prefix brick: <https://brickschema.org/schema/Brick#> .
+@prefix rec: <https://w3id.org/rec#> .
 @prefix unit: <http://qudt.org/vocab/unit/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -11,11 +12,11 @@
     brick:isLocationOf :hub .
 
 :hub a brick:Electric_Vehicle_Charging_Hub ;
-    brick:hasPart :station1, :station2 .
+    rec:includes :station1, :station2 .
 
 :station1 a brick:Electric_Vehicle_Charging_Station ;
     brick:electricVehicleChargerType [ brick:value "Level 1"^^xsd:string ] ;
-    brick:hasPart :port1-1, :port1-2 ;
+    rec:includes :port1-1, :port1-2 ;
 .
 
 :port1-1 a brick:Electric_Vehicle_Charging_Port ;
@@ -23,7 +24,7 @@
     brick:electricVehicleConnectorType [ brick:value "Type 1 (SAE J1772)"^^xsd:string ] ;
     brick:currentFlowType [ brick:value "AC"^^xsd:string ] ;
     brick:electricalPhaseCount [ brick:value 1 ] ;
-    brick:hasPoint :port1-1-voltage ;
+    rec:includes :port1-1-voltage ;
 .
 :port1-1-voltage a brick:Battery_Voltage_Sensor ;
     brick:hasUnit unit:PERCENT ;
@@ -34,7 +35,7 @@
     brick:electricVehicleConnectorType [ brick:value "Type 1 (SAE J1772)"^^xsd:string ] ;
     brick:currentFlowType [ brick:value "AC"^^xsd:string ] ;
     brick:electricalPhaseCount [ brick:value 1 ] ;
-    brick:hasPoint :port1-2-voltage ;
+    rec:includes :port1-2-voltage ;
 .
 :port1-2-voltage a brick:Battery_Voltage_Sensor ;
     brick:hasUnit unit:PERCENT ;
@@ -43,7 +44,7 @@
 :station2 a brick:Electric_Vehicle_Charging_Station ;
     brick:electricVehicleChargerDirectionality [ brick:value "unidirectional"^^xsd:string ] ;
     brick:electricVehicleChargerType [ brick:value "Level 2"^^xsd:string ] ;
-    brick:hasPart :port2-1 ;
+    rec:includes :port2-1 ;
 .
 
 :port2-1 a brick:Electric_Vehicle_Charging_Port ;
@@ -51,7 +52,7 @@
     brick:electricVehicleConnectorType [ brick:value "Type 2 (IEC 62196)"^^xsd:string ] ;
     brick:currentFlowType [ brick:value "AC"^^xsd:string ] ;
     brick:electricalPhaseCount [ brick:value 3 ] ;
-    brick:hasPoint :port2-1-voltage ;
+    rec:includes :port2-1-voltage ;
 .
 
 :port2-1-voltage a brick:Battery_Voltage_Sensor ;
