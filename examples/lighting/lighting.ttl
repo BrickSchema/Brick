@@ -16,7 +16,6 @@
 
 :luminaire_1 a brick:Luminaire ;
     brick:hasLocation :open_office ;
-    brick:isPartOf :lighting_system ;
     brick:hasPart :driver_1, :light_source_1 ;
     brick:expectedLifetime "PT60000H"^^xsd:duration ;
     brick:ratedApparentPower [
