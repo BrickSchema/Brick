@@ -419,7 +419,123 @@ equipment_subclasses = {
                     TAG.Heater,
                     TAG.Equipment,
                 ],
-            }
+            },
+            "Domestic_Water_Heater": {
+                "tags": [TAG.Domestic, TAG.Water, TAG.Heater, TAG.Equipment],
+                "subclasses": {
+                    "Storage_Water_Heater": {
+                        "tags": [
+                            TAG.Storage,
+                            TAG.Water,
+                            TAG.Heater,
+                            TAG.Equipment,
+                        ],
+                        "subclasses": {
+                            "Gas_Storage_Water_Heater": {
+                                "tags": [
+                                    TAG.Gas,
+                                    TAG.Storage,
+                                    TAG.Water,
+                                    TAG.Heater,
+                                    TAG.Equipment,
+                                ],
+                                "subclasses": {
+                                    "Atmospheric_Gas_Water_Heater": {
+                                        "tags": [
+                                            TAG.Atmospheric,
+                                            TAG.Gas,
+                                            TAG.Water,
+                                            TAG.Heater,
+                                            TAG.Equipment,
+                                        ],
+                                    },
+                                    "Power_Vent_Gas_Water_Heater": {
+                                        "tags": [
+                                            TAG.Power,
+                                            TAG.Vent,
+                                            TAG.Gas,
+                                            TAG.Water,
+                                            TAG.Heater,
+                                            TAG.Equipment,
+                                        ],
+                                    },
+                                },
+                            },
+                            "Electric_Storage_Water_Heater": {
+                                "tags": [
+                                    TAG.Electric,
+                                    TAG.Storage,
+                                    TAG.Water,
+                                    TAG.Heater,
+                                    TAG.Equipment,
+                                ],
+                            },
+                            "Heat_Pump_Water_Heater": {
+                                "tags": [
+                                    TAG.Heat,
+                                    TAG.Pump,
+                                    TAG.Water,
+                                    TAG.Heater,
+                                    TAG.Equipment,
+                                ],
+                            },
+                            "Solar_Water_Heater": {
+                                "tags": [
+                                    TAG.Solar,
+                                    TAG.Water,
+                                    TAG.Heater,
+                                    TAG.Equipment,
+                                ],
+                            },
+                        },
+                    },
+                    "Tankless_Water_Heater": {
+                        "tags": [
+                            TAG.Tankless,
+                            TAG.Water,
+                            TAG.Heater,
+                            TAG.Equipment,
+                        ],
+                        "subclasses": {
+                            "Gas_Tankless_Water_Heater": {
+                                "tags": [
+                                    TAG.Gas,
+                                    TAG.Tankless,
+                                    TAG.Water,
+                                    TAG.Heater,
+                                    TAG.Equipment,
+                                ],
+                            },
+                            "Electric_Tankless_Water_Heater": {
+                                "tags": [
+                                    TAG.Electric,
+                                    TAG.Tankless,
+                                    TAG.Water,
+                                    TAG.Heater,
+                                    TAG.Equipment,
+                                ],
+                            },
+                        },
+                    },
+                    "Indirect_Water_Heater": {
+                        "tags": [
+                            TAG.Indirect,
+                            TAG.Water,
+                            TAG.Heater,
+                            TAG.Equipment,
+                        ],
+                    },
+                    "Semi_Instantaneous_Water_Heater": {
+                        "tags": [
+                            TAG.Semi,
+                            TAG.Instantaneous,
+                            TAG.Water,
+                            TAG.Heater,
+                            TAG.Equipment,
+                        ],
+                    },
+                },
+            },
         },
     },
     "Tank": {
