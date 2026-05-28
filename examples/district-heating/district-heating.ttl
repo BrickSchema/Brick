@@ -1,0 +1,84 @@
+# District-heating substation with separate space-heating and domestic-hot-water
+# interfaces. The district side and building side are distinguished with
+# dedicated hot-water substances; domestic hot water remains separate.
+@prefix : <http://example.com/district-heating#> .
+@prefix brick: <https://brickschema.org/schema/Brick#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+
+<http://example.com/district-heating> a owl:Ontology ;
+    owl:imports <https://brickschema.org/schema/1.4/Brick> .
+
+:building a brick:Building ;
+    brick:isMeteredBy :building-meter .
+
+:substation a brick:Hot_Water_System ;
+    brick:hasPart :space-heating-hx, :dhw-hx, :heating-pump, :building-meter .
+
+:building-meter a brick:Building_Hot_Water_Meter ;
+    brick:meters :building .
+
+:space-heating-loop a brick:Hot_Water_System ;
+    brick:hasPart :heating-coil, :heating-pump .
+
+:space-heating-hx a brick:Plate_Heat_Exchanger ;
+    rdfs:label "Space heating district heat exchanger" ;
+    brick:hasPoint
+        :district-heating-entering-temp,
+        :district-heating-leaving-temp,
+        :building-heating-entering-temp,
+        :building-heating-leaving-temp,
+        :building-heating-leaving-temp-sp .
+
+:district-heating-entering-temp a brick:Entering_District_Hot_Water_Temperature_Sensor ;
+    rdfs:label "District-side inlet temperature to space-heating heat exchanger" ;
+    brick:hasUnit unit:DEG_C .
+
+:district-heating-leaving-temp a brick:Leaving_District_Hot_Water_Temperature_Sensor ;
+    rdfs:label "District-side outlet temperature from space-heating heat exchanger" ;
+    brick:hasUnit unit:DEG_C .
+
+:building-heating-entering-temp a brick:Entering_Building_Hot_Water_Temperature_Sensor ;
+    rdfs:label "Building-side return temperature into space-heating heat exchanger" ;
+    brick:hasUnit unit:DEG_C .
+
+:building-heating-leaving-temp a brick:Leaving_Building_Hot_Water_Temperature_Sensor ;
+    rdfs:label "Building-side supply temperature from space-heating heat exchanger" ;
+    brick:hasUnit unit:DEG_C .
+
+:building-heating-leaving-temp-sp a brick:Leaving_Building_Hot_Water_Temperature_Setpoint ;
+    rdfs:label "Building-side leaving temperature setpoint for space heating" ;
+    brick:hasUnit unit:DEG_C .
+
+:dhw-hx a brick:Plate_Heat_Exchanger ;
+    rdfs:label "Domestic hot water district heat exchanger" ;
+    brick:hasPoint
+        :district-dhw-entering-temp,
+        :district-dhw-leaving-temp,
+        :dhw-entering-temp,
+        :dhw-leaving-temp .
+
+:district-dhw-entering-temp a brick:Entering_District_Hot_Water_Temperature_Sensor ;
+    rdfs:label "District-side inlet temperature to domestic hot water heat exchanger" ;
+    brick:hasUnit unit:DEG_C .
+
+:district-dhw-leaving-temp a brick:Leaving_District_Hot_Water_Temperature_Sensor ;
+    rdfs:label "District-side outlet temperature from domestic hot water heat exchanger" ;
+    brick:hasUnit unit:DEG_C .
+
+:dhw-entering-temp a brick:Entering_Domestic_Hot_Water_Temperature_Sensor ;
+    rdfs:label "Domestic hot water return temperature into domestic hot water heat exchanger" ;
+    brick:hasUnit unit:DEG_C .
+
+:dhw-leaving-temp a brick:Leaving_Domestic_Hot_Water_Temperature_Sensor ;
+    rdfs:label "Domestic hot water supply temperature from domestic hot water heat exchanger" ;
+    brick:hasUnit unit:DEG_C .
+
+:heating-pump a brick:Hot_Water_Pump ;
+    brick:feeds :heating-coil ;
+    brick:isFedBy :space-heating-hx .
+
+:heating-coil a brick:Hot_Water_Coil ;
+    brick:feeds :space-heating-hx ;
+    brick:isFedBy :heating-pump .
