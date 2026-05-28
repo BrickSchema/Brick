@@ -774,6 +774,7 @@ hvac_subclasses = {
         },
     },
     "Space_Heater": {"tags": [TAG.Equipment, TAG.Space, TAG.Heater]},
+    "Unit_Heater": {"tags": [TAG.Equipment, TAG.Unit, TAG.Heater]},
     "Pump": {
         "tags": [TAG.Equipment, TAG.Pump],
         "subclasses": {

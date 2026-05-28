@@ -1150,6 +1150,7 @@ https://brickschema.org/schema/Brick#Underfloor_Air_Plenum_Static_Pressure_Senso
 https://brickschema.org/schema/Brick#Underfloor_Air_Plenum_Static_Pressure_Setpoint,Sets the underfloor air plenum static pressure,
 https://brickschema.org/schema/Brick#Underfloor_Air_Temperature_Sensor,Measures the temperature of underfloor air,
 https://brickschema.org/schema/Brick#Unit_Failure_Alarm,An alarm that indicates the failure of an equipment or device,
+https://brickschema.org/schema/Brick#Unit_Heater,A self-contained non-ducted heater designed to heat large open spaces.,
 https://brickschema.org/schema/Brick#Unoccupied_Air_Temperature_Setpoint,Sets temperature of air when unoccupied,
 https://brickschema.org/schema/Brick#Unoccupied_Cooling_Mode_Status,"Indicates whether a system, device or control loop is in an unoccupied cooling mode",
 https://brickschema.org/schema/Brick#Unoccupied_Cooling_Supply_Air_Flow_Setpoint,Sets supply air flow for cooling when unoccupied,
