@@ -3,6 +3,7 @@
 @prefix brick: <https://brickschema.org/schema/Brick#> .
 @prefix unit: <http://qudt.org/vocab/unit/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rec: <https://w3id.org/rec#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -11,7 +12,7 @@
     owl:imports <https://brickschema.org/schema/1.4/Brick> .
 
 :plant a brick:Chilled_Water_System ;
-    brick:hasPart :ct, :chiller .
+    rec:includes :ct, :chiller .
 # currently can't put points on the system itself in Brick
 #    brick:hasPoint :plant-chilled-water-supply-temp, :plant-chilled-water-return-temp .
 # :plant-chilled-water-supply-temp a brick:Supply_Chilled_Water_Temperature_Sensor ;

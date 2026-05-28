@@ -6,6 +6,7 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix rec: <https://w3id.org/rec#> .
 
 <http://example.com/district-heating> a owl:Ontology ;
     owl:imports <https://brickschema.org/schema/1.4/Brick> .
@@ -14,13 +15,13 @@
     brick:isMeteredBy :building-meter .
 
 :substation a brick:Hot_Water_System ;
-    brick:hasPart :space-heating-hx, :dhw-hx, :heating-pump, :building-meter .
+    rec:includes :space-heating-hx, :dhw-hx, :heating-pump, :building-meter .
 
 :building-meter a brick:Building_Hot_Water_Meter ;
     brick:meters :building .
 
 :space-heating-loop a brick:Hot_Water_System ;
-    brick:hasPart :heating-coil, :heating-pump .
+    rec:includes :heating-coil, :heating-pump .
 
 :space-heating-hx a brick:Plate_Heat_Exchanger ;
     rdfs:label "Space heating district heat exchanger" ;
