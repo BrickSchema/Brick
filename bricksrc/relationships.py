@@ -25,6 +25,30 @@ relationships = {
         "range": [BRICK.Quantity, QUDT.QuantityKind],
         "domain": BRICK.Point,
     },
+    "hasParameter": {
+        A: [OWL.ObjectProperty],
+        RDFS.label: Literal("Has Parameter", lang="en"),
+        RDFS.comment: Literal(
+            "Relates a Point to a Parameter that configures, constrains, or qualifies it.",
+            lang="en",
+        ),
+        RDFS.domain: BRICK.Point,
+        RDFS.range: BRICK.Parameter,
+        "range": BRICK.Parameter,
+        "domain": BRICK.Point,
+    },
+    "hasTrigger": {
+        A: [OWL.ObjectProperty],
+        RDFS.label: Literal("Has Trigger", lang="en"),
+        RDFS.comment: Literal(
+            "Indicates the trigger direction of a threshold or alarm threshold.",
+            lang="en",
+        ),
+        RDFS.domain: BRICK.Point,
+        RDFS.range: BRICK.TriggerDirection,
+        "range": BRICK.TriggerDirection,
+        "domain": [BRICK.Setpoint, BRICK.Parameter],
+    },
     "value": {
         RDFS.subPropertyOf: QUDT.value,
         RDFS.label: Literal("Value", lang="en"),

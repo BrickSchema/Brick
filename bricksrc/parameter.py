@@ -5,6 +5,9 @@ parameter_definitions = {
     "Parameter": {
         "tags": [TAG.Point, TAG.Parameter],
         "subclasses": {
+            "Request": {
+                "tags": [TAG.Point, TAG.Request, TAG.Parameter],
+            },
             "Delay_Parameter": {
                 "tags": [TAG.Point, TAG.Delay, TAG.Parameter],
                 "subclasses": {
@@ -12,6 +15,15 @@ parameter_definitions = {
                         "tags": [TAG.Point, TAG.Alarm, TAG.Delay, TAG.Parameter],
                     },
                 },
+            },
+            "Deadband": {
+                "tags": [TAG.Point, TAG.Deadband, TAG.Parameter],
+            },
+            "Deadband_Shift": {
+                "tags": [TAG.Point, TAG.Deadband, TAG.Shift, TAG.Parameter],
+            },
+            "Alarm_Threshold": {
+                "tags": [TAG.Point, TAG.Alarm, TAG.Threshold, TAG.Parameter],
             },
             "Alarm_Sensitivity_Parameter": {
                 "tags": [TAG.Point, TAG.Alarm, TAG.Sensitivity, TAG.Parameter],
@@ -35,6 +47,18 @@ parameter_definitions = {
                         ]
                     },
                 },
+            },
+            "Offset": {
+                "tags": [TAG.Point, TAG.Offset, TAG.Parameter],
+            },
+            "Reset_Setpoint": {
+                "tags": [TAG.Point, TAG.Reset, TAG.Setpoint, TAG.Parameter],
+            },
+            "Scale": {
+                "tags": [TAG.Point, TAG.Scale, TAG.Parameter],
+            },
+            "Shift": {
+                "tags": [TAG.Point, TAG.Shift, TAG.Parameter],
             },
             "Humidity_Parameter": {
                 "tags": [TAG.Point, TAG.Humidity, TAG.Parameter],

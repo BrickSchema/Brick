@@ -5,7 +5,19 @@ import ontoenv
 from rdflib import OWL, RDF
 from brickschema import Graph
 
-env = ontoenv.OntoEnv(search_directories=["Brick.ttl", "examples/", "support/", "extensions/", "rec/Source/SHACL/RealEstateCore"], strict=False, offline=True, excludes=[".venv/*"], temporary=True)
+env = ontoenv.OntoEnv(
+    search_directories=[
+        "Brick.ttl",
+        "examples/",
+        "support/",
+        "extensions/",
+        "rec/Source/SHACL/RealEstateCore",
+    ],
+    strict=False,
+    offline=True,
+    excludes=[".venv/*"],
+    temporary=True,
+)
 
 
 def test_example_file_with_reasoning(filename):

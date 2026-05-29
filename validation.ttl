@@ -52,6 +52,8 @@ bsh:NamespaceDefinitionRule
                 UNION
                 { $this a brick:Quantity }
                 UNION
+                { $this a/rdfs:subClassOf* brick:EnumerationKind }
+                UNION
                 { $this a brick:Tag }
                 UNION
                 { $this a brick:EntityProperty }
