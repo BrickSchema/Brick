@@ -99,6 +99,14 @@ brick:Automation_Collection a sh:NodeShape ;
     ] ;
     .
 
+brick:Plant a sh:NodeShape ;
+    sh:property [
+        sh:path brick:hasPart ;
+        sh:maxCount 0 ;
+        sh:message "Plants must use rec:includes instead of brick:hasPart for logical grouping."
+    ] ;
+    .
+
 brick:System a sh:NodeShape ;
     sh:property [
         sh:path brick:hasPart ;

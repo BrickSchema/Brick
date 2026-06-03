@@ -198,6 +198,46 @@ def test_automation_collection_requires_rec_includes(brick_with_imports):
     assert conforms, report_str
 
 
+def test_plant_is_equipment_and_can_have_points_and_feeds(brick_with_imports):
+    valid_data = (
+        prefixes
+        + """
+@prefix rec: <https://w3id.org/rec#> .
+
+:plant a brick:Chiller_Plant ;
+    brick:hasPoint :sensor ;
+    brick:feeds :ahu ;
+    rec:includes :chiller, :pump, :group .
+:sensor a brick:Supply_Chilled_Water_Temperature_Sensor .
+:ahu a brick:AHU .
+:chiller a brick:Chiller .
+:pump a brick:Chilled_Water_Pump .
+:group a brick:Point_Collection .
+"""
+    )
+    valid_g = brickschema.Graph().parse(data=valid_data, format="turtle")
+    conforms, _, report_str = valid_g.validate(
+        extra_graphs=[brick_with_imports], engine="topquadrant"
+    )
+    assert conforms, report_str
+
+
+def test_plant_requires_rec_includes_for_logical_grouping(brick_with_imports):
+    invalid_data = (
+        prefixes
+        + """
+:plant a brick:Boiler_Plant ;
+    brick:hasPart :boiler .
+:boiler a brick:Boiler .
+"""
+    )
+    invalid_g = brickschema.Graph().parse(data=invalid_data, format="turtle")
+    conforms, _, _ = invalid_g.validate(
+        extra_graphs=[brick_with_imports], engine="topquadrant"
+    )
+    assert not conforms
+
+
 def test_collection_requires_rec_includes(brick_with_imports):
     invalid_data = (
         prefixes
@@ -332,7 +372,9 @@ def test_system_haspart_rejected_and_infers_rec_includes(brick_with_imports):
         }"""
         )
     )
-    assert len(set(res)) == 1, f"System legacy hasPart usage should be rejected\n{repG.serialize()}"
+    assert (
+        len(set(res)) == 1
+    ), f"System legacy hasPart usage should be rejected\n{repG.serialize()}"
 
 
 def test_loop_haspart_rejected_and_infers_rec_includes(brick_with_imports):
@@ -370,4 +412,6 @@ def test_loop_haspart_rejected_and_infers_rec_includes(brick_with_imports):
         }"""
         )
     )
-    assert len(set(res)) == 1, f"Loop legacy hasPart usage should be rejected\n{repG.serialize()}"
+    assert (
+        len(set(res)) == 1
+    ), f"Loop legacy hasPart usage should be rejected\n{repG.serialize()}"

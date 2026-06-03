@@ -6,6 +6,26 @@ from .meters import meter_subclasses
 Set up subclasses of the equipment superclass
 """
 equipment_subclasses = {
+    "Plant": {
+        "tags": [TAG.Equipment, TAG.Plant],
+        "constraints": {
+            BRICK.hasPoint: [BRICK.Point],
+            REC.includes: [
+                BRICK.Equipment,
+                BRICK.Point,
+                BRICK.Automation_Collection,
+                BRICK.Point_Collection,
+            ],
+        },
+        "subclasses": {
+            "Boiler_Plant": {
+                "tags": [TAG.Equipment, TAG.Plant, TAG.Boiler],
+            },
+            "Chiller_Plant": {
+                "tags": [TAG.Equipment, TAG.Plant, TAG.Chiller],
+            },
+        },
+    },
     "ICT_Equipment": {
         "tags": [TAG.ICT, TAG.Equipment],
         "constraints": {BRICK.hosts: [BRICK.Point]},
