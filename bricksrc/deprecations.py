@@ -692,6 +692,15 @@ deprecations = {
         "mitigation_message": "Brick-defined quantity 'Reactive_Energy' is deprecated. Use QUDT quantitykind:ReactiveEnergy directly.",
         "replace_with": QUDTQK.ReactiveEnergy,
     },
+    BRICK.Apparent_Energy: {
+        "version": "1.4.4",
+        "mitigation_message": "Brick-defined quantity 'Apparent_Energy' is deprecated. Use QUDT quantitykind:ApparentEnergy directly.",
+        "replace_with": QUDTQK.ApparentEnergy,
+    },
+    BRICK.Level: {
+        "version": "1.4.4",
+        "mitigation_message": "Brick-defined quantity 'Level' is deprecated. Use QUDT quantitykind:LiquidLevel directly for liquid level measurements.",
+    },
     BRICK.Current_Imbalance: {
         "version": "1.4.4",
         "mitigation_message": "Brick-defined quantity 'Current_Imbalance' is deprecated. Use QUDT quantitykind:ElectricCurrentImbalance directly.",

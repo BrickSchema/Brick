@@ -514,6 +514,16 @@ sensor_definitions = {
                         "tags": [TAG.Point, TAG.Sensor, TAG.Energy, TAG.Electric],
                         BRICK.hasQuantity: QUDTQK.ElectricEnergy,
                         "subclasses": {
+                            "Apparent_Energy_Sensor": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Sensor,
+                                    TAG.Energy,
+                                    TAG.Electric,
+                                    TAG.Apparent,
+                                ],
+                                BRICK.hasQuantity: QUDTQK.ApparentEnergy,
+                            },
                             "Reactive_Energy_Sensor": {
                                 BRICK.hasQuantity: QUDTQK.ReactiveEnergy,
                                 "tags": [
@@ -523,7 +533,7 @@ sensor_definitions = {
                                     TAG.Electric,
                                     TAG.Reactive,
                                 ],
-                            }
+                            },
                         },
                     }
                 },
@@ -1491,7 +1501,7 @@ sensor_definitions = {
             },
             "Refrigerant_Level_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Refrigerant, TAG.Level],
-                BRICK.hasQuantity: BRICK.Level,
+                BRICK.hasQuantity: QUDTQK.LiquidLevel,
                 BRICK.hasSubstance: BRICK.Refrigerant,
             },
             "Solar_Irradiance_Sensor": {
@@ -1540,7 +1550,7 @@ sensor_definitions = {
             },
             "Water_Level_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Water, TAG.Level],
-                BRICK.hasQuantity: BRICK.Level,
+                BRICK.hasQuantity: QUDTQK.LiquidLevel,
                 BRICK.hasSubstance: BRICK.Water,
                 "subclasses": {
                     "Deionised_Water_Level_Sensor": {
@@ -1551,7 +1561,7 @@ sensor_definitions = {
                             TAG.Level,
                             TAG.Deionised,
                         ],
-                        BRICK.hasQuantity: BRICK.Level,
+                        BRICK.hasQuantity: QUDTQK.LiquidLevel,
                         BRICK.hasSubstance: BRICK.Deionized_Water,
                     },
                     "Collection_Basin_Water_Level_Sensor": {
@@ -1563,7 +1573,7 @@ sensor_definitions = {
                             TAG.Sensor,
                             TAG.Point,
                         ],
-                        BRICK.hasQuantity: BRICK.Level,
+                        BRICK.hasQuantity: QUDTQK.LiquidLevel,
                         BRICK.hasSubstance: BRICK.Collection_Basin_Water,
                     },
                 },
