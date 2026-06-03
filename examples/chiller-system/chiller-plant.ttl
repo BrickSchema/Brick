@@ -9,13 +9,30 @@
     owl:imports <https://brickschema.org/schema/1.4/Brick> .
 
 :cws a brick:Chilled_Water_System ;
-    rec:includes :ct-1, :ct-2, :ct-3,
+    rec:includes :plant,
+                 :ct-1, :ct-2, :ct-3,
                  :cwp-1, :cwp-2, :cwp-3,
                  :chwp-1, :chwp-2, :chwp-3, :chwp-4,
                  :ch-1, :ch-2, :ch-3,
                  :ch-1-cond, :ch-2-cond, :ch-3-cond,
-                 :chw-coil
+                 :chw-coil-1, :chw-coil-2, :chw-coil-3
 .
+
+:plant a brick:Chiller_Plant ;
+    rec:includes :ct-1, :ct-2, :ct-3,
+                 :cwp-1, :cwp-2, :cwp-3,
+                 :chwp-1, :chwp-2, :chwp-3, :chwp-4,
+                 :ch-1, :ch-2, :ch-3,
+                 :ch-1-cond, :ch-2-cond, :ch-3-cond ;
+    brick:hasPoint :plant-chilled-water-supply-temp,
+                   :plant-chilled-water-return-temp
+.
+
+:plant-chilled-water-supply-temp a brick:Supply_Chilled_Water_Temperature_Sensor ;
+    brick:hasUnit unit:DEG_C .
+
+:plant-chilled-water-return-temp a brick:Return_Chilled_Water_Temperature_Sensor ;
+    brick:hasUnit unit:DEG_C .
 
 :chwp-1 a brick:Chilled_Water_Pump .
 :chwp-2 a brick:Chilled_Water_Pump .
@@ -24,19 +41,19 @@
 
 :ch-1 a brick:Chiller ;
     brick:hasPart :ch-1-cond ;
-    brick:feeds :chw-coil ;
+    brick:feeds :chw-coil-1, :chw-coil-2, :chw-coil-3 ;
     brick:isFedBy :chwp-1, :chwp-2, :chwp-3, :chwp-4,
                   :cwp-1, :cwp-2, :cwp-3 ;
 .
 :ch-2 a brick:Chiller ;
     brick:hasPart :ch-2-cond ;
-    brick:feeds :chw-coil ;
+    brick:feeds :chw-coil-1, :chw-coil-2, :chw-coil-3 ;
     brick:isFedBy :chwp-1, :chwp-2, :chwp-3, :chwp-4,
                   :cwp-1, :cwp-2, :cwp-3 ;
 .
 :ch-3 a brick:Chiller ;
     brick:hasPart :ch-3-cond ;
-    brick:feeds :chw-coil ;
+    brick:feeds :chw-coil-1, :chw-coil-2, :chw-coil-3 ;
     brick:isFedBy :chwp-1, :chwp-2, :chwp-3, :chwp-4,
                   :cwp-1, :cwp-2, :cwp-3 ;
 .
@@ -53,7 +70,13 @@
     brick:feeds :ct-1, :ct-2, :ct-3 ;
     brick:isFedBy :cwp-3 .
 
-:chw-coil a brick:Chilled_Water_Coil ;
+:chw-coil-1 a brick:Chilled_Water_Coil ;
+    brick:feeds :chwp-1, :chwp-2, :chwp-3, :chwp-4 .
+
+:chw-coil-2 a brick:Chilled_Water_Coil ;
+    brick:feeds :chwp-1, :chwp-2, :chwp-3, :chwp-4 .
+
+:chw-coil-3 a brick:Chilled_Water_Coil ;
     brick:feeds :chwp-1, :chwp-2, :chwp-3, :chwp-4 .
 
 
