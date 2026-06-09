@@ -132,7 +132,7 @@ relationships = {
     "isTagOf": {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         "domain": BRICK.Tag,
-        "range": [BRICK.Entity, BRICK.Measurable],
+        "range": [BRICK.Entity, BRICK.Measurable, REC.Collection],
         RDFS.label: Literal("Is tag of", lang="en"),
     },
     "hasAssociatedTag": {
@@ -194,14 +194,24 @@ relationships = {
         OWL.inverseOf: BRICK.isMeteredBy,
         "domain": BRICK.Meter,
         # this is a special property that implements the 'range' as a SHACL shape
-        "range": [BRICK.Equipment, BRICK.Location, BRICK.Collection, REC.Architecture],
+        "range": [
+            BRICK.Equipment,
+            BRICK.Location,
+            REC.Collection,
+            REC.Architecture,
+        ],
         RDFS.label: Literal("meters", lang="en"),
     },
     "isMeteredBy": {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         OWL.inverseOf: BRICK.meters,
         # this is a special property that implements the 'domain' as a SHACL shape
-        "domain": [BRICK.Equipment, BRICK.Location, BRICK.Collection, REC.Architecture],
+        "domain": [
+            BRICK.Equipment,
+            BRICK.Location,
+            REC.Collection,
+            REC.Architecture,
+        ],
         "range": BRICK.Meter,
         RDFS.label: Literal("is metered by", lang="en"),
     },

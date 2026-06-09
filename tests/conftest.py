@@ -3,7 +3,6 @@ Generates tests automatically
 """
 import pytest
 from rdflib import Namespace
-import ontoenv
 from ontoenv import OntoEnv
 import brickschema
 import glob
@@ -32,6 +31,7 @@ def pytest_configure(config):
         "markers", "slow: mark tests as slow (deselect w/ '-m \"not slow\"')"
     )
 
+
 @pytest.fixture()
 def brick():
     g = brickschema.Graph()
@@ -42,6 +42,7 @@ def brick():
     g.bind("brick", BRICK)
     g.remove((None, OWL.imports, None))
     return g
+
 
 @pytest.fixture()
 def brick_with_imports():
