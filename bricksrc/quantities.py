@@ -4,8 +4,8 @@ from .namespaces import SKOS, RDFS, BRICK, QUDTQK, QUDTDV, QUDT, UNIT, XSD
 from .env import env
 
 g = Graph()
-env.import_graph(g, "http://qudt.org/3.2.1/vocab/unit")
-env.import_graph(g, "http://qudt.org/3.2.1/vocab/quantitykind")
+env.import_graph(g, "http://qudt.org/3.3.0/vocab/unit")
+env.import_graph(g, "http://qudt.org/3.3.0/vocab/quantitykind")
 g.bind("qudt", QUDT)
 g.bind("qudtqk", QUDTQK)
 
@@ -18,9 +18,11 @@ def get_units(qudt_quantity):
     return [
         x[0]
         for x in g.query(
-            f"""SELECT ?unit WHERE {{
+            """SELECT ?unit WHERE {{
                     <{qudt_quantity}> qudt:applicableUnit ?unit .
-                }}"""
+                }}""".format(
+                qudt_quantity=qudt_quantity
+            )
         )
     ]
 
@@ -294,19 +296,6 @@ quantity_definitions = {
                 RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
             }
         },
-    },
-    "Apparent_Energy": {
-        QUDT.hasDimensionVector: QUDTDV["A0E0L2I0M1H0T-2D0"],
-        QUDT.applicableUnit: [
-            UNIT["KiloV-A-HR"],
-            UNIT["V-A-HR"],
-            UNIT["MegaV-A-HR"],
-        ],
-        SKOS.definition: Literal(
-            "The integral of the apparent power over a time interval"
-        ),
-        RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
-        SKOS.broader: QUDTQK.ElectricEnergy,
     },
     "Level": {
         QUDT.applicableUnit: [

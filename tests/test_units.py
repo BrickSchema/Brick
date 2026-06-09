@@ -100,7 +100,9 @@ def test_instances_measure_correct_units(brick_with_imports):
             }"
         )
     )
-    assert len(mismatches) == 0, f"Found {len(mismatches)} instances with non-applicable units, e.g. {mismatches[:5]}"
+    assert (
+        len(mismatches) == 0
+    ), f"Found {len(mismatches)} instances with non-applicable units, e.g. {mismatches[:5]}"
 
 
 def test_quantity_units(brick_with_imports):
@@ -142,6 +144,7 @@ def test_issue_758_point_quantity_updates(brick_with_imports):
     expected = {
         BRICK.Solar_Zenith_Angle_Sensor: QUDTQK.ZenithAngle,
         BRICK.Electric_Energy_Sensor: QUDTQK.ElectricEnergy,
+        BRICK.Apparent_Energy_Sensor: QUDTQK.ApparentEnergy,
         BRICK.Reactive_Energy_Sensor: QUDTQK.ReactiveEnergy,
         BRICK.Thermal_Power_Sensor: QUDTQK.ThermalPower,
         BRICK.Heating_Thermal_Power_Sensor: QUDTQK.ThermalPower,
@@ -149,6 +152,10 @@ def test_issue_758_point_quantity_updates(brick_with_imports):
         BRICK.Voltage_Imbalance_Sensor: QUDTQK.VoltageImbalance,
         BRICK.Air_Grains_Sensor: QUDTQK.SpecificHumidity,
         BRICK.Radon_Concentration_Sensor: BRICK.Radon_Concentration,
+        BRICK.Water_Level_Sensor: QUDTQK.LiquidLevel,
+        BRICK.Deionised_Water_Level_Sensor: QUDTQK.LiquidLevel,
+        BRICK.Collection_Basin_Water_Level_Sensor: QUDTQK.LiquidLevel,
+        BRICK.Refrigerant_Level_Sensor: QUDTQK.LiquidLevel,
         BRICK.Tint_Command: QUDTQK.Transmittance,
         BRICK.Tint_Status: QUDTQK.Transmittance,
     }
@@ -161,6 +168,8 @@ def test_issue_758_point_quantity_updates(brick_with_imports):
         QUDTQK.SpecificHumidity: UNIT["GRAIN-PER-LB_M"],
         QUDTQK.ElectricCurrentImbalance: UNIT.PERCENT,
         QUDTQK.VoltageImbalance: UNIT.PERCENT,
+        QUDTQK.ApparentEnergy: UNIT["KiloVA-HR"],
+        QUDTQK.LiquidLevel: UNIT.M,
     }
 
     for quantity, unit in expected_units.items():
