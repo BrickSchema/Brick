@@ -11,7 +11,7 @@
 :open_office a brick:Room .
 
 :lighting_system a brick:Lighting_System ;
-    brick:hasLocation :open_office ;
+    rec:locatedIn :open_office ;
     rec:includes :luminaire_1 .
 
 :luminaire_1 a brick:Luminaire ;
