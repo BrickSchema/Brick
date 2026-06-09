@@ -4,7 +4,7 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 
 <http://example.com/apartment> a owl:Ontology ;
-    owl:imports <https://brickschema.org/schema/1.4/Brick> .
+    owl:imports <https://brickschema.org/schema/1.5/Brick> .
 
 apt:bedroom a brick:Room ;
     brick:isPartOf apt:bedroom_lighting,

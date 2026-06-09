@@ -6,7 +6,7 @@
 @prefix : <http://example.com/evse#> .
 
 <http://example.com/evse> a owl:Ontology ;
-    owl:imports <https://brickschema.org/schema/1.4/Brick> .
+    owl:imports <https://brickschema.org/schema/1.5/Brick> .
 
 :parking_lot a brick:Parking_Structure ;
     brick:isLocationOf :hub .

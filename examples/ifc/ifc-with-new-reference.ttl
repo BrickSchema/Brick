@@ -4,7 +4,7 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 
 <http://example.com> a owl:Ontology ;
-    owl:imports <https://brickschema.org/schema/1.4/Brick> .
+    owl:imports <https://brickschema.org/schema/1.5/Brick> .
 
 bldg:space a brick:Space ;
     ref:hasExternalReference [ a ref:IFCReference ;

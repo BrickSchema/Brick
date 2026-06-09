@@ -6,7 +6,7 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 
 <http://example.com/chiller-plant> a owl:Ontology ;
-    owl:imports <https://brickschema.org/schema/1.4/Brick> .
+    owl:imports <https://brickschema.org/schema/1.5/Brick> .
 
 :cws a brick:Chilled_Water_System ;
     rec:includes :ct-1, :ct-2, :ct-3,

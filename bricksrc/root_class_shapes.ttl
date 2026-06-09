@@ -180,7 +180,7 @@ bsh:SensorInheritQuantityKind a sh:NodeShape ;
     ] ;
     sh:rule [
         a sh:SPARQLRule ;
-        sh:prefixes <https://brickschema.org/schema/1.4/Brick> ;
+        sh:prefixes <https://brickschema.org/schema/1.5/Brick> ;
         sh:construct """
         CONSTRUCT {
             $this brick:hasQuantity ?quantity .

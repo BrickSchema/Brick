@@ -8,7 +8,7 @@
 @prefix mpo: <http://my-private-ontology.com/> .
 
 <http://example.com/collection> a owl:Ontology ;
-    owl:imports <https://brickschema.org/schema/1.4/Brick> .
+    owl:imports <https://brickschema.org/schema/1.5/Brick> .
 
 # my custom class for frost detection group in my private ontology
 mpo:FrostDetectionCollection a owl:Class ;

@@ -1,5 +1,5 @@
 # baseURI: https://w3id.org/rec/brickpatches
-# imports: https://brickschema.org/schema/1.4/Brick
+# imports: https://brickschema.org/schema/1.5/Brick
 # imports: https://w3id.org/rec
 
 @prefix : <https://w3id.org/rec/brickpatches#> .
@@ -1541,7 +1541,7 @@ rec:VolumeObservation
 .
 <https://w3id.org/rec/brickpatches>
   rdf:type owl:Ontology ;
-  owl:imports <https://brickschema.org/schema/1.4/Brick> ;
+  owl:imports <https://brickschema.org/schema/1.5/Brick> ;
   owl:imports <https://w3id.org/rec> ;
   owl:versionInfo "Created with TopBraid Composer" ;
 .
@@ -1560,7 +1560,7 @@ WHERE {
 $this brick:value ?v
 }
 			""" ;
-      sh:prefixes <https://brickschema.org/schema/1.4/Brick> ;
+      sh:prefixes <https://brickschema.org/schema/1.5/Brick> ;
     ] ;
 .
 
