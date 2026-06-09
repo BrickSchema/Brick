@@ -18,10 +18,10 @@
 
 # deprecations.ttl is reserved for non-class deprecations, e.g. entity properties
 
-brick:powerComplexity brick:deprecation [
+brick:powerComplexity owl:deprecated true ; brick:deprecation [    
     brick:deprecatedInVersion "1.3.1" ;
     brick:deprecationMitigationMessage "powerComplexity is deprecated in favor of electricalComplexPower because the latter is more clear";
-    brick:deprecationMigitationRule [
+    brick:deprecationMitigationRule [
         a sh:NodeShape ;
         sh:rule [
             a sh:SPARQLRule ;
@@ -37,10 +37,10 @@ brick:powerComplexity brick:deprecation [
     ] ;
 ] .
 
-brick:powerFlow brick:deprecation [
+brick:powerFlow owl:deprecated true ; brick:deprecation [
     brick:deprecatedInVersion "1.3.1" ;
     brick:deprecationMitigationMessage "powerFlow is deprecated in favor of electricalFlow as the latter is more clear";
-    brick:deprecationMigitationRule [
+    brick:deprecationMitigationRule [
         a sh:NodeShape ;
         sh:rule [
             a sh:SPARQLRule ;

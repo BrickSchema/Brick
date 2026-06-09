@@ -34,25 +34,22 @@ ontology = {
 
 # TODO: URL for RealEstateCore?
 ontology_imports = {
-    "qudtschema": "http://qudt.org/2.1/schema/shacl/qudt",
-    "qudtoverlay": "http://qudt.org/2.1/schema/shacl/overlay/qudt",
-    "unit": "http://qudt.org/2.1/vocab/unit",
-    "bacnet": "http://data.ashrae.org/bacnet/2020",
+    "bacnet": "http://data.ashrae.org/bacnet",
     "ref": "https://brickschema.org/schema/Brick/ref",
     "rec": "https://w3id.org/rec",
     "recimports": "https://w3id.org/rec/recimports",
-    "quantitykind": "http://qudt.org/2.1/vocab/quantitykind",
-    "qudtsou": "http://qudt.org/2.1/vocab/sou",
-    "qudtdv": "http://qudt.org/2.1/vocab/dimensionvector",
-    "qudtprefix": "http://qudt.org/2.1/vocab/prefix",
-    "qudtfacade": "http://qudt.org/2.1/schema/facade/qudt",
-    "qudtusertest": "http://qudt.org/2.1/collection/usertest",
+    "unit": "http://qudt.org/3.3.0/vocab/unit",
+    "quantitykind": "http://qudt.org/3.3.0/vocab/quantitykind",
 }
 
 shacl_namespace_declarations = [
     {
         SH.namespace: Literal(str(RDF), datatype=XSD.anyURI),
         SH.prefix: Literal("rdf"),
+    },
+    {
+        SH.namespace: Literal(str(XSD), datatype=XSD.anyURI),
+        SH.prefix: Literal("xsd"),
     },
     {
         SH.namespace: Literal(str(RDFS), datatype=XSD.anyURI),
@@ -86,7 +83,9 @@ shacl_namespace_declarations = [
     },
 ]
 
-BRICK_IRI_VERSION = URIRef(f"https://brickschema.org/schema/{BRICK_VERSION}/Brick")
+BRICK_IRI_VERSION = URIRef(
+    "https://brickschema.org/schema/{}/Brick".format(BRICK_VERSION)
+)
 
 
 def define_ontology(G):
@@ -97,7 +96,7 @@ def define_ontology(G):
     creators = []
     creator_list = BNode("ontology_creators")
     for creator in ontology.pop(DCTERMS.creator):
-        creator1 = BNode(f"ontology_creator_{creator[SDO.name]}")
+        creator1 = BNode()
         creators.append(creator1)
         for k, v in creator.items():
             G.add((creator1, k, v))

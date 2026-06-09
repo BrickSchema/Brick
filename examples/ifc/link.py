@@ -2,7 +2,7 @@ import brickschema
 from brickschema.namespaces import Namespace, BRICK, REF, A
 from rdflib import Literal
 
-BLDG = Namespace("urn:example#")
+BLDG = Namespace("http://example.com#")
 
 g = brickschema.Graph()
 g.load_file("ifc.ttl")  # our example file

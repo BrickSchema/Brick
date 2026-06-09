@@ -1,9 +1,9 @@
-@prefix apt: <urn:apartment#> .
+@prefix apt: <http://example.com/apartment#> .
 @prefix brick: <https://brickschema.org/schema/Brick#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 
-<urn:apartment> a owl:Ontology ;
+<http://example.com/apartment> a owl:Ontology ;
     owl:imports <https://brickschema.org/schema/1.4/Brick> .
 
 apt:bedroom a brick:Room ;

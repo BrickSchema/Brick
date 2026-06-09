@@ -1,4 +1,4 @@
-from .namespaces import BRICK, TAG, OWL
+from .namespaces import BRICK, REC, TAG, OWL
 
 """
 Location class structure
@@ -68,6 +68,15 @@ location_subclasses = {
     "Wing": {"tags": [TAG.Wing, TAG.Location]},
     "Space": {
         "tags": [TAG.Space, TAG.Location],
+        "constraints": {
+            REC.includes: [
+                BRICK.Automation_Collection,
+                BRICK.Space,
+                BRICK.Wing,
+                BRICK.Outdoor_Area,
+                BRICK.Floor,
+            ],
+        },
         "subclasses": {
             "Common_Space": {
                 "tags": [TAG.Common, TAG.Space, TAG.Location],
@@ -628,6 +637,13 @@ location_subclasses = {
         },
         "constraints": {
             BRICK.hasPart: [
+                BRICK.Space,
+                BRICK.Wing,
+                BRICK.Outdoor_Area,
+                BRICK.Floor,
+            ],
+            REC.includes: [
+                BRICK.Automation_Collection,
                 BRICK.Space,
                 BRICK.Wing,
                 BRICK.Outdoor_Area,

@@ -1,4 +1,4 @@
-@prefix bldg: <urn:example#> .
+@prefix bldg: <http://example.com#> .
 @prefix brick: <https://brickschema.org/schema/Brick#> .
 @prefix ref: <https://brickschema.org/schema/Brick/ref#> .
 @prefix unit: <http://qudt.org/vocab/unit/> .

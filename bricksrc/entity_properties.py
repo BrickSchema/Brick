@@ -13,7 +13,7 @@ entity_properties = {
     BRICK.deprecation: {
         SKOS.definition: Literal("Marks a concept as deprecated"),
         "property_of": BRICK.Entity,
-        SH.node: BRICK.DeprecationShape,
+        SH.node: BSH.DeprecationShape,
         RDFS.label: Literal("Deprecation Notice", lang="en"),
     },
     BRICK.lastKnownValue: {
@@ -76,6 +76,14 @@ entity_properties = {
         RDFS.label: Literal("Coordinates", lang="en"),
         "property_of": [BRICK.Equipment, BRICK.Location],
     },
+    BRICK.resolution: {
+        SKOS.definition: Literal(
+            "The resolution of the entity specifing the smallest measurable or controllable increment"
+        ),
+        SH.node: BSH.ResolutionShape,
+        RDFS.label: Literal("Resolution", lang="en"),
+        "property_of": BRICK.Point,
+    },
     # electrical properties
     BRICK.electricalComplexPower: {
         SKOS.definition: Literal("Associated electrical complexity with the entity"),
@@ -114,6 +122,12 @@ entity_properties = {
         RDFS.label: Literal("Rated power output", lang="en"),
         SH.node: BSH.PowerQuantityShape,
         "property_of": BRICK.Equipment,
+    },
+    BRICK.ratedApparentPower: {
+        SKOS.definition: Literal("The nominal rated apparent power of the entity"),
+        RDFS.label: Literal("Rated apparent power", lang="en"),
+        SH.node: BSH.ApparentPowerQuantityShape,
+        "property_of": BRICK.Lighting_Equipment,
     },
     BRICK.measuredPowerOutput: {
         SKOS.definition: Literal("The nominal measured power output of the entity"),
@@ -229,6 +243,20 @@ entity_properties = {
             },
         },
     },
+    BRICK.ratedCorrelatedColorTemperature: {
+        SKOS.definition: Literal(
+            "The nominal rated correlated color temperature of the entity"
+        ),
+        SH.node: BSH.CorrelatedColorTemperatureQuantityShape,
+        RDFS.label: Literal("Rated correlated color temperature", lang="en"),
+        "property_of": BRICK.Lighting_Equipment,
+    },
+    BRICK.ratedLuminousFlux: {
+        SKOS.definition: Literal("The nominal rated luminous flux of the entity"),
+        SH.node: BSH.LuminousFluxQuantityShape,
+        RDFS.label: Literal("Rated luminous flux", lang="en"),
+        "property_of": BRICK.Lighting_Equipment,
+    },
     BRICK.temperatureCoefficientofPmax: {
         SKOS.definition: Literal(
             "The % change in power output for every degree celsius that the entity is hotter than 25 degrees celsius"
@@ -272,7 +300,7 @@ entity_properties = {
     },
     BRICK.operationalStageCount: {
         SKOS.definition: Literal(
-            "The number of operational stages supported by this eqiupment"
+            "The number of operational stages supported by this equipment"
         ),
         "property_of": BRICK.Equipment,
         SH.node: BSH.StageShape,
@@ -333,7 +361,7 @@ entity_properties = {
     # special stuff
     BRICK.aggregate: {
         SKOS.definition: Literal(
-            "Description of how the dta for this point is aggregated"
+            "Description of how the data for this point is aggregated"
         ),
         "property_of": BRICK.Point,
         SH.node: BSH.AggregationShape,
@@ -490,7 +518,7 @@ shape_properties = {
     },
     BSH.TiltShape: {"unitsFromQuantity": QUDTQK.Angle, "datatype": BSH.NumericValue},
     BSH.TemperatureShape: {
-        "unitsFromQuantity": BRICK.Temperature,
+        "unitsFromQuantity": QUDTQK.Temperature,
         "datatype": BSH.NumericValue,
     },
     BSH.TemperatureCoefficientPerDegreeCelsiusShape: {
@@ -513,6 +541,10 @@ shape_properties = {
         "datatype": BSH.NumericValue,
         "units": [UNIT.PERCENT],
         "range": {"minInclusive": 0},
+    },
+    BSH.ResolutionShape: {
+        "datatype": BSH.NumericValue,
+        "range": {"minExclusive": 0},
     },
     BSH.CoolingCapacityShape: {
         "datatype": BSH.NumericValue,
@@ -537,7 +569,7 @@ shape_properties = {
             },
         }
     },
-    BRICK.DeprecationShape: {
+    BSH.DeprecationShape: {
         "properties": {
             BRICK.deprecatedInVersion: {
                 SKOS.definition: Literal(
@@ -560,13 +592,11 @@ shape_properties = {
             },
         },
     },
-    BRICK.ElectricVehicleChargingTypeShape: {
-        "values": ["Level 1", "Level 2", "Level 3"]
-    },
-    BRICK.ElectricVehicleChargingDirectionalityShape: {
+    BSH.ElectricVehicleChargingTypeShape: {"values": ["Level 1", "Level 2", "Level 3"]},
+    BSH.ElectricVehicleChargingDirectionalityShape: {
         "values": ["unidirectional", "bidirectional"]
     },
-    BRICK.ElectricVehicleConnectorTypeShape: {
+    BSH.ElectricVehicleConnectorTypeShape: {
         "values": [
             "Type 1 (CSS)",
             "Type 2 (CSS)",

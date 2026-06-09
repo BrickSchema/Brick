@@ -1,12 +1,15 @@
 from rdflib import Literal
-from .namespaces import TAG, BRICK, QUDT
+from .namespaces import TAG, BRICK, QUDTQK
 
 command_definitions = {
     "Command": {
         "tags": [TAG.Point, TAG.Command],
         "subclasses": {
             "Boiler_Command": {"tags": [TAG.Boiler, TAG.Command, TAG.Point]},
-            "Tint_Command": {"tags": [TAG.Tint, TAG.Command, TAG.Point]},
+            "Tint_Command": {
+                "tags": [TAG.Tint, TAG.Command, TAG.Point],
+                BRICK.hasQuantity: QUDTQK.Transmittance,
+            },
             "Fan_Command": {
                 "tags": [TAG.Fan, TAG.Command, TAG.Point],
                 "subclasses": {
@@ -315,7 +318,7 @@ command_definitions = {
             },
             "Frequency_Command": {
                 "tags": [TAG.Point, TAG.Frequency, TAG.Command],
-                BRICK.hasQuantity: BRICK.Frequency,
+                BRICK.hasQuantity: QUDTQK.Frequency,
                 "subclasses": {
                     "Max_Frequency_Command": {
                         "tags": [TAG.Point, TAG.Max, TAG.Frequency, TAG.Command],

@@ -12,6 +12,7 @@
 @prefix quantitykind: <http://qudt.org/vocab/quantitykind/> .
 @prefix qudt: <http://qudt.org/schema/qudt/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rec: <https://w3id.org/rec#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix s223: <http://data.ashrae.org/standard223#> .
 @prefix s223ext: <https://brickschema.org/extension/s223extension#> .
@@ -32,6 +33,8 @@
             sh:prefix "rdfs" ],
         [ sh:namespace "http://www.w3.org/ns/shacl#"^^xsd:anyURI ;
             sh:prefix "sh" ],
+        [ sh:namespace "https://w3id.org/rec#"^^xsd:anyURI ;
+            sh:prefix "rec" ],
         [ sh:namespace "http://www.w3.org/2002/07/owl#"^^xsd:anyURI ;
             sh:prefix "owl" ],
         [ sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
@@ -51,7 +54,7 @@ bsh:isPointOfShapeExt
   a sh:PropertyShape ;
     sh:targetClass brick:Point ;
     sh:path brick:isPointOf ;
-    sh:or ( [ sh:class brick:Equipment ] [ sh:class brick:Location ] [ sh:class s223:ConnectionPoint ] [ sh:class s223:Connection ] [ sh:class s223:Connectable ] [ sh:class s223:Segment ] ) ;
+    sh:or ( [ sh:class brick:Equipment ] [ sh:class brick:Location ] [ sh:class rec:Architecture ] [ sh:class s223:ConnectionPoint ] [ sh:class s223:Connection ] [ sh:class s223:Connectable ] [ sh:class s223:Segment ] ) ;
 .
 brick:value
   rdfs:subPropertyOf s223:hasValue ;

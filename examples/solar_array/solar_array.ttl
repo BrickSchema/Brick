@@ -1,10 +1,11 @@
-@prefix site: <urn:example#> .
+@prefix site: <http://example.com#> .
+@prefix rec: <https://w3id.org/rec#> .
 @prefix brick: <https://brickschema.org/schema/Brick#> .
 @prefix unit: <http://qudt.org/vocab/unit/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 
-<urn:example> a owl:Ontology ;
+<http://example.com> a owl:Ontology ;
     owl:imports <https://brickschema.org/schema/1.4/Brick> .
 
 # shared efficiency rating
@@ -16,7 +17,6 @@ site:panel_efficiency  a brick:EfficiencyShape ;
     brick:value "26.0"^^xsd:decimal .
 
 site:panel11 a brick:PV_Panel ;
-    brick:isPartOf site:array1 ;
     brick:coordinates [
         brick:latitude "37.8719"^^xsd:decimal ;
         brick:longitude "-122.2585"^^xsd:decimal;
@@ -30,7 +30,6 @@ site:panel11 a brick:PV_Panel ;
             brick:value "5"^^xsd:decimal ] .
 
 site:panel12 a brick:PV_Panel ;
-    brick:isPartOf site:array1 ;
     brick:coordinates [
         brick:latitude "37.8719"^^xsd:decimal ;
         brick:longitude "-122.2585"^^xsd:decimal ;
@@ -44,7 +43,6 @@ site:panel12 a brick:PV_Panel ;
             brick:value "5"^^xsd:decimal ] .
 
 site:panel13 a brick:PV_Panel ;
-    brick:isPartOf site:array1 ;
     brick:coordinates [
         brick:latitude "37.8719"^^xsd:decimal ;
         brick:longitude "-122.2585"^^xsd:decimal ;
@@ -58,7 +56,6 @@ site:panel13 a brick:PV_Panel ;
             brick:value "5"^^xsd:decimal ] .
 
 site:panel21 a brick:PV_Panel ;
-    brick:isPartOf site:array2 ;
     brick:coordinates [
         brick:latitude "37.8719"^^xsd:decimal ;
         brick:longitude "-122.2585"^^xsd:decimal ;
@@ -72,7 +69,6 @@ site:panel21 a brick:PV_Panel ;
             brick:value "5"^^xsd:decimal ] .
 
 site:panel22 a brick:PV_Panel ;
-    brick:isPartOf site:array2 ;
     brick:coordinates [
         brick:latitude "37.8719"^^xsd:decimal ;
         brick:longitude "-122.2585"^^xsd:decimal ;
@@ -86,7 +82,6 @@ site:panel22 a brick:PV_Panel ;
             brick:value "5"^^xsd:decimal ] .
 
 site:panel23 a brick:PV_Panel ;
-    brick:isPartOf site:array2 ;
     brick:coordinates [
         brick:latitude "37.8719"^^xsd:decimal ;
         brick:longitude "-122.2585"^^xsd:decimal ;
@@ -100,7 +95,7 @@ site:panel23 a brick:PV_Panel ;
             brick:value "5"^^xsd:decimal ] .
 
 site:pv_generation_system a brick:PV_Generation_System ;
-    brick:hasPart site:array1, site:array2 ;
+    rec:includes site:array1, site:array2 ;
     brick:feeds site:pv_meter .
 
 site:pv_meter   a   brick:Electrical_Meter ;
@@ -128,6 +123,7 @@ site:array1 a brick:PV_Array ;
             brick:rotationalDirection "clockwise" ;
             brick:referenceDirection "North" ;
             brick:value "200"^^xsd:decimal ] ;
+    rec:includes site:panel11, site:panel12, site:panel13 ;
     brick:tilt [ brick:hasUnit unit:DEG ;
             brick:value "20"^^xsd:decimal ] .
 
@@ -136,5 +132,6 @@ site:array2 a brick:PV_Array ;
             brick:rotationalDirection "clockwise" ;
             brick:referenceDirection "North" ;
             brick:value "180"^^xsd:decimal ] ;
+    rec:includes site:panel21, site:panel22, site:panel23 ;
     brick:tilt [ brick:hasUnit unit:DEG ;
             brick:value "23"^^xsd:decimal ] .

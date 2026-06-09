@@ -63,7 +63,7 @@ g.add((BLDG.standalone, A, BRICK.Temperature_Sensor))
 def test_tag_inference():
     # Apply reasoner
     g.load_file("extensions/brick_extension_shacl_tag_inference.ttl")
-    g.expand(profile="shacl+shacl", backend="topquadrant")
+    g.compile()
 
     g.bind("rdf", RDF)
     g.bind("owl", OWL)
@@ -176,7 +176,7 @@ def test_owl_inverse(brick_with_imports):
     g.add((BLDG.vav1, BRICK.hasPoint, BLDG.AFS2))
     g.add((BLDG.vav1, A, BRICK.VAV))
     g.add((BLDG.AFS2, A, BRICK.Air_Flow_Sensor))
-    g.expand("shacl", backend="topquadrant")
+    g.compile()
 
     res = make_readable(g.query("SELECT ?x ?y WHERE { ?x brick:hasPoint ?y }"))
     assert len(res) == 1
@@ -189,7 +189,7 @@ def test_shacl_owl_equivalentclass(brick_with_imports):
     g = brick_with_imports
     g.add((BLDG.VAV1, A, BRICK.VAV))
     g.add((BLDG.VAV2, A, BRICK.Variable_Air_Volume_Box))
-    g.expand("shacl", backend="topquadrant")
+    g.compile()
     res = g.query("SELECT ?vav WHERE { ?vav rdf:type brick:VAV }")
     assert len(list(res)) == 2, "VAV should be equivalent to Variable_Air_Volume_Box"
 
@@ -202,7 +202,7 @@ def test_meter_inference(brick_with_imports):
     g.add((BLDG.abcdef, A, BRICK.Electrical_Meter))
     g.add((BLDG.abcdef, BRICK.meters, BLDG.bldg))
     g.add((BLDG.bldg, A, BRICK.Building))
-    g.expand("shacl", backend="topquadrant")
+    g.compile()
     assert (BLDG.abcdef, A, BRICK.Building_Electrical_Meter) in g
 
 
@@ -233,7 +233,7 @@ def test_virtual_meter3(brick_with_imports):
 def test_meter_inference_infer_substance(brick_with_imports):
     g = brick_with_imports
     g.add((BLDG.water_meter, A, BRICK.Water_Meter))
-    g.expand("shacl", backend="topquadrant")  # run shacl inference
+    g.compile()  # run shacl inference
     assert (BLDG.water_meter, BRICK.hasSubstance, BRICK.Water) in g
     assert (BLDG.water_meter, BRICK.hasSubstance, BRICK.Chilled_Water) not in g
 
@@ -241,7 +241,7 @@ def test_meter_inference_infer_substance(brick_with_imports):
 def test_meter_inference_infer_substance_building(brick_with_imports):
     g = brick_with_imports
     g.add((BLDG.water_meter, A, BRICK.Building_Water_Meter))
-    g.expand("shacl", backend="topquadrant")  # run shacl inference
+    g.compile()  # run shacl inference
     assert (BLDG.water_meter, BRICK.hasSubstance, BRICK.Water) in g
     assert (BLDG.water_meter, BRICK.hasSubstance, BRICK.Chilled_Water) not in g
 
@@ -250,7 +250,7 @@ def test_meter_inference_infer_meter(brick_with_imports):
     g = brick_with_imports
     g.add((BLDG.water_meter, A, BRICK.Meter))
     g.add((BLDG.water_meter, BRICK.hasSubstance, BRICK.Water))
-    g.expand("shacl", backend="topquadrant")  # run shacl inference
+    g.compile()  # run shacl inference
     assert (BLDG.water_meter, A, BRICK.Water_Meter) in g
     assert (BLDG.water_meter, A, BRICK.Building_Water_Meter) not in g
 
@@ -259,6 +259,6 @@ def test_meter_inference_infer_meter_building(brick_with_imports):
     g = brick_with_imports
     g.add((BLDG.water_meter, A, BRICK.Building_Meter))
     g.add((BLDG.water_meter, BRICK.hasSubstance, BRICK.Water))
-    g.expand("shacl", backend="topquadrant")  # run shacl inference
+    g.compile()  # run shacl inference
     assert (BLDG.water_meter, A, BRICK.Water_Meter) not in g
     assert (BLDG.water_meter, A, BRICK.Building_Water_Meter) in g
