@@ -1,5 +1,19 @@
 from rdflib import Literal
-from .namespaces import A, OWL, RDFS, BRICK, VCARD, QUDT, SDO, RDF, BSH, XSD, REC, SH
+from .namespaces import (
+    A,
+    OWL,
+    RDFS,
+    SKOS,
+    BRICK,
+    VCARD,
+    QUDT,
+    SDO,
+    RDF,
+    BSH,
+    XSD,
+    REC,
+    SH,
+)
 from .env import env
 
 """
@@ -9,18 +23,30 @@ relationships = {
     "isReplacedBy": {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         RDFS.label: Literal("Is replaced by", lang="en"),
+        SKOS.definition: Literal(
+            "Relates a deprecated Brick entity to the entity that replaces it.",
+            lang="en",
+        ),
         "range": BRICK.Entity,
         "domain": BRICK.Entity,
     },
     "hasSubstance": {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         RDFS.label: Literal("Has Substance", lang="en"),
+        SKOS.definition: Literal(
+            "Relates a Point or Meter to the substance it measures, commands, or observes.",
+            lang="en",
+        ),
         "range": BRICK.Substance,
         "domain": [BRICK.Point, BRICK.Meter],
     },
     "hasQuantity": {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         RDFS.label: Literal("Has Quantity", lang="en"),
+        SKOS.definition: Literal(
+            "Relates a Point to the physical quantity or quantity kind it measures, commands, or observes.",
+            lang="en",
+        ),
         RDFS.subPropertyOf: QUDT.hasQuantityKind,
         "range": [BRICK.Quantity, QUDT.QuantityKind],
         "domain": BRICK.Point,
@@ -97,6 +123,10 @@ relationships = {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         OWL.inverseOf: BRICK["feeds"],
         RDFS.label: Literal("Is fed by", lang="en"),
+        SKOS.definition: Literal(
+            "Relates an entity to another entity that supplies media, energy, or other resources to it.",
+            lang="en",
+        ),
     },
     "hasPoint": {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
@@ -121,6 +151,10 @@ relationships = {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         OWL.inverseOf: BRICK["hasPart"],
         RDFS.label: Literal("Is part of", lang="en"),
+        SKOS.definition: Literal(
+            "Relates an entity to another entity of which it is a physical or logical part.",
+            lang="en",
+        ),
     },
     "hasTag": {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
@@ -134,6 +168,10 @@ relationships = {
         "domain": BRICK.Tag,
         "range": [BRICK.Entity, BRICK.Measurable, REC.Collection],
         RDFS.label: Literal("Is tag of", lang="en"),
+        SKOS.definition: Literal(
+            "Relates a Tag to an entity or concept described by that tag.",
+            lang="en",
+        ),
     },
     "hasAssociatedTag": {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
@@ -167,6 +205,10 @@ relationships = {
         "range": BRICK.Equipment,
         "domain": BRICK.Controller,
         RDFS.label: Literal("Controls", lang="en"),
+        SKOS.definition: Literal(
+            "Relates a Controller to an Equipment instance that it supervises or commands.",
+            lang="en",
+        ),
     },
     "isControlledBy": {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
@@ -174,6 +216,10 @@ relationships = {
         "range": BRICK.Controller,
         "domain": BRICK.Equipment,
         RDFS.label: Literal("Is controlled by", lang="en"),
+        SKOS.definition: Literal(
+            "Relates an Equipment instance to a Controller that supervises or commands it.",
+            lang="en",
+        ),
     },
     "hosts": {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
@@ -181,6 +227,10 @@ relationships = {
         "range": BRICK.Point,
         "domain": BRICK.ICT_Equipment,
         RDFS.label: Literal("Hosts point", lang="en"),
+        SKOS.definition: Literal(
+            "Relates ICT Equipment to a Point that it physically or logically hosts or exposes on the network.",
+            lang="en",
+        ),
     },
     "isHostedBy": {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
@@ -188,6 +238,10 @@ relationships = {
         "range": BRICK.ICT_Equipment,
         "domain": BRICK.Point,
         RDFS.label: Literal("Is hosted by", lang="en"),
+        SKOS.definition: Literal(
+            "Relates a Point to ICT Equipment that physically or logically hosts or exposes it on the network.",
+            lang="en",
+        ),
     },
     "meters": {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
@@ -231,9 +285,17 @@ relationships = {
     },
     "hasAmbientTemperature": {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+        SKOS.definition: Literal(
+            "Relates an entity to a temperature value representing its ambient temperature.",
+            lang="en",
+        ),
     },
     "aliasOf": {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+        SKOS.definition: Literal(
+            "Relates a Brick entity to another Brick entity that has the same meaning.",
+            lang="en",
+        ),
         "range": BRICK.Entity,
         "domain": BRICK.Entity,
     },
@@ -243,21 +305,41 @@ relationships = {
     },
     "deprecationMitigationMessage": {
         A: [OWL.DatatypeProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+        SKOS.definition: Literal(
+            "A message describing how to mitigate or address a deprecation.",
+            lang="en",
+        ),
         "range": XSD.string,
     },
     "deprecatedInVersion": {
         A: [OWL.DatatypeProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+        SKOS.definition: Literal(
+            "The Brick version in which an entity was deprecated.",
+            lang="en",
+        ),
         "range": XSD.string,
     },
     "deprecationMitigationRule": {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+        SKOS.definition: Literal(
+            "A SHACL rule that describes how to mitigate or address a deprecation.",
+            lang="en",
+        ),
         "range": [SH.PropertyShape],
     },
     "aggregationFunction": {
         A: [OWL.DatatypeProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+        SKOS.definition: Literal(
+            "The aggregation function applied to data in an interval to produce a value.",
+            lang="en",
+        ),
     },
     "ambientTemperatureOfMeasurement": {
         A: [OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+        SKOS.definition: Literal(
+            "The ambient temperature at which a quantity value was measured.",
+            lang="en",
+        ),
     },
 }
 
