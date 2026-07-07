@@ -1,0 +1,296 @@
+@prefix : <http://example.com/iaq_sensor_deployment#> .
+@prefix brick: <https://brickschema.org/schema/Brick#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rec: <https://w3id.org/rec#> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+
+<http://example.com/iaq_sensor_deployment> a owl:Ontology ;
+    owl:imports <https://brickschema.org/schema/1.5/Brick> .
+
+:home_1 a rec:Building ;
+    rdfs:label "Home 1" ;
+    rec:hasPart :floor_1 .
+
+:floor_1 a rec:Level ;
+    rdfs:label "First Floor" ;
+    rec:hasPart :kitchen,
+        :bedroom,
+        :living_room .
+
+:kitchen a rec:CookingRoom ;
+    rdfs:label "Kitchen" ;
+    brick:hasPoint :kitchen_stove_co2,
+        :kitchen_stove_pm2_5,
+        :kitchen_stove_pm10,
+        :kitchen_stove_tvoc,
+        :kitchen_stove_no2,
+        :kitchen_stove_ozone,
+        :kitchen_stove_temperature,
+        :kitchen_stove_relative_humidity,
+        :kitchen_stove_illuminance,
+        :kitchen_furnace_co2,
+        :kitchen_furnace_pm2_5,
+        :kitchen_furnace_pm10,
+        :kitchen_furnace_tvoc,
+        :kitchen_furnace_no2,
+        :kitchen_furnace_ozone,
+        :kitchen_furnace_temperature,
+        :kitchen_furnace_relative_humidity,
+        :kitchen_furnace_illuminance .
+
+:bedroom a rec:Bedroom ;
+    rdfs:label "Bedroom" ;
+    brick:hasPoint :bedroom_co2,
+        :bedroom_pm2_5,
+        :bedroom_pm10,
+        :bedroom_tvoc,
+        :bedroom_no2,
+        :bedroom_ozone,
+        :bedroom_temperature,
+        :bedroom_relative_humidity,
+        :bedroom_illuminance .
+
+:living_room a rec:LivingRoom ;
+    rdfs:label "Living Room" ;
+    brick:hasPoint :living_room_co2,
+        :living_room_pm2_5,
+        :living_room_pm10,
+        :living_room_tvoc,
+        :living_room_no2,
+        :living_room_ozone,
+        :living_room_temperature,
+        :living_room_relative_humidity,
+        :living_room_illuminance .
+
+:kitchen_stove_iaq_device a brick:IAQ_Sensor_Equipment ;
+    rdfs:label "Kitchen IAQ sensor equipment near stove" ;
+    brick:hasLocation :kitchen ;
+    brick:hosts :kitchen_stove_co2,
+        :kitchen_stove_pm2_5,
+        :kitchen_stove_pm10,
+        :kitchen_stove_tvoc,
+        :kitchen_stove_no2,
+        :kitchen_stove_ozone,
+        :kitchen_stove_temperature,
+        :kitchen_stove_relative_humidity,
+        :kitchen_stove_illuminance .
+
+:kitchen_furnace_iaq_device a brick:IAQ_Sensor_Equipment ;
+    rdfs:label "Kitchen IAQ sensor equipment near furnace" ;
+    brick:hasLocation :kitchen ;
+    brick:hosts :kitchen_furnace_co2,
+        :kitchen_furnace_pm2_5,
+        :kitchen_furnace_pm10,
+        :kitchen_furnace_tvoc,
+        :kitchen_furnace_no2,
+        :kitchen_furnace_ozone,
+        :kitchen_furnace_temperature,
+        :kitchen_furnace_relative_humidity,
+        :kitchen_furnace_illuminance .
+
+:bedroom_iaq_device a brick:IAQ_Sensor_Equipment ;
+    rdfs:label "Bedroom IAQ sensor equipment" ;
+    brick:hasLocation :bedroom ;
+    brick:hosts :bedroom_co2,
+        :bedroom_pm2_5,
+        :bedroom_pm10,
+        :bedroom_tvoc,
+        :bedroom_no2,
+        :bedroom_ozone,
+        :bedroom_temperature,
+        :bedroom_relative_humidity,
+        :bedroom_illuminance .
+
+:living_room_iaq_device a brick:IAQ_Sensor_Equipment ;
+    rdfs:label "Living room IAQ sensor equipment" ;
+    brick:hasLocation :living_room ;
+    brick:hosts :living_room_co2,
+        :living_room_pm2_5,
+        :living_room_pm10,
+        :living_room_tvoc,
+        :living_room_no2,
+        :living_room_ozone,
+        :living_room_temperature,
+        :living_room_relative_humidity,
+        :living_room_illuminance .
+
+:kitchen_stove_co2 a brick:CO2_Level_Sensor ;
+    rdfs:label "Kitchen stove CO2 level sensor" ;
+    brick:hasUnit unit:PPM ;
+    brick:isPointOf :kitchen .
+
+:kitchen_stove_pm2_5 a brick:PM2.5_Sensor ;
+    rdfs:label "Kitchen stove PM2.5 sensor" ;
+    brick:hasUnit unit:MicroGM-PER-M3 ;
+    brick:isPointOf :kitchen .
+
+:kitchen_stove_pm10 a brick:PM10_Sensor ;
+    rdfs:label "Kitchen stove PM10 sensor" ;
+    brick:hasUnit unit:MicroGM-PER-M3 ;
+    brick:isPointOf :kitchen .
+
+:kitchen_stove_tvoc a brick:TVOC_Level_Sensor ;
+    rdfs:label "Kitchen stove TVOC level sensor" ;
+    brick:hasUnit unit:PPB ;
+    brick:isPointOf :kitchen .
+
+:kitchen_stove_no2 a brick:NO2_Level_Sensor ;
+    rdfs:label "Kitchen stove NO2 level sensor" ;
+    brick:hasUnit unit:PPB ;
+    brick:isPointOf :kitchen .
+
+:kitchen_stove_ozone a brick:Ozone_Level_Sensor ;
+    rdfs:label "Kitchen stove ozone level sensor" ;
+    brick:hasUnit unit:PPB ;
+    brick:isPointOf :kitchen .
+
+:kitchen_stove_temperature a brick:Temperature_Sensor ;
+    rdfs:label "Kitchen stove temperature sensor" ;
+    brick:hasUnit unit:DEG_C ;
+    brick:isPointOf :kitchen .
+
+:kitchen_stove_relative_humidity a brick:Relative_Humidity_Sensor ;
+    rdfs:label "Kitchen stove relative humidity sensor" ;
+    brick:hasUnit unit:PERCENT_RH ;
+    brick:isPointOf :kitchen .
+
+:kitchen_stove_illuminance a brick:Illuminance_Sensor ;
+    rdfs:label "Kitchen stove illuminance sensor" ;
+    brick:hasUnit unit:LUX ;
+    brick:isPointOf :kitchen .
+
+:kitchen_furnace_co2 a brick:CO2_Level_Sensor ;
+    rdfs:label "Kitchen furnace CO2 level sensor" ;
+    brick:hasUnit unit:PPM ;
+    brick:isPointOf :kitchen .
+
+:kitchen_furnace_pm2_5 a brick:PM2.5_Sensor ;
+    rdfs:label "Kitchen furnace PM2.5 sensor" ;
+    brick:hasUnit unit:MicroGM-PER-M3 ;
+    brick:isPointOf :kitchen .
+
+:kitchen_furnace_pm10 a brick:PM10_Sensor ;
+    rdfs:label "Kitchen furnace PM10 sensor" ;
+    brick:hasUnit unit:MicroGM-PER-M3 ;
+    brick:isPointOf :kitchen .
+
+:kitchen_furnace_tvoc a brick:TVOC_Level_Sensor ;
+    rdfs:label "Kitchen furnace TVOC level sensor" ;
+    brick:hasUnit unit:PPB ;
+    brick:isPointOf :kitchen .
+
+:kitchen_furnace_no2 a brick:NO2_Level_Sensor ;
+    rdfs:label "Kitchen furnace NO2 level sensor" ;
+    brick:hasUnit unit:PPB ;
+    brick:isPointOf :kitchen .
+
+:kitchen_furnace_ozone a brick:Ozone_Level_Sensor ;
+    rdfs:label "Kitchen furnace ozone level sensor" ;
+    brick:hasUnit unit:PPB ;
+    brick:isPointOf :kitchen .
+
+:kitchen_furnace_temperature a brick:Temperature_Sensor ;
+    rdfs:label "Kitchen furnace temperature sensor" ;
+    brick:hasUnit unit:DEG_C ;
+    brick:isPointOf :kitchen .
+
+:kitchen_furnace_relative_humidity a brick:Relative_Humidity_Sensor ;
+    rdfs:label "Kitchen furnace relative humidity sensor" ;
+    brick:hasUnit unit:PERCENT_RH ;
+    brick:isPointOf :kitchen .
+
+:kitchen_furnace_illuminance a brick:Illuminance_Sensor ;
+    rdfs:label "Kitchen furnace illuminance sensor" ;
+    brick:hasUnit unit:LUX ;
+    brick:isPointOf :kitchen .
+
+:bedroom_co2 a brick:CO2_Level_Sensor ;
+    rdfs:label "Bedroom CO2 level sensor" ;
+    brick:hasUnit unit:PPM ;
+    brick:isPointOf :bedroom .
+
+:bedroom_pm2_5 a brick:PM2.5_Sensor ;
+    rdfs:label "Bedroom PM2.5 sensor" ;
+    brick:hasUnit unit:MicroGM-PER-M3 ;
+    brick:isPointOf :bedroom .
+
+:bedroom_pm10 a brick:PM10_Sensor ;
+    rdfs:label "Bedroom PM10 sensor" ;
+    brick:hasUnit unit:MicroGM-PER-M3 ;
+    brick:isPointOf :bedroom .
+
+:bedroom_tvoc a brick:TVOC_Level_Sensor ;
+    rdfs:label "Bedroom TVOC level sensor" ;
+    brick:hasUnit unit:PPB ;
+    brick:isPointOf :bedroom .
+
+:bedroom_no2 a brick:NO2_Level_Sensor ;
+    rdfs:label "Bedroom NO2 level sensor" ;
+    brick:hasUnit unit:PPB ;
+    brick:isPointOf :bedroom .
+
+:bedroom_ozone a brick:Ozone_Level_Sensor ;
+    rdfs:label "Bedroom ozone level sensor" ;
+    brick:hasUnit unit:PPB ;
+    brick:isPointOf :bedroom .
+
+:bedroom_temperature a brick:Temperature_Sensor ;
+    rdfs:label "Bedroom temperature sensor" ;
+    brick:hasUnit unit:DEG_C ;
+    brick:isPointOf :bedroom .
+
+:bedroom_relative_humidity a brick:Relative_Humidity_Sensor ;
+    rdfs:label "Bedroom relative humidity sensor" ;
+    brick:hasUnit unit:PERCENT_RH ;
+    brick:isPointOf :bedroom .
+
+:bedroom_illuminance a brick:Illuminance_Sensor ;
+    rdfs:label "Bedroom illuminance sensor" ;
+    brick:hasUnit unit:LUX ;
+    brick:isPointOf :bedroom .
+
+:living_room_co2 a brick:CO2_Level_Sensor ;
+    rdfs:label "Living room CO2 level sensor" ;
+    brick:hasUnit unit:PPM ;
+    brick:isPointOf :living_room .
+
+:living_room_pm2_5 a brick:PM2.5_Sensor ;
+    rdfs:label "Living room PM2.5 sensor" ;
+    brick:hasUnit unit:MicroGM-PER-M3 ;
+    brick:isPointOf :living_room .
+
+:living_room_pm10 a brick:PM10_Sensor ;
+    rdfs:label "Living room PM10 sensor" ;
+    brick:hasUnit unit:MicroGM-PER-M3 ;
+    brick:isPointOf :living_room .
+
+:living_room_tvoc a brick:TVOC_Level_Sensor ;
+    rdfs:label "Living room TVOC level sensor" ;
+    brick:hasUnit unit:PPB ;
+    brick:isPointOf :living_room .
+
+:living_room_no2 a brick:NO2_Level_Sensor ;
+    rdfs:label "Living room NO2 level sensor" ;
+    brick:hasUnit unit:PPB ;
+    brick:isPointOf :living_room .
+
+:living_room_ozone a brick:Ozone_Level_Sensor ;
+    rdfs:label "Living room ozone level sensor" ;
+    brick:hasUnit unit:PPB ;
+    brick:isPointOf :living_room .
+
+:living_room_temperature a brick:Temperature_Sensor ;
+    rdfs:label "Living room temperature sensor" ;
+    brick:hasUnit unit:DEG_C ;
+    brick:isPointOf :living_room .
+
+:living_room_relative_humidity a brick:Relative_Humidity_Sensor ;
+    rdfs:label "Living room relative humidity sensor" ;
+    brick:hasUnit unit:PERCENT_RH ;
+    brick:isPointOf :living_room .
+
+:living_room_illuminance a brick:Illuminance_Sensor ;
+    rdfs:label "Living room illuminance sensor" ;
+    brick:hasUnit unit:LUX ;
+    brick:isPointOf :living_room .
