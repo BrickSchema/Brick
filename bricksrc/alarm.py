@@ -150,6 +150,12 @@ alarm_definitions = {
             "Pressure_Alarm": {
                 "tags": [TAG.Point, TAG.Pressure, TAG.Alarm],
                 "subclasses": {
+                    "High_Pressure_Alarm": {
+                        "tags": [TAG.Point, TAG.High, TAG.Pressure, TAG.Alarm],
+                    },
+                    "Low_Pressure_Alarm": {
+                        "tags": [TAG.Point, TAG.Low, TAG.Pressure, TAG.Alarm],
+                    },
                     "High_Head_Pressure_Alarm": {
                         "tags": [
                             TAG.Point,

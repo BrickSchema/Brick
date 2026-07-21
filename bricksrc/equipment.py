@@ -32,6 +32,15 @@ equipment_subclasses = {
             "Chiller_Plant": {
                 "tags": [TAG.Equipment, TAG.Plant, TAG.Chiller],
             },
+            "Domestic_Hot_Water_Plant": {
+                "tags": [
+                    TAG.Equipment,
+                    TAG.Plant,
+                    TAG.Domestic,
+                    TAG.Hot,
+                    TAG.Water,
+                ],
+            },
         },
     },
     "ICT_Equipment": {
