@@ -11,6 +11,7 @@
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix bsh: <https://brickschema.org/schema/BrickShape#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
 # allowing brick:feeds to be used to connect Spaces to "feed" Equipment, e.g. for the return/discharge path
 rec:Space sh:property [
@@ -1770,4 +1771,1621 @@ rec:AudioVisualEquipment
   brick:deprecatedInVersion "1.4.0" ;
   brick:deprecationMitigationMessage "REC ICT classes are being phased out in favor of Brick classes. For a replacement, consider brick:Audio_Visual_Equipment" ;
   brick:isReplacedBy brick:Audio_Visual_Equipment ;
+.
+
+### Building types proposed in https://github.com/BrickSchema/Brick/issues/784
+### derived from the Energy Star Portfolio Manager property type taxonomy
+### (https://www.energystar.gov/buildings/benchmark/understand-metrics/property-types),
+### cross-referenced against CSI OmniClass Table 11 and BREEAM USA asset types.
+### These concepts should be proposed to the REC ontology; they are defined here only
+### temporarily until that happens. NOT YET SUBMITTED UPSTREAM -- for local review only.
+
+rec:BankBranch
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Bank Branch" ;
+  rdfs:subClassOf rec:Building ;
+  skos:definition """Bank Branch refers to a commercial banking outlet that offers banking services to walk-in customers. Gross Floor Area should include all space within the building(s), including banking areas, vaults, lobbies, atriums, kitchens used by staff, restrooms, conference rooms, storage areas, stairways, and elevator shafts. Drive-thru windows should be included in the open parking lot, not partially enclosed parking."""@en ;
+  rdfs:seeAlso <https://portfoliomanager.energystar.gov/pm/glossary#BankBranch> ;
+  rdfs:comment """Energy Star Portfolio Manager property type: "Bank Branch" (Banking/financial services). Corresponds to CSI OmniClass 11-21 30 11 "Bank Branch". This concept comes from the Energy Star property type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:FinancialOffice
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Financial Office" ;
+  rdfs:subClassOf rec:Building ;
+  skos:definition """Financial Office refers to buildings used for financial services such as bank headquarters and securities and brokerage firms. Gross Floor Area should include all space within the building(s), including but not limited to offices, trading floors, conference rooms and auditoriums, vaults, restrooms, kitchens used by staff, lobbies, atriums, fitness areas for staff, storage areas, stairways, and elevator shafts."""@en ;
+  rdfs:seeAlso <https://portfoliomanager.energystar.gov/pm/glossary#FinancialOffice> ;
+  rdfs:comment """Energy Star Portfolio Manager property type: "Financial Office" (Banking/financial services). Corresponds to CSI OmniClass 11-21 30 14 "Financial Services Office". This concept comes from the Energy Star property type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:AdultEducation
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Adult Education" ;
+  rdfs:subClassOf rec:School ;
+  skos:definition """Adult Education refers to buildings used primarily for providing adult students with continuing education, workforce development, or professional development outside of the college or university setting. Gross Floor Area should include all space within the building(s), including but not limited to classrooms, administrative space, conference rooms, kitchens used by staff, lobbies, cafeterias, auditoriums, restrooms, stairways, atriums, elevator shafts, and storage areas."""@en ;
+  rdfs:seeAlso <https://portfoliomanager.energystar.gov/pm/glossary#AdultEducation> ;
+  rdfs:comment """Energy Star Portfolio Manager property type: "Adult Education" (Education). Corresponds to CSI OmniClass 11-61 30 14 "Adult Education Facility". This concept comes from the Energy Star property type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:CollegeUniversity
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "College/University" ;
+  rdfs:subClassOf rec:School ;
+  skos:definition """College/University refers to buildings used for the purpose of higher education. This includes public and private colleges and universities. Gross Floor Area should include all space within the building(s), including but not limited to: classrooms, laboratories, offices, cafeterias, libraries, maintenance facilities, arts facilities, athletic facilities, residential areas, storage rooms, restrooms, elevator shafts, and stairways. To be eligible for an ENERGY STAR score in certification in Canada: The campus boundaries must match those of publicly available documentation, such as a campus maps. A campus can consist of a single building or a collection of buildings. The campus must have full time students enrolled in the Fall (Sept-Dec) and Winter (Jan-Apr) semesters The highest program offered by the campus must be at least 2 years in length for full time students The campus must be less than 50% specialized lab space"""@en ;
+  rdfs:seeAlso <https://portfoliomanager.energystar.gov/pm/glossary#CollegeUniversity> ;
+  rdfs:comment """Energy Star Portfolio Manager property type: "College/University" (Education). Corresponds to CSI OmniClass 11-61 40 00 "College / University". This concept comes from the Energy Star property type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:K12School
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "K-12 School" ;
+  rdfs:subClassOf rec:School ;
+  skos:definition """K-12 School refers to buildings or campuses used as a school for Kindergarten through 12th grade students. This does not include college or university classroom facilities/laboratories, vocational, technical, trade, adult or continuing education schools, preschool * , or day care * . If the school serves any of the above student populations (e.g., an elementary school that includes pre-kindergarten), at least 75% of the students must be in grades kindergarten through 12. Gross Floor Area should include all space within the building(s), including but not limited to classrooms, administrative space, conference rooms, restrooms, kitchens used by staff, lobbies, cafeterias, gymnasiums, auditoriums, laboratory classrooms, portable classrooms, greenhouses, stairways, atriums, elevator shafts, small landscaping sheds, and storage areas. * For Canadian properties: Pre-kindergarten, before school care, and after school care, can be included in the K-12 GFA as long as at least 75% of the students are in grades kindergarten through 12."""@en ;
+  rdfs:seeAlso <https://portfoliomanager.energystar.gov/pm/glossary#K12School> ;
+  rdfs:comment """Energy Star Portfolio Manager property type: "K-12 School" (Education). Corresponds to CSI OmniClass 11-61 20 00 "Elementary / Secondary School". BREEAM USA: Education: Primary school (elementary school); Education: Secondary school (middle and high schools). This concept comes from the Energy Star property type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:PreschoolDaycare
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Pre-school/Daycare" ;
+  rdfs:subClassOf rec:School ;
+  skos:definition """Pre-school/Daycare applies to commercial buildings used primarily for educational programs or daytime supervision/recreation for young children. This can also include "before care" and "after care" programs. An elementary school with pre-kindergarten or "before care" or "after care" programs should benchmark as K-12 School."""@en ;
+  rdfs:seeAlso <https://portfoliomanager.energystar.gov/pm/glossary#PreschoolDaycare> ;
+  rdfs:comment """Energy Star Portfolio Manager property type: "Pre-school/Daycare" (Education). Corresponds to CSI OmniClass 11-61 10 00 "Pre-School / Early Childhood Learning Facility". This concept comes from the Energy Star property type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:VocationalSchool
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Vocational School" ;
+  rdfs:subClassOf rec:School ;
+  skos:definition """Vocational School refers to buildings primarily designed to teach skilled trades to students, including trade and technical schools. Typically vocational schools are commonly post-secondary education, consisting of 1-2 years of technical/trade training. Gross Floor Area should include all space within the building(s), including classrooms, administrative space, conference rooms, kitchens used by staff, lobbies, cafeterias, gymnasiums, auditoriums, laboratory classrooms, stairways, elevator shafts, and storage areas."""@en ;
+  rdfs:seeAlso <https://portfoliomanager.energystar.gov/pm/glossary#VocationalSchool> ;
+  rdfs:comment """Energy Star Portfolio Manager property type: "Vocational School" (Education). Corresponds to CSI OmniClass 11-61 30 00 "Vocational / Trade School". This concept comes from the Energy Star property type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:Aquarium
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Aquarium" ;
+  rdfs:subClassOf rec:Building ;
+  skos:definition """Aquarium refers to buildings used to provide aquatic habitat primarily to live animals and which may include public or private viewing areas and educational programs. Gross Floor area should include public and restricted areas such as visitor walkways, tank space, retail areas, restaurants, restrooms, laboratories, classrooms, administrative/office space, mechanical rooms, storage areas, elevator shafts, and stairwells. Areas not in enclosed buildings, such as outdoor habitats, open-air theaters, walkways, and landscaped areas should not be included in the Gross Floor Area."""@en ;
+  rdfs:seeAlso <https://portfoliomanager.energystar.gov/pm/glossary#Aquarium> ;
+  rdfs:comment """Energy Star Portfolio Manager property type: "Aquarium" (Entertainment/public assembly). Corresponds to CSI OmniClass 11-61 60 17 "Aquarium / Zoo / Botanical Garden". This concept comes from the Energy Star property type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:BarNightclub
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Bar/Nightclub" ;
+  rdfs:subClassOf rec:Building ;
+  skos:definition """Bar/Nightclub refers to buildings used primarily for social/entertainment purposes, and is characterized by most of the revenue being generated from the sale of beverages instead of food. Gross Floor Area should include all space within the building(s), including but not limited to standing/seating areas, stage/dressing room areas, food/drink preparation or kitchen areas, retail areas, restrooms, administrative/office space, mechanical rooms, storage areas, elevator shafts, and stairwells. Properties whose primary business revenues are generated from the sale of food should be entered using one of the Restaurant property uses, even if there is a bar."""@en ;
+  rdfs:seeAlso <https://portfoliomanager.energystar.gov/pm/glossary#BarNightclub> ;
+  rdfs:comment """Energy Star Portfolio Manager property type: "Bar/Nightclub" (Entertainment/public assembly / Food sales and service). Corresponds to CSI OmniClass 11-21 20 21 "Bar / Nightclub / Tavern". This concept comes from the Energy Star property type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:BowlingAlley
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Bowling Alley" ;
+  rdfs:subClassOf rec:Building ;
+  skos:definition """Bowling alley refers to buildings used for public or private, recreational or professional bowling. Gross Floor Area should include all space within the building(s), including but not limited to bowling lanes, concession areas, party rooms, retail areas, administrative/office space, employee break rooms, restrooms, storage areas, and mechanical rooms."""@en ;
+  rdfs:seeAlso <https://portfoliomanager.energystar.gov/pm/glossary#BowlingAlley> ;
+  rdfs:comment """Energy Star Portfolio Manager property type: "Bowling Alley" (Entertainment/public assembly). Corresponds to CSI OmniClass 11-21 70 24 "Bowling Alley". This concept comes from the Energy Star property type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:Casino
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Casino" ;
+  rdfs:subClassOf rec:Building ;
+  skos:definition """Casino refers to buildings primarily used to conduct gambling activities including both electronic and live table games. Gross Floor Area should include all space within the building(s), including but not limited to the main casino floor/gaming area, restaurants/bars, retail areas, administrative/office space, restrooms, mechanical rooms, storage areas, elevator shafts, and stairwells. If your Casino is located in the same building as a hotel, we recommend that you enter a separate hotel property use."""@en ;
+  rdfs:seeAlso <https://portfoliomanager.energystar.gov/pm/glossary#Casino> ;
+  rdfs:comment """Energy Star Portfolio Manager property type: "Casino" (Entertainment/public assembly). Corresponds to CSI OmniClass 11-21 70 27 "Casino / Gaming Facility". This concept comes from the Energy Star property type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:ConventionCenter
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Convention Center" ;
+  rdfs:subClassOf rec:Building ;
+  skos:definition """Convention center refers to buildings used primarily for large conferences, exhibitions, and similar events. Convention centers may include a diverse variety of spaces, including large exhibition halls, meeting rooms, and concession stands. Gross Floor Area should include all space within the building(s), including but not limited to exhibit halls, preparation and staging areas, meeting rooms, concession stands, offices, break rooms, restrooms, security areas, elevator shafts, and stairwells. Loading dock areas located outside the walls of the building should not be included in the gross square footage. Conference facilities located within a Hotel should be included along with your Hotel property use details, rather than added as a separate Convention Center property use. Conference facilities primarily serving smaller meetings should be entered as Community Center and Social Meeting Hall."""@en ;
+  rdfs:seeAlso <https://portfoliomanager.energystar.gov/pm/glossary#ConventionCenter> ;
+  rdfs:comment """Energy Star Portfolio Manager property type: "Convention Center" (Entertainment/public assembly). Corresponds to CSI OmniClass 11-21 70 34 "Convention / Conference Center". This concept comes from the Energy Star property type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:FitnessCenterHealthClubGym
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Fitness Center/Health Club/Gym" ;
+  rdfs:subClassOf rec:Building ;
+  skos:definition """Fitness Center/Health Club/Gym refers to buildings used for recreational or professional athletic training and related activities. Gross Floor Area should include all space within the building(s), including but not limited to weight and cardio equipment areas, personal training areas, courts, locker rooms, restrooms, indoor swimming pools, sauna and spa areas, retail areas, administrative/office space, mechanical rooms, storage areas, elevator shafts, and stairwells."""@en ;
+  rdfs:seeAlso <https://portfoliomanager.energystar.gov/pm/glossary#FitnessCenterHealthClubGym> ;
+  rdfs:comment """Energy Star Portfolio Manager property type: "Fitness Center/Health Club/Gym" (Entertainment/public assembly). Corresponds to CSI OmniClass 11-21 90 11 "Fitness Center / Health Club / Gym". BREEAM USA: Sport: Fitness center/gym. This concept comes from the Energy Star property type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:IceCurlingRink
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Ice/Curling Rink" ;
+  rdfs:subClassOf rec:Building ;
+  skos:definition """Buildings that include one or more indoor ice sheets used for public or private, recreational or professional skating, hockey, or ringette. Buildings that are exclusively used for curling are not currently eligible for an ENERGY STAR score but can be benchmarked using this property type. Gross Floor Area should include all space within the building(s), including but not limited to ice area, spectator areas, concession stands, restaurants, retail areas, locker rooms, administrative/office areas, employee break rooms, restrooms, mechanical rooms, and storage areas. Larger facilities primarily serving professional or collegiate functions and with significant spectator seating (above 5,000 seats) should be entered as Indoor Arena."""@en ;
+  rdfs:seeAlso <https://portfoliomanager.energystar.gov/pm/glossary#IceCurlingRink> ;
+  rdfs:comment """Energy Star Portfolio Manager property type: "Ice/Curling Rink" (Entertainment/public assembly). Corresponds to CSI OmniClass 11-21 90 17 "Ice Rink / Skating Facility". BREEAM USA: Sport: Ice rink. This concept comes from the Energy Star property type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:IndoorArena
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Indoor Arena" ;
+  rdfs:subClassOf rec:Building ;
+  skos:definition """Indoor Arena refers to enclosed structures used for professional or collegiate sports and entertainment events. Examples of events held in indoor arenas include basketball and hockey games, circus performances, and concerts. Indoor Arenas usually have capacities of 5,000 seats or more and are often characterized by multiple concourses and concession areas. Gross Floor Area should include all space within the building(s), including but not limited to court/rink space, all concourse space on which workers or guests can walk, concession areas, retail stores, restaurants, restrooms, administrative/office areas, employee break rooms, kitchens, mechanical rooms, storage areas, elevator shafts, and stairwells."""@en ;
+  rdfs:seeAlso <https://portfoliomanager.energystar.gov/pm/glossary#IndoorArena> ;
+  rdfs:comment """Energy Star Portfolio Manager property type: "Indoor Arena" (Entertainment/public assembly). Corresponds to CSI OmniClass 11-21 70 17 "Indoor Arena / Stadium (Enclosed)". This concept comes from the Energy Star property type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:MovieTheater
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Movie Theater" ;
+  rdfs:subClassOf rec:Building ;
+  skos:definition """Movie theater refers to buildings used for public or private film screenings. Gross Floor Area should include all space within the building(s), including but not limited to seating areas, lobbies, concession stands, restrooms, administrative/office space, mechanical rooms, storage areas, elevator shafts, and stairwells."""@en ;
+  rdfs:seeAlso <https://portfoliomanager.energystar.gov/pm/glossary#MovieTheater> ;
+  rdfs:comment """Energy Star Portfolio Manager property type: "Movie Theater" (Entertainment/public assembly). Corresponds to CSI OmniClass 11-21 70 11 "Movie Theater / Cinema". BREEAM USA: Entertainment: Movie theater. This concept comes from the Energy Star property type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:Museum
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Museum" ;
+  rdfs:subClassOf rec:Building ;
+  skos:definition """Museum refers to buildings that display collections to outside visitors for public viewing and enjoyment and for informational/educational purposes. Gross Floor Area (GFA) should include all space within the building(s), including but not limited to public collection display areas, meeting rooms, restrooms, classrooms, gift shops, food service areas, administrative/office space, mechanical rooms, storage areas for collections, libraries, elevator shafts, stairwells and movie theatre space inside the museum. Do not include any outside space in the GFA, such as outdoor exhibits, open-air theaters, walkways, and landscaped areas."""@en ;
+  rdfs:seeAlso <https://portfoliomanager.energystar.gov/pm/glossary#Museum> ;
+  rdfs:comment """Energy Star Portfolio Manager property type: "Museum" (Entertainment/public assembly). Corresponds to CSI OmniClass 11-61 60 00 "Museum / Exhibit Facility". This concept comes from the Energy Star property type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:PerformingArts
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Performing Arts" ;
+  rdfs:subClassOf rec:Building ;
+  skos:definition """Performing Arts refers to buildings used for public or private artistic or musical performances. Gross Floor Area should include all space within the building(s), including seating, stage and backstage areas, food service areas, retail areas, rehearsal studios, administrative/office space, mechanical rooms, storage areas, elevator shafts, and stairwells."""@en ;
+  rdfs:seeAlso <https://portfoliomanager.energystar.gov/pm/glossary#PerformingArts> ;
+  rdfs:comment """Energy Star Portfolio Manager property type: "Performing Arts" (Entertainment/public assembly). Corresponds to CSI OmniClass 11-21 70 14 "Performing Arts Facility". BREEAM USA: Entertainment: Performing arts theater. This concept comes from the Energy Star property type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:RaceTrack
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Race Track" ;
+  rdfs:subClassOf rec:Building ;
+  skos:definition """Race Track refers to buildings used primarily to hold racing events such as vehicle races, track/field races, horse races, and/or dog-races. Gross Floor Area should include all spectator viewing areas, concourse space on which workers or guests can walk, concession areas, retail stores, restaurants, administrative/office areas, employee break rooms, mechanical rooms, storage areas, elevator shafts, and stairwells. The footprint of the race track itself should also be included in the gross floor area, along with the footprint of any staging areas."""@en ;
+  rdfs:seeAlso <https://portfoliomanager.energystar.gov/pm/glossary#RaceTrack> ;
+  rdfs:comment """Energy Star Portfolio Manager property type: "Race Track" (Entertainment/public assembly). Corresponds to CSI OmniClass 11-21 70 31 "Racetrack / Motorsport Facility". This concept comes from the Energy Star property type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:RollerRink
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Roller Rink" ;
+  rdfs:subClassOf rec:Building ;
+  skos:definition """Roller Rink refers to buildings used primarily for roller-skating, inline skating/rollerblading, or skateboarding. Gross Floor Area should include all space within the building(s), including the rink space, concession areas, locker rooms, retail areas, administrative/office areas, employee break rooms, mechanical rooms, and storage areas."""@en ;
+  rdfs:seeAlso <https://portfoliomanager.energystar.gov/pm/glossary#RollerRink> ;
+  rdfs:comment """Energy Star Portfolio Manager property type: "Roller Rink" (Entertainment/public assembly). Corresponds to CSI OmniClass 11-21 90 17 "Ice Rink / Skating Facility". This concept comes from the Energy Star property type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:SocialMeetingHall
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Social/Meeting Hall" ;
+  rdfs:subClassOf rec:Building ;
+  skos:definition """Community Center and Social Meeting Hall refers to buildings primarily used for social interactions, recreational activities, learning, and community support services. This may include community group meetings, physical and fitness activities, seminars, and workshops. Please note that Portfolio Manager contains separate property use designations for Convention Centers and for Fitness Center/Health Club/Gym . Please refer to the definitions for these property uses to benchmark a property that is used for these purposes. Gross Floor Area should include all space within the building(s), including meeting rooms, auditoriums/gymnasiums, fitness areas, food service areas, lobbies, administrative/office space, mechanical rooms, storage areas, elevator shafts, and stairwells."""@en ;
+  rdfs:seeAlso <https://portfoliomanager.energystar.gov/pm/glossary#SocialMeetingHall> ;
+  rdfs:comment """Energy Star Portfolio Manager property type: "Social/Meeting Hall" (Entertainment/public assembly / Public services). Corresponds to CSI OmniClass 11-21 90 24 "Social / Meeting Hall". This concept comes from the Energy Star property type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:StadiumClosed
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Stadium (Closed)" ;
+  rdfs:subClassOf rec:Stadium ;
+  skos:definition """Stadium (Closed) refers to structures with a permanent or retractable roof which are used primarily for professional or collegiate sports and entertainment events. Examples of events held in closed stadiums include baseball and football games, and concerts. Closed Stadiums usually have capacities of 25,000 seats or more and are often characterized by multiple concourses and concession areas. Gross Floor Area should include all space within the building(s), including concourse space on which workers or guests can walk, concession areas, retail stores, restaurants, administrative/office areas, employee break rooms, kitchens, mechanical rooms, storage areas, elevator shafts, and stairwells. The footprint of the playing field should also be included in the gross floor area."""@en ;
+  rdfs:seeAlso <https://portfoliomanager.energystar.gov/pm/glossary#StadiumClosed> ;
+  rdfs:comment """Energy Star Portfolio Manager property type: "Stadium (Closed)" (Entertainment/public assembly). Corresponds to CSI OmniClass 11-21 70 17 "Indoor Arena / Stadium (Enclosed)". This concept comes from the Energy Star property type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:StadiumOpen
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Stadium (Open)" ;
+  rdfs:subClassOf rec:Stadium ;
+  skos:definition """Stadium (Open) refers to structures used primarily for professional or collegiate sports and entertainment events in which the playing field is not covered and is exposed to the outside. Examples of events held in open stadiums include baseball, football, and soccer games, and concerts. Open Stadiums usually have capacities of 5,000 seats or more and are often characterized by multiple concourses and concession areas. Gross Floor Area should include all space within the building(s), including concourse space on which workers or guests can walk, concession areas, retail stores, restaurants, administrative/office areas, employee break rooms, kitchens, mechanical rooms, storage areas, elevator shafts, and stairwells. The footprint of the playing field should also be included in the gross floor area."""@en ;
+  rdfs:seeAlso <https://portfoliomanager.energystar.gov/pm/glossary#StadiumOpen> ;
+  rdfs:comment """Energy Star Portfolio Manager property type: "Stadium (Open)" (Entertainment/public assembly). Corresponds to CSI OmniClass 11-21 70 21 "Stadium (Open)". This concept comes from the Energy Star property type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:SwimmingPool
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Swimming Pool" ;
+  rdfs:subClassOf rec:Building ;
+  skos:definition """Heated Swimming Pools are indoor or outdoor pools that are heated. For indoor pools, include the Gross Floor Area (GFA) of the building in which the pool is located. For outdoor pools, do not include any of the outdoor GFA. If your entire property is an outdoor heated swimming pool then your Gross Floor Area (GFA) will be the GFA of your swimming pool, which Portfolio Manager will calculate for you. To add a Heated Swimming Pool Property Use: Go to the Details tab In the upper right-hand box which lists all of your Property Uses, click Add Another Type of Use Under Entertainment/Public Assembly choose Recreation A secondary selection box will appear where you can choose Heated Swimming Pool Select the pool size that is closest to your pool"""@en ;
+  rdfs:seeAlso <https://portfoliomanager.energystar.gov/pm/glossary#SwimmingPool> ;
+  rdfs:comment """Energy Star Portfolio Manager property type: "Swimming Pool" (Entertainment/public assembly). Corresponds to CSI OmniClass 11-21 90 14 "Indoor Swimming Pool / Aquatic Center". BREEAM USA: Sport: Indoor swimming pool. This concept comes from the Energy Star property type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:Zoo
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Zoo" ;
+  rdfs:subClassOf rec:Building ;
+  skos:definition """Zoo refers to buildings used primarily to provide habitat to live animals and which may include public or private viewing and educational programs. Gross Floor Area should include all space within all fully enclosed buildings, including, habitats, visitor viewing areas, theaters, classrooms, food service areas, retail stores, veterinary offices, exhibit space, administrative/office space, mechanical rooms, storage areas, elevator shafts, and stairwells. Areas not in fully enclosed buildings, such as outdoor habitats, open-air theaters, walkways, and landscaped areas should not be included in the Gross Floor Area."""@en ;
+  rdfs:seeAlso <https://portfoliomanager.energystar.gov/pm/glossary#Zoo> ;
+  rdfs:comment """Energy Star Portfolio Manager property type: "Zoo" (Entertainment/public assembly). Corresponds to CSI OmniClass 11-61 60 17 "Aquarium / Zoo / Botanical Garden". This concept comes from the Energy Star property type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:ConvenienceStoreWithGasStation
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Convenience Store with Gas Station" ;
+  rdfs:subClassOf rec:Building ;
+  skos:definition """Convenience Store with Gas Station refers to buildings that are co-located with gas stations and are used for the sale of a limited range of items such as groceries, toiletries, newspapers, soft drinks, tobacco products, and other everyday items. Convenience Store with Gas Station may include space for vehicle servicing and repair. Gross Floor Area should include all space within the building(s), including but not limited to sales floors, restrooms, offices, staff break rooms, storage areas, and vehicle repair areas. Energy use associated with outside areas such as vehicle parking and gas filling areas should be included with the total energy use for the building(s), but the square footage associated with these outdoor areas should not be included in the Gross Floor Area."""@en ;
+  rdfs:seeAlso <https://portfoliomanager.energystar.gov/pm/glossary#ConvenienceStoreWithGasStation> ;
+  rdfs:comment """Energy Star Portfolio Manager property type: "Convenience Store with Gas Station" (Food sales and service / Retail). Corresponds to CSI OmniClass 11-21 10 21 "Convenience Store". This concept comes from the Energy Star property type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:ConvenienceStoreWithoutGasStation
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Convenience Store without Gas Station" ;
+  rdfs:subClassOf rec:Building ;
+  skos:definition """Convenience Store without Gas Station refers to buildings used for the sale of a limited range of items such as groceries, toiletries, newspapers, soft drinks, tobacco products, and other everyday items, which are not co-located with a gas station. Gross Floor Area should include all space within the building(s), including but not limited to sales floors, restrooms, offices, staff break rooms, and storage areas."""@en ;
+  rdfs:seeAlso <https://portfoliomanager.energystar.gov/pm/glossary#ConvenienceStoreWithoutGasStation> ;
+  rdfs:comment """Energy Star Portfolio Manager property type: "Convenience Store without Gas Station" (Food sales and service / Retail). Corresponds to CSI OmniClass 11-21 10 21 "Convenience Store". This concept comes from the Energy Star property type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:FastFoodRestaurant
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Fast Food Restaurant" ;
+  rdfs:subClassOf rec:Building ;
+  skos:definition """Fast Food Restaurant, also known as Quick Service Restaurant, refers to buildings used for the preparation and sale of ready-to-eat food. Fast Food Restaurants are characterized by a limited menu of food prepared quickly (often within a few minutes), and sometimes cooked in bulk in advance and kept hot. Gross Floor Area should include all space within the building(s), including but not limited to kitchens, sales areas, dining areas, restrooms, offices, staff break rooms, and storage areas. Gross Floor Area should not include any outdoor/exterior seating areas, but the energy use of these outdoor areas should be reported on your energy meters."""@en ;
+  rdfs:seeAlso <https://portfoliomanager.energystar.gov/pm/glossary#FastFoodRestaurant> ;
+  rdfs:comment """Energy Star Portfolio Manager property type: "Fast Food Restaurant" (Food sales and service). Corresponds to CSI OmniClass 11-21 20 14 "Fast Food / Quick Service Restaurant". BREEAM USA: Entertainment: Fast food restaurant or café. This concept comes from the Energy Star property type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:FoodSales
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Food Sales" ;
+  rdfs:subClassOf rec:Building ;
+  skos:definition """Food Sales refers to buildings used for the sales of food on either a retail or wholesale basis, but which do not meet the definition of Supermarket/Grocery Store or Convenience Store. For example, specialty food sales like a cheese or butcher shop. Gross Floor Area should include all space within the building(s), including but not limited to sales areas, storage areas, offices, kitchens, staff break rooms, and restrooms."""@en ;
+  rdfs:seeAlso <https://portfoliomanager.energystar.gov/pm/glossary#FoodSales> ;
+  rdfs:comment """Energy Star Portfolio Manager property type: "Food Sales" (Food sales and service). This concept comes from the Energy Star property type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:FoodService
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Food Service" ;
+  rdfs:subClassOf rec:Building ;
+  skos:definition """Food Service refers to buildings used for preparation and sale of food and beverages, but which do not meet the definition of Restaurant or Bar/Nightclub. For example a coffee shop. Gross Floor Area should include all space within the building(s), including but not limited to kitchens, sales areas, dining areas, staff break rooms, restrooms, and storage areas. Gross Floor Area should not include any outdoor/exterior seating areas, but the energy use of these outdoor areas should be reported on your energy meters."""@en ;
+  rdfs:seeAlso <https://portfoliomanager.energystar.gov/pm/glossary#FoodService> ;
+  rdfs:comment """Energy Star Portfolio Manager property type: "Food Service" (Food sales and service). Corresponds to CSI OmniClass 11-21 20 00 "Food Service Facility". This concept comes from the Energy Star property type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:Restaurant
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Restaurant" ;
+  rdfs:subClassOf rec:Building ;
+  skos:definition """Restaurant refers to buildings used for preparation and sale of ready-to-eat food and beverages, but which do not fit in the fast food property type. Examples include fast casual, casual, and fine dining restaurants, and other buildings where the primary business is the onsite preparation and sale of ready-to-eat food to the general public. There must be cooking with raw ingredients located onsite, not just reheating. Cooking includes baking, broiling, boiling, frying, stewing, freezing, etc. Gross Floor Area should include all space within the building(s), including kitchens, sales areas, dining areas, offices, staff break rooms, and storage areas. Gross Floor Area should not include any outdoor/exterior seating areas, but the energy use of these outdoor areas should be reported on your energy meters."""@en ;
+  rdfs:seeAlso <https://portfoliomanager.energystar.gov/pm/glossary#Restaurant> ;
+  rdfs:comment """Energy Star Portfolio Manager property type: "Restaurant" (Food sales and service). Corresponds to CSI OmniClass 11-21 20 11 "Full-Service Restaurant". BREEAM USA: Entertainment: Restaurant. This concept comes from the Energy Star property type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:SupermarketGroceryStore
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Supermarket/Grocery Store" ;
+  rdfs:subClassOf rec:Building ;
+  skos:definition """Supermarket/Grocery Store refers to buildings used for the retail sale of primarily food and beverage products, and which may include small amounts of preparation and sale of ready-to-eat food. Buildings where the primary business is the onsite preparation and sale of ready-to-eat food should use one of the Restaurant property types. Gross Floor Area should include all space within the building(s), including the sales floor, offices, storage areas, kitchens, staff break rooms, and stairwells."""@en ;
+  rdfs:seeAlso <https://portfoliomanager.energystar.gov/pm/glossary#SupermarketGroceryStore> ;
+  rdfs:comment """Energy Star Portfolio Manager property type: "Supermarket/Grocery Store" (Food sales and service / Retail). Corresponds to CSI OmniClass 11-21 10 17 "Supermarket / Grocery Store". BREEAM USA: Retail: Supermarket. This concept comes from the Energy Star property type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:WholesaleClubSupercenter
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Wholesale Club/Supercenter" ;
+  rdfs:subClassOf rec:Building ;
+  skos:definition """Wholesale Club/Supercenter refers to buildings used to conduct the retail sale of a wide variety of merchandise, typically in bulk quantities. Merchandise may include food, clothing, office supplies, furniture, electronics, books, sporting goods, toys, and hardware. Gross Floor Area should include all space within the building(s), including the sales floor, offices, storage areas, kitchens, staff break rooms, elevators, and stairwells."""@en ;
+  rdfs:seeAlso <https://portfoliomanager.energystar.gov/pm/glossary#WholesaleClubSupercenter> ;
+  rdfs:comment """Energy Star Portfolio Manager property type: "Wholesale Club/Supercenter" (Food sales and service / Retail). Corresponds to CSI OmniClass 11-21 10 27 "Wholesale / Warehouse Club". This concept comes from the Energy Star property type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:AmbulatorySurgicalCenter
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Ambulatory Surgical Center" ;
+  rdfs:subClassOf rec:Building ;
+  skos:definition """Ambulatory Surgery Centers (ASC) refers to health care facilities that provide same-day surgical care, including diagnostic and preventive procedures. This property type is for stand-alone ASCs that are not located within a Medical Office building. Gross Floor Area should include all space within the building(s), including but not limited to offices, operating and recovery rooms, waiting rooms, employee break rooms and kitchens, restrooms, elevator shafts, stairways, mechanical rooms, and storage areas."""@en ;
+  rdfs:seeAlso <https://portfoliomanager.energystar.gov/pm/glossary#AmbulatorySurgicalCenter> ;
+  rdfs:comment """Energy Star Portfolio Manager property type: "Ambulatory Surgical Center" (Healthcare). Corresponds to CSI OmniClass 11-51 20 14 "Ambulatory Surgical Center". This concept comes from the Energy Star property type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:Hospital
+  skos:definition """Hospital refers to a general medical and surgical hospital (including critical access hospitals and children’s hospitals). These facilities provide acute care services including emergency medical care, physician's office services, diagnostic care, ambulatory care, surgical care, and limited specialty services such as rehabilitation and cancer care. Hospitals must have in-patient beds and offer overnight care. To be eligible for the Hospital Property Type: More than 50% of the GFA of all buildings must be used for general medical and surgical services (not long-term acute care, specialty care, or ambulatory surgical services). More than 50% of the licensed beds must provide acute care services. The Hospital property type should include all space types owned by the hospital that are located within the Hospital campus, including non-clinical spaces such as administrative offices, food service, retail, hotels, and power plants. Gross Floor Area (GFA) should include all space within the building(s) on the campus including but not limited to operating rooms, patient rooms, emergency treatment areas, medical offices, exam rooms, laboratories, lobbies, atriums, cafeterias, restrooms, stairways, corridors connecting buildings, storage areas, and elevator shafts. If your facility does not meet this definition, it is not eligible for an ENERGY STAR score as a Hospital. However, your property may be eligible under another healthcare property type: Ambulatory Surgical Center Medical Office Outpatient Rehabilitation/Physical Therapy Residential Care Facility Urgent Care/Clinic/Other Outpatient Senior Living Community Other - Specialty Hospital"""@en ;
+  rdfs:seeAlso <https://portfoliomanager.energystar.gov/pm/glossary#HospitalGeneralMedicalAndSurgical> ;
+  rdfs:comment """Energy Star Portfolio Manager property type: "Hospital (General Medical & Surgical)" (Healthcare). Corresponds to CSI OmniClass 11-51 10 11 "General Medical and Surgical Hospital". BREEAM USA: Healthcare: Hospital: acute + maternity (general hospital services & surgery). This concept comes from the Energy Star property type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:MedicalOffice
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Medical Office" ;
+  rdfs:subClassOf rec:Building ;
+  skos:definition """Medical Office refers to buildings used to provide diagnosis and treatment for medical, dental, or psychiatric outpatient care. Gross Floor Area should include all space within the building, including but not limited to offices, exam rooms, operating rooms for outpatient surgical procedures, laboratories, lobbies, atriums, conference rooms and auditoriums, employee break rooms and kitchens, restrooms, elevator shafts, stairways, mechanical rooms, and storage areas. If you have restaurants, retail (pharmacy), or services (dry cleaners) within the Medical Office Building, we recommend you include this square footage in the Medical Office Property Use. *The medical office score does not apply to veterinary offices or standalone ambulatory surgical centers."""@en ;
+  rdfs:seeAlso <https://portfoliomanager.energystar.gov/pm/glossary#MedicalOffice> ;
+  rdfs:comment """Energy Star Portfolio Manager property type: "Medical Office" (Healthcare / Office). Corresponds to CSI OmniClass 11-21 40 14 "Medical / Dental Office". BREEAM USA: Healthcare: Medical office. This concept comes from the Energy Star property type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:OutpatientRehabilitationPhysicalTherapy
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Outpatient Rehabilitation/Physical Therapy" ;
+  rdfs:subClassOf rec:Building ;
+  skos:definition """Outpatient Rehabilitation/Physical Therapy offices refers to buildings used to provide diagnosis and treatment for rehabilitation and physical therapy. Gross Floor Area should include all space within the building(s) including offices, exam rooms, waiting rooms, indoor pool areas, atriums, employee break rooms and kitchens, rest rooms, elevator shafts, stairways, mechanical rooms, and storage areas."""@en ;
+  rdfs:seeAlso <https://portfoliomanager.energystar.gov/pm/glossary#OutpatientRehabilitationPhysicalTherapy> ;
+  rdfs:comment """Energy Star Portfolio Manager property type: "Outpatient Rehabilitation/Physical Therapy" (Healthcare). Corresponds to CSI OmniClass 11-51 20 17 "Outpatient Rehabilitation / Physical Therapy Facility". This concept comes from the Energy Star property type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:ResidentialCareFacility
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Residential Care Facility" ;
+  rdfs:subClassOf rec:Building ;
+  skos:definition """Residential Care Facilities refers to buildings that provide rehabilitative and restorative care to patients on a long-term or permanent basis. Residential Care Facilities treat mental health issues, substance abuse, and rehabilitation for injury, illness, and disabilities. This property type is intended for facilities that offer long-term residential care to residents of all ages who may be in need of assistance with activities of daily living. If a facility is designed to provide nursing and assistance to seniors only, then the Senior Living Community property type should be used. Gross Floor Area should include all fully-enclosed space within the exterior walls of the building(s) including individual rooms or units, wellness centers, exam rooms, community rooms, small shops or service areas for residents and visitors (e.g. hair salons, convenience stores), staff offices, lobbies, atriums, cafeterias, kitchens, storage areas, hallways, basements, stairways, corridors between buildings, and elevator shafts. Open air stairwells, breezeways, and other similar areas that are not fully-enclosed should not be included in the gross floor area."""@en ;
+  rdfs:seeAlso <https://portfoliomanager.energystar.gov/pm/glossary#ResidentialCareFacility> ;
+  rdfs:comment """Energy Star Portfolio Manager property type: "Residential Care Facility" (Healthcare). Corresponds to CSI OmniClass 11-51 30 00 "Extended Care Facility". BREEAM USA: Supportive Housing: Residential care home. This concept comes from the Energy Star property type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:SeniorLivingCommunity
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Senior Living Community" ;
+  rdfs:subClassOf rec:Building ;
+  skos:definition """Senior Living Community refers to buildings that house and provide care and assistance for elderly residents, specifically homes (skilled nursing facilities) and assisted living facilities. It is NOT intended for retirement or other senior communities that offer only independent living – a community with only independent living should benchmark as a Multifamily property (see below for further details). Gross Floor Area should include all fully-enclosed space within the exterior walls of the building(s) including individual rooms or units, wellness centers, exam rooms, community rooms, small shops or service areas for residents and visitors (e.g. hair salons, convenience stores), staff offices, lobbies, atriums, cafeterias, kitchens, storage areas, hallways, basements, stairways, corridors between buildings, and elevator shafts. Open air stairwells, breezeways, and other similar areas that are not fully-enclosed should not be included in the gross floor area. It is common for Senior Living Communities to include a mix of different living options, including both independent living, assisted living, and/or skilled nursing. In these situations, benchmarking guidance depends on the percent of living units designated as skilled nursing/assisted living: If more than 50% of the units in a community are skilled nursing and/or assisted living, the entire property should be benchmarked as a Senior Living Community. You can use one property use to characterize all activities at the community, including any independent living that may be present. If 50% or more of the units are independent living, the property should be benchmarked using both the Senior Living Community and Multifamily property uses. In this situation, the floor area of hallways and units for assisted living and any community areas specifically used to assist residents (e.g. nursing stations, exam rooms, physical therapy rooms, etc.) should be benchmarked with the Senior Living Community property use. The floor area of hallways and units for independent living along with any open common areas that are used by residents of both the independent and the nursing/assisted living units (e.g. game rooms or restaurants) should be benchmarked with the Multifamily property use."""@en ;
+  rdfs:seeAlso <https://portfoliomanager.energystar.gov/pm/glossary#SeniorCareCommunity> ;
+  rdfs:comment """Energy Star Portfolio Manager property type: "Senior Living Community" (Healthcare / Lodging/residential). Corresponds to CSI OmniClass 11-11 50 14 "Assisted Living / Supportive Housing Facility". BREEAM USA: Supportive Housing: Sheltered housing. This concept comes from the Energy Star property type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:UrgentCareClinicOtherOutpatient
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Urgent Care/Clinic/Other Outpatient" ;
+  rdfs:subClassOf rec:Building ;
+  skos:definition """Urgent Care Center/Clinic/Other Outpatient Office refers to buildings used to treat patients, usually on an unscheduled, walk-in basis, who have an injury or illness that requires immediate care but is not serious enough to warrant a visit to an emergency department. Gross Floor Area should include all space within the building(s) including offices, exam rooms, waiting rooms, atriums, employee break rooms and kitchens, rest rooms, elevator shafts, stairways, mechanical rooms, and storage areas."""@en ;
+  rdfs:seeAlso <https://portfoliomanager.energystar.gov/pm/glossary#UrgentCareClinicOtherOutpatient> ;
+  rdfs:comment """Energy Star Portfolio Manager property type: "Urgent Care/Clinic/Other Outpatient" (Healthcare). Corresponds to CSI OmniClass 11-51 20 11 "Urgent Care / Walk-In Clinic". This concept comes from the Energy Star property type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:Barracks
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Barracks" ;
+  rdfs:subClassOf rec:Building ;
+  skos:definition """Barracks refers to residential buildings associated with military facilities or educational institutions which offer multiple accommodations for long-term residents. Gross Floor Area should include all space within the building(s), including but not limited to bedrooms, restrooms, common areas, food service facilities, laundry facilities, meeting spaces, exercise rooms, health club/spas, lobbies, elevator shafts, storage areas, and stairways."""@en ;
+  rdfs:seeAlso <https://portfoliomanager.energystar.gov/pm/glossary#Barracks> ;
+  rdfs:comment """Energy Star Portfolio Manager property type: "Barracks" (Lodging/residential). Corresponds to CSI OmniClass 11-11 50 17 "Military Barracks". This concept comes from the Energy Star property type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:Hotel
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Hotel" ;
+  rdfs:subClassOf rec:Building ;
+  skos:definition """Hotel refers to buildings renting overnight accommodations on a room/suite and nightly basis, and typically include a bath/shower and other facilities in guest rooms. Hotel properties typically have daily services available to guests including housekeeping/laundry and a front desk/concierge. Hotel does not apply to properties where more than 50% of the floor area is occupied by fractional ownership units such as condominiums or vacation timeshares. Hotel properties should be majority-owned by a single entity and have rooms available on a nightly basis. Condominiums should select the Multifamily Housing property use. Gross Floor Area should include all interior space within the building(s), including but not limited to guestrooms, halls, lobbies, atriums, food preparation and restaurant space, conference and banquet space, fitness centers/spas, indoor pool areas, laundry facilities, elevator shafts, stairways, mechanical rooms, storage areas, employee break rooms, restrooms, and back-of-house offices."""@en ;
+  rdfs:seeAlso <https://portfoliomanager.energystar.gov/pm/glossary#Hotel> ;
+  rdfs:comment """Energy Star Portfolio Manager property type: "Hotel" (Lodging/residential). Corresponds to CSI OmniClass 11-11 40 11 "Hotel / Motel". BREEAM USA: Hospitality: Hotel. This concept comes from the Energy Star property type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:MultifamilyHousing
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Multifamily Housing" ;
+  rdfs:subClassOf rec:Building ;
+  skos:definition """Multifamily Housing refers to residential properties that contain two or more residential living units. These properties may include low-rise buildings (1-4 stories), mid-rise buildings (5-9 stories), or high-rise buildings (10+ stories). Multifamily housing may consist of a single building or multiple co-located buildings that act as a single property or campus (such as a garden apartment community). Occupants of these buildings may include tenants, cooperators, and/or individual owners. Gross Floor Area should include all space within the building(s), including but not limited to living units (occupied and unoccupied units), interior common areas (e.g. lobbies, offices, community rooms, restrooms, common kitchens, fitness rooms, indoor pools), hallways, stairwells, elevator shafts, connecting corridors between buildings, storage areas, and mechanical space such as a boiler room. GFA should include all buildings that are part of the multifamily property, including any separate management offices or other buildings that may not contain living units. Open air stairwells, breezeways, and other similar areas that are not fully-enclosed should not be included in the GFA. To be eligible for an ENERGY STAR score and certification in the US: 2 units or more per building 20 units or more per property/campus Each unit must have a bathroom and a full kitchen, including refrigerator and oven/stove. At least 80% occupancy Communities of single-family homes are not eligible. If your property is a mix of multifamily and single-family homes, the property would still be eligible as long as the single-family homes are less than 25% of the total GFA. Combine the single-family home GFA with the Multifamily property use. To be eligible for an ENERGY STAR score and certification in Canada: 2 units or more per building Each building in the property must be either: 4 or more storeys above ground, or have a horizontal footprint greater than 600 m2 measured between exterior walls and firewalls A common entrance for each building in the property At least 80% occupancy If buildings on a property do not meet the above definitions, they must be excluded from certification."""@en ;
+  rdfs:seeAlso <https://portfoliomanager.energystar.gov/pm/glossary#MultifamilyHousing> ;
+  rdfs:comment """Energy Star Portfolio Manager property type: "Multifamily Housing" (Lodging/residential). Corresponds to CSI OmniClass 11-11 20 00 / 11-11 30 00 "Small / Large Complex Multiple Family Residence". BREEAM USA: Apartment buildings: Mid- and High-rise apartment blocks; Apartment buildings: Low rise or Garden style apartment blocks. This concept comes from the Energy Star property type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:PrisonIncarceration
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Prison/Incarceration" ;
+  rdfs:subClassOf rec:Building ;
+  skos:definition """Prison/Incarceration refers to federal, state, local, or private-sector buildings used for the detention of persons awaiting trial or convicted of crimes. Gross Floor Area should include all space within the building(s), including holding cells, cafeterias, administrative spaces, kitchens, lobbies, atriums, conference rooms and auditoriums, fitness areas, storage areas, stairways, and elevator shafts."""@en ;
+  rdfs:seeAlso <https://portfoliomanager.energystar.gov/pm/glossary#PrisonIncarceration> ;
+  rdfs:comment """Energy Star Portfolio Manager property type: "Prison/Incarceration" (Lodging/residential / Public services). Corresponds to CSI OmniClass 11-71 40 11 "Prison / Correctional Institution". This concept comes from the Energy Star property type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:ResidenceHallDormitory
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Residence Hall/Dormitory" ;
+  rdfs:subClassOf rec:Building ;
+  skos:definition """Residence Hall/Dormitory refers to buildings associated with educational institutions or military facilities which offer multiple accommodations for long-term residents. Gross Floor Area should include all space within the building(s), including bedrooms, common areas, food service facilities, laundry facilities, meeting spaces, exercise rooms, health club/spas, lobbies, elevator shafts, storage areas, and stairways."""@en ;
+  rdfs:seeAlso <https://portfoliomanager.energystar.gov/pm/glossary#ResidenceHallDormitory> ;
+  rdfs:comment """Energy Star Portfolio Manager property type: "Residence Hall/Dormitory" (Lodging/residential). Corresponds to CSI OmniClass 11-11 50 11 "Dormitory / Residence Hall". BREEAM USA: Education: Residential college or school (halls of residence/dormitories). This concept comes from the Energy Star property type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:SingleFamilyHome
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Single Family Home" ;
+  rdfs:subClassOf rec:Building ;
+  skos:definition """Single-Family Homes are standalone buildings, or an individual structure that shares one or more exterior vertical wall with other buildings, such as a duplex or townhome. Single-Family Homes have their own lot and provide living space for one household or family. Gross Floor Area should include all finished space within the home, including living areas, bedrooms, and finished basements and attics; finished Accessory Dwelling Units (ADUs) on the same energy meter should also be included. Do not include unfinished basements, unfinished attics, or garages."""@en ;
+  rdfs:seeAlso <https://portfoliomanager.energystar.gov/pm/glossary#SingleFamilyHome> ;
+  rdfs:comment """Energy Star Portfolio Manager property type: "Single Family Home" (Lodging/residential). Corresponds to CSI OmniClass 11-11 10 00 "Single Family Residence". BREEAM USA: Individual homes: Detached or Semi-detached homes; Individual homes: Terraced homes or Townhouse. This concept comes from the Energy Star property type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:ManufacturingIndustrialPlant
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Manufacturing/Industrial Plant" ;
+  rdfs:subClassOf rec:Building ;
+  skos:definition """Manufacturing/Industrial Plant refers to sites used for manufacturing, mining, quarrying and oil and gas extraction operations. Typically, a Manufacturing/Industrial plant includes a main production area that contains machinery and equipment used for producing products. Gross Floor Area should include all space within the building(s) at the plant, including but not limited to production areas, offices, conference rooms, employee break rooms, storage areas, mechanical rooms, stairways, and elevator shafts. Because there are many different types of Manufacturing/Industral Plants, there is a required use detail for Plant Type and Plant Subtype. Nearly two dozen industrial plant types can earn ENERGY STAR certification in a tool outside of Portfolio Manager. Go to: www.energystar.gov/epis for details on how to use the “Energy Performance Indicators” (EPIs) to receive an ENERGY STAR score and see how a plant’s energy performance compares to plants with similar characteristics."""@en ;
+  rdfs:seeAlso <https://portfoliomanager.energystar.gov/pm/glossary#ManufacturingIndustrialPlant> ;
+  rdfs:comment """Energy Star Portfolio Manager property type: "Manufacturing/Industrial Plant" (Manufacturing/industrial). Corresponds to CSI OmniClass 11-31 30 00 "Manufacturing Facility". BREEAM USA: Industrial: General manufacturing; Industrial: Light manufacturing. This concept comes from the Energy Star property type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:MixedUseProperty
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Mixed Use Property" ;
+  rdfs:subClassOf rec:Building ;
+  skos:definition """A Mixed Use (or multi use) property is one that contains multiple property types, none of which are greater than 50% of the total Gross Floor Area (GFA), including parking GFA . Mixed Use properties can get an ENERGY STAR score and certification if they meet two criteria: 75% of the property's GFA (excluding parking GFA) is comprised of property types that are eligible for an ENERGY STAR score. At least one property type ( that is eligible for certification) is more than 50% of the GFA ( excluding parking )."""@en ;
+  rdfs:seeAlso <https://portfoliomanager.energystar.gov/pm/glossary#MixedUseProperty> ;
+  rdfs:comment """Energy Star Portfolio Manager property type: "Mixed Use Property" (Mixed use). This concept comes from the Energy Star property type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:OfficeBuilding
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Office" ;
+  rdfs:subClassOf rec:Building ;
+  skos:definition """Office refers to buildings used to conduct commercial or governmental business activities. This includes administrative and professional offices. Gross Floor Area (GFA) should include all space within the building(s), including but not limited to offices, conference rooms and auditoriums, break rooms, restrooms, kitchens, lobbies, fitness areas, basements, storage areas, stairways, and elevator shafts. If you have restaurants, retail, or services (dry cleaners) within the Office, you should most likely include this square footage and energy in the Office Property Use. There are 4 exceptions to this rule when you should create a separate Property Use: If it is a Property Use Type that can get an ENERGY STAR Score (note: Retail can only get a score if it is greater than 5,000 square feet) If it accounts for more than 25% of the property's GFA If it is a vacant/unoccupied Office, Financial Office, Bank, Courthouse, or Medical Office (and the vacancy is greater than 10% of the property's GFA) If the Weekly Hours differ by more than 10% for the same Property Type AND that Property Type can get a score (ex: you have two Office tenants, and their hours differ by more than 10%) More on this rule."""@en ;
+  rdfs:seeAlso <https://portfoliomanager.energystar.gov/pm/glossary#Office> ;
+  rdfs:comment """Energy Star Portfolio Manager property type: "Office" (Office). Corresponds to CSI OmniClass 11-21 40 11 "General Office Building". BREEAM USA: Offices: Cellular office; Offices: Open plan office. This concept comes from the Energy Star property type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:VeterinaryOffice
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Veterinary Office" ;
+  rdfs:subClassOf rec:Building ;
+  skos:definition """A Veterinary Office refers to buildings used for the medical care and treatment of animals. Gross Floor Area should include all space within the building(s) including offices, exam rooms, waiting rooms, atriums, employee break rooms and kitchens, rest rooms, elevator shafts, stairways, mechanical rooms, and storage areas."""@en ;
+  rdfs:seeAlso <https://portfoliomanager.energystar.gov/pm/glossary#VeterinaryOffice> ;
+  rdfs:comment """Energy Star Portfolio Manager property type: "Veterinary Office" (Office). Corresponds to CSI OmniClass 11-21 40 17 "Veterinary Office / Clinic". This concept comes from the Energy Star property type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:ParkingFacility
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Parking" ;
+  rdfs:subClassOf rec:Building ;
+  skos:definition """Parking refers to buildings and lots used for parking vehicles. This includes open parking lots , partially enclosed parking structures , and completely enclosed (or underground) parking structures . Parking structures may be free standing or physically connected to the property. Individual private garages in Multifamily Housing are not considered Parking. For parking Gross Floor Area (GFA) include all square footage in the garage such as ramps, offices, storage rooms, mechanical rooms, elevator shafts, and stairwells. Parking Metrics (which are all time weighted ) include: Parking – Gross Floor Area is the Parking GFA for the Partially Enclosed and Completely Enclosed Parking Garages. When the property is a Parking Garage, this is the value used for the Property GFA. Parking – Open Parking Lot Size Parking – Partially Enclosed Parking Garage Size Parking – Completely Enclosed Parking Garage Size If your property is a Parking Garage (meaning you only have one property type which is Parking), then what you see on the Details tab will be slightly different than the metrics you’ll see in reporting. This is done for clarity in this special case. Instead of Property GFA (Buildings) , you’ll see Property GFA (Parking Structure) because the “building” is the Parking structure in this case. Instead of Property GFA (Parking) , you’ll see Property GFA (Open Parking Lots)"""@en ;
+  rdfs:seeAlso <https://portfoliomanager.energystar.gov/pm/glossary#Parking> ;
+  rdfs:comment """Energy Star Portfolio Manager property type: "Parking" (Parking). Corresponds to CSI OmniClass 11-41 10 21 "Parking Facility / Garage". This concept comes from the Energy Star property type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:Courthouse
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Courthouse" ;
+  rdfs:subClassOf rec:Building ;
+  skos:definition """Courthouse refers to buildings used for federal, state, or local courts, and associated administrative office space. Gross Floor Area should include all space within the building(s), including but not limited to temporary holding cells, chambers, kitchens used by staff, lobbies, atriums, conference rooms and auditoriums, fitness areas for staff, restrooms, storage areas, stairways, and elevator shafts."""@en ;
+  rdfs:seeAlso <https://portfoliomanager.energystar.gov/pm/glossary#Courthouse> ;
+  rdfs:comment """Energy Star Portfolio Manager property type: "Courthouse" (Public services). Corresponds to CSI OmniClass 11-71 30 11 "Courthouse". BREEAM USA: Government services: Law court. This concept comes from the Energy Star property type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:DrinkingWaterTreatmentAndDistribution
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Drinking Water Treatment & Distribution" ;
+  rdfs:subClassOf rec:Building ;
+  skos:definition """Drinking Water Treatment and Distribution refers to facilities designed to pump and distribute drinking water through a network of pipes. Depending on the water source (ground water, surface water, purchased water), a water utility may or may not contain a treatment process. This property use applies to any/all water sources and any/all levels of treatment. Gross Floor Area should include all areas within the physical structures at the plant, including but not limited to treatment areas, administrative offices, break rooms, restrooms, stairways, hallways and mechanical rooms. The Gross Floor Area should not include any exterior portions of the facility, such as retention or settling ponds. Although not typically used for normalization at plants, Gross Floor Area is a required system input for all properties."""@en ;
+  rdfs:seeAlso <https://portfoliomanager.energystar.gov/pm/glossary#DrinkingWaterTreatmentAndDistribution> ;
+  rdfs:comment """Energy Star Portfolio Manager property type: "Drinking Water Treatment & Distribution" (Public services / Utility). Corresponds to CSI OmniClass 11-31 40 17 "Water Treatment / Distribution Facility". This concept comes from the Energy Star property type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:FireStation
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Fire Station" ;
+  rdfs:subClassOf rec:Building ;
+  skos:definition """Fire Station refers to buildings used to house and deploy land-based fire suppression equipment, personnel, and apparatuses in response to a fire. It can also offer lifesaving services, in response to an emergency. Fire stations may be staffed by volunteer, full-time career, or a hybrid mix of volunteer and career firefighters, in addition to any administrative supporting staff (if applicable). Gross Floor Area should include all space within the building(s), including but not limited to office areas, classrooms, vehicle storage and maintenance areas, residential areas such as dormitories or bunk areas (if applicable), equipment storage and maintenance areas, break rooms, recreation and fitness rooms, restrooms, kitchens, elevator shafts, and stairwells."""@en ;
+  rdfs:seeAlso <https://portfoliomanager.energystar.gov/pm/glossary#FireStation> ;
+  rdfs:comment """Energy Star Portfolio Manager property type: "Fire Station" (Public services). Corresponds to CSI OmniClass 11-71 20 11 "Fire Station / Emergency Services Facility". BREEAM USA: Government services: Fire station. This concept comes from the Energy Star property type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:LibraryBuilding
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Library" ;
+  rdfs:subClassOf rec:Building ;
+  skos:definition """Library refers to buildings used to store and manage collections of literary and artistic materials such as books, periodicals, newspapers, films, etc. that can be used for reference or lending. Gross Floor Area should include all space within the building(s), including but not limited to circulation rooms, storage areas, reading/study rooms, restrooms, administrative space, kitchens used by staff, lobbies, conference rooms and auditoriums, fitness areas for staff, storage areas, stairways, and elevator shafts."""@en ;
+  rdfs:seeAlso <https://portfoliomanager.energystar.gov/pm/glossary#Library> ;
+  rdfs:comment """Energy Star Portfolio Manager property type: "Library" (Public services). Corresponds to CSI OmniClass 11-61 70 11 "Public Library". BREEAM USA: Community: Library. This concept comes from the Energy Star property type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:MailingCenterPostOffice
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Mailing Center/Post Office" ;
+  rdfs:subClassOf rec:Building ;
+  skos:definition """Mailing Center/Post Office refers to buildings used as establishments dedicated to mail and mailing supplies. This includes government operated Post Offices and Post Depots, in addition to private retailers that offer priority mail services and mailing supplies. Gross Floor Area should include all space within the building(s), including but not limited to retail counters, administrative space, kitchens used by staff, lobbies, conference rooms, storage areas, stairways, and mechanical rooms. This should not include exterior/outdoor loading bays or docks. To be eligible for the Mailing Center/Post Office score in Canada, buildings must deliver mail or parcels directly to customers. Buildings that maintain an inventory of goods or have a high degree of automated mechanical sortation should benchmark as Distribution Center. Buildings that serve as air cargo terminals should benchmark as Other."""@en ;
+  rdfs:seeAlso <https://portfoliomanager.energystar.gov/pm/glossary#MailingCenterPostOffice> ;
+  rdfs:comment """Energy Star Portfolio Manager property type: "Mailing Center/Post Office" (Public services). Corresponds to CSI OmniClass 11-71 10 14 "Post Office / Mail Processing Facility". This concept comes from the Energy Star property type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:PoliceStation
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Police Station" ;
+  rdfs:subClassOf rec:Building ;
+  skos:definition """Police Station applies to buildings used for federal, state, or local police forces and their associated office space. Gross Floor Area should include all space within the building(s), including offices, temporary holding cells, kitchens used by staff, lobbies, atriums, conference rooms and auditoriums, fitness areas for staff, storage areas, stairways, and elevator shafts."""@en ;
+  rdfs:seeAlso <https://portfoliomanager.energystar.gov/pm/glossary#PoliceStation> ;
+  rdfs:comment """Energy Star Portfolio Manager property type: "Police Station" (Public services). Corresponds to CSI OmniClass 11-71 20 14 "Police Station / Law Enforcement Facility". BREEAM USA: Government services: Police station. This concept comes from the Energy Star property type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:TransportationTerminalStation
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Transportation Terminal/Station" ;
+  rdfs:subClassOf rec:Building ;
+  skos:definition """Transportation Terminal/Station applies to buildings used primarily for accessing public or private transportation. This includes train stations, bus stations, airports, and seaports. These terminals include areas for ticket purchases, and embarkation/disembarkation, and may also include public waiting areas with restaurants and other concessions. Gross Floor Area should include all space within the building(s), including boarding areas, waiting areas, administrative space, kitchens used by staff, lobbies, restaurants, cafeterias, stairways, atria, elevator shafts, and storage areas. This should not include any exterior spaces associated with the terminals, such as drop-off areas, outdoor platforms, or outdoor loading docks/bays."""@en ;
+  rdfs:seeAlso <https://portfoliomanager.energystar.gov/pm/glossary#TransportationTerminalStation> ;
+  rdfs:comment """Energy Star Portfolio Manager property type: "Transportation Terminal/Station" (Public services). Corresponds to CSI OmniClass 11-41 00 00 "Transportation Facilities". BREEAM USA: Airport: Airport terminal. This concept comes from the Energy Star property type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:WastewaterTreatmentPlant
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Wastewater Treatment Plant" ;
+  rdfs:subClassOf rec:Building ;
+  skos:definition """Wastewater Treatment Plant refers to facilities designed to treat municipal wastewater. The level of treatment at a plant will vary based on the BOD limits and the specific processes involved. This property use is intended for primary, secondary, and advanced treatment facilities with or without nutrient removal. Treatment processes may include biological, chemical, and physical treatment. This property use does not apply to drinking water treatment and distribution facilities. Gross Floor Area should include all interior areas including treatment areas, administrative offices, stairways, hallways and mechanical rooms. The Gross Floor Area should not include any exterior portions of the facility, such as retention or settling ponds. Although not typically used for normalization at plants, Gross Floor Area is a required system input for all properties. To receive an ENERGY STAR score, your Wastewater Treatment Plant must have a daily flow of at least 0.6 Million Gallons per Day (MGD)."""@en ;
+  rdfs:seeAlso <https://portfoliomanager.energystar.gov/pm/glossary#WastewaterTreatmentPlant> ;
+  rdfs:comment """Energy Star Portfolio Manager property type: "Wastewater Treatment Plant" (Public services / Utility). Corresponds to CSI OmniClass 11-31 40 21 "Wastewater Treatment Facility". This concept comes from the Energy Star property type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:WorshipFacility
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Worship Facility" ;
+  rdfs:subClassOf rec:Building ;
+  skos:definition """Worship Facility refers to buildings that are used as places of worship. This includes churches, temples, mosques, synagogues, meetinghouses, or any other buildings that primarily function as a place of religious worship. Gross Floor Area should include all areas inside the building that includes the primary worship area, including food preparation, community rooms, classrooms, and supporting areas such as restrooms, storage areas, hallways, and elevator shafts. The ENERGY STAR score for Worship Facilities applies to buildings that function as the primary place of worship and not to other buildings that may be associated with a religious organization, such as living quarters, schools, or buildings used primarily for other community activities. To receive an ENERGY STAR score, a Worship facility must have at least 25 seats, but cannot have more than 4,000."""@en ;
+  rdfs:seeAlso <https://portfoliomanager.energystar.gov/pm/glossary#WorshipFacility> ;
+  rdfs:comment """Energy Star Portfolio Manager property type: "Worship Facility" (Religious worship). Corresponds to CSI OmniClass 11-81 10 00 "Worship Facility". BREEAM USA: Community: Place of worship. This concept comes from the Energy Star property type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:EnclosedMall
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Enclosed Mall" ;
+  rdfs:subClassOf rec:ShoppingMall ;
+  skos:definition """Enclosed Mall refers to buildings that house multiple stores, often “anchored” by one or more department stores, and with interior walkways. Most stores will not have entrances accessible from outside, with the exception of the “anchor” stores. Gross Floor Area should include all space within the building(s), including but not limited to retail stores, offices, food courts, restaurants, restrooms, storage areas, staff break rooms, atriums, walkways, stairwells, and mechanical rooms."""@en ;
+  rdfs:seeAlso <https://portfoliomanager.energystar.gov/pm/glossary#EnclosedMall> ;
+  rdfs:comment """Energy Star Portfolio Manager property type: "Enclosed Mall" (Retail). Corresponds to CSI OmniClass 11-21 10 24 "Shopping Mall / Retail Complex". This concept comes from the Energy Star property type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:LifestyleCenter
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Lifestyle Center" ;
+  rdfs:subClassOf rec:ShoppingMall ;
+  skos:definition """Lifestyle Center refers to a mixed use commercial development that includes retail stores and leisure amenities, where individual retail stores typically contain an entrance accessible from the outside and are not connected by internal walkways. Lifestyle centers have an open air design, unlike traditional enclosed malls, and often include landscaped pedestrian areas, as well as streets and vehicle parking. Gross Floor Area should include all space within the building(s), including but not limited to retail stores, offices, food courts, restaurants, restrooms, residential areas, storage areas, staff break rooms, stairwells, and mechanical areas. Do not include any exterior spaces such as pedestrian walkways or vehicle parking areas."""@en ;
+  rdfs:seeAlso <https://portfoliomanager.energystar.gov/pm/glossary#LifestyleCenter> ;
+  rdfs:comment """Energy Star Portfolio Manager property type: "Lifestyle Center" (Retail). Corresponds to CSI OmniClass 11-21 10 24 "Shopping Mall / Retail Complex". This concept comes from the Energy Star property type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:RetailStore
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Retail Store" ;
+  rdfs:subClassOf rec:Building ;
+  skos:definition """Retail Store refers to individual stores used to conduct the retail sale of non-food consumer goods such as Department Stores, Discount Stores, Drug Stores, Dollar Stores, Hardware Stores, and Apparel/Specialty Stores (e.g., books, clothing, office products, sporting goods, toys, home goods, and electronics). Buildings containing multiple stores should be classified as enclosed mall, lifestyle center, or strip mall. Gross Floor Area should include all space within the building(s), including sales areas, storage areas, offices staff break rooms, elevators, and stairwells. To receive an ENERGY STAR score, a Retail Store must be a single store that is at least 5,000 square feet (464.5 m 2 ) and has an exterior entrance to the public. Retail configurations eligible to receive an ENERGY STAR score/certification include: free standing stores individual stores in an open-air or strip mall anchor stores in enclosed malls Retail configurations NOT eligible to receive an ENERGY STAR score/certification include: enclosed malls individual stores located within enclosed malls (except those with an exterior entrance) lifestyle centers strip malls individual stores that are part of a larger non-mall building (i.e. office or hotel) Canadian restaurants are eligible to earn an ENERGY STAR score under the Restaurant property type. Supermarkets are eligible for an ENERGY STAR score under the Supermarket property type. Warehouse Clubs and Supercenters are eligible for an ENERGY STAR score under the Warehouse Club/Supercenter property type. Convenience stores are eligible for an ENERGY STAR score under the Convenience Store with Gas Station and Convenience Store without Gas Station property types. Vehicle Dealerships are eligible for an ENERGY STAR score under the Vehicle Dealerships property type."""@en ;
+  rdfs:seeAlso <https://portfoliomanager.energystar.gov/pm/glossary#RetailStore> ;
+  rdfs:comment """Energy Star Portfolio Manager property type: "Retail Store" (Retail). Corresponds to CSI OmniClass 11-21 10 11 "General Retail Store". BREEAM USA: Retail: Retail store. This concept comes from the Energy Star property type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:StripMall
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Strip Mall" ;
+  rdfs:subClassOf rec:ShoppingMall ;
+  skos:definition """Strip mall refers to buildings comprising more than one retail store, restaurant, or other business, in an open-air configuration where each establishment has an exterior entrance to the public and there are no internal walkways. Gross Floor Area should include all space within the building(s), including retail stores, offices, restaurants, storage areas, staff break rooms, and stairwells. Do not include any exterior spaces such as vehicle parking areas. Note that individual stores within strip malls may be eligible to receive an ENERGY STAR score if they are over 5,000 square feet in size and have an exterior entrance to the public."""@en ;
+  rdfs:seeAlso <https://portfoliomanager.energystar.gov/pm/glossary#StripMall> ;
+  rdfs:comment """Energy Star Portfolio Manager property type: "Strip Mall" (Retail). Corresponds to CSI OmniClass 11-21 10 24 "Shopping Mall / Retail Complex". This concept comes from the Energy Star property type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:VehicleDealership
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Vehicle Dealership" ;
+  rdfs:subClassOf rec:Building ;
+  skos:definition """Vehicle Dealership refers to buildings used for the sale of new or used light-, medium- and heavy-duty cars and trucks. Vehicle Dealership may include space for vehicle servicing and repair. Gross Floor Area should include all space within the building(s), including sales floors, offices, conference rooms, vehicle service areas, parts storage areas, waiting rooms, staff break rooms, restrooms, hallways, and stairwells. Gross Floor Area should not include any exterior spaces such as vehicle parking areas. To be eligible for the Vehicle Dealership score in Canada, buildings must have a paint or repair bay."""@en ;
+  rdfs:seeAlso <https://portfoliomanager.energystar.gov/pm/glossary#AutomobileDealership> ;
+  rdfs:comment """Energy Star Portfolio Manager property type: "Vehicle Dealership" (Retail). Corresponds to CSI OmniClass 11-21 60 11 "Automobile Dealership". This concept comes from the Energy Star property type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:DataCenter
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Data Center" ;
+  rdfs:subClassOf rec:Building ;
+  skos:definition """Data Center refers to buildings specifically designed and equipped to meet the needs of high density computing equipment, such as server racks, used for data storage and processing. Typically these facilities require dedicated uninterruptible power supplies and cooling systems. Data center functions may include traditional enterprise services, on-demand enterprise services, high performance computing, internet facilities, and/or hosting facilities. Often Data Centers are free standing, mission critical computing centers. When a data center is located within a larger building, it will usually have its own power and cooling systems, and require a constant power load of 75 kW or more. Data Center is intended for sophisticated computing and server functions; it should not be used to represent a server closet or computer training area. Gross Floor Area should include all space within the building(s), including but not limited to raised floor computing space, server rack aisles, storage silos, control console areas, battery rooms, mechanical rooms for cooling equipment, administrative office areas, elevator shafts, stairways, break rooms and restrooms. When a data center is located within a larger building, include only the spaces that are uniquely associated with the data center in the gross floor area. For example, do not include spaces shared by the data center and other tenants, such as break rooms or hallways."""@en ;
+  rdfs:seeAlso <https://portfoliomanager.energystar.gov/pm/glossary#DataCenter> ;
+  rdfs:comment """Energy Star Portfolio Manager property type: "Data Center" (Services / Technology/science). Corresponds to CSI OmniClass 11-91 20 11 "Data Center / Server Farm". This concept comes from the Energy Star property type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:LaboratoryBuilding
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Laboratory" ;
+  rdfs:subClassOf rec:Building ;
+  skos:definition """Laboratory refers to buildings that provide controlled conditions in which scientific research, measurement, and experiments are performed or practical science is taught. Gross Floor Area should include all space within the building(s), including but not limited to workstations/hoods, offices, conference rooms, restrooms, storage areas, decontamination rooms, mechanical rooms, elevator shafts, and stairwells."""@en ;
+  rdfs:seeAlso <https://portfoliomanager.energystar.gov/pm/glossary#Laboratory> ;
+  rdfs:comment """Energy Star Portfolio Manager property type: "Laboratory" (Technology/science). Corresponds to CSI OmniClass 11-61 50 00 "Research Facility". BREEAM USA: Commercial Laboratory: Laboratory. This concept comes from the Energy Star property type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:PersonalServices
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Personal Services (Health/Beauty, Dry Cleaning, etc.)" ;
+  rdfs:subClassOf rec:Building ;
+  skos:definition """Personal Services refers to buildings used to sell services rather than physical goods. Examples include dry cleaners, salons, spas, etc. Gross Floor Area should include all space within the building(s), including sales floors, offices, storage areas, staff break rooms, walkways, and stairwells."""@en ;
+  rdfs:seeAlso <https://portfoliomanager.energystar.gov/pm/glossary#PersonalServices> ;
+  rdfs:comment """Energy Star Portfolio Manager property type: "Personal Services (Health/Beauty, Dry Cleaning, etc.)" (Services). BREEAM USA: Retail: Retail services. This concept comes from the Energy Star property type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:RepairServices
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Repair Services (Vehicle, Shoe, Locksmith, etc.)" ;
+  rdfs:subClassOf rec:Building ;
+  skos:definition """Vehicle Repair Services refers to buildings in which vehicle servicing and repair occurs. For Canadian properties: Vehicle types serviced are limited to buses, light-, medium- and heavy-duty cars and trucks. Gross Floor Area should include all space within the building(s), including sales floors, repair areas, workshops, offices, parts storage areas, waiting rooms, staff break rooms, hallways, and stairwells."""@en ;
+  rdfs:seeAlso <https://portfoliomanager.energystar.gov/pm/glossary#RepairServices> ;
+  rdfs:comment """Energy Star Portfolio Manager property type: "Repair Services (Vehicle, Shoe, Locksmith, etc.)" (Services). Corresponds to CSI OmniClass 11-21 50 11 "Auto Repair / Service Garage". This concept comes from the Energy Star property type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:EnergyPowerStation
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Energy/Power Station" ;
+  rdfs:subClassOf rec:Building ;
+  skos:definition """Energy/Power Station applies to buildings containing machinery and/or associated equipment for generating electricity or district heat (steam, hot water, or chilled water) from a raw fuel, including fossil fuel power plants, traditional district heat power plants, combined heat and power plants, nuclear reactors, hydroelectric dams, or facilities associated with a solar or wind farm. Gross Floor Area should include all space within the building(s), including but not limited to power generation areas (boilers, turbines etc), administrative space, cooling towers, kitchens used by staff, lobbies, meeting rooms, restrooms, cafeterias, stairways, elevator shafts, and storage areas (which may include fossil fuel storage tanks or bins). This should not include any exterior spaces associated with the power stations."""@en ;
+  rdfs:seeAlso <https://portfoliomanager.energystar.gov/pm/glossary#EnergyPowerStation> ;
+  rdfs:comment """Energy Star Portfolio Manager property type: "Energy/Power Station" (Utility). Corresponds to CSI OmniClass 11-31 40 11 "Power Generation Facility". This concept comes from the Energy Star property type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:SelfStorageFacility
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Self-Storage Facility" ;
+  rdfs:subClassOf rec:Building ;
+  skos:definition """Self-Storage Facility refers to buildings that are used for private storage. Typically, a single Self Storage Facility will contain a variety of individual units that are rented out for the purpose of storing personal belongings. Gross Floor Area should include all space within the building(s), including individual storage units, administrative offices, security and maintenance areas, mechanical rooms, hallways, stairways, and elevator shafts. This should not include exterior/outdoor loading bays or docks."""@en ;
+  rdfs:seeAlso <https://portfoliomanager.energystar.gov/pm/glossary#SelfStorageFacility> ;
+  rdfs:comment """Energy Star Portfolio Manager property type: "Self-Storage Facility" (Warehouse/storage). Corresponds to CSI OmniClass 11-31 50 21 "Self-Storage Facility". This concept comes from the Energy Star property type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:DistributionCenter
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Distribution Center" ;
+  rdfs:subClassOf rec:Building ;
+  skos:definition """Distribution Center refers to unrefrigerated buildings that are used for the temporary storage and redistribution of goods, manufactured products, merchandise or raw materials. Buildings that are used primarily for assembling, modifying, manufacturing, or growing goods, products, merchandise or raw material should be classified as Manufacturing Facility. Gross Floor Area should include all space within the building(s), including but not limited to space designed to store non-perishable goods and merchandise, offices, lobbies, stairways, restrooms, equipment storage areas, and elevator shafts. This should not include exterior/outdoor loading bays or docks."""@en ;
+  rdfs:seeAlso <https://portfoliomanager.energystar.gov/pm/glossary#DistributionCenter> ;
+  rdfs:comment """Energy Star Portfolio Manager property type: "Distribution Center" (Warehouse/storage). Corresponds to CSI OmniClass 11-31 50 17 "Distribution Center". BREEAM USA: Industrial: Distribution and storage. This concept comes from the Energy Star property type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:NonRefrigeratedWarehouse
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Non-Refrigerated Warehouse" ;
+  rdfs:subClassOf rec:Building ;
+  skos:definition """Non-Refrigerated Warehouse refers to unrefrigerated buildings that are used to store goods, manufactured products, merchandise or raw materials. Buildings that are used primarily for assembling, modifying, manufacturing, or growing goods, products, merchandise or raw material should be classified as Manufacturing Facility. Gross Floor Area should include all space within the building(s), including but not limited to storage rooms, administrative office offices, lobbies, stairways, restrooms, equipment storage areas, and elevator shafts. This should not include exterior/outdoor loading bays or docks."""@en ;
+  rdfs:seeAlso <https://portfoliomanager.energystar.gov/pm/glossary#NonRefrigeratedWarehouse> ;
+  rdfs:comment """Energy Star Portfolio Manager property type: "Non-Refrigerated Warehouse" (Warehouse/storage). Corresponds to CSI OmniClass 11-31 50 11 "Non-Refrigerated Warehouse". BREEAM USA: Retail: Distribution warehouse. This concept comes from the Energy Star property type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:RefrigeratedWarehouse
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Refrigerated Warehouse" ;
+  rdfs:subClassOf rec:Building ;
+  skos:definition """Refrigerated Warehouse refers to refrigerated buildings that are used to store or redistribute perishable goods or merchandise under refrigeration at temperatures below 50 degrees Fahrenheit (10 degrees Celsius). Buildings that are used primarily for assembling, modifying, manufacturing, or growing goods, products, merchandise or raw material should be classified as Manufacturing Facility. Gross Floor Area should include all space within the building(s), which includes temperature-controlled areas, administrative offices, lobbies, stairways, restrooms, equipment storage areas, and elevator shafts. This should not include exterior/outdoor loading bays or docks."""@en ;
+  rdfs:seeAlso <https://portfoliomanager.energystar.gov/pm/glossary#RefrigeratedWarehouse> ;
+  rdfs:comment """Energy Star Portfolio Manager property type: "Refrigerated Warehouse" (Warehouse/storage). Corresponds to CSI OmniClass 11-31 50 14 "Refrigerated / Cold Storage Warehouse". This concept comes from the Energy Star property type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+### Wave 2: additional building types sourced directly from CSI OmniClass Table 11
+### and BREEAM USA asset types (https://github.com/BrickSchema/Brick/issues/784),
+### covering types Energy Star's property-type list does not include on its own.
+### These concepts should be proposed to the REC ontology; they are defined here only
+### temporarily until that happens. NOT YET SUBMITTED UPSTREAM -- for local review only.
+
+### --- from CSI OmniClass Table 11 ---
+
+rec:DetachedSingleFamilyResidence
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Detached Single Family Residence" ;
+  rdfs:subClassOf rec:SingleFamilyHome ;
+  skos:definition """A single family residence that is entirely surrounded by open space on the same lot."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-11 10 11 "Detached Single Family Residence". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:AttachedSingleFamilyResidence
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Attached Single Family Residence" ;
+  rdfs:subClassOf rec:SingleFamilyHome ;
+  skos:definition """A single family residence that shares one or more walls with another dwelling unit, such as a townhouse or row house."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-11 10 14 "Attached Single Family Residence". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:Duplex
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Duplex" ;
+  rdfs:subClassOf rec:MultifamilyHousing ;
+  skos:definition """A residential building divided into two separate dwelling units."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-11 20 11 "Duplex". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:TriplexFourplex
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Triplex / Fourplex" ;
+  rdfs:subClassOf rec:MultifamilyHousing ;
+  skos:definition """A residential building divided into three or four separate dwelling units."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-11 20 14 "Triplex / Fourplex". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:LowRiseMultipleFamilyResidence
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Low-Rise Multiple Family Residence" ;
+  rdfs:subClassOf rec:MultifamilyHousing ;
+  skos:definition """An apartment or condominium building of typically 1-3 stories, containing five or more units."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-11 30 11 "Low-Rise Multiple Family Residence". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:MidRiseMultipleFamilyResidence
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Mid-Rise Multiple Family Residence" ;
+  rdfs:subClassOf rec:MultifamilyHousing ;
+  skos:definition """An apartment or condominium building of typically 4-9 stories containing multiple dwelling units."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-11 30 14 "Mid-Rise Multiple Family Residence". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:HighRiseMultipleFamilyResidence
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "High-Rise Multiple Family Residence" ;
+  rdfs:subClassOf rec:MultifamilyHousing ;
+  skos:definition """A residential building of 10 or more stories containing multiple dwelling units."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-11 30 17 "High-Rise Multiple Family Residence". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:BedAndBreakfastInn
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Bed and Breakfast / Inn" ;
+  rdfs:subClassOf rec:Hotel ;
+  skos:definition """A small transient lodging facility typically operated in a residential building offering rooms and breakfast."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-11 40 14 "Bed and Breakfast / Inn". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:Hostel
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Hostel" ;
+  rdfs:subClassOf rec:Hotel ;
+  skos:definition """A transient lodging facility offering shared or private dormitory-style accommodation, typically at lower cost."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-11 40 17 "Hostel". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:VacationResortFacility
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Vacation / Resort Facility" ;
+  rdfs:subClassOf rec:Hotel ;
+  skos:definition """A transient lodging facility intended for recreational stays, often in scenic or leisure destinations."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-11 40 21 "Vacation / Resort Facility". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:ShelterTransitionalHousing
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Shelter / Transitional Housing" ;
+  rdfs:subClassOf rec:Building ;
+  skos:definition """A residential facility providing temporary housing for individuals in need, such as homeless shelters or domestic violence shelters."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-11 50 21 "Shelter / Transitional Housing". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:SpecialtyRetailStore
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Specialty Retail Store" ;
+  rdfs:subClassOf rec:RetailStore ;
+  skos:definition """A facility selling a specific category of consumer goods such as apparel, electronics."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-21 10 14 "Specialty Retail Store". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:CafeCoffeeShop
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "CafÃ© / Coffee Shop" ;
+  rdfs:subClassOf rec:FoodService ;
+  skos:definition """A food service facility primarily serving beverages and light food items in a casual setting."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-21 20 17 "CafÃ© / Coffee Shop". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:CateringBanquetFacility
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Catering / Banquet Facility" ;
+  rdfs:subClassOf rec:FoodService ;
+  skos:definition """A food service facility specializing in providing catering services for events and large gatherings."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-21 20 24 "Catering / Banquet Facility". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:CarWashFacility
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Car Wash Facility" ;
+  rdfs:subClassOf rec:Building ;
+  skos:definition """A facility designed for the washing and detailing of motor vehicles."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-21 50 14 "Car Wash Facility". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:FuelStationGasStation
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Fuel Station / Gas Station" ;
+  rdfs:subClassOf rec:Building ;
+  skos:definition """A facility providing fuel and basic vehicle services to motorists."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-21 50 17 "Fuel Station / Gas Station". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:FullServiceHotelResort
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Full-Service Hotel / Resort" ;
+  rdfs:subClassOf rec:Hotel ;
+  skos:definition """A large lodging facility offering comprehensive amenities including dining, fitness, spa, and meeting facilities."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-21 80 11 "Full-Service Hotel / Resort". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:ConferenceMeetingHotel
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Conference / Meeting Hotel" ;
+  rdfs:subClassOf rec:Hotel ;
+  skos:definition """A lodging facility with significant dedicated meeting and conference space as a primary offering."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-21 80 14 "Conference / Meeting Hotel". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:AgriculturalFacility
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Agricultural Facility" ;
+  rdfs:subClassOf rec:Building ;
+  skos:definition """A facility used in the production, storage, or processing of agricultural products."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-31 10 00 "Agricultural Facility". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:BarnFarmBuilding
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Barn / Farm Building" ;
+  rdfs:subClassOf rec:AgriculturalFacility ;
+  skos:definition """A structure on a farm used for housing livestock, storing equipment or feed, or processing agricultural products."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-31 10 11 "Barn / Farm Building". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:GreenhouseHorticulturalFacility
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Greenhouse / Horticultural Facility" ;
+  rdfs:subClassOf rec:AgriculturalFacility ;
+  skos:definition """A structure used for cultivating plants under controlled environmental conditions."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-31 10 14 "Greenhouse / Horticultural Facility". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:GrainElevatorSilo
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Grain Elevator / Silo" ;
+  rdfs:subClassOf rec:AgriculturalFacility ;
+  skos:definition """A facility used for the storage and handling of grain and other bulk agricultural products."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-31 10 17 "Grain Elevator / Silo". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:MiningFacility
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Mining Facility" ;
+  rdfs:subClassOf rec:Building ;
+  skos:definition """A facility associated with the extraction of minerals, ores, coal, or other natural resources from the earth."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-31 20 00 "Mining Facility". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:MineQuarryStructure
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Mine / Quarry Structure" ;
+  rdfs:subClassOf rec:MiningFacility ;
+  skos:definition """Structures associated with underground or open-pit mining operations."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-31 20 11 "Mine / Quarry Structure". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:MineralProcessingFacility
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Mineral Processing Facility" ;
+  rdfs:subClassOf rec:MiningFacility ;
+  skos:definition """A facility for the initial processing or beneficiation of extracted minerals or ores."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-31 20 14 "Mineral Processing Facility". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:LightManufacturingAssemblyFacility
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Light Manufacturing / Assembly Facility" ;
+  rdfs:subClassOf rec:ManufacturingIndustrialPlant ;
+  skos:definition """A facility used for the assembly or light fabrication of goods not involving heavy industrial processes."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-31 30 11 "Light Manufacturing / Assembly Facility". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:FoodAndBeverageProcessingFacility
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Food and Beverage Processing Facility" ;
+  rdfs:subClassOf rec:ManufacturingIndustrialPlant ;
+  skos:definition """A facility used for the processing and packaging of food or beverage products."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-31 30 17 "Food and Beverage Processing Facility". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:PharmaceuticalLifeSciencesManufacturingFacility
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Pharmaceutical / Life Sciences Manufacturing Facility" ;
+  rdfs:subClassOf rec:ManufacturingIndustrialPlant ;
+  skos:definition """A controlled-environment facility used for the production of pharmaceutical or biotechnology products."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-31 30 21 "Pharmaceutical / Life Sciences Manufacturing Facility". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:ElectricalSubstation
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Electrical Substation" ;
+  rdfs:subClassOf rec:Building ;
+  skos:definition """A facility used for the transformation and distribution of electrical power."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-31 40 14 "Electrical Substation". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:TelecommunicationsInfrastructureFacility
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Telecommunications Infrastructure Facility" ;
+  rdfs:subClassOf rec:Building ;
+  skos:definition """A facility housing telecommunications equipment such as switching centers, data transmission, and broadcast towers."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-31 40 24 "Telecommunications Infrastructure Facility". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:BulkLiquidGasStorageFacility
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Bulk Liquid / Gas Storage Facility" ;
+  rdfs:subClassOf rec:Building ;
+  skos:definition """A facility for the storage of bulk liquids, gases, or hazardous materials such as tanks or tank farms."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-31 50 24 "Bulk Liquid / Gas Storage Facility". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:RefineryChemicalPlant
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Refinery / Chemical Plant" ;
+  rdfs:subClassOf rec:Building ;
+  skos:definition """A facility for the refining of petroleum products or the production of chemicals."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-31 60 11 "Refinery / Chemical Plant". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:SubwayMetroStation
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Subway / Metro Station" ;
+  rdfs:subClassOf rec:TransportationTerminalStation ;
+  skos:definition """A station providing access to an underground or grade-separated urban rail system."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-41 10 14 "Subway / Metro Station". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:LightRailTramStop
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Light Rail / Tram Stop" ;
+  rdfs:subClassOf rec:TransportationTerminalStation ;
+  skos:definition """A station or stop serving a light rail or tram system."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-41 10 17 "Light Rail / Tram Stop". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:RailwayStationTerminal
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Railway Station / Terminal" ;
+  rdfs:subClassOf rec:TransportationTerminalStation ;
+  skos:definition """A facility serving intercity or regional passenger rail services."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-41 20 11 "Railway Station / Terminal". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:BusTerminalIntercity
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Bus Terminal (Intercity)" ;
+  rdfs:subClassOf rec:TransportationTerminalStation ;
+  skos:definition """A facility serving long-distance or intercity coach services."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-41 20 14 "Bus Terminal (Intercity)". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:TruckTerminalFreightDepot
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Truck Terminal / Freight Depot" ;
+  rdfs:subClassOf rec:TransportationTerminalStation ;
+  skos:definition """A facility for the loading and unloading of freight carried by trucks or rail."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-41 30 11 "Truck Terminal / Freight Depot". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:AirportTerminal
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Airport Terminal" ;
+  rdfs:subClassOf rec:TransportationTerminalStation ;
+  skos:definition """A passenger terminal facility at an airport for check-in, security."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-41 40 11 "Airport Terminal". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:AirCargoFacility
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Air Cargo Facility" ;
+  rdfs:subClassOf rec:TransportationTerminalStation ;
+  skos:definition """A facility at an airport dedicated to the handling and storage of air freight."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-41 40 14 "Air Cargo Facility". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:Heliport
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Heliport" ;
+  rdfs:subClassOf rec:TransportationTerminalStation ;
+  skos:definition """A facility designed for helicopter take-off and landing."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-41 40 17 "Heliport". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:PortMarineTerminal
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Port / Marine Terminal" ;
+  rdfs:subClassOf rec:TransportationTerminalStation ;
+  skos:definition """A facility for the docking and servicing of ships and the loading or unloading of cargo."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-41 50 11 "Port / Marine Terminal". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:FerryTerminalPassengerMarineTerminal
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Ferry Terminal / Passenger Marine Terminal" ;
+  rdfs:subClassOf rec:TransportationTerminalStation ;
+  skos:definition """A facility serving passenger ferry or cruise ship operations."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-41 50 14 "Ferry Terminal / Passenger Marine Terminal". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:MarinaSmallCraftHarbor
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Marina / Small Craft Harbor" ;
+  rdfs:subClassOf rec:TransportationTerminalStation ;
+  skos:definition """A facility providing docking and services for recreational or small commercial vessels."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-41 50 17 "Marina / Small Craft Harbor". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:SpecialtyHospital
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Specialty Hospital" ;
+  rdfs:subClassOf rec:Hospital ;
+  skos:definition """A hospital focusing on a specific medical discipline such as orthopedics, oncology, or psychiatry."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-51 10 14 "Specialty Hospital". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:ChildrensHospital
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Children's Hospital" ;
+  rdfs:subClassOf rec:Hospital ;
+  skos:definition """An inpatient facility dedicated to the medical care of pediatric patients."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-51 10 17 "Children's Hospital". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:RehabilitationHospital
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Rehabilitation Hospital" ;
+  rdfs:subClassOf rec:Hospital ;
+  skos:definition """An inpatient facility providing intensive physical, occupational, or speech therapy rehabilitation."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-51 10 21 "Rehabilitation Hospital". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:DialysisCenter
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Dialysis Center" ;
+  rdfs:subClassOf rec:Building ;
+  skos:definition """A facility providing renal dialysis treatment on an outpatient basis."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-51 20 21 "Dialysis Center". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:NursingHomeSkilledNursingFacility
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Nursing Home / Skilled Nursing Facility" ;
+  rdfs:subClassOf rec:ResidentialCareFacility ;
+  skos:definition """An extended care facility providing 24-hour nursing care for elderly or disabled residents, including clinical services."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-51 30 11 "Nursing Home / Skilled Nursing Facility". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:AssistedLivingFacility
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Assisted Living Facility" ;
+  rdfs:subClassOf rec:SeniorLivingCommunity ;
+  skos:definition """A residential facility providing supportive services for elderly or disabled individuals who require assistance but not full nursing care."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-51 30 14 "Assisted Living Facility". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:MemoryCareDementiaFacility
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Memory Care / Dementia Facility" ;
+  rdfs:subClassOf rec:SeniorLivingCommunity ;
+  skos:definition """A specialized residential care facility for individuals with Alzheimer's disease or other forms of dementia."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-51 30 17 "Memory Care / Dementia Facility". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:ContinuingCareRetirementCommunity
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Continuing Care Retirement Community" ;
+  rdfs:subClassOf rec:SeniorLivingCommunity ;
+  skos:definition """A campus or facility offering a continuum of residential care from independent living through skilled nursing, allowing aging in place."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-51 30 21 "Continuing Care Retirement Community". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:MedicalLaboratory
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Medical Laboratory" ;
+  rdfs:subClassOf rec:LaboratoryBuilding ;
+  skos:definition """A facility for clinical laboratory testing and analysis of biological specimens."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-51 40 11 "Medical Laboratory". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:MedicalImagingCenter
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Medical Imaging Center" ;
+  rdfs:subClassOf rec:MedicalOffice ;
+  skos:definition """A facility providing radiological imaging services such as MRI, CT."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-51 40 14 "Medical Imaging Center". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:MentalHealthBehavioralHealthFacility
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Mental Health / Behavioral Health Facility" ;
+  rdfs:subClassOf rec:Building ;
+  skos:definition """A facility providing inpatient or outpatient psychiatric, psychological, or behavioral health services."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-51 50 11 "Mental Health / Behavioral Health Facility". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:DentalClinicOffice
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Dental Clinic / Office" ;
+  rdfs:subClassOf rec:MedicalOffice ;
+  skos:definition """A facility providing dental care and oral health services."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-51 50 14 "Dental Clinic / Office". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:DayCareNursery
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Day Care / Nursery" ;
+  rdfs:subClassOf rec:PreschoolDaycare ;
+  skos:definition """A facility providing supervised care and early learning activities for infants and young children."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-61 10 11 "Day Care / Nursery". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:PreSchoolKindergarten
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Pre-School / Kindergarten" ;
+  rdfs:subClassOf rec:PreschoolDaycare ;
+  skos:definition """A facility providing structured early childhood education to children before primary school entry."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-61 10 14 "Pre-School / Kindergarten". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:PrimaryElementarySchool
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Primary / Elementary School" ;
+  rdfs:subClassOf rec:K12School ;
+  skos:definition """A school providing education for children from kindergarten through approximately grade 6."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-61 20 11 "Primary / Elementary School". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:MiddleJuniorHighSchool
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Middle / Junior High School" ;
+  rdfs:subClassOf rec:K12School ;
+  skos:definition """A school providing education for adolescents typically in grades 6-8."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-61 20 14 "Middle / Junior High School". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:HighSchoolSecondarySchool
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "High School / Secondary School" ;
+  rdfs:subClassOf rec:K12School ;
+  skos:definition """A school providing education for adolescents typically in grades 9-12."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-61 20 17 "High School / Secondary School". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:TechnicalVocationalTrainingCenter
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Technical / Vocational Training Center" ;
+  rdfs:subClassOf rec:VocationalSchool ;
+  skos:definition """A facility providing hands-on training in skilled trades or technical disciplines."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-61 30 11 "Technical / Vocational Training Center". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:CommunityCollegeJuniorCollege
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Community College / Junior College" ;
+  rdfs:subClassOf rec:CollegeUniversity ;
+  skos:definition """An institution of higher education offering associate degree programs and vocational training."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-61 40 11 "Community College / Junior College". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:CollegeUniversityCampusBuilding
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "College / University Campus Building" ;
+  rdfs:subClassOf rec:CollegeUniversity ;
+  skos:definition """A building within a higher education institution, which may serve academic, administrative, residential, or recreational functions."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-61 40 14 "College / University Campus Building". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:AcademicUniversityResearchLaboratory
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Academic / University Research Laboratory" ;
+  rdfs:subClassOf rec:LaboratoryBuilding ;
+  skos:definition """A research facility associated with an educational institution conducting basic or applied research."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-61 50 11 "Academic / University Research Laboratory". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:CommercialPrivateResearchAndDevelopmentFacility
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Commercial / Private Research and Development Facility" ;
+  rdfs:subClassOf rec:LaboratoryBuilding ;
+  skos:definition """A research facility operated by a private organization for applied research or product development."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-61 50 14 "Commercial / Private Research and Development Facility". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:GeneralMuseum
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "General Museum" ;
+  rdfs:subClassOf rec:Museum ;
+  skos:definition """A museum presenting collections of broad interest such as natural history or science."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-61 60 11 "General Museum". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:ArtMuseumGallery
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Art Museum / Gallery" ;
+  rdfs:subClassOf rec:Museum ;
+  skos:definition """A museum or gallery dedicated to the exhibition of fine art or decorative arts."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-61 60 14 "Art Museum / Gallery". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:AcademicSpecialLibrary
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Academic / Special Library" ;
+  rdfs:subClassOf rec:LibraryBuilding ;
+  skos:definition """A library serving a specific institution or discipline such as a university or law library."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-61 70 14 "Academic / Special Library". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:ArchiveRecordsCenter
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Archive / Records Center" ;
+  rdfs:subClassOf rec:LibraryBuilding ;
+  skos:definition """A facility for the storage and preservation of historical documents or institutional records."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-61 70 17 "Archive / Records Center". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:GovernmentAdministrationBuilding
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Government Administration Building" ;
+  rdfs:subClassOf rec:Building ;
+  skos:definition """A facility housing government offices, agencies, or departments at the local, state, or national level."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-71 10 11 "Government Administration Building". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:EmergencyOperationsCenter
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Emergency Operations Center" ;
+  rdfs:subClassOf rec:Building ;
+  skos:definition """A facility used for coordinating emergency response operations."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-71 20 17 "Emergency Operations Center". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:JailDetentionCenter
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Jail / Detention Center" ;
+  rdfs:subClassOf rec:PrisonIncarceration ;
+  skos:definition """A facility for the short-term detention of individuals awaiting trial or sentencing."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-71 40 14 "Jail / Detention Center". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:JuvenileDetentionFacility
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Juvenile Detention Facility" ;
+  rdfs:subClassOf rec:PrisonIncarceration ;
+  skos:definition """A facility for the detention or residential care of juvenile offenders."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-71 40 17 "Juvenile Detention Facility". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:MilitaryBaseInstallation
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Military Base / Installation" ;
+  rdfs:subClassOf rec:Building ;
+  skos:definition """A facility used as a permanent operational base for military forces."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-71 50 11 "Military Base / Installation". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:MilitaryTrainingFacility
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Military Training Facility" ;
+  rdfs:subClassOf rec:Building ;
+  skos:definition """A facility used for the training of military personnel."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-71 50 14 "Military Training Facility". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:ChurchChapel
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Church / Chapel" ;
+  rdfs:subClassOf rec:WorshipFacility ;
+  skos:definition """A Christian place of worship."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-81 10 11 "Church / Chapel". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:Mosque
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Mosque" ;
+  rdfs:subClassOf rec:WorshipFacility ;
+  skos:definition """An Islamic place of worship."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-81 10 14 "Mosque". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:SynagogueJewishWorshipFacility
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Synagogue / Jewish Worship Facility" ;
+  rdfs:subClassOf rec:WorshipFacility ;
+  skos:definition """A Jewish place of worship and community gathering."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-81 10 17 "Synagogue / Jewish Worship Facility". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:TempleOtherWorshipFacility
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Temple / Other Worship Facility" ;
+  rdfs:subClassOf rec:WorshipFacility ;
+  skos:definition """A place of worship for Buddhist, Hindu, Sikh, or other religious traditions."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-81 10 21 "Temple / Other Worship Facility". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:ReligiousEducationParishHall
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Religious Education / Parish Hall" ;
+  rdfs:subClassOf rec:WorshipFacility ;
+  skos:definition """A facility associated with a religious institution used for education, community gatherings, or administration."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-81 20 11 "Religious Education / Parish Hall". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:RetreatConferenceCenterReligious
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Retreat / Conference Center (Religious)" ;
+  rdfs:subClassOf rec:WorshipFacility ;
+  skos:definition """A facility used for religious retreats or conferences."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-81 20 14 "Retreat / Conference Center (Religious)". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:BroadcastFacility
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Broadcast Facility" ;
+  rdfs:subClassOf rec:Building ;
+  skos:definition """A facility for television or radio broadcast production and transmission, including studios and transmitter buildings."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-91 10 11 "Broadcast Facility". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:TelecommunicationsCentralOfficeExchange
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Telecommunications Central Office / Exchange" ;
+  rdfs:subClassOf rec:Building ;
+  skos:definition """A facility housing telecommunications switching and routing equipment."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-91 10 14 "Telecommunications Central Office / Exchange". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:ColocationCarrierHotel
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Colocation / Carrier Hotel" ;
+  rdfs:subClassOf rec:DataCenter ;
+  skos:definition """A data center facility providing shared space and infrastructure for multiple tenants' IT equipment."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-91 20 14 "Colocation / Carrier Hotel". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:WasteTransferStation
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Waste Transfer Station" ;
+  rdfs:subClassOf rec:Building ;
+  skos:definition """A facility where solid waste is transferred from collection vehicles to larger transport vehicles."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-91 30 11 "Waste Transfer Station". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:MaterialsRecoveryRecyclingFacility
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Materials Recovery / Recycling Facility" ;
+  rdfs:subClassOf rec:Building ;
+  skos:definition """A facility for sorting and processing recyclable materials."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-91 30 14 "Materials Recovery / Recycling Facility". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:WasteToEnergyIncinerationFacility
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Waste-to-Energy / Incineration Facility" ;
+  rdfs:subClassOf rec:Building ;
+  skos:definition """A facility that processes waste to generate energy through combustion or other means."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-91 30 17 "Waste-to-Energy / Incineration Facility". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:LandfillSanitaryDisposalFacility
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Landfill / Sanitary Disposal Facility" ;
+  rdfs:subClassOf rec:Building ;
+  skos:definition """A site and associated structures for the controlled disposal of solid waste."""@en ;
+  rdfs:comment """Sourced from CSI OmniClass Table 11, code 11-91 30 21 "Landfill / Sanitary Disposal Facility". This concept comes from the CSI OmniClass Table 11 building-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+### --- from BREEAM USA asset types ---
+
+rec:CommunityHub
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Community hub" ;
+  rdfs:subClassOf rec:Building ;
+  rdfs:comment """Sourced from BREEAM USA asset type "Community: Community hub". This concept comes from the BREEAM USA asset-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:AmbulanceStation
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Ambulance station" ;
+  rdfs:subClassOf rec:Building ;
+  rdfs:comment """Sourced from BREEAM USA asset type "Healthcare: Ambulance station". This concept comes from the BREEAM USA asset-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:HospitalCottage
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Hospital: cottage (hospitals for smaller or segmented populations)" ;
+  rdfs:subClassOf rec:Hospital ;
+  rdfs:comment """Sourced from BREEAM USA asset type "Healthcare: Hospital: cottage (hospitals for smaller or segmented populations)". This concept comes from the BREEAM USA asset-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:HospitalLongStay
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Hospital: long stay (rehabilitation or chronic disease treatment)" ;
+  rdfs:subClassOf rec:Hospital ;
+  rdfs:comment """Sourced from BREEAM USA asset type "Healthcare: Hospital: long stay (rehabilitation or chronic disease treatment)". This concept comes from the BREEAM USA asset-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:HospitalTeachingSpecialist
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Hospital: teaching + specialist (typically larger than 320,000 ft2)" ;
+  rdfs:subClassOf rec:Hospital ;
+  rdfs:comment """Sourced from BREEAM USA asset type "Healthcare: Hospital: teaching + specialist (typically larger than 320,000 ft2)". This concept comes from the BREEAM USA asset-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:TownHall
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Town hall" ;
+  rdfs:subClassOf rec:GovernmentAdministrationBuilding ;
+  rdfs:comment """Sourced from BREEAM USA asset type "Government services: Town hall". This concept comes from the BREEAM USA asset-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:ShortStayHousingUnits
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Short stay housing units" ;
+  rdfs:subClassOf rec:ShelterTransitionalHousing ;
+  rdfs:comment """Sourced from BREEAM USA asset type "Supportive Housing: Short stay housing units". This concept comes from the BREEAM USA asset-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:DepartmentStore
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Department store" ;
+  rdfs:subClassOf rec:RetailStore ;
+  rdfs:comment """Sourced from BREEAM USA asset type "Retail: Department store". This concept comes from the BREEAM USA asset-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
+.
+
+rec:SmallFoodShop
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Small food shop" ;
+  rdfs:subClassOf rec:FoodSales ;
+  rdfs:comment """Sourced from BREEAM USA asset type "Retail: Small food shop". This concept comes from the BREEAM USA asset-type taxonomy and should be proposed to the REC ontology; it is defined here only temporarily.""" ;
 .
