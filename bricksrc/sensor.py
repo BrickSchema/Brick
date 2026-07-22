@@ -1407,8 +1407,15 @@ sensor_definitions = {
                     },
                 },
             },
-            "Cycle_Count_Sensor": {
-                "tags": [TAG.Point, TAG.Sensor, TAG.Cycle, TAG.Count],
+            "On_Off_Cycle_Count_Sensor": {
+                "tags": [
+                    TAG.Point,
+                    TAG.Sensor,
+                    TAG.On,
+                    TAG.Off,
+                    TAG.Cycle,
+                    TAG.Count,
+                ],
                 BRICK.hasQuantity: QUDTQK.Dimensionless,
                 "subclasses": {
                     "Power_Cycle_Count_Sensor": {
