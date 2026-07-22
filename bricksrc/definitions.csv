@@ -1020,7 +1020,6 @@ https://brickschema.org/schema/Brick#Return_Heating_Valve,A valve installed on t
 https://brickschema.org/schema/Brick#Return_Hot_Water,Hot water in the return side of a hot water loop,
 https://brickschema.org/schema/Brick#Return_Water,Water in the return side of a water loop,
 https://brickschema.org/schema/Brick#Reversing_Valve,,
-https://brickschema.org/schema/Brick#Riser,"A vertical shaft or space in a building that routes building services (such as pipes, ducts, cabling, or electrical conductors) between floors at different elevations, typically serving several branches along its run",
 https://brickschema.org/schema/Brick#Rooftop_Unit,"Packaged air conditioner mounted on a roof, the conditioned air being discharged directly into the rooms below or through a duct system.",
 https://brickschema.org/schema/Brick#Room_Air,,
 https://brickschema.org/schema/Brick#Room_Air_Temperature_Sensor,,
