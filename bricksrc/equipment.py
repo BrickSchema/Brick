@@ -15,6 +15,9 @@ equipment_subclasses = {
     "Plant": {
         "tags": [TAG.Equipment, TAG.Plant],
         "constraints": {
+            # duplicates the hasPoint constraint the Equipment shape already
+            # applies; kept here to document at the definition site that plants
+            # carry their own points, which is the motivation for the class
             BRICK.hasPoint: [BRICK.Point],
             REC.includes: [
                 BRICK.Equipment,
