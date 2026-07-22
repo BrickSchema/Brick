@@ -60,7 +60,7 @@ rec:Riser
   rdf:type sh:NodeShape ;
   rdfs:label "Riser" ;
   rdfs:comment "This concept definition comes from the Brick distribution until it is added in the REC ontology Turtle distribution." ;
-  rdfs:subClassOf rec:Room ;
+  rdfs:subClassOf rec:Architecture ;
   skos:definition "A vertical shaft or space in a building that routes building services (such as pipes, ducts, cabling, or electrical conductors) between floors at different elevations, typically serving several branches along its run" ;
 .
 
