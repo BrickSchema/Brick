@@ -1,6 +1,12 @@
-from .namespaces import BRICK, RDFS, SKOS, A, QUDTQK
+from .namespaces import BRICK, RDFS, SKOS, A, QUDTQK, REC
 
 deprecations = {
+    BRICK.Collection: {
+        "version": "1.5.0",
+        "mitigation_message": "Brick Collection is deprecated in favor of REC Collection to remove redundancy between the two ontologies.",
+        "replace_with": REC.Collection,
+        RDFS.subClassOf: BRICK.Entity,
+    },
     BRICK.Speed_Status: {
         "version": "1.4.0",
         "mitigation_message": "Speed Status is no longer necessary. Use Speed Mode Status for motors with various categorical speed settings, such as low, medium, and high. To further clarify, points representing the current speed of a variable speed fan as an analog value or input, use Speed Sensor.",
@@ -691,6 +697,15 @@ deprecations = {
         "version": "1.4.4",
         "mitigation_message": "Brick-defined quantity 'Reactive_Energy' is deprecated. Use QUDT quantitykind:ReactiveEnergy directly.",
         "replace_with": QUDTQK.ReactiveEnergy,
+    },
+    BRICK.Apparent_Energy: {
+        "version": "1.4.4",
+        "mitigation_message": "Brick-defined quantity 'Apparent_Energy' is deprecated. Use QUDT quantitykind:ApparentEnergy directly.",
+        "replace_with": QUDTQK.ApparentEnergy,
+    },
+    BRICK.Level: {
+        "version": "1.4.4",
+        "mitigation_message": "Brick-defined quantity 'Level' is deprecated. Use QUDT quantitykind:LiquidLevel directly for liquid level measurements.",
     },
     BRICK.Current_Imbalance: {
         "version": "1.4.4",

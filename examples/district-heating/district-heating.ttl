@@ -9,7 +9,7 @@
 @prefix rec: <https://w3id.org/rec#> .
 
 <http://example.com/district-heating> a owl:Ontology ;
-    owl:imports <https://brickschema.org/schema/1.4/Brick> .
+    owl:imports <https://brickschema.org/schema/1.5/Brick> .
 
 :building a brick:Building ;
     brick:isMeteredBy :building-meter .

@@ -38,8 +38,8 @@ ontology_imports = {
     "ref": "https://brickschema.org/schema/Brick/ref",
     "rec": "https://w3id.org/rec",
     "recimports": "https://w3id.org/rec/recimports",
-    "unit": "http://qudt.org/3.2.1/vocab/unit",
-    "quantitykind": "http://qudt.org/3.2.1/vocab/quantitykind",
+    "unit": "http://qudt.org/3.3.0/vocab/unit",
+    "quantitykind": "http://qudt.org/3.3.0/vocab/quantitykind",
 }
 
 shacl_namespace_declarations = [
@@ -83,7 +83,9 @@ shacl_namespace_declarations = [
     },
 ]
 
-BRICK_IRI_VERSION = URIRef(f"https://brickschema.org/schema/{BRICK_VERSION}/Brick")
+BRICK_IRI_VERSION = URIRef(
+    "https://brickschema.org/schema/{}/Brick".format(BRICK_VERSION)
+)
 
 
 def define_ontology(G):

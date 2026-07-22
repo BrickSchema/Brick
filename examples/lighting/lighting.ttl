@@ -6,12 +6,12 @@
 @prefix : <http://example.com/lighting#> .
 
 <http://example.com/lighting> a owl:Ontology ;
-    owl:imports <https://brickschema.org/schema/1.4/Brick> .
+    owl:imports <https://brickschema.org/schema/1.5/Brick> .
 
 :open_office a brick:Room .
 
 :lighting_system a brick:Lighting_System ;
-    brick:hasLocation :open_office ;
+    rec:locatedIn :open_office ;
     rec:includes :luminaire_1 .
 
 :luminaire_1 a brick:Luminaire ;

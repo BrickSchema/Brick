@@ -12,7 +12,9 @@ g.bind("bldg", BLDG)
 
 # add ontology definition
 g.add((BLDG["ontology"], A, OWL.Ontology))
-g.add((BLDG["ontology"], OWL.imports, URIRef("https://brickschema.org/schema/1.4/Brick")))
+g.add(
+    (BLDG["ontology"], OWL.imports, URIRef("https://brickschema.org/schema/1.5/Brick"))
+)
 
 # define a building in a site
 g.add((BLDG["mysite"], A, REC.Site))

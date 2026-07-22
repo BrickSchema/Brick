@@ -7,7 +7,7 @@
 @prefix ex: <http://example.org#> .
 
 <http://example.org> a owl:Ontology ;
-    owl:imports <https://brickschema.org/schema/1.4/Brick> .
+    owl:imports <https://brickschema.org/schema/1.5/Brick> .
 
 #  VAV (A-2 from G36)
 

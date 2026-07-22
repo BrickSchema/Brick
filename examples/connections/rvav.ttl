@@ -6,7 +6,7 @@
 
 
 <http://example.com/rvav_example> a owl:Ontology ;
-    owl:imports <https://brickschema.org/schema/1.4/Brick>,
+    owl:imports <https://brickschema.org/schema/1.5/Brick>,
                 <https://brickschema.org/extension/s223extension> .
 
 # define the VAV with air and water connection points
@@ -75,4 +75,3 @@
     rdfs:label "Pipe 2" ;
     s223:hasMedium s223:Fluid-Water ;
     s223:cnx  :vav_water_outlet, :boiler_water_return .
-

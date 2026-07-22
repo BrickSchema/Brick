@@ -6,12 +6,12 @@
 @prefix : <http://example.com/evse#> .
 
 <http://example.com/evse> a owl:Ontology ;
-    owl:imports <https://brickschema.org/schema/1.4/Brick> .
+    owl:imports <https://brickschema.org/schema/1.5/Brick> .
 
-:parking_lot a brick:Parking_Structure ;
-    brick:isLocationOf :hub .
+:parking_lot a brick:Parking_Structure .
 
 :hub a brick:Electric_Vehicle_Charging_Hub ;
+    rec:locatedIn :parking_lot ;
     rec:includes :station1, :station2 .
 
 :station1 a brick:Electric_Vehicle_Charging_Station ;

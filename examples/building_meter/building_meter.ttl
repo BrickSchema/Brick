@@ -25,7 +25,7 @@ bldg:mysite a rec:Site ;
     rec:hasPart bldg:mybldg .
 
 bldg:ontology a owl:Ontology ;
-    owl:imports <https://brickschema.org/schema/1.4/Brick> .
+    owl:imports <https://brickschema.org/schema/1.5/Brick> .
 
 bldg:submeter-submeter-floor1-power a brick:Electric_Power_Sensor ;
     brick:hasUnit unit:KiloW ;
@@ -67,4 +67,3 @@ bldg:mybldg a rec:Building ;
     brick:isMeteredBy bldg:main-meter .
 
 bldg:main-meter a brick:Building_Electrical_Meter .
-

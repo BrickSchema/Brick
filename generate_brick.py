@@ -710,7 +710,6 @@ def add_definitions(graph=G):
                 # add seeAlso only if provided
                 graph.add((term, RDFS.seeAlso, URIRef(definition[2])))
 
-
     qstr = """
     select ?param where {
       ?param rdfs:subClassOf* brick:Limit.
@@ -765,7 +764,7 @@ def add_definitions(graph=G):
             )
 
 
-def handle_deprecations(graph: Graph=G):
+def handle_deprecations(graph: Graph = G):
     for deprecated_term, md in deprecations.items():
         term_type = md.get(A)
         if term_type:
@@ -815,7 +814,9 @@ def handle_deprecations(graph: Graph=G):
     adds it to the graph. If available, adds the source information of
     through RDFS.seeAlso.
     """
-    with open(Path("./bricksrc/deprecated_definitions.csv"), encoding="utf-8") as dictionary_file:
+    with open(
+        Path("./bricksrc/deprecated_definitions.csv"), encoding="utf-8"
+    ) as dictionary_file:
         dictionary = csv.reader(dictionary_file)
 
         header = next(dictionary)
@@ -832,10 +833,9 @@ def handle_deprecations(graph: Graph=G):
             if len(definition) > 2 and definition[2]:
                 # add seeAlso only if provided
                 graph.add((term, RDFS.seeAlso, URIRef(definition[2])))
-                
 
 
-def handle_concept_labels(graph: Graph=G):
+def handle_concept_labels(graph: Graph = G):
     """
     Adds labels to all concepts in the Brick namespace, unless they already have one.
     Brick concepts are all subclasses of Brick.Entity and subproperties of Brick.Relationship.
@@ -896,7 +896,6 @@ roots = {
     },
     "Point": {"tags": [TAG.Point]},
     "Measurable": {"tags": [TAG.Measurable]},
-    "Collection": {"tags": [TAG.Collection]},
 }
 define_classes(roots, BRICK.Class)  # <= Brick v1.3.0
 define_classes(roots, BRICK.Entity)  # >= Brick v1.3.0
@@ -936,7 +935,7 @@ logger.info("Defining Equipment, System and Location subclasses")
 # define other root class structures
 define_classes(location_subclasses, BRICK.Location)
 define_classes(equipment_subclasses, BRICK.Equipment)
-define_classes(collection_classes, BRICK.Collection)
+define_classes(collection_classes, REC.Collection)
 define_classes(hvac_subclasses, BRICK.HVAC_Equipment)
 define_classes(hvac_valve_subclasses, BRICK.HVAC_Equipment)
 define_classes(valve_subclasses, BRICK.Equipment)
