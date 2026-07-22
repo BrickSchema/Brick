@@ -11,6 +11,7 @@
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix bsh: <https://brickschema.org/schema/BrickShape#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
 # allowing brick:feeds to be used to connect Spaces to "feed" Equipment, e.g. for the return/discharge path
 rec:Space sh:property [
@@ -52,6 +53,24 @@ rec:Wing
   rdfs:label "Wing" ;
   rdfs:comment "This concept definition comes from the Brick distribution until it is added in the REC ontology Turtle distribution." ;
   rdfs:subClassOf rec:Architecture ;
+.
+
+rec:Riser
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Riser" ;
+  rdfs:comment "This concept definition comes from the Brick distribution until it is added in the REC ontology Turtle distribution." ;
+  rdfs:subClassOf rec:Room ;
+  skos:definition "A vertical shaft or space in a building that routes building services (such as pipes, ducts, cabling, or electrical conductors) between floors at different elevations, typically serving several branches along its run" ;
+.
+
+rec:PlumbingRiser
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Plumbing Riser" ;
+  rdfs:comment "This concept definition comes from the Brick distribution until it is added in the REC ontology Turtle distribution." ;
+  rdfs:subClassOf rec:Riser ;
+  skos:definition "A riser carrying a run of pipe from one horizontal run of a loop to another at a different elevation, typically with several branches in between" ;
 .
 
 brick:Ablutions_Room
@@ -182,9 +201,9 @@ brick:Pump_Room
 .
 brick:Riser
   owl:deprecated "true"^^xsd:boolean ;
-  brick:isReplacedBy rec:Room ;
+  brick:isReplacedBy rec:Riser ;
   brick:deprecatedInVersion "1.4.1" ;
-  brick:deprecationMitigationMessage "Brick location classes are being phased out in favor of RealEstateCore classes. There is not yet a replacement in REC for Riser" ;
+  brick:deprecationMitigationMessage "Brick location classes are being phased out in favor of RealEstateCore classes. Use rec:Riser, or rec:PlumbingRiser for a riser carrying plumbing services" ;
 .
 brick:Sports_Service_Room
   owl:deprecated "true"^^xsd:boolean ;
