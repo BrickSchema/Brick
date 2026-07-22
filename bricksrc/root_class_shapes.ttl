@@ -158,14 +158,6 @@ bsh:hasHotColdDeck
     ] ;
 .
 
-bsh:isPointOfShape a sh:PropertyShape ;
-    sh:targetClass brick:Point ;
-    sh:path brick:isPointOf ;
-    sh:or ( [ sh:class brick:Equipment ] [ sh:class brick:Location ] [ sh:class rec:Space ] );
-    sh:message "A Point can be a Point of Equipment, Location or Space."
-.
-
-
 # sensors inherit hasQuantity from their parent class
 bsh:SensorInheritQuantityKind a sh:NodeShape ;
     sh:target [
