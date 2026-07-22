@@ -1,3 +1,118 @@
+"""
+Generates iaq_sensor_deployment.ttl.
+
+The spatial, asset, and equipment sections of the example are written out
+verbatim because each triple says something different. The point definitions
+are generated: there are ~50 of them, they differ only in name/class/unit, and
+each needs a stable timeseries identifier. Deriving those identifiers with
+uuid5 keeps the file reproducible -- rerunning this script produces byte
+identical output.
+"""
+
+import uuid
+
+TSDB = "postgres://iaq-data.example.com:5432/iaq"
+NS = uuid.UUID("6ba7b810-9dad-11d1-80b4-00c04fd430c8")
+
+
+def tsid(name):
+    """Stable timeseries UUID for a point, so reruns don't churn the file."""
+    return uuid.uuid5(NS, f"iaq_sensor_deployment/{name}")
+
+
+# (suffix, brick class, unit, human-readable measurement name)
+IAQ_CHANNELS = [
+    ("co2", "CO2_Level_Sensor", "unit:PPM", "CO2 level"),
+    ("pm2_5", "PM2.5_Sensor", "unit:MicroGM-PER-M3", "PM2.5"),
+    ("pm10", "PM10_Sensor", "unit:MicroGM-PER-M3", "PM10"),
+    ("tvoc", "TVOC_Level_Sensor", "unit:PPB", "TVOC level"),
+    ("no2", "NO2_Level_Sensor", "unit:PPB", "NO2 level"),
+    ("ozone", "Ozone_Level_Sensor", "unit:PPB", "ozone level"),
+    ("temperature", "Temperature_Sensor", "unit:DEG_C", "temperature"),
+    (
+        "relative_humidity",
+        "Relative_Humidity_Sensor",
+        "unit:PERCENT_RH",
+        "relative humidity",
+    ),
+    ("illuminance", "Illuminance_Sensor", "unit:LUX", "illuminance"),
+]
+
+# The stove device is a higher-specification model: a gas cooktop is a
+# combustion source, and cooking is a major indoor formaldehyde source.
+STOVE_EXTRA_CHANNELS = [
+    ("co", "CO_Level_Sensor", "unit:PPM", "CO level"),
+    ("formaldehyde", "Formaldehyde_Level_Sensor", "unit:PPB", "formaldehyde level"),
+]
+
+# The outdoor reference station only carries the channels that are meaningful
+# as an outdoor background for the indoor measurements.
+OUTDOOR_CHANNELS = [
+    c
+    for c in IAQ_CHANNELS
+    if c[0] in ("pm2_5", "pm10", "no2", "ozone", "temperature", "relative_humidity")
+]
+
+# (point prefix, location, label prefix, channels)
+POINT_GROUPS = [
+    (
+        "kitchen_stove",
+        ":kitchen",
+        "Kitchen stove",
+        IAQ_CHANNELS[:5] + STOVE_EXTRA_CHANNELS + IAQ_CHANNELS[5:],
+    ),
+    ("kitchen_furnace", ":kitchen", "Kitchen furnace", IAQ_CHANNELS),
+    ("bedroom", ":bedroom", "Bedroom", IAQ_CHANNELS),
+    ("living_room", ":living_room", "Living room", IAQ_CHANNELS),
+    ("outdoor", ":back_patio", "Outdoor", OUTDOOR_CHANNELS),
+]
+
+# Points that additionally demonstrate brick:aggregate and brick:resolution.
+# Spelled out on a few points rather than all of them: the construct is the
+# point, not the repetition.
+AGGREGATED = {"kitchen_stove_co2", "kitchen_stove_pm2_5"}
+RESOLUTION = {"kitchen_stove_co2": 1, "kitchen_stove_pm2_5": 1}
+
+
+def render_point(name, brick_class, unit, label):
+    lines = [":{} a brick:{} ;".format(name, brick_class)]
+    lines.append('    rdfs:label "{}" ;'.format(label))
+    if unit:
+        lines.append("    brick:hasUnit {} ;".format(unit))
+    lines.append("    brick:isPointOf {} ;".format(LOCATION_OF[name]))
+    if name in AGGREGATED:
+        lines.append('    brick:aggregate [ brick:aggregationFunction "mean" ;')
+        lines.append('            brick:aggregationInterval "PT5M" ] ;')
+    if name in RESOLUTION:
+        lines.append(
+            "    brick:resolution [ brick:value {} ] ;".format(RESOLUTION[name])
+        )
+    lines.append(
+        '    ref:hasExternalReference [ ref:hasTimeseriesId "{}" ;'.format(tsid(name))
+    )
+    lines.append('            ref:storedAt "{}" ] .'.format(TSDB))
+    return "\n".join(lines)
+
+
+LOCATION_OF = {}
+for prefix, location, _, channels in POINT_GROUPS:
+    for suffix, _, _, _ in channels:
+        LOCATION_OF[f"{prefix}_{suffix}"] = location
+
+
+def render_group(prefix, label_prefix, channels):
+    out = []
+    for suffix, brick_class, unit, measurement in channels:
+        name = f"{prefix}_{suffix}"
+        out.append(
+            render_point(
+                name, brick_class, unit, f"{label_prefix} {measurement} sensor"
+            )
+        )
+    return "\n\n".join(out)
+
+
+HEADER = """\
 ####################################################################################
 # Residential indoor air quality (IAQ) sensor deployment
 #
@@ -275,343 +390,9 @@
 #   * brick:aggregate  -- how the stored data was reduced
 #   * brick:resolution -- the smallest change the sensor can distinguish
 ####################################################################################
+"""
 
-
-# --- Kitchen, near stove ---
-
-:kitchen_stove_co2 a brick:CO2_Level_Sensor ;
-    rdfs:label "Kitchen stove CO2 level sensor" ;
-    brick:hasUnit unit:PPM ;
-    brick:isPointOf :kitchen ;
-    brick:aggregate [ brick:aggregationFunction "mean" ;
-            brick:aggregationInterval "PT5M" ] ;
-    brick:resolution [ brick:value 1 ] ;
-    ref:hasExternalReference [ ref:hasTimeseriesId "9fc239e8-0101-5254-895f-25f62278dcd4" ;
-            ref:storedAt "postgres://iaq-data.example.com:5432/iaq" ] .
-
-:kitchen_stove_pm2_5 a brick:PM2.5_Sensor ;
-    rdfs:label "Kitchen stove PM2.5 sensor" ;
-    brick:hasUnit unit:MicroGM-PER-M3 ;
-    brick:isPointOf :kitchen ;
-    brick:aggregate [ brick:aggregationFunction "mean" ;
-            brick:aggregationInterval "PT5M" ] ;
-    brick:resolution [ brick:value 1 ] ;
-    ref:hasExternalReference [ ref:hasTimeseriesId "976fa3c7-e535-5dbb-b07f-81c41143723d" ;
-            ref:storedAt "postgres://iaq-data.example.com:5432/iaq" ] .
-
-:kitchen_stove_pm10 a brick:PM10_Sensor ;
-    rdfs:label "Kitchen stove PM10 sensor" ;
-    brick:hasUnit unit:MicroGM-PER-M3 ;
-    brick:isPointOf :kitchen ;
-    ref:hasExternalReference [ ref:hasTimeseriesId "e3038726-5c92-5001-af41-6fa309cc077f" ;
-            ref:storedAt "postgres://iaq-data.example.com:5432/iaq" ] .
-
-:kitchen_stove_tvoc a brick:TVOC_Level_Sensor ;
-    rdfs:label "Kitchen stove TVOC level sensor" ;
-    brick:hasUnit unit:PPB ;
-    brick:isPointOf :kitchen ;
-    ref:hasExternalReference [ ref:hasTimeseriesId "aa270d92-a874-53bf-9fbd-2977bdc4a741" ;
-            ref:storedAt "postgres://iaq-data.example.com:5432/iaq" ] .
-
-:kitchen_stove_no2 a brick:NO2_Level_Sensor ;
-    rdfs:label "Kitchen stove NO2 level sensor" ;
-    brick:hasUnit unit:PPB ;
-    brick:isPointOf :kitchen ;
-    ref:hasExternalReference [ ref:hasTimeseriesId "6f5a6ab4-babf-5540-8cbe-50417bccc43d" ;
-            ref:storedAt "postgres://iaq-data.example.com:5432/iaq" ] .
-
-:kitchen_stove_co a brick:CO_Level_Sensor ;
-    rdfs:label "Kitchen stove CO level sensor" ;
-    brick:hasUnit unit:PPM ;
-    brick:isPointOf :kitchen ;
-    ref:hasExternalReference [ ref:hasTimeseriesId "04561ad1-111f-53a6-921c-688859e18c0a" ;
-            ref:storedAt "postgres://iaq-data.example.com:5432/iaq" ] .
-
-:kitchen_stove_formaldehyde a brick:Formaldehyde_Level_Sensor ;
-    rdfs:label "Kitchen stove formaldehyde level sensor" ;
-    brick:hasUnit unit:PPB ;
-    brick:isPointOf :kitchen ;
-    ref:hasExternalReference [ ref:hasTimeseriesId "5e0a635f-da30-57c3-b14c-6605a2677e83" ;
-            ref:storedAt "postgres://iaq-data.example.com:5432/iaq" ] .
-
-:kitchen_stove_ozone a brick:Ozone_Level_Sensor ;
-    rdfs:label "Kitchen stove ozone level sensor" ;
-    brick:hasUnit unit:PPB ;
-    brick:isPointOf :kitchen ;
-    ref:hasExternalReference [ ref:hasTimeseriesId "33c2044a-cac6-57e9-9c75-3ff3d6413ca2" ;
-            ref:storedAt "postgres://iaq-data.example.com:5432/iaq" ] .
-
-:kitchen_stove_temperature a brick:Temperature_Sensor ;
-    rdfs:label "Kitchen stove temperature sensor" ;
-    brick:hasUnit unit:DEG_C ;
-    brick:isPointOf :kitchen ;
-    ref:hasExternalReference [ ref:hasTimeseriesId "ed787e4b-f2f1-54a9-be83-4d982a9840dd" ;
-            ref:storedAt "postgres://iaq-data.example.com:5432/iaq" ] .
-
-:kitchen_stove_relative_humidity a brick:Relative_Humidity_Sensor ;
-    rdfs:label "Kitchen stove relative humidity sensor" ;
-    brick:hasUnit unit:PERCENT_RH ;
-    brick:isPointOf :kitchen ;
-    ref:hasExternalReference [ ref:hasTimeseriesId "c3ae4dd5-637e-5fb6-a5a9-3e13ced35b39" ;
-            ref:storedAt "postgres://iaq-data.example.com:5432/iaq" ] .
-
-:kitchen_stove_illuminance a brick:Illuminance_Sensor ;
-    rdfs:label "Kitchen stove illuminance sensor" ;
-    brick:hasUnit unit:LUX ;
-    brick:isPointOf :kitchen ;
-    ref:hasExternalReference [ ref:hasTimeseriesId "9544c0b7-60fa-5013-ba08-4cfe80c0b0cf" ;
-            ref:storedAt "postgres://iaq-data.example.com:5432/iaq" ] .
-
-:kitchen_occupancy a brick:Occupancy_Sensor ;
-    rdfs:label "Kitchen occupancy sensor" ;
-    brick:isPointOf :kitchen ;
-    ref:hasExternalReference [ ref:hasTimeseriesId "7fa89acd-7029-50ec-8602-9ed391afed11" ;
-            ref:storedAt "mqtt://iaq-gateway.example.com:1883/home1/kitchen/occupancy" ] .
-
-
-# --- Kitchen, near furnace ---
-
-:kitchen_furnace_co2 a brick:CO2_Level_Sensor ;
-    rdfs:label "Kitchen furnace CO2 level sensor" ;
-    brick:hasUnit unit:PPM ;
-    brick:isPointOf :kitchen ;
-    ref:hasExternalReference [ ref:hasTimeseriesId "8f92044a-15e3-5076-90e1-c552656d3266" ;
-            ref:storedAt "postgres://iaq-data.example.com:5432/iaq" ] .
-
-:kitchen_furnace_pm2_5 a brick:PM2.5_Sensor ;
-    rdfs:label "Kitchen furnace PM2.5 sensor" ;
-    brick:hasUnit unit:MicroGM-PER-M3 ;
-    brick:isPointOf :kitchen ;
-    ref:hasExternalReference [ ref:hasTimeseriesId "ab04cc10-1b9a-52a2-88b0-09f5be1d5f13" ;
-            ref:storedAt "postgres://iaq-data.example.com:5432/iaq" ] .
-
-:kitchen_furnace_pm10 a brick:PM10_Sensor ;
-    rdfs:label "Kitchen furnace PM10 sensor" ;
-    brick:hasUnit unit:MicroGM-PER-M3 ;
-    brick:isPointOf :kitchen ;
-    ref:hasExternalReference [ ref:hasTimeseriesId "18a54cd7-0050-55e0-972b-7e1418c14179" ;
-            ref:storedAt "postgres://iaq-data.example.com:5432/iaq" ] .
-
-:kitchen_furnace_tvoc a brick:TVOC_Level_Sensor ;
-    rdfs:label "Kitchen furnace TVOC level sensor" ;
-    brick:hasUnit unit:PPB ;
-    brick:isPointOf :kitchen ;
-    ref:hasExternalReference [ ref:hasTimeseriesId "ec91d67d-1a80-510e-b1e4-0ff0713d499e" ;
-            ref:storedAt "postgres://iaq-data.example.com:5432/iaq" ] .
-
-:kitchen_furnace_no2 a brick:NO2_Level_Sensor ;
-    rdfs:label "Kitchen furnace NO2 level sensor" ;
-    brick:hasUnit unit:PPB ;
-    brick:isPointOf :kitchen ;
-    ref:hasExternalReference [ ref:hasTimeseriesId "908cfeaf-09d6-522f-8747-d574b33d220a" ;
-            ref:storedAt "postgres://iaq-data.example.com:5432/iaq" ] .
-
-:kitchen_furnace_ozone a brick:Ozone_Level_Sensor ;
-    rdfs:label "Kitchen furnace ozone level sensor" ;
-    brick:hasUnit unit:PPB ;
-    brick:isPointOf :kitchen ;
-    ref:hasExternalReference [ ref:hasTimeseriesId "09e460e7-da9e-5621-ba4d-7a4f81e12dc5" ;
-            ref:storedAt "postgres://iaq-data.example.com:5432/iaq" ] .
-
-:kitchen_furnace_temperature a brick:Temperature_Sensor ;
-    rdfs:label "Kitchen furnace temperature sensor" ;
-    brick:hasUnit unit:DEG_C ;
-    brick:isPointOf :kitchen ;
-    ref:hasExternalReference [ ref:hasTimeseriesId "db055618-a00d-5593-8837-34280ee74bc9" ;
-            ref:storedAt "postgres://iaq-data.example.com:5432/iaq" ] .
-
-:kitchen_furnace_relative_humidity a brick:Relative_Humidity_Sensor ;
-    rdfs:label "Kitchen furnace relative humidity sensor" ;
-    brick:hasUnit unit:PERCENT_RH ;
-    brick:isPointOf :kitchen ;
-    ref:hasExternalReference [ ref:hasTimeseriesId "8a91c116-03e9-58a9-a705-39e786921ec2" ;
-            ref:storedAt "postgres://iaq-data.example.com:5432/iaq" ] .
-
-:kitchen_furnace_illuminance a brick:Illuminance_Sensor ;
-    rdfs:label "Kitchen furnace illuminance sensor" ;
-    brick:hasUnit unit:LUX ;
-    brick:isPointOf :kitchen ;
-    ref:hasExternalReference [ ref:hasTimeseriesId "a02c06a9-e354-5d11-a03b-0ae29892a44a" ;
-            ref:storedAt "postgres://iaq-data.example.com:5432/iaq" ] .
-
-
-# --- Bedroom ---
-
-:bedroom_co2 a brick:CO2_Level_Sensor ;
-    rdfs:label "Bedroom CO2 level sensor" ;
-    brick:hasUnit unit:PPM ;
-    brick:isPointOf :bedroom ;
-    ref:hasExternalReference [ ref:hasTimeseriesId "5d8d64cc-8c7e-5863-856b-42b184e54da0" ;
-            ref:storedAt "postgres://iaq-data.example.com:5432/iaq" ] .
-
-:bedroom_pm2_5 a brick:PM2.5_Sensor ;
-    rdfs:label "Bedroom PM2.5 sensor" ;
-    brick:hasUnit unit:MicroGM-PER-M3 ;
-    brick:isPointOf :bedroom ;
-    ref:hasExternalReference [ ref:hasTimeseriesId "924c2d3a-f6c8-5d0f-a609-3803c51970b0" ;
-            ref:storedAt "postgres://iaq-data.example.com:5432/iaq" ] .
-
-:bedroom_pm10 a brick:PM10_Sensor ;
-    rdfs:label "Bedroom PM10 sensor" ;
-    brick:hasUnit unit:MicroGM-PER-M3 ;
-    brick:isPointOf :bedroom ;
-    ref:hasExternalReference [ ref:hasTimeseriesId "abf4982c-b948-5acd-a65b-fa2ffda6970f" ;
-            ref:storedAt "postgres://iaq-data.example.com:5432/iaq" ] .
-
-:bedroom_tvoc a brick:TVOC_Level_Sensor ;
-    rdfs:label "Bedroom TVOC level sensor" ;
-    brick:hasUnit unit:PPB ;
-    brick:isPointOf :bedroom ;
-    ref:hasExternalReference [ ref:hasTimeseriesId "6d0c6d7a-7eaa-523f-8252-6e5c657c647c" ;
-            ref:storedAt "postgres://iaq-data.example.com:5432/iaq" ] .
-
-:bedroom_no2 a brick:NO2_Level_Sensor ;
-    rdfs:label "Bedroom NO2 level sensor" ;
-    brick:hasUnit unit:PPB ;
-    brick:isPointOf :bedroom ;
-    ref:hasExternalReference [ ref:hasTimeseriesId "92dc9b88-cd07-5deb-bc33-3c6fc6d07ae3" ;
-            ref:storedAt "postgres://iaq-data.example.com:5432/iaq" ] .
-
-:bedroom_ozone a brick:Ozone_Level_Sensor ;
-    rdfs:label "Bedroom ozone level sensor" ;
-    brick:hasUnit unit:PPB ;
-    brick:isPointOf :bedroom ;
-    ref:hasExternalReference [ ref:hasTimeseriesId "d2776475-4255-5ba5-9e44-f0256054bf00" ;
-            ref:storedAt "postgres://iaq-data.example.com:5432/iaq" ] .
-
-:bedroom_temperature a brick:Temperature_Sensor ;
-    rdfs:label "Bedroom temperature sensor" ;
-    brick:hasUnit unit:DEG_C ;
-    brick:isPointOf :bedroom ;
-    ref:hasExternalReference [ ref:hasTimeseriesId "d537c265-1c21-5063-ba3a-bf89ec202d00" ;
-            ref:storedAt "postgres://iaq-data.example.com:5432/iaq" ] .
-
-:bedroom_relative_humidity a brick:Relative_Humidity_Sensor ;
-    rdfs:label "Bedroom relative humidity sensor" ;
-    brick:hasUnit unit:PERCENT_RH ;
-    brick:isPointOf :bedroom ;
-    ref:hasExternalReference [ ref:hasTimeseriesId "422425b9-6c20-59e4-aeab-6482e3a70d30" ;
-            ref:storedAt "postgres://iaq-data.example.com:5432/iaq" ] .
-
-:bedroom_illuminance a brick:Illuminance_Sensor ;
-    rdfs:label "Bedroom illuminance sensor" ;
-    brick:hasUnit unit:LUX ;
-    brick:isPointOf :bedroom ;
-    ref:hasExternalReference [ ref:hasTimeseriesId "c11974d2-418b-56d1-b63d-e3e8f3a83e4a" ;
-            ref:storedAt "postgres://iaq-data.example.com:5432/iaq" ] .
-
-
-# --- Living room ---
-
-:living_room_co2 a brick:CO2_Level_Sensor ;
-    rdfs:label "Living room CO2 level sensor" ;
-    brick:hasUnit unit:PPM ;
-    brick:isPointOf :living_room ;
-    ref:hasExternalReference [ ref:hasTimeseriesId "2a20d0db-7093-564c-951b-97a681c7c289" ;
-            ref:storedAt "postgres://iaq-data.example.com:5432/iaq" ] .
-
-:living_room_pm2_5 a brick:PM2.5_Sensor ;
-    rdfs:label "Living room PM2.5 sensor" ;
-    brick:hasUnit unit:MicroGM-PER-M3 ;
-    brick:isPointOf :living_room ;
-    ref:hasExternalReference [ ref:hasTimeseriesId "230ef88a-a6e9-5386-bc2d-c131580491dd" ;
-            ref:storedAt "postgres://iaq-data.example.com:5432/iaq" ] .
-
-:living_room_pm10 a brick:PM10_Sensor ;
-    rdfs:label "Living room PM10 sensor" ;
-    brick:hasUnit unit:MicroGM-PER-M3 ;
-    brick:isPointOf :living_room ;
-    ref:hasExternalReference [ ref:hasTimeseriesId "7ca2d12e-894f-5ee9-a538-4772d68fa924" ;
-            ref:storedAt "postgres://iaq-data.example.com:5432/iaq" ] .
-
-:living_room_tvoc a brick:TVOC_Level_Sensor ;
-    rdfs:label "Living room TVOC level sensor" ;
-    brick:hasUnit unit:PPB ;
-    brick:isPointOf :living_room ;
-    ref:hasExternalReference [ ref:hasTimeseriesId "1b58db5a-7181-5054-8a78-cf7ac4826bcc" ;
-            ref:storedAt "postgres://iaq-data.example.com:5432/iaq" ] .
-
-:living_room_no2 a brick:NO2_Level_Sensor ;
-    rdfs:label "Living room NO2 level sensor" ;
-    brick:hasUnit unit:PPB ;
-    brick:isPointOf :living_room ;
-    ref:hasExternalReference [ ref:hasTimeseriesId "c6e1bf7f-9bca-55a2-b293-39ae0274df9d" ;
-            ref:storedAt "postgres://iaq-data.example.com:5432/iaq" ] .
-
-:living_room_ozone a brick:Ozone_Level_Sensor ;
-    rdfs:label "Living room ozone level sensor" ;
-    brick:hasUnit unit:PPB ;
-    brick:isPointOf :living_room ;
-    ref:hasExternalReference [ ref:hasTimeseriesId "eaa324d6-1e22-5b8c-beeb-64528df72247" ;
-            ref:storedAt "postgres://iaq-data.example.com:5432/iaq" ] .
-
-:living_room_temperature a brick:Temperature_Sensor ;
-    rdfs:label "Living room temperature sensor" ;
-    brick:hasUnit unit:DEG_C ;
-    brick:isPointOf :living_room ;
-    ref:hasExternalReference [ ref:hasTimeseriesId "3b0e65d9-3f68-54e3-9fa1-29e5226c29c0" ;
-            ref:storedAt "postgres://iaq-data.example.com:5432/iaq" ] .
-
-:living_room_relative_humidity a brick:Relative_Humidity_Sensor ;
-    rdfs:label "Living room relative humidity sensor" ;
-    brick:hasUnit unit:PERCENT_RH ;
-    brick:isPointOf :living_room ;
-    ref:hasExternalReference [ ref:hasTimeseriesId "3cf895c7-abc2-5a26-b8e5-fc2333d37b07" ;
-            ref:storedAt "postgres://iaq-data.example.com:5432/iaq" ] .
-
-:living_room_illuminance a brick:Illuminance_Sensor ;
-    rdfs:label "Living room illuminance sensor" ;
-    brick:hasUnit unit:LUX ;
-    brick:isPointOf :living_room ;
-    ref:hasExternalReference [ ref:hasTimeseriesId "663104f6-8b7b-564c-85fb-708f952dc23b" ;
-            ref:storedAt "postgres://iaq-data.example.com:5432/iaq" ] .
-
-
-# --- Outdoor reference station ---
-
-:outdoor_pm2_5 a brick:PM2.5_Sensor ;
-    rdfs:label "Outdoor PM2.5 sensor" ;
-    brick:hasUnit unit:MicroGM-PER-M3 ;
-    brick:isPointOf :back_patio ;
-    ref:hasExternalReference [ ref:hasTimeseriesId "9e3dd392-b73c-5b65-861a-ba7e80cb0ad0" ;
-            ref:storedAt "postgres://iaq-data.example.com:5432/iaq" ] .
-
-:outdoor_pm10 a brick:PM10_Sensor ;
-    rdfs:label "Outdoor PM10 sensor" ;
-    brick:hasUnit unit:MicroGM-PER-M3 ;
-    brick:isPointOf :back_patio ;
-    ref:hasExternalReference [ ref:hasTimeseriesId "1b6ad5ee-b5da-564f-9669-d3eb89deb546" ;
-            ref:storedAt "postgres://iaq-data.example.com:5432/iaq" ] .
-
-:outdoor_no2 a brick:NO2_Level_Sensor ;
-    rdfs:label "Outdoor NO2 level sensor" ;
-    brick:hasUnit unit:PPB ;
-    brick:isPointOf :back_patio ;
-    ref:hasExternalReference [ ref:hasTimeseriesId "e4607ee1-d3fa-5961-8e7a-5be39a28e56c" ;
-            ref:storedAt "postgres://iaq-data.example.com:5432/iaq" ] .
-
-:outdoor_ozone a brick:Ozone_Level_Sensor ;
-    rdfs:label "Outdoor ozone level sensor" ;
-    brick:hasUnit unit:PPB ;
-    brick:isPointOf :back_patio ;
-    ref:hasExternalReference [ ref:hasTimeseriesId "ca7aaa51-cf54-53e9-ad50-a5077f552bbb" ;
-            ref:storedAt "postgres://iaq-data.example.com:5432/iaq" ] .
-
-:outdoor_temperature a brick:Temperature_Sensor ;
-    rdfs:label "Outdoor temperature sensor" ;
-    brick:hasUnit unit:DEG_C ;
-    brick:isPointOf :back_patio ;
-    ref:hasExternalReference [ ref:hasTimeseriesId "1fb000f8-de63-581b-ad4f-5ea9ad538c78" ;
-            ref:storedAt "postgres://iaq-data.example.com:5432/iaq" ] .
-
-:outdoor_relative_humidity a brick:Relative_Humidity_Sensor ;
-    rdfs:label "Outdoor relative humidity sensor" ;
-    brick:hasUnit unit:PERCENT_RH ;
-    brick:isPointOf :back_patio ;
-    ref:hasExternalReference [ ref:hasTimeseriesId "69036a24-a66d-5403-a33f-0336aa133ed0" ;
-            ref:storedAt "postgres://iaq-data.example.com:5432/iaq" ] .
-
-
+FOOTER = """\
 ####################################################################################
 # 7. Ventilation and HVAC equipment
 #
@@ -744,3 +525,46 @@
         :living_room_iaq_device,
         :outdoor_iaq_device,
         :iaq_gateway .
+"""
+
+# Occupancy is what makes CO2 interpretable: 1200 ppm in an empty kitchen means
+# something very different from 1200 ppm in an occupied one. It is hosted by the
+# stove device but is a property of the room, not of the air.
+# Its data arrives over MQTT rather than landing in the timeseries database
+# with the rest, which is what ref:storedAt is there to record.
+OCCUPANCY = """\
+:kitchen_occupancy a brick:Occupancy_Sensor ;
+    rdfs:label "Kitchen occupancy sensor" ;
+    brick:isPointOf :kitchen ;
+    ref:hasExternalReference [ ref:hasTimeseriesId "{}" ;
+            ref:storedAt "mqtt://iaq-gateway.example.com:1883\
+/home1/kitchen/occupancy" ] .""".format(
+    tsid("kitchen_occupancy")
+)
+
+SECTION_HEADINGS = {
+    "kitchen_stove": "# --- Kitchen, near stove ---",
+    "kitchen_furnace": "# --- Kitchen, near furnace ---",
+    "bedroom": "# --- Bedroom ---",
+    "living_room": "# --- Living room ---",
+    "outdoor": "# --- Outdoor reference station ---",
+}
+
+
+def main():
+    parts = [HEADER]
+    for prefix, _, label_prefix, channels in POINT_GROUPS:
+        parts.append(f"\n{SECTION_HEADINGS[prefix]}\n")
+        parts.append(render_group(prefix, label_prefix, channels))
+        if prefix == "kitchen_stove":
+            parts.append("")
+            parts.append(OCCUPANCY)
+        parts.append("")
+    parts.append("")
+    parts.append(FOOTER)
+    with open("iaq_sensor_deployment.ttl", "w") as f:
+        f.write("\n".join(parts))
+
+
+if __name__ == "__main__":
+    main()
