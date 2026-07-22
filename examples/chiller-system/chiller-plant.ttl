@@ -8,22 +8,26 @@
 <http://example.com/chiller-plant> a owl:Ontology ;
     owl:imports <https://brickschema.org/schema/1.5/Brick> .
 
+# The chilled water system spans the plant that produces chilled water and the
+# coils that the plant serves. The coils themselves are parts of the AHUs on
+# the air side, so they appear here through their AHUs rather than as loose
+# equipment.
 :cws a brick:Chilled_Water_System ;
     rec:includes :plant,
-                 :ct-1, :ct-2, :ct-3,
-                 :cwp-1, :cwp-2, :cwp-3,
-                 :chwp-1, :chwp-2, :chwp-3, :chwp-4,
-                 :ch-1, :ch-2, :ch-3,
-                 :ch-1-cond, :ch-2-cond, :ch-3-cond,
                  :chw-coil-1, :chw-coil-2, :chw-coil-3
 .
 
+# The plant groups the equipment that produces and distributes chilled water.
+# Because a Plant is Equipment, it can carry its own points and feeds
+# relationships: the plant-level supply and return temperatures below are
+# measured at the plant boundary, separately from the per-chiller temperatures.
 :plant a brick:Chiller_Plant ;
     rec:includes :ct-1, :ct-2, :ct-3,
                  :cwp-1, :cwp-2, :cwp-3,
                  :chwp-1, :chwp-2, :chwp-3, :chwp-4,
                  :ch-1, :ch-2, :ch-3,
                  :ch-1-cond, :ch-2-cond, :ch-3-cond ;
+    brick:feeds :chw-coil-1, :chw-coil-2, :chw-coil-3 ;
     brick:hasPoint :plant-chilled-water-supply-temp,
                    :plant-chilled-water-return-temp
 .
@@ -34,6 +38,8 @@
 :plant-chilled-water-return-temp a brick:Return_Chilled_Water_Temperature_Sensor ;
     brick:hasUnit unit:DEG_C .
 
+# Chilled water side: four primary pumps on a common header serve any of the
+# three chillers.
 :chwp-1 a brick:Chilled_Water_Pump .
 :chwp-2 a brick:Chilled_Water_Pump .
 :chwp-3 a brick:Chilled_Water_Pump .
@@ -42,22 +48,21 @@
 :ch-1 a brick:Chiller ;
     brick:hasPart :ch-1-cond ;
     brick:feeds :chw-coil-1, :chw-coil-2, :chw-coil-3 ;
-    brick:isFedBy :chwp-1, :chwp-2, :chwp-3, :chwp-4,
-                  :cwp-1, :cwp-2, :cwp-3 ;
+    brick:isFedBy :chwp-1, :chwp-2, :chwp-3, :chwp-4 ;
 .
 :ch-2 a brick:Chiller ;
     brick:hasPart :ch-2-cond ;
     brick:feeds :chw-coil-1, :chw-coil-2, :chw-coil-3 ;
-    brick:isFedBy :chwp-1, :chwp-2, :chwp-3, :chwp-4,
-                  :cwp-1, :cwp-2, :cwp-3 ;
+    brick:isFedBy :chwp-1, :chwp-2, :chwp-3, :chwp-4 ;
 .
 :ch-3 a brick:Chiller ;
     brick:hasPart :ch-3-cond ;
     brick:feeds :chw-coil-1, :chw-coil-2, :chw-coil-3 ;
-    brick:isFedBy :chwp-1, :chwp-2, :chwp-3, :chwp-4,
-                  :cwp-1, :cwp-2, :cwp-3 ;
+    brick:isFedBy :chwp-1, :chwp-2, :chwp-3, :chwp-4 ;
 .
 
+# Condenser water side: each chiller's condensing unit has a dedicated
+# condenser water pump, and the three cooling towers sit on a common header.
 :ch-1-cond a brick:Condensing_Unit ;
     brick:feeds :ct-1, :ct-2, :ct-3 ;
     brick:isFedBy :cwp-1 .
@@ -70,6 +75,30 @@
     brick:feeds :ct-1, :ct-2, :ct-3 ;
     brick:isFedBy :cwp-3 .
 
+:ct-1 a brick:Cooling_Tower ;
+    brick:feeds :cwp-1, :cwp-2, :cwp-3 .
+
+:ct-2 a brick:Cooling_Tower ;
+    brick:feeds :cwp-1, :cwp-2, :cwp-3 .
+
+:ct-3 a brick:Cooling_Tower ;
+    brick:feeds :cwp-1, :cwp-2, :cwp-3 .
+
+:cwp-1 a brick:Condenser_Water_Pump .
+:cwp-2 a brick:Condenser_Water_Pump .
+:cwp-3 a brick:Condenser_Water_Pump .
+
+# The load: each air handling unit has a chilled water coil, and the coils
+# return water to the primary pumps' suction header.
+:ahu-1 a brick:AHU ;
+    brick:hasPart :chw-coil-1 .
+
+:ahu-2 a brick:AHU ;
+    brick:hasPart :chw-coil-2 .
+
+:ahu-3 a brick:AHU ;
+    brick:hasPart :chw-coil-3 .
+
 :chw-coil-1 a brick:Chilled_Water_Coil ;
     brick:feeds :chwp-1, :chwp-2, :chwp-3, :chwp-4 .
 
@@ -78,20 +107,3 @@
 
 :chw-coil-3 a brick:Chilled_Water_Coil ;
     brick:feeds :chwp-1, :chwp-2, :chwp-3, :chwp-4 .
-
-
-:ct-1 a brick:Cooling_Tower ;
-    brick:feeds :cwp-1, :cwp-2, :cwp-3 ;
-    brick:isFedBy :ch-1, :ch-2, :ch-3 .
-
-:ct-2 a brick:Cooling_Tower ;
-    brick:feeds :cwp-1, :cwp-2, :cwp-3 ;
-    brick:isFedBy :ch-1, :ch-2, :ch-3 .
-
-:ct-3 a brick:Cooling_Tower ;
-    brick:feeds :cwp-1, :cwp-2, :cwp-3 ;
-    brick:isFedBy :ch-1, :ch-2, :ch-3 .
-
-:cwp-1 a brick:Condenser_Water_Pump .
-:cwp-2 a brick:Condenser_Water_Pump .
-:cwp-3 a brick:Condenser_Water_Pump .

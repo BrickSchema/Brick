@@ -1,4 +1,5 @@
-# modeling the system in https://project-haystack.org/doc/docHaystack/chilled-water-plant.svg
+# modeling the system in https://project-haystack.org/doc/docHaystack/chilled-water-plant.svg,
+# extended with the load side that the diagram does not show
 @prefix : <http://example.com/chiller-plant-haystack#> .
 @prefix brick: <https://brickschema.org/schema/Brick#> .
 @prefix unit: <http://qudt.org/vocab/unit/> .
@@ -12,7 +13,7 @@
     owl:imports <https://brickschema.org/schema/1.5/Brick> .
 
 :cws a brick:Chilled_Water_System ;
-    rec:includes :plant, :ct, :chiller, :cooling-coil-1, :cooling-coil-2 .
+    rec:includes :plant, :cooling-coil-1, :cooling-coil-2 .
 
 :plant a brick:Chiller_Plant ;
     rec:includes :ct, :chiller ;
@@ -49,6 +50,13 @@
 :cond-water-leave-temp a brick:Leaving_Condenser_Water_Temperature_Sensor ;
     rdfs:label "Condenser Water Leaving Temp Sensor, measured at chiller (to cooling tower)" ;
     brick:hasUnit unit:DEG_C .
+
+# the load side, which the Haystack diagram does not show: the chilled water
+# coils are parts of the air handling units they serve
+:ahu-1 a brick:AHU ;
+    brick:hasPart :cooling-coil-1 .
+:ahu-2 a brick:AHU ;
+    brick:hasPart :cooling-coil-2 .
 
 :cooling-coil-1 a brick:Chilled_Water_Coil .
 :cooling-coil-2 a brick:Chilled_Water_Coil .

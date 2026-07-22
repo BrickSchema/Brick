@@ -12,7 +12,6 @@ equipment_subclasses = {
             BRICK.hasPoint: [BRICK.Point],
             REC.includes: [
                 BRICK.Equipment,
-                BRICK.Point,
                 BRICK.Automation_Collection,
                 BRICK.Point_Collection,
             ],

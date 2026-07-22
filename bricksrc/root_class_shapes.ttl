@@ -105,6 +105,11 @@ brick:Plant a sh:NodeShape ;
         sh:maxCount 0 ;
         sh:message "Plants must use rec:includes instead of brick:hasPart for logical grouping."
     ] ;
+    sh:property [
+        sh:path [ sh:inversePath brick:isPartOf ] ;
+        sh:maxCount 0 ;
+        sh:message "Entities must not declare brick:isPartOf a Plant; use rec:includes on the Plant for logical grouping."
+    ] ;
     .
 
 brick:System a sh:NodeShape ;
