@@ -6,6 +6,12 @@ from .meters import meter_subclasses
 Set up subclasses of the equipment superclass
 """
 equipment_subclasses = {
+    # Plant is a subclass of Equipment for Brick 1.x so that plants can carry
+    # connection points and brick:feeds relationships. Logical grouping within a
+    # plant uses rec:includes, not brick:hasPart, and the shapes in
+    # root_class_shapes.ttl enforce that in both directions.
+    # TODO(Brick 2.0): Plant will likely become a sibling concept of System and
+    # Equipment rather than a subclass of Equipment.
     "Plant": {
         "tags": [TAG.Equipment, TAG.Plant],
         "constraints": {
