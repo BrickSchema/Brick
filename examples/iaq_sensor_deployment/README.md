@@ -20,14 +20,3 @@ describe a sensor:
 | Data handling | `brick:hasUnit`, `brick:aggregate`, `brick:resolution`, `ref:hasExternalReference` |
 | Ventilation context | `rec:HVACZone`, `brick:HVAC_System`, `brick:Rooftop_Unit`, `brick:Space_Heater`, `brick:Filter`, `brick:Exhaust_Fan`, `brick:Thermostat`, `brick:Controller`, `brick:CO2_Setpoint` |
 | Deployment grouping | `brick:Automation_Collection` + `rec:includes` |
-
-## Regenerating
-
-`iaq_sensor_deployment.ttl` is produced by `generate.py`, which writes the
-prose sections verbatim and generates the ~50 point definitions from a channel
-table. Timeseries identifiers are derived with `uuid5`, so reruns are byte
-identical:
-
-```
-python generate.py
-```
