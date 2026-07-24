@@ -166,13 +166,17 @@ collection_classes = {
             REC.includes: [
                 BRICK.Equipment,
                 BRICK.Point,
+                BRICK.Point_Collection,
                 BRICK.Automation_Collection,
             ]
         },
-        "subclasses": {
-            "Point_Collection": {
-                "constraints": {REC.includes: [BRICK.Point, BRICK.Point_Collection]},
-            },
+    },
+    "Point_Collection": {
+        "constraints": {
+            REC.includes: [
+                BRICK.Point,
+                BRICK.Point_Collection,
+            ]
         },
     },
     "System": {
