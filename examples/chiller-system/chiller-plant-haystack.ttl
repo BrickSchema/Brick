@@ -1,4 +1,5 @@
-# modeling the system in https://project-haystack.org/doc/docHaystack/chilled-water-plant.svg
+# modeling the system in https://project-haystack.org/doc/docHaystack/chilled-water-plant.svg,
+# extended with the load side that the diagram does not show
 @prefix : <http://example.com/chiller-plant-haystack#> .
 @prefix brick: <https://brickschema.org/schema/Brick#> .
 @prefix unit: <http://qudt.org/vocab/unit/> .
@@ -11,16 +12,18 @@
 <http://example.com/chiller-plant-haystack> a owl:Ontology ;
     owl:imports <https://brickschema.org/schema/1.5/Brick> .
 
-:plant a brick:Chilled_Water_System ;
-    rec:includes :ct, :chiller .
-# currently can't put points on the system itself in Brick
-#    brick:hasPoint :plant-chilled-water-supply-temp, :plant-chilled-water-return-temp .
-# :plant-chilled-water-supply-temp a brick:Supply_Chilled_Water_Temperature_Sensor ;
-#     rdfs:label "Plant Chilled Water Supply Temp Sensor (supply to load)" ;
-#     brick:hasUnit unit:DEG_C .
-# :plant-chilled-water-return-temp a brick:Return_Chilled_Water_Temperature_Sensor ;
-#     rdfs:label "Plant Chilled Water Return Temp Sensor (return from load)" ;
-#     brick:hasUnit unit:DEG_C .
+:cws a brick:Chilled_Water_System ;
+    rec:includes :plant, :cooling-coil-1, :cooling-coil-2 .
+
+:plant a brick:Chiller_Plant ;
+    rec:includes :ct, :chiller ;
+    brick:hasPoint :plant-chilled-water-supply-temp, :plant-chilled-water-return-temp .
+:plant-chilled-water-supply-temp a brick:Supply_Chilled_Water_Temperature_Sensor ;
+    rdfs:label "Plant Chilled Water Supply Temp Sensor (supply to load)" ;
+    brick:hasUnit unit:DEG_C .
+:plant-chilled-water-return-temp a brick:Return_Chilled_Water_Temperature_Sensor ;
+    rdfs:label "Plant Chilled Water Return Temp Sensor (return from load)" ;
+    brick:hasUnit unit:DEG_C .
 
 :ct a brick:Cooling_Tower ;
     brick:hasPoint :ct-cond-water-leave-temp, :ct-cond-water-enter-temp .
@@ -32,6 +35,7 @@
     brick:hasUnit unit:DEG_C .
 
 :chiller a brick:Chiller ;
+    brick:feeds :cooling-coil-1, :cooling-coil-2 ;
     brick:hasPoint :cond-water-enter-temp, :cond-water-leave-temp,
                    :chilled-water-return-temp, :chilled-water-supply-temp .
 :chilled-water-return-temp a brick:Return_Chilled_Water_Temperature_Sensor ;
@@ -46,3 +50,13 @@
 :cond-water-leave-temp a brick:Leaving_Condenser_Water_Temperature_Sensor ;
     rdfs:label "Condenser Water Leaving Temp Sensor, measured at chiller (to cooling tower)" ;
     brick:hasUnit unit:DEG_C .
+
+# the load side, which the Haystack diagram does not show: the chilled water
+# coils are parts of the air handling units they serve
+:ahu-1 a brick:AHU ;
+    brick:hasPart :cooling-coil-1 .
+:ahu-2 a brick:AHU ;
+    brick:hasPart :cooling-coil-2 .
+
+:cooling-coil-1 a brick:Chilled_Water_Coil .
+:cooling-coil-2 a brick:Chilled_Water_Coil .

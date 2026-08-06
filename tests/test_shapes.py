@@ -198,6 +198,80 @@ def test_automation_collection_requires_rec_includes(brick_with_imports):
     assert conforms, report_str
 
 
+def test_plant_is_equipment_and_can_have_points_and_feeds(brick_with_imports):
+    valid_data = (
+        prefixes
+        + """
+@prefix rec: <https://w3id.org/rec#> .
+
+:plant a brick:Chiller_Plant ;
+    brick:hasPoint :sensor ;
+    brick:feeds :ahu ;
+    rec:includes :chiller, :pump, :group .
+:sensor a brick:Supply_Chilled_Water_Temperature_Sensor .
+:ahu a brick:AHU .
+:chiller a brick:Chiller .
+:pump a brick:Chilled_Water_Pump .
+:group a brick:Point_Collection .
+"""
+    )
+    valid_g = brickschema.Graph().parse(data=valid_data, format="turtle")
+    conforms, _, report_str = valid_g.validate(
+        extra_graphs=[brick_with_imports], engine="topquadrant"
+    )
+    assert conforms, report_str
+
+
+def test_plant_uses_haspoint_not_rec_includes_for_points(brick_with_imports):
+    # rec:includes is for logical grouping; points are attached with brick:hasPoint
+    invalid_data = (
+        prefixes
+        + """
+@prefix rec: <https://w3id.org/rec#> .
+
+:plant a brick:Chiller_Plant ;
+    rec:includes :sensor .
+:sensor a brick:Supply_Chilled_Water_Temperature_Sensor .
+"""
+    )
+    invalid_g = brickschema.Graph().parse(data=invalid_data, format="turtle")
+    conforms, _, _ = invalid_g.validate(
+        extra_graphs=[brick_with_imports], engine="topquadrant"
+    )
+    assert not conforms
+
+
+def test_plant_requires_rec_includes_for_logical_grouping(brick_with_imports):
+    invalid_data = (
+        prefixes
+        + """
+:plant a brick:Boiler_Plant ;
+    brick:hasPart :boiler .
+:boiler a brick:Boiler .
+"""
+    )
+    invalid_g = brickschema.Graph().parse(data=invalid_data, format="turtle")
+    conforms, _, _ = invalid_g.validate(
+        extra_graphs=[brick_with_imports], engine="topquadrant"
+    )
+    assert not conforms
+
+    # the same grouping authored from the other side is rejected too
+    invalid_data = (
+        prefixes
+        + """
+:plant a brick:Boiler_Plant .
+:boiler a brick:Boiler ;
+    brick:isPartOf :plant .
+"""
+    )
+    invalid_g = brickschema.Graph().parse(data=invalid_data, format="turtle")
+    conforms, _, _ = invalid_g.validate(
+        extra_graphs=[brick_with_imports], engine="topquadrant"
+    )
+    assert not conforms
+
+
 def test_collection_is_replaced_by_rec_collection(brick_with_imports):
     assert (BRICK.Collection, OWL.deprecated, Literal(True)) in brick_with_imports
     assert (BRICK.Collection, BRICK.isReplacedBy, REC.Collection) in brick_with_imports
