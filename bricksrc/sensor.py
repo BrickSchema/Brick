@@ -1407,10 +1407,29 @@ sensor_definitions = {
                     },
                 },
             },
-            "Power_Cycle_Count_Sensor": {
-                "tags": [TAG.Point, TAG.Sensor, TAG.Power, TAG.Cycle, TAG.Count],
+            "On_Off_Cycle_Count_Sensor": {
+                "tags": [
+                    TAG.Point,
+                    TAG.Sensor,
+                    TAG.On,
+                    TAG.Off,
+                    TAG.Cycle,
+                    TAG.Count,
+                ],
                 BRICK.hasQuantity: QUDTQK.Dimensionless,
-                "aliases": [BRICK.Start_Stop_Counter],
+                "subclasses": {
+                    "Power_Cycle_Count_Sensor": {
+                        "tags": [
+                            TAG.Point,
+                            TAG.Sensor,
+                            TAG.Power,
+                            TAG.Cycle,
+                            TAG.Count,
+                        ],
+                        BRICK.hasQuantity: QUDTQK.Dimensionless,
+                        "aliases": [BRICK.Start_Stop_Counter],
+                    },
+                },
             },
             "Power_Factor_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Power, TAG.Factor],
@@ -1577,6 +1596,11 @@ sensor_definitions = {
                         BRICK.hasSubstance: BRICK.Collection_Basin_Water,
                     },
                 },
+            },
+            "Water_Leak_Sensor": {
+                "tags": [TAG.Point, TAG.Sensor, TAG.Water, TAG.Leak],
+                BRICK.hasQuantity: QUDTQK.Dimensionless,
+                BRICK.hasSubstance: BRICK.Water,
             },
             "Generation_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Generation],

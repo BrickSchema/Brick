@@ -198,6 +198,8 @@ substances = {
                                 },
                             },
                             "Makeup_Water": {},
+                            "Brine": {},
+                            "Condensate": {},
                         },
                     },
                 },
