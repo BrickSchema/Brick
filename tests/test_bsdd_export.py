@@ -454,29 +454,41 @@ def test_substance_property_is_enumerated(dictionary, property_codes):
     assert set(predefined) <= allowed, "substance values outside the allowed list"
 
 
-def test_rec_location_terms_are_present(class_codes):
+def test_only_brick_terms_are_published(dictionary):
     """
-    Brick's own Location branch is entirely deprecated in favour of REC, so a
-    dictionary built from Brick.ttl alone would contain no spaces at all.
+    The dictionary publishes Brick's own namespace and nothing else. Brick
+    imports its location classes from RealEstateCore, but UseOwnUri would force
+    them under Brick identifiers, which is republishing another vocabulary's
+    content. Nothing imported may leak in through a URI or a relation.
     """
-    for code in ("Building", "Room", "Space", "Level"):
-        assert code in class_codes, f"REC location term {code} is missing"
+    for entry in dictionary["Classes"]:
+        assert entry["OwnedUri"].startswith(
+            dictionary["DictionaryUri"] + "#"
+        ), f"{entry['Code']} is published under a foreign URI"
+        for relation in entry.get("ClassRelations", []):
+            assert "w3id.org/rec" not in relation.get(
+                "RelatedClassUri", ""
+            ), f"{entry['Code']} relates to a RealEstateCore term"
 
 
-def test_rec_terms_retain_source_reference(dictionary):
-    room = next(entry for entry in dictionary["Classes"] if entry["Code"] == "Room")
-    references = [
-        relation
-        for relation in room.get("ClassRelations", [])
-        if relation["RelationType"] == "HasReference"
-    ]
-    assert references == [
-        {
-            "RelationType": "HasReference",
-            "RelatedClassUri": "https://w3id.org/rec#Room",
-            "RelatedClassName": "Room",
-        }
-    ]
+def test_no_rec_location_terms(class_codes):
+    """The location subtree is RealEstateCore's to publish, not Brick's."""
+    for code in ("Room", "Space", "Level", "Site", "AdmittingRoom"):
+        assert code not in class_codes, f"RealEstateCore term {code} was published"
+
+
+def test_collection_subclasses_survive_as_roots(dictionary):
+    """
+    System, Loop and the other rec:Collection subclasses lose their parent when
+    REC is excluded. They must still be published, as roots -- dropping them
+    would take Brick's own classes out with the import.
+    """
+    entries = {entry["Code"]: entry for entry in dictionary["Classes"]}
+    for code in ("System", "Loop", "PV_Array", "Point_Collection"):
+        assert code in entries, f"{code} was dropped with the REC hierarchy"
+        assert (
+            "ParentClassCode" not in entries[code]
+        ), f"{code} unexpectedly has a parent"
 
 
 def test_deprecated_terms_are_excluded_by_default(class_codes):

@@ -24,11 +24,6 @@ Transformer,IfcTransformer,
 Valve,IfcValve,
 Variable_Air_Volume_Box,IfcAirTerminalBox,
 Water_Heater,IfcBoiler,IFC has no water-heater entity; PredefinedType WATER
-Building,IfcBuilding,REC term
-Level,IfcBuildingStorey,REC term
-Room,IfcSpace,REC term
-Site,IfcSite,REC term
-Space,IfcSpace,REC term
 Controller,IfcController,
 Chilled_Beam,IfcCooledBeam,
 Space_Heater,IfcSpaceHeater,
@@ -54,7 +49,6 @@ Gateway,IfcCommunicationsAppliance,PredefinedType GATEWAY
 Relay,IfcSwitchingDevice,PredefinedType RELAY
 Camera,IfcAudioVisualAppliance,PredefinedType CAMERA
 System,IfcSystem,
-Zone,IfcZone,
 Air_Cooled_Chiller,IfcChiller,PredefinedType AIRCOOLED
 Water_Cooled_Chiller,IfcChiller,PredefinedType WATERCOOLED
 Check_Valve,IfcValve,PredefinedType CHECK

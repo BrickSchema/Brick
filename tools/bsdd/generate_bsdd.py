@@ -7,6 +7,15 @@ uploaded in parts. This script derives that document from the built
 ontology (Brick+imports.ttl) so the dictionary never drifts from the
 ontology it describes.
 
+Only terms in the Brick namespace are published. Brick imports its location
+classes from RealEstateCore, but bSDD's UseOwnUri requires every owned URI to
+begin with this dictionary's DictionaryUri, so publishing them would mean
+republishing another vocabulary's content under Brick identifiers. That is
+RealEstateCore's to do, not Brick's. The consequence is that the dictionary
+carries no rooms or spaces at all, and that the Brick classes which subclass
+rec:Collection -- System, Loop, PV_Array and the rest -- are emitted as roots
+with no ParentClassCode. The report lists them.
+
 Usage:
     python tools/bsdd/generate_bsdd.py --output bsdd/brick-bsdd.json
 
@@ -34,7 +43,6 @@ sys.path.append(str(REPO_ROOT))
 from bricksrc.version import BRICK_FULL_VERSION, BRICK_VERSION  # noqa: E402
 
 BRICK = Namespace("https://brickschema.org/schema/Brick#")
-REC = Namespace("https://w3id.org/rec#")
 QUDT = Namespace("http://qudt.org/schema/qudt/")
 QUDTQK = Namespace("http://qudt.org/vocab/quantitykind/")
 SH = Namespace("http://www.w3.org/ns/shacl#")
@@ -65,12 +73,6 @@ CHANGE_REQUEST_EMAIL = "info@brickschema.org"
 SCHEMA_ROOT = "https://brickschema.org/schema"
 CANONICAL_NAMESPACE = f"{SCHEMA_ROOT}/Brick"
 VERSIONED_NAMESPACE = f"{SCHEMA_ROOT}/{BRICK_VERSION}/Brick"
-
-# REC contributes the location terms Brick itself no longer defines: every
-# class under brick:Location is deprecated in favour of these. The remaining
-# REC branches (Observation, Asset, Agent, furniture) duplicate Brick Points
-# or fall outside a building-metadata dictionary.
-REC_ROOTS = [REC.Space, REC.Architecture, REC.Collection, REC.Building]
 
 # Property sets group properties when serialised into IFC. 'Pset_' is
 # reserved for official IFC content (PRP-03); 'cPSET_' is the documented
@@ -129,30 +131,13 @@ def load_graph(path):
 
 def all_classes(graph):
     """
-    Every declared class, however typed.
-
-    REC classes arrive through owl:imports declared as rdfs:Class, not
-    owl:Class, so an owl:Class-only reader silently drops every space and
-    room in the dictionary.
+    Every declared class, however typed. Imported vocabularies use rdfs:Class
+    as readily as owl:Class, and the selection below filters by namespace, so
+    read both rather than assume how a term was declared.
     """
     return set(graph.subjects(RDF.type, OWL.Class)) | set(
         graph.subjects(RDF.type, RDFS.Class)
     )
-
-
-def transitive_subclasses(graph, root):
-    """All named classes reachable downward from root via rdfs:subClassOf."""
-    seen = set()
-    frontier = {root}
-    while frontier:
-        nxt = set()
-        for parent in frontier:
-            for child in graph.subjects(RDFS.subClassOf, parent):
-                if isinstance(child, URIRef) and child not in seen:
-                    seen.add(child)
-                    nxt.add(child)
-        frontier = nxt
-    return seen
 
 
 def is_deprecated(graph, term):
@@ -172,7 +157,8 @@ def label_for(graph, term):
 
 def definition_for(graph, term):
     """
-    skos:definition is Brick's definition predicate; REC uses rdfs:comment.
+    skos:definition is Brick's definition predicate, with rdfs:comment as the
+    fallback for terms that only carry one.
 
     Brick carries some definitions both with and without a language tag, so
     prefer the tagged one and fall back rather than emitting either at random.
@@ -220,8 +206,6 @@ def owned_uri(term, uri_style):
     a per-release IRI for platforms that expect the version in the path.
     """
     text = str(term)
-    if text.startswith(str(REC)):
-        return f"{dictionary_uri(uri_style)}#class/rec/{code_for(term)}"
     if uri_style == "versioned" and text.startswith(CANONICAL_NAMESPACE + "#"):
         return text.replace(CANONICAL_NAMESPACE + "#", VERSIONED_NAMESPACE + "#", 1)
     return text
@@ -440,22 +424,16 @@ def resolve_dimension(graph, quantity, unit_iris, code, report):
 def select_classes(graph, include_deprecated):
     """
     The classes the dictionary publishes: everything in the Brick namespace,
-    plus the REC location closure that Brick's own Location branch now defers
-    to. Returns (brick_terms, rec_terms).
+    and nothing else. Terms Brick imports from other vocabularies stay out --
+    see the module docstring on why the REC location classes are excluded.
     """
     declared = all_classes(graph)
 
     brick_terms = {c for c in declared if str(c).startswith(str(BRICK))}
 
-    rec_closure = set()
-    for root in REC_ROOTS:
-        rec_closure |= transitive_subclasses(graph, root) | {root}
-    rec_terms = {c for c in rec_closure if str(c).startswith(str(REC))} & declared
-
     if not include_deprecated:
         brick_terms = {c for c in brick_terms if not is_deprecated(graph, c)}
-        rec_terms = {c for c in rec_terms if not is_deprecated(graph, c)}
-    return brick_terms, rec_terms
+    return brick_terms
 
 
 def depth_from_root(graph, term, selected, cache=None):
@@ -491,6 +469,18 @@ def named_parents(graph, term, selected):
             p
             for p in graph.objects(term, RDFS.subClassOf)
             if isinstance(p, URIRef) and p in selected and p != term
+        },
+        key=str,
+    )
+
+
+def unselected_parents(graph, term, selected):
+    """Named superclasses this dictionary does not publish."""
+    return sorted(
+        {
+            p
+            for p in graph.objects(term, RDFS.subClassOf)
+            if isinstance(p, URIRef) and p not in selected and p != term
         },
         key=str,
     )
@@ -657,19 +647,17 @@ def build_classes(graph, selected, uri_style, ifc_map, report):
                 )
         else:
             extra = []
+            # A Brick class whose only superclasses are imported terms becomes
+            # a root here. That is a real change to the published hierarchy,
+            # not an accident of the data, so it is reported rather than
+            # silently accepted.
+            outside = unselected_parents(graph, term, selected)
+            if outside:
+                report["roots_from_excluded_parents"].append(
+                    (code, [str(p) for p in outside])
+                )
 
         relations = []
-        if str(term).startswith(str(REC)):
-            # REC terms are republished as part of this dictionary's location
-            # hierarchy. Keep their dictionary-owned identifier under Brick's
-            # DictionaryUri and link it back to the authoritative REC term.
-            relations.append(
-                {
-                    "RelationType": "HasReference",
-                    "RelatedClassUri": str(term),
-                    "RelatedClassName": label_for(graph, term),
-                }
-            )
         for parent in extra:
             relations.append(
                 {
@@ -1197,6 +1185,7 @@ def new_report():
         "dropped_units": [],
         "unmapped_units": set(),
         "multi_parent": [],
+        "roots_from_excluded_parents": [],
         "invalid_codes": [],
         "complex_properties": [],
         "unconstrained_properties": [],
@@ -1209,8 +1198,7 @@ def build_dictionary(graph, args, report):
     unit_map = load_unit_map()
     ifc_map = load_ifc_map(report=report)
 
-    brick_terms, rec_terms = select_classes(graph, args.include_deprecated)
-    selected = brick_terms | rec_terms
+    selected = select_classes(graph, args.include_deprecated)
 
     ifc_map = propagate_ifc_map(graph, selected, ifc_map, report)
     classes = build_classes(graph, selected, args.uri_style, ifc_map, report)
@@ -1236,8 +1224,7 @@ def build_dictionary(graph, args, report):
     attach_class_properties(graph, classes, aliases, report)
 
     report["counts"] = {
-        "brick_classes": len(brick_terms),
-        "rec_classes": len(rec_terms),
+        "brick_classes": len(selected),
         "classes": len(classes),
         "properties": len(properties),
     }
@@ -1337,7 +1324,6 @@ def write_report(path, report, args):
         "## Counts",
         "",
         f"- Brick classes: {counts['brick_classes']}",
-        f"- REC location classes: {counts['rec_classes']}",
         f"- Classes emitted: {counts['classes']}",
         f"- Properties emitted: {counts['properties']}",
         f"- Substance allowed values: {report['substance_values']}",
@@ -1474,6 +1460,23 @@ def write_report(path, report, args):
                 f"| `{code}` | `{primary}` | {', '.join(f'`{e}`' for e in extra)} |"
             )
 
+    if report["roots_from_excluded_parents"]:
+        lines += [
+            "",
+            "## Classes emitted as roots because their parents are not published",
+            "",
+            "Every named superclass of these classes lies outside the Brick",
+            "namespace -- almost always a RealEstateCore location term, which",
+            "this dictionary does not republish. They keep their own subtree,",
+            "but hang at the top level rather than under the parent Brick",
+            "declares for them.",
+            "",
+            "| Class | Superclass in Brick, not in the dictionary |",
+            "|---|---|",
+        ]
+        for code, outside in sorted(report["roots_from_excluded_parents"]):
+            lines.append(f"| `{code}` | {', '.join(f'`{p}`' for p in outside)} |")
+
     if report["invalid_codes"]:
         lines += ["", "## Rejected codes", ""]
         lines += [f"- `{code}`: {why}" for code, why in sorted(report["invalid_codes"])]
@@ -1489,7 +1492,8 @@ def parse_args(argv=None):
         "--source",
         default=str(DEFAULT_SOURCE),
         help="Ontology to read. Must be Brick+imports.ttl or equivalent: "
-        "Brick.ttl alone does not declare the REC location classes.",
+        "the QUDT quantity kinds and units that Points reference are only "
+        "described in the import closure.",
     )
     parser.add_argument(
         "--output",
@@ -1556,8 +1560,7 @@ def main(argv=None):
 
     counts = report["counts"]
     print(
-        f"Wrote {output}: {counts['classes']} classes "
-        f"({counts['brick_classes']} Brick, {counts['rec_classes']} REC), "
+        f"Wrote {output}: {counts['classes']} classes, "
         f"{counts['properties']} properties"
     )
     print(f"Wrote {report_path}")

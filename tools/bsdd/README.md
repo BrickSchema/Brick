@@ -30,17 +30,15 @@ left incomplete, including defects it found in Brick itself.
 
 ## What maps to what
 
-`Brick+imports.ttl` is the source, not `Brick.ttl`: REC classes arrive through
-`owl:imports` declared as `rdfs:Class`, and Brick's own `brick:Location` subtree
-is entirely deprecated in favour of them. Reading `Brick.ttl` alone would produce
-a dictionary with no rooms or spaces at all.
+Only terms in the Brick namespace are published — see
+[No location classes](#no-location-classes) for what that leaves out and why.
+`Brick+imports.ttl` is still the source rather than `Brick.ttl`, because the QUDT
+quantity kinds and units that Points reference are only described in the import
+closure.
 
 ### Classes
 
-1,274 live Brick classes plus the 126-class REC location closure
-(`rec:Space`, `rec:Architecture`, `rec:Collection`, `rec:Building` and their
-subclasses). REC's other branches are excluded: `*Observation` duplicates Brick
-Points, and `Asset`/`Agent`/furniture fall outside a building-metadata dictionary.
+1,274 live Brick classes.
 
 | Brick | bSDD |
 |---|---|
@@ -62,10 +60,29 @@ such resolution.
 Per-class `Status` is deliberately never set: the bSDD guidelines say status
 inherits from the dictionary.
 
-REC classes receive Brick dictionary-owned URIs under `#class/rec/` because
-`UseOwnUri` requires every owned URI to begin with `DictionaryUri`. Each carries
-a `HasReference` relation back to its authoritative `https://w3id.org/rec#...`
-identifier.
+### No location classes
+
+Brick 1.5 deprecated its entire `brick:Location` subtree in favour of
+[RealEstateCore](https://www.realestatecore.io/), which it imports. Those REC
+terms are **not** exported, so the dictionary contains no buildings, levels,
+rooms, spaces or zones.
+
+The reason is `UseOwnUri`: bSDD requires every owned URI to begin with this
+dictionary's `DictionaryUri`, so REC terms could only be published under
+`https://brickschema.org/...` identifiers, with their real `w3id.org/rec` IRIs
+demoted to a `HasReference` relation. That is republishing another vocabulary's
+content under Brick's name — what the bSDD guidelines warn against — and it is
+RealEstateCore's to publish, not Brick's.
+
+Two consequences to know about:
+
+- Seven Brick classes subclass `rec:Collection` (`System`, `Loop`, `PV_Array`,
+  `Point_Collection`, `Automation_Collection` and the two EV charging hubs).
+  They are still exported, but as roots with no `ParentClassCode`. The report
+  lists them under "Classes emitted as roots".
+- A consumer that wants Brick points attached to spaces has to combine this
+  dictionary with a REC one. If RealEstateCore publishes to bSDD, the two can be
+  linked there; until then the join has to happen in the consuming application.
 
 ### Properties
 
@@ -118,7 +135,7 @@ for genuinely referential links. The report lists them so the omission is explic
   [bSDD issues](https://github.com/buildingSMART/bSDD/issues) to have them added.
 - **`mappings/ifc.csv`** — `code, ifc_entities, note`. Curated by hand: Brick has no
   IFC alignment to derive this from. Only concrete IFC entities, never abstract
-  ones (CLS-01). 93 curated rows, reaching 711 classes by inheritance; extend it
+  ones (CLS-01). 87 curated rows, reaching 593 classes by inheritance; extend it
   incrementally. Entity names are checked against `reference/ifc-4.3-classes.csv`
   and anything unrecognised is listed in the report.
 
@@ -127,7 +144,7 @@ for genuinely referential links. The report lists them so the omission is explic
 A curated row applies to the class's subclasses and equivalents too. `Fan` is
 curated as `IfcFan`, and every Brick fan is an IfcFan, so all thirteen
 descendants carry it without a row of their own. This is what takes CLS-01
-coverage from 93 curated rows to 711 classes; the report lists how many classes
+coverage from 87 curated rows to 593 classes; the report lists how many classes
 each curated row reaches.
 
 Two details make it safe. A class with its own row always keeps it, so `Coil`
@@ -144,8 +161,8 @@ and the report names the class.
 
 Points are the natural limit. IFC models physical products, not telemetry, so
 setpoints, commands and statuses inherit nothing; sensors are the exception,
-since `IfcSensor` is a real device. Of the 689 classes still without an entity,
-552 are Points.
+since `IfcSensor` is a real device. Of the 681 classes still without an entity,
+553 are Points.
 
 ## Reference data
 
@@ -206,13 +223,13 @@ validate-only upload:
 
 Two verification items cannot be closed from this script:
 
-- **CLS-01** — `RelatedIfcEntityNamesList` is empty for 689 of 1,400 classes, of
-  which 552 are Points that have no IFC counterpart by design. The 110 unmapped
+- **CLS-01** — `RelatedIfcEntityNamesList` is empty for 681 of 1,274 classes, of
+  which 553 are Points that have no IFC counterpart by design. The 128 unmapped
   equipment classes are the real remaining surface, and most name things IFC
   lacks outright (fan-coil variants, condensing units, plenums, CRAC/CRAH);
   extend `mappings/ifc.csv`, drawing names from `reference/ifc-4.3-classes.csv`.
-- **GEN-01** — 463 classes ship without a definition (354 Brick, 109 REC). Fix
-  these upstream in `bricksrc/definitions.csv` and in REC.
+- **GEN-01** — 354 classes ship without a definition. Fix these upstream in
+  `bricksrc/definitions.csv`.
 
 `GEN-12` expects an own URI to resolve to a page carrying the term's name and
 definition. `https://brickschema.org/schema/Brick#X` currently serves the whole
@@ -222,8 +239,10 @@ properly means content negotiation on `brickschema.org`.
 
 ## Attribution
 
-The REC location terms come from [RealEstateCore](https://www.realestatecore.io/),
-which is BSD-3-Clause licensed (see `rec/LICENSE`, Copyright (c) 2022
-RealEstateCore Consortium). Redistribution is permitted with that notice. Give the
-RealEstateCore Consortium notice before publishing: the bSDD guidelines discourage
-republishing another dictionary's content, and REC may prefer to publish its own.
+Everything exported is Brick's own, under Brick's BSD-3-Clause licence. No
+imported vocabulary is redistributed: RealEstateCore is excluded for the reasons
+in [No location classes](#no-location-classes), and the QUDT and IFC content the
+export touches appears only as unit codes, dimension strings and IFC entity
+names — references to those vocabularies, not copies of them.
+`tests/test_bsdd_export.py::test_only_brick_terms_are_published` keeps it that
+way.
