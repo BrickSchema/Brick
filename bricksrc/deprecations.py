@@ -1,6 +1,18 @@
-from .namespaces import BRICK, RDFS, SKOS, A, REC
+from .namespaces import BRICK, RDFS, SKOS, A, QUDTQK, REC
 
 deprecations = {
+    BRICK.Collection: {
+        "version": "1.5.0",
+        "mitigation_message": "Brick Collection is deprecated in favor of REC Collection to remove redundancy between the two ontologies.",
+        "replace_with": REC.Collection,
+        RDFS.subClassOf: BRICK.Entity,
+    },
+    BRICK.Speed_Status: {
+        "version": "1.4.0",
+        "mitigation_message": "Speed Status is no longer necessary. Use Speed Mode Status for motors with various categorical speed settings, such as low, medium, and high. To further clarify, points representing the current speed of a variable speed fan as an analog value or input, use Speed Sensor.",
+        "replace_with": BRICK.Speed_Mode_Status,
+        RDFS.subClassOf: BRICK.Status,
+    },
     BRICK.Condenser: {
         "version": "1.3.0",
         "mitigation_message": "'Condenser' and 'Condensing Unit' are interchangable terms. Renaming class to 'Condensing_Unit' to further aligns with ASHRAE's terminology.",
@@ -10,6 +22,7 @@ deprecations = {
         "version": "1.4.0",
         "mitigation_message": "This class has a poor definition is supplanted by Temperature_Sensor",
         "replace_with": BRICK.Temperature_Sensor,
+        RDFS.subClassOf: BRICK.Sensor,
     },
     BRICK.Trace_Heat_Sensor: {
         "version": "1.4.0",
@@ -168,20 +181,6 @@ deprecations = {
             BRICK.Chilled_Water_Flow_Sensor,
         ],
     },
-    BRICK.Supply_Water: {
-        "version": "1.3.0",
-        "mitigation_message": "Swapped supply/return for entering/leaving with water-related points",
-        "replace_with": BRICK.Leaving_Water,
-        SKOS.broader: BRICK.Water,
-        A: BRICK.Substance,
-    },
-    BRICK.Supply_Chilled_Water: {
-        "version": "1.3.0",
-        "mitigation_message": "Swapped supply/return for entering/leaving with water-related points",
-        "replace_with": BRICK.Leaving_Chilled_Water,
-        SKOS.broader: BRICK.Chilled_Water,
-        A: BRICK.Substance,
-    },
     BRICK.Discharge_Water: {
         "version": "1.3.0",
         "mitigation_message": "Swapped supply/return for entering/leaving with water-related points",
@@ -196,31 +195,10 @@ deprecations = {
         SKOS.broader: BRICK.Chilled_Water,
         A: BRICK.Substance,
     },
-    BRICK.Supply_Hot_Water: {
-        "version": "1.3.0",
-        "mitigation_message": "Swapped supply/return for entering/leaving with water-related points",
-        "replace_with": BRICK.Leaving_Hot_Water,
-        SKOS.broader: BRICK.Hot_Water,
-        A: BRICK.Substance,
-    },
     BRICK.Discharge_Hot_Water: {
         "version": "1.3.0",
         "mitigation_message": "Swapped supply/return for entering/leaving with water-related points",
         "replace_with": BRICK.Leaving_Hot_Water,
-        SKOS.broader: BRICK.Hot_Water,
-        A: BRICK.Substance,
-    },
-    BRICK.Return_Water: {
-        "version": "1.3.0",
-        "mitigation_message": "Swapped supply/return for entering/leaving with water-related points",
-        "replace_with": BRICK.Entering_Water,
-        SKOS.broader: BRICK.Water,
-        A: BRICK.Substance,
-    },
-    BRICK.Return_Hot_Water: {
-        "version": "1.3.0",
-        "mitigation_message": "Swapped supply/return for entering/leaving with water-related points",
-        "replace_with": BRICK.Entering_Hot_Water,
         SKOS.broader: BRICK.Hot_Water,
         A: BRICK.Substance,
     },
@@ -260,13 +238,13 @@ deprecations = {
     BRICK.Hot_Water_Supply_Flow_Sensor: {
         "version": "1.3.0",
         "mitigation_message": "Swapped supply/return for entering/leaving with water-related points",
-        "replace_with": BRICK.Hot_Water_Leaving_Flow_Sensor,
+        "replace_with": BRICK.Leaving_Hot_Water_Flow_Sensor,
         RDFS.subClassOf: [BRICK.Hot_Water_Flow_Sensor, BRICK.Supply_Water_Flow_Sensor],
     },
     BRICK.Hot_Water_Discharge_Flow_Sensor: {
         "version": "1.3.0",
         "mitigation_message": "Swapped supply/return for entering/leaving with water-related points",
-        "replace_with": BRICK.Hot_Water_Leaving_Flow_Sensor,
+        "replace_with": BRICK.Leaving_Hot_Water_Flow_Sensor,
         RDFS.subClassOf: [
             BRICK.Hot_Water_Flow_Sensor,
             BRICK.Discharge_Water_Flow_Sensor,
@@ -324,7 +302,7 @@ deprecations = {
     BRICK.Hot_Water_Return_Flow_Sensor: {
         "version": "1.3.0",
         "mitigation_message": "Swapped supply/return for entering/leaving with water-related points",
-        "replace_with": BRICK.Hot_Water_Entering_Flow_Sensor,
+        "replace_with": BRICK.Entering_Hot_Water_Flow_Sensor,
         RDFS.subClassOf: [BRICK.Hot_Water_Flow_Sensor, BRICK.Return_Water_Flow_Sensor],
     },
     BRICK.Return_Condenser_Water_Flow_Sensor: {
@@ -425,7 +403,7 @@ deprecations = {
     },
     BRICK.Hot_Water_Discharge_Flow_Setpoint: {
         "mitigation_message": "Swapped supply/return for entering/leaving with water-related points",
-        "replace_with": BRICK.Hot_Water_Leaving_Flow_Setpoint,
+        "replace_with": BRICK.Leaving_Hot_Water_Flow_Setpoint,
         "version": "1.3.0",
         RDFS.subClassOf: [
             BRICK.Discharge_Water_Flow_Setpoint,
@@ -450,7 +428,7 @@ deprecations = {
     },
     BRICK.Hot_Water_Return_Flow_Sensor: {
         "mitigation_message": "Swapped supply/return for entering/leaving with water-related points",
-        "replace_with": BRICK.Hot_Water_Entering_Flow_Sensor,
+        "replace_with": BRICK.Entering_Hot_Water_Flow_Sensor,
         "version": "1.3.0",
         RDFS.subClassOf: [BRICK.Return_Water_Flow_Sensor, BRICK.Hot_Water_Flow_Sensor],
     },
@@ -464,10 +442,11 @@ deprecations = {
     },
     BRICK.Hot_Water_Supply_Flow_Setpoint: {
         "mitigation_message": "Swapped supply/return for entering/leaving with water-related points",
-        "replace_with": BRICK.Hot_Water_Leaving_Flow_Setpoint,
+        "replace_with": BRICK.Leaving_Hot_Water_Flow_Setpoint,
         "version": "1.3.0",
         RDFS.subClassOf: [
-            BRICK.Supply_Water_Temperature_Sensor,
+            BRICK.Supply_Water_Flow_Setpoint,
+            BRICK.Hot_Water_Flow_Setpoint,
         ],
     },
     BRICK.Hot_Water_Supply_Temperature_Sensor: {
@@ -595,7 +574,7 @@ deprecations = {
         "replace_with": BRICK.Leaving_Condenser_Water_Temperature_Setpoint,
         "version": "1.3.0",
         RDFS.subClassOf: [
-            BRICK.Supply_Water_Temperature_Sensor,
+            BRICK.Leaving_Condenser_Water_Temperature_Setpoint,
         ],
     },
     BRICK.Discharge_Condenser_Water_Temperature_Setpoint: {
@@ -603,7 +582,7 @@ deprecations = {
         "replace_with": BRICK.Leaving_Condenser_Water_Temperature_Setpoint,
         "version": "1.3.0",
         RDFS.subClassOf: [
-            BRICK.Discharge_Water_Temperature_Sensor,
+            BRICK.Leaving_Condenser_Water_Temperature_Setpoint,
         ],
     },
     BRICK.Supply_Hot_Water_Temperature_Setpoint: {
@@ -611,7 +590,8 @@ deprecations = {
         "replace_with": BRICK.Leaving_Hot_Water_Temperature_Setpoint,
         "version": "1.3.0",
         RDFS.subClassOf: [
-            BRICK.Supply_Water_Temperature_Sensor,
+            BRICK.Leaving_Hot_Water_Temperature_Setpoint,
+            BRICK.Hot_Water_Temperature_Setpoint,
         ],
     },
     BRICK.Discharge_Hot_Water_Temperature_Setpoint: {
@@ -619,7 +599,154 @@ deprecations = {
         "replace_with": BRICK.Leaving_Hot_Water_Temperature_Setpoint,
         "version": "1.3.0",
         RDFS.subClassOf: [
-            BRICK.Discharge_Water_Temperature_Sensor,
+            BRICK.Leaving_Hot_Water_Temperature_Setpoint,
+            BRICK.Hot_Water_Temperature_Setpoint,
         ],
+    },
+    BRICK.Electric_Current: {
+        "version": "1.4.4",
+        "mitigation_message": "Brick-defined quantity 'Electric_Current' is deprecated. Use the equivalent QUDT quantity 'qudt:QuantityKind/ElectricCurrent' directly.",
+        "replace_with": QUDTQK.ElectricCurrent,
+    },
+    BRICK.Voltage: {
+        "version": "1.4.4",
+        "mitigation_message": "Brick-defined quantity 'Voltage' is deprecated. Use the equivalent QUDT quantity 'qudt:QuantityKind/Voltage' directly.",
+        "replace_with": QUDTQK.Voltage,
+    },
+    BRICK.Thermal_Energy: {
+        "version": "1.4.4",
+        "mitigation_message": "Brick-defined quantity 'Thermal_Energy' is deprecated. Use the equivalent QUDT quantity 'qudt:QuantityKind/ThermalEnergy' directly.",
+        "replace_with": QUDTQK.ThermalEnergy,
+    },
+    BRICK.Frequency: {
+        "version": "1.4.4",
+        "mitigation_message": "Brick-defined quantity 'Frequency' is deprecated. Use the equivalent QUDT quantity 'qudt:QuantityKind/Frequency' directly.",
+        "replace_with": QUDTQK.Frequency,
+    },
+    BRICK.Irradiance: {
+        "version": "1.4.4",
+        "mitigation_message": "Brick-defined quantity 'Irradiance' is deprecated. Use the equivalent QUDT quantity 'qudt:QuantityKind/Irradiance' directly. For specific solar irradiance, use brick:Solar_Irradiance.",
+        "replace_with": QUDTQK.Irradiance,
+    },
+    BRICK.Power_Factor: {
+        "version": "1.4.4",
+        "mitigation_message": "Brick-defined quantity 'Power_Factor' is deprecated. Use the equivalent QUDT quantity 'qudt:QuantityKind/PowerFactor' directly.",
+        "replace_with": QUDTQK.PowerFactor,
+    },
+    BRICK.Pressure: {
+        "version": "1.4.4",
+        "mitigation_message": "Brick-defined generic quantity 'Pressure' is deprecated. Use the equivalent QUDT quantity 'qudt:QuantityKind/Pressure' directly, or more specific QUDT/Brick quantities like qudt:QuantityKind/StaticPressure, qudt:QuantityKind/AtmosphericPressure, brick:Differential_Pressure, etc.",
+        "replace_with": QUDTQK.Pressure,
+    },
+    BRICK.Atmospheric_Pressure: {
+        "version": "1.4.4",
+        "mitigation_message": "Brick-defined quantity 'Atmospheric_Pressure' is deprecated. Use the equivalent QUDT quantity 'qudt:QuantityKind/AtmosphericPressure' directly.",
+        "replace_with": QUDTQK.AtmosphericPressure,
+    },
+    BRICK.Gauge_Pressure: {
+        "version": "1.4.4",
+        "mitigation_message": "Brick-defined quantity 'Gauge_Pressure' is deprecated. Use the QUDT quantity 'qudt:QuantityKind/Pressure' and indicate contextually that it is gauge pressure if necessary.",
+        "replace_with": QUDTQK.Pressure,
+    },
+    BRICK.Static_Pressure: {
+        "version": "1.4.4",
+        "mitigation_message": "Brick-defined quantity 'Static_Pressure' is deprecated. Use the equivalent QUDT quantity 'qudt:QuantityKind/StaticPressure' directly.",
+        "replace_with": QUDTQK.StaticPressure,
+    },
+    BRICK.Dynamic_Pressure: {
+        "version": "1.4.4",
+        "mitigation_message": "Brick-defined quantity 'Dynamic_Pressure' (also referred to as Velocity_Pressure) is deprecated. Use the equivalent QUDT quantity 'qudt:QuantityKind/DynamicPressure' directly.",
+        "replace_with": QUDTQK.DynamicPressure,
+    },
+    BRICK.Velocity_Pressure: {
+        "version": "1.4.4",
+        "mitigation_message": "Brick-defined quantity 'Velocity_Pressure' is deprecated. Use the equivalent QUDT quantity 'qudt:QuantityKind/DynamicPressure' directly.",
+        "replace_with": QUDTQK.DynamicPressure,
+    },
+    BRICK.Radiance: {
+        "version": "1.4.4",
+        "mitigation_message": "Brick-defined quantity 'Radiance' is deprecated. Use the equivalent QUDT quantity 'qudt:QuantityKind/Radiance' directly. For specific solar radiance, use brick:Solar_Radiance.",
+        "replace_with": QUDTQK.Radiance,
+    },
+    BRICK.Temperature: {
+        "version": "1.4.4",
+        "mitigation_message": "Brick-defined generic quantity 'Temperature' is deprecated for direct use. Use the equivalent QUDT quantity 'qudt:QuantityKind/Temperature' directly, or more specific Brick quantities like brick:Dry_Bulb_Temperature, brick:Wet_Bulb_Temperature, etc., which now subclass the QUDT quantity.",
+        "replace_with": QUDTQK.Temperature,
+    },
+    BRICK.Time: {
+        "version": "1.4.4",
+        "mitigation_message": "Brick-defined quantity 'Time' is deprecated. Use the equivalent QUDT quantity 'qudt:QuantityKind/Time' directly.",
+        "replace_with": QUDTQK.Time,
+    },
+    BRICK.Energy: {
+        "version": "1.4.4",
+        "mitigation_message": "Brick-defined quantity 'Energy' is deprecated. Use the equivalent QUDT quantity 'qudt:QuantityKind/Energy' directly.",
+        "replace_with": QUDTQK.Energy,
+    },
+    BRICK.Electric_Energy: {
+        "version": "1.4.4",
+        "mitigation_message": "Brick-defined quantity 'Electric_Energy' is deprecated. Use QUDT quantitykind:ElectricEnergy directly.",
+        "replace_with": QUDTQK.ElectricEnergy,
+    },
+    BRICK.Active_Energy: {
+        "version": "1.4.4",
+        "mitigation_message": "Brick-defined quantity 'Active_Energy' is deprecated. Use QUDT quantitykind:ActiveEnergy directly.",
+        "replace_with": QUDTQK.ActiveEnergy,
+    },
+    BRICK.Reactive_Energy: {
+        "version": "1.4.4",
+        "mitigation_message": "Brick-defined quantity 'Reactive_Energy' is deprecated. Use QUDT quantitykind:ReactiveEnergy directly.",
+        "replace_with": QUDTQK.ReactiveEnergy,
+    },
+    BRICK.Apparent_Energy: {
+        "version": "1.4.4",
+        "mitigation_message": "Brick-defined quantity 'Apparent_Energy' is deprecated. Use QUDT quantitykind:ApparentEnergy directly.",
+        "replace_with": QUDTQK.ApparentEnergy,
+    },
+    BRICK.Level: {
+        "version": "1.4.4",
+        "mitigation_message": "Brick-defined quantity 'Level' is deprecated. Use QUDT quantitykind:LiquidLevel directly for liquid level measurements.",
+    },
+    BRICK.Current_Imbalance: {
+        "version": "1.4.4",
+        "mitigation_message": "Brick-defined quantity 'Current_Imbalance' is deprecated. Use QUDT quantitykind:ElectricCurrentImbalance directly.",
+        "replace_with": QUDTQK.ElectricCurrentImbalance,
+    },
+    BRICK.Voltage_Imbalance: {
+        "version": "1.4.4",
+        "mitigation_message": "Brick-defined quantity 'Voltage_Imbalance' is deprecated. Use QUDT quantitykind:VoltageImbalance directly.",
+        "replace_with": QUDTQK.VoltageImbalance,
+    },
+    BRICK.GrainsOfMoisture: {
+        "version": "1.4.4",
+        "mitigation_message": "Brick-defined quantity 'GrainsOfMoisture' is deprecated. Use QUDT quantitykind:SpecificHumidity directly.",
+        "replace_with": QUDTQK.SpecificHumidity,
+    },
+    BRICK.Deceleration_Time: {
+        "version": "1.4.4",
+        "mitigation_message": "Brick-defined quantity 'Deceleration_Time' is deprecated. Use the equivalent QUDT quantity 'qudt:QuantityKind/Time' directly.",
+        "replace_with": QUDTQK.Time,
+    },
+    BRICK.Acceleration_Time: {
+        "version": "1.4.4",
+        "mitigation_message": "Brick-defined quantity 'Acceleration_Time' is deprecated. Use the equivalent QUDT quantity 'qudt:QuantityKind/Time' directly.",
+        "replace_with": QUDTQK.Time,
+    },
+    BRICK.Radioactivity_Concentration_Sensor: {
+        "version": "1.4.4",
+        "mitigation_message": "Brick-defined quantity 'Radioactivity_Concentration_Sensor' is deprecated. Use Air_Quality_Sensor instead, or the provided sensor class for the specific kind or source of radioactivity (e.g. Radon gas)",
+        "replace_with": BRICK.Air_Quality_Sensor,
+    },
+    BRICK.Phasor: {
+        "version": "1.4.4",
+        "mitigation_message": "Brick-defined quantity 'Phasor' is deprecated.",
+    },
+    BRICK.Radioactivity_Concentration: {
+        "version": "1.4.4",
+        "mitigation_message": "Brick-defined quantity 'Radioactivity_Concentration' is deprecated.",
+    },
+    BRICK.Weather_Condition: {
+        "version": "1.4.4",
+        "mitigation_message": "Brick-defined quantity 'Weather_Condition' is deprecated.",
     },
 }

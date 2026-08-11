@@ -1,4 +1,4 @@
-from .namespaces import TAG, BRICK, OWL, QUDT
+from .namespaces import TAG, BRICK, OWL, QUDTQK
 
 status_definitions = {
     "Status": {
@@ -13,11 +13,13 @@ status_definitions = {
             "Switch_Status": {
                 "tags": [TAG.Point, TAG.Status, TAG.Switch],
             },
-            "Tint_Status": {"tags": [TAG.Tint, TAG.Status, TAG.Point]},
+            "Tint_Status": {
+                "tags": [TAG.Tint, TAG.Status, TAG.Point],
+                BRICK.hasQuantity: QUDTQK.Transmittance,
+            },
             "Damper_Position_Status": {
                 "tags": [TAG.Point, TAG.Damper, TAG.Position, TAG.Status],
                 BRICK.hasQuantity: BRICK.Position,
-                "tags": [TAG.Damper, TAG.Position, TAG.Status, TAG.Point],
             },
             "Direction_Status": {
                 BRICK.hasQuantity: BRICK.Direction,
@@ -246,6 +248,9 @@ status_definitions = {
             },
             "Mode_Status": {
                 "subclasses": {
+                    "Speed_Mode_Status": {
+                        "tags": [TAG.Point, TAG.Speed, TAG.Status, TAG.Mode],
+                    },
                     "Zone_Air_Conditioning_Mode_Status": {
                         "tags": [
                             TAG.Point,
@@ -464,7 +469,7 @@ status_definitions = {
                 "tags": [TAG.Point, TAG.Overridden, TAG.Status],
             },
             "Pressure_Status": {
-                BRICK.hasQuantity: BRICK.Pressure,
+                BRICK.hasQuantity: QUDTQK.Pressure,
                 "subclasses": {
                     "Supply_Air_Duct_Pressure_Status": {
                         "aliases": [BRICK["Discharge_Air_Duct_Pressure_Status"]],
@@ -540,15 +545,6 @@ status_definitions = {
                             },
                         },
                     },
-                },
-            },
-            "Speed_Status": {
-                "tags": [TAG.Point, TAG.Speed, TAG.Status],
-                "subclasses": {
-                    "Speed_Mode_Status": {
-                        "tags": [TAG.Point, TAG.Speed, TAG.Status, TAG.Mode],
-                        "parents": [BRICK.Mode_Status],
-                    }
                 },
             },
         },

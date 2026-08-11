@@ -1,11 +1,12 @@
+from brickschema import Graph
 from rdflib import Namespace, Literal, XSD
 from brickschema.namespaces import BRICK, A, REF
 
-EX = Namespace("urn:ex#")
+EX = Namespace("urn:ex:")
 
 
 def test_entity_property_validation(brick_with_imports):
-    g = brick_with_imports
+    g = Graph()
 
     # test success
     g.add((EX["bldg"], A, BRICK.Building))
@@ -17,14 +18,14 @@ def test_entity_property_validation(brick_with_imports):
         )
     )
 
-    g.expand("shacl", backend="topquadrant")
-    valid, _, report = g.validate(engine="topquadrant")
+    g.compile(extra_graphs=[brick_with_imports], engine="topquadrant")
+    valid, _, report = g.validate(extra_graphs=[brick_with_imports], engine="topquadrant")
     assert valid, report
 
 
 def test_entity_property_validation_failure(brick_with_imports):
     # test failure
-    g = brick_with_imports
+    g = Graph()
     g.add((EX["bldg"], A, BRICK.Building))
     g.add(
         (
@@ -34,30 +35,31 @@ def test_entity_property_validation_failure(brick_with_imports):
         )
     )
 
-    g.expand("shacl", backend="topquadrant")
-    valid, _, _ = g.validate(engine="topquadrant")
+    #g.compile(extra_graphs=[brick_with_imports], engine="topquadrant")
+    #g.serialize("/tmp/test.ttl", format="ttl")
+    valid, _, report = g.validate(extra_graphs=[brick_with_imports], engine="topquadrant")
+    print(report)
     assert not valid, "'AquariumFail' should have thrown a validation error"
 
 
 def test_entity_property_type_inference(brick_with_imports):
-    g = brick_with_imports
+    g = Graph()
     REF = Namespace("https://brickschema.org/schema/Brick/ref#")
-    BACNET = Namespace("http://data.ashrae.org/bacnet/2020#")
+    BACNET = Namespace("http://data.ashrae.org/bacnet/")
     g.add(
         (
             EX["point"],
             REF.hasExternalReference,
             [
-                (BACNET.objectOf, [(A, BACNET.BACnetDevice)]),
+                (BACNET.contains, [(A, BACNET.device)]),
                 (REF.BACnetURI, Literal("bacnet://123/analog-input,3/present-value")),
             ],
         )
     )
 
-    valid, _, report = g.validate(engine="topquadrant")
-    g.serialize("test.ttl", format="ttl")
+    valid, _, report = g.validate(extra_graphs=[brick_with_imports], engine="topquadrant")
     assert valid, report
-    g.expand("shacl", backend="topquadrant")
+    g.compile(extra_graphs=[brick_with_imports], engine="topquadrant")
 
     res = g.query(
         "SELECT ?ref WHERE { ?point ref:hasExternalReference ?ref . ?ref a ref:BACnetReference }"
@@ -66,7 +68,7 @@ def test_entity_property_type_inference(brick_with_imports):
 
 
 def test_last_known_value(brick_with_imports):
-    g = brick_with_imports
+    g = Graph()
     EX = Namespace("urn:ex#")
     g.add(
         (
@@ -81,7 +83,7 @@ def test_last_known_value(brick_with_imports):
             ],
         )
     )
-    valid, _, report = g.validate(engine="topquadrant")
+    valid, _, report = g.validate(extra_graphs=[brick_with_imports], engine="topquadrant")
     assert valid, report
     g.add(
         (
@@ -96,12 +98,12 @@ def test_last_known_value(brick_with_imports):
             ],
         )
     )
-    valid, _, report = g.validate(engine="topquadrant")
+    valid, _, report = g.validate(extra_graphs=[brick_with_imports], engine="topquadrant")
     assert not valid, report
 
 
 def test_external_reference_rules(brick_with_imports):
-    g = brick_with_imports
+    g = Graph()
     g.add((EX["p1"], A, BRICK.Point))
     g.add(
         (
@@ -113,9 +115,9 @@ def test_external_reference_rules(brick_with_imports):
         )
     )
 
-    g.expand("shacl", backend="topquadrant")
-    print(g.serialize(format="ttl"))
-    valid, _, report = g.validate(engine="topquadrant")
+    g =     g.compile(extra_graphs=[brick_with_imports], engine="topquadrant")
+    g.serialize("/tmp/test.ttl")
+    valid, _, report = g.validate(extra_graphs=[brick_with_imports], engine="topquadrant")
     assert valid, report
 
     res = g.query(
@@ -133,7 +135,8 @@ def test_external_reference_rules(brick_with_imports):
             ],
         )
     )
+    print(g.serialize(format="ttl"))
 
-    g.expand("shacl", backend="topquadrant")
-    valid, _, report = g.validate(engine="topquadrant")
+    g.compile(extra_graphs=[brick_with_imports], engine="topquadrant")
+    valid, _, report = g.validate(extra_graphs=[brick_with_imports], engine="topquadrant")
     assert not valid, report

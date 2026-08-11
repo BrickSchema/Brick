@@ -1,4 +1,4 @@
-from .namespaces import TAG, OWL, BRICK
+from .namespaces import TAG, REC, BRICK
 
 system_subclasses = {
     "Automatic_Tint_Window_Array": {
@@ -39,6 +39,9 @@ system_subclasses = {
         },
     },
     "Gas_System": {"tags": [TAG.Gas, TAG.System]},
+    "Domestic_Cold_Water_System": {
+        "tags": [TAG.Domestic, TAG.Cold, TAG.Water, TAG.System]
+    },
     "Heating_Ventilation_Air_Conditioning_System": {
         "tags": [
             TAG.Heat,
@@ -62,7 +65,9 @@ system_subclasses = {
                     },
                 },
             },
-            "VRF_System": {"tags": [TAG.Variable, TAG.Refrigerant, TAG.Flow, TAG.System]},
+            "VRF_System": {
+                "tags": [TAG.Variable, TAG.Refrigerant, TAG.Flow, TAG.System]
+            },
             "Refrigeration_System": {"tags": [TAG.Refrigeration, TAG.System]},
             "Steam_System": {"tags": [TAG.Steam, TAG.System]},
             "Water_System": {
@@ -157,13 +162,31 @@ loop_subclasses = {
 collection_classes = {
     "Portfolio": {
         "tags": [TAG.Collection, TAG.Portfolio],
-        "constraints": {BRICK.hasPart: [BRICK.Site]},
+        "constraints": {REC.includes: [BRICK.Site]},
+    },
+    "Automation_Collection": {
+        "constraints": {
+            REC.includes: [
+                BRICK.Equipment,
+                BRICK.Point,
+                BRICK.Point_Collection,
+                BRICK.Automation_Collection,
+            ]
+        },
+    },
+    "Point_Collection": {
+        "constraints": {
+            REC.includes: [
+                BRICK.Point,
+                BRICK.Point_Collection,
+            ]
+        },
     },
     "System": {
         "tags": [TAG.Collection, TAG.System],
         "subclasses": system_subclasses,
         "constraints": {
-            BRICK.hasPart: [
+            REC.includes: [
                 BRICK.Equipment,
                 BRICK.Point,
                 BRICK.Loop,
@@ -176,16 +199,16 @@ collection_classes = {
     "Loop": {
         "tags": [TAG.Collection, TAG.Loop],
         "subclasses": loop_subclasses,
-        "constraints": {BRICK.hasPart: [BRICK.Equipment, BRICK.Point, BRICK.Location]},
+        "constraints": {REC.includes: [BRICK.Equipment, BRICK.Point, BRICK.Location]},
     },
     "Photovoltaic_Array": {
         "tags": [TAG.Collection, TAG.Photovoltaic, TAG.PV, TAG.Array],
         "aliases": [BRICK["PV_Array"]],
-        "constraints": {BRICK.hasPart: [BRICK.PV_Panel]},
+        "constraints": {REC.includes: [BRICK.PV_Panel]},
     },
     "Electric_Vehicle_Charging_Hub": {
         "tags": [TAG.Collection, TAG.Electric, TAG.Vehicle, TAG.Charging, TAG.Hub],
         "aliases": [BRICK["EV_Charging_Hub"]],
-        "constraints": {BRICK.hasPart: [BRICK.Electric_Vehicle_Charging_Station]},
+        "constraints": {REC.includes: [BRICK.Electric_Vehicle_Charging_Station]},
     },
 }

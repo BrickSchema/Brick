@@ -1,0 +1,3 @@
+[submodule "rec"]
+	path = rec
+	url = https://github.com/RealEstateCore/rec

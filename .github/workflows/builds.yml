@@ -6,39 +6,74 @@ on:
         - master
         - v1.*
   pull_request:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  pull-requests: write
+
+env:
+  # the python version to release the ontology with.
+  # Must be a version in the matrix.python-version list
+  RELEASE_PYTHON_VERSION: '3.11'
+
 jobs:
   build:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ['3.9', '3.10']
+        python-version: ['3.12','3.11']
     steps:
-    - uses: actions/checkout@v3
-    - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v3
+    - uses: actions/checkout@v4
       with:
+        submodules: 'recursive'
+    - name: Set up Java 21
+      uses: actions/setup-java@v4
+      with:
+        distribution: temurin
+        java-version: '21'
+    - name: Install uv
+      uses: astral-sh/setup-uv@v6
+      with:
+        enable-cache: true
         python-version: ${{ matrix.python-version }}
-    - name: Set up AllegroGraph (Docker)
-      run: |
-        docker version
-        docker pull franzinc/agraph:v7.1.0
-    - name: Install Dependencies
-      run: |
-        pip install -r requirements.txt
-        pip freeze
+    - name: Install the project
+      run: uv sync --all-extras --dev --pre
     - name: Generate new Brick ontology
       # generate new Brick ontology (in case this hasn't been run)
       run: |
-        make
-        cat Brick.ttl
+        uv run make
+        ls -lh Brick*.ttl
+    - name: zip imports and extensions
+      run: |
+        zip -r imports.zip imports
+        zip -r extensions.zip extensions
     - name: upload ttls
-      if: ${{ matrix.python-version }} == "3.10"
-      uses: actions/upload-artifact@v3
+      id: upload-ttls
+      if: ${{ matrix.python-version == env.RELEASE_PYTHON_VERSION }}
+      uses: actions/upload-artifact@v4
       with:
         name: Brick-ontology
         path: |
           Brick.ttl
+          Brick+imports.ttl
+          Brick+extensions.ttl
+          Brick-only.ttl
+          imports.zip
+          extensions.zip
+    - name: comment artifact
+      # if the trigger is on a pull request
+      if: ${{ github.event_name == 'pull_request' && matrix.python-version == env.RELEASE_PYTHON_VERSION && github.event.pull_request.head.repo.full_name == 'BrickSchema/Brick' }}
+      uses: peter-evans/create-or-update-comment@v4
+      with:
+        issue-number: ${{ github.event.number }}
+        # in the body, make a markdown link to the steps.upload-ttls.output.artifact-url
+        body: |
+          The latest build of the Brick ontology on this PR is available [here](${{ steps.upload-ttls.outputs.artifact-url }}).
     - name: Run the tests
       # -s flag: do not capture output (avoids killing test after 10 min)
       run: |
-        pytest -s -vvvv --durations=0 -n auto tests
+        uv run pytest --durations=0 -n auto tests

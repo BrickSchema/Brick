@@ -1,0 +1,33 @@
+[project]
+name = "brick"
+version = "0.1.0"
+description = "Python dev environment for building and developing the Brick ontology"
+authors = [
+    { name = "Gabe Fierro", email = "gtfierro@mines.edu" }
+]
+readme = "README.md"
+requires-python = ">= 3.11"
+dependencies = [
+    "rdflib>=7.1.4",
+    "owlrl>=7.0.2",
+    "pytest>=8.3.2",
+    "tqdm>=4.66.5",
+    "pyshacl>=0.30",
+    "black>=24.8.0",
+    "pre-commit>=3.8.0",
+    "flake8>=7.1.1",
+    "pytest-xdist[psutil]>=3.6.1",
+    "semver>=3.0.2",
+    "html5lib>=1.1",
+    "pyontoenv>=0.5.1",
+    "brickschema[topquadrant]>=0.7.9",
+    "scipy>=1.13.1",
+    "sentence-transformers>=3.0.1",
+    "numpy>=2.0.3",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests/"]
+addopts = [
+    "--numprocesses=auto",
+]

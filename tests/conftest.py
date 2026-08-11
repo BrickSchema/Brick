@@ -3,7 +3,7 @@ Generates tests automatically
 """
 import pytest
 from rdflib import Namespace
-import ontoenv
+from ontoenv import OntoEnv
 import brickschema
 import glob
 import sys
@@ -33,8 +33,20 @@ def pytest_configure(config):
 
 
 @pytest.fixture()
+def brick():
+    g = brickschema.Graph()
+    g.load_file("Brick.ttl")
+    g.bind("qudt", QUDT)
+    g.bind("rdf", RDF)
+    g.bind("rdfs", RDFS)
+    g.bind("brick", BRICK)
+    g.remove((None, OWL.imports, None))
+    return g
+
+
+@pytest.fixture()
 def brick_with_imports():
-    env = ontoenv.OntoEnv(read_only=True)
+    env = OntoEnv(read_only=True)
     g = brickschema.Graph()
     g.load_file("Brick.ttl")
     g.bind("qudt", QUDT)
@@ -42,6 +54,8 @@ def brick_with_imports():
     g.bind("rdfs", RDFS)
     g.bind("brick", BRICK)
     env.import_dependencies(g)
+    # remove all imports
+    g.remove((None, OWL.imports, None))
     return g
 
 
@@ -94,5 +108,5 @@ def simple_brick_model():
     g.add((BLDG.TS1, BRICK.hasLocation, BLDG.Room1))
 
     # lets us use both relationships
-    g.expand(profile="shacl")
+    g.compile()
     return g

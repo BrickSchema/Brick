@@ -20,6 +20,6 @@ with open(sys.argv[1], "r", encoding="utf-8") as f:
     # sort by term
     terms = sorted(terms, key=lambda tup: tup[0])
 
-with open(sys.argv[1], "w", encoding="utf-8") as f:
-    writer = csv.writer(f)
+with open(sys.argv[1], "w", encoding="utf-8", newline="") as f:
+    writer = csv.writer(f, lineterminator="\n")
     writer.writerows(terms)

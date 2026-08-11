@@ -6,7 +6,7 @@ import warnings
 import sys
 
 sys.path.append("..")
-from bricksrc.namespaces import A, BRICK, QUDT  # noqa: E402
+from bricksrc.namespaces import A, BRICK, QUDT, QUDTQK, UNIT  # noqa: E402
 
 BLDG = Namespace("https://brickschema.org/schema/ExampleBuilding#")
 
@@ -18,7 +18,7 @@ def test_quantity_has_one_quantitykind(brick_with_imports):
     does not end up with more than 1 QuantityKind
     """
     g = brick_with_imports
-    g.expand(profile="shacl", backend="topquadrant")
+    g.compile()
     quantity_qk = g.query(
         "SELECT ?quantity ?kind WHERE {\
             ?quantity   a   brick:Quantity .\
@@ -39,57 +39,76 @@ def test_quantity_has_one_quantitykind(brick_with_imports):
 
 def test_instances_measure_correct_units(brick_with_imports):
     """
-    Tests that the units associated with instances are properly linked
-    through the QuantityKinds
-
-    Recall that the Brick unit model is such:
-
-    Brick class --- hasQuantity ---> Brick quantity -- hasQUDTReference --> QuantityKind
-        |                                                           |
-        |                            +-----applicableUnit-----------+
-        |                            |
-        v                            v
-     Instance --- hasUnit --->   QUDT unit
-
-    We create an instance of each Brick class which 'hasQuantity ' a quantity
-    and associate that instance with one of the applicable units as defined
-    by QUDT. We then verify that all of those units are associated with the
-    correct quantity
+    Ensures that, for every (Class, Quantity, Unit) where the Unit is applicable
+    to the Quantity of that Class, we can create an instance of the Class with
+    that Unit and it is recognized as having an applicable unit for at least one
+    quantity of the class. Also guards that we created one instance per source row.
     """
 
     g = brick_with_imports
 
-    # test the definitions by making sure that some quantities have applicable
-    # units
     classes_with_quantities = g.query(
         "SELECT distinct ?class ?quantity ?unit WHERE { \
              ?class rdfs:subClassOf* brick:Point .\
              ?class brick:hasQuantity ?quantity .\
-             ?quantity qudt:applicableUnit ?unit }"
+             ?quantity qudt:applicableUnit ?unit . \
+             FILTER NOT EXISTS { ?class brick:aliasOf ?alias } \
+             FILTER NOT EXISTS { ?class owl:deprecated ?_d } \
+             FILTER NOT EXISTS { ?quantity owl:deprecated ?_dq } }"
     )
+
     triples = []
-    for brickclass, _, unit in classes_with_quantities:
+    for brickclass, quantity, unit in classes_with_quantities:
         class_name = re.split("/|#", brickclass)[-1]
+        quantity_name = re.split("/|#", quantity)[-1]
         unit_name = re.split("/|#", unit)[-1]
-        instance = BLDG[f"Instance_of_{class_name}_{unit_name}"]
+        instance = BLDG[f"Instance_of_{class_name}_{quantity_name}_{unit_name}"]
         triples.append((instance, A, brickclass))
         triples.append((instance, BRICK.hasUnit, unit))
-    g.add(*triples)
-    g.expand(profile="shacl", backend="topquadrant")
 
+    if triples:
+        g.add(*triples)
+    g.compile()
+
+    # Each created instance should be countable via the applicability join.
     instances = g.query(
-        "SELECT distinct ?inst WHERE {\
-             ?inst   rdf:type/rdfs:subClassOf* ?klass .\
-             ?klass brick:hasQuantity  ?quantity .\
-             ?inst   brick:hasUnit   ?unit .}"
+        "SELECT DISTINCT ?inst WHERE { \
+             ?inst rdf:type/rdfs:subClassOf* ?klass . \
+             ?klass brick:hasQuantity ?quantity . \
+             ?inst brick:hasUnit ?unit . \
+             ?quantity qudt:applicableUnit ?unit . \
+             FILTER NOT EXISTS { ?klass brick:aliasOf ?alias } \
+             FILTER NOT EXISTS { ?klass owl:deprecated ?_d } \
+             FILTER NOT EXISTS { ?quantity owl:deprecated ?_dq } }"
     )
     assert len(instances) == len(classes_with_quantities)
+
+    # There should be no instance whose unit is not applicable to any quantity of its class.
+    mismatches = list(
+        g.query(
+            "SELECT DISTINCT ?inst ?klass ?unit WHERE { \
+                 ?inst a ?klass ; \
+                       brick:hasUnit ?unit . \
+                 ?klass rdfs:subClassOf* brick:Point . \
+                 FILTER NOT EXISTS { \
+                   ?klass rdfs:subClassOf* ?k . \
+                   ?k brick:hasQuantity ?q . \
+                   ?q qudt:applicableUnit ?unit . \
+                 } \
+                 FILTER NOT EXISTS { ?klass brick:aliasOf ?alias } \
+                 FILTER NOT EXISTS { ?klass owl:deprecated ?_d } \
+            }"
+        )
+    )
+    assert (
+        len(mismatches) == 0
+    ), f"Found {len(mismatches)} instances with non-applicable units, e.g. {mismatches[:5]}"
 
 
 def test_quantity_units(brick_with_imports):
     g = brick_with_imports
     g.bind("qudt", QUDT)
-    g.expand(profile="shacl", backend="topquadrant")
+    g.compile()
 
     # test the definitions by making sure that some quantities have applicable
     # units
@@ -103,7 +122,7 @@ def test_quantity_units(brick_with_imports):
 
 def test_all_quantities_have_units(brick_with_imports):
     g = brick_with_imports
-    g.expand(profile="shacl", backend="topquadrant")
+    g.compile()
 
     # test the definitions by making sure that some quantities have applicable
     # units
@@ -118,6 +137,43 @@ def test_all_quantities_have_units(brick_with_imports):
         warnings.warn(
             f"The following quantities do not have associated units: {quantities_without_units}"
         )
+
+
+def test_issue_758_point_quantity_updates(brick_with_imports):
+    g = brick_with_imports
+    expected = {
+        BRICK.Solar_Zenith_Angle_Sensor: QUDTQK.ZenithAngle,
+        BRICK.Electric_Energy_Sensor: QUDTQK.ElectricEnergy,
+        BRICK.Apparent_Energy_Sensor: QUDTQK.ApparentEnergy,
+        BRICK.Reactive_Energy_Sensor: QUDTQK.ReactiveEnergy,
+        BRICK.Thermal_Power_Sensor: QUDTQK.ThermalPower,
+        BRICK.Heating_Thermal_Power_Sensor: QUDTQK.ThermalPower,
+        BRICK.Current_Imbalance_Sensor: QUDTQK.ElectricCurrentImbalance,
+        BRICK.Voltage_Imbalance_Sensor: QUDTQK.VoltageImbalance,
+        BRICK.Air_Grains_Sensor: QUDTQK.SpecificHumidity,
+        BRICK.Radon_Concentration_Sensor: BRICK.Radon_Concentration,
+        BRICK.Water_Level_Sensor: QUDTQK.LiquidLevel,
+        BRICK.Deionised_Water_Level_Sensor: QUDTQK.LiquidLevel,
+        BRICK.Collection_Basin_Water_Level_Sensor: QUDTQK.LiquidLevel,
+        BRICK.Refrigerant_Level_Sensor: QUDTQK.LiquidLevel,
+        BRICK.Tint_Command: QUDTQK.Transmittance,
+        BRICK.Tint_Status: QUDTQK.Transmittance,
+    }
+
+    for klass, quantity in expected.items():
+        assert (klass, BRICK.hasQuantity, quantity) in g
+
+    expected_units = {
+        BRICK.Radon_Concentration: UNIT["PicoCI-PER-L"],
+        QUDTQK.SpecificHumidity: UNIT["GRAIN-PER-LB_M"],
+        QUDTQK.ElectricCurrentImbalance: UNIT.PERCENT,
+        QUDTQK.VoltageImbalance: UNIT.PERCENT,
+        QUDTQK.ApparentEnergy: UNIT["KiloVA-HR"],
+        QUDTQK.LiquidLevel: UNIT.M,
+    }
+
+    for quantity, unit in expected_units.items():
+        assert (quantity, QUDT.applicableUnit, unit) in g
 
 
 # Deleting this test because it requires RDFS semantics, which we are no longer

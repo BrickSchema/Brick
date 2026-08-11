@@ -122,9 +122,9 @@ def test_rdfs_labels(brick_with_imports):
 
     res = g.query(
         """ SELECT ?class WHERE {
-        ?class rdfs:subClassOf+ brick:Class .
+        ?class rdfs:subClassOf+ brick:Entity .
         FILTER NOT EXISTS { ?class rdfs:label ?label }
     }"""
     )
     for row in res:
-        assert "Class %s has no label" % row[0]
+        assert False, "Class %s has no label" % row[0]

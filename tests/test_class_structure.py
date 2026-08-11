@@ -17,7 +17,7 @@ def test_subclasses(brick_with_imports):
     BLDG = Namespace("https://brickschema.org/schema/ExampleBuilding#")
 
     g = brick_with_imports
-    g.expand("shacl", backend="topquadrant")
+    g.compile()
 
     g.bind("rdf", RDF)
     g.bind("owl", OWL)
@@ -74,6 +74,7 @@ def test_subclasses(brick_with_imports):
             QUDT.Unit,
             QUDT.QuantityKind,
             XSD.string,
+            BRICK.Relationship,
         ]
     )
 
@@ -87,14 +88,37 @@ def test_subclasses(brick_with_imports):
 def test_non_root_classes_are_subclasses(brick_with_imports):
     # find all owl:Class which are in the Brick namespace
     # and are not subclasses of any other class
-    query = f"""
+    query = """
     SELECT ?class WHERE {{
         ?class a owl:Class .
-        FILTER STRSTARTS(STR(?class), "{BRICK}") .
+        FILTER STRSTARTS(STR(?class), "{brick}") .
         FILTER NOT EXISTS {{
             ?class rdfs:subClassOf ?parent .
         }}
-        FILTER ( ?class NOT IN (brick:Class, brick:Entity, brick:EntityPropertyValue, brick:EntityProperty, brick:Tag) )
-    }}"""
+        FILTER (?class NOT IN (
+            brick:Class,
+            brick:Entity,
+            brick:EntityPropertyValue,
+            brick:EntityProperty,
+            brick:Tag
+        ))
+    }}""".format(
+        brick=BRICK
+    )
     for result in brick_with_imports.query(query):
         assert False, f"Class {result} is not a subclass of any other class"
+
+
+def test_deprecated_water_setpoints_are_not_sensors(brick_with_imports):
+    query = """
+    SELECT ?klass ?parent WHERE {{
+        ?klass a owl:Class .
+        FILTER STRSTARTS(STR(?klass), "{brick}") .
+        FILTER STRENDS(STR(?klass), "Setpoint") .
+        ?klass rdfs:subClassOf ?parent .
+        ?parent rdfs:subClassOf* brick:Sensor .
+    }}""".format(
+        brick=BRICK
+    )
+    bad = list(brick_with_imports.query(query))
+    assert not bad, f"Setpoints should not inherit from sensors: {bad}"
