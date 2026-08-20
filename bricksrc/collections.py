@@ -39,6 +39,9 @@ system_subclasses = {
         },
     },
     "Gas_System": {"tags": [TAG.Gas, TAG.System]},
+    "Domestic_Cold_Water_System": {
+        "tags": [TAG.Domestic, TAG.Cold, TAG.Water, TAG.System]
+    },
     "Heating_Ventilation_Air_Conditioning_System": {
         "tags": [
             TAG.Heat,

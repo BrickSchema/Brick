@@ -6,6 +6,43 @@ from .meters import meter_subclasses
 Set up subclasses of the equipment superclass
 """
 equipment_subclasses = {
+    # Plant is a subclass of Equipment for Brick 1.x so that plants can carry
+    # connection points and brick:feeds relationships. Logical grouping within a
+    # plant uses rec:includes, not brick:hasPart, and the shapes in
+    # root_class_shapes.ttl enforce that in both directions.
+    # TODO(Brick 2.0): Plant will likely become a sibling concept of System and
+    # Equipment rather than a subclass of Equipment.
+    "Plant": {
+        "tags": [TAG.Equipment, TAG.Plant],
+        "constraints": {
+            # duplicates the hasPoint constraint the Equipment shape already
+            # applies; kept here to document at the definition site that plants
+            # carry their own points, which is the motivation for the class
+            BRICK.hasPoint: [BRICK.Point],
+            REC.includes: [
+                BRICK.Equipment,
+                BRICK.Automation_Collection,
+                BRICK.Point_Collection,
+            ],
+        },
+        "subclasses": {
+            "Boiler_Plant": {
+                "tags": [TAG.Equipment, TAG.Plant, TAG.Boiler],
+            },
+            "Chiller_Plant": {
+                "tags": [TAG.Equipment, TAG.Plant, TAG.Chiller],
+            },
+            "Domestic_Hot_Water_Plant": {
+                "tags": [
+                    TAG.Equipment,
+                    TAG.Plant,
+                    TAG.Domestic,
+                    TAG.Hot,
+                    TAG.Water,
+                ],
+            },
+        },
+    },
     "ICT_Equipment": {
         "tags": [TAG.ICT, TAG.Equipment],
         "constraints": {BRICK.hosts: [BRICK.Point]},
