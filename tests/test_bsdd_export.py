@@ -25,30 +25,51 @@ def graph():
     return load_graph(SOURCE)
 
 
-def test_case_insensitive_property_collision_fails(graph):
-    with pytest.raises(
-        ValueError, match="Case-insensitive bSDD property-code collision"
-    ):
-        build_dictionary(graph)
+def test_entity_properties_are_namespaced_from_quantity_kinds(graph):
+    properties = {entry["Code"] for entry in build_dictionary(graph)["Properties"]}
+    assert "Volume" in properties
+    assert "entityPropertyVolume" in properties
+    assert "volume" not in properties
+
+
+def test_ifc_mappings_are_taken_directly_from_the_static_csv(graph):
+    classes = {entry["Code"]: entry for entry in build_dictionary(graph)["Classes"]}
+    assert classes["Chiller"]["RelatedIfcEntityNamesList"] == ["IfcChiller"]
+    assert "RelatedIfcEntityNamesList" not in classes["Supply_Fan"]
 
 
 @pytest.mark.parametrize(
     ("code", "children"),
     [
         (
-            "aggregate",
-            ["aggregate.aggregationFunction", "aggregate.aggregationInterval"],
-        ),
-        ("coordinates", ["coordinates.latitude", "coordinates.longitude"]),
-        (
-            "deprecation",
+            "entityPropertyAggregate",
             [
-                "deprecation.deprecatedInVersion",
-                "deprecation.deprecationMitigationMessage",
-                "deprecation.deprecationMitigationRule",
+                "entityPropertyAggregate.aggregationFunction",
+                "entityPropertyAggregate.aggregationInterval",
             ],
         ),
-        ("lastKnownValue", ["lastKnownValue.timestamp", "lastKnownValue.value"]),
+        (
+            "entityPropertyCoordinates",
+            [
+                "entityPropertyCoordinates.latitude",
+                "entityPropertyCoordinates.longitude",
+            ],
+        ),
+        (
+            "entityPropertyDeprecation",
+            [
+                "entityPropertyDeprecation.deprecatedInVersion",
+                "entityPropertyDeprecation.deprecationMitigationMessage",
+                "entityPropertyDeprecation.deprecationMitigationRule",
+            ],
+        ),
+        (
+            "entityPropertyLastKnownValue",
+            [
+                "entityPropertyLastKnownValue.timestamp",
+                "entityPropertyLastKnownValue.value",
+            ],
+        ),
     ],
 )
 def test_complex_entity_properties_have_namespaced_scalar_children(

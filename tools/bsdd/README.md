@@ -12,16 +12,22 @@ The exporter creates one bSDD JSON dictionary from `Brick+imports.ttl`.
 | --- | --- |
 | live Brick class | Class (`Code`, `Name`, `Definition`, parent) |
 | quantity or `brick:hasQuantity` target | numeric Property (`Units`, `Dimension`) |
-| `brick:EntityProperty` SHACL value shape | scalar Property |
+| `brick:EntityProperty` SHACL value shape | `entityProperty<Code>` Property |
 | multi-field EntityProperty shape | `Complex` Property with `ConnectedPropertyCodes` |
 | `brick:hasQuantity`, `brick:hasSubstance`, SHACL class property | `ClassProperty` |
 
-Complex children use `parent.field` codes, such as `coordinates.latitude`.
+Complex children use `parent.field` codes, such as
+`entityPropertyCoordinates.latitude`. EntityProperty codes are namespaced so
+they never collide with physical quantity kinds such as `Volume`.
 Imported vocabularies and deprecated Brick terms are not published.
 
 `mappings/units.csv` maps QUDT unit IRIs to bSDD unit codes. The export is
 offline and deterministic. IFC alignment and other publication-quality checks
 deliberately do not alter the mapping.
+
+`mappings/ifc.csv` is a curated `Brick class code → IFC entity` lookup. Each
+row adds `RelatedIfcEntityNamesList` to that exact class; mappings do not
+inherit through the Brick class hierarchy.
 
 Property codes are case-insensitive in bSDD. A collision stops the export; add
 an explicit mapping decision rather than silently merging distinct Brick terms.
