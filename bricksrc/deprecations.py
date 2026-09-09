@@ -74,6 +74,7 @@ deprecations = {
     BRICK.Zone_Air_Temperature_Setpoint: {
         "version": "1.3.0",
         "mitigation_message": "The class 'Zone_Air_Temperature_Setpoint' is deprecated in favor of more explicit class names to distinguish target and cooling/heating setpoints.",
+        SKOS.definition: "Sets temperature of zone air",
         "replace_with": BRICK.Target_Zone_Air_Temperature_Setpoint,
         RDFS.subClassOf: BRICK.Air_Temperature_Setpoint,
     },
@@ -98,12 +99,14 @@ deprecations = {
     BRICK.Zone_Air_Cooling_Temperature_Setpoint: {
         "version": "1.3.0",
         "mitigation_message": "'Zone_Air_Cooling_Temperature_Setpoint' is deprecated to support new naming convention, which reorders intended behaviour (cooling) before the substance (zone air).",
+        SKOS.definition: "The upper (cooling) setpoint for zone air temperature",
         "replace_with": BRICK.Cooling_Zone_Air_Temperature_Setpoint,
         RDFS.subClassOf: BRICK.Zone_Air_Temperature_Setpoint,
     },
     BRICK.Zone_Air_Heating_Temperature_Setpoint: {
         "version": "1.3.0",
         "mitigation_message": "'Zone_Air_Heating_Temperature_Setpoint' is deprecated to support new naming convention, whic reorders intended behaviour (heating) before the substance (zone air)",
+        SKOS.definition: "The lower (heating) setpoint for zone air temperature",
         "replace_with": BRICK.Heating_Zone_Air_Temperature_Setpoint,
         RDFS.subClassOf: BRICK.Zone_Air_Temperature_Setpoint,
     },
@@ -748,5 +751,325 @@ deprecations = {
     BRICK.Weather_Condition: {
         "version": "1.4.4",
         "mitigation_message": "Brick-defined quantity 'Weather_Condition' is deprecated.",
+    },
+}
+
+# Definitions (and optional rdfs:seeAlso) for deprecated terms whose deprecation
+# metadata is declared in Turtle (bricksrc/recpatches.ttl) rather than in the
+# `deprecations` dict above. Terms in `deprecations` carry SKOS.definition inline.
+deprecated_definitions = {
+    BRICK.Ablutions_Room: {
+        SKOS.definition: "A room for performing cleansing rituals before prayer",
+    },
+    BRICK.Atrium: {
+        SKOS.definition: "a large open-air or skylight covered space surrounded by a building.",
+        RDFS.seeAlso: "https://en.wikipedia.org/wiki/Atrium_(architecture)",
+    },
+    BRICK.Auditorium: {
+        SKOS.definition: "A space for performances or larger gatherings",
+    },
+    BRICK.Basement: {
+        SKOS.definition: "The floor of a building which is partly or entirely below ground level.",
+    },
+    BRICK.Battery_Room: {
+        SKOS.definition: "A room used to hold batteries for backup power",
+    },
+    BRICK.Bench_Space: {
+        SKOS.definition: "For areas of play in a stadium, the area for partcipants and referees by the side of the field",
+    },
+    BRICK.Break_Room: {
+        SKOS.definition: "A space for people to relax while not working",
+    },
+    BRICK.Broadcast_Room: {
+        SKOS.definition: "A space to organize and manage a broadcast. Separate from studio",
+    },
+    BRICK.Building: {
+        SKOS.definition: "An independent unit of the built environment with a characteristic spatial structure, intended to serve at least one function or user activity [ISO 12006-2:2013]",
+    },
+    BRICK.Cafeteria: {
+        SKOS.definition: "A space to serve food and beverages",
+    },
+    BRICK.Cold_Box: {
+        SKOS.definition: "in a gas separation unit, the insulated section that contains the low-temperature heat exchangers and distillation columns.",
+    },
+    BRICK.Common_Space: {
+        SKOS.definition: "A class of spaces that are used by multiple people at the same time",
+    },
+    BRICK.Concession: {
+        SKOS.definition: "A space to sell food and beverages. Usually embedded in a larger space and does not include a space where people consume their purchases",
+    },
+    BRICK.Conference_Room: {
+        SKOS.definition: "A space dedicated in which to hold a meetings",
+    },
+    BRICK.Control_Room: {
+        SKOS.definition: "A space from which operations are managed",
+    },
+    BRICK.Copy_Room: {
+        SKOS.definition: "A room set aside for common office equipment, including printers and copiers",
+    },
+    BRICK.Cubicle: {
+        SKOS.definition: "A smaller space set aside for an individual, but not with a door and without full-height walls",
+    },
+    BRICK.Detention_Room: {
+        SKOS.definition: "A space for the temporary involuntary confinement of people",
+    },
+    BRICK.Distribution_Frame: {
+        SKOS.definition: "A class of spaces where the cables carrying signals meet and connect, e.g. a wiring closet or a broadcast downlink room",
+    },
+    BRICK.Electrical_Room: {
+        SKOS.definition: "A class of service rooms that house electrical equipment for a building",
+    },
+    BRICK.Elevator_Shaft: {
+        SKOS.definition: "The vertical space in which an elevator ascends and descends",
+    },
+    BRICK.Employee_Entrance_Lobby: {
+        SKOS.definition: "An open space near an entrance that is typicaly only used for employees",
+    },
+    BRICK.Enclosed_Office: {
+        SKOS.definition: "A space for individuals to work with walls and a door",
+    },
+    BRICK.Energy_Zone: {
+        SKOS.definition: "A space or group of spaces that are managed or monitored as one unit for energy purposes",
+    },
+    BRICK.Entrance: {
+        SKOS.definition: "The location and space of a building where people enter and exit the building",
+    },
+    BRICK.Environment_Box: {
+        SKOS.definition: "(also known as climatic chamber), enclosed space designed to create a particular environment.",
+    },
+    BRICK.Equipment_Room: {
+        SKOS.definition: "A telecommunications room where equipment that serves the building is stored",
+    },
+    BRICK.Exercise_Room: {
+        SKOS.definition: "An indoor room used for exercise and physical activities",
+    },
+    BRICK.Field_Of_Play: {
+        SKOS.definition: "The area of a stadium where athletic events occur, e.g. the soccer pitch",
+    },
+    BRICK.Fire_Zone: {
+        SKOS.definition: "A logical subdivision of a building that is monitored for fire; may also have a classification for the type of fire hazard that can occur",
+    },
+    BRICK.First_Aid_Room: {
+        SKOS.definition: "A room for a person with minor injuries can be treated or temporarily treated until transferred to a more advanced medical facility",
+    },
+    BRICK.Floor: {
+        SKOS.definition: "A level, typically representing a horizontal aggregation of spaces that are vertically bound. (referring to IFC)",
+    },
+    BRICK.Food_Service_Room: {
+        SKOS.definition: "A space used in the production, storage, serving, or cleanup of food and beverages",
+    },
+    BRICK.Freezer: {
+        SKOS.definition: "cold chamber usually kept at a temperature of 22°F to 31°F (–5°C to –1°C), with high-volume air circulation.",
+    },
+    BRICK.Furniture: {
+        SKOS.definition: "Movable objects intended to support various human activities such as seating, eating and sleeping",
+        RDFS.seeAlso: "https://en.wikipedia.org/wiki/Furniture",
+    },
+    BRICK.Gatehouse: {
+        SKOS.definition: "The standalone building used to manage the entrance to a campus or building grounds",
+    },
+    BRICK.Generator_Room: {
+        SKOS.definition: "A room for electrical equipment, specifically electrical generators.",
+    },
+    BRICK.HVAC_Zone: {
+        SKOS.definition: "a space or group of spaces, within a building with heating, cooling, and ventilating requirements, that are sufficiently similar so that desired conditions (e.g., temperature) can be maintained throughout using a single sensor (e.g., thermostat or temperature sensor).",
+    },
+    BRICK.Hallway: {
+        SKOS.definition: "A common space, used to connect other parts of a building",
+    },
+    BRICK.Hazardous_Materials_Storage: {
+        SKOS.definition: "A storage space set aside (usually with restricted access) for the storage of materials that can be hazardous to living beings or the environment",
+    },
+    BRICK.Hospitality_Box: {
+        SKOS.definition: "A room at a stadium, usually overlooking the field of play, that is physical separate from the other seating at the venue",
+    },
+    BRICK.Hot_Box: {
+        SKOS.definition: "hot air chamber forming part of an air handler.",
+    },
+    BRICK.IDF: {
+        SKOS.definition: "An room for an intermediate distribution frame, where cables carrying signals from the main distrubtion frame terminate and then feed out to endpoints",
+    },
+    BRICK.Information_Area: {
+        SKOS.definition: "An information booth or kiosk where visitors would look for information",
+    },
+    BRICK.Janitor_Room: {
+        SKOS.definition: "A room set aside for the storage of cleaning equipment and supplies",
+    },
+    BRICK.Laboratory: {
+        SKOS.definition: "facility acceptable to the local, national, or international recognized authority having jurisdiction and which provides uniform testing and examination procedures and standards for meeting design, manufacturing, and factory testing requirements.",
+    },
+    BRICK.Library: {
+        SKOS.definition: "A place for the storage and/or consumption of physical media, e.g. books, periodicals, and DVDs/CDs",
+    },
+    BRICK.Loading_Dock: {
+        SKOS.definition: "A part of a facility where delivery trucks can load and unload. Usually partially enclosed with specific traffic lanes leading to the dock",
+    },
+    BRICK.Lobby: {
+        SKOS.definition: "A space just after the entrance to a building or other space of a building, where visitors can wait",
+    },
+    BRICK.Lounge: {
+        SKOS.definition: "A room for lesiure activities or relaxing",
+    },
+    BRICK.MDF: {
+        SKOS.definition: "A room for the Main Distribution Frame, the central place of a building where cables carrying signals meet and connect to the outside world",
+    },
+    BRICK.Mail_Room: {
+        SKOS.definition: "A room where mail is recieved and sorted for distribution to the rest of the building",
+    },
+    BRICK.Majlis: {
+        SKOS.definition: "In Arab countries, an Majlis is a private lounge where visitors are recieved and entertained",
+    },
+    BRICK.Massage_Room: {
+        SKOS.definition: "Usually adjunct to an athletic facility, a private/semi-private space where massages are performed",
+    },
+    BRICK.Mechanical_Room: {
+        SKOS.definition: "A class of service rooms where mechanical equipment (HVAC) operates",
+    },
+    BRICK.Media_Hot_Desk: {
+        SKOS.definition: "A non-enclosed space used by members of the media temporarily to cover an event while they are present at a venue",
+    },
+    BRICK.Media_Production_Room: {
+        SKOS.definition: "A enclosed space used by media professionals for the production of media",
+    },
+    BRICK.Media_Room: {
+        SKOS.definition: "A class of spaces related to the creation of media",
+    },
+    BRICK.Medical_Room: {
+        SKOS.definition: "A class of rooms used for medical purposes",
+    },
+    BRICK.Office: {
+        SKOS.definition: "A class of rooms dedicated for work or study",
+    },
+    BRICK.Office_Kitchen: {
+        SKOS.definition: "A common space, usually near or in a breakroom, where minor food preperation occurs",
+    },
+    BRICK.Open_Office: {
+        SKOS.definition: "An open space used for work or study by mulitple people. Usuaully subdivided into cubicles or desks",
+    },
+    BRICK.Outdoor_Area: {
+        SKOS.definition: "A class of spaces that exist outside of a building",
+    },
+    BRICK.Parking_Level: {
+        SKOS.definition: "A floor of a parking structure",
+    },
+    BRICK.Parking_Space: {
+        SKOS.definition: "An area large enough to park an individual vehicle",
+    },
+    BRICK.Parking_Structure: {
+        SKOS.definition: "A building or part of a building devoted to vehicle parking",
+    },
+    BRICK.Photovoltaic_Array: {
+        SKOS.definition: "A collection of photovoltaic panels",
+    },
+    BRICK.Plumbing_Room: {
+        SKOS.definition: "A service room devoted to the operation and routing of water in a building. Usually distinct from the HVAC subsystems.",
+    },
+    BRICK.Portfolio: {
+        SKOS.definition: "A collection of sites",
+    },
+    BRICK.Prayer_Room: {
+        SKOS.definition: "A room set aside for prayer",
+    },
+    BRICK.Private_Office: {
+        SKOS.definition: "An office devoted to a single individual, with walls and door",
+    },
+    BRICK.Pump_Room: {
+        SKOS.definition: "A mechanical room that houses pumps",
+    },
+    BRICK.Reception: {
+        SKOS.definition: "A space, usually in a lobby, where visitors to a building or space can go to after arriving at a building and inform building staff that they have arrived",
+    },
+    BRICK.Region: {
+        SKOS.definition: "A unit of geographic space, usually contigious or somehow related to a geopolitical feature",
+    },
+    BRICK.Restroom: {
+        SKOS.definition: "A room that provides toilets and washbowls.",
+    },
+    BRICK.Retail_Room: {
+        SKOS.definition: "A space set aside for retail in a larger establishment, e.g. a gift shop in a hospital",
+    },
+    BRICK.Riser: {
+        SKOS.definition: "A vertical shaft indented for installing building infrastructure e.g., electrical wire, network communication wire, plumbing, etc",
+    },
+    BRICK.Room: {
+        SKOS.definition: "Base class for all more specific room types.",
+    },
+    BRICK.Security_Service_Room: {
+        SKOS.definition: "A class of spaces used by the security staff of a facility",
+    },
+    BRICK.Service_Room: {
+        SKOS.definition: "A class of spaces related to the operations of building subsystems, e.g. HVAC, electrical, IT, plumbing, etc",
+    },
+    BRICK.Shared_Office: {
+        SKOS.definition: "An office used by multiple people",
+    },
+    BRICK.Shower: {
+        SKOS.definition: "A space containing showers, usually adjacent to an athletic or execise area",
+    },
+    BRICK.Site: {
+        SKOS.definition: "A geographic region containing 0 or more buildings. Typically used as the encapsulating location for a collection of Brick entities through the hasPart/isPartOf relationships",
+    },
+    BRICK.Space: {
+        SKOS.definition: "A part of the physical world or a virtual world whose 3D spatial extent is bounded actually or theoretically, and provides for certain functions within the zone it is contained in.",
+    },
+    BRICK.Sports_Service_Room: {
+        SKOS.definition: "A class of spaces used in the support of sports",
+    },
+    BRICK.Stage_Riser: {
+        SKOS.definition: "A low platform in a space or on a stage",
+    },
+    BRICK.Staircase: {
+        SKOS.definition: "A vertical space containing stairs",
+    },
+    BRICK.Storage_Room: {
+        SKOS.definition: "A class of spaces used for storage",
+    },
+    BRICK.Studio: {
+        SKOS.definition: "A room used for the production or media, usually with either a specialized set or a specialized sound booth for recording",
+    },
+    BRICK.Switch_Room: {
+        SKOS.definition: "A telecommuncations room housing network switches",
+    },
+    BRICK.TETRA_Room: {
+        SKOS.definition: "A room used for local two-way radio networks, e.g. the portable radios carried by facilities staff",
+    },
+    BRICK.Team_Room: {
+        SKOS.definition: "An office used by multiple team members for specific work tasks. Distinct from Conference Room",
+    },
+    BRICK.Telecom_Room: {
+        SKOS.definition: "A class of spaces used to support telecommuncations and IT equipment",
+    },
+    BRICK.Ticketing_Booth: {
+        SKOS.definition: "A room or space used to sell or distribute tickets to events at a venue",
+    },
+    BRICK.Transformer_Room: {
+        SKOS.definition: "An electrical room where electricity enters and is transformed to different voltages and currents by the equipment contained in the room",
+    },
+    BRICK.Tunnel: {
+        SKOS.definition: "An enclosed space that connects buildings. Often underground",
+    },
+    BRICK.Vertical_Space: {
+        SKOS.definition: "A class of spaces used to connect multiple floors or levels..",
+    },
+    BRICK.Visitor_Lobby: {
+        SKOS.definition: "A lobby for visitors to the building. Sometimes used to distinguish from an employee entrance looby",
+    },
+    BRICK.Wardrobe: {
+        SKOS.definition: "Storage for clothing, costumes, or uniforms",
+    },
+    BRICK.Waste_Storage: {
+        SKOS.definition: "A room used for storing waste such as trash or recycling",
+    },
+    BRICK.Water_Tank: {
+        SKOS.definition: "A space used to hold water. This will likely be deprecated in future releases of Brick for the sake of clarity w.r.t. equipment classification of tanks",
+    },
+    BRICK.Wing: {
+        SKOS.definition: "A wing is part of a building – or any feature of a building – that is subordinate to the main, central structure.",
+    },
+    BRICK.Workshop: {
+        SKOS.definition: "A space used to house equipment that can be used to repair or fabricate things",
+    },
+    BRICK.Zone: {
+        SKOS.definition: "(1) a separately controlled heated or cooled space. (2) one occupied space or several occupied spaces with similar occupancy category, occupant density, zone air distribution effectiveness, and zone primary airflow per unit area. (3) space or group of spaces within a building for which the heating, cooling, or lighting requirements are sufficiently similar that desired conditions can be maintained throughout by a single controlling device.",
     },
 }
