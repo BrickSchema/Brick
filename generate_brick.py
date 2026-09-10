@@ -945,6 +945,10 @@ define_classes(safety_subclasses, BRICK.Safety_Equipment)
 logger.info("Defining Measurable hierarchy")
 # define measurable hierarchy
 G.add((BRICK.Measurable, RDFS.subClassOf, BRICK.Entity))
+# ensure collection classes are also Brick Entity
+for collection_class in collection_classes:
+    G.add((BRICK[collection_class], RDFS.subClassOf, BRICK.Entity))
+
 # set up Quantity definition
 G.add((BRICK.Quantity, RDFS.subClassOf, SOSA.ObservableProperty))
 G.add((BRICK.Quantity, RDFS.subClassOf, QUDT.QuantityKind))
