@@ -935,16 +935,21 @@ logger.info("Defining Equipment, System and Location subclasses")
 # define other root class structures
 define_classes(location_subclasses, BRICK.Location)
 define_classes(equipment_subclasses, BRICK.Equipment)
-define_classes(collection_classes, REC.Collection)
 define_classes(hvac_subclasses, BRICK.HVAC_Equipment)
 define_classes(hvac_valve_subclasses, BRICK.HVAC_Equipment)
 define_classes(valve_subclasses, BRICK.Equipment)
 define_classes(security_subclasses, BRICK.Security_Equipment)
 define_classes(safety_subclasses, BRICK.Safety_Equipment)
 
+# adding BRICK.Collection in here as a deprecated class
+# to keep our Brick collection subclasses under the Brick tree
+define_classes(collection_classes, BRICK.Collection)
+G.add((BRICK.Collection, RDFS.subClassOf, REC.Collection))
+
 logger.info("Defining Measurable hierarchy")
 # define measurable hierarchy
 G.add((BRICK.Measurable, RDFS.subClassOf, BRICK.Entity))
+
 # set up Quantity definition
 G.add((BRICK.Quantity, RDFS.subClassOf, SOSA.ObservableProperty))
 G.add((BRICK.Quantity, RDFS.subClassOf, QUDT.QuantityKind))
