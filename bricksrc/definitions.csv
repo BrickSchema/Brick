@@ -165,7 +165,6 @@ https://brickschema.org/schema/Brick#Coil,Cooling or heating element made of pip
 https://brickschema.org/schema/Brick#Cold_Deck,Part of a dual duct air handling unit that supplies cooling to a building,
 https://brickschema.org/schema/Brick#Cold_Water_Storage_Tank,"A tank used to store cold water, usually in a building's water supply system.",
 https://brickschema.org/schema/Brick#Coldest_Zone_Air_Temperature_Sensor,The zone temperature that is coldest; drives the supply temperature of hot air. A computed value rather than a physical sensor. Also referred to as a 'Lowest Zone Air Temperature Sensor',
-https://brickschema.org/schema/Brick#Collection,,
 https://brickschema.org/schema/Brick#Collection_Basin_Water,"Water transiently collected and directed to the sump or pump suction line, typically integral with a cooling tower",https://www.towercomponentsinc.com/cooling-tower-basics-misc-terms-glossary
 https://brickschema.org/schema/Brick#Collection_Basin_Water_Heater,"Basin heaters prevent cold water basin freeze-up, e.g. in cooling towers, closed circuit fluid coolers, or evaporative condensers",https://www.coolingtowerworld.com/c-30-basin-heater.aspx
 https://brickschema.org/schema/Brick#Collection_Basin_Water_Level_Alarm,"An alarm that indicates a high or low level of water in the collection basin, e.g. within a Cooling_Tower",
@@ -283,7 +282,6 @@ https://brickschema.org/schema/Brick#Disable_Fixed_Temperature_Command,Disables 
 https://brickschema.org/schema/Brick#Disable_Hot_Water_System_Outside_Air_Temperature_Setpoint,Disables hot water system when outside air temperature reaches the indicated value,
 https://brickschema.org/schema/Brick#Disable_Status,Indicates if functionality has been disabled,
 https://brickschema.org/schema/Brick#Discharge_Air,the air exiting the registers (vents).,
-https://brickschema.org/schema/Brick#Discharge_Chilled_Water,,
 https://brickschema.org/schema/Brick#Disconnect_Switch,A switch that isolates a circuit or equipment by physically breaking the electrical connection.,
 https://brickschema.org/schema/Brick#Displacement_Flow_Air_Diffuser,An air diffuser that is designed for low discharge air speeds to minimize turbulence and induction of room air. This diffuser is used with displacement ventilation systems.,
 https://brickschema.org/schema/Brick#District_Hot_Water,Heating hot water on the district or utility side of an interface such as a heat exchanger,
@@ -675,7 +673,6 @@ https://brickschema.org/schema/Brick#Leaving_Water_Temperature_Integral_Time_Par
 https://brickschema.org/schema/Brick#Leaving_Water_Temperature_Proportional_Band_Parameter,Sets the proportional band parameter for controlling the temperature of water leaving a piece of equipment or system,
 https://brickschema.org/schema/Brick#Leaving_Water_Temperature_Sensor,Measures the temperature of water leaving a piece of equipment or system,
 https://brickschema.org/schema/Brick#Leaving_Water_Temperature_Setpoint,Target temperature of water leaving a piece of equipment or system,
-https://brickschema.org/schema/Brick#Level,,
 https://brickschema.org/schema/Brick#Level_Command,Adjusts the operational state to a specific level within a predefined range.,
 https://brickschema.org/schema/Brick#Level_Status,The current operational state of a specific level within a predefined range.,
 https://brickschema.org/schema/Brick#Light,,
