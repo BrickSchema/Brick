@@ -806,33 +806,16 @@ def handle_deprecations(graph: Graph = G):
         )
         if "replace_with" in md:
             graph.add((deprecated_term, BRICK.isReplacedBy, md["replace_with"]))
-
-    """
-    The following part adds definitions for deprecated Brick subclasses through SKOS.definitions.
-
-    This parses the definitions from ./bricksrc/deprecated_definitions.csv and
-    adds it to the graph. If available, adds the source information of
-    through RDFS.seeAlso.
-    """
-    with open(
-        Path("./bricksrc/deprecated_definitions.csv"), encoding="utf-8"
-    ) as dictionary_file:
-        dictionary = csv.reader(dictionary_file)
-
-        header = next(dictionary)
-
-        # add definitions, citations to the graph
-        for definition in dictionary:
-            term = URIRef(definition[0])
-            if len(definition) > len(header):
-                raise ValueError(
-                    f"The term '{term}' has more elements than expected. Please check the format."
+        if SKOS.definition in md:
+            graph.add(
+                (
+                    deprecated_term,
+                    SKOS.definition,
+                    Literal(md[SKOS.definition], lang="en"),
                 )
-            if len(definition[1]):
-                graph.add((term, SKOS.definition, Literal(definition[1], lang="en")))
-            if len(definition) > 2 and definition[2]:
-                # add seeAlso only if provided
-                graph.add((term, RDFS.seeAlso, URIRef(definition[2])))
+            )
+        if RDFS.seeAlso in md:
+            graph.add((deprecated_term, RDFS.seeAlso, URIRef(md[RDFS.seeAlso])))
 
 
 def handle_concept_labels(graph: Graph = G):
@@ -935,16 +918,21 @@ logger.info("Defining Equipment, System and Location subclasses")
 # define other root class structures
 define_classes(location_subclasses, BRICK.Location)
 define_classes(equipment_subclasses, BRICK.Equipment)
-define_classes(collection_classes, REC.Collection)
 define_classes(hvac_subclasses, BRICK.HVAC_Equipment)
 define_classes(hvac_valve_subclasses, BRICK.HVAC_Equipment)
 define_classes(valve_subclasses, BRICK.Equipment)
 define_classes(security_subclasses, BRICK.Security_Equipment)
 define_classes(safety_subclasses, BRICK.Safety_Equipment)
 
+# adding BRICK.Collection in here as a deprecated class
+# to keep our Brick collection subclasses under the Brick tree
+define_classes(collection_classes, BRICK.Collection)
+G.add((BRICK.Collection, RDFS.subClassOf, REC.Collection))
+
 logger.info("Defining Measurable hierarchy")
 # define measurable hierarchy
 G.add((BRICK.Measurable, RDFS.subClassOf, BRICK.Entity))
+
 # set up Quantity definition
 G.add((BRICK.Quantity, RDFS.subClassOf, SOSA.ObservableProperty))
 G.add((BRICK.Quantity, RDFS.subClassOf, QUDT.QuantityKind))

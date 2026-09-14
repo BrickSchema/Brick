@@ -74,6 +74,7 @@ deprecations = {
     BRICK.Zone_Air_Temperature_Setpoint: {
         "version": "1.3.0",
         "mitigation_message": "The class 'Zone_Air_Temperature_Setpoint' is deprecated in favor of more explicit class names to distinguish target and cooling/heating setpoints.",
+        SKOS.definition: "Sets temperature of zone air",
         "replace_with": BRICK.Target_Zone_Air_Temperature_Setpoint,
         RDFS.subClassOf: BRICK.Air_Temperature_Setpoint,
     },
@@ -98,12 +99,14 @@ deprecations = {
     BRICK.Zone_Air_Cooling_Temperature_Setpoint: {
         "version": "1.3.0",
         "mitigation_message": "'Zone_Air_Cooling_Temperature_Setpoint' is deprecated to support new naming convention, which reorders intended behaviour (cooling) before the substance (zone air).",
+        SKOS.definition: "The upper (cooling) setpoint for zone air temperature",
         "replace_with": BRICK.Cooling_Zone_Air_Temperature_Setpoint,
         RDFS.subClassOf: BRICK.Zone_Air_Temperature_Setpoint,
     },
     BRICK.Zone_Air_Heating_Temperature_Setpoint: {
         "version": "1.3.0",
         "mitigation_message": "'Zone_Air_Heating_Temperature_Setpoint' is deprecated to support new naming convention, whic reorders intended behaviour (heating) before the substance (zone air)",
+        SKOS.definition: "The lower (heating) setpoint for zone air temperature",
         "replace_with": BRICK.Heating_Zone_Air_Temperature_Setpoint,
         RDFS.subClassOf: BRICK.Zone_Air_Temperature_Setpoint,
     },
