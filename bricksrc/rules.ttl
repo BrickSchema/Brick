@@ -540,7 +540,7 @@ bsh:PointsHaveQuantityKinds a sh:NodeShape ;
           WHERE {
             # every Sensor subclass that is not deprecated
             ?this rdfs:subClassOf+ brick:Sensor .
-            FILTER NOT EXISTS { ?class owl:deprecated true }
+            FILTER NOT EXISTS { ?this owl:deprecated true }
           }
         """ ;
         sh:prefixes <https://brickschema.org/schema/1.5/Brick> ;
@@ -552,7 +552,7 @@ bsh:PointsHaveQuantityKinds a sh:NodeShape ;
           WHERE {
             # every Setpoint subclass that is not deprecated
             ?this rdfs:subClassOf+ brick:Setpoint .
-            FILTER NOT EXISTS { ?class owl:deprecated true }
+            FILTER NOT EXISTS { ?this owl:deprecated true }
           }
         """ ;
         sh:prefixes <https://brickschema.org/schema/1.5/Brick> ;
@@ -699,5 +699,114 @@ bsh:AutomationCollectionPointsRequireIsPointOf a sh:NodeShape ;
         sh:path brick:isPointOf ;
         sh:minCount 1 ;
         sh:message "Points included in an Automation_Collection via rec:includes must have at least one brick:isPointOf relationship" ;
+    ] ;
+.
+
+##############################################################################
+# Unit / QuantityKind / Substance compatibility for Point instances
+#
+# Point classes are annotated with brick:hasQuantity and brick:hasSubstance.
+# generate_brick.py copies those annotations down onto every Point class from
+# the nearest annotated ancestor (see materialize_inherited_class_annotations),
+# so a class's own annotations are the whole answer and these shapes never walk
+# the hierarchy. A class may carry several (brick:CO2_Sensor declares both
+# qudtqk:DimensionlessRatio and brick:CO2_Concentration), so an instance passes
+# if it is compatible with any of them, including any it asserts itself.
+#
+# The properties of the Brick data that let these path expressions stay this
+# short -- every Point class carrying its own effective annotations, skos:broader
+# always present alongside skos:narrower, symmetric owl:sameAs -- are asserted
+# directly by tests/test_unit_quantity_substance_shapes.py, so a future change
+# cannot weaken these shapes silently.
+##############################################################################
+
+# A point's unit must fit one of the point's quantity kinds, either way:
+#
+#   (^skos:broader)*/qudt:applicableUnit
+#       the unit is listed by the quantity kind or by a narrower one, so a point
+#       annotated brick:Air_Quality may use unit:PPM from the narrower
+#       brick:CO2_Concentration. ^skos:broader because QUDT only publishes
+#       skos:broader, not skos:narrower.
+#
+#   qudt:hasDimensionVector/^qudt:hasDimensionVector
+#       the unit merely shares the quantity kind's dimension, a fallback for the
+#       several quantity kinds that list no applicable units at all. It also
+#       lets same-dimension mismatches through, e.g. unit:LUX on a
+#       brick:Luminance_Sensor.
+# TODO: this might be simplified by using qudt-all, which adds additional information
+bsh:PointUnitIsCompatibleWithQuantityKind a sh:NodeShape ;
+    sh:targetClass brick:Point ;
+    sh:severity sh:Violation ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "{$this} has unit {?unit}, which is neither an applicable unit of the quantity kind {?quantity} associated with the point nor of the same dimension" ;
+        sh:select """
+        PREFIX brick: <https://brickschema.org/schema/Brick#>
+        PREFIX qudt: <http://qudt.org/schema/qudt/>
+        PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+        PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+        SELECT DISTINCT $this ?unit ?quantity
+        WHERE {
+            # the point's unit...
+            $this brick:hasUnit ?unit .
+            # ...and each quantity kind on the point or on its class
+            $this (brick:hasQuantity|rdf:type/brick:hasQuantity) ?quantity .
+
+            # no quantity kind of the point accepts the unit
+            FILTER NOT EXISTS {
+                $this (brick:hasQuantity|rdf:type/brick:hasQuantity) ?altquantity .
+                # an applicable unit of the kind or a narrower kind,
+                # or any unit with the same dimension vector
+                ?altquantity ((^skos:broader)*/qudt:applicableUnit)|(qudt:hasDimensionVector/^qudt:hasDimensionVector) ?unit .
+            }
+        }
+        """ ;
+    ] ;
+.
+
+# A quantity kind or substance asserted on a point must be compatible with one
+# its class declares: a SKOS specialization in either direction, or the same
+# dimension vector. One query covers both annotations -- the owl:sameAs branch
+# only ever matters for substances (brick:Supply_Air / brick:Discharge_Air) and
+# the dimension-vector branch only ever for quantity kinds, so each is inert for
+# the other kind of value.
+bsh:PointAnnotationMatchesClassAnnotation a sh:NodeShape ;
+    sh:targetClass brick:Point ;
+    sh:severity sh:Violation ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "{$this} has {?annotation} {?value}, which is not compatible with {?classvalue} declared on class {?class}" ;
+        sh:select """
+        PREFIX brick: <https://brickschema.org/schema/Brick#>
+        PREFIX owl: <http://www.w3.org/2002/07/owl#>
+        PREFIX qudt: <http://qudt.org/schema/qudt/>
+        PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+        PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+        SELECT DISTINCT $this ?annotation ?value ?class ?classvalue
+        WHERE {
+            # checks hasQuantity and hasSubstance with the same logic
+            VALUES ?annotation { brick:hasQuantity brick:hasSubstance }
+            # a value asserted on the point itself...
+            $this ?annotation ?value .
+            # ...where the point's class also declares a value (for the message)
+            $this rdf:type ?class .
+            ?class ?annotation ?classvalue .
+
+            # no class of the point declares a compatible value
+            FILTER NOT EXISTS {
+                $this rdf:type ?altclass .
+                ?altclass ?annotation ?alt .
+                # the point's value is the class's value or narrower...
+                { ?value (skos:broader|owl:sameAs)* ?alt }
+                UNION
+                # ...or broader (redundant, but not contradictory)...
+                { ?alt (skos:broader|owl:sameAs)* ?value }
+                UNION
+                # ...or a quantity kind with the same dimension vector
+                { ?value qudt:hasDimensionVector ?dv .
+                  ?alt qudt:hasDimensionVector ?dv }
+            }
+        }
+        """ ;
     ] ;
 .

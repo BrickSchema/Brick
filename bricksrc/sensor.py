@@ -499,6 +499,7 @@ sensor_definitions = {
             },
             "Direction_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Direction],
+                BRICK.hasQuantity: BRICK.Direction,
                 "subclasses": {
                     "Wind_Direction_Sensor": {
                         "tags": [TAG.Point, TAG.Sensor, TAG.Direction, TAG.Wind],
@@ -858,7 +859,10 @@ sensor_definitions = {
                     },
                 },
             },
-            "Waste_Amount_Sensor": {"tags": [TAG.Waste, TAG.Amount, TAG.Sensor]},
+            "Waste_Amount_Sensor": {
+                "tags": [TAG.Waste, TAG.Amount, TAG.Sensor],
+                BRICK.hasQuantity: QUDTQK.Mass,
+            },
             "Frequency_Sensor": {
                 BRICK.hasQuantity: QUDTQK.Frequency,
                 "tags": [TAG.Point, TAG.Sensor, TAG.Frequency],
