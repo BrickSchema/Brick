@@ -84,6 +84,11 @@ INVALID_CASES = {
         "a brick:Outside_Air_Temperature_Sensor ; brick:hasSubstance brick:Return_Air",
         "PointAnnotationMatchesClassAnnotation",
     ),
+    # brick:Air is broader than the class's brick:Outside_Air: loses detail
+    "substance_broader": (
+        "a brick:Outside_Air_Temperature_Sensor ; brick:hasSubstance brick:Air",
+        "PointAnnotationMatchesClassAnnotation",
+    ),
     "substance_unrelated": (
         "a brick:Air_Temperature_Sensor ; brick:hasSubstance brick:Chilled_Water",
         "PointAnnotationMatchesClassAnnotation",

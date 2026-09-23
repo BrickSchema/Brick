@@ -763,8 +763,8 @@ bsh:PointUnitIsCompatibleWithQuantityKind a sh:NodeShape ;
 .
 
 # A quantity kind or substance asserted on a point must be compatible with one
-# its class declares: a SKOS specialization in either direction, or the same
-# dimension vector. One query covers both annotations -- the owl:sameAs branch
+# its class declares: the same value or a SKOS narrower one, or the same
+# dimension vector. A broader value is rejected, since it only loses detail. One query covers both annotations -- the owl:sameAs branch
 # only ever matters for substances (brick:Supply_Air / brick:Discharge_Air) and
 # the dimension-vector branch only ever for quantity kinds, so each is inert for
 # the other kind of value.
@@ -796,9 +796,6 @@ bsh:PointAnnotationMatchesClassAnnotation a sh:NodeShape ;
                 ?altclass ?annotation ?alt .
                 # the point's value is the class's value or narrower...
                 { ?value (skos:broader|owl:sameAs)* ?alt }
-                UNION
-                # ...or broader (redundant, but not contradictory)...
-                { ?alt (skos:broader|owl:sameAs)* ?value }
                 UNION
                 # ...or a quantity kind with the same dimension vector
                 { ?value qudt:hasDimensionVector ?dv .
