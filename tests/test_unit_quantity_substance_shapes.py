@@ -32,6 +32,7 @@ VALID_CASES = {
     # brick:Occupancy_Count and qudtqk:Count list count units directly
     "occupancy_count_num": "a brick:Occupancy_Count_Sensor ; brick:hasUnit unit:NUM",
     "power_cycle_count_num": "a brick:Power_Cycle_Count_Sensor ; brick:hasUnit unit:NUM",
+    "rh_percent_rh": "a brick:Relative_Humidity_Sensor ; brick:hasUnit unit:PERCENT_RH",
     # instance quantity kind refines/matches the one on the class
     "qk_refines": "a brick:Air_Quality_Sensor ; brick:hasQuantity brick:CO2_Concentration",
     # instance substance refines/matches the one on the class
@@ -96,6 +97,13 @@ INVALID_CASES = {
     # brick:Chilled_Water_Temperature_Sensor overrides it with brick:Chilled_Water.
     "masked_parent_quantity": (
         "a brick:Air_Flow_Deadband_Setpoint ; brick:hasUnit unit:PERCENT",
+        "PointUnitIsCompatibleWithQuantityKind",
+    ),
+    # the same for a Sensor: brick:Humidity_Sensor's qudtqk:PressureRatio accepts
+    # unit:PERCENT, but brick:Relative_Humidity_Sensor declares
+    # qudtqk:RelativeHumidity, whose only applicable unit is unit:PERCENT_RH
+    "masked_parent_sensor_quantity": (
+        "a brick:Relative_Humidity_Sensor ; brick:hasUnit unit:PERCENT",
         "PointUnitIsCompatibleWithQuantityKind",
     ),
     "masked_parent_substance": (
