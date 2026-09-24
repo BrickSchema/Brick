@@ -714,31 +714,31 @@ bsh:AutomationCollectionPointsRequireIsPointOf a sh:NodeShape ;
 # if it is compatible with any of them, including any it asserts itself.
 #
 # The properties of the Brick data that let these path expressions stay this
-# short -- every Point class carrying its own effective annotations, skos:broader
-# always present alongside skos:narrower, symmetric owl:sameAs -- are asserted
+# short -- every Point class carrying its own effective annotations, skos:narrower
+# present on Brick quantities but never on QUDT ones, symmetric owl:sameAs -- are asserted
 # directly by tests/test_unit_quantity_substance_shapes.py, so a future change
 # cannot weaken these shapes silently.
 ##############################################################################
 
-# A point's unit must fit one of the point's quantity kinds, either way:
+# A point's unit must be an applicable unit of one of the point's quantity
+# kinds, or of a kind narrower than it:
 #
-#   (^skos:broader)*/qudt:applicableUnit
-#       the unit is listed by the quantity kind or by a narrower one, so a point
-#       annotated brick:Air_Quality may use unit:PPM from the narrower
-#       brick:CO2_Concentration. ^skos:broader because QUDT only publishes
-#       skos:broader, not skos:narrower.
+#   skos:narrower
+#       Brick's own quantity hierarchy, so a point annotated brick:Air_Quality
+#       may use unit:PPM from the narrower brick:CO2_Concentration. Only Brick
+#       publishes skos:narrower; QUDT publishes only skos:broader.
 #
-#   qudt:hasDimensionVector/^qudt:hasDimensionVector
-#       the unit merely shares the quantity kind's dimension, a fallback for the
-#       several quantity kinds that list no applicable units at all. It also
-#       lets same-dimension mismatches through, e.g. unit:LUX on a
-#       brick:Luminance_Sensor.
+#   ^qudt:specializationOf | qudt:exactMatch | ^qudt:exactMatch
+#       QUDT's commensurability relations. QUDT's skos:broader also includes
+#       qudt:organizedUnder, a grouping that does not make units interchangeable
+#       (it would let unit:KiloVAR onto a qudtqk:ElectricPower point), so it is
+#       not walked.
 bsh:PointUnitIsCompatibleWithQuantityKind a sh:NodeShape ;
     sh:targetClass brick:Point ;
     sh:severity sh:Violation ;
     sh:sparql [
         a sh:SPARQLConstraint ;
-        sh:message "{$this} has unit {?unit}, which is neither an applicable unit of the quantity kind {?quantity} associated with the point nor of the same dimension" ;
+        sh:message "{$this} has unit {?unit}, which is not an applicable unit of the quantity kind {?quantity} associated with the point" ;
         sh:select """
         PREFIX brick: <https://brickschema.org/schema/Brick#>
         PREFIX qudt: <http://qudt.org/schema/qudt/>
@@ -754,9 +754,8 @@ bsh:PointUnitIsCompatibleWithQuantityKind a sh:NodeShape ;
             # no quantity kind of the point accepts the unit
             FILTER NOT EXISTS {
                 $this (brick:hasQuantity|rdf:type/brick:hasQuantity) ?altquantity .
-                # an applicable unit of the kind or a narrower kind,
-                # or any unit with the same dimension vector
-                ?altquantity ((^skos:broader)*/qudt:applicableUnit)|(qudt:hasDimensionVector/^qudt:hasDimensionVector) ?unit .
+                # an applicable unit of the kind or a narrower kind
+                ?altquantity (skos:narrower|^qudt:specializationOf|qudt:exactMatch|^qudt:exactMatch)*/qudt:applicableUnit ?unit .
             }
         }
         """ ;

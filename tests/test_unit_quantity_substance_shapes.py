@@ -29,11 +29,9 @@ VALID_CASES = {
     # its parent brick:Adjust_Sensor with brick:Differential_Temperature; only
     # the most specific annotation should be used
     "warmcool_degc": "a brick:Warm_Cool_Adjust_Sensor ; brick:hasUnit unit:DEG_C",
-    # unit:LUX measures illuminance, not luminance, but the two share a
-    # dimension vector -- so the dimension fallback accepts it. This is the
-    # documented cost of that fallback: it covers gaps in qudt:applicableUnit at
-    # the price of admitting same-dimension mismatches.
-    "luminance_in_lux": "a brick:Luminance_Sensor ; brick:hasUnit unit:LUX",
+    # brick:Occupancy_Count and qudtqk:Count list count units directly
+    "occupancy_count_num": "a brick:Occupancy_Count_Sensor ; brick:hasUnit unit:NUM",
+    "power_cycle_count_num": "a brick:Power_Cycle_Count_Sensor ; brick:hasUnit unit:NUM",
     # instance quantity kind refines/matches the one on the class
     "qk_refines": "a brick:Air_Quality_Sensor ; brick:hasQuantity brick:CO2_Concentration",
     # instance substance refines/matches the one on the class
@@ -56,6 +54,24 @@ INVALID_CASES = {
     ),
     "co2_degc": (
         "a brick:CO2_Sensor ; brick:hasUnit unit:DEG_C",
+        "PointUnitIsCompatibleWithQuantityKind",
+    ),
+    # Same-dimension mismatches: the shape accepts only applicable units, never
+    # merely a shared dimension vector. unit:LUX measures illuminance, not
+    # luminance; unit:MACH is dimensionless, like unit:PPM, but is no
+    # concentration.
+    "luminance_in_lux": (
+        "a brick:Luminance_Sensor ; brick:hasUnit unit:LUX",
+        "PointUnitIsCompatibleWithQuantityKind",
+    ),
+    "co2_mach": (
+        "a brick:CO2_Sensor ; brick:hasUnit unit:MACH",
+        "PointUnitIsCompatibleWithQuantityKind",
+    ),
+    # qudtqk:NonActivePower is only qudt:organizedUnder qudtqk:ElectricPower, so
+    # its reactive power units must not apply to an electric power point
+    "electric_power_kilovar": (
+        "a brick:Electric_Power_Sensor ; brick:hasUnit unit:KiloVAR",
         "PointUnitIsCompatibleWithQuantityKind",
     ),
     "qk_unrelated": (
@@ -145,17 +161,37 @@ def test_incompatible_units_quantities_and_substances(brick_with_imports):
 # ---------------------------------------------------------------------------
 
 
-def test_skos_narrower_always_has_inverse_broader(brick_with_imports):
-    """Justifies walking narrower kinds with (^skos:broader)* alone."""
+def test_brick_quantity_broader_always_has_inverse_narrower(brick_with_imports):
+    """Justifies walking Brick's narrower quantities with skos:narrower alone."""
     missing = list(
         brick_with_imports.query(
-            "SELECT ?x ?y WHERE { ?x skos:narrower ?y . "
-            "FILTER NOT EXISTS { ?y skos:broader ?x } }"
+            "SELECT ?x ?y WHERE { ?x skos:broader ?y . "
+            "?x a brick:Quantity . ?y a brick:Quantity . "
+            "FILTER(STRSTARTS(STR(?x), STR(brick:))) "
+            "FILTER(STRSTARTS(STR(?y), STR(brick:))) "
+            "FILTER NOT EXISTS { ?y skos:narrower ?x } }"
         )
     )
     assert not missing, (
-        "skos:narrower pairs lacking the inverse broader: %s" % missing[:5]
+        "Brick quantity skos:broader pairs lacking the inverse narrower: %s"
+        % missing[:5]
     )
+
+
+def test_no_skos_narrower_on_qudt_quantity_kinds(brick_with_imports):
+    """
+    Justifies walking skos:narrower in the unit shape: it must never enter
+    QUDT's hierarchy, whose skos:broader includes the non-commensurable
+    qudt:organizedUnder groupings. QUDT kinds are walked only along
+    qudt:specializationOf and qudt:exactMatch.
+    """
+    found = list(
+        brick_with_imports.query(
+            "SELECT ?x ?y WHERE { ?x skos:narrower ?y . "
+            "FILTER(STRSTARTS(STR(?x), 'http://qudt.org/')) }"
+        )
+    )
+    assert not found, "skos:narrower from QUDT quantity kinds: %s" % found[:5]
 
 
 def test_nothing_reachable_only_via_inverse_narrower(brick_with_imports):

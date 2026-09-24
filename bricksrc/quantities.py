@@ -332,11 +332,11 @@ quantity_definitions = {
         QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M0H0T0D1"],
         SKOS.narrower: {
             "Occupancy_Count": {
-                # QUDT.applicableUnit: [UNIT["People"]],
+                QUDT.applicableUnit: [UNIT.NUM, UNIT.COUNT],
                 QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M0H0T0D1"],
                 SKOS.definition: Literal("Number of people in an area"),
                 RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
-                SKOS.broader: QUDTQK.Dimensionless,
+                SKOS.broader: QUDTQK.Count,
             },
             "Occupancy_Percentage": {
                 QUDT.applicableUnit: [UNIT["PERCENT"]],

@@ -1424,7 +1424,7 @@ sensor_definitions = {
                     TAG.Cycle,
                     TAG.Count,
                 ],
-                BRICK.hasQuantity: QUDTQK.Dimensionless,
+                BRICK.hasQuantity: QUDTQK.Count,
                 "subclasses": {
                     "Power_Cycle_Count_Sensor": {
                         "tags": [
@@ -1434,7 +1434,7 @@ sensor_definitions = {
                             TAG.Cycle,
                             TAG.Count,
                         ],
-                        BRICK.hasQuantity: QUDTQK.Dimensionless,
+                        BRICK.hasQuantity: QUDTQK.Count,
                         "aliases": [BRICK.Start_Stop_Counter],
                     },
                 },
