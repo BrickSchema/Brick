@@ -251,8 +251,8 @@ def test_every_point_class_carries_its_effective_annotation(brick_with_imports):
     """
     The shapes read brick:hasQuantity / brick:hasSubstance straight off the
     instance's own rdf:type, with no hierarchy walk. That is only correct
-    because generate_brick.py materializes the effective annotation onto every
-    Point class (materialize_inherited_class_annotations). If that ever stops
+    because bsh:InheritPointAnnotations in bricksrc/rules.ttl materializes the
+    effective annotation onto every Point class. If that ever stops
     happening, points typed with the affected classes would silently go
     unchecked, so assert it here.
     """
