@@ -27,7 +27,7 @@
     brick:hasPoint :port1-1-voltage ;
 .
 :port1-1-voltage a brick:Battery_Voltage_Sensor ;
-    brick:hasUnit unit:PERCENT ;
+    brick:hasUnit unit:V ;
 .
 
 :port1-2 a brick:Electric_Vehicle_Charging_Port ;
@@ -38,7 +38,7 @@
     brick:hasPoint :port1-2-voltage ;
 .
 :port1-2-voltage a brick:Battery_Voltage_Sensor ;
-    brick:hasUnit unit:PERCENT ;
+    brick:hasUnit unit:V ;
 .
 
 :station2 a brick:Electric_Vehicle_Charging_Station ;
@@ -56,5 +56,5 @@
 .
 
 :port2-1-voltage a brick:Battery_Voltage_Sensor ;
-    brick:hasUnit unit:PERCENT ;
+    brick:hasUnit unit:V ;
 .
