@@ -4,8 +4,8 @@ from .namespaces import SKOS, RDFS, BRICK, QUDTQK, QUDTDV, QUDT, UNIT, XSD
 from .env import env
 
 g = Graph()
-env.import_graph(g, "http://qudt.org/3.3.0/vocab/unit")
-env.import_graph(g, "http://qudt.org/3.3.0/vocab/quantitykind")
+env.import_graph(g, "http://qudt.org/3.5.2/vocab/unit")
+env.import_graph(g, "http://qudt.org/3.5.2/vocab/quantitykind")
 g.bind("qudt", QUDT)
 g.bind("qudtqk", QUDTQK)
 
@@ -173,7 +173,7 @@ quantity_definitions = {
             UNIT.DEG,
             UNIT.GON,
             UNIT.GRAD,
-            UNIT.MIL,
+            UNIT.MIL_Angle,
             UNIT.RAD,
             UNIT.MicroRAD,
             UNIT.MilliRAD,
@@ -192,7 +192,7 @@ quantity_definitions = {
             UNIT.DEG,
             UNIT.GON,
             UNIT.GRAD,
-            UNIT.MIL,
+            UNIT.MIL_Angle,
             UNIT.RAD,
             UNIT.MicroRAD,
             UNIT.MilliRAD,
@@ -202,15 +202,6 @@ quantity_definitions = {
         QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M0H0T0D1"],
         SKOS.definition: Literal("Magnitude component of a phasor"),
         RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
-    },
-    "Cloudage": {
-        QUDT.applicableUnit: [UNIT.OKTA],
-        QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M0H0T0D1"],
-        SKOS.definition: Literal(
-            "The fraction of the sky obscured by clouds when observed from a particular location"
-        ),
-        RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
-        SKOS.broader: QUDTQK.Dimensionless,
     },
     "Current_Angle": {
         SKOS.definition: Literal(
@@ -222,7 +213,7 @@ quantity_definitions = {
             UNIT.DEG,
             UNIT.GON,
             UNIT.GRAD,
-            UNIT.MIL,
+            UNIT.MIL_Angle,
             UNIT.RAD,
             UNIT.MicroRAD,
             UNIT.MilliRAD,
@@ -262,7 +253,7 @@ quantity_definitions = {
             UNIT.DEG,
             UNIT.GON,
             UNIT.GRAD,
-            UNIT.MIL,
+            UNIT.MIL_Angle,
             UNIT.RAD,
             UNIT.MicroRAD,
             UNIT.MilliRAD,
@@ -284,7 +275,7 @@ quantity_definitions = {
                     UNIT.DEG,
                     UNIT.GON,
                     UNIT.GRAD,
-                    UNIT.MIL,
+                    UNIT.MIL_Angle,
                     UNIT.RAD,
                     UNIT.MicroRAD,
                     UNIT.MilliRAD,
@@ -341,11 +332,11 @@ quantity_definitions = {
         QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M0H0T0D1"],
         SKOS.narrower: {
             "Occupancy_Count": {
-                # QUDT.applicableUnit: [UNIT["People"]],
+                QUDT.applicableUnit: [UNIT.NUM, UNIT.COUNT],
                 QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M0H0T0D1"],
                 SKOS.definition: Literal("Number of people in an area"),
                 RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
-                SKOS.broader: QUDTQK.Dimensionless,
+                SKOS.broader: QUDTQK.Count,
             },
             "Occupancy_Percentage": {
                 QUDT.applicableUnit: [UNIT["PERCENT"]],
@@ -459,29 +450,10 @@ quantity_definitions = {
         RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
         SKOS.broader: QUDTQK.Temperature,
     },
-    "Dry_Bulb_Temperature": {
-        QUDT.applicableUnit: [UNIT["DEG_F"], UNIT["DEG_C"], UNIT["K"]],
-        SKOS.definition: Literal(
-            "The temperature of air measured by a thermometer freely exposed to the air, but shielded from radiation and moisture. (https://en.wikipedia.org/wiki/Dry-bulb_temperature)"
-        ),
+    "Differential_Dry_Bulb_Temperature": {
         QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M0H1T0D0"],
-        RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
-        SKOS.broader: QUDTQK.Temperature,
-        SKOS.narrower: {
-            "Differential_Dry_Bulb_Temperature": {
-                QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M0H1T0D0"],
-                QUDT.isDeltaQuantity: Literal(True),
-            },
-        },
-    },
-    "Wet_Bulb_Temperature": {
-        QUDT.applicableUnit: [UNIT["DEG_F"], UNIT["DEG_C"], UNIT["K"]],
-        SKOS.definition: Literal(
-            "The temperature read by a thermometer covered in water-soaked cloth (wet-bulb thermometer) over which air is passed. A wet-bulb thermometer indicates a temperature close to the true (thermodynamic) wet-bulb temperature. The wet-bulb temperature is the lowest temperature that can be reached under current ambient conditions by the evaporation of water only.  DBT is the temperature that is usually thought of as air temperature, and it is the true thermodynamic temperature. It indicates the amount of heat in the air and is directly proportional to the mean kinetic energy of the air molecule. (https://en.wikipedia.org/wiki/Wet-bulb_temperature)"
-        ),
-        QUDT.hasDimensionVector: QUDTDV["A0E0L0I0M0H1T0D0"],
-        RDFS.isDefinedBy: URIRef(str(BRICK).strip("#")),
-        SKOS.broader: QUDTQK.Temperature,
+        QUDT.isDeltaQuantity: Literal(True),
+        SKOS.broader: QUDTQK.DryBulbTemperature,
     },
     # TODO: https://ci.mines-stetienne.fr/seas/WeatherOntology-0.9#AirTemperature ?
     "Volume": {

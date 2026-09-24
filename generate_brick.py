@@ -764,7 +764,7 @@ def add_definitions(graph=G):
             )
 
 
-def handle_deprecations(graph: Graph = G):
+def handle_deprecations(graph: Graph = G):  # noqa: C901
     for deprecated_term, md in deprecations.items():
         term_type = md.get(A)
         if term_type:
@@ -841,6 +841,47 @@ def handle_concept_labels(graph: Graph = G):
             # choose one and remove the others
             for to_remove in labels[1:]:
                 graph.remove((s, RDFS.label, to_remove))
+
+
+def materialize_inherited_class_annotations(graph):
+    """
+    Ensures every Point class carries its effective brick:hasQuantity and
+    brick:hasSubstance directly, by copying down from the *nearest* annotated
+    ancestor when a class declares none of its own.
+
+    inherit_has_quantity() above already does this for brick:hasQuantity, but
+    only within the nested "subclasses" trees, so classes linked through a
+    "parents" list are missed; brick:hasSubstance was never inherited at all.
+    Doing it here, on the finished graph, covers every subclass linkage and both
+    properties in one pass.
+
+    With this, the annotation on a Point class is always the answer for that
+    class, so consumers -- including the compatibility shapes in
+    bricksrc/rules.ttl -- can read it directly instead of walking the hierarchy
+    and working out which ancestor's annotation wins.
+    """
+    for prop in (BRICK.hasQuantity, BRICK.hasSubstance):
+        points = set(graph.transitive_subjects(RDFS.subClassOf, BRICK.Point))
+        annotated = {c for c in points if set(graph.objects(c, prop))}
+        for concept in points - annotated:
+            # breadth-first up the subclass graph: the first level that has any
+            # annotated ancestor wins, so a nearer annotation always shadows a
+            # more distant one
+            frontier, seen, inherited = {concept}, {concept}, set()
+            while frontier and not inherited:
+                parents = {
+                    parent
+                    for child in frontier
+                    for parent in graph.objects(child, RDFS.subClassOf)
+                    if parent not in seen
+                }
+                seen |= parents
+                inherited = {
+                    value for parent in parents for value in graph.objects(parent, prop)
+                }
+                frontier = parents
+            for value in inherited:
+                graph.add((concept, prop, value))
 
 
 logger.info("Beginning BRICK Ontology compilation")
@@ -1034,6 +1075,9 @@ logger.info("Adding deprecations")
 # handle class deprecations
 handle_deprecations(G)
 # non-class deprecations handled in bricksrc/deprecations.ttl, which is added below
+
+logger.info("Materializing inherited quantity/substance annotations")
+materialize_inherited_class_annotations(G)
 
 logger.info("Adding class definitions")
 add_definitions(G)

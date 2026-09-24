@@ -317,7 +317,7 @@ sensor_definitions = {
             },
             "Capacity_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Capacity],
-                BRICK.hasQuantity: QUDTQK.Capacity,
+                BRICK.hasQuantity: QUDTQK.DimensionlessRatio,
             },
             "Contact_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Contact],
@@ -328,7 +328,7 @@ sensor_definitions = {
                 # TODO: pull from
                 # https://technical.buildingsmart.org/standards/ifc/ifc-schema-specifications/
                 "tags": [TAG.Point, TAG.Sensor, TAG.Conductivity],
-                BRICK.hasQuantity: QUDTQK.Conductivity,
+                BRICK.hasQuantity: QUDTQK.ElectricConductivity,
                 "subclasses": {
                     "Deionised_Water_Conductivity_Sensor": {
                         "tags": [
@@ -338,7 +338,7 @@ sensor_definitions = {
                             TAG.Water,
                             TAG.Deionised,
                         ],
-                        BRICK.hasQuantity: QUDTQK.Conductivity,
+                        BRICK.hasQuantity: QUDTQK.ElectricConductivity,
                         BRICK.hasSubstance: BRICK.Deionized_Water,
                     }
                 },
@@ -499,6 +499,7 @@ sensor_definitions = {
             },
             "Direction_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Direction],
+                BRICK.hasQuantity: BRICK.Direction,
                 "subclasses": {
                     "Wind_Direction_Sensor": {
                         "tags": [TAG.Point, TAG.Sensor, TAG.Direction, TAG.Wind],
@@ -858,7 +859,10 @@ sensor_definitions = {
                     },
                 },
             },
-            "Waste_Amount_Sensor": {"tags": [TAG.Waste, TAG.Amount, TAG.Sensor]},
+            "Waste_Amount_Sensor": {
+                "tags": [TAG.Waste, TAG.Amount, TAG.Sensor],
+                BRICK.hasQuantity: QUDTQK.Mass,
+            },
             "Frequency_Sensor": {
                 BRICK.hasQuantity: QUDTQK.Frequency,
                 "tags": [TAG.Point, TAG.Sensor, TAG.Frequency],
@@ -867,6 +871,10 @@ sensor_definitions = {
                         "tags": [TAG.Point, TAG.Output, TAG.Frequency, TAG.Sensor],
                     }
                 },
+            },
+            "Rate_Of_Change_Of_Frequency_Sensor": {
+                BRICK.hasQuantity: QUDTQK.RateOfChangeOfFrequency,
+                "tags": [TAG.Point, TAG.Sensor, TAG.Rate, TAG.Change, TAG.Frequency],
             },
             "Frost_Sensor": {
                 "tags": [TAG.Point, TAG.Sensor, TAG.Frost],
@@ -1416,7 +1424,7 @@ sensor_definitions = {
                     TAG.Cycle,
                     TAG.Count,
                 ],
-                BRICK.hasQuantity: QUDTQK.Dimensionless,
+                BRICK.hasQuantity: QUDTQK.Count,
                 "subclasses": {
                     "Power_Cycle_Count_Sensor": {
                         "tags": [
@@ -1426,7 +1434,7 @@ sensor_definitions = {
                             TAG.Cycle,
                             TAG.Count,
                         ],
-                        BRICK.hasQuantity: QUDTQK.Dimensionless,
+                        BRICK.hasQuantity: QUDTQK.Count,
                         "aliases": [BRICK.Start_Stop_Counter],
                     },
                 },
@@ -2424,7 +2432,7 @@ sensor_definitions = {
                         },
                     },
                     "Air_Wet_Bulb_Temperature_Sensor": {
-                        BRICK.hasQuantity: BRICK.Wet_Bulb_Temperature,
+                        BRICK.hasQuantity: QUDTQK.WetBulbTemperature,
                         BRICK.hasSubstance: BRICK.Air,
                         "parents": [BRICK.Air_Temperature_Sensor],
                         "tags": [
@@ -2437,7 +2445,7 @@ sensor_definitions = {
                         ],
                         "subclasses": {
                             "Outside_Air_Wet_Bulb_Temperature_Sensor": {
-                                BRICK.hasQuantity: BRICK.Wet_Bulb_Temperature,
+                                BRICK.hasQuantity: QUDTQK.WetBulbTemperature,
                                 BRICK.hasSubstance: BRICK.Outside_Air,
                                 "parents": [BRICK.Outside_Air_Temperature_Sensor],
                                 "tags": [

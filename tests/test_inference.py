@@ -262,3 +262,23 @@ def test_meter_inference_infer_meter_building(brick_with_imports):
     g.compile()  # run shacl inference
     assert (BLDG.water_meter, A, BRICK.Water_Meter) not in g
     assert (BLDG.water_meter, A, BRICK.Building_Water_Meter) in g
+
+
+def test_meter_inference_no_point_types(brick_with_imports):
+    g = brick_with_imports
+    g.add((BLDG.cw_meter, A, BRICK.Chilled_Water_Meter))
+    g.compile()  # run shacl inference
+    points = g.query(
+        "SELECT ?t WHERE { bldg:cw_meter a ?t . ?t rdfs:subClassOf* brick:Point }",
+        initNs={"bldg": BLDG},
+    )
+    assert not list(points), "meter should not be inferred to be a Point"
+
+
+def test_building_meter_inference_only_existing_classes(brick_with_imports):
+    g = brick_with_imports
+    g.add((BLDG.waste_meter, A, BRICK.Waste_Meter))
+    g.add((BLDG.waste_meter, BRICK.meters, BLDG.bldg))
+    g.add((BLDG.bldg, A, BRICK.Building))
+    g.compile()  # run shacl inference
+    assert (BLDG.waste_meter, A, BRICK.Building_Waste_Meter) not in g

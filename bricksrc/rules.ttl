@@ -22,6 +22,11 @@ skos:narrower rdf:type rdf:Property ;
   owl:inverseOf skos:broader ;
 .
 
+##############################################################################
+# Generic OWL/RDFS-style inference, implemented as SHACL rules
+##############################################################################
+
+# An alias class gets the superclasses of the class it aliases
 bsh:AddSubclassAliasesRule
     a sh:NodeShape ;
     sh:rule [
@@ -30,6 +35,8 @@ bsh:AddSubclassAliasesRule
 CONSTRUCT {
     $this rdfs:subClassOf ?superclass .
 } WHERE {
+    # hop to the canonical class (optional), up one subClassOf, then to that
+    # superclass's alias/equivalent (optional)
     $this (brick:aliasOf|owl:equivalentClass)?/rdfs:subClassOf/(brick:aliasOf|owl:equivalentClass)? ?superclass
 }""" ;
       sh:prefixes <https://brickschema.org/schema/1.5/Brick> ;
@@ -37,6 +44,8 @@ CONSTRUCT {
     sh:targetSubjectsOf brick:aliasOf ;
 .
 
+# Copy every use of a property onto its equivalent properties. One-way by
+# design: targets only the subject side, so brick:X -> rec:X, not back
 bsh:EquivalentPropertyRule
   a sh:NodeShape ;
   sh:rule [
@@ -45,7 +54,9 @@ bsh:EquivalentPropertyRule
 CONSTRUCT {
     ?s ?t2 ?o .
 } WHERE {
+    # finds every use of this property...
     ?s $this ?o .
+    # ...and its equivalent, declared in either direction
     { $this owl:equivalentProperty ?t2 }
     UNION
     { ?t2 owl:equivalentProperty $this }
@@ -56,6 +67,8 @@ CONSTRUCT {
 .
 
 
+# Copy every use of a property onto its direct superproperty (the rule engine
+# iterates, so this reaches the whole chain)
 bsh:SubPropertyOfRule
   a sh:NodeShape ;
   sh:rule [
@@ -73,6 +86,7 @@ CONSTRUCT {
 .
 
 
+# ?o p $this  =>  $this invP ?o, where invP owl:inverseOf p
 bsh:InferInverseProperties
   a sh:NodeShape ;
   sh:rule [
@@ -82,7 +96,9 @@ bsh:InferInverseProperties
 $this ?invP ?o .
 }
 WHERE {
+# an incoming edge to this entity...
 ?o ?p $this .
+# ...whose property is declared as the inverse of another
 ?invP owl:inverseOf ?p .
 }
 			""" ;
@@ -91,6 +107,8 @@ WHERE {
   sh:targetClass brick:Entity ;
 .
 
+# Same as above, for owl:inverseOf declared in the other direction:
+# ?o invP $this  =>  $this p ?o, where invP owl:inverseOf p
 bsh:InferInverseProperties2
   a sh:NodeShape ;
   sh:rule [
@@ -109,6 +127,7 @@ WHERE {
   sh:targetClass brick:Entity ;
 .
 
+# Mirror every edge of an owl:SymmetricProperty touching this entity
 bsh:InferSymmetricProperties
   a sh:NodeShape ;
   sh:rule [
@@ -119,7 +138,9 @@ CONSTRUCT {
 $this ?prop ?o .
 }
 WHERE {
+  # an edge in either direction...
   { $this ?prop ?o } UNION { ?o ?prop $this } .
+  # ...over a symmetric property
   ?prop a owl:SymmetricProperty .
 }
 			""" ;
@@ -128,6 +149,7 @@ WHERE {
   sh:targetClass brick:Entity ;
 .
 
+# An entity gets the tags of its class and of every superclass
 bsh:TagInferenceRule
     a  sh:NodeShape ;
     sh:rule [
@@ -136,7 +158,9 @@ bsh:TagInferenceRule
 CONSTRUCT {
 $this brick:hasTag ?tag .
 } WHERE {
+    # the entity's class or any superclass of it...
     $this rdf:type/rdfs:subClassOf* ?class .
+    # ...and the tags associated with it
     ?class brick:hasAssociatedTag ?tag .
 }""" ;
       sh:prefixes <https://brickschema.org/schema/1.5/Brick> ;
@@ -144,6 +168,8 @@ $this brick:hasTag ?tag .
     sh:targetClass brick:Entity ;
 .
 
+# Type the values of a property with its rdfs:range, when that range is a
+# NodeShape (e.g. the value nodes of entity properties)
 bsh:RDFSRangeRule
     a   sh:NodeShape ;
     sh:rule [
@@ -152,8 +178,10 @@ bsh:RDFSRangeRule
 CONSTRUCT {
     ?val a ?shape .
 } WHERE {
+    # the property's range is a shape, not a class...
     $this rdfs:range ?shape .
     ?shape a sh:NodeShape .
+    # ...so type every value of the property with it, if not already
     ?ent $this ?val .
     FILTER NOT EXISTS { ?val a ?shape }
 }""" ;
@@ -162,6 +190,8 @@ CONSTRUCT {
     sh:targetSubjectsOf rdfs:range ;
 .
 
+# Copy an entity property value up to every EntityProperty superproperty
+# (e.g. brick:grossArea -> brick:area), copying the value node's contents too
 bsh:RDFSSubPropertyOfRuleForEntityProperties
     a   sh:NodeShape ;
     sh:rule [
@@ -171,11 +201,16 @@ bsh:RDFSSubPropertyOfRuleForEntityProperties
                 ?s ?super ?skolemized .
                 ?skolemized ?ep ?eo .
             } WHERE {
+                # every entity-property ancestor of this entity property
                 $this rdfs:subPropertyOf+ ?super .
                 ?super a brick:EntityProperty .
                 $this a brick:EntityProperty .
+                # every use of this property
                 ?s $this ?o .
+                # a blank value node is replaced by a fresh IRI so the copy
+                # does not share the original node
                 BIND(IF(isBlank(?o), IRI(CONCAT("urn:skolem:", STRUUID())), ?o) AS ?skolemized)
+                # the contents of the value node (brick:value, brick:hasUnit, ...)
                 ?o ?ep ?eo .
             }
         """ ;
@@ -184,14 +219,13 @@ bsh:RDFSSubPropertyOfRuleForEntityProperties
     sh:targetSubjectsOf rdfs:subPropertyOf ;
 .
 
+##############################################################################
+# Deprecation
+##############################################################################
+
+# Checks the metadata on a deprecated concept, and marks it owl:deprecated
 bsh:DeprecationRule
     a   sh:NodeShape ;
-    sh:property [
-        sh:path (rdf:type brick:deprecation) ;
-        sh:maxCount 0 ;
-        sh:severity sh:Warning ;
-        sh:message "This concept is deprecated" ;
-    ] ;
     sh:rule [
         a sh:SPARQLRule ;
         sh:construct """
@@ -218,6 +252,7 @@ bsh:DeprecationRule
     sh:targetSubjectsOf brick:deprecation ;
 .
 
+# An instance of a deprecated class also gets the class that replaces it
 bsh:DeprecationInferenceForInstancesRule
     a  sh:NodeShape ;
 sh:rule [ a sh:SPARQLRule ;
@@ -226,8 +261,10 @@ sh:construct """CONSTRUCT {
 $this a ?newClass .
 }
 WHERE {
+# the entity has a deprecated class...
 $this a ?class .
 ?class owl:deprecated true .
+# ...which names a replacement the entity does not already have
 ?class brick:isReplacedBy ?newClass .
 FILTER NOT EXISTS {$this a ?newClass}
 }""" ;
@@ -236,12 +273,14 @@ FILTER NOT EXISTS {$this a ?newClass}
     sh:targetClass brick:Entity ;
 .
 
+# Warns about each instance of a deprecated class
 bsh:DeprecationRuleForInstances a sh:NodeShape ;
 sh:severity sh:Warning ;
 sh:sparql [ a sh:SPARQLConstraint ;
 sh:message "{$this} has type {?class} which was deprecated in version {?depver}. For now, it has been updated to also be of type {?newClass}." ;
 sh:prefixes <https://brickschema.org/schema/1.5/Brick> ;
 sh:select """SELECT $this ?class ?newClass ?depver WHERE {
+# the entity has a deprecated class, with its version and replacement
 $this a ?class .
 ?class owl:deprecated true .
 ?class brick:deprecatedInVersion ?depver .
@@ -278,6 +317,14 @@ sh:targetClass brick:Entity .
 #     sh:targetSubjectsOf brick:hasTag ;
 # .
 
+##############################################################################
+# Equivalent classes
+#
+# The two shapes run the same query; one targets the subject side of
+# owl:equivalentClass and the other the object side, so an instance of either
+# class gets the other.
+##############################################################################
+
 bsh:OWLEquivalentClassRule1
     a   sh:NodeShape ;
     sh:rule [
@@ -286,7 +333,9 @@ bsh:OWLEquivalentClassRule1
 CONSTRUCT {
     ?s a ?t2 .
 } WHERE {
+    # every instance of this class...
     ?s a $this .
+    # ...also gets its equivalent classes, declared in either direction
     { ?t2 owl:equivalentClass $this }
     UNION
     { $this owl:equivalentClass ?t2 }
@@ -314,6 +363,12 @@ CONSTRUCT {
     sh:targetObjectsOf owl:equivalentClass ;
 .
 
+##############################################################################
+# Meters
+##############################################################################
+
+# Meter-to-meter relationships use hasSubMeter/isSubMeterOf, never
+# meters/isMeteredBy
 bsh:MeterRelationshipRule a sh:NodeShape ;
     sh:targetClass brick:Meter ;
     sh:property [
@@ -330,6 +385,7 @@ bsh:MeterRelationshipRule a sh:NodeShape ;
     ] ;
 .
 
+# An X_Meter that meters a Building is also a Building_X_Meter
 bsh:BuildingMeterRule a sh:NodeShape ;
     sh:targetClass brick:Meter ;
     sh:rule [
@@ -339,18 +395,24 @@ bsh:BuildingMeterRule a sh:NodeShape ;
             $this rdf:type ?newtype .
         }
         WHERE {
+            # the meter meters a building...
             $this brick:meters ?bldg .
             ?bldg rdf:type/rdfs:subClassOf* brick:Building .
+            # ...so for each of its direct X_Meter types, mint brick:Building_X_Meter
             $this rdf:type ?type .
             BIND(IRI(CONCAT("https://brickschema.org/schema/Brick#Building_", strafter(str(?type), "https://brickschema.org/schema/Brick#"))) as ?newtype) .
             FILTER (strEnds(str(?type), "_Meter"))
+            # skip types that are already Building_ meters
             FILTER (!strStarts(str(?type), "https://brickschema.org/schema/Brick#Building_"))
+            # only if Building_X_Meter exists
+            FILTER EXISTS { ?newtype a owl:Class }
         }
         """ ;
         sh:prefixes <https://brickschema.org/schema/1.5/Brick> ;
     ] ;
 .
 
+# Only meters may set isVirtualMeter to true
 bsh:VirtualMeterRule a sh:NodeShape ;
     sh:targetClass brick:Entity ;
     sh:sparql [
@@ -359,6 +421,7 @@ bsh:VirtualMeterRule a sh:NodeShape ;
       sh:prefixes <https://brickschema.org/schema/1.5/Brick> ;
         sh:select """
             SELECT $this WHERE {
+                # a virtual-meter flag on something that is not a meter
                 $this brick:isVirtualMeter/brick:value true .
                 FILTER NOT EXISTS { $this rdf:type/rdfs:subClassOf* brick:Meter } .
             }
@@ -375,8 +438,10 @@ bsh:MeterInferSubstance a sh:NodeShape ;
         CONSTRUCT {
             $this brick:hasSubstance ?substance .
         } WHERE {
+            # the meter's direct meter class...
             $this rdf:type ?meter .
             ?meter rdfs:subClassOf* brick:Meter .
+            # ...and the substance that class declares
             ?meter brick:hasSubstance ?substance .
         }
         """ ;
@@ -394,11 +459,15 @@ bsh:MeterInferSubclassNonBuildingMeter a sh:NodeShape ;
         CONSTRUCT {
             $this rdf:type ?metertype .
         } WHERE {
+            # a meter with a substance...
             $this rdf:type/rdfs:subClassOf* brick:Meter .
             $this brick:hasSubstance ?substance .
+            # ...gets every meter class declaring that substance
             ?metertype brick:hasSubstance ?substance .
+            ?metertype rdfs:subClassOf+ brick:Meter .
+            # skip building meters, and building meter classes
             FILTER NOT EXISTS {
-                $this rdf:type/rdf:subClassOf* brick:Building_Meter
+                $this rdf:type/rdfs:subClassOf* brick:Building_Meter
             }
             MINUS {
                 ?metertype rdfs:subClassOf* brick:Building_Meter .
@@ -418,14 +487,20 @@ bsh:MeterInferSubclassBuildingMeter a sh:NodeShape ;
         CONSTRUCT {
             $this rdf:type ?metertype .
         } WHERE {
+            # a building meter with a substance...
             $this rdf:type/rdfs:subClassOf* brick:Building_Meter .
             $this brick:hasSubstance ?substance .
+            # ...gets every building meter subclass declaring that substance
             ?metertype brick:hasSubstance ?substance .
             ?metertype rdfs:subClassOf+ brick:Building_Meter .
         }
         """ ;
     ] ;
 .
+
+##############################################################################
+# Points and timeseries
+##############################################################################
 
 bsh:OneLastKnownValuePerEntity a sh:NodeShape ;
     sh:targetSubjectsOf brick:lastKnownValue ;
@@ -445,6 +520,7 @@ bsh:TimeseriesReferenceOnPointsConstraint a sh:NodeShape ;
         sh:select """
             SELECT $this
             WHERE {
+                # a timeseries reference on something that is not a point
                 $this ref:hasExternalReference ?ref .
                 ?ref rdf:type ref:TimeseriesReference .
                 FILTER NOT EXISTS { $this rdf:type/rdfs:subClassOf* brick:Point }
@@ -453,6 +529,8 @@ bsh:TimeseriesReferenceOnPointsConstraint a sh:NodeShape ;
     ] ;
 .
 
+# Checks the ontology itself: every non-deprecated Sensor and Setpoint *class*
+# must declare a quantity kind
 bsh:PointsHaveQuantityKinds a sh:NodeShape ;
     # add more as needed
     sh:target [
@@ -460,8 +538,9 @@ bsh:PointsHaveQuantityKinds a sh:NodeShape ;
         sh:select """
           SELECT ?this
           WHERE {
+            # every Sensor subclass that is not deprecated
             ?this rdfs:subClassOf+ brick:Sensor .
-            FILTER NOT EXISTS { ?class owl:deprecated true }
+            FILTER NOT EXISTS { ?this owl:deprecated true }
           }
         """ ;
         sh:prefixes <https://brickschema.org/schema/1.5/Brick> ;
@@ -471,8 +550,9 @@ bsh:PointsHaveQuantityKinds a sh:NodeShape ;
         sh:select """
           SELECT ?this
           WHERE {
+            # every Setpoint subclass that is not deprecated
             ?this rdfs:subClassOf+ brick:Setpoint .
-            FILTER NOT EXISTS { ?class owl:deprecated true }
+            FILTER NOT EXISTS { ?this owl:deprecated true }
           }
         """ ;
         sh:prefixes <https://brickschema.org/schema/1.5/Brick> ;
@@ -486,16 +566,24 @@ bsh:PointsHaveQuantityKinds a sh:NodeShape ;
 
 .
 
+# Values of brick:hasQuantity are quantity kinds
 bsh:hasQuantity a sh:NodeShape ;
     sh:targetObjectsOf brick:hasQuantity ;
     sh:class qudt:QuantityKind ;
 .
 
+# Values of brick:hasSubstance are substances
 bsh:hasSubstance a sh:NodeShape ;
     sh:targetObjectsOf brick:hasSubstance ;
     sh:class brick:Substance ;
 .
 
+##############################################################################
+# Systems, collections and equipment composition
+##############################################################################
+
+# Legacy models used brick:hasPart for System/Loop membership; read it as
+# rec:includes
 bsh:SystemLoopLegacyHasPartIncludes a sh:NodeShape ;
     sh:targetClass brick:System, brick:Loop ;
     sh:rule [
@@ -525,9 +613,11 @@ bsh:AddDefaultEVSEChargerDirection a sh:NodeShape ;
             $this brick:electricVehicleChargerDirectionality [ brick:value "unidirectional"^^xsd:string ]
         } WHERE {
             $this rdf:type brick:Electric_Vehicle_Charging_Station .
+            # the station has no directionality of its own...
             FILTER NOT EXISTS {
                 $this brick:electricVehicleChargerDirectionality ?direction .
             }
+            # ...and none of its ports has one either
             FILTER NOT EXISTS {
                 $this brick:hasPart ?port .
                 ?port a brick:Electric_Vehicle_Charging_Port .
@@ -548,10 +638,12 @@ bsh:InheritEVSEChargerDirection a sh:NodeShape ;
         CONSTRUCT {
             $this brick:electricVehicleChargerDirectionality ?direction
         } WHERE {
+            # the station this port is part of, and its directionality...
             $this rdf:type brick:Electric_Vehicle_Charging_Port .
             $this brick:isPartOf ?charger .
             ?charger a brick:Electric_Vehicle_Charging_Station .
             ?charger brick:electricVehicleChargerDirectionality ?direction .
+            # ...unless the port declares its own
             FILTER NOT EXISTS {
                 $this brick:electricVehicleChargerDirectionality ?other_direction .
             }
@@ -584,6 +676,7 @@ bsh:InheritEVSEChargerDirection a sh:NodeShape ;
 #    ] ;
 #.
 
+# A point in an Automation_Collection must still say what it is a point of
 bsh:AutomationCollectionPointsRequireIsPointOf a sh:NodeShape ;
     sh:target [
         a sh:SPARQLTarget ;
@@ -594,6 +687,8 @@ bsh:AutomationCollectionPointsRequireIsPointOf a sh:NodeShape ;
         PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
         SELECT DISTINCT ?this
         WHERE {
+            # every point included, directly or through nested collections,
+            # in an Automation_Collection
             ?collection rdf:type/rdfs:subClassOf* brick:Automation_Collection .
             ?collection rec:includes+ ?this .
             ?this rdf:type/rdfs:subClassOf* brick:Point .
@@ -604,5 +699,112 @@ bsh:AutomationCollectionPointsRequireIsPointOf a sh:NodeShape ;
         sh:path brick:isPointOf ;
         sh:minCount 1 ;
         sh:message "Points included in an Automation_Collection via rec:includes must have at least one brick:isPointOf relationship" ;
+    ] ;
+.
+
+##############################################################################
+# Unit / QuantityKind / Substance compatibility for Point instances
+#
+# Point classes are annotated with brick:hasQuantity and brick:hasSubstance.
+# generate_brick.py copies those annotations down onto every Point class from
+# the nearest annotated ancestor (see materialize_inherited_class_annotations),
+# so a class's own annotations are the whole answer and these shapes never walk
+# the hierarchy. A class may carry several (brick:CO2_Sensor declares both
+# qudtqk:DimensionlessRatio and brick:CO2_Concentration), so an instance passes
+# if it is compatible with any of them, including any it asserts itself.
+#
+# The properties of the Brick data that let these path expressions stay this
+# short -- every Point class carrying its own effective annotations, skos:narrower
+# present on Brick quantities but never on QUDT ones, symmetric owl:sameAs -- are asserted
+# directly by tests/test_unit_quantity_substance_shapes.py, so a future change
+# cannot weaken these shapes silently.
+##############################################################################
+
+# A point's unit must be an applicable unit of one of the point's quantity
+# kinds, or of a kind narrower than it:
+#
+#   skos:narrower
+#       Brick's own quantity hierarchy, so a point annotated brick:Air_Quality
+#       may use unit:PPM from the narrower brick:CO2_Concentration. Only Brick
+#       publishes skos:narrower; QUDT publishes only skos:broader.
+#
+#   ^qudt:specializationOf | qudt:exactMatch | ^qudt:exactMatch
+#       QUDT's commensurability relations. QUDT's skos:broader also includes
+#       qudt:organizedUnder, a grouping that does not make units interchangeable
+#       (it would let unit:KiloVAR onto a qudtqk:ElectricPower point), so it is
+#       not walked.
+bsh:PointUnitIsCompatibleWithQuantityKind a sh:NodeShape ;
+    sh:targetClass brick:Point ;
+    sh:severity sh:Violation ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "{$this} has unit {?unit}, which is not an applicable unit of the quantity kind {?quantity} associated with the point" ;
+        sh:select """
+        PREFIX brick: <https://brickschema.org/schema/Brick#>
+        PREFIX qudt: <http://qudt.org/schema/qudt/>
+        PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+        PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+        SELECT DISTINCT $this ?unit ?quantity
+        WHERE {
+            # the point's unit...
+            $this brick:hasUnit ?unit .
+            # ...and each quantity kind on the point or on its class
+            $this (brick:hasQuantity|rdf:type/brick:hasQuantity) ?quantity .
+
+            # no quantity kind of the point accepts the unit
+            FILTER NOT EXISTS {
+                $this (brick:hasQuantity|rdf:type/brick:hasQuantity) ?altquantity .
+                # an applicable unit of the kind or a narrower kind
+                ?altquantity (skos:narrower|^qudt:specializationOf|qudt:exactMatch|^qudt:exactMatch)*/qudt:applicableUnit ?unit .
+            }
+        }
+        """ ;
+    ] ;
+.
+
+# A quantity kind or substance asserted on a point must be compatible with one
+# its class declares: a SKOS specialization in either direction, or the same
+# dimension vector. One query covers both annotations -- the owl:sameAs branch
+# only ever matters for substances (brick:Supply_Air / brick:Discharge_Air) and
+# the dimension-vector branch only ever for quantity kinds, so each is inert for
+# the other kind of value.
+bsh:PointAnnotationMatchesClassAnnotation a sh:NodeShape ;
+    sh:targetClass brick:Point ;
+    sh:severity sh:Violation ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "{$this} has {?annotation} {?value}, which is not compatible with {?classvalue} declared on class {?class}" ;
+        sh:select """
+        PREFIX brick: <https://brickschema.org/schema/Brick#>
+        PREFIX owl: <http://www.w3.org/2002/07/owl#>
+        PREFIX qudt: <http://qudt.org/schema/qudt/>
+        PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+        PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+        SELECT DISTINCT $this ?annotation ?value ?class ?classvalue
+        WHERE {
+            # checks hasQuantity and hasSubstance with the same logic
+            VALUES ?annotation { brick:hasQuantity brick:hasSubstance }
+            # a value asserted on the point itself...
+            $this ?annotation ?value .
+            # ...where the point's class also declares a value (for the message)
+            $this rdf:type ?class .
+            ?class ?annotation ?classvalue .
+
+            # no class of the point declares a compatible value
+            FILTER NOT EXISTS {
+                $this rdf:type ?altclass .
+                ?altclass ?annotation ?alt .
+                # the point's value is the class's value or narrower...
+                { ?value (skos:broader|owl:sameAs)* ?alt }
+                UNION
+                # ...or broader (redundant, but not contradictory)...
+                { ?alt (skos:broader|owl:sameAs)* ?value }
+                UNION
+                # ...or a quantity kind with the same dimension vector
+                { ?value qudt:hasDimensionVector ?dv .
+                  ?alt qudt:hasDimensionVector ?dv }
+            }
+        }
+        """ ;
     ] ;
 .
