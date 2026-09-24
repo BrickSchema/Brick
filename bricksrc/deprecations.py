@@ -670,8 +670,23 @@ deprecations = {
     },
     BRICK.Temperature: {
         "version": "1.4.4",
-        "mitigation_message": "Brick-defined generic quantity 'Temperature' is deprecated for direct use. Use the equivalent QUDT quantity 'qudt:QuantityKind/Temperature' directly, or more specific Brick quantities like brick:Dry_Bulb_Temperature, brick:Wet_Bulb_Temperature, etc., which now subclass the QUDT quantity.",
+        "mitigation_message": "Brick-defined generic quantity 'Temperature' is deprecated for direct use. Use the equivalent QUDT quantity 'qudt:QuantityKind/Temperature' directly, or more specific quantities like QUDT quantitykind:DryBulbTemperature and quantitykind:WetBulbTemperature.",
         "replace_with": QUDTQK.Temperature,
+    },
+    BRICK.Dry_Bulb_Temperature: {
+        "version": "1.5.0",
+        "mitigation_message": "Brick-defined quantity 'Dry_Bulb_Temperature' is deprecated. Use QUDT quantitykind:DryBulbTemperature directly.",
+        "replace_with": QUDTQK.DryBulbTemperature,
+    },
+    BRICK.Wet_Bulb_Temperature: {
+        "version": "1.5.0",
+        "mitigation_message": "Brick-defined quantity 'Wet_Bulb_Temperature' is deprecated. Use QUDT quantitykind:WetBulbTemperature directly.",
+        "replace_with": QUDTQK.WetBulbTemperature,
+    },
+    BRICK.Cloudage: {
+        "version": "1.5.0",
+        "mitigation_message": "Brick-defined quantity 'Cloudage' is deprecated. Use QUDT quantitykind:AmountOfCloudCover directly.",
+        "replace_with": QUDTQK.AmountOfCloudCover,
     },
     BRICK.Time: {
         "version": "1.4.4",

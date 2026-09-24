@@ -733,7 +733,6 @@ bsh:AutomationCollectionPointsRequireIsPointOf a sh:NodeShape ;
 #       several quantity kinds that list no applicable units at all. It also
 #       lets same-dimension mismatches through, e.g. unit:LUX on a
 #       brick:Luminance_Sensor.
-# TODO: this might be simplified by using qudt-all, which adds additional information
 bsh:PointUnitIsCompatibleWithQuantityKind a sh:NodeShape ;
     sh:targetClass brick:Point ;
     sh:severity sh:Violation ;
