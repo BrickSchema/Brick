@@ -18,8 +18,8 @@ def test_entity_property_validation(brick_with_imports):
         )
     )
 
-    g.compile(extra_graphs=[brick_with_imports], engine="topquadrant")
-    valid, _, report = g.validate(extra_graphs=[brick_with_imports], engine="topquadrant")
+    g.compile(extra_graphs=[brick_with_imports])
+    valid, _, report = g.validate(extra_graphs=[brick_with_imports])
     assert valid, report
 
 
@@ -35,9 +35,9 @@ def test_entity_property_validation_failure(brick_with_imports):
         )
     )
 
-    #g.compile(extra_graphs=[brick_with_imports], engine="topquadrant")
-    #g.serialize("/tmp/test.ttl", format="ttl")
-    valid, _, report = g.validate(extra_graphs=[brick_with_imports], engine="topquadrant")
+    # g.compile(extra_graphs=[brick_with_imports])
+    # g.serialize("/tmp/test.ttl", format="ttl")
+    valid, _, report = g.validate(extra_graphs=[brick_with_imports])
     print(report)
     assert not valid, "'AquariumFail' should have thrown a validation error"
 
@@ -57,9 +57,9 @@ def test_entity_property_type_inference(brick_with_imports):
         )
     )
 
-    valid, _, report = g.validate(extra_graphs=[brick_with_imports], engine="topquadrant")
+    valid, _, report = g.validate(extra_graphs=[brick_with_imports])
     assert valid, report
-    g.compile(extra_graphs=[brick_with_imports], engine="topquadrant")
+    g.compile(extra_graphs=[brick_with_imports])
 
     res = g.query(
         "SELECT ?ref WHERE { ?point ref:hasExternalReference ?ref . ?ref a ref:BACnetReference }"
@@ -83,7 +83,7 @@ def test_last_known_value(brick_with_imports):
             ],
         )
     )
-    valid, _, report = g.validate(extra_graphs=[brick_with_imports], engine="topquadrant")
+    valid, _, report = g.validate(extra_graphs=[brick_with_imports])
     assert valid, report
     g.add(
         (
@@ -98,7 +98,7 @@ def test_last_known_value(brick_with_imports):
             ],
         )
     )
-    valid, _, report = g.validate(extra_graphs=[brick_with_imports], engine="topquadrant")
+    valid, _, report = g.validate(extra_graphs=[brick_with_imports])
     assert not valid, report
 
 
@@ -115,9 +115,9 @@ def test_external_reference_rules(brick_with_imports):
         )
     )
 
-    g =     g.compile(extra_graphs=[brick_with_imports], engine="topquadrant")
+    g = g.compile(extra_graphs=[brick_with_imports])
     g.serialize("/tmp/test.ttl")
-    valid, _, report = g.validate(extra_graphs=[brick_with_imports], engine="topquadrant")
+    valid, _, report = g.validate(extra_graphs=[brick_with_imports])
     assert valid, report
 
     res = g.query(
@@ -137,6 +137,6 @@ def test_external_reference_rules(brick_with_imports):
     )
     print(g.serialize(format="ttl"))
 
-    g.compile(extra_graphs=[brick_with_imports], engine="topquadrant")
-    valid, _, report = g.validate(extra_graphs=[brick_with_imports], engine="topquadrant")
+    g.compile(extra_graphs=[brick_with_imports])
+    valid, _, report = g.validate(extra_graphs=[brick_with_imports])
     assert not valid, report
