@@ -34,7 +34,6 @@ from bricksrc.namespaces import (
     QUDT,
     VCARD,
     SH,
-    REF,
 )
 from bricksrc.namespaces import bind_prefixes
 
@@ -1042,12 +1041,6 @@ logger.info("Adding other .ttl files")
 # add all TTL files in bricksrc
 for ttlfile in glob.glob("bricksrc/*.ttl"):
     G.parse(ttlfile, format="turtle")
-
-# add ref-schema definitions
-G.parse("support/ref-schema.ttl", format="turtle")
-ref_schema_uri = URIRef(REF.strip("#"))
-for triple in G.cbd(ref_schema_uri):
-    G.remove(triple)
 
 logger.info("Cleaning up ontology prefixes")
 # remove duplicate ontology definitions and
