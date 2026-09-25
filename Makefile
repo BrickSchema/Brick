@@ -1,4 +1,4 @@
-.PHONY: format
+.PHONY: format bsdd
 
 Brick.ttl: bricksrc/*.py bricksrc/*.ttl bricksrc/definitions.csv generate_brick.py support/*.ttl validation.ttl
 	mkdir -p extensions
@@ -8,6 +8,12 @@ Brick.ttl: bricksrc/*.py bricksrc/*.ttl bricksrc/definitions.csv generate_brick.
 
 clean:
 	rm -r Brick.ttl Brick+extensions.ttl imports/ .ontoenv
+
+# Generates the bSDD dictionary import file. Kept out of the default target:
+# it reads the built Brick+imports.ttl, and is only needed when publishing.
+# See tools/bsdd/README.md before uploading.
+bsdd: Brick.ttl
+	python tools/bsdd/generate_bsdd.py
 
 format:
 	black generate_brick.py
