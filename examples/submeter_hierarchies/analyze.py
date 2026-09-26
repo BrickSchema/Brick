@@ -1,5 +1,4 @@
 import brickschema
-from brick_tq_shacl.pyshacl import infer
 
 
 def get_graph(filename):
@@ -7,7 +6,7 @@ def get_graph(filename):
     # load local Brick file
     g.load_file("../../Brick.ttl")
     g.load_file(filename)
-    g = infer(g)
+    g = g.compile()
     return g
 
 
