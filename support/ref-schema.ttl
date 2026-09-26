@@ -62,8 +62,9 @@ ref:TimeseriesReferenceShape a sh:NodeShape ;
             sh:subject sh:this ] ;
     sh:targetObjectsOf ref:hasExternalReference .
 
-ref:bacnet-read-property a owl:DatatypeProperty ;
+ref:bacnet-read-property a owl:ObjectProperty ;
     rdfs:label "bacnet-read-property" ;
+    rdfs:range bacnet:PropertyIdentifier.EnumerationValue ;
     rdfs:comment "The property of the BACnet object to read to get the current value of this entity." .
 
 ref:hasTimeseriesReference a owl:ObjectProperty ;
@@ -72,54 +73,12 @@ ref:hasTimeseriesReference a owl:ObjectProperty ;
     rdfs:subPropertyOf ref:hasExternalReference ;
     skos:definition "Metadata for accessing related timeseries data: Relates a data source (such as a Brick Point or 223 Property) to the TimeseriesReference that indicates where and how the data for this point is stored"@en .
 
-bacnet:description a bacnet:StandardProperty,
-        owl:DatatypeProperty ;
-    bacnet:propertyEnum bacnet:PropertyIdentifier-description ;
-    bacnet:propertyName "description" ;
-    bacnet:propertyRef bacnet:Description ;
-    skos:definition "The content of the description field of the BACnet object." .
-
-bacnet:object-identifier a bacnet:StandardProperty,
-        rdf:Property,
-        owl:DatatypeProperty ;
-    rdfs:label "object-identifier" ;
-    bacnet:propertyEnum bacnet:PropertyIdentifier-object-identifier ;
-    bacnet:propertyName "object-identifier" ;
-    bacnet:propertyOf bacnet:Object ;
-    bacnet:propertyRef bacnet:Object_Identifier ;
-    rdfs:subPropertyOf bacnet:ReadableProperty ;
-    skos:definition "The BACnet object identifier" .
-
-bacnet:object-name a bacnet:StandardProperty,
-        owl:DatatypeProperty ;
-    bacnet:propertyEnum bacnet:PropertyIdentifier-object-name ;
-    bacnet:propertyName "object-name" ;
-    bacnet:propertyOf bacnet:Object ;
-    bacnet:propertyRef bacnet:Object_Name ;
-    rdfs:subPropertyOf bacnet:ReadableProperty ;
-    skos:definition "The content of the name field of the BACnet object." .
-
-bacnet:object-type a bacnet:StandardProperty,
-        rdf:Property,
-        owl:DatatypeProperty ;
-    rdfs:label "object-type" ;
-    bacnet:propertyEnum bacnet:PropertyIdentifier-object-type ;
-    bacnet:propertyName "object-type" ;
-    bacnet:propertyOf bacnet:Object ;
-    bacnet:propertyRef bacnet:Object_Type ;
-    rdfs:subPropertyOf bacnet:ReadableProperty ;
-    skos:definition "The type of the BACnet object" .
-
-bacnet:contains a owl:ObjectProperty ;
-    rdfs:label "contains" ;
-    rdfs:comment "The BACnet device that hosts this BACnet object." ;
-    rdfs:range bacnet:device .
-
 <https://brickschema.org/schema/Brick/ref> a owl:Ontology ;
     dcterms:creator ( [ a sdo:Person ;
                 sdo:email "gtfierro@mines.edu" ;
                 sdo:name "Gabe Fierro" ] ) ;
     dcterms:title "Ref Schema" ;
+    owl:imports <http://data.ashrae.org/bacnet> ;
     sh:declare [ sh:namespace "http://www.w3.org/2000/01/rdf-schema#"^^xsd:anyURI ;
             sh:prefix "rdfs" ],
         [ sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
@@ -192,7 +151,7 @@ ref:BACnetReference a owl:Class,
                         sh:datatype xsd:string ;
                         sh:path bacnet:description ],
                     [ a sh:PropertyShape ;
-                        sh:class bacnet:EngineeringUnitsEnumerationValue ;
+                        sh:class bacnet:EngineeringUnits.EnumerationValue ;
                         sh:maxCount 1 ;
                         sh:minCount 0 ;
                         sh:path bacnet:units ],
@@ -205,16 +164,18 @@ ref:BACnetReference a owl:Class,
                         sh:minCount 1 ;
                         sh:path bacnet:object-identifier ],
                     [ a sh:PropertyShape ;
-                        sh:datatype bacnet:Property ;
-                        sh:defaultValue bacnet:Present_Value ;
-                        sh:path ref:read-property ] ] [ sh:property [ a sh:PropertyShape ;
+                        sh:class bacnet:PropertyIdentifier.EnumerationValue ;
+                        sh:defaultValue bacnet:PropertyIdentifier.present-value ;
+                        sh:path ref:bacnet-read-property ] ] [ sh:property [ a sh:PropertyShape ;
                         skos:definition "Clause Q.8 BACnet URI scheme: bacnet:// <device> / <object> [ / <property> [ / <index> ]]" ;
                         sh:datatype xsd:string ;
                         sh:path ref:BACnetURI ] ] ) ;
     sh:property [ a sh:PropertyShape ;
-            sh:class bacnet:device ;
-            sh:minCount 1 ;
-            sh:path bacnet:contains ] .
+            skos:definition "The Object_Identifier of the device object within the BACnet device that hosts this BACnet object." ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:pattern "^[A-Za-z0-9-]+,[0-9]+$" ;
+            sh:path bacnet:device-identifier ] .
 
 ref:IFCReference a owl:Class,
         sh:NodeShape ;

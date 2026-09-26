@@ -55,7 +55,5 @@ def test_lighting_component_modeling(brick_with_imports):
 """
     graph = brickschema.Graph().parse(data=data, format="turtle")
 
-    valid, _, report = graph.validate(
-        extra_graphs=[brick_with_imports], engine="topquadrant"
-    )
+    valid, _, report = graph.validate(extra_graphs=[brick_with_imports])
     assert valid, report

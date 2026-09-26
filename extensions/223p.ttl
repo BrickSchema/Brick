@@ -563,44 +563,44 @@ s223:BACnetExternalReferenceShape a sh:NodeShape ;
             sh:datatype xsd:nonNegativeInteger ;
             sh:maxCount 1 ;
             sh:minCount 0 ;
-            sh:path <http://data.ashrae.org/bacnet/2020#priority-for-writing> ],
+            sh:path <http://data.ashrae.org/bacnet/priority-for-writing> ],
         [ a sh:PropertyShape ;
             rdfs:comment "If the relation `property-identifier` is present it is either a decimal number or exactly equal to the ASHRAE 135-2024 Clause 21 identifier text of BACnetPropertyIdentifier. If it is omitted, it defaults to \"present-value\" except for BACnet File objects, where absence of `property-identifier` refers to the entire content of the file accessed with Stream Access."^^xsd:string ;
             sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:minCount 0 ;
-            sh:path <http://data.ashrae.org/bacnet/2020#property-identifier> ],
+            sh:path <http://data.ashrae.org/bacnet/property-identifier> ],
         [ a sh:PropertyShape ;
             rdfs:comment "If the relation `device-name` is present it associates the external reference with a BACnet device having the specific device name."^^xsd:string ;
             sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:minCount 0 ;
-            sh:path <http://data.ashrae.org/bacnet/2020#device-name> ],
+            sh:path <http://data.ashrae.org/bacnet/device-name> ],
         [ a sh:PropertyShape ;
             rdfs:comment "If the relation `device-identifier` is present it associates the external reference with a BACnet device having the specific device identifier."^^xsd:string ;
             sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:minCount 0 ;
-            sh:path <http://data.ashrae.org/bacnet/2020#device-identifier> ;
+            sh:path <http://data.ashrae.org/bacnet/device-identifier> ;
             sh:pattern "^[A-Za-z0-9-]+,[1-9][0-9]*$"^^xsd:string ],
         [ a sh:PropertyShape ;
             rdfs:comment "If the relation `object-name` is present it associates the external reference with the BACnet object having the specific object name."^^xsd:string ;
             sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:minCount 0 ;
-            sh:path <http://data.ashrae.org/bacnet/2020#object-name> ],
+            sh:path <http://data.ashrae.org/bacnet/object-name> ],
         [ a sh:PropertyShape ;
             rdfs:comment "If the relation `property-array-index` is present it provides the index for reading items from a property that is an array."^^xsd:string ;
             sh:datatype xsd:nonNegativeInteger ;
             sh:maxCount 1 ;
             sh:minCount 0 ;
-            sh:path <http://data.ashrae.org/bacnet/2020#property-array-index> ],
+            sh:path <http://data.ashrae.org/bacnet/property-array-index> ],
         [ a sh:PropertyShape ;
             rdfs:comment "If the relation `object-identifier` is present it associates the external reference with the BACnet object having the specific object identifier."^^xsd:string ;
             sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:minCount 0 ;
-            sh:path <http://data.ashrae.org/bacnet/2020#object-identifier> ;
+            sh:path <http://data.ashrae.org/bacnet/object-identifier> ;
             sh:pattern "^[A-Za-z0-9-]+,[1-9][0-9]*$"^^xsd:string ] ;
     sh:targetClass s223:BACnetExternalReference .
 
@@ -3082,7 +3082,7 @@ $this s223:hasDomainSpace/s223:hasDomain ?domain .
 <http://data.ashrae.org/standard223/1.0/extensions/g36/core> owl:versionInfo "Created with TopBraid Composer"^^xsd:string .
 
 <http://data.ashrae.org/standard223/1.0/extensions/settings> rdfs:comment """This file can be used to control which extensions are to be loaded with the 223 ontology by importing the appropriate graph(s). Options include:
-For validation of the schema, model, or data - http://data.ashrae.org/standard223/1.0/validation/schema (or model or data).  
+For validation of the schema, model, or data - http://data.ashrae.org/standard223/1.0/validation/schema (or model or data).
 For inferred relations - http://data.ashrae.org/standard223/1.0/inference/model-rules (and/or schema-rules, data-rules).
 For G36 extensions - http://data.ashrae.org/standard223/1.0/extensions/g36/core (and/or vav-terminal-unit, multiple-zone-vav-air-handling-unit, etc.)."""^^xsd:string ;
     owl:versionInfo "Created with TopBraid Composer"^^xsd:string .
@@ -3105,36 +3105,36 @@ For G36 extensions - http://data.ashrae.org/standard223/1.0/extensions/g36/core 
 
 <http://data.ashrae.org/standard223/1.0/vocab/enumeration> owl:versionInfo "Created with TopBraid Composer"^^xsd:string .
 
-<http://data.ashrae.org/bacnet/2020#device-identifier> a rdf:Property ;
+<http://data.ashrae.org/bacnet/device-identifier> a rdf:Property ;
     rdfs:label "Device Identifier"^^xsd:string ;
     rdfs:comment "The Object_Identifier property of the device object within the BACnet device.  See ASHRAE 135-2024 Clause 12.11.1."^^xsd:string .
 
-<http://data.ashrae.org/bacnet/2020#device-name> a rdf:Property ;
+<http://data.ashrae.org/bacnet/device-name> a rdf:Property ;
     rdfs:label "Device Name"^^xsd:string ;
     rdfs:comment "The name of the BACnet device being referenced, more formally the Object_Name property of the device object within the BACnet device.  See ASHRAE 135-2024 Clause 12.11.2."^^xsd:string .
 
-<http://data.ashrae.org/bacnet/2020#object-identifier> a rdf:Property ;
+<http://data.ashrae.org/bacnet/object-identifier> a rdf:Property ;
     rdfs:label "object-identifier"^^xsd:string ;
     rdfs:comment "The Object_Identifier property of the object being referenced.  For example, for the object identifier of an Analog Value Object, see ASHRAE 135-2024 Clause 12.4.1."^^xsd:string .
 
-<http://data.ashrae.org/bacnet/2020#object-name> a rdf:Property ;
+<http://data.ashrae.org/bacnet/object-name> a rdf:Property ;
     rdfs:label "Object Name"^^xsd:string ;
     rdfs:comment "The Object_Name property of the object being referenced.  For example, for the object name of an Analog Value Object, see ASHRAE 135-2024 Clause 12.4.2."^^xsd:string .
 
-<http://data.ashrae.org/bacnet/2020#priority-for-writing> a rdf:Property ;
+<http://data.ashrae.org/bacnet/priority-for-writing> a rdf:Property ;
     rdfs:label "Priority for Writing"^^xsd:string ;
     rdfs:comment """This parameter shall be an integer in the range 1..16, which indicates the priority assigned to the WriteProperty service. If an attempt
 is made to write to a commandable property without specifying the bacnet:priority-for-writing, a default priority of 16 (the lowest priority) shall
 be assumed. If an attempt is made to write to a property that is not commandable with a specified priority, the priority shall be
 ignored.  See ASHRAE 135-2024 Clause 15.9.1.1.5."""^^xsd:string .
 
-<http://data.ashrae.org/bacnet/2020#property-array-index> a rdf:Property ;
+<http://data.ashrae.org/bacnet/property-array-index> a rdf:Property ;
     rdfs:label "Property Array Index"^^xsd:string ;
     rdfs:comment """If the property identified is of datatype array, this optional property of type Unsigned shall indicate the array index of
 the element of the `Property` referenced by the ReadProperty service or the Read Access Specification of the ReadPropertyMultiple service. If the bacnet:property-array-index is omitted, this shall mean that the entire
 array shall be referenced.  See ASHRAE 135-2024 Clause 15.5.1.1.3 and Clause 15.7.1.1.1."""^^xsd:string .
 
-<http://data.ashrae.org/bacnet/2020#property-identifier> a rdf:Property ;
+<http://data.ashrae.org/bacnet/property-identifier> a rdf:Property ;
     rdfs:label "Property Identifier"^^xsd:string ;
     rdfs:comment "The Object_Identifier `Property` of the object being referenced.  For example, for the object identifier of an Analog Value Object, see ASHRAE 135-2024 Clause 12.4.1."^^xsd:string .
 
@@ -10118,4 +10118,3 @@ s223:hasMedium a s223:Relation,
         rdf:Property ;
     rdfs:label "has Medium"^^xsd:string ;
     rdfs:comment "The relation `hasMedium` is used to indicate what medium is flowing through the connection (e.g., air, water, electricity). The possible values are defined in `Substance-Medium` (see {s223:Substance-Medium})."^^xsd:string .
-
