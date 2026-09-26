@@ -27,7 +27,7 @@ ontology = {
         SDO.legalName: Literal("Brick Consortium, Inc"),
         SDO.sameAs: URIRef("https://brickschema.org/consortium/"),
     },
-    OWL.versionInfo: Literal(BRICK_FULL_VERSION),
+    OWL.versionInfo: Literal(f"{BRICK_FULL_VERSION}-rc2"),
     RDFS.label: Literal("Brick"),
     RDFS.seeAlso: URIRef("https://brickschema.org"),
 }
