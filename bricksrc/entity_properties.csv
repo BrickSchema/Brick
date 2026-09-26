@@ -1,0 +1,52 @@
+﻿@id,brick:placeholder1,brick:placeholder2,brick:placeholder3,brick:hasQuantity/Enumeration,brick:placeholder4,rdfs:subPropertyOf,todo:,skos:definition
+brick:aggregate,,,,,,,aggregate,Description of how the data for this point is aggregated
+brick:area,,,,quantitykind:Area,,,,Entity has 2-dimensional area
+brick:azimuth,,,,quantitykind:Azimuth,,,,(Horizontal) angle between a projected vector and a reference vector (typically a compass bearing). The projected vector usually indicates the direction of a face or plane.
+brick:buildingPrimaryFunction,,,,,,,(deprecated),Enumerated string applied to a site record to indicate the building's primary function. The list of primary functions is derived from the US Energy Star program (adopted from Project Haystack)
+brick:buildingThermalTransmittance,,,,quantitykind:ThermalTransmittance,,brick:thermalTransmittance,building,The area-weighted average heat transfer coefficient (commonly referred to as a U-value) for a building envelope
+brick:conversionEfficiency,,,,quantitykind:Efficiency,,,conversion,The percent efficiency of the conversion process (usually to power or energy) carried out by the entity
+brick:coolingCapacity,,,,,,,cooling capacity,Measurement of a chiller ability to remove heat (adopted from Project Haystack)
+brick:coordinates,,,,,,,coordinates,The location of an entity in latitude/longitude
+brick:currentFlowType,,,,quantitykind:ElectricCurrent,,,flow type,The current flow type of the entity
+brick:deprecation,,,,,,,deprecation,Marks a concept as deprecated
+brick:electricalComplexPower,,,,quantitykind:ElectricPower,,,,Associated electrical complexity with the entity
+brick:electricalFlow,,,,,,,electrical flow,Entity has this electrical flow relative to the building'
+brick:electricalPhaseCount,,,,quantitykind:NumberOfElectricalPhases,,,,Entity has these phases
+brick:electricalPhases,,,,,,,electrical phases,Entity has these electrical AC phases
+brick:electricVehicleChargerDirectionality,,,,,,,electric vehicle charger directionality,Indicates if the EVSE charger supports bidirectional charging or just unidirectional charging of the EV battery
+brick:electricVehicleChargerType,,,,,,,electric vehicle charger type,"Which type of EVSE charger this is, e.g. Level 1 (up to up to 2.5kW of AC power on 1 phase 120V input), Level 2 (direct AC power but can use higher voltage and up to 3 phases), or Level 3 (direct DC power)"
+brick:electricVehicleConnectorType,,,,,,,electric vehicle connector type,Identifies which kind of connector the port has. This property helps identify the physical connection required between the vehicle and the charging equipment.
+brick:grossArea,,,brick:Gross,quantitykind:Area,,brick:area,,Entity has gross 2-dimensional area
+brick:isVirtualMeter,,,,,,,is virtual meter,"True if the associated meter is 'virtual', i.e. a logical meter which includes or aggregates information from a variety of sources such as other submeters or equipment."
+brick:lastKnownValue,,,,,,,last known value,The last known value of the Point entity
+brick:measuredModuleConversionEfficiency,brick:Measured,,,quantitykind:Efficiency,,brick:conversionEfficiency,module conversion,The measured percentage of sunlight that is converted into usable power
+brick:measuredPowerInput,brick:Measured,,,quantitykind:ElectricPower,brick:Input,,,The nominal measured power input of the entity
+brick:measuredPowerOutput,brick:Measured,,,quantitykind:ElectricPower,brick:Output,,,The nominal measured power output of the entity
+brick:netArea,,,brick:Net,quantitykind:Area,,brick:area,,Entity has net 2-dimensional area
+brick:operationalStage,,,,,,,operational stage,The associated operational stage
+brick:operationalStageCount,,,,quantitykind:Count,,,operational stage,The number of operational stages supported by this equipment
+brick:panelArea,,,,quantitykind:Area,,brick:area,panel,"Surface area of a panel, such as a PV panel"
+brick:ratedApparentPower,brick:Rated,,,quantitykind:ApparentPower,,,,The nominal rated apparent power of the entity
+brick:ratedCorrelatedColorTemperature,brick:Rated,,,quantitykind:CorrelatedColorTemperature,,,,The nominal rated correlated color temperature of the entity
+brick:ratedCurrentInput,brick:Rated,,,quantitykind:ElectricCurrent,brick:Input,,,The nominal rated current input of the entity
+brick:ratedCurrentOutput,brick:Rated,,,quantitykind:ElectricCurrent,brick:Output,,,The nominal rated current output of the entity
+brick:ratedLuminousFlux,brick:Rated,,,quantitykind:LuminousFlux,,,,The nominal rated luminous flux of the entity
+brick:ratedMaximumCurrentInput,brick:Rated,brick:Maximum,,quantitykind:ElectricCurrent,brick:Input,brick:ratedCurrentInput,,The maximum current that can be input to the entity
+brick:ratedMaximumCurrentOutput,brick:Rated,brick:Maximum,,quantitykind:ElectricCurrent,brick:Output,brick:ratedCurrentOutput,,The maximum current that can be output by the entity
+brick:ratedMaximumVoltageInput,brick:Rated,brick:Maximum,,quantitykind:Voltage,brick:Input,brick:ratedVoltageInput,,The maximum voltage that can be input to the entity
+brick:ratedMaximumVoltageOutput,brick:Rated,brick:Maximum,,quantitykind:Voltage,brick:Output,brick:ratedVoltageOutput,,The maximum voltage that can be output by the entity
+brick:ratedMinimumCurrentInput,brick:Rated,brick:Minimum,,quantitykind:ElectricCurrent,brick:Input,brick:ratedCurrentInput,,The minimum current that can be input to the entity
+brick:ratedMinimumCurrentOutput,brick:Rated,brick:Minimum,,quantitykind:ElectricCurrent,brick:Output,brick:ratedCurrentOutput,,The minimum current that can be output by the entity
+brick:ratedMinimumVoltageInput,brick:Rated,brick:Minimum,,quantitykind:Voltage,brick:Input,brick:ratedVoltageInput,,The minimum voltage that can be input to the entity
+brick:ratedMinimumVoltageOutput,brick:Rated,brick:Minimum,,quantitykind:Voltage,brick:Output,brick:ratedVoltageOutput,,The minimum voltage that can be output by the entity
+brick:ratedModuleConversionEfficiency,brick:Rated,,,quantitykind:Efficiency,,brick:conversionEfficiency,module conversion,"The *rated* percentage of sunlight that is converted into usable power, as measured using Standard Test Conditions (STC): 1000 W/sqm irradiance, 25 degC panel temperature, no wind"
+brick:ratedPowerInput,brick:Rated,,,quantitykind:ElectricPower,brick:Input,,,The nominal rated power input of the entity
+brick:ratedPowerOutput,brick:Rated,,,quantitykind:ElectricPower,brick:Output,,,The nominal rated power output of the entity
+brick:ratedVoltageInput,brick:Rated,,,quantitykind:Voltage,brick:Input,,,The nominal rated voltage input of the entity
+brick:ratedVoltageOutput,brick:Rated,,,quantitykind:Voltage,brick:Output,,,The nominal rated voltage output of the entity
+brick:resolution,,,,,,,resolution,The resolution of the entity specifing the smallest measurable or controllable increment
+brick:temperatureCoefficientofPmax,,,,quantitykind:Temperature,,,coefficientof pmax,The % change in power output for every degree celsius that the entity is hotter than 25 degrees celsius
+brick:thermalTransmittance,,,,quantitykind:ThermalTransmittance,,,,The area-weighted average heat transfer coefficient (commonly referred to as a U-value)
+brick:tilt,,,,quantitykind:Tilt,,,,The direction an entity is facing in degrees above the horizon
+brick:volume,,,,quantitykind:Volume,,,,Entity has 3-dimensional volume
+brick:yearBuilt,,,,,,,year built,Four digit year that a building was first built. (adopted from Project Haystack)
