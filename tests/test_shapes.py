@@ -405,3 +405,18 @@ def test_system_and_loop_cannot_include_non_architecture_spaces(brick_with_impor
             invalid_g = brickschema.Graph().parse(data=invalid_data, format="turtle")
             conforms, _, _ = invalid_g.validate(extra_graphs=[brick_with_imports])
             assert not conforms, f"{grouping} should not include a {space}"
+
+
+def test_equipment_and_points_cannot_target_non_architecture_spaces(brick_with_imports):
+    # feeds, hasLocation and isPointOf accept designed spaces (and deprecated
+    # Brick locations), not administrative regions or plain rec:Space
+    for relationship in (
+        ":vav a brick:VAV ; brick:feeds :space .",
+        ":vav a brick:VAV ; brick:hasLocation :space .",
+        ":sensor a brick:Temperature_Sensor ; brick:isPointOf :space .",
+    ):
+        for space in ("rec:Space", "rec:Region"):
+            invalid_data = prefixes + "\n%s\n:space a %s .\n" % (relationship, space)
+            invalid_g = brickschema.Graph().parse(data=invalid_data, format="turtle")
+            conforms, _, _ = invalid_g.validate(extra_graphs=[brick_with_imports])
+            assert not conforms, f"'{relationship}' should reject a {space}"

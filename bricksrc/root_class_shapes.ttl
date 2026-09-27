@@ -72,7 +72,7 @@ brick:Equipment a sh:NodeShape ;
     ];
     sh:property [
         sh:path brick:hasLocation;
-        sh:or ( [sh:class brick:Location] [sh:class rec:Space] );
+        sh:or ( [sh:class brick:Location] [sh:class rec:Architecture] );
         sh:message "A piece of Equipment can be located only at a Location/Space"
     ];
     sh:property [
@@ -80,7 +80,7 @@ brick:Equipment a sh:NodeShape ;
         sh:or (
             [ sh:class brick:Equipment ]
             [ sh:class brick:Location ]
-            [ sh:class rec:Space ]
+            [ sh:class rec:Architecture ]
         );
         sh:message "A piece of Equipment can feed a Equipment or Location/Space."
     ];

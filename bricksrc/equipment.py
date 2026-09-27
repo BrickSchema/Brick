@@ -146,7 +146,12 @@ equipment_subclasses = {
                 BRICK.HVAC_Equipment,
                 BRICK.Valve,
             ],
-            BRICK.feeds: [BRICK.HVAC_Equipment, BRICK.Valve, REC.Space],
+            BRICK.feeds: [
+                BRICK.HVAC_Equipment,
+                BRICK.Valve,
+                BRICK.Location,
+                REC.Architecture,
+            ],
         },
     },
     "Weather_Station": {"tags": [TAG.Weather, TAG.Station, TAG.Equipment]},
@@ -342,7 +347,7 @@ equipment_subclasses = {
         "tags": [TAG.Lighting, TAG.Equipment],
         "constraints": {
             BRICK.hasPart: [BRICK.Lighting_Equipment, BRICK.Electrical_Equipment],
-            BRICK.feeds: [BRICK.Lighting_Equipment, REC.Space],
+            BRICK.feeds: [BRICK.Lighting_Equipment, BRICK.Location, REC.Architecture],
         },
         "subclasses": {
             "Lighting": {
