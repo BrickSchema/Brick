@@ -78,7 +78,7 @@ ex:vav2_damper a brick:Damper ;
 # --- Spaces ---
 
 # Zone 1: supply air comes from VAV1, return air goes to the return fan
-ex:zone1 a brick:HVAC_Zone ;
+ex:zone1 a rec:HVACZone ;
     rdfs:label "HVAC Zone 1" ;
     brick:hasPart ex:room1, ex:room2 ;
     brick:hasPoint ex:zone1_temp, ex:zone1_co2 ;
@@ -87,19 +87,19 @@ ex:zone1 a brick:HVAC_Zone ;
     brick:feeds ex:return_fan .
 
 # Zone 2: supply air comes from VAV2, return air goes to the return fan
-ex:zone2 a brick:HVAC_Zone ;
+ex:zone2 a rec:HVACZone ;
     rdfs:label "HVAC Zone 2" ;
     brick:hasPart ex:room3 ;
     brick:hasPoint ex:zone2_temp ;
     brick:feeds ex:return_fan .
 
-ex:room1 a brick:Room ;
+ex:room1 a rec:Room ;
     rdfs:label "Room 101" .
 
-ex:room2 a brick:Room ;
+ex:room2 a rec:Room ;
     rdfs:label "Room 102" .
 
-ex:room3 a brick:Room ;
+ex:room3 a rec:Room ;
     rdfs:label "Room 201" .
 
 # --- Points ---

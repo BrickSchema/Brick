@@ -1,5 +1,6 @@
 @prefix bldg: <http://example.com/mybuilding#> .
 @prefix brick: <https://brickschema.org/schema/Brick#> .
+@prefix rec: <https://w3id.org/rec#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 
 <http://example.com/mybuilding> a owl:Ontology ;
@@ -14,13 +15,13 @@ bldg:VAV2-3 a brick:Variable_Air_Volume_Box ;
 
 bldg:VAV2-4.ZN_T a brick:Supply_Air_Temperature_Sensor .
 
-bldg:Room-410 a brick:Room .
+bldg:Room-410 a rec:Room .
 
-bldg:Room-411 a brick:Room .
+bldg:Room-411 a rec:Room .
 
-bldg:Room-412 a brick:Room .
+bldg:Room-412 a rec:Room .
 
-bldg:VAV2-3Zone a brick:HVAC_Zone ;
+bldg:VAV2-3Zone a rec:HVACZone ;
     brick:hasPart bldg:Room-410,
         bldg:Room-411,
         bldg:Room-412 .

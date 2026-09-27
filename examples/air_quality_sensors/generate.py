@@ -1,5 +1,5 @@
 import brickschema
-from brickschema.namespaces import A, OWL, BRICK, UNIT, XSD
+from brickschema.namespaces import A, OWL, BRICK, REC, UNIT, XSD
 from rdflib import Namespace, Literal
 
 # our entities will live in this namespace
@@ -20,18 +20,18 @@ g.bind("bldg", BLDG)
 # start by defining the locations
 
 # The generated turtle file should look like this:
-#   bldg:deployment_site  a brick:Site ;
+#   bldg:deployment_site  a rec:Site ;
 #     brick:hasPart   bldg:building_1 .
-#   bldg:building_1 a brick:Building ;
+#   bldg:building_1 a rec:Building ;
 #     brick:hasPart   bldg:floor_1 .
-#   bldg:floor_1  a brick:Floor ;
+#   bldg:floor_1  a rec:Level ;
 #       brick:hasPart bldg:room_1 .
-#   bldg:room_1 a brick:Room .
+#   bldg:room_1 a rec:Room .
 
-g.add((BLDG["deployment_site"], A, BRICK["Site"]))
-g.add((BLDG["building_1"], A, BRICK["Building"]))
-g.add((BLDG["floor_1"], A, BRICK["Floor"]))
-g.add((BLDG["room_1"], A, BRICK["Room"]))
+g.add((BLDG["deployment_site"], A, REC.Site))
+g.add((BLDG["building_1"], A, REC.Building))
+g.add((BLDG["floor_1"], A, REC.Level))
+g.add((BLDG["room_1"], A, REC.Room))
 
 g.add((BLDG["deployment_site"], BRICK.hasPart, BLDG["building_1"]))
 g.add((BLDG["building_1"], BRICK.hasPart, BLDG["floor_1"]))
@@ -40,13 +40,13 @@ g.add((BLDG["floor_1"], BRICK.hasPart, BLDG["room_1"]))
 # we can actually be more specific about the types of the rooms!
 # Query Brick for available room types
 results = list(
-    brick.query("SELECT ?roomtype WHERE { ?roomtype rdfs:subClassOf+ brick:Room }")
+    brick.query("SELECT ?roomtype WHERE { ?roomtype rdfs:subClassOf+ rec:Room }")
 )
 print(f"Brick has {len(results)} room types defined. Here are 10 of them.")
 for r in results[:10]:
     print(f"Room type: {r[0]}")
 
-g.add((BLDG["room_1"], A, BRICK["Office_Kitchen"]))
+g.add((BLDG["room_1"], A, REC.Kitchenette))
 
 # can add information about the sq area of the room and the floor
 # this nifty syntax requires brickschema>=0.3.2a1
