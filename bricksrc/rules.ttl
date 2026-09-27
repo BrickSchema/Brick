@@ -44,6 +44,23 @@ CONSTRUCT {
     sh:targetSubjectsOf brick:aliasOf ;
 .
 
+# An instance of an alias class is also an instance of the canonical class,
+# so shapes that name only the canonical class accept it
+bsh:AliasInferenceForInstancesRule
+    a sh:NodeShape ;
+    sh:rule [
+        a sh:SPARQLRule ;
+        sh:construct """
+CONSTRUCT {
+    $this a ?canonical .
+} WHERE {
+    $this a/brick:aliasOf ?canonical .
+}""" ;
+      sh:prefixes <https://brickschema.org/schema/1.5/Brick> ;
+    ] ;
+    sh:targetClass brick:Entity ;
+.
+
 # Copy every use of a property onto its equivalent properties. One-way by
 # design: targets only the subject side, so brick:X -> rec:X, not back
 bsh:EquivalentPropertyRule
@@ -104,7 +121,7 @@ WHERE {
 			""" ;
       sh:prefixes <https://brickschema.org/schema/1.5/Brick> ;
     ] ;
-  sh:targetClass brick:Entity ;
+  sh:targetClass brick:Entity, rec:Space ;
 .
 
 # Same as above, for owl:inverseOf declared in the other direction:
@@ -124,7 +141,7 @@ WHERE {
 			""" ;
       sh:prefixes <https://brickschema.org/schema/1.5/Brick> ;
     ] ;
-  sh:targetClass brick:Entity ;
+  sh:targetClass brick:Entity, rec:Space ;
 .
 
 # Mirror every edge of an owl:SymmetricProperty touching this entity
@@ -146,7 +163,7 @@ WHERE {
 			""" ;
       sh:prefixes <https://brickschema.org/schema/1.5/Brick> ;
     ] ;
-  sh:targetClass brick:Entity ;
+  sh:targetClass brick:Entity, rec:Space ;
 .
 
 # An entity gets the tags of its class and of every superclass
@@ -397,7 +414,8 @@ bsh:BuildingMeterRule a sh:NodeShape ;
         WHERE {
             # the meter meters a building...
             $this brick:meters ?bldg .
-            ?bldg rdf:type/rdfs:subClassOf* brick:Building .
+            VALUES ?bldgclass { brick:Building rec:Building }
+            ?bldg rdf:type/rdfs:subClassOf* ?bldgclass .
             # ...so for each of its direct X_Meter types, mint brick:Building_X_Meter
             $this rdf:type ?type .
             BIND(IRI(CONCAT("https://brickschema.org/schema/Brick#Building_", strafter(str(?type), "https://brickschema.org/schema/Brick#"))) as ?newtype) .
@@ -414,7 +432,7 @@ bsh:BuildingMeterRule a sh:NodeShape ;
 
 # Only meters may set isVirtualMeter to true
 bsh:VirtualMeterRule a sh:NodeShape ;
-    sh:targetClass brick:Entity ;
+    sh:targetSubjectsOf brick:isVirtualMeter ;
     sh:sparql [
         a sh:SPARQLConstraint ;
         sh:message "Only meters can have the isVirtualMeter property be true" ;

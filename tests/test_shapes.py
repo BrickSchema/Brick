@@ -4,6 +4,7 @@ from bricksrc.namespaces import BRICK, OWL, REC, RDFS
 
 prefixes = """
 @prefix brick: <https://brickschema.org/schema/Brick#> .
+@prefix rec: <https://w3id.org/rec#> .
 @prefix : <http://example.com#> .
 """
 
@@ -12,7 +13,7 @@ base_data = (
     + """
 :equip a brick:Equipment.
 :point a brick:Point.
-:loc a brick:Location.
+:loc a rec:Room.
 """
 )
 
@@ -88,7 +89,7 @@ def test_meter_shapes(brick_with_imports):
         base_data
         + """
 :meter a brick:Meter .
-:loc a brick:Space ;
+:loc a rec:Room ;
     brick:meters :meter .
 """
     )
@@ -283,7 +284,7 @@ def test_meter_relationship_shapes(brick_with_imports):
         + """
 :meter a brick:Meter ;
     brick:isMeteredBy :loc .
-:loc a brick:Space .
+:loc a rec:Room .
 """
     )
     invalid_g = brickschema.Graph().parse(data=invalid_data, format="turtle")
@@ -381,3 +382,26 @@ def test_loop_haspart_warns_and_infers_rec_includes(brick_with_imports):
     assert (
         len(set(res)) == 1
     ), f"Loop legacy hasPart usage should emit a warning\n{repG.serialize()}"
+
+
+def test_system_and_loop_cannot_include_non_architecture_spaces(brick_with_imports):
+    # REC groupings are covered by examples/rec-with-brick; these are REC
+    # spaces that are not designed architecture (a plain rec:Space, a
+    # rec:Region) and must not be grouped into Brick systems or loops
+    for grouping in ("brick:HVAC_System", "brick:Hot_Water_Loop"):
+        for space in ("rec:Space", "rec:Region"):
+            invalid_data = (
+                prefixes
+                + """
+:grouping a %s ;
+    rec:includes :space .
+:space a %s .
+"""
+                % (
+                    grouping,
+                    space,
+                )
+            )
+            invalid_g = brickschema.Graph().parse(data=invalid_data, format="turtle")
+            conforms, _, _ = invalid_g.validate(extra_graphs=[brick_with_imports])
+            assert not conforms, f"{grouping} should not include a {space}"

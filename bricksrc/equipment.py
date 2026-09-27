@@ -142,6 +142,7 @@ equipment_subclasses = {
             ],
             REC.includes: [
                 BRICK.Automation_Collection,
+                BRICK.Point_Collection,
                 BRICK.HVAC_Equipment,
                 BRICK.Valve,
             ],
@@ -1671,7 +1672,7 @@ security_subclasses = {
                     TAG.Surveillance,
                     TAG.Camera,
                 ],
-                "parents": [BRICK.Camera]
+                "parents": [BRICK.Camera],
                 # TODO: subclass of PTZ (Pan/Tilt/Zoom) cameras?
             },
             "Network_Video_Recorder": {

@@ -40,7 +40,7 @@ brick:Location a sh:NodeShape ;
     .
 
 brick:Equipment a sh:NodeShape ;
-    sh:not [ sh:class brick:Location ; sh:message "Instances of Equipment cannot be Locations." ] ,
+    sh:not [ sh:class rec:Space ; sh:message "Instances of Equipment cannot be Locations/Spaces." ] ,
            [ sh:class brick:Substance ; sh:message "Instances of Equipment cannot be Substances." ],
            [ sh:class brick:Quantity ; sh:message "Instances of Equipment cannot be Quantities." ],
            [ sh:class rec:Collection ; sh:message "Instances of Equipment cannot be Collections." ],
@@ -132,7 +132,7 @@ brick:Loop a sh:NodeShape ;
 
 brick:Point a sh:NodeShape;
     sh:not [ sh:class brick:Equipment ; sh:message "Instances of Point cannot be Equipment." ],
-           [ sh:class brick:Location ; sh:message "Instances of Point cannot be Locations." ],
+           [ sh:class rec:Space ; sh:message "Instances of Point cannot be Locations/Spaces." ],
            [ sh:class brick:Substance ; sh:message "Instances of Point cannot be Substances." ],
            [ sh:class brick:Quantity ; sh:message "Instances of Point cannot be Quantities." ],
            [ sh:class rec:Collection ; sh:message "Instances of Point cannot be Collections." ],

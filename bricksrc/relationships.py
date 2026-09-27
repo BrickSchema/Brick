@@ -189,7 +189,7 @@ relationships = {
     },
     "hasAddress": {
         RDFS.subPropertyOf: VCARD.hasAddress,
-        "domain": BRICK.Building,
+        "domain": [BRICK.Building, REC.Building],
         "range": VCARD.Address,
         RDFS.label: Literal("Has address", lang="en"),
     },

@@ -848,11 +848,6 @@ brick:Loop
   sh:property [
       rdf:type sh:PropertyShape ;
       sh:path rec:includes ;
-      sh:or (
-        [ sh:class brick:Equipment ]
-        [ sh:class brick:Point ]
-        [ sh:class brick:Location ]
-      ) ;
       sh:minCount 1 ;
       sh:name "includes" ;
       sh:nodeKind sh:IRI ;
