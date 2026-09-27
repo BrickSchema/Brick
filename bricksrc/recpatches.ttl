@@ -1020,13 +1020,6 @@ brick:Plumbing_Room
 brick:Point
   sh:property [
       rdf:type sh:PropertyShape ;
-      sh:path brick:hasQuantity ;
-      sh:class brick:Quantity ;
-      sh:name "has quantity" ;
-      sh:nodeKind sh:IRI ;
-    ] ;
-  sh:property [
-      rdf:type sh:PropertyShape ;
       sh:path brick:hasSubstance ;
       sh:class brick:Substance ;
       sh:name "has substance" ;
