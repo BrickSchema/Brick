@@ -247,6 +247,10 @@ def test_collection_is_replaced_by_rec_collection(brick_with_imports):
     assert (BRICK.Collection, RDFS.subClassOf, REC.Collection) in brick_with_imports
 
 
+def test_fire_zone_is_replaced_by_rec_zone(brick_with_imports):
+    assert (BRICK.Fire_Zone, BRICK.isReplacedBy, REC.Zone) in brick_with_imports
+
+
 def test_system_and_loop_can_include_points(brick_with_imports):
     valid_data = (
         prefixes
