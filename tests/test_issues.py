@@ -98,11 +98,11 @@ def test_issue_804(issue_804_shapes, issue_804_data):
     examples = Graph().parse(data=ISSUE_804_EXAMPLES, format="turtle")
     points = set(examples.subjects(BRICK.hasQuantity, None))
     assert points, "no examples found"
+    # validate the whole graph once: pyshacl's focus_nodes mode skips shapes
+    # that only reach a node through a subclass of its type
+    _, results, _ = pyshacl.validate(
+        issue_804_data, shacl_graph=issue_804_shapes, inference="none"
+    )
+    failures = set(results.objects(None, SH.focusNode))
     for point in sorted(points):
-        conforms, _, report = pyshacl.validate(
-            issue_804_data,
-            shacl_graph=issue_804_shapes,
-            focus_nodes=[point],
-            inference="none",
-        )
-        assert conforms, f"{point} should validate\n{report}"
+        assert point not in failures, f"{point} should validate"
