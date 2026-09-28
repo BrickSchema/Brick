@@ -121,7 +121,7 @@ WHERE {
 			""" ;
       sh:prefixes <https://brickschema.org/schema/1.5/Brick> ;
     ] ;
-  sh:targetClass brick:Entity, rec:Space ;
+  sh:targetClass brick:Entity, rec:Space, rec:Collection, rec:Asset, rec:BuildingElement ;
 .
 
 # Same as above, for owl:inverseOf declared in the other direction:
@@ -141,7 +141,7 @@ WHERE {
 			""" ;
       sh:prefixes <https://brickschema.org/schema/1.5/Brick> ;
     ] ;
-  sh:targetClass brick:Entity, rec:Space ;
+  sh:targetClass brick:Entity, rec:Space, rec:Collection, rec:Asset, rec:BuildingElement ;
 .
 
 # Mirror every edge of an owl:SymmetricProperty touching this entity
@@ -163,7 +163,7 @@ WHERE {
 			""" ;
       sh:prefixes <https://brickschema.org/schema/1.5/Brick> ;
     ] ;
-  sh:targetClass brick:Entity, rec:Space ;
+  sh:targetClass brick:Entity, rec:Space, rec:Collection, rec:Asset, rec:BuildingElement ;
 .
 
 # An entity gets the tags of its class and of every superclass

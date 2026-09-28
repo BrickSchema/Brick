@@ -282,3 +282,22 @@ def test_building_meter_inference_only_existing_classes(brick_with_imports):
     g.add((BLDG.bldg, A, REC.Building))
     g.compile()  # run shacl inference
     assert (BLDG.waste_meter, A, BRICK.Building_Waste_Meter) not in g
+
+
+def test_inverse_inference_on_rec_entities(brick_with_imports):
+    # REC spaces, collections, assets and building elements are not
+    # brick:Entity, but inverse relationships should still be inferred
+    g = brick_with_imports
+    g.add((BLDG.apartment, A, REC.Apartment))
+    g.add((BLDG.kitchen, A, REC.Room))
+    g.add((BLDG.kitchen, BRICK.isPartOf, BLDG.apartment))
+    g.add((BLDG.facade, A, REC.Facade))
+    g.add((BLDG.wall, A, REC.Wall))
+    g.add((BLDG.wall, BRICK.isPartOf, BLDG.facade))
+    g.add((BLDG.desk, A, REC.Desk))
+    g.add((BLDG.lamp, A, REC.DeskLamp))
+    g.add((BLDG.lamp, BRICK.isPartOf, BLDG.desk))
+    g.compile()
+    assert (BLDG.apartment, BRICK.hasPart, BLDG.kitchen) in g
+    assert (BLDG.facade, BRICK.hasPart, BLDG.wall) in g
+    assert (BLDG.desk, BRICK.hasPart, BLDG.lamp) in g
