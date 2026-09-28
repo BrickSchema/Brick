@@ -6,7 +6,7 @@ import warnings
 import sys
 
 sys.path.append("..")
-from bricksrc.namespaces import A, BRICK, QUDT, QUDTQK, UNIT  # noqa: E402
+from bricksrc.namespaces import A, BRICK, QUDT, QUDTQK, SKOS, UNIT  # noqa: E402
 
 BLDG = Namespace("https://brickschema.org/schema/ExampleBuilding#")
 
@@ -158,6 +158,12 @@ def test_issue_758_point_quantity_updates(brick_with_imports):
         BRICK.Refrigerant_Level_Sensor: QUDTQK.LiquidLevel,
         BRICK.Tint_Command: QUDTQK.Transmittance,
         BRICK.Tint_Status: QUDTQK.Transmittance,
+        BRICK.Air_Wet_Bulb_Temperature_Sensor: QUDTQK.WetBulbTemperature,
+        BRICK.Outside_Air_Wet_Bulb_Temperature_Sensor: QUDTQK.WetBulbTemperature,
+        BRICK.Conductivity_Sensor: QUDTQK.ElectricConductivity,
+        BRICK.Deionised_Water_Conductivity_Sensor: QUDTQK.ElectricConductivity,
+        BRICK.Rate_Of_Change_Of_Frequency_Sensor: QUDTQK.RateOfChangeOfFrequency,
+        BRICK.Capacity_Sensor: QUDTQK.DimensionlessRatio,
     }
 
     for klass, quantity in expected.items():
@@ -170,10 +176,29 @@ def test_issue_758_point_quantity_updates(brick_with_imports):
         QUDTQK.VoltageImbalance: UNIT.PERCENT,
         QUDTQK.ApparentEnergy: UNIT["KiloVA-HR"],
         QUDTQK.LiquidLevel: UNIT.M,
+        QUDTQK.WetBulbTemperature: UNIT.DEG_C,
+        QUDTQK.ElectricConductivity: UNIT["MicroS-PER-CentiM"],
+        QUDTQK.RateOfChangeOfFrequency: UNIT["HZ-PER-SEC"],
+        QUDTQK.AmountOfCloudCover: UNIT.OKTA,
     }
 
     for quantity, unit in expected_units.items():
         assert (quantity, QUDT.applicableUnit, unit) in g
+
+    replaced_quantities = {
+        BRICK.Dry_Bulb_Temperature: QUDTQK.DryBulbTemperature,
+        BRICK.Wet_Bulb_Temperature: QUDTQK.WetBulbTemperature,
+        BRICK.Cloudage: QUDTQK.AmountOfCloudCover,
+    }
+
+    for quantity, replacement in replaced_quantities.items():
+        assert (quantity, BRICK.isReplacedBy, replacement) in g
+        assert (quantity, QUDT.applicableUnit, None) not in g
+    assert (
+        BRICK.Differential_Dry_Bulb_Temperature,
+        SKOS.broader,
+        QUDTQK.DryBulbTemperature,
+    ) in g
 
 
 # Deleting this test because it requires RDFS semantics, which we are no longer

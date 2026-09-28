@@ -660,7 +660,7 @@
     brick:isControlledBy :iaq_controller ;
     rec:modelNumber "RH-400" ;
     brick:hasPoint :range_hood_command,
-        :range_hood_speed_setpoint .
+        :range_hood_speed_command .
 
 # Exhaust path: the kitchen supplies the air the range hood removes.
 :kitchen brick:feeds :range_hood .
@@ -699,8 +699,8 @@
 :range_hood_command a brick:On_Off_Command ;
     rdfs:label "Range hood on/off command" .
 
-:range_hood_speed_setpoint a brick:Speed_Setpoint ;
-    rdfs:label "Range hood speed setpoint" ;
+:range_hood_speed_command a brick:Fan_Speed_Command ;
+    rdfs:label "Range hood fan speed command" ;
     brick:hasUnit unit:PERCENT .
 
 :rtu_fan_command a brick:On_Off_Command ;
