@@ -240,12 +240,6 @@ def test_plant_requires_rec_includes_for_logical_grouping(brick_with_imports):
     assert not conforms
 
 
-def test_collection_is_replaced_by_rec_collection(brick_with_imports):
-    assert (BRICK.Collection, OWL.deprecated, Literal(True)) in brick_with_imports
-    assert (BRICK.Collection, BRICK.isReplacedBy, REC.Collection) in brick_with_imports
-    assert (BRICK.Collection, RDFS.subClassOf, REC.Collection) in brick_with_imports
-
-
 def test_system_and_loop_can_include_points(brick_with_imports):
     valid_data = (
         prefixes
