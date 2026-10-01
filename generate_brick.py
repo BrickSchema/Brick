@@ -339,16 +339,16 @@ def define_classes(definitions, parent, pun_classes=False, graph=G):
         aliases = defn.get("aliases", [])
         assert isinstance(aliases, list)
         for alias in aliases:
-            graph.add((classname, OWL.equivalentClass, alias))
+            graph.add((classname, RDFS.subClassOf, alias))
             graph.add((alias, A, OWL.Class))
             graph.add((alias, A, SH.NodeShape))
-            graph.add((alias, OWL.equivalentClass, classname))
+            graph.add((alias, RDFS.subClassOf, classname))
             # find parent class of what the alias is equivalent to, add the RDFS subClassOf properties
-            parent_classes = list(
-                graph.objects(subject=classname, predicate=RDFS.subClassOf)
-            )
-            for pc in parent_classes:
-                graph.add((alias, RDFS.subClassOf, pc))
+            # parent_classes = list(
+            #     graph.objects(subject=classname, predicate=RDFS.subClassOf)
+            # )
+            # for pc in parent_classes:
+            #     graph.add((alias, RDFS.subClassOf, pc))
             graph.add((alias, BRICK.aliasOf, classname))
 
         # all other key-value pairs in the definition are
