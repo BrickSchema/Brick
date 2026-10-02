@@ -340,7 +340,6 @@ def define_classes(definitions, parent, pun_classes=False, graph=G):
         assert isinstance(aliases, list)
         for alias in aliases:
             graph.add((classname, OWL.equivalentClass, alias))
-            graph.add((classname, RDFS.subClassOf, alias))
             graph.add((alias, A, OWL.Class))
             graph.add((alias, A, SH.NodeShape))
             graph.add((alias, RDFS.subClassOf, classname))
