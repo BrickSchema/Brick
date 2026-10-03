@@ -58,6 +58,8 @@ Brick schema.
 """
 BRICK = Namespace("https://brickschema.org/schema/Brick#")
 g.bind("brick", BRICK)
+REC = Namespace("https://w3id.org/rec#")
+g.bind("rec", REC)
 
 
 """
@@ -95,10 +97,10 @@ g.add((BLDG["VAV2-4.DPRPOS"], RDF.type, BRICK.Damper_Position_Setpoint))
 g.add((BLDG["VAV2-4.ZN_T"], RDF.type, BRICK.Supply_Air_Temperature_Sensor))
 g.add((BLDG["VAV2-4.SUPFLOW"], RDF.type, BRICK.Supply_Air_Flow_Sensor))
 g.add((BLDG["VAV2-4.SUPFLSP"], RDF.type, BRICK.Supply_Air_Flow_Setpoint))
-g.add((BLDG["VAV2-3Zone"], RDF.type, BRICK.HVAC_Zone))
-g.add((BLDG["Room-410"], RDF.type, BRICK.Room))
-g.add((BLDG["Room-411"], RDF.type, BRICK.Room))
-g.add((BLDG["Room-412"], RDF.type, BRICK.Room))
+g.add((BLDG["VAV2-3Zone"], RDF.type, REC.HVACZone))
+g.add((BLDG["Room-410"], RDF.type, REC.Room))
+g.add((BLDG["Room-411"], RDF.type, REC.Room))
+g.add((BLDG["Room-412"], RDF.type, REC.Room))
 
 # declare edges
 g.add((BLDG["AHU1A"], BRICK.feeds, BLDG["VAV2-4"]))
@@ -185,11 +187,12 @@ new classes to "attach" them to existing classes in the Brick class structure th
 RDFS.subClassOf relationship. Here's the triples we need to define a new class:
 """
 
-g.add((BRICK.Fire_Zone, RDF.type, OWL.Class))
-# We can make Fire Zone a subclass of the more generic "Location" class.
+# New classes belong in our own namespace, not Brick's
+g.add((BLDG.Fire_Zone, RDF.type, OWL.Class))
+# We can make Fire Zone a subclass of the more generic REC "Zone" class.
 # It is easy to change this later.
-g.add((BRICK.Fire_Zone, RDFS.subClassOf, BRICK.Location))
+g.add((BLDG.Fire_Zone, RDFS.subClassOf, REC.Zone))
 
 # now we can use our new class
-g.add((BLDG.FZ1, RDF.type, BRICK.Fire_Zone))
+g.add((BLDG.FZ1, RDF.type, BLDG.Fire_Zone))
 g.add((BLDG.FZ1, BRICK.hasPart, BLDG["Room-410"]))

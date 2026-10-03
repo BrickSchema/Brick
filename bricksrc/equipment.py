@@ -142,10 +142,16 @@ equipment_subclasses = {
             ],
             REC.includes: [
                 BRICK.Automation_Collection,
+                BRICK.Point_Collection,
                 BRICK.HVAC_Equipment,
                 BRICK.Valve,
             ],
-            BRICK.feeds: [BRICK.HVAC_Equipment, BRICK.Valve, REC.Space],
+            BRICK.feeds: [
+                BRICK.HVAC_Equipment,
+                BRICK.Valve,
+                BRICK.Location,
+                REC.Architecture,
+            ],
         },
     },
     "Weather_Station": {"tags": [TAG.Weather, TAG.Station, TAG.Equipment]},
@@ -341,7 +347,7 @@ equipment_subclasses = {
         "tags": [TAG.Lighting, TAG.Equipment],
         "constraints": {
             BRICK.hasPart: [BRICK.Lighting_Equipment, BRICK.Electrical_Equipment],
-            BRICK.feeds: [BRICK.Lighting_Equipment, REC.Space],
+            BRICK.feeds: [BRICK.Lighting_Equipment, BRICK.Location, REC.Architecture],
         },
         "subclasses": {
             "Lighting": {
@@ -1671,7 +1677,7 @@ security_subclasses = {
                     TAG.Surveillance,
                     TAG.Camera,
                 ],
-                "parents": [BRICK.Camera]
+                "parents": [BRICK.Camera],
                 # TODO: subclass of PTZ (Pan/Tilt/Zoom) cameras?
             },
             "Network_Video_Recorder": {

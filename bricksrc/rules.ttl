@@ -26,7 +26,8 @@ skos:narrower rdf:type rdf:Property ;
 # Generic OWL/RDFS-style inference, implemented as SHACL rules
 ##############################################################################
 
-# An alias class gets the superclasses of the class it aliases
+# An alias class gets the parents of its canonical class, and the aliases of
+# those parents
 bsh:AddSubclassAliasesRule
     a sh:NodeShape ;
     sh:rule [
@@ -35,9 +36,7 @@ bsh:AddSubclassAliasesRule
 CONSTRUCT {
     $this rdfs:subClassOf ?superclass .
 } WHERE {
-    # hop to the canonical class (optional), up one subClassOf, then to that
-    # superclass's alias/equivalent (optional)
-    $this (brick:aliasOf|owl:equivalentClass)?/rdfs:subClassOf/(brick:aliasOf|owl:equivalentClass)? ?superclass
+    $this brick:aliasOf/rdfs:subClassOf/^brick:aliasOf? ?superclass .
 }""" ;
       sh:prefixes <https://brickschema.org/schema/1.5/Brick> ;
     ] ;
@@ -104,7 +103,7 @@ WHERE {
 			""" ;
       sh:prefixes <https://brickschema.org/schema/1.5/Brick> ;
     ] ;
-  sh:targetClass brick:Entity ;
+  sh:targetClass brick:Entity, rec:Space, rec:Collection, rec:Asset, rec:BuildingElement ;
 .
 
 # Same as above, for owl:inverseOf declared in the other direction:
@@ -124,7 +123,7 @@ WHERE {
 			""" ;
       sh:prefixes <https://brickschema.org/schema/1.5/Brick> ;
     ] ;
-  sh:targetClass brick:Entity ;
+  sh:targetClass brick:Entity, rec:Space, rec:Collection, rec:Asset, rec:BuildingElement ;
 .
 
 # Mirror every edge of an owl:SymmetricProperty touching this entity
@@ -146,7 +145,7 @@ WHERE {
 			""" ;
       sh:prefixes <https://brickschema.org/schema/1.5/Brick> ;
     ] ;
-  sh:targetClass brick:Entity ;
+  sh:targetClass brick:Entity, rec:Space, rec:Collection, rec:Asset, rec:BuildingElement ;
 .
 
 # An entity gets the tags of its class and of every superclass
@@ -397,7 +396,8 @@ bsh:BuildingMeterRule a sh:NodeShape ;
         WHERE {
             # the meter meters a building...
             $this brick:meters ?bldg .
-            ?bldg rdf:type/rdfs:subClassOf* brick:Building .
+            VALUES ?bldgclass { brick:Building rec:Building }
+            ?bldg rdf:type/rdfs:subClassOf* ?bldgclass .
             # ...so for each of its direct X_Meter types, mint brick:Building_X_Meter
             $this rdf:type ?type .
             BIND(IRI(CONCAT("https://brickschema.org/schema/Brick#Building_", strafter(str(?type), "https://brickschema.org/schema/Brick#"))) as ?newtype) .
@@ -414,7 +414,7 @@ bsh:BuildingMeterRule a sh:NodeShape ;
 
 # Only meters may set isVirtualMeter to true
 bsh:VirtualMeterRule a sh:NodeShape ;
-    sh:targetClass brick:Entity ;
+    sh:targetSubjectsOf brick:isVirtualMeter ;
     sh:sparql [
         a sh:SPARQLConstraint ;
         sh:message "Only meters can have the isVirtualMeter property be true" ;

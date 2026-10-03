@@ -658,8 +658,8 @@ brick:Fire_Sensor
 brick:Fire_Zone
   owl:deprecated "true"^^xsd:boolean ;
   brick:deprecatedInVersion "1.4.0" ;
-  brick:deprecationMitigationMessage "Brick location classes are being phased out in favor of RealEstateCore classes. For a replacement, consider rec:ServiceEntrance" ;
-  brick:isReplacedBy rec:ServiceEntrance ;
+  brick:deprecationMitigationMessage "Brick location classes are being phased out in favor of RealEstateCore classes. For a replacement, consider rec:Zone" ;
+  brick:isReplacedBy rec:Zone ;
   skos:definition "A logical subdivision of a building that is monitored for fire; may also have a classification for the type of fire hazard that can occur"@en ;
 .
 brick:Floor
@@ -848,11 +848,6 @@ brick:Loop
   sh:property [
       rdf:type sh:PropertyShape ;
       sh:path rec:includes ;
-      sh:or (
-        [ sh:class brick:Equipment ]
-        [ sh:class brick:Point ]
-        [ sh:class brick:Location ]
-      ) ;
       sh:minCount 1 ;
       sh:name "includes" ;
       sh:nodeKind sh:IRI ;

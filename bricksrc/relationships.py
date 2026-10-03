@@ -132,14 +132,14 @@ relationships = {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         OWL.inverseOf: BRICK["isPointOf"],
         "range": BRICK.Point,
-        "domain": [BRICK.Equipment, BRICK.Location, REC.Space],
+        "domain": [BRICK.Equipment, BRICK.Location, REC.Architecture],
         RDFS.label: Literal("Has point", lang="en"),
     },
     "isPointOf": {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         OWL.inverseOf: BRICK["hasPoint"],
         "domain": BRICK.Point,
-        "range": [BRICK.Equipment, BRICK.Location, REC.Space],
+        "range": [BRICK.Equipment, BRICK.Location, REC.Architecture],
         RDFS.label: Literal("Is point of", lang="en"),
     },
     "hasPart": {
@@ -189,7 +189,7 @@ relationships = {
     },
     "hasAddress": {
         RDFS.subPropertyOf: VCARD.hasAddress,
-        "domain": BRICK.Building,
+        "domain": [BRICK.Building, REC.Building],
         "range": VCARD.Address,
         RDFS.label: Literal("Has address", lang="en"),
     },

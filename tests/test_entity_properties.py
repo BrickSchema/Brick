@@ -1,6 +1,6 @@
 from brickschema import Graph
 from rdflib import Namespace, Literal, XSD
-from brickschema.namespaces import BRICK, A, REF
+from brickschema.namespaces import BRICK, A, REF, REC
 
 EX = Namespace("urn:ex:")
 
@@ -9,7 +9,7 @@ def test_entity_property_validation(brick_with_imports):
     g = Graph()
 
     # test success
-    g.add((EX["bldg"], A, BRICK.Building))
+    g.add((EX["bldg"], A, REC.Building))
     g.add(
         (
             EX["bldg"],
@@ -26,7 +26,7 @@ def test_entity_property_validation(brick_with_imports):
 def test_entity_property_validation_failure(brick_with_imports):
     # test failure
     g = Graph()
-    g.add((EX["bldg"], A, BRICK.Building))
+    g.add((EX["bldg"], A, REC.Building))
     g.add(
         (
             EX["bldg"],
