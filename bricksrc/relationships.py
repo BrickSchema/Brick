@@ -92,7 +92,7 @@ relationships = {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         OWL.inverseOf: BRICK["hasLocation"],
         "domain": [BRICK.Location, REC.Architecture],
-        "range": BRICK.Entity,
+        "range": [BRICK.Entity, REC.Collection],
         RDFS.label: Literal("Is location of", lang="en"),
     },
     "hasLocation": {
