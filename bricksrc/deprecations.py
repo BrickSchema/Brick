@@ -79,8 +79,18 @@ deprecations = {
         RDFS.subClassOf: BRICK.Zone_Air_Temperature_Setpoint,
     },
     BRICK.Occupied_Zone_Air_Temperature_Setpoint: {
-        "version": "1.3.0",
+        "version": "1.5.0",
         "mitigation_message": "'Occupied_Zone_Air_Temperature_Setpoint' is deprecated in favor of further specifying that it is a target setpoint",
+        "replace_with": BRICK.Occupied_Target_Zone_Air_Temperature_Setpoint,
+        RDFS.subClassOf: BRICK.Zone_Air_Temperature_Setpoint,
+    },
+    # This typo (Temperaure -> Temperature) was mistakenly added in the 1.3.0
+    # deprecation. We are preserving it to avoid breaking the deprecation
+    # notice, but we are also adding the intended deprecation record (see
+    # above).
+    BRICK.Occupied_Zone_Air_Temperaure_Setpoint: {
+        "version": "1.3.0",
+        "mitigation_message": "'Occupied_Zone_Air_Temperature_Setpoint' is deprecated in favor of further specifying that it is a target setpoint.",
         "replace_with": BRICK.Occupied_Target_Zone_Air_Temperature_Setpoint,
         RDFS.subClassOf: BRICK.Zone_Air_Temperature_Setpoint,
     },
