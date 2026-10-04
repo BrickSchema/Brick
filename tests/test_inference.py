@@ -6,7 +6,7 @@ import os
 import sys
 
 sys.path.append("..")
-from bricksrc.namespaces import BRICK, TAG, A, SKOS  # noqa: E402
+from bricksrc.namespaces import BRICK, TAG, A, SKOS, REC  # noqa: E402
 
 BLDG = Namespace("https://brickschema.org/schema/ExampleBuilding#")
 
@@ -201,7 +201,7 @@ def test_meter_inference(brick_with_imports):
     g = brick_with_imports
     g.add((BLDG.abcdef, A, BRICK.Electrical_Meter))
     g.add((BLDG.abcdef, BRICK.meters, BLDG.bldg))
-    g.add((BLDG.bldg, A, BRICK.Building))
+    g.add((BLDG.bldg, A, REC.Building))
     g.compile()
     assert (BLDG.abcdef, A, BRICK.Building_Electrical_Meter) in g
 
@@ -216,7 +216,7 @@ def test_virtual_meter1(brick_with_imports):
 
 def test_virtual_meter2(brick_with_imports):
     g = brick_with_imports
-    g.add((BLDG.abcdef, A, BRICK.Building))
+    g.add((BLDG.abcdef, A, REC.Building))
     g.add((BLDG.abcdef, BRICK.isVirtualMeter, [(BRICK.value, Literal(True))]))
     valid, _, report = g.validate()
     assert not valid, f"Virtual meter should not be allowed on a building ({report})"
@@ -224,7 +224,7 @@ def test_virtual_meter2(brick_with_imports):
 
 def test_virtual_meter3(brick_with_imports):
     g = brick_with_imports
-    g.add((BLDG.abcdef, A, BRICK.Building))
+    g.add((BLDG.abcdef, A, REC.Building))
     g.add((BLDG.abcdef, BRICK.isVirtualMeter, [(BRICK.value, Literal(False))]))
     valid, _, report = g.validate()
     assert valid, report
@@ -279,6 +279,25 @@ def test_building_meter_inference_only_existing_classes(brick_with_imports):
     g = brick_with_imports
     g.add((BLDG.waste_meter, A, BRICK.Waste_Meter))
     g.add((BLDG.waste_meter, BRICK.meters, BLDG.bldg))
-    g.add((BLDG.bldg, A, BRICK.Building))
+    g.add((BLDG.bldg, A, REC.Building))
     g.compile()  # run shacl inference
     assert (BLDG.waste_meter, A, BRICK.Building_Waste_Meter) not in g
+
+
+def test_inverse_inference_on_rec_entities(brick_with_imports):
+    # REC spaces, collections, assets and building elements are not
+    # brick:Entity, but inverse relationships should still be inferred
+    g = brick_with_imports
+    g.add((BLDG.apartment, A, REC.Apartment))
+    g.add((BLDG.kitchen, A, REC.Room))
+    g.add((BLDG.kitchen, BRICK.isPartOf, BLDG.apartment))
+    g.add((BLDG.facade, A, REC.Facade))
+    g.add((BLDG.wall, A, REC.Wall))
+    g.add((BLDG.wall, BRICK.isPartOf, BLDG.facade))
+    g.add((BLDG.desk, A, REC.Desk))
+    g.add((BLDG.lamp, A, REC.DeskLamp))
+    g.add((BLDG.lamp, BRICK.isPartOf, BLDG.desk))
+    g.compile()
+    assert (BLDG.apartment, BRICK.hasPart, BLDG.kitchen) in g
+    assert (BLDG.facade, BRICK.hasPart, BLDG.wall) in g
+    assert (BLDG.desk, BRICK.hasPart, BLDG.lamp) in g

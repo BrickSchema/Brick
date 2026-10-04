@@ -11,7 +11,7 @@
 <http://example.com/district-heating> a owl:Ontology ;
     owl:imports <https://brickschema.org/schema/1.5/Brick> .
 
-:building a brick:Building ;
+:building a rec:Building ;
     brick:isMeteredBy :building-meter .
 
 :substation a brick:Hot_Water_System ;

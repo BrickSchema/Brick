@@ -21,13 +21,13 @@ ex:Floor1Zone2 a rec:Zone ;
     rec:isPartOf ex:Floor1 .
 
 # Rooms for each zone
-ex:Room1 a rec:Space ;
+ex:Room1 a rec:Room ;
     rec:isPartOf ex:Floor1Zone1 .
-ex:Room2 a rec:Space ;
+ex:Room2 a rec:Room ;
     rec:isPartOf ex:Floor1Zone1 .
-ex:Room3 a rec:Space ;
+ex:Room3 a rec:Room ;
     rec:isPartOf ex:Floor1Zone2 .
-ex:Room4 a rec:Space ;
+ex:Room4 a rec:Room ;
     rec:isPartOf ex:Floor1Zone2 .
 
 # AHU and VAVs
@@ -48,3 +48,31 @@ ex:AirTempSetpoint_RVAV1 a brick:Temperature_Setpoint ;
 
 ex:AirFlowSensor_RVAV1 a brick:Air_Flow_Sensor ;
     brick:isPointOf ex:RVAV1 .
+
+# Systems, loops and collections group equipment, points and REC spaces with
+# rec:includes
+ex:HVACSystem a brick:HVAC_System ;
+    rec:includes ex:MainAHU, ex:RVAV1, ex:RVAV2, ex:Floor1Zone1, ex:Floor1Zone2 .
+
+# the reheat loop serving the VAVs and the rooms they condition
+ex:ReheatLoop a brick:Hot_Water_Loop ;
+    rec:includes ex:RVAV1, ex:RVAV2, ex:Room1, ex:Room2, ex:Room3, ex:Room4 .
+
+ex:RVAV1_Points a brick:Point_Collection ;
+    rec:includes ex:AirTempSensor_RVAV1, ex:AirTempSetpoint_RVAV1, ex:AirFlowSensor_RVAV1 .
+ex:RVAV1 rec:includes ex:RVAV1_Points .
+
+# rooftop solar, located on the roof level (rec:Roof is the building element,
+# not a space, so it cannot be a location)
+ex:Roof a rec:RoofLevel ;
+    rec:isPartOf ex:Building1 .
+
+ex:PVSystem a brick:PV_Generation_System ;
+    rec:includes ex:PVArray1 .
+ex:PVArray1 a brick:Photovoltaic_Array ;
+    rec:includes ex:PVPanel1, ex:PVPanel2 ;
+    brick:hasLocation ex:Roof .
+ex:PVPanel1 a brick:PV_Panel ;
+    brick:hasLocation ex:Roof .
+ex:PVPanel2 a brick:PV_Panel ;
+    brick:hasLocation ex:Roof .

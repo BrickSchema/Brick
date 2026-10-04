@@ -1,9 +1,10 @@
 """
 Entity property definitions
 """
+
 from collections import defaultdict
 from rdflib import Literal
-from .namespaces import BRICK, RDFS, SKOS, UNIT, XSD, SH, BSH, REF, QUDTQK
+from .namespaces import BRICK, RDFS, SKOS, UNIT, XSD, SH, BSH, REF, QUDTQK, REC
 
 # these are the "relationship"/predicates/OWL properties that
 # relate a Brick entity to a structured value.
@@ -25,19 +26,19 @@ entity_properties = {
     BRICK.area: {
         SKOS.definition: Literal("Entity has 2-dimensional area"),
         SH.node: BSH.AreaShape,
-        "property_of": BRICK.Location,
+        "property_of": [BRICK.Location, REC.Architecture],
         RDFS.label: Literal("Area", lang="en"),
         "subproperties": {
             BRICK.grossArea: {
                 SKOS.definition: Literal("Entity has gross 2-dimensional area"),
                 SH.node: BSH.AreaShape,
-                "property_of": BRICK.Location,
+                "property_of": [BRICK.Location, REC.Architecture],
                 RDFS.label: Literal("Gross area", lang="en"),
             },
             BRICK.netArea: {
                 SKOS.definition: Literal("Entity has net 2-dimensional area"),
                 SH.node: BSH.AreaShape,
-                "property_of": BRICK.Location,
+                "property_of": [BRICK.Location, REC.Architecture],
                 RDFS.label: Literal("Net area", lang="en"),
             },
             BRICK.panelArea: {
@@ -50,7 +51,7 @@ entity_properties = {
     },
     BRICK.volume: {
         SKOS.definition: Literal("Entity has 3-dimensional volume"),
-        "property_of": [BRICK.Equipment, BRICK.Location],
+        "property_of": [BRICK.Equipment, BRICK.Location, REC.Architecture],
         SH.node: BSH.VolumeShape,
         RDFS.label: Literal("Volume", lang="en"),
     },
@@ -74,7 +75,7 @@ entity_properties = {
         SKOS.definition: Literal("The location of an entity in latitude/longitude"),
         SH.node: BSH.CoordinateShape,
         RDFS.label: Literal("Coordinates", lang="en"),
-        "property_of": [BRICK.Equipment, BRICK.Location],
+        "property_of": [BRICK.Equipment, BRICK.Location, REC.Architecture],
     },
     BRICK.resolution: {
         SKOS.definition: Literal(
@@ -321,7 +322,7 @@ entity_properties = {
             "Enumerated string applied to a site record to indicate the building's primary function. The list of primary functions is derived from the US Energy Star program (adopted from Project Haystack)"
         ),
         RDFS.seeAlso: Literal("https://project-haystack.org/tag/primaryFunction"),
-        "property_of": BRICK.Building,
+        "property_of": [BRICK.Building, REC.Building],
         SH.node: BSH.BuildingPrimaryFunctionShape,
         RDFS.label: Literal("Building primary function", lang="en"),
     },
@@ -329,7 +330,7 @@ entity_properties = {
         SKOS.definition: Literal(
             "Four digit year that a building was first built. (adopted from Project Haystack)"
         ),
-        "property_of": BRICK.Building,
+        "property_of": [BRICK.Building, REC.Building],
         SH.node: BSH.YearBuiltShape,
         RDFS.seeAlso: Literal("https://project-haystack.org/tag/yearBuilt"),
         RDFS.label: Literal("Year built", lang="en"),
@@ -338,7 +339,7 @@ entity_properties = {
         SKOS.definition: Literal(
             "The area-weighted average heat transfer coefficient (commonly referred to as a U-value)"
         ),
-        "property_of": BRICK.Location,
+        "property_of": [BRICK.Location, REC.Architecture],
         SH.node: BSH.ThermalTransmittanceShape,
         RDFS.label: Literal("Thermal transmittance", lang="en"),
         RDFS.seeAlso: Literal(
@@ -346,7 +347,7 @@ entity_properties = {
         ),
         "subproperties": {
             BRICK.buildingThermalTransmittance: {
-                "property_of": BRICK.Building,
+                "property_of": [BRICK.Building, REC.Building],
                 SH.node: BSH.ThermalTransmittanceShape,
                 SKOS.definition: Literal(
                     "The area-weighted average heat transfer coefficient (commonly referred to as a U-value) for a building envelope"

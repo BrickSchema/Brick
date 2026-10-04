@@ -8,7 +8,7 @@
 <http://example.com/lighting> a owl:Ontology ;
     owl:imports <https://brickschema.org/schema/1.5/Brick> .
 
-:open_office a brick:Room .
+:open_office a rec:Room .
 
 :lighting_system a brick:Lighting_System ;
     rec:locatedIn :open_office ;
