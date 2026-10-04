@@ -78,7 +78,7 @@ deprecations = {
         "replace_with": BRICK.Effective_Target_Zone_Air_Temperature_Setpoint,
         RDFS.subClassOf: BRICK.Zone_Air_Temperature_Setpoint,
     },
-    BRICK.Occupied_Zone_Air_Temperture_Setpoint: {
+    BRICK.Occupied_Zone_Air_Temperature_Setpoint: {
         "version": "1.3.0",
         "mitigation_message": "'Occupied_Zone_Air_Temperature_Setpoint' is deprecated in favor of further specifying that it is a target setpoint",
         "replace_with": BRICK.Occupied_Target_Zone_Air_Temperature_Setpoint,
