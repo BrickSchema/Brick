@@ -199,3 +199,9 @@ bsh:SensorInheritQuantityKind a sh:NodeShape ;
         """ ;
     ] ;
 .
+
+# brick:Collection is being phased out in favor of rec:Collection, but we keep it for backward compatibility.
+# This is not deprecated because it is a 'root' class and we don't want to break existing data. It is not recommended to use this class in new data;
+# use rec:Collection instead and its subclasses for grouping.
+brick:Collection a owl:Class, sh:NodeShape ;
+    rdfs:subClassOf rec:Collection .

@@ -61,19 +61,19 @@ relationships = {
     "latitude": {
         RDFS.subPropertyOf: SDO.latitude,
         RDFS.label: Literal("Latitude", lang="en"),
-        "domain": BRICK.Entity,
+        "domain": [BRICK.Entity, REC.Collection],
         "datatype": BSH.NumericValue,
     },
     "longitude": {
         RDFS.subPropertyOf: SDO.longitude,
         RDFS.label: Literal("Longitude", lang="en"),
-        "domain": BRICK.Entity,
+        "domain": [BRICK.Entity, REC.Collection],
         "datatype": BSH.NumericValue,
     },
     "timestamp": {
         RDFS.label: Literal("Timestamp", lang="en"),
         A: [RDF.Property],
-        "domain": BRICK.Entity,
+        "domain": [BRICK.Entity, REC.Collection],
         "datatype": XSD.dateTime,
     },
     "expectedLifetime": {
@@ -92,13 +92,13 @@ relationships = {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         OWL.inverseOf: BRICK["hasLocation"],
         "domain": [BRICK.Location, REC.Architecture],
-        "range": BRICK.Entity,
+        "range": [BRICK.Entity, REC.Collection],
         RDFS.label: Literal("Is location of", lang="en"),
     },
     "hasLocation": {
         A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
         OWL.inverseOf: BRICK["isLocationOf"],
-        "domain": BRICK.Entity,
+        "domain": [BRICK.Entity, REC.Collection],
         "range": [BRICK.Location, REC.Architecture],
         RDFS.label: Literal("Has location", lang="en"),
     },

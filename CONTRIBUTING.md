@@ -153,6 +153,7 @@ Each class dictionary can use the following keys:
 - `parents`: optional list of Brick classes whose semantics you want to inherit without nesting the full structure again.
 - `subclasses`: nested dictionary of child class definitions that follow the same schema shown above.
 - `substances`: nested list of `[predicate, object]` tuples describing what the class measures (commonly `[BRICK.measures, BRICK.Air]`).
+- `aliases`: optional list of alternate class names (for example `Discharge_Air_Temperature_Alarm` for `Supply_Air_Temperature_Alarm`). Each alias is a subclass and `owl:equivalentClass` of the canonical class, and also inherits the canonical class's parents and their aliases. Instances typed with an alias match the canonical class without reasoning; instances typed with the canonical class match the alias only after reasoning.
 
 To add textual descriptions, edit `bricksrc/definitions.csv` and insert a row with the full Brick URI, a human-readable definition (quote it if it contains commas), and an optional citation. Keep the file alphabetized.
 

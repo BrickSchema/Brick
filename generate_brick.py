@@ -342,13 +342,7 @@ def define_classes(definitions, parent, pun_classes=False, graph=G):
             graph.add((classname, OWL.equivalentClass, alias))
             graph.add((alias, A, OWL.Class))
             graph.add((alias, A, SH.NodeShape))
-            graph.add((alias, OWL.equivalentClass, classname))
-            # find parent class of what the alias is equivalent to, add the RDFS subClassOf properties
-            parent_classes = list(
-                graph.objects(subject=classname, predicate=RDFS.subClassOf)
-            )
-            for pc in parent_classes:
-                graph.add((alias, RDFS.subClassOf, pc))
+            graph.add((alias, RDFS.subClassOf, classname))
             graph.add((alias, BRICK.aliasOf, classname))
 
         # all other key-value pairs in the definition are
@@ -923,8 +917,7 @@ define_classes(valve_subclasses, BRICK.Equipment)
 define_classes(security_subclasses, BRICK.Security_Equipment)
 define_classes(safety_subclasses, BRICK.Safety_Equipment)
 
-# adding BRICK.Collection in here as a deprecated class
-# to keep our Brick collection subclasses under the Brick tree
+# We keep BRICK.Collection to keep our Brick collection subclasses under the Brick tree
 define_classes(collection_classes, BRICK.Collection)
 G.add((BRICK.Collection, RDFS.subClassOf, REC.Collection))
 

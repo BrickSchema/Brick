@@ -26,7 +26,8 @@ skos:narrower rdf:type rdf:Property ;
 # Generic OWL/RDFS-style inference, implemented as SHACL rules
 ##############################################################################
 
-# An alias class gets the superclasses of the class it aliases
+# An alias class gets the parents of its canonical class, and the aliases of
+# those parents
 bsh:AddSubclassAliasesRule
     a sh:NodeShape ;
     sh:rule [
@@ -35,9 +36,7 @@ bsh:AddSubclassAliasesRule
 CONSTRUCT {
     $this rdfs:subClassOf ?superclass .
 } WHERE {
-    # hop to the canonical class (optional), up one subClassOf, then to that
-    # superclass's alias/equivalent (optional)
-    $this (brick:aliasOf|owl:equivalentClass)?/rdfs:subClassOf/(brick:aliasOf|owl:equivalentClass)? ?superclass
+    $this brick:aliasOf/rdfs:subClassOf/^brick:aliasOf? ?superclass .
 }""" ;
       sh:prefixes <https://brickschema.org/schema/1.5/Brick> ;
     ] ;
