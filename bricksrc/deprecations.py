@@ -9,7 +9,7 @@ deprecations = {
     },
     BRICK.Condenser: {
         "version": "1.3.0",
-        "mitigation_message": "'Condenser' and 'Condensing Unit' are interchangable terms. Renaming class to 'Condensing_Unit' to further aligns with ASHRAE's terminology.",
+        "mitigation_message": "'Condenser' and 'Condensing Unit' are interchangeable terms. Renaming class to 'Condensing_Unit' to further align with ASHRAE's terminology.",
         "replace_with": BRICK.Condensing_Unit,
     },
     BRICK.Heat_Sensor: {
@@ -99,7 +99,7 @@ deprecations = {
     },
     BRICK.Zone_Air_Heating_Temperature_Setpoint: {
         "version": "1.3.0",
-        "mitigation_message": "'Zone_Air_Heating_Temperature_Setpoint' is deprecated to support new naming convention, whic reorders intended behaviour (heating) before the substance (zone air)",
+        "mitigation_message": "'Zone_Air_Heating_Temperature_Setpoint' is deprecated to support new naming convention, which reorders intended behaviour (heating) before the substance (zone air)",
         SKOS.definition: "The lower (heating) setpoint for zone air temperature",
         "replace_with": BRICK.Heating_Zone_Air_Temperature_Setpoint,
         RDFS.subClassOf: BRICK.Zone_Air_Temperature_Setpoint,
