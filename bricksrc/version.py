@@ -15,3 +15,14 @@ BRICK_VERSION = f"{BRICK_MAJOR_VERSION}.{BRICK_MINOR_VERSION}"
 
 # the full "semantic verersion" including the patch number
 BRICK_FULL_VERSION = f"{BRICK_VERSION}.{BRICK_PATCH_VERSION}"
+
+# Pre-release label appended to the full version in the ontology's
+# owl:versionInfo (e.g. "rc2" gives "1.5.0-rc2"). Set to "" for a final release.
+BRICK_PRERELEASE = "rc2"
+
+# the full version as published in owl:versionInfo, including any pre-release label
+BRICK_VERSION_INFO = (
+    f"{BRICK_FULL_VERSION}-{BRICK_PRERELEASE}"
+    if BRICK_PRERELEASE
+    else BRICK_FULL_VERSION
+)
