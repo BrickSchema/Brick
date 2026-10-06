@@ -9,7 +9,7 @@ deprecations = {
     },
     BRICK.Condenser: {
         "version": "1.3.0",
-        "mitigation_message": "'Condenser' and 'Condensing Unit' are interchangable terms. Renaming class to 'Condensing_Unit' to further aligns with ASHRAE's terminology.",
+        "mitigation_message": "'Condenser' and 'Condensing Unit' are interchangeable terms. Renaming class to 'Condensing_Unit' to further align with ASHRAE's terminology.",
         "replace_with": BRICK.Condensing_Unit,
     },
     BRICK.Heat_Sensor: {
@@ -78,9 +78,19 @@ deprecations = {
         "replace_with": BRICK.Effective_Target_Zone_Air_Temperature_Setpoint,
         RDFS.subClassOf: BRICK.Zone_Air_Temperature_Setpoint,
     },
-    BRICK.Occupied_Zone_Air_Temperture_Setpoint: {
-        "version": "1.3.0",
+    BRICK.Occupied_Zone_Air_Temperature_Setpoint: {
+        "version": "1.5.0",
         "mitigation_message": "'Occupied_Zone_Air_Temperature_Setpoint' is deprecated in favor of further specifying that it is a target setpoint",
+        "replace_with": BRICK.Occupied_Target_Zone_Air_Temperature_Setpoint,
+        RDFS.subClassOf: BRICK.Zone_Air_Temperature_Setpoint,
+    },
+    # This typo (Temperaure -> Temperature) was mistakenly added in the 1.3.0
+    # deprecation. We are preserving it to avoid breaking the deprecation
+    # notice, but we are also adding the intended deprecation record (see
+    # above).
+    BRICK.Occupied_Zone_Air_Temperaure_Setpoint: {
+        "version": "1.3.0",
+        "mitigation_message": "'Occupied_Zone_Air_Temperature_Setpoint' is deprecated in favor of further specifying that it is a target setpoint.",
         "replace_with": BRICK.Occupied_Target_Zone_Air_Temperature_Setpoint,
         RDFS.subClassOf: BRICK.Zone_Air_Temperature_Setpoint,
     },
@@ -99,7 +109,7 @@ deprecations = {
     },
     BRICK.Zone_Air_Heating_Temperature_Setpoint: {
         "version": "1.3.0",
-        "mitigation_message": "'Zone_Air_Heating_Temperature_Setpoint' is deprecated to support new naming convention, whic reorders intended behaviour (heating) before the substance (zone air)",
+        "mitigation_message": "'Zone_Air_Heating_Temperature_Setpoint' is deprecated to support new naming convention, which reorders intended behaviour (heating) before the substance (zone air)",
         SKOS.definition: "The lower (heating) setpoint for zone air temperature",
         "replace_with": BRICK.Heating_Zone_Air_Temperature_Setpoint,
         RDFS.subClassOf: BRICK.Zone_Air_Temperature_Setpoint,
@@ -681,41 +691,41 @@ deprecations = {
         "replace_with": QUDTQK.Energy,
     },
     BRICK.Electric_Energy: {
-        "version": "1.4.4",
+        "version": "1.5.0",
         "mitigation_message": "Brick-defined quantity 'Electric_Energy' is deprecated. Use QUDT quantitykind:ElectricEnergy directly.",
         "replace_with": QUDTQK.ElectricEnergy,
     },
     BRICK.Active_Energy: {
-        "version": "1.4.4",
+        "version": "1.5.0",
         "mitigation_message": "Brick-defined quantity 'Active_Energy' is deprecated. Use QUDT quantitykind:ActiveEnergy directly.",
         "replace_with": QUDTQK.ActiveEnergy,
     },
     BRICK.Reactive_Energy: {
-        "version": "1.4.4",
+        "version": "1.5.0",
         "mitigation_message": "Brick-defined quantity 'Reactive_Energy' is deprecated. Use QUDT quantitykind:ReactiveEnergy directly.",
         "replace_with": QUDTQK.ReactiveEnergy,
     },
     BRICK.Apparent_Energy: {
-        "version": "1.4.4",
+        "version": "1.5.0",
         "mitigation_message": "Brick-defined quantity 'Apparent_Energy' is deprecated. Use QUDT quantitykind:ApparentEnergy directly.",
         "replace_with": QUDTQK.ApparentEnergy,
     },
     BRICK.Level: {
-        "version": "1.4.4",
+        "version": "1.5.0",
         "mitigation_message": "Brick-defined quantity 'Level' is deprecated. Use QUDT quantitykind:LiquidLevel directly for liquid level measurements.",
     },
     BRICK.Current_Imbalance: {
-        "version": "1.4.4",
+        "version": "1.5.0",
         "mitigation_message": "Brick-defined quantity 'Current_Imbalance' is deprecated. Use QUDT quantitykind:ElectricCurrentImbalance directly.",
         "replace_with": QUDTQK.ElectricCurrentImbalance,
     },
     BRICK.Voltage_Imbalance: {
-        "version": "1.4.4",
+        "version": "1.5.0",
         "mitigation_message": "Brick-defined quantity 'Voltage_Imbalance' is deprecated. Use QUDT quantitykind:VoltageImbalance directly.",
         "replace_with": QUDTQK.VoltageImbalance,
     },
     BRICK.GrainsOfMoisture: {
-        "version": "1.4.4",
+        "version": "1.5.0",
         "mitigation_message": "Brick-defined quantity 'GrainsOfMoisture' is deprecated. Use QUDT quantitykind:SpecificHumidity directly.",
         "replace_with": QUDTQK.SpecificHumidity,
     },

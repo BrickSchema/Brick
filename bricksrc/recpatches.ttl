@@ -161,7 +161,7 @@ brick:Majlis
   brick:isReplacedBy rec:Lounge ;
   brick:deprecatedInVersion "1.4.1" ;
   brick:deprecationMitigationMessage "Brick location classes are being phased out in favor of RealEstateCore classes. There is not yet a replacement in REC for Majlis" ;
-  skos:definition "In Arab countries, an Majlis is a private lounge where visitors are recieved and entertained"@en ;
+  skos:definition "In Arab countries, an Majlis is a private lounge where visitors are received and entertained"@en ;
 .
 brick:Media_Room
   owl:deprecated "true"^^xsd:boolean ;
@@ -364,7 +364,7 @@ brick:Bench_Space
     brick:deprecatedInVersion "1.4.0" ;
     brick:deprecationMitigationMessage "Brick location classes are being phased out in favor of RealEstateCore classes. For a replacement, consider creating a rec:Zone that is part of a rec:Stadium" ;
     brick:isReplacedBy rec:Zone ;
-  skos:definition "For areas of play in a stadium, the area for partcipants and referees by the side of the field"@en ;
+  skos:definition "For areas of play in a stadium, the area for participants and referees by the side of the field"@en ;
 .
 brick:Break_Room
   owl:deprecated "true"^^xsd:boolean ;
@@ -574,7 +574,7 @@ brick:Employee_Entrance_Lobby
   brick:deprecatedInVersion "1.4.0" ;
   brick:deprecationMitigationMessage "Brick location classes are being phased out in favor of RealEstateCore classes. For a replacement, consider rec:ServiceEntrance" ;
   brick:isReplacedBy rec:ServiceEntrance ;
-  skos:definition "An open space near an entrance that is typicaly only used for employees"@en ;
+  skos:definition "An open space near an entrance that is typically only used for employees"@en ;
 .
 brick:Enclosed_Office
   owl:deprecated "true"^^xsd:boolean ;
@@ -787,7 +787,7 @@ brick:IDF
   brick:deprecatedInVersion "1.4.0" ;
   brick:deprecationMitigationMessage "Brick location classes are being phased out in favor of RealEstateCore classes. For a replacement, consider rec:CableRoom" ;
   brick:isReplacedBy rec:CableRoom ;
-  skos:definition "An room for an intermediate distribution frame, where cables carrying signals from the main distrubtion frame terminate and then feed out to endpoints"@en ;
+  skos:definition "An room for an intermediate distribution frame, where cables carrying signals from the main distribution frame terminate and then feed out to endpoints"@en ;
 .
 brick:Illuminance_Sensor
   sh:property [
@@ -882,7 +882,7 @@ brick:Mail_Room
     brick:deprecatedInVersion "1.4.0" ;
     brick:deprecationMitigationMessage "Brick location classes are being phased out in favor of RealEstateCore classes. For a replacement, consider rec:MailRoom" ;
     brick:isReplacedBy rec:MailRoom ;
-  skos:definition "A room where mail is recieved and sorted for distribution to the rest of the building"@en ;
+  skos:definition "A room where mail is received and sorted for distribution to the rest of the building"@en ;
 .
 brick:Massage_Room
   owl:deprecated "true"^^xsd:boolean ;
@@ -947,14 +947,14 @@ brick:Office_Kitchen
     brick:deprecatedInVersion "1.4.0" ;
     brick:deprecationMitigationMessage "Brick location classes are being phased out in favor of RealEstateCore classes. For a replacement, consider rec:Kitchenette" ;
     brick:isReplacedBy rec:Kitchenette ;
-  skos:definition "A common space, usually near or in a breakroom, where minor food preperation occurs"@en ;
+  skos:definition "A common space, usually near or in a breakroom, where minor food preparation occurs"@en ;
 .
 brick:Open_Office
   owl:deprecated "true"^^xsd:boolean ;
     brick:deprecatedInVersion "1.4.0" ;
     brick:deprecationMitigationMessage "Brick location classes are being phased out in favor of RealEstateCore classes. For a replacement, consider rec:OfficeLandscape" ;
     brick:isReplacedBy rec:OfficeLandscape ;
-  skos:definition "An open space used for work or study by mulitple people. Usuaully subdivided into cubicles or desks"@en ;
+  skos:definition "An open space used for work or study by multiple people. Usually subdivided into cubicles or desks"@en ;
 .
 brick:Outdoor_Area
   owl:deprecated "true"^^xsd:boolean ;
@@ -1121,7 +1121,7 @@ brick:Region
     brick:deprecatedInVersion "1.4.0" ;
     brick:deprecationMitigationMessage "Brick location classes are being phased out in favor of RealEstateCore classes. For a replacement, consider rec:Region" ;
     brick:isReplacedBy rec:Region ;
-  skos:definition "A unit of geographic space, usually contigious or somehow related to a geopolitical feature"@en ;
+  skos:definition "A unit of geographic space, usually contiguous or somehow related to a geopolitical feature"@en ;
 .
 brick:Relative_Humidity_Sensor
   sh:property [
@@ -1208,7 +1208,7 @@ brick:Shower
   brick:deprecatedInVersion "1.4.0" ;
   brick:deprecationMitigationMessage "Brick location classes are being phased out in favor of RealEstateCore classes. For a replacement, consider rec:ShowerRoom" ;
   brick:isReplacedBy rec:ShowerRoom ;
-  skos:definition "A space containing showers, usually adjacent to an athletic or execise area"@en ;
+  skos:definition "A space containing showers, usually adjacent to an athletic or exercise area"@en ;
 .
 brick:Site
   owl:deprecated "true"^^xsd:boolean ;

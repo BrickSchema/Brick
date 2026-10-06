@@ -79,7 +79,7 @@ entity_properties = {
     },
     BRICK.resolution: {
         SKOS.definition: Literal(
-            "The resolution of the entity specifing the smallest measurable or controllable increment"
+            "The resolution of the entity specifying the smallest measurable or controllable increment"
         ),
         SH.node: BSH.ResolutionShape,
         RDFS.label: Literal("Resolution", lang="en"),

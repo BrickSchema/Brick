@@ -43,6 +43,23 @@ CONSTRUCT {
     sh:targetSubjectsOf brick:aliasOf ;
 .
 
+# An instance of an alias class is also an instance of the canonical class,
+# so shapes that name only the canonical class accept it
+bsh:AliasInferenceForInstancesRule
+    a sh:NodeShape ;
+    sh:rule [
+        a sh:SPARQLRule ;
+        sh:construct """
+CONSTRUCT {
+    $this a ?canonical .
+} WHERE {
+    $this a/brick:aliasOf ?canonical .
+}""" ;
+      sh:prefixes <https://brickschema.org/schema/1.5/Brick> ;
+    ] ;
+    sh:targetClass brick:Entity ;
+.
+
 # Copy every use of a property onto its equivalent properties. One-way by
 # design: targets only the subject side, so brick:X -> rec:X, not back
 bsh:EquivalentPropertyRule
