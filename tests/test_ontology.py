@@ -17,14 +17,14 @@ ONTOLOGY_HEADER_PREDICATES = [
 ]
 
 
-@pytest.mark.parametrize("filename", ["Brick.ttl", "Brick-only.ttl"])
-def test_only_define_brick_ontology(filename):
+@pytest.mark.parametrize("build_file", ["Brick.ttl", "Brick-only.ttl"])
+def test_only_define_brick_ontology(build_file):
     g = rdflib.Graph()
-    g.parse(filename, format="turtle")
+    g.parse(build_file, format="turtle")
     ontologies = list(g.subjects(RDF.type, OWL.Ontology))
     assert ontologies == [
         BRICK_ONTOLOGY
-    ], f"{filename} should only define the Brick ontology, found {ontologies}"
+    ], f"{build_file} should only define the Brick ontology, found {ontologies}"
 
     # merged ontologies can lose their rdf:type but keep the rest of their
     # header, so also check that no other subject carries header triples
@@ -36,4 +36,4 @@ def test_only_define_brick_ontology(filename):
     }
     assert (
         not leftovers
-    ), f"{filename} has ontology header triples on other subjects: {leftovers}"
+    ), f"{build_file} has ontology header triples on other subjects: {leftovers}"
