@@ -34,6 +34,7 @@ from bricksrc.namespaces import (
     QUDT,
     VCARD,
     SH,
+    REF,
 )
 from bricksrc.namespaces import bind_prefixes
 
@@ -1035,6 +1036,14 @@ logger.info("Adding other .ttl files")
 for ttlfile in glob.glob("bricksrc/*.ttl"):
     G.parse(ttlfile, format="turtle")
 
+# Brick.ttl has always carried the ref: terms directly, so merge ref-schema
+# in rather than relying on owl:imports. recursion_depth=0 keeps ref-schema's
+# own imports (BACnet) out of Brick
+ref_schema_uri = URIRef(REF.strip("#"))
+env.import_graph(G, str(ref_schema_uri), recursion_depth=0)
+# import_graph untypes ref-schema's ontology header but leaves its metadata
+G -= G.cbd(ref_schema_uri)
+
 logger.info("Cleaning up ontology prefixes")
 # remove duplicate ontology definitions and
 # move prefixes onto Brick ontology definition
@@ -1049,12 +1058,10 @@ for rule, pfxs in G.subject_objects(predicate=SH.prefixes):
     G.remove((rule, SH.prefixes, pfxs))
     G.add((rule, SH.prefixes, BRICK_IRI_VERSION))
 
-# remove ontology declarations
-for ontology in G.subjects(predicate=RDF.type, object=OWL.Ontology):
+# remove ontology declarations merged in from other files
+for ontology in list(G.subjects(predicate=RDF.type, object=OWL.Ontology)):
     if ontology != BRICK_IRI_VERSION:
-        G.remove((ontology, RDF.type, OWL.Ontology))
-        G.remove((ontology, OWL.imports, None))
-        G.remove((ontology, OWL.versionInfo, None))
+        G -= G.cbd(ontology)
 
 
 # adding in any entity properties or classes defined

@@ -35,7 +35,6 @@ ontology = {
 # TODO: URL for RealEstateCore?
 ontology_imports = {
     "bacnet": "http://data.ashrae.org/bacnet",
-    "ref": "https://brickschema.org/schema/Brick/ref",
     "rec": "https://w3id.org/rec",
     "recimports": "https://w3id.org/rec/recimports",
     "unit": "http://qudt.org/3.3.0/vocab/unit",
