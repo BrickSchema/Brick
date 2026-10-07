@@ -1039,7 +1039,10 @@ for ttlfile in glob.glob("bricksrc/*.ttl"):
 # Brick.ttl has always carried the ref: terms directly, so merge ref-schema
 # in rather than relying on owl:imports. recursion_depth=0 keeps ref-schema's
 # own imports (BACnet) out of Brick
-env.import_graph(G, REF.strip("#"), recursion_depth=0)
+ref_schema_uri = URIRef(REF.strip("#"))
+env.import_graph(G, str(ref_schema_uri), recursion_depth=0)
+# import_graph untypes ref-schema's ontology header but leaves its metadata
+G -= G.cbd(ref_schema_uri)
 
 logger.info("Cleaning up ontology prefixes")
 # remove duplicate ontology definitions and
