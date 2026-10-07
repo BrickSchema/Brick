@@ -1108,14 +1108,9 @@ with open("Brick-only.ttl", "w", encoding="utf-8") as fp:
 
 # add rec stuff; this also removes the import statement for REC from the Brick graph
 env.import_graph(G, "https://w3id.org/rec")
-# CURRENTLY, rec imports Brick 1.3, which is out of date; remove this import
-G.remove(
-    (
-        URIRef("https://w3id.org/rec"),
-        OWL.imports,
-        URIRef("https://brickschema.org/schema/1.3/Brick"),
-    )
-)
+# import_graph untypes REC's ontology header but leaves the rest of it (such as
+# its label and version); drop it so Brick remains the only ontology header
+G -= G.cbd(URIRef("https://w3id.org/rec"))
 
 # add inferred information to Brick
 logger.info("Adding inferred information to Brick")
