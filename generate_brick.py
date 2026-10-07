@@ -1036,14 +1036,6 @@ logger.info("Adding other .ttl files")
 for ttlfile in glob.glob("bricksrc/*.ttl"):
     G.parse(ttlfile, format="turtle")
 
-# Brick.ttl has always carried the ref: terms directly, so merge ref-schema
-# in rather than relying on owl:imports. recursion_depth=0 keeps ref-schema's
-# own imports (BACnet) out of Brick
-ref_schema_uri = URIRef(REF.strip("#"))
-env.import_graph(G, str(ref_schema_uri), recursion_depth=0)
-# import_graph untypes ref-schema's ontology header but leaves its metadata
-G -= G.cbd(ref_schema_uri)
-
 logger.info("Cleaning up ontology prefixes")
 # remove duplicate ontology definitions and
 # move prefixes onto Brick ontology definition
@@ -1062,6 +1054,16 @@ for rule, pfxs in G.subject_objects(predicate=SH.prefixes):
 for ontology in list(G.subjects(predicate=RDF.type, object=OWL.Ontology)):
     if ontology != BRICK_IRI_VERSION:
         G -= G.cbd(ontology)
+
+# Brick.ttl has always carried the ref: terms directly, so merge ref-schema
+# in rather than relying on owl:imports. recursion_depth=0 keeps ref-schema's
+# own imports (BACnet) out of Brick. This runs after the cleanup above because
+# import_graph untypes every non-root owl:Ontology in G, which would hide them
+# from that cleanup
+ref_schema_uri = URIRef(REF.strip("#"))
+env.import_graph(G, str(ref_schema_uri), recursion_depth=0)
+# import_graph moves ref-schema's prefixes onto Brick but leaves its header metadata
+G -= G.cbd(ref_schema_uri)
 
 
 # adding in any entity properties or classes defined
@@ -1106,14 +1108,9 @@ with open("Brick-only.ttl", "w", encoding="utf-8") as fp:
 
 # add rec stuff; this also removes the import statement for REC from the Brick graph
 env.import_graph(G, "https://w3id.org/rec")
-# CURRENTLY, rec imports Brick 1.3, which is out of date; remove this import
-G.remove(
-    (
-        URIRef("https://w3id.org/rec"),
-        OWL.imports,
-        URIRef("https://brickschema.org/schema/1.3/Brick"),
-    )
-)
+# import_graph untypes REC's ontology header but leaves the rest of it (such as
+# its label and version); drop it so Brick remains the only ontology header
+G -= G.cbd(URIRef("https://w3id.org/rec"))
 
 # add inferred information to Brick
 logger.info("Adding inferred information to Brick")
