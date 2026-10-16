@@ -47,30 +47,14 @@ rec:Lobby
   rdfs:subClassOf rec:Room ;
 .
 
+# Mirrors REC's Source/DTDLv2/RealEstateCore/Space/Architecture/SubBuilding/Wing.json
+# (RealEstateCore/rec#257); remove once REC 4.2 ships it in the SHACL distribution.
 rec:Wing
   rdf:type rdfs:Class ;
   rdf:type sh:NodeShape ;
   rdfs:label "Wing" ;
-  rdfs:comment "This concept definition comes from the Brick distribution until it is added in the REC ontology Turtle distribution." ;
-  rdfs:subClassOf rec:Architecture ;
-.
-
-rec:Riser
-  rdf:type rdfs:Class ;
-  rdf:type sh:NodeShape ;
-  rdfs:label "Riser" ;
-  rdfs:comment "This concept definition comes from the Brick distribution until it is added in the REC ontology Turtle distribution." ;
-  rdfs:subClassOf rec:Architecture ;
-  skos:definition "A vertical shaft or space in a building that routes building services (such as pipes, ducts, cabling, or electrical conductors) between floors at different elevations, typically serving several branches along its run" ;
-.
-
-rec:PlumbingRiser
-  rdf:type rdfs:Class ;
-  rdf:type sh:NodeShape ;
-  rdfs:label "Plumbing Riser" ;
-  rdfs:comment "This concept definition comes from the Brick distribution until it is added in the REC ontology Turtle distribution." ;
-  rdfs:subClassOf rec:Riser ;
-  skos:definition "A riser carrying a run of pipe from one horizontal run of a loop to another at a different elevation, typically with several branches in between" ;
+  rdfs:comment "Introduced in REC as Brick is deprecating their location domain. A building may comprise quite many elements such as towers, annexes, rotundas etc. As well as wings. It's difficult to capture all variations in the ontology and REC recommend to use the generalization sub building if possible." ;
+  rdfs:subClassOf rec:SubBuilding ;
 .
 
 brick:Ablutions_Room
@@ -220,9 +204,9 @@ brick:Pump_Room
 .
 brick:Riser
   owl:deprecated "true"^^xsd:boolean ;
-  brick:isReplacedBy rec:Riser ;
+  brick:isReplacedBy rec:ServiceShaft ;
   brick:deprecatedInVersion "1.4.1" ;
-  brick:deprecationMitigationMessage "Brick location classes are being phased out in favor of RealEstateCore classes. Use rec:Riser, or rec:PlumbingRiser for a riser carrying plumbing services" ;
+  brick:deprecationMitigationMessage "Brick location classes are being phased out in favor of RealEstateCore classes. For a replacement, consider rec:ServiceShaft" ;
   skos:definition "A vertical shaft indented for installing building infrastructure e.g., electrical wire, network communication wire, plumbing, etc"@en ;
 .
 brick:Sports_Service_Room
