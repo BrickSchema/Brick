@@ -921,6 +921,7 @@ define_classes(safety_subclasses, BRICK.Safety_Equipment)
 # We keep BRICK.Collection to keep our Brick collection subclasses under the Brick tree
 define_classes(collection_classes, BRICK.Collection)
 G.add((BRICK.Collection, RDFS.subClassOf, REC.Collection))
+G.add((BRICK.Collection, RDFS.subClassOf, BRICK.Entity))
 
 logger.info("Defining Measurable hierarchy")
 # define measurable hierarchy
