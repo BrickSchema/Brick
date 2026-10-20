@@ -187,3 +187,7 @@ fabric.properties
 Brick+extensions.ttl
 Brick.ttl
 extensions/brick_extension_shacl_tag_inference.ttl
+
+# Generated bSDD dictionary export. Anchored to the repo root so it does not
+# also swallow the tools/bsdd/ sources.
+/bsdd/

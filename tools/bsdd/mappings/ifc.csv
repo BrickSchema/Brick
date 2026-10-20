@@ -1,0 +1,88 @@
+code,ifc_entities,note
+Air_Handling_Unit,IfcUnitaryEquipment,PredefinedType AIRHANDLER
+Alarm,IfcAlarm,
+Battery,IfcElectricFlowStorageDevice,PredefinedType BATTERY
+Boiler,IfcBoiler,
+Chiller,IfcChiller,
+Coil,IfcCoil,
+Compressor,IfcCompressor,
+Cooling_Tower,IfcCoolingTower,
+Damper,IfcDamper,
+Elevator,IfcTransportElement,PredefinedType ELEVATOR
+Fan,IfcFan,
+Filter,IfcFilter,
+Heat_Exchanger,IfcHeatExchanger,
+Humidifier,IfcHumidifier,
+Luminaire,IfcLightFixture,
+Meter,IfcFlowMeter,
+Motor,IfcElectricMotor,
+Pump,IfcPump,
+Sensor,IfcSensor,
+Switch,IfcSwitchingDevice,
+Tank,IfcTank,
+Transformer,IfcTransformer,
+Valve,IfcValve,
+Variable_Air_Volume_Box,IfcAirTerminalBox,
+Water_Heater,IfcBoiler,IFC has no water-heater entity; PredefinedType WATER
+Controller,IfcController,
+Chilled_Beam,IfcCooledBeam,
+Space_Heater,IfcSpaceHeater,
+Radiator,IfcSpaceHeater,PredefinedType RADIATOR
+PV_Panel,IfcSolarDevice,PredefinedType SOLARPANEL
+Solar_Thermal_Collector,IfcSolarDevice,PredefinedType SOLARCOLLECTOR
+Thermostat,IfcUnitaryControlElement,PredefinedType THERMOSTAT
+Weather_Station,IfcUnitaryControlElement,PredefinedType WEATHERSTATION
+Fire_Alarm_Control_Panel,IfcUnitaryControlElement,PredefinedType ALARMPANEL
+Circuit_Breaker,IfcProtectiveDevice,PredefinedType CIRCUITBREAKER
+Motor_Control_Center,IfcDistributionBoard,PredefinedType MOTORCONTROLCENTRE
+Switchgear,IfcDistributionBoard,PredefinedType SWITCHBOARD
+Breaker_Panel,IfcDistributionBoard,PredefinedType CONSUMERUNIT
+Air_Diffuser,IfcAirTerminal,PredefinedType DIFFUSER
+Heat_Wheel,IfcAirToAirHeatRecovery,PredefinedType ROTARYWHEEL
+Condenser_Heat_Exchanger,IfcCondenser,
+Audio_Visual_Equipment,IfcAudioVisualAppliance,
+Shading_Equipment,IfcShadingDevice,
+Light_Source,IfcLamp,
+Grease_Interceptor,IfcInterceptor,PredefinedType GREASE
+Network_Router,IfcCommunicationsAppliance,PredefinedType ROUTER
+Gateway,IfcCommunicationsAppliance,PredefinedType GATEWAY
+Relay,IfcSwitchingDevice,PredefinedType RELAY
+Camera,IfcAudioVisualAppliance,PredefinedType CAMERA
+System,IfcSystem,
+Air_Cooled_Chiller,IfcChiller,PredefinedType AIRCOOLED
+Water_Cooled_Chiller,IfcChiller,PredefinedType WATERCOOLED
+Check_Valve,IfcValve,PredefinedType CHECK
+Mixing_Valve,IfcValve,PredefinedType MIXING
+Isolation_Valve,IfcValve,PredefinedType ISOLATING
+Pressure_Reducing_Valve,IfcValve,PredefinedType PRESSUREREDUCING
+Pressure_Relief_Valve,IfcValve,PredefinedType PRESSURERELIEF
+Pressure_Regulator_Valve,IfcValve,PredefinedType REGULATING
+Circulator_Pump,IfcPump,PredefinedType CIRCULATOR
+Storage_Tank,IfcTank,PredefinedType STORAGE
+Thermal_Expansion_Tank,IfcTank,PredefinedType EXPANSION
+Plate_Heat_Exchanger,IfcHeatExchanger,PredefinedType PLATE
+Gas_Meter,IfcFlowMeter,PredefinedType GASMETER
+Water_Meter,IfcFlowMeter,PredefinedType WATERMETER
+Rooftop_Unit,IfcUnitaryEquipment,PredefinedType ROOFTOPUNIT
+Constant_Air_Volume_Box,IfcAirTerminalBox,PredefinedType CONSTANTFLOW
+Temperature_Sensor,IfcSensor,PredefinedType TEMPERATURESENSOR
+Humidity_Sensor,IfcSensor,PredefinedType HUMIDITYSENSOR
+CO2_Sensor,IfcSensor,PredefinedType CO2SENSOR
+CO_Sensor,IfcSensor,PredefinedType COSENSOR
+Pressure_Sensor,IfcSensor,PredefinedType PRESSURESENSOR
+Flow_Sensor,IfcSensor,PredefinedType FLOWSENSOR
+Gas_Sensor,IfcSensor,PredefinedType GASSENSOR
+Contact_Sensor,IfcSensor,PredefinedType CONTACTSENSOR
+Frost_Sensor,IfcSensor,PredefinedType FROSTSENSOR
+Fire_Sensor,IfcSensor,PredefinedType FIRESENSOR
+Smoke_Detector,IfcSensor,PredefinedType SMOKESENSOR
+Heat_Detector,IfcSensor,PredefinedType HEATSENSOR
+Occupancy_Sensor,IfcSensor,PredefinedType MOVEMENTSENSOR
+Luminance_Sensor,IfcSensor,PredefinedType LIGHTSENSOR
+Illuminance_Sensor,IfcSensor,PredefinedType LIGHTSENSOR
+Rain_Level_Sensor,IfcSensor,PredefinedType RAINSENSOR
+Wind_Direction_Sensor,IfcSensor,PredefinedType WINDSENSOR
+Wind_Speed_Sensor,IfcSensor,PredefinedType WINDSENSOR
+Water_Level_Sensor,IfcSensor,PredefinedType LEVELSENSOR
+Conductivity_Sensor,IfcSensor,PredefinedType CONDUCTANCESENSOR
+Solar_Irradiance_Sensor,IfcSensor,PredefinedType RADIATIONSENSOR
