@@ -20,7 +20,7 @@ BRICK_FULL_VERSION = f"{BRICK_VERSION}.{BRICK_PATCH_VERSION}"
 # owl:versionInfo (e.g. "rc.2" gives "1.5.0-rc.2"). Set to "" for a final release.
 # Semver requires we use the "." to delineate "rc" from the version,
 # else "rc10" would come before "rc2"
-BRICK_PRERELEASE = "rc.2"
+BRICK_PRERELEASE = ""
 
 # the full version as published in owl:versionInfo, including any pre-release label
 BRICK_VERSION_INFO = (
