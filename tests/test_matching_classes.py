@@ -24,6 +24,11 @@ def _all_non_deprecated_class_relations(g):
     # This is the shared universe of active Brick class names for the
     # name-pair checks below. The relation values are only needed for the
     # supply/discharge equivalence check.
+    #
+    # The graph includes imported vocabularies (REC, QUDT, ...), but the naming
+    # conventions checked here are Brick's own, so restrict the universe to the
+    # Brick namespace. Otherwise imported names get matched on substrings that
+    # have nothing to do with the convention (rec:MiningFacility "Min").
     return _query_class_relations(
         g,
         """
@@ -32,8 +37,10 @@ def _all_non_deprecated_class_relations(g):
             ?c (rdfs:subClassOf | owl:equivalentClass)+ ?p .
             FILTER NOT EXISTS { ?c owl:deprecated true } .
             FILTER NOT EXISTS { ?p owl:deprecated true } .
+            FILTER (STRSTARTS(STR(?c), "%s")) .
         }
-        """,
+        """
+        % BRICK_PREFIX,
     )
 
 
