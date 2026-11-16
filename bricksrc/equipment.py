@@ -142,10 +142,16 @@ equipment_subclasses = {
             ],
             REC.includes: [
                 BRICK.Automation_Collection,
+                BRICK.Point_Collection,
                 BRICK.HVAC_Equipment,
                 BRICK.Valve,
             ],
-            BRICK.feeds: [BRICK.HVAC_Equipment, BRICK.Valve, REC.Space],
+            BRICK.feeds: [
+                BRICK.HVAC_Equipment,
+                BRICK.Valve,
+                BRICK.Location,
+                REC.Architecture,
+            ],
         },
     },
     "Weather_Station": {"tags": [TAG.Weather, TAG.Station, TAG.Equipment]},
@@ -229,11 +235,9 @@ equipment_subclasses = {
                     "Disconnect_Switch": {
                         "tags": [
                             TAG.Disconnect,
-                            TAG.Isolation,
                             TAG.Switch,
                             TAG.Equipment,
                         ],
-                        "aliases": [BRICK.Isolation_Switch],
                         "subclasses": {
                             "Main_Disconnect_Switch": {
                                 "tags": [
@@ -245,6 +249,13 @@ equipment_subclasses = {
                                 "aliases": [BRICK.Building_Disconnect_Switch],
                             },
                         },
+                    },
+                    "Isolation_Switch": {
+                        "tags": [
+                            TAG.Isolation,
+                            TAG.Switch,
+                            TAG.Equipment,
+                        ],
                     },
                     "Transfer_Switch": {
                         "tags": [
@@ -336,7 +347,7 @@ equipment_subclasses = {
         "tags": [TAG.Lighting, TAG.Equipment],
         "constraints": {
             BRICK.hasPart: [BRICK.Lighting_Equipment, BRICK.Electrical_Equipment],
-            BRICK.feeds: [BRICK.Lighting_Equipment, REC.Space],
+            BRICK.feeds: [BRICK.Lighting_Equipment, BRICK.Location, REC.Architecture],
         },
         "subclasses": {
             "Lighting": {
@@ -1641,7 +1652,7 @@ security_subclasses = {
         # a relay output to control the door release, door position input, programmable inputs and outputs, and inputs for the REX.
         # Accsss Control Sub Panel (Alarm Panel)?
         # Panel_Input: Input into the access panel: switch toggle, button press, credential entered/scanned/swiped, etc
-        # Panel_Output: Ouput from the access panel: some sort of function is activated, door area is unlocked, etc
+        # Panel_Output: Output from the access panel: some sort of function is activated, door area is unlocked, etc
         # Reader_Aux_Input: The input from the reader on the “other” side of the controlled door
         # Reader_Aux_Output: The output from the reader on the “other” side of the controlled door
         # Biometric Reader: Reader of biometric characteristics to be used for authentication
@@ -1652,7 +1663,7 @@ security_subclasses = {
         # Magnetic_Lock: Electromagnetic or magnetic lock, a locking mechanisim that consists of an electromagnet and an armature plate.
         # Electrified_Lock: An electronic lock, a locking device that works by means of electric current. Can be controlled remotely
         #     depending on the locking system.
-        # Door_Release: An electronic input device used to immediately unlock specififed doors that are equipped with electronic locks.
+        # Door_Release: An electronic input device used to immediately unlock specified doors that are equipped with electronic locks.
         # Badge Station: A kiosk or checkpoint that requires the use of a badge in order to verify credentials and to grant access.
     },
     "Video_Surveillance_Equipment": {
@@ -1666,7 +1677,7 @@ security_subclasses = {
                     TAG.Surveillance,
                     TAG.Camera,
                 ],
-                "parents": [BRICK.Camera]
+                "parents": [BRICK.Camera],
                 # TODO: subclass of PTZ (Pan/Tilt/Zoom) cameras?
             },
             "Network_Video_Recorder": {

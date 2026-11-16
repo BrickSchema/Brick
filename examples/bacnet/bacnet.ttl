@@ -9,21 +9,12 @@
 bldg: a owl:Ontology ;
     owl:imports <https://brickschema.org/schema/1.5/Brick> .
 
-bldg:sample-device a bacnet:BACnetDevice ;
-    bacnet:device-instance 123 ;
-    bacnet:hasPort [
-        a bacnet:Port ;
-        bacnet:network-type bacnet:NetworkType.ipv4 ;
-        bacnet:ip-address "C0A80164"^^xsd:hexBinary ;        # 192.168.1.100
-        bacnet:ip-default-gateway "C0A80101"^^xsd:hexBinary  # router 192.168.1.1
-    ] .
-
 bldg:ts1 a brick:Zone_Air_Temperature_Sensor ;
     brick:hasUnit unit:DEG_C ;
     ref:hasExternalReference [
-        bacnet:object-identifier "device,999"^^bacnet:objectIdentifier ;
+        bacnet:device-identifier "device,123" ;
+        bacnet:object-identifier "analog-input,1" ;
         bacnet:object-name "BLDG-Z410-ZATS" ;
-        bacnet:objectOf bldg:sample-device ;
     ] ;
     ref:hasExternalReference [
         ref:hasTimeseriesId "756e1623-914f-4415-9000-b1b10ce8f5c9" ;
@@ -35,7 +26,6 @@ bldg:ts2 a brick:Zone_Air_Temperature_Sensor ;
     brick:hasUnit unit:DEG_C ;
     ref:hasExternalReference [
         ref:BACnetURI "bacnet://123/analog-value,5/present-value" ;
-        bacnet:objectOf bldg:sample-device ;
     ] ;
     ref:hasExternalReference [
         ref:hasTimeseriesId "4245c136-f95c-4ef5-a0d9-a7d04f1d97f9" ;

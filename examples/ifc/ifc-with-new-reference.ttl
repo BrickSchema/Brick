@@ -1,24 +1,25 @@
 @prefix bldg: <http://example.com#> .
 @prefix brick: <https://brickschema.org/schema/Brick#> .
+@prefix rec: <https://w3id.org/rec#> .
 @prefix ref: <https://brickschema.org/schema/Brick/ref#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 
 <http://example.com> a owl:Ontology ;
     owl:imports <https://brickschema.org/schema/1.5/Brick> .
 
-bldg:space a brick:Space ;
+bldg:space a rec:Space ;
     ref:hasExternalReference [ a ref:IFCReference ;
             ref:hasIfcProjectReference bldg:ifc_project ;
             ref:ifcGlobalID "123" ;
             ref:ifcName "Example Space" ] .
 
-bldg:space2 a brick:Space ;
+bldg:space2 a rec:Space ;
     ref:hasExternalReference [ a ref:IFCReference ;
             ref:hasIfcProjectReference bldg:ifc_project ;
             ref:ifcGlobalID "124" ;
             ref:ifcName "Example Space" ] .
 
-bldg:space3 a brick:Space ;
+bldg:space3 a rec:Space ;
     ref:hasExternalReference [ a ref:IFCReference ;
             ref:hasIfcProjectReference bldg:ifc_project ;
             ref:ifcGlobalID "abc123" ] .

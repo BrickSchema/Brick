@@ -343,13 +343,7 @@ def define_classes(definitions, parent, pun_classes=False, graph=G):
             graph.add((classname, OWL.equivalentClass, alias))
             graph.add((alias, A, OWL.Class))
             graph.add((alias, A, SH.NodeShape))
-            graph.add((alias, OWL.equivalentClass, classname))
-            # find parent class of what the alias is equivalent to, add the RDFS subClassOf properties
-            parent_classes = list(
-                graph.objects(subject=classname, predicate=RDFS.subClassOf)
-            )
-            for pc in parent_classes:
-                graph.add((alias, RDFS.subClassOf, pc))
+            graph.add((alias, RDFS.subClassOf, classname))
             graph.add((alias, BRICK.aliasOf, classname))
 
         # all other key-value pairs in the definition are
@@ -806,33 +800,16 @@ def handle_deprecations(graph: Graph = G):  # noqa: C901
         )
         if "replace_with" in md:
             graph.add((deprecated_term, BRICK.isReplacedBy, md["replace_with"]))
-
-    """
-    The following part adds definitions for deprecated Brick subclasses through SKOS.definitions.
-
-    This parses the definitions from ./bricksrc/deprecated_definitions.csv and
-    adds it to the graph. If available, adds the source information of
-    through RDFS.seeAlso.
-    """
-    with open(
-        Path("./bricksrc/deprecated_definitions.csv"), encoding="utf-8"
-    ) as dictionary_file:
-        dictionary = csv.reader(dictionary_file)
-
-        header = next(dictionary)
-
-        # add definitions, citations to the graph
-        for definition in dictionary:
-            term = URIRef(definition[0])
-            if len(definition) > len(header):
-                raise ValueError(
-                    f"The term '{term}' has more elements than expected. Please check the format."
+        if SKOS.definition in md:
+            graph.add(
+                (
+                    deprecated_term,
+                    SKOS.definition,
+                    Literal(md[SKOS.definition], lang="en"),
                 )
-            if len(definition[1]):
-                graph.add((term, SKOS.definition, Literal(definition[1], lang="en")))
-            if len(definition) > 2 and definition[2]:
-                # add seeAlso only if provided
-                graph.add((term, RDFS.seeAlso, URIRef(definition[2])))
+            )
+        if RDFS.seeAlso in md:
+            graph.add((deprecated_term, RDFS.seeAlso, URIRef(md[RDFS.seeAlso])))
 
 
 def handle_concept_labels(graph: Graph = G):
@@ -935,16 +912,21 @@ logger.info("Defining Equipment, System and Location subclasses")
 # define other root class structures
 define_classes(location_subclasses, BRICK.Location)
 define_classes(equipment_subclasses, BRICK.Equipment)
-define_classes(collection_classes, REC.Collection)
 define_classes(hvac_subclasses, BRICK.HVAC_Equipment)
 define_classes(hvac_valve_subclasses, BRICK.HVAC_Equipment)
 define_classes(valve_subclasses, BRICK.Equipment)
 define_classes(security_subclasses, BRICK.Security_Equipment)
 define_classes(safety_subclasses, BRICK.Safety_Equipment)
 
+# We keep BRICK.Collection to keep our Brick collection subclasses under the Brick tree
+define_classes(collection_classes, BRICK.Collection)
+G.add((BRICK.Collection, RDFS.subClassOf, REC.Collection))
+G.add((BRICK.Collection, RDFS.subClassOf, BRICK.Entity))
+
 logger.info("Defining Measurable hierarchy")
 # define measurable hierarchy
 G.add((BRICK.Measurable, RDFS.subClassOf, BRICK.Entity))
+
 # set up Quantity definition
 G.add((BRICK.Quantity, RDFS.subClassOf, SOSA.ObservableProperty))
 G.add((BRICK.Quantity, RDFS.subClassOf, QUDT.QuantityKind))
@@ -1055,12 +1037,6 @@ logger.info("Adding other .ttl files")
 for ttlfile in glob.glob("bricksrc/*.ttl"):
     G.parse(ttlfile, format="turtle")
 
-# add ref-schema definitions
-G.parse("support/ref-schema.ttl", format="turtle")
-ref_schema_uri = URIRef(REF.strip("#"))
-for triple in G.cbd(ref_schema_uri):
-    G.remove(triple)
-
 logger.info("Cleaning up ontology prefixes")
 # remove duplicate ontology definitions and
 # move prefixes onto Brick ontology definition
@@ -1075,12 +1051,20 @@ for rule, pfxs in G.subject_objects(predicate=SH.prefixes):
     G.remove((rule, SH.prefixes, pfxs))
     G.add((rule, SH.prefixes, BRICK_IRI_VERSION))
 
-# remove ontology declarations
-for ontology in G.subjects(predicate=RDF.type, object=OWL.Ontology):
+# remove ontology declarations merged in from other files
+for ontology in list(G.subjects(predicate=RDF.type, object=OWL.Ontology)):
     if ontology != BRICK_IRI_VERSION:
-        G.remove((ontology, RDF.type, OWL.Ontology))
-        G.remove((ontology, OWL.imports, None))
-        G.remove((ontology, OWL.versionInfo, None))
+        G -= G.cbd(ontology)
+
+# Brick.ttl has always carried the ref: terms directly, so merge ref-schema
+# in rather than relying on owl:imports. recursion_depth=0 keeps ref-schema's
+# own imports (BACnet) out of Brick. This runs after the cleanup above because
+# import_graph untypes every non-root owl:Ontology in G, which would hide them
+# from that cleanup
+ref_schema_uri = URIRef(REF.strip("#"))
+env.import_graph(G, str(ref_schema_uri), recursion_depth=0)
+# import_graph moves ref-schema's prefixes onto Brick but leaves its header metadata
+G -= G.cbd(ref_schema_uri)
 
 
 # adding in any entity properties or classes defined
@@ -1125,14 +1109,9 @@ with open("Brick-only.ttl", "w", encoding="utf-8") as fp:
 
 # add rec stuff; this also removes the import statement for REC from the Brick graph
 env.import_graph(G, "https://w3id.org/rec")
-# CURRENTLY, rec imports Brick 1.3, which is out of date; remove this import
-G.remove(
-    (
-        URIRef("https://w3id.org/rec"),
-        OWL.imports,
-        URIRef("https://brickschema.org/schema/1.3/Brick"),
-    )
-)
+# import_graph untypes REC's ontology header but leaves the rest of it (such as
+# its label and version); drop it so Brick remains the only ontology header
+G -= G.cbd(URIRef("https://w3id.org/rec"))
 
 # add inferred information to Brick
 logger.info("Adding inferred information to Brick")
@@ -1155,6 +1134,8 @@ if os.path.exists("Brick+extensions.ttl"):
 os.makedirs("imports", exist_ok=True)
 for name, uri in ontology_imports.items():
     graph = env.get_graph(uri)
+    # ontoenv returns graphs without prefix bindings
+    bind_prefixes(graph)
     graph.serialize(f"imports/{name}.ttl", format="turtle")
     env.import_graph(G, uri)
 

@@ -68,8 +68,8 @@
         :roof ;
     rec:address :home_1_address ;
     rec:area :home_1_area ;
-    brick:buildingPrimaryFunction "Single Family Home" ;
-    brick:yearBuilt 1978 .
+    brick:buildingPrimaryFunction [ brick:value "Single Family Home" ] ;
+    brick:yearBuilt [ brick:value "1978"^^xsd:nonNegativeInteger ] .
 
 :home_1_address a rec:PostalAddress ;
     rec:addressLine1 "123 Alder Street" ;

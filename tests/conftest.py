@@ -10,7 +10,7 @@ import sys
 
 sys.path.append("..")
 from bricksrc.namespaces import QUDT, RDF, RDFS, BRICK  # noqa: E402
-from bricksrc.namespaces import TAG, SKOS, A, OWL  # noqa: E402
+from bricksrc.namespaces import TAG, SKOS, A, OWL, REC  # noqa: E402
 
 
 def pytest_generate_tests(metafunc):
@@ -71,6 +71,7 @@ def simple_brick_model():
     g.bind("skos", SKOS)
     g.bind("brick", BRICK)
     g.bind("tag", TAG)
+    g.bind("rec", REC)
     g.bind("bldg", BLDG)
 
     # Create instances
@@ -80,9 +81,9 @@ def simple_brick_model():
     g.add((BLDG.CH1, A, BRICK.Chiller))
 
     # locations
-    g.add((BLDG.Zone1, A, BRICK.HVAC_Zone))
-    g.add((BLDG.Room1, A, BRICK.Room))
-    g.add((BLDG.Room2, A, BRICK.Room))
+    g.add((BLDG.Zone1, A, REC.HVACZone))
+    g.add((BLDG.Room1, A, REC.Room))
+    g.add((BLDG.Room2, A, REC.Room))
 
     # points
     g.add((BLDG.TS1, A, BRICK.Air_Temperature_Sensor))

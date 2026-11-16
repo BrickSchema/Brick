@@ -162,7 +162,7 @@ loop_subclasses = {
 collection_classes = {
     "Portfolio": {
         "tags": [TAG.Collection, TAG.Portfolio],
-        "constraints": {REC.includes: [BRICK.Site]},
+        "constraints": {REC.includes: [BRICK.Site, REC.Site]},
     },
     "Automation_Collection": {
         "constraints": {
@@ -192,14 +192,24 @@ collection_classes = {
                 BRICK.Loop,
                 BRICK.System,
                 BRICK.Location,
-                BRICK.PV_Array,
+                REC.Architecture,
+                BRICK.Photovoltaic_Array,
+                BRICK.Automation_Collection,
+                BRICK.Point_Collection,
             ]
         },
     },
     "Loop": {
         "tags": [TAG.Collection, TAG.Loop],
         "subclasses": loop_subclasses,
-        "constraints": {REC.includes: [BRICK.Equipment, BRICK.Point, BRICK.Location]},
+        "constraints": {
+            REC.includes: [
+                BRICK.Equipment,
+                BRICK.Point,
+                BRICK.Location,
+                REC.Architecture,
+            ]
+        },
     },
     "Photovoltaic_Array": {
         "tags": [TAG.Collection, TAG.Photovoltaic, TAG.PV, TAG.Array],

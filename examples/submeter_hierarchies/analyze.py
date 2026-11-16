@@ -1,5 +1,4 @@
 import brickschema
-from brick_tq_shacl.pyshacl import infer
 
 
 def get_graph(filename):
@@ -7,7 +6,7 @@ def get_graph(filename):
     # load local Brick file
     g.load_file("../../Brick.ttl")
     g.load_file(filename)
-    g = infer(g)
+    g = g.compile()
     return g
 
 
@@ -43,7 +42,7 @@ Gets the building meter and its peak (max) power sensor
 """
 building_meter_query = """SELECT DISTINCT * WHERE {
     ?meter rdf:type/rdfs:subClassOf* brick:Meter .
-    ?meter brick:meters/rdf:type/rdfs:subClassOf* brick:Building .
+    ?meter brick:meters/rdf:type/rdfs:subClassOf* rec:Building .
     ?meter brick:hasPoint ?point .
     ?point rdf:type brick:Electric_Power_Sensor ;
            brick:aggregate [ brick:aggregationFunction "max" ] ;

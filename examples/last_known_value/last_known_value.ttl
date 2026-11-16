@@ -3,23 +3,19 @@
 @prefix ref: <https://brickschema.org/schema/Brick/ref#> .
 @prefix unit: <http://qudt.org/vocab/unit/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix bacnet: <http://data.ashrae.org/bacnet/2020#> .
+@prefix bacnet: <http://data.ashrae.org/bacnet/> .
 @prefix rec: <https://w3id.org/rec#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 
 bldg: a  owl:Ontology ;
     owl:imports <https://brickschema.org/schema/1.5/Brick> .
 
-bldg:sample-device a bacnet:BACnetDevice ;
-    bacnet:device-instance 123 ;
-    bacnet:hasPort [ a bacnet:Port ] .
-
 bldg:sensor1 a brick:Air_Temperature_Sensor ;
     brick:hasUnit unit:DEG_F ;
     ref:hasExternalReference [
+        bacnet:device-identifier "device,123" ;
         bacnet:object-identifier "analog-value,1" ;
         bacnet:object-name "BLDG-Z410-ZATS" ;
-        bacnet:objectOf bldg:sample-device ;
     ] ;
     brick:lastKnownValue bldg:sensor1_reading1 .
 

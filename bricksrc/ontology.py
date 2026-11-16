@@ -3,7 +3,7 @@ from rdflib import Literal, BNode, URIRef
 from rdflib.collection import Collection
 
 from .namespaces import DCTERMS, SDO, RDFS, RDF, OWL, BRICK, SH, XSD, REF, REC
-from .version import BRICK_VERSION, BRICK_FULL_VERSION
+from .version import BRICK_VERSION, BRICK_VERSION_INFO
 
 # defines metadata about the Brick ontology
 ontology = {
@@ -27,7 +27,7 @@ ontology = {
         SDO.legalName: Literal("Brick Consortium, Inc"),
         SDO.sameAs: URIRef("https://brickschema.org/consortium/"),
     },
-    OWL.versionInfo: Literal(BRICK_FULL_VERSION),
+    OWL.versionInfo: Literal(BRICK_VERSION_INFO),
     RDFS.label: Literal("Brick"),
     RDFS.seeAlso: URIRef("https://brickschema.org"),
 }
@@ -35,7 +35,6 @@ ontology = {
 # TODO: URL for RealEstateCore?
 ontology_imports = {
     "bacnet": "http://data.ashrae.org/bacnet",
-    "ref": "https://brickschema.org/schema/Brick/ref",
     "rec": "https://w3id.org/rec",
     "recimports": "https://w3id.org/rec/recimports",
     "unit": "http://qudt.org/3.5.2/vocab/unit",

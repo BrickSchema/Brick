@@ -56,7 +56,7 @@ def test_query_room_temp_sensors_ahu1(simple_brick_model):
             """SELECT DISTINCT ?zone ?room ?sensor WHERE {
     bldg:AHU1 brick:feeds+ ?zone .
     ?zone brick:hasPart ?room .
-    ?room rdf:type brick:Room .
+    ?room rdf:type rec:Room .
     ?room brick:isLocationOf ?sensor .
     ?sensor rdf:type/rdfs:subClassOf* brick:Temperature_Sensor
     }"""

@@ -4,6 +4,7 @@ from bricksrc.namespaces import BRICK, OWL, REC, RDFS
 
 prefixes = """
 @prefix brick: <https://brickschema.org/schema/Brick#> .
+@prefix rec: <https://w3id.org/rec#> .
 @prefix : <http://example.com#> .
 """
 
@@ -12,7 +13,7 @@ base_data = (
     + """
 :equip a brick:Equipment.
 :point a brick:Point.
-:loc a brick:Location.
+:loc a rec:Room.
 """
 )
 
@@ -20,9 +21,7 @@ base_data = (
 def test_no_relations(brick_with_imports):
     data = base_data
     data_g = brickschema.Graph().parse(data=data, format="turtle")
-    conforms, _, report_str = data_g.validate(
-        extra_graphs=[brick_with_imports], engine="topquadrant"
-    )
+    conforms, _, report_str = data_g.validate(extra_graphs=[brick_with_imports])
     assert conforms, report_str
 
 
@@ -34,9 +33,7 @@ def test_equip(brick_with_imports):
 """
     )
     valid_g = brickschema.Graph().parse(data=valid_data, format="turtle")
-    conforms, _, report_str = valid_g.validate(
-        extra_graphs=[brick_with_imports], engine="topquadrant"
-    )
+    conforms, _, report_str = valid_g.validate(extra_graphs=[brick_with_imports])
     assert conforms, report_str
 
     invalid_data = (
@@ -47,9 +44,7 @@ def test_equip(brick_with_imports):
 """
     )
     invalid_g = brickschema.Graph().parse(data=invalid_data, format="turtle")
-    conforms, _, _ = invalid_g.validate(
-        extra_graphs=[brick_with_imports], engine="topquadrant"
-    )
+    conforms, _, _ = invalid_g.validate(extra_graphs=[brick_with_imports])
     assert not conforms
 
 
@@ -61,9 +56,7 @@ def test_type(brick_with_imports):
 """
     )
     invalid_g = brickschema.Graph().parse(data=invalid_data, format="turtle")
-    conforms, _, _ = invalid_g.validate(
-        extra_graphs=[brick_with_imports], engine="topquadrant"
-    )
+    conforms, _, _ = invalid_g.validate(extra_graphs=[brick_with_imports])
     assert not conforms
 
 
@@ -75,9 +68,7 @@ def test_point(brick_with_imports):
 """
     )
     invalid_g = brickschema.Graph().parse(data=invalid_data, format="turtle")
-    conforms, _, _ = invalid_g.validate(
-        extra_graphs=[brick_with_imports], engine="topquadrant"
-    )
+    conforms, _, _ = invalid_g.validate(extra_graphs=[brick_with_imports])
     assert not conforms
 
 
@@ -91,23 +82,19 @@ def test_meter_shapes(brick_with_imports):
 """
     )
     invalid_g = brickschema.Graph().parse(data=invalid_data, format="turtle")
-    conforms, _, _ = invalid_g.validate(
-        extra_graphs=[brick_with_imports], engine="topquadrant"
-    )
+    conforms, _, _ = invalid_g.validate(extra_graphs=[brick_with_imports])
     assert not conforms
 
     invalid_data = (
         base_data
         + """
 :meter a brick:Meter .
-:loc a brick:Space ;
+:loc a rec:Room ;
     brick:meters :meter .
 """
     )
     invalid_g = brickschema.Graph().parse(data=invalid_data, format="turtle")
-    conforms, _, _ = invalid_g.validate(
-        extra_graphs=[brick_with_imports], engine="topquadrant"
-    )
+    conforms, _, _ = invalid_g.validate(extra_graphs=[brick_with_imports])
     assert not conforms
 
     valid_data = (
@@ -119,9 +106,7 @@ def test_meter_shapes(brick_with_imports):
 """
     )
     valid_g = brickschema.Graph().parse(data=valid_data, format="turtle")
-    conforms, _, report_str = valid_g.validate(
-        extra_graphs=[brick_with_imports], engine="topquadrant"
-    )
+    conforms, _, report_str = valid_g.validate(extra_graphs=[brick_with_imports])
     assert conforms, report_str
 
 
@@ -138,9 +123,7 @@ def test_automation_collection_points_require_ispointof(brick_with_imports):
 """
     )
     invalid_g = brickschema.Graph().parse(data=invalid_data, format="turtle")
-    conforms, _, _ = invalid_g.validate(
-        extra_graphs=[brick_with_imports], engine="topquadrant"
-    )
+    conforms, _, _ = invalid_g.validate(extra_graphs=[brick_with_imports])
     assert not conforms
 
     valid_data = (
@@ -156,9 +139,7 @@ def test_automation_collection_points_require_ispointof(brick_with_imports):
 """
     )
     valid_g = brickschema.Graph().parse(data=valid_data, format="turtle")
-    conforms, _, report_str = valid_g.validate(
-        extra_graphs=[brick_with_imports], engine="topquadrant"
-    )
+    conforms, _, report_str = valid_g.validate(extra_graphs=[brick_with_imports])
     assert conforms, report_str
 
 
@@ -174,9 +155,7 @@ def test_automation_collection_requires_rec_includes(brick_with_imports):
 """
     )
     invalid_g = brickschema.Graph().parse(data=invalid_data, format="turtle")
-    conforms, _, _ = invalid_g.validate(
-        extra_graphs=[brick_with_imports], engine="topquadrant"
-    )
+    conforms, _, _ = invalid_g.validate(extra_graphs=[brick_with_imports])
     assert not conforms
 
     valid_data = (
@@ -192,9 +171,7 @@ def test_automation_collection_requires_rec_includes(brick_with_imports):
 """
     )
     valid_g = brickschema.Graph().parse(data=valid_data, format="turtle")
-    conforms, _, report_str = valid_g.validate(
-        extra_graphs=[brick_with_imports], engine="topquadrant"
-    )
+    conforms, _, report_str = valid_g.validate(extra_graphs=[brick_with_imports])
     assert conforms, report_str
 
 
@@ -216,9 +193,7 @@ def test_plant_is_equipment_and_can_have_points_and_feeds(brick_with_imports):
 """
     )
     valid_g = brickschema.Graph().parse(data=valid_data, format="turtle")
-    conforms, _, report_str = valid_g.validate(
-        extra_graphs=[brick_with_imports], engine="topquadrant"
-    )
+    conforms, _, report_str = valid_g.validate(extra_graphs=[brick_with_imports])
     assert conforms, report_str
 
 
@@ -235,9 +210,7 @@ def test_plant_uses_haspoint_not_rec_includes_for_points(brick_with_imports):
 """
     )
     invalid_g = brickschema.Graph().parse(data=invalid_data, format="turtle")
-    conforms, _, _ = invalid_g.validate(
-        extra_graphs=[brick_with_imports], engine="topquadrant"
-    )
+    conforms, _, _ = invalid_g.validate(extra_graphs=[brick_with_imports])
     assert not conforms
 
 
@@ -251,9 +224,7 @@ def test_plant_requires_rec_includes_for_logical_grouping(brick_with_imports):
 """
     )
     invalid_g = brickschema.Graph().parse(data=invalid_data, format="turtle")
-    conforms, _, _ = invalid_g.validate(
-        extra_graphs=[brick_with_imports], engine="topquadrant"
-    )
+    conforms, _, _ = invalid_g.validate(extra_graphs=[brick_with_imports])
     assert not conforms
 
     # the same grouping authored from the other side is rejected too
@@ -266,16 +237,8 @@ def test_plant_requires_rec_includes_for_logical_grouping(brick_with_imports):
 """
     )
     invalid_g = brickschema.Graph().parse(data=invalid_data, format="turtle")
-    conforms, _, _ = invalid_g.validate(
-        extra_graphs=[brick_with_imports], engine="topquadrant"
-    )
+    conforms, _, _ = invalid_g.validate(extra_graphs=[brick_with_imports])
     assert not conforms
-
-
-def test_collection_is_replaced_by_rec_collection(brick_with_imports):
-    assert (BRICK.Collection, OWL.deprecated, Literal(True)) in brick_with_imports
-    assert (BRICK.Collection, BRICK.isReplacedBy, REC.Collection) in brick_with_imports
-    assert (BRICK.Collection, RDFS.subClassOf, REC.Collection) in brick_with_imports
 
 
 def test_system_and_loop_can_include_points(brick_with_imports):
@@ -293,9 +256,7 @@ def test_system_and_loop_can_include_points(brick_with_imports):
 """
     )
     valid_g = brickschema.Graph().parse(data=valid_data, format="turtle")
-    conforms, _, report_str = valid_g.validate(
-        extra_graphs=[brick_with_imports], engine="topquadrant"
-    )
+    conforms, _, report_str = valid_g.validate(extra_graphs=[brick_with_imports])
     assert conforms, report_str
 
 
@@ -309,9 +270,7 @@ def test_meter_relationship_shapes(brick_with_imports):
 """
     )
     invalid_g = brickschema.Graph().parse(data=invalid_data, format="turtle")
-    conforms, _, _ = invalid_g.validate(
-        extra_graphs=[brick_with_imports], engine="topquadrant"
-    )
+    conforms, _, _ = invalid_g.validate(extra_graphs=[brick_with_imports])
     assert not conforms
 
     invalid_data = (
@@ -319,13 +278,11 @@ def test_meter_relationship_shapes(brick_with_imports):
         + """
 :meter a brick:Meter ;
     brick:isMeteredBy :loc .
-:loc a brick:Space .
+:loc a rec:Room .
 """
     )
     invalid_g = brickschema.Graph().parse(data=invalid_data, format="turtle")
-    conforms, _, _ = invalid_g.validate(
-        extra_graphs=[brick_with_imports], engine="topquadrant"
-    )
+    conforms, _, _ = invalid_g.validate(extra_graphs=[brick_with_imports])
     assert not conforms
 
     valid_data = (
@@ -337,9 +294,7 @@ def test_meter_relationship_shapes(brick_with_imports):
 """
     )
     valid_g = brickschema.Graph().parse(data=valid_data, format="turtle")
-    conforms, _, report_str = valid_g.validate(
-        extra_graphs=[brick_with_imports], engine="topquadrant"
-    )
+    conforms, _, report_str = valid_g.validate(extra_graphs=[brick_with_imports])
     assert conforms, report_str
 
 
@@ -363,7 +318,7 @@ def test_system_haspart_warns_and_infers_rec_includes(brick_with_imports):
 
     assert (EX.sys, REC.includes, EX.ahu) in g
 
-    valid, repG, _ = g.validate(engine="topquadrant")
+    valid, repG, _ = g.validate()
     assert valid
 
     res = list(
@@ -403,7 +358,7 @@ def test_loop_haspart_warns_and_infers_rec_includes(brick_with_imports):
 
     assert (EX.loop, REC.includes, EX.point) in g
 
-    valid, repG, _ = g.validate(engine="topquadrant")
+    valid, repG, _ = g.validate()
     assert valid
 
     res = list(
@@ -421,3 +376,41 @@ def test_loop_haspart_warns_and_infers_rec_includes(brick_with_imports):
     assert (
         len(set(res)) == 1
     ), f"Loop legacy hasPart usage should emit a warning\n{repG.serialize()}"
+
+
+def test_system_and_loop_cannot_include_non_architecture_spaces(brick_with_imports):
+    # REC groupings are covered by examples/rec-with-brick; these are REC
+    # spaces that are not designed architecture (a plain rec:Space, a
+    # rec:Region) and must not be grouped into Brick systems or loops
+    for grouping in ("brick:HVAC_System", "brick:Hot_Water_Loop"):
+        for space in ("rec:Space", "rec:Region"):
+            invalid_data = (
+                prefixes
+                + """
+:grouping a %s ;
+    rec:includes :space .
+:space a %s .
+"""
+                % (
+                    grouping,
+                    space,
+                )
+            )
+            invalid_g = brickschema.Graph().parse(data=invalid_data, format="turtle")
+            conforms, _, _ = invalid_g.validate(extra_graphs=[brick_with_imports])
+            assert not conforms, f"{grouping} should not include a {space}"
+
+
+def test_equipment_and_points_cannot_target_non_architecture_spaces(brick_with_imports):
+    # feeds, hasLocation and isPointOf accept designed spaces (and deprecated
+    # Brick locations), not administrative regions or plain rec:Space
+    for relationship in (
+        ":vav a brick:VAV ; brick:feeds :space .",
+        ":vav a brick:VAV ; brick:hasLocation :space .",
+        ":sensor a brick:Temperature_Sensor ; brick:isPointOf :space .",
+    ):
+        for space in ("rec:Space", "rec:Region"):
+            invalid_data = prefixes + "\n%s\n:space a %s .\n" % (relationship, space)
+            invalid_g = brickschema.Graph().parse(data=invalid_data, format="turtle")
+            conforms, _, _ = invalid_g.validate(extra_graphs=[brick_with_imports])
+            assert not conforms, f"'{relationship}' should reject a {space}"

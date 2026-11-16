@@ -27,6 +27,7 @@ CURRENCY = Namespace("http://qudt.org/vocab/currency/")
 
 # TODO: fix these namespaces
 BACNET = Namespace("http://data.ashrae.org/bacnet/")
+VAEM = Namespace("http://www.linkedmodel.org/schema/vaem#")
 IFC = Namespace("https://brickschema.org/extension/ifc#")
 
 A = RDF.type
@@ -48,9 +49,11 @@ def bind_prefixes(g):
     g.bind("bsh", BSH)
     g.bind("qudtqk", QUDTQK)
     g.bind("qudt", QUDT)
+    g.bind("vaem", VAEM)
     g.bind("unit", UNIT)
     g.bind("xsd", XSD)
-    g.bind("bacnet", BACNET)
+    # brickschema.Graph pre-binds "bacnet" to the old 2020# namespace; replace it
+    g.bind("bacnet", BACNET, replace=True)
     g.bind("ifc", IFC)
     g.bind("s223", S223)
     g.bind("rec", REC)
