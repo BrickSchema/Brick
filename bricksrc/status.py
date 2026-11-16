@@ -1,16 +1,24 @@
+from rdflib import Literal
 from .namespaces import TAG, BRICK, OWL, QUDTQK
 
 status_definitions = {
     "Status": {
         "tags": [TAG.Point, TAG.Status],
         "subclasses": {
+            # intermediate classes introduced by the Brick 2.0 point attribute work
+            "Reset_Status": {
+                "tags": [TAG.Point, TAG.Reset, TAG.Status],
+            },
             "Pump_Status": {
+                BRICK.ofEquipment: BRICK.Pump,
                 "tags": [TAG.Point, TAG.Status, TAG.Pump],
             },
             "Thermostat_Status": {
+                BRICK.ofEquipment: BRICK.Thermostat,
                 "tags": [TAG.Point, TAG.Status, TAG.Thermostat],
             },
             "Switch_Status": {
+                BRICK.ofEquipment: BRICK.Switch,
                 "tags": [TAG.Point, TAG.Status, TAG.Switch],
             },
             "Tint_Status": {
@@ -18,6 +26,7 @@ status_definitions = {
                 BRICK.hasQuantity: QUDTQK.Transmittance,
             },
             "Damper_Position_Status": {
+                BRICK.ofEquipment: BRICK.Damper,
                 "tags": [TAG.Point, TAG.Damper, TAG.Position, TAG.Status],
                 BRICK.hasQuantity: BRICK.Position,
             },
@@ -25,6 +34,8 @@ status_definitions = {
                 BRICK.hasQuantity: BRICK.Direction,
                 "subclasses": {
                     "Motor_Direction_Status": {
+                        BRICK.hasEnumeration: BRICK["EnumerationKind-Forward_Reverse"],
+                        BRICK.ofEquipment: BRICK.Motor,
                         "tags": [TAG.Point, TAG.Motor, TAG.Direction, TAG.Status],
                     },
                 },
@@ -43,6 +54,7 @@ status_definitions = {
             "Enable_Status": {
                 "subclasses": {
                     "Heat_Exchanger_System_Enable_Status": {
+                        # TODO(Brick 2.0): BRICK.ofEquipment: BRICK.Heat_Exchanger_System,  # Heat_Exchanger_System is not defined in Brick yet
                         "tags": [
                             TAG.Point,
                             TAG.Heat,
@@ -59,11 +71,18 @@ status_definitions = {
             "Even_Month_Status": {
                 "tags": [TAG.Point, TAG.Even, TAG.Month, TAG.Status],
             },
-            "Fan_Status": {"tags": [TAG.Point, TAG.Fan, TAG.Status]},
-            "Valve_Status": {"tags": [TAG.Point, TAG.Valve, TAG.Status]},
+            "Fan_Status": {
+                BRICK.ofEquipment: BRICK.Fan,
+                "tags": [TAG.Point, TAG.Fan, TAG.Status],
+            },
+            "Valve_Status": {
+                BRICK.ofEquipment: BRICK.Valve,
+                "tags": [TAG.Point, TAG.Valve, TAG.Status],
+            },
             "Fault_Status": {
                 "subclasses": {
                     "Humidifier_Fault_Status": {
+                        BRICK.ofEquipment: BRICK.Humidifier,
                         "tags": [TAG.Point, TAG.Humidifier, TAG.Fault, TAG.Status],
                     },
                     "Last_Fault_Code_Status": {
@@ -73,8 +92,10 @@ status_definitions = {
                 "tags": [TAG.Point, TAG.Fault, TAG.Status],
             },
             "Filter_Status": {
+                BRICK.ofEquipment: BRICK.Filter,
                 "subclasses": {
                     "Pre_Filter_Status": {
+                        BRICK.ofEquipment: BRICK.Pre_Filter,
                         "tags": [TAG.Point, TAG.Pre, TAG.Filter, TAG.Status],
                     }
                 },
@@ -83,8 +104,12 @@ status_definitions = {
             "Freeze_Status": {"tags": [TAG.Point, TAG.Freeze, TAG.Status]},
             "Hold_Status": {"tags": [TAG.Point, TAG.Hold, TAG.Status]},
             "Load_Shed_Status": {
+                BRICK.ofProcess: BRICK.Load_Shed,
                 "subclasses": {
                     "Entering_Hot_Water_Temperature_Load_Shed_Status": {
+                        BRICK.hasQuantity: QUDTQK.Temperature,
+                        BRICK.hasSubstance: BRICK.Entering_Hot_Water,
+                        BRICK.ofProcess: BRICK.Load_Shed,
                         "tags": [
                             TAG.Point,
                             TAG.Hot,
@@ -97,6 +122,9 @@ status_definitions = {
                         ],
                         "subclasses": {
                             "Entering_Medium_Temperature_Hot_Water_Temperature_Load_Shed_Status": {
+                                BRICK.hasQuantity: QUDTQK.Temperature,
+                                BRICK.hasSubstance: BRICK.Entering_Medium_Temperature_Hot_Water,
+                                BRICK.ofProcess: BRICK.Load_Shed,
                                 "tags": [
                                     TAG.Point,
                                     TAG.Medium,
@@ -113,6 +141,9 @@ status_definitions = {
                         },
                     },
                     "Leaving_Hot_Water_Temperature_Load_Shed_Status": {
+                        BRICK.hasQuantity: QUDTQK.Temperature,
+                        BRICK.hasSubstance: BRICK.Leaving_Hot_Water,
+                        BRICK.ofProcess: BRICK.Load_Shed,
                         "tags": [
                             TAG.Point,
                             TAG.Hot,
@@ -125,6 +156,9 @@ status_definitions = {
                         ],
                         "subclasses": {
                             "Leaving_Medium_Temperature_Hot_Water_Temperature_Load_Shed_Status": {
+                                BRICK.hasQuantity: QUDTQK.Temperature,
+                                BRICK.hasSubstance: BRICK.Leaving_Medium_Temperature_Hot_Water,
+                                BRICK.ofProcess: BRICK.Load_Shed,
                                 "tags": [
                                     TAG.Point,
                                     TAG.Medium,
@@ -141,8 +175,15 @@ status_definitions = {
                         },
                     },
                     "Differential_Pressure_Load_Shed_Status": {
+                        BRICK.hasQuantity: QUDTQK.Pressure,
+                        BRICK.ofProcess: BRICK.Load_Shed,
+                        BRICK.isDifferential: Literal(True),
                         "subclasses": {
                             "Medium_Temperature_Hot_Water_Differential_Pressure_Load_Shed_Status": {
+                                BRICK.hasQuantity: QUDTQK.Pressure,
+                                BRICK.hasSubstance: BRICK.Medium_Temperature_Hot_Water,
+                                BRICK.ofProcess: BRICK.Load_Shed,
+                                BRICK.isDifferential: Literal(True),
                                 "tags": [
                                     TAG.Point,
                                     TAG.Medium,
@@ -155,6 +196,11 @@ status_definitions = {
                                 ],
                                 "subclasses": {
                                     "Medium_Temperature_Hot_Water_Differential_Pressure_Load_Shed_Reset_Status": {
+                                        BRICK.hasQuantity: QUDTQK.Pressure,
+                                        BRICK.hasSubstance: BRICK.Medium_Temperature_Hot_Water,
+                                        BRICK.ofProcess: BRICK.Load_Shed,
+                                        BRICK.isDifferential: Literal(True),
+                                        "parents": [BRICK.Reset_Status],
                                         "tags": [
                                             TAG.Point,
                                             TAG.Medium,
@@ -170,6 +216,10 @@ status_definitions = {
                                 },
                             },
                             "Chilled_Water_Differential_Pressure_Load_Shed_Status": {
+                                BRICK.hasQuantity: QUDTQK.Pressure,
+                                BRICK.hasSubstance: BRICK.Chilled_Water,
+                                BRICK.ofProcess: BRICK.Load_Shed,
+                                BRICK.isDifferential: Literal(True),
                                 "tags": [
                                     TAG.Point,
                                     TAG.Chilled,
@@ -182,6 +232,11 @@ status_definitions = {
                                 ],
                                 "subclasses": {
                                     "Chilled_Water_Differential_Pressure_Load_Shed_Reset_Status": {
+                                        BRICK.hasQuantity: QUDTQK.Pressure,
+                                        BRICK.hasSubstance: BRICK.Chilled_Water,
+                                        BRICK.ofProcess: BRICK.Load_Shed,
+                                        BRICK.isDifferential: Literal(True),
+                                        "parents": [BRICK.Reset_Status],
                                         "tags": [
                                             TAG.Point,
                                             TAG.Chilled,
@@ -197,6 +252,10 @@ status_definitions = {
                                 },
                             },
                             "Hot_Water_Differential_Pressure_Load_Shed_Status": {
+                                BRICK.hasQuantity: QUDTQK.Pressure,
+                                BRICK.hasSubstance: BRICK.Hot_Water,
+                                BRICK.ofProcess: BRICK.Load_Shed,
+                                BRICK.isDifferential: Literal(True),
                                 "tags": [
                                     TAG.Point,
                                     TAG.Hot,
@@ -209,6 +268,11 @@ status_definitions = {
                                 ],
                                 "subclasses": {
                                     "Hot_Water_Differential_Pressure_Load_Shed_Reset_Status": {
+                                        BRICK.hasQuantity: QUDTQK.Pressure,
+                                        BRICK.hasSubstance: BRICK.Hot_Water,
+                                        BRICK.ofProcess: BRICK.Load_Shed,
+                                        BRICK.isDifferential: Literal(True),
+                                        "parents": [BRICK.Reset_Status],
                                         "tags": [
                                             TAG.Point,
                                             TAG.Hot,
@@ -241,17 +305,25 @@ status_definitions = {
                 "tags": [TAG.Point, TAG.Lockout, TAG.Status],
             },
             "Availability_Status": {
+                BRICK.hasEnumeration: BRICK["EnumerationKind-Availability"],
                 "tags": [TAG.Point, TAG.Availability, TAG.Status],
             },
             "Manual_Auto_Status": {
+                BRICK.hasEnumeration: BRICK["EnumerationKind-Manual_Auto"],
                 "tags": [TAG.Point, TAG.Manual, TAG.Auto, TAG.Status],
             },
             "Mode_Status": {
+                BRICK.hasEnumeration: BRICK["EnumerationKind-Mode"],
                 "subclasses": {
                     "Speed_Mode_Status": {
+                        BRICK.hasEnumeration: BRICK["EnumerationKind-Speed_Mode"],
                         "tags": [TAG.Point, TAG.Speed, TAG.Status, TAG.Mode],
                     },
                     "Zone_Air_Conditioning_Mode_Status": {
+                        BRICK.hasEnumeration: BRICK[
+                            "EnumerationKind-Conditioning_Mode"
+                        ],
+                        BRICK.hasSubstance: BRICK.Zone_Air,
                         "tags": [
                             TAG.Point,
                             TAG.Air,
@@ -262,9 +334,14 @@ status_definitions = {
                         ],
                     },
                     "Heating_Mode_Status": {
+                        BRICK.hasEnumeration: BRICK["EnumerationKind-Mode"],
+                        BRICK.ofProcess: BRICK.Heating,
                         "tags": [TAG.Point, TAG.Heat, TAG.Mode, TAG.Status],
                         "subclasses": {
                             "Occupied_Heating_Mode_Status": {
+                                BRICK.hasEnumeration: BRICK["EnumerationKind-Mode"],
+                                BRICK.inMode: BRICK.Occupied,
+                                BRICK.ofProcess: BRICK.Heating,
                                 "tags": [
                                     TAG.Point,
                                     TAG.Heat,
@@ -275,6 +352,9 @@ status_definitions = {
                                 "parents": [BRICK.Occupied_Mode_Status],
                             },
                             "Unoccupied_Heating_Mode_Status": {
+                                BRICK.hasEnumeration: BRICK["EnumerationKind-Mode"],
+                                BRICK.inMode: BRICK.Unoccupied,
+                                BRICK.ofProcess: BRICK.Heating,
                                 "tags": [
                                     TAG.Point,
                                     TAG.Heat,
@@ -287,9 +367,14 @@ status_definitions = {
                         },
                     },
                     "Cooling_Mode_Status": {
+                        BRICK.hasEnumeration: BRICK["EnumerationKind-Mode"],
+                        BRICK.ofProcess: BRICK.Cooling,
                         "tags": [TAG.Point, TAG.Cool, TAG.Mode, TAG.Status],
                         "subclasses": {
                             "Occupied_Cooling_Mode_Status": {
+                                BRICK.hasEnumeration: BRICK["EnumerationKind-Mode"],
+                                BRICK.inMode: BRICK.Occupied,
+                                BRICK.ofProcess: BRICK.Cooling,
                                 "tags": [
                                     TAG.Point,
                                     TAG.Cool,
@@ -300,6 +385,9 @@ status_definitions = {
                                 "parents": [BRICK.Occupied_Mode_Status],
                             },
                             "Unoccupied_Cooling_Mode_Status": {
+                                BRICK.hasEnumeration: BRICK["EnumerationKind-Mode"],
+                                BRICK.inMode: BRICK.Unoccupied,
+                                BRICK.ofProcess: BRICK.Cooling,
                                 "tags": [
                                     TAG.Point,
                                     TAG.Cool,
@@ -312,12 +400,17 @@ status_definitions = {
                         },
                     },
                     "Occupied_Mode_Status": {
+                        BRICK.hasEnumeration: BRICK["EnumerationKind-Mode"],
+                        BRICK.inMode: BRICK.Occupied,
                         "tags": [TAG.Point, TAG.Occupied, TAG.Mode, TAG.Status],
                     },
                     "Unoccupied_Mode_Status": {
+                        BRICK.hasEnumeration: BRICK["EnumerationKind-Mode"],
+                        BRICK.inMode: BRICK.Unoccupied,
                         "tags": [TAG.Point, TAG.Unoccupied, TAG.Mode, TAG.Status],
                     },
                     "Operating_Mode_Status": {
+                        BRICK.hasEnumeration: BRICK["EnumerationKind-Operating_Mode"],
                         "subclasses": {
                             "Vent_Operating_Mode_Status": {
                                 "tags": [
@@ -335,9 +428,11 @@ status_definitions = {
                 "tags": [TAG.Point, TAG.Mode, TAG.Status],
             },
             "Open_Close_Status": {
+                BRICK.hasEnumeration: BRICK["EnumerationKind-Open_Close"],
                 "tags": [TAG.Point, TAG.Open, TAG.Close, TAG.Status],
             },
             "Occupancy_Status": {
+                BRICK.hasEnumeration: BRICK["EnumerationKind-Occupancy"],
                 "subclasses": {
                     "Temporary_Occupancy_Status": {
                         "tags": [TAG.Point, TAG.Temporary, TAG.Occupancy, TAG.Status],
@@ -346,15 +441,22 @@ status_definitions = {
                 "tags": [TAG.Point, TAG.Occupancy, TAG.Status],
             },
             "On_Off_Status": {
+                BRICK.hasEnumeration: BRICK["EnumerationKind-On_Off"],
                 "subclasses": {
                     "Fan_On_Off_Status": {
+                        BRICK.hasEnumeration: BRICK["EnumerationKind-On_Off"],
+                        BRICK.ofEquipment: BRICK.Fan,
                         "tags": [TAG.Point, TAG.Fan, TAG.On, TAG.Off, TAG.Status],
                         "parents": [BRICK.Fan_Status],
                     },
                     "Motor_On_Off_Status": {
+                        BRICK.hasEnumeration: BRICK["EnumerationKind-On_Off"],
+                        BRICK.ofEquipment: BRICK.Motor,
                         "tags": [TAG.Point, TAG.Motor, TAG.On, TAG.Off, TAG.Status],
                     },
                     "Pump_On_Off_Status": {
+                        BRICK.hasEnumeration: BRICK["EnumerationKind-On_Off"],
+                        BRICK.ofEquipment: BRICK.Pump,
                         "tags": [TAG.Point, TAG.Pump, TAG.On, TAG.Off, TAG.Status],
                     },
                     "Locally_On_Off_Status": {
@@ -387,8 +489,13 @@ status_definitions = {
                         },
                     },
                     "Start_Stop_Status": {
+                        BRICK.hasEnumeration: BRICK["EnumerationKind-Start_Stop"],
                         "subclasses": {
                             "Cooling_Start_Stop_Status": {
+                                BRICK.hasEnumeration: BRICK[
+                                    "EnumerationKind-Start_Stop"
+                                ],
+                                BRICK.ofProcess: BRICK.Cooling,
                                 "tags": [
                                     TAG.Point,
                                     TAG.Cool,
@@ -398,6 +505,10 @@ status_definitions = {
                                 ],
                             },
                             "Dehumidification_Start_Stop_Status": {
+                                BRICK.hasEnumeration: BRICK[
+                                    "EnumerationKind-Start_Stop"
+                                ],
+                                BRICK.ofProcess: BRICK.Dehumidification,
                                 "tags": [
                                     TAG.Point,
                                     TAG.Dehumidification,
@@ -416,6 +527,10 @@ status_definitions = {
                                 ],
                             },
                             "Heating_Start_Stop_Status": {
+                                BRICK.hasEnumeration: BRICK[
+                                    "EnumerationKind-Start_Stop"
+                                ],
+                                BRICK.ofProcess: BRICK.Heating,
                                 "tags": [
                                     TAG.Point,
                                     TAG.Heat,
@@ -425,6 +540,10 @@ status_definitions = {
                                 ],
                             },
                             "Humidification_Start_Stop_Status": {
+                                BRICK.hasEnumeration: BRICK[
+                                    "EnumerationKind-Start_Stop"
+                                ],
+                                BRICK.ofProcess: BRICK.Humidification,
                                 "tags": [
                                     TAG.Point,
                                     TAG.Humidification,
@@ -434,9 +553,11 @@ status_definitions = {
                                 ],
                             },
                             "Run_Status": {
+                                BRICK.ofProcess: BRICK.Run,
                                 "tags": [TAG.Point, TAG.Run, TAG.Status],
                                 "subclasses": {
                                     "Run_Request_Status": {
+                                        BRICK.ofProcess: BRICK.Run,
                                         "tags": [
                                             TAG.Point,
                                             TAG.Request,
@@ -453,8 +574,14 @@ status_definitions = {
                 "tags": [TAG.Point, TAG.On, TAG.Off, TAG.Status],
                 "parents": [BRICK.On_Status, BRICK.Off_Status],
             },
-            "Off_Status": {"tags": [TAG.Point, TAG.Off, TAG.Status]},
-            "On_Status": {"tags": [TAG.Point, TAG.On, TAG.Status]},
+            "Off_Status": {
+                BRICK.hasEnumeration: BRICK["On_Off-Off"],
+                "tags": [TAG.Point, TAG.Off, TAG.Status],
+            },
+            "On_Status": {
+                BRICK.hasEnumeration: BRICK["On_Off-On"],
+                "tags": [TAG.Point, TAG.On, TAG.Status],
+            },
             "Overridden_Status": {
                 "subclasses": {
                     "Overridden_Off_Status": {
@@ -490,15 +617,22 @@ status_definitions = {
             "Level_Status": {
                 "tags": [TAG.Level, TAG.Status, TAG.Point],
             },
-            "Stages_Status": {"tags": [TAG.Point, TAG.Stages, TAG.Status]},
+            "Stages_Status": {
+                BRICK.hasEnumeration: BRICK["EnumerationKind-Stage"],
+                "tags": [TAG.Point, TAG.Stages, TAG.Status],
+            },
             "System_Shutdown_Status": {
+                BRICK.hasEnumeration: BRICK["EnumerationKind-Shutdown"],
+                BRICK.ofSystem: BRICK.System,
                 "tags": [TAG.Point, TAG.System, TAG.Shutdown, TAG.Status],
                 "parents": [BRICK.System_Status],
             },
             "System_Status": {
+                BRICK.ofSystem: BRICK.System,
                 "tags": [TAG.Point, TAG.System, TAG.Status],
                 "subclasses": {
                     "Emergency_Air_Flow_System_Status": {
+                        BRICK.ofSystem: BRICK.Emergency_Air_Flow_System,
                         "tags": [
                             TAG.Point,
                             TAG.Emergency,

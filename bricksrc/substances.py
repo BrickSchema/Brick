@@ -5,6 +5,7 @@ substances = {
     "Light": {
         "tags": [TAG.Light],
     },
+    "Smoke": {},
     "Fluid": {
         SKOS.narrower: {
             "Refrigerant": {},
@@ -20,6 +21,8 @@ substances = {
                             "Mixed_Air": {},
                             "Return_Air": {},
                             "Exhaust_Air": {},
+                            "Fresh_Air": {},
+                            "Intake_Air": {},
                             "Supply_Air": {
                                 OWL.sameAs: BRICK.Discharge_Air,
                             },
@@ -52,6 +55,7 @@ substances = {
                     "Water": {
                         SKOS.narrower: {
                             "Deionized_Water": {},
+                            "Rain": {},
                             "Bypass_Water": {},
                             "Chilled_Water": {
                                 SKOS.narrower: {

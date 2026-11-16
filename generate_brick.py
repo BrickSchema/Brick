@@ -55,11 +55,17 @@ from bricksrc.equipment import (
     safety_subclasses,
 )
 from bricksrc.substances import substances
+from bricksrc.point_attributes import (
+    phenomena,
+    substance_phenomena,
+    processes,
+    modes,
+    enumeration_kinds,
+)
 from bricksrc.relationships import relationships
 from bricksrc.quantities import quantity_definitions, get_units
 from bricksrc.entity_properties import entity_properties, get_shapes
 from bricksrc.deprecations import deprecations
-
 
 logging.basicConfig(
     format="%(asctime)s,%(msecs)d %(levelname)-8s [%(filename)s:%(lineno)d] %(message)s",
@@ -103,8 +109,8 @@ def get_units_brick(brick_quantity):
         OPTIONAL {{
             ?unit rdfs:label ?label .
         }}
-    }}"""  # noqa
-    )
+    }}"""
+    )  # noqa
     return set(brick_units)
 
 
@@ -476,9 +482,9 @@ def define_shape_property_property(shape_name, definitions, graph=G):
                         ?p sh:path {prop_name.n3()} .
                         FILTER NOT EXISTS {{ ?p sh:minCount ?mc }}
                         FILTER NOT EXISTS {{ ?p sh:maxCount ?mc }}
-                    }}"""  # noqa
+                    }}"""
                 )
-            )
+            )  # noqa
             if len(prop_exists) > 0:
                 graph.add((shape_name, SH.property, prop_exists[0][0]))
                 continue  # continue to next property
@@ -750,8 +756,8 @@ def add_definitions(graph=G):
             BIND(brick:{setpoint} as ?class)
             ?class rdfs:subClassOf* brick:Class.
         }}
-        """  # noqa
-        ).bindings
+        """
+        ).bindings  # noqa
         if not class_exists:
             logging.warning(
                 f"WARNING: {setpoint} does not exist in Brick for {param}."  # noqa
@@ -961,6 +967,22 @@ define_concept_hierarchy(substances, [BRICK.Substance])
 
 # this defines the SKOS-based concept hierarchy for BRICK Quantities
 define_concept_hierarchy(quantity_definitions, [BRICK.Quantity])
+
+# concepts used as values of the point attribute relationships
+# (hasPhenomenon, ofProcess, inMode, hasEnumeration)
+for typeclass, label, concepts in [
+    (BRICK.Phenomenon, "Phenomenon", phenomena),
+    (BRICK.Process, "Process", processes),
+    (BRICK.Mode, "Mode", modes),
+    (BRICK.EnumerationKind, "Enumeration Kind", enumeration_kinds),
+]:
+    G.add((typeclass, A, OWL.Class))
+    G.add((typeclass, A, SH.NodeShape))
+    G.add((typeclass, RDFS.subClassOf, SKOS.Concept))
+    G.add((typeclass, RDFS.label, Literal(label, lang="en")))
+    define_concept_hierarchy(concepts, [typeclass])
+for substance in substance_phenomena:
+    G.add((substance, A, BRICK.Phenomenon))
 
 # add any missing skos:narrower implied by skos:broader where the subject
 # is defined by the Brick ontology

@@ -54,6 +54,9 @@ bsh:NamespaceDefinitionRule
                 UNION
                 { $this a brick:Tag }
                 UNION
+                # values of the point attribute relationships (hasPhenomenon, ofProcess, inMode, hasEnumeration)
+                { $this a ?attrclass . VALUES ?attrclass { brick:Phenomenon brick:Process brick:Mode brick:EnumerationKind } }
+                UNION
                 { $this a brick:EntityProperty }
                 UNION
                 { $this a owl:ObjectProperty }
