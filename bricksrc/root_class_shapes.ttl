@@ -171,35 +171,6 @@ bsh:hasHotColdDeck
     ] ;
 .
 
-# sensors inherit hasQuantity from their parent class
-bsh:SensorInheritQuantityKind a sh:NodeShape ;
-    sh:target [
-        a sh:SPARQLTarget ;
-        sh:select """
-        PREFIX brick: <https://brickschema.org/schema/Brick#>
-        PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-            SELECT DISTINCT ?this WHERE {
-              ?this rdfs:subClassOf+ brick:Sensor
-            }
-        """
-    ] ;
-    sh:rule [
-        a sh:SPARQLRule ;
-        sh:prefixes <https://brickschema.org/schema/1.5/Brick> ;
-        sh:construct """
-        CONSTRUCT {
-            $this brick:hasQuantity ?quantity .
-        } WHERE {
-            $this rdfs:subClassOf+ ?parent .
-            ?parent brick:hasQuantity ?quantity .
-            FILTER NOT EXISTS {
-                $this brick:hasQuantity ?quantity .
-            }
-        }
-        """ ;
-    ] ;
-.
-
 # brick:Collection is being phased out in favor of rec:Collection, but we keep it for backward compatibility.
 # This is not deprecated because it is a 'root' class and we don't want to break existing data. It is not recommended to use this class in new data;
 # use rec:Collection instead and its subclasses for grouping.

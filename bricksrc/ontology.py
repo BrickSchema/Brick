@@ -37,8 +37,8 @@ ontology_imports = {
     "bacnet": "http://data.ashrae.org/bacnet",
     "rec": "https://w3id.org/rec",
     "recimports": "https://w3id.org/rec/recimports",
-    "unit": "http://qudt.org/3.3.0/vocab/unit",
-    "quantitykind": "http://qudt.org/3.3.0/vocab/quantitykind",
+    "unit": "http://qudt.org/3.5.2/vocab/unit",
+    "quantitykind": "http://qudt.org/3.5.2/vocab/quantitykind",
 }
 
 shacl_namespace_declarations = [

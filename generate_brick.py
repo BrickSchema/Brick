@@ -758,7 +758,7 @@ def add_definitions(graph=G):
             )
 
 
-def handle_deprecations(graph: Graph = G):
+def handle_deprecations(graph: Graph = G):  # noqa: C901
     for deprecated_term, md in deprecations.items():
         term_type = md.get(A)
         if term_type:

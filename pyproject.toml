@@ -21,6 +21,7 @@ dependencies = [
     "html5lib>=1.1",
     "pyontoenv>=0.6.4",
     "brickschema>=0.8.0",
+    "pyshifty>=0.7.0a1",
     "scipy>=1.13.1",
     "sentence-transformers>=3.0.1",
     "numpy>=2.0.3",

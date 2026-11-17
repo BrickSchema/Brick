@@ -212,7 +212,6 @@ setpoint_definitions = {
                                 ],
                                 "parents": [
                                     BRICK.Discharge_Air_Temperature_Setpoint,
-                                    BRICK.Air_Temperature_Setpoint,
                                 ],
                             },
                             "Entering_Water_Temperature_Deadband_Setpoint": {
