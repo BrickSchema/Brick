@@ -103,7 +103,9 @@ def test_tag_inference():
                                   }"
         )
     )
-    assert len(res3) == 5
+    # co2s1, AFSP1, AFS1, AFS2, TS1, and MAFS1 (Max_Air_Flow_Setpoint_Limit
+    # has brick:hasSubstance brick:Air)
+    assert len(res3) == 6
 
     # test_sensors_measure_air_temp
     # sensors that measure air temperature

@@ -1,10 +1,21 @@
 from rdflib import Literal
-from .namespaces import BRICK, TAG, OWL
+from .namespaces import BRICK, TAG, OWL, QUDTQK
 
 parameter_definitions = {
     "Parameter": {
         "tags": [TAG.Point, TAG.Parameter],
         "subclasses": {
+            # intermediate classes introduced by the Brick 2.0 point attribute work
+            "High_Alarm_Parameter": {
+                "tags": [TAG.Point, TAG.High, TAG.Alarm, TAG.Parameter],
+            },
+            "Low_Alarm_Parameter": {
+                "tags": [TAG.Point, TAG.Low, TAG.Alarm, TAG.Parameter],
+            },
+            "Setpoint_Limit": {
+                "tags": [TAG.Point, TAG.Setpoint, TAG.Limit, TAG.Parameter],
+                "parents": [BRICK.Limit],
+            },
             "Delay_Parameter": {
                 "tags": [TAG.Point, TAG.Delay, TAG.Parameter],
                 "subclasses": {
@@ -17,15 +28,17 @@ parameter_definitions = {
                 "tags": [TAG.Point, TAG.Alarm, TAG.Sensitivity, TAG.Parameter],
                 "subclasses": {
                     "Temperature_Alarm_Sensitivity_Parameter": {
+                        BRICK.hasQuantity: QUDTQK.Temperature,
                         "tags": [
                             TAG.Point,
                             TAG.Alarm,
                             TAG.Sensitivity,
                             TAG.Parameter,
                             TAG.Temperature,
-                        ]
+                        ],
                     },
                     "CO2_Alarm_Sensitivity_Parameter": {
+                        # TODO(Brick 2.0): BRICK.hasSubstance: BRICK.CO2,  # spreadsheet puts the measured constituent here; 1.x uses hasSubstance for the medium
                         "tags": [
                             TAG.Point,
                             TAG.Alarm,
@@ -37,9 +50,12 @@ parameter_definitions = {
                 },
             },
             "Humidity_Parameter": {
+                BRICK.hasQuantity: QUDTQK.RelativeHumidity,
                 "tags": [TAG.Point, TAG.Humidity, TAG.Parameter],
                 "subclasses": {
                     "High_Humidity_Alarm_Parameter": {
+                        BRICK.hasQuantity: QUDTQK.RelativeHumidity,
+                        "parents": [BRICK.High_Alarm_Parameter],
                         "tags": [
                             TAG.Point,
                             TAG.High,
@@ -49,6 +65,8 @@ parameter_definitions = {
                         ],
                     },
                     "Low_Humidity_Alarm_Parameter": {
+                        BRICK.hasQuantity: QUDTQK.RelativeHumidity,
+                        "parents": [BRICK.Low_Alarm_Parameter],
                         "tags": [
                             TAG.Point,
                             TAG.Low,
@@ -83,9 +101,12 @@ parameter_definitions = {
                 },
             },
             "Temperature_Parameter": {
+                BRICK.hasQuantity: QUDTQK.Temperature,
                 "tags": [TAG.Point, TAG.Temperature, TAG.Parameter],
                 "subclasses": {
                     "High_Temperature_Alarm_Parameter": {
+                        BRICK.hasQuantity: QUDTQK.Temperature,
+                        "parents": [BRICK.High_Alarm_Parameter],
                         "tags": [
                             TAG.Point,
                             TAG.High,
@@ -95,6 +116,8 @@ parameter_definitions = {
                         ],
                     },
                     "Low_Temperature_Alarm_Parameter": {
+                        BRICK.hasQuantity: QUDTQK.Temperature,
+                        "parents": [BRICK.Low_Alarm_Parameter],
                         "tags": [
                             TAG.Point,
                             TAG.Low,
@@ -179,6 +202,7 @@ parameter_definitions = {
                                 ],
                                 "subclasses": {
                                     "Supply_Air_Integral_Gain_Parameter": {
+                                        BRICK.hasSubstance: BRICK.Supply_Air,
                                         "aliases": [
                                             BRICK[
                                                 "Discharge_Air_Integral_Gain_Parameter"
@@ -207,6 +231,7 @@ parameter_definitions = {
                                 ],
                                 "subclasses": {
                                     "Supply_Air_Proportional_Gain_Parameter": {
+                                        BRICK.hasSubstance: BRICK.Supply_Air,
                                         "aliases": [
                                             BRICK[
                                                 "Discharge_Air_Proportional_Gain_Parameter"
@@ -240,8 +265,13 @@ parameter_definitions = {
                         "tags": [TAG.Point, TAG.Parameter, TAG.Step],
                         "subclasses": {
                             "Differential_Pressure_Step_Parameter": {
+                                BRICK.hasQuantity: QUDTQK.Pressure,
+                                BRICK.isDifferential: Literal(True),
                                 "subclasses": {
                                     "Chilled_Water_Differential_Pressure_Step_Parameter": {
+                                        BRICK.hasQuantity: QUDTQK.Pressure,
+                                        BRICK.hasSubstance: BRICK.Chilled_Water,
+                                        BRICK.isDifferential: Literal(True),
                                         "tags": [
                                             TAG.Point,
                                             TAG.Chilled,
@@ -262,8 +292,11 @@ parameter_definitions = {
                                 ],
                             },
                             "Static_Pressure_Step_Parameter": {
+                                BRICK.hasQuantity: QUDTQK.StaticPressure,
                                 "subclasses": {
                                     "Air_Static_Pressure_Step_Parameter": {
+                                        BRICK.hasQuantity: QUDTQK.StaticPressure,
+                                        BRICK.hasSubstance: BRICK.Air,
                                         "tags": [
                                             TAG.Point,
                                             TAG.Air,
@@ -274,6 +307,8 @@ parameter_definitions = {
                                         ],
                                         "subclasses": {
                                             "Supply_Air_Static_Pressure_Step_Parameter": {
+                                                BRICK.hasQuantity: QUDTQK.StaticPressure,
+                                                BRICK.hasSubstance: BRICK.Supply_Air,
                                                 "aliases": [
                                                     BRICK[
                                                         "Discharge_Air_Static_Pressure_Step_Parameter"
@@ -302,8 +337,11 @@ parameter_definitions = {
                                 ],
                             },
                             "Temperature_Step_Parameter": {
+                                BRICK.hasQuantity: QUDTQK.Temperature,
                                 "subclasses": {
                                     "Air_Temperature_Step_Parameter": {
+                                        BRICK.hasQuantity: QUDTQK.Temperature,
+                                        BRICK.hasSubstance: BRICK.Air,
                                         "tags": [
                                             TAG.Point,
                                             TAG.Air,
@@ -313,6 +351,8 @@ parameter_definitions = {
                                         ],
                                         "subclasses": {
                                             "Supply_Air_Temperature_Step_Parameter": {
+                                                BRICK.hasQuantity: QUDTQK.Temperature,
+                                                BRICK.hasSubstance: BRICK.Supply_Air,
                                                 "aliases": [
                                                     BRICK[
                                                         "Discharge_Air_Temperature_Step_Parameter"
@@ -342,6 +382,7 @@ parameter_definitions = {
                         },
                     },
                     "Time_Parameter": {
+                        BRICK.hasQuantity: QUDTQK.Time,
                         "tags": [TAG.Point, TAG.Parameter, TAG.Time],
                         "subclasses": {
                             "Integral_Time_Parameter": {
@@ -354,6 +395,8 @@ parameter_definitions = {
                                 ],
                                 "subclasses": {
                                     "Air_Temperature_Integral_Time_Parameter": {
+                                        BRICK.hasQuantity: QUDTQK.Temperature,
+                                        BRICK.hasSubstance: BRICK.Air,
                                         "tags": [
                                             TAG.Point,
                                             TAG.Air,
@@ -366,6 +409,9 @@ parameter_definitions = {
                                         "parents": [BRICK.Temperature_Parameter],
                                         "subclasses": {
                                             "Cooling_Supply_Air_Temperature_Integral_Time_Parameter": {
+                                                BRICK.hasQuantity: QUDTQK.Temperature,
+                                                BRICK.hasSubstance: BRICK.Supply_Air,
+                                                BRICK.ofProcess: BRICK.Cooling,
                                                 "aliases": [
                                                     BRICK[
                                                         "Cooling_Discharge_Air_Temperature_Integral_Time_Parameter"
@@ -385,6 +431,9 @@ parameter_definitions = {
                                                 ],
                                             },
                                             "Heating_Supply_Air_Temperature_Integral_Time_Parameter": {
+                                                BRICK.hasQuantity: QUDTQK.Temperature,
+                                                BRICK.hasSubstance: BRICK.Supply_Air,
+                                                BRICK.ofProcess: BRICK.Heating,
                                                 "aliases": [
                                                     BRICK[
                                                         "Heating_Discharge_Air_Temperature_Integral_Time_Parameter"
@@ -406,6 +455,8 @@ parameter_definitions = {
                                         },
                                     },
                                     "Differential_Pressure_Integral_Time_Parameter": {
+                                        BRICK.hasQuantity: QUDTQK.Pressure,
+                                        BRICK.isDifferential: Literal(True),
                                         "tags": [
                                             TAG.Point,
                                             TAG.Differential,
@@ -417,6 +468,9 @@ parameter_definitions = {
                                         ],
                                         "subclasses": {
                                             "Hot_Water_Differential_Pressure_Integral_Time_Parameter": {
+                                                BRICK.hasQuantity: QUDTQK.Pressure,
+                                                BRICK.hasSubstance: BRICK.Hot_Water,
+                                                BRICK.isDifferential: Literal(True),
                                                 "tags": [
                                                     TAG.Point,
                                                     TAG.Hot,
@@ -430,6 +484,9 @@ parameter_definitions = {
                                                 ],
                                             },
                                             "Chilled_Water_Differential_Pressure_Integral_Time_Parameter": {
+                                                BRICK.hasQuantity: QUDTQK.Pressure,
+                                                BRICK.hasSubstance: BRICK.Chilled_Water,
+                                                BRICK.isDifferential: Literal(True),
                                                 "tags": [
                                                     TAG.Point,
                                                     TAG.Chilled,
@@ -443,6 +500,9 @@ parameter_definitions = {
                                                 ],
                                             },
                                             "Leaving_Water_Differential_Pressure_Integral_Time_Parameter": {
+                                                BRICK.hasQuantity: QUDTQK.Pressure,
+                                                BRICK.hasSubstance: BRICK.Leaving_Water,
+                                                BRICK.isDifferential: Literal(True),
                                                 "tags": [
                                                     TAG.Point,
                                                     TAG.Leaving,
@@ -456,6 +516,9 @@ parameter_definitions = {
                                                 ],
                                             },
                                             "Entering_Water_Differential_Pressure_Integral_Time_Parameter": {
+                                                BRICK.hasQuantity: QUDTQK.Pressure,
+                                                BRICK.hasSubstance: BRICK.Entering_Water,
+                                                BRICK.isDifferential: Literal(True),
                                                 "tags": [
                                                     TAG.Point,
                                                     TAG.Entering,
@@ -471,8 +534,12 @@ parameter_definitions = {
                                         },
                                     },
                                     "Exhaust_Air_Flow_Integral_Time_Parameter": {
+                                        BRICK.hasQuantity: QUDTQK.VolumeFlowRate,
+                                        BRICK.hasSubstance: BRICK.Exhaust_Air,
                                         "subclasses": {
                                             "Exhaust_Air_Stack_Flow_Integral_Time_Parameter": {
+                                                BRICK.hasQuantity: QUDTQK.VolumeFlowRate,
+                                                # TODO(Brick 2.0): BRICK.ofEquipment: BRICK.Exhaust_Air_Stack,  # Exhaust_Air_Stack is not defined in Brick yet
                                                 "tags": [
                                                     TAG.Point,
                                                     TAG.Exhaust,
@@ -498,6 +565,7 @@ parameter_definitions = {
                                         ],
                                     },
                                     "Static_Pressure_Integral_Time_Parameter": {
+                                        BRICK.hasQuantity: QUDTQK.StaticPressure,
                                         "tags": [
                                             TAG.Point,
                                             TAG.Static,
@@ -509,6 +577,8 @@ parameter_definitions = {
                                         ],
                                         "subclasses": {
                                             "Supply_Air_Static_Pressure_Integral_Time_Parameter": {
+                                                BRICK.hasQuantity: QUDTQK.StaticPressure,
+                                                BRICK.hasSubstance: BRICK.Supply_Air,
                                                 "aliases": [
                                                     BRICK[
                                                         "Discharge_Air_Static_Pressure_Integral_Time_Parameter"
@@ -530,6 +600,8 @@ parameter_definitions = {
                                         },
                                     },
                                     "Entering_Water_Temperature_Integral_Time_Parameter": {
+                                        BRICK.hasQuantity: QUDTQK.Temperature,
+                                        BRICK.hasSubstance: BRICK.Entering_Water,
                                         "parents": [BRICK.Temperature_Parameter],
                                         "tags": [
                                             TAG.Point,
@@ -543,6 +615,8 @@ parameter_definitions = {
                                         ],
                                     },
                                     "Leaving_Water_Temperature_Integral_Time_Parameter": {
+                                        BRICK.hasQuantity: QUDTQK.Temperature,
+                                        BRICK.hasSubstance: BRICK.Leaving_Water,
                                         "parents": [BRICK.Temperature_Parameter],
                                         "tags": [
                                             TAG.Point,
@@ -578,6 +652,8 @@ parameter_definitions = {
                         ],
                         "subclasses": {
                             "Differential_Pressure_Proportional_Band": {
+                                BRICK.hasQuantity: QUDTQK.Pressure,
+                                BRICK.isDifferential: Literal(True),
                                 "tags": [
                                     TAG.Point,
                                     TAG.Differential,
@@ -588,6 +664,9 @@ parameter_definitions = {
                                 ],
                                 "subclasses": {
                                     "Hot_Water_Differential_Pressure_Proportional_Band_Parameter": {
+                                        BRICK.hasQuantity: QUDTQK.Pressure,
+                                        BRICK.hasSubstance: BRICK.Hot_Water,
+                                        BRICK.isDifferential: Literal(True),
                                         "tags": [
                                             TAG.Point,
                                             TAG.Hot,
@@ -601,6 +680,9 @@ parameter_definitions = {
                                         ],
                                     },
                                     "Chilled_Water_Differential_Pressure_Proportional_Band_Parameter": {
+                                        BRICK.hasQuantity: QUDTQK.Pressure,
+                                        BRICK.hasSubstance: BRICK.Chilled_Water,
+                                        BRICK.isDifferential: Literal(True),
                                         "tags": [
                                             TAG.Point,
                                             TAG.Chilled,
@@ -614,6 +696,9 @@ parameter_definitions = {
                                         ],
                                     },
                                     "Leaving_Water_Differential_Pressure_Proportional_Band_Parameter": {
+                                        BRICK.hasQuantity: QUDTQK.Pressure,
+                                        BRICK.hasSubstance: BRICK.Leaving_Water,
+                                        BRICK.isDifferential: Literal(True),
                                         "tags": [
                                             TAG.Point,
                                             TAG.Leaving,
@@ -627,6 +712,9 @@ parameter_definitions = {
                                         ],
                                     },
                                     "Entering_Water_Differential_Pressure_Proportional_Band_Parameter": {
+                                        BRICK.hasQuantity: QUDTQK.Pressure,
+                                        BRICK.hasSubstance: BRICK.Entering_Water,
+                                        BRICK.isDifferential: Literal(True),
                                         "tags": [
                                             TAG.Point,
                                             TAG.Entering,
@@ -642,6 +730,8 @@ parameter_definitions = {
                                 },
                             },
                             "Supply_Air_Temperature_Proportional_Band_Parameter": {
+                                BRICK.hasQuantity: QUDTQK.Temperature,
+                                BRICK.hasSubstance: BRICK.Supply_Air,
                                 "aliases": [
                                     BRICK[
                                         "Discharge_Air_Temperature_Proportional_Band_Parameter"
@@ -661,6 +751,9 @@ parameter_definitions = {
                                 "parents": [BRICK.Temperature_Parameter],
                                 "subclasses": {
                                     "Cooling_Supply_Air_Temperature_Proportional_Band_Parameter": {
+                                        BRICK.hasQuantity: QUDTQK.Temperature,
+                                        BRICK.hasSubstance: BRICK.Supply_Air,
+                                        BRICK.ofProcess: BRICK.Cooling,
                                         "aliases": [
                                             BRICK[
                                                 "Cooling_Discharge_Air_Temperature_Proportional_Band_Parameter"
@@ -680,6 +773,9 @@ parameter_definitions = {
                                         ],
                                     },
                                     "Heating_Supply_Air_Temperature_Proportional_Band_Parameter": {
+                                        BRICK.hasQuantity: QUDTQK.Temperature,
+                                        BRICK.hasSubstance: BRICK.Supply_Air,
+                                        BRICK.ofProcess: BRICK.Heating,
                                         "aliases": [
                                             BRICK[
                                                 "Heating_Discharge_Air_Temperature_Proportional_Band_Parameter"
@@ -701,6 +797,8 @@ parameter_definitions = {
                                 },
                             },
                             "Exhaust_Air_Flow_Proportional_Band_Parameter": {
+                                BRICK.hasQuantity: QUDTQK.VolumeFlowRate,
+                                BRICK.hasSubstance: BRICK.Exhaust_Air,
                                 "tags": [
                                     TAG.Point,
                                     TAG.Exhaust,
@@ -713,6 +811,8 @@ parameter_definitions = {
                                 ],
                                 "subclasses": {
                                     "Exhaust_Air_Stack_Flow_Proportional_Band_Parameter": {
+                                        BRICK.hasQuantity: QUDTQK.VolumeFlowRate,
+                                        # TODO(Brick 2.0): BRICK.ofEquipment: BRICK.Exhaust_Air_Stack,  # Exhaust_Air_Stack is not defined in Brick yet
                                         "tags": [
                                             TAG.Point,
                                             TAG.Exhaust,
@@ -728,8 +828,11 @@ parameter_definitions = {
                                 },
                             },
                             "Static_Pressure_Proportional_Band_Parameter": {
+                                BRICK.hasQuantity: QUDTQK.StaticPressure,
                                 "subclasses": {
                                     "Exhaust_Air_Static_Pressure_Proportional_Band_Parameter": {
+                                        BRICK.hasQuantity: QUDTQK.StaticPressure,
+                                        BRICK.hasSubstance: BRICK.Exhaust_Air,
                                         "tags": [
                                             TAG.Point,
                                             TAG.Exhaust,
@@ -743,6 +846,8 @@ parameter_definitions = {
                                         ],
                                     },
                                     "Supply_Air_Static_Pressure_Proportional_Band_Parameter": {
+                                        BRICK.hasQuantity: QUDTQK.StaticPressure,
+                                        BRICK.hasSubstance: BRICK.Supply_Air,
                                         "aliases": [
                                             BRICK[
                                                 "Discharge_Air_Static_Pressure_Proportional_Band_Parameter"
@@ -773,6 +878,8 @@ parameter_definitions = {
                                 ],
                             },
                             "Entering_Water_Temperature_Proportional_Band_Parameter": {
+                                BRICK.hasQuantity: QUDTQK.Temperature,
+                                BRICK.hasSubstance: BRICK.Entering_Water,
                                 "parents": [BRICK.Temperature_Parameter],
                                 "tags": [
                                     TAG.Point,
@@ -786,6 +893,8 @@ parameter_definitions = {
                                 ],
                             },
                             "Leaving_Water_Temperature_Proportional_Band_Parameter": {
+                                BRICK.hasQuantity: QUDTQK.Temperature,
+                                BRICK.hasSubstance: BRICK.Leaving_Water,
                                 "parents": [BRICK.Temperature_Parameter],
                                 "tags": [
                                     TAG.Point,
@@ -806,10 +915,12 @@ parameter_definitions = {
                 "tags": [TAG.Point, TAG.Tolerance, TAG.Parameter],
                 "subclasses": {
                     "Humidity_Tolerance_Parameter": {
+                        BRICK.hasQuantity: QUDTQK.RelativeHumidity,
                         "tags": [TAG.Point, TAG.Tolerance, TAG.Parameter, TAG.Humidity],
                         "parents": [BRICK.Humidity_Parameter],
                     },
                     "Temperature_Tolerance_Parameter": {
+                        BRICK.hasQuantity: QUDTQK.Temperature,
                         "parents": [BRICK.Temperature_Parameter],
                         "tags": [
                             TAG.Point,
@@ -827,6 +938,8 @@ parameter_definitions = {
                         "tags": [TAG.Point, TAG.Close, TAG.Parameter, TAG.Limit],
                     },
                     "Speed_Setpoint_Limit": {
+                        BRICK.hasQuantity: QUDTQK.Speed,
+                        "parents": [BRICK.Setpoint_Limit],
                         "tags": [
                             TAG.Point,
                             TAG.Speed,
@@ -836,6 +949,7 @@ parameter_definitions = {
                         ],
                         "subclasses": {
                             "Max_Speed_Setpoint_Limit": {
+                                BRICK.hasQuantity: QUDTQK.Speed,
                                 "tags": [
                                     TAG.Point,
                                     TAG.Max,
@@ -847,6 +961,7 @@ parameter_definitions = {
                                 "parents": [BRICK.Max_Limit],
                             },
                             "Min_Speed_Setpoint_Limit": {
+                                BRICK.hasQuantity: QUDTQK.Speed,
                                 "tags": [
                                     TAG.Point,
                                     TAG.Min,
@@ -860,6 +975,8 @@ parameter_definitions = {
                         },
                     },
                     "Air_Temperature_Setpoint_Limit": {
+                        BRICK.hasQuantity: QUDTQK.Temperature,
+                        BRICK.hasSubstance: BRICK.Air,
                         "tags": [
                             TAG.Point,
                             TAG.Air,
@@ -867,9 +984,12 @@ parameter_definitions = {
                             TAG.Limit,
                             TAG.Setpoint,
                         ],
-                        "parents": [BRICK.Temperature_Parameter],
+                        "parents": [BRICK.Temperature_Parameter, BRICK.Setpoint_Limit],
                         "subclasses": {
                             "Supply_Air_Temperature_Setpoint_Limit": {
+                                BRICK.hasQuantity: QUDTQK.Temperature,
+                                BRICK.hasSubstance: BRICK.Supply_Air,
+                                "parents": [BRICK.Setpoint_Limit],
                                 "aliases": [
                                     BRICK["Discharge_Air_Temperature_Setpoint_Limit"]
                                 ],
@@ -884,6 +1004,8 @@ parameter_definitions = {
                                 ],
                                 "subclasses": {
                                     "Max_Supply_Air_Temperature_Setpoint_Limit": {
+                                        BRICK.hasQuantity: QUDTQK.Temperature,
+                                        BRICK.hasSubstance: BRICK.Supply_Air,
                                         "aliases": [
                                             BRICK[
                                                 "Max_Discharge_Air_Temperature_Setpoint_Limit"
@@ -904,6 +1026,8 @@ parameter_definitions = {
                                         ],
                                     },
                                     "Min_Supply_Air_Temperature_Setpoint_Limit": {
+                                        BRICK.hasQuantity: QUDTQK.Temperature,
+                                        BRICK.hasSubstance: BRICK.Supply_Air,
                                         "aliases": [
                                             BRICK[
                                                 "Min_Discharge_Air_Temperature_Setpoint_Limit"
@@ -928,6 +1052,9 @@ parameter_definitions = {
                         },
                     },
                     "Air_Flow_Setpoint_Limit": {
+                        BRICK.hasQuantity: QUDTQK.VolumeFlowRate,
+                        BRICK.hasSubstance: BRICK.Air,
+                        "parents": [BRICK.Setpoint_Limit],
                         "tags": [
                             TAG.Point,
                             TAG.Air,
@@ -962,6 +1089,7 @@ parameter_definitions = {
                         },
                     },
                     "Current_Limit": {
+                        BRICK.hasQuantity: QUDTQK.ElectricCurrent,
                         "tags": [TAG.Point, TAG.Current, TAG.Limit, TAG.Parameter],
                     },
                     "Position_Limit": {
@@ -990,6 +1118,9 @@ parameter_definitions = {
                         },
                     },
                     "Differential_Pressure_Setpoint_Limit": {
+                        BRICK.hasQuantity: QUDTQK.Pressure,
+                        BRICK.isDifferential: Literal(True),
+                        "parents": [BRICK.Setpoint_Limit],
                         "tags": [
                             TAG.Point,
                             TAG.Differential,
@@ -1000,6 +1131,9 @@ parameter_definitions = {
                         ],
                         "subclasses": {
                             "Max_Chilled_Water_Differential_Pressure_Setpoint_Limit": {
+                                BRICK.hasQuantity: QUDTQK.Pressure,
+                                BRICK.hasSubstance: BRICK.Chilled_Water,
+                                BRICK.isDifferential: Literal(True),
                                 "tags": [
                                     TAG.Point,
                                     TAG.Max,
@@ -1013,6 +1147,9 @@ parameter_definitions = {
                                 ],
                             },
                             "Min_Chilled_Water_Differential_Pressure_Setpoint_Limit": {
+                                BRICK.hasQuantity: QUDTQK.Pressure,
+                                BRICK.hasSubstance: BRICK.Chilled_Water,
+                                BRICK.isDifferential: Literal(True),
                                 "tags": [
                                     TAG.Point,
                                     TAG.Min,
@@ -1026,6 +1163,9 @@ parameter_definitions = {
                                 ],
                             },
                             "Max_Hot_Water_Differential_Pressure_Setpoint_Limit": {
+                                BRICK.hasQuantity: QUDTQK.Pressure,
+                                BRICK.hasSubstance: BRICK.Hot_Water,
+                                BRICK.isDifferential: Literal(True),
                                 "tags": [
                                     TAG.Point,
                                     TAG.Max,
@@ -1039,6 +1179,9 @@ parameter_definitions = {
                                 ],
                             },
                             "Min_Hot_Water_Differential_Pressure_Setpoint_Limit": {
+                                BRICK.hasQuantity: QUDTQK.Pressure,
+                                BRICK.hasSubstance: BRICK.Hot_Water,
+                                BRICK.isDifferential: Literal(True),
                                 "tags": [
                                     TAG.Point,
                                     TAG.Min,
@@ -1054,6 +1197,8 @@ parameter_definitions = {
                         },
                     },
                     "Fresh_Air_Setpoint_Limit": {
+                        BRICK.hasSubstance: BRICK.Fresh_Air,
+                        "parents": [BRICK.Setpoint_Limit],
                         "tags": [
                             TAG.Point,
                             TAG.Fresh,
@@ -1063,6 +1208,7 @@ parameter_definitions = {
                         ],
                         "subclasses": {
                             "Min_Fresh_Air_Setpoint_Limit": {
+                                BRICK.hasSubstance: BRICK.Fresh_Air,
                                 "tags": [
                                     TAG.Point,
                                     TAG.Min,
@@ -1074,6 +1220,7 @@ parameter_definitions = {
                                 "parents": [BRICK.Min_Limit],
                             },
                             "Max_Fresh_Air_Setpoint_Limit": {
+                                BRICK.hasSubstance: BRICK.Fresh_Air,
                                 "tags": [
                                     TAG.Point,
                                     TAG.Max,
@@ -1096,6 +1243,8 @@ parameter_definitions = {
                         ],
                     },
                     "Static_Pressure_Setpoint_Limit": {
+                        BRICK.hasQuantity: QUDTQK.StaticPressure,
+                        "parents": [BRICK.Setpoint_Limit],
                         "tags": [
                             TAG.Point,
                             TAG.Static,
@@ -1154,6 +1303,8 @@ parameter_definitions = {
                                 ],
                             },
                             "Max_Supply_Air_Static_Pressure_Setpoint_Limit": {
+                                BRICK.hasQuantity: QUDTQK.StaticPressure,
+                                BRICK.hasSubstance: BRICK.Supply_Air,
                                 "aliases": [
                                     BRICK[
                                         "Max_Discharge_Air_Static_Pressure_Setpoint_Limit"
@@ -1199,6 +1350,7 @@ parameter_definitions = {
                                 ],
                             },
                             "Max_Static_Pressure_Setpoint_Limit": {
+                                BRICK.hasQuantity: QUDTQK.StaticPressure,
                                 "tags": [
                                     TAG.Point,
                                     TAG.Max,
@@ -1231,6 +1383,7 @@ parameter_definitions = {
                                 },
                             },
                             "Max_Temperature_Setpoint_Limit": {
+                                BRICK.hasQuantity: QUDTQK.Temperature,
                                 "tags": [
                                     TAG.Point,
                                     TAG.Max,
@@ -1241,6 +1394,8 @@ parameter_definitions = {
                                 "parents": [BRICK.Temperature_Parameter],
                             },
                             "Max_Air_Flow_Setpoint_Limit": {
+                                BRICK.hasQuantity: QUDTQK.VolumeFlowRate,
+                                BRICK.hasSubstance: BRICK.Air,
                                 "tags": [
                                     TAG.Point,
                                     TAG.Max,
@@ -1252,6 +1407,8 @@ parameter_definitions = {
                                 ],
                                 "subclasses": {
                                     "Max_Outside_Air_Flow_Setpoint_Limit": {
+                                        BRICK.hasQuantity: QUDTQK.VolumeFlowRate,
+                                        BRICK.hasSubstance: BRICK.Outside_Air,
                                         "tags": [
                                             TAG.Point,
                                             TAG.Max,
@@ -1264,6 +1421,9 @@ parameter_definitions = {
                                         ],
                                     },
                                     "Max_Cooling_Supply_Air_Flow_Setpoint_Limit": {
+                                        BRICK.hasQuantity: QUDTQK.VolumeFlowRate,
+                                        BRICK.hasSubstance: BRICK.Supply_Air,
+                                        BRICK.ofProcess: BRICK.Cooling,
                                         "aliases": [
                                             BRICK[
                                                 "Max_Cooling_Discharge_Air_Flow_Setpoint_Limit"
@@ -1283,6 +1443,10 @@ parameter_definitions = {
                                         ],
                                         "subclasses": {
                                             "Max_Occupied_Cooling_Supply_Air_Flow_Setpoint_Limit": {
+                                                BRICK.hasQuantity: QUDTQK.VolumeFlowRate,
+                                                BRICK.hasSubstance: BRICK.Supply_Air,
+                                                BRICK.inMode: BRICK.Occupied,
+                                                BRICK.ofProcess: BRICK.Cooling,
                                                 "aliases": [
                                                     BRICK[
                                                         "Max_Occupied_Cooling_Discharge_Air_Flow_Setpoint_Limit"
@@ -1303,6 +1467,10 @@ parameter_definitions = {
                                                 ],
                                             },
                                             "Max_Unoccupied_Cooling_Supply_Air_Flow_Setpoint_Limit": {
+                                                BRICK.hasQuantity: QUDTQK.VolumeFlowRate,
+                                                BRICK.hasSubstance: BRICK.Supply_Air,
+                                                BRICK.inMode: BRICK.Unoccupied,
+                                                BRICK.ofProcess: BRICK.Cooling,
                                                 "aliases": [
                                                     BRICK[
                                                         "Max_Unoccupied_Cooling_Discharge_Air_Flow_Setpoint_Limit"
@@ -1325,6 +1493,9 @@ parameter_definitions = {
                                         },
                                     },
                                     "Max_Heating_Supply_Air_Flow_Setpoint_Limit": {
+                                        BRICK.hasQuantity: QUDTQK.VolumeFlowRate,
+                                        BRICK.hasSubstance: BRICK.Supply_Air,
+                                        BRICK.ofProcess: BRICK.Heating,
                                         "aliases": [
                                             BRICK[
                                                 "Max_Heating_Discharge_Air_Flow_Setpoint_Limit"
@@ -1344,6 +1515,10 @@ parameter_definitions = {
                                         ],
                                         "subclasses": {
                                             "Max_Occupied_Heating_Supply_Air_Flow_Setpoint_Limit": {
+                                                BRICK.hasQuantity: QUDTQK.VolumeFlowRate,
+                                                BRICK.hasSubstance: BRICK.Supply_Air,
+                                                BRICK.inMode: BRICK.Occupied,
+                                                BRICK.ofProcess: BRICK.Heating,
                                                 "aliases": [
                                                     BRICK[
                                                         "Max_Occupied_Heating_Discharge_Air_Flow_Setpoint_Limit"
@@ -1364,6 +1539,10 @@ parameter_definitions = {
                                                 ],
                                             },
                                             "Max_Unoccupied_Heating_Supply_Air_Flow_Setpoint_Limit": {
+                                                BRICK.hasQuantity: QUDTQK.VolumeFlowRate,
+                                                BRICK.hasSubstance: BRICK.Supply_Air,
+                                                BRICK.inMode: BRICK.Unoccupied,
+                                                BRICK.ofProcess: BRICK.Heating,
                                                 "aliases": [
                                                     BRICK[
                                                         "Max_Unoccupied_Heating_Discharge_Air_Flow_Setpoint_Limit"
@@ -1429,6 +1608,8 @@ parameter_definitions = {
                                 ],
                             },
                             "Min_Supply_Air_Static_Pressure_Setpoint_Limit": {
+                                BRICK.hasQuantity: QUDTQK.StaticPressure,
+                                BRICK.hasSubstance: BRICK.Supply_Air,
                                 "aliases": [
                                     BRICK[
                                         "Min_Discharge_Air_Static_Pressure_Setpoint_Limit"
@@ -1448,6 +1629,7 @@ parameter_definitions = {
                                 ],
                             },
                             "Min_Temperature_Setpoint_Limit": {
+                                BRICK.hasQuantity: QUDTQK.Temperature,
                                 "tags": [
                                     TAG.Point,
                                     TAG.Min,
@@ -1458,6 +1640,7 @@ parameter_definitions = {
                                 "parents": [BRICK.Temperature_Parameter],
                             },
                             "Min_Static_Pressure_Setpoint_Limit": {
+                                BRICK.hasQuantity: QUDTQK.StaticPressure,
                                 "tags": [
                                     TAG.Point,
                                     TAG.Min,
@@ -1490,6 +1673,8 @@ parameter_definitions = {
                                 },
                             },
                             "Min_Air_Flow_Setpoint_Limit": {
+                                BRICK.hasQuantity: QUDTQK.VolumeFlowRate,
+                                BRICK.hasSubstance: BRICK.Air,
                                 "tags": [
                                     TAG.Point,
                                     TAG.Min,
@@ -1501,6 +1686,8 @@ parameter_definitions = {
                                 ],
                                 "subclasses": {
                                     "Min_Outside_Air_Flow_Setpoint_Limit": {
+                                        BRICK.hasQuantity: QUDTQK.VolumeFlowRate,
+                                        BRICK.hasSubstance: BRICK.Outside_Air,
                                         "tags": [
                                             TAG.Point,
                                             TAG.Min,
@@ -1513,6 +1700,9 @@ parameter_definitions = {
                                         ],
                                     },
                                     "Min_Cooling_Supply_Air_Flow_Setpoint_Limit": {
+                                        BRICK.hasQuantity: QUDTQK.VolumeFlowRate,
+                                        BRICK.hasSubstance: BRICK.Supply_Air,
+                                        BRICK.ofProcess: BRICK.Cooling,
                                         "aliases": [
                                             BRICK[
                                                 "Min_Cooling_Discharge_Air_Flow_Setpoint_Limit"
@@ -1532,6 +1722,10 @@ parameter_definitions = {
                                         ],
                                         "subclasses": {
                                             "Min_Occupied_Cooling_Supply_Air_Flow_Setpoint_Limit": {
+                                                BRICK.hasQuantity: QUDTQK.VolumeFlowRate,
+                                                BRICK.hasSubstance: BRICK.Supply_Air,
+                                                BRICK.inMode: BRICK.Occupied,
+                                                BRICK.ofProcess: BRICK.Cooling,
                                                 "aliases": [
                                                     BRICK[
                                                         "Min_Occupied_Cooling_Discharge_Air_Flow_Setpoint_Limit"
@@ -1552,6 +1746,10 @@ parameter_definitions = {
                                                 ],
                                             },
                                             "Min_Unoccupied_Cooling_Supply_Air_Flow_Setpoint_Limit": {
+                                                BRICK.hasQuantity: QUDTQK.VolumeFlowRate,
+                                                BRICK.hasSubstance: BRICK.Supply_Air,
+                                                BRICK.inMode: BRICK.Unoccupied,
+                                                BRICK.ofProcess: BRICK.Cooling,
                                                 "aliases": [
                                                     BRICK[
                                                         "Min_Unoccupied_Cooling_Discharge_Air_Flow_Setpoint_Limit"
@@ -1574,6 +1772,9 @@ parameter_definitions = {
                                         },
                                     },
                                     "Min_Heating_Supply_Air_Flow_Setpoint_Limit": {
+                                        BRICK.hasQuantity: QUDTQK.VolumeFlowRate,
+                                        BRICK.hasSubstance: BRICK.Supply_Air,
+                                        BRICK.ofProcess: BRICK.Heating,
                                         "aliases": [
                                             BRICK[
                                                 "Min_Heating_Discharge_Air_Flow_Setpoint_Limit"
@@ -1593,6 +1794,10 @@ parameter_definitions = {
                                         ],
                                         "subclasses": {
                                             "Min_Occupied_Heating_Supply_Air_Flow_Setpoint_Limit": {
+                                                BRICK.hasQuantity: QUDTQK.VolumeFlowRate,
+                                                BRICK.hasSubstance: BRICK.Supply_Air,
+                                                BRICK.inMode: BRICK.Occupied,
+                                                BRICK.ofProcess: BRICK.Heating,
                                                 "aliases": [
                                                     BRICK[
                                                         "Min_Occupied_Heating_Discharge_Air_Flow_Setpoint_Limit"
@@ -1613,6 +1818,10 @@ parameter_definitions = {
                                                 ],
                                             },
                                             "Min_Unoccupied_Heating_Supply_Air_Flow_Setpoint_Limit": {
+                                                BRICK.hasQuantity: QUDTQK.VolumeFlowRate,
+                                                BRICK.hasSubstance: BRICK.Supply_Air,
+                                                BRICK.inMode: BRICK.Unoccupied,
+                                                BRICK.ofProcess: BRICK.Heating,
                                                 "aliases": [
                                                     BRICK[
                                                         "Min_Unoccupied_Heating_Discharge_Air_Flow_Setpoint_Limit"

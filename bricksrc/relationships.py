@@ -51,6 +51,75 @@ relationships = {
         "range": [BRICK.Quantity, QUDT.QuantityKind],
         "domain": BRICK.Point,
     },
+    # Point attributes being introduced ahead of Brick 2.0
+    "hasEnumeration": {
+        A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+        RDFS.label: Literal("Has Enumeration", lang="en"),
+        SKOS.definition: Literal(
+            "Relates a Point to the enumeration kind (set of discrete states) or enumeration value that it reports or commands.",
+            lang="en",
+        ),
+        "range": BRICK.EnumerationKind,
+        "domain": BRICK.Point,
+    },
+    "hasPhenomenon": {
+        A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+        RDFS.label: Literal("Has Phenomenon", lang="en"),
+        SKOS.definition: Literal(
+            "Relates a Point to the natural or physical phenomenon (e.g. the sun, wind, fire, or people) that it measures, commands, or observes.",
+            lang="en",
+        ),
+        "range": BRICK.Phenomenon,
+        "domain": BRICK.Point,
+    },
+    "inMode": {
+        A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+        RDFS.label: Literal("In Mode", lang="en"),
+        SKOS.definition: Literal(
+            "Relates a Point to the building or control mode (e.g. occupied, unoccupied) during which it is active.",
+            lang="en",
+        ),
+        "range": BRICK.Mode,
+        "domain": BRICK.Point,
+    },
+    "ofEquipment": {
+        A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+        RDFS.label: Literal("Of Equipment", lang="en"),
+        SKOS.definition: Literal(
+            "Relates a Point to the kind of equipment whose behavior or condition it measures, commands, or reports.",
+            lang="en",
+        ),
+        "domain": BRICK.Point,
+    },
+    "ofSystem": {
+        A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+        RDFS.label: Literal("Of System", lang="en"),
+        SKOS.definition: Literal(
+            "Relates a Point to the kind of system whose behavior or condition it measures, commands, or reports.",
+            lang="en",
+        ),
+        "domain": BRICK.Point,
+    },
+    "ofProcess": {
+        A: [OWL.ObjectProperty, OWL.AsymmetricProperty, OWL.IrreflexiveProperty],
+        RDFS.label: Literal("Of Process", lang="en"),
+        SKOS.definition: Literal(
+            "Relates a Point to the process (e.g. heating, cooling, load shedding) that it measures, commands, or reports on.",
+            lang="en",
+        ),
+        "range": BRICK.Process,
+        "domain": BRICK.Point,
+    },
+    "isDifferential": {
+        A: [OWL.DatatypeProperty],
+        RDFS.label: Literal("Is Differential", lang="en"),
+        SKOS.definition: Literal(
+            "Indicates that a Point measures or commands the difference between two values of its quantity, rather than an absolute value.",
+            lang="en",
+        ),
+        "datatype": XSD.boolean,
+        "domain": BRICK.Point,
+    },
     "value": {
         RDFS.subPropertyOf: QUDT.value,
         RDFS.label: Literal("Value", lang="en"),

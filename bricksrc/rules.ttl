@@ -627,16 +627,21 @@ bsh:AddDefaultEVSEChargerDirection a sh:NodeShape ;
         sh:prefixes <https://brickschema.org/schema/1.5/Brick> ;
         sh:construct """
         CONSTRUCT {
-            $this brick:electricVehicleChargerDirectionality [ brick:value "unidirectional"^^xsd:string ]
+            $this brick:electricVehicleChargerDirectionality ?default_direction .
+            ?default_direction brick:value "unidirectional"^^xsd:string .
         } WHERE {
             $this rdf:type brick:Electric_Vehicle_Charging_Station .
+            # mint a deterministic IRI (not a blank node) for the default value
+            # so the rule reaches a fixpoint; skipped if $this is a blank node
+            FILTER(isIRI($this))
+            BIND(IRI(CONCAT(STR($this), "_defaultChargerDirectionality")) AS ?default_direction)
             # the station has no directionality of its own...
             FILTER NOT EXISTS {
                 $this brick:electricVehicleChargerDirectionality ?direction .
             }
             # ...and none of its ports has one either
             FILTER NOT EXISTS {
-                $this brick:hasPart ?port .
+                $this (brick:hasPart|rec:includes) ?port .
                 ?port a brick:Electric_Vehicle_Charging_Port .
                 ?port brick:electricVehicleChargerDirectionality ?other_direction .
             }
@@ -657,7 +662,7 @@ bsh:InheritEVSEChargerDirection a sh:NodeShape ;
         } WHERE {
             # the station this port is part of, and its directionality...
             $this rdf:type brick:Electric_Vehicle_Charging_Port .
-            $this brick:isPartOf ?charger .
+            $this (brick:isPartOf|^brick:hasPart|^rec:includes) ?charger .
             ?charger a brick:Electric_Vehicle_Charging_Station .
             ?charger brick:electricVehicleChargerDirectionality ?direction .
             # ...unless the port declares its own
