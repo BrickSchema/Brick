@@ -125,7 +125,7 @@ SHAPE_NAMES = [
 
 def _validate(brick, body):
     g = brickschema.Graph().parse(data=prefixes + body, format="turtle")
-    return g.validate(extra_graphs=[brick], engine="topquadrant")
+    return g.validate(extra_graphs=[brick])
 
 
 def _results_for(report, focus):
