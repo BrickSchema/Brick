@@ -20,33 +20,6 @@ rec:Space sh:property [
     sh:class brick:Equipment ;
 ] .
 
-### These concepts should be defined in the REC ontology but are not currently
-### contained in their Turtle distribution. They are defined here only temporarily
-### until they are added to the REC ontology.
-rec:Lounge
-  rdf:type rdfs:Class ;
-  rdf:type sh:NodeShape ;
-  rdfs:label "Lounge" ;
-  rdfs:comment "This concept definition comes from the Brick distribution until it is added in the REC ontology Turtle distribution." ;
-  rdfs:subClassOf rec:Room ;
-.
-
-rec:TeamRoom
-  rdf:type rdfs:Class ;
-  rdf:type sh:NodeShape ;
-  rdfs:label "Team Room" ;
-  rdfs:comment "This concept definition comes from the Brick distribution until it is added in the REC ontology Turtle distribution." ;
-  rdfs:subClassOf rec:Room ;
-.
-
-rec:Lobby
-  rdf:type rdfs:Class ;
-  rdf:type sh:NodeShape ;
-  rdfs:label "Lobby" ;
-  rdfs:comment "This concept definition comes from the Brick distribution until it is added in the REC ontology Turtle distribution." ;
-  rdfs:subClassOf rec:Room ;
-.
-
 brick:Ablutions_Room
   owl:deprecated "true"^^xsd:boolean ;
     brick:isReplacedBy rec:Room ;
