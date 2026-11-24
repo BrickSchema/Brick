@@ -1698,14 +1698,14 @@ brick:Sensor_Equipment sh:property
             sh:path rec:wifiSignalStrength ] .
 
 # deprecations for REC ICT Equipment
-rec:ICT_Equipment
+rec:ICTEquipment
   owl:deprecated "true"^^xsd:boolean ;
   brick:deprecatedInVersion "1.4.0" ;
   brick:deprecationMitigationMessage "REC ICT classes are being phased out in favor of Brick classes. For a replacement, consider brick:ICT_Equipment" ;
   brick:isReplacedBy brick:ICT_Equipment ;
 .
 
-rec:ICT_Hardware
+rec:ICTHardware
   owl:deprecated "true"^^xsd:boolean ;
   brick:deprecatedInVersion "1.4.0" ;
   brick:deprecationMitigationMessage "REC ICT classes are being phased out in favor of Brick classes. For a replacement, consider brick:ICT_Hardware" ;
@@ -1719,7 +1719,7 @@ rec:Server
   brick:isReplacedBy brick:Server ;
 .
 
-rec:ICTRack
+rec:ITRack
   owl:deprecated "true"^^xsd:boolean ;
   brick:deprecatedInVersion "1.4.0" ;
   brick:deprecationMitigationMessage "REC ICT classes are being phased out in favor of Brick classes. For a replacement, consider brick:ICT_Rack" ;
@@ -1824,7 +1824,7 @@ rec:EthernetSwitch
   brick:isReplacedBy brick:Ethernet_Switch ;
 .
 
-rec:Network_Router
+rec:NetworkRouter
   owl:deprecated "true"^^xsd:boolean ;
   brick:deprecatedInVersion "1.4.0" ;
   brick:deprecationMitigationMessage "REC ICT classes are being phased out in favor of Brick classes. For a replacement, consider brick:Network_Router" ;
