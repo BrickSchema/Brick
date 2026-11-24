@@ -1,6 +1,11 @@
 # Changelog
 -----------
 
+## Unreleased
+---------------
+
+- Update RealEstateCore (REC) from v4.1 to [v4.2.0](https://github.com/RealEstateCore/rec/releases/tag/v4.2.0). REC 4.2 adds `rec:Wing` (a subclass of `rec:SubBuilding`) to its SHACL distribution, so Brick's local copy of `rec:Wing` in `bricksrc/recpatches.ttl` has been removed. The `brick:Wing` deprecation still points to `rec:Wing`.
+
 ## Brick v1.2.0
 ---------------
 
