@@ -20,43 +20,6 @@ rec:Space sh:property [
     sh:class brick:Equipment ;
 ] .
 
-### These concepts should be defined in the REC ontology but are not currently
-### contained in their Turtle distribution. They are defined here only temporarily
-### until they are added to the REC ontology.
-rec:Lounge
-  rdf:type rdfs:Class ;
-  rdf:type sh:NodeShape ;
-  rdfs:label "Lounge" ;
-  rdfs:comment "This concept definition comes from the Brick distribution until it is added in the REC ontology Turtle distribution." ;
-  rdfs:subClassOf rec:Room ;
-.
-
-rec:TeamRoom
-  rdf:type rdfs:Class ;
-  rdf:type sh:NodeShape ;
-  rdfs:label "Team Room" ;
-  rdfs:comment "This concept definition comes from the Brick distribution until it is added in the REC ontology Turtle distribution." ;
-  rdfs:subClassOf rec:Room ;
-.
-
-rec:Lobby
-  rdf:type rdfs:Class ;
-  rdf:type sh:NodeShape ;
-  rdfs:label "Lobby" ;
-  rdfs:comment "This concept definition comes from the Brick distribution until it is added in the REC ontology Turtle distribution." ;
-  rdfs:subClassOf rec:Room ;
-.
-
-# Mirrors REC's Source/DTDLv2/RealEstateCore/Space/Architecture/SubBuilding/Wing.json
-# (RealEstateCore/rec#257); remove once REC 4.2 ships it in the SHACL distribution.
-rec:Wing
-  rdf:type rdfs:Class ;
-  rdf:type sh:NodeShape ;
-  rdfs:label "Wing" ;
-  rdfs:comment "Introduced in REC as Brick is deprecating their location domain. A building may comprise quite many elements such as towers, annexes, rotundas etc. As well as wings. It's difficult to capture all variations in the ontology and REC recommend to use the generalization sub building if possible." ;
-  rdfs:subClassOf rec:SubBuilding ;
-.
-
 brick:Ablutions_Room
   owl:deprecated "true"^^xsd:boolean ;
     brick:isReplacedBy rec:Room ;
@@ -1708,14 +1671,14 @@ brick:Sensor_Equipment sh:property
             sh:path rec:wifiSignalStrength ] .
 
 # deprecations for REC ICT Equipment
-rec:ICT_Equipment
+rec:ICTEquipment
   owl:deprecated "true"^^xsd:boolean ;
   brick:deprecatedInVersion "1.4.0" ;
   brick:deprecationMitigationMessage "REC ICT classes are being phased out in favor of Brick classes. For a replacement, consider brick:ICT_Equipment" ;
   brick:isReplacedBy brick:ICT_Equipment ;
 .
 
-rec:ICT_Hardware
+rec:ICTHardware
   owl:deprecated "true"^^xsd:boolean ;
   brick:deprecatedInVersion "1.4.0" ;
   brick:deprecationMitigationMessage "REC ICT classes are being phased out in favor of Brick classes. For a replacement, consider brick:ICT_Hardware" ;
@@ -1729,7 +1692,7 @@ rec:Server
   brick:isReplacedBy brick:Server ;
 .
 
-rec:ICTRack
+rec:ITRack
   owl:deprecated "true"^^xsd:boolean ;
   brick:deprecatedInVersion "1.4.0" ;
   brick:deprecationMitigationMessage "REC ICT classes are being phased out in favor of Brick classes. For a replacement, consider brick:ICT_Rack" ;
@@ -1834,7 +1797,7 @@ rec:EthernetSwitch
   brick:isReplacedBy brick:Ethernet_Switch ;
 .
 
-rec:Network_Router
+rec:NetworkRouter
   owl:deprecated "true"^^xsd:boolean ;
   brick:deprecatedInVersion "1.4.0" ;
   brick:deprecationMitigationMessage "REC ICT classes are being phased out in favor of Brick classes. For a replacement, consider brick:Network_Router" ;
